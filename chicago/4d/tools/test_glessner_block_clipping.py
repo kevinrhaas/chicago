@@ -323,3 +323,66 @@ for polygon,expected in notches:
         measured=sum(abs(detail.area([points[i] for i in triangle])) for triangle in triangles)
         assert abs(measured-expected)<1e-10, 'light triangulation filled a concave notch'
 print('PASS light triangulation: diagonal-boundary notch, L/U outlines and collinear edges in both windings')
+
+
+# T-2202: test the generated surfaces, including their joints, rather than a
+# boolean saying a frontage was requested. Both detail levels must leave the
+# two access gaps traversable and cover the complete passage with mineral paving.
+def check_frontage_ground():
+    import json
+    from archetypes.masonry_house_params import from_phase
+    from archetypes.masonry_house_v4_frontage import add_frontage, passage_floor, LAWN
+    record=json.loads((ROOT/'data/structures/glessner_house.json').read_text())
+    params=from_phase(record['phases'][0],record)
+    f=params.detail['prairie_frontage']
+    class Surfaces:
+        def __init__(self): self.faces=[]
+        def raw(self,points,confidence,material,*_):
+            assert confidence==1.0, 'frontage reconstruction was promoted to attested'
+            self.faces.append((points,material))
+    def height(surfaces,x,y):
+        hits=[]
+        for points,material in surfaces.faces:
+            for i in range(1,len(points)-1):
+                a,b,c=points[0],points[i],points[i+1]
+                den=(b[1]-c[1])*(a[0]-c[0])+(c[0]-b[0])*(a[1]-c[1])
+                if abs(den)<1e-10:continue
+                u=((b[1]-c[1])*(x-c[0])+(c[0]-b[0])*(y-c[1]))/den
+                v=((c[1]-a[1])*(x-c[0])+(a[0]-c[0])*(y-c[1]))/den
+                if min(u,v,1-u-v)>=-1e-8:
+                    hits.append((u*a[2]+v*b[2]+(1-u-v)*c[2],material))
+        return max(hits,default=(-99,-1))
+    for reduced in (False,True):
+        surfaces=Surfaces();add_frontage(surfaces,params,reduced);assert passage_floor(surfaces,params)
+        # Door sill and both risers meet, without a curb across the approach.
+        y=sum(f['door_y'])/2
+        for i in range(101):
+            x=f['wall_x']+(f['walk_x']-f['wall_x'])*i/100
+            z,mat=height(surfaces,x,y)
+            assert f['walk_z']-.004<=z<=f['door_z']+1e-8 and mat!=LAWN,(reduced,x,z,mat)
+        assert abs(height(surfaces,params.width_m+.017,y)[0]-f['door_z'])<1e-8
+        # The existing opening owns the bottom reveal behind +16 mm. There
+        # must be no second coplanar sill face over it (the old cause of flicker).
+        assert height(surfaces,params.width_m,y)[0] < f['door_z']-.01
+        # Three longitudinal lanes through the approach and splayed passage.
+        p,q,r,s=params.detail['underpass']['pts']
+        for lane in (.1,.5,.9):
+            for i in range(151):
+                t=i/150;x=f['walk_x']+(s[0]-f['walk_x'])*t
+                if x>=p[0]:
+                    k=(f['walk_x']-x)/(f['walk_x']-p[0])
+                    low=f['porte_y'][0]+(q[1]-f['porte_y'][0])*k
+                    high=f['porte_y'][1]+(p[1]-f['porte_y'][1])*k
+                else:
+                    k=(p[0]-x)/(p[0]-s[0]);low=q[1]+(r[1]-q[1])*k;high=p[1]+(s[1]-p[1])*k
+                z,mat=height(surfaces,x,low+(high-low)*lane)
+                assert f['passage_court_z']-.004<=z<=f['passage_front_z']+1e-8 and mat!=LAWN,(reduced,x,z,mat)
+        z,_=height(surfaces,s[0],(s[1]+r[1])/2)
+        assert abs(z-f['passage_court_z'])<1e-8, 'passage does not meet courtyard drive datum'
+        for low,high in f['lawns']:
+            z=max(height(surfaces,f['outer_x']-f['curb_width_m']/2,(low+high)/2+offset)[0] for offset in (-.012,0,.012))
+            assert abs(z-f['walk_z']-f['curb_height_m'])<1e-8,'curb lost its upper silhouette'
+    print('PASS frontage: both LODs, 1,108 access samples; no lawn/curb obstruction; sill and drive datums meet')
+
+
+check_frontage_ground()

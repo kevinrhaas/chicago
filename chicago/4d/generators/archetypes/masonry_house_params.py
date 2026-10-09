@@ -97,7 +97,7 @@ CONSUMED = frozenset({
     "opening_heights",
     "eave_cornice",
     "courtyard_gate", "courtyard_gate_heights",
-    "courtyard_ground",
+    "courtyard_ground", "prairie_frontage",
 })
 
 # Where this archetype touches the ground: the whole footprint outline, at the base
@@ -618,6 +618,22 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                              "conf": cf("courtyard_ground")})
 
     if p.detail_profile:
+        fg = val("prairie_frontage")
+        if fg:
+            p.detail["prairie_frontage"] = {
+                "outer_x": fr.x(fg["outer_W"]), "walk_x": fr.x(fg["walk_join_W"]),
+                "wall_x": fr.x(fg["wall_W"]),
+                "lawns": [sorted(fr.y(s) for s in span) for span in fg["lawn_spans_S"]],
+                "entry_y": sorted(fr.y(s) for s in fg["entry_S"]),
+                "door_y": sorted(fr.y(s) for s in fg["door_S"]),
+                "porte_y": sorted(fr.y(s) for s in fg["porte_S"]),
+                **{k: fr.zval(fg[k]) for k in ("walk_z", "lawn_z", "curb_base_z",
+                     "door_z", "passage_front_z", "passage_court_z")},
+                **{k.removesuffix("_ft") + "_m": float(fg[k]) * FT for k in
+                   ("curb_width_ft", "curb_height_ft", "corner_radius_ft", "joint_spacing_ft",
+                    "joint_width_ft", "step_run_ft", "paving_joint_spacing_ft", "porte_threshold_depth_ft")},
+                "conf": cf("prairie_frontage"),
+            }
         raw = val("v4_detail", {})
         p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254, 6)
                                           for h in raw.get("ashlar_courses_in", [])]

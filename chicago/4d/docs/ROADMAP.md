@@ -1,3 +1,11 @@
+## T-2202 - Glessner Prairie frontage implementation (2026-10-09)
+
+Owner-selected GA-04: generated house-side curb/rounded returns, entry steps,
+porte threshold and continuous passage paving. T-1728 public surfaces and
+T-1745 legal-lot evidence are reused without moving street/lot lines.
+Method and validation: docs/RESEARCH/glessner-frontage-2202/README.md.
+The remaining Glessner audit tickets keep their individual manual holds.
+
 ## T-2200 — Glessner comparison baseline established (2026-10-09)
 
 Eight core matched views, 80 controls/checks, plus a seven-point limited courtyard-west
