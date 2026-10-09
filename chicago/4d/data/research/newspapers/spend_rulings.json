@@ -13,7 +13,6 @@
     "the_family_pass_finds_an_identity_nobody_has_asserted": 1,
     "the_family_pass_finds_neither_party_is_held": 4,
     "the_family_pass_finds_the_relative_is_nobody_this_town_holds": 2,
-    "the_family_pass_finds_the_tie_ended_before_the_scene": 2,
     "the_issue_is_printed_after_the_scene_date": 60,
     "the_letter_list_name_belongs_to_the_borderline_roster": 69,
     "the_market_and_the_port_in_aggregate": 61,
@@ -40,10 +39,6 @@
     "the_family_pass_finds_the_relative_is_nobody_this_town_holds": {
       "disposition": "refused",
       "statement": "The family pass (T-1335) read the tie and one end of it is a person this town holds while the other is not: a relative named in the source who has no card here. The source is not doubted; the tie has no far end to land on, and this pass does not mint one to give it somewhere. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
-    },
-    "the_family_pass_finds_the_tie_ended_before_the_scene": {
-      "disposition": "refused",
-      "statement": "The family pass (T-1335) read the tie and the source is a DEATH dated before 1 July 1835: on the day this dataset reconstructs, one end of it was buried. A kin row carries no date, so writing it would state in the present tense a tie the source closes before the scene. Where the town still holds the dead person as present, that is a presence fault and T-2189's, not a kinship. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
     },
     "the_issue_is_printed_after_the_scene_date": {
       "disposition": "later_only",
@@ -1007,16 +1002,6 @@
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_17.json#claims/c001",
       "rule": "the_family_pass_finds_neither_party_is_held",
       "note": "chicago_democrat_1834_09_17 c001: the family column of 1834-09-17 reads: “[Died, in this] town, on the 11th inst, of bil[i]o[u]s fe[ver and] inflam[m]ation in the bowel, Mr. James [uncertain: —]ey, aged 22 years and a few months, a merchant of the city …” THE FAMILY PASS: A death notice: Mr. James [—]ey, a merchant aged 22, died 11 September 1834. The surname is lost to the column and the notice names no survivor, so it states no tie between two people at all, let alone two the town holds."
-    },
-    {
-      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_17.json#claims/c002",
-      "rule": "the_family_pass_finds_the_tie_ended_before_the_scene",
-      "note": "chicago_democrat_1834_09_17 c002: the family column of 1834-09-17 reads: “[Died, in this] town on the 7th [inst.], [of] Drop[s]y in his [head, Char]les Rollins, only son of Mr. John [Rollins,] Jr., aged 2 years and 10 months. [“The m]orning sun went …” THE FAMILY PASS: Charles Rollins, 'only son of Mr. John [Rollins,] Jr., aged 2 years and 10 months', died 7 September 1834. Both are cards here (hh_rollins_charles, hh_rollins_john, each minted from this notice), but the son was buried ten months before the scene, so the father-son tie did not stand on 1 July 1835. That his card is still ruled present, heading a modelled household of six, is T-2189's."
-    },
-    {
-      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_24.json#claims/c002",
-      "rule": "the_family_pass_finds_the_tie_ended_before_the_scene",
-      "note": "chicago_democrat_1834_09_24 c002: the family column of 1834-09-24 reads: “[Died,] In this town, on the 16th inst. Mrs. Sara[h] Hoit, wife of Mr. Thomas Ho[i]t, formerly [of] Stafford co. N. H. in the forty third y[e]ar of her age. In the death of this …” THE FAMILY PASS: Mrs. Sarah Hoit, 'wife of Mr. Thomas Hoit', died 16 September 1834 in her forty-third year. Both are cards here (hh_hoit_sarah, hh_hoit_thomas), but she was buried before the scene, so the husband/wife tie did not stand on 1 July 1835. That her card is still ruled present is T-2189's."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_24.json#claims/c003",

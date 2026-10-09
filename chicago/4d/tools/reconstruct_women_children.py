@@ -676,15 +676,63 @@ def owned_view(card: dict) -> dict:
     return {k: card[k] for k in OWNED_KEYS if k in card}
 
 
+def frozen_quota(persons: dict, households: dict) -> tuple:
+    """(the quota the deal was MADE against, the growth the book has ordered since).
+
+    THE DEAL IS FROZEN ONCE DRAWN (T-2189), the rule T-2178 set for the trade heads. The
+    draw below is sequential — each house's members are picked against what the book
+    still wants at that moment — so a quota that moved by one child used to re-deal every
+    house after it in the division: new names, new members, and a re-family rule that no
+    longer described the cards. So the quota the deal was made against is recorded in
+    this stage's own ledger (`dealt_against`), the deal is replayed against THAT, and
+    only what the book orders beyond it is drawn, as new houses after the last one. A cell
+    that now orders FEWER than were dealt is a re-deal, which is a decision and not a
+    derivation, so it stops here rather than quietly un-writing somebody.
+    """
+    dealt = {}
+    if LEDGER.exists():
+        dealt = json.loads(LEDGER.read_text(encoding="utf-8")).get("dealt_against") or {}
+    if not dealt:
+        return (dict(persons), dict(households)), ({}, {})
+    deal = (dict(dealt["persons"]), dict(dealt["households"]))
+    growth = ({}, {})
+    for now, then, more in ((persons, deal[0], growth[0]), (households, deal[1], growth[1])):
+        for key in sorted(set(now) | set(then)):
+            delta = int(now.get(key, 0)) - int(then.get(key, 0))
+            if delta < 0 and int(now.get(key, 0)) < 0:
+                raise SystemExit(
+                    "FAIL the order book now orders %d in %s where the frozen deal was made "
+                    "against %d, and the cell is overfilled: re-dealing the women and "
+                    "children is a decision, not a derivation (T-2189)"
+                    % (now.get(key, 0), key, then.get(key, 0)))
+            if delta > 0:
+                more[key] = delta
+    return deal, growth
+
+
+def left_short_of(left: dict) -> dict:
+    return {k: v for k, v in sorted(left.items()) if v > 0}
+
+
+def merge_short(*shorts) -> dict:
+    out = Counter()
+    for short in shorts:
+        out.update(short or {})
+    return dict(sorted(out.items()))
+
+
 def fill(base: dict, priors: dict | None = None) -> tuple:
     """(the cards this stage writes, the ledger). Pure over `base` (and `priors`, the
-    folded houses as `unfold` restores them, read only for the seats they carry)."""
+    folded houses as `unfold` restores them, read only for the seats they carry) and over
+    the quota this stage's own ledger says the deal was made against (`frozen_quota`)."""
     pool = pools()
     trades = trade_rows()
     trade_why = {r["trade"]: r["why"] for r in recipe()["female_trades"]["rows"]}
     sizes = size_rows()
     printed = printed_bands()
-    left, house_left = quota()
+    (left, house_left), growth = frozen_quota(*quota())
+    dealt_against = {"persons": dict(sorted(left.items())),
+                     "households": dict(sorted(house_left.items()))}
     taken = real_names(base)
     used_ids = set(base)
 
@@ -703,136 +751,156 @@ def fill(base: dict, priors: dict | None = None) -> tuple:
         left[key] -= 1
         fills[key] += 1
 
-    for division in CIVIL:
-        house_key = f"households/family_dwelling/{division}"
-        index = 0
-        while True:
-            wanted_women = want(left, "female", ADULT_BANDS, division)
-            if not wanted_women:
-                break
-            if house_left.get(house_key, 0) <= 0:
-                refusals[f"{house_key} is at its quota"] += 1
-                break
-            index += 1
-            slot = f"rc_wc_{division}_{index:03d}"
-
-            head_band = pick(seed_for(slot, "head_age_bands_1840"), wanted_women)
-            trade = pick(seed_for(slot, "female_trades"), trades)
-            community = community_for(trade, seed_for(slot, "name_pool_community"), pool)
-
-            surname = step_past(seed_for(slot, "surname"), community["surnames"],
-                                lambda s: False)
-            given = step_past(
-                seed_for(slot, "head_forename"), community["given_female"],
-                lambda g: f"{g} {surname}".lower() in taken)
-            name = f"{given} {surname}"
-            if name.lower() in taken:
-                refusals["the pool could not name this house past the real layer"] += 1
-                continue
-            taken.add(name.lower())
-
-            stem = f"{PREFIX}{slug(surname)}_{slug(given)}"
-            hid = f"hh_{stem}"
-            bump = 1
-            while hid in used_ids:
-                bump += 1
-                stem = f"{PREFIX}{slug(surname)}_{slug(given)}_{bump}"
-                hid = f"hh_{stem}"
-            used_ids.add(hid)
-
-            head_low = band_edges()[head_band][0]
-            take("female", head_band, division)
-            head = person_record(
-                stem, name, "head", "female", head_band,
-                seed_for(slot, "head_age_bands_1840"),
-                printed[("female", head_low)],
-                "Drawn against the band the order book still wants in this division: the "
-                "buckets were cut from the population model, so the gap IS the model's "
-                "shape and a draw that chased it converges on the pyramid rather than "
-                "near it.",
-                "sex_ratio",
-                "The 1840 city returned 146.8 men per 100 women aged twenty and over and "
-                "this layer stood far past that, because the rolls that name the town name "
-                "men. This woman is one of the count the order book says is missing from "
-                f"the {division} division.",
-                seed_for(slot, "head_age_bands_1840"),
-                seed_for(slot, "head_forename"),
-                f"The forename and the surname are both drawn from the {community['label']} "
-                "pool: nothing about this house is read, so no part of the name is "
-                "inherited from a real person.",
-                community, f"this {division}-division household",
-                "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because "
-                "the population model says the town held women of this age in this "
-                "division that the naming sources never printed, and the whole of what is "
-                "claimed is that: a woman of this band, keeping her own house, drawn from "
-                "the 1840 Chicago schedule and reproducible from the seed printed above. "
-                "No figure is drawn (L1).",
-                occupation_block(trade, seed_for(slot, "female_trades"),
-                                 trade_why[trade]))
-            trade_tally[trade] += 1
-
-            size = pick(seed_for(slot, "household_size"), sizes)
-            drawn_size[size] += 1
-            cap = min(19, max(0, head_low - 20))
-            members = []
-            for step in range(max(0, size - 1)):
-                member = draw_member(slot, step + 1, stem, division, left, printed,
-                                     community, cap, taken, "the draw")
-                if member is None:
-                    refusals[f"the {division} child buckets are full"] += 1
+    # TWO PHASES, THE SECOND USUALLY EMPTY (T-2189). The deal, replayed against the quota
+    # it was made against, and then the growth the book has ordered since, drawn as NEW
+    # houses numbered on from the last — with a residual sweep of its own over those new
+    # houses only, so a house already dealt never gains or loses a person.
+    next_index = {division: 0 for division in CIVIL}
+    deal_left = None
+    for phase in ("deal", "growth"):
+        if phase == "growth":
+            # The new houses stand in the household room the deal left unspent, plus any
+            # the book has ordered since; the people are the growth alone, so on a book
+            # that has not moved this phase draws nobody and the stage writes what it did.
+            deal_left = left_short_of(left)
+            room = Counter({k: max(0, v) for k, v in house_left.items()})
+            room.update(growth[1])
+            left, house_left = dict(growth[0]), dict(room)
+        residual_tag = "residual" if phase == "deal" else "growth_residual"
+        phase_made = set()
+        for division in CIVIL:
+            house_key = f"households/family_dwelling/{division}"
+            index = next_index[division]
+            while True:
+                wanted_women = want(left, "female", ADULT_BANDS, division)
+                if not wanted_women:
                     break
-                take(member["_sex"], member["_band"], division)
-                relationships[member["relationship"]] += 1
-                members.append(strip(member))
-
-            house_left[house_key] -= 1
-            fills[house_key] += 1
-            by_division[division] += 1
-            made[hid] = household_record(hid, slot, division, head, members, trade, size, 0)
-            order.append(hid)
-
-    # THE RESIDUAL SWEEP. A division whose women are all seated and whose child buckets are
-    # still short: the 1840 histogram is a distribution over ALL households and these are
-    # the particular houses the pyramid needs, so the drawn size is a floor here as it is
-    # in T-1171, and the remainder is seated across the houses this stage made.
-    residual = Counter()
-    for division in CIVIL:
-        houses = [hid for hid in order if made[hid]["division"] == division]
-        if not houses:
-            if want(left, "male", CHILD_BANDS, division) or want(left, "female", CHILD_BANDS,
-                                                                 division):
-                refusals[f"the {division} division has no house to seat a residual child in"] += 1
-            continue
-        sweep = 0
-        while want(left, "male", CHILD_BANDS, division) or want(left, "female", CHILD_BANDS,
-                                                                division):
-            sweep += 1
-            moved = False
-            for hid in houses:
-                card = made[hid]
-                if not (want(left, "male", CHILD_BANDS, division)
-                        or want(left, "female", CHILD_BANDS, division)):
+                if house_left.get(house_key, 0) <= 0:
+                    refusals[f"{house_key} is at its quota"] += 1
                     break
-                stem = hid[3:]
-                slot = f"rc_wc_{division}_residual_{sweep:02d}"
-                head_low = card["persons"][0]["age_band"]["low"]
-                cap = min(19, max(0, head_low - 20))
-                step = len(card["persons"])  # the next slot in this house
-                member = draw_member(slot, step, stem, division, left, printed,
-                                     community_of(card, pool), cap, taken,
-                                     "the residual sweep")
-                if member is None:
+                index += 1
+                slot = f"rc_wc_{division}_{index:03d}"
+
+                head_band = pick(seed_for(slot, "head_age_bands_1840"), wanted_women)
+                trade = pick(seed_for(slot, "female_trades"), trades)
+                community = community_for(trade, seed_for(slot, "name_pool_community"), pool)
+
+                surname = step_past(seed_for(slot, "surname"), community["surnames"],
+                                    lambda s: False)
+                given = step_past(
+                    seed_for(slot, "head_forename"), community["given_female"],
+                    lambda g: f"{g} {surname}".lower() in taken)
+                name = f"{given} {surname}"
+                if name.lower() in taken:
+                    refusals["the pool could not name this house past the real layer"] += 1
                     continue
-                take(member["_sex"], member["_band"], division)
-                relationships[member["relationship"]] += 1
-                card["persons"].append(strip(member))
-                card["women_children"]["seated"] = len(card["persons"])
-                card["women_children"]["seated_beyond_the_draw"] += 1
-                residual[division] += 1
-                moved = True
-            if not moved:
-                refusals[f"the {division} sweep could seat nobody"] += 1
-                break
+                taken.add(name.lower())
+
+                stem = f"{PREFIX}{slug(surname)}_{slug(given)}"
+                hid = f"hh_{stem}"
+                bump = 1
+                while hid in used_ids:
+                    bump += 1
+                    stem = f"{PREFIX}{slug(surname)}_{slug(given)}_{bump}"
+                    hid = f"hh_{stem}"
+                used_ids.add(hid)
+
+                head_low = band_edges()[head_band][0]
+                take("female", head_band, division)
+                head = person_record(
+                    stem, name, "head", "female", head_band,
+                    seed_for(slot, "head_age_bands_1840"),
+                    printed[("female", head_low)],
+                    "Drawn against the band the order book still wants in this division: the "
+                    "buckets were cut from the population model, so the gap IS the model's "
+                    "shape and a draw that chased it converges on the pyramid rather than "
+                    "near it.",
+                    "sex_ratio",
+                    "The 1840 city returned 146.8 men per 100 women aged twenty and over and "
+                    "this layer stood far past that, because the rolls that name the town name "
+                    "men. This woman is one of the count the order book says is missing from "
+                    f"the {division} division.",
+                    seed_for(slot, "head_age_bands_1840"),
+                    seed_for(slot, "head_forename"),
+                    f"The forename and the surname are both drawn from the {community['label']} "
+                    "pool: nothing about this house is read, so no part of the name is "
+                    "inherited from a real person.",
+                    community, f"this {division}-division household",
+                    "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because "
+                    "the population model says the town held women of this age in this "
+                    "division that the naming sources never printed, and the whole of what is "
+                    "claimed is that: a woman of this band, keeping her own house, drawn from "
+                    "the 1840 Chicago schedule and reproducible from the seed printed above. "
+                    "No figure is drawn (L1).",
+                    occupation_block(trade, seed_for(slot, "female_trades"),
+                                     trade_why[trade]))
+                trade_tally[trade] += 1
+
+                size = pick(seed_for(slot, "household_size"), sizes)
+                drawn_size[size] += 1
+                cap = min(19, max(0, head_low - 20))
+                members = []
+                for step in range(max(0, size - 1)):
+                    member = draw_member(slot, step + 1, stem, division, left, printed,
+                                         community, cap, taken, "the draw")
+                    if member is None:
+                        refusals[f"the {division} child buckets are full"] += 1
+                        break
+                    take(member["_sex"], member["_band"], division)
+                    relationships[member["relationship"]] += 1
+                    members.append(strip(member))
+
+                house_left[house_key] -= 1
+                fills[house_key] += 1
+                by_division[division] += 1
+                made[hid] = household_record(hid, slot, division, head, members, trade, size, 0)
+                order.append(hid)
+                phase_made.add(hid)
+            next_index[division] = index
+
+        # THE RESIDUAL SWEEP. A division whose women are all seated and whose child buckets are
+        # still short: the 1840 histogram is a distribution over ALL households and these are
+        # the particular houses the pyramid needs, so the drawn size is a floor here as it is
+        # in T-1171, and the remainder is seated across the houses this stage made.
+        residual = Counter()
+        for division in CIVIL:
+            houses = [hid for hid in order
+                      if made[hid]["division"] == division and hid in phase_made]
+            if not houses:
+                if want(left, "male", CHILD_BANDS, division) or want(left, "female", CHILD_BANDS,
+                                                                     division):
+                    refusals[f"the {division} division has no house to seat a residual child in"] += 1
+                continue
+            sweep = 0
+            while want(left, "male", CHILD_BANDS, division) or want(left, "female", CHILD_BANDS,
+                                                                    division):
+                sweep += 1
+                moved = False
+                for hid in houses:
+                    card = made[hid]
+                    if not (want(left, "male", CHILD_BANDS, division)
+                            or want(left, "female", CHILD_BANDS, division)):
+                        break
+                    stem = hid[3:]
+                    slot = f"rc_wc_{division}_{residual_tag}_{sweep:02d}"
+                    head_low = card["persons"][0]["age_band"]["low"]
+                    cap = min(19, max(0, head_low - 20))
+                    step = len(card["persons"])  # the next slot in this house
+                    member = draw_member(slot, step, stem, division, left, printed,
+                                         community_of(card, pool), cap, taken,
+                                         "the residual sweep")
+                    if member is None:
+                        continue
+                    take(member["_sex"], member["_band"], division)
+                    relationships[member["relationship"]] += 1
+                    card["persons"].append(strip(member))
+                    card["women_children"]["seated"] = len(card["persons"])
+                    card["women_children"]["seated_beyond_the_draw"] += 1
+                    residual[division] += 1
+                    moved = True
+                if not moved:
+                    refusals[f"the {division} sweep could seat nobody"] += 1
+                    break
 
     # THE RE-FAMILY, LAST OF ALL (T-1564, of T-1559). Every person on every card is fixed
     # by here — the deal, the residual sweep and the quota are all behind it — so what
@@ -871,7 +939,10 @@ def fill(base: dict, priors: dict | None = None) -> tuple:
         "refamilied_people": sum(refamilied.values()),
         "refamilied_households": sum(1 for hid in order if made[hid].get("refamilied")),
         "refamilied_by_division": dict(sorted(refamilied.items())),
-        "buckets_left_short": {k: v for k, v in sorted(left.items()) if v > 0},
+        "buckets_left_short": merge_short(deal_left, left_short_of(left)),
+        # The quota the deal was made against: `frozen_quota` replays the deal from it.
+        "dealt_against": dealt_against,
+        "growth_drawn": {k: v for k, v in sorted(growth[0].items()) if v > 0},
     }
     # T-1489. THE SEAT ANOTHER PASS DREW FOR THESE PEOPLE, CARRIED THROUGH THE REBUILD.
     # This stage's cards stand in `households/` and 33 of the 123 seats

@@ -71,27 +71,27 @@
  },
  "counts": {
   "offered": {
-   "R1_in_window_uncertain": 894,
+   "R1_in_window_uncertain": 882,
    "R2_in_window_single_source": 207,
    "R3_1834_return_or_muster": 28,
    "R5_later_only_backprojectable": 53
   },
   "readmitted": {
-   "R1_in_window_uncertain": 793,
-   "R2_in_window_single_source": 59,
+   "R1_in_window_uncertain": 781,
+   "R2_in_window_single_source": 57,
    "R3_1834_return_or_muster": 20,
    "R5_later_only_backprojectable": 39
   },
   "withheld": {
    "R1_in_window_uncertain": 101,
-   "R2_in_window_single_source": 148,
+   "R2_in_window_single_source": 150,
    "R3_1834_return_or_muster": 8,
    "R5_later_only_backprojectable": 14
   },
-  "presence_ruled_present": 747,
+  "presence_ruled_present": 735,
   "presence_ruled_absent": 46,
-  "cards_minted": 118,
-  "minted_present": 108
+  "cards_minted": 116,
+  "minted_present": 106
  },
  "the_tension_this_leaves": {
   "what": "The order book (T-1166) models 643 households in the town on 1 July 1835 and the layer carries 436 present today. Ruling 787 more cards present takes that to 1,223, which is nearly twice the model.",
@@ -1295,34 +1295,6 @@
      "note": "The corpus last names this person on 1835-05-20, 0.11 years before the scene date, and says nothing after it. The persistence model gives 0.993 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_bartlett_charles_h:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
-   "row_id": "card:hh_baxley_mary",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_baxley_mary",
-   "name_as_read": "Mary Baxley",
-   "dated_evidence": "1834-11-19",
-   "dated_evidence_read_as": "1834-11-19",
-   "years_before_the_scene": 0.6133,
-   "persistence": 0.9618,
-   "seed": "hh_baxley_mary:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-11-19, 0.61 years before the scene date, and says nothing after it. The persistence model gives 0.962 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_baxley_mary:persistence",
     "replaceable_by": {
      "kind": "person",
      "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
@@ -2536,34 +2508,6 @@
    "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
   },
   {
-   "row_id": "card:hh_bourque_william",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_bourque_william",
-   "name_as_read": "William Bourque",
-   "dated_evidence": "1835-06",
-   "dated_evidence_read_as": "1835-06-01",
-   "years_before_the_scene": 0.0821,
-   "persistence": 0.9948,
-   "seed": "hh_bourque_william:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1835-06, 0.08 years before the scene date, and says nothing after it. The persistence model gives 0.995 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_bourque_william:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
    "row_id": "card:hh_bousque_bernard",
    "class": "R1_in_window_uncertain",
    "household_id": "hh_bousque_bernard",
@@ -2639,62 +2583,6 @@
      "note": "The corpus last names this person on 1834-09-10, 0.80 years before the scene date, and says nothing after it. The persistence model gives 0.950 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_bradford_harriet:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
-   "row_id": "card:hh_bradford_william_h",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_bradford_william_h",
-   "name_as_read": "William H Bradford",
-   "dated_evidence": "1834-09-10",
-   "dated_evidence_read_as": "1834-09-10",
-   "years_before_the_scene": 0.8049,
-   "persistence": 0.9501,
-   "seed": "hh_bradford_william_h:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-09-10, 0.80 years before the scene date, and says nothing after it. The persistence model gives 0.950 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_bradford_william_h:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
-   "row_id": "card:hh_brannen_w",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_brannen_w",
-   "name_as_read": "W Brannen",
-   "dated_evidence": "1834-07",
-   "dated_evidence_read_as": "1834-07-01",
-   "years_before_the_scene": 0.9993,
-   "persistence": 0.9385,
-   "seed": "hh_brannen_w:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-07, 1.00 years before the scene date, and says nothing after it. The persistence model gives 0.938 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_brannen_w:persistence",
     "replaceable_by": {
      "kind": "person",
      "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
@@ -3516,34 +3404,6 @@
    "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
   },
   {
-   "row_id": "card:hh_calhoun_samuel",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_calhoun_samuel",
-   "name_as_read": "Samuel Calhoun",
-   "dated_evidence": "1833-12-17",
-   "dated_evidence_read_as": "1833-12-17",
-   "years_before_the_scene": 1.536,
-   "persistence": 0.907,
-   "seed": "hh_calhoun_samuel:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1833-12-17, 1.54 years before the scene date, and says nothing after it. The persistence model gives 0.907 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_calhoun_samuel:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
    "row_id": "card:hh_campbell_james_b",
    "class": "R1_in_window_uncertain",
    "household_id": "hh_campbell_james_b",
@@ -4039,34 +3899,6 @@
      "note": "The corpus last names this person on 1835-05-20, 0.11 years before the scene date, and says nothing after it. The persistence model gives 0.993 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_chesnut_jules:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
-   "row_id": "card:hh_chevallier_john_b",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_chevallier_john_b",
-   "name_as_read": "John B Chevallier",
-   "dated_evidence": "1834-01-21",
-   "dated_evidence_read_as": "1834-01-21",
-   "years_before_the_scene": 1.4401,
-   "persistence": 0.9126,
-   "seed": "hh_chevallier_john_b:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-01-21, 1.44 years before the scene date, and says nothing after it. The persistence model gives 0.913 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_chevallier_john_b:persistence",
     "replaceable_by": {
      "kind": "person",
      "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
@@ -8528,34 +8360,6 @@
    "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
   },
   {
-   "row_id": "card:hh_hamilton_diana",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_hamilton_diana",
-   "name_as_read": "Diana Hamilton",
-   "dated_evidence": "1834-04-30",
-   "dated_evidence_read_as": "1834-04-30",
-   "years_before_the_scene": 1.1691,
-   "persistence": 0.9284,
-   "seed": "hh_hamilton_diana:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-04-30, 1.17 years before the scene date, and says nothing after it. The persistence model gives 0.928 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_hamilton_diana:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
    "row_id": "card:hh_hanford_comstock",
    "class": "R1_in_window_uncertain",
    "household_id": "hh_hanford_comstock",
@@ -9228,34 +9032,6 @@
    "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
   },
   {
-   "row_id": "card:hh_hogan_john",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_hogan_john",
-   "name_as_read": "John Hogan",
-   "dated_evidence": "1834-10",
-   "dated_evidence_read_as": "1834-10-01",
-   "years_before_the_scene": 0.7474,
-   "persistence": 0.9536,
-   "seed": "hh_hogan_john:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-10, 0.75 years before the scene date, and says nothing after it. The persistence model gives 0.954 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_hogan_john:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
    "row_id": "card:hh_hogan_mary",
    "class": "R1_in_window_uncertain",
    "household_id": "hh_hogan_mary",
@@ -9275,34 +9051,6 @@
      "note": "The corpus last names this person on 1835-04-21, 0.19 years before the scene date, and says nothing after it. The persistence model gives 0.988 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_hogan_mary:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
-   "row_id": "card:hh_hoit_sarah",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_hoit_sarah",
-   "name_as_read": "Sarah Hoit",
-   "dated_evidence": "1834-09-24",
-   "dated_evidence_read_as": "1834-09-24",
-   "years_before_the_scene": 0.7666,
-   "persistence": 0.9525,
-   "seed": "hh_hoit_sarah:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-09-24, 0.77 years before the scene date, and says nothing after it. The persistence model gives 0.952 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_hoit_sarah:persistence",
     "replaceable_by": {
      "kind": "person",
      "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
@@ -11459,34 +11207,6 @@
      "note": "The corpus last names this person on 1835-05-20, 0.11 years before the scene date, and says nothing after it. The persistence model gives 0.993 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_lathrop_samuel_s:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
-   "row_id": "card:hh_laughton_david",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_laughton_david",
-   "name_as_read": "David Laughton",
-   "dated_evidence": "1834-08-20",
-   "dated_evidence_read_as": "1834-08-20",
-   "years_before_the_scene": 0.8624,
-   "persistence": 0.9467,
-   "seed": "hh_laughton_david:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-08-20, 0.86 years before the scene date, and says nothing after it. The persistence model gives 0.947 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_laughton_david:persistence",
     "replaceable_by": {
      "kind": "person",
      "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
@@ -15080,34 +14800,6 @@
    "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
   },
   {
-   "row_id": "card:hh_outhet_daniel",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_outhet_daniel",
-   "name_as_read": "Daniel Outhet",
-   "dated_evidence": "1834-12-24",
-   "dated_evidence_read_as": "1834-12-24",
-   "years_before_the_scene": 0.5175,
-   "persistence": 0.9677,
-   "seed": "hh_outhet_daniel:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-12-24, 0.52 years before the scene date, and says nothing after it. The persistence model gives 0.968 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_outhet_daniel:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
    "row_id": "card:hh_owen_j_v",
    "class": "R1_in_window_uncertain",
    "household_id": "hh_owen_j_v",
@@ -17059,34 +16751,6 @@
      "note": "The corpus last names this person on 1835, 0.50 years before the scene date, and says nothing after it. The persistence model gives 0.969 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_rogers_edward_a:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
-   "row_id": "card:hh_rollins_charles",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_rollins_charles",
-   "name_as_read": "Charles Rollins",
-   "dated_evidence": "1834-09-17",
-   "dated_evidence_read_as": "1834-09-17",
-   "years_before_the_scene": 0.7858,
-   "persistence": 0.9513,
-   "seed": "hh_rollins_charles:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-09-17, 0.79 years before the scene date, and says nothing after it. The persistence model gives 0.951 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_rollins_charles:persistence",
     "replaceable_by": {
      "kind": "person",
      "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
@@ -22789,48 +22453,6 @@
    }
   },
   {
-   "row_id": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_01_1#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_one_of_daughters_of_m_colewell",
-   "person_id": "one_of_daughters_of_m_colewell",
-   "name_as_read": "one of the daughters of M. Colewell",
-   "name": "One Of Daughters Of M. Colewell",
-   "file": "readmitted/hh_one_of_daughters_of_m_colewell.json",
-   "sources": [
-    "st_cyr_register_ichr_v4"
-   ],
-   "dated_evidence": "1834-06",
-   "dated_evidence_read_as": "1834-06-01",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9336,
-    "years_before_the_scene": 1.0815,
-    "seed": "hh_one_of_daughters_of_m_colewell:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_04_1#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_william_bourque_burke",
-   "person_id": "william_bourque_burke",
-   "name_as_read": "William Bourque (Burke)",
-   "name": "William Bourque Burke",
-   "file": "readmitted/hh_william_bourque_burke.json",
-   "sources": [
-    "st_cyr_register_ichr_v4"
-   ],
-   "dated_evidence": "1835-06",
-   "dated_evidence_read_as": "1835-06-01",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.9948,
-    "years_before_the_scene": 0.0821,
-    "seed": "hh_william_bourque_burke:persistence"
-   }
-  },
-  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_3_mother#0",
    "class": "R2_in_window_single_source",
    "rule": "readmission_r2_single_source_read_name",
@@ -25547,6 +25169,20 @@
    "name_as_read": "Thomas Watkins",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_01_1#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "one of the daughters of M. Colewell",
+   "reason": "the_reading_is_a_death_before_the_day",
+   "why": "The register's own entry makes this name the decedent — \"June 1834 - Died, one of the daughters of M. Colewell, agent of the Indians.\" — dated 1834-06, before 1 July 1835. A death is not an appearance a persistence draw can price: the person was not in the town on the day, and no card is minted for them."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_04_1#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "William Bourque (Burke)",
+   "reason": "the_reading_is_a_death_before_the_day",
+   "why": "The register's own entry makes this name the decedent — \"June 1835 - Died suddenly, William Bourque (Burke).\" — dated 1835-06, before 1 July 1835. A death is not an appearance a persistence draw can price: the person was not in the town on the day, and no card is minted for them."
   },
   {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_04_4_sponsor#0",

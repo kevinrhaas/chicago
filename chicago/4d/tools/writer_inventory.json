@@ -13,6 +13,12 @@
       "measured": "2026-10-08",
       "finding": "In the manifest immediately after house_the_present_1835.py, whose seats it reads: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate. With --build it writes data/reconstruction/1835_held_head_dwellings.json and splices its fills into the order book; a second run changes no byte (T-2193)."
     },
+    "death_readings.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-08",
+      "finding": "Run bare it prints its usage, exits 2 and writes nothing (git status --porcelain identical before and after); --report prints the deaths the registers and papers print, and --check reads every resident card and refuses one that cites its own burial or death notice dated before the scene date and does not read `absent`, writing nothing. It declares no write mode: the presence it gates is written by tools/mint_civic_residents.py and tools/readmit_borderline_roster.py, which import its readers (T-2189)."
+    },
     "derive_lot_remnant.py": {
       "placement": "manifest",
       "write_mode": "--write",
