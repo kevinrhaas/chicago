@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1567, ts: '2026-10-09T07:34:36.021Z', date: 'Oct 9, 2026, 2:34 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: 1568, ts: '2026-10-09T08:44:57.761Z', date: 'Oct 9, 2026, 3:44 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
+    ] },
+  { v: 1567, ts: '2026-10-09T07:39:48.254Z', date: 'Oct 9, 2026, 2:39 AM CT', title: 'Twelve St Mary\u2019s children now name the parent the register gives them', kind: 'fix',
+    items: [
+      'St Mary\u2019s register names a mother or father for twelve children whose parent the town had carded but never linked to them, among them Joseph Mayo, the Wode twins, Susanne Vieaux and C\u00e9cile Laframboise. Open the child\u2019s card and the parent is now listed under \u201cRelated to\u201d, and the parent\u2019s card lists the child.',
+      'Those parents\u2019 cards are rebuilt from the register each time the town is rebuilt, so a link typed onto them by hand would have been lost. The rebuild now writes each link itself, straight from the baptism entry.',
     ] },
   { v: 1566, ts: '2026-10-09T07:11:45.716Z', date: 'Oct 9, 2026, 2:11 AM CT', title: 'Compare Glessner House with its dated photographs', kind: 'feature',
     items: [

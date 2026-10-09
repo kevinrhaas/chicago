@@ -30,27 +30,27 @@
   "mints_nobody": true,
   "liberty": "L354 — the housing seats this count stands on",
   "counts": {
-    "records_awaiting_a_household": 1238,
+    "records_awaiting_a_household": 1237,
     "under_a_standing_dwelling": {
       "dealt": 250,
       "family": 179
     },
     "room_by_division": {
       "north": 88,
-      "south": 169,
+      "south": 168,
       "west": 78
     },
     "counted_by_division": {
       "north": 88,
-      "south": 169,
+      "south": 168,
       "west": 78
     },
     "counted_by_rung": {
       "dealt": 250,
-      "family": 85
+      "family": 84
     },
-    "persons_in_the_counted_houses": 978,
-    "not_counted": 98
+    "persons_in_the_counted_houses": 973,
+    "not_counted": 99
   },
   "beyond_the_index": {
     "ticket": "T-2237",
@@ -114,7 +114,7 @@
   },
   "fills": {
     "households/family_dwelling/north": 88,
-    "households/family_dwelling/south": 169,
+    "households/family_dwelling/south": 168,
     "households/family_dwelling/west": 78
   },
   "counted": [
@@ -2423,15 +2423,6 @@
       "seed": "60063033af85"
     },
     {
-      "household": "hh_hamilton_amos_c",
-      "division": "south",
-      "rung": "family",
-      "place": "recon_1835_blk_school_section_tier_118_d5_07",
-      "family": "D5",
-      "persons": 5,
-      "seed": "a1ac2796ce10"
-    },
-    {
       "household": "hh_cook_josiah_p",
       "division": "west",
       "rung": "dealt",
@@ -3367,6 +3358,16 @@
       "seed": "de60bd181d5d",
       "beyond_the_index": "underdocumented",
       "why": "the north division's family_dwelling order was full before this household was reached"
+    },
+    {
+      "household": "hh_hamilton_amos_c",
+      "division": "south",
+      "rung": "family",
+      "place": "recon_1835_blk_school_section_tier_118_d5_07",
+      "family": "D5",
+      "persons": 5,
+      "seed": "a1ac2796ce10",
+      "why": "the south division's family_dwelling order was full before this household was reached"
     },
     {
       "household": "hh_fell_j_w",

@@ -47,6 +47,19 @@
    "match": "any source naming this person at Chicago on or after 1 July 1835"
   }
  },
+ "kin": [
+  {
+   "person": "patrick_wagon",
+   "relation": "father",
+   "household": "hh_wagon_cicely",
+   "value": "wagon_cicely",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME (T-2191). Entry 18 of 1834: On the 16th of July eighteen hundred and thirty four I the undersigned conferred the ceremonies of Baptism according to the rites of the holy Catholic church to Cicely daughter of Patrick Wagon[?] and of Mary Duggan, born the 15th of July 1834. Sponsors were Doctor Egan and Josette Beaubien. The two cards are the ones that carry this entry's rows (st_marys_bapt_1834_18_2_father, st_marys_bapt_1834_18_1_child), so no identification is made here. The parent's term is the register's role column; the child's is the entry's own word, 'daughter'. hh_patrick_wagon is written whole by its build, and tools/generated_card_kin.py derives both rows of this tie from the one entry, so a rebuild writes them again rather than losing one."
+  }
+ ],
  "persons": [
   {
    "id": "patrick_wagon",

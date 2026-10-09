@@ -420,8 +420,8 @@
   "reconstructed_removed_in_2026_09_02_synthesis": 108,
   "civic_mint": 509,
   "merged_away": 72,
-  "houses": 217,
-  "awaiting_a_household": 1239
+  "houses": 218,
+  "awaiting_a_household": 1238
  },
  "households": [
   {
@@ -7228,7 +7228,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_dix_elijah",

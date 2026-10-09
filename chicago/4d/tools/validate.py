@@ -6044,6 +6044,42 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
                                f"disagrees with the record's {local_grades!r}")
         households[hid] = h
 
+    # --- kin on the cards a BUILD writes whole (T-2191) --------------------
+    # The readmitted and underdocumented cards are not in the index — they are
+    # overlaid onto the scene by compile_scene.py — but St Mary's register ties
+    # some of them to a households/ card, and their builds write that tie
+    # (tools/generated_card_kin.py). Both ends are held to the same rules, so
+    # a households/ row whose far end is one of these cards resolves here, and
+    # the card's own row is shape-checked and must be mirrored back.
+    generated_cards: dict = {}
+    for gdir in ("readmitted", "underdocumented"):
+        for gpath in sorted((root / gdir).glob("*.json")):
+            g = json.loads(gpath.read_text(encoding="utf-8"))
+            gid = g.get("id")
+            if not gid or gid in households:
+                continue
+            generated_cards[gid] = g
+            gwhere = f"residents/{gdir}/{gpath.name}"
+            gpersons = {p.get("id") for p in g.get("persons") or []}
+            for i, k in enumerate(g.get("kin") or []):
+                kwhere = f"{gwhere}/kin[{i}]"
+                if not isinstance(k, dict):
+                    rep.error(kwhere, "a kin row must be an object")
+                    continue
+                for key in RESIDENT_KIN_KEYS:
+                    if key not in k:
+                        rep.error(kwhere, f"missing required key '{key}'")
+                if k.get("relation") not in RESIDENT_KIN_RELATIONS:
+                    rep.error(kwhere, f"relation '{k.get('relation')}' is not one of "
+                                      f"{list(RESIDENT_KIN_RELATIONS)}")
+                if k.get("person") not in gpersons:
+                    rep.error(kwhere, f"person '{k.get('person')}' is not a person in "
+                                      f"this household")
+                if k.get("household") == gid:
+                    rep.error(kwhere, "a kin row links two households")
+                walk_attested(kwhere, k, source_ids, rep, tally)
+                kin_rows.append((gid, k, kwhere))
+
     # --- kin: the far end, and the reciprocity rule -------------------------
     # Every household is loaded by now, so a row can be resolved and, more to
     # the point, its mirror can be demanded. A kinship written on one record
@@ -6053,10 +6089,11 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
                for hid, k, _ in kin_rows}
     for hid, k, kwhere in kin_rows:
         other_hid, other_pid = k.get("household"), k.get("value")
-        other = households.get(other_hid)
+        other = households.get(other_hid) or generated_cards.get(other_hid)
         if other is None:
             rep.error(kwhere, f"household '{other_hid}' does not resolve in "
-                              f"data/residents/households/")
+                              f"data/residents/households/ (or, for a tie a build writes, "
+                              f"readmitted/ or underdocumented/)")
             continue
         if other_pid not in {p.get("id") for p in other.get("persons") or []}:
             rep.error(kwhere, f"'{other_pid}' is not a person in household '{other_hid}'")
