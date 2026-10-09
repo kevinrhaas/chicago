@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1570, ts: '2026-10-09T09:59:25.297Z', date: 'Oct 9, 2026, 4:59 AM CT', title: 'The town plan stops promising a lot that has no room', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The plan of where the 1835 town\u2019s last roofs could go still counted the South Water Street lot at the Wells corner, on the block between Wells and La Salle, as free, because the clause for shop fronts lets a house share a lot with H. Jones\u2019s store. The store leaves about 7.5 m of that lot\u2019s front, less than the narrowest house the plan ever deals.',
+      'The plan now counts that lot as full. The two houses and the warehouse it had been placing there move to the ground south of the platted town, which no street reaches yet. Nobody is moved and no building changes.',
+    ] },
   { v: 1569, ts: '2026-10-09T08:58:32.691Z', date: 'Oct 9, 2026, 3:58 AM CT', title: 'A house on the riverside block at Lake and Franklin', kind: 'feature',
     items: [
       'Walk west along Lake Street to Franklin and look across at the narrow block by the bend of the river. The middle Lake Street lot there, grazed prairie until now, has a larger frame house on it, set back from the street. The Franklin corner beside it stays open.',
