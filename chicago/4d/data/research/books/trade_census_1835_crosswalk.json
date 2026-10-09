@@ -350,12 +350,13 @@
       "census_line": "eight taverns",
       "census_count": 8,
       "compared": true,
-      "town_records_in_town": 10,
-      "town_records_at_scene_date": 9,
+      "town_records_in_town": 11,
+      "town_records_at_scene_date": 10,
       "town_records_outside_town": 0,
       "records_opening_after_scene_date": 0,
       "business_ids_opening_after_scene_date": [],
       "business_ids": [
+        "biz_beaubien_mark_tavern_keeper",
         "biz_couch_ira_hotel_keeper",
         "biz_davis_john_hotel_keeper",
         "biz_murphy_john_tavern_keeper",
@@ -385,7 +386,7 @@
           "into": "business_eagle_tavern"
         }
       ],
-      "delta": 1,
+      "delta": 2,
       "shortfall_explained_by_later_openings": 0,
       "outcome": "town_holds_more_than_the_census_counted",
       "note": null
@@ -695,16 +696,16 @@
   ],
   "totals": {
     "businesses_in_register": 193,
-    "authored_records_counted": 36,
-    "businesses_counted": 229,
-    "in_town": 226,
+    "authored_records_counted": 37,
+    "businesses_counted": 230,
+    "in_town": 227,
     "outside_town": 3,
-    "at_scene_date": 205,
+    "at_scene_date": 206,
     "folded_into_another_house": 5,
     "carrying_no_enumerated_class": 84,
     "not_stated": 5,
     "census_enumerated_total": 118,
-    "town_enumerated_total_at_scene_date": 128
+    "town_enumerated_total_at_scene_date": 129
   },
   "classes_the_town_holds_nothing_for": [
     "bank",
@@ -781,6 +782,22 @@
       "scope": "in_town",
       "ruled_by": "authored_record",
       "basis": "AUTHORED, NOT PRINTED. `biz_beaubien_madore_merchant` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
+      "present_at_scene_date": true,
+      "scene_date_exclusion": null,
+      "opened_after_scene_date": false,
+      "folded_into": null,
+      "folded_in_classes": []
+    },
+    {
+      "business_id": "biz_beaubien_mark_tavern_keeper",
+      "name": "Mark Beaubien, tavern keeper",
+      "trade": "tavern keeper",
+      "classes": [
+        "tavern"
+      ],
+      "scope": "in_town",
+      "ruled_by": "authored_record",
+      "basis": "AUTHORED, NOT PRINTED. `biz_beaubien_mark_tavern_keeper` carries its own census class in `type` and its own grade in `provenance: authored`; the ruling was made by whoever wrote the record and is read off it here.",
       "present_at_scene_date": true,
       "scene_date_exclusion": null,
       "opened_after_scene_date": false,

@@ -2121,7 +2121,7 @@ Every household carries an arrival block and 95.4% of them (1392) hold a `not_la
 
 ## Where they meet the buildings
 
-2792 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1414 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 73 wait on a roof not yet standing; 44 households have no dwelling. The table below reads `lives_at` alone. 658 roofs stand against a programme of 668.
+2797 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1415 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 68 wait on a roof not yet standing; 43 households have no dwelling. The table below reads `lives_at` alone. 659 roofs stand against a programme of 668.
 
 ### Households by division and seating
 
@@ -2141,7 +2141,7 @@ Every household carries an arrival block and 95.4% of them (1392) hold a `not_la
 |---|---:|
 | people | 3265 |
 | dwellings | 398 |
-| roofs standing in the scene | 658 |
+| roofs standing in the scene | 659 |
 | roofs the programme targets | 668 |
 
 *1337 of 1459 households are `unplaced` — not in any division. A person without a division cannot be housed, which is why the division axis and the lodging axis fail together.*
@@ -2255,7 +2255,6 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Alanson Sawyer | New York State | reconstructed |
 | Alanson Stiles | New York State | reconstructed |
 | Alanson Sweet | The Southern states | reconstructed |
-| Alanson Thayer | The Mid-Atlantic states | reconstructed |
 | Albert Bakwith | The Mid-Atlantic states | reconstructed |
 | Albert F. Dow | New England | reconstructed |
 | Albert Late | New England | reconstructed |
@@ -2819,6 +2818,7 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | David Curtin | New York State | reconstructed |
 | David Dickinson | New York State | reconstructed |
 | David Dickson | New York State | reconstructed |
+| David Eastman | The Southern states | reconstructed |
 | David Foote | New York State | reconstructed |
 | David Groover | New York State | reconstructed |
 | David Harris | The Mid-Atlantic states | reconstructed |
@@ -2957,7 +2957,6 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Elisha Eastman | The Mid-Atlantic states | reconstructed |
 | Elisha Fairbanks | The Southern states | reconstructed |
 | Elisha H. Hazzard | West of the Alleghenies | reconstructed |
-| Elisha Hastings | The Southern states | reconstructed |
 | Elisha Kennicott | New York State | reconstructed |
 | Elisha Mcburney | New England | reconstructed |
 | Elisha Price | New York State | reconstructed |
@@ -3101,6 +3100,7 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Ezra Garrett | New York State | reconstructed |
 | Ezra Ogleby | New York State | reconstructed |
 | Ezra Panster | New England | reconstructed |
+| Ezra Parmelee | The Mid-Atlantic states | reconstructed |
 | Ezra Pottier | New England | reconstructed |
 | Ezra Stow | New York State | reconstructed |
 | Ezra Thayer | New England | reconstructed |
@@ -3173,6 +3173,7 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | George M Brooks | New York State | reconstructed |
 | George Miller | New England | reconstructed |
 | George Morrison | New England | reconstructed |
+| George Newell | The Mid-Atlantic states | reconstructed |
 | George R. Makepiece | New England | reconstructed |
 | George S. Canp | New York State | reconstructed |
 | George Smith | New York State | reconstructed |
@@ -4917,7 +4918,6 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Warren Elston | England | inferred |
 | Warren Fisk | New York State | reconstructed |
 | Warren Gilbert | New York State | reconstructed |
-| Warren Parmelee | The Mid-Atlantic states | reconstructed |
 | Warren Pixby | New York State | reconstructed |
 | Warren Russell | New York State | reconstructed |
 | Warren Stebbins | England | reconstructed |

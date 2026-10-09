@@ -6421,13 +6421,13 @@
    },
    "seed": "hh_beaubien_mark|south|tavern_keeper|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_blk_washington_clark_h3_05",
+    "structure_id": "recon_1835_blk_south_water_market_h3_02",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_washington_clark#07",
-    "block_id": "blk_washington_clark",
-    "fronts": "madison",
+    "on": "blk_south_water_market#01",
+    "block_id": "blk_south_water_market",
+    "fronts": "lake",
     "family": "H3",
     "clause": "lodging_near_the_landings",
     "district": "south",
@@ -6436,7 +6436,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_washington_clark_h3_05, a family H3 roof on blk_washington_clark#07. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's lodging_near_the_landings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_south_water_market_h3_02, a family H3 roof on blk_south_water_market#01. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's lodging_near_the_landings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -56820,13 +56820,13 @@
    },
    "seed": "hh_sweet_alanson|south|tavern_keeper|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_blk_washington_clark_h3_06",
+    "structure_id": "recon_1835_blk_washington_clark_h3_05",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_washington_clark#06",
+    "on": "blk_washington_clark#07",
     "block_id": "blk_washington_clark",
-    "fronts": "washington",
+    "fronts": "madison",
     "family": "H3",
     "clause": "lodging_near_the_landings",
     "district": "south",
@@ -56835,7 +56835,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_washington_clark_h3_06, a family H3 roof on blk_washington_clark#06. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's lodging_near_the_landings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_washington_clark_h3_05, a family H3 roof on blk_washington_clark#07. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's lodging_near_the_landings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {

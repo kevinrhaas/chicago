@@ -27532,18 +27532,13 @@
    "layer": "residents",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "reason": "Refused. 2 of the 3 card(s) heading 'Noble' do name Chicago or Cook County and the heading is the surname of Mary Noble; John Noble; Esq. Mark Noble; William B Noble exactly, but the index files every family of a surname under one heading and gives no forename, so 'Noble' against Mary Noble; John Noble; Esq. Mark Noble; William B Noble is a surname against a person. It waits on a work the citation table could not read off the card, which this project does not hold.",
+   "reason": "Refused. 2 of the 3 card(s) heading 'Noble' do name Chicago or Cook County and the heading is the surname of John Noble; Esq. Mark Noble; Mary Noble; William B Noble exactly, but the index files every family of a surname under one heading and gives no forename, so 'Noble' against John Noble; Esq. Mark Noble; Mary Noble; William B Noble is a surname against a person. It waits on a work the citation table could not read off the card, which this project does not hold.",
    "record_ids": [
     "nbi_v03_0977",
     "nbi_v03_0978",
     "nbi_v03_0979"
    ],
    "candidates": [
-    {
-     "id": "noble_mary",
-     "name": "Mary Noble",
-     "rule": "exact surname"
-    },
     {
      "id": "noble_john",
      "name": "John Noble",
@@ -27555,15 +27550,20 @@
      "rule": "exact surname"
     },
     {
+     "id": "noble_mary",
+     "name": "Mary Noble",
+     "rule": "exact surname"
+    },
+    {
      "id": "noble_william_b",
      "name": "William B Noble",
      "rule": "exact surname"
     }
    ],
    "person_ids": [
-    "noble_mary",
     "noble_john",
     "noble_mark",
+    "noble_mary",
     "noble_william_b"
    ],
    "works_cited": [],
@@ -79778,10 +79778,10 @@
   {
    "record_id": "nbi_v03_0977",
    "a": "Noble | 1899-1900. E 483.97 . Illinois.",
-   "b": "Mary Noble; John Noble; Esq. Mark Noble; William B Noble; Mark Noble; John Noble; William B. Noble",
+   "b": "John Noble; Esq. Mark Noble; Mary Noble; William B Noble; Mark Noble; John Noble; William B. Noble",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 2 of the 3 card(s) heading 'Noble' do name Chicago or Cook County and the heading is the surname of Mary Noble; John Noble; Esq. Mark Noble; William B Noble exactly, but the index files every family of a surname under one heading and gives no forename, so 'Noble' against Mary Noble; John Noble; Esq. Mark Noble; William B Noble is a surname against a person. It waits on a work the citation table could not read off the card, which this project does not hold. Ruled on the card 'Noble | 1899-1900. E 483.97 . Illinois.' against Mary Noble; John Noble; Esq. Mark Noble; William B Noble; Mark Noble; John Noble; William B. Noble.",
+   "rule": "Refused. 2 of the 3 card(s) heading 'Noble' do name Chicago or Cook County and the heading is the surname of John Noble; Esq. Mark Noble; Mary Noble; William B Noble exactly, but the index files every family of a surname under one heading and gives no forename, so 'Noble' against John Noble; Esq. Mark Noble; Mary Noble; William B Noble is a surname against a person. It waits on a work the citation table could not read off the card, which this project does not hold. Ruled on the card 'Noble | 1899-1900. E 483.97 . Illinois.' against John Noble; Esq. Mark Noble; Mary Noble; William B Noble; Mark Noble; John Noble; William B. Noble.",
    "layers": [
     "residents",
     "voters"
@@ -79816,10 +79816,10 @@
   {
    "record_id": "nbi_v03_0978",
    "a": "Noble | See indlcet, F 8324.11 Chicago",
-   "b": "Mary Noble; John Noble; Esq. Mark Noble; William B Noble; Mark Noble; John Noble; William B. Noble",
+   "b": "John Noble; Esq. Mark Noble; Mary Noble; William B Noble; Mark Noble; John Noble; William B. Noble",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 2 of the 3 card(s) heading 'Noble' do name Chicago or Cook County and the heading is the surname of Mary Noble; John Noble; Esq. Mark Noble; William B Noble exactly, but the index files every family of a surname under one heading and gives no forename, so 'Noble' against Mary Noble; John Noble; Esq. Mark Noble; William B Noble is a surname against a person. It waits on a work the citation table could not read off the card, which this project does not hold. Ruled on the card 'Noble | See indlcet, F 8324.11 Chicago' against Mary Noble; John Noble; Esq. Mark Noble; William B Noble; Mark Noble; John Noble; William B. Noble.",
+   "rule": "Refused. 2 of the 3 card(s) heading 'Noble' do name Chicago or Cook County and the heading is the surname of John Noble; Esq. Mark Noble; Mary Noble; William B Noble exactly, but the index files every family of a surname under one heading and gives no forename, so 'Noble' against John Noble; Esq. Mark Noble; Mary Noble; William B Noble is a surname against a person. It waits on a work the citation table could not read off the card, which this project does not hold. Ruled on the card 'Noble | See indlcet, F 8324.11 Chicago' against John Noble; Esq. Mark Noble; Mary Noble; William B Noble; Mark Noble; John Noble; William B. Noble.",
    "layers": [
     "residents",
     "voters"
@@ -79854,10 +79854,10 @@
   {
    "record_id": "nbi_v03_0979",
    "a": "Noble | See index.) E 483.61 Chicago",
-   "b": "Mary Noble; John Noble; Esq. Mark Noble; William B Noble; Mark Noble; John Noble; William B. Noble",
+   "b": "John Noble; Esq. Mark Noble; Mary Noble; William B Noble; Mark Noble; John Noble; William B. Noble",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 2 of the 3 card(s) heading 'Noble' do name Chicago or Cook County and the heading is the surname of Mary Noble; John Noble; Esq. Mark Noble; William B Noble exactly, but the index files every family of a surname under one heading and gives no forename, so 'Noble' against Mary Noble; John Noble; Esq. Mark Noble; William B Noble is a surname against a person. It waits on a work the citation table could not read off the card, which this project does not hold. Ruled on the card 'Noble | See index.) E 483.61 Chicago' against Mary Noble; John Noble; Esq. Mark Noble; William B Noble; Mark Noble; John Noble; William B. Noble.",
+   "rule": "Refused. 2 of the 3 card(s) heading 'Noble' do name Chicago or Cook County and the heading is the surname of John Noble; Esq. Mark Noble; Mary Noble; William B Noble exactly, but the index files every family of a surname under one heading and gives no forename, so 'Noble' against John Noble; Esq. Mark Noble; Mary Noble; William B Noble is a surname against a person. It waits on a work the citation table could not read off the card, which this project does not hold. Ruled on the card 'Noble | See index.) E 483.61 Chicago' against John Noble; Esq. Mark Noble; Mary Noble; William B Noble; Mark Noble; John Noble; William B. Noble.",
    "layers": [
     "residents",
     "voters"

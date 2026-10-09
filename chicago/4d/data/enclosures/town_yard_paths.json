@@ -144,7 +144,7 @@
     "recon_1835_blk_south_water_lasalle_d3_03",
     "recon_1835_blk_south_water_lasalle_d5_01",
     "recon_1835_blk_south_water_lasalle_f2_10",
-    "recon_1835_blk_south_water_market_d5_01",
+    "recon_1835_blk_south_water_market_h3_02",
     "recon_1835_blk_south_water_wells_c2_01",
     "recon_1835_blk_south_water_wells_d1_05",
     "recon_1835_blk_south_water_wells_d2_06",
@@ -5494,20 +5494,38 @@
       ],
       [
         [
-          156.91,
-          -83.85
+          156.97,
+          -80.19
         ],
         [
-          157.77,
-          -83.53
+          157.81,
+          -79.83
         ],
         [
-          149.23,
-          -60.44
+          149.41,
+          -60.42
         ],
         [
-          148.37,
-          -60.76
+          148.57,
+          -60.78
+        ]
+      ],
+      [
+        [
+          162.0,
+          -79.84
+        ],
+        [
+          162.88,
+          -80.09
+        ],
+        [
+          167.52,
+          -63.93
+        ],
+        [
+          166.64,
+          -63.68
         ]
       ],
       [
@@ -7649,8 +7667,13 @@
     },
     {
       "lot": "blk_south_water_market_lot1",
-      "from": "recon_1835_blk_south_water_market_d5_01",
+      "from": "recon_1835_blk_south_water_market_h3_02",
       "to": "privy_blk_south_water_market_lot1"
+    },
+    {
+      "lot": "blk_south_water_market_lot1",
+      "from": "recon_1835_blk_south_water_market_h3_02",
+      "to": "stable_blk_south_water_market_lot1"
     },
     {
       "lot": "blk_wabansia_c_t7_lot1",
