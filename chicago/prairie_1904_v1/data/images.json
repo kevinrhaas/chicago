@@ -24,7 +24,7 @@
   "local": 469,
   "in_period": 601,
   "buildings_with_images": 62,
-  "buildings": 62,
+  "buildings": 63,
   "lots_with_images": 137,
   "lots": 156
  },
@@ -944,8 +944,6 @@
    "a19-gh-prairie-1800-1900-elevations",
    "cgs-tribune-1898-01-09-death-strip",
    "st-nrhp-1972-p40-18th-street-arterial-sketch",
-   "a19-gh-keith-1900-historic",
-   "a19-cgy-1906-keith-photo",
    "dw-indchi-1891-v1-edson-keith-stone",
    "cgs-1906-text",
    "a19-cgy-1906-keith-engraving",
@@ -2149,39 +2147,20 @@
   "calumet_1800": [
    "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
    "a16-newberry-conzen-prairie-elite-1886-map",
-   "a16-cgy-hibbardville-map-1940",
-   "cgn-1804-landowner-1874-double-house",
-   "a18-gh-1800-block-looking-sw-c1888",
    "a18-gh-1800-block-sw-george-glessner",
    "a18-gho-house-under-construction-1887",
    "a18-inland-architect-1888-02-glessner-plate",
    "a18-rba-taylor-2135-glessner-ne",
-   "st-flinn-1891-a-bit-of-prairie-avenue",
-   "st-flinn-1892-looking-south-prairie-from-18th",
-   "st-ghm-postcard-1908-prairie-south-at-18th",
-   "st-picturesque-chicago-1892-prairie-avenue-p199",
    "a18-gh-glessner-front-with-keith",
-   "a18-cgy-elevation-strip-1800-1900-blocks",
-   "a18-eoc-10382",
    "a18-rba-taylor-9974-prairie-south-from-18th",
-   "st-cl1973-p24-sidewalk-view-9974",
    "st-randmcnally-1893-p233-west-1700-1800",
-   "a18-rba-lowe-taylor-9974-copy",
    "a18-gh-1911-map-west-1800-block",
-   "a18-gh-1935-donnelley-aerial",
-   "a18-rba-reed-1941-prairie-north-from-1820",
    "a18-rba-reed-1941-prairie-south-at-18th",
    "a18-gh-florian-1948-ne-exterior",
    "a18-gh-florian-1948-northeast-overall",
-   "a18-eoc-10389",
-   "a18-gh-1812-1808-1800-mid1950s",
-   "a18-gh-1808-porch-1965",
    "a18-gh-nickel-1967-1812-1808-1800",
-   "a18-city1973-landmarks-report",
-   "a18-cgy-inter-ocean-1887-palace-avenue",
    "a19-gh-prairie-1800-1900-elevations",
    "a18-gh-landowner-1874-glessner-site",
-   "a18-cgy-1804-tribune-1885-sale",
    "a18-gh-courtyard-watercolor",
    "a18-gh-glessner-main-hall-1885-rendering",
    "a18-glessner-habs-photo-12",
@@ -2310,13 +2289,8 @@
    "cgn-1800-tribune-1965-glessner-subheadline",
    "a18-gh-nickel-coach-house-interior",
    "a18-gh-nickel-west-roof-dormer",
-   "a18-gh-nickel-aerial-ne-after-1968",
    "a18-gh-nickel-prairie-nw-after-1968",
    "dw-nrhp-1972-district-p24-ownership-lot-map",
-   "st-nrhp-1972-p40-18th-street-arterial-sketch",
-   "st-nrhp-1972-photo3-aerial-ne-from-20th-indiana",
-   "st-nrhp-1972-photo4-prairie-south-from-18th",
-   "st-ghm-1800-block-restored-streetscape-1981",
    "a18-rba-barford-glessner-courtyard",
    "a18-rba-barford-glessner-exterior",
    "a18-rba-barford-glessner-side-door",
@@ -2360,13 +2334,9 @@
   "calumet_1900": [
    "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
    "a16-newberry-conzen-prairie-elite-1886-map",
-   "a18-cgy-elevation-strip-1800-1900-blocks",
    "a18-gh-1911-map-west-1800-block",
    "st-randmcnally-1893-p269-west-1800-1900",
-   "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
-   "a18-eoc-10381",
    "a19-cgy-robinson-1886-crops-1900-block",
-   "a19-chm-ichi66015-west-side-north-from-allerton",
    "nps-bluebook-1904-prairie-street-p187-1900-2140",
    "a19-gh-prairie-1800-1900-elevations",
    "a19-gh-1981-gaylord-factory-1936-site",
@@ -2382,8 +2352,7 @@
    "a19-gh-keith-1900-exterior-modern",
    "a19-gh-keith-post-text",
    "a19-cgy-1900-keith-2024",
-   "a19-cgy-1900-keith-exterior",
-   "a19-cgy-1906-keith-photo"
+   "a19-cgy-1900-keith-exterior"
   ],
   "calumet_1910": [
    "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
@@ -2994,7 +2963,6 @@
    "a19-cgy-1923-randmcnally-1893",
    "cgs-tribune-1898-01-09-death-strip",
    "st-nrhp-1972-p40-18th-street-arterial-sketch",
-   "a19-gh-keith-1900-historic",
    "a19-cgy-1906-keith-photo",
    "dw-indchi-1891-v1-edson-keith-stone",
    "cgs-1906-text",
@@ -3009,9 +2977,24 @@
   "prairie_1918": [
    "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
    "a16-newberry-conzen-prairie-elite-1886-map",
+   "a18-gh-landowner-1874-plate",
+   "st-landowner-1874-homes-of-prairie-avenue",
+   "a18-cgy-elevation-strip-1800-1900-blocks",
    "st-randmcnally-1893-p269-west-1800-1900",
+   "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
+   "a18-eoc-10381",
+   "a19-nby-newchicagoalbum-1883-residences",
    "a19-cgy-robinson-1886-crops-1900-block",
+   "a19-chm-ichi66015-west-side-north-from-allerton",
+   "nps-bluebook-1904-prairie-street-p187-1900-2140",
    "a19-gh-prairie-1800-1900-elevations",
+   "a19-cgy-1936-tribune-1869",
+   "a19-cgy-1936-thompson-etching",
+   "a19-cgy-1936-thompson-photo",
+   "a19-andreas-1886-prairie-20th",
+   "cgs-1936-robinson-1886",
+   "st-ghm-ward-1887-prairie-north-from-20th",
+   "a19-gh-1981-gaylord-factory-1936-site",
    "st-randmcnally-1893-p269-east-1800-1900",
    "a19-cgy-1923-randmcnally-1893"
   ],
@@ -3065,15 +3048,9 @@
   "prairie_1936": [
    "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
    "a16-newberry-conzen-prairie-elite-1886-map",
-   "a18-gh-landowner-1874-plate",
-   "st-landowner-1874-homes-of-prairie-avenue",
-   "a18-cgy-elevation-strip-1800-1900-blocks",
    "st-randmcnally-1893-p269-west-1800-1900",
-   "a18-chm-clark-c1905-prairie-west-side-north-from-1936",
-   "a18-eoc-10381",
    "a19-nby-newchicagoalbum-1883-residences",
    "a19-cgy-robinson-1886-crops-1900-block",
-   "a19-chm-ichi66015-west-side-north-from-allerton",
    "nps-bluebook-1904-prairie-street-p187-1900-2140",
    "a19-gh-prairie-1800-1900-elevations",
    "a19-cgy-1936-tribune-1869",
@@ -3081,7 +3058,6 @@
    "a19-cgy-1936-thompson-photo",
    "a19-andreas-1886-prairie-20th",
    "cgs-1936-robinson-1886",
-   "st-ghm-ward-1887-prairie-north-from-20th",
    "a19-gh-1981-gaylord-factory-1936-site",
    "st-randmcnally-1893-p269-east-1800-1900",
    "a19-cgy-1923-randmcnally-1893"
@@ -5031,7 +5007,6 @@
    },
    "stream": "1600-1700",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1625_1637_c",
     "prairie_1637",
     "prairie_1638",
@@ -6485,7 +6460,7 @@
     "prairie_1816",
     "prairie_1905",
     "prairie_1906",
-    "prairie_1936"
+    "prairie_1918"
    ]
   },
   {
@@ -6546,7 +6521,7 @@
     "prairie_1816",
     "prairie_1905",
     "prairie_1906",
-    "prairie_1936"
+    "prairie_1918"
    ]
   },
   {
@@ -8902,7 +8877,6 @@
    },
    "stream": "chicagology-north",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1808"
    ]
@@ -9227,7 +9201,6 @@
    },
    "stream": "1800",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1808",
     "prairie_1812",
@@ -9760,7 +9733,6 @@
    },
    "stream": "streetscape",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1808",
     "prairie_1812"
@@ -9837,7 +9809,6 @@
    },
    "stream": "streetscape",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1808",
     "prairie_1812"
@@ -9914,7 +9885,6 @@
    },
    "stream": "streetscape",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1808",
     "prairie_1812"
@@ -9991,7 +9961,6 @@
    },
    "stream": "streetscape",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1808",
     "prairie_1812"
@@ -10170,8 +10139,6 @@
     "streetscape"
    ],
    "parcel_ids": [
-    "calumet_1800",
-    "calumet_1900",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808",
@@ -10188,9 +10155,9 @@
     "prairie_1905",
     "prairie_1906",
     "prairie_1912",
+    "prairie_1918",
     "prairie_1919",
-    "prairie_1923",
-    "prairie_1936"
+    "prairie_1923"
    ]
   },
   {
@@ -10280,7 +10247,6 @@
    ],
    "stream": "1800",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1808",
     "prairie_1812"
@@ -10473,7 +10439,6 @@
    ],
    "stream": "streetscape",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1808"
    ]
@@ -10639,7 +10604,6 @@
    },
    "stream": "1800",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1808",
     "prairie_1812"
@@ -10772,7 +10736,6 @@
    },
    "stream": "1800",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1808",
     "prairie_1812",
@@ -10832,7 +10795,6 @@
    },
    "stream": "1800",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808",
@@ -11149,7 +11111,6 @@
    ],
    "stream": "1800",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1808",
     "prairie_1812"
@@ -11243,7 +11204,6 @@
    },
    "stream": "1800",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1808",
     "prairie_1812"
@@ -11334,7 +11294,6 @@
    },
    "stream": "1800",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1808"
    ]
@@ -11536,7 +11495,6 @@
    ],
    "stream": "1800",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1801",
     "prairie_1808",
@@ -12174,7 +12132,6 @@
    ],
    "stream": "1800",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1816",
     "prairie_1824",
@@ -12428,13 +12385,12 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
-    "calumet_1900",
     "prairie_1824",
     "prairie_1834",
     "prairie_1900",
     "prairie_1906",
     "prairie_1912",
-    "prairie_1936"
+    "prairie_1918"
    ]
   },
   {
@@ -12894,12 +12850,11 @@
    "measurements": [],
    "stream": "1800",
    "parcel_ids": [
-    "calumet_1900",
     "prairie_1834",
     "prairie_1900",
     "prairie_1906",
     "prairie_1912",
-    "prairie_1936"
+    "prairie_1918"
    ]
   },
   {
@@ -13259,6 +13214,7 @@
     "prairie_1823",
     "prairie_1905",
     "prairie_1912",
+    "prairie_1918",
     "prairie_1936"
    ]
   },
@@ -13586,11 +13542,10 @@
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
-    "calumet_1900",
     "prairie_1900",
     "prairie_1906",
     "prairie_1912",
-    "prairie_1936"
+    "prairie_1918"
    ]
   },
   {
@@ -13692,6 +13647,7 @@
     "prairie_1900",
     "prairie_1906",
     "prairie_1912",
+    "prairie_1918",
     "prairie_1936",
     "prairie_2000",
     "prairie_2009",
@@ -13920,6 +13876,7 @@
    ],
    "stream": "1900",
    "parcel_ids": [
+    "prairie_1918",
     "prairie_1936"
    ]
   },
@@ -13956,6 +13913,7 @@
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
+    "prairie_1918",
     "prairie_1936"
    ]
   },
@@ -13992,6 +13950,7 @@
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
+    "prairie_1918",
     "prairie_1936"
    ]
   },
@@ -14041,6 +14000,7 @@
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
+    "prairie_1918",
     "prairie_1936"
    ]
   },
@@ -14090,6 +14050,7 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
+    "prairie_1918",
     "prairie_1936"
    ]
   },
@@ -14139,7 +14100,7 @@
    "measurements": [],
    "stream": "streetscape",
    "parcel_ids": [
-    "prairie_1936"
+    "prairie_1918"
    ]
   },
   {
@@ -14179,6 +14140,7 @@
    "parcel_ids": [
     "calumet_1900",
     "prairie_1900",
+    "prairie_1918",
     "prairie_1936"
    ]
   },
@@ -20274,7 +20236,6 @@
    ],
    "stream": "1800",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1808"
    ]
@@ -28443,7 +28404,6 @@
    },
    "stream": "1800",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1801",
     "prairie_1811"
@@ -28727,7 +28687,6 @@
    ],
    "stream": "streetscape",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1801",
     "prairie_1811",
@@ -28823,7 +28782,6 @@
    ],
    "stream": "streetscape",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1801"
    ]
@@ -28918,7 +28876,6 @@
    ],
    "stream": "streetscape",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1801",
     "prairie_1811"
@@ -28973,7 +28930,6 @@
    },
    "stream": "streetscape",
    "parcel_ids": [
-    "calumet_1800",
     "prairie_1800",
     "prairie_1801"
    ]
@@ -31034,8 +30990,7 @@
    "kind": "photograph",
    "title": "1900 PA (historic photograph of the Elbridge G. Keith house)",
    "building_ids": [
-    "pa-1900-25",
-    "pa-1906-34"
+    "pa-1900-25"
    ],
    "addresses": [
     "1900 S. Prairie Avenue"
@@ -31059,13 +31014,12 @@
    "local": null,
    "verified": "viewed",
    "found_via": "glessnerhouse.blogspot.com feed search 'keith'",
-   "notes": "Sepia photograph of the Keith house front: limestone-faced three storeys with slate mansard and dormers (the third-floor mansard was ADDED in the 1880s per the same post), segmental-arched windows with hoods, corner bay, Corinthian porch with balcony, broad stoop, low hedge and stone curb; a stone house at left (probably 1906 Edson Keith, south neighbour) and another mansard house at right. Post-1880s state, so likely close to 1904. Also posted by Chicagology as '1906 Prairie' (a19-cgy-1906-keith-photo) — same image, conflicting attribution.",
+   "notes": "Sepia photograph of the Keith house front: limestone-faced three storeys with slate mansard and dormers (the third-floor mansard was ADDED in the 1880s per the same post), segmental-arched windows with hoods, corner bay, Corinthian porch with balcony, broad stoop, low hedge and stone curb; a stone house at left (probably 1906 Edson Keith, south neighbour) and another mansard house at right. Post-1880s state, so likely close to 1904. Also posted by Chicagology as '1906 Prairie' (a19-cgy-1906-keith-photo) — same image, conflicting attribution. Attributed to 1900 only by the sheet 28 census (T-1841, ruling r28-1900-1906-photo): the facade is the surviving 1900 one and 1906 was a brownstone front.",
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
     "calumet_1900",
-    "prairie_1900",
-    "prairie_1906"
+    "prairie_1900"
    ]
   },
   {
@@ -31388,7 +31342,6 @@
    "kind": "photograph",
    "title": "1906 S. Prairie (Edson Keith residence) — exterior photograph [identification disputed: same photograph captioned '1900 PA' by Glessner House]",
    "building_ids": [
-    "pa-1906-34",
     "pa-1900-25"
    ],
    "addresses": [
@@ -31413,11 +31366,10 @@
    "local": null,
    "verified": "viewed",
    "found_via": "chicagology.com Prairie Avenue house pages",
-   "notes": "Photograph shown on Chicagology's Edson Keith (1906) page. The SAME photograph appears on the Glessner House blog 'Elbridge Keith House' (2014) as '1900 PA' — see a19-gh-keith-1900-historic. The house shown (mansard with dormers, segmental-arched windows with hoods, side bay, Corinthian entrance porch with balcony, high stoop) matches the surviving 1900 Prairie facade, so the Chicagology attribution to 1906 is probably wrong. If the camera faces west at 1900, the stone house at left (pedimented window) is the south neighbour — 1906 Edson Keith — partly visible. Undated; period provisional. Demolition of 1906 in 1942 per hosting page.",
+   "notes": "Photograph shown on Chicagology's Edson Keith (1906) page. The SAME photograph appears on the Glessner House blog 'Elbridge Keith House' (2014) as '1900 PA' — see a19-gh-keith-1900-historic. The house shown (mansard with dormers, segmental-arched windows with hoods, side bay, Corinthian entrance porch with balcony, high stoop) matches the surviving 1900 Prairie facade, so the Chicagology attribution to 1906 is probably wrong. If the camera faces west at 1900, the stone house at left (pedimented window) is the south neighbour — 1906 Edson Keith — partly visible. Undated; period provisional. Demolition of 1906 in 1942 per hosting page. Attributed to 1900 only by the sheet 28 census (T-1841, ruling r28-1900-1906-photo): the facade is the surviving 1900 one and 1906 was a brownstone front.",
    "measurements": [],
    "stream": "1900",
    "parcel_ids": [
-    "calumet_1900",
     "prairie_1900",
     "prairie_1906"
    ]
