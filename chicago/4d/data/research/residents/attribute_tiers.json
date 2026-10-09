@@ -26,10 +26,10 @@
   },
   "counts": {
     "cards": 1457,
-    "blocks": 22111,
+    "blocks": 22123,
     "tiers_written_on_the_card": 10800,
     "by_tier": {
-      "attested": 715,
+      "attested": 727,
       "inferred": 3738,
       "reconstructed": 10811,
       "unknown": 6847
@@ -78,7 +78,7 @@
         "unknown": 0
       },
       "kin[]": {
-        "attested": 138,
+        "attested": 150,
         "inferred": 12,
         "reconstructed": 0,
         "unknown": 0

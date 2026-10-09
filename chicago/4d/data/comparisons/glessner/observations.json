@@ -1,0 +1,2096 @@
+{
+  "ticket": "T-2200",
+  "target_date": "1904-07-01",
+  "baseline_dev": "caf1c4e37b0d728219c09c124c9a91b0718f557f",
+  "not_a_reading": "A comparison instrument over already cataloged images and the current model, not an additional archival reading or independent source.",
+  "contract": "T-1843 / ASSET-CATALOG.md \u00a7 Glessner comparison protocol; metric frame and existing canonical asset are reused.",
+  "frame": {
+    "units": "metres",
+    "origin": "SW corner of the bounding footprint",
+    "axes": "x east, y north, z up",
+    "from_building_ft": "x=(161.25-W)*0.3048; y=(74-S)*0.3048; z=height_above_north_grade_ft*0.3048",
+    "gltf": "[x,z,-y]",
+    "door_to_grade_ft": 0.74,
+    "datum_uncertainty_ft": 1.0
+  },
+  "assets": {
+    "assets/gltf/glessner_house__as_built_1887.glb": {
+      "bytes": 126154788,
+      "sha256": "e29f50e208e23de69cfabc14fb6062e48a08cfa0666f1ecaf9d4f6a3abdd0204"
+    },
+    "assets/web/glessner_house__as_built_1887.glb": {
+      "bytes": 48157348,
+      "sha256": "b541ca6293e733a4c95946c5f55633940deb3f756968fe7adf7d6e31004d710e"
+    },
+    "assets/web/glessner_house__as_built_1887.light.glb": {
+      "bytes": 25252600,
+      "sha256": "3e59adccc0798228e038bc67b05ec138703994891902d4a1b0a5284ff18b09ae"
+    },
+    "data/sidecars/1904/glessner_house.json": {
+      "bytes": 130601,
+      "sha256": "384d5628014c6d25a6f1d008f6e03c328d21ae1dd2f69d523af40a1d58f3c6ae"
+    },
+    "data/structures/glessner_house.json": {
+      "bytes": 122355,
+      "sha256": "15bbb009e41e8934bb8db0dbe70b6f77f874aac5ac31977b7cf25456372ba1fd"
+    }
+  },
+  "target_fraction": 0.01,
+  "acceptance_note": "1% is a proposed feature residual target, not a claim of survey accuracy. Camera controls and withheld check landmarks are reported separately. Out-of-target and unobserved features remain explicit exceptions; no geometry is altered to improve a score. The target flag requires both whole projected width and observed span; the latter prevents false passes from off-frame or unstable width extrapolations. Mesh association >0.30 m is unresolved.",
+  "dimensions": [
+    {
+      "name": "north-front length",
+      "value_ft": 161.25,
+      "source": "habs_glessner_house_il_1015_drawings",
+      "locator": "sheet 2, printed 161 ft 3 in",
+      "tier": "attested",
+      "carryback": "1963 measurement of retained envelope; 1904 use inferred with 1888 exterior and alteration history"
+    },
+    {
+      "name": "Prairie width",
+      "value_ft": 74,
+      "source": "habs_glessner_house_il_1015_drawings",
+      "locator": "sheet 2, printed 74 ft 0 in",
+      "tier": "attested",
+      "carryback": "1963 measurement of retained envelope; 1904 use inferred"
+    },
+    {
+      "name": "door sill above walk",
+      "value_ft": 0.74,
+      "source": "habs_glessner_house_il_1015_drawings",
+      "locator": "sheet 6: 0.00 AT DOOR; -0.74 AT SIDEWALK BEFORE DOORWAY",
+      "tier": "attested",
+      "carryback": "North-grade equivalence is reconstructed, uncertainty \u00b11 ft; never silently treated as a surveyed common datum"
+    }
+  ],
+  "phase_rules": [
+    {
+      "phase": "design",
+      "status": "excluded from as-built acceptance",
+      "note": "Unbuilt preliminary schemes and Houghton design sketches are not 1904 facts."
+    },
+    {
+      "phase": "1887\u20131904 fabric",
+      "status": "attested visible form / inferred measurements",
+      "note": "Taylor 2135 brackets street form; HABS later dimensions carry back feature by feature only with alteration exclusions."
+    },
+    {
+      "phase": "later alteration",
+      "status": "excluded from 1904 matching",
+      "note": "1946 overhead stable door, loft infill and courtyard paving; later signs, air conditioners, utility objects and stairs cannot set 1904 appearance."
+    },
+    {
+      "phase": "restoration",
+      "status": "separate observation",
+      "note": "Modern restored finishes, planting and replacement fittings do not date their historical state."
+    },
+    {
+      "phase": "reconstruction",
+      "status": "retained and labeled",
+      "note": "T-2235 west roof topology is the owner-directed working reconstruction. A photograph fit is not permission to erase or silently promote it."
+    }
+  ],
+  "views": [
+    {
+      "id": "prairie-front",
+      "title": "Prairie fa\u00e7ade \u00b7 cropped level HABS view",
+      "library_id": "a18-glessner-habs-photo-16",
+      "source_date": "1965",
+      "rights": "no known restrictions",
+      "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060918p",
+      "source_image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060918pr.jpg",
+      "local_image": "research/public/glessner-habs-photo-16.jpg",
+      "image_size": [
+        1800,
+        1297
+      ],
+      "image_sha256": "c48a056ae87e4e31d21aa95956cf7c1b57b00df4ded49323f5daca424107f8d8",
+      "photo_rectangle": [
+        120,
+        120,
+        1550,
+        1100
+      ],
+      "seed_camera_m": [
+        [
+          85,
+          11,
+          4
+        ],
+        [
+          49,
+          11,
+          5
+        ]
+      ],
+      "nominal_lens_mm": 43,
+      "sensor_width_mm": 36,
+      "landmarks": [
+        {
+          "id": "south-upper-left-head",
+          "building_ft": [
+            0,
+            68,
+            25.04
+          ],
+          "observed_px": [
+            933,
+            376
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "south-upper-right-sill",
+          "building_ft": [
+            0,
+            64.6,
+            20.54
+          ],
+          "observed_px": [
+            984,
+            450
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "middle-upper-left-head",
+          "building_ft": [
+            0,
+            56.8,
+            25.04
+          ],
+          "observed_px": [
+            1121,
+            374
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "middle-upper-right-sill",
+          "building_ft": [
+            0,
+            46.7,
+            20.54
+          ],
+          "observed_px": [
+            1294,
+            452
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "north-upper-left-head",
+          "building_ft": [
+            0,
+            40,
+            25.04
+          ],
+          "observed_px": [
+            1420,
+            375
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "north-upper-right-sill",
+          "building_ft": [
+            0,
+            26.2,
+            20.54
+          ],
+          "observed_px": [
+            1644,
+            450
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "south-first-left-head",
+          "building_ft": [
+            0,
+            69.3,
+            16.94
+          ],
+          "observed_px": [
+            912,
+            519
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "south-first-left-sill",
+          "building_ft": [
+            0,
+            69.3,
+            12.54
+          ],
+          "observed_px": [
+            912,
+            576
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "south-first-right-head",
+          "building_ft": [
+            0,
+            63.5,
+            16.94
+          ],
+          "observed_px": [
+            1007,
+            519
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "middle-first-head",
+          "building_ft": [
+            0,
+            58.3,
+            15.24
+          ],
+          "observed_px": [
+            1105,
+            546
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        }
+      ],
+      "limited": false,
+      "limitations": "The north corner and ridge are outside the photographed area; black plate edges are not building corners. Neighboring 1808, signs and vines are excluded. Aperture controls span the visible south/central fa\u00e7ade only; projected whole-body width is extrapolated and the observed-span metric is reported separately. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
+      "phase": "later observation; feature-specific carryback required",
+      "fit_method": "six-degree pinhole pose, fixed nominal focal length; fit controls only, independent check points retained",
+      "independence": "HABS 13/14 are related survey plates of the same north bay; other views are distinct exposures. No count of views is a count of independent historical corroborations.",
+      "camera_height_assumption_m": [
+        1.0,
+        2.5
+      ]
+    },
+    {
+      "id": "taylor-ne",
+      "title": "Northeast \u00b7 Taylor 2135",
+      "library_id": "a18-rba-taylor-2135-glessner-ne",
+      "source_date": "c. 1889 (RBA); likely 1887\u201388",
+      "rights": "public domain",
+      "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/28805",
+      "source_image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:28805/full/full/0/default.jpg",
+      "local_image": null,
+      "image_size": [
+        1056,
+        991
+      ],
+      "image_sha256": "892dcf9c4394074a0db119862ca0070998589f2820a754ff080fdb4f9d300b82",
+      "photo_rectangle": [
+        23,
+        22,
+        1010,
+        805
+      ],
+      "seed_camera_m": [
+        [
+          78,
+          48,
+          2
+        ],
+        [
+          34,
+          13,
+          6
+        ]
+      ],
+      "nominal_lens_mm": 32,
+      "sensor_width_mm": 36,
+      "landmarks": [
+        {
+          "id": "ne-base",
+          "building_ft": [
+            0,
+            0,
+            0
+          ],
+          "observed_px": [
+            599,
+            610
+          ],
+          "role": "fit",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "se-base",
+          "building_ft": [
+            0,
+            74,
+            0
+          ],
+          "observed_px": [
+            40,
+            574
+          ],
+          "role": "fit",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "ne-eave",
+          "building_ft": [
+            0,
+            0,
+            27.84
+          ],
+          "observed_px": [
+            599,
+            307
+          ],
+          "role": "fit",
+          "material": "roof_plane",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "se-eave",
+          "building_ft": [
+            0,
+            74,
+            27.84
+          ],
+          "observed_px": [
+            40,
+            351
+          ],
+          "role": "fit",
+          "material": "roof_plane",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "nw-base",
+          "building_ft": [
+            161.25,
+            0,
+            0
+          ],
+          "observed_px": [
+            978,
+            573
+          ],
+          "role": "fit",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "north-eave-west",
+          "building_ft": [
+            125.75,
+            0,
+            23.1
+          ],
+          "observed_px": [
+            953,
+            425
+          ],
+          "role": "fit",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "north-chimney-top",
+          "building_ft": [
+            13.25,
+            1.8,
+            49.36
+          ],
+          "observed_px": [
+            678,
+            119
+          ],
+          "role": "check",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "front-door-south-head",
+          "building_ft": [
+            0,
+            35.4,
+            8.49
+          ],
+          "observed_px": [
+            302,
+            511
+          ],
+          "role": "check",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "front-upper-north",
+          "building_ft": [
+            0,
+            9.3,
+            25.04
+          ],
+          "observed_px": [
+            526,
+            335
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "north-upper-east",
+          "building_ft": [
+            7.2,
+            0,
+            22.25
+          ],
+          "observed_px": [
+            650,
+            353
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        }
+      ],
+      "limited": false,
+      "limitations": "Catalog c.1889; likely 1887\u201388. Trees obscure some north-face features. Monochrome print/mount and unknown original lens; no color or planting reconstruction is inferred. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
+      "phase": "1887\u20131904 fabric",
+      "fit_method": "six-degree pinhole pose, fixed nominal focal length; fit controls only, independent check points retained",
+      "independence": "HABS 13/14 are related survey plates of the same north bay; other views are distinct exposures. No count of views is a count of independent historical corroborations.",
+      "camera_height_assumption_m": [
+        1.0,
+        2.5
+      ]
+    },
+    {
+      "id": "habs-ne",
+      "title": "Northeast \u00b7 HABS 1965",
+      "library_id": "a18-glessner-habs-photo-17",
+      "source_date": "1965",
+      "rights": "no known restrictions",
+      "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060919p",
+      "source_image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060919pr.jpg",
+      "local_image": "research/public/glessner-habs-photo-17.jpg",
+      "image_size": [
+        1800,
+        1279
+      ],
+      "image_sha256": "74274df9fcebd442d645f42c6c629ea891f44e33a5fc98e14dea66bb390dcf5f",
+      "photo_rectangle": [
+        133,
+        125,
+        1518,
+        1090
+      ],
+      "seed_camera_m": [
+        [
+          82,
+          48,
+          2
+        ],
+        [
+          34,
+          13,
+          6
+        ]
+      ],
+      "nominal_lens_mm": 38,
+      "sensor_width_mm": 36,
+      "landmarks": [
+        {
+          "id": "ne-base",
+          "building_ft": [
+            0,
+            0,
+            0
+          ],
+          "observed_px": [
+            1200,
+            721
+          ],
+          "role": "fit",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "se-base",
+          "building_ft": [
+            0,
+            74,
+            0
+          ],
+          "observed_px": [
+            620,
+            708
+          ],
+          "role": "fit",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "ne-eave",
+          "building_ft": [
+            0,
+            0,
+            27.84
+          ],
+          "observed_px": [
+            1192,
+            430
+          ],
+          "role": "fit",
+          "material": "roof_plane",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "se-eave",
+          "building_ft": [
+            0,
+            74,
+            27.84
+          ],
+          "observed_px": [
+            621,
+            493
+          ],
+          "role": "fit",
+          "material": "roof_plane",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "nw-base",
+          "building_ft": [
+            161.25,
+            0,
+            0
+          ],
+          "observed_px": [
+            1534,
+            700
+          ],
+          "role": "fit",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "north-eave-west",
+          "building_ft": [
+            125.75,
+            0,
+            23.1
+          ],
+          "observed_px": [
+            1510,
+            554
+          ],
+          "role": "fit",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "north-chimney-top",
+          "building_ft": [
+            13.25,
+            1.8,
+            49.36
+          ],
+          "observed_px": [
+            1251,
+            229
+          ],
+          "role": "check",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "front-door-south-head",
+          "building_ft": [
+            0,
+            35.4,
+            8.49
+          ],
+          "observed_px": [
+            879,
+            639
+          ],
+          "role": "check",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "front-upper-north",
+          "building_ft": [
+            0,
+            9.3,
+            25.04
+          ],
+          "observed_px": [
+            1108,
+            460
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "north-upper-east",
+          "building_ft": [
+            7.2,
+            0,
+            22.25
+          ],
+          "observed_px": [
+            1272,
+            496
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        }
+      ],
+      "limited": false,
+      "limitations": "1965 altered doors, signs, air conditioners, road and adjoining houses are excluded; masonry envelope only. Northwest corner partly obscured; use its picking uncertainty, not as a survey coordinate. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
+      "phase": "later observation; feature-specific carryback required",
+      "fit_method": "six-degree pinhole pose, fixed nominal focal length; fit controls only, independent check points retained",
+      "independence": "HABS 13/14 are related survey plates of the same north bay; other views are distinct exposures. No count of views is a count of independent historical corroborations.",
+      "camera_height_assumption_m": [
+        1.0,
+        2.5
+      ]
+    },
+    {
+      "id": "northwest-stable",
+      "title": "Northwest \u00b7 north range and stable",
+      "library_id": "a18-glessner-habs-photo-01",
+      "source_date": "1963-07-23",
+      "rights": "no known restrictions",
+      "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060903p",
+      "source_image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060903pr.jpg",
+      "local_image": "research/public/glessner-habs-photo-01.jpg",
+      "image_size": [
+        1800,
+        1289
+      ],
+      "image_sha256": "0db20640a9cd929e2df2db9895b6b824f7b59a58ca4fe99a51517ba3c3d9ffdc",
+      "photo_rectangle": [
+        57,
+        137,
+        1695,
+        1004
+      ],
+      "seed_camera_m": [
+        [
+          -34,
+          57,
+          2
+        ],
+        [
+          24,
+          21,
+          6
+        ]
+      ],
+      "nominal_lens_mm": 38,
+      "sensor_width_mm": 36,
+      "landmarks": [
+        {
+          "id": "ne-base",
+          "building_ft": [
+            0,
+            0,
+            0
+          ],
+          "observed_px": [
+            164,
+            873
+          ],
+          "role": "fit",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "nw-base",
+          "building_ft": [
+            161.25,
+            0,
+            0
+          ],
+          "observed_px": [
+            1550,
+            922
+          ],
+          "role": "fit",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "east-eave",
+          "building_ft": [
+            0,
+            0,
+            27.84
+          ],
+          "observed_px": [
+            169,
+            608
+          ],
+          "role": "fit",
+          "material": "roof_plane",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "west-eave",
+          "building_ft": [
+            161.25,
+            0,
+            26.3
+          ],
+          "observed_px": [
+            1548,
+            532
+          ],
+          "role": "fit",
+          "material": "roof_plane",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "stable-east-eave",
+          "building_ft": [
+            125.75,
+            0,
+            23.1
+          ],
+          "observed_px": [
+            1080,
+            575
+          ],
+          "role": "fit",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "north-range-east-eave",
+          "building_ft": [
+            26.5,
+            0,
+            23.1
+          ],
+          "observed_px": [
+            371,
+            645
+          ],
+          "role": "fit",
+          "material": "roof_plane",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "stable-ridge",
+          "building_ft": [
+            141,
+            0,
+            39.6
+          ],
+          "observed_px": [
+            1240,
+            356
+          ],
+          "role": "check",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "great-arch-apex",
+          "building_ft": [
+            102.5,
+            0,
+            10.8
+          ],
+          "observed_px": [
+            821,
+            737
+          ],
+          "role": "check",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "stable-loft-head",
+          "building_ft": [
+            137.5,
+            0,
+            24.4
+          ],
+          "observed_px": [
+            1186,
+            567
+          ],
+          "role": "check",
+          "material": "glass_dark",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "stable-loft-sill",
+          "building_ft": [
+            144.7,
+            0,
+            17.4
+          ],
+          "observed_px": [
+            1290,
+            660
+          ],
+          "role": "check",
+          "material": "glass_dark",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        }
+      ],
+      "limited": false,
+      "limitations": "1963. Stable infill/overhead door and boarded loft are later changes; masonry opening corners are compared, infill is excluded. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
+      "phase": "later observation; feature-specific carryback required",
+      "fit_method": "six-degree pinhole pose, fixed nominal focal length; fit controls only, independent check points retained",
+      "independence": "HABS 13/14 are related survey plates of the same north bay; other views are distinct exposures. No count of views is a count of independent historical corroborations.",
+      "camera_height_assumption_m": [
+        1.0,
+        2.5
+      ]
+    },
+    {
+      "id": "north-level",
+      "title": "North \u00b7 level survey bay",
+      "library_id": "a18-glessner-habs-photo-13",
+      "source_date": "1965",
+      "rights": "no known restrictions",
+      "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060915p",
+      "source_image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060915pr.jpg",
+      "local_image": "research/public/glessner-habs-photo-13.jpg",
+      "image_size": [
+        1800,
+        1268
+      ],
+      "image_sha256": "b5de6769dbaab6ea0991a9351b10c47344e61b7480b0f53a6e5d104ecb48e176",
+      "photo_rectangle": [
+        143,
+        60,
+        1516,
+        1095
+      ],
+      "seed_camera_m": [
+        [
+          43,
+          58,
+          3
+        ],
+        [
+          43,
+          22.55,
+          4
+        ]
+      ],
+      "nominal_lens_mm": 38,
+      "sensor_width_mm": 36,
+      "landmarks": [
+        {
+          "id": "corner-base",
+          "building_ft": [
+            0,
+            0,
+            0
+          ],
+          "observed_px": [
+            669,
+            726
+          ],
+          "role": "fit",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "first-narrow-head",
+          "building_ft": [
+            4,
+            0,
+            14.4583
+          ],
+          "observed_px": [
+            750,
+            402
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "first-narrow-sill",
+          "building_ft": [
+            5.6,
+            0,
+            9.25
+          ],
+          "observed_px": [
+            797,
+            519
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "upper-left-head",
+          "building_ft": [
+            7.2,
+            0,
+            22.25
+          ],
+          "observed_px": [
+            833,
+            198
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "upper-left-sill",
+          "building_ft": [
+            10.1,
+            0,
+            19.25
+          ],
+          "observed_px": [
+            897,
+            295
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "upper-right-head",
+          "building_ft": [
+            12,
+            0,
+            22.25
+          ],
+          "observed_px": [
+            928,
+            199
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "upper-right-sill",
+          "building_ft": [
+            14.7,
+            0,
+            19.25
+          ],
+          "observed_px": [
+            984,
+            295
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "west-upper-head",
+          "building_ft": [
+            25.8,
+            0,
+            22.25
+          ],
+          "observed_px": [
+            1211,
+            198
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "west-upper-sill",
+          "building_ft": [
+            28.1,
+            0,
+            19.25
+          ],
+          "observed_px": [
+            1264,
+            294
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "far-upper-head",
+          "building_ft": [
+            30,
+            0,
+            22.25
+          ],
+          "observed_px": [
+            1303,
+            201
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        }
+      ],
+      "limited": false,
+      "limitations": "1965 coplanar bay; roof is cropped and utility poles obscure the western pair. Lens/distance are not independently identifiable. No whole-north-elevation sign-off. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
+      "phase": "later observation; feature-specific carryback required",
+      "fit_method": "six-degree pinhole pose, fixed nominal focal length; fit controls only, independent check points retained",
+      "independence": "HABS 13/14 are related survey plates of the same north bay; other views are distinct exposures. No count of views is a count of independent historical corroborations.",
+      "camera_height_assumption_m": [
+        1.0,
+        2.5
+      ]
+    },
+    {
+      "id": "north-inclined",
+      "title": "North \u00b7 inclined survey bay",
+      "library_id": "a18-glessner-habs-photo-14",
+      "source_date": "1965",
+      "rights": "no known restrictions",
+      "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060916p",
+      "source_image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060916pr.jpg",
+      "local_image": "research/public/glessner-habs-photo-14.jpg",
+      "image_size": [
+        1800,
+        1269
+      ],
+      "image_sha256": "03e9b881e2032acd85c4c23f534ac235747ae6f17f373943b31308c13b0d8400",
+      "photo_rectangle": [
+        136,
+        115,
+        1515,
+        1100
+      ],
+      "seed_camera_m": [
+        [
+          43,
+          53,
+          2
+        ],
+        [
+          43,
+          22.55,
+          7
+        ]
+      ],
+      "nominal_lens_mm": 38,
+      "sensor_width_mm": 36,
+      "landmarks": [
+        {
+          "id": "corner-base",
+          "building_ft": [
+            0,
+            0,
+            0
+          ],
+          "observed_px": [
+            575,
+            1190
+          ],
+          "role": "fit",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "east-eave",
+          "building_ft": [
+            0,
+            0,
+            27.84
+          ],
+          "observed_px": [
+            606,
+            592
+          ],
+          "role": "fit",
+          "material": "roof_plane",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "first-narrow-head",
+          "building_ft": [
+            4,
+            0,
+            14.4583
+          ],
+          "observed_px": [
+            681,
+            853
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "first-narrow-sill",
+          "building_ft": [
+            5.6,
+            0,
+            9.25
+          ],
+          "observed_px": [
+            722,
+            960
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "upper-left-head",
+          "building_ft": [
+            7.2,
+            0,
+            22.25
+          ],
+          "observed_px": [
+            768,
+            652
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "upper-left-sill",
+          "building_ft": [
+            10.1,
+            0,
+            19.25
+          ],
+          "observed_px": [
+            822,
+            743
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "upper-right-head",
+          "building_ft": [
+            12,
+            0,
+            22.25
+          ],
+          "observed_px": [
+            856,
+            653
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "upper-right-sill",
+          "building_ft": [
+            14.7,
+            0,
+            19.25
+          ],
+          "observed_px": [
+            911,
+            744
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "chimney-top",
+          "building_ft": [
+            13.25,
+            1.8,
+            49.36
+          ],
+          "observed_px": [
+            975,
+            232
+          ],
+          "role": "check",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "north-tower-apex",
+          "building_ft": [
+            35,
+            8.6,
+            45.9
+          ],
+          "observed_px": [
+            1304,
+            355
+          ],
+          "role": "check",
+          "material": "copper",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        }
+      ],
+      "limited": false,
+      "limitations": "1965 tilted companion to north-level. Both plates share the same fabric and are not independent dating evidence. Gable/chimney and tower remain withheld silhouette checks. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
+      "phase": "later observation; feature-specific carryback required",
+      "fit_method": "six-degree pinhole pose, fixed nominal focal length; fit controls only, independent check points retained",
+      "independence": "HABS 13/14 are related survey plates of the same north bay; other views are distinct exposures. No count of views is a count of independent historical corroborations.",
+      "camera_height_assumption_m": [
+        1.0,
+        2.5
+      ]
+    },
+    {
+      "id": "stable-detail",
+      "title": "North \u00b7 stable and great arch",
+      "library_id": "a18-glessner-habs-photo-15",
+      "source_date": "1965",
+      "rights": "no known restrictions",
+      "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060917p",
+      "source_image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060917pr.jpg",
+      "local_image": "research/public/glessner-habs-photo-15.jpg",
+      "image_size": [
+        1800,
+        1275
+      ],
+      "image_sha256": "b2606ba44eb608ed801cd9e2ead0d58a0d24a99b9a443fdac8c8023bf0636cbc",
+      "photo_rectangle": [
+        143,
+        56,
+        1514,
+        1094
+      ],
+      "seed_camera_m": [
+        [
+          10,
+          58,
+          3
+        ],
+        [
+          10,
+          22.55,
+          5
+        ]
+      ],
+      "nominal_lens_mm": 38,
+      "sensor_width_mm": 36,
+      "landmarks": [
+        {
+          "id": "northwest-eave",
+          "building_ft": [
+            161.25,
+            0,
+            26.3
+          ],
+          "observed_px": [
+            1530,
+            281
+          ],
+          "role": "fit",
+          "material": "roof_plane",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "stable-east-eave",
+          "building_ft": [
+            125.75,
+            0,
+            23.1
+          ],
+          "observed_px": [
+            918,
+            279
+          ],
+          "role": "fit",
+          "material": "granite",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "loft-east-head",
+          "building_ft": [
+            137.5,
+            0,
+            24.4
+          ],
+          "observed_px": [
+            1103,
+            294
+          ],
+          "role": "fit",
+          "material": "glass_dark",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "loft-west-sill",
+          "building_ft": [
+            144.7,
+            0,
+            17.4
+          ],
+          "observed_px": [
+            1222,
+            412
+          ],
+          "role": "fit",
+          "material": "glass_dark",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "great-window-east-head",
+          "building_ft": [
+            97.7,
+            0,
+            22.25
+          ],
+          "observed_px": [
+            339,
+            293
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "great-window-west-sill",
+          "building_ft": [
+            110.1,
+            0,
+            19.25
+          ],
+          "observed_px": [
+            574,
+            347
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "wide-window-head",
+          "building_ft": [
+            116.1,
+            0,
+            14.4583
+          ],
+          "observed_px": [
+            697,
+            445
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "wide-window-sill",
+          "building_ft": [
+            120.1,
+            0,
+            9.25
+          ],
+          "observed_px": [
+            760,
+            542
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "loft-flank-east-head",
+          "building_ft": [
+            132.4,
+            0,
+            22.9
+          ],
+          "observed_px": [
+            1007,
+            291
+          ],
+          "role": "check",
+          "material": "glass_dark",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "loft-flank-west-head",
+          "building_ft": [
+            149.1,
+            0,
+            22.9
+          ],
+          "observed_px": [
+            1282,
+            292
+          ],
+          "role": "check",
+          "material": "glass_dark",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        }
+      ],
+      "limited": false,
+      "limitations": "1965 plate; parked cars block grade and ridge is cropped. Altered carriage-door leaves and loft infill are excluded. Stable opening masonry remains a check. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
+      "phase": "later observation; feature-specific carryback required",
+      "fit_method": "six-degree pinhole pose, fixed nominal focal length; fit controls only, independent check points retained",
+      "independence": "HABS 13/14 are related survey plates of the same north bay; other views are distinct exposures. No count of views is a count of independent historical corroborations.",
+      "camera_height_assumption_m": [
+        1.0,
+        2.5
+      ]
+    },
+    {
+      "id": "courtyard-east",
+      "title": "Courtyard looking east \u00b7 HABS copy",
+      "library_id": "a18-glessner-habs-photo-05",
+      "source_date": "c. 1923 (copied for HABS)",
+      "rights": "unknown \u2014 link only",
+      "catalog_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060907p",
+      "source_image_url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/il/il0100/il0118/photos/060907pr.jpg",
+      "local_image": "research/public/glessner-habs-photo-05.jpg",
+      "image_size": [
+        1800,
+        1440
+      ],
+      "image_sha256": "fd76fb904f489c597042a9347c9dc8bb71505ab77a54e08486fb51b6bf7639a7",
+      "photo_rectangle": [
+        87,
+        75,
+        1620,
+        1300
+      ],
+      "seed_camera_m": [
+        [
+          13,
+          1.5,
+          2
+        ],
+        [
+          35,
+          10,
+          6
+        ]
+      ],
+      "nominal_lens_mm": 28,
+      "sensor_width_mm": 36,
+      "landmarks": [
+        {
+          "id": "underpass-north-head",
+          "building_ft": [
+            26.5,
+            63.3,
+            8.1
+          ],
+          "observed_px": [
+            1514.66,
+            986.93
+          ],
+          "role": "fit",
+          "material": "brick",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "underpass-south-head",
+          "building_ft": [
+            26.5,
+            72.9,
+            8.1
+          ],
+          "observed_px": [
+            1652.73,
+            976.7
+          ],
+          "role": "fit",
+          "material": "brick",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "upper-underpass-north-head",
+          "building_ft": [
+            26.5,
+            62,
+            24.8
+          ],
+          "observed_px": [
+            1496.25,
+            699.55
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "upper-underpass-south-head",
+          "building_ft": [
+            26.5,
+            70,
+            24.8
+          ],
+          "observed_px": [
+            1649.66,
+            686.25
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "mid-window-head",
+          "building_ft": [
+            26.5,
+            43,
+            14.6
+          ],
+          "observed_px": [
+            1190.45,
+            898.98
+          ],
+          "role": "check",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "narrow-upper-head",
+          "building_ft": [
+            26.5,
+            44.9,
+            25.6
+          ],
+          "observed_px": [
+            1190.45,
+            735.34
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "stair-tower-apex",
+          "building_ft": [
+            27.3,
+            55,
+            44.3
+          ],
+          "observed_px": [
+            1396.02,
+            429.55
+          ],
+          "role": "check",
+          "material": "copper",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "hall-bow-top",
+          "building_ft": [
+            38.06,
+            26.84,
+            26.5
+          ],
+          "observed_px": [
+            876.48,
+            689.32
+          ],
+          "role": "fit",
+          "material": "copper",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "dining-roof-apex",
+          "building_ft": [
+            70.6,
+            29.19,
+            34.1
+          ],
+          "observed_px": [
+            514.43,
+            257.73
+          ],
+          "role": "fit",
+          "material": "copper",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "dining-bay-sill",
+          "building_ft": [
+            73.28,
+            36.73,
+            9.3
+          ],
+          "observed_px": [
+            524.66,
+            925.57
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 1.0
+        }
+      ],
+      "limited": false,
+      "limitations": "Copied ca.1923 photograph, not a pre-1904 courtyard observation. Existing library pixels stay in place; numerical comparison only, no new copied photograph or source-derived model asset. Cupola/bay points need three-dimensional review; paving/vines are not carried back. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
+      "phase": "later observation; feature-specific carryback required",
+      "fit_method": "six-degree pinhole pose, fixed nominal focal length; fit controls only, independent check points retained",
+      "independence": "HABS 13/14 are related survey plates of the same north bay; other views are distinct exposures. No count of views is a count of independent historical corroborations.",
+      "camera_height_assumption_m": [
+        1.0,
+        2.5
+      ]
+    },
+    {
+      "id": "courtyard-west",
+      "title": "Courtyard looking west \u00b7 Florian 1948",
+      "library_id": "a18-gh-florian-1948-porte-cochere-doors",
+      "source_date": "July 1948",
+      "rights": "copyright \u2014 link only",
+      "catalog_url": "https://glessnerhouse.blogspot.com/2023/07/glessner-house-july-1948.html",
+      "source_image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxH_bSorM9C4Opu6eJ8PMBMzQXG-CUCJPg4gSIullOeN5dSNMjh4iESs0jBH1_Zwo0Z8RXDuB-D1jRcQIXcwHIEyYPyF573ojvx-IutgQYev7KRYCWam2os92B8LVijawOAdM9BU9Y7stQMGFlyWMhGwDv4Qs5rj0jg6ARSZiG8hrAFJbX5wh-vp-rDQY/s1800/GX112.21.jpg",
+      "local_image": null,
+      "image_size": [
+        1221,
+        1800
+      ],
+      "image_sha256": "d64bbb19ac7ad120e9d4158924c844366084c3ed0fb182b43121706273febad5",
+      "photo_rectangle": [
+        0,
+        0,
+        1221,
+        1800
+      ],
+      "seed_camera_m": [
+        [
+          38,
+          1,
+          4
+        ],
+        [
+          10.8,
+          12,
+          6
+        ]
+      ],
+      "nominal_lens_mm": 32,
+      "sensor_width_mm": 36,
+      "landmarks": [
+        {
+          "id": "south-eave",
+          "building_ft": [
+            125.75,
+            59.75,
+            23.1
+          ],
+          "observed_px": [
+            462,
+            861
+          ],
+          "role": "fit",
+          "material": "roof_plane",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "south-base",
+          "building_ft": [
+            125.75,
+            59.75,
+            0
+          ],
+          "observed_px": [
+            474,
+            1378
+          ],
+          "role": "fit",
+          "material": "brick",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "south-ridge",
+          "building_ft": [
+            141,
+            59.75,
+            38.6
+          ],
+          "observed_px": [
+            451,
+            488
+          ],
+          "role": "fit",
+          "material": "roof_plane",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        },
+        {
+          "id": "upper-window-south",
+          "building_ft": [
+            125.75,
+            49,
+            21
+          ],
+          "observed_px": [
+            837,
+            928
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "reconstructed",
+          "picking_uncertainty_px": 3,
+          "note": "Tentative window correspondence through heavy ivy; position is a working association, not a measured 1904 opening. Excluded from acceptance.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "upper-window-north",
+          "building_ft": [
+            125.75,
+            45,
+            21
+          ],
+          "observed_px": [
+            906,
+            926
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "reconstructed",
+          "picking_uncertainty_px": 3,
+          "note": "Tentative window correspondence through heavy ivy; position is a working association, not a measured 1904 opening. Excluded from acceptance.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "upper-window-sill",
+          "building_ft": [
+            125.75,
+            45,
+            18
+          ],
+          "observed_px": [
+            907,
+            972
+          ],
+          "role": "fit",
+          "material": "glass",
+          "tier_1904": "reconstructed",
+          "picking_uncertainty_px": 3,
+          "note": "Tentative window correspondence through heavy ivy; position is a working association, not a measured 1904 opening. Excluded from acceptance.",
+          "recess_ft": 1.0
+        },
+        {
+          "id": "north-roof-intersection",
+          "building_ft": [
+            125.75,
+            26.83,
+            25.96
+          ],
+          "observed_px": [
+            1209,
+            856
+          ],
+          "role": "check",
+          "material": "roof_plane",
+          "tier_1904": "inferred",
+          "picking_uncertainty_px": 3,
+          "note": "Named feature from the canonical metric schedule; nearest compatible master-mesh vertex is recorded separately. Photograph date does not establish 1904 condition.",
+          "recess_ft": 0
+        }
+      ],
+      "limited": true,
+      "limitations": "Limited: ivy hides nearly all openings and the right end is cropped. The last roof point repeats an anchor solely as a visibility marker, never an independent check; insufficient independent check landmarks for acceptance. 1948 paving, steps and background industry are excluded. Camera approximate, no dimensional sign-off. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
+      "phase": "later observation; feature-specific carryback required",
+      "fit_method": "six-degree pinhole pose, fixed nominal focal length; fit controls only, independent check points retained",
+      "independence": "HABS 13/14 are related survey plates of the same north bay; other views are distinct exposures. No count of views is a count of independent historical corroborations.",
+      "camera_height_assumption_m": [
+        1.0,
+        8.0
+      ]
+    }
+  ],
+  "unmatched_views": [
+    {
+      "id": "alley-west",
+      "title": "Whole west alley \u00b7 unmatched review stand",
+      "position_m": [
+        -28,
+        13.45,
+        1.7
+      ],
+      "target_m": [
+        0,
+        13.45,
+        6
+      ],
+      "lens_mm": 36,
+      "source": "tools/render_structure_review.py / alley-west and tools/render_glessner_t2235.py / west-street",
+      "status": "unmatched",
+      "reason": "No dated, unobscured whole-west photograph is available. Nickel 1966\u201367 shows only a cropped roof/dormer fragment; it cannot establish a full fa\u00e7ade camera or eight well-distributed independent controls.",
+      "reference_library_id": "a18-gh-nickel-west-roof-dormer"
+    }
+  ]
+}

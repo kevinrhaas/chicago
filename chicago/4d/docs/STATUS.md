@@ -1,3 +1,27 @@
+## T-2200 — dated Glessner camera and residual baseline (2026-10-09)
+
+Eight core views × ten landmarks and one explicitly limited courtyard-west view
+(seven) now have fixed comparison cameras and 87 measured residuals. Open Glessner's
+house card → **Photographic comparison baseline** for source/model pairs and the
+withheld checks. Model geometry and dark glass are unchanged; the freeze includes
+T-2235. A candidate command evaluates future geometry through the frozen cameras.
+
+All eight core views retain exceptions to the proposed 1% target. Whole west remains
+unmatched; courtyard west is insufficient for acceptance. Most fitted poses touch the
+assumed camera-height bound. Errors may reflect camera/pick/vertex ambiguity as well
+as geometry. Later sources are not silently dated to 1904, and restricted courtyard
+pixels are not republished. [Method, measurements and reproduction](RESEARCH/glessner-camera-baseline/README.md).
+
+Owner-authorized dev→main promotion completed first: main `31768a18`, promotion
+37888023430, production deployment 37888103984 and live build verified. T-2200 ships
+to dev only; T-2201–T-2228 remain held for manual selection. Five numerical tests,
+report reproduction and the dedicated desktop/mobile page plus 1904 card-link checks
+pass. Published walk stages 3 and 12 pass on both viewports (103 and 101 checks
+per viewport, zero failures); these are the affected stages, not all 14. Desktop
+stage 12 took 19m45s under software graphics, recorded in the smoke ledger.
+The PR records the final repository preflight receipt;
+no whole-house photographic sign-off is claimed.
+
 ## T-2237 — the households outside the index, counted against the household quota (2026-10-09)
 
 T-2194 found the order book's household quota reads houses off `data/residents/index.json`

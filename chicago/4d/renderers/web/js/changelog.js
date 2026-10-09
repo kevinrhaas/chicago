@@ -1,8 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1566, ts: '2026-10-09T07:26:10.886Z', date: 'Oct 9, 2026, 2:26 AM CT', title: 'St Mary\u2019s mothers and godmothers are women again', kind: 'fix',
+  { v: null, ts: '', date: '', title: 'St Mary\u2019s mothers and godmothers are women again', kind: 'fix',
     items: [
       'St Mary\u2019s baptismal register names each child\u2019s mother and godmother. 28 of those women had no recorded sex, and the guess for them came out male. The register now sets them as women, quoting the entry.',
       'Twenty of them were heading a house as a married man with an invented wife and children. Eleven of those families were made up, 22 people in all, and they are gone; Catherine Chandler alone had been given a wife and five children. No one is invented in their place. A few guessed couples elsewhere in town pair up differently as a result.',
+    ] },
+  { v: 1567, ts: '2026-10-09T07:39:48.254Z', date: 'Oct 9, 2026, 2:39 AM CT', title: 'Twelve St Mary\u2019s children now name the parent the register gives them', kind: 'fix',
+    items: [
+      'St Mary\u2019s register names a mother or father for twelve children whose parent the town had carded but never linked to them, among them Joseph Mayo, the Wode twins, Susanne Vieaux and C\u00e9cile Laframboise. Open the child\u2019s card and the parent is now listed under \u201cRelated to\u201d, and the parent\u2019s card lists the child.',
+      'Those parents\u2019 cards are rebuilt from the register each time the town is rebuilt, so a link typed onto them by hand would have been lost. The rebuild now writes each link itself, straight from the baptism entry.',
+    ] },
+  { v: 1566, ts: '2026-10-09T07:11:45.716Z', date: 'Oct 9, 2026, 2:11 AM CT', title: 'Compare Glessner House with its dated photographs', kind: 'feature',
+    items: [
+      'Open Glessner House in the 1904 view and choose Photographic comparison baseline. Dated photographs and the model appear beside each other, with numbered landmarks showing where their outlines and openings disagree.',
+      'Eight measured views and a limited courtyard view establish the starting point for the remaining work. The page shows uncertainty and missing coverage, including the whole west elevation. The house still needs correction; these comparisons do not certify photographic perfection.',
     ] },
   { v: 1565, ts: '2026-10-09T06:37:17.302Z', date: 'Oct 9, 2026, 1:37 AM CT', title: 'The town plan checks the people outside its main list', kind: 'fix',
     items: [

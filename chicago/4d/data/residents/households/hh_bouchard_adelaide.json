@@ -130,6 +130,17 @@
     "st_marys_baptismal_register_1833_1835"
    ],
    "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the eighteenth of August eighteen hundred and thirty three, I the undersigned, baptised Louis son of Andrew and of Adelaide Bouchard born the 4th December 1830. Sponsors were Augustin Bonné and Josette Chevalier. Both cards were minted from this entry's rows (st_marys_bapt_1833_11_3_mother, st_marys_bapt_1833_11_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  },
+  {
+   "person": "bouchard_adelaide",
+   "relation": "mother",
+   "household": "hh_isabelle_bouchard",
+   "value": "isabelle_bouchard",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME (T-2191). Entry 12 of 1833: On the same day eighteen hundred and thirty three I, the undersigned, baptised Isabelle[?] daughter of Andrew and Adelaide Bouchard, born the eighth of May eighteen hundred & thirty three. Sponsors were Augustin Bonné and Josette Chevalier. The two cards are the ones that carry this entry's rows (st_marys_bapt_1833_12_1_child, st_marys_bapt_1833_12_3_mother), so no identification is made here. The parent's term is the register's role column; the child's is the entry's own word, 'daughter'. hh_isabelle_bouchard is written whole by its build, and tools/generated_card_kin.py derives both rows of this tie from the one entry, so a rebuild writes them again rather than losing one."
   }
  ],
  "persons": [

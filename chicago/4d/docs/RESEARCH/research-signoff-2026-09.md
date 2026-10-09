@@ -32,25 +32,24 @@ Reproduce: `python3 tools/report_research_signoff.py --check`.
 | Disposition | Units |
 | --- | ---: |
 | aggregate_only | 373 |
-| asserted | 1,505 |
+| asserted | 1,518 |
 | later_only | 12,616 |
 | outside_chicago | 118 |
 | refused | 8,783 |
-| unresolved | 321 |
+| unresolved | 308 |
 
-Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,505 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
+Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,518 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
 
 An `unresolved` unit is research read and not yet spent, and it is only legitimate while the ticket it defers to is still going to happen. Read the owners column carefully — it is the most informative table in this report:
 
 | Owner | Units | Live |
 | --- | ---: | ---: |
 | T-1552 | 26 | yes |
-| T-2191 | 13 | yes |
 | T-1569 | 12 | yes |
 | T-1315 | 3 | yes |
 | T-1543 | 1 | yes |
 
-Not one of those owners asks for another READING. The heaviest are T-1552 (26), T-2191 (13), T-1569 (12), T-1315 (3), T-1543 (1) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
+Not one of those owners asks for another READING. The heaviest are T-1552 (26), T-1569 (12), T-1315 (3), T-1543 (1) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
 
 **266** further unresolved unit(s) name no ticket at all, because no ticket can settle them: they are names the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, and what is open is whether the person was in the town on 1 July 1835. Each states the document that would reopen it (T-1423):
 
@@ -238,11 +237,12 @@ Reproduce: `python3 tools/location_reconciliation.py --check` · `python3 tools/
 | `outside_chicago` | 118 |
 | `refused` | 8,783 |
 
-The same rule over the gate itself: of **274** tools carrying a `--check`, **266** are run by `tools/check.sh` and **8** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
+The same rule over the gate itself: of **287** tools carrying a `--check`, **278** are run by `tools/check.sh` and **9** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
 
 | Ungated check | Owner | States why |
 | --- | ---: | ---: |
 | `generators/terrain_gen_e1830.py` | T-2003 | yes |
+| `tools/glessner_camera_baseline.py` | T-2228 | yes |
 | `tools/measure_boot_payload.mjs` | T-1156 | yes |
 | `tools/measure_boot_phases.mjs` | T-1246 | yes |
 | `tools/measure_street_widths.py` | — | yes |

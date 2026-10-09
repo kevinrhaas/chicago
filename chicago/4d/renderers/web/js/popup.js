@@ -916,6 +916,7 @@ function headHtml(s, record, called, p, place) {
       <h2>${escapeHtml(called.title)}</h2>
       <button class="pop-close" type="button" data-close aria-label="Close">×</button>
     </div>
+    ${s.id === 'glessner_house' ? `<p><a href="${new URL('../glessner-baseline.html', import.meta.url).href}" target="_blank" rel="noopener">Photographic comparison baseline ↗</a></p>` : ''}
     ${aka}
     ${kindLine}
     ${whereLine}
