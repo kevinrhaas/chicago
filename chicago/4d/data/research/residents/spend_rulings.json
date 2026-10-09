@@ -11,8 +11,9 @@
     "the_contradicting_reading_is_carried_as_an_undated_role_the_scene_view_refuses": 1,
     "the_engagement_reaches_no_field_and_names_no_trade_the_1835_field_lacks": 2,
     "the_enrichment_dates_an_appearance_the_card_already_carries": 15,
+    "the_enrichment_disputes_a_birth_year_and_states_none": 1,
+    "the_enrichment_gives_a_birth_the_card_already_carries": 2,
     "the_enrichment_is_written_onto_the_card_it_names": 7,
-    "the_enrichment_names_a_birth_or_age_no_field_carries": 3,
     "the_enrichment_names_a_departure_from_chicago_no_field_carries": 6,
     "the_family_pass_finds_the_relative_is_nobody_this_town_holds": 2,
     "the_family_pass_finds_the_tie_begins_after_the_scene": 1,
@@ -47,14 +48,17 @@
       "disposition": "refused",
       "statement": "The completed pass returned `corroborated_enrichment` naming an arrival, an origin or a dated appearance, and T-1330 read it against the card it names: the card ALREADY carries that date or that place, from a source of its own, at equal or better precision. Under the evidence ladder ratified 2026-09-03 corroboration corroborates; it does not promote, and a second volume agreeing that a man Andreas puts at Chicago in 1833 was at Chicago in 1833 names no field to fill. This is a finished answer rather than a deferral, and the finer detail some of these carry -- a month inside a year the card states, a roster naming inside a residence the card states -- is recorded in this unit's own note rather than written over a reading that owns the field. The nine of the thirty that DID retire a drawn or guessed value are not here: they are asserted on their cards by tools/spend_enrichment_arrivals.py and the ledger closes them by reading the card, which is why a ruling on one of them would be a fault."
     },
+    "the_enrichment_disputes_a_birth_year_and_states_none": {
+      "disposition": "refused",
+      "statement": "The completed pass returned `corroborated_enrichment` saying that later scholarship CONFLICTS with the birth year the card carries -- and T-1315 read the sources the pass cited and found that neither of them states a birth year at all. A dispute that names no year has nothing to write into `birth_year`, and it may not lower the card's grade either: the year is already `inferred`, and its note already carries the source's own hedge in the source's own words. This is a finished answer on THESE sources, not on the question; a volume that prints a year is a new reading and would be ruled on its own."
+    },
+    "the_enrichment_gives_a_birth_the_card_already_carries": {
+      "disposition": "refused",
+      "statement": "The completed pass returned `corroborated_enrichment` naming a BIRTH DATE, and T-1315 read it against the card it names with the volume open beside it: the card ALREADY carries that birth, to the day, in `birth_year` and `age_on_scene_date`, either from this same volume or from a source of its own that gives the same date. Under the evidence ladder ratified 2026-09-03 corroboration corroborates; it does not promote, and a second biography agreeing on the day a man was born names no field to fill. This is a finished answer rather than a deferral, and the page the date was read off is recorded in this unit's own note."
+    },
     "the_enrichment_is_written_onto_the_card_it_names": {
       "disposition": "asserted",
       "statement": "The completed pass returned `corroborated_enrichment` naming an arrival year or an origin, and T-1330 WROTE IT ONTO THE CARD -- over a value the arrival stage had drawn from a distribution, or over a year this project's own note called a guess. tools/spend_enrichment_arrivals.py holds the adjudication, writes the block and re-derives it under --check; the block is `inferred`, cites the volume the finding names, says which person it is about, and carries no `written_by_stage` mark, which is how reconstruct_residents_1835.py's `writable()` yields the field to it. This ruling exists because the ledger's own assertion test cannot see a spend of this kind: it closes a unit only where the card cites a source the READING already carried, and the whole value of these nine is that they bring a volume it did not. The `wrote` list on each row names the file and the field, and tools/research_spend_ledger.py re-reads every one of them -- an assertion a register cannot show is a fault, not an assertion."
-    },
-    "the_enrichment_names_a_birth_or_age_no_field_carries": {
-      "disposition": "unresolved",
-      "ticket": "T-1315",
-      "statement": "The completed pass returned `corroborated_enrichment`: a real, sourced fact about a person this town holds -- a trade, an address, an origin, a kinship, a date -- that extends the card and that no exact source-bearing structured field on that card carries today. It is not refused, because it is true research; it is not written here, because writing one attribute at a time, out of one pass and without the other sources beside it, is how a layer acquires facts it cannot defend. T-1301 read all 98 of them one at a time and handed each to the OPEN ticket whose acceptance owns the kind of fact it names; this unit's own note says which field that is. This one names a BIRTH DATE, a birth year or an age. It was routed to T-1168, the pass that fills sex and age for every attested and inferred person with its tier and its reason; that ticket was split into T-1303 (the tiers the evidence pays for) and T-1304 (the tier the model draws), and both are done, so `birth_year` and `age_band` both exist on the card and there is at last a field for these three to go in. T-1315 owns spending them, and a hand-off must name LIVE work rather than a spent parent."
     },
     "the_enrichment_names_a_departure_from_chicago_no_field_carries": {
       "disposition": "refused",
@@ -310,8 +314,8 @@
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/robinson_alexander",
-      "rule": "the_enrichment_names_a_birth_or_age_no_field_carries",
-      "note": "The pass on robinson_alexander returned: “The 1833 treaty and Indigenous Chicago corroborate Alexander Robinson's treaty and trading roles and Des Plaines reserve. Current scholarship conflicts with the household's doubtful 1762 birth and by-1816 arrival; exact …” Sources as recorded: treaty_chicago_1833_statutes, indigenous_chicago_alexander_robinson. T-1301 reads that as a birth year current scholarship disputes."
+      "rule": "the_enrichment_disputes_a_birth_year_and_states_none",
+      "note": "The pass on robinson_alexander returned: “The 1833 treaty and Indigenous Chicago corroborate Alexander Robinson's treaty and trading roles and Des Plaines reserve. Current scholarship conflicts with the household's doubtful 1762 birth and by-1816 arrival; exact …” Sources as recorded: treaty_chicago_1833_statutes, indigenous_chicago_alexander_robinson. T-1301 read that as a birth year current scholarship disputes. The card carries `birth_year` 1762 at `inferred`, citing andreas_1884_v1 with Andreas's own hedge (“the years of his life are somewhat doubtful”) in its note. T-1315 read the Indigenous Chicago profile on 2026-10-09: it gives his birth at Fort Mackinac to an Odawa mother and a Scottish father, his move to Chicago after the War of 1812 and his death on 22 April 1872, and NO birth year. The 1833 treaty names him as a party and gives no age. Neither cited source supplies the year the pass said scholarship prefers, so the dispute has nothing to write; the doubtful year keeps its doubt and its grade."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/robinson_catherine",
@@ -532,8 +536,8 @@
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/kimberly_edmund_s",
-      "rule": "the_enrichment_names_a_birth_or_age_no_field_carries",
-      "note": "The pass on kimberly_edmund_s returned: “Chicago medical history expands Edmund Stoughton Kimberly with an exact birth date of April 7, 1803, medical education, 1829 marriage, 1832 move to Chicago, 1833 town-trustee service and 1834 cholera-hospital …” Sources as recorded: history_medicine_chicago_kimberly_maxwell. T-1301 reads that as an exact birth date of 7 April 1803."
+      "rule": "the_enrichment_gives_a_birth_the_card_already_carries",
+      "note": "The pass on kimberly_edmund_s returned: “Chicago medical history expands Edmund Stoughton Kimberly with an exact birth date of April 7, 1803, medical education, 1829 marriage, 1832 move to Chicago, 1833 town-trustee service and 1834 cholera-hospital …” Sources as recorded: history_medicine_chicago_kimberly_maxwell. T-1301 read that as an exact birth date of 7 April 1803. The card already carries it: `birth_year` 1803 and `age_on_scene_date` 32, both `attested` and both citing history_medicine_chicago_kimberly_maxwell, the very volume this pass cited, written there by T-0478 (“born at Troy, New York, April 7, 1803”). T-1315 read the biography on 2026-10-09 (the Internet Archive text of the 1922 volume, the Kimberly biography headed “(1803-1874)”) and it says exactly that. Nothing to write."
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/kinzie_robert_a",
@@ -547,8 +551,8 @@
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/maxwell_philip",
-      "rule": "the_enrichment_names_a_birth_or_age_no_field_carries",
-      "note": "The pass on maxwell_philip returned: “Chicago medical history gives Philip Maxwell's full birth data and places him as Fort Dearborn's last surgeon from 1833 through the fort's final 1836 abandonment. This strongly corroborates his scene-period Chicago role.” Sources as recorded: history_medicine_chicago_kimberly_maxwell. T-1301 reads that as full birth data."
+      "rule": "the_enrichment_gives_a_birth_the_card_already_carries",
+      "note": "The pass on maxwell_philip returned: “Chicago medical history gives Philip Maxwell's full birth data and places him as Fort Dearborn's last surgeon from 1833 through the fort's final 1836 abandonment. This strongly corroborates his scene-period Chicago role.” Sources as recorded: history_medicine_chicago_kimberly_maxwell. T-1301 read that as full birth data. The card already carries it: `birth_year` 1799, `attested`, noted “3 April 1799” and citing andreas_1884_v1. T-1315 read the 1922 biography on 2026-10-09 (“Philip Maxwell, Eleventh Surgeon of Fort Dearborn (1799-1859)”, p. 21): “Born in Guilford, Windham County, Vt., April 3, 1799”. The same day as Andreas, so a second volume agrees and nothing moves."
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/mckee_david",

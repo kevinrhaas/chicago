@@ -1,10 +1,20 @@
 export const CHANGELOG = [ // newest first
-  { v: 1572, ts: '2026-10-09T11:15:07.460Z', date: 'Oct 9, 2026, 6:15 AM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
+  { v: 1574, ts: '2026-10-09T12:06:23.024Z', date: 'Oct 9, 2026, 7:06 AM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
     items: [
       'Open John S. C. Hogan\u2019s card: his roles now include trustee of the town of Chicago, read in the 1835 act on the town\u2019s incorporation.',
       'George W. Snow\u2019s card now records his election as the town\u2019s assessor and surveyor in December 1833, Ashbel Steele\u2019s his post as county coroner, and Joseph Meeker\u2019s his place as his church\u2019s Sunday-school librarian.',
       'Each is marked an office, graded inferred and cited. None of them changes anyone\u2019s 1835 occupation, because the histories they come from were written after the scene.',
       'Eight more posts the research had found, among them Hamilton\u2019s county clerkship and St Cyr\u2019s priesthood, were already on their cards. Nothing in the 3-D town changes.',
+    ] },
+  { v: 1573, ts: '2026-10-09T11:25:17.825Z', date: 'Oct 9, 2026, 6:25 AM CT', title: 'Three birth dates checked against the books they came from', kind: 'fix',
+    items: [
+      'Nothing you can see changes. Three readings said a book gives a birth for Dr Edmund Kimberly, Dr Philip Maxwell or Alexander Robinson that the town had not yet used. Each one is now read against the book beside the person\u2019s card.',
+      'Kimberly\u2019s 7 April 1803 and Maxwell\u2019s 3 April 1799 are already on their cards, and the 1922 medical history gives the same days. For Robinson, neither source gives a birth year, so his card keeps 1762 and keeps saying that year is doubtful.',
+    ] },
+  { v: 1572, ts: '2026-10-09T11:02:20.576Z', date: 'Oct 9, 2026, 6:02 AM CT', title: 'Alanson and Alonson Sweet stay two people', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The town holds two Sweets whose first name starts with A: Alanson Sweet, who is on every tax and poll list, and an \u2018A. Sweet\u2019 card, which also carries a lost-saddle notice of July 1834 signed \u2018Alonson Sweet\u2019.',
+      'The question was whether Alonson was a printer\u2019s slip for Alanson. Read on the scanned page, the notice really does say ALONSON. No issue of the paper ever prints both spellings for one man, so the two cards stay separate and each says why.',
     ] },
   { v: 1571, ts: '2026-10-09T10:37:53.730Z', date: 'Oct 9, 2026, 5:37 AM CT', title: 'The Chappel school shore drawing now says where it came from', kind: 'fix',
     items: [

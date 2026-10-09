@@ -8,9 +8,8 @@
   "open_clusters": 21,
   "cards_in_open_clusters": 45,
   "rulings": {
-   "distinct": 72,
+   "distinct": 73,
    "merge": 53,
-   "undecided_T-1281": 1,
    "undecided_T-1550": 1,
    "undecided_T-1554": 1,
    "undecided_owner": 1,
@@ -1207,7 +1206,7 @@
      "sources": [
       "chicago_democrat_1833_1835"
      ],
-     "ruling": "undecided",
+     "ruling": "distinct",
      "ruled_in": "sweet"
     },
     {
@@ -1219,7 +1218,7 @@
       "andreas_1884_v1",
       "chicago_voter_lists_1833_1835_irad"
      ],
-     "ruling": "undecided",
+     "ruling": "distinct",
      "ruled_in": "sweet"
     }
    ],
