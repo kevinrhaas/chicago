@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1552, ts: '2026-10-09T00:21:57.548Z', date: 'Oct 8, 2026, 7:21 PM CT', title: 'Mark Noble\u2019s son and daughter are on his card', kind: 'fix',
+    items: [
+      'The Chicago Democrat of 3 December 1833 prints a double wedding. Mark Noble jun., \u201csecond son of Mark Nobles, Esq.\u201d, married Charlotte Wesencraft, and Mary, \u201csecond daughter to Mark Noble, Esq.\u201d, married George Bickerdyke. All three Nobles had cards, and none of them named the others.',
+      'Open Mark Noble\u2019s card now and it names his son and his daughter, quoting the notice; their cards name him back. The two weddings are not seated yet, so Mark jun.\u2019s card still shows a guessed sex and a garbled name. That comes next.',
+    ] },
   { v: 1551, ts: '2026-10-08T22:48:46.097Z', date: 'Oct 8, 2026, 5:48 PM CT', title: 'Chester Ingersoll\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 17 December 1833 prints the tavern keeper Chester Ingersoll\u2019s marriage, on the 12th, to Miss Betsy Weaver. His house still showed a wife we had made up, \u2018Martha Ingersoll\u2019, while Betsy Weaver stood alone on a card of her own, guessed to be a man.',
