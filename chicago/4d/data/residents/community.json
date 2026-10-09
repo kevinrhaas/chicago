@@ -15,13 +15,13 @@
  },
  "not_a_reading": "Derived, never hand-edited. Every value is read off a committed field — a household's origin block or a reconstructed person's own pool community — and graded no higher than the field it came from. No source was read to write this file and nobody was minted.",
  "counts": {
-  "persons": 3457,
-  "households": 1981,
-  "known": 3324,
+  "persons": 3456,
+  "households": 1980,
+  "known": 3323,
   "unknown": 133,
   "by_community": {
-   "yankee": 1682,
-   "new_york": 558,
+   "yankee": 1680,
+   "new_york": 559,
    "irish": 479,
    "french_canadian": 184,
    "other": 137,
@@ -33,13 +33,13 @@
    "metis": 2
   },
   "by_tier": {
-   "reconstructed": 3264,
+   "reconstructed": 3263,
    "null": 133,
    "inferred": 57,
    "attested": 3
   },
   "by_rule": {
-   "reconstruction_community": 1899,
+   "reconstruction_community": 1898,
    "origin_region": 1401,
    "no_origin_recorded": 118,
    "stated_community": 24,
@@ -47,7 +47,7 @@
    "origin_unreadable": 4
   },
   "households_by_community": {
-   "yankee": 690,
+   "yankee": 689,
    "new_york": 557,
    "irish": 139,
    "other": 137,
@@ -10111,11 +10111,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_ingersoll_chester_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_irwell_william_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -16932,7 +16927,7 @@
    "rule": "origin_region"
   },
   "weaver_betsy": {
-   "value": "yankee",
+   "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -30647,13 +30642,6 @@
    "rule": "origin_region",
    "head": "wear_amy_c",
    "file": "households/hh_wear_amy_c.json"
-  },
-  "hh_weaver_betsy": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "origin_region",
-   "head": "weaver_betsy",
-   "file": "households/hh_weaver_betsy.json"
   },
   "hh_weaver_d": {
    "value": "yankee",
