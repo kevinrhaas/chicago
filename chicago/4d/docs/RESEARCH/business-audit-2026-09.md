@@ -33,7 +33,7 @@ block; `reading` is the printed notice restated and is attested wherever it is f
 | `firm_styles` | reading | 28 | 0 | 0 | 28 | 165 |
 | `proprietors` | rows | 107 | 0 | 0 | 107 | 86 |
 | `partners` | rows | 89 | 0 | 0 | 89 | 146 |
-| `staff` | rows | 0 | 1 | 123 | 124 | 109 |
+| `staff` | rows | 0 | 1 | 124 | 125 | 108 |
 | `locations` | rows | 26 | 171 | 0 | 197 | 0 |
 | `dates` | block | 14 | 179 | 0 | 193 | 0 |
 | `proprietor_community` | block | 0 | 21 | 93 | 114 | 79 |
@@ -54,7 +54,7 @@ Every one below has one.
 | `firm_styles` | 165 | The house is printed under one style only, so there is no second style to keep. |
 | `proprietors` | 86 | The notice names no keeper — an unsigned advertisement, or one signed by a firm style alone. A null here is a finding about the paper, not a person left out. |
 | `partners` | 146 | A sole keeper, or no keeper named at all. `compile_businesses` files a lone name as a proprietor and only a firm of two or more as partners. |
-| `staff` | 109 | THE PAPERS NAME OWNERS AND ALMOST NEVER A CLERK, so empty on a record the register compiled is a true reading of the register and not an omission. What is no longer empty is the 84 houses T-1433's seating seated a reconstructed hand in: T-1462 lays those 124 seats on as `staff` rows at their own tier, each with its seed and its basis. |
+| `staff` | 108 | THE PAPERS NAME OWNERS AND ALMOST NEVER A CLERK, so empty on a record the register compiled is a true reading of the register and not an omission. What is no longer empty is the 84 houses T-1433's seating seated a reconstructed hand in: T-1462 lays those 124 seats on as `staff` rows at their own tier, each with its seed and its basis. |
 | `proprietor_community` | 79 | No keeper this record names has a community on their town card, so there is nothing to read a house's community off. Never inferred from a surname. |
 | `customers` | 193 | The register carries no customer claim at all; T-1189 is where a workplace gets its people. |
 
@@ -167,7 +167,7 @@ not count (tailors, bakers, smiths, auctioneers, land agents, liveries, dentists
 
 - **Goods on a store that names none** — T-1404, which works the in-window trades from
   the research and raises a business for each.
-- **Staff** — a staff row on 84 of 193 records; a `staffing` block on 87. The
+- **Staff** — a staff row on 85 of 193 records; a `staffing` block on 88. The
   papers name proprietors and almost never a hand, so an empty list is a true reading
   of the register and not an omission. T-1183 rules the staffing model; T-1422 laid it
   over the schools and the printing offices as `staffing`, which names nobody; T-1462

@@ -33,8 +33,8 @@
       "street_only": 88,
       "unplaceable": 104
     },
-    "named_people": 423,
-    "named_people_linked_to_a_town_card": 370,
+    "named_people": 424,
+    "named_people_linked_to_a_town_card": 371,
     "works_at_households": 51,
     "works_at_households_resolving_to_a_business": 37,
     "by_grade": {
@@ -7125,6 +7125,15 @@
           "tier": "attested",
           "from": "1835-07-22",
           "to": "1835-07-29",
+          "also_printed_as": []
+        },
+        {
+          "name": "John Barnes",
+          "person_id": "rc_barnes_john",
+          "role": "clerk",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
           "also_printed_as": []
         }
       ],

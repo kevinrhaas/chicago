@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1576, ts: '2026-10-09T13:36:46.962Z', date: 'Oct 9, 2026, 8:36 AM CT', title: 'Two more shopkeepers live over their own stores', kind: 'fix',
+  { v: 1577, ts: '2026-10-09T13:58:15.686Z', date: 'Oct 9, 2026, 8:58 AM CT', title: 'Two more shopkeepers live over their own stores', kind: 'fix',
     items: [
       'Open J. L. Wilson & Co.\u2019s dry goods store on Randolph Street, or Fullerton & Botsford\u2019s pork and provision store at Dearborn and Lake. Each stood empty because the town could not tell who the firm\u2019s partners were. John Wilson now lives over the Wilson store, and J. K. Botsford\u2019s household of six over Fullerton & Botsford\u2019s.',
       'The business cards for both firms, and for Clark, Filer & Co., the chair makers, now link the partner to their own card. Each card says how the match was made: the same corner, the same trade, or the paper\u2019s own spelling of the name. A. Filer already lives over his other shop, so the Clark, Filer & Co. store now says nobody lived over it.',
-      'Two more homes over stores let five households who were waiting for a roof move in. Stores whose partners the town has no card for, such as H. Doty & Co. and the Chicago Bakery, are next.',
+      'Two more homes over stores let six households who were waiting for a roof move in. Stores whose partners the town has no card for, such as H. Doty & Co. and the Chicago Bakery, are next.',
+    ] },
+  { v: 1576, ts: '2026-10-09T13:08:00.450Z', date: 'Oct 9, 2026, 8:08 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
+    items: [
+      'The St Cyr burial register and the Chicago Democrat\u2019s death notices bury thirteen people before the scene date, among them W. Brannen, John Hogan, William Bourque, Sarah Hoit and two-year-old Charles Rollins. They were still counted in the town. Their cards in the People directory now say they had died, and cite the entry.',
+      'Three of them headed houses that had been given a reconstructed wife and children. Those twelve invented people are withdrawn. Two women who had been reconstructed as wives of men who had died now head their own houses again.',
+      'Two people the town had added from the burial register itself are no longer added. The postmaster John S. C. Hogan is a different man and stays.',
     ] },
   { v: 1575, ts: '2026-10-09T12:24:15.716Z', date: 'Oct 9, 2026, 7:24 AM CT', title: 'Three shopkeepers who lived elsewhere now appear at their stores', kind: 'fix',
     items: [

@@ -25,26 +25,26 @@
     ]
   },
   "counts": {
-    "cards": 1457,
-    "blocks": 22123,
-    "tiers_written_on_the_card": 10800,
+    "cards": 1459,
+    "blocks": 22103,
+    "tiers_written_on_the_card": 10782,
     "by_tier": {
-      "attested": 727,
-      "inferred": 3738,
-      "reconstructed": 10811,
-      "unknown": 6847
+      "attested": 740,
+      "inferred": 3725,
+      "reconstructed": 10797,
+      "unknown": 6841
     },
     "by_attribute": {
       "arrival": {
         "attested": 51,
         "inferred": 1356,
-        "reconstructed": 50,
+        "reconstructed": 52,
         "unknown": 0
       },
       "arrival_year": {
         "attested": 0,
         "inferred": 19,
-        "reconstructed": 1373,
+        "reconstructed": 1375,
         "unknown": 0
       },
       "directories.people[].address_later": {
@@ -87,24 +87,24 @@
         "attested": 8,
         "inferred": 15,
         "reconstructed": 11,
-        "unknown": 1423
+        "unknown": 1425
       },
       "origin": {
         "attested": 11,
         "inferred": 41,
-        "reconstructed": 1405,
+        "reconstructed": 1407,
         "unknown": 0
       },
       "party_size_on_arrival": {
         "attested": 3,
         "inferred": 9,
         "reconstructed": 0,
-        "unknown": 1445
+        "unknown": 1447
       },
       "persons[].age_band": {
         "attested": 7,
         "inferred": 53,
-        "reconstructed": 2831,
+        "reconstructed": 2819,
         "unknown": 7
       },
       "persons[].age_on_scene_date": {
@@ -140,14 +140,14 @@
       "persons[].name_basis": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 1455,
+        "reconstructed": 1443,
         "unknown": 0
       },
       "persons[].occupation": {
         "attested": 118,
         "inferred": 20,
         "reconstructed": 203,
-        "unknown": 2557
+        "unknown": 2545
       },
       "persons[].profile_facts[]": {
         "attested": 1,
@@ -162,29 +162,29 @@
         "unknown": 6
       },
       "present_on_scene_date": {
-        "attested": 25,
-        "inferred": 1381,
-        "reconstructed": 51,
+        "attested": 38,
+        "inferred": 1368,
+        "reconstructed": 53,
         "unknown": 0
       },
       "reason_for_coming": {
         "attested": 12,
         "inferred": 13,
-        "reconstructed": 1432,
+        "reconstructed": 1434,
         "unknown": 0
       },
       "works_at": {
         "attested": 32,
         "inferred": 19,
         "reconstructed": 0,
-        "unknown": 1406
+        "unknown": 1408
       }
     },
     "reconstructed_by_basis": {
       "address_back_projection": 23,
       "arrival_bound_from_the_record": 1,
-      "arrival_earliest_year_forced": 49,
-      "inferred_household_hypothesis": 40,
+      "arrival_earliest_year_forced": 51,
+      "inferred_household_hypothesis": 42,
       "origin_uncited_literature": 1,
       "residence_back_projection": 12
     }
@@ -1201,6 +1201,41 @@
       }
     },
     {
+      "card": "hh_rc_bourassa_madeleine",
+      "attribute": "arrival",
+      "value": "1835-07-01",
+      "precision": "not_later_than",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING. No source names this household, so none dates its coming. What the record does say is that it was here on 1835-07-01 — that is the whole of what this stage claims — and a household here on that day arrived not later than it. Nothing narrower is known; the year below is DRAWN from that bound by the programme's arrival stage against the years the known layer records.",
+      "basis": {
+        "kind": "rule",
+        "id": "arrival_earliest_year_forced",
+        "note": "No source dates the coming. The value is the earliest year the committed evidence forces, carried at the precision the note states."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a dated source that says when this person came to Chicago"
+      }
+    },
+    {
+      "card": "hh_rc_bourassa_madeleine",
+      "attribute": "present_on_scene_date",
+      "value": "present",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "PRESENCE IS THE HYPOTHESIS, not a finding about anybody. This household exists because the town of 1 July 1835 demonstrably held women and children the naming sources never printed — the order book counts how many, by sex, age and division — and this is one of them.",
+      "basis": {
+        "kind": "rule",
+        "id": "inferred_household_hypothesis",
+        "note": "Presence on the scene date IS this household's hypothesis: the record exists because the town of 1 July 1835 demonstrably needed a household of this trade."
+      },
+      "replaceable_by": {
+        "kind": "household",
+        "match": "a source that puts this household at Chicago on 1 July 1835, or takes it away"
+      }
+    },
+    {
       "card": "hh_rc_carroll_ellen",
       "attribute": "arrival",
       "value": "1835-07-01",
@@ -1308,6 +1343,41 @@
     },
     {
       "card": "hh_rc_cobb_martha",
+      "attribute": "present_on_scene_date",
+      "value": "present",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "PRESENCE IS THE HYPOTHESIS, not a finding about anybody. This household exists because the town of 1 July 1835 demonstrably held women and children the naming sources never printed — the order book counts how many, by sex, age and division — and this is one of them.",
+      "basis": {
+        "kind": "rule",
+        "id": "inferred_household_hypothesis",
+        "note": "Presence on the scene date IS this household's hypothesis: the record exists because the town of 1 July 1835 demonstrably needed a household of this trade."
+      },
+      "replaceable_by": {
+        "kind": "household",
+        "match": "a source that puts this household at Chicago on 1 July 1835, or takes it away"
+      }
+    },
+    {
+      "card": "hh_rc_connor_margaret",
+      "attribute": "arrival",
+      "value": "1835-07-01",
+      "precision": "not_later_than",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING. No source names this household, so none dates its coming. What the record does say is that it was here on 1835-07-01 — that is the whole of what this stage claims — and a household here on that day arrived not later than it. Nothing narrower is known; the year below is DRAWN from that bound by the programme's arrival stage against the years the known layer records.",
+      "basis": {
+        "kind": "rule",
+        "id": "arrival_earliest_year_forced",
+        "note": "No source dates the coming. The value is the earliest year the committed evidence forces, carried at the precision the note states."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a dated source that says when this person came to Chicago"
+      }
+    },
+    {
+      "card": "hh_rc_connor_margaret",
       "attribute": "present_on_scene_date",
       "value": "present",
       "confidence": "reconstructed",
@@ -2721,13 +2791,13 @@
         "kind": "person",
         "match": "a dated source that says which year this household came to Chicago"
       },
-      "values": 1373,
+      "values": 1375,
       "by_value": {
-        "1834": 580,
-        "1833": 402,
-        "1835": 314,
-        "1832": 45,
-        "1831": 17,
+        "1834": 575,
+        "1833": 405,
+        "1835": 318,
+        "1832": 44,
+        "1831": 18,
         "1818": 4,
         "1824": 3,
         "1816": 2,
@@ -2819,9 +2889,9 @@
         "kind": "person",
         "match": "a source that says where this household came from"
       },
-      "values": 1376,
+      "values": 1378,
       "by_value": {
-        "New York State": 560,
+        "New York State": 562,
         "New England": 481,
         "The Mid-Atlantic states": 121,
         "England": 114,
@@ -2860,15 +2930,15 @@
         "kind": "person",
         "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
       },
-      "values": 2828,
+      "values": 2816,
       "by_value": {
-        "20-29": 966,
-        "0-4": 470,
-        "30-39": 467,
+        "20-29": 964,
+        "30-39": 466,
+        "0-4": 462,
         "10-19": 239,
         "0-9": 221,
         "40-49": 145,
-        "15-19": 127,
+        "15-19": 126,
         "5-9": 71,
         "10-14": 42,
         "50-59": 42,
@@ -2908,7 +2978,7 @@
         "kind": "person",
         "match": "a source naming a member of Titus H Abbott's family"
       },
-      "values": 1455,
+      "values": 1443,
       "by_value": {
         "Mary Nolan": 4,
         "Abigail King": 2,
@@ -2938,7 +3008,6 @@
         "Abigail Pixby": 1,
         "Abigail Porter": 1,
         "Abigail Reed": 1,
-        "Abigail Rollins": 1,
         "Abigail Smith": 1,
         "Abigail Vardon": 1,
         "Abigail Whitcomb": 1,
@@ -3053,7 +3122,6 @@
         "Amanda Paine": 1,
         "Amanda Peck": 1,
         "Amanda Rider": 1,
-        "Amanda Rollins": 1,
         "Amanda Rue": 1,
         "Amanda Smow": 1,
         "Amanda Thayer": 1,
@@ -3271,7 +3339,6 @@
         "Clarissa Newell": 1,
         "Clarissa Price": 1,
         "Clarissa Riffe": 1,
-        "Clarissa Rollins": 1,
         "Clarissa Sherman": 1,
         "Clarissa Smow": 1,
         "Clarissa Stebbins": 1,
@@ -3425,7 +3492,6 @@
         "Erastus Nash": 1,
         "Erastus Panster": 1,
         "Erastus Reynolds": 1,
-        "Erastus Rollins": 1,
         "Erastus Smow": 1,
         "Erastus Stewart": 1,
         "Erastus Tucker": 1,
@@ -3478,12 +3544,10 @@
         "George Clarke": 1,
         "George Fisk": 1,
         "George Gilbert": 1,
-        "George Hamilton": 1,
         "George Hugunin": 1,
         "George Ingalls": 1,
         "George King": 1,
         "George Morrison": 1,
-        "George Outhet": 1,
         "Hannah Boyer": 1,
         "Hannah Byram": 1,
         "Hannah Clarke": 1,
@@ -3647,7 +3711,6 @@
         "James Metcalf": 1,
         "James Miller": 1,
         "James Nolan": 1,
-        "James Outhet": 1,
         "James Taylor": 1,
         "James Tobin": 1,
         "James Trall": 1,
@@ -4040,7 +4103,6 @@
         "Otis Forsythe": 1,
         "Otis Gilbert": 1,
         "Otis Kinzie": 1,
-        "Otis Rollins": 1,
         "Otis Wadsworth": 1,
         "Owen Cook": 1,
         "Owen Dolan": 1,
@@ -4105,7 +4167,6 @@
         "Polly Jones": 1,
         "Polly Miller": 1,
         "Polly Newell": 1,
-        "Polly Outhet": 1,
         "Polly Panster": 1,
         "Polly Peacock": 1,
         "Polly Pearsons": 1,
@@ -4198,12 +4259,10 @@
         "Sarah Davis": 1,
         "Sarah Garrett": 1,
         "Sarah Gilbert": 1,
-        "Sarah Hamilton": 1,
         "Sarah Jolly": 1,
         "Sarah Keeney": 1,
         "Sarah King": 1,
         "Sarah Nash": 1,
-        "Sarah Outhet": 1,
         "Sarah Reynolds": 1,
         "Sarah Salisbury": 1,
         "Sarah Saunders": 1,
@@ -4268,7 +4327,6 @@
         "Susan Coslet": 1,
         "Susan Curtin": 1,
         "Susan Dickinson": 1,
-        "Susan Hamilton": 1,
         "Susan Kimberly": 1,
         "Susan Lewis": 1,
         "Susan Ludby": 1,
@@ -4445,9 +4503,9 @@
       },
       "values": 1329,
       "by_value": {
-        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 557,
-        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 386,
-        "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated": 312,
+        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 552,
+        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 388,
+        "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated": 315,
         "The trading post, the fort and the country trade — the town before the boom": 74
       },
       "a_seed": null,
@@ -4463,12 +4521,12 @@
         "kind": "person",
         "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
       },
-      "values": 103,
+      "values": 105,
       "by_value": {
         "A store for the traffic of a town filling up": 26,
-        "A mechanic's trade in a town that had few of it": 14,
+        "A mechanic's trade in a town that had few of it": 15,
         "A professional practice in a new county seat": 14,
-        "A congregation or a school": 8,
+        "A congregation or a school": 9,
         "Lodging and victualling the traffic": 8,
         "A county office in a newly organised county": 7,
         "The building of a town three years old": 7,

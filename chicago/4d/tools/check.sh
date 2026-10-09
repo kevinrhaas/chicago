@@ -4709,6 +4709,17 @@ step "…and none of them claims more than a person and a reading" \
 selftest "…and that pass's own refusals still fire when broken" \
   python3 tools/mint_civic_residents.py --self-test
 
+# T-2189, the class gate. A burial or a death notice is a departure, not a sighting, and
+# the one departure no later source undoes — so no card anywhere in the residents layer
+# that cites its OWN burial or death notice dated before the scene date may read other
+# than `absent`. Five such cards stood present until T-1335's family pass noticed them;
+# this reads every card, whichever stage wrote it, rather than trusting each stage to.
+step "no card stands in the town after its own burial or death notice" \
+  python3 tools/death_readings.py --check
+
+selftest "…and that gate reads a death as the head's own, and a merge ruling's as not" \
+  python3 tools/death_readings.py --self-test
+
 # T-1117. The 1833 tax list is a PROPERTY ROLL: the town assessed ground, so its 115
 # names are owners and estates rather than people at the place, and it draws no line
 # between a resident payer and a non-resident one — the published transcription has no
