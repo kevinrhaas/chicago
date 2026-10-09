@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1596, ts: '2026-10-09T22:11:21.419Z', date: 'Oct 9, 2026, 5:11 PM CT', title: 'Prairie Avenue’s 20th-to-22nd blocks: every 1904 building accounted for', kind: 'feature',
+    items: [
+      'In the Prairie Avenue 1904 library, open any house between 20th and 22nd Streets. A panel gives its 1904 decision and lists its front building, wings, rear stable and grounds, each graded attested, inferred or reconstructed.',
+      'The Robbins house at 2126 is shown as a building site on 1 July 1904. The old Hamill house was razed that year, and the new house was finished by spring 1905.',
+      'The site plan puts eight Prairie houses, among them the Sherman, Armour and Smith houses, on their own lots only. They had also been drawn on Indiana or Calumet lots that share their numbers.',
+      'Two misreadings are fixed. The building behind 2120 is lettered “vacant 1st, dressmaking 2nd”. The Wheeler-Kohn house stands at 2018 Calumet, not 2018 Prairie.',
+      'Mark Kimball’s house at 2108 and the Rees house at 2110 share one coach house. Nothing in the 3-D town changes yet.',
+    ] },
   { v: 1595, ts: '2026-10-09T21:47:24.470Z', date: 'Oct 9, 2026, 4:47 PM CT', title: 'Glessner roof tiles stay steady at a distance', kind: 'fix',
     items: [
       'Fine clay-tile relief now blends gradually into the same tile pattern as it becomes too small to resolve, reducing the broad ripples and shimmer when moving around the house.',
