@@ -8,8 +8,8 @@
 | | target | known | to reconstruct |
 |---|---:|---:|---:|
 | Persons | 2,550 | 1,419 | 1,798 |
-| Households | 645 | 165 | 449 |
-| Businesses (enumerated classes) | 109 | 128 | 7 |
+| Households | 645 | 165 | 445 |
+| Businesses (enumerated classes) | 109 | 129 | 7 |
 | Roofs | 668 | 678 | 9 |
 
 **2,865 people stand in the layer today** and **13** are still owed after the counters, so the town this book converges to is **2,878** — inside the model's 2,371-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
@@ -23,7 +23,7 @@
 
 *T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?*
 
-Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 0. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
+Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 10. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
 
 **Verdict:** reopen T-1171 for the persons; the households are discharged
 
@@ -356,12 +356,12 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 |---|---:|---:|
 | T-1174 | 594 | 27 |
 | T-2021 | 469 | 19 |
-| T-2193 | 331 | 3 |
+| T-2193 | 321 | 3 |
 | T-1347 | 309 | 24 |
 | T-1171 | 294 | 19 |
 | T-1371 | 138 | 35 |
 | T-1533 | 26 | 5 |
-| T-2236 | 23 | 3 |
+| T-2236 | 19 | 3 |
 | T-1536 | 11 | 4 |
 | T-1532 | 3 | 1 |
 | T-1184 | 2 | 1 |
@@ -572,26 +572,26 @@ The households the model wants, by kind and division.
 | `households/boarding_house/north` | 12 | 3 | 9 | 6 | T-2023 |
 | `households/boarding_house/south` | 41 | 12 | 29 | 7 | T-2023 |
 | `households/boarding_house/west` | 9 | 2 | 7 | 3 | T-2023 |
-| `households/family_dwelling/north` | 123 | 27 | 96 | 96 | T-2193 |
-| `households/family_dwelling/south` | 258 | 74 | 184 | 184 | T-2193 |
-| `households/family_dwelling/west` | 110 | 21 | 89 | 89 | T-2193 |
+| `households/family_dwelling/north` | 123 | 27 | 96 | 96 | T-2256 |
+| `households/family_dwelling/south` | 258 | 74 | 184 | 174 | T-2256 |
+| `households/family_dwelling/west` | 110 | 21 | 89 | 89 | T-2256 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 0 | T-2023 |
 | `households/inn_tavern/south` | 7 | 2 | 5 | 5 | T-2023 |
 | `households/inn_tavern/west` | 4 | 1 | 3 | 1 | T-2023 |
 | `households/institutional/south` | 1 | 0 | 1 | 1 | T-1531 |
 | `households/store_residence/north` | 6 | 2 | 2 | 2 | T-2246 |
-| `households/store_residence/south` | 62 | 18 | 16 | 16 | T-2246 |
+| `households/store_residence/south` | 62 | 18 | 12 | 12 | T-2246 |
 | `households/store_residence/west` | 9 | 1 | 5 | 5 | T-2246 |
 | `households/garrison/fort` | — | 2 | — | 0 | T-1176 |
 
-**The store rows, ruled (T-2194).** The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged; 4 more stand a house of trade whose keeper the town places on another roof, so nobody lived over them; 4 stand a house of trade whose keeper the town holds no card for, so nobody is seated over them; and 0 are still owed: a keeper for a store roof that stands with nobody in it. BOTH. The book over-orders the store rows, by what it ordered above one household a store roof, and that is discharged here. And the index is short: the household quota counts houses off the residents index alone, so the trade households the reconstruction drew as heads of their own and seated on a roof, the readmitted and the underdocumented are outside the count. They are people the cards hold present, not an order to fill, and T-2236 forms the store households from the keepers of the houses of trade the town holds, over their own stores, rather than from anybody new; what it could not form is T-2246's.
+**The store rows, ruled (T-2194).** The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged; 8 more stand a house of trade whose keeper the town places on another roof, so nobody lived over them; 4 stand a house of trade whose keeper the town holds no card for, so nobody is seated over them; and 0 are still owed: a keeper for a store roof that stands with nobody in it. BOTH. The book over-orders the store rows, by what it ordered above one household a store roof, and that is discharged here. And the index is short: the household quota counts houses off the residents index alone, so the trade households the reconstruction drew as heads of their own and seated on a roof, the readmitted and the underdocumented are outside the count. They are people the cards hold present, not an order to fill, and T-2236 forms the store households from the keepers of the houses of trade the town holds, over their own stores, rather than from anybody new; what it could not form is T-2246's.
 
 ## Businesses
 
 The December 1835 State census set against the register the town already holds.
 
 - `register_total`: 193
-- `at_scene_date`: 205
+- `at_scene_date`: 206
 - `census_enumerated_total`: 118
 - `register_businesses_read`: 193
 - `division_note`: EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY, and that is a reading rather than a hole: the register carries a street where the paper printed one and no division at all, and assigning premises to a division is T-1182's audit and T-1198's seating. The key carries the axis so those tickets fill it rather than re-cut the book.
@@ -615,7 +615,7 @@ The December 1835 State census set against the register the town already holds.
 | `businesses/steam_saw_mill` | 1 | 2 | 0 | 0 | T-1187 |
 | `businesses/storage_and_forwarding` | 4 | 7 | 0 | 0 | T-1187 |
 | `businesses/store` | 44 | 65 | 0 | 0 | T-1184 |
-| `businesses/tavern` | 8 | 9 | 0 | 0 | T-1187 |
+| `businesses/tavern` | 8 | 10 | 0 | 0 | T-1187 |
 | `businesses/tin_and_copper_manufactory` | 2 | 4 | 0 | 0 | T-1185 |
 
 ## Structures
@@ -624,10 +624,10 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 - `roof_target`: 668
 - `standing_records`: 678
-- `standing_with_an_occupant`: 261
-- `standing_without_an_occupant`: 417
+- `standing_with_an_occupant`: 368
+- `standing_without_an_occupant`: 310
 - `to_build_total`: 9
-- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 417 of the 678 standing records carry no occupants block today, and T-1197 re-audits them against this book.
+- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 310 of the 678 standing records carry no occupants block today, and T-1197 re-audits them against this book.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -707,7 +707,7 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 |---|---:|---:|---:|---|
 | **households_against_dwellings** — The household model wants 645 households and the programme schedules 335 ordinary dwellings (335-377 in the model's own reading). More than one household to a roof is the resolution the census's own 8.204 people per dwelling implies; T-1196 re-cuts the schedule to say how many. | 645 | 335 | +310 | `ordinary_dwellings` |
 | **boarding_houses** — NOT A CHECK: the model's 42 larger boarding houses ARE district_group_matrix.larger_boarding_houses — model_town_1835.build_lodging reads the figure straight off the roof programme — so this row cannot disagree, and its zero says nothing about whether 42 is the right number of boarding roofs. An independent count is owed to T-1196 with the re-cut. | 42 | 42 | +0 | `larger_boarding_houses` |
-| **inns_and_taverns** — NOT A CHECK: the model reads 9-10 inns and taverns and the programme schedules 10. The model's ceiling is the highest of the programme, the census and the business layer's count at the scene date, and while the layer's count stands at or below the programme's the ceiling IS the programme's figure, so this row cannot disagree until the layer passes it again (T-1808). | 10 | 10 | +0 | `inns_taverns` |
+| **inns_and_taverns** — NOT A CHECK: the model reads 10-10 inns and taverns and the programme schedules 10. The model's ceiling is the highest of the programme, the census and the business layer's count at the scene date, and while the layer's count stands at or below the programme's the ceiling IS the programme's figure, so this row cannot disagree until the layer passes it again (T-1808). | 10 | 10 | +0 | `inns_taverns` |
 | **institutional_and_public** — NOT A CHECK: the model reads 9-19 institutional and public roofs — 9 outside the fort and 10 principal roofs inside it — and the programme schedules those same two groups, institutional_public (9) and fort_principal (10), for 19. Both ends of the model are read off that matrix, so the row cannot disagree. Until T-1439 it reported a delta of ten by taking the fort's roofs on the model's side and not on the programme's, which is the schedule charged for ten roofs it already had. | 19 | 19 | +0 | `institutional_public`, `fort_principal` |
 | **people_per_roof** — 2,550 people under 668 roofs is the ratio the completed town must meet; the census's own reading for November 1835 is 8.204 people per dwelling over 398 dwellings. | 2,550 | 668 | +0 | — |
 
@@ -716,7 +716,7 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 - **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 22 of 1389 present households name a lives_at.
 - **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 50 of 1389 present households name a works_at.
 - **every_business_has_staff** (T-1189) — Every business — attested, inferred or reconstructed — carries the staff T-1183's model implies for its kind. *Now:* not yet measurable: the authored business layer is T-1180.
-- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 417 of 678 standing records carry no occupants block.
+- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 310 of 678 standing records carry no occupants block.
 - **dwellings_ratio_within_its_bracket** (T-1215) — The town census's people-per-dwelling ratio is met within the model's bracket. *Now:* the book orders 2,550 people into 645 households.
 - **an_uncompared_class_orders_nothing** (T-1442) — A trade-census class the crosswalk rules `compared: false` carries its figures but orders no reconstruction: the difference between a census line and the register is only a shortfall where the crosswalk has ruled the two comparable. *Now:* carried uncompared: 1 of 18 enumerated business classes, each ordering nought.
 - **no_bucket_overfilled** (T-1166) — No bucket's `filled` exceeds its `to_reconstruct`; a filler that bypasses the book is red in check.sh. *Now:* enforced by --check on every gate run.

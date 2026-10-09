@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1596, ts: '2026-10-09T22:22:23.850Z', date: 'Oct 9, 2026, 5:22 PM CT', title: 'Mark Beaubien\u2019s boarding house on Lake Street gets its signboard', kind: 'fix',
+  { v: null, ts: '', date: '', title: 'Mark Beaubien\u2019s boarding house on Lake Street gets its signboard', kind: 'fix',
     items: [
       'The new boarding house on the Market wedge stood with no business behind it, so its front had no board. It now reads MARK BEAUBIEN\u2019S, Boarding House, the house he keeps.',
       'Beaubien\u2019s stray \u201ctavern keeper\u201d business with no address is gone: the boarding house is where he works.',
       'Six other boarding houses\u2019 boards go back to the names they had before the wedge\u2019s house was raised, such as SWEET\u2019S on Clark Street.',
+    ] },
+  { v: 1596, ts: '2026-10-09T22:15:28.289Z', date: 'Oct 9, 2026, 5:15 PM CT', title: '117 more houses now name the household living in them', kind: 'fix',
+    items: [
+      'The town gave 117 houses to households known only from the post office\u2019s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address, so each of those houses stood empty with a note saying why.',
+      'Those houses now go to the next households in line for that kind of house. Open one of them and its card names who lives there. 205 houses now name their household, up from 98.',
+      'Ten houses still stand empty, because the household next in line is known by no source. The 98 households already named have not moved.',
     ] },
   { v: 1595, ts: '2026-10-09T21:47:24.470Z', date: 'Oct 9, 2026, 4:47 PM CT', title: 'Glessner roof tiles stay steady at a distance', kind: 'fix',
     items: [

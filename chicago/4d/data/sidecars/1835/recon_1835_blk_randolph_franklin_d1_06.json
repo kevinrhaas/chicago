@@ -115,12 +115,23 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D1 family to satisfy the block's scheduled mix; no occupant or individual use is known."
+    },
+    "occupants": {
+      "value": "The Marshall household — a documented schoolteacher, unplaced in the town",
+      "confidence": "reconstructed",
+      "sources": [
+        "calumet_club_early_chicago_1879",
+        "chicago_democrat_1833_1835",
+        "chicago_tribune_1882_05_19_fourth_reception",
+        "second_presbyterian_chicago_1892"
+      ],
+      "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1685; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's labourer_dwellings clause answered on the committed plat: blk_randolph_franklin#03, fronting washington, a standing roof of family D1 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
     }
   },
   "residents": [
     {
-      "household": "hh_andrus_thomas",
-      "name": "The Andrus household — a name from the post office's letter lists",
+      "household": "hh_marshall_j_a",
+      "name": "The Marshall household — a documented schoolteacher, unplaced in the town",
       "division": "unplaced",
       "relation": "lived here",
       "why": "the roof T-1613 dealt this household, joined here and not re-argued",
@@ -128,111 +139,88 @@
       "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
       "persons": [
         {
-          "name": "Thomas Andrus",
+          "name": "J. A. Marshall",
           "relationship": "head",
           "grade": "attested",
-          "occupation": "carpenter",
-          "note": "INDEPENDENTLY CORROBORATED RESIDENT. Originally documented in Chicago post-office evidence; independent resident research now corroborates the identity. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Andrus, Tomas' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 20 May 1835, column 13 — dated 1835-05-20. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1)."
-        }
-      ],
-      "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
-    },
-    {
-      "household": "hh_forester_thomas",
-      "name": "The Forester household — a name the town's own records carry",
-      "division": "unplaced",
-      "relation": "shared this roof",
-      "why": "a D1 dwelling, as the farms_and_country_seats clause admits",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
-      "persons": [
-        {
-          "name": "Thomas Forester",
-          "relationship": "head",
-          "grade": "inferred",
-          "occupation": "none_recorded",
-          "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 23 February 1835 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1)."
+          "occupation": "schoolteacher",
+          "note": "A DOCUMENTED PERSON, AND NOTHING ELSE IS CLAIMED. The papers name 'A. MARSHALL' and give the trade; they do not say where this household lived, who else was in it, or when it came. So the record around this person carries nothing but the person: no dwelling, no division, no family, each written as unattested in its own block rather than filled in from the shape of the rest of the town. Cited at the Democrat of 19 November 1834, column 4. THE TOWN NEVER INVENTED A ROOF FOR THIS TRADE. The occupation census raised reconstructed households for the trades a town of 3,265 people needed and could not document; `schoolteacher` was not one of them, which is why this person could only ever be ADDED and never seated on an existing record — data/research/newspapers/register_1835.json calls it `new_resident` for exactly that reason. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry. OLD SETTLERS, 1879 — A DATE THIS MAN GAVE FOR HIMSELF, AND STILL NOT A FACT ABOUT 1835. The Calumet Club's FIRST reception to the settlers of Chicago prior to 1840, 27 May 1879, printed its register in the proceedings (Early Chicago, Chicago, 1879, pages 84-90), and this man's entry reads “Marshall, James A. | 1832, | London, Eng. | 70 | Chicago.” — name, his own date of arrival, his birthplace, his age and his 1879 post-office address, in the register's five columns. The date of arrival is HIS RECOLLECTION, set down forty to sixty years after the event; the address is where he lived in 1879 and is never read as an 1835 residence. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS2A — one bearer of the surname, the forename initial agrees, and the resident's own record spells the roster's forename 'james' — the discriminator the roster's initials do not supply (data/research/old_settlers/crosswalk.json). OLD SETTLERS, 1882 — CORROBORATION, NOT A NEW FACT ABOUT 1835. The Calumet Club's fourth annual reception to the settlers of Chicago prior to 1840, held 18 May 1882, printed this man among the guests present as “Marshall, James A., 2906 Indiana avenue, Chicago.” (Chicago Tribune, 19 May 1882). The club's criterion was residence in Chicago before 1 January 1840 and majority by then: the roster therefore corroborates a pre-1840 Chicago residence and says he was alive in 1882. It gives NO year of arrival, and the address it prints is where he lived in 1882, forty-seven years after the scene date — it is not an 1835 residence and is not read as one. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS2A — one bearer of the surname, the forename initial agrees, and the resident's own record spells the roster's forename 'james' — the discriminator the roster's initials do not supply (data/research/old_settlers/crosswalk.json). THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Marshall, Mrs. J. A. | Letter. | June 30, 1848. | Dismissed.” (second_presb_0701, printed page 193), admitted 1848-06-30 by letter. Under the rule that decided it: Surname 'Marshall' folds to the same string as the roll line's, and the given name of both begins J. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” THE LINE IS A MARRIED WOMAN'S ENTRY, and the crosswalk's own Mrs rule governs what it can have met: “a line flagged a_married_womans_entry that meets a MAN in the 1835 layer has met his name, not him: it corroborates that the name was a Chicago name in the 1840s and it does not put that man on this roll.” The match is filed rather than suppressed, because a suppressed match is invisible and a flagged one can be argued with. This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once."
         },
         {
-          "name": "Emily Barnes",
+          "name": "Abigail Marshall",
           "relationship": "wife",
           "grade": "reconstructed",
-          "occupation": "laundress",
-          "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1)."
-        },
-        {
-          "name": "Lydia Barnes",
-          "relationship": "daughter",
-          "grade": "reconstructed",
           "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Horace Barnes",
-          "relationship": "son",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
         }
       ],
-      "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
-    },
-    {
-      "household": "hh_rc_wilcox_sophronia",
-      "name": "Reconstructed household — Sophronia Wilcox, a woman boarding with her family in the south division",
-      "division": "south",
-      "relation": "shared this roof",
-      "why": "a D1/D2 dwelling, as the labourer_dwellings clause admits",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "Sophronia Wilcox",
-          "relationship": "head",
-          "grade": "reconstructed",
-          "occupation": "laundress",
-          "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1)."
-        },
-        {
-          "name": "Horace Wilcox",
-          "relationship": "son",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the west division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Lydia Wilcox",
-          "relationship": "household_member",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND, AND NOT CLAIMED AS KIN. This person is in the house and nothing says how. The population model places older children out of their parents' houses as apprentices and servants, and the head of this one is not old enough to be their parent, so the record says `household_member` and stops there rather than inventing a relation. A source naming this household retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Almira Wilcox",
-          "relationship": "daughter",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the west division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Mary Wilcox",
-          "relationship": "daughter",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the west division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Levi Wilcox",
-          "relationship": "son",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the west division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
-        }
-      ],
-      "research_note": "RECONSTRUCTED HOUSEHOLD — a drawn laundress, in the south division, where it is counted after the re-family recorded above; it was drawn in the west division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1). This household is one of the surplus the re-cut HOLDS rather than retires: the owner's ruling of 2026-09-24 re-families it into a cell the book still orders instead of un-writing it, and `refamilied` above is the whole of what that changed."
+      "research_note": "MINTED FROM THE NEWSPAPER REGISTER (T-0376), AND THE HOUSEHOLD IS A CONTAINER RATHER THAN AN ARGUMENT. Every other record in this dataset argues for a household — a family the sources count, or a trade the town demonstrably needed. This one argues for a PERSON: the Democrat and the American name J. A. Marshall as a schoolteacher at Chicago 1 time(s), and this reconstruction did not hold them. `data/residents/` has no way to carry a person except inside a household, so one was written around them and told to claim nothing: one member, no dwelling, no division, no origin, no arrival beyond the bound the paper sets. Reading a family, a house or a quarter of town into this record would be reading something the papers do not say. tools/mint_documented_residents.py derives the whole minted set and prints every candidate it refused, with the reason."
     }
   ],
   "citations": [
+    {
+      "source_id": "calumet_club_early_chicago_1879",
+      "citation": "Early Chicago: Reception to the Settlers of Chicago Prior to 1840, by the Calumet Club, of Chicago, Tuesday Evening, May 27, 1879 (Chicago: Calumet Club, 1879) — the printed proceedings of the FIRST old-settlers' reception, with the registry of settlers who signed it.",
+      "url": "https://archive.org/details/earlychicagorece00calu",
+      "archived_url": "https://archive.org/download/earlychicagorece00calu/earlychicagorece00calu_djvu.txt",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "the date, host and criterion of the first reception, 27 May 1879",
+        "the club's own count of 149 settlers who registered during the evening",
+        "the printed REGISTER itself, pages 84-90: 159 entries, each with the man's name, his own date of arrival in Chicago, his birthplace, his age and his 1879 post-office address — the only roster in the series that dates its people",
+        "the three aggregate tables of printed page 72 — places of birth, years of arrival and ages — each summing to 149, read off the plate rather than the OCR"
+      ],
+      "what_it_does_not_supply": [
+        "a residence in 1835. A date of arrival here is what the man said in 1879, forty to sixty years after the fact, and the club's criterion reaches to the end of 1839",
+        "which of the 159 printed entries are the 'few [who] called afterward and signed the registry' and are therefore outside the 149 the tables count — the plate does not mark them, and this project does not guess",
+        "an address in 1835: the register's fifth column is the 1879 post-office address"
+      ]
+    },
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
+    },
+    {
+      "source_id": "chicago_tribune_1882_05_19_fourth_reception",
+      "citation": "Chicago Tribune, May 19, 1882, report of the Calumet Club's fourth annual reception to “The Old Settlers of Chicago”, held 18 May 1882, with the list “Names of Old Settlers Present, Residents and of Age Prior to 1840” and the speeches of Vice-President J. W. Doane and the Hon. John Wentworth.",
+      "url": "https://chicagology.com/goldenage/goldenage063/",
+      "archived_url": "http://web.archive.org/web/20260611041246/https://chicagology.com/goldenage/goldenage063/",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "128 named men who were of age and living in Chicago before 1 January 1840, and where each of them lived in 1882",
+        "the club's own arithmetic of the settler population: 414 known old settlers, 35 dead in the year, 118 in the house, 160 at the third reception",
+        "a handful of trades and firsts attached to the year's dead — a Fort Dearborn gunsmith, the first grist-mill, the first mail rider to Milwaukee, the first frame building west of the river"
+      ],
+      "what_it_does_not_supply": [
+        "a year of arrival for any guest",
+        "an 1835 address: every address printed is of 1882"
+      ]
+    },
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",
       "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",
@@ -251,6 +239,26 @@
         "Exact locations, dimensions, appearance, occupants, or construction dates for anonymous roofs.",
         "Authority to replace stronger building-specific evidence already represented in the dataset."
       ]
+    },
+    {
+      "source_id": "second_presbyterian_chicago_1892",
+      "citation": "The Second Presbyterian Church of Chicago, June 1st, 1842, to June 1st, 1892 (Chicago: Knight, Leonard & Co., 1892), John C. Grant, editor — the semi-centennial volume of the congregation, read from the Princeton Theological Seminary copy digitised by the Internet Archive as item secondpresbyterian00chic",
+      "url": "https://archive.org/details/secondpresbyterian00chic",
+      "archived_url": "https://archive.org/details/secondpresbyterian00chic",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "2,255 lines of a Chicago church roll running from 1 June 1842 to 1892 — a name, how the member was admitted (profession or letter), the date, and for the closed roll a remark (dismissed, deceased, ordained).",
+        "962 distinct surnames, of which 938 lines carry a surname this project already holds from the town of 1835.",
+        "The founding cohort of 1 June 1842, which is where the overlap with the 1835 town is thickest: W. H. Brown, George W. Dole and Mrs A. N. Fullerton are all on the first day's roll.",
+        "A dated Chicago appearance for a surname, which is exactly the kind of second source the resident sweep files as a lead."
+      ],
+      "what_it_does_not_supply": [
+        "An 1835 residency, or any part of one. The earliest line on the roll is seven years after the scene date and the ratified ladder never makes an 1835 resident from a later appearance alone.",
+        "A woman's own name, much of the time. The roll sets a wife as `Mrs.` followed by her HUSBAND'S name — `Fullerton, Mrs. A. N.` — so a line that meets a man in the 1835 layer has met his name and not him, and the crosswalk flags every such line.",
+        "A death or a departure that can be dated. `Deceased` and `Dismissed` are the state of the roll at its closing on 1 June 1892, not events with dates of their own.",
+        "An address, a trade or a household. The roll carries none of the three."
+      ]
     }
   ],
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
@@ -268,22 +276,22 @@
     "stands_on": "street",
     "fronts": "washington",
     "sequence": 6,
-    "finish_key": "mixed_patch",
+    "finish_key": "weathered_timber",
     "roof_condition": "patched",
-    "age_state": "older_frontier",
+    "age_state": "established",
     "fabric_basis": {
       "rule": "F-L",
       "class": "labourer",
-      "by": "type",
-      "household": null,
-      "words": "hewn logs under a patched roof — an older log cabin, older than the boom (rule F-L: a labourer's by its type)"
+      "by": "keeper",
+      "household": "hh_marshall_j_a",
+      "words": "hewn logs under a patched roof — The Marshall household's, a schoolteacher, in Chicago since 1832 (rule F-L)"
     }
   },
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
     "class": "labourer",
-    "age_state": "older_frontier",
-    "weather_years": 5.0,
+    "age_state": "established",
+    "weather_years": 2.5,
     "weather_rate": 1.0,
     "lay_m": 0.008,
     "confidence": "reconstructed"
