@@ -79,9 +79,9 @@ are included here. `tools/qa_glessner_t2231.mjs` reproduces the checks.
 
 The final repository gate passes all 792 steps (323 negative self-tests).
 Published mobile stage 13 passes all 126 assertions with zero page errors;
-`smoke-mobile-13.log` records that run. The broader desktop stage-13 run is
-still running at this checkpoint; its final verdict will be recorded on the
-PR before merge. The focused desktop review above is complete.
+`smoke-mobile-13.log` records that run. Published desktop stage 13 also passes all 126 assertions with zero page
+errors; `smoke-desktop-13.log` records that run. The focused desktop review
+above is complete. Only the applicable stage 13 was run, not the full town smoke.
 
 The first repository pass exposed an incomplete sparse checkout and stale
 source-use/liberties outputs. Restoring the required checkout and compiling
@@ -95,3 +95,18 @@ Reproduction: `python3 tools/test_glessner_roof_envelope.py`,
 `python3 tools/recover_glessner_v4.py --check`, `./tools/check.sh`, and
 `SMOKE_VIEWPORT=mobile SMOKE_STAGE=13 node tools/smoke_renderer.mjs --published`.
 Use the installed Chromium via `PW_EXECUTABLE` for the browser commands.
+
+## Dev integration
+
+Dev advanced to `7aed0a2a` (T-2229, Mark Noble's family links) during review.
+That change is integrated verbatim. The shared source index was regenerated,
+and only this branch's changelog entry was re-stamped (v1553); dev's v1552 is
+unchanged. Full preflight on the combined tree passes all 792 repository steps
+plus the changelog-entry and ticket-ID checks. Glessner geometry and its hashes
+are unchanged by integration.
+
+The broader desktop smoke began before dev integration and finished after the
+published metadata refresh. Its geometry and renderer remained unchanged;
+the standing record deliberately has no exact-tree hash for this mixed timing.
+Focused photo-review receipts and the mobile smoke predate integration. The
+combined source tree is covered by the final full preflight above.

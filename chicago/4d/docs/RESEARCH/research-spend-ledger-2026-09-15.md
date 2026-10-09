@@ -47,7 +47,7 @@ An unresolved unit is waiting on WORK or on EVIDENCE, and it says which. Only ti
 | T-1552 | 26 |
 | T-1569 | 12 |
 | T-2191 | 13 |
-| T-2192 | 1 |
+| T-2230 | 1 |
 
 **266** unit(s) wait on evidence rather than on a ticket, under 5 stated reopening condition(s):
 

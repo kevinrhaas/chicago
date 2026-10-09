@@ -10,9 +10,11 @@ Before/after actual-GLB views, reference controls and validation receipts:
 `RESEARCH/glessner-west-profile-2231/README.md`. Both owner references were
 reviewed against the final west and northwest renders. All 792 repository
 checks, 3,000 roof samples, nine masonry/glass checks, recovery verification,
-and focused published desktop/mobile review pass. Published mobile stage 13
-passes all 126 checks. The broader desktop stage-13 run remains in progress
-at this checkpoint; the PR records its final result before merge.
+and focused published desktop/mobile review pass. Published desktop and mobile stage 13 each
+pass all 126 checks with zero page errors. Dev `7aed0a2a` is integrated, and
+full preflight on the combined tree passes all 792 steps. The report states
+the browser runs' timing relative to integration; the full town smoke was
+not rerun.
 
 ## T-2183 — Glessner courtyard windows and continuous eave (2026-10-08)
 

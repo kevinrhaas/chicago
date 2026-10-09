@@ -24,6 +24,17 @@
     "page_errors": 0,
     "result": "pass"
   },
-  "published_stage_13_desktop": "running at checkpoint; final result on PR",
-  "manual_reference_comparison": "Final west and northwest GLB renders visually compared with both owner references; approximate photographic proportions, not a survey."
+  "published_stage_13_desktop": {
+    "checks": 126,
+    "failed": 0,
+    "page_errors": 0,
+    "result": "pass",
+    "timing": "Began before dev 7aed0a2a integration; published metadata refreshed during run; geometry/renderer unchanged."
+  },
+  "manual_reference_comparison": "Final west and northwest GLB renders visually compared with both owner references; approximate photographic proportions, not a survey.",
+  "integrated_preflight": {
+    "dev": "7aed0a2a15239ceb146008db32f4d6f28e244183",
+    "repository_steps": 792,
+    "result": "pass"
+  }
 }

@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1552, ts: '2026-10-09T00:42:06.620Z', date: 'Oct 8, 2026, 7:42 PM CT', title: 'Glessner’s west gable and rear roof regain their proportions', kind: 'fix',
+  { v: 1553, ts: '2026-10-09T01:05:35.875Z', date: 'Oct 8, 2026, 8:05 PM CT', title: 'Glessner’s west gable and rear roof regain their proportions', kind: 'fix',
     items: [
       'The taller west gable now has the steeper rear-facing slope shown in the supplied elevation. Its apex and roof break give the lower rear section its proper share of the frontage.',
       'The lower roof, dormer and cupola follow the revised silhouette. The measured footprint and recent courtyard window and eave corrections remain in place. These roof proportions are reconstructed from the reference views.',
+    ] },
+  { v: 1552, ts: '2026-10-09T00:21:57.548Z', date: 'Oct 8, 2026, 7:21 PM CT', title: 'Mark Noble\u2019s son and daughter are on his card', kind: 'fix',
+    items: [
+      'The Chicago Democrat of 3 December 1833 prints a double wedding. Mark Noble jun., \u201csecond son of Mark Nobles, Esq.\u201d, married Charlotte Wesencraft, and Mary, \u201csecond daughter to Mark Noble, Esq.\u201d, married George Bickerdyke. All three Nobles had cards, and none of them named the others.',
+      'Open Mark Noble\u2019s card now and it names his son and his daughter, quoting the notice; their cards name him back. The two weddings are not seated yet, so Mark jun.\u2019s card still shows a guessed sex and a garbled name. That comes next.',
     ] },
   { v: 1551, ts: '2026-10-08T22:48:46.097Z', date: 'Oct 8, 2026, 5:48 PM CT', title: 'Chester Ingersoll\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
