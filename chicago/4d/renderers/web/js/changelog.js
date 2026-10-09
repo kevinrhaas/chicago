@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
+  { v: 1585, ts: '2026-10-09T18:15:28.309Z', date: 'Oct 9, 2026, 1:15 PM CT', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
     items: [
       'The town counted 31 households as housed because their card named the building they worked in. They had no home in the scene. Among them were the Harmon brothers, John Calhoun of the Chicago Democrat, George W. Dole and Archibald Clybourne. Each now has a home of its own on the building cards, the same way every other household is placed.',
       'John Calhoun now lives over his store on South Water Street, and Asahel Pierce over his on the West Side. The rest live in ordinary houses or board in their own part of town.',
