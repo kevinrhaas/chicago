@@ -1,3 +1,29 @@
+## T-2194 — the store rows ruled against the store roofs, and the index found short (2026-10-09)
+
+T-2188's second piece asked whether the order book over-orders its 56 owed store
+residences or the residents index is short. Measured on dev, the answer is **both**:
+
+- **The book over-ordered the store rows.** It shares the model's 645 households out by
+  roof counts, so it asked for 77 store households on 52 civil store roofs (1.48 per roof).
+  Every one of those roofs stands. The book's own weighting says a store residence holds
+  *a* household, the keeper's, so `store_residence_ruling` discharges the order above one
+  household per store roof: north 2, south 20, west 3, **25** in all. Store households owed
+  go **56 → 31**, and households still owed go 424 → 399. Nobody is moved, minted or
+  re-apportioned. The ruling is an inference, and the book says so.
+- **The index is short.** 14 of the 52 store roofs seat a household; the other 38 (29 south,
+  5 west, 4 north) seat nobody. The 309 trade households drawn as heads of their own
+  (`reconstructed_trades/`) are seated 244 in dwellings, 58 in boarding houses and 7 in inns.
+  Of those heads, 64 work a store trade (grocer, merchant, milliner and the like), and none
+  sits in a store roof. The household quota counts houses off `data/residents/index.json` alone,
+  so it sees none of them. The census's 662 present beyond the index break down as 309 trade
+  households, 155 lodgers, 111 readmitted, 86 underdocumented and 1 institutional. The
+  book credits 464 of them as person fills, but not one as a household. Counted whole, the
+  completion audit reads 3,579 present, against the 3,265 ceiling.
+- **Routed:** the 31 still owed go to **T-2236**, which forms keepers' households in the empty
+  store roofs by moving the store-trade heads the town holds. Counting the households
+  outside the index into the household quota is **T-2237**. `town_census.py`'s note now
+  names that ruling instead of split T-2188.
+
 ## T-2235 — Restore Glessner's west-wing courtyard roof (2026-10-09)
 
 Corrects T-2231's lowered rear ridge and exposed courtyard wall. The west
@@ -1098,11 +1124,11 @@ the household model drew for them (508 people), and 121 stand alone with a card 
   `households/family_dwelling/<division>`, dealt roofs first, then the larger family, then a seed,
   up to each division's order: north 88, south 168, west 79. The 94 seated families past a full
   order are listed in `data/reconstruction/1835_held_head_dwellings.json` with the reason. Houses
-  still owed fall 424 → 89 and the population is unchanged (2,931): nobody is minted, moved or
-  re-carded, and a boarder is never counted as a household. The women-and-children stage adds
-  these fills back to its house quota, so it re-derives byte for byte. **Not done here:** the
-  store-residence rows (56) and the census's 661 present people beyond the index are **T-2194**'s.
-  The seats refuse every store roof, so no held head stands over a shop.
+  still owed fall 399 → 64 (424 → 89 before T-2194's store ruling landed under it) and the
+  population is unchanged (2,931): nobody is minted, moved or re-carded, and a boarder is never
+  counted as a household. The women-and-children stage adds these fills back to its house quota,
+  so it re-derives byte for byte. **Not done here:** the 31 store keepers T-2194's ruling leaves
+  owed are **T-2236**'s. The seats refuse every store roof, so no held head stands over a shop.
 - **What it moved downstream, measured on the rebuilt layer.** The ruling's first names stepped
   past full names only, so two invented children (Henry Stewart, Sarah Smith) turned the
   re-admission stage away from the roster's Hart L. Stewart and Siman Smith on surname and first

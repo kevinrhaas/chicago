@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1562, ts: '2026-10-09T04:38:57.506Z', date: 'Oct 8, 2026, 11:38 PM CT', title: 'The town stops ordering 335 houses it already has', kind: 'fix',
+  { v: 1563, ts: '2026-10-09T05:30:16.773Z', date: 'Oct 9, 2026, 12:30 AM CT', title: 'The town stops ordering 335 houses it already has', kind: 'fix',
     items: [
       'The plan of who still has to be added to the 1835 town was asking for 424 more family houses. 429 households the town already holds were living in one, either in a house the town gave them or as a family sharing one. The plan counted houses only from the people cards, and those homes were recorded beside the cards, so it never saw them.',
-      'They are counted now, up to what each part of town needs: 88 on the North Side, 168 on the South Side and 79 on the West Side. Nobody is added, moved or changed. The houses still owed fall from 424 to 89. The shop-front households are next.',
+      'They are counted now, up to what each part of town needs: 88 on the North Side, 168 on the South Side and 79 on the West Side. Nobody is added, moved or changed. The households still owed fall from 399 to 64. Keepers for the empty stores are next.',
       ] },
+  { v: 1562, ts: '2026-10-09T04:37:11.918Z', date: 'Oct 8, 2026, 11:37 PM CT', title: 'The town plan stops asking for second families in its stores', kind: 'fix',
+    items: [
+      'Open Evidence \u2192 Reconstructing the town and look at Households. The plan had asked for 77 shopkeepers\u2019 households to live in the town\u2019s 52 stores, about one and a half for each store, because it shared households out by building counts. A store houses one family, the keeper\u2019s, so the plan now asks for at most one per store. 25 fewer households are wanted.',
+      'That still leaves 31 to house: one keeper\u2019s family for each store that has nobody living in it. The grocers, merchants and milliners already in the town come first. No new people are made up.',
+    ] },
   { v: 1561, ts: '2026-10-09T04:10:43.709Z', date: 'Oct 8, 2026, 11:10 PM CT', title: 'Groundwork for correcting guessed families', kind: 'fix',
     items: [
       'Some of the town\u2019s households were guessed to be married men and given an invented wife and children. When a source shows that the head was a woman, or that she was a bride whose card belongs in her husband\u2019s house, that invented family now leaves with the guess. Nobody new is invented in its place.',
