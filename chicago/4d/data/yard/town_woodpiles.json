@@ -10,17 +10,17 @@
   "dwellings": 393,
   "by_row": {
    "cabin": 41,
-   "cottage": 171,
-   "house": 92,
+   "cottage": 172,
+   "house": 91,
    "keeper": 21,
    "merchant": 36,
    "shanty": 31
   },
   "by_class": {
    "keeper": 21,
-   "labourer": 88,
+   "labourer": 87,
    "merchant": 36,
-   "tradesman": 247
+   "tradesman": 248
   },
   "by_basis": {
    "default": 16,
@@ -31,7 +31,7 @@
   },
   "items": {
    "chopping_block": 361,
-   "cordwood": 415,
+   "cordwood": 414,
    "log_heap": 41,
    "slab_heap": 31
   },
@@ -3571,7 +3571,7 @@
    "structure_id": "recon_1835_blk_randolph_market_d3_04",
    "name": "Reconstructed D3 one-room frame cottage #04",
    "function": "one_room_frame_cottage",
-   "household_class": "labourer",
+   "household_class": "tradesman",
    "household_by": "fabric_rule",
    "house": "small",
    "row": "cottage",
@@ -4312,39 +4312,26 @@
    "structure_id": "recon_1835_blk_school_section_tier_118_d5_07",
    "name": "Reconstructed D5 deep-plan frame cottage #07",
    "function": "deep_plan_frame_cottage",
-   "household_class": "tradesman",
+   "household_class": "labourer",
    "household_by": "fabric_rule",
    "house": "larger",
-   "row": "house",
-   "rule": "Y-W4",
+   "row": "cottage",
+   "rule": "Y-W3",
    "confidence": "reconstructed",
    "wall": "back",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      560.91,
+      557.63,
       -627.53
      ],
      "bearing_deg": 180.0,
-     "length_m": 2.6,
+     "length_m": 1.93,
      "depth_m": 0.61,
-     "height_m": 1.01,
+     "height_m": 0.91,
      "stick": "stove",
      "seed": 742941650
-    },
-    {
-     "kind": "cordwood",
-     "at_local_enu_m": [
-      557.96,
-      -627.53
-     ],
-     "bearing_deg": 180.0,
-     "length_m": 2.6,
-     "depth_m": 0.61,
-     "height_m": 1.18,
-     "stick": "stove",
-     "seed": 53669048
     },
     {
      "kind": "chopping_block",
@@ -4354,7 +4341,7 @@
      ],
      "bearing_deg": 180.0,
      "billets": 1,
-     "seed": 607859491
+     "seed": 53669048
     }
    ]
   },
@@ -8472,7 +8459,7 @@
    "structure_id": "recon_1835_blk_washington_wells_d3_05",
    "name": "Reconstructed D3 one-room frame cottage #05",
    "function": "one_room_frame_cottage",
-   "household_class": "labourer",
+   "household_class": "tradesman",
    "household_by": "fabric_rule",
    "house": "small",
    "row": "cottage",

@@ -1,8 +1,8 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
+  { v: 1597, ts: '2026-10-09T23:26:54.063Z', date: 'Oct 9, 2026, 6:26 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
     items: [
       'Charles Beaubien, father of Susan at her baptism at St Mary\u2019s on 24 December 1834, stood in the town as a second man, with a house of his own. He is Charles H. Beaubien, the voter and violinist, now on one card. The history of Chicago names Charles H. as J. B. Beaubien\u2019s son, teaching the fort\u2019s children in 1829, and his death notice puts his birth in 1806 or 1807. No record the town holds names a second Charles Beaubien.',
-      'His second house is gone. Other households move into it and the houses they leave, and Jacob Donner, who was waiting for a roof, now has one on the South side.',
+      'His second house is gone. Other households move into it and the houses they leave, and Patrick Meleney, who was waiting for a roof, now has one on the South side; the reconstructed household of Ruth Woodruff waits for one in his place.',
     ] },
   { v: 1596, ts: '2026-10-09T22:15:28.289Z', date: 'Oct 9, 2026, 5:15 PM CT', title: '117 more houses now name the household living in them', kind: 'fix',
     items: [
