@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1577, ts: '2026-10-09T13:48:34.530Z', date: 'Oct 9, 2026, 8:48 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: 1578, ts: '2026-10-09T14:37:45.401Z', date: 'Oct 9, 2026, 9:37 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
+    ] },
+  { v: 1577, ts: '2026-10-09T13:43:01.271Z', date: 'Oct 9, 2026, 8:43 AM CT', title: 'Each person\u2019s card now lists when the records place them', kind: 'feature',
+    items: [
+      'Open a resident\u2019s card and a new row, \u2018Seen in the record, by date\u2019, lists every dated line the town holds for that person, oldest first: a poll list, a tax roll, a newspaper notice, the 1830 census or the St Mary\u2019s baptismal register. 386 people have at least one line.',
+      'Each line says what it proves. A vote cast or a christening attended at Chicago puts the person in the town by that day. A name in print, an 1830 census line or a date after 1 July 1835 is shown for what it is and proves nothing about the scene date.',
+      'Twenty-six godparents and sponsors at St Mary\u2019s, among them Josette Laframboise, Jean Baptiste Lavigne and Edward Daly, now have their christening days on these lists. Before this they were named on their cards with no date attached.',
     ] },
   { v: 1576, ts: '2026-10-09T13:08:00.450Z', date: 'Oct 9, 2026, 8:08 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
     items: [
