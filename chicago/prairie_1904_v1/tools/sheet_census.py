@@ -23,7 +23,7 @@ DECISIONS = {'present_as_mapped', 'backcast_1886', 'alias', 'phase_unresolved'}
 TIERS = {'attested', 'inferred', 'reconstructed', 'unresolved'}
 LABELLED_1911 = re.compile(r'\b(GARAGE|AUTO|MFG)\b')
 # The hundreds of Prairie Avenue each sheet covers.
-SHEET_RANGE = {'20': (1600, 1799)}
+SHEET_RANGE = {'20': (1600, 1799), '28': (1800, 1999)}
 
 
 def load():
@@ -105,8 +105,17 @@ def check_sheet(sheet, c, lib, grid, images):
         if n > 1: say(f'{fid} is assigned {n} times')
     for fid in sorted(set(inventory) - set(seen)): say(f'{fid} (sheet {sheet}) is in no census row')
 
+    # Allocations (T-1841): service ground on this sheet given to a named record that another
+    # census places. They hand out polygons, never a placement, so the record is not 'held' here.
+    for a in c.get('allocations', []):
+        if a['building_id'] not in buildings: say(f'allocation {a["id"]}: {a["building_id"]} is not a named record in the library')
+        if not (a.get('why') or '').strip(): say(f'allocation {a["id"]}: no reason given')
+        for p in a['polygons']:
+            if p.get('tier') not in TIERS: say(f'{p["id"]}: tier {p.get("tier")} is not one of {sorted(TIERS)}')
+        for img in a.get('image_ids', []):
+            if img not in image_ids: say(f'allocation {a["id"]}: image {img} is not in data/images.json')
     # Polygons: unique ids, known kinds, and a 1911 label never stands for 1904 unremarked.
-    pids = [p['id'] for f in c['frontages'] for p in f['polygons']]
+    pids = [p['id'] for f in c['frontages'] for p in f['polygons']] + [p['id'] for a in c.get('allocations', []) for p in a['polygons']]
     for d in sorted({i for i in pids if pids.count(i) > 1}): say(f'polygon id {d} is used twice')
     for f in c['frontages']:
         for p in f['polygons']:
@@ -178,6 +187,16 @@ def self_test(lib, grid, images, sheets):
         hit = any(expect in e for e in errs)
         print(f'{"refused" if hit else "NOT REFUSED"}: {name}' + ('' if hit else f' — got {errs[:2]}'))
         if not hit: failed.append(name)
+    # Sheet 28 carries the one allocation (T-1841).
+    if '28' in sheets:
+        c = copy.deepcopy(sheets['28']); c['allocations'][0]['building_id'] = 'pa-no-such-record'
+        hit = any('is not a named record' in e for e in check_sheet('28', c, lib, grid, images))
+        print(f'{"refused" if hit else "NOT REFUSED"}: an allocation to an unknown record')
+        if not hit: failed.append('an allocation to an unknown record')
+        c = copy.deepcopy(sheets['28']); c['allocations'][0]['polygons'][0]['id'] = c['frontages'][0]['polygons'][0]['id']
+        hit = any('used twice' in e for e in check_sheet('28', c, lib, grid, images))
+        print(f'{"refused" if hit else "NOT REFUSED"}: an allocated polygon reusing a frontage polygon id')
+        if not hit: failed.append('an allocated polygon reusing a frontage polygon id')
     if failed: sys.exit(f'{len(failed)} refusal(s) did not fire: {", ".join(failed)}')
     print(f'sheet census self-test: all {len(cases)} refusals fire')
 

@@ -2,6 +2,38 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 177,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 317,
+      "takenAt": "2026-10-09T20:34:35.373Z",
+      "ref": "steward/t2262-frontage-refused-count",
+      "commit": "63bfe2b45df1",
+      "devCommit": "63bfe2b45df1",
+      "treeHash": "sha256:c59ad623d1c4de50",
+      "treeDirty": true,
+      "changelogHash": "sha256:6b2e6e720d9d15ff",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.1,
+          2.3,
+          1.6
+        ]
+      },
+      "source": "/tmp/smoke-m2.log"
+    },
+    {
       "viewport": "desktop",
       "stage": "13",
       "parts": [
@@ -1862,36 +1894,6 @@
         "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
       },
       "source": "gh-run:37156977873 https://github.com/kevinrhaas/chicago/actions/runs/37156977873"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1-2",
-      "parts": [
-        1,
-        2
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 173,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: the frontage layer draws the meshes it authored — 120 authored mesh(es) (frontage, frontage-chunk x118, frontage-far-walk-tops), 10 far-merge artefact(s) [frontage-far-merge x10], 130 drawn in all"
-      ],
-      "wallSeconds": 1647,
-      "takenAt": "2026-10-03T21:59:23Z",
-      "ref": "steward/t2035-vegetation-continuity",
-      "commit": "db49ce6adfeb",
-      "devCommit": "a9c98af7a1f5",
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": "sha256:abee9f43dc2687ae",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
-      },
-      "source": "gh-run:37156913316 https://github.com/kevinrhaas/chicago/actions/runs/37156913316"
     }
   ]
 }
