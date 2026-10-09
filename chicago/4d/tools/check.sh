@@ -427,6 +427,17 @@ step "the 1904 Prairie Avenue street and parcel grid re-derives from its sheets 
 selftest "…and a misread lot line, a stray label or a broken section still fails it" \
   python3 tools/trace_prairie_1904_grid.py --self-test
 
+# T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
+# (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and
+# every named record on the sheet's ground exactly once, owns every traced parcel, keeps
+# the printed number the library and the trace carry in step, and never lets a 1911 GARAGE
+# stand for 1904 without a note (the study's ruling 11).
+step "the 1904 sheet census assigns every Prairie frontage and named record once (T-1840)" \
+  python3 ../prairie_1904_v1/tools/sheet_census.py --check
+
+selftest "…and a dropped row, a doubled record or a kept misreading still fails it" \
+  python3 ../prairie_1904_v1/tools/sheet_census.py --self-test
+
 # T-1728. ...and what that grid is paved with. data/street_surfaces/1904.json is AUTHORED:
 # every carriageway, alley and sidewalk band names a material, a tier, its sources and a
 # range that bounds 1 July 1904. The contract holds it to the grid (nothing drawn without
