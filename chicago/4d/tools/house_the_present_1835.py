@@ -47,6 +47,13 @@ division their own card or the address book puts them in.
 
 Between the first rung and the second, since T-2236, **keepers** take a store (below).
 
+**A workplace is not a bed** (T-2249). A household the building cards list on a roof only
+because its card WORKS there ("worked here") is not under a roof by that row. Until T-2249
+it was counted as already housed, so 31 households the town holds present (22 on their
+own cards, 9 ruled in), among them the Harmon brothers, John Calhoun, George W. Dole
+and Archibald Clybourne, slept under no roof in the scene and the audit counted them as
+housed. They now take the rungs like every other household.
+
 Among the roofs a household may take, it takes the one that leaves the fewest people per
 square metre of floor (footprint × storeys), ties broken by a seeded hash. That is the whole
 of the placement: **the room is where the people go.** A household whose division is
@@ -193,6 +200,8 @@ DOCUMENTED_DWELLINGS = {
 # The census of November 1835 (town model, `people_per_dwelling_november_1835`).
 CENSUS_PEOPLE_PER_DWELLING = 8.204
 
+# The relation compile_scene writes for a household whose card only WORKS at the roof.
+WORKED_HERE = "worked here"
 RELATION = {
     "dealt": "lived here",
     "family": "shared this roof",
@@ -264,8 +273,13 @@ def read_inputs() -> dict:
     boats = load(DATA / "boats" / "index.json").get("boats") or []
 
     # Who is ALREADY under a roof, read the way the building card is built — without
-    # this pass's own overlay, so the ledger never reads itself.
-    seated = {h["household"] for rows in compile_residents(housing=False).values() for h in rows}
+    # this pass's own overlay, so the ledger never reads itself. T-2249: a row that only
+    # WORKED there is not a bed. Until then it counted, and 31 households the town holds
+    # present (a merchant at his store, a clerk at the agency) slept under no roof at all.
+    seated, at_work = set(), set()
+    for rows in compile_residents(housing=False).values():
+        for h in rows:
+            (at_work if h.get("relation") == WORKED_HERE else seated).add(h["household"])
 
     # T-1386's rulings: the `uncertain` households the town's own rule puts in the
     # population, and the two absences it found evidence for. They stand BESIDE the cards
@@ -317,7 +331,7 @@ def read_inputs() -> dict:
 
     return {"roofs": roofs, "standing": standing, "cards": cards, "book": book,
             "clauses": clauses, "vessels": {b["id"] for b in boats if b.get("id")},
-            "seated": seated, "ruled": ruled, "evidenced_absent": evidenced_absent,
+            "seated": seated, "at_work_only": at_work - seated, "ruled": ruled, "evidenced_absent": evidenced_absent,
             "keepers": keepers, "business_at": business_at, "store_room": store_room}
 
 
@@ -359,7 +373,7 @@ def deal(inputs: dict) -> dict:
     rows_now = compile_residents(housing=False)
     for sid, rows in rows_now.items():
         people[sid] += sum(len(h.get("persons") or []) for h in rows
-                           if h.get("relation") != "worked here")
+                           if h.get("relation") != WORKED_HERE)
 
     # T-2236: the store roofs a keeper may take. A keeper's own (the register stands their
     # house of trade on it) wants only that nobody sleeps there; any other wants nobody on
@@ -650,6 +664,8 @@ def deal(inputs: dict) -> dict:
             "present_households_owed_a_roof": len(owed),
             "ruled_in_households_already_housed": ruled_already,
             "ruled_in_households_owed_a_roof": len(ruled_owed),
+            "of_them_only_at_work_on_a_roof": sum(h in inputs["at_work_only"]
+                                                  for h in owed + ruled_owed),
             "seated": len(seats),
             "seated_by_presence": dict(sorted(by_presence.items())),
             "refused": len(refused),
@@ -828,6 +844,18 @@ def problems(doc: dict, inputs: dict) -> list[str]:
         where = value_of(card.get("lives_at"))
         if not (where and (where in inputs["standing"] or where in inputs["vessels"])):
             out.append(f"{hid} is ruled present and neither seated nor counted apart")
+    # T-2249. A household present on its own card is under a roof by its own lives_at, by
+    # another overlay's bed, or by a seat here. A workplace row is none of those.
+    refused = {r["household"] for r in doc["refused"]}
+    for hid, entry in sorted(inputs["cards"].items()):
+        card = entry["card"]
+        where = value_of(card.get("lives_at"))
+        if value_of(card.get("present_on_scene_date")) != "present" or hid in seen \
+                or hid in inputs["seated"] or hid in refused or hid in apart \
+                or (where and (where in inputs["standing"] or where in inputs["vessels"])):
+            continue
+        out.append(f"{hid} is present and sleeps under no roof"
+                   + (" — it only works at one" if hid in inputs["at_work_only"] else ""))
     ceiling = doc["the_ceiling"]
     if ceiling["people_per_dwelling"] > CENSUS_PEOPLE_PER_DWELLING:
         out.append(f"{ceiling['people_per_dwelling']} people per standing dwelling is above "
@@ -913,10 +941,19 @@ def self_test(inputs: dict) -> int:
     expect("a household counted apart and seated", lambda d: d["counted_apart"].append(
         {"household": d["seats"][0]["household"], "why": "absent_on_the_scene_date", "persons": 1}))
     expect("a line stopped while the census still had room", stop_early)
+
+    def housed_at_work(d):
+        # T-2249's defect put back: a present household whose only row is its workplace,
+        # taken out of the deal as though that row were a bed.
+        hid = next(s["household"] for s in d["seats"] if s["household"] in inputs["at_work_only"]
+                   and s["presence"] == "on_the_card")
+        d["seats"] = [s for s in d["seats"] if s["household"] != hid]
+
+    expect("a present household housed by its workplace alone", housed_at_work)
     if failures:
         print("SELF-TEST FAILED — the guard did not fire on: " + "; ".join(failures))
         return 1
-    print("self-test: all twelve guards fire")
+    print("self-test: all thirteen guards fire")
     return 0
 
 
