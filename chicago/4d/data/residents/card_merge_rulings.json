@@ -2465,7 +2465,7 @@
       ]
     },
     {
-      "id": "ltendre-l-tendre",
+      "id": "ltendre-l-tendre-baptiste",
       "surname": "ltendre",
       "derived_candidate": false,
       "why_not_derived": "THE CANDIDATE TEST CANNOT SEE THESE PAIRS, AND DOES NOT READ THE CARDS THAT HOLD ONE HALF. The readmitted halves live in data/residents/readmitted/, which the index does not list and read_town() therefore never reads, and their surnames are split differently from the research cards' ('Joseph L. Tendre' against 'Joseph Ltendre', 'Louis Franch Re' against 'Louis Franchre') — the extraction dropped the accented letter, and one reading kept the dropped letter's gap as a word break. T-2191 found them while deriving St Mary's parent ties, and declined to write a tie onto either half. They are written in by hand, like the Blanchard and Bourassa clusters.",
@@ -2482,7 +2482,15 @@
           "for": "ONE LINE OF THE REGISTER, CARDED TWICE. baptiste_l_tendre was minted by the readmission stage (T-1172, class R2) from St Mary's row st_marys_bapt_1833_10_2_father (the father cell of 1833 entry 10, 26 July 1833: 'Joseph Létendre fils de Baptiste Létendre et [de] O'Waichiquoi'), and ltendre_baptiste's own church evidence carries st_marys_bapt_1833_10_2_father as its record id. Both cards cite st_marys_baptismal_register_1833_1835 and nothing else, and neither dates, places or names the person in a way the other contradicts.",
           "against": "'L. Tendre' and 'Ltendre' are two extractions of 'Létendre': one dropped the é, the other kept its gap as a word break. The cards agree in the source, which is the same cell.",
           "survivor_note": "The survivor is ltendre_baptiste: it is the card the research layer minted from the row, it carries the row in an evidence block and its own presence ruling (R1, beside its inferred `uncertain`), and the readmission stage owns its cards byte for byte, so a union written onto one would be reverted. The readmitted card's drawn `present` goes with it into merged/; the survivor keeps the presence its own ruling gives it, and the boarder's seat the copy held is freed."
-        },
+        }
+      ]
+    },
+    {
+      "id": "ltendre-l-tendre-joseph",
+      "surname": "ltendre",
+      "derived_candidate": false,
+      "why_not_derived": "THE CANDIDATE TEST CANNOT SEE THESE PAIRS, AND DOES NOT READ THE CARDS THAT HOLD ONE HALF. The readmitted halves live in data/residents/readmitted/, which the index does not list and read_town() therefore never reads, and their surnames are split differently from the research cards' ('Joseph L. Tendre' against 'Joseph Ltendre', 'Louis Franch Re' against 'Louis Franchre') — the extraction dropped the accented letter, and one reading kept the dropped letter's gap as a word break. T-2191 found them while deriving St Mary's parent ties, and declined to write a tie onto either half. They are written in by hand, like the Blanchard and Bourassa clusters.",
+      "rulings": [
         {
           "state": "merge",
           "rule": "C17",

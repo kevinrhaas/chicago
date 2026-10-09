@@ -858,7 +858,7 @@
    "person_id": "ltendre_baptiste",
    "folded_person_id": "baptiste_l_tendre",
    "rule": "C17",
-   "cluster": "ltendre-l-tendre",
+   "cluster": "ltendre-l-tendre-baptiste",
    "record_ids": [
     "st_marys_bapt_1833_10_2_father"
    ],
@@ -868,14 +868,14 @@
    "sources": [
     "st_marys_baptismal_register_1833_1835"
    ],
-   "evidence": "T-2197: 'baptiste_l_tendre' and 'ltendre_baptiste' are one person under rule C17; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'ltendre-l-tendre'."
+   "evidence": "T-2197: 'baptiste_l_tendre' and 'ltendre_baptiste' are one person under rule C17; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'ltendre-l-tendre-baptiste'."
   },
   {
    "outcome": "merged",
    "person_id": "ltendre_joseph",
    "folded_person_id": "joseph_l_tendre",
    "rule": "C17",
-   "cluster": "ltendre-l-tendre",
+   "cluster": "ltendre-l-tendre-joseph",
    "record_ids": [
     "st_marys_bapt_1833_10_1_child"
    ],
@@ -885,7 +885,7 @@
    "sources": [
     "st_marys_baptismal_register_1833_1835"
    ],
-   "evidence": "T-2197: 'joseph_l_tendre' and 'ltendre_joseph' are one person under rule C17; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'ltendre-l-tendre'."
+   "evidence": "T-2197: 'joseph_l_tendre' and 'ltendre_joseph' are one person under rule C17; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'ltendre-l-tendre-joseph'."
   },
   {
    "outcome": "merged",

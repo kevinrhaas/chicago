@@ -24942,7 +24942,7 @@
    "merged_into_household": "hh_ltendre_baptiste",
    "record_file": "merged/hh_baptiste_l_tendre.json",
    "rule": "C17",
-   "cluster": "ltendre-l-tendre",
+   "cluster": "ltendre-l-tendre-baptiste",
    "ticket": "T-2197"
   },
   {
@@ -25294,7 +25294,7 @@
    "merged_into_household": "hh_ltendre_joseph",
    "record_file": "merged/hh_joseph_l_tendre.json",
    "rule": "C17",
-   "cluster": "ltendre-l-tendre",
+   "cluster": "ltendre-l-tendre-joseph",
    "ticket": "T-2197"
   },
   {

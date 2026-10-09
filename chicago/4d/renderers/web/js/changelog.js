@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Three people who were in the town twice are now in it once', kind: 'fix',
+  { v: 1552, ts: '2026-10-09T00:45:27.891Z', date: 'Oct 8, 2026, 7:45 PM CT', title: 'Three people carded twice in the town now have one card each', kind: 'fix',
     items: [
       'Joseph Létendre, his father Baptiste Létendre and Louis Franchère each had two cards. Each pair came from the same line of the St Mary’s baptismal register, read twice and spelt two ways. One card of each pair is now folded into the other, and nothing on it is lost.',
       'The copies had been boarding in three houses. With those beds free, the town’s boarders are spread across its houses afresh, so many house cards list different lodgers, and George Chapman’s household, which was still waiting for a roof, now has a house on Lake Street.',
