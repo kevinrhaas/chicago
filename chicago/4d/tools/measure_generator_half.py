@@ -510,13 +510,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # frame_storefront through emit.py and the common modules. Terrain reach stays 6 and
 # pier_crib stays 2.
 #
+# 699 -> 702 and 693 -> 696 on 2026-10-08 (T-2176): a house on the School Section tier's block
+# 81 (recon_1835_blk_school_section_tier_81_d5_07), a house on its block 95 (_95_d6_07) and a
+# barn on blk_south_water_wells (_a2_10), all through emit.py and the common modules.
+#
 STATED = {
-    "assets": 699,
+    "assets": 702,
     "restales": {
-        "generators/common/*.py": 699,
+        "generators/common/*.py": 702,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 693,
+        "generators/emit.py": 696,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
