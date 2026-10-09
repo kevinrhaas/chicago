@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1589, ts: '2026-10-09T19:59:53.408Z', date: 'Oct 9, 2026, 2:59 PM CT', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
+    items: [
+      'The town counted 31 households as housed because their card named the building they worked in. They had no home in the scene. Among them were the Harmon brothers, John Calhoun of the Chicago Democrat, George W. Dole and Archibald Clybourne. Each now has a home of its own on the building cards, the same way every other household is placed.',
+      'John Calhoun now lives over his store on South Water Street, and Asahel Pierce over his on the West Side. The rest live in ordinary houses or board in their own part of town.',
+      'The town is still kept no more crowded than the census of November 1835. Seating these households fills that room, so 29 more households now wait for a house still to be built, up from 24 to 53. The completion audit and the population counts now leave the place of work out too.',
+    ] },
   { v: 1588, ts: '2026-10-09T19:28:35.221Z', date: 'Oct 9, 2026, 2:28 PM CT', title: 'Glessner roof tiles follow the documented size', kind: 'fix',
     items: [
       'Clay roof tiles now use the documented six-inch width and five-inch exposed courses across the main roof, service roofs, dormers and turrets. Small roof returns receive the same coverage.',
