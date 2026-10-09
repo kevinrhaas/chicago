@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'The town plan checks the people outside its main list', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The plan of who still has to be added to the 1835 town counted households only from its main list of people, and about 660 people the town holds sit on cards beside that list: tradesmen, lodgers, and people with thin records.',
+      'Each of them is now checked. Nearly all board in a house whose household is already counted, so they are lodgers rather than houses still owed. Four families have a house of their own, but that part of the plan was already full. No one is added or moved, and the 64 households still owed stay at 64.',
+    ] },
   { v: 1564, ts: '2026-10-09T06:06:53.644Z', date: 'Oct 9, 2026, 1:06 AM CT', title: 'Mark Noble jun.\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints \u201cMr. MARK NOBLE, jun.\u201d marrying \u201cMiss CHARLOTTE, only daughter of Mr. Charles Wesencraft\u201d. Both their cards had a guessed sex, and both guesses were wrong: he showed as a woman, and she as a man heading a made-up wife and sons.',
