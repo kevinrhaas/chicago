@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1558, ts: '2026-10-09T03:12:17.658Z', date: 'Oct 8, 2026, 10:12 PM CT', title: 'Glessner’s missing references have a retrieval report', kind: 'feature',
+    items: [
+      'Open Glessner House in the Prairie research library for recovered references, the remaining-view list and a measured-photo brief. Ten of the 17 records now have reviewed material; seven still lack viewable images.',
+      'Cornell’s construction print and the old sidewalk report image are identified as existing photographic exposures. A 1945 IIT facade view adds later evidence, with date and rights limits visible on its card. Archive inquiries are prepared for review and have not been sent.',
+    ] },
   { v: 1557, ts: '2026-10-09T02:41:41.600Z', date: 'Oct 8, 2026, 9:41 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
     items: [
       'Open a household in the People directory, such as John Davis at the Steamboat Hotel. The section \u201cWhere this household was, and when\u201d now lists its home and workplace beside its church, offices and land. Until now 64 of these cards gave a home or workplace only in the single \u201cLived at\u201d and \u201cWorked at\u201d lines.',
