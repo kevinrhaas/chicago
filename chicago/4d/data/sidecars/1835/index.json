@@ -12434,6 +12434,12 @@
       "asset": "gltf/recon_1835_blk_south_water_market_d5_01__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_south_water_market_h3_02",
+      "name": "Reconstructed H3 boarding house #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_market_h3_02.json",
+      "asset": "gltf/recon_1835_blk_south_water_market_h3_02__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_south_water_wells_a2_09",
       "name": "Reconstructed A2 barn or carriage shed #09",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_wells_a2_09.json",

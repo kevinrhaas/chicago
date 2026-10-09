@@ -77,7 +77,7 @@
           "high": 1440,
           "point": null,
           "is_a_count": true,
-          "method": "The resident layer carries 1,440 people — 412 attested, 1,028 inferred, 2,131 reconstructed. A count of the layer, not of the town.",
+          "method": "The resident layer carries 1,440 people — 412 attested, 1,028 inferred, 2,133 reconstructed. A count of the layer, not of the town.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -148,7 +148,7 @@
           ]
         },
         "known_by_presence": {
-          "present": 3035,
+          "present": 3037,
           "absent": 144,
           "uncertain": 392
         }
@@ -175,10 +175,10 @@
         {
           "figure": "establishments_in_the_compared_classes",
           "low": 118,
-          "high": 128,
+          "high": 129,
           "point": null,
           "is_a_count": false,
-          "method": "The register holds 128 records at the scene date across the compared classes and the census counted 118 two to five months later. The low end is what the town can name and the high end is what the census counted, and the difference is growth plus what no notice advertised.",
+          "method": "The register holds 129 records at the scene date across the compared classes and the census counted 118 two to five months later. The low end is what the town can name and the high end is what the census counted, and the difference is growth plus what no notice advertised.",
           "comparanda": [
             "moses_kirkland_history_of_chicago_v1"
           ],
@@ -359,8 +359,8 @@
               "class": "tavern",
               "census_line": "eight taverns",
               "census_count": 8,
-              "town_at_scene_date": 9,
-              "delta": 1,
+              "town_at_scene_date": 10,
+              "delta": 2,
               "outcome": "town_holds_more_than_the_census_counted",
               "opened_after_the_scene_date": 0
             },
@@ -670,11 +670,11 @@
         },
         {
           "figure": "inns_and_taverns",
-          "low": 9,
+          "low": 10,
           "high": 10,
           "point": null,
-          "is_a_count": false,
-          "method": "The programme schedules 10 inns and taverns; the State census counted 8 taverns two to five months later and the business layer holds 9 at the scene date. The three units are a roof, a licence and a printed notice, and they are not the same thing counted three ways. THE LAYER'S COUNT MAY EXCEED BOTH OTHERS AND THE CEILING FOLLOWS IT (T-1404): the census's figure is a count of LICENCES taken months after the scene, and the town's named public houses — the Sauganash, the Exchange, the Tremont, the Mansion House, the Steamboat, the Western, Wolf Point — are houses the papers never advertised and the licence roll never separated. A licence count cannot cap a house count, so the ceiling is whichever of the three reads highest. T-1196 owns re-cutting the roof programme against it.",
+          "is_a_count": true,
+          "method": "The programme schedules 10 inns and taverns; the State census counted 8 taverns two to five months later and the business layer holds 10 at the scene date. The three units are a roof, a licence and a printed notice, and they are not the same thing counted three ways. THE LAYER'S COUNT MAY EXCEED BOTH OTHERS AND THE CEILING FOLLOWS IT (T-1404): the census's figure is a count of LICENCES taken months after the scene, and the town's named public houses — the Sauganash, the Exchange, the Tremont, the Mansion House, the Steamboat, the Western, Wolf Point — are houses the papers never advertised and the licence roll never separated. A licence count cannot cap a house count, so the ceiling is whichever of the three reads highest. T-1196 owns re-cutting the roof programme against it.",
           "comparanda": [
             "moses_kirkland_history_of_chicago_v1",
             "owner_chicago_1835_reconstruction_spec_2026"

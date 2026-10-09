@@ -1902,7 +1902,7 @@ Every household carries an arrival block and 95.4% of them (1392) hold a `not_la
 
 ## Roles — plural and dated
 
-328 of 2886 persons carry at least one role and 185 carry two or more. 160 of the 738 roles in the layer reach 1 July 1835; the other 578 are printed against the name in a later volume and say so.
+328 of 2886 persons carry at least one role and 185 carry two or more. 160 of the 742 roles in the layer reach 1 July 1835; the other 582 are printed against the name in a later volume and say so.
 
 ### Persons by number of roles
 
@@ -1911,12 +1911,12 @@ Every household carries an arrival block and 95.4% of them (1392) hold a `not_la
 | 0 | 2558 | 88.6% |
 | 1 | 143 | 5.0% |
 | 2 or more | 70 | 2.4% |
-| 3 or more | 57 | 2.0% |
+| 3 or more | 56 | 1.9% |
 | 4 or more | 32 | 1.1% |
 | 5 or more | 11 | 0.4% |
-| 6 or more | 8 | 0.3% |
-| 7 or more | 4 | 0.1% |
-| 8 or more | 2 | 0.1% |
+| 6 or more | 9 | 0.3% |
+| 7 or more | 3 | 0.1% |
+| 8 or more | 3 | 0.1% |
 | 9 or more | 1 | 0.0% |
 
 ### Roles by kind
@@ -1925,7 +1925,7 @@ Every household carries an arrival block and 95.4% of them (1392) hold a `not_la
 |---|---:|
 | trade | 601 |
 | profession | 84 |
-| office | 52 |
+| office | 56 |
 | employment | 1 |
 
 ### Occupations reaching the scene date, by tier
@@ -2006,7 +2006,7 @@ Every household carries an arrival block and 95.4% of them (1392) hold a `not_la
 | tailor | 1 |
 | watchmaker | 1 |
 
-*Offices held: Alexander Loyd, Asahel Pierce, Ashbel Steele, Col. Jean Baptiste Beaubien, Daniel Elston, Edmund D Taylor, Erastus Bowen, George Davis, George W. Snow, George Washington Dole, Gholson Kercheval, Isaac Dewey Harmon, James Walker, James Whitlock, Jeremiah Price, Jeremiah Smith, John Harris Kinzie, John M. Nelson, John Miller, John Murphy, John S. C. Hogan, John Scott, Josiah Stillman, Levi F. Arnold, Mark Beaubien, O I Thompson, Richard Jones Hamilton, Russel E. Heacock, Silas W Sherman, Stephen Forbes, Stephen M. Salisbury, Thomas Galaher, Thomas Jefferson Vance Owen, W B Ogden, William H Brown, William H. Stow, William Jones.*
+*Offices held: Alexander Loyd, Asahel Pierce, Ashbel Steele, Col. Jean Baptiste Beaubien, Daniel Elston, Edmund D Taylor, Erastus Bowen, George Davis, George W. Snow, George Washington Dole, Gholson Kercheval, Isaac Dewey Harmon, James Walker, James Whitlock, Jeremiah Price, Jeremiah Smith, John Harris Kinzie, John M. Nelson, John Miller, John Murphy, John S. C. Hogan, John Scott, Joseph Meeker, Josiah Stillman, Levi F. Arnold, Mark Beaubien, O I Thompson, Richard Jones Hamilton, Russel E. Heacock, Silas W Sherman, Stephen Forbes, Stephen M. Salisbury, Thomas Galaher, Thomas Jefferson Vance Owen, W B Ogden, William H Brown, William H. Stow, William Jones.*
 
 *Houses of entertainment kept: Alanson Sweet, Chester Ingersoll, Edward H. Haddock, Harriet Murphy, Ira Couch, J. Shrigley, James Couch, John Davis, John Murphy, Mark Beaubien, Mrs Rufus Brown, Rufus Brown, William H. Stow, William Walters.*
 
@@ -2119,7 +2119,7 @@ Every household carries an arrival block and 95.4% of them (1392) hold a `not_la
 
 ## Where they meet the buildings
 
-2786 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1412 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 79 wait on a roof not yet standing; 46 households have no dwelling. The table below reads `lives_at` alone. 658 roofs stand against a programme of 668.
+2794 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1414 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 71 wait on a roof not yet standing; 44 households have no dwelling. The table below reads `lives_at` alone. 659 roofs stand against a programme of 668.
 
 ### Households by division and seating
 
@@ -2139,7 +2139,7 @@ Every household carries an arrival block and 95.4% of them (1392) hold a `not_la
 |---|---:|
 | people | 3265 |
 | dwellings | 398 |
-| roofs standing in the scene | 658 |
+| roofs standing in the scene | 659 |
 | roofs the programme targets | 668 |
 
 *1338 of 1459 households are `unplaced` — not in any division. A person without a division cannot be housed, which is why the division axis and the lodging axis fail together.*
@@ -2253,7 +2253,6 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Alanson Sawyer | New York State | reconstructed |
 | Alanson Stiles | New York State | reconstructed |
 | Alanson Sweet | The Southern states | reconstructed |
-| Alanson Thayer | The Mid-Atlantic states | reconstructed |
 | Albert Bakwith | The Mid-Atlantic states | reconstructed |
 | Albert F. Dow | New England | reconstructed |
 | Albert Late | New England | reconstructed |
@@ -2817,6 +2816,7 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | David Curtin | New York State | reconstructed |
 | David Dickinson | New York State | reconstructed |
 | David Dickson | New York State | reconstructed |
+| David Eastman | The Southern states | reconstructed |
 | David Foote | New York State | reconstructed |
 | David Groover | New York State | reconstructed |
 | David Harris | The Mid-Atlantic states | reconstructed |
@@ -2955,7 +2955,6 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Elisha Eastman | The Mid-Atlantic states | reconstructed |
 | Elisha Fairbanks | The Southern states | reconstructed |
 | Elisha H. Hazzard | West of the Alleghenies | reconstructed |
-| Elisha Hastings | The Southern states | reconstructed |
 | Elisha Kennicott | New York State | reconstructed |
 | Elisha Mcburney | New England | reconstructed |
 | Elisha Price | New York State | reconstructed |
@@ -3099,6 +3098,7 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Ezra Garrett | New York State | reconstructed |
 | Ezra Ogleby | New York State | reconstructed |
 | Ezra Panster | New England | reconstructed |
+| Ezra Parmelee | The Mid-Atlantic states | reconstructed |
 | Ezra Pottier | New England | reconstructed |
 | Ezra Stow | New York State | reconstructed |
 | Ezra Thayer | New England | reconstructed |
@@ -3171,6 +3171,7 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | George M Brooks | New York State | reconstructed |
 | George Miller | New England | reconstructed |
 | George Morrison | New England | reconstructed |
+| George Newell | The Mid-Atlantic states | reconstructed |
 | George R. Makepiece | New England | reconstructed |
 | George S. Canp | New York State | reconstructed |
 | George Smith | New York State | reconstructed |
@@ -4915,7 +4916,6 @@ What KINDS of people the sources show, counted only where a source says so. 0 of
 | Warren Elston | England | inferred |
 | Warren Fisk | New York State | reconstructed |
 | Warren Gilbert | New York State | reconstructed |
-| Warren Parmelee | The Mid-Atlantic states | reconstructed |
 | Warren Pixby | New York State | reconstructed |
 | Warren Russell | New York State | reconstructed |
 | Warren Stebbins | England | reconstructed |

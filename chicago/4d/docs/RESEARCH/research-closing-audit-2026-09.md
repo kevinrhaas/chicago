@@ -9,18 +9,18 @@ Registered reading units: **23,716**, as of 2026-09-15. Unclassified: **0**. Ass
 | Disposition | Units |
 | --- | ---: |
 | aggregate_only | 373 |
-| asserted | 1,550 |
+| asserted | 1,552 |
 | later_only | 12,616 |
 | outside_chicago | 118 |
-| refused | 8,781 |
-| unresolved | 278 |
+| refused | 8,791 |
+| unresolved | 266 |
 
 Every asserted unit names the record and field it wrote to. Grouped by the layer that file belongs to:
 
 | Layer | Asserted units landed |
 | --- | ---: |
 | residents | 0 |
-| households | 965 |
+| households | 967 |
 | businesses | 541 |
 | structures | 41 |
 | outside the four layers | 3 |
@@ -98,7 +98,7 @@ Reproduce: `python3 tools/compile_register.py --check`.
 
 | Measure | Count |
 | --- | ---: |
-| Structure records | 699 |
+| Structure records | 700 |
 | Carrying occupants | 261 |
 | Flagged `review_required` | 14 |
 
@@ -106,7 +106,7 @@ Reproduce: `python3 tools/compile_register.py --check`.
 | --- | ---: |
 | `attested` | 18 |
 | `inferred` | 232 |
-| `reconstructed` | 1,850 |
+| `reconstructed` | 1,853 |
 
 Reproduce: `python3 tools/audit_confidence.py --strict`.
 
@@ -114,9 +114,7 @@ Reproduce: `python3 tools/audit_confidence.py --strict`.
 
 An unresolved unit is research that has been read and not yet spent. The ledger's standing invariant is that it may only defer to work that is still going to happen, so every owner below is checked against its ticket's current state.
 
-| Owner | Units | Live |
-| --- | ---: | ---: |
-| T-1569 | 12 | yes |
+No unresolved unit defers to a ticket: every reading a band of this programme owned has been spent.
 
 The rest defer to no ticket, and that is the second legitimate shape rather than a gap (T-1423): a name the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, whose open question is whether the person was in the town on 1 July 1835. No ticket can answer that — only a document can — so each states the document instead. The pointer that used to stand here was renamed four times as the ticket it named kept closing, and no source came any nearer.
 
@@ -132,11 +130,11 @@ Reproduce: `python3 tools/measure_research_spend.py --check`.
 
 ## 7. The gaps, stated
 
-1. **Every layer is reached at unit level.** 965 asserted units land on residents and households, 541 on businesses and 41 on structures.
+1. **Every layer is reached at unit level.** 967 asserted units land on residents and households, 541 on businesses and 41 on structures.
 2. **28 of the 176 firms standing on 1 July 1835 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits this and T-1189 staffs it.
 3. **60 firms are unplaceable and 52 reach a street and no further.** Those 112 are the location limits the research preserved rather than guessed past; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
 4. **1,425 of 1,459 households have no `lives_at`.** Most are letter-list-only names (773) whose whole evidence is that a letter waited for them; where they live is T-1159's roster question, not a hole in the reading.
-5. **1,850 structure attributes are `reconstructed` against 18 attested and 232 inferred.** That is the honest shape of a town of which the sources describe a few dozen buildings; the grade says so on every value.
+5. **1,853 structure attributes are `reconstructed` against 18 attested and 232 inferred.** That is the honest shape of a town of which the sources describe a few dozen buildings; the grade says so on every value.
 
 ## 8. Closing
 

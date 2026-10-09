@@ -107,3 +107,11 @@ pass the same published-app, budget, asset and page-error checks.
 | Dormers | [Before](before/desktop-dormers.png) · [After](after/desktop-dormers.png) | [Before](before/mobile-dormers.png) · [After](after/mobile-dormers.png) |
 | Turret | [Before](before/desktop-turret.png) · [After](after/desktop-turret.png) | [Before](before/mobile-turret.png) · [After](after/mobile-turret.png) |
 | Tile close-up | [After](tile-close/desktop-tile-close.png) | [After](tile-close/mobile-tile-close.png) |
+
+## Published browser receipts
+
+- [Mobile stages 3, 12–13](smoke-mobile-3-12-13.log): **308 passed, 0 failed**, zero page errors, completed against the committed tile implementation before the final dev integration.
+- [Desktop stage 13](smoke-desktop-13-final.log): **126 passed, 0 failed**, zero page errors, completed after integrating dev's research updates. The normal 1904 spawn draws Glessner within its unchanged budget.
+- [Interrupted desktop stages 3, 12–13](smoke-desktop-interrupted.log): the workspace restart stopped the process during stage 13, after the assertions in stages 3 and 12 completed. This partial log has **no overall pass verdict**; the unfinished stage was rerun in full above.
+
+These are explicitly scoped browser runs, not the complete 14-stage suite or a frame-rate certification. The focused six-view Full/Light captures above inspect the changed roof surfaces directly.

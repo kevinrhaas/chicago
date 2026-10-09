@@ -517,13 +517,16 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 702 -> 703 and 696 -> 697 on 2026-10-09 (T-2238): a D5 on the Market wedge's lot 7
 # (recon_1835_blk_south_water_market_d5_01), through emit.py and the common modules.
 #
+# 703 -> 704 and 697 -> 698 on 2026-10-09 (T-2196): a boarding house party-walled to that D5
+# (recon_1835_blk_south_water_market_h3_02), through emit.py and the common modules.
+#
 STATED = {
-    "assets": 703,
+    "assets": 704,
     "restales": {
-        "generators/common/*.py": 703,
+        "generators/common/*.py": 704,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 697,
+        "generators/emit.py": 698,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

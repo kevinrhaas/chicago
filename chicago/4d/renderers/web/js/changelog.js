@@ -1,8 +1,25 @@
 export const CHANGELOG = [ // newest first
-  { v: 1584, ts: '2026-10-09T17:37:18.592Z', date: 'Oct 9, 2026, 12:37 PM CT', title: 'Glessner roof tiles follow the documented size', kind: 'fix',
+  { v: 1587, ts: '2026-10-09T19:13:34.005Z', date: 'Oct 9, 2026, 2:13 PM CT', title: 'Glessner roof tiles follow the documented size', kind: 'fix',
     items: [
       'Clay roof tiles now use the documented six-inch width and five-inch exposed courses across the main roof, service roofs, dormers and turrets. Small roof returns receive the same coverage.',
       'The lighter house model now shows the complete tile pattern. The roof keeps its reconstructed red, unglazed clay finish; the tar coating recorded by a later survey is excluded from 1904.',
+    ] },
+  { v: 1586, ts: '2026-10-09T18:37:23.945Z', date: 'Oct 9, 2026, 1:37 PM CT', title: 'A boarding house beside the Market wedge\u2019s house on Lake Street', kind: 'feature',
+    items: [
+      'Walk west along Lake Street toward Market. On the wedge of land the river\u2019s bend leaves there, a large frame boarding house now shares a wall with the house already standing on lot 7, the two set back 5 m in one row.',
+      'Mark Beaubien\u2019s household keeps it, and five people already in the town sleep there. Alanson Sweet\u2019s household moves into the Clark Street boarding house Beaubien left. The house beside that one gets a new keeper, Alvah Stebbins, with his three children.',
+      'The town owed the South two more boarding houses and had nowhere to put them. This one stands on the owner\u2019s ruling. The other waits for the streets south of Madison to be surveyed in, along with five owed houses.',
+    ] },
+  { v: 1585, ts: '2026-10-09T17:54:48.792Z', date: 'Oct 9, 2026, 12:54 PM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
+    items: [
+      'Open John S. C. Hogan\u2019s card: his roles now include trustee of the town of Chicago, read in the 1835 act on the town\u2019s incorporation.',
+      'George W. Snow\u2019s card now records his election as the town\u2019s assessor and surveyor in December 1833, Ashbel Steele\u2019s his post as county coroner, and Joseph Meeker\u2019s his place as his church\u2019s Sunday-school librarian.',
+      'Each is marked an office, graded inferred and cited. None of them changes anyone\u2019s 1835 occupation, because the histories they come from were written after the scene.',
+      'Eight more posts the research had found, among them Hamilton\u2019s county clerkship and St Cyr\u2019s priesthood, were already on their cards. Nothing in the 3-D town changes.',
+    ] },
+  { v: 1584, ts: '2026-10-09T17:34:59.494Z', date: 'Oct 9, 2026, 12:34 PM CT', title: 'The 1830 census and early directories are fully accounted for', kind: 'fix',
+    items: [
+      'Nothing you can see changes. Every name the town reads from the 1830 census now either belongs to a household in the town or has a stated reason why not. The same is true of the town directories. Claude Laframboise was the last name waiting, and he heads his own household.',
     ] },
   { v: 1583, ts: '2026-10-09T17:10:28.334Z', date: 'Oct 9, 2026, 12:10 PM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
     items: [
