@@ -22653,3 +22653,35 @@ survey can replace these reconstructed height and projection controls.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Review:** `docs/RESEARCH/glessner-courtyard-roof-2235/README.md`.
 **Recorded:** 2026-10-09.
+
+### L-glessner-frontage-2202 — Prairie frontage access and stone lawn edging
+
+**What:** Reconstructed house-side stone curb, rounded plan corners and dressed
+upper edges, two access gaps, stone entry approach/low risers, and continuous
+mineral carriage paving from the public walk through the porte-cochere to the
+existing courtyard drive. The public carriageway, curb and sidewalk stay on
+T-1728's layout. Only the one-foot public margin at each access is crossed.
+
+**Basis:** `taylor_2135_glessner_exterior_1887_1889` shows the early low stone
+boundary and entry break; `habs_glessner_house_il_1015_drawings` sheets 2 and 6
+record their later plan/elevation and the door's 0.74-ft rise above its walk.
+Their continuity in 1904 is inferred. The existing Sanborn-aligned 14.7-ft
+setback bounds the strip. Neither source measures a 1904 pavement recipe.
+The 0.65-ft curb width, 1.05-ft height above paving, 0.8-ft rounded corner,
+4-ft stone-joint spacing, 3.5-ft paving divisions, two low door risers, a one-foot-deep carriage threshold and
+neutral mineral surface are reconstructions. Profile tolerance is about
+0.25 ft, setback about 1.5 ft; these are modelling bounds, not survey errors.
+Temporary rubble in Taylor and later paved street conditions are not copied.
+
+The 0.21-ft approach/passage lift is rendered ground clearance, tapering to
+the existing 0.12-ft courtyard drive. It compensates for the renderer's
+lowest-footprint terrain anchoring and joins the existing elevated sidewalk;
+it is not a measured historical grade. The door sill itself stays at the
+HABS datum. Joints are recessed and solid skirts extend below grade.
+No restricted photograph pixels or assets are used.
+
+**How to resolve:** A dated 1904 close view, paving specification or measured
+frontage survey can replace the materials, profiles, joints and grade bounds.
+**Covers:** `glessner_house.as_built_1887.form.prairie_frontage`.
+**Review:** `docs/RESEARCH/glessner-frontage-2202/README.md`.
+**Recorded:** 2026-10-09.
