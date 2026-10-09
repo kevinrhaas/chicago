@@ -110,3 +110,12 @@ published metadata refresh. Its geometry and renderer remained unchanged;
 the standing record deliberately has no exact-tree hash for this mixed timing.
 Focused photo-review receipts and the mobile smoke predate integration. The
 combined source tree is covered by the final full preflight above.
+
+Dev then advanced to `35dae52e` (T-2176, three 1835 roofs). That independent
+parcel is integrated verbatim, with the shared source index and liberties
+rebuilt. Only Glessner differs from dev in the master/web asset manifests,
+and its master checksum remains `70d6b672b84fd7615918c34639d61cc81a13d0a5672129467c4b52f8012fed9e`.
+Full preflight on this final combined tree again passes all 792 steps and both
+PR-event checks. The photo and browser receipts precede this later 1835 parcel;
+no new Glessner geometry or renderer changes were introduced by integration.
+Dev's v1553 entry stays verbatim; this branch's entry is re-stamped v1554.

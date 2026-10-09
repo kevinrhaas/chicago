@@ -1,8 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1553, ts: '2026-10-09T01:05:35.875Z', date: 'Oct 8, 2026, 8:05 PM CT', title: 'Glessner’s west gable and rear roof regain their proportions', kind: 'fix',
+  { v: 1554, ts: '2026-10-09T01:25:35.988Z', date: 'Oct 8, 2026, 8:25 PM CT', title: 'Glessner’s west gable and rear roof regain their proportions', kind: 'fix',
     items: [
       'The taller west gable now has the steeper rear-facing slope shown in the supplied elevation. Its apex and roof break give the lower rear section its proper share of the frontage.',
       'The lower roof, dormer and cupola follow the revised silhouette. The measured footprint and recent courtyard window and eave corrections remain in place. These roof proportions are reconstructed from the reference views.',
+    ] },
+  { v: 1553, ts: '2026-10-09T01:10:56.683Z', date: 'Oct 8, 2026, 8:10 PM CT', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
+    items: [
+      'Walk south down Wells Street past Madison. The Monroe Street corner of the block on your left is no longer empty: a roomy tradesman\u2019s house stands there, facing Monroe, a twin of the one at the block\u2019s other Monroe corner.',
+      'One block west, on Market at Monroe, a larger frame house now fills the last lot the plan dealt that block. Only its Madison corner is still open.',
+      'Behind the cottage on the Lake Street side of the block between Wells and LaSalle, a barn or carriage shed stands in the yard. Every barn the town plan counted for the South Division now stands.',
+      'The two households who had asked for a roof here are now housed, and every household the plan seats on the town\u2019s lots now has a house.',
+      'No source shows these buildings in 1835 or names them. Each card says it is reconstructed, and the Liberties page explains it (L408).',
     ] },
   { v: 1552, ts: '2026-10-09T00:21:57.548Z', date: 'Oct 8, 2026, 7:21 PM CT', title: 'Mark Noble\u2019s son and daughter are on his card', kind: 'fix',
     items: [

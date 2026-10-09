@@ -33,6 +33,12 @@
   },
   "manual_reference_comparison": "Final west and northwest GLB renders visually compared with both owner references; approximate photographic proportions, not a survey.",
   "integrated_preflight": {
+    "dev": "35dae52ea53d87ac8f26024fcd7328479e4db491",
+    "repository_steps": 792,
+    "result": "pass",
+    "browser_receipts": "Predate this independent 1835 parcel; Glessner geometry and renderer unchanged."
+  },
+  "integrated_preflight_previous": {
     "dev": "7aed0a2a15239ceb146008db32f4d6f28e244183",
     "repository_steps": 792,
     "result": "pass"
