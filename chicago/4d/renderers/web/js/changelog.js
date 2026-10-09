@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1579, ts: '2026-10-09T16:23:50.992Z', date: 'Oct 9, 2026, 11:23 AM CT', title: 'A boarding house beside the Market wedge\u2019s house on Lake Street', kind: 'feature',
+    items: [
+      'Walk west along Lake Street toward Market. On the wedge of land the river\u2019s bend leaves there, a large frame boarding house now shares a wall with the house already standing on lot 7, the two set back 5 m in one row.',
+      'Mark Beaubien\u2019s household keeps it, and five people already in the town sleep there. Alanson Sweet\u2019s household moves into the Clark Street boarding house Beaubien left. The house beside that one gets a new keeper, Alvah Stebbins, with his three children.',
+      'The town owed the South two more boarding houses and had nowhere to put them. This one stands on the owner\u2019s ruling. The other waits for the streets south of Madison to be surveyed in, along with five owed houses.',
+    ] },
   { v: 1578, ts: '2026-10-09T14:18:56.253Z', date: 'Oct 9, 2026, 9:18 AM CT', title: 'Two more shopkeepers live over their own stores', kind: 'fix',
     items: [
       'Open J. L. Wilson & Co.\u2019s dry goods store on Randolph Street, or Fullerton & Botsford\u2019s pork and provision store at Dearborn and Lake. Each stood empty because the town could not tell who the firm\u2019s partners were. John Wilson now lives over the Wilson store, and J. K. Botsford\u2019s household of six over Fullerton & Botsford\u2019s.',

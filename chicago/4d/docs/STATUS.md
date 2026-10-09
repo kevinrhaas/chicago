@@ -1,3 +1,33 @@
+## T-2196 — a boarding house in a two-unit row on the Market wedge's lot 7 (2026-10-09)
+
+The owner answered T-2196 with **(a)**: lot 7 of `blk_south_water_market` becomes a two-unit
+party-line row on the Lake Street face, for this block only, and one of the South's two owed H3s
+stands in it; the other waits in the gated balance for S9. He answered T-2242 the same morning with
+**(a)** too: the five gated South dwellings stay owed, and T-2242 is withdrawn.
+
+- **`recon_1835_blk_south_water_market_h3_02`** (L411), 10.02 × 13.74 m, party-walled to the east
+  side of T-2238's D5. The D5 is now the row's west unit, anchored at the plat's 1.5 m margin off lot
+  6's side line; both stand 5 m back on one measured street line. Lot 8 stays the open lot.
+- **The schedule holds the grant by name.** `reconcile_665.ROW_LOT_GRANTS` is a table of one: the
+  lot keeps two row units, its room (units less the principal roofs standing on it) is dealt only to
+  an H3, and with the house standing the room is spent. The gated South balance reads 9 (H3 2 → 1).
+  `generate_block_infill.py` accepts the run only against that table (`row_lot_grant` in the recipe),
+  caps the lot at the grant's two units, and reads a party wall a sibling deal declared onto this
+  entry's roof as the same wall from the other side.
+- **Who moved.** The keeper chain (two laps) seats Mark Beaubien's household on the new house under
+  `lodging_near_the_landings`, Alanson Sweet's on the Clark block house Beaubien left, and the second
+  Clark house draws a keeper, Alvah Stebbins, with three children. Lodgers: 157 in 22 cards (L252).
+  One working-lodger cell was re-frozen at the live order (`persons/male/10_19/south/lodging/trade`,
+  4 → 3), because the re-dealt houses drew one more there and `seat_lodgers_1835` refuses a draw past
+  the book. The new house was appended to `houses_the_deal_was_dealt_to`.
+- **One loss, filed.** The new house is filled from the layer alone, so the lodgers stage writes it no
+  card, and the business layer, which reads keepers off cards, retires `rcb_beaubien_boarding_house`
+  (the record was retired by hand in the same pass, as the tool asks). **T-2250** owns giving him his firm back.
+- **Order book.** The South's ordinary-dwelling, boarding-house, barn and outbuilding rows name
+  **T-2247** (the S9 street work and the gated roofs behind it), since T-2242 is withdrawn and T-2196 closes.
+- Baked: the H3, the D5 and the Clark house whose keeper moved. Generator half 704/698; corridor-strip
+  baseline `roofs_on_moved_blocks` 67 → 68 (the build itself, as on T-2238).
+
 ## T-2245 — the firm partners the town holds a card for, linked (2026-10-09)
 
 T-2236's keeper rung seats the household of a proprietor or partner of a house of trade over the
