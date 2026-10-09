@@ -9,19 +9,19 @@ Registered reading units: **23,716**, as of 2026-09-15. Unclassified: **0**. Ass
 | Disposition | Units |
 | --- | ---: |
 | aggregate_only | 373 |
-| asserted | 1,500 |
+| asserted | 1,501 |
 | later_only | 12,616 |
 | outside_chicago | 119 |
 | refused | 8,785 |
-| unresolved | 323 |
+| unresolved | 322 |
 
 Every asserted unit names the record and field it wrote to. Grouped by the layer that file belongs to:
 
 | Layer | Asserted units landed |
 | --- | ---: |
 | residents | 0 |
-| households | 914 |
-| businesses | 542 |
+| households | 916 |
+| businesses | 541 |
 | structures | 41 |
 | outside the four layers | 3 |
 
@@ -33,11 +33,11 @@ Reproduce: `python3 tools/measure_research_spend.py --ledger-build` then `python
 
 | Measure | Count |
 | --- | ---: |
-| Persons | 2,926 |
-| Households | 1,458 |
+| Persons | 2,925 |
+| Households | 1,457 |
 | Persons graded `attested` | 412 |
 | Persons graded `inferred` | 1,028 |
-| Persons graded `reconstructed` | 1,486 |
+| Persons graded `reconstructed` | 1,485 |
 | Letter-list-only names | 773 |
 | Projected residents | 759 |
 | Merged away | 69 |
@@ -48,7 +48,7 @@ Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.j
 
 | Measure | Count |
 | --- | ---: |
-| Household records | 1,458 |
+| Household records | 1,457 |
 | With a `lives_at` | 34 |
 | With a `works_at` | 51 |
 | Letter-list-only | 773 |
@@ -58,7 +58,7 @@ Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.j
 | --- | ---: |
 | absent | 8 |
 | present | 501 |
-| uncertain | 949 |
+| uncertain | 948 |
 
 | Division | Households |
 | --- | ---: |
@@ -66,7 +66,7 @@ Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.j
 | north | 20 |
 | outside_town | 1 |
 | south | 71 |
-| unplaced | 1,340 |
+| unplaced | 1,339 |
 | west | 13 |
 
 ## 4. Layer: businesses
@@ -120,7 +120,6 @@ An unresolved unit is research that has been read and not yet spent. The ledger'
 | T-1543 | 1 | yes |
 | T-1552 | 26 | yes |
 | T-1569 | 12 | yes |
-| T-2190 | 1 | yes |
 | T-2191 | 13 | yes |
 | T-2192 | 1 | yes |
 
@@ -138,10 +137,10 @@ Reproduce: `python3 tools/measure_research_spend.py --check`.
 
 ## 7. The gaps, stated
 
-1. **Every layer is reached at unit level.** 914 asserted units land on residents and households, 542 on businesses and 41 on structures.
+1. **Every layer is reached at unit level.** 916 asserted units land on residents and households, 541 on businesses and 41 on structures.
 2. **28 of the 176 firms standing on 1 July 1835 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits this and T-1189 staffs it.
 3. **60 firms are unplaceable and 52 reach a street and no further.** Those 112 are the location limits the research preserved rather than guessed past; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
-4. **1,424 of 1,458 households have no `lives_at`.** Most are letter-list-only names (773) whose whole evidence is that a letter waited for them; where they live is T-1159's roster question, not a hole in the reading.
+4. **1,423 of 1,457 households have no `lives_at`.** Most are letter-list-only names (773) whose whole evidence is that a letter waited for them; where they live is T-1159's roster question, not a hole in the reading.
 5. **1,838 structure attributes are `reconstructed` against 18 attested and 232 inferred.** That is the honest shape of a town of which the sources describe a few dozen buildings; the grade says so on every value.
 
 ## 8. Closing

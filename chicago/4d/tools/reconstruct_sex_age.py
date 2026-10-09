@@ -306,6 +306,13 @@ def read_off_the_register(person: dict) -> bool:
     return (person.get("sex_basis") or {}).get("sources") == [REGISTER_SOURCE]
 
 
+def read_off_a_column(person: dict) -> bool:
+    """A sex `spend_person_sex_age.py` read off a title a press column printed (T-2190):
+    the only other reading that cites a source on its `sex_basis`."""
+    basis = person.get("sex_basis") or {}
+    return bool(basis.get("sources")) and not read_off_the_register(person)
+
+
 def without_this_pass(card: dict) -> dict:
     """The card as it stood before this pass ever ran. The basis of `--check`."""
     out = json.loads(json.dumps(card))
@@ -423,6 +430,11 @@ def measure(base: dict) -> dict:
             # measure the shape of a baptismal entry, not the roll, and move the rate every
             # other draw on it is made at. They are neither settled nor drawn for here.
             if read_off_the_register(person):
+                continue
+            # NOR A TITLE THE COLUMN PRINTED (T-2190), for the same reason: a marriage
+            # notice prints one Mr and one Miss, so the people it sexes are chosen by sex.
+            # They are read where the draw would have been and leave every other draw alone.
+            if read_off_a_column(person):
                 continue
             if person.get("sex"):
                 settled[roll] += 1
@@ -929,6 +941,13 @@ def self_test() -> int:
     named = {"name": "Ann Roe", "sex": "female", "sex_basis": {"confidence": "inferred"}}
     rolls = measure({"hh_a": {"source_pass": "civic", "persons": [named, read]}})
     ok("a sex read off the register is neither settled nor drawn for in the rate",
+       rolls["pooled"]["settled_by_the_evidence"] == 1
+       and all(r["drawn_for"] == 0 for r in rolls["rolls"]))
+    # T-2190: nor is a title a column printed.
+    column = {"name": "Betsy Roe", "sex": "female", "sex_basis": {
+        "confidence": "inferred", "sources": ["chicago_democrat_1833_1835"]}}
+    rolls = measure({"hh_a": {"source_pass": "civic", "persons": [named, column]}})
+    ok("a sex read off a column's title is neither settled nor drawn for in the rate",
        rolls["pooled"]["settled_by_the_evidence"] == 1
        and all(r["drawn_for"] == 0 for r in rolls["rolls"]))
     ok("a person is not", not collective({"name": "John Wilson"}))
