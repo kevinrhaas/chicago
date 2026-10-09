@@ -53,6 +53,9 @@ if (P/'data/images.json').exists():
   for bid in rec['building_ids']:require(bid in {b['id'] for b in j['buildings']},f'image {rec["id"]} cites unknown building {bid}')
   if rec.get('local'):require(rec['rights'] in ('public domain','no known restrictions') or (rec['rights']=='pending — permission requested' and (P/str(rec.get('rights_request') or 'x')).is_file()) or rec['local'].get('display','').startswith('research/public/'),f'image {rec["id"]}: local copy of a {rec["rights"]} item')
 print(f'image store {img_mb:.1f} of {STORE_BUDGET_MB} MB ({len(store.get("files",{}))} files, kevinrhaas/chicago-images)');print(f'{len(j["buildings"])} buildings; {len(sources)} sources; {len(j["map_inventory"]["records"])} frontage readings; {len(j["occupancy_candidates"])} directory candidates')
+# The sheet censuses (data/sheet_census/, T-1840): every frontage row and named record on a sheet's ground once.
+r=subprocess.run([sys.executable,str(P/'tools/sheet_census.py'),'--check'],capture_output=True,text=True)
+require(r.returncode==0,'sheet census: '+(r.stdout+r.stderr).strip())
 if errors:raise SystemExit('\n'.join(errors))
 subprocess.run([sys.executable, str(P/'tools/test_evidence_review.py')], check=True)
 print('PASS: identities, evidence dates, source links and acquired-file hashes')
