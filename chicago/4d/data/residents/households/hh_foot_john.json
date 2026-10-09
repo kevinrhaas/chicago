@@ -122,16 +122,16 @@
  "modelled_family": {
   "stage": "modelled_families",
   "ticket": "T-1171",
-  "household_type": "married_couple",
+  "household_type": "family_with_children",
   "size_drawn": 3,
-  "kin_seated": 2,
+  "kin_seated": 8,
   "seed": "hh_foot_john:household_size",
   "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house.",
   "married": {
    "ticket": "T-2020",
-   "wife": "rc_ingalls_abigail",
-   "from_household": "hh_rc_ingalls_abigail",
-   "what_happened": "NOT DRAWN FOR THIS HOUSE: MOVED INTO IT. The household model drew this house married and the order book had no woman left in its wife's cell, so no wife was drawn. Abigail Ingalls headed a house of her own, dealt by T-1174 to fill the women and children the age pyramid lacked; she fits this house by its own rules — her division, a band never above his, no child older than his band allows — and T-2020 folds her house into his: she is his wife here and the 0 of her house come with her. Every name, age band and seed is the one T-1174 drew; the children keep the surname they were dealt with. Both people are the town's invention at the `reconstructed` tier, and the marriage is too: no source says John Foot married anybody."
+   "wife": "rc_newell_polly",
+   "from_household": "hh_rc_newell_polly",
+   "what_happened": "NOT DRAWN FOR THIS HOUSE: MOVED INTO IT. The household model drew this house married and the order book had no woman left in its wife's cell, so no wife was drawn. Polly Newell headed a house of her own, dealt by T-1174 to fill the women and children the age pyramid lacked; she fits this house by its own rules — her division, a band never above his, no child older than his band allows — and T-2020 folds her house into his: she is his wife here and the 6 of her house come with her. Every name, age band and seed is the one T-1174 drew; the children keep the surname they were dealt with. Both people are the town's invention at the `reconstructed` tier, and the marriage is too: no source says John Foot married anybody."
   }
  },
  "persons": [
@@ -343,8 +343,8 @@
    }
   },
   {
-   "id": "rc_ingalls_abigail",
-   "name": "Abigail Ingalls",
+   "id": "rc_newell_polly",
+   "name": "Polly Newell",
    "relationship": "wife",
    "grade": "reconstructed",
    "sex": "female",
@@ -359,7 +359,7 @@
      "id": "age_bands_1840",
      "note": "Drawn from the 1840 Chicago schedule's column 'free white females 30 under 40'. Drawn against the band the order book still wants in this division: the buckets were cut from the population model, so the gap IS the model's shape and a draw that chased it converges on the pyramid rather than near it."
     },
-    "seed": "rc_wc_west_033:head_age_bands_1840",
+    "seed": "rc_wc_west_023:head_age_bands_1840",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -367,23 +367,12 @@
     "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
    },
    "occupation": {
-    "value": "milliner",
+    "value": "none_recorded",
     "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "women_children_fill.female_trades",
-     "note": "The finer half of the same trade, and rarer: it wants a stock and a front."
-    },
-    "seed": "rc_wc_west_033:female_trades",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a woman of this household and what she did"
-    },
-    "note": "DRAWN FROM AN ASSUMPTION THIS PROJECT STATES RATHER THAN A ROW IT READ. The occupation model counts the December 1835 State census's establishments and the 1840 schedule's seven employment columns, and NEITHER counts a woman's work — so there is no female-trade row to draw from. The weights are the programme's own, written where a reader can argue with them and entered in docs/LIBERTIES.md. The term is the residents vocabulary's."
+    "note": "NO TRADE IS CLAIMED, AND THAT IS A DRAW LIKE ANY OTHER. The same weighted table that gave this stage's other heads a trade gave this one none — a widow with grown children, a lot, a pension or kin in the town need not have been in a trade, and a model that put an occupation on every one of them would print a column the sources never had. The card's `women_children.head_trade_seed` redraws it."
    },
    "name_basis": {
-    "value": "Abigail Ingalls",
+    "value": "Polly Newell",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -391,7 +380,7 @@
      "id": "1835_invented_name_pools",
      "note": "The forename and the surname are both drawn from the New England and New York pool: nothing about this house is read, so no part of the name is inherited from a real person."
     },
-    "seed": "rc_wc_west_033:head_forename",
+    "seed": "rc_wc_west_023:head_forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a member of this west-division household"
@@ -403,7 +392,7 @@
     "id": "sex_ratio",
     "note": "The 1840 city returned 146.8 men per 100 women aged twenty and over and this layer stood far past that, because the rolls that name the town name men. This woman is one of the count the order book says is missing from the west division."
    },
-   "seed": "rc_wc_west_033:head_age_bands_1840",
+   "seed": "rc_wc_west_023:head_age_bands_1840",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a woman who kept her own house in this division, or anyone in it"
@@ -418,8 +407,422 @@
    "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1).",
    "folded_in": {
     "ticket": "T-2020",
-    "from_household": "hh_rc_ingalls_abigail",
+    "from_household": "hh_rc_newell_polly",
     "relationship_as_dealt": "head"
+   }
+  },
+  {
+   "id": "rc_newell_polly_1",
+   "name": "Jared Newell",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 10 under 15'. Capped at 10 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
+    },
+    "seed": "rc_wc_west_023:rc_newell_polly:member_1_sex_age",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Jared Newell",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
+    },
+    "seed": "rc_wc_west_023:rc_newell_polly:member_1_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "age_bands_1840",
+    "note": "Drawn by the draw against the west division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+   },
+   "seed": "rc_wc_west_023:rc_newell_polly:member_1_sex_age",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the west division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
+   "folded_in": {
+    "ticket": "T-2020",
+    "from_household": "hh_rc_newell_polly",
+    "relationship_as_dealt": "son"
+   }
+  },
+  {
+   "id": "rc_newell_polly_2",
+   "name": "Lucy Newell",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 10 under 15'. Capped at 10 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
+    },
+    "seed": "rc_wc_west_023:rc_newell_polly:member_2_sex_age",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Lucy Newell",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
+    },
+    "seed": "rc_wc_west_023:rc_newell_polly:member_2_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "age_bands_1840",
+    "note": "Drawn by the draw against the west division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+   },
+   "seed": "rc_wc_west_023:rc_newell_polly:member_2_sex_age",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the west division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
+   "folded_in": {
+    "ticket": "T-2020",
+    "from_household": "hh_rc_newell_polly",
+    "relationship_as_dealt": "daughter"
+   }
+  },
+  {
+   "id": "rc_newell_polly_3",
+   "name": "David Newell",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "0-9",
+    "low": 0,
+    "high": 9,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 10 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
+    },
+    "seed": "rc_wc_west_023:rc_newell_polly:member_3_sex_age",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "David Newell",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
+    },
+    "seed": "rc_wc_west_023:rc_newell_polly:member_3_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "under_ten",
+    "note": "Drawn by the draw against the west division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+   },
+   "seed": "rc_wc_west_023:rc_newell_polly:member_3_sex_age",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the west division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
+   "folded_in": {
+    "ticket": "T-2020",
+    "from_household": "hh_rc_newell_polly",
+    "relationship_as_dealt": "son"
+   }
+  },
+  {
+   "id": "rc_newell_polly_4",
+   "name": "Esther Newell",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "0-9",
+    "low": 0,
+    "high": 9,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 10 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
+    },
+    "seed": "rc_wc_west_023:rc_newell_polly:member_4_sex_age",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Esther Newell",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
+    },
+    "seed": "rc_wc_west_023:rc_newell_polly:member_4_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "under_ten",
+    "note": "Drawn by the draw against the west division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+   },
+   "seed": "rc_wc_west_023:rc_newell_polly:member_4_sex_age",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the west division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
+   "folded_in": {
+    "ticket": "T-2020",
+    "from_household": "hh_rc_newell_polly",
+    "relationship_as_dealt": "daughter"
+   }
+  },
+  {
+   "id": "rc_newell_polly_5",
+   "name": "Rhoda Newell",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "0-9",
+    "low": 0,
+    "high": 9,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 10 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
+    },
+    "seed": "rc_wc_west_023:rc_newell_polly:member_5_sex_age",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Rhoda Newell",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
+    },
+    "seed": "rc_wc_west_023:rc_newell_polly:member_5_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "under_ten",
+    "note": "Drawn by the draw against the west division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+   },
+   "seed": "rc_wc_west_023:rc_newell_polly:member_5_sex_age",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the west division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
+   "folded_in": {
+    "ticket": "T-2020",
+    "from_household": "hh_rc_newell_polly",
+    "relationship_as_dealt": "daughter"
+   }
+  },
+  {
+   "id": "rc_newell_polly_6",
+   "name": "Silas Newell",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 10 under 15'. Capped at 10 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
+    },
+    "seed": "rc_wc_west_023:rc_newell_polly:member_6_sex_age",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Silas Newell",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
+    },
+    "seed": "rc_wc_west_023:rc_newell_polly:member_6_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "age_bands_1840",
+    "note": "Drawn by the draw against the west division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+   },
+   "seed": "rc_wc_west_023:rc_newell_polly:member_6_sex_age",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the west division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
+   "folded_in": {
+    "ticket": "T-2020",
+    "from_household": "hh_rc_newell_polly",
+    "relationship_as_dealt": "son"
    }
   }
  ],

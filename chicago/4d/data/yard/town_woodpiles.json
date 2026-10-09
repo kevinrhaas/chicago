@@ -10,17 +10,17 @@
   "dwellings": 393,
   "by_row": {
    "cabin": 41,
-   "cottage": 167,
+   "cottage": 168,
    "house": 96,
    "keeper": 20,
    "merchant": 35,
-   "shanty": 33
+   "shanty": 32
   },
   "by_class": {
    "keeper": 20,
-   "labourer": 83,
+   "labourer": 82,
    "merchant": 35,
-   "tradesman": 254
+   "tradesman": 255
   },
   "by_basis": {
    "default": 16,
@@ -30,10 +30,10 @@
    "reconstruction_occupation": 14
   },
   "items": {
-   "chopping_block": 359,
-   "cordwood": 415,
+   "chopping_block": 360,
+   "cordwood": 416,
    "log_heap": 41,
-   "slab_heap": 33
+   "slab_heap": 32
   },
   "piled": 392,
   "refused": 1
@@ -4140,23 +4140,36 @@
    "structure_id": "recon_1835_blk_school_section_tier_118_d2_01",
    "name": "Reconstructed D2 rough plank dwelling or shanty #01",
    "function": "rough_plank_dwelling_or_shanty",
-   "household_class": "labourer",
+   "household_class": "tradesman",
    "household_by": "fabric_rule",
    "house": "shanty",
-   "row": "shanty",
-   "rule": "Y-W1",
+   "row": "cottage",
+   "rule": "Y-W3",
    "confidence": "reconstructed",
    "wall": "back",
    "items": [
     {
-     "kind": "slab_heap",
+     "kind": "cordwood",
      "at_local_enu_m": [
-      487.46,
-      -632.75
+      487.69,
+      -633.09
      ],
      "bearing_deg": 180.0,
-     "pieces": 10,
+     "length_m": 2.16,
+     "depth_m": 0.61,
+     "height_m": 1.04,
+     "stick": "stove",
      "seed": 2028507331
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      488.32,
+      -631.69
+     ],
+     "bearing_deg": 180.0,
+     "billets": 2,
+     "seed": 367215809
     }
    ]
   },

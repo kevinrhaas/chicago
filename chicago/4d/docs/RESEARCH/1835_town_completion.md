@@ -17,7 +17,7 @@ Dangling ids: **0**. The town is **not yet complete**: the open joins above are 
 
 ## The three tiers' shares of the people housed
 
-Of the **3,382** people housed in a standing building: **11.2 % attested** (380), **29.2 % inferred** (987), **59.6 % reconstructed** (2,015).
+Of the **3,380** people housed in a standing building: **11.2 % attested** (380), **29.2 % inferred** (987), **59.6 % reconstructed** (2,013).
 
 ## Every table by tier
 
@@ -25,8 +25,8 @@ Of the **3,382** people housed in a standing building: **11.2 % attested** (380)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 380 | 987 | 2,015 | 3,382 |
-| counted apart — waiting on a roof | 22 | 31 | 90 | 143 |
+| housed | 380 | 987 | 2,013 | 3,380 |
+| counted apart — waiting on a roof | 22 | 31 | 92 | 145 |
 | counted apart — absent on the scene date | 10 | 10 | 28 | 48 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
 | **all** | **412** | **1,028** | **2,133** | **3,573** |
@@ -36,11 +36,11 @@ Of the **3,382** people housed in a standing building: **11.2 % attested** (380)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 367 | 971 | 564 | 1,902 |
+| housed | 366 | 971 | 565 | 1,902 |
 | counted apart — waiting on a roof | 22 | 31 | 0 | 53 |
 | counted apart — absent on the scene date | 10 | 10 | 28 | 48 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
-| **all** | **399** | **1,012** | **592** | **2,003** |
+| **all** | **398** | **1,012** | **593** | **2,003** |
 | share | 19.9 % | 50.5 % | 29.6 % | |
 
 ### Working-age persons
