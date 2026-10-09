@@ -22509,3 +22509,31 @@ or a survey of the 1834 bank at Market Street.
 **Ticket:** T-2195 (piece 1 of T-1957).
 **Related:** **L90**, **L405**.
 **Recorded:** 2026-10-08 (T-2195).
+
+### L-glessner-west-profile-2231 — Front west gable and lower rear proportions
+
+**Decision:** The owner's 9 October 2026 west and northwest references supersede
+T-2016's straight crossing roof at the west stable only. The west gable peaks at
+S18.4/z38.6 ft, starts at z25.2 on the north-west corner, and meets the low rear
+eave at S35/z16.5. The measured 59.75-ft total frontage remains: 35 ft is the tall
+front part and 24.75 ft is the lower rear part. Northward and southward slopes
+are approximately 36.1 and 53.1 degrees. The lower rear ridge is W149.25/z25.5;
+the dormer returns to its low hood (21.8-ft eave, 26.2-ft peak). The cupola moves
+to S18.4 on its existing W141 axis and retains its heights.
+
+These are bounded reconstruction, approximately +/-1 ft, not dimensions printed
+on an original west elevation. The isolated elevation study may have been
+rectified or assembled; the northwest photograph is an independent qualitative
+check on the intersecting gables and low rear silhouette. No photo pixels are
+copied. The HABS stable footprint, north roof beyond the stable, courtyard eave,
+dining tower, windows and dark glass remain unchanged. Planar joining facets
+inside the stable reconcile the new west profile with those retained controls.
+
+**Basis:** `owner_glessner_v4_reconstruction_brief_2026`, the two supplied images,
+and the existing HABS control dimensions. See
+`docs/RESEARCH/glessner-west-profile-2231/README.md` for before/after observations.
+**How to resolve:** A measured original west roof section or calibrated period
+photogrammetry can replace these photographic proportions and hidden joins.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`,
+`glessner_house.as_built_1887.form.turret_stable`.
+**Recorded:** 2026-10-09.

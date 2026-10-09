@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1554, ts: '2026-10-09T01:57:08.243Z', date: 'Oct 8, 2026, 8:57 PM CT', title: 'The riverside block at Lake and Franklin joins the town', kind: 'feature',
+  { v: 1555, ts: '2026-10-09T02:06:57.229Z', date: 'Oct 8, 2026, 9:06 PM CT', title: 'The riverside block at Lake and Franklin joins the town', kind: 'feature',
     items: [
       'The narrow block between Lake Street, Franklin Street and the bend of the river, block 21 on the 1834 plat, is now part of the town plan. It has plank walks along Lake, Franklin and South Water Streets, five new board crossings and a back alley.',
       'The plat draws this block as a triangle but marks no lot lines inside it, so the lots are our reconstruction. We kept the four with room for a house and a yard. The pinched west end stays open ground.',
       'Dole\u2019s warehouse, a cooperage and a saw-pit already stood here, and their yards are now laid out. The two empty Lake Street lots are grazed prairie for now, and are next in line for houses.',
+    ] },
+  { v: 1554, ts: '2026-10-09T01:25:35.988Z', date: 'Oct 8, 2026, 8:25 PM CT', title: 'Glessner’s west gable and rear roof regain their proportions', kind: 'fix',
+    items: [
+      'The taller west gable now has the steeper rear-facing slope shown in the supplied elevation. Its apex and roof break give the lower rear section its proper share of the frontage.',
+      'The lower roof, dormer and cupola follow the revised silhouette. The measured footprint and recent courtyard window and eave corrections remain in place. These roof proportions are reconstructed from the reference views.',
     ] },
   { v: 1553, ts: '2026-10-09T01:10:56.683Z', date: 'Oct 8, 2026, 8:10 PM CT', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
     items: [
