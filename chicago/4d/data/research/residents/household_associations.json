@@ -20,7 +20,7 @@
     },
     "rows_with_a_second_source": 20,
     "already_held_by_a_reading": 5,
-    "refused": 1824
+    "refused": 1823
   },
   "rows_by_household": {
     "hh_beaubien_jean_baptiste": [
@@ -1132,7 +1132,7 @@
   "refused_by_reason": {
     "business_location: not a household's own home or workplace claim": 176,
     "home limited: the record makes no claim that reaches a place": 84,
-    "home no_claim: the record makes no claim that reaches a place": 1340,
+    "home no_claim: the record makes no claim that reaches a place": 1339,
     "later_home_address: not a household's own home or workplace claim": 59,
     "later_workplace_address: not a household's own home or workplace claim": 165
   }
