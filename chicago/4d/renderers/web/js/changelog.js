@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1600, ts: '2026-10-09T23:46:46.583Z', date: 'Oct 9, 2026, 6:46 PM CT', title: 'Glessner gets solid ridge caps and finished roof edges', kind: 'fix',
+    items: [
+      'Raised clay ridge caps now have solid ends and stop cleanly at chimneys and the stable cupola. Tower and dormer finials have seated moulded bases.',
+      'Layered eave edges, capped dormer hips and metal flashing give the roof more depth in close views. Full and Light retain the repaired roof shapes.',
+    ] },
   { v: 1599, ts: '2026-10-09T23:18:57.259Z', date: 'Oct 9, 2026, 6:18 PM CT', title: 'Prairie Avenue’s 20th-to-22nd blocks: every 1904 building accounted for', kind: 'feature',
     items: [
       'In the Prairie Avenue 1904 library, open any house between 20th and 22nd Streets. A panel gives its 1904 decision and lists its front building, wings, rear stable and grounds, each graded attested, inferred or reconstructed.',
