@@ -7,11 +7,11 @@
  "target_date": "1835-07-01",
  "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / placement.local_n use.",
  "counts": {
-  "dwellings": 391,
+  "dwellings": 392,
   "by_row": {
    "cabin": 41,
    "cottage": 168,
-   "house": 94,
+   "house": 95,
    "keeper": 19,
    "merchant": 35,
    "shanty": 33
@@ -20,22 +20,22 @@
    "keeper": 19,
    "labourer": 84,
    "merchant": 35,
-   "tradesman": 252
+   "tradesman": 253
   },
   "by_basis": {
    "default": 16,
-   "fabric_rule": 343,
+   "fabric_rule": 344,
    "function": 6,
    "household_trade": 11,
    "reconstruction_occupation": 14
   },
   "items": {
-   "chopping_block": 357,
-   "cordwood": 410,
+   "chopping_block": 358,
+   "cordwood": 412,
    "log_heap": 41,
    "slab_heap": 33
   },
-  "piled": 390,
+  "piled": 391,
   "refused": 1
  },
  "existence": {
@@ -3571,7 +3571,7 @@
    "structure_id": "recon_1835_blk_randolph_market_d3_04",
    "name": "Reconstructed D3 one-room frame cottage #04",
    "function": "one_room_frame_cottage",
-   "household_class": "tradesman",
+   "household_class": "labourer",
    "household_by": "fabric_rule",
    "house": "small",
    "row": "cottage",
@@ -3682,7 +3682,7 @@
    "structure_id": "recon_1835_blk_randolph_market_d4_12",
    "name": "Reconstructed D4 two-room frame cottage #12",
    "function": "two_room_frame_cottage",
-   "household_class": "labourer",
+   "household_class": "tradesman",
    "household_by": "fabric_rule",
    "house": "small",
    "row": "cottage",
@@ -6381,6 +6381,56 @@
     }
    ],
    "cut_down": "the rick shortened to 2.34 m to fit the wall"
+  },
+  {
+   "structure_id": "recon_1835_blk_south_water_market_d5_01",
+   "name": "Reconstructed D5 deep-plan frame cottage #01",
+   "function": "deep_plan_frame_cottage",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "larger",
+   "row": "house",
+   "rule": "Y-W4",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      159.89,
+      -83.02
+     ],
+     "bearing_deg": 180.34,
+     "length_m": 2.27,
+     "depth_m": 0.61,
+     "height_m": 0.84,
+     "stick": "stove",
+     "seed": 1305169392
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      157.27,
+      -83.01
+     ],
+     "bearing_deg": 180.34,
+     "length_m": 2.27,
+     "depth_m": 0.61,
+     "height_m": 0.96,
+     "stick": "stove",
+     "seed": 2107541575
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      160.59,
+      -81.62
+     ],
+     "bearing_deg": 180.34,
+     "billets": 2,
+     "seed": 2126475181
+    }
+   ]
   },
   {
    "structure_id": "recon_1835_blk_south_water_wells_c2_01",
