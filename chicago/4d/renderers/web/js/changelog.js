@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1585, ts: '2026-10-09T17:54:48.792Z', date: 'Oct 9, 2026, 12:54 PM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
+    items: [
+      'Open John S. C. Hogan\u2019s card: his roles now include trustee of the town of Chicago, read in the 1835 act on the town\u2019s incorporation.',
+      'George W. Snow\u2019s card now records his election as the town\u2019s assessor and surveyor in December 1833, Ashbel Steele\u2019s his post as county coroner, and Joseph Meeker\u2019s his place as his church\u2019s Sunday-school librarian.',
+      'Each is marked an office, graded inferred and cited. None of them changes anyone\u2019s 1835 occupation, because the histories they come from were written after the scene.',
+      'Eight more posts the research had found, among them Hamilton\u2019s county clerkship and St Cyr\u2019s priesthood, were already on their cards. Nothing in the 3-D town changes.',
+    ] },
   { v: 1584, ts: '2026-10-09T17:34:59.494Z', date: 'Oct 9, 2026, 12:34 PM CT', title: 'The 1830 census and early directories are fully accounted for', kind: 'fix',
     items: [
       'Nothing you can see changes. Every name the town reads from the 1830 census now either belongs to a household in the town or has a stated reason why not. The same is true of the town directories. Claude Laframboise was the last name waiting, and he heads his own household.',
