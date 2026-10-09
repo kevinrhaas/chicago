@@ -168,8 +168,16 @@ HOUSEHOLD_TYPES = (
 # several hundred over. The HOUSEHOLDS are real work: 392 family and store houses the model
 # wants, and 1,244 present head records with no reading about a dwelling to form them
 # around. That is T-2188's.
+# AND T-2188 SPLIT TOO (2026-10-08), because the two household rows are not one job either.
+# The FAMILY DWELLINGS are formed already: the address book's dealt roofs (T-1613/T-1614)
+# and the housing seats' family rung (T-1971/T-1972) put hundreds of those head records
+# under a standing dwelling as its household, and only this book had not counted them.
+# T-2193 counts them (`tools/count_held_head_dwellings_1835.py`). The STORE RESIDENCES
+# are not: the housing seats refuse every store roof, so no held head stands over a shop,
+# and what the 56 are is T-2194's ruling.
 FAMILY_OWNER = "T-2187"
-FAMILY_HOUSEHOLD_OWNER = "T-2188"
+FAMILY_HOUSEHOLD_OWNER = "T-2193"
+STORE_HOUSEHOLD_OWNER = "T-2194"
 ADULT_MEN_OWNER = FAMILY_OWNER
 # …and the ruling T-2021 made, whose fills are an order of their own (`family_ruling_orders`).
 FAMILY_RULING_TICKET = "T-2021"
@@ -284,7 +292,7 @@ ROSTER_TICKETS = {
 # reconstructs the household (not the roof — that is the structure band).
 HOUSEHOLD_BUCKETS = (
     ("family_dwelling", "ordinary_dwellings", FAMILY_HOUSEHOLD_OWNER),
-    ("store_residence", "stores_mixed_use", FAMILY_HOUSEHOLD_OWNER),
+    ("store_residence", "stores_mixed_use", STORE_HOUSEHOLD_OWNER),
     # Swept with the person rule above (T-1420 -> T-1500 -> T-1534 -> T-1537 on
     # 2026-09-24, T-1534 having split the same day). Of
     # T-1500's three successors T-1534 is the one that holds a lodging HOUSEHOLD: the
@@ -508,7 +516,10 @@ STRUCTURE_TICKETS = {
     # the cell moves to T-1957, which owns the five the book still orders: the one H3 the
     # schedule re-apportions to blk_washington_market once those three stand, the one on
     # the gated blk_south_water_market, and three the plan holds no roof for at all.
-    ("south", "larger_boarding_houses"): "T-1957",
+    # T-1957 WAS SPLIT on 2026-10-08 on the owner's ruling to lot the Market wedge: T-2195
+    # cuts the lots and T-2196 raises the South's two owed boarding houses on them, so the
+    # cell moves to T-2196, the child that builds what it owes.
+    ("south", "larger_boarding_houses"): "T-2196",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.

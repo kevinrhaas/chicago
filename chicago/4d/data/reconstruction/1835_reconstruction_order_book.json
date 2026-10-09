@@ -1734,10 +1734,10 @@
       "asks": "T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?",
       "the_answer_is": "BOTH, and the split is measured rather than argued.",
       "household_leg_before": 58,
-      "household_leg_now": 394,
+      "household_leg_now": 338,
       "person_leg_before": 374,
       "person_leg_now": 0,
-      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 394. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
+      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 338. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
       "verdict": "reopen T-1171 for the persons; the households are discharged"
     },
     {
@@ -4420,7 +4420,7 @@
           "known": 26,
           "to_reconstruct": 97,
           "filled": 8,
-          "owning_ticket": "T-2188",
+          "owning_ticket": "T-2193",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the north division"
         },
         {
@@ -4433,7 +4433,7 @@
           "known": 72,
           "to_reconstruct": 186,
           "filled": 16,
-          "owning_ticket": "T-2188",
+          "owning_ticket": "T-2193",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the south division"
         },
         {
@@ -4446,7 +4446,7 @@
           "known": 21,
           "to_reconstruct": 89,
           "filled": 10,
-          "owning_ticket": "T-2188",
+          "owning_ticket": "T-2193",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the west division"
         },
         {
@@ -4511,7 +4511,7 @@
           "known": 2,
           "to_reconstruct": 4,
           "filled": 0,
-          "owning_ticket": "T-2188",
+          "owning_ticket": "T-2194",
           "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the north division"
         },
         {
@@ -4524,7 +4524,7 @@
           "known": 18,
           "to_reconstruct": 44,
           "filled": 0,
-          "owning_ticket": "T-2188",
+          "owning_ticket": "T-2194",
           "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the south division"
         },
         {
@@ -4537,7 +4537,7 @@
           "known": 1,
           "to_reconstruct": 8,
           "filled": 0,
-          "owning_ticket": "T-2188",
+          "owning_ticket": "T-2194",
           "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the west division"
         },
         {
@@ -5207,7 +5207,7 @@
           "to_build": 2,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1957",
+          "owning_ticket": "T-2196",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 28; the 668-roof programme leaves 2 of them to build"
         },

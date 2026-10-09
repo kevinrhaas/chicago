@@ -23,7 +23,7 @@
 
 *T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?*
 
-Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 394. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
+Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 338. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
 
 **Verdict:** reopen T-1171 for the persons; the households are discharged
 
@@ -573,16 +573,16 @@ The households the model wants, by kind and division.
 | `households/boarding_house/north` | 12 | 3 | 9 | 6 | T-2023 |
 | `households/boarding_house/south` | 41 | 12 | 29 | 7 | T-2023 |
 | `households/boarding_house/west` | 9 | 2 | 7 | 3 | T-2023 |
-| `households/family_dwelling/north` | 123 | 26 | 97 | 8 | T-2188 |
-| `households/family_dwelling/south` | 258 | 72 | 186 | 16 | T-2188 |
-| `households/family_dwelling/west` | 110 | 21 | 89 | 10 | T-2188 |
+| `households/family_dwelling/north` | 123 | 26 | 97 | 8 | T-2193 |
+| `households/family_dwelling/south` | 258 | 72 | 186 | 16 | T-2193 |
+| `households/family_dwelling/west` | 110 | 21 | 89 | 10 | T-2193 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 1 | T-2023 |
 | `households/inn_tavern/south` | 7 | 2 | 5 | 5 | T-2023 |
 | `households/inn_tavern/west` | 4 | 1 | 3 | 1 | T-2023 |
 | `households/institutional/south` | 1 | 0 | 1 | 1 | T-1531 |
-| `households/store_residence/north` | 6 | 2 | 4 | 0 | T-2188 |
-| `households/store_residence/south` | 62 | 18 | 44 | 0 | T-2188 |
-| `households/store_residence/west` | 9 | 1 | 8 | 0 | T-2188 |
+| `households/store_residence/north` | 6 | 2 | 4 | 0 | T-2194 |
+| `households/store_residence/south` | 62 | 18 | 44 | 0 | T-2194 |
+| `households/store_residence/west` | 9 | 1 | 8 | 0 | T-2194 |
 | `households/garrison/fort` | — | 2 | — | 0 | T-1176 |
 
 ## Businesses
@@ -641,7 +641,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/institutional_public/south` | 5 | 5 | 0 | 0 | T-2170 |
 | `structures/institutional_public/west` | 1 | 1 | 0 | 0 | T-1785 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | T-1205 |
-| `structures/larger_boarding_houses/south` | 28 | 26 | 2 | 0 | T-1957 |
+| `structures/larger_boarding_houses/south` | 28 | 26 | 2 | 0 | T-2196 |
 | `structures/larger_boarding_houses/west` | 6 | 6 | 0 | 0 | T-1953 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 0 | 0 | T-1952 |
 | `structures/ordinary_dwellings/south` | 176 | 170 | 6 | 0 | T-2182 |
