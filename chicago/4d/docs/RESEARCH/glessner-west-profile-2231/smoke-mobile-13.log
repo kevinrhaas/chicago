@@ -1,0 +1,139 @@
+serving /workspace/chicago/site/4d on 4192 — PUBLISHED mirror (compressed assets, visitor layout)
+
+NOT THE FULL GATE — viewports filtered to "mobile"
+
+NOT THE FULL GATE — stages filtered to "13" of 14
+
+mobile 390x780:
+  pass  mobile 390x780: page serves
+  pass  mobile 390x780: scene reaches ready
+  pass  mobile 390x780: the scene declares its exact consultation blockers
+  pass  mobile 390x780: no unexpected loader problems
+  pass  mobile 390x780: scene has structures
+  pass  mobile 390x780: every structure that should draw, drew
+  pass  mobile 390x780: the liberties wait for their first reader, not for boot (T-2058)
+  pass  mobile 390x780: the liberties list loads
+  pass  mobile 390x780: every loaded liberty is rendered
+  pass  mobile 390x780: the list names a scene-wide liberty
+  pass  mobile 390x780: the Evidence panel does not overflow
+  pass  mobile 390x780: a man who held an agency says so on his own card
+  pass  mobile 390x780: the person's card carries the same caveat as the house's
+  pass  mobile 390x780: every household in the layer is on the card
+  pass  mobile 390x780: every person entry in the manifest is counted
+  pass  mobile 390x780: the letter-list cohort is held apart from the evidenced town
+  pass  mobile 390x780: the group says what that evidence is worth before it is opened
+  pass  mobile 390x780: the households no building card can reach are marked
+  pass  mobile 390x780: the researched non-residents are published too
+  pass  mobile 390x780: opening a household fetches its record
+  pass  mobile 390x780: a graded claim carries its reasoning, not just its value
+  pass  mobile 390x780: the household records quote their sources, not their source ids
+  pass  mobile 390x780: the households start collapsed, like every other disclosure here
+  pass  mobile 390x780: the people section does not overflow the panel
+  pass  mobile 390x780: no figure reaches a person's row as [object Object]
+  pass  mobile 390x780: an evidence-only household's row says what its roof is not
+  pass  mobile 390x780: a dated person carries an age and a birth year, both graded
+  pass  mobile 390x780: a letter-list name says on its own row how thin that evidence is
+  pass  mobile 390x780: the count sentence says how many people are known only that way
+  pass  mobile 390x780: a letter-list name carries no invented trade
+  pass  mobile 390x780: every resident research review reaches a resident card
+  pass  mobile 390x780: candidate identities are visibly unmerged
+  pass  mobile 390x780: a negative search is published without denying existence
+  pass  mobile 390x780: the section says plainly that nobody is drawn
+  pass  mobile 390x780: the wildlife list loads every habitat
+  pass  mobile 390x780: every animal record in the layer is on the card
+  pass  mobile 390x780: the card names what the records name
+  pass  mobile 390x780: the card carries the July presence modes, not a species list
+  pass  mobile 390x780: the animal records quote their sources, not their source ids
+  pass  mobile 390x780: the animals start collapsed, like every other disclosure here
+  pass  mobile 390x780: the wildlife section does not overflow the panel
+  pass  mobile 390x780: the section says plainly that none of them is in the scene
+  pass  mobile 390x780: the plant list loads every community
+  pass  mobile 390x780: every species in the committed communities is on the card
+  pass  mobile 390x780: the communities the sward lattice cannot draw say so
+  pass  mobile 390x780: the share a visitor is standing in comes off the declaration
+  pass  mobile 390x780: the note names the worst case rather than only the total
+  pass  mobile 390x780: the plant records quote their sources, not their source ids
+  pass  mobile 390x780: no figure reaches a plant's row as [object Object]
+  pass  mobile 390x780: the communities start collapsed, like every other disclosure here
+  pass  mobile 390x780: the plants section wraps inside the panel rather than clipping
+  pass  mobile 390x780: the plants section does not overflow the panel
+  pass  mobile 390x780: all eight evidence mounts wrap inside their panel rather than clipping
+  pass  mobile 390x780: a run longer than the column breaks inside all eight mounts, not past them
+  pass  mobile 390x780: the liberties list says what it is, in the document's words
+  pass  mobile 390x780: the panel states it once — the hand-written paraphrase is gone
+  pass  mobile 390x780: an entry shows the inventions it admits to
+  pass  mobile 390x780: a claim over several buildings names each of them
+  pass  mobile 390x780: an entry that invented nothing drawn claims nothing
+  pass  mobile 390x780: an invented roof and height are admitted like an outline
+  pass  mobile 390x780: a decision made by default is admitted in two buildings
+  pass  mobile 390x780: the ground admits to what it invented, and says it is the ground
+  pass  mobile 390x780: the chip carries the epoch the admission is about
+  pass  mobile 390x780: the invention the gate found is on the page, not only in the repo
+  pass  mobile 390x780: expanding a liberty on its topic page reveals its reasoning
+  pass  mobile 390x780: the researched exclusions load
+  pass  mobile 390x780: an exclusion gives its reason and the source it rests on
+  pass  mobile 390x780: a later building says when, and a vanished one says why instead
+  pass  mobile 390x780: a building standing in the scene is not on the not-here list
+  pass  mobile 390x780: the not-here list withholds what its sources reprint
+  pass  mobile 390x780: the list says it is not everything missing
+  pass  mobile 390x780: the not-here list says what it is, in the compiled document's words
+  pass  mobile 390x780: the panel states it once — the paraphrase is gone
+  pass  mobile 390x780: the Evidence panel still does not overflow
+  pass  mobile 390x780: the open questions load
+  pass  mobile 390x780: the standing ones say they are standing and the unbuilt one does not
+  pass  mobile 390x780: the standing one names the claim on its record that carries the doubt
+  pass  mobile 390x780: an uncited open question says why it is uncited
+  pass  mobile 390x780: the panel says what the third category is
+  pass  mobile 390x780: the open questions say what they are, in the compiled document's words
+  pass  mobile 390x780: the panel states that once too — and counts nothing by hand
+  pass  mobile 390x780: the Evidence panel still does not overflow with it
+  pass  mobile 390x780: the open question reaches the building it is about
+  pass  mobile 390x780: it says what settling it would change
+  pass  mobile 390x780: the card grades the doubt the same way the claim above it is graded
+  pass  mobile 390x780: it starts collapsed like every other disclosure on the card
+  pass  mobile 390x780: only tracked in-scene buildings carry open questions
+  pass  mobile 390x780: the ground's claims load
+  pass  mobile 390x780: the ground is graded per claim, not stamped
+  pass  mobile 390x780: no land elevation claims to be documented
+  pass  mobile 390x780: the ground says which ground these claims are about
+  pass  mobile 390x780: the panel quotes the spec's caveat that no survey exists
+  pass  mobile 390x780: a land claim shows its figures and its citation
+  pass  mobile 390x780: every claim that calls itself an inference records its reasoning
+  pass  mobile 390x780: the soil claim that is graded too high says so where it is graded
+  pass  mobile 390x780: a claim with no reasoning would still say so
+  pass  mobile 390x780: a soil the ground is not made of says so, and the figures that are do not
+  pass  mobile 390x780: the mark is the declaration's, not the row's
+  pass  mobile 390x780: the Evidence panel still does not overflow with the ground on it
+  pass  mobile 390x780: the aerial anchor arrives in the air, looking down
+  pass  mobile 390x780: the view from above renders
+  pass  mobile 390x780: the near plane opens with altitude
+  pass  mobile 390x780: on foot the near plane is the walking value
+  pass  mobile 390x780: free-fly cannot sink through the terrain
+  pass  mobile 390x780: leaving free-fly puts the visitor back on the ground
+  pass  mobile 390x780: Space inspects on foot instead of lifting off
+  pass  mobile 390x780: Escape closes the inspection card
+  pass  mobile 390x780: the inspect key closes the card it opened
+  pass  mobile 390x780: neither key fires while typing in Go-to
+  pass  mobile 390x780: a building can be inspected from the air
+  pass  mobile 390x780: a click under the crosshair inspects
+  pass  mobile 390x780: /1904/ boots the 1904 scene on its own ground (T-1739)
+  pass  mobile 390x780: the 1904 door lands on Prairie's east sidewalk at 18th, facing the spawn bearing, and glessner_house is the same pose (T-1739) — stood at E 1410.12 N -3218.01 bearing 264.94, eye 1.68 m; spawn {"local_e":1410.12,"local_n":-3218.01,"yaw_deg":264.94}; anchor {"id":"glessner_house","label":"Prairie at Eighteenth, facing the Glessner lot at 1800 Prairie","local_e":1410.12,"local_n":-3218.01,"yaw_deg":264.94}
+  pass  mobile 390x780: the Glessner lot is in front of the camera, its centroid on screen left of centre (T-1739) — lot centroid E 1365.37 N -3229.04 at NDC (-0.288, -0.014, z 0.9957); street corner at NDC x 0.288
+  pass  mobile 390x780: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732)
+  pass  mobile 390x780: Glessner's 1946 phase end is not presented as demolition
+  pass  mobile 390x780: the Glessner House draws at the 1904 spawn — its Prairie front on screen, and aiming at it opens glessner_house (T-1732)
+  pass  mobile 390x780: the 1904 scene draws its street grid, the Glessner lot is parcel prairie_1800, and the door lands on Prairie's east walk (T-0474)
+  pass  mobile 390x780: the 1904 streets wear their sourced materials — Prairie at 18th attested asphalt, 18th Street attested macadam, the walk reconstructed cement (T-1728)
+  pass  mobile 390x780: the 1904 drawer offers none of the 1835 town's sections — no People, no Firms, no 1835 Evidence topic, no 1835 firm in Go to (T-1740)
+  pass  mobile 390x780: the 1904 boot raises no loader problem (T-1739)
+  pass  mobile 390x780: the frame at the 1904 spawn is inside the draw budget (T-1739) — 52 draw calls, 436141 triangles against {"drawCalls":330,"triangles":1005000}, 0 fps
+  pass  mobile 390x780: the suite body ran to completion
+  pass  mobile 390x780: zero page errors
+
+  pass  vendor: meshopt decoder loads and reports supported
+  pass  vendor: meshopt import raises no page error
+
+126 passed, 0 failed
+115 staged-section check(s) (stage 13 of 14), 11 always-on check(s)
+11 m 43 s for stage 13 at mobile — the ceiling on a steward run's single foreground command is 10 m 00 s
+SMOKE PASS

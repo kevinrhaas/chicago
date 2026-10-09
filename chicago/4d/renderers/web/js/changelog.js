@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1554, ts: '2026-10-09T01:25:35.988Z', date: 'Oct 8, 2026, 8:25 PM CT', title: 'Glessner’s west gable and rear roof regain their proportions', kind: 'fix',
+    items: [
+      'The taller west gable now has the steeper rear-facing slope shown in the supplied elevation. Its apex and roof break give the lower rear section its proper share of the frontage.',
+      'The lower roof, dormer and cupola follow the revised silhouette. The measured footprint and recent courtyard window and eave corrections remain in place. These roof proportions are reconstructed from the reference views.',
+    ] },
   { v: 1553, ts: '2026-10-09T01:10:56.683Z', date: 'Oct 8, 2026, 8:10 PM CT', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
     items: [
       'Walk south down Wells Street past Madison. The Monroe Street corner of the block on your left is no longer empty: a roomy tradesman\u2019s house stands there, facing Monroe, a twin of the one at the block\u2019s other Monroe corner.',
