@@ -310,6 +310,39 @@ def carried_records() -> set:
     return out
 
 
+def retired_rows(stubs) -> set:
+    """The roster rows whose RE-ADMISSION a card merge retired (T-2197).
+
+    A readmitted card is minted from one roster row, and the stage owns it — so when
+    `tools/consolidate_town_cards.py` folds one onto the card it was a second copy of,
+    the retired record is kept whole under data/residents/merged/ and the row it was
+    minted from must not mint it again on the next --build. `carried_records` cannot
+    see this case: a readmitted card carries its reading as `readmission.row_id`, not as
+    an evidence block, so the fold leaves no record id behind for the exact test.
+    `stubs` is the retired records themselves (the `merged/` files), so a self-test can
+    hand it one without the tree.
+    """
+    out = set()
+    for stub in stubs:
+        record = (stub or {}).get("superseded_record") or {}
+        if record.get("source_pass") != READMISSION_PASS:
+            continue
+        row_id = (record.get("readmission") or {}).get("row_id")
+        if row_id:
+            out.add(row_id)
+    return out
+
+
+def merged_stubs() -> list:
+    """Every retired record the index's redirect table names, read from its file."""
+    out = []
+    for entry in load(INDEX).get("merged", []):
+        path = ROOT / "data" / "residents" / (entry.get("record_file") or "")
+        if entry.get("record_file") and path.exists():
+            out.append(load(path))
+    return out
+
+
 def name_key(name) -> str:
     """`surname|first initial`, the crosswalks' own discriminator, from a display name."""
     words = [w for w in re.split(r"[^A-Za-z]+", fold(name)) if w]
@@ -474,6 +507,7 @@ def derive() -> tuple[dict, dict]:
     settlers = old_settler_rows()
     person_ids, household_ids, keys = layer_names()
     carried = carried_records()
+    retired = retired_rows(merged_stubs())
     source_ids = {p.stem for p in SOURCES.glob("*.json")}
 
     r1: list[dict] = []
@@ -518,6 +552,25 @@ def derive() -> tuple[dict, dict]:
         # it minted was folded onto `bourrassa_leon` under C16, and that card carries the
         # entry's row in its evidence. The roster still offers the row, the spelling no
         # longer matches anybody, and the stage minted him again. The record id is exact.
+        #
+        # …AND A READMISSION A CARD MERGE RETIRED STAYS RETIRED (T-2197). T-2191 found
+        # three cards this stage minted from St Mary's rows that a households card already
+        # carries as evidence under another spelling ('Joseph Létendre' read as
+        # joseph_l_tendre beside the civic ltendre_joseph). The fold runs through
+        # consolidate_town_cards.py, and this is what keeps the next --build from minting
+        # the row straight back. Its name key is reserved as well: the person stands in the
+        # town on the survivor, so a later row of the same name is the same question.
+        if row["row_id"] in retired:
+            withhold(row, "a_card_merge_retired_the_readmission",
+                     "This stage minted a card from this row, and a card merge ruled it a "
+                     "second copy of a card the town already holds and retired it onto that "
+                     "card (data/residents/card_merge_rulings.json; the record is kept whole "
+                     "under data/residents/merged/). Minting it again would put the person "
+                     "back into the town twice.")
+            key = name_key(title_case(row.get("normalised")))
+            if key:
+                taken_keys.add(key)
+            continue
         if row.get("claim_or_record_id") in carried:
             withhold(row, "a_card_merge_carried_the_reading",
                      "A card merge folded the card this source row was read onto into a "
@@ -887,6 +940,15 @@ def self_test() -> int:
          name_key("Ansel Chipman") == "chipman|a"
          and name_key("A. Chipman") == "chipman|a")
     case("a name with no surname yields no key", name_key("Ansel") == "")
+
+    # T-2197. A readmission a card merge retired is found by its own row id, and a fold of
+    # any other kind of card is not mistaken for one.
+    retired = {"superseded_record": {"source_pass": READMISSION_PASS,
+                                     "readmission": {"row_id": "church:x#records/r1#0"}}}
+    civic = {"superseded_record": {"source_pass": "civic",
+                                   "readmission": {"row_id": "church:x#records/r2#0"}}}
+    case("a retired readmission's row is not minted again",
+         retired_rows([retired, civic, {}]) == {"church:x#records/r1#0"})
 
     # A read name is printed for a reader without being re-read.
     case("a normalised reading is capitalised, not re-read",
