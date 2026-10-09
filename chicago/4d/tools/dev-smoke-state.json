@@ -3,6 +3,68 @@
   "readings": [
     {
       "viewport": "mobile",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 17,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-09T21:08:16.072Z",
+      "ref": "steward/t-2204-glessner-roof-filtering",
+      "commit": "ddd93aa3d491",
+      "devCommit": "ddd93aa3d491",
+      "treeHash": "sha256:71f488f91b753d5f",
+      "treeDirty": true,
+      "changelogHash": "sha256:39cb2eecea8add11",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          3.4,
+          3.9,
+          3.4
+        ]
+      },
+      "source": "/workspace/t2204-proof/smoke-8.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 19,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-09T21:08:16.072Z",
+      "ref": "steward/t-2204-glessner-roof-filtering",
+      "commit": "ddd93aa3d491",
+      "devCommit": "ddd93aa3d491",
+      "treeHash": "sha256:71f488f91b753d5f",
+      "treeDirty": true,
+      "changelogHash": "sha256:39cb2eecea8add11",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          3.4,
+          3.9,
+          3.4
+        ]
+      },
+      "source": "/workspace/t2204-proof/smoke-8.log"
+    },
+    {
+      "viewport": "mobile",
       "stage": "1-2",
       "parts": [
         1,
@@ -1687,37 +1749,6 @@
       "source": "/tmp/t2035-final-mobile-1.log"
     },
     {
-      "viewport": "mobile",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 97,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 323,
-      "takenAt": "2026-10-03T22:19:45.520Z",
-      "ref": "steward/t2035-vegetation-continuity",
-      "commit": "ac66939285d9",
-      "devCommit": "3c22369f5e6e",
-      "treeHash": "sha256:252cd6eb69cbbe2e",
-      "treeDirty": true,
-      "changelogHash": "sha256:55d6e57361c283f0",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          0.3,
-          4.2,
-          5.4
-        ]
-      },
-      "source": "/tmp/t2035-final-mobile-12.log"
-    },
-    {
       "viewport": "desktop",
       "stage": "10-13",
       "parts": [
@@ -1864,36 +1895,6 @@
         "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
       },
       "source": "gh-run:37157020341 https://github.com/kevinrhaas/chicago/actions/runs/37157020341"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "3-6",
-      "parts": [
-        3,
-        4,
-        5,
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 146,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1064,
-      "takenAt": "2026-10-03T22:00:27Z",
-      "ref": "steward/t2035-vegetation-continuity",
-      "commit": "db49ce6adfeb",
-      "devCommit": "a9c98af7a1f5",
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": "sha256:abee9f43dc2687ae",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
-      },
-      "source": "gh-run:37156977873 https://github.com/kevinrhaas/chicago/actions/runs/37156977873"
     }
   ]
 }

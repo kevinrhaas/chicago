@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1595, ts: '2026-10-09T21:48:21.988Z', date: 'Oct 9, 2026, 4:48 PM CT', title: 'Mark Beaubien\u2019s boarding house on Lake Street gets its signboard', kind: 'fix',
+  { v: 1596, ts: '2026-10-09T22:22:23.850Z', date: 'Oct 9, 2026, 5:22 PM CT', title: 'Mark Beaubien\u2019s boarding house on Lake Street gets its signboard', kind: 'fix',
     items: [
       'The new boarding house on the Market wedge stood with no business behind it, so its front had no board. It now reads MARK BEAUBIEN\u2019S, Boarding House, the house he keeps.',
       'Beaubien\u2019s stray \u201ctavern keeper\u201d business with no address is gone: the boarding house is where he works.',
       'Six other boarding houses\u2019 boards go back to the names they had before the wedge\u2019s house was raised, such as SWEET\u2019S on Clark Street.',
+    ] },
+  { v: 1595, ts: '2026-10-09T21:47:24.470Z', date: 'Oct 9, 2026, 4:47 PM CT', title: 'Glessner roof tiles stay steady at a distance', kind: 'fix',
+    items: [
+      'Fine clay-tile relief now blends gradually into the same tile pattern as it becomes too small to resolve, reducing the broad ripples and shimmer when moving around the house.',
+      'Close views retain the physical six-inch tiles and five-inch courses. Roof outlines, ridge ornaments and the copper roofs keep their geometry.',
     ] },
   { v: 1594, ts: '2026-10-09T21:32:06.816Z', date: 'Oct 9, 2026, 4:32 PM CT', title: 'The next row of school lots south of Monroe is measured out', kind: 'change',
     items: [

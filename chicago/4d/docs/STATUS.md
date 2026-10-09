@@ -21,6 +21,26 @@ came back.
   Robillard, Laframboise and McCarthy go back to exactly the styles they carried before T-2196
   retired the firm (e.g. *Sweet's boarding house*). Seeds keyed on the roof rather than the ordinal
   would stop this churn; not done here.
+## T-2204 — Glessner roof relief filtered at screen scale (2026-10-09)
+
+The fine physical tile noses formed broad moving interference bands in street and
+aerial views. Full and Light now carry an additive `_ROOF_DETAIL` sampling hint;
+the renderer blends unresolved relief over the existing mipmapped tile bed across
+6–24 projected course pixels. Crests and beds are untagged and remain solid.
+Clay maps use trilinear mipmaps and anisotropy eight. Close tiles retain the
+6-inch width / 5-inch exposure established by T-2203.
+
+All 28 original master primitive streams (positions, normals, UVs, confidence and
+indices) and node transforms compare byte-for-byte equal. No roof envelope,
+copper, opening, material provenance or source camera changes. The downloadable
+Full asset grows by 36,908 bytes and Light by 4,648 bytes; the texture payload is
+unchanged. The sampling attribute uses 2,137,844 GPU bytes in Full and 89,196 in Light.
+
+Evidence, moving-view comparisons, rendering costs and validation receipts are in
+[the T-2204 dossier](RESEARCH/glessner-roof-filtering-2204/README.md). The separate
+folded copper corner remains held under T-2220. This is not a claim that the whole
+house has met the photographic-quality programme's target.
+
 ## T-2252 — the School Section's Monroe-Adams tier cut into lots (2026-10-09)
 
 The owner ruled (b) on T-2247: cross Monroe and build the South's six gated roofs (D2, D2, D4,

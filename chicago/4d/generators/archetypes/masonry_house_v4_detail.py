@@ -248,6 +248,7 @@ class DetailBuilder(MeshBuilder):
         self.course_schedule = params.detail.get('ashlar_courses_m') or [0.4572,0.4572,0.3937,0.2413,0.3429,0.3683,0.1905,0.3683,0.1905,0.2921]
         self.masonry_blocks = self.roof_tiles = 0
         self.roof_uvs = {}
+        self.roof_detail = {}
         self.roof_surfaces = []
 
     def add_box(self,x0,y0,z0,x1,y1,z1,confidence,mat=0,skip=()):
@@ -283,6 +284,9 @@ class DetailBuilder(MeshBuilder):
 
     def to_object(self, materials=None):
         ob=super().to_object(materials)
+        # Exposed course in metres on relief only; zero protects beds and crests.
+        attr=ob.data.attributes.new(name="_ROOF_DETAIL",type="FLOAT",domain="POINT")
+        for index,value in self.roof_detail.items():attr.data[index].value=value
         if self.rock_normals:
             # Vertices remain separate at material/UV/confidence seams. Explicit
             # corner normals survive glTF without welding geometry or attributes.
@@ -474,9 +478,11 @@ class DetailBuilder(MeshBuilder):
                                    'normal':normal,'phase_offset':offset})
         return normal,poly,point,coords
 
-    def roof_raw(self, pts, confidence, mat, normal, coords):
+    def roof_raw(self, pts, confidence, mat, normal, coords, detail=False):
         indices=self.raw(pts,confidence,mat,normal)
-        for index in indices:self.roof_uvs[index]=coords(self.verts[index])
+        for index in indices:
+            self.roof_uvs[index]=coords(self.verts[index])
+            if detail:self.roof_detail[index]=self.params.detail['roof_tiles']['exposure_in']*.0254
 
     def tiles(self, pts, confidence):
         normal,poly,point,coords=self.roof_frame(pts)
@@ -498,12 +504,12 @@ class DetailBuilder(MeshBuilder):
                 mat=19+rng.randrange(3)
                 def raised(q):return relief+relief*(1-(q[1]-y0)/h)
                 front=[point(q,raised(q)) for q in tile]
-                self.roof_raw(front,confidence,mat,normal,coords)
+                self.roof_raw(front,confidence,mat,normal,coords,detail=True)
                 # Individual noses close the lap instead of a broad stripe
                 # stretching through every tile joint across the whole course.
                 for q,r in zip(tile,tile[1:]+tile[:1]):
                     if abs(q[1]-y0)<1e-7 and abs(r[1]-y0)<1e-7:
-                        self.roof_raw([point(q,relief),point(r,relief),point(r,raised(r)),point(q,raised(q))],confidence,mat,normal,coords)
+                        self.roof_raw([point(q,relief),point(r,relief),point(r,raised(r)),point(q,raised(q))],confidence,mat,normal,coords,detail=True)
                 self.roof_tiles+=1
 
 
