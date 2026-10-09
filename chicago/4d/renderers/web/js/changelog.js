@@ -2,8 +2,9 @@ export const CHANGELOG = [ // newest first
   { v: 1576, ts: '2026-10-09T13:36:46.962Z', date: 'Oct 9, 2026, 8:36 AM CT', title: 'Two more shopkeepers live over their own stores', kind: 'fix',
     items: [
       'Open J. L. Wilson & Co.\u2019s dry goods store on Randolph Street, or Fullerton & Botsford\u2019s pork and provision store at Dearborn and Lake. Each stood empty because the town could not tell who the firm\u2019s partners were. John Wilson now lives over the Wilson store, and J. K. Botsford\u2019s household of six over Fullerton & Botsford\u2019s.',
-      'The business cards for both firms, and for Clark, Filer & Co., the chair makers, now link the partner to their own card. Each card says how the match was made: the same corner, the same trade, or the paper\u2019s own spelling of the name.',
+      'The business cards for both firms, and for Clark, Filer & Co., the chair makers, now link the partner to their own card. Each card says how the match was made: the same corner, the same trade, or the paper\u2019s own spelling of the name. A. Filer already lives over his other shop, so the Clark, Filer & Co. store now says nobody lived over it.',
       'Two more homes over stores let five households who were waiting for a roof move in. Stores whose partners the town has no card for, such as H. Doty & Co. and the Chicago Bakery, are next.',
+    ] },
   { v: 1575, ts: '2026-10-09T12:24:15.716Z', date: 'Oct 9, 2026, 7:24 AM CT', title: 'Three shopkeepers who lived elsewhere now appear at their stores', kind: 'fix',
     items: [
       'Open G. Blanshard\u2019s land office or Dr W. G. Austin\u2019s office on Lake Street, or W. Montgomery\u2019s auction rooms on South Water Street. Each keeper is now listed as working there, with a note that they slept elsewhere in the town and nobody lived over the store.',
