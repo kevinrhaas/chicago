@@ -12,7 +12,7 @@ rests on.
 
 | file | what it is |
 | --- | --- |
-| `resident_audit_master.csv` | the table, one row per person, 2908 rows and 45 columns |
+| `resident_audit_master.csv` | the table, one row per person, 2886 rows and 45 columns |
 | `resident_audit_master.xlsx` | the same table as a workbook, plus the metrics, gaps and category sheets. Written when `openpyxl` imports; the CSV is the gated artifact |
 | `README.md` | this file |
 
@@ -21,27 +21,27 @@ no grade moves. Every cell is copied or counted from a committed record.
 
 ## Coverage
 
-Each line is *how many of the 2908 people carry at least one record of that kind*.
+Each line is *how many of the 2886 people carry at least one record of that kind*.
 
-| coverage | of 2908 | % | what counts |
+| coverage | of 2886 | % | what counts |
 | --- | ---: | ---: | --- |
-| identities | **1437** | 49.4% | a name with at least one source id anywhere on the card |
-| occupations | **340** | 11.7% | an occupation that is not `none_recorded` |
-| household membership | **1840** | 63.3% | recorded inside a household of two or more people |
-| kinship | **1264** | 43.5% | a stated kin relationship (brother, child, daughter, father, husband, mother, sister, son, wife) |
+| identities | **1437** | 49.8% | a name with at least one source id anywhere on the card |
+| occupations | **340** | 11.8% | an occupation that is not `none_recorded` |
+| household membership | **1806** | 62.6% | recorded inside a household of two or more people |
+| kinship | **1241** | 43.0% | a stated kin relationship (brother, child, daughter, father, husband, mother, sister, son, wife) |
 | property / address | **287** | 9.9% | the household resolves a `lives_at` or a `works_at` |
-| voter / civic evidence | **306** | 10.5% | a poll book, tax list, muster roll, treaty payment or other public record |
+| voter / civic evidence | **306** | 10.6% | a poll book, tax list, muster roll, treaty payment or other public record |
 | census linkage | **47** | 1.6% | an 1840 census row bridged to this person |
 
 ## What each person rests on
 
 | audit result | people | % |
 | --- | ---: | ---: |
-| `corroborated_across_categories` | 470 | 16.2% |
+| `corroborated_across_categories` | 470 | 16.3% |
 | `two_or_more_sources_one_category` | 14 | 0.5% |
-| `one_source` | 354 | 12.2% |
-| `the_letter_lists_alone` | 599 | 20.6% |
-| `no_source` | 1471 | 50.6% |
+| `one_source` | 354 | 12.3% |
+| `the_letter_lists_alone` | 599 | 20.8% |
+| `no_source` | 1449 | 50.2% |
 
 `corroborated_across_categories` is the only result that means two *kinds* of
 record agree; two newspaper notices of the same name are
@@ -238,7 +238,7 @@ secondary). A source id no rule reaches stops the build.
 | T-0509 | 76 |
 | T-0510 | 75 |
 | **reviewed** | **836** |
-| **not yet reviewed** | **2072** |
+| **not yet reviewed** | **2050** |
 
 | research outcome | people |
 | --- | ---: |
@@ -252,7 +252,7 @@ secondary). A source id no rule reaches stops the build.
 ## The conflicts, and what was ruled on them
 
 Under **T-0733**. The ledgers record a conflict against a candidate for **95**
-of the 2908 people. Before T-0733 nothing ruled on any of them, and a conflict
+of the 2886 people. Before T-0733 nothing ruled on any of them, and a conflict
 that is recorded and never adjudicated reads, to anybody downstream, exactly like
 a conflict nobody found. `data/research/residents/conflict_rulings.json` is the
 adjudication: a verdict, the conflict text it was made against, and the record
@@ -326,11 +326,11 @@ defect in this export.
 
 | gap | people | what it means |
 | --- | ---: | --- |
-| no census linkage | 2861 | no 1840 census row is bridged to this person |
-| no address | 2621 | neither `lives_at` nor `works_at` resolves |
-| unplaced | 2404 | the household carries division `unplaced`: in the town, on no lot |
-| no research row | 2072 | no cohort ticket has reviewed this person; the programme reached 836 of 2908 |
-| no source of their own | 1471 | the collective `household_member` rows — "the rest of the Beaubien household, unnamed" and its two fellows — which are an inferred count of people, not named individuals; the household record carries the sources |
+| no census linkage | 2839 | no 1840 census row is bridged to this person |
+| no address | 2599 | neither `lives_at` nor `works_at` resolves |
+| unplaced | 2379 | the household carries division `unplaced`: in the town, on no lot |
+| no research row | 2050 | no cohort ticket has reviewed this person; the programme reached 836 of 2886 |
+| no source of their own | 1449 | the collective `household_member` rows — "the rest of the Beaubien household, unnamed" and its two fellows — which are an inferred count of people, not named individuals; the household record carries the sources |
 | rests on one source | 953 | one source id on the card and no second category to check it against |
 | rests on the letter lists alone | 599 | known only from the post office's uncalled-for lists |
 | candidate identity open | 118 | a candidate was found and not asserted; the identity is still a question |

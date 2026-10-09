@@ -15,15 +15,15 @@
  },
  "not_a_reading": "Derived, never hand-edited. Every value is read off a committed field — a household's origin block or a reconstructed person's own pool community — and graded no higher than the field it came from. No source was read to write this file and nobody was minted.",
  "counts": {
-  "persons": 3437,
-  "households": 1979,
-  "known": 3306,
+  "persons": 3415,
+  "households": 1980,
+  "known": 3284,
   "unknown": 131,
   "by_community": {
-   "yankee": 1662,
+   "yankee": 1651,
    "new_york": 560,
-   "irish": 479,
-   "french_canadian": 184,
+   "irish": 471,
+   "french_canadian": 181,
    "other": 137,
    "unknown": 131,
    "british": 111,
@@ -33,13 +33,13 @@
    "metis": 2
   },
   "by_tier": {
-   "reconstructed": 3246,
+   "reconstructed": 3224,
    "null": 131,
    "inferred": 57,
    "attested": 3
   },
   "by_rule": {
-   "reconstruction_community": 1881,
+   "reconstruction_community": 1859,
    "origin_region": 1401,
    "no_origin_recorded": 116,
    "stated_community": 24,
@@ -49,7 +49,7 @@
   "households_by_community": {
    "yankee": 688,
    "new_york": 557,
-   "irish": 140,
+   "irish": 141,
    "other": 137,
    "unknown": 119,
    "british": 111,
@@ -6211,6 +6211,16 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
+  "rc_abbott_titus_h_wife": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_abrams_john_child_5": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
   "rc_abrams_john_wife": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -6262,21 +6272,6 @@
    "rule": "reconstruction_community"
   },
   "rc_andrews_william_wife": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_aspam_josette_child_1": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_aspam_josette_child_2": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_aspam_josette_wife": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -6586,16 +6581,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_beaubien_monique_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_beaubien_monique_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_bell_william_a_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -6866,16 +6851,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_brenin_mary_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_brenin_mary_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_bronson_arthur_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -6933,21 +6908,6 @@
   },
   "rc_brown_william_h_wife": {
    "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_bruno_anne_franoise_apolline_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_bruno_anne_franoise_apolline_child_2": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_bruno_anne_franoise_apolline_wife": {
-   "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
@@ -7156,11 +7116,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_casy_honora_wife": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_caton_john_dean_wife": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -7202,36 +7157,6 @@
    "rule": "reconstruction_community"
   },
   "rc_cavanagh_thomas": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_chandler_catherine_child_1": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_chandler_catherine_child_2": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_chandler_catherine_child_3": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_chandler_catherine_child_4": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_chandler_catherine_child_5": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_chandler_catherine_wife": {
    "value": "irish",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -11176,11 +11101,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_mallet_marie_louise_wife": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_marcotte_jean": {
    "value": "french_canadian",
    "tier": "reconstructed",
@@ -12311,11 +12231,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_ouilmette_marie_louise_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_paine_william_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -12551,11 +12466,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_peltier_jacquette_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_pierce_asahel_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -12697,21 +12607,6 @@
    "rule": "reconstruction_community"
   },
   "rc_pratt_silas": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_preman_catherine_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_preman_catherine_child_2": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_preman_catherine_wife": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -14501,11 +14396,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_vieau_josette_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_vieau_louis": {
    "value": "french_canadian",
    "tier": "reconstructed",
@@ -14756,6 +14646,11 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
+  "rc_wesencraft_charles_child_4": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
   "rc_wesencraft_charles_wife": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -14773,11 +14668,6 @@
   },
   "rc_wessencraft_charles_wife": {
    "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_whistler_gwinthlean_wife": {
-   "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
@@ -25570,6 +25460,13 @@
    "rule": "reconstruction_community",
    "head": "rc_cardinal_louis",
    "file": "reconstructed_trades/hh_rc_cardinal_louis.json"
+  },
+  "hh_rc_carroll_ellen": {
+   "value": "irish",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "rc_carroll_ellen",
+   "file": "households/hh_rc_carroll_ellen.json"
   },
   "hh_rc_carroll_honora": {
    "value": "irish",

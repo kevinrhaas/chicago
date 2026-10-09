@@ -34,30 +34,30 @@
   }
  },
  "people": {
-  "housed": 2610,
-  "households_housed": 1324,
+  "housed": 2609,
+  "households_housed": 1326,
   "housed_through": {
    "lives_at": 191,
-   "seated_by_a_structure": 2419
+   "seated_by_a_structure": 2418
   },
-  "waiting_on_a_roof": 277,
-  "households_waiting_on_a_roof": 113,
+  "waiting_on_a_roof": 256,
+  "households_waiting_on_a_roof": 112,
   "group_entries": 6,
-  "households_without_a_dwelling": 133,
+  "households_without_a_dwelling": 132,
   "town_total": 3265,
   "town_total_dwellings": 398,
   "town_total_source": "andreas_1884_v1",
   "town_total_note": "The town census of November 1835 — four months after the scene date — counts 3,265 people in 398 dwellings (Andreas vol. 1, printed p. 180). Quoted as the town's recorded size, never as the scene's population on 1 July: it is the HIGH END of the town model's range for the scene date, and `scene.target` below is the figure the gate screen and the reconstruction programme both fill toward.",
   "scene": {
-   "persons": 1075,
-   "households": 503,
+   "persons": 1076,
+   "households": 504,
    "by_grade": {
     "attested": 134,
     "inferred": 344,
-    "reconstructed": 597
+    "reconstructed": 598
    },
-   "cards_total": 2908,
-   "cards_not_established": 1833,
+   "cards_total": 2886,
+   "cards_not_established": 1810,
    "target": 2550,
    "target_low": 2371,
    "target_high": 3265,
@@ -68,26 +68,26 @@
    "basis": "Persons in households the layer records `present` on the scene date — the order book's Rule 3. A card the layer holds without establishing the person in Chicago on 1 July is not counted here; `cards_not_established` is how many those are.",
    "question": "How many people does a record establish in Chicago on 1 July 1835? It is the strictest reading the layer supports and it is NOT the town's population: it leaves out every person the research left unadjudicated.",
    "population": {
-    "persons": 2887,
-    "households": 1437,
+    "persons": 2865,
+    "households": 1438,
     "by_grade": {
      "attested": 401,
      "inferred": 1018,
-     "reconstructed": 1468
+     "reconstructed": 1446
     },
     "question": "How many people did the project's evidence put in the town on 1 July 1835? This is the population — the established people plus the ones the research left `uncertain` and T-1386 has ruled in, each at the tier its own dated readings reach.",
-    "established": 1075,
-    "ruled_in": 1812,
+    "established": 1076,
+    "ruled_in": 1789,
     "ruled_in_households": 934,
     "ruled_in_by_tier": {
      "attested": 177,
      "inferred": 179,
-     "reconstructed": 1456
+     "reconstructed": 1433
     },
     "ruled_in_by_residence_grade": {
      "attested": 267,
      "inferred": 674,
-     "reconstructed": 871
+     "reconstructed": 848
     },
     "absent_on_evidence": 21,
     "basis": "data/reconstruction/1835_presence_rulings.json — one ruling per household the research left `uncertain`, with the dated reading it was reached from. An attested or inferred resident is in the population unless there is EVIDENCE they were not; `absent_on_evidence` is how many that is.",
@@ -99,7 +99,7 @@
   "floor_note": "A FLOOR, not an estimate: some entries counted here stand for a group a source counts but does not name (see group_entries).",
   "dangling_lives_at": [],
   "split": {
-   "residents": 2760,
+   "residents": 2738,
    "garrison": 127,
    "transients_apart": 307,
    "garrison_division": "fort",

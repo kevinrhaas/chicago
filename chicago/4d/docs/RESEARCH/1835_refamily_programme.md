@@ -75,14 +75,14 @@ Read from `data/reconstruction/1835_reconstruction_order_book.json § re_family_
 
 ## What the town converges to
 
-- standing in the layer: 2,887
+- standing in the layer: 2,865
 - still owed now: 15
 - still owed when the programme is spent: 15
-- converges to now: 2,902
-- converges to when the programme is spent: 2,902
-- 2,902 is inside the model's 2,371-3,265 and 352 above its 2,550 point, against 352 above it today.
+- converges to now: 2,880
+- converges to when the programme is spent: 2,880
+- 2,880 is inside the model's 2,371-3,265 and 330 above its 2,550 point, against 330 above it today.
 
-The rule's own projection of 2,760 is NOT used here, and the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix.
+The rule's own projection of 2,738 is NOT used here, and the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix.
 
 ## What would move the remainder
 
