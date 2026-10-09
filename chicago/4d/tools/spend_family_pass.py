@@ -39,8 +39,9 @@ her husband's record), or — once — a tie the household contradicts: Chester 
 house holds a MODELLED wife while the Democrat prints his marriage to Betsy Weaver, who
 has her own card. Writing that tie would state two wives; seating the printed bride is a
 household edit, so the unit is handed to T-2190, which owns it. Ties whose far end is a
-card a BUILD writes whole (the register's underdocumented cards, the readmissions) are
-handed to T-2191, because a kin row typed onto one is gone on the next build. A second
+card a BUILD writes whole (the register's underdocumented cards, the readmissions) were
+handed to T-2191, because a kin row typed onto one is gone on the next build; T-2191 taught
+those builds to write them (tools/generated_card_kin.py), and they close `asserted`. A second
 finding fell out
 of the burials: five people the registers and papers bury before 1 July 1835 are ruled
 present on it. That is not kin and not this pass's to fix; it is T-2189.
@@ -158,17 +159,6 @@ RULES = {
             "household edit this pass is forbidden to make, so the unit is handed to the "
             "open ticket that owns that edit, and the tie is written there."),
     },
-    "the_family_pass_finds_a_tie_onto_a_card_a_build_writes": {
-        "disposition": "unresolved",
-        "ticket": "T-2191",
-        "statement": (
-            "The family pass (T-1335) read a register tie with BOTH ends on a card, and one "
-            "card is written whole by a build — the register's own underdocumented cards "
-            "(tools/reconstruct_church_register.py, T-1504) or the readmission stage "
-            "(T-1172). A kin row typed onto such a card is gone the next time its stage "
-            "runs, so the tie is handed to the open ticket that teaches those builds to "
-            "carry it: reciprocal, nobody minted, no household gaining a member."),
-    },
     "the_family_pass_finds_a_family_the_column_states_whole": {
         "disposition": "unresolved",
         "ticket": "T-2192",
@@ -204,7 +194,6 @@ VERDICTS = {
     "ruled_by_the_kin_survey": "the_kin_survey_already_ruled_the_register_tie",
     "names_no_relative": "the_register_entry_names_no_relative",
     "household_contradicts": "the_family_pass_finds_a_tie_the_household_contradicts",
-    "on_a_generated_card": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
     "a_family_whole": "the_family_pass_finds_a_family_the_column_states_whole",
     "undated": "the_family_pass_finds_the_tie_cannot_be_dated_against_the_scene",
 }
@@ -349,10 +338,15 @@ def church_verdict(row: dict, source_file: str, held: dict | None = None,
                 dated[:7] > SCENE_DATE[:7] or (len(dated) >= 10 and dated[:10] > SCENE_DATE)):
             return "after_the_scene", f"{line} The entry is dated {dated}, after the scene date."
         cards = {held[r["id"]][0][0] for r, s in them if s == "held"} | {held[row["id"]][0][0]}
+        # T-2191 retired the hand-off this used to make. A tie onto a card a build writes
+        # whole is WRITTEN by that build now (tools/generated_card_kin.py), and a written
+        # tie closes the unit `asserted` before it ever reaches this pass. Reaching here
+        # means the derivation declined it — read its report — not that it is owed work.
         if cards & generated_cards():
-            return "on_a_generated_card", (
-                f"{line} {', '.join(sorted(cards & generated_cards()))} is written whole by "
-                "its stage's build, so the tie is T-2191's to write through it.")
+            raise SystemExit(
+                f"{row.get('id')}: a register tie onto {', '.join(sorted(cards & generated_cards()))}, "
+                "a card a build writes whole, is on no card — tools/generated_card_kin.py "
+                "writes these; run the owning build and --land, or read why it declined")
         raise SystemExit(
             f"{row.get('id')}: both ends of a register tie are held and nothing has ruled "
             "it — rule it in data/residents/kin_rulings.json (the survey's file) first")

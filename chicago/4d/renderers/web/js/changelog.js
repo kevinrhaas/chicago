@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1551, ts: '2026-10-09T00:02:32.519Z', date: 'Oct 8, 2026, 7:02 PM CT', title: 'Twelve St Mary\u2019s children now name the parent the register gives them', kind: 'fix',
+    items: [
+      'St Mary\u2019s register names a mother or father for twelve children whose parent the town had carded but never linked to them, among them Joseph Mayo, the Wode twins, Susanne Vieaux and C\u00e9cile Laframboise. Open the child\u2019s card and the parent is now listed under \u201cRelated to\u201d, and the parent\u2019s card lists the child.',
+      'Those parents\u2019 cards are rebuilt from the register each time the town is rebuilt, so a link typed onto them by hand would have been lost. The rebuild now writes each link itself, straight from the baptism entry.',
+      'Three cards turned out to be second copies of people the town already has: Joseph and Baptiste L\u00e9tendre and Louis Franch\u00e8re. No link was written onto the copies, and merging them has its own ticket.',
+    ] },
   { v: 1550, ts: '2026-10-08T22:13:13.241Z', date: 'Oct 8, 2026, 5:13 PM CT', title: 'A twin finds her father, and 68 family mentions get an answer', kind: 'fix',
     items: [
       'Mary and Catherine Wode were baptised together at St Mary’s in July 1833. Mary’s card already named her father, John Wode, but Catherine’s did not. Now it does, and his card names both daughters.',
