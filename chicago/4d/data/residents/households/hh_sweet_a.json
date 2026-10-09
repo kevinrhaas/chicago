@@ -211,16 +211,15 @@
    ],
    "merge_ruling": [
     {
-     "ticket": "T-0839",
-     "verdict": "undecided",
-     "rule": "U1",
+     "ticket": "T-1281",
+     "verdict": "distinct",
+     "rule": "D8",
      "cluster": "sweet",
      "weighed_against": [
       "sweet_alanson"
      ],
-     "referred_to": "T-1281",
-     "for_merge": "Alanson Sweet is the only Sweet on a card whose full forename the initial A fits, and he is one of the better-evidenced men in the layer — the 1833 tax roll, the 1834 and 1835 poll lists and the Democrat. On the cards alone this is a one-rival initial, which is the shape T-0839 merges.",
-     "against_merge": "The card layer is not the whole corpus. The newspapers also print 'Alon[s]on Sweet', a second full forename the initial A fits just as well, and the identity ladder refuses 'A. Sweet' to BOTH of them under R3 for exactly that reason. Whether Alonson is a second man or a compositor's transposition of Alanson is a reading of the page and not a rule, so the answer decides this cluster and is not in hand. Filed as T-1281."
+     "for_merge": "One vowel in the second syllable of a forename on a surname that agrees letter for letter, no middle initial on either side, and the Alanson card is one of the better-evidenced men in the layer: the 1833 tax list (entry 99), the 1834 poll list filed 11 August 1834 (entry 105), the 1835 poll list (entry 78), Kirkland's list of the men of 1832 who stayed, and his own signed caution in the Democrat of 10, 17 and 24 December 1834. Every enumeration of the town inside the window carries exactly ONE Sweet whose forename begins A, and prints it Alanson; the only other Sweet on them is R. M. A householder signing a notice in July 1834 who appears on no roll four weeks later is possible but is the less economical reading.",
+     "against_merge": "THE PAGE PRINTS ALONSON, AND IT PRINTS IT AS A SIGNATURE. Read on the scan on 2026-10-09 (the Internet Archive item chicago1835-newspaper-chicago-democrat-1834, Jun1834-Jul1834.pdf, leaf 26 = the issue of 16 July 1834, page 3, column 2, foot): 'Saddles Lost ... July 14, 1834. ALONSON SWEET.' The deposit's 'ALONBON' is the OCR taking the second S for a B; the letter is an S and the vowel before the N is an O, so 'Alon[s]on' is not a mis-read and is not this project's supply. The notice ran a second time on 23 July 1834 (deposit line 3815), set ALONSON again; Alanson's signed caution against a note stands in the issues of 10, 17 and 24 December 1834, set ALANSON every time. SEARCHED, the whole deposit (73 Democrat issues, the Chicago American of June to August 1835) and the reading index, for both spellings: ALONSON twice, both insertions of the one July notice; ALANSON three times, all in that December 1834 caution; 'A. SWEET' on the to-let and warehouse advertisements of December 1833 to August 1834 and the town-meeting committee of 17 June 1835, which an initial cannot decide. NO single printing — one issue, one roll, one directory entry — sets both spellings for one man, so the printer is never caught varying, which is C10's load-bearing clause. Each spelling is steady across its own repeated insertions, but a notice kept standing in type is one setting printed twice and not two witnesses, so that steadiness distinguishes nothing either way. C12 cannot fire: a poll list bounds who VOTED, not who lived here, and no non-name fact puts the July subscriber on it. D8. THIS IS NOT A CLAIM THAT THE TOWN HELD TWO MEN OF THE NAME; it is the ruling that nothing reached folds them, and that the initial A therefore still has two full forenames to fit (R2), so 'A. Sweet' stays on a card of its own."
     }
    ],
    "sex": "male",
