@@ -131,8 +131,8 @@
   },
   "wells": "None dealt. docs/RESEARCH/wells.md § 4 refuses a well class for the town — July 1835 Chicago drank from the lake by cart — and that ruling stands; data/wells/ draws only the wells a source places.",
   "counts": {
-    "dwelling_lots": 229,
-    "privies": 185,
+    "dwelling_lots": 231,
+    "privies": 187,
     "stables": 21,
     "privy_standing": 36,
     "stable_standing": 17,
@@ -1280,7 +1280,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1480,7 +1480,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1502,7 +1502,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -2002,21 +2002,21 @@
       "lot": "blk_randolph_franklin_lot7",
       "belongs_to": "recon_1835_blk_randolph_franklin_d3_04",
       "households": [],
-      "household_class": "labourer",
+      "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        315.06,
-        -326.71
+        314.98,
+        -326.79
       ],
       "bearing_deg": -179.66,
-      "along_m": 1.07,
-      "depth_m": 1.07,
-      "eave_m": 1.85,
-      "head_m": 2.05,
+      "along_m": 1.22,
+      "depth_m": 1.22,
+      "eave_m": 1.95,
+      "head_m": 2.2,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "fresh",
       "confidence": "reconstructed",
-      "finish": "slab"
+      "finish": "board"
     },
     {
       "id": "privy_blk_randolph_wells_lot0",
@@ -4035,6 +4035,28 @@
       "finish": "board"
     },
     {
+      "id": "privy_blk_school_section_tier_81_lot1",
+      "kind": "privy",
+      "lot": "blk_school_section_tier_81_lot1",
+      "belongs_to": "recon_1835_blk_school_section_tier_81_d5_07",
+      "households": [],
+      "household_class": "tradesman",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        82.76,
+        -591.55
+      ],
+      "bearing_deg": 180.0,
+      "along_m": 1.22,
+      "depth_m": 1.22,
+      "eave_m": 1.95,
+      "head_m": 2.2,
+      "roof": "shed",
+      "weather": "weathered",
+      "confidence": "reconstructed",
+      "finish": "board"
+    },
+    {
       "id": "privy_blk_school_section_tier_81_lot2",
       "kind": "privy",
       "lot": "blk_school_section_tier_81_lot2",
@@ -4345,6 +4367,28 @@
       "finish": "board"
     },
     {
+      "id": "privy_blk_school_section_tier_95_lot1",
+      "kind": "privy",
+      "lot": "blk_school_section_tier_95_lot1",
+      "belongs_to": "recon_1835_blk_school_section_tier_95_d6_07",
+      "households": [],
+      "household_class": "tradesman",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        383.49,
+        -591.55
+      ],
+      "bearing_deg": 180.0,
+      "along_m": 1.22,
+      "depth_m": 1.22,
+      "eave_m": 1.95,
+      "head_m": 2.2,
+      "roof": "shed",
+      "weather": "seasoned",
+      "confidence": "reconstructed",
+      "finish": "board"
+    },
+    {
       "id": "privy_blk_school_section_tier_95_lot2",
       "kind": "privy",
       "lot": "blk_school_section_tier_95_lot2",
@@ -4604,7 +4648,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -4626,7 +4670,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -4648,7 +4692,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -4758,7 +4802,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
