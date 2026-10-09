@@ -1628,8 +1628,8 @@
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 673,
-    "roofs_to_build": 14,
+    "roofs_standing": 676,
+    "roofs_to_build": 11,
     "persons_standing": 2917,
     "persons_still_owed": 14,
     "persons_when_the_book_is_filled": 2931,
@@ -1649,11 +1649,11 @@
     "rows_offered": 1422,
     "seated": 313,
     "still_owed": 1109,
-    "roofs_adopted": 311,
-    "slots_requested": 2,
-    "roofs_standing": 673,
-    "roofs_standing_unseated": 362,
-    "share_of_standing_roofs_seated": 0.4621,
+    "roofs_adopted": 313,
+    "slots_requested": 0,
+    "roofs_standing": 676,
+    "roofs_standing_unseated": 363,
+    "share_of_standing_roofs_seated": 0.463,
     "passes": [
       {
         "key": "platted",
@@ -1664,9 +1664,9 @@
         "rows_offered": 1422,
         "seated": 214,
         "handed_on": 1208,
-        "roofs_adopted": 212,
-        "slots_requested": 2,
-        "roofs_offered_for_adoption": 222,
+        "roofs_adopted": 214,
+        "slots_requested": 0,
+        "roofs_offered_for_adoption": 224,
         "roofs_held_back": 61,
         "ground_taken": 196,
         "ground_taken_unit": "lots",
@@ -1710,33 +1710,9 @@
         }
       }
     ],
-    "requested_slots": [
-      {
-        "household_id": "hh_dickson_david",
-        "name": "The Dickson household — a name from the post office's letter lists",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_81",
-        "lot_id": "blk_school_section_tier_81#01",
-        "family": "D5",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_dird_john_david",
-        "name": "The Dird household — a name the town's own records carry",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_95",
-        "lot_id": "blk_school_section_tier_95#01",
-        "family": "D6",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      }
-    ],
-    "slot_blocks": [
-      "blk_school_section_tier_81",
-      "blk_school_section_tier_95"
-    ],
-    "what_the_slots_wait_on": "2 slot(s) on 2 block(s) — blk_school_section_tier_81, blk_school_section_tier_95. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
+    "requested_slots": [],
+    "slot_blocks": [],
+    "what_the_slots_wait_on": "no slot was requested: every seat is an adoption of a roof already standing.",
     "what_is_left": "1,109 of the 1,422 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
@@ -5034,11 +5010,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 673,
-        "standing_with_an_occupant": 260,
-        "standing_without_an_occupant": 413,
-        "to_build_total": 14,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 413 of the 673 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "standing_records": 676,
+        "standing_with_an_occupant": 261,
+        "standing_without_an_occupant": 415,
+        "to_build_total": 11,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 415 of the 676 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5048,13 +5024,13 @@
             "division": "south"
           },
           "target": 35,
-          "standing": 34,
-          "to_build": 1,
+          "standing": 35,
+          "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-2176",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 1 of them to build"
+          "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 0 of them to build"
         },
         {
           "key": "structures/barns_stables/west",
@@ -5258,13 +5234,13 @@
             "division": "south"
           },
           "target": 176,
-          "standing": 168,
-          "to_build": 8,
+          "standing": 170,
+          "to_build": 6,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-2176",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 8 of them to build"
+          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 6 of them to build"
         },
         {
           "key": "structures/ordinary_dwellings/west",
@@ -5554,9 +5530,9 @@
       "title": "Ground first",
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
-        "roofs_on_committed_ground": 6,
+        "roofs_on_committed_ground": 3,
         "roofs_gated_on_coverage": 8,
-        "statement": "6 of the 14 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 8 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "statement": "3 of the 11 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 8 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5876,7 +5852,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "413 of 673 standing records carry no occupants block."
+      "measured_now": "415 of 676 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",

@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
+  { v: 1552, ts: '2026-10-09T00:46:47.001Z', date: 'Oct 8, 2026, 7:46 PM CT', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
     items: [
       'Walk south down Wells Street past Madison. The Monroe Street corner of the block on your left is no longer empty: a roomy tradesman\u2019s house stands there, facing Monroe, a twin of the one at the block\u2019s other Monroe corner.',
       'One block west, on Market at Monroe, a larger frame house now fills the last lot the plan dealt that block. Only its Madison corner is still open.',
