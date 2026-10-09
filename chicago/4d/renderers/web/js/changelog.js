@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1577, ts: '2026-10-09T13:41:58.589Z', date: 'Oct 9, 2026, 8:41 AM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
+  { v: 1578, ts: '2026-10-09T14:06:30.525Z', date: 'Oct 9, 2026, 9:06 AM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
     items: [
       'Open John S. C. Hogan\u2019s card: his roles now include trustee of the town of Chicago, read in the 1835 act on the town\u2019s incorporation.',
       'George W. Snow\u2019s card now records his election as the town\u2019s assessor and surveyor in December 1833, Ashbel Steele\u2019s his post as county coroner, and Joseph Meeker\u2019s his place as his church\u2019s Sunday-school librarian.',
       'Each is marked an office, graded inferred and cited. None of them changes anyone\u2019s 1835 occupation, because the histories they come from were written after the scene.',
       'Eight more posts the research had found, among them Hamilton\u2019s county clerkship and St Cyr\u2019s priesthood, were already on their cards. Nothing in the 3-D town changes.',
+    ] },
+  { v: 1577, ts: '2026-10-09T13:43:01.271Z', date: 'Oct 9, 2026, 8:43 AM CT', title: 'Each person\u2019s card now lists when the records place them', kind: 'feature',
+    items: [
+      'Open a resident\u2019s card and a new row, \u2018Seen in the record, by date\u2019, lists every dated line the town holds for that person, oldest first: a poll list, a tax roll, a newspaper notice, the 1830 census or the St Mary\u2019s baptismal register. 386 people have at least one line.',
+      'Each line says what it proves. A vote cast or a christening attended at Chicago puts the person in the town by that day. A name in print, an 1830 census line or a date after 1 July 1835 is shown for what it is and proves nothing about the scene date.',
+      'Twenty-six godparents and sponsors at St Mary\u2019s, among them Josette Laframboise, Jean Baptiste Lavigne and Edward Daly, now have their christening days on these lists. Before this they were named on their cards with no date attached.',
     ] },
   { v: 1576, ts: '2026-10-09T13:08:00.450Z', date: 'Oct 9, 2026, 8:08 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
     items: [
