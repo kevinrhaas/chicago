@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1567, ts: '2026-10-09T07:39:48.254Z', date: 'Oct 9, 2026, 2:39 AM CT', title: 'Twelve St Mary\u2019s children now name the parent the register gives them', kind: 'fix',
+    items: [
+      'St Mary\u2019s register names a mother or father for twelve children whose parent the town had carded but never linked to them, among them Joseph Mayo, the Wode twins, Susanne Vieaux and C\u00e9cile Laframboise. Open the child\u2019s card and the parent is now listed under \u201cRelated to\u201d, and the parent\u2019s card lists the child.',
+      'Those parents\u2019 cards are rebuilt from the register each time the town is rebuilt, so a link typed onto them by hand would have been lost. The rebuild now writes each link itself, straight from the baptism entry.',
+    ] },
   { v: 1566, ts: '2026-10-09T07:11:45.716Z', date: 'Oct 9, 2026, 2:11 AM CT', title: 'Compare Glessner House with its dated photographs', kind: 'feature',
     items: [
       'Open Glessner House in the 1904 view and choose Photographic comparison baseline. Dated photographs and the model appear beside each other, with numbered landmarks showing where their outlines and openings disagree.',

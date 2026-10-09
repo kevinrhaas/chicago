@@ -47,6 +47,19 @@
    "match": "any source naming this person at Chicago on or after 1 July 1835"
   }
  },
+ "kin": [
+  {
+   "person": "fran_ois_tranche",
+   "relation": "father",
+   "household": "hh_tranche_susanne",
+   "value": "tranche_susanne",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME (T-2191). Entry 16 of 1833: Le huit octobre mil huit cent trente trois, je soussigné ai baptisé Susanne fille de François Tranche[?] et de Josette Aspam, née [le] 15 octobre 1831. Parrain et marraine ont été Jean Baptiste Lavigne et Monique Beaubien. The two cards are the ones that carry this entry's rows (st_marys_bapt_1833_16_2_father, st_marys_bapt_1833_16_1_child), so no identification is made here. The parent's term is the register's role column; the child's is the entry's own word, 'fille'. hh_fran_ois_tranche is written whole by its build, and tools/generated_card_kin.py derives both rows of this tie from the one entry, so a rebuild writes them again rather than losing one."
+  }
+ ],
  "persons": [
   {
    "id": "fran_ois_tranche",

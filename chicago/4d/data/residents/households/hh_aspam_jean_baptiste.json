@@ -130,6 +130,17 @@
     "st_marys_baptismal_register_1833_1835"
    ],
    "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le [quatre?] octobre mil huit cent trente trois, je soussigné ai baptisé Jean Baptiste fils d'Antoine Aspam et de Marianne (sauvage) né le 15 octobre 1831. Parrain et marraine ont été Augustin Bonné et Monique Nodeau. Both cards were minted from this entry's rows (st_marys_bapt_1833_14_2_father, st_marys_bapt_1833_14_1_child), so no identification is made here. The son term is the entry's: 'Jean Baptiste fils d'Antoine Aspam'."
+  },
+  {
+   "person": "aspam_jean_baptiste",
+   "relation": "son",
+   "household": "hh_cr_marianne",
+   "value": "marianne",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME (T-2191). Entry 14 of 1833: Le [quatre?] octobre mil huit cent trente trois, je soussigné ai baptisé Jean Baptiste fils d'Antoine Aspam et de Marianne (sauvage) né le 15 octobre 1831. Parrain et marraine ont été Augustin Bonné et Monique Nodeau. The two cards are the ones that carry this entry's rows (st_marys_bapt_1833_14_3_mother, st_marys_bapt_1833_14_1_child), so no identification is made here. The parent's term is the register's role column; the child's is the entry's own word, 'fils'. hh_cr_marianne is written whole by its build, and tools/generated_card_kin.py derives both rows of this tie from the one entry, so a rebuild writes them again rather than losing one."
   }
  ],
  "persons": [
