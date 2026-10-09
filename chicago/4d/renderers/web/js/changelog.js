@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1566, ts: '2026-10-09T07:26:10.886Z', date: 'Oct 9, 2026, 2:26 AM CT', title: 'St Mary\u2019s mothers and godmothers are women again', kind: 'fix',
+    items: [
+      'St Mary\u2019s baptismal register names each child\u2019s mother and godmother. 28 of those women had no recorded sex, and the guess for them came out male. The register now sets them as women, quoting the entry.',
+      'Twenty of them were heading a house as a married man with an invented wife and children. Eleven of those families were made up, 22 people in all, and they are gone; Catherine Chandler alone had been given a wife and five children. No one is invented in their place. A few guessed couples elsewhere in town pair up differently as a result.',
+    ] },
   { v: 1565, ts: '2026-10-09T06:37:17.302Z', date: 'Oct 9, 2026, 1:37 AM CT', title: 'The town plan checks the people outside its main list', kind: 'fix',
     items: [
       'Nothing you can see changes. The plan of who still has to be added to the 1835 town counted households only from its main list of people, and about 660 people the town holds sit on cards beside that list: tradesmen, lodgers, and people with thin records.',

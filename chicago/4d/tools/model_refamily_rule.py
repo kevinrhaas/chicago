@@ -252,7 +252,17 @@ def book() -> dict:
     if not BOOK.exists():
         raise Fault("the 1835 reconstruction order book is missing — "
                     "run tools/build_order_book_1835.py --build")
-    return json.loads(BOOK.read_text(encoding="utf-8"))
+    doc = json.loads(BOOK.read_text(encoding="utf-8"))
+    # A HOUSE HELD IS NOT A PERSON HELD (T-2185). The re-cut can refuse a HOUSEHOLD bucket
+    # too: the North's family-dwelling order fell to 96 under the 97 houses dealt against
+    # it once Victoire Madera, St Mary's mother drawn male, was read female and T-2020's
+    # wife match had one husband fewer to fold `hh_rc_carroll_ellen` into. That refusal is
+    # named in the book and held, as the ruling of 2026-09-20 says; but this rule names
+    # people and moves them between person cells, and no move of it can retire a house.
+    # So it reads the person refusals, as the book's re-family ledger does.
+    doc["recut_refusals"] = [r for r in doc.get("recut_refusals") or []
+                             if r["bucket"].startswith("persons/")]
+    return doc
 
 
 def cards() -> dict:

@@ -3670,8 +3670,11 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
         # between cells is neither retired nor drawn, and this is where each move is
         # recorded on both ends. Empty by design — T-1558 models WHICH heads move and
         # T-1559 spends them.
+        # It counts PEOPLE held, so it reads the person refusals: a household bucket the
+        # re-cut refused (T-2185) is held and named above, but no move retires a house.
         "re_family_ledger": refamily_ledger(
-            moves, families[0]["buckets"], recut_refusals,
+            moves, families[0]["buckets"],
+            [r for r in recut_refusals if r["bucket"].startswith("persons/")],
             sum(max(0, (b["to_reconstruct"] or 0) - b["filled"])
                 for b in families[0]["buckets"]), rule),
     }
