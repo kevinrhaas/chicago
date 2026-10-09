@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
+  { v: 1583, ts: '2026-10-09T17:10:28.334Z', date: 'Oct 9, 2026, 12:10 PM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
     items: [
       'Open Silas W. Sherman\u2019s card in People. A new row, Elected to office, shows him elected sheriff in 1834 and again in 1836. The dates come from Robert Fergus\u2019s note in his 1843 Chicago directory, which the row quotes and cites.',
       'They are dates of elections, not the years he served, so the sheriff role above them keeps the 1833 to 1835 dates the town\u2019s newspapers give it. The book backs that role up and changes nothing else about him.',
