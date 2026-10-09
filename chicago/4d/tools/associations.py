@@ -46,7 +46,9 @@ TWO RULES THAT ARE NOT OBVIOUS, AND ARE THE POINT.
     `lives_at`/`works_at` must carry that structure among its rows. Otherwise
     the migration's half-way point is a record that says two different things
     about the same man and a reader picks whichever field they happened to
-    load. `validate.py` refuses it.
+    load. `validate.py` refuses it. Since T-2258 it refuses a non-null
+    singular link on a record with NO rows too: the household card names a home
+    and a workplace from the rows alone, so the rows must carry every claim.
 
 `from` and `to` are nullable — the sources date a relationship's start far more
 often than its end, and some they do not date at all. A row that dates NEITHER
@@ -255,7 +257,12 @@ def check_association_rows(where: str, rows, *, error, structure_ids: set, sourc
 
 
 def singular_drift(record: dict, rows) -> list[str]:
-    """While both shapes exist, the singular link must appear among the plural rows."""
+    """While both shapes exist, the singular link must appear among the plural rows.
+
+    T-2258: and `rows` may be EMPTY. The household card names a home and a
+    workplace only from `associated_with`, so a singular link on a record with no
+    rows at all is a claim no visitor is shown; callers pass `or []`.
+    """
     out = []
     if not isinstance(rows, list):
         return out
@@ -269,7 +276,8 @@ def singular_drift(record: dict, rows) -> list[str]:
         if value not in places:
             out.append(f"{key} names '{value}' and no {'/'.join(kinds)} row in associated_with "
                        f"reaches it. While both shapes exist they may not drift: a reader who "
-                       f"loads one field would be told a different thing about the same person")
+                       f"loads one field would be told a different thing about the same person, "
+                       f"and the card, which prints only the rows, would not show it at all")
     return out
 
 
@@ -452,6 +460,11 @@ def self_test() -> int:
     kept = singular_drift({"lives_at": {"value": "peck_store"}}, [base])
     ok = not kept
     print(("ok   " if ok else "FAIL ") + "…and agreeing with it")
+    failed += 0 if ok else 1
+
+    bare = singular_drift({"works_at": {"value": "peck_store"}}, [])
+    ok = bool(bare)
+    print(("ok   " if ok else "FAIL ") + "a singular link on a record with no rows at all")
     failed += 0 if ok else 1
 
     print(f"{failed} failure(s)")
