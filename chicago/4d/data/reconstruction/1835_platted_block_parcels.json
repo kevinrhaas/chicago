@@ -6831,14 +6831,24 @@
         {
           "family": "D5",
           "inventory_class": "principal_functional",
-          "lot": 1,
-          "stands_on": "street",
+          "stands_on": "frontage",
           "fronts": "lake",
-          "setback_m": 5.0,
-          "lateral_m": -7.26
+          "anchor": {
+            "corner": "west",
+            "clear_m": 1.5
+          }
         }
       ],
-      "arrangement_note": "A LARGER FRAME HOUSE ON THE LAKE STREET FACE OF THE MARKET WEDGE (T-2238, of T-2182). T-2195 opened plat block 21, the triangle the river's bend leaves between Franklin Street and the bank, as four reconstructed lots, and the schedule deals it one dwelling, a D5, which the seating asks for on lot 7 for the Dixon household. It fronts Lake 5 m back, the set-out the School Section tier's D5s use, between the sawpit shed on the cut-side corner lot and the open Franklin corner. Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a house stood on this lot in 1835, where on the lot and how far back; the wedge's lots are themselves reconstructed (L409), and the house is an anonymous count-unit toward the schedule's documented aggregate. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here. MOVED ALONG ITS LOT, NOT OFF IT (T-2196, 2026-10-09): the owner ruled lot 7 a two-unit party-line row so a boarding house stands beside this house, and centred the D5 left 7.27 m of face to each side, short of any boarding house this generator sizes. So the D5 slides 7.26 m west, to the plat's 1.5 m margin off lot 6's side line, at the same 5 m setback, and the boarding house takes the east side of its wall (the entry below). Nothing about the house itself changes."
+      "arrangement_note": "A LARGER FRAME HOUSE ON THE LAKE STREET FACE OF THE MARKET WEDGE (T-2238, of T-2182). T-2195 opened plat block 21, the triangle the river's bend leaves between Franklin Street and the bank, as four reconstructed lots, and the schedule deals it one dwelling, a D5, which the seating asks for on lot 7 for the Dixon household. It fronts Lake 5 m back, the set-out the School Section tier's D5s use, between the sawpit shed on the cut-side corner lot and the open Franklin corner. Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a house stood on this lot in 1835, where on the lot and how far back; the wedge's lots are themselves reconstructed (L409), and the house is an anonymous count-unit toward the schedule's documented aggregate. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here. MOVED ALONG ITS LOT, NOT OFF IT (T-2196, 2026-10-09): the owner ruled lot 7 a two-unit party-line row so a boarding house stands beside this house, and centred the D5 left 7.27 m of face to each side, short of any boarding house this generator sizes. So the D5 now stands as the west unit of a frontage run on lot 7 (see `frontage`), against the plat's 1.5 m margin off lot 6's side line at the same 5 m set-back, and the boarding house takes the east side of its wall (the entry below). Nothing about the house itself changes.",
+      "frontage": {
+        "face": "south",
+        "fronts": "lake",
+        "setback_m": 5.0,
+        "lots": [
+          1
+        ],
+        "why": "T-2196, on the owner's ruling (a) of 2026-10-09: lot 7 is a two-unit party-line row, and a row has one street line. The D5 was first placed as a lot slot (T-2238), its 5 m set-back measured off the lot's own front edge; the boarding house's run measures off the block face, and the two lines differ by 27 mm across the lot. So the D5 now stands as the run's west unit, anchored at the plat's 1.5 m margin off lot 6's side line, 5 m back from the face it shares with the boarding house; its family, its lot and its set-back are unchanged."
+      }
     },
     {
       "block_id": "blk_south_water_market",
