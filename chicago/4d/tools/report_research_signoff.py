@@ -547,17 +547,25 @@ def render(model: dict) -> str:
     # for. So Live stays and State goes. Which of them is being worked this minute is on the
     # board, which is regenerated and untracked, and can therefore change without failing
     # anything.
-    out.extend(table(["Owner", "Units", "Live"],
-                     [[r["ticket"], n(r["units"]), "yes" if r["live"] else "**NO**"]
-                      for r in a1["owners"]]))
-    out.append("")
-    heaviest = ", ".join(f"{r['ticket']} ({n(r['units'])})" for r in a1["owners"][:5])
-    out.append(f"Not one of those owners asks for another READING. The heaviest are {heaviest} — the "
-               f"arrival and origin fill, the authored business layer, the seating, the "
-               f"re-admissions, the named families — and the lighter ones are derivation fixes "
-               f"beside them. That is the shape of a finished research spend: what is still unspent "
-               f"is waiting on the bands this report opens, not on more of the corpus. "
-               f"**{n(a1['owners_not_live'])}** units defer to work that is no longer live (C3).")
+    if a1["owners"]:
+        out.extend(table(["Owner", "Units", "Live"],
+                         [[r["ticket"], n(r["units"]), "yes" if r["live"] else "**NO**"]
+                          for r in a1["owners"]]))
+        out.append("")
+        heaviest = ", ".join(f"{r['ticket']} ({n(r['units'])})" for r in a1["owners"][:5])
+        out.append(f"Not one of those owners asks for another READING. The heaviest are {heaviest} — the "
+                   f"arrival and origin fill, the authored business layer, the seating, the "
+                   f"re-admissions, the named families — and the lighter ones are derivation fixes "
+                   f"beside them. That is the shape of a finished research spend: what is still unspent "
+                   f"is waiting on the bands this report opens, not on more of the corpus. "
+                   f"**{n(a1['owners_not_live'])}** units defer to work that is no longer live (C3).")
+    else:
+        # T-1569 spent the last ticket-owned units; the table is empty and the "heaviest"
+        # sentence would name nobody, so the empty case is said in words.
+        out.append(f"There is no owners column left to read: no unresolved unit defers to a ticket, because "
+                   f"every reading a band owned has been spent. That is the shape of a finished "
+                   f"research spend. **{n(a1['owners_not_live'])}** units defer to work that is no "
+                   f"longer live (C3).")
     out.append("")
     # T-1423. The second legitimate shape, and the reason C3 is not simply "names a live
     # ticket": these units are not waiting on a band of this programme, they are waiting on
