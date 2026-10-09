@@ -340,6 +340,19 @@ def held_roster(doc: dict, by_id: dict) -> list:
             stage = rc.get("stage") if isinstance(rc, dict) else None
             band = person.get("age_band")
             low = band.get("low") if isinstance(band, dict) else None
+            if stage is None and isinstance(person.get("seated_as_printed_wife"), dict):
+                # AND THE PRINTED WIFE (T-2190): a NAMED woman, not a drawn one, whom the
+                # modelled-families stage seats in place of the wife it drew and counts in
+                # the cell that wife would have filled. The book counts her there, so the
+                # roster names her there; her house is seated, so she never moves.
+                div = modelled_families_division(hid, card, "wife")
+                rows.append({"person": person["id"], "household": hid,
+                             "relationship": person.get("relationship"),
+                             "stage": "modelled_families",
+                             "ticket": STAGE_TICKET["modelled_families"],
+                             "bucket": f"persons/{person['sex']}/{band_of(int(low))}/"
+                                       f"{div}/family/none"})
+                continue
             if stage == "modelled_families" and rc.get("ticket") == "T-2021":
                 # ORDERED APART, NOT HELD (T-2021). The family ruling's people fill the
                 # orders the ruling itself added to their cells, after the re-cut has

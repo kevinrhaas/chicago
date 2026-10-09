@@ -148,17 +148,14 @@ RULES = {
             "second person for a kin row to join, so the family pass (T-1335) has nothing "
             "to write." + TIES_ARE_INSIDE_THE_TOWN),
     },
-    "the_family_pass_finds_a_tie_the_household_contradicts": {
-        "disposition": "unresolved",
-        "ticket": "T-2190",
-        "statement": (
-            "The family pass (T-1335) read a tie between two people the town holds on two "
-            "different cards, and the household it would join already holds a MODELLED "
-            "person in the place the source gives the other: writing the tie would state "
-            "two wives. Seating the printed person and withdrawing the modelled one is a "
-            "household edit this pass is forbidden to make, so the unit is handed to the "
-            "open ticket that owns that edit, and the tie is written there."),
-    },
+    # `the_family_pass_finds_a_tie_the_household_contradicts` was RETIRED by T-2190, which
+    # spent its one unit: the Democrat's marriage of Chester Ingersoll to Betsy Weaver, a
+    # tie into a house that held a modelled wife. The printed bride is seated as his wife
+    # and the drawn one withdrawn (tools/reconstruct_modelled_families.py PRINTED_WIVES), so
+    # the tie is now the card's own structure and the unit is ruled `same_household`.
+    # `the_family_pass_finds_a_tie_onto_a_card_a_build_writes` was RETIRED by T-2191, which
+    # taught the builds that write those cards to write the register's parent ties
+    # (tools/generated_card_kin.py), so its thirteen units close `asserted`.
     "the_family_pass_finds_a_family_the_column_states_whole": {
         "disposition": "unresolved",
         "ticket": "T-2192",
@@ -193,7 +190,6 @@ VERDICTS = {
     "after_the_scene": "the_family_pass_finds_the_tie_begins_after_the_scene",
     "ruled_by_the_kin_survey": "the_kin_survey_already_ruled_the_register_tie",
     "names_no_relative": "the_register_entry_names_no_relative",
-    "household_contradicts": "the_family_pass_finds_a_tie_the_household_contradicts",
     "a_family_whole": "the_family_pass_finds_a_family_the_column_states_whole",
     "undated": "the_family_pass_finds_the_tie_cannot_be_dated_against_the_scene",
 }
@@ -400,6 +396,12 @@ def check(quiet: bool = False) -> list[str]:
     import spend_remainder_rulings as R
     from spend_family_pass import CONSUMED as consumed
     R.build_documents(ROOT)
+    # …and the press-bounds pass asks this one about its units BEFORE any card asserts
+    # them (spend_press_bounds.corpus_units reads no target), so a kin unit that has since
+    # closed `asserted` onto a card is still routed here there, and its ruling is no orphan
+    # (T-2190: the Ingersoll-Weaver marriage, now one household).
+    import spend_press_bounds as P
+    P.rows(ROOT)
     for uid in sorted(set(authored()) - consumed):
         faults.append(f"{uid}: authored, and no unit the registers route to the family pass "
                       "is this one — withdraw the ruling")
