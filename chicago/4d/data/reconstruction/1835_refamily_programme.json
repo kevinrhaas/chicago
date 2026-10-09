@@ -122,18 +122,18 @@
   "what_the_town_converges_to": {
     "still_owed_now": 14,
     "still_owed_when_the_programme_is_spent": 14,
-    "persons_standing_in_the_layer": 2917,
-    "converges_to_now": 2931,
-    "converges_to_when_the_programme_is_spent": 2931,
+    "persons_standing_in_the_layer": 2912,
+    "converges_to_now": 2926,
+    "converges_to_when_the_programme_is_spent": 2926,
     "the_model_point": 2550,
     "the_model_range": [
       2371,
       3265
     ],
-    "reading": "2,931 is inside the model's 2,371-3,265 and 381 above its 2,550 point, against 381 above it today.",
+    "reading": "2,926 is inside the model's 2,371-3,265 and 376 above its 2,550 point, against 376 above it today.",
     "and_the_rules_own_projection_is_not_used": {
-      "the_rule_says": 2789,
-      "this_report_says": 2931,
+      "the_rule_says": 2784,
+      "this_report_says": 2926,
       "why": "the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix."
     }
   },

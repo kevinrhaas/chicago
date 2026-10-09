@@ -539,11 +539,30 @@ def column_title_sex(person: dict):
         if not claim:
             continue
         text = " ".join(str(claim.get("normalized") or "").split())
-        printed = re.compile(r"\b(%s)\.?\s+%s\b" % ("|".join(sorted(GENDERED_TITLES)),
-                                                       re.escape(as_read)), re.IGNORECASE)
+        # The name's end is "no word character next", not `\b`: a name the register
+        # files with its own stop ("Mark Noble, jun.") is followed in the column by a
+        # comma, and there is no word boundary between a stop and a comma (T-2230).
+        printed = re.compile(r"\b(%s)\.?\s+%s(?!\w)" % ("|".join(sorted(GENDERED_TITLES)),
+                                                         re.escape(as_read)), re.IGNORECASE)
         for match in printed.finditer(text):
             rows.append((GENDERED_TITLES[match.group(1).lower()], match.group(0),
                          row["locator"], row.get("source")))
+        # THE TITLE ON THE PERSON THE EXTRACTION READ (T-2230). A notice may print a bride
+        # by her forename alone — "to Miss CHARLOTTE, only daughter of Mr. Charles
+        # Wesencraft" — so the name she is filed under never stands behind the title in
+        # the text. The claim's own entity row holds both halves: what was printed ("Miss
+        # CHARLOTTE") and the person it was read as ("Charlotte Wesencraft"). Where that
+        # row reads as exactly this name and what it printed opens with a gendered title,
+        # the title is the column's, said of this person, and is read the same way.
+        for entity in claim.get("entities") or []:
+            if " ".join(str(entity.get("normalized") or "").split()).lower() != as_read.lower():
+                continue
+            words = " ".join(str(entity.get("as_printed") or "").split())
+            opening = re.match(r"(%s)\.?\s+\S" % "|".join(sorted(GENDERED_TITLES)),
+                               words, re.IGNORECASE)
+            if opening:
+                rows.append((GENDERED_TITLES[opening.group(1).lower()], words,
+                             row["locator"], row.get("source")))
     if not rows:
         return None
     sexes = {sex for sex, _w, _l, _s in rows}
@@ -1269,6 +1288,20 @@ def self_test() -> int:
     want("a name the column prints with no title before it is not read",
          column_title_sex({"press_evidence": [{"as_read": "R. J. Hamilton",
                            "locator": "chicago_democrat_1833_12_17#c001"}]}) is None)
+    # T-2230: a name filed with its own stop, and a bride printed by her forename alone.
+    groom_jun = {"name": "Jun Marknoble", "sex": "female", "sex_basis": drawn,
+                 "press_evidence": [{"as_read": "Mark Noble, jun.",
+                                     "locator": "chicago_democrat_1833_12_03#c007"}]}
+    want("the column's 'Mr.' reaches a name that ends in its own stop",
+         sex_for(groom_jun, table, lookup)[:2] == ("male", "column_title"))
+    bride_by_forename = {"name": "Charlotte Wesencraft", "sex": "male", "sex_basis": drawn,
+                         "press_evidence": [{"as_read": "Charlotte Wesencraft",
+                                             "locator": "chicago_democrat_1833_12_03#c007"}]}
+    want("the title the extraction's entity printed ('Miss CHARLOTTE') is the column's",
+         sex_for(bride_by_forename, table, lookup)[:2] == ("female", "column_title"))
+    want("an entity printed with no title before it sexes nobody",
+         column_title_sex({"press_evidence": [{"as_read": "Mark Noble, Esq.",
+                           "locator": "chicago_democrat_1833_12_03#c007"}]}) is None)
 
     # A rank is not a title, and it is not a forename either.
     want("a rank sexes nobody", sex_for({"name": "Capt. Baxley"}, table, lookup)[0] is None)

@@ -194,6 +194,15 @@ from mint_documented_residents import (  # noqa: E402  (shared, deliberately)
 LEDGER_NAME = _ARRIVAL_LEDGER.name
 
 PASS_NAME = "civic"
+# THE PRINTED WIFE ON A CARD THIS PASS MINTED (T-2232). `reconstruct_modelled_families.py`
+# seats a wife a source prints out of her own card into her husband's, and marks her with
+# this key (its PRINTED_KEY). When the husband's card is one of this pass's — Mark Noble
+# jun.'s is, and Chester Ingersoll's (T-2190) is not — she stands on a card this pass
+# re-derives, but she is the stage's, not this pass's: she is not minted again on her own
+# card (refusal 2 says the town already carries her), she is carried through the re-mint
+# of his card where the stage put her, and the "households of one" gate does not count
+# her, exactly as it does not count a drawn wife.
+PRINTED_KEY = "seated_as_printed_wife"
 PREFIX = "hh_civic_"      # legacy shape only; T-0599 ids are plain and this never fires
 DIVISION = "unplaced"
 SCENE_YEAR = 1835
@@ -903,6 +912,20 @@ def carry_over(doc: dict, prior: dict | None, retracted: set | None = None) -> d
     )
 
 
+def carry_printed_wives(doc: dict, prior: dict | None) -> dict:
+    """`doc` with the printed wives the modelled-families stage seated on this card
+    carried back in, after this pass's own person and in the order the stage put them
+    (T-2232). Only this pass's own card is read, as in `carry_over`."""
+    if not prior or prior.get("source_pass") != PASS_NAME:
+        return doc
+    ids = {p.get("id") for p in doc.get("persons") or []}
+    wives = [p for p in prior.get("persons") or []
+             if PRINTED_KEY in p and p.get("id") not in ids]
+    if wives:
+        doc["persons"] = list(doc.get("persons") or []) + wives
+    return doc
+
+
 def record(row: dict, appearances: list, docs: dict, taken_ids: set,
            established: dict | None = None) -> dict:
     # T-0970: a newly matched spelling adds evidence to an existing person. It
@@ -1102,9 +1125,9 @@ def build(preload: dict | None = None):
     # every household the first one seated. See mint_documented_residents.MINTED_PREFIXES.
     others = {p: d for p, d in docs.items() if p not in mine_paths}
     own = {person.get("id") for path in mine_paths
-           for person in docs[path].get("persons") or []}
+           for person in docs[path].get("persons") or [] if PRINTED_KEY not in person}
     established = {person.get("id"): docs[path] for path in mine_paths
-                   for person in docs[path].get("persons") or []}
+                   for person in docs[path].get("persons") or [] if PRINTED_KEY not in person}
     accepted, refusals = pool(others, proposal, master, index, own)
 
     # What each identity's REFUSED readings were citing, so `carry_over` can tell this
@@ -1119,8 +1142,9 @@ def build(preload: dict | None = None):
     for row, appearances in accepted:
         doc = record(row, appearances, others, taken,
                      established.get(row.get("canonical_person_id")))
-        doc = carry_over(doc, docs.get(HOUSEHOLDS / f"{doc['id']}.json"),
-                         retracted.get(row["identity"], set()))
+        prior = docs.get(HOUSEHOLDS / f"{doc['id']}.json")
+        doc = carry_over(doc, prior, retracted.get(row["identity"], set()))
+        doc = carry_printed_wives(doc, prior)
         if doc["id"] in taken:
             raise SystemExit(f"two identities mint the same household id {doc['id']}")
         taken.add(doc["id"])
@@ -1551,7 +1575,8 @@ def gate_problems(docs: dict, index: dict) -> list:
         # refuse the card for something it did not do, and the sentence under it — "this
         # pass mints households of one and never invents a family" — stays exactly true:
         # it still mints one, and it still invents nobody.
-        people = named_by_a_source(doc.get("persons") or [])
+        people = [p for p in named_by_a_source(doc.get("persons") or [])
+                  if PRINTED_KEY not in p]
         if len(people) != 1:
             problems.append(f"{where}: {len(people)} member(s); this pass mints households "
                             f"of one and never invents a family")
@@ -2151,6 +2176,25 @@ def self_test() -> int:
     elif list(with_kin).index("kin") != list(with_kin).index("persons") - 1:
         failed += 1
         print("   FAIL a carried kin block does not land immediately before persons")
+
+    # T-2232: a printed wife the modelled-families stage seated on this pass's card is
+    # carried through the re-mint after the head, and nothing else of the stage's is
+    bride = {"id": "bride_x", "name": "Bride X", "grade": "attested",
+             PRINTED_KEY: {"ticket": "T-2190", "from_household": "hh_bride_x",
+                           "relationship_as_dealt": "head"}}
+    minted = record(_row(), [_app()], {}, set())
+    seated = dict(prior, persons=[minted["persons"][0], bride,
+                                  {"id": "drawn_child", "grade": "reconstructed"}])
+    carried = carry_printed_wives(carry_over(record(_row(), [_app()], {}, set()), seated),
+                                  seated)
+    if [p.get("id") for p in carried["persons"]] != [minted["persons"][0]["id"], "bride_x"]:
+        failed += 1
+        print("   FAIL a printed wife on this pass's card is not carried after its head, "
+              "alone of the stage's people")
+    if carry_printed_wives(record(_row(), [_app()], {}, set()),
+                           dict(seated, source_pass="letter_list"))["persons"][1:]:
+        failed += 1
+        print("   FAIL carry_printed_wives read a card that is not this pass's")
 
     # the two source labels the identity master hands over unresolved
     if source_of(_app(domain="newspapers", source_id="chicago_newspapers_1833_1835",

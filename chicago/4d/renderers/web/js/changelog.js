@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1564, ts: '2026-10-09T06:20:28.039Z', date: 'Oct 9, 2026, 1:20 AM CT', title: 'A house on the riverside block at Lake and Franklin', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'A house on the riverside block at Lake and Franklin', kind: 'feature',
     items: [
       'Walk west along Lake Street to Franklin and look across at the narrow block by the bend of the river. The middle Lake Street lot there, grazed prairie until now, has a larger frame house on it, set back from the street. The Franklin corner beside it stays open.',
       'One household in the town plan had asked for a roof on that lot, and every household the plan seats on the town\u2019s lots now has a house again.',
       'No source shows this house in 1835 or names who lived in it. Its card says it is reconstructed, and the Liberties page explains it (L410).',
+    ] },
+  { v: 1564, ts: '2026-10-09T06:06:53.644Z', date: 'Oct 9, 2026, 1:06 AM CT', title: 'Mark Noble jun.\u2019s wife is the woman the paper says he married', kind: 'fix',
+    items: [
+      'The Chicago Democrat of 3 December 1833 prints \u201cMr. MARK NOBLE, jun.\u201d marrying \u201cMiss CHARLOTTE, only daughter of Mr. Charles Wesencraft\u201d. Both their cards had a guessed sex, and both guesses were wrong: he showed as a woman, and she as a man heading a made-up wife and sons.',
+      'The paper\u2019s \u201cMr.\u201d and \u201cMiss\u201d now set both cards, quoting the column. Charlotte is seated in his house as his wife, and the family we had invented for her is gone. The same reading puts \u201cMiss\u201d and \u201cMr.\u201d onto two more press cards, Anne Maria Barney and Alson Woodruff. Mary Noble\u2019s marriage to George Bickerdyke, printed in the same column, comes next.',
     ] },
   { v: 1563, ts: '2026-10-09T05:30:16.773Z', date: 'Oct 9, 2026, 12:30 AM CT', title: 'The town stops ordering 335 houses it already has', kind: 'fix',
     items: [

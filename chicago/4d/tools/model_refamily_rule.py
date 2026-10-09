@@ -340,6 +340,13 @@ def held_roster(doc: dict, by_id: dict) -> list:
             stage = rc.get("stage") if isinstance(rc, dict) else None
             band = person.get("age_band")
             low = band.get("low") if isinstance(band, dict) else None
+            if (stage is None and isinstance(person.get("seated_as_printed_wife"), dict)
+                    and person["seated_as_printed_wife"].get("counted_in_a_cell") is False):
+                # T-2230: A PRINTED WIFE THE BOOK HAD NO CELL FOR. Her husband's house drew
+                # no wife (the cell was full), so she replaces nobody and is seated as the
+                # known person the book already counts; no cell names her, so neither may
+                # this roster.
+                continue
             if stage is None and isinstance(person.get("seated_as_printed_wife"), dict):
                 # AND THE PRINTED WIFE (T-2190): a NAMED woman, not a drawn one, whom the
                 # modelled-families stage seats in place of the wife it drew and counts in
