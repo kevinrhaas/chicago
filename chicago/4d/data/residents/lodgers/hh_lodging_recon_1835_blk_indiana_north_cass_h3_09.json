@@ -12,14 +12,14 @@
   "place_name": "Reconstructed H3 boarding house #09",
   "class": "boarding_house",
   "beds_ordinary": 12,
-  "beds_crowded": 28,
+  "beds_crowded": 27,
   "on_the_house_before_this_stage": 0,
   "seated_from_the_layer": [
    "barry_j_r",
    "funk_absolom",
-   "laird_william",
-   "sasoton_a_b",
-   "rc_flynn_owen"
+   "latzky_john",
+   "shatttuck_walter",
+   "rc_mccarthy_ellen"
   ],
   "minted_here": 4,
   "stands_on": "The lodging model (T-1370) gives this house an ordinary-night capacity apportioned out of a figure the town model already owns, and the residents layer holds fewer people in it than that. The order book's `lodging` buckets are the quota these people are drawn against.",
@@ -47,7 +47,7 @@
   "basis": {
    "kind": "model",
    "id": "1835_lodging_model",
-   "note": "THE BED IS THE CLAIM. The lodging model puts 12 people in this house on an ordinary night and 28 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
+   "note": "THE BED IS THE CLAIM. The lodging model puts 12 people in this house on an ordinary night and 27 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
   },
   "seed": "lodgers:recon_1835_blk_indiana_north_cass_h3_09:lives_at",
   "replaceable_by": {
