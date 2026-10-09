@@ -4169,7 +4169,25 @@
       }
     },
     {
-      "person": "rc_marcotte_joseph",
+      "person": "rc_bardwell_reuben",
+      "household": "hh_lodging_recon_1835_north_h2_028",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/30_39/north/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_north_h2_028:rc_bardwell_reuben",
+      "axes": {
+        "sex": "male",
+        "age_band": "30_39",
+        "division": "north",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_whitcomb_david",
       "household": "hh_lodging_recon_1835_north_h2_028",
       "relationship": "boarder",
       "stage": "lodgers",
@@ -4177,7 +4195,7 @@
       "bucket": "persons/male/40_49/north/lodging/none",
       "rung": "R_seated",
       "adoptions": [],
-      "deal_key": "hh_lodging_recon_1835_north_h2_028:rc_marcotte_joseph",
+      "deal_key": "hh_lodging_recon_1835_north_h2_028:rc_whitcomb_david",
       "axes": {
         "sex": "male",
         "age_band": "40_49",
@@ -4205,25 +4223,7 @@
       }
     },
     {
-      "person": "rc_cavanagh_daniel",
-      "household": "hh_lodging_recon_1835_north_h2_030",
-      "relationship": "boarder",
-      "stage": "lodgers",
-      "ticket": "T-1371",
-      "bucket": "persons/male/30_39/north/lodging/none",
-      "rung": "R_seated",
-      "adoptions": [],
-      "deal_key": "hh_lodging_recon_1835_north_h2_030:rc_cavanagh_daniel",
-      "axes": {
-        "sex": "male",
-        "age_band": "30_39",
-        "division": "north",
-        "household": "lodging",
-        "trade": "none"
-      }
-    },
-    {
-      "person": "rc_tuttle_alvah",
+      "person": "rc_nichols_asa",
       "household": "hh_lodging_recon_1835_north_h2_030",
       "relationship": "boarder",
       "stage": "lodgers",
@@ -4231,7 +4231,7 @@
       "bucket": "persons/male/40_49/north/lodging/none",
       "rung": "R_seated",
       "adoptions": [],
-      "deal_key": "hh_lodging_recon_1835_north_h2_030:rc_tuttle_alvah",
+      "deal_key": "hh_lodging_recon_1835_north_h2_030:rc_nichols_asa",
       "axes": {
         "sex": "male",
         "age_band": "40_49",
@@ -11189,7 +11189,7 @@
         },
         {
           "layer": "lodging",
-          "place": "recon_1835_blk_washington_clinton_h3_02"
+          "place": "recon_1835_blk_washington_clark_h3_05"
         }
       ],
       "deal_key": "trade_households:persons/male/30_39/north/family/trade:labourer:010",
@@ -11914,7 +11914,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_blk_washington_dearborn_h3_01"
+          "place": "recon_1835_blk_washington_clark_h3_06"
         }
       ],
       "deal_key": "trade_households:persons/female/20_29/north/family/trade:domestic:011",
@@ -15165,7 +15165,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_blk_washington_market_h3_01"
+          "place": "recon_1835_blk_washington_clark_h3_11"
         }
       ],
       "deal_key": "trade_households:persons/female/20_29/south/family/trade:domestic:026",
@@ -19178,7 +19178,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_blk_washington_market_h3_04"
+          "place": "recon_1835_blk_washington_clinton_h3_02"
         }
       ],
       "deal_key": "trade_households:persons/female/30_39/south/family/trade:domestic:013",
@@ -19942,7 +19942,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_north_h2_028"
+          "place": "recon_1835_blk_washington_dearborn_h3_01"
         }
       ],
       "deal_key": "trade_households:persons/female/20_29/west/family/trade:domestic:007",
