@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1584, ts: '2026-10-09T17:34:59.494Z', date: 'Oct 9, 2026, 12:34 PM CT', title: 'The 1830 census and early directories are fully accounted for', kind: 'fix',
+    items: [
+      'Nothing you can see changes. Every name the town reads from the 1830 census now either belongs to a household in the town or has a stated reason why not. The same is true of the town directories. Claude Laframboise was the last name waiting, and he heads his own household.',
+    ] },
   { v: 1583, ts: '2026-10-09T17:10:28.334Z', date: 'Oct 9, 2026, 12:10 PM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
     items: [
       'Open Silas W. Sherman\u2019s card in People. A new row, Elected to office, shows him elected sheriff in 1834 and again in 1836. The dates come from Robert Fergus\u2019s note in his 1843 Chicago directory, which the row quotes and cites.',
