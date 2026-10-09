@@ -117,20 +117,6 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
- "modelled_family": {
-  "stage": "modelled_families",
-  "ticket": "T-2021",
-  "household_type": "family_with_children",
-  "size_drawn": 5,
-  "kin_seated": 1,
-  "seed": "hh_murray_catherine:household_size",
-  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house.",
-  "ruling": {
-   "ticket": "T-2021",
-   "verdict": "stands_alone",
-   "what_happened": "STANDS ALONE, AND THAT IS A RULING, NOT A READING. The household model drew this house married at 5 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given their whole drawn family in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket. The walk stopped at house 157 of 277, and this one came 237, so none of its 4 drawn kin is seated. The head is left as the sources leave him; that is not a claim that he kept no wife."
-  }
- },
  "persons": [
   {
    "id": "murray_catherine",
@@ -160,23 +146,6 @@
      "rule": "G2c"
     }
    ],
-   "sex": "male",
-   "sex_basis": {
-    "value": "male",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "sex_share_of_the_roll",
-     "note": "Drawn at 94.7% male, the rate measured on the civic roll's own people whose sex the evidence settles. data/reconstruction/1835_sex_age_model.json holds the measurement."
-    },
-    "seed": "murray_catherine:sex_ratio",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
-    },
-    "note": "A DRAW, NOT A READING. Nothing about this person says which sex they were: T-1303 refused the name and was right to. This value is drawn from the measured male share of the roll the person was named on, seeded by their own id so the draw reproduces - retype 'murray_catherine:sex_ratio' and the same face comes up. It carries no weight as evidence about this person and it is never promoted. The rate is a ceiling rather than a point reading, because the forename table that settled the rest was built mostly on men's names."
-   },
    "age_band": {
     "value": "40-49",
     "low": 40,
@@ -186,7 +155,7 @@
     "basis": {
      "kind": "model",
      "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 40 under 50', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 40 under 50', one of its female bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
     },
     "seed": "murray_catherine:age_bands_1840",
     "replaceable_by": {
@@ -194,6 +163,15 @@
      "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
     },
     "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('murray_catherine:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   },
+   "sex": "female",
+   "sex_basis": {
+    "value": "female",
+    "confidence": "inferred",
+    "note": "THE REGISTER STATES IT. St Mary's baptismal register, in the priest's own hand, entry 1835-09 puts 'Catherine Murray' in the place of the godmother (marraine) — so this person was female, and that is read off the entry rather than off the name or the roll. A role and a kinship word are statements about the person; no draw stands against them.",
+    "sources": [
+     "st_marys_baptismal_register_1833_1835"
+    ]
    }
   }
  ],

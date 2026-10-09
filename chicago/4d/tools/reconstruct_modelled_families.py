@@ -1002,6 +1002,7 @@ def fill(base: dict) -> tuple:
             ruled[verdict] += 1
     withdrawn, orders_withdrawn = withdrawn_admissions(ruling, still, out, brides,
                                                        ruled_fills, hosts)
+    read_out = stood_alone_read_female(ruling, still, out)
     ledger["by_household"] = {k: per_card[k] for k in sorted(per_card)}
     after_people = present(out)
     ledger["family_ruling"] = {
@@ -1025,8 +1026,32 @@ def fill(base: dict) -> tuple:
         "fills": dict(sorted(ruled_fills.items())),
         **({"withdrawn": withdrawn, "orders_withdrawn": orders_withdrawn}
            if withdrawn else {}),
+        **({"stood_alone_read_female": read_out} if read_out else {}),
     }
     return out, ledger, folds
+
+
+def stood_alone_read_female(ruling: dict, still: list, out: dict) -> list:
+    """The houses the ruling stood ALONE whose head a later reading shows was a woman (T-2185).
+
+    The other half of `withdrawn_admissions`. St Mary's register names 28 mothers and
+    godmothers the model had drawn male, and nine of the houses they head were ones the
+    frozen ruling had stood alone. Read female, a head is no longer a married house the
+    book refused a wife, so the walk never reaches her house again. A stood-alone house
+    ordered no cell, so there is nothing to take out of the ruling's orders and nothing to
+    hold to its frozen row: only the house leaves the set it ruled on, and it is named here
+    so `--check` can tell it from a house the ruling lost for any other reason."""
+    standing = set(still)
+    names = []
+    for hid, row in sorted((ruling.get("houses") or {}).items()):
+        if row.get("verdict") != STANDS_ALONE or hid in standing:
+            continue
+        card = out.get(hid)
+        head = next((q for q in (card or {}).get("persons") or []
+                     if q.get("id") == (card or {}).get("head")), None)
+        if head is not None and head.get("sex") == "female":
+            names.append(hid)
+    return names
 
 
 def withdrawn_admissions(ruling: dict, still: list, out: dict, brides: dict,
@@ -2202,7 +2227,8 @@ def check() -> int:
     # under data/residents/merged/ and its person stands on the survivor (T-2179). So is a
     # printed wife's own house, gone into her husband's (T-2190), and a house a reading
     # withdrew — a head read female, a printed bride, or a head buried before the day (T-2189).
-    withdrawn = fr.get("withdrawn") or {}
+    # And a house it stood alone whose head a reading showed was a woman (T-2185).
+    withdrawn = set(fr.get("withdrawn") or {}) | set(fr.get("stood_alone_read_female") or ())
     gone = sorted(hid for hid, row in (ruling.get("houses") or {}).items()
                   if hid not in fr_houses(filled) and retired_host(hid) is None
                   and hid not in printed and hid not in withdrawn)
@@ -2672,6 +2698,14 @@ def self_test() -> int:
           isinstance(got, tuple) and sorted(got[0]) == ["hh_a", "hh_d"]
           and {w["why"] for w in got[0].values()} == {"head_ruled_absent"}
           and got[0]["hh_d"]["kin"] == 0 and got[1] == {w_cell: 1, boy: 1})
+    # T-2185: a house the ruling stood ALONE whose head is read female leaves the set too,
+    # and only that: it ordered no cell, so it is named and withdraws nothing.
+    fires("a stood-alone house whose head is read female is named, and only she",
+          stood_alone_read_female(ruling, ["hh_a", "hh_b", "hh_c"],
+                                  {"hh_d": head_card("hh_d", "female")}) == ["hh_d"]
+          and stood_alone_read_female(ruling, ["hh_a", "hh_b", "hh_c"],
+                                      {"hh_d": head_card("hh_d", "male")}) == []
+          and stood_alone_read_female(ruling, ["hh_a", "hh_c"], {"hh_b": woman}) == [])
 
     print("   %d rule(s) checked, %d failed" % (len(checked), len(failures)))
     return 1 if failures else 0

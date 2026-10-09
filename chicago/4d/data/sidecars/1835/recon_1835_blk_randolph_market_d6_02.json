@@ -117,7 +117,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D6 family's key geometry parameters do not speak to chimneys, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
     },
     "paint": {
-      "value": "unpainted",
+      "value": "whitewash",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -130,28 +130,28 @@
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: labourer class — the attested 6 x 8 in pane in the fewest lights, six or nine to a sash (rule FORM-G)."
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — the attested Chicago pane, 6 x 8 in, mostly twelve-over-twelve (rule FORM-G)."
     },
     "trim": {
-      "value": "scant",
-      "confidence": "reconstructed",
-      "sources": [
-        "owner_chicago_1835_reconstruction_spec_2026"
-      ],
-      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: labourer class — the narrowest corner boards and frieze that keep the weather out (rule FORM-T)."
-    },
-    "chimney_head": {
       "value": "plain",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: labourer class — a brick stack carried straight up, with no corbel at its head; the stack's brick is inferred and not dealt (rule FORM-H)."
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — the plain corner boards and frieze a sided frame needs to keep water out (rule FORM-T)."
+    },
+    "chimney_head": {
+      "value": "corbel",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — a brick stack finished in one corbelled course; the stack's brick is inferred and not dealt (rule FORM-H)."
     },
     "siding_exposure_m": {
-      "value": 0.152,
+      "value": 0.127,
       "confidence": "reconstructed",
-      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 6 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (5.5 in or 6 in; T-1839, docs/LIBERTIES.md L352), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (5 in, 5.5 in or 6 in; T-1839, docs/LIBERTIES.md L352), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
     },
     "function": {
       "value": "one_and_a_half_story_frame_cottage",
@@ -189,15 +189,15 @@
           "note": "A CONTEMPORARY CHICAGO PAPER OF 1833-1835 PRINTS THIS PERSON BY NAME IN THE TOWN. Read from newspaper_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 3 December 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1). THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Adams, Miss Hattie | Profession. | September 14, 1870. | Deceased.” (second_presb_0390, printed page 176), admitted 1870-09-14 by profession. Under the rule that decided it: Surname 'Adams' folds to the same string as the roll line's, and the given name of both begins H. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once."
         },
         {
-          "name": "Clarissa Cobb",
+          "name": "Almira Stiles",
           "relationship": "wife",
           "grade": "reconstructed",
-          "occupation": "domestic",
+          "occupation": "milliner",
           "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1)."
         },
         {
-          "name": "Nancy Cobb",
-          "relationship": "daughter",
+          "name": "Alanson Stiles",
+          "relationship": "son",
           "grade": "reconstructed",
           "occupation": "none_recorded",
           "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
@@ -290,24 +290,24 @@
     "stands_on": "street",
     "fronts": "randolph",
     "sequence": 2,
-    "finish_key": "weathered_timber",
-    "roof_condition": "patched",
+    "finish_key": "whitewash",
+    "roof_condition": "darkened",
     "age_state": "established",
     "fabric_basis": {
-      "rule": "F-L",
-      "class": "labourer",
+      "rule": "F-T",
+      "class": "tradesman",
       "by": "keeper_trade",
       "household": "hh_adams_hiram_a",
-      "words": "silvered clapboard on a braced frame, 9-over-6 sash of 6 × 8 in glass and scant corner boards, under a patched roof — The Adams household's, a domestic, in Chicago since 1833 (rule F-L)"
+      "words": "whitewashed clapboard on a braced frame, 9-over-6 sash of 6 × 8 in glass and plain corner boards, under a weather-darkened roof — The Adams household's, a milliner, in Chicago since 1833 (rule F-T)"
     }
   },
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
-    "class": "labourer",
+    "class": "tradesman",
     "age_state": "established",
     "weather_years": 2.5,
     "weather_rate": 1.0,
-    "lay_m": 0.008,
+    "lay_m": 0.006,
     "confidence": "reconstructed"
   }
 }
