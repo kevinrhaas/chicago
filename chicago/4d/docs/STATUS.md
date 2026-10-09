@@ -40,6 +40,13 @@ dwelling.
 - **Liberty:** L354, amended. The invention is the keeper's bed over the store, as with every
   seat in that deal.
 
+## T-1281 — the Sweet cluster read on the page: Alonson stays a card of its own (2026-10-09)
+
+- **The question.** T-1155 left `sweet_a` and `sweet_alanson` undecided (U1): the Democrat's 'A. Sweet' could be Alanson, or the 'Alon[s]on Sweet' of the 16 July 1834 notice, and whether Alonson was a second man or a compositor's Alanson was a reading of the page.
+- **The page.** Read on the Internet Archive scan (item `chicago1835-newspaper-chicago-democrat-1834`, `Jun1834-Jul1834.pdf` leaf 26 = 16 July 1834, p. 3 col. 2): the notice is signed **ALONSON SWEET.** The deposit's `ALONBON` is the OCR's; the bracketed supply was right. Its second insertion (23 July) prints ALONSON again. Alanson's signed caution of December 1834 (issues of 10, 17 and 24 December) prints ALANSON every time. The 1833 tax list, the 1834 poll and the 1835 poll each carry one A-forenamed Sweet, printed Alanson.
+- **The ruling.** No single printing sets both spellings for one man, so C10's demonstration is missing and C12 cannot fire (a poll list bounds voters, not residents). Ruled **distinct under D8**, with `for_merge` kept verbatim; T-1155's U1 moves to `withdrawn` with `superseded_by`. This is not a claim that the town held two men of the name; it is the ruling that nothing reached folds them.
+- **What moved.** The two cards' `merge_ruling` blocks and the candidate ledger. No card folds, no household moves, nothing is re-seated; L220 stays at 509 and says why.
+- **Unverified.** The scan was read at one resolution on one leaf. The December caution was not re-read on its scan.
 ## T-2241 — Wells' narrow business-front lot refused in the schedule's sizing (piece 1 of T-2239, 2026-10-09)
 
 T-2239 was split: **T-2241** (this) makes `tools/reconcile_665.py` refuse a lot the business-front

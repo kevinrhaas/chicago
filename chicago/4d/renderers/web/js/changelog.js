@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1572, ts: '2026-10-09T11:16:31.813Z', date: 'Oct 9, 2026, 6:16 AM CT', title: 'Shopkeepers now live over their own stores', kind: 'fix',
+  { v: null, ts: '', title: 'Shopkeepers now live over their own stores', kind: 'fix',
     items: [
       'Eighteen stores in the 1835 town stood with nobody living in them while their keepers boarded in other people\u2019s houses. Open Peter Cohen\u2019s store on South Water Street, or L. W. Montgomery\u2019s boot and shoe shop beside it, and the keeper\u2019s household is now listed as living there. Thirteen keepers moved into the store their own business already stood in. Five more whose business had no building took an empty store in their part of town.',
       'No new people or businesses are made up, and the town keeps the same number of stores. A store with a family over it counts as a home, so 76 more households who were waiting for a roof now have one. The 13 stores still without a keeper\u2019s family are next.',
+    ] },
+  { v: 1572, ts: '2026-10-09T11:02:20.576Z', date: 'Oct 9, 2026, 6:02 AM CT', title: 'Alanson and Alonson Sweet stay two people', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The town holds two Sweets whose first name starts with A: Alanson Sweet, who is on every tax and poll list, and an \u2018A. Sweet\u2019 card, which also carries a lost-saddle notice of July 1834 signed \u2018Alonson Sweet\u2019.',
+      'The question was whether Alonson was a printer\u2019s slip for Alanson. Read on the scanned page, the notice really does say ALONSON. No issue of the paper ever prints both spellings for one man, so the two cards stay separate and each says why.',
     ] },
   { v: 1571, ts: '2026-10-09T10:37:53.730Z', date: 'Oct 9, 2026, 5:37 AM CT', title: 'The Chappel school shore drawing now says where it came from', kind: 'fix',
     items: [
