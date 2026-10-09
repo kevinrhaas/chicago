@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1572, ts: '2026-10-09T11:14:09.101Z', date: 'Oct 9, 2026, 6:14 AM CT', title: 'Three birth dates checked against the books they came from', kind: 'fix',
+  { v: null, ts: '', title: 'Three birth dates checked against the books they came from', kind: 'fix',
     items: [
       'Nothing you can see changes. Three readings said a book gives a birth for Dr Edmund Kimberly, Dr Philip Maxwell or Alexander Robinson that the town had not yet used. Each one is now read against the book beside the person\u2019s card.',
       'Kimberly\u2019s 7 April 1803 and Maxwell\u2019s 3 April 1799 are already on their cards, and the 1922 medical history gives the same days. For Robinson, neither source gives a birth year, so his card keeps 1762 and keeps saying that year is doubtful.',
+    ] },
+  { v: 1572, ts: '2026-10-09T11:02:20.576Z', date: 'Oct 9, 2026, 6:02 AM CT', title: 'Alanson and Alonson Sweet stay two people', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The town holds two Sweets whose first name starts with A: Alanson Sweet, who is on every tax and poll list, and an \u2018A. Sweet\u2019 card, which also carries a lost-saddle notice of July 1834 signed \u2018Alonson Sweet\u2019.',
+      'The question was whether Alonson was a printer\u2019s slip for Alanson. Read on the scanned page, the notice really does say ALONSON. No issue of the paper ever prints both spellings for one man, so the two cards stay separate and each says why.',
     ] },
   { v: 1571, ts: '2026-10-09T10:37:53.730Z', date: 'Oct 9, 2026, 5:37 AM CT', title: 'The Chappel school shore drawing now says where it came from', kind: 'fix',
     items: [

@@ -2002,17 +2002,17 @@
       "surname": "sweet",
       "rulings": [
         {
-          "state": "undecided",
-          "referred_to": "T-1281",
-          "rule": "U1",
+          "state": "distinct",
+          "rule": "D8",
+          "ticket": "T-1281",
+          "on": "2026-10-09",
           "members": [
             "sweet_a",
             "sweet_alanson"
           ],
-          "for_merge": "Alanson Sweet is the only Sweet on a card whose full forename the initial A fits, and he is one of the better-evidenced men in the layer — the 1833 tax roll, the 1834 and 1835 poll lists and the Democrat. On the cards alone this is a one-rival initial, which is the shape T-0839 merges.",
-          "against_merge": "The card layer is not the whole corpus. The newspapers also print 'Alon[s]on Sweet', a second full forename the initial A fits just as well, and the identity ladder refuses 'A. Sweet' to BOTH of them under R3 for exactly that reason. Whether Alonson is a second man or a compositor's transposition of Alanson is a reading of the page and not a rule, so the answer decides this cluster and is not in hand. Filed as T-1281.",
-          "note": "REACHED BY T-1155, AND IT IS THE REPAIR SHOWING ITS WORK. Before the square-bracket supplies were kept, 'Alon[s]on Sweet' split to the forenames `alon` and `on` and 'A. Sweet' merged onto Alanson unopposed. With the supplied letter back the second printing reads as the full forename Alonson, the ladder sees two rivals, and the Democrat's 'A. Sweet' comes off Alanson's card and stands on its own — refused rather than folded. The card is `undecided` and not merged because the town would otherwise assert a choice between two printings that nobody has made.",
-          "on": "2026-09-17"
+          "for_merge": "One vowel in the second syllable of a forename on a surname that agrees letter for letter, no middle initial on either side, and the Alanson card is one of the better-evidenced men in the layer: the 1833 tax list (entry 99), the 1834 poll list filed 11 August 1834 (entry 105), the 1835 poll list (entry 78), Kirkland's list of the men of 1832 who stayed, and his own signed caution in the Democrat of 10, 17 and 24 December 1834. Every enumeration of the town inside the window carries exactly ONE Sweet whose forename begins A, and prints it Alanson; the only other Sweet on them is R. M. A householder signing a notice in July 1834 who appears on no roll four weeks later is possible but is the less economical reading.",
+          "against_merge": "THE PAGE PRINTS ALONSON, AND IT PRINTS IT AS A SIGNATURE. Read on the scan on 2026-10-09 (the Internet Archive item chicago1835-newspaper-chicago-democrat-1834, Jun1834-Jul1834.pdf, leaf 26 = the issue of 16 July 1834, page 3, column 2, foot): 'Saddles Lost ... July 14, 1834. ALONSON SWEET.' The deposit's 'ALONBON' is the OCR taking the second S for a B; the letter is an S and the vowel before the N is an O, so 'Alon[s]on' is not a mis-read and is not this project's supply. The notice ran a second time on 23 July 1834 (deposit line 3815), set ALONSON again; Alanson's signed caution against a note stands in the issues of 10, 17 and 24 December 1834, set ALANSON every time. SEARCHED, the whole deposit (73 Democrat issues, the Chicago American of June to August 1835) and the reading index, for both spellings: ALONSON twice, both insertions of the one July notice; ALANSON three times, all in that December 1834 caution; 'A. SWEET' on the to-let and warehouse advertisements of December 1833 to August 1834 and the town-meeting committee of 17 June 1835, which an initial cannot decide. NO single printing — one issue, one roll, one directory entry — sets both spellings for one man, so the printer is never caught varying, which is C10's load-bearing clause. Each spelling is steady across its own repeated insertions, but a notice kept standing in type is one setting printed twice and not two witnesses, so that steadiness distinguishes nothing either way. C12 cannot fire: a poll list bounds who VOTED, not who lived here, and no non-name fact puts the July subscriber on it. D8. THIS IS NOT A CLAIM THAT THE TOWN HELD TWO MEN OF THE NAME; it is the ruling that nothing reached folds them, and that the initial A therefore still has two full forenames to fit (R2), so 'A. Sweet' stays on a card of its own.",
+          "note": "T-1281 answered the question U1 filed (T-1155's repair of the square-bracket supplies, 2026-09-17, is what raised it). A page that sets both spellings for one man — a later insertion of either notice, a deed, a directory entry — reopens it under C10, and `for_merge` is kept verbatim for that reader."
         }
       ]
     },
@@ -2603,6 +2603,11 @@
       "ticket": "T-2197",
       "on": "2026-10-08",
       "what": "THREE READMITTED CARDS THAT WERE SECOND COPIES. Rule C17 is written: a card the readmission stage minted from a roster row whose record id a research card already carries is that card again. joseph_l_tendre folds onto ltendre_joseph, baptiste_l_tendre onto ltendre_baptiste and louis_franch_re onto franchre_louis; consolidate_town_cards.py learns to fold a card from data/residents/readmitted/, and readmit_borderline_roster.py withholds a row whose readmission a merge retired. A fourth pair of the same shape (william_bourque_burke, bourque_william) is left to T-2189, which rules on William Bourque's presence. The town's cards fall by three."
+    },
+    {
+      "ticket": "T-1281",
+      "on": "2026-10-09",
+      "what": "THE SWEET CLUSTER, READ ON THE PAGE. The Democrat of 16 July 1834 prints 'ALONSON SWEET.' (the deposit's ALONBON is the OCR), and no printing in the corpus sets Alonson and Alanson for one man, so sweet_a and sweet_alanson are ruled DISTINCT under D8 and T-1155's U1 moves to `withdrawn` with its answer. The town's cards do not change in number."
     }
   ],
   "withdrawn": [
@@ -2630,6 +2635,35 @@
       "reason": "U1 IS A QUESTION WITH A TICKET ON IT, AND THE TICKET ANSWERED IT. T-1132 could not rule this pair and said exactly what would: 'Not a page but a COUNT, in C12's shape moved from the forename to the surname.' T-1135 ran that count — tools/exhaust_tax_1833.py, three gates, seven invariants the build asserts — and all three hold, so the cluster is ruled `merge` under the new rule C14 and is no longer undecided. THIS IS NOT A JUDGEMENT REVERSED. U1's own text says an undecided cluster states both readings and takes neither; taking one when the evidence it named arrives is what the rule is for. Nothing T-1132 asserted is contradicted: its `for_merge` and `against_merge` are carried VERBATIM on the standing ruling, and its finding that no publication sets both spellings is not only unretracted but re-measured and gated.",
       "what_would_settle_it": "Not a page but a COUNT, in C12's shape moved from the forename to the surname. The 1833 tax list is a closed roll the document itself enumerates; an independent non-name fact — Pruyne buying ground inside the platted town in October 1833 — argues he stood on it; and if every other Pr-stem entry on that roll is accounted for by a card of its own that Pruyne is not, then 'Pryne, Peter' is the only entry left for him and the exhaustion decides it without ever weighing how alike the two strings look. C12 as written reaches a FORENAME only, so firing it here is itself a rule to write, and the exhaustion has to be worked over the whole roll and printed rather than asserted. That is a reading of the roll and not a rule, so U1 and the cards stay two. T-1135 owns it.",
       "note": "pryne_peter is graded attested on the 1835 poll with a second list behind it, and pruyne_peter is attested on Andreas and the history of medicine, so neither card is weak — which is why this one is worth deciding rather than leaving to the next candidate sweep to re-ask."
+    },
+    {
+      "id": "sweet",
+      "rule": "U1",
+      "ticket": "T-1281",
+      "withdrawn_on": "2026-10-09",
+      "withdrawn_by": "T-1281",
+      "was": "undecided",
+      "ruled_by": "T-1155",
+      "ruled_on": "2026-09-17",
+      "reason": "U1 IS A QUESTION WITH A TICKET ON IT, AND THE TICKET ANSWERED IT. T-1155 left this cluster undecided because 'whether Alonson is a second man or a compositor's transposition of Alanson is a reading of the page and not a rule'. T-1281 read the page: the scan of 16 July 1834 prints ALONSON SWEET, its second insertion of 23 July prints it again, and no printing anywhere sets both spellings for one man, so the cluster is ruled DISTINCT under D8 and is no longer undecided. This is not a judgement reversed: U1 decided nothing, and the cards stand exactly as it left them.",
+      "superseded_by": {
+        "cluster": "sweet",
+        "rule": "D8",
+        "ticket": "T-1281"
+      },
+      "was_ruling": {
+        "state": "undecided",
+        "referred_to": "T-1281",
+        "rule": "U1",
+        "members": [
+          "sweet_a",
+          "sweet_alanson"
+        ],
+        "for_merge": "Alanson Sweet is the only Sweet on a card whose full forename the initial A fits, and he is one of the better-evidenced men in the layer — the 1833 tax roll, the 1834 and 1835 poll lists and the Democrat. On the cards alone this is a one-rival initial, which is the shape T-0839 merges.",
+        "against_merge": "The card layer is not the whole corpus. The newspapers also print 'Alon[s]on Sweet', a second full forename the initial A fits just as well, and the identity ladder refuses 'A. Sweet' to BOTH of them under R3 for exactly that reason. Whether Alonson is a second man or a compositor's transposition of Alanson is a reading of the page and not a rule, so the answer decides this cluster and is not in hand. Filed as T-1281.",
+        "note": "REACHED BY T-1155, AND IT IS THE REPAIR SHOWING ITS WORK. Before the square-bracket supplies were kept, 'Alon[s]on Sweet' split to the forenames `alon` and `on` and 'A. Sweet' merged onto Alanson unopposed. With the supplied letter back the second printing reads as the full forename Alonson, the ladder sees two rivals, and the Democrat's 'A. Sweet' comes off Alanson's card and stands on its own — refused rather than folded. The card is `undecided` and not merged because the town would otherwise assert a choice between two printings that nobody has made.",
+        "on": "2026-09-17"
+      }
     }
   ]
 }
