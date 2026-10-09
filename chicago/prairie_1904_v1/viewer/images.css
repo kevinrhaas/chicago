@@ -106,3 +106,14 @@
 @media(max-width:1000px){.img-filters{grid-template-columns:repeat(2,minmax(0,1fr))}.img-filters label:first-child{grid-column:1/-1}}
 @media(max-width:760px){.img-dialog-body{grid-template-columns:1fr;padding:14px}.img-figure img{max-height:55vh}}
 @media(max-width:700px){.finder{display:none;flex-basis:100%;max-width:none;padding:0 16px;margin:2px 0 0}.topbar.finder-open .finder{display:block}.finder-toggle{display:inline-flex;align-items:center;justify-content:center;flex:none;min-height:36px;width:40px;padding:0;margin-right:12px;font-size:1.3rem;line-height:1;background:transparent;color:#ece6d8;border-color:#ffffff47}.topbar.finder-open .finder-toggle{background:var(--paper);color:var(--ink)}.finder-results{left:16px;right:auto}.img-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.img-body{padding:9px 10px 11px}.img-body h3{font-size:.9rem}.img-filters{grid-template-columns:1fr 1fr}.img-toolbar{align-items:stretch}.view-toggle{width:100%}.view-toggle button{flex:1;padding:6px 8px}.img-toolbar .sort{width:100%}.record summary .card-lead{width:72px;height:56px}}
+
+/* T-2198: source-use limits travel with the image, including on narrow screens. */
+.evidence-review { border-inline-start: 3px solid #a66e37; padding: 0 0 0 1rem; margin-block: 1.2rem; overflow-wrap: anywhere; }
+.evidence-badge { background: #f1e4cc; color: #57380e; text-transform: none; }
+.metadata-history { margin-block: 1rem; overflow-wrap: anywhere; }
+.metadata-history summary { cursor: pointer; }
+.img-info .evidence-review dl { grid-template-columns: 110px minmax(0, 1fr); }
+@media (max-width: 760px) {
+  .img-info .evidence-review dl, .img-info .metadata-history dl { grid-template-columns: 1fr; gap: 2px; }
+  .evidence-review dd, .metadata-history dd { margin-bottom: 9px; }
+}

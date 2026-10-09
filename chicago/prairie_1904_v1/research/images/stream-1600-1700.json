@@ -516,7 +516,22 @@
   "verified": "viewed",
   "found_via": "chicagology 1638 and 1701 pages",
   "notes": "Hand-drawn memory map of Prairie Avenue between (unnamed) 16th St and Glessner's corner, Lake Michigan and the IC tracks at top (east). East side, north→south: Hamline, Farwell, McBirney, Forsyth, Hibbard, Hibbard, Williams, Dexter, Pullman; then across 18th St: Massacre Tree & Monument, Pullman Park, Kimball, Buckingham, Casselberry. West side north→south: Shortall, Anderson, Stirling, Hibbard, Einstein, Johnstone, Gregory, Harvey, Sturges, Walker, Otis; 18th St; Glessner. Not to scale and conflates periods (Williams house gone c.1882, Kimball 1890s) — use as an owner-sequence/lot-order aid, not geometry. Note the second 'Hibbard' on the east side (1637, rented by Hibbard 1866) and 'Gregory' at 1638.",
-  "measurements": []
+  "measurements": [],
+  "evidence_review": {
+   "ticket": "T-2198",
+   "audit_number": 2,
+   "reviewed_on": "2026-10-08",
+   "review_state": "visually inspected",
+   "target_date": "1904-07-01",
+   "phase": "after target year",
+   "date_basis": "1940 (publication); depicts the neighbourhood of the author's childhood and later years, not a single date",
+   "evidence_role": "streetscape or site context",
+   "geometry_use": "context only",
+   "reason": "Context for the site or surrounding street; date and identify each visible feature before use.",
+   "source_url": "https://chicagology.com/chicagostreets/prairieavenue/1638prairie/",
+   "family": null,
+   "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+  }
  },
  {
   "id": "a16-cgy-1701-hibbard-engraving",
