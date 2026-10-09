@@ -245,6 +245,48 @@ def block_capacity(lots: int) -> int:
 # block, and this set only takes it back if the grid ever stops emitting it.
 STREET_CONTROL_OMISSIONS = {"blk_south_water_market"}
 
+# A LOT THE OWNER RULED MAY CARRY A SHORT ROW, by name, block by block (T-2196). The sizing
+# below counts principal room over FREE lots less one, so a lot that already carries one
+# principal roof offers nothing, however much face it has left. On 2026-10-09 the owner
+# answered T-2196's question with option (a): the Market wedge's lot 7 — plat block 21's
+# middle Lake Street lot, 24.38 m of face, where T-2238 stood a D5 6.85 m wide — carries a
+# TWO-UNIT party-line row, so one of the South's two owed boarding houses (H3) stands beside
+# the D5, and the other waits in the gated balance for the S9 street work. In his words,
+# "this change is for this block only", so it is a table of one, not a rule: no other
+# occupied lot gains room from it. A grant holds the lot to `row_units` principal roofs,
+# deals its room ONLY to the families named (the deal would otherwise hand the wedge the
+# pool's next token, a D2), and reads its room off what stands on the lot, so once the
+# boarding house stands the room is spent and the block reads at capacity again.
+ROW_LOT_GRANTS = {
+    "blk_south_water_market": {
+        "lot_index": 1,
+        "plat_lot": 7,
+        "row_units": 2,
+        "families": ["H3"],
+        "ticket": "T-2196",
+        "ruled": "2026-10-09",
+        "why": "Owner ruling on T-2196, option (a): lot 7 as a short row, a two-unit "
+               "party-line row on the wedge's Lake Street face so one H3 stands beside "
+               "the D5. This change is for this block only; the second H3 waits in the "
+               "gated balance for the S9 street work.",
+    },
+}
+
+
+def granted_row_room(block_id: str, holders: dict) -> int:
+    """Principal room a ROW_LOT_GRANTS lot still offers: its row units less the principal
+    roofs standing on it (T-2196). Zero for every block the table does not name."""
+    grant = ROW_LOT_GRANTS.get(block_id)
+    if not grant:
+        return 0
+    standing = 0
+    for sid in holders.get(block_id, {}).get(grant["lot_index"], ()):
+        record = json.loads((DATA / "structures" / f"{sid}.json").read_text())
+        family = (record.get("reconstruction") or {}).get("family")
+        if family is None or group_of(family) not in ANCILLARY_GROUPS:
+            standing += 1
+    return max(0, grant["row_units"] - standing)
+
 # Refused because the two streets never met, not because a centreline is short. Kept in the
 # schedule rather than dropped, so the block is visibly answered instead of silently absent
 # — and so the day a source shows the row really did run that far, this is where the claim
@@ -525,7 +567,8 @@ def weight_the_business_front(units: list[dict], shares: dict,
     moved = []
     for district in DISTRICTS:
         blocks = [u for u in units
-                  if u["district"] == district and u.get("bounded_by") and u.get("roofs")]
+                  if u["district"] == district and u.get("bounded_by") and u.get("roofs")
+                  and not u.get("row_lot_grant")]
         if len(blocks) < 2:
             continue
         pool: dict[str, int] = {}
@@ -713,7 +756,8 @@ def keep_the_waterside_off_the_plat(units: list[dict], waterside: dict[str, str]
     swapped, held = [], []
     for district in DISTRICTS:
         blocks = [u for u in units
-                  if u["district"] == district and u.get("bounded_by") and u.get("roofs")]
+                  if u["district"] == district and u.get("bounded_by") and u.get("roofs")
+                  and not u.get("row_lot_grant")]
         balances = [u for u in units
                     if u["district"] == district and not u.get("bounded_by")
                     and u.get("roofs")]
@@ -1243,6 +1287,7 @@ def programme_document():
     # FACE left to build on (T-2241). A lot freed by a store that leaves under one
     # party-line unit of face beside it is not free for the sizing below.
     narrow = narrow_business_fronts(grid, datum, taken, available)
+    holders = lot_holders(grid, datum)
     west_density = west_lot_ceiling(grid, rows, west_recipe["id"])
 
     # ---- what stands ------------------------------------------------------------
@@ -1348,6 +1393,9 @@ def programme_document():
         refused = narrow.get(block["id"], {})
         free = lots - len(available.get(block["id"], ())) - len(refused)
         rooms = block_rooms(free, max(0, capacity - stands))
+        granted = granted_row_room(block["id"], holders)
+        if granted:
+            rooms = (rooms[0] + granted, rooms[1])
         unit = {
             "id": block["id"], "kind": "platted_block",
             "district": district_of_block(block), "bounded_by": block["bounded_by"],
@@ -1357,6 +1405,11 @@ def programme_document():
             "headroom": rooms[0] + rooms[1],
             "state": "open" if rooms[0] + rooms[1] > 0 else "at_capacity",
         }
+        if block["id"] in ROW_LOT_GRANTS:
+            grant = ROW_LOT_GRANTS[block["id"]]
+            unit["row_lot_grant"] = {k: grant[k] for k in
+                                     ("lot_index", "plat_lot", "row_units", "families",
+                                      "ticket", "ruled")} | {"room": granted}
         if refused:
             unit["narrow_front_lots"] = [
                 {"lot_index": index, **row} for index, row in sorted(refused.items())]
@@ -1673,8 +1726,19 @@ def programme_document():
                 take, passed = [], []
                 principal_left = unit.get("principal_room", unit["headroom"])
                 ancillary_left = unit.get("ancillary_room", unit["headroom"])
+                # A granted row lot's room goes only to the families the grant names
+                # (T-2196); the block's ordinary room is dealt exactly as before.
+                grant = unit.get("row_lot_grant") or {}
+                grant_left = grant.get("room", 0)
+                principal_left -= grant_left
                 for family in pool:
                     is_ancillary = group_of(family) in ANCILLARY_GROUPS
+                    if (not is_ancillary and grant_left > 0
+                            and family in grant["families"]
+                            and len(take) < unit["headroom"]):
+                        take.append(family)
+                        grant_left -= 1
+                        continue
                     room = ancillary_left if is_ancillary else principal_left
                     if len(take) < unit["headroom"] and room > 0:
                         take.append(family)
@@ -1728,8 +1792,11 @@ def programme_document():
         if "free_lots" not in unit:
             continue
         unit["lot_ceiling_principal"] = lot_ceiling_principal(unit["free_lots"])
+        # A granted row lot's roofs stand on that lot's own row, not on free lots.
+        granted = min(unit.get("principal", 0),
+                      (unit.get("row_lot_grant") or {}).get("room", 0))
         unit["row_lots_required"] = row_lots_required(unit["free_lots"],
-                                                      unit.get("principal", 0))
+                                                      unit.get("principal", 0) - granted)
 
     schedulable = sum(u["roofs"] for u in units if u["state"] == "open")
     gated = sum(u["roofs"] for u in units if u["state"] == "gated")
