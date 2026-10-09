@@ -134,3 +134,10 @@ mobile passes the same 126 in 8m41s. Both logs and the initial loaded-host
 failures are included and recorded with their conditions in dev-smoke-state.
 The complete fourteen-stage town smoke was not rerun. No timeout or assertion
 was relaxed.
+
+Dev then advanced to `f2151961` (T-2197, three duplicate 1835 resident cards).
+That data consolidation is retained, with the shared source-use and liberties
+outputs regenerated. Dev's v1559 entry stays verbatim and this entry becomes
+v1560. The browser receipts above predate this unrelated resident change;
+Glessner's three asset hashes remain the same. The combined tree is checked
+again before updating the PR.
