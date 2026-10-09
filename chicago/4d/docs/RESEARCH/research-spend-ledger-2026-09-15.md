@@ -18,7 +18,7 @@ The historical read/spent comparison remains unchanged so new accounting cannot 
 
 | Domain | Asserted | Later only | Outside Chicago | Aggregate only | Refused | Unresolved | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| books | 28 | 82 | 1 | 85 | 106 | 1 | 303 |
+| books | 29 | 82 | 1 | 85 | 106 | 0 | 303 |
 | census_1830 | 16 | 0 | 0 | 0 | 188 | 0 | 204 |
 | census_1840 | 0 | 1,080 | 0 | 0 | 0 | 0 | 1,080 |
 | church | 165 | 1,451 | 63 | 6 | 85 | 0 | 1,770 |
@@ -30,7 +30,7 @@ The historical read/spent comparison remains unchanged so new accounting cannot 
 | newspapers | 709 | 68 | 8 | 268 | 67 | 69 | 1,189 |
 | old_settlers | 0 | 1,094 | 0 | 0 | 0 | 0 | 1,094 |
 | residents | 26 | 11 | 0 | 0 | 1,031 | 12 | 1,080 |
-| **Total** | **1,549** | **12,616** | **118** | **373** | **8,781** | **279** | **23,716** |
+| **Total** | **1,550** | **12,616** | **118** | **373** | **8,781** | **278** | **23,716** |
 
 ## Second-hop preservation
 
@@ -42,7 +42,6 @@ An unresolved unit is waiting on WORK or on EVIDENCE, and it says which. Only ti
 
 | Ticket | Units |
 | --- | ---: |
-| T-1543 | 1 |
 | T-1569 | 12 |
 
 **266** unit(s) wait on evidence rather than on a ticket, under 5 stated reopening condition(s):
