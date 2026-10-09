@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1595, ts: '2026-10-09T21:47:24.470Z', date: 'Oct 9, 2026, 4:47 PM CT', title: 'Glessner roof tiles stay steady at a distance', kind: 'fix',
+    items: [
+      'Fine clay-tile relief now blends gradually into the same tile pattern as it becomes too small to resolve, reducing the broad ripples and shimmer when moving around the house.',
+      'Close views retain the physical six-inch tiles and five-inch courses. Roof outlines, ridge ornaments and the copper roofs keep their geometry.',
+    ] },
   { v: 1594, ts: '2026-10-09T21:32:06.816Z', date: 'Oct 9, 2026, 4:32 PM CT', title: 'The next row of school lots south of Monroe is measured out', kind: 'change',
     items: [
       'Nothing you can see changes yet. The School Section\u2019s row between Monroe and Adams is now divided into the 96 lots the state sold there in October 1833, read block by block from the sale\u2019s own register.',

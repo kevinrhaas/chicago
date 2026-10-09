@@ -93,6 +93,17 @@ attribute set from the **first** geometry added, and only validates that later g
 `_CONFIDENCE`, every later geometry's is **silently dropped** and the whole batch renders as
 documented. Normalise every geometry to the same attribute set before adding.
 
+## Optional roof sampling channel — `_ROOF_DETAIL`
+
+Glessner v4 additionally carries optional `_ROOF_DETAIL` (SCALAR float, metres).
+It is the exposed course length on individual clay tile fronts/noses and reduced
+course lips; zero on the continuous roof bed, ridge ornaments and all other
+surfaces. The renderer may filter this unresolved relief over the opaque mapped
+bed as its projected course shrinks. It must retain the asset's physical scale,
+UVs, silhouette ornaments and confidence channel. An engine that ignores this
+attribute draws the complete authored geometry. T-2204 adds this sampling hint
+to both Full and Light; it is not another confidence or historical-evidence grade.
+
 ## The confidence channel — `_CONFIDENCE`
 
 **The single most important part of this contract.** The generator knows which geometry derives

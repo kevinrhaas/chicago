@@ -40,8 +40,10 @@ for host in light.roof_surfaces:
             expected=(sum(a*b for a,b in zip(p,horizontal)),sum(a*b for a,b in zip(p,uphill))+host['phase_offset'])
             assert math.dist(q,expected)<1e-8
         if face is emitted[0]:
+            assert all(i not in full.roof_detail for i in face), 'opaque bed must survive the distance filter'
             assert all(abs(q[1]-p[2]/slope)<1e-8 for p,q in zip(points,uv))
             continue
+        assert all(math.isclose(full.roof_detail[i],exposure) for i in face), 'filter every tile front and nose at the physical course size'
         u=[q[0] for q in uv];v=[q[1] for q in uv]
         assert max(u)-min(u)<=width-spec['joint_m']+1e-7
         assert max(v)-min(v)<=exposure+1e-7
@@ -76,12 +78,18 @@ protected=d.DetailBuilder('protected-test',params)
 protected.add_poly([(0,.5,2.5),(.5,.5,2.5),(.5,0,2),(0,0,2)],.5,d.ROOF)
 protected.add_poly([(0,0,2),(.5,0,2),(.5,.5,2.5),(0,.5,2.5)],.5,d.COPPER)
 assert protected.roof_tiles==0 and not protected.roof_surfaces
+assert not protected.roof_detail
+# Ridges/crest ornaments share clay materials but must never fade with tile relief.
+protected.raw([(0,0,0),(1,0,0),(0,0,1)],.5,19)
+assert not protected.roof_detail
+assert light.roof_detail and all(math.isclose(v,exposure) for v in light.roof_detail.values())
+assert all(light.mat_index[n] in (19,20,21) for n,f in enumerate(light.faces) if any(i in light.roof_detail for i in f))
 triangles=sum(len(_triangles([light.verts[i] for i in f],_normal([light.verts[i] for i in f]))) for f in light.faces)
 assert triangles<=200000
 receipt={'width_m':width,'exposure_m':exposure,'texture_repeat_m':repeat,'host_patches':len(patches),
          'host_area_m2':covered_area,'full_tiles':tile_count,'full_roof_faces':face_count,
          'light_triangles':triangles,'small_patches_under_008_m2':sum(p['area_m2']<.08 for p in patches),
-         'checks':['complete host bed coverage','full tile bounds and course pitch','host-frame UVs','cone course phase','tiny triangle','decoration-independent coverage','copper and underside exclusion','light triangle ceiling'],
+         'checks':['complete host bed coverage','full tile bounds and course pitch','host-frame UVs','cone course phase','tiny triangle','decoration-independent coverage','copper and underside exclusion','light triangle ceiling','relief filter protects beds and crests; tagged exposure matches physical course'],
          'patches':patches}
 if args.output:args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(receipt,indent=2)+'\n')
 print(f"PASS: {len(patches)} roof patches, {tile_count:,} full tiles, 6×5 in module, {triangles:,} light triangles")

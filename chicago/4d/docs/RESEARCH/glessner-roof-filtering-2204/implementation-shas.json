@@ -1,0 +1,40 @@
+{
+  "note": "Final review renderer files equal the published files exercised by the browser. Geometry package is unchanged by subsequent renderer tuning.",
+  "files": [
+    {
+      "path": "renderers/web/js/glessner-roof-filter.js",
+      "bytes": 3135,
+      "sha256": "9ca844fdd8d8970d630bc152c58f3881a9767b897375a5706cb249a249441416"
+    },
+    {
+      "path": "renderers/web/js/buildings.js",
+      "bytes": 43067,
+      "sha256": "de4681f8b3654ec8cc64d2ba9d68e2c699dd5329e661f064a7403101ac013587"
+    },
+    {
+      "path": "generators/archetypes/masonry_house_v4_detail.py",
+      "bytes": 82072,
+      "sha256": "35078291fa735d01e5e1027670b10fc0275232724baf1772aab4ae6d3440c528"
+    },
+    {
+      "path": "tools/_glessner_lod.py",
+      "bytes": 21723,
+      "sha256": "257cecae5a6db711e41b2fe043c2cf753f11e32d10a9179427af201f256473cc"
+    },
+    {
+      "path": "assets/gltf/glessner_house__as_built_1887.glb",
+      "bytes": 151105204,
+      "sha256": "111fac1137ed4f9d35b58e259c8bcfb30541f3c9fa8ffca6675afec8e793693c"
+    },
+    {
+      "path": "assets/web/glessner_house__as_built_1887.glb",
+      "bytes": 52069884,
+      "sha256": "134da96fa1d820178c887817c05cd685340c30e6f17c32bae475aef407c1aa77"
+    },
+    {
+      "path": "assets/web/glessner_house__as_built_1887.light.glb",
+      "bytes": 27014020,
+      "sha256": "7796811fa1b72bb8c7d51a4a69c70628ad8af65bd8ffa7528e557b4238e42ff2"
+    }
+  ]
+}
