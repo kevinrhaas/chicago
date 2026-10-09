@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1592, ts: '2026-10-09T21:00:09.457Z', date: 'Oct 9, 2026, 4:00 PM CT', title: '117 more houses now name the household living in them', kind: 'fix',
+  { v: null, ts: '', date: '', title: '117 more houses now name the household living in them', kind: 'fix',
     items: [
       'The town gave 117 houses to households known only from the post office\u2019s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address, so each of those houses stood empty with a note saying why.',
       'Those houses now go to the next households in line for that kind of house. Open one of them and its card names who lives there. 205 houses now name their household, up from 98.',
       'Ten houses still stand empty, because the household next in line is known by no source. The 98 households already named have not moved.',
+    ] },
+  { v: 1592, ts: '2026-10-09T20:54:34.675Z', date: 'Oct 9, 2026, 3:54 PM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+    items: [
+      'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
+      'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
     ] },
   { v: 1591, ts: '2026-10-09T20:35:56.763Z', date: 'Oct 9, 2026, 3:35 PM CT', title: 'The test walk counts the street edge\u2019s refused walls correctly again', kind: 'fix',
     items: [
