@@ -24,7 +24,7 @@
     "own_male_rate": 0.9469,
     "measured_on_its_own": true,
     "drawn_at": 0.9469,
-    "drawn_for": 223,
+    "drawn_for": 216,
     "why": "its own 207 settled names are enough to measure it"
    },
    {
@@ -334,7 +334,7 @@
  "counts": {
   "sex_drawn": {
    "letter_list": 408,
-   "civic": 223,
+   "civic": 216,
    "documented": 24,
    "placed": 3,
    "unclaimed": 5
@@ -343,7 +343,7 @@
    "a_group_not_a_person": 6
   },
   "sex_already": {
-   "civic": 285,
+   "civic": 292,
    "unclaimed": 97,
    "letter_list": 372,
    "documented": 15,
@@ -355,7 +355,7 @@
    "dependent_child_under_15": 44
   },
   "age_read": {
-   "another_stage_drew_them": 1482,
+   "another_stage_drew_them": 1477,
    "birth_year": 60,
    "unclaimed": 3
   },
@@ -364,8 +364,8 @@
    "a_married_style_over_a_kinship_word": 1
   },
   "drawn_sex_is": {
-   "male": 622,
-   "female": 41
+   "male": 617,
+   "female": 39
   },
   "drawn_band_is": {
    "20-29": 658,

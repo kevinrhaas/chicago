@@ -25,26 +25,26 @@
     ]
   },
   "counts": {
-    "cards": 1457,
-    "blocks": 22193,
-    "tiers_written_on_the_card": 10891,
+    "cards": 1456,
+    "blocks": 22169,
+    "tiers_written_on_the_card": 10870,
     "by_tier": {
       "attested": 715,
-      "inferred": 3704,
-      "reconstructed": 10900,
-      "unknown": 6874
+      "inferred": 3709,
+      "reconstructed": 10879,
+      "unknown": 6866
     },
     "by_attribute": {
       "arrival": {
         "attested": 51,
-        "inferred": 1357,
+        "inferred": 1356,
         "reconstructed": 49,
         "unknown": 0
       },
       "arrival_year": {
         "attested": 0,
         "inferred": 19,
-        "reconstructed": 1373,
+        "reconstructed": 1372,
         "unknown": 0
       },
       "directories.people[].address_later": {
@@ -74,7 +74,7 @@
       "division_reconstructed": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 1339,
+        "reconstructed": 1338,
         "unknown": 0
       },
       "kin[]": {
@@ -87,24 +87,24 @@
         "attested": 8,
         "inferred": 15,
         "reconstructed": 11,
-        "unknown": 1423
+        "unknown": 1422
       },
       "origin": {
         "attested": 11,
         "inferred": 41,
-        "reconstructed": 1405,
+        "reconstructed": 1404,
         "unknown": 0
       },
       "party_size_on_arrival": {
         "attested": 3,
         "inferred": 9,
         "reconstructed": 0,
-        "unknown": 1445
+        "unknown": 1444
       },
       "persons[].age_band": {
         "attested": 7,
         "inferred": 53,
-        "reconstructed": 2858,
+        "reconstructed": 2853,
         "unknown": 7
       },
       "persons[].age_on_scene_date": {
@@ -140,14 +140,14 @@
       "persons[].name_basis": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 1482,
+        "reconstructed": 1477,
         "unknown": 0
       },
       "persons[].occupation": {
         "attested": 118,
         "inferred": 20,
         "reconstructed": 203,
-        "unknown": 2584
+        "unknown": 2579
       },
       "persons[].profile_facts[]": {
         "attested": 1,
@@ -157,27 +157,27 @@
       },
       "persons[].sex_basis": {
         "attested": 0,
-        "inferred": 668,
-        "reconstructed": 663,
+        "inferred": 675,
+        "reconstructed": 656,
         "unknown": 6
       },
       "present_on_scene_date": {
         "attested": 25,
-        "inferred": 1382,
+        "inferred": 1381,
         "reconstructed": 50,
         "unknown": 0
       },
       "reason_for_coming": {
         "attested": 12,
         "inferred": 13,
-        "reconstructed": 1432,
+        "reconstructed": 1431,
         "unknown": 0
       },
       "works_at": {
         "attested": 32,
         "inferred": 19,
         "reconstructed": 0,
-        "unknown": 1406
+        "unknown": 1405
       }
     },
     "reconstructed_by_basis": {
@@ -2686,10 +2686,10 @@
         "kind": "person",
         "match": "a dated source that says which year this household came to Chicago"
       },
-      "values": 1373,
+      "values": 1372,
       "by_value": {
         "1834": 575,
-        "1833": 408,
+        "1833": 407,
         "1835": 313,
         "1832": 45,
         "1831": 17,
@@ -2714,10 +2714,10 @@
         "kind": "household",
         "match": "any source that places this household in a division or nearer"
       },
-      "values": 1339,
+      "values": 1338,
       "by_value": {
         "south": 766,
-        "north": 299,
+        "north": 298,
         "west": 274
       },
       "a_seed": "hh_abbot_8_g|T-1522|division:d885452788c3|class:611ac327f05d",
@@ -2784,10 +2784,10 @@
         "kind": "person",
         "match": "a source that says where this household came from"
       },
-      "values": 1376,
+      "values": 1375,
       "by_value": {
         "New York State": 560,
-        "New England": 482,
+        "New England": 481,
         "The Mid-Atlantic states": 121,
         "England": 114,
         "The Southern states": 59,
@@ -2825,10 +2825,10 @@
         "kind": "person",
         "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
       },
-      "values": 2855,
+      "values": 2850,
       "by_value": {
-        "20-29": 979,
-        "0-4": 483,
+        "20-29": 977,
+        "0-4": 480,
         "30-39": 468,
         "10-19": 239,
         "0-9": 221,
@@ -2873,7 +2873,7 @@
         "kind": "person",
         "match": "a source naming a member of this south-division household"
       },
-      "values": 1482,
+      "values": 1477,
       "by_value": {
         "Mary Nolan": 4,
         "Abigail King": 2,
@@ -2883,7 +2883,6 @@
         "Ellen Taylor": 2,
         "Esther King": 2,
         "Hannah King": 2,
-        "Martha Wesencraft": 2,
         "Nancy King": 2,
         "Abigail Bruno": 1,
         "Abigail Byram": 1,
@@ -3587,7 +3586,6 @@
         "Hyacinthe Montgomery": 1,
         "Hyacinthe Pelletier": 1,
         "Hyacinthe Thompson": 1,
-        "Ira Barney": 1,
         "Ira Chapin": 1,
         "Ira Courtney": 1,
         "Ira Gilbert": 1,
@@ -3710,7 +3708,6 @@
         "Joseph Pothier": 1,
         "Joseph Salisbury": 1,
         "Joseph Thayer": 1,
-        "Joseph Wesencraft": 1,
         "Joseph Wilcox": 1,
         "Josette Morin": 1,
         "Josette Newberry": 1,
@@ -3888,6 +3885,7 @@
         "Martha Thayer": 1,
         "Martha Tucker": 1,
         "Martha Vaughan": 1,
+        "Martha Wesencraft": 1,
         "Martha Whitlock": 1,
         "Martha Wilcox": 1,
         "Martin Carroll": 1,
@@ -4208,7 +4206,6 @@
         "Seth Hubbard": 1,
         "Seth Murphy": 1,
         "Seth Nash": 1,
-        "Seth Wesencraft": 1,
         "Silas Allen": 1,
         "Silas Fairbanks": 1,
         "Silas Fisk": 1,
@@ -4220,7 +4217,6 @@
         "Silas Nichols": 1,
         "Silas Woodruff": 1,
         "Sophronia Bacon": 1,
-        "Sophronia Barney": 1,
         "Sophronia Bradley": 1,
         "Sophronia Bronson": 1,
         "Sophronia Collins": 1,
@@ -4399,10 +4395,10 @@
         "kind": "person",
         "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
       },
-      "values": 663,
+      "values": 656,
       "by_value": {
-        "male": 622,
-        "female": 41
+        "male": 617,
+        "female": 39
       },
       "a_seed": "abbot_8_g:sex_ratio",
       "a_card": "hh_abbot_8_g"
@@ -4434,10 +4430,10 @@
         "kind": "person",
         "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
       },
-      "values": 1329,
+      "values": 1328,
       "by_value": {
         "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 552,
-        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 392,
+        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 391,
         "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated": 311,
         "The trading post, the fort and the country trade — the town before the boom": 74
       },
