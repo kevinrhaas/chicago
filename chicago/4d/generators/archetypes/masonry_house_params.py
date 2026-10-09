@@ -667,6 +667,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "front_x0": min(fr.x(w) for w in ng["W"]),
                 "front_x1": max(fr.x(w) for w in ng["W"]),
                 "north_eave": fr.zval(ng["eave"]),
+                "north_west_eave": fr.zval(rework.get("north_west_eave", ng["eave"])),
                 "cross_y": fr.y(rework["cross_ridge_S"]),
                 "cross_z": fr.zval(rework["cross_ridge"]),
                 "south_foot_y": fr.y(rework["south_gable_foot_S"]),

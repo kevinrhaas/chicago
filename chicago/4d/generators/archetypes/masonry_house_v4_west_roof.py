@@ -97,11 +97,11 @@ def lower_rear_gable(r):
     x0, x1, xm = r['x0'], r['x1'], r['ridge_at']
     y0, y1 = r['y0'], r['y1']
     cy, sy = g['cross_y'], g['south_foot_y']
-    cross = [slope('y', y1, g['north_eave'], cy, g['cross_z']),
+    cross = [slope('y', y1, g.get('north_west_eave', g['north_eave']), cy, g['cross_z']),
              slope('y', sy, g['cross_foot_eave'], cy, g['cross_z'])]
     rear = [slope('x', x0, g['rear_west_eave'], g['rear_x'], g['rear_z']),
             slope('x', x1, g['rear_east_eave'], g['rear_x'], g['rear_z'])]
-    north = [slope('x', g['front_x0'], g['north_eave'], xm, r['ridge_z']),
+    north = [slope('x', g['front_x0'], g.get('north_west_eave', g['north_eave']), xm, r['ridge_z']),
              slope('x', g['front_x1'], g['north_eave'], xm, r['ridge_z'])]
     result = [('cross', (x0-.15, xm, y0-.20, y1), cross),
               ('rear_gable', (x0-.15, x1, y0-.20, cy), rear),
@@ -109,12 +109,16 @@ def lower_rear_gable(r):
     # Match the north roof at its wall AND its actual courtyard overhang.
     # The extra station below the overhang tapers to the lower rear shoulder;
     # no vertical lip or floating fascia is concealed at the court corner.
-    run = n['kick']['run_m']
-    pitch = math.tan(math.radians(n['kick']['pitch_deg']))
+    # The north range now has a planar, projecting court eave (T-2183).
+    # Preserve its own profile and overhang at the join, including older kicks.
+    run = n['kick']['run_m'] if n['kick'] else 0
+    pitch = (math.tan(math.radians(n['kick']['pitch_deg'])) if n['kick'] else
+             (n['ridge_z']-n['eave_lo_z'])/(n['ridge_at']-n['y0']))
+    overhang = n.get('eave_lo_overhang', .20)
     east = [(sy, g['rear_east_eave']),
-            (n['y0']-.20, n['eave_lo_z']-.20*pitch),
+            (n['y0']-overhang, n['eave_lo_z']-overhang*pitch),
             (n['y0'], n['eave_lo_z']),
-            (n['y0']+run, n['eave_lo_z']+run*pitch),
+            *([(n['y0']+run, n['eave_lo_z']+run*pitch)] if run else []),
             (n['ridge_at'], n['ridge_z']),
             (y1, n['eave_hi_z'])]
     # The intermediate stations remain on one plane at the high gable side.
@@ -162,6 +166,8 @@ def components(r, include_dormer=True):
     box=(x0-ov,x1,y0-ov,y1)
     if g.get('connected_roof_plan'):
         comps=connected_roof(r)
+    elif g.get('lower_rear_gable'):
+        comps=lower_rear_gable(r)
     else:
         # Northern full west-facing gable. Its southern foot returns to the lower
         # alley eave; the old crossing range stopped far above that foot.
@@ -188,8 +194,6 @@ def components(r, include_dormer=True):
                ('connector_kick',(x0-ov,x1,n['y0'],yk),[taper(low)])]
         if g.get('continuous_south_gable'):
             comps=[comps[0],*continuous_gable(r),*comps[3:]]
-        if g.get('lower_rear_gable'):
-            comps=lower_rear_gable(r)
     if include_dormer and g.get('dormer'):
         d=g['dormer'];front=d['hood_front'];back=d['back'];overhang=d.get('hood_overhang_m',.25)
         a=d['u0']-overhang;c=d['u1']+overhang

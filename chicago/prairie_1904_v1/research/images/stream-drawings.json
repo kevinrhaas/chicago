@@ -1676,7 +1676,22 @@
     "value": "176 ft 8 in",
     "locator": "p. 24, written on lot lines"
    }
-  ]
+  ],
+  "evidence_review": {
+   "ticket": "T-2198",
+   "audit_number": 164,
+   "reviewed_on": "2026-10-08",
+   "review_state": "unavailable image: catalog only",
+   "target_date": "1904-07-01",
+   "phase": "after target year",
+   "date_basis": "received April 18, 1972",
+   "evidence_role": "streetscape or site context",
+   "geometry_use": "unreviewed",
+   "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+   "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=24",
+   "family": null,
+   "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+  }
  },
  {
   "id": "dw-nrhp-1972-district-p22-boundary-map",

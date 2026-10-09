@@ -16,43 +16,43 @@
   "data/datum.json"
  ],
  "counts": {
-  "lots": 428,
-  "blocks": 58,
+  "lots": 432,
+  "blocks": 59,
   "by_grid": {
    "kinzies_addition": 60,
    "michigan_st_tract": 32,
-   "original_town": 206,
+   "original_town": 210,
    "school_section_tier": 40,
    "wabansia": 20,
    "west_division": 70
   },
   "by_district": {
    "north": 92,
-   "south": 216,
+   "south": 220,
    "west": 120
   },
   "by_street_class": {
    "light": 105,
    "none": 147,
    "ordinary": 74,
-   "principal": 64,
+   "principal": 68,
    "unplatted": 18,
    "whole_block": 20
   },
   "by_state": {
    "at_capacity": 198,
-   "free": 181,
-   "room": 49
+   "free": 183,
+   "room": 51
   },
   "by_multi_building_rule": {
    "one_principal_roof": 364,
-   "party_line_run": 64
+   "party_line_run": 68
   },
-  "corner_lots": 178,
-  "lots_with_a_roof": 253,
-  "lots_barring_another_roof": 252,
+  "corner_lots": 181,
+  "lots_with_a_roof": 255,
+  "lots_barring_another_roof": 254,
   "shared_business_fronts": 1,
-  "principal_roofs_standing": 316,
+  "principal_roofs_standing": 318,
   "lots_over_their_own_rule": 21
  },
  "the_density_standard": {
@@ -76,9 +76,9 @@
    }
   },
   "multi_building_lot_rate_on_the_principal_streets": {
-   "principal_street_lots": 64,
+   "principal_street_lots": 68,
    "carrying_more_than_one_principal_roof": 33,
-   "rate": 0.5156,
+   "rate": 0.4853,
    "standard": "three party-line units per lot where the rule fires — the schedule's capacity is a ceiling and not a target (1835_platted_block_parcels.json, `placement_rule.open_lots`)"
   }
  },
@@ -8891,6 +8891,130 @@
    ],
    "standing_families": {
     "recon_1835_blk_south_water_lasalle_d3_03": "D3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
+   "shared_business_front": false,
+   "over_its_rule": false,
+   "reserved_for": null,
+   "state": "room"
+  },
+  {
+   "lot_id": "blk_south_water_market#00",
+   "block_id": "blk_south_water_market",
+   "lot_index": 0,
+   "grid": "original_town",
+   "plat": "thompson_plat_1830",
+   "district": "south",
+   "block_state": "open",
+   "plat_lot_number": 6,
+   "plat_lot_confidence": "conjectural",
+   "face": "south",
+   "fronts": "lake",
+   "street_class": "principal",
+   "corner": true,
+   "frontage_m": 24.38,
+   "depth_m": 35.35,
+   "ground_reading": "dry: every sample stands above datum on the modelled field",
+   "dry": true,
+   "multi_building_rule": "party_line_run",
+   "principal_roofs_max": 3,
+   "standing": [
+    "inf_sawpit_shed"
+   ],
+   "standing_families": {
+    "inf_sawpit_shed": "W5"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
+   "shared_business_front": false,
+   "over_its_rule": false,
+   "reserved_for": null,
+   "state": "room"
+  },
+  {
+   "lot_id": "blk_south_water_market#01",
+   "block_id": "blk_south_water_market",
+   "lot_index": 1,
+   "grid": "original_town",
+   "plat": "thompson_plat_1830",
+   "district": "south",
+   "block_state": "open",
+   "plat_lot_number": 7,
+   "plat_lot_confidence": "conjectural",
+   "face": "south",
+   "fronts": "lake",
+   "street_class": "principal",
+   "corner": false,
+   "frontage_m": 24.38,
+   "depth_m": 40.2,
+   "ground_reading": "dry: every sample stands above datum on the modelled field",
+   "dry": true,
+   "multi_building_rule": "party_line_run",
+   "principal_roofs_max": 3,
+   "standing": [],
+   "standing_families": {},
+   "principal_roofs_standing": 0,
+   "bars_another_roof": false,
+   "shared_business_front": false,
+   "over_its_rule": false,
+   "reserved_for": null,
+   "state": "free"
+  },
+  {
+   "lot_id": "blk_south_water_market#02",
+   "block_id": "blk_south_water_market",
+   "lot_index": 2,
+   "grid": "original_town",
+   "plat": "thompson_plat_1830",
+   "district": "south",
+   "block_state": "open",
+   "plat_lot_number": 8,
+   "plat_lot_confidence": "conjectural",
+   "face": "south",
+   "fronts": "lake",
+   "street_class": "principal",
+   "corner": true,
+   "frontage_m": 24.38,
+   "depth_m": 40.2,
+   "ground_reading": "dry: every sample stands above datum on the modelled field",
+   "dry": true,
+   "multi_building_rule": "party_line_run",
+   "principal_roofs_max": 3,
+   "standing": [],
+   "standing_families": {},
+   "principal_roofs_standing": 0,
+   "bars_another_roof": false,
+   "shared_business_front": false,
+   "over_its_rule": false,
+   "reserved_for": null,
+   "state": "free"
+  },
+  {
+   "lot_id": "blk_south_water_market#03",
+   "block_id": "blk_south_water_market",
+   "lot_index": 3,
+   "grid": "original_town",
+   "plat": "thompson_plat_1830",
+   "district": "south",
+   "block_state": "open",
+   "plat_lot_number": 1,
+   "plat_lot_confidence": "conjectural",
+   "face": "north",
+   "fronts": "south_water",
+   "street_class": "principal",
+   "corner": true,
+   "frontage_m": 27.43,
+   "depth_m": 35.38,
+   "ground_reading": "dry: every sample stands above datum on the modelled field",
+   "dry": true,
+   "multi_building_rule": "party_line_run",
+   "principal_roofs_max": 3,
+   "standing": [
+    "newberry_dole_warehouse"
+   ],
+   "standing_families": {
+    "newberry_dole_warehouse": "F2"
    },
    "principal_roofs_standing": 1,
    "bars_another_roof": true,

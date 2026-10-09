@@ -5298,8 +5298,12 @@ def cmd_self_test() -> int:
     # blk_south_water_dearborn's last unreserved free lot and the schedule returns that
     # block's D2 and D6 to the South balance; the School Section tier re-deals a D5 slot on
     # block 81 and a D6 on block 95 (213 -> 214 platted seats, 99 off-plat, L270, L406).
+    # 313 -> 314 on 2026-10-09 (T-2195, lapped over T-2176, which had held it at 313 by
+    # building block 81's D5 and block 95's D6): the Market wedge's four lots open a D5, an F4
+    # and an H3 in the schedule, and the D5 is dealt as a slot on the wedge's lot 7 to one
+    # household the deal had handed on (214 -> 215 platted, 99 off-plat, L270, L409).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 313
+        data["inventory"], data["programme"], occ))["seated"] == 314
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

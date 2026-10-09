@@ -1,9 +1,25 @@
 export const CHANGELOG = [ // newest first
-  { v: 1554, ts: '2026-10-09T01:39:58.304Z', date: 'Oct 8, 2026, 8:39 PM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
+  { v: 1557, ts: '2026-10-09T02:35:48.434Z', date: 'Oct 8, 2026, 9:35 PM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
     items: [
       'The St Cyr burial register and the Chicago Democrat\u2019s death notices bury thirteen people before the scene date, among them W. Brannen, John Hogan, William Bourque, Sarah Hoit and two-year-old Charles Rollins. They were still counted in the town. Their cards in the People directory now say they had died, and cite the entry.',
       'Three of them headed houses that had been given a reconstructed wife and children. Those twelve invented people are withdrawn. Two women who had been reconstructed as wives of men who had died now head their own houses again.',
       'Two people the town had added from the burial register itself are no longer added. The postmaster John S. C. Hogan is a different man and stays.',
+    ] },
+  { v: 1556, ts: '2026-10-09T02:21:44.544Z', date: 'Oct 8, 2026, 9:21 PM CT', title: 'The riverside block at Lake and Franklin joins the town', kind: 'feature',
+    items: [
+      'The narrow block between Lake Street, Franklin Street and the bend of the river, block 21 on the 1834 plat, is now part of the town plan. It has plank walks along Lake, Franklin and South Water Streets, five new board crossings and a back alley.',
+      'The plat draws this block as a triangle but marks no lot lines inside it, so the lots are our reconstruction. We kept the four with room for a house and a yard. The pinched west end stays open ground.',
+      'Dole\u2019s warehouse, a cooperage and a saw-pit already stood here, and their yards are now laid out. The two empty Lake Street lots are grazed prairie for now, and are next in line for houses.',
+    ] },
+  { v: 1555, ts: '2026-10-09T01:46:17.282Z', date: 'Oct 8, 2026, 8:46 PM CT', title: 'Glessner photographs show their evidence limits', kind: 'fix',
+    items: [
+      'Four July 1948 photographs in the Prairie research library now describe the doors, roof, courtyard and industrial interior they actually show. Their previous descriptions remain available in the correction history.',
+      'All 168 audited references now show what was reviewed and how they can inform the 1904 exterior. Disputed attribution, rejected designs, later views and related reproductions carry explicit limits. Three additional Florian views link to the museum.',
+    ] },
+  { v: 1554, ts: '2026-10-09T01:25:35.988Z', date: 'Oct 8, 2026, 8:25 PM CT', title: 'Glessner’s west gable and rear roof regain their proportions', kind: 'fix',
+    items: [
+      'The taller west gable now has the steeper rear-facing slope shown in the supplied elevation. Its apex and roof break give the lower rear section its proper share of the frontage.',
+      'The lower roof, dormer and cupola follow the revised silhouette. The measured footprint and recent courtyard window and eave corrections remain in place. These roof proportions are reconstructed from the reference views.',
     ] },
   { v: 1553, ts: '2026-10-09T01:10:56.683Z', date: 'Oct 8, 2026, 8:10 PM CT', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
     items: [

@@ -1618,10 +1618,10 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1424,
-    "seated": 313,
-    "still_owed": 1111,
+    "seated": 314,
+    "still_owed": 1110,
     "roofs_adopted": 313,
-    "slots_requested": 0,
+    "slots_requested": 1,
     "roofs_standing": 676,
     "roofs_standing_unseated": 363,
     "share_of_standing_roofs_seated": 0.463,
@@ -1633,24 +1633,24 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1424,
-        "seated": 214,
-        "handed_on": 1210,
+        "seated": 215,
+        "handed_on": 1209,
         "roofs_adopted": 214,
-        "slots_requested": 0,
+        "slots_requested": 1,
         "roofs_offered_for_adoption": 224,
-        "roofs_held_back": 61,
-        "ground_taken": 196,
+        "roofs_held_back": 62,
+        "ground_taken": 197,
         "ground_taken_unit": "lots",
         "by_district": {
           "north": 8,
-          "south": 164,
+          "south": 165,
           "west": 42
         },
         "by_clause": {
           "labourer_dwellings": 38,
           "lodging_near_the_landings": 2,
           "merchant_and_professional_dwellings": 36,
-          "tradesman_dwellings": 138
+          "tradesman_dwellings": 139
         }
       },
       {
@@ -1659,13 +1659,13 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1210,
+        "rows_offered": 1209,
         "seated": 99,
-        "handed_on": 1111,
+        "handed_on": 1110,
         "roofs_adopted": 99,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 106,
-        "roofs_held_back": 19,
+        "roofs_held_back": 18,
         "ground_taken": 16,
         "ground_taken_unit": "parcels",
         "by_district": {
@@ -1681,10 +1681,23 @@
         }
       }
     ],
-    "requested_slots": [],
-    "slot_blocks": [],
-    "what_the_slots_wait_on": "no slot was requested: every seat is an adoption of a roof already standing.",
-    "what_is_left": "1,111 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "requested_slots": [
+      {
+        "household_id": "hh_dixon_robert",
+        "name": "The Dixon household — a name the town's own records carry",
+        "district": "south",
+        "clause": "tradesman_dwellings",
+        "block_id": "blk_south_water_market",
+        "lot_id": "blk_south_water_market#01",
+        "family": "D5",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      }
+    ],
+    "slot_blocks": [
+      "blk_south_water_market"
+    ],
+    "what_the_slots_wait_on": "1 slot(s) on 1 block(s) — blk_south_water_market. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
+    "what_is_left": "1,110 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -5485,9 +5498,9 @@
       "title": "Ground first",
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
-        "roofs_on_committed_ground": 3,
-        "roofs_gated_on_coverage": 8,
-        "statement": "3 of the 11 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 8 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "roofs_on_committed_ground": 6,
+        "roofs_gated_on_coverage": 5,
+        "statement": "6 of the 11 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 5 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5711,12 +5724,12 @@
           "filled": 0
         },
         {
-          "key": "ground/blk_south_water_market",
+          "key": "ground/south_plat_beyond_committed_control",
           "axes": {
             "division": "south"
           },
-          "roofs_gated": 27,
-          "waiting_on": "South Water Street's committed centreline stops 32 m short of this block — the street control ROADMAP S9 records as owed. Measured dry: tools/measure_block_gating.py carries South Water toward this block over 25 m of ground with no wet sample on it, so this one really is waiting on a trace. What is missing is one control point at Market and South Water: the committed set holds four (Lake-Canal, Lake-Market, Randolph-Canal, Kinzie-Canal) and NONE anywhere on South Water, and Market's centreline stops at its single control point where Lake crosses it. AND THAT POINT CANNOT BE DERIVED, MEASURED 2026-08-27 BY T-0183. Under the node rule in data/traces/street_control.json the two modern successors — North Upper Wacker Drive and West Upper Wacker Drive — share exactly two nodes, and they are lake_market's own committed pair: Wacker changes name through a bend at the Lake Street junction rather than crossing at South Water, so the rule returns a plausible point 110 m south of the corner it names. Re-run it with tools/refetch_control.py --discover market_south_water, which now refuses the set rather than reporting it; the reading is filed under `refused_control` in street_control.json. So this block is NOT waiting on somebody fetching a junction. It is waiting on an owner decision — close South Water's west end onto Market from the 1834 sheets and the committed bank, which is what the rest of that curve already stands on, or return these 27 roofs to the South balance. HE RULED FOR THE CLOSURE ON 2026-08-29, AND THE GROUND REFUSED IT. Executed on the line as committed, the closure emits this block as a bowtie — South Water has converged on Lake Street before it reaches Market and their platted corridors overlap by 14.9 m there — and carried as far north as the committed waterline allows it leaves 2.8 m of block depth at Market against the 24.384 m one platted lot fronts. So these 27 roofs are not on the ground the ruling was about: the block is a wedge the South Branch pinches out at its west corner, and only its eastern two thirds could ever carry a lot. The refusal now fires in tools/generate_plat_lots.py --self-test rather than emitting a 4,411 m2 block with a plausible depth; the measurement is under `refused_control.market_south_water` in street_control.json and in docs/RESEARCH/thompson_plat_grid.md § 6.2, and what to do with the wedge is back with the owner.",
+          "roofs_gated": 5,
+          "waiting_on": "STREET CONTROL — the S9 line ROADMAP has recorded as owed since before this schedule was written — and, for the first time, nothing else. THE TERRAIN IS NO LONGER THE BLOCKER: T-0219 carried the heightfield south to local N -3800.0 m, 3274.8 m past Madison Street's line at State, and the plat's last tier — 6 blocks and 48 lots between Market and State, 6.31 ha — now stands on modelled ground at all 24 of its 24 block-boundary points. Washington Street's platted corridor is fully on the field (0.00 ha off it, against 0.33 ha before), and south of that corridor the field holds 697.3569 ha of land above the water surface, 438.1181 ha of it in the South Division — where the same measurement returned 0.0000 ha before. What is left is the control itself: the plat's north-south columns still end at local N -519, -519, -519, -519, -519, -519, -519, the OLD south edge of the field, because they were cut where the ground used to stop. Carrying them to Madison is street work on ground that is now under them, and tools/generate_block_infill.py will accept what it emits. Ground east of State is still not coming at any date — it is the United States Reservation (T-E2). Measured by tools/measure_southern_ground.py.",
           "owning_tickets": [],
           "filled": 0
         }

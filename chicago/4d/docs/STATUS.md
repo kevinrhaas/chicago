@@ -1,7 +1,7 @@
 ## T-2189 — the dead ruled not present: thirteen people the town's own burials and death notices bury before 1 July 1835 (2026-10-09)
 
-Opened as PR #543 and handed on with `resume`; lapped over T-2190 (#547), T-2229 (#550) and
-T-2176 (#545) and re-derived to the fixpoint.
+Opened as PR #543 and handed on with `resume`; lapped over T-2190 (#547), T-2229 (#550),
+T-2176 (#545) and T-2195 (#551) and re-derived to the fixpoint.
 
 - **`tools/death_readings.py`** reads deaths from the readers' own structure: St Cyr rows whose
   `cells.role` is `decedent`, and Democrat entities whose role is `decedent` or begins
@@ -23,6 +23,68 @@ T-2176 (#545) and re-derived to the fixpoint.
   on that route as firing.
 - **Unverified here**: nothing beyond the gate. The withdrawn houses' roofs re-seat through the
   derived chain; no geometry moved.
+## T-2195 — the Market wedge, plat block 21, cut into four reconstructed lots (2026-10-08)
+
+The owner answered T-1957's question on 2026-10-08 with **(b)**: build on the wedge's eastern
+two-thirds only. T-1957 was split into T-2195 (cut the lots, this) and T-2196 (raise its two
+boarding houses). `blk_south_water_market` is now emitted by `tools/generate_plat_lots.py`
+(`build_wedge`), cut on the drawn corridors with no line moved:
+
+- **Four lots, not "about five".** Lake Street lots 6, 7 and 8 and South Water lot 1. A lot is kept
+  where its mean depth reaches half the tier's 40.2 m; South Water lot 2 reads 18.6 m and is
+  withheld. The shallowest lot cut anywhere else (26.68 m) keeps the same four. L409 records it.
+- **Three structures already stood on this ground**: `newberry_dole_warehouse`, `inf_cooperage_south`
+  and `inf_sawpit_shed`. The block has 4 roofs of room where the schedule held 8 against an assumed
+  eight lots, and on the tree merged with T-2176 it deals three of them: a D5, an F4 and an H3 (the
+  boarding house T-2196 raises). The rest go back to the South balance.
+- **Seating, re-derived over T-2176** (2026-10-09 lap): T-2176 had already built the D5 and D6 the
+  branch first moved here, so its own seats stand. Against dev the deal moves exactly one household:
+  hh_dixon_robert, handed on until then, is dealt the D5 slot on the wedge's lot 7
+  (`blk_south_water_market#01`). Seated 214 → 215 (L270 restated); no adopted roof changes hands.
+  The seating chain and the keeper pass settled in one lap (the keepers' refusal prose restated on
+  58 roofs, text only).
+- **Visible:** plank walks on the Lake, Franklin and South Water faces, five board crossings, an alley
+  lane, kept yards on the two improved lots and prairie remnant on the vacant ones. The wedge's west
+  edge is the cut, not Market Street, so `generate_frontage_works` skips it
+  (`wedge.faces_off_the_street`), and the cross-street face count reads 47.
+- **Two re-budgets, both named:** `check_plank_ground.mjs`'s crossing allocation goes 9,000 → 10,000
+  (the five crossings cost 668 triangles: 9,470 over 105), and the corridor-strip baseline is
+  re-written because the T-0419 counterfactual now counts the wedge (87 blocks, 425 lots, 36 re-cut, 66 roofs on moved blocks over T-2176's 64).
+- **Inherited red ported:** the order book's household rows named split T-2188. They now go to T-2193
+  (family dwellings) and T-2194 (store residences), the way T-2186 ported the last split. The South's
+  boarding-house cell goes to T-2196.
+
+## T-2198 — Glessner source identity and evidence review (2026-10-09)
+
+The 168-record exterior/courtyard audit is reconciled into the research library.
+Four Florian captions are corrected with their prior descriptions preserved; three
+additional 1948 references remain copyright/link-only. Every record states its
+review status, phase and source-use limit. Disputed Lowe attribution and the rejected
+door sheet are excluded; reproduction families do not multiply corroboration.
+The viewer exposes these findings and correction history. No geometry changed;
+T-2183 and dark glass are retained. The 17 unavailable images remain catalog-only,
+and the other 30 tickets stay held. Sources and limits are recorded in
+`../../prairie_1904_v1/docs/glessner-source-review.md`.
+Final gate and browser receipts are recorded on the delivery PR.
+
+## T-2231 — Glessner west front gable and rear frontage (2026-10-09)
+
+The front west gable has a steeper rear-facing slope, with its apex at S18.4
+and its low-roof transition at S35 of the measured 59.75-ft frontage. The rear
+section therefore occupies 41.4% of the west elevation. The lower roof, hood,
+cornice and northwest shoulder meet the revised profile; the courtyard windows
+and projecting eave retain T-2183's controls. Dimensions remain reconstructed.
+
+Before/after actual-GLB views, reference controls and validation receipts:
+`RESEARCH/glessner-west-profile-2231/README.md`. Both owner references were
+reviewed against the final west and northwest renders. All 792 repository
+checks, 3,000 roof samples, nine masonry/glass checks, recovery verification,
+and focused published desktop/mobile review pass. Published desktop and mobile stage 13 each
+pass all 126 checks with zero page errors. Dev `7aed0a2a` is integrated, and
+full preflight on the combined tree passes all 792 steps. The report states
+the browser runs' timing relative to integration; the full town smoke was
+not rerun. Subsequent dev `35dae52e` is also integrated verbatim, and final
+preflight again passes all 792 steps. Glessner asset checksums are unchanged.
 
 ## T-2176 — the South's last asked-for houses and its last owed barn: block 81's lot 1, block 95's lot 1, and a barn on South Water–Wells (2026-10-08)
 

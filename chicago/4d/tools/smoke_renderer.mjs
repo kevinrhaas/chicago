@@ -5232,8 +5232,10 @@ for (const [label, viewport, touch] of [
       // (af5988ec) +1 walk and +1 crossing, the face the Madison jog brings inside
       // the boundary; T-2150 (#510) +1 walk and +1 decked walk, the West Water
       // warehouse's: 114 + 4 + 1 + 2 = 121 walks, 99 + 1 = 100 crossings.
-      frontage.census?.records === 5 && frontage.census?.walks === 121
-        && frontage.census?.crossings === 100
+      // T-2195 — dev was already behind here (T-2174's drawbridge warehouse: 123 walks), and the Market
+      // wedge (plat block 21) lays three faces: +3 walks, +5 crossings — 126 and 105, read on the branch.
+      frontage.census?.records === 5 && frontage.census?.walks === 126
+        && frontage.census?.crossings === 105
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -5299,7 +5301,8 @@ for (const [label, viewport, touch] of [
         // fences the Market block's two improved north faces (+2, the Washington
         // north fences renumbered round them) and T-2130 (#466) the Dearborn
         // block's two (blk_washington_dearborn_north_fence_36/_37, +2): 33 to 37.
-        && frontage.census?.posts === 53 && frontage.census?.fences === 37
+        // T-2195 — the wedge's two improved lots each take a street fence run: 37 to 39.
+        && frontage.census?.posts === 53 && frontage.census?.fences === 39
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
         // T-1647 puts one back, and it is a refusal the rule could not reach before.
@@ -5379,7 +5382,8 @@ for (const [label, viewport, touch] of [
         // (the workshops' fronts refuse a fence and a post each), T-2148 +1 (the new
         // face's end of a lot row), T-2150 +2 (the warehouse's fence and post):
         // 172 to 176 in the record, 182 to 186 on the layer.
-        && frontage.census?.refused === 186
+        // T-2195 — dev already read 187 (T-2174); the wedge's faces refuse four more walls: 191.
+        && frontage.census?.refused === 191
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5573,7 +5577,8 @@ for (const [label, viewport, touch] of [
       // T-2093 — and the walks those five PRs laid name SIX chunks of their own
       // (the record's named chunks go 102 to 108: T-2134 +4, T-2148 +1, T-2150 +1):
       // 125, read on dev with no board lettered.
-      frontage.authored === (frontage.census?.lettered === 1 ? 126 : 125)
+      // T-2195 — the Market wedge's three walk faces name three chunks of their own: 128.
+      frontage.authored === (frontage.census?.lettered === 1 ? 129 : 128)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -5591,7 +5596,8 @@ for (const [label, viewport, touch] of [
           && m.sharedMaterial && !m.castsShadow && m.groundHugging
           && m.candidates === frontage.farWalkState?.candidateTriangles
           // T-2093 — the six new walk chunks' top faces: 107532 to 108554, read on dev.
-          && m.candidates === 108554
+          // T-2195 — dev already read 108620 (T-2174's walks); the wedge's three faces: 111472.
+          && m.candidates === 111472
           && m.drawn === frontage.farWalkState?.triangles),
       JSON.stringify({ meshes: frontage.farWalkTops, state: frontage.farWalkState }));
     // THE NAME IS DRAWN, AND IT IS THE RECORD'S. This is the only lettering in the
@@ -5829,10 +5835,13 @@ for (const [label, viewport, touch] of [
         && p.top <= p.recorded + 0.25)));
     // T-1823 — the Western Hotel's mounting block and the West Water freight
     // house's wagon apron, 46 to 48.
-    check(`${label}: the forty-nine business-front fittings are drawn at their own fronts`,
-      frontage.census?.fittings === 49 && (frontage.fittings ?? []).length === 49
+    // T-2195 — dev already carried 50 (T-2174's drawbridge warehouse is a forwarding house, so a
+    // sixth wagon apron), and the Market wedge's Dole warehouse fronts South Water with the
+    // seventh: 51, seven aprons.
+    check(`${label}: the fifty-one business-front fittings are drawn at their own fronts`,
+      frontage.census?.fittings === 51 && (frontage.fittings ?? []).length === 51
         && fitKinds.stoop === 37 && fitKinds.mounting_block === 6
-        && fitKinds.wagon_apron === 5 && fitKinds.tie_rail === 1
+        && fitKinds.wagon_apron === 7 && fitKinds.tie_rail === 1
         && fitBad.length === 0,
       `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}; `
       + `${fitBad.length} bad: `
@@ -6329,7 +6338,9 @@ for (const [label, viewport, touch] of [
         // T-2093 — T-2148 lays the face the Madison jog brings inside the
         // boundary (95) and T-2150 the West Water warehouse's (96): faces_laid,
         // read off the record at each commit.
-        && edge.faces === 96 && edge.walkM >= 3050 && edge.fences >= 31
+        // T-2195 — the Market wedge lays its Lake, Franklin and South Water faces (its west
+        // edge is the lot cut and is not a street face): 99.
+        && edge.faces === 99 && edge.walkM >= 3050 && edge.fences >= 31
         && edge.decks >= 232,
       `record ${edge.hasRecord}, card ${edge.cardId}, ${edge.faces} block face(s), `
       + `${edge.walkM} m of walk, ${edge.fences} fence run(s), `
@@ -6347,8 +6358,10 @@ for (const [label, viewport, touch] of [
       // T-2093 — T-2150's warehouse is the fifth forwarding house with a decked
       // walk (4 to 5), and T-2134's four Dearborn corner workshops each keep a
       // bare front (3 to 7). Both read off the record at each commit.
-      edge.byBusiness.records === 5 && edge.byBusiness.drawn === 5
-        && edge.byBusiness.onDeck === 5
+      // T-2195 — dev already read 6 (T-2174's drawbridge warehouse); Dole's warehouse on the
+      // Market wedge is a forwarding house on South Water, so its decked walk makes 7.
+      edge.byBusiness.records === 7 && edge.byBusiness.drawn === 7
+        && edge.byBusiness.onDeck === 7
         && edge.byBusiness.bareGap > 4 && edge.byBusiness.bareLift !== null
         && edge.byBusiness.bareLift <= 0.04
         && edge.byBusiness.bareRecs === 7 && edge.byBusiness.bareKept === 7,
