@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'The town plan checks the people outside its main list', kind: 'fix',
+  { v: 1565, ts: '2026-10-09T06:37:17.302Z', date: 'Oct 9, 2026, 1:37 AM CT', title: 'The town plan checks the people outside its main list', kind: 'fix',
     items: [
       'Nothing you can see changes. The plan of who still has to be added to the 1835 town counted households only from its main list of people, and about 660 people the town holds sit on cards beside that list: tradesmen, lodgers, and people with thin records.',
       'Each of them is now checked. Nearly all board in a house whose household is already counted, so they are lodgers rather than houses still owed. Four families have a house of their own, but that part of the plan was already full. No one is added or moved, and the 64 households still owed stay at 64.',
