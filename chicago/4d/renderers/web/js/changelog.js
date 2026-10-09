@@ -1,9 +1,20 @@
 export const CHANGELOG = [ // newest first
-  { v: 1588, ts: '2026-10-09T19:35:04.411Z', date: 'Oct 9, 2026, 2:35 PM CT', title: 'A household\u2019s home and workplace are named once, with their dates', kind: 'fix',
+  { v: null, ts: '', title: 'A household\u2019s home and workplace are named once, with their dates', kind: 'fix',
     items: [
       'Open John Davis\u2019s household in People. The Steamboat Hotel used to appear three times on his card: once in \u201cLived at\u201d, once in \u201cWorked at\u201d, and again in \u201cWhere this household was, and when\u201d. Now it appears only in that last section, which gives each place its dates and its evidence.',
       'The same happens on the 67 household cards that name a home or a workplace. A card with no known home or workplace still shows \u201cLived at: not recorded\u201d and the reason, because that reason has nowhere else to go.',
       'The build now refuses any household that names a home or workplace without a dated entry for it, so removing the old lines hides nothing. Nothing in the 3-D town changes.',
+    ] },
+  { v: 1589, ts: '2026-10-09T19:59:53.408Z', date: 'Oct 9, 2026, 2:59 PM CT', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
+    items: [
+      'The town counted 31 households as housed because their card named the building they worked in. They had no home in the scene. Among them were the Harmon brothers, John Calhoun of the Chicago Democrat, George W. Dole and Archibald Clybourne. Each now has a home of its own on the building cards, the same way every other household is placed.',
+      'John Calhoun now lives over his store on South Water Street, and Asahel Pierce over his on the West Side. The rest live in ordinary houses or board in their own part of town.',
+      'The town is still kept no more crowded than the census of November 1835. Seating these households fills that room, so 29 more households now wait for a house still to be built, up from 24 to 53. The completion audit and the population counts now leave the place of work out too.',
+    ] },
+  { v: 1588, ts: '2026-10-09T19:28:35.221Z', date: 'Oct 9, 2026, 2:28 PM CT', title: 'Glessner roof tiles follow the documented size', kind: 'fix',
+    items: [
+      'Clay roof tiles now use the documented six-inch width and five-inch exposed courses across the main roof, service roofs, dormers and turrets. Small roof returns receive the same coverage.',
+      'The lighter house model now shows the complete tile pattern. The roof keeps its reconstructed red, unglazed clay finish; the tar coating recorded by a later survey is excluded from 1904.',
     ] },
   { v: 1587, ts: '2026-10-09T19:12:48.893Z', date: 'Oct 9, 2026, 2:12 PM CT', title: 'Prairie Avenue\u2019s 1600 block has a 1904 reading on every card', kind: 'feature',
     items: [
