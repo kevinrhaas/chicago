@@ -22,6 +22,24 @@ clapboard schoolhouse in a street with an ox team, inscribed in the artist's own
 T-0716 set. **The sheet has no live candidate left**, and the route that got the picture is
 written down in § 3 so it can be reused.
 
+**Run 2026-10-09 (T-0909). Route 2, ask the depositor, is ANSWERED.** The owner named the
+page on 2026-09-24: the file was taken from the *Digital Research Library of Illinois History
+Journal* post "Eliza Emily Chappell, the First Chicago Teacher Paid by Public Funds in 1833"
+(19 January 2018, compiled by Neil Gale), already committed as `drloih_chappell` for its
+account of the school. The live page puts a captcha in front of this runner; the Wayback
+snapshot of 2026-06-06 does not, and in it the post's **first image is
+`21617595_10203558686525015_5452300313452439832_n.jpg`**, the deposit's own filename, captioned
+only *"The Eliza Chappell School was roughly at Lake and Clark Streets are today."* No artist,
+date, publication or holding institution is given anywhere on the page, which says it "does
+not use inline citations on purpose". **The chain gains its first link, deposit ← the 2018
+post, and the origin is still unestablished**: the post republishes the drawing and is not
+its source. It does explain the caption. The deposit's "eliza chappel school at clark and
+lake" follows the post's caption, which gives the school's 1834 corner, so the
+caption-against-picture disagreement is between a 2018 compiler and the drawing, not inside
+the drawing. The source record now carries the post as `url` and the snapshot as
+`archived_url`. `rights_status` stays `check_required`, because a republication with no
+credit clears nothing, and nothing in the town moves.
+
 `data/sources/eliza_chappel_school_shore_view.json` is unchanged in substance across both
 runs: `verified` stays **false**, `rights_status` stays **check_required**, `tier` stays 5,
 and nothing in the town moves on this image. What changed is that five wrong answers are
@@ -209,11 +227,14 @@ queries listed in §4.
    plate is the Rumsey School of 1844 at Madison and Dearborn, by its own inscription, and
    it fails all four of the picture tests. § 3 is the record. **The one named candidate is
    gone and the sheet now has no live candidate at all.**
-2. **Ask the depositor where the scan came from.** Promoted to first, because it was always
-   the cheapest question on the list and it is now the only one with a plausible answer
-   behind it. The file arrived from the repository owner with a social-media filename; one
-   sentence from whoever posted it would settle in a day what a catalogue sweep may not
-   settle at all.
+2. ~~**Ask the depositor where the scan came from.**~~ **ANSWERED — T-0909, 2026-10-09.**
+   The owner named the 2018 *Digital Research Library of Illinois History Journal* post on
+   Chappell (`drloih_chappell`), and its Wayback snapshot of 2026-06-06 carries the drawing
+   as its first image under the deposit's own filename, credited to nobody. That is the
+   immediate source and a republication, not the origin. **The search is closed on that
+   answer, as the owner directed:** routes 3–5 below are kept as the record of what is left
+   and are **not reopened unless a lead appears**, such as a credit on another copy of the
+   picture or a reverse-image match from a machine that can run one.
 3. **Ask the catalogues under the names, not the subject** — at the **Newberry** and the
    **Chicago Public Library's special collections**, which are the two of the four that
    have not actually been asked. The Art Institute and the Smithsonian are now both clean
@@ -226,9 +247,9 @@ queries listed in §4.
    having drawn old Chicago, and § 3's medium argument (etched line, portrait) tells
    against the whole campaign and not just the one plate.
 
-Until one of those returns, the sheet stays where T-0649 left it: **tier 5, unverified,
+Until a lead reopens one of them, the sheet stays where T-0649 left it: **tier 5, unverified,
 rights unresolved, spent on nothing** — with one thing changed, which is that the reason to
 worry about a live 1920s copyright on it died with the candidate.
 
-**Links:** T-0716 · T-0663 · T-0649 · `chappel_shore_lighthouse.md` ·
+**Links:** T-0909 · T-0716 · T-0663 · T-0649 · `drloih_chappell` · `chappel_shore_lighthouse.md` ·
 `data/sources/eliza_chappel_school_shore_view.json` · `docs/LIBERTIES.md`.

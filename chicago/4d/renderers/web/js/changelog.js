@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1571, ts: '2026-10-09T10:40:17.410Z', date: 'Oct 9, 2026, 5:40 AM CT', title: 'Alanson and Alonson Sweet stay two people', kind: 'fix',
+  { v: 1572, ts: '2026-10-09T11:02:20.576Z', date: 'Oct 9, 2026, 6:02 AM CT', title: 'Alanson and Alonson Sweet stay two people', kind: 'fix',
     items: [
       'Nothing you can see changes. The town holds two Sweets whose first name starts with A: Alanson Sweet, who is on every tax and poll list, and an \u2018A. Sweet\u2019 card, which also carries a lost-saddle notice of July 1834 signed \u2018Alonson Sweet\u2019.',
       'The question was whether Alonson was a printer\u2019s slip for Alanson. Read on the scanned page, the notice really does say ALONSON. No issue of the paper ever prints both spellings for one man, so the two cards stay separate and each says why.',
+    ] },
+  { v: 1571, ts: '2026-10-09T10:37:53.730Z', date: 'Oct 9, 2026, 5:37 AM CT', title: 'The Chappel school shore drawing now says where it came from', kind: 'fix',
+    items: [
+      'Open the unattributed drawing of a log schoolhouse on a shore in the Sources panel. It now links to the page it was copied from, a 2018 Illinois history blog post about Eliza Chappell, and to an archived copy of that page.',
+      'The post credits no artist, date or book, so who drew it is still unknown. Nothing in the town is built from it.',
     ] },
   { v: 1570, ts: '2026-10-09T09:59:25.297Z', date: 'Oct 9, 2026, 4:59 AM CT', title: 'The town plan stops promising a lot that has no room', kind: 'fix',
     items: [
