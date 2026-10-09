@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A boarding house beside the Market wedge\u2019s house on Lake Street', kind: 'feature',
+  { v: 1584, ts: '2026-10-09T18:16:39.951Z', date: 'Oct 9, 2026, 1:16 PM CT', title: 'A boarding house beside the Market wedge\u2019s house on Lake Street', kind: 'feature',
     items: [
       'Walk west along Lake Street toward Market. On the wedge of land the river\u2019s bend leaves there, a large frame boarding house now shares a wall with the house already standing on lot 7, the two set back 5 m in one row.',
       'Mark Beaubien\u2019s household keeps it, and five people already in the town sleep there. Alanson Sweet\u2019s household moves into the Clark Street boarding house Beaubien left. The house beside that one gets a new keeper, Alvah Stebbins, with his three children.',
