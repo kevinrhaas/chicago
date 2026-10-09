@@ -177,12 +177,15 @@ HOUSEHOLD_TYPES = (
 # and what the 56 are is T-2194's ruling.
 # RULED ON T-2194 (2026-10-09, `store_residence_ruling` below): the store rows ordered more
 # households than the town has store roofs, and the order above one household a roof is
-# discharged. What is left is a keeper for each store roof that stands empty, and T-2236
-# seats one from the store-trade heads the town already holds.
+# discharged. What is left is a keeper for each store roof that stands empty. T-2236 seats
+# the keepers of the houses of trade the town holds over their stores (the housing seats'
+# `keeper` rung, filled by count_held_head_dwellings_1835.py), and T-2240 owns what that
+# could not form: store roofs whose firm names no keeper the town holds as a household.
 FAMILY_OWNER = "T-2187"
 FAMILY_HOUSEHOLD_OWNER = "T-2193"
 STORE_RULING_TICKET = "T-2194"
-STORE_RESIDENCE_OWNER = "T-2236"
+STORE_RESIDENCE_FILLER = "T-2236"
+STORE_RESIDENCE_OWNER = "T-2240"
 ADULT_MEN_OWNER = FAMILY_OWNER
 # …and the ruling T-2021 made, whose fills are an order of their own (`family_ruling_orders`).
 FAMILY_RULING_TICKET = "T-2021"
@@ -1192,8 +1195,9 @@ def store_residence_ruling(households: list, structures: list) -> dict | None:
                   "so the trade households the reconstruction drew as heads of their own and "
                   "seated on a roof, the readmitted and the underdocumented are outside the "
                   "count. They are people the cards hold present, not an order to fill, and "
-                  f"{STORE_RESIDENCE_OWNER} forms the store households still owed from the "
-                  "store-trade heads among them rather than from anybody new.",
+                  f"{STORE_RESIDENCE_FILLER} forms the store households from the keepers of "
+                  "the houses of trade the town holds, over their own stores, rather than "
+                  f"from anybody new; what it could not form is {STORE_RESIDENCE_OWNER}'s.",
         "what_this_does_not_do": "It moves, mints and retires nobody, it does not re-apportion "
                                  "the discharged households to the dwelling rows, and it does "
                                  "not count the households outside the index: T-2237 "

@@ -34,16 +34,16 @@
   }
  },
  "people": {
-  "housed": 2618,
-  "households_housed": 1332,
+  "housed": 2765,
+  "households_housed": 1408,
   "housed_through": {
    "lives_at": 191,
-   "seated_by_a_structure": 2427
+   "seated_by_a_structure": 2574
   },
-  "waiting_on_a_roof": 272,
-  "households_waiting_on_a_roof": 117,
+  "waiting_on_a_roof": 125,
+  "households_waiting_on_a_roof": 41,
   "group_entries": 6,
-  "households_without_a_dwelling": 124,
+  "households_without_a_dwelling": 48,
   "town_total": 3265,
   "town_total_dwellings": 398,
   "town_total_source": "andreas_1884_v1",

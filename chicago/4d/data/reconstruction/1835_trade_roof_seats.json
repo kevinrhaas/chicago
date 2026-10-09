@@ -65,7 +65,8 @@
   "counts": {
     "roofs": 9,
     "seated": 0,
-    "unseatable": 9,
+    "unseatable": 6,
+    "kept_by_a_keeper": 3,
     "keepers_owed_a_house": 26
   },
   "seats": [],
@@ -101,16 +102,6 @@
       "note": "NO KEEPER OF ITS TRADE IS LEFT IN THE NORTH DIVISION. This large workshop is offered to every keeper the employment ledger owes a house of their own whose card names no workplace, in its own division, of a trade its family serves (data/reconstruction/1835_placement_policy.json clause heavy_and_noxious_trades (the only clause admitting W5) and the premises rulings' signage for the four trades it names), and there are 0. The off-plat deal (T-1614) adopted it for The Miller and Hall tannery household, but that household's own card puts its works at miller_tannery, 847 m away, so seating it here would give one firm a second works nobody records. So nobody is seated here and nobody is invented to be: the first keeper of its trade the town gains takes it on the next build."
     },
     {
-      "structure_id": "recon_1835_south_c3_015",
-      "family": "C3",
-      "division": "south",
-      "keepers_offered": 0,
-      "keepers_held_by_the_count": 18,
-      "adopted_by": null,
-      "value": "the_printed_count_is_held",
-      "note": "NO KEEPER OF ITS TRADE IS OWED A HOUSE IN THE SOUTH DIVISION. This narrow two story store is offered to every keeper the employment ledger owes a house of their own whose card names no workplace, in its own division, of a trade its family serves (data/businesses/rulings/premises_rulings.json signage_function 'store' and 'grocery_and_provision_store'), and there are 0. 18 more keeper(s) of a trade it serves live in the south division with no workplace, and each is told no house is owed (T-1996): their census class's printed count is already held (businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled). Seating one here would make it one shop more than that count, so none is. So nobody is seated here and nobody is invented to be: the first keeper of its trade the town owes a house takes it on the next build."
-    },
-    {
       "structure_id": "recon_1835_north_w3_062",
       "family": "W3",
       "division": "north",
@@ -119,16 +110,6 @@
       "adopted_by": null,
       "value": "no_keeper_of_its_trade",
       "note": "NO KEEPER OF ITS TRADE IS LEFT IN THE NORTH DIVISION. This cooper wagon or wheelwright shop is offered to every keeper the employment ledger owes a house of their own whose card names no workplace, in its own division, of a trade its family serves (data/reconstruction/1835_family_archetype_crosswalk.json W3 label 'Cooper, wagon, or wheelwright shop'), and there are 0. So nobody is seated here and nobody is invented to be: the first keeper of its trade the town gains takes it on the next build."
-    },
-    {
-      "structure_id": "recon_1835_north_c3_064",
-      "family": "C3",
-      "division": "north",
-      "keepers_offered": 0,
-      "keepers_held_by_the_count": 6,
-      "adopted_by": null,
-      "value": "the_printed_count_is_held",
-      "note": "NO KEEPER OF ITS TRADE IS OWED A HOUSE IN THE NORTH DIVISION. This narrow two story store is offered to every keeper the employment ledger owes a house of their own whose card names no workplace, in its own division, of a trade its family serves (data/businesses/rulings/premises_rulings.json signage_function 'store' and 'grocery_and_provision_store'), and there are 0. 6 more keeper(s) of a trade it serves live in the north division with no workplace, and each is told no house is owed (T-1996): their census class's printed count is already held (businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled). Seating one here would make it one shop more than that count, so none is. So nobody is seated here and nobody is invented to be: the first keeper of its trade the town owes a house takes it on the next build."
     },
     {
       "structure_id": "recon_1835_north_w2_065",
@@ -149,16 +130,32 @@
       "adopted_by": null,
       "value": "the_printed_count_is_held",
       "note": "NO KEEPER OF ITS TRADE IS OWED A HOUSE IN THE NORTH DIVISION. This narrow two story store is offered to every keeper the employment ledger owes a house of their own whose card names no workplace, in its own division, of a trade its family serves (data/businesses/rulings/premises_rulings.json signage_function 'store' and 'grocery_and_provision_store'), and there are 0. 6 more keeper(s) of a trade it serves live in the north division with no workplace, and each is told no house is owed (T-1996): their census class's printed count is already held (businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled). Seating one here would make it one shop more than that count, so none is. So nobody is seated here and nobody is invented to be: the first keeper of its trade the town owes a house takes it on the next build."
+    }
+  ],
+  "kept_by_a_keeper": [
+    {
+      "structure_id": "recon_1835_south_c3_015",
+      "family": "C3",
+      "division": "south",
+      "household": "hh_rc_sullivan_mary",
+      "by": "T-2236",
+      "words": "keeping Mary Sullivan, millinery, a house of trade the town holds and stands on no roof, over an empty store roof of the south division"
+    },
+    {
+      "structure_id": "recon_1835_north_c3_064",
+      "family": "C3",
+      "division": "north",
+      "household": "hh_rc_metcalf_george",
+      "by": "T-2236",
+      "words": "keeping George Metcalf, drugs, medicines and dye stuffs, a house of trade the town holds and stands on no roof, over an empty store roof of the north division"
     },
     {
       "structure_id": "recon_1835_north_c4_067",
       "family": "C4",
       "division": "north",
-      "keepers_offered": 0,
-      "keepers_held_by_the_count": 6,
-      "adopted_by": null,
-      "value": "the_printed_count_is_held",
-      "note": "NO KEEPER OF ITS TRADE IS OWED A HOUSE IN THE NORTH DIVISION. This wide two story store or mixed block is offered to every keeper the employment ledger owes a house of their own whose card names no workplace, in its own division, of a trade its family serves (data/businesses/rulings/premises_rulings.json signage_function 'store' and 'grocery_and_provision_store', the C3 line's, for the crosswalk's 'Wide two-story store or mixed block'), and there are 0. 6 more keeper(s) of a trade it serves live in the north division with no workplace, and each is told no house is owed (T-1996): their census class's printed count is already held (businesses/store: printed 44 establishments, target 44, held 65 known + 0 filled). Seating one here would make it one shop more than that count, so none is. So nobody is seated here and nobody is invented to be: the first keeper of its trade the town owes a house takes it on the next build."
+      "household": "hh_rc_walsh_honora",
+      "by": "T-2236",
+      "words": "keeping H. Walsh, millinery and dress making, a house of trade the town holds and stands on no roof, over an empty store roof of the north division"
     }
   ]
 }

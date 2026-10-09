@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1574, ts: '2026-10-09T11:57:00.192Z', date: 'Oct 9, 2026, 6:57 AM CT', title: 'Shopkeepers now live over their own stores', kind: 'fix',
+    items: [
+      'Eighteen stores in the 1835 town stood with nobody living in them while their keepers boarded in other people\u2019s houses. Open Peter Cohen\u2019s store on South Water Street, or L. W. Montgomery\u2019s boot and shoe shop beside it, and the keeper\u2019s household is now listed as living there. Thirteen keepers moved into the store their own business already stood in. Five more whose business had no building took an empty store in their part of town.',
+      'No new people or businesses are made up, and the town keeps the same number of stores. A store with a family over it counts as a home, so 76 more households who were waiting for a roof now have one. The 13 stores still without a keeper\u2019s family are next.',
+    ] },
   { v: 1573, ts: '2026-10-09T11:25:17.825Z', date: 'Oct 9, 2026, 6:25 AM CT', title: 'Three birth dates checked against the books they came from', kind: 'fix',
     items: [
       'Nothing you can see changes. Three readings said a book gives a birth for Dr Edmund Kimberly, Dr Philip Maxwell or Alexander Robinson that the town had not yet used. Each one is now read against the book beside the person\u2019s card.',
