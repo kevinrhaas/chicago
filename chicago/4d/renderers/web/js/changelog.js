@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1570, ts: '2026-10-09T10:05:09.236Z', date: 'Oct 9, 2026, 5:05 AM CT', title: 'Alanson and Alonson Sweet stay two people', kind: 'fix',
+  { v: 1571, ts: '2026-10-09T10:40:17.410Z', date: 'Oct 9, 2026, 5:40 AM CT', title: 'Alanson and Alonson Sweet stay two people', kind: 'fix',
     items: [
       'Nothing you can see changes. The town holds two Sweets whose first name starts with A: Alanson Sweet, who is on every tax and poll list, and an \u2018A. Sweet\u2019 card, which also carries a lost-saddle notice of July 1834 signed \u2018Alonson Sweet\u2019.',
       'The question was whether Alonson was a printer\u2019s slip for Alanson. Read on the scanned page, the notice really does say ALONSON. No issue of the paper ever prints both spellings for one man, so the two cards stay separate and each says why.',
+    ] },
+  { v: 1570, ts: '2026-10-09T09:59:25.297Z', date: 'Oct 9, 2026, 4:59 AM CT', title: 'The town plan stops promising a lot that has no room', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The plan of where the 1835 town\u2019s last roofs could go still counted the South Water Street lot at the Wells corner, on the block between Wells and La Salle, as free, because the clause for shop fronts lets a house share a lot with H. Jones\u2019s store. The store leaves about 7.5 m of that lot\u2019s front, less than the narrowest house the plan ever deals.',
+      'The plan now counts that lot as full. The two houses and the warehouse it had been placing there move to the ground south of the platted town, which no street reaches yet. Nobody is moved and no building changes.',
     ] },
   { v: 1569, ts: '2026-10-09T08:58:32.691Z', date: 'Oct 9, 2026, 3:58 AM CT', title: 'A house on the riverside block at Lake and Franklin', kind: 'feature',
     items: [
