@@ -199,7 +199,7 @@ def add_west_rainwater(b,params):
     # collector at either end rather than continuing across the gable face.
     gx=x-.17;gz=height(r,x, south)-.025
     _gutter(b,[(gx,south,gz),(gx,join,gz)],[(-1,0,0)]*2)
-    for y,top in ((north,g['north_eave']),(join,height(r,x,join)),(south,height(r,x,south))):
+    for y,top in ((north,height(r,x,north)),(join,height(r,x,join)),(south,height(r,x,south))):
         _downpipe(b,x-.12,y,top,(gx,y))
         # Collared shoe carries the water down and away from the foundation.
         _tube(b,[(x-.12,y,.22),(x-.12,y,.10),(x-.27,y,.07)],.044,12)
