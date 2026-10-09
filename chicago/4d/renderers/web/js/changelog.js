@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1552, ts: '2026-10-09T00:30:06.869Z', date: 'Oct 8, 2026, 7:30 PM CT', title: 'Glessner photographs show their evidence limits', kind: 'fix',
+    items: [
+      'Four July 1948 photographs in the Prairie research library now describe the doors, roof, courtyard and industrial interior they actually show. Their previous descriptions remain available in the correction history.',
+      'All 168 audited references now show what was reviewed and how they can inform the 1904 exterior. Disputed attribution, rejected designs, later views and related reproductions carry explicit limits. Three additional Florian views link to the museum.',
+    ] },
   { v: 1551, ts: '2026-10-08T22:48:46.097Z', date: 'Oct 8, 2026, 5:48 PM CT', title: 'Chester Ingersoll\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 17 December 1833 prints the tavern keeper Chester Ingersoll\u2019s marriage, on the 12th, to Miss Betsy Weaver. His house still showed a wife we had made up, \u2018Martha Ingersoll\u2019, while Betsy Weaver stood alone on a card of her own, guessed to be a man.',
