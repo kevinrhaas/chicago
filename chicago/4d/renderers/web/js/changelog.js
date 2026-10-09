@@ -1,10 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1563, ts: '2026-10-09T05:31:03.494Z', date: 'Oct 9, 2026, 12:31 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
+  { v: 1564, ts: '2026-10-09T06:09:44.687Z', date: 'Oct 9, 2026, 1:09 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
     items: [
       'The St Cyr burial register and the Chicago Democrat\u2019s death notices bury thirteen people before the scene date, among them W. Brannen, John Hogan, William Bourque, Sarah Hoit and two-year-old Charles Rollins. They were still counted in the town. Their cards in the People directory now say they had died, and cite the entry.',
       'Three of them headed houses that had been given a reconstructed wife and children. Those twelve invented people are withdrawn. Two women who had been reconstructed as wives of men who had died now head their own houses again.',
       'Two people the town had added from the burial register itself are no longer added. The postmaster John S. C. Hogan is a different man and stays.',
     ] },
+  { v: 1563, ts: '2026-10-09T05:30:16.773Z', date: 'Oct 9, 2026, 12:30 AM CT', title: 'The town stops ordering 335 houses it already has', kind: 'fix',
+    items: [
+      'The plan of who still has to be added to the 1835 town was asking for 424 more family houses. 429 households the town already holds were living in one, either in a house the town gave them or as a family sharing one. The plan counted houses only from the people cards, and those homes were recorded beside the cards, so it never saw them.',
+      'They are counted now, up to what each part of town needs: 88 on the North Side, 168 on the South Side and 79 on the West Side. Nobody is added, moved or changed. The households still owed fall from 399 to 64. Keepers for the empty stores are next.',
+      ] },
   { v: 1562, ts: '2026-10-09T04:37:11.918Z', date: 'Oct 8, 2026, 11:37 PM CT', title: 'The town plan stops asking for second families in its stores', kind: 'fix',
     items: [
       'Open Evidence \u2192 Reconstructing the town and look at Households. The plan had asked for 77 shopkeepers\u2019 households to live in the town\u2019s 52 stores, about one and a half for each store, because it shared households out by building counts. A store houses one family, the keeper\u2019s, so the plan now asks for at most one per store. 25 fewer households are wanted.',

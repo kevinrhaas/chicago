@@ -77,6 +77,8 @@ BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 PROGRAMME = ROOT / "data" / "reconstruction" / "1835_resident_reconstruction_programme.json"
 LEDGER = ROOT / "data" / "reconstruction" / "1835_women_children.json"
 REFAMILY_RULE = ROOT / "data" / "reconstruction" / "1835_refamily_rule.json"
+# T-2193: the stage that counts held heads under a dwelling into the same house cells.
+HELD_HEAD_DWELLINGS = "T-2193"
 
 STAGE = "women_and_children"
 TICKET = "T-1174"
@@ -219,11 +221,20 @@ def quota() -> tuple:
     `filled` counts what EVERY stage put in a bucket, including the last run of this one,
     so a draw that read its own previous answer as spent quota would draw fewer people on
     the second build than on the first — the one thing `--check` may not tolerate.
+
+    AND T-2193's HOUSES ARE ADDED BACK TO THE HOUSE QUOTA, for the same reason one level
+    down. That stage counts the held heads the housing seats already put under a dwelling,
+    and it takes the room this stage leaves — so read as spent here, its count would cap
+    this stage's next deal and the two would chase each other on every rebuild. The sum is
+    still held: T-2193 never takes more than the order less this stage's fills, and the
+    book refuses an overfilled cell.
     """
     book = json.loads(BOOK.read_text(encoding="utf-8"))
     ours = Counter()
     for entry in book.get("fills") or []:
-        if entry.get("ticket") == TICKET:
+        if entry.get("ticket") == TICKET or (
+                entry.get("ticket") == HELD_HEAD_DWELLINGS
+                and str(entry.get("bucket")).startswith("households/family_dwelling/")):
             ours[entry.get("bucket")] += int(entry.get("records") or 0)
     persons, households = {}, {}
     for family in book["bucket_families"]:
