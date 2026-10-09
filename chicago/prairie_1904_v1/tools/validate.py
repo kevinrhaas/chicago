@@ -54,4 +54,5 @@ if (P/'data/images.json').exists():
   if rec.get('local'):require(rec['rights'] in ('public domain','no known restrictions') or (rec['rights']=='pending — permission requested' and (P/str(rec.get('rights_request') or 'x')).is_file()) or rec['local'].get('display','').startswith('research/public/'),f'image {rec["id"]}: local copy of a {rec["rights"]} item')
 print(f'image store {img_mb:.1f} of {STORE_BUDGET_MB} MB ({len(store.get("files",{}))} files, kevinrhaas/chicago-images)');print(f'{len(j["buildings"])} buildings; {len(sources)} sources; {len(j["map_inventory"]["records"])} frontage readings; {len(j["occupancy_candidates"])} directory candidates')
 if errors:raise SystemExit('\n'.join(errors))
+subprocess.run([sys.executable, str(P/'tools/test_evidence_review.py')], check=True)
 print('PASS: identities, evidence dates, source links and acquired-file hashes')

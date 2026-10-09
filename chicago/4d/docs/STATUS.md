@@ -29,6 +29,19 @@ boarding houses). `blk_south_water_market` is now emitted by `tools/generate_pla
   (family dwellings) and T-2194 (store residences), the way T-2186 ported the last split. The South's
   boarding-house cell goes to T-2196.
 
+## T-2198 — Glessner source identity and evidence review (2026-10-09)
+
+The 168-record exterior/courtyard audit is reconciled into the research library.
+Four Florian captions are corrected with their prior descriptions preserved; three
+additional 1948 references remain copyright/link-only. Every record states its
+review status, phase and source-use limit. Disputed Lowe attribution and the rejected
+door sheet are excluded; reproduction families do not multiply corroboration.
+The viewer exposes these findings and correction history. No geometry changed;
+T-2183 and dark glass are retained. The 17 unavailable images remain catalog-only,
+and the other 30 tickets stay held. Sources and limits are recorded in
+`../../prairie_1904_v1/docs/glessner-source-review.md`.
+Final gate and browser receipts are recorded on the delivery PR.
+
 ## T-2231 — Glessner west front gable and rear frontage (2026-10-09)
 
 The front west gable has a steeper rear-facing slope, with its apex at S18.4

@@ -84,3 +84,16 @@ The viewer's **Images** section reads the merged file `../../data/images.json`
 3. **A later image is evidence of its own date.** Say what changed between 1904 and the
    image date where it is known (HABS 1960s photos post-date alterations and demolitions).
 4. Prefer front elevations; collect every angle.
+
+### Glessner 1904 evidence review (T-2198)
+
+All records associated with `pa-1800-22` require `evidence_review`: audit number
+(1–168 for the original inventory, null for additions), actual review state,
+review date, target date, phase, date basis, evidence role, geometry-use restriction,
+reason and source URL. `family` is null until a relationship is established;
+linked families require reciprocal `family_members` and the same qualified
+`family_relationship`. A separate record is never assumed to be independent evidence.
+`metadata_history` retains replaced library descriptions, ticket, date and reason.
+See [the source review](../../docs/glessner-source-review.md) for the findings and
+rights boundary. The merger validates this contract; the viewer publishes it.
+Review does not override copyright or turn design intent into built fabric.

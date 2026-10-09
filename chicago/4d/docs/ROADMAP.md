@@ -1,3 +1,11 @@
+## T-2198 — Glessner source audit reconciled (2026-10-09)
+
+Owner-selected first step of the held exterior/courtyard programme: repair captions,
+retain correction history, quarantine disputed/rejected evidence, qualify dates and
+reproduction families, and link three additional museum views. The viewer makes
+these source-use limits reviewable. Physical completion starts when the owner
+selects another ticket; T-2199–T-2228 remain commented below portable people.
+
 ## T-2183 — recovered Glessner courtyard correction (2026-10-08)
 
 The owner-requested follow-up to T-2172 restores aligned principal openings,

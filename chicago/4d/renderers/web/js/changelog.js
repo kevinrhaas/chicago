@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1555, ts: '2026-10-09T02:06:57.229Z', date: 'Oct 8, 2026, 9:06 PM CT', title: 'The riverside block at Lake and Franklin joins the town', kind: 'feature',
+  { v: 1556, ts: '2026-10-09T02:21:44.544Z', date: 'Oct 8, 2026, 9:21 PM CT', title: 'The riverside block at Lake and Franklin joins the town', kind: 'feature',
     items: [
       'The narrow block between Lake Street, Franklin Street and the bend of the river, block 21 on the 1834 plat, is now part of the town plan. It has plank walks along Lake, Franklin and South Water Streets, five new board crossings and a back alley.',
       'The plat draws this block as a triangle but marks no lot lines inside it, so the lots are our reconstruction. We kept the four with room for a house and a yard. The pinched west end stays open ground.',
       'Dole\u2019s warehouse, a cooperage and a saw-pit already stood here, and their yards are now laid out. The two empty Lake Street lots are grazed prairie for now, and are next in line for houses.',
+    ] },
+  { v: 1555, ts: '2026-10-09T01:46:17.282Z', date: 'Oct 8, 2026, 8:46 PM CT', title: 'Glessner photographs show their evidence limits', kind: 'fix',
+    items: [
+      'Four July 1948 photographs in the Prairie research library now describe the doors, roof, courtyard and industrial interior they actually show. Their previous descriptions remain available in the correction history.',
+      'All 168 audited references now show what was reviewed and how they can inform the 1904 exterior. Disputed attribution, rejected designs, later views and related reproductions carry explicit limits. Three additional Florian views link to the museum.',
     ] },
   { v: 1554, ts: '2026-10-09T01:25:35.988Z', date: 'Oct 8, 2026, 8:25 PM CT', title: 'Glessner’s west gable and rear roof regain their proportions', kind: 'fix',
     items: [
