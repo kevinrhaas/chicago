@@ -47,6 +47,16 @@
    "moved": [],
    "ticket": "T-0213"
   },
+  "narrow_business_front": {
+   "what": "A lot the business-front clause frees — a documented store stands at the street on it alone — is free for the sizing only if the store leaves at least one party-line unit of face beside it: the platted lot's 24.384 m front over ROW_UNITS_PER_LOT. The face left is the lot's own span along the face less every footprint standing on the lot, with no margin taken, so a lot is refused only when even the generous reading is narrower than a unit. A refused lot is listed on its block as `narrow_front_lots`; the roofs the block can no longer take go back to the district's balance.",
+   "unit_m": 8.128,
+   "refused": {
+    "blk_south_water_wells": [
+     0
+    ]
+   },
+   "ticket": "T-2241"
+  },
   "waterside": {
    "what": "A family whose own crosswalk record makes water access a precondition of the FORM is never dealt to a platted block. tools/generate_block_infill.py authors no coordinates outside a committed lot polygon inside four platted streets, and the wharf and landing ground lies outside that grid, so the roof would be deferred wherever it landed. Like the business front it is a permutation — the roof is exchanged for a dry principal roof of the same trade-ness on the district's own unbounded balance — so no total moves and no unit's roof count or principal/ancillary split changes.",
    "read_from": "data/reconstruction/1835_family_archetype_crosswalk.json — the required_variant and variants lines say which families are in question, and each one's own assumption_note says whether water is required or conditional. The note is quoted in the tool, so editing the record fails the re-derive.",
@@ -54,15 +64,7 @@
     "F3": "Landing apron and cargo-door arrangement must follow site access and cannot extend into water or duplicate a counted pier.",
     "W5": "A crane/derrick is rare and must not become a default; river access requires validated dry-bank terrain contact."
    },
-   "swapped": [
-    {
-     "family": "F3",
-     "from": "blk_south_water_wells",
-     "to": "south_plat_beyond_committed_control",
-     "for": "F4",
-     "same_trade": true
-    }
-   ],
+   "swapped": [],
    "held": [],
    "ticket": "T-0316"
   },
@@ -249,9 +251,9 @@
   "district_group_slots_shed": {}
  },
  "coverage": {
-  "schedulable_on_committed_ground": 3,
-  "gated_on_coverage": 7,
-  "statement": "3 of the 10 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 7 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "schedulable_on_committed_ground": 0,
+  "gated_on_coverage": 10,
+  "statement": "0 of the 10 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 10 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
   "platted_lots": 432,
   "blocks_named": 89,
   "southern_ground": {
@@ -317,23 +319,27 @@
    "lots": 8,
    "capacity_roofs": 31,
    "standing_roofs": 14,
-   "free_lots": 2,
-   "principal_room": 3,
-   "ancillary_room": 1,
-   "headroom": 4,
-   "state": "open",
-   "roofs": 3,
-   "families": {
-    "D2": 1,
-    "D4": 1,
-    "F4": 1
-   },
-   "principal": 3,
+   "free_lots": 1,
+   "principal_room": 0,
+   "ancillary_room": 0,
+   "headroom": 0,
+   "state": "at_capacity",
+   "narrow_front_lots": [
+    {
+     "lot_index": 0,
+     "holder": "h_jones_store",
+     "face": "north",
+     "face_m": 25.03,
+     "face_left_m": 7.46,
+     "unit_m": 8.128
+    }
+   ],
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
    "ancillary": 0,
-   "trade_roofs": 1,
-   "frontage_weight": 0.4764,
-   "lot_ceiling_principal": 1,
-   "row_lots_required": 1
+   "lot_ceiling_principal": 0,
+   "row_lots_required": 0
   },
   {
    "id": "blk_south_water_lasalle",
@@ -2562,20 +2568,21 @@
    "id": "south_plat_beyond_committed_control",
    "kind": "district_balance",
    "district": "south",
-   "capacity_roofs": 7,
+   "capacity_roofs": 10,
    "standing_roofs": 0,
-   "headroom": 7,
+   "headroom": 10,
    "state": "gated",
    "waiting_on": "STREET CONTROL — the S9 line ROADMAP has recorded as owed since before this schedule was written — and, for the first time, nothing else. THE TERRAIN IS NO LONGER THE BLOCKER: T-0219 carried the heightfield south to local N -3800.0 m, 3274.8 m past Madison Street's line at State, and the plat's last tier — 6 blocks and 48 lots between Market and State, 6.31 ha — now stands on modelled ground at all 24 of its 24 block-boundary points. Washington Street's platted corridor is fully on the field (0.00 ha off it, against 0.33 ha before), and south of that corridor the field holds 697.3569 ha of land above the water surface, 438.1181 ha of it in the South Division — where the same measurement returned 0.0000 ha before. What is left is the control itself: the plat's north-south columns still end at local N -519, -519, -519, -519, -519, -519, -519, the OLD south edge of the field, because they were cut where the ground used to stop. Carrying them to Madison is street work on ground that is now under them, and tools/generate_block_infill.py will accept what it emits. Ground east of State is still not coming at any date — it is the United States Reservation (T-E2). Measured by tools/measure_southern_ground.py.",
-   "roofs": 7,
+   "roofs": 10,
    "families": {
-    "D2": 1,
-    "D4": 1,
+    "D2": 2,
+    "D4": 2,
     "D5": 1,
     "F3": 2,
+    "F4": 1,
     "H3": 2
    },
-   "principal": 7,
+   "principal": 10,
    "ancillary": 0
   },
   {

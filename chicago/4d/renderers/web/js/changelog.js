@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1570, ts: '2026-10-09T10:28:10.946Z', date: 'Oct 9, 2026, 5:28 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: null, ts: '', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
+    ] },
+  { v: 1570, ts: '2026-10-09T09:59:25.297Z', date: 'Oct 9, 2026, 4:59 AM CT', title: 'The town plan stops promising a lot that has no room', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The plan of where the 1835 town\u2019s last roofs could go still counted the South Water Street lot at the Wells corner, on the block between Wells and La Salle, as free, because the clause for shop fronts lets a house share a lot with H. Jones\u2019s store. The store leaves about 7.5 m of that lot\u2019s front, less than the narrowest house the plan ever deals.',
+      'The plan now counts that lot as full. The two houses and the warehouse it had been placing there move to the ground south of the platted town, which no street reaches yet. Nobody is moved and no building changes.',
     ] },
   { v: 1569, ts: '2026-10-09T08:58:32.691Z', date: 'Oct 9, 2026, 3:58 AM CT', title: 'A house on the riverside block at Lake and Franklin', kind: 'feature',
     items: [
