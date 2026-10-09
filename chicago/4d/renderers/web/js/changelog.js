@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1593, ts: '2026-10-09T21:09:16.862Z', date: 'Oct 9, 2026, 4:09 PM CT', title: 'L. Franchere and Louis Franch\u00e8re stay two cards, with the reason', kind: 'fix',
+    items: [
+      'Open L. Franchere or Louis Franch\u00e8re in People. The note on whether they are one man now gives the answer from the printed record. Both copies of the 1834 marriage he witnessed give only the initial L.: the web transcription and the 1921 Illinois Catholic Historical Review it was copied from.',
+      'The 1921 Review also says the marriages and the 1833 baptisms are in one bound book. The project already holds that book\u2019s baptism pages but not its marriage pages, so the two cards stay apart until someone reads the marriage page itself.',
+    ] },
   { v: 1592, ts: '2026-10-09T20:54:34.675Z', date: 'Oct 9, 2026, 3:54 PM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
