@@ -5,7 +5,7 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
 - audited: **551** anonymous roofs
-- keep: **549** (6 kept over a policy breach because they are seated, 6 because nothing they could become is wanted here)
+- keep: **549** (5 kept over a policy breach because they are seated, 7 because nothing they could become is wanted here)
 - refamily: **2** (0 of them into a band that already fits the committed footprint)
 - retire: **0**
 

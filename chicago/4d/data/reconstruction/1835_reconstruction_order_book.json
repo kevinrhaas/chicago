@@ -1491,7 +1491,7 @@
     },
     {
       "ticket": "T-1371",
-      "records": 137,
+      "records": 138,
       "buckets": [
         "households/boarding_house/north",
         "households/boarding_house/south",
@@ -1532,7 +1532,7 @@
     },
     {
       "ticket": "T-1533",
-      "records": 24,
+      "records": 26,
       "buckets": [
         "persons/female/under_10/north/lodging/none",
         "persons/female/under_10/south/lodging/none",
@@ -1562,7 +1562,7 @@
     },
     {
       "ticket": "T-1532",
-      "records": 4,
+      "records": 3,
       "buckets": [
         "persons/male/10_19/south/lodging/trade"
       ]
@@ -1646,8 +1646,8 @@
     "roofs_standing": 678,
     "roofs_to_build": 9,
     "persons_standing": 2865,
-    "persons_still_owed": 15,
-    "persons_when_the_book_is_filled": 2880,
+    "persons_still_owed": 13,
+    "persons_when_the_book_is_filled": 2878,
     "persons_target_range": [
       2371,
       3265
@@ -1746,14 +1746,14 @@
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
       "persons_standing_in_the_layer": 2865,
-      "persons_still_owed": 15,
-      "converges_to": 2880,
+      "persons_still_owed": 13,
+      "converges_to": 2878,
       "model_point": 2550,
       "model_range": [
         2371,
         3265
       ],
-      "measured": "2,865 standing plus 15 still owed is 2,880, inside the model's 2,371-3,265. Before the re-cut the same sum was 2,865 + 843 = 3,708, and the book was ordering a replacement for 826 people already in the layer. It is 330 above the model's 2,550 point, and that surplus is the 401 people drawn into 53 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,865 standing plus 13 still owed is 2,878, inside the model's 2,371-3,265. Before the re-cut the same sum was 2,865 + 843 = 3,708, and the book was ordering a replacement for 826 people already in the layer. It is 328 above the model's 2,550 point, and that surplus is the 401 people drawn into 53 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -3091,10 +3091,10 @@
           "known_attested": 7,
           "known_inferred": 19,
           "to_reconstruct": 21,
-          "filled": 16,
+          "filled": 17,
           "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
-          "drawn_here": 5,
+          "drawn_here": 6,
           "refamilied_in": 11
         },
         {
@@ -4299,10 +4299,10 @@
           "known_attested": 8,
           "known_inferred": 22,
           "to_reconstruct": 22,
-          "filled": 21,
+          "filled": 22,
           "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
-          "drawn_here": 4,
+          "drawn_here": 5,
           "refamilied_in": 17
         },
         {
@@ -6060,7 +6060,7 @@
       "bucket": "persons/male/10_19/south/lodging/trade",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 3,
+      "records": 4,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -6179,7 +6179,7 @@
       "bucket": "persons/female/under_10/south/lodging/none",
       "ticket": "T-1533",
       "stage": "lodgers",
-      "records": 5,
+      "records": 6,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -6193,7 +6193,7 @@
       "bucket": "persons/male/under_10/south/lodging/none",
       "ticket": "T-1533",
       "stage": "lodgers",
-      "records": 4,
+      "records": 5,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -6242,7 +6242,7 @@
       "bucket": "persons/male/10_19/south/lodging/trade",
       "ticket": "T-1532",
       "stage": "lodgers",
-      "records": 4,
+      "records": 3,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -9529,11 +9529,11 @@
       "buckets_refused": 51,
       "people_held": 397,
       "people_still_held": 397,
-      "open_headroom_in_person_buckets": 15,
+      "open_headroom_in_person_buckets": 13,
       "why_the_headroom_matters": "a held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town."
     },
     "what_it_would_converge_to": {
-      "still_owed_now": 15,
+      "still_owed_now": 13,
       "still_owed_if_every_held_head_moved": 0,
       "note": "the model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range."
     }
