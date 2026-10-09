@@ -1,8 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1580, ts: '2026-10-09T16:07:10.515Z', date: 'Oct 9, 2026, 11:07 AM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
+  { v: 1582, ts: '2026-10-09T16:41:15.575Z', date: 'Oct 9, 2026, 11:41 AM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
     items: [
       'Open Silas W. Sherman\u2019s card in People. A new row, Elected to office, shows him elected sheriff in 1834 and again in 1836. The dates come from Robert Fergus\u2019s note in his 1843 Chicago directory, which the row quotes and cites.',
       'They are dates of elections, not the years he served, so the sheriff role above them keeps the 1833 to 1835 dates the town\u2019s newspapers give it. The book backs that role up and changes nothing else about him.',
+    ] },
+  { v: 1581, ts: '2026-10-09T16:00:24.406Z', date: 'Oct 9, 2026, 11:00 AM CT', title: 'Glessner gains stone edging and clear entrance paving', kind: 'fix',
+    items: [
+      'The Prairie frontage now has rounded stone lawn edging with gaps at the front door and carriage entrance. Stone paving and low steps meet the front-door sill.',
+      'A stone threshold and continuous carriage surface replace the grass showing through the porte-cochere, joining the existing courtyard drive.',
+      'Historic photographs and HABS drawings guide the layout. Uncertain 1904 paving materials, stone joints and curb dimensions are labeled as reconstructions.',
+    ] },
+  { v: 1580, ts: '2026-10-09T15:39:46.317Z', date: 'Oct 9, 2026, 10:39 AM CT', title: 'The town\u2019s plan now says why ten South roofs are still unbuilt', kind: 'fix',
+    items: [
+      'Ten roofs the South Division still owes have nowhere to stand. The town\u2019s plan said they were waiting for its streets to be carried south to Madison Street. That work was finished on 28 September: all seven north\u2013south streets from Market to State now reach Madison.',
+      'The plan now says what the ten are really waiting on: ground. Every South block they could go on is full, and so is the School Section row just south of Madison. The land beyond Monroe Street has never been divided into lots. The plan now checks each street against Madison, so this note updates itself.',
     ] },
   { v: 1579, ts: '2026-10-09T15:17:29.000Z', date: 'Oct 9, 2026, 10:17 AM CT', title: 'Five South houses stay owed until the street work', kind: 'fix',
     items: [

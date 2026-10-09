@@ -1,3 +1,21 @@
+## T-2202 — Glessner Prairie frontage and ground contact (2026-10-09)
+
+House-side stone edging, rounded returns, entry paving/risers and the porte
+threshold/passage now come from the sourced `prairie_frontage` form record.
+The existing public street and sidewalk layout stays with T-1728. Taylor
+2135 and HABS sheets 2/6 bound the reconstruction; profile/joint/material
+uncertainties are recorded in L-glessner-frontage-2202. Roof, windows and dark
+glass stay unchanged. Full and light share access geometry; only new curb
+microdetail is reduced to retain the existing light triangle ceiling.
+
+Numerical tests cover 1,108 access points in both detail levels. Dedicated
+published desktop/full and mobile/light reviews pass. Published smoke parts
+12–13 pass 216 checks per viewport; final preflight passes all 802 checks.
+`docs/RESEARCH/glessner-frontage-2202/README.md` records actual scope, slow
+software-rendered timings and the desktop run's integration overlap. CI
+and post-merge deployment receipts are tracked on T-2202. T-2200's
+frozen cameras are not refitted; this is not whole-house photographic sign-off.
+
 ## T-2245 — the firm partners the town holds a card for, linked (2026-10-09)
 
 T-2236's keeper rung seats the household of a proprietor or partner of a house of trade over the
