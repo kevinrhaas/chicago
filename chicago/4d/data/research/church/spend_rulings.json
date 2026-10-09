@@ -8,7 +8,6 @@
   "generated_by": "tools/spend_remainder_rulings.py",
   "counts": {
     "a_town_reading_with_no_record_to_write": 4,
-    "the_family_pass_finds_a_tie_onto_a_card_a_build_writes": 13,
     "the_family_pass_finds_an_identity_nobody_has_asserted": 9,
     "the_family_pass_finds_the_relative_is_nobody_this_town_holds": 11,
     "the_kin_survey_already_ruled_the_register_tie": 6,
@@ -23,11 +22,6 @@
     "a_town_reading_with_no_record_to_write": {
       "disposition": "aggregate_only",
       "statement": "The unit is an in-window reading ABOUT THE TOWN rather than about a person: a society, a public event, a civic act, a weather or an institution note, dated 1835 or undated, naming no record this layer holds. It is not refused -- it is true and it is in the window -- and it is not handed on, because there is no structured record for it to land on. It is spent in aggregate as scene chronology, which is a finished answer."
-    },
-    "the_family_pass_finds_a_tie_onto_a_card_a_build_writes": {
-      "disposition": "unresolved",
-      "ticket": "T-2191",
-      "statement": "The family pass (T-1335) read a register tie with BOTH ends on a card, and one card is written whole by a build — the register's own underdocumented cards (tools/reconstruct_church_register.py, T-1504) or the readmission stage (T-1172). A kin row typed onto such a card is gone the next time its stage runs, so the tie is handed to the open ticket that teaches those builds to carry it: reciprocal, nobody minted, no household gaining a member."
     },
     "the_family_pass_finds_an_identity_nobody_has_asserted": {
       "disposition": "refused",
@@ -373,11 +367,6 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_01_5_godmother: Archange Beaubien stands as godmother at a register entry dated 1833-05-22 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_3_mother",
-      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_02_3_mother: Marguerite Malore (mother, held as hh_marguerite_malore); the entry dated 1833-05-26 also names Joseph Mayo (child, held as hh_mayo_joseph); Michel Mayo (father, held as hh_mayo_michel). hh_marguerite_malore is written whole by its stage's build, so the tie is T-2191's to write through it."
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_5_sponsor",
       "rule": "the_register_appearance_identity_was_refused_in_the_crosswalk",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_02_5_sponsor: Archange Beaubien stands as sponsor at a register entry dated 1833-05-26 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
@@ -418,16 +407,6 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_05_5_sponsor: Elozina Bailly stands as sponsor at a register entry dated 1833-06-05 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_06_1_child",
-      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_06_1_child: John David Dird (child, held as hh_dird_john_david); the entry dated 1833-06-05 also names William Dird (father, held as hh_william_dird); Lieu (mother, nobody here). hh_william_dird is written whole by its stage's build, so the tie is T-2191's to write through it."
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_06_2_father",
-      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_06_2_father: William Dird (father, held as hh_william_dird); the entry dated 1833-06-05 also names John David Dird (child, held as hh_dird_john_david); Lieu (mother, nobody here). hh_william_dird is written whole by its stage's build, so the tie is T-2191's to write through it."
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_06_3_mother",
       "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_06_3_mother: Lieu (mother, nobody here); the entry dated 1833-06-05 also names John David Dird (child, held as hh_dird_john_david); William Dird (father, held as hh_william_dird)."
@@ -448,16 +427,6 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_08_5_godmother: Monique Nadeau stands as godmother at a register entry dated 1833-06-17 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_4_mother",
-      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_09_4_mother: Mariana Kamenwith (mother, held as hh_mariana_kamenwith); the entry dated 1833-07-14 also names Mary Wode (child, held as hh_wode_mary); Catherine Wode (child, held as hh_wode_catherine); John Wode (father, held as hh_wode_john). hh_mariana_kamenwith is written whole by its stage's build, so the tie is T-2191's to write through it."
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_10_3_mother",
-      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_10_3_mother: O'Waichiquoi (mother, held as hh_o_waichiquoi); the entry dated 1833-07-26 also names Joseph Létendre (child, held as hh_ltendre_joseph); Baptiste Létendre (father, held as hh_ltendre_baptiste). hh_o_waichiquoi is written whole by its stage's build, so the tie is T-2191's to write through it."
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_11_2_father",
       "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_11_2_father: Andrew Bouchard (father, nobody here); the entry dated 1833-08-18 also names Louis Bouchard (child, held as hh_bouchard_louis); Adelaide Bouchard (mother, held as hh_bouchard_adelaide)."
@@ -473,19 +442,9 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_11_5_sponsor: Josette Chevalier stands as sponsor at a register entry dated 1833-08-18 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_12_1_child",
-      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_12_1_child: Isabelle Bouchard (child, held as hh_isabelle_bouchard); the entry dated 1833-08-18 also names Andrew Bouchard (father, nobody here); Adelaide Bouchard (mother, held as hh_bouchard_adelaide). hh_isabelle_bouchard is written whole by its stage's build, so the tie is T-2191's to write through it."
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_12_2_father",
       "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_12_2_father: Andrew Bouchard (father, nobody here); the entry dated 1833-08-18 also names Isabelle Bouchard (child, held as hh_isabelle_bouchard); Adelaide Bouchard (mother, held as hh_bouchard_adelaide)."
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_12_3_mother",
-      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_12_3_mother: Adelaide Bouchard (mother, held as hh_bouchard_adelaide); the entry dated 1833-08-18 also names Isabelle Bouchard (child, held as hh_isabelle_bouchard); Andrew Bouchard (father, nobody here). hh_isabelle_bouchard is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_12_4_sponsor",
@@ -496,11 +455,6 @@
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_12_5_sponsor",
       "rule": "the_register_appearance_identity_was_refused_in_the_crosswalk",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_12_5_sponsor: Josette Chevalier stands as sponsor at a register entry dated 1833-08-18 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_3_mother",
-      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_14_3_mother: Marianne (mother, held as hh_cr_marianne); the entry dated 1833-10 also names Jean Baptiste Aspam (child, held as hh_aspam_jean_baptiste); Antoine Aspam (father, held as hh_aspam_antoine). hh_cr_marianne is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_4_sponsor",
@@ -526,21 +480,6 @@
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_15_5_sponsor",
       "rule": "the_register_appearance_identity_was_refused_in_the_crosswalk",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_15_5_sponsor: Monique Nadeau stands as sponsor at a register entry dated 1833-10-04 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_16_2_father",
-      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_16_2_father: François Tranche (father, held as hh_fran_ois_tranche); the entry dated 1833-10-08 also names Susanne Tranche (child, held as hh_tranche_susanne); Josette Aspam (mother, held as hh_aspam_josette). hh_fran_ois_tranche is written whole by its stage's build, so the tie is T-2191's to write through it."
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_17_3_mother",
-      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_17_3_mother: Marianne (mother, held as hh_cr_marianne); the entry dated 1833-10-08 also names Magdeleine Aspam (child, held as hh_aspam_magdeleine); Antoine Aspam (father, held as hh_aspam_antoine). hh_cr_marianne is written whole by its stage's build, so the tie is T-2191's to write through it."
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_3_mother",
-      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_18_3_mother: Jaespquaa (mother, held as hh_cr_jaespquaa); the entry dated 1833-10-10 also names Susanne Vieaux (child, held as hh_vieaux_susanne); Paul Vieau (father, held as hh_vieau_paul). hh_cr_jaespquaa is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_4_godfather",
@@ -583,11 +522,6 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_16_4_godfather: N. Thob stands as godfather at a register entry dated 1834-06-29 at Chicago. st_marys_baptisms_crosswalk.json rules it 'no_candidate': NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_18_2_father",
-      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_18_2_father: Patrick Wagon (father, held as hh_patrick_wagon); the entry dated 1834-07-16 also names Cicely Wagon (child, held as hh_wagon_cicely); Mary Duggan (mother, held as hh_duggan_mary). hh_patrick_wagon is written whole by its stage's build, so the tie is T-2191's to write through it."
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_19_2_father",
       "rule": "the_family_pass_finds_an_identity_nobody_has_asserted",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_19_2_father: Mark Beaubien (father, a name the town holds with no card claiming the row); the entry dated 1834-08-06 also names Eléonore Beaubien (child, held as hh_beaubien_elonore); Monique Nadeau (mother, held as hh_nadeau_monique)."
@@ -616,11 +550,6 @@
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_23_4_godfather",
       "rule": "the_register_appearance_names_nobody_this_town_holds",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_23_4_godfather: M. Rowe stands as godfather at a register entry dated 1834-12-29 at Chicago. st_marys_baptisms_crosswalk.json rules it 'no_candidate': NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_24_3_mother",
-      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_24_3_mother: Manqua Masqua (mother, held as hh_manqua_masqua); the entry dated 1834-12-29 also names Cécile Laframboise (child, held as hh_laframboise_ccile); Claude Laframboise (father, held as hh_laframboise_claude). hh_manqua_masqua is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_24_4_godfather",

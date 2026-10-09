@@ -123,6 +123,17 @@
   {
    "person": "mayo_joseph",
    "relation": "son",
+   "household": "hh_marguerite_malore",
+   "value": "marguerite_malore",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME (T-2191). Entry 2 of 1833: On the 26th of may eighteen hundred thirty three I, the undersigned, baptised Joseph son of Michel Mayo and of Marguerit Malore[?] born the 5[?] of 9ber 1832. Sponsors were Joseph Laframboise and Archange Beaubien. The two cards are the ones that carry this entry's rows (st_marys_bapt_1833_02_3_mother, st_marys_bapt_1833_02_1_child), so no identification is made here. The parent's term is the register's role column; the child's is the entry's own word, 'son'. hh_marguerite_malore is written whole by its build, and tools/generated_card_kin.py derives both rows of this tie from the one entry, so a rebuild writes them again rather than losing one."
+  },
+  {
+   "person": "mayo_joseph",
+   "relation": "son",
    "household": "hh_mayo_michel",
    "value": "mayo_michel",
    "confidence": "attested",

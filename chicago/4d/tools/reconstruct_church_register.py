@@ -56,11 +56,12 @@ FIVE THINGS THIS STAGE DOES, AND WHY EACH IS THE SOURCE'S OWN STRUCTURE AND NOT 
      reading rather than carded as a second woman — the shape T-1562 settled for Samuel Toby,
      whose three printings are one sighting.
 
-     It is used for NOTHING ELSE. No tie is written onto any card: not to the husband, not
-     to the children, not to the sponsors. The kinship the register states on a dated line
-     is T-1335's field, every one of these rows names T-1335 in its `ledger_reason`, and
-     `what_is_handed_to_the_family_pass` in the record below says exactly what is being
-     handed over and to whom.
+     It is used for NOTHING ELSE: no tie is written to the husband or to the sponsors. The
+     one tie a card here DOES carry is the one the entry states outright — she is the mother
+     of the child it baptises — and since T-2191 that row is derived by
+     tools/generated_card_kin.py from the entry itself and written by this build, onto the
+     households/ card that carries the child's row, so a rebuild writes it again rather than
+     losing it. The family pass (T-1335) ruled every other tie on these lines.
 
   4. NO NATION IS WRITTEN, AND ONE ORIGIN IS. `sauvage` is the priest's word for an
      Indigenous woman; it is this project's word for nothing, and it names no nation, band
@@ -96,6 +97,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from resident_mint_carry import carry_seats  # noqa: E402
+from generated_card_kin import kin_rows, with_kin  # noqa: E402
 
 from reconstruct_residents_1835 import (  # noqa: E402
     RECONSTRUCTED, UNDERDOCUMENTED_STAGE, check_reconstructed_person, load_programme, stages)
@@ -166,8 +168,9 @@ REFUSALS = {
         "the same spouse written beside her on the line. Two printings of one reading are "
         "not two people — the shape T-1562 settled for the three printings of Samuel Toby — "
         "so one card is written and this row is refused. The spouse's name is read here as "
-        "a DISCRIMINATOR on the page and for nothing else: no kin tie is written onto any "
-        "card, and the family pass that owns the tie is named on the card instead."),
+        "a DISCRIMINATOR on the page and for nothing else: no marriage tie is written onto "
+        "any card, and the parent tie the entry states is written from the entry itself "
+        "(T-2191), not from the spouse."),
     "a_card_of_this_reading_already_stands": (
         "A person already in the layer bears this whole reading. The surname-and-initial "
         "key the sibling stages collide on is empty for a one-word name and can say nothing "
@@ -371,11 +374,12 @@ def card_for(row, record, spouse, kin, hid, pid, sources, presence, appearances)
                 "ticket": FAMILY_PASS,
                 "named_on_the_same_entries": kin,
                 "what_is_handed": (
-                    "The kinship these entries state — who is whose child, whose wife, whose "
-                    "godparent — is NOT joined here and no tie is written onto this card. "
-                    f"The roster's own ledger hands every one of these rows to {FAMILY_PASS}, "
-                    "the family pass proper, and that is where the tie belongs. What this "
-                    "stage takes off the same line is the spouse's name, used once, as a "
+                    "The one tie these entries state outright — she is the mother of the "
+                    "child baptised — is written onto this card as a `kin` row by "
+                    f"{FAMILY_PASS}'s derivation (tools/generated_card_kin.py), from the "
+                    "entry and the households/ card that carries the child's row. Nothing "
+                    "else is joined: not the husband, not the godparents. What this stage "
+                    "takes off the same line is the spouse's name, used once, as a "
                     "discriminator that tells two printings of one woman from two women."),
             },
             "withdrawn_if": ("a ruling that this reading is a duplicate of a card the town "
@@ -697,9 +701,9 @@ def derive() -> tuple[dict, dict]:
                 "of one woman from two women."),
             "the_spouse_is_a_discriminator_and_not_a_tie": (
                 "The father named on the same line is read once, to tell one woman from "
-                "another, and for nothing else. No kin tie is written onto any card. The "
-                f"kinship the register states is {FAMILY_PASS}'s field, every one of these "
-                f"rows names it in its ledger reason, and each card carries "
+                "another, and for nothing else. No marriage tie is written onto any card. "
+                f"The parent tie the entry states is written by {FAMILY_PASS}'s derivation, "
+                "tools/generated_card_kin.py, from the entry itself; each card carries "
                 "`handed_to_the_family_pass` naming who else the entry names."),
             "no_nation_is_written_and_one_place_is": (
                 "`sauvage` names no nation, band or village, so `community` is `native` — "
@@ -758,6 +762,13 @@ def derive() -> tuple[dict, dict]:
     # T-1489. The seat another pass drew for these people, carried through the rebuild —
     # the same fixed-slot carry the sibling sub-stages of this directory already use.
     carry_seats(cards, CARDS)
+    # T-2191. The parent ties each entry that names her states, onto the households/ card
+    # that carries the child's row, written by this build so a rebuild writes them again.
+    # The spouse is still a discriminator and not a tie: a marriage is not a parent tie,
+    # and the register's baptisms state none of their own.
+    for hid, card in cards.items():
+        rids = [a["record_id"] for a in card["underdocumented"]["entries_that_name_her"]]
+        cards[hid] = with_kin(card, kin_rows(hid, card["head"], rids))
     return record, cards
 
 
@@ -899,8 +910,8 @@ def check() -> int:
           f"review_required and touches_removal with its own sentence")
     print(f"  ok    {c['withheld']} row(s) withheld, each with a named reason; "
           f"{c['already_on_a_card']} already on a card")
-    print(f"  ok    no surname is invented, and the kinship is handed to {FAMILY_PASS} "
-          f"rather than joined here")
+    print(f"  ok    no surname is invented, and the only tie written is the entry's parent "
+          f"tie, as {FAMILY_PASS}'s derivation writes it")
     return 0
 
 
@@ -964,9 +975,14 @@ def self_test() -> int:
                  for c in cards.values()))
     case("no surname is invented for anybody",
          all(" " not in c["persons"][0]["name"] for c in cards.values()))
-    case("no kin tie is written onto a card",
-         all(not any(k in c for k in ("spouse", "members", "kin", "family"))
+    case("the only kin on a card is the entry's parent tie, as the derivation writes it",
+         all(not any(k in c for k in ("spouse", "members", "family"))
              for c in cards.values())
+         and all(c.get("kin", []) == kin_rows(
+                     hid, c["head"], [a["record_id"] for a in
+                                      c["underdocumented"]["entries_that_name_her"]])
+                 for hid, c in cards.items())
+         and all(k["relation"] == "mother" for c in cards.values() for k in c.get("kin", []))
          and all(c["underdocumented"]["handed_to_the_family_pass"]["ticket"] == FAMILY_PASS
                  for c in cards.values()))
     case("every withheld row names a reason this file states",

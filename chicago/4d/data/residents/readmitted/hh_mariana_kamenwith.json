@@ -47,6 +47,30 @@
    "match": "any source naming this person at Chicago on or after 1 July 1835"
   }
  },
+ "kin": [
+  {
+   "person": "mariana_kamenwith",
+   "relation": "mother",
+   "household": "hh_wode_catherine",
+   "value": "wode_catherine",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME (T-2191). Entry 9 of 1833: On the fourteenth of July eighteen hundred & thirty three I, the undersigned, baptised Mary and Catherine daughters of John Wode and Mariana Kamenwith[?] born the 16th July 1833. Sponsors were Jacob Jolly and Catherine Harrington. The two cards are the ones that carry this entry's rows (st_marys_bapt_1833_09_4_mother, st_marys_bapt_1833_09_2_child), so no identification is made here. The parent's term is the register's role column; the child's is the entry's own word, 'daughters'. hh_mariana_kamenwith is written whole by its build, and tools/generated_card_kin.py derives both rows of this tie from the one entry, so a rebuild writes them again rather than losing one."
+  },
+  {
+   "person": "mariana_kamenwith",
+   "relation": "mother",
+   "household": "hh_wode_mary",
+   "value": "wode_mary",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME (T-2191). Entry 9 of 1833: On the fourteenth of July eighteen hundred & thirty three I, the undersigned, baptised Mary and Catherine daughters of John Wode and Mariana Kamenwith[?] born the 16th July 1833. Sponsors were Jacob Jolly and Catherine Harrington. The two cards are the ones that carry this entry's rows (st_marys_bapt_1833_09_4_mother, st_marys_bapt_1833_09_1_child), so no identification is made here. The parent's term is the register's role column; the child's is the entry's own word, 'daughters'. hh_mariana_kamenwith is written whole by its build, and tools/generated_card_kin.py derives both rows of this tie from the one entry, so a rebuild writes them again rather than losing one."
+  }
+ ],
  "persons": [
   {
    "id": "mariana_kamenwith",

@@ -130,6 +130,17 @@
     "st_marys_baptismal_register_1833_1835"
    ],
    "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le huit october mil huit cent trente trois, je soussigné ai baptisé Magdelene fille d'Antoine Aspam et de Marianne (sauvage) née le vingt neuf mars[?] mil huit cent trente trois. Parrain et marraine ont été Jean Baptiste Lavigne et Josette Aspam. Both cards were minted from this entry's rows (st_marys_bapt_1833_17_2_father, st_marys_bapt_1833_17_1_child), so no identification is made here. The daughter term is the entry's: 'Magdelene fille d'Antoine Aspam'."
+  },
+  {
+   "person": "aspam_magdeleine",
+   "relation": "daughter",
+   "household": "hh_cr_marianne",
+   "value": "marianne",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME (T-2191). Entry 17 of 1833: Le huit october mil huit cent trente trois, je soussigné ai baptisé Magdelene fille d'Antoine Aspam et de Marianne (sauvage) née le vingt neuf mars[?] mil huit cent trente trois. Parrain et marraine ont été Jean Baptiste Lavigne et Josette Aspam. The two cards are the ones that carry this entry's rows (st_marys_bapt_1833_17_3_mother, st_marys_bapt_1833_17_1_child), so no identification is made here. The parent's term is the register's role column; the child's is the entry's own word, 'fille'. hh_cr_marianne is written whole by its build, and tools/generated_card_kin.py derives both rows of this tie from the one entry, so a rebuild writes them again rather than losing one."
   }
  ],
  "persons": [

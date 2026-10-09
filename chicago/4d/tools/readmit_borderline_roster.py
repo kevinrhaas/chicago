@@ -59,6 +59,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from migrate_attribute_tiers import check_tier_block  # noqa: E402
 from death_readings import church_deaths, latest_day  # noqa: E402  (T-2189)
+from generated_card_kin import kin_rows, register_record_id, with_kin  # noqa: E402
 from reconstruct_residents_1835 import (  # noqa: E402
     READMISSION_PASS, RECONSTRUCTED, check_reconstructed_person, draw, load_programme,
     seed_for, stages)
@@ -773,6 +774,14 @@ def derive() -> tuple[dict, dict]:
         "minted": minted,
         "withheld": sorted(withheld, key=lambda w: w["row_id"]),
     }
+    # T-2191. The parent ties St Mary's register states between a card written here and a
+    # card on households/, derived from the entry and resolved by back-link. They are
+    # written by this build because a kin row typed onto a readmitted card is gone on the
+    # next one; tools/generated_card_kin.py --land writes the mirror on the households/ end.
+    for hid, card in cards.items():
+        rid = register_record_id(card["readmission"]["row_id"])
+        if rid:
+            cards[hid] = with_kin(card, kin_rows(hid, card["head"], [rid]))
     return record, cards
 
 
