@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1589, ts: '2026-10-09T20:12:36.431Z', date: 'Oct 9, 2026, 3:12 PM CT', title: '117 more houses now name the household living in them', kind: 'fix',
+  { v: 1590, ts: '2026-10-09T20:50:46.746Z', date: 'Oct 9, 2026, 3:50 PM CT', title: '117 more houses now name the household living in them', kind: 'fix',
     items: [
       'The town gave 117 houses to households known only from the post office\u2019s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address, so each of those houses stood empty with a note saying why.',
       'Those houses now go to the next households in line for that kind of house. Open one of them and its card names who lives there. 205 houses now name their household, up from 98.',
       'Ten houses still stand empty, because the household next in line is known by no source. The 98 households already named have not moved.',
+    ] },
+  { v: 1589, ts: '2026-10-09T19:59:53.408Z', date: 'Oct 9, 2026, 2:59 PM CT', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
+    items: [
+      'The town counted 31 households as housed because their card named the building they worked in. They had no home in the scene. Among them were the Harmon brothers, John Calhoun of the Chicago Democrat, George W. Dole and Archibald Clybourne. Each now has a home of its own on the building cards, the same way every other household is placed.',
+      'John Calhoun now lives over his store on South Water Street, and Asahel Pierce over his on the West Side. The rest live in ordinary houses or board in their own part of town.',
+      'The town is still kept no more crowded than the census of November 1835. Seating these households fills that room, so 29 more households now wait for a house still to be built, up from 24 to 53. The completion audit and the population counts now leave the place of work out too.',
     ] },
   { v: 1588, ts: '2026-10-09T19:28:35.221Z', date: 'Oct 9, 2026, 2:28 PM CT', title: 'Glessner roof tiles follow the documented size', kind: 'fix',
     items: [
