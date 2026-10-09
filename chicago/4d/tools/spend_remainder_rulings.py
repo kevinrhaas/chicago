@@ -1795,7 +1795,17 @@ def self_test() -> int:
                 failures.append(f"{row['unit']}: carries no note")
             if not row["unit"].startswith(domain + ":"):
                 failures.append(f"{row['unit']}: ruled in the {domain} register")
-    unfired = sorted(set(RULES) - {rule for doc in documents.values() for rule in doc["counts"]})
+    # T-2189: a family-pass rule may fire only on the press-bounds route, which asks the
+    # family pass about a kin unit BEFORE any card asserts it (T-2190). The two death
+    # notices whose dead are carded `absent` close asserted on those cards, so this
+    # register no longer meets them; their `ended_before_the_scene` ruling still fires
+    # there, and a rule that fires is not a dead rule.
+    import spend_press_bounds as P
+    P.rows(ROOT)
+    family_fired = {FAMILY.VERDICTS[FAMILY.authored()[uid]["verdict"]]
+                    for uid in FAMILY.CONSUMED if uid in FAMILY.authored()}
+    unfired = sorted(set(RULES) - {rule for doc in documents.values() for rule in doc["counts"]}
+                     - family_fired)
     if unfired:
         failures.append("rules that never fire over the committed corpora: " + ", ".join(unfired))
 
