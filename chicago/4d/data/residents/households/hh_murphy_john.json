@@ -77,6 +77,30 @@
   ],
   "note": "Andreas, twice, in two chapters."
  },
+ "associated_with": [
+  {
+   "kind": "home",
+   "place_or_structure_id": "exchange_coffee_house",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "attested",
+   "source_id": "andreas_1884_v1",
+   "note": "A hotel keeper of this period lived in the house he kept, and Andreas has them 'there' until they 'removed to the old Sauganash' in 1836 - a verb about moving house. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_murphy_john#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+  },
+  {
+   "kind": "workplace",
+   "place_or_structure_id": "exchange_coffee_house",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "attested",
+   "source_id": "andreas_1884_v1",
+   "note": "Andreas, twice, in two chapters. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_murphy_john#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+  }
+ ],
  "present_on_scene_date": {
   "value": "present",
   "confidence": "attested",

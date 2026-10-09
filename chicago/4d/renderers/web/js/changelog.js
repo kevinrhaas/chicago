@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1557, ts: '2026-10-09T02:35:48.434Z', date: 'Oct 8, 2026, 9:35 PM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
+  { v: null, ts: '', date: '', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
     items: [
       'The St Cyr burial register and the Chicago Democrat\u2019s death notices bury thirteen people before the scene date, among them W. Brannen, John Hogan, William Bourque, Sarah Hoit and two-year-old Charles Rollins. They were still counted in the town. Their cards in the People directory now say they had died, and cite the entry.',
       'Three of them headed houses that had been given a reconstructed wife and children. Those twelve invented people are withdrawn. Two women who had been reconstructed as wives of men who had died now head their own houses again.',
       'Two people the town had added from the burial register itself are no longer added. The postmaster John S. C. Hogan is a different man and stays.',
+    ] },
+  { v: 1557, ts: '2026-10-09T02:41:41.600Z', date: 'Oct 8, 2026, 9:41 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
+    items: [
+      'Open a household in the People directory, such as John Davis at the Steamboat Hotel. The section \u201cWhere this household was, and when\u201d now lists its home and workplace beside its church, offices and land. Until now 64 of these cards gave a home or workplace only in the single \u201cLived at\u201d and \u201cWorked at\u201d lines.',
+      'That is 80 places, each with the same confidence and sources it already had. Where two sources say it, both are now cited. No source gives the years, so each one says \u201cno date either end\u201d.',
     ] },
   { v: 1556, ts: '2026-10-09T02:21:44.544Z', date: 'Oct 8, 2026, 9:21 PM CT', title: 'The riverside block at Lake and Franklin joins the town', kind: 'feature',
     items: [

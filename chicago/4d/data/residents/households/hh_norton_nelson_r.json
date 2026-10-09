@@ -63,6 +63,19 @@
   ],
   "note": "A BUILT-BY LINK RATHER THAN A WORKPLACE. He built the Dearborn Street drawbridge in March 1834, sixteen months before the scene date; what he was building on 1 July 1835 is not stated, and the sloop Clarissa was not launched until May 1836. The grade marks the difference."
  },
+ "associated_with": [
+  {
+   "kind": "workplace",
+   "place_or_structure_id": "dearborn_street_drawbridge",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "inferred",
+   "source_id": "andreas_1884_v1",
+   "note": "A BUILT-BY LINK RATHER THAN A WORKPLACE. He built the Dearborn Street drawbridge in March 1834, sixteen months before the scene date; what he was building on 1 July 1835 is not stated, and the sloop Clarissa was not launched until May 1836. The grade marks the difference. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_norton_nelson_r#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+  }
+ ],
  "present_on_scene_date": {
   "value": "present",
   "confidence": "attested",
