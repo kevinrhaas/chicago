@@ -3,6 +3,101 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 101,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1133,
+      "takenAt": "2026-10-09T01:08:16.541Z",
+      "ref": "steward/t-2198-glessner-source-audit",
+      "commit": "550336ed97fc",
+      "devCommit": "14ee07c9a701",
+      "treeHash": "sha256:605c60378284dc0c",
+      "treeDirty": false,
+      "changelogHash": "sha256:254c731bfef26bfe",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          1,
+          3.4,
+          4.2
+        ]
+      },
+      "source": "tickets/evidence/glessner-exterior-audit-2026-10-08/t2198/smoke-desktop.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 101,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 764,
+      "takenAt": "2026-10-09T01:08:16.431Z",
+      "ref": "steward/t-2198-glessner-source-audit",
+      "commit": "550336ed97fc",
+      "devCommit": "14ee07c9a701",
+      "treeHash": "sha256:605c60378284dc0c",
+      "treeDirty": false,
+      "changelogHash": "sha256:254c731bfef26bfe",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          1,
+          3.4,
+          4.2
+        ]
+      },
+      "source": "tickets/evidence/glessner-exterior-audit-2026-10-08/t2198/smoke-mobile.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 5,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: scene reaches ready — timed out | agency_striker_log_house: review_required is set — this scene cannot be released | beaubien_barn: review_required is set — this scene cannot be released | beaubien_trading_post: review_required is set — this scene cannot be released"
+      ],
+      "wallSeconds": 110,
+      "takenAt": "2026-10-09T01:08:16.325Z",
+      "ref": "steward/t-2198-glessner-source-audit",
+      "commit": "550336ed97fc",
+      "devCommit": "14ee07c9a701",
+      "treeHash": "sha256:605c60378284dc0c",
+      "treeDirty": false,
+      "changelogHash": "sha256:254c731bfef26bfe",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          1,
+          3.4,
+          4.2
+        ]
+      },
+      "source": "tickets/evidence/glessner-exterior-audit-2026-10-08/t2198/smoke-desktop-startup-timeout.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "14",
       "parts": [
         14
@@ -1794,103 +1889,6 @@
         "note": "GitHub-hosted ubuntu-latest. Load and smoke-tree digest were not captured on CI; commit and start time are from workflow metadata."
       },
       "source": "gh-run:36935238477 https://github.com/kevinrhaas/chicago/actions/runs/36935238477"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1-6",
-      "parts": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 294,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1684,
-      "takenAt": "2026-10-01T22:27:02Z",
-      "ref": "steward/t-1830-glessner-west-wing-alcove",
-      "commit": "a8fac67bf785a0849133c117ae245db1681cb959",
-      "devCommit": "6b3ef7a79bda6114507bf7987d3b8ceb072e056e",
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest. Load and smoke-tree digest were not captured on CI; commit and start time are from workflow metadata."
-      },
-      "source": "gh-run:36935126175 https://github.com/kevinrhaas/chicago/actions/runs/36935126175"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "7-13",
-      "parts": [
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 290,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1735,
-      "takenAt": "2026-10-01T22:25:34Z",
-      "ref": "steward/t-1830-glessner-west-wing-alcove",
-      "commit": "a8fac67bf785a0849133c117ae245db1681cb959",
-      "devCommit": "6b3ef7a79bda6114507bf7987d3b8ceb072e056e",
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest. Load and smoke-tree digest were not captured on CI; commit and start time are from workflow metadata."
-      },
-      "source": "gh-run:36934979246 https://github.com/kevinrhaas/chicago/actions/runs/36934979246"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1-6",
-      "parts": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 297,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 857,
-      "takenAt": "2026-10-01T22:22:31Z",
-      "ref": "steward/t-1830-glessner-west-wing-alcove",
-      "commit": "a8fac67bf785a0849133c117ae245db1681cb959",
-      "devCommit": "6b3ef7a79bda6114507bf7987d3b8ceb072e056e",
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest. Load and smoke-tree digest were not captured on CI; commit and start time are from workflow metadata."
-      },
-      "source": "gh-run:36934663500 https://github.com/kevinrhaas/chicago/actions/runs/36934663500"
     }
   ]
 }
