@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1597, ts: '2026-10-09T22:35:16.554Z', date: 'Oct 9, 2026, 5:35 PM CT', title: 'A building card\u2019s residents are read from their dated places', kind: 'fix',
+  { v: 1598, ts: '2026-10-09T23:01:10.824Z', date: 'Oct 9, 2026, 6:01 PM CT', title: 'A building card\u2019s residents are read from their dated places', kind: 'fix',
     items: [
       'Open a building and look at who lived or worked there: each household\u2019s reason for being on that card is now the note on its dated place, the same entry its own card lists with its years. Fifty-five buildings show the fuller wording.',
       'The People directory\u2019s homes and workplaces come from the same dated places, and none of them changed. Lodgers in the hotels and boarding houses, and the lighthouse keeper\u2019s household, now carry their beds in that form too.',
+    ] },
+  { v: 1597, ts: '2026-10-09T22:32:18.330Z', date: 'Oct 9, 2026, 5:32 PM CT', title: 'A household\u2019s home and workplace are named once, with their dates', kind: 'fix',
+    items: [
+      'Open John Davis\u2019s household in People. The Steamboat Hotel used to appear three times on his card: once in \u201cLived at\u201d, once in \u201cWorked at\u201d, and again in \u201cWhere this household was, and when\u201d. Now it appears only in that last section, which gives each place its dates and its evidence.',
+      'The same happens on the 67 household cards that name a home or a workplace. A card with no known home or workplace still shows \u201cLived at: not recorded\u201d and the reason, because that reason has nowhere else to go.',
+      'The build now refuses any household that names a home or workplace without a dated entry for it, so removing the old lines hides nothing. Nothing in the 3-D town changes.',
     ] },
   { v: 1596, ts: '2026-10-09T22:15:28.289Z', date: 'Oct 9, 2026, 5:15 PM CT', title: '117 more houses now name the household living in them', kind: 'fix',
     items: [

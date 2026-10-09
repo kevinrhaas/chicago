@@ -5852,8 +5852,10 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
                                        structure_ids=structure_ids, source_ids=source_ids,
                                        divisions=divisions, scene=scene,
                                        tracts=tracts)
-                for msg in singular_drift(p, p.get("associated_with")):
-                    rep.error(pwhere, msg)
+            # T-2258: outside the `if`. The card names a home and a workplace only
+            # from these rows, so a singular link no row carries would go unprinted.
+            for msg in singular_drift(p, p.get("associated_with") or []):
+                rep.error(pwhere, msg)
 
             check_resident_roles(pwhere, p, occupations, source_ids, rep)
 
@@ -5957,8 +5959,11 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
                                    structure_ids=structure_ids, source_ids=source_ids,
                                    divisions=divisions, scene=scene,
                                    tracts=tracts)
-            for msg in singular_drift(h, h.get("associated_with")):
-                rep.error(where, msg)
+        # T-2258: outside the `if`. The household card no longer prints the
+        # singular pair, so a `lives_at`/`works_at` no plural row carries would be a
+        # claim the visitor is never shown. Refused even on a record with no rows.
+        for msg in singular_drift(h, h.get("associated_with") or []):
+            rep.error(where, msg)
 
         # --- kin: the link out of this record -------------------------------
         # Shape and local resolution here; the other end is checked after the
