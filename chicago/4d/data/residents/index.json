@@ -407,12 +407,12 @@
   ]
  },
  "counts": {
-  "households": 1457,
-  "persons": 2898,
+  "households": 1459,
+  "persons": 2886,
   "by_grade": {
    "attested": 412,
    "inferred": 1028,
-   "reconstructed": 1458
+   "reconstructed": 1446
   },
   "letter_list_only": 773,
   "projected_residents": 759,
@@ -420,7 +420,7 @@
   "reconstructed_removed_in_2026_09_02_synthesis": 108,
   "civic_mint": 509,
   "merged_away": 72,
-  "houses": 218,
+  "houses": 220,
   "awaiting_a_household": 1239
  },
  "households": [
@@ -1982,7 +1982,7 @@
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "uncertain",
+   "present_on_scene_date": "absent",
    "review_required": false
   },
   {
@@ -3406,14 +3406,13 @@
    "head": "bourque_william",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 7,
+   "persons": 1,
    "grades": {
-    "inferred": 1,
-    "reconstructed": 6
+    "inferred": 1
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "uncertain",
+   "present_on_scene_date": "absent",
    "review_required": false
   },
   {
@@ -3563,7 +3562,7 @@
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "uncertain",
+   "present_on_scene_date": "absent",
    "review_required": false
   },
   {
@@ -3613,7 +3612,7 @@
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "uncertain",
+   "present_on_scene_date": "absent",
    "review_required": false
   },
   {
@@ -4550,7 +4549,7 @@
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "uncertain",
+   "present_on_scene_date": "absent",
    "review_required": false
   },
   {
@@ -5299,7 +5298,7 @@
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "uncertain",
+   "present_on_scene_date": "absent",
    "review_required": false
   },
   {
@@ -8536,14 +8535,13 @@
    "head": "fisher_pitman",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 6,
+   "persons": 1,
    "grades": {
-    "attested": 1,
-    "reconstructed": 5
+    "attested": 1
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "uncertain",
+   "present_on_scene_date": "absent",
    "review_required": false
   },
   {
@@ -10072,14 +10070,13 @@
    "head": "hamilton_diana",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 4,
+   "persons": 1,
    "grades": {
-    "attested": 1,
-    "reconstructed": 3
+    "attested": 1
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "uncertain",
+   "present_on_scene_date": "absent",
    "review_required": false
   },
   {
@@ -10780,7 +10777,7 @@
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "uncertain",
+   "present_on_scene_date": "absent",
    "review_required": false
   },
   {
@@ -10845,7 +10842,7 @@
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "uncertain",
+   "present_on_scene_date": "absent",
    "review_required": false
   },
   {
@@ -13604,7 +13601,7 @@
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "uncertain",
+   "present_on_scene_date": "absent",
    "review_required": false
   },
   {
@@ -16935,14 +16932,13 @@
    "head": "outhet_daniel",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 5,
+   "persons": 1,
    "grades": {
-    "attested": 1,
-    "reconstructed": 4
+    "attested": 1
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "uncertain",
+   "present_on_scene_date": "absent",
    "review_required": false
   },
   {
@@ -18232,6 +18228,21 @@
    "dwelling_evidence": "the_programme_built_it_as_a_house"
   },
   {
+   "id": "hh_rc_bourassa_madeleine",
+   "file": "households/hh_rc_bourassa_madeleine.json",
+   "head": "rc_bourassa_madeleine",
+   "division": "south",
+   "persons": 5,
+   "grades": {
+    "reconstructed": 5
+   },
+   "lives_at": null,
+   "works_at": null,
+   "present_on_scene_date": "present",
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
+  },
+  {
    "id": "hh_rc_carroll_ellen",
    "file": "households/hh_rc_carroll_ellen.json",
    "head": "rc_carroll_ellen",
@@ -18284,6 +18295,21 @@
    "persons": 9,
    "grades": {
     "reconstructed": 9
+   },
+   "lives_at": null,
+   "works_at": null,
+   "present_on_scene_date": "present",
+   "review_required": false,
+   "dwelling_evidence": "the_programme_built_it_as_a_house"
+  },
+  {
+   "id": "hh_rc_connor_margaret",
+   "file": "households/hh_rc_connor_margaret.json",
+   "head": "rc_connor_margaret",
+   "division": "north",
+   "persons": 6,
+   "grades": {
+    "reconstructed": 6
    },
    "lives_at": null,
    "works_at": null,
@@ -19519,14 +19545,13 @@
    "head": "rollins_charles",
    "division": "unplaced",
    "division_reconstructed": "north",
-   "persons": 6,
+   "persons": 1,
    "grades": {
-    "attested": 1,
-    "reconstructed": 5
+    "attested": 1
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "uncertain",
+   "present_on_scene_date": "absent",
    "review_required": false
   },
   {

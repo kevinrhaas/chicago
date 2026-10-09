@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1576, ts: '2026-10-09T13:07:52.523Z', date: 'Oct 9, 2026, 8:07 AM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
+  { v: 1577, ts: '2026-10-09T13:58:55.487Z', date: 'Oct 9, 2026, 8:58 AM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
     items: [
       'Open Silas W. Sherman\u2019s card in People. A new row, Elected to office, shows him elected sheriff in 1834 and again in 1836. The dates come from Robert Fergus\u2019s note in his 1843 Chicago directory, which the row quotes and cites.',
       'They are dates of elections, not the years he served, so the sheriff role above them keeps the 1833 to 1835 dates the town\u2019s newspapers give it. The book backs that role up and changes nothing else about him.',
+    ] },
+  { v: 1576, ts: '2026-10-09T13:08:00.450Z', date: 'Oct 9, 2026, 8:08 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
+    items: [
+      'The St Cyr burial register and the Chicago Democrat\u2019s death notices bury thirteen people before the scene date, among them W. Brannen, John Hogan, William Bourque, Sarah Hoit and two-year-old Charles Rollins. They were still counted in the town. Their cards in the People directory now say they had died, and cite the entry.',
+      'Three of them headed houses that had been given a reconstructed wife and children. Those twelve invented people are withdrawn. Two women who had been reconstructed as wives of men who had died now head their own houses again.',
+      'Two people the town had added from the burial register itself are no longer added. The postmaster John S. C. Hogan is a different man and stays.',
     ] },
   { v: 1575, ts: '2026-10-09T12:24:15.716Z', date: 'Oct 9, 2026, 7:24 AM CT', title: 'Three shopkeepers who lived elsewhere now appear at their stores', kind: 'fix',
     items: [
