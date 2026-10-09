@@ -1768,8 +1768,8 @@
     "recon_1835_blk_randolph_clark_h2_02__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 90248,
-      "inputs_sha256": "6f4f9ef41c1ba1c950c1c4f601b0ea186266b069cae0fb479d065a40002db79a",
+      "bytes": 63108,
+      "inputs_sha256": "b66e8fb5fee88ba1a590a9de183833fa9f2cf7405c298186376f5f5e5d7dc187",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_clark_h2_02"
@@ -2218,8 +2218,8 @@
     "recon_1835_blk_randolph_market_d5_11__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 39516,
-      "inputs_sha256": "8bbfc401ff548fa066d1a024da4a552b24d926b8d77c435a4cbde1f2cbc39d83",
+      "bytes": 34680,
+      "inputs_sha256": "b88939f2f432c56eb659b3276920bd56dfa3c274f8d7080cc21cb8b2632ba52e",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_market_d5_11"
@@ -3910,8 +3910,8 @@
     "recon_1835_blk_washington_market_h1_07__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 60944,
-      "inputs_sha256": "f140760cfeaf565b8dd7d540f92cb4dfec8c7ba66fc3a45b5949e70d7d9d2103",
+      "bytes": 58136,
+      "inputs_sha256": "b5c02ea63f40c4e2c4dad8e6ed6c6a6619655216e797f55840e7ddc67a828736",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_market_h1_07"
@@ -5818,8 +5818,8 @@
     "recon_1835_west_031__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 34368,
-      "inputs_sha256": "35ce2790842c16b351274a949aaad5b30b4d6031251ecbce55c0bdd69daf8b19",
+      "bytes": 38268,
+      "inputs_sha256": "3a08fab506ab23095bd2831204306caf71174b65b0117db3e57c1179bfe8b46b",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_031"
@@ -5917,8 +5917,8 @@
     "recon_1835_west_042__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 37480,
-      "inputs_sha256": "99fd20ad2ed9d823668197ef2d6aff0d6b9ae562f9a32577dd256067c2c2902b",
+      "bytes": 35608,
+      "inputs_sha256": "fe08b88f1b457c1c364b68b5c3bdd361a5cb5c507fb4cf82566d6ab77c5fa3ab",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_042"

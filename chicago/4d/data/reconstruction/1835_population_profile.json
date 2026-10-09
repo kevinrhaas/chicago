@@ -29,7 +29,7 @@
   "households_naming_a_reason": 1459,
   "households_naming_a_lives_at": 34,
   "axes_answered_by_every_person": 6,
-  "persons_answering_every_axis": 500
+  "persons_answering_every_axis": 505
  },
  "vocabulary": {
   "age_bands": [
@@ -252,8 +252,8 @@
       ],
       [
        "west",
-       13,
-       "0.9%"
+       14,
+       "1.0%"
       ],
       [
        "fort",
@@ -267,8 +267,8 @@
       ],
       [
        "unplaced",
-       1338,
-       "91.7%"
+       1337,
+       "91.6%"
       ]
      ],
      "note": ""
@@ -284,8 +284,8 @@
      "rows": [
       [
        "present",
-       504,
-       "34.5%"
+       505,
+       "34.6%"
       ],
       [
        "absent",
@@ -294,8 +294,8 @@
       ],
       [
        "uncertain",
-       934,
-       "64.0%"
+       933,
+       "63.9%"
       ]
      ],
      "note": ""
@@ -311,8 +311,8 @@
      "rows": [
       [
        "attested",
-       177,
-       "9.9%"
+       182,
+       "10.2%"
       ],
       [
        "inferred",
@@ -321,12 +321,12 @@
       ],
       [
        "reconstructed",
-       1433,
-       "80.1%"
+       1423,
+       "79.8%"
       ],
       [
        "TOTAL",
-       1789,
+       1784,
        "100.0%"
       ]
      ],
@@ -662,6 +662,18 @@
       ],
       [
        "hh_rc_connor_margaret",
+       "present_on_scene_date",
+       "present",
+       "PRESENCE IS THE HYPOTHESIS, not a finding about anybody"
+      ],
+      [
+       "hh_rc_crandall_clarissa",
+       "arrival",
+       "1835-07-01",
+       "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING"
+      ],
+      [
+       "hh_rc_crandall_clarissa",
        "present_on_scene_date",
        "present",
        "PRESENCE IS THE HYPOTHESIS, not a finding about anybody"
@@ -1127,14 +1139,14 @@
     }
    ],
    "notes": [
-    "THE TABLE ABOVE IS THE STRICTEST READING AND IT IS NOT THE POPULATION (T-1386). 934 of these households stand `uncertain` on the card because no record follows the person to 1 July 1835 — unadjudicated, never disputed. Every one of them has attested or inferred evidence of living in this town and none has evidence of being elsewhere that day, so all 1789 of their people are ruled into the town, each at the tier its own readings reach. Exactly 21 cards are out on evidence of absence. The ruling is data/reconstruction/1835_presence_rulings.json; the cards keep the inferred `uncertain` the research wrote.",
-    "No PERSON carries the `reconstructed` grade (1446) and this ticket does not move that: reconstruction begins at T-1167 under its own programme. But 130 ATTRIBUTE values already do, and a person-grade count hides them — which is the whole reason T-1158 puts a tier on the field rather than on the card."
+    "THE TABLE ABOVE IS THE STRICTEST READING AND IT IS NOT THE POPULATION (T-1386). 933 of these households stand `uncertain` on the card because no record follows the person to 1 July 1835 — unadjudicated, never disputed. Every one of them has attested or inferred evidence of living in this town and none has evidence of being elsewhere that day, so all 1784 of their people are ruled into the town, each at the tier its own readings reach. Exactly 21 cards are out on evidence of absence. The ruling is data/reconstruction/1835_presence_rulings.json; the cards keep the inferred `uncertain` the research wrote.",
+    "No PERSON carries the `reconstructed` grade (1446) and this ticket does not move that: reconstruction begins at T-1167 under its own programme. But 132 ATTRIBUTE values already do, and a person-grade count hides them — which is the whole reason T-1158 puts a tier on the field rather than on the card."
    ]
   },
   {
    "id": "completeness",
    "title": "Per-attribute completeness",
-   "lead": "THE NINE QUESTIONS ASKED OF EVERY ONE OF THE 2886 PEOPLE, TOGETHER. 6 of the nine axes leave nobody unanswered. Sex leaves 6 and age band 7 — the collective rows, \"the rest of the Beaubien household, unnamed\" and their kind, which name nobody and so can carry neither, and one row that names one woman and still earns no band; every one of them is named below. Division leaves 2379, the people of the 1338 households no source puts on a side of the river, and that is the layer's largest remaining hole: T-1198 seats the households the evidence places and T-1199 the reconstructed ones, and until they run this column cannot read zero without inventing ground. 500 people are answered on all nine. Two axes answer in a bare string that carries no confidence anywhere on the card — they are counted under \"stated, no tier written\" and not under a tier, because a value with no tier is not a value at a tier.",
+   "lead": "THE NINE QUESTIONS ASKED OF EVERY ONE OF THE 2886 PEOPLE, TOGETHER. 6 of the nine axes leave nobody unanswered. Sex leaves 6 and age band 7 — the collective rows, \"the rest of the Beaubien household, unnamed\" and their kind, which name nobody and so can carry neither, and one row that names one woman and still earns no band; every one of them is named below. Division leaves 2374, the people of the 1337 households no source puts on a side of the river, and that is the layer's largest remaining hole: T-1198 seats the households the evidence places and T-1199 the reconstructed ones, and until they run this column cannot read zero without inventing ground. 505 people are answered on all nine. Two axes answer in a bare string that carries no confidence anywhere on the card — they are counted under \"stated, no tier written\" and not under a tier, because a value with no tier is not a value at a tier.",
    "tables": [
     {
      "title": "Every person, every attribute",
@@ -1179,8 +1191,8 @@
        2886,
        "100.0%",
        141,
-       2426,
-       319,
+       2421,
+       324,
        0,
        0
       ],
@@ -1223,21 +1235,21 @@
        2886,
        "100.0%",
        74,
-       2505,
-       307,
+       2500,
+       312,
        0,
        0
       ],
       [
        "division",
        "household",
-       507,
-       "17.6%",
+       512,
+       "17.7%",
        0,
        0,
        0,
-       507,
-       2379
+       512,
+       2374
       ],
       [
        "household relationship",
@@ -1359,13 +1371,13 @@
      "rows": [
       [
        "civic",
-       1444,
+       1442,
        "60.7%"
       ],
       [
        "letter_list",
        780,
-       "32.8%"
+       "32.9%"
       ],
       [
        "documented",
@@ -1374,8 +1386,8 @@
       ],
       [
        "placed",
-       18,
-       "0.8%"
+       15,
+       "0.6%"
       ],
       [
        "unclaimed",
@@ -1383,7 +1395,7 @@
        "0.3%"
       ]
      ],
-     "note": "2379 persons in households standing `unplaced`. `unplaced` is a term in the index's own division vocabulary and it is a statement — the sources do not place this household — but it is not a division, so this section counts it unanswered."
+     "note": "2374 persons in households standing `unplaced`. `unplaced` is a term in the index's own division vocabulary and it is a statement — the sources do not place this household — but it is not a division, so this section counts it unanswered."
     }
    ],
    "notes": [
@@ -2063,8 +2075,8 @@
        1459,
        "100.0%",
        51,
-       1356,
-       52,
+       1355,
+       53,
        0
       ],
       [
@@ -2996,6 +3008,12 @@
        "Reconstructed household — Clarissa Barnes, a woman boarding with her family in the south division",
        "season_not_apportioned",
        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "reconstructed"
+      ],
+      [
+       "Reconstructed household — Clarissa Crandall, a woman keeping her own house in the west division",
+       "season_not_apportioned",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -5719,7 +5737,7 @@
       [
        "The Faraher household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
        "reconstructed"
       ],
       [
@@ -8347,7 +8365,7 @@
       [
        "The Nicole household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
        "reconstructed"
       ],
       [
@@ -8360,12 +8378,6 @@
        "The Noble household — a name the town's own records carry",
        "season_not_apportioned",
        "The trading post, the fort and the country trade — the town before the boom",
-       "reconstructed"
-      ],
-      [
-       "The Noble household — a name the town's own records carry",
-       "season_not_apportioned",
-       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -11407,7 +11419,7 @@
   {
    "id": "households",
    "title": "Household composition",
-   "lead": "1080 of 1459 households (74.0%) are ONE PERSON — a head and nobody else. That is a statement about the evidence: a post-office return names one man and says nothing about a wife. 379 households name a second person; 162 heads read as women.",
+   "lead": "1079 of 1459 households (74.0%) are ONE PERSON — a head and nobody else. That is a statement about the evidence: a post-office return names one man and says nothing about a wife. 380 households name a second person; 162 heads read as women.",
    "tables": [
     {
      "title": "Persons in the household",
@@ -11420,12 +11432,12 @@
      "rows": [
       [
        "1",
-       1080,
+       1079,
        "74.0%"
       ],
       [
        "2",
-       71,
+       72,
        "4.9%"
       ],
       [
@@ -11440,12 +11452,12 @@
       ],
       [
        "5",
-       53,
-       "3.6%"
+       54,
+       "3.7%"
       ],
       [
        "6",
-       53,
+       52,
        "3.6%"
       ],
       [
@@ -11898,7 +11910,7 @@
   {
    "id": "buildings",
    "title": "Where they meet the buildings",
-   "lead": "2686 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1372 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 179 wait on a roof not yet standing; 86 households have no dwelling. The table below reads `lives_at` alone. 659 roofs stand against a programme of 668.",
+   "lead": "2684 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1372 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 181 wait on a roof not yet standing; 86 households have no dwelling. The table below reads `lives_at` alone. 659 roofs stand against a programme of 668.",
    "tables": [
     {
      "title": "Households by division and seating",
@@ -11927,10 +11939,10 @@
       ],
       [
        "west",
-       13,
+       14,
        4,
        5,
-       9
+       10
       ],
       [
        "fort",
@@ -11948,10 +11960,10 @@
       ],
       [
        "unplaced",
-       1338,
+       1337,
        0,
        0,
-       1338
+       1337
       ],
       [
        "TOTAL",
@@ -11992,7 +12004,7 @@
     }
    ],
    "notes": [
-    "1338 of 1459 households are `unplaced` — not in any division. A person without a division cannot be housed, which is why the division axis and the lodging axis fail together."
+    "1337 of 1459 households are `unplaced` — not in any division. A person without a division cannot be housed, which is why the division axis and the lodging axis fail together."
    ]
   },
   {
@@ -12213,7 +12225,7 @@
       ],
       [
        "Abigail Ingalls",
-       "West of the Alleghenies",
+       "New England",
        "reconstructed"
       ],
       [
@@ -12448,7 +12460,7 @@
       ],
       [
        "Alanson Gilbert",
-       "New York State",
+       "New England",
        "reconstructed"
       ],
       [
@@ -12928,7 +12940,7 @@
       ],
       [
        "Alvah Crandall",
-       "New York State",
+       "New England",
        "reconstructed"
       ],
       [
@@ -12963,7 +12975,7 @@
       ],
       [
        "Alvah Rice",
-       "New York State",
+       "England",
        "reconstructed"
       ],
       [
@@ -12998,7 +13010,7 @@
       ],
       [
        "Amanda Crandall",
-       "New York State",
+       "New England",
        "reconstructed"
       ],
       [
@@ -13808,7 +13820,7 @@
       ],
       [
        "Benjamin Eastman",
-       "New England",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -13918,7 +13930,7 @@
       ],
       [
        "Betsey Gilbert",
-       "New York State",
+       "New England",
        "reconstructed"
       ],
       [
@@ -14098,7 +14110,7 @@
       ],
       [
        "Bridget Quinn",
-       "England",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -14248,7 +14260,7 @@
       ],
       [
        "Calvin Eastman",
-       "New England",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -14453,7 +14465,7 @@
       ],
       [
        "Catherine Quinn",
-       "England",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -14658,7 +14670,7 @@
       ],
       [
        "Charles Rice",
-       "New York State",
+       "England",
        "reconstructed"
       ],
       [
@@ -14848,7 +14860,7 @@
       ],
       [
        "Clarissa Crandall",
-       "New York State",
+       "New England",
        "reconstructed"
       ],
       [
@@ -15058,7 +15070,7 @@
       ],
       [
        "Cornelius Quinn",
-       "England",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -15173,7 +15185,7 @@
       ],
       [
        "Daniel Hayes",
-       "New England",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -15383,7 +15395,7 @@
       ],
       [
        "David Newell",
-       "New York State",
+       "West of the Alleghenies",
        "reconstructed"
       ],
       [
@@ -16253,7 +16265,7 @@
       ],
       [
        "Ellen Quinn",
-       "England",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -16348,7 +16360,7 @@
       ],
       [
        "Emily Eastman",
-       "New England",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -16613,7 +16625,7 @@
       ],
       [
        "Esther Newell",
-       "New York State",
+       "West of the Alleghenies",
        "reconstructed"
       ],
       [
@@ -17833,7 +17845,7 @@
       ],
       [
        "Hiram Crandall",
-       "New York State",
+       "New England",
        "reconstructed"
       ],
       [
@@ -19108,7 +19120,7 @@
       ],
       [
        "Jared Newell",
-       "New York State",
+       "West of the Alleghenies",
        "reconstructed"
       ],
       [
@@ -19803,7 +19815,7 @@
       ],
       [
        "John Quinn",
-       "England",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -20883,7 +20895,7 @@
       ],
       [
        "Lucy Newell",
-       "New York State",
+       "West of the Alleghenies",
        "reconstructed"
       ],
       [
@@ -21073,7 +21085,7 @@
       ],
       [
        "Lydia Rice",
-       "New York State",
+       "England",
        "reconstructed"
       ],
       [
@@ -21313,7 +21325,7 @@
       ],
       [
        "Margaret Hayes",
-       "New England",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -21468,7 +21480,7 @@
       ],
       [
        "Maria Gilbert",
-       "New York State",
+       "New England",
        "reconstructed"
       ],
       [
@@ -21638,7 +21650,7 @@
       ],
       [
        "Martha Eastman",
-       "New England",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -22033,7 +22045,7 @@
       ],
       [
        "Mary Quinn",
-       "England",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -23288,7 +23300,7 @@
       ],
       [
        "Phebe Eastman",
-       "New England",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -23578,7 +23590,7 @@
       ],
       [
        "Polly Newell",
-       "New York State",
+       "West of the Alleghenies",
        "reconstructed"
       ],
       [
@@ -23903,7 +23915,7 @@
       ],
       [
        "Rhoda Newell",
-       "New York State",
+       "West of the Alleghenies",
        "reconstructed"
       ],
       [
@@ -24233,7 +24245,7 @@
       ],
       [
        "Ruth Gilbert",
-       "New York State",
+       "New England",
        "reconstructed"
       ],
       [
@@ -24563,7 +24575,7 @@
       ],
       [
        "Sarah Crandall",
-       "New York State",
+       "New England",
        "reconstructed"
       ],
       [
@@ -24698,7 +24710,7 @@
       ],
       [
        "Seth Eastman",
-       "New England",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -24818,7 +24830,7 @@
       ],
       [
        "Silas Newell",
-       "New York State",
+       "West of the Alleghenies",
        "reconstructed"
       ],
       [
@@ -24983,7 +24995,7 @@
       ],
       [
        "Sophronia Rice",
-       "New York State",
+       "England",
        "reconstructed"
       ],
       [

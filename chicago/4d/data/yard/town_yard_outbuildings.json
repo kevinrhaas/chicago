@@ -133,10 +133,10 @@
   "counts": {
     "dwelling_lots": 232,
     "privies": 188,
-    "stables": 24,
+    "stables": 23,
     "privy_standing": 36,
     "stable_standing": 17,
-    "horse_households": 41,
+    "horse_households": 40,
     "refused": 8,
     "dwellings_off_plat": 134
   },
@@ -1754,21 +1754,21 @@
       "lot": "blk_randolph_market_lot1",
       "belongs_to": "recon_1835_blk_randolph_market_d5_11",
       "households": [],
-      "household_class": "tradesman",
+      "household_class": "labourer",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        119.84,
-        -325.21
+        119.92,
+        -325.13
       ],
       "bearing_deg": -179.66,
-      "along_m": 1.22,
-      "depth_m": 1.22,
-      "eave_m": 1.95,
-      "head_m": 2.2,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
       "roof": "shed",
       "weather": "fresh",
       "confidence": "reconstructed",
-      "finish": "board"
+      "finish": "slab"
     },
     {
       "id": "privy_blk_randolph_market_lot2",
@@ -2178,45 +2178,21 @@
       "lot": "blk_randolph_clark_lot4",
       "belongs_to": "recon_1835_blk_randolph_clark_h2_02",
       "households": [],
-      "household_class": "merchant",
+      "household_class": "labourer",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        636.91,
-        -321.2
+        636.68,
+        -321.28
       ],
       "bearing_deg": 0.36,
-      "along_m": 1.52,
-      "depth_m": 1.22,
-      "eave_m": 2.0,
-      "head_m": 2.3,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
       "roof": "shed",
       "weather": "weathered",
       "confidence": "reconstructed",
-      "finish": "whitewash"
-    },
-    {
-      "id": "stable_blk_randolph_clark_lot4",
-      "kind": "stable",
-      "lot": "blk_randolph_clark_lot4",
-      "belongs_to": "recon_1835_blk_randolph_clark_h2_02",
-      "households": [],
-      "household_class": "merchant",
-      "class_read_from": "fabric_basis.class (L330)",
-      "at_local_enu_m": [
-        656.87,
-        -320.14
-      ],
-      "bearing_deg": 0.36,
-      "along_m": 4.88,
-      "depth_m": 3.66,
-      "eave_m": 2.45,
-      "head_m": 3.75,
-      "roof": "gable",
-      "weather": "weathered",
-      "confidence": "reconstructed",
-      "finish": "board_and_batten",
-      "stalls": 2,
-      "kept_a_horse_because": "merchant"
+      "finish": "slab"
     },
     {
       "id": "privy_blk_randolph_clark_lot5",
