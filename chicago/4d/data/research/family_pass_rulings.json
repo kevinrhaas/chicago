@@ -8,8 +8,8 @@
    "why": "Miles Holcombe of Kaskaskia is a card here (hh_holcombe_miles, which the press register links to this very issue), and the tie the column states is his daughter's marriage. Neither Miss Holcombe nor her groom — '[an officer] of the Indian Department', his name lost to the column's damage — is a person this town holds, so neither the father-daughter tie nor the marriage has a far end."
   },
   "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_03.json#claims/c007": {
-   "verdict": "a_family_whole",
-   "why": "The column states the Noble family whole: Mark Noble jun. (hh_marknoble_jun) 'second son of Mark Nobles, Esq.' (hh_noble_mark) married Charlotte, 'only daughter of Mr. Charles Wesencraft'; Mary, 'second daughter to Mark Noble, Esq.' (hh_noble_mary), married George Bickerdyke, both on 29 November 1833. The two parent ties are written, reciprocally, between cards minted from this notice (T-2229), beside Charlotte's tie to her father that T-1134 landed. Both brides married eighteen months before the scene and where they live in 1835 is a seating question, so the marriages go to T-2230."
+   "verdict": "same_household",
+   "why": "Mark Noble jun. (hh_marknoble_jun) married Charlotte, 'only daughter of Mr. Charles Wesencraft', on 29 November 1833, and since T-2232 she is a member of his household record with relationship 'wife', seated as the wife the column prints (her card folded into his), so that tie IS the household, as Chester Ingersoll's is (T-2190). The column's two parent ties, Mark jun. 'second son of Mark Nobles, Esq.' (hh_noble_mark) and Mary 'second daughter to Mark Noble, Esq.' (hh_noble_mary), are written on both cards of each (T-2229). Mary's own marriage to George Bickerdyke, printed in the same column, is T-2233's: seating her moves T-2020's wife match."
   },
   "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_17.json#claims/c001": {
    "verdict": "same_household",

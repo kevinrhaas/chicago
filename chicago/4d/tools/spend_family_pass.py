@@ -43,7 +43,9 @@ card a BUILD writes whole (the register's underdocumented cards, the readmission
 handed to T-2191, because a kin row typed onto one is gone on the next build. One
 column, the Noble family's MARRIED notice of 3 December 1833, states two parent ties
 between held cards and two marriages: T-2229 wrote the ties onto both cards of each,
-and T-2230 owns the marriages, because seating a bride is a household edit. A second
+and T-2230 owned the marriages, because seating a bride is a household edit. T-2232
+seated Charlotte Wesencraft in Mark Noble jun.'s house, which closes the unit as the
+household itself; Mary Noble's marriage to George Bickerdyke is T-2233's. A second
 finding fell out
 of the burials: five people the registers and papers bury before 1 July 1835 are ruled
 present on it. That is not kin and not this pass's to fix; it is T-2189.
@@ -166,16 +168,6 @@ RULES = {
             "runs, so the tie is handed to the open ticket that teaches those builds to "
             "carry it: reciprocal, nobody minted, no household gaining a member."),
     },
-    "the_family_pass_finds_a_family_the_column_states_whole": {
-        "disposition": "unresolved",
-        "ticket": "T-2230",
-        "statement": (
-            "The family pass (T-1335) read a column that states a FAMILY rather than a "
-            "tie: parent ties between cards the town holds, and marriages whose brides may "
-            "still be seated in their fathers' houses. The parent ties are written on both "
-            "cards of each (T-2229). Seating a bride is a household edit this pass may not "
-            "make, so the unit stays open on the ticket that seats the marriages."),
-    },
     "the_family_pass_finds_the_tie_cannot_be_dated_against_the_scene": {
         "disposition": "refused",
         "statement": (
@@ -200,7 +192,6 @@ VERDICTS = {
     "ruled_by_the_kin_survey": "the_kin_survey_already_ruled_the_register_tie",
     "names_no_relative": "the_register_entry_names_no_relative",
     "on_a_generated_card": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
-    "a_family_whole": "the_family_pass_finds_a_family_the_column_states_whole",
     "undated": "the_family_pass_finds_the_tie_cannot_be_dated_against_the_scene",
 }
 
