@@ -1,11 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1552, ts: '2026-10-09T00:46:47.001Z', date: 'Oct 8, 2026, 7:46 PM CT', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
     items: [
       'Walk south down Wells Street past Madison. The Monroe Street corner of the block on your left is no longer empty: a roomy tradesman\u2019s house stands there, facing Monroe, a twin of the one at the block\u2019s other Monroe corner.',
       'One block west, on Market at Monroe, a larger frame house now fills the last lot the plan dealt that block. Only its Madison corner is still open.',
       'Behind the cottage on the Lake Street side of the block between Wells and LaSalle, a barn or carriage shed stands in the yard. Every barn the town plan counted for the South Division now stands.',
       'The two households who had asked for a roof here are now housed, and every household the plan seats on the town\u2019s lots now has a house.',
       'No source shows these buildings in 1835 or names them. Each card says it is reconstructed, and the Liberties page explains it (L408).',
+    ] },
+  { v: 1552, ts: '2026-10-09T00:21:57.548Z', date: 'Oct 8, 2026, 7:21 PM CT', title: 'Mark Noble\u2019s son and daughter are on his card', kind: 'fix',
+    items: [
+      'The Chicago Democrat of 3 December 1833 prints a double wedding. Mark Noble jun., \u201csecond son of Mark Nobles, Esq.\u201d, married Charlotte Wesencraft, and Mary, \u201csecond daughter to Mark Noble, Esq.\u201d, married George Bickerdyke. All three Nobles had cards, and none of them named the others.',
+      'Open Mark Noble\u2019s card now and it names his son and his daughter, quoting the notice; their cards name him back. The two weddings are not seated yet, so Mark jun.\u2019s card still shows a guessed sex and a garbled name. That comes next.',
     ] },
   { v: 1551, ts: '2026-10-08T22:48:46.097Z', date: 'Oct 8, 2026, 5:48 PM CT', title: 'Chester Ingersoll\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [

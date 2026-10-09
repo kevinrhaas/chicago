@@ -32,8 +32,8 @@
     },
     "the_family_pass_finds_a_family_the_column_states_whole": {
       "disposition": "unresolved",
-      "ticket": "T-2192",
-      "statement": "The family pass (T-1335) read a column that states a FAMILY rather than a tie: parent ties between cards the town holds, and marriages whose brides may still be seated in their fathers' houses. Writing the parent ties alone and leaving the marriages would rule the column piecemeal, and seating a bride is a household edit this pass may not make, so the unit is handed whole to the open ticket that reads it onto the cards."
+      "ticket": "T-2230",
+      "statement": "The family pass (T-1335) read a column that states a FAMILY rather than a tie: parent ties between cards the town holds, and marriages whose brides may still be seated in their fathers' houses. The parent ties are written on both cards of each (T-2229). Seating a bride is a household edit this pass may not make, so the unit stays open on the ticket that seats the marriages."
     },
     "the_family_pass_finds_an_identity_nobody_has_asserted": {
       "disposition": "refused",
@@ -272,7 +272,7 @@
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_03.json#claims/c007",
       "rule": "the_family_pass_finds_a_family_the_column_states_whole",
-      "note": "chicago_democrat_1833_12_03 c007: the family column of 1833-12-03 reads: “MARRIED, In this town, on Saturday evening 29 ult., by the Hon. R. I. Hamilton, Mr. MARK NOBLE, jun., second son of Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only …” THE FAMILY PASS: The column states the Noble family whole: Mark Noble jun. (hh_marknoble_jun) 'second son of Mark Nobles, Esq.' (hh_noble_mark) married Charlotte, 'only daughter of Mr. Charles Wesencraft'; Mary, 'second daughter to Mark Noble, Esq.' (hh_noble_mary), married George Bickerdyke, both on 29 November 1833. Two parent ties are writable between held cards, but both brides married eighteen months before the scene and where they live in 1835 is a seating question, so the unit goes whole to T-2192."
+      "note": "chicago_democrat_1833_12_03 c007: the family column of 1833-12-03 reads: “MARRIED, In this town, on Saturday evening 29 ult., by the Hon. R. I. Hamilton, Mr. MARK NOBLE, jun., second son of Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only …” THE FAMILY PASS: The column states the Noble family whole: Mark Noble jun. (hh_marknoble_jun) 'second son of Mark Nobles, Esq.' (hh_noble_mark) married Charlotte, 'only daughter of Mr. Charles Wesencraft'; Mary, 'second daughter to Mark Noble, Esq.' (hh_noble_mary), married George Bickerdyke, both on 29 November 1833. The two parent ties are written, reciprocally, between cards minted from this notice (T-2229), beside Charlotte's tie to her father that T-1134 landed. Both brides married eighteen months before the scene and where they live in 1835 is a seating question, so the marriages go to T-2230."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_03.json#claims/c014",

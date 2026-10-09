@@ -40,7 +40,10 @@ house holds a MODELLED wife while the Democrat prints his marriage to Betsy Weav
 has her own card. Writing that tie would state two wives; seating the printed bride is a
 household edit, so the unit is handed to T-2190, which owns it. Ties whose far end is a
 card a BUILD writes whole (the register's underdocumented cards, the readmissions) are
-handed to T-2191, because a kin row typed onto one is gone on the next build. A second
+handed to T-2191, because a kin row typed onto one is gone on the next build. One
+column, the Noble family's MARRIED notice of 3 December 1833, states two parent ties
+between held cards and two marriages: T-2229 wrote the ties onto both cards of each,
+and T-2230 owns the marriages, because seating a bride is a household edit. A second
 finding fell out
 of the burials: five people the registers and papers bury before 1 July 1835 are ruled
 present on it. That is not kin and not this pass's to fix; it is T-2189.
@@ -165,14 +168,13 @@ RULES = {
     },
     "the_family_pass_finds_a_family_the_column_states_whole": {
         "disposition": "unresolved",
-        "ticket": "T-2192",
+        "ticket": "T-2230",
         "statement": (
             "The family pass (T-1335) read a column that states a FAMILY rather than a "
             "tie: parent ties between cards the town holds, and marriages whose brides may "
-            "still be seated in their fathers' houses. Writing the parent ties alone and "
-            "leaving the marriages would rule the column piecemeal, and seating a bride is "
-            "a household edit this pass may not make, so the unit is handed whole to the "
-            "open ticket that reads it onto the cards."),
+            "still be seated in their fathers' houses. The parent ties are written on both "
+            "cards of each (T-2229). Seating a bride is a household edit this pass may not "
+            "make, so the unit stays open on the ticket that seats the marriages."),
     },
     "the_family_pass_finds_the_tie_cannot_be_dated_against_the_scene": {
         "disposition": "refused",
