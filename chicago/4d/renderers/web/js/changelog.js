@@ -1,8 +1,7 @@
 export const CHANGELOG = [ // newest first
-  { v: 1584, ts: '2026-10-09T17:36:18.132Z', date: 'Oct 9, 2026, 12:36 PM CT', title: 'L. Franchere and Louis Franch\u00e8re stay two cards, and the note says why', kind: 'fix',
+  { v: 1584, ts: '2026-10-09T17:34:59.494Z', date: 'Oct 9, 2026, 12:34 PM CT', title: 'The 1830 census and early directories are fully accounted for', kind: 'fix',
     items: [
-      'Open L. Franchere or Louis Franch\u00e8re in People. The note on whether they are one man now gives the answer from the printed record. Both copies of the 1834 marriage he witnessed give only the initial L.: the web transcription and the 1921 Illinois Catholic Historical Review it was copied from.',
-      'The 1921 Review also says the marriages and the 1833 baptisms are in one bound book. The project already holds that book\u2019s baptism pages but not its marriage pages, so the two cards stay apart until someone reads the marriage page itself.',
+      'Nothing you can see changes. Every name the town reads from the 1830 census now either belongs to a household in the town or has a stated reason why not. The same is true of the town directories. Claude Laframboise was the last name waiting, and he heads his own household.',
     ] },
   { v: 1583, ts: '2026-10-09T17:10:28.334Z', date: 'Oct 9, 2026, 12:10 PM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
     items: [
