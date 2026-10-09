@@ -58,7 +58,7 @@
   "the west child buckets are full": 6
  },
  "fills": {
-  "households/family_dwelling/north": 8,
+  "households/family_dwelling/north": 9,
   "households/family_dwelling/south": 16,
   "households/family_dwelling/west": 11,
   "persons/female/10_19/north/family/none": 23,
@@ -101,31 +101,31 @@
  "buckets_left_short": {},
  "folded_into_married_houses": {
   "ticket": "T-2020",
-  "households": 89,
+  "households": 88,
   "by_division": {
-   "north": 18,
+   "north": 17,
    "south": 49,
    "west": 22
   },
-  "people": 388,
+  "people": 385,
   "note": "Dealt here and then folded into a married house the order book refused a wife (data/reconstruction/1835_folded_houses.json). The counters above are the deal; `fills` no longer counts these houses as dwellings."
  },
  "measurement": {
   "the_town_the_book_counts": "present households only",
-  "people_before_this_stage": 896,
-  "people_after_this_stage": 1452,
+  "people_before_this_stage": 894,
+  "people_after_this_stage": 1450,
   "households_before_this_stage": 467,
   "households_after_this_stage": 591,
-  "female_headed_households_after": 149,
-  "female_headed_share_after": 0.2521,
+  "female_headed_households_after": 150,
+  "female_headed_share_after": 0.2538,
   "female_headed_share_1840": "not carried: the committed 1840 extract tallies a household's members by sex and age and records no sex for its head, so no measured share exists to compare this one against",
   "why_the_shares_are_not_yet_in_bracket": "THE COUNTS ARE MET AND THE SHARES ARE NOT, and that is a reading of a town half built rather than a defect of this stage. Every one of this stage's 24 buckets is filled to the number the order book asked for - `this_stage_s_buckets_left_short` is 0 - and those numbers were cut against the model's WHOLE town of 2,535 people. The layer this stage hands on holds about half of it, because the boarders, lodgers, hotel guests and crews (T-1175), the garrison (T-1349), the under-documented cohorts (T-1177) and the transients (T-1178) are not written yet and they are overwhelmingly adult and overwhelmingly male. So the children this stage seated are a larger share of a smaller town than they will be of the finished one, and the adult sex ratio is nearer the model than it was (340.2 -> 161.4) without reaching it. Reporting either as met here would be the invention this programme exists to refuse; T-1179 converges the layer and re-runs the profile.",
   "adults_after_this_stage": {
-   "male": 488,
+   "male": 487,
    "female": 244
   },
-  "adult_sex_ratio_before": 406.7,
-  "adult_sex_ratio_after": 200.0,
+  "adult_sex_ratio_before": 405.8,
+  "adult_sex_ratio_after": 199.6,
   "the_model_s_range": [
    120.9,
    150.0
@@ -133,13 +133,13 @@
   "inside_the_model_s_range": false,
   "age_pyramid_after": {
    "10_19": 301,
-   "20_29": 396,
+   "20_29": 395,
    "30_39": 233,
    "40_49": 65,
    "50_plus": 38,
-   "under_10": 411
+   "under_10": 410
   },
-  "share_under_ten_after": 0.2846,
+  "share_under_ten_after": 0.2843,
   "share_under_ten_model": [
    0.2,
    0.2702

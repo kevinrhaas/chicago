@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1568, ts: '2026-10-09T08:44:57.761Z', date: 'Oct 9, 2026, 3:44 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: 1569, ts: '2026-10-09T09:22:41.852Z', date: 'Oct 9, 2026, 4:22 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
+    ] },
+  { v: 1568, ts: '2026-10-09T08:33:20.671Z', date: 'Oct 9, 2026, 3:33 AM CT', title: 'St Mary\u2019s mothers and godmothers are women again', kind: 'fix',
+    items: [
+      'St Mary\u2019s baptismal register names each child\u2019s mother and godmother. 28 of those women had no recorded sex, and the guess for them came out male. The register now sets them as women, quoting the entry.',
+      'Twenty of them were heading a house as a married man with an invented wife and children. Eleven of those families were made up, 22 people in all, and they are gone; Catherine Chandler alone had been given a wife and five children. No one is invented in their place. A few guessed couples elsewhere in town pair up differently as a result.',
     ] },
   { v: 1567, ts: '2026-10-09T07:39:48.254Z', date: 'Oct 9, 2026, 2:39 AM CT', title: 'Twelve St Mary\u2019s children now name the parent the register gives them', kind: 'fix',
     items: [

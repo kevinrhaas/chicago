@@ -123,6 +123,20 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "modelled_family": {
+  "stage": "modelled_families",
+  "ticket": "T-2021",
+  "household_type": "family_with_children",
+  "size_drawn": 7,
+  "kin_seated": 1,
+  "seed": "hh_calhoun_alvin:household_size",
+  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house.",
+  "ruling": {
+   "ticket": "T-2021",
+   "verdict": "not_ruled_on",
+   "what_happened": "STANDS ALONE, UNRULED. This house was refused a wife after T-2021's ruling was frozen, so the ruling never saw it and does not deal it a family. The head is left as the sources leave him."
+  }
+ },
  "persons": [
   {
    "id": "calhoun_alvin",
@@ -269,15 +283,15 @@
      "premises": null
     }
    ],
-   "sex": "female",
+   "sex": "male",
    "sex_basis": {
-    "value": "female",
+    "value": "male",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "sex_share_of_the_roll",
-     "note": "Drawn at 94.7% male, the rate measured on the civic roll's own people whose sex the evidence settles. data/reconstruction/1835_sex_age_model.json holds the measurement."
+     "note": "Drawn at 95.2% male, the rate measured on the civic roll's own people whose sex the evidence settles. data/reconstruction/1835_sex_age_model.json holds the measurement."
     },
     "seed": "calhoun_alvin:sex_ratio",
     "replaceable_by": {
@@ -295,7 +309,7 @@
     "basis": {
      "kind": "model",
      "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 20 under 30', one of its female bands, conditioned on `civic_list_20_and_over` because the person stands on a poll, a tax list or a muster roll."
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 20 under 30', one of its male bands, conditioned on `civic_list_20_and_over` because the person stands on a poll, a tax list or a muster roll."
     },
     "seed": "calhoun_alvin:age_bands_1840",
     "replaceable_by": {

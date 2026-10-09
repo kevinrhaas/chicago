@@ -45,20 +45,20 @@ Baseline: `07605197356ccd8d8b4f547eccb2d1dc619ef06f` on `dev`, taken 2026-09-18 
 
 | measured | baseline | now | delta |
 |---|---:|---:|---:|
-| households in `index.json` | 1258 | 1456 | +198 |
-| household cards on disk | 1258 | 1456 | +198 |
-| persons in `index.json` | 1288 | 2920 | +1632 |
+| households in `index.json` | 1258 | 1457 | +199 |
+| household cards on disk | 1258 | 1457 | +199 |
+| persons in `index.json` | 1288 | 2898 | +1610 |
 | rows in the `merged` redirect table | 66 | 72 | +6 |
 | redirects that do not arrive | 0 | 0 | 0 |
 | persons graded `attested` | 410 | 412 | +2 |
 | persons graded `inferred` | 875 | 1028 | +153 |
-| persons graded `reconstructed` | 3 | 1480 | +1477 |
+| persons graded `reconstructed` | 3 | 1458 | +1455 |
 | 1835 sidecar files | 391 | 683 | +292 |
-| people in the 1835 people sidecar | 1288 | 3914 | +2626 |
+| people in the 1835 people sidecar | 1288 | 3892 | +2604 |
 | buildings standing in the town census | 371 | 657 | +286 |
 | people housed in the town census | 34 | 2607 | +2573 |
-| households housed in the town census | 20 | 1327 | +1307 |
-| rows in the final resident audit | 1288 | 2920 | +1632 |
+| households housed in the town census | 20 | 1329 | +1309 |
+| rows in the final resident audit | 1288 | 2898 | +1610 |
 | published resident files in the mirror | 1336 | 1426 | +90 |
 
 ## 4. T-1144's banked acceptances, as deltas

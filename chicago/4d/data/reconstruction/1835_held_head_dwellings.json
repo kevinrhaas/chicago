@@ -32,25 +32,25 @@
   "counts": {
     "records_awaiting_a_household": 1237,
     "under_a_standing_dwelling": {
-      "dealt": 250,
-      "family": 179
+      "dealt": 251,
+      "family": 181
     },
     "room_by_division": {
-      "north": 88,
+      "north": 87,
       "south": 168,
       "west": 78
     },
     "counted_by_division": {
-      "north": 88,
+      "north": 87,
       "south": 168,
       "west": 78
     },
     "counted_by_rung": {
-      "dealt": 250,
-      "family": 84
+      "dealt": 251,
+      "family": 82
     },
-    "persons_in_the_counted_houses": 973,
-    "not_counted": 99
+    "persons_in_the_counted_houses": 965,
+    "not_counted": 103
   },
   "beyond_the_index": {
     "ticket": "T-2237",
@@ -65,16 +65,16 @@
     },
     "households_by_class": {
       "a_household_of_its_own": 4,
-      "a_bed_in_a_dwelling": 476,
-      "a_bed_in_a_lodging_house": 15,
-      "filed_by_its_own_stage": 24,
+      "a_bed_in_a_dwelling": 475,
+      "a_bed_in_a_lodging_house": 16,
+      "filed_by_its_own_stage": 23,
       "not_present": 28,
       "not_seated": 0
     },
     "persons_by_class": {
       "a_household_of_its_own": 12,
-      "a_bed_in_a_dwelling": 476,
-      "a_bed_in_a_lodging_house": 15,
+      "a_bed_in_a_dwelling": 475,
+      "a_bed_in_a_lodging_house": 16,
       "filed_by_its_own_stage": 156,
       "not_present": 28,
       "not_seated": 0
@@ -84,7 +84,7 @@
         "filed_by_its_own_stage": 1
       },
       "lodgers": {
-        "filed_by_its_own_stage": 23
+        "filed_by_its_own_stage": 22
       },
       "readmitted": {
         "a_bed_in_a_dwelling": 107,
@@ -92,8 +92,8 @@
         "not_present": 10
       },
       "reconstructed_trades": {
-        "a_bed_in_a_dwelling": 297,
-        "a_bed_in_a_lodging_house": 12
+        "a_bed_in_a_dwelling": 296,
+        "a_bed_in_a_lodging_house": 13
       },
       "underdocumented": {
         "a_bed_in_a_dwelling": 72,
@@ -113,7 +113,7 @@
     "what_this_does_not_do": "It mints, moves and retires nobody, and does not settle the completion audit's person count against the census ceiling: that is a count of people, not houses."
   },
   "fills": {
-    "households/family_dwelling/north": 88,
+    "households/family_dwelling/north": 87,
     "households/family_dwelling/south": 168,
     "households/family_dwelling/west": 78
   },
@@ -833,7 +833,7 @@
       "household": "hh_cable_p_b_f",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_h2_030",
+      "place": "recon_1835_north_h2_022",
       "family": "H2",
       "persons": 6,
       "seed": "d860bf78197c"
@@ -878,8 +878,8 @@
       "household": "hh_morrison_ordemus",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_h2_022",
-      "family": "H2",
+      "place": "recon_1835_north_d7_076",
+      "family": "D7",
       "persons": 4,
       "seed": "6dfe21faf22f"
     },
@@ -900,15 +900,6 @@
       "family": "H1",
       "persons": 4,
       "seed": "835498e9f213"
-    },
-    {
-      "household": "hh_earlie_p_j",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d7_076",
-      "family": "D7",
-      "persons": 4,
-      "seed": "b67ab7527cec"
     },
     {
       "household": "hh_dailey_thomas",
@@ -1136,6 +1127,15 @@
       "seed": "a017a5e9759f"
     },
     {
+      "household": "hh_abrams_john",
+      "division": "south",
+      "rung": "dealt",
+      "place": "recon_1835_south_h2_039",
+      "family": "H2",
+      "persons": 3,
+      "seed": "cbc5876c9e59"
+    },
+    {
       "household": "hh_cass_lewis",
       "division": "south",
       "rung": "dealt",
@@ -1161,15 +1161,6 @@
       "family": "D6",
       "persons": 2,
       "seed": "337904dffeb7"
-    },
-    {
-      "household": "hh_abrams_john",
-      "division": "south",
-      "rung": "dealt",
-      "place": "recon_1835_south_h2_039",
-      "family": "H2",
-      "persons": 2,
-      "seed": "cbc5876c9e59"
     },
     {
       "household": "hh_albyn_lucius_b",
@@ -1647,6 +1638,15 @@
       "family": "D1",
       "persons": 1,
       "seed": "7fdd22b83703"
+    },
+    {
+      "household": "hh_beaubien_archange",
+      "division": "south",
+      "rung": "dealt",
+      "place": "recon_1835_blk_washington_wells_d3_06",
+      "family": "D3",
+      "persons": 1,
+      "seed": "8011f9152477"
     },
     {
       "household": "hh_akers_simon",
@@ -2414,15 +2414,6 @@
       "seed": "534401382018"
     },
     {
-      "household": "hh_morrison_james_m",
-      "division": "south",
-      "rung": "family",
-      "place": "recon_1835_blk_washington_wells_d7_01",
-      "family": "D7",
-      "persons": 5,
-      "seed": "60063033af85"
-    },
-    {
       "household": "hh_cook_josiah_p",
       "division": "west",
       "rung": "dealt",
@@ -2504,15 +2495,6 @@
       "seed": "d195e3d7b4a7"
     },
     {
-      "household": "hh_abbott_titus_h",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_blk_west_washington_canal_d4_03",
-      "family": "D4",
-      "persons": 3,
-      "seed": "7e4a0409ed20"
-    },
-    {
       "household": "hh_bennett_h_c",
       "division": "west",
       "rung": "dealt",
@@ -2529,6 +2511,15 @@
       "family": "D7",
       "persons": 2,
       "seed": "6db8b7e44797"
+    },
+    {
+      "household": "hh_abbott_titus_h",
+      "division": "west",
+      "rung": "dealt",
+      "place": "recon_1835_blk_west_washington_canal_d4_03",
+      "family": "D4",
+      "persons": 2,
+      "seed": "7e4a0409ed20"
     },
     {
       "household": "hh_cook_john",
@@ -2957,7 +2948,7 @@
       "household": "hh_pallet_joseph",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_005",
+      "place": "recon_1835_blk_west_randolph_des_plaines_d6_03",
       "family": "D6",
       "persons": 7,
       "seed": "2a95620dafe3"
@@ -2975,7 +2966,7 @@
       "household": "hh_weaver_d",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_blk_west_randolph_des_plaines_d6_03",
+      "place": "recon_1835_blk_west_randolph_canal_d6_04",
       "family": "D6",
       "persons": 7,
       "seed": "f57efaeb1b78"
@@ -2993,7 +2984,7 @@
       "household": "hh_panster_james",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_blk_west_randolph_canal_d6_04",
+      "place": "recon_1835_west_005",
       "family": "D6",
       "persons": 6,
       "seed": "148386606662"
@@ -3127,6 +3118,16 @@
   ],
   "not_counted": [
     {
+      "household": "hh_earlie_p_j",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_h2_030",
+      "family": "H2",
+      "persons": 4,
+      "seed": "b67ab7527cec",
+      "why": "the north division's family_dwelling order was full before this household was reached"
+    },
+    {
       "household": "hh_salisbury_stephen_m",
       "division": "north",
       "rung": "family",
@@ -3134,6 +3135,16 @@
       "family": "D7",
       "persons": 4,
       "seed": "d95311fbdd4e",
+      "why": "the north division's family_dwelling order was full before this household was reached"
+    },
+    {
+      "household": "hh_chapley_m_s",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_h2_030",
+      "family": "H2",
+      "persons": 3,
+      "seed": "034d7d8012ce",
       "why": "the north division's family_dwelling order was full before this household was reached"
     },
     {
@@ -3190,8 +3201,8 @@
       "household": "hh_reed_thomas",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_h2_022",
-      "family": "H2",
+      "place": "recon_1835_north_d7_076",
+      "family": "D7",
       "persons": 3,
       "seed": "f8a4fac46ec6",
       "why": "the north division's family_dwelling order was full before this household was reached"
@@ -3290,8 +3301,8 @@
       "household": "hh_saxton_l_c",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_d7_076",
-      "family": "D7",
+      "place": "recon_1835_north_h2_028",
+      "family": "H2",
       "persons": 2,
       "seed": "846dd08fe899",
       "why": "the north division's family_dwelling order was full before this household was reached"
@@ -3358,6 +3369,16 @@
       "seed": "de60bd181d5d",
       "beyond_the_index": "underdocumented",
       "why": "the north division's family_dwelling order was full before this household was reached"
+    },
+    {
+      "household": "hh_morrison_james_m",
+      "division": "south",
+      "rung": "family",
+      "place": "recon_1835_blk_washington_wells_d7_01",
+      "family": "D7",
+      "persons": 5,
+      "seed": "60063033af85",
+      "why": "the south division's family_dwelling order was full before this household was reached"
     },
     {
       "household": "hh_hamilton_amos_c",
@@ -3643,8 +3664,8 @@
       "household": "hh_hamilton_diana",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_washington_clark_d5_01",
-      "family": "D5",
+      "place": "recon_1835_blk_school_section_tier_81_d4_04",
+      "family": "D4",
       "persons": 4,
       "seed": "b54fdffdd3da",
       "why": "the south division's family_dwelling order was full before this household was reached"
@@ -3673,8 +3694,8 @@
       "household": "hh_trall_e_l",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_randolph_franklin_d4_03",
-      "family": "D4",
+      "place": "recon_1835_blk_washington_clark_d5_01",
+      "family": "D5",
       "persons": 4,
       "seed": "c49e299fbcb6",
       "why": "the south division's family_dwelling order was full before this household was reached"
@@ -3743,7 +3764,7 @@
       "household": "hh_douglas_calvin",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_school_section_tier_95_d5_01",
+      "place": "recon_1835_south_d5_004",
       "family": "D5",
       "persons": 3,
       "seed": "2236dd5d0acc",
@@ -3773,8 +3794,8 @@
       "household": "hh_kennicott_m_h",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_south_d5_004",
-      "family": "D5",
+      "place": "recon_1835_blk_randolph_franklin_d4_03",
+      "family": "D4",
       "persons": 3,
       "seed": "3eb3d7cc3c77",
       "why": "the south division's family_dwelling order was full before this household was reached"
@@ -3813,8 +3834,8 @@
       "household": "hh_stanley_j",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_south_d4_014",
-      "family": "D4",
+      "place": "recon_1835_blk_school_section_tier_95_d5_01",
+      "family": "D5",
       "persons": 3,
       "seed": "ba1b8f7c183a",
       "why": "the south division's family_dwelling order was full before this household was reached"
@@ -3890,16 +3911,6 @@
       "why": "the south division's family_dwelling order was full before this household was reached"
     },
     {
-      "household": "hh_whistler_gwinthlean",
-      "division": "south",
-      "rung": "family",
-      "place": "recon_1835_blk_school_section_tier_94_d3_05",
-      "family": "D3",
-      "persons": 2,
-      "seed": "3ea750bdfc6a",
-      "why": "the south division's family_dwelling order was full before this household was reached"
-    },
-    {
       "household": "hh_andrews_william",
       "division": "south",
       "rung": "family",
@@ -3913,8 +3924,8 @@
       "household": "hh_filer_a",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_randolph_franklin_d3_04",
-      "family": "D3",
+      "place": "recon_1835_south_d4_014",
+      "family": "D4",
       "persons": 2,
       "seed": "5ee0bfdb4248",
       "why": "the south division's family_dwelling order was full before this household was reached"
@@ -3943,8 +3954,8 @@
       "household": "hh_george_c",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_school_section_tier_119_d4_04",
-      "family": "D4",
+      "place": "recon_1835_blk_school_section_tier_94_d3_05",
+      "family": "D3",
       "persons": 2,
       "seed": "7370c7645d19",
       "why": "the south division's family_dwelling order was full before this household was reached"
@@ -4001,6 +4012,16 @@
       "why": "the west division's family_dwelling order was full before this household was reached"
     },
     {
+      "household": "hh_hartzell_thomas",
+      "division": "west",
+      "rung": "family",
+      "place": "recon_1835_west_050",
+      "family": "D1",
+      "persons": 4,
+      "seed": "dbe556768ed3",
+      "why": "the west division's family_dwelling order was full before this household was reached"
+    },
+    {
       "household": "hh_smow_george_w",
       "division": "west",
       "rung": "family",
@@ -4024,7 +4045,7 @@
       "household": "hh_bell_william_a",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_051",
+      "place": "recon_1835_west_026",
       "family": "D1",
       "persons": 3,
       "seed": "416ea191c6e8",
@@ -4034,17 +4055,27 @@
       "household": "hh_russell_p_t",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_blk_west_randolph_des_plaines_d4_02",
-      "family": "D4",
+      "place": "recon_1835_west_045",
+      "family": "D5",
       "persons": 3,
       "seed": "65f0e65d2f97",
+      "why": "the west division's family_dwelling order was full before this household was reached"
+    },
+    {
+      "household": "hh_woodruff_alson",
+      "division": "west",
+      "rung": "family",
+      "place": "recon_1835_west_006",
+      "family": "H1",
+      "persons": 3,
+      "seed": "7f9d963ad334",
       "why": "the west division's family_dwelling order was full before this household was reached"
     },
     {
       "household": "hh_dill_frank",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_050",
+      "place": "recon_1835_west_051",
       "family": "D1",
       "persons": 3,
       "seed": "928fac12698c",
@@ -4114,8 +4145,8 @@
       "household": "hh_wilcox_d",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_006",
-      "family": "H1",
+      "place": "recon_1835_blk_randolph_clinton_d7_08",
+      "family": "D7",
       "persons": 2,
       "seed": "ab9ce6d8421a",
       "why": "the west division's family_dwelling order was full before this household was reached"

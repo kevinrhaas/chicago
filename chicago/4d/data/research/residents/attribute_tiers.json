@@ -25,26 +25,26 @@
     ]
   },
   "counts": {
-    "cards": 1456,
-    "blocks": 22180,
-    "tiers_written_on_the_card": 10869,
+    "cards": 1457,
+    "blocks": 22122,
+    "tiers_written_on_the_card": 10799,
     "by_tier": {
       "attested": 727,
-      "inferred": 3707,
-      "reconstructed": 10880,
-      "unknown": 6866
+      "inferred": 3736,
+      "reconstructed": 10812,
+      "unknown": 6847
     },
     "by_attribute": {
       "arrival": {
         "attested": 51,
         "inferred": 1355,
-        "reconstructed": 50,
+        "reconstructed": 51,
         "unknown": 0
       },
       "arrival_year": {
         "attested": 0,
         "inferred": 19,
-        "reconstructed": 1372,
+        "reconstructed": 1373,
         "unknown": 0
       },
       "directories.people[].address_later": {
@@ -87,24 +87,24 @@
         "attested": 8,
         "inferred": 15,
         "reconstructed": 11,
-        "unknown": 1422
+        "unknown": 1423
       },
       "origin": {
         "attested": 11,
         "inferred": 41,
-        "reconstructed": 1404,
+        "reconstructed": 1405,
         "unknown": 0
       },
       "party_size_on_arrival": {
         "attested": 3,
         "inferred": 9,
         "reconstructed": 0,
-        "unknown": 1444
+        "unknown": 1445
       },
       "persons[].age_band": {
         "attested": 7,
         "inferred": 53,
-        "reconstructed": 2853,
+        "reconstructed": 2831,
         "unknown": 7
       },
       "persons[].age_on_scene_date": {
@@ -140,14 +140,14 @@
       "persons[].name_basis": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 1477,
+        "reconstructed": 1455,
         "unknown": 0
       },
       "persons[].occupation": {
         "attested": 118,
         "inferred": 20,
         "reconstructed": 203,
-        "unknown": 2579
+        "unknown": 2557
       },
       "persons[].profile_facts[]": {
         "attested": 1,
@@ -157,34 +157,34 @@
       },
       "persons[].sex_basis": {
         "attested": 0,
-        "inferred": 675,
-        "reconstructed": 656,
+        "inferred": 704,
+        "reconstructed": 627,
         "unknown": 6
       },
       "present_on_scene_date": {
         "attested": 25,
         "inferred": 1380,
-        "reconstructed": 51,
+        "reconstructed": 52,
         "unknown": 0
       },
       "reason_for_coming": {
         "attested": 12,
         "inferred": 13,
-        "reconstructed": 1431,
+        "reconstructed": 1432,
         "unknown": 0
       },
       "works_at": {
         "attested": 32,
         "inferred": 19,
         "reconstructed": 0,
-        "unknown": 1405
+        "unknown": 1406
       }
     },
     "reconstructed_by_basis": {
       "address_back_projection": 23,
       "arrival_bound_from_the_record": 1,
-      "arrival_earliest_year_forced": 49,
-      "inferred_household_hypothesis": 40,
+      "arrival_earliest_year_forced": 50,
+      "inferred_household_hypothesis": 41,
       "origin_uncited_literature": 1,
       "residence_back_projection": 12
     }
@@ -1185,6 +1185,41 @@
     },
     {
       "card": "hh_rc_barnes_nancy",
+      "attribute": "present_on_scene_date",
+      "value": "present",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "PRESENCE IS THE HYPOTHESIS, not a finding about anybody. This household exists because the town of 1 July 1835 demonstrably held women and children the naming sources never printed — the order book counts how many, by sex, age and division — and this is one of them.",
+      "basis": {
+        "kind": "rule",
+        "id": "inferred_household_hypothesis",
+        "note": "Presence on the scene date IS this household's hypothesis: the record exists because the town of 1 July 1835 demonstrably needed a household of this trade."
+      },
+      "replaceable_by": {
+        "kind": "household",
+        "match": "a source that puts this household at Chicago on 1 July 1835, or takes it away"
+      }
+    },
+    {
+      "card": "hh_rc_carroll_ellen",
+      "attribute": "arrival",
+      "value": "1835-07-01",
+      "precision": "not_later_than",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING. No source names this household, so none dates its coming. What the record does say is that it was here on 1835-07-01 — that is the whole of what this stage claims — and a household here on that day arrived not later than it. Nothing narrower is known; the year below is DRAWN from that bound by the programme's arrival stage against the years the known layer records.",
+      "basis": {
+        "kind": "rule",
+        "id": "arrival_earliest_year_forced",
+        "note": "No source dates the coming. The value is the earliest year the committed evidence forces, carried at the precision the note states."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a dated source that says when this person came to Chicago"
+      }
+    },
+    {
+      "card": "hh_rc_carroll_ellen",
       "attribute": "present_on_scene_date",
       "value": "present",
       "confidence": "reconstructed",
@@ -2721,10 +2756,10 @@
         "kind": "person",
         "match": "a dated source that says which year this household came to Chicago"
       },
-      "values": 1372,
+      "values": 1373,
       "by_value": {
-        "1834": 576,
-        "1833": 405,
+        "1834": 580,
+        "1833": 402,
         "1835": 314,
         "1832": 45,
         "1831": 17,
@@ -2819,14 +2854,14 @@
         "kind": "person",
         "match": "a source that says where this household came from"
       },
-      "values": 1375,
+      "values": 1376,
       "by_value": {
         "New York State": 559,
         "New England": 482,
         "The Mid-Atlantic states": 121,
         "England": 114,
         "The Southern states": 59,
-        "Ireland": 21,
+        "Ireland": 22,
         "West of the Alleghenies": 19
       },
       "a_seed": "hh_abbot_8_g:origin_region",
@@ -2860,16 +2895,16 @@
         "kind": "person",
         "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
       },
-      "values": 2850,
+      "values": 2828,
       "by_value": {
-        "20-29": 977,
-        "0-4": 480,
-        "30-39": 468,
+        "20-29": 966,
+        "0-4": 470,
+        "30-39": 467,
         "10-19": 239,
         "0-9": 221,
         "40-49": 145,
-        "15-19": 126,
-        "5-9": 72,
+        "15-19": 127,
+        "5-9": 71,
         "10-14": 42,
         "50-59": 42,
         "60-69": 17,
@@ -2906,9 +2941,9 @@
       },
       "replaceable_by": {
         "kind": "person",
-        "match": "a source naming a member of this south-division household"
+        "match": "a source naming a member of Titus H Abbott's family"
       },
-      "values": 1477,
+      "values": 1455,
       "by_value": {
         "Mary Nolan": 4,
         "Abigail King": 2,
@@ -2919,7 +2954,6 @@
         "Esther King": 2,
         "Hannah King": 2,
         "Nancy King": 2,
-        "Abigail Bruno": 1,
         "Abigail Byram": 1,
         "Abigail Carli": 1,
         "Abigail Chapin": 1,
@@ -2936,7 +2970,6 @@
         "Abigail Mcburney": 1,
         "Abigail Morris": 1,
         "Abigail Paine": 1,
-        "Abigail Peltier": 1,
         "Abigail Pixby": 1,
         "Abigail Porter": 1,
         "Abigail Reed": 1,
@@ -2961,7 +2994,6 @@
         "Abner Wilcox": 1,
         "Abner Woodruff": 1,
         "Alanson Boyer": 1,
-        "Alanson Brenin": 1,
         "Alanson Collins": 1,
         "Alanson Gilbert": 1,
         "Alanson Hogan": 1,
@@ -2981,7 +3013,6 @@
         "Alice Brown": 1,
         "Alice Burton": 1,
         "Alice Carroll": 1,
-        "Alice Chandler": 1,
         "Alice Chapman": 1,
         "Alice Dolan": 1,
         "Alice Fitzgerald": 1,
@@ -3003,7 +3034,6 @@
         "Alice Wessencraft": 1,
         "Alice Wickham": 1,
         "Almira Barnes": 1,
-        "Almira Beaubien": 1,
         "Almira Bourrassa": 1,
         "Almira Byram": 1,
         "Almira Crandall": 1,
@@ -3055,7 +3085,6 @@
         "Amanda Kurcheval": 1,
         "Amanda Mather": 1,
         "Amanda Meleney": 1,
-        "Amanda Ouilmette": 1,
         "Amanda Paine": 1,
         "Amanda Peck": 1,
         "Amanda Rider": 1,
@@ -3101,7 +3130,6 @@
         "Anna Stevens": 1,
         "Anna Thayer": 1,
         "Anna Tucker": 1,
-        "Anna Whistler": 1,
         "Anna Wilcox": 1,
         "Anna Woodruff": 1,
         "Antoine Laframboise": 1,
@@ -3156,7 +3184,6 @@
         "Betsey Nicole": 1,
         "Betsey Pearsons": 1,
         "Betsey Pottier": 1,
-        "Betsey Preman": 1,
         "Betsey Sheldon": 1,
         "Betsey Taylor": 1,
         "Betsey Tucker": 1,
@@ -3164,7 +3191,6 @@
         "Bridget Brown": 1,
         "Bridget Burke": 1,
         "Bridget Carroll": 1,
-        "Bridget Chandler": 1,
         "Bridget Chapman": 1,
         "Bridget Connor": 1,
         "Bridget Dolan": 1,
@@ -3285,7 +3311,6 @@
         "Clarissa Smow": 1,
         "Clarissa Stebbins": 1,
         "Clarissa Troutman": 1,
-        "Clarissa Vieau": 1,
         "Clarissa Wilcox": 1,
         "Cornelius Allen": 1,
         "Cornelius Brown": 1,
@@ -3321,7 +3346,6 @@
         "David Sheldon": 1,
         "David Sherman": 1,
         "David Thayer": 1,
-        "Dennis Chandler": 1,
         "Dennis Cook": 1,
         "Dennis Doyle": 1,
         "Dennis Duffy": 1,
@@ -3442,8 +3466,8 @@
         "Erastus Tucker": 1,
         "Erastus Vale": 1,
         "Erastus Woodruff": 1,
+        "Esther Abbott": 1,
         "Esther Barnes": 1,
-        "Esther Bruno": 1,
         "Esther Clarke": 1,
         "Esther Cobb": 1,
         "Esther Davis": 1,
@@ -3485,6 +3509,7 @@
         "Francois Lecuyer": 1,
         "Francois Montgomery": 1,
         "Francois Pelletier": 1,
+        "George Abrams": 1,
         "George Clarke": 1,
         "George Fisk": 1,
         "George Gilbert": 1,
@@ -3674,7 +3699,6 @@
         "Jared Newell": 1,
         "Jared Wadsworth": 1,
         "Jared Woodruff": 1,
-        "Jean Aspam": 1,
         "Jean Johnson": 1,
         "Jean Laframboise": 1,
         "Jean Pothier": 1,
@@ -3708,7 +3732,6 @@
         "John Blanchard": 1,
         "John Brown": 1,
         "John Carroll": 1,
-        "John Chandler": 1,
         "John Cobb": 1,
         "John Courtney": 1,
         "John Doyle": 1,
@@ -3830,7 +3853,6 @@
         "Lydia Thayer": 1,
         "Lydia Whitcomb": 1,
         "Lydia Wilcox": 1,
-        "Madeleine Aspam": 1,
         "Madeleine Botsford": 1,
         "Madeleine Bourassa": 1,
         "Madeleine Johnson": 1,
@@ -3899,7 +3921,6 @@
         "Marie Ballard": 1,
         "Marie Lecuyer": 1,
         "Marie Newberry": 1,
-        "Martha Beaubien": 1,
         "Martha Bowen": 1,
         "Martha Cobb": 1,
         "Martha Coslet": 1,
@@ -3941,8 +3962,6 @@
         "Mary Burke": 1,
         "Mary Carli": 1,
         "Mary Carroll": 1,
-        "Mary Casy": 1,
-        "Mary Chandler": 1,
         "Mary Connor": 1,
         "Mary Cook": 1,
         "Mary Daly": 1,
@@ -3959,7 +3978,6 @@
         "Mary King": 1,
         "Mary Lynch": 1,
         "Mary Mahoney": 1,
-        "Mary Mallet": 1,
         "Mary McGuire": 1,
         "Mary Miller": 1,
         "Mary Moore": 1,
@@ -4126,7 +4144,6 @@
         "Polly Panster": 1,
         "Polly Peacock": 1,
         "Polly Pearsons": 1,
-        "Polly Preman": 1,
         "Polly Reed": 1,
         "Polly Rice": 1,
         "Polly Sherman": 1,
@@ -4202,7 +4219,6 @@
         "Ruth Taylor": 1,
         "Ruth Wilcox": 1,
         "Ruth Woodruff": 1,
-        "Samuel Bruno": 1,
         "Samuel Enor": 1,
         "Samuel Gage": 1,
         "Samuel King": 1,
@@ -4274,7 +4290,6 @@
         "Sophronia Ogden": 1,
         "Sophronia Paine": 1,
         "Sophronia Pallet": 1,
-        "Sophronia Preman": 1,
         "Sophronia Rice": 1,
         "Sophronia Salisbury": 1,
         "Sophronia Sawyer": 1,
@@ -4284,7 +4299,6 @@
         "Sophronia Woodruff": 1,
         "Susan Barnes": 1,
         "Susan Bousque": 1,
-        "Susan Brenin": 1,
         "Susan Carpenter": 1,
         "Susan Coslet": 1,
         "Susan Curtin": 1,
@@ -4301,7 +4315,6 @@
         "Susan Thayer": 1,
         "Susan Wilcox": 1,
         "Terence Cavanagh": 1,
-        "Terence Chandler": 1,
         "Terence Doyle": 1,
         "Terence Flynn": 1,
         "Terence Gallagher": 1,
@@ -4330,7 +4343,6 @@
         "Thomas Reilly": 1,
         "Thomas Shea": 1,
         "Thomas Sullivan": 1,
-        "Toussaint Aspam": 1,
         "Toussaint Botsford": 1,
         "Toussaint Laframboise": 1,
         "Toussaint Morin": 1,
@@ -4360,6 +4372,7 @@
         "Willard Mulford": 1,
         "Willard Thayer": 1,
         "Willard Walter": 1,
+        "Willard Wesencraft": 1,
         "William Barnes": 1,
         "William Fairbanks": 1,
         "William Ingalls": 1,
@@ -4377,7 +4390,7 @@
         "William Wellmaker": 1,
         "William Wilcox": 1
       },
-      "a_seed": "rc_wc_south_055:head_forename",
+      "a_seed": "hh_abbott_titus_h:wife_forename",
       "a_card": "hh_abbott_titus_h"
     },
     {
@@ -4398,8 +4411,8 @@
         "milliner": 12,
         "schoolteacher": 8
       },
-      "a_seed": "rc_wc_south_055:female_trades",
-      "a_card": "hh_abbott_titus_h"
+      "a_seed": "rc_wc_south_002:female_trades",
+      "a_card": "hh_abell_sidney"
     },
     {
       "attribute": "persons[].occupation",
@@ -4430,10 +4443,10 @@
         "kind": "person",
         "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
       },
-      "values": 656,
+      "values": 627,
       "by_value": {
-        "male": 617,
-        "female": 39
+        "male": 590,
+        "female": 37
       },
       "a_seed": "abbot_8_g:sex_ratio",
       "a_card": "hh_abbot_8_g"
@@ -4465,10 +4478,10 @@
         "kind": "person",
         "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
       },
-      "values": 1328,
+      "values": 1329,
       "by_value": {
-        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 553,
-        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 389,
+        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 557,
+        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 386,
         "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated": 312,
         "The trading post, the fort and the country trade — the town before the boom": 74
       },

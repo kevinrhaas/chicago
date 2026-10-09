@@ -32,7 +32,7 @@
   },
   "counts": {
     "households_ruled": 946,
-    "persons_ruled": 1843,
+    "persons_ruled": 1820,
     "households_by_leg": {
       "on_the_day": 60,
       "spans": 49,
@@ -43,7 +43,7 @@
       "on_the_day": 182,
       "spans": 130,
       "bracketed": 49,
-      "carried": 1482
+      "carried": 1459
     },
     "households_by_tier": {
       "reconstructed": 805,
@@ -51,14 +51,14 @@
       "attested": 60
     },
     "persons_by_tier": {
-      "reconstructed": 1482,
+      "reconstructed": 1459,
       "inferred": 179,
       "attested": 182
     },
     "persons_by_residence_grade": {
       "inferred": 677,
       "attested": 277,
-      "reconstructed": 889
+      "reconstructed": 866
     },
     "rulings_above_t1172_blanket_reconstructed": 141,
     "evidenced_absences_left_out": 8
@@ -145,10 +145,10 @@
       "household_id": "hh_abbott_titus_h",
       "name": "The Abbott household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 3,
+      "persons": 2,
       "grades": {
         "attested": 1,
-        "reconstructed": 2
+        "reconstructed": 1
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -221,10 +221,10 @@
       "household_id": "hh_abrams_john",
       "name": "The Abrams household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 2,
+      "persons": 3,
       "grades": {
         "inferred": 1,
-        "reconstructed": 1
+        "reconstructed": 2
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -2500,10 +2500,9 @@
       "household_id": "hh_beaubien_monique",
       "name": "The Beaubien household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 3,
+      "persons": 1,
       "grades": {
-        "inferred": 1,
-        "reconstructed": 2
+        "inferred": 1
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -4369,10 +4368,9 @@
       "household_id": "hh_brenin_mary",
       "name": "The Brenin household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 3,
+      "persons": 1,
       "grades": {
-        "inferred": 1,
-        "reconstructed": 2
+        "inferred": 1
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -4967,10 +4965,9 @@
       "household_id": "hh_bruno_anne_franoise_apolline",
       "name": "The Bruno household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 4,
+      "persons": 1,
       "grades": {
-        "inferred": 1,
-        "reconstructed": 3
+        "inferred": 1
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -5961,10 +5958,9 @@
       "household_id": "hh_casy_honora",
       "name": "The Casy household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 2,
+      "persons": 1,
       "grades": {
-        "inferred": 1,
-        "reconstructed": 1
+        "inferred": 1
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -6069,10 +6065,9 @@
       "household_id": "hh_chandler_catherine",
       "name": "The Chandler household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 7,
+      "persons": 1,
       "grades": {
-        "inferred": 1,
-        "reconstructed": 6
+        "inferred": 1
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -18951,10 +18946,9 @@
       "household_id": "hh_madera_victoire",
       "name": "The Madera household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 4,
+      "persons": 1,
       "grades": {
-        "inferred": 1,
-        "reconstructed": 3
+        "inferred": 1
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -19059,10 +19053,9 @@
       "household_id": "hh_mallet_marie_louise",
       "name": "The Mallet household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 2,
+      "persons": 1,
       "grades": {
-        "inferred": 1,
-        "reconstructed": 1
+        "inferred": 1
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -22807,10 +22800,9 @@
       "household_id": "hh_ouilmette_marie_louise",
       "name": "The Ouilmette household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 2,
+      "persons": 1,
       "grades": {
-        "inferred": 1,
-        "reconstructed": 1
+        "inferred": 1
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -23572,10 +23564,9 @@
       "household_id": "hh_peltier_jacquette",
       "name": "The Peltier household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 2,
+      "persons": 1,
       "grades": {
-        "inferred": 1,
-        "reconstructed": 1
+        "inferred": 1
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -24386,10 +24377,9 @@
       "household_id": "hh_preman_catherine",
       "name": "The Preman household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 4,
+      "persons": 1,
       "grades": {
-        "inferred": 1,
-        "reconstructed": 3
+        "inferred": 1
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -30643,10 +30633,9 @@
       "household_id": "hh_vieau_josette",
       "name": "The Vieau household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 2,
+      "persons": 1,
       "grades": {
-        "inferred": 1,
-        "reconstructed": 1
+        "inferred": 1
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -32017,10 +32006,9 @@
       "household_id": "hh_whistler_gwinthlean",
       "name": "The Whistler household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 2,
+      "persons": 1,
       "grades": {
-        "inferred": 1,
-        "reconstructed": 1
+        "inferred": 1
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -32895,9 +32883,10 @@
       "household_id": "hh_woodruff_alson",
       "name": "The Woodruff household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 1,
+      "persons": 3,
       "grades": {
-        "attested": 1
+        "attested": 1,
+        "reconstructed": 2
       },
       "leg": "carried",
       "present_on_scene_date": {
