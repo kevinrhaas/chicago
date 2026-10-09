@@ -1,9 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1590, ts: '2026-10-09T20:37:19.732Z', date: 'Oct 9, 2026, 3:37 PM CT', title: 'A household\u2019s home and workplace are named once, with their dates', kind: 'fix',
+  { v: 1591, ts: '2026-10-09T20:45:06.647Z', date: 'Oct 9, 2026, 3:45 PM CT', title: 'A household\u2019s home and workplace are named once, with their dates', kind: 'fix',
     items: [
       'Open John Davis\u2019s household in People. The Steamboat Hotel used to appear three times on his card: once in \u201cLived at\u201d, once in \u201cWorked at\u201d, and again in \u201cWhere this household was, and when\u201d. Now it appears only in that last section, which gives each place its dates and its evidence.',
       'The same happens on the 67 household cards that name a home or a workplace. A card with no known home or workplace still shows \u201cLived at: not recorded\u201d and the reason, because that reason has nowhere else to go.',
       'The build now refuses any household that names a home or workplace without a dated entry for it, so removing the old lines hides nothing. Nothing in the 3-D town changes.',
+    ] },
+  { v: 1590, ts: '2026-10-09T20:22:14.551Z', date: 'Oct 9, 2026, 3:22 PM CT', title: 'Prairie Avenue\u2019s 18th-to-20th block: every 1904 building accounted for', kind: 'feature',
+    items: [
+      'In the Prairie Avenue 1904 library, open any house between 18th and 20th Streets: a new panel gives its 1904 decision and lists its front building, attached wings, rear stable and grounds, each graded attested, inferred or reconstructed.',
+      'The Allerton house is back on the map. The 1911 sheet labels it \u201c1918 (1936)\u201d, earlier misread as 1916 (1930), so the bare 1936 corner is its lawn, not an empty lot.',
+      'The Corwith house at 1945, built for George Armour in 1872, gets its own card.',
+      'The photograph posted as Edson Keith\u2019s 1906 house is shown on 1900 Prairie only, the house it pictures. The Keith building at 1906\u20131908 is one house of two homes.',
+      'The glasshouses behind 1811\u20131823 are now credited to the Pullman estate\u2019s garden across 18th Street. Nothing in the 3-D town changes yet.',
     ] },
   { v: 1589, ts: '2026-10-09T19:59:53.408Z', date: 'Oct 9, 2026, 2:59 PM CT', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
     items: [

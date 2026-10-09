@@ -3,3 +3,4 @@
 .inventory-notes{border-top:1px solid var(--line);margin-top:20px;padding-top:16px;font-size:.9rem}.inventory-notes summary{cursor:pointer;font-weight:650}.inventory-notes div{margin-top:14px}.inventory-notes ul{padding-left:20px}
 @media(min-width:1000px){.topbar-inner{flex-wrap:nowrap}.section-links{flex:1 1 auto}.year-control{flex:none}}
 @media(max-width:1060px){.section-links{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}}
+.census-phase{font-weight:650;margin-bottom:6px}
