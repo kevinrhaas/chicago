@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1591, ts: '2026-10-09T20:45:06.647Z', date: 'Oct 9, 2026, 3:45 PM CT', title: 'A household\u2019s home and workplace are named once, with their dates', kind: 'fix',
+  { v: null, ts: '', title: 'A household\u2019s home and workplace are named once, with their dates', kind: 'fix',
     items: [
       'Open John Davis\u2019s household in People. The Steamboat Hotel used to appear three times on his card: once in \u201cLived at\u201d, once in \u201cWorked at\u201d, and again in \u201cWhere this household was, and when\u201d. Now it appears only in that last section, which gives each place its dates and its evidence.',
       'The same happens on the 67 household cards that name a home or a workplace. A card with no known home or workplace still shows \u201cLived at: not recorded\u201d and the reason, because that reason has nowhere else to go.',
       'The build now refuses any household that names a home or workplace without a dated entry for it, so removing the old lines hides nothing. Nothing in the 3-D town changes.',
+    ] },
+  { v: 1591, ts: '2026-10-09T20:35:56.763Z', date: 'Oct 9, 2026, 3:35 PM CT', title: 'The test walk counts the street edge\u2019s refused walls correctly again', kind: 'fix',
+    items: [
+      'Nothing you can see changed in the town. The automated walk-through checks that every wall the street-edge layer declines to fence is accounted for, and it still expected one more than the town now has.',
+      'That wall went when the house on the Market wedge was built: a fence refused because the lot stood empty no longer needs refusing. The check now counts 190, with the arithmetic beside it.',
     ] },
   { v: 1590, ts: '2026-10-09T20:22:14.551Z', date: 'Oct 9, 2026, 3:22 PM CT', title: 'Prairie Avenue\u2019s 18th-to-20th block: every 1904 building accounted for', kind: 'feature',
     items: [
