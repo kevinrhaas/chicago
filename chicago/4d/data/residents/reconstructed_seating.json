@@ -527,7 +527,7 @@
     "nearest": 0,
     "seeded_draw": 123,
     "why_division_is_inert": "No business record carries a division. The order book says why in its own words — 'EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY ... assigning premises to a division is T-1182's audit and T-1198's seating' — and this tool reads the field rather than deriving one, because deriving one is that audit done without a licence for it. Business records stating a division today: 0.",
-    "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 31 of 193 business records name a structure this project holds, and 57 of 2157 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
+    "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 31 of 193 business records name a structure this project holds, and 56 of 2157 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
   },
   "by_trade": {
     "attorney": {
@@ -1950,11 +1950,11 @@
     {
       "person_id": "rc_carroll_ellen",
       "person_name": "Ellen Carroll",
-      "household_id": "hh_madera_victoire",
+      "household_id": "hh_rc_carroll_ellen",
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "unplaced",
+      "division_of_the_person": "north",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -2575,7 +2575,7 @@
     {
       "person_id": "rc_cobb_clarissa",
       "person_name": "Clarissa Cobb",
-      "household_id": "hh_adams_hiram_a",
+      "household_id": "hh_woodruff_alson",
       "kind": "seated",
       "trade": "domestic",
       "premises": "no_fixed_premises",
@@ -13636,7 +13636,7 @@
     {
       "person_id": "rc_stiles_almira",
       "person_name": "Almira Stiles",
-      "household_id": "hh_abbott_titus_h",
+      "household_id": "hh_adams_hiram_a",
       "kind": "keeps_their_own_house",
       "trade": "milliner",
       "premises": "own_premises",

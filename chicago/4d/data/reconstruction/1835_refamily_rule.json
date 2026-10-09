@@ -91,6 +91,24 @@
   },
   "the_held_roster": [
     {
+      "person": "rc_abbott_titus_h_wife",
+      "household": "hh_abbott_titus_h",
+      "relationship": "wife",
+      "stage": "modelled_families",
+      "ticket": "T-1171",
+      "bucket": "persons/female/20_29/south/family/none",
+      "rung": "C0",
+      "adoptions": [],
+      "deal_key": "hh_abbott_titus_h:rc_abbott_titus_h_wife",
+      "axes": {
+        "sex": "female",
+        "age_band": "20_29",
+        "division": "south",
+        "household": "family",
+        "trade": "none"
+      }
+    },
+    {
       "person": "rc_abrams_john_wife",
       "household": "hh_abrams_john",
       "relationship": "wife",
@@ -103,6 +121,24 @@
       "axes": {
         "sex": "female",
         "age_band": "20_29",
+        "division": "north",
+        "household": "family",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_abrams_john_child_5",
+      "household": "hh_abrams_john",
+      "relationship": "son",
+      "stage": "modelled_families",
+      "ticket": "T-1171",
+      "bucket": "persons/male/under_10/north/family/none",
+      "rung": "C0",
+      "adoptions": [],
+      "deal_key": "hh_abrams_john:rc_abrams_john_child_5",
+      "axes": {
+        "sex": "male",
+        "age_band": "under_10",
         "division": "north",
         "household": "family",
         "trade": "none"
@@ -265,60 +301,6 @@
       "axes": {
         "sex": "female",
         "age_band": "20_29",
-        "division": "north",
-        "household": "family",
-        "trade": "none"
-      }
-    },
-    {
-      "person": "rc_aspam_josette_wife",
-      "household": "hh_aspam_josette",
-      "relationship": "wife",
-      "stage": "modelled_families",
-      "ticket": "T-1171",
-      "bucket": "persons/female/20_29/south/family/none",
-      "rung": "C0",
-      "adoptions": [],
-      "deal_key": "hh_aspam_josette:rc_aspam_josette_wife",
-      "axes": {
-        "sex": "female",
-        "age_band": "20_29",
-        "division": "south",
-        "household": "family",
-        "trade": "none"
-      }
-    },
-    {
-      "person": "rc_aspam_josette_child_1",
-      "household": "hh_aspam_josette",
-      "relationship": "son",
-      "stage": "modelled_families",
-      "ticket": "T-1171",
-      "bucket": "persons/male/under_10/west/family/none",
-      "rung": "C0",
-      "adoptions": [],
-      "deal_key": "hh_aspam_josette:rc_aspam_josette_child_1",
-      "axes": {
-        "sex": "male",
-        "age_band": "under_10",
-        "division": "west",
-        "household": "family",
-        "trade": "none"
-      }
-    },
-    {
-      "person": "rc_aspam_josette_child_2",
-      "household": "hh_aspam_josette",
-      "relationship": "son",
-      "stage": "modelled_families",
-      "ticket": "T-1171",
-      "bucket": "persons/male/under_10/north/family/none",
-      "rung": "C0",
-      "adoptions": [],
-      "deal_key": "hh_aspam_josette:rc_aspam_josette_child_2",
-      "axes": {
-        "sex": "male",
-        "age_band": "under_10",
         "division": "north",
         "household": "family",
         "trade": "none"
@@ -4187,7 +4169,25 @@
       }
     },
     {
-      "person": "rc_marcotte_joseph",
+      "person": "rc_bardwell_reuben",
+      "household": "hh_lodging_recon_1835_north_h2_028",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/30_39/north/lodging/none",
+      "rung": "R_seated",
+      "adoptions": [],
+      "deal_key": "hh_lodging_recon_1835_north_h2_028:rc_bardwell_reuben",
+      "axes": {
+        "sex": "male",
+        "age_band": "30_39",
+        "division": "north",
+        "household": "lodging",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_whitcomb_david",
       "household": "hh_lodging_recon_1835_north_h2_028",
       "relationship": "boarder",
       "stage": "lodgers",
@@ -4195,7 +4195,7 @@
       "bucket": "persons/male/40_49/north/lodging/none",
       "rung": "R_seated",
       "adoptions": [],
-      "deal_key": "hh_lodging_recon_1835_north_h2_028:rc_marcotte_joseph",
+      "deal_key": "hh_lodging_recon_1835_north_h2_028:rc_whitcomb_david",
       "axes": {
         "sex": "male",
         "age_band": "40_49",
@@ -4223,25 +4223,7 @@
       }
     },
     {
-      "person": "rc_cavanagh_daniel",
-      "household": "hh_lodging_recon_1835_north_h2_030",
-      "relationship": "boarder",
-      "stage": "lodgers",
-      "ticket": "T-1371",
-      "bucket": "persons/male/30_39/north/lodging/none",
-      "rung": "R_seated",
-      "adoptions": [],
-      "deal_key": "hh_lodging_recon_1835_north_h2_030:rc_cavanagh_daniel",
-      "axes": {
-        "sex": "male",
-        "age_band": "30_39",
-        "division": "north",
-        "household": "lodging",
-        "trade": "none"
-      }
-    },
-    {
-      "person": "rc_tuttle_alvah",
+      "person": "rc_nichols_asa",
       "household": "hh_lodging_recon_1835_north_h2_030",
       "relationship": "boarder",
       "stage": "lodgers",
@@ -4249,7 +4231,7 @@
       "bucket": "persons/male/40_49/north/lodging/none",
       "rung": "R_seated",
       "adoptions": [],
-      "deal_key": "hh_lodging_recon_1835_north_h2_030:rc_tuttle_alvah",
+      "deal_key": "hh_lodging_recon_1835_north_h2_030:rc_nichols_asa",
       "axes": {
         "sex": "male",
         "age_band": "40_49",
@@ -11207,7 +11189,7 @@
         },
         {
           "layer": "lodging",
-          "place": "recon_1835_blk_washington_clinton_h3_02"
+          "place": "recon_1835_blk_washington_clark_h3_05"
         }
       ],
       "deal_key": "trade_households:persons/male/30_39/north/family/trade:labourer:010",
@@ -11932,7 +11914,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_blk_washington_dearborn_h3_01"
+          "place": "recon_1835_blk_washington_clark_h3_06"
         }
       ],
       "deal_key": "trade_households:persons/female/20_29/north/family/trade:domestic:011",
@@ -15183,7 +15165,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_blk_washington_market_h3_01"
+          "place": "recon_1835_blk_washington_clark_h3_11"
         }
       ],
       "deal_key": "trade_households:persons/female/20_29/south/family/trade:domestic:026",
@@ -19196,7 +19178,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_blk_washington_market_h3_04"
+          "place": "recon_1835_blk_washington_clinton_h3_02"
         }
       ],
       "deal_key": "trade_households:persons/female/30_39/south/family/trade:domestic:013",
@@ -19960,7 +19942,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_north_h2_028"
+          "place": "recon_1835_blk_washington_dearborn_h3_01"
         }
       ],
       "deal_key": "trade_households:persons/female/20_29/west/family/trade:domestic:007",
@@ -24061,6 +24043,24 @@
       }
     },
     {
+      "person": "rc_wesencraft_charles_child_4",
+      "household": "hh_wesencraft_charles",
+      "relationship": "son",
+      "stage": "modelled_families",
+      "ticket": "T-1171",
+      "bucket": "persons/male/under_10/west/family/none",
+      "rung": "C0",
+      "adoptions": [],
+      "deal_key": "hh_wesencraft_charles:rc_wesencraft_charles_child_4",
+      "axes": {
+        "sex": "male",
+        "age_band": "under_10",
+        "division": "west",
+        "household": "family",
+        "trade": "none"
+      }
+    },
+    {
       "person": "rc_whitlock_james_wife",
       "household": "hh_whitlock_james",
       "relationship": "wife",
@@ -26641,6 +26641,11 @@
       "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
     },
     {
+      "person": "rc_wesencraft_charles_child_4",
+      "rung": "C0",
+      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
+    },
+    {
       "person": "rc_wesencraft_charles_child_1",
       "rung": "C0",
       "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
@@ -27656,21 +27661,6 @@
       "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
     },
     {
-      "person": "rc_aspam_josette_wife",
-      "rung": "C0",
-      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
-    },
-    {
-      "person": "rc_aspam_josette_child_2",
-      "rung": "C0",
-      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
-    },
-    {
-      "person": "rc_aspam_josette_child_1",
-      "rung": "C0",
-      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
-    },
-    {
       "person": "rc_andrews_william_wife",
       "rung": "C0",
       "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
@@ -27717,6 +27707,16 @@
     },
     {
       "person": "rc_abrams_john_wife",
+      "rung": "C0",
+      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
+    },
+    {
+      "person": "rc_abrams_john_child_5",
+      "rung": "C0",
+      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
+    },
+    {
+      "person": "rc_abbott_titus_h_wife",
       "rung": "C0",
       "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
     },
@@ -30198,16 +30198,16 @@
     "and_the_disjointness_is_total": "Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 6 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time."
   },
   "what_the_town_converges_to": {
-    "persons_standing_in_the_layer": 2912,
+    "persons_standing_in_the_layer": 2890,
     "still_owed_now": 14,
-    "converges_to_now": 2926,
-    "converges_to_if_the_rule_is_spent": 2784,
+    "converges_to_now": 2904,
+    "converges_to_if_the_rule_is_spent": 2762,
     "the_model_point": 2550,
     "the_model_range": [
       2371,
       3265
     ],
-    "reading": "2,784 is inside the model's 2,371-3,265 and 234 above its 2,550 point, against 376 above it today."
+    "reading": "2,762 is inside the model's 2,371-3,265 and 212 above its 2,550 point, against 354 above it today."
   },
   "what_would_raise_the_ceiling": [
     {

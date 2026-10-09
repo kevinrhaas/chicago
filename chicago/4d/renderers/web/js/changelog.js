@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1568, ts: '2026-10-09T08:33:20.671Z', date: 'Oct 9, 2026, 3:33 AM CT', title: 'St Mary\u2019s mothers and godmothers are women again', kind: 'fix',
+    items: [
+      'St Mary\u2019s baptismal register names each child\u2019s mother and godmother. 28 of those women had no recorded sex, and the guess for them came out male. The register now sets them as women, quoting the entry.',
+      'Twenty of them were heading a house as a married man with an invented wife and children. Eleven of those families were made up, 22 people in all, and they are gone; Catherine Chandler alone had been given a wife and five children. No one is invented in their place. A few guessed couples elsewhere in town pair up differently as a result.',
+    ] },
   { v: 1567, ts: '2026-10-09T07:39:48.254Z', date: 'Oct 9, 2026, 2:39 AM CT', title: 'Twelve St Mary\u2019s children now name the parent the register gives them', kind: 'fix',
     items: [
       'St Mary\u2019s register names a mother or father for twelve children whose parent the town had carded but never linked to them, among them Joseph Mayo, the Wode twins, Susanne Vieaux and C\u00e9cile Laframboise. Open the child\u2019s card and the parent is now listed under \u201cRelated to\u201d, and the parent\u2019s card lists the child.',

@@ -12,20 +12,20 @@
   "the_bias_runs_one_way": "The forename table T-1303 derived was built mostly on this layer's men, so a woman's forename is likelier than a man's to be missing from it and to fall into the unsettled group being drawn for. Every rate here is therefore a CEILING on its roll's male share rather than a point reading, and every draw made from it leans male by an amount this pass cannot bound. Stated, not smoothed; docs/LIBERTIES.md L-rc-sex-rate.",
   "floor": 50,
   "pooled": {
-   "settled_by_the_evidence": 695,
+   "settled_by_the_evidence": 694,
    "of_those_male": 647,
-   "male_rate": 0.9309
+   "male_rate": 0.9323
   },
   "rolls": [
    {
     "roll": "civic",
-    "settled_by_the_evidence": 207,
+    "settled_by_the_evidence": 206,
     "of_those_male": 196,
-    "own_male_rate": 0.9469,
+    "own_male_rate": 0.9515,
     "measured_on_its_own": true,
-    "drawn_at": 0.9469,
-    "drawn_for": 216,
-    "why": "its own 207 settled names are enough to measure it"
+    "drawn_at": 0.9515,
+    "drawn_for": 187,
+    "why": "its own 206 settled names are enough to measure it"
    },
    {
     "roll": "documented",
@@ -33,7 +33,7 @@
     "of_those_male": 14,
     "own_male_rate": 0.9333,
     "measured_on_its_own": false,
-    "drawn_at": 0.9309,
+    "drawn_at": 0.9323,
     "drawn_for": 24,
     "why": "only 15 of its names are settled - below the floor of 50, so it draws at the pooled rate of every roll"
    },
@@ -53,7 +53,7 @@
     "of_those_male": 2,
     "own_male_rate": 1.0,
     "measured_on_its_own": false,
-    "drawn_at": 0.9309,
+    "drawn_at": 0.9323,
     "drawn_for": 3,
     "why": "only 2 of its names are settled - below the floor of 50, so it draws at the pooled rate of every roll"
    },
@@ -70,7 +70,7 @@
   ]
  },
  "the_rolls_are_not_the_town": {
-  "the_rolls": "93.1% male, measured above",
+  "the_rolls": "93.2% male, measured above",
   "the_town": "120.9-150.0 (point reading 146.8) males per 100 females - a 55-60% male town",
   "why_they_differ": "A roll of correspondents, voters and subscribers names adult men; the town's women and children are named nowhere in it. Nothing here is drawn at the town's ratio, because none of these people is a draw from the town - they are people a roll already named. The gap IS the reconstruction's brief: T-1174 writes the women and children the pyramid lacks, to its own quota.",
   "under_ten_in_the_town": "the town model's `share_under_ten`, 0.2-0.2702, which this stage draws for nobody: a person named on a roll is not a child under ten."
@@ -334,7 +334,7 @@
  "counts": {
   "sex_drawn": {
    "letter_list": 408,
-   "civic": 216,
+   "civic": 187,
    "documented": 24,
    "placed": 3,
    "unclaimed": 5
@@ -343,7 +343,7 @@
    "a_group_not_a_person": 6
   },
   "sex_already": {
-   "civic": 292,
+   "civic": 321,
    "unclaimed": 97,
    "letter_list": 372,
    "documented": 15,
@@ -355,7 +355,7 @@
    "dependent_child_under_15": 44
   },
   "age_read": {
-   "another_stage_drew_them": 1477,
+   "another_stage_drew_them": 1455,
    "birth_year": 60,
    "unclaimed": 3
   },
@@ -364,13 +364,13 @@
    "a_married_style_over_a_kinship_word": 1
   },
   "drawn_sex_is": {
-   "male": 617,
-   "female": 39
+   "male": 590,
+   "female": 37
   },
   "drawn_band_is": {
    "20-29": 658,
-   "30-39": 363,
-   "15-19": 117,
+   "30-39": 362,
+   "15-19": 118,
    "40-49": 124,
    "50-59": 42,
    "5-9": 16,
