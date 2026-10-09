@@ -11,15 +11,15 @@ Seating is **open** (T-1313 — the seat T-1170's reading left held; see tickets
 ## What was read
 
 - 10 marriage statements, read off the marriage verb in prose the cards already carry.
-- 13 relatives named by `tools/survey_stated_kin.py` whose other end is nobody this town holds.
-- 23 statements in all, every one of them answered below.
+- 14 relatives named by `tools/survey_stated_kin.py` whose other end is nobody this town holds.
+- 24 statements in all, every one of them answered below.
 
 ## The verdicts
 
 | verdict | statements |
 |---|---|
 | `write` | 4 |
-| `already_held` | 4 |
+| `already_held` | 5 |
 | `later_only` | 2 |
 | `not_present` | 1 |
 | `no_seat` | 1 |
@@ -155,6 +155,14 @@ Seating is **open** (T-1313 — the seat T-1170's reading left held; see tickets
 - **verdict** `insufficient_identity` — The death notice reads 'father of I. N. and E. R' - initials, and two of them. An initial fires nothing in this project, on the ruling the sex-and-age pass states for the same reason: it identifies nobody.
 
 > "the_agreement": "a surname and one initial", "record_id": "fdn0274", "trade_or_office": "father of I. N. and E. R", "manner_of_death": "died", "place_of_death": nul
+
+### `kin:hh_marknoble_jun__son__mark_nobles`
+
+- **read as** Mark Nobles — son of `marknoble_jun` in `hh_marknoble_jun`
+- **from** `hh_marknoble_jun`
+- **verdict** `already_held` — The town holds him: `noble_mark`, 'Esq. Mark Noble' (`hh_noble_mark`). The sentence is the Democrat's of 3 December 1833, now quoted on this card by its printed-wife block (T-2230): 'Mr. MARK NOBLE, jun., second son of Mark Nobles, Esq. of this place'. It makes the head of this card the son, not Mark Nobles, and the tie between the two standing households is already a kin row (T-2229), which is kin_rulings.json's to make and not this pass's.
+
+> wn, on Saturday evening 29 ult., by the Hon. R. I. Hamilton, Mr. MARK NOBLE, jun., second son of Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only daughter of Mr
 
 ### `kin:hh_mclintock_thomas__son__thomas_franklin_mcclintock`
 
