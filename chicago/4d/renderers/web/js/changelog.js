@@ -4,7 +4,6 @@ export const CHANGELOG = [ // newest first
       'The Chicago Democrat of 3 December 1833 prints \u201cMr. MARK NOBLE, jun.\u201d marrying \u201cMiss CHARLOTTE, only daughter of Mr. Charles Wesencraft\u201d. Both their cards had a guessed sex, and both guesses were wrong: he showed as a woman, and she as a man heading a made-up wife and sons.',
       'The paper\u2019s \u201cMr.\u201d and \u201cMiss\u201d now set both cards, quoting the column. Charlotte is seated in his house as his wife, and the family we had invented for her is gone. The same reading puts \u201cMiss\u201d and \u201cMr.\u201d onto two more press cards, Anne Maria Barney and Alson Woodruff; the wife and son we had invented for her are gone too. Mary Noble\u2019s marriage to George Bickerdyke, printed in the same column, comes next.',
     ] },
-    ] },
   { v: 1563, ts: '2026-10-09T05:30:16.773Z', date: 'Oct 9, 2026, 12:30 AM CT', title: 'The town stops ordering 335 houses it already has', kind: 'fix',
     items: [
       'The plan of who still has to be added to the 1835 town was asking for 424 more family houses. 429 households the town already holds were living in one, either in a house the town gave them or as a family sharing one. The plan counted houses only from the people cards, and those homes were recorded beside the cards, so it never saw them.',
