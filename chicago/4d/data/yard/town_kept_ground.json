@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "325 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "328 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
-    "lots": 250,
+    "lots": 252,
     "refused": 0,
-    "refuges": 341,
-    "paths": 325
+    "refuges": 344,
+    "paths": 328
   },
   "lots": [
     {
@@ -818,6 +818,7 @@
     {
       "lot": "blk_south_water_wells_lot7",
       "structures": [
+        "recon_1835_blk_south_water_wells_a2_10",
         "recon_1835_blk_south_water_wells_d3_04"
       ],
       "kept_ring_local_enu_m": [
@@ -863,6 +864,24 @@
           [
             439.77,
             -58.01
+          ]
+        ],
+        [
+          [
+            421.56,
+            -71.58
+          ],
+          [
+            429.73,
+            -71.53
+          ],
+          [
+            429.65,
+            -58.73
+          ],
+          [
+            421.49,
+            -58.78
           ]
         ]
       ]
@@ -6536,19 +6555,19 @@
         [
           [
             316.21,
-            -325.57
+            -325.58
           ],
           [
-            313.92,
+            313.77,
             -325.56
           ],
           [
-            313.91,
-            -327.85
+            313.75,
+            -328.0
           ],
           [
-            316.2,
-            -327.86
+            316.19,
+            -328.02
           ]
         ]
       ]
@@ -13094,6 +13113,58 @@
       ]
     },
     {
+      "lot": "blk_school_section_tier_81_lot1",
+      "structures": [
+        "recon_1835_blk_school_section_tier_81_d5_07"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          82.16,
+          -642.88
+        ],
+        [
+          109.87,
+          -642.88
+        ],
+        [
+          109.87,
+          -593.39
+        ],
+        [
+          107.43,
+          -590.95
+        ],
+        [
+          84.6,
+          -590.95
+        ],
+        [
+          82.16,
+          -593.39
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            83.98,
+            -590.33
+          ],
+          [
+            81.54,
+            -590.33
+          ],
+          [
+            81.54,
+            -592.77
+          ],
+          [
+            83.98,
+            -592.77
+          ]
+        ]
+      ]
+    },
+    {
       "lot": "blk_school_section_tier_81_lot2",
       "structures": [
         "recon_1835_blk_school_section_tier_81_d5_01"
@@ -13782,6 +13853,58 @@
           ],
           [
             313.2,
+            -592.77
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_95_lot1",
+      "structures": [
+        "recon_1835_blk_school_section_tier_95_d6_07"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          362.22,
+          -642.88
+        ],
+        [
+          384.09,
+          -642.88
+        ],
+        [
+          384.09,
+          -593.39
+        ],
+        [
+          381.65,
+          -590.95
+        ],
+        [
+          364.66,
+          -590.95
+        ],
+        [
+          362.22,
+          -593.39
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            384.71,
+            -590.33
+          ],
+          [
+            382.27,
+            -590.33
+          ],
+          [
+            382.27,
+            -592.77
+          ],
+          [
+            384.71,
             -592.77
           ]
         ]
