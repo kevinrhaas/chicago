@@ -1,7 +1,8 @@
 ## T-2189 — the dead ruled not present: thirteen people the town's own burials and death notices bury before 1 July 1835 (2026-10-09)
 
 Opened as PR #543 and handed on with `resume`; lapped over T-2190 (#547), T-2229 (#550),
-T-2176 (#545) and T-2195 (#551) and re-derived to the fixpoint.
+T-2176 (#545), T-2195 (#551), T-1273 (#541), T-2199 (#556) and T-2197 (#552) and
+re-derived to the fixpoint.
 
 - **`tools/death_readings.py`** reads deaths from the readers' own structure: St Cyr rows whose
   `cells.role` is `decedent`, and Democrat entities whose role is `decedent` or begins
@@ -16,13 +17,30 @@ T-2176 (#545) and T-2195 (#551) and re-derived to the fixpoint.
   Bourque's and Fisher's houses are dropped, so two women head their own houses again. The
   women-and-children deal and T-2020's fold pairing are frozen as drawn, so one withdrawal no
   longer re-deals or re-pairs every house after it. L244: 801 in 240 → 789 in 237.
-- **Two burial-row readmissions are no longer minted** (L246: 121 → 119); lodgers 23 → 22 houses.
+- **Two burial-row readmissions are no longer minted** (L246: 118 → 116 over T-2197); lodgers 23 → 22 houses.
 - **The family pass keeps its two death-notice rulings** (Rollins, Hoit): since T-2190 the
   press-bounds route asks the pass about a kin unit before any card asserts it, so both units
   still reach it. `spend_remainder_rulings.py --self-test` now counts a family-pass rule that fires
   on that route as firing.
 - **Unverified here**: nothing beyond the gate. The withdrawn houses' roofs re-seat through the
   derived chain; no geometry moved.
+## T-2199 — Glessner reference recovery (2026-10-09)
+
+The bounded 17-record pass recovered and reviewed material for ten records;
+seven underlying images remain unavailable (two Encyclopedia, four Barford,
+one AIC Nickel print). The library records exact outcomes, dates, rights and
+independence; Cornell and the report plate join known exposure families. An
+additional IIT 1945 facade photograph stays copyright/link-only. Unsupported
+Barford date bounds are removed, and an uncredited nomination sketch is now
+unknown/link-only rather than assumed public domain from federal custody.
+The Yale lead is VRC 36, Box 34, seven unidentified photographs (PDF page 18).
+
+The visitor can open the retrieval report, prioritized remaining-view matrix,
+measured-photo brief and unsent archive inquiries from the Glessner section and
+image cards. Sources and limits: `../../prairie_1904_v1/docs/glessner-reference-recovery.html`.
+No new pre-1904 courtyard view was recovered; no geometry or dark-glass change.
+T-2200–T-2228 remain held. Validation receipts accompany the delivery PR.
+
 ## T-2195 — the Market wedge, plat block 21, cut into four reconstructed lots (2026-10-08)
 
 The owner answered T-1957's question on 2026-10-08 with **(b)**: build on the wedge's eastern

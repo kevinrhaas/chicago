@@ -48,13 +48,13 @@ Baseline: `07605197356ccd8d8b4f547eccb2d1dc619ef06f` on `dev`, taken 2026-09-18 
 | households in `index.json` | 1258 | 1459 | +201 |
 | household cards on disk | 1258 | 1459 | +201 |
 | persons in `index.json` | 1288 | 2913 | +1625 |
-| rows in the `merged` redirect table | 66 | 69 | +3 |
+| rows in the `merged` redirect table | 66 | 72 | +6 |
 | redirects that do not arrive | 0 | 0 | 0 |
 | persons graded `attested` | 410 | 412 | +2 |
 | persons graded `inferred` | 875 | 1028 | +153 |
 | persons graded `reconstructed` | 3 | 1473 | +1470 |
 | 1835 sidecar files | 391 | 683 | +292 |
-| people in the 1835 people sidecar | 1288 | 3908 | +2620 |
+| people in the 1835 people sidecar | 1288 | 3905 | +2617 |
 | buildings standing in the town census | 371 | 657 | +286 |
 | people housed in the town census | 34 | 2607 | +2573 |
 | households housed in the town census | 20 | 1323 | +1303 |

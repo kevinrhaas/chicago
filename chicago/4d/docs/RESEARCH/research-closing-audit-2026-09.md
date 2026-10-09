@@ -40,7 +40,7 @@ Reproduce: `python3 tools/measure_research_spend.py --ledger-build` then `python
 | Persons graded `reconstructed` | 1,473 |
 | Letter-list-only names | 773 |
 | Projected residents | 759 |
-| Merged away | 69 |
+| Merged away | 72 |
 
 Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.json'))['counts'])"`.
 

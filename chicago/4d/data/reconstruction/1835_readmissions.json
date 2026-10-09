@@ -78,20 +78,20 @@
   },
   "readmitted": {
    "R1_in_window_uncertain": 782,
-   "R2_in_window_single_source": 60,
+   "R2_in_window_single_source": 57,
    "R3_1834_return_or_muster": 20,
    "R5_later_only_backprojectable": 39
   },
   "withheld": {
    "R1_in_window_uncertain": 101,
-   "R2_in_window_single_source": 147,
+   "R2_in_window_single_source": 150,
    "R3_1834_return_or_muster": 8,
    "R5_later_only_backprojectable": 14
   },
   "presence_ruled_present": 736,
   "presence_ruled_absent": 46,
-  "cards_minted": 119,
-  "minted_present": 109
+  "cards_minted": 116,
+  "minted_present": 106
  },
  "the_tension_this_leaves": {
   "what": "The order book (T-1166) models 643 households in the town on 1 July 1835 and the layer carries 436 present today. Ruling 787 more cards present takes that to 1,223, which is nearly twice the model.",
@@ -22502,27 +22502,6 @@
    }
   },
   {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_05_4_sponsor#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_louis_franch_re",
-   "person_id": "louis_franch_re",
-   "name_as_read": "Louis Franchère",
-   "name": "Louis Franch Re",
-   "file": "readmitted/hh_louis_franch_re.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-06-05",
-   "dated_evidence_read_as": "1833-06-05",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8768,
-    "years_before_the_scene": 2.0699,
-    "seed": "hh_louis_franch_re:persistence"
-   }
-  },
-  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_06_2_father#0",
    "class": "R2_in_window_single_source",
    "rule": "readmission_r2_single_source_read_name",
@@ -22562,48 +22541,6 @@
     "persistence": 0.8827,
     "years_before_the_scene": 1.9631,
     "seed": "hh_mariana_kamenwith:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_10_1_child#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_joseph_l_tendre",
-   "person_id": "joseph_l_tendre",
-   "name_as_read": "Joseph Létendre",
-   "name": "Joseph L. Tendre",
-   "file": "readmitted/hh_joseph_l_tendre.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-07-26",
-   "dated_evidence_read_as": "1833-07-26",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8846,
-    "years_before_the_scene": 1.9302,
-    "seed": "hh_joseph_l_tendre:persistence"
-   }
-  },
-  {
-   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_10_2_father#0",
-   "class": "R2_in_window_single_source",
-   "rule": "readmission_r2_single_source_read_name",
-   "household_id": "hh_baptiste_l_tendre",
-   "person_id": "baptiste_l_tendre",
-   "name_as_read": "Baptiste Létendre",
-   "name": "Baptiste L. Tendre",
-   "file": "readmitted/hh_baptiste_l_tendre.json",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "dated_evidence": "1833-07-26",
-   "dated_evidence_read_as": "1833-07-26",
-   "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8846,
-    "years_before_the_scene": 1.9302,
-    "seed": "hh_baptiste_l_tendre:persistence"
    }
   },
   {
@@ -25283,11 +25220,32 @@
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
   },
   {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_05_4_sponsor#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Louis Franchère",
+   "reason": "a_card_merge_retired_the_readmission",
+   "why": "This stage minted a card from this row, and a card merge ruled it a second copy of a card the town already holds and retired it onto that card (data/residents/card_merge_rulings.json; the record is kept whole under data/residents/merged/). Minting it again would put the person back into the town twice."
+  },
+  {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_05_5_sponsor#0",
    "class": "R2_in_window_single_source",
    "name_as_read": "Elozina[?] Bailly",
    "reason": "a_card_of_that_name_already_stands",
    "why": "A person already in the layer shares this surname and first given initial — the same discriminator this project's directory crosswalks match on — so minting a second card would risk carrying one person into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_10_1_child#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Joseph Létendre",
+   "reason": "a_card_merge_retired_the_readmission",
+   "why": "This stage minted a card from this row, and a card merge ruled it a second copy of a card the town already holds and retired it onto that card (data/residents/card_merge_rulings.json; the record is kept whole under data/residents/merged/). Minting it again would put the person back into the town twice."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_10_2_father#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "Baptiste Létendre",
+   "reason": "a_card_merge_retired_the_readmission",
+   "why": "This stage minted a card from this row, and a card merge ruled it a second copy of a card the town already holds and retired it onto that card (data/residents/card_merge_rulings.json; the record is kept whole under data/residents/merged/). Minting it again would put the person back into the town twice."
   },
   {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_11_2_father#0",

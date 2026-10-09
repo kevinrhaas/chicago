@@ -15,17 +15,17 @@
  },
  "not_a_reading": "Derived, never hand-edited. Every value is read off a committed field — a household's origin block or a reconstructed person's own pool community — and graded no higher than the field it came from. No source was read to write this file and nobody was minted.",
  "counts": {
-  "persons": 3445,
-  "households": 1983,
+  "persons": 3442,
+  "households": 1980,
   "known": 3311,
-  "unknown": 134,
+  "unknown": 131,
   "by_community": {
    "yankee": 1668,
    "new_york": 559,
    "irish": 479,
    "french_canadian": 184,
    "other": 137,
-   "unknown": 134,
+   "unknown": 131,
    "british": 111,
    "native": 89,
    "southern": 67,
@@ -34,14 +34,14 @@
   },
   "by_tier": {
    "reconstructed": 3251,
-   "null": 134,
+   "null": 131,
    "inferred": 57,
    "attested": 3
   },
   "by_rule": {
    "reconstruction_community": 1886,
    "origin_region": 1401,
-   "no_origin_recorded": 119,
+   "no_origin_recorded": 116,
    "stated_community": 24,
    "origin_does_not_speak_for_this_person": 11,
    "origin_unreadable": 4
@@ -51,7 +51,7 @@
    "new_york": 557,
    "irish": 140,
    "other": 137,
-   "unknown": 122,
+   "unknown": 119,
    "british": 111,
    "native": 89,
    "french_canadian": 65,
@@ -475,11 +475,6 @@
    "value": "native",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
-  },
-  "baptiste_l_tendre": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
   },
   "barber_beta_l": {
    "value": "new_york",
@@ -4096,11 +4091,6 @@
    "tier": null,
    "rule": "no_origin_recorded"
   },
-  "joseph_l_tendre": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "joseph_la_frombois": {
    "value": "native",
    "tier": "reconstructed",
@@ -4730,11 +4720,6 @@
    "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
-  },
-  "louis_franch_re": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
   },
   "louis_malzacher": {
    "value": "new_york",
@@ -17848,13 +17833,6 @@
    "head": "banstun_charles",
    "file": "households/hh_banstun_charles.json"
   },
-  "hh_baptiste_l_tendre": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "baptiste_l_tendre",
-   "file": "readmitted/hh_baptiste_l_tendre.json"
-  },
   "hh_barber_beta_l": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -22804,13 +22782,6 @@
    "head": "joseph_kettlestrings",
    "file": "readmitted/hh_joseph_kettlestrings.json"
   },
-  "hh_joseph_l_tendre": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "joseph_l_tendre",
-   "file": "readmitted/hh_joseph_l_tendre.json"
-  },
   "hh_joseph_metcalf": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -23608,13 +23579,6 @@
    "rule": "origin_region",
    "head": "loring_wm",
    "file": "households/hh_loring_wm.json"
-  },
-  "hh_louis_franch_re": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "louis_franch_re",
-   "file": "readmitted/hh_louis_franch_re.json"
   },
   "hh_louis_malzacher": {
    "value": "new_york",
