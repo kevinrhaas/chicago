@@ -162,8 +162,8 @@
       "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
     },
     {
-      "household": "hh_rc_newell_amanda",
-      "name": "The Newell household — a trade the rosters never printed",
+      "household": "hh_rc_walsh_margaret",
+      "name": "The Walsh household — a trade the rosters never printed",
       "division": "north",
       "relation": "boarded here",
       "why": "boarding in the division's least crowded dwelling",
@@ -171,7 +171,7 @@
       "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "Amanda Newell",
+          "name": "Margaret Walsh",
           "relationship": "head",
           "grade": "reconstructed",
           "occupation": "domestic",

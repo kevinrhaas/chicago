@@ -2316,6 +2316,15 @@
       "via_card_merge": null,
       "rivals": [
         {
+          "key": "noble_mary",
+          "name": "Mary Noble",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
           "key": "noble_john",
           "name": "John Noble",
           "forename_agrees": true,
@@ -2327,15 +2336,6 @@
         {
           "key": "noble_mark",
           "name": "Esq. Mark Noble",
-          "forename_agrees": false,
-          "why": "two full forenames that do not agree (R4)",
-          "middle_initial": null,
-          "reading_middle_initial": null,
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "noble_mary",
-          "name": "Mary Noble",
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": null,
@@ -8615,6 +8615,15 @@
       "rule": "NOBLE MARK SEN is refused against 4 residents named Noble: the reading carries the suffix SR and Esq. Mark Noble carries ESQ, and a suffix says which man of the name is meant.",
       "rivals": [
         {
+          "key": "noble_mary",
+          "name": "Mary Noble",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
           "key": "noble_john",
           "name": "John Noble",
           "forename_agrees": false,
@@ -8631,15 +8640,6 @@
           "middle_initial": null,
           "reading_middle_initial": null,
           "outcome": "refused_on_the_suffix"
-        },
-        {
-          "key": "noble_mary",
-          "name": "Mary Noble",
-          "forename_agrees": false,
-          "why": "two full forenames that do not agree (R4)",
-          "middle_initial": null,
-          "reading_middle_initial": null,
-          "outcome": "refused_on_the_forename"
         },
         {
           "key": "noble_william_b",
@@ -8665,6 +8665,15 @@
       "rule": "NOBLE MARK JR is refused against 4 residents named Noble: the reading carries the suffix none and Esq. Mark Noble carries ESQ, and a suffix says which man of the name is meant.",
       "rivals": [
         {
+          "key": "noble_mary",
+          "name": "Mary Noble",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
           "key": "noble_john",
           "name": "John Noble",
           "forename_agrees": false,
@@ -8681,15 +8690,6 @@
           "middle_initial": null,
           "reading_middle_initial": null,
           "outcome": "refused_on_the_suffix"
-        },
-        {
-          "key": "noble_mary",
-          "name": "Mary Noble",
-          "forename_agrees": false,
-          "why": "two full forenames that do not agree (R4)",
-          "middle_initial": null,
-          "reading_middle_initial": null,
-          "outcome": "refused_on_the_forename"
         },
         {
           "key": "noble_william_b",
@@ -11418,6 +11418,15 @@
       "rule": "NOBLE MARK is refused against 4 residents named Noble: the reading carries the suffix none and Esq. Mark Noble carries ESQ, and a suffix says which man of the name is meant.",
       "rivals": [
         {
+          "key": "noble_mary",
+          "name": "Mary Noble",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
           "key": "noble_john",
           "name": "John Noble",
           "forename_agrees": false,
@@ -11434,15 +11443,6 @@
           "middle_initial": null,
           "reading_middle_initial": null,
           "outcome": "refused_on_the_suffix"
-        },
-        {
-          "key": "noble_mary",
-          "name": "Mary Noble",
-          "forename_agrees": false,
-          "why": "two full forenames that do not agree (R4)",
-          "middle_initial": null,
-          "reading_middle_initial": null,
-          "outcome": "refused_on_the_forename"
         },
         {
           "key": "noble_william_b",
