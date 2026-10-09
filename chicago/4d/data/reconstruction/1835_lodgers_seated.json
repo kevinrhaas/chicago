@@ -568,7 +568,8 @@
    "recon_1835_blk_washington_market_h3_01",
    "recon_1835_blk_washington_market_h3_04",
    "recon_1835_north_t1_061",
-   "recon_1835_blk_washington_clinton_h3_02"
+   "recon_1835_blk_washington_clinton_h3_02",
+   "recon_1835_blk_south_water_market_h3_02"
   ],
   "open_orders_the_deal_was_capped_at": {
    "persons/female/10_19/north/lodging/none": 2,
@@ -955,7 +956,7 @@
      "west": 7
     },
     "beds_with_no_order": {
-     "south": 8,
+     "south": 16,
      "north": 20,
      "west": 0
     }
@@ -1013,7 +1014,7 @@
      "place": "recon_1835_north_h2_045",
      "division": "north",
      "persons": [
-      "rc_mcguire_honora",
+      "rc_sullivan_alice",
       "rc_wadsworth_henry",
       "rc_sheldon_horace"
      ]
@@ -1023,7 +1024,9 @@
      "division": "south",
      "persons": [
       "rc_hubbard_ruth",
-      "rc_kellogg_esther"
+      "rc_kellogg_esther",
+      "rc_woodruff_esther",
+      "rc_crandall_joseph"
      ]
     },
     {
@@ -1033,9 +1036,7 @@
       "rc_hastings_polly",
       "rc_cardinal_catherine",
       "rc_woodruff_maria",
-      "rc_vieau_archange",
-      "rc_carroll_bryan",
-      "rc_eastman_david"
+      "rc_carroll_bryan"
      ]
     }
    ],
@@ -1047,7 +1048,7 @@
      "west": 0
     },
     "beds_with_no_order": {
-     "south": 8,
+     "south": 16,
      "north": 20,
      "west": 0
     }
@@ -1161,7 +1162,7 @@
      "division": "south",
      "sex": "male",
      "age_band": "10_19",
-     "to_deal": 4
+     "to_deal": 3
     },
     {
      "bucket": "persons/male/20_29/south/lodging/trade",
@@ -1260,16 +1261,9 @@
      "place": "recon_1835_blk_washington_market_h3_01",
      "division": "south",
      "persons": [
-      "rc_barnes_john"
-     ]
-    },
-    {
-     "place": "recon_1835_blk_washington_market_h3_04",
-     "division": "south",
-     "persons": [
-      "rc_nichols_alvah",
-      "rc_tobin_thomas",
-      "rc_fisk_orrin"
+      "rc_barnes_john",
+      "rc_laframboise_alexis",
+      "rc_parmelee_jared"
      ]
     }
    ],
@@ -1461,7 +1455,7 @@
    "division_from": "the reconstruction programme's own district for this roof",
    "district_in_the_roof_reconciliation": null,
    "beds_ordinary": 12,
-   "beds_crowded": 28,
+   "beds_crowded": 27,
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
@@ -1470,13 +1464,49 @@
    "seated": [
     "barry_j_r",
     "funk_absolom",
-    "laird_william",
-    "sasoton_a_b",
-    "rc_flynn_owen"
+    "latzky_john",
+    "shatttuck_walter",
+    "rc_mccarthy_ellen"
    ],
    "minted_keeper": "rc_chapin_hannah",
    "minted_lodgers": 0,
    "minted_children": 3,
+   "occupancy_after": 6,
+   "inside_its_band": true,
+   "at_its_ordinary_night_figure": false
+  },
+  {
+   "id": "recon_1835_blk_south_water_market_h3_02",
+   "name": "Reconstructed H3 boarding house #02",
+   "function": "large_boarding_house",
+   "class": "boarding_house",
+   "standing": "reconstructed",
+   "division": "south",
+   "division_from": "the reconstruction programme's own district for this roof",
+   "district_in_the_roof_reconciliation": null,
+   "beds_ordinary": 12,
+   "beds_crowded": 28,
+   "occupied_before": 0,
+   "keeper_household": "hh_beaubien_mark",
+   "keeper_persons": 2,
+   "keeper_by": "platted_seat",
+   "keeper_head": {
+    "household": "hh_beaubien_mark",
+    "person": "beaubien_mark",
+    "name": "Mark Beaubien",
+    "by": "platted_seat"
+   },
+   "seated": [
+    "brown_jesse_b",
+    "glaumbake_frank",
+    "merrill_george_w",
+    "smith_george",
+    "rc_shea_catherine",
+    "beaubien_mark"
+   ],
+   "minted_keeper": null,
+   "minted_lodgers": 0,
+   "minted_children": 0,
    "occupancy_after": 6,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": false
@@ -1493,19 +1523,19 @@
    "beds_ordinary": 9,
    "beds_crowded": 22,
    "occupied_before": 0,
-   "keeper_household": "hh_beaubien_mark",
-   "keeper_persons": 2,
+   "keeper_household": "hh_sweet_alanson",
+   "keeper_persons": 1,
    "keeper_by": "platted_seat",
    "keeper_head": {
-    "household": "hh_beaubien_mark",
-    "person": "beaubien_mark",
-    "name": "Mark Beaubien",
+    "household": "hh_sweet_alanson",
+    "person": "sweet_alanson",
+    "name": "Alanson Sweet",
     "by": "platted_seat"
    },
    "seated": [
-    "schwartz_adam",
-    "rc_gilbert_nancy",
-    "beaubien_mark"
+    "smith_william",
+    "rc_stiles_abigail",
+    "sweet_alanson"
    ],
    "minted_keeper": null,
    "minted_lodgers": 6,
@@ -1524,29 +1554,22 @@
    "division_from": "the reconstruction programme's own district for this roof",
    "district_in_the_roof_reconciliation": null,
    "beds_ordinary": 13,
-   "beds_crowded": 31,
+   "beds_crowded": 30,
    "occupied_before": 0,
-   "keeper_household": "hh_sweet_alanson",
-   "keeper_persons": 1,
-   "keeper_by": "platted_seat",
-   "keeper_head": {
-    "household": "hh_sweet_alanson",
-    "person": "sweet_alanson",
-    "name": "Alanson Sweet",
-    "by": "platted_seat"
-   },
+   "keeper_household": null,
+   "keeper_persons": 0,
+   "keeper_by": null,
+   "keeper_head": null,
    "seated": [
     "bailey_amos",
-    "brown_jesse_b",
-    "glaumbake_frank",
-    "latzky_john",
-    "shatttuck_walter",
-    "rc_mccarthy_ellen",
-    "sweet_alanson"
+    "butterfield_d_h",
+    "goodrich_john",
+    "montgomery_w",
+    "thompson_o_i"
    ],
-   "minted_keeper": null,
-   "minted_lodgers": 6,
-   "minted_children": 0,
+   "minted_keeper": "rc_stebbins_alvah",
+   "minted_lodgers": 7,
+   "minted_children": 3,
    "occupancy_after": 13,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -1561,7 +1584,7 @@
    "division_from": "the reconstruction programme's own district for this roof",
    "district_in_the_roof_reconciliation": null,
    "beds_ordinary": 13,
-   "beds_crowded": 31,
+   "beds_crowded": 30,
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
@@ -1569,14 +1592,13 @@
    "keeper_head": null,
    "seated": [
     "bailly_esther",
-    "butterfield_d_h",
-    "goodrich_john",
-    "merrill_george_w",
-    "smith_george",
-    "rc_shea_catherine"
+    "cook_thomas",
+    "harmon_m_d",
+    "owen_j_v",
+    "trowbridge_g_g"
    ],
    "minted_keeper": "rc_trottier_baptiste",
-   "minted_lodgers": 6,
+   "minted_lodgers": 7,
    "minted_children": 4,
    "occupancy_after": 13,
    "inside_its_band": true,
@@ -1591,24 +1613,22 @@
    "division": "west",
    "division_from": "the reconstruction programme's own district for this roof",
    "district_in_the_roof_reconciliation": null,
-   "beds_ordinary": 12,
-   "beds_crowded": 27,
+   "beds_ordinary": 11,
+   "beds_crowded": 26,
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
    "keeper_by": null,
    "keeper_head": null,
    "seated": [
-    "cook_thomas",
-    "harmon_m_d",
-    "montgomery_w",
-    "smith_william",
-    "rc_stiles_abigail"
+    "holsman_george",
+    "perry_calvin",
+    "ulrich_nicholas"
    ],
    "minted_keeper": null,
-   "minted_lodgers": 7,
+   "minted_lodgers": 8,
    "minted_children": 0,
-   "occupancy_after": 12,
+   "occupancy_after": 11,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
   },
@@ -1622,7 +1642,7 @@
    "division_from": "the reconstruction programme's own district for this roof",
    "district_in_the_roof_reconciliation": null,
    "beds_ordinary": 12,
-   "beds_crowded": 28,
+   "beds_crowded": 27,
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
@@ -1630,14 +1650,14 @@
    "keeper_head": null,
    "seated": [
     "derocher_jean_baptiste",
-    "holsman_george",
-    "owen_j_v",
-    "thompson_o_i"
+    "hunter_david",
+    "roberts_edmund",
+    "vaughan_dow_w"
    ],
    "minted_keeper": "rc_mccarthy_edward",
    "minted_lodgers": 7,
-   "minted_children": 2,
-   "youths_topped_up": 2,
+   "minted_children": 1,
+   "youths_topped_up": 4,
    "occupancy_after": 12,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -1659,14 +1679,14 @@
    "keeper_by": null,
    "keeper_head": null,
    "seated": [
-    "perry_calvin",
-    "trowbridge_g_g"
+    "sasoton_a_b",
+    "whistler_john_harrison"
    ],
    "minted_keeper": "rc_robillard_louis",
    "minted_lodgers": 7,
    "minted_children": 1,
-   "youths_topped_up": 6,
-   "working_lodgers": 1,
+   "youths_topped_up": 4,
+   "working_lodgers": 3,
    "occupancy_after": 10,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
@@ -1689,15 +1709,14 @@
    "keeper_head": null,
    "seated": [
     "donner_jacob",
-    "hunter_david",
-    "roberts_edmund",
-    "ulrich_nicholas"
+    "laird_william",
+    "schwartz_adam",
+    "wright_robert_c"
    ],
    "minted_keeper": "rc_laframboise_michel",
-   "minted_lodgers": 3,
+   "minted_lodgers": 0,
    "minted_children": 2,
-   "working_lodgers": 3,
-   "occupancy_after": 8,
+   "occupancy_after": 5,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": false
   },
@@ -1759,14 +1778,14 @@
    "division_from": "the reconstruction programme's own district for this roof",
    "district_in_the_roof_reconciliation": null,
    "beds_ordinary": 9,
-   "beds_crowded": 21,
+   "beds_crowded": 20,
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
    "keeper_by": null,
    "keeper_head": null,
    "seated": [
-    "vaughan_dow_w"
+    "rc_flynn_owen"
    ],
    "minted_keeper": "rc_cavanagh_johanna",
    "minted_lodgers": 7,
@@ -1808,22 +1827,20 @@
    "division": "north",
    "division_from": "the reconstruction programme's own district for this roof",
    "district_in_the_roof_reconciliation": null,
-   "beds_ordinary": 9,
+   "beds_ordinary": 8,
    "beds_crowded": 20,
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
    "keeper_by": null,
    "keeper_head": null,
-   "seated": [
-    "whistler_john_harrison"
-   ],
+   "seated": [],
    "minted_keeper": "rc_gilbert_benjamin",
    "minted_lodgers": 7,
    "minted_children": 0,
    "topped_up": 1,
    "youths_topped_up": 3,
-   "occupancy_after": 9,
+   "occupancy_after": 8,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
   },
@@ -1862,7 +1879,7 @@
    "division": "west",
    "division_from": "the reconstruction programme's own district for this roof",
    "district_in_the_roof_reconciliation": null,
-   "beds_ordinary": 6,
+   "beds_ordinary": 5,
    "beds_crowded": 13,
    "occupied_before": 0,
    "keeper_household": null,
@@ -1871,9 +1888,9 @@
    "keeper_head": null,
    "seated": [],
    "minted_keeper": "rc_fitzgerald_martin",
-   "minted_lodgers": 5,
+   "minted_lodgers": 4,
    "minted_children": 1,
-   "occupancy_after": 6,
+   "occupancy_after": 5,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true
   },
@@ -1887,14 +1904,14 @@
    "division_from": "the reconstruction programme's own district for this roof",
    "district_in_the_roof_reconciliation": null,
    "beds_ordinary": 9,
-   "beds_crowded": 21,
+   "beds_crowded": 20,
    "occupied_before": 0,
    "keeper_household": null,
    "keeper_persons": 0,
    "keeper_by": null,
    "keeper_head": null,
    "seated": [
-    "wright_robert_c"
+    "rc_gilbert_nancy"
    ],
    "minted_keeper": "rc_pelletier_victoire",
    "minted_lodgers": 7,
@@ -2136,8 +2153,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clark_h3_06",
-   "place_name": "Reconstructed H3 boarding house #06",
+   "place": "recon_1835_blk_south_water_market_h3_02",
+   "place_name": "Reconstructed H3 boarding house #02",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2180,8 +2197,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clark_h3_11",
-   "place_name": "Reconstructed H3 boarding house #11",
+   "place": "recon_1835_blk_washington_clark_h3_06",
+   "place_name": "Reconstructed H3 boarding house #06",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2246,8 +2263,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clinton_h3_02",
-   "place_name": "Reconstructed H3 boarding house #02",
+   "place": "recon_1835_blk_washington_clark_h3_11",
+   "place_name": "Reconstructed H3 boarding house #11",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2356,8 +2373,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clark_h3_06",
-   "place_name": "Reconstructed H3 boarding house #06",
+   "place": "recon_1835_blk_south_water_market_h3_02",
+   "place_name": "Reconstructed H3 boarding house #02",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2378,8 +2395,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clark_h3_11",
-   "place_name": "Reconstructed H3 boarding house #11",
+   "place": "recon_1835_blk_washington_clark_h3_06",
+   "place_name": "Reconstructed H3 boarding house #06",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2422,8 +2439,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clinton_h3_02",
-   "place_name": "Reconstructed H3 boarding house #02",
+   "place": "recon_1835_blk_washington_clark_h3_11",
+   "place_name": "Reconstructed H3 boarding house #11",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2444,8 +2461,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_dearborn_h3_01",
-   "place_name": "Reconstructed H3 boarding house #01",
+   "place": "recon_1835_blk_washington_clinton_h3_02",
+   "place_name": "Reconstructed H3 boarding house #02",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2466,8 +2483,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_market_h3_04",
-   "place_name": "Reconstructed H3 boarding house #04",
+   "place": "recon_1835_blk_washington_dearborn_h3_01",
+   "place_name": "Reconstructed H3 boarding house #01",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2488,8 +2505,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_indiana_north_cass_h3_09",
-   "place_name": "Reconstructed H3 boarding house #09",
+   "place": "recon_1835_blk_washington_market_h3_04",
+   "place_name": "Reconstructed H3 boarding house #04",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2510,8 +2527,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clark_h3_06",
-   "place_name": "Reconstructed H3 boarding house #06",
+   "place": "recon_1835_blk_indiana_north_cass_h3_09",
+   "place_name": "Reconstructed H3 boarding house #09",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2532,8 +2549,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clark_h3_11",
-   "place_name": "Reconstructed H3 boarding house #11",
+   "place": "recon_1835_blk_south_water_market_h3_02",
+   "place_name": "Reconstructed H3 boarding house #02",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2554,8 +2571,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clinton_h3_02",
-   "place_name": "Reconstructed H3 boarding house #02",
+   "place": "recon_1835_blk_washington_clark_h3_06",
+   "place_name": "Reconstructed H3 boarding house #06",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2576,8 +2593,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_dearborn_h3_01",
-   "place_name": "Reconstructed H3 boarding house #01",
+   "place": "recon_1835_blk_washington_clark_h3_11",
+   "place_name": "Reconstructed H3 boarding house #11",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2598,8 +2615,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_market_h3_01",
-   "place_name": "Reconstructed H3 boarding house #01",
+   "place": "recon_1835_blk_washington_clinton_h3_02",
+   "place_name": "Reconstructed H3 boarding house #02",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2620,8 +2637,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_market_h3_04",
-   "place_name": "Reconstructed H3 boarding house #04",
+   "place": "recon_1835_blk_washington_dearborn_h3_01",
+   "place_name": "Reconstructed H3 boarding house #01",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2642,8 +2659,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_indiana_north_cass_h3_09",
-   "place_name": "Reconstructed H3 boarding house #09",
+   "place": "recon_1835_blk_washington_market_h3_01",
+   "place_name": "Reconstructed H3 boarding house #01",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2664,8 +2681,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clark_h3_05",
-   "place_name": "Reconstructed H3 boarding house #05",
+   "place": "recon_1835_blk_washington_market_h3_04",
+   "place_name": "Reconstructed H3 boarding house #04",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2686,8 +2703,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clark_h3_06",
-   "place_name": "Reconstructed H3 boarding house #06",
+   "place": "recon_1835_blk_indiana_north_cass_h3_09",
+   "place_name": "Reconstructed H3 boarding house #09",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2708,8 +2725,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "coffee_house_keeper",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clark_h3_11",
-   "place_name": "Reconstructed H3 boarding house #11",
+   "place": "recon_1835_blk_south_water_market_h3_02",
+   "place_name": "Reconstructed H3 boarding house #02",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2730,8 +2747,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clinton_h3_02",
-   "place_name": "Reconstructed H3 boarding house #02",
+   "place": "recon_1835_blk_washington_clark_h3_05",
+   "place_name": "Reconstructed H3 boarding house #05",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2752,8 +2769,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_dearborn_h3_01",
-   "place_name": "Reconstructed H3 boarding house #01",
+   "place": "recon_1835_blk_washington_clark_h3_06",
+   "place_name": "Reconstructed H3 boarding house #06",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2774,8 +2791,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_market_h3_01",
-   "place_name": "Reconstructed H3 boarding house #01",
+   "place": "recon_1835_blk_washington_clark_h3_11",
+   "place_name": "Reconstructed H3 boarding house #11",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2796,8 +2813,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_blk_washington_market_h3_04",
-   "place_name": "Reconstructed H3 boarding house #04",
+   "place": "recon_1835_blk_washington_clinton_h3_02",
+   "place_name": "Reconstructed H3 boarding house #02",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2818,8 +2835,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_north_h2_028",
-   "place_name": "Reconstructed H2 medium boarding house #028",
+   "place": "recon_1835_blk_washington_dearborn_h3_01",
+   "place_name": "Reconstructed H3 boarding house #01",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2840,8 +2857,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_north_h2_045",
-   "place_name": "Reconstructed H2 medium boarding house #045",
+   "place": "recon_1835_blk_washington_market_h3_01",
+   "place_name": "Reconstructed H3 boarding house #01",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2862,8 +2879,8 @@
    "drawn_solitary_in_stage": "modelled_families",
    "trade": "none_recorded",
    "group": "labour",
-   "place": "recon_1835_west_035",
-   "place_name": "Reconstructed H2 medium boarding house #035",
+   "place": "recon_1835_blk_washington_market_h3_04",
+   "place_name": "Reconstructed H3 boarding house #04",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2950,8 +2967,8 @@
    "drawn_solitary_in_stage": "trade_households",
    "trade": "labourer",
    "group": "labour",
-   "place": "recon_1835_blk_indiana_north_cass_h3_09",
-   "place_name": "Reconstructed H3 boarding house #09",
+   "place": "recon_1835_north_h2_028",
+   "place_name": "Reconstructed H2 medium boarding house #028",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -2972,8 +2989,8 @@
    "drawn_solitary_in_stage": "trade_households",
    "trade": "domestic",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clark_h3_05",
-   "place_name": "Reconstructed H3 boarding house #05",
+   "place": "recon_1835_west_035",
+   "place_name": "Reconstructed H2 medium boarding house #035",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -3060,8 +3077,8 @@
    "drawn_solitary_in_stage": "trade_households",
    "trade": "domestic",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clark_h3_06",
-   "place_name": "Reconstructed H3 boarding house #06",
+   "place": "recon_1835_blk_indiana_north_cass_h3_09",
+   "place_name": "Reconstructed H3 boarding house #09",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -3082,8 +3099,8 @@
    "drawn_solitary_in_stage": "trade_households",
    "trade": "domestic",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clark_h3_11",
-   "place_name": "Reconstructed H3 boarding house #11",
+   "place": "recon_1835_blk_south_water_market_h3_02",
+   "place_name": "Reconstructed H3 boarding house #02",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -3126,8 +3143,8 @@
    "drawn_solitary_in_stage": "trade_households",
    "trade": "domestic",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clinton_h3_02",
-   "place_name": "Reconstructed H3 boarding house #02",
+   "place": "recon_1835_blk_washington_clark_h3_05",
+   "place_name": "Reconstructed H3 boarding house #05",
    "relationship": "boarder",
    "basis": {
     "kind": "rule",
@@ -3148,8 +3165,8 @@
    "drawn_solitary_in_stage": null,
    "trade": "tavern_keeper",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clark_h3_05",
-   "place_name": "Reconstructed H3 boarding house #05",
+   "place": "recon_1835_blk_south_water_market_h3_02",
+   "place_name": "Reconstructed H3 boarding house #02",
    "relationship": "keeper",
    "basis": {
     "kind": "rule",
@@ -3170,8 +3187,8 @@
    "drawn_solitary_in_stage": null,
    "trade": "tavern_keeper",
    "group": "labour",
-   "place": "recon_1835_blk_washington_clark_h3_06",
-   "place_name": "Reconstructed H3 boarding house #06",
+   "place": "recon_1835_blk_washington_clark_h3_05",
+   "place_name": "Reconstructed H3 boarding house #05",
    "relationship": "keeper",
    "basis": {
     "kind": "rule",
@@ -3219,25 +3236,25 @@
    "id": "hh_lodging_recon_1835_blk_washington_clark_h3_06",
    "file": "lodgers/hh_lodging_recon_1835_blk_washington_clark_h3_06.json",
    "place": "recon_1835_blk_washington_clark_h3_06",
-   "persons": 6
+   "persons": 11
   },
   {
    "id": "hh_lodging_recon_1835_blk_washington_clark_h3_11",
    "file": "lodgers/hh_lodging_recon_1835_blk_washington_clark_h3_11.json",
    "place": "recon_1835_blk_washington_clark_h3_11",
-   "persons": 11
+   "persons": 12
   },
   {
    "id": "hh_lodging_recon_1835_blk_washington_clinton_h3_02",
    "file": "lodgers/hh_lodging_recon_1835_blk_washington_clinton_h3_02.json",
    "place": "recon_1835_blk_washington_clinton_h3_02",
-   "persons": 7
+   "persons": 8
   },
   {
    "id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
    "file": "lodgers/hh_lodging_recon_1835_blk_washington_dearborn_h3_01.json",
    "place": "recon_1835_blk_washington_dearborn_h3_01",
-   "persons": 10
+   "persons": 9
   },
   {
    "id": "hh_lodging_recon_1835_blk_washington_market_h3_01",
@@ -3249,7 +3266,7 @@
    "id": "hh_lodging_recon_1835_blk_washington_market_h3_04",
    "file": "lodgers/hh_lodging_recon_1835_blk_washington_market_h3_04.json",
    "place": "recon_1835_blk_washington_market_h3_04",
-   "persons": 6
+   "persons": 3
   },
   {
    "id": "hh_lodging_recon_1835_north_h1_007",
@@ -3285,7 +3302,7 @@
    "id": "hh_lodging_recon_1835_west_006",
    "file": "lodgers/hh_lodging_recon_1835_west_006.json",
    "place": "recon_1835_west_006",
-   "persons": 7
+   "persons": 6
   },
   {
    "id": "hh_lodging_recon_1835_west_035",
@@ -3333,7 +3350,7 @@
   "persons/female/40_49/west/lodging/none": 1,
   "persons/male/10_19/north/lodging/trade": 1,
   "persons/male/10_19/south/lodging/none": 2,
-  "persons/male/10_19/south/lodging/trade": 3,
+  "persons/male/10_19/south/lodging/trade": 4,
   "persons/male/10_19/west/lodging/trade": 1,
   "persons/male/20_29/north/lodging/none": 12,
   "persons/male/20_29/north/lodging/trade": 1,
@@ -3352,9 +3369,9 @@
  },
  "child_fills": {
   "persons/female/under_10/north/lodging/none": 5,
-  "persons/female/under_10/south/lodging/none": 5,
+  "persons/female/under_10/south/lodging/none": 6,
   "persons/male/under_10/north/lodging/none": 7,
-  "persons/male/under_10/south/lodging/none": 4,
+  "persons/male/under_10/south/lodging/none": 5,
   "persons/male/under_10/west/lodging/none": 3
  },
  "top_up_fills": {
@@ -3367,7 +3384,7 @@
   "persons/male/10_19/south/lodging/none": 2
  },
  "working_fills": {
-  "persons/male/10_19/south/lodging/trade": 4
+  "persons/male/10_19/south/lodging/trade": 3
  },
  "household_fills": {
   "statement": "One fill per lodging household record this stage writes, keyed on the order book's own household cell. A card written is a house filled.",
@@ -3407,6 +3424,35 @@
     "spouse_not_drawn": "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule is written for a male head — a wife is drawn from the 1840 female adult columns and never above her husband's decade — and three of this stage's six keepers are women. A rule for the other direction is not one this project has made, and making one inside a children's ticket would give the town a shape nobody argued for. So the household stands at one parent and their children, which is a FLOOR on the house and not a claim that this keeper kept no spouse. The cell a spouse would come out of is persons/<sex>/<band>/north/lodging/none."
    },
    {
+    "place": "recon_1835_blk_washington_clark_h3_06",
+    "keeper": "rc_stebbins_alvah",
+    "keeper_name": "Alvah Stebbins",
+    "household_size_drawn": 6,
+    "seed": "lodgers:recon_1835_blk_washington_clark_h3_06:household_size",
+    "children_the_model_wants": 5,
+    "children_drawn": 3,
+    "children": [
+     "rc_stebbins_jared",
+     "rc_stebbins_ira",
+     "rc_stebbins_amanda"
+    ],
+    "refused": [
+     {
+      "child": 3,
+      "refusal": "the band the model drew is not this stage's to fill",
+      "band": "10_19",
+      "note": "The household model drew this child into adolescence, and this draw makes keepers' children under ten only. The book's `10_19/*/lodging/none` order is dealt as boarders by the youth top-up (T-1536), after every other draw; re-banding a child downward to reach the under-ten cell would be dealing to the quota rather than from the model."
+     },
+     {
+      "child": 4,
+      "refusal": "the band the model drew is not this stage's to fill",
+      "band": "10_19",
+      "note": "The household model drew this child into adolescence, and this draw makes keepers' children under ten only. The book's `10_19/*/lodging/none` order is dealt as boarders by the youth top-up (T-1536), after every other draw; re-banding a child downward to reach the under-ten cell would be dealing to the quota rather than from the model."
+     }
+    ],
+    "spouse_not_drawn": "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule is written for a male head — a wife is drawn from the 1840 female adult columns and never above her husband's decade — and three of this stage's six keepers are women. A rule for the other direction is not one this project has made, and making one inside a children's ticket would give the town a shape nobody argued for. So the household stands at one parent and their children, which is a FLOOR on the house and not a claim that this keeper kept no spouse. The cell a spouse would come out of is persons/<sex>/<band>/south/lodging/none."
+   },
+   {
     "place": "recon_1835_blk_washington_clark_h3_11",
     "keeper": "rc_trottier_baptiste",
     "keeper_name": "Baptiste Trottier",
@@ -3430,10 +3476,9 @@
     "household_size_drawn": 5,
     "seed": "lodgers:recon_1835_blk_washington_dearborn_h3_01:household_size",
     "children_the_model_wants": 4,
-    "children_drawn": 2,
+    "children_drawn": 1,
     "children": [
-     "rc_mccarthy_patrick",
-     "rc_mccarthy_thomas"
+     "rc_mccarthy_patrick"
     ],
     "refused": [
      {
@@ -3451,6 +3496,13 @@
       "community": "irish",
       "surname": "McCarthy",
       "note": "A child takes the keeper's surname, which confines them to one surname's worth of the pool — and the pool for this community is short enough that every forename in it is already borne beside this surname, by a person the sources name or by somebody this programme has already drawn. The child is not drawn. Inventing a forename to get past it would put a name in this town that no pool sourced, and seating a second person of the same name would break the one invariant the pools exist for."
+     },
+     {
+      "child": 4,
+      "refusal": "the cell is spent",
+      "band": "under_10",
+      "bucket": "persons/male/under_10/south/lodging/none",
+      "note": "The book orders no more people of this sex under ten into lodging households in this division. The child the model drew is not drawn, and is not moved to another cell to be drawn somewhere the book has room."
      }
     ],
     "spouse_not_drawn": "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule is written for a male head — a wife is drawn from the 1840 female adult columns and never above her husband's decade — and three of this stage's six keepers are women. A rule for the other direction is not one this project has made, and making one inside a children's ticket would give the town a shape nobody argued for. So the household stands at one parent and their children, which is a FLOOR on the house and not a claim that this keeper kept no spouse. The cell a spouse would come out of is persons/<sex>/<band>/south/lodging/none."
@@ -3484,9 +3536,10 @@
     "refused": [
      {
       "child": 2,
-      "refusal": "the band the model drew is not this stage's to fill",
-      "band": "10_19",
-      "note": "The household model drew this child into adolescence, and this draw makes keepers' children under ten only. The book's `10_19/*/lodging/none` order is dealt as boarders by the youth top-up (T-1536), after every other draw; re-banding a child downward to reach the under-ten cell would be dealing to the quota rather than from the model."
+      "refusal": "the cell is spent",
+      "band": "under_10",
+      "bucket": "persons/male/under_10/south/lodging/none",
+      "note": "The book orders no more people of this sex under ten into lodging households in this division. The child the model drew is not drawn, and is not moved to another cell to be drawn somewhere the book has room."
      }
     ],
     "spouse_not_drawn": "NOT DRAWN, AND NOT FOR WANT OF A CELL. The sibling stage's spouse rule is written for a male head — a wife is drawn from the 1840 female adult columns and never above her husband's decade — and three of this stage's six keepers are women. A rule for the other direction is not one this project has made, and making one inside a children's ticket would give the town a shape nobody argued for. So the household stands at one parent and their children, which is a FLOOR on the house and not a claim that this keeper kept no spouse. The cell a spouse would come out of is persons/<sex>/<band>/south/lodging/none."
@@ -3679,18 +3732,25 @@
    "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 3 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
   },
   {
-   "place": "recon_1835_blk_washington_clark_h3_05",
-   "name": "Reconstructed H3 boarding house #05",
+   "place": "recon_1835_blk_south_water_market_h3_02",
+   "name": "Reconstructed H3 boarding house #02",
    "keeper": "hh_beaubien_mark",
    "persons_on_the_keeper_s_card": 2,
    "owed_by": "Kept by the household the placement pass seated on this roof under a keeper clause (T-1808, refusal 6), so no keeper is drawn for it. Its head takes the keeper's bed; the rest of the card takes no lodger's."
   },
   {
-   "place": "recon_1835_blk_washington_clark_h3_06",
-   "name": "Reconstructed H3 boarding house #06",
+   "place": "recon_1835_blk_washington_clark_h3_05",
+   "name": "Reconstructed H3 boarding house #05",
    "keeper": "hh_sweet_alanson",
    "persons_on_the_keeper_s_card": 1,
    "owed_by": "Kept by the household the placement pass seated on this roof under a keeper clause (T-1808, refusal 6), so no keeper is drawn for it. Its head takes the keeper's bed; the rest of the card takes no lodger's. T-1171 refused this head a drawn family — the eligibility refusals are in data/reconstruction/1835_modelled_families.json — so the card stands at one person. T-1179 converges it."
+  },
+  {
+   "place": "recon_1835_blk_washington_clark_h3_06",
+   "name": "Reconstructed H3 boarding house #06",
+   "keeper": "rc_stebbins_alvah",
+   "persons_on_the_keeper_s_card": 4,
+   "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 3 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
   },
   {
    "place": "recon_1835_blk_washington_clark_h3_11",
@@ -3710,8 +3770,8 @@
    "place": "recon_1835_blk_washington_dearborn_h3_01",
    "name": "Reconstructed H3 boarding house #01",
    "keeper": "rc_mccarthy_edward",
-   "persons_on_the_keeper_s_card": 3,
-   "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 2 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
+   "persons_on_the_keeper_s_card": 2,
+   "owed_by": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 1 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."
   },
   {
    "place": "recon_1835_blk_washington_market_h3_01",
@@ -3845,6 +3905,12 @@
    "note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the north division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535)."
   },
   {
+   "place": "recon_1835_blk_south_water_market_h3_02",
+   "refusal": "no order left, no mint",
+   "beds_left_empty": 6,
+   "note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the south division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535)."
+  },
+  {
    "place": "recon_1835_blk_washington_clinton_h3_02",
    "refusal": "no order left, no keeper",
    "note": "Every adult `lodging/trade` cell of the west division is filled to what the book orders there, so this house's keeper is not minted (T-1782). The beds are still dealt below, under their own ceiling."
@@ -3852,12 +3918,8 @@
   {
    "place": "recon_1835_blk_washington_market_h3_04",
    "refusal": "no order left, no mint",
-   "beds_left_empty": 4,
-   "note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the south division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535).",
-   "working_lodgers_by": {
-    "ticket": "T-1532",
-    "seated": 3
-   }
+   "beds_left_empty": 7,
+   "note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the south division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535)."
   },
   {
    "place": "recon_1835_north_t1_061",
@@ -3885,19 +3947,19 @@
   "the_children": "PART OF IT NOW IS. The book orders people under ten into lodging households and they are keepers' families rather than boarders, which is why refusal 3 would not deal them a bed. T-1533 draws the ones this stage can reach: the children of the keepers this stage itself minted, on the houses it minted them onto, out of the `under_10/*/lodging/none` cells for those houses' divisions. The rest are not reachable from here and are not moved: a child of a DOCUMENTED keeper is T-1171's draw or T-1179's convergence, and the south division's cells order children into the 37 boarding houses the lodging model schedules and nobody has built (T-1187 raises them), where there is no keeper to be kin to. `keeper_families` counts both halves."
  },
  "measurement": {
-  "built_lodging_places": 27,
-  "ordinary_night_beds": 243,
-  "crowded_beds": 707,
+  "built_lodging_places": 28,
+  "ordinary_night_beds": 252,
+  "crowded_beds": 728,
   "occupied_before_this_stage": 37,
   "seated_from_the_layer": 52,
   "minted_here": 131,
-  "minted_keepers": 12,
-  "keeper_children_minted": 24,
-  "keeper_children_the_model_wanted": 31,
-  "keeper_children_refused": 7,
-  "people_on_the_cards": 155,
+  "minted_keepers": 13,
+  "keeper_children_minted": 26,
+  "keeper_children_the_model_wanted": 36,
+  "keeper_children_refused": 10,
+  "people_on_the_cards": 157,
   "occupied_after_this_stage": 220,
-  "ordinary_night_beds_still_empty": 23,
+  "ordinary_night_beds_still_empty": 32,
   "houses_at_their_ordinary_night_figure": 22,
   "houses_over_their_crowded_ceiling": 0,
   "nobody_is_seated_twice": true,
@@ -3906,11 +3968,11 @@
   "lodging_households_built": 22,
   "the_two_counts_reconciled": {
    "lodging_roofs_the_model_schedules": 52,
-   "lodging_places_built": 27,
-   "lodging_places_unbuilt": 25,
+   "lodging_places_built": 28,
+   "lodging_places_unbuilt": 24,
    "built_places_holding_a_household": 22,
-   "built_places_holding_no_household": 5,
-   "ordinary_night_beds": 243,
+   "built_places_holding_no_household": 6,
+   "ordinary_night_beds": 252,
    "ordinary_night_beds_slept_in": 220,
    "households_the_book_orders_in_these_two_classes": 56,
    "houses_this_stage_has_filled": 22,
@@ -3952,8 +4014,8 @@
    "may_anything_more_be_minted_here": "Yes — see the two counts above for which unit has the room."
   },
   "child_buckets_filled": 5,
-  "working_lodgers_minted": 4,
+  "working_lodgers_minted": 3,
   "every_child_is_kin_of_a_named_keeper": true,
-  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 131 of them into beds and 24 more as the keepers' own children; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), and the children of houses this stage does not keep."
+  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 131 of them into beds and 26 more as the keepers' own children; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), and the children of houses this stage does not keep."
  }
 }

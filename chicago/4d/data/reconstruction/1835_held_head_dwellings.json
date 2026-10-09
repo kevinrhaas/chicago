@@ -33,7 +33,7 @@
     "records_awaiting_a_household": 1225,
     "under_a_standing_dwelling": {
       "dealt": 258,
-      "family": 181
+      "family": 183
     },
     "room_by_division": {
       "north": 88,
@@ -49,8 +49,8 @@
       "dealt": 258,
       "family": 78
     },
-    "persons_in_the_counted_houses": 962,
-    "not_counted": 107
+    "persons_in_the_counted_houses": 964,
+    "not_counted": 109
   },
   "beyond_the_index": {
     "ticket": "T-2237",
@@ -66,8 +66,8 @@
     },
     "households_by_class": {
       "a_household_of_its_own": 4,
-      "a_bed_in_a_dwelling": 466,
-      "a_bed_in_a_lodging_house": 17,
+      "a_bed_in_a_dwelling": 465,
+      "a_bed_in_a_lodging_house": 18,
       "filed_by_its_own_stage": 23,
       "a_store_of_its_own": 6,
       "not_present": 28,
@@ -75,9 +75,9 @@
     },
     "persons_by_class": {
       "a_household_of_its_own": 12,
-      "a_bed_in_a_dwelling": 466,
-      "a_bed_in_a_lodging_house": 17,
-      "filed_by_its_own_stage": 156,
+      "a_bed_in_a_dwelling": 465,
+      "a_bed_in_a_lodging_house": 18,
+      "filed_by_its_own_stage": 158,
       "a_store_of_its_own": 6,
       "not_present": 28,
       "not_seated": 0
@@ -95,8 +95,8 @@
         "not_present": 10
       },
       "reconstructed_trades": {
-        "a_bed_in_a_dwelling": 289,
-        "a_bed_in_a_lodging_house": 14,
+        "a_bed_in_a_dwelling": 288,
+        "a_bed_in_a_lodging_house": 15,
         "a_store_of_its_own": 6
       },
       "underdocumented": {
@@ -113,7 +113,7 @@
     "households_of_their_own": 4,
     "counted": 0,
     "past_a_full_order": 4,
-    "ruling": "Of the 657 people the cards beside the index hold present, 483 are beds in a household another seat forms, and the book already credits each as a person; a bed is not a house. 156 stand in the lodging and institutional households their own stages already file. 4 household(s) stand under a dwelling of their own; 0 counted into the family_dwelling order, 4 past it. So the index-only quota does not over-order on their account: no household row moves for them.",
+    "ruling": "Of the 659 people the cards beside the index hold present, 483 are beds in a household another seat forms, and the book already credits each as a person; a bed is not a house. 158 stand in the lodging and institutional households their own stages already file. 4 household(s) stand under a dwelling of their own; 0 counted into the family_dwelling order, 4 past it. So the index-only quota does not over-order on their account: no household row moves for them.",
     "what_this_does_not_do": "It mints, moves and retires nobody, and does not settle the completion audit's person count against the census ceiling: that is a count of people, not houses."
   },
   "fills": {
@@ -761,7 +761,7 @@
       "household": "hh_kimberly_ira",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_h2_028",
+      "place": "recon_1835_north_h2_045",
       "family": "H2",
       "persons": 8,
       "seed": "b105e97a46f2"
@@ -770,7 +770,7 @@
       "household": "hh_haddock_h",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_h2_045",
+      "place": "recon_1835_north_h2_028",
       "family": "H2",
       "persons": 7,
       "seed": "16898038e332"
@@ -3089,6 +3089,15 @@
       "seed": "cf35963108fe"
     },
     {
+      "household": "hh_daly_edward",
+      "division": "west",
+      "rung": "family",
+      "place": "recon_1835_west_048",
+      "family": "D1",
+      "persons": 6,
+      "seed": "ef097a1b9c78"
+    },
+    {
       "household": "hh_sweet_richard_m",
       "division": "west",
       "rung": "family",
@@ -3101,7 +3110,7 @@
       "household": "hh_mather_thomas",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_048",
+      "place": "recon_1835_west_049",
       "family": "D1",
       "persons": 5,
       "seed": "2a809b32eac7"
@@ -3119,7 +3128,7 @@
       "household": "hh_stewart_james",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_049",
+      "place": "recon_1835_west_014",
       "family": "D1",
       "persons": 5,
       "seed": "96a4879ce0dd"
@@ -3150,15 +3159,6 @@
       "family": "D1",
       "persons": 4,
       "seed": "84df690c5d37"
-    },
-    {
-      "household": "hh_handy_henry_s",
-      "division": "west",
-      "rung": "family",
-      "place": "recon_1835_blk_west_washington_canal_d7_05",
-      "family": "D7",
-      "persons": 4,
-      "seed": "8a1e7aff3bf6"
     }
   ],
   "not_counted": [
@@ -3206,7 +3206,7 @@
       "household": "hh_chapley_m_s",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_h2_022",
+      "place": "recon_1835_north_h2_028",
       "family": "H2",
       "persons": 3,
       "seed": "034d7d8012ce",
@@ -3236,7 +3236,7 @@
       "household": "hh_walton_henry",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_h2_045",
+      "place": "recon_1835_north_h2_022",
       "family": "H2",
       "persons": 3,
       "seed": "63709731296a",
@@ -3276,7 +3276,7 @@
       "household": "hh_reed_thomas",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_h2_028",
+      "place": "recon_1835_north_h2_045",
       "family": "H2",
       "persons": 3,
       "seed": "f8a4fac46ec6",
@@ -3296,7 +3296,7 @@
       "household": "hh_rose_ruel",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_d4_075",
+      "place": "recon_1835_north_d4_017",
       "family": "D4",
       "persons": 2,
       "seed": "248e78726e47",
@@ -3336,8 +3336,8 @@
       "household": "hh_burton_john",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_d7_076",
-      "family": "D7",
+      "place": "recon_1835_north_h2_045",
+      "family": "H2",
       "persons": 2,
       "seed": "681cf067b81b",
       "why": "the north division's family_dwelling order was full before this household was reached"
@@ -3356,8 +3356,8 @@
       "household": "hh_leonard_n",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_d5_041",
-      "family": "D5",
+      "place": "recon_1835_blk_indiana_north_cass_d4_05",
+      "family": "D4",
       "persons": 2,
       "seed": "7010866ccde4",
       "why": "the north division's family_dwelling order was full before this household was reached"
@@ -3366,8 +3366,8 @@
       "household": "hh_wight_j_f",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_d4_017",
-      "family": "D4",
+      "place": "recon_1835_north_d5_092",
+      "family": "D5",
       "persons": 2,
       "seed": "83d89a79fe5f",
       "why": "the north division's family_dwelling order was full before this household was reached"
@@ -3406,7 +3406,7 @@
       "household": "hh_shapley_major_l",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_d5_092",
+      "place": "recon_1835_north_d5_041",
       "family": "D5",
       "persons": 2,
       "seed": "c75d2e9379e8",
@@ -3856,6 +3856,16 @@
       "why": "the south division's family_dwelling order was full before this household was reached"
     },
     {
+      "household": "hh_more_ebenezer_s",
+      "division": "south",
+      "rung": "family",
+      "place": "recon_1835_south_d2_024",
+      "family": "D2",
+      "persons": 3,
+      "seed": "43d647082c6c",
+      "why": "the south division's family_dwelling order was full before this household was reached"
+    },
+    {
       "household": "hh_jolly_jacob",
       "division": "south",
       "rung": "family",
@@ -3959,7 +3969,7 @@
       "household": "hh_marshall_j_a",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_south_d2_024",
+      "place": "recon_1835_blk_randolph_franklin_d2_05",
       "family": "D2",
       "persons": 2,
       "seed": "3bb1a62a297a",
@@ -4077,6 +4087,16 @@
       "why": "the south division's family_dwelling order was full before this household was reached"
     },
     {
+      "household": "hh_handy_henry_s",
+      "division": "west",
+      "rung": "family",
+      "place": "recon_1835_blk_west_washington_canal_d7_05",
+      "family": "D7",
+      "persons": 4,
+      "seed": "8a1e7aff3bf6",
+      "why": "the west division's family_dwelling order was full before this household was reached"
+    },
+    {
       "household": "hh_hale_john",
       "division": "west",
       "rung": "family",
@@ -4100,7 +4120,7 @@
       "household": "hh_smow_george_w",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_014",
+      "place": "recon_1835_west_052",
       "family": "D1",
       "persons": 4,
       "seed": "e69226f5dc1f",

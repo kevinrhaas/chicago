@@ -6831,14 +6831,85 @@
         {
           "family": "D5",
           "inventory_class": "principal_functional",
-          "lot": 1,
-          "stands_on": "street",
+          "stands_on": "frontage",
           "fronts": "lake",
-          "setback_m": 5.0,
-          "lateral_m": 0.0
+          "anchor": {
+            "corner": "west",
+            "clear_m": 1.5
+          }
         }
       ],
-      "arrangement_note": "A LARGER FRAME HOUSE ON THE LAKE STREET FACE OF THE MARKET WEDGE (T-2238, of T-2182). T-2195 opened plat block 21, the triangle the river's bend leaves between Franklin Street and the bank, as four reconstructed lots, and the schedule deals it one dwelling, a D5, which the seating asks for on lot 7 for the Dixon household. It fronts Lake 5 m back, the set-out the School Section tier's D5s use, between the sawpit shed on the cut-side corner lot and the open Franklin corner. Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a house stood on this lot in 1835, where on the lot and how far back; the wedge's lots are themselves reconstructed (L409), and the house is an anonymous count-unit toward the schedule's documented aggregate. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here."
+      "arrangement_note": "A LARGER FRAME HOUSE ON THE LAKE STREET FACE OF THE MARKET WEDGE (T-2238, of T-2182). T-2195 opened plat block 21, the triangle the river's bend leaves between Franklin Street and the bank, as four reconstructed lots, and the schedule deals it one dwelling, a D5, which the seating asks for on lot 7 for the Dixon household. It fronts Lake 5 m back, the set-out the School Section tier's D5s use, between the sawpit shed on the cut-side corner lot and the open Franklin corner. Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a house stood on this lot in 1835, where on the lot and how far back; the wedge's lots are themselves reconstructed (L409), and the house is an anonymous count-unit toward the schedule's documented aggregate. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here. MOVED ALONG ITS LOT, NOT OFF IT (T-2196, 2026-10-09): the owner ruled lot 7 a two-unit party-line row so a boarding house stands beside this house, and centred the D5 left 7.27 m of face to each side, short of any boarding house this generator sizes. So the D5 now stands as the west unit of a frontage run on lot 7 (see `frontage`), against the plat's 1.5 m margin off lot 6's side line at the same 5 m set-back, and the boarding house takes the east side of its wall (the entry below). Nothing about the house itself changes.",
+      "frontage": {
+        "face": "south",
+        "fronts": "lake",
+        "setback_m": 5.0,
+        "lots": [
+          1
+        ],
+        "why": "T-2196, on the owner's ruling (a) of 2026-10-09: lot 7 is a two-unit party-line row, and a row has one street line. The D5 was first placed as a lot slot (T-2238), its 5 m set-back measured off the lot's own front edge; the boarding house's run measures off the block face, and the two lines differ by 27 mm across the lot. So the D5 now stands as the run's west unit, anchored at the plat's 1.5 m margin off lot 6's side line, 5 m back from the face it shares with the boarding house; its family, its lot and its set-back are unchanged."
+      }
+    },
+    {
+      "block_id": "blk_south_water_market",
+      "district": "south",
+      "programme_phase": "phase3_platted_block_south_water_market_lot_7_row",
+      "claimed": "2026-10-09",
+      "seq_start": 2,
+      "bounded_by": {
+        "north": "south_water",
+        "south": "lake",
+        "west": "market",
+        "east": "franklin"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 16,
+        "standing_roofs": 4,
+        "free_lots": 1,
+        "headroom": 1,
+        "dealt_roofs": 1,
+        "dealt_principal": 1,
+        "dealt_ancillary": 0,
+        "principal": 1,
+        "ancillary": 0,
+        "row_lot_grant_room": 1
+      },
+      "families": {
+        "H3": 1
+      },
+      "row_lot_grant": {
+        "ticket": "T-2196",
+        "lot": 1,
+        "why": "The owner's answer to T-2196 on 2026-10-09, option (a), verbatim: \"Lot 7 as a short row: name a two-unit party-line row on the wedge's Lake Street face so one H3 stands beside the D5 (the lot is 24.38 m, and the D5 at 6.85 m plus an H3 at about 10 m plus the plat's 1.5 m end margins is about 19.9 m). This change is for this block only. The second H3 waits in the gated balance for the S9 street work.\" The schedule holds it as reconcile_665.ROW_LOT_GRANTS, a table of one: the lot keeps two row units, its room goes only to an H3, and once the boarding house stands the room is spent."
+      },
+      "open_lots": [
+        {
+          "lot": 2,
+          "why": "Plat lot 8, the Lake-and-Franklin corner, still the block's open lot, as T-2238's entry above keeps it. The owner's grant is for lot 7 only, so the schedule's free lots less one still reserves this one and nothing in this deal touches it."
+        }
+      ],
+      "frontage": {
+        "face": "south",
+        "fronts": "lake",
+        "setback_m": 5.0,
+        "lots": [
+          1
+        ],
+        "why": "T-2196, on the owner's ruling (a). Lot 7 is the middle lot of the wedge's Lake Street face, 24.38 m of conjectural frontage between the saw-pit shed's lot 6 and the open Franklin corner. The row stands on the D5's own line, 5 m back, because a party-line row has one setback and the D5 was there first; the line, its bearing and both lot ends are read from the committed block face and the plat module's 1.5 m margin, and no coordinate is authored.",
+        "runs": "One run of two units. The D5 stands at the west margin (T-2238's entry, moved for this) and the boarding house shares its east wall. The plat's margins leave 21.38 m of face; the D5 takes 6.85 m of it and the boarding house its own sized width, so the row ends short of lot 8's margin and the Franklin corner stays open."
+      },
+      "slots": [
+        {
+          "family": "H3",
+          "inventory_class": "principal_functional",
+          "stands_on": "frontage",
+          "fronts": "lake",
+          "anchor": {
+            "abut_east_of": "recon_1835_blk_south_water_market_d5_01"
+          }
+        }
+      ],
+      "arrangement_note": "A BOARDING HOUSE BESIDE THE WEDGE'S HOUSE ON LAKE STREET (T-2196, of T-1957). The South owed two large boarding houses that no open block could hold: every one of the 26 open South blocks keeps one free lot and holds one roof per lot otherwise, and only a documented store shares a lot. The owner ruled on 2026-10-09 that lot 7 of the Market wedge, where T-2238 stood a D5, becomes a two-unit party-line row, for this block only. So one H3 stands party-walled to the D5's east side on the Lake Street face, and the second H3 stays owed in the gated balance beyond committed street control until the S9 street work lands. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a boarding house stood here in 1835, that it shared a wall with its neighbour, its size and its keeper. The wedge's lots are themselves reconstructed (L409), and this is an anonymous count-unit toward the schedule's documented aggregate of boarding houses."
     }
   ],
   "redealt": {

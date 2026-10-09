@@ -3,10 +3,10 @@
   "_doc": "DERIVED, NEVER AUTHORED. Rebuilt from register_1835.json, gazetteer.json and data/residents/ by tools/compile_businesses.py; tools/check.sh refuses a committed copy a rebuild would not produce. Edit the gazetteer, the dataset or data/businesses/authored/, not this file.",
   "generated_by": "tools/compile_businesses.py",
   "counts": {
-    "records": 286,
+    "records": 287,
     "compiled_from_register": 193,
-    "authored": 93,
-    "present_at_scene_date": 269,
+    "authored": 94,
+    "present_at_scene_date": 270,
     "by_type": {
       "book_store": 2,
       "brewery": 2,
@@ -16,7 +16,7 @@
       "iron_foundry": 2,
       "lawyer": 19,
       "not_stated": 5,
-      "other": 132,
+      "other": 133,
       "physician": 10,
       "printing_office": 3,
       "school": 7,
@@ -31,22 +31,22 @@
       "anchored": 34,
       "premises": 65,
       "street_only": 88,
-      "unplaceable": 104
+      "unplaceable": 105
     },
-    "named_people": 424,
-    "named_people_linked_to_a_town_card": 371,
+    "named_people": 425,
+    "named_people_linked_to_a_town_card": 372,
     "works_at_households": 51,
     "works_at_households_resolving_to_a_business": 37,
     "by_grade": {
       "attested": 165,
-      "inferred": 68,
+      "inferred": 69,
       "reconstructed": 53
     },
     "by_where_kind": {
       "anchored": 34,
       "premises": 64,
       "street_only": 88,
-      "unplaceable": 100
+      "unplaceable": 101
     },
     "by_street": {
       "Canal Street": 10,
@@ -71,7 +71,7 @@
       "new_york": 51,
       "other": 11,
       "southern": 9,
-      "unknown": 101,
+      "unknown": 102,
       "yankee": 82
     }
   },
@@ -151,7 +151,7 @@
       {
         "value": "unknown",
         "label": "Unknown",
-        "count": 101
+        "count": 102
       }
     ]
   },
@@ -1104,6 +1104,52 @@
       "dates_tier": "inferred",
       "proprietor_community": "unknown",
       "proprietor_community_tier": null,
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "biz_beaubien_mark_tavern_keeper",
+      "file": "biz_beaubien_mark_tavern_keeper.json",
+      "name": "Mark Beaubien, tavern keeper",
+      "register_id": null,
+      "provenance": "authored",
+      "type": [
+        "tavern"
+      ],
+      "present_at_scene_date": true,
+      "grade": "inferred",
+      "trade": "tavern keeper",
+      "occupation": "tavern_keeper",
+      "goods": [],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Mark Beaubien",
+          "person_id": "beaubien_mark",
+          "role": "proprietor",
+          "tier": "inferred",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "unplaceable",
+        "structure_id": null,
+        "anchor": null,
+        "street_id": null,
+        "street": null,
+        "tier": "inferred",
+        "from": null,
+        "to": null,
+        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "inferred",
+      "proprietor_community": "french_canadian",
+      "proprietor_community_tier": "inferred",
       "review_required": false,
       "liberties": []
     },
@@ -4828,15 +4874,6 @@
           "from": null,
           "to": null,
           "also_printed_as": []
-        },
-        {
-          "name": "Alvah Nichols",
-          "person_id": "rc_nichols_alvah",
-          "role": "journeyman",
-          "tier": "reconstructed",
-          "from": null,
-          "to": null,
-          "also_printed_as": []
         }
       ],
       "where": {
@@ -6285,6 +6322,15 @@
           "tier": "attested",
           "from": "1833-12-17",
           "to": "1833-12-17",
+          "also_printed_as": []
+        },
+        {
+          "name": "Jared Parmelee",
+          "person_id": "rc_parmelee_jared",
+          "role": "clerk",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
           "also_printed_as": []
         }
       ],
@@ -14343,52 +14389,6 @@
       "liberties": []
     },
     {
-      "id": "rcb_beaubien_boarding_house",
-      "file": "rcb_beaubien_boarding_house.json",
-      "name": "Mark Beaubien's boarding house",
-      "register_id": null,
-      "provenance": "reconstructed",
-      "type": [
-        "tavern"
-      ],
-      "present_at_scene_date": true,
-      "grade": "reconstructed",
-      "trade": "boarding house",
-      "occupation": "boarding_house_keeper",
-      "goods": [],
-      "firm_styles": [],
-      "people": [
-        {
-          "name": "Mark Beaubien",
-          "person_id": "beaubien_mark",
-          "role": "proprietor",
-          "tier": "reconstructed",
-          "from": null,
-          "to": null,
-          "also_printed_as": []
-        }
-      ],
-      "where": {
-        "kind": "premises",
-        "structure_id": "recon_1835_blk_washington_clark_h3_05",
-        "anchor": null,
-        "street_id": null,
-        "street": null,
-        "tier": "reconstructed",
-        "from": null,
-        "to": null,
-        "limit_reason": null
-      },
-      "locations": 1,
-      "opened": null,
-      "closed": null,
-      "dates_tier": "reconstructed",
-      "proprietor_community": "french_canadian",
-      "proprietor_community_tier": "inferred",
-      "review_required": false,
-      "liberties": []
-    },
-    {
       "id": "rcb_brady_barbers_shop",
       "file": "rcb_brady_barbers_shop.json",
       "name": "Daniel Brady, barber",
@@ -16335,6 +16335,52 @@
       "liberties": []
     },
     {
+      "id": "rcb_stebbins_boarding_house",
+      "file": "rcb_stebbins_boarding_house.json",
+      "name": "Stebbins's boarding house",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "boarding house",
+      "occupation": "boarding_house_keeper",
+      "goods": [],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Alvah Stebbins",
+          "person_id": "rc_stebbins_alvah",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_blk_washington_clark_h3_06",
+        "anchor": null,
+        "street_id": null,
+        "street": null,
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": null
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "unknown",
+      "proprietor_community_tier": null,
+      "review_required": false,
+      "liberties": []
+    },
+    {
       "id": "rcb_sullivan_millinery",
       "file": "rcb_sullivan_millinery.json",
       "name": "Mary Sullivan, millinery",
@@ -16385,7 +16431,7 @@
     {
       "id": "rcb_sweet_boarding_house",
       "file": "rcb_sweet_boarding_house.json",
-      "name": "Sweet's boarding house",
+      "name": "Alanson Sweet's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
@@ -16410,7 +16456,7 @@
       ],
       "where": {
         "kind": "premises",
-        "structure_id": "recon_1835_blk_washington_clark_h3_06",
+        "structure_id": "recon_1835_blk_washington_clark_h3_05",
         "anchor": null,
         "street_id": null,
         "street": null,
