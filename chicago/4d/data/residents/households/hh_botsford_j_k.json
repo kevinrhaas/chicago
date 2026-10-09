@@ -131,6 +131,22 @@
    },
    "workplaces": [
     {
+     "business_id": "biz_fullerton_botsford",
+     "business_name": "Fullerton & Botsford",
+     "role": "partner",
+     "printed_as": "Botsford",
+     "from": "1834-06-04",
+     "to": "1834-07-09",
+     "tier": "attested",
+     "basis": "The firm's own style prints this partner's surname (Fullerton & Botsford); no notice prints him apart from the house. Linked to the town card botsford_j_k at inferred (T-2245): The pork notice is signed 'FULLERTON & BOTSFORD, corner of Dearborn and Lake-sts.' (chicago_democrat_1834_06_04#c024, copy dated April 22, 1834), and the corner of Dearborn and Lake is the frontage J. K. Botsford's own grocery and tin shop advertises from in the same weeks (identity.json, refused_anchor_changes on business_j_k_botsford, T-0324). identity.json's proprietor merges on that house rule that nothing in the corpus names a second Botsford. One Botsford, one corner: the partner is J. K. Botsford. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_democrat_1834_06_04#c024",
+      "chicago_democrat_1834_07_09#c027"
+     ],
+     "business_present_at_scene_date": true
+    },
+    {
      "business_id": "biz_j_k_botsford",
      "business_name": "J. K. Botsford",
      "role": "proprietor",

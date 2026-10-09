@@ -166,6 +166,25 @@
       "chicago_democrat_1834_05_21#c003"
      ],
      "business_present_at_scene_date": true
+    },
+    {
+     "business_id": "biz_clark_filer_co",
+     "business_name": "Clark, Filer & Co.",
+     "role": "partner",
+     "printed_as": "Filer",
+     "from": "1834-05-28",
+     "to": "1834-12-10",
+     "tier": "attested",
+     "basis": "The firm's own style prints this partner's surname (Clark, Filer & Co.); no notice prints him apart from the house. Linked to the town card filer_a at inferred (T-2245): A. Filer & Co. advertise a cabinet and chair manufactory on South Water Street, printed 1834-03-04 to 1834-05-21; Clark, Filer & Co. advertise chairs at 'the cabinet shop of Clark, Filer & Co.' on South Water Street from 1834-05-28 (chicago_democrat_1834_05_28#c007, copy dated May 20, 1834). Same trade, same street, and the second style's printing opens the week the first's closes. The town holds two Filers: A. Filer (filer_a), the man the first style names, and Elihu D. Filer (filer_elihu_d), a letter-list name with no trade. The cabinet maker is A. Filer. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_democrat_1834_05_28#c007",
+      "chicago_democrat_1834_06_11#c005",
+      "chicago_democrat_1834_06_18#c009",
+      "chicago_democrat_1834_07_02#c014",
+      "chicago_democrat_1834_12_10#c005"
+     ],
+     "business_present_at_scene_date": true
     }
    ],
    "sources": [
