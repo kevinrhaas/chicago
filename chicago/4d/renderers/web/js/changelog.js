@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1575, ts: '2026-10-09T12:24:15.716Z', date: 'Oct 9, 2026, 7:24 AM CT', title: 'Three shopkeepers who lived elsewhere now appear at their stores', kind: 'fix',
+    items: [
+      'Open G. Blanshard\u2019s land office or Dr W. G. Austin\u2019s office on Lake Street, or W. Montgomery\u2019s auction rooms on South Water Street. Each keeper is now listed as working there, with a note that they slept elsewhere in the town and nobody lived over the store.',
+      'Two more stores, the Chicago Democrat printing office and Pierce & French, also stay empty, because their keepers already work at the paper\u2019s office and Pierce\u2019s smithy. Nobody is moved or made up. Eight stores still have no keeper\u2019s family, and are next.',
+    ] },
   { v: 1574, ts: '2026-10-09T11:57:00.192Z', date: 'Oct 9, 2026, 6:57 AM CT', title: 'Shopkeepers now live over their own stores', kind: 'fix',
     items: [
       'Eighteen stores in the 1835 town stood with nobody living in them while their keepers boarded in other people\u2019s houses. Open Peter Cohen\u2019s store on South Water Street, or L. W. Montgomery\u2019s boot and shoe shop beside it, and the keeper\u2019s household is now listed as living there. Thirteen keepers moved into the store their own business already stood in. Five more whose business had no building took an empty store in their part of town.',
