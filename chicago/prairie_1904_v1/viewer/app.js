@@ -137,7 +137,7 @@
       const reading = censusReading(census.byRecord.get(b.id)); if (reading) content.append(reading);
       for (const { sheet, a } of census.allocations.get(b.id) || []) {
         const box = node('section', null, 'census'); box.append(node('h4', 'Also on Sanborn 1911 sheet ' + sheet), node('p', a.why));
-        const ul = node('ul'); a.polygons.forEach(p => { const li = node('li', (PIECES[p.kind] || p.kind) + ': ' + p.reading_1911); li.append(node('span', ' — 1904 (' + p.tier + '): ' + p.note_1904, 'meta')); ul.append(li); }); box.append(ul); content.append(box);
+        const ul = node('ul'); a.polygons.forEach(p => { const li = node('li', (p.kind === 'non_building_use' ? 'Grounds' : PIECES[p.kind] || p.kind) + ': ' + p.reading_1911); li.append(node('span', ' — 1904 (' + p.tier + '): ' + p.note_1904, 'meta')); ul.append(li); }); box.append(ul); content.append(box);
       }
       window.PrairieImages?.decorate(content, b.id, summary);
       content.append(citations(b.source_ids)); detail.append(summary,content); detail.id = 'building-' + b.id; noteKey(detail, 'building:' + b.id, b.name || b.id); list.append(detail);
