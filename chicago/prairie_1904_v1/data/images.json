@@ -1895,23 +1895,6 @@
    "a16-ghm-blog-1736-mcbirney-curbstone-2015",
    "a16-inland-1890-hj-mcbirney-residence"
   ],
-  "indiana_2115": [
-   "st-picturesque-chicago-1892-prairie-avenue-text",
-   "a16-newberry-conzen-prairie-elite-1886-map",
-   "nps-bluebook-1904-prairie-street-p187-1900-2140",
-   "a20-chicagology-robinson-1886-crops",
-   "a20-aic-ryerson-building-index-monographs",
-   "a20-chicagology-2110-rees-street-c1895",
-   "nps-bluebook-1905-prairie-street-p186-2109-2140",
-   "a20-chicagology-2115-armour-photo",
-   "cgs-2115-robinson-1886",
-   "nps-2115-tribune-1901-01-07-armour-residence-described",
-   "nps-bluebook-1903-prairie-street-p184-2027-2140",
-   "nps-2115-tribune-1928-03-24-armour-home-sold-58x178",
-   "nps-2115-tribune-1928-07-08-famous-homes-photo",
-   "a20-rees-landmark-report-1951-street-view",
-   "a20-glessner-2100-block-east-side-1890s"
-  ],
   "prairie_1905": [
    "st-picturesque-chicago-1892-prairie-avenue-text",
    "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
@@ -3133,7 +3116,6 @@
   ],
   "calumet_2100": [
    "a16-newberry-conzen-prairie-elite-1886-map",
-   "nps-bluebook-1904-prairie-street-p187-1900-2140",
    "a20-chicagology-robinson-1886-crops",
    "a20-monroe-1896-text-sherman-meyer",
    "a20-aic-ryerson-building-index-monographs",
@@ -3147,7 +3129,6 @@
    "cgs-2100-tribune-1902-sherman-headline",
    "cgs-2100-tribune-1902-sherman-portrait",
    "nps-2100-tribune-1903-08-09-sherman-widow-trees",
-   "nps-bluebook-1905-prairie-street-p186-2109-2140",
    "nps-2100-tribune-1907-09-04-mccormick-neurological-college",
    "a20-rees-landmark-report-1951-street-view",
    "a20-glessner-2100-block-west-side-2014"
@@ -3268,7 +3249,6 @@
    "nps-bluebook-1903-prairie-street-p184-2027-2140",
    "a20-aic-reed-1941-2021-2033-prairie",
    "a20-chicagology-2031-2035-engraving",
-   "cgs-2031-robinson-1886",
    "nps-2035-police-gazette-1887-01-22-stone-steamboat-house",
    "nps-2035-tribune-1904-02-04-stone-home-occupied",
    "nps-2035-tribune-1934-02-08-rooming-house-30-rooms-corner"
@@ -3303,6 +3283,22 @@
    "a20-chicagology-2110-rees-street-c1895",
    "a20-rees-landmark-report-1951-street-view",
    "a20-glessner-2100-block-west-side-2014",
+   "a20-glessner-2100-block-east-side-1890s"
+  ],
+  "indiana_2115": [
+   "a16-newberry-conzen-prairie-elite-1886-map",
+   "nps-bluebook-1904-prairie-street-p187-1900-2140",
+   "a20-chicagology-robinson-1886-crops",
+   "a20-aic-ryerson-building-index-monographs",
+   "a20-chicagology-2110-rees-street-c1895",
+   "nps-bluebook-1905-prairie-street-p186-2109-2140",
+   "a20-chicagology-2115-armour-photo",
+   "cgs-2115-robinson-1886",
+   "nps-2115-tribune-1901-01-07-armour-residence-described",
+   "nps-bluebook-1903-prairie-street-p184-2027-2140",
+   "nps-2115-tribune-1928-03-24-armour-home-sold-58x178",
+   "nps-2115-tribune-1928-07-08-famous-homes-photo",
+   "a20-rees-landmark-report-1951-street-view",
    "a20-glessner-2100-block-east-side-1890s"
   ],
   "indiana_2119": [
@@ -3866,7 +3862,6 @@
    "measurements": [],
    "stream": "streetscape",
    "parcel_ids": [
-    "indiana_2115",
     "prairie_1612",
     "prairie_1729",
     "prairie_1905",
@@ -13632,7 +13627,6 @@
     "calumet_2000",
     "calumet_2008",
     "calumet_2018",
-    "calumet_2100",
     "calumet_2140",
     "indiana_2009",
     "indiana_2011",
@@ -18900,7 +18894,6 @@
    "stream": "newspapers-south",
    "parcel_ids": [
     "calumet_2018",
-    "calumet_2100",
     "calumet_2140",
     "indiana_2115",
     "indiana_2123",
@@ -43687,7 +43680,6 @@
    "measurements": [],
    "stream": "chicagology-south",
    "parcel_ids": [
-    "indiana_2029",
     "prairie_2031",
     "prairie_2035"
    ]

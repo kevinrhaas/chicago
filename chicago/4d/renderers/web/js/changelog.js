@@ -1,8 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1599, ts: '2026-10-09T23:23:33.270Z', date: 'Oct 9, 2026, 6:23 PM CT', title: 'A building card\u2019s residents are read from their dated places', kind: 'fix',
+  { v: null, ts: '', title: 'A building card\u2019s residents are read from their dated places', kind: 'fix',
     items: [
       'Open a building and look at who lived or worked there: each household\u2019s reason for being on that card is now the note on its dated place, the same entry its own card lists with its years. Fifty-five buildings show the fuller wording.',
       'The People directory\u2019s homes and workplaces come from the same dated places, and none of them changed. Lodgers in the hotels and boarding houses, and the lighthouse keeper\u2019s household, now carry their beds in that form too.',
+    ] },
+  { v: 1599, ts: '2026-10-09T23:18:57.259Z', date: 'Oct 9, 2026, 6:18 PM CT', title: 'Prairie Avenue’s 20th-to-22nd blocks: every 1904 building accounted for', kind: 'feature',
+    items: [
+      'In the Prairie Avenue 1904 library, open any house between 20th and 22nd Streets. A panel gives its 1904 decision and lists its front building, wings, rear stable and grounds, each graded attested, inferred or reconstructed.',
+      'The Robbins house at 2126 is shown as a building site on 1 July 1904. The old Hamill house was razed that year, and the new house was finished by spring 1905.',
+      'The site plan puts eight Prairie houses, among them the Sherman, Armour and Smith houses, on their own lots only. They had also been drawn on Indiana or Calumet lots that share their numbers.',
+      'Two misreadings are fixed. The building behind 2120 is lettered “vacant 1st, dressmaking 2nd”. The Wheeler-Kohn house stands at 2018 Calumet, not 2018 Prairie.',
+      'Mark Kimball’s house at 2108 and the Rees house at 2110 share one coach house. Nothing in the 3-D town changes yet.',
     ] },
   { v: 1598, ts: '2026-10-09T22:51:29.981Z', date: 'Oct 9, 2026, 5:51 PM CT', title: 'Mark Beaubien\u2019s boarding house on Lake Street gets its signboard', kind: 'fix',
     items: [

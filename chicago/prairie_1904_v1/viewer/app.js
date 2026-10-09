@@ -23,7 +23,7 @@
   let data, sourcesById, census = { byRecord: new Map(), byFrontage: new Map(), allocations: new Map() };
   // The sheet censuses (data/sheet_census/, T-1840) read each 1911 sheet for 1904: every frontage
   // and named record on the sheet once, with what stands, what is a 1911 change and why.
-  const CENSUS_SHEETS = ['20', '28'];
+  const CENSUS_SHEETS = ['20', '28', '35'];
   async function loadCensus() {
     const out = { byRecord: new Map(), byFrontage: new Map(), allocations: new Map() };
     for (const sheet of CENSUS_SHEETS) {
@@ -48,7 +48,7 @@
     if (entry.excluded) { box.append(node('p', 'Excluded from 1904. ' + entry.excluded.why), node('p', 'Its ground: ' + row.printed_number_1911 + ' Prairie, which carries ' + (DECISIONS[row.decision_1904] || row.decision_1904).toLowerCase() + '.', 'meta')); return box; }
     if (row.phase_1904) box.append(node('p', row.phase_1904, 'census-phase'));
     box.append(node('p', (DECISIONS[row.decision_1904] || row.decision_1904) + '. ' + (row.why || '')));
-    if (entry.vacant) box.append(node('p', '1911: ' + row.reading_1911 + '. 1886: ' + row.reading_1886 + '.', 'meta'));
+    if (entry.vacant) box.append(node('p', '1911: ' + row.reading_1911 + '.' + (row.reading_1886 ? ' 1886: ' + row.reading_1886 + '.' : ''), 'meta'));
     if (array(row.polygons).length) {
       const ul = node('ul');
       row.polygons.forEach(p => { const li = node('li', (PIECES[p.kind] || p.kind) + ': ' + p.reading_1911); if (p.note_1904) li.append(node('span', ' — 1904: ' + p.note_1904, 'meta')); ul.append(li); });

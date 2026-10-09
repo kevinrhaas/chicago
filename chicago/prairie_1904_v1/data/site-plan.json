@@ -4233,9 +4233,7 @@
     ]
    ],
    "frontage_ft": 24.6,
-   "building_ids": [
-    "pa-2009-17"
-   ]
+   "building_ids": []
   },
   {
    "id": "e20th_213",
@@ -4370,9 +4368,7 @@
     ]
    ],
    "frontage_ft": 25.6,
-   "building_ids": [
-    "pa-2013-29"
-   ]
+   "building_ids": []
   },
   {
    "id": "indiana_2017",
@@ -4453,9 +4449,7 @@
     ]
    ],
    "frontage_ft": 24.5,
-   "building_ids": [
-    "pa-2021-36"
-   ]
+   "building_ids": []
   },
   {
    "id": "indiana_2023",
@@ -4509,9 +4503,7 @@
     ]
    ],
    "frontage_ft": 25.2,
-   "building_ids": [
-    "pa-2027-37"
-   ]
+   "building_ids": []
   },
   {
    "id": "indiana_2029",
@@ -4539,9 +4531,7 @@
     ]
    ],
    "frontage_ft": 101.1,
-   "building_ids": [
-    "pa-2035-nrhp"
-   ]
+   "building_ids": []
   },
   {
    "id": "indiana_2101",
@@ -4704,9 +4694,7 @@
     ]
    ],
    "frontage_ft": 49.2,
-   "building_ids": [
-    "pa-2115-19"
-   ]
+   "building_ids": []
   },
   {
    "id": "indiana_2119",
@@ -5397,9 +5385,7 @@
     ]
    ],
    "frontage_ft": 49.4,
-   "building_ids": [
-    "pa-2100-18"
-   ]
+   "building_ids": []
   },
   {
    "id": "calumet_2106",
@@ -5534,9 +5520,7 @@
     ]
    ],
    "frontage_ft": 100.8,
-   "building_ids": [
-    "pa-2140-21"
-   ]
+   "building_ids": []
   }
  ],
  "placed": {
@@ -5638,37 +5622,33 @@
   },
   "pa-2009-17": {
    "parcels": [
-    "indiana_2009",
     "prairie_2009"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-2100-18": {
    "parcels": [
-    "calumet_2100",
     "prairie_2100"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-2115-19": {
    "parcels": [
-    "indiana_2115",
     "prairie_2115"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-2126-20": {
    "parcels": [
     "prairie_2126"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-2140-21": {
    "parcels": [
-    "calumet_2140",
     "prairie_2140"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-1800-22": {
    "parcels": [
@@ -5702,16 +5682,15 @@
   },
   "pa-2013-29": {
    "parcels": [
-    "indiana_2013",
     "prairie_2013"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-2110-30": {
    "parcels": [
     "prairie_2110"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-1816-33": {
    "parcels": [
@@ -5733,47 +5712,45 @@
   },
   "pa-2021-36": {
    "parcels": [
-    "indiana_2021",
     "prairie_2021"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-2027-37": {
    "parcels": [
-    "indiana_2027",
     "prairie_2027"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-2036-38": {
    "parcels": [
     "prairie_2036"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-2112-39": {
    "parcels": [
     "prairie_2112"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-2108-40": {
    "parcels": [
     "prairie_2108"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-2109-41": {
    "parcels": [
     "prairie_2109"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-2130-42": {
    "parcels": [
     "prairie_2130"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-1702-43": {
    "parcels": [
@@ -5857,20 +5834,19 @@
    "parcels": [
     "prairie_2031"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-2033-nrhp": {
    "parcels": [
     "prairie_2033"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-2035-nrhp": {
    "parcels": [
-    "indiana_2029",
     "prairie_2035"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1842)"
   },
   "pa-1609-1904-correction": {
    "parcels": [
