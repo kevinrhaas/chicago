@@ -71,13 +71,13 @@
  },
  "counts": {
   "offered": {
-   "R1_in_window_uncertain": 896,
+   "R1_in_window_uncertain": 895,
    "R2_in_window_single_source": 207,
    "R3_1834_return_or_muster": 28,
    "R5_later_only_backprojectable": 53
   },
   "readmitted": {
-   "R1_in_window_uncertain": 795,
+   "R1_in_window_uncertain": 794,
    "R2_in_window_single_source": 62,
    "R3_1834_return_or_muster": 20,
    "R5_later_only_backprojectable": 39
@@ -89,7 +89,7 @@
    "R5_later_only_backprojectable": 14
   },
   "presence_ruled_present": 748,
-  "presence_ruled_absent": 47,
+  "presence_ruled_absent": 46,
   "cards_minted": 121,
   "minted_present": 111
  },
@@ -20811,34 +20811,6 @@
      "note": "The corpus last names this person on 1834-04-01, 1.25 years before the scene date, and says nothing after it. The persistence model gives 0.924 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_wear_amy_c:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
-   "row_id": "card:hh_weaver_betsy",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_weaver_betsy",
-   "name_as_read": "Betsy Weaver",
-   "dated_evidence": "1833-12-17",
-   "dated_evidence_read_as": "1833-12-17",
-   "years_before_the_scene": 1.536,
-   "persistence": 0.907,
-   "seed": "hh_weaver_betsy:persistence",
-   "present_on_scene_date": {
-    "value": "absent",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1833-12-17, 1.54 years before the scene date, and says nothing after it. The persistence model gives 0.907 for that lag; the draw seeded on this household reads absent."
-    },
-    "seed": "hh_weaver_betsy:persistence",
     "replaceable_by": {
      "kind": "person",
      "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"

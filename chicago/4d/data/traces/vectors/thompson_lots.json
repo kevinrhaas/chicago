@@ -36,10 +36,10 @@
      "state"
     ]
    },
-   "blocks": 26,
-   "omitted": 6,
-   "numbered": 19,
-   "lots": 206,
+   "blocks": 27,
+   "omitted": 5,
+   "numbered": 20,
+   "lots": 210,
    "subdivided": true,
    "divides_on": "the South Division module, four lots to a face",
    "built_and_not_divided": 0
@@ -244,15 +244,15 @@
   "rule": "a block takes the tract that covers the most of it, by clipped area, using the clipper in tools/sort_land_sales_onto_tracts.py",
   "the_precedence_clause": "EXCEPT that a residual tract — one whose ring is defined as what another tract leaves over — yields any block a non-residual tract covers at least 50% of. canal_section_9_remainder is the layer's only residual. T-1104 states this clause for parcels; a second statement of it would be a second answer, so it is the same clause and the same clipper.",
   "what_the_layer_answers_here": {
-   "blocks_sorted": 87,
+   "blocks_sorted": 88,
    "by_tract": {
-    "canal_commissioners_1830": 38,
+    "canal_commissioners_1830": 39,
     "canal_section_9_remainder": 4,
     "kinzies_addition": 27,
     "school_section": 5,
     "wabansia": 13
    },
-   "finding": "THE LAYER DISCRIMINATES THIS GRID SINCE T-1437, and until then it could not. The finding recorded here from T-1105 to 2026-09-20 was that all nineteen generated blocks fell in canal_commissioners_1830 and no other placed ring touched one, so the question T-1105 asked the layer was one the layer could not answer. That was a property of the GRID and not of the layer: the generator could only cut blocks between Original Town lines, so of course every block stood in the Original Town's tract. With Kinzie's Addition's own grid cut, 38 block(s) stand in canal_commissioners_1830, 4 block(s) stand in canal_section_9_remainder, 27 block(s) stand in kinzies_addition, 5 block(s) stand in school_section, 13 block(s) stand in wabansia — and the module each takes is now a per-tract answer rather than a single town-wide one. What varies INSIDE the Original Town's tract is still the DIVISION, because the river runs through it and the plat gives its two sides different blocks.",
+   "finding": "THE LAYER DISCRIMINATES THIS GRID SINCE T-1437, and until then it could not. The finding recorded here from T-1105 to 2026-09-20 was that all nineteen generated blocks fell in canal_commissioners_1830 and no other placed ring touched one, so the question T-1105 asked the layer was one the layer could not answer. That was a property of the GRID and not of the layer: the generator could only cut blocks between Original Town lines, so of course every block stood in the Original Town's tract. With Kinzie's Addition's own grid cut, 39 block(s) stand in canal_commissioners_1830, 4 block(s) stand in canal_section_9_remainder, 27 block(s) stand in kinzies_addition, 5 block(s) stand in school_section, 13 block(s) stand in wabansia — and the module each takes is now a per-tract answer rather than a single town-wide one. What varies INSIDE the Original Town's tract is still the DIVISION, because the river runs through it and the plat gives its two sides different blocks.",
    "the_grade_is_inherited": "canal_commissioners_1830 is `conjectural` — its four bounds are the standard account of the 1830 plat and no source record here states them. Any module chosen off that ring would be conjectural for that reason alone. None is: the module below is chosen off the street lines, and the tract is carried as a finding, not used as an input."
   },
   "the_west_division_module": {
@@ -310,21 +310,21 @@
  "confidence": "inferred",
  "confidence_note": "The blocks are arithmetic on inferred inputs — street lines whose own geometry confidence is `inferred`, offset by a module width the street control also grades `inferred` — so `inferred` is the most this grid can carry. The lots and the alleys inside those blocks are `conjectural` and are recorded separately for that reason: a visitor is entitled to know that the block face is a defensible position and the line dividing it is not.",
  "summary": {
-  "blocks": 87,
+  "blocks": 88,
   "blocks_by_grid": {
-   "original_town": 26,
+   "original_town": 27,
    "kinzies_addition": 27,
    "west_division": 12,
    "michigan_st_tract": 4,
    "wabansia": 13,
    "school_section_tier": 5
   },
-  "omitted": 51,
+  "omitted": 50,
   "reserved": 1,
-  "numbered": 76,
-  "numbered_omitted": 45,
-  "lots": 428,
-  "numbered_lots": 268,
+  "numbered": 77,
+  "numbered_omitted": 44,
+  "lots": 432,
+  "numbered_lots": 272,
   "block_frontage_ft": {
    "min": 120.8,
    "median": 315.7,
@@ -16404,6 +16404,297 @@
    }
   },
   {
+   "id": "blk_south_water_market",
+   "grid": "original_town",
+   "plat": "thompson_plat_1830",
+   "bounded_by": {
+    "north": "south_water",
+    "south": "lake",
+    "west": "market",
+    "east": "franklin"
+   },
+   "boundary_local_enu_m": [
+    [
+     122.55,
+     -98.48
+    ],
+    [
+     195.69,
+     -99.07
+    ],
+    [
+     196.2,
+     -13.19
+    ],
+    [
+     185.23,
+     -16.21
+    ],
+    [
+     184.74,
+     -16.46
+    ],
+    [
+     167.25,
+     -27.84
+    ],
+    [
+     148.75,
+     -43.57
+    ],
+    [
+     148.25,
+     -44.05
+    ],
+    [
+     130.72,
+     -63.34
+    ],
+    [
+     130.21,
+     -63.99
+    ],
+    [
+     122.65,
+     -80.63
+    ]
+   ],
+   "area_m2": 4484.9,
+   "frontage_m": 73.15,
+   "frontage_ft": 240.0,
+   "depth_m": 61.31,
+   "alley_local_enu_m": [
+    [
+     135.72,
+     -58.39
+    ],
+    [
+     195.93,
+     -58.88
+    ],
+    [
+     195.96,
+     -53.39
+    ],
+    [
+     140.23,
+     -52.94
+    ],
+    [
+     139.73,
+     -53.42
+    ],
+    [
+     135.72,
+     -57.83
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "south",
+     "frontage_m": 24.38,
+     "depth_m": 35.35,
+     "polygon": [
+      [
+       122.55,
+       -98.48
+      ],
+      [
+       146.93,
+       -98.68
+      ],
+      [
+       147.17,
+       -58.48
+      ],
+      [
+       135.22,
+       -58.38
+      ],
+      [
+       130.72,
+       -63.34
+      ],
+      [
+       130.21,
+       -63.99
+      ],
+      [
+       122.65,
+       -80.63
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.38,
+     "depth_m": 40.2,
+     "polygon": [
+      [
+       146.93,
+       -98.68
+      ],
+      [
+       171.31,
+       -98.88
+      ],
+      [
+       171.55,
+       -58.68
+      ],
+      [
+       147.17,
+       -58.48
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.38,
+     "depth_m": 40.2,
+     "polygon": [
+      [
+       171.31,
+       -98.88
+      ],
+      [
+       195.69,
+       -99.07
+      ],
+      [
+       195.93,
+       -58.88
+      ],
+      [
+       171.55,
+       -58.68
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 27.43,
+     "depth_m": 35.38,
+     "polygon": [
+      [
+       171.58,
+       -53.19
+      ],
+      [
+       195.96,
+       -53.39
+      ],
+      [
+       196.2,
+       -13.19
+      ],
+      [
+       185.23,
+       -16.21
+      ],
+      [
+       184.74,
+       -16.46
+      ],
+      [
+       171.75,
+       -24.91
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural"
+    }
+   ],
+   "wedge": {
+    "ruling": "the owner's ruling of 2026-10-08 on T-1957, option (b): build on the wedge's eastern two-thirds only, cut reconstructed lots where the block has depth, and re-deal the rest (T-2195)",
+    "confidence": "conjectural",
+    "the_quadrilateral_refused": "South Water Street's committed centreline stops 32 m short of this block",
+    "cut_on": "the Original Town's module laid from Franklin's face: the Lake Street face from Market's corridor to Franklin's divided into four equal lots, and the tier's 18 ft alley carried west from the full-depth end parallel to Lake Street",
+    "full_depth_at_east_face_m": 85.88,
+    "tier_depth_m": 40.2,
+    "kept_where_mean_depth_m_at_least": 20.1,
+    "bound": "half the tier's own depth at Franklin's face — the least a module lot can shrink to and still hold a house set back from its street with a yard behind it. This project's bound, not the plat's; the shallowest lot the grid cuts anywhere else (26.68 m, the Michigan Street tract) keeps the same lots",
+    "lotted_from": [
+     122.55,
+     -98.48
+    ],
+    "faces_off_the_street": {
+     "west": "the wedge is lotted from its first kept lot's west line, 24.4 m east of Market's corridor; that edge is the cut, not a street face"
+    },
+    "lots_withheld": [
+     {
+      "tier": "south",
+      "mean_depth_m": 2.92,
+      "why": "the wedge leaves this cell 2.9 m of mean depth against the 20.1 m a kept lot needs (half the tier's 40.2 m at Franklin Street's face)",
+      "plat_lot_number": 5
+     },
+     {
+      "tier": "north",
+      "mean_depth_m": 0.0,
+      "why": "the wedge leaves this cell 0.0 m of mean depth against the 20.1 m a kept lot needs (half the tier's 40.2 m at Franklin Street's face)",
+      "plat_lot_number": 4
+     },
+     {
+      "tier": "north",
+      "mean_depth_m": 1.13,
+      "why": "the wedge leaves this cell 1.1 m of mean depth against the 20.1 m a kept lot needs (half the tier's 40.2 m at Franklin Street's face)",
+      "plat_lot_number": 3
+     },
+     {
+      "tier": "north",
+      "mean_depth_m": 18.57,
+      "why": "the wedge leaves this cell 18.6 m of mean depth against the 20.1 m a kept lot needs (half the tier's 40.2 m at Franklin Street's face)",
+      "plat_lot_number": 2
+     }
+    ],
+    "liberty": "L409"
+   },
+   "ground": {
+    "epoch": "e1834_harbor_cut",
+    "sampled_every_m": 5.0,
+    "samples": 183,
+    "off_the_modelled_field": 0,
+    "below_datum": 0,
+    "min_m": 0.55,
+    "max_m": 0.8,
+    "mean_m": 0.76,
+    "reading": "dry: every sample stands above datum on the modelled field"
+   },
+   "survey_tract": {
+    "tract": "canal_commissioners_1830",
+    "share": 1.0,
+    "geometry_confidence": "conjectural",
+    "on": [
+     "canal_commissioners_1830"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "south_division_thompson_1830",
+    "lot_frontage_ft": 80.0,
+    "alley_width_ft": 18.0,
+    "alley_runs": "east-west, mid-block",
+    "chosen_by": "the only module this generator can seat on the committed street lines",
+    "division": "south"
+   },
+   "plat_block_number": {
+    "number": 21,
+    "confidence": "inferred",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834"
+    ],
+    "authored_in": "data/traces/thompson_block_numbering.json",
+    "note": "READ. The triangular block the river's bend leaves between Franklin Street and the bank. The numeral's first digit is unmistakably 2; its second is crossed by the diagonal 'Water' of the South Water Street label, and reads as 1 against the tier's own run, which has 20 in the block immediately east. This block is OMITTED from the generated grid — South Water's committed centreline stops 24 m short of it (docs/RESEARCH/thompson_plat_grid.md section 6) — so the number is carried on the omission. South Water-Lake tier; the run falls eastward here."
+   }
+  },
+  {
    "id": "blk_michigan_st_tract_west_north",
    "grid": "michigan_st_tract",
    "plat": "michigan_st_tract",
@@ -21607,27 +21898,6 @@
     "east": "market"
    },
    "reason": "the streets are 255 m apart, past the 200 m the plat's module allows a block — what lies between them is the river, not a block"
-  },
-  {
-   "id": "blk_south_water_market",
-   "grid": "original_town",
-   "bounded_by": {
-    "north": "south_water",
-    "south": "lake",
-    "west": "market",
-    "east": "franklin"
-   },
-   "reason": "South Water Street's committed centreline stops 32 m short of this block",
-   "plat_block_number": {
-    "number": 21,
-    "confidence": "inferred",
-    "numeral_on_sheet": true,
-    "sources": [
-     "wright_1834"
-    ],
-    "authored_in": "data/traces/thompson_block_numbering.json",
-    "note": "READ. The triangular block the river's bend leaves between Franklin Street and the bank. The numeral's first digit is unmistakably 2; its second is crossed by the diagonal 'Water' of the South Water Street label, and reads as 1 against the tier's own run, which has 20 in the block immediately east. This block is OMITTED from the generated grid — South Water's committed centreline stops 24 m short of it (docs/RESEARCH/thompson_plat_grid.md section 6) — so the number is carried on the omission. South Water-Lake tier; the run falls eastward here."
-   }
   },
   {
    "id": "blk_lake_canal",

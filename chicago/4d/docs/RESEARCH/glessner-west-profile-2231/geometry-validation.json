@@ -1,0 +1,82 @@
+{
+  "reference": {
+    "image_size": [
+      1047,
+      717
+    ],
+    "landmarks_px": {
+      "north_shoulder": [
+        20,
+        280
+      ],
+      "apex": [
+        324,
+        55
+      ],
+      "rear_break": [
+        600,
+        400
+      ],
+      "south_wall_x": 1020
+    },
+    "interpretation": "Approximate isolated-elevation controls; uncalibrated photographic proportions, not surveyed dimensions. Northwest photograph supplies an independent qualitative intersection check."
+  },
+  "models": {
+    "before": {
+      "glb_sha256": "8bfe0a94e060601db39ba19e39e9af5909a9be35d1d341540e84cc83c8974816",
+      "west_profile_S_z_ft": [
+        [
+          0.0,
+          23.100065616797902
+        ],
+        [
+          14.600065616797897,
+          34.1000656167979
+        ],
+        [
+          37.831512693072995,
+          18.018098403683144
+        ],
+        [
+          59.75,
+          18.018098403683144
+        ]
+      ],
+      "apex_fraction": 0.24435256262423258,
+      "rear_break_fraction": 0.6331633923526861,
+      "slope_deg": [
+        36.995147384319324,
+        34.692915558467774,
+        0.0
+      ]
+    },
+    "after": {
+      "glb_sha256": "70d6b672b84fd7615918c34639d61cc81a13d0a5672129467c4b52f8012fed9e",
+      "west_profile_S_z_ft": [
+        [
+          0.0,
+          25.2001312335958
+        ],
+        [
+          18.399934383202098,
+          38.6000656167979
+        ],
+        [
+          34.99999999999999,
+          16.500000000000004
+        ],
+        [
+          59.75,
+          16.5
+        ]
+      ],
+      "apex_fraction": 0.30794869260589286,
+      "rear_break_fraction": 0.5857740585774057,
+      "slope_deg": [
+        36.06434987643386,
+        53.08861669959828,
+        8.224464630855153e-15
+      ]
+    }
+  }
+}

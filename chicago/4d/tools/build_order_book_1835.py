@@ -445,7 +445,13 @@ STRUCTURE_TICKETS = {
     # AND ON TO T-2176 WITH T-2147's OWN PR (2026-10-08). T-2147 built block 81's six dwellings
     # and goes `done` when it merges; the seating's fixpoint over them leaves South dwellings
     # still ordered (a D4 slot on block 81's lot 1, a D5 on block 95's), and T-2176 owns them.
-    ("south", "ordinary_dwellings"): "T-2176",
+    #
+    # AND ON TO T-2182 WITH T-2176's OWN PR (2026-10-08). T-2176 built the two dwellings the
+    # seating asked for (block 81's lot 1 and block 95's, a D5 and a D6 once T-2174 had
+    # re-dealt the schedule) and no `slot` request is left on the plat; the schedule still
+    # deals the South six dwellings nobody asks for, on the South Water blocks (one of them
+    # gated), and T-2182 owns them.
+    ("south", "ordinary_dwellings"): "T-2182",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -510,7 +516,10 @@ STRUCTURE_TICKETS = {
     # the cell moves to T-1957, which owns the five the book still orders: the one H3 the
     # schedule re-apportions to blk_washington_market once those three stand, the one on
     # the gated blk_south_water_market, and three the plan holds no roof for at all.
-    ("south", "larger_boarding_houses"): "T-1957",
+    # T-1957 SPLIT on 2026-10-08 (ported by T-2190 so its gate stops reading a split
+    # owner): T-2195 cuts the Market wedge into lots and T-2196 raises the South's two owed
+    # boarding houses on them, so the cell moves to T-2196.
+    ("south", "larger_boarding_houses"): "T-2196",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
@@ -597,8 +606,11 @@ STRUCTURE_TICKETS = {
     # build that carries the South's one owed barn (an A2 on blk_school_section_tier_81).
     # T-2147 was re-dealt over T-2146 (2026-10-08) and the schedule no longer gives block 81
     # a yard roof, so the South's one owed barn moves to T-2176 with its owed dwellings.
-    ("south", "barns_stables"): "T-2176",
-    ("south", "small_outbuildings"): "T-2176",
+    # T-2176 built the South's last owed barn (an A2 behind the D3 on blk_south_water_wells'
+    # lot 7) and the row reads 0 owed; the pair follows the dwellings to T-2182 so a row that
+    # re-opens when the schedule re-apportions still names a live ticket.
+    ("south", "barns_stables"): "T-2182",
+    ("south", "small_outbuildings"): "T-2182",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
@@ -4271,10 +4283,21 @@ def _moves_on_disk() -> list:
     return (book.get("re_family_ledger") or {}).get("moves", [])
 
 
-def cmd_build() -> int:
+def cmd_build(owners_gate: bool = True) -> int:
+    """Re-derive the book. `owners_gate=False` is for a FILLER re-deriving it mid-chain.
+
+    T-2189. A filler that WITHDRAWS people — the modelled-families stage taking the wives
+    and children off a head ruled dead before the day — leaves the cells it vacated owing
+    until the stage that fills them runs next (T-1174's women and children, one step
+    below it). Whether every owed row names a live ticket is a claim about the FINISHED
+    book, so it is held at the book's own `--build` and `--check`, which run after every
+    filler; refusing it mid-chain stopped the chain one step short of the stage that pays
+    the debt. The overfill check, which is about the filler's own draw, is never deferred.
+    """
     doc = build(load(), _fills_on_disk(), moves=_moves_on_disk())
     lands = converges_inside_the_model(doc)
-    owners = every_work_order_names_a_live_ticket(doc)
+    owners = (every_work_order_names_a_live_ticket(doc) if owners_gate else
+              "the live-owner gate is the book's own --build's, after every filler")
     finish = the_programme_finishes_where_the_rule_does(doc)
     BOOK.parent.mkdir(parents=True, exist_ok=True)
     BOOK.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -5291,8 +5314,12 @@ def cmd_self_test() -> int:
     # blk_south_water_dearborn's last unreserved free lot and the schedule returns that
     # block's D2 and D6 to the South balance; the School Section tier re-deals a D5 slot on
     # block 81 and a D6 on block 95 (213 -> 214 platted seats, 99 off-plat, L270, L406).
+    # 313 -> 314 on 2026-10-09 (T-2195, lapped over T-2176, which had held it at 313 by
+    # building block 81's D5 and block 95's D6): the Market wedge's four lots open a D5, an F4
+    # and an H3 in the schedule, and the D5 is dealt as a slot on the wedge's lot 7 to one
+    # household the deal had handed on (214 -> 215 platted, 99 off-plat, L270, L409).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 313
+        data["inventory"], data["programme"], occ))["seated"] == 314
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

@@ -9,8 +9,8 @@
       "persons": 2667,
       "businesses": 193
     },
-    "structures": 673,
-    "structures_sharing_a_name": 80,
+    "structures": 676,
+    "structures_sharing_a_name": 82,
     "streets": 80,
     "resident_persons": 1440
   },
@@ -11531,7 +11531,7 @@
       "last_seen": "1833-12-17",
       "action": "enrich",
       "action_target": "weaver_betsy",
-      "action_note": "data/residents/ already holds this person as weaver_betsy (hh_weaver_betsy, attested) — the civic pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as weaver_betsy (hh_ingersoll_chester, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_beyera_tobia",

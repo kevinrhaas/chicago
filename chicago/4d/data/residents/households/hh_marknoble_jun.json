@@ -119,6 +119,19 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "marknoble_jun",
+   "relation": "son",
+   "household": "hh_noble_mark",
+   "value": "noble_mark",
+   "confidence": "attested",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "THE NOTICE NAMES THE FATHER, AND THAT IS THE WHOLE OF WHAT IS CLAIMED. The Chicago Democrat of 3 December 1833, column 7: 'Mr. MARK NOBLE, jun., second son of Mark Nobles, Esq. of this place'. Both cards were minted from that same reading of that same notice — the press register reads 'Mark Nobles, Esq.' and 'Mark Noble, Esq.', two lines apart, as the one father of the bridegroom and of the second bride — so nothing is being identified by name here. Written by T-2229, the family pass's ruling on this column (data/research/family_pass_rulings.json, chicago_democrat_1833_12_03 c007). The term 'son' is the paper's word, read off the notice and not off the card, whose sex is still a draw (T-2230 reads the column's 'Mr.' onto it). 'Second son' implies a first son, who is nobody this town holds, so no row is written for him. The marriage the same line prints is T-2230's to seat."
+  }
+ ],
  "persons": [
   {
    "id": "marknoble_jun",
