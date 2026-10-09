@@ -91,21 +91,18 @@ def _construct(root):
             if emitted:self.masonry_blocks+=1
 
         def tiles(self,pts,confidence):
-            # Continuous roof plane plus physical course noses every second tile
-            # row. Ridge, eaves, valleys, dormers and roof intersections stay exact.
-            normal=d.norm(d.legacy._normal(pts))
-            self.raw(pts,confidence,d.ROOF)
-            uphill=d.norm((-normal[0]*normal[2],-normal[1]*normal[2],1-normal[2]*normal[2]))
-            if abs(uphill[2])<1e-5:return
-            u=d.norm(d.cross(uphill,normal));distance=d.dot(pts[0],normal)
-            poly=[(d.dot(p,u),d.dot(p,uphill)) for p in pts]
-            if d.area(poly)<0:poly.reverse()
+            # Every course and joint is mapped at the full model's physical
+            # module. Keep the existing alternate-course geometric sampling.
+            normal,poly,point,coords=self.roof_frame(pts)
+            self.roof_raw(pts,confidence,d.ROOF,normal,coords)
+            spec=self.params.detail['roof_tiles']
+            step=2*spec['exposure_in']*.0254
+            relief=spec['lap_relief_m']
             a,z0,c,z1=d.bounds(poly)
-            def point(q,h):return tuple(u[k]*q[0]+uphill[k]*q[1]+normal[k]*(distance+h) for k in range(3))
-            for row in range(math.floor(z0/.24384),math.ceil(z1/.24384)):
-                y=row*.24384
-                lip=d.rect_clip(poly,a,y+.001,c,y+.017)
-                if lip:self.raw([point(q,.012 if q[1]<y+.009 else .001) for q in lip],confidence,19+row%3,normal)
+            for row in range(math.floor(z0/step),math.ceil(z1/step)):
+                y=row*step
+                lip=d.rect_clip(poly,a,y,c,y+relief)
+                if lip:self.roof_raw([point(q,relief*(1-(q[1]-y)/relief)) for q in lip],confidence,19+row%3,normal,coords)
 
     b=ReducedBuilder('glessner_house__as_built_1887',params)
     legacy=d.legacy
@@ -347,7 +344,8 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
         for index,point in zip(face,points):
             group['p'].extend((point[0],point[2],-point[1]))
             group['n'].extend((normal[0],normal[2],-normal[1]))
-            group['uv'].extend((sum(p*v for p,v in zip(point,horizontal))/tu,1-sum(p*v for p,v in zip(point,uphill))/tv))
+            uv=b.roof_uvs.get(index,(sum(p*v for p,v in zip(point,horizontal)),sum(p*v for p,v in zip(point,uphill))))
+            group['uv'].extend((uv[0]/tu,1-uv[1]/tv))
             group['c'].append(b.conf[index])
         for triangle in triangles:group['i'].extend(start+i for i in triangle)
         triangle_count+=len(triangles)

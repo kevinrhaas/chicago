@@ -78,7 +78,23 @@
       ],
       "seed": 190403,
       "confidence": "reconstructed",
-      "description": "Fine fired clay grain. Individual flat overlapping tiles, lapped noses and ridge caps are geometry; reconstructed exposure is 0.12192 m (4.8 in), not Spanish barrel tile.",
+      "description": "Fine fired clay grain. Individual flat overlapping tiles, lapped noses and ridge caps are geometry. This grain-only fabric contains no tile module; roof_tiles supplies the mapped joints.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "roof_tiles",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        2.4383999999999997,
+        2.032
+      ],
+      "seed": 190403,
+      "confidence": "reconstructed",
+      "description": "HABS IL-1015 printed p.21: 6-inch tile width, 5-inch exposed course. Inferred 1904 continuity, checked against Taylor 2135. Red baked unglazed clay from Glessner 1923; later tar excluded. Stagger, joints, lap relief and exact colour reconstructed. Sixteen columns by sixteen courses.",
       "albedo_colour_space": "sRGB",
       "normal_convention": "OpenGL +Y",
       "roughness_colour_space": "non-colour",
@@ -266,6 +282,18 @@
     "painted_wood_roughness.png": {
       "sha256": "775efdb1e5e4197ab943db1bcc1e265c1c1b0f87bb14c11006a3a143587d74aa",
       "bytes": 56669
+    },
+    "roof_tiles_basecolor.jpg": {
+      "sha256": "6490ace0952f456391c1b04245ae3c231eefcf0c829cdf73b0c4f25cbcc86d7b",
+      "bytes": 668568
+    },
+    "roof_tiles_normal.png": {
+      "sha256": "7d686d50efbae1936dc574d5207617d68f3335c11240834fcf50186c7d5bc7af",
+      "bytes": 639034
+    },
+    "roof_tiles_roughness.png": {
+      "sha256": "09999c10a728ab2df984f25aaac28da955fa6569f0b0935e0e28c3f620235c45",
+      "bytes": 360401
     },
     "terracotta_basecolor.jpg": {
       "sha256": "60fd39a00dfbbfc673c269e01352b1b4e88d32ca94f64ff683f66c1a929cef70",

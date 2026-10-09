@@ -22685,3 +22685,28 @@ frontage survey can replace the materials, profiles, joints and grade bounds.
 **Covers:** `glessner_house.as_built_1887.form.prairie_frontage`.
 **Review:** `docs/RESEARCH/glessner-frontage-2202/README.md`.
 **Recorded:** 2026-10-09.
+
+### L-glessner-roof-tiles-2203 — Later measured tile module carried to 1904
+
+**Decision:** Use a 6-inch width and 5-inch exposed course on Glessner's clay
+roof planes and tiled west-dormer cheeks. Retain red baked, unglazed clay;
+exclude the tar coating reported by the later HABS survey.
+
+**Basis:** `habs_glessner_house_il_1015_data_pages`, printed p. 21 / PDF p. 22,
+records those dimensions and quotes Glessner's 1923 account on printed p. 13 /
+PDF p. 14 describing the original red baked unglazed tiles. The HABS quotation
+is the reviewed source; the separately catalogued original remains unresolved.
+`taylor_2135_glessner_exterior_1887_1889` shows fine continuous early courses.
+The photograph is a visual check, not a dimensional measurement. Survival of
+the later measured module in 1904 is inferred. The half-tile stagger, 4-mm side
+joints, 6-mm exposed lap relief, exact colour and weathering are reconstructed.
+No concealed headlap or total tile length is asserted. Faceted cone cuts and
+alternate-course geometry in Light are display approximations; every exposed
+course has the same physical texture scale. No source pixels are used.
+
+**How to resolve:** A dated roof specification, original tile or calibrated
+1904 roof close-up could establish the module, full length, laying pattern
+and surface condition directly.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Review:** `docs/RESEARCH/glessner-roof-tiles-2203/README.md`.
+**Recorded:** 2026-10-09.
