@@ -2797,7 +2797,9 @@
     ]
    ],
    "frontage_ft": 52.5,
-   "building_ids": []
+   "building_ids": [
+    "pa-1945-armour-corwith"
+   ]
   },
   {
    "id": "prairie_2000",
@@ -5897,6 +5899,12 @@
   "pa-1620-1904-correction": {
    "parcels": [
     "prairie_1620"
+   ],
+   "by": "printed number"
+  },
+  "pa-1945-armour-corwith": {
+   "parcels": [
+    "prairie_1945"
    ],
    "by": "printed number"
   }

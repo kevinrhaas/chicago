@@ -1,0 +1,1436 @@
+{
+ "sheet": "28",
+ "map_source_id": "MAP-1911-28",
+ "observation_year": 1911,
+ "target_date": "1904-07-01",
+ "ticket": "T-1841",
+ "read": "2026-10-09",
+ "method": "Every polygon drawn on the Prairie Avenue half of sheet 28 was read from the supplied scan (maps/originals/sanborn-1911-sheet-28.jpg) at full resolution and given one entity: a front building, a wing drawn contiguous with it, a detached service roof on an alley, or open grounds. Each carries its 1911 observation, its 1904 decision and the tier of that decision. Footprints are not digitized and no dimension is claimed. The supplied 1911 sheet is the footprint layer for 1904 except where the expert guidance or a dated source says otherwise (docs/map-guidance.md); nothing on this sheet is named as changed between 1904 and 1911.",
+ "limits": "A 1911 label is a 1911 observation. Garages are backcast as stables; uses, colours and unseen elevations remain for the build packages. The Calumet side of the sheet is counted by T-1946, not here.",
+ "tiers": {
+  "attested": "a source states it",
+  "inferred": "reasoned from evidence about this property; the basis says how",
+  "reconstructed": "bounded invention; the basis says what bounds it"
+ },
+ "frontage_assignments": {
+  "frontage-28-036": "s28-1800-front",
+  "frontage-28-037": "s28-1808-front",
+  "frontage-28-038": "s28-1812-front",
+  "frontage-28-039": "s28-1816-front",
+  "frontage-28-040": "s28-1824-front",
+  "frontage-28-041": "s28-1828-front",
+  "frontage-28-042": "s28-1834-front",
+  "frontage-28-043": "s28-1900-front",
+  "frontage-28-044": "s28-1906-front",
+  "frontage-28-045": "s28-1908-wing",
+  "frontage-28-046": "s28-1912-front",
+  "frontage-28-047": "s28-1918-front",
+  "frontage-28-048": "s28-1936-grounds",
+  "frontage-28-049": "s28-1801-front",
+  "frontage-28-050": "s28-1811-front",
+  "frontage-28-051": "s28-1815-front",
+  "frontage-28-052": "s28-1823-front",
+  "frontage-28-053": "s28-1827-front",
+  "frontage-28-054": "s28-1901-front",
+  "frontage-28-055": "s28-1905-front",
+  "frontage-28-056": "s28-1919-front",
+  "frontage-28-057": "s28-1923-front",
+  "frontage-28-058": "s28-1945-front"
+ },
+ "entities": [
+  {
+   "id": "s28-1800-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-036",
+   "building_id": "pa-1800-22",
+   "observed_1911": {
+    "map_label": "1800",
+    "notation": "2B",
+    "material": "stone",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "attested",
+   "basis": "Glessner House: the existing canonical model is the benchmark; this census does not rebuild it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": []
+  },
+  {
+   "id": "s28-1800-wing",
+   "kind": "attached_wing",
+   "frontage_id": "frontage-28-036",
+   "building_id": "pa-1800-22",
+   "observed_1911": null,
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "The 18th Street wing labelled \"garage\" in 1911 is the house's own stable range of the E-shaped plan (G02), retained. Drawn contiguous with the house in 1911, so the front building's package owns it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": []
+  },
+  {
+   "id": "s28-1808-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-037",
+   "building_id": "pa-1808-6",
+   "observed_1911": {
+    "map_label": "1808",
+    "notation": "3B; rear2B",
+    "material": "brick with stone front",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Keith/Field house, built 1886, standing to 1968 (marker); in 1904 by its recorded lifespan.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1882",
+    "T-1883"
+   ]
+  },
+  {
+   "id": "s28-1808-wing",
+   "kind": "attached_wing",
+   "frontage_id": "frontage-28-037",
+   "building_id": "pa-1808-6",
+   "observed_1911": null,
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "The two-storey range and the alley \"garage\" run unbroken from the 3B front to the alley: one building, so its service range is an attached wing and R28W owns no separate 1808 roof. Drawn contiguous with the house in 1911, so the front building's package owns it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1882",
+    "T-1883"
+   ]
+  },
+  {
+   "id": "s28-1812-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-038",
+   "building_id": "pa-1812-7",
+   "observed_1911": {
+    "map_label": "1812",
+    "notation": "3B",
+    "material": "brick",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Wheeler house, built 1884, standing to 1968 (marker).",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1884",
+    "T-1885"
+   ]
+  },
+  {
+   "id": "s28-1812-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-038",
+   "building_id": "pa-1812-7",
+   "observed_1911": {
+    "map_label": "Garage",
+    "notation": "2",
+    "material": "brick",
+    "use_label": "Garage"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "inferred",
+   "basis": "1911: detached 2-storey \"Garage\" on the west alley behind 1812. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1935"
+   ]
+  },
+  {
+   "id": "s28-1816-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-039",
+   "building_id": "pa-1816-33",
+   "observed_1911": {
+    "map_label": "1816",
+    "notation": "3S.B.; rear2B",
+    "material": "brick",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Henderson house: no recorded dates, but the May 1874 Land Owner vignette shows a mansarded house with a corner bay and the 1911 sheet still draws rounded front bays on the same lot, so it stood in 1904.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1886"
+   ],
+   "evidence_images": [
+    "a18-gh-landowner-1874-plate"
+   ],
+   "replaceable_by": "a dated demolition or rebuilding record for 1816"
+  },
+  {
+   "id": "s28-1816-wing",
+   "kind": "attached_wing",
+   "frontage_id": "frontage-28-039",
+   "building_id": "pa-1816-33",
+   "observed_1911": null,
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Rear two-storey range (\"rear2B\"). Drawn contiguous with the house in 1911, so the front building's package owns it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1886"
+   ]
+  },
+  {
+   "id": "s28-1816-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-039",
+   "building_id": "pa-1816-33",
+   "observed_1911": {
+    "map_label": "Garage",
+    "notation": "2½",
+    "material": "brick",
+    "use_label": "Garage"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "inferred",
+   "basis": "1911: detached 2½-storey \"Garage\" on the west alley behind 1816. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1935"
+   ]
+  },
+  {
+   "id": "s28-1824-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-040",
+   "building_id": "pa-1824-8",
+   "observed_1911": {
+    "map_label": "1824",
+    "notation": "2½B; rear2B",
+    "material": "brick with stone front",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Pomeroy/Marsh house, built 1857, refaced in stone after 1880; the 1904 front is the refaced one, not the earlier cupola photograph.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1887"
+   ]
+  },
+  {
+   "id": "s28-1824-wing",
+   "kind": "attached_wing",
+   "frontage_id": "frontage-28-040",
+   "building_id": "pa-1824-8",
+   "observed_1911": null,
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Rear two-storey range (\"rear2B\"). Drawn contiguous with the house in 1911, so the front building's package owns it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1887"
+   ]
+  },
+  {
+   "id": "s28-1824-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-040",
+   "building_id": "pa-1824-8",
+   "observed_1911": {
+    "map_label": "Garage",
+    "notation": "2",
+    "material": "brick",
+    "use_label": "Garage"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "inferred",
+   "basis": "1911: detached 2-storey \"Garage\" on the west alley behind 1824. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1935"
+   ]
+  },
+  {
+   "id": "s28-1828-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-041",
+   "building_id": null,
+   "observed_1911": {
+    "map_label": "1828",
+    "notation": "3B; rear2B",
+    "material": "brick with stone front",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "reconstructed",
+   "basis": "Map-only house: no named record. An undated elevation strip labels it \"1828 Shipman\" with a small mansard; that name is a lead, not an identity.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1887"
+   ],
+   "evidence_images": [
+    "a18-cgy-elevation-strip-1800-1900-blocks"
+   ],
+   "replaceable_by": "a 1904 directory or Blue Book page naming 1828 Prairie, or a dated photograph"
+  },
+  {
+   "id": "s28-1828-wing",
+   "kind": "attached_wing",
+   "frontage_id": "frontage-28-041",
+   "building_id": null,
+   "observed_1911": null,
+   "decision_1904": "standing",
+   "tier": "reconstructed",
+   "basis": "Rear two-storey range (\"rear2B\"). Drawn contiguous with the house in 1911, so the front building's package owns it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1887"
+   ]
+  },
+  {
+   "id": "s28-1828-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-041",
+   "building_id": null,
+   "observed_1911": {
+    "map_label": "Barn",
+    "notation": "2",
+    "material": "brick",
+    "use_label": "Barn"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "reconstructed",
+   "basis": "1911: detached 2-storey \"Barn\" on the west alley behind 1828. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1935"
+   ]
+  },
+  {
+   "id": "s28-1834-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-042",
+   "building_id": "pa-1834-9",
+   "observed_1911": {
+    "map_label": "1834",
+    "notation": "3S.B.",
+    "material": "brick with stone front",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Fernando Jones house, standing to 1942; the 1886 mansard storey is part of the 1904 state.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1888"
+   ]
+  },
+  {
+   "id": "s28-1834-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-042",
+   "building_id": "pa-1834-9",
+   "observed_1911": {
+    "map_label": "Barn",
+    "notation": "2",
+    "material": "brick",
+    "use_label": "Barn"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "inferred",
+   "basis": "1911: detached 2-storey \"Barn\" on the west alley behind 1834. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1935"
+   ]
+  },
+  {
+   "id": "s28-1900-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-043",
+   "building_id": "pa-1900-25",
+   "observed_1911": {
+    "map_label": "1900",
+    "notation": "3B; rear1B",
+    "material": "brick with stone front",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Elbridge G. Keith house, built 1870, survives. The photograph posted as \"1906 Prairie\" shows this facade (see ruling r28-1900-1906-photo).",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1897"
+   ],
+   "evidence_images": [
+    "a19-gh-keith-1900-historic",
+    "a19-cgy-1906-keith-photo"
+   ]
+  },
+  {
+   "id": "s28-1900-wing",
+   "kind": "attached_wing",
+   "frontage_id": "frontage-28-043",
+   "building_id": "pa-1900-25",
+   "observed_1911": null,
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Rear one-storey range (\"rear1B\"). Drawn contiguous with the house in 1911, so the front building's package owns it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1897"
+   ]
+  },
+  {
+   "id": "s28-1900-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-043",
+   "building_id": "pa-1900-25",
+   "observed_1911": {
+    "map_label": "Garage",
+    "notation": "1",
+    "material": "brick",
+    "use_label": "Garage"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "inferred",
+   "basis": "1911: detached 1-storey \"Garage\" on the west alley behind 1900. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house. A one-storey frame shed (yellow) stands beside it on the alley line and is counted with it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1935"
+   ],
+   "evidence_images": [
+    "a19-cgy-robinson-1886-crops-1900-block"
+   ]
+  },
+  {
+   "id": "s28-1906-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-044",
+   "building_id": "pa-1906-34",
+   "observed_1911": {
+    "map_label": "1906",
+    "notation": "3B",
+    "material": "brick with stone front",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Edson Keith house, stone-fronted before 1873; one building with two dwellings in 1904 (see ruling r28-1906-1908).",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1898"
+   ],
+   "evidence_images": [
+    "dw-indchi-1891-v1-edson-keith-stone",
+    "nps-1906-tribune-1918-12-18-1904-1906-two-residences-garage",
+    "nps-1906-tribune-1936-09-06-old-chicago-hearthstones"
+   ]
+  },
+  {
+   "id": "s28-1908-wing",
+   "kind": "attached_wing",
+   "frontage_id": "frontage-28-045",
+   "building_id": "pa-1906-34",
+   "observed_1911": {
+    "map_label": "1908",
+    "notation": "2½B; rear1B/2B",
+    "material": "brick with stone front",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "The 1908 frontage is the second dwelling of the Edson Keith building, not a separate house (ruling r28-1906-1908). Drawn contiguous with the house in 1911, so the front building's package owns it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1898"
+   ]
+  },
+  {
+   "id": "s28-1906-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-044",
+   "building_id": "pa-1906-34",
+   "observed_1911": {
+    "map_label": "Barn",
+    "notation": "2",
+    "material": "brick",
+    "use_label": "Barn"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "inferred",
+   "basis": "1911: detached 2-storey \"Barn\" on the west alley behind 1906. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house. The Tribune's 1918 letting of \"1904-1906 Prairie-av.\" offers a \"large 2 story brick garage\" with the pair, which is this building.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1935"
+   ],
+   "evidence_images": [
+    "a19-cgy-robinson-1886-crops-1900-block"
+   ]
+  },
+  {
+   "id": "s28-1912-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-046",
+   "building_id": "pa-1912-10",
+   "observed_1911": {
+    "map_label": "1912",
+    "notation": "2½B; rear3B",
+    "material": "stone with brick rear",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Moulton/Lowden house, built 1882, standing to 1939; the c.1905 Chicago History Museum negative shows it from the south.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1899",
+    "T-1900"
+   ],
+   "evidence_images": [
+    "a19-chm-ichi66015-west-side-north-from-allerton"
+   ]
+  },
+  {
+   "id": "s28-1912-wing",
+   "kind": "attached_wing",
+   "frontage_id": "frontage-28-046",
+   "building_id": "pa-1912-10",
+   "observed_1911": null,
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Rear three-storey range (\"rear3B\"). Drawn contiguous with the house in 1911, so the front building's package owns it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1899",
+    "T-1900"
+   ]
+  },
+  {
+   "id": "s28-1912-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-046",
+   "building_id": "pa-1912-10",
+   "observed_1911": {
+    "map_label": "Barn",
+    "notation": "2",
+    "material": "brick",
+    "use_label": "Barn"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "inferred",
+   "basis": "1911: detached 2-storey \"Barn\" on the west alley behind 1912. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1935"
+   ],
+   "evidence_images": [
+    "a19-cgy-robinson-1886-crops-1900-block"
+   ]
+  },
+  {
+   "id": "s28-1918-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-047",
+   "building_id": "pa-1936-11",
+   "observed_1911": {
+    "map_label": "1918 (1936)",
+    "notation": "2½S.B.; bay4B; rear2B",
+    "material": "brick",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Thompson/Allerton house. The sheet labels this house \"1918\" over \"(1936)\" (read 2026-10-09; the earlier transcription \"1916 (1930)\" was a misreading), so the drawn house carries the 1936 number. It was razed in 1915 (G23), after the 1911 survey, and the c.1905 negative shows its cornice beside 1912.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1901",
+    "T-1902"
+   ],
+   "evidence_images": [
+    "a19-chm-ichi66015-west-side-north-from-allerton",
+    "st-randmcnally-1893-p269-west-1800-1900"
+   ]
+  },
+  {
+   "id": "s28-1936-wing",
+   "kind": "attached_wing",
+   "frontage_id": "frontage-28-047",
+   "building_id": "pa-1936-11",
+   "observed_1911": null,
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Rear two-storey range (\"rear2B\") and the four-storey tower bay (\"bay4B\") — the belvedere the 1874 and 1893 views show. Drawn contiguous with the house in 1911, so the front building's package owns it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1901",
+    "T-1902"
+   ]
+  },
+  {
+   "id": "s28-1936-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-047",
+   "building_id": "pa-1936-11",
+   "observed_1911": {
+    "map_label": "Barn",
+    "notation": "2",
+    "material": "brick",
+    "use_label": "Barn"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "inferred",
+   "basis": "1911: detached 2-storey \"Barn\" on the west alley behind 1936. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1935"
+   ],
+   "evidence_images": [
+    "a19-cgy-robinson-1886-crops-1900-block"
+   ]
+  },
+  {
+   "id": "s28-1936-grounds",
+   "kind": "grounds",
+   "frontage_id": "frontage-28-048",
+   "building_id": "pa-1936-11",
+   "observed_1911": {
+    "map_label": "1936",
+    "notation": null,
+    "material": "none",
+    "use_label": "vacant frontage"
+   },
+   "decision_1904": "open grounds of the Allerton house",
+   "tier": "inferred",
+   "basis": "The bare \"1936\" label at the 20th Street corner marks unbuilt frontage south of the drawn house, which carries the same number in parentheses. It is the Allerton lawn, not a second, vacant 1936 lot and not a site for another villa.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1944"
+   ]
+  },
+  {
+   "id": "s28-1801-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-049",
+   "building_id": "pa-1801-23",
+   "observed_1911": {
+    "map_label": "1801",
+    "notation": "3B",
+    "material": "stone",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Kimball house, built 1890-1892, survives.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1889",
+    "T-1890"
+   ]
+  },
+  {
+   "id": "s28-1801-wing",
+   "kind": "attached_wing",
+   "frontage_id": "frontage-28-049",
+   "building_id": "pa-1801-23",
+   "observed_1911": null,
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "The two-storey garage on 18th Street joins the house in one blue (stone) outline. Drawn contiguous with the house in 1911, so the front building's package owns it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1889",
+    "T-1890"
+   ]
+  },
+  {
+   "id": "s28-1811-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-050",
+   "building_id": "pa-1811-24",
+   "observed_1911": {
+    "map_label": "1811",
+    "notation": "3B; section2B",
+    "material": "brick with stone front",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Coleman/Ames house, built 1886, survives.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1891",
+    "T-1892"
+   ]
+  },
+  {
+   "id": "s28-1811-wing",
+   "kind": "attached_wing",
+   "frontage_id": "frontage-28-050",
+   "building_id": "pa-1811-24",
+   "observed_1911": null,
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Two-storey section (\"section2B\"). Drawn contiguous with the house in 1911, so the front building's package owns it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1891",
+    "T-1892"
+   ]
+  },
+  {
+   "id": "s28-1811-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-050",
+   "building_id": "pa-1811-24",
+   "observed_1911": {
+    "map_label": "Garage",
+    "notation": "1½",
+    "material": "brick",
+    "use_label": "Garage"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "inferred",
+   "basis": "1911: detached 1½-storey \"Garage\" on the east alley behind 1811. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1936"
+   ]
+  },
+  {
+   "id": "s28-1815-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-051",
+   "building_id": "pa-1815-12",
+   "observed_1911": {
+    "map_label": "1815",
+    "notation": "3B",
+    "material": "stone",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Sears/Meeker house, built 1882, standing to 1967; the 1902 alterations belong to the 1904 state where dated.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1893"
+   ]
+  },
+  {
+   "id": "s28-1815-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-051",
+   "building_id": "pa-1815-12",
+   "observed_1911": {
+    "map_label": "Garage",
+    "notation": "2",
+    "material": "brick",
+    "use_label": "Garage"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "inferred",
+   "basis": "1911: detached 2-storey \"Garage\" on the east alley behind 1815. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house. A small frame annex marked \"R.CL. 3B\" adjoins it; the notation is recorded unexpanded.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1936"
+   ]
+  },
+  {
+   "id": "s28-1823-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-052",
+   "building_id": "pa-1823-13",
+   "observed_1911": {
+    "map_label": "1823",
+    "notation": "3B; rear2B",
+    "material": "brick",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Dent house, built 1881, standing to 1945.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1894"
+   ]
+  },
+  {
+   "id": "s28-1823-wing",
+   "kind": "attached_wing",
+   "frontage_id": "frontage-28-052",
+   "building_id": "pa-1823-13",
+   "observed_1911": null,
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Rear two-storey range (\"rear2B\"). Drawn contiguous with the house in 1911, so the front building's package owns it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1894"
+   ]
+  },
+  {
+   "id": "s28-1827-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-053",
+   "building_id": "pa-1827-14",
+   "observed_1911": {
+    "map_label": "1827",
+    "notation": "3B",
+    "material": "stone with brick rear",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Doane house, built 1882, standing to 1936.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1895",
+    "T-1896"
+   ]
+  },
+  {
+   "id": "s28-1827-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-053",
+   "building_id": "pa-1827-14",
+   "observed_1911": {
+    "map_label": "Barn",
+    "notation": "2",
+    "material": "brick",
+    "use_label": "Barn"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "inferred",
+   "basis": "1911: detached 2-storey \"Barn\" on the east alley behind 1827. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1936"
+   ]
+  },
+  {
+   "id": "s28-1901-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-054",
+   "building_id": "pa-1901-15",
+   "observed_1911": {
+    "map_label": "1901",
+    "notation": "3B",
+    "material": "stone with brick rear",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Keith/Ream house, built 1882 and rebuilt after the 1887 fire; the post-1887 state is the 1904 one.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1903"
+   ]
+  },
+  {
+   "id": "s28-1901-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-054",
+   "building_id": "pa-1901-15",
+   "observed_1911": {
+    "map_label": "Barn",
+    "notation": "2",
+    "material": "brick",
+    "use_label": "Barn"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "inferred",
+   "basis": "1911: detached 2-storey \"Barn\" on the east alley behind 1901. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1936"
+   ],
+   "evidence_images": [
+    "a19-cgy-robinson-1886-crops-1900-block"
+   ]
+  },
+  {
+   "id": "s28-1905-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-055",
+   "building_id": "pa-1905-16",
+   "observed_1911": {
+    "map_label": "1905",
+    "notation": "3S.B.",
+    "material": "brick",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Marshall Field Sr. house, 1871-1873, Field living there until January 1906. The conservatory the 1911 sheet marks at the front bay is the \"fine large conservatory on the southern\" side of the period description.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1904",
+    "T-1905"
+   ]
+  },
+  {
+   "id": "s28-1905-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-055",
+   "building_id": "pa-1905-16",
+   "observed_1911": {
+    "map_label": "Barn",
+    "notation": "2",
+    "material": "brick",
+    "use_label": "Barn"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "inferred",
+   "basis": "1911: detached 2-storey \"Barn\" on the east alley behind 1905. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house. The period description puts Field's \"stables and other out-buildings ... in the rear, on the side nearest the lake\".",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1936"
+   ],
+   "evidence_images": [
+    "a19-cgy-robinson-1886-crops-1900-block"
+   ]
+  },
+  {
+   "id": "s28-1919-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-056",
+   "building_id": "pa-1919-26",
+   "observed_1911": {
+    "map_label": "1919",
+    "notation": "2½S.B.",
+    "material": "brick",
+    "use_label": "The Gatlin Institute"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Marshall Field Jr. house after the 1902 enlargement. \"The Gatlin Institute\" is the 1911 use; in 1904 this is a residence.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1906",
+    "T-1907"
+   ]
+  },
+  {
+   "id": "s28-1919-wing",
+   "kind": "attached_wing",
+   "frontage_id": "frontage-28-056",
+   "building_id": "pa-1919-26",
+   "observed_1911": null,
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "The two-and-a-half-storey rear range and the cement-floored garage are drawn contiguous with the house. Drawn contiguous with the house in 1911, so the front building's package owns it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1906",
+    "T-1907"
+   ]
+  },
+  {
+   "id": "s28-1923-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-057",
+   "building_id": "pa-1923-35",
+   "observed_1911": {
+    "map_label": "1923",
+    "notation": "3S.B.",
+    "material": "brick",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Charles P. Kellogg house, standing to 1933; no dedicated exterior photograph located.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1908"
+   ]
+  },
+  {
+   "id": "s28-1923-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-057",
+   "building_id": "pa-1923-35",
+   "observed_1911": {
+    "map_label": "Garage",
+    "notation": "2",
+    "material": "brick",
+    "use_label": "Garage"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "inferred",
+   "basis": "1911: detached 2-storey \"Garage\" on the east alley behind 1923. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1936"
+   ],
+   "evidence_images": [
+    "a19-cgy-robinson-1886-crops-1900-block"
+   ]
+  },
+  {
+   "id": "s28-1945-front",
+   "kind": "front",
+   "frontage_id": "frontage-28-058",
+   "building_id": "pa-1945-armour-corwith",
+   "observed_1911": {
+    "map_label": "1945",
+    "notation": "3S.B.; rear2B",
+    "material": "brick",
+    "use_label": "D"
+   },
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "George Armour house, designed by Treat & Foltz, completed 1872, held by the Corwith family and razed in 1931 (G23); the 1904 Blue Book lists Mrs. Henry Corwith and Charles R. Corwith at 1945. New named record, minted by this census.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1908"
+   ],
+   "evidence_images": [
+    "a19-cgy-robinson-1886-crops-1900-block"
+   ]
+  },
+  {
+   "id": "s28-1945-wing",
+   "kind": "attached_wing",
+   "frontage_id": "frontage-28-058",
+   "building_id": "pa-1945-armour-corwith",
+   "observed_1911": null,
+   "decision_1904": "standing",
+   "tier": "inferred",
+   "basis": "Rear two-storey range (\"rear2B\"). Drawn contiguous with the house in 1911, so the front building's package owns it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1908"
+   ]
+  },
+  {
+   "id": "s28-1945-rear",
+   "kind": "detached_service",
+   "frontage_id": "frontage-28-058",
+   "building_id": "pa-1945-armour-corwith",
+   "observed_1911": {
+    "map_label": "Stable",
+    "notation": "2",
+    "material": "brick",
+    "use_label": "Stable"
+   },
+   "decision_1904": "standing as stable/coach house",
+   "tier": "inferred",
+   "basis": "1911: detached 2-storey \"Stable\" on the east alley behind 1945. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house. The sheet draws it as a crossed square, the stable symbol, not a garage.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1936"
+   ],
+   "evidence_images": [
+    "a19-cgy-robinson-1886-crops-1900-block"
+   ]
+  },
+  {
+   "id": "s28-pullman-greenhouse-north",
+   "kind": "detached_service",
+   "frontage_id": null,
+   "building_id": "pa-1729-5",
+   "observed_1911": {
+    "map_label": "GREEN HO. GLASS RF.",
+    "notation": "1",
+    "material": "glass roof",
+    "use_label": "Green house"
+   },
+   "decision_1904": "standing as glasshouse",
+   "tier": "inferred",
+   "basis": "The north-south \"GREEN HO. GLASS RF.\" range east of the 20-foot alley behind 1811-1815. Assigned to the Pullman estate: the conservatory plates and photographs are placed in Pullman's private park across 18th Street from the house, toward Calumet, which is this ground; Pullman's house is on sheet 20. Glasshouses on the 1894 plate and still on the 1911 sheet, so standing in 1904.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1934"
+   ],
+   "evidence_images": [
+    "a16-inland-1894-pullman-conservatory",
+    "a16-aic-lowe-pullman-conservatory-c1897"
+   ],
+   "replaceable_by": "a deed or permit naming the owner of the Calumet-side lots between 18th Street and the 1823 line"
+  },
+  {
+   "id": "s28-pullman-greenhouse-east",
+   "kind": "detached_service",
+   "frontage_id": null,
+   "building_id": "pa-1729-5",
+   "observed_1911": {
+    "map_label": "GREEN HO. GLASS ROOF",
+    "notation": null,
+    "material": "glass roof",
+    "use_label": "Green house"
+   },
+   "decision_1904": "standing as glasshouse",
+   "tier": "inferred",
+   "basis": "The east-west \"GREEN HO. GLASS ROOF\" range with its rounded east end, joined to the north range. Same allocation as s28-pullman-greenhouse-north.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1934"
+   ],
+   "evidence_images": [
+    "a16-inland-1894-pullman-conservatory",
+    "a16-aic-lowe-pullman-conservatory-c1897"
+   ]
+  },
+  {
+   "id": "s28-pullman-garden-lodge",
+   "kind": "detached_service",
+   "frontage_id": null,
+   "building_id": "pa-1729-5",
+   "observed_1911": {
+    "map_label": "D",
+    "notation": "2",
+    "material": "brick",
+    "use_label": "D"
+   },
+   "decision_1904": "standing; use reconstructed",
+   "tier": "reconstructed",
+   "basis": "The two-storey brick dwelling (\"D\") at the angle of the two glasshouse ranges. Read as the estate's gardener's lodge; nothing names its occupant or use beyond the 1911 \"D\".",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1934"
+   ]
+  },
+  {
+   "id": "s28-pullman-park",
+   "kind": "grounds",
+   "frontage_id": null,
+   "building_id": "pa-1729-5",
+   "observed_1911": null,
+   "decision_1904": "open garden",
+   "tier": "inferred",
+   "basis": "The unbuilt 18th Street ground east of the Kimball garage, bounded by the curve to Calumet: the \"park\" the conservatory stands in. No 1911 structure on it.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1934",
+    "T-1944"
+   ],
+   "evidence_images": [
+    "a16-inland-1894-pullman-conservatory",
+    "a16-aic-lowe-pullman-conservatory-c1897"
+   ]
+  },
+  {
+   "id": "s28-calumet-and-track",
+   "kind": "context",
+   "frontage_id": null,
+   "building_id": null,
+   "observed_1911": null,
+   "decision_1904": "outside this census",
+   "tier": "attested",
+   "basis": "The Calumet Avenue houses (map labels 1830-1932), their alley stables and garages, the \"E\" building north of 20th, and the Illinois Central / Michigan Central tracks are drawn on sheet 28 but face Calumet or the lake, not Prairie. T-1946 (side-street and rail-side background) owns their polygon census; nothing here counts them.",
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "owner_tickets": [
+    "T-1946"
+   ]
+  }
+ ],
+ "named_records": [
+  {
+   "building_id": "pa-1800-22",
+   "role": "front",
+   "phase_1904": "Standing in 1904 — the benchmark model. The 18th Street \"garage\" wing on the 1911 map is its own stable range."
+  },
+  {
+   "building_id": "pa-1808-6",
+   "role": "front",
+   "phase_1904": "Standing in 1904. One continuous building to the alley; the rear range is attached, not a separate coach house."
+  },
+  {
+   "building_id": "pa-1812-7",
+   "role": "front",
+   "phase_1904": "Standing in 1904, with a two-storey stable on the alley (a garage by 1911)."
+  },
+  {
+   "building_id": "pa-1816-33",
+   "role": "front",
+   "phase_1904": "Standing in 1904 (1874 vignette and 1911 map agree on the corner bays), with a rear wing and a stable on the alley."
+  },
+  {
+   "building_id": "pa-1824-8",
+   "role": "front",
+   "phase_1904": "Standing in 1904 in its post-1880 stone front, with a rear wing and a stable on the alley."
+  },
+  {
+   "building_id": "pa-1834-9",
+   "role": "front",
+   "phase_1904": "Standing in 1904 with its 1886 mansard storey and a two-storey barn on the alley."
+  },
+  {
+   "building_id": "pa-1900-25",
+   "role": "front",
+   "phase_1904": "Standing in 1904. The photograph also posted as \"1906 Prairie\" is this house."
+  },
+  {
+   "building_id": "pa-1906-34",
+   "role": "front",
+   "phase_1904": "Standing in 1904 as one building with two dwellings — Mrs. Edson Keith and her son Walter W. Keith — which the 1911 map labels 1906 and 1908."
+  },
+  {
+   "building_id": "pa-1912-10",
+   "role": "front",
+   "phase_1904": "Standing in 1904 (Lowden owned it until 1908), with a three-storey rear range and a barn."
+  },
+  {
+   "building_id": "pa-1936-11",
+   "role": "front",
+   "phase_1904": "Standing in 1904. The 1911 map draws it, labelled \"1918 (1936)\", with its tower; the bare 1936 corner below is its lawn. Razed 1915."
+  },
+  {
+   "building_id": "pa-1801-23",
+   "role": "front",
+   "phase_1904": "Standing in 1904, with its attached two-storey stable on 18th Street."
+  },
+  {
+   "building_id": "pa-1811-24",
+   "role": "front",
+   "phase_1904": "Standing in 1904, with a stable on the alley."
+  },
+  {
+   "building_id": "pa-1815-12",
+   "role": "front",
+   "phase_1904": "Standing in 1904, with a two-storey stable on the alley."
+  },
+  {
+   "building_id": "pa-1823-13",
+   "role": "front",
+   "phase_1904": "Standing in 1904, with a rear wing and no separate stable on the 1911 map."
+  },
+  {
+   "building_id": "pa-1827-14",
+   "role": "front",
+   "phase_1904": "Standing in 1904, with a two-storey barn on the alley."
+  },
+  {
+   "building_id": "pa-1901-15",
+   "role": "front",
+   "phase_1904": "Standing in 1904 in its post-1887 rebuilt state, with a two-storey barn."
+  },
+  {
+   "building_id": "pa-1905-16",
+   "role": "front",
+   "phase_1904": "Standing in 1904 with its south conservatory, and stables on the lake side of the lot."
+  },
+  {
+   "building_id": "pa-1919-26",
+   "role": "front",
+   "phase_1904": "Standing in 1904 as Marshall Field Jr.'s enlarged house; the 1911 institute use is later."
+  },
+  {
+   "building_id": "pa-1923-35",
+   "role": "front",
+   "phase_1904": "Standing in 1904, with a stable on the alley. No dedicated exterior photograph yet: its facade will be a declared reconstruction."
+  },
+  {
+   "building_id": "pa-1945-armour-corwith",
+   "role": "front",
+   "phase_1904": "Standing in 1904 — the Corwith house (built for George Armour, 1872). New to this collection, from the 1887 street view and the 1911 map."
+  },
+  {
+   "building_id": "pa-1729-5",
+   "role": "service_garden",
+   "phase_1904": "On sheet 28 the estate owns the glasshouses, the gardener's lodge and the park across 18th Street, toward Calumet."
+  },
+  {
+   "building_id": "pa-1804–1808-s.-prairie-avenue-(predecessors)-44",
+   "role": "excluded",
+   "phase_1904": "Not in 1904: demolished in 1886 for the Keith/Field house. Nothing on sheet 28 is assigned to it."
+  }
+ ],
+ "rulings": [
+  {
+   "id": "r28-identities-1800-1900",
+   "question": "1800-1900 identities",
+   "tier": "inferred",
+   "ruling": "Every Prairie frontage on sheet 28 is joined to one named record, except 1828 (map-only, reconstructed) and 1908 (the second dwelling of the Edson Keith building). Every crosswalk row on this sheet moves from a candidate by printed number to a resolved join; the join rests on the printed number, the record's recorded lifespan and, where named, the image that shows the house.",
+   "source_ids": [
+    "MAP-1911-28",
+    "B-marker_west",
+    "B-marker_east",
+    "B-marker_survivors",
+    "civic-bluebook-1904"
+   ]
+  },
+  {
+   "id": "r28-1900-1906-photo",
+   "question": "1900 versus 1906 photograph attribution",
+   "tier": "inferred",
+   "ruling": "The sepia photograph posted by Glessner House as \"1900 PA\" and by Chicagology as \"1906 Prairie\" is one image of 1900 Prairie (Elbridge G. Keith): its mansard, hooded segmental windows, corner bay and Corinthian porch match the surviving 1900 facade, while 1906 was a brownstone front. The image is attributed to pa-1900-25 only; it is not evidence for the 1906 elevation.",
+   "images": [
+    "a19-gh-keith-1900-historic",
+    "a19-cgy-1906-keith-photo",
+    "nps-1906-tribune-1918-05-03-brownstone-front-12-rooms"
+   ],
+   "source_ids": [
+    "MAP-1911-28"
+   ]
+  },
+  {
+   "id": "r28-1906-1908",
+   "question": "Is 1908 a separate house?",
+   "tier": "inferred",
+   "ruling": "No. The 1911 map draws 1906 and 1908 as one attached building; the Tribune (December 1918) lets \"1904-1906 Prairie-av.\" as two residences of 28 rooms with one two-storey garage, and (1936) says number 1904 \"adjoins the main building\" and was the home of the son, Walter W. Keith; the 1904 Blue Book lists Walter W. Keith at 1904 and Mrs. Edson Keith at 1906. So the pair is one building of two dwellings, owned by pa-1906-34. The house numbers disagree (map 1906/1908, press and Blue Book 1904/1906) and are recorded, not reconciled.",
+   "images": [
+    "nps-1906-tribune-1918-12-18-1904-1906-two-residences-garage",
+    "nps-1906-tribune-1936-09-06-old-chicago-hearthstones"
+   ],
+   "source_ids": [
+    "MAP-1911-28",
+    "civic-bluebook-1904"
+   ],
+   "replaceable_by": "a permit or 1904 directory page giving the two halves' numbers"
+  },
+  {
+   "id": "r28-allerton",
+   "question": "1916/1930 versus Allerton 1936",
+   "tier": "attested",
+   "ruling": "Resolved on the map itself. The stacked label beside the southernmost west-side house reads \"1918\" over \"(1936)\", not \"1916 (1930)\"; the house drawn there, with its four-storey tower bay, is the Thompson/Allerton house, razed in 1915 (G23) and so still standing at the 1911 survey. The bare \"1936\" at the 20th Street corner is the frontage label of its open south grounds. One villa, on the drawn footprint; no second house at 1916 or 1930 and no vacant Allerton lot.",
+   "source_ids": [
+    "MAP-1911-28",
+    "G23"
+   ],
+   "corrects": {
+    "frontage_id": "frontage-28-047",
+    "was": "1916 (1930)",
+    "now": "1918 (1936)"
+   }
+  },
+  {
+   "id": "r28-1945",
+   "question": "1945 missing named record",
+   "tier": "attested",
+   "ruling": "Minted as pa-1945-armour-corwith: built for George Armour, designed by Treat & Foltz, completed 1872, long held by the Corwiths and razed in 1931 (G23, the Glessner House reading of the 1887 Ward Bros. view); the 1904 Blue Book lists Mrs. Henry Corwith and Charles R. Corwith at 1945.",
+   "source_ids": [
+    "G23",
+    "civic-bluebook-1904",
+    "MAP-1911-28"
+   ]
+  },
+  {
+   "id": "r28-pullman-garden",
+   "question": "Pullman service-garden allocation",
+   "tier": "inferred",
+   "ruling": "The two glasshouse ranges, the two-storey lodge between them and the open 18th Street ground east of the Kimball garage belong to the Pullman estate (pa-1729-5) and its package T-1934, not to the east-side service package T-1936. The basis is the placement of Beman's conservatory \"across 18th Street from the house (toward Calumet)\" in the image research, which this ground is; no deed has been read.",
+   "images": [
+    "a16-inland-1894-pullman-conservatory",
+    "a16-aic-lowe-pullman-conservatory-c1897"
+   ],
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "replaceable_by": "a deed or permit for the Calumet-side lots south of 18th Street"
+  }
+ ]
+}

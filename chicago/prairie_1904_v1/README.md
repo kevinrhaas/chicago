@@ -18,6 +18,10 @@ Open `viewer/index.html` through an HTTP server. The viewer is a research browse
 
 The **Prairie_Avenue_1904_Originals.zip** companion preserves larger PDFs, raw annual directory OCR, and archival photographs. These originals are excluded from Pages and Git history; their source URLs, hashes and rights notes stay in this repository. It is a research-access archive, not a grant of republication rights.
 
+## Sheet censuses (1904 decisions per Sanborn sheet)
+
+`data/sheet_census/sheet-<n>.json` joins every polygon a 1911 sheet draws on the Prairie frontage to exactly one owner — a front building, a wing drawn contiguous with it, a detached service roof, or open grounds — with its 1911 observation, its 1904 decision, the tier of that decision (attested / inferred / reconstructed) and the build ticket that owns it. Its `rulings` settle the sheet's identity questions; `library.json` `meta.sheet_censuses` lists them, the viewer shows each decision on the building and frontage cards, and `tools/validate.py` refuses an unassigned frontage, a named record listed twice or an unresolved id. Sheet 28 (18th–20th) is the first (T-1841).
+
 ## Existing project connections
 
 Reuse `../pre_fire_v1/data/` and `../postfire_1870s_v1/data/` for predecessor/context matching, but do not merge entities by name alone. The 4D project's `data/sources/habs_glessner_house_il_1015.json` and `habs_kimball_house_il_1077.json` are earlier source readings; this library extends their acquisition trail rather than silently changing their claims. Existing terrain memo `../4d/docs/RESEARCH/scene_1880s_prairie_avenue.md` reflects an older 1888 scene decision. **This library follows the owner's 1904 target; it does not rewrite the existing terrain pipeline or pretend that it already renders 1904.** T-0474–T-0477 and T-1250–T-1252 remain the scene construction work.

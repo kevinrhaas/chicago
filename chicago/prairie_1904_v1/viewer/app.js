@@ -21,6 +21,38 @@
   // record's wording does, so each is the record's own id where it has one.
   const noteKey = (el, key, label) => { el.dataset.note = String(key).slice(0, 300); el.dataset.noteLabel = String(label || key).slice(0, 300); return el; };
   let data, sourcesById;
+  // Sheet censuses (data/sheet_census/, T-1841): each Sanborn sheet's polygons joined to one
+  // owner with a 1904 decision. Optional — a card without one renders exactly as before.
+  const censusByBuilding = new Map(), censusByFrontage = new Map();
+  const KIND = { front: 'Front building', attached_wing: 'Attached wing', detached_service: 'Detached service building', grounds: 'Open grounds', context: 'Context' };
+  async function loadCensuses() {
+    for (const path of array(data.meta?.sheet_censuses)) {
+      try {
+        const response = await fetch('../' + path); if (!response.ok) continue;
+        const census = await response.json(), sheet = census.sheet;
+        for (const n of array(census.named_records)) censusByBuilding.set(n.building_id, { sheet, named: n, entities: [] });
+        for (const e of array(census.entities)) {
+          if (e.building_id) { const entry = censusByBuilding.get(e.building_id) || { sheet, named: null, entities: [] }; entry.entities.push(e); censusByBuilding.set(e.building_id, entry); }
+          if (e.frontage_id) { const entry = censusByFrontage.get(e.frontage_id) || { sheet, named: null, entities: [] }; entry.entities.push(e); censusByFrontage.set(e.frontage_id, entry); }
+        }
+      } catch { /* a census that fails to load leaves the cards as they were */ }
+    }
+  }
+  function censusPanel(entry) {
+    if (!entry) return null;
+    const box = node('section', null, 'census');
+    box.append(node('h4', '1904 decision · sheet ' + entry.sheet + ' census'));
+    if (entry.named?.phase_1904) box.append(node('p', entry.named.phase_1904, 'census-phase'));
+    if (entry.entities.length) {
+      const ul = node('ul');
+      for (const e of entry.entities) {
+        const li = node('li'); li.append(node('strong', KIND[e.kind] || e.kind), ' · ' + e.decision_1904 + ' ', node('span', e.tier, 'tier tier-' + e.tier));
+        li.append(node('span', e.basis, 'census-basis')); ul.append(li);
+      }
+      box.append(ul);
+    }
+    return box;
+  }
   function citations(ids) {
     const el = node('div', null, 'citations');
     for (const id of array(ids)) {
@@ -91,6 +123,7 @@
       const facts = node('dl');
       for (const [label,value] of [['Built',b.construction || b.built_year],['Demolished',b.demolition || b.demolished_year],['Architect',b.architect],['1904 status',b.status_1904]]) facts.append(node('dt', label), node('dd', plain(value) || 'Not established'));
       content.append(facts);
+      const census = censusPanel(censusByBuilding.get(b.id)); if (census) content.append(census);
       if (b.notes) content.append(node('p', plain(b.notes)));
       if (array(b.events).length) {
         content.append(node('h3', 'Recorded history')); const events = node('ul');
@@ -142,7 +175,7 @@
       summary.append(node('h3',[r.address,r.street || 'Prairie Avenue'].filter(Boolean).join(' ')),node('span','Observed ' + (r.observation_year || '1911') + ' · sheet ' + (r.sheet || 'unresolved') + (r.side ? ' · ' + r.side + ' side' : ''),'address'));
       const facts = node('dl');
       for (const [label,value] of [['Raw notation',r.raw_story_basement_notation],['Material',r.map_material_interpretation],['Use label',r.map_use_label],['Address read',r.address_confidence],['Dimensions (ft)',r.dimensions_ft],['Digitized',r.footprint_digitized === true ? 'Yes' : 'No']]) facts.append(node('dt',label),node('dd',plain(value) || 'Not established'));
-      content.append(facts); if (r.notes) content.append(node('p',r.notes));
+      content.append(facts); const census = censusPanel(censusByFrontage.get(r.id)); if (census) content.append(census); if (r.notes) content.append(node('p',r.notes));
       content.append(node('p','Source: ' + (r.source_file || 'See source sheet attribution'),'meta'));
       if (r.source_id) content.append(citations([r.source_id]));
       card.append(summary,content); noteKey(card, 'frontage:' + (r.id || [r.sheet,r.address,r.side].join('|')), [r.address,r.street || 'Prairie Avenue'].filter(Boolean).join(' ') + ' · 1911 frontage'); list.append(card);
@@ -202,6 +235,7 @@
     try {
       const response = await fetch('../data/library.json'); if (!response.ok) throw new Error('HTTP ' + response.status); data = await response.json();
       sourcesById = new Map(array(data.sources).map(s => [s.id,s]));
+      await loadCensuses();
       $('scope').textContent = plain(data.meta?.scope); $('coverageNote').textContent = plain(data.meta?.coverage_note);
       $('year').value = yearNumber(data.meta?.target_year) || 1904;
       for (const kind of [...new Set(array(data.sources).map(s => s.kind).filter(Boolean))].sort()) { const option = node('option',kind); option.value = kind; $('sourceKind').append(option); }
