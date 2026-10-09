@@ -1,3 +1,26 @@
+## T-2241 — Wells' narrow business-front lot refused in the schedule's sizing (piece 1 of T-2239, 2026-10-09)
+
+T-2239 was split: **T-2241** (this) makes `tools/reconcile_665.py` refuse a lot the business-front
+clause frees when the documented store on it leaves less than one party-line unit of face, and
+**T-2242** owns re-budgeting the South's five owed ordinary dwellings by name.
+
+- **The rule.** `narrow_business_fronts` reads every lot `exclusive_lots` frees under the owner's
+  2026-08-27 clause and measures the widest stretch of the lot's face not under a footprint standing
+  on it, with no margin taken. Under one unit (24.384 m / `ROW_UNITS_PER_LOT` = 8.128 m) the lot is
+  not free for the sizing; the block lists it as `narrow_front_lots` and the programme's method as
+  `narrow_business_front`. One lot in the town is freed by the clause today, and it is refused:
+  `blk_south_water_wells` lot 0, where H. Jones's store leaves 5.31 m west and 7.46 m east (T-1623's
+  4.46 m is the east stretch with the 1.5 m lot margin off both sides).
+- **What moved.** Wells reads 1 free lot, `lot_ceiling_principal` 0 and `at_capacity`; its D2, D4 and
+  F4 go back to `south_plat_beyond_committed_control`, which now holds all 10 of the programme's
+  remaining roofs (D2 2, D4 2, D5 1, F3 2, F4 1, H3 2). No household seat moves: the platted seats and
+  the lot ledger change only in their refusal prose and `block_state`. The order book's South
+  dwelling, barn and outbuilding rows now name **T-2242**.
+- **Why the re-budget is its own piece.** `build_order_book_1835.division_shares` reads the
+  inventory's district targets to split the household targets between divisions, so taking five
+  roofs off the South's 365 moves its share from 0.5598 to 0.5564 and family-dwelling households
+  between divisions. That needs the household layer walked to its fixpoint in the same PR.
+
 ## T-2238 — a house on the Market wedge's lot 7 (piece 1 of T-2182, 2026-10-09)
 
 T-2182 was split: **T-2238** builds the one dwelling the seating asked for on the wedge T-2195 cut,
