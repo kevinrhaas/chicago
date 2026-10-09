@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1551, ts: '2026-10-08T22:48:46.097Z', date: 'Oct 8, 2026, 5:48 PM CT', title: 'Chester Ingersoll\u2019s wife is the woman the paper says he married', kind: 'fix',
+    items: [
+      'The Chicago Democrat of 17 December 1833 prints the tavern keeper Chester Ingersoll\u2019s marriage, on the 12th, to Miss Betsy Weaver. His house still showed a wife we had made up, \u2018Martha Ingersoll\u2019, while Betsy Weaver stood alone on a card of her own, guessed to be a man.',
+      'The paper\u2019s \u201cMiss\u201d now sets her card to female, quoting the column. She is seated in his house as his wife, in place of the invented one, and the house card quotes the marriage notice. His six children are still reconstructed, not named by any source, and are unchanged.',
+    ] },
   { v: 1550, ts: '2026-10-08T22:13:13.241Z', date: 'Oct 8, 2026, 5:13 PM CT', title: 'A twin finds her father, and 68 family mentions get an answer', kind: 'fix',
     items: [
       'Mary and Catherine Wode were baptised together at St Mary’s in July 1833. Mary’s card already named her father, John Wode, but Catherine’s did not. Now it does, and his card names both daughters.',

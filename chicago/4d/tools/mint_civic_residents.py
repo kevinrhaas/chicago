@@ -1696,7 +1696,10 @@ def gate_problems(docs: dict, index: dict) -> list:
         elif not row.get("civic_mint"):
             problems.append(f"{where}: the manifest row does not carry civic_mint")
     counted = (index.get("counts") or {}).get("civic_mint")
-    actual = sum(1 for d in mine.values() for p in d.get("persons") or []
+    # OVER THE WHOLE TREE, AS THE INDEX COUNTS IT (T-2190). A person this pass minted keeps
+    # the flag when a later stage seats them in another house — a printed bride folded into
+    # her husband's — and the index counts every flagged person wherever they stand.
+    actual = sum(1 for d in docs.values() for p in d.get("persons") or []
                  if p.get("civic_mint"))
     if counted != actual:
         problems.append(f"counts.civic_mint is {counted!r} and the tree holds {actual}")

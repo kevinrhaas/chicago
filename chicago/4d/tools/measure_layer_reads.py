@@ -891,6 +891,20 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "modelled_family.married.wife": ("shown", "escapeHtml(String(married.wife))"),
     "modelled_family.married.from_household": ("shown", "escapeHtml(String(married.from_household))"),
     "modelled_family.married.what_happened": ("shown", "escapeHtml(String(married.what_happened || ''))"),
+    # T-2190. The wife a source prints, seated from her own card in place of the drawn one:
+    # `printedWifeHtml` prints the quote, its locator and date, and why; `printedSeatHtml`
+    # says on her own entry which card she stood on.
+    "modelled_family.printed_wife.ticket": ("shown", "escapeHtml(String(printed.ticket))"),
+    "modelled_family.printed_wife.wife": ("shown", "escapeHtml(String(printed.wife))"),
+    "modelled_family.printed_wife.from_household": ("shown", "escapeHtml(String(printed.from_household))"),
+    "modelled_family.printed_wife.married": ("shown", "escapeHtml(String(printed.married))"),
+    "modelled_family.printed_wife.sources": ("shown", "escapeHtml((printed.sources || []).join(', '))"),
+    "modelled_family.printed_wife.locator": ("shown", "escapeHtml(String(printed.locator))"),
+    "modelled_family.printed_wife.printed": ("shown", "escapeHtml(String(printed.printed || ''))"),
+    "modelled_family.printed_wife.what_happened": ("shown", "escapeHtml(String(printed.what_happened || ''))"),
+    "persons[].seated_as_printed_wife.ticket": ("shown", "escapeHtml(String(seat.ticket))"),
+    "persons[].seated_as_printed_wife.from_household": ("shown", "escapeHtml(String(seat.from_household))"),
+    "persons[].seated_as_printed_wife.relationship_as_dealt": ("shown", "escapeHtml(words(seat.relationship_as_dealt))"),
     # T-2021. The ruling on a married house no woman in the town fits: `rulingHtml` prints
     # whether the house was given its drawn family or stands alone, and why.
     "modelled_family.ruling.ticket": ("shown", "escapeHtml(String(ruling.ticket))"),
