@@ -16,17 +16,17 @@
   ],
   "counts": {
     "business_records": 193,
-    "person_rows_in_the_business_layer": 318,
-    "rows_carrying_a_person_id": 143,
-    "distinct_persons_tied_to_a_workplace": 112,
-    "businesses_with_at_least_one_named_person": 155,
-    "businesses_with_none": 38,
+    "person_rows_in_the_business_layer": 320,
+    "rows_carrying_a_person_id": 146,
+    "distinct_persons_tied_to_a_workplace": 113,
+    "businesses_with_at_least_one_named_person": 158,
+    "businesses_with_none": 35,
     "town_cards": 3891
   },
   "by_role": [
     {
       "role": "partner",
-      "entries": 56
+      "entries": 59
     },
     {
       "role": "proprietor",
@@ -34,12 +34,12 @@
     }
   ],
   "by_tier": {
-    "attested": 143
+    "attested": 146
   },
   "unresolved_printed_names": {
     "what_this_is": "A person row the register could not match to a town card. The printed name is the evidence and no card is invented for it; the row keeps its place in the business record and joins nobody.",
-    "rows": 52,
-    "businesses": 42,
+    "rows": 51,
+    "businesses": 41,
     "by_business": {
       "biz_brewster_hogan_co": [
         "Brewster",
@@ -107,9 +107,6 @@
       ],
       "biz_j_c_goodhue_land_agent": [
         "Goodhue, J. C."
-      ],
-      "biz_j_l_wilson_co": [
-        "J. L. Wilson"
       ],
       "biz_john_bates_jr": [
         "J. Bates, Jr.",
@@ -186,16 +183,13 @@
     "biz_briggs_humphrey",
     "biz_chase_ballard",
     "biz_chicago_st_joseph_packet_schooner_llewellyn",
-    "biz_clark_filer_co",
     "biz_cromelien_brothers_co",
     "biz_dart_co_castings",
     "biz_deacon_mccaleb",
     "biz_e_p_deacon",
     "biz_everson_co",
-    "biz_fullerton_botsford",
     "biz_harmon_loomis_co",
     "biz_j_c_goodhue_land_agent",
-    "biz_j_l_wilson_co",
     "biz_kinzie_hall",
     "biz_m_cormick_moon",
     "biz_noble_wesencraft",
@@ -221,7 +215,7 @@
   ],
   "questions_for_the_convergence": {
     "what_this_is": "The first time a card's own name has stood beside every name the register printed for it. These are mechanical disagreements, not refutations: this tool carries rows across at the identity the business layer already asserted and re-matches nobody. T-1190 is the ticket that converges the layer by id and they are its.",
-    "cards": 2,
+    "cards": 3,
     "rows": [
       {
         "person_id": "bradley_joseph",
@@ -251,6 +245,19 @@
         ],
         "what_disagrees": [
           "the printings disagree about the middle initial: H., S."
+        ]
+      },
+      {
+        "person_id": "wilson_john",
+        "the_card_reads": "John Wilson",
+        "the_register_printed": [
+          "J. L. Wilson"
+        ],
+        "houses": [
+          "biz_j_l_wilson_co"
+        ],
+        "what_disagrees": [
+          "every printing of this name carries a middle initial and the card carries none"
         ]
       }
     ]

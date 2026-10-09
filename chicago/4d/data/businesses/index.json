@@ -33,13 +33,13 @@
       "street_only": 88,
       "unplaceable": 104
     },
-    "named_people": 421,
-    "named_people_linked_to_a_town_card": 367,
+    "named_people": 423,
+    "named_people_linked_to_a_town_card": 370,
     "works_at_households": 51,
     "works_at_households_resolving_to_a_business": 37,
     "by_grade": {
-      "attested": 163,
-      "inferred": 70,
+      "attested": 165,
+      "inferred": 68,
       "reconstructed": 53
     },
     "by_where_kind": {
@@ -68,11 +68,11 @@
       "french_canadian": 6,
       "irish": 12,
       "metis": 1,
-      "new_york": 50,
+      "new_york": 51,
       "other": 11,
       "southern": 9,
-      "unknown": 104,
-      "yankee": 80
+      "unknown": 101,
+      "yankee": 82
     }
   },
   "_vocabulary_doc": "THE CLOSED VOCABULARY, and it is the resident layer's — data/residents/community_rules.json, one list for people and for the houses they kept. The rows with a zero count are the point and are shipped anyway: a term nobody carries is a measurement of this layer, not a gap in this file. The Businesses view offers a pill only where the count is above zero.",
@@ -116,12 +116,12 @@
       {
         "value": "yankee",
         "label": "New England",
-        "count": 80
+        "count": 82
       },
       {
         "value": "new_york",
         "label": "New York State",
-        "count": 50
+        "count": 51
       },
       {
         "value": "irish",
@@ -151,7 +151,7 @@
       {
         "value": "unknown",
         "label": "Unknown",
-        "count": 104
+        "count": 101
       }
     ]
   },
@@ -2172,7 +2172,7 @@
         "other"
       ],
       "present_at_scene_date": true,
-      "grade": "inferred",
+      "grade": "attested",
       "trade": "cabinet shop; chairs",
       "occupation": "joiner",
       "goods": [
@@ -2198,7 +2198,17 @@
       "firm_styles": [
         "Clark, Filer & Co."
       ],
-      "people": [],
+      "people": [
+        {
+          "name": "Filer",
+          "person_id": "filer_a",
+          "role": "partner",
+          "tier": "attested",
+          "from": "1834-05-28",
+          "to": "1834-12-10",
+          "also_printed_as": []
+        }
+      ],
       "where": {
         "kind": "street_only",
         "structure_id": null,
@@ -2220,8 +2230,8 @@
       "opened": "1834-05-28",
       "closed": null,
       "dates_tier": "inferred",
-      "proprietor_community": "unknown",
-      "proprietor_community_tier": null,
+      "proprietor_community": "yankee",
+      "proprietor_community_tier": "reconstructed",
       "review_required": false,
       "liberties": [
         "survival_required"
@@ -4418,7 +4428,7 @@
         "store"
       ],
       "present_at_scene_date": true,
-      "grade": "inferred",
+      "grade": "attested",
       "trade": "pork and provisions",
       "occupation": "provision_dealer",
       "goods": [
@@ -4430,7 +4440,17 @@
       "firm_styles": [
         "Fullerton & Botsford"
       ],
-      "people": [],
+      "people": [
+        {
+          "name": "Botsford",
+          "person_id": "botsford_j_k",
+          "role": "partner",
+          "tier": "attested",
+          "from": "1834-06-04",
+          "to": "1834-07-09",
+          "also_printed_as": []
+        }
+      ],
       "where": {
         "kind": "street_only",
         "structure_id": null,
@@ -4452,8 +4472,8 @@
       "opened": "1834-06-04",
       "closed": null,
       "dates_tier": "inferred",
-      "proprietor_community": "unknown",
-      "proprietor_community_tier": null,
+      "proprietor_community": "yankee",
+      "proprietor_community_tier": "inferred",
       "review_required": false,
       "liberties": [
         "survival_required"
@@ -6668,7 +6688,7 @@
       "people": [
         {
           "name": "J. L. Wilson",
-          "person_id": null,
+          "person_id": "wilson_john",
           "role": "partner",
           "tier": "attested",
           "from": "1834-09-17",
@@ -6697,8 +6717,8 @@
       "opened": "1834-09-17",
       "closed": null,
       "dates_tier": "inferred",
-      "proprietor_community": "unknown",
-      "proprietor_community_tier": null,
+      "proprietor_community": "new_york",
+      "proprietor_community_tier": "inferred",
       "review_required": false,
       "liberties": []
     },

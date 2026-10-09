@@ -13,14 +13,14 @@ Read the three verdicts apart. **reaches** — at least one row on the axis reac
 | `roles[]` — trades, professions, offices | 138 | 190 | 2,570 |
 | home (`lives_at`) | 192 | 304 | 2,402 |
 | work (`works_at`) | 149 | 0 | 2,749 |
-| other places — later addresses, business premises | 128 | 442 | 2,328 |
+| other places — later addresses, business premises | 129 | 442 | 2,327 |
 
 Of 2,898 people in 1,457 households.
 
 | Axes reaching the scene date | People |
 | --- | ---: |
-| 0 | 2,467 |
-| 1 | 297 |
+| 0 | 2,466 |
+| 1 | 298 |
 | 2 | 95 |
 | 3 | 36 |
 | 4 | 3 |
@@ -29,7 +29,7 @@ Of 2,898 people in 1,457 households.
 
 **Roles.** 738 dated role rows across the layer; 160 reach 1 July 1835. By kind: `employment` 1, `office` 52, `profession` 84, `trade` 601.
 
-**Places.** 3,871 location rows reach a person; 492 of them reach the scene date. By claim kind: `business_location` 151, `home` 2,898, `later_home_address` 176, `later_workplace_address` 497, `workplace` 149.
+**Places.** 3,874 location rows reach a person; 495 of them reach the scene date. By claim kind: `business_location` 154, `home` 2,898, `later_home_address` 176, `later_workplace_address` 497, `workplace` 149.
 
 A person inherits his household's `home` and `workplace` rows — the claim is made about the roof, not about the man — and inherits a `business_location` row from every firm that names him as proprietor, partner or staff. That is why the location row count above is larger than the reconciliation's own: the same roof is carried to each of the people living under it.
 
