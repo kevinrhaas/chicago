@@ -113,6 +113,7 @@ from block_faces import project as face_project  # noqa: E402
 # here rather than retyped, so the ceiling the schedule deals against and the ceiling
 # the generator enforces cannot become two numbers.
 from reconcile_665 import ROW_UNITS_PER_LOT  # noqa: E402
+from reconcile_665 import ROW_LOT_GRANTS  # noqa: E402  (T-2196)
 # T-1610. The inventory class and the adoption test are one derivation, in the module
 # that owns the family-to-group mapping, so this generator and the redeal executor
 # cannot come to two opinions about what standing in a yard means.
@@ -1640,6 +1641,26 @@ def frontage_strip(block: dict, grid: dict, face: dict) -> dict:
             "lots": [s[2] for s in spans]}
 
 
+def row_lot_grant(block: dict) -> dict | None:
+    """The owner's row-lot grant a recipe claims, held to `reconcile_665.ROW_LOT_GRANTS`
+    (T-2196). A recipe cannot grant itself a row: it names the ticket and the lot, and
+    both have to be the schedule's own, or the parcel is refused."""
+    claim = block.get("row_lot_grant")
+    if not claim:
+        return None
+    ruled = ROW_LOT_GRANTS.get(block["block_id"])
+    if (not ruled or claim.get("ticket") != ruled["ticket"]
+            or claim.get("lot") != ruled["lot_index"]):
+        raise SystemExit(f"{block['block_id']}: the recipe claims a row-lot grant "
+                         f"{claim} the schedule does not hold (reconcile_665."
+                         f"ROW_LOT_GRANTS)")
+    families = set(block.get("families") or {})
+    if not families <= set(ruled["families"]):
+        raise SystemExit(f"{block['block_id']}: a row-lot grant deals only "
+                         f"{ruled['families']}, and this parcel deals {sorted(families)}")
+    return ruled
+
+
 def place_frontage(block: dict, face: dict, strip: dict, records: list[dict],
                    datum: dict) -> None:
     """Stand every slot that declared the frontage on it, in run order.
@@ -1929,9 +1950,16 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
     # schedule did not size in lots yet — so there is nothing to hold them to and they
     # are passed. That is a gap in the OLD recipes, not a relaxation of the rule.
     free_lots = claimed.get("free_lots")
+    grant = row_lot_grant(block)
     if free_lots is not None:
         ceiling = max(0, free_lots - 1)
-        row_lots = len((block.get("frontage") or {}).get("lots") or ())
+        # T-2196. A lot the owner ruled may carry a short row is not one of the block's
+        # free lots — it already carries a roof — so it is not counted against them, and
+        # the room the schedule granted on it is added to what the parcel can stand.
+        row_lots = len([lot for lot in (block.get("frontage") or {}).get("lots") or ()
+                        if not grant or lot != grant["lot_index"]])
+        if grant:
+            ceiling += int(claimed.get("row_lot_grant_room", 0))
         if row_lots > ceiling:
             raise SystemExit(f"{block['block_id']}: the frontage run is dealt {row_lots} "
                              f"of the block's {free_lots} free lot(s), which leaves it no "
@@ -2217,6 +2245,10 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
             # counted: Frederick Thomas's shop stands in this row whoever built it.
             already = sum(1 for sid in standing.get(index, ())
                           if not is_ancillary_record(sid))
+            # T-2196: a lot the owner ruled a short row holds that row's units, no more.
+            grant = row_lot_grant(block)
+            units = (grant["row_units"] if grant and grant["lot_index"] == index
+                     else ROW_UNITS_PER_LOT)
             # Where a row unit STANDS, not which lots its run was dealt. A run is one
             # stretch of frontage across several lots and its units fall where the
             # chain of party walls puts them — the first deal on this block declared
@@ -2228,10 +2260,10 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
                 1 for r in records
                 if r["reconstruction"]["inventory_class"] == "principal_functional"
                 and any(point_in_polygon(pt, lot) for pt in placed[r["id"]]))
-            if already + adding > ROW_UNITS_PER_LOT:
+            if already + adding > units:
                 raise SystemExit(
                     f"{block['block_id']}: lot {index} already carries {already} roof(s) "
-                    f"and this deal adds {adding}, past the {ROW_UNITS_PER_LOT} units a "
+                    f"and this deal adds {adding}, past the {units} units a "
                     f"lot of this grid holds at the row's own measured spacing. A second "
                     f"deal on a lot is denser than the first, not unbounded by it")
     classes = {"built on by this parcel": set(used),
@@ -2305,6 +2337,19 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
         if target:
             abutted.add((record["id"], target))
             abutted.add((target, record["id"]))
+    # …and the same wall read from the other side (T-2196). A sibling deal on this block
+    # may party-wall onto one of THIS entry's roofs — the Market wedge's boarding house
+    # onto T-2238's D5 — and the claim lives on the sibling's record, which
+    # `check_frontage` gated to the millimetre when that deal was placed.
+    for other_id in sorted(parcel - mine_ids):
+        path = STRUCTURES / f"{other_id}.json"
+        if not path.exists():
+            continue
+        other_rec = json.loads(path.read_text(encoding="utf-8"))
+        target = ((other_rec.get("reconstruction") or {}).get("frontage") or {}).get("abuts")
+        if target in mine_ids:
+            abutted.add((other_id, target))
+            abutted.add((target, other_id))
 
     for sid, poly in mine:
         for other_id, other in others + [(s, p) for s, p in mine if s != sid]:
@@ -2725,7 +2770,8 @@ def main() -> int:
         if free is None:
             unsized += 1
             continue
-        short = claimed.get("dealt_principal", claimed["principal"]) - max(0, free - 1)
+        short = (claimed.get("dealt_principal", claimed["principal"]) - max(0, free - 1)
+                 - int(claimed.get("row_lot_grant_room", 0)))  # T-2196
         if short > 0:
             need = -(-short // (ROW_UNITS_PER_LOT - 1))
             got = len((block.get("frontage") or {}).get("lots") or ())
