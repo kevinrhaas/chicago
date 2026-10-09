@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1566, ts: '2026-10-09T07:11:45.716Z', date: 'Oct 9, 2026, 2:11 AM CT', title: 'Compare Glessner House with its dated photographs', kind: 'feature',
+    items: [
+      'Open Glessner House in the 1904 view and choose Photographic comparison baseline. Dated photographs and the model appear beside each other, with numbered landmarks showing where their outlines and openings disagree.',
+      'Eight measured views and a limited courtyard view establish the starting point for the remaining work. The page shows uncertainty and missing coverage, including the whole west elevation. The house still needs correction; these comparisons do not certify photographic perfection.',
+    ] },
   { v: 1565, ts: '2026-10-09T06:37:17.302Z', date: 'Oct 9, 2026, 1:37 AM CT', title: 'The town plan checks the people outside its main list', kind: 'fix',
     items: [
       'Nothing you can see changes. The plan of who still has to be added to the 1835 town counted households only from its main list of people, and about 660 people the town holds sit on cards beside that list: tradesmen, lodgers, and people with thin records.',

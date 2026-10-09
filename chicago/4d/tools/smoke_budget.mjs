@@ -167,6 +167,12 @@ function gateShape() {
  *  checks are taken in EVERY invocation whichever stage is asked for. */
 const NONE = [];
 const COVERAGE = [
+  // T-2200: the walk does not load this isolated comparison page. Its dedicated
+  // qa_glessner_t2200.mjs covers both viewports; popup.js still selects stage 3.
+  ['renderers/web/glessner-baseline.html', NONE, 'isolated page: qa_glessner_t2200.mjs'],
+  ['renderers/web/js/glessner-baseline.js', NONE, 'isolated page: qa_glessner_t2200.mjs'],
+  ['renderers/web/css/glessner-baseline.css', NONE, 'isolated page: qa_glessner_t2200.mjs'],
+  ['data/comparisons/glessner/', NONE, 'isolated comparison data: qa_glessner_t2200.mjs'],
   // --- read by no part of the scene: the gate's own tooling, the backlog, the
   // --- prose. check.sh is what covers these, not the renderer.
   ['tools/', NONE, 'the gate\'s own tooling — not served to the browser'],
