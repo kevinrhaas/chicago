@@ -1,3 +1,45 @@
+## T-2236 — the keepers over their own stores (2026-10-09)
+
+T-2194's ruling left the order book owing 31 store households: one keeper's household for each
+civil store roof that stood with nobody living in it (2 north, 24 south, 5 west). The ticket
+asked for them to be formed from the store-trade heads the town already holds rather than
+minted. Read against the ledgers, most of those heads could not take a store. The State census
+of December 1835 printed 44 stores and the town already holds 65 (T-1996), so a grocer the
+town holds only as a person, given a store of their own, would be one store too many. And 26
+of the 38 empty store roofs were not empty in the way that mattered: the street-face adoption
+(L212) had already put a named firm on each (Peter Cohen, L. W. Montgomery, Jones, King & Co.,
+J. L. Wilson & Co. and the like), and the firm's keeper was boarding in somebody else's
+dwelling.
+
+- **The rule** (`house_the_present_1835.py`, a new `keeper` rung right after `dealt`): the
+  household of a proprietor or partner of a house of trade the business register holds present
+  takes the store roof its own firm stands on, from the register or the street-face adoption,
+  if nobody sleeps there. A keeper whose firm stands on no roof, in a street-of-stores trade,
+  takes an empty generated store of their own division that no household, worker, firm or
+  stated occupant holds. A division takes keepers only while the book still orders a store
+  household there. No firm is raised or moved, so T-1996's store count does not change.
+- **Measured:** 18 keepers, 13 of them over their own firm's roof: 11 street-face adoptions
+  (Cohen, Pearsons, Clay, L. W. Montgomery, Filer, Garrett, Mulford, Howe, Lewis, Blanchard,
+  and Jones of Jones, King & Co.), plus Mahoney and Pratt on the Canal roofs T-1766 gave their
+  firms. The other 5 are keepers
+  of firms on no roof, put over empty stores: Sullivan, Metcalf, Walsh, Tuttle and Wellmaker.
+  Store households filled: north 2 of 2, south 13 of 24, west 3 of 5.
+  `count_held_head_dwellings_1835.py` fills `households/store_residence/*` from the keeper
+  seats under T-2236.
+- **What it moved downstream.** An inhabited store is a dwelling for the census's ceiling (the
+  deal already counted documented store-residences so). The 18 roofs therefore let 69 more
+  ruled-in households in: 53 wait on a roof (155 people), down from 122 (306). Ruled-in keepers
+  take their store before the line is drawn, because each brings its own roof. The boarders
+  re-deal around the moved keepers, which is why about 230 building cards' resident lists
+  change. `seat_trade_roofs_1835.py` now answers the three roofs in its scope that a keeper
+  lives over (`kept_by_a_keeper`) instead of calling them unseatable.
+- **Routed:** the 13 still owed (south 11, west 2) are **T-2240**. Those are the store roofs
+  whose firm names no keeper the town holds as a household (J. L. Wilson & Co.; Harmon, Loomis
+  & Co.; H. Doty & Co.; the Chicago Bakery; …), or whose keeper's own card houses them
+  elsewhere. The book's still-owed store rows name T-2240.
+- **Liberty:** L354, amended. The invention is the keeper's bed over the store, as with every
+  seat in that deal.
+
 ## T-2200 — dated Glessner camera and residual baseline (2026-10-09)
 
 Eight core views × ten landmarks and one explicitly limited courtyard-west view

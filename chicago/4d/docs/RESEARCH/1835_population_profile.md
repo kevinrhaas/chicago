@@ -2110,7 +2110,7 @@ Every household carries an arrival block and 95.4% of them (1389) hold a `not_la
 
 ## Where they meet the buildings
 
-2606 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1326 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 306 wait on a roof not yet standing; 129 households have no dwelling. The table below reads `lives_at` alone. 657 roofs stand against a programme of 668.
+2757 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1395 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 155 wait on a roof not yet standing; 60 households have no dwelling. The table below reads `lives_at` alone. 657 roofs stand against a programme of 668.
 
 ### Households by division and seating
 

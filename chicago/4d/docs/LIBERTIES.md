@@ -20119,6 +20119,23 @@ roomiest roof in its division and the off-plat deal hands it a household of five
 deal's room rule re-picks: 537 seats change roof. 32 of them change division, every one a
 household whose card has no division and is offered the whole town.
 **Recorded:** 2026-10-02.
+**Amended 2026-10-09 (T-2236):** a fourth rung, taken right after the dealt roof: the
+**keeper**. A household holding a house of trade the town already holds (the business
+register's proprietor or partner, present on the scene date) is put over a store roof
+(C1-C4): the roof the register or the street-face adoption (L212) already stands that firm
+on, if nobody sleeps there; otherwise, for a firm on no roof whose trade the premises
+rulings put on a street of stores, an empty generated store of the keeper's division that
+no household, worker, firm or stated occupant holds (a roof raised for one trade, a bakery or
+a grocery, takes only its keeper). A division takes keepers only while the order book still
+orders a store household there (T-2194's ruling: one a standing store roof, less the store
+households the index knows). 18 are seated, 13 of them over their own firm's roof; nobody is
+minted, no firm is raised or moved, and the store count T-1996 holds does not change. **What
+is invented** is the same as every seat here: that the keeper's household slept over the
+store, which no source says. The street-face adoption's roof was already the firm's; this
+adds the keeper's bed to it. An inhabited store is a dwelling for the census's ceiling, as
+the documented store-residences already were, so the 18 roofs admit 69 more ruled-in
+households: 53 wait on a roof (155 people) instead of 122 (306).
+**Recorded:** 2026-10-09.
 
 ### L355 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
 

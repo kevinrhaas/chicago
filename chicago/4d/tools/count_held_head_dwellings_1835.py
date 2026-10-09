@@ -42,9 +42,8 @@ written to `not_counted` with the reason. Nothing is packed and nothing is chose
 
 WHAT IT DOES NOT DO. It mints nobody, moves nobody, touches no card, and raises no roof.
 The town's population is the same number before and after: a household fill counts HOUSES,
-and every person in these houses was already standing. Store residences are not
-touched. The seats refuse every store roof, so no held head stands over a shop, and the
-56 the book orders are T-2194's ruling. The seats are themselves an invention
+and every person in these houses was already standing. Store residences are
+counted apart from the family dwellings (T-2236, below). The seats are themselves an invention
 (docs/LIBERTIES.md L354) and this count stands on them. Retire a seat and the count
 follows on the next build.
 
@@ -73,8 +72,15 @@ underdocumented families of three, stand under a dwelling of their own, and the
 family_dwelling order was full before any of them was reached. So the book does not
 over-order on their account and no row moves. The person overrun the completion audit
 reads is a count of people, not of houses, and is not settled here.
-"""
 
+THE STORE HOUSEHOLDS (T-2236). Since T-2236 the housing seats carry a `keeper` rung: the
+keeper of a house of trade the town holds, over a store roof — the firm's own roof where the
+register or the street-face adoption stands it on one, else an empty store of the keeper's
+division. A keeper over a store is the store residence the book orders (T-2194's ruling,
+one household a standing store roof), so each keeper seat is one fill of
+`households/store_residence/<division>` under T-2236. The housing deal already stops at the
+book's store room, so nothing is walked here; the book's own --build refuses an overfill.
+"""
 from __future__ import annotations
 
 import argparse
@@ -107,6 +113,8 @@ BEYOND_CLASSES = {
                                 "stage (T-1371)",
     "filed_by_its_own_stage": "a lodging or institutional household its own stage files in "
                               "the book",
+    "a_store_of_its_own": "seated on the keeper rung over a store roof; a store residence, "
+                          "filled under T-2236",
     "not_present": "neither the card nor the presence rulings put it in the town on 1 July",
     "not_seated": "present, and no seat, lodging bed or stage holds it",
 }
@@ -114,6 +122,8 @@ BEYOND_CLASSES = {
 TICKET = "T-2193"
 PARENT = "T-2188"
 BEYOND_TICKET = "T-2237"
+STORE_TICKET = "T-2236"
+STORE_CELL = "households/store_residence/{}"
 STAGE = "held_head_dwellings"
 DIVISIONS = ("north", "south", "west")
 CELL = "households/family_dwelling/{}"
@@ -163,6 +173,8 @@ def classify_beyond(card: dict, seat: dict | None, lodged: set[str]) -> str:
         return "not_present"
     if a_household_seat(card["household"], seat):
         return "a_household_of_its_own"
+    if seat and seat.get("rung") == "keeper":
+        return "a_store_of_its_own"
     if seat and seat.get("rung") == "boarder":
         return "a_bed_in_a_dwelling"
     if (seat and seat.get("rung") == "lodger") or card["household"] in lodged:
@@ -221,6 +233,9 @@ def derive(awaiting: list[str], seats: list[dict], room: dict[str, int],
                                        "order was full before this household was reached"})
     assert all(r["household"] in waiting or "beyond_the_index" in r for r in counted)
     fills = {CELL.format(d): taken[d] for d in DIVISIONS if taken[d]}
+    # T-2236: every keeper seat is a store household of the roof's division.
+    stores = Counter(s["division"] for s in seats if s.get("rung") == "keeper")
+    store_fills = {STORE_CELL.format(d): stores[d] for d in DIVISIONS if stores[d]}
     present_beyond = sum(persons_beyond[k] for k in BEYOND_CLASSES if k != "not_present")
     beds = persons_beyond["a_bed_in_a_dwelling"] + persons_beyond["a_bed_in_a_lodging_house"]
     own = [r for r in counted + past if "beyond_the_index" in r]
@@ -289,6 +304,13 @@ def derive(awaiting: list[str], seats: list[dict], room: dict[str, int],
                                      "census ceiling: that is a count of people, not houses.",
         },
         "fills": fills,
+        "store_households": {
+            "ticket": STORE_TICKET,
+            "rule": "a household the housing seats put on the keeper rung, over a store roof, "
+                    "is one store residence of that roof's division",
+            "by_division": {d: stores[d] for d in DIVISIONS},
+            "fills": store_fills,
+        },
         "counted": counted,
         "not_counted": past,
     }
@@ -328,7 +350,10 @@ def write_fills(ledger: dict) -> None:
     rows = [{"bucket": key, "ticket": TICKET, "stage": STAGE, "records": n,
              "by": "tools/count_held_head_dwellings_1835.py --build"}
             for key, n in sorted(ledger["fills"].items())]
-    book["fills"] = ob.splice_fills(book.get("fills", []), {TICKET}, rows)
+    rows += [{"bucket": key, "ticket": STORE_TICKET, "stage": "store_households", "records": n,
+              "by": "tools/count_held_head_dwellings_1835.py --build"}
+             for key, n in sorted(ledger["store_households"]["fills"].items())]
+    book["fills"] = ob.splice_fills(book.get("fills", []), {TICKET, STORE_TICKET}, rows)
     BOOK.write_text(json.dumps(book, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     ob.cmd_build()
 
@@ -354,6 +379,12 @@ def check() -> int:
             for f in book.get("fills", []) if f.get("ticket") == TICKET}
     if ours != ledger["fills"]:
         print(f"  FAIL the order book's fills for {TICKET} are not this stage's ledger")
+        return 1
+    stores = {f["bucket"]: int(f.get("records") or 0)
+              for f in book.get("fills", []) if f.get("ticket") == STORE_TICKET}
+    if stores != ledger["store_households"]["fills"]:
+        print(f"  FAIL the order book's fills for {STORE_TICKET} are not this stage's "
+              "store households")
         return 1
     short = {d: n for d, n in ledger["counts"]["room_by_division"].items()
              if n > ledger["counts"]["counted_by_division"][d]}
@@ -464,6 +495,11 @@ def self_test() -> int:
     got = derive([], [seat("x", rung="dealt")], room, [card("x", present=False)])
     case("a card the town does not hold on 1 July is never counted",
          not got["counted"] and got["beyond_the_index"]["households_by_class"]["not_present"] == 1)
+    got = derive([], [seat("k", rung="keeper", family="C3", division="west")], room,
+                 [card("k", "reconstructed_trades")])
+    case("a keeper over a store is a store household, never a family dwelling",
+         not got["counted"] and got["store_households"]["fills"] == {STORE_CELL.format("west"): 1}
+         and got["beyond_the_index"]["households_by_class"]["a_store_of_its_own"] == 1)
     got = derive([], [], room, [card("q")])
     case("a present card nothing holds is reported, not hidden",
          got["beyond_the_index"]["households_by_class"]["not_seated"] == 1)
