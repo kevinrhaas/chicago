@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1588, ts: '2026-10-09T19:33:54.111Z', date: 'Oct 9, 2026, 2:33 PM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: 1589, ts: '2026-10-09T19:55:20.643Z', date: 'Oct 9, 2026, 2:55 PM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
+    ] },
+  { v: 1588, ts: '2026-10-09T19:28:35.221Z', date: 'Oct 9, 2026, 2:28 PM CT', title: 'Glessner roof tiles follow the documented size', kind: 'fix',
+    items: [
+      'Clay roof tiles now use the documented six-inch width and five-inch exposed courses across the main roof, service roofs, dormers and turrets. Small roof returns receive the same coverage.',
+      'The lighter house model now shows the complete tile pattern. The roof keeps its reconstructed red, unglazed clay finish; the tar coating recorded by a later survey is excluded from 1904.',
     ] },
   { v: 1587, ts: '2026-10-09T19:12:48.893Z', date: 'Oct 9, 2026, 2:12 PM CT', title: 'Prairie Avenue\u2019s 1600 block has a 1904 reading on every card', kind: 'feature',
     items: [
