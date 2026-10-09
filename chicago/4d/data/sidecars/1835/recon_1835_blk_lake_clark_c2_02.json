@@ -178,7 +178,27 @@
       "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on Lake Street AND NOTHING NARROWER — 2 printings, 1834-10-08 to 1834-11-12, claims chicago_democrat_1834_10_08#c004, chicago_democrat_1834_11_12#c012 — so it takes the STREET FACE and not a lot. THE ROOF'S PLATTED LOT FACES Lake Street, which is the plat's own answer to which street it fronts. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
     }
   },
-  "residents": [],
+  "residents": [
+    {
+      "household": "hh_blanshard_g",
+      "name": "The Blanshard household — a documented land agent, unplaced in the town",
+      "division": "unplaced",
+      "relation": "worked here",
+      "why": "kept G. Blanshard's business here and slept elsewhere in the town, in a house of their own; nobody lived over this store",
+      "sources": [],
+      "basis": "KEPT HERE, AND HOUSED ELSEWHERE (T-2244). The business register stands this house of trade on this store, and the town already places its keeper's household on another roof, so the keeper is listed here as having worked here and nobody is seated over the store. Neither roof is recorded for this person in 1835 (L354); the keeper is not invented.",
+      "persons": [
+        {
+          "name": "G. Blanshard",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "land_agent",
+          "note": "A DOCUMENTED PERSON, AND NOTHING ELSE IS CLAIMED. The papers name 'fG. BL NSHARD' and give the trade; they do not say where this household lived, who else was in it, or when it came. So the record around this person carries nothing but the person: no dwelling, no division, no family, each written as unattested in its own block rather than filled in from the shape of the rest of the town. Cited at the Democrat of 8 October 1834, column 4. The corpus associates the name with Lake Street, Randolph Street, Wells Street; that is where the paper does business with this person and not a statement about where they slept, and the storefront tickets are the ones that may stand a shop there. THE TOWN NEVER INVENTED A ROOF FOR THIS TRADE. The occupation census raised reconstructed households for the trades a town of 3,265 people needed and could not document; `land_agent` was not one of them, which is why this person could only ever be ADDED and never seated on an existing record — data/research/newspapers/register_1835.json calls it `new_resident` for exactly that reason. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry."
+        }
+      ],
+      "research_note": "MINTED FROM THE NEWSPAPER REGISTER (T-0376), AND THE HOUSEHOLD IS A CONTAINER RATHER THAN AN ARGUMENT. Every other record in this dataset argues for a household — a family the sources count, or a trade the town demonstrably needed. This one argues for a PERSON: the Democrat and the American name G. Blanshard as a land agent at Chicago 1 time(s), and this reconstruction did not hold them. `data/residents/` has no way to carry a person except inside a household, so one was written around them and told to claim nothing: one member, no dwelling, no division, no origin, no arrival beyond the bound the paper sets. Reading a family, a house or a quarter of town into this record would be reading something the papers do not say. tools/mint_documented_residents.py derives the whole minted set and prints every candidate it refused, with the reason."
+    }
+  ],
   "citations": [
     {
       "source_id": "chicago_democrat_1833_1835",

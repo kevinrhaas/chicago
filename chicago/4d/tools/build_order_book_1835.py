@@ -179,13 +179,15 @@ HOUSEHOLD_TYPES = (
 # households than the town has store roofs, and the order above one household a roof is
 # discharged. What is left is a keeper for each store roof that stands empty. T-2236 seats
 # the keepers of the houses of trade the town holds over their stores (the housing seats'
-# `keeper` rung, filled by count_held_head_dwellings_1835.py), and T-2240 owns what that
-# could not form: store roofs whose firm names no keeper the town holds as a household.
+# `keeper` rung, filled by count_held_head_dwellings_1835.py). T-2244 discharges a store
+# whose keeper the town places on another roof (the deal's `kept_from_elsewhere`), and
+# T-2245 owns what is left: store roofs whose firm's partners the town holds no card for.
 FAMILY_OWNER = "T-2187"
 FAMILY_HOUSEHOLD_OWNER = "T-2193"
 STORE_RULING_TICKET = "T-2194"
 STORE_RESIDENCE_FILLER = "T-2236"
-STORE_RESIDENCE_OWNER = "T-2240"
+STORE_ELSEWHERE_TICKET = "T-2244"
+STORE_RESIDENCE_OWNER = "T-2245"
 ADULT_MEN_OWNER = FAMILY_OWNER
 # …and the ruling T-2021 made, whose fills are an order of their own (`family_ruling_orders`).
 FAMILY_RULING_TICKET = "T-2021"
@@ -1020,6 +1022,13 @@ def load(root: Path = ROOT) -> dict:
     # carries it; a fixture book has none, and orders as it always did.
     out["adult_men"] = adult_men_on_the_cards(out["residents"], out["presence_rulings"],
                                               root / "data" / "residents")
+    # T-2244: the store roofs the housing deal rules kept from elsewhere — the house of
+    # trade's keeper placed on another roof, nobody over the store — by division. A fixture
+    # tree has no deal, and discharges none.
+    seats = root / "data" / "reconstruction" / "1835_housing_seats.json"
+    out["stores_kept_from_elsewhere"] = (
+        ((json.loads(seats.read_text(encoding="utf-8")).get("the_keepers") or {})
+         .get("kept_from_elsewhere") or {}).get("by_division") or {}) if seats.exists() else {}
     return out
 
 
@@ -1133,7 +1142,8 @@ def adult_men_ruling(buckets: list, measure: dict) -> dict:
     }
 
 
-def store_residence_ruling(households: list, structures: list) -> dict | None:
+def store_residence_ruling(households: list, structures: list,
+                           kept_elsewhere: dict | None = None) -> dict | None:
     """T-2194: the store households the book orders, set against the store roofs. In place.
 
     `household_buckets` weights each household type on the roofs of its group, and the
@@ -1148,7 +1158,13 @@ def store_residence_ruling(households: list, structures: list) -> dict | None:
     inventory's store roofs all stand (`structures/stores_mixed_use/*`), so the roofs read here
     are the town's and not a schedule's. Nobody is moved, minted or retired, and the
     discharged households are not re-apportioned to the dwelling rows: the model's
-    households are a midpoint, and the book says how far it moved from it."""
+    households are a midpoint, and the book says how far it moved from it.
+
+    T-2244: and a store whose house of trade's keeper the town already places on another
+    roof (`kept_elsewhere`, the housing deal's count by division) stands with nobody living
+    over it, so its keeper's household is not owed there either. That too is discharged,
+    never below what the cell has filled, and carried as `discharged_kept_from_elsewhere`."""
+    kept_elsewhere = kept_elsewhere or {}
     roofs = {b["key"].rsplit("/", 1)[1]: int(b.get("standing") or 0) for b in structures
              if b["key"].startswith("structures/stores_mixed_use/")}
     cells = [b for b in sorted(households, key=lambda b: b["key"])
@@ -1165,13 +1181,20 @@ def store_residence_ruling(households: list, structures: list) -> dict | None:
         if take:
             b["discharged_by_the_store_ruling"] = take
             b["to_reconstruct"] -= take
+        away = min(max(0, (b["to_reconstruct"] or 0) - b["filled"]),
+                   int(kept_elsewhere.get(division) or 0))
+        if away:
+            b["discharged_kept_from_elsewhere"] = away
+            b["to_reconstruct"] -= away
         rows[division] = {"store_roofs_standing": standing,
                           "store_households_ordered": b["target"],
                           "discharged": take,
+                          "kept_from_elsewhere": away,
                           "still_owed": max(0, (b["to_reconstruct"] or 0) - b["filled"])}
     ordered = sum(r["store_households_ordered"] for r in rows.values())
     standing = sum(r["store_roofs_standing"] for r in rows.values())
     discharged = sum(r["discharged"] for r in rows.values())
+    away = sum(r["kept_from_elsewhere"] for r in rows.values())
     still = sum(r["still_owed"] for r in rows.values())
     return {
         "ticket": STORE_RULING_TICKET,
@@ -1181,14 +1204,17 @@ def store_residence_ruling(households: list, structures: list) -> dict | None:
         "store_roofs_standing": standing,
         "store_households_ordered": ordered,
         "discharged": discharged,
+        "kept_from_elsewhere": away,
+        "kept_from_elsewhere_by": STORE_ELSEWHERE_TICKET,
         "still_owed": still,
         "still_owed_by": STORE_RESIDENCE_OWNER,
         "measured": (f"The book ordered {ordered:,} store households on the town's {standing:,} "
                      f"civil store roofs, {ordered / standing:.2f} a roof, because the "
                      f"households are apportioned on roof counts. A store residence is one "
-                     f"household, the keeper's, so {discharged:,} are discharged and "
-                     f"{still:,} are still owed: a keeper for a store roof that stands with "
-                     f"nobody in it."),
+                     f"household, the keeper's, so {discharged:,} are discharged; "
+                     f"{away:,} more stand a house of trade whose keeper the town places on "
+                     f"another roof, so nobody lived over them; and {still:,} are still owed: "
+                     f"a keeper for a store roof that stands with nobody in it."),
         "ruling": "BOTH. The book over-orders the store rows, by what it ordered above one "
                   "household a store roof, and that is discharged here. And the index is "
                   "short: the household quota counts houses off the residents index alone, "
@@ -3501,7 +3527,8 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
                          data.get("family_ruling_withdrawn") or {})
     men_ruling = (adult_men_ruling(families[0]["buckets"], data["adult_men"])
                   if data.get("adult_men") else None)
-    store_ruling = store_residence_ruling(families[1]["buckets"], families[3]["buckets"])
+    store_ruling = store_residence_ruling(families[1]["buckets"], families[3]["buckets"],
+                                          data.get("stores_kept_from_elsewhere"))
 
     spent = Counter()
     for fill in fills:
@@ -5530,6 +5557,11 @@ def cmd_self_test() -> int:
     ruled = store_residence_ruling(cells, [roof_cell("south", 42), roof_cell("west", 6)])
     assert [b["to_reconstruct"] for b in cells] == [24, 7, 184], cells
     assert ruled["discharged"] == 21 and ruled["still_owed"] == 24, ruled
+    cells = [hh_cell("store_residence", "south", 62, 44, 13), hh_cell("store_residence", "west", 9, 8, 7)]
+    ruled = store_residence_ruling(cells, [roof_cell("south", 42), roof_cell("west", 6)],
+                                   {"south": 4, "west": 3})
+    assert [b["to_reconstruct"] for b in cells] == [20, 7], cells
+    assert ruled["kept_from_elsewhere"] == 4 and ruled["still_owed"] == 7, ruled
     assert store_residence_ruling(cells[2:], [roof_cell("south", 42)]) is None, \
         "a book with no store rows carried a store ruling"
     assert "store_residence_ruling" in doc, "the committed book carries no ruling on the store rows"
