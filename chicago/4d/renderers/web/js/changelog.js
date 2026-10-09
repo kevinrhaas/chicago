@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1556, ts: '2026-10-09T02:17:02.407Z', date: 'Oct 8, 2026, 9:17 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
+  { v: 1557, ts: '2026-10-09T02:41:41.600Z', date: 'Oct 8, 2026, 9:41 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
     items: [
       'Open a household in the People directory, such as John Davis at the Steamboat Hotel. The section \u201cWhere this household was, and when\u201d now lists its home and workplace beside its church, offices and land. Until now 64 of these cards gave a home or workplace only in the single \u201cLived at\u201d and \u201cWorked at\u201d lines.',
       'That is 80 places, each with the same confidence and sources it already had. Where two sources say it, both are now cited. No source gives the years, so each one says \u201cno date either end\u201d.',
+    ] },
+  { v: 1556, ts: '2026-10-09T02:21:44.544Z', date: 'Oct 8, 2026, 9:21 PM CT', title: 'The riverside block at Lake and Franklin joins the town', kind: 'feature',
+    items: [
+      'The narrow block between Lake Street, Franklin Street and the bend of the river, block 21 on the 1834 plat, is now part of the town plan. It has plank walks along Lake, Franklin and South Water Streets, five new board crossings and a back alley.',
+      'The plat draws this block as a triangle but marks no lot lines inside it, so the lots are our reconstruction. We kept the four with room for a house and a yard. The pinched west end stays open ground.',
+      'Dole\u2019s warehouse, a cooperage and a saw-pit already stood here, and their yards are now laid out. The two empty Lake Street lots are grazed prairie for now, and are next in line for houses.',
     ] },
   { v: 1555, ts: '2026-10-09T01:46:17.282Z', date: 'Oct 8, 2026, 8:46 PM CT', title: 'Glessner photographs show their evidence limits', kind: 'fix',
     items: [

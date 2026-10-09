@@ -400,19 +400,22 @@ The roster offers 1,801 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,422
-- seated: 313 — 313 by adopting a roof that already stands, 0 by asking for one
-- still on no ground at all: 1,109
+- seated: 314 — 313 by adopting a roof that already stands, 1 by asking for one
+- still on no ground at all: 1,108
 - of the 676 roofs the town already has, 313 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,422 | 214 | 214 | 0 | 1,208 |
-| The ground the plat does not draw | T-1614 | 1,208 | 99 | 99 | 0 | 1,109 |
+| The committed plat | T-1613 | 1,422 | 215 | 214 | 1 | 1,207 |
+| The ground the plat does not draw | T-1614 | 1,207 | 99 | 99 | 0 | 1,108 |
 
-no slot was requested: every seat is an adoption of a roof already standing.
+1 slot(s) on 1 block(s) — blk_south_water_market. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
+| household | block | lot | family | clause |
+|---|---|---|---|---|
+| `hh_dixon_robert` | `blk_south_water_market` | `blk_south_water_market#01` | D5 | `tradesman_dwellings` |
 
-1,109 of the 1,422 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,108 of the 1,422 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
@@ -667,9 +670,9 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 The streets, terrain and lots a structure bucket waits on.
 
-- `roofs_on_committed_ground`: 3
-- `roofs_gated_on_coverage`: 8
-- `statement`: 3 of the 11 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 8 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
+- `roofs_on_committed_ground`: 6
+- `roofs_gated_on_coverage`: 5
+- `statement`: 6 of the 11 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 5 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -695,7 +698,7 @@ The streets, terrain and lots a structure bucket waits on.
 | `ground/blk_wabansia_c_t6` | 0 | — | — | 0 |  |
 | `ground/blk_wabansia_b_t7` | 0 | — | — | 0 |  |
 | `ground/blk_wabansia_c_t7` | 0 | — | — | 0 |  |
-| `ground/blk_south_water_market` | 27 | — | — | 0 |  |
+| `ground/south_plat_beyond_committed_control` | 5 | — | — | 0 |  |
 
 ## Where the model and the roof programme disagree
 
