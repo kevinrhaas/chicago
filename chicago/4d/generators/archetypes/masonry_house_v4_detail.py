@@ -1286,6 +1286,7 @@ def service_stair(b,params):
 
 
 def underpass(b,params):
+    from archetypes.masonry_house_v4_frontage import passage_floor
     u=params.detail.get('underpass')
     if not u:return
     p,q,r,s=u['pts'];zp,zc,z0=u['ceiling_prairie_z'],u['ceiling_court_z'],u['floor_z']
@@ -1297,6 +1298,7 @@ def underpass(b,params):
         if dot(legacy._normal(pts),want)<0:pts.reverse()
         b.wall(pts,params.detail['conf'],BRICK)
     b.raw([(*p,zp),(*q,zp),(*r,zc),(*s,zc)],params.detail['conf'],TRIM,(0,0,-1))
+    if passage_floor(b,params):return
     b.raw([(*p,z0+.006),(*q,z0+.006),(*r,z0+.006),(*s,z0+.006)],params.detail['conf'],DRIVE,(0,0,1))
     for i in range(1,19):
         t=i/19;a=(p[0]+(s[0]-p[0])*t,p[1]+(s[1]-p[1])*t);c=(q[0]+(r[0]-q[0])*t,q[1]+(r[1]-q[1])*t)
@@ -1521,6 +1523,7 @@ def _discard_export_scratch_uv(ob):
 def build(params,name):
     from archetypes.masonry_house_v4_materials import build_materials, assign_metric_uvs
     from archetypes.masonry_house_v4_landscape import add_lawn_blades
+    from archetypes.masonry_house_v4_frontage import add_frontage
     from archetypes.masonry_house_v4_foundation import stair_tower_plinth
     from archetypes.masonry_house_v4_rainwater import add_courtyard_rainwater
     b=DetailBuilder(name,params)
@@ -1546,6 +1549,7 @@ def build(params,name):
     for w in params.walls:legacy._gate_piece(b,w)
     b.decorate=False
     for g in params.ground:legacy._ground(b,g)
+    add_frontage(b,params)
     grass_blades=add_lawn_blades(b,params)
     ornament.columns(b,params)
     roof_ridges(b,params)

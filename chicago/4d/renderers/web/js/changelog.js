@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1581, ts: '2026-10-09T16:09:28.634Z', date: 'Oct 9, 2026, 11:09 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: 1582, ts: '2026-10-09T16:52:05.550Z', date: 'Oct 9, 2026, 11:52 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
+    ] },
+  { v: 1581, ts: '2026-10-09T16:00:24.406Z', date: 'Oct 9, 2026, 11:00 AM CT', title: 'Glessner gains stone edging and clear entrance paving', kind: 'fix',
+    items: [
+      'The Prairie frontage now has rounded stone lawn edging with gaps at the front door and carriage entrance. Stone paving and low steps meet the front-door sill.',
+      'A stone threshold and continuous carriage surface replace the grass showing through the porte-cochere, joining the existing courtyard drive.',
+      'Historic photographs and HABS drawings guide the layout. Uncertain 1904 paving materials, stone joints and curb dimensions are labeled as reconstructions.',
     ] },
   { v: 1580, ts: '2026-10-09T15:39:46.317Z', date: 'Oct 9, 2026, 10:39 AM CT', title: 'The town\u2019s plan now says why ten South roofs are still unbuilt', kind: 'fix',
     items: [
