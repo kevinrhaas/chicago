@@ -2873,6 +2873,9 @@ def _edge_faces(lots_doc):
             street = bounded.get(face)
             if street not in _covered(run):
                 continue
+            # T-2195. The Market wedge's west edge is its lot cut, not Market Street.
+            if face in ((block.get("wedge") or {}).get("faces_off_the_street") or {}):
+                continue
             frame = face_frame(block, face)
             # The block lies south of a street it bounds on its NORTH face, so
             # that face stands on the street's SOUTH side, and the other way
