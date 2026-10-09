@@ -180,6 +180,24 @@ PRINTED_WIVES = {
         "printed": "MARRIED, In this town, on the evening of the 12th inst., by the Hon. R. "
                    "J. Hamilton, Mr. CHESTER INGERSOLL, to Miss BETSY WEAVER.",
     },
+    # T-2230: the first of the two Chicago couples of the Democrat's 3 December 1833
+    # column, married "on Saturday evening 29 ult." The column prints the day of the
+    # month and the weekday, and they disagree (29 November 1833 was a Friday); the day
+    # is the one written, and either way it is before the scene date. The second couple,
+    # George Bickerdyke and Mary Noble, waits on its own ticket: his house is one the book
+    # refused a wife, so seating her takes him out of T-2020's wife match and re-pairs the
+    # houses after him.
+    "hh_marknoble_jun": {
+        "wife_household": "hh_wesencraft_charlotte",
+        "wife": "wesencraft_charlotte",
+        "married": "1833-11-29",
+        "source": "chicago_democrat_1833_1835",
+        "locator": "chicago_democrat_1833_12_03#c007",
+        "printed": "MARRIED, In this town, on Saturday evening 29 ult., by the Hon. R. I. "
+                   "Hamilton, Mr. MARK NOBLE, jun., second son of Mark Nobles, Esq. of this "
+                   "place, to Miss CHARLOTTE, only daughter of Mr. Charles Wesencraft, late "
+                   "of Buffalo.",
+    },
 }
 
 # The evidence-only containers T-0489 kept: `hh_inf_*`, named "Evidence-only household
@@ -738,6 +756,7 @@ def fill(base: dict) -> tuple:
 
     brides = {spec["wife_household"]: host for host, spec in PRINTED_WIVES.items()}
     printed = {}
+    uncounted = {}
     for hid in sorted(out, key=service_order):
         if hid in brides:
             # Seated below as her husband's printed wife, never drawn for on her own.
@@ -773,11 +792,20 @@ def fill(base: dict) -> tuple:
             # A cell with no room left for her is a question for a ruling, never a refusal
             # of a woman a source names.
             bucket = bucket_for(hid, card, "female", int(wife["age_band"]["low"]), "wife")
-            if left.get(bucket, 0) <= 0:
-                raise SystemExit("FAIL %s's printed wife falls in %s, which has no room left"
-                                 % (hid, bucket))
-            left[bucket] -= 1
-            fills[bucket] += 1
+            if left.get(bucket, 0) > 0:
+                left[bucket] -= 1
+                fills[bucket] += 1
+            else:
+                # T-2230: A CELL WITH NO ROOM IS NOT A REFUSAL OF A WOMAN A SOURCE NAMES.
+                # The cell is spent above only so that the drawn wife she replaces leaves
+                # nothing behind for another house to draw; where the book had no room,
+                # the drawn wife would never have been seated (the house would have been
+                # refused whole), so there is nothing to replace. She is a person the
+                # sources give the town, already in the book's `known`, and she is seated
+                # without spending a cell a second time, and her mark says so, so the
+                # held roster (model_refamily_rule.py) does not name her in one either.
+                uncounted[hid] = bucket
+                wife[PRINTED_KEY]["counted_in_a_cell"] = False
             members.append(wife)
             counts["printed_wives"] += 1
         elif size >= 2:
@@ -864,12 +892,17 @@ def fill(base: dict) -> tuple:
             "houses": counts["printed_wives"],
             "by_household": {h: PRINTED_WIVES[h]["wife_household"]
                              for h in sorted(PRINTED_WIVES) if h in per_card},
+            "seated_without_a_cell": {h: uncounted[h] for h in sorted(uncounted)},
             "what_happened": "The wife a source prints, seated from her own card in place "
                              "of the wife the model drew. The drawn wife is not seated; the "
                              "printed one is counted in the cell her own sex, band and his "
                              "division name, as a drawn wife would be, and is in `fills` "
                              "beside the drawn people (she is not in `wives` or "
-                             "`people_drawn`).",
+                             "`people_drawn`). Where that cell had no room left, a drawn "
+                             "wife would never have been seated, so there is none to "
+                             "replace: she is seated without a cell "
+                             "(`seated_without_a_cell`), because the book already counts "
+                             "her among the known (T-2230).",
         },
         "_printed_folds": printed,
     }
@@ -1551,9 +1584,24 @@ def printed_wife_note(spec: dict, wife: dict) -> dict:
             "drawn by the same seeds as before and still the town's invention at the "
             "`reconstructed` tier: the paper names a marriage, not a family. It does not say "
             "where they lived, or that she was in Chicago on 1 July 1835; she stands in his "
-            "house because a wife of eighteen months keeps her husband's house, and that is "
-            "the reconstruction, not the source." % (spec["married"], wife.get("name"))),
+            "house because a wife of %s months keeps her husband's house, and that is "
+            "the reconstruction, not the source."
+            % (spec["married"], wife.get("name"), months_married(spec["married"]))),
     }
+
+
+MONTH_WORDS = ("no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+               "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
+               "seventeen", "eighteen", "nineteen", "twenty", "twenty-one", "twenty-two",
+               "twenty-three", "twenty-four")
+
+
+def months_married(married: str) -> str:
+    """Whole months from the wedding to the scene date, in words."""
+    y1, m1, d1 = (int(x) for x in married.split("-"))
+    y2, m2, d2 = (int(x) for x in SCENE_DATE.split("-"))
+    months = (y2 - y1) * 12 + (m2 - m1) - (1 if d2 < d1 else 0)
+    return MONTH_WORDS[months] if 0 <= months < len(MONTH_WORDS) else str(months)
 
 
 def unseat_printed(live: dict, printed: dict | None = None) -> dict:

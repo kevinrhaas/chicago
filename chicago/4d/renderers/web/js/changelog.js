@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Mark Noble jun.\u2019s wife is the woman the paper says he married', kind: 'fix',
+    items: [
+      'The Chicago Democrat of 3 December 1833 prints \u201cMr. MARK NOBLE, jun.\u201d marrying \u201cMiss CHARLOTTE, only daughter of Mr. Charles Wesencraft\u201d. Both their cards had a guessed sex, and both guesses were wrong: he showed as a woman, and she as a man heading a made-up wife and sons.',
+      'The paper\u2019s \u201cMr.\u201d and \u201cMiss\u201d now set both cards, quoting the column. Charlotte is seated in his house as his wife, and the family we had invented for her is gone. The same reading puts \u201cMiss\u201d and \u201cMr.\u201d onto two more press cards, Anne Maria Barney and Alson Woodruff. Mary Noble\u2019s marriage to George Bickerdyke, printed in the same column, comes next.',
+    ] },
   { v: 1552, ts: '2026-10-09T00:21:57.548Z', date: 'Oct 8, 2026, 7:21 PM CT', title: 'Mark Noble\u2019s son and daughter are on his card', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints a double wedding. Mark Noble jun., \u201csecond son of Mark Nobles, Esq.\u201d, married Charlotte Wesencraft, and Mary, \u201csecond daughter to Mark Noble, Esq.\u201d, married George Bickerdyke. All three Nobles had cards, and none of them named the others.',
