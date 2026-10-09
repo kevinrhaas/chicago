@@ -27,6 +27,12 @@
       "finding": "Reproduces: ran `--write` on a clean tree in 4s, wrote its outputs, changed no committed byte.",
       "placed": "after the structure and plat writers, before generate_dooryard_plantings.py, which reads its polygon (T-2084)"
     },
+    "settle_family_cycle.py": {
+      "placement": "manifest",
+      "write_mode": "--build",
+      "measured": "2026-10-09",
+      "finding": "Reproduces: `--build` on a clean dev tree took one lap in 24 s, moved nothing, and changed no committed byte. On #554 (T-2232) merged over dev it settled in one moving lap and left all six stages it drives green (T-2234)."
+    },
     "seat_trade_roofs_1835.py": {
       "placement": "manifest",
       "write_mode": "--build",

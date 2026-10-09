@@ -1,9 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1560, ts: '2026-10-09T04:11:37.751Z', date: 'Oct 8, 2026, 11:11 PM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
+  { v: 1562, ts: '2026-10-09T05:20:45.392Z', date: 'Oct 9, 2026, 12:20 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
     items: [
       'The St Cyr burial register and the Chicago Democrat\u2019s death notices bury thirteen people before the scene date, among them W. Brannen, John Hogan, William Bourque, Sarah Hoit and two-year-old Charles Rollins. They were still counted in the town. Their cards in the People directory now say they had died, and cite the entry.',
       'Three of them headed houses that had been given a reconstructed wife and children. Those twelve invented people are withdrawn. Two women who had been reconstructed as wives of men who had died now head their own houses again.',
       'Two people the town had added from the burial register itself are no longer added. The postmaster John S. C. Hogan is a different man and stays.',
+    ] },
+  { v: 1561, ts: '2026-10-09T04:10:43.709Z', date: 'Oct 8, 2026, 11:10 PM CT', title: 'Groundwork for correcting guessed families', kind: 'fix',
+    items: [
+      'Some of the town\u2019s households were guessed to be married men and given an invented wife and children. When a source shows that the head was a woman, or that she was a bride whose card belongs in her husband\u2019s house, that invented family now leaves with the guess. Nobody new is invented in its place.',
+      'The steps that rebuild the invented families now run until they agree with each other, instead of in a single pass that could leave them disagreeing. This clears the way for three corrections waiting on it, starting with Mark Noble jun.\u2019s marriage to Charlotte Wesencraft. Nothing on the map changes yet.',
+    ] },
+  { v: 1560, ts: '2026-10-09T03:46:53.815Z', date: 'Oct 8, 2026, 10:46 PM CT', title: 'Glessner’s courtyard roof regains its full height', kind: 'fix',
+    items: [
+      'The west wing now has a level ridge at the front peak’s height, with gables at both ends. This corrects the rear roof being lowered too far in the previous change.',
+      'The full roof slope and matching overhang return above the courtyard windows. Courtyard, rear, west and northwest views were compared with the supplied references and earlier roof diagrams.',
     ] },
   { v: 1559, ts: '2026-10-09T03:23:46.382Z', date: 'Oct 8, 2026, 10:23 PM CT', title: 'Three people carded twice in the town now have one card each', kind: 'fix',
     items: [

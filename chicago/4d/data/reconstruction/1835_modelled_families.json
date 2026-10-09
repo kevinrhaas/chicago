@@ -4471,57 +4471,71 @@
    "persons/male/under_10/west/family/none": 37
   },
   "withdrawn": {
-   "houses": {
-    "hh_bradford_william_h": {
-     "verdict": "stands_alone",
-     "kin_withdrawn": 0,
-     "why": "the head is ruled absent on the day — the sources bury them before it (T-2189) — so the house holds no family"
-    },
-    "hh_brannen_w": {
-     "verdict": "stands_alone",
-     "kin_withdrawn": 0,
-     "why": "the head is ruled absent on the day — the sources bury them before it (T-2189) — so the house holds no family"
-    },
-    "hh_calhoun_samuel": {
-     "verdict": "stands_alone",
-     "kin_withdrawn": 0,
-     "why": "the head is ruled absent on the day — the sources bury them before it (T-2189) — so the house holds no family"
-    },
-    "hh_chevallier_john_b": {
-     "verdict": "stands_alone",
-     "kin_withdrawn": 0,
-     "why": "the head is ruled absent on the day — the sources bury them before it (T-2189) — so the house holds no family"
-    },
-    "hh_hamilton_diana": {
-     "verdict": "admitted",
-     "kin_withdrawn": 3,
-     "why": "the head is ruled absent on the day — the sources bury them before it (T-2189) — so the house holds no family"
-    },
-    "hh_hogan_john": {
-     "verdict": "stands_alone",
-     "kin_withdrawn": 0,
-     "why": "the head is ruled absent on the day — the sources bury them before it (T-2189) — so the house holds no family"
-    },
-    "hh_outhet_daniel": {
-     "verdict": "admitted",
-     "kin_withdrawn": 4,
-     "why": "the head is ruled absent on the day — the sources bury them before it (T-2189) — so the house holds no family"
-    },
-    "hh_rollins_charles": {
-     "verdict": "admitted",
-     "kin_withdrawn": 5,
-     "why": "the head is ruled absent on the day — the sources bury them before it (T-2189) — so the house holds no family"
-    }
+   "hh_bradford_william_h": {
+    "why": "head_ruled_absent",
+    "verdict": "stands_alone",
+    "wife_cell": "persons/female/20_29/west/family/none",
+    "kin": 0,
+    "under_ten": 0
    },
-   "fills": {
-    "persons/female/20_29/north/family/none": 1,
-    "persons/female/20_29/south/family/none": 1,
-    "persons/female/30_39/south/family/none": 1,
-    "persons/female/under_10/south/family/none": 4,
-    "persons/male/10_19/south/family/none": 1,
-    "persons/male/under_10/north/family/none": 1,
-    "persons/male/under_10/south/family/none": 3
+   "hh_brannen_w": {
+    "why": "head_ruled_absent",
+    "verdict": "stands_alone",
+    "wife_cell": "persons/female/20_29/west/family/none",
+    "kin": 0,
+    "under_ten": 0
+   },
+   "hh_calhoun_samuel": {
+    "why": "head_ruled_absent",
+    "verdict": "stands_alone",
+    "wife_cell": "persons/female/20_29/south/family/none",
+    "kin": 0,
+    "under_ten": 0
+   },
+   "hh_chevallier_john_b": {
+    "why": "head_ruled_absent",
+    "verdict": "stands_alone",
+    "wife_cell": "persons/female/20_29/south/family/none",
+    "kin": 0,
+    "under_ten": 0
+   },
+   "hh_hamilton_diana": {
+    "why": "head_ruled_absent",
+    "verdict": "admitted",
+    "wife_cell": "persons/female/20_29/south/family/none",
+    "kin": 3,
+    "under_ten": 2
+   },
+   "hh_hogan_john": {
+    "why": "head_ruled_absent",
+    "verdict": "stands_alone",
+    "wife_cell": "persons/female/20_29/south/family/none",
+    "kin": 0,
+    "under_ten": 0
+   },
+   "hh_outhet_daniel": {
+    "why": "head_ruled_absent",
+    "verdict": "admitted",
+    "wife_cell": "persons/female/30_39/south/family/none",
+    "kin": 4,
+    "under_ten": 2
+   },
+   "hh_rollins_charles": {
+    "why": "head_ruled_absent",
+    "verdict": "admitted",
+    "wife_cell": "persons/female/20_29/north/family/none",
+    "kin": 5,
+    "under_ten": 4
    }
+  },
+  "orders_withdrawn": {
+   "persons/female/20_29/north/family/none": 1,
+   "persons/female/20_29/south/family/none": 1,
+   "persons/female/30_39/south/family/none": 1,
+   "persons/female/under_10/south/family/none": 4,
+   "persons/male/10_19/south/family/none": 1,
+   "persons/male/under_10/north/family/none": 1,
+   "persons/male/under_10/south/family/none": 3
   }
  },
  "measurement": {

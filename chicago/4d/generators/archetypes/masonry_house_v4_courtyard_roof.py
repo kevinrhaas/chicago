@@ -189,6 +189,16 @@ def wall_profile(params,lo,hi,z):
         # bow. Close the masonry to its ACTUAL underside at the wall; keeping
         # a flat wall here opens a dark slit below the sloping return.
         y=north(params)['y0'];points=[(lo,z),(hi,z)]
+        west=next((r for r in params.ranges if r.get('stable_roof',{}).get('level_courtyard_gable')),None)
+        if west:
+            # Close the small masonry wedge under the restored west slope at
+            # the inside corner, just as the copper return is closed below.
+            g=west['stable_roof']
+            pitch=(g['court_edge_z']-west['ridge_z'])/(g['court_edge_x']-west['ridge_at'])
+            join=west['ridge_at']+(z-west['ridge_z'])/pitch
+            if lo<join<hi:
+                points[0]=(lo,max(z,west['ridge_z']+pitch*(lo-west['ridge_at'])))
+                points.append((join,z))
         for tri in copper(params)[0]:
             for a,b in zip(tri,tri[1:]+tri[:1]):
                 if abs(b[1]-a[1])<1e-9:continue
