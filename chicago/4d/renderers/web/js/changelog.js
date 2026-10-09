@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Prairie Avenue’s building parts get one set of measurements', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. The walls, windows, roofs and front steps of the 1904 houses still to come will now be built from one rule book. Everything is in metres, measured up from the ground.',
+      'The Glessner House was checked against that rule book. It is the right size in all three of its download sizes, and its walls stand where its floor plan says.',
+      'One small fault turned up: six doubled faces in the stone trim on the Prairie Avenue front. It is filed to be fixed when the house is next rebuilt.',
+    ] },
   { v: 1599, ts: '2026-10-09T23:18:57.259Z', date: 'Oct 9, 2026, 6:18 PM CT', title: 'Prairie Avenue’s 20th-to-22nd blocks: every 1904 building accounted for', kind: 'feature',
     items: [
       'In the Prairie Avenue 1904 library, open any house between 20th and 22nd Streets. A panel gives its 1904 decision and lists its front building, wings, rear stable and grounds, each graded attested, inferred or reconstructed.',
