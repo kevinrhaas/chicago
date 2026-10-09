@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1591, ts: '2026-10-09T20:35:56.763Z', date: 'Oct 9, 2026, 3:35 PM CT', title: 'The test walk counts the street edge\u2019s refused walls correctly again', kind: 'fix',
+    items: [
+      'Nothing you can see changed in the town. The automated walk-through checks that every wall the street-edge layer declines to fence is accounted for, and it still expected one more than the town now has.',
+      'That wall went when the house on the Market wedge was built: a fence refused because the lot stood empty no longer needs refusing. The check now counts 190, with the arithmetic beside it.',
+    ] },
   { v: 1590, ts: '2026-10-09T20:22:14.551Z', date: 'Oct 9, 2026, 3:22 PM CT', title: 'Prairie Avenue\u2019s 18th-to-20th block: every 1904 building accounted for', kind: 'feature',
     items: [
       'In the Prairie Avenue 1904 library, open any house between 18th and 20th Streets: a new panel gives its 1904 decision and lists its front building, attached wings, rear stable and grounds, each graded attested, inferred or reconstructed.',
