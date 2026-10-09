@@ -4011,6 +4011,14 @@
           "houses": [
             "biz_john_dean_caton"
           ]
+        },
+        {
+          "layer": "business",
+          "business": "biz_john_dean_caton"
+        },
+        {
+          "layer": "business",
+          "business": "index"
         }
       ],
       "deal_key": "hh_lodging_recon_1835_blk_washington_market_h3_01:rc_barnes_john",
