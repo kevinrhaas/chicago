@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1571, ts: '2026-10-09T10:55:42.178Z', date: 'Oct 9, 2026, 5:55 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
+  { v: 1572, ts: '2026-10-09T11:12:44.531Z', date: 'Oct 9, 2026, 6:12 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
     items: [
       'The St Cyr burial register and the Chicago Democrat\u2019s death notices bury thirteen people before the scene date, among them W. Brannen, John Hogan, William Bourque, Sarah Hoit and two-year-old Charles Rollins. They were still counted in the town. Their cards in the People directory now say they had died, and cite the entry.',
       'Three of them headed houses that had been given a reconstructed wife and children. Those twelve invented people are withdrawn. Two women who had been reconstructed as wives of men who had died now head their own houses again.',
       'Two people the town had added from the burial register itself are no longer added. The postmaster John S. C. Hogan is a different man and stays.',
+    ] },
+  { v: 1571, ts: '2026-10-09T10:37:53.730Z', date: 'Oct 9, 2026, 5:37 AM CT', title: 'The Chappel school shore drawing now says where it came from', kind: 'fix',
+    items: [
+      'Open the unattributed drawing of a log schoolhouse on a shore in the Sources panel. It now links to the page it was copied from, a 2018 Illinois history blog post about Eliza Chappell, and to an archived copy of that page.',
+      'The post credits no artist, date or book, so who drew it is still unknown. Nothing in the town is built from it.',
     ] },
   { v: 1570, ts: '2026-10-09T09:59:25.297Z', date: 'Oct 9, 2026, 4:59 AM CT', title: 'The town plan stops promising a lot that has no room', kind: 'fix',
     items: [
