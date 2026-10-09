@@ -69,6 +69,13 @@ That is a measurement of who the town holds, not a stated use: the
 roof's verdict stays `keep`, and the first keeper of its trade the layer gains takes it on
 the next build with no edit here.
 
+## A ROOF ITS KEEPER LIVES OVER IS ANSWERED
+
+Since T-2236 the housing deal puts the keeper of a house of trade the town holds over an
+empty store roof (its `keeper` rung). Such a roof in `SCOPE` is no longer empty and no
+longer this deal's to offer: it is written to `kept_by_a_keeper` with the household, and it
+is neither a seat here nor an `unseatable` statement on its card.
+
 ## WHAT THIS DOES NOT DO
 
 It does not move the employment ledger. The keepers seated here still read
@@ -214,6 +221,7 @@ def read_inputs() -> dict:
     return {
         "roofs": roofs, "standing": standing, "cards": cards, "premises": premises,
         "housing": {s["household"]: s["place"] for s in housing.get("seats") or []},
+        "kept": {s["place"]: s for s in housing.get("seats") or [] if s.get("rung") == "keeper"},
         "business_at": business_at, "seated_at": seated_at, "off_plat": off_plat,
         "employment": load(DATA / "residents" / "employment_coverage.json")["rows"],
     }
@@ -261,10 +269,16 @@ def keepers(inputs: dict, reasons=(OWED_REASON,)) -> list[dict]:
 def deal(inputs: dict) -> dict:
     roofs, pool = inputs["roofs"], keepers(inputs)
     held_pool = keepers(inputs, HELD_REASONS)
-    taken, seats, unseatable = set(), [], []
+    taken, seats, unseatable, kept = set(), [], [], []
     for sid in SCOPE:
         roof = roofs[sid]
         family, division = roof["family"], roof["district"]
+        if sid in inputs["kept"]:
+            k = inputs["kept"][sid]
+            kept.append({"structure_id": sid, "family": family, "division": division,
+                         "household": k["household"], "by": "T-2236",
+                         "words": k["words"]})
+            continue
         candidates = [k for k in pool if k["division"] == division
                       and serves(family, k["trade"], inputs["premises"])]
         free = [k for k in candidates if k["person_id"] not in taken]
@@ -347,9 +361,10 @@ def deal(inputs: dict) -> dict:
                    "data/structures/*.json", "data/sidecars/1835/index.json"],
         "match": MATCH,
         "counts": {"roofs": len(SCOPE), "seated": len(seats), "unseatable": len(unseatable),
-                   "keepers_owed_a_house": len(pool)},
+                   "kept_by_a_keeper": len(kept), "keepers_owed_a_house": len(pool)},
         "seats": seats,
         "unseatable": unseatable,
+        "kept_by_a_keeper": kept,
     }
 
 
@@ -360,7 +375,16 @@ def render(doc: dict) -> str:
 def problems(doc: dict, inputs: dict) -> list[str]:
     out, roofs = [], inputs["roofs"]
     pool = {k["person_id"]: k for k in keepers(inputs)}
-    answered = [r["structure_id"] for r in doc["seats"] + doc["unseatable"]]
+    answered = [r["structure_id"] for r in
+                doc["seats"] + doc["unseatable"] + doc.get("kept_by_a_keeper", [])]
+    for r in doc.get("kept_by_a_keeper", []):
+        if (inputs["kept"].get(r["structure_id"]) or {}).get("household") != r["household"]:
+            out.append(f"{r['structure_id']} is called kept and the housing deal puts no "
+                       f"keeper {r['household']} over it")
+    for sid in inputs["kept"]:
+        if sid in {r["structure_id"] for r in doc["seats"] + doc["unseatable"]}:
+            out.append(f"{sid} has its keeper living over it and is still offered or "
+                       "called unseatable")
     for sid in SCOPE:
         if answered.count(sid) != 1:
             out.append(f"{sid} is answered {answered.count(sid)} times, not once")
