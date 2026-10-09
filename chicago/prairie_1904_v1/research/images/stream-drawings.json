@@ -1664,7 +1664,7 @@
   "local": null,
   "verified": "viewed",
   "found_via": "held PDF prairie-district-nrhp-1972.pdf, page 24 rendered",
-  "notes": "Plat-style map with subdivision lot numbers, 14 numbered ownership parcels outlined in blue (owners list: R. R. Donnelley; Cahners/Medalist; Chicago School of Architecture Foundation, 1800 S. Prairie; …), alleys and lot frontages/depths written on the lines. Useful for lot lines and depths in the 1800 block; 1972 ownership, not 1904. Map is turned (Prairie Ave. runs horizontally); only 1800 S. Prairie (owner no. 3, Chicago School of Architecture Foundation) is named on this page; the other 13 parcels are listed on the next sheet and not yet matched to building ids.",
+  "notes": "Map visually inspected: 1972 owner entries and parcel diagram, with April 18 receipt stamp. Ownership and lot boundaries are not a 1904 footprint survey. Distinct later cadastral context; same nomination container as #165–167.",
   "measurements": [
    {
     "what": "lot depth (one block face)",
@@ -1678,20 +1678,59 @@
    }
   ],
   "evidence_review": {
-   "ticket": "T-2198",
+   "ticket": "T-2199",
    "audit_number": 164,
-   "reviewed_on": "2026-10-08",
-   "review_state": "unavailable image: catalog only",
+   "reviewed_on": "2026-10-09",
+   "review_state": "visually inspected",
    "target_date": "1904-07-01",
    "phase": "after target year",
    "date_basis": "received April 18, 1972",
    "evidence_role": "streetscape or site context",
-   "geometry_use": "unreviewed",
-   "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+   "geometry_use": "context only",
+   "reason": "Map visually inspected: 1972 owner entries and parcel diagram, with April 18 receipt stamp. Ownership and lot boundaries are not a 1904 footprint survey. Distinct later cadastral context; same nomination container as #165–167.",
    "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=24",
    "family": null,
    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
-  }
+  },
+  "retrieval_review": {
+   "ticket": "T-2199",
+   "reviewed_on": "2026-10-09",
+   "outcome": "image recovered",
+   "identity": "NRHP 72000452, PDF page 24: owner-of-property lot map.",
+   "canonical_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=24",
+   "date": "received April 18, 1972",
+   "rights_status": "unknown — link only",
+   "independent_evidence": "Distinct later cadastral context; same nomination container as #165–167.",
+   "detail": "Map visually inspected: 1972 owner entries and parcel diagram, with April 18 receipt stamp. Ownership and lot boundaries are not a 1904 footprint survey.",
+   "source_sha256": "92d947d05a8aedb97efd2631e0d93efa7c88e74770e972ff0a8a70079ccfa79e",
+   "retrieved_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf"
+  },
+  "metadata_history": [
+   {
+    "ticket": "T-2199",
+    "date": "2026-10-09",
+    "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+    "before": {
+     "evidence_review": {
+      "ticket": "T-2198",
+      "audit_number": 164,
+      "reviewed_on": "2026-10-08",
+      "review_state": "unavailable image: catalog only",
+      "target_date": "1904-07-01",
+      "phase": "after target year",
+      "date_basis": "received April 18, 1972",
+      "evidence_role": "streetscape or site context",
+      "geometry_use": "unreviewed",
+      "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+      "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=24",
+      "family": null,
+      "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+     },
+     "notes": "Plat-style map with subdivision lot numbers, 14 numbered ownership parcels outlined in blue (owners list: R. R. Donnelley; Cahners/Medalist; Chicago School of Architecture Foundation, 1800 S. Prairie; …), alleys and lot frontages/depths written on the lines. Useful for lot lines and depths in the 1800 block; 1972 ownership, not 1904. Map is turned (Prairie Ave. runs horizontally); only 1800 S. Prairie (owner no. 3, Chicago School of Architecture Foundation) is named on this page; the other 13 parcels are listed on the next sheet and not yet matched to building ids.",
+     "retrieval_review": null
+    }
+   }
+  ]
  },
  {
   "id": "dw-nrhp-1972-district-p22-boundary-map",
