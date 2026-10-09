@@ -261,6 +261,21 @@ function claimRow(label, value, block, citationsById) {
 }
 
 /**
+ * T-2258: THE SINGULAR PAIR IS PRINTED ONLY AS AN ABSENCE. A `lives_at` or
+ * `works_at` that names a place is one of the dated `associated_with` rows below,
+ * and `validate.py` refuses a record where it is not (`singular_drift`), so
+ * printing it here too named the same roof twice, once with its dates and once as
+ * an undated claim on the scene day, which is exactly what the source may refuse
+ * to say. A null link is different: rows are defined over claims and an absent
+ * relationship is an absent row, so the note saying WHY no place is recorded has
+ * nowhere else to stand. That row stays.
+ */
+function absenceRow(label, block, citationsById) {
+  if (!block || block.value) return '';
+  return claimRow(label, null, block, citationsById);
+}
+
+/**
  * The household's kin rows — a relationship that crosses to ANOTHER household
  * record (T-0597).
  *
@@ -1301,9 +1316,10 @@ export function associationsHtml(links, citationsById, label) {
         church, a civic seat, a school or land bought — each with how far the evidence
         reached and the years it permits. An open end means no source closes the
         relationship, so this list does not say whether such a row held on 1 July 1835;
-        where a source DOES close one before that day, the row says so. The single
-        <q>Lived at</q> and <q>Worked at</q> claims above are the older shape of the same
-        facts, and the build refuses to let the two disagree.</span>
+        where a source DOES close one before that day, the row says so. A known home or
+        workplace is named here and only here, with its dates; the build refuses a record
+        whose older, undated <q>Lived at</q> or <q>Worked at</q> names a place this list
+        does not carry.</span>
       <ol class="res-roles">${order.map((l) => associationRowHtml(l, citationsById)).join('')}</ol></dd>`;
 }
 
@@ -1974,8 +1990,8 @@ export function householdHtml(hh, citationsById, researchByPerson, directoryByPe
       ${claimRow('Came from', (hh.origin || {}).value, hh.origin, citationsById)}
       ${claimRow('Why they came', (hh.reason_for_coming || {}).value,
         hh.reason_for_coming, citationsById)}
-      ${claimRow('Lived at', (hh.lives_at || {}).value, hh.lives_at, citationsById)}
-      ${claimRow('Worked at', (hh.works_at || {}).value, hh.works_at, citationsById)}
+      ${absenceRow('Lived at', hh.lives_at, citationsById)}
+      ${absenceRow('Worked at', hh.works_at, citationsById)}
       ${claimRow('Here on 1 July 1835', (hh.present_on_scene_date || {}).value,
         hh.present_on_scene_date, citationsById)}
       ${presenceLegRow(hh, citationsById)}
