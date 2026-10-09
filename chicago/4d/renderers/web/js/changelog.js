@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1559, ts: '2026-10-09T03:27:01.050Z', date: 'Oct 8, 2026, 10:27 PM CT', title: 'Groundwork for correcting guessed families', kind: 'fix',
+  { v: 1560, ts: '2026-10-09T03:45:33.170Z', date: 'Oct 8, 2026, 10:45 PM CT', title: 'Groundwork for correcting guessed families', kind: 'fix',
     items: [
       'Some of the town\u2019s households were guessed to be married men and given an invented wife and children. When a source shows that the head was a woman, or that she was a bride whose card belongs in her husband\u2019s house, that invented family now leaves with the guess. Nobody new is invented in its place.',
       'The steps that rebuild the invented families now run until they agree with each other, instead of in a single pass that could leave them disagreeing. This clears the way for three corrections waiting on it, starting with Mark Noble jun.\u2019s marriage to Charlotte Wesencraft. Nothing on the map changes yet.',
+    ] },
+  { v: 1559, ts: '2026-10-09T03:23:46.382Z', date: 'Oct 8, 2026, 10:23 PM CT', title: 'Three people carded twice in the town now have one card each', kind: 'fix',
+    items: [
+      'Joseph Létendre, his father Baptiste Létendre and Louis Franchère each had two cards. Each pair came from the same line of the St Mary’s baptismal register, read twice and spelt two ways. One card of each pair is now folded into the other, and nothing on it is lost.',
+      'The copies had been boarding in three houses. With those beds free, the town’s boarders are spread across its houses afresh, so many house cards list different lodgers, and Joseph Leframboise’s household of six, which was still waiting for a roof, now shares a house in the South Division.',
     ] },
   { v: 1558, ts: '2026-10-09T03:12:17.658Z', date: 'Oct 8, 2026, 10:12 PM CT', title: 'Glessner’s missing references have a retrieval report', kind: 'feature',
     items: [
