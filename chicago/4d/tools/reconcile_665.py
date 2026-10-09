@@ -236,6 +236,11 @@ def block_capacity(lots: int) -> int:
 # columns, and scheduling its 27 roofs against "street control ROADMAP S9 records as owed"
 # promised ground that no trace can deliver. Those roofs go back to the West Division
 # balance, where "waiting on coverage" is a statement the ledger can actually make.
+#
+# T-2195 ANSWERED IT. The owner ruled on 2026-10-08 (T-1957, option b) to build on the wedge's
+# eastern two-thirds only, and `tools/generate_plat_lots.py` (`build_wedge`) now emits the
+# block with the four lots it has depth for — so it arrives above as an ordinary platted
+# block, and this set only takes it back if the grid ever stops emitting it.
 STREET_CONTROL_OMISSIONS = {"blk_south_water_market"}
 
 # Refused because the two streets never met, not because a centreline is short. Kept in the

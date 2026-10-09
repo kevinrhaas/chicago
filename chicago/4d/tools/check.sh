@@ -6142,6 +6142,23 @@ step "every re-family move in the order book stands on a card that says the same
 selftest "…and its own assertions still fire when broken" \
   python3 tools/refamily_moves_1835.py --self-test
 
+# T-2234. THE FAMILY CYCLE IS WALKED BY ONE STEP, AND THE STEP SITS WHERE IT CAN BE PROVED.
+# Modelled families, women and children, the trade households, the re-family rule, the moves
+# ledger and the order book read each other in a ring, so a reading that withdraws a modelled
+# family (T-2232, T-2185, T-2233) cannot land through the manifest's linear order: the committed
+# rule names houses the new deal no longer makes. `tools/settle_family_cycle.py --build` laps
+# the six until a lap writes nothing, refuses an oscillation, and puts the tree back on any
+# refusal. Whether the layer IS at that fixpoint is the six `--check`s above, which already
+# run. This holds the two things only the step can: those six lines exist, and its manifest
+# step sits below the stages it drives and above the book's own step, which re-derives the
+# book with its owner gate on. The self-test proves the lap stops on a lap that moves nothing,
+# refuses one that returns to an earlier state, and restores the tree byte for byte.
+step "the family cycle's step sits below its stages and above the book, and every stage it drives is gated (T-2234)" \
+  python3 tools/settle_family_cycle.py --check
+
+selftest "…and its own assertions still fire when broken" \
+  python3 tools/settle_family_cycle.py --self-test
+
 # T-1370, piece 1 of T-1175. HOW MANY BEDS EACH LODGING PLACE HELD. The town model
 # states a bed bracket for the whole town and says in as many words that it "seats
 # nobody in any lodging place and gives no boarding house a capacity of its own";
@@ -6355,6 +6372,21 @@ step "every household present on the scene date sleeps under a standing roof" \
 
 selftest "…and its guards still fire when broken" \
   python3 tools/house_the_present_1835.py --self-test
+
+# T-2193, piece 1 of T-2188. THE FAMILY DWELLINGS THE TOWN ALREADY FORMS. The order book
+# still ordered 338 family dwellings beside 1,243 held head records it counts as awaiting a
+# household, while the seats above had already put hundreds of those very records under a
+# standing dwelling, either dealt to them or shared by their family. The book counts houses
+# off the card and the seats live beside it, so the houses stood uncounted.
+# `count_held_head_dwellings_1835.py` counts them into the book's family_dwelling cells,
+# dealt roofs first, up to each division's order. Refused: a boarder counted as a household,
+# a lodging-house roof, a record the book already counts as a house, a household seated
+# twice, and a count past the order. Nobody is minted and the town's population is unchanged.
+step "the held heads the seats put under a dwelling are the family dwellings the book counts" \
+  python3 tools/count_held_head_dwellings_1835.py --check
+
+selftest "…and a boarder, a lodging roof and a count past the order are refused" \
+  python3 tools/count_held_head_dwellings_1835.py --self-test
 
 # T-1989, piece 2 of T-1986. THE EMPTY TRADE ROOFS. Four anonymous trade roofs (a joiner's
 # shop, a warehouse, a riverside work shop, a store) stood empty while the employment
@@ -6608,6 +6640,19 @@ step "the person associations still re-derive, and are still on their cards" \
 
 selftest "…and its own refusals still fire when broken" \
   python3 tools/person_associations.py --self-test
+
+# T-1273. The home and workplace half of the same migration: every reconciliation row
+# that reaches a roof (`tools/location_reconciliation.py`) copied onto its household as an
+# `associated_with` row, with no value, confidence or source changed. The same two holds
+# as T-1405's: the report re-derives, and every copied row is still on its card byte for
+# byte — plus a third, because a household's `lives_at` CAN change under it: a copied
+# row that no longer derives is refused, so a moved home cannot leave its old roof
+# standing in the plural list where `singular_drift` would never look.
+step "the household home and workplace rows still re-derive, and are still on their cards" \
+  python3 tools/household_associations.py --check
+
+selftest "…and its own refusals still fire when broken" \
+  python3 tools/household_associations.py --self-test
 
 # T-1158. The per-attribute tier, and the three things that can go wrong with it.
 #

@@ -55,6 +55,19 @@
   ],
   "note": "data/structures/clybourn_slaughterhouse.json carries him as its occupant. This dataset also holds newberry_dole_slaughterhouse_south_branch, which is a different firm's packing house."
  },
+ "associated_with": [
+  {
+   "kind": "workplace",
+   "place_or_structure_id": "clybourn_slaughterhouse",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "attested",
+   "source_id": "andreas_1884_v1",
+   "note": "data/structures/clybourn_slaughterhouse.json carries him as its occupant. This dataset also holds newberry_dole_slaughterhouse_south_branch, which is a different firm's packing house. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_clybourne_archibald#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+  }
+ ],
  "present_on_scene_date": {
   "value": "present",
   "confidence": "inferred",

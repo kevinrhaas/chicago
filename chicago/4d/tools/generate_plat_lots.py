@@ -1501,6 +1501,193 @@ def build_block(north_id, south_id, west_id, east_id, lines, edges, reach_m):
     return {"ring": ring, "north_chain": north_chain, "south_chain": south_chain}, None
 
 
+# T-2195. THE MARKET WEDGE, on the owner's ruling of 2026-10-08 on T-1957 (option b):
+# "Build on the wedge's eastern two-thirds only: cut reconstructed lots where the block
+# has depth (about 5 of its 8 lots) and re-deal the rest, recorded in LIBERTIES."
+#
+# `build_block` refuses blk_south_water_market and keeps refusing it — its rows HAVE
+# crossed at Market, and the self-test below holds that measurement. What the ruling builds
+# is not the quadrilateral the refusal is about but the part of it that is real ground: the
+# plat's block 21 is "the triangular block the river's bend leaves between Franklin Street
+# and the bank" (data/traces/thompson_block_numbering.json), and the drawn South Water line
+# sweeps down onto Lake Street across its west third. So the block is cut here on the
+# Original Town's own module, laid from Franklin's face as every block in the tier is, and
+# a lot is kept only where the wedge gives it a lot's worth of ground:
+#
+# - THE FOUR COLUMNS are the module's: the Lake Street face from Market's corridor to
+#   Franklin's, divided into four equal lots exactly as `subdivide` divides a full block.
+# - THE ALLEY is the tier's own, carried on from the full-depth end: at Franklin's face the
+#   block is as deep as its neighbours, so the two tiers either side of an 18 ft alley are
+#   cut there and the alley runs west parallel to Lake Street. A Lake Street lot therefore
+#   keeps the depth every other Lake Street lot in the tier has, until the bank's street
+#   cuts it off; a South Water lot is what is left between the alley and that street.
+# - A LOT IS KEPT where its mean depth is at least HALF the full tier's depth at
+#   Franklin's face. That is the bound of the invention and it is this project's, not the
+#   plat's: half a lot is the least ground the module's own lot could be shrunk to and
+#   still hold a house set back from its street with a yard behind it. Below it the cell
+#   is left as unlotted wedge ground, named in `lots_withheld` with its measured depth.
+#
+# Every line here is cut on the DRAWN corridors (`CORRIDOR_LINE`), the same edges the rest
+# of the grid is cut on — nothing is moved onto the waterline, which is the other branch
+# of thompson_plat_grid.md § 6.2 and the one the ruling did not take.
+WEDGE_BLOCKS = {"blk_south_water_market": ("south_water", "lake", "market", "franklin")}
+WEDGE_RULING = ("the owner's ruling of 2026-10-08 on T-1957, option (b): build on the "
+                "wedge's eastern two-thirds only, cut reconstructed lots where the block "
+                "has depth, and re-deal the rest (T-2195)")
+WEDGE_MIN_DEPTH_SHARE = 0.5
+WEDGE_SAMPLE_M = 0.5
+
+
+def _n_on(chain: list, x: float) -> float | None:
+    """The northing of an x-monotone chain at `x`, or None past its ends."""
+    for a, b in zip(chain, chain[1:]):
+        lo, hi = min(a[0], b[0]), max(a[0], b[0])
+        if lo - 1e-9 <= x <= hi + 1e-9:
+            if abs(b[0] - a[0]) < 1e-12:
+                return min(a[1], b[1])
+            return a[1] + (x - a[0]) * (b[1] - a[1]) / (b[0] - a[0])
+    return None
+
+
+def _drop_collinear(points: list, tolerance: float = 0.01) -> list:
+    kept = [points[0]]
+    for here, after in zip(points[1:], points[2:]):
+        before = kept[-1]
+        span = math.dist(before, after)
+        if span < 1e-9:
+            continue
+        area2 = abs((here[0] - before[0]) * (after[1] - before[1])
+                    - (here[1] - before[1]) * (after[0] - before[0]))
+        if area2 / span > tolerance:
+            kept.append(here)
+    kept.append(points[-1])
+    return kept
+
+
+def _band(lower, upper, x0: float, x1: float, unshear) -> list | None:
+    """The ground between two sheared chains over [x0, x1], as a ring in local ENU."""
+    steps = max(2, int(math.ceil((x1 - x0) / WEDGE_SAMPLE_M)))
+    bottom, top = [], []
+    for i in range(steps + 1):
+        x = x0 + (x1 - x0) * i / steps
+        lo, hi = lower(x), upper(x)
+        if lo is None or hi is None or hi - lo <= 0.01:
+            continue
+        bottom.append((x, lo))
+        top.append((x, hi))
+    if len(bottom) < 2:
+        return None
+    ring = [unshear(p) for p in bottom] + [unshear(p) for p in reversed(top)]
+    return _drop_collinear(ring)
+
+
+def build_wedge(block_id: str, lines: dict, edges: dict, alley_m: float,
+                frontage_m: float) -> dict:
+    """The lotted eastern part of a block whose rows cross at its west end (T-2195)."""
+    north_id, south_id, west_id, east_id = WEDGE_BLOCKS[block_id]
+    half = edges[east_id]["half_m"]
+    east_line = face_chord(east_id, lines, (-1.0, 0.0), half, north_id, south_id)
+    west_line = face_chord(west_id, lines, (1.0, 0.0), edges[west_id]["half_m"],
+                           north_id, south_id)
+    (ea, na), (eb, nb) = east_line
+    slope = (eb - ea) / (nb - na)  # east per north along Franklin's face
+
+    def shear(p):
+        return (p[0] - slope * p[1], p[1])
+
+    def unshear(p):
+        return (p[0] + slope * p[1], p[1])
+
+    north_edge = [shear(p) for p in edges[north_id]["south"]]
+    south_edge = [shear(p) for p in edges[south_id]["north"]]
+    for chain, name in ((north_edge, north_id), (south_edge, south_id)):
+        xs = [p[0] for p in chain]
+        if any(b < a for a, b in zip(xs, xs[1:])):
+            raise SystemExit(f"{name}'s corridor edge doubles back across {block_id}; "
+                             "the wedge cut assumes a face that runs west to east")
+    x_east = shear(east_line[0])[0]
+    # Market's face where it meets Lake Street: the west end of the module's Lake face.
+    west_at = cross_polyline(edges[south_id]["north"], west_line, half)[0]
+    if west_at is None:
+        raise SystemExit(f"{lines[west_id]['name']}'s face does not reach "
+                         f"{lines[south_id]['name']} at {block_id}")
+    x_west = shear(west_at)[0]
+
+    def lake(x):
+        return _n_on(south_edge, x)
+
+    def bank(x):
+        return _n_on(north_edge, x)
+
+    full_depth = bank(x_east) - lake(x_east)
+    tier = (full_depth - alley_m) / 2.0
+    width = (x_east - x_west) / 4.0
+    need = tier * WEDGE_MIN_DEPTH_SHARE
+
+    def alley_south(x):
+        lo = lake(x)
+        return None if lo is None else lo + tier
+
+    def alley_north(x):
+        lo = lake(x)
+        return None if lo is None else lo + tier + alley_m
+
+    def capped(a, b):
+        def f(x):
+            va, vb = a(x), b(x)
+            return None if va is None or vb is None else min(va, vb)
+        return f
+
+    lots, withheld = [], []
+    for column in range(4):  # 0 is the westernmost, at Market
+        x0, x1 = x_west + column * width, x_west + (column + 1) * width
+        for face, lower, upper in (("south", lake, capped(alley_south, bank)),
+                                   ("north", alley_north, bank)):
+            ring = _band(lower, upper, x0, x1, unshear)
+            area = polygon_area(ring) if ring else 0.0
+            depth = area / width
+            # The scheme block 18 reads: 1-4 east to west along the north row, 5-8 west
+            # to east along the south row (data/traces/thompson_block_numbering.json).
+            number = (4 - column) if face == "north" else (5 + column)
+            if depth < need:
+                withheld.append({
+                    "tier": face, "module_lot": number,
+                    "mean_depth_m": round(max(depth, 0.0), 2),
+                    "why": (f"the wedge leaves this cell {max(depth, 0.0):.1f} m of mean "
+                            f"depth against the {need:.1f} m a kept lot needs (half the "
+                            f"tier's {tier:.1f} m at {lines[east_id]['name']}'s face)"),
+                })
+                continue
+            front = (lambda x, f=lower: f(x)) if face == "south" else upper
+            frontage = sum(math.dist(unshear((xa, front(xa))), unshear((xb, front(xb))))
+                           for xa, xb in ((x0 + (x1 - x0) * i / 50,
+                                           x0 + (x1 - x0) * (i + 1) / 50) for i in range(50)))
+            lots.append({
+                "tier": face,
+                "frontage_m": round(frontage, 2),
+                "depth_m": round(depth, 2),
+                "polygon": rounded(ring),
+                "module_lot": number,
+            })
+    if not lots:
+        raise SystemExit(f"{block_id}: the wedge carries no lot at all")
+    x_cut = min(x_west + c * width for c in range(4)
+                if any(l["module_lot"] in (4 - c, 5 + c) for l in lots))
+    ring = _band(lake, bank, x_cut, x_east, unshear)
+    alley = _band(alley_south, capped(alley_north, bank), x_cut, x_east, unshear)
+    lake_face = sum(math.dist(unshear((x_cut + (x_east - x_cut) * i / 50,
+                                       lake(x_cut + (x_east - x_cut) * i / 50))),
+                              unshear((x_cut + (x_east - x_cut) * (i + 1) / 50,
+                                       lake(x_cut + (x_east - x_cut) * (i + 1) / 50))))
+                    for i in range(50))
+    return {
+        "ring": ring, "alley": alley, "lots": lots, "withheld": withheld,
+        "frontage_m": lake_face, "tier_depth_m": tier, "full_depth_m": full_depth,
+        "need_m": need, "module_lot_width_m": width,
+        "cut_at": unshear((x_cut, lake(x_cut))),
+    }
+
+
 def subdivide(block: dict, alley_m: float, frontage_m: float | None,
               count: int | None = None) -> dict:
     """Two tiers of lots either side of a mid-block alley, fronting the E-W streets.
@@ -1581,6 +1768,15 @@ def stamp_number(entry: dict, record: dict, scheme: dict) -> None:
             "read at its own position in "
             f"{lots[0]['plat_lot_numeral_read_in']}, and this block is cut on the West "
             "Division's arrangement rather than the scheme's four-to-a-face one")
+        return
+    if lots and all("module_lot" in lot for lot in lots):
+        # T-2195. A wedge's lots are cut at the module's own positions and carry them,
+        # so the scheme numbers each by the position it stands in, not by a count.
+        for lot in lots:
+            lot["plat_lot_number"] = lot.pop("module_lot")
+            lot["plat_lot_confidence"] = scheme["confidence"]
+        for gone in (entry.get("wedge") or {}).get("lots_withheld", []):
+            gone["plat_lot_number"] = gone.pop("module_lot")
         return
     per_face = len(lots) // 2
     if per_face != 4 or len(lots) != 2 * per_face:
@@ -2451,6 +2647,68 @@ def grid_from_inputs() -> dict:
                 entry["alley_local_enu_m"] = None
                 entry["lots"] = []
             blocks.append(entry)
+
+    # T-2195. The Market wedge: refused as a quadrilateral above, cut here on the owner's
+    # ruling as the lotted eastern part of the block the plat draws as a triangle. The
+    # omission is replaced rather than kept beside the block — the same ground derived
+    # twice is the one thing a generated layer may not do.
+    for wedge_id in WEDGE_BLOCKS:
+        refused = next((o for o in omitted if o["id"] == wedge_id), None)
+        if refused is None:
+            continue
+        cut = build_wedge(wedge_id, lines, edges, alley_m, frontage_m)
+        ring = cut["ring"]
+        wet = [p for p in ring if not field.covers(*p) or field.height(*p) < 0.0]
+        if wet:
+            raise SystemExit(f"{wedge_id}: {len(wet)} corner(s) of the wedge's lotted part "
+                             "fall on water or beyond the modelled ground")
+        omitted.remove(refused)
+        area = polygon_area(ring)
+        entry = {
+            "id": wedge_id,
+            "grid": refused["grid"],
+            "plat": next(l["plat"] for l in layers if l["id"] == refused["grid"]),
+            "bounded_by": refused["bounded_by"],
+            "boundary_local_enu_m": rounded(ring),
+            "area_m2": round(area, 1),
+            "frontage_m": round(cut["frontage_m"], 2),
+            "frontage_ft": round(cut["frontage_m"] / FT_M, 1),
+            "depth_m": round(area / cut["frontage_m"], 2),
+            "alley_local_enu_m": cut["alley"] and rounded(cut["alley"]),
+            "lots": cut["lots"],
+            "wedge": {
+                "ruling": WEDGE_RULING,
+                "confidence": "conjectural",
+                "the_quadrilateral_refused": refused["reason"],
+                "cut_on": ("the Original Town's module laid from Franklin's face: the Lake "
+                           "Street face from Market's corridor to Franklin's divided into "
+                           "four equal lots, and the tier's 18 ft alley carried west from "
+                           "the full-depth end parallel to Lake Street"),
+                "full_depth_at_east_face_m": round(cut["full_depth_m"], 2),
+                "tier_depth_m": round(cut["tier_depth_m"], 2),
+                "kept_where_mean_depth_m_at_least": round(cut["need_m"], 2),
+                "bound": ("half the tier's own depth at Franklin's face — the least a "
+                          "module lot can shrink to and still hold a house set back from "
+                          "its street with a yard behind it. This project's bound, not "
+                          "the plat's; the shallowest lot the grid cuts anywhere else "
+                          "(26.68 m, the Michigan Street tract) keeps the same lots"),
+                "lotted_from": rounded([cut["cut_at"]])[0],
+                # The block keeps the plat's four streets as its identity, but its west
+                # edge is the cut, a lot's width east of Market's corridor, and fronts no
+                # street: a reader laying a walk or a fence along a face skips it.
+                "faces_off_the_street": {
+                    "west": ("the wedge is lotted from its first kept lot's west line, "
+                             f"{cut['module_lot_width_m']:.1f} m east of Market's corridor; "
+                             "that edge is the cut, not a street face"),
+                },
+                "lots_withheld": cut["withheld"],
+                "liberty": "L409",
+            },
+        }
+        entry["ground"] = ground_reading(ring, field)
+        entry["survey_tract"] = tract_of(ring, tracts)
+        entry["module"] = module_for(entry, entry["bounded_by"], west, spacing_ft)
+        blocks.append(entry)
 
     # Kinzie's Addition's fifty-two numerals, each onto the cell its own column and tier
     # name. Every one has to land: on a block, on an omission this grid attempted, or on

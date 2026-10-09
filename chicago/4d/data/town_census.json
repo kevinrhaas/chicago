@@ -12,16 +12,16 @@
   "data/reconstruction/1835_presence_rulings.json"
  ],
  "buildings": {
-  "standing": 654,
+  "standing": 657,
   "target": 668,
-  "records_in_scene": 672,
+  "records_in_scene": 675,
   "basis": "Physical roofs credited by the roof reconciliation, not structure records: a bridge, a pier, a palisade and a parade ground are records that are not buildings.",
   "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading.",
   "dwellings": {
-   "standing_low": 327,
-   "standing_high": 377,
+   "standing_low": 329,
+   "standing_high": 379,
    "by_group": {
-    "ordinary_dwellings": 327,
+    "ordinary_dwellings": 329,
     "larger_boarding_houses": 40,
     "inns_taverns": 10
    },
@@ -34,16 +34,16 @@
   }
  },
  "people": {
-  "housed": 2590,
-  "households_housed": 1321,
+  "housed": 2608,
+  "households_housed": 1326,
   "housed_through": {
    "lives_at": 191,
-   "seated_by_a_structure": 2399
+   "seated_by_a_structure": 2417
   },
-  "waiting_on_a_roof": 327,
-  "households_waiting_on_a_roof": 128,
+  "waiting_on_a_roof": 309,
+  "households_waiting_on_a_roof": 123,
   "group_entries": 6,
-  "households_without_a_dwelling": 135,
+  "households_without_a_dwelling": 130,
   "town_total": 3265,
   "town_total_dwellings": 398,
   "town_total_source": "andreas_1884_v1",
@@ -107,9 +107,9 @@
   }
  },
  "beyond_the_index": {
-  "households": 550,
-  "persons_present": 662,
-  "persons_present_housed": 662,
+  "households": 547,
+  "persons_present": 659,
+  "persons_present_housed": 659,
   "persons_present_waiting_on_a_roof": 0,
   "persons_present_unhoused": 0,
   "persons_not_present": 28,
@@ -131,9 +131,9 @@
     "persons_not_present": 0
    },
    "readmitted": {
-    "households": 121,
-    "persons_present": 111,
-    "persons_present_housed": 111,
+    "households": 118,
+    "persons_present": 108,
+    "persons_present_housed": 108,
     "persons_present_waiting_on_a_roof": 0,
     "persons_present_unhoused": 0,
     "persons_not_present": 10
@@ -155,7 +155,7 @@
     "persons_not_present": 0
    }
   },
-  "why_apart": "The population above is the residents index (data/residents/index.json) and the presence rulings over it. The completion audit also seats the cards the reconstruction writes outside that index — the trades that staff the town's businesses, the lodgers, the readmitted, the underdocumented and the institutional households — so it counts more people present on 1 July than this figure does. They are not added here: counted in, the town would hold more people on 1 July than the November census counted four months later, and whether the order book over-minted or the index is short is T-2188's reconciliation, not a sum this file may settle by adding."
+  "why_apart": "The population above is the residents index (data/residents/index.json) and the presence rulings over it. The completion audit also seats the cards the reconstruction writes outside that index — the trades that staff the town's businesses, the lodgers, the readmitted, the underdocumented and the institutional households — so it counts more people present on 1 July than this figure does. They are not added here: counted in, the town would hold more people on 1 July than the November census counted four months later. T-2194 ruled the question this raised: the index is short, because the order book's household quota counts houses off it alone, and counting these households in is T-2237's, not a sum this file may settle by adding."
  },
  "transients": {
   "persons": 307,

@@ -63,6 +63,19 @@
   ],
   "note": "He built it, which is a builder's relation to a building rather than a workplace, and the church was finished long before the scene date. Linked one grade down because it is the only structure in this dataset his name is attached to; a carpenter in July 1835 was working on something else entirely and nothing says what."
  },
+ "associated_with": [
+  {
+   "kind": "workplace",
+   "place_or_structure_id": "st_marys_church",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "inferred",
+   "source_id": "andreas_1884_v1",
+   "note": "He built it, which is a builder's relation to a building rather than a workplace, and the church was finished long before the scene date. Linked one grade down because it is the only structure in this dataset his name is attached to; a carpenter in July 1835 was working on something else entirely and nothing says what. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_taylor_augustine#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+  }
+ ],
  "present_on_scene_date": {
   "value": "present",
   "confidence": "inferred",

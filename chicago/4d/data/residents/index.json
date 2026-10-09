@@ -419,9 +419,9 @@
   "census_1840_linked": 3,
   "reconstructed_removed_in_2026_09_02_synthesis": 108,
   "civic_mint": 509,
-  "merged_away": 69,
-  "houses": 215,
-  "awaiting_a_household": 1242
+  "merged_away": 72,
+  "houses": 218,
+  "awaiting_a_household": 1239
  },
  "households": [
   {
@@ -14621,7 +14621,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_marknoble_sen",
@@ -16528,7 +16529,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_noble_mary",
@@ -16544,7 +16546,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_noble_william_b",
@@ -24936,6 +24939,17 @@
    "ticket": "T-2179"
   },
   {
+   "person": "baptiste_l_tendre",
+   "household": "hh_baptiste_l_tendre",
+   "name": "Baptiste L. Tendre",
+   "merged_into_person": "ltendre_baptiste",
+   "merged_into_household": "hh_ltendre_baptiste",
+   "record_file": "merged/hh_baptiste_l_tendre.json",
+   "rule": "C17",
+   "cluster": "ltendre-l-tendre-baptiste",
+   "ticket": "T-2197"
+  },
+  {
    "person": "bates_harriet_e",
    "household": "hh_bates_harriet_e",
    "name": "Harriet E Bates",
@@ -25277,6 +25291,17 @@
    "ticket": "T-0844"
   },
   {
+   "person": "joseph_l_tendre",
+   "household": "hh_joseph_l_tendre",
+   "name": "Joseph L. Tendre",
+   "merged_into_person": "ltendre_joseph",
+   "merged_into_household": "hh_ltendre_joseph",
+   "record_file": "merged/hh_joseph_l_tendre.json",
+   "rule": "C17",
+   "cluster": "ltendre-l-tendre-joseph",
+   "ticket": "T-2197"
+  },
+  {
    "person": "kennicott_w_h",
    "household": "hh_kennicott_w_h",
    "name": "W H Kennicott",
@@ -25374,6 +25399,17 @@
    "rule": "C2",
    "cluster": "kinzie-robert",
    "ticket": "T-0839"
+  },
+  {
+   "person": "louis_franch_re",
+   "household": "hh_louis_franch_re",
+   "name": "Louis Franch Re",
+   "merged_into_person": "franchre_louis",
+   "merged_into_household": "hh_franchre_louis",
+   "record_file": "merged/hh_louis_franch_re.json",
+   "rule": "C17",
+   "cluster": "franchre-franch-re",
+   "ticket": "T-2197"
   },
   {
    "person": "norton_n_r",

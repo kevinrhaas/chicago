@@ -12056,6 +12056,12 @@
       "asset": "gltf/recon_1835_blk_school_section_tier_81_d5_02__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_school_section_tier_81_d5_07",
+      "name": "Reconstructed D5 deep-plan frame cottage #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_81_d5_07.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_81_d5_07__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_school_section_tier_81_d6_06",
       "name": "Reconstructed D6 one-and-a-half-story frame cottage #06",
       "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_81_d6_06.json",
@@ -12138,6 +12144,12 @@
       "name": "Reconstructed D6 one-and-a-half-story frame cottage #06",
       "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_95_d6_06.json",
       "asset": "gltf/recon_1835_blk_school_section_tier_95_d6_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_95_d6_07",
+      "name": "Reconstructed D6 one-and-a-half-story frame cottage #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_95_d6_07.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_95_d6_07__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_south_water_clark_a3_05",
@@ -12420,6 +12432,12 @@
       "name": "Reconstructed A2 barn or carriage shed #09",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_wells_a2_09.json",
       "asset": "gltf/recon_1835_blk_south_water_wells_a2_09__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_a2_10",
+      "name": "Reconstructed A2 barn or carriage shed #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_wells_a2_10.json",
+      "asset": "gltf/recon_1835_blk_south_water_wells_a2_10__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_south_water_wells_a3_08",

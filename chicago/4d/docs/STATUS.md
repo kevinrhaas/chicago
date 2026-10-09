@@ -1,3 +1,162 @@
+## T-2194 — the store rows ruled against the store roofs, and the index found short (2026-10-09)
+
+T-2188's second piece asked whether the order book over-orders its 56 owed store
+residences or the residents index is short. Measured on dev, the answer is **both**:
+
+- **The book over-ordered the store rows.** It shares the model's 645 households out by
+  roof counts, so it asked for 77 store households on 52 civil store roofs (1.48 per roof).
+  Every one of those roofs stands. The book's own weighting says a store residence holds
+  *a* household, the keeper's, so `store_residence_ruling` discharges the order above one
+  household per store roof: north 2, south 20, west 3, **25** in all. Store households owed
+  go **56 → 31**, and households still owed go 424 → 399. Nobody is moved, minted or
+  re-apportioned. The ruling is an inference, and the book says so.
+- **The index is short.** 14 of the 52 store roofs seat a household; the other 38 (29 south,
+  5 west, 4 north) seat nobody. The 309 trade households drawn as heads of their own
+  (`reconstructed_trades/`) are seated 244 in dwellings, 58 in boarding houses and 7 in inns.
+  Of those heads, 64 work a store trade (grocer, merchant, milliner and the like), and none
+  sits in a store roof. The household quota counts houses off `data/residents/index.json` alone,
+  so it sees none of them. The census's 662 present beyond the index break down as 309 trade
+  households, 155 lodgers, 111 readmitted, 86 underdocumented and 1 institutional. The
+  book credits 464 of them as person fills, but not one as a household. Counted whole, the
+  completion audit reads 3,579 present, against the 3,265 ceiling.
+- **Routed:** the 31 still owed go to **T-2236**, which forms keepers' households in the empty
+  store roofs by moving the store-trade heads the town holds. Counting the households
+  outside the index into the household quota is **T-2237**. `town_census.py`'s note now
+  names that ruling instead of split T-2188.
+
+## T-2235 — Restore Glessner's west-wing courtyard roof (2026-10-09)
+
+Corrects T-2231's lowered rear ridge and exposed courtyard wall. The west
+wing now retains its full 38.6-ft north-south ridge and front/rear gables,
+with a complete courtyard slope and the matching 2.36-ft overhang ending at
+24 ft. The west-facing cross-gable retains its corrected frontage and slopes;
+it intersects the full roof instead of defining the whole wing's section.
+The inside courtyard corner closes to the actual roof underside. The connected
+west dormer returns; recent bay, windows, dark glass and source-review work remain.
+
+The owner instruction, supplied images and earlier roof/courtyard diagrams
+are reconciled in `docs/RESEARCH/glessner-courtyard-roof-2235/README.md`, with
+actual-model before/after views. L-glessner-courtyard-ridge-2235 records the
+reconstruction limits and supersedes the low-ridge interpretation in T-2231.
+
+Geometry/window checks, actual-model comparisons and published desktop/full
+and mobile/light six-view review pass. The final integrated repository gate passes all
+794 steps; published desktop and mobile stage 13 each pass all 126 assertions. Exact assets
+and browser receipts are in the review folder.
+
+## T-2199 — Glessner reference recovery (2026-10-09)
+
+The bounded 17-record pass recovered and reviewed material for ten records;
+seven underlying images remain unavailable (two Encyclopedia, four Barford,
+one AIC Nickel print). The library records exact outcomes, dates, rights and
+independence; Cornell and the report plate join known exposure families. An
+additional IIT 1945 facade photograph stays copyright/link-only. Unsupported
+Barford date bounds are removed, and an uncredited nomination sketch is now
+unknown/link-only rather than assumed public domain from federal custody.
+The Yale lead is VRC 36, Box 34, seven unidentified photographs (PDF page 18).
+
+The visitor can open the retrieval report, prioritized remaining-view matrix,
+measured-photo brief and unsent archive inquiries from the Glessner section and
+image cards. Sources and limits: `../../prairie_1904_v1/docs/glessner-reference-recovery.html`.
+No new pre-1904 courtyard view was recovered; no geometry or dark-glass change.
+T-2200–T-2228 remain held. Validation receipts accompany the delivery PR.
+
+## T-2195 — the Market wedge, plat block 21, cut into four reconstructed lots (2026-10-08)
+
+The owner answered T-1957's question on 2026-10-08 with **(b)**: build on the wedge's eastern
+two-thirds only. T-1957 was split into T-2195 (cut the lots, this) and T-2196 (raise its two
+boarding houses). `blk_south_water_market` is now emitted by `tools/generate_plat_lots.py`
+(`build_wedge`), cut on the drawn corridors with no line moved:
+
+- **Four lots, not "about five".** Lake Street lots 6, 7 and 8 and South Water lot 1. A lot is kept
+  where its mean depth reaches half the tier's 40.2 m; South Water lot 2 reads 18.6 m and is
+  withheld. The shallowest lot cut anywhere else (26.68 m) keeps the same four. L409 records it.
+- **Three structures already stood on this ground**: `newberry_dole_warehouse`, `inf_cooperage_south`
+  and `inf_sawpit_shed`. The block has 4 roofs of room where the schedule held 8 against an assumed
+  eight lots, and on the tree merged with T-2176 it deals three of them: a D5, an F4 and an H3 (the
+  boarding house T-2196 raises). The rest go back to the South balance.
+- **Seating, re-derived over T-2176** (2026-10-09 lap): T-2176 had already built the D5 and D6 the
+  branch first moved here, so its own seats stand. Against dev the deal moves exactly one household:
+  hh_dixon_robert, handed on until then, is dealt the D5 slot on the wedge's lot 7
+  (`blk_south_water_market#01`). Seated 214 → 215 (L270 restated); no adopted roof changes hands.
+  The seating chain and the keeper pass settled in one lap (the keepers' refusal prose restated on
+  58 roofs, text only).
+- **Visible:** plank walks on the Lake, Franklin and South Water faces, five board crossings, an alley
+  lane, kept yards on the two improved lots and prairie remnant on the vacant ones. The wedge's west
+  edge is the cut, not Market Street, so `generate_frontage_works` skips it
+  (`wedge.faces_off_the_street`), and the cross-street face count reads 47.
+- **Two re-budgets, both named:** `check_plank_ground.mjs`'s crossing allocation goes 9,000 → 10,000
+  (the five crossings cost 668 triangles: 9,470 over 105), and the corridor-strip baseline is
+  re-written because the T-0419 counterfactual now counts the wedge (87 blocks, 425 lots, 36 re-cut, 66 roofs on moved blocks over T-2176's 64).
+- **Inherited red ported:** the order book's household rows named split T-2188. They now go to T-2193
+  (family dwellings) and T-2194 (store residences), the way T-2186 ported the last split. The South's
+  boarding-house cell goes to T-2196.
+
+## T-2198 — Glessner source identity and evidence review (2026-10-09)
+
+The 168-record exterior/courtyard audit is reconciled into the research library.
+Four Florian captions are corrected with their prior descriptions preserved; three
+additional 1948 references remain copyright/link-only. Every record states its
+review status, phase and source-use limit. Disputed Lowe attribution and the rejected
+door sheet are excluded; reproduction families do not multiply corroboration.
+The viewer exposes these findings and correction history. No geometry changed;
+T-2183 and dark glass are retained. The 17 unavailable images remain catalog-only,
+and the other 30 tickets stay held. Sources and limits are recorded in
+`../../prairie_1904_v1/docs/glessner-source-review.md`.
+Final gate and browser receipts are recorded on the delivery PR.
+
+## T-2231 — Glessner west front gable and rear frontage (2026-10-09)
+
+The front west gable has a steeper rear-facing slope, with its apex at S18.4
+and its low-roof transition at S35 of the measured 59.75-ft frontage. The rear
+section therefore occupies 41.4% of the west elevation. The lower roof, hood,
+cornice and northwest shoulder meet the revised profile; the courtyard windows
+and projecting eave retain T-2183's controls. Dimensions remain reconstructed.
+
+Before/after actual-GLB views, reference controls and validation receipts:
+`RESEARCH/glessner-west-profile-2231/README.md`. Both owner references were
+reviewed against the final west and northwest renders. All 792 repository
+checks, 3,000 roof samples, nine masonry/glass checks, recovery verification,
+and focused published desktop/mobile review pass. Published desktop and mobile stage 13 each
+pass all 126 checks with zero page errors. Dev `7aed0a2a` is integrated, and
+full preflight on the combined tree passes all 792 steps. The report states
+the browser runs' timing relative to integration; the full town smoke was
+not rerun. Subsequent dev `35dae52e` is also integrated verbatim, and final
+preflight again passes all 792 steps. Glessner asset checksums are unchanged.
+
+## T-2176 — the South's last asked-for houses and its last owed barn: block 81's lot 1, block 95's lot 1, and a barn on South Water–Wells (2026-10-08)
+
+Rebuilt on `dev` at bd4f140d0 from salvage PR #536, then lapped over T-2179 (2acf51667) and walked again. That branch was cut before T-2174 re-dealt the
+schedule and built a D2 and a D4 that are no longer asked for, so its recipe entries, prose and
+order-book edit were ported and re-aimed. Its meshes and seating were thrown away and re-derived.
+
+- **Three second-deal recipe entries** in `1835_platted_block_parcels.json`, built by
+  `generate_block_infill.py`: `phase3_platted_block_school_section_tier_81_lot_1` (`seq_start` 7, a
+  D5 on lot 1 fronting Monroe, dealt against hh_dewey_s's slot);
+  `phase3_platted_block_school_section_tier_95_lot_1` (`seq_start` 7, a D6 on lot 1 fronting
+  Monroe, dealt against hh_dickson_david's slot); and
+  `phase3_platted_block_south_water_wells_second_yard_deal` (`seq_start` 10, an A2 behind the D3
+  on lot 7). The first entries of blocks 81 and 95 no longer name lot 1 open. **L408** records the
+  invention.
+- **Seating at its fixpoint**: thirteen full laps on the tree merged with T-2179 (adopt_street_faces → reconcile_665 → redeal →
+  keepers → the four infill generators → reconcile_665 → the seating chain), the last moving
+  nothing. **214 seated, all adopted, no `slot` left on the plat**. 22 households change roof:
+  hh_coslet_elisabeth adopts the D5 and hh_comstock_h_h the D6, and the two who asked are seated on
+  standing South roofs (hh_dewey_s on recon_1835_south_d3_017, hh_dickson_david on
+  recon_1835_south_d4_014). Keepers 96 → 97. L263 659 → 662, L270 214 held, L276 96 → 97. The
+  order book's seated pin holds at 313.
+- **Baked** (`bake.sh --only`, pinned Blender 4.5.3): the three new meshes and the 19 roofs the first walk moved, then the 11 the walk over T-2179 moved again, all
+  with web derivatives. Generator half 699/693 → 702/696.
+- **Re-derived**: `rederive.mjs --tail` from `adopt_street_faces`, from `compile_liberties` and
+  from `town_census` (after the completion audit), plus entrances, alley lanes, woodpiles, the
+  register, hay limits, land tracts, the population profile and the Newberry leads (all four
+  volumes re-parsed). The T-0419 corridor baseline is rewritten: `roofs_on_moved_blocks` 63 → 64,
+  the barn on South Water–Wells.
+- **Owners moved.** The South barn row reads 0 owed. The six dwellings the schedule still deals (a
+  D2 and a D4 on `blk_south_water_wells`, and the gated `blk_south_water_market`'s) have no
+  household asking for them. `build_order_book_1835.OWNERS` points the South's dwelling, barn and
+  outbuilding rows at **T-2182**, which was filed for them.
+
 ## T-2183 — Glessner courtyard windows and continuous eave (2026-10-08)
 
 Recovered the source checkpoint `c497167` on the owner's request. Principal
@@ -956,6 +1115,20 @@ the household model drew for them (508 people), and 121 stand alone with a card 
   aged twenty and over, the cards name 1,190 and the stages drew 276, so the town holds 1,466,
   523 over. The 202 are discharged in the book (`adult_men_ruling`); it converges 3,135 → 2,933.
   The same credit holds the women's and children's orders down; that is not touched here.
+- **The family dwellings (T-2193, piece 1 of T-2188).** The 335 family dwellings the book still
+  ordered were already standing. Of the 1,239 present head records the book counts as awaiting a
+  household, the housing seats (T-1971/T-1972) put 250 under a dwelling dealt to them by the
+  platted and off-plat seating ("lived here") and 179 more under a dwelling as a family of two or
+  more ("shared this roof"). Both joins live beside the card, and the book counts houses off the
+  card, so it kept ordering them. `tools/count_held_head_dwellings_1835.py` counts them into
+  `households/family_dwelling/<division>`, dealt roofs first, then the larger family, then a seed,
+  up to each division's order: north 88, south 168, west 79. The 94 seated families past a full
+  order are listed in `data/reconstruction/1835_held_head_dwellings.json` with the reason. Houses
+  still owed fall 399 → 64 (424 → 89 before T-2194's store ruling landed under it) and the
+  population is unchanged (2,931): nobody is minted, moved or re-carded, and a boarder is never
+  counted as a household. The women-and-children stage adds these fills back to its house quota,
+  so it re-derives byte for byte. **Not done here:** the 31 store keepers T-2194's ruling leaves
+  owed are **T-2236**'s. The seats refuse every store roof, so no held head stands over a shop.
 - **What it moved downstream, measured on the rebuilt layer.** The ruling's first names stepped
   past full names only, so two invented children (Henry Stewart, Sarah Smith) turned the
   re-admission stage away from the roster's Hart L. Stewart and Siman Smith on surname and first

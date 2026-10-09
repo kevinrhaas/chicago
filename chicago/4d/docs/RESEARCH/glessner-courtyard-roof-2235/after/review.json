@@ -1,0 +1,567 @@
+{
+  "glb": "/workspace/chicago/chicago/4d/assets/gltf/glessner_house__as_built_1887.glb",
+  "sha256": "e29f50e208e23de69cfabc14fb6062e48a08cfa0666f1ecaf9d4f6a3abdd0204",
+  "blender": "4.5.3 LTS",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 20,
+    "seed": 1904,
+    "resolution": [
+      1100,
+      880
+    ],
+    "view_transform": "AgX",
+    "look": "AgX - Base Contrast",
+    "exposure_ev": -1.5,
+    "neutral_ground_linear_rgb": [
+      0.18,
+      0.17,
+      0.15
+    ],
+    "sky": "overcast",
+    "sun_elevation_deg": 32,
+    "sun_azimuth_deg": 45,
+    "world_strength": 1.0,
+    "sun_intensity": 0.0,
+    "photographic_sky": null,
+    "overcast_relative_distribution": "(1+2*sin(elevation))/3",
+    "overcast_zenith_linear_rgb": [
+      5.58,
+      5.79,
+      6.0
+    ]
+  },
+  "model": {
+    "bounds_m": {
+      "min": [
+        -0.4448623061180115,
+        -0.133725106716156,
+        -0.02500000037252903
+      ],
+      "max": [
+        49.41305923461914,
+        23.586040496826172,
+        15.044899940490723
+      ]
+    },
+    "mesh_objects": 1,
+    "vertices": 2559559,
+    "polygons": 1081105,
+    "materials": [
+      "brick",
+      "brick_buff",
+      "brick_dark_red",
+      "brick_smoky",
+      "copper",
+      "drive",
+      "glass",
+      "glass_dark",
+      "granite",
+      "granite_1",
+      "granite_2",
+      "granite_3",
+      "granite_4",
+      "iron",
+      "lawn",
+      "limestone_trim",
+      "linen_blind",
+      "mortar",
+      "oak",
+      "painted_wood",
+      "roof_plane",
+      "roof_plane_1",
+      "roof_plane_2",
+      "roof_plane_3",
+      "rough_stone_trim",
+      "turf_blade_dark",
+      "turf_blade_light",
+      "turf_blade_middle"
+    ],
+    "imported_shader_parameters": {
+      "brick_smoky": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "mortar": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "painted_wood": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "granite_3": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "glass": {
+        "Transmission Weight": 1.0,
+        "IOR": 1.52,
+        "Roughness": 0.065,
+        "Metallic": 0.0
+      },
+      "roof_plane_1": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "iron": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": 0.4,
+        "Metallic": 0.7
+      },
+      "rough_stone_trim": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "granite_4": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "roof_plane": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "oak": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "granite": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "roof_plane_2": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "glass_dark": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": 0.92,
+        "Metallic": 0.0
+      },
+      "turf_blade_dark": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": 0.92,
+        "Metallic": 0.0
+      },
+      "brick_dark_red": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "brick": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "lawn": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "roof_plane_3": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "granite_1": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "turf_blade_middle": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": 0.92,
+        "Metallic": 0.0
+      },
+      "brick_buff": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "limestone_trim": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "drive": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "linen_blind": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": 0.98,
+        "Metallic": 0.0
+      },
+      "granite_2": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "copper": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": "texture-linked",
+        "Metallic": "texture-linked"
+      },
+      "turf_blade_light": {
+        "Transmission Weight": 0.0,
+        "IOR": 1.5,
+        "Roughness": 0.92,
+        "Metallic": 0.0
+      }
+    },
+    "images": [
+      {
+        "name": "brick_basecolor",
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "brick_normal",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "brick_roughness",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "copper_basecolor",
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "copper_normal",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "copper_roughness",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "granite_normal",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "granite_photographic_basecolor",
+        "size": [
+          1254,
+          1254
+        ]
+      },
+      {
+        "name": "granite_roughness",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "gravel_basecolor",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "gravel_normal",
+        "size": [
+          512,
+          512
+        ]
+      },
+      {
+        "name": "gravel_roughness",
+        "size": [
+          512,
+          512
+        ]
+      },
+      {
+        "name": "limestone_basecolor",
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "limestone_normal",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "limestone_roughness",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "mortar_basecolor",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "mortar_normal",
+        "size": [
+          512,
+          512
+        ]
+      },
+      {
+        "name": "mortar_roughness",
+        "size": [
+          512,
+          512
+        ]
+      },
+      {
+        "name": "oak_basecolor",
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "oak_normal",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "oak_roughness",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "painted_wood_basecolor",
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "painted_wood_normal",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "painted_wood_roughness",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "terracotta_basecolor",
+        "size": [
+          2048,
+          2048
+        ]
+      },
+      {
+        "name": "terracotta_normal",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "terracotta_roughness",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "turf_normal",
+        "size": [
+          512,
+          512
+        ]
+      },
+      {
+        "name": "turf_patch_photographic_basecolor",
+        "size": [
+          1254,
+          1254
+        ]
+      },
+      {
+        "name": "turf_roughness",
+        "size": [
+          512,
+          512
+        ]
+      }
+    ]
+  },
+  "review_additions": [
+    "Neutral ground plane, z=-0.005 m",
+    "CIE overcast mathematical sky",
+    "Review camera; no GLB mesh or material edits"
+  ],
+  "renders": [
+    {
+      "name": "courtyard-west",
+      "position": [
+        33,
+        0,
+        2
+      ],
+      "target": [
+        9,
+        14,
+        7
+      ],
+      "lens": 32,
+      "path": "/workspace/chicago/chicago/4d/docs/RESEARCH/glessner-courtyard-roof-2235/after/courtyard-west.png",
+      "seconds": 26.1
+    },
+    {
+      "name": "stable-south",
+      "position": [
+        6,
+        -21,
+        1.7
+      ],
+      "target": [
+        5.4,
+        4.34,
+        5.2
+      ],
+      "lens": 38,
+      "path": "/workspace/chicago/chicago/4d/docs/RESEARCH/glessner-courtyard-roof-2235/after/stable-south.png",
+      "seconds": 20.87
+    },
+    {
+      "name": "courtyard-west-roof",
+      "position": [
+        29,
+        -12,
+        14
+      ],
+      "target": [
+        8,
+        11,
+        7.4
+      ],
+      "lens": 38,
+      "path": "/workspace/chicago/chicago/4d/docs/RESEARCH/glessner-courtyard-roof-2235/after/courtyard-west-roof.png",
+      "seconds": 33.77
+    },
+    {
+      "name": "west",
+      "position": [
+        -150,
+        13.4493,
+        6.3
+      ],
+      "target": [
+        0,
+        13.4493,
+        6.3
+      ],
+      "lens": 200,
+      "path": "/workspace/chicago/chicago/4d/docs/RESEARCH/glessner-courtyard-roof-2235/after/west.png",
+      "seconds": 25.43
+    },
+    {
+      "name": "northwest",
+      "position": [
+        -25,
+        48,
+        2.0
+      ],
+      "target": [
+        10,
+        20,
+        6.3
+      ],
+      "lens": 40,
+      "path": "/workspace/chicago/chicago/4d/docs/RESEARCH/glessner-courtyard-roof-2235/after/northwest.png",
+      "seconds": 23.92
+    },
+    {
+      "name": "west-street",
+      "position": [
+        -28,
+        13.4493,
+        1.7
+      ],
+      "target": [
+        0,
+        13.4493,
+        6.0
+      ],
+      "lens": 36,
+      "path": "/workspace/chicago/chicago/4d/docs/RESEARCH/glessner-courtyard-roof-2235/after/west-street.png",
+      "seconds": 22.63
+    }
+  ]
+}
