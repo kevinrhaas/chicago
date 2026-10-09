@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1571, ts: '2026-10-09T10:37:53.730Z', date: 'Oct 9, 2026, 5:37 AM CT', title: 'The Chappel school shore drawing now says where it came from', kind: 'fix',
+    items: [
+      'Open the unattributed drawing of a log schoolhouse on a shore in the Sources panel. It now links to the page it was copied from, a 2018 Illinois history blog post about Eliza Chappell, and to an archived copy of that page.',
+      'The post credits no artist, date or book, so who drew it is still unknown. Nothing in the town is built from it.',
+    ] },
   { v: 1570, ts: '2026-10-09T09:59:25.297Z', date: 'Oct 9, 2026, 4:59 AM CT', title: 'The town plan stops promising a lot that has no room', kind: 'fix',
     items: [
       'Nothing you can see changes. The plan of where the 1835 town\u2019s last roofs could go still counted the South Water Street lot at the Wells corner, on the block between Wells and La Salle, as free, because the clause for shop fronts lets a house share a lot with H. Jones\u2019s store. The store leaves about 7.5 m of that lot\u2019s front, less than the narrowest house the plan ever deals.',
