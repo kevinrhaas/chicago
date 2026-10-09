@@ -6363,6 +6363,21 @@ step "every household present on the scene date sleeps under a standing roof" \
 selftest "…and its guards still fire when broken" \
   python3 tools/house_the_present_1835.py --self-test
 
+# T-2193, piece 1 of T-2188. THE FAMILY DWELLINGS THE TOWN ALREADY FORMS. The order book
+# still ordered 338 family dwellings beside 1,243 held head records it counts as awaiting a
+# household, while the seats above had already put hundreds of those very records under a
+# standing dwelling, either dealt to them or shared by their family. The book counts houses
+# off the card and the seats live beside it, so the houses stood uncounted.
+# `count_held_head_dwellings_1835.py` counts them into the book's family_dwelling cells,
+# dealt roofs first, up to each division's order. Refused: a boarder counted as a household,
+# a lodging-house roof, a record the book already counts as a house, a household seated
+# twice, and a count past the order. Nobody is minted and the town's population is unchanged.
+step "the held heads the seats put under a dwelling are the family dwellings the book counts" \
+  python3 tools/count_held_head_dwellings_1835.py --check
+
+selftest "…and a boarder, a lodging roof and a count past the order are refused" \
+  python3 tools/count_held_head_dwellings_1835.py --self-test
+
 # T-1989, piece 2 of T-1986. THE EMPTY TRADE ROOFS. Four anonymous trade roofs (a joiner's
 # shop, a warehouse, a riverside work shop, a store) stood empty while the employment
 # ledger owed 188 keepers a house of their own. `seat_trade_roofs_1835.py` offers each
