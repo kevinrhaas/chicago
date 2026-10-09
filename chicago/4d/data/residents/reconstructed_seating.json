@@ -4265,6 +4265,32 @@
       "chosen_by": []
     },
     {
+      "person_id": "rc_eastman_david",
+      "person_name": "David Eastman",
+      "household_id": "hh_rc_garrison_company_2",
+      "kind": "no_employer_named",
+      "trade": "soldier",
+      "premises": "no_fixed_premises",
+      "division_of_the_person": "fort",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
+      "tier": "reconstructed",
+      "seed": "rc_eastman_david:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "basis": {
+        "kind": "ruling",
+        "id": "no_fixed_premises_and_no_class_employs_this_trade",
+        "note": "The premises ruling: The garrison is the fort's establishment. exercised at an establishment the person does not keep. The staffing model employs this trade in no class of house, so there is no house to point at and this pass names none. The absence is the reading."
+      },
+      "replaceable_by": {
+        "kind": "business",
+        "match": "an establishment record for the place this ruling names — the post, the school, the household served — after which the seat re-derives onto it"
+      },
+      "chosen_by": []
+    },
+    {
       "person_id": "rc_eastman_eli",
       "person_name": "Eli Eastman",
       "household_id": "hh_rc_garrison_company_1",
@@ -6578,32 +6604,6 @@
       "replaceable_by": {
         "kind": "business",
         "match": "a boarding house raised for this person on one of those roofs, after which this block becomes a proprietorship"
-      },
-      "chosen_by": []
-    },
-    {
-      "person_id": "rc_hastings_elisha",
-      "person_name": "Elisha Hastings",
-      "household_id": "hh_rc_garrison_company_2",
-      "kind": "no_employer_named",
-      "trade": "soldier",
-      "premises": "no_fixed_premises",
-      "division_of_the_person": "fort",
-      "business_id": null,
-      "business_name": null,
-      "role": null,
-      "tier": "reconstructed",
-      "seed": "rc_hastings_elisha:employment",
-      "ticket": "T-1433",
-      "parent_ticket": "T-1189",
-      "basis": {
-        "kind": "ruling",
-        "id": "no_fixed_premises_and_no_class_employs_this_trade",
-        "note": "The premises ruling: The garrison is the fort's establishment. exercised at an establishment the person does not keep. The staffing model employs this trade in no class of house, so there is no house to point at and this pass names none. The absence is the reading."
-      },
-      "replaceable_by": {
-        "kind": "business",
-        "match": "an establishment record for the place this ruling names — the post, the school, the household served — after which the seat re-derives onto it"
       },
       "chosen_by": []
     },
@@ -10240,6 +10240,32 @@
       "candidates_considered": 74
     },
     {
+      "person_id": "rc_newell_george",
+      "person_name": "George Newell",
+      "household_id": "hh_rc_garrison_company_1",
+      "kind": "no_employer_named",
+      "trade": "soldier",
+      "premises": "no_fixed_premises",
+      "division_of_the_person": "fort",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
+      "tier": "reconstructed",
+      "seed": "rc_newell_george:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "basis": {
+        "kind": "ruling",
+        "id": "no_fixed_premises_and_no_class_employs_this_trade",
+        "note": "The premises ruling: The garrison is the fort's establishment. exercised at an establishment the person does not keep. The staffing model employs this trade in no class of house, so there is no house to point at and this pass names none. The absence is the reading."
+      },
+      "replaceable_by": {
+        "kind": "business",
+        "match": "an establishment record for the place this ruling names — the post, the school, the household served — after which the seat re-derives onto it"
+      },
+      "chosen_by": []
+    },
+    {
       "person_id": "rc_newell_hiram",
       "person_name": "Hiram Newell",
       "household_id": "hh_rc_newell_hiram",
@@ -11134,6 +11160,32 @@
       "chosen_by": []
     },
     {
+      "person_id": "rc_parmelee_ezra",
+      "person_name": "Ezra Parmelee",
+      "household_id": "hh_rc_garrison_company_1",
+      "kind": "no_employer_named",
+      "trade": "soldier",
+      "premises": "no_fixed_premises",
+      "division_of_the_person": "fort",
+      "business_id": null,
+      "business_name": null,
+      "role": null,
+      "tier": "reconstructed",
+      "seed": "rc_parmelee_ezra:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "basis": {
+        "kind": "ruling",
+        "id": "no_fixed_premises_and_no_class_employs_this_trade",
+        "note": "The premises ruling: The garrison is the fort's establishment. exercised at an establishment the person does not keep. The staffing model employs this trade in no class of house, so there is no house to point at and this pass names none. The absence is the reading."
+      },
+      "replaceable_by": {
+        "kind": "business",
+        "match": "an establishment record for the place this ruling names — the post, the school, the household served — after which the seat re-derives onto it"
+      },
+      "chosen_by": []
+    },
+    {
       "person_id": "rc_parmelee_jared",
       "person_name": "Jared Parmelee",
       "household_id": "hh_lodging_recon_1835_blk_washington_market_h3_01",
@@ -11326,32 +11378,6 @@
         "kind": "ruling",
         "id": "no_fixed_premises_and_no_class_employs_this_trade",
         "note": "The premises ruling: Taught in the pupil's house or in a room hired for the term. exercised at an establishment the person does not keep. The staffing model employs this trade in no class of house, so there is no house to point at and this pass names none. The absence is the reading."
-      },
-      "replaceable_by": {
-        "kind": "business",
-        "match": "an establishment record for the place this ruling names — the post, the school, the household served — after which the seat re-derives onto it"
-      },
-      "chosen_by": []
-    },
-    {
-      "person_id": "rc_parmelee_warren",
-      "person_name": "Warren Parmelee",
-      "household_id": "hh_rc_garrison_company_1",
-      "kind": "no_employer_named",
-      "trade": "soldier",
-      "premises": "no_fixed_premises",
-      "division_of_the_person": "fort",
-      "business_id": null,
-      "business_name": null,
-      "role": null,
-      "tier": "reconstructed",
-      "seed": "rc_parmelee_warren:employment",
-      "ticket": "T-1433",
-      "parent_ticket": "T-1189",
-      "basis": {
-        "kind": "ruling",
-        "id": "no_fixed_premises_and_no_class_employs_this_trade",
-        "note": "The premises ruling: The garrison is the fort's establishment. exercised at an establishment the person does not keep. The staffing model employs this trade in no class of house, so there is no house to point at and this pass names none. The absence is the reading."
       },
       "replaceable_by": {
         "kind": "business",
@@ -14025,32 +14051,6 @@
       "role": null,
       "tier": "reconstructed",
       "seed": "rc_sullivan_thomas:employment",
-      "ticket": "T-1433",
-      "parent_ticket": "T-1189",
-      "basis": {
-        "kind": "ruling",
-        "id": "no_fixed_premises_and_no_class_employs_this_trade",
-        "note": "The premises ruling: The garrison is the fort's establishment. exercised at an establishment the person does not keep. The staffing model employs this trade in no class of house, so there is no house to point at and this pass names none. The absence is the reading."
-      },
-      "replaceable_by": {
-        "kind": "business",
-        "match": "an establishment record for the place this ruling names — the post, the school, the household served — after which the seat re-derives onto it"
-      },
-      "chosen_by": []
-    },
-    {
-      "person_id": "rc_thayer_alanson",
-      "person_name": "Alanson Thayer",
-      "household_id": "hh_rc_garrison_company_1",
-      "kind": "no_employer_named",
-      "trade": "soldier",
-      "premises": "no_fixed_premises",
-      "division_of_the_person": "fort",
-      "business_id": null,
-      "business_name": null,
-      "role": null,
-      "tier": "reconstructed",
-      "seed": "rc_thayer_alanson:employment",
       "ticket": "T-1433",
       "parent_ticket": "T-1189",
       "basis": {
