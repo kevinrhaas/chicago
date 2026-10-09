@@ -77,13 +77,13 @@
   "partners": [
     {
       "name": "J. L. Wilson",
-      "person_id": null,
+      "person_id": "wilson_john",
       "register_person_id": null,
       "role": "partner",
       "from": "1834-09-17",
       "to": "1835-07-18",
       "tier": "attested",
-      "basis": "A proprietor string the gazetteer reads as a person, which the register's own person list does not carry under this spelling. The name is the evidence; no link is claimed. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "basis": "A proprietor string the gazetteer reads as a person, which the register's own person list does not carry under this spelling. The name is the evidence; no link is claimed. Linked to the town card wilson_john at inferred (T-2245): The register already matches this house's own advertisement of 1834-09-17 (chicago_democrat_1834_09_17#c003, set 'L. WILSON & CO.', read 'Wilson, J. L. & Co.') to the town card wilson_john, under the gazetteer's identity policy, surname plus forename initials (register person person_wilson_j_l_co, action enrich). identity.json's firm merge reads 'Jno. L. Wilson & Co.' as this same house with the forename set as this corpus's abbreviation for John. The partner row 'J. L. Wilson' is that man; the register could not carry its match here only because it links by exact spelling. Inferred, not attested: the card is a letter list's John Wilson and carries no middle initial. Dated by the printing window, which bounds the reading and does not date the partnership.",
       "source_id": "chicago_newspapers_1833_1835",
       "claim_ids": [
         "chicago_american_1835_06_08#c012",
@@ -96,7 +96,12 @@
         "chicago_democrat_1834_12_03#c006",
         "chicago_democrat_1835_05_20#c018"
       ],
-      "also_printed_as": []
+      "also_printed_as": [],
+      "link": {
+        "ticket": "T-2245",
+        "tier": "inferred",
+        "basis": "The register already matches this house's own advertisement of 1834-09-17 (chicago_democrat_1834_09_17#c003, set 'L. WILSON & CO.', read 'Wilson, J. L. & Co.') to the town card wilson_john, under the gazetteer's identity policy, surname plus forename initials (register person person_wilson_j_l_co, action enrich). identity.json's firm merge reads 'Jno. L. Wilson & Co.' as this same house with the forename set as this corpus's abbreviation for John. The partner row 'J. L. Wilson' is that man; the register could not carry its match here only because it links by exact spelling. Inferred, not attested: the card is a letter list's John Wilson and carries no middle initial."
+      }
     }
   ],
   "staff": [],
@@ -137,11 +142,19 @@
   "exclusion": null,
   "exclusion_note": null,
   "proprietor_community": {
-    "value": "unknown",
-    "tier": null,
-    "rule": "no_person_linked",
-    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
-    "from": []
+    "value": "new_york",
+    "tier": "inferred",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read new_york: J. L. Wilson (new_york). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "wilson_john",
+        "name": "J. L. Wilson",
+        "role": "partner",
+        "community": "new_york",
+        "tier": "inferred"
+      }
+    ]
   },
   "customers": [],
   "sources": [

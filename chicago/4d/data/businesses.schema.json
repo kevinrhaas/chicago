@@ -48,6 +48,7 @@
         "to": {"$ref": "#/$defs/date"},
         "tier": {"$ref": "#/$defs/tier"},
         "basis": {"type": "string", "minLength": 1},
+        "link": {"type": "object", "required": ["ticket", "tier", "basis"], "additionalProperties": false, "description": "Set only by a T-2245 partner link (data/businesses/rulings/partner_links.json): the card `person_id` names was linked by a ruling that states its reasoning, not by the register's own match of the printed spelling. The link carries its own tier, which is never the printed name's.", "properties": {"ticket": {"type": "string", "pattern": "^T-[0-9]{4}$"}, "tier": {"enum": ["inferred"]}, "basis": {"type": "string", "minLength": 1}}},
         "source_id": {"type": ["string", "null"]},
         "claim_ids": {"type": "array", "items": {"type": "string"}},
         "also_printed_as": {"type": "array", "items": {"type": "string"},
