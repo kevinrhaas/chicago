@@ -1,8 +1,12 @@
 export const CHANGELOG = [ // newest first
-  { v: 1579, ts: '2026-10-09T15:18:27.782Z', date: 'Oct 9, 2026, 10:18 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: 1580, ts: '2026-10-09T15:56:27.576Z', date: 'Oct 9, 2026, 10:56 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
+    ] },
+  { v: 1579, ts: '2026-10-09T15:17:29.000Z', date: 'Oct 9, 2026, 10:17 AM CT', title: 'Five South houses stay owed until the street work', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The five houses still owed on the South side\u2019s unsurveyed blocks are kept, not cut, on the owner\u2019s answer. The plan of what is left to build now files them under the street work that will open those blocks, so the automated checks pass again.',
     ] },
   { v: 1578, ts: '2026-10-09T14:18:56.253Z', date: 'Oct 9, 2026, 9:18 AM CT', title: 'Two more shopkeepers live over their own stores', kind: 'fix',
     items: [
