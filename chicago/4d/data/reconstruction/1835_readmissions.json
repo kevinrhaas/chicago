@@ -71,13 +71,13 @@
  },
  "counts": {
   "offered": {
-   "R1_in_window_uncertain": 883,
+   "R1_in_window_uncertain": 882,
    "R2_in_window_single_source": 207,
    "R3_1834_return_or_muster": 28,
    "R5_later_only_backprojectable": 53
   },
   "readmitted": {
-   "R1_in_window_uncertain": 782,
+   "R1_in_window_uncertain": 781,
    "R2_in_window_single_source": 57,
    "R3_1834_return_or_muster": 20,
    "R5_later_only_backprojectable": 39
@@ -88,7 +88,7 @@
    "R3_1834_return_or_muster": 8,
    "R5_later_only_backprojectable": 14
   },
-  "presence_ruled_present": 736,
+  "presence_ruled_present": 735,
   "presence_ruled_absent": 46,
   "cards_minted": 116,
   "minted_present": 106
@@ -20755,34 +20755,6 @@
      "note": "The corpus last names this person on 1834-07-02, 1.00 years before the scene date, and says nothing after it. The persistence model gives 0.939 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_wescott_seth:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
-   "row_id": "card:hh_wesencraft_charlotte",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_wesencraft_charlotte",
-   "name_as_read": "Charlotte Wesencraft",
-   "dated_evidence": "1833-12-03",
-   "dated_evidence_read_as": "1833-12-03",
-   "years_before_the_scene": 1.5743,
-   "persistence": 0.9048,
-   "seed": "hh_wesencraft_charlotte:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1833-12-03, 1.57 years before the scene date, and says nothing after it. The persistence model gives 0.905 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_wesencraft_charlotte:persistence",
     "replaceable_by": {
      "kind": "person",
      "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"

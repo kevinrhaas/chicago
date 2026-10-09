@@ -9585,6 +9585,155 @@
     "review_required": false,
     "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
    }
+  },
+  "hh_wesencraft_charlotte": {
+   "folded_into": "hh_marknoble_jun",
+   "card": {
+    "id": "hh_wesencraft_charlotte",
+    "name": "The Wesencraft household — a name the town's own records carry",
+    "division": "unplaced",
+    "division_reconstructed": {
+     "value": "north",
+     "confidence": "reconstructed",
+     "tier": "reconstructed",
+     "band": "north/farms_and_country_seats",
+     "clause": "farms_and_country_seats",
+     "note": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the north division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's farms_and_country_seats clause. The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+     "basis": {
+      "kind": "model",
+      "id": "policy_only_deal",
+      "note": "data/reconstruction/1835_address_book.json#policy_only_deal — the division off the reconstruction order book's household target by division, the class off the town model's employment_shape_1840 distribution, dealt exact by largest remainder on a seeded order."
+     },
+     "seed": "hh_wesencraft_charlotte|T-1522|division:33ad79bc3898|class:179f04c9747d",
+     "replaceable_by": {
+      "kind": "household",
+      "match": "any source that places this household in a division or nearer"
+     },
+     "written_by_stage": "policy_only_division"
+    },
+    "head": "wesencraft_charlotte",
+    "source_pass": "civic",
+    "arrival": {
+     "value": "1833-12-03",
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 3 December 1833 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
+     "precision": "not_later_than"
+    },
+    "arrival_year": {
+     "value": 1833,
+     "confidence": "reconstructed",
+     "tier": "reconstructed",
+     "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1833-12-03 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+     "basis": {
+      "kind": "model",
+      "id": "arrival",
+      "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1833."
+     },
+     "seed": "hh_wesencraft_charlotte:arrival_year",
+     "replaceable_by": {
+      "kind": "person",
+      "match": "a dated source that says which year this household came to Chicago"
+     },
+     "written_by_stage": "attribute_fill_arrival"
+    },
+    "party_size_on_arrival": {
+     "value": null,
+     "confidence": "reconstructed",
+     "note": "Not attested."
+    },
+    "origin": {
+     "value": "New England",
+     "confidence": "reconstructed",
+     "tier": "reconstructed",
+     "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+     "basis": {
+      "kind": "model",
+      "id": "origin",
+      "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+     },
+     "seed": "hh_wesencraft_charlotte:origin_region",
+     "replaceable_by": {
+      "kind": "person",
+      "match": "a source that says where this household came from"
+     },
+     "written_by_stage": "attribute_fill_arrival"
+    },
+    "reason_for_coming": {
+     "value": "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+     "confidence": "reconstructed",
+     "tier": "reconstructed",
+     "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+     "basis": {
+      "kind": "rule",
+      "id": "reason_from_arrival_cohort",
+      "note": "arrival_fill.cohort_reasons — the household's arrival year (1833) is the only thing about it this value rests on."
+     },
+     "replaceable_by": {
+      "kind": "person",
+      "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+     },
+     "written_by_stage": "attribute_fill_arrival"
+    },
+    "lives_at": {
+     "value": null,
+     "confidence": "reconstructed",
+     "note": "Not attested: the lists that name this person give no address. The placement sweep assigns homes once the resident list is complete (T-0514, the owner's own sequencing) and this pass will not guess one."
+    },
+    "works_at": {
+     "value": null,
+     "confidence": "reconstructed",
+     "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
+    },
+    "present_on_scene_date": {
+     "value": "uncertain",
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "last_dated_appearance": {
+      "as_read": "1833-12-03",
+      "precision": "day",
+      "reaches": "1833-12-03",
+      "includes_scene_date": false,
+      "days_before_scene_date": 575,
+      "leg": "sighting",
+      "person": "wesencraft_charlotte",
+      "record": "person_charlotte_wesencraft",
+      "sources": [
+       "chicago_democrat_1833_1835"
+      ],
+      "note": "A DATED READING OF THIS PERSON, AND THE LAST ONE THE CORPUS HOLDS. Read from `press_evidence` as `1833-12-03`, which reaches 1833-12-03 — 575 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
+     },
+     "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+    },
+    "kin": [
+     {
+      "person": "wesencraft_charlotte",
+      "relation": "daughter",
+      "household": "hh_wesencraft_charles",
+      "value": "wesencraft_charles",
+      "confidence": "attested",
+      "sources": [
+       "chicago_democrat_1833_1835"
+      ],
+      "note": "THE NOTICE NAMES THE FATHER, AND THAT IS THE WHOLE OF WHAT IS CLAIMED. The Chicago Democrat of 3 December 1833, column 7: 'Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only daughter of Mr. Charles Wesencraft, late of Buffalo'. Both cards were minted from that same reading of that same notice, so nothing is being identified by name here. 'Only daughter' is the paper's own word and no second daughter is implied. Ruled in data/residents/kin_rulings.json under 'hh_wesencraft_charles__daughter__charlotte' (T-1134)."
+     }
+    ],
+    "persons": [
+     "wesencraft_charlotte"
+    ],
+    "touches_removal": false,
+    "review_required": false,
+    "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
+   }
   }
+ },
+ "released_are": "T-2189: the woman-headed houses a frozen pair was dropped from, because its host left the layer (his head ruled absent, or his house withdrawn), each with the host it was folded into. She heads her own house again and no head is matched to her afterwards, so a dropped pair is never re-made with somebody else (`keep_pairs`).",
+ "released": {
+  "hh_rc_bourassa_madeleine": "hh_fisher_pitman",
+  "hh_rc_connor_margaret": "hh_bourque_william"
  }
 }

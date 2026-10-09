@@ -122,13 +122,13 @@
   {
    "person": "wesencraft_charles",
    "relation": "father",
-   "household": "hh_wesencraft_charlotte",
+   "household": "hh_marknoble_jun",
    "value": "wesencraft_charlotte",
    "confidence": "attested",
    "sources": [
     "chicago_democrat_1833_1835"
    ],
-   "note": "THE NOTICE NAMES THE FATHER, AND THAT IS THE WHOLE OF WHAT IS CLAIMED. The Chicago Democrat of 3 December 1833, column 7: 'Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only daughter of Mr. Charles Wesencraft, late of Buffalo'. Both cards were minted from that same reading of that same notice, so nothing is being identified by name here. 'Only daughter' is the paper's own word and no second daughter is implied. Ruled in data/residents/kin_rulings.json under 'hh_wesencraft_charles__daughter__charlotte' (T-1134)."
+   "note": "THE NOTICE NAMES THE FATHER, AND THAT IS THE WHOLE OF WHAT IS CLAIMED. The Chicago Democrat of 3 December 1833, column 7: 'Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only daughter of Mr. Charles Wesencraft, late of Buffalo'. Both cards were minted from that same reading of that same notice, so nothing is being identified by name here. 'Only daughter' is the paper's own word and no second daughter is implied. Ruled in data/residents/kin_rulings.json under 'hh_wesencraft_charles__daughter__charlotte' (T-1134). She keeps house with her husband: the same notice prints her as Mark Noble jun.'s bride, so her card is folded into his (T-2232) and the row names the house she stands in."
   }
  ],
  "persons": [

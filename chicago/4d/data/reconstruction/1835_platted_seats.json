@@ -31,9 +31,9 @@
   "data/research/newspapers/street_face_adoptions.json (the business deal, which goes first — T-1669)"
  ],
  "counts": {
-  "rows_in_scope": 1424,
+  "rows_in_scope": 1423,
   "seated": 215,
-  "owed": 1209,
+  "owed": 1208,
   "by_how": {
    "adopted": 214,
    "slot": 1
@@ -70,7 +70,7 @@
    "heavy_and_noxious_trades": 2,
    "labourer_dwellings": 89,
    "merchant_and_professional_dwellings": 380,
-   "tradesman_dwellings": 502
+   "tradesman_dwellings": 501
   },
   "roofs_offered_for_adoption": 224,
   "roofs_held_back": 62,
@@ -78,9 +78,9 @@
   "seats_the_business_deal_costs": 0
  },
  "what_the_plat_could_not_hold": {
-  "rows": 1209,
+  "rows": 1208,
   "handed_to": "T-1614",
-  "statement": "the committed plat seats 215 of the 1424 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
+  "statement": "the committed plat seats 215 of the 1423 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
  },
  "the_business_deal_goes_first": {
   "ruling": "The street-face business deal (tools/adopt_street_faces.py, L212) deals before this one, and this pass takes what it leaves. Both deals spend one pool of anonymous roofs, so one of them has to go first, and the narrower placement does: a business the paper places on a street can stand on that one face and nowhere else, while a banded household may take any roof of an admitted family in its whole division. Which business goes on which roof of its face is that deal's allocation, as which roof a household takes is this one's. It is an allocation precedence between two of this project's own passes, with no source read on either side and no claim about 1835 either way, so a run settles it and writes down why (T-1669, on the reasoning T-1626 set out for refusal 7).",
@@ -7881,15 +7881,6 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_maclean_archibald",
-   "kind": "household",
-   "band": "south/merchant_and_professional_dwellings",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "south",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_mallet_marie_louise",
    "kind": "household",
    "band": "north/merchant_and_professional_dwellings",
@@ -8782,6 +8773,15 @@
   },
   {
    "id": "hh_steel_richard",
+   "kind": "household",
+   "band": "south/merchant_and_professional_dwellings",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "south",
+   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "handed_to": "T-1614"
+  },
+  {
+   "id": "hh_stephenson_james_w",
    "kind": "household",
    "band": "south/merchant_and_professional_dwellings",
    "clause": "merchant_and_professional_dwellings",
@@ -13020,15 +13020,6 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_stephenson_james_w",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_stevens_l",
    "kind": "household",
    "band": "north/tradesman_dwellings",
@@ -13893,15 +13884,6 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_elizabeth_miner",
-   "kind": "household",
-   "band": "west/labourer_dwellings",
-   "clause": "labourer_dwellings",
-   "district": "west",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_everts_hiram",
    "kind": "household",
    "band": "west/labourer_dwellings",
@@ -13998,6 +13980,15 @@
    "clause": "labourer_dwellings",
    "district": "north",
    "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "handed_to": "T-1614"
+  },
+  {
+   "id": "hh_maclean_archibald",
+   "kind": "household",
+   "band": "south/labourer_dwellings",
+   "clause": "labourer_dwellings",
+   "district": "south",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -15162,6 +15153,15 @@
    "handed_to": "T-1614"
   },
   {
+   "id": "hh_elizabeth_miner",
+   "kind": "household",
+   "band": "west/farms_and_country_seats",
+   "clause": "farms_and_country_seats",
+   "district": "west",
+   "why": "the clause seats this household outside the plat by its own terms (`ground:outside_plat`); the committed lot grid is not its ground",
+   "handed_to": "T-1614"
+  },
+  {
    "id": "hh_elston_daniel",
    "kind": "household",
    "band": "north/division_ground",
@@ -15695,9 +15695,9 @@
   {
    "id": "hh_luke_pike",
    "kind": "household",
-   "band": "south/farms_and_country_seats",
+   "band": "north/farms_and_country_seats",
    "clause": "farms_and_country_seats",
-   "district": "south",
+   "district": "north",
    "why": "the clause seats this household outside the plat by its own terms (`ground:outside_plat`); the committed lot grid is not its ground",
    "handed_to": "T-1614"
   },
@@ -16634,15 +16634,6 @@
    "band": "south/farms_and_country_seats",
    "clause": "farms_and_country_seats",
    "district": "south",
-   "why": "the clause seats this household outside the plat by its own terms (`ground:outside_plat`); the committed lot grid is not its ground",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_wesencraft_charlotte",
-   "kind": "household",
-   "band": "north/farms_and_country_seats",
-   "clause": "farms_and_country_seats",
-   "district": "north",
    "why": "the clause seats this household outside the plat by its own terms (`ground:outside_plat`); the committed lot grid is not its ground",
    "handed_to": "T-1614"
   },

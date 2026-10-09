@@ -6,7 +6,7 @@
  "target_date": "1835-07-01",
  "generated_by": "tools/reconstruct_modelled_families.py --build",
  "not_a_reading": "no source was opened; nobody here is named by one",
- "heads_drawn_for": 125,
+ "heads_drawn_for": 126,
  "people_drawn": 293,
  "wives": 83,
  "children": 210,
@@ -14,8 +14,8 @@
   "a letter-list mint argues for a person and not for a household": 780,
   "a source already names, counts or rules on this household's family": 147,
   "a source marries the head after the scene date": 1,
-  "a source prints her as the wife of a head this stage seats her beside (T-2190)": 1,
-  "a woman heading her own household is the age pyramid's, T-1174": 44,
+  "a source prints her as the wife of a head this stage seats her beside (T-2190)": 2,
+  "a woman heading her own household is the age pyramid's, T-1174": 43,
   "an evidence-only container holds read evidence and not a household to draw a family into": 5,
   "presence on the scene date is not settled (T-1172's roster holds it)": 21,
   "the fort and the country outside the town are not this stage's": 3,
@@ -23,48 +23,48 @@
   "the head is not an adult the household model seats as a husband": 50,
   "the head's own trade says he kept no wife": 1,
   "the household carries a standing review, and only T-1177's stage may reconstruct within one": 4,
-  "the order book has no woman left in this house's cell": 355
+  "the order book has no woman left in this house's cell": 354
  },
  "refused_by_the_order_book": {
-  "persons/female/20_29/north/family/none": 67,
-  "persons/female/20_29/south/family/none": 171,
+  "persons/female/20_29/north/family/none": 65,
+  "persons/female/20_29/south/family/none": 172,
   "persons/female/20_29/west/family/none": 54,
   "persons/female/30_39/north/family/none": 16,
   "persons/female/30_39/south/family/none": 30,
   "persons/female/30_39/west/family/none": 14,
   "persons/female/40_49/south/family/none": 2,
   "persons/female/40_49/west/family/none": 1,
-  "persons/female/under_10/north/family/none": 1,
+  "persons/female/under_10/north/family/none": 2,
   "persons/female/under_10/south/family/none": 4,
-  "persons/female/under_10/west/family/none": 1,
+  "persons/female/under_10/west/family/none": 3,
   "persons/male/10_19/south/family/none": 1,
   "persons/male/under_10/north/family/none": 1,
-  "persons/male/under_10/south/family/none": 2,
+  "persons/male/under_10/south/family/none": 3,
   "persons/male/under_10/west/family/none": 1
  },
- "houses_the_book_refused": 355,
+ "houses_the_book_refused": 354,
  "size_drawn_histogram": {
   "1": 41,
   "2": 74,
-  "3": 95,
-  "4": 85,
+  "3": 94,
+  "4": 84,
   "5": 64,
-  "6": 61,
-  "7": 37,
+  "6": 62,
+  "7": 38,
   "8": 23
  },
  "size_refused_histogram": {
   "2": 62,
-  "3": 79,
-  "4": 72,
+  "3": 78,
+  "4": 71,
   "5": 52,
   "6": 44,
-  "7": 28,
+  "7": 29,
   "8": 18
  },
  "kin_seated_histogram": {
   "1": 41,
-  "2": 14,
+  "2": 15,
   "3": 16,
   "4": 13,
   "5": 14,
@@ -211,12 +211,6 @@
    "size_drawn": 2,
    "kin_seated": 2,
    "household_type": "married_couple",
-   "ruled_by": "T-2021"
-  },
-  "hh_barney_anne_maria": {
-   "size_drawn": 3,
-   "kin_seated": 3,
-   "household_type": "family_with_children",
    "ruled_by": "T-2021"
   },
   "hh_barry_j_r": {
@@ -1447,6 +1441,12 @@
    "household_type": "family_with_children",
    "married_from": "hh_rc_crandall_clarissa"
   },
+  "hh_marknoble_jun": {
+   "size_drawn": 6,
+   "kin_seated": 2,
+   "household_type": "family_with_children",
+   "printed_wife": "hh_wesencraft_charlotte"
+  },
   "hh_marknoble_sen": {
    "size_drawn": 4,
    "kin_seated": 4,
@@ -2112,12 +2112,6 @@
    "kin_seated": 3,
    "household_type": "family_with_children"
   },
-  "hh_wesencraft_charlotte": {
-   "size_drawn": 4,
-   "kin_seated": 4,
-   "household_type": "family_with_children",
-   "ruled_by": "T-2021"
-  },
   "hh_wessencraft_charles": {
    "size_drawn": 4,
    "kin_seated": 4,
@@ -2245,11 +2239,6 @@
    "wife_cell": "persons/female/20_29/north/family/none",
    "head_band_low": 20,
    "size_drawn": 2
-  },
-  "hh_barney_anne_maria": {
-   "wife_cell": "persons/female/20_29/north/family/none",
-   "head_band_low": 20,
-   "size_drawn": 3
   },
   "hh_baxley_j_m": {
    "wife_cell": "persons/female/20_29/south/family/none",
@@ -3876,11 +3865,6 @@
    "head_band_low": 20,
    "size_drawn": 6
   },
-  "hh_wesencraft_charlotte": {
-   "wife_cell": "persons/female/20_29/north/family/none",
-   "head_band_low": 20,
-   "size_drawn": 4
-  },
   "hh_wessencraft_charles": {
    "wife_cell": "persons/female/20_29/north/family/none",
    "head_band_low": 20,
@@ -3931,6 +3915,11 @@
    "head_band_low": 30,
    "size_drawn": 5
   },
+  "hh_woodruff_alson": {
+   "wife_cell": "persons/female/20_29/south/family/none",
+   "head_band_low": 40,
+   "size_drawn": 7
+  },
   "hh_woodworth_w": {
    "wife_cell": "persons/female/20_29/south/family/none",
    "head_band_low": 20,
@@ -3954,11 +3943,15 @@
  },
  "printed_wives": {
   "ticket": "T-2190",
-  "houses": 1,
+  "houses": 2,
   "by_household": {
-   "hh_ingersoll_chester": "hh_weaver_betsy"
+   "hh_ingersoll_chester": "hh_weaver_betsy",
+   "hh_marknoble_jun": "hh_wesencraft_charlotte"
   },
-  "what_happened": "The wife a source prints, seated from her own card in place of the wife the model drew. The drawn wife is not seated; the printed one is counted in the cell her own sex, band and his division name, as a drawn wife would be, and is in `fills` beside the drawn people (she is not in `wives` or `people_drawn`)."
+  "seated_without_a_cell": {
+   "hh_marknoble_jun": "persons/female/20_29/south/family/none"
+  },
+  "what_happened": "The wife a source prints, seated from her own card in place of the wife the model drew. The drawn wife is not seated; the printed one is counted in the cell her own sex, band and his division name, as a drawn wife would be, and is in `fills` beside the drawn people (she is not in `wives` or `people_drawn`). Where that cell had no room left, a drawn wife would never have been seated, so there is none to replace: she is seated without a cell (`seated_without_a_cell`), because the book already counts her among the known (T-2230)."
  },
  "re_housing": {
   "ticket": "T-2019",
@@ -3972,10 +3965,10 @@
    "the child cap: no child of the house is older than his band's low minus 20",
    "the kin range: the joined house holds at most 8"
   ],
-  "houses_refused_a_wife": 355,
+  "houses_refused_a_wife": 354,
   "houses_refused_by_division": {
    "north": 17,
-   "south": 48,
+   "south": 49,
    "west": 23
   },
   "woman_headed_houses": 124,
@@ -3994,11 +3987,11 @@
    "south": 48,
    "west": 23
   },
-  "matched_if_the_re_familied_moved_too": 88,
-  "houses_no_woman_in_the_town_fits": 267,
+  "matched_if_the_re_familied_moved_too": 89,
+  "houses_no_woman_in_the_town_fits": 266,
   "houses_no_woman_fits_by_wife_cell": {
-   "persons/female/20_29/north/family/none": 60,
-   "persons/female/20_29/south/family/none": 142,
+   "persons/female/20_29/north/family/none": 58,
+   "persons/female/20_29/south/family/none": 143,
    "persons/female/20_29/west/family/none": 39,
    "persons/female/30_39/north/family/none": 6,
    "persons/female/30_39/south/family/none": 11,
@@ -4009,15 +4002,15 @@
   "women_left_heading_their_own_house": 36,
   "female_headed_households": {
    "before": [
-    217,
-    1526
+    216,
+    1525
    ],
    "after": [
-    129,
-    1438
+    128,
+    1437
    ],
-   "share_before": 0.1422,
-   "share_after": 0.0897,
+   "share_before": 0.1416,
+   "share_after": 0.0891,
    "note": "Present households, as the order book counts the town. A move folds one house into another, so the town loses a household for every pair and the female-headed share falls on both ends of the fraction."
   },
   "pairs": [
@@ -4394,25 +4387,25 @@
    "7": 19,
    "8": 9
   },
-  "houses_still_refused": 267,
+  "houses_still_refused": 266,
   "what_moved": "Each pair of `re_housing` carried onto the cards: the woman-headed house T-1174 dealt folds into the married house the order book refused a wife, she as his wife and every member of her house with her. Nobody is drawn, nobody is retired, no name, id, sex, age band or seed changes, and the order book's person cells are untouched — she is still counted where T-1174 dealt her. What the town loses is a household for every pair; `data/reconstruction/1835_folded_houses.json` keeps each folded card's own keys so the fold re-derives."
  },
  "family_ruling": {
   "ticket": "T-2021",
   "of": "T-1171",
   "read_from": "data/reconstruction/1835_family_ruling.json",
-  "houses_ruled_on": 267,
-  "admitted": 153,
+  "houses_ruled_on": 266,
+  "admitted": 151,
   "admitted_by_division": {
    "south": 83,
    "west": 31,
-   "north": 39
+   "north": 37
   },
   "standing_alone": 114,
-  "not_ruled_on": 0,
-  "people_added": 496,
-  "wives": 153,
-  "children": 343,
+  "not_ruled_on": 1,
+  "people_added": 491,
+  "wives": 151,
+  "children": 340,
   "the_bound": {
    "the_town_model_range": [
     2362,
@@ -4436,14 +4429,14 @@
     "rank": 157
    }
   },
-  "the_town_the_book_converges_to": 3101,
+  "the_town_the_book_converges_to": 3096,
   "adult_sex_ratio": [
    435.7,
-   285.6
+   286.9
   ],
   "under_ten_share": [
    0.1852,
-   0.2644
+   0.2638
   ],
   "the_model_s_under_ten_bracket": [
    0.2,
@@ -4453,7 +4446,7 @@
    "persons/female/10_19/north/family/none": 2,
    "persons/female/10_19/south/family/none": 8,
    "persons/female/10_19/west/family/none": 3,
-   "persons/female/20_29/north/family/none": 34,
+   "persons/female/20_29/north/family/none": 32,
    "persons/female/20_29/south/family/none": 78,
    "persons/female/20_29/west/family/none": 24,
    "persons/female/30_39/north/family/none": 5,
@@ -4466,11 +4459,18 @@
    "persons/male/10_19/north/family/none": 3,
    "persons/male/10_19/south/family/none": 5,
    "persons/male/10_19/west/family/none": 2,
-   "persons/male/under_10/north/family/none": 39,
-   "persons/male/under_10/south/family/none": 90,
+   "persons/male/under_10/north/family/none": 37,
+   "persons/male/under_10/south/family/none": 89,
    "persons/male/under_10/west/family/none": 37
   },
   "withdrawn": {
+   "hh_barney_anne_maria": {
+    "why": "head_read_female",
+    "verdict": "admitted",
+    "wife_cell": "persons/female/20_29/north/family/none",
+    "kin": 2,
+    "under_ten": 1
+   },
    "hh_bradford_william_h": {
     "why": "head_ruled_absent",
     "verdict": "stands_alone",
@@ -4526,45 +4526,53 @@
     "wife_cell": "persons/female/20_29/north/family/none",
     "kin": 5,
     "under_ten": 4
+   },
+   "hh_wesencraft_charlotte": {
+    "why": "printed_bride",
+    "verdict": "admitted",
+    "wife_cell": "persons/female/20_29/north/family/none",
+    "kin": 3,
+    "under_ten": 2,
+    "seated_in": "hh_marknoble_jun"
    }
   },
   "orders_withdrawn": {
-   "persons/female/20_29/north/family/none": 1,
+   "persons/female/20_29/north/family/none": 3,
    "persons/female/20_29/south/family/none": 1,
    "persons/female/30_39/south/family/none": 1,
    "persons/female/under_10/south/family/none": 4,
    "persons/male/10_19/south/family/none": 1,
-   "persons/male/under_10/north/family/none": 1,
-   "persons/male/under_10/south/family/none": 3
+   "persons/male/under_10/north/family/none": 3,
+   "persons/male/under_10/south/family/none": 4
   }
  },
  "measurement": {
   "the_town_the_book_counts": "present households only",
-  "people_before_this_stage": 2102,
-  "people_after_this_stage": 2892,
+  "people_before_this_stage": 2101,
+  "people_after_this_stage": 2887,
   "adults_after_this_stage": {
    "male": 1268,
-   "female": 444
+   "female": 442
   },
-  "adult_sex_ratio_before": 612.6,
-  "adult_sex_ratio_after": 285.6,
+  "adult_sex_ratio_before": 615.5,
+  "adult_sex_ratio_after": 286.9,
   "the_model_s_range": [
    120.9,
    150.0
   ],
   "inside_the_model_s_range": false,
-  "what_closes_it": "NOTHING THIS STAGE MAY DRAW CLOSES IT, AND NEITHER DOES A MOVE OR THE RULING. 355 married houses were refused because the book had no woman left in their cell. Re-housing the town's own women into them moves nobody between the sexes; of the 355, 88 took the wife and children of one of T-1174's woman-headed houses (`re_housing`, T-2019; T-2020 moved them) and 267 could take no woman the town holds. T-2021 ruled on those: 153 are given the whole family drawn for them, 153 wives among 496 people, and 114 stand alone, because the walk stops where the town's under-ten share or its count would leave the model. The wives move the ratio, and the children that come with them are what stop it: the town reaches the top of the model's under-ten bracket long before it reaches the model's sex ratio.",
+  "what_closes_it": "NOTHING THIS STAGE MAY DRAW CLOSES IT, AND NEITHER DOES A MOVE OR THE RULING. 354 married houses were refused because the book had no woman left in their cell. Re-housing the town's own women into them moves nobody between the sexes; of the 354, 88 took the wife and children of one of T-1174's woman-headed houses (`re_housing`, T-2019; T-2020 moved them) and 266 could take no woman the town holds. T-2021 ruled on those: 151 are given the whole family drawn for them, 151 wives among 491 people, and 114 stand alone, because the walk stops where the town's under-ten share or its count would leave the model. The wives move the ratio, and the children that come with them are what stop it: the town reaches the top of the model's under-ten bracket long before it reaches the model's sex ratio.",
   "female_headed_households_after_the_moves": [
-   129,
-   1438
+   128,
+   1437
   ],
   "age_pyramid_after": {
    "10_19": 408,
-   "20_29": 995,
+   "20_29": 993,
    "30_39": 487,
    "40_49": 147,
    "50_plus": 83,
-   "under_10": 762
+   "under_10": 759
   },
   "household_size_1840_share": {
    "1": 0.0742,
@@ -4579,11 +4587,11 @@
   "household_size_drawn_share": {
    "1": 0.0854,
    "2": 0.1542,
-   "3": 0.1979,
-   "4": 0.1771,
+   "3": 0.1958,
+   "4": 0.175,
    "5": 0.1333,
-   "6": 0.1271,
-   "7": 0.0771,
+   "6": 0.1292,
+   "7": 0.0792,
    "8": 0.0479
   },
   "largest_share_gap": 0.0312

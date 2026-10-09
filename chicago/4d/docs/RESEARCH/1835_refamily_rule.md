@@ -41,11 +41,11 @@ A C1 card states ONE division for a whole house, so moving half of it would put 
 
 ## What the town converges to
 
-- standing in the layer: 2,892
+- standing in the layer: 2,887
 - still owed: 15
-- converges to now: 2,907
-- converges to if this rule is spent: 2,765
-- 2,765 is inside the model's 2,371-3,265 and 215 above its 2,550 point, against 357 above it today.
+- converges to now: 2,902
+- converges to if this rule is spent: 2,760
+- 2,760 is inside the model's 2,371-3,265 and 210 above its 2,550 point, against 352 above it today.
 
 ## What would raise the ceiling
 

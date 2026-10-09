@@ -10,10 +10,9 @@
   "counts": {
     "a_trade_reading_the_business_layer_holds_no_record_for": 22,
     "the_column_names_nobody": 60,
-    "the_family_pass_finds_a_family_the_column_states_whole": 1,
     "the_family_pass_finds_an_identity_nobody_has_asserted": 1,
     "the_family_pass_finds_neither_party_is_held": 4,
-    "the_family_pass_finds_the_relative_is_nobody_this_town_holds": 4,
+    "the_family_pass_finds_the_relative_is_nobody_this_town_holds": 2,
     "the_issue_is_printed_after_the_scene_date": 60,
     "the_letter_list_name_belongs_to_the_borderline_roster": 69,
     "the_market_and_the_port_in_aggregate": 61,
@@ -28,11 +27,6 @@
     "the_column_names_nobody": {
       "disposition": "aggregate_only",
       "statement": "The unit is a notice or an editorial paragraph whose own `entities` array is EMPTY -- the reading looked for the people in it and recorded that it names none. A paragraph that names nobody cannot assert a person fact and cannot be handed to a person pass. Its content is the town's public print in aggregate -- what the paper carried, and when -- and that is what it is spent as."
-    },
-    "the_family_pass_finds_a_family_the_column_states_whole": {
-      "disposition": "unresolved",
-      "ticket": "T-2230",
-      "statement": "The family pass (T-1335) read a column that states a FAMILY rather than a tie: parent ties between cards the town holds, and marriages whose brides may still be seated in their fathers' houses. The parent ties are written on both cards of each (T-2229). Seating a bride is a household edit this pass may not make, so the unit stays open on the ticket that seats the marriages."
     },
     "the_family_pass_finds_an_identity_nobody_has_asserted": {
       "disposition": "refused",
@@ -263,11 +257,6 @@
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_03.json#claims/c005",
       "rule": "the_column_names_nobody",
       "note": "chicago_democrat_1833_12_03 c005: a event of 1833-12-03 whose entities array is empty. It reads: “We are also requested to say, that the old [m]embers of the Chicago Polemical Society, [as] well as such gentlemen as may wish to become [m]embers thereof, will meet at the house …”"
-    },
-    {
-      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_03.json#claims/c007",
-      "rule": "the_family_pass_finds_a_family_the_column_states_whole",
-      "note": "chicago_democrat_1833_12_03 c007: the family column of 1833-12-03 reads: “MARRIED, In this town, on Saturday evening 29 ult., by the Hon. R. I. Hamilton, Mr. MARK NOBLE, jun., second son of Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only …” THE FAMILY PASS: The column states the Noble family whole: Mark Noble jun. (hh_marknoble_jun) 'second son of Mark Nobles, Esq.' (hh_noble_mark) married Charlotte, 'only daughter of Mr. Charles Wesencraft'; Mary, 'second daughter to Mark Noble, Esq.' (hh_noble_mary), married George Bickerdyke, both on 29 November 1833. The two parent ties are written, reciprocally, between cards minted from this notice (T-2229), beside Charlotte's tie to her father that T-1134 landed. Both brides married eighteen months before the scene and where they live in 1835 is a seating question, so the marriages go to T-2230."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_03.json#claims/c014",
@@ -1015,11 +1004,6 @@
       "note": "chicago_democrat_1834_09_17 c001: the family column of 1834-09-17 reads: “[Died, in this] town, on the 11th inst, of bil[i]o[u]s fe[ver and] inflam[m]ation in the bowel, Mr. James [uncertain: —]ey, aged 22 years and a few months, a merchant of the city …” THE FAMILY PASS: A death notice: Mr. James [—]ey, a merchant aged 22, died 11 September 1834. The surname is lost to the column and the notice names no survivor, so it states no tie between two people at all, let alone two the town holds."
     },
     {
-      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_24.json#claims/c001",
-      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
-      "note": "chicago_democrat_1834_09_24 c001: the family column of 1834-09-24 reads: “MARRIED, [I]n this town, on the 20th inst. by J. Dea[n] Caton Esq. Mr. A[u]g[u]st[u]s B[on]i[n], to Miss Jos[uncertain: ers/enpy] Fras[ch]e.” THE FAMILY PASS: Augustus Bonin (hh_bonin_augustus, linked by the press register) married 'Miss Jos[…] Fras[ch]e' on 20 September 1834; the bride's name is half lost and she is nobody this town holds, so the marriage has no far end. His house carries a modelled wife, 'Ellen Quinn': a draw standing where the paper names a real woman, which is the modelled-families stage's to answer."
-    },
-    {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_24.json#claims/c003",
       "rule": "the_market_and_the_port_in_aggregate",
       "note": "chicago_democrat_1834_09_24 c003: a shipping reading of 1834-09-24. It reads: “MARINE LIST. PORT OF C[H]ICAGO. ARRIVED. Sept. 15, Schr. Elizabeth, Ward, Lake St. Clair; 20, [Schr.] Phillip[s], Howe, St. Joseph. CLEARED. Sept. 18, Schr. [Ph]illips, Howe, St. …”"
@@ -1258,11 +1242,6 @@
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_05_27.json#claims/c002",
       "rule": "the_market_and_the_port_in_aggregate",
       "note": "chicago_democrat_1835_05_27 c002: a shipping reading of 1835-05-27. It reads: “ARRIVALS OF VESSELS AT CHICAGO, 1835. May 20 […] [Schr.] Hellen, Chase, do. [Schr.] Jesse Smith, D[unc]an, Green Bay. Brig Wo[o]ls[ey], Wagstaff, Buff[a]lo. [Brig] Indiana, …”"
-    },
-    {
-      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_05_27.json#claims/c003",
-      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
-      "note": "chicago_democrat_1835_05_27 c003: the family column of 1835-05-27 reads: “MARRIED, At S[ugar Creek?] Meadows, near Lewiston on the 27th ult., by the Rev. Sa[mue]l McBurney, Jo[hn] S. C. Hogan, Esq., Postmaster, Chicago Ill., [to] Miss Anne Maria …” THE FAMILY PASS: John S. C. Hogan, postmaster (hh_hogan_john_s_c, linked by the press register), married 'Miss Anne Maria […]' at Sugar Creek Meadows near Lewiston on 27 April 1835, before the scene. Her surname is lost and she is nobody this town holds, so the marriage has no far end. His house carries a modelled wife, 'Polly Hogan', where the paper names Anne Maria: a draw the modelled-families stage owns, not a tie this pass can write."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_05_27.json#claims/c010",

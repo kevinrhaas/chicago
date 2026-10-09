@@ -7,12 +7,12 @@
 
 | | target | known | to reconstruct |
 |---|---:|---:|---:|
-| Persons | 2,550 | 1,419 | 1,825 |
-| Households | 645 | 165 | 457 |
+| Persons | 2,550 | 1,419 | 1,820 |
+| Households | 645 | 164 | 458 |
 | Businesses (enumerated classes) | 109 | 128 | 7 |
 | Roofs | 668 | 676 | 11 |
 
-**2,892 people stand in the layer today** and **15** are still owed after the counters, so the town this book converges to is **2,907** — inside the model's 2,371-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
+**2,887 people stand in the layer today** and **15** are still owed after the counters, so the town this book converges to is **2,902** — inside the model's 2,371-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
 ## What the re-cut found
 
@@ -31,13 +31,13 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 *What does the town converge to if every remaining order is filled?*
 
-2,892 standing plus 15 still owed is 2,907, inside the model's 2,371-3,265. Before the re-cut the same sum was 2,892 + 843 = 3,735, and the book was ordering a replacement for 826 people already in the layer. It is 357 above the model's 2,550 point, and that surplus is the 397 people drawn into 51 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
+2,887 standing plus 15 still owed is 2,902, inside the model's 2,371-3,265. Before the re-cut the same sum was 2,887 + 843 = 3,730, and the book was ordering a replacement for 826 people already in the layer. It is 352 above the model's 2,550 point, and that surplus is the 397 people drawn into 51 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
 
 ### households are counted in two different units
 
-*The model wants 643 households and the layer holds 1,438 records. Are those the same thing?*
+*The model wants 643 households and the layer holds 1,437 records. Are those the same thing?*
 
-Of the 1,391 records the layer holds present, 165 carry a reading about a dwelling and 1,226 do not. The quota is taken against the 165, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.
+Of the 1,390 records the layer holds present, 164 carry a reading about a dwelling and 1,226 do not. The quota is taken against the 164, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.
 
 ### a documented reading shrank an order the town had drawn
 
@@ -355,8 +355,8 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | ticket | persons drawn | buckets |
 |---|---:|---:|
 | T-1174 | 592 | 27 |
-| T-2021 | 496 | 19 |
-| T-2193 | 333 | 3 |
+| T-2021 | 491 | 19 |
+| T-2193 | 334 | 3 |
 | T-1347 | 309 | 24 |
 | T-1171 | 294 | 19 |
 | T-1371 | 137 | 35 |
@@ -383,11 +383,11 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 
 ## Real names before invented ones
 
-The roster offers 1,788 names the corpus printed and this project withheld. Each class is a licence, not a quota:
+The roster offers 1,787 names the corpus printed and this project withheld. Each class is a licence, not a quota:
 
 | class | offered | ticket |
 |---|---:|---|
-| `R1_in_window_uncertain` | 883 | T-1172 |
+| `R1_in_window_uncertain` | 882 | T-1172 |
 | `R2_in_window_single_source` | 207 | T-1172 |
 | `R3_1834_return_or_muster` | 28 | T-1172 |
 | `R4_surname_only_census` | 438 | T-1170 |
@@ -398,15 +398,15 @@ The roster offers 1,788 names the corpus printed and this project withheld. Each
 
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
-- offered ground: 1,424
+- offered ground: 1,423
 - seated: 314 — 313 by adopting a roof that already stands, 1 by asking for one
-- still on no ground at all: 1,110
+- still on no ground at all: 1,109
 - of the 676 roofs the town already has, 313 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,424 | 215 | 214 | 1 | 1,209 |
-| The ground the plat does not draw | T-1614 | 1,209 | 99 | 99 | 0 | 1,110 |
+| The committed plat | T-1613 | 1,423 | 215 | 214 | 1 | 1,208 |
+| The ground the plat does not draw | T-1614 | 1,208 | 99 | 99 | 0 | 1,109 |
 
 1 slot(s) on 1 block(s) — blk_south_water_market. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
@@ -414,7 +414,7 @@ Two committed passes have offered every banded household ground: the plat first,
 |---|---|---|---|---|
 | `hh_dixon_robert` | `blk_south_water_market` | `blk_south_water_market#01` | D5 | `tradesman_dwellings` |
 
-1,110 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,109 of the 1,423 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
@@ -438,7 +438,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/female/10_19/west/family/none` | 28 | 15 | 24 | 24 | T-1174 |
 | `persons/female/10_19/west/lodging/none` | 10 | 5 | 5 | 5 | T-2023 |
 | `persons/female/20_29/north/family/trade` | 18 | 10 | 15 | 15 | T-2187 |
-| `persons/female/20_29/north/family/none` | 34 | 18 | 60 | 60 | T-1174 |
+| `persons/female/20_29/north/family/none` | 34 | 18 | 58 | 58 | T-1174 |
 | `persons/female/20_29/north/lodging/trade` | 6 | 3 | 3 | 3 | T-2023 |
 | `persons/female/20_29/north/lodging/none` | 12 | 7 | 5 | 5 | T-2023 |
 | `persons/female/20_29/south/family/trade` | 43 | 24 | 30 | 30 | T-2187 |
@@ -548,9 +548,9 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/50_plus/west/family/none` | 4 | 2 | 0 | 0 | T-2187 |
 | `persons/male/50_plus/west/lodging/trade` | 1 | 0 | 1 | 1 | T-2023 |
 | `persons/male/50_plus/west/lodging/none` | 1 | 0 | 1 | 1 | T-2023 |
-| `persons/male/under_10/north/family/none` | 62 | 34 | 83 | 83 | T-1174 |
+| `persons/male/under_10/north/family/none` | 62 | 34 | 81 | 81 | T-1174 |
 | `persons/male/under_10/north/lodging/none` | 22 | 12 | 10 | 10 | T-2023 |
-| `persons/male/under_10/south/family/none` | 148 | 84 | 199 | 199 | T-1174 |
+| `persons/male/under_10/south/family/none` | 148 | 84 | 198 | 198 | T-1174 |
 | `persons/male/under_10/south/lodging/none` | 52 | 30 | 22 | 21 | T-2023 |
 | `persons/male/under_10/west/family/none` | 55 | 29 | 71 | 71 | T-1174 |
 | `persons/male/under_10/west/lodging/none` | 19 | 10 | 9 | 9 | T-2023 |
@@ -564,10 +564,10 @@ The households the model wants, by kind and division.
 - `households_target`: 645
 - `households_target_basis`: the midpoint of the model's 473-816, rounded half up
 - `households_target_range`: 473, 816
-- `known_present`: 165
-- `known_present_records`: 1,391
+- `known_present`: 164
+- `known_present_records`: 1,390
 - `known_present_awaiting_a_household`: 1,226
-- `known_uncertain_in_the_index_ruled_in_by_T-1386`: 935
+- `known_uncertain_in_the_index_ruled_in_by_T-1386`: 934
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -575,7 +575,7 @@ The households the model wants, by kind and division.
 | `households/boarding_house/south` | 41 | 12 | 29 | 7 | T-2023 |
 | `households/boarding_house/west` | 9 | 2 | 7 | 3 | T-2023 |
 | `households/family_dwelling/north` | 123 | 27 | 96 | 96 | T-2193 |
-| `households/family_dwelling/south` | 258 | 74 | 184 | 184 | T-2193 |
+| `households/family_dwelling/south` | 258 | 73 | 185 | 185 | T-2193 |
 | `households/family_dwelling/west` | 110 | 21 | 89 | 89 | T-2193 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 0 | T-2023 |
 | `households/inn_tavern/south` | 7 | 2 | 5 | 5 | T-2023 |
@@ -715,8 +715,8 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 
 ## The invariants the convergence tickets assert
 
-- **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 22 of 1391 present households name a lives_at.
-- **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 50 of 1391 present households name a works_at.
+- **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 22 of 1390 present households name a lives_at.
+- **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 50 of 1390 present households name a works_at.
 - **every_business_has_staff** (T-1189) — Every business — attested, inferred or reconstructed — carries the staff T-1183's model implies for its kind. *Now:* not yet measurable: the authored business layer is T-1180.
 - **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 415 of 676 standing records carry no occupants block.
 - **dwellings_ratio_within_its_bracket** (T-1215) — The town census's people-per-dwelling ratio is met within the model's bracket. *Now:* the book orders 2,550 people into 645 households.
