@@ -21,7 +21,7 @@ The historical read/spent comparison remains unchanged so new accounting cannot 
 | books | 28 | 82 | 1 | 85 | 106 | 1 | 303 |
 | census_1830 | 16 | 0 | 0 | 0 | 188 | 0 | 204 |
 | census_1840 | 0 | 1,080 | 0 | 0 | 0 | 0 | 1,080 |
-| church | 126 | 1,451 | 63 | 6 | 85 | 39 | 1,770 |
+| church | 139 | 1,451 | 63 | 6 | 85 | 26 | 1,770 |
 | civic | 292 | 13 | 0 | 5 | 36 | 157 | 503 |
 | directories | 0 | 8,246 | 0 | 8 | 4 | 0 | 8,258 |
 | genealogytrails | 0 | 1 | 0 | 1 | 3 | 0 | 5 |
@@ -30,7 +30,7 @@ The historical read/spent comparison remains unchanged so new accounting cannot 
 | newspapers | 709 | 68 | 8 | 268 | 67 | 69 | 1,189 |
 | old_settlers | 0 | 1,094 | 0 | 0 | 0 | 0 | 1,094 |
 | residents | 26 | 11 | 0 | 0 | 1,028 | 15 | 1,080 |
-| **Total** | **1,510** | **12,616** | **118** | **373** | **8,778** | **321** | **23,716** |
+| **Total** | **1,523** | **12,616** | **118** | **373** | **8,778** | **308** | **23,716** |
 
 ## Second-hop preservation
 
@@ -46,7 +46,6 @@ An unresolved unit is waiting on WORK or on EVIDENCE, and it says which. Only ti
 | T-1543 | 1 |
 | T-1552 | 26 |
 | T-1569 | 12 |
-| T-2191 | 13 |
 
 **266** unit(s) wait on evidence rather than on a ticket, under 5 stated reopening condition(s):
 

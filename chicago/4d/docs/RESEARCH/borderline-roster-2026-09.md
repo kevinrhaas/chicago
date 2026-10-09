@@ -82,8 +82,8 @@ The research spend was, correctly, conservative. This page does not overturn one
 | `R0_ineligible/surname_only_and_unmatched` | 248 |
 | `R0_ineligible/undated_reading` | 258 |
 | `R1_in_window_uncertain/card_presence_is_uncertain` | 882 |
-| `R2_in_window_single_source/in_window_read_and_withheld` | 70 |
-| `R2_in_window_single_source/in_window_unspent_inside_an_asserted_claim` | 137 |
+| `R2_in_window_single_source/in_window_read_and_withheld` | 62 |
+| `R2_in_window_single_source/in_window_unspent_inside_an_asserted_claim` | 145 |
 | `R3_1834_return_or_muster/blackhawk_muster_1832_at_chicago` | 28 |
 | `R4_surname_only_census/census_1830_crosswalk_refused_on_surname_only` | 67 |
 | `R4_surname_only_census/census_1840_head_surname_matches` | 340 |
