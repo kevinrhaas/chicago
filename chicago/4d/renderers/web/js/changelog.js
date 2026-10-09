@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1585, ts: '2026-10-09T18:15:28.309Z', date: 'Oct 9, 2026, 1:15 PM CT', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
+  { v: 1586, ts: '2026-10-09T18:24:22.959Z', date: 'Oct 9, 2026, 1:24 PM CT', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
     items: [
       'The town counted 31 households as housed because their card named the building they worked in. They had no home in the scene. Among them were the Harmon brothers, John Calhoun of the Chicago Democrat, George W. Dole and Archibald Clybourne. Each now has a home of its own on the building cards, the same way every other household is placed.',
       'John Calhoun now lives over his store on South Water Street, and Asahel Pierce over his on the West Side. The rest live in ordinary houses or board in their own part of town.',
       'The town is still kept no more crowded than the census of November 1835. Seating these households fills that room, so 30 more households the town adds by its own rules now wait for a house still to be built, up from 26 to 56. The completion audit and the population counts now leave the place of work out too.',
+    ] },
+  { v: 1585, ts: '2026-10-09T17:54:48.792Z', date: 'Oct 9, 2026, 12:54 PM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
+    items: [
+      'Open John S. C. Hogan\u2019s card: his roles now include trustee of the town of Chicago, read in the 1835 act on the town\u2019s incorporation.',
+      'George W. Snow\u2019s card now records his election as the town\u2019s assessor and surveyor in December 1833, Ashbel Steele\u2019s his post as county coroner, and Joseph Meeker\u2019s his place as his church\u2019s Sunday-school librarian.',
+      'Each is marked an office, graded inferred and cited. None of them changes anyone\u2019s 1835 occupation, because the histories they come from were written after the scene.',
+      'Eight more posts the research had found, among them Hamilton\u2019s county clerkship and St Cyr\u2019s priesthood, were already on their cards. Nothing in the 3-D town changes.',
     ] },
   { v: 1584, ts: '2026-10-09T17:34:59.494Z', date: 'Oct 9, 2026, 12:34 PM CT', title: 'The 1830 census and early directories are fully accounted for', kind: 'fix',
     items: [
