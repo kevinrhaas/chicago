@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1588, ts: '2026-10-09T19:42:41.320Z', date: 'Oct 9, 2026, 2:42 PM CT', title: 'The next row of school lots south of Monroe is measured out', kind: 'change',
+  { v: null, ts: '', title: 'The next row of school lots south of Monroe is measured out', kind: 'change',
     items: [
       'Nothing you can see changes yet. The School Section\u2019s row between Monroe and Adams is now divided into the 96 lots the state sold there in October 1833, read block by block from the sale\u2019s own register.',
       'Six of its blocks, east of the river, are where the South side\u2019s last six houses will go next, on the owner\u2019s ruling.',
+    ] },
+  { v: 1588, ts: '2026-10-09T19:28:35.221Z', date: 'Oct 9, 2026, 2:28 PM CT', title: 'Glessner roof tiles follow the documented size', kind: 'fix',
+    items: [
+      'Clay roof tiles now use the documented six-inch width and five-inch exposed courses across the main roof, service roofs, dormers and turrets. Small roof returns receive the same coverage.',
+      'The lighter house model now shows the complete tile pattern. The roof keeps its reconstructed red, unglazed clay finish; the tar coating recorded by a later survey is excluded from 1904.',
     ] },
   { v: 1587, ts: '2026-10-09T19:12:48.893Z', date: 'Oct 9, 2026, 2:12 PM CT', title: 'Prairie Avenue\u2019s 1600 block has a 1904 reading on every card', kind: 'feature',
     items: [

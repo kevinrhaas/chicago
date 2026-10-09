@@ -1,0 +1,56 @@
+[
+  {
+    "view": "prairie-front",
+    "limited": false,
+    "max_absolute_residual_change_px": 0.0,
+    "landmarks": 10
+  },
+  {
+    "view": "taylor-ne",
+    "limited": false,
+    "max_absolute_residual_change_px": 1.0670000000000002,
+    "landmarks": 10
+  },
+  {
+    "view": "habs-ne",
+    "limited": false,
+    "max_absolute_residual_change_px": 0.7453000000000003,
+    "landmarks": 10
+  },
+  {
+    "view": "northwest-stable",
+    "limited": false,
+    "max_absolute_residual_change_px": 0.8905999999999992,
+    "landmarks": 10
+  },
+  {
+    "view": "north-level",
+    "limited": false,
+    "max_absolute_residual_change_px": 0.0,
+    "landmarks": 10
+  },
+  {
+    "view": "north-inclined",
+    "limited": false,
+    "max_absolute_residual_change_px": 2.1972000000000023,
+    "landmarks": 10
+  },
+  {
+    "view": "stable-detail",
+    "limited": false,
+    "max_absolute_residual_change_px": 0.8895,
+    "landmarks": 10
+  },
+  {
+    "view": "courtyard-east",
+    "limited": false,
+    "max_absolute_residual_change_px": 0.0,
+    "landmarks": 10
+  },
+  {
+    "view": "courtyard-west",
+    "limited": true,
+    "max_absolute_residual_change_px": 3.0294999999999845,
+    "landmarks": 7
+  }
+]
