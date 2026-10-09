@@ -59,31 +59,31 @@
   "persons": 848
  },
  "counts": {
-  "identities": 6951,
+  "identities": 6950,
   "by_grade": {
    "None": 45,
    "not_1835_resident": 4499,
-   "inferred": 2021,
-   "attested": 386
+   "inferred": 2019,
+   "attested": 387
   },
   "by_subtype": {
    "None": 5309,
-   "projected_resident": 1642
+   "projected_resident": 1641
   },
   "by_rule": {
    "G5": 45,
    "G0": 4499,
-   "G3": 1641,
+   "G3": 1640,
    "G1b": 306,
    "G2e": 147,
    "G2b": 30,
    "G1a": 51,
-   "G1c": 29,
-   "G2c": 169,
+   "G1c": 30,
+   "G2c": 168,
    "G2a": 33,
    "G4": 1
   },
-  "proposed_changes_to_existing_people": 82,
+  "proposed_changes_to_existing_people": 83,
   "conflicts": 80
  },
  "proposals": [
@@ -454,8 +454,7 @@
   {"identity":"id_beaubien_archange","name":"Archange Beaubien","canonical_person_id":"beaubien_archange","rule":"G2c","grade":"inferred","resident_subtype":null,"evidence":["church:st_marys_bapt_1833_01_5_godmother","church:st_marys_bapt_1833_02_5_sponsor","church:st_marys_bapt_1834_19_5_godmother"],"evidence_classes":["church_1833_1835","town_layer"]},
   {"identity":"id_beaubien_b","name":"B Beaubien","canonical_person_id":"beaubien_b","rule":"G1b","grade":"attested","resident_subtype":null,"evidence":["newspapers:person_b_beaubien"],"evidence_classes":["newspaper_1833_1835","town_layer"]},
   {"identity":"id_beaubien_caroline","name":"Caroline Beaubien","canonical_person_id":"beaubien_caroline","rule":"G2c","grade":"inferred","resident_subtype":null,"evidence":["church:st_marys_bapt_1833_04_1_child"],"evidence_classes":["church_1833_1835","town_layer"]},
-  {"identity":"id_beaubien_charles","name":"Charles Beaubien","canonical_person_id":"beaubien_charles","rule":"G2c","grade":"inferred","resident_subtype":null,"evidence":["church:st_marys_bapt_1834_21_2_father"],"evidence_classes":["church_1833_1835","town_layer"]},
-  {"identity":"id_beaubien_charles_h","name":"Charles H Beaubien","canonical_person_id":"beaubien_charles_h","rule":"G3","grade":"inferred","resident_subtype":"projected_resident","evidence":["civic:poll_1834_009"],"evidence_classes":["poll_1834","town_layer"]},
+  {"identity":"id_beaubien_charles_h","name":"Charles H Beaubien","canonical_person_id":"beaubien_charles_h","rule":"G1c","grade":"attested","resident_subtype":null,"evidence":["civic:poll_1834_009","church:st_marys_bapt_1834_21_2_father"],"evidence_classes":["church_1833_1835","poll_1834","town_layer"]},
   {"identity":"id_beaubien_charles_henry","name":"Charles Henry Beaubien","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["old_settlers:fdn0029"],"evidence_classes":["death_notice"]},
   {"identity":"id_beaubien_elonore","name":"Elonore Beaubien","canonical_person_id":"beaubien_elonore","rule":"G2c","grade":"inferred","resident_subtype":null,"evidence":["church:st_marys_bapt_1834_19_1_child"],"evidence_classes":["church_1833_1835","town_layer"]},
   {"identity":"id_beaubien_george","name":"George Beaubien","canonical_person_id":"beaubien_george","rule":"G2c","grade":"inferred","resident_subtype":null,"evidence":["church:st_marys_bapt_1833_01_1_child"],"evidence_classes":["church_1833_1835","town_layer"]},
@@ -7047,6 +7046,7 @@
   {"identity":"id_bailey_bennet","person_id":"bailey_bennet","from":{"grade":"attested","resident_subtype":null},"to":{"grade":"inferred","resident_subtype":null},"rule":"G2e","direction":"down"},
   {"identity":"id_barrows_mary","person_id":"barrows_mary","from":{"grade":"attested","resident_subtype":null},"to":{"grade":"inferred","resident_subtype":"projected_resident"},"rule":"G3","direction":"down"},
   {"identity":"id_barry_john_s","person_id":"barry_john_s","from":{"grade":"attested","resident_subtype":null},"to":{"grade":"inferred","resident_subtype":"projected_resident"},"rule":"G3","direction":"down"},
+  {"identity":"id_beaubien_charles_h","person_id":"beaubien_charles_h","from":{"grade":"inferred","resident_subtype":"projected_resident"},"to":{"grade":"attested","resident_subtype":null},"rule":"G1c","direction":"up"},
   {"identity":"id_blakesley_harvey_a","person_id":"blakesley_harvey_a","from":{"grade":"attested","resident_subtype":null},"to":{"grade":"inferred","resident_subtype":null},"rule":"G2e","direction":"down"},
   {"identity":"id_blodgett_tyler_k","person_id":"blodgett_tyler_k","from":{"grade":"attested","resident_subtype":null},"to":{"grade":"inferred","resident_subtype":"projected_resident"},"rule":"G3","direction":"down"},
   {"identity":"id_bobinson_george_is","person_id":"bobinson_george_is","from":{"grade":"inferred","resident_subtype":"projected_resident"},"to":{"grade":null,"resident_subtype":null},"rule":"G5","direction":"subtype_only"},

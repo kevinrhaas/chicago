@@ -4,19 +4,18 @@
  "generated_by": "tools/consolidate_town_cards.py --apply",
  "ticket": "T-0839",
  "counts": {
-  "town_people": 1440,
-  "open_clusters": 21,
-  "cards_in_open_clusters": 45,
+  "town_people": 1439,
+  "open_clusters": 20,
+  "cards_in_open_clusters": 43,
   "rulings": {
    "distinct": 73,
-   "merge": 53,
-   "undecided_T-1550": 1,
+   "merge": 54,
    "undecided_T-1554": 1,
    "undecided_owner": 1,
    "undecided_rule": 12
   },
-  "landed_merges": 53,
-  "cards_folded": 72
+  "landed_merges": 54,
+  "cards_folded": 73
  },
  "landed": [
   {
@@ -50,6 +49,16 @@
     "bates_harriet_e"
    ],
    "rule": "C1"
+  },
+  {
+   "cluster": "beaubien_charles",
+   "survivor": "beaubien_charles_h",
+   "survivor_household": "hh_beaubien_charles_h",
+   "survivor_on_the_cards": true,
+   "folded": [
+    "beaubien_charles"
+   ],
+   "rule": "C18"
   },
   {
    "cluster": "beaubien",
@@ -650,45 +659,6 @@
      ],
      "against": [
       "the middle initial contradicts: 'r' against 's'",
-      "neither card is an anchor: nothing here documents the person beyond a list"
-     ]
-    }
-   ]
-  },
-  {
-   "surname": "beaubien",
-   "cards": [
-    {
-     "person": "beaubien_charles",
-     "household": "hh_beaubien_charles",
-     "name": "Charles Beaubien",
-     "anchor": false,
-     "sources": [
-      "st_marys_baptismal_register_1833_1835"
-     ],
-     "ruling": "undecided",
-     "ruled_in": "beaubien_charles"
-    },
-    {
-     "person": "beaubien_charles_h",
-     "household": "hh_beaubien_charles_h",
-     "name": "Charles H Beaubien",
-     "anchor": false,
-     "sources": [
-      "chicago_voter_lists_1833_1835_irad"
-     ],
-     "ruling": "undecided",
-     "ruled_in": "beaubien_charles"
-    }
-   ],
-   "pairs": [
-    {
-     "a": "beaubien_charles",
-     "b": "beaubien_charles_h",
-     "for": [
-      "the same forename, 'charles'"
-     ],
-     "against": [
       "neither card is an anchor: nothing here documents the person beyond a list"
      ]
     }

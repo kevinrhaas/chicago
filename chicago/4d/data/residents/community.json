@@ -15,13 +15,13 @@
  },
  "not_a_reading": "Derived, never hand-edited. Every value is read off a committed field — a household's origin block or a reconstructed person's own pool community — and graded no higher than the field it came from. No source was read to write this file and nobody was minted.",
  "counts": {
-  "persons": 3415,
+  "persons": 3414,
   "households": 1980,
-  "known": 3284,
+  "known": 3283,
   "unknown": 131,
   "by_community": {
    "yankee": 1651,
-   "new_york": 560,
+   "new_york": 559,
    "irish": 471,
    "french_canadian": 181,
    "other": 137,
@@ -33,14 +33,14 @@
    "metis": 2
   },
   "by_tier": {
-   "reconstructed": 3224,
+   "reconstructed": 3223,
    "null": 131,
    "inferred": 57,
    "attested": 3
   },
   "by_rule": {
    "reconstruction_community": 1859,
-   "origin_region": 1401,
+   "origin_region": 1400,
    "no_origin_recorded": 116,
    "stated_community": 24,
    "origin_does_not_speak_for_this_person": 11,
@@ -48,8 +48,8 @@
   },
   "households_by_community": {
    "yankee": 688,
-   "new_york": 557,
-   "irish": 141,
+   "new_york": 556,
+   "irish": 142,
    "other": 137,
    "unknown": 119,
    "british": 111,
@@ -612,11 +612,6 @@
    "rule": "origin_region"
   },
   "beaubien_caroline": {
-   "value": "new_york",
-   "tier": "reconstructed",
-   "rule": "origin_region"
-  },
-  "beaubien_charles": {
    "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
@@ -17894,13 +17889,6 @@
    "head": "beaubien_caroline",
    "file": "households/hh_beaubien_caroline.json"
   },
-  "hh_beaubien_charles": {
-   "value": "new_york",
-   "tier": "reconstructed",
-   "rule": "origin_region",
-   "head": "beaubien_charles",
-   "file": "households/hh_beaubien_charles.json"
-  },
   "hh_beaubien_charles_h": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -27196,6 +27184,13 @@
    "rule": "reconstruction_community",
    "head": "rc_shea_cornelius",
    "file": "reconstructed_trades/hh_rc_shea_cornelius.json"
+  },
+  "hh_rc_shea_margaret": {
+   "value": "irish",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "rc_shea_margaret",
+   "file": "households/hh_rc_shea_margaret.json"
   },
   "hh_rc_shea_martin": {
    "value": "irish",
