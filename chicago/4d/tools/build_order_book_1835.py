@@ -180,7 +180,10 @@ HOUSEHOLD_TYPES = (
 # discharged. What is left is a keeper for each store roof that stands empty, and T-2236
 # seats one from the store-trade heads the town already holds.
 FAMILY_OWNER = "T-2187"
-FAMILY_HOUSEHOLD_OWNER = "T-2193"
+# AND ON TO T-2237 (2026-10-09, T-2232). T-2193 counted the held heads and went `done`;
+# T-2232's readings withdrew two admitted families, and the family-dwelling order left
+# open is the one T-2237 sets against the trade households the town already holds.
+FAMILY_HOUSEHOLD_OWNER = "T-2237"
 STORE_RULING_TICKET = "T-2194"
 STORE_RESIDENCE_OWNER = "T-2236"
 ADULT_MEN_OWNER = FAMILY_OWNER
