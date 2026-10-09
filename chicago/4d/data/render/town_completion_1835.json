@@ -44,12 +44,12 @@
     },
     "persons_counted_apart": {
       "absent_on_the_scene_date": 48,
-      "waiting_on_a_roof": 81
+      "waiting_on_a_roof": 79
     },
     "persons_housed": {
       "attested": 391,
       "inferred": 1003,
-      "reconstructed": 2048
+      "reconstructed": 2050
     },
     "persons_unhoused": {
       "attested": 0,
@@ -57,9 +57,9 @@
       "reconstructed": 0
     },
     "present_on_scene_date": {
-      "persons_housed": 3441,
+      "persons_housed": 3443,
       "persons_unhoused": 0,
-      "persons_waiting_on_a_roof": 81
+      "persons_waiting_on_a_roof": 79
     },
     "housed_through": {
       "lives_at": 57,
@@ -118,7 +118,7 @@
     "occupied": {
       "attested": 51,
       "inferred": 9,
-      "reconstructed": 362
+      "reconstructed": 363
     },
     "occupants_in_prose_only": {
       "attested": 8,
@@ -133,7 +133,7 @@
       "occupant_named_seat_refused": 2,
       "outbuilding_of_a_yard": 126,
       "part_of_an_establishment": 14,
-      "stated_use_of_an_anonymous_roof": 13,
+      "stated_use_of_an_anonymous_roof": 12,
       "storage_operator_unrecorded": 5,
       "the_mechanics_shops_are_over_their_count": 2,
       "the_printed_count_is_held": 2,
@@ -152,12 +152,12 @@
       "housed": {
         "attested": 391,
         "inferred": 1003,
-        "reconstructed": 2048
+        "reconstructed": 2050
       },
       "waiting_on_a_roof": {
         "attested": 11,
         "inferred": 15,
-        "reconstructed": 55
+        "reconstructed": 53
       },
       "absent_on_the_scene_date": {
         "attested": 10,
@@ -172,9 +172,9 @@
     },
     "households": {
       "housed": {
-        "attested": 377,
+        "attested": 378,
         "inferred": 987,
-        "reconstructed": 565
+        "reconstructed": 564
       },
       "waiting_on_a_roof": {
         "attested": 11,
@@ -213,7 +213,7 @@
       "occupied": {
         "attested": 51,
         "inferred": 9,
-        "reconstructed": 362
+        "reconstructed": 363
       },
       "occupants_in_prose_only": {
         "attested": 8,
@@ -223,7 +223,7 @@
       "use_stated": {
         "attested": 25,
         "inferred": 6,
-        "reconstructed": 159
+        "reconstructed": 158
       },
       "empty_owing_somebody": {
         "attested": 0,

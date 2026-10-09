@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1582, ts: '2026-10-09T16:52:05.550Z', date: 'Oct 9, 2026, 11:52 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: null, ts: '', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
+    ] },
+  { v: 1582, ts: '2026-10-09T16:33:01.831Z', date: 'Oct 9, 2026, 11:33 AM CT', title: 'A Canal Street jeweller keeps the empty West Side store', kind: 'fix',
+    items: [
+      'Open the small store with attic rooms on the teamster approach by Canal and Randolph. It stood empty, marked as a store whose keeper was not named. L. Chevalier, who sold watches, jewelry, engravings and fancy goods on Canal Street, now keeps it and lives over it. Before this he boarded in another household.',
+      'Nothing changes on the cards of four South Water Street stores: H. Doty & Co., Rockwell\u2019s cabinet furniture warehouse, the Chicago Bakery and Harmon, Loomis & Co. The town has no card for any of their keepers, so they stay without anyone living over them, and the town no longer counts them as homes still to fill.',
+      'With one more home in use, John Vale\u2019s household of five and J. Wright, who were waiting for a roof, now have one. Some boarders move to other houses as a result.',
     ] },
   { v: 1581, ts: '2026-10-09T16:00:24.406Z', date: 'Oct 9, 2026, 11:00 AM CT', title: 'Glessner gains stone edging and clear entrance paving', kind: 'fix',
     items: [

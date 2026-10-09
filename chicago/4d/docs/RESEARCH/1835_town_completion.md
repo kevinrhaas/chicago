@@ -17,7 +17,7 @@ Dangling ids: **0**. The town is **not yet complete**: the open joins above are 
 
 ## The three tiers' shares of the people housed
 
-Of the **3,442** people housed in a standing building: **11.4 % attested** (391), **29.1 % inferred** (1,003), **59.5 % reconstructed** (2,048).
+Of the **3,444** people housed in a standing building: **11.4 % attested** (391), **29.1 % inferred** (1,003), **59.5 % reconstructed** (2,050).
 
 ## Every table by tier
 
@@ -25,8 +25,8 @@ Of the **3,442** people housed in a standing building: **11.4 % attested** (391)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 391 | 1,003 | 2,048 | 3,442 |
-| counted apart — waiting on a roof | 11 | 15 | 55 | 81 |
+| housed | 391 | 1,003 | 2,050 | 3,444 |
+| counted apart — waiting on a roof | 11 | 15 | 53 | 79 |
 | counted apart — absent on the scene date | 10 | 10 | 28 | 48 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
 | **all** | **412** | **1,028** | **2,131** | **3,571** |
@@ -36,11 +36,11 @@ Of the **3,442** people housed in a standing building: **11.4 % attested** (391)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 377 | 987 | 565 | 1,929 |
+| housed | 378 | 987 | 564 | 1,929 |
 | counted apart — waiting on a roof | 11 | 15 | 0 | 26 |
 | counted apart — absent on the scene date | 10 | 10 | 28 | 48 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
-| **all** | **398** | **1,012** | **593** | **2,003** |
+| **all** | **399** | **1,012** | **592** | **2,003** |
 | share | 19.9 % | 50.5 % | 29.6 % | |
 
 ### Working-age persons
@@ -68,9 +68,9 @@ Of the **3,442** people housed in a standing building: **11.4 % attested** (391)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| occupied | 51 | 9 | 362 | 422 |
+| occupied | 51 | 9 | 363 | 423 |
 | occupants named in prose only | 8 | 10 | 44 | 62 |
-| a use that needs nobody | 25 | 6 | 159 | 190 |
+| a use that needs nobody | 25 | 6 | 158 | 189 |
 | empty, owing somebody | 0 | 0 | 2 | 2 |
 | **all** | **84** | **25** | **567** | **676** |
 | share | 12.4 % | 3.7 % | 83.9 % | |

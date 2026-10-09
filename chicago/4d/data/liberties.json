@@ -20005,12 +20005,6 @@
       "covers": [
         {
           "domain": "structure",
-          "structure": "recon_1835_west_020",
-          "phase": null,
-          "aspect": "occupants"
-        },
-        {
-          "domain": "structure",
           "structure": "recon_1835_west_036",
           "phase": null,
           "aspect": "occupants"
@@ -20029,7 +20023,7 @@
         }
       ],
       "recorded": "2026-10-01",
-      "revised": "2026-10-01",
+      "revised": "2026-10-09",
       "fields": [
         {
           "label": "Applies to",
@@ -20037,7 +20031,7 @@
         },
         {
           "label": "Covers",
-          "text": "`recon_1835_west_036.occupants`, `recon_1835_west_037.occupants`, `recon_1835_west_047.occupants`, `recon_1835_west_020.occupants`"
+          "text": "`recon_1835_west_036.occupants`, `recon_1835_west_037.occupants`, `recon_1835_west_047.occupants`"
         },
         {
           "label": "What we invented",
@@ -20070,6 +20064,10 @@
         {
           "label": "Revised",
           "text": "2026-10-01 (T-1826) — `recon_1835_west_020` added."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-09 (T-2246) — `recon_1835_west_020`'s row retired, as its \"Would replace\" foresaw: the housing deal's keeper rung (L354) seats a storekeeper over it, L. Chevalier, whose Canal Street house of trade stood on no roof."
         }
       ]
     },
@@ -22339,7 +22337,8 @@
       "title": "The present housed: every household in the town on 1 July 1835 seated under a standing dwelling by a deal, the room deciding",
       "section": "per_subject",
       "subjects": [
-        "recon_1835_west_013"
+        "recon_1835_west_013",
+        "recon_1835_west_020"
       ],
       "covers": [],
       "recorded": "2026-10-09",
@@ -22396,6 +22395,10 @@
         {
           "label": "Amended 2026-10-09 (T-2244)",
           "text": "a store roof nobody sleeps or works in, standing a house of trade whose keeper the town already places on ANOTHER roof (asleep there by the dealt roof or a lodging bed, or at work there by their own card), is ruled a store with nobody living over it. The keeper is not moved and the book's order for a household over the store is discharged. Five stores: G. Blanshard's, Dr W. G. Austin's and W. Montgomery's (their keepers slept in a house of their own, a house of their own and a boarding house), and the Chicago Democrat printing office and Pierce & French (whose keepers' own cards put their work at the documented Democrat office and Pierce's smithy). The first three keepers are listed on their store's card as having worked there; the other two are not, because their cards already say where they worked. **What is invented** is that nobody slept over those five stores, which no source says either way; it is the reading that leaves every keeper where the town already had them."
+        },
+        {
+          "label": "Amended 2026-10-09 (T-2246)",
+          "text": "a store roof nobody sleeps or works in, standing a house of trade none of whose keepers the town holds a card for, is ruled a store nobody is seated over, and the book's order for a household over it is discharged. Four stores, each on the roof the street-face adoption gave the firm: H. Doty & Co., Rockwell's cabinet furniture warehouse, the Chicago Bakery (D. Graves) and Harmon, Loomis & Co. (whose Harmon brothers the town places at the firm's documented store). The register's mint refuses the first three keepers a card (a firm, not a person; a surname, a trade and nothing else; the town already names a Graves), and no keeper is minted here to fill the order. **What is invented** is that nobody slept over those four stores. And the West's empty C2 store recon_1835_west_020, whose stated use (L310) named no trade and retired when a keeper could take it, is now kept by L. Chevalier (watches, jewelry and fancy goods, a Canal Street house of trade on no roof), seated over it by the keeper rung: which store roof his house stands in is the invention, as for every keeper."
         }
       ]
     },
