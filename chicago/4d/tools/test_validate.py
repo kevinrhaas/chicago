@@ -2813,6 +2813,24 @@ def _resident_household(**kw) -> dict:
         "research_note": "why this household is written",
     }
     h.update(kw)
+    if "associated_with" not in kw:
+        # T-2258: every committed record carries its singular links among its
+        # plural rows (the card prints only the rows), so the fixture does too.
+        rows = []
+        for key, kind in (("lives_at", "home"), ("works_at", "workplace")):
+            node = h.get(key) or {}
+            if not node.get("value"):
+                continue
+            tier = node.get("confidence")
+            tier = tier if tier in ("attested", "inferred", "reconstructed") else "inferred"
+            rows.append({"kind": kind, "place_or_structure_id": node["value"],
+                         "resolves_to": "structure", "from": "1833", "to": None,
+                         "tier": tier,
+                         "source_id": None if tier == "reconstructed"
+                         else (node.get("sources") or ["s1"])[0],
+                         "note": "the fixture's singular link, carried as a row"})
+        if rows:
+            h["associated_with"] = rows
     return h
 
 
@@ -2919,6 +2937,15 @@ def test_a_place_relationship_is_plural_dated_and_cannot_drift() -> None:
         lives_at={"value": "st1", "confidence": "attested", "sources": ["s1"], "note": "n"},
         associated_with=[row(place_or_structure_id="st2")])], structures=("st1", "st2"))
     check("the singular link may not drift from the plural one",
+          any("may not drift" in e for e in rep.errors), rep.errors)
+
+    # T-2258: the card prints the rows and not the pair, so a singular link on a
+    # record with no rows at all is a claim nobody would be shown.
+    bare = hh(lives_at={"value": "st1", "confidence": "attested", "sources": ["s1"],
+                        "note": "n"})
+    bare.pop("associated_with", None)
+    rep = _run_residents([bare])
+    check("a singular link no plural row carries is refused, even with no rows",
           any("may not drift" in e for e in rep.errors), rep.errors)
 
     # A row is defined over CLAIMS, so it always names a place; and the rung it

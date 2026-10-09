@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1597, ts: '2026-10-09T22:51:14.330Z', date: 'Oct 9, 2026, 5:51 PM CT', title: 'Mark Beaubien\u2019s boarding house on Lake Street gets its signboard', kind: 'fix',
+  { v: 1598, ts: '2026-10-09T22:51:29.981Z', date: 'Oct 9, 2026, 5:51 PM CT', title: 'Mark Beaubien\u2019s boarding house on Lake Street gets its signboard', kind: 'fix',
     items: [
       'The new boarding house on the Market wedge stood with no business behind it, so its front had no board. It now reads MARK BEAUBIEN\u2019S, Boarding House, the house he keeps.',
       'Beaubien\u2019s stray \u201ctavern keeper\u201d business with no address is gone: the boarding house is where he works.',
       'Six other boarding houses\u2019 boards go back to the names they had before the wedge\u2019s house was raised, such as SWEET\u2019S on Clark Street.',
+    ] },
+  { v: 1597, ts: '2026-10-09T22:32:18.330Z', date: 'Oct 9, 2026, 5:32 PM CT', title: 'A household\u2019s home and workplace are named once, with their dates', kind: 'fix',
+    items: [
+      'Open John Davis\u2019s household in People. The Steamboat Hotel used to appear three times on his card: once in \u201cLived at\u201d, once in \u201cWorked at\u201d, and again in \u201cWhere this household was, and when\u201d. Now it appears only in that last section, which gives each place its dates and its evidence.',
+      'The same happens on the 67 household cards that name a home or a workplace. A card with no known home or workplace still shows \u201cLived at: not recorded\u201d and the reason, because that reason has nowhere else to go.',
+      'The build now refuses any household that names a home or workplace without a dated entry for it, so removing the old lines hides nothing. Nothing in the 3-D town changes.',
     ] },
   { v: 1596, ts: '2026-10-09T22:15:28.289Z', date: 'Oct 9, 2026, 5:15 PM CT', title: '117 more houses now name the household living in them', kind: 'fix',
     items: [
