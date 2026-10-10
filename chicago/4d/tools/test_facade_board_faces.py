@@ -47,7 +47,22 @@ from archetypes.frame_dwelling_params import from_phase as dwelling_params  # no
 from archetypes.frame_storefront_params import from_phase as storefront_params  # noqa: E402
 from archetypes.frame_tavern_params import from_phase as tavern_params  # noqa: E402
 
-M.MeshBuilder.to_object = lambda self, mats=None: (self, mats)
+
+
+def _emit(self, mats=None):
+    """The real `to_object`'s bookkeeping without Blender: the openings kit's named
+    materials (T-2278) are appended after the archetype's list and their indices
+    remapped, so `mats[i]` names every face's material."""
+    mats = list(mats or [])
+    base = len(mats)
+    for name, _spec in sorted(self.named.items(), key=lambda kv: kv[1][0]):
+        mats.append(name)
+    self.mat_index = [base + (mi - self.NAMED_BASE) if mi >= self.NAMED_BASE else mi
+                      for mi in self.mat_index]
+    return self, mats
+
+
+M.MeshBuilder.to_object = _emit
 for _mod in (frame_dwelling, frame_storefront, frame_tavern):
     _mod.simple_material = lambda name, *a, **k: name
 

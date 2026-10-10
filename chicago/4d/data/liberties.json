@@ -27952,6 +27952,33 @@
       ]
     },
     {
+      "id": "L413",
+      "title": "Doors, windows and their trim on every 1835 building, and the glass in them",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "on the owner's ask of 2026-10-10 (T-2278: \"give all structures correct door and window openings and any appropriate fascia\"; reuse Glessner's dark glass where a building could reasonably have had glass), every opening the frame dwellings, log dwellings, stores, taverns and fort buildings draw is built by one kit, `generators/common/openings.py`: a board casing standing 5 cm off the wall's skin with its returns, the pane set back in it so the jambs and head read as a reveal, a sloped sill with horns and a drip cap; a closed door in every doorway (panelled on a frame house, a tavern, a store or a fort building, half-glazed on a shop, board-and-batten on iron strap hinges on a log house, a freight door or a magazine); open board shutters beside about half the log houses' windows; strap hinges on the outbuildings' existing board doors. **What is attested.** That the town was glazed: window glass by the box in 8x10, 7x9 and 5x10 in panes, and ready-made window sash, advertised in the Chicago Democrat 1833-35 by Philo Carpenter, John H. Kinzie, J. K. Botsford, P. F. W. Peck and Jones & King (each advertisement is on its `data/businesses/biz_*.json` record with its issue), and the Green Tree's 6x8 lights (`chicagology_prefire127`). So a log house in this town is glazed too; oiled paper belongs to the remote frontier of a decade earlier, and nothing put glass in a barn, a shed or a stable, which stay unglazed. **What is invented.** Every dimension of the casing, sill, cap, reveal and leaf; the door paints (dealt by the record's identity from bottle green, Spanish brown, black-green and red-brown, with weathered board on an unpainted house); which doors carry six panels and which four; which cabin windows carry shutters; the light counts of the stores' show windows and taverns' sash. The pane colour is Glessner's drawn glass (T-2109/T-2183: the GLB's glass at 12 per cent, roughness 0.065), adopted, not measured — `materials.GLASS`."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a view or description of a particular 1835 Chicago building's doors or windows replaces the kit's choices for that building; a source on door colour in the town replaces the deal."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2278."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2278)."
+        }
+      ]
+    },
+    {
       "id": "L46",
       "title": "The fort stands on a bank the model has no cut or fill for",
       "section": "resolved",

@@ -71,6 +71,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from common import materials  # noqa: E402
+from common import openings  # noqa: E402
 from common.mesh import (  # noqa: E402
     SHUTTER_RGBA, MeshBuilder, simple_material,
 )
@@ -272,27 +273,32 @@ def _panel(b: MeshBuilder, axis: str, plane: float, u0: float, u1: float,
     b.add_poly(pts, conf, mat)
 
 
-def _opening(b: MeshBuilder, axis: str, plane: float, u0: float, u1: float,
-             z0: float, z1: float, outward: int, conf: float,
-             relief: float = TRIM_RELIEF_M) -> None:
-    """A door or window: a dark opening inside a boarded surround.
+def _kit(b: MeshBuilder, p: FrameDwellingParams) -> openings.Mats:
+    """The openings kit's materials for this house (T-2278): casing and sash in the
+    house's trim, the town's glass (Glessner's dark pane), and a door leaf dealt a
+    paint when the walls carry a coat and left weathered board when they do not."""
+    finish = materials.wall_finish(p.paint, p.finish_key)
+    rgba, rough = openings.door_paint(b.name, bool(finish.coating))
+    return openings.Mats(
+        casing=M_TRIM, sash=M_TRIM, dark=M_DARK,
+        glass=b.named_mat("glass", *openings.glass_material_spec()),
+        door=b.named_mat("door", rgba, rough),
+        panel=b.named_mat("door_panel", openings.shade(rgba, 0.70), rough))
 
-    Surfaces, not holes. At this level of detail a real opening would show the inside
-    of the far wall, and interiors are out of scope.
 
-    The surround is not decoration. A frame wall's openings are trimmed with boards
-    wider than the siding is thick, and without them the dark rectangle has to sit
-    proud of the wall to be visible at all, which reads as a plaque glued on. Both
-    surfaces are flat, so the dark panel sits very slightly IN FRONT of the surround
-    rather than recessed into it — it is entirely inside the surround's outline and
-    would otherwise be hidden by it.
-    """
-    off = relief + 0.010
-    m = 0.075
-    _panel(b, axis, plane + outward * off, u0 - m, u1 + m, z0 - m, z1 + m,
-           outward, conf, M_TRIM)
-    _panel(b, axis, plane + outward * (off + 0.006), u0, u1, z0, z1,
-           outward, conf, M_DARK)
+def _wall(axis: str, plane: float, outward: int, skin: float = CLAPBOARD_LIP_M) -> openings.Wall:
+    """A clapboarded wall for the kit: its surface stands a lap's lip proud."""
+    return openings.Wall(axis, plane, outward, skin)
+
+
+def _door(b: MeshBuilder, p: FrameDwellingParams, axis: str, plane: float, u0: float,
+          u1: float, z0: float, z1: float, outward: int, conf: float) -> None:
+    """A closed panelled door in a cased opening (T-2278) — four panels, or six on a
+    house dealt the richer door. Before this a house door was a black panel with
+    nothing in it."""
+    panels = 6 if openings.deal("panels|" + b.name, 3) == 0 else 4
+    openings.panelled_door(b, _wall(axis, plane, outward), u0, u1, z0, z1, conf,
+                           _kit(b, p), panels=panels)
 
 
 def _sash(p: FrameDwellingParams, sill: float, head_limit: float) -> tuple:
@@ -313,60 +319,32 @@ def _sash(p: FrameDwellingParams, sill: float, head_limit: float) -> tuple:
 
 def _window(b: MeshBuilder, p: FrameDwellingParams, axis: str, plane: float,
             uc: float, z0: float, sash: tuple, outward: int, conf: float) -> None:
-    """A full window centred on `uc`: the opening, then its double-hung sash."""
+    """A full window centred on `uc`: cased, silled and capped, its double-hung sash
+    set back in the casing over the town's dark glass (T-2278).
+
+    The sash is still built from the record's `glazing` (T-1838) — a merchant's 8 x 10
+    lights read as fewer, larger panes than a labourer's 6-over-6 of the attested
+    6 x 8 — and still in flat bars, painted with the casing: a box per bar would
+    treble the cost of every window in the town.
+    """
     h, up, lo = sash
     hw = p.window_w_m / 2.0
-    _opening(b, axis, plane, uc - hw, uc + hw, z0, z0 + h, outward, conf)
-    _sash_bars(b, p, axis, plane, uc - hw, uc + hw, z0, z0 + h, outward, conf,
-               rows=(up, lo))
+    across = glazing_lights(p.glazing)[0]
+    openings.window(b, _wall(axis, plane, outward), uc - hw, uc + hw, z0, z0 + h, conf,
+                    _kit(b, p), across, (up, lo))
 
 
-def _sash_bars(b: MeshBuilder, p: FrameDwellingParams, axis: str, plane: float,
-               u0: float, u1: float, z0: float, z1: float, outward: int,
-               conf: float, rows: tuple | None = None) -> None:
-    """The sash's timber over a dark opening: stiles, rails, muntins (T-1838).
-
-    Before this every window in the archetype was a dark rectangle in a boarded
-    surround, and a 6 x 8 in light was a number in a comment. The bars are what make
-    the glazing a thing a visitor sees: a merchant's 8 x 10 lights read as fewer,
-    larger panes than a labourer's 6-over-6 of the attested 6 x 8.
-
-    `rows` is (upper, lower) for a double-hung window, with the meeting rail between
-    them; None is the half storey's small fixed light, which takes as many whole
-    panes of the house's glass as its opening holds. Flat panels, in the trim's
-    colour, just in front of the dark panel `_opening` laid: the sash is painted with
-    the casing, and a box per bar would treble the cost of every window in the town.
-    """
-    across, _up, _lo, pw, ph = glazing_lights(p.glazing)
-    y = plane + outward * (TRIM_RELIEF_M + 0.010 + 0.010)
+def _fixed_light(b: MeshBuilder, p: FrameDwellingParams, axis: str, plane: float,
+                 u0: float, u1: float, z0: float, z1: float, outward: int,
+                 conf: float, skin: float = 0.0) -> None:
+    """The half storey's small fixed light in a gable: as many whole panes of the
+    house's glass as its opening holds, in one band with no meeting rail."""
+    _across, _up, _lo, pw, ph = glazing_lights(p.glazing)
     s = SASH_STILE_M
-
-    def bar(a0, a1, b0, b1):
-        _panel(b, axis, y, a0, a1, b0, b1, outward, conf, M_TRIM)
-
-    if rows is None:
-        across = max(1, round((u1 - u0 - 2 * s + MUNTIN_M) / (pw + MUNTIN_M)))
-        n = max(1, round((z1 - z0 - 2 * s + MUNTIN_M) / (ph + MUNTIN_M)))
-        bands = [(z0 + s, z1 - s, n)]
-    else:
-        up, lo = rows
-        pane = (z1 - z0 - 2 * s - SASH_MEETING_M - (up + lo - 2) * MUNTIN_M) / (up + lo)
-        zm = z0 + s + lo * pane + (lo - 1) * MUNTIN_M
-        bar(u0 + s, u1 - s, zm, zm + SASH_MEETING_M)
-        bands = [(z0 + s, zm, lo), (zm + SASH_MEETING_M, z1 - s, up)]
-    bar(u0, u0 + s, z0, z1)
-    bar(u1 - s, u1, z0, z1)
-    bar(u0 + s, u1 - s, z0, z0 + s)
-    bar(u0 + s, u1 - s, z1 - s, z1)
-    lw = (u1 - u0 - 2 * s - (across - 1) * MUNTIN_M) / across
-    for k in range(1, across):
-        u = u0 + s + k * lw + (k - 1) * MUNTIN_M
-        bar(u, u + MUNTIN_M, z0 + s, z1 - s)
-    for lo_z, hi_z, n in bands:
-        lh = (hi_z - lo_z - (n - 1) * MUNTIN_M) / n
-        for k in range(1, n):
-            z = lo_z + k * lh + (k - 1) * MUNTIN_M
-            bar(u0 + s, u1 - s, z, z + MUNTIN_M)
+    across = max(1, round((u1 - u0 - 2 * s + MUNTIN_M) / (pw + MUNTIN_M)))
+    n = max(1, round((z1 - z0 - 2 * s + MUNTIN_M) / (ph + MUNTIN_M)))
+    openings.window(b, _wall(axis, plane, outward, skin), u0, u1, z0, z1, conf,
+                    _kit(b, p), across, (n,))
 
 
 def _band(b: MeshBuilder, x0: float, y0: float, x1: float, y1: float,
@@ -598,8 +576,8 @@ def _facade(b: MeshBuilder, p: FrameDwellingParams, openings: list, w: float,
     for cx, kind in openings:
         if kind == "door":
             if door_h > 1.6:
-                _opening(b, "y", d, cx - DOOR_W_M / 2, cx + DOOR_W_M / 2, DOOR_SILL_M,
-                         DOOR_SILL_M + door_h, 1, conf)
+                _door(b, p, "y", d, cx - DOOR_W_M / 2, cx + DOOR_W_M / 2, DOOR_SILL_M,
+                      DOOR_SILL_M + door_h, 1, conf)
             continue
         if h < 0.5:
             continue
@@ -628,10 +606,12 @@ def _shutters(b: MeshBuilder, p: FrameDwellingParams, plane: float, cx: float,
     that says nothing about shutters gets none rather than a plainer pair.
     """
     for side in (-1, 1):
-        x0 = cx + side * (p.window_w_m / 2 + 0.08)
-        x1 = x0 + side * (p.window_w_m * 0.46)
+        # hung on the casing's outer edge and laid back flat on the siding (T-2278:
+        # the casing is now a real 9 cm board, so the leaf starts past it)
+        x0 = cx + side * (p.window_w_m / 2 + openings.CASING_W_M + 0.012)
+        x1 = x0 + side * (p.window_w_m * 0.5)
         lo, hi = min(x0, x1), max(x0, x1)
-        _panel(b, "y", plane + outward * (TRIM_RELIEF_M + 0.004), lo, hi, z0, z1,
+        _panel(b, "y", plane + outward * (CLAPBOARD_LIP_M + 0.008), lo, hi, z0, z1,
                outward, conf, M_SHUTTER)
 
 
@@ -686,10 +666,8 @@ def _gable_ends(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float,
         if shrink * half_depth > GABLE_WIN_W_M / 2 + 0.35 and p.stories >= 1.5:
             # the gable face is the roof's end triangle, which sits flush with the
             # wall because _roof insets it by the overhang
-            _opening(b, "x", x, yc - GABLE_WIN_W_M / 2, yc + GABLE_WIN_W_M / 2,
-                     wall_z + 0.16, top, out, c_mass)
-            _sash_bars(b, p, "x", x, yc - GABLE_WIN_W_M / 2, yc + GABLE_WIN_W_M / 2,
-                       wall_z + 0.16, top, out, c_mass)
+            _fixed_light(b, p, "x", x, yc - GABLE_WIN_W_M / 2, yc + GABLE_WIN_W_M / 2,
+                         wall_z + 0.16, top, out, c_mass)
 
     stack_x = _stack_positions(p, w)
     sill = min(0.95, (wall_z / 2.0 if p.stories >= 2.0 else wall_z) * 0.36)
@@ -752,8 +730,8 @@ def _ell(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float,
     xc = (ex0 + ex1) / 2.0
     door_h = min(DOOR_H_M, ez - 0.26 - DOOR_SILL_M)
     if door_h > 1.6:
-        _opening(b, "y", 0.0, xc - DOOR_W_M / 2, xc + DOOR_W_M / 2, DOOR_SILL_M,
-                 DOOR_SILL_M + door_h, -1, c_fen)
+        _door(b, p, "y", 0.0, xc - DOOR_W_M / 2, xc + DOOR_W_M / 2, DOOR_SILL_M,
+              DOOR_SILL_M + door_h, -1, c_fen)
     side_x, out = (ex0, -1) if p.ell_side == "east" else (ex1, 1)
     yc = y0 / 2.0
     sill = 0.85
