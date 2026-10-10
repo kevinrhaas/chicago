@@ -3107,6 +3107,18 @@ step "changelog contract" \
 selftest "…and a shipped release note cannot leave or change its number" \
   node tools/changelog-history.mjs --self-test
 
+# THE ENTRY AS A FILE OF ITS OWN (owner, 2026-10-10). A PR writes its What's-New
+# entry to changelog.d/<name>.json instead of the top line of changelog.js, because
+# that one line made every open PR conflict with every landing (#607, #608, #610 and
+# #613 each lost three merges to it). The fold on dev turns the file into an entry
+# after the merge. Hold the pending files to the contract and budget now, while the
+# PR is open, so the fold never meets a file it must refuse.
+step "pending changelog entry files are well formed and inside the What's-New budget" \
+  node tools/changelog-entries.mjs --check
+
+selftest "…and the fold numbers, orders and deletes them, and refuses a bad one" \
+  node tools/changelog-entries.mjs --self-test
+
 # The ticket queue: the operational "what next" the owner ordered on 2026-08-17
 # after his own requests went untraceable in the ROADMAP. Duplicate ids, queue
 # drift, a stale BOARD, a block with no stated question — all merge-refusing.

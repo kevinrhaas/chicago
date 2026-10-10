@@ -83,6 +83,7 @@ const EXEMPT = [
   'chicago/4d/tools/dev-smoke-state.json',
 ];
 const CHANGELOG = 'chicago/4d/renderers/web/js/changelog.js';
+const ENTRY_DIR = 'chicago/4d/changelog.d';
 
 const changed = git('diff', '--name-only', `${base}...${head}`)
   .split('\n').map((s) => s.trim()).filter(Boolean);
@@ -93,6 +94,19 @@ const touched = changed.filter((f) =>
 if (touched.length === 0) {
   console.log('changelog entry: not required — this change touches nothing under '
     + WATCHED.map((w) => w.replace('chicago/4d/', '')).join(', '));
+  process.exit(0);
+}
+
+// THE ENTRY AS A FILE OF ITS OWN (2026-10-10). A PR now writes its What's-New entry
+// to chicago/4d/changelog.d/<name>.json, which the fold on dev turns into a
+// changelog.js entry after the merge (tools/changelog-entries.mjs). A new file there
+// is the entry; `changelog-entries.mjs --check` in check.sh holds its shape.
+const added = git('diff', '--name-only', '--diff-filter=A', `${base}...${head}`)
+  .split('\n').map((s) => s.trim()).filter(Boolean);
+const entryFiles = added.filter((f) => f.startsWith(`${ENTRY_DIR}/`) && f.endsWith('.json'));
+if (entryFiles.length) {
+  console.log(`changelog entry: present — ${touched.length} watched file(s) changed `
+    + `and ${entryFiles.join(', ')} carries the entry (folded into changelog.js on dev after merge)`);
   process.exit(0);
 }
 
@@ -117,13 +131,14 @@ if (trailer) {
 }
 
 console.error('changelog entry: MISSING.\n');
-console.error(`${touched.length} file(s) under the watched paths changed and `
-  + `${CHANGELOG} did not:\n`);
+console.error(`${touched.length} file(s) under the watched paths changed, and the branch `
+  + `adds no entry file under ${ENTRY_DIR}/:\n`);
 for (const f of touched.slice(0, 12)) console.error(`  ${f}`);
 if (touched.length > 12) console.error(`  … and ${touched.length - 12} more`);
-console.error('\nAGENTS.md: "prepend one entry to renderers/web/js/changelog.js …');
-console.error('Stamp BEFORE merging to dev; nothing stamps later in the pipeline."\n');
-console.error('Write the entry, then `node tools/stamp-changelog.mjs`. If this branch');
+console.error('\nAGENTS.md: add ONE file, chicago/4d/changelog.d/<ticket>.json:');
+console.error('  { "title": "…", "kind": "fix", "items": ["…"] }');
+console.error('No v, ts or date: the fold on dev numbers and stamps it after the merge.');
+console.error('Check it with `node tools/changelog-entries.mjs --check`. If this branch');
 console.error('genuinely changes nothing a visitor or the release feed would see, say so');
 console.error('in a commit trailer and this gate will take your word for it:\n');
 console.error('  Changelog: none — <why>\n');
