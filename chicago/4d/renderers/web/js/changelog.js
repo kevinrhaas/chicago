@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1608, ts: '2026-10-10T03:36:46.043Z', date: 'Oct 9, 2026, 10:36 PM CT', title: 'Glessner House rebuilt without its hidden doubled faces', kind: 'fix',
+    items: [
+      'Go close to the carved leaves over the Prairie Avenue entrance and on the porch capitals. Their roots and tips now close cleanly, where thin slivers used to lie on top of each other. The change is a few pixels at the leaf tips. Nothing else on the house moves.',
+      'Two hidden faults are also gone: doubled end caps inside the roof ridge, and doubled ends in the copper flashing round the chimneys. The detailed house is about 10,000 triangles lighter and its downloads are slightly smaller.',
+    ] },
   { v: 1607, ts: '2026-10-10T02:18:30.123Z', date: 'Oct 9, 2026, 9:18 PM CT', title: 'Prairie Avenue’s building parts get one set of measurements', kind: 'change',
     items: [
       'Nothing you can see changes yet. The walls, windows, roofs and front steps of the 1904 houses still to come will now be built from one rule book. Everything is in metres, measured up from the ground.',

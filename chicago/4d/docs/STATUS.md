@@ -1,3 +1,19 @@
+## T-2267 — Glessner v4 regenerated without coincident faces (2026-10-10)
+
+The K01 measure (T-2265) found 15 coincident triangles in Glessner's full master, 40 in
+web and 8 in light. All three generator causes are fixed and Glessner is rebaked: full
+**0**, light **0**, web **5**. The web five are sub-2 mm leaf-root slivers that the
+0.83 mm encoding rounds together. The causes: acanthus leaf roots and tips with
+sub-millimetre rows (they now close on the midrib); collinear ridge barrels capped back
+to back at x = 11.54 m (now continuous); chimney flashing pieces capped where they meet
+at the main ridge (now continuous). The K01 verdict now *states* when a derived tier's
+remainder is quantization: the master has none, the tier is position-quantized, and it
+carries the master's triangles one for one. Light, a separate build, may keep none. A
+2-step sliver threshold fitted only 3 of the 5 and was dropped, not widened. Fixed
+cameras (fan, capital, ridge joint, flashing, two silhouettes, 1280×800 Full and
+390×780 Light) change only at leaf tips, ≤0.043 % of pixels.
+`docs/RESEARCH/glessner-coincident-faces-2267/README.md`.
+
 ## T-2206 — Glessner roof and courtyard proportions audited
 
 The comparison page now measures the current assets through all nine frozen T-2200
