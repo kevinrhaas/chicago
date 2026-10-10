@@ -23621,3 +23621,28 @@ bow; a photograph or plan of 1808's rear replaces or removes the canted bay.
 **Ticket:** T-2308 (piece 2 of T-1850, K08).
 **Review:** `docs/RESEARCH/k08-1808-bays-2308/README.md`.
 **Recorded:** 2026-10-10 (T-2308).
+
+### L-k05-1808-roof-2302 — The 1808 Prairie roof rebuilt from the K05 kit, with two reconstructed chimney stacks
+
+**Decision:** the 1808 Prairie exemplar's roof (T-2302) is no longer a set of loose planes. The hip,
+the street dormer and two chimney stacks are each a closed element from
+`generators/archetypes/k05_roofs.py`, joined by the kit's boolean union, and the dormer's sash recess
+is cut out of the result, so every valley, cheek, stack and reveal is cut where the surfaces meet. The
+K04 caps and flashings are laid on the roof graph read off that surface.
+**What is invented.** The two stacks: their number, their place on the ridge (6.6 m and 11.4 m from
+the rear wall, on a reconstructed spine wall between the front and back rooms), their 0.90 × 0.75 m
+plan, their 0.9 m rise above the ridge and their stone caps oversailing 50 mm. The dormer's eave box
+(0.15 m overhang, 0.12 m fascia) is the kit's working size, and its eaves now oversail its cheeks, as
+the kit builds every dormer. Everything L-k04-1808-roof-2293 and L-k05-roof-kit-2301 record is
+unchanged.
+**What is not.** Nothing here is attested. No source reads this house's roof or its chimneys; a brick
+house of 1886 heated its principal rooms with fireplaces, which is why it has stacks at all.
+**Given up, said.** K04 carried the slates 50 mm past the fascia with a cut edge under them. On a
+closed solid the covering ends at the fascia's face, so that lip is gone until K04 lays it as a part
+on the eave line. The stacks have no flues, pots or flashing; those are K10's (T-1857).
+**How to resolve:** a photograph of the house gives its chimneys' number, place and height, and the
+record takes them. The pierced parapet the 1888 plate shows is still T-1882's to build.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.chimneys`.
+**Ticket:** T-2302 (piece 2 of T-1847, K05).
+**Review:** `docs/RESEARCH/k05-1808-roof-2302/README.md`.
+**Recorded:** 2026-10-10 (T-2302).

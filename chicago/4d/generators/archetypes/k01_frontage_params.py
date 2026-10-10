@@ -101,6 +101,7 @@ class K01FrontageParams:
     roof: dict = field(default_factory=dict)       # T-2293: covering, caps, flashing (K04)
     dormer: dict = field(default_factory=dict)     # T-2293: the front dormer, if any
     rainwater: dict = field(default_factory=dict)  # T-2293: gutters, outlets, pipes (K04)
+    chimneys: tuple = ()              # T-2302: stacks joined into the K05 roof solid
     # T-2298: the K06 variant each K01 opening kind is glazed with (k06_windows.json)
     window_kit: dict = field(default_factory=dict)
     # T-2304: the K07 variant the door and its stoop are built from (k07_entrances.json),
@@ -144,7 +145,7 @@ CONSUMED = frozenset({
     "eave_overhang_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m",
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
     "basement_lights", "roof_covering", "dormer", "rainwater", "window_kit", "service_wall_brick",
-    "entrance_kit", "street_front_trim", "bays",
+    "entrance_kit", "street_front_trim", "bays", "chimneys",
 })
 
 WALLS = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south")
@@ -450,6 +451,31 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError(f"entrance_kit: K07 solves {pf} m in {k07_risers} risers and the K01 stair in "
                          f"{risers}; one stoop cannot be both")
     door_kit = {"variant": ev["id"], "front_yard_m": yard}
+    # T-2302: chimney stacks, each a closed prism the K05 union joins into the roof, so
+    # its penetration through the covering is cut where the two really meet
+    chimneys = []
+    ch = val("chimneys")
+    if ch:
+        sx, sz = (float(v) for v in ch["plan_m"])
+        above, cap_p, cap_d = float(ch["top_above_ridge_m"]), float(ch["cap_proud_m"]), float(ch["cap_depth_m"])
+        ridge = (round(pf + sum(heights), 4) + width / 2 * math.tan(math.radians(pitch)))
+        for st_ in ch["stacks"]:
+            u, v = float(st_["u_m"]), float(st_["v_m"])
+            if not (sx / 2 + 0.3 <= u <= depth - sx / 2 - 0.3 and sz / 2 + 0.3 <= v <= width - sz / 2 - 0.3):
+                raise ParamError(f"chimney at ({u}, {v}) does not stand inside the footprint")
+            if above < 0.6:
+                raise ParamError("a chimney stops less than 0.6 m above the ridge")
+            chimneys.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": round(ridge + above, 4),
+                             "cap_proud_m": cap_p, "cap_depth_m": cap_d})
+        if dormer:
+            tp = math.tan(math.radians(pitch))
+            d_ridge = (dormer["face_setback_m"] * tp + dormer["face_height_m"]
+                       + dormer["width_m"] / 2 * math.tan(math.radians(dormer["pitch_deg"])))
+            back = depth - d_ridge / tp - 0.5   # where k01_frontage starts the dormer's body
+            for c in chimneys:
+                if abs(c["v_m"] - width / 2) < dormer["width_m"] / 2 + 0.5 + sz / 2 and c["u_m"] + sx / 2 > back - 0.3:
+                    raise ParamError("a chimney stands in the dormer's body")
+
     # T-2291: the brick walls wear a K03 panel the record names; k03_brick lays one
     from . import k03_brick
     panel = val("service_wall_brick", k03_brick.PANEL)
@@ -473,7 +499,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         side_bays=tuple(float(s) for s in val("side_bays")),
         rear_bays=tuple(float(s) for s in val("rear_bays")),
         basement_sill_m=bsill, openings=tuple(openings), service_wall_brick=panel,
-        roof=k04, dormer=dormer, rainwater=rainwater,
+        roof=k04, dormer=dormer, rainwater=rainwater, chimneys=tuple(chimneys),
         window_kit={k: kit[k] for k in sorted(kit)}, entrance_kit=door_kit, bays=bays,
         street_front_trim=dict(val("street_front_trim", {}) or {}),
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}

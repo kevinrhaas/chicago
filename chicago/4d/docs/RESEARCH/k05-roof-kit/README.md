@@ -77,7 +77,8 @@ RECONSTRUCTION-RULES' working ranges. No source is cited and none is invented.
 
 ## Not yet
 
-- No house is roofed from this kit. **T-2302** rebuilds the 1808 exemplar's roof from it and bakes it.
-- Chimney penetrations belong to T-2302 (on a real roof) and to K10 (T-1857, the stacks themselves).
+- The 1808 exemplar is roofed from this kit since **T-2302** (`docs/RESEARCH/k05-1808-roof-2302/`),
+  with its dormer and two chimney stacks in the union. The gate holds that house to these rules too.
+- The stacks' flues, pots and flashing belong to K10 (T-1857).
 - The dormer face is blank; K06's attic light goes in it on a house.
 - The mansard has no curb moulding; K09 (T-1852, cornices and cresting) owns that.
