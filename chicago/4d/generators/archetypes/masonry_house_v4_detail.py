@@ -776,6 +776,9 @@ def ring(b,pl,uc,zs,rin,rout,count,conf):
 
 
 def roof_ridges(b,params):
+    if params.detail.get("roof_edges"):
+        from archetypes.masonry_house_v4_roof_edges import add_ridges
+        return add_ridges(b,params)
     from archetypes.masonry_house_v4_roof_crests import add_ridge_crest
     from archetypes.masonry_house_v4_west_roof import ridge_ranges
     for r,a0,a1 in (segment for source in params.ranges for segment in ridge_ranges(source)):
@@ -1142,6 +1145,9 @@ def dormer(b,d):
     b.raw([(p[0],p[1],ze-.075) for p in ring],reconstructed,PAINTED_WOOD,(0,0,-1))
 
     def hip_cap(p,q):
+        if b.params.detail.get('roof_edges'):
+            from archetypes.masonry_house_v4_roof_edges import hip_caps
+            return hip_caps(b,p,q)
         # Small overlapping half-round clay covers make each actual hip
         # readable against the equally pitched red roof behind the dormer.
         tangent=norm(sub(q,p));across=norm(cross(tangent,(0,0,1)))
@@ -1577,6 +1583,9 @@ def build(params,name):
     date_stones(b,params)
     stair_tower_plinth(b,params)
     add_courtyard_rainwater(b,params)
+    if params.detail.get("roof_edges"):
+        from archetypes.masonry_house_v4_roof_edges import add_edges
+        add_edges(b,params)
     obj=b.to_object(build_materials(params.colours))
     assign_metric_uvs(obj,b.roof_uvs)
     _discard_export_scratch_uv(obj)

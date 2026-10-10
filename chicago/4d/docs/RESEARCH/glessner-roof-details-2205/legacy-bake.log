@@ -1,0 +1,22 @@
+INFO Draco mesh compression is available, use library at /workspace/scratch/blender/blender-4.5.3-linux-x64/4.5/scripts/addons_core/io_scene_gltf2/libextern_draco.so
+23:33:16 | INFO: Starting glTF 2.0 export
+23:33:16 | INFO: Extracting primitive: glessner_house__as_built_1887
+23:33:16 | INFO: Primitives created: 9
+23:33:16 | INFO: Finished glTF 2.0 export in 0.015607357025146484 s
+
+built versions/glessner_house/pre-v4/glessner_house__as_built_1887.glb: 1075 triangles, ordinary UV unwrap
+23:33:16 | INFO: Starting glTF 2.0 export
+23:33:16 | INFO: Extracting primitive: glessner_house__as_built_1887
+23:33:16 | INFO: Primitives created: 9
+23:33:16 | INFO: Finished glTF 2.0 export in 0.013889312744140625 s
+
+built versions/glessner_house/v2/glessner_house__as_built_1887.glb: 1103 triangles, ordinary UV unwrap
+23:33:16 | INFO: Starting glTF 2.0 export
+23:33:16 | INFO: Extracting primitive: glessner_house__as_built_1887
+23:33:16 | INFO: Primitives created: 9
+23:33:16 | INFO: Finished glTF 2.0 export in 0.016614675521850586 s
+
+built versions/glessner_house/v3/glessner_house__as_built_1887.glb: 1065 triangles, ordinary UV unwrap
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:38:15)
+
+Blender quit
