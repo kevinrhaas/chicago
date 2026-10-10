@@ -287,8 +287,8 @@
   },
   "reconstructed_seats": 1442,
   "dealt_a_roof": 316,
-  "dealt_a_standing_roof": 314,
-  "dealt_a_slot_not_yet_built": 2,
+  "dealt_a_standing_roof": 316,
+  "dealt_a_slot_not_yet_built": 0,
   "dealt_by_ticket": {
    "T-1613": 221,
    "T-1614": 95
@@ -14379,8 +14379,8 @@
    },
    "seed": "hh_church_thomas|south|merchant|T-1512",
    "dealt_roof": {
-    "structure_id": null,
-    "how": "slot",
+    "structure_id": "recon_1835_blk_school_section_tier_82_h1_06",
+    "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
     "on": "blk_school_section_tier_82#07",
@@ -14391,10 +14391,10 @@
     "district": "south",
     "stands_on": "lot",
     "deal_seed": "hh_church_thomas|south|merchant|T-1512",
-    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
-    "owed_to": "T-1200..T-1214",
+    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
+    "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy deals this household a place on blk_school_section_tier_82#07 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family H1 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_school_section_tier_82_h1_06, a family H1 roof on blk_school_section_tier_82#07. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's merchant_and_professional_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -59602,8 +59602,8 @@
    },
    "seed": "hh_vieaux_susanne|T-1522|division:ccea2da66d98|class:318bf560cb8d",
    "dealt_roof": {
-    "structure_id": null,
-    "how": "slot",
+    "structure_id": "recon_1835_blk_school_section_tier_82_d1_05",
+    "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
     "on": "blk_school_section_tier_82#06",
@@ -59614,10 +59614,10 @@
     "district": "south",
     "stands_on": "lot",
     "deal_seed": "hh_vieaux_susanne|T-1522|division:ccea2da66d98|class:318bf560cb8d",
-    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
-    "owed_to": "T-1200..T-1214",
+    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
+    "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy deals this household a place on blk_school_section_tier_82#06 under its labourer_dwellings clause, and the roof is not built: the deal REQUESTED a family D1 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_school_section_tier_82_d1_05, a family D1 roof on blk_school_section_tier_82#06. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
