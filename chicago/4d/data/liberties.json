@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 464,
+  "count": 469,
   "liberties": [
     {
       "id": "L1",
@@ -28864,6 +28864,209 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2312)."
+        }
+      ]
+    },
+    {
+      "id": "L-k09-1808-trim-2310",
+      "title": "1808 Prairie's street front in K09 carved trim: entrance, window heads and apron panels, all reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.street_front_trim"
+        }
+      ],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the street front of the 1808 Prairie K01 frontage (T-2266) wears the K09 carved-trim kit's own pieces (T-2309). The door has a round ring of thirteen voussoirs with a label returned level at its springs. The ring springs from two engaged foliate colonnettes standing on the stoop's landing. The half-round over the flat door head is the wall's own face, a plain tympanum. The principal-floor windows wear the kit's restrained surround: an architrave whose feet stand on a sill lengthened to carry them, and a cornice hood on two scrolled consoles. Under each sits the kit's bounded foliate apron panel, centred between the basement light's lintel and the sill. The second-floor windows take the cornice hood alone. The third floor keeps K01's flat lintel, so the trim lightens as the front rises. The label's crown stops 4 cm under the second-floor belt course, and the generator refuses a front where it would not. **What is attested.** Very little: that the house stood in 1904 with a stone street front (the record's `construction`, inferred from the 1911 Sanborn sheet 28). The T-1837 building register reads a \"Romanesque-classical stone front\" and a \"north entrance loggia with Ionic columns\" at `pa-1808-6`. It reads them off the 1888 *Inland Architect* plate, which is not a source record here. The register is a request, not a source. **What is invented.** Every form, motif and placement. The round ring and its voussoir count, the foliate capitals (the register's Ionic order is not in the kit), the hood and architrave on the windows, the apron panels and which storeys take which head. The leaves are the kit's generic, newly designed motif (L-k09-carved-trim-kit-2309). They copy no carving of 1808 Prairie, because none has been read. **What it does not do.** It does not touch Glessner. Glessner's carving is documented and authored from its own evidence, and the kit's `restrictions` forbid a generic motif from replacing a landmark's documented carving. It does not build the register's entrance loggia, balustraded balcony or pierced parapet, which belong to the entrance (K07, T-2304) and cornice/parapet (T-1852) packages. Each of those would replace part of this trim when it is built. **What would replace it.** The 1888 plate deposited and read as a source, or a photograph of 1808's front. Either would replace the generic portal with the documented loggia and its order, and set the window heads from the photograph."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.street_front_trim`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2310 (piece 2 of T-1851, K09)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k09-1808-trim-2310/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2310)."
+        }
+      ]
+    },
+    {
+      "id": "L-k07-1808-entrance-2304",
+      "title": "The 1808 exemplar's door and stoop: built from the reconstructed K07 kit, clear of the walk",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.entrance_kit"
+        }
+      ],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the street door of the 1808 Prairie house (`keith_house_1808_prairie`, as built 1886) and its stoop are the K07 kit's `k07.entrance.panel_door_stoop` (T-2304), built by `generators/archetypes/k07_entrances.py` inside the K01 assembly. That is a four-panel leaf under a two-light transom, with a dark hall behind the glass, a frame, a threshold and a reveal, set in the K01 proof's own 1.20 x 2.70 m hole at the north bay. It stands at the head of a straight stone stoop between cheek walls. The stair is solved from this record's own datums: a 1.5 m principal floor in nine equal risers of 0.167 m, 0.30 m goings, a 1.2 m landing and a 1.8 m width. It reaches 3.60 m from the front. The 1904 street grid puts the inner edge of Prairie Avenue's walk 4.75 m from the front at the door, so the stoop stops 1.15 m short of it, and the generator refuses a stoop that does not. The K01 flat lintel still dresses the head. This replaces the K01 proof's one-plane leaf, recessed 0.22 m, and its stoop of solid columns. **What is invented.** The choice of this variant, and everything the variant itself invents (L-k07-entrance-kit-2303). No source shows this house's door, transom, stoop or cheek walls. The register's reading of the 1888 plate is a north entrance loggia with Ionic columns, a balustraded balcony and a stair. This simple stone-front stoop does not depict it. The 4.75 m front yard rests on the placement's reconstructed building line (14.7 ft behind the street line) and on the street grid's inferred walk band (sec. 2062's one-foot margin from the lot line). **What is not.** There is no carriage opening. The 1911 Sanborn sheet draws this lot's carriage house as the detached two-storey rear building, and T-1935 owns it, so cutting a carriage door into the main range would contradict the sheet. When T-1935 builds that building, its carriage opening is the kit's `k07.entrance.carriage_doors`. Nothing here is attested."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the 1888 Inland Architect plate, once it is a source record, shows the entrance, and T-1882/T-1883 build the actual loggia and stair from it in place of this attribute's variant. A reading of the sheet to the foot for this lot replaces the front yard's building line."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.entrance_kit`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2304 (piece 2 of T-1849, K07)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k07-1808-entrance-2304/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2304)."
+        }
+      ]
+    },
+    {
+      "id": "L-k08-1808-bays-2308",
+      "title": "1808 Prairie's south front bow and rear canted bay, both reconstructed from the K08 kit",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.bays"
+        }
+      ],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 house at 1808 Prairie Avenue (`keith_house_1808_prairie`, the K01 exemplar) carries two K08 bays (T-2308), named in `form.bays` and built by `generators/archetypes/k08_bays.py` inside the K01 assembly: a two-storey segmental bow on the street front's south bay (3.2 m on its chord, 0.9 m out, centred 2.5 m from the south corner, 0.5 m off the south window axis so its eaves clear the T-2293 downpipe) in the front's stone, under a copper cone; and a two-storey canted bay on the rear's north window bay (1.5 m front, 1.1 m out, centred 3.0 m from the north corner) in K03 common brick with stone dressings, under a tin hip. **What is invented.** That the front bay is the kit's bow: the T-1837 frontage register (frontage-28-037) reads \"the south curved bay\" from the Inland Architect plate of February 1888, and that plate is not a source record here, so the bay's existence is the register's reading and its plan, size, height and windows are the kit's. Its two storeys (grade to 5.4 m, then to 9.0 m), its three bent two-over-two sashes a storey at the front's own sash heights, the 0.25 roof pitches, the copper and the tin; the rear canted bay as a whole, which no source shows, chosen as the commonest Prairie Avenue bay; that the host wall behind each bay is blank (the windows the K01 proof cut there are not cut); and that each bay's band sits on the front's second-floor belt. **What is not.** Nothing in either bay is attested. Both bays take the record's `reconstructed` tier on every vertex."
+        },
+        {
+          "label": "How to resolve",
+          "text": "T-1882/T-1883 build the 1888 plate's front, curved bay included, and replace the bow; a photograph or plan of 1808's rear replaces or removes the canted bay."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.bays`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2308 (piece 2 of T-1850, K08)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k08-1808-bays-2308/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2308)."
+        }
+      ]
+    },
+    {
+      "id": "L-k05-1808-roof-2302",
+      "title": "The 1808 Prairie roof rebuilt from the K05 kit, with two reconstructed chimney stacks",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.chimneys"
+        }
+      ],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1808 Prairie exemplar's roof (T-2302) is no longer a set of loose planes. The hip, the street dormer and two chimney stacks are each a closed element from `generators/archetypes/k05_roofs.py`, joined by the kit's boolean union, and the dormer's sash recess is cut out of the result, so every valley, cheek, stack and reveal is cut where the surfaces meet. The K04 caps and flashings are laid on the roof graph read off that surface. **What is invented.** The two stacks: their number, their place on the ridge (6.6 m and 11.4 m from the rear wall, on a reconstructed spine wall between the front and back rooms), their 0.90 × 0.75 m plan, their 0.9 m rise above the ridge and their stone caps oversailing 50 mm. The dormer's eave box (0.15 m overhang, 0.12 m fascia) is the kit's working size, and its eaves now oversail its cheeks, as the kit builds every dormer. Everything L-k04-1808-roof-2293 and L-k05-roof-kit-2301 record is unchanged. **What is not.** Nothing here is attested. No source reads this house's roof or its chimneys; a brick house of 1886 heated its principal rooms with fireplaces, which is why it has stacks at all. **Given up, said.** K04 carried the slates 50 mm past the fascia with a cut edge under them. On a closed solid the covering ends at the fascia's face, so that lip is gone until K04 lays it as a part on the eave line. The stacks have no flues, pots or flashing; those are K10's (T-1857)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of the house gives its chimneys' number, place and height, and the record takes them. The pierced parapet the 1888 plate shows is still T-1882's to build."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.chimneys`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2302 (piece 2 of T-1847, K05)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k05-1808-roof-2302/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2302)."
+        }
+      ]
+    },
+    {
+      "id": "L-k11-ironwork-kit-2318",
+      "title": "The Prairie ironwork kit: every fence, gate, pier, boundary wall, grille, stoop rail and canopy reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 Prairie programme's ironwork and boundaries (package K11, T-2318) are seven parametric variants built by `generators/archetypes/k11_ironwork.py` from `data/components/prairie_1904/k11_ironwork.json`: a spear fence and a scroll-band fence on stone curbs (square posts with acorn finials, flat rails, pickets through the rails), a walk gate hung on two pintle hinges between stone piers with caps and urns and a run of fence from each pier, a brick boundary wall with piers, a saddleback coping and pier caps, an area grille across a basement window, an iron rail on both sides of a six-riser stoop, and an iron-and-glass entrance canopy (rafters on quadrant brackets, a front beam, one sheet of glass under glazing bars, two tie rods). Every member is a closed solid let into the member that carries it, and the posts, piers, curbs and wall go down past grade; none is a texture. **What is invented.** Every dimension and every shape: the 19 mm pickets at 0.125 m, the 40 by 14 mm rails at 0.10 and 0.95 m over a 0.25 m curb, the 60 mm posts at no more than 1.6 m and their finials, the spear head, the C-scrolls' radius and turn; the piers' 0.50 m section and 1.50 m height, their caps and urns; the gate's 1.00 m opening, its stiles, rails, hinges, keeper and its 32 degree drawn angle; the wall's 0.33 m thickness, 1.50 m height, 3.0 m pier spacing and its coping; the grille's bars and flats; the stoop rail's 0.86 m height, newels and two balusters to a tread; the canopy's 1.2 m projection, 8 degree fall, rafters, brackets and bars. The scroll and the quadrant bracket are newly designed for this kit and copy no named property. The no-shimmer floor (no iron member under 10.8 mm) is derived from the walkthrough's lens and the mobile viewport, not from a source. The variants follow the study's asset catalog (K11: \"cast/wrought iron fence panels, spear/scroll variants, posts/piers, entry gates and hardware, area grilles, balcony/stair rails, iron-and-glass canopy and brick/stone boundary walls\"), which is the study's reading of its images and not a source record here. **What is not.** Nothing in the kit is attested, and no property carries it yet (T-2319 builds the first K11 fence, gate and wall on a named house). The data's restrictions keep every generic pattern off a property whose own fence, gate or wall is documented (the register separates, for one, 1905 S. Prairie's 1893 scroll fence from its c.1905 taller one), and keep every run off the walks and drives it would cross."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a property's own photograph, drawing, map note or surviving fabric shows its fence, gate, piers or wall, and that property takes it in place of the kit's working parts; a period iron foundry's catalogue replaces a part's sections and patterns for every property at once."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2318 (piece 1 of T-1853, K11)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k11-ironwork-kit/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2318)."
         }
       ]
     },

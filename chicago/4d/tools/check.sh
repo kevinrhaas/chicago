@@ -593,6 +593,19 @@ step "the K15 chimney kit seats every stack in its roof as one closed solid, flu
 selftest "…and a hole, a floating or sunken shaft, an uncut or grey flue, a short stack, a missing cricket or flashing, or a light tier off its stack still fails it" \
   python3 tools/check_chimney_kit.py --self-test
 
+# T-2318. ...and what bounds the 1904 lots. The K11 kit's parts are sized in
+# data/components/prairie_1904/k11_ironwork.json and built by generators/archetypes/k11_ironwork.py.
+# This rebuilds every variant and measures the geometry: every member a closed solid let into
+# what carries it (a picket through its rail, a rail into its post, a post, pier, curb or wall
+# past grade), no doubled face, no iron member under the walking-distance shimmer floor, even
+# panels inside the clear-gap range, a gate on two hinges that swings into the yard clear of its
+# pier with nothing else in its opening, wall piers and coping drip, canopy fall, budgets, the GLB.
+step "the K11 ironwork kit lets every member into its carrier, keeps runs out of entrances and nothing under the shimmer floor (T-2318)" \
+  python3 tools/check_ironwork_kit.py --check
+
+selftest "…and a lifted picket, a 6 mm rail, a curb across the gate, a one-hinge gate, a flat canopy or a missing pier still fails it" \
+  python3 tools/check_ironwork_kit.py --self-test
+
 # T-2320. ...and what stands at the back of the lot. The K12 kit's parts are sized in
 # data/components/prairie_1904/k12_coach_house.json and built by
 # generators/archetypes/k12_coach_house.py. This rebuilds the coach house and measures the
@@ -3435,6 +3448,12 @@ selftest "deferred household notes: the card's fields stay, the reasoning leaves
 
 step "the shipped sidecars carry their households, notes beside them (T-2151)" \
   node tools/defer_household_notes.mjs --check
+
+selftest "packed boot sidecars: repeated values ship once, every record comes back whole (T-2315)" \
+  node tools/pack_boot_sidecars.mjs --self-test
+
+step "the boot sidecars rehydrate to the records at their own URLs (T-2315)" \
+  node tools/pack_boot_sidecars.mjs --check
 
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs

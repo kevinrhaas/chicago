@@ -1,0 +1,247 @@
+{
+  "id": "prairie_1904_k11_ironwork",
+  "title": "Ironwork, gates, canopies and boundary walls for the Prairie Avenue 1904 programme (package K11, the kit)",
+  "ticket": "T-2318",
+  "parent": "T-1853",
+  "programme": "T-1837",
+  "contract": "data/components/prairie_1904/k01_contract.json",
+  "generator": "generators/archetypes/k11_ironwork.py",
+  "specimen": "docs/RESEARCH/k11-ironwork-kit/k11_ironwork_kit.glb",
+  "status": "Declared and generated, not yet built to. No property in the scene carries this kit today; T-2319 puts the first K11 fence, gate, piers and boundary wall on a named Prairie Avenue house from this file and this generator.",
+  "rule": "Ironwork is a frame of members that hold one another. Every picket passes through the rails it hangs on, every rail is let into the post or pier at each end, every spear, finial, urn and cap is let into what carries it, and every post, pier, curb and wall goes down past grade: so every piece is a closed solid passing through its host's surface, and none floats. No two faces lie on one another. A gate leaf hangs on at least two hinges, swings into the yard and never over the public walk, and clears its pier through its whole swing; no fence, rail or curb crosses the opening it guards. No member is thinner than the walking-distance floor below, so the iron reads as a line and does not shimmer. The parts' sizes are data here and the generator reads them; the check (tools/check_ironwork_kit.py) rebuilds every variant and holds the built geometry to this file.",
+  "frame": "Each variant is authored about its own `base` socket (k01_contract.json component_frame): the centre of its fence, wall or wall face at grade on the property line, +X along the line, +Y up, +Z toward the street (a gate opens toward -Z, into the yard).",
+  "parts": {
+    "_doc": "The working sizes every variant starts from, in metres. Sections are the member's two cross dimensions; heights are above grade unless a part says otherwise.",
+    "shimmer": {
+      "walking_distance_m": 6.0,
+      "fov_deg": 50,
+      "viewport_px": 780,
+      "min_px": 1.5,
+      "confidence": "reconstructed",
+      "note": "The no-shimmer floor. A member thinner than about one and a half pixels breaks up into a crawling dotted line as the camera moves. At the walk's 6 m from a front fence, under the walkthrough's 50 degree lens on a 780 px tall screen (the mobile viewport, the smaller of the two), 1.5 px is about 10.8 mm: no iron member here is thinner than that, measured on the built geometry."
+    },
+    "curb": {
+      "width_m": 0.3,
+      "height_m": 0.25,
+      "sink_m": 0.1,
+      "confidence": "reconstructed",
+      "note": "A dressed-stone fence curb the posts are leaded into: 0.30 m wide, 0.25 m above grade and set 0.10 m below it. It runs only between the fence's own posts and piers, never across a walk or a drive."
+    },
+    "post": {
+      "section_m": 0.06,
+      "panel_max_m": 1.6,
+      "sink_m": 0.1,
+      "finial": [[0.0, 0.0], [0.022, 0.0], [0.022, 0.03], [0.034, 0.045], [0.04, 0.07], [0.034, 0.095], [0.016, 0.115], [0.008, 0.13], [0.0, 0.16]],
+      "confidence": "reconstructed",
+      "note": "A square cast-iron post, 60 mm, let 0.10 m into the curb, with a turned acorn finial let into its top; posts stand at both ends of a run and at no more than 1.6 m between."
+    },
+    "picket": {
+      "section_m": 0.019,
+      "pitch_m": 0.125,
+      "clear_range_m": [0.06, 0.13],
+      "confidence": "reconstructed",
+      "note": "A 3/4 inch (19 mm) square wrought-iron picket, the common stock size; set at about 0.125 m centres, evenly within each panel, so the clear gap stays between 60 and 130 mm."
+    },
+    "rail": {
+      "height_m": 0.04,
+      "thickness_m": 0.014,
+      "bottom_m": 0.1,
+      "top_m": 0.95,
+      "confidence": "reconstructed",
+      "note": "A flat-bar rail, 40 by 14 mm, the pickets passing through it: the bottom rail 0.10 m above the curb, the top rail 0.95 m above it, both let 20 mm into the post or pier at each end."
+    },
+    "spear": {
+      "rise_m": 0.1,
+      "height_m": 0.1,
+      "barb_m": 0.05,
+      "thickness_m": 0.015,
+      "confidence": "reconstructed",
+      "note": "A cast spear head on each picket of a spear fence: the picket carried 0.10 m above the top rail, then a 0.10 m head with 50 mm barbs, 15 mm thick (thinner than the picket, so no face of the head lies on a face of the picket it is let into)."
+    },
+    "scroll": {
+      "band_m": 0.17,
+      "ribbon_m": 0.014,
+      "iron_m": 0.012,
+      "radius_of_clear": 0.4,
+      "turn": 1.5,
+      "confidence": "reconstructed",
+      "note": "A scroll band under the top rail: a third rail 0.17 m below it, and in every bay between two pickets a C-scroll of 14 by 12 mm bar springing from the left picket and curling inward, its radius 0.4 of the clear gap so it never touches the next picket."
+    },
+    "pier": {
+      "section_m": 0.5,
+      "height_m": 1.5,
+      "sink_m": 0.15,
+      "cap_overhang_m": 0.05,
+      "cap_height_m": 0.13,
+      "cap_sink_m": 0.02,
+      "urn": [[0.0, 0.0], [0.11, 0.0], [0.11, 0.05], [0.065, 0.075], [0.065, 0.11], [0.12, 0.16], [0.16, 0.26], [0.15, 0.35], [0.1, 0.41], [0.11, 0.44], [0.11, 0.47], [0.05, 0.51], [0.035, 0.57], [0.0, 0.62]],
+      "urn_sink_m": 0.01,
+      "confidence": "reconstructed",
+      "note": "A dressed-stone gate pier, 0.50 m square and 1.50 m high, set 0.15 m below grade (deeper than the curb it stands beside), under a cap overhanging 50 mm all round and let 20 mm over its top, and a turned urn let into the cap."
+    },
+    "gate": {
+      "clear_min_m": 0.9,
+      "height_m": 1.05,
+      "stile_m": 0.04,
+      "stile_depth_m": 0.02,
+      "rail_thickness_m": 0.024,
+      "hinge_offset_m": 0.035,
+      "hinge_radius_m": 0.03,
+      "hinge_height_m": 0.08,
+      "hinges": [0.28, 0.82],
+      "pintle_m": 0.024,
+      "keeper_proud_m": 0.03,
+      "keeper_gap_m": 0.015,
+      "swing_deg": 90,
+      "drawn_deg": 32,
+      "confidence": "reconstructed",
+      "note": "A single walk gate between two piers: a 40 by 20 mm stile at each side and three 24 mm rails mortised through them, pickets and spears like the fence's, hung on two pintle hinges whose barrels stand 35 mm off the pier and shut against a latch keeper on the far pier. It swings 90 degrees into the yard (drawn here at 32 degrees, so its swing is seen), clearing the pier all the way, never over the walk; the opening between the piers is at least 0.90 m clear."
+    },
+    "wall": {
+      "thickness_m": 0.33,
+      "height_m": 1.5,
+      "sink_m": 0.1,
+      "pier_m": 0.45,
+      "pier_rise_m": 0.25,
+      "pier_spacing_max_m": 3.0,
+      "coping_overhang_m": 0.05,
+      "coping_rise_m": 0.07,
+      "coping_ridge_m": 0.06,
+      "coping_sink_m": 0.02,
+      "drip_min_m": 0.04,
+      "confidence": "reconstructed",
+      "note": "A brick boundary wall, 13 inches (0.33 m) thick and 1.50 m high, with 0.45 m piers rising 0.25 m above it at no more than 3.0 m centres, a saddleback stone coping overhanging both faces by 50 mm (a drip of at least 40 mm, so rain leaves the face), and stone caps on the piers. The study's register reads one mapped brick boundary wall as 6 ft (frontage-35-064, from the 1911 sheet); a named target sets its own height."
+    },
+    "grille": {
+      "bar_m": 0.022,
+      "pitch_m": 0.13,
+      "flat_m": 0.04,
+      "flat_thickness_m": 0.012,
+      "flats": [0.3, 0.7],
+      "set_back_m": 0.1,
+      "let_in_m": 0.05,
+      "confidence": "reconstructed",
+      "note": "An area grille across a basement window: 22 mm square bars at 0.13 m, let 50 mm into the head and the sill of the reveal, through two 40 by 12 mm flats let into the jambs, set 0.10 m back from the face."
+    },
+    "stair_rail": {
+      "height_m": 0.86,
+      "newel_m": 0.1,
+      "baluster_m": 0.024,
+      "per_tread": 2,
+      "rail_m": 0.05,
+      "rail_width_m": 0.04,
+      "inset_m": 0.08,
+      "confidence": "reconstructed",
+      "note": "An iron stoop rail on each side: a 0.10 m newel on the bottom tread and on the landing, a 50 by 40 mm handrail raked between them 0.86 m above the nosing line, and two 24 mm balusters on every tread, at the tread's quarter points so none stands on a riser's edge."
+    },
+    "canopy": {
+      "projection_m": 1.2,
+      "pitch_deg": 8,
+      "pitch_min_deg": 5,
+      "rafter_spacing_max_m": 1.2,
+      "rafter_depth_m": 0.09,
+      "rafter_m": 0.024,
+      "rib_m": 0.016,
+      "rib_width_m": 0.04,
+      "rib_drop_m": 0.55,
+      "glass_m": 0.01,
+      "bar_spacing_max_m": 0.55,
+      "bar_m": 0.02,
+      "rod_m": 0.018,
+      "confidence": "reconstructed",
+      "note": "An iron-and-glass entrance canopy: T-section rafters on 0.024 m webs at no more than 1.2 m centres let into the wall, each carried by a quadrant bracket from 0.55 m below, a front beam, one sheet of glass falling 8 degrees away from the wall (never less than 5, so it sheds water), iron glazing bars over it at no more than 0.55 m and two tie rods from the wall to the beam. One sheet, so nothing transparent stands behind another."
+    }
+  },
+  "restrictions": [
+    {
+      "part": "generic_ironwork",
+      "rule": "never_replaces_landmark",
+      "why": "BUILDING-REGISTER.md keeps property patterns separate: at 1905 S. Prairie (Marshall Field Sr.) the 1893 scroll fence and the c.1905 taller fence differ and a 1904 state has to be selected and documented, and 2140 S. Prairie (Tucker / Byron L. Smith) carries a 'long corner iron fence'. Every pattern here is generic: a property whose own fence, gate, pier or wall is documented is built from that evidence, and a generic K11 part may only stand where the property's own is unknown."
+    },
+    {
+      "part": "runs",
+      "rule": "never_crosses_entrance",
+      "why": "ASSET-CATALOG.md section K11: 'no fence crossing entrances or shared carriage drives.' A run stops at a pier or a post either side of every walk and drive; a gate swings into the yard and clears its pier. The check refuses any fence, rail or curb inside a gate's opening and a leaf that swings over the walk or into its pier."
+    }
+  ],
+  "costs": {
+    "_doc": "Triangle budget per variant, as built, without its board. A variant over its budget is refused, so a kit change that bloats every front fence in the town is caught here.",
+    "max_triangles": {
+      "fence": 4000,
+      "gate": 5000,
+      "wall": 1500,
+      "grille": 1000,
+      "rail": 2500,
+      "canopy": 1500
+    }
+  },
+  "_variants_doc": "kind picks the builder; class picks the triangle budget. Fences and gates stand on the property line at z = 0 with the street toward +Z; the grille, the rail and the canopy stand on or against a specimen wall.",
+  "variants": [
+    {
+      "id": "k11.fence.spear_on_curb",
+      "kind": "fence",
+      "class": "fence",
+      "style": "spear",
+      "length_m": 3.0,
+      "confidence": "reconstructed",
+      "note": "A cast-and-wrought spear fence on a stone curb: three posts with acorn finials, two panels of pickets through a bottom and a top rail, a spear on every picket."
+    },
+    {
+      "id": "k11.fence.scroll_band",
+      "kind": "fence",
+      "class": "fence",
+      "style": "scroll",
+      "length_m": 3.0,
+      "confidence": "reconstructed",
+      "note": "A scroll-band fence on a stone curb: three posts, two panels, pickets ending in the top rail, and under it a band of C-scrolls, one in every bay."
+    },
+    {
+      "id": "k11.gate.walk_gate_on_piers",
+      "kind": "gate",
+      "class": "gate",
+      "clear_m": 1.0,
+      "stub_m": 0.9,
+      "confidence": "reconstructed",
+      "note": "A walk gate between two stone piers with caps and urns, hung on two pintle hinges and drawn part open into the yard, with a run of spear fence from each pier to an end post. Beside the boundary wall on the board, so an iron run and a wall with piers are compared side by side."
+    },
+    {
+      "id": "k11.wall.brick_with_piers",
+      "kind": "wall",
+      "class": "wall",
+      "length_m": 5.0,
+      "confidence": "reconstructed",
+      "note": "A brick boundary wall with three piers, a saddleback stone coping between them, stone caps on the piers and urns on the two end piers."
+    },
+    {
+      "id": "k11.grille.basement_window",
+      "kind": "grille",
+      "class": "grille",
+      "window_w_m": 0.9,
+      "window_h_m": 0.7,
+      "sill_m": 0.35,
+      "confidence": "reconstructed",
+      "note": "An area grille across a basement window: square bars let into the reveal's head and sill through two flats let into its jambs, a dark interior behind."
+    },
+    {
+      "id": "k11.rail.stoop_rail",
+      "kind": "rail",
+      "class": "rail",
+      "risers": 6,
+      "riser_m": 0.18,
+      "tread_m": 0.3,
+      "width_m": 1.6,
+      "landing_m": 0.9,
+      "confidence": "reconstructed",
+      "note": "An iron rail on both sides of a six-riser stone stoop: newels on the bottom tread and on the landing with finials, a raked handrail, two balusters to a tread."
+    },
+    {
+      "id": "k11.canopy.iron_glass",
+      "kind": "canopy",
+      "class": "canopy",
+      "width_m": 2.4,
+      "height_m": 3.0,
+      "confidence": "reconstructed",
+      "note": "An iron-and-glass canopy over an entrance: three rafters on quadrant brackets, a front beam, one sheet of glass falling away from the wall under glazing bars, two tie rods."
+    }
+  ]
+}

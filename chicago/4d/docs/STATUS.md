@@ -1,3 +1,44 @@
+## T-2302 — the 1808 Prairie roof rebuilt from the K05 kit, with two chimneys (2026-10-10)
+
+**Visible.** In the 1904 scene, 1808 Prairie's roof is one closed solid built by the K05 kit
+(T-2301), not four planes with a dormer laid over them. The dormer now has its own eave box and
+verge, and its cheeks and valleys are cut where the roofs actually meet. Two reconstructed brick
+chimneys with stone caps rise through the ridge, and the union cuts their penetrations closed.
+
+- **Gate.** `tools/check_roof_kit.py --check` now builds the house as well as the kit. The roof is
+  closed, one shell, with 0 doubled faces, 0 crossings and 0 hidden faces. K04 caps every ridge and
+  hip and flashes both valleys from the graph. A self-test lays the roof without the union, and the
+  crossing rule refuses it.
+- **Costs.** 11,351 → 11,658 triangles, still 17 primitives, web tier 923 → 925 KB, every K01
+  verdict ok. In the published app, 0 page errors at 1280×800 full and 390×780 light, and every
+  stand is within budget (`docs/RESEARCH/k05-1808-roof-2302/README.md`).
+- **Not done, said.** K04's 50 mm slate lip past the fascia is gone on the closed solid. The
+  stacks have no flues, pots or flashing (K10, T-1857). Liberty: L-k05-1808-roof-2302.
+- **Stacked on #631 (T-2293).** This branch carries K04's roof, so it lands after #631, and #631
+  waits on T-2311 (the Glessner light-tier bake check).
+
+## T-2308 — a curved front bay and a canted rear bay on 1808 Prairie (2026-10-10)
+
+**Visible.** In the 1904 scene, the house at 1808 Prairie has two bays built from the K08 kit
+(T-2307). On the south bay of its stone front is a two-storey segmental bow, with three bent sashes
+a storey under a copper cone. On its brick rear is a two-storey canted bay, with a window in every
+face under a tin hip. These are the kit's first bays on a house.
+
+- **What it is.** The record's `form.bays` names each bay's kit variant, wall, centre, storeys,
+  windows and roof. `k01_frontage_params` resolves it and drops the host openings behind it, and
+  `Assembly.bay` lays the built bay on its wall. `check_bay_kit.py` now holds each house bay to
+  every kit rule at both tiers. `mesh_inputs` hashes `k08_bays.py` and `k08_bays.json` for every
+  `k01_frontage`.
+- **Honest limits.** Both bays are reconstructed (L-k08-1808-bays-2308). The bow stands for the
+  register's "south curved bay", whose 1888 plate is not a source here; nothing shows the rear. The
+  house ships one mesh, so the kit's light tier is gated but not shipped. The bow stands 0.5 m off
+  the south window axis, so its eaves clear T-2293's corner downpipe; the build now refuses a bay
+  that reaches a downpipe. 627 sliver triangles under
+  2.5 mm were dropped from the kit's slab cuts to keep both tiers free of degenerate faces.
+- **Verified.** Front, oblique, rear and roof, and each bay raked at 3-4 m, at both viewports in
+  the published app, with zero errors. The K01 measure is ok at full and web. Costs are in
+  `docs/RESEARCH/k08-1808-bays-2308/README.md`.
+
 ## T-2293 — the first K04 roof: slate, copper and rainwater goods at 1808 Prairie (2026-10-10)
 
 **Visible.** In the 1904 scene the 1808 Prairie house beside Glessner's is now roofed from the K04
@@ -36,6 +77,29 @@ at grade. The library's `status` now says it is built to.
   record now carry both (`form.window_kit` beside `form.roof_covering`, `form.dormer` and
   `form.rainwater`), and the house was rebuilt and re-measured with all three: 14,445 triangles,
   19 primitives, web tier 964 KB, every verdict ok, 0 coincident faces.
+
+## T-2304 — K07 entrance and stoop on the 1808 exemplar (2026-10-10)
+
+**Visible.** In the 1904 scene, the house at 1808 Prairie now has a real front door, built from
+the K07 kit (T-2303). It replaces the K01 proof's flat leaf and its stoop of solid columns. The door
+is a four-panel leaf in a reveal, with a frame, a knob, a threshold, a two-light transom and a dark
+hall behind the glass. The stoop below it has nine equal risers between cheek walls, with a landing
+level with the threshold and its foot on grade. It stops 1.15 m short of Prairie Avenue's walk.
+
+- **What it is.** `form.entrance_kit` on the record names the variant and the front yard, 4.75 m,
+  measured on the 1904 street grid. `Assembly.enter` builds the K07 `Entrance` about the door's
+  threshold, solving the stair from the record's floor, tread, landing and width. It merges the
+  parts into the house's materials through the same graft the K06 windows use. Params refuse a
+  stoop that reaches the walk, and the generator re-measures the built mesh against it. One new
+  material, `door_iron`, makes the house 17 draw primitives where it was 16. `mesh_inputs` now
+  hashes `k07_entrances.py` and `k07_entrances.json` for every `k01_frontage`.
+- **Honest limits.** No source shows this entrance. The register's Ionic loggia is T-1882's, built
+  from the 1888 plate (L-k07-1808-entrance-2304). There is no carriage opening: the lot's carriage
+  house is the detached rear building, which is T-1935's. The walker still treats the stoop as
+  open ground, as it did the K01 stoop: only the footprint blocks.
+- **Verified.** `tools/qa_k07_t2304.mjs` checks front, oblique, rear and roof, plus the door at
+  2.5 m and the stoop from the walk, at both viewports. Costs are in
+  `docs/RESEARCH/k07-1808-entrance-2304/README.md`.
 
 ## T-2298 — K06 windows on the 1808 exemplar (2026-10-10)
 

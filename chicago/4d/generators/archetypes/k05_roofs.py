@@ -71,7 +71,7 @@ ROLE_MATERIAL = {
 # The board, not the roof: excluded from a roof's costs.
 BOARD_ROLES = ("wall", "base")
 # A covering edge against one of these is an abutment: where K04's flashing goes.
-ABUTTING = ("gable", "parapet", "coping", "cheek", "dormer_face", "wall")
+ABUTTING = ("gable", "parapet", "coping", "cheek", "dormer_face", "wall", "chimney")
 
 
 def materials() -> dict:
@@ -259,6 +259,22 @@ def union_all(solids):
     for s in solids[1:]:
         out = union(out, s)
     return out
+
+
+def subtract(a_polys, b_polys):
+    """A minus B (csg.js): a recess cut into a closed solid stays closed, B's faces
+    inside A becoming the recess's own faces under B's roles. T-2302 cuts the dormer's
+    sash recess this way."""
+    a, b = Node(a_polys), Node(b_polys)
+    a.invert()
+    a.clip_to(b)
+    b.clip_to(a)
+    b.invert()
+    b.clip_to(a)
+    b.invert()
+    a.build(b.all_polys())
+    a.invert()
+    return a.all_polys()
 
 
 # -- elements: closed polyhedra of convex faces ----------------------------------------------

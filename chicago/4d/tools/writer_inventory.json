@@ -87,6 +87,12 @@
       "measured": "2026-10-10",
       "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K10 variant in memory from data/components/prairie_1904/k10_cornices.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k10_cornices.py run bare, which no gate step runs (T-2316)."
     },
+    "check_ironwork_kit.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K11 variant in memory from data/components/prairie_1904/k11_ironwork.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k11_ironwork.py run bare, which no gate step runs (T-2318)."
+    },
     "check_bay_kit.py": {
       "placement": "not_a_writer",
       "write_mode": null,

@@ -22,6 +22,11 @@ surface, welded on K01's 1 mm quantum, against the lessons of the Glessner roof 
   budget     the roof's triangles inside its budget
   specimen   docs/RESEARCH/k05-roof-kit/k05_roof_kit.glb is the generator's bytes
 
+and, since T-2302, every HOUSE roofed from the kit (each k01_frontage record, as
+generators/archetypes/k01_frontage.py builds it): closed, one shell, doubled, crossing
+and hidden on its joined roof (dormer, sash recess and chimney stacks included), every
+covering edge classed, and every ridge, hip and valley in its graph dressed by K04.
+
     python3 tools/check_roof_kit.py --check       the gate
     python3 tools/check_roof_kit.py --self-test   break each rule in memory; each must fail
     python3 tools/check_roof_kit.py --report      the measured numbers, per variant
@@ -243,6 +248,40 @@ def verdicts(kit, data, specimen_ok=True):
     return out
 
 
+class _Shell:
+    def __init__(self, pts, tris):
+        self.pts, self.tris = pts, tris
+
+
+def houses(build=None):
+    """[(name, assembly)] for every k01_frontage record, built as the bake builds it."""
+    import k01_emit
+    from archetypes import k01_frontage, k01_frontage_params
+    build = build or k01_frontage.build
+    return [(f"{st['id']}/{phase['id']}", build(k01_frontage_params.from_phase(phase, st), st["id"]))
+            for st, phase, _ in k01_emit.records()]
+
+
+def house_verdicts(name, asm, data):
+    """The kit's rules on a house's joined roof (T-2302), and K04 laid on its graph."""
+    m = measure(_Shell(*asm.roof_shell), data)
+    out = [(m["open_edges"] == 0 and m["misoriented_edges"] == 0 and m["volume_m3"] > 0, f"{name} closed",
+            f"open edges {m['open_edges']}, misoriented {m['misoriented_edges']}, volume {m['volume_m3']} m3"),
+           (m["shells"] == 1, f"{name} one shell", f"{m['shells']} shell(s)"),
+           (m["doubled"] == 0 and m["degenerate"] == 0, f"{name} doubled",
+            f"doubled {m['doubled']}, degenerate {m['degenerate']}"),
+           (m["crossings"] == 0, f"{name} crossing", f"{m['crossings']} triangle pair(s) pass through each other"),
+           (m["hidden_faces"] == 0, f"{name} hidden", f"{m['hidden_faces']} interior face(s) survive")]
+    got = asm.roof_graph["counts"]
+    stray = [k for k in got if "|" in k]
+    out.append((not stray, f"{name} graph", f"{got}" + (f"; unclassed {stray}" if stray else "")))
+    want = {k: got.get(k, 0) for k in ("ridge", "hip", "valley")}
+    dressed = getattr(asm, "dressed", None)
+    if asm.p.roof:
+        out.append((dressed == want, f"{name} dressed", f"K04 on {dressed} of {want} graph lines"))
+    return out
+
+
 def specimen_ok(kit, data) -> bool:
     out = ROOT / data["specimen"]
     return out.exists() and out.read_bytes() == K.to_glb(kit, data)
@@ -252,11 +291,18 @@ def run_check() -> int:
     data = K.load()
     kit = K.build_kit(data)
     res = verdicts(kit, data, specimen_ok(kit, data))
+    built = houses()
+    for name, asm in built:
+        hr = house_verdicts(name, asm, data)
+        print(f"{'ok  ' if all(x[0] for x in hr) else 'FAIL'} {name}: roof from the K05 kit, "
+              f"{len(asm.roof_shell[1])} triangles, graph {asm.roof_graph['counts']}")
+        res += hr
     bad = [x for x in res if not x[0]]
     for ok, label, detail in res:
         if not ok:
             print(f"FAIL {label}: {detail}")
-    print(f"{'ok  ' if not bad else 'FAIL'} K05 roof kit: {len(kit)} roofs, {len(res) - len(bad)}/{len(res)} rules hold")
+    print(f"{'ok  ' if not bad else 'FAIL'} K05 roof kit: {len(kit)} roofs and {len(built)} house(s), "
+          f"{len(res) - len(bad)}/{len(res)} rules hold")
     return 1 if bad else 0
 
 
@@ -398,6 +444,18 @@ def run_self_test() -> int:
         else:
             failed += 1
             print(f"   self-test | FAIL {name}: the '{label}' rule let it through")
+    # T-2302: the house's roof laid as loose elements, not joined: its planes cross its
+    # dormer and its stacks, which is the failure the house was rebuilt to remove
+    def house_unjoined():
+        real = K.union_all
+        K.union_all = lambda solids: [p for s_ in solids for p in s_]
+        try:
+            name, asm = houses()[0]
+        finally:
+            K.union_all = real
+        return house_verdicts(name, asm, data)
+    case("the 1808 roof laid without the union", "crossing", house_unjoined)
+
     # and the true kit passes every rule (so the cases above fail for their own reason)
     data2 = K.load()
     kit = K.build_kit(data2)
