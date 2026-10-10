@@ -1,0 +1,284 @@
+{
+  "id": "prairie_1904_k10_cornices",
+  "title": "Cornices, parapets, dormer faces and cresting for the Prairie Avenue 1904 programme (package K10, the kit)",
+  "ticket": "T-2316",
+  "parent": "T-1852",
+  "programme": "T-1837",
+  "contract": "data/components/prairie_1904/k01_contract.json",
+  "generator": "generators/archetypes/k10_cornices.py",
+  "specimen": "docs/RESEARCH/k10-cornice-kit/k10_cornice_kit.glb",
+  "status": "Declared and generated, not yet built to. No house in the scene carries this kit today; T-2317 puts the first K10 cornice, parapet, dormer face or cresting on a named Prairie Avenue house from this file and this generator.",
+  "rule": "A cornice is a moulding that turns its corners. Every frieze, crown, coping and rail is ONE section swept along the wall head and mitred at every corner, so a return is the same moulding carried round, never a second piece butted on; a run ends either by dying into a wall (its open end lying on that wall) or by a capped return. An open piece's open edges lie on another surface (a wall face, a soffit, a deck, a roof), a closed piece (a kneeler, a finial, a ridge cap, every bar of the cresting) passes through its host's surface, and no two faces lie on one another. A dormer stands ON its roof: no part of it below the roof plane. The parts' sizes are data here and the generator reads them; the check (tools/check_cornice_kit.py) rebuilds every variant and holds the built geometry to this file.",
+  "frame": "Each variant is authored about its own `base` socket (k01_contract.json component_frame): the centre of its wall at grade on the wall's outer face, +X along the wall, +Y up, +Z out of the wall.",
+  "parts": {
+    "_doc": "The working sizes every variant starts from. Profiles are [n, u] metres: n out from the face the section is set on, u up (for a coping, u runs across the wall's thickness and n up from its top). Each section runs counter-clockwise from its seat and back, so it is open on the seat side and lays no face on the wall beneath it.",
+    "frieze": {
+      "proud_m": 0.025,
+      "height_m": 0.55,
+      "confidence": "reconstructed",
+      "note": "The flat band under an eave cornice that the brackets stand on: 25 mm proud of the wall, 0.55 m high, swept round the wall head with the crown above it so the two turn every corner together."
+    },
+    "bracket": {
+      "spacing_m": 0.6,
+      "range_spacing_m": [0.35, 0.75],
+      "corner_m": 0.2,
+      "height_m": 0.48,
+      "projection_m": 0.34,
+      "width_m": 0.1,
+      "curl": 0.72,
+      "pair_gap_m": 0.05,
+      "confidence": "reconstructed",
+      "note": "A scrolled eave bracket: an S in side view, full depth under the soffit and curled small at its foot, standing on the frieze and carrying the soffit. Brackets are spaced evenly along each run at no more than `spacing_m`, and one stands `corner_m` from every corner on BOTH faces, so a corner reads as a return and not as a run that stops. The Italianate rhythm the study's register reports on Prairie Avenue; a pressed-metal cornice pairs them."
+    },
+    "profiles": {
+      "bracketed_crown": {
+        "points": [[0.0, 0.0], [0.42, 0.0], [0.42, 0.03], [0.435, 0.045], [0.435, 0.15], [0.445, 0.16], [0.47, 0.18], [0.5, 0.215], [0.525, 0.25], [0.54, 0.275], [0.545, 0.29], [0.545, 0.3], [0.0, 0.3]],
+        "confidence": "reconstructed",
+        "note": "A timber eave cornice's crown over brackets: a 0.42 m soffit the brackets carry, a fascia with a drip, a cyma recta crown and a flat top back to the wall head, where the roof begins."
+      },
+      "metal_crown": {
+        "points": [[0.0, 0.0], [0.38, 0.0], [0.38, 0.05], [0.395, 0.065], [0.395, 0.16], [0.42, 0.18], [0.45, 0.22], [0.475, 0.26], [0.485, 0.29], [0.485, 0.31], [0.0, 0.31]],
+        "confidence": "reconstructed",
+        "note": "A pressed (galvanised) sheet-metal cornice's crown: the same anatomy as the timber one in thinner, crisper sections, the kind sold by the foot and painted to read as stone or wood."
+      },
+      "entablature_architrave": {
+        "points": [[0.0, 0.0], [0.05, 0.0], [0.05, 0.13], [0.065, 0.145], [0.065, 0.28], [0.085, 0.3], [0.095, 0.32], [0.095, 0.34], [0.0, 0.34]],
+        "confidence": "reconstructed",
+        "note": "A two-fascia stone architrave with a crowning moulding: the bottom member of a classical entablature."
+      },
+      "entablature_cornice": {
+        "points": [[0.0, 0.0], [0.08, 0.0], [0.08, 0.025], [0.1, 0.045], [0.1, 0.15], [0.3, 0.15], [0.3, 0.165], [0.31, 0.175], [0.31, 0.29], [0.33, 0.31], [0.36, 0.34], [0.39, 0.38], [0.405, 0.41], [0.41, 0.43], [0.41, 0.45], [0.0, 0.45]],
+        "confidence": "reconstructed",
+        "note": "A classical stone cornice: a bed mould, a plain band the dentils stand on (n = 0.10 m), a soffit over them, a corona and a cyma recta."
+      },
+      "parapet_cornice": {
+        "points": [[0.0, 0.0], [0.06, 0.0], [0.06, 0.03], [0.09, 0.06], [0.14, 0.1], [0.17, 0.14], [0.18, 0.16], [0.18, 0.2], [0.0, 0.2]],
+        "confidence": "reconstructed",
+        "note": "The modest crowning cornice a balustrade stands behind: a cavetto bed and a square corona whose top is the wall head."
+      },
+      "dormer_cornice": {
+        "points": [[0.0, 0.0], [0.06, 0.0], [0.06, 0.02], [0.08, 0.04], [0.1, 0.08], [0.12, 0.14], [0.13, 0.18], [0.13, 0.2], [0.0, 0.2]],
+        "confidence": "reconstructed",
+        "note": "The horizontal cornice of a dormer's pediment, returned along both cheeks and capped."
+      },
+      "rail": {
+        "points": [[0.0, 0.0], [0.03, 0.025], [0.03, 0.075], [0.0, 0.1], [-0.3, 0.1], [-0.33, 0.075], [-0.33, 0.025], [-0.3, 0.0]],
+        "closed": true,
+        "confidence": "reconstructed",
+        "note": "A balustrade's top rail (coping), a closed section 0.30 m wide with a rounded nose to both sides and a flat top an urn can stand on. n is measured from the wall's outer face, so the rail sits over the plinth."
+      },
+      "gable_coping": {
+        "points": [[0.0, 0.2], [0.0, 0.24], [0.07, 0.24], [0.11, 0.0], [0.07, -0.24], [0.0, -0.24], [0.0, -0.2]],
+        "confidence": "reconstructed",
+        "note": "A stone coping on a gable's top: overhanging both faces by 40 mm, weathered to a ridge so water sheds both ways. u runs across a 0.40 m wall from its outer face (+0.2) to its inner (-0.2); the seat is the wall's top."
+      },
+      "ridge_cap": {
+        "points": [[0.09, -0.1], [0.09, -0.05], [0.05, 0.04], [0.025, 0.065], [0.0, 0.072], [-0.025, 0.065], [-0.05, 0.04], [-0.09, -0.05], [-0.09, -0.1]],
+        "closed": true,
+        "confidence": "reconstructed",
+        "note": "A rolled ridge cap astride both slopes, a closed section let into the roof so the cresting has something solid to stand in."
+      }
+    },
+    "dentil": {
+      "width_m": 0.06,
+      "height_m": 0.095,
+      "depth_m": 0.075,
+      "pitch_m": 0.1,
+      "corner_m": 0.22,
+      "band_n_m": 0.1,
+      "band_u_m": [0.045, 0.15],
+      "confidence": "reconstructed",
+      "note": "Square-ish blocks on the cornice's dentil band, each carrying the soffit above it: 60 mm wide at a 100 mm pitch, 75 mm deep. The first stands clear of the mitre at every corner."
+    },
+    "frieze_panel": {
+      "inset_m": 0.08,
+      "gap_m": 0.05,
+      "proud_m": 0.012,
+      "confidence": "reconstructed",
+      "note": "A pressed-metal frieze's raised panels, one between each pair of brackets, standing 12 mm proud of the frieze."
+    },
+    "balustrade": {
+      "plinth_m": 0.3,
+      "plinth_height_m": 0.18,
+      "baluster_height_m": 0.62,
+      "pitch_m": 0.24,
+      "max_clear_m": 0.1,
+      "pedestal_m": 0.36,
+      "pedestal_spacing_max_m": 2.0,
+      "segments": 12,
+      "baluster": [[0.075, 0.0], [0.075, 0.06], [0.06, 0.09], [0.055, 0.14], [0.07, 0.25], [0.09, 0.38], [0.075, 0.5], [0.045, 0.62], [0.04, 0.72], [0.05, 0.78], [0.045, 0.82], [0.05, 0.88], [0.065, 0.94], [0.065, 1.0]],
+      "urn": [[0.1, 0.0], [0.1, 0.05], [0.06, 0.07], [0.06, 0.11], [0.11, 0.16], [0.15, 0.26], [0.14, 0.36], [0.1, 0.42], [0.11, 0.45], [0.11, 0.48], [0.05, 0.52], [0.04, 0.58], [0.0, 0.62]],
+      "confidence": "reconstructed",
+      "note": "A stone balustrade on the wall head behind its cornice: a plinth 0.30 m wide and 0.18 m high, turned vase balusters (the profile is [r, fraction of height]) at a 0.24 m pitch, pedestals at every corner and at most 2 m apart, a continuous rail and an urn (the same [r, y] form, in metres) on every corner pedestal. The clear gap between balusters at their widest is held under `max_clear_m`."
+    },
+    "gable": {
+      "kneeler_m": 0.3,
+      "kneeler_height_m": 0.32,
+      "kneeler_sink_m": 0.01,
+      "shoulder_m": 0.45,
+      "shoulder_rise_m": 0.75,
+      "shoulder_step_m": 0.1,
+      "neck_m": 0.45,
+      "cap_rise_m": 0.35,
+      "finial": [[0.0, 0.0], [0.07, 0.0], [0.07, 0.06], [0.045, 0.09], [0.05, 0.14], [0.09, 0.22], [0.07, 0.3], [0.03, 0.34], [0.0, 0.42]],
+      "finial_sink_m": 0.03,
+      "confidence": "reconstructed",
+      "note": "A shaped (Dutch) gable: from a kneeler at each eave, an ogee shoulder rising 0.75 m over 0.45 m, a vertical neck, and a segmental cap, the coping swept along the whole outline and dying into the kneelers, a turned finial let into the coping at the apex. A generic shape: a documented house's gable is authored from its evidence, never this outline scaled."
+    },
+    "dormer": {
+      "set_back_m": 0.4,
+      "width_m": 1.4,
+      "face_height_m": 1.4,
+      "pediment_pitch_deg": 35,
+      "window_width_m": 0.8,
+      "sill_m": 0.3,
+      "window_top_gap_m": 0.1,
+      "recess_m": 0.2,
+      "return_m": 0.13,
+      "rake_bands": [
+        {
+          "width_m": 0.08,
+          "proud_m": 0.11
+        },
+        {
+          "width_m": 0.1,
+          "proud_m": 0.05
+        }
+      ],
+      "confidence": "reconstructed",
+      "note": "A pedimented dormer on a 45 degree roof: a face set back 0.40 m from the wall below with a window carried back as a dark recess, cheeks whose feet lie on the roof, a gabled roof whose valleys lie on the main roof, a horizontal cornice returned along both cheeks and a raking cornice of two stepped bands (crown and fascia) seated on it. Its window is K06's to fill."
+    },
+    "cresting": {
+      "bar_m": 0.016,
+      "bar_height_m": 0.03,
+      "post_m": 0.024,
+      "post_height_m": 0.34,
+      "post_spacing_max_m": 0.75,
+      "top_bar_m": 0.012,
+      "top_bar_height_m": 0.02,
+      "top_bar_y_m": 0.3,
+      "iron_m": 0.01,
+      "scroll_radius_m": 0.09,
+      "scroll_turn": 1.6,
+      "scroll_width_m": 0.014,
+      "spear_height_m": 0.36,
+      "finial": [[0.0, 0.0], [0.02, 0.0], [0.02, 0.02], [0.03, 0.045], [0.02, 0.07], [0.006, 0.08], [0.0, 0.13]],
+      "confidence": "reconstructed",
+      "note": "Cast-iron roof cresting on a ridge cap: a base bar let into the cap, square posts at no more than 0.75 m with turned spike finials, a top bar, and in each panel two C-scrolls back to back and a spear through the top bar. Every bar is a closed solid 10-24 mm thick, rooted in what carries it: iron, not a picture of iron."
+    }
+  },
+  "restrictions": [
+    {
+      "part": "generic_profile",
+      "rule": "never_replaces_landmark",
+      "why": "ASSET-CATALOG.md section K10: 'unique Wheeler/Mayer profiles authored from evidence rather than scaling a generic gable.' Every profile and outline here is generic: a house whose own cornice, parapet or gable is documented is authored from that evidence, and a generic K10 section may only stand where the house's own is unknown."
+    },
+    {
+      "part": "runs",
+      "rule": "corner_returns_continuous",
+      "why": "ASSET-CATALOG.md section K10: 'Continuous corner returns, no hanging ends or roof clashes.' Every run is one swept section mitred at its corners and ends on a wall or a capped return; the check refuses an open end in the air and a bracket course that stops short of a corner."
+    }
+  ],
+  "costs": {
+    "_doc": "Triangle budget per variant, as built, without its board. A variant over its budget is refused, so a kit change that bloats every wall head in the town is caught here.",
+    "max_triangles": {
+      "cornice": 3000,
+      "parapet": 9000,
+      "gable": 2000,
+      "dormer": 3000,
+      "cresting": 4000
+    }
+  },
+  "_variants_doc": "kind picks the builder; class picks the triangle budget; material is the trim's material. Pavilion variants stand on a block projecting from a taller wall behind it, so each run turns two outside corners and dies into that wall at both ends.",
+  "variants": [
+    {
+      "id": "k10.cornice.bracketed_timber",
+      "kind": "bracketed",
+      "class": "cornice",
+      "material": "timber",
+      "crown": "bracketed_crown",
+      "width_m": 2.8,
+      "height_m": 3.2,
+      "depth_m": 1.4,
+      "paired": false,
+      "panels": false,
+      "confidence": "reconstructed",
+      "note": "An Italianate timber eave cornice: frieze, single scrolled brackets at an even spacing, soffit and crown, turned round two corners and dying into the wall behind."
+    },
+    {
+      "id": "k10.cornice.pressed_metal",
+      "kind": "bracketed",
+      "class": "cornice",
+      "material": "metal",
+      "crown": "metal_crown",
+      "width_m": 2.8,
+      "height_m": 3.2,
+      "depth_m": 1.4,
+      "paired": true,
+      "panels": true,
+      "confidence": "reconstructed",
+      "note": "A pressed-metal cornice: paired brackets, a raised panel in the frieze between each pair, a thinner crown."
+    },
+    {
+      "id": "k10.entablature.classical_dentil",
+      "kind": "entablature",
+      "class": "cornice",
+      "material": "stone",
+      "width_m": 2.8,
+      "height_m": 3.4,
+      "depth_m": 1.4,
+      "frieze_proud_m": 0.04,
+      "frieze_height_m": 0.42,
+      "confidence": "reconstructed",
+      "note": "A classical stone entablature: architrave, plain frieze and a dentilled cornice, all three turned round both corners."
+    },
+    {
+      "id": "k10.dormer.pedimented_on_bracketed_eave",
+      "kind": "dormer",
+      "class": "dormer",
+      "material": "timber",
+      "crown": "bracketed_crown",
+      "width_m": 4.0,
+      "height_m": 3.0,
+      "depth_m": 5.2,
+      "roof_pitch_deg": 45,
+      "eave_return_m": 0.5,
+      "confidence": "reconstructed",
+      "note": "The bracketed cornice and the dormer pediment together: a timber eave cornice returned along both gable ends, and on the roof above it a pedimented dormer standing on the slope."
+    },
+    {
+      "id": "k10.parapet.balustrade_urns",
+      "kind": "balustrade",
+      "class": "parapet",
+      "material": "stone",
+      "width_m": 2.8,
+      "height_m": 3.0,
+      "depth_m": 1.4,
+      "confidence": "reconstructed",
+      "note": "A stone balustraded parapet over a crowning cornice: plinth, turned balusters, pedestals at the corners and the middle, a continuous rail, urns on the corners."
+    },
+    {
+      "id": "k10.gable.shaped_coping",
+      "kind": "gable",
+      "class": "gable",
+      "material": "stone",
+      "width_m": 3.4,
+      "height_m": 2.6,
+      "thickness_m": 0.4,
+      "confidence": "reconstructed",
+      "note": "A shaped gable with a stone coping swept along its whole outline, kneelers at the eaves and a finial at the apex."
+    },
+    {
+      "id": "k10.cresting.iron_ridge",
+      "kind": "cresting",
+      "class": "cresting",
+      "material": "iron",
+      "width_m": 2.6,
+      "height_m": 2.0,
+      "depth_m": 2.2,
+      "roof_pitch_deg": 40,
+      "confidence": "reconstructed",
+      "note": "Cast-iron cresting along a rolled ridge: three panels of back-to-back C-scrolls and a spear, between posts with spike finials."
+    }
+  ]
+}
