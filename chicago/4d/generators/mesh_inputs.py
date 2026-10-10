@@ -124,7 +124,7 @@ def _code_shas(archetype: str, params=None) -> dict[str, str]:
         wanted = [gen / "archetypes" / f"{archetype}.py", gen / PURE_PYTHON[archetype]]
         wanted += [gen / "archetypes" / h for h in PURE_PYTHON_HELPERS.get(archetype, ())]
         if archetype == "k01_frontage":
-            wanted += [gen / "archetypes" / "k06_windows.py"]
+            wanted += [gen / "archetypes" / "k06_windows.py", gen / "archetypes" / "k07_entrances.py"]
     # T-1730: the high-detail Glessner build delegates to v4-only modules.
     # Hash every module in that family, including the material/texture recipe;
     # the legacy path never imports them. New helpers in the family therefore
@@ -211,6 +211,9 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
         # T-2298: the window kit's sizes are data the builder reads, like a texture
         kit = ROOT / "data" / "components" / "prairie_1904" / "k06_windows.json"
         doc["window_kit"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}
+        # T-2304: and the entrance kit's, which the door and its stoop are built from
+        ent = ROOT / "data" / "components" / "prairie_1904" / "k07_entrances.json"
+        doc["entrance_kit"] = {ent.relative_to(ROOT).as_posix(): _sha_file(ent)}
         # T-2310: the K09 kit's sizes are data, and its trim is laid from them
         kit = ROOT / "data" / "components" / "prairie_1904" / "k09_trim.json"
         doc["component_data"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}

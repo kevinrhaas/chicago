@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1653, ts: '2026-10-10T16:42:48.371Z', date: 'Oct 10, 2026, 11:42 AM CT', title: '1808 Prairie gets a real front door and stoop', kind: 'feature',
+    items: [
+      'The house beside Glessner now has a real front door from the new entrance kit. The four-panel door sits in a deep reveal under a glazed transom, with a dark hall behind the glass.',
+      'Nine equal stone steps climb between cheek walls to a landing level with the threshold. They stop well short of the sidewalk.',
+      'The door and stoop are a reconstruction: no picture of this entrance is on file yet. The carriage door belongs to the coach house behind, which is not built yet.',
+    ] },
   { v: 1652, ts: '2026-10-10T16:01:16.239Z', date: 'Oct 10, 2026, 11:01 AM CT', title: '1835 opens faster: a third less to download', kind: 'improvement',
     items: [
       'A first visit to 1835 downloads 12.0 MB instead of 14.5 MB, in 944 requests instead of 1,615.',
