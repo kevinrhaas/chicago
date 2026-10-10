@@ -3328,6 +3328,7 @@ for (const [label, viewport, touch] of [
       // anchor a vertex belongs to by proximity — which with a post standing two
       // metres out in the street would sometimes guess the neighbour.
       const uvRects = new Map();
+      const iron = s?.atlas?.iron ? s.atlas.iron.map(Math.fround) : null;
       const byId = new Map(signs.map((sg) => [sg.structure_id, sg]));
       if (g && spans.length) {
         const pos = g.getAttribute('position');
@@ -3349,7 +3350,10 @@ for (const [label, viewport, touch] of [
               worstOver = Math.max(worstOver, Math.hypot(de, dn) - reach);
               // Positive is out of the wall, along the facade's own normal.
               worstInside = Math.min(worstInside, de * Math.sin(b) + dn * Math.cos(b));
-              if (uv) {
+              // The chains (T-2281) all sample one point of the iron cell in
+              // the atlas's last row; counting it would stretch every hung
+              // sign's rectangle to that row and make neighbours look alike.
+              if (uv && !(iron && uv.getX(i) === iron[0] && uv.getY(i) === iron[1])) {
                 u0 = Math.min(u0, uv.getX(i)); u1 = Math.max(u1, uv.getX(i));
                 v0 = Math.min(v0, uv.getY(i)); v1 = Math.max(v1, uv.getY(i));
               }

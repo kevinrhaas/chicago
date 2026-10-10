@@ -1751,7 +1751,13 @@ export async function createSignage({
   group.add(mesh);
   group.userData.census = out.census;
   if (atlas) {
-    out.atlas = { cells: atlas.cells, size: atlas.size, uploaded: atlas.uploaded, wood: wood ? [wood.board.id, wood.timber.id] : null };
+    out.atlas = {
+      cells: atlas.cells, size: atlas.size, uploaded: atlas.uploaded,
+      wood: wood ? [wood.board.id, wood.timber.id] : null,
+      // The one uv every chain link samples (T-2281), so a reader measuring a
+      // sign's PAINTED face can leave the ironwork out of it.
+      iron: atlas.iron,
+    };
   }
 
   const raycaster = new THREE.Raycaster();
