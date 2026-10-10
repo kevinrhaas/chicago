@@ -495,6 +495,22 @@ step "the K06 window kit builds every window as a closed recess over an enclosed
 selftest "…and a blind before the glass, a missing jamb, a holed backing, a doubled pane or a leaded street sash still fails it" \
   python3 tools/check_window_kit.py --self-test
 
+# T-2305. ...and what the 1904 conservatories are. The K13 kit's houses are sized in
+# data/components/prairie_1904/k13_conservatories.json and built by
+# generators/archetypes/k13_conservatories.py. This rebuilds every house and measures
+# the geometry: every primary prouder and wider than every plate and every plate than
+# every glazing bar, panes inside the glass range with the bars dividing each run evenly,
+# the glass one convex single-sided envelope (one transparency per line of sight), no
+# glass below the plinth's coping, every eave to a K04 gutter and every pipe to grade
+# clear of the coping, the planting opaque, clear of the glass and below the eave, the
+# curvilinear roof on its curve, no doubled face, the triangle budget, and the specimen
+# GLB the generator's bytes.
+step "the K13 conservatory kit builds every glasshouse as a three-tier frame over one convex single-sided envelope, every eave to grade (T-2305)" \
+  python3 tools/check_conservatory_kit.py --check
+
+selftest "…and bars as heavy as plates, a transparent lantern, an inward pane, a gutterless eave, a short pipe or a plant scene still fails it" \
+  python3 tools/check_conservatory_kit.py --self-test
+
 # T-1963. The walls' relief is bound by reading the RECORD (route 2 of the photographic
 # fabric preparation, docs/GLB-CONTRACT.md § Wall substrates, PROPOSED): which wall is
 # clapboard, and how much of the wood's grain its finish lets through. That route's
