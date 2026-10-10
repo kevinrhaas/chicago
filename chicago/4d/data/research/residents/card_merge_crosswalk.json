@@ -99,6 +99,23 @@
   },
   {
    "outcome": "merged",
+   "person_id": "beaubien_charles_h",
+   "folded_person_id": "beaubien_charles",
+   "rule": "C18",
+   "cluster": "beaubien_charles",
+   "record_ids": [
+    "st_marys_bapt_1834_21_2_father"
+   ],
+   "domains": [
+    "church"
+   ],
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "evidence": "T-1550: 'beaubien_charles' and 'beaubien_charles_h' are one person under rule C18; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'beaubien_charles'."
+  },
+  {
+   "outcome": "merged",
    "person_id": "beaubien_jean_baptiste",
    "folded_person_id": "beaubien_j_b",
    "rule": "C2",

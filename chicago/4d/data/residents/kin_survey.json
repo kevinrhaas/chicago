@@ -15,9 +15,9 @@
  "counts": {
   "statements_read": 269,
   "both_ends_in_town": 102,
-  "landable": 79,
+  "landable": 80,
   "same_household": 3,
-  "ambiguous": 3,
+  "ambiguous": 2,
   "identity_not_asserted": 17,
   "other_not_in_town": 15,
   "subject_unresolved": 152,
@@ -43,15 +43,11 @@
    ],
    "other": [
     {
-     "household": "hh_beaubien_charles",
-     "person": "beaubien_charles"
-    },
-    {
      "household": "hh_beaubien_charles_h",
      "person": "beaubien_charles_h"
     }
    ],
-   "outcome": "ambiguous"
+   "outcome": "landable"
   },
   {
    "id": "hh_beaubien_madore__son__jean_baptiste_beaubien",
@@ -1637,8 +1633,8 @@
    "other_record": "st_marys_bapt_1834_21_1_child",
    "subject": [
     {
-     "household": "hh_beaubien_charles",
-     "person": "beaubien_charles"
+     "household": "hh_beaubien_charles_h",
+     "person": "beaubien_charles_h"
     }
    ],
    "other": [
