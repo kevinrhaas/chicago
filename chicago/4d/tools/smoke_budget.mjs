@@ -383,6 +383,7 @@ const COVERAGE = [
   // draft builder will); tools/trace_prairie_1904_footprints.py --check gates them.
   ['data/traces/prairie_1904_footprints_s28.json', NONE, 'sheet 28 1904 footprints — built into no scene yet: trace_prairie_1904_footprints.py --check'],
   ['tools/trace_prairie_1904_footprints.py', NONE, 'the sheet 28 footprint tracer — read by no scene build yet: its own --check'],
+  ['data/traces/README.md', NONE, 'prose — the index of the traces; publish.sh mirrors nothing under data/traces/'],
   ['data/town_census.json', [12], 'the two ladders in Evidence → City'],
   ['data/render/town_completion_1835.json', [12], 'the completion row in Evidence → City'],
 
