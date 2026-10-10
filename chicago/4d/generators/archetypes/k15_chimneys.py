@@ -308,11 +308,10 @@ def stack_solids(s: dict, F: Frame, data: dict, t: float):
 
     # flues: through a pot if the flue has one, else square in the cap
     pf = data["pot"]
-    pots = s.get("pots") or [None] * len(s["flues"])
     fo = p["flue"]["opening_m"]
     head_cutters = []
     yb = top - p["flue"]["depth_m"]
-    for off, pot in zip(s["flues"], pots):
+    for off, pot in flues(s):
         x, z = F.xz(0.0, off)
         # each cutter in two, at the cap's bed: the lower half cuts the body, the upper
         # the head, and their rings meet vertex for vertex at the bed
@@ -380,7 +379,7 @@ def stack_solids(s: dict, F: Frame, data: dict, t: float):
         meta["cricket_run_m"] = round(run, 4)
     meta.update({"cover_low_m": round(cov_lo, 4), "cover_high_m": round(cov_hi, 4), "top_m": top,
                  "head_m": round(y_head, 4), "astride_ridge": F.ridge, "flues": len(s["flues"]),
-                 "pots": sum(1 for x in pots if x), "material": mat, "bed_m": round(y_cap, 4)})
+                 "pots": sum(1 for _, x in flues(s) if x), "material": mat, "bed_m": round(y_cap, 4)})
     return {"body": solids, "cut_body": cutters, "head": head, "cut_head": head_cutters, "bed": y_cap}, meta
 
 
@@ -395,8 +394,13 @@ def light_solid(s: dict, F: Frame, data: dict):
                f"light_{s['material']}")
 
 
+def flues(s: dict):
+    """A stack's flues as (offset across the stack, pot profile or None)."""
+    return [(f["at"], f.get("pot")) for f in s["flues"]]
+
+
 def full_top(s: dict, data: dict) -> float:
-    pots = [x for x in (s.get("pots") or []) if x]
+    pots = [x for _, x in flues(s) if x]
     if not pots:
         return s["top_m"]
     return s["top_m"] + max(max(h for h, _ in data["pot"]["profiles"][p]) for p in pots)

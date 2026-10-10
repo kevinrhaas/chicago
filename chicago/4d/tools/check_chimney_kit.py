@@ -149,10 +149,9 @@ def verdicts(kit, data, specimen_ok=True):
             tag = f"{vid} stack {si}"
             # flues
             pf = data["pot"]
-            pots = s.get("pots") or [None] * len(s["flues"])
             flue_tris = _stack_tris(full, F, O, ("flue",), pad=0.0)
             bad = []
-            for off, pot in zip(s["flues"], pots):
+            for off, pot in K.flues(s):
                 half = pf["bore_m"] if pot else data["parts"]["flue"]["opening_m"] / 2
                 mine = [tt for tt in flue_tris
                         if abs(_local(F, O, _tri_centroid(full, tt))[2] - off) <= half + q]
