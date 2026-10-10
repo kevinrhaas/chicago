@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1633, ts: '2026-10-10T07:54:41.034Z', date: 'Oct 10, 2026, 2:54 AM CT', title: 'A household with no known address says why under its own name', kind: 'change',
+    items: [
+      'Nothing you can see changes: every card still prints its "Lived at" and "Worked at" reason exactly as before.',
+      'Underneath, the reason no address resolves now has its own place on 2,067 household records, instead of riding on an empty home or workplace link.',
+      'That clears the way to retire the old single home-and-workplace fields, which the dated list of places has replaced.',
+    ] },
   { v: 1632, ts: '2026-10-10T07:49:20.152Z', date: 'Oct 10, 2026, 2:49 AM CT', title: 'A window kit for Prairie Avenue: real sashes, glass and rooms', kind: 'feature',
     items: [
       'Nine window types for the 1904 houses, from a plain two-over-two sash to a round-arched fanlight, a pointed Gothic sash and a leaded stair light.',
