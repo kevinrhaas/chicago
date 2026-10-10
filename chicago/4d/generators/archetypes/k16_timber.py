@@ -158,7 +158,9 @@ def ring_quads(outer, hole):
     """Triangulable quads covering a convex `outer` minus a convex `hole` inside it:
     rays from the hole's centre through every vertex of both, so each quad has one
     edge on the outer boundary and one on the hole's."""
-    c = (sum(p[0] for p in hole) / len(hole), sum(p[1] for p in hole) / len(hole))
+    # fsum, not sum: Python 3.12 made float sum() compensated, so 3.11 (CI's gate) and
+    # 3.12 disagree in the last bit and the specimen's bytes with them
+    c = (math.fsum(p[0] for p in hole) / len(hole), math.fsum(p[1] for p in hole) / len(hole))
     angs = sorted({round(math.atan2(p[1] - c[1], p[0] - c[0]), 12) for p in list(outer) + list(hole)})
     o_pts, h_pts = [], []
     for a in angs:
@@ -753,7 +755,7 @@ class Sample:
                 add("bargeboard", [(s, y, zF) for s, y in xy], (0, 0, 1), tb)
                 add("bargeboard", [(s, y, zB) for s, y in xy], (0, 0, -1), tb)
             hxy = [tv(*pp) for pp in ccw(hole)]
-            cxy = (sum(pp[0] for pp in hxy) / len(hxy), sum(pp[1] for pp in hxy) / len(hxy))
+            cxy = (math.fsum(pp[0] for pp in hxy) / len(hxy), math.fsum(pp[1] for pp in hxy) / len(hxy))
             for i in range(len(hxy)):
                 a, b = hxy[i], hxy[(i + 1) % len(hxy)]
                 m = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
@@ -868,8 +870,8 @@ class Sample:
                     continue
                 n_layer[layer] += 1
                 self.poly(F, "lattice", [(s, y, zfront) for s, y in poly], (0, 0, 1), tl)
-                cx = sum(p_[0] for p_ in poly) / len(poly)
-                cy = sum(p_[1] for p_ in poly) / len(poly)
+                cx = math.fsum(p_[0] for p_ in poly) / len(poly)
+                cy = math.fsum(p_[1] for p_ in poly) / len(poly)
                 for i in range(len(poly)):
                     a, b = poly[i], poly[(i + 1) % len(poly)]
                     on_clip = any(abs(a[0] - e) < 1e-9 and abs(b[0] - e) < 1e-9 for e in (o0 - m, o1 + m)) or \

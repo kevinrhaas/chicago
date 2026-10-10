@@ -60,7 +60,10 @@ individually). The study's first boards showed every downward face (soffits, but
 head) a saturated blue. That was the rig, not the kit: the sky sphere the study borrows from
 K06's blends toward the ground colour by `-t * 3` without a clamp, so below t = −1/3 it runs into
 negative light. This study clamps it; K06's still carries it (its head soffits read blue in its
-own study.jpg).
+own study.jpg). And CI's first gate refused the specimen's bytes: its gate runs Python 3.11,
+this kit was written on 3.12, and 3.12's float `sum()` is compensated, so the hole centroid that
+seeds each piercing's triangulation differed in its last bit. Those sums are `math.fsum` now, and the
+specimen is byte-identical under both.
 
 ## Costs
 
