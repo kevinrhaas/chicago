@@ -23238,7 +23238,6 @@ about it is invented**, and on purpose: it exists to prove the road Blender -> G
 (T-1787) on every LOD, not to depict anyone. It is not a resident, carries no `person_id`, has no
 instance record, and no scene loads it, so L1 is untouched; it is drawn only by the test page
 `tools/human_fixture.html`, which is never published.
-**Covers:** `assets/humans/c4d_fixture.lod0-3.glb`, `assets/humans/web/c4d_fixture.lod0-3.glb`.
 **Ticket:** T-1787.
 **Review:** `data/humans/fixture.measure.json` (the browser verdicts and costs).
 **Recorded:** 2026-10-10 (T-1787).
