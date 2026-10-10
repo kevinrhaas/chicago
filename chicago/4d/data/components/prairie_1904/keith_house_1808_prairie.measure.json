@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 1864120,
-      "sha256": "246d620b51dcb95f353fe95443561d9f0b051504cc99bd5e2c8e43b9f98757c7",
+      "bytes": 1860744,
+      "sha256": "07807ef6deaf4946d22d24e9743e73c0dbd765b1bd5ff93779eea6f65aa8a207",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -17,17 +17,17 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 10,
-        "materials": 10,
-        "triangles": 2218,
-        "vertices": 4438
+        "draw_primitives": 14,
+        "materials": 14,
+        "triangles": 8264,
+        "vertices": 16530
       },
       "texture": {
-        "images": 2,
-        "textures": 2,
-        "encoded_bytes": 1671910,
-        "pixels": 8388608,
-        "gpu_rgba8_mip_bytes": 44739243,
+        "images": 4,
+        "textures": 4,
+        "encoded_bytes": 1137924,
+        "pixels": 5740160,
+        "gpu_rgba8_mip_bytes": 30614187,
         "largest_px": 2048
       },
       "bbox_m": {
@@ -62,18 +62,56 @@
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
-        "shared_across_primitives": 0
+        "shared_across_primitives": 0,
+        "position_step_m": 0,
+        "coincident_shortest_edge_max_m": 0
       },
       "metric_uv": {
         "backing": {
           "median_uv_per_m": 1
         },
         "brick": {
-          "median_uv_per_m": 0.5209,
-          "fabric": "brick",
+          "median_uv_per_m": 1.203,
+          "fabric": "common_buff_common_6",
           "tile_m": [
-            1.7272,
-            2.1336
+            0.8636,
+            0.8001
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "brick_unit_body": {
+          "median_uv_per_m": 1,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "brick_unit_grey_tan": {
+          "median_uv_per_m": 1,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "brick_unit_hard_burnt": {
+          "median_uv_per_m": 1,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "brick_unit_salmon_soft": {
+          "median_uv_per_m": 1,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
           ],
           "uv_per_m_times_tile_m": 1
         },
@@ -143,8 +181,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 892916,
-      "sha256": "4250af1f15b065dd57367213525877d0c70889fe78c6582d81211b8dd72ec02d",
+      "bytes": 782536,
+      "sha256": "eb686ae0228a6283d3c99d1cba0bae262df9696bb200d5fd21f93606ec3803ec",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -160,17 +198,17 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 10,
-        "materials": 10,
-        "triangles": 2218,
-        "vertices": 3432
+        "draw_primitives": 14,
+        "materials": 14,
+        "triangles": 8264,
+        "vertices": 15392
       },
       "texture": {
-        "images": 2,
-        "textures": 2,
-        "encoded_bytes": 839338,
-        "pixels": 8388608,
-        "gpu_rgba8_mip_bytes": 44739243,
+        "images": 4,
+        "textures": 4,
+        "encoded_bytes": 597860,
+        "pixels": 5740160,
+        "gpu_rgba8_mip_bytes": 30614187,
         "largest_px": 2048
       },
       "bbox_m": {
@@ -209,17 +247,55 @@
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
-        "shared_across_primitives": 0
+        "shared_across_primitives": 0,
+        "position_step_m": 0.0003365,
+        "coincident_shortest_edge_max_m": 0
       },
       "metric_uv": {
         "brick": {
-          "median_uv_per_m": 0.521,
-          "fabric": "brick",
+          "median_uv_per_m": 1.2031,
+          "fabric": "common_buff_common_6",
           "tile_m": [
-            1.7272,
-            2.1336
+            0.8636,
+            0.8001
           ],
           "uv_per_m_times_tile_m": 1.0001
+        },
+        "brick_unit_body": {
+          "median_uv_per_m": 0.9947,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
+          ],
+          "uv_per_m_times_tile_m": 0.9947
+        },
+        "brick_unit_grey_tan": {
+          "median_uv_per_m": 0.9947,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
+          ],
+          "uv_per_m_times_tile_m": 0.9947
+        },
+        "brick_unit_hard_burnt": {
+          "median_uv_per_m": 0.9962,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
+          ],
+          "uv_per_m_times_tile_m": 0.9962
+        },
+        "brick_unit_salmon_soft": {
+          "median_uv_per_m": 0.9957,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
+          ],
+          "uv_per_m_times_tile_m": 0.9957
         },
         "limestone_trim": {
           "median_uv_per_m": 0.8295,
