@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 1661, ts: '2026-10-10T20:24:30.864Z', date: 'Oct 10, 2026, 3:24 PM CT', title: 'Behind the scenes: the road for future figures is built', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The walkthrough still shows no people, and it will not until the owner says so.',
+      'A figure made in Blender can now become a file the browser opens, in one command. That covers four levels of detail, a compressed copy, and a check that refuses any file that breaks the contract.',
+      'A plain test figure that is nobody proves it on every change. It rebuilds to the same bytes, and in the browser its skeleton bends, it walks and blinks, and its clothes load, on desktop and on a phone.',
+      'What one figure costs is now measured: about 100 KB and five draws close up, and about 70 KB far away.',
+    ] },
+  { v: 1660, ts: '2026-10-10T20:13:56.179Z', date: 'Oct 10, 2026, 3:13 PM CT', title: 'A timber kit for Prairie Avenue\'s frame houses, board by board', kind: 'feature',
+    items: [
+      'Clapboard laid course by course, each board lapping the one below with a shadow line at its butt.',
+      'Corner boards, a water table, a cased window, a frieze, a boxed eave and scroll brackets.',
+      'Board-and-batten walling, and a Gothic gable of square and fish-scale shingles under pierced bargeboards.',
+      'A porch bay: an oiled board floor, lattice skirting, a chamfered post and a beaded ceiling.',
+      'No house uses the kit yet; 1638 Shortall-Gregory\'s Gothic front is the first to get it.',
+    ] },
   { v: 1659, ts: '2026-10-10T19:22:11.298Z', date: 'Oct 10, 2026, 2:22 PM CT', title: 'A coach-house kit for the Prairie Avenue alleys', kind: 'feature',
     items: [
       'A two-storey brick coach house, built whole: a carriage bay with strap-hinged doors under a brick arch, a loft hatch with its hoist beam, stable windows and a party wall on the lot line.',

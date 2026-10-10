@@ -106,6 +106,8 @@ step "Portable human contract holds; every human GLB and instance is held to it 
   python3 tools/human_contract.py --check
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
   python3 tools/human_contract.py --self-test
+step "Every human GLB is the one the browser measured: sha256 and verdicts in data/humans/fixture.measure.json (T-1787)" \
+  node tools/human_fixture.mjs --check
 
 # THE MIRROR IS BUILT FIRST, BECAUSE IT IS NOT IN THE REPOSITORY ANY MORE (T-0938).
 #
