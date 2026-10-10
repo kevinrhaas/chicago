@@ -509,6 +509,8 @@ STRUCTURE_TICKETS = {
     # T-2254 (2026-10-10) raised the four the seating asked for on block 82; the one left
     # (the second D2, re-dealt as a D1) has no banded South row a clause admits, so the
     # row names T-2270, which owns it with the block's H3.
+    # T-2270 (2026-10-10) raised the block's last two requests, a D1 and an H1, and the row
+    # reads 0 owed; like the full taverns' cell below it keeps the ticket that filled it.
     ("south", "ordinary_dwellings"): "T-2270",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
@@ -583,6 +585,8 @@ STRUCTURE_TICKETS = {
     # Monroe-to-Adams tier, so the cell moves to T-2254. T-2254 left it unbuilt (no clause
     # admits a South row to it, and its beds would move the frozen lodging model), so the
     # cell moves to T-2270 with the block's last D1.
+    # T-2268's re-apportionment had already re-dealt that H3 as the H1 T-2270 raised, so the
+    # cell reads 28 of 28 and keeps the ticket that closed it.
     ("south", "larger_boarding_houses"): "T-2270",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and

@@ -535,14 +535,16 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 708 -> 712, 707 -> 711 and 701 -> 705 on 2026-10-10 (T-2254): four houses on the School Section tier's
 # block 82 (recon_1835_blk_school_section_tier_82_d2_01, _d4_03, _d4_04 and _d5_02), through
 # emit.py and the common modules.
+# 712 -> 714, 711 -> 713 and 705 -> 707 on 2026-10-10 (T-2270): the block's last two houses,
+# recon_1835_blk_school_section_tier_82_d1_05 and _h1_06, through emit.py and the common modules.
 #
 STATED = {
-    "assets": 712,
+    "assets": 714,
     "restales": {
-        "generators/common/*.py": 711,
+        "generators/common/*.py": 713,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 705,
+        "generators/emit.py": 707,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
