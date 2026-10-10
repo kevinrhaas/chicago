@@ -1,0 +1,29 @@
+INFO Draco mesh compression is available, use library at /workspace/scratch/blender/blender-4.5.3-linux-x64/4.5/scripts/addons_core/io_scene_gltf2/libextern_draco.so
+23:33:12 | INFO: Starting glTF 2.0 export
+23:33:12 | INFO: Extracting primitive: glessner_house__as_built_1887
+23:33:15 | INFO: Primitives created: 28
+23:33:15 | INFO: Finished glTF 2.0 export in 3.449604034423828 s
+
+built glessner_house__as_built_1887.glb  150,670,168 bytes  ~1220197 tris
+
+1 asset(s) built; manifest updated
+23:33:15 | INFO: Starting glTF 2.0 export
+23:33:15 | INFO: Extracting primitive: glessner_house__as_built_1887
+23:33:15 | INFO: Primitives created: 9
+23:33:15 | INFO: Finished glTF 2.0 export in 0.01325678825378418 s
+
+built version versions/glessner_house/pre-v4/glessner_house__as_built_1887.glb  77,392 bytes  ~1075 tris
+23:33:15 | INFO: Starting glTF 2.0 export
+23:33:15 | INFO: Extracting primitive: glessner_house__as_built_1887
+23:33:15 | INFO: Primitives created: 9
+23:33:15 | INFO: Finished glTF 2.0 export in 0.012949228286743164 s
+
+built version versions/glessner_house/v2/glessner_house__as_built_1887.glb  79,248 bytes  ~1103 tris
+23:33:15 | INFO: Starting glTF 2.0 export
+23:33:15 | INFO: Extracting primitive: glessner_house__as_built_1887
+23:33:15 | INFO: Primitives created: 9
+23:33:15 | INFO: Finished glTF 2.0 export in 0.01331639289855957 s
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:38:15)
+
+built version versions/glessner_house/v3/glessner_house__as_built_1887.glb  76,784 bytes  ~1065 tris
+3 structure version(s) built; assets/manifest.versions.json updated

@@ -1,3 +1,19 @@
+## T-2205 — Glessner ridge stock and roof edges (2026-10-09)
+
+Closed overlapping ridge caps, raised collars, seated finials and dormer hip covers
+replace open or simplified stock. Mitred 60 mm eaves, clipped valley flanges and
+chimney aprons follow existing roof planes. Taylor 2135 and HABS north/stable views
+bound the profiles; exact sections remain declared reconstructions. All 222 real
+Full roof hosts match the baseline, with only duplicate hidden rolls and old
+finial tile hosts removed. Light is 199,744 triangles under its 200,000 ceiling;
+its coarser cone sampling has a maximum 12.3 mm radial chord departure.
+
+Sixteen after captures in the actual published app pass at Full desktop and Light
+mobile, with dark glass retained. Physical module and roof-connectivity checks
+pass, as do all 806 repository-preflight steps. [Evidence and scope limits](RESEARCH/glessner-roof-details-2205/README.md).
+The independent folded courtyard copper connector remains held under T-2220.
+
+
 ## T-2250 — a platted keeper's cardless house keeps its firm (2026-10-09)
 
 T-2196 moved Mark Beaubien's household onto the Market wedge's new H3

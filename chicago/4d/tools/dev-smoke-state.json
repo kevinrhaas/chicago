@@ -13,6 +13,68 @@
       "failed": 0,
       "failures": [],
       "wallSeconds": null,
+      "takenAt": "2026-10-09T22:57:53.121Z",
+      "ref": "steward/t-2205-glessner-roof-edges",
+      "commit": "fd690a3f493f",
+      "devCommit": "fd690a3f493f",
+      "treeHash": "sha256:dea990ac76059ff1",
+      "treeDirty": true,
+      "changelogHash": "sha256:a1b20b6c5cee0e9b",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          4.6,
+          4,
+          2.8
+        ]
+      },
+      "source": "/workspace/t2205-proof/smoke-stage8.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 19,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-09T22:57:53.121Z",
+      "ref": "steward/t-2205-glessner-roof-edges",
+      "commit": "fd690a3f493f",
+      "devCommit": "fd690a3f493f",
+      "treeHash": "sha256:dea990ac76059ff1",
+      "treeDirty": true,
+      "changelogHash": "sha256:a1b20b6c5cee0e9b",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          4.6,
+          4,
+          2.8
+        ]
+      },
+      "source": "/workspace/t2205-proof/smoke-stage8.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 17,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
       "takenAt": "2026-10-09T21:08:16.072Z",
       "ref": "steward/t-2204-glessner-roof-filtering",
       "commit": "ddd93aa3d491",
@@ -1663,33 +1725,6 @@
       "source": "gh-run:37159393848 https://github.com/kevinrhaas/chicago/actions/runs/37159393848"
     },
     {
-      "viewport": "mobile",
-      "stage": "2",
-      "parts": [
-        2
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 103,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 184,
-      "takenAt": "2026-10-03T22:37:40Z",
-      "ref": "steward/t2035-vegetation-continuity",
-      "commit": "21db432fec09",
-      "devCommit": "3c22369f5e6e",
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
-      },
-      "source": "gh-run:37159084356 https://github.com/kevinrhaas/chicago/actions/runs/37159084356"
-    },
-    {
       "viewport": "desktop",
       "stage": "1-2",
       "parts": [
@@ -1716,37 +1751,6 @@
         "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
       },
       "source": "gh-run:37159054129 https://github.com/kevinrhaas/chicago/actions/runs/37159054129"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 82,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 190,
-      "takenAt": "2026-10-03T22:33:57.300Z",
-      "ref": "steward/t2035-vegetation-continuity",
-      "commit": "ac66939285d9",
-      "devCommit": "8fa8ca4dba51",
-      "treeHash": "sha256:43f851728e29f916",
-      "treeDirty": true,
-      "changelogHash": "sha256:55d6e57361c283f0",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          3,
-          6.1,
-          5.7
-        ]
-      },
-      "source": "/tmp/t2035-final-mobile-1.log"
     },
     {
       "viewport": "desktop",
