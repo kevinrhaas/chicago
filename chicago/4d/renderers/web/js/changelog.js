@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1663, ts: '2026-10-10T21:28:22.736Z', date: 'Oct 10, 2026, 4:28 PM CT', title: 'Every building on Prairie Avenue\'s 18th–20th block, traced off the 1911 map', kind: 'feature',
+    items: [
+      '38 buildings on 23 lots, houses, porches and alley stables, now have real outlines, read off the fire-insurance map\'s drawn walls.',
+      'Each outline is split into its brick, stone and frame parts, so a main house, its rear range and its porch can be told apart.',
+      'Glessner House\'s traced outline matches its measured plan to within a metre or so.',
+      'Nothing is built on them yet; they are the ground the district\'s first draft of houses will stand on.',
+    ] },
   { v: 1662, ts: '2026-10-10T20:56:41.566Z', date: 'Oct 10, 2026, 3:56 PM CT', title: 'A glass conservatory bay on the Pullman house\'s east wing', kind: 'feature',
     items: [
       'In the 1904 scene, the Pullman lot at 1729 Prairie now has a curved glass conservatory bay. It stands on the south face of the stone wing that runs from the house toward the stable, looking onto the garden court.',
