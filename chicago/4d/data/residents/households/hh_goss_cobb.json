@@ -65,7 +65,10 @@
    "undated": true,
    "tier": "attested",
    "source_id": "chicago_democrat_1833_11_26",
-   "note": "The firm names itself and its corner in its own advertisement. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_goss_cobb#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+   "note": "The firm names itself and its corner in its own advertisement. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_goss_cobb#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
+   "basis": {
+    "note": "The firm names itself and its corner in its own advertisement."
+   }
   }
  ],
  "present_on_scene_date": {

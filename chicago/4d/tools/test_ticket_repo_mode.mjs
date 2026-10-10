@@ -20,6 +20,9 @@
  *   5. `ask` keeps the ticket in the queue with its question under its line, `list
  *      --workable` and `claim` step over it, and a claim after the answer drops the
  *      question line;
+ *   5c. a command refuses over local edits to tickets it was not asked to change,
+ *      pushing nothing and discarding nothing, while an edit to the ticket it names
+ *      still rides it (T-2280);
  *   6. `check` refuses a checkout with no tickets at all rather than passing it.
  */
 import { mkdtempSync, mkdirSync, rmSync, writeFileSync, readFileSync, readdirSync, cpSync, existsSync, chmodSync } from 'node:fs';
@@ -243,6 +246,32 @@ exec ${JSON.stringify(realGit)} "$@"
   tool(A, 'ask', 'T-1503', '--question', 'Keep it?', '--option', 'a=yes', '--option', 'b=no');
   const chk2 = tool(A, 'check');
   check('check counts an asked decision as waiting on the owner', /\b[1-9]\d* waiting on the owner/.test(chk2.stdout), chk2.stdout);
+
+  console.log('5c. a command commits only what it was asked to change (T-2280)');
+  // b679d90's shape: a run edits ANOTHER ticket in its clone, meaning it to stay local,
+  // then closes its own. The close must not publish the edit, and must not lose it.
+  const other = path.join(A, 'tickets', 'T-1500-1749', 'T-1505-fifth.md');
+  const otherBefore = readFileSync(other, 'utf8');
+  writeFileSync(other, otherBefore.replace('state: open', 'state: claimed'));
+  const loose = path.join(A, 'tickets', 'T-1500-1749', 'T-1599-scratch.md');
+  writeFileSync(loose, 'a scratch file\n');
+  const headBefore = git(root, '--git-dir', bare, 'rev-parse', 'main').stdout;
+  r = tool(A, 'done', 'T-1502', '--pr', '43');
+  check('done refuses over a local edit to a ticket it was not asked to change, naming each file',
+    r.status === 1 && /REFUSED/.test(r.stderr) && /T-1505-fifth\.md/.test(r.stderr) && /T-1599-scratch\.md/.test(r.stderr)
+    && /sync -m/.test(r.stderr), r.stdout + r.stderr);
+  check('…and pushes nothing: the remote is where it was, T-1502 still claimed',
+    git(root, '--git-dir', bare, 'rev-parse', 'main').stdout === headBefore
+    && front(remote('T-1500-1749/T-1502-second.md'), 'state') === 'claimed');
+  check('…and discards nothing: both edits are still on disk',
+    front(readFileSync(other, 'utf8'), 'state') === 'claimed' && existsSync(loose));
+  writeFileSync(other, otherBefore); rmSync(loose);
+  const own = path.join(A, 'tickets', 'T-1500-1749', 'T-1502-second.md');
+  writeFileSync(own, readFileSync(own, 'utf8') + '\nA finding added before closing.\n');
+  r = tool(A, 'done', 'T-1502', '--pr', '43');
+  const closed = remote('T-1500-1749/T-1502-second.md');
+  check('an edit to the ticket the command names still rides it',
+    r.status === 0 && front(closed, 'state') === 'review' && /A finding added before closing\./.test(closed), r.stdout + r.stderr);
 
   console.log('6. no tickets is a failure, not a pass');
   const empty = path.join(root, 'empty', 'chicago', '4d');

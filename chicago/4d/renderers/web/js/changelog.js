@@ -1,9 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1609, ts: '2026-10-10T03:12:07.809Z', date: 'Oct 9, 2026, 10:12 PM CT', title: '65 more households are given a house beyond the platted town', kind: 'fix',
+  { v: null, ts: '', title: '65 more households are given a house beyond the platted town', kind: 'fix',
     items: [
       'Outside the platted town, in the North and West Divisions, 69 houses had been given to households known only from the post office\u2019s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address. The houses on the plat already followed that ruling, and now these do too.',
       'Those houses go to the next households in line for them. In People, 65 more household cards now show \u201cGo to the roof the policy deals it, off the plat\u201d, and the 69 letter-list cards no longer show it. The houses\u2019 cards list the new households.',
       'The 30 households already housed there keep a house, though 28 of them are now in a different one. In the West, a farm household is only given a cabin with a barn beside it, so four West cabins stand empty, and each says why.',
+    ] },
+  { v: 1610, ts: '2026-10-10T03:02:42.351Z', date: 'Oct 9, 2026, 10:02 PM CT', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
+    items: [
+      'Nothing you can see changes. Where a household\u2019s dated home was copied from the old single home line, it now also carries that line\u2019s own reasoning and what would replace it, so the seat a card shows no longer depends on the old line.',
+      'The garrison\u2019s eleven households keep their own \u201cWould move it up the ladder\u201d line, a plan of the post that assigns its quarters, and every seat in the town reads exactly as before.',
+    ] },
+  { v: 1609, ts: '2026-10-10T02:48:43.449Z', date: 'Oct 9, 2026, 9:48 PM CT', title: 'Closing one task no longer quietly reopens another', kind: 'fix',
+    items: [
+      'Nothing you can see changes. When the build loop marks a task finished, it now records only that task. A week ago, finishing one task also published a private scratch edit to another, which put already-finished work back on the to-do list. That task is closed again.',
     ] },
   { v: 1608, ts: '2026-10-10T02:34:31.860Z', date: 'Oct 9, 2026, 9:34 PM CT', title: 'The groundwork for people in the town: one skeleton, one rulebook', kind: 'change',
     items: [
