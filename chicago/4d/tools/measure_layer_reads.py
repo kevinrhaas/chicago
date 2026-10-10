@@ -656,10 +656,10 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "origin.value": ("shown", "(hh.origin || {}).value"),
     "reason_for_coming.value": ("shown", "(hh.reason_for_coming || {}).value"),
     # T-2258. A named home or workplace is printed by its `associated_with` row
-    # (validate.py refuses a singular link no row carries); `absenceRow` prints the
-    # singular block only when its value is null, so the reason stays on the card.
-    "lives_at.value": ("shown", "absenceRow('Lived at', hh.lives_at, citationsById)"),
-    "works_at.value": ("shown", "absenceRow('Worked at', hh.works_at, citationsById)"),
+    # (validate.py refuses a singular link no row carries), so the singular pair's
+    # VALUES are banked as unread until T-2284 retires them. T-2295: where no address
+    # resolves, the reason is its own `no_home` / `no_workplace` block — always
+    # valueless, so it has no figure here — and `absenceRow` prints its tier and note.
     "present_on_scene_date.value": ("shown", "(hh.present_on_scene_date || {}).value"),
     # T-1144 acceptance 9. The dated evidence leg under an `uncertain` presence — the
     # last day the corpus can still see this person — has its own row on the card,
@@ -689,8 +689,8 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "party_size_on_arrival.confidence": ("shown", "tierOf(block) || block.confidence"),
     "origin.confidence": ("shown", "tierOf(block) || block.confidence"),
     "reason_for_coming.confidence": ("shown", "tierOf(block) || block.confidence"),
-    "lives_at.confidence": ("shown", "tierOf(block) || block.confidence"),
-    "works_at.confidence": ("shown", "tierOf(block) || block.confidence"),
+    "no_home.confidence": ("shown", "tierOf(block) || block.confidence"),
+    "no_workplace.confidence": ("shown", "tierOf(block) || block.confidence"),
     "present_on_scene_date.confidence": ("shown", "tierOf(block) || block.confidence"),
     # The reasoning, and on this layer it is the point: a note here routinely
     # says the record is NOT attested and why the figure is carried anyway.
@@ -698,8 +698,8 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "party_size_on_arrival.note": ("shown", "escapeHtml(block.note)"),
     "origin.note": ("shown", "escapeHtml(block.note)"),
     "reason_for_coming.note": ("shown", "escapeHtml(block.note)"),
-    "lives_at.note": ("shown", "escapeHtml(block.note)"),
-    "works_at.note": ("shown", "escapeHtml(block.note)"),
+    "no_home.note": ("shown", "escapeHtml(block.note)"),
+    "no_workplace.note": ("shown", "escapeHtml(block.note)"),
     "present_on_scene_date.note": ("shown", "escapeHtml(block.note)"),
     # T-1158's own fields, on the three claims T-1169's stage fills. `tier` drives the
     # chip through the same `tierOf` line the confidences above name; the rest are read

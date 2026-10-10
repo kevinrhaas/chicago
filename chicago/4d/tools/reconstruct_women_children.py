@@ -112,7 +112,7 @@ CHILD_BANDS = ("under_10", "10_19")
 # The keys this stage writes and `--check` re-derives. Everything else on the card belongs
 # to another stage of the same programme and is that stage's to prove.
 OWNED_KEYS = ("id", "name", "division", "head", "source_pass", "arrival",
-              "party_size_on_arrival", "lives_at", "works_at",
+              "party_size_on_arrival", "no_home", "no_workplace",
               "present_on_scene_date", "women_children", "refamilied", "persons",
               "touches_removal", "review_required", "research_note")
 
@@ -459,7 +459,7 @@ def household_record(hid: str, slot: str, division: str, head: dict, members: li
     card["origin"] = {"value": None, "confidence": RECONSTRUCTED, "note": "Not attested."}
     card["reason_for_coming"] = {"value": None, "confidence": RECONSTRUCTED,
                                  "note": "Not attested."}
-    card["lives_at"] = {
+    card["no_home"] = {
         "value": None,
         "confidence": RECONSTRUCTED,
         "note": "NO ROOF AND NO LOT. This stage seats nobody: the ground the north and west "
@@ -467,7 +467,7 @@ def household_record(hid: str, slot: str, division: str, head: dict, members: li
                 "reconstructed household on it. A coordinate invented here would be a "
                 "fabricated location, which docs/LIBERTIES.md refuses outright.",
     }
-    card["works_at"] = {
+    card["no_workplace"] = {
         "value": None,
         "confidence": RECONSTRUCTED,
         "note": "No workplace is assigned from a reconstructed household; T-1189 staffs the "
@@ -643,7 +643,7 @@ def refamily(made: dict, moves: dict) -> Counter:
         moved["division"] = seats_in
         moved["name"] = (f"Reconstructed household — {card['persons'][0]['name']}, a woman "
                          f"boarding with her family in the {seats_in} division")
-        moved["lives_at"] = dict(card["lives_at"], note=(
+        moved["no_home"] = dict(card["no_home"], note=(
             "NO ROOF AND NO LOT, AND THE DIVISION ABOVE IS NOT THE ONE THIS HOUSE WAS "
             "DEALT IN. T-1199 seats every reconstructed household on the lot grid; the "
             f"division this card states is the {seats_in} one it was RE-FAMILIED into, "

@@ -80,7 +80,7 @@
   },
   "note": "SEATED IN THE BUILDING WHOSE FUNCTION HE IS. `fort_dearborn_sutlers_store` carries an `attested` function of `sutlers_store` on Andreas and Wentworth. A sutler at a post lived at his store; the building exists in the record and no coordinate is invented."
  },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "note": "THE POST IS THE WORKPLACE AND THE POST IS THE DWELLING. A separate `works_at` would assert a second building for the same duty; the fort's own structures carry the garrison on their occupants blocks."

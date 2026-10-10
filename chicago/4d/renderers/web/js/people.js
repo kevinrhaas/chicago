@@ -876,7 +876,7 @@ export async function mountPeople({
         withheldByPerson: new Map(), ladderRules: [] });
       const why = cardEl.querySelector('.people-noaddr-why');
       if (why) {
-        const note = hh?.lives_at?.note || hh?.works_at?.note || '';
+        const note = hh?.no_home?.note || hh?.no_workplace?.note || '';
         if (note) { why.textContent = ` — ${note}`; why.closest('.people-noaddr')?.setAttribute('data-reason', 'record'); }
       }
       const joins = await loadResidentJoins(dataBase, sceneId, problems);

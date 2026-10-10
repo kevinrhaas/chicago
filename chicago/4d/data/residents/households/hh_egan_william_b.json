@@ -37,12 +37,12 @@
   ],
   "note": "Andreas states the disposition rather than the decision: 'In the Doctor's unfailing confidence in the future of Chicago; in the unhesitating manner with which he embarked his means upon the then ebb-tide of the city's prosperity, he was a typical pioneer.' That is a characterisation written fifty years later, not a statement of why he came, and the grade says so."
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested. Egan's Row on the Tremont block is his own building work and is later than the scene date's evidence; nothing places him in a house on 1 July 1835."
  },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested. This dataset holds no physician's office as a structure, which is itself a finding: the town had eight doctors at the end of 1833 and not one of their premises is in data/structures/."

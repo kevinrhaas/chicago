@@ -61,13 +61,13 @@
   "note": "NOT DRAWN, AND NOT THE SAME QUESTION. The arrival model dates when a household CAME TO STAY, and this one did not stay. The vessels landed passengers on 28 and 29 June and on 2 and 3 July; which boat this party came off is not recorded and is not derivable.",
   "seated_by": "nothing — a visitor of the season has no arrival year to fill"
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "tier": "unknown",
   "note": "A VISITOR OF THE SEASON KEPT NO RESIDENCE. `lives_at` is the house a household lived in and the town census counts a person as housed through it; writing one here would move the resident count, which is the one thing this cohort must not do. Where they slept is in `lodged_at`, at the rung the sources reach."
  },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "tier": "unknown",

@@ -75,12 +75,12 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested: the lists that name this person give no address. The placement sweep assigns homes once the resident list is complete (T-0514, the owner's own sequencing) and this pass will not guess one."
  },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
