@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The later-directory crosswalks read each household\u2019s dated places', kind: 'change',
+  { v: 1611, ts: '2026-10-10T03:31:52.804Z', date: 'Oct 9, 2026, 10:31 PM CT', title: 'The later-directory crosswalks read each household\u2019s dated places', kind: 'change',
     items: [
       'Nothing you can see changes. The tools that match the 1839, 1843 and 1844 directories against the town, and the two that read a later printed address back to 1835, now take where a household lived and worked from the dated places on its card.',
       'Every match, refusal and placement comes out exactly as before, even with the old single home and workplace lines removed from the records.',
