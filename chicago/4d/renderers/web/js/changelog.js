@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1632, ts: '2026-10-10T07:49:20.152Z', date: 'Oct 10, 2026, 2:49 AM CT', title: 'A window kit for Prairie Avenue: real sashes, glass and rooms', kind: 'feature',
+    items: [
+      'Nine window types for the 1904 houses, from a plain two-over-two sash to a round-arched fanlight, a pointed Gothic sash and a leaded stair light.',
+      'Each is a true opening, not a painted panel: a reveal, a stone sill with a drip, two sashes at their own depths, glass, and a blind and curtains behind it.',
+      'Behind the glass is a dark room, so at an angle you see depth rather than sky.',
+      'No house uses the kit yet; 1808 Prairie is the first to get these windows.',
+    ] },
   { v: 1631, ts: '2026-10-10T07:26:10.419Z', date: 'Oct 10, 2026, 2:26 AM CT', title: 'Prairie Avenue\'s streets are lit the right way up', kind: 'fix',
     items: [
       'Walk the 1904 Prairie Avenue scene and look along a street at a low sun. Asphalt grain, macadam ruts, brick joints, the walk\'s block joints and the curbstones\' edges now catch the light on the side facing it.',
