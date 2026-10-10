@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1602, ts: '2026-10-10T00:31:43.026Z', date: 'Oct 9, 2026, 7:31 PM CT', title: 'Glessner roof proportions gain a reviewable comparison audit', kind: 'feature',
+    items: [
+      'Open Glessner’s photographic comparison page to review the current roof, dormers and courtyard bay against the fixed reference cameras. A dimension table gives the evidence, confidence and remaining disagreements.',
+      'The earlier baseline remains available for comparison. The repaired house geometry is retained; the lifted copper corner remains an identified repair for its own ticket.',
+    ] },
   { v: 1601, ts: '2026-10-10T00:05:59.930Z', date: 'Oct 9, 2026, 7:05 PM CT', title: 'The town\u2019s last six South houses get their lots, south of Monroe', kind: 'change',
     items: [
       'Walk south across Monroe Street between the river and State Street. Six more School Section blocks are now divided into lots: cropped, grazed ground like the empty lots in town, no longer open prairie.',
