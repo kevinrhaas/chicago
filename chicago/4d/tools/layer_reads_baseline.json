@@ -60,10 +60,10 @@
       "refused_because": "A units declaration, not a figure. It states what woody_stratum.establishes_m's metres are measured from, for a reader of the record and for tools/validate.py, which requires it. A renderer that read it would be a renderer able to convert between datums; if it ever disagreed with the heightfield's own, the right outcome is this gate failing rather than a silent conversion. T-1056."
     },
     "residents/household:arrival_year.replaceable_by.kind": {
-      "records": 1373
+      "records": 1375
     },
     "residents/household:arrival_year.written_by_stage": {
-      "records": 1384
+      "records": 1386
     },
     "residents/household:associated_with[].basis.kind": {
       "records": 11
@@ -75,35 +75,35 @@
       "records": 11
     },
     "residents/household:division": {
-      "records": 1457,
+      "records": 1459,
       "refused_because": "Denormalised. The MANIFEST's copy is what the panel groups and labels rows by, and validate.py fails the build if the two disagree; reading both would be two answers to one question."
     },
     "residents/household:division_reconstructed.band": {
-      "records": 1338
+      "records": 1336
     },
     "residents/household:division_reconstructed.basis.kind": {
-      "records": 1338
+      "records": 1336
     },
     "residents/household:division_reconstructed.clause": {
-      "records": 1338
+      "records": 1336
     },
     "residents/household:division_reconstructed.replaceable_by.kind": {
-      "records": 1338
+      "records": 1336
     },
     "residents/household:division_reconstructed.replaceable_by.match": {
-      "records": 1338
+      "records": 1336
     },
     "residents/household:division_reconstructed.seed": {
-      "records": 1338
+      "records": 1336
     },
     "residents/household:division_reconstructed.tier": {
-      "records": 1338
+      "records": 1336
     },
     "residents/household:division_reconstructed.value": {
-      "records": 1338
+      "records": 1336
     },
     "residents/household:division_reconstructed.written_by_stage": {
-      "records": 1338
+      "records": 1336
     },
     "residents/household:garrison.company": {
       "records": 10
@@ -148,33 +148,18 @@
       "records": 11
     },
     "residents/household:head": {
-      "records": 1457,
+      "records": 1459,
       "refused_because": "The record's own copy of the same foreign key. Refused for the same reason, and it is the record that is authoritative."
     },
     "residents/household:kin[].book_kin": {
       "records": 4,
       "refused_because": "The id of the book claim this kin row was read out of — a foreign key into data/research/books/claims/ and the ruling that answers it. It is what makes the write re-derivable and what lets the gate notice a tie that lost its reading; it states nothing about either person. What a visitor judges the relationship by is on the row already and is read there: the relation, the confidence, the sources and the note that quotes the sentence."
     },
-    "residents/household:lives_at.basis.kind": {
-      "records": 11
-    },
-    "residents/household:lives_at.replaceable_by.kind": {
-      "records": 11
-    },
-    "residents/household:lives_at.replaceable_by.match": {
-      "records": 11
-    },
-    "residents/household:lives_at.tier": {
-      "records": 11
-    },
-    "residents/household:lives_at.value": {
-      "records": 34
-    },
     "residents/household:origin.replaceable_by.kind": {
-      "records": 1404
+      "records": 1406
     },
     "residents/household:origin.written_by_stage": {
-      "records": 1424
+      "records": 1426
     },
     "residents/household:persons[].appearance_bounds[].corpus": {
       "records": 55
@@ -253,7 +238,7 @@
       "records": 203
     },
     "residents/household:persons[].occupation.derived_from": {
-      "records": 328
+      "records": 329
     },
     "residents/household:persons[].occupation.promoted_from_roles.ticket": {
       "records": 10
@@ -283,13 +268,13 @@
       "records": 102
     },
     "residents/household:persons[].roles[].claim": {
-      "records": 602
+      "records": 607
     },
     "residents/household:persons[].roles[].fills_scene_view": {
-      "records": 738
+      "records": 743
     },
     "residents/household:persons[].seated_as_printed_wife.counted_in_a_cell": {
-      "records": 1
+      "records": 2
     },
     "residents/household:persons[].stated_family.as_read": {
       "records": 4,
@@ -319,11 +304,11 @@
       "records": 11
     },
     "residents/household:present_on_scene_date.last_dated_appearance.person": {
-      "records": 875,
+      "records": 860,
       "refused_because": "A foreign key into `persons[].id` — which person of the household the leg was read on. It is there so the derivation and the roster can be audited against the card, and the card already names every person of the household on their own rows; printing the id beside the date would say nothing a reader can use."
     },
     "residents/household:present_on_scene_date.last_dated_appearance.record": {
-      "records": 424,
+      "records": 409,
       "refused_because": "The `record_id` or locator of the evidence block the leg came from — an audit pointer, null on the 383 legs read off a post-office return, which carries no per-return record. The card shows the SOURCE the block cites, which is the part a reader can follow; an internal row id is not."
     },
     "residents/household:present_on_scene_date.replaceable_by.kind": {
@@ -336,10 +321,10 @@
       "records": 11
     },
     "residents/household:reason_for_coming.replaceable_by.kind": {
-      "records": 1432
+      "records": 1434
     },
     "residents/household:reason_for_coming.written_by_stage": {
-      "records": 1432
+      "records": 1434
     },
     "residents/household:refamilied.changed": {
       "records": 25
@@ -390,38 +375,35 @@
       "records": 25
     },
     "residents/household:source_pass": {
-      "records": 1377,
+      "records": 1379,
       "refused_because": "T-0599/T-0604: provenance for the three mint tools' OWN bookkeeping — which pass (documented/placed/letter_list) minted this record, so a re-run can tell 'a household I minted' from a plain hand-authored one without an id prefix. Not a finding about the person: the evidence the panel already shows — grade, letter_list_only, sources — is what a visitor judges the record by, and which internal tool produced it is not part of that judgment. See data/residents/README.md."
     },
     "residents/household:women_children.head_trade": {
-      "records": 35
+      "records": 39
     },
     "residents/household:women_children.head_trade_seed": {
-      "records": 35
+      "records": 39
     },
     "residents/household:women_children.household_type": {
-      "records": 35
+      "records": 39
     },
     "residents/household:women_children.seated": {
-      "records": 35
+      "records": 39
     },
     "residents/household:women_children.seated_beyond_the_draw": {
-      "records": 35
+      "records": 39
     },
     "residents/household:women_children.seed": {
-      "records": 35
+      "records": 39
     },
     "residents/household:women_children.size_drawn": {
-      "records": 35
+      "records": 39
     },
     "residents/household:women_children.stage": {
-      "records": 35
+      "records": 39
     },
     "residents/household:women_children.ticket": {
-      "records": 35
-    },
-    "residents/household:works_at.value": {
-      "records": 51
+      "records": 39
     },
     "residents/manifest:_roles_doc": {
       "records": 1
@@ -443,50 +425,50 @@
       "refused_because": "Bookkeeping about an OPERATION, not a figure about the town: how many reconstructed cards the synthesis of 2 September 2026 removed. The town it describes no longer exists in this tree, so a visitor has nothing to hold it against; `by_grade.reconstructed` — which reads 0 — is the fact about the layer, and the removal itself is docs/LIBERTIES.md's business."
     },
     "residents/manifest:households[].division_reconstructed": {
-      "records": 1338
+      "records": 1336
     },
     "residents/manifest:households[].head": {
-      "records": 1457,
+      "records": 1459,
       "refused_because": "A foreign key into `persons[].id`, not a figure — it names which person heads the household, and that fact already reaches the visitor as that person's `relationship`, shown on their own row."
     },
     "residents/manifest:households[].present_on_scene_date": {
-      "records": 1457,
+      "records": 1459,
       "refused_because": "The flat copy of a graded claim. `residents.js` shows the RECORD's block — its value, its confidence, its reasoning and its sources — and the manifest's bare value carries none of that. Showing the poorer copy would be showing less."
     },
     "residents/manifest:households[].projected_resident": {
-      "records": 759,
+      "records": 758,
       "refused_because": "The flat copy of a person-level subtype. `people.js` filters and chips `resident_subtype === 'projected_resident'` on the person's own row, where the evidence that made them projected sits beside the label; the household's boolean carries none of it. The identical ruling T-0782 made about `counts.projected_residents`, one level down."
     },
     "residents/manifest:merged[].cluster": {
-      "records": 72,
+      "records": 73,
       "refused_because": "The same flat copy of the cluster name, refused for the same reason."
     },
     "residents/manifest:merged[].household": {
-      "records": 72,
+      "records": 73,
       "refused_because": "The same foreign key at household scope, refused for the same reason."
     },
     "residents/manifest:merged[].merged_into_household": {
-      "records": 72,
+      "records": 73,
       "refused_because": "The other end of the same redirect at household scope."
     },
     "residents/manifest:merged[].merged_into_person": {
-      "records": 72,
+      "records": 73,
       "refused_because": "The other end of the same redirect. It resolves an id and states nothing about a person."
     },
     "residents/manifest:merged[].person": {
-      "records": 72,
+      "records": 73,
       "refused_because": "T-0839's redirect table, keyed by foreign key. `person` and the three ids beside it name which card was folded into which; they are how a crosswalk resolves a stale id, not a figure about anybody. The fold itself now reaches the visitor on the surviving person's own card, from the record's `merged_from` block, with the rule and the reasoning that made it."
     },
     "residents/manifest:merged[].record_file": {
-      "records": 72,
+      "records": 73,
       "refused_because": "File routing — where the folded record is kept whole under data/residents/merged/. The same class of key as `file`, which this census strips as machinery wherever it is not nested inside a table."
     },
     "residents/manifest:merged[].rule": {
-      "records": 72,
+      "records": 73,
       "refused_because": "The manifest's flat copy of the fold's rule. The RECORD's `merged_from[].rule` is what residents.js shows, beside the cluster, the ticket and the note that says what the union of the cards means. Showing the manifest's bare copy would be showing less, which is the ruling this table already makes about `households[].present_on_scene_date`."
     },
     "residents/manifest:merged[].ticket": {
-      "records": 72,
+      "records": 73,
       "refused_because": "The same flat copy of the ticket, refused for the same reason."
     },
     "residents/manifest:vocabulary.age_bands[].age_band": {

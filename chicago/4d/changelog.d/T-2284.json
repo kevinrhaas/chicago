@@ -1,0 +1,8 @@
+{
+  "title": "A household's home and workplace are written one way now",
+  "kind": "improvement",
+  "items": [
+    "The old single-address fields are gone from every household record: where a household lived and worked is now only the dated rows its card already shows, so the two can never disagree.",
+    "The address reconciliation table, the research ledger and the gate all read those rows, and the gate refuses the old fields if one ever comes back."
+  ]
+}
