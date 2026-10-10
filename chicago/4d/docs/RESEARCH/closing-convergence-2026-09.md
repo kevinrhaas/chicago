@@ -16,8 +16,8 @@ The order is read out of `tools/derived_manifest.json`, which holds the whole de
 |---|---|---|---|---|
 | 1 | `data/residents/index.json` and its `merged` redirect table | `tools/rebuild_resident_index.py` | 81 | 1 |
 | 2 | the 1835 sidecars, `data/sidecars/1835/` | `tools/compile_scene.py` | 139 | 1 |
-| 3 | the town census, `data/town_census.json` | `tools/town_census.py` | 169 | 1 |
-| 4 | the final resident audit, `chicago/reference/resident-research/final/audit/` | `tools/export_resident_audit.py` | 172 | 3 |
+| 3 | the town census, `data/town_census.json` | `tools/town_census.py` | 170 | 1 |
+| 4 | the final resident audit, `chicago/reference/resident-research/final/audit/` | `tools/export_resident_audit.py` | 173 | 3 |
 | 5 | the published residents, `site/4d/data/residents/` | `tools/publish.sh` | **none** — see §2 | 0 |
 
 ## 2. What the manifest does not own
@@ -33,11 +33,11 @@ That one is a property of the mirror rather than an oversight — it is the one 
 | member | tracked files written | claimed by the manifest | unowned |
 |---|---:|---:|---:|
 | `data/residents/index.json` and its `merged` redirect table | 1 | 1 | 0 |
-| the 1835 sidecars, `data/sidecars/1835/` | 689 | 1 | 688 |
+| the 1835 sidecars, `data/sidecars/1835/` | 690 | 1 | 689 |
 | the town census, `data/town_census.json` | 1 | 1 | 0 |
 | the final resident audit, `chicago/reference/resident-research/final/audit/` | 3 | 3 | 0 |
 
-688 tracked closing-set file(s) are written by a manifest step and not claimed by it — in `sidecars_1835`. Widening `resolves` to the whole sidecar directory is a decision about what the lap may overwrite, not a bookkeeping fix, and the manifest is explicit that "being run by the manifest and owning your outputs are separate decisions" — so this states the number rather than taking that decision. The row moves the moment the count does.
+689 tracked closing-set file(s) are written by a manifest step and not claimed by it — in `sidecars_1835`. Widening `resolves` to the whole sidecar directory is a decision about what the lap may overwrite, not a bookkeeping fix, and the manifest is explicit that "being run by the manifest and owning your outputs are separate decisions" — so this states the number rather than taking that decision. The row moves the moment the count does.
 
 ## 3. The deltas
 
@@ -47,19 +47,19 @@ Baseline: `07605197356ccd8d8b4f547eccb2d1dc619ef06f` on `dev`, taken 2026-09-18 
 |---|---:|---:|---:|
 | households in `index.json` | 1258 | 1459 | +201 |
 | household cards on disk | 1258 | 1459 | +201 |
-| persons in `index.json` | 1288 | 2886 | +1598 |
-| rows in the `merged` redirect table | 66 | 72 | +6 |
+| persons in `index.json` | 1288 | 2885 | +1597 |
+| rows in the `merged` redirect table | 66 | 73 | +7 |
 | redirects that do not arrive | 0 | 0 | 0 |
-| persons graded `attested` | 410 | 412 | +2 |
-| persons graded `inferred` | 875 | 1028 | +153 |
+| persons graded `attested` | 410 | 413 | +3 |
+| persons graded `inferred` | 875 | 1026 | +151 |
 | persons graded `reconstructed` | 3 | 1446 | +1443 |
-| 1835 sidecar files | 391 | 689 | +298 |
-| people in the 1835 people sidecar | 1288 | 3880 | +2592 |
-| buildings standing in the town census | 371 | 663 | +292 |
-| people housed in the town census | 34 | 2720 | +2686 |
-| households housed in the town census | 20 | 1385 | +1365 |
-| rows in the final resident audit | 1288 | 2886 | +1598 |
-| published resident files in the mirror | 1336 | 1426 | +90 |
+| 1835 sidecar files | 391 | 690 | +299 |
+| people in the 1835 people sidecar | 1288 | 3879 | +2591 |
+| buildings standing in the town census | 371 | 664 | +293 |
+| people housed in the town census | 34 | 2724 | +2690 |
+| households housed in the town census | 20 | 1387 | +1367 |
+| rows in the final resident audit | 1288 | 2885 | +1597 |
+| published resident files in the mirror | 1336 | 1427 | +91 |
 
 ## 4. T-1144's banked acceptances, as deltas
 
@@ -69,10 +69,10 @@ T-1144 banked acceptances 3, 5 and 9 to this pass "to state as deltas rather tha
 |---|---:|---:|---:|
 | acc. 3 — Mary Durbin, John Simmons, John Vincent or Logdson in the layer | 0 | 0 | 0 |
 | acc. 5 — standing 1835 trades cited to no 1835 source | 0 | 0 | 0 |
-| acc. 9 — uncertain presences | 820 | 933 | +113 |
-| acc. 9 — …of them carrying a dated evidence leg | 820 | 933 | +113 |
+| acc. 9 — uncertain presences | 820 | 932 | +112 |
+| acc. 9 — …of them carrying a dated evidence leg | 820 | 932 | +112 |
 
-Acceptance 9 reads as a pair: 933 of 933 uncertain presences carry a `last_dated_appearance`, so the gap is 0.
+Acceptance 9 reads as a pair: 932 of 932 uncertain presences carry a `last_dated_appearance`, so the gap is 0.
 
 ## 5. What holds this page
 

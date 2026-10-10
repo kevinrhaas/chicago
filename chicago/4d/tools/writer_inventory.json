@@ -550,6 +550,12 @@
       "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "human_contract.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage, exits 2 and writes nothing (git status --porcelain identical before and after); --check holds data/humans/contract.json to itself and to human_instance.schema.json and reads every GLB under assets/humans/ and every record under data/humans/instances/, writing nothing; --self-test writes its synthetic GLBs to a tempdir only (same porcelain before and after). It declares no write mode: the contract and schema are authored, and human assets will be written by T-1787's exporter (T-1786)."
+    },
     "generated_card_kin.py": {
       "placement": "pending",
       "write_mode": "--land",
@@ -708,6 +714,13 @@
       "measured": "2026-10-01",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 2s, wrote its one output, changed no committed byte.",
       "placed": "by layer, 2026-10-01 \u2014 reasoned, not derived; beside generate_west_infill.py in the manifest"
+    },
+    "generate_south_lumber.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-10",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 2s, wrote its one output, changed no committed byte.",
+      "placed": "by layer, 2026-10-10 \u2014 reasoned, not derived; beside generate_west_freight.py in the manifest"
     },
     "generate_north_freight.py": {
       "placement": "manifest",
