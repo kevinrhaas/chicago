@@ -22621,6 +22621,42 @@ Mark Beaubien's house elsewhere in July 1835 retires the keeper seating, not the
 **Related:** **L410**, **L409**, **L270**, **L252**, **L90**.
 **Recorded:** 2026-10-09 (T-2196).
 
+### L414 — Signboards lettered in period faces, gilt in leaf, dark grounds sanded and bare boards carved
+
+**Applies to:** every board and painted name drawn by `renderers/web/js/signage.js` from
+`data/signage/town_business_signboards.json`.
+
+**What we invented:** the lettering's look. The four letterforms the record names (`style.face`)
+are now drawn in four self-hosted revivals of the period's own faces (renderers/web/fonts/LICENSE.md):
+the signwriter's roman in Old Standard TT bold, the fat face in Abril Fatface, the Egyptian in Alfa
+Slab One and the grotesque in Anton. Each board mixes faces as boards of the period did: the name in
+its display letter, largest and on one line; the trade under it in Old Standard's italic (roman and fat
+face boards) or its bold capitals (Egyptian and grotesque); the place in small, wide-spaced roman
+capitals; and, where the board has the room, a fine rule with a lozenge between name and trade. The two
+gold colourways are drawn as gold leaf: a burnished gradient, a fine dark outline and a dark shade, and
+the smoothest surface in the town in the roughness map. Every dark painted ground is drawn smalted
+(sanded while wet: a fine grit, matte). A hung or fixed board in the bare timber is CARVED: its letters
+are V-cut into the wood in the relief map and darkened, not painted. Painted letters stand a film's
+thickness in relief.
+
+**Why:** the owner, 2026-10-10, on Newberry & Dole's warehouse: make all signs "period correct and
+legible", lettered "in period fonts and colors correct for the sign", with "excellent texture for the
+sign if painted or on carved raw wood", laid out "so it fits and is readable and matches period signs of
+the era". The old faces were whatever a browser ships (Georgia, Courier New, Helvetica), all capitals in
+one fount. Gilding with a shade, smalted grounds and incised lettering on plain boards are all standard
+practice in American sign work of the 1830s, but no source records the lettering of any board in
+Chicago, so all of it is reconstructed.
+
+**Consequence:** the town's signs read as signwriters' work of the period, not screen type. None of it
+is evidence about any one board: which face, colours and mounting a board has is still the generator's
+rule (**L159**), and only the drawing of them changed.
+
+**How to resolve:** a description, drawing or photograph of a particular Chicago board of the 1830s
+replaces this treatment on that board: its letterform, its colours, whether it was gilt or carved.
+
+**Related:** **L159**, **L130**, **L169**.
+**Recorded:** 2026-10-10 (T-2282).
+
 ### L-glessner-west-profile-2231 — Front west gable and lower rear proportions
 
 **Decision:** The owner's 9 October 2026 west and northwest references supersede
