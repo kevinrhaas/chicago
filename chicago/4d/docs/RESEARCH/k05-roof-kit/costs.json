@@ -1,0 +1,98 @@
+{
+  "_doc": "Measured by tools/study_k05_roofs.mjs on the specimen GLB. Triangles and draw calls are exact; frame_ms is headless Chromium on a software rasteriser (SwiftShader), a relative figure for comparing kit revisions, not a device frame time.",
+  "specimen_bytes": 318692,
+  "roofs": [
+    {
+      "id": "k05.roof.hip",
+      "triangles_roof": 34,
+      "triangles_with_board": 44,
+      "vertices_with_board": 132,
+      "draw_calls": 5
+    },
+    {
+      "id": "k05.roof.gable",
+      "triangles_roof": 82,
+      "triangles_with_board": 96,
+      "vertices_with_board": 288,
+      "draw_calls": 5
+    },
+    {
+      "id": "k05.roof.gable_stepped",
+      "triangles_roof": 670,
+      "triangles_with_board": 692,
+      "vertices_with_board": 2076,
+      "draw_calls": 6
+    },
+    {
+      "id": "k05.roof.gable_ogee",
+      "triangles_roof": 590,
+      "triangles_with_board": 612,
+      "vertices_with_board": 1836,
+      "draw_calls": 6
+    },
+    {
+      "id": "k05.roof.mansard_convex",
+      "triangles_roof": 74,
+      "triangles_with_board": 84,
+      "vertices_with_board": 252,
+      "draw_calls": 5
+    },
+    {
+      "id": "k05.roof.mansard_concave",
+      "triangles_roof": 74,
+      "triangles_with_board": 84,
+      "vertices_with_board": 252,
+      "draw_calls": 5
+    },
+    {
+      "id": "k05.roof.tower_octagonal",
+      "triangles_roof": 70,
+      "triangles_with_board": 92,
+      "vertices_with_board": 276,
+      "draw_calls": 5
+    },
+    {
+      "id": "k05.roof.tower_conical",
+      "triangles_roof": 214,
+      "triangles_with_board": 284,
+      "vertices_with_board": 852,
+      "draw_calls": 5
+    },
+    {
+      "id": "k05.roof.cross_gable",
+      "triangles_roof": 76,
+      "triangles_with_board": 100,
+      "vertices_with_board": 300,
+      "draw_calls": 5
+    },
+    {
+      "id": "k05.roof.dormer",
+      "triangles_roof": 138,
+      "triangles_with_board": 154,
+      "vertices_with_board": 462,
+      "draw_calls": 5
+    }
+  ],
+  "board": {
+    "desktop": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "draw_calls": 65,
+      "triangles": 2710,
+      "frame_ms_median": 0.7,
+      "geometries": 65
+    },
+    "mobile": {
+      "viewport": [
+        390,
+        780
+      ],
+      "draw_calls": 50,
+      "triangles": 2416,
+      "frame_ms_median": 0.4,
+      "geometries": 65
+    }
+  }
+}
