@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'The housing and deal tools read each household\u2019s dated places', kind: 'change',
+    items: [
+      'Nothing you can see changes. The tools that house the present, re-family the order book, seat street faces, replace invented names and spend the trade and premises research now take a household\u2019s home and workplace from the dated places on its card.',
+      'Every seat, roof and ruling comes out exactly as before. The research notes now point at the dated place they read rather than the old single workplace line, which is being retired.',
+    ] },
   { v: 1605, ts: '2026-10-10T01:25:22.744Z', date: 'Oct 9, 2026, 8:25 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
     items: [
       'Nothing you can see changes. The reconstruction\u2019s work list asked for ten more South-side family households than the town could form, after letter-list names stopped counting as households on 9 October.',
