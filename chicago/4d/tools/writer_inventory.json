@@ -74,6 +74,12 @@
       "write_mode": null,
       "measured": "2026-10-10",
       "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K08 variant at both tiers in memory from data/components/prairie_1904/k08_bays.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k08_bays.py run bare, which no gate step runs (T-2307)."
+  },
+    "check_trim_kit.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K09 variant in memory from data/components/prairie_1904/k09_trim.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k09_trim.py run bare, which no gate step runs (T-2309)."
     },
     "check_window_kit.py": {
       "placement": "not_a_writer",
