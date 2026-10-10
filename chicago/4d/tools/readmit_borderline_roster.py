@@ -433,10 +433,10 @@ def minted_card(row: dict, model: dict, hid: str, pid: str, sources: list,
             "value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
             "note": "Not attested. The reading dates an appearance and not an arrival.",
         },
-        "lives_at": {"value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
-                     "note": "Not attested: the reading gives a name and no address."},
-        "works_at": {"value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
-                     "note": "Not attested."},
+        "no_home": {"value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
+                    "note": "Not attested: the reading gives a name and no address."},
+        "no_workplace": {"value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
+                         "note": "Not attested."},
         "present_on_scene_date": presence,
         "persons": [{
             "id": pid,
@@ -876,7 +876,7 @@ def check() -> int:
     for hid, card in sorted(cards.items()):
         for person in card["persons"]:
             check_reconstructed_person(f"{hid}:{person['id']}", person, keys, error)
-        for key in ("arrival", "lives_at", "works_at", "present_on_scene_date"):
+        for key in ("arrival", "no_home", "no_workplace", "present_on_scene_date"):
             check_tier_block(hid, key, card.get(key) or {}, error)
         for person in card["persons"]:
             check_tier_block(f"{hid}:{person['id']}", "occupation",

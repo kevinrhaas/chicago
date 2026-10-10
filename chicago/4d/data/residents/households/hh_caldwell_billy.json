@@ -43,7 +43,7 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "note": "TWO CANDIDATE LOCATIONS AND NO WAY TO CHOOSE, so the field is null. (1) Andreas: 'There was also a house built for him by the Department for Indian Affairs on the North Side near where is now the corner of State Street and Chicago Avenue' - and elsewhere calls it probably the first frame building in Chicago after Robert Kinzie's store, erected in 1828. That house is not in data/structures/ and is well north of the modelled blocks. (2) A list of the settlement's residents Andreas prints puts 'small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell, an Indian chief, who was also interpreter for the agency' in the vicinity of Cobweb Castle at the foot of State Street. Those are two different houses in two different places and neither is dated to 1835. Linking him to robinson_caldwell_cabins would be worse than either: that record's evidence is Wau-Bun's sentence about ROBINSON, and Caldwell's name reached its filename by a different route. NARROWED, NOT SETTLED, 2026-09-28 (T-1714): candidate (2) is now a building in this dataset — caldwell_agency_log_house, raised on the same two sentences as the rest of the agency's log ring — and candidate (1), the frame house near State Street and Chicago Avenue, still is not. That does NOT decide the field. A seat written now would be this project choosing between two houses on the strength of which one somebody got round to modelling, which is the worst reason available. The raised record carries no occupant and says so; the field stays null until a source dates one of the two houses to 1835 or places this man in either on the scene date."

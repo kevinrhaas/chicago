@@ -46,7 +46,7 @@
   ],
   "note": "A commissioned officer of the garrison lodged in the officers' quarters. The building is in the dataset and the practice is universal for a post of this kind; no source puts this man in this building, hence inferred."
  },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "note": "NOT MODELLED. The post surgeon worked in a hospital and this dataset holds no Fort Dearborn hospital record, although the fort's surgeon's prescription book with an entry of 15 March 1835 is one of the things that proves the post was garrisoned in the scene year. Left null so the missing building is visible rather than papered over with the palisade."

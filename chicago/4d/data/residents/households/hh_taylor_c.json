@@ -86,12 +86,12 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "note": "THE STREET IS DOCUMENTED AND THE BUILDING IS NOT, WHICH IS NOT THE SAME AS NO ADDRESS. The notice gives \"at the hous[e] of Mrs. C. Taylor, Water-st.\" — her HOUSE, named as the place the Juvenile Society's sale will be held, not a store, an office or a public house. That is a documented street-only residence, and it is the rarest kind of anchor in this corpus: c007's own note says nearly every address the papers give is a business and this one is a dwelling. `lives_at` is null anyway because the field names a STRUCTURE in data/structures/ (tools/validate.py check_resident_link) and this town holds no house on Water Street that any source ties to her — the precedent is hh_temple_john_t's null over a printed Franklin Street address. WHICH Water Street is NOT DECIDED HERE: data/streets/1835.json carries three — south_water, north_water and west_water — and the corpus's own practice is to leave a bare \"Water-st.\" unresolved, as the gazetteer does for Jones & King, Russell & Clift and the Chicago Academy. `division` stays `unplaced` for the same reason: a street name that fits three divisions places nobody in one. A lot is not guessed and would not be: T-0514 is the owner's sequencing and the placement sweep runs once the resident list is complete."
  },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested, and nothing here is a premises. No source records a trade for her; the house in the notice is where a charity sale was to be held on Saturday 22 August 1835, which is a use of her dwelling and not a shop."

@@ -394,14 +394,14 @@ def card_for(row, record, spouse, kin, hid, pid, sources, presence, appearances)
                      "of this card at all."),
         },
         "origin": origin_block(term, grade),
-        "lives_at": {
+        "no_home": {
             "value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
             "note": ("Not attested. " + NOT_A_RESIDENCE + " The entry's `place` column reads "
                      "Chicago, which is where the sacrament was administered and is not an "
                      "address."),
         },
-        "works_at": {"value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
-                     "note": "Not attested. A baptismal entry records no trade."},
+        "no_workplace": {"value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
+                         "note": "Not attested. A baptismal entry records no trade."},
         "present_on_scene_date": presence,
         "persons": [{
             "id": pid,

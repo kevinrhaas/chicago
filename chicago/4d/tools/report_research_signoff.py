@@ -254,13 +254,11 @@ def measure_axis3(cards: list[dict]) -> dict:
     linkage: Counter = Counter()
     unreasoned: list[str] = []
     for card in cards:
-        # T-2277: the seat is the record's own workplace row. The REASON is read off
-        # the singular `works_at` still, because it is only ever read when there is no
-        # seat: it is the note on a NULL link — why no premises resolves — and an
-        # absence has no row to carry it. Where that prose goes when the pair retires
-        # is T-2274's to settle.
+        # T-2277: the seat is the record's own workplace row. The REASON is only ever
+        # read when there is no seat: it is why no premises resolves, and since T-2295
+        # it is the record's own `no_workplace` block rather than a null `works_at`.
         seat = workplace_of(card)
-        reason = (card.get("works_at") or {}).get("note")
+        reason = (card.get("no_workplace") or {}).get("note")
         for person in card.get("persons") or []:
             rows = [r for r in (person.get("roles") or [])
                     if isinstance(r, dict) and r.get("covers_scene_date")
