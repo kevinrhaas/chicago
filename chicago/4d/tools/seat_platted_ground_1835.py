@@ -184,7 +184,11 @@ BUSINESS_DEAL_HOLDS = 45
 # the 117 roofs it had dealt to letter-list households go to the next rows of their clauses,
 # and the rows queued behind the business deal's roofs are no longer households the ruling
 # refuses. Released, those roofs would now seat nine of them (L270).
-BUSINESS_DEAL_COSTS = 9
+# 9 -> 8 on 2026-10-09 (T-2253): the Monroe-Adams tier's block 82 is planned the South's five
+# gated dwellings, and its four new slots are dealt from the South queues a release of the
+# business deal's roofs draws on, so that release now seats eight households, not nine. The
+# hold is unchanged at 45 (L270).
+BUSINESS_DEAL_COSTS = 8
 
 TICKET = "T-1613"
 PARENT = "T-1199"

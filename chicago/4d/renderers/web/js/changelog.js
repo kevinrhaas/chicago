@@ -1,9 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1601, ts: '2026-10-10T00:15:18.901Z', date: 'Oct 9, 2026, 7:15 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
+  { v: 1603, ts: '2026-10-10T00:44:01.360Z', date: 'Oct 9, 2026, 7:44 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
     items: [
       'Nothing you can see changes. The reconstruction\u2019s work list asked for ten more South-side family households than the town could form, after letter-list names stopped counting as households on 9 October.',
       'Those ten are not missing. The town already holds 23 families present in July 1835 who are still waiting for a house, so the list no longer asks for anyone to be invented in their place. It now owes no family houses in any division.',
       'Nobody was added, moved or given a house. The 23 families still wait for the town\u2019s next dwellings to be built.',
+    ] },
+  { v: 1602, ts: '2026-10-10T00:25:08.610Z', date: 'Oct 9, 2026, 7:25 PM CT', title: 'A building card\u2019s residents are read from their dated places', kind: 'fix',
+    items: [
+      'Open a building and look at who lived or worked there: each household\u2019s reason for being on that card is now the note on its dated place, the same entry its own card lists with its years. Fifty-five buildings show the fuller wording.',
+      'The People directory\u2019s homes and workplaces come from the same dated places, and none of them changed. Lodgers in the hotels and boarding houses, and the lighthouse keeper\u2019s household, now carry their beds in that form too.',
+    ] },
+  { v: 1601, ts: '2026-10-10T00:05:59.930Z', date: 'Oct 9, 2026, 7:05 PM CT', title: 'The town\u2019s last six South houses get their lots, south of Monroe', kind: 'change',
+    items: [
+      'Walk south across Monroe Street between the river and State Street. Six more School Section blocks are now divided into lots: cropped, grazed ground like the empty lots in town, no longer open prairie.',
+      'Russell Heacock\u2019s house near Monroe now stands on its own fenced lot, with a privy and a kept yard, like its neighbours north of Monroe.',
+      'The South side still owes five houses and one boarding house. They will stand on one of these blocks, one house to a lot. Four households without a home are now given a lot there, and their cards say so. The houses come next.',
+      'The three riverside warehouses the South still owes are not sent this far from the river. They wait for the South Water Street front.',
     ] },
   { v: 1600, ts: '2026-10-09T23:46:46.583Z', date: 'Oct 9, 2026, 6:46 PM CT', title: 'Glessner gets solid ridge caps and finished roof edges', kind: 'fix',
     items: [

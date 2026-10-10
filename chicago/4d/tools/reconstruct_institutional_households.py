@@ -487,6 +487,32 @@ def card_for(row: dict, rule: dict, pool: dict, sizes: list,
                      "Not attested and not drawn. Nothing states what the people in this "
                      "house did."),
         },
+        # T-2259: the two links again, as the rows the scene compiler reads. Undated
+        # and sourceless: the household is a reconstruction ordered onto a roof that
+        # stands, not a stay any source dates.
+        "associated_with": [{
+            "kind": "home",
+            "place_or_structure_id": bed,
+            "resolves_to": "structure",
+            "from": None,
+            "to": None,
+            "undated": True,
+            "tier": RECONSTRUCTED,
+            "source_id": None,
+            "note": f"THE ROOF IS THE CLAIM, and it is the only part of this card that is "
+                    f"not an invention. {row['why']}",
+        }] + ([{
+            "kind": "workplace",
+            "place_or_structure_id": sid,
+            "resolves_to": "structure",
+            "from": None,
+            "to": None,
+            "undated": True,
+            "tier": RECONSTRUCTED,
+            "source_id": None,
+            "note": "The establishment is the building: the keepership of this light is "
+                    "kept at the light.",
+        }] if rule["occupation"] else []),
         "present_on_scene_date": {
             "value": "present",
             "confidence": RECONSTRUCTED,

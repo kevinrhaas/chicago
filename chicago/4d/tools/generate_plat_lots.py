@@ -2269,7 +2269,20 @@ def wabansia() -> dict:
 # the tier (24-72), the river block (80, under datum at its west corners) and the two the
 # register never cuts (1, 142) stay on the off-plat ledger, where
 # tools/seat_off_plat_ground_1835.py reads the tier file itself.
+#
+# T-2253. AND THE MONROE-ADAMS TIER BELOW IT, on the owner's ruling of 2026-10-09 on
+# T-2247: "Cross Monroe: cut the School Section's next row (Monroe to Adams, east of the
+# river) into lots from the October 1833 sale register, as T-1477 did for Madison to
+# Monroe, and build all six there." T-2252 cut it with the first tier's own derive() into
+# its own file, and this quotes it by the same test, so the same rule picks the same kind
+# of cell: six blocks and forty-eight lots — 82, 93, 96, 117, 120 and 141. Its West
+# blocks (2-71, block 2 also half off the modelled field) and the wet river block (79)
+# are not joined. Both tiers are one grid, `school_section_tier`: one plat, one module (the
+# second file's `module` names the first's), and one schedule rule in reconcile_665.py.
 SCHOOL_SECTION_TIER_PATH = DATA / "traces" / "vectors" / "school_section_tier_lots.json"
+SCHOOL_SECTION_SECOND_TIER_PATH = (DATA / "traces" / "vectors"
+                                   / "school_section_second_tier_lots.json")
+SCHOOL_SECTION_TIER_PATHS = (SCHOOL_SECTION_TIER_PATH, SCHOOL_SECTION_SECOND_TIER_PATH)
 
 
 def school_section_tier_joins(block: dict) -> bool:
@@ -2281,12 +2294,12 @@ def school_section_tier_joins(block: dict) -> bool:
 
 
 def school_section_tier() -> dict:
-    """The tier's South Division blocks, quoted cell for cell from the committed cut."""
+    """The two tiers' South Division blocks, quoted cell for cell from the committed cuts."""
     doc = load(SCHOOL_SECTION_TIER_PATH)
     numerals = {b["block_number"]: b["numeral"]
                 for b in load(DATA / "traces" / "vectors" / "school_section_blocks_1834.json")["blocks"]}
     cells = []
-    for block in doc["blocks"]:
+    for block in (b for path in SCHOOL_SECTION_TIER_PATHS for b in load(path)["blocks"]):
         if not school_section_tier_joins(block):
             continue
         conf = block["confidence"]
@@ -2330,10 +2343,10 @@ def school_section_tier() -> dict:
     return {
         "id": "school_section_tier",
         "plat": "wright_1834_school_section",
-        "name": ("the School Section's Madison-Monroe tier, south of the town line, "
-                 "Wright 1834 (its South Division blocks)"),
+        "name": ("the School Section's Madison-Monroe and Monroe-Adams tiers, south of the "
+                 "town line, Wright 1834 (their South Division blocks)"),
         "seated_in": "data/traces/vectors/school_section_blocks_1834.json",
-        "read_in": "data/traces/vectors/school_section_tier_lots.json",
+        "read_in": [str(path.relative_to(DATA.parent)) for path in SCHOOL_SECTION_TIER_PATHS],
         "cells": cells,
         "module": {
             "module": doc["module"]["module"],
@@ -2342,8 +2355,9 @@ def school_section_tier() -> dict:
             "division": "south",
             "chosen_by": doc["module"]["why_this_module"],
             "lot_subdivision": doc["module"]["division"],
-            "joined_by": ("T-2144, on the owner's T-1755 ruling of 2026-10-05: only the "
-                          "cells east of the forks with lots on dry ground"),
+            "joined_by": ("T-2144, on the owner's T-1755 ruling of 2026-10-05, and T-2253, "
+                          "on his T-2247 ruling of 2026-10-09: only the cells east of the "
+                          "forks with lots on dry ground"),
         },
     }
 
