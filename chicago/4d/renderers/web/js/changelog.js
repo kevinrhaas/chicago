@@ -1,9 +1,26 @@
 export const CHANGELOG = [ // newest first
-  { v: 1600, ts: '2026-10-10T00:37:03.026Z', date: 'Oct 9, 2026, 7:37 PM CT', title: 'Two river warehouses on the South Branch below Market Street', kind: 'feature',
+  { v: 1603, ts: '2026-10-10T00:44:26.846Z', date: 'Oct 9, 2026, 7:44 PM CT', title: 'Two river warehouses on the South Branch below Market Street', kind: 'feature',
     items: [
       'Walk down Market Street toward Madison and look west, toward the river. Two large frame warehouses now stand on the bank between Market Street and the South Branch, below Washington Street, facing the water with a cart way between them.',
       'They are two of the three warehouses the town still owed its river trade. Every lot on South Water Street was already built on, and this stretch of bank was the one riverside ground left. Newberry & Dole\u2019s packing house already stands on it, a block north.',
       'Both are reconstructed: no source puts a building here. The third warehouse the town owes, a lumber shed, is still to come.',
+    ] },
+  { v: 1602, ts: '2026-10-10T00:25:08.610Z', date: 'Oct 9, 2026, 7:25 PM CT', title: 'A building card\u2019s residents are read from their dated places', kind: 'fix',
+    items: [
+      'Open a building and look at who lived or worked there: each household\u2019s reason for being on that card is now the note on its dated place, the same entry its own card lists with its years. Fifty-five buildings show the fuller wording.',
+      'The People directory\u2019s homes and workplaces come from the same dated places, and none of them changed. Lodgers in the hotels and boarding houses, and the lighthouse keeper\u2019s household, now carry their beds in that form too.',
+    ] },
+  { v: 1601, ts: '2026-10-10T00:05:59.930Z', date: 'Oct 9, 2026, 7:05 PM CT', title: 'The town\u2019s last six South houses get their lots, south of Monroe', kind: 'change',
+    items: [
+      'Walk south across Monroe Street between the river and State Street. Six more School Section blocks are now divided into lots: cropped, grazed ground like the empty lots in town, no longer open prairie.',
+      'Russell Heacock\u2019s house near Monroe now stands on its own fenced lot, with a privy and a kept yard, like its neighbours north of Monroe.',
+      'The South side still owes five houses and one boarding house. They will stand on one of these blocks, one house to a lot. Four households without a home are now given a lot there, and their cards say so. The houses come next.',
+      'The three riverside warehouses the South still owes are not sent this far from the river. They wait for the South Water Street front.',
+    ] },
+  { v: 1600, ts: '2026-10-09T23:46:46.583Z', date: 'Oct 9, 2026, 6:46 PM CT', title: 'Glessner gets solid ridge caps and finished roof edges', kind: 'fix',
+    items: [
+      'Raised clay ridge caps now have solid ends and stop cleanly at chimneys and the stable cupola. Tower and dormer finials have seated moulded bases.',
+      'Layered eave edges, capped dormer hips and metal flashing give the roof more depth in close views. Full and Light retain the repaired roof shapes.',
     ] },
   { v: 1599, ts: '2026-10-09T23:18:57.259Z', date: 'Oct 9, 2026, 6:18 PM CT', title: 'Prairie Avenue’s 20th-to-22nd blocks: every 1904 building accounted for', kind: 'feature',
     items: [

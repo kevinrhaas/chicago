@@ -661,11 +661,22 @@
  "block_infill_programme": {
   "counted_from": "data/reconstruction/1835_665_roof_programme.json schedule[]",
   "method": "A block's centre is the mean of the four corners its own four bounding street centrelines make. No block polygon is invented.",
-  "blocks_with_four_bounding_streets": 72,
+  "blocks_with_four_bounding_streets": 78,
   "inside_the_limit": 24,
-  "outside_the_limit": 48,
-  "scheduling_roofs_outside_the_limit": 0,
-  "scheduling_roofs_outside_the_limit_rows": [],
+  "outside_the_limit": 54,
+  "scheduling_roofs_outside_the_limit": 1,
+  "scheduling_roofs_outside_the_limit_rows": [
+   {
+    "id": "blk_school_section_tier_82",
+    "state": "open",
+    "roofs_scheduled": 6,
+    "centre_local_enu_m": [
+     139.86,
+     -726.52
+    ],
+    "inside_the_limit": false
+   }
+  ],
   "blocks_outside_the_limit": [
    {
     "id": "blk_lake_clinton",
@@ -1138,6 +1149,66 @@
     "inside_the_limit": false
    },
    {
+    "id": "blk_school_section_tier_82",
+    "state": "open",
+    "roofs_scheduled": 6,
+    "centre_local_enu_m": [
+     139.86,
+     -726.52
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_school_section_tier_93",
+    "state": "open",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     279.89,
+     -726.52
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_school_section_tier_96",
+    "state": "open",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     408.24,
+     -726.52
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_school_section_tier_117",
+    "state": "open",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     524.31,
+     -726.52
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_school_section_tier_120",
+    "state": "open",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     644.33,
+     -726.52
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_school_section_tier_141",
+    "state": "open",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     773.49,
+     -726.52
+    ],
+    "inside_the_limit": false
+   },
+   {
     "id": "blk_south_water_clinton",
     "state": "not_a_block",
     "roofs_scheduled": 0,
@@ -1261,7 +1332,7 @@
     "id": "south_plat_beyond_committed_control",
     "kind": "district_balance",
     "state": "gated",
-    "roofs": 7
+    "roofs": 1
    },
    {
     "id": "west_division_beyond_committed_control",

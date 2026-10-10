@@ -147,6 +147,10 @@ def _box(b, x0, y0, z0, x1, y1, z1, conf, mat, bottom=False) -> None:
 def _cone(b, cx, cy, r, z_base, z_apex, conf, mat, seg=16, a0=0.0, a1=2 * math.pi,
           soffit=None) -> None:
     """A cone (or a sector of one) from a ring at z_base to an apex over its centre."""
+    if getattr(b,'reduced_roof_details',False) and b.params.detail.get('roof_edges'):
+        # Same analytic cone, coarser angular sampling in Light only. The largest
+        # 2.5451m radius departs from its circle by at most 12.3mm at 32 facets.
+        seg=min(seg,32)
     full = abs((a1 - a0) - 2 * math.pi) < 1e-6
     n = seg if full else max(3, int(seg * abs(a1 - a0) / (2 * math.pi)) + 1)
     angs = [a0 + (a1 - a0) * i / n for i in range(n + (0 if full else 1))]
@@ -181,6 +185,9 @@ def _drum(b, cx, cy, r, z0, z1, conf, mat, seg=16, a0=0.0, a1=2 * math.pi) -> li
 
 
 def _finial(b, x, y, z, h, conf, mat) -> None:
+    if getattr(b,"params",None) and b.params.detail.get("roof_edges"):
+        from archetypes.masonry_house_v4_roof_edges import finial
+        return finial(b,x,y,z,h,mat)
     if h <= 0:
         return
     s = 0.06
@@ -326,6 +333,8 @@ def _range(b, r) -> None:
             fragments=clip_host(pts,b.params)
         for fragment in fragments:
             _two_sided_roof(b,fragment,r['conf_roof'],ROOF)
+    if getattr(b,"params",None) and b.params.detail.get("roof_edges"):
+        return  # Closed caps own this ridge; do not tile a hidden duplicate roll.
     # the crested ridge: a low ridge roll the length of the roof
     cr = 0.12
     _up(b, [P(ra - cr, a0, rz + 0.02), P(ra, a0, rz + cr * 1.4),

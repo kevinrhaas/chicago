@@ -1,3 +1,51 @@
+## T-2253 — the Monroe-Adams tier joins the grid and the roof schedule (2026-10-09)
+
+Piece 2 of 3 of T-2247, on the owner's ruling (b): cross Monroe. T-2252 cut the tier into lots;
+this joins it, exactly as T-2144 joined Madison to Monroe; T-2254 raises the six roofs.
+
+- **`generate_plat_lots.py` quotes both tier files** into the one `school_section_tier` grid, by
+  T-2144's own test (east of the forks, lots on dry ground): **82, 93, 96, 117, 120, 141**, 48 lots.
+  The grid is now 11 blocks and 88 lots; 94 platted blocks, 480 lots in all. West blocks 2-71 and
+  the wet block 79 are not joined.
+- **The schedule deals the six to block 82**: D2, D2, D4, D4, D5 and the H3, one roof to a lot
+  with a lot kept open. Block 117 holds Heacock's documented house and now carries its lot fence,
+  privy and kept ground.
+- **The warehouses stay owed.** The balance also held two F3 and an F4, the street line's freight
+  cell (T-2175). With 48 lots of room the deal reached them, handing an F3 to block 82. That is a
+  kilometre from the river it needs, and the waterside term refused it. Tier blocks now pass the
+  freight group on (`SCHOOL_SECTION_PASSES`). The South balance holds the 3 warehouses, `gated`.
+  Before, a balance with surplus headroom read `complete` and "holds nothing" even while it held
+  roofs; now a balance that takes any roof is gated, with its own sentence.
+- **Seating at a fixpoint** on the tree merged with T-1645 (chain, keeper pass, three infill
+  generators, chain again; the last lap moved nothing): **219 platted seats** (215 on dev), 99
+  off-plat. The four new seats are slot requests on block 82 — hh_meleney_patrick,
+  hh_merill_isaac, hh_merrill_george_w, hh_vieaux_susanne — the ones T-2254 raises. The block's
+  second D2 and its H3 are left unclaimed: no South row is admitted by a clause that takes them.
+  No seat already dealt moved (L270). The keeper ledger's ten refusals now read "no household
+  left" (10 → 0 with one left for them): the four slotted were the last ones.
+- Order book tripwire 314 → 318; corridor-strip baseline `blocks_after` 87 → 93 and `lots_after`
+  425 → 473, which is the tier's 6 blocks and 48 lots and nothing else.
+- **The street line's order moves to T-2268.** T-2175, which owned the band, was split on
+  2026-10-09 (T-2268, the two F3; T-2269, the F4 shed's clause), so the inventory band and the
+  order book's fallback row now name T-2268 rather than a ticket nobody can claim.
+
+## T-2205 — Glessner ridge stock and roof edges (2026-10-09)
+
+Closed overlapping ridge caps, raised collars, seated finials and dormer hip covers
+replace open or simplified stock. Mitred 60 mm eaves, clipped valley flanges and
+chimney aprons follow existing roof planes. Taylor 2135 and HABS north/stable views
+bound the profiles; exact sections remain declared reconstructions. All 222 real
+Full roof hosts match the baseline, with only duplicate hidden rolls and old
+finial tile hosts removed. Light is 199,744 triangles under its 200,000 ceiling;
+its coarser cone sampling has a maximum 12.3 mm radial chord departure.
+
+Sixteen after captures in the actual published app pass at Full desktop and Light
+mobile, with dark glass retained. Physical module and roof-connectivity checks
+pass, as do all 806 repository-preflight steps. [Evidence and scope limits](RESEARCH/glessner-roof-details-2205/README.md).
+The independent folded courtyard copper connector remains held under T-2220.
+
+
+
 ## T-2250 — a platted keeper's cardless house keeps its firm (2026-10-09)
 
 T-2196 moved Mark Beaubien's household onto the Market wedge's new H3
@@ -21,6 +69,7 @@ came back.
   Robillard, Laframboise and McCarthy go back to exactly the styles they carried before T-2196
   retired the firm (e.g. *Sweet's boarding house*). Seeds keyed on the roof rather than the ordinal
   would stop this churn; not done here.
+
 ## T-2204 — Glessner roof relief filtered at screen scale (2026-10-09)
 
 The fine physical tile noses formed broad moving interference bands in street and
@@ -600,8 +649,10 @@ ground, was widened in words to the Branch bank, with the reason; no number in i
 
 **What else moved.** The schedule's gated South balance fell from 9 roofs to 7. With F3 at its
 target, the schedule's family re-apportionment also changed that balance's mix from D2 2, D4 2,
-D5 1, H3 1 to D4 3, D5 2, H3 1 (plus the F4). T-2253 and T-2254 deal that balance, so their family
-lists move with it.
+D5 1, H3 1 to D4 3, D5 2, H3 1 (plus the F4). T-2253 had just dealt that balance to block 82 of
+the Monroe-Adams tier, so block 82's slots move with it: hh_miller_samuel and hh_montgomery_l_w are
+dealt D5 slots on lots 2 and 7, hh_merrill_george_w's slot turns D4, and hh_vieaux_susanne's D2
+slot goes. The platted deal seats 220, up from 219 (L270). T-2254 raises those roofs.
 
 ## T-2174 — a two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge (2026-10-08)
 

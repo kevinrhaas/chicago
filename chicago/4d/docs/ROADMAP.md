@@ -1,3 +1,13 @@
+## T-2205 — Glessner roof-edge refinement (2026-10-09)
+
+Owner-selected GA-06. Closed ridge stock and seated terminals refine the repeated
+silhouette without recutting the repaired Full roof planes. Real eave and flashing
+sections replace zero-thickness edges. Profiles are reconstructed within the
+Taylor/HABS evidence; later photographs only corroborate surviving form. Light
+retains the detail count with reduced angular sampling inside its existing budget.
+Method, exact geometry comparison and before/after views:
+`RESEARCH/glessner-roof-details-2205/README.md`. Other Glessner manual holds remain.
+
 ## T-2204 — Glessner roof distance filtering (2026-10-09)
 
 Owner-selected GA-05B. Shadows, normal-map strength, anisotropy alone and extra

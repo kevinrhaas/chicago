@@ -32,44 +32,45 @@
  ],
  "counts": {
   "rows_in_scope": 1424,
-  "seated": 215,
-  "owed": 1209,
+  "seated": 220,
+  "owed": 1204,
   "by_how": {
-   "adopted": 215
+   "adopted": 215,
+   "slot": 5
   },
   "by_clause": {
    "labourer_dwellings": 38,
    "lodging_near_the_landings": 2,
    "merchant_and_professional_dwellings": 36,
-   "tradesman_dwellings": 139
+   "tradesman_dwellings": 144
   },
   "by_district": {
    "north": 8,
-   "south": 165,
+   "south": 170,
    "west": 42
   },
   "by_family": {
    "D1": 21,
    "D2": 17,
    "D3": 44,
-   "D4": 43,
-   "D5": 35,
+   "D4": 46,
+   "D5": 37,
    "D6": 17,
    "D7": 15,
    "H1": 12,
    "H2": 9,
    "H3": 2
   },
-  "lots_taken": 196,
+  "lots_taken": 201,
   "roofs_adopted": 215,
-  "slots_requested": 0,
+  "slots_requested": 5,
   "owed_by_band_clause": {
    "division_ground": 27,
    "farms_and_country_seats": 210,
    "heavy_and_noxious_trades": 2,
    "labourer_dwellings": 90,
    "merchant_and_professional_dwellings": 379,
-   "tradesman_dwellings": 501
+   "tradesman_dwellings": 496
   },
   "owed_by_the_letter_list_ruling": 659,
   "roofs_offered_for_adoption": 226,
@@ -78,9 +79,9 @@
   "seats_the_business_deal_costs": 9
  },
  "what_the_plat_could_not_hold": {
-  "rows": 1209,
+  "rows": 1204,
   "handed_to": "T-1614",
-  "statement": "the committed plat seats 215 of the 1424 households the address book leaves at a band. 659 of the rest are letter-list households the owner's ruling of 2026-08-30 (T-0379) refuses a roof, owed here with that reason (T-1645). The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
+  "statement": "the committed plat seats 220 of the 1424 households the address book leaves at a band. 659 of the rest are letter-list households the owner's ruling of 2026-08-30 (T-0379) refuses a roof, owed here with that reason (T-1645). The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
  },
  "the_business_deal_goes_first": {
   "ruling": "The street-face business deal (tools/adopt_street_faces.py, L212) deals before this one, and this pass takes what it leaves. Both deals spend one pool of anonymous roofs, so one of them has to go first, and the narrower placement does: a business the paper places on a street can stand on that one face and nowhere else, while a banded household may take any roof of an admitted family in its whole division. Which business goes on which roof of its face is that deal's allocation, as which roof a household takes is this one's. It is an allocation precedence between two of this project's own passes, with no source read on either side and no claim about 1835 either way, so a run settles it and writes down why (T-1669, on the reasoning T-1626 set out for refusal 7).",
@@ -109,46 +110,6 @@
     "lot_id": "blk_randolph_dearborn#01"
    },
    {
-    "id": "hh_meleney_patrick",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "how": "adopted",
-    "would_take": "recon_1835_blk_randolph_wells_d4_04",
-    "lot_id": "blk_randolph_wells#06"
-   },
-   {
-    "id": "hh_merill_isaac",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "how": "adopted",
-    "would_take": "recon_1835_blk_south_water_lasalle_d4_02",
-    "lot_id": "blk_south_water_lasalle#04"
-   },
-   {
-    "id": "hh_merrill_george_w",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "how": "adopted",
-    "would_take": "recon_1835_blk_south_water_lasalle_d5_01",
-    "lot_id": "blk_south_water_lasalle#04"
-   },
-   {
-    "id": "hh_miller_samuel",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "how": "adopted",
-    "would_take": "recon_1835_blk_lake_market_d4_02",
-    "lot_id": "blk_lake_market#04"
-   },
-   {
-    "id": "hh_montgomery_l_w",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "how": "adopted",
-    "would_take": "recon_1835_blk_south_water_franklin_d4_02",
-    "lot_id": "blk_south_water_franklin#06"
-   },
-   {
     "id": "hh_morrison_amanda",
     "clause": "tradesman_dwellings",
     "district": "south",
@@ -165,6 +126,46 @@
     "lot_id": "blk_randolph_clark#07"
    },
    {
+    "id": "hh_mulford_e_h",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "how": "slot",
+    "would_take": null,
+    "lot_id": "blk_school_section_tier_82#05"
+   },
+   {
+    "id": "hh_mulford_james_h",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "how": "slot",
+    "would_take": null,
+    "lot_id": "blk_school_section_tier_82#04"
+   },
+   {
+    "id": "hh_murphy_mary",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "how": "slot",
+    "would_take": null,
+    "lot_id": "blk_school_section_tier_82#03"
+   },
+   {
+    "id": "hh_murray_catherine",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "how": "slot",
+    "would_take": null,
+    "lot_id": "blk_school_section_tier_82#02"
+   },
+   {
+    "id": "hh_nicole_l",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "how": "slot",
+    "would_take": null,
+    "lot_id": "blk_school_section_tier_82#07"
+   },
+   {
     "id": "hh_vieaux_susanne",
     "clause": "labourer_dwellings",
     "district": "south",
@@ -173,8 +174,8 @@
     "lot_id": "blk_lake_franklin#04"
    }
   ],
-  "households_that_would_change_roof": 10,
-  "reading": "the business deal holds 45 roofs on the plat, 31 of them raised as houses of trade. Released, this deal would adopt 11 of them — 9 by a household seated nowhere today and 2 by households already seated, moving to a better-scored lot — and seat 9 more household(s) in all, counting any the moves leave a roof or a slot for; 10 seated household(s) would change roof or lot. So the precedence costs the households 9 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
+  "households_that_would_change_roof": 15,
+  "reading": "the business deal holds 45 roofs on the plat, 31 of them raised as houses of trade. Released, this deal would adopt 11 of them — 4 by a household seated nowhere today and 7 by households already seated, moving to a better-scored lot — and seat 9 more household(s) in all, counting any the moves leave a roof or a slot for; 15 seated household(s) would change roof or lot. So the precedence costs the households 9 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
  },
  "roofs_held_back": [
   {
@@ -719,7 +720,15 @@
    "occupants": "No household of its own — a heavy timber work shed on the Randolph road, where frames were cut for the West Division's new houses"
   }
  ],
- "plan_left_unclaimed": [],
+ "plan_left_unclaimed": [
+  {
+   "block_id": "blk_school_section_tier_82",
+   "family": "H3",
+   "roofs": 1,
+   "district": "south",
+   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
+  }
+ ],
  "seats": [
   {
    "id": "hh_beaubien_mark",
@@ -4968,6 +4977,146 @@
    "order_book_draw": null,
    "seed": "hh_meeker_joseph|south|carpenter|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_meleney_patrick",
+   "kind": "household",
+   "name": "The Meleney household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "band": "south/tradesman_dwellings",
+   "lot_id": "blk_school_section_tier_82#05",
+   "block_id": "blk_school_section_tier_82",
+   "lot_index": 5,
+   "fronts": "adams",
+   "street_class": "none",
+   "corner": false,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_school_section_tier_82",
+    "family": "D4",
+    "district": "south"
+   },
+   "seed": "hh_meleney_patrick|T-1522|division:4659a6af91a8|class:c7bbe8ba8aa9",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+  },
+  {
+   "id": "hh_merill_isaac",
+   "kind": "household",
+   "name": "The Merill household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "band": "south/tradesman_dwellings",
+   "lot_id": "blk_school_section_tier_82#04",
+   "block_id": "blk_school_section_tier_82",
+   "lot_index": 4,
+   "fronts": "monroe",
+   "street_class": "none",
+   "corner": false,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_school_section_tier_82",
+    "family": "D4",
+    "district": "south"
+   },
+   "seed": "hh_merill_isaac|T-1522|division:aa0a69199bf8|class:9ec7fac4174e",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+  },
+  {
+   "id": "hh_merrill_george_w",
+   "kind": "household",
+   "name": "The Merrill household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "band": "south/tradesman_dwellings",
+   "lot_id": "blk_school_section_tier_82#03",
+   "block_id": "blk_school_section_tier_82",
+   "lot_index": 3,
+   "fronts": "adams",
+   "street_class": "none",
+   "corner": false,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_school_section_tier_82",
+    "family": "D4",
+    "district": "south"
+   },
+   "seed": "hh_merrill_george_w|T-1522|division:a58142641eb9|class:ab96446f432c",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+  },
+  {
+   "id": "hh_miller_samuel",
+   "kind": "household",
+   "name": "The Miller household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "band": "south/tradesman_dwellings",
+   "lot_id": "blk_school_section_tier_82#02",
+   "block_id": "blk_school_section_tier_82",
+   "lot_index": 2,
+   "fronts": "monroe",
+   "street_class": "none",
+   "corner": false,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D5",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_school_section_tier_82",
+    "family": "D5",
+    "district": "south"
+   },
+   "seed": "hh_miller_samuel|T-1522|division:c8aa44c8c374|class:e1587a7a2f26",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+  },
+  {
+   "id": "hh_montgomery_l_w",
+   "kind": "household",
+   "name": "The Montgomery household — a documented shoemaker, unplaced in the town",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "band": "south/tradesman_dwellings",
+   "lot_id": "blk_school_section_tier_82#07",
+   "block_id": "blk_school_section_tier_82",
+   "lot_index": 7,
+   "fronts": "adams",
+   "street_class": "none",
+   "corner": true,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D5",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_school_section_tier_82",
+    "family": "D5",
+    "district": "south"
+   },
+   "seed": "hh_montgomery_l_w|T-1522|division:68cf29ab5e2b|class:f5bedd9b3526",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_barney_anne_maria",
@@ -12002,15 +12151,6 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_meleney_patrick",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_meriams_mary",
    "kind": "household",
    "band": "south/tradesman_dwellings",
@@ -12018,33 +12158,6 @@
    "district": "south",
    "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. The deal reads the ruling before it deals (T-1645), so no roof is offered to this row and the roof it would have taken goes on to the next row of its clause order",
    "refused_by": "T-0379",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_merill_isaac",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_merrill_george_w",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_miller_samuel",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
    "handed_to": "T-1614"
   },
   {
@@ -12094,15 +12207,6 @@
    "district": "south",
    "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. The deal reads the ruling before it deals (T-1645), so no roof is offered to this row and the roof it would have taken goes on to the next row of its clause order",
    "refused_by": "T-0379",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_montgomery_l_w",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
    "handed_to": "T-1614"
   },
   {
