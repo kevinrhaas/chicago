@@ -506,7 +506,10 @@ STRUCTURE_TICKETS = {
     # T-2247 SPLIT on 2026-10-09 on the owner's ruling (b): T-2252 cuts the School Section's
     # Monroe-to-Adams tier into lots, T-2253 joins it to the grid and deals it the six gated
     # roofs, and T-2254 raises them, so the row names T-2254, the piece that builds them.
-    ("south", "ordinary_dwellings"): "T-2254",
+    # T-2254 (2026-10-10) raised the four the seating asked for on block 82; the one left
+    # (the second D2, re-dealt as a D1) has no banded South row a clause admits, so the
+    # row names T-2270, which owns it with the block's H3.
+    ("south", "ordinary_dwellings"): "T-2270",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -577,8 +580,10 @@ STRUCTURE_TICKETS = {
     # T-2196 built one of the two on the wedge's lot 7 as a two-unit row (owner ruling a,
     # 2026-10-09); the other waits in the gated balance for S9, which is T-2247's.
     # T-2247 was split (2026-10-09) and the H3 is one of the six T-2254 raises on the
-    # Monroe-to-Adams tier, so the cell moves to T-2254.
-    ("south", "larger_boarding_houses"): "T-2254",
+    # Monroe-to-Adams tier, so the cell moves to T-2254. T-2254 left it unbuilt (no clause
+    # admits a South row to it, and its beds would move the frozen lodging model), so the
+    # cell moves to T-2270 with the block's last D1.
+    ("south", "larger_boarding_houses"): "T-2270",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
@@ -678,8 +683,10 @@ STRUCTURE_TICKETS = {
     # decision (a) (2026-10-09) and the pair follows the dwellings on to T-2247, which owns
     # the gated balance until the S9 street work lands.
     # With T-2247's split (2026-10-09) the pair follows the dwellings on to T-2254.
-    ("south", "barns_stables"): "T-2254",
-    ("south", "small_outbuildings"): "T-2254",
+    # T-2254 raised block 82's houses and closes, and the dwellings it left went to T-2270
+    # (2026-10-10), so the pair follows them on to T-2270.
+    ("south", "barns_stables"): "T-2270",
+    ("south", "small_outbuildings"): "T-2270",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
@@ -5838,8 +5845,11 @@ def cmd_self_test() -> int:
     # 319 -> 315 on 2026-10-10 (T-2255, on top of T-1550): the off-plat deal owes the
     # letter-list cohort the ruling of 2026-08-30 refuses (T-0379), so 99 -> 95 off-plat on
     # the same 220 platted (L271).
+    # 315 -> 316 on 2026-10-10 (T-2254, on top of T-2268): four of block 82's requests are
+    # raised and adopted, and the block keeps two slots (a D1 and an H1, T-2270's), so the
+    # platted deal seats one household more (220 -> 221 platted, 95 off-plat, L270).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 315
+        data["inventory"], data["programme"], occ))["seated"] == 316
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

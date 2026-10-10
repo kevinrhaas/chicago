@@ -40,8 +40,8 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 198,
-   "free": 230,
+   "at_capacity": 202,
+   "free": 226,
    "room": 52
   },
   "by_multi_building_rule": {
@@ -49,10 +49,10 @@
    "party_line_run": 68
   },
   "corner_lots": 205,
-  "lots_with_a_roof": 257,
-  "lots_barring_another_roof": 256,
+  "lots_with_a_roof": 261,
+  "lots_barring_another_roof": 260,
   "shared_business_fronts": 1,
-  "principal_roofs_standing": 320,
+  "principal_roofs_standing": 324,
   "lots_over_their_own_rule": 21
  },
  "the_density_standard": {
@@ -8035,14 +8035,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_school_section_tier_82_d2_01"
+   ],
+   "standing_families": {
+    "recon_1835_blk_school_section_tier_82_d2_01": "D2"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_school_section_tier_82#03",
@@ -8064,14 +8068,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_school_section_tier_82_d5_02"
+   ],
+   "standing_families": {
+    "recon_1835_blk_school_section_tier_82_d5_02": "D5"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_school_section_tier_82#04",
@@ -8093,14 +8101,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_school_section_tier_82_d4_03"
+   ],
+   "standing_families": {
+    "recon_1835_blk_school_section_tier_82_d4_03": "D4"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_school_section_tier_82#05",
@@ -8122,14 +8134,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_school_section_tier_82_d4_04"
+   ],
+   "standing_families": {
+    "recon_1835_blk_school_section_tier_82_d4_04": "D4"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_school_section_tier_82#06",
