@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1657, ts: '2026-10-10T18:44:58.632Z', date: 'Oct 10, 2026, 1:44 PM CT', title: 'A weathering kit: Prairie Avenue houses can show their age', kind: 'feature',
+    items: [
+      'Houses can now show their own age in 1904: soot under the eaves, damp at the foot of the wall, streaks below sills and spouts, and smoke stains on the roof downwind of a chimney.',
+      'The yards age too: a bare edge where the lawn meets the wall, and worn lines down walks and drives.',
+      'A house built in 1902 looks clean. One from the 1860s looks used but kept, never ruined, and keeps its own stone or brick colour.',
+      'Each house weathers in its own way, the same on every visit. No house uses the kit yet.',
+    ] },
   { v: 1656, ts: '2026-10-10T17:49:33.899Z', date: 'Oct 10, 2026, 12:49 PM CT', title: 'An ironwork kit for Prairie Avenue: fences, gates, walls and a canopy', kind: 'feature',
     items: [
       'Seven pieces of 1904 street ironwork and boundary: a spear fence and a scroll fence on stone curbs, a walk gate between capped piers with urns, a brick boundary wall with a stone coping, a basement window grille, a stoop rail and an iron-and-glass canopy.',

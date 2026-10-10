@@ -1,0 +1,140 @@
+{
+  "id": "prairie_1904_k14_condition",
+  "title": "Age, surface variation and ground contact for the Prairie Avenue 1904 programme (package K14, the kit)",
+  "ticket": "T-2324",
+  "parent": "T-1856",
+  "programme": "T-1837",
+  "contract": "data/components/prairie_1904/k01_contract.json",
+  "generator": "generators/archetypes/k14_condition.py",
+  "study": "docs/RESEARCH/k14-condition-kit/",
+  "status": "Declared and evaluated, not yet built to. No structure in the scene takes its condition from this kit today; T-2325 applies it to a named Prairie Avenue house and its yard. The K03 1808 service wall (T-2291) keeps its own damp and soot constants until then, and they are this kit's full-age values (the check holds the two equal).",
+  "rule": "Condition is a LAYER over a clean fabric, never baked into a fabric map, and it is the condition of each building ON 1904-07-01: the darkening a maintained house of its own age had gathered, not the state of a neglected one. Every layer is a function of position on a surface (metres above grade, metres below the soffit, metres from a source, metres from a wall foot or a path's centre line), of the building's years standing at the target date, of the fabric it lies on and of the property's own seed, and returns a multiplier in [floor, 1] (wall layers, for the renderer's _TONE vertex channel or a baked mask) or a weight in [0, 1] (ground layers, the share of bare earth or worn surface). Layers multiply; the product is held at the floor. Nothing here removes, moves or adds fabric: no layer may express any condition in `never`. Every number is reconstructed, from the study's sparse-evidence rules and the two masks already shipped, and is recorded as L-k14-condition-kit-2324.",
+  "target_date": "1904-07-01",
+  "floor": {
+    "min_tone": 0.62,
+    "confidence": "reconstructed",
+    "note": "The darkest any point of a 1904 wall may read, as a multiplier on its clean fabric: the eave soot and the ground damp of a 40-year-old wall, both at full strength on the most absorbent stone, would cross it. Below it a wall stops reading as its material (a pale limestone front turns charcoal), which is the 'modern ruin' T-1856 rules out."
+  },
+  "age": {
+    "full_years": 40,
+    "curve": "linear",
+    "confidence": "reconstructed",
+    "note": "a = clamp(years / full_years, 0, 1), years counted from the building's completion to target_date. Prairie Avenue's oldest standing houses in 1904 date from the late 1860s and early 1870s, so 40 years is the oldest wall the district has; a layer reaches its full-age value there and grows no further. A house of 1900 to 1904 (new Georgian Revival work) is a = 0 to 0.1 and reads clean.",
+    "comparison": {
+      "new": {"built": 1902, "label": "new Georgian work, 2 years"},
+      "middle": {"built": 1884, "label": "20 years"},
+      "old": {"built": 1866, "label": "38 years"}
+    }
+  },
+  "seed": {
+    "rule": "seed = first 8 hex digits of sha256('k14|' + structure_id), as an integer. Every stochastic choice (a band edge's wobble, a trail's length, a lawn edge's line, a repaint year) draws from it, so a property's condition is the same on every build and independent of its neighbours'.",
+    "confidence": "reconstructed",
+    "note": "Keyed to the stable structure id the per-building tickets keep, so a refinement keeps its weathering."
+  },
+  "layers": {
+    "ground_damp": {
+      "applies_to": "wall",
+      "_doc": "Rising damp and rain splash at a wall foot: a band darkest at grade, fading to the clean body at its top. Its top wobbles along the wall by the property's seed.",
+      "top_m": {"new": 0.15, "full": 0.60},
+      "tone": {"full": 0.74},
+      "wobble_m": 0.06,
+      "wobble_wavelength_m": 0.9,
+      "confidence": "reconstructed",
+      "note": "full-age top and tone are the K03 1808 service wall's (T-2291, L-k03-1808-service-brick-2291): a splash zone up to the height rain throws off a hard yard."
+    },
+    "eave_soot": {
+      "applies_to": "wall",
+      "_doc": "The sheltered band under an eave that rain does not wash: darkest at the soffit, clean at its lower edge.",
+      "depth_m": {"new": 0.40, "full": 1.60},
+      "tone": {"full": 0.80},
+      "confidence": "reconstructed",
+      "note": "full-age depth and tone are the K03 1808 service wall's (T-2291): soot settles where the wall is never rinsed, which is under the eave."
+    },
+    "water_trails": {
+      "applies_to": "wall",
+      "_doc": "A streak below each source, as wide as its source at the top and narrowing by `taper` at its foot, darkest under the source and clean at its length, broken across its width into rivulets (strength 1 - streaks to 1, about one per streak_wavelength_m). Its length draws from the seed within +/- jitter.",
+      "sources": {
+        "sill": {"length_m": {"full": 0.90}, "tone": {"full": 0.90}, "taper": 0.6},
+        "outlet": {"length_m": {"full": 1.60}, "tone": {"full": 0.84}, "taper": 0.5}
+      },
+      "edge_soft_m": 0.04,
+      "jitter": 0.2,
+      "streaks": 0.6,
+      "streak_wavelength_m": 0.06,
+      "confidence": "reconstructed",
+      "note": "A sill throws its run-off over its ends and front; an overflow spout or a hopper head that spills leaves a longer, darker streak. Lengths are set so a sill's trail never reaches the head of the window below on a 3.5 m storey."
+    },
+    "chimney_soot": {
+      "applies_to": "roof",
+      "_doc": "A plume on the covering leeward of a stack: within half_angle_deg of the lee bearing, darkest at the stack and clean at length_m. The stack's own sooted band is K15's (k15_chimneys.json soot).",
+      "lee_bearing_deg": 70,
+      "half_angle_deg": 30,
+      "length_m": {"full": 3.0},
+      "tone": {"full": 0.78},
+      "confidence": "reconstructed",
+      "note": "Chicago's prevailing winds are westerly to south-westerly, so smoke lays down to the east-north-east; bearing 70 degrees, clockwise from north. A slate or tin roof is relaid and painted less often than a wall is cleaned, so the plume keeps its full strength."
+    },
+    "mortar": {
+      "applies_to": "joint",
+      "_doc": "Mortar joints built as geometry darken and recess further with age. A fabric-map joint (an LOD panel) takes only the tone.",
+      "by_mortar": {
+        "mortar_lime": {"recess_extra_mm": {"full": 1.5}, "tone": {"full": 0.88}},
+        "mortar_dark": {"recess_extra_mm": {"full": 0.3}, "tone": {"full": 0.95}}
+      },
+      "confidence": "reconstructed",
+      "note": "A soft lime joint erodes and collects dirt; a dense tinted joint of a pressed front barely moves. Ids are the K03 library's mortars (assets/textures/prairie_1904_brick/profiles.json)."
+    },
+    "paint": {
+      "applies_to": "painted_timber",
+      "_doc": "Painted joinery and cladding weather only since their last repaint: paint age = (years + seed mod cycle) mod cycle, never more than years. The tone is dulling dirt; the paint never fails to bare wood.",
+      "cycle_years": 6,
+      "tone": {"full": 0.92},
+      "confidence": "reconstructed",
+      "note": "A kept house of 1904 repainted its exterior woodwork every five to seven years, so a 38-year-old frame house's paint is never older than its cycle. The seed spreads the repaint years so a street of frame houses does not weather in step."
+    },
+    "grass_edge": {
+      "applies_to": "ground",
+      "_doc": "A bare strip at a wall foot where a lawn meets the wall (drip line, splash and shade): weight 1 at the wall, 0 past width, with the line wobbling by the seed.",
+      "width_m": {"new": 0.05, "full": 0.25},
+      "wobble_m": 0.05,
+      "wobble_wavelength_m": 0.6,
+      "confidence": "reconstructed",
+      "note": "Kept lawns, cut to an edge by a gardener; the strip is narrow and never widens into a dirt yard. A newly sodded front has almost none."
+    },
+    "path_wear": {
+      "applies_to": "ground",
+      "_doc": "Wear across a walk or drive by its use: a walk wears along its centre, a drive in two wheel tracks. Weight 1 on the worn line, 0 at core_half_m + falloff_m from it; scaled by the age factor and the use's strength.",
+      "uses": {
+        "front_walk": {"lines_m": [0.0], "core_half_m": 0.25, "falloff_m": 0.25, "strength": 0.5},
+        "service_walk": {"lines_m": [0.0], "core_half_m": 0.20, "falloff_m": 0.30, "strength": 0.9},
+        "drive": {"lines_m": [-0.75, 0.75], "core_half_m": 0.12, "falloff_m": 0.20, "strength": 1.0}
+      },
+      "confidence": "reconstructed",
+      "note": "A front walk of stone flags is swept and shows a polish, a cinder or gravel service walk a beaten line, a carriage drive two tracks at about a carriage's 1.5 m gauge."
+    }
+  },
+  "fabric_response": {
+    "_doc": "How strongly each fabric shows a wall layer: the layer's darkening (1 - tone) is multiplied by this before the floor is applied. Ids are the K02 stone and K03 brick libraries'.",
+    "pressed_red": 0.7,
+    "common_buff": 1.0,
+    "rough_red_brown": 1.0,
+    "dark_fired": 0.4,
+    "limestone_bedford": 1.25,
+    "limestone_lemont": 1.1,
+    "dressed_trim": 1.2,
+    "sandstone_brown": 0.8,
+    "granite_rock_faced": 0.6,
+    "foundation_rubble": 0.9,
+    "painted_timber": 0.6,
+    "confidence": "reconstructed",
+    "note": "Pale porous stone shows soot most and a dense dark pressed brick or granite least; the multipliers are relative and keep every fabric's own colour, since the layer is a grey multiplier and never a tint."
+  },
+  "never": [
+    "missing, spalled or cracked fabric",
+    "broken, boarded or missing glass",
+    "vegetation growing on a wall or roof",
+    "paint failed to bare wood",
+    "a black or uniformly grimed facade",
+    "a condition darker than the floor"
+  ]
+}
