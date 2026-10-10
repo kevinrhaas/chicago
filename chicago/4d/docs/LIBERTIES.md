@@ -23597,6 +23597,31 @@ A reading of the sheet to the foot for this lot replaces the front yard's buildi
 **Review:** `docs/RESEARCH/k07-1808-entrance-2304/README.md`.
 **Recorded:** 2026-10-10 (T-2304).
 
+### L-k08-1808-bays-2308 — 1808 Prairie's south front bow and rear canted bay, both reconstructed from the K08 kit
+
+**Decision:** the 1904 house at 1808 Prairie Avenue (`keith_house_1808_prairie`, the K01 exemplar)
+carries two K08 bays (T-2308), named in `form.bays` and built by `generators/archetypes/k08_bays.py`
+inside the K01 assembly: a two-storey segmental bow on the street front's south bay (3.2 m on its
+chord, 0.9 m out, centred 2.5 m from the south corner, 0.5 m off the south window axis so its eaves
+clear the T-2293 downpipe) in the front's stone, under a copper cone;
+and a two-storey canted bay on the rear's north window bay (1.5 m front, 1.1 m out, centred 3.0 m
+from the north corner) in K03 common brick with stone dressings, under a tin hip. **What is
+invented.** That the front bay is the kit's bow: the T-1837 frontage register (frontage-28-037)
+reads "the south curved bay" from the Inland Architect plate of February 1888, and that plate is not
+a source record here, so the bay's existence is the register's reading and its plan, size, height and
+windows are the kit's. Its two storeys (grade to 5.4 m, then to 9.0 m), its three bent two-over-two
+sashes a storey at the front's own sash heights, the 0.25 roof pitches, the copper and the tin; the
+rear canted bay as a whole, which no source shows, chosen as the commonest Prairie Avenue bay; that
+the host wall behind each bay is blank (the windows the K01 proof cut there are not cut); and that
+each bay's band sits on the front's second-floor belt. **What is not.** Nothing in either bay is
+attested. Both bays take the record's `reconstructed` tier on every vertex.
+**How to resolve:** T-1882/T-1883 build the 1888 plate's front, curved bay included, and replace the
+bow; a photograph or plan of 1808's rear replaces or removes the canted bay.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.bays`.
+**Ticket:** T-2308 (piece 2 of T-1850, K08).
+**Review:** `docs/RESEARCH/k08-1808-bays-2308/README.md`.
+**Recorded:** 2026-10-10 (T-2308).
+
 ### L-k11-ironwork-kit-2318 — The Prairie ironwork kit: every fence, gate, pier, boundary wall, grille, stoop rail and canopy reconstructed
 
 **Decision:** the 1904 Prairie programme's ironwork and boundaries (package K11, T-2318) are seven
