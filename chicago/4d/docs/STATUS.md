@@ -25,6 +25,26 @@ this joins it, exactly as T-2144 joined Madison to Monroe; T-2254 raises the six
   left" (10 → 0 with one left for them): the four slotted were the last ones.
 - Order book tripwire 314 → 318; corridor-strip baseline `blocks_after` 87 → 93 and `lots_after`
   425 → 473, which is the tier's 6 blocks and 48 lots and nothing else.
+- **The street line's order moves to T-2268.** T-2175, which owned the band, was split on
+  2026-10-09 (T-2268, the two F3; T-2269, the F4 shed's clause), so the inventory band and the
+  order book's fallback row now name T-2268 rather than a ticket nobody can claim.
+
+## T-2205 — Glessner ridge stock and roof edges (2026-10-09)
+
+Closed overlapping ridge caps, raised collars, seated finials and dormer hip covers
+replace open or simplified stock. Mitred 60 mm eaves, clipped valley flanges and
+chimney aprons follow existing roof planes. Taylor 2135 and HABS north/stable views
+bound the profiles; exact sections remain declared reconstructions. All 222 real
+Full roof hosts match the baseline, with only duplicate hidden rolls and old
+finial tile hosts removed. Light is 199,744 triangles under its 200,000 ceiling;
+its coarser cone sampling has a maximum 12.3 mm radial chord departure.
+
+Sixteen after captures in the actual published app pass at Full desktop and Light
+mobile, with dark glass retained. Physical module and roof-connectivity checks
+pass, as do all 806 repository-preflight steps. [Evidence and scope limits](RESEARCH/glessner-roof-details-2205/README.md).
+The independent folded courtyard copper connector remains held under T-2220.
+
+
 
 ## T-2250 — a platted keeper's cardless house keeps its firm (2026-10-09)
 

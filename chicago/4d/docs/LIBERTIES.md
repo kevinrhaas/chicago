@@ -22742,3 +22742,30 @@ and surface condition directly.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Review:** `docs/RESEARCH/glessner-roof-tiles-2203/README.md`.
 **Recorded:** 2026-10-09.
+
+### L-glessner-roof-edges-2205 — Reconstructed roof stock and flashing
+
+**Decision:** Give Glessner's existing roof caps, finials and eaves closed stock,
+and dress shared valleys/chimney abutments without moving the roof planes.
+**Basis:** `taylor_2135_glessner_exterior_1887_1889` and
+`habs_glessner_house_il_1015_drawings` bound the early silhouette and existing
+approximately 1.16-ft cap cadence. `habs_glessner_photo_14_north_inclined_1965`
+and `habs_glessner_photo_15_north_stable_1965` corroborate repeated rounded
+collars and eave form, not a measured 1904 section. The later views do not
+establish every hidden end or the model's exact 233-collar count.
+
+The 80-mm collar rise, 50-mm width, 18-mm cap overlap, moulded finial seats,
+60-mm fascia, 24-mm lower step, 160-mm valley strip, 2.5-mm metal stock and
+90-by-120-mm chimney apron/upstand are reconstructions. Inherited radii,
+finial heights and Full roof slopes remain. No historic pixels are used.
+The cap underside follows the lower roll toward a truncated circular foot,
+66 mm below the ridge at the chosen radius and seat. This bedding is reconstructed.
+Light replaces circular arcs with fewer intervals (32 for the largest cones,
+maximum 12.3-mm chord departure); this is a display approximation, not an
+architectural change. Exact mouldings and concealed flashing remain unverified.
+
+**How to resolve:** Dated roof stock specifications, original cap/finial
+measurements or calibrated close photographs can replace these sections.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Review:** `docs/RESEARCH/glessner-roof-details-2205/README.md`.
+**Recorded:** 2026-10-09.
