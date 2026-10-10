@@ -78,6 +78,12 @@ class InputsError(ValueError):
     """The inputs to a mesh cannot be resolved, so no hash can be taken."""
 
 
+#: Archetypes whose GLB is written by a pure-Python command rather than by emit.py in
+#: Blender, and that command (T-2266). Their input document hashes the archetype module
+#: and the command alone, and carries no Blender pin.
+PURE_PYTHON = {"k01_frontage": "k01_emit.py"}
+
+
 def _sha_file(p: Path) -> str:
     return hashlib.sha256(p.read_bytes()).hexdigest()
 
@@ -108,6 +114,11 @@ def _code_shas(archetype: str, params=None) -> dict[str, str]:
     gen = ROOT / "generators"
     wanted = [gen / "emit.py", gen / "archetypes" / f"{archetype}.py"]
     wanted += code_inputs.geometry_modules()
+    # T-2266: an archetype that writes its glTF in pure Python never runs emit.py, the
+    # shared Blender builders or the pinned Blender, so none of them is an input to its
+    # mesh — hashing them would stale it for edits that cannot move its vertices.
+    if archetype in PURE_PYTHON:
+        wanted = [gen / "archetypes" / f"{archetype}.py", gen / PURE_PYTHON[archetype]]
     # T-1730: the high-detail Glessner build delegates to v4-only modules.
     # Hash every module in that family, including the material/texture recipe;
     # the legacy path never imports them. New helpers in the family therefore
@@ -185,6 +196,8 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
         "code": _code_shas(arch, params),
         "blender_pin": (ROOT / "generators" / "blender.pin").read_text().strip(),
     }
+    if arch in PURE_PYTHON:
+        del doc["blender_pin"]
     if arch == "masonry_house" and getattr(params, "detail_profile", "") == "glessner_v4":
         # The map bytes are inputs too: replacing a normal map must demand a
         # bake just as changing a stone's depth does. Only v4 reads this folder.

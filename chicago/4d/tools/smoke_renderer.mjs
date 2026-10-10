@@ -16186,11 +16186,14 @@ for (const [label, viewport, touch] of [
         // T-1732 moved one clause of this check, and only one: `structures` is the layer
         // the Glessner House is drawn in, so it is no longer asserted empty. What it held
         // — that nothing of the 1835 town is placed here — is now held by name: the
-        // scene places exactly one structure, and it is glessner_house.
+        // scene places exactly one structure, and it is glessner_house. T-2266 added the
+        // second 1904 record, the K01 frontage at 1808 Prairie, so the set is held by name
+        // still: these two and nothing else.
         const stray = Object.entries(at.drawn).filter(([name, n]) => n > 0 && name !== 'structures');
-        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732)`,
-          stray.length === 0 && at.registry === 1 && at.placed.length === 1
-          && at.placed[0] === 'glessner_house',
+        const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie'];
+        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266)`,
+          stray.length === 0 && at.registry === PLACED_1904.length
+          && JSON.stringify([...at.placed].sort()) === JSON.stringify(PLACED_1904),
           `meshes: ${JSON.stringify(at.drawn)}; structures placed ${JSON.stringify(at.placed)}`);
         const houseHits = at.house?.hits ?? [];
         // Owner-reported date ambiguity: 1946 closes an exterior phase, not
