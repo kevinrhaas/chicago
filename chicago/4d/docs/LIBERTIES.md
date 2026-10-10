@@ -23427,3 +23427,38 @@ matching arched hole.
 **Ticket:** T-2298 (piece 2 of T-1848, K06).
 **Review:** `docs/RESEARCH/k06-1808-windows-2298/README.md`.
 **Recorded:** 2026-10-10 (T-2298).
+
+### L-k10-cornice-kit-2316 — The Prairie cornice kit: every cornice, parapet, gable coping, dormer face and cresting reconstructed
+
+**Decision:** the 1904 Prairie programme's wall heads (package K10, T-2316) are seven parametric
+variants built by `generators/archetypes/k10_cornices.py` from `data/components/prairie_1904/k10_cornices.json`:
+an Italianate timber eave cornice (frieze, single scrolled brackets, soffit, crown), a pressed-metal
+cornice (paired brackets, raised frieze panels, a thinner crown), a classical stone entablature
+(architrave, frieze, dentilled cornice), a pedimented dormer standing on a 45 degree roof over a
+bracketed eave returned on both gable ends, a stone balustraded parapet (crowning cornice, plinth,
+turned balusters, pedestals, rail, urns), a shaped (Dutch) gable with a coping swept along its whole
+outline between two kneelers and a finial, and cast-iron roof cresting (posts, bars, C-scrolls,
+spears and spike finials) on a rolled ridge cap. Every run is one section mitred round its corners
+and ending on a wall or a capped return; every piece rests on what carries it; none is a texture.
+**What is invented.** Every dimension and every shape: the frieze's 0.55 m height and 25 mm
+projection; the brackets' S outline, 0.48 m height, 0.34 m projection, 0.60 m spacing and their
+pairing; every crown, architrave, cornice, coping, rail and ridge-cap section; the dentils' size and
+pitch; the frieze panels; the balusters' and urns' turned profiles, the plinth, pedestal sizes and
+the 0.24 m baluster pitch; the gable's shoulder, neck and segmental cap and its kneelers and finial;
+the dormer's set-back, face, 35 degree pediment and its two rake bands; the cresting's bars, posts,
+scroll radius and turn, spear and finial. The scrolls and the gable outline are newly designed for
+this kit and copy no named house. The variants follow the study's asset catalog (K10: "bracketed
+timber/metal cornices, dentils, friezes, classical entablatures, carved stone parapets,
+balustrades, urns, pediments, shaped gable copings and roof cresting"), which is the study's
+reading of its images and not a source record here.
+**What is not.** Nothing in the kit is attested, and no house carries it yet (T-2317 builds the
+first K10 wall head on a named house). The data's restriction keeps every generic profile off a
+house whose own cornice, parapet or gable is documented: there it is authored from the evidence.
+
+**How to resolve:** a house's own photograph, drawing or surviving fabric shows its cornice,
+parapet, gable or cresting, and that house takes it in place of the kit's working sections; a
+period builder's, sheet-metal or iron-foundry catalogue replaces a part's sections for every house
+at once.
+**Ticket:** T-2316 (piece 1 of T-1852, K10).
+**Review:** `docs/RESEARCH/k10-cornice-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2316).
