@@ -1,10 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1606, ts: '2026-10-10T02:14:42.754Z', date: 'Oct 9, 2026, 9:14 PM CT', title: 'Four houses stand south of Monroe on Market Street', kind: 'feature',
+  { v: 1608, ts: '2026-10-10T02:44:58.071Z', date: 'Oct 9, 2026, 9:44 PM CT', title: 'Four houses stand south of Monroe on Market Street', kind: 'feature',
     items: [
       'Walk south across Monroe Street on Market. The first School Section block below Monroe now has four houses: a small cottage and a tradesman\u2019s frame house facing Monroe, and a larger frame house and another tradesman\u2019s house facing Adams.',
       'Open the three frame houses and their cards name the Merrill, Merill and Meleney households, who were waiting for a lot here. The cottage\u2019s card names nobody: no source carries its household\u2019s name, and the card says so.',
       'All four are reconstructions. The state sold these lots in 1833, but no record shows what stood on them in 1835.',
       'The block\u2019s corner lots stay open. The town still owes this block one cottage and one boarding house, and no household is waiting for either yet.',
+    ] },
+  { v: 1607, ts: '2026-10-10T02:18:30.123Z', date: 'Oct 9, 2026, 9:18 PM CT', title: 'Prairie Avenue’s building parts get one set of measurements', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. The walls, windows, roofs and front steps of the 1904 houses still to come will now be built from one rule book. Everything is in metres, measured up from the ground.',
+      'The Glessner House was checked against that rule book. It is the right size in all three of its download sizes, and its walls stand where its floor plan says.',
+      'A few small faults turned up: hidden doubled faces in the stone trim on the Prairie Avenue front and where two roof pieces meet. They are filed to be fixed when the house is next rebuilt.',
+    ] },
+  { v: 1606, ts: '2026-10-10T01:40:14.964Z', date: 'Oct 9, 2026, 8:40 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
+    items: [
+      'Charles Beaubien, father of Susan at her baptism at St Mary\u2019s on 24 December 1834, stood in the town as a second man, with a house of his own. He is Charles H. Beaubien, the voter and violinist, now on one card. The history of Chicago names Charles H. as J. B. Beaubien\u2019s son, teaching the fort\u2019s children in 1829, and his death notice puts his birth in 1806 or 1807. No record the town holds names a second Charles Beaubien.',
+      'His second house is gone. Other households move into it and the houses they leave. Patrick Meleney now has a standing house on the South side instead of a lot south of Monroe, and Samuel Miller and the reconstructed household of Ruth Woodruff are given lots there.',
     ] },
   { v: 1605, ts: '2026-10-10T01:25:22.744Z', date: 'Oct 9, 2026, 8:25 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
     items: [

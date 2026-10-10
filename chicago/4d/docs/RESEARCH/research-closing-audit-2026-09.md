@@ -33,14 +33,14 @@ Reproduce: `python3 tools/measure_research_spend.py --ledger-build` then `python
 
 | Measure | Count |
 | --- | ---: |
-| Persons | 2,886 |
+| Persons | 2,885 |
 | Households | 1,459 |
-| Persons graded `attested` | 412 |
-| Persons graded `inferred` | 1,028 |
+| Persons graded `attested` | 413 |
+| Persons graded `inferred` | 1,026 |
 | Persons graded `reconstructed` | 1,446 |
 | Letter-list-only names | 773 |
-| Projected residents | 759 |
-| Merged away | 72 |
+| Projected residents | 758 |
+| Merged away | 73 |
 
 Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.json'))['counts'])"`.
 
@@ -57,16 +57,16 @@ Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.j
 | Presence on 1 July 1835 | Households |
 | --- | ---: |
 | absent | 21 |
-| present | 505 |
-| uncertain | 933 |
+| present | 506 |
+| uncertain | 932 |
 
 | Division | Households |
 | --- | ---: |
 | fort | 13 |
 | north | 22 |
 | outside_town | 1 |
-| south | 72 |
-| unplaced | 1,337 |
+| south | 73 |
+| unplaced | 1,336 |
 | west | 14 |
 
 ## 4. Layer: businesses

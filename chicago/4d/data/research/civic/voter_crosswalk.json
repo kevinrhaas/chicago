@@ -5,7 +5,7 @@
   "source_id": "chicago_voter_lists_1833_1835_irad",
   "publication_source_id": "chicago_genealogist_1993_voter_lists",
   "crosswalk_target": "data/residents/households/*.json",
-  "residents_compared": 1440,
+  "residents_compared": 1439,
   "counts": {
     "entries": 345,
     "matched": 292,
@@ -76,7 +76,7 @@
       "discriminator": "forenames agree initial for initial: entry 'J. B. Beaubien' against resident 'Col. Jean Baptiste Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 17 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1833_004",
@@ -89,7 +89,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Mark Beaubien' against resident 'Mark Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 17 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1833_005",
@@ -102,7 +102,7 @@
       "discriminator": null,
       "candidate": null,
       "rivals": [],
-      "rule": "no resident of the surname 'Beaubien' agrees with the entry's forenames (18 bearer(s) of the surname considered), and no bridge row carries the entry."
+      "rule": "no resident of the surname 'Beaubien' agrees with the entry's forenames (17 bearer(s) of the surname considered), and no bridge row carries the entry."
     },
     {
       "record_id": "poll_1833_006",
@@ -457,7 +457,7 @@
       "discriminator": "forenames agree initial for initial: entry 'John S. Beaubien' against resident 'John S Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 17 bearer(s) of the surname were considered."
     },
     {
       "record_id": "tax_1833_003",
@@ -470,7 +470,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Mark Beaubien' against resident 'Mark Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 17 bearer(s) of the surname were considered."
     },
     {
       "record_id": "tax_1833_004",
@@ -2056,7 +2056,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Charles H. Beaubien' against resident 'Charles H Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 17 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_010",
@@ -2069,7 +2069,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Madore Beaubien' against resident 'Madore Benjamin Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 17 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_011",
@@ -2082,7 +2082,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Mark Beaubien' against resident 'Mark Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 17 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_012",
@@ -3518,7 +3518,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Col. J. B. Beaubien' against resident 'Col. Jean Baptiste Beaubien'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 18 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Beaubien' agrees with the entry's forenames; 17 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1835_006",
