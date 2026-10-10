@@ -123,6 +123,8 @@ def _code_shas(archetype: str, params=None) -> dict[str, str]:
     if archetype in PURE_PYTHON:
         wanted = [gen / "archetypes" / f"{archetype}.py", gen / PURE_PYTHON[archetype]]
         wanted += [gen / "archetypes" / h for h in PURE_PYTHON_HELPERS.get(archetype, ())]
+        if archetype == "k01_frontage":
+            wanted += [gen / "archetypes" / "k06_windows.py"]
     # T-1730: the high-detail Glessner build delegates to v4-only modules.
     # Hash every module in that family, including the material/texture recipe;
     # the legacy path never imports them. New helpers in the family therefore
@@ -206,6 +208,9 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
         # T-2291: the K03 maps a K01 wall embeds are inputs, like Glessner v4's below
         from archetypes import k03_brick
         doc["textures"] = {p.relative_to(ROOT).as_posix(): _sha_file(p) for p in k03_brick.TEXTURE_FILES}
+        # T-2298: the window kit's sizes are data the builder reads, like a texture
+        kit = ROOT / "data" / "components" / "prairie_1904" / "k06_windows.json"
+        doc["window_kit"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}
     if arch == "masonry_house" and getattr(params, "detail_profile", "") == "glessner_v4":
         # The map bytes are inputs too: replacing a normal map must demand a
         # bake just as changing a stone's depth does. Only v4 reads this folder.
