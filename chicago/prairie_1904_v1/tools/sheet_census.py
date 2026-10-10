@@ -23,7 +23,7 @@ DECISIONS = {'present_as_mapped', 'backcast_1886', 'alias', 'phase_unresolved'}
 TIERS = {'attested', 'inferred', 'reconstructed', 'unresolved'}
 LABELLED_1911 = re.compile(r'\b(GARAGE|AUTO|MFG)\b')
 # The hundreds of Prairie Avenue each sheet covers.
-SHEET_RANGE = {'20': (1600, 1799), '28': (1800, 1999)}
+SHEET_RANGE = {'20': (1600, 1799), '28': (1800, 1999), '35': (2000, 2199)}
 
 
 def load():
@@ -114,6 +114,20 @@ def check_sheet(sheet, c, lib, grid, images):
             if p.get('tier') not in TIERS: say(f'{p["id"]}: tier {p.get("tier")} is not one of {sorted(TIERS)}')
         for img in a.get('image_ids', []):
             if img not in image_ids: say(f'allocation {a["id"]}: image {img} is not in data/images.json')
+    # Rulings (T-1841, T-1842): each cites library sources and indexed images, and a ruling that
+    # corrects a reading holds the library's frontage record to the corrected text, so a misread
+    # put right here cannot come back in the library alone.
+    for r in c.get('rulings', []):
+        if r.get('tier') not in TIERS: say(f'ruling {r["id"]}: tier {r.get("tier")} is not one of {sorted(TIERS)}')
+        for sid in r.get('source_ids', []):
+            if sid not in sources: say(f'ruling {r["id"]}: source {sid} is not in the library')
+        for img in r.get('images', []):
+            if img not in image_ids: say(f'ruling {r["id"]}: image {img} is not in data/images.json')
+        fix = r.get('corrects')
+        if fix:
+            rec, field = inventory.get(fix['frontage_id']), fix.get('field', 'address')
+            if rec is None: say(f'ruling {r["id"]} corrects {fix["frontage_id"]}, which is not a sheet {sheet} frontage record')
+            elif str(rec.get(field)) != fix['now']: say(f'ruling {r["id"]}: the library {field} of {fix["frontage_id"]} still reads {rec.get(field)!r}, not the corrected reading')
     # Polygons: unique ids, known kinds, and a 1911 label never stands for 1904 unremarked.
     pids = [p['id'] for f in c['frontages'] for p in f['polygons']] + [p['id'] for a in c.get('allocations', []) for p in a['polygons']]
     for d in sorted({i for i in pids if pids.count(i) > 1}): say(f'polygon id {d} is used twice')
@@ -197,6 +211,17 @@ def self_test(lib, grid, images, sheets):
         hit = any('used twice' in e for e in check_sheet('28', c, lib, grid, images))
         print(f'{"refused" if hit else "NOT REFUSED"}: an allocated polygon reusing a frontage polygon id')
         if not hit: failed.append('an allocated polygon reusing a frontage polygon id')
+    # Sheet 35 carries a ruling that corrects a library reading (T-1842).
+    if '35' in sheets:
+        c = copy.deepcopy(sheets['35']); c['rulings'][0]['source_ids'].append('no-such-source')
+        hit = any('is not in the library' in e for e in check_sheet('35', c, lib, grid, images))
+        print(f'{"refused" if hit else "NOT REFUSED"}: a ruling citing an unknown source')
+        if not hit: failed.append('a ruling citing an unknown source')
+        fix = next(r['corrects'] for r in sheets['35']['rulings'] if r.get('corrects'))
+        l = copy.deepcopy(lib); next(r for r in l['map_inventory']['records'] if r['id'] == fix['frontage_id'])[fix['field']] = fix['was']
+        hit = any('not the corrected reading' in e for e in check_sheet('35', sheets['35'], l, grid, images))
+        print(f'{"refused" if hit else "NOT REFUSED"}: a corrected reading reverted in the library')
+        if not hit: failed.append('a corrected reading reverted in the library')
     if failed: sys.exit(f'{len(failed)} refusal(s) did not fire: {", ".join(failed)}')
     print(f'sheet census self-test: all {len(cases)} refusals fire')
 

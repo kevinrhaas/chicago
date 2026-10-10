@@ -51,7 +51,7 @@ def _geometry_modules(root):
     return d,params,materials
 
 
-def _construct(root):
+def _construct(root, *, roof_details_reduced=True):
     d,param_module,materials=_geometry_modules(root)
     from common.versions import glessner_detail_record
     record=json.loads(glessner_detail_record(root).read_text())
@@ -64,6 +64,7 @@ def _construct(root):
         def __init__(self,name,params):
             super().__init__(name,params)
             self.smooth_rock_faces=False
+            self.reduced_roof_details=roof_details_reduced
             self.components=Counter()
 
         def block(self,polygon,point,normal,confidence,mat,rng,holes=None):
@@ -154,6 +155,9 @@ def _construct(root):
                          'service_stairs':int(bool(params.detail.get('north_court_service_stair'))),
                          'underpass':int(bool(params.detail.get('underpass'))),
                          'supplemental_dormer':int(bool(params.detail.get('west_dormer')))})
+    if params.detail.get("roof_edges"):
+        from archetypes.masonry_house_v4_roof_edges import add_edges
+        add_edges(b,params)
     return b,params,materials
 
 
@@ -188,6 +192,9 @@ def _columns(b,params,d):
 
 
 def _ridges(b,params,d):
+    if params.detail.get("roof_edges"):
+        from archetypes.masonry_house_v4_roof_edges import add_ridges
+        return add_ridges(b,params)
     # Same per-tile raised crest envelopes. Four angular intervals include the
     # exact crown and both shoulders while removing invisible sub-centimetre arcs.
     from archetypes.masonry_house_v4_west_roof import ridge_ranges

@@ -4,6 +4,37 @@ export const CHANGELOG = [ // newest first
       'Nothing you can see changes. The tools that give households their houses, deal the empty roofs, audit the town and count its census now read where a household lived and worked from the dated places on its card, the same entries its card shows you.',
       'Every seat, count and census figure comes out exactly as before, even with the old single home and workplace lines removed from the records, which is what lets those lines be retired next.',
     ] },
+  { v: 1602, ts: '2026-10-10T00:25:08.610Z', date: 'Oct 9, 2026, 7:25 PM CT', title: 'A building card\u2019s residents are read from their dated places', kind: 'fix',
+    items: [
+      'Open a building and look at who lived or worked there: each household\u2019s reason for being on that card is now the note on its dated place, the same entry its own card lists with its years. Fifty-five buildings show the fuller wording.',
+      'The People directory\u2019s homes and workplaces come from the same dated places, and none of them changed. Lodgers in the hotels and boarding houses, and the lighthouse keeper\u2019s household, now carry their beds in that form too.',
+    ] },
+  { v: 1601, ts: '2026-10-10T00:05:59.930Z', date: 'Oct 9, 2026, 7:05 PM CT', title: 'The town\u2019s last six South houses get their lots, south of Monroe', kind: 'change',
+    items: [
+      'Walk south across Monroe Street between the river and State Street. Six more School Section blocks are now divided into lots: cropped, grazed ground like the empty lots in town, no longer open prairie.',
+      'Russell Heacock\u2019s house near Monroe now stands on its own fenced lot, with a privy and a kept yard, like its neighbours north of Monroe.',
+      'The South side still owes five houses and one boarding house. They will stand on one of these blocks, one house to a lot. Four households without a home are now given a lot there, and their cards say so. The houses come next.',
+      'The three riverside warehouses the South still owes are not sent this far from the river. They wait for the South Water Street front.',
+    ] },
+  { v: 1600, ts: '2026-10-09T23:46:46.583Z', date: 'Oct 9, 2026, 6:46 PM CT', title: 'Glessner gets solid ridge caps and finished roof edges', kind: 'fix',
+    items: [
+      'Raised clay ridge caps now have solid ends and stop cleanly at chimneys and the stable cupola. Tower and dormer finials have seated moulded bases.',
+      'Layered eave edges, capped dormer hips and metal flashing give the roof more depth in close views. Full and Light retain the repaired roof shapes.',
+    ] },
+  { v: 1599, ts: '2026-10-09T23:18:57.259Z', date: 'Oct 9, 2026, 6:18 PM CT', title: 'Prairie Avenue’s 20th-to-22nd blocks: every 1904 building accounted for', kind: 'feature',
+    items: [
+      'In the Prairie Avenue 1904 library, open any house between 20th and 22nd Streets. A panel gives its 1904 decision and lists its front building, wings, rear stable and grounds, each graded attested, inferred or reconstructed.',
+      'The Robbins house at 2126 is shown as a building site on 1 July 1904. The old Hamill house was razed that year, and the new house was finished by spring 1905.',
+      'The site plan puts eight Prairie houses, among them the Sherman, Armour and Smith houses, on their own lots only. They had also been drawn on Indiana or Calumet lots that share their numbers.',
+      'Two misreadings are fixed. The building behind 2120 is lettered “vacant 1st, dressmaking 2nd”. The Wheeler-Kohn house stands at 2018 Calumet, not 2018 Prairie.',
+      'Mark Kimball’s house at 2108 and the Rees house at 2110 share one coach house. Nothing in the 3-D town changes yet.',
+    ] },
+  { v: 1598, ts: '2026-10-09T22:51:29.981Z', date: 'Oct 9, 2026, 5:51 PM CT', title: 'Mark Beaubien\u2019s boarding house on Lake Street gets its signboard', kind: 'fix',
+    items: [
+      'The new boarding house on the Market wedge stood with no business behind it, so its front had no board. It now reads MARK BEAUBIEN\u2019S, Boarding House, the house he keeps.',
+      'Beaubien\u2019s stray \u201ctavern keeper\u201d business with no address is gone: the boarding house is where he works.',
+      'Six other boarding houses\u2019 boards go back to the names they had before the wedge\u2019s house was raised, such as SWEET\u2019S on Clark Street.',
+    ] },
   { v: 1597, ts: '2026-10-09T22:32:18.330Z', date: 'Oct 9, 2026, 5:32 PM CT', title: 'A household\u2019s home and workplace are named once, with their dates', kind: 'fix',
     items: [
       'Open John Davis\u2019s household in People. The Steamboat Hotel used to appear three times on his card: once in \u201cLived at\u201d, once in \u201cWorked at\u201d, and again in \u201cWhere this household was, and when\u201d. Now it appears only in that last section, which gives each place its dates and its evidence.',

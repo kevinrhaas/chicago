@@ -636,6 +636,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             }
         raw = val("v4_detail", {})
         p.detail["roof_tiles"] = raw.get("roof_tiles")
+        p.detail["roof_edges"] = raw.get("roof_edges")
         p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254, 6)
                                           for h in raw.get("ashlar_courses_in", [])]
         p.detail["ashlar_relief_m"] = [float(v) * FT for v in

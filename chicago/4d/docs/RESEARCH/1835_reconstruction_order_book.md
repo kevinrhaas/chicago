@@ -9,7 +9,7 @@
 |---|---:|---:|---:|
 | Persons | 2,550 | 1,419 | 1,798 |
 | Households | 645 | 165 | 445 |
-| Businesses (enumerated classes) | 109 | 129 | 7 |
+| Businesses (enumerated classes) | 109 | 128 | 7 |
 | Roofs | 668 | 678 | 9 |
 
 **2,865 people stand in the layer today** and **13** are still owed after the counters, so the town this book converges to is **2,878** — inside the model's 2,371-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
@@ -400,19 +400,25 @@ The roster offers 1,786 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,424
-- seated: 314 — 314 by adopting a roof that already stands, 0 by asking for one
-- still on no ground at all: 1,110
+- seated: 318 — 314 by adopting a roof that already stands, 4 by asking for one
+- still on no ground at all: 1,106
 - of the 678 roofs the town already has, 314 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,424 | 215 | 215 | 0 | 1,209 |
-| The ground the plat does not draw | T-1614 | 1,209 | 99 | 99 | 0 | 1,110 |
+| The committed plat | T-1613 | 1,424 | 219 | 215 | 4 | 1,205 |
+| The ground the plat does not draw | T-1614 | 1,205 | 99 | 99 | 0 | 1,106 |
 
-no slot was requested: every seat is an adoption of a roof already standing.
+4 slot(s) on 1 block(s) — blk_school_section_tier_82. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
+| household | block | lot | family | clause |
+|---|---|---|---|---|
+| `hh_meleney_patrick` | `blk_school_section_tier_82` | `blk_school_section_tier_82#05` | D4 | `tradesman_dwellings` |
+| `hh_merill_isaac` | `blk_school_section_tier_82` | `blk_school_section_tier_82#04` | D4 | `tradesman_dwellings` |
+| `hh_merrill_george_w` | `blk_school_section_tier_82` | `blk_school_section_tier_82#03` | D5 | `tradesman_dwellings` |
+| `hh_vieaux_susanne` | `blk_school_section_tier_82` | `blk_school_section_tier_82#02` | D2 | `labourer_dwellings` |
 
-1,110 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,106 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
@@ -591,7 +597,7 @@ The households the model wants, by kind and division.
 The December 1835 State census set against the register the town already holds.
 
 - `register_total`: 193
-- `at_scene_date`: 206
+- `at_scene_date`: 205
 - `census_enumerated_total`: 118
 - `register_businesses_read`: 193
 - `division_note`: EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY, and that is a reading rather than a hole: the register carries a street where the paper printed one and no division at all, and assigning premises to a division is T-1182's audit and T-1198's seating. The key carries the axis so those tickets fill it rather than re-cut the book.
@@ -615,7 +621,7 @@ The December 1835 State census set against the register the town already holds.
 | `businesses/steam_saw_mill` | 1 | 2 | 0 | 0 | T-1187 |
 | `businesses/storage_and_forwarding` | 4 | 7 | 0 | 0 | T-1187 |
 | `businesses/store` | 44 | 65 | 0 | 0 | T-1184 |
-| `businesses/tavern` | 8 | 10 | 0 | 0 | T-1187 |
+| `businesses/tavern` | 8 | 9 | 0 | 0 | T-1187 |
 | `businesses/tin_and_copper_manufactory` | 2 | 4 | 0 | 0 | T-1185 |
 
 ## Structures
@@ -656,7 +662,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/stores_mixed_use/west` | 6 | 6 | 0 | 0 | T-2150 |
 | `structures/stores_mixed_use/north` | 4 | 4 | 0 | 0 | T-1205 |
 | `structures/stores_mixed_use/fort` | 1 | 1 | 0 | 0 | T-1204 |
-| `structures/warehouses_freight/south/street_line` | 10 | 7 | 3 | 0 | T-2175 |
+| `structures/warehouses_freight/south/street_line` | 10 | 7 | 3 | 0 | T-2268 |
 | `structures/warehouses_freight/south/river_bank` | 1 | 1 | 0 | 0 | T-1640 |
 | `structures/warehouses_freight/west` | 2 | 2 | 0 | 0 | T-2150 |
 | `structures/warehouses_freight/north` | 7 | 7 | 0 | 0 | T-2022 |
@@ -669,9 +675,9 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 The streets, terrain and lots a structure bucket waits on.
 
-- `roofs_on_committed_ground`: 0
-- `roofs_gated_on_coverage`: 9
-- `statement`: 0 of the 9 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 9 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
+- `roofs_on_committed_ground`: 6
+- `roofs_gated_on_coverage`: 3
+- `statement`: 6 of the 9 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 3 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -697,7 +703,7 @@ The streets, terrain and lots a structure bucket waits on.
 | `ground/blk_wabansia_c_t6` | 0 | — | — | 0 |  |
 | `ground/blk_wabansia_b_t7` | 0 | — | — | 0 |  |
 | `ground/blk_wabansia_c_t7` | 0 | — | — | 0 |  |
-| `ground/south_plat_beyond_committed_control` | 9 | — | — | 0 |  |
+| `ground/south_plat_beyond_committed_control` | 3 | — | — | 0 |  |
 
 ## Where the model and the roof programme disagree
 
@@ -707,7 +713,7 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 |---|---:|---:|---:|---|
 | **households_against_dwellings** — The household model wants 645 households and the programme schedules 335 ordinary dwellings (335-377 in the model's own reading). More than one household to a roof is the resolution the census's own 8.204 people per dwelling implies; T-1196 re-cuts the schedule to say how many. | 645 | 335 | +310 | `ordinary_dwellings` |
 | **boarding_houses** — NOT A CHECK: the model's 42 larger boarding houses ARE district_group_matrix.larger_boarding_houses — model_town_1835.build_lodging reads the figure straight off the roof programme — so this row cannot disagree, and its zero says nothing about whether 42 is the right number of boarding roofs. An independent count is owed to T-1196 with the re-cut. | 42 | 42 | +0 | `larger_boarding_houses` |
-| **inns_and_taverns** — NOT A CHECK: the model reads 10-10 inns and taverns and the programme schedules 10. The model's ceiling is the highest of the programme, the census and the business layer's count at the scene date, and while the layer's count stands at or below the programme's the ceiling IS the programme's figure, so this row cannot disagree until the layer passes it again (T-1808). | 10 | 10 | +0 | `inns_taverns` |
+| **inns_and_taverns** — NOT A CHECK: the model reads 9-10 inns and taverns and the programme schedules 10. The model's ceiling is the highest of the programme, the census and the business layer's count at the scene date, and while the layer's count stands at or below the programme's the ceiling IS the programme's figure, so this row cannot disagree until the layer passes it again (T-1808). | 10 | 10 | +0 | `inns_taverns` |
 | **institutional_and_public** — NOT A CHECK: the model reads 9-19 institutional and public roofs — 9 outside the fort and 10 principal roofs inside it — and the programme schedules those same two groups, institutional_public (9) and fort_principal (10), for 19. Both ends of the model are read off that matrix, so the row cannot disagree. Until T-1439 it reported a delta of ten by taking the fort's roofs on the model's side and not on the programme's, which is the schedule charged for ten roofs it already had. | 19 | 19 | +0 | `institutional_public`, `fort_principal` |
 | **people_per_roof** — 2,550 people under 668 roofs is the ratio the completed town must meet; the census's own reading for November 1835 is 8.204 people per dwelling over 398 dwellings. | 2,550 | 668 | +0 | — |
 

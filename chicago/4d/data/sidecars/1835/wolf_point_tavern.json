@@ -202,7 +202,7 @@
       "name": "The Walters household at Wolf Point",
       "division": "west",
       "relation": "lived and worked here",
-      "why": "A landlord lived in his house; the tenancy itself is the reconstructed part.",
+      "why": "A landlord lived in his house; the tenancy itself is the reconstructed part. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_walters_william#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "drloih_hotels"
       ],
