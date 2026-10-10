@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1666, ts: '2026-10-10T23:05:10.989Z', date: 'Oct 10, 2026, 6:05 PM CT', title: 'Behind the scenes: the walkthrough can now hold a moving figure', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The walkthrough still shows no people, and it will not until the owner says so.',
+      'The town now has a place for a figure to stand. It stays on the ground, walks a route, idles, gestures and blinks, and it is tied to a person the town already knows.',
+      'Close up it is drawn in full detail. Far away it uses less: no face, no shadow and no movement, and past 140 metres it is skipped entirely.',
+      'Tapping a figure, or walking up to it, will open that person\'s own card in People. Nothing new is said for them.',
+      'A year draws only the figures filed for it. None are filed today, so no year loads a single one.',
+    ] },
   { v: 1665, ts: '2026-10-10T22:13:35.469Z', date: 'Oct 10, 2026, 5:13 PM CT', title: '1638 Prairie gets its Gothic timber front', kind: 'feature',
     items: [
       'The Shortall-Gregory house stands at 1638 Prairie, placed from the 1911 Sanborn plan.',
