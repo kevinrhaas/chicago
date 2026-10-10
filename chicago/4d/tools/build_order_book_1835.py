@@ -5526,8 +5526,12 @@ def cmd_self_test() -> int:
     # H3 are dealt to block 82, so four households the deal had handed on are dealt a slot
     # there; its second D2 and the H3 find no admitted row (215 -> 219 platted, 99 off-plat,
     # L270) — requests T-2254 raises.
+    # 318 -> 319 on 2026-10-09 (T-2268, over T-2253): two F3s on the South Branch bank bring
+    # F3 to its target and the schedule re-deals block 82's balance as D4 3, D5 2, H3 1; two
+    # tradesman households are dealt D5 slots there and the labourer's D2 slot goes
+    # (219 -> 220 platted, 99 off-plat, L270, L412).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 318
+        data["inventory"], data["programme"], occ))["seated"] == 319
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
