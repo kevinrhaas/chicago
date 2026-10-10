@@ -52,6 +52,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from summarize_residents import load_layer, persons, pct, table  # noqa: E402
+from associations import home_of, home_row, workplace_of  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / "data" / "residents" / "index.json"
@@ -778,7 +779,10 @@ def sec_lodging(L) -> dict:
     classes = Counter()
     rows = []
     for h in records:
-        sid = value(h.get("lives_at"))
+        # T-2277: the home is the record's own home row on the scene date, and its
+        # tier is that row's — the claim's confidence, copied onto it unchanged.
+        row = home_row(h)
+        sid = row["place_or_structure_id"] if row else None
         if not sid:
             classes["no lives_at at all"] += 1
             continue
@@ -787,7 +791,8 @@ def sec_lodging(L) -> dict:
                 else "the fort" if h["division"] == "fort"
                 else "a dwelling or a place of business")
         classes[kind] += 1
-        rows.append([h["name"], sid, function_words(fn), kind, tier_of(h["lives_at"])])
+        rows.append([h["name"], sid, function_words(fn), kind,
+                     tier_of({"value": sid, "confidence": row.get("tier")})])
     rows.sort(key=lambda r: (r[3], r[0]))
     cls_rows = [[k, v, pct(v, n)] for k, v in sorted(classes.items(), key=lambda kv: -kv[1])]
     return {
@@ -822,10 +827,12 @@ def sec_buildings(L) -> dict:
     grid = defaultdict(Counter)
     for h in records:
         d = h["division"]
-        # The card's own `lives_at` only — the table's question. The lead's housed count
-        # also reads the roofs that seat a household under `residents[]` (T-2155).
-        grid[d]["lives_at named" if value(h.get("lives_at")) else "no lives_at"] += 1
-        if value(h.get("works_at")):
+        # The card's own home row only — the table's question (its columns keep the
+        # `lives_at` name it was published under; T-2277 moved the read onto the rows).
+        # The lead's housed count also reads the roofs that seat a household under
+        # `residents[]` (T-2155).
+        grid[d]["lives_at named" if home_of(h) else "no lives_at"] += 1
+        if workplace_of(h):
             grid[d]["roofed workplace"] += 1
     cols = ["lives_at named", "roofed workplace", "no lives_at"]
     rows = [[d, sum(1 for h in records if h["division"] == d)] + [grid[d][c] for c in cols]
@@ -1275,7 +1282,7 @@ def build() -> dict:
             "households_naming_a_reason": sum(
                 1 for h in layer.records if value(h.get("reason_for_coming"))),
             "households_naming_a_lives_at": sum(
-                1 for h in layer.records if value(h.get("lives_at"))),
+                1 for h in layer.records if home_of(h)),
             # T-1393. The nine axes asked of every person at once: how many axes leave
             # nobody unanswered, and how many people are answered on all nine. Both are
             # in `counts` rather than only in the section so that `--check` moves on them.
