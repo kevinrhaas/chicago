@@ -271,6 +271,9 @@ names = [n for n in produced.read_text().split() if n]
 masters = {}
 if only and record.exists():
     masters = json.loads(record.read_text()).get("masters", {})
+    # T-2314: a whole-town bake now derives through --only, so the merge also does
+    # what the whole rewrite did for a deleted asset and lets its entry go.
+    masters = {n: h for n, h in masters.items() if (pathlib.Path("assets/gltf") / n).exists()}
 for name in names:
     src = pathlib.Path("assets/gltf") / name
     masters[name] = hashlib.sha256(src.read_bytes()).hexdigest()

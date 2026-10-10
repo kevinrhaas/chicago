@@ -23219,6 +23219,42 @@ specification or millwork catalogue replaces a part's dimensions for every house
 **Review:** `docs/RESEARCH/k06-window-kit/README.md`.
 **Recorded:** 2026-10-10 (T-2297).
 
+### L-k13-conservatory-kit-2305 — The Prairie conservatory kit: every glasshouse, its frame, glass, plinth, rainwater and planting, all reconstructed
+
+**Decision:** the 1904 Prairie programme's conservatories and greenhouses (package K13, T-2305)
+are five parametric houses built by `generators/archetypes/k13_conservatories.py` from
+`data/components/prairie_1904/k13_conservatories.json`: a single-pitch lean-to, a free-standing
+span-roofed house with a louvred ridge ventilator, a span house with a raised lantern, a
+curvilinear lean-to on curved ribs, and a canted conservatory bay against a house wall. Each is a
+three-tier frame (posts, rafters, ribs, corner posts, hips and jambs; the sill, eave, ridge, verge
+and wall plates; glazing bars running one way) carrying one convex envelope of single-sided glass,
+on a brick plinth under a stone coping, with a half-glazed door, K04's half-round gutters,
+downpipes, shoes and splash stones, and a staging bench of low pot-plant masses inside.
+**What is invented.** Every dimension: the members' faces and how far each stands proud of and
+runs behind the glass, the 1 in glazing bar, the 8-16 in panes, the bay spacing, the eave heights,
+pitches, the lantern's size and the curvilinear roof's quarter-ellipse; the two-foot brick plinth
+and its coping; the door's width, height, panel and lock rail; the ridge ventilator's louvres; the
+staging's height and depth and every plant mass's seeded size; the white-painted frame, the
+glass's tint and transparency, the opaque glass substitute on the lantern, the brick, stone,
+tile floor and foliage colours. The rainwater sizes, fall, bracket spacing and shoe are K04's
+(L-k04-roof-library-2292), themselves reconstructed. Three choices are made for the renderer rather than
+from any source: the glass is drawn single-sided as one convex envelope so no line of sight
+crosses two transparent panes; a lantern is glazed with an opaque substitute because it stands
+outside that envelope; and the ridge is ventilated by louvres rather than by top-hung lights in
+the glazing. Glazing laps, horticultural glass's green tint, heating pipes, blinds and shading
+are not modelled. The choice of forms reads the study's building register ("dated
+conservatory/palm-house complex", "conservatory bay", "greenhouse complex behind adjacent lots"),
+which is the study's reading of its images and not a source record here.
+**What is not.** Nothing in the kit is attested; no house in the scene has a conservatory from
+it yet (T-2306 builds the first, a Pullman service-garden bay).
+**How to resolve:** a house's own photograph, drawing or insurance-map outline shows its
+conservatory's form, bays, roof and glazing, and that house takes them in place of the kit's
+working sizes; a period horticultural builder's catalogue (iron or timber glasshouse sections)
+replaces a member's dimensions for every house at once.
+**Ticket:** T-2305 (piece 1 of T-1855, K13).
+**Review:** `docs/RESEARCH/k13-conservatory-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2305).
+
 ### L-k03-1808-service-brick-2291 — 1808 Prairie's return and rear in K03 common brick: bond, heads, string course and grime, all reconstructed
 
 **Decision:** the south side, rear and north party walls of the 1808 Prairie K01 frontage
@@ -23424,3 +23460,38 @@ matching arched hole.
 **Ticket:** T-2298 (piece 2 of T-1848, K06).
 **Review:** `docs/RESEARCH/k06-1808-windows-2298/README.md`.
 **Recorded:** 2026-10-10 (T-2298).
+
+### L-k10-cornice-kit-2316 — The Prairie cornice kit: every cornice, parapet, gable coping, dormer face and cresting reconstructed
+
+**Decision:** the 1904 Prairie programme's wall heads (package K10, T-2316) are seven parametric
+variants built by `generators/archetypes/k10_cornices.py` from `data/components/prairie_1904/k10_cornices.json`:
+an Italianate timber eave cornice (frieze, single scrolled brackets, soffit, crown), a pressed-metal
+cornice (paired brackets, raised frieze panels, a thinner crown), a classical stone entablature
+(architrave, frieze, dentilled cornice), a pedimented dormer standing on a 45 degree roof over a
+bracketed eave returned on both gable ends, a stone balustraded parapet (crowning cornice, plinth,
+turned balusters, pedestals, rail, urns), a shaped (Dutch) gable with a coping swept along its whole
+outline between two kneelers and a finial, and cast-iron roof cresting (posts, bars, C-scrolls,
+spears and spike finials) on a rolled ridge cap. Every run is one section mitred round its corners
+and ending on a wall or a capped return; every piece rests on what carries it; none is a texture.
+**What is invented.** Every dimension and every shape: the frieze's 0.55 m height and 25 mm
+projection; the brackets' S outline, 0.48 m height, 0.34 m projection, 0.60 m spacing and their
+pairing; every crown, architrave, cornice, coping, rail and ridge-cap section; the dentils' size and
+pitch; the frieze panels; the balusters' and urns' turned profiles, the plinth, pedestal sizes and
+the 0.24 m baluster pitch; the gable's shoulder, neck and segmental cap and its kneelers and finial;
+the dormer's set-back, face, 35 degree pediment and its two rake bands; the cresting's bars, posts,
+scroll radius and turn, spear and finial. The scrolls and the gable outline are newly designed for
+this kit and copy no named house. The variants follow the study's asset catalog (K10: "bracketed
+timber/metal cornices, dentils, friezes, classical entablatures, carved stone parapets,
+balustrades, urns, pediments, shaped gable copings and roof cresting"), which is the study's
+reading of its images and not a source record here.
+**What is not.** Nothing in the kit is attested, and no house carries it yet (T-2317 builds the
+first K10 wall head on a named house). The data's restriction keeps every generic profile off a
+house whose own cornice, parapet or gable is documented: there it is authored from the evidence.
+
+**How to resolve:** a house's own photograph, drawing or surviving fabric shows its cornice,
+parapet, gable or cresting, and that house takes it in place of the kit's working sections; a
+period builder's, sheet-metal or iron-foundry catalogue replaces a part's sections for every house
+at once.
+**Ticket:** T-2316 (piece 1 of T-1852, K10).
+**Review:** `docs/RESEARCH/k10-cornice-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2316).

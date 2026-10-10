@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1646, ts: '2026-10-10T14:09:54.710Z', date: 'Oct 10, 2026, 9:09 AM CT', title: 'A cornice kit for Prairie Avenue: brackets, balustrades, gables and cresting', kind: 'feature',
+    items: [
+      'Seven wall heads for the 1904 houses: a bracketed timber cornice, a pressed-metal one, a dentilled stone entablature, a balustrade with urns, a shaped gable, a pedimented dormer and iron roof cresting.',
+      'Every cornice turns its corners as one moulding and ends on a wall or a proper return, never in mid-air.',
+      'The dormer stands on its roof and its pediment sits on its own cornice; the cresting\'s iron scrolls and spears stand in the ridge.',
+      'All of it is newly designed and copies no real house. No house uses the kit yet.',
+    ] },
   { v: 1645, ts: '2026-10-10T13:37:34.569Z', date: 'Oct 10, 2026, 8:37 AM CT', title: 'A bay, oriel and tower kit for Prairie Avenue', kind: 'feature',
     items: [
       'Seven projections for the 1904 houses: a rectangular, a canted and a bowed bay, a full-height projection, a corbelled oriel, and a round and an octagonal tower.',
