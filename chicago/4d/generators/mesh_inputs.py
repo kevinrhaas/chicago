@@ -81,11 +81,14 @@ class InputsError(ValueError):
 #: Archetypes whose GLB is written by a pure-Python command rather than by emit.py in
 #: Blender, and that command (T-2266). Their input document hashes the archetype module
 #: and the command alone, and carries no Blender pin.
-PURE_PYTHON = {"k01_frontage": "k01_emit.py"}
+PURE_PYTHON = {"k01_frontage": "k01_emit.py", "k12_coach_house": "k12_emit.py"}  # T-2321: K12
 #: The library modules a pure-Python archetype lays on its walls (T-2291), and so hashes
 #: beside the archetype: K03 brick's bond, heads and string course move vertices too.
 #: T-2302: and K05 builds its roof, from the kit's own parts (k05_roofs.json, hashed below).
-PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_frontage.py", "k09_trim.py")}
+PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_frontage.py", "k09_trim.py"),
+                       # T-2321: the coach house is cut with K09's mesh primitives, K01's vector
+                       # helpers and K10's sweep (its party-wall coping)
+                       "k12_coach_house": ("k09_trim.py", "k01_frontage.py", "k10_cornices.py")}
 
 
 def _sha_file(p: Path) -> str:
@@ -227,6 +230,11 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
         # its prose and variants do not, so only `parts` is hashed
         k05 = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())
         doc["k05_parts"] = hashlib.sha256(json.dumps(k05["parts"], sort_keys=True).encode()).hexdigest()
+    if arch == "k12_coach_house":
+        # T-2321: the kit's parts (wall, storeys, roof, party wall, openings, workyard) are
+        # data the builder reads
+        kit = ROOT / "data" / "components" / "prairie_1904" / "k12_coach_house.json"
+        doc["component_data"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}
     if arch == "masonry_house" and getattr(params, "detail_profile", "") == "glessner_v4":
         # The map bytes are inputs too: replacing a normal map must demand a
         # bake just as changing a stone's depth does. Only v4 reads this folder.

@@ -6416,6 +6416,16 @@
       "phase_id": "stable_1834",
       "structure_id": "western_hotel_stable"
     },
+    "wheeler_house_1812_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
+      "baked_ao": false,
+      "bytes": 98532,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "935c226df71ca32501bc548944845f23a4ae82ab1dec1b77a814b01d4d4a9444",
+      "kind": "generated",
+      "phase_id": "as_standing_1904",
+      "structure_id": "wheeler_house_1812_prairie_coach_house"
+    },
     "wolf_point_tavern__log_frame_1828.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,

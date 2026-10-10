@@ -39,6 +39,7 @@ rule here:
 from __future__ import annotations
 
 import copy
+import json
 import math
 import sys
 from pathlib import Path
@@ -52,6 +53,11 @@ from check_trim_kit import rule_doubled, rule_rooted, rule_seated, seg_hits, tri
 
 CONF = ("attested", "inferred", "reconstructed")
 SHELL = ("alley", "yard", "gable", "party")
+
+
+def shell_of(var):
+    """The elevations a variant closes: an east party wall stands where the gable would (T-2321)."""
+    return SHELL if var.v.get("east_end", "gable") == "gable" else ("alley", "yard", "party", "party_east")
 
 
 def rule_data(data):
@@ -111,7 +117,7 @@ def through(var, w, s, y):
 
 def rule_shell(var, step=0.5):
     out = []
-    for key in SHELL:
+    for key in shell_of(var):
         w = var.walls.get(key)
         if not w:
             out.append(f"{key}: no wall")
@@ -173,7 +179,35 @@ def rule_grade(var, data):
     RP, SP = data["parts"]["ramp"], data["parts"]["stair"]
     by = {p.name: p for p in var.pieces}
     ys = lambda name: [q[1] for q in by[name].mesh.pos] if name in by else []
-    r = var.meta["ramp"]
+    v = var.v
+    # T-2321: the fittings are the variant's to ask for, so each is held only where it is
+    # asked for — and a fitting asked for and not built is still a failure
+    feet = []
+    if v.get("ramp"):
+        out += grade_ramp(var, RP, ys, data)
+    if v.get("stair"):
+        out += grade_stair(var, SP, ys)
+        feet += ["stringer wall", "stringer outer", "newel", "landing post 1", "landing post 2"]
+    if v.get("lean_to"):
+        feet += ["lean-to front wall", "lean-to east wall", "lean-to west wall"]
+    if v.get("wing"):
+        feet += ["wing east wall", "wing west wall"]
+    if v.get("workyard"):
+        out += grade_workyard(var, ys)
+    for name in feet:
+        y = ys(name)
+        if not y:
+            out.append(f"{name}: not built")
+        elif abs(min(y)) > 1e-6:
+            out.append(f"{name}: its foot is at {min(y):.3f} m, not on the ground")
+    return out
+
+
+def grade_ramp(var, RP, ys, data):
+    out = []
+    r = var.meta.get("ramp")
+    if not r:
+        return ["ramp: asked for and not built"]
     if r["grade"] > RP["max_grade"] + 1e-9:
         out.append(f"ramp at 1 in {1 / r['grade']:.1f}, steeper than 1 in {1 / RP['max_grade']:.1f}")
     ry = ys("ramp")
@@ -182,7 +216,40 @@ def rule_grade(var, data):
         out.append("the ramp's head is not at grade")
     if not ry or abs(min(ry) + B) > 1e-6:
         out.append(f"the ramp's foot is not on the basement floor ({-B} m)")
-    s = var.meta["stair"]
+    return out
+
+
+def grade_workyard(var, ys):
+    """The workyard's paving lies on the ground, stays under the yard door's sill, and its
+    walk reaches the house's rear wall line from the apron (T-2321)."""
+    out = []
+    wy = var.meta.get("workyard")
+    if not wy:
+        return ["workyard: asked for and not built"]
+    for name in ("workyard apron", "workyard walk"):
+        y = ys(name)
+        if not y:
+            out.append(f"{name}: not built")
+        elif abs(min(y)) > 1e-6:
+            out.append(f"{name}: its foot is at {min(y):.3f} m, not on the ground")
+    by = {p.name: p for p in var.pieces}
+    if "workyard walk" in by:
+        zs = [q[2] for q in by["workyard walk"].mesh.pos]
+        if abs(min(zs) - wy["z_house"]) > 1e-6:
+            out.append(f"the workyard walk stops {min(zs) - wy['z_house']:.3f} m short of the house's rear wall line")
+        if abs(max(zs) - wy["apron"][2]) > 1e-6:
+            out.append("the workyard walk does not meet the apron")
+    for op in var.v["openings"]:
+        if op["wall"] == "yard" and op["sill"] < 0.5 and op["sill"] < wy["paving_m"] - 1e-9:
+            out.append(f"{op['id']}: its sill ({op['sill']} m) is under the paving ({wy['paving_m']} m)")
+    return out
+
+
+def grade_stair(var, SP, ys):
+    out = []
+    s = var.meta.get("stair")
+    if not s:
+        return ["stair: asked for and not built"]
     if s["rise"] > SP["rise_max_m"] + 1e-9:
         out.append(f"stair risers {s['rise']} m, over {SP['rise_max_m']} m")
     if s["going"] < SP["going_min_m"] - 1e-9:
@@ -192,13 +259,6 @@ def rule_grade(var, data):
     door = next((o for o in var.v["openings"] if o["id"] == "loft_door"), None)
     if door and abs(door["sill"] - s["landing_y"]) > 1e-6:
         out.append(f"the landing ({s['landing_y']:.2f} m) is not at the loft door's sill ({door['sill']} m)")
-    for name in ("stringer wall", "stringer outer", "newel", "landing post 1", "landing post 2",
-                 "lean-to front wall", "lean-to east wall", "lean-to west wall", "wing east wall", "wing west wall"):
-        y = ys(name)
-        if not y:
-            out.append(f"{name}: not built")
-        elif abs(min(y)) > 1e-6:
-            out.append(f"{name}: its foot is at {min(y):.3f} m, not on the ground")
     return out
 
 
@@ -218,11 +278,29 @@ def build_all(data):
     return built, fails
 
 
+def build_structures(data):
+    """Every coach house a k12_coach_house structure record puts in a scene, built in the
+    kit's frame, so a named lot is held to the kit's rules (T-2321)."""
+    built, fails = [], []
+    for p in sorted((ROOT / "data" / "structures").glob("*.json")):
+        st = json.loads(p.read_text())
+        if not isinstance(st, dict) or st.get("archetype") != "k12_coach_house":
+            continue
+        for ph in st.get("phases", []):
+            try:
+                built.append(K.structure_variant(st, ph, data))
+            except (K.VentilatorRefused, ValueError, KeyError) as e:
+                fails.append(f"{st['id']} ventilator: {e}" if isinstance(e, K.VentilatorRefused)
+                             else f"{st['id']}: {e}")
+    return built, fails
+
+
 def check(data, built=None, glb=True):
     fails = [f"data: {m}" for m in rule_data(data)]
     if built is None:
         built, vf = build_all(data)
-        fails += vf
+        sb, sf = build_structures(data)
+        built, fails = built + sb, fails + vf + sf
     for var in built:
         v = var.v
         for name, msgs in (("seated", rule_seated(var)), ("rooted", rule_rooted(var)),
@@ -300,6 +378,23 @@ def self_test(data) -> int:
                      (op["s0"], op["head"], -0.1)], (0.0, 0.0, 1.0))
         w["frame"].apply(p.mesh, a)
 
+    # T-2321: a named lot's variant — two party walls, no stair or ramp, a workyard
+    def named(d):
+        st = json.loads((ROOT / "data" / "structures" / "wheeler_house_1812_prairie_coach_house.json").read_text())
+        d["variants"][0] = copy.deepcopy(st["phases"][0]["form"]["coach_house"]["value"])
+        return d["variants"][0]
+
+    def d_named_sill(d):    # the yard door's sill sunk under the paving
+        next(o for o in named(d)["openings"] if o["id"] == "yard_door")["sill"] = 0.02
+
+    def g_named_walk(built):    # the walk stopping 0.3 m short of the house's rear wall line
+        p = piece(built, "workyard walk")
+        z0 = min(q[2] for q in p.mesh.pos)
+        p.mesh.pos = [(x, y, z + 0.3 if abs(z - z0) < 1e-9 else z) for x, y, z in p.mesh.pos]
+
+    def g_named_open(built):    # the east party wall left out
+        built[0].pieces = [p for p in built[0].pieces if p.name != "east party wall"]
+
     def g_lift(built):      # the stair's stringers stood 50 mm above the ground
         for name in ("stringer wall", "stringer outer"):
             p = piece(built, name)
@@ -318,7 +413,10 @@ def self_test(data) -> int:
              ("a sill with a back face on the wall", None, g_doubled, "doubled"),
              ("the yard elevation left open", None, g_open, "shell"),
              ("a carriage bay painted on, not cut through", None, g_painted, "openings"),
-             ("the stair standing off the ground", None, g_lift, "grade")]
+             ("the stair standing off the ground", None, g_lift, "grade"),
+             ("1812: the yard door's sill under the paving", d_named_sill, None, "grade"),
+             ("1812: the workyard walk short of the house", named, g_named_walk, "grade"),
+             ("1812: the east party wall left out", named, g_named_open, "shell")]
     bad = 0
     for label, dmut, gmut, rule in cases:
         d = copy.deepcopy(data)

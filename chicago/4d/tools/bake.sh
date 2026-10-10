@@ -69,6 +69,8 @@ echo "== generate + bake"
 # T-2266: the K01 assemblies write their glTF in pure Python (no Blender, seconds), and
 # hand what they wrote to the same list, so a bake derives and publishes them too.
 python3 generators/k01_emit.py "$@" --wrote "$WROTE"
+# T-2321: and the K12 coach houses a structure record names, the same way.
+python3 generators/k12_emit.py "$@" --wrote "$WROTE"
 
 echo
 echo "== web derivatives"

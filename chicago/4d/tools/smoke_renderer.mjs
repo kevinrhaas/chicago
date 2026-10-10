@@ -16188,10 +16188,11 @@ for (const [label, viewport, touch] of [
         // — that nothing of the 1835 town is placed here — is now held by name: the
         // scene places exactly one structure, and it is glessner_house. T-2266 added the
         // second 1904 record, the K01 frontage at 1808 Prairie, so the set is held by name
-        // still: these two and nothing else.
+        // still: these two and nothing else. T-2321 added the K12 coach house on the alley
+        // behind 1812 Prairie.
         const stray = Object.entries(at.drawn).filter(([name, n]) => n > 0 && name !== 'structures');
-        const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie'];
-        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266)`,
+        const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'wheeler_house_1812_prairie_coach_house'];
+        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2321)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify(PLACED_1904),
           `meshes: ${JSON.stringify(at.drawn)}; structures placed ${JSON.stringify(at.placed)}`);
