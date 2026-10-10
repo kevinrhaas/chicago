@@ -200,6 +200,10 @@ const COVERAGE = [
   // T-1786: the portable human contract. No scene reads it yet (L1 stands, nothing
   // is drawn); tools/human_contract.py holds it in check.sh.
   ['data/humans/', NONE, 'human contract + instance schema: human_contract.py --check'],
+  // T-1787: the portable-human export path's GLBs. publish.sh copies assets/web/ only, so
+  // these are never served, and no scene loads one (L1); human_contract.py --check and
+  // human_fixture.mjs --check hold them in check.sh, chicago-4d-humans.yml in the browser.
+  ['assets/humans/', NONE, 'portable-human GLBs — unpublished, drawn by no scene'],
   ['README.md', NONE, 'prose'],
   ['AGENTS.md', NONE, 'prose'],
   // The changelog entry file a PR adds (owner, 2026-10-10). Nothing serves or imports
@@ -379,6 +383,11 @@ const COVERAGE = [
   ['data/fauna/', [10, 13], 'the wildlife'],
   ['data/streets/', [2, 7, 8, 10, 11], 'the street records'],
   ['data/traces/', [2, 7, 8, 10, 11], 'the traced lines the streets and the bank are built from'],
+  // T-2327. Sheet 28's 1904 building footprints are a reading no scene build takes yet (T-2159's
+  // draft builder will); tools/trace_prairie_1904_footprints.py --check gates them.
+  ['data/traces/prairie_1904_footprints_s28.json', NONE, 'sheet 28 1904 footprints — built into no scene yet: trace_prairie_1904_footprints.py --check'],
+  ['tools/trace_prairie_1904_footprints.py', NONE, 'the sheet 28 footprint tracer — read by no scene build yet: its own --check'],
+  ['data/traces/README.md', NONE, 'prose — the index of the traces; publish.sh mirrors nothing under data/traces/'],
   ['data/town_census.json', [12], 'the two ladders in Evidence → City'],
   ['data/render/town_completion_1835.json', [12], 'the completion row in Evidence → City'],
 

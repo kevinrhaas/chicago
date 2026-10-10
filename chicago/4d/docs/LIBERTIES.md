@@ -23255,6 +23255,41 @@ replaces a member's dimensions for every house at once.
 **Review:** `docs/RESEARCH/k13-conservatory-kit/README.md`.
 **Recorded:** 2026-10-10 (T-2305).
 
+### L-k13-pullman-bay-2306 — A glazed conservatory bay on the Pullman house's east wing, read from a semicircle on the 1911 sheet
+
+**Decision:** the 1904 scene gains its first K13 conservatory (T-2306), `pullman_house_1729_prairie_conservatory`:
+a segmental glass bay on the south face of the stone wing that sheet 20 of the 1911 Sanborn draws running
+east from the George M. Pullman house (1729 Prairie Avenue) toward its garage, looking onto the court
+between the two. It is built by `generators/k13_emit.py` from the K13 kit
+(L-k13-conservatory-kit-2305) against a plain block standing for the wing. **What is read.** The
+wing's plan (one storey and a basement, stone, 4.42 m deep, its free south face 17.3 m long between the
+house's east wall line and its step back before the garage) and the projection's place and size (a
+semicircle 3.45 m across and 1.55 m out, centred 9.1 m east of the house's wall line), measured on the
+committed raster between line centres and carried by the sheet's fitted similarity; inferred for 1904 as
+every reading of these sheets is. **What is invented.** That the projection is GLAZED: the sheet prints no
+use and no glass mark for it. It is a conservatory because the T-1837 building register gives the Pullman
+estate a dated conservatory and palm-house complex and the conservatory bay is the form the kit's canted
+bay takes; the register's 1894 conservatory plate is not a source record here, and the register itself
+puts the estate's greenhouse complex on its own plot south of 18th Street, which this does not build.
+Then every size the kit does not take from the sheet: a 1.72 m radius in five planar facets (the sheet's
+curve, built in flat glass), the 2.6 m eave over the kit's two-foot plinth, the half-cone of glass rising
+to 3.7 m on the wall, one glazing bay a facet, the gutter falling from its middle to a pipe at each end,
+and a staging bench of pot plants across the chord. The wing is a closed plain block 5.4 m high, the
+height reconstructed for a basement about a metre out of the ground under one tall storey and a parapet,
+with a plain base course and coping band and a brownstone colour taken from the register's 'brownstone
+main block' (not a source record here): no opening, cornice or roof detail, and no door from the wing
+into the bay. The wing's step and its run west along the house's north side are not built, and the
+house and the garage are not built at all. **What is not.** The wing's place, plan, storeys and stone,
+and the bay's place and plan, are the sheet's. **How to resolve:** a photograph of the Pullman garden
+court or the 1894 conservatory plate, entered as a source, gives the bay its true form, glazing and roof
+(or shows it was not glass, and the bay becomes the wing's stone); T-1880/T-1881 (the house) and T-1934
+(the stable, additions and conservatory estate) replace the block with the wing itself, and the bay moves
+onto its wall.
+**Covers:** `pullman_house_1729_prairie_conservatory.as_standing_1904.form.conservatory`, `pullman_house_1729_prairie_conservatory.as_standing_1904.form.host_wall`, `pullman_house_1729_prairie_conservatory.as_standing_1904.form.stories`, `pullman_house_1729_prairie_conservatory.as_standing_1904.form.construction`.
+**Ticket:** T-2306 (piece 2 of T-1855, K13).
+**Review:** `docs/RESEARCH/k13-pullman-bay-2306/README.md`.
+**Recorded:** 2026-10-10 (T-2306).
+
 ### L-k03-1808-service-brick-2291 — 1808 Prairie's return and rear in K03 common brick: bond, heads, string course and grime, all reconstructed
 
 **Decision:** the south side, rear and north party walls of the 1808 Prairie K01 frontage
@@ -23295,6 +23330,7 @@ string course. A dated soot reading for Prairie Avenue c. 1904.
 **Ticket:** T-2291 (piece 2 of T-1845).
 **Review:** `docs/RESEARCH/k03-1808-service-brick-2291/README.md`.
 **Recorded:** 2026-10-10 (T-2291).
+
 ### L-k05-roof-kit-2301 — The Prairie roof kit: every pitch, overhang, verge, return, parapet and dormer reconstructed
 
 **Decision:** the 1904 Prairie programme's roof construction (package K05, T-2301) is ten
@@ -23843,6 +23879,22 @@ once.
 **Review:** `docs/RESEARCH/k16-timber-kit/README.md`.
 **Recorded:** 2026-10-10 (T-2322).
 
+### L417 — The portable-human pipeline's test figure, which is nobody
+
+**Decision:** `c4d_fixture`, the four-LOD body under `assets/humans/` (and its Meshopt derivatives in
+`assets/humans/web/`), is a deliberately plain figure built from primitives by
+`tools/human_fixture_blend.py`: tapered cylinders on the 56 contract bones, spheres for the head and
+eyes, boxes for the feet and the light LODs' mitten hands, a generated 64 px twill on `garment_upper`,
+1.70 m tall, with three face morphs and an `idle` and a `walk` that were keyed by hand. **Everything
+about it is invented**, and on purpose: it exists to prove the road Blender -> GLB -> the browser
+(T-1787) on every LOD, not to depict anyone. It is not a resident, carries no `person_id`, has no
+instance record, and no scene loads it, so L1 is untouched; it is drawn only by the test page
+`tools/human_fixture.html`, which is never published.
+**Applies to:** `assets/humans/c4d_fixture.lod0-3.glb` and `assets/humans/web/c4d_fixture.lod0-3.glb`. No
+structure, terrain or person carries it, so it discharges no `Covers` token.
+**Ticket:** T-1787.
+**Review:** `data/humans/fixture.measure.json` (the browser verdicts and costs).
+**Recorded:** 2026-10-10 (T-1787).
 ### L-k16-1638-front-2323 — 1638 Prairie's timber street front: the kit's Gothic gable, wall and porch on the sheet's plan, before a photograph says otherwise
 
 **Decision:** the Shortall-Gregory house at 1638 Prairie Avenue (T-2323, piece 2 of T-1858) stands
