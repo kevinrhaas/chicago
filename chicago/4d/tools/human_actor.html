@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Browser human actor · T-1788</title><link rel="icon" href="data:,">
+<!-- T-1788: a test page, served by tools/human_actor.mjs from chicago/4d and never published.
+     It drives renderers/web/js/humans.js — the actor the walkthrough mounts — with the CI
+     fixture (c4d_fixture, L417, who is nobody) on a sloped heightfield beside a real building
+     GLB, and proves what docs/HUMAN-ASSET-CONTRACT.md § 13 asks of T-1788: load by person id,
+     safe clones, terrain placement, idle/walk/gesture, morphs and their degradation, LOD by
+     distance and tier, what a far figure is spared, pick/select/approach, disposal with no
+     leak, and the scene path's refusals. L1 stands: this page is an instrument, not a scene. -->
+<style>html,body{margin:0;height:100%;background:#1a1b19;overflow:hidden}canvas{display:block;width:100%;height:100%}</style>
+<script type="importmap">{"imports":{
+  "three":"../renderers/web/vendor/three-0.185.1/three.module.js",
+  "three/addons/":"../renderers/web/vendor/three-0.185.1/addons/"}}</script>
+</head><body>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { loadMeshoptDecoder } from '../renderers/web/js/scene-loader.js';
+import { Heightfield, enuToWorld } from '../renderers/web/js/terrain.js';
+import {
+  chooseHumanLod, createHumanLayer, createHumanAssets, mountHumans, headingToYaw,
+  LOD_BANDS_M, LOD_HYSTERESIS, FACE_M, SHADOW_M, ANIMATE_M, DRAW_M,
+} from '../renderers/web/js/humans.js';
+
+const results = [];
+const check = (name, ok, got) => results.push({ check: name, ok: !!ok, got: typeof got === 'string' ? got : JSON.stringify(got) });
+const ASSETS = new URL('../assets/', location.href);
+const DATA = new URL('../data/', location.href);
+
+try {
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(1);
+  renderer.setSize(innerWidth, innerHeight);
+  renderer.shadowMap.enabled = true;
+  document.body.appendChild(renderer.domElement);
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x9fb4c4);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x445533, 1.6));
+  const sun = new THREE.DirectionalLight(0xffffff, 2);
+  sun.position.set(20, 40, 10);
+  sun.castShadow = true;
+  scene.add(sun);
+  const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 600);
+  const render = () => renderer.render(scene, camera);
+
+  // A sloped, rolling heightfield through the renderer's own sampler, and its mesh.
+  const hf = new Heightfield();
+  const N = 121; const CELL = 2; const O = -120;
+  const grid = new Float32Array(N * N);
+  for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) {
+    const e = O + c * CELL; const n = O + r * CELL;
+    grid[r * N + c] = 0.4 + 0.04 * e + 0.015 * n + 0.25 * Math.sin(e / 7) * Math.cos(n / 9);
+  }
+  hf.adopt({ cols: N, rows: N, cell_m: CELL, origin_e: O, origin_n: O }, grid.buffer);
+  const heightAt = (e, n) => hf.sample(e, n);
+  const groundGeo = new THREE.PlaneGeometry(240, 240, 120, 120).rotateX(-Math.PI / 2);
+  const gp = groundGeo.attributes.position;
+  for (let i = 0; i < gp.count; i++) gp.setY(i, heightAt(gp.getX(i), -gp.getZ(i)));
+  groundGeo.computeVertexNormals();
+  const ground = new THREE.Mesh(groundGeo, new THREE.MeshLambertMaterial({ color: 0x6f7f4a }));
+  ground.receiveShadow = true;
+  scene.add(ground);
+
+  // A real building GLB from the town, 20 m north: what the figures must coexist with.
+  const loader = new GLTFLoader();
+  loader.setMeshoptDecoder(await loadMeshoptDecoder());
+  const building = await loader.loadAsync(new URL('web/beaubien_trading_post__log_1822.glb', ASSETS).href);
+  enuToWorld(0, 20, heightAt(0, 20), building.scene.position);
+  scene.add(building.scene);
+  let buildingTris = 0;
+  building.scene.traverse((o) => { if (o.isMesh) buildingTris += (o.geometry.index?.count ?? o.geometry.attributes.position.count) / 3; });
+
+  const lookFrom = (e, n, y, at) => {
+    enuToWorld(e, n, y, camera.position);
+    camera.lookAt(at);
+    camera.updateMatrixWorld(true);
+  };
+  render();
+  const baseline = { ...renderer.info.memory };
+
+  // The people the figures stand for come from the scene's own directory.
+  const people = await fetch(new URL('sidecars/1835/people.json', DATA)).then((r) => r.json());
+  const personOf = (id) => people.people.find((p) => p.id === id) ?? null;
+  const BEAUBIEN = personOf('beaubien_mark');
+  const SECOND = people.people.find((p) => p.id !== 'beaubien_mark');
+  check('the person record resolves from sidecars/1835/people.json', BEAUBIEN?.name === 'Mark Beaubien', BEAUBIEN?.name ?? 'absent');
+
+  const instance = (over = {}) => ({
+    id: 'hi_beaubien_mark_1835', contract_version: 1, scene: '1835', person_id: 'beaubien_mark',
+    appearance: { asset_id: 'c4d_fixture' },
+    placement: { local_e: 0, local_n: 0, heading_deg: 0, anchor: 'terrain' },
+    animation: { clip: 'idle', loop: true, phase: 0 },
+    behaviour: { state: 'standing' },
+    interaction: { selectable: true, radius_m: 3, opens: 'resident_card' },
+    lod: { policy: 'auto' }, display: 'withheld', review_required: false,
+    provenance: { grade: 'reconstructed', basis: 'T-1788 harness: the CI fixture, who is nobody, standing in a test page', liberty: 'L417' },
+    ...over,
+  });
+
+  // 1. The LOD rule, as a table.
+  const table = [];
+  for (const tier of ['full', 'balanced', 'light']) for (const d of [2, 10, 30, 60, 200]) table.push(chooseHumanLod(d, tier));
+  check('chooseHumanLod: bands by distance, clamped to the tier, -1 beyond DRAW_M',
+    JSON.stringify(table) === JSON.stringify([0, 1, 2, 3, -1, 1, 1, 2, 3, -1, 2, 2, 2, 3, -1]), table);
+  const edge = LOD_BANDS_M[0];
+  const hold = [chooseHumanLod(edge * (1 + LOD_HYSTERESIS / 2), 'full', 0), chooseHumanLod(edge * (1 + LOD_HYSTERESIS * 2), 'full', 0),
+    chooseHumanLod(edge * (1 - LOD_HYSTERESIS / 2), 'full', 1), chooseHumanLod(edge * (1 - LOD_HYSTERESIS * 2), 'full', 1)];
+  check('chooseHumanLod: a figure on a band edge holds its LOD (hysteresis)', JSON.stringify(hold) === '[0,1,1,0]', hold);
+  check('chooseHumanLod: policy fixed draws one LOD at every distance, within the tier',
+    chooseHumanLod(3, 'full', -1, { policy: 'fixed', fixed: 3 }) === 3 && chooseHumanLod(3, 'light', -1, { policy: 'fixed', fixed: 0 }) === 2,
+    [chooseHumanLod(3, 'full', -1, { policy: 'fixed', fixed: 3 }), chooseHumanLod(3, 'light', -1, { policy: 'fixed', fixed: 0 })]);
+
+  // A gesture clip from a clip LIBRARY (§ 7): the fixture body carries only idle and walk,
+  // so the harness supplies one on the contract skeleton, as T-1790's library will.
+  const fetched = [];
+  const assets = createHumanAssets({ assetBase: ASSETS, fetchImpl: (u) => { fetched.push(String(u)); return fetch(u); } });
+  const probe = await assets.acquire('c4d_fixture', 0);
+  let armRest = null;
+  probe.scene.traverse((o) => { if (o.isBone && o.name === 'upperarm_r') armRest = o.quaternion.clone(); });
+  assets.release('c4d_fixture', 0);
+  const lift = armRest.clone().multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), THREE.MathUtils.degToRad(70)));
+  const wave = new THREE.AnimationClip('gesture_wave', 1.2, [new THREE.QuaternionKeyframeTrack('upperarm_r.quaternion', [0, 0.6, 1.2],
+    [...armRest.toArray(), ...lift.toArray(), ...armRest.toArray()])]);
+  const layer = createHumanLayer({ assets, heightAt, clipLibrary: [wave] });
+  scene.add(layer.group);
+  const seen = [];
+  for (const t of ['select', 'hover', 'open', 'approach', 'leave']) layer.on(t, (d) => seen.push(`${t}:${d.personId}`));
+
+  const step = async (n, dt = 1 / 30, visitor = null) => {
+    for (let i = 0; i < n; i++) { layer.update(dt, camera, visitor); render(); }
+    await Promise.all(layer.actors.map((a) => a.pending).filter(Boolean));
+    layer.update(0, camera, visitor);
+  };
+  const boneOf = (a, name) => { let b = null; a.body.scene.traverse((o) => { if (o.isBone && o.name === name) b = o; }); return b; };
+  const soles = (a) => {
+    a.root.updateMatrixWorld(true);
+    let min = Infinity; const v = new THREE.Vector3();
+    for (const m of a.body.meshes) {
+      m.skeleton.update();
+      for (let i = 0; i < m.geometry.attributes.position.count; i++) { m.getVertexPosition(i, v); v.applyMatrix4(m.matrixWorld); min = Math.min(min, v.y); }
+    }
+    return min;
+  };
+
+  // 2. Load by person id, near: lod0, its own skeleton, feet on the ground.
+  const a = layer.add(instance(), { person: BEAUBIEN });
+  const head = new THREE.Vector3(0, heightAt(0, 0) + 1.2, 0);
+  lookFrom(0, -4, heightAt(0, -4) + 1.6, head);
+  await step(1);
+  check('loads by person id at lod0 when near', a.lod === 0 && layer.get('beaubien_mark') === a && a.person?.name === 'Mark Beaubien',
+    { lod: a.lod, person: a.person?.name });
+  // SkeletonUtils gives each primitive its own Skeleton object over ONE set of cloned bones.
+  const roots = new Set(a.body.meshes.map((m) => m.skeleton.bones[0]));
+  const bones = a.body.meshes[0].skeleton.bones;
+  let ownBones = true;
+  for (const b of bones) { let o = b; while (o && o !== a.body.scene) o = o.parent; if (!o) ownBones = false; }
+  check('a safe clone: one set of bones of its own, under the clone, the whole contract skeleton',
+    roots.size === 1 && bones.length === 56 && ownBones && !probe.scene.getObjectById(a.body.meshes[0].id),
+    `${a.body.meshes.length} skinned meshes on ${roots.size} bone set of ${bones.length}, own bones ${ownBones}`);
+  check('the pick proxy stands the figure\'s measured height (1.70 m rest)', Math.abs(a.proxy.scale.y - 1.7) < 0.05, a.proxy.scale.y.toFixed(3));
+  check('stands on the terrain: root at the heightfield, soles within 5 cm of it',
+    Math.abs(a.root.position.y - heightAt(0, 0)) < 1e-6 && Math.abs(soles(a) - heightAt(0, 0)) < 0.05,
+    `root ${a.root.position.y.toFixed(3)} m, soles ${soles(a).toFixed(3)} m, ground ${heightAt(0, 0).toFixed(3)} m`);
+  const fwd = () => new THREE.Vector3(0, 0, 1).applyQuaternion(a.root.quaternion);
+  const north = fwd();
+  a.heading = 90; a.place();
+  const east = fwd();
+  a.heading = 0; a.place();
+  check('heading: § 2 formula, 0 deg faces grid north (-z), 90 deg faces east (+x)',
+    north.z < -0.999 && east.x > 0.999 && a.root.rotation.y === headingToYaw(0),
+    `0° → (${north.x.toFixed(2)}, ${north.z.toFixed(2)}), 90° → (${east.x.toFixed(2)}, ${east.z.toFixed(2)})`);
+
+  // 3. Clips: idle, a gesture from the library and back, and the morphs.
+  const hb = boneOf(a, 'head');
+  const q0 = hb.quaternion.clone();
+  let idleDeg = 0;
+  for (let i = 0; i < 30; i++) { layer.update(1 / 30, camera); idleDeg = Math.max(idleDeg, THREE.MathUtils.radToDeg(q0.angleTo(hb.quaternion))); }
+  render();
+  check('clip idle plays (the head turns)', a.clipName === 'idle' && idleDeg > 0.3, `${a.clipName}, head ${idleDeg.toFixed(2)}°`);
+  const arm = boneOf(a, 'upperarm_r');
+  const armQ = arm.quaternion.clone();
+  const gestured = a.gesture('gesture');
+  await step(18);
+  const armDeg = THREE.MathUtils.radToDeg(armQ.angleTo(arm.quaternion));
+  const during = a.clipName;
+  await step(36);
+  check('a gesture plays once from the clip library and returns to idle',
+    gestured && during === 'gesture_wave' && armDeg > 30 && a.clipName === 'idle', `${during}, arm ${armDeg.toFixed(1)}°, then ${a.clipName}`);
+  const applied = a.setExpression({ jawOpen: 1 });
+  const jaw = a.body.faces.map((m) => m.morphTargetInfluences[m.morphTargetDictionary.jawOpen]);
+  check('morphs: jawOpen applies on lod0', applied.includes('jawOpen') && jaw.length > 0 && jaw.every((w) => w === 1), { applied, jaw });
+  await step(150);
+  check('the near face is alive (a blink is driven inside FACE_M)', a.counters.faced > 0 && a.costsNow.face, a.counters.faced);
+  a.setExpression({ jawOpen: 0 });
+
+  // 4. Walking a route across the slope, beside the standing figure.
+  const w = layer.add(instance({
+    id: `hi_${SECOND.id}_1835`, person_id: SECOND.id, placement: { local_e: 8, local_n: -2, heading_deg: 0, anchor: 'terrain' },
+    behaviour: { state: 'walking', route: [{ local_e: 8, local_n: 6 }, { local_e: 14, local_n: 6 }] }, animation: { clip: 'walk', phase: 0.3 },
+    interaction: { selectable: true, opens: 'none' },
+  }), { person: SECOND });
+  lookFrom(4, -8, heightAt(4, -8) + 2, new THREE.Vector3(10, heightAt(10, 2) + 1, -2));
+  await step(1);
+  const calf = boneOf(w, 'calf_r');
+  const c0 = calf.quaternion.clone();
+  const start = { e: w.e, n: w.n };
+  let off = 0; let swing = 0;
+  for (let i = 0; i < 60; i++) {
+    layer.update(1 / 30, camera);
+    off = Math.max(off, Math.abs(w.root.position.y - heightAt(w.e, w.n)));
+    swing = Math.max(swing, THREE.MathUtils.radToDeg(c0.angleTo(calf.quaternion)));
+  }
+  render();
+  const walked = Math.hypot(w.e - start.e, w.n - start.n);
+  check('walk moves the root at the clip\'s stated speed (1.3 m/s × 2 s), feet on the ground the whole way',
+    w.clipName === 'walk' && Math.abs(walked - 2.6) < 0.05 && off < 1e-6 && Math.abs(w.heading) < 1e-6,
+    `${walked.toFixed(3)} m in 2 s, worst ground error ${off.toExponential(1)} m, heading ${w.heading.toFixed(1)}°`);
+  check('clip walk plays (the calf swings)', swing > 5, `${swing.toFixed(1)}°`);
+  for (let i = 0; i < 150; i++) layer.update(1 / 30, camera);
+  check('the route turns the corner: heading follows the second leg (east)', Math.abs(w.heading - 90) < 1e-6 && w.n === 6,
+    `at (${w.e.toFixed(2)}, ${w.n.toFixed(2)}), heading ${w.heading.toFixed(1)}°`);
+  layer.remove(w.id);
+
+  // 5. Distance: LOD swaps, and what a far figure is spared.
+  const at = (d) => { lookFrom(0, -d, heightAt(0, -d) + 1.6, head); };
+  at(30);
+  const swaps0 = a.counters.swaps;
+  await step(2);
+  const mid = a.costsNow;
+  const lod2 = a.setExpression({ jawOpen: 1 });
+  check('at 30 m: lod2, the clip carried across the swap, no shadow, the face still',
+    a.lod === 2 && a.counters.swaps > swaps0 && a.clipName === 'idle' && !mid.shadow && !mid.face, mid);
+  check('a LOD with no face degrades cleanly: setExpression applies nothing and nothing throws', lod2.length === 0 && !a.body.faces.length, lod2);
+  await Promise.resolve();
+  check('the LOD left behind is released', !assets.loaded.includes('c4d_fixture.lod0') && assets.loaded.includes('c4d_fixture.lod2'), assets.loaded);
+  at(100);
+  await step(2);
+  const animated0 = a.counters.animated; const updates0 = a.counters.updates;
+  await step(10);
+  check('at 100 m: lod3, drawn, but the mixer is not advanced (beyond ANIMATE_M)',
+    a.lod === 3 && a.root.visible && a.counters.animated === animated0 && a.counters.updates > updates0, a.costsNow);
+  at(200);
+  await step(1);
+  const u1 = a.counters.updates;
+  await step(12, 1 / 60);
+  check('beyond DRAW_M: hidden, and no per-frame work (re-examined on a timer)',
+    !a.root.visible && a.counters.updates === u1, { updates_in_12_frames: a.counters.updates - u1, visible: a.root.visible });
+  at(4);
+  await step(40, 1 / 60);
+  check('coming back near returns it to lod0, face and shadow on', a.lod === 0 && a.costsNow.face && a.costsNow.shadow, a.costsNow);
+  layer.setTier('light');
+  await step(2);
+  check('detail tier light: lod2 even at 4 m', a.lod === 2, a.lod);
+  layer.setTier('balanced');
+  await step(2);
+  check('detail tier balanced: lod1 at 4 m', a.lod === 1, a.lod);
+  layer.setTier('full');
+  await step(2);
+
+  // 6. Interaction: pick, select, hover, approach.
+  lookFrom(0, -4, heightAt(0, -4) + 1.4, head);
+  const hit = layer.pickAt(null, camera);
+  layer.hoverAt(null, camera);
+  const sel = hit && layer.select(hit);
+  check('pick down the crosshair finds the person, and select opens their resident card',
+    hit?.personId === 'beaubien_mark' && sel?.opens === 'resident_card' && seen.includes('select:beaubien_mark') && seen.includes('open:beaubien_mark') && seen.includes('hover:beaubien_mark'),
+    { hit: hit?.personId, state: hit?.state, seen });
+  seen.length = 0;
+  await step(1, 1 / 60, { e: 0, n: -1.5 });
+  await step(3, 1 / 60, { e: 0, n: -1.5 });
+  const inside = [...seen];
+  await step(1, 1 / 60, { e: 0, n: -10 });
+  check('approach fires once inside radius_m (and opens the card), leave once outside',
+    JSON.stringify(inside) === JSON.stringify(['approach:beaubien_mark', 'open:beaubien_mark']) && seen.at(-1) === 'leave:beaubien_mark', seen);
+  lookFrom(0, 8, heightAt(0, 8) + 1.6, new THREE.Vector3(0, heightAt(0, 20) + 2, -20));
+  const rc = new THREE.Raycaster();
+  rc.setFromCamera(new THREE.Vector2(0, 0), camera);
+  const bHit = rc.intersectObject(building.scene, true)[0];
+  check('aimed at the building, the figure layer answers nothing and the building is hit',
+    layer.pickAt(null, camera) === null && !!bHit, bHit ? `building at ${bHit.distance.toFixed(1)} m` : 'no building hit');
+
+  // 7. Cost of one near figure, and disposal back to the baseline.
+  at(4);
+  await step(5);
+  const times = [];
+  for (let i = 0; i < 40; i++) { const t0 = performance.now(); layer.update(1 / 60, camera); render(); renderer.getContext().finish(); times.push(performance.now() - t0); }
+  times.sort((x, y) => x - y);
+  const extra = [];
+  for (const [i, e] of [[1, -3], [2, 3], [3, -6]]) extra.push(layer.add(instance({ id: `hi_${people.people[i + 10].id}_1835`, person_id: people.people[i + 10].id, placement: { local_e: e, local_n: 1, heading_deg: 180, anchor: 'terrain' } }), { person: people.people[i + 10] }));
+  await step(3);
+  const drawn = { ...renderer.info.memory };
+  layer.dispose();
+  await new Promise((r) => setTimeout(r, 0));
+  render();
+  const after = { ...renderer.info.memory };
+  check('dispose: geometries and textures back to the baseline, every asset released, the group empty',
+    after.geometries === baseline.geometries && after.textures === baseline.textures && assets.loaded.length === 0 && layer.group.children.length === 0 && !layer.group.parent,
+    { baseline, with_figures: drawn, after, still_loaded: assets.loaded });
+  let intact = true;
+  building.scene.traverse((o) => { if (o.isMesh && !o.geometry.attributes.position?.array?.length) intact = false; });
+  render();
+  check('the building GLB is untouched by the figures\' disposal and still draws',
+    intact && renderer.info.render.triangles >= buildingTris, `${renderer.info.render.triangles} triangles drawn, building ${buildingTris}`);
+
+  // 8. The scene path: mountHumans reads the scene's records and draws only what it may.
+  const contract = await fetch(new URL('humans/contract.json', DATA)).then((r) => r.json());
+  const mount = async ({ base = 'https://x.invalid/data/', records = [], lifted = false, sceneId = '1835' } = {}) => {
+    const calls = [];
+    const files = new Map(records.map((r) => [`humans/instances/${sceneId}/${r.id}.json`, r]));
+    files.set(`humans/instances/${sceneId}/index.json`, { instances: records.map((r) => r.id) });
+    const fetchImpl = async (u) => {
+      const rel = String(u).replace(base, '');
+      calls.push(rel);
+      return files.has(rel) ? new Response(JSON.stringify(files.get(rel))) : new Response('', { status: 404, statusText: 'Not Found' });
+    };
+    const problems = [];
+    const l = await mountHumans({ dataBase: base, assetBase: ASSETS, assets, sceneId, people, problems, fetchImpl,
+      contract: lifted ? { ...contract, l1: { ...contract.l1, in_force: false } } : contract });
+    // A frame near the spot every record stands on: a figure that was let through loads here.
+    const asked = fetched.length;
+    at(4);
+    l.update(1 / 60, camera);
+    await Promise.all(l.actors.map((x) => x.pending).filter(Boolean));
+    return { l, calls, problems, glbs: fetched.length - asked };
+  };
+  const none = await mount({ base: null });
+  check('a scene that does not list `humans`: nothing fetched, nobody drawn', none.calls.length === 0 && none.l.count === 0, none.calls);
+  const withheld = await mount({ records: [instance()] });
+  check('a withheld record is kept and draws nothing', withheld.l.count === 0 && withheld.l.withheld.length === 1 && !withheld.problems.length, withheld.l.withheld);
+  const l1 = await mount({ records: [instance({ display: 'shown' })] });
+  check('L1 in force: a record asking to be shown is refused, with the reason', l1.l.count === 0 && /L1 is in force/.test(l1.problems[0] ?? ''), l1.problems);
+  const ghost = await mount({ records: [instance({ display: 'shown', person_id: 'nobody_at_all', id: 'hi_nobody_at_all_1835' })], lifted: true });
+  check('a record whose person is not in the directory is refused', ghost.l.count === 0 && /is not in sidecars\/1835\/people.json/.test(ghost.problems[0] ?? ''), ghost.problems);
+  const review = await mount({ records: [instance({ display: 'shown', review_required: true })], lifted: true });
+  check('a review_required person is refused even with L1 lifted', review.l.count === 0 && /standing review/.test(review.problems[0] ?? ''), review.problems);
+  const twice = await mount({ records: [instance({ display: 'shown' }), instance({ display: 'shown', id: 'hi_beaubien_mark_1835_b' })], lifted: true });
+  check('one person stands in a scene once', twice.l.count === 1 && /already stands/.test(twice.problems[0] ?? ''), twice.problems);
+  twice.l.dispose();
+  const glbs = [none, withheld, l1, ghost, review].map((m) => m.glbs);
+  check('no human GLB is asked for by an unlisted scene or a withheld or refused record', glbs.every((n) => n === 0), glbs);
+  const lifted = await mount({ records: [instance({ display: 'shown' })], lifted: true });
+  check('with L1 lifted (a test copy of the contract only), the same record stands and loads its figure',
+    lifted.l.count === 1 && lifted.l.get('beaubien_mark')?.lod === 0 && lifted.glbs === 1, { problems: lifted.problems, glbs: lifted.glbs });
+  lifted.l.dispose();
+
+  window.__actor = { ready: true, results, frame_ms_median: +times[times.length >> 1].toFixed(2), fetched };
+} catch (err) {
+  console.error(err);
+  window.__failed = String(err?.stack ?? err);
+  window.__actor = { ready: true, results, error: String(err?.message ?? err) };
+}
+</script>
+</body></html>

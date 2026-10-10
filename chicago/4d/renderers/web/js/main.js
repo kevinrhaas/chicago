@@ -60,6 +60,7 @@ import { releaseAfterUpload, uploadLayerNow, uploadReleaseState } from './upload
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
+import { mountHumans } from './humans.js';
 import { createWells } from './wells.js';
 import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
@@ -2264,6 +2265,7 @@ async function boot() {
       BUDGET.triangles = detailLevels[level].triangles;
       enclosures.setDetail?.(level);
       streets.setDetail?.(level);
+      api.humans?.setTier(level);
       applyShadowTier(level);
       applyFurnitureReach(level);
       applyGroundDetailReach(level);
@@ -2302,6 +2304,8 @@ async function boot() {
     // The road's: `light` keeps the refined grids, the two tiers above it lay
     // the panels that sag on the ground's ridge (streets.js, THE RIDGE DRAPE).
     streets.setDetail?.(level);
+    // The figures' LOD ladder follows the tier (T-1788; docs/HUMAN-ASSET-CONTRACT.md § 8).
+    api.humans?.setTier(level);
     // The sun's half of the level takes effect on THIS frame rather than after
     // the replanting: it costs nothing to apply, and a visitor who turns the
     // setting down on a machine that is struggling should get the cheap half of
@@ -2431,6 +2435,21 @@ async function boot() {
   } catch (err) {
     bootController.fail('people', err);
   }
+
+  // T-1788. The human figures, as scene objects: humans.js's actor, mounted only for a
+  // scene that lists the `humans` layer. No scene does, and L1 stands besides
+  // (data/humans/contract.json § l1), so this mounts an empty layer, fetches nothing and
+  // draws nobody — the scene-year gate. A record that is drawn later is bound to a person
+  // in the directory above and opens that person's own card.
+  api.humans = await mountHumans({
+    dataBase: layerBase('humans'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
+    people, terrain, tier: detailLevel, problems: layerProblems('humans'),
+  });
+  api.humans.on('open', ({ personId }) => {
+    if (!api.people) return;
+    hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
+  });
+  scene3d.add(api.humans.group);
 
   /** A structure's ground position in local ENU metres — footprint centroid where
    *  one is drawn, the placement otherwise. Go to measures distance from it;
@@ -2994,6 +3013,14 @@ async function boot() {
     if (gridHit && gridHit.record && (!hit || gridHit.distance < hit.distance)) {
       hit = { ...gridHit };
     }
+    // A figure answers with its PERSON, not a card of its own (T-1788): the layer's
+    // `open` event takes the visitor to the resident card the directory already draws.
+    const figure = api.humans?.pickAt(ndc, camera);
+    if (figure && (!hit || figure.distance < hit.distance)) {
+      popup.close();
+      api.humans.select(figure);
+      return figure;
+    }
     if (!hit) {
       popup.close();
       hud.say('Nothing there — aim at a building');
@@ -3433,6 +3460,7 @@ async function boot() {
     flora.update(dt, camera, floraBudget);
     trees.update(dt, camera, scene3d.fog?.color);
     flags.update(dt);
+    api.humans?.update(dt, camera, walker.state);
 
     // T-2113. Under the gate, draw only a frame that differs from the last one
     // drawn: the first, one a capture or a test asked for, or one in which
