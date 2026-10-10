@@ -851,6 +851,38 @@ Full and mobile Light pass with no page, resource or loader errors and within
 existing budgets; switching all three detail levels retains dark glass.
 Final preflight after integrating dev `2649aaf` passes all 790 repository checks; the combined tree is checked again after dev `525abde` lands and all 790 still pass. Mobile published stage 13–14 completes with zero page errors. Desktop passes every stage 13 assertion, including Glessner, before a workspace restart interrupts stage 14; the isolated desktop stage 14 rerun completes with zero page errors. The interrupted run is retained as incomplete, not counted as a pass. Focused desktop/mobile Glessner review is complete.
 
+## T-2268 — two river warehouses on the South Branch's east bank below Market Street (2026-10-10)
+
+**What changed in the scene.** Two F3 large river warehouses,
+`recon_1835_south_branch_freight_f3_001` and `_002`, stand off the plat on the dry strip between
+Market Street's corridor and the South Branch, between Madison and Washington. Each faces the
+branch with its back 3.0 m inside Market's west line; the first is 3.0 m north of Madison's north
+line, the second 6.0 m north of the first. 23.50 m and 21.43 m from the traced water, 0.12 m and
+0.18 m of relief, 26 m from T-2269's lumber shed, which landed beside them first. Written by the new
+`tools/generate_south_freight.py` from `data/reconstruction/1835_south_freight_bank.json` on the
+`bank_landing` clause (T-2022), baked (`tools/bake.sh --only`), L415 records them. Order book:
+South `warehouses_freight/street_line` 10/10 — the cell is closed.
+
+**What it found (T-2175, split into T-2268 and T-2269).** T-2175's premise had gone: the schedule
+no longer dealt the street line's three owed roofs (two F3s and an F4) to Wells or the Market
+wedge; all three sat on the gated balance south of Madison, which has no river. Measured: every
+South Water lot is held; no free South lot is within `bank_landing_reach_m` (27.09 m) of traced
+water, the nearest being blk_lake_market lot 1 at 35.0 m; `measure_south_bank_ground.py` reads
+the Dearborn reach as taking no more at 0.30 m relief. The Branch's east bank is the one river
+ground left, and Newberry & Dole's works already stand on it a block north, facing the branch.
+The F4 lumber shed was not built: `bank_landing` admits F1-F3 only, and the vocabulary cannot yet
+spell `lumber_shed`, so it is T-2269's. The inventory's `street_line` band, titled for platted
+ground, was widened in words to the Branch bank, with the reason; no number in it moved.
+
+**What else moved** (re-measured on dev after T-2269 and T-1550 landed, 2026-10-10). The
+schedule's gated South balance fell from 8 roofs to 6. With F3 at its target the family
+re-apportionment changes that balance's mix from D2 2, D4 2, D5 1 to D4 3, D5 2, and T-2253 had dealt
+it to block 82 of the Monroe-Adams tier, so block 82's slots move with it: hh_montgomery_l_w and
+hh_morrison_amanda are dealt D5 slots on lots 2 and 7, hh_miller_samuel's slot on lot 3 turns D4, and
+the D2 slots of hh_rc_woodruff_ruth and hh_vieaux_susanne go. The platted deal still seats 220 and the
+off-plat deal 99; a release of the business deal's 45 roofs would now cost ten households (L270).
+T-2254 raises block 82's roofs, so whichever of the two lands second re-derives the block's mix.
+
 ## T-2174 — a two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge (2026-10-08)
 
 **What changed in the scene.** One F2 narrow two-storey warehouse,

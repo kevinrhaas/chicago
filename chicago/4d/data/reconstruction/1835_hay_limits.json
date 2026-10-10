@@ -315,13 +315,13 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 362,
-  "outside": 320,
+  "outside": 318,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 28,
    "north_of_the_limit": 63,
    "west_of_canal_street": 103,
-   "south_of_washington_street": 125,
+   "south_of_washington_street": 123,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -549,10 +549,6 @@
     "recon_1835_blk_school_section_tier_81_d5_02",
     "recon_1835_blk_school_section_tier_81_d5_07",
     "recon_1835_blk_school_section_tier_81_d6_06",
-    "recon_1835_blk_school_section_tier_82_d2_01",
-    "recon_1835_blk_school_section_tier_82_d4_03",
-    "recon_1835_blk_school_section_tier_82_d4_04",
-    "recon_1835_blk_school_section_tier_82_d5_02",
     "recon_1835_blk_school_section_tier_94_d3_05",
     "recon_1835_blk_school_section_tier_94_d4_04",
     "recon_1835_blk_school_section_tier_94_d5_01",
@@ -651,6 +647,8 @@
     "recon_1835_blk_west_washington_canal_d6_01",
     "recon_1835_blk_west_washington_canal_d7_05",
     "recon_1835_branch_freight_f2_001",
+    "recon_1835_south_branch_freight_f3_001",
+    "recon_1835_south_branch_freight_f3_002",
     "recon_1835_south_branch_lumber_f4_001"
    ],
    "east_of_the_limit_in_the_water": [
@@ -672,7 +670,7 @@
    {
     "id": "blk_school_section_tier_82",
     "state": "open",
-    "roofs_scheduled": 2,
+    "roofs_scheduled": 6,
     "centre_local_enu_m": [
      139.86,
      -726.52
@@ -1154,7 +1152,7 @@
    {
     "id": "blk_school_section_tier_82",
     "state": "open",
-    "roofs_scheduled": 2,
+    "roofs_scheduled": 6,
     "centre_local_enu_m": [
      139.86,
      -726.52
@@ -1334,8 +1332,8 @@
    {
     "id": "south_plat_beyond_committed_control",
     "kind": "district_balance",
-    "state": "gated",
-    "roofs": 2
+    "state": "complete",
+    "roofs": 0
    },
    {
     "id": "west_division_beyond_committed_control",

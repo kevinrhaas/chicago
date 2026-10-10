@@ -1,0 +1,32 @@
+{
+  "id": "south_freight_bank_1835",
+  "target_date": "1835-07-01",
+  "owning_ticket": "T-2268",
+  "parent_ticket": "T-2175",
+  "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+  "research_memo": "docs/STATUS.md",
+  "tier": "reconstructed",
+  "clause": "bank_landing",
+  "basis": "The order book's structures/warehouses_freight/south/street_line band sets 10 and finds 7 standing, so it orders three more freight roofs for the South Division: two F3 large river warehouses and an F4 lumber shed. The 668-roof schedule can no longer put them anywhere: it dealt an F3 to blk_south_water_wells, where generate_block_infill refuses an F3 on any platted lot (T-0275) and T-2241 then refused the block's narrow business-front lot, and an F3 and an F4 to the Market wedge, which T-2195 cut to four lots and T-2238 and T-2196 filled. So all three sit on `south_plat_beyond_committed_control`, the gated balance south of Madison, which is ground with no river. Measured on dev for T-2175 (2026-10-09): every South Water lot from Market to State is held; no free lot of the South Division stands inside bank_landing_reach_m (27.09 m) of traced water, the nearest free one being blk_lake_market lot 1 at 35.0 m; and tools/measure_south_bank_ground.py reads the Dearborn reach's bank as taking no more sheds at the generators' 0.30 m relief bound. THE GROUND THAT IS LEFT is the South Branch's own east bank, the dry, unplatted strip between Market Street's corridor and the traced water: 10-40 m wide from Randolph to Madison, outside every platted lot, no-build region and camp candidate. It is already in use on this bank: Newberry & Dole's packing house, slaughter-house, salt house and stock shed and a cooperage stand on it between Randolph and Washington, facing the branch. Between Washington and Madison it is empty, and both roofs stand there. THE CLAUSE IS THE BANK LANDING (`bank_landing` in tools/placement_policy_1835.py, T-2022): a freight roof is accepted only within 27.09 m of traced water, with nothing between it and the river. Here there is not even a river street between them. The F4 is not built here: bank_landing admits F1-F3 only, because a lumber shed is seated by its material and not by the landing, so it is T-2269's. THE FACE: each warehouse fronts the branch it would load from, as Dole's packing house on the same bank does, with its back wall 3.0 m inside Market Street's west line. The first stands 3.0 m north of Madison Street's north line, and the second 6.0 m north of the first, across a cart way.",
+  "replaceable_by": "Any reading that seats a named forwarder, warehouse or lumber merchant on the South Branch's east bank below Washington Street in July 1835 substitutes for one of these roofs rather than adding beside it; the order book's South street-line freight band is the count they fill.",
+  "street": "market",
+  "corner_street": "madison",
+  "placements": [
+    {
+      "structure_id": "recon_1835_south_branch_freight_f3_001",
+      "family": "F3",
+      "sequence": 1,
+      "rear_setback_m": 3.0,
+      "station_m": 3.0,
+      "geometry_seed": "recon_1835_south_branch_freight_f3_001"
+    },
+    {
+      "structure_id": "recon_1835_south_branch_freight_f3_002",
+      "family": "F3",
+      "sequence": 2,
+      "rear_setback_m": 3.0,
+      "gap_m": 6.0,
+      "geometry_seed": "recon_1835_south_branch_freight_f3_002"
+    }
+  ]
+}
