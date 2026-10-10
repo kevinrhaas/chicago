@@ -43,6 +43,25 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
                             builds it in its own wall frame and `bay` lays it on
                             its host wall, which carries no opening behind it
 
+  and, since T-2289, the stone street front laid from the K02 stone library
+  (`data/components/prairie_1904/k02_stone_profiles.json`, read through the record's
+  `stone_front`) instead of drawn as one flat face. The kits keep what they build —
+  K06 its sills, K09 its heads, aprons and entrance, K07 the stoop, K08 the bay — and
+  the walling is laid round them, dressed smooth wherever one of them is seated:
+
+  k01.wall.stone_course     one course of the street front: rock-faced blocks of its
+                            own height, each sampling its own window of the fabric
+                            (seeded offset and mirror), joints recessed to the
+                            mortar, a bevelled arris and sparse chipped corners
+  k01.wall.rusticated_base  the base courses, channel-jointed
+  k01.wall.coping           the weathered coping over the base: fall, overhang and a
+                            drip groove under its nose
+  k01.wall.corner_bond      a quoin on the south return, long and short in turn
+                            against the front's own corner stone
+  k01.opening.flat_arch     voussoirs over every front opening K09 leaves a flat
+                            head (the area lights, the third floor), their joints
+                            radiating and each stone's bed turned along its joint
+
 A wall is the cell grid its openings cut, so no face is ever drawn twice and no
 cell straddles an opening edge (T-junction free inside the wall). Faces that sit
 against another surface — a stone's back on the wall, the stoop's back and
@@ -55,6 +74,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import random
 import struct
 from pathlib import Path
 
@@ -65,6 +85,7 @@ from . import k10_frontage
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
 ROOFS = ROOT / "assets" / "textures" / "prairie_1904_roofs"   # K04, T-2292
+STONE = ROOT / "assets" / "textures" / "prairie_1904_stone"   # K02, T-2288
 GENERATOR = "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)"
 
 Y = (0.0, 1.0, 0.0)
@@ -111,6 +132,8 @@ MATERIALS = {
     "rough_stone_trim": {"fabric": "limestone", "color": (0.90, 0.85, 0.76), "roughness": 0.92},
     "brick": {"fabric": "brick", "color": (1.0, 0.985, 0.94), "roughness": 0.9},  # Glessner's brick_buff
     "limestone_trim": {"fabric": "limestone", "color": (1.0, 0.97, 0.90), "roughness": 0.85},
+    # T-2289: what a K02 joint is recessed to — Glessner's sandy lime, as the profiles say
+    "mortar": {"fabric": "mortar", "color": (1.0, 1.0, 1.0), "roughness": 0.95},
     "stoop_stone": {"fabric": "limestone", "color": (0.95, 0.92, 0.86), "roughness": 0.88},
     "sash": {"color": (0.12, 0.19, 0.14), "roughness": 0.6},
     # T-2298: K06's glass (k06_windows.json parts.glass): one thin blended layer, so the
@@ -172,6 +195,8 @@ def _tiles() -> dict:
     out = {m["name"]: tuple(m["tile_m"]) for m in lib} | k03_brick.TILES
     for m in json.loads((ROOFS / "manifest.json").read_text())["materials"]:
         out[m["id"]] = tuple(m["tile_m"])
+    for m in json.loads((STONE / "manifest.json").read_text())["materials"]:
+        out[m["id"]] = tuple(m["tile_m"])
     return out
 
 
@@ -179,6 +204,55 @@ def _k04_fabric(fab: str) -> dict | None:
     """A K04 fabric's material.json, or None for a fabric from another library."""
     f = ROOFS / fab / "material.json"
     return json.loads(f.read_text()) if f.exists() else None
+
+
+def _k02_fabric(fab: str) -> dict | None:
+    """A K02 stone fabric's material.json (T-2289), or None."""
+    f = STONE / fab / "material.json"
+    return json.loads(f.read_text()) if f.exists() else None
+
+
+def _inset(poly, dist):
+    """A convex (s, y) polygon, counter-clockwise, each edge moved inward by its own
+    distance (`dist[i]` for the edge from vertex i to i + 1): the moved edges' meets."""
+    n = len(poly)
+    lines = []
+    for i in range(n):
+        a, b = poly[i], poly[(i + 1) % n]
+        ex, ey = b[0] - a[0], b[1] - a[1]
+        ln = math.hypot(ex, ey)
+        ex, ey = ex / ln, ey / ln
+        lines.append(((a[0] - ey * dist[i], a[1] + ex * dist[i]), (ex, ey)))
+    out = []
+    for i in range(n):
+        (p1, d1), (p2, d2) = lines[i - 1], lines[i]
+        den = d1[0] * d2[1] - d1[1] * d2[0]
+        t = ((p2[0] - p1[0]) * d2[1] - (p2[1] - p1[1]) * d2[0]) / den
+        out.append((p1[0] + d1[0] * t, p1[1] + d1[1] * t))
+    return out
+
+
+def _lay(rng, a, b, lo, hi, first=None, avoid=()):
+    """Cut a run [a, b] into stones of lo..hi metres, the first `first` long when the
+    run starts on a bonded corner; joints kept 0.1 m off the course below's where
+    twelve draws allow (a straight joint through two courses is the fault to avoid)."""
+    best = None
+    for _ in range(12):
+        cuts, x = [], a
+        if first is not None and (b - a - first >= lo or abs(b - a - first) < 1e-9):
+            x = a + first
+            if b - x > 1e-9:
+                cuts.append(x)
+        while b - x > hi:
+            x += rng.uniform(lo, min(hi, b - x - lo))
+            cuts.append(x)
+        score = min((abs(c - v) for c in cuts for v in avoid), default=1.0)
+        if best is None or score > best[0]:
+            best = (score, cuts)
+        if score >= 0.1:
+            break
+    edges = [a, *best[1], b]
+    return list(zip(edges[:-1], edges[1:]))
 
 
 def _images(fab: str) -> dict:
@@ -191,6 +265,11 @@ def _images(fab: str) -> dict:
         # T-2293: the relief a raking sun reads on slate courses and dressed copper
         return {"basecolor": ROOFS / fab / k04["web"]["basecolor"],
                 "normal": ROOFS / fab / k04["web"]["normal_gl"]}
+    k02 = _k02_fabric(fab)
+    if k02 is not None:
+        # T-2289: and a K02 stone's, for the grain of a rock face and a dressed arris
+        return {"basecolor": STONE / fab / k02["web"]["basecolor"],
+                "normal": STONE / fab / k02["web"]["normal_gl"]}
     return {"basecolor": LIBRARY / f"{fab}_basecolor.jpg"}
 
 
@@ -248,6 +327,26 @@ class Assembly:
             self.fabric["slate_covering"] = params.roof["covering"]
         self.soffit_m = None   # set by build(); the soot band hangs from it
         self.trim_triangles: dict[str, int] = {}   # T-2310: K09 trim, per kit id
+        # T-2289: a coursed stone front lays its walling and its trim in K02 fabrics,
+        # whose maps carry their own colour, so the factors go to white
+        self.spec = {k: dict(v) for k, v in MATERIALS.items()}
+        if params.stone:
+            st = params.stone
+            for slot, fab, rough in (("rough_stone_trim", st["fabric"], st["fabric_roughness"]),
+                                     ("limestone_trim", st["trim"], st["trim_roughness"])):
+                self.fabric[slot] = fab
+                self.spec[slot] |= {"color": (1.0, 1.0, 1.0), "roughness": rough}
+        # T-2289: what each kit seats on a wall, as (s0, s1, y0, y1, kind) in that wall's
+        # frame, keyed by the frame's origin: the coursed front dresses the stone under it
+        self.footprints: dict[tuple, list] = {}
+
+    def seat(self, frame, pts, kind):
+        """Note the (s, y) extent of what a kit laid on a wall's face — its points at or
+        proud of the face, in the wall's own frame (s along it, y up, d out of it)."""
+        on = [q for q in pts if q[2] > -1e-3]
+        if on:
+            self.footprints.setdefault(tuple(frame[0]), []).append(
+                (min(q[0] for q in on), max(q[0] for q in on), min(q[1] for q in on), max(q[1] for q in on), kind))
 
     def prim(self, name):
         if name not in self.prims:
@@ -331,9 +430,11 @@ class Assembly:
         return (O, R, N), thickness
 
     # -- k01.opening.* ---------------------------------------------------------------
-    def opening(self, op, frame, thickness, body_mat, stone_trim, cut=False):
+    def opening(self, op, frame, thickness, body_mat, stone_trim, cut=False, coursed=False):
         """`cut`: the reveal is already a solid's (a recess the K05 union cut, T-2302, to
-        K06's reveal depth), so K06 sets everything behind it, and its sill and lintel."""
+        K06's reveal depth), so K06 sets everything behind it, and its sill and lintel.
+        `coursed`: the wall is K02 coursed stone, which lays a flat arch of voussoirs where
+        K09 leaves a flat head (T-2289), so no K01 lintel is drawn here."""
         p = self.p
         O, R, N = frame
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
@@ -371,9 +472,393 @@ class Assembly:
                 k03_brick.soldier_head(self, seed, frame, s0, s1, y1, conf)
             return
         # T-2310: a K09 head where the record names one; else a flat lintel
-        if k09_frontage.dress(self, op, frame, max(conf, p.conf("street_front_trim"))):
+        if k09_frontage.dress(self, op, frame, max(conf, p.conf("street_front_trim"))) or coursed:
             return
         self.proud_box(stone_trim, frame, s0 - 0.12, s1 + 0.12, y1, y1 + 0.30, 0.03, seed, conf)
+
+    # -- K02 masonry: the coursed stone front (T-2289) -------------------------------
+    # Every number below a stone is laid to — course height, block length, joint,
+    # recess, arris bevel, chips, rock-faced projection, quoin return, channel, the
+    # coping's fall, overhang and drip — is the K02 profile's, resolved into
+    # `params.stone` by k01_frontage_params._k02. What is this module's own: the slip
+    # sill's 0.10 m and 0.06 m, the flat arch's 0.12 m seat, 0.30 m depth and ~0.2 m
+    # voussoirs, and the trim's projection — the K01 lintel and sill they replace,
+    # carried over — and they are said in docs/LIBERTIES.md L-k02-1808-stone-2289.
+
+    def _stone_seed(self, cid, inst, j):
+        """k01_contract.json seed rule, one level down: a stone's seed is its
+        component id, the component's instance and the stone's index in it."""
+        return seed_of(self.sid, f"{cid}#{inst}", j)
+
+    def _sface(self, mat, pts, hint, origin, bed, seed, mirror, conf, project=True):
+        """One planar face of a stone: its true normal turned towards `hint`, its UVs
+        metres along the stone's bed (u) and across it (v) from the stone's own
+        origin, so every face of one stone samples one window of the fabric. A face
+        tilted off the wall (a bevel, a sill's top) projects the bed into its own
+        plane, which keeps it metric; a rock face's facets take the wall's own axes,
+        which keeps the fabric continuous across them."""
+        n = (0.0, 0.0, 0.0)
+        for i, a in enumerate(pts):
+            b = pts[(i + 1) % len(pts)]
+            n = _add(n, ((a[1] - b[1]) * (a[2] + b[2]), (a[2] - b[2]) * (a[0] + b[0]),
+                         (a[0] - b[0]) * (a[1] + b[1])))
+        if _dot(n, n) < 1e-16:
+            return
+        n = _unit(n)
+        if _dot(n, hint) < 0:
+            n = _mul(n, -1)
+        plane = n if project else _unit(hint)
+        au = _sub(bed, _mul(plane, _dot(bed, plane)))
+        if _dot(au, au) < 1e-8:
+            au = _sub(Y, _mul(plane, _dot(Y, plane)))
+        au = _unit(au)
+        av = _unit(_cross(plane, au))
+        if mirror:
+            au = _mul(au, -1)
+        self.prim(mat).face(pts, n, self.basis(mat, origin, au, av, seed), conf)
+
+    def stone(self, frame, poly, joints, mat, seed, conf, *, recess, bevel, F=0.0, rock=0.0,
+              bed=None, chips=None, skip=frozenset()):
+        """One stone in a wall: `poly` its cell, (s, y) counter-clockwise, `joints[i]`
+        the half joint on edge i (0 where it ends a wall). The arris is the cell less
+        its joints, recessed to the mortar at -recess; the face is the arris less the
+        bevel, at F proud of the wall line, and a rock face rises `rock` further at a
+        point near its middle. The mortar fills the whole cell at -recess, so every
+        joint has a floor and no stone is open behind. Chipped corners, drawn from the
+        stone's seed at the profile's rate along its arris, skip the corners in `skip`
+        (the stone before's), and are returned."""
+        O, R, N = frame
+        P = lambda q, d: _add(_add(_add(O, _mul(R, q[0])), _mul(Y, q[1])), _mul(N, d))
+        rng = random.Random(seed)
+        bed = bed or R
+        mirror = bool(seed >> 31)
+        origin = P(poly[0], 0.0)
+        n = len(poly)
+        rect = _inset(poly, joints)
+        front = _inset(rect, [bevel] * n)
+        chipped = {}
+        if chips and chips["chips_per_m"] > 0:
+            perim = sum(math.dist(front[i], front[(i + 1) % n]) for i in range(n))
+            mean, want, acc = chips["chips_per_m"] * perim, 0, rng.random()
+            while acc > math.exp(-mean) and want < n:
+                want += 1
+                acc *= rng.random()
+            free = [c for c in range(n) if c not in skip]
+            for c in sorted(rng.sample(free, min(want, len(free)))):
+                a, b, m = front[c - 1], front[(c + 1) % n], front[c]
+                room = 0.3 * min(math.dist(a, m), math.dist(b, m))
+                cl = min(rng.uniform(*chips["chip_length_m"]), room)
+                cd = rng.uniform(*chips["chip_depth_m"])
+                ua = ((a[0] - m[0]) / math.dist(a, m), (a[1] - m[1]) / math.dist(a, m))
+                ub = ((b[0] - m[0]) / math.dist(b, m), (b[1] - m[1]) / math.dist(b, m))
+                cA, cB = (m[0] + ua[0] * cl, m[1] + ua[1] * cl), (m[0] + ub[0] * cl, m[1] + ub[1] * cl)
+                # the chip's floor must lie behind the plane its three rims make, or it is
+                # a bump, not a chip: deepen it to that plane, and drop it if that would
+                # take it through the joint's floor
+                A3, B3, C3 = P(cA, F), P(cB, F), P(rect[c], -recess)
+                nn = _cross(_sub(B3, A3), _sub(C3, A3))
+                den = _dot(nn, N)
+                if abs(den) < 1e-12:
+                    continue
+                d_plane = -_dot(nn, _sub(P(m, 0.0), A3)) / den
+                dq = min(F - cd, d_plane - 0.001)
+                if dq < -recess + 0.001 or cl < 0.004:
+                    continue
+                chipped[c] = (cA, cB, dq)
+        ring = []  # the face's outline, chips cut out of its corners
+        for c in range(n):
+            ring += [chipped[c][0], chipped[c][1]] if c in chipped else [front[c]]
+        if rock > 0:
+            # a split face, not a pyramid: an inner ring of points drawn in towards a
+            # wandering crown, each at its own height under the stone's projection, so
+            # the facets a raking sun picks out differ from stone to stone
+            ws = max(q[0] for q in front) - min(q[0] for q in front)
+            hs = max(q[1] for q in front) - min(q[1] for q in front)
+            cs = sum(q[0] for q in front) / n + rng.uniform(-0.2, 0.2) * ws
+            cy = sum(q[1] for q in front) / n + rng.uniform(-0.2, 0.2) * hs
+            apex = P((cs, cy), F + rock)
+            inner = []
+            for q in ring:
+                k_ = rng.uniform(0.35, 0.7)
+                inner.append(P((cs + (q[0] - cs) * k_, cy + (q[1] - cy) * k_), F + rock * rng.uniform(0.35, 0.9)))
+            m_ = len(ring)
+            for i in range(m_):
+                a_, b_ = P(ring[i], F), P(ring[(i + 1) % m_], F)
+                ia, ib = inner[i], inner[(i + 1) % m_]
+                for tri in ((a_, b_, ib), (a_, ib, ia), (ia, ib, apex)):
+                    self._sface(mat, list(tri), N, origin, bed, seed, mirror, conf, project=False)
+        else:
+            self._sface(mat, [P(q, F) for q in ring], N, origin, bed, seed, mirror, conf)
+        for i in range(n):
+            j = (i + 1) % n
+            st = chipped[i][1] if i in chipped else front[i]
+            en = chipped[j][0] if j in chipped else front[j]
+            ex, ey = rect[j][0] - rect[i][0], rect[j][1] - rect[i][1]
+            out = _add(_add(_mul(R, ey), _mul(Y, -ex)), _mul(N, 0.05 * math.hypot(ex, ey)))
+            self._sface(mat, [P(st, F), P(en, F), P(rect[j], -recess), P(rect[i], -recess)], out,
+                        origin, bed, seed, mirror, conf)
+        for c, (cA, cB, dq) in chipped.items():
+            Q, Rk = P(front[c], dq), P(rect[c], -recess)
+            out = _add(_add(_mul(R, rect[c][0] - front[c][0]), _mul(Y, rect[c][1] - front[c][1])), _mul(N, 0.01))
+            for tri in ((P(cA, F), Rk, Q), (Rk, P(cB, F), Q), (P(cB, F), P(cA, F), Q)):
+                self._sface(mat, list(tri), out, origin, bed, seed, mirror, conf)
+        self.prim("mortar").face([P(q, -recess) for q in poly], N,
+                                 self.basis("mortar", O, R, Y, seed), conf)
+        return frozenset(chipped)
+
+    def coping_piece(self, frame, sa, sb, yb, yt, joints, seed, conf, recess):
+        """One stone of the base's coping: its top weathered at the profile's fall
+        out from the wall line, its nose `overhang` past the base's rock faces, a drip
+        groove cut up under the nose; mortar behind its cell."""
+        O, R, N = frame
+        k = self.p.stone
+        P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
+        jb, jr, jt, jl = joints
+        s0, s1, y0, top0 = sa + jl, sb - jr, yb + jb, yt - jt
+        Fc = k["rock_face_m"][1] + k["coping_overhang_m"]
+        dg = k["drip_groove_m"]
+        x1, x2 = Fc - 0.03 - dg, Fc - 0.03
+        top = lambda d: top0 - k["coping_fall"] * d
+        mat, mirror, origin = "limestone_trim", bool(seed >> 31), P(sa, yb, 0.0)
+        f = lambda pts, hint: self._sface(mat, pts, hint, origin, R, seed, mirror, conf)
+        f([P(s0, top0, 0.0), P(s1, top0, 0.0), P(s1, top(Fc), Fc), P(s0, top(Fc), Fc)], Y)
+        f([P(s0, y0, Fc), P(s1, y0, Fc), P(s1, top(Fc), Fc), P(s0, top(Fc), Fc)], N)
+        down = _mul(Y, -1)
+        f([P(s0, y0, 0.0), P(s1, y0, 0.0), P(s1, y0, x1), P(s0, y0, x1)], down)
+        f([P(s0, y0, x2), P(s1, y0, x2), P(s1, y0, Fc), P(s0, y0, Fc)], down)
+        f([P(s0, y0 + dg, x1), P(s1, y0 + dg, x1), P(s1, y0 + dg, x2), P(s0, y0 + dg, x2)], down)
+        f([P(s0, y0, x1), P(s1, y0, x1), P(s1, y0 + dg, x1), P(s0, y0 + dg, x1)], N)
+        f([P(s0, y0, x2), P(s1, y0, x2), P(s1, y0 + dg, x2), P(s0, y0 + dg, x2)], _mul(N, -1))
+        for s, hint in ((s0, _mul(R, -1)), (s1, R)):
+            for quad in (((0.0, y0), (x1, y0), (x1, top(x1)), (0.0, top0)),
+                         ((x1, y0 + dg), (x2, y0 + dg), (x2, top(x2)), (x1, top(x1))),
+                         ((x2, y0), (Fc, y0), (Fc, top(Fc)), (x2, top(x2)))):
+                f([P(s, y, d) for d, y in quad], hint)
+        self.prim("mortar").face([P(sa, yb, -recess), P(sb, yb, -recess), P(sb, yt, -recess), P(sa, yt, -recess)],
+                                 N, self.basis("mortar", O, R, Y, seed), conf)
+
+    def flat_arch(self, frame, s0, s1, y1, h, conf, recess):
+        """k01.opening.flat_arch: voussoirs over an opening, seated 0.12 m into the wall
+        each side, their joints radiating from a point below so each wedge is wider
+        at its back than its face; each stone's bed turned along its radial joint
+        (k02_stone_profiles.json common.bed_orientation), the keystone proud."""
+        O, R, N = frame
+        t = self.p.stone["trim_edges"]
+        a, b = s0 - 0.12, s1 + 0.12
+        w = b - a
+        n = max(5, int(round(w / 0.2)) | 1)
+        c = (a + b) / 2
+        r0 = (w / 2) / math.tan(math.radians(12.0))
+        xs = [a + w * i / n for i in range(n + 1)]
+        xt = [a] + [x + (x - c) * h / r0 for x in xs[1:-1]] + [b]
+        cid = "k01.opening.flat_arch"
+        self.instance(cid, "opening", {"voussoirs": n, "span_m": w, "depth_m": h, "seat_m": 0.12,
+                                       "springing": "radial from 12 degrees", "fabric": self.p.stone["trim"]},
+                      {"springing": _add(_add(O, _mul(R, a)), _mul(Y, y1)),
+                       "crown": _add(_add(O, _mul(R, c)), _mul(Y, y1 + h))})
+        inst = len(self.components[cid]["instances"]) - 1
+        hj = t["joint_m"] / 2
+        for j in range(n):
+            poly = [(xs[j], y1), (xs[j + 1], y1), (xt[j + 1], y1 + h), (xt[j], y1 + h)]
+            mb = ((xs[j] + xs[j + 1]) / 2, y1)
+            mt = ((xt[j] + xt[j + 1]) / 2, y1 + h)
+            bed = _unit(_add(_mul(R, mt[0] - mb[0]), _mul(Y, mt[1] - mb[1])))
+            self.stone(frame, poly, [hj] * 4, "limestone_trim", self._stone_seed(cid, inst, j), conf,
+                       recess=recess, bevel=t["bevel_m"], F=0.05 if j == n // 2 else 0.03, bed=bed)
+
+    def stone_front(self, cid, O, R, length, E, yf, thickness, openings):
+        """The street front as K02 coursed ashlar, laid round what the kits have already
+        seated on it (`self.footprints`: K06 sills, K07's stoop, K09's heads, aprons and
+        entrance, K08's bay). Course lines are struck on the base, the coping, every K06
+        sill's bed, every head and flat-arch top and the belts, and the walling between
+        them is cut into equal courses inside the profile's range. An opening or a flat
+        arch is a hole in a course; where a kit is seated, the course goes on but its
+        stones are dressed smooth and laid flush (no rock face, no chip, a belt not
+        proud), so every kit piece stands on a plane face, never on a rock face that
+        would bury its foot. Returns the south corner's quoins for the side wall."""
+        p, k = self.p, self.p.stone
+        N = _cross(R, Y)
+        frame = (O, R, N)
+        conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "stone_front")
+        floors = p.floors_m
+        wk, tk = k["wall"], k["trim_edges"]
+        r_wall, r_base = wk["recess_m"], k["channel_depth_m"]
+        bc = k["base_course_m"]
+        base_top = bc * k["base_courses"]
+        cop_top = k["coping_top_m"]
+        self.instance(cid, "wall", {"length_m": length, "height_m": E, "thickness_m": thickness,
+                                    "construction": "masonry", "openings": len(openings),
+                                    "fabric": k["fabric"], "dressing": k["dressing"]},
+                      {"base": O, "top": _add(O, _mul(Y, E))})
+        holes = [(o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m) for o in openings]
+        # a flat arch where K09 leaves a flat head: the area lights and the third floor
+        arches = [(s0, s1, y1, round(y1 + 0.30, 4)) for o, (s0, s1, _, y1) in zip(openings, holes)
+                  if k09_frontage.head(p, o) == k09_frontage.FLAT]
+        # what the kits seat on this face, widened by a joint and an arris so a piece's
+        # edge never stands over a bevel; K06's sill beds are course lines
+        m = wk["joint_m"] / 2 + wk["bevel_m"] + 0.01
+        seats = [(a0 - m, a1 + m, b0 - m, b1 + m, kind) for a0, a1, b0, b1, kind in self.footprints.get(tuple(O), [])]
+        sill_beds = {round(b0 + m, 4) for _, _, b0, _, kind in seats if kind == "K06.sill"}
+        belts = [(floors[1] - 0.20, floors[1])] + ([(floors[2] - 0.15, floors[2])] if len(floors) > 2 else [])
+        lines = {0.0, cop_top, yf, *[bc * i for i in range(1, k["base_courses"] + 1)]}
+        lines |= {y for y in sill_beds if y > cop_top + 1e-6}
+        lines |= {y for (_, _, _, y) in holes + arches if y > cop_top + 1e-6}
+        lines |= {y for band in belts for y in band}
+        merged = []
+        for y in sorted(round(y, 4) for y in lines if y <= yf + 1e-6):
+            if not merged or y - merged[-1] >= 0.02:
+                merged.append(y)
+        courses = []
+        lo_c, hi_c = k["course_m"]
+        for ya, yb in zip(merged, merged[1:]):
+            if yb <= base_top + 1e-6:
+                courses.append((ya, yb, "base"))
+            elif abs(ya - base_top) < 1e-6 and abs(yb - cop_top) < 1e-6:
+                courses.append((ya, yb, "coping"))
+            elif any(abs(ya - b0) < 1e-6 and abs(yb - b1) < 1e-6 for b0, b1 in belts):
+                courses.append((ya, yb, "belt"))
+            elif yb - ya < lo_c - 1e-9:
+                courses.append((ya, yb, "band"))   # too thin for the walling: a dressed band
+            else:
+                n_ = math.ceil((yb - ya) / hi_c - 1e-9)
+                courses += [(ya + (yb - ya) * i / n_, ya + (yb - ya) * (i + 1) / n_, "walling") for i in range(n_)]
+        rects = holes + arches
+        quoins, prev_joints, parity = [], [], 0
+        for ya, yb, kind in courses:
+            trim = kind in ("coping", "belt", "band")
+            spec = tk if trim else wk
+            lo, hi = k["trim_block_m"] if trim else k["block_m"]
+            r = r_base if kind == "base" else r_wall
+            jh = (k["channel_m"] if kind == "base" else spec["joint_m"]) / 2
+            jv = spec["joint_m"] / 2
+            ccid = {"base": "k01.wall.rusticated_base", "coping": "k01.wall.coping"}.get(kind, "k01.wall.stone_course")
+            cparams = {"bed_m": ya, "height_m": yb - ya, "kind": kind,
+                       "fabric": k["trim"] if trim else k["fabric"]}
+            if kind == "base":
+                cparams |= {"channel_width_m": k["channel_m"], "channel_depth_m": r_base}
+            if kind == "coping":
+                cparams |= {"fall": k["coping_fall"], "overhang_m": k["coping_overhang_m"],
+                            "drip_groove_m": k["drip_groove_m"]}
+            cseed = self.instance(ccid, "wall", cparams,
+                                  {"bed": _add(O, _mul(Y, ya)), "top": _add(O, _mul(Y, yb))})
+            inst = len(self.components[ccid]["instances"]) - 1
+            rng = random.Random(cseed)
+            obs = [o for o in rects if o[2] < yb - 1e-6 and o[3] > ya + 1e-6]
+            here = [q for q in seats if q[2] < yb - 1e-6 and q[3] > ya + 1e-6]
+            # a seat's edge cuts the course too, unless it falls within 0.08 m of a harder
+            # edge (a wall end, an opening, an arch) or of another seat's: no sliver stones
+            S = sorted({0.0, length, *[min(max(x, 0.0), length) for o in obs for x in (o[0], o[1])]})
+            for x in sorted(min(max(x, 0.0), length) for q in here for x in (q[0], q[1])):
+                if all(abs(x - e) >= 0.08 for e in S):
+                    S = sorted([*S, x])
+            spans = []
+            for sa, sb in zip(S, S[1:]):
+                if sb - sa < 1e-6:
+                    continue
+                mid = (sa + sb) / 2
+                free, y = [], ya
+                for c0, c1 in sorted((o[2], o[3]) for o in obs if o[0] < mid < o[1]):
+                    if c0 > y + 1e-6:
+                        free.append((y, min(c0, yb)))
+                    y = max(y, c1)
+                if y < yb - 1e-6:
+                    free.append((y, yb))
+                if spans and spans[-1][2] == free and abs(spans[-1][1] - sa) < 1e-9 \
+                        and spans[-1][3] == self._seated(here, sa, sb):
+                    spans[-1][1] = sb
+                else:
+                    spans.append([sa, sb, free, self._seated(here, sa, sb)])
+            joints_here, j = [], 0
+            corner = "south" in k["corners"] and kind in ("base", "walling")
+            for sa, sb, free, _ in spans:
+                for fy0, fy1 in free:
+                    first = None
+                    if corner and sa == 0.0 and abs(fy0 - ya) < 1e-9 and abs(fy1 - yb) < 1e-9 \
+                            and not self._seated(here, 0.0, min(sb, hi), fy0, fy1):
+                        rlo, rhi = k["quoin_return_m"]
+                        long_side = parity % 2 == 0
+                        # to the centimetre, so two returns never leave the brick a sliver
+                        ret = round(rng.uniform(0.8 * rhi, rhi) if long_side else rng.uniform(rlo, 1.2 * rlo), 2)
+                        first = lo if long_side else min(hi, 0.75 * hi)
+                        quoins.append((ret, ya, yb, kind, jh, jv, r))
+                        parity += 1
+                    full = abs(fy0 - ya) < 1e-9 and abs(fy1 - yb) < 1e-9
+                    pieces = _lay(rng, sa, sb, lo, hi, first, prev_joints if full else ())
+                    skip = frozenset()
+                    for s0, s1 in pieces:
+                        joints = [0.0 if fy0 <= 1e-9 else jh, 0.0 if s1 >= length - 1e-9 else jv,
+                                  0.0 if fy1 >= yf - 1e-9 else jh, 0.0 if s0 <= 1e-9 else jv]
+                        bseed = self._stone_seed(ccid, inst, j)
+                        j += 1
+                        # a kit seated on this stone: dressed smooth and flush, of the trim
+                        flush = self._seated(here, s0, s1, fy0, fy1)
+                        if kind == "coping" and not flush:
+                            self.coping_piece(frame, s0, s1, fy0, fy1, joints, bseed, conf, r)
+                        else:
+                            dressed = trim or flush
+                            brng = random.Random(bseed ^ 0x5EED)
+                            rock = brng.uniform(*k["rock_face_m"]) if not dressed else 0.0
+                            skip = self.stone(frame, [(s0, fy0), (s1, fy0), (s1, fy1), (s0, fy1)], joints,
+                                              "limestone_trim" if dressed else "rough_stone_trim",
+                                              bseed, conf, recess=r, bevel=(tk if dressed else wk)["bevel_m"],
+                                              F=0.05 if kind == "belt" and not flush else 0.0, rock=rock,
+                                              chips=None if dressed else spec, skip=skip if not dressed else frozenset())
+                        if kind == "base" and abs(fy1 - base_top) < 1e-6:
+                            # the rusticated base's channels are deeper than the joints over
+                            # it: a ledge closes the step between the two mortar floors
+                            self.prim("mortar").face([_add(_add(O, _mul(R, s)), _add(_mul(Y, base_top), _mul(N, d)))
+                                                      for s, d in ((s0, -r_base), (s1, -r_base), (s1, -r_wall), (s0, -r_wall))],
+                                                     _mul(Y, -1), self.basis("mortar", O, R, N, bseed), conf)
+                        if 1e-9 < s1 < length - 1e-9:
+                            joints_here.append(s1)
+            prev_joints = joints_here
+        for s0, s1, y1, y2 in arches:
+            self.flat_arch(frame, s0, s1, y1, y2 - y1, conf, r_wall)
+        # the wall behind the soffit, up to the eave: inside the roof, one plain face
+        P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
+        if E - yf > 1e-6:
+            self.prim("rough_stone_trim").face([P(0.0, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(0.0, E, 0.0)],
+                                               N, self.basis("rough_stone_trim", O, R, Y, 0), conf)
+        return frame, quoins
+
+    @staticmethod
+    def _seated(seats, s0, s1, y0=None, y1=None) -> bool:
+        """Does any kit stand on the cell [s0, s1] x [y0, y1] (any height if y is None)?"""
+        return any(q[0] < s1 - 1e-6 and q[1] > s0 + 1e-6
+                   and (y0 is None or (q[2] < y1 - 1e-6 and q[3] > y0 + 1e-6)) for q in seats)
+
+    def quoins(self, frame, length, quoins):
+        """k01.wall.corner_bond: the front's corner stones returned on the south wall,
+        long and short in turn, laid in its brick; a step closes each one's mortar
+        floor to the brick face beside, above and below it."""
+        O, R, N = frame
+        k = self.p.stone
+        P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
+        conf = self.p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "stone_front")
+        cid = "k01.wall.corner_bond"
+        rows = sorted(quoins, key=lambda q: q[1])
+        for i, (ret, ya, yb, kind, jh, jv, r) in enumerate(rows):
+            seed = self.instance(cid, "wall", {"return_m": ret, "bed_m": ya, "height_m": yb - ya, "kind": kind,
+                                               "fabric": k["fabric"]},
+                                 {"corner": P(length, ya, 0.0)})
+            inst = len(self.components[cid]["instances"]) - 1
+            s0 = length - ret
+            rock = random.Random(seed ^ 0x5EED).uniform(*k["rock_face_m"])
+            self.stone(frame, [(s0, ya), (length, ya), (length, yb), (s0, yb)],
+                       [0.0 if ya <= 1e-9 else jh, 0.0, jh, jv], "rough_stone_trim",
+                       self._stone_seed(cid, inst, 0), conf, recess=r, bevel=k["wall"]["bevel_m"],
+                       rock=rock, chips=k["wall"])
+            steps = [((s0, yb, -r), (s0, ya, -r), (s0, ya, 0.0), (s0, yb, 0.0), R)]
+            below = rows[i - 1] if i > 0 and abs(rows[i - 1][2] - ya) < 1e-6 else None
+            above = rows[i + 1] if i + 1 < len(rows) and abs(rows[i + 1][1] - yb) < 1e-6 else None
+            ob = length - (above[0] if above else 0.0)
+            if ob > s0 + 1e-6:
+                steps.append(((s0, yb, -r), (ob, yb, -r), (ob, yb, 0.0), (s0, yb, 0.0), _mul(Y, -1)))
+            ub = length - (below[0] if below else 0.0)
+            if ya > 1e-9 and ub > s0 + 1e-6:
+                steps.append(((s0, ya, -r), (ub, ya, -r), (ub, ya, 0.0), (s0, ya, 0.0), Y))
+            for *pts, hint in steps:
+                self.prim("mortar").face([P(*q) for q in pts], hint, self.basis("mortar", O, R, Y, seed), conf)
 
     # -- K06 glazing (T-2298) ------------------------------------------------------------
     # K06 role -> this assembly's material. The reveal is the wall's own body and the
@@ -430,7 +915,7 @@ class Assembly:
                 raise ValueError(f"{kit} role {role!r} has no material on a K01 frontage")
             mat = roles[role]
             seed, conf = seed_conf(role)
-            fab = MATERIALS[mat].get("fabric")
+            fab = self.fabric[mat]
             tu, tv = self.tiles[fab] if fab else (1.0, 1.0)
             _, _, _, _, _, ou, ov = self.basis(mat, O, R, Y, seed)
             dst = self.prim(mat)
@@ -443,6 +928,8 @@ class Assembly:
                 dst.conf.append(conf)
                 dst.tone.append(dst.tone_of(dst.pos[-1][1]) if dst.tone_of else 1.0)  # T-2291's mask
             dst.idx += [off + i for i in src.idx]
+            if role != "reveal":   # the reveal is the hole's own edge
+                self.seat(frame, [(op.s_m + q[0], op.sill_m + q[1], q[2]) for q in src.pos], f"{kit}.{role}")
 
     # -- k08.* bays (T-2308) -------------------------------------------------------------
     def bay(self, b, frame) -> tuple:
@@ -475,7 +962,7 @@ class Assembly:
                 raise ValueError(f"K08 role {role!r} has no material on a K01 frontage")
             mat = {"body": body, "cover": cover}.get(K08_ROLES[role], K08_ROLES[role])
             spec = MATERIALS[mat]
-            fab = spec.get("fabric")
+            fab = self.fabric[mat]
             tu, tv = self.tiles[fab] if fab else (1.0, 1.0)
             _, _, _, _, _, ou, ov = self.basis(mat, O, R, Y, seed)
             dst = self.prim(mat)
@@ -502,6 +989,9 @@ class Assembly:
                 if min(math.dist(world[i], world[j]), math.dist(world[j], world[k]),
                        math.dist(world[i], world[k])) >= SLIVER_M:
                     dst.idx += [off + i, off + j, off + k]
+        # T-2289: everything the bay stands against its wall with, junctions to roof
+        self.seat(frame, [(b["s_m"] + q[0], q[1], 0.0 if q[2] < 0.02 else -1.0)
+                          for pr in built.prims.values() for q in pr.pos], "k08")
         roof = built.prims.get("roof")
         top = max(q[1] for q in roof.pos if abs(q[2]) < 1e-6) if roof else built.meta["eave_m"]
         xs = [q[0] for pr in built.prims.values() for q in pr.pos]
@@ -1060,11 +1550,36 @@ def build(params, structure_id: str):
         "k01.wall.side.south": ("brick", (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), D, p.side_thickness_m, ()),
     }
     gaps = {cid: [bay["span_m"] for bay in p.bays if bay["wall"] == cid] for cid in walls}
-    frames = {}
+    frames, laid = {}, {}
+    if p.stone:
+        # T-2289: a coursed stone front is laid round what the kits seat on it, so the
+        # openings and the bays are built first, each noting its footprint on its wall
+        frames = {cid: (((O, R, _cross(R, Y)), t), mat) for cid, (mat, O, R, length, t, bands) in walls.items()}
+        for op in p.openings:
+            (frame, t), mat = frames[op.wall]
+            a.opening(op, frame, t, mat, "limestone_trim", coursed=op.wall == "k01.wall.street_front")
+        for bay in p.bays:
+            laid[bay["id"]] = a.bay(bay, frames[bay["wall"]][0][0])
+        mat, O, R, length, t, _ = walls["k01.wall.street_front"]
+        front = [o for o in p.openings if o.wall == "k01.wall.street_front"]
+        frame, quoins = a.stone_front("k01.wall.street_front", O, R, length, E, yf, t, front)
+        for cid, (mat, O, R, length, t, bands) in walls.items():
+            if cid == "k01.wall.street_front":
+                continue
+            breaks = (yf, *k03_brick.condition_breaks(yf)) if MATERIALS[mat].get("condition") else (yf,)
+            # the south corner's quoins are cut out of the brick they return into
+            bond = [(length - q[0], length, q[1], q[2]) for q in quoins] if cid == "k01.wall.side.south" else []
+            a.wall(cid, mat, O, R, length, E, t, holes(cid) + bond, breaks, bands, gaps[cid])
+        if quoins:
+            a.quoins(frames["k01.wall.side.south"][0][0], D, quoins)
     for cid, (mat, O, R, length, t, bands) in walls.items():
+        if cid in frames:
+            continue
         breaks = (yf, *k03_brick.condition_breaks(yf)) if MATERIALS[mat].get("condition") else (yf,)
         frames[cid] = (a.wall(cid, mat, O, R, length, E, t, holes(cid), breaks, bands, gaps[cid]), mat)
     for op in p.openings:
+        if p.stone:
+            break
         (frame, t), mat = frames[op.wall]
         a.opening(op, frame, t, mat, "limestone_trim")
     # T-2291: a projecting stretcher course at the second-floor line on the south wall
@@ -1083,7 +1598,7 @@ def build(params, structure_id: str):
     # it (its eaves above all): T-2293's pipes run from the main gutter down to grade.
     reach = []
     for bay in p.bays:
-        top, (s0, s1) = a.bay(bay, frames[bay["wall"]][0][0])
+        top, (s0, s1) = laid.get(bay["id"]) or a.bay(bay, frames[bay["wall"]][0][0])
         reach.append((bay["wall"], s0, s1, top))
         rp = p.rainwater["pipe_diameter_m"] / 2 if p.rainwater else 0.0
         for x in (p.rainwater or {}).get("downpipes", []):
@@ -1143,7 +1658,7 @@ def to_glb(a: Assembly, structure_id: str, phase_id: str, scene_ids, extras: dic
         pr = a.prims.get(name)
         if pr is None or not pr.idx:
             continue
-        spec = MATERIALS[name]
+        spec = a.spec[name]
         mat = {"name": name, "pbrMetallicRoughness": {
             "baseColorFactor": [*spec["color"], spec.get("alpha", 1.0)], "metallicFactor": spec.get("metallic", 0.0),
             "roughnessFactor": spec["roughness"]}}
@@ -1163,7 +1678,7 @@ def to_glb(a: Assembly, structure_id: str, phase_id: str, scene_ids, extras: dic
                     textures.append({"sampler": 0, "source": len(images) - 1})
                     image_of[(fab, role)] = len(textures) - 1
             mat["pbrMetallicRoughness"]["baseColorTexture"] = {"index": image_of[(fab, "basecolor")], "texCoord": 0}
-            if spec.get("normal") or (_k04_fabric(fab) is not None and "normal" in imgs):
+            if spec.get("normal") or ((_k04_fabric(fab) or _k02_fabric(fab)) is not None and "normal" in imgs):
                 mat["normalTexture"] = {"index": image_of[(fab, "normal")], "texCoord": 0}
         materials.append(mat)
         ctype = 5123 if len(pr.pos) < 65536 else 5125

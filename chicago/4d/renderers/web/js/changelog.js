@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 1659, ts: '2026-10-10T19:22:11.298Z', date: 'Oct 10, 2026, 2:22 PM CT', title: 'A coach-house kit for the Prairie Avenue alleys', kind: 'feature',
+    items: [
+      'A two-storey brick coach house, built whole: a carriage bay with strap-hinged doors under a brick arch, a loft hatch with its hoist beam, stable windows and a party wall on the lot line.',
+      'Round the back: an outside stair to the loft door, a cleated ramp down to the stable basement, a lean-to with a two-part stable door, and a wing joining the house.',
+      'Every door and window is a real opening through the wall, and every elevation is closed, with no gaps where parts meet.',
+      'All of it is newly designed and copies no real building, and no roof ventilator is added without evidence. No lot uses the kit yet.',
+    ] },
+  { v: 1658, ts: '2026-10-10T19:22:11.298Z', date: 'Oct 10, 2026, 2:22 PM CT', title: 'Prairie Avenue 1904: 1808 Prairie\'s stone front, laid course by course', kind: 'feature',
+    items: [
+      'The house beside the Glessner House now has a real stone front: rock-faced limestone laid in courses, each stone its own size and grain, with recessed joints and the odd chipped corner.',
+      'A deep-jointed base runs under a weathered coping, two smooth belts cross the front, and the basement light and top-floor windows sit under flat arches of wedge-shaped stones.',
+      'The carved surrounds, sills, entrance and curved bay stand on smooth dressed stone, and the south corner stones alternate long and short where the stone meets the brick.',
+    ] },
   { v: 1657, ts: '2026-10-10T18:44:58.632Z', date: 'Oct 10, 2026, 1:44 PM CT', title: 'A weathering kit: Prairie Avenue houses can show their age', kind: 'feature',
     items: [
       'Houses can now show their own age in 1904: soot under the eaves, damp at the foot of the wall, streaks below sills and spouts, and smoke stains on the roof downwind of a chimney.',
