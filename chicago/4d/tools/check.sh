@@ -495,6 +495,18 @@ step "the K06 window kit builds every window as a closed recess over an enclosed
 selftest "…and a blind before the glass, a missing jamb, a holed backing, a doubled pane or a leaded street sash still fails it" \
   python3 tools/check_window_kit.py --self-test
 
+# T-2301. ...and how the 1904 roofs are built. The K05 kit's parts are sized in
+# data/components/prairie_1904/k05_roofs.json and built by generators/archetypes/k05_roofs.py
+# as closed solids joined by a boolean union. This rebuilds every variant and measures the
+# built surface: watertight, one shell, no doubled face, no face through another (no
+# plane across a gable, parapet or cheek), parapets clear of their roofs, the roof graph
+# as declared, the budget, and the specimen GLB the generator's bytes.
+step "the K05 roof kit builds every roof as one closed, uncrossed solid with its declared ridges, hips and valleys (T-2301)" \
+  python3 tools/check_roof_kit.py --check
+
+selftest "…and a hole, an inward face, a doubled face, a roof through its gable, a floating return or a low parapet still fails it" \
+  python3 tools/check_roof_kit.py --self-test
+
 # T-2309. ...and what the 1904 trim is. The K09 kit's parts are sized in
 # data/components/prairie_1904/k09_trim.json and built by generators/archetypes/k09_trim.py.
 # This rebuilds every variant and measures the geometry: every open edge of a piece lying on
