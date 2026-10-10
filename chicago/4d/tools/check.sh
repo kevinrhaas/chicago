@@ -171,6 +171,8 @@ step "the K01 assemblies are the bytes their records build (T-2266)" \
   python3 generators/k01_emit.py --check
 step "the K13 conservatories in the scene are the bytes their records build (T-2306)" \
   python3 generators/k13_emit.py --check
+step "the K16 timber fronts in the scene are the bytes their records build (T-2323)" \
+  python3 generators/k16_emit.py --check
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
@@ -451,6 +453,20 @@ step "the 1904 sheet census assigns every Prairie frontage and named record once
 
 selftest "…and a dropped row, a doubled record or a kept misreading still fails it" \
   python3 ../prairie_1904_v1/tools/sheet_census.py --self-test
+
+# T-2327. ...and the ground each of those sheet 28 buildings stands on. The census names every
+# building and says of itself "Footprints are not digitized"; this reads them off the same
+# raster through the same fit, as outlines on the drawn walls (colour-classed fabric, joined
+# across its own lines, split into parts at solid walls) and gives every census polygon its
+# outline, data/traces/prairie_1904_footprints_s28.json. The contract holds every outline
+# inside its lot, counter-clockwise, assigned once and to a polygon the census names.
+# T-2328 adds sheet 20 (16th-18th, the T-1840 census, for T-2160) as one more SHEETS entry:
+# data/traces/prairie_1904_footprints_s20.json, the same reading, the same contract.
+step "sheets 28 and 20's 1904 building footprints re-derive from the raster and cover every census polygon (T-2327, T-2328)" \
+  python3 tools/trace_prairie_1904_footprints.py --check
+
+selftest "…and a broken trace, a clockwise or out-of-lot outline, an unnamed or twice-named building still fails it" \
+  python3 tools/trace_prairie_1904_footprints.py --self-test
 
 # T-1728. ...and what that grid is paved with. data/street_surfaces/1904.json is AUTHORED:
 # every carriageway, alley and sidewalk band names a material, a tier, its sources and a

@@ -6177,6 +6177,16 @@
       "phase_id": "stable_1831",
       "structure_id": "sauganash_hotel_stable"
     },
+    "shortall_gregory_house_1638_prairie_front__as_standing_1904.glb": {
+      "archetype": "k16_timber",
+      "baked_ao": false,
+      "bytes": 997096,
+      "generator": "generators/k16_emit.py",
+      "inputs_sha256": "001f148faaa7316c14b1e039b876af343214514b563172b4e593f4033a83f8f7",
+      "kind": "generated",
+      "phase_id": "as_standing_1904",
+      "structure_id": "shortall_gregory_house_1638_prairie_front"
+    },
     "slough_log_bridge__log_1833.glb": {
       "archetype": "bridge_timber",
       "baked_ao": false,

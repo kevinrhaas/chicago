@@ -81,14 +81,17 @@ class InputsError(ValueError):
 #: Archetypes whose GLB is written by a pure-Python command rather than by emit.py in
 #: Blender, and that command (T-2266). Their input document hashes the archetype module
 #: and the command alone, and carries no Blender pin.
-PURE_PYTHON = {"k01_frontage": "k01_emit.py", "k13_conservatories": "k13_emit.py"}  # T-2306: K13
+PURE_PYTHON = {"k01_frontage": "k01_emit.py", "k13_conservatories": "k13_emit.py",  # T-2306: K13
+               "k16_timber": "k16_emit.py"}  # T-2323: K16
 #: The library modules a pure-Python archetype lays on its walls (T-2291), and so hashes
 #: beside the archetype: K03 brick's bond, heads and string course move vertices too.
 #: T-2302: and K05 builds its roof, from the kit's own parts (k05_roofs.json, hashed below).
 PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_frontage.py", "k09_trim.py",
                                        "k10_frontage.py", "k10_cornices.py"),
                        # T-2306: the conservatory is cut with K01's Prim and K06's polygon helpers
-                       "k13_conservatories": ("k01_frontage.py", "k06_windows.py")}
+                       "k13_conservatories": ("k01_frontage.py", "k06_windows.py"),
+                       # T-2323: the timber front is cut with K01's Prim and K06's sash and polygon helpers
+                       "k16_timber": ("k01_frontage.py", "k06_windows.py")}
 
 
 def _sha_file(p: Path) -> str:
@@ -237,6 +240,12 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
         # T-2306: the kit's tiers, glass, plinth and staging are data the builder reads, and
         # its rainwater is K04's profiles
         for kit in ("k13_conservatories.json", "k04_roofs.json"):
+            f = ROOT / "data" / "components" / "prairie_1904" / kit
+            doc.setdefault("component_data", {})[f.relative_to(ROOT).as_posix()] = _sha_file(f)
+    if arch == "k16_timber":
+        # T-2323: the kit's boards, trim, porch and paint are data the builder reads, and the
+        # sash in its casings is K06's
+        for kit in ("k16_timber.json", "k06_windows.json"):
             f = ROOT / "data" / "components" / "prairie_1904" / kit
             doc.setdefault("component_data", {})[f.relative_to(ROOT).as_posix()] = _sha_file(f)
     if arch == "masonry_house" and getattr(params, "detail_profile", "") == "glessner_v4":

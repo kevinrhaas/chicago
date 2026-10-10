@@ -23938,3 +23938,45 @@ structure, terrain or person carries it, so it discharges no `Covers` token.
 **Ticket:** T-1787.
 **Review:** `data/humans/fixture.measure.json` (the browser verdicts and costs).
 **Recorded:** 2026-10-10 (T-1787).
+### L-k16-1638-front-2323 — 1638 Prairie's timber street front: the kit's Gothic gable, wall and porch on the sheet's plan, before a photograph says otherwise
+
+**Decision:** the Shortall-Gregory house at 1638 Prairie Avenue (T-2323, piece 2 of T-1858) stands
+in the 1904 scene as its timber street front, `shortall_gregory_house_1638_prairie_front`, built by
+`generators/k16_emit.py` from the K16 kit (L-k16-timber-kit-2322): a 52-degree Gothic gable 5.21 m
+wide over the south part of the front, two storeys of clapboard on a raised basement to a belt at
+6.4 m, square and fish-scale shingles inside rake boards, pierced bargeboards meeting at a finial,
+and one paired two-light sash in a timber casing; beside it a 2.92 m clapboard wall with its corner
+onto the north side, a frieze, a boxed eave on scroll brackets and two two-over-two sash; across
+that wall a porch of the kit's parts built as two mirrored halves, a post at each end, its ends
+closed under the floor by a painted skirt board. Behind them a plain closed body, a pale paint
+colour with no opening or trim, and on the front a plain canted bay block.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn: where the front stands (10.8 m
+behind the Prairie line, its north wall 0.36 m inside the lot), its 8.13 m width, the canted bay's
+plan, the open porch's place and size at the north end, the house's two depths behind (23.4 m and
+12.9 m), two storeys and basement, frame construction, and a shingle roof (the key's 'x').
+**What is invented.** Where the gable's range ends and the wall beside it begins (the sheet draws one
+front line; the porch's south end is taken); every height (the 0.75 m basement, the 6.4 m belt and
+eave, the 3.9 m bay); every sash's kind, size and place, and their flat heads where the register
+reports pointed twin windows with hood moulds; the shingle bands' order; the bargeboard's piercings,
+which are the kit's working design and not 1638's; the porch's fabric, which is the kit's, where
+the register calls 1638's porch pierced; the body's two roofs (the gable's pitch carried back, a
+low side-gabled roof on the north range); the body, bay and roof colours. The oculus, the hood
+moulds and the polygonal corner tower with its pyramidal cap that the T-1837 register describes
+are not built at all.
+**What the record states and the model simplifies.** The record's two storeys and basement and
+its frame construction are the sheet's; the model shows them on the front only, and the body
+behind is a plain block with no floors, openings or framing.
+**What is not.** The register (1868 by the street marker, lost 1944) and the Chicagology page on the
+house (read 2026-10-10: "Hudson River Gothic", "the sweet little frame house", architect John W.
+Roberts, demolished 1944) are not source records here; the record's dates rest on the register as
+the Pullman and Glessner records' do, and neither is cited as evidence for any part's form.
+
+**How to resolve:** a photograph of the house whose rights allow it, ingested as a source, gives the
+gable's real width and pitch, the bargeboard's own pattern, the windows' pointed heads and hood
+moulds and the porch's pierced work, and the record's variants take them in place of the kit's;
+T-1864 replaces the body and bay with the house's envelope and T-1865 its finished architecture,
+keeping this record's id.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.stories`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.construction`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.gable`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.wing_wall`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.porch`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.body`.
+**Ticket:** T-2323 (piece 2 of T-1858, K16).
+**Review:** `docs/RESEARCH/k16-1638-front-2323/README.md`.
+**Recorded:** 2026-10-10 (T-2323).

@@ -179,6 +179,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree, wrote its outputs, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its gated commands write nothing in-tree.",
       "placed": "by layer, 2026-09-28 — a reader of committed originals (T-1250); see the manifest step"
     },
+    "trace_prairie_1904_footprints.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-10",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/traces/prairie_1904_footprints_s28.json and (since T-2328) prairie_1904_footprints_s20.json byte for byte, changed no committed byte; --check and --self-test write nothing in-tree (tools/measure_step_isolation.mjs --tool).",
+      "placed": "by layer, 2026-10-10 — a reader of committed originals after tools/trace_prairie_1904_grid.py, whose parcel lots it clips to (T-2327); see the manifest step"
+    },
     "trace_prairie_1904_grid.py": {
       "placement": "manifest",
       "write_mode": "(bare)",

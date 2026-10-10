@@ -1,0 +1,273 @@
+{
+  "id": "shortall_gregory_house_1638_prairie_front",
+  "name": "Shortall-Gregory house (1638 Prairie Avenue): the timber street front, K16",
+  "aka": [
+    "1638 Prairie Avenue",
+    "1638 S. Prairie Avenue",
+    "John G. Shortall house",
+    "Robert B. and Addie Gregory house"
+  ],
+  "archetype": "k16_timber",
+  "function": {
+    "value": "residence",
+    "confidence": "attested",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "Sheet 20 prints the 1911 use 'D' (dwelling) on the 1638 lot."
+  },
+  "review_required": false,
+  "research_note": "T-2323 — the first house built in the scene from the K16 timber kit (data/components/prairie_1904/k16_timber.json, T-2322): piece 2 of T-1858. It is the street front's timber fabric — the Gothic gable with its pierced bargeboards and shingle bands, the clapboard wall beside it with its corner, and the porch — standing against a plain body read off sheet 20's plan. The envelope (T-1864) and the finished architecture (T-1865: the pointed twin windows, oculus, hood moulds, corner tower and the canted bay itself) replace the body and the bay here when they land; T-2160's district draft keeps this record's id.",
+  "phases": [
+    {
+      "id": "as_standing_1904",
+      "documented_range": {
+        "from": "1868-01-01",
+        "to": "1944-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_20"
+        ],
+        "note": "STANDING IN 1904 is what the scene needs, and it rests on sheet 20 of the 1911 Sanborn carried back seven years, the reading the Glessner, 1808 and 1904 parcel records make of these sheets. FROM: the T-1837 building register gives 1868 (the street marker) against 1870 (a 1973 report) for the house; the register is not a source record here, so the earlier year's first day stands, inferred. TO: the register gives the loss as 1944 (marker); same footing, that year's last day."
+      },
+      "position": {
+        "utm_e": 448450.915,
+        "utm_n": 4634316.745,
+        "rotation_deg": -0.815,
+        "symbolic_location": "1638 S. Prairie Avenue: west side of Prairie between 16th and 18th Streets, parcel prairie_1638 (data/street_grid/1904.json), Lot 1, block 2 of E. L. Sherman's Sub.; the front's south end, on its wall line, at grade.",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_20"
+        ],
+        "note": "The south end of the house's front wall, read off the committed sheet 20 raster at pixel (3103.3, 3722.7) — the front wall line (column 3103.3) meeting the south wall line (row 3722.7) — and carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json, 2.46 m RMS): local E 1378.215, N -3079.055. The front stands 10.8 m behind the Prairie Avenue line (column 3316, the parcel's street corner) and its north wall 0.36 m inside the lot's north line, as the sheet draws. The bearing is the sheet's own rotation in that fit (0.815 degrees), so the front runs along the sheet's ruled lines.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; none reads a 1911 Sanborn sheet. This position is pixel (3103.3, 3722.7) of the committed sheet 20 raster carried through the similarity in data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json (local_e = a*px + b*py + c, local_n = d*px + e*py + f) plus the datum origin, and the note carries the pixel and the result so the sum can be recomputed by hand."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.73
+          ],
+          [
+            1.1,
+            1.83
+          ],
+          [
+            1.1,
+            3.78
+          ],
+          [
+            0.0,
+            5.01
+          ],
+          [
+            0.0,
+            8.13
+          ],
+          [
+            -12.9,
+            8.13
+          ],
+          [
+            -12.9,
+            5.21
+          ],
+          [
+            -23.4,
+            5.21
+          ],
+          [
+            -23.4,
+            0.0
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_20"
+        ],
+        "note": "About the front's south end, u east and v north, between line centres on the committed sheet 20 raster at 0.050779 m a pixel (the fit's printed scale). The front wall runs 8.13 m (rows 3722.7 to 3562.7); the canted bay stands on it from 0.73 to 5.01 m north, 1.10 m out, its face 1.83 to 3.78 m; the house runs back 23.4 m (to column 2643) on its southern range and 12.9 m (to column 2850) on its northern. Where the two ranges part (5.21 m north, the porch's south end) is RECONSTRUCTED: the sheet draws one front line. Not built: the rear range's widening to 6.49 m, the south projection at the house's middle, the three one-storey rear pieces and the open porch, which the sheet draws dotted at the north end of the front (2.91 m wide, 2.0 m out) and which stands outside this polygon."
+      },
+      "form": {
+        "stories": {
+          "value": 2,
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "'2BB' on the house: two storeys and basement.",
+          "geometry": "simplified"
+        },
+        "construction": {
+          "value": "frame",
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "Drawn yellow, the sheet's colour for frame. A timber face here never takes a masonry wall's thickness or a stone texture: the K16 wall is 0.15 m.",
+          "geometry": "simplified"
+        },
+        "layout": {
+          "value": {
+            "faces": "east",
+            "join_gap_m": 0.002
+          },
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "The front faces Prairie Avenue, east. The gable's range is the south 5.21 m of it and the wing wall the north 2.92 m; the 2 mm gap keeps the two walls' hidden ends from sharing a plane."
+        },
+        "gable": {
+          "value": {
+            "id": "k16.gable.1638_front",
+            "kind": "gable",
+            "use": "gable",
+            "width_m": 5.21,
+            "foundation_m": 0.75,
+            "belt_m": 6.4,
+            "bands": [
+              {
+                "pattern": "square",
+                "courses": 4
+              },
+              {
+                "pattern": "fishscale",
+                "courses": 6
+              },
+              {
+                "pattern": "square",
+                "courses": 99
+              }
+            ],
+            "windows": [
+              {
+                "k06_variant": "k06.opening.sash_paired_flat",
+                "clear_height_m": 1.45,
+                "sill_m": 4.45,
+                "centre_m": 2.605
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "The width is the sheet's (inferred, above); everything else is RECONSTRUCTED from the K16 kit and recorded as L-k16-1638-front-2323. The register describes 'a steep front gable with oculus, pointed twin windows and hood moulds' and a pierced timber porch on a Gothic Revival frame house; the kit's 52-degree gable, shingle bands inside rake boards and pierced bargeboards meeting at a finial build the gable, at two storeys over a raised basement (0.75 m). The twin windows are the kit's paired two-light sash in a timber casing with FLAT heads: a pointed head and its hood mould are T-1865's, and the oculus is not cut. The bargeboard's piercings are the kit's working design (roundels and vesicas), not 1638's own, which no source record yet shows."
+        },
+        "wing_wall": {
+          "value": {
+            "id": "k16.wall.1638_north_wing",
+            "kind": "clapboard_wall",
+            "use": "wall",
+            "width_m": 2.92,
+            "return_m": 0.9,
+            "foundation_m": 0.75,
+            "wall_top_m": 6.4,
+            "windows": [
+              {
+                "k06_variant": "k06.opening.sash_2over2_flat",
+                "clear_height_m": 1.85,
+                "sill_m": 1.2,
+                "centre_m": 1.35
+              },
+              {
+                "k06_variant": "k06.opening.sash_2over2_flat",
+                "clear_height_m": 1.2,
+                "sill_m": 4.45,
+                "centre_m": 1.35
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "The north 2.92 m of the front and its corner onto the north side, behind the porch. The width is the sheet's (inferred); the rest is RECONSTRUCTED from the kit: clapboard on a water table, corner boards, a frieze and boxed eave on scroll brackets, a long two-over-two sash opening onto the porch and a shorter one above it. Its eave is the gable's belt line, two storeys as the sheet's '2BB' says."
+        },
+        "porch": {
+          "value": {
+            "id": "k16.porch.1638_north",
+            "kind": "porch",
+            "use": "porch",
+            "half_width_m": 1.3,
+            "depth_m": 1.75
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "The sheet draws a one-storey open porch (dotted) across the north end of the front, 2.91 m wide and 2.0 m out: its place and size are inferred from it. Its fabric is the kit's porch, RECONSTRUCTED — an oiled board floor on a lattice skirt, chamfered posts with scroll brackets, a beaded ceiling — built as two mirrored halves so it has a post at each end, its open ends closed under the floor by a painted skirt board. The register calls 1638's porch 'pierced'; that pierced woodwork is T-1865's."
+        },
+        "body": {
+          "value": {
+            "gable_depth_m": 23.4,
+            "wing_depth_m": 12.9,
+            "wing_roof_pitch_deg": 22,
+            "roof_under_m": 0.01,
+            "color": [
+              0.8,
+              0.75,
+              0.62
+            ]
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "A plain closed body in the place of the envelope, so the front stands against a house and not in the air: its plan is the sheet's (above), its two roofs RECONSTRUCTED — the gable's range under the front gable's own pitch carried back, the north range under a low side-gabled roof whose eave is the wing wall's. Painted a pale body colour after the register's 'pale Gothic exterior'; no opening or trim is modelled on it. T-1864's envelope replaces it."
+        },
+        "canted_bay": {
+          "value": {
+            "plan": [
+              [
+                0.73,
+                0.0
+              ],
+              [
+                1.83,
+                1.1
+              ],
+              [
+                3.78,
+                1.1
+              ],
+              [
+                5.01,
+                0.0
+              ]
+            ],
+            "height_m": 3.9,
+            "roof_m": 0.12
+          },
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "The canted bay the sheet draws on the front (plan above, inferred) and the register's 'canted ground bay', one storey: a plain block of that plan to 3.9 m (RECONSTRUCTED height) under a flat roof slab. It stands for the bay; its sash and timber are K08's and T-1865's."
+        },
+        "roof_covering": {
+          "value": {
+            "material": "wood shingle",
+            "color": [
+              0.13,
+              0.11,
+              0.095
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "Sheet 20 marks the house with an 'x', the Sanborn key's shingle roof. The weathered grey-brown of a cedar shingle roof is RECONSTRUCTED (a linear base colour, about a mid-dark grey-brown on screen); the shingles themselves are not modelled."
+        }
+      }
+    }
+  ]
+}

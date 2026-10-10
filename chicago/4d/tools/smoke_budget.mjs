@@ -383,6 +383,13 @@ const COVERAGE = [
   ['data/fauna/', [10, 13], 'the wildlife'],
   ['data/streets/', [2, 7, 8, 10, 11], 'the street records'],
   ['data/traces/', [2, 7, 8, 10, 11], 'the traced lines the streets and the bank are built from'],
+  // T-2327. Sheet 28's 1904 building footprints are a reading no scene build takes yet (T-2159's
+  // draft builder will); tools/trace_prairie_1904_footprints.py --check gates them.
+  ['data/traces/prairie_1904_footprints_s28.json', NONE, 'sheet 28 1904 footprints — built into no scene yet: trace_prairie_1904_footprints.py --check'],
+  // T-2328. Sheet 20's are the same reading for T-2160's draft, built into no scene yet either.
+  ['data/traces/prairie_1904_footprints_s20.json', NONE, 'sheet 20 1904 footprints — built into no scene yet: trace_prairie_1904_footprints.py --check'],
+  ['tools/trace_prairie_1904_footprints.py', NONE, 'the sheet 28 and 20 footprint tracer — read by no scene build yet: its own --check'],
+  ['data/traces/README.md', NONE, 'prose — the index of the traces; publish.sh mirrors nothing under data/traces/'],
   ['data/town_census.json', [12], 'the two ladders in Evidence → City'],
   ['data/render/town_completion_1835.json', [12], 'the completion row in Evidence → City'],
 
