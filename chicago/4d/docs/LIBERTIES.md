@@ -15471,7 +15471,7 @@ is what a release could take back from a pass that has already published its kee
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
-**Scope:** `off_plat_seats.seats[dealt]` — 99 households (73 until T-1746 raised 26 North Division dwellings south of Michigan Street, 2026-10-05, L393: the thirteen households whose platted slots stood on Kinzie's Addition's two subdivided blocks are seated here under standing roofs, and thirteen more owed North tradesmen's and labourers' households with them, the deal stepping a roof at a time down its own order) given a parcel of the committed
+**Scope:** `off_plat_seats.seats[dealt]` — 95 households (99 until T-2255 made this deal read the owner's letter-list ruling of 2026-08-30 (T-0379) before it deals, as T-1645 made the platted deal read it, 2026-10-09: the 69 letter-list households it had seated are owed with the platted deal's own `refused_by` and reason (773 rows owed so in all), their roofs go to the next rows of their clauses' order, and 65 households handed on until then are seated, 47 North and 18 West; all 30 households seated before stay seated, 28 of them under another roof, because no off-plat roof carries its household back as a platted roof does (T-1638). Two rules the ruling exposed are stated in the tool: the two West labourers the farmstead rule passes over, hh_lloyd_alexander and hh_murray_alonzo, take the best cabin left free once every row is dealt (recon_1835_west_028 and recon_1835_west_027), which moves nobody; and in the West the farm clause takes a farmstead or nothing, because the bare cabins the letter-list labourers had filled are labourers' and a farm household under one is no farmstead (T-1794). So four West cabins — recon_1835_west_001, _011, _013 and _026 — stand unspent, each with the count of the households its clauses admit and why none of them is left to take it; 73 until T-1746 raised 26 North Division dwellings south of Michigan Street, 2026-10-05, L393: the thirteen households whose platted slots stood on Kinzie's Addition's two subdivided blocks are seated here under standing roofs, and thirteen more owed North tradesmen's and labourers' households with them, the deal stepping a roof at a time down its own order) given a parcel of the committed
 ground the plat's own lot ledger does not draw, in
 `data/reconstruction/1835_off_plat_seats.json` beside the 1,302 written refusals,
 re-derived by `tools/seat_off_plat_ground_1835.py --build` and gated by its `--check`.
@@ -22645,9 +22645,11 @@ comes from. The clause is `bank_landing` (T-2022): the roofs stand 23.50 m and 2
 traced water, with nothing between them and the river. The third roof owed, an F4 lumber shed,
 is not built here, because the clause admits F1-F3 only (T-2269).
 
-**What it moves.** The order book's South street-line band reads 9 of 10 standing, with the F4
-owed to T-2269. The schedule's gated South balance falls from 9 roofs to 7 (F3 2 to 0). The
-cargo-door count (**L280**) and the stated-roof count (**L263**) are restated.
+**What it moves.** The order book's South street-line band reads 10 of 10 standing: T-2269's F4
+lumber shed (**L-south-lumber-shed-2269**) landed on the same bank first, 26 m north of the
+second warehouse, and the cell is closed. The schedule's gated South balance falls from 8 roofs
+to 6 (F3 2 to 0), and its mix on block 82 is re-dealt (**L270**). The cargo-door count (**L280**)
+and the stated-roof count (**L263**) are restated.
 
 **How to resolve:** a dated record of a forwarder's, merchant's or packer's warehouse on the
 South Branch's east bank below Washington Street in July 1835 substitutes for one of these roofs
@@ -22656,7 +22658,49 @@ and never increases the total.
 **Covers:** `recon_1835_south_branch_freight_f3_001.inferred_1835.position`, `recon_1835_south_branch_freight_f3_001.inferred_1835.footprint`, `recon_1835_south_branch_freight_f3_002.inferred_1835.position`, `recon_1835_south_branch_freight_f3_002.inferred_1835.footprint`.
 **Ticket:** T-2268 (of T-2175).
 **Related:** **L399**, **L400**, **L406**, **L280**, **L263**.
-**Recorded:** 2026-10-09 (T-2268).
+**Recorded:** 2026-10-09 (T-2268; restated 2026-10-10 over T-2269).
+
+### L414 — Signboards lettered in period faces, gilt in leaf, dark grounds sanded and bare boards carved
+
+**Applies to:** every board and painted name drawn by `renderers/web/js/signage.js` from
+`data/signage/town_business_signboards.json`.
+
+**What we invented:** the lettering's look. The four letterforms the record names (`style.face`)
+are now drawn in four self-hosted revivals of the period's own faces (renderers/web/fonts/LICENSE.md):
+the signwriter's roman in Old Standard TT bold, the fat face in Abril Fatface, the Egyptian in Alfa
+Slab One and the grotesque in Anton. Each board mixes faces as boards of the period did: the name in
+its display letter, largest and on one line; the trade under it in Old Standard's italic (roman and fat
+face boards) or its bold capitals (Egyptian and grotesque); the place in small, wide-spaced roman
+capitals; and, where the board has the room, a fine rule with a lozenge between name and trade. The two
+gold colourways are drawn as gold leaf: a burnished gradient, a fine dark outline and a dark shade, and
+the smoothest surface in the town in the roughness map. Every dark painted ground is drawn smalted
+(sanded while wet: a fine grit, matte). A hung or fixed board in the bare timber is CARVED: its letters
+are V-cut into the wood in the relief map and darkened, not painted. Painted letters stand a film's
+thickness in relief. Since T-2287, for a photographic finish: every painted board's lettering carries
+a block shade (lake-brown under gilt on a dark ground, a darker tone of the ground on a light one); a hung
+or fixed board is framed by a raised bead about 3.5 cm wide, picked out in leaf on a gilt board and a tone
+off the ground on any other; a dark ground shows its brushed grain and pale rain streaks from its top
+edge; and a name painted straight onto bare boards is chalked toward the wood and has lifted in small
+flakes. Gold leaf is NOT drawn as a metal: this scene's only environment is its sky, and leaf reflecting
+it turns mint green.
+
+**Why:** the owner, 2026-10-10, on Newberry & Dole's warehouse: make all signs "period correct and
+legible", lettered "in period fonts and colors correct for the sign", with "excellent texture for the
+sign if painted or on carved raw wood", laid out "so it fits and is readable and matches period signs of
+the era". The old faces were whatever a browser ships (Georgia, Courier New, Helvetica), all capitals in
+one fount. Gilding with a shade, smalted grounds and incised lettering on plain boards are all standard
+practice in American sign work of the 1830s, but no source records the lettering of any board in
+Chicago, so all of it is reconstructed.
+
+**Consequence:** the town's signs read as signwriters' work of the period, not screen type. None of it
+is evidence about any one board: which face, colours and mounting a board has is still the generator's
+rule (**L159**), and only the drawing of them changed.
+
+**How to resolve:** a description, drawing or photograph of a particular Chicago board of the 1830s
+replaces this treatment on that board: its letterform, its colours, whether it was gilt or carved.
+
+**Related:** **L159**, **L130**, **L169**.
+**Recorded:** 2026-10-10 (T-2282; extended by T-2287, after the owner's "photographic quality is a must").
 
 ### L-glessner-west-profile-2231 — Front west gable and lower rear proportions
 
@@ -22806,6 +22850,37 @@ measurements or calibrated close photographs can replace these sections.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Review:** `docs/RESEARCH/glessner-roof-details-2205/README.md`.
 **Recorded:** 2026-10-09.
+
+### L-k01-1808-frontage-2266 — The 1808 Prairie K01 frontage: a reconstructed main range
+
+**Decision:** Stand a three-storey-and-basement house on the 1808 Prairie lot, built
+from K01 components (data/components/prairie_1904/k01_contract.json): a stone street
+front of three bays with a north entrance and stoop, common-brick side and rear
+walls with double-hung sash, a 40-degree hip roof. 18.0 m deep by 10.4 m across,
+its front on Glessner's building line and its north wall 0.02 m south of
+Glessner's south face.
+**Basis:** The 1911 Sanborn sheet 28 (`sanborn_1911_vol3_sheet_28`,
+`sanborn_1911_chicago_v3_sheet_28`) draws a brick house of three storeys and a
+basement ('3B') closing the Glessner courtyard on the south, carried back to 1904
+as the Glessner record carries the same sheet. That is attested for the storeys
+and inferred for the brick. Everything else is reconstructed inside the K01
+contract's declared ranges: the depth and side passage, the storey heights
+(4.0, 3.6, 3.3 m), the 1.50 m principal floor and its nine risers, the wall
+thicknesses, the bays and sash, the roof form and pitch, the stoop, the colours.
+The stone front and the north entrance are the T-1837 frontage register's reading
+of the Inland Architect plate of February 1888, which is not a source record
+here, so both are carried as reconstructed. The 0.02 m between the two houses is
+the clearance that keeps two assets' faces from coinciding; the sheet draws them
+touching. The brick is the Glessner library's common-brick grain with no
+coursing, a flat fabric until T-1845's brick materials land.
+**How to resolve:** T-1882 and T-1883 build the actual Keith/Field front (rock-faced
+Romanesque-classical stone, the south curved bay, the north loggia with Ionic
+columns, the pierced parapet) from the 1888 plate once it is a source record;
+T-1935 the detached rear garage. A measured reading of sheet 28 for this lot
+replaces the footprint.
+**Covers:** `keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.principal_floor_m`, `keith_house_1808_prairie.as_built_1886.form.storey_heights_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_form`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`.
+**Review:** `docs/RESEARCH/k01-1808-frontage-2266/browser-validation.json`.
+**Recorded:** 2026-10-10.
 
 ### L-south-lumber-shed-2269 — The South's lumber shed: an open-sided shed on the South Branch's east bank that no source seats
 

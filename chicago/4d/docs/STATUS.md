@@ -1,3 +1,69 @@
+## T-2266 — the first K01 assembly: a frontage at 1808 Prairie (2026-10-10)
+
+**Visible.** In the 1904 scene a three-storey-and-basement house now stands on the 1808 Prairie
+lot, directly south of the Glessner House. Its north wall closes the Glessner courtyard as the
+1911 Sanborn sheet 28 draws it. It is the first thing built to the K01 metric component contract
+(T-2265), and the contract's `status` now says it is built to rather than only declared.
+
+- **What it is.** `data/structures/keith_house_1808_prairie.json`, archetype `k01_frontage`, is
+  built by `generators/archetypes/k01_frontage.py`. It is made of nine K01 components with stable
+  ids and seeds per instance: `k01.wall.street_front`, `.side.north`, `.side.south`,
+  `.rear_service`, `k01.opening.sash_flat` / `.area_light` / `.door_leaf`,
+  `k01.stair.straight_stoop` and `k01.roof.hip`. They are listed in the node's `extras.k01`, each
+  instance with its parameters and sockets in the structure frame. Every value is checked against
+  the contract's declared ranges in `k01_frontage_params.py`, and a value outside its range is
+  refused, not clamped. The stair solves the 1.50 m principal floor in nine whole risers of 0.167 m.
+- **Why pure Python, not Blender.** Registering an archetype in `generators/emit.py` changes bytes
+  that are in all 704 meshes' input hashes. The whole town would read stale for a change that
+  moves none of its vertices (T-1654's false positive). `generators/k01_emit.py` writes the glTF
+  itself. `mesh_inputs.PURE_PYTHON` hashes only the archetype module and that command for it, with
+  no Blender pin, and the recipe for every other archetype is byte-for-byte unchanged, so there
+  is no scheme bump and nothing is restamped. `k01_emit.py --check` rebuilds in memory and confirms
+  the committed GLB is the same bytes. `tools/bake.sh` now runs it beside the Blender bake.
+- **Measured against the contract.** `node tools/k01_contract.mjs --measure-asset
+  keith_house_1808_prairie` writes `data/components/prairie_1904/keith_house_1808_prairie.measure.json`.
+  `--check` now also holds every assembly measure's verdicts to ok (no finding allowed:
+  `coincident_faces_allowed_new` is 0) and its hashes to the files on disk. Readings:
+  **0 coincident and 0 degenerate faces** at full and web. Origin ok: the envelope is on the
+  footprint, sills and belts stand 0.06 m proud, and the wall base is at y = 0. Web-tier scale drift
+  is at most 1.06e-4 of an axis, inside the 5e-4 bound. Metric UV density × tile is 1.000 (brick),
+  1.000 (front stone) and 0.995–1.001 at web.
+- **Cost.** 2,218 triangles in 10 primitives. The master is 1.86 MB and the web tier 0.89 MB
+  (meshopt plus quantisation). It carries two 2048² library fabrics (limestone, brick), whose
+  decoded RGBA8 with mips is 44.7 MB of GPU memory, the asset's largest cost. Glessner's light tier
+  alone is 198,064 triangles (after T-2267's rebake). In the published `/1904/` app (`tools/qa_k01_t2266.mjs`, five fixed
+  stands per viewport: street-eye, oblique, rear, roof and courtyard join) the scene reads 62–69
+  draws and 2.50–2.53 M triangles at desktop full detail, and 60–61 draws and 0.45 M triangles at
+  mobile light. Every stand is within budget (330 draws; 3.8 M and 1.005 M triangles) with zero page
+  errors. The time to ready was 17.6 s desktop and 9.6 s mobile on this runner's software GL. Frame
+  timings are in `docs/RESEARCH/k01-1808-frontage-2266/browser-validation.json`, but they are
+  software-GL readings, relative only.
+- **What it is not.** It is not the Keith/Field house. Most of it is reconstructed inside the
+  contract's ranges (`docs/LIBERTIES.md` L-k01-1808-frontage-2266): attested are only the three
+  storeys and basement, and inferred only the brick. The rock-faced Romanesque-classical front,
+  south curved bay, north Ionic loggia and pierced parapet belong to T-1882 and T-1883, and the
+  rear garage to T-1935. The brick is the library's grain with no coursing (T-1845). The whole
+  house therefore reads as reconstructed in the confidence view, which is the honest reading.
+- **Residual.** There is no light tier: `tools/web_derivatives.sh` reduces Glessner alone, and at
+  2,218 triangles this asset needs none. The 0.02 m gap between the two houses' faces is a liberty,
+  because the sheet draws them touching.
+
+## T-2267 — Glessner v4 regenerated without coincident faces (2026-10-10)
+
+The K01 measure (T-2265) found 15 coincident triangles in Glessner's full master, 40 in
+web and 8 in light. All three generator causes are fixed and Glessner is rebaked: full
+**0**, light **0**, web **5**. The web five are sub-2 mm leaf-root slivers that the
+0.83 mm encoding rounds together. The causes: acanthus leaf roots and tips with
+sub-millimetre rows (they now close on the midrib); collinear ridge barrels capped back
+to back at x = 11.54 m (now continuous); chimney flashing pieces capped where they meet
+at the main ridge (now continuous). The K01 verdict now *states* when a derived tier's
+remainder is quantization: the master has none, the tier is position-quantized, and it
+carries the master's triangles one for one. Light, a separate build, may keep none. A
+2-step sliver threshold fitted only 3 of the 5 and was dropped, not widened. Fixed
+cameras (fan, capital, ridge joint, flashing, two silhouettes, 1280×800 Full and
+390×780 Light) change only at leaf tips, ≤0.043 % of pixels.
+`docs/RESEARCH/glessner-coincident-faces-2267/README.md`.
+
 ## T-2278 — doors, windows and their trim on every 1835 building (2026-10-10)
 
 Owner's ask: give every structure correct door and window openings and their trim, and use
@@ -67,6 +133,36 @@ later tickets would otherwise each make for themselves.
   is T-1787's tiny rigged CI fixture. The per-LOD triangle, texture and draw budgets are left
   for T-1787 to measure rather than guessed here. No review record exists yet, so a
   review_required person cannot be shown even after L1 lifts.
+
+## T-2285 — the waiting families' share goes on to the cells still short (2026-10-10)
+
+T-2256 spread the 23 families waiting on a roof over the three family_dwelling rows pro rata
+and capped each share at its row's shortfall, so the South's 12 discharged its 10 and two
+families discharged nothing while the North and West stood short. `waiting_families_ruling`
+now spreads a share past its row's shortfall on over the rows still short (pro rata on
+their targets, until it is spent): all 23 discharge, North 7 / South 10 / West 6, and the
+North owes 1 and the West 9. T-2279 was split: **T-2286** owns those ten, measured: no held
+head, waiting family or household beyond the index is left to fill them.
+
+## T-2255 — the off-plat deal reads the letter-list ruling (2026-10-09)
+
+T-1645 made the platted deal owe the letter-list cohort (T-0379) and hand it on;
+`tools/seat_off_plat_ground_1835.py` never read the ruling, so 69 of its 99 seats were that
+cohort. It now owes them with the platted deal's own `refused_by` and reason, using the platted
+deal's `refused_a_roof()` (773 rows owed so). 95 seated: 65 households newly housed (47 North,
+18 West), all 30 non-letter-list households still seated, 28 of them under another roof. The
+ruling exposed two things that had never come up before, both fixed in the tool and stated in L271:
+the farmstead rule's passed-over labourers take a cabin left free after the deal, and a West
+farm household takes a farmstead or nothing. An honesty assertion and a self-test fire when the
+ruling is dropped from the deal.
+
+- **Merged over T-2253** (2026-10-10): the platted deal's four block-82 slots and this deal's
+  re-deal do not touch: 219 platted + 95 off-plat = **314 seated**, off-plat seats identical to
+  the branch before the merge; order-book tripwire 310 -> 314.
+- **Merged over T-1550** (2026-10-10): 220 platted + 95 off-plat = **315 seated**; off-plat
+  still 95, order-book tripwire 319 -> 315.
+- **Not done:** off-plat roofs carry no household back (T-1638 is platted-only), so a re-deal
+  still moves seated households between roofs. Four West cabins stand unspent, each stating why.
 
 ## T-2206 — Glessner roof and courtyard proportions audited
 

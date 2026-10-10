@@ -75,6 +75,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 from measure_street_frontage import centroids, distance_to_street  # noqa: E402
 from plat_occupancy import lot_holders  # noqa: E402
+from associations import home_of  # noqa: E402
 
 FRONTAGE_BAND_M = 25.0
 STREETS = ROOT / "data" / "streets" / "1835.json"
@@ -289,7 +290,7 @@ def _reconstructed_dwellings() -> list[tuple[str, str]]:
     rows = []
     for path in sorted(HOUSEHOLDS.glob("hh_inf_*.json")):
         doc = json.loads(path.read_text(encoding="utf-8"))
-        structure_id = (doc.get("lives_at") or {}).get("value")
+        structure_id = home_of(doc)
         if structure_id:
             rows.append((doc["id"], structure_id))
     return rows

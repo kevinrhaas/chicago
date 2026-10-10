@@ -51,6 +51,9 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+from associations import home_of  # noqa: E402
+
 BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 OUT = ROOT / "data" / "reconstruction" / "1835_refamily_rule.json"
 REPORT = ROOT / "docs" / "RESEARCH" / "1835_refamily_rule.md"
@@ -180,7 +183,7 @@ LADDER = [
         "may_change": [],
         "label": "the household stands on the ground",
         "rewrites": "nothing — the move is refused",
-        "says": "`lives_at` resolves, so a roof has been placed on a lot in a division. A "
+        "says": "The card's home row resolves, so a roof has been placed on a lot in a division. A "
                 "bucket move would make the card and the standing roof disagree about which "
                 "side of the river this person lives on.",
     },
@@ -281,12 +284,8 @@ def cards() -> dict:
     return modelled_families_division._module.unfold(out)[0]
 
 
-def value_of(field):
-    return field.get("value") if isinstance(field, dict) else field
-
-
 def is_seated(card: dict) -> bool:
-    return bool(value_of(card.get("lives_at")))
+    return bool(home_of(card))
 
 
 def band_of(low: int) -> str:

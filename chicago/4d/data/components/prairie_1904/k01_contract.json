@@ -4,7 +4,7 @@
   "ticket": "T-2265",
   "parent": "T-1843",
   "programme": "T-1837",
-  "status": "Declared, not yet built to. No component in the scene is emitted against this contract today; T-2266 builds the first assembly (a small 1808 Prairie frontage) from it, beside the canonical Glessner asset. Until then the contract is checked for its own consistency, and the Glessner baseline (glessner_baseline.json) is the measured reference a new component is compared with.",
+  "status": "Built to since T-2266: the first assembly emitted against this contract is a small frontage at 1808 Prairie (data/structures/keith_house_1808_prairie.json, generators/archetypes/k01_frontage.py), beside the canonical Glessner asset, and its measure (keith_house_1808_prairie.measure.json beside this file) holds every verdict ok with no finding. The canonical Glessner asset is preserved, not rebuilt; its baseline is the reference.",
   "rule": "Shared construction, never shared facades: a component is a wall, an opening, a roof or a stair built from declared parameters, never a whole house reused (tickets/evidence/T-1837-prairie-1904-architectural-study/ASSET-CATALOG.md). This file adds NO geometry convention of its own: the frame below is docs/GLB-CONTRACT.md restated for components, and where the two ever differ GLB-CONTRACT.md wins and this file is wrong.",
   "frame": {
     "units": "metres",
@@ -400,7 +400,7 @@
     "uv_tolerance": 0.05,
     "uv_rule": "Per material whose base-colour image is a library fabric, |median sqrt(UV area / surface area) * sqrt(tile_u * tile_v) - 1| <= uv_tolerance. KHR_texture_transform on top of TEXCOORD_0 is recorded, not judged: it is how a photographic plate repeats inside one metric tile.",
     "coincident_faces_allowed_new": 0,
-    "coincident_rule": "A component built to this contract emits no coincident face. The canonical Glessner asset is PRESERVED, not rebuilt (T-1843 scope): its count is measured into the baseline as the reference, and a verdict that is not ok there names the ticket that owns it."
+    "coincident_rule": "A component built to this contract emits no coincident face. The canonical Glessner asset is PRESERVED, not rebuilt (T-1843 scope): its count is measured into the baseline as the reference, and a verdict that is not ok there names the ticket that owns it. The verdict (T-2267): the full master has none; a derived tier has none, or its positions are quantized and it carries the master's triangles one for one, so its remainder can only be vertices rounded together on the encoding's lattice and is reported as such with its position step and the largest sliver edge. The light tier is its own reduced build, so it may keep none."
   },
   "reference": {
     "baseline": "data/components/prairie_1904/glessner_baseline.json",

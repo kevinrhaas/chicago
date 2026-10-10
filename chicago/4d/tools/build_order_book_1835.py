@@ -193,6 +193,14 @@ FAMILY_OWNER = "T-2187"
 # rows read 0 left and keep T-2256's id as the ticket that settled them (T-1420); one that
 # owes again is a reopened order the work-order gate names.
 FAMILY_HOUSEHOLD_OWNER = "T-2256"
+# AND THE NORTH AND WEST OWE AGAIN (T-2255, 2026-10-10). The off-plat deal stopped seating
+# letter-list households on the ruling of 2026-08-30 (T-0379), so the held heads under North
+# and West dwellings fell 8 and 15 short of those orders; the waiting families discharge 6
+# and 5, and 2 and 10 are owed. T-2256 is done, so those two rows go to T-2279, filed for
+# them; the South's row still reads 0 left and keeps T-2256's id. T-2279 was split: T-2285
+# spread the South's unspent share of the waiting families on to them (North 1 and West 9
+# owed), and T-2286 owns what is left, which no waiting family or held head can fill.
+FAMILY_HOUSEHOLD_OWNER_BY_DIVISION = {"north": "T-2286", "west": "T-2286"}
 HELD_HEAD_TICKET = "T-2193"
 WAITING_FAMILIES_TICKET = "T-2256"
 STORE_RULING_TICKET = "T-2194"
@@ -1342,7 +1350,10 @@ def waiting_families_ruling(households: list, fills: list, held: dict | None,
     RATA across that axis's cells (`subtract_pro_rata`), and the book never orders their
     replacement. So each cell's shortfall is DISCHARGED by its share of those families, plus
     any that wait with this division on their card, never past the shortfall and never below
-    what the cell has filled; `discharged_by_the_waiting_families` carries it.
+    what the cell has filled; `discharged_by_the_waiting_families` carries it. A share past
+    its cell's shortfall is not dropped (T-2285): the families in it stand in the town all the
+    same, so it is spread on over the cells still short, pro rata on their targets, until it
+    is spent or no cell is short (`re_spread_from_full_cells`).
 
     The shortfall is read against the held heads themselves, not against the fill, so a held
     head the seats put under a dwelling of this division later is counted in the cell and
@@ -1361,29 +1372,56 @@ def waiting_families_ruling(households: list, fills: list, held: dict | None,
     for fill in fills:
         if fill.get("ticket") == HELD_HEAD_TICKET:
             own[fill["bucket"]] += int(fill.get("records") or 0)
-    share = subtract_pro_rata({b["key"]: b["target"] for b in cells},
-                              int(waiting.get("unplaced") or 0))
-    rows = {}
+    targets = {b["key"]: b["target"] for b in cells}
+    share = subtract_pro_rata(targets, int(waiting.get("unplaced") or 0))
+    facts, need, took = {}, {}, Counter()
     for b in cells:
         division = b["axes"]["division"]
         others = b["filled"] - own[b["key"]]
         heads = int(held.get(division) or 0)
         short = max(0, (b["to_reconstruct"] or 0) - others - heads)
-        theirs = share[b["key"]] + int(waiting.get(division) or 0)
-        take = min(short, theirs, max(0, (b["to_reconstruct"] or 0) - b["filled"]))
+        facts[b["key"]] = (division, others, heads, short)
+        need[b["key"]] = min(short, max(0, (b["to_reconstruct"] or 0) - b["filled"]))
+        # A family with this division on its card waits on this division's roof alone.
+        took[b["key"]] = min(need[b["key"]], int(waiting.get(division) or 0))
+    # T-2285: the unplaced are spread pro rata, and a share past what its cell is short goes
+    # on to the cells still short, pro rata on their targets, until it is spent or no cell is
+    # short. Left with the cell that could not take it, it discharged nothing, and the book
+    # ordered a replacement elsewhere for a family standing in the town.
+    alloc, re_spread, first = dict(share), Counter(), True
+    while True:
+        pool = 0
+        for key, n in alloc.items():
+            use = min(n, need[key] - took[key])
+            took[key] += use
+            if not first:
+                re_spread[key] += use
+            pool += n - use
+        first = False
+        still_short = {k: targets[k] for k in need if need[k] > took[k] and targets[k] > 0}
+        if not pool or not still_short:
+            break
+        alloc = largest_remainder(pool, still_short)
+    rows = {}
+    for b in cells:
+        division, others, heads, short = facts[b["key"]]
+        take = took[b["key"]]
         if take:
             b["discharged_by_the_waiting_families"] = take
             b["to_reconstruct"] -= take
         rows[division] = {"held_heads_under_a_dwelling": heads,
                           "houses_other_stages_drew": others,
                           "short_of_the_order": short,
-                          "waiting_families_share": theirs,
+                          "waiting_families_share": share[b["key"]] + int(waiting.get(division) or 0),
+                          "re_spread_from_full_cells": re_spread[b["key"]],
                           "discharged": take,
                           "still_owed": max(0, (b["to_reconstruct"] or 0) - b["filled"])}
     total = sum(waiting.values())
     discharged = sum(r["discharged"] for r in rows.values())
     short = sum(r["short_of_the_order"] for r in rows.values())
     still = sum(r["still_owed"] for r in rows.values())
+    moved = sum(re_spread.values())
+    unspent = total - discharged
     return {
         "ticket": WAITING_FAMILIES_TICKET,
         "asks": "The family_dwelling order outruns the held heads the housing seats put under "
@@ -1392,14 +1430,20 @@ def waiting_families_ruling(households: list, fills: list, held: dict | None,
         "by_division": rows,
         "short_of_the_order": short,
         "discharged": discharged,
+        "re_spread_from_full_cells": moved,
+        "discharging_nothing": unspent,
         "still_owed": still,
         "measured": (f"The held heads fall {short:,} short of the family_dwelling order. The "
                      f"housing deal holds {total:,} families present on the scene date and "
                      f"waiting on a roof behind the census ceiling, none of them a letter-list "
                      f"household, {int(waiting.get('unplaced') or 0):,} with no division on "
                      f"the card; spread pro rata on the cells' targets, as rule 2 spreads "
-                     f"the unplaced known, they discharge {discharged:,} and {still:,} are "
-                     f"still owed."),
+                     f"the unplaced known, with a share past its cell's shortfall spread on "
+                     f"over the cells still short ({moved:,} so), they discharge "
+                     f"{discharged:,}"
+                     + (f", {unspent:,} discharge nothing because no cell is short," if unspent
+                        else "")
+                     + f" and {still:,} are still owed."),
         "ruling": "NOT A HOUSEHOLD THE TOWN LACKS. Rule 2 never orders a replacement for "
                   "somebody standing in the town, and these families stand in it on their own "
                   "cards: what they lack is a roof, which the remaining dwelling builds raise, "
@@ -2287,7 +2331,8 @@ def household_buckets(model: dict, inventory: dict, known: dict) -> dict:
             "known": known_by_cell[key],
             "to_reconstruct": max(0, targets[key] - known_by_cell[key]),
             "filled": 0,
-            "owning_ticket": owners[htype],
+            "owning_ticket": (FAMILY_HOUSEHOLD_OWNER_BY_DIVISION.get(division, owners[htype])
+                              if htype == "family_dwelling" else owners[htype]),
             "basis": (
                 f"the model's {total:,} households apportioned on the "
                 f"{_apportioned_on(htype)} in the "
@@ -4213,7 +4258,8 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
                    if ticket is None or b["owning_ticket"] == ticket)
     persons, households = families[0], families[1]
     p_1171 = owed(persons, FAMILY_OWNER)
-    h_1171 = owed(households, FAMILY_HOUSEHOLD_OWNER) + owed(households, STORE_RESIDENCE_OWNER)
+    h_1171 = (owed(households, FAMILY_HOUSEHOLD_OWNER) + owed(households, STORE_RESIDENCE_OWNER)
+              + sum(owed(households, t) for t in set(FAMILY_HOUSEHOLD_OWNER_BY_DIVISION.values())))
     held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
     target = persons["summary"]["town_target"]
     low, high = persons["summary"]["town_target_range"]
@@ -5668,19 +5714,26 @@ def cmd_self_test() -> int:
     # building block 81's D5 and block 95's D6): the Market wedge's four lots open a D5, an F4
     # and an H3 in the schedule, and the D5 is dealt as a slot on the wedge's lot 7 to one
     # household the deal had handed on (214 -> 215 platted, 99 off-plat, L270, L409).
-    # 314 -> 318 on 2026-10-09 (T-2253, over T-1645): the School Section's Monroe-Adams tier
-    # joins the plat on the owner's T-2247 ruling and the South's five gated dwellings and its
-    # H3 are dealt to block 82, so four households the deal had handed on are dealt a slot
-    # there; its second D2 and the H3 find no admitted row (215 -> 219 platted, 99 off-plat,
+    # 314 -> 310 on 2026-10-09 (T-2255): the off-plat deal reads the letter-list ruling
+    # (T-0379) before it deals, as the platted deal has since T-1645, so the 69 letter-list
+    # households it had seated are owed; 65 handed-on households take their roofs, and in
+    # the West the farm clause takes a farmstead or nothing (215 platted, 99 -> 95 off-plat,
+    # L271).
+    # 310 -> 314 on 2026-10-09 (T-2253, merged over T-2255): the School Section's Monroe-Adams
+    # tier joins the plat on the owner's T-2247 ruling and the South's five gated dwellings and
+    # its H3 are dealt to block 82, so four households the deal had handed on are dealt a slot
+    # there; its second D2 and the H3 find no admitted row (215 -> 219 platted, 95 off-plat,
     # L270) — requests T-2254 raises.
     # 318 -> 319 on 2026-10-09 (T-1550, on top of T-2253): hh_beaubien_charles folds onto
     # hh_beaubien_charles_h and his adopted D3 goes down the South walk; hh_meleney_patrick
     # takes a standing roof, his block-82 slot is re-dealt and one more household is slotted
     # there, and one reconstructed household is seated on a freed D1 on the Lake-Market block
     # (219 -> 220 platted, 99 off-plat, L270).
-    # 319 -> ??? (T-2268, over T-1550): two F3s on the South Branch bank — RESTATE FROM THE TOOL.
+    # 319 -> 315 on 2026-10-10 (T-2255, on top of T-1550): the off-plat deal owes the
+    # letter-list cohort the ruling of 2026-08-30 refuses (T-0379), so 99 -> 95 off-plat on
+    # the same 220 platted (L271).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 319
+        data["inventory"], data["programme"], occ))["seated"] == 315
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -5803,7 +5856,22 @@ def cmd_self_test() -> int:
     assert ruled["discharged"] == 7 and ruled["still_owed"] == 3, ruled
     cells = fam_cells()
     ruled = waiting_families_ruling(cells, fill_rows, {"north": 115, "south": 157}, {"unplaced": 4})
-    assert ruled["discharged"] == 3 and ruled["still_owed"] == 7, ruled
+    # T-2285: the North is full, so its one family goes on to the South rather than nowhere.
+    assert ruled["discharged"] == 4 and ruled["still_owed"] == 6, ruled
+    assert ruled["by_division"]["south"]["re_spread_from_full_cells"] == 1, ruled
+    # And both short: the South's share past its 10 goes to the North, and no further.
+    cells = fam_cells()
+    cells[0]["filled"] = 86
+    ruled = waiting_families_ruling(
+        cells, fill_rows + [{"bucket": "households/family_dwelling/north",
+                             "ticket": HELD_HEAD_TICKET, "records": 80}],
+        {"north": 80, "south": 157}, {"unplaced": 17})
+    assert [b["to_reconstruct"] for b in cells] == [89, 174], cells
+    assert (ruled["discharged"], ruled["re_spread_from_full_cells"], ruled["still_owed"],
+            ruled["discharging_nothing"]) == (17, 2, 3, 0), ruled
+    cells = fam_cells()
+    ruled = waiting_families_ruling(cells, fill_rows, {"north": 115, "south": 157}, {"unplaced": 23})
+    assert ruled["discharging_nothing"] == 13, "a share no cell could take went uncounted"
     cells = fam_cells()
     cells[1]["filled"] = 184
     ruled = waiting_families_ruling(cells, fill_rows, {"north": 115, "south": 100}, {"unplaced": 23})
