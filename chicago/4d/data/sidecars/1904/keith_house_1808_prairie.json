@@ -215,6 +215,122 @@
       "confidence": "reconstructed",
       "note": "Every window is built from the K06 kit (T-2298): the double-hung sashes of every storey on all three glazed walls as the kit's working street sash, two lights over two, at this record's own clear sizes; the basement lights as the kit's three-light area light, without its area well, since this record sets their sills 0.35 m above grade. No source shows these sashes' glazing; two-over-two is the kit's commonest form, not a reading of this house."
     },
+    "bays": {
+      "value": [
+        {
+          "id": "south_front_bow",
+          "variant": "k08.bay.bowed",
+          "wall": "k01.wall.street_front",
+          "s_m": 2.0,
+          "fabric": "stone",
+          "storeys": [
+            {
+              "height_m": 5.4,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.8,
+                  "clear_height_m": 2.3,
+                  "sill_m": 2.25,
+                  "at_deg": [
+                    -36,
+                    0,
+                    36
+                  ]
+                }
+              ]
+            },
+            {
+              "height_m": 3.6,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.8,
+                  "clear_height_m": 2.2,
+                  "sill_m": 0.85,
+                  "at_deg": [
+                    -36,
+                    0,
+                    36
+                  ]
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "cone",
+            "pitch": 0.25,
+            "covering": "copper_standing_seam"
+          }
+        },
+        {
+          "id": "rear_canted",
+          "variant": "k08.bay.canted",
+          "wall": "k01.wall.rear_service",
+          "s_m": 3.0,
+          "fabric": "brick",
+          "storeys": [
+            {
+              "height_m": 5.4,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.75,
+                  "clear_height_m": 2.3,
+                  "sill_m": 2.25,
+                  "at": [
+                    0.18,
+                    0.82
+                  ],
+                  "recess_m": 0.4
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.95,
+                  "clear_height_m": 2.3,
+                  "sill_m": 2.25,
+                  "at": [
+                    0.5
+                  ]
+                }
+              ]
+            },
+            {
+              "height_m": 3.6,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.75,
+                  "clear_height_m": 2.2,
+                  "sill_m": 0.85,
+                  "at": [
+                    0.18,
+                    0.82
+                  ],
+                  "recess_m": 0.4
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.95,
+                  "clear_height_m": 2.2,
+                  "sill_m": 0.85,
+                  "at": [
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.25,
+            "covering": "tin_flat_seam_painted"
+          }
+        }
+      ],
+      "confidence": "reconstructed",
+      "note": "Two K08 bays (T-2308), built by generators/archetypes/k08_bays.py from data/components/prairie_1904/k08_bays.json. SOUTH FRONT BOW: the T-1837 frontage register (frontage-28-037) reads 'the south curved bay' on the Inland Architect plate of February 1888; that plate is not a source record here, so its plan, size and windows are the kit's segmental bow (3.2 m on its chord, 0.9 m out) set on the front's south bay, two storeys from grade to under the third-floor sill, three bent sashes a storey at the house's own front sash heights, under a low copper cone. T-1882/T-1883 own the plate's actual bay and replace this one. REAR CANTED BAY: no source shows 1808's rear; a two-storey canted bay is the commonest Prairie Avenue bay (k08_bays.json), set on the rear's north window bay in the house's common brick with stone dressings, under a low tin hip. Each bay's band sits on the front's second-floor belt (5.4 m), its wall top 9.0 m, so its roof (pitch 0.25) meets the wall clear of the third-floor sill above it; the host wall carries no opening behind either. Liberty L-k08-1808-bays-2308."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",

@@ -1,3 +1,23 @@
+## T-2308 — a curved front bay and a canted rear bay on 1808 Prairie (2026-10-10)
+
+**Visible.** In the 1904 scene, the house at 1808 Prairie has two bays built from the K08 kit
+(T-2307). On the south bay of its stone front is a two-storey segmental bow, with three bent sashes
+a storey under a copper cone. On its brick rear is a two-storey canted bay, with a window in every
+face under a tin hip. These are the kit's first bays on a house.
+
+- **What it is.** The record's `form.bays` names each bay's kit variant, wall, centre, storeys,
+  windows and roof. `k01_frontage_params` resolves it and drops the host openings behind it, and
+  `Assembly.bay` lays the built bay on its wall. `check_bay_kit.py` now holds each house bay to
+  every kit rule at both tiers. `mesh_inputs` hashes `k08_bays.py` and `k08_bays.json` for every
+  `k01_frontage`.
+- **Honest limits.** Both bays are reconstructed (L-k08-1808-bays-2308). The bow stands for the
+  register's "south curved bay", whose 1888 plate is not a source here; nothing shows the rear. The
+  house ships one mesh, so the kit's light tier is gated but not shipped. 548 sliver triangles under
+  2.5 mm were dropped from the kit's slab cuts to keep both tiers free of degenerate faces.
+- **Verified.** Front, oblique, rear and roof, and each bay raked at 3-4 m, at both viewports in
+  the published app, with zero errors. The K01 measure is ok at full and web. Costs are in
+  `docs/RESEARCH/k08-1808-bays-2308/README.md`.
+
 ## T-2298 — K06 windows on the 1808 exemplar (2026-10-10)
 
 **Visible.** In the 1904 scene, every window of the house at 1808 Prairie is now a real opening

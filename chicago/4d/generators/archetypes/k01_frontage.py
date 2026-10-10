@@ -27,6 +27,9 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
   k01.opening.door_leaf     reveal, threshold and a recessed oak leaf
   k01.stair.straight_stoop  whole risers from the walk to the principal floor
   k01.roof.hip              four planes on true hips, fascia and soffit
+  k08.*                     a K08 bay (T-2308): `generators/archetypes/k08_bays.py`
+                            builds it in its own wall frame and `bay` lays it on
+                            its host wall, which carries no opening behind it
 
 A wall is the cell grid its openings cut, so no face is ever drawn twice and no
 cell straddles an opening edge (T-junction free inside the wall). Faces that sit
@@ -109,6 +112,30 @@ MATERIALS = {
 # T-2291: the side and rear walls are K03 common brick, not Glessner's courtyard
 # brick_buff, and the brick heads, string course and units add their own slots.
 MATERIALS.update(k03_brick.MATERIALS)
+# T-2308: a K08 bay's own slots. None begins with an envelope material: a bay stands
+# proud of its wall by up to a metre, and the contract's envelope is the main range on
+# its footprint (the stoop's reasoning, above). Stone bays wear the front's limestone,
+# brick bays K03's coursed common-bond panel; dressings, joinery, glass and blinds are
+# the house's own slots, so a bay adds no draw call for them. The two bodies differ from
+# the walls' slots in roughness alone, and must differ in something: the web derivative
+# merges identical materials under one name, which handed the bays to the envelope.
+MATERIALS.update({
+    "bay_stone": dict(MATERIALS["rough_stone_trim"], roughness=0.9),
+    "bay_brick": dict(k03_brick.MATERIALS["brick"], roughness=round(k03_brick.MATERIALS["brick"]["roughness"] + 0.02, 2)),
+    "bay_copper": {"color": (0.37, 0.52, 0.45), "roughness": 0.45, "metallic": 0.35},
+    "bay_tin": {"color": (0.30, 0.22, 0.18), "roughness": 0.7},
+})
+# K08 role -> slot; `body` is the bay's fabric (bay_stone or bay_brick), `cover` its
+# roof's K04 covering. A came is a leaded light's, which no K01 bay glazes.
+K08_ROLES = {"wall": "body", "reveal": "body", "mullion": "body", "roof_back": "body",
+             "plinth": "bay_stone", "band": "bay_stone", "corbel": "bay_stone",
+             "sill": "bay_stone", "head": "bay_stone", "soffit": "fascia", "fascia": "fascia",
+             "frame": "sash", "sash_outer": "sash", "sash_inner": "sash",
+             "glass_outer": "glass", "glass_inner": "glass", "blind": "blind",
+             "curtain": "curtain", "backing": "backing", "roof": "cover", "finial": "cover"}
+SLIVER_M = 0.0025   # T-2308: a bay triangle with an edge shorter than this is a sliver
+K08_COVERS = {"copper_standing_seam": "bay_copper", "copper_sheet": "bay_copper",
+              "tin_flat_seam_painted": "bay_tin"}
 
 
 def _tiles() -> dict:
@@ -211,7 +238,7 @@ class Assembly:
         pr.face([P(s1, y0, 0), P(s1, y0, d), P(s1, y1, d), P(s1, y1, 0)], R, be, conf)
 
     # -- k01.wall.* ----------------------------------------------------------------
-    def wall(self, cid, mat, O, R, length, height, thickness, holes, extra_breaks=(), bands=()):
+    def wall(self, cid, mat, O, R, length, height, thickness, holes, extra_breaks=(), bands=(), gaps=()):
         p = self.p
         N = _cross(R, Y)
         conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction")
@@ -235,7 +262,8 @@ class Assembly:
                 pr.face([P(sb[i], yb[j], 0), P(sb[i + 1], yb[j], 0),
                          P(sb[i + 1], yb[j + 1], 0), P(sb[i], yb[j + 1], 0)], N, b, conf)
         for (y0, y1, proud) in bands:  # belt courses, part of the wall component
-            self.proud_box("limestone_trim", (O, R, N), 0.0, length, y0, y1, proud, seed, conf)
+            for s0, s1 in _pieces(0.0, length, gaps):   # T-2308: stopped against a bay
+                self.proud_box("limestone_trim", (O, R, N), s0, s1, y0, y1, proud, seed, conf)
         return (O, R, N), thickness
 
     # -- k01.opening.* ---------------------------------------------------------------
@@ -341,6 +369,66 @@ class Assembly:
                 dst.tone.append(dst.tone_of(dst.pos[-1][1]) if dst.tone_of else 1.0)  # T-2291's mask
             dst.idx += [off + i for i in src.idx]
 
+    # -- k08.* bays (T-2308) -------------------------------------------------------------
+    def bay(self, b, frame) -> float:
+        """Lay one K08 bay on its host wall; return where its roof meets the wall.
+
+        `k08_bays.Bay` builds the bay in its own frame — +X along the wall to the right
+        seen from outside, +Y up, +Z out of the wall's face — which is a K01 wall's
+        (R, Y, N) about the bay's centre, so the map is a translation and no winding
+        turns. A brick bay's courses are re-anchored to grade, as the K03 wall's are,
+        so the two meet course for course at each junction."""
+        from . import k08_bays as K8
+        p = self.p
+        O, R, N = frame
+        v = b["variant"]
+        built = K8.Bay(v, K8.load(), "full").build(board=False)
+        conf = p.conf("bays")
+        seed = self.instance(f"k08.{v['kind']}", "bay",
+                             {"k08_variant": b["id"], "plan": v["plan"]["kind"], "storeys": len(v["storeys"]),
+                              "wall_top_m": built.meta["wall_top_m"], "projection_m": built.meta["plan"]["projection_m"],
+                              "windows": len(built.windows), "wall": b["wall"]},
+                             {"junction_left": _add(O, _mul(R, b["span_m"][0])),
+                              "junction_right": _add(O, _mul(R, b["span_m"][1]))})
+        base = _add(O, _mul(R, b["s_m"]))
+        W = lambda q: _add(base, _add(_add(_mul(R, q[0]), _mul(Y, q[1])), _mul(N, q[2])))
+        body = "bay_brick" if b["fabric"] == "brick" else "bay_stone"
+        cover = K08_COVERS[v["roof"]["covering"]]
+        for role, src in built.prims.items():
+            if role not in K08_ROLES:
+                raise ValueError(f"K08 role {role!r} has no material on a K01 frontage")
+            mat = {"body": body, "cover": cover}.get(K08_ROLES[role], K08_ROLES[role])
+            spec = MATERIALS[mat]
+            fab = spec.get("fabric")
+            tu, tv = self.tiles[fab] if fab else (1.0, 1.0)
+            _, _, _, _, _, ou, ov = self.basis(mat, O, R, Y, seed)
+            dst = self.prim(mat)
+            off = len(dst.pos)
+            # On the contract's 1 mm grid (k01_contract.json `quantum_m`): the web
+            # derivative quantizes positions to a third of that, so a vertex already on
+            # the grid keeps its millimetre there and the two tiers read the same faces.
+            world = [tuple(round(c * 1000) / 1000 for c in W(q)) for q in src.pos]
+            for q, n, uv, w in zip(src.pos, src.nrm, src.uv, world):
+                dst.pos.append(w)
+                dst.nrm.append(_add(_add(_mul(R, n[0]), _mul(Y, n[1])), _mul(N, n[2])))
+                if spec.get("courses") and abs(n[1]) < 0.5:
+                    dst.uv.append((uv[0] / tu + ou, -q[1] / tv))   # v = 0 at grade, as K03's walls
+                else:
+                    dst.uv.append((uv[0] / tu + ou, uv[1] / tv + ov) if fab else uv)
+                dst.conf.append(conf)
+                dst.tone.append(dst.tone_of(dst.pos[-1][1]) if dst.tone_of else 1.0)
+            # A sliver is not a face (the contract's coincidence measure): where the kit's
+            # slab cuts leave a triangle with an edge under SLIVER_M, it is dropped rather
+            # than shipped. Such a triangle is never wider than that edge, and the web
+            # derivative collapses it to a degenerate one anyway (T-2308 measured 46 there).
+            for t in range(0, len(src.idx), 3):
+                i, j, k = src.idx[t:t + 3]
+                if min(math.dist(world[i], world[j]), math.dist(world[j], world[k]),
+                       math.dist(world[i], world[k])) >= SLIVER_M:
+                    dst.idx += [off + i, off + j, off + k]
+        roof = built.prims.get("roof")
+        return max(q[1] for q in roof.pos if abs(q[2]) < 1e-6) if roof else built.meta["eave_m"]
+
     # -- k01.stair.straight_stoop ------------------------------------------------------
     def stoop(self, frame, s_c):
         p = self.p
@@ -408,6 +496,18 @@ class Assembly:
         return yf
 
 
+def _pieces(s0, s1, gaps):
+    """[s0, s1] less every (a, b) gap: what is left of a course a bay stops."""
+    out, at = [], s0
+    for a, b in sorted(gaps):
+        if a > at:
+            out.append((at, min(a, s1)))
+        at = max(at, b)
+    if at < s1:
+        out.append((at, s1))
+    return [(a, b) for a, b in out if b - a > 1e-6]
+
+
 def build(params, structure_id: str):
     """The assembly: walls with their openings cut, the stoop, the roof."""
     p = params
@@ -430,10 +530,11 @@ def build(params, structure_id: str):
         "k01.wall.rear_service": ("brick", (0.0, 0.0, -W), (0.0, 0.0, 1.0), W, p.side_thickness_m, ()),
         "k01.wall.side.south": ("brick", (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), D, p.side_thickness_m, ()),
     }
+    gaps = {cid: [bay["span_m"] for bay in p.bays if bay["wall"] == cid] for cid in walls}
     frames = {}
     for cid, (mat, O, R, length, t, bands) in walls.items():
         breaks = (yf, *k03_brick.condition_breaks(yf)) if MATERIALS[mat].get("condition") else (yf,)
-        frames[cid] = (a.wall(cid, mat, O, R, length, E, t, holes(cid), breaks, bands), mat)
+        frames[cid] = (a.wall(cid, mat, O, R, length, E, t, holes(cid), breaks, bands, gaps[cid]), mat)
     for op in p.openings:
         (frame, t), mat = frames[op.wall]
         a.opening(op, frame, t, mat, "limestone_trim")
@@ -444,10 +545,20 @@ def build(params, structure_id: str):
     for cid, s_from, s_to in (("k01.wall.side.south", -k03_brick.STRING_PROUD, D),
                               ("k01.wall.rear_service", 0.0, W)):
         frame = frames[cid][0][0]
-        k03_brick.string_course(a, seed_of(structure_id, cid, 0), frame, s_from, s_to, floors[1], sc_conf)
+        for s0, s1 in _pieces(s_from, s_to, gaps[cid]):   # T-2308: stopped against a bay
+            k03_brick.string_course(a, seed_of(structure_id, cid, 0), frame, s0, s1, floors[1], sc_conf)
     door = next(o for o in p.openings if o.component == "k01.opening.door_leaf")
     a.stoop(frames["k01.wall.street_front"][0][0], door.s_m)
     a.roof()
+    # T-2308: the K08 bays, each on its wall. Its roof leans on that wall, so an opening
+    # left above it must clear the roof — the K06 sill (0.10 m) and 0.05 m of flashing.
+    for bay in p.bays:
+        top = a.bay(bay, frames[bay["wall"]][0][0])
+        for o in p.openings:
+            if o.wall == bay["wall"] and bay["span_m"][0] < o.s_m < bay["span_m"][1] \
+                    and o.sill_m - 0.15 < top:
+                raise ValueError(f"{bay['id']}'s roof meets {o.wall} at {top:.3f} m, under the "
+                                 f"opening at s {o.s_m} whose sill is {o.sill_m} m")
     return a
 
 
@@ -495,7 +606,7 @@ def to_glb(a: Assembly, structure_id: str, phase_id: str, scene_ids, extras: dic
             continue
         spec = MATERIALS[name]
         mat = {"name": name, "pbrMetallicRoughness": {
-            "baseColorFactor": [*spec["color"], spec.get("alpha", 1.0)], "metallicFactor": 0.0,
+            "baseColorFactor": [*spec["color"], spec.get("alpha", 1.0)], "metallicFactor": spec.get("metallic", 0.0),
             "roughnessFactor": spec["roughness"]}}
         if "alpha" in spec:
             mat["alphaMode"] = "BLEND"
