@@ -1,0 +1,8 @@
+{
+  "title": "Prairie Avenue's streets are lit the right way up",
+  "kind": "fix",
+  "items": [
+    "Walk the 1904 Prairie Avenue scene and look along a street at a low sun. Asphalt grain, macadam ruts, brick joints, the walk's block joints and the curbstones' edges now catch the light on the side facing it.",
+    "Before, every street surface had its relief flipped across the street, so a rut could read as a ridge. The surface maps were drawn in the wrong convention for the viewer. They are now redrawn, and the check fails if any map flips again."
+  ]
+}

@@ -461,6 +461,15 @@ step "the 1904 street surfaces cover the grid, cite real sources and bound the s
 selftest "…and a bare surface, an invented source, a report made to attest or a range that misses still fails it" \
   python3 tools/check_street_surfaces.py --self-test
 
+# T-2296. ...and the relief those surfaces are lit with points the right way. The library's
+# generator wrote green as -dh/drow, the DirectX sign, into every `normal_gl` map, and
+# street-grid.js binds `normal_gl_web.jpg` into three.js, which reads OpenGL (+V up the
+# image): every pothole, rut and joint was lit as a bump across the street. This
+# correlates each map's red and green with its own height16's slopes, so a flipped
+# channel is red whatever its strength.
+step "the 1904 street normals are OpenGL-handed, as the renderer binds them (T-2296)" \
+  python3 tools/check_street_surfaces.py --handedness
+
 # T-2292. ...and what the 1904 roofs are covered in. The K04 library's slates, tiles, pans
 # and sheets are sized in data/components/prairie_1904/k04_roofs.json and drawn by the
 # generator in assets/textures/prairie_1904_roofs/; a K01 roof maps TEXCOORD_0 = metres /
