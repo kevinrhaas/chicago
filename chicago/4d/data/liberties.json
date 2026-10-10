@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 460,
+  "count": 464,
   "liberties": [
     {
       "id": "L1",
@@ -28451,6 +28451,62 @@
       ]
     },
     {
+      "id": "L-k04-1808-roof-2293",
+      "title": "The 1808 Prairie roof: slate, copper, a front dormer and the rainwater goods, all reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.dormer"
+        },
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.roof_covering"
+        }
+      ],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Roof the 1808 Prairie K01 frontage (L-k01-1808-frontage-2266) from the K04 library (L-k04-roof-library-2292): dark Pennsylvania slate on all four hip planes, its courses registered at the eave and running 50 mm past the fascia on a doubled starter course; a copper roll on each hip and the ridge with its flanges dressed over the top courses; one gabled dormer centred on the street hip, its face of dressed stone 0.30 m behind the wall line with a 0.85 x 1.5 m sash, slated cheeks and roof, bargeboards, a copper ridge roll, an open copper valley at each cheek that widens downhill, a copper apron and step flashing; a 5 in half-round copper gutter on wrought-iron brackets at 30 in round the whole eave, falling 0.5% to five outlets, each with a swan neck under the soffit, a 3.5 in round copper downpipe strapped every 1.8 m and a shoe kicked out over a splash stone at grade. The roof is now 45 degrees, not 40, and the eave 0.38 m, not 0.45. **What is invented.** All of it. No source here reads this house's roof, dormer, gutters or pipes. The covering is the K04 default for a steep main roof, which reads the study's building register (slate on every steep main roof whose covering it names), not a source record. The dormer exists because the K04 package's apron, valleys and step flashing need one to dress and a front attic dormer is the commonest Prairie Avenue form; its size, setback, pitch and sash are ours. The pitch moved to 45 degrees so the library's slate, cut for a 3 in headlap, is laid where the K04 profile allows that lap (a 25-45 degree roof asks 4 in) rather than having its courses stretched; the eave came in so the soffit stays clear of the top storey's lintels at that pitch. The pipes stand by the corners of the front and rear and halfway along the south passage wall, clear of every opening. **Where it departs from its own profile.** None of the pipes stands on the north wall, which closes the Glessner court 0.02 m off its face, so the north gutter runs 20.5 m between its two corner outlets, over the profile's 12 m; it falls both ways from its middle, so no point of it is more than 10.3 m from an outlet. The step flashing is drawn as one strip a cheek, not one piece a course."
+        },
+        {
+          "label": "How to resolve",
+          "text": "T-1882 and T-1883 build the actual Keith/Field front from the 1888 Inland Architect plate, whose pierced parapet replaces this dormer and may hide a different roof; a photograph of the house's roof or rainwater goods replaces the covering, the caps and the pipes."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.roof_covering`, `keith_house_1808_prairie.as_built_1886.form.dormer`, `keith_house_1808_prairie.as_built_1886.form.rainwater`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2293 (piece 2 of T-1846, K04)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k04-1808-roof-2293/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2293)."
+        }
+      ]
+    },
+    {
       "id": "L-k02-stone-library-2288",
       "title": "The 1904 stone library: how six building stones look, and the joints and edges they are laid with",
       "section": "per_subject",
@@ -28507,6 +28563,37 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2297)."
+        }
+      ]
+    },
+    {
+      "id": "L-k13-conservatory-kit-2305",
+      "title": "The Prairie conservatory kit: every glasshouse, its frame, glass, plinth, rainwater and planting, all reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 Prairie programme's conservatories and greenhouses (package K13, T-2305) are five parametric houses built by `generators/archetypes/k13_conservatories.py` from `data/components/prairie_1904/k13_conservatories.json`: a single-pitch lean-to, a free-standing span-roofed house with a louvred ridge ventilator, a span house with a raised lantern, a curvilinear lean-to on curved ribs, and a canted conservatory bay against a house wall. Each is a three-tier frame (posts, rafters, ribs, corner posts, hips and jambs; the sill, eave, ridge, verge and wall plates; glazing bars running one way) carrying one convex envelope of single-sided glass, on a brick plinth under a stone coping, with a half-glazed door, K04's half-round gutters, downpipes, shoes and splash stones, and a staging bench of low pot-plant masses inside. **What is invented.** Every dimension: the members' faces and how far each stands proud of and runs behind the glass, the 1 in glazing bar, the 8-16 in panes, the bay spacing, the eave heights, pitches, the lantern's size and the curvilinear roof's quarter-ellipse; the two-foot brick plinth and its coping; the door's width, height, panel and lock rail; the ridge ventilator's louvres; the staging's height and depth and every plant mass's seeded size; the white-painted frame, the glass's tint and transparency, the opaque glass substitute on the lantern, the brick, stone, tile floor and foliage colours. The rainwater sizes, fall, bracket spacing and shoe are K04's (L-k04-roof-library-2292), themselves reconstructed. Three choices are made for the renderer rather than from any source: the glass is drawn single-sided as one convex envelope so no line of sight crosses two transparent panes; a lantern is glazed with an opaque substitute because it stands outside that envelope; and the ridge is ventilated by louvres rather than by top-hung lights in the glazing. Glazing laps, horticultural glass's green tint, heating pipes, blinds and shading are not modelled. The choice of forms reads the study's building register (\"dated conservatory/palm-house complex\", \"conservatory bay\", \"greenhouse complex behind adjacent lots\"), which is the study's reading of its images and not a source record here. **What is not.** Nothing in the kit is attested; no house in the scene has a conservatory from it yet (T-2306 builds the first, a Pullman service-garden bay)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a house's own photograph, drawing or insurance-map outline shows its conservatory's form, bays, roof and glazing, and that house takes them in place of the kit's working sizes; a period horticultural builder's catalogue (iron or timber glasshouse sections) replaces a member's dimensions for every house at once."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2305 (piece 1 of T-1855, K13)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k13-conservatory-kit/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2305)."
         }
       ]
     },
@@ -28715,6 +28802,68 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2298)."
+        }
+      ]
+    },
+    {
+      "id": "L-k10-cornice-kit-2316",
+      "title": "The Prairie cornice kit: every cornice, parapet, gable coping, dormer face and cresting reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 Prairie programme's wall heads (package K10, T-2316) are seven parametric variants built by `generators/archetypes/k10_cornices.py` from `data/components/prairie_1904/k10_cornices.json`: an Italianate timber eave cornice (frieze, single scrolled brackets, soffit, crown), a pressed-metal cornice (paired brackets, raised frieze panels, a thinner crown), a classical stone entablature (architrave, frieze, dentilled cornice), a pedimented dormer standing on a 45 degree roof over a bracketed eave returned on both gable ends, a stone balustraded parapet (crowning cornice, plinth, turned balusters, pedestals, rail, urns), a shaped (Dutch) gable with a coping swept along its whole outline between two kneelers and a finial, and cast-iron roof cresting (posts, bars, C-scrolls, spears and spike finials) on a rolled ridge cap. Every run is one section mitred round its corners and ending on a wall or a capped return; every piece rests on what carries it; none is a texture. **What is invented.** Every dimension and every shape: the frieze's 0.55 m height and 25 mm projection; the brackets' S outline, 0.48 m height, 0.34 m projection, 0.60 m spacing and their pairing; every crown, architrave, cornice, coping, rail and ridge-cap section; the dentils' size and pitch; the frieze panels; the balusters' and urns' turned profiles, the plinth, pedestal sizes and the 0.24 m baluster pitch; the gable's shoulder, neck and segmental cap and its kneelers and finial; the dormer's set-back, face, 35 degree pediment and its two rake bands; the cresting's bars, posts, scroll radius and turn, spear and finial. The scrolls and the gable outline are newly designed for this kit and copy no named house. The variants follow the study's asset catalog (K10: \"bracketed timber/metal cornices, dentils, friezes, classical entablatures, carved stone parapets, balustrades, urns, pediments, shaped gable copings and roof cresting\"), which is the study's reading of its images and not a source record here. **What is not.** Nothing in the kit is attested, and no house carries it yet (T-2317 builds the first K10 wall head on a named house). The data's restriction keeps every generic profile off a house whose own cornice, parapet or gable is documented: there it is authored from the evidence."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a house's own photograph, drawing or surviving fabric shows its cornice, parapet, gable or cresting, and that house takes it in place of the kit's working sections; a period builder's, sheet-metal or iron-foundry catalogue replaces a part's sections for every house at once."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2316 (piece 1 of T-1852, K10)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k10-cornice-kit/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2316)."
+        }
+      ]
+    },
+    {
+      "id": "L-k15-chimney-kit-2312",
+      "title": "The Prairie chimney kit: every stack size, cap, pot, flashing step, cricket and soot band reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 Prairie programme's chimneys (package K15, T-2312) are four parametric variants built by `generators/archetypes/k15_chimneys.py` from `data/components/prairie_1904/k15_chimneys.json`, each standing in one of the K05 kit's roofs: an ordinary two-flue brick service stack mid-slope with a cricket behind it, a grouped three-flue brick stack astride a ridge with clay pots, a two-flue dressed-stone stack on a hipped roof's rear plane, and a carved stack of the kind the study's register describes for the Sherman house (sunk panels, two sandstone string courses, a row of stone corbel blocks, a three-course corbelled head and a sandstone cap). Each is joined to its roof by a boolean union and its flues are cut out of it, so the roof junction, the cricket's valleys and every flue are real geometry. **What is invented.** Every number: the half-brick plan module, the 0.07 m course (RECONSTRUCTION-RULES.md's brickwork starting size), the 0.21 m flue opening and its 0.6 m recess, the stacks' widths, depths, heights and positions, their corbel courses, caps, bands, panels and blocks; the flashing's 6 mm thickness, 0.12 m upstand and 0.15 m lap; the cricket's 0.75 m threshold and 35 degree pitch; the pots' profiles and square bore; the draught rule (0.6 m above the covering within 3 m, 0.9 m above the covering where the stack emerges), which is a modelling prior and not a period code; the west-south-west wind and the 0.45 m soot band it darkens on a stack's leeward faces; and the colours the specimen is drawn in. The Sherman-type stack reads only the register's sentence (\"carved chimney tops\"); the 1876 American Architect plate it lists was not read for this kit, so the stack is a form for a carved top and not the Sherman house's own. Pots stand on the ridge stack to show the part; whether a house's flues are potted is that house's source's to say. **What is not.** Nothing in the kit is attested; no house's chimneys are built from it yet (T-2313 builds a named house's)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a house's photograph or drawing gives its stacks' number, position, height, head and pots, and that house takes them in place of the kit's working sizes; a period builder's or manufacturer's catalogue replaces the pot profiles and the flue size for every house at once."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2312 (piece 1 of T-1857, K15)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k15-chimney-kit/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2312)."
         }
       ]
     },
