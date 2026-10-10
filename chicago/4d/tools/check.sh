@@ -495,6 +495,20 @@ step "the K06 window kit builds every window as a closed recess over an enclosed
 selftest "…and a blind before the glass, a missing jamb, a holed backing, a doubled pane or a leaded street sash still fails it" \
   python3 tools/check_window_kit.py --self-test
 
+# T-2307. ...and what the 1904 bays, oriels and towers are. The K08 kit's plans, supports,
+# bands, eaves and roofs are sized in data/components/prairie_1904/k08_bays.json and built
+# by generators/archetypes/k08_bays.py, its windows from K06. This rebuilds every variant at
+# both tiers and measures the geometry: keyed to its wall and never behind it, closed (rays
+# from inside meet the bay), every pane over its own recess one glass layer deep, recesses
+# inside the bay and clear of each other, no doubled face, curves cut fine with true
+# normals, a plinth or corbels within their oversail, the light tier on the full tier's
+# silhouette, the triangle budgets, and the specimen GLB the generator's bytes.
+step "the K08 bay kit builds every bay, oriel and tower closed against its wall, its curves unfaceted (T-2307)" \
+  python3 tools/check_bay_kit.py --check
+
+selftest "…and a window off its run, a recess through the wall, a faceted curve, an oriel on one deep course or a roof with a hole still fails it" \
+  python3 tools/check_bay_kit.py --self-test
+
 # T-1963. The walls' relief is bound by reading the RECORD (route 2 of the photographic
 # fabric preparation, docs/GLB-CONTRACT.md § Wall substrates, PROPOSED): which wall is
 # clapboard, and how much of the wood's grain its finish lets through. That route's

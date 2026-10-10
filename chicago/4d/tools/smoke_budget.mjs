@@ -405,6 +405,13 @@ const COVERAGE = [
   ['generators/archetypes/k06_windows.py', NONE, 'the K06 window kit generator — imported by no scene build yet: check_window_kit.py --check'],
   ['docs/RESEARCH/k06-window-kit/', NONE, 'the K06 window kit specimen and study — unpublished: check_window_kit.py --check'],
   ['tools/study_k06_windows.mjs', NONE, 'the K06 study renderer — run by hand, by no gate'],
+  // T-2307. The K08 bay kit is built into a specimen GLB under docs/ that nothing publishes
+  // and no scene loads until T-2308 builds a bay on a house from it, so no part draws it;
+  // tools/check_bay_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k08_bays.json', NONE, 'the K08 bay kit data — built into no scene yet: check_bay_kit.py --check'],
+  ['generators/archetypes/k08_bays.py', NONE, 'the K08 bay kit generator — imported by no scene build yet: check_bay_kit.py --check'],
+  ['docs/RESEARCH/k08-bay-kit/', NONE, 'the K08 bay kit specimen and study — unpublished: check_bay_kit.py --check'],
+  ['tools/study_k08_bays.mjs', NONE, 'the K08 study renderer — run by hand, by no gate'],
 
   // --- PART 14: the arrival-to-jaunt path, on a fresh context (T-2044)
   // The jaunt modules are imported lazily, the first time the Jaunts menu opens, and
