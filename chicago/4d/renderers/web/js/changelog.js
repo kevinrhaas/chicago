@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'The resident index and audits read each household\u2019s dated places', kind: 'change',
+    items: [
+      'Nothing you can see changes. The resident index, the resident audit, the population profile, the research sign-off and the residents summary now take where a household lived and worked from the dated places on its card, the same entries its card shows you.',
+      'Every figure, row and table comes out exactly as before, even with the old single home and workplace lines removed from the records.',
+      'A card\u2019s \u201cno known address\u201d reason still comes from the old line, because a place nobody can name has no dated entry to carry it. Where that wording goes is decided before the old lines retire.',
+    ] },
   { v: 1606, ts: '2026-10-10T01:40:14.964Z', date: 'Oct 9, 2026, 8:40 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
     items: [
       'Charles Beaubien, father of Susan at her baptism at St Mary\u2019s on 24 December 1834, stood in the town as a second man, with a house of his own. He is Charles H. Beaubien, the voter and violinist, now on one card. The history of Chicago names Charles H. as J. B. Beaubien\u2019s son, teaching the fort\u2019s children in 1829, and his death notice puts his birth in 1806 or 1807. No record the town holds names a second Charles Beaubien.',
