@@ -853,6 +853,14 @@ step "North freight roof on the North Water bank matches its recipe" \
 selftest "…and its validator refuses bad ground" \
   python3 tools/generate_north_freight.py --self-test
 
+# T-2269: the South street line's owed lumber shed, on the South Branch's east bank south of
+# Washington. Off the plat, on the placement policy's `lumber_landing` clause; the record
+# re-derives from the recipe, and the validator is proved by breaking it.
+step "South Branch lumber shed matches its recipe" \
+  python3 tools/generate_south_lumber.py --check
+selftest "…and its validator refuses bad ground" \
+  python3 tools/generate_south_lumber.py --self-test
+
 step "Canal approach trade roofs match their bounded recipe" \
   python3 tools/generate_canal_approach_trade.py --check
 selftest "Canal trade placement refuses collisions and missing ground" \
