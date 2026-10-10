@@ -25,6 +25,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 CONTRACT = ROOT / "data" / "components" / "prairie_1904" / "k01_contract.json"
 WINDOW_KIT = ROOT / "data" / "components" / "prairie_1904" / "k06_windows.json"
+ENTRANCE_KIT = ROOT / "data" / "components" / "prairie_1904" / "k07_entrances.json"
 
 CONFIDENCE_VALUE = {"attested": 0.0, "inferred": 0.5, "reconstructed": 1.0}
 
@@ -94,6 +95,9 @@ class K01FrontageParams:
     openings: tuple = ()
     # T-2298: the K06 variant each K01 opening kind is glazed with (k06_windows.json)
     window_kit: dict = field(default_factory=dict)
+    # T-2304: the K07 variant the door and its stoop are built from (k07_entrances.json),
+    # and the front yard its stair may not reach past: {"variant", "front_yard_m"}
+    entrance_kit: dict = field(default_factory=dict)
     service_wall_brick: str = ""      # the K03 panel the brick walls wear (T-2291)
     confidence: dict = field(default_factory=dict)
 
@@ -127,7 +131,7 @@ CONSUMED = frozenset({
     "wall_thickness_front_m", "wall_thickness_side_m", "roof_form", "roof_pitch_deg",
     "eave_overhang_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m",
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
-    "basement_lights", "window_kit", "service_wall_brick",
+    "basement_lights", "window_kit", "service_wall_brick", "entrance_kit",
 })
 
 
@@ -249,6 +253,31 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if v["operation"].startswith("double_hung") != any(
                 o.meeting_rail for o in openings if o.component == comp):
             raise ParamError(f"window_kit: {vid} is {v['operation']}, which {comp} is not")
+    # T-2304: the door and its stoop are a K07 entrance. The K01 wall cuts a rectangular
+    # hole at the principal floor, so only a flat-headed principal entrance on a straight
+    # stoop fits it; the stair is solved from this record's own floor, tread, landing and
+    # width, and it must agree with the K01 stair's whole risers and stay in the front yard.
+    ek = val("entrance_kit") or {}
+    door_kit = dict(ek.get("k01.opening.door_leaf") or {})
+    ekit = json.loads(ENTRANCE_KIT.read_text())
+    evs = {v["id"]: v for v in ekit["variants"]}
+    ev = evs.get(door_kit.get("variant"))
+    if ev is None:
+        raise ParamError("entrance_kit names no K07 variant for k01.opening.door_leaf (k07_entrances.json)")
+    if ev["head"] != "flat" or ev["use"] != "principal" or ev["stair"]["kind"] != "straight":
+        raise ParamError(f"entrance_kit: {ev['id']} is a {ev['head']}-headed {ev['use']} entrance on a "
+                         f"{ev['stair']['kind']} stair; a K01 front cuts a rectangular hole at the "
+                         f"principal floor over a straight stoop")
+    yard = float(door_kit.get("front_yard_m", 0.0))
+    reach = float(val("stair_landing_depth_m")) + (risers - 1) * tread
+    if not reach < yard:
+        raise ParamError(f"entrance_kit: the stoop reaches {reach:.2f} m from the front, and the public "
+                         f"walk's inner edge is {yard:.2f} m (front_yard_m)")
+    k07_risers = max(1, round(pf / ekit["parts"]["stair"]["riser_target_m"]))
+    if k07_risers != risers:
+        raise ParamError(f"entrance_kit: K07 solves {pf} m in {k07_risers} risers and the K01 stair in "
+                         f"{risers}; one stoop cannot be both")
+    door_kit = {"variant": ev["id"], "front_yard_m": yard}
     # T-2291: the brick walls wear a K03 panel the record names; k03_brick lays one
     from . import k03_brick
     panel = val("service_wall_brick", k03_brick.PANEL)
@@ -268,7 +297,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         side_bays=tuple(float(s) for s in val("side_bays")),
         rear_bays=tuple(float(s) for s in val("rear_bays")),
         basement_sill_m=bsill, openings=tuple(openings), service_wall_brick=panel,
-        window_kit={k: kit[k] for k in sorted(kit)},
+        window_kit={k: kit[k] for k in sorted(kit)}, entrance_kit=door_kit,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

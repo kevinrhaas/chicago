@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 2096632,
-      "sha256": "797d2bdab5cf8537a81bff4ad357ff517062d12ac165be90054222492aac77e6",
+      "bytes": 2108268,
+      "sha256": "1d395b891fea8ddb8d84ef63a5846bb4a8dea8287d69b0e131a0c7f0af96f4f6",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -17,10 +17,10 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 16,
-        "materials": 16,
-        "triangles": 11248,
-        "vertices": 22498
+        "draw_primitives": 17,
+        "materials": 17,
+        "triangles": 11382,
+        "vertices": 22762
       },
       "texture": {
         "images": 4,
@@ -121,6 +121,9 @@
         "curtain": {
           "median_uv_per_m": 1
         },
+        "door_iron": {
+          "median_uv_per_m": 1
+        },
         "door_leaf": {
           "median_uv_per_m": 1
         },
@@ -187,8 +190,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 822848,
-      "sha256": "072ee5a26abf9e0693a9b0e7edee4ca583ae29f37ba55fc429f74cb830bd497d",
+      "bytes": 825616,
+      "sha256": "b649c072a9ff5d4f84258373e1061ccbac1a61b7114b292ec526a4c94b7e9cb8",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -204,10 +207,10 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 16,
-        "materials": 16,
-        "triangles": 11248,
-        "vertices": 21472
+        "draw_primitives": 17,
+        "materials": 17,
+        "triangles": 11382,
+        "vertices": 21752
       },
       "texture": {
         "images": 4,
