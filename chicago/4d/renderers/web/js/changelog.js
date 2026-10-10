@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1656, ts: '2026-10-10T17:49:33.899Z', date: 'Oct 10, 2026, 12:49 PM CT', title: 'An ironwork kit for Prairie Avenue: fences, gates, walls and a canopy', kind: 'feature',
+    items: [
+      'Seven pieces of 1904 street ironwork and boundary: a spear fence and a scroll fence on stone curbs, a walk gate between capped piers with urns, a brick boundary wall with a stone coping, a basement window grille, a stoop rail and an iron-and-glass canopy.',
+      'Every picket runs through its rails, every rail goes into its post, and every post, pier and wall goes down into the ground. Nothing floats.',
+      'The gate hangs on two hinges, swings into the yard without hitting its pier, and no fence runs across the opening. No bar is too thin to read at walking distance.',
+      'All of it is newly designed and copies no real house. No house uses the kit yet.',
+    ] },
   { v: 1655, ts: '2026-10-10T17:27:43.832Z', date: 'Oct 10, 2026, 12:27 PM CT', title: '1808 Prairie\'s roof rebuilt as one solid, with two chimneys', kind: 'feature',
     items: [
       'The roof of the house beside the Glessner House is now built from the new roof kit as one closed solid. No roof plane runs through the dormer, and no board floats.',
