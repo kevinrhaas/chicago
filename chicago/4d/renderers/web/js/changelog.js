@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1640, ts: '2026-10-10T10:17:12.437Z', date: 'Oct 10, 2026, 5:17 AM CT', title: 'A roof kit for Prairie Avenue: hips, gables, mansards, towers and dormers', kind: 'feature',
+    items: [
+      'Ten roof types for the 1904 houses: a hipped roof, a plain gable, stepped and curved parapet gables, two mansards, an octagonal spire, a cone, a cross gable and a dormer.',
+      'Each roof is built as one closed solid, so valleys and gable ends are cut exactly where the surfaces meet. No plane pokes through a gable and no cornice floats.',
+      'Eaves, verges, returns, copings and dormer cheeks are real parts, ready for slate and flashing.',
+      'No house uses the kit yet; 1808 Prairie is the first to get a roof from it.',
+    ] },
   { v: 1639, ts: '2026-10-10T09:45:40.719Z', date: 'Oct 10, 2026, 4:45 AM CT', title: 'A cabin and a merchant\'s house finish the block south of Monroe', kind: 'feature',
     items: [
       'Walk south across Monroe Street on Market to the far end of the first School Section block. Its two east corners now have houses: a one-room log cabin facing Monroe and a merchant\'s frame house facing Adams.',

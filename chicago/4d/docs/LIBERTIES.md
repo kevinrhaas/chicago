@@ -23226,6 +23226,31 @@ string course. A dated soot reading for Prairie Avenue c. 1904.
 **Ticket:** T-2291 (piece 2 of T-1845).
 **Review:** `docs/RESEARCH/k03-1808-service-brick-2291/README.md`.
 **Recorded:** 2026-10-10 (T-2291).
+### L-k05-roof-kit-2301 — The Prairie roof kit: every pitch, overhang, verge, return, parapet and dormer reconstructed
+
+**Decision:** the 1904 Prairie programme's roof construction (package K05, T-2301) is ten
+parametric roofs built by `generators/archetypes/k05_roofs.py` from `data/components/prairie_1904/k05_roofs.json`:
+a hipped roof, an ordinary front gable with verges and returns, a stepped (crow-stepped) and an ogee
+(shaped) parapet gable, a convex and a concave mansard, an octagonal spire, a conical tower roof, a
+hipped roof with a front cross gable, and a hipped roof with a gabled dormer. Each is built as closed
+solids joined by a boolean union, so every valley and abutment is cut where the surfaces meet.
+**What is invented.** Every number: the pitches (each inside RECONSTRUCTION-RULES.md's working range
+for its kind), the 0.45 m eave overhang and 0.20 m fascia, the 0.30 m verge, the 0.50 m return, the
+0.36 m parapet, its 0.30 m least upstand and 0.75 m rise over the ridge, the 0.08 m coping and its
+0.04 m drip, the dormer's 0.15 m overhangs and 0.12 m fascia, the number of crow steps, the ogee's
+kneeler, curve and level top, the mansards' 2.4 m lower rise, their bulge and 18 degree upper roof, and
+the footprints, eave heights and the dormer's and wing's sizes; the slate grey, cream trim and red
+masonry the specimen is drawn in (K04 binds the real fabrics). The variants read the study's building
+register and RECONSTRUCTION-RULES.md's style rules (mansards in Second Empire work, shaped and stepped
+gables and towers in Gothic and Queen Anne work), which are the study's reading and not source records.
+**What is not.** Nothing in the kit is attested; no house is roofed from it yet (T-2302 rebuilds the
+1808 exemplar's roof from it).
+**How to resolve:** a house's own photograph or drawing gives its pitch, overhang, gable form and
+dormers, and that house takes them in place of the kit's working sizes; a period carpentry or
+roofing specification replaces a part's dimensions for every house at once.
+**Ticket:** T-2301 (piece 1 of T-1847, K05).
+**Review:** `docs/RESEARCH/k05-roof-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2301).
 
 ### L-k08-bay-kit-2307 — The Prairie bay kit: every bay, oriel and tower, its supports, bands, eaves and caps, all reconstructed
 

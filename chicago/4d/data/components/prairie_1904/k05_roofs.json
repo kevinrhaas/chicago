@@ -1,0 +1,76 @@
+{
+  "id": "prairie_1904_k05_roofs",
+  "title": "Mansard, hip, gable and tower roof construction for the Prairie Avenue 1904 programme (package K05, the kit)",
+  "ticket": "T-2301",
+  "parent": "T-1847",
+  "programme": "T-1837",
+  "contract": "data/components/prairie_1904/k01_contract.json",
+  "coverings": "data/components/prairie_1904/k04_roofs.json",
+  "generator": "generators/archetypes/k05_roofs.py",
+  "specimen": "docs/RESEARCH/k05-roof-kit/k05_roof_kit.glb",
+  "status": "Declared and generated, not yet built to. No roof in the scene is built from this kit today; T-2302 rebuilds the 1808 exemplar's roof from this file and this generator, and K04 (T-2293) lays its slate, caps and flashings on the graph this kit exports.",
+  "rule": "A roof is a SOLID, never a set of loose planes. Each element (a hipped or ring-stacked roof, a gable body with its verges and returns, a parapet, a coping, a dormer) is built as a closed polyhedron from the numbers below, and the elements are joined by a boolean union, so every valley, every abutment and every place a plane meets a gable or a cheek is cut where the two surfaces actually meet, by construction, not by hand. The joined surface is then made T-junction free and must be WATERTIGHT (every edge shared by exactly two faces, wound oppositely), ONE shell (so no cornice, return or coping floats), free of doubled faces and of any face passing through another (so no roof plane crosses a gable, a parapet or a dormer cheek). The ROOF GRAPH (ridges, hips, valleys, curbs, eaves, verges and abutments) is read off the built surface, not authored, and is exported for K04 to lay caps, valley flashing and aprons on. The check (tools/check_roof_kit.py) rebuilds every variant and holds the built geometry to this file.",
+  "ranges": {
+    "_doc": "RECONSTRUCTION-RULES.md section Starting ranges, for an undocumented roof. A house's street silhouette outranks the range (the same rule's words), so a variant outside it would have to say why; none does.",
+    "pitch_deg": {"ordinary": [25, 45], "steep": [45, 65]},
+    "mansard_lower_deg": [65, 80],
+    "mansard_upper_deg": [10, 30],
+    "rule_source": "RECONSTRUCTION-RULES.md section Starting ranges: Main roof, Mansard"
+  },
+  "parts": {
+    "_doc": "Working sizes, every one reconstructed. An eave's overhang is horizontal from the wall line to the fascia's face; the fascia is the vertical board closing it; the soffit is the flat underside back to the wall. A verge is a gable's overhang: the covering carried past the gable face, closed by a rake board and a sloping rake soffit. A return is the eave's box turned a short way onto the gable face under the rake. A parapet gable rises clear of its roof by at least its upstand, and its coping overhangs both faces by its drip.",
+    "eave": {"overhang_m": 0.45, "fascia_depth_m": 0.2, "confidence": "reconstructed"},
+    "verge": {"overhang_m": 0.3, "confidence": "reconstructed"},
+    "return": {"length_m": 0.5, "confidence": "reconstructed", "note": "The return projects as far as the verge and is as deep as the fascia, so it reads as the eave box turned onto the gable."},
+    "parapet": {"thickness_m": 0.36, "upstand_min_m": 0.3, "top_above_ridge_m": 0.75, "confidence": "reconstructed", "note": "The specimen wall is K06's 0.36 m masonry wall; the upstand is the least clear height of parapet above the covering at any point, measured by the check on the built surface."},
+    "coping": {"thickness_m": 0.08, "drip_m": 0.04, "confidence": "reconstructed"},
+    "dormer": {"overhang_m": 0.15, "verge_m": 0.15, "fascia_depth_m": 0.12, "confidence": "reconstructed"}
+  },
+  "graph": {
+    "_doc": "How the roof graph is read off the built surface. An edge between two covering faces whose normals differ by less than seam_max_deg is a SEAM of one curved surface (a cone's facets, a mansard's curve), not a line of the graph. Otherwise it is a RIDGE (convex, level, the two faces falling away on opposite sides), a CURB (convex, level, both falling the same way: a mansard's break), a HIP (convex, sloping), a VALLEY (concave, sloping) or a KICK (concave, level). An edge between covering and another part is an EAVE (fascia), a VERGE (rake board), a RETURN, or an ABUTMENT (a gable, parapet, coping, cheek or dormer face: where K04's flashing goes). Collinear touching edges of one kind are one line.",
+    "seam_max_deg": 16,
+    "level_tolerance": 0.001
+  },
+  "measure": {
+    "_doc": "The quantum and tolerances the check reads the built surface with. quantum_m is K01's own (k01_contract.json measures.quantum_m): vertices are welded on that grid before any edge is counted.",
+    "quantum_m": 0.001,
+    "min_triangle_area_m2": 1e-6
+  },
+  "costs": {
+    "_doc": "Triangle budget per roof, as built, the walls under it excluded; measured at 34-214 for a simple roof and 74-670 for a compound one when the kit was made (T-2301), so each cap is about 1.35x the largest. A roof over its budget is refused, so a kit change that bloats every roof in the town is caught here, before any house is built from it.",
+    "max_triangles": {"simple": 300, "compound": 900}
+  },
+  "_variants_doc": "Every variant stands on a short masonry body (the board: its walls are not roof and are not costed) whose wall line is the footprint. eave_m is the height of the covering's plane at the wall line. width_m runs along x, depth_m along z; the front is +z. `expect` is the roof graph the built surface must show: line counts per kind, seams not counted.",
+  "variants": [
+    {"id": "k05.roof.hip", "kind": "hip", "budget": "simple", "width_m": 8.0, "depth_m": 6.0, "eave_m": 3.0, "pitch_deg": 35, "pitch_range": "ordinary", "confidence": "reconstructed",
+     "note": "A plain hipped roof on an oblong plan: four planes, one ridge, four hips. The commonest roof of the district's villas and coach houses.",
+     "expect": {"ridge": 1, "hip": 4, "eave": 4}},
+    {"id": "k05.roof.gable", "kind": "gable", "budget": "simple", "width_m": 6.0, "depth_m": 8.0, "eave_m": 3.0, "pitch_deg": 42, "pitch_range": "ordinary", "confidence": "reconstructed",
+     "note": "An ordinary front gable: verges carried past both gable faces on rake boards, the eave box returned onto each gable face.",
+     "expect": {"ridge": 1, "eave": 2, "verge": 4}},
+    {"id": "k05.roof.gable_stepped", "kind": "parapet_gable", "style": "stepped", "budget": "compound", "width_m": 7.0, "depth_m": 9.0, "eave_m": 3.0, "pitch_deg": 50, "pitch_range": "steep", "steps": 5, "confidence": "reconstructed",
+     "note": "A stepped (crow-stepped) parapet gable at both ends. The roof dies into the parapets' inner faces; each step clears the covering behind it by the upstand and carries its own coping.",
+     "expect": {"ridge": 1, "eave": 2, "abutment": 4}},
+    {"id": "k05.roof.gable_ogee", "kind": "parapet_gable", "style": "ogee", "budget": "compound", "width_m": 7.0, "depth_m": 9.0, "eave_m": 3.0, "pitch_deg": 52, "pitch_range": "steep", "kneeler_m": 0.7, "top_half_m": 0.45, "segments": 10, "confidence": "reconstructed",
+     "note": "An ogee (shaped) parapet gable at both ends: a kneeler over each eave, an S-curved shoulder up to a short level top. The kneeler's height is DERIVED, the lowest that keeps every point of the curve its upstand clear of the roof.",
+     "expect": {"ridge": 1, "eave": 2, "abutment": 4}},
+    {"id": "k05.roof.mansard_convex", "kind": "mansard", "profile": "convex", "budget": "compound", "width_m": 9.0, "depth_m": 7.0, "eave_m": 3.0, "lower_pitch_deg": 72, "lower_rise_m": 2.4, "bulge": 0.07, "segments": 5, "upper_pitch_deg": 18, "confidence": "reconstructed",
+     "note": "A convex (bell-faced) mansard: the lower faces bow outward on a curve through their 72 degree chord, then a low hipped upper roof above the curb.",
+     "expect": {"curb": 4, "ridge": 1, "hip": 8, "eave": 4}},
+    {"id": "k05.roof.mansard_concave", "kind": "mansard", "profile": "concave", "budget": "compound", "width_m": 9.0, "depth_m": 7.0, "eave_m": 3.0, "lower_pitch_deg": 76, "lower_rise_m": 2.4, "bulge": 0.07, "segments": 5, "upper_pitch_deg": 18, "confidence": "reconstructed",
+     "note": "A concave (flared) mansard: the lower faces sweep out at the foot, then the same low hipped upper roof.",
+     "expect": {"curb": 4, "ridge": 1, "hip": 8, "eave": 4}},
+    {"id": "k05.roof.tower_octagonal", "kind": "tower", "budget": "simple", "sides": 8, "radius_m": 2.2, "eave_m": 3.0, "pitch_deg": 60, "pitch_range": "steep", "confidence": "reconstructed",
+     "note": "An octagonal tower's spire: eight steep facets to a point. Pitch is measured on a facet's centre line.",
+     "expect": {"hip": 8, "eave": 8}},
+    {"id": "k05.roof.tower_conical", "kind": "tower", "budget": "simple", "sides": 24, "radius_m": 2.0, "eave_m": 3.0, "pitch_deg": 62, "pitch_range": "steep", "confidence": "reconstructed",
+     "note": "A round tower's cone, as 24 facets whose joints are seams of one surface, not hips.",
+     "expect": {"eave": 24}},
+    {"id": "k05.roof.cross_gable", "kind": "cross_gable", "budget": "compound", "width_m": 10.0, "depth_m": 7.0, "eave_m": 3.0, "pitch_deg": 35, "pitch_range": "ordinary", "wing_width_m": 4.6, "wing_projection_m": 2.4, "confidence": "reconstructed",
+     "note": "A hipped main roof with a front cross gable: the wing's roof runs back until it dies into the main front plane, the two cut along true valleys from the eave junction to the wing's ridge end. The wing's gable has verges and returns.",
+     "expect": {"ridge": 2, "hip": 4, "valley": 2, "eave": 7, "verge": 2}},
+    {"id": "k05.roof.dormer", "kind": "dormer", "budget": "compound", "width_m": 8.0, "depth_m": 7.0, "eave_m": 3.0, "pitch_deg": 40, "pitch_range": "ordinary", "dormer_width_m": 2.0, "dormer_setback_m": 0.6, "dormer_eave_above_m": 1.6, "dormer_pitch_deg": 45, "confidence": "reconstructed",
+     "note": "A hipped roof with a gabled dormer on its front plane: the dormer's face and cheeks rise from the main covering, its roof runs back into the main plane on two valleys. The face is blank here; K06's attic light fills it on a house. Its seven abutments are the apron under the face, the two cheeks' feet, and the two ends of each eave box (fascia and soffit) where they die into the main slope.",
+     "expect": {"ridge": 2, "hip": 4, "valley": 2, "eave": 6, "verge": 2, "abutment": 7}}
+  ]
+}
