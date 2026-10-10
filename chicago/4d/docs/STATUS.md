@@ -28,6 +28,10 @@ at grade. The library's `status` now says it is built to.
   12 m, because no pipe can stand in the 0.02 m beside Glessner. Step flashing is one strip a
   cheek, not one piece a course. The pierced parapet the 1888 plate shows is T-1882's to build
   (`docs/LIBERTIES.md` L-k04-1808-roof-2293).
+- **Landed beside T-2291.** K03's brick walls reached dev while this was open; the generator now
+  carries both (the K04 textures go through the same `_images` path as K03's), and the house was
+  rebuilt and re-measured with both: 11,351 triangles, 17 primitives, web tier 923 KB, every
+  verdict ok, 0 coincident faces. The triangle counts above are this ticket's own, before K03.
 
 ## T-2291 — K03 common brick on 1808 Prairie's return and rear (2026-10-10)
 
