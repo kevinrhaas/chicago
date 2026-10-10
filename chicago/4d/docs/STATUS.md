@@ -68,6 +68,26 @@ later tickets would otherwise each make for themselves.
   for T-1787 to measure rather than guessed here. No review record exists yet, so a
   review_required person cannot be shown even after L1 lifts.
 
+## T-2255 — the off-plat deal reads the letter-list ruling (2026-10-09)
+
+T-1645 made the platted deal owe the letter-list cohort (T-0379) and hand it on;
+`tools/seat_off_plat_ground_1835.py` never read the ruling, so 69 of its 99 seats were that
+cohort. It now owes them with the platted deal's own `refused_by` and reason, using the platted
+deal's `refused_a_roof()` (773 rows owed so). 95 seated: 65 households newly housed (47 North,
+18 West), all 30 non-letter-list households still seated, 28 of them under another roof. The
+ruling exposed two things that had never come up before, both fixed in the tool and stated in L271:
+the farmstead rule's passed-over labourers take a cabin left free after the deal, and a West
+farm household takes a farmstead or nothing. An honesty assertion and a self-test fire when the
+ruling is dropped from the deal.
+
+- **Merged over T-2253** (2026-10-10): the platted deal's four block-82 slots and this deal's
+  re-deal do not touch: 219 platted + 95 off-plat = **314 seated**, off-plat seats identical to
+  the branch before the merge; order-book tripwire 310 -> 314.
+- **Merged over T-1550** (2026-10-10): 220 platted + 95 off-plat = **315 seated**; off-plat
+  still 95, order-book tripwire 319 -> 315.
+- **Not done:** off-plat roofs carry no household back (T-1638 is platted-only), so a re-deal
+  still moves seated households between roofs. Four West cabins stand unspent, each stating why.
+
 ## T-2206 — Glessner roof and courtyard proportions audited
 
 The comparison page now measures the current assets through all nine frozen T-2200

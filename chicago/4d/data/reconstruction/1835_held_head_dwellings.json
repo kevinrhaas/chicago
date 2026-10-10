@@ -32,8 +32,8 @@
   "counts": {
     "records_awaiting_a_household": 1223,
     "under_a_standing_dwelling": {
-      "dealt": 202,
-      "family": 144
+      "dealt": 174,
+      "family": 119
     },
     "room_by_division": {
       "north": 86,
@@ -41,16 +41,16 @@
       "west": 78
     },
     "counted_by_division": {
-      "north": 86,
+      "north": 78,
       "south": 156,
-      "west": 78
+      "west": 63
     },
     "counted_by_rung": {
-      "dealt": 202,
-      "family": 118
+      "dealt": 174,
+      "family": 123
     },
-    "persons_in_the_counted_houses": 1127,
-    "not_counted": 30
+    "persons_in_the_counted_houses": 1153,
+    "not_counted": 0
   },
   "beyond_the_index": {
     "ticket": "T-2237",
@@ -111,15 +111,15 @@
       "institutional": "T-1531"
     },
     "households_of_their_own": 4,
-    "counted": 0,
-    "past_a_full_order": 4,
-    "ruling": "Of the 657 people the cards beside the index hold present, 481 are beds in a household another seat forms, and the book already credits each as a person; a bed is not a house. 158 stand in the lodging and institutional households their own stages already file. 4 household(s) stand under a dwelling of their own; 0 counted into the family_dwelling order, 4 past it. So the index-only quota does not over-order on their account: no household row moves for them.",
+    "counted": 4,
+    "past_a_full_order": 0,
+    "ruling": "Of the 657 people the cards beside the index hold present, 481 are beds in a household another seat forms, and the book already credits each as a person; a bed is not a house. 158 stand in the lodging and institutional households their own stages already file. 4 household(s) stand under a dwelling of their own; 4 counted into the family_dwelling order, 0 past it. So the index-only quota does not over-order on their account: no household row moves for them.",
     "what_this_does_not_do": "It mints, moves and retires nobody, and does not settle the completion audit's person count against the census ceiling: that is a count of people, not houses."
   },
   "fills": {
-    "households/family_dwelling/north": 86,
+    "households/family_dwelling/north": 78,
     "households/family_dwelling/south": 156,
-    "households/family_dwelling/west": 78
+    "households/family_dwelling/west": 63
   },
   "store_households": {
     "ticket": "T-2236",
@@ -137,20 +137,56 @@
   },
   "counted": [
     {
+      "household": "hh_newberry_walter_loomis",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d3_055",
+      "family": "D3",
+      "persons": 8,
+      "seed": "01203a481ffd"
+    },
+    {
+      "household": "hh_kimberly_ira",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d4_072",
+      "family": "D4",
+      "persons": 8,
+      "seed": "b105e97a46f2"
+    },
+    {
       "household": "hh_collins_j_h",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d4_025",
-      "family": "D4",
+      "place": "recon_1835_north_d5_086",
+      "family": "D5",
       "persons": 7,
       "seed": "894963d0c865"
+    },
+    {
+      "household": "hh_mcburney_samuel",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d3_089",
+      "family": "D3",
+      "persons": 7,
+      "seed": "a2dc066c5d8e"
+    },
+    {
+      "household": "hh_kimberly_osa",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d4_069",
+      "family": "D4",
+      "persons": 7,
+      "seed": "e617c0eb87cb"
     },
     {
       "household": "hh_burdick_morgan",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d4_090",
-      "family": "D4",
+      "place": "recon_1835_north_d6_070",
+      "family": "D6",
       "persons": 7,
       "seed": "eaa3648b5c42"
     },
@@ -158,17 +194,35 @@
       "household": "hh_forbes_stephen",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d4_018",
-      "family": "D4",
+      "place": "recon_1835_north_d5_071",
+      "family": "D5",
       "persons": 6,
       "seed": "599a65b4e924"
+    },
+    {
+      "household": "hh_rice_john",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d1_053",
+      "family": "D1",
+      "persons": 6,
+      "seed": "69380108b28c"
+    },
+    {
+      "household": "hh_cable_p_b_f",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_h1_007",
+      "family": "H1",
+      "persons": 6,
+      "seed": "d860bf78197c"
     },
     {
       "household": "hh_bowen_erastus_selden",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d5_041",
-      "family": "D5",
+      "place": "recon_1835_north_d6_093",
+      "family": "D6",
       "persons": 5,
       "seed": "216d8af10e16"
     },
@@ -185,8 +239,8 @@
       "household": "hh_dyer_george",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d3_020",
-      "family": "D3",
+      "place": "recon_1835_north_d5_078",
+      "family": "D5",
       "persons": 5,
       "seed": "7939e0ece284"
     },
@@ -194,8 +248,8 @@
       "household": "hh_debogart_h_ven",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d3_081",
-      "family": "D3",
+      "place": "recon_1835_north_d5_082",
+      "family": "D5",
       "persons": 5,
       "seed": "f725c6e8cc77"
     },
@@ -212,8 +266,8 @@
       "household": "hh_morin_william_w",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d1_001",
-      "family": "D1",
+      "place": "recon_1835_north_d2_029",
+      "family": "D2",
       "persons": 4,
       "seed": "87a98960d201"
     },
@@ -221,8 +275,8 @@
       "household": "hh_ludby_john",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d1_013",
-      "family": "D1",
+      "place": "recon_1835_north_d2_046",
+      "family": "D2",
       "persons": 4,
       "seed": "f699784ccb5d"
     },
@@ -230,10 +284,37 @@
       "household": "hh_gilbert_james",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d4_012",
-      "family": "D4",
+      "place": "recon_1835_north_d5_057",
+      "family": "D5",
       "persons": 3,
       "seed": "14c6137c392c"
+    },
+    {
+      "household": "hh_keeney_w",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d4_075",
+      "family": "D4",
+      "persons": 3,
+      "seed": "2c37f49fc611"
+    },
+    {
+      "household": "hh_peacock_elijah",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d3_020",
+      "family": "D3",
+      "persons": 3,
+      "seed": "59f598ddee2c"
+    },
+    {
+      "household": "hh_spalding_l_f",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d3_016",
+      "family": "D3",
+      "persons": 3,
+      "seed": "b15ca10351c2"
     },
     {
       "household": "hh_blaisdell_b",
@@ -245,6 +326,24 @@
       "seed": "de25ee551d1e"
     },
     {
+      "household": "hh_kingstone_paul",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d4_043",
+      "family": "D4",
+      "persons": 3,
+      "seed": "fd813c26eb90"
+    },
+    {
+      "household": "hh_rose_ruel",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d3_006",
+      "family": "D3",
+      "persons": 2,
+      "seed": "248e78726e47"
+    },
+    {
       "household": "hh_barnard_j_h",
       "division": "north",
       "rung": "dealt",
@@ -252,6 +351,33 @@
       "family": "D3",
       "persons": 2,
       "seed": "3cde19b4883c"
+    },
+    {
+      "household": "hh_adams_william_h",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d1_013",
+      "family": "D1",
+      "persons": 2,
+      "seed": "65cc716a5205"
+    },
+    {
+      "household": "hh_burton_john",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d7_031",
+      "family": "D7",
+      "persons": 2,
+      "seed": "681cf067b81b"
+    },
+    {
+      "household": "hh_leonard_n",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d4_025",
+      "family": "D4",
+      "persons": 2,
+      "seed": "7010866ccde4"
     },
     {
       "household": "hh_adams_elizabeth",
@@ -266,505 +392,181 @@
       "household": "hh_bennett_c_h",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_h1_007",
-      "family": "H1",
+      "place": "recon_1835_north_h2_028",
+      "family": "H2",
       "persons": 2,
       "seed": "b21d7ce054ed"
     },
     {
-      "household": "hh_conkiin_robert_i",
+      "household": "hh_ogden_w_b",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d3_038",
+      "family": "D3",
+      "persons": 2,
+      "seed": "b94eb50e0888"
+    },
+    {
+      "household": "hh_moore_henry",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d3_073",
+      "family": "D3",
+      "persons": 2,
+      "seed": "baed63be17a7"
+    },
+    {
+      "household": "hh_shapley_major_l",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d4_005",
+      "family": "D4",
+      "persons": 2,
+      "seed": "c75d2e9379e8"
+    },
+    {
+      "household": "hh_liton_robert_w",
       "division": "north",
       "rung": "dealt",
       "place": "recon_1835_north_d4_017",
       "family": "D4",
       "persons": 1,
-      "seed": "0a1719acb343"
+      "seed": "26973dba1ba3"
     },
     {
-      "household": "hh_babcock_chas",
+      "household": "hh_reed_s_w",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d6_027",
-      "family": "D6",
-      "persons": 1,
-      "seed": "186d15ac0c02"
-    },
-    {
-      "household": "hh_gardner_john_b",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d4_005",
+      "place": "recon_1835_north_d4_018",
       "family": "D4",
       "persons": 1,
-      "seed": "1a58abc65251"
-    },
-    {
-      "household": "hh_allen_william",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_h2_028",
-      "family": "H2",
-      "persons": 1,
-      "seed": "3580d4099095"
-    },
-    {
-      "household": "hh_doud_lewis",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d3_024",
-      "family": "D3",
-      "persons": 1,
-      "seed": "3c8f4e6d5405"
-    },
-    {
-      "household": "hh_chanpagne_batist",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d4_072",
-      "family": "D4",
-      "persons": 1,
-      "seed": "3fd494450f99"
-    },
-    {
-      "household": "hh_evert_j_s",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d6_080",
-      "family": "D6",
-      "persons": 1,
-      "seed": "42ebafd3eeef"
-    },
-    {
-      "household": "hh_doolittle_ehjah",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d3_038",
-      "family": "D3",
-      "persons": 1,
-      "seed": "43842833dd9a"
-    },
-    {
-      "household": "hh_barber_beta_l",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d5_078",
-      "family": "D5",
-      "persons": 1,
-      "seed": "4ff68a31c966"
-    },
-    {
-      "household": "hh_brilly_bancrott",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d2_046",
-      "family": "D2",
-      "persons": 1,
-      "seed": "56c63698733e"
-    },
-    {
-      "household": "hh_archer_joseph",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_h2_022",
-      "family": "H2",
-      "persons": 1,
-      "seed": "581516101a4d"
-    },
-    {
-      "household": "hh_kinder_john",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d1_054",
-      "family": "D1",
-      "persons": 1,
-      "seed": "58357099a8ec"
-    },
-    {
-      "household": "hh_avery_charles",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d6_044",
-      "family": "D6",
-      "persons": 1,
-      "seed": "59eff325f21b"
-    },
-    {
-      "household": "hh_beadieston_ste",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d5_068",
-      "family": "D5",
-      "persons": 1,
-      "seed": "623333a66c62"
-    },
-    {
-      "household": "hh_albee_clark_b",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_h2_030",
-      "family": "H2",
-      "persons": 1,
-      "seed": "628e5b76c716"
-    },
-    {
-      "household": "hh_goodsough_harriet_m",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d3_016",
-      "family": "D3",
-      "persons": 1,
-      "seed": "62e0d48230f4"
-    },
-    {
-      "household": "hh_barre_john_s",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d2_091",
-      "family": "D2",
-      "persons": 1,
-      "seed": "6400848c0e3a"
+      "seed": "3809d8092ad4"
     },
     {
       "household": "hh_beaubien_joseph",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d2_085",
+      "place": "recon_1835_north_d2_091",
       "family": "D2",
       "persons": 1,
       "seed": "6d46fbe0618e"
     },
     {
-      "household": "hh_barnes_wheeler",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d5_074",
-      "family": "D5",
-      "persons": 1,
-      "seed": "6f096c6c2afd"
-    },
-    {
-      "household": "hh_conger_thomas",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d2_014",
-      "family": "D2",
-      "persons": 1,
-      "seed": "7510288d9d4d"
-    },
-    {
-      "household": "hh_loyd_alexander",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d1_023",
-      "family": "D1",
-      "persons": 1,
-      "seed": "7cd6ae77a60f"
-    },
-    {
-      "household": "hh_chadwick_joseph",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d2_029",
-      "family": "D2",
-      "persons": 1,
-      "seed": "7d32faf1bcf5"
-    },
-    {
-      "household": "hh_bigelow_david",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d5_057",
-      "family": "D5",
-      "persons": 1,
-      "seed": "7da9ee78903d"
-    },
-    {
-      "household": "hh_beach_william_h",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d5_071",
-      "family": "D5",
-      "persons": 1,
-      "seed": "7e1f72c511c3"
-    },
-    {
-      "household": "hh_bacon_richani",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d5_092",
-      "family": "D5",
-      "persons": 1,
-      "seed": "8502822b8f37"
-    },
-    {
-      "household": "hh_franchre_louis",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d3_006",
-      "family": "D3",
-      "persons": 1,
-      "seed": "869600505dc5"
-    },
-    {
-      "household": "hh_chambers_john",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d4_075",
-      "family": "D4",
-      "persons": 1,
-      "seed": "89f36ebc0c42"
-    },
-    {
-      "household": "hh_foster_caleb",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d4_004",
-      "family": "D4",
-      "persons": 1,
-      "seed": "8a69c8b01a54"
-    },
-    {
-      "household": "hh_dix_elijah",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d3_042",
-      "family": "D3",
-      "persons": 1,
-      "seed": "8acf23314c28"
-    },
-    {
-      "household": "hh_clift_benjamin_h",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d4_043",
-      "family": "D4",
-      "persons": 1,
-      "seed": "8fa0d07e728f"
-    },
-    {
-      "household": "hh_baily_john",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d5_082",
-      "family": "D5",
-      "persons": 1,
-      "seed": "95fe25104c4f"
-    },
-    {
-      "household": "hh_andrews_davi",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d6_058",
-      "family": "D6",
-      "persons": 1,
-      "seed": "9f7a1d763c61"
-    },
-    {
-      "household": "hh_almond_axtell_2",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d6_084",
-      "family": "D6",
-      "persons": 1,
-      "seed": "a02f7069d510"
-    },
-    {
-      "household": "hh_crane_h_y",
+      "household": "hh_long_john",
       "division": "north",
       "rung": "dealt",
       "place": "recon_1835_north_d4_015",
       "family": "D4",
       "persons": 1,
-      "seed": "a2c3ca6e26a0"
+      "seed": "6e8c7d8d0f96"
     },
     {
-      "household": "hh_day_ann_airs",
+      "household": "hh_loyd_alexander",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d2_003",
+      "place": "recon_1835_north_d2_077",
       "family": "D2",
       "persons": 1,
-      "seed": "a3248abd3495"
+      "seed": "7cd6ae77a60f"
     },
     {
-      "household": "hh_dean_james_l",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d3_089",
-      "family": "D3",
-      "persons": 1,
-      "seed": "adc3021985da"
-    },
-    {
-      "household": "hh_kilpatrick_john",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d1_060",
-      "family": "D1",
-      "persons": 1,
-      "seed": "b29650528e10"
-    },
-    {
-      "household": "hh_cole_parker_m",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d4_039",
-      "family": "D4",
-      "persons": 1,
-      "seed": "bbd427b69887"
-    },
-    {
-      "household": "hh_babeue_joseph",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d7_088",
-      "family": "D7",
-      "persons": 1,
-      "seed": "c3225c336e31"
-    },
-    {
-      "household": "hh_bradstreet_j_p",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d5_037",
-      "family": "D5",
-      "persons": 1,
-      "seed": "c49647e3fe9e"
-    },
-    {
-      "household": "hh_burnett_timothy",
+      "household": "hh_jones_willard",
       "division": "north",
       "rung": "dealt",
       "place": "recon_1835_north_d4_087",
       "family": "D4",
       "persons": 1,
-      "seed": "ce702ec542bf"
+      "seed": "850fec610d72"
     },
     {
-      "household": "hh_baxter_daniel",
+      "household": "hh_franchre_louis",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d7_076",
-      "family": "D7",
-      "persons": 1,
-      "seed": "d49056a537f8"
-    },
-    {
-      "household": "hh_anderson_eli_f",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d6_070",
-      "family": "D6",
-      "persons": 1,
-      "seed": "d938b1046f4b"
-    },
-    {
-      "household": "hh_bailly_joseph",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d5_086",
+      "place": "recon_1835_north_d5_068",
       "family": "D5",
       "persons": 1,
-      "seed": "daf4d07b5ddf"
+      "seed": "869600505dc5"
     },
     {
-      "household": "hh_dimmick_e",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d3_055",
-      "family": "D3",
-      "persons": 1,
-      "seed": "dd22bba15364"
-    },
-    {
-      "household": "hh_allin_richard",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d6_093",
-      "family": "D6",
-      "persons": 1,
-      "seed": "e48f432834e8"
-    },
-    {
-      "household": "hh_fadhams_ddward",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d6_021",
-      "family": "D6",
-      "persons": 1,
-      "seed": "eaf6545eeed8"
-    },
-    {
-      "household": "hh_clarke_l",
-      "division": "north",
-      "rung": "dealt",
-      "place": "recon_1835_north_d4_056",
-      "family": "D4",
-      "persons": 1,
-      "seed": "efc26176c359"
-    },
-    {
-      "household": "hh_britton_jos",
+      "household": "hh_hoit_thomas",
       "division": "north",
       "rung": "dealt",
       "place": "recon_1835_north_d5_019",
       "family": "D5",
       "persons": 1,
-      "seed": "f0711a151be9"
+      "seed": "8ef0ca5aa29d"
     },
     {
-      "household": "hh_garton_elijah",
+      "household": "hh_clift_benjamin_h",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d3_002",
-      "family": "D3",
+      "place": "recon_1835_north_d5_092",
+      "family": "D5",
       "persons": 1,
-      "seed": "f114efe41f8b"
+      "seed": "8fa0d07e728f"
     },
     {
-      "household": "hh_demans_j_t",
+      "household": "hh_harmon_d",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d3_073",
-      "family": "D3",
+      "place": "recon_1835_north_d5_026",
+      "family": "D5",
       "persons": 1,
-      "seed": "fa99b6dcca82"
+      "seed": "a1491c382cbc"
+    },
+    {
+      "household": "hh_brewster_franklin",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d7_076",
+      "family": "D7",
+      "persons": 1,
+      "seed": "ad0c602097ac"
+    },
+    {
+      "household": "hh_johnson_lathrop",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d4_090",
+      "family": "D4",
+      "persons": 1,
+      "seed": "c3664f78172d"
+    },
+    {
+      "household": "hh_harman_isaac",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d5_037",
+      "family": "D5",
+      "persons": 1,
+      "seed": "eee9530cde45"
+    },
+    {
+      "household": "hh_clarke_l",
+      "division": "north",
+      "rung": "dealt",
+      "place": "recon_1835_north_d6_027",
+      "family": "D6",
+      "persons": 1,
+      "seed": "efc26176c359"
     },
     {
       "household": "hh_fitzgerald_thos",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d4_079",
-      "family": "D4",
+      "place": "recon_1835_north_d5_074",
+      "family": "D5",
       "persons": 1,
       "seed": "fc8f696fd621"
     },
     {
-      "household": "hh_lincoln_edwin_a",
+      "household": "hh_king_sherman",
       "division": "north",
       "rung": "dealt",
-      "place": "recon_1835_north_d1_053",
-      "family": "D1",
+      "place": "recon_1835_north_d4_056",
+      "family": "D4",
       "persons": 1,
-      "seed": "fcae4b830c37"
-    },
-    {
-      "household": "hh_newberry_walter_loomis",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d6_084",
-      "family": "D6",
-      "persons": 8,
-      "seed": "01203a481ffd"
-    },
-    {
-      "household": "hh_kimberly_ira",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d6_021",
-      "family": "D6",
-      "persons": 8,
-      "seed": "b105e97a46f2"
+      "seed": "ffea717f5875"
     },
     {
       "household": "hh_haddock_h",
@@ -779,7 +581,7 @@
       "household": "hh_faraher_thomas",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_d1_060",
+      "place": "recon_1835_north_d1_054",
       "family": "D1",
       "persons": 7,
       "seed": "1f91cb6bf566"
@@ -788,7 +590,7 @@
       "household": "hh_vaughan_angeline",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_d6_070",
+      "place": "recon_1835_north_d6_021",
       "family": "D6",
       "persons": 7,
       "seed": "4fe10c2a2c8f"
@@ -797,70 +599,34 @@
       "household": "hh_brooks_george_m",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_d1_023",
+      "place": "recon_1835_north_d1_060",
       "family": "D1",
       "persons": 7,
       "seed": "5a0930480218"
     },
     {
-      "household": "hh_mcburney_samuel",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d6_044",
-      "family": "D6",
-      "persons": 7,
-      "seed": "a2dc066c5d8e"
-    },
-    {
-      "household": "hh_kimberly_osa",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d6_058",
-      "family": "D6",
-      "persons": 7,
-      "seed": "e617c0eb87cb"
-    },
-    {
       "household": "hh_curtis_jacob_s",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_d1_013",
+      "place": "recon_1835_north_d1_023",
       "family": "D1",
       "persons": 7,
       "seed": "fa5d0458325c"
     },
     {
-      "household": "hh_rice_john",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d2_029",
-      "family": "D2",
-      "persons": 6,
-      "seed": "69380108b28c"
-    },
-    {
       "household": "hh_rue_john_c",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_d1_054",
+      "place": "recon_1835_north_d1_001",
       "family": "D1",
       "persons": 6,
       "seed": "703553dc9e1f"
     },
     {
-      "household": "hh_cable_p_b_f",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_h2_028",
-      "family": "H2",
-      "persons": 6,
-      "seed": "d860bf78197c"
-    },
-    {
       "household": "hh_ogleby_robert",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_d1_053",
+      "place": "recon_1835_north_d1_013",
       "family": "D1",
       "persons": 6,
       "seed": "db824f4a15f2"
@@ -869,7 +635,7 @@
       "household": "hh_stevens_l",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_d6_093",
+      "place": "recon_1835_north_d6_044",
       "family": "D6",
       "persons": 5,
       "seed": "25ebbfeeabb0"
@@ -878,7 +644,7 @@
       "household": "hh_sherman_william_george",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_d7_031",
+      "place": "recon_1835_north_d7_076",
       "family": "D7",
       "persons": 5,
       "seed": "5aefa4cc1a52"
@@ -896,8 +662,8 @@
       "household": "hh_morrison_ordemus",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_h2_022",
-      "family": "H2",
+      "place": "recon_1835_north_d7_088",
+      "family": "D7",
       "persons": 4,
       "seed": "6dfe21faf22f"
     },
@@ -905,10 +671,176 @@
       "household": "hh_washburn_b_f",
       "division": "north",
       "rung": "family",
-      "place": "recon_1835_north_d7_088",
-      "family": "D7",
+      "place": "recon_1835_north_h2_030",
+      "family": "H2",
       "persons": 4,
       "seed": "6eaf8a94bd1b"
+    },
+    {
+      "household": "hh_hunter_robert",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_h2_022",
+      "family": "H2",
+      "persons": 4,
+      "seed": "835498e9f213"
+    },
+    {
+      "household": "hh_earlie_p_j",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d7_031",
+      "family": "D7",
+      "persons": 4,
+      "seed": "b67ab7527cec"
+    },
+    {
+      "household": "hh_salisbury_stephen_m",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_h2_028",
+      "family": "H2",
+      "persons": 4,
+      "seed": "d95311fbdd4e"
+    },
+    {
+      "household": "hh_chapley_m_s",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d7_076",
+      "family": "D7",
+      "persons": 3,
+      "seed": "034d7d8012ce"
+    },
+    {
+      "household": "hh_walton_henry",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_h2_028",
+      "family": "H2",
+      "persons": 3,
+      "seed": "63709731296a"
+    },
+    {
+      "household": "hh_taylor_edmund_d",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d1_023",
+      "family": "D1",
+      "persons": 3,
+      "seed": "f4210fa9dccf"
+    },
+    {
+      "household": "hh_whitlock_james",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d6_044",
+      "family": "D6",
+      "persons": 3,
+      "seed": "f86e32f878b8"
+    },
+    {
+      "household": "hh_reed_thomas",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_h2_030",
+      "family": "H2",
+      "persons": 3,
+      "seed": "f8a4fac46ec6"
+    },
+    {
+      "household": "hh_mcgregor_ashor",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d1_023",
+      "family": "D1",
+      "persons": 2,
+      "seed": "0e8dc8925a41"
+    },
+    {
+      "household": "hh_bond_h",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d1_060",
+      "family": "D1",
+      "persons": 2,
+      "seed": "434903a19b71"
+    },
+    {
+      "household": "hh_holcombe_miles",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d7_031",
+      "family": "D7",
+      "persons": 2,
+      "seed": "63c4f83effcd"
+    },
+    {
+      "household": "hh_welch_michael_p",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d1_053",
+      "family": "D1",
+      "persons": 2,
+      "seed": "6eb960dfca1e"
+    },
+    {
+      "household": "hh_wight_j_f",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d6_093",
+      "family": "D6",
+      "persons": 2,
+      "seed": "83d89a79fe5f"
+    },
+    {
+      "household": "hh_saxton_l_c",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d7_088",
+      "family": "D7",
+      "persons": 2,
+      "seed": "846dd08fe899"
+    },
+    {
+      "household": "hh_fb_anderson_benjamin",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d7_031",
+      "family": "D7",
+      "persons": 3,
+      "seed": "1048a32963bd",
+      "beyond_the_index": "underdocumented"
+    },
+    {
+      "household": "hh_fb_williams_samuel",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d6_058",
+      "family": "D6",
+      "persons": 3,
+      "seed": "274bf9dfb601",
+      "beyond_the_index": "underdocumented"
+    },
+    {
+      "household": "hh_fb_askie_george",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d6_070",
+      "family": "D6",
+      "persons": 3,
+      "seed": "a01112781349",
+      "beyond_the_index": "underdocumented"
+    },
+    {
+      "household": "hh_fb_anderson_henry",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d6_027",
+      "family": "D6",
+      "persons": 3,
+      "seed": "de60bd181d5d",
+      "beyond_the_index": "underdocumented"
     },
     {
       "household": "hh_garrett_a",
@@ -2315,6 +2247,15 @@
       "seed": "e9919a2fa92c"
     },
     {
+      "household": "hh_blake_edio_l",
+      "division": "west",
+      "rung": "dealt",
+      "place": "recon_1835_west_052",
+      "family": "D1",
+      "persons": 8,
+      "seed": "81bcfc98bb11"
+    },
+    {
       "household": "hh_cook_josiah_p",
       "division": "west",
       "rung": "dealt",
@@ -2342,11 +2283,20 @@
       "seed": "f01f38690033"
     },
     {
+      "household": "hh_pallet_joseph",
+      "division": "west",
+      "rung": "dealt",
+      "place": "recon_1835_west_032",
+      "family": "D4",
+      "persons": 7,
+      "seed": "2a95620dafe3"
+    },
+    {
       "household": "hh_lloyd_alexander",
       "division": "west",
       "rung": "dealt",
-      "place": "recon_1835_west_040",
-      "family": "D1",
+      "place": "recon_1835_west_028",
+      "family": "D2",
       "persons": 7,
       "seed": "b45cbb098243"
     },
@@ -2369,6 +2319,15 @@
       "seed": "d0727c159d12"
     },
     {
+      "household": "hh_panster_james",
+      "division": "west",
+      "rung": "dealt",
+      "place": "recon_1835_west_029",
+      "family": "D3",
+      "persons": 6,
+      "seed": "148386606662"
+    },
+    {
       "household": "hh_barry_william",
       "division": "west",
       "rung": "dealt",
@@ -2376,6 +2335,15 @@
       "family": "D4",
       "persons": 6,
       "seed": "20f50c0aa5c4"
+    },
+    {
+      "household": "hh_rider_eli_a",
+      "division": "west",
+      "rung": "dealt",
+      "place": "recon_1835_west_010",
+      "family": "D3",
+      "persons": 6,
+      "seed": "bb58e59d3445"
     },
     {
       "household": "hh_brown_hanna_e",
@@ -2414,6 +2382,15 @@
       "seed": "91ccdc68c436"
     },
     {
+      "household": "hh_stewart_james",
+      "division": "west",
+      "rung": "dealt",
+      "place": "recon_1835_west_039",
+      "family": "D1",
+      "persons": 5,
+      "seed": "96a4879ce0dd"
+    },
+    {
       "household": "hh_lewis_samuel",
       "division": "west",
       "rung": "dealt",
@@ -2430,6 +2407,24 @@
       "family": "D4",
       "persons": 4,
       "seed": "d195e3d7b4a7"
+    },
+    {
+      "household": "hh_bell_william_a",
+      "division": "west",
+      "rung": "dealt",
+      "place": "recon_1835_west_054",
+      "family": "D1",
+      "persons": 3,
+      "seed": "416ea191c6e8"
+    },
+    {
+      "household": "hh_russell_p_t",
+      "division": "west",
+      "rung": "dealt",
+      "place": "recon_1835_west_004",
+      "family": "D5",
+      "persons": 3,
+      "seed": "65f0e65d2f97"
     },
     {
       "household": "hh_crocker_h",
@@ -2457,6 +2452,15 @@
       "family": "D7",
       "persons": 3,
       "seed": "cdd22f6abb16"
+    },
+    {
+      "household": "hh_rollins_john",
+      "division": "west",
+      "rung": "dealt",
+      "place": "recon_1835_west_005",
+      "family": "D6",
+      "persons": 2,
+      "seed": "08446a61e340"
     },
     {
       "household": "hh_bennett_h_c",
@@ -2513,31 +2517,13 @@
       "seed": "1aebc582848c"
     },
     {
-      "household": "hh_dement_wm",
+      "household": "hh_south_g",
       "division": "west",
       "rung": "dealt",
-      "place": "recon_1835_west_050",
+      "place": "recon_1835_west_040",
       "family": "D1",
       "persons": 1,
-      "seed": "264065651cad"
-    },
-    {
-      "household": "hh_dilbee_david_b",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_048",
-      "family": "D1",
-      "persons": 1,
-      "seed": "2dc3acdd365b"
-    },
-    {
-      "household": "hh_elizabeth_miner",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_041",
-      "family": "D2",
-      "persons": 1,
-      "seed": "321c26c7751d"
+      "seed": "23c55992745f"
     },
     {
       "household": "hh_ballingale_p",
@@ -2558,139 +2544,49 @@
       "seed": "380639f16e4e"
     },
     {
-      "household": "hh_myrick_nehemiah",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_038",
-      "family": "D1",
-      "persons": 1,
-      "seed": "3b6f8b4cba66"
-    },
-    {
-      "household": "hh_abbot_8_g",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_035",
-      "family": "H2",
-      "persons": 1,
-      "seed": "4341feec1fd5"
-    },
-    {
-      "household": "hh_beegle_a",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_052",
-      "family": "D1",
-      "persons": 1,
-      "seed": "4b22f2ab577d"
-    },
-    {
-      "household": "hh_barrows_mary",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_009",
-      "family": "D5",
-      "persons": 1,
-      "seed": "4d03d7536f9b"
-    },
-    {
-      "household": "hh_allan_richard_b",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_043",
-      "family": "D3",
-      "persons": 1,
-      "seed": "4ec8c132c3e9"
-    },
-    {
       "household": "hh_murray_alonzo",
       "division": "west",
       "rung": "dealt",
-      "place": "recon_1835_west_039",
+      "place": "recon_1835_west_027",
       "family": "D1",
       "persons": 1,
       "seed": "5c1e18d42ed0"
     },
     {
-      "household": "hh_ayers_david",
+      "household": "hh_chapman_chas_h",
       "division": "west",
       "rung": "dealt",
-      "place": "recon_1835_west_054",
-      "family": "D1",
+      "place": "recon_1835_west_006",
+      "family": "H1",
       "persons": 1,
-      "seed": "7d3c9e5c2940"
+      "seed": "6d7b188ab3a1"
     },
     {
-      "household": "hh_andress_stephen",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_032",
-      "family": "D4",
-      "persons": 1,
-      "seed": "83155fea082a"
-    },
-    {
-      "household": "hh_boardman_elect",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_004",
-      "family": "D5",
-      "persons": 1,
-      "seed": "846bf6dfed03"
-    },
-    {
-      "household": "hh_ayres_levi",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_029",
-      "family": "D3",
-      "persons": 1,
-      "seed": "8737bff2bc1f"
-    },
-    {
-      "household": "hh_baldwin_eimer",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_017",
-      "family": "D4",
-      "persons": 1,
-      "seed": "a585f26b4d70"
-    },
-    {
-      "household": "hh_bobinson_george_is",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_003",
-      "family": "D4",
-      "persons": 1,
-      "seed": "a76c6093aad7"
-    },
-    {
-      "household": "hh_abbott_constant",
+      "household": "hh_marksall_j_m",
       "division": "west",
       "rung": "dealt",
       "place": "recon_1835_west_045",
       "family": "D5",
       "persons": 1,
-      "seed": "aa02258d6779"
+      "seed": "72be7a9f61c5"
     },
     {
-      "household": "hh_cooley_edward_v",
+      "household": "hh_ryan_thomas",
       "division": "west",
       "rung": "dealt",
-      "place": "recon_1835_west_051",
-      "family": "D1",
+      "place": "recon_1835_west_003",
+      "family": "D4",
       "persons": 1,
-      "seed": "b4f53fa911ff"
+      "seed": "73ed9b352d18"
     },
     {
-      "household": "hh_barney_john",
+      "household": "hh_simons_e",
       "division": "west",
       "rung": "dealt",
-      "place": "recon_1835_west_010",
+      "place": "recon_1835_west_002",
       "family": "D3",
       "persons": 1,
-      "seed": "b5cc81fb0c96"
+      "seed": "b6dbfa175311"
     },
     {
       "household": "hh_laughton_sophia",
@@ -2702,67 +2598,22 @@
       "seed": "b73128a3b386"
     },
     {
-      "household": "hh_nett_robert_a",
+      "household": "hh_medera_genevive",
       "division": "west",
       "rung": "dealt",
-      "place": "recon_1835_west_028",
-      "family": "D2",
-      "persons": 1,
-      "seed": "c43382c84f33"
-    },
-    {
-      "household": "hh_bloget_josiah_i",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_005",
-      "family": "D6",
-      "persons": 1,
-      "seed": "c699b96b3bda"
-    },
-    {
-      "household": "hh_demotte_lenac",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_049",
-      "family": "D1",
-      "persons": 1,
-      "seed": "d0390e2f8fa2"
-    },
-    {
-      "household": "hh_arrowsmith_sidney",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_006",
-      "family": "H1",
-      "persons": 1,
-      "seed": "f8a6934ad889"
-    },
-    {
-      "household": "hh_borum_richard",
-      "division": "west",
-      "rung": "dealt",
-      "place": "recon_1835_west_002",
+      "place": "recon_1835_west_043",
       "family": "D3",
       "persons": 1,
-      "seed": "fc7bab7718be"
+      "seed": "c92f2e98fbae"
     },
     {
       "household": "hh_miller_george",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_040",
+      "place": "recon_1835_west_038",
       "family": "D1",
       "persons": 8,
       "seed": "3fa7b5ad4d8a"
-    },
-    {
-      "household": "hh_blake_edio_l",
-      "division": "west",
-      "rung": "family",
-      "place": "recon_1835_west_027",
-      "family": "D1",
-      "persons": 8,
-      "seed": "81bcfc98bb11"
     },
     {
       "household": "hh_paine_william",
@@ -2772,15 +2623,6 @@
       "family": "H2",
       "persons": 7,
       "seed": "1e1ecbfb4f20"
-    },
-    {
-      "household": "hh_pallet_joseph",
-      "division": "west",
-      "rung": "family",
-      "place": "recon_1835_west_005",
-      "family": "D6",
-      "persons": 7,
-      "seed": "2a95620dafe3"
     },
     {
       "household": "hh_cook_j_b",
@@ -2795,8 +2637,8 @@
       "household": "hh_weaver_d",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_045",
-      "family": "D5",
+      "place": "recon_1835_west_005",
+      "family": "D6",
       "persons": 7,
       "seed": "f57efaeb1b78"
     },
@@ -2810,15 +2652,6 @@
       "seed": "02ab1b014845"
     },
     {
-      "household": "hh_panster_james",
-      "division": "west",
-      "rung": "family",
-      "place": "recon_1835_west_004",
-      "family": "D5",
-      "persons": 6,
-      "seed": "148386606662"
-    },
-    {
       "household": "hh_foster_amos",
       "division": "west",
       "rung": "family",
@@ -2826,15 +2659,6 @@
       "family": "H2",
       "persons": 6,
       "seed": "72842c0a4716"
-    },
-    {
-      "household": "hh_rider_eli_a",
-      "division": "west",
-      "rung": "family",
-      "place": "recon_1835_west_045",
-      "family": "D5",
-      "persons": 6,
-      "seed": "bb58e59d3445"
     },
     {
       "household": "hh_sweet_richard_m",
@@ -2849,7 +2673,7 @@
       "household": "hh_mather_thomas",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_049",
+      "place": "recon_1835_west_048",
       "family": "D1",
       "persons": 5,
       "seed": "2a809b32eac7"
@@ -2858,8 +2682,8 @@
       "household": "hh_spence_james_c",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_006",
-      "family": "H1",
+      "place": "recon_1835_west_035",
+      "family": "H2",
       "persons": 5,
       "seed": "2e572e1b5116"
     },
@@ -2873,20 +2697,11 @@
       "seed": "84115a47ff4d"
     },
     {
-      "household": "hh_stewart_james",
-      "division": "west",
-      "rung": "family",
-      "place": "recon_1835_west_048",
-      "family": "D1",
-      "persons": 5,
-      "seed": "96a4879ce0dd"
-    },
-    {
       "household": "hh_hubbard_otis",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_035",
-      "family": "H2",
+      "place": "recon_1835_west_006",
+      "family": "H1",
       "persons": 5,
       "seed": "c807e5ccd35b"
     },
@@ -2903,7 +2718,7 @@
       "household": "hh_curtiss_l_g",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_038",
+      "place": "recon_1835_west_027",
       "family": "D1",
       "persons": 4,
       "seed": "84df690c5d37"
@@ -2912,8 +2727,8 @@
       "household": "hh_handy_henry_s",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_035",
-      "family": "H2",
+      "place": "recon_1835_west_006",
+      "family": "H1",
       "persons": 4,
       "seed": "8a1e7aff3bf6"
     },
@@ -2921,8 +2736,8 @@
       "household": "hh_hale_john",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_006",
-      "family": "H1",
+      "place": "recon_1835_west_035",
+      "family": "H2",
       "persons": 4,
       "seed": "cc8624a153fb"
     },
@@ -2930,7 +2745,7 @@
       "household": "hh_hartzell_thomas",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_052",
+      "place": "recon_1835_west_049",
       "family": "D1",
       "persons": 4,
       "seed": "dbe556768ed3"
@@ -2939,7 +2754,7 @@
       "household": "hh_smow_george_w",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_050",
+      "place": "recon_1835_west_026",
       "family": "D1",
       "persons": 4,
       "seed": "e69226f5dc1f"
@@ -2948,28 +2763,10 @@
       "household": "hh_knapp_b_s",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_052",
+      "place": "recon_1835_west_040",
       "family": "D1",
       "persons": 3,
       "seed": "18cde926e2fa"
-    },
-    {
-      "household": "hh_bell_william_a",
-      "division": "west",
-      "rung": "family",
-      "place": "recon_1835_west_038",
-      "family": "D1",
-      "persons": 3,
-      "seed": "416ea191c6e8"
-    },
-    {
-      "household": "hh_russell_p_t",
-      "division": "west",
-      "rung": "family",
-      "place": "recon_1835_west_003",
-      "family": "D4",
-      "persons": 3,
-      "seed": "65f0e65d2f97"
     },
     {
       "household": "hh_woodruff_alson",
@@ -2990,15 +2787,6 @@
       "seed": "928fac12698c"
     },
     {
-      "household": "hh_rollins_john",
-      "division": "west",
-      "rung": "family",
-      "place": "recon_1835_west_029",
-      "family": "D3",
-      "persons": 2,
-      "seed": "08446a61e340"
-    },
-    {
       "household": "hh_williams_eli_b",
       "division": "west",
       "rung": "family",
@@ -3011,306 +2799,10 @@
       "household": "hh_curtiss_j",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_054",
+      "place": "recon_1835_west_038",
       "family": "D1",
       "persons": 2,
       "seed": "4bf1fc5efd29"
-    }
-  ],
-  "not_counted": [
-    {
-      "household": "hh_hunter_robert",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d7_031",
-      "family": "D7",
-      "persons": 4,
-      "seed": "835498e9f213",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_earlie_p_j",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_h2_030",
-      "family": "H2",
-      "persons": 4,
-      "seed": "b67ab7527cec",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_salisbury_stephen_m",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d7_076",
-      "family": "D7",
-      "persons": 4,
-      "seed": "d95311fbdd4e",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_chapley_m_s",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_h2_022",
-      "family": "H2",
-      "persons": 3,
-      "seed": "034d7d8012ce",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_keeney_w",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d5_041",
-      "family": "D5",
-      "persons": 3,
-      "seed": "2c37f49fc611",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_peacock_elijah",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d5_071",
-      "family": "D5",
-      "persons": 3,
-      "seed": "59f598ddee2c",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_walton_henry",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_h1_007",
-      "family": "H1",
-      "persons": 3,
-      "seed": "63709731296a",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_spalding_l_f",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d5_092",
-      "family": "D5",
-      "persons": 3,
-      "seed": "b15ca10351c2",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_taylor_edmund_d",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d1_054",
-      "family": "D1",
-      "persons": 3,
-      "seed": "f4210fa9dccf",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_whitlock_james",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d5_026",
-      "family": "D5",
-      "persons": 3,
-      "seed": "f86e32f878b8",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_reed_thomas",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_h2_030",
-      "family": "H2",
-      "persons": 3,
-      "seed": "f8a4fac46ec6",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_kingstone_paul",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d5_068",
-      "family": "D5",
-      "persons": 3,
-      "seed": "fd813c26eb90",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_mcgregor_ashor",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d1_054",
-      "family": "D1",
-      "persons": 2,
-      "seed": "0e8dc8925a41",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_rose_ruel",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d5_074",
-      "family": "D5",
-      "persons": 2,
-      "seed": "248e78726e47",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_bond_h",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d1_023",
-      "family": "D1",
-      "persons": 2,
-      "seed": "434903a19b71",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_holcombe_miles",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_h2_045",
-      "family": "H2",
-      "persons": 2,
-      "seed": "63c4f83effcd",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_adams_william_h",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d1_013",
-      "family": "D1",
-      "persons": 2,
-      "seed": "65cc716a5205",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_burton_john",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d7_076",
-      "family": "D7",
-      "persons": 2,
-      "seed": "681cf067b81b",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_welch_michael_p",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d1_023",
-      "family": "D1",
-      "persons": 2,
-      "seed": "6eb960dfca1e",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_leonard_n",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d5_026",
-      "family": "D5",
-      "persons": 2,
-      "seed": "7010866ccde4",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_wight_j_f",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d4_017",
-      "family": "D4",
-      "persons": 2,
-      "seed": "83d89a79fe5f",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_saxton_l_c",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_h2_028",
-      "family": "H2",
-      "persons": 2,
-      "seed": "846dd08fe899",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_ogden_w_b",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d4_056",
-      "family": "D4",
-      "persons": 2,
-      "seed": "b94eb50e0888",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_moore_henry",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d4_083",
-      "family": "D4",
-      "persons": 2,
-      "seed": "baed63be17a7",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_shapley_major_l",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d5_078",
-      "family": "D5",
-      "persons": 2,
-      "seed": "c75d2e9379e8",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_fb_anderson_benjamin",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d5_019",
-      "family": "D5",
-      "persons": 3,
-      "seed": "1048a32963bd",
-      "beyond_the_index": "underdocumented",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_fb_williams_samuel",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d7_076",
-      "family": "D7",
-      "persons": 3,
-      "seed": "274bf9dfb601",
-      "beyond_the_index": "underdocumented",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_fb_askie_george",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d6_070",
-      "family": "D6",
-      "persons": 3,
-      "seed": "a01112781349",
-      "beyond_the_index": "underdocumented",
-      "why": "the north division's family_dwelling order was full before this household was reached"
-    },
-    {
-      "household": "hh_fb_anderson_henry",
-      "division": "north",
-      "rung": "family",
-      "place": "recon_1835_north_d5_057",
-      "family": "D5",
-      "persons": 3,
-      "seed": "de60bd181d5d",
-      "beyond_the_index": "underdocumented",
-      "why": "the north division's family_dwelling order was full before this household was reached"
     },
     {
       "household": "hh_wilcox_d",
@@ -3319,8 +2811,8 @@
       "place": "recon_1835_west_035",
       "family": "H2",
       "persons": 2,
-      "seed": "ab9ce6d8421a",
-      "why": "the west division's family_dwelling order was full before this household was reached"
+      "seed": "ab9ce6d8421a"
     }
-  ]
+  ],
+  "not_counted": []
 }

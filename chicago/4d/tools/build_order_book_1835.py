@@ -193,6 +193,12 @@ FAMILY_OWNER = "T-2187"
 # rows read 0 left and keep T-2256's id as the ticket that settled them (T-1420); one that
 # owes again is a reopened order the work-order gate names.
 FAMILY_HOUSEHOLD_OWNER = "T-2256"
+# AND THE NORTH AND WEST OWE AGAIN (T-2255, 2026-10-10). The off-plat deal stopped seating
+# letter-list households on the ruling of 2026-08-30 (T-0379), so the held heads under North
+# and West dwellings fell 8 and 15 short of those orders; the waiting families discharge 6
+# and 5, and 2 and 10 are owed. T-2256 is done, so those two rows go to T-2279, filed for
+# them; the South's row still reads 0 left and keeps T-2256's id.
+FAMILY_HOUSEHOLD_OWNER_BY_DIVISION = {"north": "T-2279", "west": "T-2279"}
 HELD_HEAD_TICKET = "T-2193"
 WAITING_FAMILIES_TICKET = "T-2256"
 STORE_RULING_TICKET = "T-2194"
@@ -2286,7 +2292,8 @@ def household_buckets(model: dict, inventory: dict, known: dict) -> dict:
             "known": known_by_cell[key],
             "to_reconstruct": max(0, targets[key] - known_by_cell[key]),
             "filled": 0,
-            "owning_ticket": owners[htype],
+            "owning_ticket": (FAMILY_HOUSEHOLD_OWNER_BY_DIVISION.get(division, owners[htype])
+                              if htype == "family_dwelling" else owners[htype]),
             "basis": (
                 f"the model's {total:,} households apportioned on the "
                 f"{_apportioned_on(htype)} in the "
@@ -4212,7 +4219,8 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
                    if ticket is None or b["owning_ticket"] == ticket)
     persons, households = families[0], families[1]
     p_1171 = owed(persons, FAMILY_OWNER)
-    h_1171 = owed(households, FAMILY_HOUSEHOLD_OWNER) + owed(households, STORE_RESIDENCE_OWNER)
+    h_1171 = (owed(households, FAMILY_HOUSEHOLD_OWNER) + owed(households, STORE_RESIDENCE_OWNER)
+              + sum(owed(households, t) for t in set(FAMILY_HOUSEHOLD_OWNER_BY_DIVISION.values())))
     held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
     target = persons["summary"]["town_target"]
     low, high = persons["summary"]["town_target_range"]
@@ -5664,18 +5672,26 @@ def cmd_self_test() -> int:
     # building block 81's D5 and block 95's D6): the Market wedge's four lots open a D5, an F4
     # and an H3 in the schedule, and the D5 is dealt as a slot on the wedge's lot 7 to one
     # household the deal had handed on (214 -> 215 platted, 99 off-plat, L270, L409).
-    # 314 -> 318 on 2026-10-09 (T-2253, over T-1645): the School Section's Monroe-Adams tier
-    # joins the plat on the owner's T-2247 ruling and the South's five gated dwellings and its
-    # H3 are dealt to block 82, so four households the deal had handed on are dealt a slot
-    # there; its second D2 and the H3 find no admitted row (215 -> 219 platted, 99 off-plat,
+    # 314 -> 310 on 2026-10-09 (T-2255): the off-plat deal reads the letter-list ruling
+    # (T-0379) before it deals, as the platted deal has since T-1645, so the 69 letter-list
+    # households it had seated are owed; 65 handed-on households take their roofs, and in
+    # the West the farm clause takes a farmstead or nothing (215 platted, 99 -> 95 off-plat,
+    # L271).
+    # 310 -> 314 on 2026-10-09 (T-2253, merged over T-2255): the School Section's Monroe-Adams
+    # tier joins the plat on the owner's T-2247 ruling and the South's five gated dwellings and
+    # its H3 are dealt to block 82, so four households the deal had handed on are dealt a slot
+    # there; its second D2 and the H3 find no admitted row (215 -> 219 platted, 95 off-plat,
     # L270) — requests T-2254 raises.
     # 318 -> 319 on 2026-10-09 (T-1550, on top of T-2253): hh_beaubien_charles folds onto
     # hh_beaubien_charles_h and his adopted D3 goes down the South walk; hh_meleney_patrick
     # takes a standing roof, his block-82 slot is re-dealt and one more household is slotted
     # there, and one reconstructed household is seated on a freed D1 on the Lake-Market block
     # (219 -> 220 platted, 99 off-plat, L270).
+    # 319 -> 315 on 2026-10-10 (T-2255, on top of T-1550): the off-plat deal owes the
+    # letter-list cohort the ruling of 2026-08-30 refuses (T-0379), so 99 -> 95 off-plat on
+    # the same 220 platted (L271).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 319
+        data["inventory"], data["programme"], occ))["seated"] == 315
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
