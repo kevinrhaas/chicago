@@ -109,13 +109,20 @@
         "west_m": 9.115,
         "east_m": 8.201,
         "depth_m": 4.418,
-        "height_m": 5.4
+        "height_m": 5.4,
+        "base_course_m": 0.9,
+        "coping_m": 0.3,
+        "color": [
+          0.4,
+          0.29,
+          0.24
+        ]
       },
       "confidence": "reconstructed",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "A plain closed block in the place of the wing: its plan is the sheet's (above) and its height RECONSTRUCTED, 5.4 m to the top for a basement standing about a metre out of the ground under one tall storey and a parapet. No opening, cornice or coping is modelled on it; it is there so the bay stands against a wall and not in the air, and T-1934's wing replaces it."
+      "note": "A plain closed block in the place of the wing: its plan is the sheet's (above) and its height RECONSTRUCTED, 5.4 m to the top for a basement standing about a metre out of the ground under one tall storey and a parapet. A 0.9 m base course (stopped either side of the bay) and a 0.3 m coping band stand 5 cm proud so it reads as masonry, in a reconstructed brownstone colour after the register's 'brownstone main block'. No opening, cornice or roof detail is modelled on it; it is there so the bay stands against a wall and not in the air, and T-1934's wing replaces it."
     },
     "conservatory": {
       "value": {
@@ -146,12 +153,12 @@
       "note": "The plan is the sheet's semicircle (inferred, above); everything else is RECONSTRUCTED from the K13 kit (L-k13-conservatory-kit-2305) and recorded as L-k13-pullman-bay-2306. The sheet does not say the projection is glazed. A conservatory is chosen because the T-1837 building register gives the Pullman estate a dated conservatory and palm-house complex, and a glazed bay on the sunny side of a service wing facing the garden court is the form the kit's canted bay already takes; the register's own conservatory plate is not a source record here. Five facets on the semicircle, a 2.6 m eave over the kit's plinth, a half-cone of glass to 3.7 m on the wall, one glazing bay a facet, the gutter falling from its middle to a pipe at each end against the wall, and a staging bench of pot plants across the bay. Entered from the wing, so it has no door of its own."
     },
     "function": {
-      "value": "residence (a service wing and its glazed bay on the garden court)",
+      "value": "residence",
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "Sheet 20 draws the Pullman lot's house (3B, stone) with a one-storey-and-basement stone wing ('1B') running east along the north of the lot to a two-storey garage, and a semicircular projection on that wing's south face into the court between house and garage. A wing joining a house to its stable is service and family space of the house; the projection's use is not printed on the sheet, and its reading as a glazed conservatory bay is RECONSTRUCTED (see the conservatory entry)."
+      "note": "Sheet 20 draws the Pullman lot's house (3B, stone) with a one-storey-and-basement stone wing ('1B') running east along the north of the lot to a two-storey garage, and a semicircular projection on that wing's south face into the court between house and garage. The wing is part of the residence; the projection's use is not printed on the sheet, and its reading as a glazed conservatory bay is RECONSTRUCTED (see the conservatory entry)."
     }
   },
   "residents": [],

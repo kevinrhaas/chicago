@@ -21,6 +21,9 @@ from dataclasses import dataclass, field
 from archetypes.k01_frontage_params import CONFIDENCE_VALUE
 
 REQUIRED = ("conservatory", "host_wall")
+#: The form attributes that reach the mesh. `stories` and `construction` are stated on a
+#: record for the card and declare `geometry: simplified`: the block is plain.
+CONSUMED = frozenset(REQUIRED)
 HOST_KEYS = ("west_m", "east_m", "depth_m", "height_m")
 
 

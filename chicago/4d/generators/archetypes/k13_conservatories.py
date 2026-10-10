@@ -70,8 +70,9 @@ ROLE_MATERIAL = {
     "gutter": "rainwater", "bracket": "rainwater", "pipe": "rainwater",
     "bench": "staging", "plant": "foliage", "floor": "floor",
     "wall": "house_wall", "ground": "ground",
+    "host_band": "house_wall",
 }
-BOARD_ROLES = ("wall", "ground")
+BOARD_ROLES = ("wall", "ground", "host_band")
 TIERS = ("primary", "secondary", "tertiary")
 TIER_OF = {"corner": "primary", "hip": "primary", "eave": "secondary", "ridge": "secondary",
            "verge": "secondary", "transom": "secondary", "free": "secondary"}
@@ -1242,7 +1243,46 @@ def host_wing(h: House, host: dict):
     h.face("wall", [(x0, 0, -D), (x0, 0, 0), (x0, H, 0), (x0, H, -D)], (-1, 0, 0))
     h.face("wall", [(x1, 0, 0), (x1, 0, -D), (x1, H, -D), (x1, H, 0)], (1, 0, 0))
     h.face("wall", [(x0, H, 0), (x1, H, 0), (x1, H, -D), (x0, H, -D)], Y)
+    # a base course and a coping band so the block reads as masonry; the base course stops
+    # short of the bay, whose plinth and frame end on the wall face
+    gap = max(abs(q[0]) for q in h.form["plan"]) + 0.15
+    bc, cp = host.get("base_course_m", 0.0), host.get("coping_m", 0.0)
+    if bc:
+        _band(h, x0, x1, -D, 0.0, 0.0, bc, 0.05, gaps=((-gap, gap),))
+    if cp:
+        _band(h, x0, x1, -D, 0.0, H - cp, H, 0.05)
     h.meta["host"] = {"x": [x0, x1], "z": [-D, 0.0], "height_m": H}
+    if host.get("color"):
+        h.meta["host"]["color"] = list(host["color"])
+
+
+def _band(h: House, x0, x1, zn, zs, y0, y1, out, gaps=()):
+    """A course standing `out` proud all round the block between heights y0 and y1, role
+    `host_band`, its south face stopped at each (a, b) in `gaps`. The top (and, off the
+    ground, the bottom) is tiled in strips that meet and never overlap."""
+    xa, xb, zso, zno = x0 - out, x1 + out, zs + out, zn - out
+    ys = [(y1, Y)] + ([(y0, (0, -1, 0))] if y0 > 0 else [])
+
+    def strip(u0, u1, w0, w1):
+        for y, n in ys:
+            h.face("host_band", [(u0, y, w0), (u1, y, w0), (u1, y, w1), (u0, y, w1)], n)
+
+    pieces, cur = [], xa
+    for ga, gb in sorted(gaps):
+        pieces.append((cur, ga))
+        cur = gb
+    pieces.append((cur, xb))
+    for u0, u1 in pieces:
+        h.face("host_band", [(u0, y0, zso), (u1, y0, zso), (u1, y1, zso), (u0, y1, zso)], (0, 0, 1))
+        strip(u0, u1, zs, zso)
+        for x, sx, cut in ((u0, -1.0, u0 != xa), (u1, 1.0, u1 != xb)):
+            if cut:    # an end at a gap: close it back to the wall
+                h.face("host_band", [(x, y0, zs), (x, y0, zso), (x, y1, zso), (x, y1, zs)], (sx, 0, 0))
+    h.face("host_band", [(xb, y0, zno), (xa, y0, zno), (xa, y1, zno), (xb, y1, zno)], (0, 0, -1))
+    strip(xa, xb, zno, zn)
+    for x, xo, sx in ((x0, xa, -1.0), (x1, xb, 1.0)):
+        h.face("host_band", [(xo, y0, zso), (xo, y0, zno), (xo, y1, zno), (xo, y1, zso)], (sx, 0, 0))
+        strip(min(x, xo), max(x, xo), zn, zs)
 
 
 def structure_house(st: dict, phase: dict, data: dict | None = None) -> House:
@@ -1257,14 +1297,19 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> House:
 
 def structure_glb(h: House, data: dict, structure_id: str, phase_id: str, scene_ids) -> bytes:
     name = f"{structure_id}__{phase_id}"
-    return to_glb([h], data, node_name=name, node_extras={
+    return to_glb([h], data, host_color=(h.meta.get("host") or {}).get("color"), node_name=name, node_extras={
         "structure_id": structure_id, "phase_id": phase_id, "scene_ids": list(scene_ids)},
         extras={"ticket": "T-2306", "structure": f"data/structures/{structure_id}.json"})
 
 
 def to_glb(kit: list[House], data: dict, node_name: str | None = None, node_extras: dict | None = None,
-           extras: dict | None = None) -> bytes:
+           extras: dict | None = None, host_color=None) -> bytes:
     mats = materials(data)
+    if node_extras:     # a structure in the scene carries only the materials it draws (T-2306)
+        used = {ROLE_MATERIAL[r] for h in kit for r, pr in h.prims.items() if pr.idx}
+        mats = {k: m for k, m in mats.items() if k in used}
+        if "house_wall" in mats and host_color:
+            mats["house_wall"] = {**mats["house_wall"], "color": tuple(host_color)}
     bin_ = bytearray()
     views, accessors, meshes, nodes = [], [], [], []
 

@@ -1373,9 +1373,9 @@
     "pullman_house_1729_prairie_conservatory__as_standing_1904.glb": {
       "archetype": "k13_conservatories",
       "baked_ao": false,
-      "bytes": 80776,
+      "bytes": 84172,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "d1c7c68c246e0c1d455dd2858eb7c958962f52a98796ce7abc2f19432d503569",
+      "inputs_sha256": "80aae7e019155eaa3cf5c52b16ff72451f77a37cb489d99f14375c3c919073bd",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_house_1729_prairie_conservatory"
