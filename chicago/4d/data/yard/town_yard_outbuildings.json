@@ -131,12 +131,12 @@
   },
   "wells": "None dealt. docs/RESEARCH/wells.md § 4 refuses a well class for the town — July 1835 Chicago drank from the lake by cart — and that ruling stands; data/wells/ draws only the wells a source places.",
   "counts": {
-    "dwelling_lots": 237,
-    "privies": 193,
-    "stables": 23,
+    "dwelling_lots": 239,
+    "privies": 195,
+    "stables": 24,
     "privy_standing": 36,
     "stable_standing": 17,
-    "horse_households": 40,
+    "horse_households": 41,
     "refused": 8,
     "dwellings_off_plat": 133
   },
@@ -4985,6 +4985,74 @@
       "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board"
+    },
+    {
+      "id": "privy_blk_school_section_tier_82_lot6",
+      "kind": "privy",
+      "lot": "blk_school_section_tier_82_lot6",
+      "belongs_to": "recon_1835_blk_school_section_tier_82_d1_05",
+      "households": [],
+      "household_class": "labourer",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        197.03,
+        -722.5
+      ],
+      "bearing_deg": 0.0,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
+      "roof": "shed",
+      "weather": "weathered",
+      "confidence": "reconstructed",
+      "finish": "slab"
+    },
+    {
+      "id": "privy_blk_school_section_tier_82_lot7",
+      "kind": "privy",
+      "lot": "blk_school_section_tier_82_lot7",
+      "belongs_to": "recon_1835_blk_school_section_tier_82_h1_06",
+      "households": [],
+      "household_class": "merchant",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        170.6,
+        -730.62
+      ],
+      "bearing_deg": 180.0,
+      "along_m": 1.52,
+      "depth_m": 1.22,
+      "eave_m": 2.0,
+      "head_m": 2.3,
+      "roof": "shed",
+      "weather": "seasoned",
+      "confidence": "reconstructed",
+      "finish": "whitewash"
+    },
+    {
+      "id": "stable_blk_school_section_tier_82_lot7",
+      "kind": "stable",
+      "lot": "blk_school_section_tier_82_lot7",
+      "belongs_to": "recon_1835_blk_school_section_tier_82_h1_06",
+      "households": [],
+      "household_class": "merchant",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        195.13,
+        -731.84
+      ],
+      "bearing_deg": 180.0,
+      "along_m": 4.88,
+      "depth_m": 3.66,
+      "eave_m": 2.45,
+      "head_m": 3.75,
+      "roof": "gable",
+      "weather": "seasoned",
+      "confidence": "reconstructed",
+      "finish": "board_and_batten",
+      "stalls": 2,
+      "kept_a_horse_because": "merchant"
     },
     {
       "id": "privy_blk_school_section_tier_117_lot2",

@@ -6973,15 +6973,7 @@
         },
         {
           "lot": 1,
-          "why": "The Adams-and-Market corner, left open for the schedule's unclaimed balance on this block: the schedule deals the block a second D2 and an H3 that `1835_platted_seats.json` lists under `plan_left_unclaimed` (no banded South row is admitted by a clause that takes them), so no house is raised here for nobody, and the H3's beds would move the lodging model `seat_lodgers_1835.py` freezes."
-        },
-        {
-          "lot": 6,
-          "why": "The east Monroe corner, left open for the same reason as lot 1: the schedule deals the block a second D2 and an H3 that `1835_platted_seats.json` lists under `plan_left_unclaimed` (no banded South row is admitted by a clause that takes them), so no house is raised here for nobody, and the H3's beds would move the lodging model `seat_lodgers_1835.py` freezes."
-        },
-        {
-          "lot": 7,
-          "why": "The east Adams corner, left open for the same reason as lot 1: the schedule deals the block a second D2 and an H3 that `1835_platted_seats.json` lists under `plan_left_unclaimed` (no banded South row is admitted by a clause that takes them), so no house is raised here for nobody, and the H3's beds would move the lodging model `seat_lodgers_1835.py` freezes."
+          "why": "The Adams-and-Market corner, left open: the schedule's balance on this block is the D1 and the H1 the second entry (T-2270) raises on lots 6 and 7, so the block keeps this corner free beside its reserved open lot 0, and no house is raised here for nobody."
         }
       ],
       "slots": [
@@ -7022,7 +7014,84 @@
           "lateral_m": 1.5
         }
       ],
-      "arrangement_note": "THE FIRST HOUSES SOUTH OF MONROE ON MARKET: THE SCHOOL SECTION TIER'S MONROE-ADAMS MARKET BLOCK BUILT TO THE FOUR DWELLINGS THE SEATING ASKS FOR (T-2254, piece 3 of T-2247). The owner ruled (T-2247, option b) that the South's gated balance crosses Monroe onto the School Section's Monroe-Adams tier, whose lots the state sold one by one in October 1833; T-2252 cut the tier into lots and T-2253 put its dry blocks on the grid at one principal roof per lot. This deal builds four houses on block 82, the tier's westernmost South block between Market and the section's eighth line, one tier south of block 81: on the Monroe face a small cottage (D2) on lot 2 and a tradesman's frame house (D4) on lot 4; on the Adams face a larger frame house (D5) on lot 3 and a D4 on lot 5, so the two faces mirror block 81's set-out across Monroe. Lot 0, the Monroe-and-Market corner, stays the block's reserved open lot; lot 1 and the two east corners stay free for the schedule's second D2 and its H3, which no household asks for. The schedule deals the block no yard roof. Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that these houses stood on this block in 1835 (the tier was sold, not shown built), where on the lot they sat and how far back; all four are anonymous count-units at the bottom tier toward the schedule's documented aggregate. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here."
+      "arrangement_note": "THE FIRST HOUSES SOUTH OF MONROE ON MARKET: THE SCHOOL SECTION TIER'S MONROE-ADAMS MARKET BLOCK BUILT TO THE FOUR DWELLINGS THE SEATING ASKS FOR (T-2254, piece 3 of T-2247). The owner ruled (T-2247, option b) that the South's gated balance crosses Monroe onto the School Section's Monroe-Adams tier, whose lots the state sold one by one in October 1833; T-2252 cut the tier into lots and T-2253 put its dry blocks on the grid at one principal roof per lot. This deal builds four houses on block 82, the tier's westernmost South block between Market and the section's eighth line, one tier south of block 81: on the Monroe face a small cottage (D2) on lot 2 and a tradesman's frame house (D4) on lot 4; on the Adams face a larger frame house (D5) on lot 3 and a D4 on lot 5, so the two faces mirror block 81's set-out across Monroe. Lot 0, the Monroe-and-Market corner, stays the block's reserved open lot; lot 1 stays free, and the two east corners take the D1 and the H1 the second entry raises (T-2270). The schedule deals the block no yard roof. Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that these houses stood on this block in 1835 (the tier was sold, not shown built), where on the lot they sat and how far back; all four are anonymous count-units at the bottom tier toward the schedule's documented aggregate. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here."
+    },
+    {
+      "block_id": "blk_school_section_tier_82",
+      "district": "south",
+      "programme_phase": "phase3_platted_block_school_section_tier_82_lots_6_7",
+      "claimed": "2026-10-10",
+      "seq_start": 5,
+      "bounded_by": {
+        "north": "monroe",
+        "south": "adams",
+        "west": "market_school_section",
+        "east": "school_section_line_8"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 10,
+        "standing_roofs": 4,
+        "free_lots": 4,
+        "headroom": 5,
+        "dealt_roofs": 2,
+        "dealt_principal": 2,
+        "dealt_ancillary": 0,
+        "principal": 2,
+        "ancillary": 0
+      },
+      "families": {
+        "D1": 1,
+        "H1": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-2270",
+        "parent": null,
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_vieaux_susanne",
+            "family": "D1",
+            "order_book_draw": "blk_school_section_tier_82 / D1 / south"
+          },
+          {
+            "seat": "hh_church_thomas",
+            "family": "H1",
+            "order_book_draw": "blk_school_section_tier_82 / H1 / south"
+          }
+        ],
+        "why": "THE BLOCK'S LAST TWO `slot` REQUESTS, AND THE ROOFS THE SCHEDULE DEALS FOR THEM. T-2254 raised the four houses the seating asked of this block; on the tree merged with T-2268 the 668-roof schedule's re-apportionment deals the block's balance as a D1 and an H1, and the seating's fixpoint seats two households on them as `slot` requests with no structure under them: hh_vieaux_susanne (south/labourer_dwellings) on lot 6, the east Monroe corner, a D1; hh_church_thomas (south/merchant_and_professional_dwellings) on lot 7, the east Adams corner, an H1. The second D2 and the H3 T-2254's entry left `plan_left_unclaimed` are no longer dealt: the re-apportionment turned them into these two, and both are now asked for, so a roof raised here stands for somebody. An H1 is a house, not a boarding house, so nothing in it moves the lodging model `seat_lodgers_1835.py` freezes. The lot, the family and the household are the seating's and the schedule's; nothing in this deal chooses them."
+      },
+      "open_lots": [
+        {
+          "lot": 0,
+          "why": "The Monroe-and-Market corner, the block's reserved open lot, as the first entry keeps it: the schedule never deals a block out of its open lot (T-1623)."
+        },
+        {
+          "lot": 1,
+          "why": "The Adams-and-Market corner, kept free as the first entry keeps it: the schedule deals this block no third roof, so no house is raised here for nobody."
+        }
+      ],
+      "slots": [
+        {
+          "family": "D1",
+          "inventory_class": "principal_functional",
+          "lot": 6,
+          "stands_on": "street",
+          "fronts": "monroe",
+          "setback_m": 4.5,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "H1",
+          "inventory_class": "principal_functional",
+          "lot": 7,
+          "stands_on": "street",
+          "fronts": "adams",
+          "setback_m": 6.0,
+          "lateral_m": 1.5
+        }
+      ],
+      "arrangement_note": "THE EAST CORNERS OF THE SCHOOL SECTION TIER'S BLOCK 82 (T-2270). The seating asks for two more roofs on the block after T-2254's four houses, and the schedule deals them: on the Monroe face a one-room cabin (D1) on lot 6, 4.5 m back like the D2 on lot 2, so the Monroe face runs from lot 2 to the eighth line; on the Adams face a merchant's house (H1) on lot 7, 6 m back as the South's other H1s stand on their streets, so the Adams face runs from lot 3 to the corner. Lots 0 and 1, the two Market corners, stay open. Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a house stood on either lot in July 1835 (the state sold the tier's lots in October 1833; no source shows them built), where on each lot it stands and how far back; each is an anonymous count-unit toward the schedule's documented aggregate. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here."
     }
   ],
   "redealt": {

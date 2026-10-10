@@ -545,6 +545,17 @@ step "the 1835 library's normal maps are handed as named, OpenGL and DirectX (T-
 selftest "…and a DirectX map filed as OpenGL, the reverse, or a mirrored red still fails it" \
   python3 tools/check_1835_normals.py --self-test
 
+# T-2300. ...and the maps the page derives beside them lie the same way up.
+# wall-relief.js's `orl` and frontage.js's board grain are packed from canvas pixels
+# (top row first) into a DataTexture, which three uploads unflipped, and are sampled
+# on the uv of a normal_gl uploaded with flipY — so until T-2300 every wall's and
+# walk's AO, roughness and grain was its relief's mirror along v.
+step "the derived wall and board-face maps lie the way their normal_gl does (T-2300)" \
+  node tools/check_relief_rows.mjs --check
+
+selftest "…and a packer that writes them in canvas order still fails it" \
+  node tools/check_relief_rows.mjs --self-test
+
 # T-1251. The ground's zone table for the same scene. Its street crowns are READINGS
 # (data/terrain/e1871_grade_readings.json) put through the spec's own datum
 # conversion, its fill is the difference to the committed 1835 heightfield and

@@ -285,6 +285,12 @@
       "measured": "2026-10-10",
       "finding": "Run bare on the working tree it prints the --check verdict, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: it re-reads the 1835 library's normal maps against their height16 and writes nothing. A checker (T-2299)."
     },
+    "check_relief_rows.mjs": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints usage and exits 2; --check prints its verdict, exits 0 and writes nothing (git status --porcelain identical before and after). It runs renderers/web/js/relief-pack.js under node on synthetic maps and reads wall-relief.js and frontage.js. A checker (T-2300)."
+    },
     "check_street_surfaces.py": {
       "placement": "not_a_writer",
       "write_mode": null,

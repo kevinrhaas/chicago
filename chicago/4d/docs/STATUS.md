@@ -1,3 +1,31 @@
+## T-2270 — a cabin and a merchant's house on the east corners of block 82 (2026-10-10)
+
+**Visible.** The School Section tier's block 82 (Market, Monroe to Adams) gets its last two houses:
+a D1 log cabin on lot 6, the east Monroe corner, and an H1 merchant's house on lot 7, the east
+Adams corner.
+
+- **Why the ticket's title no longer fits.** It names a D1 and an H3 that "no banded South row is
+  admitted by a clause that takes". On the tree merged with T-2268 that had already changed: the
+  re-apportionment re-dealt the block's balance as a D1 and an H1, and the seating held two `slot`
+  requests on them (hh_vieaux_susanne, labourer_dwellings; hh_church_thomas,
+  merchant_and_professional_dwellings). So both roofs are asked for, and an H1 is a house, not a
+  boarding house: the frozen lodging model does not move.
+- **A second recipe entry** in `1835_platted_block_parcels.json`
+  (`phase3_platted_block_school_section_tier_82_lots_6_7`, `seq_start` 5), built by
+  `generate_block_infill.py`: D1 4.5 m back fronting Monroe, H1 6 m back fronting Adams. The first
+  entry no longer names lots 6 and 7 open; lots 0 and 1 stay open. **L-block82-east-corners-2270**
+  records the invention.
+- **Seating at its fixpoint**: both households adopt the roof they asked for. **221 seated, all
+  adopted, no `slot` left on the plat.** No other seat moved. Keepers 208 → 210 (both named).
+- **Restated:** L263 671 → 673, L266 93 → 94 (the cabin is log), L276 208 → 210;
+  `measure_generator_half.py` 712 → 714 assets. The order book's South dwellings, boarding houses,
+  barns and outbuildings rows all read 0 owed and keep naming T-2270.
+- **Baked** with `bake.sh --only` (pinned Blender 4.5.3): the two new meshes. 714 assets.
+- **Re-derived:** `rederive.mjs --tail` from `adopt_street_faces` and from `compile_liberties`
+  (settled, the last lap moving nothing), then the keepers, the four infill generators, the
+  reconstructed trades seating, placeholders, entrances, alley lanes, woodpiles, the anonymous-roof
+  redeal, land tracts, register, population profile, hay limits, roof-id surface, block redeal
+  remedies and the Newberry leads (four volumes re-parsed).
 ## T-2291 — K03 common brick on 1808 Prairie's return and rear (2026-10-10)
 
 **Visible.** 1808 Prairie's south side, rear and north party walls now wear the K03 common buff
