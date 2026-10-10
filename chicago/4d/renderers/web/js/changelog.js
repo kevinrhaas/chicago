@@ -1,9 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1609, ts: '2026-10-10T03:00:45.483Z', date: 'Oct 9, 2026, 10:00 PM CT', title: 'The resident index and audits read each household\u2019s dated places', kind: 'change',
+  { v: 1611, ts: '2026-10-10T03:22:28.770Z', date: 'Oct 9, 2026, 10:22 PM CT', title: 'The resident index and audits read each household\u2019s dated places', kind: 'change',
     items: [
       'Nothing you can see changes. The resident index, the resident audit, the population profile, the research sign-off and the residents summary now take where a household lived and worked from the dated places on its card, the same entries its card shows you.',
       'Every figure, row and table comes out exactly as before, even with the old single home and workplace lines removed from the records.',
       'A card\u2019s \u201cno known address\u201d reason still comes from the old line, because a place nobody can name has no dated entry to carry it. Where that wording goes is decided before the old lines retire.',
+    ] },
+  { v: 1610, ts: '2026-10-10T03:02:42.351Z', date: 'Oct 9, 2026, 10:02 PM CT', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
+    items: [
+      'Nothing you can see changes. Where a household\u2019s dated home was copied from the old single home line, it now also carries that line\u2019s own reasoning and what would replace it, so the seat a card shows no longer depends on the old line.',
+      'The garrison\u2019s eleven households keep their own \u201cWould move it up the ladder\u201d line, a plan of the post that assigns its quarters, and every seat in the town reads exactly as before.',
+    ] },
+  { v: 1609, ts: '2026-10-10T02:48:43.449Z', date: 'Oct 9, 2026, 9:48 PM CT', title: 'Closing one task no longer quietly reopens another', kind: 'fix',
+    items: [
+      'Nothing you can see changes. When the build loop marks a task finished, it now records only that task. A week ago, finishing one task also published a private scratch edit to another, which put already-finished work back on the to-do list. That task is closed again.',
     ] },
   { v: 1608, ts: '2026-10-10T02:34:31.860Z', date: 'Oct 9, 2026, 9:34 PM CT', title: 'The groundwork for people in the town: one skeleton, one rulebook', kind: 'change',
     items: [

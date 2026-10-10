@@ -599,14 +599,9 @@ def household_row(hh: dict, committed: set[str], clauses: dict[str, dict]) -> di
     seat_id = home.get("place_or_structure_id")
     works_id = workplace_of(hh)
     division = hh.get("division") or "unplaced"
-    # The seat, its tier and the workplace are the rows' (T-2260). The PROSE is not: the
-    # singular claim's own `basis.note` and `replaceable_by` have no field on a row (a
-    # row's note is that basis plus the copier's own sentences, and a row has no
-    # `replaceable_by` at all — the garrison's eleven read "a plan of the post that
-    # assigns its quarters"). They are read here, for the words only, until T-2261
-    # gives them a home on the row; the roof itself is never read off the singular.
-    prose = hh.get("lives_at") or {}
-    basis = prose.get("basis") or {}
+    # The seat, its tier and the workplace are the rows' (T-2260), and since T-2261 so are
+    # the words: a home row copied from the singular `lives_at` carries that claim's own
+    # `basis` and `replaceable_by`, so nothing here reads the singular pair.
     row = {
         "id": hh["id"],
         "kind": "household",
@@ -631,10 +626,10 @@ def household_row(hh: dict, committed: set[str], clauses: dict[str, dict]) -> di
         row["seat"] = {"kind": "structure", "id": seat_id}
         row["reach"] = "structure"
         row["tier"] = home.get("tier")
-        row["basis"] = basis.get("note") or prose.get("note") or home.get("note")
+        row["basis"] = (home.get("basis") or {}).get("note") or home.get("note")
         row["words"] = (f"Seated at a named roof — the strongest rung this ladder has. "
                         f"The household record carries the seat at {row['tier']}.")
-        rb = prose.get("replaceable_by") or {}
+        rb = home.get("replaceable_by") or {}
         row["replaceable_by"] = rb.get("match") or "a source naming a different building"
         return row
     if division == "outside_town":

@@ -78,7 +78,10 @@
    "note": "The partnership is documented; that it was trading on 1 July 1835 specifically is the inference, since the retrospective sources do not supply a transaction on that exact day. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_pruyne_kimberly#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
    "also_sources": [
     "history_medicine_chicago_kimberly_maxwell"
-   ]
+   ],
+   "basis": {
+    "note": "The partnership is documented; that it was trading on 1 July 1835 specifically is the inference, since the retrospective sources do not supply a transaction on that exact day."
+   }
   }
  ],
  "present_on_scene_date": {
