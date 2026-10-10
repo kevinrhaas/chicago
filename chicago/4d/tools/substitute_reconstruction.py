@@ -166,6 +166,7 @@ GENERATOR_OF_PHASE = (
     ("west_freight_forks_1835", "tools/generate_west_freight.py"),
     ("west_freight_bank_1835", "tools/generate_west_freight.py"),
     ("north_freight_bank_1835", "tools/generate_north_freight.py"),
+    ("south_lumber_shed_1835", "tools/generate_south_lumber.py"),
 )
 
 # The liberties that cover EVERY reconstruction (`recon_*`, `inf_*`) state a rule for the
