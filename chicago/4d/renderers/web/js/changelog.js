@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1610, ts: '2026-10-10T03:16:11.899Z', date: 'Oct 9, 2026, 10:16 PM CT', title: 'The later-directory crosswalks read each household\u2019s dated places', kind: 'change',
+  { v: null, ts: '', title: 'The later-directory crosswalks read each household\u2019s dated places', kind: 'change',
     items: [
       'Nothing you can see changes. The tools that match the 1839, 1843 and 1844 directories against the town, and the two that read a later printed address back to 1835, now take where a household lived and worked from the dated places on its card.',
       'Every match, refusal and placement comes out exactly as before, even with the old single home and workplace lines removed from the records.',
+    ] },
+  { v: 1610, ts: '2026-10-10T03:02:42.351Z', date: 'Oct 9, 2026, 10:02 PM CT', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
+    items: [
+      'Nothing you can see changes. Where a household\u2019s dated home was copied from the old single home line, it now also carries that line\u2019s own reasoning and what would replace it, so the seat a card shows no longer depends on the old line.',
+      'The garrison\u2019s eleven households keep their own \u201cWould move it up the ladder\u201d line, a plan of the post that assigns its quarters, and every seat in the town reads exactly as before.',
     ] },
   { v: 1609, ts: '2026-10-10T02:48:43.449Z', date: 'Oct 9, 2026, 9:48 PM CT', title: 'Closing one task no longer quietly reopens another', kind: 'fix',
     items: [
