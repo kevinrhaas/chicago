@@ -1,0 +1,37 @@
+{
+  "_doc": "Measured by tools/study_k12_coach_house.mjs on the specimen GLB. Triangles and draw calls are exact; frame_ms is headless Chromium on a software rasteriser (SwiftShader), a relative figure for comparing kit revisions, not a device frame time.",
+  "specimen_bytes": 157532,
+  "variants": [
+    {
+      "id": "k12.coach_house.two_storey_brick",
+      "triangles_kit": 1997,
+      "pieces": 204,
+      "head_m": 10.002,
+      "triangles_with_board": 2025,
+      "vertices_with_board": 3623,
+      "draw_calls": 13
+    }
+  ],
+  "board": {
+    "desktop": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "draw_calls": 26,
+      "triangles": 4050,
+      "frame_ms_median": 0.3,
+      "geometries": 26
+    },
+    "mobile": {
+      "viewport": [
+        390,
+        780
+      ],
+      "draw_calls": 26,
+      "triangles": 4050,
+      "frame_ms_median": 0.2,
+      "geometries": 26
+    }
+  }
+}

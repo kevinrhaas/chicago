@@ -1,0 +1,186 @@
+{
+  "id": "prairie_1904_k12_coach_house",
+  "title": "Coach houses, stable fittings and service wings for the Prairie Avenue 1904 programme (package K12, the kit)",
+  "ticket": "T-2320",
+  "parent": "T-1854",
+  "programme": "T-1837",
+  "contract": "data/components/prairie_1904/k01_contract.json",
+  "generator": "generators/archetypes/k12_coach_house.py",
+  "specimen": "docs/RESEARCH/k12-coach-house-kit/k12_coach_house_kit.glb",
+  "status": "Declared and generated, not yet built to. No lot in the scene carries this kit today; T-2321 puts the first K12 coach house or service wing on a named Prairie Avenue lot from this file and this generator.",
+  "rule": "A service building is closed on every side and every part of it stands on something. Every wall is a solid with its openings cut THROUGH it (a reveal on all sides, never a dark rectangle painted on a face); a wall that meets another wall, a roof or the ground leaves its open edges lying on that surface, so there is no gap and no face laid on a face; a fixing (a hinge, a hoist beam, a coping, a ramp cleat) is a closed piece passing through what carries it. A ramp and a stair meet grade at their foot and the floor or landing they serve at their head. The parts' sizes are data here and the generator reads them; the check (tools/check_coach_house_kit.py) rebuilds every variant and holds the built geometry to this file.",
+  "frame": "Each variant is authored about its own `base` socket (k01_contract.json component_frame): the centre of its alley wall at grade on the wall's outer face, +X along that wall, +Y up, +Z out of it into the alley. The building runs back from the alley along -Z.",
+  "restrictions": [
+    {
+      "part": "use",
+      "rule": "no_1911_use_labels",
+      "why": "ASSET-CATALOG.md section K12: '1911 garage/auto labels are not 1904 use evidence.' The kit builds a horse-drawn coach house (carriage bay, loft hatch and hoist, stable sash, a ramp to a stable basement). A named target that is labelled a garage or an auto house on the 1911 Sanborn is not thereby a garage in 1904, and none of these parts is a motor-garage part."
+    },
+    {
+      "part": "ventilator",
+      "rule": "ventilator_needs_evidence",
+      "why": "ASSET-CATALOG.md section K12: 'roof ventilator only when supported.' A variant may ask for a ridge ventilator only with a source that shows one on its building; without one the generator refuses it, and the kit itself carries none."
+    },
+    {
+      "part": "generic",
+      "rule": "never_replaces_landmark",
+      "why": "Every size and form here is generic. A lot whose own coach house is documented (Glessner's stable is the scene's one, and it is its own canonical asset) is built from that evidence, never from this kit."
+    }
+  ],
+  "parts": {
+    "_doc": "The working sizes every variant starts from, in metres. Wall-local positions are (s, y, n): s along the wall from its start, y up from grade, n out of its outer face (a wall occupies -thickness..0).",
+    "wall": {
+      "brick_m": 0.33,
+      "service_brick_m": 0.23,
+      "confidence": "reconstructed",
+      "note": "A 13-inch (three-brick) wall for the two-storey coach house and its party wall, a 9-inch (two-brick) wall for the one-storey lean-to and connecting wing: the common Chicago load-bearing sizes for buildings of these heights."
+    },
+    "storeys": {
+      "ground_m": 3.6,
+      "loft_m": 2.7,
+      "confidence": "reconstructed",
+      "note": "A carriage room tall enough for a closed carriage with a coachman's seat (3.6 m to the loft floor) and a loft or coachman's quarters over it (2.7 m to the eave)."
+    },
+    "basement": {
+      "depth_m": 1.8,
+      "confidence": "reconstructed",
+      "note": "A stable basement floor 1.8 m under grade, reached by the ramp. The foundation walls go down to it all round."
+    },
+    "roof": {
+      "pitch_deg": 40,
+      "thickness_m": 0.25,
+      "eave_m": 0.4,
+      "verge_m": 0.3,
+      "confidence": "reconstructed",
+      "note": "A plain gable roof over the coach house, ridge parallel to the alley: rafters, boards and covering as one 0.25 m slab, 0.4 m eaves, a 0.3 m verge at the open gable. Coverings, gutters and flashing are K04's; the shell is K05's to replace when the kit is put on a house."
+    },
+    "party_wall": {
+      "parapet_m": 0.45,
+      "return_m": 0.5,
+      "coping": {
+        "points": [[-0.03, -0.215], [0.08, -0.215], [0.12, 0.0], [0.08, 0.215], [-0.03, 0.215]],
+        "closed": true
+      },
+      "confidence": "reconstructed",
+      "note": "A party (fire) wall on the lot line: it rises 0.45 m above the roof's surface along the whole rake, and returns 0.5 m past both eaves so the roof dies into it rather than running past its end. Capped by a weathered stone coping 0.43 m wide (50 mm over each face) let 30 mm into the wall."
+    },
+    "opening": {
+      "leaf_set_m": 0.1,
+      "leaf_m": 0.06,
+      "meeting_gap_m": 0.01,
+      "sill": [0.08, 0.1, 0.05],
+      "lintel": [0.1, 0.2, 0.03],
+      "confidence": "reconstructed",
+      "note": "Door and hatch leaves are 60 mm boarded leaves set 0.10 m back from the face, a pair meeting on a 10 mm gap. A window has a stone sill running 0.08 m past each jamb, 0.10 m deep and 50 mm proud; a flat head has a stone lintel 0.10 m past each jamb, 0.20 m high and 30 mm proud."
+    },
+    "carriage": {
+      "range_clear_m": [2.7, 3.6],
+      "rise_m": 0.35,
+      "ring_m": 0.23,
+      "ring_proud_m": 0.02,
+      "hinges": [0.4, 1.5, 2.6],
+      "strap": [0.9, 0.06, 0.018],
+      "confidence": "reconstructed",
+      "note": "The carriage bay: a clear opening of 2.7-3.6 m (a carriage and pair turning in from an alley), under a segmental brick head two rowlocks deep (0.23 m) standing 20 mm proud, closed by a pair of boarded leaves on three strap hinges each and a boarded head panel filling the segment."
+    },
+    "hoist": {
+      "section": [0.2, 0.22],
+      "projection_m": 0.9,
+      "embed_m": 0.25,
+      "above_head_m": 0.25,
+      "confidence": "reconstructed",
+      "note": "A timber hoist beam over the loft hatch, 0.9 m out from the wall and let 0.25 m into it, with an iron hook near its end: how hay and feed went up into the loft."
+    },
+    "sash": {
+      "bar_m": 0.06,
+      "muntin_m": 0.04,
+      "depth_m": 0.06,
+      "set_m": 0.1,
+      "confidence": "reconstructed",
+      "note": "A plain stable sash: a 60 mm frame set 0.10 m back, divided into four lights by a meeting rail and a muntin, glazed with one pane per light."
+    },
+    "ramp": {
+      "max_grade": 0.25,
+      "landing_m": 1.4,
+      "width_m": 1.3,
+      "retaining_m": 0.3,
+      "curb_m": 0.15,
+      "cleat_pitch_m": 0.45,
+      "cleat": [0.08, 0.05],
+      "confidence": "reconstructed",
+      "note": "A straight ramp down to the stable basement: at most 1 in 4 (horses were led down steeper ramps than people walk, on cleats), 1.3 m between two 0.3 m retaining walls that stand 0.15 m above grade as a curb, a 1.4 m level landing at the basement door, and a cleat across it every 0.45 m."
+    },
+    "stair": {
+      "rise_max_m": 0.21,
+      "going_min_m": 0.22,
+      "going_m": 0.24,
+      "nosing_m": 0.02,
+      "tread_m": 0.04,
+      "width_m": 0.9,
+      "stringer": [0.05, 0.28],
+      "landing": [1.2, 0.4],
+      "rail_m": 0.9,
+      "confidence": "reconstructed",
+      "note": "An external timber service stair up to a loft door: housed stringers 0.28 m deep, 40 mm treads with a 20 mm nosing, risers of at most 0.21 m and goings of at least 0.22 m, a 1.2 m landing on two posts and a 0.9 m handrail from a newel at its foot."
+    },
+    "lean_to": {
+      "pitch_deg": 20,
+      "thickness_m": 0.18,
+      "eave_m": 0.3,
+      "verge_m": 0.15,
+      "confidence": "reconstructed",
+      "note": "A one-storey lean-to against the coach house's yard wall, its single-pitch roof dying into that wall: a feed or harness room, with a stable (Dutch) door in two leaves."
+    },
+    "wing": {
+      "roof_m": 0.25,
+      "overhang_m": 0.1,
+      "confidence": "reconstructed",
+      "note": "A one-storey connecting wing from the coach house to the house, flat-roofed, its walls and roof dying into the coach house at one end and the house's rear wall at the other: the kit's 'connecting wing' and the 'believable workyard connection' K12 asks for."
+    },
+    "ventilator": {
+      "evidence": null,
+      "confidence": "reconstructed",
+      "note": "No ridge ventilator. The asset catalog allows one only where a source shows it; this kit has no such source, so it builds none and the generator refuses a variant that asks for one without evidence."
+    }
+  },
+  "costs": {
+    "_doc": "Triangle budget per variant, as built, without its board. A variant over its budget is refused, so a kit change that bloats every alley in the town is caught here.",
+    "max_triangles": {
+      "coach_house": 9000
+    }
+  },
+  "_variants_doc": "kind picks the builder; class picks the triangle budget. width_m runs along the alley (party wall included), depth_m back from it. Openings are on a wall (alley, yard, gable, lean_to, wing_east, wing_west), at s0..s1 along it from its start, sill to head in metres from grade; a carriage opening's head is its springing line.",
+  "variants": [
+    {
+      "id": "k12.coach_house.two_storey_brick",
+      "kind": "coach_house",
+      "class": "coach_house",
+      "width_m": 9.0,
+      "depth_m": 6.6,
+      "ventilator": false,
+      "openings": [
+        {"id": "carriage", "wall": "alley", "kind": "carriage", "s0": 1.17, "s1": 4.17, "sill": 0.0, "head": 3.0},
+        {"id": "man_door", "wall": "alley", "kind": "door", "s0": 4.97, "s1": 5.92, "sill": 0.0, "head": 2.3},
+        {"id": "stable_sash", "wall": "alley", "kind": "sash", "s0": 6.77, "s1": 7.77, "sill": 1.3, "head": 2.5},
+        {"id": "loft_hatch", "wall": "alley", "kind": "hatch", "s0": 2.07, "s1": 3.27, "sill": 3.9, "head": 5.3},
+        {"id": "loft_sash_1", "wall": "alley", "kind": "sash", "s0": 5.15, "s1": 6.05, "sill": 4.3, "head": 5.6},
+        {"id": "loft_sash_2", "wall": "alley", "kind": "sash", "s0": 6.82, "s1": 7.72, "sill": 4.3, "head": 5.6},
+        {"id": "basement_door", "wall": "yard", "kind": "door", "s0": 0.85, "s1": 1.65, "sill": -1.65, "head": 0.3},
+        {"id": "yard_sash_1", "wall": "yard", "kind": "sash", "s0": 3.1, "s1": 4.0, "sill": 4.3, "head": 5.6},
+        {"id": "yard_sash_2", "wall": "yard", "kind": "sash", "s0": 6.4, "s1": 7.3, "sill": 4.3, "head": 5.6},
+        {"id": "loft_door", "wall": "gable", "kind": "door", "s0": 4.97, "s1": 5.87, "sill": 3.8, "head": 5.8},
+        {"id": "gable_sash", "wall": "gable", "kind": "sash", "s0": 4.97, "s1": 5.87, "sill": 1.3, "head": 2.6},
+        {"id": "attic_sash", "wall": "gable", "kind": "sash", "s0": 2.95, "s1": 3.65, "sill": 6.7, "head": 7.6},
+        {"id": "stable_door", "wall": "lean_to", "kind": "dutch", "s0": 0.55, "s1": 1.45, "sill": 0.05, "head": 2.0},
+        {"id": "wing_door", "wall": "wing_east", "kind": "door", "s0": 2.7, "s1": 3.6, "sill": 0.05, "head": 2.2},
+        {"id": "wing_sash_w", "wall": "wing_west", "kind": "sash", "s0": 1.6, "s1": 2.4, "sill": 1.0, "head": 2.2}
+      ],
+      "ramp": {"x0": 2.6, "fall_m": 1.8, "grade": 0.25},
+      "stair": {"foot_s": 0.5, "risers": 19, "rise_m": 0.2},
+      "lean_to": {"x0": -0.9, "x1": 1.9, "depth_m": 2.2, "high_m": 3.1},
+      "wing": {"x0": -3.9, "x1": -1.4, "length_m": 4.0, "height_m": 3.2},
+      "confidence": "reconstructed",
+      "note": "A two-storey brick coach house on an alley, the kind the 1904 Prairie Avenue lots kept behind their houses: a carriage bay with paired leaves under a segmental head, a man door, stable sash, a loft hatch with its hoist beam, a party wall on the lot line, an external stair to a loft door on the open gable, a cleated ramp down to a stable basement on the yard side, a lean-to with a stable door, and a connecting wing to the house."
+    }
+  ]
+}
