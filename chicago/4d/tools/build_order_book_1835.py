@@ -606,7 +606,12 @@ STRUCTURE_TICKETS = {
     # AND ON TO T-2175 WHEN T-1673 WAS SPLIT (2026-10-08, T-2174 + T-2175). T-2174 raises the
     # street line's F2 and goes `done` when it merges, so the order moves to the piece that
     # carries the rest of the line, as the band in the inventory does.
-    ("south", "warehouses_freight"): "T-2175",
+    #
+    # AND ON TO T-2268 WHEN T-2175 WAS SPLIT (2026-10-09, T-2268 + T-2269). T-2268 raises the
+    # line's two owed F3s off-plat on the South Branch's east bank and T-2269 its F4 lumber
+    # shed; one ticket orders a band, so the order follows the piece that carries two of its
+    # three roofs, as the band in the inventory does.
+    ("south", "warehouses_freight"): "T-2268",
     # T-1202 WAS SPLIT on 2026-09-27 and closed with T-1688, the Randolph tier's books, so
     # this row named a ticket nobody can claim (T-1705). It orders nothing — the five
     # civic roofs the matrix sets all stand, and T-1202 raised none of them, so its id here
