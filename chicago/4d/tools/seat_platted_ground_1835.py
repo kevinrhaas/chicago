@@ -188,7 +188,11 @@ BUSINESS_DEAL_HOLDS = 45
 # gated dwellings, and its four new slots are dealt from the South queues a release of the
 # business deal's roofs draws on, so that release now seats eight households, not nine. The
 # hold is unchanged at 45 (L270).
-BUSINESS_DEAL_COSTS = 8
+# 8 -> 9 on 2026-10-09 (T-2268): two F3s on the South Branch bank bring F3 to its target, and
+# the schedule re-deals block 82's balance from D2 2, D4 2, D5 1 to D4 3, D5 2; its slots now
+# go to two tradesman rows and no labourer row, which moves the queue a release would draw on,
+# so that release seats nine households again. The hold is unchanged at 45 (L270).
+BUSINESS_DEAL_COSTS = 9
 
 TICKET = "T-1613"
 PARENT = "T-1199"
