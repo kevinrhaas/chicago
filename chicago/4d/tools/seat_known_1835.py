@@ -80,8 +80,9 @@ It is not a second opinion on anything already adjudicated. The business half is
 strict restatement of `data/research/location_spend.json` (T-1239): assertion 4 fails if
 a single firm's rung stops agreeing with the grade that file gives it, and assertion 5
 fails if the 62 unplaceable firms are not the same 62. The household half is read from
-the committed household records and from nothing else — `lives_at` is the seat, and a
-household whose record names no roof gets no roof here.
+the committed household records and from nothing else — the home row of its `associated_with`
+list is the seat (T-2260; `associations.home_row`), and a household whose record names no
+roof gets no roof here.
 
 WHAT A ROW SAYS, AND WHY EACH FIELD IS THERE.
 
@@ -139,6 +140,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+from associations import home_of, home_row, workplace_of  # noqa: E402
 
 HOUSEHOLDS = ROOT / "data" / "residents" / "households"
 INDEX = ROOT / "data" / "residents" / "index.json"
@@ -461,7 +464,7 @@ def policy_only_deal() -> dict[str, dict]:
     if _DEAL_CACHE is not None:
         return _DEAL_CACHE
     ids = sorted(hh["id"] for hh in household_records()
-                 if not (hh.get("lives_at") or {}).get("value")
+                 if not home_of(hh)
                  and (hh.get("division") or "unplaced") == "unplaced")
     total = len(ids)
     shape = division_shape()
@@ -587,17 +590,23 @@ def business_names() -> dict[str, str]:
 def household_row(hh: dict, committed: set[str], clauses: dict[str, dict]) -> dict:
     """One household, seated at the first rung that fires.
 
-    Rung 1 fires on `lives_at`, the only field that names a roof. Rung 4 fires on the
+    Rung 1 fires on the home row (T-2260), the only claim that names a roof. Rung 4 fires on the
     card's own `division` — the band inside it is reconstructed, the division is not.
     Rung 5 is T-1513's and does not fire here: a household with no division at all
     stays `owed` and says whose it is.
     """
-    lives = hh.get("lives_at") or {}
-    works = hh.get("works_at") or {}
-    seat_id = lives.get("value")
-    works_id = works.get("value")
+    home = home_row(hh) or {}
+    seat_id = home.get("place_or_structure_id")
+    works_id = workplace_of(hh)
     division = hh.get("division") or "unplaced"
-    basis = lives.get("basis") or {}
+    # The seat, its tier and the workplace are the rows' (T-2260). The PROSE is not: the
+    # singular claim's own `basis.note` and `replaceable_by` have no field on a row (a
+    # row's note is that basis plus the copier's own sentences, and a row has no
+    # `replaceable_by` at all — the garrison's eleven read "a plan of the post that
+    # assigns its quarters"). They are read here, for the words only, until T-2261
+    # gives them a home on the row; the roof itself is never read off the singular.
+    prose = hh.get("lives_at") or {}
+    basis = prose.get("basis") or {}
     row = {
         "id": hh["id"],
         "kind": "household",
@@ -621,11 +630,11 @@ def household_row(hh: dict, committed: set[str], clauses: dict[str, dict]) -> di
         row["rung"] = "structure"
         row["seat"] = {"kind": "structure", "id": seat_id}
         row["reach"] = "structure"
-        row["tier"] = lives.get("tier") or lives.get("confidence")
-        row["basis"] = basis.get("note") or lives.get("note")
+        row["tier"] = home.get("tier")
+        row["basis"] = basis.get("note") or prose.get("note") or home.get("note")
         row["words"] = (f"Seated at a named roof — the strongest rung this ladder has. "
                         f"The household record carries the seat at {row['tier']}.")
-        rb = lives.get("replaceable_by") or {}
+        rb = prose.get("replaceable_by") or {}
         row["replaceable_by"] = rb.get("match") or "a source naming a different building"
         return row
     if division == "outside_town":
@@ -1202,7 +1211,7 @@ def assertions(doc: dict) -> None:
     seated = {r["id"] for r in rows
               if r["kind"] == "household" and r["rung"] == "structure"}
     named = {hh["id"] for hh in household_records()
-             if (hh.get("lives_at") or {}).get("value")}
+             if home_of(hh)}
     if seated != named:
         raise Refused("the seated households are not the households whose committed "
                       "record names a roof")
@@ -1244,7 +1253,7 @@ def assertions(doc: dict) -> None:
     row_by_id = {r["id"]: r for r in rows if r["kind"] == "household"}
     for hh in household_records():
         row = row_by_id[hh["id"]]
-        has_roof = bool((hh.get("lives_at") or {}).get("value"))
+        has_roof = bool(home_of(hh))
         in_division = hh.get("division") in TOWN_DIVISIONS
         if in_division and not has_roof and row["rung"] != "division_band":
             raise Refused(f"{hh['id']}: its record names the {hh['division']} division "
@@ -1263,7 +1272,7 @@ def assertions(doc: dict) -> None:
     # is banded into a division the order book's shape holds — never the fort.
     shape = division_shape()
     nowhere = {hh["id"] for hh in household_records()
-               if not (hh.get("lives_at") or {}).get("value")
+               if not home_of(hh)
                and (hh.get("division") or "unplaced") == "unplaced"}
     dealt_rows = [r for r in rows if r["rung"] == "policy_only"]
     if {r["id"] for r in dealt_rows} != nowhere:
