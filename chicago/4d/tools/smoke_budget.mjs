@@ -173,6 +173,9 @@ const COVERAGE = [
   ['renderers/web/js/glessner-baseline.js', NONE, 'isolated page: qa_glessner_t2200.mjs'],
   ['renderers/web/css/glessner-baseline.css', NONE, 'isolated page: qa_glessner_t2200.mjs'],
   ['data/comparisons/glessner/', NONE, 'isolated comparison data: qa_glessner_t2200.mjs'],
+  // T-2265: the K01 component contract and the Glessner baseline measured against it.
+  // Read by tools/k01_contract.mjs in check.sh; neither published nor fetched.
+  ['data/components/', NONE, 'component contract + measured baseline: k01_contract.mjs --check'],
   // --- read by no part of the scene: the gate's own tooling, the backlog, the
   // --- prose. check.sh is what covers these, not the renderer.
   ['tools/', NONE, 'the gate\'s own tooling — not served to the browser'],
