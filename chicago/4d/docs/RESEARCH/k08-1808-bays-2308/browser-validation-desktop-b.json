@@ -8,7 +8,7 @@
         "height": 800
       },
       "detail": "full",
-      "load_ms_to_ready": 24010,
+      "load_ms_to_ready": 23663,
       "boot": {
         "ready": true,
         "error": null,
@@ -18,12 +18,12 @@
       "bad": [],
       "assets": [
         {
-          "url": "data/gltf/keith_house_1808_prairie__as_built_1886.glb",
+          "url": "data/gltf/glessner_house__as_built_1887.glb",
           "status": 200,
           "bytes": 0
         },
         {
-          "url": "data/gltf/glessner_house__as_built_1887.glb",
+          "url": "data/gltf/keith_house_1808_prairie__as_built_1886.glb",
           "status": 200,
           "bytes": 0
         }
@@ -34,12 +34,12 @@
           "detail": "full",
           "problems": [],
           "stats": {
-            "drawCalls": 69,
-            "triangles": 2514685,
+            "drawCalls": 73,
+            "triangles": 2521079,
             "programs": 35,
-            "geometries": 48,
-            "textures": 132,
-            "batches": 24,
+            "geometries": 50,
+            "textures": 140,
+            "batches": 26,
             "wallRelief": {
               "off": false,
               "substrates": {
@@ -60,7 +60,7 @@
             "structures": 2,
             "structuresExpected": 2,
             "structuresStanding": 2,
-            "bytes": 52815980,
+            "bytes": 52953252,
             "fps": 0,
             "cameraNear": 1.1,
             "budget": {
@@ -69,7 +69,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 8230.7,
+          "frame_ms_median": 8253.4,
           "camera": [
             1404.12,
             -3264.08,
@@ -86,12 +86,12 @@
           "detail": "full",
           "problems": [],
           "stats": {
-            "drawCalls": 68,
-            "triangles": 2513132,
+            "drawCalls": 72,
+            "triangles": 2519503,
             "programs": 35,
-            "geometries": 48,
-            "textures": 132,
-            "batches": 24,
+            "geometries": 50,
+            "textures": 140,
+            "batches": 26,
             "wallRelief": {
               "off": false,
               "substrates": {
@@ -112,7 +112,7 @@
             "structures": 2,
             "structuresExpected": 2,
             "structuresStanding": 2,
-            "bytes": 52815980,
+            "bytes": 52953252,
             "fps": 0,
             "cameraNear": 0.15000000000000002,
             "budget": {
@@ -121,7 +121,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 10391.9,
+          "frame_ms_median": 10365.6,
           "camera": [
             1391.57,
             -3251.42,
@@ -138,12 +138,12 @@
           "detail": "full",
           "problems": [],
           "stats": {
-            "drawCalls": 70,
-            "triangles": 2521962,
+            "drawCalls": 74,
+            "triangles": 2528356,
             "programs": 35,
-            "geometries": 52,
-            "textures": 140,
-            "batches": 24,
+            "geometries": 54,
+            "textures": 148,
+            "batches": 26,
             "wallRelief": {
               "off": false,
               "substrates": {
@@ -164,7 +164,7 @@
             "structures": 2,
             "structuresExpected": 2,
             "structuresStanding": 2,
-            "bytes": 52815980,
+            "bytes": 52953252,
             "fps": 0,
             "cameraNear": 0.1,
             "budget": {
@@ -173,7 +173,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 8198.9,
+          "frame_ms_median": 8170.4,
           "camera": [
             1366.31,
             -3246.32,

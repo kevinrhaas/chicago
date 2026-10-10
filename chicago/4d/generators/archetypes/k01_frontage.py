@@ -26,7 +26,16 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
   k01.opening.area_light    the basement lights: K06's three-light fixed area light
   k01.opening.door_leaf     reveal, threshold and a recessed oak leaf
   k01.stair.straight_stoop  whole risers from the walk to the principal floor
-  k01.roof.hip              four planes on true hips, fascia and soffit
+  k01.roof.hip              four planes on true hips, fascia and soffit; since
+                            T-2293 slated from the K04 library (courses registered
+                            at the eave, a cut edge and its underside), copper
+                            rolls on every hip and the ridge, a half-round gutter
+                            on iron brackets round the eave, outlets, downpipes
+                            and shoes over splash stones at grade
+  k01.roof.dormer_gable     the front dormer: slated cheeks and roof, a stone face
+                            with its sash, bargeboards and verge soffits, copper
+                            ridge roll, open valleys, apron and step flashing
+  k01.wall.dormer_face      the dormer's face, its sash cut through it
   k08.*                     a K08 bay (T-2308): `generators/archetypes/k08_bays.py`
                             builds it in its own wall frame and `bay` lays it on
                             its host wall, which carries no opening behind it
@@ -50,6 +59,7 @@ from . import k03_brick
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
+ROOFS = ROOT / "assets" / "textures" / "prairie_1904_roofs"   # K04, T-2292
 GENERATOR = "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)"
 
 Y = (0.0, 1.0, 0.0)
@@ -107,7 +117,17 @@ MATERIALS = {
     "curtain": {"color": (0.42, 0.16, 0.13), "roughness": 0.9},
     "door_leaf": {"color": (0.29, 0.17, 0.085), "roughness": 0.62},
     "fascia": {"color": (0.27, 0.24, 0.20), "roughness": 0.7},
-    "slate_covering": {"color": (0.20, 0.215, 0.24), "roughness": 0.78},
+    # T-2293: the K04 roof. The covering's fabric is the record's (roof_covering), so
+    # this entry's is only a default; flashing and rainwater are named by fabric.
+    "slate_covering": {"fabric": "slate_pennsylvania", "color": (1.0, 1.0, 1.0), "roughness": 0.62},
+    # the dormer face: dressed stone a shade off the trim, and a name outside the
+    # envelope materials, since the envelope is the walls and not what stands on the roof
+    "dormer_stone": {"fabric": "limestone", "color": (0.96, 0.93, 0.86), "roughness": 0.8},
+    "k04_copper_sheet": {"fabric": "copper_sheet", "color": (1.0, 1.0, 1.0), "roughness": 0.48, "metallic": 0.3},
+    "k04_lead_sheet": {"fabric": "lead_sheet", "color": (1.0, 1.0, 1.0), "roughness": 0.7, "metallic": 0.2},
+    "k04_zinc_sheet": {"fabric": "zinc_sheet", "color": (1.0, 1.0, 1.0), "roughness": 0.6, "metallic": 0.3},
+    "k04_painted_tin_sheet": {"fabric": "painted_tin_sheet", "color": (1.0, 1.0, 1.0), "roughness": 0.6},
+    "iron": {"color": (0.055, 0.055, 0.06), "roughness": 0.55},
 }
 # T-2291: the side and rear walls are K03 common brick, not Glessner's courtyard
 # brick_buff, and the brick heads, string course and units add their own slots.
@@ -140,13 +160,28 @@ K08_COVERS = {"copper_standing_seam": "bay_copper", "copper_sheet": "bay_copper"
 
 def _tiles() -> dict:
     lib = json.loads((LIBRARY / "material-library.json").read_text())["materials"]
-    return {m["name"]: tuple(m["tile_m"]) for m in lib} | k03_brick.TILES
+    out = {m["name"]: tuple(m["tile_m"]) for m in lib} | k03_brick.TILES
+    for m in json.loads((ROOFS / "manifest.json").read_text())["materials"]:
+        out[m["id"]] = tuple(m["tile_m"])
+    return out
+
+
+def _k04_fabric(fab: str) -> dict | None:
+    """A K04 fabric's material.json, or None for a fabric from another library."""
+    f = ROOFS / fab / "material.json"
+    return json.loads(f.read_text()) if f.exists() else None
 
 
 def _images(fab: str) -> dict:
-    """The JPEG(s) a fabric embeds: K03's from its own library, the rest Glessner's."""
+    """The JPEG(s) a fabric embeds: K03's and K04's from their own libraries (base colour
+    and OpenGL normal map), the rest Glessner's base colour alone."""
     if fab in k03_brick.IMAGES:
         return k03_brick.IMAGES[fab]
+    k04 = _k04_fabric(fab)
+    if k04 is not None:
+        # T-2293: the relief a raking sun reads on slate courses and dressed copper
+        return {"basecolor": ROOFS / fab / k04["web"]["basecolor"],
+                "normal": ROOFS / fab / k04["web"]["normal_gl"]}
     return {"basecolor": LIBRARY / f"{fab}_basecolor.jpg"}
 
 
@@ -181,6 +216,16 @@ class Prim:
         for i in range(1, len(pts) - 1):
             self.idx += [base, base + i, base + i + 1]
 
+    def quad(self, a, b, c, d, hint, basis, conf):
+        """Two triangles, each with its own true normal turned towards `hint`: a
+        strip that is not quite planar (a gutter falling into a mitre) stays honest."""
+        for t in ((a, b, c), (a, c, d)):
+            n = _cross(_sub(t[1], t[0]), _sub(t[2], t[0]))
+            if _dot(n, n) < 1e-18:
+                continue
+            n = _unit(n)
+            self.face(list(t), n if _dot(n, hint) >= 0 else _mul(n, -1), basis, conf)
+
 
 class Assembly:
     def __init__(self, structure_id: str, params):
@@ -189,6 +234,9 @@ class Assembly:
         self.tiles = _tiles()
         self.prims: dict[str, Prim] = {}
         self.components: dict[str, dict] = {}
+        self.fabric = {k: v.get("fabric") for k, v in MATERIALS.items()}
+        if params.roof:
+            self.fabric["slate_covering"] = params.roof["covering"]
         self.soffit_m = None   # set by build(); the soot band hangs from it
 
     def prim(self, name):
@@ -210,8 +258,8 @@ class Assembly:
                                "sockets": {k: [round(x, 4) for x in v] for k, v in sockets.items()}})
         return seed
 
-    def basis(self, mat, origin, au, av, seed, phase_u=None):
-        fab = MATERIALS[mat].get("fabric")
+    def basis(self, mat, origin, au, av, seed, phase_u=None, course_v=None):
+        fab = self.fabric[mat]
         tu, tv = self.tiles[fab] if fab else (1.0, 1.0)
         if MATERIALS[mat].get("courses"):
             # a coursed fabric (T-2291): v = 0 on a bed joint at grade on every wall, so
@@ -221,7 +269,13 @@ class Assembly:
                 phase_u = (seed % 4) / 4.0
             return (origin, au, av, tu, tv, phase_u, 0.0)
         # the seed moves the fabric, so two instances of one component differ
-        return (origin, au, av, tu, tv, (seed & 0xFFFF) / 65536.0, (seed >> 16) / 65536.0)
+        ov = (seed >> 16) / 65536.0
+        if course_v is not None:
+            # T-2293: a coursed covering is NOT moved up the slope: its first butt is put
+            # on the origin (the eave), by the map's own course phase, so a course is
+            # never cut at the eave and every course is a whole exposure
+            ov = (-course_v / tv) % 1.0
+        return (origin, au, av, tu, tv, (seed & 0xFFFF) / 65536.0, ov)
 
     # -- boxes proud of a wall: front, top, bottom and ends; never the back --------
     def proud_box(self, mat, frame, s0, s1, y0, y1, d, seed, conf):
@@ -370,8 +424,9 @@ class Assembly:
             dst.idx += [off + i for i in src.idx]
 
     # -- k08.* bays (T-2308) -------------------------------------------------------------
-    def bay(self, b, frame) -> float:
-        """Lay one K08 bay on its host wall; return where its roof meets the wall.
+    def bay(self, b, frame) -> tuple:
+        """Lay one K08 bay on its host wall; return where its roof meets the wall, and
+        the stretch of the wall (s from, s to) the bay's eaves and bands reach along it.
 
         `k08_bays.Bay` builds the bay in its own frame — +X along the wall to the right
         seen from outside, +Y up, +Z out of the wall's face — which is a K01 wall's
@@ -427,7 +482,9 @@ class Assembly:
                        math.dist(world[i], world[k])) >= SLIVER_M:
                     dst.idx += [off + i, off + j, off + k]
         roof = built.prims.get("roof")
-        return max(q[1] for q in roof.pos if abs(q[2]) < 1e-6) if roof else built.meta["eave_m"]
+        top = max(q[1] for q in roof.pos if abs(q[2]) < 1e-6) if roof else built.meta["eave_m"]
+        xs = [q[0] for pr in built.prims.values() for q in pr.pos]
+        return top, (b["s_m"] + min(xs), b["s_m"] + max(xs))
 
     # -- k01.stair.straight_stoop ------------------------------------------------------
     def stoop(self, frame, s_c):
@@ -465,19 +522,45 @@ class Assembly:
         ye = E - o * tp
         yf = ye - 0.20
         yr = p.ridge_m
-        conf = p.worst_conf("footprint", "roof_form", "roof_pitch_deg", "eave_overhang_m")
+        conf = p.worst_conf("footprint", "roof_form", "roof_pitch_deg", "eave_overhang_m", "roof_covering")
         seed = self.instance("k01.roof.hip", "roof",
                              {"pitch_deg": p.roof_pitch_deg, "eave_overhang_m": o,
-                              "eave_datum_m": E, "ridge_datum_m": yr},
+                              "eave_datum_m": E, "ridge_datum_m": yr,
+                              **({"covering": p.roof["covering"], "flashing": p.roof["flashing"]} if p.roof else {}),
+                              **({"gutter_diameter_m": p.rainwater["gutter_diameter_m"], "gutter_fall": p.rainwater["fall"],
+                                  "downpipes": len(p.rainwater["downpipes"]),
+                                  "pipe_diameter_m": p.rainwater["pipe_diameter_m"]} if p.rainwater else {})},
                              {"eave": (0.0, E, 0.0), "ridge": (W / 2, yr, -W / 2)})
-        SWe, SEe, NEe, NWe = (-o, ye, o), (D + o, ye, o), (D + o, ye, -W - o), (-o, ye, -W - o)
+        k = p.roof or {}
+        # T-2293: the slates run 50 mm past the fascia (k04 cut_edges.eave) on the same plane
+        o2 = o + k.get("eave_overhang_m", 0.0)
+        ye2 = E - o2 * tp
+        SWe, SEe, NEe, NWe = (-o2, ye2, o2), (D + o2, ye2, o2), (D + o2, ye2, -W - o2), (-o2, ye2, -W - o2)
         RW, RE = (W / 2, yr, -W / 2), (D - W / 2, yr, -W / 2)
+        phase = (_k04_fabric(k["covering"]) or {}).get("course_phase_m", [0.0, 0.0])[1] if k else None
         pr = self.prim("slate_covering")
-        for pts, contour in (([SWe, SEe, RE, RW], (1.0, 0.0, 0.0)), ([NEe, NWe, RW, RE], (-1.0, 0.0, 0.0)),
-                             ([SEe, NEe, RE], (0.0, 0.0, -1.0)), ([NWe, SWe, RW], (0.0, 0.0, 1.0))):
+        planes = {}
+        for name, pts, contour, out in (("south", [SWe, SEe, RE, RW], (1.0, 0.0, 0.0), (0.0, 0.0, 1.0)),
+                                        ("north", [NEe, NWe, RW, RE], (-1.0, 0.0, 0.0), (0.0, 0.0, -1.0)),
+                                        ("east", [SEe, NEe, RE], (0.0, 0.0, -1.0), (1.0, 0.0, 0.0)),
+                                        ("west", [NWe, SWe, RW], (0.0, 0.0, 1.0), (-1.0, 0.0, 0.0))):
             nrm = _unit(_cross(_sub(pts[1], pts[0]), _sub(pts[-1], pts[0])))
             uphill = _unit(_cross(nrm, contour))
-            pr.face(pts, nrm, self.basis("slate_covering", pts[0], contour, uphill, seed), conf)
+            planes[name] = nrm
+            pr.face(pts, nrm, self.basis("slate_covering", pts[0], contour, uphill, seed, course_v=phase), conf)
+            if not k:
+                continue
+            # the cut edge: the doubled eave course's butt, two slates thick, and the
+            # underside of the 50 mm the slates overhang the fascia
+            te = 2 * k["slate_thickness_m"]
+            a, b = pts[0], pts[1]
+            dn = (0.0, -te, 0.0)
+            pr.face([a, b, _add(b, dn), _add(a, dn)], out, self.basis("slate_covering", a, contour, Y, seed), conf)
+            # the fascia line, on the covering plane: where the slates leave the fascia
+            ia = (a[0] - out[0] * (o2 - o) + contour[0] * (o2 - o), ye, a[2] - out[2] * (o2 - o) + contour[2] * (o2 - o))
+            ib = (b[0] - out[0] * (o2 - o) - contour[0] * (o2 - o), ye, b[2] - out[2] * (o2 - o) - contour[2] * (o2 - o))
+            pr.face([_add(a, dn), _add(b, dn), _add(ib, dn), _add(ia, dn)], _mul(nrm, -1),
+                    self.basis("slate_covering", a, contour, _mul(uphill, -1), seed), conf)
         # fascia and soffit close the eave
         fa = self.prim("fascia")
         down = (0.0, -1.0, 0.0)
@@ -493,7 +576,337 @@ class Assembly:
             wa, wb = walls[i], walls[j]
             fa.face([(a[0], yf, a[1]), (b[0], yf, b[1]), (wb[0], yf, wb[1]), (wa[0], yf, wa[1])], down,
                     self.basis("fascia", (0.0, yf, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed), conf)
+        if not k:
+            return yf
+        # copper rolls on the four hips (trimmed to the eave) and the ridge
+        lift = 2 * k["slate_thickness_m"]
+        for (A, B, n1, n2, e1, e2) in ((SEe, RE, planes["south"], planes["east"], (1.0, 0.0, 0.0), (0.0, 0.0, -1.0)),
+                                       (NEe, RE, planes["north"], planes["east"], (-1.0, 0.0, 0.0), (0.0, 0.0, -1.0)),
+                                       (NWe, RW, planes["north"], planes["west"], (-1.0, 0.0, 0.0), (0.0, 0.0, 1.0)),
+                                       (SWe, RW, planes["south"], planes["west"], (1.0, 0.0, 0.0), (0.0, 0.0, 1.0))):
+            self.cap(A, B, n1, n2, lift, seed, conf, eave=(e1, e2))
+        self.cap(RW, RE, planes["south"], planes["north"], lift + 0.002, seed, conf)
+        if p.dormer:
+            self.dormer(planes["east"], seed)
+        if p.rainwater:
+            self.rainwater(ye, yf, seed)
         return yf
+
+    def _flashing(self):
+        return "k04_" + self.p.roof["flashing"]
+
+    # -- caps: a copper roll on wood, its flanges dressed over the top courses ----------
+    def cap(self, A, B, n1, n2, lift, seed, conf, eave=None):
+        k = self.p.roof
+        mat = self._flashing()
+        pr = self.prim(mat)
+        L = _unit(_sub(B, A))
+        w = k["cap_flange_m"]
+        for i, (n, e) in enumerate(((n1, eave[0] if eave else None), (n2, eave[1] if eave else None))):
+            q = _unit(_cross(n, L))
+            if q[1] > 0:
+                q = _mul(q, -1)  # into the plane: downhill from a convex hip or ridge
+            a0, b0 = _add(A, _mul(n, lift)), _add(B, _mul(n, lift))
+            a1, b1 = _add(a0, _mul(q, w)), _add(b0, _mul(q, w))
+            if e is not None:
+                # trim the flange's outer edge to the eave line through A
+                # solve a1 + t L = a0 + u e  (both lines lie in the lifted plane)
+                d = _sub(a0, a1)
+                LL, Le, ee = _dot(L, L), _dot(L, e), _dot(e, e)
+                dL, de = _dot(d, L), _dot(d, e)
+                den = LL * ee - Le * Le
+                t = (dL * ee - de * Le) / den
+                a1 = _add(a1, _mul(L, t))
+            pr.face([a0, b0, b1, a1], n, self.basis(mat, a0, L, q, seed), conf)
+        # the roll: an arc over the line on the flanges' bisector
+        bis = _unit(_add(n1, n2))
+        side = _unit(_cross(L, bis))
+        rr = k["cap_roll_diameter_m"] / 2
+        c0, c1 = _add(A, _mul(bis, lift + rr * 0.4)), _add(B, _mul(bis, lift + rr * 0.4))
+        angs = [math.radians(-105 + 35 * j) for j in range(7)]
+        ring = [_add(_mul(bis, math.cos(t) * rr), _mul(side, math.sin(t) * rr)) for t in angs]
+        for j in range(len(ring) - 1):
+            mid = _unit(_add(ring[j], ring[j + 1]))
+            pr.quad(_add(c0, ring[j]), _add(c1, ring[j]), _add(c1, ring[j + 1]), _add(c0, ring[j + 1]), mid,
+                    self.basis(mat, _add(c0, ring[j]), L, _unit(_sub(ring[j + 1], ring[j])), seed), conf)
+        for c, nn in ((c0, _mul(L, -1)), (c1, L)):
+            pr.face([_add(c, r) for r in ring], nn, self.basis(mat, c, side, bis, seed), conf)
+
+    # -- k01.roof.dormer_gable --------------------------------------------------------
+    def dormer(self, n_main, roof_seed):
+        p, d, k = self.p, self.p.dormer, self.p.roof
+        D, W, E = p.depth_m, p.width_m, p.eave_m
+        tp = math.tan(math.radians(p.roof_pitch_deg))
+        dp = math.tan(math.radians(d["pitch_deg"]))
+        wd, sb, hf, vo = d["width_m"], d["face_setback_m"], d["face_height_m"], d["verge_m"]
+        xf = D - sb
+        ys = E + sb * tp                      # the face's foot, on the street hip
+        yde = ys + hf                         # the dormer's eave
+        ydr = yde + wd / 2 * dp               # its ridge
+        xl = D - (yde - E) / tp               # where a cheek's top meets the hip
+        xr = D - (ydr - E) / tp               # where the dormer ridge dies into it
+        zc = -W / 2
+        zs, zn = zc + wd / 2, zc - wd / 2
+        if xr - (D - W / 2) < wd / 2 + 0.3:
+            raise ValueError("the dormer does not fit inside the street hip")
+        conf = p.worst_conf("roof_form", "roof_pitch_deg", "dormer")
+        seed = self.instance("k01.roof.dormer_gable", "roof",
+                             {"pitch_deg": d["pitch_deg"], "width_m": wd, "face_height_m": hf,
+                              "face_setback_m": sb, "verge_m": vo},
+                             {"eave": (xf, yde, zs), "ridge": (xf, ydr, zc)})
+        # the face, its sash cut through it, and the gable over it
+        from archetypes.k01_frontage_params import Opening
+        frame, t = self.wall("k01.wall.dormer_face", "dormer_stone", (xf, ys, zs), (0.0, 0.0, -1.0), wd, hf,
+                             d["face_thickness_m"],
+                             [(wd / 2 - d["sash"]["width_m"] / 2, wd / 2 + d["sash"]["width_m"] / 2,
+                               d["sash"]["sill_m"], d["sash"]["sill_m"] + d["sash"]["height_m"])])
+        self.opening(Opening("k01.opening.sash_flat", "k01.wall.dormer_face", wd / 2, d["sash"]["sill_m"],
+                             d["sash"]["width_m"], d["sash"]["height_m"]), frame, t, "dormer_stone", "limestone_trim")
+        X = (1.0, 0.0, 0.0)
+        self.prim("dormer_stone").face([(xf, yde, zs), (xf, yde, zn), (xf, ydr, zc)], X,
+                                       self.basis("dormer_stone", (xf, yde, zs), (0.0, 0.0, -1.0), Y, seed), conf)
+        # roof planes, slated, from the verge back to the valleys
+        pr = self.prim("slate_covering")
+        phase = (_k04_fabric(k["covering"]) or {}).get("course_phase_m", [0.0, 0.0])[1]
+        sides = {}
+        for z_e, sgn in ((zs, 1.0), (zn, -1.0)):
+            pts = [(xf + vo, yde, z_e), (xl, yde, z_e), (xr, ydr, zc), (xf + vo, ydr, zc)]
+            nrm = _unit((0.0, 1.0, sgn * dp))
+            contour = (-1.0, 0.0, 0.0)
+            uphill = _unit(_cross(nrm, contour))
+            if uphill[1] < 0:
+                uphill = _mul(uphill, -1)
+            pr.face(pts, nrm, self.basis("slate_covering", pts[0], contour, uphill, seed, course_v=phase), conf)
+            sides[sgn] = (nrm, z_e)
+            # the cheek under it: slated, a triangle standing on the hip
+            pr.face([(xf, ys, z_e), (xf, yde, z_e), (xl, yde, z_e)], (0.0, 0.0, sgn),
+                    self.basis("slate_covering", (xf, ys, z_e), (-1.0, 0.0, 0.0), Y, seed, 0.0), conf)
+            # bargeboard and the verge's soffit
+            fa = self.prim("fascia")
+            top0, top1 = (xf + vo, yde, z_e), (xf + vo, ydr, zc)
+            dn = (0.0, -0.15, 0.0)
+            fa.face([top0, top1, _add(top1, dn), _add(top0, dn)], X,
+                    self.basis("fascia", top0, (0.0, 0.0, -sgn), Y, seed), conf)
+            fa.face([_add(top0, dn), _add(top1, dn), (xf, ydr - 0.15, zc), (xf, yde - 0.15, z_e)], _mul(nrm, -1),
+                    self.basis("fascia", top0, X, (0.0, 0.0, -sgn), seed), conf)
+        lift = 2 * k["slate_thickness_m"]
+        self.cap((xf + vo, ydr, zc), (xr, ydr, zc), sides[1.0][0], sides[-1.0][0], lift, seed, conf)
+        # the valleys: open, widening downhill, a crimped rib up the middle
+        mat = self._flashing()
+        fl = self.prim(mat)
+        V1 = (xr, ydr, zc)
+        for sgn in (1.0, -1.0):
+            nd, z_e = sides[sgn]
+            V0 = (xl, yde, z_e)
+            Lv = _unit(_sub(V1, V0))
+            length = math.dist(V0, V1)
+            half0 = (k["valley_exposed_at_top_m"] + k["valley_widening_per_m"] * length) / 2
+            half1 = k["valley_exposed_at_top_m"] / 2
+            for n, test in ((n_main, (0.0, 0.0, sgn)), (nd, X)):
+                q = _unit(_cross(n, Lv))
+                if _dot(q, test) < 0:
+                    q = _mul(q, -1)
+                a0, a1 = _add(V0, _mul(n, lift)), _add(V1, _mul(n, lift))
+                fl.face([a0, a1, _add(a1, _mul(q, half1)), _add(a0, _mul(q, half0))], n,
+                        self.basis(mat, a0, Lv, q, seed), conf)
+                rib = _unit(_add(n_main, nd))
+                b0, b1 = _add(a0, _mul(q, 0.012)), _add(a1, _mul(q, 0.012))
+                c0, c1 = _add(V0, _mul(rib, lift + k["valley_crimp_m"])), _add(V1, _mul(rib, lift + k["valley_crimp_m"]))
+                fl.quad(b0, b1, c1, c0, _add(n, _mul(q, -1)), self.basis(mat, b0, Lv, _unit(_sub(c0, b0)), seed), conf)
+        # the apron over the course below the face, and its upstand
+        dd = _unit((1.0, -tp, 0.0))
+        a_s = _add((xf, ys, zs + k["step_leg_m"]), _mul(n_main, lift))
+        a_n = _add((xf, ys, zn - k["step_leg_m"]), _mul(n_main, lift))
+        fl.face([a_s, a_n, _add(a_n, _mul(dd, k["apron_lap_m"])), _add(a_s, _mul(dd, k["apron_lap_m"]))], n_main,
+                self.basis(mat, a_s, (0.0, 0.0, -1.0), _mul(dd, -1), seed), conf)
+        ux = a_s[0]
+        fl.face([(ux, a_s[1], zs), (ux, a_s[1], zn), (ux, ys + k["apron_upstand_m"], zn), (ux, ys + k["apron_upstand_m"], zs)], X,
+                self.basis(mat, (ux, a_s[1], zs), (0.0, 0.0, -1.0), Y, seed), conf)
+        # step flashing at each cheek: a leg on the hip, an upstand on the cheek
+        for sgn, z_e in ((1.0, zs), (-1.0, zn)):
+            f0 = _add((xf, ys, z_e), _mul(n_main, lift + 0.002))
+            f1 = _add((xl, yde, z_e), _mul(n_main, lift + 0.002))
+            Ls = _unit(_sub(f1, f0))
+            out = (0.0, 0.0, sgn)
+            fl.face([f0, f1, _add(f1, _mul(out, k["step_leg_m"])), _add(f0, _mul(out, k["step_leg_m"]))], n_main,
+                    self.basis(mat, f0, Ls, out, seed), conf)
+            u0, u1 = (xf, ys, z_e + sgn * 0.006), (xl, yde, z_e + sgn * 0.006)
+            up = (0.0, k["step_upstand_m"], 0.0)
+            fl.face([u0, u1, _add(u1, up), _add(u0, up)], out, self.basis(mat, u0, Ls, Y, seed), conf)
+
+    # -- rainwater: gutter, brackets, outlets, downpipes, shoes, splash stones -----------
+    def rainwater(self, ye, yf, seed):
+        p, r = self.p, self.p.rainwater
+        D, W, o = p.depth_m, p.width_m, p.eave_overhang_m
+        conf = p.worst_conf("rainwater", "eave_overhang_m")
+        mat = "k04_" + r["fabric"]
+        ri = r["gutter_diameter_m"] / 2
+        ro = ri + 0.004
+        c = ro + 0.006                        # axis off the fascia: room for the bracket's band
+        A = o + c
+        corners = [(D + A, A), (D + A, -W - A), (-A, -W - A), (-A, A)]          # SE NE NW SW, (x, z)
+        dirs = [(0.0, 0.0, -1.0), (-1.0, 0.0, 0.0), (0.0, 0.0, 1.0), (1.0, 0.0, 0.0)]
+        outs = [(1.0, 0.0, 0.0), (0.0, 0.0, -1.0), (-1.0, 0.0, 0.0), (0.0, 0.0, 1.0)]
+        lens = [W + 2 * A, D + 2 * A, W + 2 * A, D + 2 * A]
+        starts = [sum(lens[:i]) for i in range(4)]
+        P = sum(lens)
+        side_of = {"k01.wall.street_front": 0, "k01.wall.rear_service": 2, "k01.wall.side.south": 3}
+        outlets = sorted(starts[side_of[x["wall"]]] + A + x["s_m"] for x in r["downpipes"])
+        gaps = [((outlets[(i + 1) % len(outlets)] - outlets[i]) % P) or P for i in range(len(outlets))]
+        highs = [(outlets[i] + gaps[i] / 2) % P for i in range(len(outlets))]
+        reach = max(gaps) / 2
+        self.rain_runs = [round(g, 3) for g in gaps]   # read by the emitter's extras
+        y_top = ye - 0.06
+        y_low = y_top - r["fall"] * reach
+
+        def cyc(a, b):
+            d = abs(a - b) % P
+            return min(d, P - d)
+
+        def y_at(sv):
+            return y_low + r["fall"] * min(cyc(sv, x) for x in outlets)
+
+        def at(sv):
+            sv %= P
+            i = max(j for j in range(4) if starts[j] <= sv + 1e-9)
+            t = sv - starts[i]
+            cx, cz = corners[i]
+            return (cx + dirs[i][0] * t, y_at(sv), cz + dirs[i][2] * t), i, t
+
+        n_seg = 8
+        secs = [k_ * math.pi / n_seg for k_ in range(n_seg + 1)]
+
+        def ring(sv, rad):
+            pt, i, t = at(sv)
+            out = outs[i]
+            if t < 1e-6:  # a corner: the mitre between the side before and this one
+                prev = outs[(i - 1) % 4]
+                out = (out[0] + prev[0], 0.0, out[2] + prev[2])
+            return [(pt[0] - math.cos(a) * rad * out[0], pt[1] - math.sin(a) * rad, pt[2] - math.cos(a) * rad * out[2])
+                    for a in secs], pt
+
+        stations = sorted({*(round(x % P, 6) for x in starts), *(round(x, 6) for x in outlets),
+                           *(round(x, 6) for x in highs)})
+        pr = self.prim(mat)
+        for a_, b_ in zip(stations, stations[1:] + [stations[0] + P]):
+            (Ro, pa), (Rb, pb) = ring(a_, ro), ring(b_, ro)
+            Ri, Rj = ring(a_, ri)[0], ring(b_, ri)[0]
+            along = _unit(_sub(pb, pa))
+            for j in range(n_seg):
+                mo = _sub(_mul(_add(Ro[j], Ro[j + 1]), 0.5), pa)
+                pr.quad(Ro[j], Rb[j], Rb[j + 1], Ro[j + 1], mo,
+                        self.basis(mat, Ro[j], along, _unit(_sub(Ro[j + 1], Ro[j])), seed), conf)
+                pr.quad(Ri[j], Rj[j], Rj[j + 1], Ri[j + 1], _mul(mo, -1),
+                        self.basis(mat, Ri[j], along, _unit(_sub(Ri[j + 1], Ri[j])), seed), conf)
+            for j in (0, n_seg):  # the two rims, inner skin to outer
+                pr.quad(Ri[j], Rj[j], Rb[j], Ro[j], Y, self.basis(mat, Ri[j], along, _unit(_sub(Ro[j], Ri[j])), seed), conf)
+        # wrought-iron hangers at the bracket spacing, a band under the gutter and a leg
+        # up the fascia, clear of the outlets
+        iron = self.prim("iron")
+        bw = r["bracket_section_m"][0] / 2
+        rb = ro + r["bracket_section_m"][1] * 0.6
+        for i in range(4):
+            t = 0.30
+            while t < lens[i] - 0.30:
+                sv = starts[i] + t
+                t += r["bracket_spacing_m"]
+                if min(cyc(sv, x) for x in outlets) < 0.15:
+                    continue
+                pt, _, _ = at(sv)
+                d, out = dirs[i], outs[i]
+                band = [(pt[0] - math.cos(a) * rb * out[0], pt[1] - math.sin(a) * rb, pt[2] - math.cos(a) * rb * out[2])
+                        for a in secs]
+                for j in range(n_seg):
+                    m0, m1 = band[j], band[j + 1]
+                    mo = _sub(_mul(_add(m0, m1), 0.5), pt)
+                    iron.quad(_add(m0, _mul(d, -bw)), _add(m0, _mul(d, bw)), _add(m1, _mul(d, bw)), _add(m1, _mul(d, -bw)),
+                              mo, self.basis("iron", m0, d, _unit(_sub(m1, m0)), seed), conf)
+                leg0 = band[0]
+                leg1 = (leg0[0], min(leg0[1] + 0.06, ye - 0.01), leg0[2])
+                iron.face([_add(leg0, _mul(d, -bw)), _add(leg0, _mul(d, bw)), _add(leg1, _mul(d, bw)), _add(leg1, _mul(d, -bw))],
+                          out, self.basis("iron", leg0, d, Y, seed), conf)
+        # an outlet, a swan neck back under the soffit, the pipe down the wall, a shoe
+        # kicked out over a splash stone: every pipe ends at ground
+        walls = {"k01.wall.street_front": ((D, 0.0, 0.0), (0.0, 0.0, -1.0)),
+                 "k01.wall.rear_service": ((0.0, 0.0, -W), (0.0, 0.0, 1.0)),
+                 "k01.wall.side.south": ((0.0, 0.0, 0.0), (1.0, 0.0, 0.0))}
+        rp = r["pipe_diameter_m"] / 2
+        kick = math.radians(r["shoe_kick_deg"])
+        for x in r["downpipes"]:
+            O, R = walls[x["wall"]]
+            N = _cross(R, Y)
+            # clear of anything proud of the wall: the street front's belt courses
+            off = r["pipe_offset_from_wall_m"] + (0.05 if x["wall"] == "k01.wall.street_front" else 0.0)
+            lat = off + rp
+            base = _add(O, _mul(R, x["s_m"]))
+            sv = starts[side_of[x["wall"]]] + A + x["s_m"]
+            gy = y_at(sv)
+            at_wall = lambda l, y: (base[0] + N[0] * l, y, base[2] + N[2] * l)
+            p0 = at_wall(A, gy - ro + 0.002)
+            p1 = at_wall(A, gy - ro - 0.12)
+            p2 = at_wall(lat, p1[1] - (A - lat))
+            # the shoe's lowest lip, not its axis, stands end_above_grade over the ground
+            y4 = r["shoe_end_above_grade_m"] + rp * math.cos(kick)
+            y3 = y4 + r["shoe_length_m"] * math.sin(kick)
+            p3 = at_wall(lat, y3)
+            p4 = at_wall(lat + r["shoe_length_m"] * math.cos(kick), y4)
+            if p2[1] > yf - 0.05:
+                raise ValueError("a swan neck runs into the soffit")
+            self.tube(mat, [p0, p1, p2, p3, p4], rp, R, seed, conf, cap_end=True)
+            # straps, every strap spacing down the straight run
+            yy = p2[1] - 0.4
+            while yy > p3[1] + 0.3:
+                c0 = at_wall(lat, yy)
+                band = [_add(c0, _add(_mul(R, math.cos(a) * (rp + 0.004)), _mul(N, math.sin(a) * (rp + 0.004))))
+                        for a in [2 * math.pi * j / 8 for j in range(9)]]
+                for j in range(8):
+                    mo = _sub(_mul(_add(band[j], band[j + 1]), 0.5), c0)
+                    iron.quad(band[j], band[j + 1], _add(band[j + 1], (0.0, 0.03, 0.0)), _add(band[j], (0.0, 0.03, 0.0)),
+                              mo, self.basis("iron", band[j], _unit(_sub(band[j + 1], band[j])), Y, seed), conf)
+                yy -= r["strap_spacing_m"]
+            # the splash stone the shoe discharges onto, its bottom on the ground
+            st = self.prim("stoop_stone")
+            l0, l1 = lat + 0.05, lat + r["shoe_length_m"] * math.cos(kick) + 0.30
+            s0, s1 = -0.17, 0.17
+            h = 0.04
+            Q = lambda l, s, y: _add(at_wall(l, y), _mul(R, s))
+            bt = self.basis("stoop_stone", Q(l0, s0, h), R, N, seed)
+            st.face([Q(l0, s0, h), Q(l0, s1, h), Q(l1, s1, h), Q(l1, s0, h)], Y, bt, conf)
+            bs = self.basis("stoop_stone", Q(l0, s0, 0), R, Y, seed)
+            st.face([Q(l1, s0, 0), Q(l1, s1, 0), Q(l1, s1, h), Q(l1, s0, h)], N, bs, conf)
+            st.face([Q(l0, s0, 0), Q(l0, s1, 0), Q(l0, s1, h), Q(l0, s0, h)], _mul(N, -1), bs, conf)
+            be = self.basis("stoop_stone", Q(l0, s0, 0), N, Y, seed)
+            st.face([Q(l0, s0, 0), Q(l1, s0, 0), Q(l1, s0, h), Q(l0, s0, h)], _mul(R, -1), be, conf)
+            st.face([Q(l0, s1, 0), Q(l1, s1, 0), Q(l1, s1, h), Q(l0, s1, h)], R, be, conf)
+
+    def tube(self, mat, path, rad, ref, seed, conf, cap_end=False, sides=8):
+        """A round pipe along a polyline lying in a plane normal to `ref`: rings mitred
+        on the bisector at every bend, so each side is a planar strip."""
+        pr = self.prim(mat)
+        dirs = [_unit(_sub(b, a)) for a, b in zip(path, path[1:])]
+        angs = [2 * math.pi * j / sides for j in range(sides + 1)]
+        rings = []
+        for i, J in enumerate(path):
+            d_in = dirs[max(i - 1, 0)]
+            d_out = dirs[min(i, len(dirs) - 1)]
+            d = d_out if i < len(dirs) else d_in
+            e2 = _unit(_cross(d, ref))
+            m = _unit(_add(d_in, d_out))
+            pts = []
+            for a in angs:
+                q = _add(_mul(ref, math.cos(a) * rad), _mul(e2, math.sin(a) * rad))
+                # slide along the segment's own axis onto the mitre plane
+                q = _sub(q, _mul(d, _dot(q, m) / _dot(d, m)))
+                pts.append(_add(J, q))
+            rings.append(pts)
+        for i, d in enumerate(dirs):
+            A_, B_ = rings[i], rings[i + 1]
+            for j in range(sides):
+                mo = _sub(_mul(_add(A_[j], A_[j + 1]), 0.5), path[i])
+                pr.quad(A_[j], B_[j], B_[j + 1], A_[j + 1], mo,
+                        self.basis(mat, A_[j], d, _unit(_sub(A_[j + 1], A_[j])), seed), conf)
+        if cap_end:
+            self.prim("backing").face(rings[-1][:-1], dirs[-1], self.basis("backing", path[-1], ref, Y, seed), conf)
 
 
 def _pieces(s0, s1, gaps):
@@ -552,8 +965,15 @@ def build(params, structure_id: str):
     a.roof()
     # T-2308: the K08 bays, each on its wall. Its roof leans on that wall, so an opening
     # left above it must clear the roof — the K06 sill (0.10 m) and 0.05 m of flashing.
+    # A downpipe on the bay's wall must stand clear of everything the bay reaches along
+    # it (its eaves above all): T-2293's pipes run from the main gutter down to grade.
     for bay in p.bays:
-        top = a.bay(bay, frames[bay["wall"]][0][0])
+        top, (s0, s1) = a.bay(bay, frames[bay["wall"]][0][0])
+        rp = p.rainwater["pipe_diameter_m"] / 2 if p.rainwater else 0.0
+        for x in (p.rainwater or {}).get("downpipes", []):
+            if x["wall"] == bay["wall"] and x["s_m"] + rp + 0.03 > s0 and x["s_m"] - rp - 0.03 < s1:
+                raise ValueError(f"{bay['id']} reaches s {s0:.3f}..{s1:.3f} along {x['wall']}, into the "
+                                 f"downpipe at s {x['s_m']}")
         for o in p.openings:
             if o.wall == bay["wall"] and bay["span_m"][0] < o.s_m < bay["span_m"][1] \
                     and o.sill_m - 0.15 < top:
@@ -614,16 +1034,17 @@ def to_glb(a: Assembly, structure_id: str, phase_id: str, scene_ids, extras: dic
             # glTF's default, which gltf-transform drops from the web derivative: write
             # it the same way here, so master and derivative name the same colours
             del mat["pbrMetallicRoughness"]["baseColorFactor"]
-        fab = spec.get("fabric")
+        fab = a.fabric[name]
         if fab:
-            for role, src in _images(fab).items():
+            imgs = _images(fab)
+            for role, src in imgs.items():
                 if (fab, role) not in image_of:
                     images.append({"name": src.stem.removesuffix("_web"), "mimeType": "image/jpeg",
                                    "bufferView": view(src.read_bytes())})
                     textures.append({"sampler": 0, "source": len(images) - 1})
                     image_of[(fab, role)] = len(textures) - 1
             mat["pbrMetallicRoughness"]["baseColorTexture"] = {"index": image_of[(fab, "basecolor")], "texCoord": 0}
-            if spec.get("normal"):
+            if spec.get("normal") or (_k04_fabric(fab) is not None and "normal" in imgs):
                 mat["normalTexture"] = {"index": image_of[(fab, "normal")], "texCoord": 0}
         materials.append(mat)
         ctype = 5123 if len(pr.pos) < 65536 else 5125

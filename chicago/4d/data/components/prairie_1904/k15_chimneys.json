@@ -1,0 +1,98 @@
+{
+  "id": "prairie_1904_k15_chimneys",
+  "title": "Chimneys, flues and roof service details for the Prairie Avenue 1904 programme (package K15, the kit)",
+  "ticket": "T-2312",
+  "parent": "T-1857",
+  "programme": "T-1837",
+  "contract": "data/components/prairie_1904/k01_contract.json",
+  "roofs": "data/components/prairie_1904/k05_roofs.json",
+  "generator": "generators/archetypes/k15_chimneys.py",
+  "specimen": "docs/RESEARCH/k15-chimney-kit/k15_chimney_kit.glb",
+  "status": "Declared and generated, not yet built to. No chimney in the scene is built from this kit today; T-2313 builds a named Prairie Avenue house's chimneys from this file and this generator, at the number, height and position its sources give.",
+  "rule": "A chimney is a SOLID seated in its roof, never a box stood on a slope. Each part (the shaft, its corbel courses, bands and cap, its clay pots, the stepped side flashing, the apron and back flashing, and the cricket behind a wide stack) is a closed polyhedron built from the numbers below; the parts and the K05 roof they stand in are joined by a boolean union, so the roof junction is cut where the shaft really passes through the covering and the cricket's valleys where its slopes really meet the roof plane. The flues (and a carved stack's sunk panels) are then cut out of the joined solid by a boolean difference, so each flue is a dark recess with walls and a floor, not a black square painted on a cap. The result must be WATERTIGHT, ONE shell with its roof, free of doubled faces and of any face through another. A stack's top clears the covering within its draught radius by its clearance; the light tier keeps every stack's plan centre and top height. The check (tools/check_chimney_kit.py) rebuilds every variant and holds the built geometry to this file.",
+  "parts": {
+    "_doc": "Working sizes, every one reconstructed. Plan sizes are in half-brick modules (brick_module_m: a 0.20 m brick and its 0.01 m joint, halved), so a shaft is a whole number of half-bricks on each face; the flue opening is a common 8 by 8 inch (0.21 m) liner. course_m is one brick course (RECONSTRUCTION-RULES Brickwork: a 0.06 m face and its joint, 0.07 m). A side flashing steps up one course for every course of roof it climbs, its counter-flashing cut that far into the joint above the covering; an apron laps down the slope below a stack and turns up its downhill face; the back flashing does the same behind a stack too narrow to need a cricket. A cricket (a saddle) is a small level-ridged roof behind any stack wider across the slope than cricket_min_width_m, so water parts around the stack instead of ponding against it.",
+    "brick_module_m": 0.105,
+    "course_m": 0.07,
+    "flue": {"opening_m": 0.21, "depth_m": 0.6, "confidence": "reconstructed"},
+    "flashing": {"thickness_m": 0.006, "upstand_m": 0.12, "lap_m": 0.15, "embed_m": 0.01, "below_covering_m": 0.03, "confidence": "reconstructed"},
+    "cricket": {"min_width_m": 0.75, "pitch_deg": 35, "confidence": "reconstructed"},
+    "shaft": {"below_covering_m": 0.35, "confidence": "reconstructed", "note": "How far a shaft is carried down into the roof's solid below the lowest point the covering meets it, so the union seats it; it never reaches the soffit or the eave."},
+    "overlap_m": 0.01
+  },
+  "draught": {
+    "_doc": "A stack's top must clear the roof near it, or the wind over the roof pushes the smoke back down the flue. The working rule: the top of the cap stands at least clear_m above the highest point of the covering within radius_m of the stack (measured horizontally on a square about its centre), and never less than min_above_own_m above the covering where it emerges. This is a modelling prior chosen so the kit's stacks read as the tall stacks the register describes, not a period code: a house's photograph sets its own stack's height.",
+    "clear_m": 0.6,
+    "radius_m": 3.0,
+    "min_above_own_m": 0.9,
+    "confidence": "reconstructed"
+  },
+  "soot": {
+    "_doc": "Restrained soot near the top of a stack (ASSET-CATALOG K16's words): the top band_m of the shaft below its corbel courses, on the faces turned away from the wind (whose outward normal points within 90 degrees of the leeward direction), takes a darker brick. from_deg is the compass bearing the wind blows FROM (0 north, 90 east); the kit's west-south-west is a working choice for a heating-season wind, not a dated reading. A house's photograph replaces it.",
+    "from_deg": 247.5,
+    "band_m": 0.45,
+    "confidence": "reconstructed"
+  },
+  "pot": {
+    "_doc": "A clay chimney pot's profile, as rings of (height above the cap, radius), from its bedded foot to its rolled lip. The bore is cut through it to the flue below: a square bore (bore_m is half its side) on the stack's own axes, because a round bore's twelve planes, extended by the union, sliced the neighbouring pots into slivers that a 1 mm weld cannot close; from the street the opening reads as a dark hole either way. A pot sits only on a flue a house's source shows potted; the kit's specimen puts pots on the grouped ridge stack to show the part, and that choice is the kit's, not a source's.",
+    "sides": 12,
+    "bore_m": 0.065,
+    "profiles": {
+      "plain": [[-0.02, 0.15], [0.05, 0.15], [0.07, 0.125], [0.46, 0.105], [0.48, 0.13], [0.54, 0.13], [0.56, 0.115]],
+      "tall": [[-0.02, 0.16], [0.06, 0.16], [0.08, 0.13], [0.62, 0.1], [0.64, 0.125], [0.7, 0.125], [0.72, 0.11]]
+    },
+    "confidence": "reconstructed"
+  },
+  "measure": {
+    "_doc": "The quantum and tolerances the check reads the built surface with: K01's own quantum (k01_contract.json measures.quantum_m).",
+    "quantum_m": 0.001,
+    "min_triangle_area_m2": 1e-6
+  },
+  "costs": {
+    "_doc": "Triangle budget per stack as built, the roof it stands in excluded, set about 1.35x what each kind measured when the kit was made (T-2312): plain 345-423, potted 1616 (three pots are most of it), carved 1271. The light tier's stack is a box, so its budget is a box's. A stack over its budget is refused, so a kit change that bloats every chimney in the town is caught here.",
+    "max_triangles": {"plain": 600, "potted": 2200, "carved": 1750, "light": 12}
+  },
+  "_variants_doc": "Every variant stands in one of K05's roofs (`roof`: a K05 variant id, with `roof_overrides` for its pitch), which is the board: its triangles are not the stack's and are not costed. Stacks are placed in the roof's own frame (x along width, z along depth, front +z). A stack's `width_m` runs across the slope it stands on and `depth_m` up it (`across` names the world axis width runs on); `top_m` is the top of its cap above the board's grade. `corbels` are courses of [height, projection beyond the shaft]; `bands` are projecting stone string courses [height above the covering's highest point at the shaft, thickness, projection]; `panels` are sunk panels [count per wide face, width, height, depth, bottom above the covering's highest point at the shaft]; `dentils` are a row of blocks under the head [count per wide face, width, height, projection]. `flues` are the openings: `at`, each one's plan offset along the stack's width, and `pot`, the profile of the clay pot it carries, if it carries one.",
+  "variants": [
+    {"id": "k15.stack.service", "label": "service", "budget": "plain", "roof": "k05.roof.gable",
+     "confidence": "reconstructed",
+     "note": "An ordinary service stack: plain brick, two flues for a kitchen range and a laundry copper, two corbel courses and a thin cement wash for its cap, rising mid-slope through the rear of a front-gabled roof. It is wider across the slope than a cricket's threshold, so it has one; stepped flashing on both sides; an apron below.",
+     "stacks": [
+       {"x": 1.5, "z": 6.0, "across": "z", "width_m": 0.84, "depth_m": 0.525, "material": "brick", "top_m": 6.4,
+        "flues": [{"at": -0.21}, {"at": 0.21}],
+        "corbels": [[0.07, 0.025], [0.07, 0.05]],
+        "cap": {"thickness_m": 0.05, "projection_m": 0.06, "role": "cap_cement"}}
+     ]},
+    {"id": "k15.stack.ridge", "label": "ridge, grouped", "budget": "potted", "roof": "k05.roof.gable",
+     "confidence": "reconstructed",
+     "note": "A grouped stack astride the ridge: three flues in one shaft, each crowned by a clay pot, corbelled head and a stone cap. Astride the ridge water falls away on both sides, so it has an apron on each slope and side flashing that steps up to the ridge and down again; no cricket.",
+     "stacks": [
+       {"x": 3.0, "z": 2.4, "across": "z", "width_m": 1.155, "depth_m": 0.525, "material": "brick", "top_m": 6.65,
+        "flues": [{"at": -0.315, "pot": "plain"}, {"at": 0.0, "pot": "tall"}, {"at": 0.315, "pot": "plain"}],
+        "corbels": [[0.07, 0.03], [0.07, 0.06]],
+        "cap": {"thickness_m": 0.1, "projection_m": 0.09, "role": "cap_stone"}}
+     ]},
+    {"id": "k15.stack.stone", "label": "dressed stone", "budget": "plain", "roof": "k05.roof.hip",
+     "confidence": "reconstructed",
+     "note": "A dressed-stone stack on the rear plane of a hipped roof, as a stone-front house carries its stone up through the roof: a plain ashlar shaft, one projecting stone course and a deep stone cap with a drip. It is narrower than a cricket's threshold, so its uphill face takes back flashing instead.",
+     "stacks": [
+       {"x": 5.4, "z": 1.3, "across": "x", "width_m": 0.735, "depth_m": 0.525, "material": "stone", "top_m": 5.8,
+        "flues": [{"at": -0.16}, {"at": 0.16}],
+        "corbels": [[0.12, 0.04]],
+        "cap": {"thickness_m": 0.16, "projection_m": 0.1, "role": "cap_stone"}}
+     ]},
+    {"id": "k15.stack.sherman", "label": "carved, Sherman type", "budget": "carved", "roof": "k05.roof.gable",
+     "roof_overrides": {"pitch_deg": 52, "pitch_range": "steep"},
+     "confidence": "reconstructed",
+     "note": "A carved stack of the kind the register describes for the Sherman house (2100 Prairie, Burnham & Root, 1874: 'pressed dark-red brick ... contrasting sandstone bands ... carved chimney tops'), on the steep roof such a house carries: a tall pressed-brick shaft with sunk panels on its broad faces, two sandstone string courses, a row of stone corbel blocks under a three-course corbelled head, and a sandstone cap. It is the kit's form for a carved top, not the Sherman house's own stack: its silhouette is the register's sentence, and T-2313 bounds a named house's stack by that house's drawing or photograph.",
+     "stacks": [
+       {"x": 1.6, "z": 5.6, "across": "z", "width_m": 1.05, "depth_m": 0.63, "material": "brick", "top_m": 8.2,
+        "flues": [{"at": -0.315}, {"at": 0.0}, {"at": 0.315}],
+        "bands": [[0.55, 0.1, 0.035], [1.75, 0.1, 0.035]],
+        "panels": [2, 0.3, 0.75, 0.035, 0.8],
+        "dentils": [6, 0.08, 0.1, 0.06],
+        "corbels": [[0.07, 0.035], [0.07, 0.07], [0.07, 0.105]],
+        "cap": {"thickness_m": 0.14, "projection_m": 0.15, "role": "cap_stone"}}
+     ]}
+  ]
+}

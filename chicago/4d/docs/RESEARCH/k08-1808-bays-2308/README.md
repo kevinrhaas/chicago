@@ -10,13 +10,16 @@ record's `form.bays` and built by `generators/archetypes/k08_bays.py` from
 
 | bay | kit variant | wall, centre | plan | storeys | windows | roof |
 |---|---|---|---|---|---|---|
-| `south_front_bow` | `k08.bay.bowed` | street front, 2.0 m from the south corner | segmental bow, 3.2 m chord, 0.9 m out | grade-5.4 m, 5.4-9.0 m | three bent 0.8 m sashes a storey at -36°, 0°, 36° | copper cone, pitch 0.25 |
+| `south_front_bow` | `k08.bay.bowed` | street front, 2.5 m from the south corner | segmental bow, 3.2 m chord, 0.9 m out | grade-5.4 m, 5.4-9.0 m | three bent 0.8 m sashes a storey at -36°, 0°, 36° | copper cone, pitch 0.25 |
 | `rear_canted` | `k08.bay.canted` | rear, 3.0 m from the north corner | 45° canted, 1.5 m front, 1.1 m out | the same | 0.75 m cheeks, 0.95 m front, a storey | tin hip, pitch 0.25 |
 
 The front bay is the T-1837 frontage register's "south curved bay" (read from the 1888 Inland
 Architect plate, not a source record here), built at the kit's sizes. The rear bay is the kit's
 commonest form; nothing shows 1808's rear. Window sills and heights are the front's own sash rows
 (2.25 m and 6.25 m above grade), and each bay's floor band sits on the front's second-floor belt.
+The bow stands 0.5 m north of the front's south window axis, so that its eaves clear T-2293's
+downpipe at the south corner (s 0.35 m). Centred on the axis (2.0 m), its eave reached s 0.057 m,
+through the pipe, and the build now refuses that.
 
 **How it is keyed.** A bay's frame (+X along the wall to the right seen from outside, +Y up, +Z
 out of the face) is a K01 wall's (R, Y, N) about the bay's centre, so laying it is a translation.
@@ -27,7 +30,8 @@ proof cut are gone (two front sashes and an area light behind the bow, two rear 
 canted bay). The front's belt courses and the rear's K03 string course stop at each junction. A bay's
 roof leans on the wall, and the build refuses one that meets the wall less than 0.15 m under the
 sill of the third-floor window above it. Here the roofs meet the wall at 9.5 m and 9.55 m, under
-sills at 9.75 m.
+sills at 9.75 m. The build also refuses a bay whose eaves, bands or plinth reach along
+the wall into a K04 downpipe on it, with 30 mm to spare.
 
 **Materials.** The bay bodies are two new slots, `bay_stone` (the front's limestone) and `bay_brick`
 (K03's coursed common bond, its courses re-anchored to grade so they meet the rear wall course for
@@ -40,7 +44,7 @@ are two more.
 
 **Slivers.** The kit's slab cuts leave triangles with an edge under a millimetre. The first build
 shipped 79 of them as degenerate faces, and the web derivative collapsed 109. Each bay is now laid
-on the contract's 1 mm grid, and a bay triangle with an edge under 2.5 mm is dropped (548 of them).
+on the contract's 1 mm grid, and a bay triangle with an edge under 2.5 mm is dropped (627 of them).
 Such a triangle is never wider than that edge. Both tiers now read 0 degenerate and 0 coincident faces.
 
 ## Verified
@@ -67,21 +71,20 @@ Such a triangle is never wider than that edge. Both tiers now read 0 degenerate 
 
 ## Costs
 
-| | before (K01 + K03 + K06, on dev) | with the two bays |
+| | before (K01 + K03 + K04 + K06, on dev) | with the two bays |
 |---|---|---|
-| house triangles (full = web) | 11,248 | 18,512 |
-| house primitives | 16 | 20 (`bay_stone`, `bay_brick`, `bay_copper`, `bay_tin`) |
-| master GLB / web GLB | 2.10 MB / — | 2.78 MB / 882 KB |
-| scene draw calls, mobile street-eye | 63 (T-2298's reading) | 67 |
-| scene triangles, mobile street-eye | 0.45 M | 0.48 M |
-| scene draw calls, desktop street-eye | 64 (T-2298's reading) | 68 |
+| house triangles (full = web) | 14,445 (T-2293's reading) | 21,709 |
+| house primitives | 19 | 23 (`bay_stone`, `bay_brick`, `bay_copper`, `bay_tin`) |
+| master GLB / web GLB | — / 964 KB | 3.22 MB / 1.02 MB |
+| scene draw calls, mobile / desktop street-eye | — | 71 / 72 |
+| scene triangles, mobile street-eye | 0.45 M (T-2298's reading) | 0.49 M |
 
 The bow costs most: 8,434 triangles at the kit's full tier, because each bent sash is cut into
 3.75° slabs. The canted bay costs 1,105. **The light tier.** A K01 house ships one mesh, and the
 scene's light detail draws that mesh, as the mobile run at light shows. The kit's own light tier of
 these two bays (2,456 and 517 triangles) holds the full tier's silhouette within 40 mm in the gate.
-It is not shipped as a separate level of detail. The "before" draw calls are T-2298's readings,
-taken before K03 merged, so they do not isolate this change. Frame and load times are headless
+It is not shipped as a separate level of detail. The "before" figures are earlier tickets' readings,
+so they do not isolate this change exactly. Frame and load times are headless
 Chromium on a software rasteriser: relative readings, not device timings.
 
 Re-make: `python3 generators/k01_emit.py --only keith_house_1808_prairie`, then

@@ -12,11 +12,52 @@ face under a tin hip. These are the kit's first bays on a house.
   `k01_frontage`.
 - **Honest limits.** Both bays are reconstructed (L-k08-1808-bays-2308). The bow stands for the
   register's "south curved bay", whose 1888 plate is not a source here; nothing shows the rear. The
-  house ships one mesh, so the kit's light tier is gated but not shipped. 548 sliver triangles under
+  house ships one mesh, so the kit's light tier is gated but not shipped. The bow stands 0.5 m off
+  the south window axis, so its eaves clear T-2293's corner downpipe; the build now refuses a bay
+  that reaches a downpipe. 627 sliver triangles under
   2.5 mm were dropped from the kit's slab cuts to keep both tiers free of degenerate faces.
 - **Verified.** Front, oblique, rear and roof, and each bay raked at 3-4 m, at both viewports in
   the published app, with zero errors. The K01 measure is ok at full and web. Costs are in
   `docs/RESEARCH/k08-1808-bays-2308/README.md`.
+
+## T-2293 — the first K04 roof: slate, copper and rainwater goods at 1808 Prairie (2026-10-10)
+
+**Visible.** In the 1904 scene the 1808 Prairie house beside Glessner's is now roofed from the K04
+library (T-2292) rather than in a flat grey. Its four hip planes are dark Pennsylvania slate in
+true-size courses, with copper rolls on the hips and ridge. A gabled dormer stands on the street
+hip with open copper valleys, an apron and step flashing. A half-round copper gutter on iron
+brackets runs round the eave to five downpipes, and each pipe ends in a shoe over a splash stone
+at grade. The library's `status` now says it is built to.
+
+- **Data, not pixels.** The record names fabrics and kinds (`form.roof_covering`, `form.dormer`,
+  `form.rainwater`). `k01_frontage_params._k04` reads every dimension from
+  `k04_roofs.json` profiles into the resolved parameters, so they are in the mesh's input hash.
+  It refuses a slate cut for less headlap than the pitch needs, a restricted fabric as a main
+  covering, a pipe on the north wall and an empty pipe list. The covering's UVs are metres over
+  the tile with the first butt put on the eave by the map's own course phase, so no course is
+  cut at the eave and none is scaled.
+- **The record moved to take the library honestly.** The pitch is 45°, not 40°: the library's
+  slate is cut for a 3 in headlap, which the profile allows only from 45°. The eave is 0.38 m so
+  the soffit clears the top lintels at that pitch.
+- **Measured.** `keith_house_1808_prairie.measure.json`: every verdict ok on both tiers, **0
+  coincident faces**, metric UV × tile 1.000 for slate, 1.000/0.993 for copper.
+  `k01_contract.mjs` now reads the K04 tiles beside Glessner's. 2,218 → 5,305 triangles, 10 → 13
+  primitives, web tier 893 → 1,031 KB.
+- **In the app.** At 1280×800 full and 390×780 light, in the published `/1904/` app: zero page
+  errors, every stand within budget, and four more draw calls at every stand. The full table is in
+  `docs/RESEARCH/k04-1808-roof-2293/README.md` (`QA_K04=1 node tools/qa_k01_t2266.mjs`).
+- **Not done, said.** The north gutter runs 20.5 m between corner outlets, over the profile's
+  12 m, because no pipe can stand in the 0.02 m beside Glessner. Step flashing is one strip a
+  cheek, not one piece a course. The pierced parapet the 1888 plate shows is T-1882's to build
+  (`docs/LIBERTIES.md` L-k04-1808-roof-2293).
+- **Landed beside T-2291.** K03's brick walls reached dev while this was open; the generator now
+  carries both (the K04 textures go through the same `_images` path as K03's), and the house was
+  rebuilt and re-measured with both: 11,351 triangles, 17 primitives, web tier 923 KB, every
+  verdict ok, 0 coincident faces. The triangle counts above are this ticket's own, before K03.
+- **Landed beside T-2298.** K06's windows reached dev while this was open; the generator and the
+  record now carry both (`form.window_kit` beside `form.roof_covering`, `form.dormer` and
+  `form.rainwater`), and the house was rebuilt and re-measured with all three: 14,445 triangles,
+  19 primitives, web tier 964 KB, every verdict ok, 0 coincident faces.
 
 ## T-2298 — K06 windows on the 1808 exemplar (2026-10-10)
 
@@ -130,6 +171,7 @@ D5 and an H3 and left four `slot` requests on it; this raises those four.
   L263 671, L270 221, L276 208. Six meshes rebaked onto T-2278's doors and windows (the four
   houses, `recon_1835_south_d1_018`, `recon_1835_south_d5_016`); 712 assets. The South's barn and
   outbuilding order-book rows follow the dwellings to T-2270.
+
 ## T-2266 — the first K01 assembly: a frontage at 1808 Prairie (2026-10-10)
 
 **Visible.** In the 1904 scene a three-storey-and-basement house now stands on the 1808 Prairie

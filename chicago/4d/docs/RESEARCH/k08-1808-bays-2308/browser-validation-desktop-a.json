@@ -8,7 +8,7 @@
         "height": 800
       },
       "detail": "full",
-      "load_ms_to_ready": 34883,
+      "load_ms_to_ready": 24068,
       "boot": {
         "ready": true,
         "error": null,
@@ -34,12 +34,12 @@
           "detail": "full",
           "problems": [],
           "stats": {
-            "drawCalls": 68,
-            "triangles": 2511370,
+            "drawCalls": 72,
+            "triangles": 2517764,
             "programs": 35,
-            "geometries": 47,
-            "textures": 130,
-            "batches": 24,
+            "geometries": 49,
+            "textures": 138,
+            "batches": 26,
             "wallRelief": {
               "off": false,
               "substrates": {
@@ -60,7 +60,7 @@
             "structures": 2,
             "structuresExpected": 2,
             "structuresStanding": 2,
-            "bytes": 52815980,
+            "bytes": 52953252,
             "fps": 0,
             "cameraNear": 0.1,
             "budget": {
@@ -69,7 +69,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 7501.6,
+          "frame_ms_median": 7537,
           "camera": [
             1409.9,
             -3244.81,
@@ -86,12 +86,12 @@
           "detail": "full",
           "problems": [],
           "stats": {
-            "drawCalls": 69,
-            "triangles": 2513655,
+            "drawCalls": 73,
+            "triangles": 2520049,
             "programs": 35,
-            "geometries": 48,
-            "textures": 132,
-            "batches": 24,
+            "geometries": 50,
+            "textures": 140,
+            "batches": 26,
             "wallRelief": {
               "off": false,
               "substrates": {
@@ -112,7 +112,7 @@
             "structures": 2,
             "structuresExpected": 2,
             "structuresStanding": 2,
-            "bytes": 52815980,
+            "bytes": 52953252,
             "fps": 0,
             "cameraNear": 0.1,
             "budget": {
@@ -121,7 +121,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 7582.4,
+          "frame_ms_median": 7583.4,
           "camera": [
             1403.07,
             -3260.09,
@@ -138,12 +138,12 @@
           "detail": "full",
           "problems": [],
           "stats": {
-            "drawCalls": 72,
-            "triangles": 2533558,
+            "drawCalls": 76,
+            "triangles": 2539952,
             "programs": 35,
-            "geometries": 55,
-            "textures": 146,
-            "batches": 24,
+            "geometries": 57,
+            "textures": 154,
+            "batches": 26,
             "wallRelief": {
               "off": false,
               "substrates": {
@@ -164,7 +164,7 @@
             "structures": 2,
             "structuresExpected": 2,
             "structuresStanding": 2,
-            "bytes": 52815980,
+            "bytes": 52953252,
             "fps": 0,
             "cameraNear": 0.1,
             "budget": {
@@ -173,7 +173,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 5073.6,
+          "frame_ms_median": 5136.7,
           "camera": [
             1354.83,
             -3239.65,
