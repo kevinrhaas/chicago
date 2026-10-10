@@ -540,6 +540,8 @@
   "recon_1835_south_a4_042",
   "recon_1835_south_a4_048",
   "recon_1835_south_a5_044",
+  "recon_1835_south_branch_freight_f3_001",
+  "recon_1835_south_branch_freight_f3_002",
   "recon_1835_south_c3_015",
   "recon_1835_south_c3_040",
   "recon_1835_south_d1_003",
@@ -7936,6 +7938,34 @@
     [667.92, -169.6]
    ],
    [
+    [48.94, -504.12],
+    [49.0, -492.8],
+    [47.6, -492.79],
+    [47.58, -496.73],
+    [45.93, -497.22],
+    [45.68, -497.33],
+    [45.58, -497.57],
+    [45.57, -499.31],
+    [45.67, -499.56],
+    [45.91, -499.66],
+    [47.56, -500.17],
+    [47.54, -504.12]
+   ],
+   [
+    [48.81, -487.6],
+    [48.87, -476.49],
+    [47.47, -476.48],
+    [47.45, -480.31],
+    [45.8, -480.8],
+    [45.55, -480.91],
+    [45.45, -481.15],
+    [45.43, -482.89],
+    [45.54, -483.14],
+    [45.78, -483.24],
+    [47.43, -483.75],
+    [47.41, -487.59]
+   ],
+   [
     [678.09, -128.19],
     [685.29, -128.24],
     [685.3, -126.84],
@@ -14832,6 +14862,26 @@
    "at_local_enu_m": [669.62, -170.98],
    "bearing_deg": 359.36,
    "width_m": 0.86
+  },
+  {
+   "id": "recon_1835_south_branch_freight_f3_001__door_1",
+   "structure_id": "recon_1835_south_branch_freight_f3_001",
+   "archetype": "frame_storefront",
+   "kind": "door",
+   "read_by": "facade_openings.frame_storefront",
+   "at_local_enu_m": [48.97, -498.46],
+   "bearing_deg": 270.34,
+   "width_m": 1.04
+  },
+  {
+   "id": "recon_1835_south_branch_freight_f3_002__door_1",
+   "structure_id": "recon_1835_south_branch_freight_f3_002",
+   "archetype": "frame_storefront",
+   "kind": "door",
+   "read_by": "facade_openings.frame_storefront",
+   "at_local_enu_m": [48.84, -482.04],
+   "bearing_deg": 270.34,
+   "width_m": 1.04
   },
   {
    "id": "recon_1835_south_c3_015__shop_door_1",

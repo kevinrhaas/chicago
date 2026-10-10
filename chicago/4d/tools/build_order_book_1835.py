@@ -630,7 +630,8 @@ STRUCTURE_TICKETS = {
     #
     # AND ON TO T-2268 WHEN T-2175 WAS SPLIT (2026-10-09, T-2268 + T-2269). T-2269 raised the
     # F4 lumber shed on the South Branch's east bank, so the two F3s are what the line owes,
-    # and T-2268 is the piece that carries them, as the band in the inventory says.
+    # and T-2268 is the piece that carries them, as the band in the inventory says. T-2268
+    # raises both on the bank-landing clause, which closes the street line's order.
     ("south", "warehouses_freight"): "T-2268",
     # T-1202 WAS SPLIT on 2026-09-27 and closed with T-1688, the Randolph tier's books, so
     # this row named a ticket nobody can claim (T-1705). It orders nothing — the five
@@ -5542,8 +5543,11 @@ def cmd_self_test() -> int:
     assert bank["to_build"] == 0 and bank["target"] == bank["standing"], bank
     assert all(i.startswith("south_bank_shed_dearborn_") for i in bank["band_members"]), bank
     assert "structures/warehouses_freight/south" not in cells, "the cut cell still orders as one"
-    assert line["to_build"] == data["programme"]["remaining"]["by_district_group"]["south"][
-        "warehouses_freight"], line
+    # Since T-2268 raised the street line's last two F3s (2026-10-10) the cell owes nothing,
+    # and the programme drops a remainder that reaches zero rather than carrying a 0 — so a
+    # missing key is the closed cell, and the band must order exactly that: none.
+    assert line["to_build"] == data["programme"]["remaining"]["by_district_group"]["south"].get(
+        "warehouses_freight", 0), line
     fires("a cell cut into one band, which is not a cut",
           banded(lambda cut: cut.__setitem__("bands", cut["bands"][:1])))
     fires("a cell cut with two remainder bands, so its order would be ordered twice",
