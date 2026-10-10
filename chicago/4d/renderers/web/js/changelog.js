@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The housing and deal tools read each household\u2019s dated places', kind: 'change',
+  { v: 1609, ts: '2026-10-10T02:57:39.430Z', date: 'Oct 9, 2026, 9:57 PM CT', title: 'The housing and deal tools read each household\u2019s dated places', kind: 'change',
     items: [
       'Nothing you can see changes. The tools that house the present, re-family the order book, seat street faces, replace invented names and spend the trade and premises research now take a household\u2019s home and workplace from the dated places on its card.',
       'Every seat, roof and ruling comes out exactly as before. The research notes now point at the dated place they read rather than the old single workplace line, which is being retired.',
