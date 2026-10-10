@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1626, ts: '2026-10-10T06:18:57.612Z', date: 'Oct 10, 2026, 1:18 AM CT', title: 'The fort\'s households state their own home', kind: 'change',
+    items: [
+      'Open the barracks or the sutler\'s store and read who lived there. Each of the eleven garrison households now gives its own reason for that bed, without the long copying note that used to trail it.',
+      'Nothing else you can see changes. The tool that builds the garrison now writes each household\'s home itself, so that home no longer depends on the old single home line, which is being retired.',
+    ] },
   { v: 1625, ts: '2026-10-10T05:54:23.034Z', date: 'Oct 10, 2026, 12:54 AM CT', title: 'Slate, tile, copper and tin roofs for the 1904 houses', kind: 'feature',
     items: [
       'Eleven new roof materials for the Prairie Avenue 1904 houses: dark Pennsylvania slate, a Vermont green mix, scalloped slate, flat red tile, copper and painted-tin standing seam, soldered flat-seam tin, and copper, lead, zinc and painted-tin sheet for flashings and gutters.',
