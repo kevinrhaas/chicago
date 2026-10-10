@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 1644, ts: '2026-10-10T13:15:20.426Z', date: 'Oct 10, 2026, 8:15 AM CT', title: 'An entrance kit for Prairie Avenue: doors, stoops, porches and carriage doors', kind: 'feature',
+    items: [
+      'Six entrance types for the 1904 houses: a stone stoop to a panelled door, a deep round-arched doorway with double doors, curved stone steps, a timber porch, a basement area stair and a coach house\'s carriage doors.',
+      'Each door sits in a real opening with depth, and every stair lands level with its doorstep and stands on the ground, with equal steps.',
+      'Nothing in the kit reaches onto the public sidewalk.',
+      'No house uses the kit yet; 1808 Prairie is the first to get these entrances.',
+    ] },
+  { v: 1643, ts: '2026-10-10T12:22:21.116Z', date: 'Oct 10, 2026, 7:22 AM CT', title: '1808 Prairie gets real windows', kind: 'feature',
+    items: [
+      'Every window of the house beside Glessner is now built from the new window kit. It has a deep reveal, two sashes at their own depths, glass, and a stone sill with a drip.',
+      'Through the glass you see a blind, curtain edges and a dark room, not a flat painted pane.',
+      'The basement lights under the front windows are fixed three-light windows.',
+      'The two-over-two sashes are a reconstruction: no picture of this house\'s windows is on file yet.',
+    ] },
   { v: 1642, ts: '2026-10-10T11:17:04.317Z', date: 'Oct 10, 2026, 6:17 AM CT', title: 'A carved-trim kit for Prairie Avenue: arches, hoods, capitals and leaves', kind: 'feature',
     items: [
       'Ten pieces of stone trim for the 1904 houses: voussoir arches with keystones, a crocketed Gothic hood, a cornice hood on scrolled consoles, two colonnettes, two-light tracery and a carved leaf panel.',
