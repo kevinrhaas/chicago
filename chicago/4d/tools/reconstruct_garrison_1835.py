@@ -154,7 +154,7 @@ FAMILY_SIZE_MIN, FAMILY_SIZE_MAX = 2, 6
 # The keys this stage writes and `--check` re-derives. Everything else on a card belongs to
 # another stage of the same programme and is that stage's to prove.
 OWNED_KEYS = ("id", "name", "division", "head", "source_pass", "arrival",
-              "party_size_on_arrival", "lives_at", "works_at",
+              "party_size_on_arrival", "lives_at", "works_at", "associated_with",
               "present_on_scene_date", "garrison", "persons",
               "touches_removal", "review_required", "research_note")
 
@@ -720,16 +720,18 @@ def common_card(hid: str, name: str, head_id: str, lives_at: str, seated_why: st
     card["origin"] = {"value": None, "confidence": RECONSTRUCTED, "note": "Not attested."}
     card["reason_for_coming"] = {"value": None, "confidence": RECONSTRUCTED,
                                  "note": "Not attested."}
+    basis = {"kind": "rule", "id": seat_rule, "note": seated_why}
+    replaceable_by = {
+        "kind": "household",
+        "match": "a source placing these people at a named building of the post, or a "
+                 "plan of the post that assigns its quarters",
+    }
     card["lives_at"] = {
         "value": lives_at,
         "confidence": RECONSTRUCTED,
         "tier": RECONSTRUCTED,
-        "basis": {"kind": "rule", "id": seat_rule, "note": seated_why},
-        "replaceable_by": {
-            "kind": "household",
-            "match": "a source placing these people at a named building of the post, or a "
-                     "plan of the post that assigns its quarters",
-        },
+        "basis": dict(basis),
+        "replaceable_by": dict(replaceable_by),
         "note": seated_why,
     }
     card["works_at"] = {
@@ -739,6 +741,25 @@ def common_card(hid: str, name: str, head_id: str, lives_at: str, seated_why: st
                 "`works_at` would assert a second building for the same duty; the fort's "
                 "own structures carry the garrison on their occupants blocks.",
     }
+    # T-2294: the home again, as the row the cards and the scene compiler read, written
+    # here rather than copied off `lives_at` by tools/household_associations.py, so the
+    # seat survives the singular pair's retirement (T-2284). Undated and sourceless: the
+    # post was held on the scene date and no return says when anyone took a bed in it.
+    # There is no workplace row, for the reason `works_at` above gives.
+    card["associated_with"] = [{
+        "kind": "home",
+        "place_or_structure_id": lives_at,
+        "resolves_to": "structure",
+        "from": None,
+        "to": None,
+        "undated": True,
+        "tier": RECONSTRUCTED,
+        "source_id": None,
+        "note": f"{seated_why} Reconstructed on the rule `{seat_rule}`; no source places "
+                f"this household.",
+        "basis": basis,
+        "replaceable_by": replaceable_by,
+    }]
     card["present_on_scene_date"] = {
         "value": "present",
         "confidence": RECONSTRUCTED,

@@ -138,9 +138,10 @@ def derive_row(rec: dict, claim: dict) -> dict:
     # T-2261: the claim's own words and its next rung ride on the row, so nothing has to
     # read them off the singular once the pair retires. The row's `note` is those words
     # with this module's limit clause and mark appended, which is the card's sentence and
-    # not the claim's; `basis.note` is the claim's alone. The garrison's eleven carry a
-    # `replaceable_by` ("a plan of the post that assigns its quarters") a row could not
-    # hold before, and the card prints it.
+    # not the claim's; `basis.note` is the claim's alone. A `replaceable_by` rides the
+    # same way. The garrison's eleven were the only claims that carried one, and since
+    # T-2294 tools/reconstruct_garrison_1835.py writes those home rows itself, so this
+    # module holds them as `already_held_by_a_reading` and copies none.
     basis = own_basis(claim)
     if basis:
         row["basis"] = basis
