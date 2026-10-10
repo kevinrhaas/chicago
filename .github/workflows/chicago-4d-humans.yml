@@ -13,6 +13,11 @@ name: Chicago 4D — portable humans
 #                                       materials and the texture load, zero page or console
 #                                       errors, and the structural readings are the
 #                                       committed data/humans/fixture.measure.json's
+#   3. tools/human_actor.mjs            T-1788: drives the browser actor (renderers/web/js/
+#                                       humans.js) with the fixture at both viewports — load
+#                                       by person id, terrain, clips, morphs, LOD, pick and
+#                                       approach, disposal with no leak, the scene path's
+#                                       refusals under L1
 #
 # Its own workflow, not a step of chicago-4d-bake.yml, because that one rebuilds the whole
 # town (~20 minutes) and this needs one Blender start-up (~6 s of work). It is not inside
@@ -33,6 +38,7 @@ on:
       - 'chicago/4d/tools/web_derivatives.sh'
       - 'chicago/4d/renderers/web/vendor/**'
       - 'chicago/4d/renderers/web/js/scene-loader.js'
+      - 'chicago/4d/renderers/web/js/humans.js'
       - '.github/workflows/chicago-4d-humans.yml'
   push:
     branches: [dev]
@@ -44,6 +50,7 @@ on:
       - 'chicago/4d/tools/web_derivatives.sh'
       - 'chicago/4d/renderers/web/vendor/**'
       - 'chicago/4d/renderers/web/js/scene-loader.js'
+      - 'chicago/4d/renderers/web/js/humans.js'
       - '.github/workflows/chicago-4d-humans.yml'
   workflow_dispatch:
 
@@ -102,3 +109,7 @@ jobs:
       - name: Open every human GLB in the browser, at both viewports
         working-directory: chicago/4d
         run: NODE_PATH="$(npm root -g)" node tools/human_fixture.mjs
+
+      - name: Drive the browser actor with the fixture, at both viewports
+        working-directory: chicago/4d
+        run: NODE_PATH="$(npm root -g)" node tools/human_actor.mjs

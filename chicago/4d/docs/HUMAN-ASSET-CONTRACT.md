@@ -278,9 +278,23 @@ then breaks it one way at a time:
   master follows the fixture's layout (one armature, `lod0`…`lod3` collections, `socket_*`
   empties, one action per clip, the scene's `chicago4d_human` property) and is exported with
   `tools/human_export.sh --master FILE.blend`.
-- **T-1788, the browser actor**: read instances by `person_id` and pose them with § 2's
-  formula; choose LODs per § 8; open the resident card on `opens`; hold the face still where a
-  LOD has none.
+- **T-1788, the browser actor** (done): `renderers/web/js/humans.js`. `createHumanLayer` is the
+  engine: it clones each LOD onto its own bones with `SkeletonUtils`, stands the figure on the
+  terrain with § 2's formula, plays a state's clip (`idle`, `walk`, a `gesture` once and back),
+  walks a `route` at the walk clip's `speed_m_s`, sets morphs by name and holds the face still
+  on a LOD with none, and picks, selects and fires `approach`, `leave` and `open` (the person's
+  resident card, nothing else). LODs follow distance within the § 8 tier, with a 12 %
+  hysteresis band. Beyond 20 m the face holds still, beyond 30 m it casts no shadow, beyond
+  70 m the mixer is not advanced, and beyond 140 m it is hidden and checked every 0.5 s. A
+  refcounted asset cache parses each file once and disposes it when the last figure lets it
+  go. `mountHumans` is the scene path main.js calls. It reads
+  `humans/instances/<scene>/index.json` and the records it names, but only for a scene whose
+  `layers` lists `humans` (none does). It draws a record only when it is `shown`, L1 is lifted,
+  it is not under review, and its person is in the scene's directory and not already
+  standing. `tools/human_actor.mjs` proves the engine on the fixture at both viewports. The
+  smoke holds every scene it boots to an empty layer and no request under `humans/`. Still
+  owed: `publish.sh` does not mirror `assets/humans/` yet. The first scene that lists
+  `humans` has to add that, or its figures 404.
 - **T-1789, the 1835 library**: build every body on `c4d_humanoid_v1`, clothing as material
   variants, one liberty per library.
 - **T-1790, the clip library**: a `kind: clips` file per § 7.
