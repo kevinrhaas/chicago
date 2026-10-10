@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 3812656,
-      "sha256": "9530fcd2f8bb68ed546a5d37d56da85adba9fc605fc68dda035f05a8cac91a6a",
+      "bytes": 4177460,
+      "sha256": "21745a1391e09d993339c27f9a105168b8c3921b9475ffad305ce84ef04779ee",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -19,8 +19,8 @@
       "mesh": {
         "draw_primitives": 14,
         "materials": 14,
-        "triangles": 13553,
-        "vertices": 31579
+        "triangles": 16753,
+        "vertices": 41179
       },
       "texture": {
         "images": 11,
@@ -50,7 +50,7 @@
         ],
         "max": [
           18.065,
-          5.9918,
+          5.9932,
           0.06
         ]
       },
@@ -134,7 +134,7 @@
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 1
+          "uv_per_m_times_tile_m": 0.9999
         },
         "sash": {
           "median_uv_per_m": 1
@@ -181,8 +181,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 1711032,
-      "sha256": "8dbcb1cdf03397569ccc393cb822e68988568983819d556e75a7567ae8a0e6e3",
+      "bytes": 1826308,
+      "sha256": "d645580b730a63f2b89872097442395461e68971deb79c247ebe21633717a2c7",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -200,8 +200,8 @@
       "mesh": {
         "draw_primitives": 14,
         "materials": 14,
-        "triangles": 13553,
-        "vertices": 27040
+        "triangles": 16753,
+        "vertices": 36640
       },
       "texture": {
         "images": 11,
@@ -231,7 +231,7 @@
         ],
         "max": [
           18.0646,
-          5.9918,
+          5.9932,
           0.0592
         ]
       },
@@ -294,13 +294,13 @@
           "uv_per_m_times_tile_m": 1
         },
         "rough_stone_trim": {
-          "median_uv_per_m": 0.849,
+          "median_uv_per_m": 0.8337,
           "fabric": "limestone_lemont",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 1.0188
+          "uv_per_m_times_tile_m": 1.0005
         },
         "slate_covering": {
           "median_uv_per_m": 0.5338,

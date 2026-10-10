@@ -44,7 +44,10 @@ const STANDS=[
   [light+'-arch',[21.5,3.2,8.2],[18,2,8.4],light],
   [light+'-base',[20.8,-2.2,1.3],[18,0.6,0.7],light],
  ]):[]),
-];
+// QA_STANDS=a,b runs those stands alone (T-2289): on software GL a stand costs about a
+// minute, so the K02 set is read in parts that each fit a 600 s foreground call
+].filter(([name])=>!process.env.QA_STANDS||process.env.QA_STANDS.split(',').includes(name));
+const PART=process.env.QA_STANDS?'-'+process.env.QA_STANDS.split(',')[0]:'';
 const results=[];let failed=null;
 try{
 for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full'],['mobile',{width:390,height:780},'light']]){
@@ -94,5 +97,5 @@ for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full']
  await context.close();console.log(label+' actual published 1904 app with the K01 frontage: PASS');
 }
 }catch(e){failed=e;}
-finally{fs.writeFileSync(path.join(out,process.env.QA_VIEWPORT ? 'browser-validation-'+process.env.QA_VIEWPORT+'.json' : 'browser-validation.json'),JSON.stringify({method:'Actual published /1904/ app, normal boot; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 12 renders each waited on with a one-pixel read, on this machine\'s software GL (a relative reading, not a device claim).',results},null,2)+'\n');await browser.close();server.close();}
+finally{fs.writeFileSync(path.join(out,process.env.QA_VIEWPORT ? 'browser-validation-'+process.env.QA_VIEWPORT+PART+'.json' : 'browser-validation'+PART+'.json'),JSON.stringify({method:'Actual published /1904/ app, normal boot; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 12 renders each waited on with a one-pixel read, on this machine\'s software GL (a relative reading, not a device claim).',results},null,2)+'\n');await browser.close();server.close();}
 if(failed){console.error(String(failed).slice(0,4000));process.exit(1);}

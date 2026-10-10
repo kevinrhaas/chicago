@@ -1,3 +1,32 @@
+## T-2289 — K02 stone at 1808 Prairie: a rock-faced front laid course by course (2026-10-10)
+
+**Visible.** In the 1904 scene the street front of the 1808 Prairie house beside Glessner's is no
+longer one flat face. It is rock-faced Lemont limestone laid in courses, every stone its own size
+and its own window of the fabric, with recessed joints, bevelled arrises and the odd chipped corner.
+Smooth dressed trim stands off it: a slip sill under each front window and area light, a flat arch
+of radiating voussoirs over every front opening (keystone proud), two belts and a weathered coping
+over a rusticated base of two channel-jointed courses. On the south corner the quoins return into
+the brick, long and short in turn. The stone library's `status` now says it is laid.
+
+- **Data, not pixels.** The record names the fabric, dressing, trim, base courses and bonded corner
+  (`form.stone_front`). `k01_frontage_params._k02` resolves every course height, block length,
+  joint, recess, bevel, chip, projection, return, channel and fall from `k02_stone_profiles.json`
+  into the mesh's input hash and refuses a fabric that is not coursed ashlar, a base outside the
+  profile's course count, a bonded north corner and a base that does not finish on the area
+  lights' heads. Each stone's seed is its component id, instance and index.
+- **Measured.** `keith_house_1808_prairie.measure.json`: every verdict ok on both tiers, **0
+  coincident and 0 degenerate faces**, metric UV × tile 1.000 full for Lemont, dressed trim and
+  mortar (1.019 / 1.007 / 1.000 web). `k01_contract.mjs` now reads the K02 tiles. 5,305 → 16,753
+  triangles, 13 → 14 primitives, web tier 1,031 → 1,826 KB.
+- **In the app.** At 1280×800 full and 390×780 light, in the published `/1904/` app: zero page
+  errors, zero failed requests, every stand within budget — front, oblique, rear, roof, and the
+  front, an arch and the base in a raking sun and in diffuse light
+  (`QA_K02=1 node tools/qa_k01_t2266.mjs`, `docs/RESEARCH/k02-1808-stone-2289/README.md`).
+- **Not done, said.** Chips are kept only where they stay in front of the joint's floor (92), at
+  corners only; trim's 1-3 mm chips are not built; trim in the walling takes its 5 mm recess. The
+  stone is a working interpretation: the register reads "rock-faced" and names no stone. The real
+  Keith/Field front (bay, loggia, parapet) is T-1882's (`docs/LIBERTIES.md` L-k02-1808-stone-2289).
+
 ## T-2293 — the first K04 roof: slate, copper and rainwater goods at 1808 Prairie (2026-10-10)
 
 **Visible.** In the 1904 scene the 1808 Prairie house beside Glessner's is now roofed from the K04

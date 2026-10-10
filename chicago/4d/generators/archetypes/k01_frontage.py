@@ -483,12 +483,24 @@ class Assembly:
         for c in range(n):
             ring += [chipped[c][0], chipped[c][1]] if c in chipped else [front[c]]
         if rock > 0:
-            cs = sum(q[0] for q in front) / n + rng.uniform(-0.15, 0.15) * (max(q[0] for q in front) - min(q[0] for q in front))
-            cy = sum(q[1] for q in front) / n + rng.uniform(-0.15, 0.15) * (max(q[1] for q in front) - min(q[1] for q in front))
+            # a split face, not a pyramid: an inner ring of points drawn in towards a
+            # wandering crown, each at its own height under the stone's projection, so
+            # the facets a raking sun picks out differ from stone to stone
+            ws = max(q[0] for q in front) - min(q[0] for q in front)
+            hs = max(q[1] for q in front) - min(q[1] for q in front)
+            cs = sum(q[0] for q in front) / n + rng.uniform(-0.2, 0.2) * ws
+            cy = sum(q[1] for q in front) / n + rng.uniform(-0.2, 0.2) * hs
             apex = P((cs, cy), F + rock)
-            for i in range(len(ring)):
-                self._sface(mat, [P(ring[i], F), P(ring[(i + 1) % len(ring)], F), apex], N, origin, bed, seed,
-                            mirror, conf, project=False)
+            inner = []
+            for q in ring:
+                k_ = rng.uniform(0.35, 0.7)
+                inner.append(P((cs + (q[0] - cs) * k_, cy + (q[1] - cy) * k_), F + rock * rng.uniform(0.35, 0.9)))
+            m_ = len(ring)
+            for i in range(m_):
+                a_, b_ = P(ring[i], F), P(ring[(i + 1) % m_], F)
+                ia, ib = inner[i], inner[(i + 1) % m_]
+                for tri in ((a_, b_, ib), (a_, ib, ia), (ia, ib, apex)):
+                    self._sface(mat, list(tri), N, origin, bed, seed, mirror, conf, project=False)
         else:
             self._sface(mat, [P(q, F) for q in ring], N, origin, bed, seed, mirror, conf)
         for i in range(n):

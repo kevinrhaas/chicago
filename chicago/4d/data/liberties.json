@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 451,
+  "count": 452,
   "liberties": [
     {
       "id": "L1",
@@ -28370,6 +28370,50 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2288)."
+        }
+      ]
+    },
+    {
+      "id": "L-k02-1808-stone-2289",
+      "title": "The 1808 Prairie stone front: Lemont limestone in rock-faced courses, its trim, base, coping, quoins and arches, all reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.stone_front"
+        }
+      ],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Lay the street front of the 1808 Prairie K01 frontage (L-k01-1808-frontage-2266) as K02 coursed ashlar from the stone library (L-k02-stone-library-2288) instead of one flat face: rock-faced Lemont limestone in 36 courses (two of them a rusticated base, channel-jointed 18 x 12 mm), cut into stones of 0.40-1.20 m with 10 mm joints recessed 5 mm, an 8 mm bevelled arris and a rock face standing 0-25 mm proud of it; smooth dressed trim for a slip sill under every front window and area light, a flat arch of voussoirs over every front opening, the two belts, a thin band under the soffit, and a weathered coping over the base (fall 1:8, nose 40 mm past the rock faces, a 10 mm drip groove); and quoins returning on the south corner, alternately long (0.48-0.60 m) and short (0.25-0.30 m) against the front's own corner stone. Every course height, length, joint, recess, bevel, chip, projection, return, channel and fall is the K02 profile's, resolved by `k01_frontage_params._k02` and refused outside it. **What is invented.** The stone. The T-1837 register reads a \"rock-faced\" stone front from the Inland Architect plate of February 1888 and names no stone, so Lemont limestone — Chicago's own quarry stone and the library's pale coursed walling — is a working interpretation, not a reading; a brownstone or Bedford front is as possible. The course lines are struck on this assembly's own sills, heads and belts, which are K01 reconstructions, so the coursing is too. What this assembly adds to the profiles is its own: the slip sill (0.10 m deep, 0.06 m proud), the flat arch (a 0.12 m seat each side, 0.30 m deep, about 0.2 m voussoirs whose joints radiate from a point set by a 12 degree splay; the door's arch deepened to 0.35 m so it tops out on the windows' head line), the trim's 0.03-0.06 m projection, carried over from the K01 lintel and sill it replaces, and the coping's height (0.23 m, chosen so two base courses at the profile's 0.41 m and the coping finish exactly on the area lights' heads). **Where it departs from its own profile.** Chips are drawn at the profile's rate (1.2 a metre of arris, 2-10 mm deep) but kept only where the chip's floor stays in front of the joint's 5 mm floor, so 92 survive on 377 rock-faced stones and they sit only at corners; the dressed trim's chips (1-3 mm) are not built, being at the depth of the 1 mm measure grid. Trim set in the walling takes the walling's 5 mm recess rather than its own 1 mm. The north corner is not bonded: it stands 0.02 m from Glessner's south face, closer than a rock face projects."
+        },
+        {
+          "label": "How to resolve",
+          "text": "T-1882 and T-1883 build the actual Keith/Field front from the 1888 plate (its south curved bay, north loggia and pierced parapet), which replaces this coursing; a reading of the plate's stone, or a specification, replaces the fabric in the record's `stone_front`, and the profiles then lay it."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.stone_front`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2289 (piece 2 of T-1844, K02)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k02-1808-stone-2289/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2289)."
         }
       ]
     },
