@@ -538,8 +538,12 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 712 -> 714, 711 -> 713 and 705 -> 707 on 2026-10-10 (T-2270): the block's last two houses,
 # recon_1835_blk_school_section_tier_82_d1_05 and _h1_06, through emit.py and the common modules.
 #
+# 714 -> 715 on 2026-10-10 (T-2323): the first K16 timber front in the scene,
+# shortall_gregory_house_1638_prairie_front, which writes its glTF in pure Python
+# (generators/k16_emit.py) and so restales on none of the rows below.
+#
 STATED = {
-    "assets": 714,
+    "assets": 715,
     "restales": {
         "generators/common/*.py": 713,
         "generators/common/__init__.py": 0,

@@ -16,6 +16,12 @@
       "name": "Osborn R. Keith house (1808 Prairie Avenue), K01 frontage assembly",
       "sidecar": "sidecars/1904/keith_house_1808_prairie.json",
       "asset": "gltf/keith_house_1808_prairie__as_built_1886.glb"
+    },
+    {
+      "id": "shortall_gregory_house_1638_prairie_front",
+      "name": "Shortall-Gregory house (1638 Prairie Avenue): the timber street front, K16",
+      "sidecar": "sidecars/1904/shortall_gregory_house_1638_prairie_front.json",
+      "asset": "gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb"
     }
   ],
   "excluded_by_date": [

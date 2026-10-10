@@ -99,9 +99,10 @@ end-grain face either side of every clapboard joint; every timber role on a pain
 end-grain material, the three classes present and distinct, masonry on none; per-board paint wear
 inside its range; no coplanar faces overlapping; the triangle budget; metric UVs; the restrictions
 on shingles and pierced bargeboards; and the committed specimen being the generator's bytes.
-`--self-test` makes 19 breaks across those rules (eleven in the data, eight in a built sample) and
-checks that the gate refuses each for its own reason, then checks that the committed kit passes:
-20 cases in all.
+`--self-test` makes 21 breaks across those rules (ten in the data, nine in a built sample, two in a
+house front's record — T-2323) and checks that the gate refuses each for its own reason, then checks that
+the committed kit passes: 22 cases in all. Since T-2323 every `k16_timber` house in `data/structures/` is
+held to the same rules part by part, as `generators/k16_emit.py` builds it.
 
 The kit is reconstructed throughout: `docs/LIBERTIES.md` § L-k16-timber-kit-2322.
 
