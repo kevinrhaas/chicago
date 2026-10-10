@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Four houses stand south of Monroe on Market Street', kind: 'feature',
+  { v: 1606, ts: '2026-10-10T02:14:42.754Z', date: 'Oct 9, 2026, 9:14 PM CT', title: 'Four houses stand south of Monroe on Market Street', kind: 'feature',
     items: [
       'Walk south across Monroe Street on Market. The first School Section block below Monroe now has four houses: a small cottage and a tradesman\u2019s frame house facing Monroe, and a larger frame house and another tradesman\u2019s house facing Adams.',
       'Open the three frame houses and their cards name the Merrill, Merill and Meleney households, who were waiting for a lot here. The cottage\u2019s card names nobody: no source carries its household\u2019s name, and the card says so.',
