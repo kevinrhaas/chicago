@@ -22637,7 +22637,13 @@ gold colourways are drawn as gold leaf: a burnished gradient, a fine dark outlin
 the smoothest surface in the town in the roughness map. Every dark painted ground is drawn smalted
 (sanded while wet: a fine grit, matte). A hung or fixed board in the bare timber is CARVED: its letters
 are V-cut into the wood in the relief map and darkened, not painted. Painted letters stand a film's
-thickness in relief.
+thickness in relief. Since T-2287, for a photographic finish: every painted board's lettering carries
+a block shade (lake-brown under gilt on a dark ground, a darker tone of the ground on a light one); a hung
+or fixed board is framed by a raised bead about 3.5 cm wide, picked out in leaf on a gilt board and a tone
+off the ground on any other; a dark ground shows its brushed grain and pale rain streaks from its top
+edge; and a name painted straight onto bare boards is chalked toward the wood and has lifted in small
+flakes. Gold leaf is NOT drawn as a metal: this scene's only environment is its sky, and leaf reflecting
+it turns mint green.
 
 **Why:** the owner, 2026-10-10, on Newberry & Dole's warehouse: make all signs "period correct and
 legible", lettered "in period fonts and colors correct for the sign", with "excellent texture for the
@@ -22655,7 +22661,7 @@ rule (**L159**), and only the drawing of them changed.
 replaces this treatment on that board: its letterform, its colours, whether it was gilt or carved.
 
 **Related:** **L159**, **L130**, **L169**.
-**Recorded:** 2026-10-10 (T-2282).
+**Recorded:** 2026-10-10 (T-2282; extended by T-2287, after the owner's "photographic quality is a must").
 
 ### L-glessner-west-profile-2231 — Front west gable and lower rear proportions
 
