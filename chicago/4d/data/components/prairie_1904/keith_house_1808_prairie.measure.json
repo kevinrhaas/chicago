@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 1864120,
-      "sha256": "246d620b51dcb95f353fe95443561d9f0b051504cc99bd5e2c8e43b9f98757c7",
+      "bytes": 2100292,
+      "sha256": "2eadd1d7751f980b3624e1508d7bb9af4cbff9fbe5508afe7d772041fa9397f9",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -17,10 +17,10 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 10,
-        "materials": 10,
-        "triangles": 2218,
-        "vertices": 4438
+        "draw_primitives": 12,
+        "materials": 12,
+        "triangles": 5202,
+        "vertices": 10406
       },
       "texture": {
         "images": 2,
@@ -44,14 +44,14 @@
       },
       "envelope_bbox_m": {
         "min": [
-          -0.06,
+          -0.05,
           1.05,
           -10.4
         ],
         "max": [
-          18.06,
+          18.05,
           5.5,
-          0.06
+          0.05
         ]
       },
       "wall_base_y_m": 0,
@@ -62,10 +62,15 @@
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
-        "shared_across_primitives": 0
+        "shared_across_primitives": 0,
+        "position_step_m": 0,
+        "coincident_shortest_edge_max_m": 0
       },
       "metric_uv": {
         "backing": {
+          "median_uv_per_m": 1
+        },
+        "blind": {
           "median_uv_per_m": 1
         },
         "brick": {
@@ -76,6 +81,9 @@
             2.1336
           ],
           "uv_per_m_times_tile_m": 1
+        },
+        "curtain": {
+          "median_uv_per_m": 1
         },
         "door_leaf": {
           "median_uv_per_m": 1
@@ -132,10 +140,10 @@
           ]
         },
         "overhang_m": {
-          "west": 0.06,
-          "east": 0.06,
+          "west": 0.05,
+          "east": 0.05,
           "north": 0,
-          "south": 0.06
+          "south": 0.05
         },
         "base_y_m": 0,
         "ok": true
@@ -143,8 +151,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 892916,
-      "sha256": "4250af1f15b065dd57367213525877d0c70889fe78c6582d81211b8dd72ec02d",
+      "bytes": 933140,
+      "sha256": "0e4e8bc8f61bf5bdf79f0819bb244f170ba9e11c8bf0897a4e22bca89b6b19ae",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -160,10 +168,10 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 10,
-        "materials": 10,
-        "triangles": 2218,
-        "vertices": 3432
+        "draw_primitives": 12,
+        "materials": 12,
+        "triangles": 5202,
+        "vertices": 9512
       },
       "texture": {
         "images": 2,
@@ -187,14 +195,14 @@
       },
       "envelope_bbox_m": {
         "min": [
-          -0.0597,
+          -0.0503,
           1.05,
           -10.3994
         ],
         "max": [
-          18.06,
+          18.0506,
           5.4998,
-          0.06
+          0.0492
         ]
       },
       "wall_base_y_m": -0.0001,
@@ -209,7 +217,9 @@
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
-        "shared_across_primitives": 0
+        "shared_across_primitives": 0,
+        "position_step_m": 0.0003365,
+        "coincident_shortest_edge_max_m": 0
       },
       "metric_uv": {
         "brick": {
@@ -231,13 +241,13 @@
           "uv_per_m_times_tile_m": 0.9954
         },
         "rough_stone_trim": {
-          "median_uv_per_m": 0.8337,
+          "median_uv_per_m": 0.8344,
           "fabric": "limestone",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 1.0005
+          "uv_per_m_times_tile_m": 1.0012
         },
         "stoop_stone": {
           "median_uv_per_m": 0.8332,
@@ -261,10 +271,10 @@
           ]
         },
         "overhang_m": {
-          "west": 0.0597,
-          "east": 0.06,
+          "west": 0.0503,
+          "east": 0.0506,
           "north": -0.0006,
-          "south": 0.06
+          "south": 0.0492
         },
         "base_y_m": -0.0001,
         "ok": true
@@ -283,10 +293,10 @@
             0.000106
           ],
           "wall_face_shift_m": [
-            0.0003,
-            0,
+            -0.0003,
             0.0006,
-            0
+            0.0006,
+            -0.0008
           ],
           "ok": true
         }

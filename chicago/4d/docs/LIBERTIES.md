@@ -23113,3 +23113,32 @@ specification or millwork catalogue replaces a part's dimensions for every house
 **Ticket:** T-2297 (piece 1 of T-1848, K06).
 **Review:** `docs/RESEARCH/k06-window-kit/README.md`.
 **Recorded:** 2026-10-10 (T-2297).
+
+### L-k06-1808-windows-2298 — The 1808 exemplar's windows: every sash, sill, blind and room built from the reconstructed K06 kit
+
+**Decision:** every window of the 1808 Prairie house (`keith_house_1808_prairie`, as built 1886) is
+a K06 opening (T-2298), built by `generators/archetypes/k06_windows.py` inside the K01 assembly. The
+26 double-hung windows on the stone front, the south wall and the rear are the kit's
+`k06.opening.sash_2over2_flat`, each at its storey's clear size from `form.sash_by_storey`. The two
+basement lights under the front windows are `k06.opening.area_light`, without its area well. The
+stone sill with its drip replaces the K01 proof's plain block, and the K01 flat lintel (or a brick
+wall's own head) still dresses each head. The door keeps K01's recessed leaf.
+**What is invented.** The choice of two lights over two for every sash. No source shows this
+house's glazing, and plate-glass one-over-one is as likely for an 1886 stone front. Two-over-two is
+the kit's commonest form, not a reading of the house. Also invented: leaving the basement lights'
+well out, because this record's own datums set their sills 0.35 m above grade (`form.basement_lights`);
+each blind's seeded drop; and every dimension and colour the kit itself invents
+(L-k06-window-kit-2297). The glass is the kit's one thin blended layer, drawn as a blended pane by
+the walkthrough. It is not KHR transmission, so the dark-pane default of T-2183, which replaces
+transmissive glass only, leaves it alone.
+**What is not.** Nothing here is attested. The storeys and the brick come from the 1911 Sanborn sheet
+as the house's own record says, and the windows' positions and sizes are the K01 record's own
+reconstructed bays and sash.
+**How to resolve:** the 1888 Inland Architect plate, once it is a source record, shows the front's
+sash and heads, and T-1882/T-1883 build the actual Keith/Field front from it. That replaces this
+attribute's variant for the street front, and the plate's arched openings take a variant with a
+matching arched hole.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.window_kit`.
+**Ticket:** T-2298 (piece 2 of T-1848, K06).
+**Review:** `docs/RESEARCH/k06-1808-windows-2298/README.md`.
+**Recorded:** 2026-10-10 (T-2298).
