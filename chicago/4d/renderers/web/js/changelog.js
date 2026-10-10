@@ -1,17 +1,15 @@
 export const CHANGELOG = [ // newest first
-<<<<<<< HEAD
   { v: 1608, ts: '2026-10-10T02:42:16.522Z', date: 'Oct 9, 2026, 9:42 PM CT', title: 'The resident index and audits read each household\u2019s dated places', kind: 'change',
     items: [
       'Nothing you can see changes. The resident index, the resident audit, the population profile, the research sign-off and the residents summary now take where a household lived and worked from the dated places on its card, the same entries its card shows you.',
       'Every figure, row and table comes out exactly as before, even with the old single home and workplace lines removed from the records.',
       'A card\u2019s \u201cno known address\u201d reason still comes from the old line, because a place nobody can name has no dated entry to carry it. Where that wording goes is decided before the old lines retire.',
-=======
+    ] },
   { v: 1607, ts: '2026-10-10T02:18:30.123Z', date: 'Oct 9, 2026, 9:18 PM CT', title: 'Prairie Avenue’s building parts get one set of measurements', kind: 'change',
     items: [
       'Nothing you can see changes yet. The walls, windows, roofs and front steps of the 1904 houses still to come will now be built from one rule book. Everything is in metres, measured up from the ground.',
       'The Glessner House was checked against that rule book. It is the right size in all three of its download sizes, and its walls stand where its floor plan says.',
       'A few small faults turned up: hidden doubled faces in the stone trim on the Prairie Avenue front and where two roof pieces meet. They are filed to be fixed when the house is next rebuilt.',
->>>>>>> origin/dev
     ] },
   { v: 1606, ts: '2026-10-10T01:40:14.964Z', date: 'Oct 9, 2026, 8:40 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
     items: [
