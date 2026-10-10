@@ -1587,7 +1587,7 @@ def _house_card(place: dict, persons: list, seated: list) -> dict:
                 "match": "sources naming the people who lodged in this house in 1835",
             },
         },
-        "works_at": {
+        "no_workplace": {
             "value": None,
             "confidence": RECONSTRUCTED,
             "tier": "unknown",

@@ -933,8 +933,8 @@ def main():
         if str(doc.get("id") or "").startswith("hh_inf_"):
             stats["retained_hh_inf"]+=1; unlink_people.update(p.get("id") for p in kept if p.get("id")); head=next((p for p in kept if p.get("id")==doc.get("head")),kept[0])
             doc["name"]=f"Evidence-only household — {head.get('name',doc.get('head'))}"; doc["division"]="unplaced"
-            doc["lives_at"]={"value":None,"confidence":"reconstructed","note":"T-0489: former dwelling assignment came from the retired reconstructed-household programme; real resident retained unplaced."}
-            doc["works_at"]={"value":None,"confidence":"reconstructed","note":"T-0489: no workplace is assigned from a reconstructed household; later placement requires evidence."}
+            doc.pop("lives_at", None); doc["no_home"]={"value":None,"confidence":"reconstructed","note":"T-0489: former dwelling assignment came from the retired reconstructed-household programme; real resident retained unplaced."}
+            doc.pop("works_at", None); doc["no_workplace"]={"value":None,"confidence":"reconstructed","note":"T-0489: no workplace is assigned from a reconstructed household; later placement requires evidence."}
             doc["research_note"]=note_once(doc.get("research_note"), RETIREMENT_NOTE)
     if prior_ledger and stats["removed_people"] == 0 and stats["removed_households"] == 0:
         prior_retirement=prior_ledger.get("retirement") or {}

@@ -42,7 +42,7 @@
   ],
   "note": "The relationship is documented - 'John Miller, brother of Samuel, the landlord' - and the motive is this record's reading of a man arriving where his brother already was. Chain migration is the commonest reason anyone moved anywhere in this decade and it is almost never written down."
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "note": "NOT ATTESTED FOR EITHER MAN. data/structures/miller_house.json is Samuel's house, not John's, and its own record leaves its occupants blank."

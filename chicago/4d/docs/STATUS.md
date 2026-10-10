@@ -18,6 +18,48 @@ That is 26 two-over-two sashes and two three-light basement lights, at the recor
   2.5-3 m, at both viewports, with zero errors. Costs are in
   `docs/RESEARCH/k06-1808-windows-2298/README.md`.
 
+## T-2254 — four houses on the School Section tier's block 82 (2026-10-10)
+
+Piece 3 of 3 of T-2247 (owner ruling b: cross Monroe). T-2253 dealt the block two D2, two D4, a
+D5 and an H3 and left four `slot` requests on it; this raises those four.
+
+- **One recipe entry** in `1835_platted_block_parcels.json` (`phase3_platted_block_school_section_tier_82`),
+  built by `generate_block_infill.py`: D2 on lot 2 and D4 on lot 4 facing Monroe, D5 on lot 3 and
+  D4 on lot 5 facing Adams, set out as block 81's houses across Monroe. Lot 0 stays the reserved
+  open lot; lots 1, 6 and 7 stay free. **L415** records the invention.
+- **Not built: the second D2 (now dealt as a D1) and the H3.** Both are `plan_left_unclaimed` — no
+  banded South row is admitted by a clause that takes them — and the H3's beds move the lodging
+  model `seat_lodgers_1835.py` freezes, the reason blocks 95 and 81 left theirs to T-1957.
+- **Seating at its fixpoint in two laps** (adopt → reconcile_665 → keepers → the four infill
+  generators → reconcile_665 → the seating chain): **219 seated, all adopted, 0 slots left.**
+  hh_merrill_george_w, hh_merill_isaac and hh_meleney_patrick adopt the houses they asked for;
+  hh_rc_wilcox_martha adopts the D2, and hh_vieaux_susanne, who asked for it, is seated on the
+  standing D1 `recon_1835_south_d1_018` on Lake–Dearborn (adoption runs first). Keepers 205 → 209;
+  the D2's keeper is refused on the card (no source carries hh_rc_wilcox_martha's name).
+- **Baked** with `bake.sh --only` (pinned Blender 4.5.3): the four new meshes and the D1, whose
+  finish and age state moved with its occupant. 708 assets fresh.
+- **Re-derived:** `rederive.mjs --tail` from compile_liberties (settled in one lap), the completion
+  audit, entrances, alley lanes, woodpiles, hay limits and the land-tract join.
+- **Restated:** L263 664 → 668, L276 205 → 209.
+- **Finished from a cancelled run** (salvage draft #612): merged with dev after T-2269's lumber
+  shed and T-2271, the seating re-walked to a byte-stable fixpoint. On the merged tree the deal
+  reads **220 seated (219 adopted, 1 slot)**: the four houses go to hh_rc_shea_margaret (D2),
+  hh_merrill_george_w (D5), hh_merill_isaac and hh_meleney_patrick (D4s); hh_miller_samuel adopts
+  the D5 `recon_1835_south_d5_016` Meleney leaves (rebaked: its finish moved with its occupant);
+  hh_rc_woodruff_ruth holds a D1 slot on lot 7, which T-2270 owns. Keepers 209. L263 restated
+  to 669 (with the lumber shed), L270 to 220, L276 to 209; 709 assets fresh. The changelog moved
+  to `changelog.d/T-2254.json`.
+- **Lapped onto dev after T-2278, T-2255, T-2281..T-2294 and T-2268** (resume PR #627). The
+  frontage census now reads both School Section tiers (`tier_frontage_streets` read only the
+  Madison–Monroe file, so Adams was no frontage corridor and the two Adams-face houses fronted no
+  street). Seating at its fixpoint (two laps, the second moving nothing): **221 seated, 219
+  adopted, 2 slots** — the four houses go to hh_rc_shea_margaret (D2), hh_merrill_george_w (D5),
+  hh_merill_isaac and hh_meleney_patrick (D4s); hh_vieaux_susanne (D1, lot 6) and hh_church_thomas
+  (H1, lot 7) hold the block's last two requests, T-2270's. Keepers 208. `BUSINESS_DEAL_COSTS`
+  10 → 8. The liberty is **L416** (T-2281 and T-2268 took L412 and L415 while this was open);
+  L263 671, L270 221, L276 208. Six meshes rebaked onto T-2278's doors and windows (the four
+  houses, `recon_1835_south_d1_018`, `recon_1835_south_d5_016`); 712 assets. The South's barn and
+  outbuilding order-book rows follow the dwellings to T-2270.
 ## T-2266 — the first K01 assembly: a frontage at 1808 Prairie (2026-10-10)
 
 **Visible.** In the 1904 scene a three-storey-and-basement house now stands on the 1808 Prairie

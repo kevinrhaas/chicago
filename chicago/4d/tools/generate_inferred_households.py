@@ -240,8 +240,10 @@ def household_record(hh: dict, census: dict, buildings: dict) -> dict:
             "Not claimed for the person. The reason the HOUSEHOLD is in the dataset is the trade "
             "argument in research_note, which is a statement about the town and not about a "
             "motive."),
-        "lives_at": link_block(lives, lives_note),
-        "works_at": link_block(works, works_note),
+        # T-2295: a null link is written under its absence key — the note is the card's
+        # "Lived at" / "Worked at" reason, and the singular pair carries values only.
+        ("lives_at" if lives else "no_home"): link_block(lives, lives_note),
+        ("works_at" if works else "no_workplace"): link_block(works, works_note),
         "present_on_scene_date": {
             "value": "present",
             "confidence": "reconstructed",

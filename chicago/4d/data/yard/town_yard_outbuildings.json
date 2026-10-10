@@ -131,8 +131,8 @@
   },
   "wells": "None dealt. docs/RESEARCH/wells.md § 4 refuses a well class for the town — July 1835 Chicago drank from the lake by cart — and that ruling stands; data/wells/ draws only the wells a source places.",
   "counts": {
-    "dwelling_lots": 233,
-    "privies": 189,
+    "dwelling_lots": 237,
+    "privies": 193,
     "stables": 23,
     "privy_standing": 36,
     "stable_standing": 17,
@@ -4897,6 +4897,94 @@
       "finish": "board_and_batten",
       "stalls": 2,
       "kept_a_horse_because": "merchant"
+    },
+    {
+      "id": "privy_blk_school_section_tier_82_lot2",
+      "kind": "privy",
+      "lot": "blk_school_section_tier_82_lot2",
+      "belongs_to": "recon_1835_blk_school_section_tier_82_d2_01",
+      "households": [],
+      "household_class": "labourer",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        138.58,
+        -722.5
+      ],
+      "bearing_deg": 0.0,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
+      "roof": "shed",
+      "weather": "fresh",
+      "confidence": "reconstructed",
+      "finish": "slab"
+    },
+    {
+      "id": "privy_blk_school_section_tier_82_lot3",
+      "kind": "privy",
+      "lot": "blk_school_section_tier_82_lot3",
+      "belongs_to": "recon_1835_blk_school_section_tier_82_d5_02",
+      "households": [],
+      "household_class": "tradesman",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        138.5,
+        -730.62
+      ],
+      "bearing_deg": 180.0,
+      "along_m": 1.22,
+      "depth_m": 1.22,
+      "eave_m": 1.95,
+      "head_m": 2.2,
+      "roof": "shed",
+      "weather": "weathered",
+      "confidence": "reconstructed",
+      "finish": "board"
+    },
+    {
+      "id": "privy_blk_school_section_tier_82_lot4",
+      "kind": "privy",
+      "lot": "blk_school_section_tier_82_lot4",
+      "belongs_to": "recon_1835_blk_school_section_tier_82_d4_03",
+      "households": [],
+      "household_class": "tradesman",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        167.73,
+        -722.42
+      ],
+      "bearing_deg": 0.0,
+      "along_m": 1.22,
+      "depth_m": 1.22,
+      "eave_m": 1.95,
+      "head_m": 2.2,
+      "roof": "shed",
+      "weather": "weathered",
+      "confidence": "reconstructed",
+      "finish": "board"
+    },
+    {
+      "id": "privy_blk_school_section_tier_82_lot5",
+      "kind": "privy",
+      "lot": "blk_school_section_tier_82_lot5",
+      "belongs_to": "recon_1835_blk_school_section_tier_82_d4_04",
+      "households": [],
+      "household_class": "tradesman",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        167.73,
+        -730.62
+      ],
+      "bearing_deg": 180.0,
+      "along_m": 1.22,
+      "depth_m": 1.22,
+      "eave_m": 1.95,
+      "head_m": 2.2,
+      "roof": "shed",
+      "weather": "fresh",
+      "confidence": "reconstructed",
+      "finish": "board"
     },
     {
       "id": "privy_blk_school_section_tier_117_lot2",

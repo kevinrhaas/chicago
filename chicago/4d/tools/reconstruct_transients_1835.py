@@ -195,7 +195,7 @@ def camp_ground(index: int) -> str:
 # The keys this stage writes and --check re-derives. Everything else on a card belongs to
 # another stage of the same programme and is that stage's to prove.
 OWNED_KEYS = ("id", "name", "division", "head", "source_pass", "transient",
-              "presence_kind", "lodged_at", "arrival", "lives_at", "works_at",
+              "presence_kind", "lodged_at", "arrival", "no_home", "no_workplace",
               "present_on_scene_date", "persons", "touches_removal", "review_required",
               "research_note")
 
@@ -663,7 +663,7 @@ def household_record(slot: str, hid: str, head_id: str, surname: str, persons: l
                     "party came off is not recorded and is not derivable.",
             "seated_by": "nothing — a visitor of the season has no arrival year to fill",
         },
-        "lives_at": {
+        "no_home": {
             "value": None,
             "confidence": RECONSTRUCTED,
             "tier": "unknown",
@@ -673,7 +673,7 @@ def household_record(slot: str, hid: str, head_id: str, surname: str, persons: l
                     "the one thing this cohort must not do. Where they slept is in "
                     "`lodged_at`, at the rung the sources reach.",
         },
-        "works_at": {
+        "no_workplace": {
             "value": None,
             "confidence": RECONSTRUCTED,
             "tier": "unknown",
@@ -1028,7 +1028,7 @@ def self_test() -> int:
     # the cards must not carry a residence
     p = plan()
     case("no minted household claims a residence",
-         all(h["record"]["lives_at"]["value"] is None for h in p["households"]))
+         all("lives_at" not in h["record"] for h in p["households"]))
     case("every minted household is marked transient",
          all(h["record"]["presence_kind"]["value"] == PRESENCE_KIND
              for h in p["households"]))

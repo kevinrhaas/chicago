@@ -22,7 +22,7 @@ A reference is not always a pointer. These assert what the roof IS, and the verd
 | roof | becomes | renamed | re-derived | frozen | adjudicated |
 | --- | --- | ---: | ---: | ---: | ---: |
 | `recon_1835_blk_washington_market_a3_15` | `recon_1835_blk_washington_market_d2_15` | 1 | 18 | 1 | 0 |
-| `recon_1835_blk_washington_market_a4_12` | `recon_1835_blk_washington_market_d2_12` | 1 | 18 | 1 | 0 |
+| `recon_1835_blk_washington_market_a4_12` | `recon_1835_blk_washington_market_h1_12` | 1 | 18 | 1 | 0 |
 
 ## Renamed — 1 file(s)
 

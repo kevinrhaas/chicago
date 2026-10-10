@@ -1053,11 +1053,11 @@ def record(row: dict, appearances: list, docs: dict, taken_ids: set,
         "party_size_on_arrival": unattested("Not attested."),
         "origin": unattested("Not attested."),
         "reason_for_coming": unattested("Not attested."),
-        "lives_at": unattested(
+        "no_home": unattested(
             "Not attested: the lists that name this person give no address. The placement "
             "sweep assigns homes once the resident list is complete (T-0514, the owner's "
             "own sequencing) and this pass will not guess one."),
-        "works_at": unattested(
+        "no_workplace": unattested(
             "Not attested. No trade is recorded here, so there is no premises to seek; "
             "T-0633 is where a later directory's address gets back-projected."),
         "present_on_scene_date": presence_block(appearances, sources),
@@ -1979,7 +1979,7 @@ def self_test() -> int:
              doc["arrival"]["value"] == "1835-12-31"),
             ("a bound after the scene date leaves presence uncertain",
              doc["present_on_scene_date"]["value"] == "uncertain"),
-            ("no dwelling is dealt", doc["lives_at"]["value"] is None),
+            ("no dwelling is dealt", "lives_at" not in doc and "no_home" in doc),
             ("no trade is read in", person["occupation"]["value"] == "none_recorded"),
             ("the source resolves to a file, not a domain label",
              person["sources"] == ["chicago_voter_lists_1833_1835_irad"]),
@@ -2300,7 +2300,9 @@ def self_test() -> int:
             ("a person loses the civic_mint flag",
              lambda d, i: d[victim]["persons"][0].pop("civic_mint"), "civic_mint"),
             ("a household gains a roof",
-             lambda d, i: d[victim]["lives_at"].update(value="sauganash_hotel"), "lives_at"),
+             lambda d, i: d[victim].update(lives_at=dict(d[victim].pop("no_home"),
+                                                          value="sauganash_hotel")),
+             "lives_at"),
             ("a person gains a trade",
              lambda d, i: d[victim]["persons"][0]["occupation"].update(value="carpenter"),
              "gained a trade"),

@@ -478,7 +478,8 @@ def card_for(row: dict, rule: dict, pool: dict, sizes: list,
                     "the roof it is under is a committed, placed record and is the reason "
                     "the household was ordered at all.",
         },
-        "works_at": {
+        # T-2295: a null link is written under its absence key, `no_workplace`.
+        ("works_at" if rule["occupation"] else "no_workplace"): {
             "value": sid if rule["occupation"] else None,
             "confidence": RECONSTRUCTED,
             "tier": RECONSTRUCTED if rule["occupation"] else "unknown",

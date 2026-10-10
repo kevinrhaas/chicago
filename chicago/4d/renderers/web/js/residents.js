@@ -1990,8 +1990,8 @@ export function householdHtml(hh, citationsById, researchByPerson, directoryByPe
       ${claimRow('Came from', (hh.origin || {}).value, hh.origin, citationsById)}
       ${claimRow('Why they came', (hh.reason_for_coming || {}).value,
         hh.reason_for_coming, citationsById)}
-      ${absenceRow('Lived at', hh.lives_at, citationsById)}
-      ${absenceRow('Worked at', hh.works_at, citationsById)}
+      ${absenceRow('Lived at', hh.no_home, citationsById)}
+      ${absenceRow('Worked at', hh.no_workplace, citationsById)}
       ${claimRow('Here on 1 July 1835', (hh.present_on_scene_date || {}).value,
         hh.present_on_scene_date, citationsById)}
       ${presenceLegRow(hh, citationsById)}

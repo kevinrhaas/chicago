@@ -22,7 +22,7 @@
     "outstanding_verdicts": 2,
     "refused_by_the_parcel_gate": 0,
     "inventory_class_moves": 0,
-    "families_offered": 12,
+    "families_offered": 8,
     "ancillary_families_offered": 0,
     "open_lots_across_the_three_blocks": 1,
     "clause_evidence_records": 4,
@@ -87,7 +87,7 @@
     },
     {
       "id": "recon_1835_blk_washington_market_a4_12",
-      "would_become": "recon_1835_blk_washington_market_d2_12",
+      "would_become": "recon_1835_blk_washington_market_h1_12",
       "sequence": 12,
       "block_id": "blk_washington_market",
       "programme_phase": "phase3_platted_block_washington_market_second_deal",
@@ -99,41 +99,21 @@
       "was_family": "A4",
       "was_group": "small_outbuildings",
       "was_inventory_class": "ancillary",
-      "to_family": "D2",
-      "to_group": "ordinary_dwellings",
+      "to_family": "H1",
+      "to_group": "larger_boarding_houses",
       "implied_inventory_class": "ancillary",
       "class_moves": false,
       "lot_already_carries": "recon_1835_blk_washington_market_d4_08",
       "refused_by_the_parcel_gate": null,
       "families_offered": [
         {
-          "family": "D2",
-          "group": "ordinary_dwellings",
+          "family": "H1",
+          "group": "larger_boarding_houses",
           "inventory_class": "principal_functional"
         },
         {
-          "family": "D3",
-          "group": "ordinary_dwellings",
-          "inventory_class": "principal_functional"
-        },
-        {
-          "family": "D1",
-          "group": "ordinary_dwellings",
-          "inventory_class": "principal_functional"
-        },
-        {
-          "family": "D4",
-          "group": "ordinary_dwellings",
-          "inventory_class": "principal_functional"
-        },
-        {
-          "family": "D5",
-          "group": "ordinary_dwellings",
-          "inventory_class": "principal_functional"
-        },
-        {
-          "family": "D6",
-          "group": "ordinary_dwellings",
+          "family": "H2",
+          "group": "larger_boarding_houses",
           "inventory_class": "principal_functional"
         }
       ],

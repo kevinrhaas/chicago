@@ -167,6 +167,9 @@
     "residents/household:lives_at.tier": {
       "records": 11
     },
+    "residents/household:lives_at.value": {
+      "records": 34
+    },
     "residents/household:origin.replaceable_by.kind": {
       "records": 1404
     },
@@ -416,6 +419,9 @@
     },
     "residents/household:women_children.ticket": {
       "records": 35
+    },
+    "residents/household:works_at.value": {
+      "records": 51
     },
     "residents/manifest:_roles_doc": {
       "records": 1

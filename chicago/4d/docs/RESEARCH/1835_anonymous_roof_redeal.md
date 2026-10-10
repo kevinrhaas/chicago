@@ -4,12 +4,12 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
-- audited: **554** anonymous roofs
-- keep: **552** (5 kept over a policy breach because they are seated, 7 because nothing they could become is wanted here)
+- audited: **558** anonymous roofs
+- keep: **556** (5 kept over a policy breach because they are seated, 7 because nothing they could become is wanted here)
 - refamily: **2** (0 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 662 stand, so the town is 6 roofs short before this audit and 6 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 668 roofs and 666 stand, so the town is 2 roofs short before this audit and 2 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
@@ -26,10 +26,10 @@ The programme wants 668 roofs and 662 stand, so the town is 6 roofs short before
 | `structures/institutional_public/south` | 5 | 5 | 0 | 0 | 5 | 0 |
 | `structures/institutional_public/west` | 1 | 1 | 0 | 0 | 1 | 0 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | 3 | 0 |
-| `structures/larger_boarding_houses/south` | 28 | 27 | 26 | 1 | 27 | 1 |
+| `structures/larger_boarding_houses/south` | 28 | 27 | 26 | 1 | 28 | 0 |
 | `structures/larger_boarding_houses/west` | 6 | 6 | 6 | 0 | 6 | 0 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 6 | 0 | 8 | 0 |
-| `structures/ordinary_dwellings/south` | 176 | 171 | 162 | 5 | 173 | 3 |
+| `structures/ordinary_dwellings/south` | 176 | 175 | 166 | 1 | 176 | 0 |
 | `structures/ordinary_dwellings/west` | 75 | 75 | 71 | 0 | 75 | 0 |
 | `structures/ordinary_dwellings/north` | 84 | 84 | 78 | 0 | 84 | 0 |
 | `structures/small_outbuildings/south` | 48 | 48 | 47 | 0 | 46 | 2 |
@@ -53,7 +53,7 @@ The programme wants 668 roofs and 662 stand, so the town is 6 roofs short before
 | roof | division | from | to | verdict | why |
 | --- | --- | --- | --- | --- | --- |
 | `recon_1835_blk_washington_market_a3_15` | south | A3 | D2 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
-| `recon_1835_blk_washington_market_a4_12` | south | A4 | D2 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
+| `recon_1835_blk_washington_market_a4_12` | south | A4 | H1 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
 
 ## The 12 breaches owed out
 
