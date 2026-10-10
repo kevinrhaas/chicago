@@ -23251,3 +23251,36 @@ roofing specification replaces a part's dimensions for every house at once.
 **Ticket:** T-2301 (piece 1 of T-1847, K05).
 **Review:** `docs/RESEARCH/k05-roof-kit/README.md`.
 **Recorded:** 2026-10-10 (T-2301).
+
+### L-k09-carved-trim-kit-2309 — The Prairie carved-trim kit: every ring, moulding, hood, capital, tracery bar and leaf reconstructed
+
+**Decision:** the 1904 Prairie programme's carved trim (package K09, T-2309) is ten parametric
+variants built by `generators/archetypes/k09_trim.py` from `data/components/prairie_1904/k09_trim.json`:
+a round and a segmental ring of radially jointed voussoirs with keystones, a Gothic label with
+crockets and a finial over a pointed head, a frieze block and returned cornice hood on two scrolled
+consoles, a Tuscan and a foliate colonnette, two-light plate tracery under a pointed head with a
+quatrefoil, a bounded foliate relief panel, and two composed surrounds: a hero Romanesque entrance
+(three stepped orders, a ring on each, four foliate nook colonnettes, a label) and a restrained
+rowhouse door (architrave, frieze, cornice, consoles, no carving). Every piece is relief geometry
+that rests on what carries it; none is a texture.
+**What is invented.** Every dimension and every shape: the voussoir ring's 0.34 m depth, 35 mm
+projection and 10 mm joints, the keystone's width, projection and rise; the label, cornice and
+architrave sections; the frieze block and the consoles' S outline; the colonnette's plinth,
+attic base, 0.16 m shaft, entasis, the Tuscan cap and the foliate bell's profile and its eight
+leaves; the crockets' spacing and curl; the tracery's margins, mullion and quatrefoil; the
+panel's tablet, sunk field, scrolling stem and its seeded leaves; the hero's three 0.24 m orders.
+The leaf, the foliate capital, the crockets and the panel's scroll are newly designed for this kit
+and copy no named house; the hero surround is a Romanesque entrance's anatomy in general, not any
+Prairie Avenue door. The variants follow the study's building register and its family rules
+(round-arched Romanesque reveals with "convincing voussoirs" and restrained foliate patterns
+"recorded as newly designed"; pointed Gothic openings; flat classical hoods), which are the study's
+reading of its images and not source records here.
+**What is not.** Nothing in the kit is attested, and no house carries it yet (T-2310 builds the
+first K09 trim on a named house). The data's restriction keeps every generic motif off a house
+whose own carving is documented: there the carving is authored from the evidence.
+**How to resolve:** a house's own photograph, drawing or surviving fabric shows its ring, hood,
+capital or carving, and that house takes it in place of the kit's working shapes; a period
+stone-carver's or builder's pattern book replaces a part's sections for every house at once.
+**Ticket:** T-2309 (piece 1 of T-1851, K09).
+**Review:** `docs/RESEARCH/k09-carved-trim-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2309).
