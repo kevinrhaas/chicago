@@ -171,6 +171,8 @@ step "the K01 assemblies are the bytes their records build (T-2266)" \
   python3 generators/k01_emit.py --check
 step "the K13 conservatories in the scene are the bytes their records build (T-2306)" \
   python3 generators/k13_emit.py --check
+step "the K16 timber fronts in the scene are the bytes their records build (T-2323)" \
+  python3 generators/k16_emit.py --check
 step "the K12 coach houses in the scene are the bytes their records build (T-2321)" \
   python3 generators/k12_emit.py --check
 

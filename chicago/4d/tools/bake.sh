@@ -71,6 +71,8 @@ echo "== generate + bake"
 python3 generators/k01_emit.py "$@" --wrote "$WROTE"
 # T-2306: and the K13 conservatories a structure record names, the same way.
 python3 generators/k13_emit.py "$@" --wrote "$WROTE"
+# T-2323: and the K16 timber fronts a structure record names, the same way.
+python3 generators/k16_emit.py "$@" --wrote "$WROTE"
 # T-2321: and the K12 coach houses a structure record names, the same way.
 python3 generators/k12_emit.py "$@" --wrote "$WROTE"
 

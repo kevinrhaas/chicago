@@ -45,6 +45,7 @@
         "k01_frontage",
         "k12_coach_house",
         "k13_conservatories",
+        "k16_timber",
         "authored"
       ],
       "description": "Generator module that builds this structure. 'authored' means a hand-built hero asset, exempt from regeneration but not from provenance."
