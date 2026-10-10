@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1655, ts: '2026-10-10T17:27:43.832Z', date: 'Oct 10, 2026, 12:27 PM CT', title: '1808 Prairie\'s roof rebuilt as one solid, with two chimneys', kind: 'feature',
+    items: [
+      'The roof of the house beside the Glessner House is now built from the new roof kit as one closed solid. No roof plane runs through the dormer, and no board floats.',
+      'Its dormer has a proper eave and verge, and its valleys are cut where the roofs actually meet.',
+      'Two brick chimneys with stone caps rise through the ridge.',
+      'The chimneys are reconstructed: no source shows this roof, and the house\'s record says so.',
+    ] },
   { v: 1654, ts: '2026-10-10T17:17:39.827Z', date: 'Oct 10, 2026, 12:17 PM CT', title: '1808 Prairie gains a curved front bay and a canted rear bay', kind: 'feature',
     items: [
       'In 1904, the house south of Glessner now has a two-storey curved bay on the south side of its stone front, with three curved sashes on each floor under a low copper roof.',
