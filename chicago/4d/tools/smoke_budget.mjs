@@ -412,6 +412,13 @@ const COVERAGE = [
   ['generators/archetypes/k05_roofs.py', NONE, 'the K05 roof kit generator — imported by no scene build yet: check_roof_kit.py --check'],
   ['docs/RESEARCH/k05-roof-kit/', NONE, 'the K05 roof kit specimen and study — unpublished: check_roof_kit.py --check'],
   ['tools/study_k05_roofs.mjs', NONE, 'the K05 study renderer — run by hand, by no gate'],
+  // T-2309. The K09 carved-trim kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2310 puts its trim on a house, so no part draws
+  // it; tools/check_trim_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k09_trim.json', NONE, 'the K09 carved-trim kit data — built into no scene yet: check_trim_kit.py --check'],
+  ['generators/archetypes/k09_trim.py', NONE, 'the K09 carved-trim kit generator — imported by no scene build yet: check_trim_kit.py --check'],
+  ['docs/RESEARCH/k09-carved-trim-kit/', NONE, 'the K09 carved-trim kit specimen and study — unpublished: check_trim_kit.py --check'],
+  ['tools/study_k09_trim.mjs', NONE, 'the K09 study renderer — run by hand, by no gate'],
   // T-2312. The K15 chimney kit is built into a specimen GLB under docs/ that nothing
   // publishes and no scene loads until T-2313 builds a house's chimneys from it, so no
   // part draws it; tools/check_chimney_kit.py gates the data, the generator and the specimen.

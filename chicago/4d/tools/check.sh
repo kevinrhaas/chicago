@@ -507,6 +507,20 @@ step "the K05 roof kit builds every roof as one closed, uncrossed solid with its
 selftest "…and a hole, an inward face, a doubled face, a roof through its gable, a floating return or a low parapet still fails it" \
   python3 tools/check_roof_kit.py --self-test
 
+# T-2309. ...and what the 1904 trim is. The K09 kit's parts are sized in
+# data/components/prairie_1904/k09_trim.json and built by generators/archetypes/k09_trim.py.
+# This rebuilds every variant and measures the geometry: every open edge of a piece lying on
+# another surface (nothing floats, nothing hangs, nothing over a hole), every closed leaf,
+# crocket and finial passing through its host, no doubled face, each piece's relief as the
+# data says and never under the floor, radial joints and a centred crown stone, colonnettes in
+# order, the panel's leaves inside their field, the hero entrance beyond the rowhouse, the
+# triangle budgets, and the specimen GLB the generator's bytes.
+step "the K09 carved-trim kit builds every ring, hood, capital, tracery and leaf as seated relief (T-2309)" \
+  python3 tools/check_trim_kit.py --check
+
+selftest "…and an even ring, a painted-thin stone, a floating block, a loose leaf, a back face on the wall or a skewed joint still fails it" \
+  python3 tools/check_trim_kit.py --self-test
+
 # T-2312. ...and how a 1904 chimney meets its roof. The K15 kit's parts are sized in
 # data/components/prairie_1904/k15_chimneys.json and built by
 # generators/archetypes/k15_chimneys.py: each stack joined to a K05 roof by the boolean
