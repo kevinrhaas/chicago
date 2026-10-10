@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 458,
+  "count": 459,
   "liberties": [
     {
       "id": "L1",
@@ -28684,6 +28684,50 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2298)."
+        }
+      ]
+    },
+    {
+      "id": "L-k07-1808-entrance-2304",
+      "title": "The 1808 exemplar's door and stoop: built from the reconstructed K07 kit, clear of the walk",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.entrance_kit"
+        }
+      ],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the street door of the 1808 Prairie house (`keith_house_1808_prairie`, as built 1886) and its stoop are the K07 kit's `k07.entrance.panel_door_stoop` (T-2304), built by `generators/archetypes/k07_entrances.py` inside the K01 assembly. That is a four-panel leaf under a two-light transom, with a dark hall behind the glass, a frame, a threshold and a reveal, set in the K01 proof's own 1.20 x 2.70 m hole at the north bay. It stands at the head of a straight stone stoop between cheek walls. The stair is solved from this record's own datums: a 1.5 m principal floor in nine equal risers of 0.167 m, 0.30 m goings, a 1.2 m landing and a 1.8 m width. It reaches 3.60 m from the front. The 1904 street grid puts the inner edge of Prairie Avenue's walk 4.75 m from the front at the door, so the stoop stops 1.15 m short of it, and the generator refuses a stoop that does not. The K01 flat lintel still dresses the head. This replaces the K01 proof's one-plane leaf, recessed 0.22 m, and its stoop of solid columns. **What is invented.** The choice of this variant, and everything the variant itself invents (L-k07-entrance-kit-2303). No source shows this house's door, transom, stoop or cheek walls. The register's reading of the 1888 plate is a north entrance loggia with Ionic columns, a balustraded balcony and a stair. This simple stone-front stoop does not depict it. The 4.75 m front yard rests on the placement's reconstructed building line (14.7 ft behind the street line) and on the street grid's inferred walk band (sec. 2062's one-foot margin from the lot line). **What is not.** There is no carriage opening. The 1911 Sanborn sheet draws this lot's carriage house as the detached two-storey rear building, and T-1935 owns it, so cutting a carriage door into the main range would contradict the sheet. When T-1935 builds that building, its carriage opening is the kit's `k07.entrance.carriage_doors`. Nothing here is attested."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the 1888 Inland Architect plate, once it is a source record, shows the entrance, and T-1882/T-1883 build the actual loggia and stair from it in place of this attribute's variant. A reading of the sheet to the foot for this lot replaces the front yard's building line."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.entrance_kit`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2304 (piece 2 of T-1849, K07)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k07-1808-entrance-2304/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2304)."
         }
       ]
     },

@@ -415,11 +415,12 @@ const COVERAGE = [
   ['docs/RESEARCH/k05-roof-kit/', NONE, 'the K05 roof kit specimen and study — unpublished: check_roof_kit.py --check'],
   ['tools/study_k05_roofs.mjs', NONE, 'the K05 study renderer — run by hand, by no gate'],
   // T-2303. The K07 entrance kit is built into a specimen GLB under docs/ that nothing
-  // publishes and no scene loads until T-2304 builds the 1808 exemplar's entrance from
-  // it, so no part draws it; tools/check_entrance_kit.py gates the data, the generator
-  // and the specimen.
-  ['data/components/prairie_1904/k07_entrances.json', NONE, 'the K07 entrance kit data — built into no scene yet: check_entrance_kit.py --check'],
-  ['generators/archetypes/k07_entrances.py', NONE, 'the K07 entrance kit generator — imported by no scene build yet: check_entrance_kit.py --check'],
+  // publishes; tools/check_entrance_kit.py gates the data, the generator and the
+  // specimen. T-2304 builds the 1808 exemplar's door and stoop from it, but no part loads
+  // the kit itself: as with K06, what a part draws is the house's committed GLB, which
+  // mesh_inputs holds to the kit (so a kit change stales it).
+  ['data/components/prairie_1904/k07_entrances.json', NONE, 'the K07 entrance kit data — reaches a scene only through a re-baked mesh under assets/: check_entrance_kit.py --check, validate.py --stale'],
+  ['generators/archetypes/k07_entrances.py', NONE, 'the K07 entrance kit generator — reaches a scene only through a re-baked mesh under assets/: check_entrance_kit.py --check, k01_emit.py --check'],
   ['docs/RESEARCH/k07-entrance-kit/', NONE, 'the K07 entrance kit specimen and study — unpublished: check_entrance_kit.py --check'],
   ['tools/study_k07_entrances.mjs', NONE, 'the K07 study renderer — run by hand, by no gate'],
   // T-2309. The K09 carved-trim kit is built into a specimen GLB under docs/ that nothing
