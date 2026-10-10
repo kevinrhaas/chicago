@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1620, ts: '2026-10-10T04:57:23.145Z', date: 'Oct 9, 2026, 11:57 PM CT', title: 'Business cards name the building a keeper worked in', kind: 'fix',
+    items: [
+      'Twelve business cards — among them Ira Couch\'s Tremont House, John Miller\'s tannery and the Indian Agency — explained where the trade was kept by quoting an internal field and raw building ids. They now name the keeper, the building and what kind of building it was, in plain words.',
+      'Every placement, grade and source is unchanged; only the sentence on the card is rewritten.',
+    ] },
   { v: 1619, ts: '2026-10-10T04:39:16.798Z', date: 'Oct 9, 2026, 11:39 PM CT', title: 'Every shop sign readable, in period lettering', kind: 'fix',
     items: [
       'Walk South Water Street to Franklin: Newberry & Dole’s warehouse now shows its whole sign. The firm’s name was hidden behind the warehouse’s own boards, and so was lettering on 13 other painted fronts and shop fascias across 1835. All of them now sit in front of the wall.',
