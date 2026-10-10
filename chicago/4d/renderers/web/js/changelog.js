@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1600, ts: '2026-10-10T00:37:03.026Z', date: 'Oct 9, 2026, 7:37 PM CT', title: 'Two river warehouses on the South Branch below Market Street', kind: 'feature',
+    items: [
+      'Walk down Market Street toward Madison and look west, toward the river. Two large frame warehouses now stand on the bank between Market Street and the South Branch, below Washington Street, facing the water with a cart way between them.',
+      'They are two of the three warehouses the town still owed its river trade. Every lot on South Water Street was already built on, and this stretch of bank was the one riverside ground left. Newberry & Dole\u2019s packing house already stands on it, a block north.',
+      'Both are reconstructed: no source puts a building here. The third warehouse the town owes, a lumber shed, is still to come.',
+    ] },
   { v: 1599, ts: '2026-10-09T23:18:57.259Z', date: 'Oct 9, 2026, 6:18 PM CT', title: 'Prairie Avenue’s 20th-to-22nd blocks: every 1904 building accounted for', kind: 'feature',
     items: [
       'In the Prairie Avenue 1904 library, open any house between 20th and 22nd Streets. A panel gives its 1904 decision and lists its front building, wings, rear stable and grounds, each graded attested, inferred or reconstructed.',

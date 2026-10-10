@@ -520,13 +520,16 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 703 -> 704 and 697 -> 698 on 2026-10-09 (T-2196): a boarding house party-walled to that D5
 # (recon_1835_blk_south_water_market_h3_02), through emit.py and the common modules.
 #
+# 704 -> 706 and 698 -> 700 on 2026-10-09 (T-2268, of T-2175): two F3 river warehouses on the
+# South Branch's east bank below Market Street, through emit.py and the common modules.
+#
 STATED = {
-    "assets": 704,
+    "assets": 706,
     "restales": {
-        "generators/common/*.py": 704,
+        "generators/common/*.py": 706,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 698,
+        "generators/emit.py": 700,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
