@@ -414,6 +414,13 @@ const COVERAGE = [
   ['generators/archetypes/k05_roofs.py', NONE, 'the K05 roof kit generator — imported by no scene build yet: check_roof_kit.py --check'],
   ['docs/RESEARCH/k05-roof-kit/', NONE, 'the K05 roof kit specimen and study — unpublished: check_roof_kit.py --check'],
   ['tools/study_k05_roofs.mjs', NONE, 'the K05 study renderer — run by hand, by no gate'],
+  // T-2307. The K08 bay kit is built into a specimen GLB under docs/ that nothing publishes
+  // and no scene loads until T-2308 builds a bay on a house from it, so no part draws it;
+  // tools/check_bay_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k08_bays.json', NONE, 'the K08 bay kit data — built into no scene yet: check_bay_kit.py --check'],
+  ['generators/archetypes/k08_bays.py', NONE, 'the K08 bay kit generator — imported by no scene build yet: check_bay_kit.py --check'],
+  ['docs/RESEARCH/k08-bay-kit/', NONE, 'the K08 bay kit specimen and study — unpublished: check_bay_kit.py --check'],
+  ['tools/study_k08_bays.mjs', NONE, 'the K08 study renderer — run by hand, by no gate'],
   // T-2303. The K07 entrance kit is built into a specimen GLB under docs/ that nothing
   // publishes; tools/check_entrance_kit.py gates the data, the generator and the
   // specimen. T-2304 builds the 1808 exemplar's door and stoop from it, but no part loads
