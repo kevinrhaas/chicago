@@ -535,13 +535,20 @@ class Variant:
         cap = self.profile("ridge_cap")
         sweep(rc.mesh, [(-W / 2 + 0.02, Hr, zr), (W / 2 - 0.02, Hr, zr)], Y, cap, closed=True, caps=(True, True))
         top_cap = max(u for _, u in cap)
-        L = W - 0.4
-        yb0 = Hr + top_cap - 0.007
+        self.cresting(0.0, W - 0.4, Hr + top_cap, zr)
+        self.meta["focus"] = [0.0, Hr + 0.15, zr]
+
+    def cresting(self, xc, L, y_cap, zr, host="ridge cap"):
+        """The iron cresting along X, centred on xc and L long, its base bar let 7 mm into
+        a ridge cap whose top is at y_cap along z = zr (T-2317 lays it on a house's own
+        ridge roll this way)."""
+        C = self.P["cresting"]
+        yb0 = y_cap - 0.007
         yb1 = yb0 + C["bar_height_m"]
-        b = self.piece("base bar", "iron", "rooted", host="ridge cap")
-        box(b.mesh, -L / 2, L / 2, yb0, yb1, zr - C["bar_m"] / 2, zr + C["bar_m"] / 2)
+        b = self.piece("base bar", "iron", "rooted", host=host)
+        box(b.mesh, xc - L / 2, xc + L / 2, yb0, yb1, zr - C["bar_m"] / 2, zr + C["bar_m"] / 2)
         n = math.ceil(L / C["post_spacing_max_m"])
-        posts = [-L / 2 + L * i / n for i in range(n + 1)]
+        posts = [xc - L / 2 + L * i / n for i in range(n + 1)]
         pm, ptop = C["post_m"] / 2, yb0 + 0.01 + C["post_height_m"]
         for i, x in enumerate(posts):
             p = self.piece(f"post {i + 1}", "iron", "rooted", host="base bar")
@@ -550,7 +557,7 @@ class Variant:
             lathe(f.mesh, (x, zr), [(r, ptop - 0.01 + y) for r, y in C["finial"]], 10)
         yt0 = yb0 + C["top_bar_y_m"]
         t = self.piece("top bar", "iron", "rooted", host="post 1")
-        box(t.mesh, -L / 2, L / 2, yt0, yt0 + C["top_bar_height_m"], zr - C["top_bar_m"] / 2, zr + C["top_bar_m"] / 2)
+        box(t.mesh, xc - L / 2, xc + L / 2, yt0, yt0 + C["top_bar_height_m"], zr - C["top_bar_m"] / 2, zr + C["top_bar_m"] / 2)
         th = C["iron_m"] / 2
         r0, turn, sw = C["scroll_radius_m"], C["scroll_turn"], C["scroll_width_m"]
         yc = yb1 + 0.1
@@ -574,7 +581,7 @@ class Variant:
             p = self.piece(f"spear {k // 2}", "iron", "rooted", host="base bar")
             prism(p.mesh, sp, zr - th, zr + th, back=True)
         self.meta["cresting"] = {"posts": posts, "L": L}
-        self.meta["focus"] = [0.0, Hr + 0.15, zr]
+        return posts
 
 
 def load() -> dict:

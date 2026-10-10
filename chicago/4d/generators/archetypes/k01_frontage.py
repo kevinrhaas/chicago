@@ -60,6 +60,7 @@ from pathlib import Path
 
 from . import k03_brick
 from . import k09_frontage
+from . import k10_frontage
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
@@ -1080,8 +1081,10 @@ def build(params, structure_id: str):
     # left above it must clear the roof — the K06 sill (0.10 m) and 0.05 m of flashing.
     # A downpipe on the bay's wall must stand clear of everything the bay reaches along
     # it (its eaves above all): T-2293's pipes run from the main gutter down to grade.
+    reach = []
     for bay in p.bays:
         top, (s0, s1) = a.bay(bay, frames[bay["wall"]][0][0])
+        reach.append((bay["wall"], s0, s1, top))
         rp = p.rainwater["pipe_diameter_m"] / 2 if p.rainwater else 0.0
         for x in (p.rainwater or {}).get("downpipes", []):
             if x["wall"] == bay["wall"] and x["s_m"] + rp + 0.03 > s0 and x["s_m"] - rp - 0.03 < s1:
@@ -1092,6 +1095,9 @@ def build(params, structure_id: str):
                     and o.sill_m - 0.15 < top:
                 raise ValueError(f"{bay['id']}'s roof meets {o.wall} at {top:.3f} m, under the "
                                  f"opening at s {o.s_m} whose sill is {o.sill_m} m")
+    # T-2317: the K10 wall head — brackets and a bed moulding under the soffit, every
+    # corner turned and every head, pipe and bay stood clear of; cresting on the ridge
+    k10_frontage.dress(a, reach)
     return a
 
 
