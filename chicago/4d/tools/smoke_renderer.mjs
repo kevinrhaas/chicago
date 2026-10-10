@@ -125,6 +125,8 @@ import { decodePng, labL, relativeLuminance, weberContrast } from './critic_metr
 // ROADMAP K50. The gate and `tools/measure_drawn_placement.mjs` run ONE census
 // rather than two readings of it — see that module's header for why.
 import { CENSUS } from './drawn_placement_census.mjs';
+// T-2331. The 1904 front door's oracles are source files a sparse bake leg lacks.
+import { readRepoJson } from './repo_file.mjs';
 // T-0243. Same arrangement for the near-field timber, and for the same reason
 // twice over: the gate below and `tools/measure_drawn_timber.mjs` run ONE
 // census, and that census reads a `BatchedMesh` back through its own instance
@@ -16063,8 +16065,20 @@ for (const [label, viewport, touch] of [
     // itself. Any 404 the second scene raises lands in this viewport's zero-page-errors
     // through the listeners the tab already carries.
     {
+      // These four are the test's ORACLE, not the page's inputs, so they come from
+      // the source tree and never from the mirror under test. The bake workflow's
+      // smoke legs check out tools/ alone, where every one of them ended the part
+      // ENOENT; repo_file.mjs reads the committed blob of the commit under test
+      // instead, and says so here when it does (T-2331).
       const here4d = path.resolve(HERE, '..');
-      const readRepo = (rel) => JSON.parse(fs.readFileSync(path.join(here4d, rel), 'utf8'));
+      const readRepo = (rel) => {
+        const { value, from } = readRepoJson(here4d, rel);
+        if (from === 'commit') {
+          console.log(`  note  ${label}: ${rel} is not in this checkout, so the 1904 front door `
+            + 'reads it from the commit under test');
+        }
+        return value;
+      };
       const gcp28 = readRepo('data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json');
       const lotFrame = readRepo('data/research/glessner_house_1904_spec.json').lot.corners_lot_m;
       const k = gcp28.fit.coefficients;
@@ -16204,8 +16218,10 @@ for (const [label, viewport, touch] of [
         // scene places exactly one structure, and it is glessner_house. T-2266 added the
         // second 1904 record, the K01 frontage at 1808 Prairie, so the set is held by name
         // still: these two and nothing else. T-2306 added the third, the K13 conservatory bay
-        // on the Pullman house's east wing at 1729 Prairie, T-2323 the K16 timber front of
-        // 1638 Shortall-Gregory, and T-2321 the K12 coach house on the alley behind 1812 Prairie.
+        // on the Pullman house's east wing at 1729 Prairie. T-2323 added the fourth, the K16
+        // timber front of the Shortall-Gregory house at 1638 Prairie (#668) — merged while
+        // every bake leg died ENOENT above this line, so nothing read the list (T-2331).
+        // T-2321 added the fifth, the K12 coach house on the alley behind 1812 Prairie.
         const stray = Object.entries(at.drawn).filter(([name, n]) => n > 0 && name !== 'structures');
         const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
           'shortall_gregory_house_1638_prairie_front', 'wheeler_house_1812_prairie_coach_house'];

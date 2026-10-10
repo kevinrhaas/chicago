@@ -84,6 +84,8 @@ step "The welcome draws the town only when the town changed (T-2113)" \
   node tools/test_gate_frame.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
+step "A smoke oracle a sparse bake leg lacks is read from the commit under test (T-2331)" \
+  node tools/test_repo_file.mjs
 step "Drawn placement rejects shifted, mirrored and rotated camps (T-1805)" \
   node tools/test_drawn_placement_census.mjs
 step "Jaunt session history, cancellation and replacement (T-1279)" \
