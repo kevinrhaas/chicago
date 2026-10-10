@@ -125,6 +125,8 @@ import { decodePng, labL, relativeLuminance, weberContrast } from './critic_metr
 // ROADMAP K50. The gate and `tools/measure_drawn_placement.mjs` run ONE census
 // rather than two readings of it — see that module's header for why.
 import { CENSUS } from './drawn_placement_census.mjs';
+// T-2331. The 1904 front door's oracles are source files a sparse bake leg lacks.
+import { readRepoJson } from './repo_file.mjs';
 // T-0243. Same arrangement for the near-field timber, and for the same reason
 // twice over: the gate below and `tools/measure_drawn_timber.mjs` run ONE
 // census, and that census reads a `BatchedMesh` back through its own instance
@@ -1545,6 +1547,9 @@ for (const [label, viewport, touch] of [
   };
 
   const errors = [];
+  // T-1788: anything asked for under humans/ — a figure, its records or the contract.
+  const humanRequests = [];
+  page.on('request', (r) => { if (/\/humans\//.test(new URL(r.url()).pathname)) humanRequests.push(r.url()); });
   page.on('pageerror', (e) => errors.push(`pageerror: ${e.message || e}`));
   page.on('response', (r) => {
     if (r.status() >= 400) errors.push(`HTTP ${r.status()} ${r.url()}`);
@@ -1600,6 +1605,18 @@ for (const [label, viewport, touch] of [
 
     const structures = await page.evaluate(() => window.__chicago4d.registry.size);
     check(`${label}: scene has structures`, structures > 0, `${structures} loaded`);
+
+    // THE SCENE-YEAR GATE FOR FIGURES (T-1788). The human layer (humans.js) is mounted for
+    // every scene and fetches only for one that lists `humans`; none does, and L1 stands
+    // besides, so it must be in the scene, empty, and have asked for nothing at all.
+    const humans = await page.evaluate(() => {
+      const h = window.__chicago4d.humans;
+      return h ? { count: h.count, records: h.records.length, inScene: !!h.group.parent } : null;
+    });
+    check(`${label}: the human layer is mounted and draws nobody`,
+      !!humans && humans.count === 0 && humans.records === 0 && humans.inScene, JSON.stringify(humans));
+    check(`${label}: nothing under humans/ is requested for a scene that does not list it`,
+      humanRequests.length === 0, humanRequests.slice(0, 3).join(' | '));
 
     /**
      * DRAWN AGAINST INDEXED (T-1126). "The scene has structures" passes with one
@@ -16048,8 +16065,20 @@ for (const [label, viewport, touch] of [
     // itself. Any 404 the second scene raises lands in this viewport's zero-page-errors
     // through the listeners the tab already carries.
     {
+      // These four are the test's ORACLE, not the page's inputs, so they come from
+      // the source tree and never from the mirror under test. The bake workflow's
+      // smoke legs check out tools/ alone, where every one of them ended the part
+      // ENOENT; repo_file.mjs reads the committed blob of the commit under test
+      // instead, and says so here when it does (T-2331).
       const here4d = path.resolve(HERE, '..');
-      const readRepo = (rel) => JSON.parse(fs.readFileSync(path.join(here4d, rel), 'utf8'));
+      const readRepo = (rel) => {
+        const { value, from } = readRepoJson(here4d, rel);
+        if (from === 'commit') {
+          console.log(`  note  ${label}: ${rel} is not in this checkout, so the 1904 front door `
+            + 'reads it from the commit under test');
+        }
+        return value;
+      };
       const gcp28 = readRepo('data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json');
       const lotFrame = readRepo('data/research/glessner_house_1904_spec.json').lot.corners_lot_m;
       const k = gcp28.fit.coefficients;
@@ -16189,12 +16218,14 @@ for (const [label, viewport, touch] of [
         // scene places exactly one structure, and it is glessner_house. T-2266 added the
         // second 1904 record, the K01 frontage at 1808 Prairie, so the set is held by name
         // still: these two and nothing else. T-2306 added the third, the K13 conservatory bay
-        // on the Pullman house's east wing at 1729 Prairie.
+        // on the Pullman house's east wing at 1729 Prairie. T-2323 added the fourth, the K16
+        // timber front of the Shortall-Gregory house at 1638 Prairie (#668) — merged while
+        // every bake leg died ENOENT above this line, so nothing read the list (T-2331).
         const stray = Object.entries(at.drawn).filter(([name, n]) => n > 0 && name !== 'structures');
         // T-2329 added the district draft's west side of the 18th-20th block: eighteen
         // prairie_draft records, held by name with the rest.
         const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
-          'shortall_gregory_house_1638_prairie_front',   // T-2323's K16 front, which landed without its name here
+          'shortall_gregory_house_1638_prairie_front',
           'edson_keith_house_1906_prairie',
           'edson_keith_house_1906_prairie_coach_house',
           'elbridge_keith_house_1900_prairie',
@@ -16213,7 +16244,7 @@ for (const [label, viewport, touch] of [
           'moulton_lowden_house_1912_prairie_coach_house',
           'shed_1834_1900_prairie',
           'wheeler_house_1812_prairie'].sort();
-        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306)`,
+        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),
           `meshes: ${JSON.stringify(at.drawn)}; structures placed ${JSON.stringify(at.placed)}`);
