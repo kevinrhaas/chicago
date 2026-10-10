@@ -1157,8 +1157,8 @@
     },
     {
       "kind": "church",
-      "person_id": "beaubien_charles",
-      "household_id": "hh_beaubien_charles",
+      "person_id": "beaubien_charles_h",
+      "household_id": "hh_beaubien_charles_h",
       "record_id": "st_marys_bapt_1834_21_2_father",
       "why": "The source 'st_marys_baptismal_register_1833_1835' is not the one register this module can place. A church row needs a building, and St. Mary's is the only congregation in this dataset whose register has been read."
     },
