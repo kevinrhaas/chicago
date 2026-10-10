@@ -1,0 +1,1008 @@
+{
+  "_doc": "MEASURED, not authored: node tools/k01_contract.mjs --measure wrote this from the three canonical Glessner v4 GLBs by the rules in k01_contract.json (T-2265). The gate holds its hashes to docs/RESEARCH/glessner-v4-recovery/manifest.json, so a rebake that is not re-measured fails. A verdict that is not ok must name the ticket that owns it in `finding`; --measure carries an existing finding forward and never writes one.",
+  "contract": "data/components/prairie_1904/k01_contract.json",
+  "structure_id": "glessner_house",
+  "phase_id": "as_built_1887",
+  "tiers": {
+    "full": {
+      "path": "assets/gltf/glessner_house__as_built_1887.glb",
+      "bytes": 150670168,
+      "sha256": "eb00c3fc1c45f4b02733d662cbe0c2ada80cf955a7b78d73e987f76f41bd9ef7",
+      "generator": "Khronos glTF Blender I/O v4.5.48",
+      "extensions_required": [
+        "KHR_texture_transform"
+      ],
+      "nodes": [
+        {
+          "name": "glessner_house__as_built_1887",
+          "transform": []
+        }
+      ],
+      "mesh": {
+        "draw_primitives": 28,
+        "materials": 28,
+        "triangles": 1220197,
+        "vertices": 2825667
+      },
+      "texture": {
+        "images": 33,
+        "textures": 63,
+        "encoded_bytes": 23692784,
+        "pixels": 52952392,
+        "gpu_rgba8_mip_bytes": 282412757,
+        "largest_px": 2048
+      },
+      "bbox_m": {
+        "min": [
+          -0.4438,
+          -0.061,
+          -23.586
+        ],
+        "max": [
+          53.9405,
+          15.0449,
+          0.1337
+        ]
+      },
+      "envelope_bbox_m": {
+        "min": [
+          -0.2982,
+          1.0041,
+          -22.7108
+        ],
+        "max": [
+          49.259,
+          6,
+          0.07
+        ]
+      },
+      "wall_base_y_m": 0,
+      "below_grade_m": {
+        "drive": -0.06,
+        "lawn": -0.06,
+        "limestone_trim": -0.061,
+        "mortar": -0.025,
+        "rough_stone_trim": -0.022
+      },
+      "faces": {
+        "quantum_m": 0.001,
+        "degenerate": 14874,
+        "coincident": 15,
+        "same_winding": 4,
+        "back_to_back": 11,
+        "shared_across_primitives": 9
+      },
+      "metric_uv": {
+        "brick": {
+          "median_uv_per_m": 0.5209,
+          "fabric": "brick",
+          "tile_m": [
+            1.7272,
+            2.1336
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "brick_buff": {
+          "median_uv_per_m": 0.5209,
+          "fabric": "brick",
+          "tile_m": [
+            1.7272,
+            2.1336
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "brick_dark_red": {
+          "median_uv_per_m": 0.5209,
+          "fabric": "brick",
+          "tile_m": [
+            1.7272,
+            2.1336
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "brick_smoky": {
+          "median_uv_per_m": 0.5209,
+          "fabric": "brick",
+          "tile_m": [
+            1.7272,
+            2.1336
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "copper": {
+          "median_uv_per_m": 0.4167,
+          "fabric": "copper",
+          "tile_m": [
+            2.4,
+            2.4
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "drive": {
+          "median_uv_per_m": 0.5,
+          "fabric": "gravel",
+          "tile_m": [
+            2,
+            2
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "glass": {
+          "median_uv_per_m": 1
+        },
+        "glass_dark": {
+          "median_uv_per_m": 1
+        },
+        "granite": {
+          "median_uv_per_m": 0.625,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 1,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        },
+        "granite_1": {
+          "median_uv_per_m": 0.625,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 1,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        },
+        "granite_2": {
+          "median_uv_per_m": 0.625,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 1,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        },
+        "granite_3": {
+          "median_uv_per_m": 0.625,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 1,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        },
+        "granite_4": {
+          "median_uv_per_m": 0.625,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 1,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        },
+        "iron": {
+          "median_uv_per_m": 1
+        },
+        "lawn": {
+          "median_uv_per_m": 0.4167,
+          "fabric": "turf",
+          "tile_m": [
+            2.4,
+            2.4
+          ],
+          "uv_per_m_times_tile_m": 1,
+          "texture_transform_scale": [
+            0.6,
+            0.6
+          ]
+        },
+        "limestone_trim": {
+          "median_uv_per_m": 0.8333,
+          "fabric": "limestone",
+          "tile_m": [
+            1.2,
+            1.2
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "linen_blind": {
+          "median_uv_per_m": 1
+        },
+        "mortar": {
+          "median_uv_per_m": 0.8333,
+          "fabric": "mortar",
+          "tile_m": [
+            1.2,
+            1.2
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "oak": {
+          "median_uv_per_m": 0.7217,
+          "fabric": "oak",
+          "tile_m": [
+            0.8,
+            2.4
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "painted_wood": {
+          "median_uv_per_m": 0.7217,
+          "fabric": "painted_wood",
+          "tile_m": [
+            0.8,
+            2.4
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "roof_plane": {
+          "median_uv_per_m": 0.4492,
+          "fabric": "roof_tiles",
+          "tile_m": [
+            2.4383999999999997,
+            2.032
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "roof_plane_1": {
+          "median_uv_per_m": 0.4583,
+          "fabric": "terracotta",
+          "tile_m": [
+            2.4384,
+            1.95072
+          ],
+          "uv_per_m_times_tile_m": 0.9994
+        },
+        "roof_plane_2": {
+          "median_uv_per_m": 0.4583,
+          "fabric": "terracotta",
+          "tile_m": [
+            2.4384,
+            1.95072
+          ],
+          "uv_per_m_times_tile_m": 0.9994
+        },
+        "roof_plane_3": {
+          "median_uv_per_m": 0.4583,
+          "fabric": "terracotta",
+          "tile_m": [
+            2.4384,
+            1.95072
+          ],
+          "uv_per_m_times_tile_m": 0.9994
+        },
+        "rough_stone_trim": {
+          "median_uv_per_m": 0.625,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 1,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        }
+      },
+      "origin": {
+        "footprint_plan_m": {
+          "x": [
+            0,
+            49.149
+          ],
+          "z": [
+            -22.555,
+            0
+          ]
+        },
+        "overhang_m": {
+          "west": 0.2982,
+          "east": 0.11,
+          "north": 0.1558,
+          "south": 0.07
+        },
+        "base_y_m": 0,
+        "ok": true
+      }
+    },
+    "web": {
+      "path": "assets/web/glessner_house__as_built_1887.glb",
+      "bytes": 52071720,
+      "sha256": "4fcdfbf3997590111dc7da421ae9f80f44d0525b999e573ec61744578ed8a09b",
+      "generator": "glTF-Transform v4.5.0",
+      "extensions_required": [
+        "EXT_meshopt_compression",
+        "KHR_mesh_quantization",
+        "KHR_texture_transform"
+      ],
+      "nodes": [
+        {
+          "name": "glessner_house__as_built_1887",
+          "transform": [
+            "translation",
+            "scale"
+          ]
+        }
+      ],
+      "mesh": {
+        "draw_primitives": 28,
+        "materials": 28,
+        "triangles": 1220197,
+        "vertices": 2802655
+      },
+      "texture": {
+        "images": 32,
+        "textures": 32,
+        "encoded_bytes": 23760328,
+        "pixels": 51903816,
+        "gpu_rgba8_mip_bytes": 276820352,
+        "largest_px": 2048
+      },
+      "bbox_m": {
+        "min": [
+          -0.4438,
+          -0.0606,
+          -23.5857
+        ],
+        "max": [
+          53.9405,
+          15.0445,
+          0.1334
+        ]
+      },
+      "envelope_bbox_m": {
+        "min": [
+          -0.2986,
+          1.0041,
+          -22.7111
+        ],
+        "max": [
+          49.2592,
+          5.9999,
+          0.0704
+        ]
+      },
+      "wall_base_y_m": -0.0001,
+      "below_grade_m": {
+        "drive": -0.0598,
+        "granite": -0.0001,
+        "lawn": -0.0598,
+        "limestone_trim": -0.0606,
+        "mortar": -0.025,
+        "oak": -0.0001,
+        "rough_stone_trim": -0.0216
+      },
+      "faces": {
+        "quantum_m": 0.001,
+        "degenerate": 16715,
+        "coincident": 40,
+        "same_winding": 4,
+        "back_to_back": 36,
+        "shared_across_primitives": 9
+      },
+      "metric_uv": {
+        "brick": {
+          "median_uv_per_m": 0.5208,
+          "fabric": "brick",
+          "tile_m": [
+            1.7272,
+            2.1336
+          ],
+          "uv_per_m_times_tile_m": 0.9997
+        },
+        "brick_buff": {
+          "median_uv_per_m": 0.5209,
+          "fabric": "brick",
+          "tile_m": [
+            1.7272,
+            2.1336
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "brick_dark_red": {
+          "median_uv_per_m": 0.5209,
+          "fabric": "brick",
+          "tile_m": [
+            1.7272,
+            2.1336
+          ],
+          "uv_per_m_times_tile_m": 0.9999
+        },
+        "brick_smoky": {
+          "median_uv_per_m": 0.5206,
+          "fabric": "brick",
+          "tile_m": [
+            1.7272,
+            2.1336
+          ],
+          "uv_per_m_times_tile_m": 0.9994
+        },
+        "copper": {
+          "median_uv_per_m": 0.4171,
+          "fabric": "copper",
+          "tile_m": [
+            2.4,
+            2.4
+          ],
+          "uv_per_m_times_tile_m": 1.0011
+        },
+        "drive": {
+          "median_uv_per_m": 0.5,
+          "fabric": "gravel",
+          "tile_m": [
+            2,
+            2
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "granite": {
+          "median_uv_per_m": 0.6254,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 1.0006,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        },
+        "granite_1": {
+          "median_uv_per_m": 0.6243,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 0.9989,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        },
+        "granite_2": {
+          "median_uv_per_m": 0.6243,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 0.9989,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        },
+        "granite_3": {
+          "median_uv_per_m": 0.6243,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 0.9989,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        },
+        "granite_4": {
+          "median_uv_per_m": 0.6243,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 0.9989,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        },
+        "lawn": {
+          "median_uv_per_m": 0.4178,
+          "fabric": "turf",
+          "tile_m": [
+            2.4,
+            2.4
+          ],
+          "uv_per_m_times_tile_m": 1.0027,
+          "texture_transform_scale": [
+            0.6,
+            0.6
+          ]
+        },
+        "limestone_trim": {
+          "median_uv_per_m": 0.8319,
+          "fabric": "limestone",
+          "tile_m": [
+            1.2,
+            1.2
+          ],
+          "uv_per_m_times_tile_m": 0.9983
+        },
+        "mortar": {
+          "median_uv_per_m": 0.8333,
+          "fabric": "mortar",
+          "tile_m": [
+            1.2,
+            1.2
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "oak": {
+          "median_uv_per_m": 0.7229,
+          "fabric": "oak",
+          "tile_m": [
+            0.8,
+            2.4
+          ],
+          "uv_per_m_times_tile_m": 1.0017
+        },
+        "painted_wood": {
+          "median_uv_per_m": 0.723,
+          "fabric": "painted_wood",
+          "tile_m": [
+            0.8,
+            2.4
+          ],
+          "uv_per_m_times_tile_m": 1.0018
+        },
+        "roof_plane": {
+          "median_uv_per_m": 0.4493,
+          "fabric": "roof_tiles",
+          "tile_m": [
+            2.4383999999999997,
+            2.032
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "roof_plane_1": {
+          "median_uv_per_m": 0.4583,
+          "fabric": "terracotta",
+          "tile_m": [
+            2.4384,
+            1.95072
+          ],
+          "uv_per_m_times_tile_m": 0.9995
+        },
+        "roof_plane_2": {
+          "median_uv_per_m": 0.4583,
+          "fabric": "terracotta",
+          "tile_m": [
+            2.4384,
+            1.95072
+          ],
+          "uv_per_m_times_tile_m": 0.9995
+        },
+        "roof_plane_3": {
+          "median_uv_per_m": 0.4583,
+          "fabric": "terracotta",
+          "tile_m": [
+            2.4384,
+            1.95072
+          ],
+          "uv_per_m_times_tile_m": 0.9995
+        },
+        "rough_stone_trim": {
+          "median_uv_per_m": 0.625,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 1,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        }
+      },
+      "origin": {
+        "footprint_plan_m": {
+          "x": [
+            0,
+            49.149
+          ],
+          "z": [
+            -22.555,
+            0
+          ]
+        },
+        "overhang_m": {
+          "west": 0.2986,
+          "east": 0.1102,
+          "north": 0.1561,
+          "south": 0.0704
+        },
+        "base_y_m": -0.0001,
+        "ok": true
+      }
+    },
+    "light": {
+      "path": "assets/web/glessner_house__as_built_1887.light.glb",
+      "bytes": 27014548,
+      "sha256": "df70b42550f418da47666a0cd3ab1dd031e1015f0aaf471b28e90d912dce4035",
+      "generator": "glTF-Transform v4.5.0",
+      "extensions_required": [
+        "EXT_meshopt_compression",
+        "KHR_mesh_quantization",
+        "KHR_texture_transform"
+      ],
+      "nodes": [
+        {
+          "name": "glessner_house__as_built_1887.light",
+          "transform": [
+            "translation",
+            "scale"
+          ]
+        }
+      ],
+      "mesh": {
+        "draw_primitives": 25,
+        "materials": 25,
+        "triangles": 199744,
+        "vertices": 389567
+      },
+      "texture": {
+        "images": 32,
+        "textures": 32,
+        "encoded_bytes": 23760328,
+        "pixels": 51903816,
+        "gpu_rgba8_mip_bytes": 276820352,
+        "largest_px": 2048
+      },
+      "bbox_m": {
+        "min": [
+          -0.442,
+          -0.0612,
+          -23.5862
+        ],
+        "max": [
+          53.9405,
+          15.0451,
+          0.1371
+        ]
+      },
+      "envelope_bbox_m": {
+        "min": [
+          -0.2885,
+          1.0043,
+          -22.6908
+        ],
+        "max": [
+          49.2594,
+          5.9966,
+          0.06
+        ]
+      },
+      "wall_base_y_m": 0.0002,
+      "below_grade_m": {
+        "drive": -0.0604,
+        "lawn": -0.0604,
+        "limestone_trim": -0.0612,
+        "mortar": -0.0247,
+        "rough_stone_trim": -0.0222
+      },
+      "faces": {
+        "quantum_m": 0.001,
+        "degenerate": 674,
+        "coincident": 8,
+        "same_winding": 0,
+        "back_to_back": 8,
+        "shared_across_primitives": 0
+      },
+      "metric_uv": {
+        "brick": {
+          "median_uv_per_m": 0.5207,
+          "fabric": "brick",
+          "tile_m": [
+            1.7272,
+            2.1336
+          ],
+          "uv_per_m_times_tile_m": 0.9995
+        },
+        "brick_buff": {
+          "median_uv_per_m": 0.5206,
+          "fabric": "brick",
+          "tile_m": [
+            1.7272,
+            2.1336
+          ],
+          "uv_per_m_times_tile_m": 0.9994
+        },
+        "brick_dark_red": {
+          "median_uv_per_m": 0.5206,
+          "fabric": "brick",
+          "tile_m": [
+            1.7272,
+            2.1336
+          ],
+          "uv_per_m_times_tile_m": 0.9995
+        },
+        "brick_smoky": {
+          "median_uv_per_m": 0.5205,
+          "fabric": "brick",
+          "tile_m": [
+            1.7272,
+            2.1336
+          ],
+          "uv_per_m_times_tile_m": 0.9991
+        },
+        "copper": {
+          "median_uv_per_m": 0.4172,
+          "fabric": "copper",
+          "tile_m": [
+            2.4,
+            2.4
+          ],
+          "uv_per_m_times_tile_m": 1.0013
+        },
+        "drive": {
+          "median_uv_per_m": 0.5,
+          "fabric": "gravel",
+          "tile_m": [
+            2,
+            2
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "granite": {
+          "median_uv_per_m": 0.6251,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 1.0001,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        },
+        "granite_1": {
+          "median_uv_per_m": 0.625,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 1,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        },
+        "granite_2": {
+          "median_uv_per_m": 0.625,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 1,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        },
+        "granite_3": {
+          "median_uv_per_m": 0.625,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 0.9999,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        },
+        "granite_4": {
+          "median_uv_per_m": 0.625,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 1,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        },
+        "lawn": {
+          "median_uv_per_m": 0.4163,
+          "fabric": "turf",
+          "tile_m": [
+            2.4,
+            2.4
+          ],
+          "uv_per_m_times_tile_m": 0.999,
+          "texture_transform_scale": [
+            0.6,
+            0.6
+          ]
+        },
+        "limestone_trim": {
+          "median_uv_per_m": 0.8334,
+          "fabric": "limestone",
+          "tile_m": [
+            1.2,
+            1.2
+          ],
+          "uv_per_m_times_tile_m": 1.0001
+        },
+        "mortar": {
+          "median_uv_per_m": 0.8333,
+          "fabric": "mortar",
+          "tile_m": [
+            1.2,
+            1.2
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "oak": {
+          "median_uv_per_m": 0.7228,
+          "fabric": "oak",
+          "tile_m": [
+            0.8,
+            2.4
+          ],
+          "uv_per_m_times_tile_m": 1.0015
+        },
+        "painted_wood": {
+          "median_uv_per_m": 0.7223,
+          "fabric": "painted_wood",
+          "tile_m": [
+            0.8,
+            2.4
+          ],
+          "uv_per_m_times_tile_m": 1.0008
+        },
+        "roof_plane": {
+          "median_uv_per_m": 0.4492,
+          "fabric": "roof_tiles",
+          "tile_m": [
+            2.4383999999999997,
+            2.032
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "roof_plane_1": {
+          "median_uv_per_m": 0.4578,
+          "fabric": "terracotta",
+          "tile_m": [
+            2.4384,
+            1.95072
+          ],
+          "uv_per_m_times_tile_m": 0.9984
+        },
+        "roof_plane_2": {
+          "median_uv_per_m": 0.4579,
+          "fabric": "terracotta",
+          "tile_m": [
+            2.4384,
+            1.95072
+          ],
+          "uv_per_m_times_tile_m": 0.9987
+        },
+        "roof_plane_3": {
+          "median_uv_per_m": 0.4567,
+          "fabric": "terracotta",
+          "tile_m": [
+            2.4384,
+            1.95072
+          ],
+          "uv_per_m_times_tile_m": 0.9961
+        },
+        "rough_stone_trim": {
+          "median_uv_per_m": 0.6249,
+          "fabric": "granite",
+          "tile_m": [
+            1.6,
+            1.6
+          ],
+          "uv_per_m_times_tile_m": 0.9999,
+          "texture_transform_scale": [
+            7.2727,
+            7.2727
+          ]
+        }
+      },
+      "origin": {
+        "footprint_plan_m": {
+          "x": [
+            0,
+            49.149
+          ],
+          "z": [
+            -22.555,
+            0
+          ]
+        },
+        "overhang_m": {
+          "west": 0.2885,
+          "east": 0.1104,
+          "north": 0.1358,
+          "south": 0.06
+        },
+        "base_y_m": 0.0002,
+        "ok": true
+      }
+    }
+  },
+  "verdicts": {
+    "scale_drift": {
+      "ok": true,
+      "against": "full",
+      "tiers": {
+        "web": {
+          "scale_ratio_minus_1": [
+            0,
+            -0.000053,
+            -0.000025
+          ],
+          "wall_face_shift_m": [
+            -0.0004,
+            0.0002,
+            -0.0003,
+            0.0004
+          ],
+          "ok": true
+        },
+        "light": {
+          "scale_ratio_minus_1": [
+            -0.000033,
+            0.000026,
+            0.000152
+          ],
+          "wall_face_shift_m": [
+            0.0097,
+            0.0004,
+            0.02,
+            -0.01
+          ],
+          "ok": true
+        }
+      }
+    },
+    "origin": {
+      "ok": true
+    },
+    "coincident_faces": {
+      "ok": false,
+      "counts": {
+        "full": 15,
+        "web": 40,
+        "light": 8
+      },
+      "finding": "T-2267. Measured on the asset as T-2205 left it (ridge caps, finials and roof edges refined). Full master: 15 coincident triangles. Six are limestone_trim on the Prairie Avenue (east) front near x 49.2-49.4 m, four doubled (same winding) and two back to back, small slivers at y 3.36-3.55 m and on one ledge at y 7.50 m; they predate T-2205. Nine are back to back between roof_plane_1 and roof_plane_2 in the plane x = 11.54 m, y 10.33-10.59 m, z -17.97 to -18.24 m: the hidden end face where one of T-2205's new roof parts meets another. The web tier, quantized to about 0.83 mm, has 40 (36 back to back); the light tier 8, all back to back. The canonical asset is preserved here, as T-1843 requires; T-2267 owns regenerating it without them, and a component built to this contract may emit none (coincident_faces_allowed_new = 0)."
+    },
+    "metric_uv": {
+      "ok": true,
+      "off": []
+    }
+  }
+}
