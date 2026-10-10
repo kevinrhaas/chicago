@@ -288,6 +288,11 @@ it to the attested instances.
 >   skip it until it is answered (on Manager's 4D Board, one click). Prefer this to
 >   `block --owner`, which took the ticket out of the queue where nobody saw it.
 > - Edited a ticket body by hand (a finding added)? `node tools/ticket.mjs sync -m "…"`.
+> - **A command commits only what it was asked to change** (T-2280). Every other mutating
+>   command refuses while the clone holds a local edit to a ticket it does not name, and
+>   lists the files: publish them with `sync -m`, or `git -C tickets stash` them. Before
+>   this, `pushTickets`' `git add -A` published them under the command's own message —
+>   `done T-1205` (b679d90) reverted a scratch copy of T-1171 to `claimed` for a week.
 
 **`tickets/` is the single operational answer to "what next".** The owner asked for it
 directly: his requests were getting lost inside an 11,000-line ROADMAP, and he could not

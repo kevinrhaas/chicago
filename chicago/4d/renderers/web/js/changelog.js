@@ -1,8 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1608, ts: '2026-10-10T03:36:46.043Z', date: 'Oct 9, 2026, 10:36 PM CT', title: 'Glessner House rebuilt without its hidden doubled faces', kind: 'fix',
+  { v: 1611, ts: '2026-10-10T03:37:15.393Z', date: 'Oct 9, 2026, 10:37 PM CT', title: 'Glessner House rebuilt without its hidden doubled faces', kind: 'fix',
     items: [
       'Go close to the carved leaves over the Prairie Avenue entrance and on the porch capitals. Their roots and tips now close cleanly, where thin slivers used to lie on top of each other. The change is a few pixels at the leaf tips. Nothing else on the house moves.',
       'Two hidden faults are also gone: doubled end caps inside the roof ridge, and doubled ends in the copper flashing round the chimneys. The detailed house is about 10,000 triangles lighter and its downloads are slightly smaller.',
+    ] },
+  { v: 1610, ts: '2026-10-10T03:02:42.351Z', date: 'Oct 9, 2026, 10:02 PM CT', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
+    items: [
+      'Nothing you can see changes. Where a household\u2019s dated home was copied from the old single home line, it now also carries that line\u2019s own reasoning and what would replace it, so the seat a card shows no longer depends on the old line.',
+      'The garrison\u2019s eleven households keep their own \u201cWould move it up the ladder\u201d line, a plan of the post that assigns its quarters, and every seat in the town reads exactly as before.',
+    ] },
+  { v: 1609, ts: '2026-10-10T02:48:43.449Z', date: 'Oct 9, 2026, 9:48 PM CT', title: 'Closing one task no longer quietly reopens another', kind: 'fix',
+    items: [
+      'Nothing you can see changes. When the build loop marks a task finished, it now records only that task. A week ago, finishing one task also published a private scratch edit to another, which put already-finished work back on the to-do list. That task is closed again.',
+    ] },
+  { v: 1608, ts: '2026-10-10T02:34:31.860Z', date: 'Oct 9, 2026, 9:34 PM CT', title: 'The groundwork for people in the town: one skeleton, one rulebook', kind: 'change',
+    items: [
+      'Nothing you can see changes, and no person is drawn: the town still shows no human figures, for anyone, until that rule is lifted.',
+      'Every future figure now shares one skeleton, one set of clothing slots, facial expressions and movement names. It is built once in Blender, shown first in this browser, and exportable to Unreal later. Each figure is tied to the person card it depicts and says how much of its look is evidence and how much is invented.',
+      'A figure that would need review before being shown keeps that flag, and any figure asking to be shown is refused while the no-figures rule stands.',
     ] },
   { v: 1607, ts: '2026-10-10T02:18:30.123Z', date: 'Oct 9, 2026, 9:18 PM CT', title: 'Prairie Avenue’s building parts get one set of measurements', kind: 'change',
     items: [
