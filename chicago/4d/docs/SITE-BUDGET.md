@@ -272,6 +272,29 @@ branch, on the steward runner: **12.780 MB across 1474 requests**, 0.22 MB insid
 no household file requested at boot; and **12.887 MB across 1500** once T-2148's West blocks
 merged beneath it the same hour, 0.11 MB inside. The town is still growing into this budget
 faster than its cuts come out of it. The panel files named above are the next lever.
+**Taken by T-2315 (2026-10-10): the boot sidecars travel packed.** Dev @ `031535d99`
+measured **14.513 MB across 1615 requests**, 1.51 MB over. Bisected on the steward runner,
+first-parent over dev: T-2146 (`64e14c76d`, thirteen School Section houses) is the merge that
+crossed the line, 12.978 → 13.096 MB. The largest single step since was T-2278 (`ecf8a0195`,
+doors and windows on every 1835 building, every structure rebaked): +0.759 MB of `.glb`,
+13.535 → 14.294 MB. Neither was waste; the town grew. The waste was in how the records
+travelled. Every one of the 686 sidecars was its own request and its own gzip stream, so a
+value the town repeats was paid for once per record. And it repeats a lot: 1,505 citations
+across 689 records are 58 distinct sources, and the reconstructed roofs share their
+attribute reasoning family by family. Nothing could come off the boot path instead: a card
+draws its citations and its `why` toggles the moment it opens, and the smoke reads them in
+the same tick. So `publish.sh` now runs `tools/pack_boot_sidecars.mjs`. It ships every
+string or object of 60+ characters that 3+ records carry once, in
+`sidecars/<scene>/boot/shared.json`, and the records fifty to a file in `boot/part-<n>.json`
+by index row, each shared value replaced by `{ "$shared": n }`. The shipped `index.json`
+gains `boot: { shared, dir, per_part }`, so the loader never probes. `scene-loader.js`
+rehydrates each record before anything else sees it, so the registry holds what the record's
+own URL holds, key for key. That URL is untouched and still readable (§6). A version-pointed
+structure (T-1727) loads its file whole. `pack_boot_sidecars.mjs --check` (in check.sh)
+rehydrates every boot copy with the loader's function and compares it to the record. The
+sidecar folder went **3.739 MB / 694 requests → 1.269 MB / 23**. Measured on the branch:
+**12.044 MB across 944 requests**, 0.96 MB inside 13 MB. The panel files named above are
+still the next lever after this one.
 Behind it are the other panel files a first visit fetches before
 any panel is opened: `reconstruction/1835_address_book.json` (0.161 MB),
 `residents/employment_coverage.json`, `reconstruction/1835_population_profile.json`,
