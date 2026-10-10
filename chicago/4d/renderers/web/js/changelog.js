@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A lumber shed on the South Branch below Washington Street', kind: 'feature',
+  { v: 1606, ts: '2026-10-10T01:48:43.701Z', date: 'Oct 9, 2026, 8:48 PM CT', title: 'A lumber shed on the South Branch below Washington Street', kind: 'feature',
     items: [
       'Walk down Market Street south of Washington and look toward the river. A long plank shed now stands on the bank, open along one side, facing the South Branch. It is the town\u2019s first lumber shed.',
       'The Chicago Democrat shows lumber reaching Chicago by boat, from St. Joseph\u2019s sawmills and a yard on South Water Street. So the shed stands where boards would come off a schooner.',
