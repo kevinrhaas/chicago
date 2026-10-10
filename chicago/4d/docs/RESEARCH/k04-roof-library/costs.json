@@ -1,0 +1,130 @@
+{
+  "fabrics": [
+    {
+      "id": "slate_pennsylvania",
+      "resolution_px": 512,
+      "px_per_m": [
+        251.97,
+        296.43
+      ],
+      "master_bytes": 550773,
+      "web_bytes": 104810,
+      "gpu_bytes_estimate": 4194304
+    },
+    {
+      "id": "slate_vermont",
+      "resolution_px": 512,
+      "px_per_m": [
+        248.86,
+        268.77
+      ],
+      "master_bytes": 583946,
+      "web_bytes": 109141,
+      "gpu_bytes_estimate": 4194304
+    },
+    {
+      "id": "slate_fishscale",
+      "resolution_px": 512,
+      "px_per_m": [
+        251.97,
+        310.12
+      ],
+      "master_bytes": 675908,
+      "web_bytes": 119866,
+      "gpu_bytes_estimate": 4194304
+    },
+    {
+      "id": "terracotta_flat_tile",
+      "resolution_px": 512,
+      "px_per_m": [
+        209.97,
+        251.97
+      ],
+      "master_bytes": 848725,
+      "web_bytes": 153124,
+      "gpu_bytes_estimate": 4194304
+    },
+    {
+      "id": "copper_standing_seam",
+      "resolution_px": 512,
+      "px_per_m": [
+        251.97,
+        209.97
+      ],
+      "master_bytes": 480522,
+      "web_bytes": 59781,
+      "gpu_bytes_estimate": 4194304
+    },
+    {
+      "id": "tin_standing_seam_painted",
+      "resolution_px": 512,
+      "px_per_m": [
+        251.97,
+        239.97
+      ],
+      "master_bytes": 491841,
+      "web_bytes": 64328,
+      "gpu_bytes_estimate": 4194304
+    },
+    {
+      "id": "tin_flat_seam_painted",
+      "resolution_px": 512,
+      "px_per_m": [
+        251.97,
+        239.97
+      ],
+      "master_bytes": 566600,
+      "web_bytes": 70109,
+      "gpu_bytes_estimate": 4194304
+    },
+    {
+      "id": "copper_sheet",
+      "resolution_px": 512,
+      "px_per_m": [
+        426.67,
+        426.67
+      ],
+      "master_bytes": 573920,
+      "web_bytes": 39376,
+      "gpu_bytes_estimate": 4194304
+    },
+    {
+      "id": "lead_sheet",
+      "resolution_px": 512,
+      "px_per_m": [
+        426.67,
+        426.67
+      ],
+      "master_bytes": 527064,
+      "web_bytes": 46846,
+      "gpu_bytes_estimate": 4194304
+    },
+    {
+      "id": "zinc_sheet",
+      "resolution_px": 512,
+      "px_per_m": [
+        426.67,
+        426.67
+      ],
+      "master_bytes": 594459,
+      "web_bytes": 48492,
+      "gpu_bytes_estimate": 4194304
+    },
+    {
+      "id": "painted_tin_sheet",
+      "resolution_px": 512,
+      "px_per_m": [
+        426.67,
+        426.67
+      ],
+      "master_bytes": 579066,
+      "web_bytes": 40415,
+      "gpu_bytes_estimate": 4194304
+    }
+  ],
+  "total": {
+    "master_bytes": 6472824,
+    "web_bytes": 856288,
+    "gpu_bytes_estimate": 46137344
+  }
+}

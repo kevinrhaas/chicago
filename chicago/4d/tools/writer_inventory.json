@@ -63,6 +63,12 @@
       "measured": "2026-10-08",
       "finding": "Run bare it prints the family pass's ruling tally over the remainder registers (65 units under its rules), exits 0 and writes nothing (git status --porcelain identical before and after); --check rebuilds the registers in memory and compares the authored rulings to the units they reach, writing nothing. It declares no write mode: the rulings it reads are authored in data/research/family_pass_rulings.json and the registers that carry them are written by tools/spend_remainder_rulings.py (T-1335)."
     },
+    "check_roof_library.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check and --self-test read the K04 data file, the library's material.json files, manifest and PNGs and data/sources/, and write nothing (git status --porcelain identical before and after). It declares no write mode: the maps are written by assets/textures/prairie_1904_roofs/tools/generate_prairie_1904_roofs.py, which no gate step runs (T-2292)."
+    },
     "check_frontage_notes.py": {
       "placement": "not_a_writer",
       "write_mode": null,

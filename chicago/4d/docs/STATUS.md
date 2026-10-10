@@ -813,7 +813,7 @@ branch with its back 3.0 m inside Market's west line; the first is 3.0 m north o
 line, the second 6.0 m north of the first. 23.50 m and 21.43 m from the traced water, 0.12 m and
 0.18 m of relief, 26 m from T-2269's lumber shed, which landed beside them first. Written by the new
 `tools/generate_south_freight.py` from `data/reconstruction/1835_south_freight_bank.json` on the
-`bank_landing` clause (T-2022), baked (`tools/bake.sh --only`), L412 records them. Order book:
+`bank_landing` clause (T-2022), baked (`tools/bake.sh --only`), L415 records them. Order book:
 South `warehouses_freight/street_line` 10/10 — the cell is closed.
 
 **What it found (T-2175, split into T-2268 and T-2269).** T-2175's premise had gone: the schedule
