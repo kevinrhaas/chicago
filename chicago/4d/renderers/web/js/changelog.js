@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1639, ts: '2026-10-10T09:45:40.719Z', date: 'Oct 10, 2026, 4:45 AM CT', title: 'A cabin and a merchant\'s house finish the block south of Monroe', kind: 'feature',
+    items: [
+      'Walk south across Monroe Street on Market to the far end of the first School Section block. Its two east corners now have houses: a one-room log cabin facing Monroe and a merchant\'s frame house facing Adams.',
+      'Open them and their cards name the Vieaux household in the cabin and the Church household in the house. Both were waiting for a lot on this block.',
+      'Both are reconstructions. The state sold these lots in 1833, but no record shows what stood on them in 1835.',
+      'No household dealt a lot in the town is still waiting for its house. The two Market Street corners of the block stay open.',
+    ] },
   { v: 1638, ts: '2026-10-10T09:07:58.320Z', date: 'Oct 10, 2026, 4:07 AM CT', title: 'Wall and boardwalk grain now lines up with its relief', kind: 'fix',
     items: [
       'On every clapboard and log wall, and on the plank walks along the trading frontages, the wood\'s colour, shine and shading were drawn upside down against its raised grain, so a knot\'s dark mark and its raised bump sat in different places.',
