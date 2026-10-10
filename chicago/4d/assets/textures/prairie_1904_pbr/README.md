@@ -8,7 +8,9 @@ curbs and parkways of the 1904 Prairie Avenue scene. It follows the 1835 library
 ## What each folder holds
 
 - `*_basecolor.png` — sRGB colour, no baked lighting
-- `*_normal_gl.png` / `*_normal_dx.png` — OpenGL (+Y) and DirectX (−Y) normals, linear
+- `*_normal_gl.png` / `*_normal_dx.png` — OpenGL (+Y) and DirectX (−Y) normals, linear. +Y is
+  UP the image, so the OpenGL green rises where height rises toward the bottom row. Until
+  T-2296 the two were swapped; `tools/check_street_surfaces.py --handedness` holds the sign
 - `*_roughness.png`, `*_ao.png`, `*_metallic.png` — linear greyscale
 - `*_height16.png` — 16-bit linear height
 - `*_orm.png` — R = AO, G = roughness, B = metallic
