@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1654, ts: '2026-10-10T17:17:39.827Z', date: 'Oct 10, 2026, 12:17 PM CT', title: '1808 Prairie gains a curved front bay and a canted rear bay', kind: 'feature',
+    items: [
+      'In 1904, the house south of Glessner now has a two-storey curved bay on the south side of its stone front, with three curved sashes on each floor under a low copper roof.',
+      'Its brick rear has a two-storey canted bay, a window in every face, stone bands and sills, and a low tin roof.',
+      'Both are built from the new bay kit. Up close the curved glass and stone read as a curve, not facets.',
+      'Both are reconstructions. A record of 1888 mentions a curved bay on the front, but nothing shows the rear.',
+    ] },
   { v: 1653, ts: '2026-10-10T16:42:48.371Z', date: 'Oct 10, 2026, 11:42 AM CT', title: '1808 Prairie gets a real front door and stoop', kind: 'feature',
     items: [
       'The house beside Glessner now has a real front door from the new entrance kit. The four-panel door sits in a deep reveal under a glazed transom, with a dark hall behind the glass.',
