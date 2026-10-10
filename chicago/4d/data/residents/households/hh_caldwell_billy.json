@@ -66,7 +66,10 @@
    "undated": true,
    "tier": "inferred",
    "source_id": "andreas_1884_v1",
-   "note": "The agency's interpreter worked where the agency's business was done, and the government blacksmith shop this dataset holds stands beside the agency house. Inferred: no source puts this man in this building. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_caldwell_billy#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+   "note": "The agency's interpreter worked where the agency's business was done, and the government blacksmith shop this dataset holds stands beside the agency house. Inferred: no source puts this man in this building. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_caldwell_billy#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
+   "basis": {
+    "note": "The agency's interpreter worked where the agency's business was done, and the government blacksmith shop this dataset holds stands beside the agency house. Inferred: no source puts this man in this building."
+   }
   }
  ],
  "present_on_scene_date": {
