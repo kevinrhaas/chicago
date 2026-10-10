@@ -186,9 +186,15 @@ HOUSEHOLD_TYPES = (
 # still owed: firms whose partner the town holds no card for, and the firmless west store.
 FAMILY_OWNER = "T-2187"
 # T-2193 counted the held heads and is done. T-1645 (2026-10-09) took the letter-list
-# households off the platted deal's roofs, so two fewer South heads stand under a dealt
-# dwelling than the South's family_dwelling order has room for; T-2256 owns those two.
+# households off the platted deal's roofs, and the South's held heads fell ten short of its
+# family_dwelling order (157 against room for 167). T-2256 discharged those ten on the
+# book's own rule 2 (`waiting_families_ruling` below): the town holds families present on
+# the scene date with no division and no roof, so it may not order their replacement. The
+# rows read 0 left and keep T-2256's id as the ticket that settled them (T-1420); one that
+# owes again is a reopened order the work-order gate names.
 FAMILY_HOUSEHOLD_OWNER = "T-2256"
+HELD_HEAD_TICKET = "T-2193"
+WAITING_FAMILIES_TICKET = "T-2256"
 STORE_RULING_TICKET = "T-2194"
 STORE_RESIDENCE_FILLER = "T-2236"
 STORE_ELSEWHERE_TICKET = "T-2244"
@@ -1058,7 +1064,47 @@ def load(root: Path = ROOT) -> dict:
     # T-2246: and those whose house of trade has no keeper the town holds a card for.
     out["stores_keeper_not_held"] = (keepers.get("keeper_not_held") or {}).get(
         "by_division") or {}
+    # T-2256: the held heads under a standing dwelling, by division (T-2193's ledger, the
+    # counted and the past alike), and the held families the census ceiling left waiting on
+    # a roof. A fixture tree has neither, and discharges none.
+    ledger = root / "data" / "reconstruction" / "1835_held_head_dwellings.json"
+    if ledger.exists() and seats.exists():
+        rows = json.loads(ledger.read_text(encoding="utf-8"))
+        out["family_held_by_division"] = dict(Counter(
+            r["division"] for r in (rows.get("counted") or []) + (rows.get("not_counted") or [])))
+        from name_the_keepers_1835 import is_letter_list  # T-1645's predicate, not a copy
+        awaiting = set(records_awaiting_a_household(out["residents"], out["presence_rulings"]))
+        apart = json.loads(seats.read_text(encoding="utf-8")).get("counted_apart") or []
+        division = {hh["id"]: hh.get("division") for hh in out["residents"]["households"]}
+        out["families_waiting_on_a_roof"] = waiting_families(
+            apart, awaiting, division,
+            lambda row: is_letter_list(json.loads(
+                (root / "data" / "residents" / row["file"]).read_text(encoding="utf-8"))))
     return out
+
+
+def waiting_families(counted_apart: list, awaiting: set, division: dict,
+                     letter_list) -> dict[str, int]:
+    """T-2256: the held families the housing deal stood in line behind the census ceiling.
+
+    A row of the housing seats' `counted_apart` counts when ALL of these hold: the deal
+    wrote it `waiting_on_a_roof` (present, owed a roof, stopped by the ceiling — not an
+    absence); the book reads the record as AWAITING A HOUSEHOLD (a record the book already
+    counts as a house is known, and counting it here would discharge its cell twice); it
+    is a FAMILY, two people or more, because a single person takes a bed or boards on the
+    deal's third rung and is never a household of their own there; and it is not a
+    household the owner's letter-list ruling of 2026-08-30 (T-0379) refuses a roof.
+
+    Counted by the division the index records, and `unplaced` where it records none — which
+    on 2026-10-09 is every one of them: the deal offers an unplaced household the whole
+    town, and the line stopped before it reached them."""
+    out = Counter()
+    for row in counted_apart:
+        if (row.get("why") == "waiting_on_a_roof" and row["household"] in awaiting
+                and int(row.get("persons") or 0) >= 2 and not letter_list(row)):
+            d = division.get(row["household"])
+            out[d if d in CIVIL_DIVISIONS else "unplaced"] += 1
+    return dict(sorted(out.items()))
 
 
 def adult_men_on_the_cards(residents: dict, rulings: dict, folder: Path) -> dict:
@@ -1277,6 +1323,93 @@ def store_residence_ruling(households: list, structures: list,
                                  "not count the households outside the index: T-2237 "
                                  "counts those beside the held heads "
                                  "(count_held_head_dwellings_1835.py, `beyond_the_index`).",
+    }
+
+
+def waiting_families_ruling(households: list, fills: list, held: dict | None,
+                            waiting: dict | None) -> dict | None:
+    """T-2256: the family_dwelling order the held heads cannot fill, set against the held
+    families waiting on a roof. In place.
+
+    The family cells are filled by houses the town already forms (T-2193's held heads under
+    a standing dwelling) and by the houses the women-and-children stage drew. Where a
+    division's held heads run out before its order does, what is left is not a household the
+    town lacks: the housing deal holds families present on the scene date that it could not
+    seat because the census's people per dwelling stopped its line (`waiting_on_a_roof`), and
+    the index records no division for them. The book's rule 2 already says what such people
+    are — somebody standing in the town whom the layer cannot place on an axis is spread PRO
+    RATA across that axis's cells (`subtract_pro_rata`), and the book never orders their
+    replacement. So each cell's shortfall is DISCHARGED by its share of those families, plus
+    any that wait with this division on their card, never past the shortfall and never below
+    what the cell has filled; `discharged_by_the_waiting_families` carries it.
+
+    The shortfall is read against the held heads themselves, not against the fill, so a held
+    head the seats put under a dwelling of this division later is counted in the cell and
+    the discharge shrinks by one on the next build. They are not FILLS: no roof stands over
+    them, and the roof they lack is the dwelling builds'. Nobody is moved, minted or seated,
+    no letter-list household is among them (`waiting_families`), and a cell whose share runs
+    out owes again under its owning ticket."""
+    if held is None or waiting is None:
+        return None
+    cells = [b for b in sorted(households, key=lambda b: b["key"])
+             if b["axes"].get("household_type") == "family_dwelling"
+             and b["axes"].get("division") in CIVIL_DIVISIONS]
+    if not cells:
+        return None
+    own = Counter()
+    for fill in fills:
+        if fill.get("ticket") == HELD_HEAD_TICKET:
+            own[fill["bucket"]] += int(fill.get("records") or 0)
+    share = subtract_pro_rata({b["key"]: b["target"] for b in cells},
+                              int(waiting.get("unplaced") or 0))
+    rows = {}
+    for b in cells:
+        division = b["axes"]["division"]
+        others = b["filled"] - own[b["key"]]
+        heads = int(held.get(division) or 0)
+        short = max(0, (b["to_reconstruct"] or 0) - others - heads)
+        theirs = share[b["key"]] + int(waiting.get(division) or 0)
+        take = min(short, theirs, max(0, (b["to_reconstruct"] or 0) - b["filled"]))
+        if take:
+            b["discharged_by_the_waiting_families"] = take
+            b["to_reconstruct"] -= take
+        rows[division] = {"held_heads_under_a_dwelling": heads,
+                          "houses_other_stages_drew": others,
+                          "short_of_the_order": short,
+                          "waiting_families_share": theirs,
+                          "discharged": take,
+                          "still_owed": max(0, (b["to_reconstruct"] or 0) - b["filled"])}
+    total = sum(waiting.values())
+    discharged = sum(r["discharged"] for r in rows.values())
+    short = sum(r["short_of_the_order"] for r in rows.values())
+    still = sum(r["still_owed"] for r in rows.values())
+    return {
+        "ticket": WAITING_FAMILIES_TICKET,
+        "asks": "The family_dwelling order outruns the held heads the housing seats put under "
+                "a standing dwelling. Is that a household the town lacks?",
+        "families_waiting_on_a_roof": waiting,
+        "by_division": rows,
+        "short_of_the_order": short,
+        "discharged": discharged,
+        "still_owed": still,
+        "measured": (f"The held heads fall {short:,} short of the family_dwelling order. The "
+                     f"housing deal holds {total:,} families present on the scene date and "
+                     f"waiting on a roof behind the census ceiling, none of them a letter-list "
+                     f"household, {int(waiting.get('unplaced') or 0):,} with no division on "
+                     f"the card; spread pro rata on the cells' targets, as rule 2 spreads "
+                     f"the unplaced known, they discharge {discharged:,} and {still:,} are "
+                     f"still owed."),
+        "ruling": "NOT A HOUSEHOLD THE TOWN LACKS. Rule 2 never orders a replacement for "
+                  "somebody standing in the town, and these families stand in it on their own "
+                  "cards: what they lack is a roof, which the remaining dwelling builds raise, "
+                  "and the deal seats them where the room is when they do.",
+        "what_this_does_not_do": "It seats, moves, mints and retires nobody, counts no waiting "
+                                 "family as a fill, and re-admits no household the letter-list "
+                                 "ruling (T-0379) refuses a roof.",
+        "what_would_reopen_it": "a waiting family seated in another division, or a held head "
+                                "of this one boarded instead: either takes one from the share "
+                                "or adds one to the shortfall, and the cell owes again under "
+                                "its owning ticket.",
     }
 
 
@@ -3578,6 +3711,9 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
     store_ruling = store_residence_ruling(families[1]["buckets"], families[3]["buckets"],
                                           data.get("stores_kept_from_elsewhere"),
                                           data.get("stores_keeper_not_held"))
+    waiting_ruling = waiting_families_ruling(families[1]["buckets"], fills,
+                                             data.get("family_held_by_division"),
+                                             data.get("families_waiting_on_a_roof"))
 
     spent = Counter()
     for fill in fills:
@@ -3747,6 +3883,8 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
         **({"adult_men_ruling": men_ruling} if men_ruling else {}),
         # THE STORE ROWS, RULED AGAINST THE STORE ROOFS (T-2194).
         **({"store_residence_ruling": store_ruling} if store_ruling else {}),
+        # THE FAMILY ROWS, RULED AGAINST THE FAMILIES WAITING ON A ROOF (T-2256).
+        **({"waiting_families_ruling": waiting_ruling} if waiting_ruling else {}),
         "bucket_families": families,
         "programme_deltas": programme_deltas(data["model"], data["inventory"],
                                              data["programme"], persons, households),
@@ -4411,6 +4549,10 @@ def report_text(doc: dict) -> str:
         if family["key"] == "households" and doc.get("store_residence_ruling"):
             ruling = doc["store_residence_ruling"]
             out += ["", f"**The store rows, ruled ({ruling['ticket']}).** {ruling['measured']} "
+                        f"{ruling['ruling']}"]
+        if family["key"] == "households" and doc.get("waiting_families_ruling"):
+            ruling = doc["waiting_families_ruling"]
+            out += ["", f"**The family rows, ruled ({ruling['ticket']}).** {ruling['measured']} "
                         f"{ruling['ruling']}"]
 
     restatements = [d for d in doc["programme_deltas"] if d.get("restates_the_programme")]
@@ -5626,6 +5768,39 @@ def cmd_self_test() -> int:
     assert store_residence_ruling(cells[2:], [roof_cell("south", 42)]) is None, \
         "a book with no store rows carried a store ruling"
     assert "store_residence_ruling" in doc, "the committed book carries no ruling on the store rows"
+
+    # T-2256: only a present family, awaiting a household, stopped by the ceiling and not a
+    # letter-list household is a waiting family; each of the four tests is broken once.
+    apart = [{"household": h, "why": why, "persons": n, "file": h}
+             for h, why, n in (("fam", "waiting_on_a_roof", 3), ("one", "waiting_on_a_roof", 1),
+                               ("house", "waiting_on_a_roof", 4), ("gone", "absent_on_the_scene_date", 5),
+                               ("ll", "waiting_on_a_roof", 2), ("sth", "waiting_on_a_roof", 2))]
+    got = waiting_families(apart, {"fam", "one", "gone", "ll", "sth"},
+                           {"fam": "unplaced", "sth": "south"}, lambda row: row["household"] == "ll")
+    assert got == {"south": 1, "unplaced": 1}, got
+    # The shortfall is read off the held heads, never off the fill, so a South head seated
+    # later shrinks the discharge; and it is never past the shortfall, the share or the fill.
+    def fam_cells():
+        return [hh_cell("family_dwelling", "north", 123, 96, 96),
+                hh_cell("family_dwelling", "south", 258, 184, 174)]
+    fill_rows = [{"bucket": "households/family_dwelling/south", "ticket": HELD_HEAD_TICKET,
+                  "records": 157}]
+    cells = fam_cells()
+    ruled = waiting_families_ruling(cells, fill_rows, {"north": 115, "south": 157}, {"unplaced": 23})
+    assert [b["to_reconstruct"] for b in cells] == [96, 174] and ruled["still_owed"] == 0, ruled
+    cells = fam_cells()
+    ruled = waiting_families_ruling(cells, fill_rows, {"north": 115, "south": 160}, {"unplaced": 23})
+    assert ruled["discharged"] == 7 and ruled["still_owed"] == 3, ruled
+    cells = fam_cells()
+    ruled = waiting_families_ruling(cells, fill_rows, {"north": 115, "south": 157}, {"unplaced": 4})
+    assert ruled["discharged"] == 3 and ruled["still_owed"] == 7, ruled
+    cells = fam_cells()
+    cells[1]["filled"] = 184
+    ruled = waiting_families_ruling(cells, fill_rows, {"north": 115, "south": 100}, {"unplaced": 23})
+    assert cells[1]["to_reconstruct"] == 184, "the waiting families discharged below the fill"
+    assert waiting_families_ruling(fam_cells(), fill_rows, None, {"unplaced": 23}) is None, \
+        "a tree with no held-head ledger discharged a family row"
+    assert "waiting_families_ruling" in doc, "the committed book carries no ruling on the family rows"
 
     print(f"build_order_book_1835 self-tests pass ({fired} guards fired, "
           f"{sum(len(f['buckets']) for f in doc['bucket_families'])} buckets, "

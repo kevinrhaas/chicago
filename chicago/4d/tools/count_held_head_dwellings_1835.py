@@ -152,7 +152,12 @@ def room_in_the_book(book: dict) -> dict[str, int]:
     keep the surplus it made: when another stage's houses grow by one (a fold undone, so a
     dealt house stands again), the book holds the cell at the new total and this count
     takes the same room it took before, forever. This count draws nobody and un-draws
-    nobody, so it is the side that yields: its room is what the re-cut would order."""
+    nobody, so it is the side that yields: its room is what the re-cut would order.
+
+    AND IT IS THE ORDER BEFORE THE WAITING FAMILIES WERE DISCHARGED (T-2256). The book
+    discharges the order these heads cannot fill, and it reads the shortfall off this
+    ledger; read as room, the discharged order would turn away the next South head the
+    seats put under a dwelling, and the two would chase each other a build at a time."""
     others = Counter()
     for fill in book.get("fills") or []:
         if fill.get("ticket") != TICKET:
@@ -162,7 +167,9 @@ def room_in_the_book(book: dict) -> dict[str, int]:
     recut = {r["bucket"]: int(r["the_re_cut_would_have_ordered"])
              for r in book.get("recut_refusals") or []
              if r.get("the_re_cut_would_have_ordered") is not None}
-    order = {d: int(by_key[CELL.format(d)]["to_reconstruct"] or 0) for d in DIVISIONS}
+    order = {d: int(by_key[CELL.format(d)]["to_reconstruct"] or 0)
+                + int(by_key[CELL.format(d)].get("discharged_by_the_waiting_families") or 0)
+             for d in DIVISIONS}
     for d in DIVISIONS:
         if CELL.format(d) in recut:
             order[d] = min(order[d], recut[CELL.format(d)])
@@ -400,8 +407,15 @@ def check() -> int:
         print(f"  FAIL the order book's fills for {STORE_TICKET} are not this stage's "
               "store households")
         return 1
-    short = {d: n for d, n in ledger["counts"]["room_by_division"].items()
-             if n > ledger["counts"]["counted_by_division"][d]}
+    family = next(f for f in book["bucket_families"] if f["key"] == "households")
+    waiting = {d: int(next(b for b in family["buckets"] if b["key"] == CELL.format(d))
+                      .get("discharged_by_the_waiting_families") or 0) for d in DIVISIONS}
+    short = {d: n - waiting[d] for d, n in ledger["counts"]["room_by_division"].items()
+             if n - waiting[d] > ledger["counts"]["counted_by_division"][d]}
+    if any(waiting.values()):
+        print(f"  ok    the book discharged {sum(waiting.values())} of the room the held heads "
+              f"could not fill against the families waiting on a roof (T-2256): "
+              f"{ {d: n for d, n in waiting.items() if n} }")
     if short:
         print(f"  note  the family_dwelling order outruns the seated heads in {short}")
     b = ledger["beyond_the_index"]
