@@ -663,15 +663,15 @@
    "row": "merchant",
    "rule": "Y-W5",
    "confidence": "reconstructed",
-   "wall": "back",
+   "wall": "side",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      516.27,
-      -684.03
+      513.64,
+      -675.39
      ],
-     "bearing_deg": 0.0,
+     "bearing_deg": 90.0,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 0.89,
@@ -681,10 +681,10 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      519.06,
-      -684.03
+      513.64,
+      -678.18
      ],
-     "bearing_deg": 0.0,
+     "bearing_deg": 90.0,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 1.09,
@@ -694,10 +694,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      519.83,
-      -685.74
+      511.93,
+      -678.95
      ],
-     "bearing_deg": 0.0,
+     "bearing_deg": 90.0,
      "billets": 1,
      "seed": 29863348
     }

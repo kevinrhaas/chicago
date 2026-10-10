@@ -193,13 +193,17 @@ BUSINESS_DEAL_HOLDS = 45
 # the 117 roofs it had dealt to letter-list households go to the next rows of their clauses,
 # and the rows queued behind the business deal's roofs are no longer households the ruling
 # refuses. Released, those roofs would now seat nine of them (L270).
-# 9 -> 10 on 2026-10-09 (T-1550): hh_beaubien_charles folds onto hh_beaubien_charles_h and
-# his adopted D3 (recon_1835_blk_washington_wells_d3_05) goes to the next row, so the South
-# walk turns over behind it. hh_meleney_patrick, whom a release used to seat, now takes
-# recon_1835_south_d5_016 in the deal itself; hh_rc_woodruff_ruth is handed on from
-# recon_1835_south_d1_018, and she and hh_mulford_e_h queue behind the business roofs.
-# Released, those roofs would now seat ten (L270).
-BUSINESS_DEAL_COSTS = 10
+# 9 -> 8 on 2026-10-09 (T-2253): the Monroe-Adams tier's block 82 is planned the South's five
+# gated dwellings, and its four new slots are dealt from the South queues a release of the
+# business deal's roofs draws on, so that release now seats eight households, not nine. The
+# hold is unchanged at 45 (L270).
+# 8 held on 2026-10-09 (T-1550, on the tree merged with T-2253): hh_beaubien_charles folds onto
+# hh_beaubien_charles_h and his adopted D3 (recon_1835_blk_washington_wells_d3_05) goes to the
+# next row, so the South walk turns over behind it. hh_meleney_patrick takes the standing
+# recon_1835_south_d5_016 in the deal itself and his block-82 slot is re-dealt down the South
+# queue (hh_miller_samuel and hh_rc_woodruff_ruth are slotted there), so a release of the
+# business deal's roofs still seats eight. The hold is unchanged at 45 (L270).
+BUSINESS_DEAL_COSTS = 8
 
 TICKET = "T-1613"
 PARENT = "T-1199"

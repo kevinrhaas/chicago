@@ -606,7 +606,11 @@ STRUCTURE_TICKETS = {
     # AND ON TO T-2175 WHEN T-1673 WAS SPLIT (2026-10-08, T-2174 + T-2175). T-2174 raises the
     # street line's F2 and goes `done` when it merges, so the order moves to the piece that
     # carries the rest of the line, as the band in the inventory does.
-    ("south", "warehouses_freight"): "T-2175",
+    #
+    # AND ON TO T-2268 WHEN T-2175 WAS SPLIT (2026-10-09, T-2268 + T-2269). T-2268 raises the
+    # line's two owed F3 off-plat on the South Branch bank; T-2269 owns the F4 lumber shed's
+    # placement clause. The order moves to the piece carrying the most of it, as the band does.
+    ("south", "warehouses_freight"): "T-2268",
     # T-1202 WAS SPLIT on 2026-09-27 and closed with T-1688, the Randolph tier's books, so
     # this row named a ticket nobody can claim (T-1705). It orders nothing — the five
     # civic roofs the matrix sets all stand, and T-1202 raised none of them, so its id here
@@ -5518,8 +5522,13 @@ def cmd_self_test() -> int:
     # building block 81's D5 and block 95's D6): the Market wedge's four lots open a D5, an F4
     # and an H3 in the schedule, and the D5 is dealt as a slot on the wedge's lot 7 to one
     # household the deal had handed on (214 -> 215 platted, 99 off-plat, L270, L409).
+    # 314 -> 318 on 2026-10-09 (T-2253, over T-1645): the School Section's Monroe-Adams tier
+    # joins the plat on the owner's T-2247 ruling and the South's five gated dwellings and its
+    # H3 are dealt to block 82, so four households the deal had handed on are dealt a slot
+    # there; its second D2 and the H3 find no admitted row (215 -> 219 platted, 99 off-plat,
+    # L270) — requests T-2254 raises.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 314
+        data["inventory"], data["programme"], occ))["seated"] == 318
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

@@ -1,8 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1601, ts: '2026-10-10T00:10:42.544Z', date: 'Oct 9, 2026, 7:10 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
+  { v: null, ts: '', date: '', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
     items: [
       'Charles Beaubien, father of Susan at her baptism at St Mary\u2019s on 24 December 1834, stood in the town as a second man, with a house of his own. He is Charles H. Beaubien, the voter and violinist, now on one card. The history of Chicago names Charles H. as J. B. Beaubien\u2019s son, teaching the fort\u2019s children in 1829, and his death notice puts his birth in 1806 or 1807. No record the town holds names a second Charles Beaubien.',
-      'His second house is gone. Other households move into it and the houses they leave, and Patrick Meleney, who was waiting for a roof, now has one on the South side; the reconstructed household of Ruth Woodruff waits for one in his place.',
+      'His second house is gone. Other households move into it and the houses they leave. Patrick Meleney now has a standing house on the South side instead of a lot south of Monroe, and Samuel Miller and the reconstructed household of Ruth Woodruff are given lots there.',
+    ] },
+  { v: 1601, ts: '2026-10-10T00:05:59.930Z', date: 'Oct 9, 2026, 7:05 PM CT', title: 'The town\u2019s last six South houses get their lots, south of Monroe', kind: 'change',
+    items: [
+      'Walk south across Monroe Street between the river and State Street. Six more School Section blocks are now divided into lots: cropped, grazed ground like the empty lots in town, no longer open prairie.',
+      'Russell Heacock\u2019s house near Monroe now stands on its own fenced lot, with a privy and a kept yard, like its neighbours north of Monroe.',
+      'The South side still owes five houses and one boarding house. They will stand on one of these blocks, one house to a lot. Four households without a home are now given a lot there, and their cards say so. The houses come next.',
+      'The three riverside warehouses the South still owes are not sent this far from the river. They wait for the South Water Street front.',
     ] },
   { v: 1600, ts: '2026-10-09T23:46:46.583Z', date: 'Oct 9, 2026, 6:46 PM CT', title: 'Glessner gets solid ridge caps and finished roof edges', kind: 'fix',
     items: [

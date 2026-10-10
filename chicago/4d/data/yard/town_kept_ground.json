@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "332 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "333 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
-    "lots": 255,
+    "lots": 256,
     "refused": 0,
-    "refuges": 347,
-    "paths": 332
+    "refuges": 348,
+    "paths": 333
   },
   "lots": [
     {
@@ -15121,6 +15121,58 @@
           [
             675.93,
             -595.21
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_117_lot2",
+      "structures": [
+        "heacock_house_monroe"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          502.93,
+          -723.02
+        ],
+        [
+          521.11,
+          -723.02
+        ],
+        [
+          523.55,
+          -720.58
+        ],
+        [
+          523.55,
+          -668.79
+        ],
+        [
+          500.49,
+          -668.79
+        ],
+        [
+          500.49,
+          -720.58
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            521.73,
+            -723.64
+          ],
+          [
+            524.17,
+            -723.64
+          ],
+          [
+            524.17,
+            -721.2
+          ],
+          [
+            521.73,
+            -721.2
           ]
         ]
       ]

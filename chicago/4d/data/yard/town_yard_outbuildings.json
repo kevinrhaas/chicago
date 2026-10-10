@@ -131,14 +131,14 @@
   },
   "wells": "None dealt. docs/RESEARCH/wells.md § 4 refuses a well class for the town — July 1835 Chicago drank from the lake by cart — and that ruling stands; data/wells/ draws only the wells a source places.",
   "counts": {
-    "dwelling_lots": 232,
-    "privies": 188,
+    "dwelling_lots": 233,
+    "privies": 189,
     "stables": 23,
     "privy_standing": 36,
     "stable_standing": 17,
     "horse_households": 40,
     "refused": 8,
-    "dwellings_off_plat": 134
+    "dwellings_off_plat": 133
   },
   "dwellings_off_plat_note": "Dwellings standing on no platted lot have no lot line to put an alley behind; they are counted, not drawn.",
   "outbuildings": [
@@ -4897,6 +4897,34 @@
       "finish": "board_and_batten",
       "stalls": 2,
       "kept_a_horse_because": "merchant"
+    },
+    {
+      "id": "privy_blk_school_section_tier_117_lot2",
+      "kind": "privy",
+      "lot": "blk_school_section_tier_117_lot2",
+      "belongs_to": "heacock_house_monroe",
+      "households": [
+        {
+          "id": "hh_heacock_russel_e",
+          "held_as": "home",
+          "at": "heacock_house_monroe"
+        }
+      ],
+      "household_class": "tradesman",
+      "class_read_from": "no class on the record; the town's commonest house",
+      "at_local_enu_m": [
+        522.95,
+        -722.42
+      ],
+      "bearing_deg": 0.0,
+      "along_m": 1.22,
+      "depth_m": 1.22,
+      "eave_m": 1.95,
+      "head_m": 2.2,
+      "roof": "shed",
+      "weather": "weathered",
+      "confidence": "reconstructed",
+      "finish": "board"
     }
   ],
   "refused": [
