@@ -179,6 +179,7 @@ LEG_ORDER = ("on_the_day", "spans", "bracketed", "carried")
 
 sys.path.insert(0, str(ROOT / "tools"))
 from compile_scene import compile_residents  # noqa: E402
+from associations import home_of  # noqa: E402
 from seat_trade_roofs_1835 import MATCH as TRADE_ROOF_MATCH  # noqa: E402
 
 # The residents layer's folders of people OF the town; `transients` kept no residence by
@@ -420,7 +421,7 @@ def deal(inputs: dict) -> dict:
     for hid, entry in sorted(cards.items()):
         card = entry["card"]
         on_card = value_of(card.get("present_on_scene_date"))
-        where = value_of(card.get("lives_at"))
+        where = home_of(card)
         housed = bool((where and (where in standing or where in vessels)) or hid in seated)
         if on_card == "present":
             if housed:
@@ -921,7 +922,7 @@ def problems(doc: dict, inputs: dict) -> list[str]:
     owed = set(inputs["ruled"]) - inputs["seated"] - set(seen) - set(apart)
     for hid in sorted(owed):
         card = (inputs["cards"].get(hid) or {}).get("card") or {}
-        where = value_of(card.get("lives_at"))
+        where = home_of(card)
         if not (where and (where in inputs["standing"] or where in inputs["vessels"])):
             out.append(f"{hid} is ruled present and neither seated nor counted apart")
     # T-2249. A household present on its own card is under a roof by its own lives_at, by
@@ -929,7 +930,7 @@ def problems(doc: dict, inputs: dict) -> list[str]:
     refused = {r["household"] for r in doc["refused"]}
     for hid, entry in sorted(inputs["cards"].items()):
         card = entry["card"]
-        where = value_of(card.get("lives_at"))
+        where = home_of(card)
         if value_of(card.get("present_on_scene_date")) != "present" or hid in seen \
                 or hid in inputs["seated"] or hid in refused or hid in apart \
                 or (where and (where in inputs["standing"] or where in inputs["vessels"])):

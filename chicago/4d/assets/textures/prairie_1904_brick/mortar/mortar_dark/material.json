@@ -1,0 +1,43 @@
+{
+  "id": "mortar_dark",
+  "group": "mortar",
+  "role": "fabric",
+  "kind": "mortar",
+  "tile_m": [
+    1.0,
+    1.0
+  ],
+  "resolution_px": 1024,
+  "px_per_m": 1024.0,
+  "uv_rule": "K01 scale_uv: TEXCOORD_0 = surface metres / tile_m (data/components/prairie_1904/k01_contract.json)",
+  "joints_in_map": false,
+  "orientation": "image x = along the course (u); image y = up the wall (v), image top = up",
+  "height_range_m": [
+    -0.0003,
+    0.0005
+  ],
+  "mean_srgb": [
+    58,
+    52,
+    48
+  ],
+  "mean_roughness": 0.86,
+  "note": "Fine dark-tinted mortar for tight pressed-brick joints: a lime-and-sand putty darkened to read with a dark red face. The tint is reconstructed; the register's Sherman entry asks for 'tight dark joints' and names no recipe.",
+  "confidence": "reconstructed appearance; which house wears it is the T-1837 register's to say",
+  "liberty": "L-k03-brick-library-2290",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y (up the wall)",
+    "roughness": "linear",
+    "height16": "linear 16-bit; 0 = height_range_m[0], 65535 = height_range_m[1]",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "mortar_dark_basecolor_web.jpg",
+    "normal_gl": "mortar_dark_normal_gl_web.jpg",
+    "orm": "mortar_dark_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19044102,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_brick.py); no photograph sampled"
+}

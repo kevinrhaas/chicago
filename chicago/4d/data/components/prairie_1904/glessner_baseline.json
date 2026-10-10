@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 150670168,
-      "sha256": "eb00c3fc1c45f4b02733d662cbe0c2ada80cf955a7b78d73e987f76f41bd9ef7",
+      "bytes": 149859424,
+      "sha256": "e32e94ff9907050de2205a8b20b26ddac98cdfa3bcecffc447415f7f0df3fb49",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -21,8 +21,8 @@
       "mesh": {
         "draw_primitives": 28,
         "materials": 28,
-        "triangles": 1220197,
-        "vertices": 2825667
+        "triangles": 1209879,
+        "vertices": 2808489
       },
       "texture": {
         "images": 33,
@@ -66,11 +66,13 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 14874,
-        "coincident": 15,
-        "same_winding": 4,
-        "back_to_back": 11,
-        "shared_across_primitives": 9
+        "degenerate": 9261,
+        "coincident": 0,
+        "same_winding": 0,
+        "back_to_back": 0,
+        "shared_across_primitives": 0,
+        "position_step_m": 0,
+        "coincident_shortest_edge_max_m": 0
       },
       "metric_uv": {
         "brick": {
@@ -326,8 +328,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 52071720,
-      "sha256": "4fcdfbf3997590111dc7da421ae9f80f44d0525b999e573ec61744578ed8a09b",
+      "bytes": 51933560,
+      "sha256": "9a0394290613c82c74298f718472d3b7d5c4aaa85dd323581b6721a62682ef51",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -346,8 +348,8 @@
       "mesh": {
         "draw_primitives": 28,
         "materials": 28,
-        "triangles": 1220197,
-        "vertices": 2802655
+        "triangles": 1209879,
+        "vertices": 2787017
       },
       "texture": {
         "images": 32,
@@ -393,11 +395,13 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 16715,
-        "coincident": 40,
-        "same_winding": 4,
-        "back_to_back": 36,
-        "shared_across_primitives": 9
+        "degenerate": 11078,
+        "coincident": 5,
+        "same_winding": 0,
+        "back_to_back": 5,
+        "shared_across_primitives": 0,
+        "position_step_m": 0.0008299,
+        "coincident_shortest_edge_max_m": 0.0019
       },
       "metric_uv": {
         "brick": {
@@ -533,13 +537,13 @@
           ]
         },
         "limestone_trim": {
-          "median_uv_per_m": 0.8319,
+          "median_uv_per_m": 0.832,
           "fabric": "limestone",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 0.9983
+          "uv_per_m_times_tile_m": 0.9984
         },
         "mortar": {
           "median_uv_per_m": 0.8333,
@@ -641,8 +645,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 27014548,
-      "sha256": "df70b42550f418da47666a0cd3ab1dd031e1015f0aaf471b28e90d912dce4035",
+      "bytes": 27001116,
+      "sha256": "8a51eea205690a9055f92e7718ba6f9068e85f137354e877d4016be7ad0e3f17",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -661,8 +665,8 @@
       "mesh": {
         "draw_primitives": 25,
         "materials": 25,
-        "triangles": 199744,
-        "vertices": 389567
+        "triangles": 198064,
+        "vertices": 387755
       },
       "texture": {
         "images": 32,
@@ -706,11 +710,13 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 674,
-        "coincident": 8,
+        "degenerate": 83,
+        "coincident": 0,
         "same_winding": 0,
-        "back_to_back": 8,
-        "shared_across_primitives": 0
+        "back_to_back": 0,
+        "shared_across_primitives": 0,
+        "position_step_m": 0.0008298,
+        "coincident_shortest_edge_max_m": 0
       },
       "metric_uv": {
         "brick": {
@@ -992,13 +998,15 @@
       "ok": true
     },
     "coincident_faces": {
-      "ok": false,
+      "ok": true,
       "counts": {
-        "full": 15,
-        "web": 40,
-        "light": 8
+        "full": 0,
+        "web": 5,
+        "light": 0
       },
-      "finding": "T-2267. Measured on the asset as T-2205 left it (ridge caps, finials and roof edges refined). Full master: 15 coincident triangles. Six are limestone_trim on the Prairie Avenue (east) front near x 49.2-49.4 m, four doubled (same winding) and two back to back, small slivers at y 3.36-3.55 m and on one ledge at y 7.50 m; they predate T-2205. Nine are back to back between roof_plane_1 and roof_plane_2 in the plane x = 11.54 m, y 10.33-10.59 m, z -17.97 to -18.24 m: the hidden end face where one of T-2205's new roof parts meets another. The web tier, quantized to about 0.83 mm, has 40 (36 back to back); the light tier 8, all back to back. The canonical asset is preserved here, as T-1843 requires; T-2267 owns regenerating it without them, and a component built to this contract may emit none (coincident_faces_allowed_new = 0)."
+      "quantization": {
+        "web": "5 on the 0.0008299 m position lattice, none larger than a 0.0019 m shortest edge; the master has none and this tier carries its triangles one for one"
+      }
     },
     "metric_uv": {
       "ok": true,

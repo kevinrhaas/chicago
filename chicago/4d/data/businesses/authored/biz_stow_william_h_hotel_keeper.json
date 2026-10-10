@@ -36,7 +36,7 @@
    "from": null,
    "to": null,
    "tier": "inferred",
-   "basis": "THE KEEPER'S CARD ALREADY PUTS THIS TRADE IN THIS ROOF. hh_stow_william_h carries `works_at: western_hotel` at attested on andreas_1884_v1, drloih_hotels, and that structure's own committed `function` reads `tavern_inn` — the term this trade's premises ruling names. A `works_at` that named a roof of another function would be a BUILT-BY link rather than a workplace and is refused here. The tier is capped at `inferred` because the house itself is an inference: it is the firm, not the roof, that no source prints."
+   "basis": "THE KEEPER'S CARD ALREADY PUTS THIS TRADE IN THIS ROOF. William H. Stow's household card (hh_stow_william_h) gives Western Hotel as its workplace, graded attested on andreas_1884_v1, drloih_hotels, and the town records that building as a tavern inn — the kind of roof this trade's premises ruling names. A workplace that named a roof of another kind would be a building the keeper built rather than the one the trade was kept in, and is refused here. The tier is capped at inferred because the house itself is an inference: it is the firm, not the roof, that no source prints."
   }
  ],
  "dates": {

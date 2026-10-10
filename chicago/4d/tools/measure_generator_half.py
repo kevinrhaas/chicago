@@ -524,12 +524,16 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # South Branch's east bank (recon_1835_south_branch_lumber_f4_001), through emit.py and the
 # common modules.
 #
-# 705 -> 709 and 699 -> 703 on 2026-10-10 (T-2254): four houses on the School Section tier's
+# 705 -> 706 on 2026-10-10 (T-2266): the first K01 assembly, keith_house_1808_prairie, which
+# writes its glTF in pure Python (generators/k01_emit.py) and so restales on none of the
+# rows below — emit.py, the common modules and build.py stay where they were.
+#
+# 706 -> 710 and 699 -> 703 on 2026-10-10 (T-2254): four houses on the School Section tier's
 # block 82 (recon_1835_blk_school_section_tier_82_d2_01, _d4_03, _d4_04 and _d5_02), through
 # emit.py and the common modules.
 #
 STATED = {
-    "assets": 709,
+    "assets": 710,
     "restales": {
         "generators/common/*.py": 709,
         "generators/common/__init__.py": 0,

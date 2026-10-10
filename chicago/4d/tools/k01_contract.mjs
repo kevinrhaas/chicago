@@ -19,6 +19,15 @@
  *                                             and its hashes are the package's — so a
  *                                             rebake that is not re-measured fails here
  *   node tools/k01_contract.mjs --self-test  the measures, proved on synthetic GLBs
+ *   node tools/k01_contract.mjs --measure-asset <structure_id>
+ *                                             WRITES <structure_id>.measure.json beside
+ *                                             the contract: an assembly BUILT to K01
+ *                                             (T-2266), its full and web tiers measured
+ *                                             by the same rules. Unlike Glessner's, its
+ *                                             verdicts must all be ok — a new component
+ *                                             may not carry a finding (coincident faces
+ *                                             allowed new: 0) — and --check holds its
+ *                                             hashes to the committed GLBs
  *   node tools/k01_contract.mjs --measure    WRITES the baseline from the three GLBs
  *                                             (`python3 tools/recover_glessner_v4.py
  *                                             --materialize` first on a fresh clone);
@@ -28,7 +37,7 @@
  * The gate never decodes a GLB: the measurement is committed, and the hashes tie it to
  * the bytes it measured (docs/RESEARCH/glessner-v4-recovery/manifest.json).
  */
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 
@@ -167,7 +176,7 @@ export async function measureGlb(buf, { envelope, walls: wallRule, band, quantum
   let wallBase = Infinity;
   const sunk = new Map();
   const faces = new Map();
-  let triangles = 0, vertices = 0, degenerate = 0, primitives = 0;
+  let triangles = 0, vertices = 0, degenerate = 0, primitives = 0, positionStep = 0;
   const uv = new Map();
   const q = (v) => Math.round(v / quantum_m);
   const nodes = json.nodes.filter((n) => n.mesh !== undefined);
@@ -179,6 +188,12 @@ export async function measureGlb(buf, { envelope, walls: wallRule, band, quantum
       const mat = material?.name ?? '(none)';
       const raw = readAccessor(ctx, prim.attributes.POSITION);
       const count = raw.length / 3;
+      // The encoding's own position step in metres: one integer of a quantized
+      // accessor under the node's scale (0 for float positions). T-2267.
+      const pa = json.accessors[prim.attributes.POSITION];
+      const scale = Math.max(...(node.scale || [1, 1, 1]).map(Math.abs));
+      const step = pa.componentType === 5126 ? 0 : scale / (pa.normalized ? KIND[pa.componentType][2] : 1);
+      positionStep = Math.max(positionStep, step);
       vertices += count;
       const pos = new Float64Array(raw.length), keys = new Array(count);
       for (let v = 0; v < count; v++) {
@@ -206,9 +221,11 @@ export async function measureGlb(buf, { envelope, walls: wallRule, band, quantum
         const even = (s[0] === ka && s[1] === kb) || (s[0] === kb && s[1] === kc) || (s[0] === kc && s[1] === ka);
         const key = s.join('|');
         let f = faces.get(key);
-        if (!f) faces.set(key, f = { plus: 0, minus: 0, prims: new Set() });
+        if (!f) faces.set(key, f = { plus: 0, minus: 0, prims: new Set(), edge: 0 });
         if (even) f.plus++; else f.minus++;
         f.prims.add(pi);
+        const d = (u, w) => Math.hypot(pos[u * 3] - pos[w * 3], pos[u * 3 + 1] - pos[w * 3 + 1], pos[u * 3 + 2] - pos[w * 3 + 2]);
+        f.edge = Math.max(f.edge, Math.min(d(a, b), d(b, c), d(c, a)));
         if (tc) {
           const ex = [pos[b * 3] - pos[a * 3], pos[b * 3 + 1] - pos[a * 3 + 1], pos[b * 3 + 2] - pos[a * 3 + 2]];
           const ey = [pos[c * 3] - pos[a * 3], pos[c * 3 + 1] - pos[a * 3 + 1], pos[c * 3 + 2] - pos[a * 3 + 2]];
@@ -228,11 +245,13 @@ export async function measureGlb(buf, { envelope, walls: wallRule, band, quantum
       }
     }
   }
-  let sameWinding = 0, opposite = 0, crossPrimitive = 0, coincident = 0;
+  let sameWinding = 0, opposite = 0, crossPrimitive = 0, coincident = 0, sliver = 0;
   for (const f of faces.values()) {
     const n = f.plus + f.minus;
     if (n < 2) continue;
     coincident += n - 1;
+    // how large a face the coincidence is: the group's longest shortest-edge
+    sliver = Math.max(sliver, f.edge);
     sameWinding += Math.max(f.plus - 1, 0) + Math.max(f.minus - 1, 0);
     opposite += Math.min(f.plus, f.minus);
     if (f.prims.size > 1) crossPrimitive++;
@@ -281,9 +300,33 @@ export async function measureGlb(buf, { envelope, walls: wallRule, band, quantum
     envelope_bbox_m: roundBox(walls),
     wall_base_y_m: r4(wallBase),
     below_grade_m: Object.fromEntries([...sunk.entries()].sort().map(([k, v]) => [k, r4(v)])),
-    faces: { quantum_m, degenerate, coincident, same_winding: sameWinding, back_to_back: opposite, shared_across_primitives: crossPrimitive },
+    faces: { quantum_m, degenerate, coincident, same_winding: sameWinding, back_to_back: opposite, shared_across_primitives: crossPrimitive,
+      position_step_m: Number(positionStep.toPrecision(4)), coincident_shortest_edge_max_m: r4(sliver) },
     metric_uv: uvRows,
   };
+}
+
+/**
+ * The coincident-face verdict (T-2267). The full master must have none. A derived tier
+ * may keep a remainder only when quantization alone explains it: its positions are
+ * quantized, and it carries the master's triangles one for one, so re-encoding the
+ * positions is the only thing that happened to them. The master has no coincident
+ * face on the 1 mm grid, so any such tier's remainder is vertices rounded together on
+ * the encoding's lattice. A tier built otherwise (light is its own reduced build) must
+ * have none.
+ */
+export function coincidentVerdict(tiers) {
+  const full = tiers.full;
+  const why = {};
+  const ok = full.faces.coincident === 0 && Object.entries(tiers).every(([t, r]) => {
+    if (t === 'full' || r.faces.coincident === 0) return true;
+    const explained = r.faces.position_step_m > 0 && r.mesh.triangles === full.mesh.triangles;
+    if (explained) why[t] = `${r.faces.coincident} on the ${r.faces.position_step_m} m position lattice, none larger than a `
+      + `${r.faces.coincident_shortest_edge_max_m} m shortest edge; the master has none and this tier carries its triangles one for one`;
+    return explained;
+  });
+  return { ok, counts: Object.fromEntries(Object.entries(tiers).map(([t, r]) => [t, r.faces.coincident])),
+    ...(Object.keys(why).length ? { quantization: why } : {}) };
 }
 
 /** The origin and scale verdicts, from measured boxes and the record's footprint. */
@@ -432,7 +475,6 @@ async function measure() {
       if (u.uv_per_m_times_tile_m !== undefined && Math.abs(u.uv_per_m_times_tile_m - 1) > m.uv_tolerance) uvOff.push(`${tier}:${mat}=${u.uv_per_m_times_tile_m}`);
     }
   }
-  const coincident = Object.fromEntries(Object.entries(tiers).map(([t, r]) => [t, r.faces.coincident]));
   const prior = existsSync(path.join(APP, BASELINE)) ? readJson(BASELINE) : {};
   const keep = (k) => prior.verdicts?.[k]?.finding;
   const verdict = (ok, extra, k) => ({ ok, ...extra, ...(ok || !keep(k) ? {} : { finding: keep(k) }) });
@@ -445,7 +487,7 @@ async function measure() {
     verdicts: {
       scale_drift: verdict(Object.values(drift).every((d) => d.ok), { against: 'full', tiers: drift }, 'scale_drift'),
       origin: verdict(Object.values(tiers).every((r) => r.origin.ok), {}, 'origin'),
-      coincident_faces: verdict(Object.values(coincident).every((n) => n === 0), { counts: coincident }, 'coincident_faces'),
+      coincident_faces: (({ ok, ...extra }) => verdict(ok, extra, 'coincident_faces'))(coincidentVerdict(tiers)),
       metric_uv: verdict(uvOff.length === 0, { off: uvOff }, 'metric_uv'),
     },
   };
@@ -454,9 +496,91 @@ async function measure() {
   for (const [k, v] of Object.entries(out.verdicts)) console.log(`  ${k}: ${v.ok ? 'ok' : 'NOT OK'}`);
 }
 
+// ---------------------------------------------------------------------------
+// assemblies built TO the contract (T-2266)
+// ---------------------------------------------------------------------------
+
+const COMPONENTS_DIR = 'data/components/prairie_1904';
+const sha256Of = (abs) => createHash('sha256').update(readFileSync(abs)).digest('hex');
+
+function assetTiers(structureId) {
+  const manifest = readJson('assets/manifest.json').assets;
+  const name = Object.keys(manifest).find((n) => manifest[n].structure_id === structureId);
+  if (!name) throw new Error(`${structureId}: no baked asset in assets/manifest.json`);
+  return { name, phase: manifest[name].phase_id, tiers: [['full', `assets/gltf/${name}`], ['web', `assets/web/${name}`]] };
+}
+
+async function measureAsset(structureId) {
+  if (!structureId) throw new Error('usage: --measure-asset <structure_id>');
+  const c = readJson(CONTRACT);
+  const m = c.measures;
+  const record = readJson(`data/structures/${structureId}.json`);
+  const { phase, tiers: files } = assetTiers(structureId);
+  const footprint = record.phases.find((p) => p.id === phase).footprint.polygon;
+  const library = readJson(LIBRARY).materials;
+  const tiers = {};
+  for (const [tier, file] of files) {
+    const buf = readFileSync(path.join(APP, file));
+    const row = await measureGlb(new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength),
+      { envelope: m.envelope_materials, walls: m.wall_base_materials, band: m.storey_band_m, quantum_m: m.quantum_m, library });
+    row.origin = originVerdict(row.envelope_bbox_m, row.wall_base_y_m, footprint, m);
+    tiers[tier] = { path: file, bytes: buf.length, sha256: sha256Of(path.join(APP, file)), ...row };
+    console.log(`${tier}: ${row.mesh.triangles} triangles, ${row.mesh.draw_primitives} primitives, ${row.faces.coincident} coincident faces`);
+  }
+  const drift = { web: driftVerdict(tiers.full.bbox_m, tiers.web.bbox_m, m, tiers.full.envelope_bbox_m, tiers.web.envelope_bbox_m) };
+  const uvOff = [];
+  for (const [tier, row] of Object.entries(tiers)) {
+    for (const [mat, u] of Object.entries(row.metric_uv)) {
+      if (u.uv_per_m_times_tile_m !== undefined && Math.abs(u.uv_per_m_times_tile_m - 1) > m.uv_tolerance) uvOff.push(`${tier}:${mat}=${u.uv_per_m_times_tile_m}`);
+    }
+  }
+  const coincident = Object.fromEntries(Object.entries(tiers).map(([t, r]) => [t, r.faces.coincident + r.faces.degenerate]));
+  const out = {
+    _doc: `MEASURED, not authored: node tools/k01_contract.mjs --measure-asset ${structureId} wrote this from the committed full and web GLBs by the rules in k01_contract.json (T-2266). An assembly BUILT to K01 has no light tier yet (tools/web_derivatives.sh reduces Glessner alone), and none of its verdicts may carry a finding: the gate holds every one to ok and the hashes to the files on disk, so a rebuild that is not re-measured fails.`,
+    contract: CONTRACT,
+    structure_id: structureId,
+    phase_id: phase,
+    tiers,
+    verdicts: {
+      scale_drift: { ok: drift.web.ok, against: 'full', tiers: drift },
+      origin: { ok: Object.values(tiers).every((r) => r.origin.ok) },
+      coincident_faces: { ok: Object.values(coincident).every((n) => n <= m.coincident_faces_allowed_new), counts: coincident, allowed: m.coincident_faces_allowed_new },
+      metric_uv: { ok: uvOff.length === 0, off: uvOff },
+    },
+  };
+  const file = `${COMPONENTS_DIR}/${structureId}.measure.json`;
+  writeFileSync(path.join(APP, file), JSON.stringify(out, null, 2) + '\n');
+  console.log(`wrote ${file}`);
+  for (const [k, v] of Object.entries(out.verdicts)) console.log(`  ${k}: ${v.ok ? 'ok' : 'NOT OK'}`);
+  if (!Object.values(out.verdicts).every((v) => v.ok)) process.exitCode = 1;
+}
+
+/** Every committed assembly measure: all verdicts ok, every tier's hash the file's. */
+export function assemblyProblems(measure, hashOf) {
+  const bad = [];
+  const id = measure.structure_id ?? '(no structure_id)';
+  for (const k of ['scale_drift', 'origin', 'coincident_faces', 'metric_uv']) {
+    if (measure.verdicts?.[k]?.ok !== true) bad.push(`${id}: verdict ${k} is not ok — an assembly built to K01 may not carry a finding`);
+  }
+  for (const [tier, row] of Object.entries(measure.tiers || {})) {
+    const have = hashOf(row.path);
+    if (have !== row.sha256) bad.push(`${id} ${tier}: measured ${row.sha256?.slice(0, 12)} but ${row.path} is ${have ? have.slice(0, 12) : 'missing'} — re-measure with --measure-asset ${id}`);
+  }
+  if (!measure.tiers?.full || !measure.tiers?.web) bad.push(`${id}: needs a full and a web tier`);
+  return bad;
+}
+
+function assemblyMeasures() {
+  return readdirSync(path.join(APP, COMPONENTS_DIR)).filter((f) => f.endsWith('.measure.json')).sort()
+    .map((f) => readJson(`${COMPONENTS_DIR}/${f}`));
+}
+
 function check() {
   const c = readJson(CONTRACT);
-  const bad = [...contractProblems(c), ...baselineProblems(c, readJson(BASELINE), readJson(PACKAGE))];
+  const measures = assemblyMeasures();
+  const hashOf = (p) => (existsSync(path.join(APP, p)) ? sha256Of(path.join(APP, p)) : null);
+  const bad = [...contractProblems(c), ...baselineProblems(c, readJson(BASELINE), readJson(PACKAGE)),
+    ...measures.flatMap((mm) => assemblyProblems(mm, hashOf))];
   if (bad.length) {
     for (const b of bad) console.error(`  ✗ ${b}`);
     console.error(`k01_contract: ${bad.length} problem(s)`);
@@ -466,11 +590,12 @@ function check() {
   const t = b.tiers;
   console.log(`k01_contract: contract holds ${c.families.length} families on ${c.datums.length} datums; `
     + `Glessner baseline ${t.full.mesh.triangles}/${t.web.mesh.triangles}/${t.light.mesh.triangles} triangles full/web/light, `
-    + `hashes match the package`);
+    + `hashes match the package`
+    + (measures.length ? `; ${measures.length} assembly built to it (${measures.map((mm) => `${mm.structure_id} ${mm.tiers.full.mesh.triangles} triangles, ${mm.verdicts.coincident_faces.counts.full} coincident`).join('; ')}), every verdict ok` : ''));
 }
 
 /** A GLB from plain triangles: one node, one primitive per entry. */
-function syntheticGlb(prims, node = {}) {
+function syntheticGlb(prims, node = {}, step = 0) {
   const parts = [], views = [], accessors = [], primitives = [];
   let off = 0;
   const push = (arr, target) => {
@@ -481,11 +606,12 @@ function syntheticGlb(prims, node = {}) {
     return views.length - 1;
   };
   for (const tris of prims) {
-    const pos = new Float32Array(tris.flat(2));
+    // `step` writes integer positions under a node scale, as a quantizing encoder does
+    const pos = step ? new Int16Array(tris.flat(2).map((v) => Math.round(v / step))) : new Float32Array(tris.flat(2));
     const n = pos.length / 3;
     const min = [0, 1, 2].map((k) => Math.min(...[...Array(n).keys()].map((i) => pos[i * 3 + k])));
     const max = [0, 1, 2].map((k) => Math.max(...[...Array(n).keys()].map((i) => pos[i * 3 + k])));
-    accessors.push({ bufferView: push(pos, 34962), componentType: 5126, count: n, type: 'VEC3', min, max });
+    accessors.push({ bufferView: push(pos, 34962), componentType: step ? 5122 : 5126, count: n, type: 'VEC3', min, max });
     const ix = new Uint32Array([...Array(n).keys()]);
     accessors.push({ bufferView: push(ix, 34963), componentType: 5125, count: n, type: 'SCALAR' });
     primitives.push({ attributes: { POSITION: accessors.length - 2 }, indices: accessors.length - 1, material: 0 });
@@ -493,7 +619,7 @@ function syntheticGlb(prims, node = {}) {
   const bin = Buffer.concat(parts);
   const json = {
     asset: { version: '2.0' }, scene: 0, scenes: [{ nodes: [0] }],
-    nodes: [{ name: 'synthetic', mesh: 0, ...node }], meshes: [{ primitives }],
+    nodes: [{ name: 'synthetic', mesh: 0, ...(step ? { scale: [step, step, step] } : {}), ...node }], meshes: [{ primitives }],
     materials: [{ name: 'granite' }], accessors, bufferViews: views, buffers: [{ byteLength: bin.length }],
   };
   let js = Buffer.from(JSON.stringify(json));
@@ -522,6 +648,23 @@ async function selfTest() {
   ok(m.faces.degenerate === 1, 'a triangle with two vertices inside one quantum is degenerate, not a face');
   m = await measureGlb(syntheticGlb([[A]], { translation: [2, 0.5, -3], scale: [2, 2, 2] }), opts);
   ok(m.bbox_m.min.join() === '2,0.5,-3' && m.bbox_m.max.join() === '4,2.5,-3', 'the node transform is applied before measuring');
+
+  // A quantized tier: the position step is read from the accessor and node scale, and
+  // a sliver folded back on itself reports how small it is.
+  const q = 0.0008, P = [0, 0, 0], Q = [q, 0, 0], R = [0, 1, 0];
+  m = await measureGlb(syntheticGlb([[[P, Q, R], [P, R, Q]]], {}, q), opts);
+  ok(m.faces.coincident === 1 && m.faces.position_step_m === q && m.faces.coincident_shortest_edge_max_m === 0.0008,
+    'a quantized tier reports its position step and the size of its coincident sliver');
+  m = await measureGlb(syntheticGlb([[A, B]]), opts);
+  ok(m.faces.position_step_m === 0, 'float positions have no position step');
+  const tier = (coincident, triangles, step = q) => ({ mesh: { triangles }, faces: { coincident, position_step_m: step, coincident_shortest_edge_max_m: q } });
+  const v = coincidentVerdict({ full: tier(0, 9, 0), web: tier(1, 9), light: tier(0, 4) });
+  ok(v.ok && /lattice/.test(v.quantization.web), 'a master with none and a quantized one-for-one tier: the remainder is quantization, and says so');
+  ok(!coincidentVerdict({ full: tier(1, 9, 0), web: tier(0, 9), light: tier(0, 4) }).ok, 'a coincident face in the master is refused');
+  ok(!coincidentVerdict({ full: tier(0, 9, 0), web: tier(1, 8), light: tier(0, 4) }).ok,
+    'a remainder in a tier that does not carry the master\'s triangles is not explained');
+  ok(!coincidentVerdict({ full: tier(0, 9, 0), web: tier(1, 9, 0), light: tier(0, 4) }).ok, 'a remainder in an unquantized tier is not explained');
+  ok(!coincidentVerdict({ full: tier(0, 9, 0), web: tier(0, 9), light: tier(1, 4) }).ok, 'the separately built light tier may keep none');
 
   const square = [[0, 0], [10, 0], [10, 5], [0, 5]];
   const rules = { base_tolerance_m: 0.01, inset_tolerance_m: 0.01, max_overhang_m: 1.0 };
@@ -563,7 +706,8 @@ async function selfTest() {
 if (process.argv[1] && path.resolve(process.argv[1]) === new URL(import.meta.url).pathname) {
   const mode = process.argv[2] || '--check';
   if (mode === '--measure') await measure();
+  else if (mode === '--measure-asset') await measureAsset(process.argv[3]);
   else if (mode === '--self-test') await selfTest();
   else if (mode === '--check') check();
-  else { console.error('usage: k01_contract.mjs --check | --self-test | --measure'); process.exit(2); }
+  else { console.error('usage: k01_contract.mjs --check | --self-test | --measure | --measure-asset <structure_id>'); process.exit(2); }
 }

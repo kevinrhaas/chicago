@@ -5,6 +5,10 @@ The manifest is a SUMMARY of data/residents/households/*.json and nothing else.
 Every row's `head`, `division`, `persons`, `grades`, `lives_at`, `works_at`,
 `present_on_scene_date`, `review_required` and its four evidence flags are
 denormalised copies of the record on disk, and `counts` is a tally of those rows.
+The row's `lives_at` and `works_at` are the structures the record's own
+`associated_with` rows put it in on the scene date (`associations.home_of` /
+`workplace_of`, T-2277) — the index keeps the two names as its own column
+headings, and no longer reads the record's singular pair to fill them.
 One row field is not a copy but a READING of the record: `dwelling_evidence`,
 which names the clause under which T-1476's ruling counts the record as a HOUSE
 and is absent on a record that is a person awaiting one. See `DWELLING_CLAUSES`.
@@ -77,6 +81,9 @@ import json
 import subprocess
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from associations import home_of, workplace_of  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 RESIDENTS = ROOT / "data" / "residents"
@@ -168,9 +175,9 @@ DWELLING_CLAUSES = (
     ("the_programme_built_it_as_a_house",
      lambda doc, named: named == 0 and bool(doc.get("persons"))),
     ("a_stated_dwelling",
-     lambda doc, named: bool(_value(doc.get("lives_at")))),
+     lambda doc, named: bool(home_of(doc))),
     ("a_stated_premises",
-     lambda doc, named: bool(_value(doc.get("works_at")))),
+     lambda doc, named: bool(workplace_of(doc))),
     ("more_than_one_named_person",
      lambda doc, named: named > 1),
     ("a_stated_kinship",
@@ -269,8 +276,8 @@ def row_for(path: Path, doc: dict) -> dict:
         "division": doc.get("division"),
         "persons": len(persons),
         "grades": dict(sorted(tally.items())),
-        "lives_at": _value(doc.get("lives_at")),
-        "works_at": _value(doc.get("works_at")),
+        "lives_at": home_of(doc),
+        "works_at": workplace_of(doc),
         "present_on_scene_date": _value(doc.get("present_on_scene_date")),
         "review_required": bool(doc.get("review_required")),
     }
@@ -471,6 +478,12 @@ FIX = "python3 tools/rebuild_resident_index.py --write"
 # in two households, built in memory: `household_docs` filters on the parent
 # directory's NAME, so these paths never have to exist on disk.
 
+def _row(kind: str, sid: str) -> dict:
+    """One structure-resolved `associated_with` row, as the copier writes it."""
+    return {"kind": kind, "place_or_structure_id": sid, "resolves_to": "structure",
+            "tier": "documented", "undated": True}
+
+
 def _card(hid: str, persons: list[dict], **fields) -> tuple[Path, dict]:
     """One synthetic household card, addressed as if it sat in the layer."""
     doc = {"id": hid, "head": fields.pop("head", f"{hid}_head"),
@@ -513,7 +526,7 @@ def self_test() -> int:
         [{"id": "p_a1", "grade": "attested", "civic_mint": True},
          {"id": "p_a2", "grade": "inferred", "letter_list_only": True,
           "later_census": "1840_head_0001"}],
-        lives_at={"value": "Lake Street", "confidence": "documented"},
+        associated_with=[_row("home", "lake_street_house")],
         present_on_scene_date={"value": True, "confidence": "inferred"})
     b_path, b_doc = _card(
         "hh_b",
@@ -546,9 +559,9 @@ def self_test() -> int:
                and counts["projected_residents"] == 1
                and counts["census_1840_linked"] == 1
                and counts["civic_mint"] == 1)
-    check_that("a {value, confidence} block contributes its value, and an "
-               "unstated one reads as None",
-               rows["hh_a"]["lives_at"] == "Lake Street"
+    check_that("a {value, confidence} block contributes its value, the home comes off "
+               "the record's home row, and an unstated one reads as None",
+               rows["hh_a"]["lives_at"] == "lake_street_house"
                and rows["hh_a"]["present_on_scene_date"] is True
                and rows["hh_b"]["lives_at"] is None
                and rows["hh_b"]["works_at"] is None)
@@ -587,9 +600,17 @@ def self_test() -> int:
                clause(directories={"people": [{"person_id": "p", "address_later": {
                    "value": "South Water street", "describes_date": 1839}}]}) is None)
     check_that("a stated dwelling makes it a house",
-               clause(lives_at={"value": "Lake Street"}) == "a_stated_dwelling")
+               clause(associated_with=[_row("home", "lake_street_house")])
+               == "a_stated_dwelling")
     check_that("a stated premises makes it a house",
-               clause(works_at={"value": "biz_a"}) == "a_stated_premises")
+               clause(associated_with=[_row("workplace", "biz_a")])
+               == "a_stated_premises")
+    check_that("a singular lives_at/works_at with no row behind it is not read — the "
+               "rows are the claim (T-2277)",
+               clause(lives_at={"value": "lake_street_house"},
+                      works_at={"value": "biz_a"}) is None
+               and row_for(*_card("hh_s", [], lives_at={"value": "lake_street_house"}))
+               ["lives_at"] is None)
     check_that("two NAMED people make it a house",
                clause(persons=[{"id": "p1", "grade": "attested"},
                                {"id": "p2", "grade": "inferred"}])
@@ -612,7 +633,8 @@ def self_test() -> int:
                clause(persons=[]) is None)
     check_that("the clause is read in order, so the strongest reading is the "
                "one the row carries",
-               clause(division="north", lives_at={"value": "Lake Street"})
+               clause(division="north",
+                      associated_with=[_row("home", "lake_street_house")])
                == "a_stated_dwelling")
     check_that("the two units sum to the record count, and neither is the other",
                counts["houses"] + counts["awaiting_a_household"]

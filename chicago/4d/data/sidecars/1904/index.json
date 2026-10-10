@@ -10,6 +10,12 @@
       "name": "John J. Glessner House",
       "sidecar": "sidecars/1904/glessner_house.json",
       "asset": "gltf/glessner_house__as_built_1887.glb"
+    },
+    {
+      "id": "keith_house_1808_prairie",
+      "name": "Osborn R. Keith house (1808 Prairie Avenue), K01 frontage assembly",
+      "sidecar": "sidecars/1904/keith_house_1808_prairie.json",
+      "asset": "gltf/keith_house_1808_prairie__as_built_1886.glb"
     }
   ],
   "excluded_by_date": [

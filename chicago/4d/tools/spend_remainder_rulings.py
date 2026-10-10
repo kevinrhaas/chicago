@@ -712,7 +712,8 @@ CIVIC_RULES = {
             "SCHOOL POST, and T-1569 found the card already carries it for the scene date: "
             "the 1835 occupation names the post, graded and cited, and where the business "
             "register holds the establishment its staff names this person in the same post "
-            "or the card's `workplaces[]` or `works_at` names it. Under the ladder ratified "
+            "or the card's `workplaces[]` or its work row in `associated_with` names it. Under "
+            "the ladder ratified "
             "2026-09-03 a corroboration corroborates and does not promote, so nothing moves. "
             "The note names every field that answers the finding."),
     },
@@ -780,17 +781,17 @@ CIVIC_SPEND: dict[tuple[str, str], tuple[str, str, list[tuple[str, str]], str]] 
     ("04", "sproat_grenville"): (
         CIVIC_CARRIED, "an English and Classical School opened in the fall of 1833",
         [("occupation", "schoolteacher"), ("workplaces", "biz_the_chicago_academy"),
-         ("works_at", "temple_building"), ("staff", "biz_the_chicago_academy")],
+         ("work_row", "temple_building"), ("staff", "biz_the_chicago_academy")],
         "The academy's record and his card name each other."),
     ("04", "st_cyr_john_mary"): (
         CIVIC_CARRIED, "an 1833 appointment, the first Mass and the first church",
-        [("occupation", "priest"), ("works_at", "st_marys_church"),
+        [("occupation", "priest"), ("work_row", "st_marys_church"),
          ("staff", "biz_st_marys_church")],
         "St Mary's record names him its priest and his card works at the church."),
     ("04", "watkins_john"): (
         CIVIC_CARRIED, "a school taught in Chicago in 1835",
         [("occupation", "schoolteacher"), ("workplaces", "biz_john_watkins"),
-         ("works_at", "north_side_school_1833"), ("staff", "biz_john_watkins")],
+         ("work_row", "north_side_school_1833"), ("staff", "biz_john_watkins")],
         "His school's record and his card name each other."),
     ("09", "myers_frederick"): (
         CIVIC_PROFILE, "a quartermaster's clerkship at Fort Dearborn, 1831-33",

@@ -165,6 +165,8 @@ step "Prairie 1904 K01 component contract holds, and the Glessner baseline is th
   node tools/k01_contract.mjs --check
 selftest "…coincident faces, hidden origin offsets and tier scale drift are caught on synthetic GLBs" \
   node tools/k01_contract.mjs --self-test
+step "the K01 assemblies are the bytes their records build (T-2266)" \
+  python3 generators/k01_emit.py --check
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
@@ -458,6 +460,18 @@ step "the 1904 street surfaces cover the grid, cite real sources and bound the s
 
 selftest "…and a bare surface, an invented source, a report made to attest or a range that misses still fails it" \
   python3 tools/check_street_surfaces.py --self-test
+
+# T-2292. ...and what the 1904 roofs are covered in. The K04 library's slates, tiles, pans
+# and sheets are sized in data/components/prairie_1904/k04_roofs.json and drawn by the
+# generator in assets/textures/prairie_1904_roofs/; a K01 roof maps TEXCOORD_0 = metres /
+# tile_m, so a tile that is not a whole number of its own slates scales every slate on
+# every roof that wears it. This holds the maps to the data, the double-lap rule, the
+# reconstruction rules' slate range, a seamless wrap, and tile to the roofs a source shows.
+step "the K04 roof library registers to its data, wraps seamlessly and cites what it rests on (T-2292)" \
+  python3 tools/check_roof_library.py --check
+
+selftest "…and a scaled tile, a broken lap, an odd bond, an oversized slate or a tile built from a barred source still fails it" \
+  python3 tools/check_roof_library.py --self-test
 
 # T-1963. The walls' relief is bound by reading the RECORD (route 2 of the photographic
 # fabric preparation, docs/GLB-CONTRACT.md § Wall substrates, PROPOSED): which wall is

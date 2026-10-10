@@ -26,6 +26,9 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from associations import home_of, workplace_of  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 RESIDENTS = ROOT / "data" / "residents"
 AUDIT = (ROOT.parent / "reference" / "resident-research" / "final" / "audit"
@@ -331,8 +334,9 @@ def s_town(index, records, audit):
         ["the town census of November 1835 — dwellings", p["town_total_dwellings"]],
     ], "lr")
     print()
-    lives = sum(1 for h in records if (h["lives_at"] or {}).get("value"))
-    works = sum(1 for h in records if (h["works_at"] or {}).get("value"))
+    # T-2277: off the record's own rows, not the singular pair.
+    lives = sum(1 for h in records if home_of(h))
+    works = sum(1 for h in records if workplace_of(h))
     print("%d of %d households name a lives_at; %d name a works_at."
           % (lives, len(records), works))
 

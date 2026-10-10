@@ -1,0 +1,621 @@
+{
+  "library": "Prairie Avenue 1904 K03 brick library - profiles",
+  "version": "1.0.0",
+  "ticket": "T-2290",
+  "parent": "T-1845",
+  "programme": "T-1837",
+  "read_by": "T-2291 (the K03 wall on a named target) and every Prairie component that builds brick",
+  "rule": "Joints, bonds, specials and firing spread are DATA here, in metres. No fabric map carries a joint; a component builds them from this file at full detail, and the lod panels are rendered from it for the balanced and light exports.",
+  "module": {
+    "length_m": 0.2159,
+    "course_m": 0.066675,
+    "bed_depth_m": 0.1016,
+    "why": "the Glessner v4 brick module (generators/archetypes/masonry_house_v4_detail.py), so every brick in the district registers with the canonical asset; each fabric's joint comes out of the module rather than being added to it",
+    "confidence": "reconstructed - no 1904 brick size for these houses is a source here"
+  },
+  "condition": "Clean 1904 bodies. Soot, damp, efflorescence and dirt are condition masks laid over the fabric (T-2291), never baked into it, so body clay and dirt stay separable.",
+  "fabrics": {
+    "pressed_red": {
+      "unit": {
+        "module_m": 0.2159,
+        "course_m": 0.066675,
+        "stretcher_m": [
+          0.2119,
+          0.062675
+        ],
+        "header_m": [
+          0.10395,
+          0.062675
+        ],
+        "bed_depth_m": 0.1016
+      },
+      "joint": {
+        "width_m": 0.004,
+        "recess_m": 0.0006,
+        "profile": "flush",
+        "mortar": "mortar_dark"
+      },
+      "arris": {
+        "bevel_m": 0.0012,
+        "chip": null
+      },
+      "face_relief_m": 0.0004,
+      "variants": [
+        {
+          "id": "body",
+          "weight": 0.62,
+          "tint": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "id": "darker_burn",
+          "weight": 0.22,
+          "tint": [
+            0.9,
+            0.88,
+            0.9
+          ]
+        },
+        {
+          "id": "lighter_burn",
+          "weight": 0.12,
+          "tint": [
+            1.07,
+            1.06,
+            1.04
+          ]
+        },
+        {
+          "id": "flashed",
+          "weight": 0.04,
+          "tint": [
+            0.8,
+            0.76,
+            0.8
+          ]
+        }
+      ],
+      "variation_rule": "each unit draws ONE variant by weight, independently, from a generator seeded by (component seed, course, unit): no alternating, banded or checkerboard pattern, and the same wall draws the same bricks on every machine (K01 \u00a7 seed)",
+      "bonds": [
+        "running",
+        "flemish"
+      ],
+      "uses": [
+        {
+          "record": "pa-2100-18",
+          "register": "Pressed dark-red brick with tight dark joints, contrasting sandstone bands"
+        },
+        {
+          "record": "pa-2126-20",
+          "register": "Five-bay red-brick front, pale marble trim and belts"
+        },
+        {
+          "record": "pa-213\u2013217-e.-cullerton-street-27",
+          "register": "213/217 red brick and sandstone"
+        }
+      ],
+      "not_for": "service walls, party walls and rear ranges (common_buff), or any front the register gives to stone",
+      "fabric": "brick/pressed_red/material.json",
+      "confidence": "reconstructed",
+      "note": "Dry-pressed face brick: a dense, smooth, even red face with crisp arrises, a faint press sheen and only fine pinholes; laid with thin dark joints so the wall reads as one colour field. Body colour and burn spread are reconstructed."
+    },
+    "common_buff": {
+      "unit": {
+        "module_m": 0.2159,
+        "course_m": 0.066675,
+        "stretcher_m": [
+          0.2069,
+          0.057675
+        ],
+        "header_m": [
+          0.09895,
+          0.057675
+        ],
+        "bed_depth_m": 0.1016
+      },
+      "joint": {
+        "width_m": 0.009,
+        "recess_m": 0.003,
+        "profile": "weathered",
+        "mortar": "mortar_lime"
+      },
+      "arris": {
+        "bevel_m": 0.003,
+        "chip": {
+          "probability": 0.1,
+          "depth_m": 0.004,
+          "length_m": [
+            0.006,
+            0.02
+          ]
+        }
+      },
+      "face_relief_m": 0.0012,
+      "variants": [
+        {
+          "id": "body",
+          "weight": 0.48,
+          "tint": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "id": "salmon_soft",
+          "weight": 0.22,
+          "tint": [
+            1.04,
+            0.97,
+            0.92
+          ]
+        },
+        {
+          "id": "grey_tan",
+          "weight": 0.18,
+          "tint": [
+            0.95,
+            0.95,
+            0.96
+          ]
+        },
+        {
+          "id": "hard_burnt",
+          "weight": 0.12,
+          "tint": [
+            0.87,
+            0.81,
+            0.78
+          ]
+        }
+      ],
+      "variation_rule": "each unit draws ONE variant by weight, independently, from a generator seeded by (component seed, course, unit): no alternating, banded or checkerboard pattern, and the same wall draws the same bricks on every machine (K01 \u00a7 seed)",
+      "bonds": [
+        "common_6",
+        "running"
+      ],
+      "uses": [
+        {
+          "record": "pa-1612-1",
+          "register": "Smooth ashlar street face, common-brick returns"
+        },
+        {
+          "record": "pa-1808-6",
+          "register": "Common-brick side and rear ranges"
+        },
+        {
+          "record": "pa-1912-10",
+          "register": "Brownstone walls and brick service range"
+        },
+        {
+          "record": "pa-2130-42",
+          "register": "Stone-front block with brick rear"
+        },
+        {
+          "record": "pa-2031-nrhp",
+          "register": "stone front, brick party walls"
+        }
+      ],
+      "not_for": "a street front the register names as pressed or rough brick",
+      "fabric": "brick/common_buff/material.json",
+      "confidence": "reconstructed",
+      "note": "Common (service) brick for returns, party walls, rear ranges and coach houses: a sandy buff-to-salmon body, softer arrises, sand and lime specks, wider struck joints and a broader firing spread than a face brick. Colour and spread are reconstructed, kept in the Glessner v4 common brick's grey-tan family."
+    },
+    "dark_fired": {
+      "unit": {
+        "module_m": 0.2159,
+        "course_m": 0.066675,
+        "stretcher_m": [
+          0.2099,
+          0.060675
+        ],
+        "header_m": [
+          0.10195,
+          0.060675
+        ],
+        "bed_depth_m": 0.1016
+      },
+      "joint": {
+        "width_m": 0.006,
+        "recess_m": 0.002,
+        "profile": "struck",
+        "mortar": "mortar_lime"
+      },
+      "arris": {
+        "bevel_m": 0.002,
+        "chip": {
+          "probability": 0.06,
+          "depth_m": 0.003,
+          "length_m": [
+            0.005,
+            0.014
+          ]
+        }
+      },
+      "face_relief_m": 0.001,
+      "variants": [
+        {
+          "id": "body",
+          "weight": 0.55,
+          "tint": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "id": "plum",
+          "weight": 0.25,
+          "tint": [
+            1.08,
+            0.94,
+            1.06
+          ]
+        },
+        {
+          "id": "near_black",
+          "weight": 0.2,
+          "tint": [
+            0.78,
+            0.78,
+            0.8
+          ]
+        }
+      ],
+      "variation_rule": "each unit draws ONE variant by weight, independently, from a generator seeded by (component seed, course, unit): no alternating, banded or checkerboard pattern, and the same wall draws the same bricks on every machine (K01 \u00a7 seed)",
+      "bonds": [
+        "flemish"
+      ],
+      "uses": [
+        {
+          "record": null,
+          "register": "the study's 'dark fired variants' (ASSET-CATALOG K03): an accent unit, not a wall fabric"
+        }
+      ],
+      "not_for": "a whole wall; it is the header of a Flemish front or a single course, and no register entry yet names one",
+      "fabric": "brick/dark_fired/material.json",
+      "confidence": "reconstructed",
+      "note": "Overburnt, kiln-end brick: purple-brown to near-black, partly vitrified with glassy specks and small bloats. Offered as the header of a Flemish bond and nowhere else until a house's evidence asks for it."
+    },
+    "rough_red_brown": {
+      "unit": {
+        "module_m": 0.2159,
+        "course_m": 0.066675,
+        "stretcher_m": [
+          0.2059,
+          0.056675
+        ],
+        "header_m": [
+          0.09795,
+          0.056675
+        ],
+        "bed_depth_m": 0.1016
+      },
+      "joint": {
+        "width_m": 0.01,
+        "recess_m": 0.005,
+        "profile": "raked",
+        "mortar": "mortar_lime"
+      },
+      "arris": {
+        "bevel_m": 0.002,
+        "chip": {
+          "probability": 0.45,
+          "depth_m": 0.006,
+          "length_m": [
+            0.008,
+            0.035
+          ]
+        }
+      },
+      "face_relief_m": 0.0025,
+      "variants": [
+        {
+          "id": "body",
+          "weight": 0.5,
+          "tint": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "id": "browner",
+          "weight": 0.25,
+          "tint": [
+            0.94,
+            0.92,
+            0.86
+          ]
+        },
+        {
+          "id": "redder",
+          "weight": 0.15,
+          "tint": [
+            1.08,
+            0.96,
+            0.94
+          ]
+        },
+        {
+          "id": "dark_end",
+          "weight": 0.1,
+          "tint": [
+            0.78,
+            0.74,
+            0.74
+          ]
+        }
+      ],
+      "variation_rule": "each unit draws ONE variant by weight, independently, from a generator seeded by (component seed, course, unit): no alternating, banded or checkerboard pattern, and the same wall draws the same bricks on every machine (K01 \u00a7 seed)",
+      "bonds": [
+        "running"
+      ],
+      "uses": [
+        {
+          "record": "pa-2009-17",
+          "register": "Rough red-brown brick, brownstone basement/copings"
+        }
+      ],
+      "not_for": "any front other than one the register calls rough; its chipped arris is Mayer's, not a general weathering",
+      "fabric": "brick/rough_red_brown/material.json",
+      "confidence": "reconstructed",
+      "note": "Rough-faced red-brown brick: a torn, dragged face with pits and grit, irregular chipped arrises and deep raked joints that put a shadow under every course. Colour, tear and chip rate are reconstructed."
+    }
+  },
+  "mortars": {
+    "mortar_dark": {
+      "fabric": "mortar/mortar_dark/material.json",
+      "note": "Fine dark-tinted mortar for tight pressed-brick joints: a lime-and-sand putty darkened to read with a dark red face. The tint is reconstructed; the register's Sherman entry asks for 'tight dark joints' and names no recipe.",
+      "confidence": "reconstructed"
+    },
+    "mortar_lime": {
+      "fabric": "mortar/mortar_lime/material.json",
+      "note": "Sandy lime mortar for common and rough brick: warm grey-cream with visible sand and the odd lime nodule, the Glessner v4 mortar's family at the brick library's scale. Clean 1904 condition; soot and damp are condition masks (T-2291), not this map.",
+      "confidence": "reconstructed"
+    }
+  },
+  "joint_profiles": {
+    "flush": {
+      "description": "struck off flush with the face; a thin flat line barely behind the arrises",
+      "recess_top_frac": 1.0,
+      "recess_bottom_frac": 1.0
+    },
+    "struck": {
+      "description": "pressed back at the bottom, flush at the top: a ledge on the brick below catches water",
+      "recess_top_frac": 0.0,
+      "recess_bottom_frac": 1.0
+    },
+    "weathered": {
+      "description": "pressed back at the top, flush at the bottom: sloped to shed water off the brick below",
+      "recess_top_frac": 1.0,
+      "recess_bottom_frac": 0.0
+    },
+    "raked": {
+      "description": "raked out square to a uniform depth, so each course casts a shadow line",
+      "recess_top_frac": 1.0,
+      "recess_bottom_frac": 1.0
+    }
+  },
+  "bonds": {
+    "running": {
+      "description": "stretcher (running) bond: every unit a stretcher, each course offset half a module",
+      "period_modules": 1.0,
+      "courses": [
+        {
+          "units": [
+            "S"
+          ],
+          "offset_modules": 0.0
+        },
+        {
+          "units": [
+            "S"
+          ],
+          "offset_modules": 0.5
+        }
+      ]
+    },
+    "common_6": {
+      "description": "common (American) bond: five stretcher courses, then a header course tying the wythes",
+      "period_modules": 1.0,
+      "courses": [
+        {
+          "units": [
+            "S"
+          ],
+          "offset_modules": 0.0
+        },
+        {
+          "units": [
+            "S"
+          ],
+          "offset_modules": 0.5
+        },
+        {
+          "units": [
+            "S"
+          ],
+          "offset_modules": 0.0
+        },
+        {
+          "units": [
+            "S"
+          ],
+          "offset_modules": 0.5
+        },
+        {
+          "units": [
+            "S"
+          ],
+          "offset_modules": 0.0
+        },
+        {
+          "units": [
+            "H"
+          ],
+          "offset_modules": 0.0
+        },
+        {
+          "units": [
+            "S"
+          ],
+          "offset_modules": 0.5
+        },
+        {
+          "units": [
+            "S"
+          ],
+          "offset_modules": 0.0
+        },
+        {
+          "units": [
+            "S"
+          ],
+          "offset_modules": 0.5
+        },
+        {
+          "units": [
+            "S"
+          ],
+          "offset_modules": 0.0
+        },
+        {
+          "units": [
+            "S"
+          ],
+          "offset_modules": 0.5
+        },
+        {
+          "units": [
+            "H"
+          ],
+          "offset_modules": 0.0
+        }
+      ]
+    },
+    "flemish": {
+      "description": "Flemish bond: stretcher and header alternate in every course, each header centred on the stretcher below",
+      "period_modules": 1.5,
+      "courses": [
+        {
+          "units": [
+            "S",
+            "H"
+          ],
+          "offset_modules": 0.0
+        },
+        {
+          "units": [
+            "S",
+            "H"
+          ],
+          "offset_modules": 0.75
+        }
+      ]
+    }
+  },
+  "unit_modules": {
+    "S": 1.0,
+    "H": 0.5
+  },
+  "specials": {
+    "stretcher": {
+      "face": "length x height",
+      "length_m": "module - joint",
+      "height_m": "course - joint"
+    },
+    "header": {
+      "face": "bed depth x height, set across the wall to tie the wythes",
+      "length_m": "module/2 - joint",
+      "note": "the header's face is a half module so it registers with the stretcher joints"
+    },
+    "soldier": {
+      "face": "height x length, stood on end",
+      "width_m": "course x 1.5 - joint, rounded to the bond",
+      "height_m": "module - joint",
+      "use": "a flat head over an opening or a band; reads the bond's module, never a free width"
+    },
+    "rowlock": {
+      "face": "height x bed depth, on edge",
+      "use": "segmental and round arch rings, sills and the cap of a garden wall"
+    },
+    "segmental_arch": {
+      "rings": [
+        1,
+        3
+      ],
+      "ring_unit": "rowlock",
+      "rise_to_span": [
+        0.08,
+        0.18
+      ],
+      "taper": "the bricks stay rectangular and the JOINT wedges: joint at the intrados is the fabric's joint width, at the extrados it opens to whatever closes the ring, capped at 2.5 x the joint width; past that add a ring",
+      "keystone": "none in brick unless the house's evidence shows one"
+    },
+    "jack_arch": {
+      "unit": "soldier",
+      "skew_deg": [
+        60,
+        70
+      ],
+      "taper": "joints fan from a common centre below the opening",
+      "use": "flat heads where the register calls for them"
+    },
+    "string_course": {
+      "forms": [
+        "projecting stretcher course, 0.012-0.025 m proud",
+        "rowlock band",
+        "soldier band"
+      ],
+      "rule": "projects from the wall plane; its top is weathered (sloped) so it sheds water. A band in a different fabric is the house's call (sandstone and marble belts are K02's)"
+    },
+    "corner_return": {
+      "rule": "the bond turns the corner unbroken: a course that ends in a stretcher on one face starts with a header-length return on the other, so the half-module offset continues round the quoin. Flemish and common-bond header courses take a queen closer (a quarter-module cut) beside the quoin header",
+      "closer_m": "module/4 - joint"
+    }
+  },
+  "panels": [
+    {
+      "id": "pressed_red_running",
+      "fabric": "pressed_red",
+      "bond": "running",
+      "modules": 4,
+      "courses": 12,
+      "for": "a pressed-brick street front (Sherman-type) at the balanced and light exports",
+      "material": "panel/pressed_red_running/material.json"
+    },
+    {
+      "id": "common_buff_common_6",
+      "fabric": "common_buff",
+      "bond": "common_6",
+      "modules": 4,
+      "courses": 12,
+      "for": "common-brick returns, party walls, rear ranges and coach houses",
+      "material": "panel/common_buff_common_6/material.json"
+    },
+    {
+      "id": "rough_red_brown_running",
+      "fabric": "rough_red_brown",
+      "bond": "running",
+      "modules": 4,
+      "courses": 12,
+      "for": "the Mayer front (pa-2009-17)",
+      "material": "panel/rough_red_brown_running/material.json"
+    },
+    {
+      "id": "pressed_red_flemish_dark_headers",
+      "fabric": "pressed_red",
+      "bond": "flemish",
+      "header_fabric": "dark_fired",
+      "modules": 3,
+      "courses": 12,
+      "for": "a Georgian Revival option (pa-2126-20, pa-1700-52) - Flemish bond with burnt headers; no register entry yet attests the bond",
+      "material": "panel/pressed_red_flemish_dark_headers/material.json"
+    }
+  ],
+  "liberty": "L-k03-brick-library-2290"
+}

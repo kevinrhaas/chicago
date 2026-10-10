@@ -1,0 +1,66 @@
+{
+  "id": "common_buff_common_6",
+  "group": "panel",
+  "role": "lod_panel",
+  "lod": [
+    "balanced",
+    "light"
+  ],
+  "fabric": "common_buff",
+  "bond": "common_6",
+  "mortar": "mortar_lime",
+  "joint": {
+    "width_m": 0.009,
+    "recess_m": 0.003,
+    "profile": "weathered",
+    "mortar": "mortar_lime"
+  },
+  "tile_m": [
+    0.8636,
+    0.8001
+  ],
+  "repeat": {
+    "modules": 4,
+    "courses": 12
+  },
+  "resolution_px": [
+    518,
+    480
+  ],
+  "px_per_m": [
+    599.815,
+    599.925
+  ],
+  "uv_rule": "K01 scale_uv: TEXCOORD_0 = surface metres / tile_m; u = 0 on a perpend, v = 0 on a bed joint's centre",
+  "joints_in_map": true,
+  "derived_from": "profiles.json + the fabric and mortar maps, by this generator; never hand-edited",
+  "for": "common-brick returns, party walls, rear ranges and coach houses",
+  "not_for": "the full export, where every brick is geometry and the joint-free fabric maps apply",
+  "orientation": "image x = along the course (u); image y = up the wall (v), image top = up",
+  "height_range_m": [
+    -0.002933,
+    0.001173
+  ],
+  "mean_srgb": [
+    171,
+    138,
+    107
+  ],
+  "mean_roughness": 0.871,
+  "confidence": "reconstructed appearance and bond; see the fabric's material.json and the liberty",
+  "liberty": "L-k03-brick-library-2290",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y (up the wall)",
+    "roughness": "linear",
+    "height16": "linear 16-bit; 0 = height_range_m[0], 65535 = height_range_m[1]",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "common_buff_common_6_basecolor_web.jpg",
+    "normal_gl": "common_buff_common_6_normal_gl_web.jpg",
+    "orm": "common_buff_common_6_orm_web.jpg"
+  },
+  "seamless": true,
+  "generation_method": "deterministic: rasterised from profiles.json at 2x supersampling (tools/generate_prairie_1904_brick.py)"
+}

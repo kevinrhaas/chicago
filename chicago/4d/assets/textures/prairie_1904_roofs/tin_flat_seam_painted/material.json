@@ -1,0 +1,58 @@
+{
+  "id": "tin_flat_seam_painted",
+  "library": "prairie_1904_roofs",
+  "version": "1.0.0",
+  "ticket": "T-2292",
+  "slot": "covering",
+  "kind": "flat_seam",
+  "tile_m": [
+    2.032,
+    2.1336
+  ],
+  "module": {
+    "sheet_u_m": 0.508,
+    "sheet_v_m": 0.3556,
+    "lock_m": 0.013,
+    "lock_height_m": 0.002,
+    "bond": "broken_half",
+    "columns": 4,
+    "courses": 6
+  },
+  "module_source": "data/components/prairie_1904/k04_roofs.json",
+  "course_phase_m": [
+    0.127,
+    0.1778
+  ],
+  "course_phase_rule": "the first vertical joint lies course_phase_m[0] along u and the first butt course_phase_m[1] up v from the tile's origin; offset the roof's UV by them to put a butt on the eave",
+  "resolution_px": 512,
+  "px_per_m": [
+    251.97,
+    239.97
+  ],
+  "mean_basecolor": [
+    115,
+    52,
+    41
+  ],
+  "mean_roughness": 0.656,
+  "mean_metallic": 0.0,
+  "orientation": "image x = along the eave (u); image y = up the slope with the top row uphill (v grows upward); each course's butt is its low edge",
+  "uv_rule": "TEXCOORD_0 = surface metres / tile_m (k01_contract.json scale_uv)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y",
+    "roughness": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "tin_flat_seam_painted_basecolor_web.jpg",
+    "normal_gl": "tin_flat_seam_painted_normal_gl_web.jpg",
+    "orm": "tin_flat_seam_painted_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 228153244,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_roofs.py); no photograph sampled",
+  "confidence": "reconstructed",
+  "appearance": "reconstructed (docs/LIBERTIES.md L-k04-roof-library-2292)",
+  "note": "Terne in 14 x 20 in sheets, edges folded into half-inch flat locks, soldered, laid in broken joint and painted: the low-slope service roof. Sheet size, lock and paint are reconstructed."
+}

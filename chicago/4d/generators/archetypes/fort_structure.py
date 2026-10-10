@@ -39,6 +39,7 @@ from common.logwork import (  # noqa: E402
     CHINK_RGBA, COURSE_M, HEWN_RGBA, RELIEF_M, hewn_log_wall,
 )
 from common import materials  # noqa: E402
+from common import openings  # noqa: E402
 from common.mesh import MeshBuilder, ROOF_RGBA, simple_material  # noqa: E402
 from archetypes.fort_structure_params import FortStructureParams  # noqa: E402
 
@@ -586,17 +587,40 @@ def _panel(b: MeshBuilder, axis: str, plane: float, u0: float, u1: float,
     b.add_poly(pts, conf, mat)
 
 
+def _kit(b: MeshBuilder, board: bool = False) -> openings.Mats:
+    """The openings kit's materials (T-2278): casing and sash in the building's pale
+    trim, the town's glass (Glessner's dark pane), a door leaf dealt a paint — a
+    garrison's doors were painted at public cost — or iron-strapped board for the
+    magazine, and strap iron."""
+    rgba, rough = openings.WEATHERED_BOARD if board else openings.door_paint(b.name, True)
+    key = "board_door" if board else "door"
+    return openings.Mats(
+        casing=M_TRIM, sash=M_TRIM, dark=M_DARK,
+        glass=b.named_mat("glass", *openings.glass_material_spec()),
+        door=b.named_mat(key, rgba, rough),
+        panel=b.named_mat(key + "_panel", openings.shade(rgba, 0.70), rough),
+        iron=b.named_mat("iron", *openings.STRAP_IRON))
+
+
 def _opening(b: MeshBuilder, axis: str, plane: float, u0: float, u1: float,
-             z0: float, z1: float, outward: int, conf: float,
+             z0: float, z1: float, outward: int, conf: float, kind: str = "window",
              relief: float = RELIEF_M) -> None:
-    """A door or window: a dark panel inside a sawn surround. Same treatment, and
-    the same reasoning, as log_dwelling._opening."""
-    off = relief + 0.010
-    m = 0.085
-    _panel(b, axis, plane + outward * off, u0 - m, u1 + m, z0 - m, z1 + m,
-           outward, conf, M_TRIM)
-    _panel(b, axis, plane + outward * (off + 0.006), u0, u1, z0, z1,
-           outward, conf, M_DARK)
+    """A door or window, built by the shared openings kit (T-2278).
+
+    Before this both were a dark panel inside a sawn surround, so the garrison's
+    quarters stood open onto black doorways. A garrison of 1816-35 was glazed — glass
+    came up the lakes with every supply schooner — so a window is a cased six-over-six
+    sash over the town's dark glass; a door is a closed panelled leaf; the magazine's
+    is iron-strapped board.
+    """
+    w = openings.Wall(axis, plane, outward, relief)
+    if kind == "door":
+        openings.panelled_door(b, w, u0, u1, z0, z1, conf, _kit(b))
+    elif kind == "magazine":
+        openings.batten_door(b, w, u0, u1, z0, z1, conf, _kit(b, board=True),
+                             seed=b.name, boards=4, cap=True)
+    else:
+        openings.window(b, w, u0, u1, z0, z1, conf, _kit(b), 3, (2, 2))
 
 
 def _string_course(b: MeshBuilder, x0, y0, x1, y1, wall_z, conf) -> None:
@@ -643,14 +667,15 @@ def _openings(b: MeshBuilder, p: FortStructureParams, lower_z: float,
             u = w * (i + 0.5) / max(1, bays - 1)
             _opening(b, "y", 0.0, u - 0.33, u + 0.33, z0, hi, -1, conf)
     if door:
-        _opening(b, "y", d, xm - 0.55, xm + 0.55, 0.02, 2.05, 1, conf)
+        _opening(b, "y", d, xm - 0.55, xm + 0.55, 0.02, 2.05, 1, conf, kind="door")
 
 
 def _magazine_door(b: MeshBuilder, p: FortStructureParams, conf: float) -> None:
     """A powder magazine has one door and no windows. That is not a simplification;
     it is the defining fact about the building type."""
     xm = p.width_m / 2.0
-    _opening(b, "y", p.depth_m, xm - 0.45, xm + 0.45, 0.02, 1.85, 1, conf)
+    _opening(b, "y", p.depth_m, xm - 0.45, xm + 0.45, 0.02, 1.85, 1, conf,
+             kind="magazine")
 
 
 def _loopholes(b: MeshBuilder, p: FortStructureParams, lower_z: float,
