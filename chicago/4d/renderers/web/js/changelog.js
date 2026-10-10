@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1609, ts: '2026-10-10T03:27:21.062Z', date: 'Oct 9, 2026, 10:27 PM CT', title: 'A neighbour for the Glessner House at 1808 Prairie', kind: 'feature',
+    items: [
+      'In 1904, walk south from the Glessner House along Prairie Avenue and a second house now stands on the next lot: three storeys over a basement, with a stone front, common-brick sides and a hip roof.',
+      'Its north wall closes the Glessner courtyard on the south, as the 1911 fire-insurance map draws it. The courtyard no longer opens onto empty ground.',
+      'It is the first house built from Prairie Avenue\u2019s shared building parts. Its walls, windows, front steps and roof are each one reusable part, measured in metres.',
+      'Most of it is a reconstruction, and the confidence view says so. The map gives only its three storeys, its basement and its brick. The real stone front, curved bay and columned entrance are still to come.',
+    ] },
   { v: 1608, ts: '2026-10-10T02:34:31.860Z', date: 'Oct 9, 2026, 9:34 PM CT', title: 'The groundwork for people in the town: one skeleton, one rulebook', kind: 'change',
     items: [
       'Nothing you can see changes, and no person is drawn: the town still shows no human figures, for anyone, until that rule is lifted.',

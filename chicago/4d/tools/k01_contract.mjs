@@ -19,6 +19,15 @@
  *                                             and its hashes are the package's — so a
  *                                             rebake that is not re-measured fails here
  *   node tools/k01_contract.mjs --self-test  the measures, proved on synthetic GLBs
+ *   node tools/k01_contract.mjs --measure-asset <structure_id>
+ *                                             WRITES <structure_id>.measure.json beside
+ *                                             the contract: an assembly BUILT to K01
+ *                                             (T-2266), its full and web tiers measured
+ *                                             by the same rules. Unlike Glessner's, its
+ *                                             verdicts must all be ok — a new component
+ *                                             may not carry a finding (coincident faces
+ *                                             allowed new: 0) — and --check holds its
+ *                                             hashes to the committed GLBs
  *   node tools/k01_contract.mjs --measure    WRITES the baseline from the three GLBs
  *                                             (`python3 tools/recover_glessner_v4.py
  *                                             --materialize` first on a fresh clone);
@@ -28,7 +37,7 @@
  * The gate never decodes a GLB: the measurement is committed, and the hashes tie it to
  * the bytes it measured (docs/RESEARCH/glessner-v4-recovery/manifest.json).
  */
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 
@@ -454,9 +463,91 @@ async function measure() {
   for (const [k, v] of Object.entries(out.verdicts)) console.log(`  ${k}: ${v.ok ? 'ok' : 'NOT OK'}`);
 }
 
+// ---------------------------------------------------------------------------
+// assemblies built TO the contract (T-2266)
+// ---------------------------------------------------------------------------
+
+const COMPONENTS_DIR = 'data/components/prairie_1904';
+const sha256Of = (abs) => createHash('sha256').update(readFileSync(abs)).digest('hex');
+
+function assetTiers(structureId) {
+  const manifest = readJson('assets/manifest.json').assets;
+  const name = Object.keys(manifest).find((n) => manifest[n].structure_id === structureId);
+  if (!name) throw new Error(`${structureId}: no baked asset in assets/manifest.json`);
+  return { name, phase: manifest[name].phase_id, tiers: [['full', `assets/gltf/${name}`], ['web', `assets/web/${name}`]] };
+}
+
+async function measureAsset(structureId) {
+  if (!structureId) throw new Error('usage: --measure-asset <structure_id>');
+  const c = readJson(CONTRACT);
+  const m = c.measures;
+  const record = readJson(`data/structures/${structureId}.json`);
+  const { phase, tiers: files } = assetTiers(structureId);
+  const footprint = record.phases.find((p) => p.id === phase).footprint.polygon;
+  const library = readJson(LIBRARY).materials;
+  const tiers = {};
+  for (const [tier, file] of files) {
+    const buf = readFileSync(path.join(APP, file));
+    const row = await measureGlb(new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength),
+      { envelope: m.envelope_materials, walls: m.wall_base_materials, band: m.storey_band_m, quantum_m: m.quantum_m, library });
+    row.origin = originVerdict(row.envelope_bbox_m, row.wall_base_y_m, footprint, m);
+    tiers[tier] = { path: file, bytes: buf.length, sha256: sha256Of(path.join(APP, file)), ...row };
+    console.log(`${tier}: ${row.mesh.triangles} triangles, ${row.mesh.draw_primitives} primitives, ${row.faces.coincident} coincident faces`);
+  }
+  const drift = { web: driftVerdict(tiers.full.bbox_m, tiers.web.bbox_m, m, tiers.full.envelope_bbox_m, tiers.web.envelope_bbox_m) };
+  const uvOff = [];
+  for (const [tier, row] of Object.entries(tiers)) {
+    for (const [mat, u] of Object.entries(row.metric_uv)) {
+      if (u.uv_per_m_times_tile_m !== undefined && Math.abs(u.uv_per_m_times_tile_m - 1) > m.uv_tolerance) uvOff.push(`${tier}:${mat}=${u.uv_per_m_times_tile_m}`);
+    }
+  }
+  const coincident = Object.fromEntries(Object.entries(tiers).map(([t, r]) => [t, r.faces.coincident + r.faces.degenerate]));
+  const out = {
+    _doc: `MEASURED, not authored: node tools/k01_contract.mjs --measure-asset ${structureId} wrote this from the committed full and web GLBs by the rules in k01_contract.json (T-2266). An assembly BUILT to K01 has no light tier yet (tools/web_derivatives.sh reduces Glessner alone), and none of its verdicts may carry a finding: the gate holds every one to ok and the hashes to the files on disk, so a rebuild that is not re-measured fails.`,
+    contract: CONTRACT,
+    structure_id: structureId,
+    phase_id: phase,
+    tiers,
+    verdicts: {
+      scale_drift: { ok: drift.web.ok, against: 'full', tiers: drift },
+      origin: { ok: Object.values(tiers).every((r) => r.origin.ok) },
+      coincident_faces: { ok: Object.values(coincident).every((n) => n <= m.coincident_faces_allowed_new), counts: coincident, allowed: m.coincident_faces_allowed_new },
+      metric_uv: { ok: uvOff.length === 0, off: uvOff },
+    },
+  };
+  const file = `${COMPONENTS_DIR}/${structureId}.measure.json`;
+  writeFileSync(path.join(APP, file), JSON.stringify(out, null, 2) + '\n');
+  console.log(`wrote ${file}`);
+  for (const [k, v] of Object.entries(out.verdicts)) console.log(`  ${k}: ${v.ok ? 'ok' : 'NOT OK'}`);
+  if (!Object.values(out.verdicts).every((v) => v.ok)) process.exitCode = 1;
+}
+
+/** Every committed assembly measure: all verdicts ok, every tier's hash the file's. */
+export function assemblyProblems(measure, hashOf) {
+  const bad = [];
+  const id = measure.structure_id ?? '(no structure_id)';
+  for (const k of ['scale_drift', 'origin', 'coincident_faces', 'metric_uv']) {
+    if (measure.verdicts?.[k]?.ok !== true) bad.push(`${id}: verdict ${k} is not ok — an assembly built to K01 may not carry a finding`);
+  }
+  for (const [tier, row] of Object.entries(measure.tiers || {})) {
+    const have = hashOf(row.path);
+    if (have !== row.sha256) bad.push(`${id} ${tier}: measured ${row.sha256?.slice(0, 12)} but ${row.path} is ${have ? have.slice(0, 12) : 'missing'} — re-measure with --measure-asset ${id}`);
+  }
+  if (!measure.tiers?.full || !measure.tiers?.web) bad.push(`${id}: needs a full and a web tier`);
+  return bad;
+}
+
+function assemblyMeasures() {
+  return readdirSync(path.join(APP, COMPONENTS_DIR)).filter((f) => f.endsWith('.measure.json')).sort()
+    .map((f) => readJson(`${COMPONENTS_DIR}/${f}`));
+}
+
 function check() {
   const c = readJson(CONTRACT);
-  const bad = [...contractProblems(c), ...baselineProblems(c, readJson(BASELINE), readJson(PACKAGE))];
+  const measures = assemblyMeasures();
+  const hashOf = (p) => (existsSync(path.join(APP, p)) ? sha256Of(path.join(APP, p)) : null);
+  const bad = [...contractProblems(c), ...baselineProblems(c, readJson(BASELINE), readJson(PACKAGE)),
+    ...measures.flatMap((mm) => assemblyProblems(mm, hashOf))];
   if (bad.length) {
     for (const b of bad) console.error(`  ✗ ${b}`);
     console.error(`k01_contract: ${bad.length} problem(s)`);
@@ -466,7 +557,8 @@ function check() {
   const t = b.tiers;
   console.log(`k01_contract: contract holds ${c.families.length} families on ${c.datums.length} datums; `
     + `Glessner baseline ${t.full.mesh.triangles}/${t.web.mesh.triangles}/${t.light.mesh.triangles} triangles full/web/light, `
-    + `hashes match the package`);
+    + `hashes match the package`
+    + (measures.length ? `; ${measures.length} assembly built to it (${measures.map((mm) => `${mm.structure_id} ${mm.tiers.full.mesh.triangles} triangles, ${mm.verdicts.coincident_faces.counts.full} coincident`).join('; ')}), every verdict ok` : ''));
 }
 
 /** A GLB from plain triangles: one node, one primitive per entry. */
@@ -563,7 +655,8 @@ async function selfTest() {
 if (process.argv[1] && path.resolve(process.argv[1]) === new URL(import.meta.url).pathname) {
   const mode = process.argv[2] || '--check';
   if (mode === '--measure') await measure();
+  else if (mode === '--measure-asset') await measureAsset(process.argv[3]);
   else if (mode === '--self-test') await selfTest();
   else if (mode === '--check') check();
-  else { console.error('usage: k01_contract.mjs --check | --self-test | --measure'); process.exit(2); }
+  else { console.error('usage: k01_contract.mjs --check | --self-test | --measure | --measure-asset <structure_id>'); process.exit(2); }
 }

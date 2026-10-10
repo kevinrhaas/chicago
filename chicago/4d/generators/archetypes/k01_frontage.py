@@ -1,0 +1,451 @@
+"""A frontage built from K01 components, written straight to glTF — no Blender.
+
+TICKET T-2266: the first assembly built to the Prairie 1904 K01 metric component
+contract (`data/components/prairie_1904/k01_contract.json`), beside the canonical
+Glessner asset it is measured against.
+
+WHY PURE PYTHON. The contract's measures are about vertices — 1 mm grid identity,
+no doubled or back-to-back faces, the envelope on the footprint, metric UVs — and
+every one of them is easier to HOLD when this module writes the vertices itself
+than when an exporter re-indexes, re-normals and re-orders them. It also keeps
+this asset out of `generators/emit.py`, whose bytes are in the input hash of all
+704 baked meshes: registering an archetype there would stale the whole town for a
+change that moves none of its vertices (the false positive T-1654 split that file
+to remove). `generators/k01_emit.py` is the command; `mesh_inputs` hashes this
+module and its parameter module, and nothing else, for this archetype.
+
+THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
+
+  k01.wall.street_front     the stone front, its openings cut through it
+  k01.wall.side.north       the party side against the Glessner court: blank brick
+  k01.wall.side.south       common brick, four bays a storey
+  k01.wall.rear_service     common brick, two bays a storey
+  k01.opening.sash_flat     reveal, sash ring, meeting rail, glass, dark backing,
+                            stone sill and flat lintel
+  k01.opening.area_light    the basement lights: the same, no meeting rail
+  k01.opening.door_leaf     reveal, threshold and a recessed oak leaf
+  k01.stair.straight_stoop  whole risers from the walk to the principal floor
+  k01.roof.hip              four planes on true hips, fascia and soffit
+
+A wall is the cell grid its openings cut, so no face is ever drawn twice and no
+cell straddles an opening edge (T-junction free inside the wall). Faces that sit
+against another surface — a stone's back on the wall, the stoop's back and
+bottom — are not emitted at all: a hidden face is the back-to-back coincidence
+the contract's measure refuses.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import math
+import struct
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
+GENERATOR = "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)"
+
+Y = (0.0, 1.0, 0.0)
+
+
+def _add(a, b):
+    return (a[0] + b[0], a[1] + b[1], a[2] + b[2])
+
+
+def _sub(a, b):
+    return (a[0] - b[0], a[1] - b[1], a[2] - b[2])
+
+
+def _mul(a, k):
+    return (a[0] * k, a[1] * k, a[2] * k)
+
+
+def _dot(a, b):
+    return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
+
+
+def _cross(a, b):
+    return (a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0])
+
+
+def _unit(a):
+    n = math.sqrt(_dot(a, a))
+    return (a[0] / n, a[1] / n, a[2] / n)
+
+
+def seed_of(structure_id: str, component_id: str, index: int) -> int:
+    """k01_contract.json `seed.rule`, verbatim."""
+    h = hashlib.sha256(f"{structure_id}|{component_id}|{index}".encode()).hexdigest()
+    return int(h[:8], 16)
+
+
+# The material slots. A fabric names the library image whose `tile_m` the UVs are
+# divided by (k01_contract.json scale_uv); the rest are flat colours. Names matter
+# to the contract's measure: walls the envelope reads begin with an envelope
+# material (`^(granite|brick|limestone_trim|rough_stone_trim|mortar)`), and the
+# stoop — which stands proud of the front by metres — must NOT, or the envelope
+# would read the stair as wall.
+MATERIALS = {
+    "rough_stone_trim": {"fabric": "limestone", "color": (0.90, 0.85, 0.76), "roughness": 0.92},
+    "brick": {"fabric": "brick", "color": (1.0, 0.985, 0.94), "roughness": 0.9},  # Glessner's brick_buff
+    "limestone_trim": {"fabric": "limestone", "color": (1.0, 0.97, 0.90), "roughness": 0.85},
+    "stoop_stone": {"fabric": "limestone", "color": (0.95, 0.92, 0.86), "roughness": 0.88},
+    "sash": {"color": (0.12, 0.19, 0.14), "roughness": 0.6},
+    "glass": {"color": (0.045, 0.055, 0.065), "roughness": 0.08},
+    "backing": {"color": (0.018, 0.017, 0.016), "roughness": 1.0},
+    "door_leaf": {"color": (0.29, 0.17, 0.085), "roughness": 0.62},
+    "fascia": {"color": (0.27, 0.24, 0.20), "roughness": 0.7},
+    "slate_covering": {"color": (0.20, 0.215, 0.24), "roughness": 0.78},
+}
+
+
+def _tiles() -> dict:
+    lib = json.loads((LIBRARY / "material-library.json").read_text())["materials"]
+    return {m["name"]: tuple(m["tile_m"]) for m in lib}
+
+
+class Prim:
+    """One primitive: one material, flat-shaded faces, metric UVs, a confidence."""
+
+    def __init__(self, name: str):
+        self.name = name
+        self.pos, self.nrm, self.uv, self.conf, self.idx = [], [], [], [], []
+
+    def face(self, pts, normal, basis, conf):
+        """A convex planar polygon. `basis` = (origin, u axis, v axis, tile_u, tile_v,
+        offset_u, offset_v): TEXCOORD_0 is metres along each axis over the tile."""
+        n = (0.0, 0.0, 0.0)
+        for i, a in enumerate(pts):  # Newell: the polygon's own winding
+            b = pts[(i + 1) % len(pts)]
+            n = _add(n, ((a[1] - b[1]) * (a[2] + b[2]), (a[2] - b[2]) * (a[0] + b[0]),
+                         (a[0] - b[0]) * (a[1] + b[1])))
+        if _dot(n, normal) < 0:
+            pts = list(reversed(pts))
+        o, au, av, tu, tv, ou, ov = basis
+        base = len(self.pos)
+        for p in pts:
+            d = _sub(p, o)
+            self.pos.append(p)
+            self.nrm.append(normal)
+            # glTF's v runs down the image, so height goes in negated: courses upright
+            self.uv.append((_dot(d, au) / tu + ou, -_dot(d, av) / tv + ov))
+            self.conf.append(conf)
+        for i in range(1, len(pts) - 1):
+            self.idx += [base, base + i, base + i + 1]
+
+
+class Assembly:
+    def __init__(self, structure_id: str, params):
+        self.sid = structure_id
+        self.p = params
+        self.tiles = _tiles()
+        self.prims: dict[str, Prim] = {}
+        self.components: dict[str, dict] = {}
+
+    def prim(self, name):
+        if name not in self.prims:
+            self.prims[name] = Prim(name)
+        return self.prims[name]
+
+    def instance(self, cid, family, params, sockets):
+        """Register one instance of a component; return its seed."""
+        c = self.components.setdefault(cid, {"id": cid, "family": family, "instances": []})
+        i = len(c["instances"])
+        seed = seed_of(self.sid, cid, i)
+        c["instances"].append({"index": i, "seed": seed,
+                               "params": {k: round(v, 4) if isinstance(v, float) else v
+                                          for k, v in params.items()},
+                               "sockets": {k: [round(x, 4) for x in v] for k, v in sockets.items()}})
+        return seed
+
+    def basis(self, mat, origin, au, av, seed):
+        fab = MATERIALS[mat].get("fabric")
+        tu, tv = self.tiles[fab] if fab else (1.0, 1.0)
+        # the seed moves the fabric, so two instances of one component differ
+        return (origin, au, av, tu, tv, (seed & 0xFFFF) / 65536.0, (seed >> 16) / 65536.0)
+
+    # -- boxes proud of a wall: front, top, bottom and ends; never the back --------
+    def proud_box(self, mat, frame, s0, s1, y0, y1, d, seed, conf):
+        O, R, N = frame
+        P = lambda s, y, dd: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, dd))
+        b = self.basis(mat, O, R, Y, seed)
+        pr = self.prim(mat)
+        pr.face([P(s0, y0, d), P(s1, y0, d), P(s1, y1, d), P(s0, y1, d)], N, b, conf)
+        bh = self.basis(mat, O, R, N, seed)
+        pr.face([P(s0, y1, 0), P(s1, y1, 0), P(s1, y1, d), P(s0, y1, d)], Y, bh, conf)
+        pr.face([P(s0, y0, 0), P(s1, y0, 0), P(s1, y0, d), P(s0, y0, d)], _mul(Y, -1), bh, conf)
+        be = self.basis(mat, O, N, Y, seed)
+        pr.face([P(s0, y0, 0), P(s0, y0, d), P(s0, y1, d), P(s0, y1, 0)], _mul(R, -1), be, conf)
+        pr.face([P(s1, y0, 0), P(s1, y0, d), P(s1, y1, d), P(s1, y1, 0)], R, be, conf)
+
+    # -- k01.wall.* ----------------------------------------------------------------
+    def wall(self, cid, mat, O, R, length, height, thickness, holes, extra_breaks=(), bands=()):
+        p = self.p
+        N = _cross(R, Y)
+        conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction")
+        seed = self.instance(cid, "wall", {"length_m": length, "height_m": height,
+                                           "thickness_m": thickness, "construction": "masonry",
+                                           "openings": len(holes)},
+                             {"base": O, "top": _add(O, _mul(Y, height))})
+        P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
+        sb = sorted({0.0, length, *[e for h in holes for e in (h[0], h[1])]})
+        yb = sorted({0.0, height, *extra_breaks, *[e for h in holes for e in (h[2], h[3])]})
+        b = self.basis(mat, O, R, Y, seed)
+        pr = self.prim(mat)
+        for i in range(len(sb) - 1):
+            for j in range(len(yb) - 1):
+                sc, yc = (sb[i] + sb[i + 1]) / 2, (yb[j] + yb[j + 1]) / 2
+                if any(h[0] < sc < h[1] and h[2] < yc < h[3] for h in holes):
+                    continue
+                pr.face([P(sb[i], yb[j], 0), P(sb[i + 1], yb[j], 0),
+                         P(sb[i + 1], yb[j + 1], 0), P(sb[i], yb[j + 1], 0)], N, b, conf)
+        for (y0, y1, proud) in bands:  # belt courses, part of the wall component
+            self.proud_box("limestone_trim", (O, R, N), 0.0, length, y0, y1, proud, seed, conf)
+        return (O, R, N), thickness
+
+    # -- k01.opening.* ---------------------------------------------------------------
+    def opening(self, op, frame, thickness, body_mat, stone_trim):
+        p = self.p
+        O, R, N = frame
+        P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
+        s0, s1 = op.s_m - op.width_m / 2, op.s_m + op.width_m / 2
+        y0, y1 = op.sill_m, op.head_m
+        conf = p.worst_conf("footprint", "sash_by_storey", "front_bays", "side_bays", "rear_bays")
+        door = op.component == "k01.opening.door_leaf"
+        recess = 0.22 if door else thickness
+        seed = self.instance(op.component, "opening",
+                             {"clear_width_m": op.width_m, "clear_height_m": op.height_m,
+                              "reveal_m": recess, "wall": op.wall},
+                             {"sill": P(op.s_m, y0, 0), "head": P(op.s_m, y1, 0),
+                              "sash_plane": P(op.s_m, y0, -0.10)})
+        # the reveal, in the wall's own body
+        pr = self.prim(body_mat)
+        bj = self.basis(body_mat, O, N, Y, seed)
+        bh = self.basis(body_mat, O, R, N, seed)
+        pr.face([P(s0, y0, 0), P(s0, y0, -recess), P(s0, y1, -recess), P(s0, y1, 0)], R, bj, conf)
+        pr.face([P(s1, y0, 0), P(s1, y0, -recess), P(s1, y1, -recess), P(s1, y1, 0)], _mul(R, -1), bj, conf)
+        pr.face([P(s0, y1, 0), P(s1, y1, 0), P(s1, y1, -recess), P(s0, y1, -recess)], _mul(Y, -1), bh, conf)
+        sill_mat = "stoop_stone" if door else body_mat
+        self.prim(sill_mat).face([P(s0, y0, 0), P(s1, y0, 0), P(s1, y0, -recess), P(s0, y0, -recess)], Y,
+                                 self.basis(sill_mat, O, R, N, seed), conf)
+        if door:
+            self.prim("door_leaf").face([P(s0, y0, -recess), P(s1, y0, -recess), P(s1, y1, -recess),
+                                         P(s0, y1, -recess)], N, self.basis("door_leaf", O, R, Y, seed), conf)
+        else:
+            self.prim("backing").face([P(s0, y0, -recess), P(s1, y0, -recess), P(s1, y1, -recess),
+                                       P(s0, y1, -recess)], N, self.basis("backing", O, R, Y, seed), conf)
+            # the sash: a ring at the sash plane, a meeting rail, glass just behind it
+            r, f, g = 0.10, 0.065, 0.03
+            sp = self.prim("sash")
+            bs = self.basis("sash", O, R, Y, seed)
+            ring = [(s0, s1, y0, y0 + f), (s0, s1, y1 - f, y1), (s0, s0 + f, y0 + f, y1 - f),
+                    (s1 - f, s1, y0 + f, y1 - f)]
+            if op.meeting_rail:
+                ym = (y0 + y1) / 2
+                ring.append((s0 + f, s1 - f, ym - 0.028, ym + 0.028))
+            for (a, b_, c, d) in ring:
+                sp.face([P(a, c, -r), P(b_, c, -r), P(b_, d, -r), P(a, d, -r)], N, bs, conf)
+            bi = self.basis("sash", O, N, Y, seed)
+            bih = self.basis("sash", O, R, N, seed)
+            ia, ib, ic, id_ = s0 + f, s1 - f, y0 + f, y1 - f
+            sp.face([P(ia, ic, -r), P(ia, ic, -r - g), P(ia, id_, -r - g), P(ia, id_, -r)], R, bi, conf)
+            sp.face([P(ib, ic, -r), P(ib, ic, -r - g), P(ib, id_, -r - g), P(ib, id_, -r)], _mul(R, -1), bi, conf)
+            sp.face([P(ia, id_, -r), P(ib, id_, -r), P(ib, id_, -r - g), P(ia, id_, -r - g)], _mul(Y, -1), bih, conf)
+            sp.face([P(ia, ic, -r), P(ib, ic, -r), P(ib, ic, -r - g), P(ia, ic, -r - g)], Y, bih, conf)
+            self.prim("glass").face([P(ia, ic, -r - g), P(ib, ic, -r - g), P(ib, id_, -r - g),
+                                     P(ia, id_, -r - g)], N, self.basis("glass", O, R, Y, seed), conf)
+            # a stone sill, proud of the face
+            self.proud_box(stone_trim, frame, s0 - 0.08, s1 + 0.08, y0 - 0.10, y0, 0.06, seed, conf)
+        # a flat lintel over every opening
+        self.proud_box(stone_trim, frame, s0 - 0.12, s1 + 0.12, y1, y1 + 0.30, 0.03, seed, conf)
+
+    # -- k01.stair.straight_stoop ------------------------------------------------------
+    def stoop(self, frame, s_c):
+        p = self.p
+        O, R, N = frame
+        P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
+        n, r, t, L = p.risers, p.riser_m, p.tread_m, p.landing_depth_m
+        sa, sb = s_c - p.stoop_width_m / 2, s_c + p.stoop_width_m / 2
+        conf = p.worst_conf("principal_floor_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m")
+        foot = L + (n - 1) * t
+        seed = self.instance("k01.stair.straight_stoop", "stair",
+                             {"riser_m": r, "tread_m": t, "risers": n, "landing_depth_m": L,
+                              "width_m": p.stoop_width_m},
+                             {"foot": P(s_c, 0.0, foot), "landing": P(s_c, n * r, 0.0)})
+        pr = self.prim("stoop_stone")
+        bt = self.basis("stoop_stone", O, R, N, seed)
+        bv = self.basis("stoop_stone", O, R, Y, seed)
+        bs = self.basis("stoop_stone", O, N, Y, seed)
+        # columns, landing first: (near d, far d, top y)
+        cols = [(0.0, L, n * r)] + [(L + (n - 1 - k) * t, L + (n - k) * t, k * r) for k in range(n - 1, 0, -1)]
+        for (d0, d1, top) in cols:
+            pr.face([P(sa, top, d0), P(sb, top, d0), P(sb, top, d1), P(sa, top, d1)], Y, bt, conf)
+            low = top - r
+            pr.face([P(sa, low, d1), P(sb, low, d1), P(sb, top, d1), P(sa, top, d1)], N, bv, conf)
+            pr.face([P(sa, 0, d0), P(sa, 0, d1), P(sa, top, d1), P(sa, top, d0)], _mul(R, -1), bs, conf)
+            pr.face([P(sb, 0, d0), P(sb, 0, d1), P(sb, top, d1), P(sb, top, d0)], R, bs, conf)
+        # A column's riser runs only from the next column's tread to its own: below
+        # that is the inside of the stoop, between two columns, and is not drawn.
+
+    # -- k01.roof.hip ------------------------------------------------------------------
+    def roof(self):
+        p = self.p
+        D, W, E, o = p.depth_m, p.width_m, p.eave_m, p.eave_overhang_m
+        tp = math.tan(math.radians(p.roof_pitch_deg))
+        ye = E - o * tp
+        yf = ye - 0.20
+        yr = p.ridge_m
+        conf = p.worst_conf("footprint", "roof_form", "roof_pitch_deg", "eave_overhang_m")
+        seed = self.instance("k01.roof.hip", "roof",
+                             {"pitch_deg": p.roof_pitch_deg, "eave_overhang_m": o,
+                              "eave_datum_m": E, "ridge_datum_m": yr},
+                             {"eave": (0.0, E, 0.0), "ridge": (W / 2, yr, -W / 2)})
+        SWe, SEe, NEe, NWe = (-o, ye, o), (D + o, ye, o), (D + o, ye, -W - o), (-o, ye, -W - o)
+        RW, RE = (W / 2, yr, -W / 2), (D - W / 2, yr, -W / 2)
+        pr = self.prim("slate_covering")
+        for pts, contour in (([SWe, SEe, RE, RW], (1.0, 0.0, 0.0)), ([NEe, NWe, RW, RE], (-1.0, 0.0, 0.0)),
+                             ([SEe, NEe, RE], (0.0, 0.0, -1.0)), ([NWe, SWe, RW], (0.0, 0.0, 1.0))):
+            nrm = _unit(_cross(_sub(pts[1], pts[0]), _sub(pts[-1], pts[0])))
+            uphill = _unit(_cross(nrm, contour))
+            pr.face(pts, nrm, self.basis("slate_covering", pts[0], contour, uphill, seed), conf)
+        # fascia and soffit close the eave
+        fa = self.prim("fascia")
+        down = (0.0, -1.0, 0.0)
+        walls = [(0, 0), (D, 0), (D, -W), (0, -W)]
+        eaves = [(-o, o), (D + o, o), (D + o, -W - o), (-o, -W - o)]
+        outs = [(0.0, 0.0, 1.0), (1.0, 0.0, 0.0), (0.0, 0.0, -1.0), (-1.0, 0.0, 0.0)]
+        for i in range(4):
+            j = (i + 1) % 4
+            a, b = eaves[i], eaves[j]
+            along = _unit((b[0] - a[0], 0.0, b[1] - a[1]))
+            fa.face([(a[0], yf, a[1]), (b[0], yf, b[1]), (b[0], ye, b[1]), (a[0], ye, a[1])], outs[i],
+                    self.basis("fascia", (a[0], yf, a[1]), along, Y, seed), conf)
+            wa, wb = walls[i], walls[j]
+            fa.face([(a[0], yf, a[1]), (b[0], yf, b[1]), (wb[0], yf, wb[1]), (wa[0], yf, wa[1])], down,
+                    self.basis("fascia", (0.0, yf, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed), conf)
+        return yf
+
+
+def build(params, structure_id: str):
+    """The assembly: walls with their openings cut, the stoop, the roof."""
+    p = params
+    a = Assembly(structure_id, p)
+    D, W, E = p.depth_m, p.width_m, p.eave_m
+    yf = E - p.eave_overhang_m * math.tan(math.radians(p.roof_pitch_deg)) - 0.20
+    floors = p.floors_m
+    belts = [(floors[1] - 0.20, floors[1], 0.05)] + ([(floors[2] - 0.15, floors[2], 0.05)] if len(floors) > 2 else [])
+
+    def holes(wall_id):
+        return [(o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m)
+                for o in p.openings if o.wall == wall_id]
+
+    # The four walls, each about its base socket: outer face, left end (seen from
+    # outside), at grade. +X is east (footprint u), -Z is north (footprint v).
+    walls = {
+        "k01.wall.street_front": ("rough_stone_trim", (D, 0.0, 0.0), (0.0, 0.0, -1.0), W, p.front_thickness_m, belts),
+        "k01.wall.side.north": ("brick", (D, 0.0, -W), (-1.0, 0.0, 0.0), D, p.side_thickness_m, ()),
+        "k01.wall.rear_service": ("brick", (0.0, 0.0, -W), (0.0, 0.0, 1.0), W, p.side_thickness_m, ()),
+        "k01.wall.side.south": ("brick", (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), D, p.side_thickness_m, ()),
+    }
+    frames = {}
+    for cid, (mat, O, R, length, t, bands) in walls.items():
+        frames[cid] = (a.wall(cid, mat, O, R, length, E, t, holes(cid), (yf,), bands), mat)
+    for op in p.openings:
+        (frame, t), mat = frames[op.wall]
+        a.opening(op, frame, t, mat, "limestone_trim")
+    door = next(o for o in p.openings if o.component == "k01.opening.door_leaf")
+    a.stoop(frames["k01.wall.street_front"][0][0], door.s_m)
+    a.roof()
+    return a
+
+
+# -----------------------------------------------------------------------------------
+# glTF 2.0 binary
+# -----------------------------------------------------------------------------------
+
+def _pad(b: bytes, fill: bytes = b"\x00") -> bytes:
+    return b + fill * ((4 - len(b) % 4) % 4)
+
+
+def to_glb(a: Assembly, structure_id: str, phase_id: str, scene_ids, extras: dict) -> bytes:
+    bin_ = bytearray()
+    views, accessors = [], []
+
+    def view(data: bytes, target=None):
+        nonlocal bin_
+        off = len(bin_)
+        bin_ += _pad(data)
+        v = {"buffer": 0, "byteOffset": off, "byteLength": len(data)}
+        if target:
+            v["target"] = target
+        views.append(v)
+        return len(views) - 1
+
+    def accessor(values, ctype, typ, comps, target, minmax=False):
+        flat = [x for v in values for x in (v if comps > 1 else (v,))]
+        fmt = {5126: "f", 5125: "I", 5123: "H"}[ctype]
+        acc = {"bufferView": view(struct.pack(f"<{len(flat)}{fmt}", *flat), target),
+               "componentType": ctype, "count": len(values), "type": typ}
+        if minmax:
+            acc["min"] = [min(v[k] for v in values) for k in range(comps)]
+            acc["max"] = [max(v[k] for v in values) for k in range(comps)]
+            # min/max must bound the float32 the file holds, not the float64 we hold
+            acc["min"] = [struct.unpack("<f", struct.pack("<f", x))[0] for x in acc["min"]]
+            acc["max"] = [struct.unpack("<f", struct.pack("<f", x))[0] for x in acc["max"]]
+        accessors.append(acc)
+        return len(accessors) - 1
+
+    images, textures, image_of = [], [], {}
+    materials, primitives = [], []
+    for name in MATERIALS:  # fixed order: the file is the same bytes every run
+        pr = a.prims.get(name)
+        if pr is None or not pr.idx:
+            continue
+        spec = MATERIALS[name]
+        mat = {"name": name, "pbrMetallicRoughness": {
+            "baseColorFactor": [*spec["color"], 1.0], "metallicFactor": 0.0,
+            "roughnessFactor": spec["roughness"]}}
+        fab = spec.get("fabric")
+        if fab:
+            if fab not in image_of:
+                data = (LIBRARY / f"{fab}_basecolor.jpg").read_bytes()
+                images.append({"name": f"{fab}_basecolor", "mimeType": "image/jpeg", "bufferView": view(data)})
+                textures.append({"sampler": 0, "source": len(images) - 1})
+                image_of[fab] = len(textures) - 1
+            mat["pbrMetallicRoughness"]["baseColorTexture"] = {"index": image_of[fab], "texCoord": 0}
+        materials.append(mat)
+        ctype = 5123 if len(pr.pos) < 65536 else 5125
+        primitives.append({
+            "attributes": {
+                "POSITION": accessor(pr.pos, 5126, "VEC3", 3, 34962, True),
+                "NORMAL": accessor(pr.nrm, 5126, "VEC3", 3, 34962),
+                "TEXCOORD_0": accessor(pr.uv, 5126, "VEC2", 2, 34962),
+                "_CONFIDENCE": accessor(pr.conf, 5126, "SCALAR", 1, 34962),
+            },
+            "indices": accessor(pr.idx, ctype, "SCALAR", 1, 34963),
+            "material": len(materials) - 1,
+        })
+    name = f"{structure_id}__{phase_id}"
+    gltf = {
+        "asset": {"version": "2.0", "generator": GENERATOR},
+        "scene": 0,
+        "scenes": [{"nodes": [0]}],
+        "nodes": [{"name": name, "mesh": 0, "extras": {
+            "structure_id": structure_id, "phase_id": phase_id, "scene_ids": list(scene_ids), **extras,
+            "k01": {"contract": "data/components/prairie_1904/k01_contract.json",
+                    "components": [a.components[k] for k in sorted(a.components)]}}}],
+        "meshes": [{"name": name, "primitives": primitives}],
+        "materials": materials,
+        "accessors": accessors,
+        "bufferViews": views,
+        "buffers": [{"byteLength": len(bin_)}],
+    }
+    if images:
+        gltf |= {"images": images, "textures": textures,
+                 "samplers": [{"magFilter": 9729, "minFilter": 9987, "wrapS": 10497, "wrapT": 10497}]}
+    js = _pad(json.dumps(gltf, separators=(",", ":"), sort_keys=True).encode(), b" ")
+    body = bytes(bin_)
+    total = 12 + 8 + len(js) + 8 + len(body)
+    return (struct.pack("<III", 0x46546C67, 2, total) + struct.pack("<I4s", len(js), b"JSON") + js
+            + struct.pack("<I4s", len(body), b"BIN\x00") + body)

@@ -64,6 +64,9 @@ trap 'rm -f "$WROTE"' EXIT
 echo
 echo "== generate + bake"
 "$BIN" -b -noaudio --factory-startup --python generators/build.py -- "$@" --wrote "$WROTE"
+# T-2266: the K01 assemblies write their glTF in pure Python (no Blender, seconds), and
+# hand what they wrote to the same list, so a bake derives and publishes them too.
+python3 generators/k01_emit.py "$@" --wrote "$WROTE"
 
 echo
 echo "== web derivatives"

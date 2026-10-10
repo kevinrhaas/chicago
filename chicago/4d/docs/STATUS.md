@@ -1,3 +1,53 @@
+## T-2266 — the first K01 assembly: a frontage at 1808 Prairie (2026-10-10)
+
+**Visible.** In the 1904 scene a three-storey-and-basement house now stands on the 1808 Prairie
+lot, directly south of the Glessner House. Its north wall closes the Glessner courtyard as the
+1911 Sanborn sheet 28 draws it. It is the first thing built to the K01 metric component contract
+(T-2265), and the contract's `status` now says it is built to rather than only declared.
+
+- **What it is.** `data/structures/keith_house_1808_prairie.json`, archetype `k01_frontage`, is
+  built by `generators/archetypes/k01_frontage.py`. It is made of nine K01 components with stable
+  ids and seeds per instance: `k01.wall.street_front`, `.side.north`, `.side.south`,
+  `.rear_service`, `k01.opening.sash_flat` / `.area_light` / `.door_leaf`,
+  `k01.stair.straight_stoop` and `k01.roof.hip`. They are listed in the node's `extras.k01`, each
+  instance with its parameters and sockets in the structure frame. Every value is checked against
+  the contract's declared ranges in `k01_frontage_params.py`, and a value outside its range is
+  refused, not clamped. The stair solves the 1.50 m principal floor in nine whole risers of 0.167 m.
+- **Why pure Python, not Blender.** Registering an archetype in `generators/emit.py` changes bytes
+  that are in all 704 meshes' input hashes. The whole town would read stale for a change that
+  moves none of its vertices (T-1654's false positive). `generators/k01_emit.py` writes the glTF
+  itself. `mesh_inputs.PURE_PYTHON` hashes only the archetype module and that command for it, with
+  no Blender pin, and the recipe for every other archetype is byte-for-byte unchanged, so there
+  is no scheme bump and nothing is restamped. `k01_emit.py --check` rebuilds in memory and confirms
+  the committed GLB is the same bytes. `tools/bake.sh` now runs it beside the Blender bake.
+- **Measured against the contract.** `node tools/k01_contract.mjs --measure-asset
+  keith_house_1808_prairie` writes `data/components/prairie_1904/keith_house_1808_prairie.measure.json`.
+  `--check` now also holds every assembly measure's verdicts to ok (no finding allowed:
+  `coincident_faces_allowed_new` is 0) and its hashes to the files on disk. Readings:
+  **0 coincident and 0 degenerate faces** at full and web. Origin ok: the envelope is on the
+  footprint, sills and belts stand 0.06 m proud, and the wall base is at y = 0. Web-tier scale drift
+  is at most 1.06e-4 of an axis, inside the 5e-4 bound. Metric UV density × tile is 1.000 (brick),
+  1.000 (front stone) and 0.995–1.001 at web.
+- **Cost.** 2,218 triangles in 10 primitives. The master is 1.86 MB and the web tier 0.89 MB
+  (meshopt plus quantisation). It carries two 2048² library fabrics (limestone, brick), whose
+  decoded RGBA8 with mips is 44.7 MB of GPU memory, the asset's largest cost. Glessner's light tier
+  alone is 199,744 triangles. In the published `/1904/` app (`tools/qa_k01_t2266.mjs`, five fixed
+  stands per viewport: street-eye, oblique, rear, roof and courtyard join) the scene reads 62–69
+  draws and 2.50–2.53 M triangles at desktop full detail, and 60–61 draws and 0.45 M triangles at
+  mobile light. Every stand is within budget (330 draws; 3.8 M and 1.005 M triangles) with zero page
+  errors. The time to ready was 17.6 s desktop and 9.6 s mobile on this runner's software GL. Frame
+  timings are in `docs/RESEARCH/k01-1808-frontage-2266/browser-validation.json`, but they are
+  software-GL readings, relative only.
+- **What it is not.** It is not the Keith/Field house. Most of it is reconstructed inside the
+  contract's ranges (`docs/LIBERTIES.md` L-k01-1808-frontage-2266): attested are only the three
+  storeys and basement, and inferred only the brick. The rock-faced Romanesque-classical front,
+  south curved bay, north Ionic loggia and pierced parapet belong to T-1882 and T-1883, and the
+  rear garage to T-1935. The brick is the library's grain with no coursing (T-1845). The whole
+  house therefore reads as reconstructed in the confidence view, which is the honest reading.
+- **Residual.** There is no light tier: `tools/web_derivatives.sh` reduces Glessner alone, and at
+  2,218 triangles this asset needs none. The 0.02 m gap between the two houses' faces is a liberty,
+  because the sheet draws them touching.
+
 ## T-1786 — the portable human contract (2026-10-10)
 
 First ticket of the owner's portable-humans programme (T-1786 to T-1792). **Nothing in the scene
