@@ -141,6 +141,15 @@ DATUM = DATA / "datum.json"
 PROGRAMME = DATA / "reconstruction" / "1835_665_roof_programme.json"
 POLICY = DATA / "reconstruction" / "1835_placement_policy.json"
 ADDRESS_BOOK = DATA / "reconstruction" / "1835_address_book.json"
+# A HOUSE A CARD MERGE RETIRED IS NOT DEALT (T-1550). The address book is this pass's
+# backward edge and is rebuilt last, by seat_known_1835.py, so on the first lap after a
+# merge it still lists the folded card's household at its band. Dealing that household a
+# roof hands seat_known a seat for a house that no longer stands, and the chain refuses
+# ("it seats 215 and 214 row(s) carry that deal") before it reaches the step that would
+# rebuild the book. The folded record lives on under data/residents/merged/, which is
+# what consolidate_town_cards.py writes, so that is what is read. At the fixpoint the
+# book no longer lists the house and this test removes nothing.
+RETIRED_HOUSES = DATA / "residents" / "merged"
 STRUCTURES = DATA / "structures"
 
 LEDGER_OUT = DATA / "reconstruction" / "1835_lot_ledger.json"
@@ -188,6 +197,12 @@ BUSINESS_DEAL_HOLDS = 45
 # gated dwellings, and its four new slots are dealt from the South queues a release of the
 # business deal's roofs draws on, so that release now seats eight households, not nine. The
 # hold is unchanged at 45 (L270).
+# 8 held on 2026-10-09 (T-1550, on the tree merged with T-2253): hh_beaubien_charles folds onto
+# hh_beaubien_charles_h and his adopted D3 (recon_1835_blk_washington_wells_d3_05) goes to the
+# next row, so the South walk turns over behind it. hh_meleney_patrick takes the standing
+# recon_1835_south_d5_016 in the deal itself and his block-82 slot is re-dealt down the South
+# queue (hh_miller_samuel and hh_rc_woodruff_ruth are slotted there), so a release of the
+# business deal's roofs still seats eight. The hold is unchanged at 45 (L270).
 BUSINESS_DEAL_COSTS = 8
 
 TICKET = "T-1613"
@@ -450,7 +465,8 @@ def in_scope(data: dict) -> list[dict]:
     second rule for one question.
     """
     rows = [row for row in data["address_book"]["rows"]
-            if (row.get("seat") or {}).get("kind") == "division_band"]
+            if (row.get("seat") or {}).get("kind") == "division_band"
+            and not (RETIRED_HOUSES / f"{row['id']}.json").exists()]
     rows.sort(key=lambda row: row["id"])
     return rows
 

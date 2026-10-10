@@ -162,50 +162,43 @@
       "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Assigned from the D3 production family to satisfy the aggregate South Division mix; no occupant or individual use is known."
     },
     "occupants": {
-      "value": "The Democrat's printers",
+      "value": "The Dewey household — a name the town's own records carry",
       "confidence": "reconstructed",
       "sources": [
-        "andreas_1884_v1"
+        "chicago_democrat_1833_1835"
       ],
       "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1691; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_lake_franklin#00, fronting lake, a standing roof of family D3 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
     }
   },
-  "residents": [
-    {
-      "household": "hh_democrat_printers",
-      "name": "The Democrat's printers",
-      "division": "south",
-      "relation": "lived here",
-      "why": "the roof T-1613 dealt this household, joined here and not re-argued",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
-      "persons": [
-        {
-          "name": "Oscar Pratt",
-          "relationship": "head",
-          "grade": "inferred",
-          "occupation": "printer",
-          "note": "A REAL, NAMED MAN WITH A TRADE AND AN EMPLOYER, and nothing else. Andreas vol. 1, printed p. 132 (scan p. 281), 'an imperfect list of the denizens of the town in the fall of 1833, not before named' - a name, a trade and usually an arrival year, compiled fifty years after the fact."
-        },
-        {
-          "name": "Beckford",
-          "relationship": "partner",
-          "grade": "inferred",
-          "occupation": "printer",
-          "note": "SURNAME ONLY, NO FORENAME, NO SEX RECORDED. Andreas prints 'Oscar Pratt and Bcckford, printers' with the first letters damaged in the scan. The sex field is omitted rather than assumed: a compositor in 1833 was overwhelmingly likely to be a man, but 'overwhelmingly likely' is not what documented means and this record has no other information about the person at all."
-        }
-      ],
-      "research_note": "TWO WAGE-EARNERS, WHICH THIS DATASET OTHERWISE HAS ALMOST NONE OF, and a household that is a household only by convention. Andreas names them in one clause, as a pair, in an employment; nothing states where either lived or whether they lived together, and the grouping is a container for two people the source presents together, not a claim about a dwelling. lives_at is null for that reason and must stay null. WHY THEY ARE WORTH WRITING: the documented population of early Chicago as the sources give it is overwhelmingly proprietors - the men who owned the store, kept the tavern, edited the paper. The people who did the work are named perhaps a dozen times in the whole of Andreas's first volume, and these two are among them. The inferred phase's largest single task is the rest of them."
-    }
-  ],
+  "residents": [],
   "citations": [
     {
-      "source_id": "andreas_1884_v1",
-      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
-      "url": "https://archive.org/details/historyofchicago01andr",
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
       "archived_url": "",
-      "tier": 3,
-      "tier_label": "compiled secondary (Andreas)"
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
     },
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",
@@ -244,9 +237,9 @@
     "fabric_basis": {
       "rule": "F-T",
       "class": "tradesman",
-      "by": "keeper_trade",
-      "household": "hh_democrat_printers",
-      "words": "silvered clapboard on a braced frame, 12-over-12 sash of 6 × 8 in glass and plain corner boards, under a weather-darkened roof — The Democrat's printers's, a printer, in Chicago since 1833 (rule F-T)"
+      "by": "keeper",
+      "household": "hh_dewey_s",
+      "words": "silvered clapboard on a braced frame, 12-over-12 sash of 6 × 8 in glass and plain corner boards, under a weather-darkened roof — The Dewey household's, in Chicago since 1833 (rule F-T)"
     }
   },
   "fabric_tone": {
