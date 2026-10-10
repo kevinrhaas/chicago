@@ -47,22 +47,6 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
-  "value": "mansion_house",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "A landlord lived in his house, and Andreas has him keeping this one until some point in 1835. Both halves are reconstructed."
- },
- "works_at": {
-  "value": "mansion_house",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "Derived rather than documented because the tenancy ENDS inside the scene year and the record cannot say on which side of 1 July."
- },
  "associated_with": [
   {
    "kind": "home",

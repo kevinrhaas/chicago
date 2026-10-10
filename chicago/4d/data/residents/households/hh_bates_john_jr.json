@@ -48,14 +48,6 @@
   "confidence": "reconstructed",
   "note": "Not attested."
  },
- "works_at": {
-  "value": "bates_auction_room",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "The auction room he built on the west side of Dearborn near Water and afterwards occupied in his business. data/structures/bates_auction_room.json carries him as 'auctioneer and deputy postmaster'."
- },
  "associated_with": [
   {
    "kind": "business_premises",

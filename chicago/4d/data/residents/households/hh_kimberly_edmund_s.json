@@ -27,23 +27,6 @@
   ],
   "note": "A PRINTED STATE, CARRIED HERE FROM THE PARTNERSHIP'S ARRIVAL NOTE (T-2140). Moses and Kirkland, History of Chicago, Illinois, vol. 1 (1895), printed page 89 (claim bk_mose1_001), writes \"Dr. E. S. Kimberly ... of Vermont\" among the men who came through Chicago in 1832 and stayed. While Kimberly shared a record with Peter Pruyne this answer was held in a note, because the field is a household's and Pruyne headed that household; with Kimberly heading his own it is his. GRADED AT THE SOURCE'S CEILING: the compiler is sixty years after the fact and transcription_mediated, so nothing drawn from it is graded above `inferred` (T-1322). AND IT IS WHERE HE CAME FROM, NOT WHERE HE WAS BORN: the history of medicine gives his birth at Troy, New York, on 7 April 1803 (see the head's note). The two need not conflict - a man born in one state may come west from another - and this field records the state the compiler says he came from, which is the question the field asks."
  },
- "lives_at": {
-  "value": "kimberly_residence",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "SEATED BY T-2140 IN THE HOUSE BONNELL GIVES HIM. J. D. Bonnell's letter of 1876, quoted by Andreas (vol. 1, printed pages 136-137): \"east of which [the Lake House] was the residence of Dr. Kimball, who was a partner of Mr. Pruyne in a drug store on South Water Street.\" A doctor, Pruyne's partner, and a druggist on South Water Street identify this man three ways over; data/structures/kimberly_residence.json raised the building on that sentence and named him its occupant, and refused to write the household link while he shared a record with Pruyne, because seating the partnership there would have carried Pruyne across the river on a sentence about Kimberly. With the two men on two records the link is written from this side, which is the direction the evidence runs in. GRADED AT THE INFERENCE, NOT THE SENTENCE: the walk is the morning of 26 August 1835, eight weeks after the scene date, and the carry back to 1 July is the inference. A LATER DIRECTORY AGREES AND IS NOT LEANED ON: Fergus's 1839 directory prints 'Kimberly, Dr. Edmund S., res. N. Water st next Lake House' (f1839_e0850) - the same spot four years on, which corroborates the house and dates nothing in 1835."
- },
- "works_at": {
-  "value": "pruyne_kimball_drugstore",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1",
-   "history_medicine_chicago_kimberly_maxwell"
-  ],
-  "note": "Carried from the partnership household with its grade. The partnership is documented; that it was trading on 1 July 1835 specifically is the inference, since the retrospective sources do not supply a transaction on that exact day. He was a practising physician as well, and medicine kept no premises this project holds, so the drug store is the one workplace a source gives him."
- },
  "associated_with": [
   {
    "kind": "home",

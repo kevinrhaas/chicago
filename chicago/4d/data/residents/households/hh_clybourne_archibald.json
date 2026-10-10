@@ -47,14 +47,6 @@
   "confidence": "reconstructed",
   "note": "NOT LINKED ON PURPOSE. The Clybourne place is several miles up the North Branch, around the ground of the later North Chicago Rolling Mills, and data/structures/clybourn_cabins.json declares itself displaced from that position. Pointing a household at a building the dataset says is in the wrong place would launder a known error into a residence claim."
  },
- "works_at": {
-  "value": "clybourn_slaughterhouse",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "data/structures/clybourn_slaughterhouse.json carries him as its occupant. This dataset also holds newberry_dole_slaughterhouse_south_branch, which is a different firm's packing house."
- },
  "associated_with": [
   {
    "kind": "workplace",

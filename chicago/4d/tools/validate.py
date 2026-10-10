@@ -29,7 +29,7 @@ import sys
 from pathlib import Path
 
 from associations import (ASSOCIATION_KINDS, ASSOCIATION_RESOLUTION, HOME_KINDS, WORK_KINDS,
-                         check_association_rows, singular_drift)
+                         check_association_rows, home_of, workplace_of)
 from heightfield import Heightfield
 from migrate_attribute_tiers import check_tier_block
 from reconstruct_residents_1835 import (PROGRAMME as RECONSTRUCTION_PROGRAMME,
@@ -5042,8 +5042,8 @@ RESIDENT_SCENE_DATE = "1835-07-01"
 # households nobody is named in, like the one above, and differs in what its cards are
 # ARGUED from: not a share of a town model but a statute, a company count and the Army's
 # own regulations. Its cards are also the first of the reconstruction to be SEATED — the
-# fort's roofs are in the record already — which is why they carry a `lives_at` where
-# T-1174's carry null.
+# fort's roofs are in the record already — which is why they carry a home row where
+# T-1174's carry `no_home`.
 RESIDENT_SOURCE_PASSES = ("documented", "placed", "letter_list", "civic",
                           "reconstructed_readmission", "reconstructed_women_children",
                           "reconstructed_garrison")
@@ -5120,8 +5120,8 @@ RESIDENT_HOUSEHOLD_KEYS = ("id", "name", "division", "head", "arrival",
 
 # T-2295. Where no address resolves, the reason is a claim the card prints ("Lived at" /
 # "Worked at" — residents.js `absenceRow`), and it used to ride on a NULL `lives_at` /
-# `works_at`. The singular pair is retiring (T-2284), so the absence has its own key and the
-# pair is written only to carry a value. The block keeps its shape — `value: null`, a
+# `works_at`. The singular pair is retired (T-2284) and refused wherever it appears, so the
+# absence has its own key and a place is an `associated_with` row. The block keeps its shape — `value: null`, a
 # confidence, a note — so the confidence tally and the tier census count it as before.
 RESIDENT_ABSENCE_KEYS = (("lives_at", "no_home", HOME_KINDS),
                          ("works_at", "no_workplace", WORK_KINDS))
@@ -5531,8 +5531,8 @@ PERSON_WORKPLACE_KEYS = {"business_id", "business_name", "role", "printed_as", "
 def check_person_workplaces(where: str, rows, grades, rep: Report) -> None:
     """persons[].workplaces - the FIRMS a person worked for, one entry a (house, role).
 
-    NOT `works_at`, which is the BUILDING and is singular, undated and policed above as a
-    structure link. The two were deliberately given different words at T-1432 because they
+    NOT the BUILDING, which was the singular, undated `works_at` until T-2284 and is now a
+    workplace row of `associated_with`. The two were deliberately given different words at T-1432 because they
     answer different questions, and the day they share one is the day a list of dated
     employments starts reading as a second opinion about a structure id.
 
@@ -5575,24 +5575,12 @@ def check_person_workplaces(where: str, rows, grades, rep: Report) -> None:
             rep.error(where, f"a workplaces entry is {row.get('tier')} and states no basis")
 
 
-def check_resident_link(where: str, key: str, node, structure_ids: set, rep: Report) -> None:
-    """lives_at / works_at must name a real structure or be null."""
-    if not isinstance(node, dict):
-        rep.error(where, f"{key} must be an attested block with a value, a confidence and a "
-                         f"note - a missing link and an unresearched one are different findings")
-        return
-    v = node.get("value")
-    if v is None:
-        if not (node.get("note") or "").strip():
-            rep.error(where, f"{key} is null and carries no note. A null link is a CLAIM that "
-                             f"the building is not in the dataset or not attested, and it has "
-                             f"to say which")
-        return
-    if not isinstance(v, str) or v not in structure_ids:
-        rep.error(where, f"{key} names '{v}', which is not a structure id in data/structures/. "
-                         f"A resident may point at a building that exists or at null; a later "
-                         f"parcel closes the loop by building the structure")
-
+def retired_link(key: str, absence: str, kinds) -> str:
+    """The refusal of the singular `lives_at` / `works_at`, retired by T-2284."""
+    return (f"{key} is retired (T-2284). A place this household lived or worked is an "
+            f"`associated_with` row of kind {'/'.join(kinds)}, which carries its own tier, "
+            f"source and dates; an address no source reaches is written as `{absence}`. Two "
+            f"shapes for one claim is how a reader comes to be told two different things")
 
 def check_resident_absence(where: str, key: str, kinds: tuple, h: dict, rep: Report) -> None:
     """`no_home` / `no_workplace`: the reason no address resolves (T-2295).
@@ -5875,9 +5863,9 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
                                   f"vocabulary. The vocabulary is PERIOD-CORRECT by "
                                   f"construction: add the trade the sources actually name, do "
                                   f"not reach for a modern equivalent")
-            for k in ("lives_at", "works_at"):
+            for k, absence, kinds in RESIDENT_ABSENCE_KEYS:
                 if k in p:
-                    check_resident_link(pwhere, k, p.get(k), structure_ids, rep)
+                    rep.error(pwhere, retired_link(k, absence, kinds))
             if "workplaces" in p:
                 check_person_workplaces(pwhere, p.get("workplaces"), RESIDENT_GRADES, rep)
             if "associated_with" in p:
@@ -5885,10 +5873,6 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
                                        structure_ids=structure_ids, source_ids=source_ids,
                                        divisions=divisions, scene=scene,
                                        tracts=tracts)
-            # T-2258: outside the `if`. The card names a home and a workplace only
-            # from these rows, so a singular link no row carries would go unprinted.
-            for msg in singular_drift(p, p.get("associated_with") or []):
-                rep.error(pwhere, msg)
 
             check_resident_roles(pwhere, p, occupations, source_ids, rep)
 
@@ -5981,28 +5965,19 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
 
         for k, absence, kinds in RESIDENT_ABSENCE_KEYS:
             if k in h:
-                check_resident_link(where, k, h.get(k), structure_ids, rep)
-                if isinstance(h.get(k), dict) and h[k].get("value") is None:
-                    rep.error(where, f"{k} is null. A null link is an ABSENCE and is written as "
-                                     f"`{absence}` (T-2295): the singular pair carries values only")
+                rep.error(where, retired_link(k, absence, kinds))
             if absence in h:
                 check_resident_absence(where, absence, kinds, h, rep)
 
-        # --- associated_with: the plural, dated form of the two links above ---
-        # T-1238. `lives_at`/`works_at` are singular and undated, and the sources
-        # are frequently neither; the list says which places, of what kind, on
-        # what dates, at what tier. Both shapes stand until the migration lands,
-        # and `singular_drift` is what stops them saying two different things.
+        # --- associated_with: where the household lived and worked -----------
+        # T-1238 gave the singular, undated `lives_at`/`works_at` this plural, dated form,
+        # and T-2284 retired the singular: a home or a workplace is a row here, and only
+        # here (the pair is refused above).
         if "associated_with" in h:
             check_association_rows(where, h.get("associated_with"), error=rep.error,
                                    structure_ids=structure_ids, source_ids=source_ids,
                                    divisions=divisions, scene=scene,
                                    tracts=tracts)
-        # T-2258: outside the `if`. The household card no longer prints the
-        # singular pair, so a `lives_at`/`works_at` no plural row carries would be a
-        # claim the visitor is never shown. Refused even on a record with no rows.
-        for msg in singular_drift(h, h.get("associated_with") or []):
-            rep.error(where, msg)
 
         # --- kin: the link out of this record -------------------------------
         # Shape and local resolution here; the other end is checked after the
@@ -6071,8 +6046,8 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
         # --- the manifest's denormalised copies -----------------------------
         for key, actual in (("head", h.get("head")),
                             ("division", h.get("division")),
-                            ("lives_at", (h.get("lives_at") or {}).get("value")),
-                            ("works_at", (h.get("works_at") or {}).get("value")),
+                            ("lives_at", home_of(h)),
+                            ("works_at", workplace_of(h)),
                             ("present_on_scene_date",
                              (h.get("present_on_scene_date") or {}).get("value")),
                             ("review_required", h.get("review_required"))):
@@ -6127,8 +6102,8 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
     # --- places on the cards a BUILD writes whole (T-2259) -----------------
     # compile_scene.py names a card's home and workplace from its associated_with
     # rows alone, and these cards reach the scene through it as much as the
-    # index's do. So a build that writes rows is held to the row contract, and a
-    # singular link no row carries is refused here as it is for households/.
+    # index's do. So a build that writes rows is held to the row contract, and the
+    # retired singular link (T-2284) is refused here as it is for households/.
     for gdir in ("readmitted", "reconstructed_trades", "underdocumented",
                  "transients", "lodgers", "institutional"):
         for gpath in sorted((root / gdir).glob("hh_*.json")):
@@ -6138,8 +6113,9 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
                 check_association_rows(gwhere, g.get("associated_with"), error=rep.error,
                                        structure_ids=structure_ids, source_ids=source_ids,
                                        divisions=divisions, scene=scene, tracts=tracts)
-            for msg in singular_drift(g, g.get("associated_with") or []):
-                rep.error(gwhere, msg)
+            for k, absence, kinds in RESIDENT_ABSENCE_KEYS:
+                if k in g:
+                    rep.error(gwhere, retired_link(k, absence, kinds))
 
     # --- kin: the far end, and the reciprocity rule -------------------------
     # Every household is loaded by now, so a row can be resolved and, more to
@@ -6220,8 +6196,7 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
 
     if households:
         linked = sum(1 for h in households.values()
-                     if (h.get("lives_at") or {}).get("value")
-                     or (h.get("works_at") or {}).get("value"))
+                     if home_of(h) or workplace_of(h))
         unsure = sum(1 for h in households.values()
                      if (h.get("present_on_scene_date") or {}).get("value") != "present")
         flagged = sum(1 for h in households.values() if h.get("review_required"))

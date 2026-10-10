@@ -26,12 +26,12 @@
   },
   "counts": {
     "cards": 1459,
-    "blocks": 22099,
-    "tiers_written_on_the_card": 10779,
+    "blocks": 22014,
+    "tiers_written_on_the_card": 10768,
     "by_tier": {
-      "attested": 741,
-      "inferred": 3720,
-      "reconstructed": 10798,
+      "attested": 701,
+      "inferred": 3686,
+      "reconstructed": 10787,
       "unknown": 6840
     },
     "by_attribute": {
@@ -81,12 +81,6 @@
         "attested": 150,
         "inferred": 12,
         "reconstructed": 0,
-        "unknown": 0
-      },
-      "lives_at": {
-        "attested": 8,
-        "inferred": 15,
-        "reconstructed": 11,
         "unknown": 0
       },
       "no_home": {
@@ -183,12 +177,6 @@
         "attested": 12,
         "inferred": 13,
         "reconstructed": 1434,
-        "unknown": 0
-      },
-      "works_at": {
-        "attested": 32,
-        "inferred": 19,
-        "reconstructed": 0,
         "unknown": 0
       }
     },
@@ -2909,57 +2897,6 @@
       },
       "a_seed": "hh_abbot_8_g|T-1522|division:d885452788c3|class:611ac327f05d",
       "a_card": "hh_abbot_8_g"
-    },
-    {
-      "attribute": "lives_at",
-      "basis": {
-        "kind": "rule",
-        "id": "no_married_quarters_are_drawn_so_the_barracks_carries_them"
-      },
-      "replaceable_by": {
-        "kind": "household",
-        "match": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters"
-      },
-      "values": 8,
-      "by_value": {
-        "fort_dearborn_barracks": 8
-      },
-      "a_seed": null,
-      "a_card": "hh_rc_cavanagh_edward"
-    },
-    {
-      "attribute": "lives_at",
-      "basis": {
-        "kind": "rule",
-        "id": "the_barracks_is_the_building_this_dataset_holds_for_them"
-      },
-      "replaceable_by": {
-        "kind": "household",
-        "match": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters"
-      },
-      "values": 2,
-      "by_value": {
-        "fort_dearborn_barracks": 2
-      },
-      "a_seed": null,
-      "a_card": "hh_rc_garrison_company_1"
-    },
-    {
-      "attribute": "lives_at",
-      "basis": {
-        "kind": "rule",
-        "id": "the_sutler_lived_at_the_sutlers_store"
-      },
-      "replaceable_by": {
-        "kind": "household",
-        "match": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters"
-      },
-      "values": 1,
-      "by_value": {
-        "fort_dearborn_sutlers_store": 1
-      },
-      "a_seed": null,
-      "a_card": "hh_rc_metcalf_alvah"
     },
     {
       "attribute": "origin",

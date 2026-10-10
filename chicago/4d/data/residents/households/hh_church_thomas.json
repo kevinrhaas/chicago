@@ -55,14 +55,6 @@
   "confidence": "reconstructed",
   "note": "Not attested in anything this project holds."
  },
- "works_at": {
-  "value": "thomas_church_store",
-  "confidence": "inferred",
-  "sources": [
-   "chicagology_prefire275"
-  ],
-  "note": "The building he built. Whether he traded in it is the reconstruction; data/structures/thomas_church_store.json makes the same move and grades it inferred."
- },
  "associated_with": [
   {
    "kind": "workplace",

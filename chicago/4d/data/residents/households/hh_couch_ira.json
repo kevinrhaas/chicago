@@ -46,22 +46,6 @@
   ],
   "note": "The purchase itself is documented; the motive is the obvious reading of it."
  },
- "lives_at": {
-  "value": "tremont_house_1",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "A hotel proprietor of this period lived in his house. Not stated."
- },
- "works_at": {
-  "value": "tremont_house_1",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1",
-   "chicagology_prefire021"
-  ]
- },
  "associated_with": [
   {
    "kind": "home",

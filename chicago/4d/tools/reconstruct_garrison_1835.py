@@ -154,7 +154,7 @@ FAMILY_SIZE_MIN, FAMILY_SIZE_MAX = 2, 6
 # The keys this stage writes and `--check` re-derives. Everything else on a card belongs to
 # another stage of the same programme and is that stage's to prove.
 OWNED_KEYS = ("id", "name", "division", "head", "source_pass", "arrival",
-              "party_size_on_arrival", "lives_at", "no_workplace", "associated_with",
+              "party_size_on_arrival", "no_workplace", "associated_with",
               "present_on_scene_date", "garrison", "persons",
               "touches_removal", "review_required", "research_note")
 
@@ -726,14 +726,6 @@ def common_card(hid: str, name: str, head_id: str, lives_at: str, seated_why: st
         "match": "a source placing these people at a named building of the post, or a "
                  "plan of the post that assigns its quarters",
     }
-    card["lives_at"] = {
-        "value": lives_at,
-        "confidence": RECONSTRUCTED,
-        "tier": RECONSTRUCTED,
-        "basis": dict(basis),
-        "replaceable_by": dict(replaceable_by),
-        "note": seated_why,
-    }
     card["no_workplace"] = {
         "value": None,
         "confidence": RECONSTRUCTED,
@@ -741,9 +733,9 @@ def common_card(hid: str, name: str, head_id: str, lives_at: str, seated_why: st
                 "`works_at` would assert a second building for the same duty; the fort's "
                 "own structures carry the garrison on their occupants blocks.",
     }
-    # T-2294: the home again, as the row the cards and the scene compiler read, written
-    # here rather than copied off `lives_at` by tools/household_associations.py, so the
-    # seat survives the singular pair's retirement (T-2284). Undated and sourceless: the
+    # T-2294: the home, as the row the cards and the scene compiler read, written here
+    # rather than copied off a `lives_at` by the retired copier; since T-2284 the row is
+    # the only place the seat is written. Undated and sourceless: the
     # post was held on the scene date and no return says when anyone took a bed in it.
     # There is no workplace row, for the reason `works_at` above gives.
     card["associated_with"] = [{
