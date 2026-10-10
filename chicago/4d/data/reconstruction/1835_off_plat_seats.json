@@ -77,9 +77,9 @@
    "division_ground": 27,
    "farms_and_country_seats": 205,
    "heavy_and_noxious_trades": 1,
-   "labourer_dwellings": 68,
+   "labourer_dwellings": 70,
    "merchant_and_professional_dwellings": 369,
-   "tradesman_dwellings": 439
+   "tradesman_dwellings": 437
   },
   "owed_by_district": {
    "north": 237,
@@ -87,10 +87,10 @@
    "west": 217
   },
   "owed_by_the_letter_list_ruling": 773,
-  "roofs_offered_for_adoption": 108,
+  "roofs_offered_for_adoption": 110,
   "roofs_held_back": 17,
   "roofs_standing_on_no_committed_parcel": 4,
-  "roofs_offered_and_unspent": 13
+  "roofs_offered_and_unspent": 15
  },
  "what_this_ground_could_not_hold": {
   "rows": 1109,
@@ -100,7 +100,7 @@
  "the_south_division_has_no_off_plat_roof": {
   "free_roofs_off_the_plat": {
    "north": 77,
-   "south": 1,
+   "south": 3,
    "west": 30
   },
   "rows_owed_by_district": {
@@ -328,6 +328,20 @@
    "family": "W3",
    "district": "north",
    "parcel_id": "canal_section_9_remainder",
+   "why": "no clause of the placement policy that any handed-on band names admits this roof's family, so no household in scope could be seated under it"
+  },
+  {
+   "structure_id": "recon_1835_south_branch_freight_f3_001",
+   "family": "F3",
+   "district": "south",
+   "parcel_id": "canal_commissioners_1830",
+   "why": "no clause of the placement policy that any handed-on band names admits this roof's family, so no household in scope could be seated under it"
+  },
+  {
+   "structure_id": "recon_1835_south_branch_freight_f3_002",
+   "family": "F3",
+   "district": "south",
+   "parcel_id": "canal_commissioners_1830",
    "why": "no clause of the placement policy that any handed-on band names admits this roof's family, so no household in scope could be seated under it"
   },
   {
@@ -8744,15 +8758,6 @@
    "handed_to": "T-1615"
   },
   {
-   "id": "hh_montgomery_l_w",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
-   "handed_to": "T-1615"
-  },
-  {
    "id": "hh_moody_robert",
    "kind": "household",
    "band": "west/tradesman_dwellings",
@@ -8790,15 +8795,6 @@
    "district": "south",
    "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. The deal reads the ruling before it deals (T-1645), so no roof is offered to this row and the roof it would have taken goes on to the next row of its clause order",
    "refused_by": "T-0379",
-   "handed_to": "T-1615"
-  },
-  {
-   "id": "hh_morrison_amanda",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -11307,6 +11303,15 @@
    "handed_to": "T-1615"
   },
   {
+   "id": "hh_rc_woodruff_ruth",
+   "kind": "household",
+   "band": "south/labourer_dwellings",
+   "clause": "labourer_dwellings",
+   "district": "south",
+   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "handed_to": "T-1615"
+  },
+  {
    "id": "hh_reel_absolam",
    "kind": "household",
    "band": "south/labourer_dwellings",
@@ -11464,6 +11469,15 @@
    "district": "south",
    "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. The deal reads the ruling before it deals (T-1645), so no roof is offered to this row and the roof it would have taken goes on to the next row of its clause order",
    "refused_by": "T-0379",
+   "handed_to": "T-1615"
+  },
+  {
+   "id": "hh_vieaux_susanne",
+   "kind": "household",
+   "band": "south/labourer_dwellings",
+   "clause": "labourer_dwellings",
+   "district": "south",
+   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
