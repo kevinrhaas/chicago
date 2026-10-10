@@ -41,14 +41,11 @@ TWO RULES THAT ARE NOT OBVIOUS, AND ARE THE POINT.
     somebody was. (The seating-class axis T-1237 counts is a different
     question: it is defined over the WHOLE household layer, so it needs a
     `none` class. This list is defined over CLAIMS.)
-  * THE SINGULAR LINK MAY NOT DRIFT FROM THE PLURAL ONE. While both shapes
-    exist, a record that carries `associated_with` rows and a non-null
-    `lives_at`/`works_at` must carry that structure among its rows. Otherwise
-    the migration's half-way point is a record that says two different things
-    about the same man and a reader picks whichever field they happened to
-    load. `validate.py` refuses it. Since T-2258 it refuses a non-null
-    singular link on a record with NO rows too: the household card names a home
-    and a workplace from the rows alone, so the rows must carry every claim.
+  * THE ROWS ARE THE ONLY SHAPE. While the singular `lives_at`/`works_at` and
+    these rows both existed, a record had to carry its singular structure among
+    its rows (T-2258), or the half-way point said two different things about the
+    same man. T-2284 retired the singular pair, and `validate.py` now refuses it
+    on any household record: a home or a workplace is a row, and nothing else.
 
 `from` and `to` are nullable — the sources date a relationship's start far more
 often than its end, and some they do not date at all. A row that dates NEITHER
@@ -112,7 +109,7 @@ ASSOCIATION_OPTIONAL_KEYS = ("undated", "also_sources", "basis", "replaceable_by
 # T-2261: the two optional objects the singular `lives_at`/`works_at` claims carried and a
 # row could not, so retiring the pair loses no words. `basis` is the claim's own reasoning
 # — a `note` always, and a rule's `kind` and `id` where a rule seated it — and is NOT the
-# row's `note`, which `household_associations.py` composes from it and its limit clause.
+# row's `note`, which the retired copier (T-1273) composed from it and its limit clause.
 # `replaceable_by` is what would move the row up the ladder; the card prints its `match`.
 BASIS_KEYS = ("kind", "id", "note")
 REPLACEABLE_BY_KEYS = ("kind", "match")
@@ -288,8 +285,8 @@ def check_association_rows(where: str, rows, *, error, structure_ids: set, sourc
 # now read these. The rule is compile_scene.py's (T-2259): only a row that reaches
 # a STRUCTURE puts a record under a roof — a street, a face or a division is where
 # the evidence stopped — and a row a source CLOSES before the scene date is a place
-# the household had left. Rows keep the record's own order, so the first is the
-# one the singular pair named; `validate.py`'s `singular_drift` is what holds that.
+# the household had left. Rows keep the record's own order, and the first is the
+# one the singular pair named on the day T-2284 retired it.
 
 SCENE_DATE = dt.date(1835, 7, 1)
 
@@ -331,31 +328,6 @@ def workplace_of(record: dict, scene: dt.date = SCENE_DATE) -> str | None:
     """The structure `record` worked in on `scene` — what `works_at.value` used to say."""
     row = work_row(record, scene)
     return row["place_or_structure_id"] if row else None
-
-
-def singular_drift(record: dict, rows) -> list[str]:
-    """While both shapes exist, the singular link must appear among the plural rows.
-
-    T-2258: and `rows` may be EMPTY. The household card names a home and a
-    workplace only from `associated_with`, so a singular link on a record with no
-    rows at all is a claim no visitor is shown; callers pass `or []`.
-    """
-    out = []
-    if not isinstance(rows, list):
-        return out
-    for key, kinds in (("lives_at", HOME_KINDS), ("works_at", WORK_KINDS)):
-        node = record.get(key)
-        value = (node or {}).get("value") if isinstance(node, dict) else None
-        if not value:
-            continue
-        places = {r.get("place_or_structure_id") for r in rows
-                  if isinstance(r, dict) and r.get("kind") in kinds}
-        if value not in places:
-            out.append(f"{key} names '{value}' and no {'/'.join(kinds)} row in associated_with "
-                       f"reaches it. While both shapes exist they may not drift: a reader who "
-                       f"loads one field would be told a different thing about the same person, "
-                       f"and the card, which prints only the rows, would not show it at all")
-    return out
 
 
 # --------------------------------------------------------------------------
@@ -540,11 +512,6 @@ def self_test() -> int:
     print(("ok   " if ok else "FAIL ") + "an empty list")
     failed += 0 if ok else 1
 
-    drift = singular_drift({"lives_at": {"value": "other_house"}}, [base])
-    ok = bool(drift)
-    print(("ok   " if ok else "FAIL ") + "the singular link drifting from the plural one")
-    failed += 0 if ok else 1
-
     # T-2260: the reader the seating, deal, audit and census tools use.
     left = {**base, "place_or_structure_id": "kinzie_house", "to": "1834"}
     street = {**base, "place_or_structure_id": "lake_street", "resolves_to": "street"}
@@ -564,16 +531,6 @@ def self_test() -> int:
         ok = got == want
         print(("ok   " if ok else "FAIL ") + label + ("" if ok else f"  -> {got}"))
         failed += 0 if ok else 1
-
-    kept = singular_drift({"lives_at": {"value": "peck_store"}}, [base])
-    ok = not kept
-    print(("ok   " if ok else "FAIL ") + "…and agreeing with it")
-    failed += 0 if ok else 1
-
-    bare = singular_drift({"works_at": {"value": "peck_store"}}, [])
-    ok = bool(bare)
-    print(("ok   " if ok else "FAIL ") + "a singular link on a record with no rows at all")
-    failed += 0 if ok else 1
 
     print(f"{failed} failure(s)")
     return 1 if failed else 0

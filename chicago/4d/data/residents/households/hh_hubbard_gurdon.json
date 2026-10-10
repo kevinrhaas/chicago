@@ -50,14 +50,6 @@
   "confidence": "reconstructed",
   "note": "Not attested in anything this project holds."
  },
- "works_at": {
-  "value": "old_bank_building",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "He is documented packing in that building in the 1834 SEASON, which is the season before the scene date, and data/structures/old_bank_building.json grades its own occupancy inferred for exactly that reason. A packing house is a seasonal building and July is not the season."
- },
  "associated_with": [
   {
    "kind": "workplace",

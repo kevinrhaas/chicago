@@ -56,15 +56,6 @@
   "confidence": "reconstructed",
   "note": "Not attested. Bonnell's walk puts his partner's residence on the north bank, east of the Lake House, and that is Kimberly's own household now (hh_kimberly_edmund_s); it says nothing of where Pruyne lived, and no source this project holds gives him a house."
  },
- "works_at": {
-  "value": "pruyne_kimball_drugstore",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1",
-   "history_medicine_chicago_kimberly_maxwell"
-  ],
-  "note": "The partnership is documented; that it was trading on 1 July 1835 specifically is the inference, since the retrospective sources do not supply a transaction on that exact day."
- },
  "associated_with": [
   {
    "kind": "workplace",

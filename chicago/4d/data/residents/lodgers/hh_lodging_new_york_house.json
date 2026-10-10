@@ -34,21 +34,6 @@
   "note": "NOT DRAWN HERE, AND THE REASON IS A CIRCLE. The arrival model's own distribution is computed over the compiled scene and the scene carries these cards; an arrival written here would move the table that drew it. The programme's arrival stage owns this block.",
   "seated_by": "T-1169 (the arrival fill), T-1179 (converge)"
  },
- "lives_at": {
-  "value": "new_york_house",
-  "confidence": "reconstructed",
-  "tier": "reconstructed",
-  "basis": {
-   "kind": "model",
-   "id": "1835_lodging_model",
-   "note": "THE BED IS THE CLAIM. The lodging model puts 8 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
-  },
-  "seed": "lodgers:new_york_house:lives_at",
-  "replaceable_by": {
-   "kind": "person",
-   "match": "sources naming the people who lodged in this house in 1835"
-  }
- },
  "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
@@ -65,7 +50,16 @@
    "undated": true,
    "tier": "reconstructed",
    "source_id": null,
-   "note": "THE BED IS THE CLAIM. The lodging model puts 8 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
+   "note": "THE BED IS THE CLAIM. The lodging model puts 8 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
+   "basis": {
+    "kind": "model",
+    "id": "1835_lodging_model",
+    "note": "THE BED IS THE CLAIM. The lodging model puts 8 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
+   },
+   "replaceable_by": {
+    "kind": "person",
+    "match": "sources naming the people who lodged in this house in 1835"
+   }
   }
  ],
  "present_on_scene_date": {

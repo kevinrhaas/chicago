@@ -38,14 +38,6 @@
   "confidence": "reconstructed",
   "note": "NOT ATTESTED. The agency establishment at the foot of State Street held the agency house (cobweb_castle) and the government blacksmith shop, but Andreas has Colonel Hamilton living in the agency house in the autumn of 1832, and nothing places Owen under any particular roof. Left null rather than guessed; a later parcel that fixes the agent's residence closes it."
  },
- "works_at": {
-  "value": "cobweb_castle",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "The Indian agency house is where the Indian agent's business was done: Owen's staff - Kercheval and James Stuart as sub-agents, Billy Caldwell as interpreter, David McKee as blacksmith and Joseph Porthier as striker - are the agency establishment, and the blacksmith shop this dataset holds stands beside this building. INFERRED, NOT DOCUMENTED: no source says Owen kept his office in this house on any date, and the agency's own buildings had already been lent to other uses by 1832."
- },
  "associated_with": [
   {
    "kind": "workplace",

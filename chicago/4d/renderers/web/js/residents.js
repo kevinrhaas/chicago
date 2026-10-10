@@ -261,14 +261,14 @@ function claimRow(label, value, block, citationsById) {
 }
 
 /**
- * T-2258: THE SINGULAR PAIR IS PRINTED ONLY AS AN ABSENCE. A `lives_at` or
- * `works_at` that names a place is one of the dated `associated_with` rows below,
- * and `validate.py` refuses a record where it is not (`singular_drift`), so
- * printing it here too named the same roof twice, once with its dates and once as
- * an undated claim on the scene day, which is exactly what the source may refuse
- * to say. A null link is different: rows are defined over claims and an absent
- * relationship is an absent row, so the note saying WHY no place is recorded has
- * nowhere else to stand. That row stays.
+ * T-2258: A PLACE IS PRINTED ONLY FROM THE ROWS. A home or a workplace is one of
+ * the dated `associated_with` rows below — since T-2284 the singular `lives_at` /
+ * `works_at` is retired and refused — because printing both named the same roof
+ * twice, once with its dates and once as an undated claim on the scene day, which
+ * is exactly what the source may refuse to say. An absence is different: rows are
+ * defined over claims and an absent relationship is an absent row, so the note
+ * saying WHY no place is recorded (`no_home` / `no_workplace`, T-2295) has nowhere
+ * else to stand. That row stays.
  */
 function absenceRow(label, block, citationsById) {
   if (!block || block.value) return '';

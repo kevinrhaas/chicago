@@ -37,15 +37,6 @@
   "confidence": "reconstructed",
   "note": "Not attested. Dole's warehouse and packing buildings are in the dataset; his dwelling is not, and no source places him under a roof."
  },
- "works_at": {
-  "value": "newberry_dole_warehouse",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1",
-   "chicago_democrat_1833_11_26"
-  ],
-  "note": "The forwarding and commission house of Newberry & Dole is the firm named in the Democrat of 26 November 1833 and on the schooner Napoleon's bill of lading. This dataset also holds dole_warehouse_south and newberry_dole_slaughterhouse_south_branch under the same partnership; the warehouse is named here as the principal place of business and the others are recorded in this note rather than by inventing a second link."
- },
  "associated_with": [
   {
    "kind": "workplace",
