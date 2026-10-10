@@ -28161,6 +28161,39 @@
       ]
     },
     {
+      "id": "L-k04-roof-library-2292",
+      "title": "The 1904 roof coverings and flashings: every slate, tile, seam and sheet, and how each looks",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Prairie Avenue 1904 programme's roof library (package K04, `assets/textures/prairie_1904_roofs/`, modules in `data/components/prairie_1904/k04_roofs.json`) draws eleven fabrics: Pennsylvania slate (10 x 20 in), a Vermont colour mix (9 x 18 in), scalloped slate (8 x 16 in), flat terracotta tile, copper and painted-terne standing seam, painted-terne flat seam, and plain copper, lead, zinc and painted-terne sheet for flashing and rainwater goods. Its profiles give the working sizes of hips, ridge caps, open valleys, dormer aprons, chimney flashing, gutters, brackets, downpipes and shoes. **What is invented.** Every slate format, headlap, joint and thickness; the colour of every fabric and its per-slate variation, grain, streaking and chalking; the copper's brown (the study's register warns that today's green is not proof of the 1904 state); the red-oxide paint and its alternatives; every pan, seam, sheet and lock size; every profile dimension; and the defaults that put slate on a steep roof, a Vermont field with scalloped bands on a mansard, tin on a service roof and copper on an oriel cap. The defaults read the study's building register (pa-1912-10, pa-2100-18, pa-1801-23, pa-2115-19, pa-1900-25 for slate; pa-2110-30, pa-213-217, pa-2018 Calumet for copper), which is the study's reading of its images and not a source record here. The slate formats sit inside RECONSTRUCTION-RULES.md's starting range (0.20-0.30 m wide, 0.15-0.25 m to the weather). **What is not.** The flat tile's 6 in width and 5 in exposure are HABS's for Glessner (`habs_glessner_house_il_1015_data_pages`, p. 21), carried to 1904, and tile is restricted to roofs a source documents; its colour is ours."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a house's own photograph, drawing or specification names its covering, format and colours, and that house takes them in place of the default; a dated trade catalogue or roofing specification of the period replaces a format or a profile."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2292 (piece 1 of T-1846, K04)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k04-roof-library/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2292)."
+        }
+      ]
+    },
+    {
       "id": "L46",
       "title": "The fort stands on a bank the model has no cut or fill for",
       "section": "resolved",
