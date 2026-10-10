@@ -1,0 +1,227 @@
+{
+  "ticket": "T-2288",
+  "page": "tools/k02_stone_study.html (served by tools/k02_stone_study.mjs; not published)",
+  "what": "each K02 fabric laid as blocks from k02_stone_profiles.json with metric UVs, 1.2 x 1.0 m panels and 0.5 m close windows, in an 8-degree raking sun and in diffuse sky light",
+  "renderer": "three.js 0.185.1, headless Chromium (SwiftShader): frame times are a software-GL reading, comparable only with each other",
+  "page_errors": [],
+  "readings": [
+    {
+      "file": "desktop-raking-panel.jpg",
+      "ready": true,
+      "light": "raking",
+      "view": "panel",
+      "viewport": [
+        1280,
+        800
+      ],
+      "load_ms": 5025,
+      "draw_calls": 40,
+      "triangles": 480,
+      "textures": 22,
+      "geometries": 40,
+      "frame_ms_median": 201,
+      "blocks": 40
+    },
+    {
+      "file": "desktop-raking-close.jpg",
+      "ready": true,
+      "light": "raking",
+      "view": "close",
+      "viewport": [
+        1280,
+        800
+      ],
+      "load_ms": 2531,
+      "draw_calls": 37,
+      "triangles": 444,
+      "textures": 22,
+      "geometries": 37,
+      "frame_ms_median": 300.39999999990687,
+      "blocks": 40
+    },
+    {
+      "file": "desktop-diffuse-panel.jpg",
+      "ready": true,
+      "light": "diffuse",
+      "view": "panel",
+      "viewport": [
+        1280,
+        800
+      ],
+      "load_ms": 3610,
+      "draw_calls": 40,
+      "triangles": 480,
+      "textures": 22,
+      "geometries": 40,
+      "frame_ms_median": 137.5999999998603,
+      "blocks": 40
+    },
+    {
+      "file": "desktop-diffuse-close.jpg",
+      "ready": true,
+      "light": "diffuse",
+      "view": "close",
+      "viewport": [
+        1280,
+        800
+      ],
+      "load_ms": 1953,
+      "draw_calls": 37,
+      "triangles": 444,
+      "textures": 22,
+      "geometries": 37,
+      "frame_ms_median": 203.60000000009313,
+      "blocks": 40
+    },
+    {
+      "file": "mobile-raking-panel.jpg",
+      "ready": true,
+      "light": "raking",
+      "view": "panel",
+      "viewport": [
+        390,
+        780
+      ],
+      "load_ms": 1752,
+      "draw_calls": 40,
+      "triangles": 480,
+      "textures": 22,
+      "geometries": 40,
+      "frame_ms_median": 48.10000000009313,
+      "blocks": 40
+    },
+    {
+      "file": "mobile-raking-close.jpg",
+      "ready": true,
+      "light": "raking",
+      "view": "close",
+      "viewport": [
+        390,
+        780
+      ],
+      "load_ms": 1306,
+      "draw_calls": 37,
+      "triangles": 444,
+      "textures": 22,
+      "geometries": 36,
+      "frame_ms_median": 96.5999999998603,
+      "blocks": 40
+    },
+    {
+      "file": "mobile-diffuse-panel.jpg",
+      "ready": true,
+      "light": "diffuse",
+      "view": "panel",
+      "viewport": [
+        390,
+        780
+      ],
+      "load_ms": 1411,
+      "draw_calls": 40,
+      "triangles": 480,
+      "textures": 22,
+      "geometries": 40,
+      "frame_ms_median": 33.300000000046566,
+      "blocks": 40
+    },
+    {
+      "file": "mobile-diffuse-close.jpg",
+      "ready": true,
+      "light": "diffuse",
+      "view": "close",
+      "viewport": [
+        390,
+        780
+      ],
+      "load_ms": 1043,
+      "draw_calls": 37,
+      "triangles": 444,
+      "textures": 22,
+      "geometries": 36,
+      "frame_ms_median": 64.5,
+      "blocks": 40
+    }
+  ],
+  "textures": [
+    {
+      "id": "granite_rock_faced",
+      "tile_m": 1.6,
+      "px_per_m": 640,
+      "web_bytes": {
+        "basecolor": 366273,
+        "normal_gl": 210827,
+        "orm": 62833
+      },
+      "web_bytes_total": 639933,
+      "gpu_pixels": 2359296,
+      "gpu_bytes_rgba_with_mips": 12582912
+    },
+    {
+      "id": "sandstone_brown",
+      "tile_m": 1.2,
+      "px_per_m": 853.33,
+      "web_bytes": {
+        "basecolor": 83551,
+        "normal_gl": 462955,
+        "orm": 68295
+      },
+      "web_bytes_total": 614801,
+      "gpu_pixels": 2359296,
+      "gpu_bytes_rgba_with_mips": 12582912
+    },
+    {
+      "id": "limestone_lemont",
+      "tile_m": 1.2,
+      "px_per_m": 853.33,
+      "web_bytes": {
+        "basecolor": 71483,
+        "normal_gl": 354160,
+        "orm": 44306
+      },
+      "web_bytes_total": 469949,
+      "gpu_pixels": 2359296,
+      "gpu_bytes_rgba_with_mips": 12582912
+    },
+    {
+      "id": "limestone_bedford",
+      "tile_m": 1.2,
+      "px_per_m": 853.33,
+      "web_bytes": {
+        "basecolor": 93722,
+        "normal_gl": 229005,
+        "orm": 104282
+      },
+      "web_bytes_total": 427009,
+      "gpu_pixels": 2359296,
+      "gpu_bytes_rgba_with_mips": 12582912
+    },
+    {
+      "id": "dressed_trim",
+      "tile_m": 0.9,
+      "px_per_m": 1137.78,
+      "web_bytes": {
+        "basecolor": 22357,
+        "normal_gl": 158124,
+        "orm": 81930
+      },
+      "web_bytes_total": 262411,
+      "gpu_pixels": 2359296,
+      "gpu_bytes_rgba_with_mips": 12582912
+    },
+    {
+      "id": "foundation_rubble",
+      "tile_m": 2,
+      "px_per_m": 512,
+      "web_bytes": {
+        "basecolor": 169370,
+        "normal_gl": 379650,
+        "orm": 39212
+      },
+      "web_bytes_total": 588232,
+      "gpu_pixels": 2359296,
+      "gpu_bytes_rgba_with_mips": 12582912
+    }
+  ],
+  "library_web_bytes": 3002335,
+  "library_gpu_bytes_rgba_with_mips": 75497472
+}

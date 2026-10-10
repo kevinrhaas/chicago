@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1630, ts: '2026-10-10T07:10:33.210Z', date: 'Oct 10, 2026, 2:10 AM CT', title: 'Six building stones prepared for Prairie Avenue\'s houses', kind: 'add',
+    items: [
+      'Nothing you can see changes yet: no house in 1904 wears these stones until the next step lays them on 1808 Prairie, Glessner\'s neighbour.',
+      'Six stones are ready for it: rock-faced granite, warm brown sandstone, local Lemont limestone, pale Bedford limestone, smooth trim for sills and carving, and rubble for foundations.',
+      'Each is drawn at true size, so a crystal or a chisel mark is the same size on every wall. The courses, joints and chipped edges will be built as real shapes, not painted on.',
+      'Their colours and finishes are reconstructed: no record says how any of these houses\' stone looked in 1904.',
+    ] },
   { v: 1629, ts: '2026-10-10T06:34:36.095Z', date: 'Oct 10, 2026, 1:34 AM CT', title: 'Two river warehouses on the South Branch below Market Street', kind: 'feature',
     items: [
       'Walk down Market Street toward Madison and look west, toward the river. Two large frame warehouses now stand on the bank between Market Street and the South Branch, below Washington Street, facing the water with a cart way between them.',
