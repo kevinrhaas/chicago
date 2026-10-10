@@ -473,6 +473,12 @@ const COVERAGE = [
   ['generators/archetypes/k15_chimneys.py', NONE, 'the K15 chimney kit generator — imported by no scene build yet: check_chimney_kit.py --check'],
   ['docs/RESEARCH/k15-chimney-kit/', NONE, 'the K15 chimney kit specimen and study — unpublished: check_chimney_kit.py --check'],
   ['tools/study_k15_chimneys.mjs', NONE, 'the K15 study renderer — run by hand, by no gate'],
+  // T-2324. The K14 condition kit is data and an evaluator that no scene build calls yet (T-2325
+  // applies it to a named house); its study is a still image under docs/ that nothing publishes.
+  // tools/check_condition_kit.py gates the data, the evaluator and the study's costs.
+  ['data/components/prairie_1904/k14_condition.json', NONE, 'the K14 condition kit data — built into no scene yet: check_condition_kit.py --check'],
+  ['generators/archetypes/k14_condition.py', NONE, 'the K14 condition kit evaluator — imported by no scene build yet: check_condition_kit.py --check'],
+  ['docs/RESEARCH/k14-condition-kit/', NONE, 'the K14 condition kit study — unpublished: check_condition_kit.py --check'],
 
   // --- PART 14: the arrival-to-jaunt path, on a fresh context (T-2044)
   // The jaunt modules are imported lazily, the first time the Jaunts menu opens, and

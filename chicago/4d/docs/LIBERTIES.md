@@ -23685,6 +23685,38 @@ period iron foundry's catalogue replaces a part's sections and patterns for ever
 **Review:** `docs/RESEARCH/k11-ironwork-kit/README.md`.
 **Recorded:** 2026-10-10 (T-2318).
 
+### L-k14-condition-kit-2324 — The Prairie condition kit: every age, stain, trail, plume, worn path and lawn edge reconstructed
+
+**Decision:** the 1904 Prairie programme's condition (package K14, T-2324) is eight layers declared
+in `data/components/prairie_1904/k14_condition.json` and evaluated by one shared module,
+`generators/archetypes/k14_condition.py`: ground damp at a wall foot, soot under an eave, water
+trails below sills and outlets, a chimney plume on the roof leeward of a stack, mortar joints that
+darken and recess, painted timber that dulls since its last repaint, a bare strip where a lawn
+meets a wall, and wear across a walk or drive. Each is a function of the building's years standing
+on 1904-07-01, of the fabric it lies on and of the property's own seed, and returns a grey
+multiplier for the renderer's `_TONE` channel (or a baked mask) or a ground weight. Nothing in the
+kit removes, adds or moves fabric.
+**What is invented.** Every number and every shape: the 40 years at which a layer stops growing
+and its linear growth to them; the 0.62 floor; the damp band from 0.15 to 0.60 m and its 0.06 m
+wobble; the soot band from 0.40 to 1.60 m; the trails' 0.90 and 1.60 m lengths, tones, taper,
+rivulets and 20 per cent length jitter; the plume's 70 degree lee bearing (downwind of the
+westerlies, which is general knowledge of Chicago's climate and not a source record here), its 30
+degree spread and 3.0 m reach; the mortars' extra recess; the six-year repaint cycle; the lawn
+edge's 0.05 to 0.25 m strip; the walks' and drive's worn lines, including the 1.5 m carriage
+gauge; and each fabric's response, from 0.4 for dark fired brick to 1.25 for Bedford limestone.
+The full-age damp and soot are the K03 1808 service wall's (L-k03-1808-service-brick-2291), so the
+two masks agree; that is consistency, not evidence. The rule that a house is shown as maintained
+(condition of its own age, never neglect) follows T-1856's acceptance, not a photograph.
+**What is not.** Nothing in the kit is attested, and no property takes its condition from it yet
+(T-2325 applies it to a named house and its yard). The study renders the K02 and K03 fabrics
+under it in identical neutral light; it measures what the kit does, not what 1904 looked like.
+**How to resolve:** a dated photograph of a Prairie Avenue house shows its staining, sills,
+chimney plume, walk or lawn edge, and that property's values replace the kit's; a run of dated
+photographs of the district replaces the age curve and the full-age values for every property.
+**Ticket:** T-2324 (piece 1 of T-1856, K14).
+**Review:** `docs/RESEARCH/k14-condition-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2324).
+
 ### L-k16-timber-kit-2322 — The Prairie timber kit: every clapboard, batten, shingle, trim board, bargeboard and porch part reconstructed
 
 **Decision:** the 1904 Prairie programme's frame cladding and exterior timber (package K16,
