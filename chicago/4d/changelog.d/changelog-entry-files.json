@@ -1,7 +1,0 @@
-{
-  "title": "Release notes no longer hold up each other's merges",
-  "kind": "chore",
-  "items": [
-    "Nothing in the app changes. Each change now carries its release note as a file of its own, and the note joins this list after the change lands, so changes waiting to merge stop colliding on the top line of this list."
-  ]
-}
