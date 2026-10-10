@@ -176,6 +176,12 @@ const COVERAGE = [
   // T-2265: the K01 component contract and the Glessner baseline measured against it.
   // Read by tools/k01_contract.mjs in check.sh; neither published nor fetched.
   ['data/components/', NONE, 'component contract + measured baseline: k01_contract.mjs --check'],
+  // T-2288: the K02 stone library. No scene binds it yet (T-2289 lays it on the 1808
+  // exemplar, and moves this row to the parts that draw it then); publish.sh ships none
+  // of it. tools/k02_stone_study.mjs captures it at both viewports on its own page.
+  ['assets/textures/prairie_1904_stone/', NONE, 'K02 stone library, bound by no scene yet: k02_stone_study.mjs'],
+  // The licence register is prose a gate reads (validate.py); no module fetches it.
+  ['assets/LICENSES.md', NONE, 'the licence register: validate.py, not the renderer'],
   // --- read by no part of the scene: the gate's own tooling, the backlog, the
   // --- prose. check.sh is what covers these, not the renderer.
   ['tools/', NONE, 'the gate\'s own tooling — not served to the browser'],

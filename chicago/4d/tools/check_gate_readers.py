@@ -49,10 +49,12 @@ READERS = {
         "…and the strip still reads the same off the sheet",
         # T-1250: re-reads the two Sanborn sheets and the Robinson plate.
         "the 1904 Illinois Central lake edge still re-traces from its sheets (T-1250)",
+        "the 1904 street normals are OpenGL-handed, as the renderer binds them (T-2296)",
     ]),
     "numpy": ("numpy", [
         "…every step PIL names above — each needs both",
         "the 1904 heightfield re-derives from its zone table and scene line (T-1738)",
+        "the 1904 street normals are OpenGL-handed, as the renderer binds them (T-2296)",
         "the traced forks still carry what their generator writes",
         "the traced North Branch still carries what its generator writes",
         "the traced South Branch still carries what its generator writes",
