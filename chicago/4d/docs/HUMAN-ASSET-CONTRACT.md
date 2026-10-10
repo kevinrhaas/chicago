@@ -149,8 +149,30 @@ The scene-detail control picks from them:
 | `balanced` | lod1 … lod3 |
 | `light` | lod2, lod3 |
 
-`light` stays the floor (AGENTS.md § frame budget). The triangle, texture and draw budget for
-each LOD is **measured** by T-1787 on a real export, then written here. It is not guessed now.
+`light` stays the floor (AGENTS.md § frame budget).
+
+**What one figure costs, measured (T-1787).** `tools/human_fixture.mjs` opens every human GLB
+in the browser at 1280×800 and 390×780 and records `data/humans/fixture.measure.json`. On the CI
+fixture (`c4d_fixture`, L417), as shipped (Meshopt, `assets/humans/web/`):
+
+| LOD | triangles | vertices | draws | materials | textures | KB shipped | KB uncompressed |
+|---|---:|---:|---:|---:|---|---:|---:|
+| lod0 | 3,668 | 2,040 | 5 | 5 | 1 × 64² | 108 | 233 |
+| lod1 | 2,012 | 1,212 | 5 | 5 | 1 × 64² | 98 | 166 |
+| lod2 | 468 | 380 | 5 | 5 | 1 × 64² | 74 | 95 |
+| lod3 | 316 | 304 | 5 | 5 | 1 × 64² | 72 | 90 |
+
+Read it for what it says about the *pipeline*. The fixture is built from primitives, so its
+triangles are not a real body's; T-1789's first body is measured by the same command and its
+figures replace these as the per-LOD budget. Two things already hold whatever the body:
+
+- **Draws are set by material slots, not by LOD.** `GLTFLoader` makes one draw per primitive,
+  and a primitive per material, so every LOD of a five-slot figure is five draws. A crowd's
+  draw budget is slots × figures, which is what T-1792 has to plan around.
+- **The clips are the floor of a figure's bytes.** Every contract bone is keyed in every clip, so
+  a mixer cross-fading `idle` into `walk` never keeps a stale pose from a bone one clip leaves
+  out. That costs about half of lod3: exporting only the keyed bones took the uncompressed lod3
+  from 92 KB to 44 KB. A clip library (§ 7, T-1790) shipped once beside the bodies pays it once.
 
 ## 9. Delivery
 
@@ -165,6 +187,16 @@ each LOD is **measured** by T-1787 on a real export, then written here. It is no
 - Allowed: `EXT_meshopt_compression`, `KHR_mesh_quantization`, `KHR_texture_transform`,
   `KHR_materials_emissive_strength`. An unlisted extension is refused until it is proven and
   added.
+
+**The derivative sits beside its master** (T-1787). `tools/human_export.sh` writes the
+Blender export to `assets/humans/<asset_id>.lod<N>.glb` and its Meshopt derivative to
+`assets/humans/web/` under the same name. Meshopt's quantisation turns positions into integers
+and folds their scale into the skin's inverse bind matrices, which are compressed too, so a
+derivative's metric frame cannot be read from its JSON. `human_contract.py` therefore reads a
+`web/` file beside its master: the master must pass the frame checks (`frame.master`), and every
+bone, slot, morph, clip, socket and provenance field must be the master's (`derivative.drift`).
+`tools/human_fixture.mjs` then decodes both in the browser and holds the derivative's rest frame
+to the master's within 2 mm.
 
 **Unreal: an export, not a master.** Export FBX or glTF from the same `.blend` with the same
 bone, clip and material names. Metres become centimetres on import, and glTF `(x, y, z)` becomes
@@ -237,9 +269,15 @@ then breaks it one way at a time:
 
 ## 13. What each later ticket inherits
 
-- **T-1787, the export pipeline**: run `human_contract.py --glb` on every export; measure
-  and publish the per-LOD budgets in § 8; add the tiny rigged CI fixture that the self-test's
-  JSON-only body stands in for today.
+- **T-1787, the export pipeline** (done): `tools/human_export.sh` runs the pinned Blender over a
+  master (`tools/human_export.py` holds every exporter setting, with its reason), writes the four
+  LODs and their Meshopt derivatives, and gates them with `human_contract.py --glb`.
+  `tools/human_fixture.mjs` proves them in the browser and measured § 8.
+  `.github/workflows/chicago-4d-humans.yml` rebuilds the CI fixture from
+  `tools/human_fixture_blend.py`, requires the same bytes, and runs the browser proof. A real
+  master follows the fixture's layout (one armature, `lod0`…`lod3` collections, `socket_*`
+  empties, one action per clip, the scene's `chicago4d_human` property) and is exported with
+  `tools/human_export.sh --master FILE.blend`.
 - **T-1788, the browser actor**: read instances by `person_id` and pose them with § 2's
   formula; choose LODs per § 8; open the resident card on `opens`; hold the face still where a
   LOD has none.

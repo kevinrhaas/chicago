@@ -200,6 +200,10 @@ const COVERAGE = [
   // T-1786: the portable human contract. No scene reads it yet (L1 stands, nothing
   // is drawn); tools/human_contract.py holds it in check.sh.
   ['data/humans/', NONE, 'human contract + instance schema: human_contract.py --check'],
+  // T-1787: the portable-human export path's GLBs. publish.sh copies assets/web/ only, so
+  // these are never served, and no scene loads one (L1); human_contract.py --check and
+  // human_fixture.mjs --check hold them in check.sh, chicago-4d-humans.yml in the browser.
+  ['assets/humans/', NONE, 'portable-human GLBs — unpublished, drawn by no scene'],
   ['README.md', NONE, 'prose'],
   ['AGENTS.md', NONE, 'prose'],
   // The changelog entry file a PR adds (owner, 2026-10-10). Nothing serves or imports

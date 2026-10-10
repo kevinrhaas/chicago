@@ -1,0 +1,98 @@
+name: Chicago 4D — portable humans
+
+# T-1787. THE PORTABLE-HUMAN EXPORT PATH, PROVED END TO END ON EVERY CHANGE TO IT:
+#
+#   1. tools/human_export.sh --verify   the pinned Blender rebuilds the CI fixture's master
+#                                       from tools/human_fixture_blend.py, exports its four
+#                                       LODs with tools/human_export.py, derives them with
+#                                       the pinned gltf-transform `meshopt`, gates all eight
+#                                       with tools/human_contract.py --glb, and requires the
+#                                       committed files BYTE FOR BYTE
+#   2. tools/human_fixture.mjs          opens every one in Chromium at 1280x800 and 390x780:
+#                                       skinning deforms, both clips play, the morphs move,
+#                                       materials and the texture load, zero page or console
+#                                       errors, and the structural readings are the
+#                                       committed data/humans/fixture.measure.json's
+#
+# Its own workflow, not a step of chicago-4d-bake.yml, because that one rebuilds the whole
+# town (~20 minutes) and this needs one Blender start-up (~6 s of work). It is not inside
+# check.sh either: the gate has no Blender and no browser. check.sh still holds the
+# committed GLBs to the contract and to their measure (human_contract.py --check,
+# human_fixture.mjs --check), so a hand-edited GLB cannot pass there even when this does
+# not run.
+on:
+  pull_request:
+    paths:
+      - 'chicago/4d/tools/human_*'
+      - 'chicago/4d/assets/humans/**'
+      - 'chicago/4d/data/humans/**'
+      - 'chicago/4d/generators/blender.pin'
+      - 'chicago/4d/renderers/web/vendor/**'
+      - 'chicago/4d/renderers/web/js/scene-loader.js'
+      - '.github/workflows/chicago-4d-humans.yml'
+  push:
+    branches: [dev]
+    paths:
+      - 'chicago/4d/tools/human_*'
+      - 'chicago/4d/assets/humans/**'
+      - 'chicago/4d/data/humans/**'
+      - 'chicago/4d/generators/blender.pin'
+      - 'chicago/4d/tools/web_derivatives.sh'
+      - '.github/workflows/chicago-4d-humans.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: chicago-4d-humans-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  humans:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - run: pip install --quiet jsonschema
+
+      - name: Read the Blender pin
+        id: pin
+        run: |
+          # shellcheck disable=SC1091
+          source chicago/4d/generators/blender.pin
+          echo "version=$BLENDER_VERSION" >> "$GITHUB_OUTPUT"
+
+      # The same cache the content build fills (chicago-4d-bake.yml): same path, same key.
+      - name: Cache Blender
+        uses: actions/cache@v4
+        with:
+          path: /opt/blender-dl
+          key: blender-${{ steps.pin.outputs.version }}
+
+      - name: Rebuild the fixture and require the committed bytes
+        working-directory: chicago/4d
+        env:
+          BLENDER_CACHE: /opt/blender-dl
+        run: ./tools/human_export.sh --verify
+
+      # Installed GLOBALLY, as chicago-4d-smoke.yml does: the tools resolve it through
+      # `npm root -g`.
+      - name: Install Playwright
+        run: |
+          set -e
+          npm install -g playwright@1.56.1
+          node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
+
+      - name: Open every human GLB in the browser, at both viewports
+        working-directory: chicago/4d
+        run: NODE_PATH="$(npm root -g)" node tools/human_fixture.mjs
