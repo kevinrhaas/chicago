@@ -495,6 +495,20 @@ step "the K06 window kit builds every window as a closed recess over an enclosed
 selftest "…and a blind before the glass, a missing jamb, a holed backing, a doubled pane or a leaded street sash still fails it" \
   python3 tools/check_window_kit.py --self-test
 
+# T-2303. ...and what the 1904 entrances are. The K07 kit's parts are sized in
+# data/components/prairie_1904/k07_entrances.json and built by
+# generators/archetypes/k07_entrances.py. This rebuilds every variant and measures the
+# geometry: the landing level with the threshold, the stair's foot on grade, equal
+# risers and goings inside the reconstruction rules' ranges, every step closed, the walk
+# clear, a carriage opening through its wall under a bearing lintel, a closed reveal,
+# leaves clear of the floor, a hall behind every light, no doubled face, the triangle
+# budget, and the specimen GLB the generator's bytes.
+step "the K07 entrance kit lands every stair on its threshold and on grade, risers equal, the walk clear (T-2303)" \
+  python3 tools/check_entrance_kit.py --check
+
+selftest "…and an unequal riser, an open step, a stoop on the walk, an unbearing lintel or a floating leaf still fails it" \
+  python3 tools/check_entrance_kit.py --self-test
+
 # T-1963. The walls' relief is bound by reading the RECORD (route 2 of the photographic
 # fabric preparation, docs/GLB-CONTRACT.md § Wall substrates, PROPOSED): which wall is
 # clapboard, and how much of the wood's grain its finish lets through. That route's
