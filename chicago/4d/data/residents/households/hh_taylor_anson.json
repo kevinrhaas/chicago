@@ -76,7 +76,10 @@
    "undated": true,
    "tier": "inferred",
    "source_id": "andreas_1884_v1",
-   "note": "THIS IS A BUILT-BY LINK AND NOT A WORKPLACE, and the grade says so. Andreas credits the log bridge across the South Branch between Randolph and Lake to Anson H. Taylor and his brother in 1832; data/structures/south_branch_raft_bridge.json is this project's record of a crossing at that reach. Whether the raft bridge of 1835 is the same fabric as the log bridge of 1832 is a structures question this record does not settle. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_taylor_anson#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+   "note": "THIS IS A BUILT-BY LINK AND NOT A WORKPLACE, and the grade says so. Andreas credits the log bridge across the South Branch between Randolph and Lake to Anson H. Taylor and his brother in 1832; data/structures/south_branch_raft_bridge.json is this project's record of a crossing at that reach. Whether the raft bridge of 1835 is the same fabric as the log bridge of 1832 is a structures question this record does not settle. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_taylor_anson#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
+   "basis": {
+    "note": "THIS IS A BUILT-BY LINK AND NOT A WORKPLACE, and the grade says so. Andreas credits the log bridge across the South Branch between Randolph and Lake to Anson H. Taylor and his brother in 1832; data/structures/south_branch_raft_bridge.json is this project's record of a crossing at that reach. Whether the raft bridge of 1835 is the same fabric as the log bridge of 1832 is a structures question this record does not settle."
+   }
   }
  ],
  "present_on_scene_date": {

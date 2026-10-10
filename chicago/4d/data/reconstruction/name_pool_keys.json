@@ -161,6 +161,7 @@
       "arrival.note",
       "arrival_year.note",
       "arrival_year.replaceable_by.match",
+      "associated_with[].basis.note",
       "associated_with[].note",
       "directories.note",
       "directories.people[].address_later.note",

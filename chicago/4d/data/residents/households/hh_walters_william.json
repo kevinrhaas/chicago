@@ -77,7 +77,10 @@
    "undated": true,
    "tier": "inferred",
    "source_id": "drloih_hotels",
-   "note": "A landlord lived in his house; the tenancy itself is the reconstructed part. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_walters_william#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+   "note": "A landlord lived in his house; the tenancy itself is the reconstructed part. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_walters_william#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
+   "basis": {
+    "note": "A landlord lived in his house; the tenancy itself is the reconstructed part."
+   }
   },
   {
    "kind": "workplace",
@@ -88,7 +91,10 @@
    "undated": true,
    "tier": "inferred",
    "source_id": "drloih_hotels",
-   "note": "The Wolf Point house is the premises his tenancy is a tenancy OF, and a landlord's workplace is his house. Inferred rather than documented because the tenancy itself is the reconstructed part: the same body of sources that gives Walters the house from 1833 to 1836 also says the house stopped operating as a public house in 1834, so what he was doing here in July 1835 - if he was here - is open. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_walters_william#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+   "note": "The Wolf Point house is the premises his tenancy is a tenancy OF, and a landlord's workplace is his house. Inferred rather than documented because the tenancy itself is the reconstructed part: the same body of sources that gives Walters the house from 1833 to 1836 also says the house stopped operating as a public house in 1834, so what he was doing here in July 1835 - if he was here - is open. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_walters_william#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
+   "basis": {
+    "note": "The Wolf Point house is the premises his tenancy is a tenancy OF, and a landlord's workplace is his house. Inferred rather than documented because the tenancy itself is the reconstructed part: the same body of sources that gives Walters the house from 1833 to 1836 also says the house stopped operating as a public house in 1834, so what he was doing here in July 1835 - if he was here - is open."
+   }
   }
  ],
  "present_on_scene_date": {
