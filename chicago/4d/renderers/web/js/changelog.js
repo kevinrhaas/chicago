@@ -1,4 +1,33 @@
 export const CHANGELOG = [ // newest first
+  { v: 1620, ts: '2026-10-10T04:57:23.145Z', date: 'Oct 9, 2026, 11:57 PM CT', title: 'Business cards name the building a keeper worked in', kind: 'fix',
+    items: [
+      'Twelve business cards — among them Ira Couch\'s Tremont House, John Miller\'s tannery and the Indian Agency — explained where the trade was kept by quoting an internal field and raw building ids. They now name the keeper, the building and what kind of building it was, in plain words.',
+      'Every placement, grade and source is unchanged; only the sentence on the card is rewritten.',
+    ] },
+  { v: 1619, ts: '2026-10-10T04:39:16.798Z', date: 'Oct 9, 2026, 11:39 PM CT', title: 'Every shop sign readable, in period lettering', kind: 'fix',
+    items: [
+      'Walk South Water Street to Franklin: Newberry & Dole’s warehouse now shows its whole sign. The firm’s name was hidden behind the warehouse’s own boards, and so was lettering on 13 other painted fronts and shop fascias across 1835. All of them now sit in front of the wall.',
+      'Every board is lettered in faces of the 1830s: a signwriter’s roman, the fat face, the slab-serif Egyptian and a condensed grotesque. The name goes largest on its own line, with the trade under it in roman italic or capitals and the street in small capitals.',
+      'Gold lettering looks like gold leaf, with a burnished shine and a dark shade. Dark boards have the sanded, matte finish painters gave them.',
+      'Plain unpainted boards have their letters carved into the wood, so the cuts catch light and shadow as you walk past. A name painted straight onto bare boards is now just the letters, with the wall showing between them.',
+      'The lettering styles are reconstructed: no record shows how any 1835 Chicago sign was lettered.',
+    ] },
+  { v: 1618, ts: '2026-10-10T04:36:20.412Z', date: 'Oct 9, 2026, 11:36 PM CT', title: 'Glessner House rebuilt without its hidden doubled faces', kind: 'fix',
+    items: [
+      'Go close to the carved leaves over the Prairie Avenue entrance and on the porch capitals. Their roots and tips now close cleanly, where thin slivers used to lie on top of each other. The change is a few pixels at the leaf tips. Nothing else on the house moves.',
+      'Two hidden faults are also gone: doubled end caps inside the roof ridge, and doubled ends in the copper flashing round the chimneys. The detailed house is about 10,000 triangles lighter and its downloads are slightly smaller.',
+    ] },
+  { v: 1617, ts: '2026-10-10T04:33:21.391Z', date: 'Oct 9, 2026, 11:33 PM CT', title: '65 more households are given a house beyond the platted town', kind: 'fix',
+    items: [
+      'Outside the platted town, in the North and West Divisions, 69 houses had been given to households known only from the post office’s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address. The houses on the plat already followed that ruling, and now these do too.',
+      'Those houses go to the next households in line for them. In People, 65 more household cards now show “Go to the roof the policy deals it, off the plat”, and the 69 letter-list cards no longer show it. The houses’ cards list the new households.',
+      'The 30 households already housed there keep a house, though 28 of them are now in a different one. In the West, a farm household is only given a cabin with a barn beside it, so four West cabins stand empty, and each says why.',
+    ] },
+  { v: 1616, ts: '2026-10-10T04:17:20.363Z', date: 'Oct 9, 2026, 11:17 PM CT', title: 'The housing and deal tools read each household’s dated places', kind: 'change',
+    items: [
+      'Nothing you can see changes. The tools that house the present, re-family the order book, seat street faces, replace invented names and spend the trade and premises research now take a household’s home and workplace from the dated places on its card.',
+      'Every seat, roof and ruling comes out exactly as before. The research notes now point at the dated place they read rather than the old single workplace line, which is being retired.',
+    ] },
   { v: 1615, ts: '2026-10-10T04:10:30.121Z', date: 'Oct 9, 2026, 11:10 PM CT', title: 'The later-directory crosswalks read each household’s dated places', kind: 'change',
     items: [
       'Nothing you can see changes. The tools that match the 1839, 1843 and 1844 directories against the town, and the two that read a later printed address back to 1835, now take where a household lived and worked from the dated places on its card.',

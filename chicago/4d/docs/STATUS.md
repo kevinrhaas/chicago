@@ -1,3 +1,19 @@
+## T-2267 — Glessner v4 regenerated without coincident faces (2026-10-10)
+
+The K01 measure (T-2265) found 15 coincident triangles in Glessner's full master, 40 in
+web and 8 in light. All three generator causes are fixed and Glessner is rebaked: full
+**0**, light **0**, web **5**. The web five are sub-2 mm leaf-root slivers that the
+0.83 mm encoding rounds together. The causes: acanthus leaf roots and tips with
+sub-millimetre rows (they now close on the midrib); collinear ridge barrels capped back
+to back at x = 11.54 m (now continuous); chimney flashing pieces capped where they meet
+at the main ridge (now continuous). The K01 verdict now *states* when a derived tier's
+remainder is quantization: the master has none, the tier is position-quantized, and it
+carries the master's triangles one for one. Light, a separate build, may keep none. A
+2-step sliver threshold fitted only 3 of the 5 and was dropped, not widened. Fixed
+cameras (fan, capital, ridge joint, flashing, two silhouettes, 1280×800 Full and
+390×780 Light) change only at leaf tips, ≤0.043 % of pixels.
+`docs/RESEARCH/glessner-coincident-faces-2267/README.md`.
+
 ## T-2278 — doors, windows and their trim on every 1835 building (2026-10-10)
 
 Owner's ask: give every structure correct door and window openings and their trim, and use
@@ -67,6 +83,26 @@ later tickets would otherwise each make for themselves.
   is T-1787's tiny rigged CI fixture. The per-LOD triangle, texture and draw budgets are left
   for T-1787 to measure rather than guessed here. No review record exists yet, so a
   review_required person cannot be shown even after L1 lifts.
+
+## T-2255 — the off-plat deal reads the letter-list ruling (2026-10-09)
+
+T-1645 made the platted deal owe the letter-list cohort (T-0379) and hand it on;
+`tools/seat_off_plat_ground_1835.py` never read the ruling, so 69 of its 99 seats were that
+cohort. It now owes them with the platted deal's own `refused_by` and reason, using the platted
+deal's `refused_a_roof()` (773 rows owed so). 95 seated: 65 households newly housed (47 North,
+18 West), all 30 non-letter-list households still seated, 28 of them under another roof. The
+ruling exposed two things that had never come up before, both fixed in the tool and stated in L271:
+the farmstead rule's passed-over labourers take a cabin left free after the deal, and a West
+farm household takes a farmstead or nothing. An honesty assertion and a self-test fire when the
+ruling is dropped from the deal.
+
+- **Merged over T-2253** (2026-10-10): the platted deal's four block-82 slots and this deal's
+  re-deal do not touch: 219 platted + 95 off-plat = **314 seated**, off-plat seats identical to
+  the branch before the merge; order-book tripwire 310 -> 314.
+- **Merged over T-1550** (2026-10-10): 220 platted + 95 off-plat = **315 seated**; off-plat
+  still 95, order-book tripwire 319 -> 315.
+- **Not done:** off-plat roofs carry no household back (T-1638 is platted-only), so a re-deal
+  still moves seated households between roofs. Four West cabins stand unspent, each stating why.
 
 ## T-2206 — Glessner roof and courtyard proportions audited
 

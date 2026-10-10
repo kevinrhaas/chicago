@@ -400,7 +400,7 @@
     "uv_tolerance": 0.05,
     "uv_rule": "Per material whose base-colour image is a library fabric, |median sqrt(UV area / surface area) * sqrt(tile_u * tile_v) - 1| <= uv_tolerance. KHR_texture_transform on top of TEXCOORD_0 is recorded, not judged: it is how a photographic plate repeats inside one metric tile.",
     "coincident_faces_allowed_new": 0,
-    "coincident_rule": "A component built to this contract emits no coincident face. The canonical Glessner asset is PRESERVED, not rebuilt (T-1843 scope): its count is measured into the baseline as the reference, and a verdict that is not ok there names the ticket that owns it."
+    "coincident_rule": "A component built to this contract emits no coincident face. The canonical Glessner asset is PRESERVED, not rebuilt (T-1843 scope): its count is measured into the baseline as the reference, and a verdict that is not ok there names the ticket that owns it. The verdict (T-2267): the full master has none; a derived tier has none, or its positions are quantized and it carries the master's triangles one for one, so its remainder can only be vertices rounded together on the encoding's lattice and is reported as such with its position step and the largest sliver edge. The light tier is its own reduced build, so it may keep none."
   },
   "reference": {
     "baseline": "data/components/prairie_1904/glessner_baseline.json",
