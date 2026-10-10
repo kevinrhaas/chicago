@@ -134,6 +134,22 @@ later tickets would otherwise each make for themselves.
   for T-1787 to measure rather than guessed here. No review record exists yet, so a
   review_required person cannot be shown even after L1 lifts.
 
+## T-2286 — what the waiting families leave, ruled against the full person side (2026-10-10)
+
+T-2285 left the North owing 1 family_dwelling household and the West 9, with no held head,
+waiting family or household beyond the index to fill them. Measured: every family person cell
+of both divisions reads 0 left (the 13 people still owed are all lodging, T-2023), so a house
+ordered there has nobody the book may draw into it without overfilling a person cell.
+`full_family_persons_ruling` in `tools/build_order_book_1835.py` discharges each family row's
+order past what its division's open family cells could people at two a house (the book's
+own family test), never below the fill and never under the model's households range: the book
+now orders 575 households against 473-816, the family rows read 0 left, and households still
+owed fall 44 → 34. It seats, mints and moves nobody, counts no bed or boarders' roof as a
+house, and re-admits no letter-list household. Not put to the owner: it moves no person and
+no building and keeps the model's range, so it is book arithmetic rather than what the
+project IS. The self-test breaks it both ways (open family people keep houses owed; a lodging
+cell's open people do not) and holds the fill and range floors.
+
 ## T-2285 — the waiting families' share goes on to the cells still short (2026-10-10)
 
 T-2256 spread the 23 families waiting on a roof over the three family_dwelling rows pro rata

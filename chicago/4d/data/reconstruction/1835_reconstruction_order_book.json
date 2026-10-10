@@ -1598,7 +1598,7 @@
     "households_known": 165,
     "households_known_records": 1388,
     "households_awaiting_a_household": 1223,
-    "households_to_reconstruct": 422,
+    "households_to_reconstruct": 412,
     "businesses_target": 109,
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
@@ -1613,7 +1613,7 @@
       3265
     ],
     "households_standing": 215,
-    "households_still_owed": 44
+    "households_still_owed": 34
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -1749,10 +1749,10 @@
       "asks": "T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?",
       "the_answer_is": "BOTH, and the split is measured rather than argued.",
       "household_leg_before": 58,
-      "household_leg_now": 10,
+      "household_leg_now": 0,
       "person_leg_before": 374,
       "person_leg_now": 0,
-      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 10. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
+      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 0. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
       "verdict": "reopen T-1171 for the persons; the households are discharged"
     },
     {
@@ -1960,6 +1960,42 @@
     "ruling": "NOT A HOUSEHOLD THE TOWN LACKS. Rule 2 never orders a replacement for somebody standing in the town, and these families stand in it on their own cards: what they lack is a roof, which the remaining dwelling builds raise, and the deal seats them where the room is when they do.",
     "what_this_does_not_do": "It seats, moves, mints and retires nobody, counts no waiting family as a fill, and re-admits no household the letter-list ruling (T-0379) refuses a roof.",
     "what_would_reopen_it": "a waiting family seated in another division, or a held head of this one boarded instead: either takes one from the share or adds one to the shortfall, and the cell owes again under its owning ticket."
+  },
+  "full_family_persons_ruling": {
+    "ticket": "T-2286",
+    "asks": "The family_dwelling order still owes houses once the waiting families are spent. Is there anybody the book may put in them?",
+    "by_division": {
+      "north": {
+        "owed_after_the_waiting_families": 1,
+        "family_persons_still_owed": 0,
+        "houses_those_persons_could_people": 0,
+        "discharged": 1,
+        "still_owed": 0
+      },
+      "south": {
+        "owed_after_the_waiting_families": 0,
+        "family_persons_still_owed": 0,
+        "houses_those_persons_could_people": 0,
+        "discharged": 0,
+        "still_owed": 0
+      },
+      "west": {
+        "owed_after_the_waiting_families": 9,
+        "family_persons_still_owed": 0,
+        "houses_those_persons_could_people": 0,
+        "discharged": 9,
+        "still_owed": 0
+      }
+    },
+    "owed_after_the_waiting_families": 10,
+    "discharged": 10,
+    "still_owed": 0,
+    "households_the_book_orders": 575,
+    "households_range_floor": 473,
+    "measured": "The waiting families leave 10 houses owed on the family_dwelling rows. Every family person cell of North and West reads 0 left, so 10 of those houses have nobody the book may draw into them without overfilling a person cell; discharged, the book orders 575 households, inside the model's range from 473, and 0 are still owed.",
+    "ruling": "NOT A HOUSEHOLD THE TOWN LACKS. A house is the people in it, and the person side of the division is full: its families stand in the town in fewer houses than the households midpoint asks, and larger, which the model's range admits. The order past what the open family cells could people is discharged rather than met with a house nobody lives in.",
+    "what_this_does_not_do": "It seats, moves, mints and retires nobody, counts no single person or boarders' roof as a household, and re-admits no household the letter-list ruling (T-0379) refuses a roof.",
+    "what_would_reopen_it": "a family person cell of the division owing again (a re-cut that frees people for a house), or a held head of the division boarded instead: either adds to what the open cells can people or to the shortfall, and the cell owes again under its owning ticket."
   },
   "bucket_families": [
     {
@@ -4495,11 +4531,12 @@
           },
           "target": 123,
           "known": 27,
-          "to_reconstruct": 89,
+          "to_reconstruct": 88,
           "filled": 88,
           "owning_ticket": "T-2286",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the north division",
-          "discharged_by_the_waiting_families": 7
+          "discharged_by_the_waiting_families": 7,
+          "discharged_by_the_full_family_cells": 1
         },
         {
           "key": "households/family_dwelling/south",
@@ -4523,11 +4560,12 @@
           },
           "target": 110,
           "known": 21,
-          "to_reconstruct": 83,
+          "to_reconstruct": 74,
           "filled": 74,
           "owning_ticket": "T-2286",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the west division",
-          "discharged_by_the_waiting_families": 6
+          "discharged_by_the_waiting_families": 6,
+          "discharged_by_the_full_family_cells": 9
         },
         {
           "key": "households/inn_tavern/north",

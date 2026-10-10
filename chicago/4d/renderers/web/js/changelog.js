@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 1628, ts: '2026-10-10T06:25:23.863Z', date: 'Oct 10, 2026, 1:25 AM CT', title: 'The North and West stop owing ten houses nobody could live in', kind: 'fix',
+    items: [
+      'Nothing you can see in the town changes. This is the reconstruction order book, the ledger of what the 1835 town still owes.',
+      'It asked for one more family house in the North Division and nine in the West, though every family member it allows for there is already in the town.',
+      'Those ten are now discharged on a stated ruling, so no run will raise a house with nobody to live in it. The book stays inside the population model\'s own range.',
+    ] },
+  { v: 1627, ts: '2026-10-10T06:25:23.863Z', date: 'Oct 10, 2026, 1:25 AM CT', title: 'A brick library for Prairie Avenue\'s 1904 houses', kind: 'add',
+    items: [
+      'Nothing you can see changes in the town yet. This is the brick that Prairie Avenue\'s walls will be built from next.',
+      'Four bricks: a smooth pressed red face brick, a buff common brick for side and rear walls, a dark overburnt brick for accents, and the rough red-brown brick of the Mayer house at 2009 Prairie.',
+      'The mortar joints, bonds, arches and corners are written down as measurements, not painted into the pictures, so every wall can lay its own bricks to the right size.',
+      'Each brick\'s colour, joint and bond is our reconstruction, and each is marked that way.',
+    ] },
+  { v: 1626, ts: '2026-10-10T06:18:57.612Z', date: 'Oct 10, 2026, 1:18 AM CT', title: 'The fort\'s households state their own home', kind: 'change',
+    items: [
+      'Open the barracks or the sutler\'s store and read who lived there. Each of the eleven garrison households now gives its own reason for that bed, without the long copying note that used to trail it.',
+      'Nothing else you can see changes. The tool that builds the garrison now writes each household\'s home itself, so that home no longer depends on the old single home line, which is being retired.',
+    ] },
   { v: 1625, ts: '2026-10-10T05:54:23.034Z', date: 'Oct 10, 2026, 12:54 AM CT', title: 'Slate, tile, copper and tin roofs for the 1904 houses', kind: 'feature',
     items: [
       'Eleven new roof materials for the Prairie Avenue 1904 houses: dark Pennsylvania slate, a Vermont green mix, scalloped slate, flat red tile, copper and painted-tin standing seam, soldered flat-seam tin, and copper, lead, zinc and painted-tin sheet for flashings and gutters.',

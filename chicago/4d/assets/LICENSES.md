@@ -447,6 +447,121 @@ textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_orm_web
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_roughness.png
 ```
 
+### The Prairie Avenue 1904 K03 brick library — `textures/prairie_1904_brick/`
+
+T-2290 (piece 1 of T-1845, package K03 of T-1837). Four joint-free brick fabrics (pressed red,
+common buff, dark fired, rough red-brown), two mortars, `profiles.json` (joints, bonds, specials
+and firing spread as data) and four bonded LOD panels rendered from it, built by the generator
+that ships inside it (`tools/generate_prairie_1904_brick.py`, deterministic, seeded per fabric).
+Which house is built of which brick is the T-1837 register's and each house's own evidence to say;
+the look of every map is reconstructed (`docs/LIBERTIES.md` L-k03-brick-library-2290).
+
+| item | licence | cleared for | NOT cleared for |
+|---|---|---|---|
+| `textures/prairie_1904_brick/**`: *Prairie Avenue 1904 K03 brick library v1.0.0*, original procedural output generated for this project. Full text at `textures/prairie_1904_brick/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the street library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` and `profiles.json` says its appearance is reconstructed and that the register, not the map, carries the evidence |
+
+**Not published yet.** `tools/publish.sh` ships nothing from this library until a component binds it
+(T-2291).
+
+Every file, as the checker matches them one by one:
+
+```
+textures/prairie_1904_brick/LICENSE.txt
+textures/prairie_1904_brick/README.md
+textures/prairie_1904_brick/brick/common_buff/common_buff_basecolor.png
+textures/prairie_1904_brick/brick/common_buff/common_buff_basecolor_web.jpg
+textures/prairie_1904_brick/brick/common_buff/common_buff_height16.png
+textures/prairie_1904_brick/brick/common_buff/common_buff_normal_gl.png
+textures/prairie_1904_brick/brick/common_buff/common_buff_normal_gl_web.jpg
+textures/prairie_1904_brick/brick/common_buff/common_buff_orm.png
+textures/prairie_1904_brick/brick/common_buff/common_buff_orm_web.jpg
+textures/prairie_1904_brick/brick/common_buff/common_buff_roughness.png
+textures/prairie_1904_brick/brick/common_buff/material.json
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_basecolor.png
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_basecolor_web.jpg
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_height16.png
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_normal_gl.png
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_normal_gl_web.jpg
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_orm.png
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_orm_web.jpg
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_roughness.png
+textures/prairie_1904_brick/brick/dark_fired/material.json
+textures/prairie_1904_brick/brick/pressed_red/material.json
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_basecolor.png
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_basecolor_web.jpg
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_height16.png
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_normal_gl.png
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_normal_gl_web.jpg
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_orm.png
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_orm_web.jpg
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_roughness.png
+textures/prairie_1904_brick/brick/rough_red_brown/material.json
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_basecolor.png
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_basecolor_web.jpg
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_height16.png
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_normal_gl.png
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_normal_gl_web.jpg
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_orm.png
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_orm_web.jpg
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_roughness.png
+textures/prairie_1904_brick/mortar/mortar_dark/material.json
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_basecolor.png
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_basecolor_web.jpg
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_height16.png
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_normal_gl.png
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_normal_gl_web.jpg
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_orm.png
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_orm_web.jpg
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_roughness.png
+textures/prairie_1904_brick/mortar/mortar_lime/material.json
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_basecolor.png
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_basecolor_web.jpg
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_height16.png
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_normal_gl.png
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_normal_gl_web.jpg
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_orm.png
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_orm_web.jpg
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_roughness.png
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_basecolor.png
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_basecolor_web.jpg
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_height16.png
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_normal_gl.png
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_normal_gl_web.jpg
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_orm.png
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_orm_web.jpg
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_roughness.png
+textures/prairie_1904_brick/panel/common_buff_common_6/material.json
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/material.json
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_basecolor.png
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_basecolor_web.jpg
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_height16.png
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_normal_gl.png
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_normal_gl_web.jpg
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_orm.png
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_orm_web.jpg
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_roughness.png
+textures/prairie_1904_brick/panel/pressed_red_running/material.json
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_basecolor.png
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_basecolor_web.jpg
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_height16.png
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_normal_gl.png
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_normal_gl_web.jpg
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_orm.png
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_orm_web.jpg
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_roughness.png
+textures/prairie_1904_brick/panel/rough_red_brown_running/material.json
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_basecolor.png
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_basecolor_web.jpg
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_height16.png
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_normal_gl.png
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_normal_gl_web.jpg
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_orm.png
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_orm_web.jpg
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_roughness.png
+textures/prairie_1904_brick/profiles.json
+textures/prairie_1904_brick/tools/generate_prairie_1904_brick.py
+```
+
 ### The Prairie Avenue 1904 stone library (K02) — `textures/prairie_1904_stone/`
 
 T-2288, piece 1 of T-1844. Six procedural stone fabrics for the 1904 programme's walls, trim and
