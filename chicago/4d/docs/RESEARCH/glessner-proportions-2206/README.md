@@ -208,7 +208,7 @@ Glessner asset bytes and comparison page as the final change. The smoke's publis
 order-book metadata predates that owner-pointer repair; it is not represented as
 an exact-tree test of the redirected warehouse assignment.
 
-The final integration base is dev `01bf3aaf` (PR #599, Monroe–Adams lots). It
+The first integration base is dev `01bf3aaf` (PR #599, Monroe–Adams lots). It
 already includes the warehouse owner redirect, so the four-file repair is absent
 from the final T-2206 diff. Dev's released changelog is preserved verbatim; only
 T-2206 is re-stamped to v1602. The three Glessner GLB hashes and audit inputs remain
@@ -222,3 +222,10 @@ smoke. The combined invocation took 21m23s. An earlier invalid `both` viewport
 filter selected no viewport and is excluded entirely from this result. Final
 source-reading clarifications were then checked on the updated comparison page
 at both viewports; they do not alter any camera, mesh or source photograph.
+
+The 806-step repository preflight passed after using compensated summation for
+the audit RMS and regenerating the research sign-off counts. Dev then advanced to
+`9e0682cb` (T-2259 resident associations). That change merged cleanly; its released
+changelog is preserved and T-2206 alone is re-stamped to v1603. A further combined-tree
+preflight is run before this merge commit and PR. Final gate and deployment receipts
+are recorded with T-2206 in the ticket repository.

@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1602, ts: '2026-10-10T00:31:43.026Z', date: 'Oct 9, 2026, 7:31 PM CT', title: 'Glessner roof proportions gain a reviewable comparison audit', kind: 'feature',
+  { v: 1603, ts: '2026-10-10T00:46:47.918Z', date: 'Oct 9, 2026, 7:46 PM CT', title: 'Glessner roof proportions gain a reviewable comparison audit', kind: 'feature',
     items: [
       'Open Glessner’s photographic comparison page to review the current roof, dormers and courtyard bay against the fixed reference cameras. A dimension table gives the evidence, confidence and remaining disagreements.',
       'The earlier baseline remains available for comparison. The repaired house geometry is retained; the lifted copper corner remains an identified repair for its own ticket.',
+    ] },
+  { v: 1602, ts: '2026-10-10T00:25:08.610Z', date: 'Oct 9, 2026, 7:25 PM CT', title: 'A building card\u2019s residents are read from their dated places', kind: 'fix',
+    items: [
+      'Open a building and look at who lived or worked there: each household\u2019s reason for being on that card is now the note on its dated place, the same entry its own card lists with its years. Fifty-five buildings show the fuller wording.',
+      'The People directory\u2019s homes and workplaces come from the same dated places, and none of them changed. Lodgers in the hotels and boarding houses, and the lighthouse keeper\u2019s household, now carry their beds in that form too.',
     ] },
   { v: 1601, ts: '2026-10-10T00:05:59.930Z', date: 'Oct 9, 2026, 7:05 PM CT', title: 'The town\u2019s last six South houses get their lots, south of Monroe', kind: 'change',
     items: [
