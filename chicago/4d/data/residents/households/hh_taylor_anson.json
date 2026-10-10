@@ -58,14 +58,6 @@
   "confidence": "reconstructed",
   "note": "Not attested in anything this project holds."
  },
- "works_at": {
-  "value": "south_branch_raft_bridge",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "THIS IS A BUILT-BY LINK AND NOT A WORKPLACE, and the grade says so. Andreas credits the log bridge across the South Branch between Randolph and Lake to Anson H. Taylor and his brother in 1832; data/structures/south_branch_raft_bridge.json is this project's record of a crossing at that reach. Whether the raft bridge of 1835 is the same fabric as the log bridge of 1832 is a structures question this record does not settle."
- },
  "associated_with": [
   {
    "kind": "workplace",

@@ -63,14 +63,6 @@
   "confidence": "reconstructed",
   "note": "Not attested in anything this project holds."
  },
- "works_at": {
-  "value": "temple_building",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "The upper storey. data/structures/temple_building.json already carries 'Grenville T. Sproat's English and Classical School for Boys in the upper storey'."
- },
  "associated_with": [
   {
    "kind": "workplace",

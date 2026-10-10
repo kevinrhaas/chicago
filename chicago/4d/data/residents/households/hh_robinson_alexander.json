@@ -43,23 +43,6 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
-  "value": "robinson_caldwell_cabins",
-  "confidence": "attested",
-  "sources": [
-   "kinzie_waubun_1856"
-  ],
-  "note": "Wau-Bun, describing 1831: 'Near him [Wentworth's tavern] were two or three log cabins occupied by Robinson, the Pottowattamie chief, and some of his wife's connexions.' data/structures/robinson_caldwell_cabins.json exists on that single sentence and carries review_required: true for the same reason this household does. Andreas independently puts him at Wolf Point with a store or trading-house in the later part of his residence."
- },
- "works_at": {
-  "value": "robinson_caldwell_cabins",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1",
-   "kinzie_waubun_1856"
-  ],
-  "note": "A trading house at Wolf Point is where his trade was carried on, and the cabins are the only Wolf Point building this dataset attaches to him. Whether the store was one of the cabins or a separate building is not stated."
- },
  "associated_with": [
   {
    "kind": "home",

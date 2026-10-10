@@ -26,6 +26,28 @@ Adams corner.
   reconstructed trades seating, placeholders, entrances, alley lanes, woodpiles, the anonymous-roof
   redeal, land tracts, register, population profile, hay limits, roof-id surface, block redeal
   remedies and the Newberry leads (four volumes re-parsed).
+## T-2291 — K03 common brick on 1808 Prairie's return and rear (2026-10-10)
+
+**Visible.** 1808 Prairie's south side, rear and north party walls now wear the K03 common buff
+brick in common bond (T-2290's `common_buff_common_6` panel, with its normal map), in place of
+Glessner's courtyard `brick_buff`. Every window on those walls has a brick head: two rowlock rings
+on a segmental arch, or soldier flat heads on the third storey, where the eave leaves no room for
+the rings. A projecting stretcher string course runs at the second floor and turns the south-west
+quoin. A soot and damp mask (`_TONE`) darkens the foot of the wall and the band under the eave.
+Courses stay level round both quoins, and the north-west quoin carries the bond round unbroken.
+
+**Measured.** The K01 contract measure is green, and its metric-UV check now reads the K03 tiles
+(1.0000 full, 1.0001 web). The asset goes from 2,218 to 8,264 triangles and its web GLB from
+893 KB to 783 KB. In the published app every stand is within budget: desktop 65-68 draws and
+2.50 M triangles, mobile 62-63 draws and 0.46 M triangles, zero page errors
+(`docs/RESEARCH/k03-1808-service-brick-2291/`).
+
+**Unverified or not done.** The bond, heads, string course and grime are all reconstructed
+(L-k03-1808-service-brick-2291); no photograph of 1808's side or rear was read. Every brick is
+not a solid: the library's full form, about 52,000 bricks here, was refused on the triangle
+budget, so the panel serves every tier. No pressed front is bound, because none stands in the
+scene; it binds with 2100 Sherman (T-1919).
+
 ## T-2254 — four houses on the School Section tier's block 82 (2026-10-10)
 
 Piece 3 of 3 of T-2247 (owner ruling b: cross Monroe). T-2253 dealt the block two D2, two D4, a

@@ -529,6 +529,17 @@ step "the 1835 library's normal maps are handed as named, OpenGL and DirectX (T-
 selftest "…and a DirectX map filed as OpenGL, the reverse, or a mirrored red still fails it" \
   python3 tools/check_1835_normals.py --self-test
 
+# T-2300. ...and the maps the page derives beside them lie the same way up.
+# wall-relief.js's `orl` and frontage.js's board grain are packed from canvas pixels
+# (top row first) into a DataTexture, which three uploads unflipped, and are sampled
+# on the uv of a normal_gl uploaded with flipY — so until T-2300 every wall's and
+# walk's AO, roughness and grain was its relief's mirror along v.
+step "the derived wall and board-face maps lie the way their normal_gl does (T-2300)" \
+  node tools/check_relief_rows.mjs --check
+
+selftest "…and a packer that writes them in canvas order still fails it" \
+  node tools/check_relief_rows.mjs --self-test
+
 # T-1251. The ground's zone table for the same scene. Its street crowns are READINGS
 # (data/terrain/e1871_grade_readings.json) put through the spec's own datum
 # conversion, its fill is the difference to the committed 1835 heightfield and
@@ -6760,18 +6771,10 @@ step "the person associations still re-derive, and are still on their cards" \
 selftest "…and its own refusals still fire when broken" \
   python3 tools/person_associations.py --self-test
 
-# T-1273. The home and workplace half of the same migration: every reconciliation row
-# that reaches a roof (`tools/location_reconciliation.py`) copied onto its household as an
-# `associated_with` row, with no value, confidence or source changed. The same two holds
-# as T-1405's: the report re-derives, and every copied row is still on its card byte for
-# byte — plus a third, because a household's `lives_at` CAN change under it: a copied
-# row that no longer derives is refused, so a moved home cannot leave its old roof
-# standing in the plural list where `singular_drift` would never look.
-step "the household home and workplace rows still re-derive, and are still on their cards" \
-  python3 tools/household_associations.py --check
-
-selftest "…and its own refusals still fire when broken" \
-  python3 tools/household_associations.py --self-test
+# T-1273 copied every home and workplace reconciliation row that reached a roof onto its
+# household as an `associated_with` row, and gated the copy here. T-2284 retired the
+# singular `lives_at`/`works_at` it copied FROM, so the copier went with it: the rows it
+# wrote are the record now, and validate.py refuses the pair on any household record.
 
 # T-1158. The per-attribute tier, and the three things that can go wrong with it.
 #

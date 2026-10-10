@@ -799,14 +799,13 @@ def render(model: dict) -> str:
                f"town's trades come from newspapers, directories and registers, and those name the "
                f"men who advertised. T-1173 reconstructs the trade households the occupation model "
                f"still wants.")
-    out.append(f"5. **{n(a4['association_rows'])} `associated_with` rows exist, and the singular "
-               f"pair still stands beside them.** The plural, dated location row is the agreed shape "
-               f"(T-1147) and the renderer reads it. T-1273 copied every home and workplace "
-               f"reconciliation row that reaches a roof onto its household "
-               f"(`tools/household_associations.py`); T-1274 moves the readers off "
-               f"`lives_at`/`works_at` and retires the pair. Until then both shapes are held to agree "
-               f"by `singular_drift`, and the reconciliation table above stays where a seating class "
-               f"short of a roof is legible — which is why C7 measures the table.")
+    out.append(f"5. **{n(a4['association_rows'])} `associated_with` rows exist, and they are the "
+               f"only shape.** The plural, dated location row is the agreed shape (T-1147) and "
+               f"the renderer reads it. T-1273 copied every home and workplace reconciliation "
+               f"row that reaches a roof onto its household; T-2277 moved the readers off "
+               f"`lives_at`/`works_at`, and T-2284 retired the pair and the copier with it. The "
+               f"reconciliation table above reads its claims off the rows, and stays where a "
+               f"seating class short of a roof is legible — which is why C7 measures the table.")
     out.append("6. **One resident derivation cannot be gated on byte identity.** "
                "`tools/mint_letter_list_residents.py` is not the last writer of the files it "
                "derives, so re-running it over the committed tree would revert the synthesis and "

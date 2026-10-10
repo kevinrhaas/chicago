@@ -46,8 +46,8 @@ that tool's `--check`. It is never hand-written and never appears a second time 
 son of nearly the same name; a household-level block would deal the son's lots to the
 father, which is the same rule `HOUSEHOLD_FIELDS` states for `origin`.
 
-**A HOLDING IS NOT A RESIDENCE.** `lives_at` is the field for where somebody lived and
-may be null beside a holding — `hh_kingston_paul` has no address at all. Nothing in this
+**A HOLDING IS NOT A RESIDENCE.** A `home` row of `associated_with` (below) is where
+somebody lived, and there may be none beside a holding — `hh_kingston_paul` has no address at all. Nothing in this
 field seats a lot, draws a parcel or states a price; where no source gives a block or a
 number, the value says what was held and not how much.
 
@@ -159,7 +159,7 @@ the corpus has needed them.
 
 ## `associated_with` — the places a person was, plural and dated (T-1238)
 
-`lives_at` and `works_at` are **singular** and **undated**, and the sources are
+`lives_at` and `works_at` were **singular** and **undated**, and the sources are
 frequently neither. Jeremiah Porter's record says so in its own note: Andreas has
 P. F. W. Peck invite him "to make his **temporary** lodging place and study in the
 unfinished loft of his two-story store", the word is the source's, the link is
@@ -192,26 +192,25 @@ Three rules, and each exists because of a specific way this goes wrong:
 - **`place_or_structure_id` is never null. An absent relationship is an absent
   row.** The four rungs are the four a source can reach; "no place at all" is not
   one of them, because a relationship with no place is not a finding about where
-  somebody was. John Bates jr has a workplace row and no home row — his `lives_at`
-  says "Not attested." and that is an absence, not a claim. (T-1237's *seating
+  somebody was. John Bates jr has a workplace row and no home row — his `no_home`
+  says "Not attested." and that is an absence, not a claim (T-2295). (T-1237's *seating
   class* axis is a different question and does need a `none` class: it is defined
   over the whole household layer, this list is defined over claims.)
 - **A row that dates neither end must say `"undated": true`.** An undated
   relationship is an admission this project counts, not a gap a later reader
   mistakes for an oversight.
-- **The singular link may not drift from the plural rows.** Both shapes stand
-  until the migration lands, so a record carrying `associated_with` and a non-null
-  `lives_at`/`works_at` must carry that structure among its rows —
-  `lives_at` against a `home`/`lodging` row, `works_at` against one of
-  `agency_held`/`business_premises`/`church`/`civic_seat`/`school`/`workplace`.
-  Otherwise the half-way point of the migration is a record that says two
-  different things about the same man and a reader gets whichever field they
-  happened to load. `tools/validate.py` refuses it.
+- **The rows are the only shape (T-2284).** While the singular pair and these rows
+  both stood, a record had to carry its singular structure among its rows, or the
+  half-way point of the migration said two different things about the same man.
+  The pair is retired: a home is a `home`/`lodging` row, a workplace one of
+  `agency_held`/`business_premises`/`church`/`civic_seat`/`school`/`workplace`, an
+  address no source reaches is `no_home` / `no_workplace`, and `tools/validate.py`
+  refuses `lives_at`/`works_at` on any household or person.
 
 `land_purchased` is in neither family on purpose: a holding is not a place a man
 was.
 
-**What this buys, in one record.** The Porter household's single `works_at` names
+**What this buys, in one record.** The Porter household's single `works_at` named
 the First Presbyterian Church for the minister's charge and says nothing whatever
 about his wife. Eliza Chappel Porter kept Chicago's first infant school; her own
 rows carry it at `chappel_infant_school` from 1833 **to 1834** — a relationship

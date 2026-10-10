@@ -23185,3 +23185,44 @@ specification or millwork catalogue replaces a part's dimensions for every house
 **Ticket:** T-2297 (piece 1 of T-1848, K06).
 **Review:** `docs/RESEARCH/k06-window-kit/README.md`.
 **Recorded:** 2026-10-10 (T-2297).
+
+### L-k03-1808-service-brick-2291 — 1808 Prairie's return and rear in K03 common brick: bond, heads, string course and grime, all reconstructed
+
+**Decision:** the south side, rear and north party walls of the 1808 Prairie K01 frontage
+(T-2266) are laid in the K03 library's common buff brick (T-2290), not Glessner v4's courtyard
+`brick_buff`. The walls wear the `common_buff_common_6` panel, with its normal map: common bond,
+a header course every sixth, 9 mm weathered lime joints. Courses start on a bed joint at grade
+on every wall, and the perpends are phased so the bond turns the north-west quoin unbroken; the
+south-west quoin takes the cut the rear wall's 10.4 m leaves. Every principal- and second-floor
+window on those walls has two rowlock rings on a segmental arch (rise 0.12 of the span). The
+third storey, 0.37 m under the soffit, has soldier flat heads. A projecting stretcher string
+course runs at the second-floor line on the south wall and the rear and turns the south-west
+quoin. A soot and damp mask darkens the first 0.6 m above grade (to 0.74) and the 1.6 m under
+the soffit (to 0.80).
+
+**What is attested.** That the house is brick: the 1911 Sanborn sheet 28 colours it brick, and
+the record's `construction` carries that as inferred. The T-1837 building register asks for
+"Common-brick side and rear ranges" at `pa-1808-6`. The register is a request, not a source
+record here.
+
+**What is invented.** The fabric and its colour (the library's own liberty,
+L-k03-brick-library-2290). The bond, because no source read here gives one for this house. The
+head forms and where each is used. The string course and its height. The mask's heights and
+depths. Every unit's firing variant is drawn by the library's seeded rule. None of this was read
+off a photograph of 1808 Prairie.
+
+**Not done, and why.** The library's full form, every brick a solid, was priced at about 52,000
+bricks for these three walls and refused. The 1904 scene already spends 2.5 M of its 3.8 M
+triangle budget, mostly on Glessner. The panel is the library's balanced and light form, used
+here at every tier. The ticket's title also asks for a *pressed* front against the common
+return. The only register fronts in pressed brick are 2100, 2126 and 213-217 East Cullerton,
+none of which stands in the scene, and each has its own build ticket (2100 Sherman is T-1919).
+So the comparison shipped is this house's own: its stone street front against its common-brick
+return and rear. The pressed front is bound when T-1919 builds Sherman.
+
+**What would replace it.** A photograph or drawing of 1808's side or rear: bond, head form,
+string course. A dated soot reading for Prairie Avenue c. 1904.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.service_wall_brick`
+**Ticket:** T-2291 (piece 2 of T-1845).
+**Review:** `docs/RESEARCH/k03-1808-service-brick-2291/README.md`.
+**Recorded:** 2026-10-10 (T-2291).

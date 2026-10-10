@@ -55,14 +55,6 @@
   "confidence": "reconstructed",
   "note": "Not attested in anything this project holds."
  },
- "works_at": {
-  "value": "st_marys_church",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "He built it, which is a builder's relation to a building rather than a workplace, and the church was finished long before the scene date. Linked one grade down because it is the only structure in this dataset his name is attached to; a carpenter in July 1835 was working on something else entirely and nothing says what."
- },
  "associated_with": [
   {
    "kind": "workplace",

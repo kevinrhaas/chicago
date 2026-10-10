@@ -42,22 +42,6 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
-  "value": "madore_beaubien_house",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "The house is recorded under his name and is a dwelling and store."
- },
- "works_at": {
-  "value": "madore_beaubien_house",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "data/structures/madore_beaubien_house.json is the log house at the south-west corner of South Water and Dearborn, built 1831, two rooms, the first building on Lot 1 - and its occupants field carries his name."
- },
  "associated_with": [
   {
    "kind": "home",

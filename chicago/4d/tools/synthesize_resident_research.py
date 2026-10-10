@@ -36,6 +36,7 @@ ROOT = Path(os.environ["SYNTH_SCRATCH_ROOT"]) if os.environ.get("SYNTH_SCRATCH_R
 # copy carries data and no tools: measured, ModuleNotFoundError on rebuild_resident_index.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 from rebuild_resident_index import rebuild  # noqa: E402  (the manifest's one owner)
+from associations import home_of, workplace_of  # noqa: E402  (T-2284)
 from refuse_reconstructed_grade import refuse  # noqa: E402  (T-1144; the retirement above must actually have happened)
 
 CHICAGO = ROOT.parent
@@ -852,7 +853,7 @@ def check():
     if programme.get("resident_population_active") is not False:
         problems.append("retired reconstructed resident programme is not marked inactive")
     for d in docs:
-        if str(d.get("id") or "").startswith("hh_inf_") and (value(d.get("lives_at")) is not None or value(d.get("works_at")) is not None):
+        if str(d.get("id") or "").startswith("hh_inf_") and (home_of(d) is not None or workplace_of(d) is not None):
             problems.append(f"{d.get('id')} survived synthesis but is still placed")
     for path in sorted(STRUCTURES.glob("*.json")):
         d=load(path)

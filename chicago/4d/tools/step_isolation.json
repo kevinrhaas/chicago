@@ -2674,6 +2674,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_relief_rows.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_roof_library.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_rulings_not_lost.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2698,14 +2706,6 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/check_roof_library.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/check_window_kit.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/check_structure_corridors.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2727,6 +2727,10 @@
       "wrote_ignored": []
     },
     "tools/check_wall_relief.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_window_kit.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -3079,10 +3083,6 @@
       "wrote_ignored": []
     },
     "tools/house_the_present_1835.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/household_associations.py": {
       "wrote": [],
       "wrote_ignored": []
     },
