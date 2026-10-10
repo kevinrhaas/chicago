@@ -63,6 +63,12 @@
       "measured": "2026-10-08",
       "finding": "Run bare it prints the family pass's ruling tally over the remainder registers (65 units under its rules), exits 0 and writes nothing (git status --porcelain identical before and after); --check rebuilds the registers in memory and compares the authored rulings to the units they reach, writing nothing. It declares no write mode: the rulings it reads are authored in data/research/family_pass_rulings.json and the registers that carry them are written by tools/spend_remainder_rulings.py (T-1335)."
     },
+    "check_roof_kit.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K05 roof in memory from data/components/prairie_1904/k05_roofs.json and compares a rebuilt specimen to the committed GLB, --report prints the measures and --self-test breaks rules in memory; all write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k05_roofs.py run bare, which no gate step runs (T-2301)."
+    },
     "check_window_kit.py": {
       "placement": "not_a_writer",
       "write_mode": null,

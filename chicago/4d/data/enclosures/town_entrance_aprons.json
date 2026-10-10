@@ -242,10 +242,12 @@
   "recon_1835_blk_school_section_tier_81_d5_02",
   "recon_1835_blk_school_section_tier_81_d5_07",
   "recon_1835_blk_school_section_tier_81_d6_06",
+  "recon_1835_blk_school_section_tier_82_d1_05",
   "recon_1835_blk_school_section_tier_82_d2_01",
   "recon_1835_blk_school_section_tier_82_d4_03",
   "recon_1835_blk_school_section_tier_82_d4_04",
   "recon_1835_blk_school_section_tier_82_d5_02",
+  "recon_1835_blk_school_section_tier_82_h1_06",
   "recon_1835_blk_school_section_tier_94_d3_05",
   "recon_1835_blk_school_section_tier_94_d4_04",
   "recon_1835_blk_school_section_tier_94_d5_01",
@@ -3841,6 +3843,20 @@
     [185.79, -640.04]
    ],
    [
+    [181.87, -672.53],
+    [188.54, -672.53],
+    [188.54, -671.13],
+    [186.93, -671.13],
+    [186.43, -659.18],
+    [186.32, -658.93],
+    [186.07, -658.83],
+    [184.34, -658.83],
+    [184.09, -658.93],
+    [183.99, -659.18],
+    [183.49, -671.13],
+    [181.87, -671.13]
+   ],
+   [
     [123.73, -672.53],
     [129.76, -672.53],
     [129.76, -671.13],
@@ -3895,6 +3911,20 @@
     [127.89, -793.86],
     [128.39, -781.41],
     [130.49, -781.41]
+   ],
+   [
+    [189.59, -779.01],
+    [180.82, -779.01],
+    [180.82, -780.41],
+    [183.67, -780.41],
+    [184.17, -782.06],
+    [184.28, -782.3],
+    [184.52, -782.41],
+    [186.14, -782.41],
+    [186.39, -782.3],
+    [186.49, -782.06],
+    [186.99, -780.41],
+    [189.59, -780.41]
    ],
    [
     [299.83, -639.14],
@@ -11944,6 +11974,16 @@
    "width_m": 0.92
   },
   {
+   "id": "recon_1835_blk_school_section_tier_82_d1_05__door_1",
+   "structure_id": "recon_1835_blk_school_section_tier_82_d1_05",
+   "archetype": "log_dwelling",
+   "kind": "door",
+   "read_by": "facade_openings.log_dwelling",
+   "at_local_enu_m": [185.21, -672.53],
+   "bearing_deg": 0.0,
+   "width_m": 1.04
+  },
+  {
    "id": "recon_1835_blk_school_section_tier_82_d2_01__door_1",
    "structure_id": "recon_1835_blk_school_section_tier_82_d2_01",
    "archetype": "outbuilding",
@@ -11980,6 +12020,16 @@
    "kind": "door",
    "read_by": "facade_openings.frame_dwelling",
    "at_local_enu_m": [126.73, -780.01],
+   "bearing_deg": 180.0,
+   "width_m": 0.92
+  },
+  {
+   "id": "recon_1835_blk_school_section_tier_82_h1_06__door_1",
+   "structure_id": "recon_1835_blk_school_section_tier_82_h1_06",
+   "archetype": "frame_dwelling",
+   "kind": "door",
+   "read_by": "facade_openings.frame_dwelling",
+   "at_local_enu_m": [185.33, -779.01],
    "bearing_deg": 180.0,
    "width_m": 0.92
   },
