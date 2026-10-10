@@ -187,6 +187,18 @@
      "against_merge": "THE PAGE WAS READ AND IT PRINTS THE INITIAL. T-1554 read every printing of this entry this project can reach, on 2026-10-09, and each sets 'L. Franchere': the Genealogy Trails page (data/research/church/text/st_cyr_marriages_1834_1839.txt, line 7) and, behind it, the Illinois Catholic Historical Review vol. 4, July 1921, 'The First Chicago Marriage Records', first row ('-1834 | N. Murphy, Mrs. M. Frauner | L. Franchere, T. B. Beubien | J. M. I. Saint Cyr'), in two independent archive.org scans of the volume (illinoiscatholic04illi_0 and illinoiscatholic04unse). So the web transcription is faithful and the 1921 tabulator gave no forename either; T-1525's premise that 'reading that entry for a full forename settles it' is spent on every printing. NOR IS ANY ONE TITLE CAUGHT SETTING BOTH: the Review tabulated the baptisms in vol. 3 no. 4 (April 1921, pp. 406-408, archive.org illinoiscatholic03unse_2) and its table runs from the entry of 26 May 1833 straight to 15 May 1834, omitting the entry of 5 June 1833 where the deposited scan reads 'Louis Franchère'. So the Review sets 'Franchere' without its accent in the one place and nowhere sets the other, and the cards' 'franchre' is this project's extraction dropping the è (T-2197 recorded that for this card). C2 would fold an initial onto its one full forename, but it does so on a surname the two printings share, and C9 and C10 ask for the printer's own demonstration that two settings are one name; neither is in hand, and the accent is not to be waved through on the merge it would decide. THE ANSWER IS STILL ON A PAGE, AND THE PAGE EXISTS: the Review (vol. 3, p. 405) quotes the register's fly leaf — 'This record of baptisms and marriages solemnized from the year 1833-39 … was collected and bound by me in the year 1880. Jos. P. Rouges, Rector' — so the marriage is entered in the same book whose title page and pages 1-19 are deposited at chicago/reference/catholic-baptisms-1833-1835/, in St Cyr's own hand. Its marriage leaves are not deposited. U1 stands and T-2251 owns depositing and reading that leaf."
     }
    ],
+   "associated_with": [
+    {
+     "kind": "church",
+     "place_or_structure_id": "st_marys_church",
+     "resolves_to": "structure",
+     "from": "1834",
+     "to": "1834",
+     "tier": "attested",
+     "source_id": "st_cyr_register_ichr_v4",
+     "note": "THE REGISTER NAMES HIM AT A PARISH ACT, AND THAT IS THE WHOLE OF THE CLAIM. Father St. Cyr's register carries this person as witness in st_cyr_marriage_001_3, dated 1834 and tied to this card by the church crosswalk's rule G2c. `st_marys_church` is his church, which the structure record states — 'St. Cyr selected the lot in 1833 and ... was succeeded by Father O'Meara only after 1837, so he is the pastor across the whole scene window'. THIS IS NOT A MEMBERSHIP ROW: being a witness, a party or a decedent at a Catholic act is what the register states, and the dates are the act's own, which is why `from` and `to` are the same day and the row is not carried forward to the scene date."
+    }
+   ],
    "sex": "male",
    "sex_basis": {
     "value": "male",

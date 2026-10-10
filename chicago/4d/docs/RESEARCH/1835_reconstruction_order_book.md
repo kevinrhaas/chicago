@@ -388,8 +388,8 @@ The roster offers 1,786 names the corpus printed and this project withheld. Each
 
 | class | offered | ticket |
 |---|---:|---|
-| `R1_in_window_uncertain` | 880 | T-1172 |
-| `R2_in_window_single_source` | 208 | T-1172 |
+| `R1_in_window_uncertain` | 879 | T-1172 |
+| `R2_in_window_single_source` | 209 | T-1172 |
 | `R3_1834_return_or_muster` | 28 | T-1172 |
 | `R4_surname_only_census` | 438 | T-1170 |
 | `R5_later_only_backprojectable` | 53 | T-1172 |

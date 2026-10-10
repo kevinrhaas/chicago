@@ -1643,7 +1643,7 @@ Every household carries an arrival block and 95.4% of them (1392) hold a `not_la
 | The Shaw household — a name from the post office's letter lists | season_not_apportioned | The trading post, the fort and the country trade — the town before the boom | reconstructed |
 | The Shearman household — a name from the post office's letter lists | season_not_apportioned | The trading post, the fort and the country trade — the town before the boom | reconstructed |
 | The Shedicer household — a name the town's own records carry | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
-| The Sheff household — a name the town's own records carry | season_not_apportioned | The 1834 season: the harbour works, the opening of the bar and the trade that followed them | reconstructed |
+| The Sheff household — a name the town's own records carry | season_not_apportioned | The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated | reconstructed |
 | The Sheldon household — a name from the post office's letter lists | season_not_apportioned | The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated | reconstructed |
 | The Shepherd household — a name from the post office's letter lists | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |
 | The Sherman household — a name the town's own records carry | season_not_apportioned | The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers | reconstructed |

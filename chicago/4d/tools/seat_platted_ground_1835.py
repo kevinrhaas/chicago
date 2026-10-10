@@ -213,7 +213,12 @@ BUSINESS_DEAL_HOLDS = 45
 # for hh_montgomery_l_w and hh_morrison_amanda are no longer dealt from the queues a release
 # would draw on, and a release of the business deal's roofs seats eight households again.
 # The hold is unchanged at 45 (L270).
-BUSINESS_DEAL_COSTS = 8
+# 8 -> 9 on 2026-10-10 (T-2251): hh_franchere_l folds onto hh_franchre_louis (C2), so the
+# rows behind it turn over. hh_rc_bardwell_phebe is newly seated on
+# recon_1835_blk_randolph_market_d2_09, ten reconstructed South households step one roof down
+# the queue, and hh_rc_woodruff_ruth is handed on; a release of the business deal's roofs now
+# seats nine households. The hold is unchanged at 45 (L270).
+BUSINESS_DEAL_COSTS = 9
 
 TICKET = "T-1613"
 PARENT = "T-1199"
