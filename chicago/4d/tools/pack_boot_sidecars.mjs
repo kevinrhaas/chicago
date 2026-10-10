@@ -29,8 +29,9 @@
  *   data/sidecars/<scene>/index.json         + `boot: { shared, dir, per_part }`, which is
  *                                            how the loader knows (it never probes)
  *
- * Measured on the 1835 mirror, gzip on the wire: 3.74 MB as 686 files, 1.75 MB packed as
- * 686 files, 0.79 MB packed in fifty-record parts plus 0.09 MB of shared values.
+ * Measured on the wire (tools/measure_boot_payload.mjs), the 1835 sidecar folder a first
+ * visit loads: 3.739 MB in 694 requests as it was; 2.194 MB with the shared values alone,
+ * still one file per record; 1.269 MB in 23 requests with the parts as well.
  *
  * `scene-loader.js` fetches shared.json once beside the index, each part once, and puts
  * every value back (`rehydrate`) before anything else sees a record — so the registry
