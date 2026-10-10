@@ -50,8 +50,11 @@ const RECORD = 'data/structures/glessner_house.json';
 const LIBRARY = 'assets/textures/glessner-v4/material-library.json';
 // T-2293: the K04 roof library's fabrics, measured by the same metric-UV rule
 const ROOF_LIBRARY = 'assets/textures/prairie_1904_roofs/manifest.json';
+// T-2289: and the K02 stone library's, by the same rule
+const STONE_LIBRARY = 'assets/textures/prairie_1904_stone/manifest.json';
 const fabricLibrary = () => [...readJson(LIBRARY).materials,
-  ...(existsSync(path.join(APP, ROOF_LIBRARY)) ? readJson(ROOF_LIBRARY).materials.map((m) => ({ name: m.id, tile_m: m.tile_m })) : [])];
+  ...(existsSync(path.join(APP, ROOF_LIBRARY)) ? readJson(ROOF_LIBRARY).materials.map((m) => ({ name: m.id, tile_m: m.tile_m })) : []),
+  ...(existsSync(path.join(APP, STONE_LIBRARY)) ? readJson(STONE_LIBRARY).materials.map((m) => ({ name: m.id, tile_m: m.tile_m })) : [])];
 const TIERS = [
   ['full', 'assets/gltf/glessner_house__as_built_1887.glb'],
   ['web', 'assets/web/glessner_house__as_built_1887.glb'],
