@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1606, ts: '2026-10-10T01:51:16.242Z', date: 'Oct 9, 2026, 8:51 PM CT', title: 'The later-directory crosswalks read each household\u2019s dated places', kind: 'change',
+    items: [
+      'Nothing you can see changes. The tools that match the 1839, 1843 and 1844 directories against the town, and the two that read a later printed address back to 1835, now take where a household lived and worked from the dated places on its card.',
+      'Every match, refusal and placement comes out exactly as before, even with the old single home and workplace lines removed from the records.',
+    ] },
   { v: 1605, ts: '2026-10-10T01:25:22.744Z', date: 'Oct 9, 2026, 8:25 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
     items: [
       'Nothing you can see changes. The reconstruction\u2019s work list asked for ten more South-side family households than the town could form, after letter-list names stopped counting as households on 9 October.',
