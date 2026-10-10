@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Behavioral checks for the comparison instrument, not house acceptance."""
-import copy, json, unittest
+import copy, hashlib, json, unittest
 from unittest.mock import patch
 import numpy as np
 import glessner_camera_baseline as b
@@ -12,14 +12,26 @@ class BaselineTests(unittest.TestCase):
         cls.report=json.loads((b.DIRECTORY/'report.json').read_text())
 
     def test_check_points_cannot_move_camera(self):
-        changed=copy.deepcopy(self.data)
+        # This is a fitting-behavior fixture for the current asset. The committed
+        # historical observations/report remain frozen across later model edits.
+        fixture=copy.deepcopy(self.data)
+        for name,meta in fixture['assets'].items():
+            meta['sha256']=hashlib.sha256((b.ROOT/name).read_bytes()).hexdigest()
+        reference=b.derive(fixture)
+        changed=copy.deepcopy(fixture)
         for view in changed['views']:
             for point in view['landmarks']:
                 if point['role']=='check':point['observed_px'][0]+=7
         actual=b.derive(changed)
-        for old,new in zip(self.report['views'],actual['views']):
+        for old,new in zip(reference['views'],actual['views']):
             self.assertEqual(old['camera'],new['camera'])
             self.assertNotEqual(old['check_rms_px'],new['check_rms_px'])
+
+    def test_changed_asset_is_not_a_frozen_baseline(self):
+        changed=copy.deepcopy(self.data)
+        next(iter(changed['assets'].values()))['sha256']='0'*64
+        with self.assertRaisesRegex(AssertionError,'Baseline asset drift'):
+            b.validate(changed)
 
     def test_duplicate_pixels_do_not_count_as_coverage(self):
         changed=copy.deepcopy(self.data)
@@ -33,7 +45,12 @@ class BaselineTests(unittest.TestCase):
         for old,new in zip(self.report['views'],result['views']):
             self.assertEqual(old['camera'],new['camera'])
             for a,z in zip(old['landmarks'],new['landmarks']):
-                self.assertAlmostEqual(a['residual_px'],z['residual_px'],places=3)
+                self.assertEqual(a['residual_px'],z['baseline_residual_px'])
+                self.assertEqual(a['observed_px'],z['observed_px'])
+                # Later geometry may genuinely change the candidate residual.
+                # Its reported error must measure the actual projected point.
+                distance=np.linalg.norm(np.array(z['predicted_px'])-z['observed_px'])
+                self.assertAlmostEqual(distance,z['residual_px'],places=3)
 
     def test_extrapolated_width_cannot_manufacture_pass(self):
         changed=copy.deepcopy(self.report)

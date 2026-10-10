@@ -1,3 +1,17 @@
+## T-2206 — Glessner roof and courtyard proportions audited
+
+The comparison page now measures the current assets through all nine frozen T-2200
+cameras, preserves historical measurements as a separate selection, checks loaded
+asset hashes, and presents 15 dimension/evidence/decision rows. No geometry changes.
+Fifteen mesh controls associate within 0.023 m. The audit retains the corrected west
+roof, flared dormers, dining bay and continuous courtyard eave; sheet 4/6 roof-rise
+and photo-camera disagreements remain explicit. The dining outline projects 9.90 ft,
+not the older prose's 10.3 ft. T-2220 retains the confirmed northeast copper fold;
+no other manual ticket is released. No photographic acceptance is claimed.
+
+See `docs/RESEARCH/glessner-proportions-2206/README.md` and the current
+`data/comparisons/glessner/audit-report.json`. Validation receipts are recorded there.
+
 ## T-2205 — Glessner roof-edge refinement (2026-10-09)
 
 Owner-selected GA-06. Closed ridge stock and seated terminals refine the repeated
