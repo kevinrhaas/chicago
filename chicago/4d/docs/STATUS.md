@@ -1,3 +1,22 @@
+## T-2306 — a K13 conservatory bay on the Pullman house's east wing (2026-10-10)
+
+**Visible.** The 1904 scene has its first glasshouse. A five-faceted glass bay stands on the south
+face of the Pullman house's east wing at 1729 Prairie, looking onto the court between the house
+and the garage. It is built from the K13 conservatory kit (T-2305), against a plain brownstone
+block that stands in for the wing.
+
+- **What it is.** `pullman_house_1729_prairie_conservatory`, a new pure-Python archetype
+  `k13_conservatories` written by `generators/k13_emit.py`. The kit gains the `segmental_bay` form.
+  Its place and plan are read off Sanborn 1911 sheet 20: a semicircle 3.45 m across on the
+  one-storey stone wing.
+- **Honest limits.** That the projection is glazed is reconstructed (L-k13-pullman-bay-2306): the
+  sheet prints no use for it. The wing is a block with no openings, its height reconstructed. The
+  house, the garage and the estate's greenhouse complex south of 18th Street are not built
+  (T-1880/T-1881, T-1934).
+- **Verified.** Front, oblique, rear, roof and a 2.5 m raking view at both viewports in the
+  published app, with zero errors. The kit gate now holds every scene conservatory to its rules.
+  Costs are in `docs/RESEARCH/k13-pullman-bay-2306/README.md`.
+
 ## T-2289 — K02 stone at 1808 Prairie: a rock-faced front laid round the kits (2026-10-10)
 
 **Visible.** In the 1904 scene the street front of the 1808 Prairie house beside Glessner's is no
