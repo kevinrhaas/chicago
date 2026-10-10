@@ -23716,3 +23716,48 @@ photographs of the district replaces the age curve and the full-age values for e
 **Ticket:** T-2324 (piece 1 of T-1856, K14).
 **Review:** `docs/RESEARCH/k14-condition-kit/README.md`.
 **Recorded:** 2026-10-10 (T-2324).
+
+### L-k02-1808-stone-2289 — The 1808 Prairie stone front: Lemont limestone in rock-faced courses round the kits, its base, coping, quoins and flat arches, all reconstructed
+
+**Decision:** Lay the street front of the 1808 Prairie K01 frontage (L-k01-1808-frontage-2266) as K02
+coursed ashlar from the stone library (L-k02-stone-library-2288) instead of one flat face: rock-faced
+Lemont limestone in 35 courses (two of them a rusticated base of 0.41 m courses, channel-jointed
+18 x 12 mm, under a 0.23 m weathered coping whose top is the area lights' head line), cut into stones
+of 0.40-1.20 m with 10 mm joints recessed 5 mm, an 8 mm bevelled arris and a rock face standing
+0-25 mm proud; two belts of dressed trim 0.05 m proud; a flat arch of voussoirs over each opening the
+record's `street_front_trim` leaves a flat head (the area light and the three third-floor windows);
+and quoins returning on the south corner, alternately long (0.48-0.59 m) and short (0.25-0.30 m).
+The kits that had dressed this front before the stone was laid keep what they build: the K06 sills
+(L-k06-1808-windows-2298), the K09 surrounds, hoods, apron and ringed entrance (T-2310), the K07 stoop
+(T-2304) and the K08 bow (T-2308). Every piece one of them seats on the wall is noted with its
+extent, and the course under it is laid in dressed stone, smooth and flush, so no sill, console,
+colonnette or bay junction stands on a rock face. Every course height, length, joint, recess, bevel,
+chip, projection, return, channel and fall is the K02 profile's, resolved by
+`k01_frontage_params._k02` and refused outside it.
+**What is invented.** The stone. The T-1837 register reads a "rock-faced" stone front from the
+Inland Architect plate of February 1888 and names no stone, so Lemont limestone — Chicago's own
+quarry stone and the library's pale coursed walling — is a working interpretation, not a reading; a
+brownstone or Bedford front is as possible. The course lines are struck on this assembly's own base,
+sill beds, heads, flat-arch tops and belts, which are K01 reconstructions, so the coursing is too.
+What this assembly adds to the profiles is its own: the flat arch (a 0.12 m seat each side, 0.30 m
+deep, about 0.2 m voussoirs whose joints radiate from a point set by a 12 degree splay, carried over
+from the K01 lintel it replaces), the dressed seat under a kit piece (its extent widened by a joint
+and an arris, 0.023 m, and run out to the course lines), and the coping's height (0.23 m, chosen so
+two base courses at the profile's 0.41 m and the coping finish exactly on the area lights' heads).
+**Where it departs from its own profile.** Chips are drawn at the profile's rate (1.2 a metre of
+arris, 2-10 mm deep) but kept only where the chip's floor stays in front of the joint's 5 mm floor,
+so 47 survive on 214 rock-faced stones and they sit only at corners; the dressed trim's chips
+(1-3 mm) are not built, being at the depth of the 1 mm measure grid. Trim set in the walling takes
+the walling's 5 mm recess rather than its own 1 mm. A dressed seat runs a whole course high, so the
+smooth stone round a sill or an apron is a course deeper than the piece it carries. The K08 bow keeps
+its own stone (Glessner's limestone slot, not Lemont), and the walling behind it is laid in dressed
+stone that nothing sees. The north corner is not bonded: it stands 0.02 m from Glessner's south face,
+closer than a rock face projects.
+**How to resolve:** T-1882 and T-1883 build the actual Keith/Field front from the 1888 plate (its
+south curved bay, north loggia and pierced parapet), which replaces this coursing; a reading of the
+plate's stone, or a specification, replaces the fabric in the record's `stone_front`, and the
+profiles then lay it.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_front`.
+**Ticket:** T-2289 (piece 2 of T-1844, K02).
+**Review:** `docs/RESEARCH/k02-1808-stone-2289/README.md`.
+**Recorded:** 2026-10-10 (T-2289).

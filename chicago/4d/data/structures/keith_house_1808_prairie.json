@@ -446,6 +446,20 @@
           ],
           "confidence": "reconstructed",
           "note": "Two K08 bays (T-2308), built by generators/archetypes/k08_bays.py from data/components/prairie_1904/k08_bays.json. SOUTH FRONT BOW: the T-1837 frontage register (frontage-28-037) reads 'the south curved bay' on the Inland Architect plate of February 1888; that plate is not a source record here, so its plan, size and windows are the kit's segmental bow (3.2 m on its chord, 0.9 m out) centred 2.5 m from the south corner (0.5 m north of the front's south window axis, so its eaves clear the T-2293 downpipe at 0.35 m), two storeys from grade to under the third-floor sill, three bent sashes a storey at the house's own front sash heights, under a low copper cone. T-1882/T-1883 own the plate's actual bay and replace this one. REAR CANTED BAY: no source shows 1808's rear; a two-storey canted bay is the commonest Prairie Avenue bay (k08_bays.json), set on the rear's north window bay in the house's common brick with stone dressings, under a low tin hip. Each bay's band sits on the front's second-floor belt (5.4 m), its wall top 9.0 m, so its roof (pitch 0.25) meets the wall clear of the third-floor sill above it; the host wall carries no opening behind either. Liberty L-k08-1808-bays-2308."
+        },
+        "stone_front": {
+          "value": {
+            "fabric": "limestone_lemont",
+            "dressing": "rock_faced",
+            "trim_fabric": "dressed_trim",
+            "rusticated_base_courses": 2,
+            "coping_height_m": 0.23,
+            "corner_bond": [
+              "south"
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "The stone street wall laid as K02 coursed ashlar (T-2289): rock-faced Lemont limestone in courses, a rusticated base of two channel-jointed courses under a weathered coping whose top is the area lights' head line, quoins returning long and short on the south corner, two belts, and a flat arch of voussoirs over each opening the street_front_trim leaves a flat head (the area lights and the third floor). The kits keep what they build — the K06 sills, the K09 heads, aprons and entrance, the K07 stoop and the K08 bow — and wherever one of them is seated on the front the course under it is dressed smooth and laid flush, so no piece stands on a rock face. RECONSTRUCTED throughout: the T-1837 register reads a 'rock-faced' stone front from the Inland Architect plate of February 1888 and names no stone, so Lemont — the local quarry's limestone, the K02 library's pale coursed walling — is a working interpretation that a reading of the plate or of a specification replaces; the colour and course pattern are the library's, never the house's. The north corner is not bonded: it stands 0.02 m from Glessner's south face, closer than any rock face projects. Every course height, block length, joint, recess, arris, chip, projection, return, channel and fall is data/components/prairie_1904/k02_stone_profiles.json's, resolved by k01_frontage_params._k02 and refused outside it (docs/LIBERTIES.md L-k02-1808-stone-2289)."
         }
       }
     }

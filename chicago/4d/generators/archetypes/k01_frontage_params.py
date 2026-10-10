@@ -31,6 +31,12 @@ K04 = ROOT / "data" / "components" / "prairie_1904" / "k04_roofs.json"
 WINDOW_KIT = ROOT / "data" / "components" / "prairie_1904" / "k06_windows.json"
 BAY_KIT = ROOT / "data" / "components" / "prairie_1904" / "k08_bays.json"
 ENTRANCE_KIT = ROOT / "data" / "components" / "prairie_1904" / "k07_entrances.json"
+# T-2289: the K02 stone library's joint and edge profiles — courses, joints, arrises,
+# chips, rock-faced projection, corner bonds, rustication and copings, in metres.
+# Read here for the same reason as K04: every number the masonry is laid to is a
+# resolved parameter, so a profile edit stales the mesh it moves.
+K02 = ROOT / "data" / "components" / "prairie_1904" / "k02_stone_profiles.json"
+K02_LIBRARY = ROOT / "assets" / "textures" / "prairie_1904_stone" / "manifest.json"
 
 CONFIDENCE_VALUE = {"attested": 0.0, "inferred": 0.5, "reconstructed": 1.0}
 
@@ -112,6 +118,7 @@ class K01FrontageParams:
     # centre along that wall, its span there and the fabric its masonry is laid in
     bays: tuple = ()
     street_front_trim: dict = field(default_factory=dict)   # K09 heads, entrance, aprons (T-2310)
+    stone: dict = field(default_factory=dict)      # T-2289: the coursed stone front (K02)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -145,7 +152,7 @@ CONSUMED = frozenset({
     "eave_overhang_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m",
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
     "basement_lights", "roof_covering", "dormer", "rainwater", "window_kit", "service_wall_brick",
-    "entrance_kit", "street_front_trim", "bays", "chimneys",
+    "entrance_kit", "street_front_trim", "bays", "chimneys", "stone_front",
 })
 
 WALLS = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south")
@@ -227,6 +234,73 @@ def _k04(covering: dict, rain: dict, pitch: float) -> tuple[dict, dict]:
 # stands on grade against one wall under its own roof; an oriel's corbels and a
 # tower's cap meet the main eave and roof, which this assembly does not cut.
 BAY_KINDS = ("bay", "projection")
+def _k02(front: dict) -> dict:
+    """The K02 masonry parameters (T-2289): the record names the walling fabric, its
+    dressing, the trim fabric, how many courses the rusticated base runs and which
+    corners are bonded; everything a stone is laid to — course heights, block lengths,
+    joints, arrises, chips, projection, quoin returns, channels, the coping's fall —
+    is the profile's (k02_stone_profiles.json), resolved here and refused outside it."""
+    if not front:
+        return {}
+    prof = json.loads(K02.read_text())
+    fabrics = prof["fabrics"]
+    lib = {m["id"]: m for m in json.loads(K02_LIBRARY.read_text())["materials"]}
+    fab, trim = front.get("fabric"), front.get("trim_fabric")
+    if fab not in fabrics or fab not in lib:
+        raise ParamError(f"stone_front.fabric {fab!r} is not a K02 stone fabric")
+    f = fabrics[fab]
+    if f["laid_as"] != "coursed_ashlar" or f["pattern_in_map"]:
+        raise ParamError(f"stone_front.fabric {fab!r} is laid as {f['laid_as']}: a coursed street "
+                         f"front needs a coursed ashlar fabric (random rubble carries its joints in its map)")
+    if trim != "dressed_trim":
+        raise ParamError("stone_front.trim_fabric: sills, voussoirs, belts and the coping are K02 "
+                         "dressed_trim, the one fabric the profiles lay as one piece per member")
+    t = fabrics[trim]
+    dressing = front.get("dressing")
+    rock = tuple(float(x) for x in f["rock_face_projection_m"])
+    if dressing not in ("rock_faced", "smooth"):
+        raise ParamError("stone_front.dressing is rock_faced or smooth")
+    if dressing == "rock_faced" and rock[1] <= 0.0:
+        raise ParamError(f"{fab} has no rock-faced projection in its profile: it cannot be laid rock_faced")
+    if f["corner_bond"] is None or f["rusticated_base"] is None:
+        raise ParamError(f"{fab} declares no corner bond or rusticated base")
+    base = int(front.get("rusticated_base_courses", 0))
+    lo, hi = f["rusticated_base"]["courses"]
+    if not lo <= base <= hi:
+        raise ParamError(f"stone_front.rusticated_base_courses = {base} is outside {fab}'s "
+                         f"profile [{lo}, {hi}] (k02_stone_profiles.json)")
+    corners = tuple(front.get("corner_bond", ()))
+    if not set(corners) <= {"south"}:
+        # the north wall stands 0.02 m off Glessner's south face (the K01 measure's
+        # clearance): a quoin proud of it by its rock face would cross into the landmark
+        raise ParamError("stone_front.corner_bond: only the south corner can return; the north "
+                         "corner stands 0.02 m from the Glessner house")
+    if t["coping"] is None:
+        raise ParamError("dressed_trim declares no coping")
+    coping_h = float(front.get("coping_height_m", 0.0))
+    _within(coping_h, t["course_height_m"], "stone_front.coping_height_m (dressed_trim course_height_m)")
+
+    def edges(x):
+        return {"joint_m": x["joint"]["width_m"], "recess_m": x["joint"]["recess_m"],
+                "bevel_m": x["arris"]["bevel_m"], "chips_per_m": x["arris"]["chips_per_m"],
+                "chip_depth_m": tuple(x["arris"]["chip_depth_m"]),
+                "chip_length_m": tuple(x["arris"]["chip_length_m"])}
+
+    return {
+        "fabric": fab, "trim": trim, "dressing": dressing,
+        "rock_face_m": rock if dressing == "rock_faced" else (0.0, 0.0),
+        "course_m": tuple(f["course_height_m"]), "block_m": tuple(f["block_length_m"]),
+        "wall": edges(f), "trim_edges": edges(t),
+        "trim_course_m": tuple(t["course_height_m"]), "trim_block_m": tuple(t["block_length_m"]),
+        "quoin_return_m": tuple(f["corner_bond"]["return_m"]), "corners": corners,
+        "base_courses": base, "channel_m": f["rusticated_base"]["channel_width_m"],
+        "channel_depth_m": f["rusticated_base"]["channel_depth_m"],
+        "coping_height_m": coping_h, "coping_fall": t["coping"]["fall"],
+        "coping_overhang_m": t["coping"]["overhang_m"], "drip_groove_m": t["coping"]["drip_groove_m"],
+        "fabric_roughness": lib[fab]["mean_roughness"], "trim_roughness": lib[trim]["mean_roughness"],
+    }
+
+
 BAY_FABRICS = ("stone", "brick")
 BAY_PIER_M = 0.30          # masonry left between a bay's junction and its wall's corner
 
@@ -487,6 +561,17 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                "k01.wall.side.south": depth, "k01.wall.side.north": depth},
                  openings, (record or {}).get("id", ""))
 
+    stone = _k02(val("stone_front") or {})
+    if stone:
+        # the rusticated base and its coping run up to the area lights' heads, so the
+        # coping's top is the line the lights' flat arches spring from (T-2289)
+        top = bsill + float(bl["height_m"])
+        course = (top - stone["coping_height_m"]) / stone["base_courses"]
+        _within(course, stone["course_m"], f"the rusticated base's course height ({stone['fabric']} "
+                f"course_height_m; base courses, coping and the area lights' heads must agree)")
+        stone["base_course_m"] = round(course, 5)
+        stone["coping_top_m"] = round(top, 5)
+
     names = sorted(CONSUMED)
     params = K01FrontageParams(
         depth_m=depth, width_m=width, stories=stories, principal_floor_m=pf,
@@ -502,6 +587,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         roof=k04, dormer=dormer, rainwater=rainwater, chimneys=tuple(chimneys),
         window_kit={k: kit[k] for k in sorted(kit)}, entrance_kit=door_kit, bays=bays,
         street_front_trim=dict(val("street_front_trim", {}) or {}),
+        stone=stone,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )
