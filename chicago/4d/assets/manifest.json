@@ -5194,6 +5194,24 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_a5_044"
     },
+    "recon_1835_south_branch_freight_f3_001__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 50508,
+      "inputs_sha256": "42a09829bc163a272ba89e3ff75a4d991df6ff7d8037c41560578a64639de324",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_south_branch_freight_f3_001"
+    },
+    "recon_1835_south_branch_freight_f3_002__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 48944,
+      "inputs_sha256": "e7252247f62fcb5788f9adb82e16a3d62c4e5b5e733cf6f691613b76fb9871f7",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_south_branch_freight_f3_002"
+    },
     "recon_1835_south_c3_015__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,

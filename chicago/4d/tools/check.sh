@@ -853,6 +853,15 @@ step "North freight roof on the North Water bank matches its recipe" \
 selftest "…and its validator refuses bad ground" \
   python3 tools/generate_north_freight.py --self-test
 
+# T-2268: two of the South street line's owed freight roofs, on the South Branch's east bank
+# between Madison and Washington. Off the plat, because no South Water lot is free and the
+# Dearborn reach takes no more; they stand on `bank_landing`, the records re-derive from the
+# recipe, and the validator is proved by breaking it.
+step "South freight roofs on the South Branch bank match their recipe" \
+  python3 tools/generate_south_freight.py --check
+selftest "…and its validator refuses bad ground" \
+  python3 tools/generate_south_freight.py --self-test
+
 step "Canal approach trade roofs match their bounded recipe" \
   python3 tools/generate_canal_approach_trade.py --check
 selftest "Canal trade placement refuses collisions and missing ground" \

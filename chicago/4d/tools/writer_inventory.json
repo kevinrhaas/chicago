@@ -716,6 +716,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 2s, wrote its one output, changed no committed byte.",
       "placed": "by layer, 2026-10-06 \u2014 reasoned, not derived; beside generate_west_freight.py in the manifest"
     },
+    "generate_south_freight.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-09",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 3s, wrote its two outputs, changed no committed byte.",
+      "placed": "by layer, 2026-10-09 \u2014 reasoned, not derived; beside generate_north_freight.py in the manifest"
+    },
     "generate_woodpiles.py": {
       "placement": "pending",
       "write_mode": "(bare)",
