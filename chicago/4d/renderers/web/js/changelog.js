@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1636, ts: '2026-10-10T08:59:58.799Z', date: 'Oct 10, 2026, 3:59 AM CT', title: 'A household\'s home and workplace are written one way now', kind: 'improvement',
+    items: [
+      'The old single-address fields are gone from every household record: where a household lived and worked is now only the dated rows its card already shows, so the two can never disagree.',
+      'The address reconciliation table, the research ledger and the gate all read those rows, and the gate refuses the old fields if one ever comes back.',
+    ] },
   { v: 1635, ts: '2026-10-10T08:23:02.979Z', date: 'Oct 10, 2026, 3:23 AM CT', title: 'Four houses stand south of Monroe on Market Street', kind: 'feature',
     items: [
       'Walk south across Monroe Street on Market. The first School Section block below Monroe now has four houses: a small cottage and a tradesman’s frame house facing Monroe, and a larger frame house and another tradesman’s house facing Adams.',
