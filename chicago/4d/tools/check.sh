@@ -606,6 +606,19 @@ step "the K11 ironwork kit lets every member into its carrier, keeps runs out of
 selftest "…and a lifted picket, a 6 mm rail, a curb across the gate, a one-hinge gate, a flat canopy or a missing pier still fails it" \
   python3 tools/check_ironwork_kit.py --self-test
 
+# T-2324. ...and how old each of them looks. The K14 condition kit's layers (ground damp, eave
+# soot, water trails, chimney plume, mortar, paint, grass edge, path wear) are data in
+# data/components/prairie_1904/k14_condition.json, evaluated by generators/archetypes/k14_condition.py.
+# This evaluates every layer over every fabric, age and height and holds it to 1904: every tone in
+# [floor, 1], nothing cleaner with age but repainted wood, new work clean, a 38-year wall visibly
+# older and still its own material, the full-age damp and soot equal to K03's, and the study's
+# costs re-derived.
+step "the K14 condition kit weathers each building to its own age in 1904, new work clean and nothing a ruin (T-2324)" \
+  python3 tools/check_condition_kit.py --check
+
+selftest "…and a black facade, a moss layer, a plume into the wind, a widening trail or a 40-year repaint still fails it" \
+  python3 tools/check_condition_kit.py --self-test
+
 # T-1963. The walls' relief is bound by reading the RECORD (route 2 of the photographic
 # fabric preparation, docs/GLB-CONTRACT.md § Wall substrates, PROPOSED): which wall is
 # clapboard, and how much of the wood's grain its finish lets through. That route's
