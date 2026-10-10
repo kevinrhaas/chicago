@@ -473,6 +473,19 @@ step "the K04 roof library registers to its data, wraps seamlessly and cites wha
 selftest "…and a scaled tile, a broken lap, an odd bond, an oversized slate or a tile built from a barred source still fails it" \
   python3 tools/check_roof_library.py --self-test
 
+# T-2297. ...and what the 1904 windows are. The K06 kit's parts are sized in
+# data/components/prairie_1904/k06_windows.json and built by
+# generators/archetypes/k06_windows.py. This rebuilds every variant and measures the
+# geometry: each stage of the window strictly deeper than the last, every hole edge
+# closed by a reveal, a dark room behind every pane, glass the only transparency and one
+# layer of it per line of sight, no doubled face, even muntins, true arches, the
+# triangle budget, and the specimen GLB the generator's bytes.
+step "the K06 window kit builds every window as a closed recess over an enclosed room, one glass layer deep (T-2297)" \
+  python3 tools/check_window_kit.py --check
+
+selftest "…and a blind before the glass, a missing jamb, a holed backing, a doubled pane or a leaded street sash still fails it" \
+  python3 tools/check_window_kit.py --self-test
+
 # T-1963. The walls' relief is bound by reading the RECORD (route 2 of the photographic
 # fabric preparation, docs/GLB-CONTRACT.md § Wall substrates, PROPOSED): which wall is
 # clapboard, and how much of the wood's grain its finish lets through. That route's

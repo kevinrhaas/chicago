@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 450,
+  "count": 451,
   "liberties": [
     {
       "id": "L1",
@@ -28314,6 +28314,37 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2288)."
+        }
+      ]
+    },
+    {
+      "id": "L-k06-window-kit-2297",
+      "title": "The Prairie window kit: every sash, bar, sill, blind and curtain, and the room behind the glass, all reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 Prairie programme's windows (package K06, T-2297) are nine parametric openings built by `generators/archetypes/k06_windows.py` from `data/components/prairie_1904/k06_windows.json`: a two-over-two sash under a flat lintel, a one-over-one under a segmental arch, a round-arched sash with a radial-barred fanlight, an equilateral pointed two-over-two, a paired sash either side of a stone mullion, a sash under a three-light transom, a basement light in its area well, three grouped attic casements, and a round-headed leaded stair light. Each is a hole through its wall with a reveal, a frame, one or two sashes in their own planes, glass set into the sash, a holland blind and curtain edges behind the innermost glass, and a dark room carried back behind all of it. **What is invented.** Every dimension: the 0.115 m reveal, the box frame's face, the 1 3/4 in sash and its stiles, rails and meeting rails, the 7/8 in muntins and their pane patterns, the sill's fall, projection, horns and drip, the head band's width, the segmental rise of one eighth of the span, the area well, the quarry and came sizes; the joinery's dark green, the cream holland blind and the seeded height each one is drawn to, the dark red curtain and its folds, the dark finish of the room; the glass's tint, transparency and smoothness (crown and cylinder glass's waviness is not modelled); and the restriction that keeps leaded lights to stair, transom and attic positions. The choice of variants reads the study's building register (\"regular sash\", \"sash grid\", \"paired segmental windows\", \"arched windows\", \"pointed twin windows\", \"attic grid window\", \"basement lights\"), which is the study's reading of its images and not a source record here. Ordinary sashes sit inside RECONSTRUCTION-RULES.md's sash range (0.75-1.15 m by 1.5-2.4 m clear). **What is not.** Nothing in the kit is attested; no house is glazed from it yet (T-2298 builds the first openings on the 1808 exemplar)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a house's own photograph or drawing shows its sash pattern, heads, sills and blinds, and that house takes them in place of the kit's working sizes; a period joinery specification or millwork catalogue replaces a part's dimensions for every house at once."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2297 (piece 1 of T-1848, K06)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k06-window-kit/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2297)."
         }
       ]
     },

@@ -1,0 +1,79 @@
+{
+  "id": "prairie_1904_k06_windows",
+  "title": "Windows, glazing and visible interior depth for the Prairie Avenue 1904 programme (package K06, the kit)",
+  "ticket": "T-2297",
+  "parent": "T-1848",
+  "programme": "T-1837",
+  "contract": "data/components/prairie_1904/k01_contract.json",
+  "generator": "generators/archetypes/k06_windows.py",
+  "specimen": "docs/RESEARCH/k06-window-kit/k06_window_kit.glb",
+  "status": "Declared and generated, not yet built to. No house in the scene is glazed from this kit today; T-2298 builds the first K06 openings on the 1808 exemplar from this file and this generator, replacing the K01 proof's single-plane sash.",
+  "rule": "A window is a true aperture, never a painted panel: a hole through its wall, a reveal on every edge of the hole, a frame, one or two sashes each in its own plane, glass set inside its sash, a blind and curtain edges behind the innermost glass, and a dark enclosed interior behind all of it. Every part is placed by the DEPTH ORDER below, and the glass is the ONLY transparent surface, one layer per light, so no view sorts one transparency against another and no ray through a pane reaches the sky. The parts' sizes are data here and the generator reads them; the check (tools/check_window_kit.py) rebuilds every variant and holds the built geometry to this file.",
+  "depth_order": {
+    "_doc": "Metres behind the wall's outer face (component frame: +Z out of the wall, so a depth d is z = -d). Each stage must be strictly deeper than the one before it in the BUILT mesh; the check measures it per opening.",
+    "stages": ["outer_face", "frame_face", "outer_sash_face", "outer_glass", "inner_sash_face", "inner_glass", "blind", "curtain", "backing"],
+    "rule": "reveal_depth_m (outer face to frame face) never exceeds the host wall's thickness_m; the backing stands at least backing_depth_m behind the innermost glass and closes the whole outline of the hole."
+  },
+  "host_wall": {
+    "thickness_m": 0.36,
+    "range_m": [0.23, 0.45],
+    "confidence": "reconstructed",
+    "rule_source": "RECONSTRUCTION-RULES.md section Starting ranges: Solid exterior wall / reveal",
+    "note": "The specimen wall: a 0.36 m masonry wall, the 1808 exemplar's stone front, inside the K01 masonry range. A house's own wall thickness replaces it, and the reveal follows."
+  },
+  "parts": {
+    "_doc": "The working sizes every variant starts from. A variant may override any of them under its own `overrides`, inside the same range.",
+    "reveal_depth_m": {"value": 0.115, "range": [0.075, 0.23], "confidence": "reconstructed", "note": "Outer face to the frame face: a masonry wall's outer leaf, so the sash sits about a brick back and the jamb casts a shadow across the glass in a raking light."},
+    "frame": {"face_m": 0.045, "depth_m": 0.11, "confidence": "reconstructed", "note": "The box frame's exposed face inside the reveal (the blind stop and pulley stile together) and how far it runs back. One ring, the sash's housing."},
+    "sash": {"stile_m": 0.05, "top_rail_m": 0.055, "bottom_rail_m": 0.075, "meeting_rail_m": 0.032, "thickness_m": 0.044, "parting_m": 0.012, "range_stile_m": [0.04, 0.065], "confidence": "reconstructed", "note": "A 1 3/4 in sash, two inch stiles, the bottom rail deeper than the top, a check meeting rail of 1 1/4 in on each sash. In a double-hung pair the upper sash runs in the outer track and the lower in the inner, a parting bead between them, so the two sashes and their glass stand in two planes and the meeting rails overlap."},
+    "muntin": {"width_m": 0.022, "depth_m": 0.03, "range_width_m": [0.016, 0.03], "confidence": "reconstructed", "note": "A 7/8 in moulded bar. Panes in one sash are equal: the bars divide the sash's daylight evenly."},
+    "glass": {"setback_m": 0.016, "base_color": [0.05, 0.065, 0.075], "alpha": 0.32, "roughness": 0.04, "metallic": 0.0, "alpha_mode": "BLEND", "confidence": "reconstructed", "note": "Glass set 5/8 in into its sash behind the putty line. Drawn as ONE thin transparent layer whose low alpha lets the blind, curtain and dark room read through it, and whose low roughness takes the sky's reflection. Crown and cylinder glass's waviness is not modelled."},
+    "blind": {"gap_m": 0.03, "drop_range": [0.15, 0.6], "lath_m": 0.025, "color": [0.80, 0.74, 0.60], "confidence": "reconstructed", "note": "A holland roller blind behind the inner sash, drawn to a seeded fraction of the daylight height (two neighbouring windows rarely agree), with a wooden lath at its foot. Cream holland is the working colour; green and buff were as usual."},
+    "curtain": {"gap_m": 0.035, "width_fraction": 0.18, "folds": 4, "fold_depth_m": 0.03, "color": [0.42, 0.16, 0.13], "confidence": "reconstructed", "note": "A curtain edge at each side of the daylight, behind the blind, folded so a raking light finds its pleats. The colour is a dark red damask's; it is a reconstruction a house's interior evidence replaces."},
+    "backing": {"depth_m": 0.75, "color": [0.032, 0.028, 0.025], "confidence": "reconstructed", "note": "The room behind the glass: the hole's outline carried back three quarters of a metre and capped, in a dark warm finish, so an oblique view sees a recess with sides and a back, never sky, and never a black plane on the glass."},
+    "sill": {"projection_m": 0.05, "height_m": 0.1, "horn_m": 0.08, "fall_m": 0.012, "drip": {"from_front_m": 0.022, "width_m": 0.012, "depth_m": 0.01}, "confidence": "reconstructed", "note": "A stone sill weathered to fall outward 12 mm over its depth, projecting 50 mm beyond the face, with horns built 80 mm into the jambs either side and a throated drip under its nose so water leaves the sill before it reaches the wall."},
+    "head_band": {"width_m": 0.18, "proud_m": 0.03, "confidence": "reconstructed", "note": "The head's dressing: a flat lintel over a flat head, an arch band following a segmental, round or pointed head from spring to spring. Its voussoirs, keystone and stone are K02's (T-2289); this is the band's envelope only."},
+    "well": {"projection_m": 0.75, "side_m": 0.15, "floor_below_sill_m": 0.18, "wall_m": 0.1, "coping_m": 0.05, "confidence": "reconstructed", "note": "The area well a basement light sits in: a box below grade wider than the light by a side margin each way, its floor below the sill, its walls capped with a coping flush above grade."}
+  },
+  "arch": {
+    "_doc": "A head's arch is set by its spring (the height the curve starts from) and its rise above the spring. The check holds each kind to its own geometry.",
+    "flat": {"rise": "0"},
+    "segmental": {"rise": "0 < rise < span / 2", "working_rise_over_span": 0.125},
+    "round": {"rise": "rise = span / 2 (a semicircle on the spring line)"},
+    "pointed": {"rise": "rise > span / 2 (equilateral: each arc centred on the opposite jamb, rise = span * sqrt(3) / 2)"}
+  },
+  "ranges": {
+    "_doc": "RECONSTRUCTION-RULES.md section Starting ranges: Sash proportions, for an undocumented ordinary sash. Grouped windows, basement lights, attic lights and leaded lights are authored individually (the same rule's own words), so a variant marked `ordinary: false` states why and is held to its own clear size instead.",
+    "ordinary_clear_width_m": [0.75, 1.15],
+    "ordinary_clear_height_m": [1.5, 2.4],
+    "rule_source": "RECONSTRUCTION-RULES.md section Starting ranges: Sash proportions"
+  },
+  "restrictions": [
+    {"part": "leaded", "rule": "limited", "allowed_uses": ["attic", "stair", "transom"], "max_area_m2": 1.2, "why": "ASSET-CATALOG.md section K06 asks for 'limited leaded lights'. Leaded quarries are an accent of a stair landing, a transom or an attic light in this district, never a street front's working sash."}
+  ],
+  "costs": {
+    "_doc": "Triangle budget per opening, as built. An opening over its budget is refused, so a kit change that bloats every window in the town is caught here, before any house is built from it.",
+    "max_triangles": {"ordinary": 900, "grouped": 1600, "leaded": 1800}
+  },
+  "_variants_doc": "panes = [columns, rows] of glass in EACH sash (a two-over-two is [2, 1] in each of its two sashes); bays = sashes side by side under one head, divided by mullion_m of masonry; operation names the sashes and fixed lights the opening holds; curtains: false leaves the curtain edges out where a room would not hang them (a basement, an attic, a stair).",
+  "variants": [
+    {"id": "k06.opening.sash_2over2_flat", "head": "flat", "ordinary": true, "clear_width_m": 0.95, "clear_height_m": 2.0, "operation": "double_hung", "panes": [2, 1], "use": "principal",
+     "confidence": "reconstructed", "note": "The working street sash: double-hung, two lights over two, a flat head under a stone lintel. The commonest form the register's 'regular sash' and 'sash grid' describe."},
+    {"id": "k06.opening.sash_1over1_segmental", "head": "segmental", "ordinary": true, "clear_width_m": 1.0, "clear_height_m": 2.05, "operation": "double_hung", "panes": [1, 1], "use": "principal",
+     "confidence": "reconstructed", "note": "Plate-glass sash, one light over one, under a segmental arch whose upper sash follows the curve: the register's 'paired segmental windows' and 'segmental window hoods' in their single form."},
+    {"id": "k06.opening.sash_round_fanlight", "head": "round", "ordinary": true, "clear_width_m": 1.0, "clear_height_m": 2.3, "operation": "double_hung_fanlight", "panes": [1, 1], "fanlight_bars": 5, "use": "principal",
+     "confidence": "reconstructed", "note": "A round-arched opening: a one-over-one sash to the spring, a transom bar on the spring line and a fixed semicircular fanlight above it with radial bars. The register's 'arched windows', the Romanesque rule's 'thick round-arched reveals'."},
+    {"id": "k06.opening.sash_pointed", "head": "pointed", "ordinary": true, "clear_width_m": 0.8, "clear_height_m": 2.2, "operation": "double_hung", "panes": [2, 1], "use": "principal",
+     "confidence": "reconstructed", "note": "An equilateral pointed head over a two-over-two sash whose upper sash follows both arcs to the point: one of the register's 'pointed twin windows' under a Gothic gable."},
+    {"id": "k06.opening.sash_paired_flat", "head": "flat", "ordinary": false, "why_not_ordinary": "a grouped window: two ordinary sashes and a stone mullion under one lintel, authored as a group", "clear_width_m": 2.1, "clear_height_m": 1.95, "operation": "double_hung", "panes": [1, 1], "mullion_m": 0.2, "bays": 2, "use": "principal",
+     "confidence": "reconstructed", "note": "Two plate-glass sashes either side of a 0.2 m stone mullion under one lintel; each bay's clear width is inside the ordinary range."},
+    {"id": "k06.opening.sash_transom_flat", "head": "flat", "ordinary": false, "why_not_ordinary": "a sash with a fixed transom light over it is taller than an ordinary sash by its transom", "clear_width_m": 1.0, "clear_height_m": 2.6, "operation": "double_hung_transom", "panes": [1, 1], "transom_m": 0.45, "transom_lights": 3, "use": "principal",
+     "confidence": "reconstructed", "note": "A one-over-one sash under a transom bar and a fixed three-light transom: the sash itself is inside the ordinary range."},
+    {"id": "k06.opening.area_light", "curtains": false, "head": "flat", "ordinary": false, "why_not_ordinary": "a basement light: low and wide, set in an area well below grade", "clear_width_m": 0.9, "clear_height_m": 0.75, "operation": "fixed", "panes": [3, 1], "well": true, "use": "basement",
+     "confidence": "reconstructed", "note": "The basement light in its area well: three fixed lights, the sill below grade, the well's floor below the sill and its coping just above grade. The register's 'basement lights'."},
+    {"id": "k06.opening.attic_group_3", "curtains": false, "head": "flat", "ordinary": false, "why_not_ordinary": "grouped attic lights: three small lights under one lintel, the register's 'attic grid window'", "clear_width_m": 2.2, "clear_height_m": 0.8, "operation": "casement", "panes": [2, 2], "mullion_m": 0.16, "bays": 3, "use": "attic",
+     "confidence": "reconstructed", "note": "Three small casements, four lights each, divided by stone mullions under one lintel."},
+    {"id": "k06.opening.leaded_stair", "curtains": false, "head": "round", "ordinary": false, "why_not_ordinary": "a leaded light: limited to stair, transom and attic positions (restrictions)", "clear_width_m": 0.7, "clear_height_m": 1.5, "operation": "fixed_leaded", "panes": [1, 1], "quarry_m": [0.12, 0.18], "came_m": 0.008, "use": "stair",
+     "confidence": "reconstructed", "note": "A fixed round-headed stair light glazed in diamond quarries on lead cames: the 'limited leaded lights' of the K06 catalogue entry, in the one position it allows them most freely."}
+  ]
+}
