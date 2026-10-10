@@ -3,6 +3,68 @@
   "readings": [
     {
       "viewport": "mobile",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 99,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-10T00:31:09.665Z",
+      "ref": "steward/t-2206-glessner-proportions",
+      "commit": "145a1ddcd4da",
+      "devCommit": "01bf3aaf2fec",
+      "treeHash": "sha256:c6516aac9b4d5fa6",
+      "treeDirty": true,
+      "changelogHash": "sha256:28750ea283182949",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          2.6,
+          3.6,
+          3.5
+        ]
+      },
+      "source": "/workspace/t2206-proof/smoke-12.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 101,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-10T00:31:09.665Z",
+      "ref": "steward/t-2206-glessner-proportions",
+      "commit": "145a1ddcd4da",
+      "devCommit": "01bf3aaf2fec",
+      "treeHash": "sha256:c6516aac9b4d5fa6",
+      "treeDirty": true,
+      "changelogHash": "sha256:28750ea283182949",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          2.6,
+          3.6,
+          3.5
+        ]
+      },
+      "source": "/workspace/t2206-proof/smoke-12.log"
+    },
+    {
+      "viewport": "mobile",
       "stage": "8",
       "parts": [
         8
@@ -1665,64 +1727,6 @@
         ]
       },
       "source": "/tmp/claude-0/-home-claude/78a296fc-4d86-5f43-a080-c6f5a273dfb9/scratchpad/smoke-m12b.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 97,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 670,
-      "takenAt": "2026-10-03T22:50:52.720Z",
-      "ref": "steward/t2035-vegetation-continuity",
-      "commit": "3f33f4f713af",
-      "devCommit": "8fa8ca4dba51",
-      "treeHash": "sha256:1ac9ff5ef035c9e5",
-      "treeDirty": false,
-      "changelogHash": "sha256:0d4e988c3f4f219b",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          4,
-          6,
-          5.9
-        ]
-      },
-      "source": "/tmp/t2035-final-desktop-12.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 97,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 480,
-      "takenAt": "2026-10-03T22:43:21Z",
-      "ref": "steward/t2035-vegetation-continuity",
-      "commit": "3f33f4f713af",
-      "devCommit": "8fa8ca4dba51",
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
-      },
-      "source": "gh-run:37159393848 https://github.com/kevinrhaas/chicago/actions/runs/37159393848"
     },
     {
       "viewport": "desktop",
