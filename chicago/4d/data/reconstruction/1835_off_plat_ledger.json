@@ -50,8 +50,8 @@
    "unsubdivided": 22
   },
   "may_raise_a_slot": 5,
-  "carrying_a_roof": 33,
-  "principal_roofs_standing": 167,
+  "carrying_a_roof": 32,
+  "principal_roofs_standing": 166,
   "ground_m2": 7257850.1
  },
  "what_the_roof_programme_does_not_carry": {
@@ -5428,7 +5428,6 @@
     "recon_1835_canal_trade_w2_004",
     "recon_1835_north_d4_017",
     "recon_1835_south_a3_041",
-    "recon_1835_south_branch_lumber_f4_001",
     "recon_1835_west_001",
     "recon_1835_west_002",
     "recon_1835_west_003",
@@ -5495,7 +5494,6 @@
     "recon_1835_canal_trade_w2_004": "W2",
     "recon_1835_north_d4_017": "D4",
     "recon_1835_south_a3_041": "A3",
-    "recon_1835_south_branch_lumber_f4_001": "F4",
     "recon_1835_west_001": "D1",
     "recon_1835_west_002": "D3",
     "recon_1835_west_003": "D4",
@@ -5528,7 +5526,7 @@
     "wolf_point_tavern_stable": "A1",
     "wolf_point_trading_camp": null
    },
-   "principal_roofs_standing": 48
+   "principal_roofs_standing": 47
   },
   {
    "parcel_id": "wabansia",
@@ -5706,12 +5704,8 @@
    "slot_headroom": 0,
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
-   "standing": [
-    "heacock_house_monroe"
-   ],
-   "standing_families": {
-    "heacock_house_monroe": null
-   },
+   "standing": [],
+   "standing_families": {},
    "principal_roofs_standing": 0
   },
   {

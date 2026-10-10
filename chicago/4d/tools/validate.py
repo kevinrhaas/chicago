@@ -6085,6 +6085,23 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
                 walk_attested(kwhere, k, source_ids, rep, tally)
                 kin_rows.append((gid, k, kwhere))
 
+    # --- places on the cards a BUILD writes whole (T-2259) -----------------
+    # compile_scene.py names a card's home and workplace from its associated_with
+    # rows alone, and these cards reach the scene through it as much as the
+    # index's do. So a build that writes rows is held to the row contract, and a
+    # singular link no row carries is refused here as it is for households/.
+    for gdir in ("readmitted", "reconstructed_trades", "underdocumented",
+                 "transients", "lodgers", "institutional"):
+        for gpath in sorted((root / gdir).glob("hh_*.json")):
+            g = json.loads(gpath.read_text(encoding="utf-8"))
+            gwhere = f"residents/{gdir}/{gpath.name}"
+            if "associated_with" in g:
+                check_association_rows(gwhere, g.get("associated_with"), error=rep.error,
+                                       structure_ids=structure_ids, source_ids=source_ids,
+                                       divisions=divisions, scene=scene, tracts=tracts)
+            for msg in singular_drift(g, g.get("associated_with") or []):
+                rep.error(gwhere, msg)
+
     # --- kin: the far end, and the reciprocity rule -------------------------
     # Every household is loaded by now, so a row can be resolved and, more to
     # the point, its mirror can be demanded. A kinship written on one record
