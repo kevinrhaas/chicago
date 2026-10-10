@@ -451,6 +451,13 @@ const COVERAGE = [
   ['generators/archetypes/k10_cornices.py', NONE, 'the K10 cornice kit generator — imported by no scene build yet: check_cornice_kit.py --check'],
   ['docs/RESEARCH/k10-cornice-kit/', NONE, 'the K10 cornice kit specimen and study — unpublished: check_cornice_kit.py --check'],
   ['tools/study_k10_cornices.mjs', NONE, 'the K10 study renderer — run by hand, by no gate'],
+  // T-2318. The K11 ironwork kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2319 puts it on a property, so no part draws it;
+  // tools/check_ironwork_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k11_ironwork.json', NONE, 'the K11 ironwork kit data — built into no scene yet: check_ironwork_kit.py --check'],
+  ['generators/archetypes/k11_ironwork.py', NONE, 'the K11 ironwork kit generator — imported by no scene build yet: check_ironwork_kit.py --check'],
+  ['docs/RESEARCH/k11-ironwork-kit/', NONE, 'the K11 ironwork kit specimen and study — unpublished: check_ironwork_kit.py --check'],
+  ['tools/study_k11_ironwork.mjs', NONE, 'the K11 study renderer — run by hand, by no gate'],
 
   // T-2312. The K15 chimney kit is built into a specimen GLB under docs/ that nothing
   // publishes and no scene loads until T-2313 builds a house's chimneys from it, so no

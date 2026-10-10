@@ -23646,3 +23646,41 @@ record takes them. The pierced parapet the 1888 plate shows is still T-1882's to
 **Ticket:** T-2302 (piece 2 of T-1847, K05).
 **Review:** `docs/RESEARCH/k05-1808-roof-2302/README.md`.
 **Recorded:** 2026-10-10 (T-2302).
+
+### L-k11-ironwork-kit-2318 — The Prairie ironwork kit: every fence, gate, pier, boundary wall, grille, stoop rail and canopy reconstructed
+
+**Decision:** the 1904 Prairie programme's ironwork and boundaries (package K11, T-2318) are seven
+parametric variants built by `generators/archetypes/k11_ironwork.py` from
+`data/components/prairie_1904/k11_ironwork.json`: a spear fence and a scroll-band fence on stone
+curbs (square posts with acorn finials, flat rails, pickets through the rails), a walk gate hung on
+two pintle hinges between stone piers with caps and urns and a run of fence from each pier, a brick
+boundary wall with piers, a saddleback coping and pier caps, an area grille across a basement
+window, an iron rail on both sides of a six-riser stoop, and an iron-and-glass entrance canopy
+(rafters on quadrant brackets, a front beam, one sheet of glass under glazing bars, two tie rods).
+Every member is a closed solid let into the member that carries it, and the posts, piers, curbs
+and wall go down past grade; none is a texture.
+**What is invented.** Every dimension and every shape: the 19 mm pickets at 0.125 m, the 40 by
+14 mm rails at 0.10 and 0.95 m over a 0.25 m curb, the 60 mm posts at no more than 1.6 m and their
+finials, the spear head, the C-scrolls' radius and turn; the piers' 0.50 m section and 1.50 m
+height, their caps and urns; the gate's 1.00 m opening, its stiles, rails, hinges, keeper and its
+32 degree drawn angle; the wall's 0.33 m thickness, 1.50 m height, 3.0 m pier spacing and its
+coping; the grille's bars and flats; the stoop rail's 0.86 m height, newels and two balusters to
+a tread; the canopy's 1.2 m projection, 8 degree fall, rafters, brackets and bars. The scroll and
+the quadrant bracket are newly designed for this kit and copy no named property. The no-shimmer
+floor (no iron member under 10.8 mm) is derived from the walkthrough's lens and the mobile
+viewport, not from a source. The variants follow the study's asset catalog (K11: "cast/wrought
+iron fence panels, spear/scroll variants, posts/piers, entry gates and hardware, area grilles,
+balcony/stair rails, iron-and-glass canopy and brick/stone boundary walls"), which is the study's
+reading of its images and not a source record here.
+**What is not.** Nothing in the kit is attested, and no property carries it yet (T-2319 builds the
+first K11 fence, gate and wall on a named house). The data's restrictions keep every generic
+pattern off a property whose own fence, gate or wall is documented (the register separates, for
+one, 1905 S. Prairie's 1893 scroll fence from its c.1905 taller one), and keep every run off the
+walks and drives it would cross.
+
+**How to resolve:** a property's own photograph, drawing, map note or surviving fabric shows its
+fence, gate, piers or wall, and that property takes it in place of the kit's working parts; a
+period iron foundry's catalogue replaces a part's sections and patterns for every property at once.
+**Ticket:** T-2318 (piece 1 of T-1853, K11).
+**Review:** `docs/RESEARCH/k11-ironwork-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2318).
