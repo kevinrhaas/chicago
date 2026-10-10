@@ -882,6 +882,14 @@ step "South Branch lumber shed matches its recipe" \
   python3 tools/generate_south_lumber.py --check
 selftest "…and its validator refuses bad ground" \
   python3 tools/generate_south_lumber.py --self-test
+# T-2268: two of the South street line's owed freight roofs, on the South Branch's east bank
+# between Madison and Washington. Off the plat, because no South Water lot is free and the
+# Dearborn reach takes no more; they stand on `bank_landing`, the records re-derive from the
+# recipe, and the validator is proved by breaking it.
+step "South freight roofs on the South Branch bank match their recipe" \
+  python3 tools/generate_south_freight.py --check
+selftest "…and its validator refuses bad ground" \
+  python3 tools/generate_south_freight.py --self-test
 
 step "Canal approach trade roofs match their bounded recipe" \
   python3 tools/generate_canal_approach_trade.py --check

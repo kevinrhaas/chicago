@@ -200,9 +200,16 @@ FAMILY_HOUSEHOLD_OWNER = "T-2256"
 # them; the South's row still reads 0 left and keeps T-2256's id. T-2279 was split: T-2285
 # spread the South's unspent share of the waiting families on to them (North 1 and West 9
 # owed), and T-2286 owns what is left, which no waiting family or held head can fill.
+# RULED ON T-2286 (2026-10-10, `full_family_persons_ruling` below): every family person cell
+# of the North and the West reads 0 left, so a house still ordered there has nobody the book
+# may put in it, and the order past what the open family cells can people is discharged.
+# The rows read 0 left and keep T-2286's id as the ticket that settled them (T-1420).
 FAMILY_HOUSEHOLD_OWNER_BY_DIVISION = {"north": "T-2286", "west": "T-2286"}
 HELD_HEAD_TICKET = "T-2193"
 WAITING_FAMILIES_TICKET = "T-2256"
+FULL_PERSONS_TICKET = "T-2286"
+# A family is two people or more; a single person takes a bed or boards (`waiting_families`).
+FAMILY_MIN_PERSONS = 2
 STORE_RULING_TICKET = "T-2194"
 STORE_RESIDENCE_FILLER = "T-2236"
 STORE_ELSEWHERE_TICKET = "T-2244"
@@ -623,7 +630,8 @@ STRUCTURE_TICKETS = {
     #
     # AND ON TO T-2268 WHEN T-2175 WAS SPLIT (2026-10-09, T-2268 + T-2269). T-2269 raised the
     # F4 lumber shed on the South Branch's east bank, so the two F3s are what the line owes,
-    # and T-2268 is the piece that carries them, as the band in the inventory says.
+    # and T-2268 is the piece that carries them, as the band in the inventory says. T-2268
+    # raises both on the bank-landing clause, which closes the street line's order.
     ("south", "warehouses_freight"): "T-2268",
     # T-1202 WAS SPLIT on 2026-09-27 and closed with T-1688, the Randolph tier's books, so
     # this row named a ticket nobody can claim (T-1705). It orders nothing — the five
@@ -1109,7 +1117,7 @@ def waiting_families(counted_apart: list, awaiting: set, division: dict,
     out = Counter()
     for row in counted_apart:
         if (row.get("why") == "waiting_on_a_roof" and row["household"] in awaiting
-                and int(row.get("persons") or 0) >= 2 and not letter_list(row)):
+                and int(row.get("persons") or 0) >= FAMILY_MIN_PERSONS and not letter_list(row)):
             d = division.get(row["household"])
             out[d if d in CIVIL_DIVISIONS else "unplaced"] += 1
     return dict(sorted(out.items()))
@@ -1454,6 +1462,95 @@ def waiting_families_ruling(households: list, fills: list, held: dict | None,
                                 "of this one boarded instead: either takes one from the share "
                                 "or adds one to the shortfall, and the cell owes again under "
                                 "its owning ticket.",
+    }
+
+
+def full_family_persons_ruling(households: list, persons: list,
+                               floor: int | None = None) -> dict | None:
+    """T-2286: the family_dwelling order the waiting families leave owing, set against the
+    family PERSON cells of the same division. In place; run after `waiting_families_ruling`.
+
+    A family dwelling is a house of people, and the people it holds are counted in the
+    person family, in the cells whose `household_type` is `family`. Where every one of
+    those cells in a division already reads 0 left, the book has nobody to put in a house it
+    still orders there: drawing a family for it overfills a person cell, which
+    `no_bucket_overfilled` refuses, and no letter-list household is re-admitted and no bed
+    is counted as a house to make one. What is left is not a household the town lacks but
+    the households midpoint (`point_from_range`) asking more houses of a division whose
+    families stand in fewer of them, and larger. So each cell's order past what its
+    division's open family cells could still people, at FAMILY_MIN_PERSONS a house, is
+    DISCHARGED; `discharged_by_the_full_family_cells` carries it.
+
+    Never below what the cell has filled, and never past the model's own range: with
+    `floor`, the households the book orders after the discharge may not fall under the
+    range's low end, and a discharge that would is cut to it and the rest left owing."""
+    cells = [b for b in sorted(households, key=lambda b: b["key"])
+             if b["axes"].get("household_type") == "family_dwelling"
+             and b["axes"].get("division") in CIVIL_DIVISIONS]
+    if not cells:
+        return None
+    open_people = Counter()
+    for b in persons:
+        if b["axes"].get("household_type") == "family":
+            open_people[b["axes"].get("division")] += max(0, (b["to_reconstruct"] or 0) - b["filled"])
+    ordered = sum((b.get("known") or 0) + (b["to_reconstruct"] or 0) for b in households
+                  if b.get("target") is not None)
+    room = None if floor is None else max(0, ordered - floor)
+    rows = {}
+    for b in cells:
+        division = b["axes"]["division"]
+        owed = max(0, (b["to_reconstruct"] or 0) - b["filled"])
+        peopled = open_people[division] // FAMILY_MIN_PERSONS
+        take = max(0, owed - peopled)
+        if room is not None:
+            take = min(take, room)
+            room -= take
+        if take:
+            b["discharged_by_the_full_family_cells"] = take
+            b["to_reconstruct"] -= take
+        rows[division] = {"owed_after_the_waiting_families": owed,
+                          "family_persons_still_owed": open_people[division],
+                          "houses_those_persons_could_people": peopled,
+                          "discharged": take,
+                          "still_owed": max(0, (b["to_reconstruct"] or 0) - b["filled"])}
+    owed = sum(r["owed_after_the_waiting_families"] for r in rows.values())
+    if not owed:
+        return None
+    discharged = sum(r["discharged"] for r in rows.values())
+    still = sum(r["still_owed"] for r in rows.values())
+    full = sorted(d for d, r in rows.items()
+                  if r["owed_after_the_waiting_families"] and not r["family_persons_still_owed"])
+    return {
+        "ticket": FULL_PERSONS_TICKET,
+        "asks": "The family_dwelling order still owes houses once the waiting families are "
+                "spent. Is there anybody the book may put in them?",
+        "by_division": rows,
+        "owed_after_the_waiting_families": owed,
+        "discharged": discharged,
+        "still_owed": still,
+        "households_the_book_orders": ordered - discharged,
+        "households_range_floor": floor,
+        "measured": (f"The waiting families leave {owed:,} houses owed on the family_dwelling "
+                     f"rows. Every family person cell of "
+                     + (" and ".join(d.title() for d in full) if full else "no division")
+                     + f" reads 0 left, so {discharged:,} of those houses have nobody the "
+                     f"book may draw into them without overfilling a person cell; discharged, "
+                     f"the book orders {ordered - discharged:,} households"
+                     + (f", inside the model's range from {floor:,}," if floor is not None else ",")
+                     + f" and {still:,} are still owed."),
+        "ruling": "NOT A HOUSEHOLD THE TOWN LACKS. A house is the people in it, and the person "
+                  "side of the division is full: its families stand in the town in fewer "
+                  "houses than the households midpoint asks, and larger, which the model's "
+                  "range admits. The order past what the open family cells could people is "
+                  "discharged rather than met with a house nobody lives in.",
+        "what_this_does_not_do": "It seats, moves, mints and retires nobody, counts no single "
+                                 "person or boarders' roof as a household, and re-admits no "
+                                 "household the letter-list ruling (T-0379) refuses a roof.",
+        "what_would_reopen_it": "a family person cell of the division owing again (a re-cut "
+                                "that frees people for a house), or a held head of the division "
+                                "boarded instead: either adds to what the open cells can people "
+                                "or to the shortfall, and the cell owes again under its owning "
+                                "ticket.",
     }
 
 
@@ -3759,6 +3856,10 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
     waiting_ruling = waiting_families_ruling(families[1]["buckets"], fills,
                                              data.get("family_held_by_division"),
                                              data.get("families_waiting_on_a_roof"))
+    # Only once the waiting families are spent, and only on a tree that ruled on them.
+    full_ruling = (full_family_persons_ruling(
+        families[1]["buckets"], families[0]["buckets"],
+        families[1]["summary"]["households_target_range"][0]) if waiting_ruling else None)
 
     spent = Counter()
     for fill in fills:
@@ -3930,6 +4031,8 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
         **({"store_residence_ruling": store_ruling} if store_ruling else {}),
         # THE FAMILY ROWS, RULED AGAINST THE FAMILIES WAITING ON A ROOF (T-2256).
         **({"waiting_families_ruling": waiting_ruling} if waiting_ruling else {}),
+        # …AND WHAT THEY LEAVE, RULED AGAINST THE FULL PERSON SIDE (T-2286).
+        **({"full_family_persons_ruling": full_ruling} if full_ruling else {}),
         "bucket_families": families,
         "programme_deltas": programme_deltas(data["model"], data["inventory"],
                                              data["programme"], persons, households),
@@ -4600,6 +4703,10 @@ def report_text(doc: dict) -> str:
             ruling = doc["waiting_families_ruling"]
             out += ["", f"**The family rows, ruled ({ruling['ticket']}).** {ruling['measured']} "
                         f"{ruling['ruling']}"]
+        if family["key"] == "households" and doc.get("full_family_persons_ruling"):
+            ruling = doc["full_family_persons_ruling"]
+            out += ["", f"**What the waiting families leave, ruled ({ruling['ticket']}).** "
+                        f"{ruling['measured']} {ruling['ruling']}"]
 
     restatements = [d for d in doc["programme_deltas"] if d.get("restates_the_programme")]
     out += ["", "## Where the model and the roof programme disagree", "",
@@ -5436,8 +5543,11 @@ def cmd_self_test() -> int:
     assert bank["to_build"] == 0 and bank["target"] == bank["standing"], bank
     assert all(i.startswith("south_bank_shed_dearborn_") for i in bank["band_members"]), bank
     assert "structures/warehouses_freight/south" not in cells, "the cut cell still orders as one"
-    assert line["to_build"] == data["programme"]["remaining"]["by_district_group"]["south"][
-        "warehouses_freight"], line
+    # Since T-2268 raised the street line's last two F3s (2026-10-10) the cell owes nothing,
+    # and the programme drops a remainder that reaches zero rather than carrying a 0 — so a
+    # missing key is the closed cell, and the band must order exactly that: none.
+    assert line["to_build"] == data["programme"]["remaining"]["by_district_group"]["south"].get(
+        "warehouses_freight", 0), line
     fires("a cell cut into one band, which is not a cut",
           banded(lambda cut: cut.__setitem__("bands", cut["bands"][:1])))
     fires("a cell cut with two remainder bands, so its order would be ordered twice",
@@ -5875,6 +5985,42 @@ def cmd_self_test() -> int:
     assert waiting_families_ruling(fam_cells(), fill_rows, None, {"unplaced": 23}) is None, \
         "a tree with no held-head ledger discharged a family row"
     assert "waiting_families_ruling" in doc, "the committed book carries no ruling on the family rows"
+
+    # T-2286: a family row's order past what its division's open family person cells could
+    # people is discharged; broken both ways (open people keep houses owed, and a full side
+    # discharges all), never below the fill and never under the model's range.
+    def person_cell(division, order, filled, htype="family"):
+        return {"key": f"persons/female/20_29/{division}/{htype}/none", "to_reconstruct": order,
+                "filled": filled, "axes": {"household_type": htype, "division": division}}
+    def owed_cells():
+        return [hh_cell("family_dwelling", "north", 123, 89, 88),
+                hh_cell("family_dwelling", "west", 110, 83, 74)]
+    full_side = [person_cell("north", 54, 54), person_cell("west", 41, 41),
+                 person_cell("west", 9, 4, "lodging")]
+    cells = owed_cells()
+    ruled = full_family_persons_ruling(cells, full_side)
+    assert [b["to_reconstruct"] for b in cells] == [88, 74] and ruled["still_owed"] == 0, ruled
+    assert ruled["discharged"] == 10, "a lodging cell's open people kept a family house owed"
+    cells = owed_cells()
+    ruled = full_family_persons_ruling(cells, full_side + [person_cell("west", 10, 5)])
+    assert (ruled["by_division"]["west"]["discharged"], ruled["still_owed"]) == (7, 2), \
+        "open family people did not keep the houses they could people owed"
+    cells = owed_cells()
+    ruled = full_family_persons_ruling(cells, full_side, floor=172 - 4)  # 89 + 83 ordered
+    assert ruled["discharged"] == 4 and ruled["still_owed"] == 6, \
+        "the discharge took the book's households under the model's range"
+    cells = owed_cells()
+    cells[1]["filled"] = 83
+    full_family_persons_ruling(cells, full_side)
+    assert cells[1]["to_reconstruct"] == 83, "the full person side discharged below the fill"
+    cells = owed_cells()[:1]
+    cells[0]["filled"] = 89
+    assert full_family_persons_ruling(cells, full_side) is None, \
+        "a book whose family rows owe nothing carried a ruling on them"
+    assert "full_family_persons_ruling" in doc or not any(
+        max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in doc["bucket_families"][1]["buckets"]
+        if b["axes"].get("household_type") == "family_dwelling"), \
+        "the committed book owes family houses and carries no ruling on them"
 
     print(f"build_order_book_1835 self-tests pass ({fired} guards fired, "
           f"{sum(len(f['buckets']) for f in doc['bucket_families'])} buckets, "
