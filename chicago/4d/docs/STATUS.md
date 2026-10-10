@@ -344,6 +344,43 @@ Glessner's dark glass where a building could have had glass. Recorded as **L413*
   stays inside its ceiling (light by 36,120). JS heap after gc 1124.9 -> 1175.7 MiB. The ceilings
   are not moved here.
 
+## T-1787 — the portable human export path, Blender -> GLB -> browser (2026-10-10)
+
+Second ticket of the portable-humans programme. **Nothing in the scene changes, and L1 stands.**
+What it built is the road a real body (T-1789) will travel, proved on a test figure that is nobody
+(`c4d_fixture`, L417):
+
+- **`tools/human_export.sh`** is the whole path in one command. The pinned Blender
+  (sha256-checked, as in `bake.sh`) runs **`tools/human_export.py`**, which holds every exporter
+  setting with its reason, so nothing hangs on a dialog. It writes four LOD GLBs to
+  `assets/humans/`, makes Meshopt derivatives in `assets/humans/web/` with `web_derivatives.sh`'s
+  own gltf-transform pin, and gates all eight with `human_contract.py --glb`. `--verify` rebuilds
+  into a scratch tree and requires the committed bytes. They reproduce, file for file.
+- **`tools/human_fixture_blend.py`** builds the fixture's master from primitives. The skeleton is
+  the contract's 56 bones, with five material slots, three face morphs on lod0-1, an `idle` and a
+  `walk` (1.3 m/s) and the three sockets. It is also the layout an authored master copies.
+- **`tools/human_fixture.mjs`** opens all eight in Chromium at 1280×800 and 390×780 through the
+  renderer's own GLTFLoader and Meshopt decoder. Raising the left upper arm 45° moves the hand
+  0.54 m. The walk turns the calf 17°. Each blink closes its eye 12.9 mm and `jawOpen` drops the jaw
+  27 mm. The 64 px texture decodes. The rest height is 1.703 m, with the soles at 0.002 m and the
+  toes to +Z. There are no page or console errors. `--check` (in check.sh) holds every GLB's sha256
+  to `data/humans/fixture.measure.json`.
+- **The gate learned to read a derivative** (`human_contract.py`). Quantisation folds the
+  position scale into compressed inverse bind matrices, so a `web/` file's frame is read beside
+  its master (`frame.master`, `derivative.drift`, `frame.no_master`, `frame.quantised`). There are
+  5 new self-test assertions. In the browser, the decoded derivative is within 0.1 mm of its
+  master.
+- **CI**: `.github/workflows/chicago-4d-humans.yml` runs `--verify` and the browser proof on any
+  change to the path, in about the time of one Blender start-up.
+- **Measured, contract § 8.** Shipped, lod0 is 108 KB, 3,668 triangles and 5 draws; lod3 is 72 KB,
+  316 triangles and still 5 draws. Draws follow material slots, not LOD. The clips are the bytes
+  floor: every bone is keyed so cross-fades stay clean, and that is about half of lod3.
+- **Not done, on purpose.** KTX2 stays refused. A 64 px texture gains nothing from it, and lifting
+  the refusal needs `KTX2Loader` wired and proved on a textured asset (contract § 9). The fixture's
+  triangle counts are not a real body's budget; T-1789's first body is measured by the same
+  command and replaces them. Weights are held to four influences but not checked for
+  normalisation.
+
 ## T-1786 — the portable human contract (2026-10-10)
 
 First ticket of the owner's portable-humans programme (T-1786 to T-1792). **Nothing in the scene
