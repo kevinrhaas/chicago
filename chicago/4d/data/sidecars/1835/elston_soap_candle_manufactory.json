@@ -104,7 +104,7 @@
       "name": "The Elston household",
       "division": "north",
       "relation": "worked here",
-      "why": "data/structures/elston_soap_candle_manufactory.json carries 'Daniel Elston & Co.' as its occupants on the same advertisement.",
+      "why": "data/structures/elston_soap_candle_manufactory.json carries 'Daniel Elston & Co.' as its occupants on the same advertisement. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_elston_daniel#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "chicago_democrat_1833_11_26"
       ],

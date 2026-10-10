@@ -55,6 +55,19 @@
   "tier": "unknown",
   "note": "Not seated. A lodger's workplace is the business band's (T-1189) and a keeper's premises is the house they are already in."
  },
+ "associated_with": [
+  {
+   "kind": "lodging",
+   "place_or_structure_id": "new_york_house",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "reconstructed",
+   "source_id": null,
+   "note": "THE BED IS THE CLAIM. The lodging model puts 8 people in this house on an ordinary night and 35 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
+  }
+ ],
  "present_on_scene_date": {
   "value": "present",
   "confidence": "reconstructed",

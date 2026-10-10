@@ -8,7 +8,7 @@
 | | target | known | to reconstruct |
 |---|---:|---:|---:|
 | Persons | 2,550 | 1,419 | 1,798 |
-| Households | 645 | 165 | 445 |
+| Households | 645 | 165 | 440 |
 | Businesses (enumerated classes) | 109 | 128 | 7 |
 | Roofs | 668 | 682 | 5 |
 
@@ -356,7 +356,7 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 |---|---:|---:|
 | T-1174 | 594 | 27 |
 | T-2021 | 469 | 19 |
-| T-2193 | 326 | 3 |
+| T-2193 | 321 | 3 |
 | T-1347 | 309 | 24 |
 | T-1171 | 294 | 19 |
 | T-1371 | 138 | 35 |
@@ -573,7 +573,7 @@ The households the model wants, by kind and division.
 | `households/boarding_house/south` | 41 | 12 | 29 | 7 | T-2023 |
 | `households/boarding_house/west` | 9 | 2 | 7 | 3 | T-2023 |
 | `households/family_dwelling/north` | 123 | 27 | 96 | 96 | T-2256 |
-| `households/family_dwelling/south` | 258 | 74 | 184 | 179 | T-2256 |
+| `households/family_dwelling/south` | 258 | 74 | 179 | 174 | T-2256 |
 | `households/family_dwelling/west` | 110 | 21 | 89 | 89 | T-2256 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 0 | T-2023 |
 | `households/inn_tavern/south` | 7 | 2 | 5 | 5 | T-2023 |
@@ -585,6 +585,8 @@ The households the model wants, by kind and division.
 | `households/garrison/fort` | — | 2 | — | 0 | T-1176 |
 
 **The store rows, ruled (T-2194).** The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged; 8 more stand a house of trade whose keeper the town places on another roof, so nobody lived over them; 4 stand a house of trade whose keeper the town holds no card for, so nobody is seated over them; and 0 are still owed: a keeper for a store roof that stands with nobody in it. BOTH. The book over-orders the store rows, by what it ordered above one household a store roof, and that is discharged here. And the index is short: the household quota counts houses off the residents index alone, so the trade households the reconstruction drew as heads of their own and seated on a roof, the readmitted and the underdocumented are outside the count. They are people the cards hold present, not an order to fill, and T-2236 forms the store households from the keepers of the houses of trade the town holds, over their own stores, rather than from anybody new; what it could not form is T-2246's.
+
+**The family rows, ruled (T-2256).** The held heads fall 5 short of the family_dwelling order. The housing deal holds 18 families present on the scene date and waiting on a roof behind the census ceiling, none of them a letter-list household, 18 with no division on the card; spread pro rata on the cells' targets, as rule 2 spreads the unplaced known, they discharge 5 and 5 are still owed. NOT A HOUSEHOLD THE TOWN LACKS. Rule 2 never orders a replacement for somebody standing in the town, and these families stand in it on their own cards: what they lack is a roof, which the remaining dwelling builds raise, and the deal seats them where the room is when they do.
 
 ## Businesses
 

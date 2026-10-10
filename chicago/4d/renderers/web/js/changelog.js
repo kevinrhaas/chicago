@@ -5,6 +5,26 @@ export const CHANGELOG = [ // newest first
       'Open the three frame houses and their cards name the Merrill, Merill and Meleney households, who were waiting for a lot here. The cottage\u2019s card names nobody: no source carries its household\u2019s name, and the card says so.',
       'All four are reconstructions. The state sold these lots in 1833, but no record shows what stood on them in 1835.',
       'The block\u2019s corner lots stay open. The town still owes this block one cottage and one boarding house, and no household is waiting for either yet.',
+  { v: 1605, ts: '2026-10-10T01:25:22.744Z', date: 'Oct 9, 2026, 8:25 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The reconstruction\u2019s work list asked for ten more South-side family households than the town could form, after letter-list names stopped counting as households on 9 October.',
+      'Those ten are not missing. The town already holds 23 families present in July 1835 who are still waiting for a house, so the list no longer asks for anyone to be invented in their place. It now owes no family houses in any division.',
+      'Nobody was added, moved or given a house. The 23 families still wait for the town\u2019s next dwellings to be built.',
+    ] },
+  { v: 1604, ts: '2026-10-10T01:02:46.060Z', date: 'Oct 9, 2026, 8:02 PM CT', title: 'The tools that seat the town read each household\u2019s dated places', kind: 'change',
+    items: [
+      'Nothing you can see changes. The tools that give households their houses, deal the empty roofs, audit the town and count its census now read where a household lived and worked from the dated places on its card, the same entries its card shows you.',
+      'Every seat, count and census figure comes out exactly as before, even with the old single home and workplace lines removed from the records, which is what lets those lines be retired next.',
+    ] },
+  { v: 1603, ts: '2026-10-10T00:46:47.918Z', date: 'Oct 9, 2026, 7:46 PM CT', title: 'Glessner roof proportions gain a reviewable comparison audit', kind: 'feature',
+    items: [
+      'Open Glessner’s photographic comparison page to review the current roof, dormers and courtyard bay against the fixed reference cameras. A dimension table gives the evidence, confidence and remaining disagreements.',
+      'The earlier baseline remains available for comparison. The repaired house geometry is retained; the lifted copper corner remains an identified repair for its own ticket.',
+    ] },
+  { v: 1602, ts: '2026-10-10T00:25:08.610Z', date: 'Oct 9, 2026, 7:25 PM CT', title: 'A building card\u2019s residents are read from their dated places', kind: 'fix',
+    items: [
+      'Open a building and look at who lived or worked there: each household\u2019s reason for being on that card is now the note on its dated place, the same entry its own card lists with its years. Fifty-five buildings show the fuller wording.',
+      'The People directory\u2019s homes and workplaces come from the same dated places, and none of them changed. Lodgers in the hotels and boarding houses, and the lighthouse keeper\u2019s household, now carry their beds in that form too.',
     ] },
   { v: 1601, ts: '2026-10-10T00:05:59.930Z', date: 'Oct 9, 2026, 7:05 PM CT', title: 'The town\u2019s last six South houses get their lots, south of Monroe', kind: 'change',
     items: [

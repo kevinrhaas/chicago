@@ -1401,7 +1401,7 @@
     },
     {
       "ticket": "T-2193",
-      "records": 326,
+      "records": 321,
       "buckets": [
         "households/family_dwelling/north",
         "households/family_dwelling/south",
@@ -1612,7 +1612,7 @@
     "households_known": 165,
     "households_known_records": 1389,
     "households_awaiting_a_household": 1224,
-    "households_to_reconstruct": 445,
+    "households_to_reconstruct": 440,
     "businesses_target": 109,
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
@@ -1883,6 +1883,46 @@
     "measured": "The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged; 8 more stand a house of trade whose keeper the town places on another roof, so nobody lived over them; 4 stand a house of trade whose keeper the town holds no card for, so nobody is seated over them; and 0 are still owed: a keeper for a store roof that stands with nobody in it.",
     "ruling": "BOTH. The book over-orders the store rows, by what it ordered above one household a store roof, and that is discharged here. And the index is short: the household quota counts houses off the residents index alone, so the trade households the reconstruction drew as heads of their own and seated on a roof, the readmitted and the underdocumented are outside the count. They are people the cards hold present, not an order to fill, and T-2236 forms the store households from the keepers of the houses of trade the town holds, over their own stores, rather than from anybody new; what it could not form is T-2246's.",
     "what_this_does_not_do": "It moves, mints and retires nobody, it does not re-apportion the discharged households to the dwelling rows, and it does not count the households outside the index: T-2237 counts those beside the held heads (count_held_head_dwellings_1835.py, `beyond_the_index`)."
+  },
+  "waiting_families_ruling": {
+    "ticket": "T-2256",
+    "asks": "The family_dwelling order outruns the held heads the housing seats put under a standing dwelling. Is that a household the town lacks?",
+    "families_waiting_on_a_roof": {
+      "unplaced": 18
+    },
+    "by_division": {
+      "north": {
+        "held_heads_under_a_dwelling": 115,
+        "houses_other_stages_drew": 10,
+        "short_of_the_order": 0,
+        "waiting_families_share": 5,
+        "discharged": 0,
+        "still_owed": 0
+      },
+      "south": {
+        "held_heads_under_a_dwelling": 162,
+        "houses_other_stages_drew": 17,
+        "short_of_the_order": 5,
+        "waiting_families_share": 9,
+        "discharged": 5,
+        "still_owed": 5
+      },
+      "west": {
+        "held_heads_under_a_dwelling": 82,
+        "houses_other_stages_drew": 11,
+        "short_of_the_order": 0,
+        "waiting_families_share": 4,
+        "discharged": 0,
+        "still_owed": 0
+      }
+    },
+    "short_of_the_order": 5,
+    "discharged": 5,
+    "still_owed": 5,
+    "measured": "The held heads fall 5 short of the family_dwelling order. The housing deal holds 18 families present on the scene date and waiting on a roof behind the census ceiling, none of them a letter-list household, 18 with no division on the card; spread pro rata on the cells' targets, as rule 2 spreads the unplaced known, they discharge 5 and 5 are still owed.",
+    "ruling": "NOT A HOUSEHOLD THE TOWN LACKS. Rule 2 never orders a replacement for somebody standing in the town, and these families stand in it on their own cards: what they lack is a roof, which the remaining dwelling builds raise, and the deal seats them where the room is when they do.",
+    "what_this_does_not_do": "It seats, moves, mints and retires nobody, counts no waiting family as a fill, and re-admits no household the letter-list ruling (T-0379) refuses a roof.",
+    "what_would_reopen_it": "a waiting family seated in another division, or a held head of this one boarded instead: either takes one from the share or adds one to the shortfall, and the cell owes again under its owning ticket."
   },
   "bucket_families": [
     {
@@ -4432,10 +4472,11 @@
           },
           "target": 258,
           "known": 74,
-          "to_reconstruct": 184,
-          "filled": 179,
+          "to_reconstruct": 179,
+          "filled": 174,
           "owning_ticket": "T-2256",
-          "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the south division"
+          "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the south division",
+          "discharged_by_the_waiting_families": 5
         },
         {
           "key": "households/family_dwelling/west",
@@ -6892,7 +6933,7 @@
       "bucket": "households/family_dwelling/south",
       "ticket": "T-2193",
       "stage": "held_head_dwellings",
-      "records": 162,
+      "records": 157,
       "by": "tools/count_held_head_dwellings_1835.py --build"
     },
     {

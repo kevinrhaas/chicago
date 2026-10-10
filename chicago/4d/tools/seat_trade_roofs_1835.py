@@ -28,7 +28,7 @@ somewhere — the housing deal put them under a dwelling — and works nowhere.
 ## THE DEAL
 
 Each roof in `SCOPE` is offered to the keepers that the employment ledger owes a house of
-their own and whose card names no workplace (`works_at`), in the roof's own division, whose
+their own and whose card names no workplace row (T-2260), in the roof's own division, whose
 trade the roof's family serves:
 
   * W2 "Carpenter or joiner shop" — the crosswalk's own label names the two trades.
@@ -43,7 +43,7 @@ trade the roof's family serves:
     premises rulings' tannery, packing-house, slaughterhouse and soap-and-candle signage.
 
 Every term is read out of a committed file (`MATCH` says which); none is typed from memory.
-The roof goes to the keeper whose own roof — the card's `lives_at`, else the housing deal's
+The roof goes to the keeper whose own roof — the card's home row, else the housing deal's
 seat — stands nearest it, ties broken by a seeded hash. One keeper a roof, one roof a
 keeper. **No source places any of these people at any of these roofs**: the keeper is the
 residents layer's, with their own grade on their own card; the roof is the 668-roof
@@ -102,6 +102,7 @@ LIBERTY = "L361"
 
 sys.path.insert(0, str(ROOT / "tools"))
 from compile_scene import compile_residents  # noqa: E402
+from associations import home_of as card_home, workplace_of  # noqa: E402
 
 # The roofs this ticket owns: the four trade roofs the audit left empty after T-1985 and
 # T-1988, every one a `keep` in the roof redeal. A roof added here is a ticket's decision.
@@ -236,7 +237,7 @@ def serves(family: str, trade: str | None, premises: dict) -> bool:
 
 def home_of(hid: str, inputs: dict) -> str | None:
     card = (inputs["cards"].get(hid) or {}).get("card") or {}
-    where = value_of(card.get("lives_at"))
+    where = card_home(card)
     return where if where in inputs["roofs"] else inputs["housing"].get(hid)
 
 
@@ -254,7 +255,7 @@ def keepers(inputs: dict, reasons=(OWED_REASON,)) -> list[dict]:
         if row.get("reason") not in reasons or row.get("houses"):
             continue
         entry = inputs["cards"].get(row["household_id"])
-        if not entry or value_of(entry["card"].get("works_at")):
+        if not entry or workplace_of(entry["card"]):
             continue
         person = next((p for p in entry["card"].get("persons") or []
                        if p.get("id") == row["person_id"]), {})
@@ -326,7 +327,7 @@ def deal(inputs: dict) -> dict:
                      f"here would make it one shop more than that count, so none is.")
         if adoption:
             entry = inputs["cards"].get(adoption["id"]) or {}
-            works = value_of((entry.get("card") or {}).get("works_at"))
+            works = workplace_of(entry.get("card") or {})
             d = metres(roof["at"], roofs[works]["at"]) if works in roofs else None
             note += (f" The off-plat deal (T-1614) adopted it for {adoption.get('name')}, but "
                      f"that household's own card puts its works at {works}"

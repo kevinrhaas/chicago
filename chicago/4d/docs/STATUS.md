@@ -22,6 +22,20 @@ D5 and an H3 and left four `slot` requests on it; this raises those four.
   audit, entrances, alley lanes, woodpiles, hay limits and the land-tract join.
 - **Restated:** L263 664 → 668, L276 205 → 209.
 
+## T-2206 — Glessner roof and courtyard proportions audited
+
+The comparison page now measures the current assets through all nine frozen T-2200
+cameras, preserves historical measurements as a separate selection, checks loaded
+asset hashes, and presents 15 dimension/evidence/decision rows. No geometry changes.
+Fifteen mesh controls associate within 0.023 m. The audit retains the corrected west
+roof, flared dormers, dining bay and continuous courtyard eave; sheet 4/6 roof-rise
+and photo-camera disagreements remain explicit. The dining outline projects 9.90 ft,
+not the older prose's 10.3 ft. T-2220 retains the confirmed northeast copper fold;
+no other manual ticket is released. No photographic acceptance is claimed.
+
+See `docs/RESEARCH/glessner-proportions-2206/README.md` and the current
+`data/comparisons/glessner/audit-report.json`. Validation receipts are recorded there.
+
 ## T-2253 — the Monroe-Adams tier joins the grid and the roof schedule (2026-10-09)
 
 Piece 2 of 3 of T-2247, on the owner's ruling (b): cross Monroe. T-2252 cut the tier into lots;

@@ -126,7 +126,7 @@
       "name": "The post sutler's household — Alvah Metcalf",
       "division": "fort",
       "relation": "lived here",
-      "why": "SEATED IN THE BUILDING WHOSE FUNCTION HE IS. `fort_dearborn_sutlers_store` carries an `attested` function of `sutlers_store` on Andreas and Wentworth. A sutler at a post lived at his store; the building exists in the record and no coordinate is invented.",
+      "why": "SEATED IN THE BUILDING WHOSE FUNCTION HE IS. `fort_dearborn_sutlers_store` carries an `attested` function of `sutlers_store` on Andreas and Wentworth. A sutler at a post lived at his store; the building exists in the record and no coordinate is invented. Reconstructed on the rule `the_sutler_lived_at_the_sutlers_store`; no source places this household. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_rc_metcalf_alvah#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [],
       "basis": "",
       "persons": [
