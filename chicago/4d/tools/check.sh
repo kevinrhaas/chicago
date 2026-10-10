@@ -521,6 +521,20 @@ step "the K08 bay kit builds every bay, oriel and tower closed against its wall,
 selftest "…and a window off its run, a recess through the wall, a faceted curve, an oriel on one deep course or a roof with a hole still fails it" \
   python3 tools/check_bay_kit.py --self-test
 
+# T-2303. ...and what the 1904 entrances are. The K07 kit's parts are sized in
+# data/components/prairie_1904/k07_entrances.json and built by
+# generators/archetypes/k07_entrances.py. This rebuilds every variant and measures the
+# geometry: the landing level with the threshold, the stair's foot on grade, equal
+# risers and goings inside the reconstruction rules' ranges, every step closed, the walk
+# clear, a carriage opening through its wall under a bearing lintel, a closed reveal,
+# leaves clear of the floor, a hall behind every light, no doubled face, the triangle
+# budget, and the specimen GLB the generator's bytes.
+step "the K07 entrance kit lands every stair on its threshold and on grade, risers equal, the walk clear (T-2303)" \
+  python3 tools/check_entrance_kit.py --check
+
+selftest "…and an unequal riser, an open step, a stoop on the walk, an unbearing lintel or a floating leaf still fails it" \
+  python3 tools/check_entrance_kit.py --self-test
+
 # T-2309. ...and what the 1904 trim is. The K09 kit's parts are sized in
 # data/components/prairie_1904/k09_trim.json and built by generators/archetypes/k09_trim.py.
 # This rebuilds every variant and measures the geometry: every open edge of a piece lying on
