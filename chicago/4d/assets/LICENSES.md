@@ -523,6 +523,117 @@ textures/prairie_1904_stone/tools/generate_prairie_1904_stone.py
 | path | source | license | notes |
 |---|---|---|---|
 
+### The Prairie Avenue 1904 roof library (K04) — `textures/prairie_1904_roofs/`
+
+T-2292. Eleven procedural fabrics for the 1904 programme's roof coverings, flashings and rainwater
+goods, built by the generator that ships inside it (`tools/generate_prairie_1904_roofs.py`,
+deterministic, seeded per fabric) from the modules in `data/components/prairie_1904/k04_roofs.json`,
+with the study renderer beside it. The look of every map is reconstructed (`docs/LIBERTIES.md`
+L-k04-roof-library-2292); the flat tile's module is HABS's for Glessner, and nothing else here is
+measured.
+
+| item | licence | cleared for | NOT cleared for |
+|---|---|---|---|
+| `textures/prairie_1904_roofs/**` — *Prairie Avenue 1904 roof-covering library (K04) v1.0.0*, original procedural output generated for this project. Full text at `textures/prairie_1904_roofs/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1904 street-surface library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` says its appearance is reconstructed and names the data file its module comes from |
+
+The files:
+
+```
+textures/prairie_1904_roofs/LICENSE.txt
+textures/prairie_1904_roofs/README.md
+textures/prairie_1904_roofs/copper_sheet/copper_sheet_basecolor.png
+textures/prairie_1904_roofs/copper_sheet/copper_sheet_basecolor_web.jpg
+textures/prairie_1904_roofs/copper_sheet/copper_sheet_normal_gl.png
+textures/prairie_1904_roofs/copper_sheet/copper_sheet_normal_gl_web.jpg
+textures/prairie_1904_roofs/copper_sheet/copper_sheet_orm.png
+textures/prairie_1904_roofs/copper_sheet/copper_sheet_orm_web.jpg
+textures/prairie_1904_roofs/copper_sheet/copper_sheet_roughness.png
+textures/prairie_1904_roofs/copper_sheet/material.json
+textures/prairie_1904_roofs/copper_standing_seam/copper_standing_seam_basecolor.png
+textures/prairie_1904_roofs/copper_standing_seam/copper_standing_seam_basecolor_web.jpg
+textures/prairie_1904_roofs/copper_standing_seam/copper_standing_seam_normal_gl.png
+textures/prairie_1904_roofs/copper_standing_seam/copper_standing_seam_normal_gl_web.jpg
+textures/prairie_1904_roofs/copper_standing_seam/copper_standing_seam_orm.png
+textures/prairie_1904_roofs/copper_standing_seam/copper_standing_seam_orm_web.jpg
+textures/prairie_1904_roofs/copper_standing_seam/copper_standing_seam_roughness.png
+textures/prairie_1904_roofs/copper_standing_seam/material.json
+textures/prairie_1904_roofs/lead_sheet/lead_sheet_basecolor.png
+textures/prairie_1904_roofs/lead_sheet/lead_sheet_basecolor_web.jpg
+textures/prairie_1904_roofs/lead_sheet/lead_sheet_normal_gl.png
+textures/prairie_1904_roofs/lead_sheet/lead_sheet_normal_gl_web.jpg
+textures/prairie_1904_roofs/lead_sheet/lead_sheet_orm.png
+textures/prairie_1904_roofs/lead_sheet/lead_sheet_orm_web.jpg
+textures/prairie_1904_roofs/lead_sheet/lead_sheet_roughness.png
+textures/prairie_1904_roofs/lead_sheet/material.json
+textures/prairie_1904_roofs/manifest.json
+textures/prairie_1904_roofs/painted_tin_sheet/material.json
+textures/prairie_1904_roofs/painted_tin_sheet/painted_tin_sheet_basecolor.png
+textures/prairie_1904_roofs/painted_tin_sheet/painted_tin_sheet_basecolor_web.jpg
+textures/prairie_1904_roofs/painted_tin_sheet/painted_tin_sheet_normal_gl.png
+textures/prairie_1904_roofs/painted_tin_sheet/painted_tin_sheet_normal_gl_web.jpg
+textures/prairie_1904_roofs/painted_tin_sheet/painted_tin_sheet_orm.png
+textures/prairie_1904_roofs/painted_tin_sheet/painted_tin_sheet_orm_web.jpg
+textures/prairie_1904_roofs/painted_tin_sheet/painted_tin_sheet_roughness.png
+textures/prairie_1904_roofs/slate_fishscale/material.json
+textures/prairie_1904_roofs/slate_fishscale/slate_fishscale_basecolor.png
+textures/prairie_1904_roofs/slate_fishscale/slate_fishscale_basecolor_web.jpg
+textures/prairie_1904_roofs/slate_fishscale/slate_fishscale_normal_gl.png
+textures/prairie_1904_roofs/slate_fishscale/slate_fishscale_normal_gl_web.jpg
+textures/prairie_1904_roofs/slate_fishscale/slate_fishscale_orm.png
+textures/prairie_1904_roofs/slate_fishscale/slate_fishscale_orm_web.jpg
+textures/prairie_1904_roofs/slate_fishscale/slate_fishscale_roughness.png
+textures/prairie_1904_roofs/slate_pennsylvania/material.json
+textures/prairie_1904_roofs/slate_pennsylvania/slate_pennsylvania_basecolor.png
+textures/prairie_1904_roofs/slate_pennsylvania/slate_pennsylvania_basecolor_web.jpg
+textures/prairie_1904_roofs/slate_pennsylvania/slate_pennsylvania_normal_gl.png
+textures/prairie_1904_roofs/slate_pennsylvania/slate_pennsylvania_normal_gl_web.jpg
+textures/prairie_1904_roofs/slate_pennsylvania/slate_pennsylvania_orm.png
+textures/prairie_1904_roofs/slate_pennsylvania/slate_pennsylvania_orm_web.jpg
+textures/prairie_1904_roofs/slate_pennsylvania/slate_pennsylvania_roughness.png
+textures/prairie_1904_roofs/slate_vermont/material.json
+textures/prairie_1904_roofs/slate_vermont/slate_vermont_basecolor.png
+textures/prairie_1904_roofs/slate_vermont/slate_vermont_basecolor_web.jpg
+textures/prairie_1904_roofs/slate_vermont/slate_vermont_normal_gl.png
+textures/prairie_1904_roofs/slate_vermont/slate_vermont_normal_gl_web.jpg
+textures/prairie_1904_roofs/slate_vermont/slate_vermont_orm.png
+textures/prairie_1904_roofs/slate_vermont/slate_vermont_orm_web.jpg
+textures/prairie_1904_roofs/slate_vermont/slate_vermont_roughness.png
+textures/prairie_1904_roofs/terracotta_flat_tile/material.json
+textures/prairie_1904_roofs/terracotta_flat_tile/terracotta_flat_tile_basecolor.png
+textures/prairie_1904_roofs/terracotta_flat_tile/terracotta_flat_tile_basecolor_web.jpg
+textures/prairie_1904_roofs/terracotta_flat_tile/terracotta_flat_tile_normal_gl.png
+textures/prairie_1904_roofs/terracotta_flat_tile/terracotta_flat_tile_normal_gl_web.jpg
+textures/prairie_1904_roofs/terracotta_flat_tile/terracotta_flat_tile_orm.png
+textures/prairie_1904_roofs/terracotta_flat_tile/terracotta_flat_tile_orm_web.jpg
+textures/prairie_1904_roofs/terracotta_flat_tile/terracotta_flat_tile_roughness.png
+textures/prairie_1904_roofs/tin_flat_seam_painted/material.json
+textures/prairie_1904_roofs/tin_flat_seam_painted/tin_flat_seam_painted_basecolor.png
+textures/prairie_1904_roofs/tin_flat_seam_painted/tin_flat_seam_painted_basecolor_web.jpg
+textures/prairie_1904_roofs/tin_flat_seam_painted/tin_flat_seam_painted_normal_gl.png
+textures/prairie_1904_roofs/tin_flat_seam_painted/tin_flat_seam_painted_normal_gl_web.jpg
+textures/prairie_1904_roofs/tin_flat_seam_painted/tin_flat_seam_painted_orm.png
+textures/prairie_1904_roofs/tin_flat_seam_painted/tin_flat_seam_painted_orm_web.jpg
+textures/prairie_1904_roofs/tin_flat_seam_painted/tin_flat_seam_painted_roughness.png
+textures/prairie_1904_roofs/tin_standing_seam_painted/material.json
+textures/prairie_1904_roofs/tin_standing_seam_painted/tin_standing_seam_painted_basecolor.png
+textures/prairie_1904_roofs/tin_standing_seam_painted/tin_standing_seam_painted_basecolor_web.jpg
+textures/prairie_1904_roofs/tin_standing_seam_painted/tin_standing_seam_painted_normal_gl.png
+textures/prairie_1904_roofs/tin_standing_seam_painted/tin_standing_seam_painted_normal_gl_web.jpg
+textures/prairie_1904_roofs/tin_standing_seam_painted/tin_standing_seam_painted_orm.png
+textures/prairie_1904_roofs/tin_standing_seam_painted/tin_standing_seam_painted_orm_web.jpg
+textures/prairie_1904_roofs/tin_standing_seam_painted/tin_standing_seam_painted_roughness.png
+textures/prairie_1904_roofs/tools/generate_prairie_1904_roofs.py
+textures/prairie_1904_roofs/tools/study_prairie_1904_roofs.py
+textures/prairie_1904_roofs/zinc_sheet/material.json
+textures/prairie_1904_roofs/zinc_sheet/zinc_sheet_basecolor.png
+textures/prairie_1904_roofs/zinc_sheet/zinc_sheet_basecolor_web.jpg
+textures/prairie_1904_roofs/zinc_sheet/zinc_sheet_normal_gl.png
+textures/prairie_1904_roofs/zinc_sheet/zinc_sheet_normal_gl_web.jpg
+textures/prairie_1904_roofs/zinc_sheet/zinc_sheet_orm.png
+textures/prairie_1904_roofs/zinc_sheet/zinc_sheet_orm_web.jpg
+textures/prairie_1904_roofs/zinc_sheet/zinc_sheet_roughness.png
+```
+
 ## Generated assets
 
 `gltf/` and `web/` are build output. Canonical archetype assets are regenerated by

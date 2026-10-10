@@ -394,6 +394,9 @@ const COVERAGE = [
   // T-1728. What that grid is paved with, and the maps it is paved in.
   ['data/street_surfaces/', [13], 'the 1904 street surfaces: materials, tiers and sources'],
   ['assets/textures/prairie_1904_pbr/', [13], 'the 1904 street-surface texture library'],
+  // T-2292. The K04 roof library is published by nothing and bound by no renderer until
+  // T-2293 builds a roof from it, so no part draws it; tools/check_roof_library.py gates it.
+  ['assets/textures/prairie_1904_roofs/', NONE, 'the K04 roof library — bound by no renderer yet: check_roof_library.py --check'],
 
   // --- PART 14: the arrival-to-jaunt path, on a fresh context (T-2044)
   // The jaunt modules are imported lazily, the first time the Jaunts menu opens, and
