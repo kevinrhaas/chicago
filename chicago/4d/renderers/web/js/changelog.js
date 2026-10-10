@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1642, ts: '2026-10-10T11:17:04.317Z', date: 'Oct 10, 2026, 6:17 AM CT', title: 'A carved-trim kit for Prairie Avenue: arches, hoods, capitals and leaves', kind: 'feature',
+    items: [
+      'Ten pieces of stone trim for the 1904 houses: voussoir arches with keystones, a crocketed Gothic hood, a cornice hood on scrolled consoles, two colonnettes, two-light tracery and a carved leaf panel.',
+      'Every stone, moulding and leaf is real relief that casts its own shadow, not a painted picture of carving.',
+      'A grand three-order Romanesque entrance and a plain rowhouse door are built side by side, so the difference between them is plain to see.',
+      'The leaves and capitals are newly designed and copy no real house. No house uses the kit yet.',
+    ] },
   { v: 1641, ts: '2026-10-10T10:35:09.872Z', date: 'Oct 10, 2026, 5:35 AM CT', title: 'Glessner\'s light model builds the same on every machine', kind: 'fix',
     items: [
       'The reduced Glessner House model, the one phones and the far view load, came out a few hundred bytes different depending on which Python built it. Python 3.12 adds up decimals more carefully than 3.11, and that changed the house\'s light mesh.',
