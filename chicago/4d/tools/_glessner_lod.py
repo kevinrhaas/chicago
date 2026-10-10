@@ -8,8 +8,10 @@ reduces surface sampling and carving only; it is never a different house/version
 from __future__ import annotations
 
 from array import array
+import builtins
 from collections import Counter
 import copy
+import functools
 import hashlib
 import importlib
 import json
@@ -25,6 +27,36 @@ MATERIAL_NAMES=('granite','brick','limestone_trim','roof_plane','copper','glass'
  'lawn','drive','mortar','iron','glass_dark','granite_1','granite_2','granite_3','granite_4',
  'brick_dark_red','brick_buff','brick_smoky','roof_plane_1','roof_plane_2','roof_plane_3',
  'linen_blind','painted_wood','rough_stone_trim','turf_blade_dark','turf_blade_middle','turf_blade_light')
+
+
+def _left_to_right_sum(iterable,start=0):
+    """sum() as Python 3.11 and earlier compute it: one plain addition per item, in order."""
+    total=start
+    for value in iterable:total=total+value
+    return total
+
+
+def _blender_arithmetic(build):
+    """Run a light-tier build with the summation the full master is built with (T-2311).
+
+    Python 3.12 made sum() over floats compensated (Neumaier), so the same record
+    built through the same construction functions gave a different light tier on
+    each interpreter: CI's bake (3.11, as is Blender 4.5.3's own 3.11, which builds
+    the full master) wrote bd1a614c67b3; a 3.12 runner wrote 8a51eea20569, and that
+    was committed, so every full bake redded k01_contract. About twenty sum() sites
+    in masonry_house_v4_* and here feed the mesh. Pinning the old arithmetic for
+    the duration of the build, rather than editing those generator lines, leaves the
+    full master and its inputs hash untouched and makes this tier one set of bytes
+    on every interpreter. builtins is swapped, not module globals, so a module
+    the construction imports lazily is covered too; the original is always restored.
+    """
+    @functools.wraps(build)
+    def pinned(*args,**kwargs):
+        previous=builtins.sum
+        builtins.sum=_left_to_right_sum
+        try:return build(*args,**kwargs)
+        finally:builtins.sum=previous
+    return pinned
 
 
 def _geometry_modules(root):
@@ -51,6 +83,7 @@ def _geometry_modules(root):
     return d,params,materials
 
 
+@_blender_arithmetic
 def _construct(root, *, roof_details_reduced=True):
     d,param_module,materials=_geometry_modules(root)
     from common.versions import glessner_detail_record
@@ -289,6 +322,7 @@ def _apertures(params):
             'terrace':params.detail.get('bow_terrace',{}).get('window_count',0)}
 
 
+@_blender_arithmetic
 def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
     """Write a temporary, uncompressed same-v4 LOD with exact master fabrics.
 
