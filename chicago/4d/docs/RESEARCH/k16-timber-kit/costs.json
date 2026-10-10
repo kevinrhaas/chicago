@@ -1,0 +1,56 @@
+{
+  "_doc": "Measured by tools/study_k16_timber.mjs on the specimen GLB. Triangles and draw calls are exact; frame_ms is headless Chromium on a software rasteriser (SwiftShader), a relative figure for comparing kit revisions, not a device frame time.",
+  "specimen_bytes": 456428,
+  "samples": [
+    {
+      "id": "k16.wall.clapboard_corner",
+      "triangles_sample": 776,
+      "triangles_with_board": 806,
+      "vertices_with_board": 1548,
+      "draw_calls": 13
+    },
+    {
+      "id": "k16.wall.board_and_batten",
+      "triangles_sample": 102,
+      "triangles_with_board": 120,
+      "vertices_with_board": 240,
+      "draw_calls": 6
+    },
+    {
+      "id": "k16.gable.gothic_shingle",
+      "triangles_sample": 2574,
+      "triangles_with_board": 2607,
+      "vertices_with_board": 4861,
+      "draw_calls": 9
+    },
+    {
+      "id": "k16.porch.lattice_post",
+      "triangles_sample": 732,
+      "triangles_with_board": 750,
+      "vertices_with_board": 1476,
+      "draw_calls": 7
+    }
+  ],
+  "board": {
+    "desktop": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "draw_calls": 56,
+      "triangles": 7754,
+      "frame_ms_median": 0.6,
+      "geometries": 48
+    },
+    "mobile": {
+      "viewport": [
+        390,
+        780
+      ],
+      "draw_calls": 55,
+      "triangles": 7748,
+      "frame_ms_median": 0.4,
+      "geometries": 48
+    }
+  }
+}
