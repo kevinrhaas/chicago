@@ -23495,3 +23495,32 @@ at once.
 **Ticket:** T-2316 (piece 1 of T-1852, K10).
 **Review:** `docs/RESEARCH/k10-cornice-kit/README.md`.
 **Recorded:** 2026-10-10 (T-2316).
+
+### L-k15-chimney-kit-2312 — The Prairie chimney kit: every stack size, cap, pot, flashing step, cricket and soot band reconstructed
+
+**Decision:** the 1904 Prairie programme's chimneys (package K15, T-2312) are four parametric
+variants built by `generators/archetypes/k15_chimneys.py` from `data/components/prairie_1904/k15_chimneys.json`,
+each standing in one of the K05 kit's roofs: an ordinary two-flue brick service stack mid-slope with
+a cricket behind it, a grouped three-flue brick stack astride a ridge with clay pots, a two-flue
+dressed-stone stack on a hipped roof's rear plane, and a carved stack of the kind the study's register
+describes for the Sherman house (sunk panels, two sandstone string courses, a row of stone corbel
+blocks, a three-course corbelled head and a sandstone cap). Each is joined to its roof by a boolean
+union and its flues are cut out of it, so the roof junction, the cricket's valleys and every flue are
+real geometry. **What is invented.** Every number: the half-brick plan module, the 0.07 m course
+(RECONSTRUCTION-RULES.md's brickwork starting size), the 0.21 m flue opening and its 0.6 m recess, the
+stacks' widths, depths, heights and positions, their corbel courses, caps, bands, panels and blocks;
+the flashing's 6 mm thickness, 0.12 m upstand and 0.15 m lap; the cricket's 0.75 m threshold and 35
+degree pitch; the pots' profiles and square bore; the draught rule (0.6 m above the covering within
+3 m, 0.9 m above the covering where the stack emerges), which is a modelling prior and not a period
+code; the west-south-west wind and the 0.45 m soot band it darkens on a stack's leeward faces; and the
+colours the specimen is drawn in. The Sherman-type stack reads only the register's sentence ("carved
+chimney tops"); the 1876 American Architect plate it lists was not read for this kit, so the stack is
+a form for a carved top and not the Sherman house's own. Pots stand on the ridge stack to show the
+part; whether a house's flues are potted is that house's source's to say. **What is not.** Nothing
+in the kit is attested; no house's chimneys are built from it yet (T-2313 builds a named house's).
+**How to resolve:** a house's photograph or drawing gives its stacks' number, position, height,
+head and pots, and that house takes them in place of the kit's working sizes; a period builder's or
+manufacturer's catalogue replaces the pot profiles and the flue size for every house at once.
+**Ticket:** T-2312 (piece 1 of T-1857, K15).
+**Review:** `docs/RESEARCH/k15-chimney-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2312).
