@@ -194,6 +194,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 import fronting_street  # noqa: E402  (needs the path above)
 from town_year import touches_year  # noqa: E402  (T-1732)
+from associations import home_of  # noqa: E402
 
 DATA = ROOT / "data"
 HOUSEHOLDS = DATA / "residents" / "households"
@@ -469,7 +470,7 @@ def trade_fronts(roof_list) -> str:
     seen: list[str] = []
     for _path, doc, _person in roof_list:
         for street_id, _how in fronting_street.fronting(
-                (doc.get("lives_at") or {}).get("value") or ""):
+                home_of(doc) or ""):
             name = fronting_street.street_name(street_id)
             if name not in seen:
                 seen.append(name)
@@ -610,7 +611,7 @@ def deal(docs: dict):
                  for roof in free
                  for street_id in want
                  for how in [fronting_street.fronts(
-                     (roof[1].get("lives_at") or {}).get("value") or "", street_id)]
+                     home_of(roof[1]) or "", street_id)]
                  if how), None)
             if seat is None:
                 reason = (
@@ -665,8 +666,8 @@ def rewrite(doc: dict, person: dict, cand: dict, gaz: dict, trade: str,
             f"HIS OWN RECORD NAMES THIS STREET. The corpus places him on "
             f"{street}, and the roof he takes is one the plat says stands there: "
             f"tools/fronting_street.py derives the frontage of "
-            f"{(doc.get('lives_at') or {}).get('value')} from the committed "
-            f"geometry as {fronting_street.describe((doc.get('lives_at') or {}).get('value'))}, "
+            f"{home_of(doc)} from the committed "
+            f"geometry as {fronting_street.describe(home_of(doc))}, "
             f"and this seat is its {how}. That is the whole of the claim — the "
             f"STREET is his and the roof on it is still the reconstruction's. He "
             f"was refused by this pass until T-0367 because a placement it could "

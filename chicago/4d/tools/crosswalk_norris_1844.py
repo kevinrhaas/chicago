@@ -26,6 +26,9 @@ from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from reconstructed_person import is_reconstructed  # noqa: E402
+# A household's home and workplace are read off its dated associated_with rows (T-2275):
+# the singular lives_at/works_at pair is being retired (T-2261), and these are its reader.
+from associations import home_of, workplace_of  # noqa: E402
 import name_agreement as na  # the forename rule, imported rather than restated
 import letter_list_bucket as llb  # the letter-list bucket refusal (T-1038)
 import named_by_the_page as nbp  # the whole printed name (T-0987 stretch 14), likewise
@@ -97,8 +100,8 @@ def residents():
                 "grade": p.get("grade"),
                 "occupation": ((p.get("occupation") or {}).get("value")),
                 "occupation_confidence": ((p.get("occupation") or {}).get("confidence")),
-                "lives_at": ((doc.get("lives_at") or {}).get("value")),
-                "works_at": ((doc.get("works_at") or {}).get("value")),
+                "home": home_of(doc),
+                "workplace": workplace_of(doc),
             })
     return out
 
@@ -264,7 +267,7 @@ def main():
             "household_id": r["household_id"], "grade_1835": r["grade"],
             "occupation_1835": r["occupation"],
             "occupation_1835_confidence": r["occupation_confidence"],
-            "lives_at_1835": r["lives_at"], "works_at_1835": r["works_at"],
+            "lives_at_1835": r["home"], "works_at_1835": r["workplace"],
             "rule": "Surname %r folds to the same string as the 1844 entry's, and the "
                     "given name of both begins %s." % (r["surname"], initial(r["given"]).upper()),
             "entries_1844": rows,
@@ -282,7 +285,7 @@ def main():
         # a trade printed against their name in 1844 (T-0569).
         if trade_recorded.absent(r["occupation"]) and any(x["occupation_1844"] for x in rows):
             carries.append("occupation")
-        if not r["lives_at"] and any(x["address_1844"] for x in rows):
+        if not r["home"] and any(x["address_1844"] for x in rows):
             carries.append("address")
         rec["could_carry"] = carries
         rec["carry_rule"] = ("Whatever is carried is carried as 1844 evidence with "
