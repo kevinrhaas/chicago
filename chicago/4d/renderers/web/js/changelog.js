@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Every 1835 door is shut and every window glazed', kind: 'feature',
+  { v: 1609, ts: '2026-10-10T03:38:31.117Z', date: 'Oct 9, 2026, 10:38 PM CT', title: 'Every 1835 door is shut and every window glazed', kind: 'feature',
     items: [
       'Doors were black holes in the wall. Houses, taverns, stores and fort buildings now have closed panelled doors on a sill. Shops have half-glazed doors with a transom light, and cabins have board doors on iron strap hinges.',
       'Windows were black panels with flat bars. Each now sits in a board casing with a sloped sill and a drip cap. The sash is set back so the frame casts a shadow.',
