@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "337 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "340 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
-    "lots": 260,
+    "lots": 262,
     "refused": 0,
-    "refuges": 352,
-    "paths": 337
+    "refuges": 355,
+    "paths": 340
   },
   "lots": [
     {
@@ -15329,6 +15329,128 @@
           [
             168.95,
             -731.84
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_82_lot6",
+      "structures": [
+        "recon_1835_blk_school_section_tier_82_d1_05"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          172.29,
+          -723.02
+        ],
+        [
+          195.12,
+          -723.02
+        ],
+        [
+          197.56,
+          -720.58
+        ],
+        [
+          197.56,
+          -668.79
+        ],
+        [
+          169.85,
+          -668.79
+        ],
+        [
+          169.85,
+          -720.58
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            195.88,
+            -723.64
+          ],
+          [
+            198.18,
+            -723.64
+          ],
+          [
+            198.18,
+            -721.36
+          ],
+          [
+            195.88,
+            -721.36
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_82_lot7",
+      "structures": [
+        "recon_1835_blk_school_section_tier_82_h1_06"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          169.85,
+          -784.25
+        ],
+        [
+          197.56,
+          -784.25
+        ],
+        [
+          197.56,
+          -732.46
+        ],
+        [
+          195.12,
+          -730.02
+        ],
+        [
+          172.29,
+          -730.02
+        ],
+        [
+          169.85,
+          -732.46
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            171.97,
+            -729.4
+          ],
+          [
+            169.23,
+            -729.4
+          ],
+          [
+            169.23,
+            -731.84
+          ],
+          [
+            171.97,
+            -731.84
+          ]
+        ],
+        [
+          [
+            198.18,
+            -729.4
+          ],
+          [
+            192.08,
+            -729.4
+          ],
+          [
+            192.08,
+            -734.28
+          ],
+          [
+            198.18,
+            -734.28
           ]
         ]
       ]

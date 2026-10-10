@@ -32,24 +32,24 @@
   "counts": {
     "records_awaiting_a_household": 1223,
     "under_a_standing_dwelling": {
-      "dealt": 184,
-      "family": 119
+      "dealt": 186,
+      "family": 120
     },
     "room_by_division": {
-      "north": 85,
+      "north": 86,
       "south": 166,
       "west": 73
     },
     "counted_by_division": {
       "north": 79,
-      "south": 161,
+      "south": 164,
       "west": 67
     },
     "counted_by_rung": {
-      "dealt": 184,
-      "family": 123
+      "dealt": 186,
+      "family": 124
     },
-    "persons_in_the_counted_houses": 1182,
+    "persons_in_the_counted_houses": 1188,
     "not_counted": 0
   },
   "beyond_the_index": {
@@ -118,7 +118,7 @@
   },
   "fills": {
     "households/family_dwelling/north": 79,
-    "households/family_dwelling/south": 161,
+    "households/family_dwelling/south": 164,
     "households/family_dwelling/west": 67
   },
   "store_households": {
@@ -1383,6 +1383,15 @@
       "seed": "3bb1a62a297a"
     },
     {
+      "household": "hh_clark_john_k",
+      "division": "south",
+      "rung": "dealt",
+      "place": "recon_1835_blk_south_water_dearborn_d1_05",
+      "family": "D1",
+      "persons": 2,
+      "seed": "44a6524e36af"
+    },
+    {
       "household": "hh_filer_a",
       "division": "south",
       "rung": "dealt",
@@ -1552,6 +1561,15 @@
       "family": "D3",
       "persons": 1,
       "seed": "8011f9152477"
+    },
+    {
+      "household": "hh_bates_harriet_ellen",
+      "division": "south",
+      "rung": "dealt",
+      "place": "recon_1835_south_d3_027",
+      "family": "D3",
+      "persons": 1,
+      "seed": "8444de3befca"
     },
     {
       "household": "hh_sabine_wm",
@@ -1773,7 +1791,7 @@
       "household": "hh_sct_martin",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
       "family": "D1",
       "persons": 6,
       "seed": "44a1693969fc"
@@ -1782,7 +1800,7 @@
       "household": "hh_hunter_edward_e",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "family": "D1",
       "persons": 6,
       "seed": "48a145814b95"
@@ -1872,7 +1890,7 @@
       "household": "hh_smith_william_v",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_south_d1_010",
       "family": "D1",
       "persons": 5,
       "seed": "534401382018"
@@ -1890,7 +1908,7 @@
       "household": "hh_fell_j_w",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_south_water_franklin_d2_05",
+      "place": "recon_1835_blk_randolph_dearborn_d2_05",
       "family": "D2",
       "persons": 5,
       "seed": "afc68a7bd8cf"
@@ -1899,7 +1917,7 @@
       "household": "hh_jamison_l_t",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_south_water_lasalle_d1_04",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "family": "D1",
       "persons": 5,
       "seed": "b7a759d178ae"
@@ -1917,7 +1935,7 @@
       "household": "hh_king_j_d",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_randolph_dearborn_d2_05",
+      "place": "recon_1835_blk_school_section_tier_82_d2_01",
       "family": "D2",
       "persons": 5,
       "seed": "cf67c4cd3212"
@@ -1926,7 +1944,7 @@
       "household": "hh_stoer_clement",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_south_d1_003",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "family": "D1",
       "persons": 5,
       "seed": "d323a63ca3ff"
@@ -1953,7 +1971,7 @@
       "household": "hh_lewis_thomas",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_south_d1_018",
       "family": "D1",
       "persons": 5,
       "seed": "f35f4466b6b8"
@@ -1971,7 +1989,7 @@
       "household": "hh_nicole_l",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "family": "D1",
       "persons": 5,
       "seed": "f963cefa8b1b"
@@ -1980,7 +1998,7 @@
       "household": "hh_kurcheval_louis_c",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_south_d1_003",
       "family": "D1",
       "persons": 5,
       "seed": "fdb30bb11b0b"
@@ -1989,7 +2007,7 @@
       "household": "hh_grant_james",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_randolph_market_d2_09",
+      "place": "recon_1835_blk_south_water_franklin_d2_05",
       "family": "D2",
       "persons": 4,
       "seed": "207099f5a262"
@@ -2007,7 +2025,7 @@
       "household": "hh_marknoble_sen",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "family": "D1",
       "persons": 4,
       "seed": "2372a8f99c01"
@@ -2016,7 +2034,7 @@
       "household": "hh_thrall_e_l",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_south_d1_018",
       "family": "D1",
       "persons": 4,
       "seed": "245823c896fc"
@@ -2025,7 +2043,7 @@
       "household": "hh_downer_stephen",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
       "family": "D1",
       "persons": 4,
       "seed": "2a3897b530ca"
@@ -2034,7 +2052,7 @@
       "household": "hh_pixby_warren",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_south_d1_003",
       "family": "D1",
       "persons": 4,
       "seed": "2c0b21002146"
@@ -2052,7 +2070,7 @@
       "household": "hh_matthews_j_d",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_south_d1_018",
       "family": "D1",
       "persons": 4,
       "seed": "46d2d41da390"
@@ -2070,7 +2088,7 @@
       "household": "hh_price_jeremiah",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_south_water_lasalle_d1_04",
+      "place": "recon_1835_south_d1_003",
       "family": "D1",
       "persons": 4,
       "seed": "5f7bdb7a210e"
@@ -2079,7 +2097,7 @@
       "household": "hh_noble_william_b",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_south_d1_010",
       "family": "D1",
       "persons": 4,
       "seed": "6f6cb72b02d4"
@@ -2088,8 +2106,8 @@
       "household": "hh_skinner_joseph",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_south_d1_010",
-      "family": "D1",
+      "place": "recon_1835_blk_randolph_market_d2_09",
+      "family": "D2",
       "persons": 4,
       "seed": "711e35a160ab"
     },
@@ -2097,7 +2115,7 @@
       "household": "hh_finley_clement_a",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "family": "D1",
       "persons": 4,
       "seed": "bcdb9d5bad53"
@@ -2106,8 +2124,8 @@
       "household": "hh_trall_e_l",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_randolph_dearborn_d2_05",
-      "family": "D2",
+      "place": "recon_1835_south_d1_010",
+      "family": "D1",
       "persons": 4,
       "seed": "c49e299fbcb6"
     },
@@ -2115,8 +2133,8 @@
       "household": "hh_fowler_elmira",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_south_d1_003",
-      "family": "D1",
+      "place": "recon_1835_blk_south_water_franklin_d2_05",
+      "family": "D2",
       "persons": 4,
       "seed": "c8c9e7079bcf"
     },
@@ -2133,7 +2151,7 @@
       "household": "hh_hindlin_william",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "family": "D1",
       "persons": 4,
       "seed": "e51c59d4aba7"
@@ -2151,8 +2169,8 @@
       "household": "hh_hapgood_dexter",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_school_section_tier_82_d2_01",
-      "family": "D2",
+      "place": "recon_1835_south_d1_018",
+      "family": "D1",
       "persons": 3,
       "seed": "17e8e5a3ee57"
     },
@@ -2187,8 +2205,8 @@
       "household": "hh_stanley_j",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
-      "family": "D1",
+      "place": "recon_1835_blk_school_section_tier_82_d2_01",
+      "family": "D2",
       "persons": 3,
       "seed": "ba1b8f7c183a"
     },
@@ -2196,7 +2214,7 @@
       "household": "hh_cusick_theodore",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_randolph_market_d2_09",
+      "place": "recon_1835_blk_randolph_dearborn_d2_05",
       "family": "D2",
       "persons": 3,
       "seed": "bf52452109f3"
@@ -2205,7 +2223,7 @@
       "household": "hh_keeney_g_w",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_south_water_franklin_d2_05",
+      "place": "recon_1835_blk_randolph_market_d2_09",
       "family": "D2",
       "persons": 3,
       "seed": "c2e10b58c728"
@@ -2214,7 +2232,7 @@
       "household": "hh_kenworthy_r",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "family": "D1",
       "persons": 3,
       "seed": "da6fffc9646b"
@@ -2223,7 +2241,7 @@
       "household": "hh_troutman_james",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "family": "D1",
       "persons": 3,
       "seed": "da84869dfea2"
@@ -2238,10 +2256,19 @@
       "seed": "db747da94cdd"
     },
     {
+      "household": "hh_riffe_pierre",
+      "division": "south",
+      "rung": "family",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "family": "D1",
+      "persons": 3,
+      "seed": "ff7fc684a1b4"
+    },
+    {
       "household": "hh_morris_b_s",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_randolph_dearborn_d2_05",
+      "place": "recon_1835_blk_south_water_franklin_d2_05",
       "family": "D2",
       "persons": 2,
       "seed": "3ca9c53a8705"
@@ -2250,7 +2277,7 @@
       "household": "hh_smith_mathias",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_south_d1_018",
       "family": "D1",
       "persons": 2,
       "seed": "40ce1fe0ffd7"
@@ -2259,7 +2286,7 @@
       "household": "hh_andrews_william",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "family": "D1",
       "persons": 2,
       "seed": "46860ab4466d"
@@ -2268,7 +2295,7 @@
       "household": "hh_waters_asury",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_south_water_franklin_d2_05",
+      "place": "recon_1835_blk_randolph_market_d2_09",
       "family": "D2",
       "persons": 2,
       "seed": "6bfe13d6d8db"
@@ -2277,7 +2304,7 @@
       "household": "hh_scarrett_isaac",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_randolph_market_d2_09",
+      "place": "recon_1835_blk_randolph_dearborn_d2_05",
       "family": "D2",
       "persons": 2,
       "seed": "6f7faf33bbf3"
@@ -2286,7 +2313,7 @@
       "household": "hh_vardon_george",
       "division": "south",
       "rung": "family",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
       "family": "D1",
       "persons": 2,
       "seed": "e0cf51a9e343"

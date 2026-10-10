@@ -12068,6 +12068,12 @@
       "asset": "gltf/recon_1835_blk_school_section_tier_81_d6_06__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_school_section_tier_82_d1_05",
+      "name": "Reconstructed D1 older log dwelling #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_82_d1_05.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_82_d1_05__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_school_section_tier_82_d2_01",
       "name": "Reconstructed D2 rough plank dwelling or shanty #01",
       "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_82_d2_01.json",
@@ -12090,6 +12096,12 @@
       "name": "Reconstructed D5 deep-plan frame cottage #02",
       "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_82_d5_02.json",
       "asset": "gltf/recon_1835_blk_school_section_tier_82_d5_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_82_h1_06",
+      "name": "Reconstructed H1 larger one-and-a-half-story house #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_82_h1_06.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_82_h1_06__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_school_section_tier_94_d3_05",
