@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1617, ts: '2026-10-10T04:33:21.391Z', date: 'Oct 9, 2026, 11:33 PM CT', title: '65 more households are given a house beyond the platted town', kind: 'fix',
+    items: [
+      'Outside the platted town, in the North and West Divisions, 69 houses had been given to households known only from the post office’s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address. The houses on the plat already followed that ruling, and now these do too.',
+      'Those houses go to the next households in line for them. In People, 65 more household cards now show “Go to the roof the policy deals it, off the plat”, and the 69 letter-list cards no longer show it. The houses’ cards list the new households.',
+      'The 30 households already housed there keep a house, though 28 of them are now in a different one. In the West, a farm household is only given a cabin with a barn beside it, so four West cabins stand empty, and each says why.',
+    ] },
   { v: 1616, ts: '2026-10-10T04:17:20.363Z', date: 'Oct 9, 2026, 11:17 PM CT', title: 'The housing and deal tools read each household’s dated places', kind: 'change',
     items: [
       'Nothing you can see changes. The tools that house the present, re-family the order book, seat street faces, replace invented names and spend the trade and premises research now take a household’s home and workplace from the dated places on its card.',
