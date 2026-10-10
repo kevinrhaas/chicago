@@ -6910,6 +6910,119 @@
         }
       ],
       "arrangement_note": "A BOARDING HOUSE BESIDE THE WEDGE'S HOUSE ON LAKE STREET (T-2196, of T-1957). The South owed two large boarding houses that no open block could hold: every one of the 26 open South blocks keeps one free lot and holds one roof per lot otherwise, and only a documented store shares a lot. The owner ruled on 2026-10-09 that lot 7 of the Market wedge, where T-2238 stood a D5, becomes a two-unit party-line row, for this block only. So one H3 stands party-walled to the D5's east side on the Lake Street face, and the second H3 stays owed in the gated balance beyond committed street control until the S9 street work lands. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a boarding house stood here in 1835, that it shared a wall with its neighbour, its size and its keeper. The wedge's lots are themselves reconstructed (L409), and this is an anonymous count-unit toward the schedule's documented aggregate of boarding houses."
+    },
+    {
+      "block_id": "blk_school_section_tier_82",
+      "district": "south",
+      "programme_phase": "phase3_platted_block_school_section_tier_82",
+      "claimed": "2026-10-10",
+      "bounded_by": {
+        "north": "monroe",
+        "south": "adams",
+        "west": "market_school_section",
+        "east": "school_section_line_8"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 10,
+        "standing_roofs": 0,
+        "free_lots": 8,
+        "headroom": 9,
+        "dealt_roofs": 4,
+        "dealt_principal": 4,
+        "dealt_ancillary": 0,
+        "principal": 4,
+        "ancillary": 0
+      },
+      "families": {
+        "D5": 1,
+        "D4": 2,
+        "D2": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-2254",
+        "parent": "T-2247",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_vieaux_susanne",
+            "family": "D2",
+            "order_book_draw": "blk_school_section_tier_82 / D2 / south"
+          },
+          {
+            "seat": "hh_merrill_george_w",
+            "family": "D5",
+            "order_book_draw": "blk_school_section_tier_82 / D5 / south"
+          },
+          {
+            "seat": "hh_merill_isaac",
+            "family": "D4",
+            "order_book_draw": "blk_school_section_tier_82 / D4 / south"
+          },
+          {
+            "seat": "hh_meleney_patrick",
+            "family": "D4",
+            "order_book_draw": "blk_school_section_tier_82 / D4 / south"
+          }
+        ],
+        "why": "THE SEATING ASKS FOR FOUR ROOFS ON THIS BLOCK, AND THEY ARE THE FOUR BUILT HERE. T-2252 cut the School Section's Monroe-Adams tier into the October 1833 register's lots on the owner's ruling (b) of T-2247 (cross Monroe), and T-2253 joined the tier to the plat and dealt the South's six gated roofs to this block: two D2, two D4, a D5 and an H3, one roof to a lot with a lot kept open (data/reconstruction/1835_665_roof_programme.json). At the seating's fixpoint on that tree four `slot` requests stand on the block with no structure under them: a D2 on lot 2 (hh_vieaux_susanne, labourer_dwellings), a D5 on lot 3 (hh_merrill_george_w), a D4 on lot 4 (hh_merill_isaac) and a D4 on lot 5 (hh_meleney_patrick), the last three tradesman_dwellings. THE SECOND D2 AND THE H3 ARE NOT BUILT HERE. `1835_platted_seats.json` lists both under `plan_left_unclaimed`: no banded South row is admitted by a clause that takes them, so a roof raised for either would stand empty with nobody the deal could seat under it, and the H3 is a boarding house whose beds move the lodging model `seat_lodgers_1835.py` freezes (the reason T-2146 and T-2147 left blocks 95's and 81's H3 to T-1957). Lot 1, the Adams-and-Market corner, and lots 6 and 7, the east corners, stay free for them."
+      },
+      "open_lots": [
+        {
+          "lot": 0,
+          "why": "The Monroe-and-Market corner, the block's reserved open lot, as block 81's entry keeps its Madison-and-Market corner: the schedule's sizing (T-1623) counts principal room over the free lots less one so that a block is never dealt out of its open lot, and `1835_platted_seats.json` names no request on it."
+        },
+        {
+          "lot": 1,
+          "why": "The Adams-and-Market corner, left open for the schedule's unclaimed balance on this block: the schedule deals the block a second D2 and an H3 that `1835_platted_seats.json` lists under `plan_left_unclaimed` (no banded South row is admitted by a clause that takes them), so no house is raised here for nobody, and the H3's beds would move the lodging model `seat_lodgers_1835.py` freezes."
+        },
+        {
+          "lot": 6,
+          "why": "The east Monroe corner, left open for the same reason as lot 1: the schedule deals the block a second D2 and an H3 that `1835_platted_seats.json` lists under `plan_left_unclaimed` (no banded South row is admitted by a clause that takes them), so no house is raised here for nobody, and the H3's beds would move the lodging model `seat_lodgers_1835.py` freezes."
+        },
+        {
+          "lot": 7,
+          "why": "The east Adams corner, left open for the same reason as lot 1: the schedule deals the block a second D2 and an H3 that `1835_platted_seats.json` lists under `plan_left_unclaimed` (no banded South row is admitted by a clause that takes them), so no house is raised here for nobody, and the H3's beds would move the lodging model `seat_lodgers_1835.py` freezes."
+        }
+      ],
+      "slots": [
+        {
+          "family": "D2",
+          "inventory_class": "principal_functional",
+          "lot": 2,
+          "stands_on": "street",
+          "fronts": "monroe",
+          "setback_m": 4.5,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "D5",
+          "inventory_class": "principal_functional",
+          "lot": 3,
+          "stands_on": "street",
+          "fronts": "adams",
+          "setback_m": 5.0,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "D4",
+          "inventory_class": "principal_functional",
+          "lot": 4,
+          "stands_on": "street",
+          "fronts": "monroe",
+          "setback_m": 5.0,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "D4",
+          "inventory_class": "principal_functional",
+          "lot": 5,
+          "stands_on": "street",
+          "fronts": "adams",
+          "setback_m": 5.0,
+          "lateral_m": 1.5
+        }
+      ],
+      "arrangement_note": "THE FIRST HOUSES SOUTH OF MONROE ON MARKET: THE SCHOOL SECTION TIER'S MONROE-ADAMS MARKET BLOCK BUILT TO THE FOUR DWELLINGS THE SEATING ASKS FOR (T-2254, piece 3 of T-2247). The owner ruled (T-2247, option b) that the South's gated balance crosses Monroe onto the School Section's Monroe-Adams tier, whose lots the state sold one by one in October 1833; T-2252 cut the tier into lots and T-2253 put its dry blocks on the grid at one principal roof per lot. This deal builds four houses on block 82, the tier's westernmost South block between Market and the section's eighth line, one tier south of block 81: on the Monroe face a small cottage (D2) on lot 2 and a tradesman's frame house (D4) on lot 4; on the Adams face a larger frame house (D5) on lot 3 and a D4 on lot 5, so the two faces mirror block 81's set-out across Monroe. Lot 0, the Monroe-and-Market corner, stays the block's reserved open lot; lot 1 and the two east corners stay free for the schedule's second D2 and its H3, which no household asks for. The schedule deals the block no yard roof. Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that these houses stood on this block in 1835 (the tier was sold, not shown built), where on the lot they sat and how far back; all four are anonymous count-units at the bottom tier toward the schedule's documented aggregate. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here."
     }
   ],
   "redealt": {
