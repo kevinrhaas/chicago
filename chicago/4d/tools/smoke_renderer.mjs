@@ -16203,10 +16203,13 @@ for (const [label, viewport, touch] of [
         // scene places exactly one structure, and it is glessner_house. T-2266 added the
         // second 1904 record, the K01 frontage at 1808 Prairie, so the set is held by name
         // still: these two and nothing else. T-2306 added the third, the K13 conservatory bay
-        // on the Pullman house's east wing at 1729 Prairie.
+        // on the Pullman house's east wing at 1729 Prairie. T-2323 added the fourth, the K16
+        // timber front of the Shortall-Gregory house at 1638 Prairie (#668) — merged while
+        // every bake leg died ENOENT above this line, so nothing read the list (T-2331).
         const stray = Object.entries(at.drawn).filter(([name, n]) => n > 0 && name !== 'structures');
-        const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory'];
-        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306)`,
+        const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
+          'shortall_gregory_house_1638_prairie_front'];
+        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify(PLACED_1904),
           `meshes: ${JSON.stringify(at.drawn)}; structures placed ${JSON.stringify(at.placed)}`);
