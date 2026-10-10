@@ -127,7 +127,7 @@ from family_bands import (cargo_door_bays, dimensions_m, eave_floor,  # noqa: E4
                           eave_for_ridge, eave_limits, families, pitch_deg,
                           stable_fraction, storeys, wall_height_m)
 from ridge_model import ridge_run_m  # noqa: E402
-from roof_form import fronts_gable, note_refusal, roof_kind  # noqa: E402
+from roof_form import fronts_gable, note_refusal, open_sides_for, roof_kind  # noqa: E402
 from house_front import bays_for, mapping_note, plan_for  # noqa: E402
 import fabric_rule_1835  # noqa: E402  (T-1816: the finish says whose house it is)
 
@@ -346,7 +346,7 @@ FUNCTIONS = {
     "W1": "blacksmith_shop", "W2": "carpenter_or_joiner_shop",
     "W3": "cooper_wagon_or_wheelwright_shop", "W4": "small_artisan_shop",
     "F1": "freight_or_storage_shed", "F2": "narrow_two_story_warehouse",
-    "F3": "large_river_warehouse",
+    "F3": "large_river_warehouse", "F4": "lumber_shed",
     "A1": "stable", "A2": "barn_or_carriage_shed", "A3": "privy",
     "A4": "woodshed_or_storage_shed", "A5": "small_utility_building",
 }
@@ -377,6 +377,7 @@ LABELS = {
     "W4": "small artisan shop",
     "F1": "freight or storage shed",
     "F2": "narrow two-story warehouse",
+    "F4": "lumber shed",
     "A1": "stable",
     "A2": "barn or carriage shed",
     "A3": "privy",
@@ -410,6 +411,11 @@ def door_kind(family: str) -> str:
     # of its own band. `cargo` is 2.20 x 2.35 m and takes the floor to 2.43 m.
     if family == "F1":
         return "cargo"
+    # F4 IS POSTS AND A ROOF ON ITS OPEN SIDE (T-2269): the crosswalk's construction is
+    # "open posts with slab boards", and boards go in and out where there is no wall.
+    # A door cut into one of the boarded sides would be a second way in nobody asked for.
+    if family == "F4":
+        return "none"
     if family in ("W1", "W3", "A2"):
         return "wagon"
     if family in ("W2", "A1"):
@@ -760,7 +766,7 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
             result["porch"] = invented("stoop", why)
         return result
 
-    if family.startswith(("C", "F")) and family != "F1":
+    if family.startswith(("C", "F")) and family not in ("F1", "F4"):
         cargo_bays = cargo_door_bays(family, spec["band_ft"])
         result = {
             "stories": invented(levels, why), "wall_height_m": invented(wall, why),
@@ -830,7 +836,7 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
                 bays, shop_bays_note(family, spec, width, bays))
         return result
 
-    if not family.startswith(("A", "W")) and family != "D2" and family != "F1":
+    if not family.startswith(("A", "W")) and family not in ("D2", "F1", "F4"):
         raise SystemExit(f"{family} has no form rule in this generator; add one before "
                          f"a recipe uses it")
 
@@ -848,6 +854,11 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
         **({"chimneys": invented(chimneys_for(family), why)}
            if chimneys_for(family) else {}),
         "board_gap_m": invented(.012, why), "paint": invented(paint, why),
+        # T-2269. The open side is the family's own (`roof_form.open_sides_for`, read
+        # off the crosswalk's "1/open" and "open posts"), so the shed falls the way the
+        # ridge sweep already priced it. Only F4 has one; nothing else is rewritten.
+        **({"open_sides": invented(list(open_sides_for(family)), why)}
+           if open_sides_for(family) else {}),
     }
 
 

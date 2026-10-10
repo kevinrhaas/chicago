@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1611, ts: '2026-10-10T03:18:31.813Z', date: 'Oct 9, 2026, 10:18 PM CT', title: 'A lumber shed on the South Branch below Washington Street', kind: 'feature',
+    items: [
+      'Walk down Market Street south of Washington and look toward the river. A long plank shed now stands on the bank, open along one side, facing the South Branch. It is the town\u2019s first lumber shed.',
+      'The Chicago Democrat shows lumber reaching Chicago by boat, from St. Joseph\u2019s sawmills and a yard on South Water Street. So the shed stands where boards would come off a schooner.',
+      'No source places this shed or names its owner. It is a reconstruction, and its card says so. It is not David Carver\u2019s yard, which the paper puts on South Water Street.',
+    ] },
   { v: 1610, ts: '2026-10-10T03:02:42.351Z', date: 'Oct 9, 2026, 10:02 PM CT', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
     items: [
       'Nothing you can see changes. Where a household\u2019s dated home was copied from the old single home line, it now also carries that line\u2019s own reasoning and what would replace it, so the seat a card shows no longer depends on the old line.',
