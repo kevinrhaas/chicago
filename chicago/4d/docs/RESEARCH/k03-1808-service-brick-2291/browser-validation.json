@@ -1,0 +1,585 @@
+{
+  "method": "Actual published /1904/ app, normal boot; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 12 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "load_ms_to_ready": 21484,
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "data/gltf/glessner_house__as_built_1887.glb",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "url": "data/gltf/keith_house_1808_prairie__as_built_1886.glb",
+          "status": 200,
+          "bytes": 0
+        }
+      ],
+      "stands": [
+        {
+          "name": "street-and-return",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 65,
+            "triangles": 2492728,
+            "programs": 33,
+            "geometries": 45,
+            "textures": 126,
+            "batches": 22,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 52716096,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 6390.7,
+          "camera": [
+            1408.06,
+            -3259.03,
+            6.05
+          ],
+          "target": [
+            1383.92,
+            -3247.31,
+            10.35
+          ]
+        },
+        {
+          "name": "south-wall",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 66,
+            "triangles": 2497716,
+            "programs": 33,
+            "geometries": 47,
+            "textures": 130,
+            "batches": 22,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 52716096,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 6676.3,
+          "camera": [
+            1379.06,
+            -3259.37,
+            6.05
+          ],
+          "target": [
+            1378.96,
+            -3250.37,
+            9.35
+          ]
+        },
+        {
+          "name": "rear-and-quoin",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 68,
+            "triangles": 2504269,
+            "programs": 33,
+            "geometries": 51,
+            "textures": 138,
+            "batches": 22,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 52716096,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 4846.6,
+          "camera": [
+            1358.04,
+            -3257.62,
+            6.05
+          ],
+          "target": [
+            1369.92,
+            -3247.48,
+            9.85
+          ]
+        },
+        {
+          "name": "quoin-close",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 68,
+            "triangles": 2503480,
+            "programs": 33,
+            "geometries": 51,
+            "textures": 138,
+            "batches": 22,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 52716096,
+            "fps": 0,
+            "cameraNear": 0.2,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 5667.2,
+          "camera": [
+            1366.8,
+            -3253.71,
+            8.95
+          ],
+          "target": [
+            1369.96,
+            -3250.48,
+            9.35
+          ]
+        },
+        {
+          "name": "eave-heads",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 66,
+            "triangles": 2499808,
+            "programs": 33,
+            "geometries": 51,
+            "textures": 138,
+            "batches": 22,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 52716096,
+            "fps": 0,
+            "cameraNear": 0.35000000000000003,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 3461,
+          "camera": [
+            1375.02,
+            -3255.42,
+            12.95
+          ],
+          "target": [
+            1376.96,
+            -3250.39,
+            15.35
+          ]
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "load_ms_to_ready": 9624,
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "data/gltf/glessner_house__as_built_1887.light.glb",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "url": "data/gltf/keith_house_1808_prairie__as_built_1886.glb",
+          "status": 200,
+          "bytes": 0
+        }
+      ],
+      "stands": [
+        {
+          "name": "street-and-return",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 63,
+            "triangles": 460008,
+            "programs": 21,
+            "geometries": 51,
+            "textures": 138,
+            "batches": 22,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 27783652,
+            "fps": 2,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1144,
+          "camera": [
+            1408.06,
+            -3259.03,
+            6.05
+          ],
+          "target": [
+            1383.92,
+            -3247.31,
+            10.35
+          ]
+        },
+        {
+          "name": "south-wall",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 62,
+            "triangles": 460598,
+            "programs": 21,
+            "geometries": 51,
+            "textures": 138,
+            "batches": 22,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 27783652,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1143.3,
+          "camera": [
+            1379.06,
+            -3259.37,
+            6.05
+          ],
+          "target": [
+            1378.96,
+            -3250.37,
+            9.35
+          ]
+        },
+        {
+          "name": "rear-and-quoin",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 62,
+            "triangles": 460910,
+            "programs": 21,
+            "geometries": 52,
+            "textures": 140,
+            "batches": 22,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 27783652,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 954.6,
+          "camera": [
+            1358.04,
+            -3257.62,
+            6.05
+          ],
+          "target": [
+            1369.92,
+            -3247.48,
+            9.85
+          ]
+        },
+        {
+          "name": "quoin-close",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 62,
+            "triangles": 461666,
+            "programs": 21,
+            "geometries": 52,
+            "textures": 140,
+            "batches": 22,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 27783652,
+            "fps": 0,
+            "cameraNear": 0.2,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1180,
+          "camera": [
+            1366.8,
+            -3253.71,
+            8.95
+          ],
+          "target": [
+            1369.96,
+            -3250.48,
+            9.35
+          ]
+        },
+        {
+          "name": "eave-heads",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 62,
+            "triangles": 461316,
+            "programs": 21,
+            "geometries": 52,
+            "textures": 140,
+            "batches": 22,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 27783652,
+            "fps": 0,
+            "cameraNear": 0.35000000000000003,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1288.1,
+          "camera": [
+            1375.02,
+            -3255.42,
+            12.95
+          ],
+          "target": [
+            1376.96,
+            -3250.39,
+            15.35
+          ]
+        }
+      ]
+    }
+  ]
+}
