@@ -507,6 +507,22 @@ step "the K05 roof kit builds every roof as one closed, uncrossed solid with its
 selftest "…and a hole, an inward face, a doubled face, a roof through its gable, a floating return or a low parapet still fails it" \
   python3 tools/check_roof_kit.py --self-test
 
+# T-2305. ...and what the 1904 conservatories are. The K13 kit's houses are sized in
+# data/components/prairie_1904/k13_conservatories.json and built by
+# generators/archetypes/k13_conservatories.py. This rebuilds every house and measures
+# the geometry: every primary prouder and wider than every plate and every plate than
+# every glazing bar, panes inside the glass range with the bars dividing each run evenly,
+# the glass one convex single-sided envelope (one transparency per line of sight), no
+# glass below the plinth's coping, every eave to a K04 gutter and every pipe to grade
+# clear of the coping, the planting opaque, clear of the glass and below the eave, the
+# curvilinear roof on its curve, no doubled face, the triangle budget, and the specimen
+# GLB the generator's bytes.
+step "the K13 conservatory kit builds every glasshouse as a three-tier frame over one convex single-sided envelope, every eave to grade (T-2305)" \
+  python3 tools/check_conservatory_kit.py --check
+
+selftest "…and bars as heavy as plates, a transparent lantern, an inward pane, a gutterless eave, a short pipe or a plant scene still fails it" \
+  python3 tools/check_conservatory_kit.py --self-test
+
 # T-2307. ...and what the 1904 bays, oriels and towers are. The K08 kit's plans, supports,
 # bands, eaves and roofs are sized in data/components/prairie_1904/k08_bays.json and built
 # by generators/archetypes/k08_bays.py, its windows from K06. This rebuilds every variant at
