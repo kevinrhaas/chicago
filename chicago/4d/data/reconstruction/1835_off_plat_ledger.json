@@ -51,7 +51,7 @@
   },
   "may_raise_a_slot": 5,
   "carrying_a_roof": 33,
-  "principal_roofs_standing": 166,
+  "principal_roofs_standing": 168,
   "ground_m2": 7257850.1
  },
  "what_the_roof_programme_does_not_carry": {
@@ -5428,6 +5428,8 @@
     "recon_1835_canal_trade_w2_004",
     "recon_1835_north_d4_017",
     "recon_1835_south_a3_041",
+    "recon_1835_south_branch_freight_f3_001",
+    "recon_1835_south_branch_freight_f3_002",
     "recon_1835_west_001",
     "recon_1835_west_002",
     "recon_1835_west_003",
@@ -5494,6 +5496,8 @@
     "recon_1835_canal_trade_w2_004": "W2",
     "recon_1835_north_d4_017": "D4",
     "recon_1835_south_a3_041": "A3",
+    "recon_1835_south_branch_freight_f3_001": "F3",
+    "recon_1835_south_branch_freight_f3_002": "F3",
     "recon_1835_west_001": "D1",
     "recon_1835_west_002": "D3",
     "recon_1835_west_003": "D4",
@@ -5526,7 +5530,7 @@
     "wolf_point_tavern_stable": "A1",
     "wolf_point_trading_camp": null
    },
-   "principal_roofs_standing": 47
+   "principal_roofs_standing": 49
   },
   {
    "parcel_id": "wabansia",

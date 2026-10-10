@@ -85,10 +85,10 @@
    "south": 660,
    "west": 213
   },
-  "roofs_offered_for_adoption": 107,
+  "roofs_offered_for_adoption": 109,
   "roofs_held_back": 17,
   "roofs_standing_on_no_committed_parcel": 4,
-  "roofs_offered_and_unspent": 8
+  "roofs_offered_and_unspent": 10
  },
  "what_this_ground_could_not_hold": {
   "rows": 1110,
@@ -98,6 +98,7 @@
  "the_south_division_has_no_off_plat_roof": {
   "free_roofs_off_the_plat": {
    "north": 77,
+   "south": 2,
    "west": 30
   },
   "rows_owed_by_district": {
@@ -325,6 +326,20 @@
    "family": "W3",
    "district": "north",
    "parcel_id": "canal_section_9_remainder",
+   "why": "no clause of the placement policy that any handed-on band names admits this roof's family, so no household in scope could be seated under it"
+  },
+  {
+   "structure_id": "recon_1835_south_branch_freight_f3_001",
+   "family": "F3",
+   "district": "south",
+   "parcel_id": "canal_commissioners_1830",
+   "why": "no clause of the placement policy that any handed-on band names admits this roof's family, so no household in scope could be seated under it"
+  },
+  {
+   "structure_id": "recon_1835_south_branch_freight_f3_002",
+   "family": "F3",
+   "district": "south",
+   "parcel_id": "canal_commissioners_1830",
    "why": "no clause of the placement policy that any handed-on band names admits this roof's family, so no household in scope could be seated under it"
   },
   {
