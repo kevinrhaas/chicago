@@ -1,3 +1,22 @@
+## T-2302 — the 1808 Prairie roof rebuilt from the K05 kit, with two chimneys (2026-10-10)
+
+**Visible.** In the 1904 scene, 1808 Prairie's roof is one closed solid built by the K05 kit
+(T-2301), not four planes with a dormer laid over them. The dormer now has its own eave box and
+verge, and its cheeks and valleys are cut where the roofs actually meet. Two reconstructed brick
+chimneys with stone caps rise through the ridge, and the union cuts their penetrations closed.
+
+- **Gate.** `tools/check_roof_kit.py --check` now builds the house as well as the kit. The roof is
+  closed, one shell, with 0 doubled faces, 0 crossings and 0 hidden faces. K04 caps every ridge and
+  hip and flashes both valleys from the graph. A self-test lays the roof without the union, and the
+  crossing rule refuses it.
+- **Costs.** 11,351 → 11,658 triangles, still 17 primitives, web tier 923 → 925 KB, every K01
+  verdict ok. In the published app, 0 page errors at 1280×800 full and 390×780 light, and every
+  stand is within budget (`docs/RESEARCH/k05-1808-roof-2302/README.md`).
+- **Not done, said.** K04's 50 mm slate lip past the fascia is gone on the closed solid. The
+  stacks have no flues, pots or flashing (K10, T-1857). Liberty: L-k05-1808-roof-2302.
+- **Stacked on #631 (T-2293).** This branch carries K04's roof, so it lands after #631, and #631
+  waits on T-2311 (the Glessner light-tier bake check).
+
 ## T-2293 — the first K04 roof: slate, copper and rainwater goods at 1808 Prairie (2026-10-10)
 
 **Visible.** In the 1904 scene the 1808 Prairie house beside Glessner's is now roofed from the K04

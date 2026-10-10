@@ -115,7 +115,7 @@
     "roof_form": {
       "value": "hip",
       "confidence": "reconstructed",
-      "note": "A hip roof, the contract's k01.roof.hip. The register's pierced stone parapet is T-1882's to build; behind it a pitched roof is the reconstruction's simplest honest cover."
+      "note": "A hip roof, the contract's k01.roof.hip. The register's pierced stone parapet is T-1882's to build; behind it a pitched roof is the reconstruction's simplest honest cover. Since T-2302 it is built from the K05 roof kit (data/components/prairie_1904/k05_roofs.json): the hip, the dormer and the chimney stacks are closed solids joined by a boolean union, so no plane crosses another (docs/LIBERTIES.md L-k05-1808-roof-2302)."
     },
     "roof_pitch_deg": {
       "value": 45,
@@ -229,6 +229,29 @@
       },
       "confidence": "reconstructed",
       "note": "One gabled dormer on the street hip, centred over the front, its face 0.30 m behind the wall line: the K04 package's dormer apron, valleys and step flashing need a dormer to dress, and a front dormer lighting the attic is the commonest Prairie Avenue form. The 1888 plate the register reads shows a pierced parapet, not this; the parapet is T-1882's, and this dormer is a reconstruction it replaces. Its sash is the contract's smallest opening (0.85 x 1.5 m)."
+    },
+    "chimneys": {
+      "value": {
+        "plan_m": [
+          0.9,
+          0.75
+        ],
+        "top_above_ridge_m": 0.9,
+        "cap_proud_m": 0.05,
+        "cap_depth_m": 0.15,
+        "stacks": [
+          {
+            "u_m": 6.6,
+            "v_m": 5.2
+          },
+          {
+            "u_m": 11.4,
+            "v_m": 5.2
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "T-2302: two brick stacks on the ridge, each standing on a reconstructed spine wall between the front and back rooms and carried 0.9 m above the ridge under a stone cap that oversails 50 mm. No source reads this house's chimneys; a brick house of 1886 with fireplaces in its principal rooms had them, and a stack on the ridge needs no back gutter. They are joined into the K05 roof solid, so each penetration is cut where stack and slate meet. Flues, pots and their flashing are K10's (T-1857); docs/LIBERTIES.md L-k05-1808-roof-2302."
     },
     "rainwater": {
       "value": {

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 455,
+  "count": 457,
   "liberties": [
     {
       "id": "L1",
@@ -28451,6 +28451,62 @@
       ]
     },
     {
+      "id": "L-k04-1808-roof-2293",
+      "title": "The 1808 Prairie roof: slate, copper, a front dormer and the rainwater goods, all reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.dormer"
+        },
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.roof_covering"
+        }
+      ],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Roof the 1808 Prairie K01 frontage (L-k01-1808-frontage-2266) from the K04 library (L-k04-roof-library-2292): dark Pennsylvania slate on all four hip planes, its courses registered at the eave and running 50 mm past the fascia on a doubled starter course; a copper roll on each hip and the ridge with its flanges dressed over the top courses; one gabled dormer centred on the street hip, its face of dressed stone 0.30 m behind the wall line with a 0.85 x 1.5 m sash, slated cheeks and roof, bargeboards, a copper ridge roll, an open copper valley at each cheek that widens downhill, a copper apron and step flashing; a 5 in half-round copper gutter on wrought-iron brackets at 30 in round the whole eave, falling 0.5% to five outlets, each with a swan neck under the soffit, a 3.5 in round copper downpipe strapped every 1.8 m and a shoe kicked out over a splash stone at grade. The roof is now 45 degrees, not 40, and the eave 0.38 m, not 0.45. **What is invented.** All of it. No source here reads this house's roof, dormer, gutters or pipes. The covering is the K04 default for a steep main roof, which reads the study's building register (slate on every steep main roof whose covering it names), not a source record. The dormer exists because the K04 package's apron, valleys and step flashing need one to dress and a front attic dormer is the commonest Prairie Avenue form; its size, setback, pitch and sash are ours. The pitch moved to 45 degrees so the library's slate, cut for a 3 in headlap, is laid where the K04 profile allows that lap (a 25-45 degree roof asks 4 in) rather than having its courses stretched; the eave came in so the soffit stays clear of the top storey's lintels at that pitch. The pipes stand by the corners of the front and rear and halfway along the south passage wall, clear of every opening. **Where it departs from its own profile.** None of the pipes stands on the north wall, which closes the Glessner court 0.02 m off its face, so the north gutter runs 20.5 m between its two corner outlets, over the profile's 12 m; it falls both ways from its middle, so no point of it is more than 10.3 m from an outlet. The step flashing is drawn as one strip a cheek, not one piece a course."
+        },
+        {
+          "label": "How to resolve",
+          "text": "T-1882 and T-1883 build the actual Keith/Field front from the 1888 Inland Architect plate, whose pierced parapet replaces this dormer and may hide a different roof; a photograph of the house's roof or rainwater goods replaces the covering, the caps and the pipes."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.roof_covering`, `keith_house_1808_prairie.as_built_1886.form.dormer`, `keith_house_1808_prairie.as_built_1886.form.rainwater`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2293 (piece 2 of T-1846, K04)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k04-1808-roof-2293/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2293)."
+        }
+      ]
+    },
+    {
       "id": "L-k02-stone-library-2288",
       "title": "The 1904 stone library: how six building stones look, and the joints and edges they are laid with",
       "section": "per_subject",
@@ -28578,6 +28634,50 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2301)."
+        }
+      ]
+    },
+    {
+      "id": "L-k05-1808-roof-2302",
+      "title": "The 1808 Prairie roof rebuilt from the K05 kit, with two reconstructed chimney stacks",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.chimneys"
+        }
+      ],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1808 Prairie exemplar's roof (T-2302) is no longer a set of loose planes. The hip, the street dormer and two chimney stacks are each a closed element from `generators/archetypes/k05_roofs.py`, joined by the kit's boolean union, and the dormer's sash recess is cut out of the result, so every valley, cheek, stack and reveal is cut where the surfaces meet. The K04 caps and flashings are laid on the roof graph read off that surface. **What is invented.** The two stacks: their number, their place on the ridge (6.6 m and 11.4 m from the rear wall, on a reconstructed spine wall between the front and back rooms), their 0.90 × 0.75 m plan, their 0.9 m rise above the ridge and their stone caps oversailing 50 mm. The dormer's eave box (0.15 m overhang, 0.12 m fascia) is the kit's working size, and its eaves now oversail its cheeks, as the kit builds every dormer. Everything L-k04-1808-roof-2293 and L-k05-roof-kit-2301 record is unchanged. **What is not.** Nothing here is attested. No source reads this house's roof or its chimneys; a brick house of 1886 heated its principal rooms with fireplaces, which is why it has stacks at all. **Given up, said.** K04 carried the slates 50 mm past the fascia with a cut edge under them. On a closed solid the covering ends at the fascia's face, so that lip is gone until K04 lays it as a part on the eave line. The stacks have no flues, pots or flashing; those are K10's (T-1857)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of the house gives its chimneys' number, place and height, and the record takes them. The pierced parapet the 1888 plate shows is still T-1882's to build."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.chimneys`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2302 (piece 2 of T-1847, K05)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k05-1808-roof-2302/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2302)."
         }
       ]
     },
