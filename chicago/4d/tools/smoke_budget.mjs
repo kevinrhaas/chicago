@@ -425,6 +425,13 @@ const COVERAGE = [
   ['generators/archetypes/k13_conservatories.py', NONE, 'the K13 conservatory kit generator — imported by no scene build yet: check_conservatory_kit.py --check'],
   ['docs/RESEARCH/k13-conservatory-kit/', NONE, 'the K13 conservatory kit specimen and study — unpublished: check_conservatory_kit.py --check'],
   ['tools/study_k13_conservatories.mjs', NONE, 'the K13 study renderer — run by hand, by no gate'],
+  // T-2322. The K16 timber kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2323 clads 1638 Prairie from it, so no part draws
+  // it; tools/check_timber_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k16_timber.json', NONE, 'the K16 timber kit data — built into no scene yet: check_timber_kit.py --check'],
+  ['generators/archetypes/k16_timber.py', NONE, 'the K16 timber kit generator — imported by no scene build yet: check_timber_kit.py --check'],
+  ['docs/RESEARCH/k16-timber-kit/', NONE, 'the K16 timber kit specimen and study — unpublished: check_timber_kit.py --check'],
+  ['tools/study_k16_timber.mjs', NONE, 'the K16 study renderer — run by hand, by no gate'],
   // T-2307. The K08 bay kit is built into a specimen GLB under docs/ that nothing publishes
   // and no scene loads until T-2308 builds a bay on a house from it, so no part draws it;
   // tools/check_bay_kit.py gates the data, the generator and the specimen.

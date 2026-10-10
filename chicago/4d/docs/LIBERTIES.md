@@ -23801,6 +23801,49 @@ profiles then lay it.
 **Review:** `docs/RESEARCH/k02-1808-stone-2289/README.md`.
 **Recorded:** 2026-10-10 (T-2289).
 
+### L-k16-timber-kit-2322 — The Prairie timber kit: every clapboard, batten, shingle, trim board, bargeboard and porch part reconstructed
+
+**Decision:** the 1904 Prairie programme's frame cladding and exterior timber (package K16,
+T-2322) are four parametric samples built by `generators/archetypes/k16_timber.py` from
+`data/components/prairie_1904/k16_timber.json`: a clapboard wall over a water table with an outside
+corner, its pair of corner boards and a short return, one cased window (the sash, glass, blind and
+room are K06's), a frieze, a boxed eave and scroll brackets; a board-and-batten panel; a steep
+Gothic gable with clapboard to a belt, square and fish-scale shingles inside rake boards, and
+pierced bargeboards meeting at a chamfered finial; and a porch bay with an oiled board floor nosing
+past its rim, a lattice skirt over a dark crawl space, a chamfered post with scroll brackets under
+the plate and a varnished beaded ceiling. Every clapboard course is its own lapped board resting on
+the course below with a shadow line at its butt; every batten covers a joint; every piercing is cut
+through the board. None is a texture.
+**What is invented.** Every dimension and every shape: the 0.15 m frame wall; the clapboard's 4 1/2
+in exposure, 5/8 in butt, 3/16 in tip, 1 in lap, 12 ft boards and 4 ft joint step; the 10 in boards,
+1/2 in gaps and 2 1/2 in battens; the 6 in shingles laid 5 in to the weather, their fish-scale butt
+and the order of the bands; the 5/4 corner boards, the 8 in water table and its drip cap, the
+casing's widths, sill, apron, head and drip cap, the 0.40 m frieze, the 0.42 m boxed eave, the
+bracket's sweep and spacing; the 52 degree gable, the 0.30 m verge, the rake board, the bargeboard's
+depth and its roundel and vesica piercings, the finial; the porch floor's height, depth, boards and
+nosing, the lattice's laths and pitch, the post's section, chamfer and stops, the plate, the
+ceiling boards and beads. The bracket, the piercing pattern and the finial are newly designed for
+this kit and copy no named property. The colours (a pale buff body, cream trim, red-brown
+shingles, the porch floor and ceiling oiled and varnished) are a restrained 1870s-80s frame
+palette chosen to keep painted softwood, stained joinery and end grain apart, and the per-board
+paint wear is a seeded tone inside a 10 % range. The samples follow the study's asset catalog (K16:
+"clapboard and board-and-batten families, supported decorative shingles, corner boards, water
+tables, timber fascia/brackets, porch lattice and pierced Gothic woodwork") and the reconstruction
+rules' clapboard exposure and frame-wall ranges, which are the study's priors and not source
+records here.
+**What is not.** Nothing in the kit is attested, and no house is clad from it yet (T-2323 builds the
+first, the timber fabric of 1638 Shortall-Gregory's Gothic front, from that house's own evidence).
+The data's restrictions keep decorative shingles to gables, towers and dormers and pierced
+bargeboards to a Gothic or picturesque house.
+
+**How to resolve:** a house's own photograph, drawing or surviving fabric shows its board count,
+trim, bargeboard pattern or porch, and that house takes it in place of the kit's working parts; a
+period millwork or builder's catalogue replaces a part's sections and profiles for every house at
+once.
+**Ticket:** T-2322 (piece 1 of T-1858, K16).
+**Review:** `docs/RESEARCH/k16-timber-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2322).
+
 ### L417 — The portable-human pipeline's test figure, which is nobody
 
 **Decision:** `c4d_fixture`, the four-LOD body under `assets/humans/` (and its Meshopt derivatives in
