@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 1621, ts: '2026-10-10T05:10:39.889Z', date: 'Oct 10, 2026, 12:10 AM CT', title: 'Two families waiting for a house now count where they are needed', kind: 'fix',
+    items: [
+      'The reconstruction’s order book holds 23 families who were in town on 1 July 1835 but could not be housed without crowding more people into each house than the census counted. The book counts them towards the family houses each division is short of, so it does not order made-up families to replace them.',
+      'Each division got a share by size. The South needed only 10 of its 12, so 2 families counted towards nothing. They now count towards the North and West, which were short. The North now owes 1 family household and the West 9, down from 2 and 10. Those 10 have a ticket of their own.',
+    ] },
+  { v: 1620, ts: '2026-10-10T04:57:23.145Z', date: 'Oct 9, 2026, 11:57 PM CT', title: 'Business cards name the building a keeper worked in', kind: 'fix',
+    items: [
+      'Twelve business cards — among them Ira Couch\'s Tremont House, John Miller\'s tannery and the Indian Agency — explained where the trade was kept by quoting an internal field and raw building ids. They now name the keeper, the building and what kind of building it was, in plain words.',
+      'Every placement, grade and source is unchanged; only the sentence on the card is rewritten.',
+    ] },
   { v: 1619, ts: '2026-10-10T04:39:16.798Z', date: 'Oct 9, 2026, 11:39 PM CT', title: 'Every shop sign readable, in period lettering', kind: 'fix',
     items: [
       'Walk South Water Street to Franklin: Newberry & Dole’s warehouse now shows its whole sign. The firm’s name was hidden behind the warehouse’s own boards, and so was lettering on 13 other painted fronts and shop fascias across 1835. All of them now sit in front of the wall.',
