@@ -6760,18 +6760,10 @@ step "the person associations still re-derive, and are still on their cards" \
 selftest "…and its own refusals still fire when broken" \
   python3 tools/person_associations.py --self-test
 
-# T-1273. The home and workplace half of the same migration: every reconciliation row
-# that reaches a roof (`tools/location_reconciliation.py`) copied onto its household as an
-# `associated_with` row, with no value, confidence or source changed. The same two holds
-# as T-1405's: the report re-derives, and every copied row is still on its card byte for
-# byte — plus a third, because a household's `lives_at` CAN change under it: a copied
-# row that no longer derives is refused, so a moved home cannot leave its old roof
-# standing in the plural list where `singular_drift` would never look.
-step "the household home and workplace rows still re-derive, and are still on their cards" \
-  python3 tools/household_associations.py --check
-
-selftest "…and its own refusals still fire when broken" \
-  python3 tools/household_associations.py --self-test
+# T-1273 copied every home and workplace reconciliation row that reached a roof onto its
+# household as an `associated_with` row, and gated the copy here. T-2284 retired the
+# singular `lives_at`/`works_at` it copied FROM, so the copier went with it: the rows it
+# wrote are the record now, and validate.py refuses the pair on any household record.
 
 # T-1158. The per-attribute tier, and the three things that can go wrong with it.
 #

@@ -35,22 +35,6 @@
   ],
   "note": "He was a trader before he came, at Milwaukee, and bought a going concern here."
  },
- "lives_at": {
-  "value": "jb_beaubien_homestead",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "data/structures/jb_beaubien_homestead.json carries 'Col. Jean Baptiste Beaubien and his household' as occupants and grades it inferred, because Andreas says he built a NEW residence which is a different building and is not modelled. This household inherits that grade and that doubt exactly."
- },
- "works_at": {
-  "value": "jb_beaubien_homestead",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "A trading house is a dwelling and a shop; the building record's function is 'dwelling_and_trading_house'."
- },
  "associated_with": [
   {
    "kind": "home",

@@ -34,21 +34,6 @@
   ],
   "note": "He came with the goods, which is the merchant's version of coming with a contract."
  },
- "lives_at": {
-  "value": "peck_store",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "A merchant of this period lived over or behind his store, and this one demonstrably housed a lodger in its loft. Not stated of Peck himself."
- },
- "works_at": {
-  "value": "peck_store",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ]
- },
  "associated_with": [
   {
    "kind": "home",

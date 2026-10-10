@@ -1572,21 +1572,6 @@ def _house_card(place: dict, persons: list, seated: list) -> dict:
                     "that drew it. The programme's arrival stage owns this block.",
             "seated_by": "T-1169 (the arrival fill), T-1179 (converge)",
         },
-        "lives_at": {
-            "value": place["id"],
-            "confidence": RECONSTRUCTED,
-            "tier": RECONSTRUCTED,
-            "basis": {
-                "kind": "model",
-                "id": "1835_lodging_model",
-                "note": bed_note,
-            },
-            "seed": f"{STAGE}:{place['id']}:lives_at",
-            "replaceable_by": {
-                "kind": "person",
-                "match": "sources naming the people who lodged in this house in 1835",
-            },
-        },
         "no_workplace": {
             "value": None,
             "confidence": RECONSTRUCTED,
@@ -1594,9 +1579,10 @@ def _house_card(place: dict, persons: list, seated: list) -> dict:
             "note": "Not seated. A lodger's workplace is the business band's (T-1189) "
                     "and a keeper's premises is the house they are already in.",
         },
-        # T-2259: the bed again, as the row the scene compiler reads. Undated and
-        # sourceless because it is the lodging model's claim about an ordinary night,
-        # not a stay any source records.
+        # T-2259: the bed, as the row the scene compiler reads. Undated and sourceless
+        # because it is the lodging model's claim about an ordinary night, not a stay any
+        # source records. Since T-2284 it is the only place the bed is written, so it
+        # carries the model that seated it and what would replace it.
         "associated_with": [{
             "kind": "lodging",
             "place_or_structure_id": place["id"],
@@ -1607,6 +1593,15 @@ def _house_card(place: dict, persons: list, seated: list) -> dict:
             "tier": RECONSTRUCTED,
             "source_id": None,
             "note": bed_note,
+            "basis": {
+                "kind": "model",
+                "id": "1835_lodging_model",
+                "note": bed_note,
+            },
+            "replaceable_by": {
+                "kind": "person",
+                "match": "sources naming the people who lodged in this house in 1835",
+            },
         }],
         "present_on_scene_date": {
             "value": "present",

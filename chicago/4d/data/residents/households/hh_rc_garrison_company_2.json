@@ -65,21 +65,6 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
-  "value": "fort_dearborn_barracks",
-  "confidence": "reconstructed",
-  "tier": "reconstructed",
-  "basis": {
-   "kind": "rule",
-   "id": "the_barracks_is_the_building_this_dataset_holds_for_them",
-   "note": "SEATED IN THE BUILDING THIS DATASET HOLDS FOR THEM. `fort_dearborn_barracks` carries an `attested` function of `enlisted_mens_barracks` and an occupants block reading 'enlisted men of the 5th Infantry garrison'. Which men is what this stage supplies; the building was already theirs. No coordinate is invented — the roof exists in the record."
-  },
-  "replaceable_by": {
-   "kind": "household",
-   "match": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters"
-  },
-  "note": "SEATED IN THE BUILDING THIS DATASET HOLDS FOR THEM. `fort_dearborn_barracks` carries an `attested` function of `enlisted_mens_barracks` and an occupants block reading 'enlisted men of the 5th Infantry garrison'. Which men is what this stage supplies; the building was already theirs. No coordinate is invented — the roof exists in the record."
- },
  "no_workplace": {
   "value": null,
   "confidence": "reconstructed",

@@ -50,22 +50,6 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
-  "value": "brown_boarding_house",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "Phase one recorded both links as null with the reason 'NOT MODELLED, AND IT SHOULD BE'. The building now exists and both fields point at it. Linked by the inferred-household programme's building parcel (docs/ROADMAP.md K1, phase two); the building record carries the evidence."
- },
- "works_at": {
-  "value": "brown_boarding_house",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "Phase one recorded both links as null with the reason 'NOT MODELLED, AND IT SHOULD BE'. The building now exists and both fields point at it. Linked by the inferred-household programme's building parcel (docs/ROADMAP.md K1, phase two); the building record carries the evidence."
- },
  "associated_with": [
   {
    "kind": "home",

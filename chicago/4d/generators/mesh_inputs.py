@@ -82,6 +82,9 @@ class InputsError(ValueError):
 #: Blender, and that command (T-2266). Their input document hashes the archetype module
 #: and the command alone, and carries no Blender pin.
 PURE_PYTHON = {"k01_frontage": "k01_emit.py"}
+#: The library modules a pure-Python archetype lays on its walls (T-2291), and so hashes
+#: beside the archetype: K03 brick's bond, heads and string course move vertices too.
+PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py",)}
 
 
 def _sha_file(p: Path) -> str:
@@ -119,6 +122,7 @@ def _code_shas(archetype: str, params=None) -> dict[str, str]:
     # mesh — hashing them would stale it for edits that cannot move its vertices.
     if archetype in PURE_PYTHON:
         wanted = [gen / "archetypes" / f"{archetype}.py", gen / PURE_PYTHON[archetype]]
+        wanted += [gen / "archetypes" / h for h in PURE_PYTHON_HELPERS.get(archetype, ())]
         if archetype == "k01_frontage":
             wanted += [gen / "archetypes" / "k06_windows.py"]
     # T-1730: the high-detail Glessner build delegates to v4-only modules.
@@ -201,6 +205,9 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
     if arch in PURE_PYTHON:
         del doc["blender_pin"]
     if arch == "k01_frontage":
+        # T-2291: the K03 maps a K01 wall embeds are inputs, like Glessner v4's below
+        from archetypes import k03_brick
+        doc["textures"] = {p.relative_to(ROOT).as_posix(): _sha_file(p) for p in k03_brick.TEXTURE_FILES}
         # T-2298: the window kit's sizes are data the builder reads, like a texture
         kit = ROOT / "data" / "components" / "prairie_1904" / "k06_windows.json"
         doc["window_kit"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}

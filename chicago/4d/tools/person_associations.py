@@ -55,9 +55,9 @@ corridor in `data/streets/1835.json`, and the self-test holds that.
 
 THE ROWS GO ON PERSONS. The ticket's own scope is a person's other significant
 locations, and the household is the wrong record for them: an office, a parish
-act and a quarter-section are held by a man and not by a house. It is also what
-keeps `singular_drift` out of the way — `lives_at`/`works_at` are household
-fields, so a person's list cannot contradict a singular link it does not have.
+act and a quarter-section are held by a man and not by a house. It also kept the
+rows clear of the singular `lives_at`/`works_at` while that household pair stood
+(T-2284 retired it).
 
 WHAT IS PRESERVED. A record that already carries `associated_with` keeps every
 row it has: this module appends by the (kind, place, from) key `associations.py`

@@ -65,21 +65,6 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
-  "value": "fort_dearborn_sutlers_store",
-  "confidence": "reconstructed",
-  "tier": "reconstructed",
-  "basis": {
-   "kind": "rule",
-   "id": "the_sutler_lived_at_the_sutlers_store",
-   "note": "SEATED IN THE BUILDING WHOSE FUNCTION HE IS. `fort_dearborn_sutlers_store` carries an `attested` function of `sutlers_store` on Andreas and Wentworth. A sutler at a post lived at his store; the building exists in the record and no coordinate is invented."
-  },
-  "replaceable_by": {
-   "kind": "household",
-   "match": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters"
-  },
-  "note": "SEATED IN THE BUILDING WHOSE FUNCTION HE IS. `fort_dearborn_sutlers_store` carries an `attested` function of `sutlers_store` on Andreas and Wentworth. A sutler at a post lived at his store; the building exists in the record and no coordinate is invented."
- },
  "no_workplace": {
   "value": null,
   "confidence": "reconstructed",

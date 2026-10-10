@@ -123,6 +123,7 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
+from associations import home_of, workplace_of  # noqa: E402  (T-2284)
 from reconstructed_person import is_reconstructed  # noqa: E402
 from rebuild_resident_index import rebuild  # noqa: E402  (the manifest's one owner)
 from resident_mint_carry import carry_resident_mint  # noqa: E402  (T-1137)
@@ -2052,10 +2053,10 @@ def gate_problems(docs: dict, index: dict, structure_text: dict) -> list[str]:
                 problems.append(
                     f"{hid}: arrival precision is {arrival.get('precision')!r} — a "
                     f"letter-list bound is never anything but not_later_than")
-        for key in ("lives_at", "works_at"):
-            value = (doc.get(key) or {}).get("value")
+        for kind, place_of in (("home", home_of), ("workplace", workplace_of)):
+            value = place_of(doc)
             if value is not None:
-                problems.append(f"{hid}: {key} is {value!r} — no roof, no premises. A "
+                problems.append(f"{hid}: its {kind} row names {value!r} — no roof, no premises. A "
                                 f"letter-list name is a name the town knows, not a man "
                                 f"with an address")
         if doc.get("division") != DIVISION:
@@ -2414,7 +2415,7 @@ def self_test() -> int:
         d[victim]["persons"][0]["letter_list_returns"] = []
 
     def give_a_roof(d, i, s):
-        d[victim]["lives_at"] = dict(d[victim].pop("no_home"), value="sauganash_hotel")
+        d[victim].setdefault("associated_with", []).append({"kind": "home", "place_or_structure_id": "sauganash_hotel", "resolves_to": "structure", "from": None, "to": None, "tier": "reconstructed", "source_id": None, "note": "planted"})
 
     def give_a_trade(d, i, s):
         d[victim]["persons"][0]["occupation"]["value"] = "carpenter"
@@ -2557,7 +2558,7 @@ def self_test() -> int:
          "T-1219"),
         ("a person loses letter_list_only", drop_flag, "letter_list_only"),
         ("a person loses its returns' dates", drop_dates, "letter_list_returns"),
-        ("a household gains a roof", give_a_roof, "lives_at"),
+        ("a household gains a roof", give_a_roof, "home row"),
         ("a person gains a trade", give_a_trade, "occupation"),
         ("a household gains a second member", give_a_household, "persons"),
         ("the manifest row loses its flag", unflag_the_row, "manifest row"),

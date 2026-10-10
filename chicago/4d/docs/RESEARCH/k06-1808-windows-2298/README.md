@@ -66,5 +66,11 @@ own 3,000 extra triangles are noise at that scale. The frame and load times are 
 Chromium on a software rasteriser on a different run from T-2266's. They are relative readings,
 not device timings, and they do not isolate this change.
 
+**After K03 landed** (T-2291, #632, merged into this branch before it shipped), the house carries
+both packages: K03's common brick, rowlock and soldier heads and string course on the return and rear,
+and these windows. It measures **11,248 triangles in 16 primitives** (master 2.10 MB). The table and
+screenshots above were taken before that merge, so they isolate K06 against the K01 proof. The gate and
+the smoke legs in the PR ran on the merged house.
+
 `node tools/k01_contract.mjs --measure-asset keith_house_1808_prairie` reads 0 coincident faces,
-origin ok, scale drift ok and metric UV ok at full and web.
+origin ok, scale drift ok and metric UV ok at full and web, both before and after the merge.

@@ -72,14 +72,6 @@
   "confidence": "reconstructed",
   "note": "Not attested in anything this project holds."
  },
- "works_at": {
-  "value": "frederick_thomas_shop",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "data/structures/frederick_thomas_shop.json exists on the strength of this same advertisement."
- },
  "associated_with": [
   {
    "kind": "workplace",

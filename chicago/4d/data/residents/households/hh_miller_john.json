@@ -47,14 +47,6 @@
   "confidence": "reconstructed",
   "note": "NOT ATTESTED FOR EITHER MAN. data/structures/miller_house.json is Samuel's house, not John's, and its own record leaves its occupants blank."
  },
- "works_at": {
-  "value": "miller_tannery",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "'A tannery just north of Miller's tavern' - the direction is the find that placed this dataset's record, and both men are named in it."
- },
  "associated_with": [
   {
    "kind": "workplace",

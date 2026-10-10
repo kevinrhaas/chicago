@@ -106,21 +106,17 @@ CLAIM_NOT_SET = re.compile(r"review_required\s+is\s+set\s+false", re.I)
 # `tools/review_constraint.py` — because `compile_scene.py` now carries the same
 # sentence to the card (T-0268) and two readings of one record is how a gate and a
 # visitor come to be told different things. Assertion 7 below proves they agree.
+from associations import home_of, workplace_of  # noqa: E402
 from review_constraint import (  # noqa: E402  (path set above)
     CONSTRAINT_SUBJECT, FLAG_PHRASE, SENTENCE_SPLIT, prose, reason_sentence)
 
-LINK_FIELDS = ("lives_at", "works_at")
+# T-2284: the links are the record's home and workplace rows; the names are the old
+# singular fields', kept because the problems below are worded in them.
+LINK_FIELDS = {"lives_at": home_of, "works_at": workplace_of}
 
 
 def load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def value_of(field) -> str | None:
-    """A household link is `{value, confidence, …}`; the manifest flattens it."""
-    if isinstance(field, dict):
-        return field.get("value")
-    return field if isinstance(field, str) else None
 
 
 def read_structures() -> dict[str, dict]:
@@ -195,8 +191,8 @@ def measure() -> tuple[dict, list[str]]:
         h = households[hid]
         if not (h.get("review_required") or h.get("touches_removal")):
             continue
-        for field in LINK_FIELDS:
-            target = value_of(h.get(field))
+        for field, place_of in LINK_FIELDS.items():
+            target = place_of(h)
             if not target:
                 continue
             ok = bool(structures.get(target, {}).get("review_required"))

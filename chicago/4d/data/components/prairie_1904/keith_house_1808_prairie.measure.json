@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 2100292,
-      "sha256": "2eadd1d7751f980b3624e1508d7bb9af4cbff9fbe5508afe7d772041fa9397f9",
+      "bytes": 2096632,
+      "sha256": "797d2bdab5cf8537a81bff4ad357ff517062d12ac165be90054222492aac77e6",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -17,17 +17,17 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 12,
-        "materials": 12,
-        "triangles": 5202,
-        "vertices": 10406
+        "draw_primitives": 16,
+        "materials": 16,
+        "triangles": 11248,
+        "vertices": 22498
       },
       "texture": {
-        "images": 2,
-        "textures": 2,
-        "encoded_bytes": 1671910,
-        "pixels": 8388608,
-        "gpu_rgba8_mip_bytes": 44739243,
+        "images": 4,
+        "textures": 4,
+        "encoded_bytes": 1137924,
+        "pixels": 5740160,
+        "gpu_rgba8_mip_bytes": 30614187,
         "largest_px": 2048
       },
       "bbox_m": {
@@ -74,11 +74,47 @@
           "median_uv_per_m": 1
         },
         "brick": {
-          "median_uv_per_m": 0.5209,
-          "fabric": "brick",
+          "median_uv_per_m": 1.203,
+          "fabric": "common_buff_common_6",
           "tile_m": [
-            1.7272,
-            2.1336
+            0.8636,
+            0.8001
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "brick_unit_body": {
+          "median_uv_per_m": 1,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "brick_unit_grey_tan": {
+          "median_uv_per_m": 1,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "brick_unit_hard_burnt": {
+          "median_uv_per_m": 1,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
+          ],
+          "uv_per_m_times_tile_m": 1
+        },
+        "brick_unit_salmon_soft": {
+          "median_uv_per_m": 1,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
           ],
           "uv_per_m_times_tile_m": 1
         },
@@ -151,8 +187,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 933140,
-      "sha256": "0e4e8bc8f61bf5bdf79f0819bb244f170ba9e11c8bf0897a4e22bca89b6b19ae",
+      "bytes": 822848,
+      "sha256": "072ee5a26abf9e0693a9b0e7edee4ca583ae29f37ba55fc429f74cb830bd497d",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -168,17 +204,17 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 12,
-        "materials": 12,
-        "triangles": 5202,
-        "vertices": 9512
+        "draw_primitives": 16,
+        "materials": 16,
+        "triangles": 11248,
+        "vertices": 21472
       },
       "texture": {
-        "images": 2,
-        "textures": 2,
-        "encoded_bytes": 839338,
-        "pixels": 8388608,
-        "gpu_rgba8_mip_bytes": 44739243,
+        "images": 4,
+        "textures": 4,
+        "encoded_bytes": 597860,
+        "pixels": 5740160,
+        "gpu_rgba8_mip_bytes": 30614187,
         "largest_px": 2048
       },
       "bbox_m": {
@@ -223,13 +259,49 @@
       },
       "metric_uv": {
         "brick": {
-          "median_uv_per_m": 0.521,
-          "fabric": "brick",
+          "median_uv_per_m": 1.203,
+          "fabric": "common_buff_common_6",
           "tile_m": [
-            1.7272,
-            2.1336
+            0.8636,
+            0.8001
           ],
-          "uv_per_m_times_tile_m": 1.0001
+          "uv_per_m_times_tile_m": 1
+        },
+        "brick_unit_body": {
+          "median_uv_per_m": 0.9947,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
+          ],
+          "uv_per_m_times_tile_m": 0.9947
+        },
+        "brick_unit_grey_tan": {
+          "median_uv_per_m": 0.9947,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
+          ],
+          "uv_per_m_times_tile_m": 0.9947
+        },
+        "brick_unit_hard_burnt": {
+          "median_uv_per_m": 0.9962,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
+          ],
+          "uv_per_m_times_tile_m": 0.9962
+        },
+        "brick_unit_salmon_soft": {
+          "median_uv_per_m": 0.9957,
+          "fabric": "common_buff",
+          "tile_m": [
+            1,
+            1
+          ],
+          "uv_per_m_times_tile_m": 0.9957
         },
         "limestone_trim": {
           "median_uv_per_m": 0.8295,
