@@ -31,7 +31,7 @@ lot, directly south of the Glessner House. Its north wall closes the Glessner co
 - **Cost.** 2,218 triangles in 10 primitives. The master is 1.86 MB and the web tier 0.89 MB
   (meshopt plus quantisation). It carries two 2048² library fabrics (limestone, brick), whose
   decoded RGBA8 with mips is 44.7 MB of GPU memory, the asset's largest cost. Glessner's light tier
-  alone is 199,744 triangles. In the published `/1904/` app (`tools/qa_k01_t2266.mjs`, five fixed
+  alone is 198,064 triangles (after T-2267's rebake). In the published `/1904/` app (`tools/qa_k01_t2266.mjs`, five fixed
   stands per viewport: street-eye, oblique, rear, roof and courtyard join) the scene reads 62–69
   draws and 2.50–2.53 M triangles at desktop full detail, and 60–61 draws and 0.45 M triangles at
   mobile light. Every stand is within budget (330 draws; 3.8 M and 1.005 M triangles) with zero page
