@@ -1,0 +1,119 @@
+{
+  "id": "prairie_1904_k08_bays",
+  "title": "Bays, oriels and towers for the Prairie Avenue 1904 programme (package K08, the kit)",
+  "ticket": "T-2307",
+  "parent": "T-1850",
+  "programme": "T-1837",
+  "contract": "data/components/prairie_1904/k01_contract.json",
+  "windows": "data/components/prairie_1904/k06_windows.json",
+  "generator": "generators/archetypes/k08_bays.py",
+  "specimen": "docs/RESEARCH/k08-bay-kit/k08_bay_kit.glb",
+  "status": "Declared, generated and built to. T-2308 put the first two on a house: the bow and the canted bay on 1808 Prairie Avenue (keith_house_1808_prairie, form.bays), each resolved from its variant here by generators/archetypes/k01_frontage_params.py and held to tools/check_bay_kit.py's rules at both tiers.",
+  "rule": "A bay, oriel or tower is a closed projection keyed to its host wall: its plan starts and ends ON the wall's outer face, it never reaches behind it, and the wall closes it. Its plan is a polyline, a segmental bow, a circle or a regular polygon, cut by the wall plane; its walls rise from a plinth on grade or from corbel courses that step back into the wall, banded at each floor, and are capped by an eaves (soffit and fascia) and a roof whose planes are the plan's own lines lifted at one pitch, so hips fall where the planes meet and a curved plan takes a cone. Its windows are K06 openings, each a closed recess, placed by bearing or by fraction along the plan; on a curved run the whole opening, glass included, is bent to the curve. Every curve is cut finely enough that a near view sees no facet, and its normals follow the true curve so the shading does not band; the light tier cuts it coarser and drops the sash detail but keeps the silhouette. The sizes are data here and the generator reads them; tools/check_bay_kit.py rebuilds every variant and holds the built geometry to this file.",
+  "frame": {
+    "_doc": "World frame of a built variant, the K01 frame: +X along the host wall to the right, +Y up, +Z out of the wall's outer face (z = 0). Grade is y = 0. A bearing is measured about the plan's centre from straight out of the wall (0) toward +X (positive).",
+    "host_face_z": 0.0
+  },
+  "parts": {
+    "_doc": "The working sizes every variant starts from. A variant may override any of them under its own `overrides`.",
+    "wall": {"thickness_m": 0.36, "range_m": [0.23, 0.45], "confidence": "reconstructed", "rule_source": "RECONSTRUCTION-RULES.md section Starting ranges: Solid exterior wall / reveal", "note": "The bay's masonry wall. Its thickness sets how deep every window's reveal and recess can run."},
+    "plinth": {"height_m": 0.6, "proud_m": 0.05, "confidence": "reconstructed", "note": "A bay standing on grade stands on a stone plinth, proud of its wall: the foundation the reconstruction rules ask for ('bays have foundations or corbels')."},
+    "floor_band": {"height_m": 0.16, "proud_m": 0.045, "confidence": "reconstructed", "note": "A stone string course at every floor line between storeys, mitred round every corner of the plan and bent round every curve."},
+    "eaves": {"overhang_m": 0.3, "fascia_m": 0.2, "confidence": "reconstructed", "note": "The roof's edge: a soffit from the wall face out to a fascia 0.3 m beyond it, and a fascia 0.2 m deep whose top edge is the roof's eaves line."},
+    "corbel": {"course_height_m": 0.2, "max_oversail_ratio": 0.65, "min_bearing_m": 0.08, "confidence": "reconstructed", "note": "An oriel stands on stone courses each stepped out over the one below. A course may oversail the one beneath by no more than 0.65 of its own height (the bracketing rule a corbel table is laid to), and the lowest still bears on the wall by at least 0.08 m."},
+    "recess": {"depth_m": 0.55, "min_m": 0.33, "confidence": "reconstructed", "note": "How deep a window's K06 recess runs behind the bay's outer face, glass, blind and curtain inside it. K06's own specimen runs 0.95 m back; inside a bay the recesses of neighbouring windows share the bay's plan, so they are cut shorter and the check holds every one inside the bay and clear of every other."},
+    "finial": {"height_m": 0.7, "radius_m": 0.05, "confidence": "reconstructed", "note": "A turned spike at a cap's apex, in the cap's own copper."},
+    "pier_min_m": 0.05
+  },
+  "curves": {
+    "_doc": "How finely a curved run is cut, and what that buys. A run is cut into slabs no wider than max_seg_deg of its arc; the chord of a slab then falls inside its arc by the sagitta R(1 - cos(step/2)). Normals are the true curve's, per vertex, so a slab's edge does not shade as a crease.",
+    "full": {"max_seg_deg": 3.75, "max_sagitta_m": 0.004, "normal_tolerance_deg": 0.5},
+    "light": {"max_seg_deg": 15.0, "max_sagitta_m": 0.04, "drop_roles": ["frame", "sash_outer", "sash_inner", "came", "blind", "curtain"], "max_triangle_ratio": 0.55,
+              "note": "The light tier: a far view's copy. Curves cut at 15 degrees, so a 1.6 m tower's outline falls inside its true circle by at most 14 mm; windows keep their hole, reveal, sill, head band, glass and recess and lose their sash bars, blind and curtains. Its silhouette is held to the full tier's within max_sagitta_m."}
+  },
+  "roofs": {
+    "_doc": "A roof's planes are the plan's own lines (or circle), offset out to the eaves and lifted at one pitch: the height over any point is eaves + pitch x its distance in from the nearest roof line. Over a polygon that is a hipped roof, trimmed at its hips where the planes meet; over a circle it is a cone. A bay's roof lines are its own runs only, so the roof leans against the wall and the wall closes it; a tower's are its whole ring, so its cap is a full pyramid or cone and a back face closes it where the wall plane cuts it. `covering` names the K04 fabric (data/components/prairie_1904/k04_roofs.json) a house will bind; the kit draws its flat colour.",
+    "covering_colors": {
+      "slate_pennsylvania": [0.16, 0.17, 0.19],
+      "copper_standing_seam": [0.37, 0.52, 0.45],
+      "copper_sheet": [0.37, 0.52, 0.45],
+      "tin_flat_seam_painted": [0.30, 0.22, 0.18]
+    }
+  },
+  "costs": {
+    "_doc": "Triangle budget per variant, as built, the board excluded. A variant over its budget is refused, so a kit change that bloats every bay in the town is caught here, before any house is built from it.",
+    "max_triangles": {"full": 20000, "light": 7000}
+  },
+  "_variants_doc": "plan: polyline (points [x, z] from the left junction to the right, both on z = 0), bow (a segmental arc on its chord), circle (radius, centre proud of the wall) or polygon (sides, circumradius, centre proud, a face square to the front). base: 'grade' stands on a plinth; a number is the height its corbel courses carry it at. storeys: heights from the base up, each with its windows: a K06 opening id, its clear size, its sill above the storey's floor, and where it sits (at: fractions of the plan's length, or at_deg: bearings about the plan's centre). roof: hip (or flat, pitch 0) or cone; covering is a K04 fabric.",
+  "variants": [
+    {"id": "k08.bay.rectangular", "kind": "bay", "plan": {"kind": "polyline", "points": [[-1.3, 0.0], [-1.3, 1.2], [1.3, 1.2], [1.3, 0.0]]}, "base": "grade",
+     "storeys": [
+       {"height_m": 3.6, "windows": [
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.75, "clear_height_m": 1.9, "sill_m": 1.0, "at": [0.12, 0.88]},
+         {"opening": "k06.opening.sash_1over1_segmental", "clear_width_m": 1.1, "clear_height_m": 2.1, "sill_m": 1.0, "at": [0.5]}]},
+       {"height_m": 3.4, "windows": [
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.75, "clear_height_m": 1.8, "sill_m": 0.75, "at": [0.12, 0.88]},
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 1.1, "clear_height_m": 1.9, "sill_m": 0.75, "at": [0.5]}]}],
+     "roof": {"kind": "hip", "pitch": 0.6, "covering": "slate_pennsylvania"},
+     "confidence": "reconstructed", "note": "A two-storey rectangular bay, 2.6 m across and 1.2 m out, on a plinth: a wide segmental sash to the front and a narrow sash in each cheek, under a slate roof hipped against the wall."},
+    {"id": "k08.bay.canted", "kind": "bay", "plan": {"kind": "polyline", "points": [[-1.85, 0.0], [-0.75, 1.1], [0.75, 1.1], [1.85, 0.0]]}, "base": "grade",
+     "storeys": [
+       {"height_m": 3.6, "windows": [
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.75, "clear_height_m": 1.9, "sill_m": 1.0, "at": [0.18, 0.82], "recess_m": 0.4},
+         {"opening": "k06.opening.sash_1over1_segmental", "clear_width_m": 0.95, "clear_height_m": 2.05, "sill_m": 1.0, "at": [0.5]}]},
+       {"height_m": 3.4, "windows": [
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.75, "clear_height_m": 1.8, "sill_m": 0.75, "at": [0.18, 0.82], "recess_m": 0.4},
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.95, "clear_height_m": 1.9, "sill_m": 0.75, "at": [0.5]}]}],
+     "roof": {"kind": "hip", "pitch": 0.6, "covering": "slate_pennsylvania"},
+     "confidence": "reconstructed", "note": "The commonest Prairie Avenue bay: canted at 45 degrees, 1.5 m of front and 1.1 m out, two storeys, a window in every face, the hips of its slate roof falling on its angles."},
+    {"id": "k08.bay.bowed", "kind": "bay", "plan": {"kind": "bow", "chord_m": 3.2, "rise_m": 0.9}, "base": "grade",
+     "storeys": [
+       {"height_m": 3.6, "windows": [
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.8, "clear_height_m": 1.9, "sill_m": 1.0, "at_deg": [-36, 0, 36]}]},
+       {"height_m": 3.4, "windows": [
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.8, "clear_height_m": 1.8, "sill_m": 0.75, "at_deg": [-36, 0, 36]}]}],
+     "roof": {"kind": "cone", "pitch": 0.45, "covering": "copper_standing_seam"},
+     "overrides": {"recess": {"depth_m": 0.4}},
+     "confidence": "reconstructed", "note": "A segmental bow, 3.2 m on its chord and 0.9 m out (a 1.87 m radius), two storeys of three bent sashes, under a shallow copper cone that leans on the wall."},
+    {"id": "k08.projection.full_height", "kind": "projection", "plan": {"kind": "polyline", "points": [[-2.0, 0.0], [-2.0, 0.6], [2.0, 0.6], [2.0, 0.0]]}, "base": "grade",
+     "storeys": [
+       {"height_m": 3.6, "windows": [
+         {"opening": "k06.opening.sash_1over1_segmental", "clear_width_m": 1.0, "clear_height_m": 2.05, "sill_m": 1.0, "at": [0.27, 0.73]}]},
+       {"height_m": 3.4, "windows": [
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 1.0, "clear_height_m": 1.9, "sill_m": 0.75, "at": [0.27, 0.73]}]},
+       {"height_m": 3.0, "windows": [
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.9, "clear_height_m": 1.6, "sill_m": 0.7, "at": [0.27, 0.73]}]}],
+     "roof": {"kind": "hip", "pitch": 0.0, "covering": "tin_flat_seam_painted"},
+     "overrides": {"eaves": {"overhang_m": 0.35, "fascia_m": 0.28}},
+     "confidence": "reconstructed", "note": "A full-height projection: a shallow three-storey pavilion 4 m wide and 0.6 m out, two windows a floor, finished with a deep cornice and a flat tin deck where a house's main roof would take it over."},
+    {"id": "k08.oriel.canted_corbelled", "kind": "oriel", "plan": {"kind": "polyline", "points": [[-1.4, 0.0], [-0.65, 0.75], [0.65, 0.75], [1.4, 0.0]]}, "base": 3.6,
+     "corbel": {"courses": 5},
+     "storeys": [
+       {"height_m": 3.2, "windows": [
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.45, "clear_height_m": 1.7, "sill_m": 0.8, "at": [0.1754, 0.8246], "recess_m": 0.33, "why_not_ordinary": "an oriel's cheek light: narrower than an ordinary sash so it fits the canted cheek"},
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.9, "clear_height_m": 1.8, "sill_m": 0.75, "at": [0.5]}]}],
+     "roof": {"kind": "hip", "pitch": 0.8, "covering": "copper_sheet"},
+     "overrides": {"wall": {"thickness_m": 0.33}, "recess": {"depth_m": 0.42}, "eaves": {"overhang_m": 0.22, "fascia_m": 0.18}},
+     "confidence": "reconstructed", "note": "A canted upper oriel at the first floor, 1.3 m of front and 0.65 m out, carried on four stone courses stepped back into the wall, under a steep copper hip."},
+    {"id": "k08.tower.round", "kind": "tower", "plan": {"kind": "circle", "radius_m": 1.6, "centre_proud_m": 0.7}, "base": "grade",
+     "storeys": [
+       {"height_m": 3.6, "windows": [
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.8, "clear_height_m": 1.9, "sill_m": 1.0, "at_deg": [-58, 0, 58]}]},
+       {"height_m": 3.4, "windows": [
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.8, "clear_height_m": 1.8, "sill_m": 0.75, "at_deg": [-58, 0, 58]}]},
+       {"height_m": 3.0, "windows": [
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.75, "clear_height_m": 1.5, "sill_m": 0.7, "at_deg": [-58, 0, 58]}]}],
+     "roof": {"kind": "cone", "pitch": 1.9, "covering": "copper_standing_seam", "finial": true},
+     "confidence": "reconstructed", "note": "A round tower 3.2 m across, its centre 0.7 m proud of the wall so it stands three quarters clear, three storeys of bent sashes and a steep copper cone with a finial."},
+    {"id": "k08.tower.octagonal", "kind": "tower", "plan": {"kind": "polygon", "sides": 8, "radius_m": 1.6, "centre_proud_m": 0.6123}, "base": "grade",
+     "storeys": [
+       {"height_m": 3.6, "windows": [
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.75, "clear_height_m": 1.9, "sill_m": 1.0, "at_deg": [-45, 0, 45]}]},
+       {"height_m": 3.4, "windows": [
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.75, "clear_height_m": 1.8, "sill_m": 0.75, "at_deg": [-45, 0, 45]}]},
+       {"height_m": 3.0, "windows": [
+         {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.75, "clear_height_m": 1.5, "sill_m": 0.7, "at_deg": [-45, 0, 45]}]}],
+     "roof": {"kind": "hip", "pitch": 1.9, "covering": "copper_standing_seam", "finial": true},
+     "confidence": "reconstructed", "note": "An octagonal tower on the same 1.6 m circumradius, a face square to the street and a window in it and each face beside it, under an eight-sided copper spire whose hips fall on its angles."}
+  ]
+}

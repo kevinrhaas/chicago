@@ -85,7 +85,7 @@ PURE_PYTHON = {"k01_frontage": "k01_emit.py"}
 #: The library modules a pure-Python archetype lays on its walls (T-2291), and so hashes
 #: beside the archetype: K03 brick's bond, heads and string course move vertices too.
 #: T-2302: and K05 builds its roof, from the kit's own parts (k05_roofs.json, hashed below).
-PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py")}
+PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_frontage.py", "k09_trim.py")}
 
 
 def _sha_file(p: Path) -> str:
@@ -124,6 +124,10 @@ def _code_shas(archetype: str, params=None) -> dict[str, str]:
     if archetype in PURE_PYTHON:
         wanted = [gen / "archetypes" / f"{archetype}.py", gen / PURE_PYTHON[archetype]]
         wanted += [gen / "archetypes" / h for h in PURE_PYTHON_HELPERS.get(archetype, ())]
+        if archetype == "k01_frontage":
+            wanted += [gen / "archetypes" / "k06_windows.py", gen / "archetypes" / "k07_entrances.py"]
+            # T-2308: a record's bays are built by the K08 kit, so its module moves vertices
+            wanted += [gen / "archetypes" / "k08_bays.py"]
     # T-1730: the high-detail Glessner build delegates to v4-only modules.
     # Hash every module in that family, including the material/texture recipe;
     # the legacy path never imports them. New helpers in the family therefore
@@ -207,6 +211,18 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
         # T-2291: the K03 maps a K01 wall embeds are inputs, like Glessner v4's below
         from archetypes import k03_brick
         doc["textures"] = {p.relative_to(ROOT).as_posix(): _sha_file(p) for p in k03_brick.TEXTURE_FILES}
+        # T-2298: the window kit's sizes are data the builder reads, like a texture
+        kit = ROOT / "data" / "components" / "prairie_1904" / "k06_windows.json"
+        doc["window_kit"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}
+        # T-2304: and the entrance kit's, which the door and its stoop are built from
+        ent = ROOT / "data" / "components" / "prairie_1904" / "k07_entrances.json"
+        doc["entrance_kit"] = {ent.relative_to(ROOT).as_posix(): _sha_file(ent)}
+        # T-2310: the K09 kit's sizes are data, and its trim is laid from them
+        kit = ROOT / "data" / "components" / "prairie_1904" / "k09_trim.json"
+        doc["component_data"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}
+        # T-2308: and the bay kit's — its parts, curves and roofs size every bay a record names
+        bays = ROOT / "data" / "components" / "prairie_1904" / "k08_bays.json"
+        doc["bay_kit"] = {bays.relative_to(ROOT).as_posix(): _sha_file(bays)}
         # T-2302: the K05 kit's part sizes (eave box, dormer eave and verge) shape the roof;
         # its prose and variants do not, so only `parts` is hashed
         k05 = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())

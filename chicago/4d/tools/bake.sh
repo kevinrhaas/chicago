@@ -2,7 +2,9 @@
 # The content build. Minutes, not seconds — runs on demand and nightly, NOT on
 # every commit. tools/check.sh is the per-commit gate and needs no Blender.
 #
-#   tools/bake.sh                 build everything
+#   tools/bake.sh                 build everything (derives only the masters
+#                                 whose bytes moved — T-2314; BAKE_DERIVE_ALL=1
+#                                 derives every one)
 #   tools/bake.sh --only <id>     build one structure
 #   tools/bake.sh --only a,b,c    build several, in one Blender start-up
 #                                 (either form derives only the masters it built)
@@ -82,8 +84,21 @@ if [ "$SELECTED" = "1" ]; then
   fi
   echo "   $(wc -l < "$WROTE" | tr -d ' ') master(s) built by this selection; deriving those alone (T-1653)"
   tools/web_derivatives.sh --only "$(paste -sd, "$WROTE")"
-else
+elif [ "${BAKE_DERIVE_ALL:-0}" = "1" ]; then
+  echo "   BAKE_DERIVE_ALL=1 — deriving every master"
   tools/web_derivatives.sh
+else
+  # T-2314. The whole town rebuilt, but a master whose bytes match the record of
+  # what its derivative was made from needs nothing: deriving all ~714 took about
+  # twenty minutes and pushed the content-build job past its thirty-minute ceiling.
+  # The rule and its self-test live in tools/stale_derivatives.py.
+  MOVED="$(python3 tools/stale_derivatives.py)"
+  if [ -z "$MOVED" ]; then
+    echo "   every master matches assets/manifest.web.json; nothing to derive (T-2314)"
+  else
+    echo "   $(printf '%s' "$MOVED" | tr ',' '\n' | wc -l | tr -d ' ') master(s) moved, unrecorded or underived; deriving those alone (T-2314)"
+    tools/web_derivatives.sh --only "$MOVED"
+  fi
 fi
 
 echo

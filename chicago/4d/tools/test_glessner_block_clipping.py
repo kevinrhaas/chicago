@@ -325,6 +325,23 @@ for polygon,expected in notches:
 print('PASS light triangulation: diagonal-boundary notch, L/U outlines and collinear edges in both windings')
 
 
+# T-2311: the light tier is built with Python 3.11's sum() on every interpreter.
+# 1e16 + 1.0 rounds back to 1e16 in plain addition, so the 3.11 answer is 0.0; a
+# compensated 3.12 sum() says 1.0, which is the drift that redded every bake.
+import builtins
+from _glessner_lod import _blender_arithmetic, _left_to_right_sum
+assert _left_to_right_sum([1e16,1.0,-1e16])==0.0 and _left_to_right_sum([],5)==5
+native=builtins.sum
+seen=_blender_arithmetic(lambda:sum([1e16,1.0,-1e16]))()
+assert seen==0.0, 'the light build summed with the interpreter, not the 3.11 rule'
+assert builtins.sum is native, 'the pinned sum leaked out of the light build'
+def failing():raise RuntimeError('fixture')
+try:_blender_arithmetic(failing)()
+except RuntimeError:pass
+assert builtins.sum is native, 'a failed light build left the pinned sum installed'
+print('PASS light arithmetic: 3.11 left-to-right sum inside the build, the native one restored after, even on failure')
+
+
 # T-2202: test the generated surfaces, including their joints, rather than a
 # boolean saying a frontage was requested. Both detail levels must leave the
 # two access gaps traversable and cover the complete passage with mineral paving.

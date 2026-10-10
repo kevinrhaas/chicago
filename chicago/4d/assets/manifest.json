@@ -633,8 +633,8 @@
         "light": {
           "asset": "glessner_house__as_built_1887.light.glb",
           "master_sha256": "e32e94ff9907050de2205a8b20b26ddac98cdfa3bcecffc447415f7f0df3fb49",
-          "output_sha256": "8a51eea205690a9055f92e7718ba6f9068e85f137354e877d4016be7ad0e3f17",
-          "recipe_sha256": "cc51638424331000d2a218580c84d64f307ae9e6d651236fff9fe25d3839e5a7",
+          "output_sha256": "145d85ef1cf7e8cc7059e2ceea69f70167ce371f545dd941edb880a70534c228",
+          "recipe_sha256": "835d8caa81de313fd9d165c1b3518cf59f6801e49b0b3af915c360a82736c37b",
           "triangles": 198064
         }
       },
@@ -1012,9 +1012,9 @@
     "keith_house_1808_prairie__as_built_1886.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 2324596,
+      "bytes": 3955696,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "391fa31aff68e9ec91a6de0b19a1ee4fdfb2c2dd73e2806075d38d566c8959e4",
+      "inputs_sha256": "91aacd84c798ce87cdb88b252b76c226ea7d18c22ac40195bbb74aeda2ba672b",
       "kind": "generated",
       "phase_id": "as_built_1886",
       "structure_id": "keith_house_1808_prairie"
