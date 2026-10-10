@@ -7,12 +7,12 @@
 
 | | target | known | to reconstruct |
 |---|---:|---:|---:|
-| Persons | 2,549 | 1,418 | 1,798 |
+| Persons | 2,549 | 1,417 | 1,798 |
 | Households | 645 | 165 | 425 |
 | Businesses (enumerated classes) | 109 | 128 | 7 |
 | Roofs | 668 | 687 | 0 |
 
-**2,864 people stand in the layer today** and **13** are still owed after the counters, so the town this book converges to is **2,877** — inside the model's 2,370-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
+**2,863 people stand in the layer today** and **13** are still owed after the counters, so the town this book converges to is **2,876** — inside the model's 2,370-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
 ## What the re-cut found
 
@@ -31,29 +31,29 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 *What does the town converge to if every remaining order is filled?*
 
-2,864 standing plus 13 still owed is 2,877, inside the model's 2,370-3,265. Before the re-cut the same sum was 2,864 + 843 = 3,707, and the book was ordering a replacement for 826 people already in the layer. It is 328 above the model's 2,549 point, and that surplus is the 396 people drawn into 50 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
+2,863 standing plus 13 still owed is 2,876, inside the model's 2,370-3,265. Before the re-cut the same sum was 2,863 + 843 = 3,706, and the book was ordering a replacement for 826 people already in the layer. It is 327 above the model's 2,549 point, and that surplus is the 395 people drawn into 51 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
 
 ### households are counted in two different units
 
 *The model wants 643 households and the layer holds 1,438 records. Are those the same thing?*
 
-Of the 1,388 records the layer holds present, 165 carry a reading about a dwelling and 1,223 do not. The quota is taken against the 165, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.
+Of the 1,387 records the layer holds present, 165 carry a reading about a dwelling and 1,222 do not. The quota is taken against the 165, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.
 
 ### a documented reading shrank an order the town had drawn
 
 *The parish register's 120 documented residents (T-0841) land in buckets the town had already reconstructed strangers into. Where did reading a person the town can name put a bucket's order UNDER what was drawn against it, and by how many people?*
 
-`persons/female/30_39/south/lodging/none` holds 9 drawn against an order of 6 — over-supplied by 3; `persons/male/10_19/south/lodging/trade` holds 7 drawn against an order of 4 — over-supplied by 3; `persons/female/40_49/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1. That is 9 reconstructed people standing where the sources now name someone else, and it is a different fault from the rest of `recut_refusals`: those are quotas drifting under a draw, this is the town learning it invented a person it did not need. Nothing here is clamped and nothing already drawn moves — T-1459 — so the book keeps ordering the larger figure and names the surplus instead.
+`persons/female/30_39/south/lodging/none` holds 9 drawn against an order of 6 — over-supplied by 3; `persons/male/10_19/south/lodging/trade` holds 7 drawn against an order of 4 — over-supplied by 3; `persons/female/40_49/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/female/40_49/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1. That is 10 reconstructed people standing where the sources now name someone else, and it is a different fault from the rest of `recut_refusals`: those are quotas drifting under a draw, this is the town learning it invented a person it did not need. Nothing here is clamped and nothing already drawn moves — T-1459 — so the book keeps ordering the larger figure and names the surplus instead.
 
 **Declined:** RETIRING a reconstructed card is the bucket owner's work and not this book's: a book that deleted people to make its own arithmetic close would be reconstructing backwards. T-1347, which drew the trade band, has closed, so T-1530 is filed for the south-side 20-29 surplus and T-1506 owns the surplus lawyer.
 
 ## Where the re-cut was refused
 
-50 buckets would have had their order cut below the people already drawn against them. The owner's ruling of 2026-09-20 refuses that by name rather than clamping it: each is held at what was drawn. The three tickets this paragraph used to hand the surplus to — T-1196, T-1197 and T-1179 — are all closed; the owner's ruling of 2026-09-24 (T-1556) hands it to the re-family programme below, where the held heads move into the buckets the re-cut grew instead of being un-written.
+51 buckets would have had their order cut below the people already drawn against them. The owner's ruling of 2026-09-20 refuses that by name rather than clamping it: each is held at what was drawn. The three tickets this paragraph used to hand the surplus to — T-1196, T-1197 and T-1179 — are all closed; the owner's ruling of 2026-09-24 (T-1556) hands it to the re-family programme below, where the held heads move into the buckets the re-cut grew instead of being un-written.
 
 | bucket | ticket | cause | quota it was drawn against | the re-cut would order | drawn | re-familied out | still held |
 |---|---|---|---:|---:|---:|---:|---:|
-| `persons/female/10_19/north/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 26 | 14 | 24 | 2 | 10 |
+| `persons/female/10_19/north/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 26 | 15 | 24 | 2 | 9 |
 | `persons/female/10_19/south/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 61 | 33 | 54 | 6 | 21 |
 | `persons/female/10_19/west/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 23 | 13 | 21 | 3 | 8 |
 | `persons/female/20_29/north/family/trade` | T-2187 | the_re_cut_reached_work_already_drawn | 15 | 8 | 15 | 0 | 7 |
@@ -74,6 +74,7 @@ Of the 1,388 records the layer holds present, 165 carry a reading about a dwelli
 | `persons/female/40_49/south/family/trade` | T-2187 | the_re_cut_reached_work_already_drawn | 6 | 4 | 5 | 1 | 1 |
 | `persons/female/40_49/south/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 11 | 6 | 9 | 2 | 3 |
 | `persons/female/40_49/west/family/trade` | T-2187 | the_re_cut_reached_work_already_drawn | 3 | 1 | 2 | 1 | 1 |
+| `persons/female/40_49/west/lodging/trade` | T-2023 | a_documented_reading_shrank_the_order | 1 | 0 | 1 | 0 | 1 |
 | `persons/female/50_plus/north/family/trade` | T-2187 | the_re_cut_reached_work_already_drawn | 2 | 1 | 2 | 0 | 1 |
 | `persons/female/50_plus/south/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 8 | 4 | 6 | 2 | 2 |
 | `persons/female/50_plus/west/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 2 | 1 | 2 | 0 | 1 |
@@ -101,7 +102,7 @@ Of the 1,388 records the layer holds present, 165 carry a reading about a dwelli
 | `persons/male/50_plus/south/family/trade` | T-2187 | the_re_cut_reached_work_already_drawn | 5 | 2 | 3 | 2 | 1 |
 | `persons/male/50_plus/west/family/trade` | T-2187 | the_re_cut_reached_work_already_drawn | 2 | 1 | 2 | 0 | 1 |
 | `persons/male/under_10/north/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 51 | 28 | 44 | 7 | 16 |
-| `persons/male/under_10/south/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 119 | 64 | 109 | 10 | 45 |
+| `persons/male/under_10/south/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 119 | 65 | 109 | 10 | 44 |
 | `persons/male/under_10/west/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 45 | 26 | 34 | 9 | 8 |
 
 ## The re-family ledger
@@ -112,7 +113,7 @@ the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the r
 
 **A move is not** a retirement (nobody is un-written, which is T-1459's ruling of 2026-09-20) and a draw (no stranger enters the town, so the population does not move — only what is still OWED does).
 
-396 held head(s) stand across 50 refused bucket(s), and 13 slot(s) of order stand open elsewhere in the persons ladder. A held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town.
+395 held head(s) stand across 51 refused bucket(s), and 13 slot(s) of order stand open elsewhere in the persons ladder. A held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town.
 
 **142 move(s) have been made**, carrying 0 adoption(s) out of 41 bucket(s) and into 43. The book is owed 13 people now, and would be owed 0 if every held head moved. The model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range.
 
@@ -120,12 +121,12 @@ Which heads move is T-1558's (settled): T-1558 modelled it against the adoption 
 
 **The programme is settled**, and its finish line is the rule's own fixpoint: the programme is settled when T-1558's rule yields no further move, and not when nobody is held. `settled` is arithmetic either way — what the ruling changed is which arithmetic. owner, 2026-09-25, answering T-1597 with option (a): "They remain held, recorded as held, and the programme is settled at its fixpoint rather than at zero — the refusals stand as written and the book says so." It is the ruling of 2026-09-24 asked again of the residue that rule could not reach.
 
-396 person(s) remain held in 50 refused bucket(s), and what becomes of them is nothing, and that is the ruling: each keeps the card, the id, the seed and the confidence the stage that drew him wrote, counted in a cell the sources have since shown the town did not need that many of. Every one of the buckets goes on naming both its figures (T-1459), docs/LIBERTIES.md L268 is the admission, and docs/RESEARCH/1835_refamily_programme.md is the arithmetic.
+395 person(s) remain held in 51 refused bucket(s), and what becomes of them is nothing, and that is the ruling: each keeps the card, the id, the seed and the confidence the stage that drew him wrote, counted in a cell the sources have since shown the town did not need that many of. Every one of the buckets goes on naming both its figures (T-1459), docs/LIBERTIES.md L268 is the admission, and docs/RESEARCH/1835_refamily_programme.md is the arithmetic.
 
 | the refusal that holds them | people |
 |---|---:|
-| `a_documented_reading_shrank_the_order` | 9 |
-| `the_re_cut_reached_work_already_drawn` | 387 |
+| `a_documented_reading_shrank_the_order` | 10 |
+| `the_re_cut_reached_work_already_drawn` | 385 |
 
 What would reopen it: a wider rule. Option (b) — loosening whole-house, sex or age band — was not taken; if it ever is, the rule yields more moves than are spent, this step goes unsettled, and the work-order gate asks for a live owner again.
 
@@ -353,10 +354,10 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 
 | ticket | persons drawn | buckets |
 |---|---:|---:|
-| T-1174 | 595 | 27 |
+| T-1174 | 596 | 27 |
 | T-2021 | 469 | 19 |
-| T-2193 | 310 | 3 |
 | T-1347 | 309 | 24 |
+| T-2193 | 309 | 3 |
 | T-1171 | 294 | 19 |
 | T-1371 | 138 | 35 |
 | T-1533 | 26 | 5 |
@@ -427,7 +428,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
-| `persons/female/10_19/north/family/none` | 32 | 18 | 26 | 26 | T-1174 |
+| `persons/female/10_19/north/family/none` | 32 | 17 | 26 | 26 | T-1174 |
 | `persons/female/10_19/north/lodging/trade` | 2 | 0 | 2 | 2 | T-2023 |
 | `persons/female/10_19/north/lodging/none` | 9 | 6 | 3 | 3 | T-2023 |
 | `persons/female/10_19/south/family/none` | 76 | 43 | 62 | 62 | T-1174 |
@@ -468,7 +469,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/female/40_49/south/lodging/none` | 6 | 2 | 4 | 4 | T-2023 |
 | `persons/female/40_49/west/family/trade` | 3 | 2 | 2 | 2 | T-2187 |
 | `persons/female/40_49/west/family/none` | 5 | 2 | 4 | 4 | T-1174 |
-| `persons/female/40_49/west/lodging/trade` | 1 | 0 | 1 | 1 | T-2023 |
+| `persons/female/40_49/west/lodging/trade` | 1 | 1 | 1 | 1 | T-2023 |
 | `persons/female/40_49/west/lodging/none` | 2 | 1 | 1 | 1 | T-2023 |
 | `persons/female/50_plus/north/family/trade` | 2 | 1 | 2 | 2 | T-2187 |
 | `persons/female/50_plus/north/family/none` | 4 | 2 | 2 | 2 | T-1174 |
@@ -547,7 +548,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/50_plus/west/lodging/none` | 1 | 0 | 1 | 1 | T-2023 |
 | `persons/male/under_10/north/family/none` | 62 | 34 | 78 | 78 | T-1174 |
 | `persons/male/under_10/north/lodging/none` | 22 | 12 | 10 | 10 | T-2023 |
-| `persons/male/under_10/south/family/none` | 148 | 84 | 197 | 197 | T-1174 |
+| `persons/male/under_10/south/family/none` | 148 | 83 | 197 | 197 | T-1174 |
 | `persons/male/under_10/south/lodging/none` | 52 | 30 | 22 | 22 | T-2023 |
 | `persons/male/under_10/west/family/none` | 55 | 29 | 70 | 70 | T-1174 |
 | `persons/male/under_10/west/lodging/none` | 19 | 10 | 9 | 9 | T-2023 |
@@ -562,9 +563,9 @@ The households the model wants, by kind and division.
 - `households_target_basis`: the midpoint of the model's 473-816, rounded half up
 - `households_target_range`: 473, 816
 - `known_present`: 165
-- `known_present_records`: 1,388
-- `known_present_awaiting_a_household`: 1,223
-- `known_uncertain_in_the_index_ruled_in_by_T-1386`: 932
+- `known_present_records`: 1,387
+- `known_present_awaiting_a_household`: 1,222
+- `known_uncertain_in_the_index_ruled_in_by_T-1386`: 931
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -715,8 +716,8 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 
 ## The invariants the convergence tickets assert
 
-- **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 22 of 1388 present households name a lives_at.
-- **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 50 of 1388 present households name a works_at.
+- **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 22 of 1387 present households name a lives_at.
+- **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 50 of 1387 present households name a works_at.
 - **every_business_has_staff** (T-1189) — Every business — attested, inferred or reconstructed — carries the staff T-1183's model implies for its kind. *Now:* not yet measurable: the authored business layer is T-1180.
 - **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 314 of 687 standing records carry no occupants block.
 - **dwellings_ratio_within_its_bracket** (T-1215) — The town census's people-per-dwelling ratio is met within the model's bracket. *Now:* the book orders 2,549 people into 645 households.

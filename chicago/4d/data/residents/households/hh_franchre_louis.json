@@ -27,6 +27,7 @@
   "value": "1833-06-05",
   "confidence": "inferred",
   "sources": [
+   "st_cyr_register_ichr_v4",
    "st_marys_baptismal_register_1833_1835"
   ],
   "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 5 June 1833 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
@@ -101,21 +102,22 @@
   "value": "uncertain",
   "confidence": "inferred",
   "sources": [
+   "st_cyr_register_ichr_v4",
    "st_marys_baptismal_register_1833_1835"
   ],
   "last_dated_appearance": {
-   "as_read": "1833-06-05",
-   "precision": "day",
-   "reaches": "1833-06-05",
+   "as_read": "1834",
+   "precision": "year",
+   "reaches": "1834-12-31",
    "includes_scene_date": false,
-   "days_before_scene_date": 756,
+   "days_before_scene_date": 182,
    "leg": "sighting",
    "person": "franchre_louis",
-   "record": "st_marys_bapt_1833_05_4_sponsor",
+   "record": "st_cyr_marriage_001_3",
    "sources": [
-    "st_marys_baptismal_register_1833_1835"
+    "st_cyr_register_ichr_v4"
    ],
-   "note": "A DATED READING OF THIS PERSON, AND THE LAST ONE THE CORPUS HOLDS. Read from `church_evidence` as `1833-06-05`, which reaches 1833-06-05 — 756 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
+   "note": "A DATED READING OF THIS PERSON, AND THE LAST ONE THE CORPUS HOLDS. Read from `church_evidence` as `1834`, which reaches 1834-12-31 — 182 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
@@ -147,6 +149,7 @@
     "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it."
    },
    "sources": [
+    "st_cyr_register_ichr_v4",
     "st_marys_baptismal_register_1833_1835"
    ],
    "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 5 June 1833 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1).",
@@ -158,6 +161,15 @@
      "record_id": "st_marys_bapt_1833_05_4_sponsor",
      "describes_date": "1833-06-05",
      "source": "st_marys_baptismal_register_1833_1835",
+     "rule": "G2c"
+    },
+    {
+     "list": "church_1833_1835",
+     "as_read": "L. Franchere",
+     "locator": "witness",
+     "record_id": "st_cyr_marriage_001_3",
+     "describes_date": "1834",
+     "source": "st_cyr_register_ichr_v4",
      "rule": "G2c"
     }
    ],

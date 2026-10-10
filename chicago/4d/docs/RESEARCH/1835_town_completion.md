@@ -17,7 +17,7 @@ Dangling ids: **0**. The town is **not yet complete**: the open joins above are 
 
 ## The three tiers' shares of the people housed
 
-Of the **3,396** people housed in a standing building: **11.3 % attested** (384), **29.3 % inferred** (995), **59.4 % reconstructed** (2,017).
+Of the **3,395** people housed in a standing building: **11.3 % attested** (384), **29.3 % inferred** (994), **59.4 % reconstructed** (2,017).
 
 ## Every table by tier
 
@@ -25,22 +25,22 @@ Of the **3,396** people housed in a standing building: **11.3 % attested** (384)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 384 | 995 | 2,017 | 3,396 |
+| housed | 384 | 994 | 2,017 | 3,395 |
 | counted apart — waiting on a roof | 19 | 21 | 86 | 126 |
 | counted apart — absent on the scene date | 10 | 10 | 30 | 50 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
-| **all** | **413** | **1,026** | **2,133** | **3,572** |
+| **all** | **413** | **1,025** | **2,133** | **3,571** |
 | share | 11.6 % | 28.7 % | 59.7 % | |
 
 ### Households (by the head's grade)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 370 | 979 | 564 | 1,913 |
+| housed | 370 | 978 | 565 | 1,913 |
 | counted apart — waiting on a roof | 19 | 21 | 0 | 40 |
 | counted apart — absent on the scene date | 10 | 10 | 30 | 50 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
-| **all** | **399** | **1,010** | **594** | **2,003** |
+| **all** | **399** | **1,009** | **595** | **2,003** |
 | share | 19.9 % | 50.4 % | 29.7 % | |
 
 ### Working-age persons
@@ -50,8 +50,8 @@ Of the **3,396** people housed in a standing building: **11.3 % attested** (384)
 | at a workplace | 159 | 8 | 160 | 327 |
 | no fixed premises (stated) | 20 | 0 | 317 | 337 |
 | owed a workplace | 1 | 0 | 26 | 27 |
-| no trade recorded | 233 | 967 | 365 | 1,565 |
-| **all** | **413** | **975** | **868** | **2,256** |
+| no trade recorded | 233 | 966 | 366 | 1,565 |
+| **all** | **413** | **974** | **869** | **2,256** |
 | share | 18.3 % | 43.2 % | 38.5 % | |
 
 ### Businesses (by the primary location's tier)

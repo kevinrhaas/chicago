@@ -48,7 +48,7 @@
     },
     "persons_housed": {
       "attested": 384,
-      "inferred": 995,
+      "inferred": 994,
       "reconstructed": 2017
     },
     "persons_unhoused": {
@@ -57,7 +57,7 @@
       "reconstructed": 0
     },
     "present_on_scene_date": {
-      "persons_housed": 3395,
+      "persons_housed": 3394,
       "persons_unhoused": 0,
       "persons_waiting_on_a_roof": 126
     },
@@ -91,8 +91,8 @@
     },
     "no_trade_recorded": {
       "attested": 233,
-      "inferred": 967,
-      "reconstructed": 365
+      "inferred": 966,
+      "reconstructed": 366
     },
     "owed_by_reason": {
       "held_on_an_identity_question": 1,
@@ -155,7 +155,7 @@
     "persons": {
       "housed": {
         "attested": 384,
-        "inferred": 995,
+        "inferred": 994,
         "reconstructed": 2017
       },
       "waiting_on_a_roof": {
@@ -177,8 +177,8 @@
     "households": {
       "housed": {
         "attested": 370,
-        "inferred": 979,
-        "reconstructed": 564
+        "inferred": 978,
+        "reconstructed": 565
       },
       "waiting_on_a_roof": {
         "attested": 19,
