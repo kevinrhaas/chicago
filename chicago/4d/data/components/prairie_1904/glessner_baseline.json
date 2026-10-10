@@ -645,8 +645,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 27001116,
-      "sha256": "8a51eea205690a9055f92e7718ba6f9068e85f137354e877d4016be7ad0e3f17",
+      "bytes": 27001176,
+      "sha256": "145d85ef1cf7e8cc7059e2ceea69f70167ce371f545dd941edb880a70534c228",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -666,7 +666,7 @@
         "draw_primitives": 25,
         "materials": 25,
         "triangles": 198064,
-        "vertices": 387755
+        "vertices": 387753
       },
       "texture": {
         "images": 32,
