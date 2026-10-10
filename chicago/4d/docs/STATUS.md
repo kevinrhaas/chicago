@@ -13,6 +13,7 @@ carries the master's triangles one for one. Light, a separate build, may keep no
 cameras (fan, capital, ridge joint, flashing, two silhouettes, 1280×800 Full and
 390×780 Light) change only at leaf tips, ≤0.043 % of pixels.
 `docs/RESEARCH/glessner-coincident-faces-2267/README.md`.
+
 ## T-1786 — the portable human contract (2026-10-10)
 
 First ticket of the owner's portable-humans programme (T-1786 to T-1792). **Nothing in the scene
