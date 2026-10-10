@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1601, ts: '2026-10-10T00:46:38.716Z', date: 'Oct 9, 2026, 7:46 PM CT', title: 'A lumber shed on the South Branch below Washington Street', kind: 'feature',
+    items: [
+      'Walk down Market Street south of Washington and look toward the river. A long plank shed now stands on the bank, open along one side, facing the South Branch. It is the town\u2019s first lumber shed.',
+      'The Chicago Democrat shows lumber reaching Chicago by boat, from St. Joseph\u2019s sawmills and a yard on South Water Street. So the shed stands where boards would come off a schooner.',
+      'No source places this shed or names its owner. It is a reconstruction, and its card says so. It is not David Carver\u2019s yard, which the paper puts on South Water Street.',
+    ] },
   { v: 1600, ts: '2026-10-09T23:46:46.583Z', date: 'Oct 9, 2026, 6:46 PM CT', title: 'Glessner gets solid ridge caps and finished roof edges', kind: 'fix',
     items: [
       'Raised clay ridge caps now have solid ends and stop cleanly at chimneys and the stable cupola. Tower and dormer finials have seated moulded bases.',
