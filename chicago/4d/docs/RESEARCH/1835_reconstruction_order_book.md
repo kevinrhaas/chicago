@@ -10,7 +10,7 @@
 | Persons | 2,550 | 1,419 | 1,798 |
 | Households | 645 | 165 | 445 |
 | Businesses (enumerated classes) | 109 | 128 | 7 |
-| Roofs | 668 | 678 | 9 |
+| Roofs | 668 | 682 | 5 |
 
 **2,865 people stand in the layer today** and **13** are still owed after the counters, so the town this book converges to is **2,878** — inside the model's 2,371-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
@@ -400,23 +400,17 @@ The roster offers 1,786 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,424
-- seated: 318 — 314 by adopting a roof that already stands, 4 by asking for one
+- seated: 318 — 318 by adopting a roof that already stands, 0 by asking for one
 - still on no ground at all: 1,106
-- of the 678 roofs the town already has, 314 now carry a reconstructed household
+- of the 682 roofs the town already has, 318 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,424 | 219 | 215 | 4 | 1,205 |
+| The committed plat | T-1613 | 1,424 | 219 | 219 | 0 | 1,205 |
 | The ground the plat does not draw | T-1614 | 1,205 | 99 | 99 | 0 | 1,106 |
 
-4 slot(s) on 1 block(s) — blk_school_section_tier_82. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
+no slot was requested: every seat is an adoption of a roof already standing.
 
-| household | block | lot | family | clause |
-|---|---|---|---|---|
-| `hh_meleney_patrick` | `blk_school_section_tier_82` | `blk_school_section_tier_82#05` | D4 | `tradesman_dwellings` |
-| `hh_merill_isaac` | `blk_school_section_tier_82` | `blk_school_section_tier_82#04` | D4 | `tradesman_dwellings` |
-| `hh_merrill_george_w` | `blk_school_section_tier_82` | `blk_school_section_tier_82#03` | D5 | `tradesman_dwellings` |
-| `hh_vieaux_susanne` | `blk_school_section_tier_82` | `blk_school_section_tier_82#02` | D2 | `labourer_dwellings` |
 
 1,106 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
@@ -629,11 +623,11 @@ The December 1835 State census set against the register the town already holds.
 The roofs the 668-roof programme still owes, by archetype group and division.
 
 - `roof_target`: 668
-- `standing_records`: 678
-- `standing_with_an_occupant`: 368
+- `standing_records`: 682
+- `standing_with_an_occupant`: 372
 - `standing_without_an_occupant`: 310
-- `to_build_total`: 9
-- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 310 of the 678 standing records carry no occupants block today, and T-1197 re-audits them against this book.
+- `to_build_total`: 5
+- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 310 of the 682 standing records carry no occupants block today, and T-1197 re-audits them against this book.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -651,7 +645,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/larger_boarding_houses/south` | 28 | 27 | 1 | 0 | T-2254 |
 | `structures/larger_boarding_houses/west` | 6 | 6 | 0 | 0 | T-1953 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 0 | 0 | T-1952 |
-| `structures/ordinary_dwellings/south` | 176 | 171 | 5 | 0 | T-2254 |
+| `structures/ordinary_dwellings/south` | 176 | 175 | 1 | 0 | T-2254 |
 | `structures/ordinary_dwellings/west` | 75 | 75 | 0 | 0 | T-2150 |
 | `structures/ordinary_dwellings/north` | 84 | 84 | 0 | 0 | T-1746 |
 | `structures/small_outbuildings/south` | 48 | 48 | 0 | 0 | T-2254 |
@@ -675,9 +669,9 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 The streets, terrain and lots a structure bucket waits on.
 
-- `roofs_on_committed_ground`: 6
+- `roofs_on_committed_ground`: 2
 - `roofs_gated_on_coverage`: 3
-- `statement`: 6 of the 9 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 3 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
+- `statement`: 2 of the 5 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 3 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -722,7 +716,7 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 - **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 22 of 1389 present households name a lives_at.
 - **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 50 of 1389 present households name a works_at.
 - **every_business_has_staff** (T-1189) — Every business — attested, inferred or reconstructed — carries the staff T-1183's model implies for its kind. *Now:* not yet measurable: the authored business layer is T-1180.
-- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 310 of 678 standing records carry no occupants block.
+- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 310 of 682 standing records carry no occupants block.
 - **dwellings_ratio_within_its_bracket** (T-1215) — The town census's people-per-dwelling ratio is met within the model's bracket. *Now:* the book orders 2,550 people into 645 households.
 - **an_uncompared_class_orders_nothing** (T-1442) — A trade-census class the crosswalk rules `compared: false` carries its figures but orders no reconstruction: the difference between a census line and the register is only a shortfall where the crosswalk has ruled the two comparable. *Now:* carried uncompared: 1 of 18 enumerated business classes, each ordering nought.
 - **no_bucket_overfilled** (T-1166) — No bucket's `filled` exceeds its `to_reconstruct`; a filler that bypasses the book is red in check.sh. *Now:* enforced by --check on every gate run.

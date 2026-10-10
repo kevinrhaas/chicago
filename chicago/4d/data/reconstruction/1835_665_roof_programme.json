@@ -71,26 +71,26 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 678,
+  "structure_records": 682,
   "physical_roofs": {
-   "min": 659,
-   "max": 660,
+   "min": 663,
+   "max": 664,
    "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
   },
   "by_source": {
-   "generated": 520,
+   "generated": 524,
    "inferred_household_programme": 7,
    "pre_existing": 101,
    "retired_household_roofs": 31
   },
   "by_district": {
-   "south": 356,
+   "south": 360,
    "west": 135,
    "north": 152,
    "fort": 16
   },
   "by_group": {
-   "ordinary_dwellings": 330,
+   "ordinary_dwellings": 334,
    "larger_boarding_houses": 41,
    "stores_mixed_use": 53,
    "inns_taverns": 10,
@@ -112,10 +112,10 @@
    "C3": 16,
    "C4": 4,
    "D1": 56,
-   "D2": 37,
+   "D2": 38,
    "D3": 65,
-   "D4": 73,
-   "D5": 52,
+   "D4": 75,
+   "D5": 53,
    "D6": 29,
    "D7": 18,
    "F1": 8,
@@ -163,10 +163,10 @@
   ]
  },
  "remaining": {
-  "roofs": 9,
+  "roofs": 5,
   "of_target": 668,
   "by_district": {
-   "south": 9,
+   "south": 5,
    "west": 0,
    "north": 0,
    "fort": 0
@@ -174,7 +174,7 @@
   "by_district_group": {
    "south": {
     "larger_boarding_houses": 1,
-    "ordinary_dwellings": 5,
+    "ordinary_dwellings": 1,
     "warehouses_freight": 3
    },
    "west": {},
@@ -192,15 +192,15 @@
    "C3": 0,
    "C4": 0,
    "D1": 0,
-   "D2": 1,
+   "D2": 0,
    "D3": 0,
-   "D4": 1,
-   "D5": 1,
+   "D4": 0,
+   "D5": 0,
    "D6": 0,
    "D7": 0,
    "F1": 0,
    "F2": 0,
-   "F3": 1,
+   "F3": 0,
    "F4": 1,
    "H1": 0,
    "H2": 0,
@@ -221,11 +221,8 @@
   "by_district_family": {
    "south": {
     "H3": 1,
-    "D2": 2,
-    "D4": 2,
-    "D5": 1,
-    "F3": 2,
-    "F4": 1
+    "D1": 1,
+    "F4": 3
    },
    "west": {},
    "north": {},
@@ -241,8 +238,7 @@
   "absorbed_from": {
    "D5": 5,
    "T1": 2,
-   "D4": 1,
-   "F3": 1,
+   "F3": 2,
    "W2": 1,
    "C3": 1,
    "C4": 1
@@ -251,9 +247,9 @@
   "district_group_slots_shed": {}
  },
  "coverage": {
-  "schedulable_on_committed_ground": 6,
+  "schedulable_on_committed_ground": 2,
   "gated_on_coverage": 3,
-  "statement": "6 of the 9 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 3 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "statement": "2 of the 5 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 3 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
   "platted_lots": 480,
   "blocks_named": 95,
   "southern_ground": {
@@ -2563,28 +2559,26 @@
    },
    "lots": 8,
    "capacity_roofs": 10,
-   "standing_roofs": 0,
-   "free_lots": 8,
-   "principal_room": 7,
-   "ancillary_room": 2,
-   "headroom": 9,
+   "standing_roofs": 4,
+   "free_lots": 4,
+   "principal_room": 3,
+   "ancillary_room": 1,
+   "headroom": 4,
    "state": "open",
    "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
    "passes_groups": [
     "warehouses_freight"
    ],
-   "roofs": 6,
+   "roofs": 2,
    "families": {
-    "D2": 2,
-    "D4": 2,
-    "D5": 1,
+    "D1": 1,
     "H3": 1
    },
-   "principal": 6,
+   "principal": 2,
    "ancillary": 0,
    "trade_roofs": 0,
    "frontage_weight": 0.0,
-   "lot_ceiling_principal": 7,
+   "lot_ceiling_principal": 3,
    "row_lots_required": 0
   },
   {
@@ -2782,11 +2776,10 @@
    "headroom": 3,
    "state": "gated",
    "waiting_on": "GROUND, AND NOT STREET CONTROL ANY MORE. The S9 street work this balance used to name is done: T-1707 carried the plat's 7 north-south columns, Market to State, to Madison Street, and each one's committed line now ends at local N -519, -519, -519, -519, -519, -519, -519, inside Madison's own corridor at every one of the 7 (measured by tools/measure_southern_ground.py). Madison is the plat's south line, so there is no street left to carry inside the Original Town. The roofs here are the ones the deal found no room for on any named South block, the plat's last tier from Washington to Madison among them, nor on the School Section's Madison-Monroe tier, the one ground across Madison the owner's 2026-10-05 ruling opened (T-1755 option b, joined by T-2144: one roof to a lot, each block keeping a lot open), nor on the section's next tier, Monroe to Adams, cut into the October 1833 register's lots (T-2252) and joined on the same terms by the owner's 2026-10-09 ruling on T-2247 (option b, T-2253). Neither tier takes a warehouse: the rulings opened them to the South's houses, so a freight roof is passed on to this balance, owed to the South Water and Lake street line (T-2175) and not to the prairie. Ground east of State is not coming at any date — it is the United States Reservation (T-E2).",
-   "surplus_headroom": 44,
+   "surplus_headroom": 43,
    "roofs": 3,
    "families": {
-    "F3": 2,
-    "F4": 1
+    "F4": 3
    },
    "principal": 3,
    "ancillary": 0

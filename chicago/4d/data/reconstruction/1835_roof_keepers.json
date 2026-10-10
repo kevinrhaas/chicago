@@ -95,8 +95,8 @@
     "data/residents/households/*.json"
   ],
   "counts": {
-    "adopted_seats": 215,
-    "written": 205,
+    "adopted_seats": 219,
+    "written": 209,
     "refused": 10,
     "owed": 0,
     "refused_letter_list": 0,
@@ -2140,6 +2140,97 @@
         "confidence": "reconstructed",
         "note": "T-2147: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_school_section_tier_81#07 fronting monroe — a standing anonymous roof of family D6 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
         "household_id": "hh_coslet_elisabeth"
+      }
+    },
+    {
+      "household_id": "hh_merill_isaac",
+      "structure_id": "recon_1835_blk_school_section_tier_82_d4_03",
+      "block_id": "blk_school_section_tier_82",
+      "lot_id": "blk_school_section_tier_82#04",
+      "clause": "tradesman_dwellings",
+      "family": "D4",
+      "district": "south",
+      "name": "The Merill household — a name the town's own records carry",
+      "sources": [
+        "chicago_voter_lists_1833_1835_irad"
+      ],
+      "occupants": {
+        "value": "The Merill household — a name the town's own records carry",
+        "confidence": "reconstructed",
+        "sources": [
+          "chicago_voter_lists_1833_1835_irad"
+        ],
+        "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-2147; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_school_section_tier_82#04, fronting monroe, a standing roof of family D4 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
+      },
+      "resident_assignment": {
+        "status": "assigned",
+        "confidence": "reconstructed",
+        "note": "T-2147: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_school_section_tier_82#04 fronting monroe — a standing anonymous roof of family D4 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
+        "household_id": "hh_merill_isaac"
+      }
+    },
+    {
+      "household_id": "hh_meleney_patrick",
+      "structure_id": "recon_1835_blk_school_section_tier_82_d4_04",
+      "block_id": "blk_school_section_tier_82",
+      "lot_id": "blk_school_section_tier_82#05",
+      "clause": "tradesman_dwellings",
+      "family": "D4",
+      "district": "south",
+      "name": "The Meleney household — a name the town's own records carry",
+      "sources": [
+        "st_cyr_register_ichr_v4"
+      ],
+      "occupants": {
+        "value": "The Meleney household — a name the town's own records carry",
+        "confidence": "reconstructed",
+        "sources": [
+          "st_cyr_register_ichr_v4"
+        ],
+        "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-2147; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_school_section_tier_82#05, fronting adams, a standing roof of family D4 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
+      },
+      "resident_assignment": {
+        "status": "assigned",
+        "confidence": "reconstructed",
+        "note": "T-2147: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_school_section_tier_82#05 fronting adams — a standing anonymous roof of family D4 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
+        "household_id": "hh_meleney_patrick"
+      }
+    },
+    {
+      "household_id": "hh_merrill_george_w",
+      "structure_id": "recon_1835_blk_school_section_tier_82_d5_02",
+      "block_id": "blk_school_section_tier_82",
+      "lot_id": "blk_school_section_tier_82#03",
+      "clause": "tradesman_dwellings",
+      "family": "D5",
+      "district": "south",
+      "name": "The Merrill household — a name the town's own records carry",
+      "sources": [
+        "census_1840_chicago_familysearch_images",
+        "chicago_voter_lists_1833_1835_irad",
+        "fergus_chicago_directory_1843",
+        "isa_public_domain_land_tract_sales",
+        "norris_directory_1844",
+        "second_presbyterian_chicago_1892"
+      ],
+      "occupants": {
+        "value": "The Merrill household — a name the town's own records carry",
+        "confidence": "reconstructed",
+        "sources": [
+          "census_1840_chicago_familysearch_images",
+          "chicago_voter_lists_1833_1835_irad",
+          "fergus_chicago_directory_1843",
+          "isa_public_domain_land_tract_sales",
+          "norris_directory_1844",
+          "second_presbyterian_chicago_1892"
+        ],
+        "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-2147; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_school_section_tier_82#03, fronting adams, a standing roof of family D5 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
+      },
+      "resident_assignment": {
+        "status": "assigned",
+        "confidence": "reconstructed",
+        "note": "T-2147: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_school_section_tier_82#03 fronting adams — a standing anonymous roof of family D5 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
+        "household_id": "hh_merrill_george_w"
       }
     },
     {
@@ -4707,6 +4798,33 @@
       }
     },
     {
+      "household_id": "hh_vieaux_susanne",
+      "structure_id": "recon_1835_south_d1_018",
+      "block_id": "blk_lake_dearborn",
+      "lot_id": "blk_lake_dearborn#02",
+      "clause": "labourer_dwellings",
+      "family": "D1",
+      "district": "south",
+      "name": "The Vieaux household — a name the town's own records carry",
+      "sources": [
+        "st_marys_baptismal_register_1833_1835"
+      ],
+      "occupants": {
+        "value": "The Vieaux household — a name the town's own records carry",
+        "confidence": "reconstructed",
+        "sources": [
+          "st_marys_baptismal_register_1833_1835"
+        ],
+        "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1691; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's labourer_dwellings clause answered on the committed plat: blk_lake_dearborn#02, fronting lake, a standing roof of family D1 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
+      },
+      "resident_assignment": {
+        "status": "assigned",
+        "confidence": "reconstructed",
+        "note": "T-1691: seated by the placement policy's platted deal under its labourer_dwellings clause, on blk_lake_dearborn#02 fronting lake — a standing anonymous roof of family D1 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
+        "household_id": "hh_vieaux_susanne"
+      }
+    },
+    {
       "household_id": "hh_stone_henry",
       "structure_id": "recon_1835_south_d1_021",
       "block_id": "blk_lake_franklin",
@@ -6032,7 +6150,7 @@
   ],
   "refused": [
     {
-      "household_id": "hh_rc_wilcox_martha",
+      "household_id": "hh_rc_wilcox_sophronia",
       "structure_id": "recon_1835_blk_lake_market_d1_05",
       "block_id": "blk_lake_market",
       "lot_id": "blk_lake_market#05",
@@ -6077,6 +6195,22 @@
         "status": "unassigned",
         "confidence": "reconstructed",
         "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1685). The placement policy's platted deal seated a household on this roof under its labourer_dwellings clause, on blk_randolph_market#01 — a standing anonymous roof of family D2 that clause admits — and T-1685 refused to carry it onto the record: no source is carried for even this household's name, so there is nothing for the keeper attribute to cite and a card would state a name on this project's word alone. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 0 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the town really has run out of people this clause may seat here, and an empty cottage on this lot is the honest answer rather than a gap. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+      }
+    },
+    {
+      "household_id": "hh_rc_wilcox_martha",
+      "structure_id": "recon_1835_blk_school_section_tier_82_d2_01",
+      "block_id": "blk_school_section_tier_82",
+      "lot_id": "blk_school_section_tier_82#02",
+      "clause": "labourer_dwellings",
+      "family": "D2",
+      "district": "south",
+      "why": "no source is carried for even this household's name, so there is nothing for the keeper attribute to cite and a card would state a name on this project's word alone",
+      "on_the_card": true,
+      "resident_assignment": {
+        "status": "unassigned",
+        "confidence": "reconstructed",
+        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-2147). The placement policy's platted deal seated a household on this roof under its labourer_dwellings clause, on blk_school_section_tier_82#02 — a standing anonymous roof of family D2 that clause admits — and T-2147 refused to carry it onto the record: no source is carried for even this household's name, so there is nothing for the keeper attribute to cite and a card would state a name on this project's word alone. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 0 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the town really has run out of people this clause may seat here, and an empty cottage on this lot is the honest answer rather than a gap. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
       }
     },
     {
@@ -6144,7 +6278,7 @@
       }
     },
     {
-      "household_id": "hh_rc_woodruff_eliza",
+      "household_id": "hh_rc_woodruff_ruth",
       "structure_id": "recon_1835_south_d1_003",
       "block_id": "blk_lake_franklin",
       "lot_id": "blk_lake_franklin#02",
@@ -6160,7 +6294,7 @@
       }
     },
     {
-      "household_id": "hh_rc_wilcox_sophronia",
+      "household_id": "hh_rc_woodruff_eliza",
       "structure_id": "recon_1835_south_d1_010",
       "block_id": "blk_lake_lasalle",
       "lot_id": "blk_lake_lasalle#02",
@@ -6173,22 +6307,6 @@
         "status": "unassigned",
         "confidence": "reconstructed",
         "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1691). The placement policy's platted deal seated a household on this roof under its labourer_dwellings clause, on blk_lake_lasalle#02 — a standing anonymous roof of family D1 that clause admits — and T-1691 refused to carry it onto the record: no source is carried for even this household's name, so there is nothing for the keeper attribute to cite and a card would state a name on this project's word alone. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 0 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the town really has run out of people this clause may seat here, and an empty cottage on this lot is the honest answer rather than a gap. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
-      }
-    },
-    {
-      "household_id": "hh_rc_woodruff_ruth",
-      "structure_id": "recon_1835_south_d1_018",
-      "block_id": "blk_lake_dearborn",
-      "lot_id": "blk_lake_dearborn#02",
-      "clause": "labourer_dwellings",
-      "family": "D1",
-      "district": "south",
-      "why": "no source is carried for even this household's name, so there is nothing for the keeper attribute to cite and a card would state a name on this project's word alone",
-      "on_the_card": true,
-      "resident_assignment": {
-        "status": "unassigned",
-        "confidence": "reconstructed",
-        "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1691). The placement policy's platted deal seated a household on this roof under its labourer_dwellings clause, on blk_lake_dearborn#02 — a standing anonymous roof of family D1 that clause admits — and T-1691 refused to carry it onto the record: no source is carried for even this household's name, so there is nothing for the keeper attribute to cite and a card would state a name on this project's word alone. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 0 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the town really has run out of people this clause may seat here, and an empty cottage on this lot is the honest answer rather than a gap. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
       }
     }
   ],

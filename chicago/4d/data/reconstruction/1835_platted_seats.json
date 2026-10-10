@@ -35,8 +35,7 @@
   "seated": 219,
   "owed": 1205,
   "by_how": {
-   "adopted": 215,
-   "slot": 4
+   "adopted": 219
   },
   "by_clause": {
    "labourer_dwellings": 39,
@@ -62,8 +61,8 @@
    "H3": 2
   },
   "lots_taken": 200,
-  "roofs_adopted": 215,
-  "slots_requested": 4,
+  "roofs_adopted": 219,
+  "slots_requested": 0,
   "owed_by_band_clause": {
    "division_ground": 27,
    "farms_and_country_seats": 210,
@@ -73,7 +72,7 @@
    "tradesman_dwellings": 498
   },
   "owed_by_the_letter_list_ruling": 659,
-  "roofs_offered_for_adoption": 226,
+  "roofs_offered_for_adoption": 230,
   "roofs_held_back": 62,
   "roofs_held_by_the_business_deal": 45,
   "seats_the_business_deal_costs": 8
@@ -88,7 +87,6 @@
   "roofs_held": 45,
   "roofs_held_that_are_houses_of_trade": 31,
   "roofs_a_release_would_fill": [
-   "recon_1835_blk_lake_franklin_d1_02",
    "recon_1835_blk_lake_market_d4_02",
    "recon_1835_blk_randolph_clark_d6_04",
    "recon_1835_blk_randolph_dearborn_d1_16",
@@ -114,11 +112,35 @@
     "clause": "tradesman_dwellings",
     "district": "south",
     "how": "adopted",
+    "would_take": "recon_1835_blk_randolph_wells_d4_04",
+    "lot_id": "blk_randolph_wells#06"
+   },
+   {
+    "id": "hh_montgomery_l_w",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "how": "adopted",
+    "would_take": "recon_1835_blk_south_water_lasalle_d4_02",
+    "lot_id": "blk_south_water_lasalle#04"
+   },
+   {
+    "id": "hh_morrison_amanda",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "how": "adopted",
+    "would_take": "recon_1835_blk_south_water_lasalle_d5_01",
+    "lot_id": "blk_south_water_lasalle#04"
+   },
+   {
+    "id": "hh_mosely_e_b",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "how": "adopted",
     "would_take": "recon_1835_blk_lake_market_d4_02",
     "lot_id": "blk_lake_market#04"
    },
    {
-    "id": "hh_montgomery_l_w",
+    "id": "hh_mulford_e_h",
     "clause": "tradesman_dwellings",
     "district": "south",
     "how": "adopted",
@@ -126,7 +148,7 @@
     "lot_id": "blk_south_water_franklin#06"
    },
    {
-    "id": "hh_morrison_amanda",
+    "id": "hh_mulford_james_h",
     "clause": "tradesman_dwellings",
     "district": "south",
     "how": "adopted",
@@ -134,40 +156,16 @@
     "lot_id": "blk_randolph_dearborn#01"
    },
    {
-    "id": "hh_mosely_e_b",
+    "id": "hh_murphy_mary",
     "clause": "tradesman_dwellings",
     "district": "south",
     "how": "adopted",
     "would_take": "recon_1835_blk_randolph_clark_d6_04",
     "lot_id": "blk_randolph_clark#07"
-   },
-   {
-    "id": "hh_mulford_e_h",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "how": "slot",
-    "would_take": null,
-    "lot_id": "blk_school_section_tier_82#05"
-   },
-   {
-    "id": "hh_mulford_james_h",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "how": "slot",
-    "would_take": null,
-    "lot_id": "blk_school_section_tier_82#04"
-   },
-   {
-    "id": "hh_murphy_mary",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "how": "slot",
-    "would_take": null,
-    "lot_id": "blk_school_section_tier_82#03"
    }
   ],
-  "households_that_would_change_roof": 14,
-  "reading": "the business deal holds 45 roofs on the plat, 31 of them raised as houses of trade. Released, this deal would adopt 11 of them — 5 by a household seated nowhere today and 6 by households already seated, moving to a better-scored lot — and seat 8 more household(s) in all, counting any the moves leave a roof or a slot for; 14 seated household(s) would change roof or lot. So the precedence costs the households 8 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
+  "households_that_would_change_roof": 10,
+  "reading": "the business deal holds 45 roofs on the plat, 31 of them raised as houses of trade. Released, this deal would adopt 10 of them — 8 by a household seated nowhere today and 2 by households already seated, moving to a better-scored lot — and seat 8 more household(s) in all, counting any the moves leave a roof or a slot for; 10 seated household(s) would change roof or lot. So the precedence costs the households 8 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
  },
  "roofs_held_back": [
   {
@@ -715,7 +713,7 @@
  "plan_left_unclaimed": [
   {
    "block_id": "blk_school_section_tier_82",
-   "family": "D2",
+   "family": "D1",
    "roofs": 1,
    "district": "south",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
@@ -4990,20 +4988,16 @@
    "fronts": "adams",
    "street_class": "none",
    "corner": false,
-   "how": "slot",
-   "structure_id": null,
+   "how": "adopted",
+   "structure_id": "recon_1835_blk_school_section_tier_82_d4_04",
    "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
-   "order_book_draw": {
-    "block_id": "blk_school_section_tier_82",
-    "family": "D4",
-    "district": "south"
-   },
+   "order_book_draw": null,
    "seed": "hh_meleney_patrick|T-1522|division:4659a6af91a8|class:c7bbe8ba8aa9",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
    "id": "hh_merill_isaac",
@@ -5018,20 +5012,16 @@
    "fronts": "monroe",
    "street_class": "none",
    "corner": false,
-   "how": "slot",
-   "structure_id": null,
+   "how": "adopted",
+   "structure_id": "recon_1835_blk_school_section_tier_82_d4_03",
    "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
-   "order_book_draw": {
-    "block_id": "blk_school_section_tier_82",
-    "family": "D4",
-    "district": "south"
-   },
+   "order_book_draw": null,
    "seed": "hh_merill_isaac|T-1522|division:aa0a69199bf8|class:9ec7fac4174e",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
    "id": "hh_merrill_george_w",
@@ -5046,20 +5036,16 @@
    "fronts": "adams",
    "street_class": "none",
    "corner": false,
-   "how": "slot",
-   "structure_id": null,
+   "how": "adopted",
+   "structure_id": "recon_1835_blk_school_section_tier_82_d5_02",
    "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
-   "order_book_draw": {
-    "block_id": "blk_school_section_tier_82",
-    "family": "D5",
-    "district": "south"
-   },
+   "order_book_draw": null,
    "seed": "hh_merrill_george_w|T-1522|division:a58142641eb9|class:ab96446f432c",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
    "id": "hh_barney_anne_maria",
@@ -5740,6 +5726,30 @@
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
+   "lot_id": "blk_school_section_tier_82#02",
+   "block_id": "blk_school_section_tier_82",
+   "lot_index": 2,
+   "fronts": "monroe",
+   "street_class": "none",
+   "corner": false,
+   "how": "adopted",
+   "structure_id": "recon_1835_blk_school_section_tier_82_d2_01",
+   "family": "D2",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "labourer_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_rc_wilcox_martha|south|laundress|T-1512",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_rc_wilcox_sophronia",
+   "kind": "household",
+   "name": "Reconstructed household — Sophronia Wilcox, a woman boarding with her family in the south division",
+   "clause": "labourer_dwellings",
+   "district": "south",
+   "band": "south/labourer_dwellings",
    "lot_id": "blk_lake_market#05",
    "block_id": "blk_lake_market",
    "lot_index": 5,
@@ -5754,13 +5764,13 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_wilcox_martha|south|laundress|T-1512",
+   "seed": "hh_rc_wilcox_sophronia|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_wilcox_sophronia",
+   "id": "hh_rc_woodruff_eliza",
    "kind": "household",
-   "name": "Reconstructed household — Sophronia Wilcox, a woman boarding with her family in the south division",
+   "name": "Reconstructed household — Eliza Woodruff, a woman boarding with her family in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5778,13 +5788,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_wilcox_sophronia|south|laundress|T-1512",
+   "seed": "hh_rc_woodruff_eliza|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_woodruff_eliza",
+   "id": "hh_rc_woodruff_ruth",
    "kind": "household",
-   "name": "Reconstructed household — Eliza Woodruff, a woman boarding with her family in the south division",
+   "name": "Reconstructed household — Ruth Woodruff, a woman boarding with her family in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5796,30 +5806,6 @@
    "corner": false,
    "how": "adopted",
    "structure_id": "recon_1835_south_d1_003",
-   "family": "D1",
-   "stands_on": "lot",
-   "setback_class": "typology",
-   "multi_building_rule": "party_line_run",
-   "policy_rule": "labourer_dwellings",
-   "order_book_draw": null,
-   "seed": "hh_rc_woodruff_eliza|south|laundress|T-1512",
-   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
-   "id": "hh_rc_woodruff_ruth",
-   "kind": "household",
-   "name": "Reconstructed household — Ruth Woodruff, a woman boarding with her family in the south division",
-   "clause": "labourer_dwellings",
-   "district": "south",
-   "band": "south/labourer_dwellings",
-   "lot_id": "blk_lake_dearborn#02",
-   "block_id": "blk_lake_dearborn",
-   "lot_index": 2,
-   "fronts": "lake",
-   "street_class": "principal",
-   "corner": false,
-   "how": "adopted",
-   "structure_id": "recon_1835_south_d1_018",
    "family": "D1",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -5980,26 +5966,22 @@
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
-   "lot_id": "blk_school_section_tier_82#02",
-   "block_id": "blk_school_section_tier_82",
+   "lot_id": "blk_lake_dearborn#02",
+   "block_id": "blk_lake_dearborn",
    "lot_index": 2,
-   "fronts": "monroe",
-   "street_class": "none",
+   "fronts": "lake",
+   "street_class": "principal",
    "corner": false,
-   "how": "slot",
-   "structure_id": null,
-   "family": "D2",
+   "how": "adopted",
+   "structure_id": "recon_1835_south_d1_018",
+   "family": "D1",
    "stands_on": "lot",
    "setback_class": "typology",
-   "multi_building_rule": "one_principal_roof",
+   "multi_building_rule": "party_line_run",
    "policy_rule": "labourer_dwellings",
-   "order_book_draw": {
-    "block_id": "blk_school_section_tier_82",
-    "family": "D2",
-    "district": "south"
-   },
+   "order_book_draw": null,
    "seed": "hh_vieaux_susanne|T-1522|division:ccea2da66d98|class:318bf560cb8d",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   }
  ],
  "owed": [
