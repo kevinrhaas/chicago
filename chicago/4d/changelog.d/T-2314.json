@@ -1,8 +1,0 @@
-{
-  "title": "A whole-town bake derives only what moved, and fits its ceiling",
-  "kind": "fix",
-  "items": [
-    "Every pull request's content build was being cut off at its 30-minute ceiling, because re-deriving all 714 web meshes took about twenty minutes before the gate even started. Now a whole-town bake derives only the meshes whose master actually changed: on today's tree a full rebuild of 712 masters moved none of them, so derivation fell from about twenty minutes to 42 seconds.",
-    "Nothing is skipped that could have changed: the record of which master each shipped mesh came from decides, the same record the gate checks, and BAKE_DERIVE_ALL=1 still derives every mesh."
-  ]
-}
