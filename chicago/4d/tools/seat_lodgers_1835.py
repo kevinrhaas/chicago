@@ -153,6 +153,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from resident_mint_carry import carry_seats  # noqa: E402
+from associations import home_of, workplace_of  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 RESIDENTS = ROOT / "data" / "residents"
@@ -438,8 +439,9 @@ def layer() -> tuple:
 def occupancy() -> tuple:
     """(place -> the people already on its card, place -> the household that keeps it).
 
-    Read off `lives_at` across the whole residents layer, which is the same join
-    `tools/compile_scene.py` makes to put a household on a building's card. A household
+    Read off each card's home and workplace `associated_with` rows (T-2260) across the
+    whole residents layer, which is the same join `tools/compile_scene.py` makes to put
+    a household on a building's card. A household
     that WORKS at a house without living in it is its keeper and does not sleep there;
     both are recorded, because the keeper table wants the second and the bed count wants
     the first.
@@ -448,8 +450,8 @@ def occupancy() -> tuple:
     keeps: dict[str, list] = {}
     for directory in (HOUSEHOLDS, READMITTED, TRADES):
         for _, card in cards_in(directory):
-            at = value_of(card.get("lives_at"))
-            works = value_of(card.get("works_at"))
+            at = home_of(card)
+            works = workplace_of(card)
             if at:
                 lives.setdefault(at, []).append(card)
             if works:
@@ -846,7 +848,7 @@ def seat_the_solitary(houses: list) -> tuple:
         if person is None:
             continue
         trade = value_of(person.get("occupation"))
-        if value_of(card.get("lives_at")):
+        if home_of(card):
             refused.append({"person": person["id"], "household": card["id"],
                             "refusal": "the layer already gives this head a roof"})
             continue

@@ -1,9 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1603, ts: '2026-10-10T00:44:26.846Z', date: 'Oct 9, 2026, 7:44 PM CT', title: 'Two river warehouses on the South Branch below Market Street', kind: 'feature',
+  { v: 1605, ts: '2026-10-10T01:42:19.000Z', date: 'Oct 9, 2026, 8:42 PM CT', title: 'Two river warehouses on the South Branch below Market Street', kind: 'feature',
     items: [
       'Walk down Market Street toward Madison and look west, toward the river. Two large frame warehouses now stand on the bank between Market Street and the South Branch, below Washington Street, facing the water with a cart way between them.',
       'They are two of the three warehouses the town still owed its river trade. Every lot on South Water Street was already built on, and this stretch of bank was the one riverside ground left. Newberry & Dole\u2019s packing house already stands on it, a block north.',
       'Both are reconstructed: no source puts a building here. The third warehouse the town owes, a lumber shed, is still to come.',
+    ] },
+  { v: 1604, ts: '2026-10-10T01:02:46.060Z', date: 'Oct 9, 2026, 8:02 PM CT', title: 'The tools that seat the town read each household\u2019s dated places', kind: 'change',
+    items: [
+      'Nothing you can see changes. The tools that give households their houses, deal the empty roofs, audit the town and count its census now read where a household lived and worked from the dated places on its card, the same entries its card shows you.',
+      'Every seat, count and census figure comes out exactly as before, even with the old single home and workplace lines removed from the records, which is what lets those lines be retired next.',
+    ] },
+  { v: 1603, ts: '2026-10-10T00:46:47.918Z', date: 'Oct 9, 2026, 7:46 PM CT', title: 'Glessner roof proportions gain a reviewable comparison audit', kind: 'feature',
+    items: [
+      'Open Glessner’s photographic comparison page to review the current roof, dormers and courtyard bay against the fixed reference cameras. A dimension table gives the evidence, confidence and remaining disagreements.',
+      'The earlier baseline remains available for comparison. The repaired house geometry is retained; the lifted copper corner remains an identified repair for its own ticket.',
     ] },
   { v: 1602, ts: '2026-10-10T00:25:08.610Z', date: 'Oct 9, 2026, 7:25 PM CT', title: 'A building card\u2019s residents are read from their dated places', kind: 'fix',
     items: [
