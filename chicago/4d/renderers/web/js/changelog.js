@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1618, ts: '2026-10-10T04:36:20.412Z', date: 'Oct 9, 2026, 11:36 PM CT', title: 'Glessner House rebuilt without its hidden doubled faces', kind: 'fix',
+    items: [
+      'Go close to the carved leaves over the Prairie Avenue entrance and on the porch capitals. Their roots and tips now close cleanly, where thin slivers used to lie on top of each other. The change is a few pixels at the leaf tips. Nothing else on the house moves.',
+      'Two hidden faults are also gone: doubled end caps inside the roof ridge, and doubled ends in the copper flashing round the chimneys. The detailed house is about 10,000 triangles lighter and its downloads are slightly smaller.',
+    ] },
   { v: 1617, ts: '2026-10-10T04:33:21.391Z', date: 'Oct 9, 2026, 11:33 PM CT', title: '65 more households are given a house beyond the platted town', kind: 'fix',
     items: [
       'Outside the platted town, in the North and West Divisions, 69 houses had been given to households known only from the post office’s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address. The houses on the plat already followed that ruling, and now these do too.',
