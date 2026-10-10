@@ -1636,10 +1636,10 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1424,
-    "seated": 310,
-    "still_owed": 1114,
+    "seated": 314,
+    "still_owed": 1110,
     "roofs_adopted": 310,
-    "slots_requested": 0,
+    "slots_requested": 4,
     "roofs_standing": 678,
     "roofs_standing_unseated": 368,
     "share_of_standing_roofs_seated": 0.4572,
@@ -1651,24 +1651,24 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1424,
-        "seated": 215,
-        "handed_on": 1209,
+        "seated": 219,
+        "handed_on": 1205,
         "roofs_adopted": 215,
-        "slots_requested": 0,
+        "slots_requested": 4,
         "roofs_offered_for_adoption": 226,
         "roofs_held_back": 62,
-        "ground_taken": 196,
+        "ground_taken": 200,
         "ground_taken_unit": "lots",
         "by_district": {
           "north": 8,
-          "south": 165,
+          "south": 169,
           "west": 42
         },
         "by_clause": {
-          "labourer_dwellings": 38,
+          "labourer_dwellings": 39,
           "lodging_near_the_landings": 2,
           "merchant_and_professional_dwellings": 36,
-          "tradesman_dwellings": 139
+          "tradesman_dwellings": 142
         }
       },
       {
@@ -1677,9 +1677,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1209,
+        "rows_offered": 1205,
         "seated": 95,
-        "handed_on": 1114,
+        "handed_on": 1110,
         "roofs_adopted": 95,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 107,
@@ -1699,10 +1699,53 @@
         }
       }
     ],
-    "requested_slots": [],
-    "slot_blocks": [],
-    "what_the_slots_wait_on": "no slot was requested: every seat is an adoption of a roof already standing.",
-    "what_is_left": "1,114 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "requested_slots": [
+      {
+        "household_id": "hh_meleney_patrick",
+        "name": "The Meleney household — a name the town's own records carry",
+        "district": "south",
+        "clause": "tradesman_dwellings",
+        "block_id": "blk_school_section_tier_82",
+        "lot_id": "blk_school_section_tier_82#05",
+        "family": "D4",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      },
+      {
+        "household_id": "hh_merill_isaac",
+        "name": "The Merill household — a name the town's own records carry",
+        "district": "south",
+        "clause": "tradesman_dwellings",
+        "block_id": "blk_school_section_tier_82",
+        "lot_id": "blk_school_section_tier_82#04",
+        "family": "D4",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      },
+      {
+        "household_id": "hh_merrill_george_w",
+        "name": "The Merrill household — a name the town's own records carry",
+        "district": "south",
+        "clause": "tradesman_dwellings",
+        "block_id": "blk_school_section_tier_82",
+        "lot_id": "blk_school_section_tier_82#03",
+        "family": "D5",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      },
+      {
+        "household_id": "hh_vieaux_susanne",
+        "name": "The Vieaux household — a name the town's own records carry",
+        "district": "south",
+        "clause": "labourer_dwellings",
+        "block_id": "blk_school_section_tier_82",
+        "lot_id": "blk_school_section_tier_82#02",
+        "family": "D2",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      }
+    ],
+    "slot_blocks": [
+      "blk_school_section_tier_82"
+    ],
+    "what_the_slots_wait_on": "4 slot(s) on 1 block(s) — blk_school_section_tier_82. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
+    "what_is_left": "1,110 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -5550,9 +5593,9 @@
       "title": "Ground first",
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
-        "roofs_on_committed_ground": 0,
-        "roofs_gated_on_coverage": 9,
-        "statement": "0 of the 9 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 9 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "roofs_on_committed_ground": 6,
+        "roofs_gated_on_coverage": 3,
+        "statement": "6 of the 9 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 3 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5780,8 +5823,8 @@
           "axes": {
             "division": "south"
           },
-          "roofs_gated": 9,
-          "waiting_on": "GROUND, AND NOT STREET CONTROL ANY MORE. The S9 street work this balance used to name is done: T-1707 carried the plat's 7 north-south columns, Market to State, to Madison Street, and each one's committed line now ends at local N -519, -519, -519, -519, -519, -519, -519, inside Madison's own corridor at every one of the 7 (measured by tools/measure_southern_ground.py). Madison is the plat's south line, so there is no street left to carry inside the Original Town. The roofs here are the ones the deal found no room for on any named South block, the plat's last tier from Washington to Madison among them, nor on the School Section's Madison-Monroe tier, the one ground across Madison the owner's 2026-10-05 ruling opened (T-1755 option b, joined by T-2144: one roof to a lot, each block keeping a lot open). The section's next tier, Monroe to Adams, is now cut into the October 1833 register's lots (T-2252) and the owner's 2026-10-09 ruling on T-2247 (option b) opens its six blocks east of the river; joining them to this schedule is T-2253. Ground east of State is not coming at any date — it is the United States Reservation (T-E2).",
+          "roofs_gated": 3,
+          "waiting_on": "GROUND, AND NOT STREET CONTROL ANY MORE. The S9 street work this balance used to name is done: T-1707 carried the plat's 7 north-south columns, Market to State, to Madison Street, and each one's committed line now ends at local N -519, -519, -519, -519, -519, -519, -519, inside Madison's own corridor at every one of the 7 (measured by tools/measure_southern_ground.py). Madison is the plat's south line, so there is no street left to carry inside the Original Town. The roofs here are the ones the deal found no room for on any named South block, the plat's last tier from Washington to Madison among them, nor on the School Section's Madison-Monroe tier, the one ground across Madison the owner's 2026-10-05 ruling opened (T-1755 option b, joined by T-2144: one roof to a lot, each block keeping a lot open), nor on the section's next tier, Monroe to Adams, cut into the October 1833 register's lots (T-2252) and joined on the same terms by the owner's 2026-10-09 ruling on T-2247 (option b, T-2253). Neither tier takes a warehouse: the rulings opened them to the South's houses, so a freight roof is passed on to this balance, owed to the South Water and Lake street line (T-2175) and not to the prairie. Ground east of State is not coming at any date — it is the United States Reservation (T-E2).",
           "owning_tickets": [],
           "filled": 0
         }

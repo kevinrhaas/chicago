@@ -608,9 +608,8 @@ STRUCTURE_TICKETS = {
     # carries the rest of the line, as the band in the inventory does.
     #
     # AND ON TO T-2268 WHEN T-2175 WAS SPLIT (2026-10-09, T-2268 + T-2269). T-2268 raises the
-    # line's two owed F3s off-plat on the South Branch's east bank and T-2269 its F4 lumber
-    # shed; one ticket orders a band, so the order follows the piece that carries two of its
-    # three roofs, as the band in the inventory does.
+    # line's two owed F3 off-plat on the South Branch bank; T-2269 owns the F4 lumber shed's
+    # placement clause. The order moves to the piece carrying the most of it, as the band does.
     ("south", "warehouses_freight"): "T-2268",
     # T-1202 WAS SPLIT on 2026-09-27 and closed with T-1688, the Randolph tier's books, so
     # this row named a ticket nobody can claim (T-1705). It orders nothing — the five
@@ -5528,8 +5527,13 @@ def cmd_self_test() -> int:
     # households it had seated are owed; 65 handed-on households take their roofs, and in
     # the West the farm clause takes a farmstead or nothing (215 platted, 99 -> 95 off-plat,
     # L271).
+    # 310 -> 314 on 2026-10-09 (T-2253, merged over T-2255): the School Section's Monroe-Adams
+    # tier joins the plat on the owner's T-2247 ruling and the South's five gated dwellings and
+    # its H3 are dealt to block 82, so four households the deal had handed on are dealt a slot
+    # there; its second D2 and the H3 find no admitted row (215 -> 219 platted, 95 off-plat,
+    # L270) — requests T-2254 raises.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 310
+        data["inventory"], data["programme"], occ))["seated"] == 314
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

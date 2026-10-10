@@ -768,8 +768,11 @@ def self_test(scopes: tuple[str, ...]) -> int:
         return doc
 
     def fake_the_headroom(doc: dict) -> dict:
+        # One more than the count, not zero: since T-2253 seated the last households these
+        # rows could name, every committed row reads 0, and a zero written over a zero is
+        # the no-op mutation the loop below refuses to count as caught.
         for row in doc["households_left"]:
-            row["households_left"] = 0
+            row["households_left"] += 1
         return doc
 
     cases = [("a refusal stops saying so on the roof", silence_a_refusal),
