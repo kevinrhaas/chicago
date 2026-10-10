@@ -135,7 +135,27 @@ def derive_row(rec: dict, claim: dict) -> dict:
            "note": note_for(field, claim, rec)}
     if cites and len(sources) > 1:
         row["also_sources"] = sources[1:]
+    # T-2261: the claim's own words and its next rung ride on the row, so nothing has to
+    # read them off the singular once the pair retires. The row's `note` is those words
+    # with this module's limit clause and mark appended, which is the card's sentence and
+    # not the claim's; `basis.note` is the claim's alone. The garrison's eleven carry a
+    # `replaceable_by` ("a plan of the post that assigns its quarters") a row could not
+    # hold before, and the card prints it.
+    basis = own_basis(claim)
+    if basis:
+        row["basis"] = basis
+    if claim.get("replaceable_by"):
+        row["replaceable_by"] = copy.deepcopy(claim["replaceable_by"])
     return row
+
+
+def own_basis(claim: dict) -> dict | None:
+    """The claim's `basis`, carrying the claim's own note where the basis states none."""
+    basis = copy.deepcopy(claim.get("basis") or {})
+    own = str(claim.get("note") or "").strip()
+    if not str(basis.get("note") or "").strip() and own:
+        basis["note"] = claim["note"]
+    return basis or None
 
 
 def derive(households=None) -> tuple:
@@ -386,6 +406,23 @@ def self_test() -> int:
                               "basis": {"kind": "rule", "id": "rule_x"}})
     say(r["source_id"] is None and "also_sources" not in r and "rule_x" in r["note"],
         "a reconstructed claim cites nothing and names its rule")
+    say(r["basis"] == {"kind": "rule", "id": "rule_x", "note": "n"},
+        "a basis that states no note carries the claim's own (T-2261)")
+    rb = {"kind": "household", "match": "a plan of the post"}
+    r = derive_row(fake_rec, {"value": "x", "confidence": "reconstructed", "note": "n",
+                              "basis": {"kind": "rule", "id": "rule_x", "note": "the rule's"},
+                              "replaceable_by": rb})
+    say(r["basis"]["note"] == "the rule's" and r["replaceable_by"] == rb
+        and r["replaceable_by"] is not rb,
+        "the claim's basis and replaceable_by ride on the row, copied, not shared")
+    r = derive_row(fake_rec, {"value": "x", "confidence": "attested", "sources": ["a"]})
+    say("basis" not in r and "replaceable_by" not in r,
+        "a claim with no words and no next rung adds neither key")
+    def own_words(claim):
+        return (claim.get("basis") or {}).get("note") or claim.get("note")
+    say(all((r.get("basis") or {}).get("note") == own_words(cards[hid][FIELD_FOR[r["kind"]]])
+            for hid, rs in proposal.items() for r in rs),
+        "every copied row's basis is its claim's own words")
 
     print(f"{failed} failure(s)")
     return 1 if failed else 0
