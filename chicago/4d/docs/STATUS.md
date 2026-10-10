@@ -1,3 +1,25 @@
+## T-2321 — K12 on a named lot: the coach house behind 1812 Prairie (2026-10-10)
+
+**Visible.** In the 1904 scene the alley behind the houses beside the Glessner House has its first
+building: the two-storey brick coach house of 1812 Prairie, the lot south of 1808, at the outline
+sheet 28 of the 1911 Sanborn draws — 14.56 m deep by 8.54 m, the lot's whole width — with a party
+wall rising over the roof at each end, a carriage bay, loft hatch and hoist on the alley, a door and
+sash onto a brick-paved workyard, and a walk to the line of the house's rear wall.
+
+- **The 1911 GARAGE is a 1904 stable.** Built as the census backcasts it, with nothing of a motor
+  garage (restriction `no_1911_use_labels`).
+- **The kit learned four things, additively** — a second party wall in place of the gable, a
+  per-lot pitch (30 degrees on a 14.6 m depth), optional ramp/stair/lean-to/wing, and a workyard —
+  and the specimen asks for none of them: its GLB is byte-identical.
+- **Held by the kit's own gate.** `check_coach_house_kit.py` builds every `k12_coach_house` record
+  and holds it to the kit's rules plus the workyard's (17 self-test cases); `k12_emit.py --check`
+  holds the committed GLB to its record.
+- **Measured.** 1,270 triangles, 9 materials, 98.5 kB master / 26.4 kB web; zero page errors at
+  1280x800 full and 390x780 light, every stand inside budget.
+- **Not done, said.** Flat colours (no K03/K04 texture); the house is not built, so the walk stops
+  at its line; the basement is reached by nothing; openings, roof and yard are reconstructed
+  (`L-k12-1812-coach-house-2321`). `docs/RESEARCH/k12-1812-coach-house-2321/README.md`.
+
 ## T-2289 — K02 stone at 1808 Prairie: a rock-faced front laid round the kits (2026-10-10)
 
 **Visible.** In the 1904 scene the street front of the 1808 Prairie house beside Glessner's is no
