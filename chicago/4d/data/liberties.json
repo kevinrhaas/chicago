@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 447,
+  "count": 448,
   "liberties": [
     {
       "id": "L1",
@@ -28190,6 +28190,37 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2292)."
+        }
+      ]
+    },
+    {
+      "id": "L-k03-brick-library-2290",
+      "title": "The Prairie brick library: four brick bodies, two mortars, their joints and bonds, all reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 Prairie programme's brick (package K03, T-2290) is four procedural fabrics in `assets/textures/prairie_1904_brick/`: a **pressed red** face brick laid in 4 mm flush joints of a dark-tinted mortar, a **common buff** service brick in 9 mm weathered joints of sandy lime, a **dark fired** (overburnt) brick offered only as the header of a Flemish front, and a **rough red-brown** brick in 10 mm raked joints. With them come two mortars, `profiles.json` (joint widths, recesses and profiles; arris bevels and chip rates; the per-brick firing variants and their weights; running, common and Flemish bonds; header, soldier, rowlock, arch, string-course and corner-return rules) and four bonded panels rendered from that data for the balanced and light exports. **What is attested.** Only the asks. The T-1837 study's building register calls for \"pressed dark-red brick with tight dark joints\" at 2100 Prairie (`pa-2100-18`), \"rough red-brown brick\" at 2009 Prairie (`pa-2009-17`), a \"red-brick front\" at 2126 Prairie (`pa-2126-20`) and common-brick returns, side and rear ranges and party walls behind many stone fronts (`pa-1612-1`, `pa-1808-6`, `pa-1912-10`, `pa-2130-42`, `pa-2031-nrhp`). Each fabric's `uses` quotes those entries. That quote is the register's request, not this library's ruling. **What is invented.** Every colour, grain, pit, tear and glaze in every map. Every joint width, recess and profile. The firing variants and their weights. The bond each fabric is offered in (no source read here gives a bond for any of these houses), so the Flemish bond with burnt headers is an option and no house's evidence asks for it yet. The brick module is Glessner v4's (0.2159 m x 0.066675 m, `generators/archetypes/masonry_house_v4_detail.py`), carried to every fabric so the street registers with the canonical asset. No 1904 brick size for these houses is a source here."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a dated photograph, specification or surviving fabric of a particular house replaces that house's colour, joint and bond. A trade source on Chicago pressed or common brick dimensions c. 1870-1904 replaces the module. Neither changes the rule that joints are data and the fabric maps carry none."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2290 (piece 1 of T-1845)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k03-brick-library-2290/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2290)."
         }
       ]
     },
