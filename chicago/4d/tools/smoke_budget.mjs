@@ -399,10 +399,12 @@ const COVERAGE = [
   // T-2293 builds a roof from it, so no part draws it; tools/check_roof_library.py gates it.
   ['assets/textures/prairie_1904_roofs/', NONE, 'the K04 roof library — bound by no renderer yet: check_roof_library.py --check'],
   // T-2297. The K06 window kit is built into a specimen GLB under docs/ that nothing
-  // publishes and no scene loads until T-2298 glazes a house from it, so no part draws
-  // it; tools/check_window_kit.py gates the data, the generator and the specimen.
-  ['data/components/prairie_1904/k06_windows.json', NONE, 'the K06 window kit data — built into no scene yet: check_window_kit.py --check'],
-  ['generators/archetypes/k06_windows.py', NONE, 'the K06 window kit generator — imported by no scene build yet: check_window_kit.py --check'],
+  // publishes; tools/check_window_kit.py gates the data, the generator and the specimen.
+  // T-2298 glazes the 1808 exemplar from it, but no part loads the kit itself: what a
+  // part draws is the house's committed GLB, which mesh_inputs holds to the kit (so a
+  // kit change stales it) and which is mapped under assets/ like every other mesh.
+  ['data/components/prairie_1904/k06_windows.json', NONE, 'the K06 window kit data — reaches a scene only through a re-baked mesh under assets/: check_window_kit.py --check, validate.py --stale'],
+  ['generators/archetypes/k06_windows.py', NONE, 'the K06 window kit generator — reaches a scene only through a re-baked mesh under assets/: check_window_kit.py --check, k01_emit.py --check'],
   ['docs/RESEARCH/k06-window-kit/', NONE, 'the K06 window kit specimen and study — unpublished: check_window_kit.py --check'],
   ['tools/study_k06_windows.mjs', NONE, 'the K06 study renderer — run by hand, by no gate'],
   // T-2301. The K05 roof kit is built into a specimen GLB under docs/ that nothing
