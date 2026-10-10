@@ -58,7 +58,7 @@ def _ridge_intervals(params,r,lo,hi,radius):
     return intervals
 
 
-def ridge_chain(b,params,r,lo,hi,*,join_end=False):
+def ridge_chain(b,params,r,lo,hi,*,join_end=False,open_ends=(False,False)):
     s=params.detail['roof_edges'];radius=s['cap_radius_m'];seat=s['cap_seat_m']
     step=s['ridge_spacing_ft']*.3048;rise=s['crest_rise_m'];width=s['crest_width_m']
     reduced=getattr(b,'reduced_roof_details',False);segments=4 if reduced else 12
@@ -72,14 +72,18 @@ def ridge_chain(b,params,r,lo,hi,*,join_end=False):
         # leave the entire closed barrel floating above the tiled roof.
         return points+[_ridge_point(r,along,-radius*.5,seat-radius*math.sqrt(3)/2),
                        _ridge_point(r,along,radius*.5,seat-radius*math.sqrt(3)/2)]
+    def ends(a,z):
+        # A barrel that runs on into the next range's barrel is not capped: the
+        # two caps would lie back to back in one plane (T-2267).
+        return (not(open_ends[0] and a<=lo),not(open_ends[1] and z>=hi))
     for start,end in _ridge_intervals(params,r,lo,hi,radius):
         if reduced:
-            _solid(b,section(start),section(end),19)
+            _solid(b,section(start),section(end),19,ends=ends(start,end))
         count=0
         for i in range(math.floor((start-lo)/step),math.ceil((end-lo)/step)):
             a=max(start,lo+i*step);z=min(end,lo+(i+1)*step+s['cap_overlap_m'])
             if z-a<.015:continue
-            if not reduced:_solid(b,section(a),section(z),19+i%3)
+            if not reduced:_solid(b,section(a),section(z),19+i%3,ends=ends(a,z))
             # Short cut pieces at abutments never sprout an extra terminal tooth.
             centre=lo+(i+.16)*step
             if centre-width/2<start+.01 or centre+width/2>end-.01:continue
@@ -94,14 +98,28 @@ def ridge_chain(b,params,r,lo,hi,*,join_end=False):
                  crest_rise_m=rise,crest_width_m=width)
 
 
+def _ridge_line(r):
+    return (r['axis'],*(round(r.get(k,0),6) for k in
+            ('ridge_at','ridge_z','ridge_skew','ridge_slope','ridge_origin')))
+
+
 def add_ridges(b,params):
     from archetypes.masonry_house_v4_west_roof import ridge_ranges
+    runs=[]
     for source in params.ranges:
         for r,lo,hi in ridge_ranges(source):
             # The west cross-gable finishes at the continuous north-south ridge.
             join=r['axis']=='x' and source.get('stable_roof') and abs(hi-source['ridge_at'])<.02
             if join:hi-=params.detail['roof_edges']['cap_radius_m']
-            ridge_chain(b,params,r,lo,hi,join_end=join)
+            runs.append((r,lo,hi,join))
+    # Two ranges can carry one ridge line end to end; where one run stops exactly
+    # where the next begins, the barrel continues and neither end is capped.
+    def meets(n,at,side):
+        line=_ridge_line(runs[n][0])
+        return any(_ridge_line(o[0])==line and abs(o[side]-at)<1e-6
+                   for m,o in enumerate(runs) if m!=n)
+    for n,(r,lo,hi,join) in enumerate(runs):
+        ridge_chain(b,params,r,lo,hi,join_end=join,open_ends=(meets(n,lo,2),meets(n,hi,1)))
 
 
 def finial(b,x,y,z,height,mat):
@@ -249,13 +267,18 @@ def add_abutments(b,params,surfaces):
                     split(a,mid,depth+1);split(mid,z,depth+1);return
                 if c['z0']-.05<mm[0]<c['z1']-.12:pieces.append((a,z,aa,zz))
             split(0,1)
-            for a,z,aa,zz in pieces:
+            for k,(a,z,aa,zz) in enumerate(pieces):
                 def section(t,hit):
                     x,y=p[0]+dx*t+out[0]*.006,p[1]+dy*t+out[1]*.006
                     height,n=hit;fall=-(n[0]*out[0]+n[1]*out[1])/n[2]
                     def P(offset,rise):return (x+out[0]*offset,y+out[1]*offset,height+rise)
                     return [P(0,.12),P(stock,.12),P(stock,.012),
                             P(.09,.012+.09*fall),P(.09,.012+.09*fall-stock),P(0,.012-stock)]
-                _solid(b,section(a,aa),section(z,zz),4)
+                # Pieces that meet share one section at the joint (the same t
+                # samples the same roof), so the fold runs on through it rather
+                # than closing both pieces back to back there (T-2267).
+                _solid(b,section(a,aa),section(z,zz),4,
+                       ends=(not(k and pieces[k-1][1]==a),
+                             not(k+1<len(pieces) and pieces[k+1][0]==z)))
                 _receipt(b,'abutment',chimney=c['name'],start=section(a,aa)[0],
                          end=section(z,zz)[0],height_m=.12,width_m=.09)
