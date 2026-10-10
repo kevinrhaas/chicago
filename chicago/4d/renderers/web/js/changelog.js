@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1605, ts: '2026-10-10T01:44:26.675Z', date: 'Oct 9, 2026, 8:44 PM CT', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
+  { v: 1606, ts: '2026-10-10T01:44:39.923Z', date: 'Oct 9, 2026, 8:44 PM CT', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
     items: [
       'Nothing you can see changes. Where a household\u2019s dated home was copied from the old single home line, it now also carries that line\u2019s own reasoning and what would replace it, so the seat a card shows no longer depends on the old line.',
       'The garrison\u2019s eleven households keep their own \u201cWould move it up the ladder\u201d line, a plan of the post that assigns its quarters, and every seat in the town reads exactly as before.',
+    ] },
+  { v: 1605, ts: '2026-10-10T01:25:22.744Z', date: 'Oct 9, 2026, 8:25 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The reconstruction\u2019s work list asked for ten more South-side family households than the town could form, after letter-list names stopped counting as households on 9 October.',
+      'Those ten are not missing. The town already holds 23 families present in July 1835 who are still waiting for a house, so the list no longer asks for anyone to be invented in their place. It now owes no family houses in any division.',
+      'Nobody was added, moved or given a house. The 23 families still wait for the town\u2019s next dwellings to be built.',
     ] },
   { v: 1604, ts: '2026-10-10T01:02:46.060Z', date: 'Oct 9, 2026, 8:02 PM CT', title: 'The tools that seat the town read each household\u2019s dated places', kind: 'change',
     items: [
