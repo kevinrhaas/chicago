@@ -1,10 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1609, ts: '2026-10-10T03:38:31.117Z', date: 'Oct 9, 2026, 10:38 PM CT', title: 'Every 1835 door is shut and every window glazed', kind: 'feature',
+  { v: 1611, ts: '2026-10-10T03:38:53.271Z', date: 'Oct 9, 2026, 10:38 PM CT', title: 'Every 1835 door is shut and every window glazed', kind: 'feature',
     items: [
       'Doors were black holes in the wall. Houses, taverns, stores and fort buildings now have closed panelled doors on a sill. Shops have half-glazed doors with a transom light, and cabins have board doors on iron strap hinges.',
       'Windows were black panels with flat bars. Each now sits in a board casing with a sloped sill and a drip cap. The sash is set back so the frame casts a shadow.',
       'The glass is the dark glass Glessner House uses in 1904: a near-black pane that reflects the sky. Chicago merchants sold window glass and ready-made sash by the box in 1833–35, so cabins have glass too. Barns and sheds stay unglazed.',
       'Store show windows are small panes, the 8×10 inch sizes the town’s merchants sold. Many cabin windows have board shutters standing open. Barn and shed doors now hang on strap hinges.',
+    ] },
+  { v: 1610, ts: '2026-10-10T03:02:42.351Z', date: 'Oct 9, 2026, 10:02 PM CT', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
+    items: [
+      'Nothing you can see changes. Where a household\u2019s dated home was copied from the old single home line, it now also carries that line\u2019s own reasoning and what would replace it, so the seat a card shows no longer depends on the old line.',
+      'The garrison\u2019s eleven households keep their own \u201cWould move it up the ladder\u201d line, a plan of the post that assigns its quarters, and every seat in the town reads exactly as before.',
+    ] },
+  { v: 1609, ts: '2026-10-10T02:48:43.449Z', date: 'Oct 9, 2026, 9:48 PM CT', title: 'Closing one task no longer quietly reopens another', kind: 'fix',
+    items: [
+      'Nothing you can see changes. When the build loop marks a task finished, it now records only that task. A week ago, finishing one task also published a private scratch edit to another, which put already-finished work back on the to-do list. That task is closed again.',
     ] },
   { v: 1608, ts: '2026-10-10T02:34:31.860Z', date: 'Oct 9, 2026, 9:34 PM CT', title: 'The groundwork for people in the town: one skeleton, one rulebook', kind: 'change',
     items: [

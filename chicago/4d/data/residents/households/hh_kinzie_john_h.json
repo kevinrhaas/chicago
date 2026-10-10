@@ -63,7 +63,10 @@
    "undated": true,
    "tier": "inferred",
    "source_id": "andreas_1884_v1",
-   "note": "The building record is graded inferred for a name reason this household inherits: Andreas's list says 'Jim Kinzie's store' and the 1834 advertisement says J. H. Kinzie, and those are two different men of the same family. The record follows the advertisement. This dataset also holds kinzie_hunter_warehouse under 'John H. Kinzie and Lieut. David Hunter', which is a second premises and is not linked here. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_kinzie_john_h#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+   "note": "The building record is graded inferred for a name reason this household inherits: Andreas's list says 'Jim Kinzie's store' and the 1834 advertisement says J. H. Kinzie, and those are two different men of the same family. The record follows the advertisement. This dataset also holds kinzie_hunter_warehouse under 'John H. Kinzie and Lieut. David Hunter', which is a second premises and is not linked here. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_kinzie_john_h#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
+   "basis": {
+    "note": "The building record is graded inferred for a name reason this household inherits: Andreas's list says 'Jim Kinzie's store' and the 1834 advertisement says J. H. Kinzie, and those are two different men of the same family. The record follows the advertisement. This dataset also holds kinzie_hunter_warehouse under 'John H. Kinzie and Lieut. David Hunter', which is a second premises and is not linked here."
+   }
   }
  ],
  "present_on_scene_date": {

@@ -163,6 +163,45 @@ function publishChange(message, opts) {
   process.exitCode = 1;
   return false;
 }
+/**
+ * A COMMAND COMMITS ONLY WHAT IT WAS ASKED TO CHANGE (T-2280). `pushTickets` stages
+ * with `git add -A`, so whatever else sat edited in the clone rode along under the
+ * command's own message, and nothing said so. On 2026-10-03 the T-1205 run restored
+ * T-1171's pre-split file in its own clone to derive against — "in my local tickets
+ * copy only; nothing was pushed" — then ran `done T-1205`. The commit "T-1205: review —
+ * PR #336" (b679d90) carried T-1171 too and put a split parent back to `claimed`, where
+ * `list --workable` offered it as a TAKEABLE dead claim for seven days. The same dirty
+ * tree had also made that command's pull fail, so it read a stale clone.
+ *
+ * So a mutating command other than `sync` (publishing hand edits is sync's job) looks
+ * first, before it pulls, reads or writes: a local edit to a file it was not asked to
+ * change refuses it, naming each file and both ways out. Nothing is published that was
+ * not meant, and nothing is discarded — guessing which the author wanted is the one
+ * thing this may not do. An edit to a ticket the command NAMES (a finding added to
+ * T-NNNN, then `done T-NNNN`) still rides that command, as it always has.
+ */
+function refuseStrayEdits(cmd, named) {
+  const st = tgit(['status', '--porcelain', '-z', '--untracked-files=all']);
+  if (st.status !== 0) return;
+  const entries = st.stdout.split('\0');
+  const dirty = [];
+  for (let i = 0; i < entries.length; i += 1) {
+    const e = entries[i];
+    if (e.length < 4) continue;
+    dirty.push(e.slice(3));
+    if (/^[RC]/.test(e)) i += 1;   // a rename's second field is its old name
+  }
+  const own = (p) => named.some((id) => path.basename(p).startsWith(`${id}-`) && p.endsWith('.md'));
+  const stray = dirty.filter((p) => !own(p));
+  if (!stray.length) return;
+  console.error(`ticket.mjs ${cmd}: REFUSED — the tickets clone holds local edits this command was not asked to make:`);
+  for (const p of stray) console.error(`    ${p}`);
+  console.error(`  \`${cmd}\` would publish them under its own message (T-2280). Either publish them for what they are:\n`
+    + '    node tools/ticket.mjs sync -m "<what they are>"\n'
+    + '  or set them aside, and re-run:\n'
+    + `    git -C ${path.relative(process.cwd(), DIR) || '.'} stash --include-untracked   # or: checkout -- <file>`);
+  process.exit(1);
+}
 const QUEUE = path.join(DIR, 'QUEUE.md');
 const BOARD = path.join(DIR, 'BOARD.md');
 const JSON_OUT = path.join(DIR, 'tickets.json');
@@ -2423,6 +2462,9 @@ let published = false;        // a case that pushed for itself (claim) sets this
 // Not before `sync`: its whole job is to publish edits already sitting in the clone, and
 // a pull over them either fails (dirty tree) or, with --autostash, would lay them on top
 // of someone else's change unseen. Its push rebases, and a conflict there is refused.
+if (inRepoMode() && MUTATING.has(cmd) && cmd !== 'sync') {
+  refuseStrayEdits(cmd, args.filter((a) => /^T-\d{4}$/i.test(a)).map((a) => a.toUpperCase()));
+}
 if (inRepoMode() && ((MUTATING.has(cmd) && cmd !== 'sync') || ['list', 'inflight'].includes(cmd))) pullTickets();
 const tickets = loadAll();
 

@@ -65,6 +65,15 @@
     "residents/household:arrival_year.written_by_stage": {
       "records": 1384
     },
+    "residents/household:associated_with[].basis.kind": {
+      "records": 11
+    },
+    "residents/household:associated_with[].replaceable_by.kind": {
+      "records": 11
+    },
+    "residents/household:associated_with[].replaceable_by.match": {
+      "records": 11
+    },
     "residents/household:division": {
       "records": 1457,
       "refused_because": "Denormalised. The MANIFEST's copy is what the panel groups and labels rows by, and validate.py fails the build if the two disagree; reading both would be two answers to one question."

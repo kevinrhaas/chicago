@@ -68,7 +68,10 @@
    "undated": true,
    "tier": "inferred",
    "source_id": "andreas_1884_v1",
-   "note": "He is documented packing in that building in the 1834 SEASON, which is the season before the scene date, and data/structures/old_bank_building.json grades its own occupancy inferred for exactly that reason. A packing house is a seasonal building and July is not the season. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_hubbard_gurdon#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+   "note": "He is documented packing in that building in the 1834 SEASON, which is the season before the scene date, and data/structures/old_bank_building.json grades its own occupancy inferred for exactly that reason. A packing house is a seasonal building and July is not the season. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_hubbard_gurdon#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
+   "basis": {
+    "note": "He is documented packing in that building in the 1834 SEASON, which is the season before the scene date, and data/structures/old_bank_building.json grades its own occupancy inferred for exactly that reason. A packing house is a seasonal building and July is not the season."
+   }
   }
  ],
  "present_on_scene_date": {

@@ -59,7 +59,10 @@
    "undated": true,
    "tier": "attested",
    "source_id": "andreas_1884_v1",
-   "note": "'His residence was a cabin of hewn logs' now has a structure to point at. The household's presence on the scene date remains uncertain and the link does not change that. Linked by the inferred-household programme's building parcel (docs/ROADMAP.md K1, phase two); the building record carries the evidence. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_harmon_elijah_d#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+   "note": "'His residence was a cabin of hewn logs' now has a structure to point at. The household's presence on the scene date remains uncertain and the link does not change that. Linked by the inferred-household programme's building parcel (docs/ROADMAP.md K1, phase two); the building record carries the evidence. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_harmon_elijah_d#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
+   "basis": {
+    "note": "'His residence was a cabin of hewn logs' now has a structure to point at. The household's presence on the scene date remains uncertain and the link does not change that. Linked by the inferred-household programme's building parcel (docs/ROADMAP.md K1, phase two); the building record carries the evidence."
+   }
   }
  ],
  "present_on_scene_date": {
