@@ -27,7 +27,7 @@
  ],
  "the_households": {
   "band": "west/farms_and_country_seats",
-  "owed": 45,
+  "owed": 44,
   "seated_in_farmsteads": [
    {
     "id": "hh_bell_william_a",
@@ -41,15 +41,15 @@
    }
   ],
   "by_rung": {
-   "policy_only": 45
+   "policy_only": 44
   },
   "missing_from_the_address_book": [],
   "placed_by_a_source": 0,
   "handed_to": {
-   "T-1615": 45
+   "T-1615": 44
   },
   "why_owed": {
-   "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. The deal reads the ruling before it deals (T-1645), so no roof is offered to this row and the roof it would have taken goes on to the next row of its clause order": 24,
+   "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. The deal reads the ruling before it deals (T-1645), so no roof is offered to this row and the roof it would have taken goes on to the next row of its clause order": 23,
    "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule": 21
   },
   "statement": "every one of them is `policy_only`: a name from the post office's letter lists with no address, its division dealt from the order book's household target and its class from the town model's employment distribution, whose `Agriculture` column is the farms clause. No source puts any of them on any ground — the post office served the whole country round, and a farmer who collected mail at Chicago need not have farmed inside the modelled box."
@@ -206,17 +206,17 @@
    "to_build": 0,
    "owning_ticket": "T-2169"
   },
-  "roofs_a_farmstead_per_owed_household_needs": 90,
+  "roofs_a_farmstead_per_owed_household_needs": 88,
   "farmsteads_the_ground_admits_beyond_those_standing": 8,
   "remaining_by_group": {}
  },
  "the_ceiling": {
   "farmsteads_the_ground_holds_at_one_per_forty": 10,
   "farmsteads_the_programme_carries_as_it_stands": 0,
-  "owed_households_left_beyond_the_ground_at_best": 37,
+  "owed_households_left_beyond_the_ground_at_best": 36,
   "cabin_and_barn_pairs_already_standing_on_it": 2,
   "farm_households_seated_in_them": 2,
   "pairs_note": "a D1 cabin and an A2 barn that already stand on the farm ground ARE a farmstead's two roofs, and seating a farm household under one draws on no programme headroom at all. Since T-1794 the off-plat deal's farmstead rule (tools/seat_off_plat_ground_1835.py) gives them to farm households ahead of the labourers, who ranked above the farms clause and had taken every one."
  },
- "verdict": "47 West farm households are dealt and no source places one of them: 2 are seated in a standing farmstead and 45 are owed. The West ground outside the 1833 corporation limits and off every subdivided tract is 177.7 ha — 10.98 forties — so at one farm to the smallest holding either source names, the modelled ground holds at most 10 farmstead(s), and 37 of the 47 must be stated as farming beyond it. 14 roof(s) already stand on that ground, 7 of them D1 cabins and 2 A2 barns — 2 cabin-and-barn pair(s), 2 of them seated by a farm household under the farmstead rule. The programme carries 0 D1+A2 farmstead(s) as it stands: the West has 0 D1 and 0 A2 left to build, its 0 remaining dwellings are T-2150's and its 0 barns T-2169's. 1 register row(s) of farm size reach the West ground outside the limits."
+ "verdict": "46 West farm households are dealt and no source places one of them: 2 are seated in a standing farmstead and 44 are owed. The West ground outside the 1833 corporation limits and off every subdivided tract is 177.7 ha — 10.98 forties — so at one farm to the smallest holding either source names, the modelled ground holds at most 10 farmstead(s), and 36 of the 46 must be stated as farming beyond it. 14 roof(s) already stand on that ground, 7 of them D1 cabins and 2 A2 barns — 2 cabin-and-barn pair(s), 2 of them seated by a farm household under the farmstead rule. The programme carries 0 D1+A2 farmstead(s) as it stands: the West has 0 D1 and 0 A2 left to build, its 0 remaining dwellings are T-2150's and its 0 barns T-2169's. 1 register row(s) of farm size reach the West ground outside the limits."
 }

@@ -1,3 +1,41 @@
+## T-1786 — the portable human contract (2026-10-10)
+
+First ticket of the owner's portable-humans programme (T-1786 to T-1792). **Nothing in the scene
+changes, and L1 stands**: no human figure is drawn, for anyone. This fixes the decisions the
+later tickets would otherwise each make for themselves.
+
+- **`docs/HUMAN-ASSET-CONTRACT.md`** is the contract in prose.
+  **`data/humans/contract.json`** is its machine-readable half:
+  - one 56-bone skeleton, `c4d_humanoid_v1`, with `ext_` extension bones
+  - three required sockets
+  - five required and five optional material slots, using `<slot>__<variant>` names
+  - the face on ARKit morph names, required on lod0 and lod1 only
+  - a clip grammar of `<verb>[_<variant>]` with seven verbs, in place
+  - four LODs mapped to the full, balanced and light tiers
+  - provenance fields for the DEPICTION's own grade
+  - the delivery limits
+  - Unreal as an export, never a master
+- **`data/humans/human_instance.schema.json`** is the instance record. It binds an asset to an
+  existing person id in one scene. Appearance, animation and behaviour are separate blocks.
+  `display` is refused `shown` while `l1.in_force` is true, and `review_required` is carried
+  from the person's record and cannot be dropped.
+- **`tools/human_contract.py`** has three modes:
+  - `--check` (in check.sh) holds the contract to itself and to the schema, then checks every
+    GLB under `assets/humans/` and every instance under `data/humans/instances/`. There are
+    none of either yet, so it reports 0 and 0.
+  - `--glb` is for T-1787's exporter.
+  - `--self-test` has 49 assertions. It builds a conforming synthetic body from the contract
+    and breaks it one way at a time, then does the same for instances. Every refusal the
+    ticket names fires by code: an incompatible skeleton, a missing material slot or morph,
+    duplicate clip names, non-metric scale (in positions or hidden in a 0.01 transform), and
+    missing provenance or licence. So do refusals for KTX2 and Draco, which the renderer
+    cannot load.
+- **What is not proved.** The fixtures are JSON-only GLBs: names, hierarchy, accessor bounds
+  and extras, with no vertex data. No real Blender export has been through the gate yet; that
+  is T-1787's tiny rigged CI fixture. The per-LOD triangle, texture and draw budgets are left
+  for T-1787 to measure rather than guessed here. No review record exists yet, so a
+  review_required person cannot be shown even after L1 lifts.
+
 ## T-2255 — the off-plat deal reads the letter-list ruling (2026-10-09)
 
 T-1645 made the platted deal owe the letter-list cohort (T-0379) and hand it on;
@@ -13,6 +51,8 @@ ruling is dropped from the deal.
 - **Merged over T-2253** (2026-10-10): the platted deal's four block-82 slots and this deal's
   re-deal do not touch: 219 platted + 95 off-plat = **314 seated**, off-plat seats identical to
   the branch before the merge; order-book tripwire 310 -> 314.
+- **Merged over T-1550** (2026-10-10): 220 platted + 95 off-plat = **315 seated**; off-plat
+  still 95, order-book tripwire 319 -> 315.
 - **Not done:** off-plat roofs carry no household back (T-1638 is platted-only), so a re-deal
   still moves seated households between roofs. Four West cabins stand unspent, each stating why.
 

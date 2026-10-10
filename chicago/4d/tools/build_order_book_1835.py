@@ -5682,8 +5682,16 @@ def cmd_self_test() -> int:
     # its H3 are dealt to block 82, so four households the deal had handed on are dealt a slot
     # there; its second D2 and the H3 find no admitted row (215 -> 219 platted, 95 off-plat,
     # L270) — requests T-2254 raises.
+    # 318 -> 319 on 2026-10-09 (T-1550, on top of T-2253): hh_beaubien_charles folds onto
+    # hh_beaubien_charles_h and his adopted D3 goes down the South walk; hh_meleney_patrick
+    # takes a standing roof, his block-82 slot is re-dealt and one more household is slotted
+    # there, and one reconstructed household is seated on a freed D1 on the Lake-Market block
+    # (219 -> 220 platted, 99 off-plat, L270).
+    # 319 -> 315 on 2026-10-10 (T-2255, on top of T-1550): the off-plat deal owes the
+    # letter-list cohort the ruling of 2026-08-30 refuses (T-0379), so 99 -> 95 off-plat on
+    # the same 220 platted (L271).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 314
+        data["inventory"], data["programme"], occ))["seated"] == 315
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
