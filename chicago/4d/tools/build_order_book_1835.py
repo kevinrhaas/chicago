@@ -5391,8 +5391,11 @@ def cmd_self_test() -> int:
     assert bank["to_build"] == 0 and bank["target"] == bank["standing"], bank
     assert all(i.startswith("south_bank_shed_dearborn_") for i in bank["band_members"]), bank
     assert "structures/warehouses_freight/south" not in cells, "the cut cell still orders as one"
-    assert line["to_build"] == data["programme"]["remaining"]["by_district_group"]["south"][
-        "warehouses_freight"], line
+    # Since T-2268 raised the street line's last two F3s (2026-10-10) the cell owes nothing,
+    # and the programme drops a remainder that reaches zero rather than carrying a 0 — so a
+    # missing key is the closed cell, and the band must order exactly that: none.
+    assert line["to_build"] == data["programme"]["remaining"]["by_district_group"]["south"].get(
+        "warehouses_freight", 0), line
     fires("a cell cut into one band, which is not a cut",
           banded(lambda cut: cut.__setitem__("bands", cut["bands"][:1])))
     fires("a cell cut with two remainder bands, so its order would be ordered twice",

@@ -203,7 +203,12 @@ BUSINESS_DEAL_HOLDS = 45
 # recon_1835_south_d5_016 in the deal itself and his block-82 slot is re-dealt down the South
 # queue (hh_miller_samuel and hh_rc_woodruff_ruth are slotted there), so a release of the
 # business deal's roofs still seats eight. The hold is unchanged at 45 (L270).
-BUSINESS_DEAL_COSTS = 8
+# 8 -> 10 on 2026-10-10 (T-2268, on the tree merged with T-1550): two F3s on the South Branch
+# bank bring F3 to its target, and the schedule re-deals block 82's gated balance without the
+# two F3s it had carried; its slots go to the tradesman rows the re-dealt mix admits, which moves
+# the queue a release would draw on, so a release of the business deal's roofs seats ten
+# households. The hold is unchanged at 45 (L270).
+BUSINESS_DEAL_COSTS = 10
 
 TICKET = "T-1613"
 PARENT = "T-1199"

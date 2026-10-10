@@ -13856,6 +13856,18 @@
       "asset": "gltf/recon_1835_south_a5_044__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_south_branch_freight_f3_001",
+      "name": "Reconstructed F3 large river warehouse #001",
+      "sidecar": "sidecars/1835/recon_1835_south_branch_freight_f3_001.json",
+      "asset": "gltf/recon_1835_south_branch_freight_f3_001__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_south_branch_freight_f3_002",
+      "name": "Reconstructed F3 large river warehouse #002",
+      "sidecar": "sidecars/1835/recon_1835_south_branch_freight_f3_002.json",
+      "asset": "gltf/recon_1835_south_branch_freight_f3_002__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_south_branch_lumber_f4_001",
       "name": "Reconstructed F4 lumber shed #001",
       "sidecar": "sidecars/1835/recon_1835_south_branch_lumber_f4_001.json",

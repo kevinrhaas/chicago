@@ -77,7 +77,7 @@
    "division_ground": 27,
    "farms_and_country_seats": 207,
    "heavy_and_noxious_trades": 1,
-   "labourer_dwellings": 63,
+   "labourer_dwellings": 64,
    "merchant_and_professional_dwellings": 369,
    "tradesman_dwellings": 437
   },
@@ -86,10 +86,10 @@
    "south": 655,
    "west": 213
   },
-  "roofs_offered_for_adoption": 108,
+  "roofs_offered_for_adoption": 110,
   "roofs_held_back": 17,
   "roofs_standing_on_no_committed_parcel": 4,
-  "roofs_offered_and_unspent": 9
+  "roofs_offered_and_unspent": 11
  },
  "what_this_ground_could_not_hold": {
   "rows": 1105,
@@ -99,7 +99,7 @@
  "the_south_division_has_no_off_plat_roof": {
   "free_roofs_off_the_plat": {
    "north": 77,
-   "south": 1,
+   "south": 3,
    "west": 30
   },
   "rows_owed_by_district": {
@@ -327,6 +327,20 @@
    "family": "W3",
    "district": "north",
    "parcel_id": "canal_section_9_remainder",
+   "why": "no clause of the placement policy that any handed-on band names admits this roof's family, so no household in scope could be seated under it"
+  },
+  {
+   "structure_id": "recon_1835_south_branch_freight_f3_001",
+   "family": "F3",
+   "district": "south",
+   "parcel_id": "canal_commissioners_1830",
+   "why": "no clause of the placement policy that any handed-on band names admits this roof's family, so no household in scope could be seated under it"
+  },
+  {
+   "structure_id": "recon_1835_south_branch_freight_f3_002",
+   "family": "F3",
+   "district": "south",
+   "parcel_id": "canal_commissioners_1830",
    "why": "no clause of the placement policy that any handed-on band names admits this roof's family, so no household in scope could be seated under it"
   },
   {
@@ -8180,15 +8194,6 @@
    "handed_to": "T-1615"
   },
   {
-   "id": "hh_morrison_amanda",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
-   "handed_to": "T-1615"
-  },
-  {
    "id": "hh_morrow_jeremiah",
    "kind": "household",
    "band": "south/tradesman_dwellings",
@@ -10634,6 +10639,15 @@
    "clause": "labourer_dwellings",
    "district": "north",
    "why": "every one of the 13 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "handed_to": "T-1615"
+  },
+  {
+   "id": "hh_rc_woodruff_ruth",
+   "kind": "household",
+   "band": "south/labourer_dwellings",
+   "clause": "labourer_dwellings",
+   "district": "south",
+   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {

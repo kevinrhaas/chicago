@@ -5194,6 +5194,24 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_a5_044"
     },
+    "recon_1835_south_branch_freight_f3_001__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 122684,
+      "inputs_sha256": "7613496e1f944bdd1be773480013cae199932c0d528e88cae75304c3124e76d5",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_south_branch_freight_f3_001"
+    },
+    "recon_1835_south_branch_freight_f3_002__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 116896,
+      "inputs_sha256": "34e0177c13c8940303ec99ceecd1e23b9ac66a323e18e96f0df3bff586dd5976",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_south_branch_freight_f3_002"
+    },
     "recon_1835_south_branch_lumber_f4_001__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
