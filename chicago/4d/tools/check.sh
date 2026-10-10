@@ -578,6 +578,20 @@ step "the K10 cornice kit turns every corner and seats every bracket, rail, copi
 selftest "…and a dropped bracket, a lifted finial, a doubled dentil, a short crown, a sunk dormer or a missing post still fails it" \
   python3 tools/check_cornice_kit.py --self-test
 
+# T-2320. ...and what stands at the back of the lot. The K12 kit's parts are sized in
+# data/components/prairie_1904/k12_coach_house.json and built by
+# generators/archetypes/k12_coach_house.py. This rebuilds the coach house and measures the
+# geometry: every open edge lying on another surface (a wall's foot on the ground, its end on
+# the wall it meets, a rake on the roof, a leaf on its reveal, the wing on the coach house and
+# the house), every strap, beam, coping and cleat passing through its host, no doubled face,
+# every elevation closed, every opening cut through its wall, the ramp and the stair at grade,
+# no ventilator without a source, budgets, and the specimen GLB.
+step "the K12 coach-house kit closes every elevation, cuts every opening through and sets its ramp and stair on grade (T-2320)" \
+  python3 tools/check_coach_house_kit.py --check
+
+selftest "…and a wing off its wall, a loose hoist beam, a doubled sill, an open elevation, a painted-on door or a sourceless ventilator still fails it" \
+  python3 tools/check_coach_house_kit.py --self-test
+
 # T-1963. The walls' relief is bound by reading the RECORD (route 2 of the photographic
 # fabric preparation, docs/GLB-CONTRACT.md § Wall substrates, PROPOSED): which wall is
 # clapboard, and how much of the wood's grain its finish lets through. That route's

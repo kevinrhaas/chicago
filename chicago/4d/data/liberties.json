@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 460,
+  "count": 462,
   "liberties": [
     {
       "id": "L1",
@@ -28777,6 +28777,37 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2316)."
+        }
+      ]
+    },
+    {
+      "id": "L-k12-coach-house-kit-2320",
+      "title": "The Prairie coach-house kit: every coach house, stable fitting and service wing reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 Prairie programme's alley buildings (package K12, T-2320) are built by `generators/archetypes/k12_coach_house.py` from `data/components/prairie_1904/k12_coach_house.json`, whose one variant is a two-storey brick coach house on an alley: a carriage bay with a pair of boarded leaves on strap hinges under a boarded head panel and a segmental brick ring, a man door, four-light stable sash, a loft hatch under a hoist beam with its hook, a party wall on the lot line that rises above the gable roof and returns past both eaves under a stone coping, an external stair with a landing up to a loft door on the open gable, a cleated ramp between retaining walls down to a basement door, a one-storey lean-to with a two-leaf stable door, and a flat-roofed connecting wing from the coach house to the house's rear wall. Every wall is a solid with its openings cut through it; every piece stands on or passes through what carries it; none is a texture. **What is invented.** Every dimension and every arrangement: the 9.0 by 6.6 m plan, the 3.6 m carriage room and 2.7 m loft, the 40 degree roof and its eaves and verge, the 13- and 9-inch walls, the 1.8 m basement, the party wall's 0.45 m parapet and 0.5 m returns and its coping section, the carriage bay's 3.0 m clear width (range 2.7-3.6 m), its 0.35 m rise and two-rowlock ring, the leaves, straps and their heights, the hatch and the hoist beam's section and reach, the sash's bars and lights, every sill and lintel, the ramp's 1 in 4 grade, width, landing, curbs and cleats, the stair's 0.20 m risers, 0.24 m goings, stringers, landing, posts and rails, the lean-to's 20 degree pitch and the wing's plan and height, and where every opening sits on every wall. The parts follow the study's asset catalog (K12: \"one/two-storey brick/frame/mixed service buildings, hay/loft doors, carriage bays, sash, roof ventilator only when supported, ramps, lean-tos and connecting wings\"), which is the study's reading of its images and not a source record here; the forms are the ordinary ones of a horse-drawn coach house and copy no named building. **What is not.** Nothing in the kit is attested, and no lot carries it yet (T-2321 builds the first K12 coach house or wing behind a named house). It builds no roof ventilator, because no source here shows one (the data's `ventilator_needs_evidence` restriction, which the generator enforces), and it reads no 1911 garage or auto label as 1904 use (`no_1911_use_labels`). Glessner's stable is its own canonical asset and is not touched (`never_replaces_landmark`)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a lot's own photograph, plan, fire-insurance sheet or building permit shows its coach house's size, storeys, openings, roof or wing, and that lot takes it in place of the kit's working arrangement; a period stable-builder's or architect's pattern book replaces a part's sizes for every lot at once."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2320 (piece 1 of T-1854, K12)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k12-coach-house-kit/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2320)."
         }
       ]
     },
