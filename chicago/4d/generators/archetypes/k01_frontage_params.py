@@ -24,6 +24,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 CONTRACT = ROOT / "data" / "components" / "prairie_1904" / "k01_contract.json"
+WINDOW_KIT = ROOT / "data" / "components" / "prairie_1904" / "k06_windows.json"
 
 CONFIDENCE_VALUE = {"attested": 0.0, "inferred": 0.5, "reconstructed": 1.0}
 
@@ -91,6 +92,8 @@ class K01FrontageParams:
     rear_bays: tuple                  # window centres along the rear wall, north to south
     basement_sill_m: float
     openings: tuple = ()
+    # T-2298: the K06 variant each K01 opening kind is glazed with (k06_windows.json)
+    window_kit: dict = field(default_factory=dict)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -123,7 +126,7 @@ CONSUMED = frozenset({
     "wall_thickness_front_m", "wall_thickness_side_m", "roof_form", "roof_pitch_deg",
     "eave_overhang_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m",
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
-    "basement_lights",
+    "basement_lights", "window_kit",
 })
 
 
@@ -221,6 +224,31 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if bsill + float(bl["height_m"]) + 0.30 > pf + float(sash[0]["sill_above_floor_m"]) - 0.10:
         raise ParamError("the basement lights' lintels run into the principal storey's sills")
 
+    # T-2298: every glazed K01 opening is built from a K06 variant. The K01 wall cuts a
+    # rectangular hole, so only a flat-headed variant fits it; an arched head is a
+    # different hole and a different wall, not a swap of this attribute.
+    kit = {}
+    variants = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
+    for comp, entry in sorted((val("window_kit") or {}).items()):
+        # a variant id, or {"variant": id, "well": false} where the record's own datums
+        # put a basement light's sill above grade and so leave its area well out
+        entry = {"variant": entry} if isinstance(entry, str) else dict(entry)
+        kit[comp] = {"variant": entry["variant"], "well": bool(entry.get("well", True))}
+    for comp in sorted({o.component for o in openings} - {"k01.opening.door_leaf"}):
+        vid = kit.get(comp, {}).get("variant")
+        if vid not in variants:
+            raise ParamError(f"window_kit names no K06 variant for {comp} (k06_windows.json)")
+        v = variants[vid]
+        if v["head"] != "flat":
+            raise ParamError(f"window_kit: {vid} has a {v['head']} head, and a K01 wall cuts "
+                             f"a rectangular hole")
+        if v.get("well") and kit[comp]["well"] and comp == "k01.opening.area_light" and bsill > 0:
+            raise ParamError(f"window_kit: {vid} sits in an area well, but these basement "
+                             f"lights' sills stand {bsill} m above grade; set \"well\": false")
+        if v["operation"].startswith("double_hung") != any(
+                o.meeting_rail for o in openings if o.component == comp):
+            raise ParamError(f"window_kit: {vid} is {v['operation']}, which {comp} is not")
+
     names = sorted(CONSUMED)
     params = K01FrontageParams(
         depth_m=depth, width_m=width, stories=stories, principal_floor_m=pf,
@@ -233,6 +261,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         side_bays=tuple(float(s) for s in val("side_bays")),
         rear_bays=tuple(float(s) for s in val("rear_bays")),
         basement_sill_m=bsill, openings=tuple(openings),
+        window_kit={k: kit[k] for k in sorted(kit)},
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )
