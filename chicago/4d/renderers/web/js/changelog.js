@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1606, ts: '2026-10-10T01:48:43.701Z', date: 'Oct 9, 2026, 8:48 PM CT', title: 'A lumber shed on the South Branch below Washington Street', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'A lumber shed on the South Branch below Washington Street', kind: 'feature',
     items: [
       'Walk down Market Street south of Washington and look toward the river. A long plank shed now stands on the bank, open along one side, facing the South Branch. It is the town\u2019s first lumber shed.',
       'The Chicago Democrat shows lumber reaching Chicago by boat, from St. Joseph\u2019s sawmills and a yard on South Water Street. So the shed stands where boards would come off a schooner.',
       'No source places this shed or names its owner. It is a reconstruction, and its card says so. It is not David Carver\u2019s yard, which the paper puts on South Water Street.',
+    ] },
+  { v: 1606, ts: '2026-10-10T01:40:14.964Z', date: 'Oct 9, 2026, 8:40 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
+    items: [
+      'Charles Beaubien, father of Susan at her baptism at St Mary\u2019s on 24 December 1834, stood in the town as a second man, with a house of his own. He is Charles H. Beaubien, the voter and violinist, now on one card. The history of Chicago names Charles H. as J. B. Beaubien\u2019s son, teaching the fort\u2019s children in 1829, and his death notice puts his birth in 1806 or 1807. No record the town holds names a second Charles Beaubien.',
+      'His second house is gone. Other households move into it and the houses they leave. Patrick Meleney now has a standing house on the South side instead of a lot south of Monroe, and Samuel Miller and the reconstructed household of Ruth Woodruff are given lots there.',
     ] },
   { v: 1605, ts: '2026-10-10T01:25:22.744Z', date: 'Oct 9, 2026, 8:25 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
     items: [

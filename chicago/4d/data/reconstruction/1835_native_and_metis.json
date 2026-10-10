@@ -47,8 +47,8 @@
  "persistence_model": {
   "id": "persistence_1835",
   "form": "persistence(L) = exp(-lambda * L), L in years before 1835-07-01",
-  "lambda_per_year": 0.063541,
-  "one_year_persistence": 0.9384,
+  "lambda_per_year": 0.064844,
+  "one_year_persistence": 0.9372,
   "measured_on": [
    {
     "volume": "Fergus 1839, the first ward-by-ward list after the scene",
@@ -56,7 +56,7 @@
     "counts_key": "counts.residents_matched_one_entry",
     "dated": "1839-07-01",
     "years_after_the_scene": 4.0001,
-    "of_the_layer_still_named": 164
+    "of_the_layer_still_named": 165
    },
    {
     "volume": "Fergus 1843",
@@ -85,8 +85,8 @@
   "r6_rows_offered": 172,
   "already_on_a_card": 52,
   "cards_minted": 87,
-  "minted_present": 70,
-  "minted_absent": 17,
+  "minted_present": 69,
+  "minted_absent": 18,
   "withheld": 33,
   "withheld_by_reason": {
    "a_card_of_that_name_already_stands": 9,
@@ -153,7 +153,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_alex_la_frombois:persistence"
    }
@@ -177,7 +177,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_as_ke_witt:persistence"
    }
@@ -201,7 +201,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_baptiste_de_roche:persistence"
    }
@@ -225,7 +225,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_cau_be_nah:persistence"
    }
@@ -249,7 +249,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_cau_o_sett:persistence"
    }
@@ -273,7 +273,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_cee_bou_sunc:persistence"
    }
@@ -296,8 +296,8 @@
    "dated_evidence": "1832",
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
-    "value": "present",
-    "persistence": 0.8008,
+    "value": "absent",
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_che_chalk_goes:persistence"
    }
@@ -321,7 +321,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_chene_quaw:persistence"
    }
@@ -345,7 +345,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_chippe_wai_se:persistence"
    }
@@ -369,7 +369,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_e_te_we_ke_sick:persistence"
    }
@@ -393,7 +393,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_e_toe_won_gote:persistence"
    }
@@ -417,7 +417,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_francis_bourbonnois:persistence"
    }
@@ -441,7 +441,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_george_forthier:persistence"
    }
@@ -465,7 +465,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_joseph_chonier:persistence"
    }
@@ -489,7 +489,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_joseph_la_frombois:persistence"
    }
@@ -513,7 +513,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_kai_bai_squam:persistence"
    }
@@ -537,7 +537,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_kai_shaw_kee:persistence"
    }
@@ -561,7 +561,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_kai_tau_ta_mo:persistence"
    }
@@ -585,7 +585,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_ke_o_quaw:persistence"
    }
@@ -609,7 +609,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_ke_wai_ke_too:persistence"
    }
@@ -633,7 +633,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_ke_wai_o_nock:persistence"
    }
@@ -657,7 +657,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_ke_way_quam:persistence"
    }
@@ -681,7 +681,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_kick_ke_yok:persistence"
    }
@@ -705,7 +705,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_ma_che_we_ta:persistence"
    }
@@ -729,7 +729,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_mas_go:persistence"
    }
@@ -753,7 +753,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_mas_quat:persistence"
    }
@@ -777,7 +777,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_mau_kai_tai_o_suck:persistence"
    }
@@ -801,7 +801,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_maub_biss:persistence"
    }
@@ -825,7 +825,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_mauk_e_sett:persistence"
    }
@@ -849,7 +849,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_me_kai_ta_be_nee:persistence"
    }
@@ -873,7 +873,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_me_kess:persistence"
    }
@@ -897,7 +897,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_me_she_ke_to_no:persistence"
    }
@@ -921,7 +921,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_me_shi_ke_yah:persistence"
    }
@@ -945,7 +945,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_me_tai_wa:persistence"
    }
@@ -969,7 +969,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_mes_kee_suck:persistence"
    }
@@ -993,7 +993,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_messe_non_e_see:persistence"
    }
@@ -1017,7 +1017,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_mex_e_ke_ne_bee:persistence"
    }
@@ -1041,7 +1041,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_mex_e_man:persistence"
    }
@@ -1065,7 +1065,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_mitchel_ouillemett:persistence"
    }
@@ -1089,7 +1089,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_mon_ta_niss:persistence"
    }
@@ -1113,7 +1113,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_nau_con_ne_bec:persistence"
    }
@@ -1137,7 +1137,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_nau_quay_suck:persistence"
    }
@@ -1161,7 +1161,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_naw_bai_kau:persistence"
    }
@@ -1185,7 +1185,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_ne_a_se_no:persistence"
    }
@@ -1209,7 +1209,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_neen_ko:persistence"
    }
@@ -1233,7 +1233,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_no_sha_cum:persistence"
    }
@@ -1257,7 +1257,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_pai_ta_ko_too:persistence"
    }
@@ -1281,7 +1281,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_pat_e_quee:persistence"
    }
@@ -1305,7 +1305,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_pat_ti_co_suck:persistence"
    }
@@ -1329,7 +1329,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_pay_co_je_bai:persistence"
    }
@@ -1353,7 +1353,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_pe_so_tum:persistence"
    }
@@ -1377,7 +1377,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_pee_way_tan:persistence"
    }
@@ -1401,7 +1401,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_perish_le_clair:persistence"
    }
@@ -1425,7 +1425,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_pet_wai_wai_o_ko:persistence"
    }
@@ -1449,7 +1449,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_pow_she_tow:persistence"
    }
@@ -1473,7 +1473,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_sau_ke_ma:persistence"
    }
@@ -1497,7 +1497,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_saus_bock_skuk:persistence"
    }
@@ -1521,7 +1521,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_sha_tee:persistence"
    }
@@ -1545,7 +1545,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_shaw_wa_no_quak:persistence"
    }
@@ -1569,7 +1569,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_shaw_we:persistence"
    }
@@ -1593,7 +1593,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_she_kauk:persistence"
    }
@@ -1617,7 +1617,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_she_na_ge_win:persistence"
    }
@@ -1641,7 +1641,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_show_men_raisin:persistence"
    }
@@ -1665,7 +1665,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_skaw_tai:persistence"
    }
@@ -1689,7 +1689,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_ske_yah:persistence"
    }
@@ -1713,7 +1713,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_squaz_ke_sick:persistence"
    }
@@ -1737,7 +1737,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_suck_ke_na_ke_sick:persistence"
    }
@@ -1761,7 +1761,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_taw_no_ko:persistence"
    }
@@ -1785,7 +1785,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_taw_taupe:persistence"
    }
@@ -1809,7 +1809,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_te_kau_ko:persistence"
    }
@@ -1833,7 +1833,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_wa_ba_kai:persistence"
    }
@@ -1857,7 +1857,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_wa_o_ya_ka_muck:persistence"
    }
@@ -1881,7 +1881,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_wa_wa_ya_ton:persistence"
    }
@@ -1905,7 +1905,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_wab_be_mentoo:persistence"
    }
@@ -1929,7 +1929,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_wab_me_mic:persistence"
    }
@@ -1953,7 +1953,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_wai_bais_kuk:persistence"
    }
@@ -1977,7 +1977,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_wai_sau:persistence"
    }
@@ -2001,7 +2001,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_wai_sau_e_suck:persistence"
    }
@@ -2025,7 +2025,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_wai_sau_o_ke_yah:persistence"
    }
@@ -2049,7 +2049,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_wai_sau_won_quat:persistence"
    }
@@ -2073,7 +2073,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_wai_wai_se_mau_sick:persistence"
    }
@@ -2097,7 +2097,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_wash_e_ocon:persistence"
    }
@@ -2121,7 +2121,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_wau_bon_e:persistence"
    }
@@ -2145,7 +2145,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_wau_bon_no_sai:persistence"
    }
@@ -2169,7 +2169,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_wau_kai_so:persistence"
    }
@@ -2193,7 +2193,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_we_shay:persistence"
    }
@@ -2217,7 +2217,7 @@
    "dated_evidence_read_as": "1832-01-01",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.8008,
+    "persistence": 0.7971,
     "years_before_the_scene": 3.4963,
     "seed": "hh_um_ween_go:persistence"
    }
