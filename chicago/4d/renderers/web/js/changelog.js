@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1662, ts: '2026-10-10T20:56:41.566Z', date: 'Oct 10, 2026, 3:56 PM CT', title: 'A glass conservatory bay on the Pullman house\'s east wing', kind: 'feature',
+    items: [
+      'In the 1904 scene, the Pullman lot at 1729 Prairie now has a curved glass conservatory bay. It stands on the south face of the stone wing that runs from the house toward the stable, looking onto the garden court.',
+      'Its place and plan are the 1911 fire-insurance map\'s: a semicircle on the wing, about 3.4 m across. That it is glazed, and all its sizes, are reconstructed from the conservatory kit, and the record says so.',
+      'Its white-painted frame reads in three weights: posts, then plates, then glazing bars. The glass is a single layer on a brick plinth under a stone coping, gutters lead to downpipes at the ground, and a bench of pot plants stands inside.',
+      'The wing behind it is a plain stone stand-in until the house, wing and stable are built.',
+    ] },
   { v: 1661, ts: '2026-10-10T20:24:30.864Z', date: 'Oct 10, 2026, 3:24 PM CT', title: 'Behind the scenes: the road for future figures is built', kind: 'chore',
     items: [
       'Nothing you can see changed. The walkthrough still shows no people, and it will not until the owner says so.',
