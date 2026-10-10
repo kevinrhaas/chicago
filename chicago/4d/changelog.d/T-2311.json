@@ -1,0 +1,9 @@
+{
+  "title": "Glessner's light model builds the same on every machine",
+  "kind": "fix",
+  "items": [
+    "The reduced Glessner House model, the one phones and the far view load, came out a few hundred bytes different depending on which Python built it. Python 3.12 adds up decimals more carefully than 3.11, and that changed the house's light mesh.",
+    "The light build now adds up the same way Blender does when it builds the full house, so the nightly bake, every pull request's bake check and a steward's own machine all write the same file.",
+    "The house looks the same: 198,064 triangles, every window, and the walls and roof where they were."
+  ]
+}
