@@ -2,8 +2,9 @@
 
 Version 1.0.0 (T-2292, piece 1 of T-1846): **eleven seamless 512 × 512 fabrics** for the roofs,
 flashings and rainwater goods of the 1904 Prairie Avenue programme, built by one deterministic
-script, `tools/generate_prairie_1904_roofs.py`, that samples no photograph. No roof in the scene
-binds them yet: T-2293 builds the first K04 roof from them on the 1808 exemplar.
+script, `tools/generate_prairie_1904_roofs.py`, that samples no photograph. The first roof built
+from them is the 1808 Prairie exemplar's (T-2293: slate, copper caps, valleys, apron and rainwater
+goods; `docs/RESEARCH/k04-1808-roof-2293/`).
 
 ## The module is data, not pixels
 

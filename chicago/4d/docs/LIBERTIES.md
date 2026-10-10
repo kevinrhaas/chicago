@@ -22981,3 +22981,36 @@ specification of the period replaces a format or a profile.
 **Ticket:** T-2292 (piece 1 of T-1846, K04).
 **Review:** `docs/RESEARCH/k04-roof-library/README.md`.
 **Recorded:** 2026-10-10 (T-2292).
+
+### L-k04-1808-roof-2293 — The 1808 Prairie roof: slate, copper, a front dormer and the rainwater goods, all reconstructed
+
+**Decision:** Roof the 1808 Prairie K01 frontage (L-k01-1808-frontage-2266) from the K04 library
+(L-k04-roof-library-2292): dark Pennsylvania slate on all four hip planes, its courses registered at
+the eave and running 50 mm past the fascia on a doubled starter course; a copper roll on each hip and
+the ridge with its flanges dressed over the top courses; one gabled dormer centred on the street hip,
+its face of dressed stone 0.30 m behind the wall line with a 0.85 x 1.5 m sash, slated cheeks and
+roof, bargeboards, a copper ridge roll, an open copper valley at each cheek that widens downhill, a
+copper apron and step flashing; a 5 in half-round copper gutter on wrought-iron brackets at 30 in
+round the whole eave, falling 0.5% to five outlets, each with a swan neck under the soffit, a 3.5 in
+round copper downpipe strapped every 1.8 m and a shoe kicked out over a splash stone at grade. The
+roof is now 45 degrees, not 40, and the eave 0.38 m, not 0.45.
+**What is invented.** All of it. No source here reads this house's roof, dormer, gutters or pipes.
+The covering is the K04 default for a steep main roof, which reads the study's building register
+(slate on every steep main roof whose covering it names), not a source record. The dormer exists
+because the K04 package's apron, valleys and step flashing need one to dress and a front attic
+dormer is the commonest Prairie Avenue form; its size, setback, pitch and sash are ours. The pitch
+moved to 45 degrees so the library's slate, cut for a 3 in headlap, is laid where the K04 profile
+allows that lap (a 25-45 degree roof asks 4 in) rather than having its courses stretched; the eave
+came in so the soffit stays clear of the top storey's lintels at that pitch. The pipes stand by the
+corners of the front and rear and halfway along the south passage wall, clear of every opening.
+**Where it departs from its own profile.** None of the pipes stands on the north wall, which closes
+the Glessner court 0.02 m off its face, so the north gutter runs 20.5 m between its two corner
+outlets, over the profile's 12 m; it falls both ways from its middle, so no point of it is more than
+10.3 m from an outlet. The step flashing is drawn as one strip a cheek, not one piece a course.
+**How to resolve:** T-1882 and T-1883 build the actual Keith/Field front from the 1888 Inland
+Architect plate, whose pierced parapet replaces this dormer and may hide a different roof; a
+photograph of the house's roof or rainwater goods replaces the covering, the caps and the pipes.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.roof_covering`, `keith_house_1808_prairie.as_built_1886.form.dormer`, `keith_house_1808_prairie.as_built_1886.form.rainwater`.
+**Ticket:** T-2293 (piece 2 of T-1846, K04).
+**Review:** `docs/RESEARCH/k04-1808-roof-2293/README.md`.
+**Recorded:** 2026-10-10 (T-2293).
