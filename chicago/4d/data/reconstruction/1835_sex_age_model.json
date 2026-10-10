@@ -12,20 +12,20 @@
   "the_bias_runs_one_way": "The forename table T-1303 derived was built mostly on this layer's men, so a woman's forename is likelier than a man's to be missing from it and to fall into the unsettled group being drawn for. Every rate here is therefore a CEILING on its roll's male share rather than a point reading, and every draw made from it leans male by an amount this pass cannot bound. Stated, not smoothed; docs/LIBERTIES.md L-rc-sex-rate.",
   "floor": 50,
   "pooled": {
-   "settled_by_the_evidence": 694,
-   "of_those_male": 647,
-   "male_rate": 0.9323
+   "settled_by_the_evidence": 693,
+   "of_those_male": 646,
+   "male_rate": 0.9322
   },
   "rolls": [
    {
     "roll": "civic",
-    "settled_by_the_evidence": 206,
-    "of_those_male": 196,
-    "own_male_rate": 0.9515,
+    "settled_by_the_evidence": 205,
+    "of_those_male": 195,
+    "own_male_rate": 0.9512,
     "measured_on_its_own": true,
-    "drawn_at": 0.9515,
+    "drawn_at": 0.9512,
     "drawn_for": 187,
-    "why": "its own 206 settled names are enough to measure it"
+    "why": "its own 205 settled names are enough to measure it"
    },
    {
     "roll": "documented",
@@ -33,7 +33,7 @@
     "of_those_male": 14,
     "own_male_rate": 0.9333,
     "measured_on_its_own": false,
-    "drawn_at": 0.9323,
+    "drawn_at": 0.9322,
     "drawn_for": 24,
     "why": "only 15 of its names are settled - below the floor of 50, so it draws at the pooled rate of every roll"
    },
@@ -53,7 +53,7 @@
     "of_those_male": 2,
     "own_male_rate": 1.0,
     "measured_on_its_own": false,
-    "drawn_at": 0.9323,
+    "drawn_at": 0.9322,
     "drawn_for": 3,
     "why": "only 2 of its names are settled - below the floor of 50, so it draws at the pooled rate of every roll"
    },
@@ -343,14 +343,14 @@
    "a_group_not_a_person": 6
   },
   "sex_already": {
-   "civic": 321,
+   "civic": 320,
    "unclaimed": 97,
    "letter_list": 372,
    "documented": 15,
    "placed": 2
   },
   "age_drawn": {
-   "named_on_a_roll_15_and_over": 1135,
+   "named_on_a_roll_15_and_over": 1134,
    "civic_list_20_and_over": 194,
    "dependent_child_under_15": 44
   },
@@ -369,7 +369,7 @@
   },
   "drawn_band_is": {
    "20-29": 658,
-   "30-39": 362,
+   "30-39": 361,
    "15-19": 118,
    "40-49": 124,
    "50-59": 42,

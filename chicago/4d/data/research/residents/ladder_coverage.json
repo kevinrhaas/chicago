@@ -5,7 +5,7 @@
  "states": {
   "rule_on_the_card": {
    "says": "The card carries a `ladder_rule`. The ladder has ruled and the ruling is written down where a reader of the card can see it.",
-   "people": 1354
+   "people": 1353
   },
   "proposed_not_written": {
    "says": "The ladder HAS ruled this person — the rung is in grading_proposal.json — and no pass has written it onto the card. A spend, not a reading.",
@@ -25,8 +25,8 @@
   }
  },
  "counts": {
-  "person_records": 1440,
-  "carry_a_rule": 1354,
+  "person_records": 1439,
+  "carry_a_rule": 1353,
   "carry_no_rule": 86,
   "proposed_not_written_by_rule": {},
   "ruled_but_disputed_by_rule": {
