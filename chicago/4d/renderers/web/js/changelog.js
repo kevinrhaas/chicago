@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1605, ts: '2026-10-10T01:25:22.744Z', date: 'Oct 9, 2026, 8:25 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The reconstruction\u2019s work list asked for ten more South-side family households than the town could form, after letter-list names stopped counting as households on 9 October.',
+      'Those ten are not missing. The town already holds 23 families present in July 1835 who are still waiting for a house, so the list no longer asks for anyone to be invented in their place. It now owes no family houses in any division.',
+      'Nobody was added, moved or given a house. The 23 families still wait for the town\u2019s next dwellings to be built.',
+    ] },
   { v: 1604, ts: '2026-10-10T01:02:46.060Z', date: 'Oct 9, 2026, 8:02 PM CT', title: 'The tools that seat the town read each household\u2019s dated places', kind: 'change',
     items: [
       'Nothing you can see changes. The tools that give households their houses, deal the empty roofs, audit the town and count its census now read where a household lived and worked from the dated places on its card, the same entries its card shows you.',
