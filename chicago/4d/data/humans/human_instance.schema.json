@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chicago4d/schemas/human_instance.schema.json",
+  "title": "4D Chicago human instance",
+  "description": "One human placed in one scene: it binds a visual asset to a person record that already exists, and says where it stands, what it is doing, how a visitor may meet it and what it rests on. APPEARANCE (which asset, which clothing), ANIMATION (which clip) and BEHAVIOUR (what state it is in, what an approach does) are separate blocks so a person record is never welded to a renderer. Semantic rules — the person resolves, review travels with the person, L1 refuses `shown`, a grade carries what it owes — are enforced by tools/human_contract.py. Contract: docs/HUMAN-ASSET-CONTRACT.md (T-1786).",
+  "type": "object",
+  "required": ["id", "contract_version", "scene", "person_id", "appearance", "placement", "animation", "behaviour", "interaction", "lod", "display", "review_required", "provenance"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^hi_[a-z0-9_]+$",
+      "description": "Stable instance id, `hi_<person_id>_<scene>` by convention. One person may stand in a scene once."
+    },
+    "contract_version": { "const": 1 },
+    "scene": {
+      "type": "string",
+      "pattern": "^[0-9]{4}$",
+      "description": "The scene this instance belongs to (data/scenes/<scene>.json). A scene with no instance file draws no human: nothing is inherited across years."
+    },
+    "person_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "An existing person record (data/sidecars/<scene>/people.json). This file never mints a person; identity stays with the residents layer."
+    },
+    "appearance": {
+      "type": "object",
+      "required": ["asset_id"],
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "The human asset: files `<asset_id>.lod<N>.glb`. Several people may share a generic body."
+        },
+        "variants": {
+          "type": "object",
+          "description": "Material slot → variant, selecting `<slot>__<variant>` from the asset (clothing, hair).",
+          "propertyNames": { "pattern": "^[a-z_]+$" },
+          "additionalProperties": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+        }
+      }
+    },
+    "placement": {
+      "type": "object",
+      "required": ["local_e", "local_n", "heading_deg", "anchor"],
+      "additionalProperties": false,
+      "properties": {
+        "local_e": { "type": "number", "description": "Metres east of the scene datum (the walker's frame)." },
+        "local_n": { "type": "number", "description": "Metres north of the scene datum." },
+        "heading_deg": {
+          "type": "number", "minimum": 0, "exclusiveMaximum": 360,
+          "description": "Facing, degrees clockwise from grid north. The asset faces +Z, so in three.js rotation.y = PI - heading_deg * PI / 180."
+        },
+        "anchor": {
+          "enum": ["terrain", "walk_surface"],
+          "description": "terrain: feet on the scene's heightfield; walk_surface: on a structure's placement.walk_surface_m (a bridge deck)."
+        },
+        "structure_id": {
+          "type": "string", "pattern": "^[a-z0-9_]+$",
+          "description": "Required with anchor walk_surface: the structure whose surface is stood on."
+        }
+      }
+    },
+    "animation": {
+      "type": "object",
+      "required": ["clip"],
+      "additionalProperties": false,
+      "properties": {
+        "clip": { "type": "string", "pattern": "^[a-z]+(_[a-z0-9]+)*$", "description": "The clip playing now." },
+        "loop": { "type": "boolean", "default": true },
+        "phase": { "type": "number", "minimum": 0, "maximum": 1, "description": "Start offset as a share of the clip, so a crowd is not in step." }
+      }
+    },
+    "behaviour": {
+      "type": "object",
+      "required": ["state"],
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "enum": ["standing", "walking", "working", "seated", "talking"],
+          "description": "What the person is doing; the renderer chooses clips for a state, the record does not script them."
+        },
+        "route": {
+          "type": "array",
+          "description": "Waypoints for `walking`, in the same frame as placement.",
+          "items": {
+            "type": "object", "required": ["local_e", "local_n"], "additionalProperties": false,
+            "properties": { "local_e": { "type": "number" }, "local_n": { "type": "number" } }
+          }
+        }
+      }
+    },
+    "interaction": {
+      "type": "object",
+      "required": ["selectable"],
+      "additionalProperties": false,
+      "properties": {
+        "selectable": { "type": "boolean" },
+        "radius_m": { "type": "number", "exclusiveMinimum": 0, "maximum": 20, "description": "How near a visitor must come for `opens` to fire." },
+        "opens": {
+          "enum": ["resident_card", "none"],
+          "description": "What meeting the person does. The resident card is the person record's own card; no dialogue is defined here (L1: no invented dialogue)."
+        }
+      }
+    },
+    "lod": {
+      "type": "object",
+      "required": ["policy"],
+      "additionalProperties": false,
+      "properties": {
+        "policy": { "enum": ["auto", "fixed"] },
+        "fixed": { "type": "integer", "minimum": 0, "maximum": 3, "description": "With policy fixed: the one LOD drawn at every distance." }
+      }
+    },
+    "display": {
+      "enum": ["withheld", "shown"],
+      "description": "withheld: the record exists and nothing is drawn. shown is refused while data/humans/contract.json § l1.in_force is true, and for a review_required person until their review is recorded."
+    },
+    "review_required": {
+      "type": "boolean",
+      "description": "Carried from the person record and never dropped: a person whose record is review_required (or touches_removal) has an instance that is too."
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["grade", "basis"],
+      "additionalProperties": false,
+      "properties": {
+        "grade": {
+          "enum": ["attested", "inferred", "reconstructed"],
+          "description": "The grade of the DEPICTION — this body, these clothes, standing here doing this — not of the person, whose own grade lives on their record."
+        },
+        "basis": { "type": "string", "minLength": 20, "description": "What it rests on, or what bounded the invention." },
+        "sources": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9_]+$" } },
+        "seed": { "type": "string", "description": "The seed of any stochastic choice (variant, phase, placement jitter)." },
+        "replaceable_by": { "type": "string", "description": "What evidence would replace this depiction." },
+        "liberty": { "type": "string", "pattern": "^L[0-9]+$", "description": "The docs/LIBERTIES.md entry, for a reconstructed depiction." }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "placement": { "properties": { "anchor": { "const": "walk_surface" } } } } },
+      "then": { "properties": { "placement": { "required": ["structure_id"] } } }
+    },
+    {
+      "if": { "properties": { "lod": { "properties": { "policy": { "const": "fixed" } } } } },
+      "then": { "properties": { "lod": { "required": ["fixed"] } } }
+    }
+  ]
+}
