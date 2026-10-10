@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: '65 more households are given a house beyond the platted town', kind: 'fix',
+  { v: 1605, ts: '2026-10-10T01:44:46.449Z', date: 'Oct 9, 2026, 8:44 PM CT', title: '65 more households are given a house beyond the platted town', kind: 'fix',
     items: [
       'Outside the platted town, in the North and West Divisions, 69 houses had been given to households known only from the post office\u2019s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address. The houses on the plat already followed that ruling, and now these do too.',
       'Those houses go to the next households in line for them. In People, 65 more household cards now show \u201cGo to the roof the policy deals it, off the plat\u201d, and the 69 letter-list cards no longer show it. The houses\u2019 cards list the new households.',
