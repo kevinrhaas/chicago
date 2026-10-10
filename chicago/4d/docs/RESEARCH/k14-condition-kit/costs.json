@@ -1,0 +1,132 @@
+{
+  "ticket": "T-2324",
+  "study": {
+    "image": "study.jpg",
+    "px_per_m": 80,
+    "seed": 266958042,
+    "light": "identical neutral diffuse: linear albedo x tone, no shading",
+    "image_bytes": 187534
+  },
+  "measured": [
+    {
+      "fabric": "pressed_red",
+      "built": 1902,
+      "years": 2.0,
+      "mean_luminance_ratio": 0.9994,
+      "min_tone": 0.9912
+    },
+    {
+      "fabric": "pressed_red",
+      "built": 1884,
+      "years": 20.0,
+      "mean_luminance_ratio": 0.9858,
+      "min_tone": 0.9104
+    },
+    {
+      "fabric": "pressed_red",
+      "built": 1866,
+      "years": 38.0,
+      "mean_luminance_ratio": 0.958,
+      "min_tone": 0.8289
+    },
+    {
+      "fabric": "common_buff",
+      "built": 1902,
+      "years": 2.0,
+      "mean_luminance_ratio": 0.9991,
+      "min_tone": 0.9875
+    },
+    {
+      "fabric": "common_buff",
+      "built": 1884,
+      "years": 20.0,
+      "mean_luminance_ratio": 0.9798,
+      "min_tone": 0.8721
+    },
+    {
+      "fabric": "common_buff",
+      "built": 1866,
+      "years": 38.0,
+      "mean_luminance_ratio": 0.9402,
+      "min_tone": 0.7555
+    },
+    {
+      "fabric": "limestone_bedford",
+      "built": 1902,
+      "years": 2.0,
+      "mean_luminance_ratio": 0.9989,
+      "min_tone": 0.9843
+    },
+    {
+      "fabric": "limestone_bedford",
+      "built": 1884,
+      "years": 20.0,
+      "mean_luminance_ratio": 0.9746,
+      "min_tone": 0.8401
+    },
+    {
+      "fabric": "limestone_bedford",
+      "built": 1866,
+      "years": 38.0,
+      "mean_luminance_ratio": 0.9247,
+      "min_tone": 0.6944
+    },
+    {
+      "fabric": "sandstone_brown",
+      "built": 1902,
+      "years": 2.0,
+      "mean_luminance_ratio": 0.9993,
+      "min_tone": 0.99
+    },
+    {
+      "fabric": "sandstone_brown",
+      "built": 1884,
+      "years": 20.0,
+      "mean_luminance_ratio": 0.9837,
+      "min_tone": 0.8976
+    },
+    {
+      "fabric": "sandstone_brown",
+      "built": 1866,
+      "years": 38.0,
+      "mean_luminance_ratio": 0.9518,
+      "min_tone": 0.8044
+    }
+  ],
+  "vertex_channel": {
+    "channel": "_TONE (SCALAR float32, 4 bytes a vertex)",
+    "textures": 0,
+    "draws": 0,
+    "extra_rows_on_a_38_year_wall_with_a_sill_and_an_outlet": 7,
+    "rows_m": [
+      0.1377,
+      0.5205,
+      0.6345,
+      1.12,
+      2.0956,
+      2.96,
+      3.9
+    ]
+  },
+  "baked_mask": {
+    "wall_m": [
+      10.0,
+      12.0
+    ],
+    "px_per_m": 32,
+    "pixels": 122880,
+    "png_bytes": 1661
+  },
+  "sample_column_tone_38y_common_buff": [
+    0.753,
+    0.9542,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    0.9951,
+    0.9334,
+    0.8717,
+    0.81
+  ]
+}
