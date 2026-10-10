@@ -1,0 +1,390 @@
+{
+  "id": "prairie_1904_k16_timber",
+  "title": "Frame cladding and exterior timber construction for the Prairie Avenue 1904 programme (package K16, the kit)",
+  "ticket": "T-2322",
+  "parent": "T-1858",
+  "programme": "T-1837",
+  "contract": "data/components/prairie_1904/k01_contract.json",
+  "generator": "generators/archetypes/k16_timber.py",
+  "specimen": "docs/RESEARCH/k16-timber-kit/k16_timber_kit.glb",
+  "windows": "data/components/prairie_1904/k06_windows.json",
+  "status": "Kit only. No house is clad from this file yet; T-2323 builds the first, the timber fabric of 1638 Shortall-Gregory's Gothic front.",
+  "rule": "A timber facade is built board by board at board scale, never as a plank texture on a slab and never with a masonry wall's thickness. Every clapboard course is its own lapped board whose butt casts a shadow line, resting on the course below; every board-and-batten joint is covered by a batten bearing on both boards; every shingle laps the course below and is staggered from it; trim stands proud of the cladding it stops; every piercing in a bargeboard is cut through the board with its cut edges built. Painted softwood, stained joinery and exposed end grain are separate materials. Sizes are data here and the generator reads them; the check (tools/check_timber_kit.py) rebuilds every sample and holds the built geometry to this file.",
+  "wall": {
+    "thickness_m": 0.15,
+    "construction": "frame",
+    "confidence": "reconstructed",
+    "rule_source": "RECONSTRUCTION-RULES.md section Starting ranges: Solid exterior wall / reveal (frame 0.12-0.22 m); k01_contract.json family wall, thickness_m.ranges.frame",
+    "note": "A balloon frame of 2x4 studs with board sheathing outside and lath and plaster inside comes to about six inches. The check reads the frame range from the K01 contract, so a timber wall can never take a masonry wall's 0.23-0.45 m."
+  },
+  "cladding": {
+    "_doc": "Every lapped family (clapboard, shingle) is built by one rule: a course's front face falls from its butt, proud by support_m + butt_m, back by butt_m over one exposure, so the next course's butt sits exactly on it. support_m is how far the course below holds a board off the sheathing; the generator derives it from tip, butt and lap. min_shadow_m is the least butt that still casts a shadow line a visitor reads as a course; under it the wall reads as a slab.",
+    "clapboard": {
+      "exposure_m": 0.115,
+      "range_exposure_m": [
+        0.1,
+        0.16
+      ],
+      "butt_m": 0.016,
+      "tip_m": 0.005,
+      "lap_m": 0.025,
+      "board_length_m": 3.66,
+      "range_board_length_m": [
+        2.4,
+        4.9
+      ],
+      "stagger_step_m": 1.22,
+      "min_stagger_m": 0.6,
+      "min_piece_m": 0.3,
+      "joint_gap_m": 0.0015,
+      "confidence": "reconstructed",
+      "rule_source": "RECONSTRUCTION-RULES.md section Starting ranges: Clapboard (exposure 0.10-0.16 m, a shallow physical lap)",
+      "note": "Beveled siding 5/8 in at the butt and 3/16 in at the tip, laid 4 1/2 in to the weather with a 1 in lap, in 12 ft boards whose butt joints step 4 ft along from one course to the next so no two joints in neighbouring courses line up.",
+      "min_shadow_m": 0.012
+    },
+    "board_and_batten": {
+      "board_width_m": 0.25,
+      "board_m": 0.022,
+      "gap_m": 0.012,
+      "batten_width_m": 0.065,
+      "batten_m": 0.019,
+      "min_bearing_m": 0.02,
+      "confidence": "reconstructed",
+      "note": "Ten-inch vertical boards set with a half-inch gap for movement, each gap covered by a 2 1/2 in batten bearing on both boards. A rear wing's, a stable's or a picturesque cottage's cladding; the register's frame houses are clapboard on their street fronts."
+    },
+    "shingle": {
+      "exposure_m": 0.125,
+      "width_m": 0.15,
+      "butt_m": 0.01,
+      "tip_m": 0.003,
+      "length_m": 0.4,
+      "arc_segments": 8,
+      "patterns": [
+        "square",
+        "fishscale"
+      ],
+      "confidence": "reconstructed",
+      "note": "Sawn cedar shingles 16 in long, cut to a 6 in width and laid 5 in to the weather, each course staggered half a shingle from the last. Square butts and round (fish-scale) butts in alternating bands, the commonest decorative gable infill of the 1870s-80s. Neighbouring courses' joints stand at least 1 1/2 in apart (min_stagger_m).",
+      "min_stagger_m": 0.04,
+      "min_shadow_m": 0.008
+    }
+  },
+  "trim": {
+    "corner_board": {
+      "width_m": 0.125,
+      "thickness_m": 0.032,
+      "confidence": "reconstructed",
+      "note": "A pair of 5/4 boards at an outside corner, the front board lapping the side board's edge so both read 5 in wide and no end grain shows."
+    },
+    "water_table": {
+      "height_m": 0.2,
+      "thickness_m": 0.032,
+      "cap": {
+        "height_m": 0.045,
+        "projection_m": 0.03,
+        "fall_m": 0.02
+      },
+      "confidence": "reconstructed",
+      "note": "An 8 in board over the sill plate with a beveled drip cap that sheds water clear of the foundation; the first course of cladding starts on the cap."
+    },
+    "casing": {
+      "width_m": 0.11,
+      "thickness_m": 0.03,
+      "head_m": 0.16,
+      "apron_m": 0.12,
+      "drip_cap": {
+        "height_m": 0.04,
+        "projection_m": 0.025,
+        "front_m": 0.02
+      },
+      "sill": {
+        "thickness_m": 0.045,
+        "projection_m": 0.035
+      },
+      "reveal_depth_m": 0.075,
+      "confidence": "reconstructed",
+      "note": "Flat 4 1/2 in side casings on a timber sill with an apron under it, a deeper head casing and a beveled drip cap over the head; the sash and its glass, blind, curtain and room are K06's. The casing's outer edges, sill and cap end on clapboard butt lines so every course meets the casing whole."
+    },
+    "frieze": {
+      "height_m": 0.4,
+      "thickness_m": 0.032,
+      "confidence": "reconstructed",
+      "note": "A deep plain frieze board under the eave, deep enough to take the brackets' legs, and as thick as the corner boards so the two meet flush."
+    },
+    "eave": {
+      "projection_m": 0.42,
+      "fascia_m": 0.16,
+      "confidence": "reconstructed",
+      "note": "A boxed eave: a flat soffit, a fascia board and the roof's edge over it."
+    },
+    "bracket": {
+      "reach_m": 0.3,
+      "drop_m": 0.36,
+      "web_m": 0.07,
+      "thickness_m": 0.05,
+      "spacing_m": 0.9,
+      "curve_segments": 8,
+      "confidence": "reconstructed",
+      "note": "A scroll-sawn eave bracket two inches thick: a quarter-round sweep between a leg on the frieze and an arm under the soffit. The register's 'bracketed eaves' on the earlier frame and Italianate houses."
+    },
+    "belt": {
+      "height_m": 0.15,
+      "thickness_m": 0.032,
+      "confidence": "reconstructed",
+      "note": "A belt board with its own drip cap where a gable's shingles start over the cladding below."
+    },
+    "rake_board": {
+      "width_m": 0.14,
+      "thickness_m": 0.045,
+      "confidence": "reconstructed",
+      "note": "A flat board on the gable wall under each verge, thicker than the shingles' butts so they stop against it."
+    }
+  },
+  "gothic": {
+    "pitch_deg": 52,
+    "range_pitch_deg": [
+      45,
+      65
+    ],
+    "verge_overhang_m": 0.3,
+    "bargeboard": {
+      "depth_m": 0.32,
+      "thickness_m": 0.038,
+      "cell_m": 0.34,
+      "end_m": 0.2,
+      "circle_r_m": 0.08,
+      "circle_segments": 12,
+      "vesica": {
+        "length_m": 0.24,
+        "width_m": 0.12,
+        "segments": 6
+      },
+      "confidence": "reconstructed",
+      "note": "A 1 1/2 in bargeboard hung on the verge, pierced along its length with alternating roundels and pointed (vesica) openings, its ends left solid. Pierced woodwork is a Gothic villa's; the pattern is a working design, not 1638's, which T-2323 authors from its own photograph."
+    },
+    "finial": {
+      "section_m": 0.12,
+      "chamfer_m": 0.025,
+      "above_m": 0.45,
+      "drop_m": 0.3,
+      "point_m": 0.18,
+      "confidence": "reconstructed",
+      "note": "A chamfered post through the apex where the two bargeboards meet, rising to a pointed finial and hanging to a pointed drop."
+    },
+    "roof_m": 0.09
+  },
+  "porch": {
+    "floor": {
+      "height_m": 0.6,
+      "depth_m": 1.5,
+      "board_width_m": 0.08,
+      "board_m": 0.024,
+      "gap_m": 0.003,
+      "nosing_m": 0.03,
+      "rim_m": 0.2,
+      "confidence": "reconstructed",
+      "note": "Tongue-and-groove porch boards running out from the wall, oiled rather than painted, their ends nosing 1 1/4 in past a painted rim board."
+    },
+    "lattice": {
+      "lath_width_m": 0.035,
+      "lath_m": 0.008,
+      "pitch_m": 0.11,
+      "frame_m": 0.07,
+      "frame_thickness_m": 0.022,
+      "setback_m": 0.03,
+      "crawl_m": 0.4,
+      "confidence": "reconstructed",
+      "note": "Diagonal lattice of 1 3/8 in laths in two crossing layers, framed and set back under the rim, the dark crawl space behind it."
+    },
+    "post": {
+      "section_m": 0.14,
+      "chamfer_m": 0.022,
+      "base_m": 0.28,
+      "head_m": 0.3,
+      "setback_m": 0.12,
+      "confidence": "reconstructed",
+      "note": "A 5 1/2 in square post, chamfered between square blocks at its foot and head with flat chamfer stops."
+    },
+    "plate": {
+      "height_m": 0.25,
+      "depth_m": 0.18,
+      "clear_m": 2.6,
+      "confidence": "reconstructed",
+      "note": "The porch plate on the posts, carrying the roof."
+    },
+    "ceiling": {
+      "board_width_m": 0.075,
+      "bead_m": 0.006,
+      "bead_depth_m": 0.003,
+      "confidence": "reconstructed",
+      "note": "Beaded ceiling boards, varnished: the porch's stained joinery beside the painted work."
+    },
+    "roof_m": 0.12,
+    "roof_overhang_m": 0.12
+  },
+  "paint": {
+    "_doc": "Three classes of timber surface, kept apart: painted softwood (body, trim, shingle, sash), stained joinery (the porch floor and ceiling), and exposed end grain (board ends at a joint or a cut, the cut edges of a piercing), which takes paint darker and rougher than the face. Colours are a restrained 1870s-80s frame palette, reconstructed.",
+    "body": {
+      "color": [
+        0.78,
+        0.71,
+        0.56
+      ],
+      "roughness": 0.78,
+      "class": "painted"
+    },
+    "trim": {
+      "color": [
+        0.91,
+        0.88,
+        0.79
+      ],
+      "roughness": 0.7,
+      "class": "painted"
+    },
+    "shingle": {
+      "color": [
+        0.55,
+        0.35,
+        0.25
+      ],
+      "roughness": 0.85,
+      "class": "painted"
+    },
+    "sash": {
+      "color": [
+        0.12,
+        0.19,
+        0.14
+      ],
+      "roughness": 0.55,
+      "class": "painted"
+    },
+    "stained": {
+      "color": [
+        0.42,
+        0.26,
+        0.14
+      ],
+      "roughness": 0.45,
+      "class": "stained"
+    },
+    "end_grain": {
+      "color": [
+        0.6,
+        0.52,
+        0.41
+      ],
+      "roughness": 0.95,
+      "class": "end_grain"
+    },
+    "sheathing": {
+      "color": [
+        0.5,
+        0.39,
+        0.26
+      ],
+      "roughness": 0.95,
+      "class": "unpainted"
+    },
+    "wear": {
+      "tone_range": [
+        0.9,
+        1.0
+      ],
+      "note": "Paint wear is a per-board tone, seeded (K01 seed rule), so neighbouring boards differ slightly and no board is decayed: a house in 1904 is painted and kept, not a ruin."
+    },
+    "confidence": "reconstructed",
+    "note": "The register reads 1638 as a pale Gothic exterior; the body and trim here are a pale buff and a cream, the shingles a contrasting red-brown. A house's own evidence replaces every colour."
+  },
+  "restrictions": [
+    {
+      "part": "shingle",
+      "rule": "supported",
+      "allowed_uses": [
+        "gable",
+        "tower",
+        "dormer"
+      ],
+      "why": "ASSET-CATALOG.md section K16 asks for 'supported decorative shingles': a decorative shingle band goes where a house's evidence shows one, in a gable, a tower or a dormer face, never as a whole frame house's walling by default."
+    },
+    {
+      "part": "pierced_bargeboard",
+      "rule": "supported",
+      "allowed_uses": [
+        "gothic"
+      ],
+      "why": "Pierced bargeboards belong to a Gothic or picturesque frame house (the register's 1638 Gothic Revival frame); an Italianate or Georgian verge takes a plain board or a cornice return."
+    }
+  ],
+  "costs": {
+    "_doc": "Triangle budget per sample, as built, board (foundation, roof, backdrop, cut) excluded. A kit change that bloats every frame wall in the town is caught here.",
+    "max_triangles": {
+      "wall": 4500,
+      "batten": 1500,
+      "gable": 9000,
+      "porch": 4500
+    }
+  },
+  "samples": [
+    {
+      "id": "k16.wall.clapboard_corner",
+      "kind": "clapboard_wall",
+      "use": "wall",
+      "width_m": 2.6,
+      "return_m": 0.9,
+      "foundation_m": 0.45,
+      "wall_top_m": 3.85,
+      "window": {
+        "k06_variant": "k06.opening.sash_2over2_flat",
+        "clear_height_m": 1.8,
+        "sill_m": 1.25,
+        "centre_m": 1.15
+      },
+      "confidence": "reconstructed",
+      "note": "The ordinary frame wall: clapboard over a water table, an outside corner with its corner boards and a short return, one cased two-over-two sash, and a frieze, boxed eave and scroll brackets above. The commonest street front of the register's earlier frame houses."
+    },
+    {
+      "id": "k16.wall.board_and_batten",
+      "kind": "batten_wall",
+      "use": "batten",
+      "width_m": 1.6,
+      "foundation_m": 0.35,
+      "wall_top_m": 2.9,
+      "confidence": "reconstructed",
+      "note": "A board-and-batten panel on a water table under a frieze: a service wing's or a cottage's walling."
+    },
+    {
+      "id": "k16.gable.gothic_shingle",
+      "kind": "gable",
+      "use": "gable",
+      "width_m": 3.0,
+      "foundation_m": 0.3,
+      "belt_m": 1.4,
+      "bands": [
+        {
+          "pattern": "square",
+          "courses": 4
+        },
+        {
+          "pattern": "fishscale",
+          "courses": 6
+        },
+        {
+          "pattern": "square",
+          "courses": 99
+        }
+      ],
+      "confidence": "reconstructed",
+      "note": "A steep Gothic gable: clapboard to a belt board, decorative shingles in square and fish-scale bands inside rake boards, and pierced bargeboards on the verges meeting at a finial. Brought down to grade for study; on a house it stands at its eave datum."
+    },
+    {
+      "id": "k16.porch.lattice_post",
+      "kind": "porch",
+      "use": "porch",
+      "width_m": 2.2,
+      "confidence": "reconstructed",
+      "note": "A porch bay: an oiled board floor nosing past its rim, a lattice skirt over a dark crawl space, a chamfered post with scroll brackets under the plate, and a varnished beaded ceiling."
+    }
+  ]
+}

@@ -538,12 +538,16 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 712 -> 714, 711 -> 713 and 705 -> 707 on 2026-10-10 (T-2270): the block's last two houses,
 # recon_1835_blk_school_section_tier_82_d1_05 and _h1_06, through emit.py and the common modules.
 #
-# 714 -> 715 on 2026-10-10 (T-2321): the first K12 coach house on a named lot,
+# 714 -> 715 on 2026-10-10 (T-2306): the first K13 conservatory in the scene,
+# pullman_house_1729_prairie_conservatory, which writes its glTF in pure Python
+# (generators/k13_emit.py) and so restales on none of the rows below.
+#
+# 715 -> 716 on 2026-10-10 (T-2321): the first K12 coach house on a named lot,
 # wheeler_house_1812_prairie_coach_house, which writes its glTF in pure Python
 # (generators/k12_emit.py) and so restales on none of the rows below.
 #
 STATED = {
-    "assets": 715,
+    "assets": 716,
     "restales": {
         "generators/common/*.py": 713,
         "generators/common/__init__.py": 0,

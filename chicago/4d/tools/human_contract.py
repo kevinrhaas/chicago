@@ -10,7 +10,9 @@ to the contract:
                      with its _r twin, disjoint vocabularies, the schema's patterns the
                      contract's), then every GLB under assets/humans/ and every instance
                      under data/humans/instances/<scene>/. Run by check.sh.
-  --glb FILE...      one or more GLBs, as an exporter (T-1787) will call it.
+  --glb FILE...      one or more GLBs, as an exporter (T-1787) will call it. A file in a
+                     `web/` directory is a Meshopt derivative and is read beside its
+                     master one directory up (see check_glb's `master`).
   --instance FILE... one or more instance records.
   --self-test        builds a conforming synthetic GLB and instance, proves they pass,
                      then breaks each in the ways the contract names (an incompatible
@@ -182,7 +184,31 @@ def _node_scale(node) -> list[float]:
     return node.get("scale", [1, 1, 1])
 
 
-def check_glb(path: Path, c: dict, sources: set[str] | None = None) -> list[Finding]:
+def _skeleton_facts(g: dict) -> dict:
+    """What a Meshopt derivative may not change: every name the contract reads, and the
+    provenance block. Geometry and buffers are allowed to move; nothing else is."""
+    nodes = g.get("nodes", [])
+    return {
+        "joints": [nodes[j].get("name") for s in g.get("skins", []) for j in s.get("joints", [])],
+        "materials": sorted(m.get("name", "") for m in g.get("materials", [])),
+        "morphs": [(m.get("extras") or {}).get("targetNames") for m in g.get("meshes", [])],
+        "clips": [(a.get("name"), a.get("extras")) for a in g.get("animations", [])],
+        "sockets": sorted(n.get("name") for n in nodes if str(n.get("name", "")).startswith("socket_")),
+        "provenance": ((g.get("scenes") or [{}])[g.get("scene", 0)].get("extras") or {}).get("chicago4d_human"),
+    }
+
+
+def check_glb(path: Path, c: dict, sources: set[str] | None = None,
+              master: Path | None = None) -> list[Finding]:
+    """`master` is the uncompressed export a `web/` derivative was made from (T-1787).
+    Meshopt's quantisation turns POSITION into normalised integers and folds the
+    dequantisation into the skin's inverse bind matrices, which are themselves
+    compressed, so a derivative's rest frame cannot be read from its JSON. It is held
+    instead to its master: the master must pass the frame checks, and every name and the
+    provenance must be identical. tools/human_fixture.mjs then decodes both in the
+    browser and holds the derivative's bind-pose bounds to the master's."""
+    if master is None and path.parent.name == "web":
+        master = path.parent.parent / path.name
     out: list[Finding] = []
     try:
         g = read_glb(path)
@@ -355,7 +381,26 @@ def check_glb(path: Path, c: dict, sources: set[str] | None = None) -> list[Find
         for s in c["materials"]["required"]:
             if s not in slots:
                 out.append(Finding("material.missing_slot", f"required material slot {s!r} is on no primitive"))
-        if lo[1] != math.inf:
+        quantised = any(accessors[p["attributes"]["POSITION"]].get("componentType", 5126) != 5126
+                        for i in mesh_nodes for p in meshes[nodes[i]["mesh"]].get("primitives", [])
+                        if "POSITION" in p.get("attributes", {}))
+        if quantised:
+            if master is None:
+                out.append(Finding("frame.quantised",
+                                   "positions are quantised (KHR_mesh_quantization), so the rest frame cannot be "
+                                   "read from accessor bounds; keep the derivative in web/ beside its master"))
+            elif not master.exists():
+                out.append(Finding("frame.no_master", f"a quantised derivative with no master at {master}"))
+            else:
+                for f in check_glb(master, c, sources):
+                    if f.code.startswith("frame."):
+                        out.append(Finding("frame.master", f"its master {master.name}: {f}"))
+                mine, theirs = _skeleton_facts(g), _skeleton_facts(read_glb(master))
+                for k in mine:
+                    if mine[k] != theirs[k]:
+                        out.append(Finding("derivative.drift",
+                                           f"{k} differ from the master's; a derivative changes bytes, not names"))
+        elif lo[1] != math.inf:
             height = hi[1] - lo[1]
             hb = c["frame"]["rest_height_m"]
             if not (hb["min"] <= height <= hb["max"]):
@@ -688,6 +733,42 @@ def self_test() -> int:
         expect("a file not named <asset_id>.lod<N>.glb", mutate(lambda g: None, name="fixture_body.glb"),
                "provenance.file_name")
 
+        print("GLB — a Meshopt derivative is read beside its master (T-1787)")
+
+        def quantised(g):
+            g["accessors"][0].update(componentType=5122, normalized=True,
+                                     min=[-32767, 0, -5461], max=[32767, 32767, 5461])
+            g["extensionsUsed"] = ["EXT_meshopt_compression", "KHR_mesh_quantization"]
+            return g
+
+        expect("a quantised body with no master", glb(quantised(synth_gltf(c))), "frame.quantised")
+        web = Path(td) / "web"
+        web.mkdir()
+        write_glb(synth_gltf(c), Path(td) / "fixture_body.lod1.glb")
+        write_glb(quantised(synth_gltf(c)), web / "fixture_body.lod1.glb")
+        bad = synth_gltf(c)
+        prov(bad)["lod"] = 1
+        write_glb(bad, Path(td) / "fixture_body.lod1.glb")
+        good = quantised(synth_gltf(c))
+        prov(good)["lod"] = 1
+        write_glb(good, web / "fixture_body.lod1.glb")
+        expect("a quantised derivative whose master passes", check_glb(web / "fixture_body.lod1.glb", c, srcs), None)
+        drift = quantised(synth_gltf(c))
+        prov(drift)["lod"] = 1
+        drift["animations"][0]["name"] = "idle_slow"
+        write_glb(drift, web / "fixture_body.lod1.glb")
+        expect("a derivative that renamed a clip", check_glb(web / "fixture_body.lod1.glb", c, srcs), "derivative.drift")
+        cm = synth_gltf(c)
+        prov(cm)["lod"] = 1
+        cm["accessors"][0]["max"][1] = 178.0
+        write_glb(cm, Path(td) / "fixture_body.lod1.glb")
+        write_glb(good, web / "fixture_body.lod1.glb")
+        expect("a derivative whose master is in centimetres", check_glb(web / "fixture_body.lod1.glb", c, srcs),
+               "frame.master")
+        (Path(td) / "fixture_body.lod1.glb").unlink()
+        expect("a derivative with no master beside it", check_glb(web / "fixture_body.lod1.glb", c, srcs),
+               "frame.no_master")
+
     print("instances")
     people = people_of("1835") or {}
     plain = next((pid for pid, p in people.items()
@@ -760,7 +841,7 @@ def main(argv: list[str]) -> int:
               f"{len(c['materials']['required'])}+{len(c['materials']['optional'])} material slots, "
               f"{len(c['morphs']['required'])}+{len(c['morphs']['optional'])} morphs, "
               f"{len(c['clips']['verbs'])} clip verbs, L1 in force: {c['l1']['in_force']}")
-        glbs = sorted(ASSETS.glob("*.glb")) if ASSETS.exists() else []
+        glbs = (sorted(ASSETS.glob("*.glb")) + sorted(ASSETS.glob("web/*.glb"))) if ASSETS.exists() else []
         insts = sorted(INSTANCES.glob("*/*.json")) if INSTANCES.exists() else []
     else:
         glbs = [Path(a) for a in argv[1:]] if argv[0] == "--glb" else []
@@ -769,7 +850,7 @@ def main(argv: list[str]) -> int:
     for p in glbs:
         f = check_glb(p, c, srcs)
         for x in f:
-            print(f"FAIL {p.name}: {x}")
+            print(f"FAIL {p.relative_to(ROOT) if p.is_relative_to(ROOT) else p.name}: {x}")
         bad += len(f)
     ctx: dict = {"sources": srcs}
     for p in insts:

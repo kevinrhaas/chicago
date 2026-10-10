@@ -106,6 +106,8 @@ step "Portable human contract holds; every human GLB and instance is held to it 
   python3 tools/human_contract.py --check
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
   python3 tools/human_contract.py --self-test
+step "Every human GLB is the one the browser measured: sha256 and verdicts in data/humans/fixture.measure.json (T-1787)" \
+  node tools/human_fixture.mjs --check
 
 # THE MIRROR IS BUILT FIRST, BECAUSE IT IS NOT IN THE REPOSITORY ANY MORE (T-0938).
 #
@@ -167,6 +169,8 @@ selftest "…coincident faces, hidden origin offsets and tier scale drift are ca
   node tools/k01_contract.mjs --self-test
 step "the K01 assemblies are the bytes their records build (T-2266)" \
   python3 generators/k01_emit.py --check
+step "the K13 conservatories in the scene are the bytes their records build (T-2306)" \
+  python3 generators/k13_emit.py --check
 step "the K12 coach houses in the scene are the bytes their records build (T-2321)" \
   python3 generators/k12_emit.py --check
 
@@ -524,6 +528,24 @@ step "the K13 conservatory kit builds every glasshouse as a three-tier frame ove
 
 selftest "…and bars as heavy as plates, a transparent lantern, an inward pane, a gutterless eave, a short pipe or a plant scene still fails it" \
   python3 tools/check_conservatory_kit.py --self-test
+
+# T-2322. ...and what the 1904 frame houses' timber is. The K16 kit's cladding, trim,
+# Gothic woodwork and porch are sized in data/components/prairie_1904/k16_timber.json and
+# built by generators/archetypes/k16_timber.py, its cased window's sash from K06. This
+# rebuilds every sample and measures the geometry: clapboard and shingle exposure inside
+# the reconstruction rules' range and the wall inside the K01 frame range (never a
+# masonry wall's thickness), every course's butt one exposure above the last with a
+# shadow line and resting on the course below, joints staggered course to course, a
+# batten bearing on both boards over every gap, trim proud of the cladding it stops,
+# every bargeboard piercing open and cut through, an end-grain face at every joint,
+# every timber part on a painted, stained or end-grain material, restrained per-board
+# wear, no doubled face, the triangle budget, metric UVs, and the specimen GLB the
+# generator's bytes.
+step "the K16 timber kit builds every frame wall board by board: lapped courses, staggered joints, battens over joints, piercings cut through, a frame wall's thickness (T-2322)" \
+  python3 tools/check_timber_kit.py --check
+
+selftest "…and an 8 in exposure, a masonry-thick wall, sunken corner boards, lined-up joints, an open batten joint, a floating course or a covered piercing still fails it" \
+  python3 tools/check_timber_kit.py --self-test
 
 # T-2307. ...and what the 1904 bays, oriels and towers are. The K08 kit's plans, supports,
 # bands, eaves and roofs are sized in data/components/prairie_1904/k08_bays.json and built

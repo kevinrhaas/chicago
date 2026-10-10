@@ -18,6 +18,12 @@
       "asset": "gltf/keith_house_1808_prairie__as_built_1886.glb"
     },
     {
+      "id": "pullman_house_1729_prairie_conservatory",
+      "name": "George M. Pullman house (1729 Prairie Avenue): the conservatory bay on its east wing, K13",
+      "sidecar": "sidecars/1904/pullman_house_1729_prairie_conservatory.json",
+      "asset": "gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb"
+    },
+    {
       "id": "wheeler_house_1812_prairie_coach_house",
       "name": "Wheeler house (1812 Prairie Avenue): the coach house on the alley, K12",
       "sidecar": "sidecars/1904/wheeler_house_1812_prairie_coach_house.json",
