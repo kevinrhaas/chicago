@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1605, ts: '2026-10-10T01:44:46.449Z', date: 'Oct 9, 2026, 8:44 PM CT', title: '65 more households are given a house beyond the platted town', kind: 'fix',
+  { v: 1606, ts: '2026-10-10T02:13:26.599Z', date: 'Oct 9, 2026, 9:13 PM CT', title: '65 more households are given a house beyond the platted town', kind: 'fix',
     items: [
       'Outside the platted town, in the North and West Divisions, 69 houses had been given to households known only from the post office\u2019s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address. The houses on the plat already followed that ruling, and now these do too.',
       'Those houses go to the next households in line for them. In People, 65 more household cards now show \u201cGo to the roof the policy deals it, off the plat\u201d, and the 69 letter-list cards no longer show it. The houses\u2019 cards list the new households.',
       'The 30 households already housed there keep a house, though 28 of them are now in a different one. In the West, a farm household is only given a cabin with a barn beside it, so four West cabins stand empty, and each says why.',
+    ] },
+  { v: 1605, ts: '2026-10-10T01:25:22.744Z', date: 'Oct 9, 2026, 8:25 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The reconstruction\u2019s work list asked for ten more South-side family households than the town could form, after letter-list names stopped counting as households on 9 October.',
+      'Those ten are not missing. The town already holds 23 families present in July 1835 who are still waiting for a house, so the list no longer asks for anyone to be invented in their place. It now owes no family houses in any division.',
+      'Nobody was added, moved or given a house. The 23 families still wait for the town\u2019s next dwellings to be built.',
     ] },
   { v: 1604, ts: '2026-10-10T01:02:46.060Z', date: 'Oct 9, 2026, 8:02 PM CT', title: 'The tools that seat the town read each household\u2019s dated places', kind: 'change',
     items: [
