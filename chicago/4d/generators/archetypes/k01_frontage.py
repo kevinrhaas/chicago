@@ -330,7 +330,9 @@ class Assembly:
         return (O, R, N), thickness
 
     # -- k01.opening.* ---------------------------------------------------------------
-    def opening(self, op, frame, thickness, body_mat, stone_trim):
+    def opening(self, op, frame, thickness, body_mat, stone_trim, cut=False):
+        """`cut`: the reveal is already a solid's (a recess the K05 union cut, T-2302, to
+        K06's reveal depth), so K06 sets everything behind it, and its sill and lintel."""
         p = self.p
         O, R, N = frame
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
@@ -353,7 +355,7 @@ class Assembly:
         if not door:
             # T-2298: a window is a K06 opening — reveal, sill, frame, sashes, glass,
             # blind, curtain and an enclosed room — built about this hole's sill socket
-            self.glaze(op, frame, body_mat, stone_trim, seed, conf)
+            self.glaze(op, frame, body_mat, stone_trim, seed, conf, skip=("reveal",) if cut else ())
         else:
             # T-2304: the door is a K07 entrance and its stoop, built about the threshold
             self.enter(op, frame, body_mat, seed, conf)
@@ -397,7 +399,7 @@ class Assembly:
         v = next(x for x in self._kit["variants"] if x["id"] == self.p.window_kit[op.component]["variant"])
         return v.get("overrides", {}).get("reveal_depth_m", self._kit["parts"]["reveal_depth_m"]["value"])
 
-    def glaze(self, op, frame, body_mat, stone_trim, seed, conf):
+    def glaze(self, op, frame, body_mat, stone_trim, seed, conf, skip=()):
         from . import k06_windows
         O, R, N = frame
         # T-2310: under a K09 architrave the sill's horns run past its outer edge, so the
@@ -409,9 +411,9 @@ class Assembly:
         o.seed = seed                      # the blind's drop follows this instance, not the kit's
         o.build()
         roles = {r: (stone_trim if m == "stone" else (m or body_mat)) for r, m in self.K06_ROLES.items()}
-        self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf))
+        self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf), skip)
 
-    def graft(self, o, kit, roles, frame, op, seed_conf):
+    def graft(self, o, kit, roles, frame, op, seed_conf, skip=()):
         """Carry a kit's built opening into this assembly. A kit's frame is +X along the
         wall, +Y up, +Z out of it, its origin at the opening's socket on the outer face (a
         K06 sill, a K07 threshold); `roles` maps each kit role to this assembly's material.
@@ -421,7 +423,7 @@ class Assembly:
         base = _add(O, _add(_mul(R, op.s_m), _mul(Y, op.sill_m)))
         W = lambda q: _add(base, _add(_add(_mul(R, q[0]), _mul(Y, q[1])), _mul(N, q[2])))
         for role, src in o.prims.items():
-            if role == "head":
+            if role == "head" or role in skip:   # `skip`: a role a solid already carries
                 continue
             if role not in roles:
                 raise ValueError(f"{kit} role {role!r} has no material on a K01 frontage")
@@ -566,83 +568,246 @@ class Assembly:
         self.graft(o, "K07", roles, frame, op,
                    lambda role: (stair_seed, stair_conf) if role in self.STAIR_ROLES else (seed, conf))
 
-    # -- k01.roof.hip ------------------------------------------------------------------
+    # -- k01.roof.hip, built from the K05 roof-construction kit (T-2302) -------------
     def roof(self):
-        p = self.p
+        """The roof as ONE closed solid (K05, T-2302). The hip, the street dormer and the
+        chimney stacks are each a closed element from `k05_roofs`, joined by the kit's
+        boolean union, and the dormer's sash recess is cut out of the result, so every
+        valley, cheek, stack and reveal is cut where its surfaces really meet: no plane
+        crosses another, nothing floats and no face is drawn twice. The K04 dressing
+        (caps, valley flashing, apron, step flashing) is then laid on the ROOF GRAPH read
+        off that surface, not on numbers of its own."""
+        from . import k05_roofs as k5
+        p, k = self.p, self.p.roof or {}
+        kit = k5.load()
         D, W, E, o = p.depth_m, p.width_m, p.eave_m, p.eave_overhang_m
         tp = math.tan(math.radians(p.roof_pitch_deg))
+        f = kit["parts"]["eave"]["fascia_depth_m"]
         ye = E - o * tp
-        yf = ye - 0.20
+        yf = ye - f
         yr = p.ridge_m
         conf = p.worst_conf("footprint", "roof_form", "roof_pitch_deg", "eave_overhang_m", "roof_covering")
         seed = self.instance("k01.roof.hip", "roof",
                              {"pitch_deg": p.roof_pitch_deg, "eave_overhang_m": o,
-                              "eave_datum_m": E, "ridge_datum_m": yr,
-                              **({"covering": p.roof["covering"], "flashing": p.roof["flashing"]} if p.roof else {}),
+                              "eave_datum_m": E, "ridge_datum_m": yr, "construction": "k05",
+                              "fascia_depth_m": f, "chimneys": len(p.chimneys),
+                              **({"covering": k["covering"], "flashing": k["flashing"]} if k else {}),
                               **({"gutter_diameter_m": p.rainwater["gutter_diameter_m"], "gutter_fall": p.rainwater["fall"],
                                   "downpipes": len(p.rainwater["downpipes"]),
                                   "pipe_diameter_m": p.rainwater["pipe_diameter_m"]} if p.rainwater else {})},
                              {"eave": (0.0, E, 0.0), "ridge": (W / 2, yr, -W / 2)})
-        k = p.roof or {}
-        # T-2293: the slates run 50 mm past the fascia (k04 cut_edges.eave) on the same plane
-        o2 = o + k.get("eave_overhang_m", 0.0)
-        ye2 = E - o2 * tp
-        SWe, SEe, NEe, NWe = (-o2, ye2, o2), (D + o2, ye2, o2), (D + o2, ye2, -W - o2), (-o2, ye2, -W - o2)
-        RW, RE = (W / 2, yr, -W / 2), (D - W / 2, yr, -W / 2)
-        phase = (_k04_fabric(k["covering"]) or {}).get("course_phase_m", [0.0, 0.0])[1] if k else None
-        pr = self.prim("slate_covering")
-        planes = {}
-        for name, pts, contour, out in (("south", [SWe, SEe, RE, RW], (1.0, 0.0, 0.0), (0.0, 0.0, 1.0)),
-                                        ("north", [NEe, NWe, RW, RE], (-1.0, 0.0, 0.0), (0.0, 0.0, -1.0)),
-                                        ("east", [SEe, NEe, RE], (0.0, 0.0, -1.0), (1.0, 0.0, 0.0)),
-                                        ("west", [NWe, SWe, RW], (0.0, 0.0, 1.0), (-1.0, 0.0, 0.0))):
-            nrm = _unit(_cross(_sub(pts[1], pts[0]), _sub(pts[-1], pts[0])))
-            uphill = _unit(_cross(nrm, contour))
-            planes[name] = nrm
-            pr.face(pts, nrm, self.basis("slate_covering", pts[0], contour, uphill, seed, course_v=phase), conf)
-            if not k:
-                continue
-            # the cut edge: the doubled eave course's butt, two slates thick, and the
-            # underside of the 50 mm the slates overhang the fascia
-            te = 2 * k["slate_thickness_m"]
-            a, b = pts[0], pts[1]
-            dn = (0.0, -te, 0.0)
-            pr.face([a, b, _add(b, dn), _add(a, dn)], out, self.basis("slate_covering", a, contour, Y, seed), conf)
-            # the fascia line, on the covering plane: where the slates leave the fascia
-            ia = (a[0] - out[0] * (o2 - o) + contour[0] * (o2 - o), ye, a[2] - out[2] * (o2 - o) + contour[2] * (o2 - o))
-            ib = (b[0] - out[0] * (o2 - o) - contour[0] * (o2 - o), ye, b[2] - out[2] * (o2 - o) - contour[2] * (o2 - o))
-            pr.face([_add(a, dn), _add(b, dn), _add(ib, dn), _add(ia, dn)], _mul(nrm, -1),
-                    self.basis("slate_covering", a, contour, _mul(uphill, -1), seed), conf)
-        # fascia and soffit close the eave
-        fa = self.prim("fascia")
-        down = (0.0, -1.0, 0.0)
-        walls = [(0, 0), (D, 0), (D, -W), (0, -W)]
-        eaves = [(-o, o), (D + o, o), (D + o, -W - o), (-o, -W - o)]
-        outs = [(0.0, 0.0, 1.0), (1.0, 0.0, 0.0), (0.0, 0.0, -1.0), (-1.0, 0.0, 0.0)]
-        for i in range(4):
-            j = (i + 1) % 4
-            a, b = eaves[i], eaves[j]
-            along = _unit((b[0] - a[0], 0.0, b[1] - a[1]))
-            fa.face([(a[0], yf, a[1]), (b[0], yf, b[1]), (b[0], ye, b[1]), (a[0], ye, a[1])], outs[i],
-                    self.basis("fascia", (a[0], yf, a[1]), along, Y, seed), conf)
-            wa, wb = walls[i], walls[j]
-            fa.face([(a[0], yf, a[1]), (b[0], yf, b[1]), (wb[0], yf, wb[1]), (wa[0], yf, wa[1])], down,
-                    self.basis("fascia", (0.0, yf, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed), conf)
-        if not k:
-            return yf
-        # copper rolls on the four hips (trimmed to the eave) and the ridge
-        lift = 2 * k["slate_thickness_m"]
-        for (A, B, n1, n2, e1, e2) in ((SEe, RE, planes["south"], planes["east"], (1.0, 0.0, 0.0), (0.0, 0.0, -1.0)),
-                                       (NEe, RE, planes["north"], planes["east"], (-1.0, 0.0, 0.0), (0.0, 0.0, -1.0)),
-                                       (NWe, RW, planes["north"], planes["west"], (-1.0, 0.0, 0.0), (0.0, 0.0, 1.0)),
-                                       (SWe, RW, planes["south"], planes["west"], (1.0, 0.0, 0.0), (0.0, 0.0, 1.0))):
-            self.cap(A, B, n1, n2, lift, seed, conf, eave=(e1, e2))
-        self.cap(RW, RE, planes["south"], planes["north"], lift + 0.002, seed, conf)
-        if p.dormer:
-            self.dormer(planes["east"], seed)
+        # the elements: the hip over the wall line, a body under it (the walls' tops,
+        # so the soffit is a ring and not a lid; never emitted), the dormer, the stacks
+        hip, hs = k5.hip_element(0.0, D, -W, 0.0, E, tp, o, f)
+        solids = [hip, k5.body_box(0.0, D, -W, 0.0, hs - 1.0, hs)]
+        recess = None
+        d = p.dormer
+        if d:
+            dp = kit["parts"]["dormer"]
+            dt = math.tan(math.radians(d["pitch_deg"]))
+            wd, sb, hf = d["width_m"], d["face_setback_m"], d["face_height_m"]
+            xf = D - sb                       # the face, on the street hip
+            ys = E + sb * tp                  # its foot, where it leaves the covering
+            yde = ys + hf                     # the dormer's eave, at its wall line
+            zc = -W / 2
+            back = D - (yde + wd / 2 * dt - E) / tp - 0.5   # behind where its ridge dies
+            g, dhs, dhe, dry = k5.gable_element(back, xf, zc - wd / 2, zc + wd / 2, yde, dt, dp["overhang_m"],
+                                                d["verge_m"], dp["fascia_depth_m"], hs, "x", verge_ends=("hi",),
+                                                wall_role="cheek", end_role="dormer_face",
+                                                body_end_role="dormer_face")
+            solids += g
+            sw, ss, sh = d["sash"]["width_m"], d["sash"]["sill_m"], d["sash"]["height_m"]
+            P = k5.frame("z")
+            # the recess is K06's reveal, cut to K06's depth: its back is where the K06
+            # frame, sashes and dark room stand (`window`, never emitted; dormer_sash)
+            from types import SimpleNamespace
+            rev = self.kit_reveal(SimpleNamespace(component="k01.opening.sash_flat", width_m=sw, height_m=sh))
+            recess = k5.extrude([(xf - rev, ys + ss), (xf + 0.05, ys + ss),
+                                 (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
+                                zc - sw / 2, zc + sw / 2, P,
+                                lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
+            self.dormer_geom = {"xf": xf, "ys": ys, "yde": yde, "dhs": dhs, "dhe": dhe, "ridge": dry,
+                                "zs": zc + wd / 2, "zn": zc - wd / 2}
+        for c in p.chimneys:
+            sx, sz = c["plan_m"]
+            u, z = c["u_m"], -c["v_m"]
+            top = c["top_m"]
+            P = k5.frame("z")
+            cp, cd = c["cap_proud_m"], c["cap_depth_m"]
+            # the stack stops inside its cap, so the two never share a face
+            solids.append(k5.extrude([(u - sx / 2, hs - 0.5), (u + sx / 2, hs - 0.5), (u + sx / 2, top - cd / 2),
+                                      (u - sx / 2, top - cd / 2)], z - sz / 2, z + sz / 2, P,
+                                     lambda i, p_, q_: "chimney" if i != 2 else "hidden", "chimney", "chimney"))
+            solids.append(k5.extrude([(u - sx / 2 - cp, top - cd), (u + sx / 2 + cp, top - cd),
+                                      (u + sx / 2 + cp, top), (u - sx / 2 - cp, top)],
+                                     z - sz / 2 - cp, z + sz / 2 + cp, P, "coping", "coping", "coping"))
+        polys = k5.union_all(k5._snap(solids))
+        if recess is not None:
+            polys = k5.subtract(polys, k5._snap([recess])[0])
+        pts, tris = k5.close(polys)
+        self.roof_shell = (pts, tris)
+        self.roof_graph = k5.graph(pts, tris, kit)
+        self._emit_shell(pts, tris, seed, conf)
+        if d:
+            self.dormer_sash(seed)
+        if k:
+            self.dress(pts, tris, seed, conf)
         if p.rainwater:
             self.rainwater(ye, yf, seed)
         return yf
+
+    # role -> material: what the union named each face, and what a renderer binds to it
+    SHELL = {"covering": "slate_covering", "cheek": "slate_covering", "fascia": "fascia",
+             "soffit": "fascia", "verge": "fascia", "return": "fascia", "dormer_face": "dormer_stone",
+             "reveal": "dormer_stone", "backing": "backing", "chimney": "brick", "coping": "limestone_trim"}
+    BOARD = ("wall", "base")   # the body under the roof: the walls' own business
+    OPEN = ("window",)         # the sash recess's back: the K06 opening set in it closes it
+
+    def _emit_shell(self, pts, tris, seed, conf):
+        """Each triangle into its material, with metric UVs: a covering's courses run up
+        its own plane from that plane's lowest point (its eave), so a course is never cut
+        at the eave and every fragment the union left of one plane registers."""
+        k = self.p.roof or {}
+        phase = (_k04_fabric(k["covering"]) or {}).get("course_phase_m", [0.0, 0.0])[1] if k else None
+        planes = {}
+        for a, b, c, role, n in tris:
+            if role == "covering":
+                key = tuple(round(x, 5) for x in n) + (round(_dot(n, pts[a]), 4),)
+                low = min((pts[a], pts[b], pts[c]), key=lambda q: q[1])
+                if key not in planes or low[1] < planes[key][1]:
+                    planes[key] = low
+        for a, b, c, role, n in tris:
+            if role in self.BOARD or role in self.OPEN:
+                continue
+            if role not in self.SHELL:
+                raise ValueError(f"the K05 union left a {role!r} face on the roof")
+            mat = self.SHELL[role]
+            tri = [pts[a], pts[b], pts[c]]
+            if role == "covering":
+                key = tuple(round(x, 5) for x in n) + (round(_dot(n, pts[a]), 4),)
+                up = _unit(_sub(Y, _mul(n, n[1])))
+                contour = _unit(_cross(up, n))
+                b_ = self.basis(mat, planes[key], contour, up, seed, course_v=phase)
+            elif abs(n[1]) > 0.999:
+                b_ = self.basis(mat, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed)
+            else:
+                au = _unit(_cross(Y, n))
+                b_ = self.basis(mat, (0.0, 0.0, 0.0), au, _cross(n, au), seed)
+            self.prim(mat).face(tri, n, b_, conf)
+
+    def dormer_sash(self, roof_seed):
+        """The dormer's face: a K01 wall component whose surface is the union's, and its
+        sash set in the recess the union cut (the reveal is the solid's, K06 the rest)."""
+        p, d, g = self.p, self.p.dormer, self.dormer_geom
+        from archetypes.k01_frontage_params import Opening
+        wd, hf = d["width_m"], d["face_height_m"]
+        O = (g["xf"], g["ys"], g["zs"])
+        R = (0.0, 0.0, -1.0)
+        self.instance("k01.wall.dormer_face", "wall", {"length_m": wd, "height_m": hf,
+                                                       "thickness_m": d["face_thickness_m"],
+                                                       "construction": "masonry", "openings": 1},
+                      {"base": O, "top": _add(O, _mul(Y, hf))})
+        self.opening(Opening("k01.opening.sash_flat", "k01.wall.dormer_face", wd / 2, d["sash"]["sill_m"],
+                             d["sash"]["width_m"], d["sash"]["height_m"]), (O, R, _cross(R, Y)),
+                     d["face_thickness_m"], "dormer_stone", "limestone_trim", cut=True)
+
+    # -- K04 on the K05 graph: caps on ridges and hips, flashing in valleys -------------
+    def _line_planes(self, pts, tris, A, B):
+        """The covering planes meeting along the line A-B: their normals, in order."""
+        L = _sub(B, A)
+        LL = _dot(L, L)
+        out = []
+        for a, b, c, role, n in tris:
+            if role != "covering":
+                continue
+            on = 0
+            for q in (pts[a], pts[b], pts[c]):
+                s = _dot(_sub(q, A), L) / LL
+                e = _sub(_sub(q, A), _mul(L, s))
+                on += -1e-6 <= s <= 1 + 1e-6 and _dot(e, e) < 1e-8
+            if on >= 2 and not any(_dot(n, m) > 0.9999 for m in out):
+                out.append(n)
+        return out
+
+    def dress(self, pts, tris, seed, conf):
+        k = self.p.roof
+        lift = 2 * k["slate_thickness_m"]
+        self.dressed = {"ridge": 0, "hip": 0, "valley": 0}
+        for line in self.roof_graph["lines"]:
+            kind = line["kind"]
+            if kind not in ("ridge", "hip", "valley"):
+                continue
+            A, B = tuple(line["from"]), tuple(line["to"])
+            if A[1] > B[1]:
+                A, B = B, A                       # A is the low end: the eave's, on a hip
+            ns = self._line_planes(pts, tris, A, B)
+            if len(ns) != 2:
+                raise ValueError(f"the {kind} {A}-{B} does not part two covering planes ({len(ns)})")
+            n1, n2 = ns
+            if kind == "valley":
+                self.valley(A, B, n1, n2, lift, seed, conf)
+            elif kind == "hip":
+                eaves = tuple(_unit((n[2], 0.0, -n[0])) for n in ns)
+                self.cap(A, B, n1, n2, lift, seed, conf, eave=eaves)
+            else:
+                self.cap(A, B, n1, n2, lift + 0.002, seed, conf)
+            self.dressed[kind] += 1
+        if self.p.dormer:
+            self.dormer_flashing(seed, lift)
+
+    def valley(self, V0, V1, nA, nB, lift, seed, conf):
+        """An open valley: a sheet on each plane widening downhill, a crimped rib up the middle."""
+        k = self.p.roof
+        mat = self._flashing()
+        fl = self.prim(mat)
+        Lv = _unit(_sub(V1, V0))
+        length = math.dist(V0, V1)
+        half0 = (k["valley_exposed_at_top_m"] + k["valley_widening_per_m"] * length) / 2
+        half1 = k["valley_exposed_at_top_m"] / 2
+        rib = _unit(_add(nA, nB))
+        for n, other in ((nA, nB), (nB, nA)):
+            q = _unit(_cross(n, Lv))
+            if _dot(q, other) < 0:
+                q = _mul(q, -1)               # up this plane, away from the valley
+            a0, a1 = _add(V0, _mul(n, lift)), _add(V1, _mul(n, lift))
+            fl.face([a0, a1, _add(a1, _mul(q, half1)), _add(a0, _mul(q, half0))], n,
+                    self.basis(mat, a0, Lv, q, seed), conf)
+            b0, b1 = _add(a0, _mul(q, 0.012)), _add(a1, _mul(q, 0.012))
+            c0, c1 = _add(V0, _mul(rib, lift + k["valley_crimp_m"])), _add(V1, _mul(rib, lift + k["valley_crimp_m"]))
+            fl.quad(b0, b1, c1, c0, _add(n, _mul(q, -1)), self.basis(mat, b0, Lv, _unit(_sub(c0, b0)), seed), conf)
+
+    def dormer_flashing(self, seed, lift):
+        """The apron under the face and step flashing up each cheek, on the abutment
+        lines the K05 dormer leaves on the street hip."""
+        p, k, g = self.p, self.p.roof, self.dormer_geom
+        conf = p.worst_conf("roof_form", "roof_pitch_deg", "dormer")
+        D, E = p.depth_m, p.eave_m
+        tp = math.tan(math.radians(p.roof_pitch_deg))
+        n_main = _unit((tp, 1.0, 0.0))
+        mat = self._flashing()
+        fl = self.prim(mat)
+        X = (1.0, 0.0, 0.0)
+        xf, ys, zs, zn = g["xf"], g["ys"], g["zs"], g["zn"]
+        dd = _unit((1.0, -tp, 0.0))
+        a_s = _add((xf, ys, zs + k["step_leg_m"]), _mul(n_main, lift))
+        a_n = _add((xf, ys, zn - k["step_leg_m"]), _mul(n_main, lift))
+        fl.face([a_s, a_n, _add(a_n, _mul(dd, k["apron_lap_m"])), _add(a_s, _mul(dd, k["apron_lap_m"]))], n_main,
+                self.basis(mat, a_s, (0.0, 0.0, -1.0), _mul(dd, -1), seed), conf)
+        ux = xf + 0.006
+        fl.face([(ux, ys, zs), (ux, ys, zn), (ux, ys + k["apron_upstand_m"], zn), (ux, ys + k["apron_upstand_m"], zs)], X,
+                self.basis(mat, (ux, ys, zs), (0.0, 0.0, -1.0), Y, seed), conf)
+        # the cheek stands on the hip from the face's foot up to the dormer's soffit
+        xl = D - (g["dhs"] - E) / tp
+        for sgn, z_e in ((1.0, zs), (-1.0, zn)):
+            f0 = _add((xf, ys, z_e), _mul(n_main, lift + 0.002))
+            f1 = _add((xl, g["dhs"], z_e), _mul(n_main, lift + 0.002))
+            Ls = _unit(_sub(f1, f0))
+            out = (0.0, 0.0, sgn)
+            fl.face([f0, f1, _add(f1, _mul(out, k["step_leg_m"])), _add(f0, _mul(out, k["step_leg_m"]))], n_main,
+                    self.basis(mat, f0, Ls, out, seed), conf)
+            u0, u1 = (xf, ys, z_e + sgn * 0.006), (xl, g["dhs"], z_e + sgn * 0.006)
+            up = (0.0, min(k["step_upstand_m"], g["dhs"] - ys), 0.0)
+            fl.face([u0, u1, _add(u1, up), _add(u0, up)], out, self.basis(mat, u0, Ls, Y, seed), conf)
 
     def _flashing(self):
         return "k04_" + self.p.roof["flashing"]
@@ -683,108 +848,6 @@ class Assembly:
                     self.basis(mat, _add(c0, ring[j]), L, _unit(_sub(ring[j + 1], ring[j])), seed), conf)
         for c, nn in ((c0, _mul(L, -1)), (c1, L)):
             pr.face([_add(c, r) for r in ring], nn, self.basis(mat, c, side, bis, seed), conf)
-
-    # -- k01.roof.dormer_gable --------------------------------------------------------
-    def dormer(self, n_main, roof_seed):
-        p, d, k = self.p, self.p.dormer, self.p.roof
-        D, W, E = p.depth_m, p.width_m, p.eave_m
-        tp = math.tan(math.radians(p.roof_pitch_deg))
-        dp = math.tan(math.radians(d["pitch_deg"]))
-        wd, sb, hf, vo = d["width_m"], d["face_setback_m"], d["face_height_m"], d["verge_m"]
-        xf = D - sb
-        ys = E + sb * tp                      # the face's foot, on the street hip
-        yde = ys + hf                         # the dormer's eave
-        ydr = yde + wd / 2 * dp               # its ridge
-        xl = D - (yde - E) / tp               # where a cheek's top meets the hip
-        xr = D - (ydr - E) / tp               # where the dormer ridge dies into it
-        zc = -W / 2
-        zs, zn = zc + wd / 2, zc - wd / 2
-        if xr - (D - W / 2) < wd / 2 + 0.3:
-            raise ValueError("the dormer does not fit inside the street hip")
-        conf = p.worst_conf("roof_form", "roof_pitch_deg", "dormer")
-        seed = self.instance("k01.roof.dormer_gable", "roof",
-                             {"pitch_deg": d["pitch_deg"], "width_m": wd, "face_height_m": hf,
-                              "face_setback_m": sb, "verge_m": vo},
-                             {"eave": (xf, yde, zs), "ridge": (xf, ydr, zc)})
-        # the face, its sash cut through it, and the gable over it
-        from archetypes.k01_frontage_params import Opening
-        frame, t = self.wall("k01.wall.dormer_face", "dormer_stone", (xf, ys, zs), (0.0, 0.0, -1.0), wd, hf,
-                             d["face_thickness_m"],
-                             [(wd / 2 - d["sash"]["width_m"] / 2, wd / 2 + d["sash"]["width_m"] / 2,
-                               d["sash"]["sill_m"], d["sash"]["sill_m"] + d["sash"]["height_m"])])
-        self.opening(Opening("k01.opening.sash_flat", "k01.wall.dormer_face", wd / 2, d["sash"]["sill_m"],
-                             d["sash"]["width_m"], d["sash"]["height_m"]), frame, t, "dormer_stone", "limestone_trim")
-        X = (1.0, 0.0, 0.0)
-        self.prim("dormer_stone").face([(xf, yde, zs), (xf, yde, zn), (xf, ydr, zc)], X,
-                                       self.basis("dormer_stone", (xf, yde, zs), (0.0, 0.0, -1.0), Y, seed), conf)
-        # roof planes, slated, from the verge back to the valleys
-        pr = self.prim("slate_covering")
-        phase = (_k04_fabric(k["covering"]) or {}).get("course_phase_m", [0.0, 0.0])[1]
-        sides = {}
-        for z_e, sgn in ((zs, 1.0), (zn, -1.0)):
-            pts = [(xf + vo, yde, z_e), (xl, yde, z_e), (xr, ydr, zc), (xf + vo, ydr, zc)]
-            nrm = _unit((0.0, 1.0, sgn * dp))
-            contour = (-1.0, 0.0, 0.0)
-            uphill = _unit(_cross(nrm, contour))
-            if uphill[1] < 0:
-                uphill = _mul(uphill, -1)
-            pr.face(pts, nrm, self.basis("slate_covering", pts[0], contour, uphill, seed, course_v=phase), conf)
-            sides[sgn] = (nrm, z_e)
-            # the cheek under it: slated, a triangle standing on the hip
-            pr.face([(xf, ys, z_e), (xf, yde, z_e), (xl, yde, z_e)], (0.0, 0.0, sgn),
-                    self.basis("slate_covering", (xf, ys, z_e), (-1.0, 0.0, 0.0), Y, seed, 0.0), conf)
-            # bargeboard and the verge's soffit
-            fa = self.prim("fascia")
-            top0, top1 = (xf + vo, yde, z_e), (xf + vo, ydr, zc)
-            dn = (0.0, -0.15, 0.0)
-            fa.face([top0, top1, _add(top1, dn), _add(top0, dn)], X,
-                    self.basis("fascia", top0, (0.0, 0.0, -sgn), Y, seed), conf)
-            fa.face([_add(top0, dn), _add(top1, dn), (xf, ydr - 0.15, zc), (xf, yde - 0.15, z_e)], _mul(nrm, -1),
-                    self.basis("fascia", top0, X, (0.0, 0.0, -sgn), seed), conf)
-        lift = 2 * k["slate_thickness_m"]
-        self.cap((xf + vo, ydr, zc), (xr, ydr, zc), sides[1.0][0], sides[-1.0][0], lift, seed, conf)
-        # the valleys: open, widening downhill, a crimped rib up the middle
-        mat = self._flashing()
-        fl = self.prim(mat)
-        V1 = (xr, ydr, zc)
-        for sgn in (1.0, -1.0):
-            nd, z_e = sides[sgn]
-            V0 = (xl, yde, z_e)
-            Lv = _unit(_sub(V1, V0))
-            length = math.dist(V0, V1)
-            half0 = (k["valley_exposed_at_top_m"] + k["valley_widening_per_m"] * length) / 2
-            half1 = k["valley_exposed_at_top_m"] / 2
-            for n, test in ((n_main, (0.0, 0.0, sgn)), (nd, X)):
-                q = _unit(_cross(n, Lv))
-                if _dot(q, test) < 0:
-                    q = _mul(q, -1)
-                a0, a1 = _add(V0, _mul(n, lift)), _add(V1, _mul(n, lift))
-                fl.face([a0, a1, _add(a1, _mul(q, half1)), _add(a0, _mul(q, half0))], n,
-                        self.basis(mat, a0, Lv, q, seed), conf)
-                rib = _unit(_add(n_main, nd))
-                b0, b1 = _add(a0, _mul(q, 0.012)), _add(a1, _mul(q, 0.012))
-                c0, c1 = _add(V0, _mul(rib, lift + k["valley_crimp_m"])), _add(V1, _mul(rib, lift + k["valley_crimp_m"]))
-                fl.quad(b0, b1, c1, c0, _add(n, _mul(q, -1)), self.basis(mat, b0, Lv, _unit(_sub(c0, b0)), seed), conf)
-        # the apron over the course below the face, and its upstand
-        dd = _unit((1.0, -tp, 0.0))
-        a_s = _add((xf, ys, zs + k["step_leg_m"]), _mul(n_main, lift))
-        a_n = _add((xf, ys, zn - k["step_leg_m"]), _mul(n_main, lift))
-        fl.face([a_s, a_n, _add(a_n, _mul(dd, k["apron_lap_m"])), _add(a_s, _mul(dd, k["apron_lap_m"]))], n_main,
-                self.basis(mat, a_s, (0.0, 0.0, -1.0), _mul(dd, -1), seed), conf)
-        ux = a_s[0]
-        fl.face([(ux, a_s[1], zs), (ux, a_s[1], zn), (ux, ys + k["apron_upstand_m"], zn), (ux, ys + k["apron_upstand_m"], zs)], X,
-                self.basis(mat, (ux, a_s[1], zs), (0.0, 0.0, -1.0), Y, seed), conf)
-        # step flashing at each cheek: a leg on the hip, an upstand on the cheek
-        for sgn, z_e in ((1.0, zs), (-1.0, zn)):
-            f0 = _add((xf, ys, z_e), _mul(n_main, lift + 0.002))
-            f1 = _add((xl, yde, z_e), _mul(n_main, lift + 0.002))
-            Ls = _unit(_sub(f1, f0))
-            out = (0.0, 0.0, sgn)
-            fl.face([f0, f1, _add(f1, _mul(out, k["step_leg_m"])), _add(f0, _mul(out, k["step_leg_m"]))], n_main,
-                    self.basis(mat, f0, Ls, out, seed), conf)
-            u0, u1 = (xf, ys, z_e + sgn * 0.006), (xl, yde, z_e + sgn * 0.006)
-            up = (0.0, k["step_upstand_m"], 0.0)
-            fl.face([u0, u1, _add(u1, up), _add(u0, up)], out, self.basis(mat, u0, Ls, Y, seed), conf)
 
     # -- rainwater: gutter, brackets, outlets, downpipes, shoes, splash stones -----------
     def rainwater(self, ye, yf, seed):
