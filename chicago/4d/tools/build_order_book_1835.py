@@ -5845,8 +5845,11 @@ def cmd_self_test() -> int:
     # 319 -> 315 on 2026-10-10 (T-2255, on top of T-1550): the off-plat deal owes the
     # letter-list cohort the ruling of 2026-08-30 refuses (T-0379), so 99 -> 95 off-plat on
     # the same 220 platted (L271).
+    # 315 -> 316 on 2026-10-10 (T-2254, on top of T-2268): four of block 82's requests are
+    # raised and adopted, and the block keeps two slots (a D1 and an H1, T-2270's), so the
+    # platted deal seats one household more (220 -> 221 platted, 95 off-plat, L270).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 315
+        data["inventory"], data["programme"], occ))["seated"] == 316
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
