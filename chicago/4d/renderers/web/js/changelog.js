@@ -1,8 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1604, ts: '2026-10-10T01:16:52.126Z', date: 'Oct 9, 2026, 8:16 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
+  { v: 1606, ts: '2026-10-10T01:40:14.964Z', date: 'Oct 9, 2026, 8:40 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
     items: [
       'Charles Beaubien, father of Susan at her baptism at St Mary\u2019s on 24 December 1834, stood in the town as a second man, with a house of his own. He is Charles H. Beaubien, the voter and violinist, now on one card. The history of Chicago names Charles H. as J. B. Beaubien\u2019s son, teaching the fort\u2019s children in 1829, and his death notice puts his birth in 1806 or 1807. No record the town holds names a second Charles Beaubien.',
       'His second house is gone. Other households move into it and the houses they leave. Patrick Meleney now has a standing house on the South side instead of a lot south of Monroe, and Samuel Miller and the reconstructed household of Ruth Woodruff are given lots there.',
+    ] },
+  { v: 1605, ts: '2026-10-10T01:25:22.744Z', date: 'Oct 9, 2026, 8:25 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The reconstruction\u2019s work list asked for ten more South-side family households than the town could form, after letter-list names stopped counting as households on 9 October.',
+      'Those ten are not missing. The town already holds 23 families present in July 1835 who are still waiting for a house, so the list no longer asks for anyone to be invented in their place. It now owes no family houses in any division.',
+      'Nobody was added, moved or given a house. The 23 families still wait for the town\u2019s next dwellings to be built.',
+    ] },
+  { v: 1604, ts: '2026-10-10T01:02:46.060Z', date: 'Oct 9, 2026, 8:02 PM CT', title: 'The tools that seat the town read each household\u2019s dated places', kind: 'change',
+    items: [
+      'Nothing you can see changes. The tools that give households their houses, deal the empty roofs, audit the town and count its census now read where a household lived and worked from the dated places on its card, the same entries its card shows you.',
+      'Every seat, count and census figure comes out exactly as before, even with the old single home and workplace lines removed from the records, which is what lets those lines be retired next.',
     ] },
   { v: 1603, ts: '2026-10-10T00:46:47.918Z', date: 'Oct 9, 2026, 7:46 PM CT', title: 'Glessner roof proportions gain a reviewable comparison audit', kind: 'feature',
     items: [

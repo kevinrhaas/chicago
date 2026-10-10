@@ -6,7 +6,7 @@ condition is *"every person in Chicago has a place to live and a place to work"*
 T-1215's first clause turns it into four joins over committed data:
 
 1. **Housed.** Every resident card's household reaches a standing structure, a vessel or
-   a camp — through its own `lives_at`, or because a structure's sidecar seats it under
+   a camp — through its own home row (T-2260), or because a structure's sidecar seats it under
    `residents[]` (the lodging houses and the reconstructed roofs carry their people that
    way round, and a card cannot point back at a bed; a row that says only that the
    household WORKED there is not a bed, T-2249). A household the housing deal counts
@@ -36,7 +36,7 @@ roof. What it writes is the gap list the remaining pieces of T-1215 close: T-196
 unhoused, T-1966 the work and the empty roofs. The gaps are therefore NOT a failure of
 the gate — they are the work the town still owes, counted where a run can read them.
 
-**What IS a failure is a dangling id**: a `lives_at` naming a structure the scene does
+**What IS a failure is a dangling id**: a home row naming a structure the scene does
 not carry, a sidecar seating a household no card holds, a workplace naming a business
 that does not exist, a business premises naming a structure that is not standing. Those
 are broken links, not headroom, and `--check` refuses them.
@@ -63,6 +63,9 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+from associations import home_of  # noqa: E402
+
 DATA = ROOT / "data"
 YEAR = "1835"
 OUT = DATA / "render" / "town_completion_1835.json"
@@ -255,7 +258,7 @@ def audit(inputs: dict) -> dict:
         if entry["folder"] == TRANSIENT_FOLDER:
             continue
         card = entry["card"]
-        where = value_of(card.get("lives_at"))
+        where = home_of(card)
         through = None
         if where:
             if where in structures:
@@ -264,7 +267,8 @@ def audit(inputs: dict) -> dict:
             elif where in vessels:
                 through = "vessel"
             else:
-                dangling.append(f"household {hid} lives_at {where}, which the scene does not carry")
+                dangling.append(f"household {hid}'s home row names {where}, which the scene "
+                                f"does not carry")
         if through is None and hid in seated_at:
             through = "seated_by_a_structure"
         persons = card.get("persons") or []
@@ -657,7 +661,12 @@ def self_test(inputs: dict) -> int:
 
     def bad_lives_at(i):
         hid = next(h for h, e in sorted(i["cards"].items()) if e["folder"] == "households")
-        i["cards"][hid]["card"]["lives_at"] = {"value": "no_such_structure"}
+        card = i["cards"][hid]["card"]
+        card["associated_with"] = [{"kind": "home", "place_or_structure_id": "no_such_structure",
+                                    "resolves_to": "structure", "from": None, "to": None,
+                                    "undated": True, "tier": "reconstructed",
+                                    "source_id": None, "note": "broken on purpose"},
+                                   *(card.get("associated_with") or [])]
 
     def bad_seat(i):
         sid = next(iter(sorted(i["structures"])))
@@ -670,7 +679,7 @@ def self_test(inputs: dict) -> int:
         bid = next(iter(sorted(i["businesses"])))
         i["businesses"][bid]["locations"] = [{"primary": True, "structure_id": "no_such_structure"}]
 
-    expect("a lives_at naming no structure", bad_lives_at)
+    expect("a home row naming no structure", bad_lives_at)
     expect("a sidecar seating no card", bad_seat)
     expect("a workplace naming no business", bad_workplace)
     def bad_part_of(i):
