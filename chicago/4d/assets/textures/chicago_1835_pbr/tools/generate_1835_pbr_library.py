@@ -317,10 +317,14 @@ def surface(spec, seed):
 
 
 def maps_from_height(h, strength=5.0):
+    # gx is dh/dcol and gy is dh/drow, and a row runs DOWN the image. The OpenGL map's
+    # green is +V, which runs UP it (three.js loads with flipY, so row 0 is v = 1), so
+    # n = (-dh/du, -dh/dv, 1) = (-gx, +gy, 1). Until T-2299 this wrote -gy, the DirectX
+    # map under the OpenGL name, as generate_prairie_1904_pbr.py did until T-2296.
     gx=(np.roll(h,-1,1)-np.roll(h,1,1))*.5*strength
     gy=(np.roll(h,-1,0)-np.roll(h,1,0))*.5*strength
     z=np.ones_like(h)
-    normal=np.stack((-gx,-gy,z),axis=-1); normal/=np.linalg.norm(normal,axis=-1,keepdims=True)
+    normal=np.stack((-gx,gy,z),axis=-1); normal/=np.linalg.norm(normal,axis=-1,keepdims=True)
     gl=(normal*.5+.5)
     dx=gl.copy(); dx[...,1]=1-dx[...,1]
     local=ndimage.gaussian_filter(h,7,mode="wrap")-h

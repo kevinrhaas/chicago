@@ -12,7 +12,7 @@ Each is an A-family yard building standing at a yard setback off its block alley
 
 - outstanding verdicts: **2**
 - refused by the parcel gate: **0**
-- offered families that would leave the inventory class alone: **0** of 12
+- offered families that would leave the inventory class alone: **0** of 8
 - open lots across the three blocks: **1**, against 2 roofs
 
 ## The six, and what refuses each one
@@ -20,9 +20,9 @@ Each is an A-family yard building standing at a yard setback off its block alley
 | roof | becomes | stands | was | now | the refusal |
 | --- | --- | --- | --- | --- | --- |
 | `recon_1835_blk_washington_market_a3_15` | `recon_1835_blk_washington_market_d2_15` | lot 3, off the alley, 4.0 m | A3 (ancillary) | D2 (ancillary) | None |
-| `recon_1835_blk_washington_market_a4_12` | `recon_1835_blk_washington_market_d2_12` | lot 2, off the alley, 4.5 m | A4 (ancillary) | D2 (ancillary) | None |
+| `recon_1835_blk_washington_market_a4_12` | `recon_1835_blk_washington_market_h1_12` | lot 2, off the alley, 4.5 m | A4 (ancillary) | H1 (ancillary) | None |
 
-Every one of the 12 families the adjudication offers across the six is an ordinary dwelling, so no offered family avoided the promotion by its letter alone. There was no re-deal inside the verdict, which is why the question had to go to the owner rather than being solved here.
+Every one of the 8 families the adjudication offers across the six is an ordinary dwelling, so no offered family avoided the promotion by its letter alone. There was no re-deal inside the verdict, which is why the question had to go to the owner rather than being solved here.
 
 ## The ground the other remedy would need
 
