@@ -18,10 +18,10 @@ neither is typed here:
   reason: the two figures must not be able to disagree.
 * **People housed** is the population below joined to the roofs that stand, by the
   SAME two joins the completion audit makes (T-2155): a household is housed when its
-  `lives_at` names a structure that resolves into the scene
+  card's home row (T-2260) names a structure that resolves into the scene
   (`data/sidecars/<year>/index.json`, which is what the renderer actually loads), OR
   when a standing structure's sidecar seats it under `residents[]` — the lodging houses
-  and the reconstructed roofs carry their people that way and name nobody's `lives_at`.
+  and the reconstructed roofs carry their people that way and name nobody's home.
   Until T-2155 only the first join was read, so the screen said 192 of 2,926 were placed
   while the audit seated 1,253 of the same households. A household the housing deal
   counts apart as WAITING on a roof the scene does not stand yet is reported on its own
@@ -68,7 +68,7 @@ cards the layer holds are still stated, as cards.
 **And the people it counts APART.** T-1353 mints the summer crowd of 1835 — the strangers
 the Chicago American put OUTSIDE its own population estimate — as reconstructed visitors in
 `data/residents/transients/`. They are not residents and they do not touch either figure
-above: their cards carry no `lives_at`, they are not in the manifest this file joins, and
+above: their cards carry no home row, they are not in the manifest this file joins, and
 the `transients` block below reports them on a row of their own. Chicago's own enumerator
 did the same thing in 1843, printing `Transient persons` as a separate line of his table.
 
@@ -81,9 +81,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+from associations import home_of  # noqa: E402
+
 DATA = ROOT / "data"
 OUT_PATH = DATA / "town_census.json"
 
@@ -160,7 +164,7 @@ def beyond_the_index(in_scene: set[str], seated: set[str], ruled_present: set[st
                 row["persons_not_present"] += n
                 continue
             row["persons_present"] += n
-            if value_of(card.get("lives_at")) in in_scene or hid in seated:
+            if home_of(card) in in_scene or hid in seated:
                 row["persons_present_housed"] += n
             elif apart.get(hid) == "waiting_on_a_roof":
                 row["persons_present_waiting_on_a_roof"] += n
@@ -195,7 +199,7 @@ def transient_block() -> dict | None:
             continue
         card = json.loads(path.read_text(encoding="utf-8"))
         on_disk += len(card.get("persons") or [])
-        if (card.get("lives_at") or {}).get("value"):
+        if home_of(card):
             housed.append(card["id"])
     totals = ledger.get("totals") or {}
     point = ledger.get("the_point_adopted") or {}
@@ -290,20 +294,25 @@ def census_document() -> dict:
     in_scene = {s["id"] for s in sidecars["structures"]}
     roofs = programme["standing"]["physical_roofs"]
 
-    # THE TWO JOINS (T-2155), the audit's own: `lives_at`, or a standing roof that seats
-    # the household under `residents[]`. Counted over the POPULATION the screen shows —
-    # established on the day, or ruled in — so "N of them are placed" is a share of it.
+    # THE TWO JOINS (T-2155), the audit's own: the card's home row, or a standing roof that
+    # seats the household under `residents[]`. The home is read off the CARD (T-2260), not
+    # the index's copy of the singular `lives_at`, which T-2261 retires. Counted over the
+    # POPULATION the screen shows — established on the day, or ruled in — so "N of them are placed" is a share of it.
     seated = seated_households(sidecars)
     ruled_ids = {r["household_id"] for r in rulings.get("rulings", [])}
     seats = (json.loads(HOUSING_SEATS.read_text(encoding="utf-8"))
              if HOUSING_SEATS.exists() else {})
     apart = {r["household"]: r["why"] for r in seats.get("counted_apart") or []}
 
+    home = {h["id"]: home_of(json.loads((DATA / "residents" / h["file"])
+                                         .read_text(encoding="utf-8")))
+            for h in residents["households"]}
+
     def in_population(h: dict) -> bool:
         return h.get("present_on_scene_date") == "present" or h["id"] in ruled_ids
 
     def is_housed(h: dict) -> bool:
-        return h.get("lives_at") in in_scene or h["id"] in seated
+        return home[h["id"]] in in_scene or h["id"] in seated
 
     housed = [h for h in residents["households"] if in_population(h) and is_housed(h)]
     housed_ids = {h["id"] for h in housed}
@@ -311,11 +320,11 @@ def census_document() -> dict:
     waiting = [h for h in residents["households"] if in_population(h) and not is_housed(h)
                and apart.get(h["id"]) == "waiting_on_a_roof"]
     # A household in the dataset that neither join houses. Not an error — it is the
-    # headroom the ask is about — but if it ever goes negative-shaped (a lives_at naming
+    # headroom the ask is about — but if it ever goes negative-shaped (a home row naming
     # a structure the scene does not carry) that is a broken link, so it is reported.
     unhoused = [h for h in residents["households"] if not is_housed(h)]
-    dangling = sorted(h["lives_at"] for h in residents["households"]
-                      if h.get("lives_at") and h["lives_at"] not in in_scene)
+    dangling = sorted(home[h["id"]] for h in residents["households"]
+                      if home[h["id"]] and home[h["id"]] not in in_scene)
 
     # THE PEOPLE THE PROJECT HAS ESTABLISHED IN THE TOWN ON THE SCENE DATE, which is the
     # only population a figure for 1 July can be a portion of. The test is the order
@@ -443,9 +452,9 @@ def census_document() -> dict:
             "households_housed": len(housed),
             "housed_through": {
                 "lives_at": sum(int(h["persons"]) for h in housed
-                                if h.get("lives_at") in in_scene),
+                                if home[h["id"]] in in_scene),
                 "seated_by_a_structure": sum(int(h["persons"]) for h in housed
-                                             if h.get("lives_at") not in in_scene),
+                                             if home[h["id"]] not in in_scene),
             },
             "waiting_on_a_roof": sum(int(h["persons"]) for h in waiting),
             "households_waiting_on_a_roof": len(waiting),
@@ -574,7 +583,7 @@ def main() -> int:
               f"{', '.join(visitors['claiming_a_residence'])}")
         return 1
     if census["people"]["dangling_lives_at"]:
-        print("TOWN CENSUS BROKEN LINK\n  - a household's lives_at names a structure the "
+        print("TOWN CENSUS BROKEN LINK\n  - a household's home row names a structure the "
               f"scene does not carry: {', '.join(census['people']['dangling_lives_at'])}")
         return 1
     # THE GATE THE SCREEN NEEDS (T-1365). The gate card fills a bar of established

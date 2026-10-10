@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1604, ts: '2026-10-10T01:15:16.417Z', date: 'Oct 9, 2026, 8:15 PM CT', title: '65 more households are given a house beyond the platted town', kind: 'fix',
+  { v: null, ts: '', title: '65 more households are given a house beyond the platted town', kind: 'fix',
     items: [
       'Outside the platted town, in the North and West Divisions, 69 houses had been given to households known only from the post office\u2019s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address. The houses on the plat already followed that ruling, and now these do too.',
       'Those houses go to the next households in line for them. In People, 65 more household cards now show \u201cGo to the roof the policy deals it, off the plat\u201d, and the 69 letter-list cards no longer show it. The houses\u2019 cards list the new households.',
       'The 30 households already housed there keep a house, though 28 of them are now in a different one. In the West, a farm household is only given a cabin with a barn beside it, so four West cabins stand empty, and each says why.',
+    ] },
+  { v: 1604, ts: '2026-10-10T01:02:46.060Z', date: 'Oct 9, 2026, 8:02 PM CT', title: 'The tools that seat the town read each household\u2019s dated places', kind: 'change',
+    items: [
+      'Nothing you can see changes. The tools that give households their houses, deal the empty roofs, audit the town and count its census now read where a household lived and worked from the dated places on its card, the same entries its card shows you.',
+      'Every seat, count and census figure comes out exactly as before, even with the old single home and workplace lines removed from the records, which is what lets those lines be retired next.',
     ] },
   { v: 1603, ts: '2026-10-10T00:46:47.918Z', date: 'Oct 9, 2026, 7:46 PM CT', title: 'Glessner roof proportions gain a reviewable comparison audit', kind: 'feature',
     items: [
