@@ -20,6 +20,7 @@
   "e": -0.0505498334,
   "f": -3158.2878,
   "m_per_px": 0.050558,
+  "fit_rms_m": 0.34,
   "independent_rms_m": 1.47
  },
  "census": "chicago/prairie_1904_v1/data/sheet_census/sheet-28.json",
@@ -31,14 +32,15 @@
   "simplify_px": 2.5,
   "min_part_m2": 0.92,
   "min_building_m2": 1.84,
-  "assignment": "the building nearest the street takes the frontage's front and attached census ids; the others take its detached_service ids nearest the alley first; one left over on vacant ground takes that ground's id, any other is kept as unassigned"
+  "assignment": "the building nearest the street takes the frontage's front, attached and non_building_use census ids; the others take its detached_service ids nearest the alley first, and detached ids left over go onto the joined (several-part) outline nearest the alley; one left over on vacant ground takes that ground's id, any other is kept as unassigned. A frontage spanning several lots is read on their union"
  },
  "tiers": {
   "outline": "inferred -- a 1911 survey carried to 1904 on T-1841's per-polygon ruling",
   "part_role": "inferred -- colour, size and position by the rule in each part's role_rule",
-  "storeys": "not read here: the census's printed notation is the storey reading"
+  "storeys": "not read here: the census's printed notation is the storey reading",
+  "for_1904": "per building: as_mapped (the census rules it present in 1904 as drawn); not_1904 (a front the census backcasts from the 1886 plate -- the 1911 outline is a later replacement and no draft stands on it); as_mapped_rear_of_backcast (a rear building on a backcast frontage, drawn in 1911 and not ruled out); no_census_ruling"
  },
- "accuracy": "the georeference's independent check (standing houses 1.47 m RMS, worst 1.9 m) plus about a pixel of trace; relative accuracy inside one lot is the trace's, about 0.1 m",
+ "accuracy": "the georeference's independent check (1.47 m RMS per component, worst 1.9 m) plus about a pixel of trace; relative accuracy inside one lot is the trace's, about 0.1 m",
  "counts": {
   "parcels": 23,
   "buildings": 38,
@@ -69,6 +71,7 @@
       "s28-1800-front",
       "s28-1800-wing"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 637.38,
      "from_street_m": [4.34, 53.94],
@@ -726,6 +729,7 @@
       "s28-1808-front",
       "s28-1808-wing"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 474.5,
      "from_street_m": [3.44, 53.91],
@@ -1309,6 +1313,7 @@
      "census_ids": [
       "s28-1812-front"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 201.52,
      "from_street_m": [6.02, 33.09],
@@ -1466,6 +1471,7 @@
      "census_ids": [
       "s28-1812-rear"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 119.87,
      "from_street_m": [39.32, 53.86],
@@ -1636,6 +1642,7 @@
       "s28-1816-front",
       "s28-1816-wing"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 296.89,
      "from_street_m": [5.32, 31.54],
@@ -1942,6 +1949,7 @@
      "census_ids": [
       "s28-1816-rear"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 236.08,
      "from_street_m": [43.19, 53.91],
@@ -2156,6 +2164,7 @@
       "s28-1824-front",
       "s28-1824-wing"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 274.89,
      "from_street_m": [7.68, 34.32],
@@ -2545,6 +2554,7 @@
      "census_ids": [
       "s28-1824-rear"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 184.06,
      "from_street_m": [43.29, 53.89],
@@ -2715,6 +2725,7 @@
       "s28-1828-front",
       "s28-1828-wing"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 234.58,
      "from_street_m": [6.36, 36.18],
@@ -3190,6 +3201,7 @@
      "census_ids": [
       "s28-1828-rear"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 126.51,
      "from_street_m": [43.34, 53.88],
@@ -3337,6 +3349,7 @@
      "census_ids": [
       "s28-1834-front"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 254.78,
      "from_street_m": [5.35, 32.29],
@@ -3868,6 +3881,7 @@
      "census_ids": [
       "s28-1834-rear"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 143.39,
      "from_street_m": [43.32, 53.89],
@@ -4037,6 +4051,7 @@
      "census_ids": [
       "s28-vacant-west-1834-1900"
      ],
+     "for_1904": "no_census_ruling",
      "note": null,
      "area_m2": 35.93,
      "from_street_m": [44.38, 53.84],
@@ -4197,6 +4212,7 @@
       "s28-1900-front",
       "s28-1900-wing"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 283.21,
      "from_street_m": [6.07, 30.96],
@@ -4567,6 +4583,7 @@
      "census_ids": [
       "s28-1900-rear"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 135.35,
      "from_street_m": [44.77, 53.8],
@@ -4724,6 +4741,7 @@
       "s28-1906-front",
       "s28-1908-wing"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 523.03,
      "from_street_m": [6.05, 35.97],
@@ -5316,6 +5334,7 @@
      "census_ids": [
       "s28-1906-rear"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 273.42,
      "from_street_m": [43.92, 53.93],
@@ -5532,6 +5551,7 @@
       "s28-1912-front",
       "s28-1912-wing"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 379.54,
      "from_street_m": [6.29, 36.87],
@@ -5933,6 +5953,7 @@
      "census_ids": [
       "s28-1912-rear"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 174.5,
      "from_street_m": [43.43, 53.8],
@@ -6093,6 +6114,7 @@
       "s28-1918-front",
       "s28-1936-wing"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 397.66,
      "from_street_m": [6.37, 35.52],
@@ -6495,6 +6517,7 @@
      "census_ids": [
       "s28-1936-rear"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 351.46,
      "from_street_m": [41.78, 53.95],
@@ -6752,6 +6775,7 @@
       "s28-1801-front",
       "s28-1801-wing"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 470.0,
      "from_street_m": [6.38, 46.26],
@@ -7188,6 +7212,7 @@
       "s28-1811-front",
       "s28-1811-wing"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 259.27,
      "from_street_m": [6.59, 35.3],
@@ -7494,6 +7519,7 @@
      "census_ids": [
       "s28-1811-rear"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 102.36,
      "from_street_m": [36.86, 46.05],
@@ -7643,6 +7669,7 @@
      "census_ids": [
       "s28-1815-front"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 299.26,
      "from_street_m": [8.16, 36.28],
@@ -8017,6 +8044,7 @@
      "census_ids": [
       "s28-1815-rear"
      ],
+     "for_1904": "as_mapped",
      "note": "drawn against the house's rear wall; split off as the census's detached building (its parts begin in the rear 30% of the lot)",
      "area_m2": 79.19,
      "from_street_m": [33.54, 43.21],
@@ -8422,6 +8450,7 @@
       "s28-1823-front",
       "s28-1823-wing"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 252.75,
      "from_street_m": [9.13, 29.0],
@@ -8627,6 +8656,7 @@
      "census_ids": [
       "s28-1827-front"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 479.91,
      "from_street_m": [6.62, 37.67],
@@ -9046,6 +9076,7 @@
      "census_ids": [
       "s28-1827-rear"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 163.61,
      "from_street_m": [43.82, 54.39],
@@ -9167,6 +9198,7 @@
      "census_ids": [
       "s28-1901-front"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 413.53,
      "from_street_m": [6.24, 34.77],
@@ -9627,6 +9659,7 @@
      "census_ids": [
       "s28-1901-rear"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 242.91,
      "from_street_m": [43.76, 54.69],
@@ -9869,6 +9902,7 @@
      "census_ids": [
       "s28-1905-front"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 426.9,
      "from_street_m": [9.42, 33.06],
@@ -10219,6 +10253,7 @@
      "census_ids": [
       "s28-1905-rear"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 350.15,
      "from_street_m": [44.66, 54.64],
@@ -10453,6 +10488,7 @@
       "s28-1919-front",
       "s28-1919-wing"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 616.16,
      "from_street_m": [7.15, 54.63],
@@ -10949,6 +10985,7 @@
      "census_ids": [
       "s28-1923-front"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 339.91,
      "from_street_m": [8.47, 33.9],
@@ -11270,6 +11307,7 @@
      "census_ids": [
       "s28-1923-rear"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 134.09,
      "from_street_m": [45.6, 54.66],
@@ -11515,6 +11553,7 @@
       "s28-1945-front",
       "s28-1945-wing"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 289.71,
      "from_street_m": [7.86, 29.13],
@@ -11867,6 +11906,7 @@
      "census_ids": [
       "s28-1945-rear"
      ],
+     "for_1904": "as_mapped",
      "note": null,
      "area_m2": 140.82,
      "from_street_m": [45.59, 54.69],
