@@ -107,7 +107,15 @@ WORK_KINDS = ("agency_held", "business_premises", "church", "civic_seat",
 
 ASSOCIATION_ROW_KEYS = ("kind", "place_or_structure_id", "resolves_to", "from", "to",
                         "tier", "source_id", "note")
-ASSOCIATION_OPTIONAL_KEYS = ("undated", "also_sources")
+ASSOCIATION_OPTIONAL_KEYS = ("undated", "also_sources", "basis", "replaceable_by")
+
+# T-2261: the two optional objects the singular `lives_at`/`works_at` claims carried and a
+# row could not, so retiring the pair loses no words. `basis` is the claim's own reasoning
+# — a `note` always, and a rule's `kind` and `id` where a rule seated it — and is NOT the
+# row's `note`, which `household_associations.py` composes from it and its limit clause.
+# `replaceable_by` is what would move the row up the ladder; the card prints its `match`.
+BASIS_KEYS = ("kind", "id", "note")
+REPLACEABLE_BY_KEYS = ("kind", "match")
 
 ASSOCIATION_TIERS = ("attested", "inferred", "reconstructed")
 
@@ -228,6 +236,23 @@ def check_association_rows(where: str, rows, *, error, structure_ids: set, sourc
         if not str(row.get("note") or "").strip():
             error(rwhere, "note is empty. A relationship carries the reasoning that dated it "
                           "and the clause that limited its place")
+        for key, keys, needs in (("basis", BASIS_KEYS, "note"),
+                                 ("replaceable_by", REPLACEABLE_BY_KEYS, "match")):
+            if key not in row:
+                continue
+            obj = row[key]
+            if not isinstance(obj, dict):
+                error(rwhere, f"{key} is present and is not an object; omit the key instead")
+                continue
+            extra = set(obj) - set(keys)
+            if extra:
+                error(rwhere, f"{key} carries unknown key(s) {sorted(extra)}; it holds "
+                              f"{list(keys)} and nothing else")
+            for k in keys:
+                if k in obj and (not isinstance(obj[k], str) or not obj[k].strip()):
+                    error(rwhere, f"{key}.{k} is present and empty. Omit it, or say it")
+            if not str(obj.get(needs) or "").strip():
+                error(rwhere, f"{key} states no {needs}. The words are what it is for")
 
         frm, to = row.get("from"), row.get("to")
         undated = bool(row.get("undated"))
@@ -484,6 +509,17 @@ def self_test() -> int:
         ("a second source on a reconstructed row",
          {**base, "tier": "reconstructed", "source_id": None,
           "also_sources": ["drloih_hotels"]}, True),
+        ("a basis with a rule and its words (T-2261)",
+         {**base, "basis": {"kind": "rule", "id": "r", "note": "why"}}, False),
+        ("a basis with no words", {**base, "basis": {"kind": "rule", "id": "r"}}, True),
+        ("a basis with a key it does not hold", {**base, "basis": {"note": "w", "x": "y"}}, True),
+        ("a basis that is not an object", {**base, "basis": "why"}, True),
+        ("a basis with an empty id", {**base, "basis": {"id": " ", "note": "w"}}, True),
+        ("a next rung with its words",
+         {**base, "replaceable_by": {"kind": "household", "match": "a plan"}}, False),
+        ("a next rung with no words", {**base, "replaceable_by": {"kind": "household"}}, True),
+        ("a next rung with a key it does not hold",
+         {**base, "replaceable_by": {"match": "m", "note": "n"}}, True),
     ]
     failed = 0
     for label, row, want_error in cases:

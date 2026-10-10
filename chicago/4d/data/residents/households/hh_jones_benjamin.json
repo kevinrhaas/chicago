@@ -94,7 +94,10 @@
    "note": "data/structures/h_jones_store.json carries 'Jones, grocer and provision merchant' as its occupants and rests on the same advertisement. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_jones_benjamin#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
    "also_sources": [
     "chicago_democrat_1833_11_26"
-   ]
+   ],
+   "basis": {
+    "note": "data/structures/h_jones_store.json carries 'Jones, grocer and provision merchant' as its occupants and rests on the same advertisement."
+   }
   }
  ],
  "present_on_scene_date": {
