@@ -1,0 +1,62 @@
+{
+  "id": "slate_fishscale",
+  "library": "prairie_1904_roofs",
+  "version": "1.0.0",
+  "ticket": "T-2292",
+  "slot": "covering",
+  "kind": "slate",
+  "tile_m": [
+    2.032,
+    1.651
+  ],
+  "module": {
+    "butt": "scalloped",
+    "bond": "broken_half",
+    "slate_width_m": 0.2032,
+    "slate_length_m": 0.4064,
+    "headlap_m": 0.0762,
+    "exposure_m": 0.1651,
+    "thickness_m": 0.0064,
+    "joint_m": 0.003,
+    "butt_radius_m": 0.1016,
+    "columns": 10,
+    "courses": 10
+  },
+  "module_source": "data/components/prairie_1904/k04_roofs.json",
+  "course_phase_m": [
+    0.0508,
+    0.08255
+  ],
+  "course_phase_rule": "the first vertical joint lies course_phase_m[0] along u and the first butt course_phase_m[1] up v from the tile's origin; offset the roof's UV by them to put a butt on the eave",
+  "resolution_px": 512,
+  "px_per_m": [
+    251.97,
+    310.12
+  ],
+  "mean_basecolor": [
+    60,
+    63,
+    71
+  ],
+  "mean_roughness": 0.621,
+  "mean_metallic": 0.0,
+  "orientation": "image x = along the eave (u); image y = up the slope with the top row uphill (v grows upward); each course's butt is its low edge",
+  "uv_rule": "TEXCOORD_0 = surface metres / tile_m (k01_contract.json scale_uv)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y",
+    "roughness": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "slate_fishscale_basecolor_web.jpg",
+    "normal_gl": "slate_fishscale_normal_gl_web.jpg",
+    "orm": "slate_fishscale_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 1358439272,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_roofs.py); no photograph sampled",
+  "confidence": "reconstructed",
+  "appearance": "reconstructed (docs/LIBERTIES.md L-k04-roof-library-2292)",
+  "note": "An 8 x 16 in slate dressed to a full semicircular butt (radius half the slate's width), 6.5 in to the weather on a 3 in headlap, in the dark Pennsylvania colour. For bands, cones and dormers (restrictions). Format and colour are reconstructed."
+}
