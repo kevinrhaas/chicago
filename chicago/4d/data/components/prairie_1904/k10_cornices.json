@@ -123,7 +123,7 @@
       "finial": [[0.0, 0.0], [0.07, 0.0], [0.07, 0.06], [0.045, 0.09], [0.05, 0.14], [0.09, 0.22], [0.07, 0.3], [0.03, 0.34], [0.0, 0.42]],
       "finial_sink_m": 0.03,
       "confidence": "reconstructed",
-      "note": "A shaped (Dutch) gable: from a kneeler at each eave, an ogee shoulder rising 0.75 m over 0.45 m, a vertical neck, and a segmental cap, the coping swept along the whole outline and dying into the kneelers, a turned finial let into the coping at the apex. A generic shape: a documented house's gable is authored from its evidence, never this outline scaled."
+      "note": "A shaped (Dutch) gable: from a kneeler at each eave, an ogee shoulder rising 0.75 m over 0.45 m, a vertical neck, and a segmental cap, the coping swept along the whole outline and dying into the kneelers, a turned finial let into the coping at the apex. The shoulder is sampled every `shoulder_step_m` of its length, so no mitre is shorter than the coping is deep. A generic shape: a documented house's gable is authored from its evidence, never this outline scaled."
     },
     "dormer": {
       "set_back_m": 0.4,

@@ -421,6 +421,13 @@ const COVERAGE = [
   ['generators/archetypes/k09_trim.py', NONE, 'the K09 carved-trim kit generator — imported by no scene build yet: check_trim_kit.py --check'],
   ['docs/RESEARCH/k09-carved-trim-kit/', NONE, 'the K09 carved-trim kit specimen and study — unpublished: check_trim_kit.py --check'],
   ['tools/study_k09_trim.mjs', NONE, 'the K09 study renderer — run by hand, by no gate'],
+  // T-2316. The K10 cornice kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2317 puts it on a house, so no part draws it;
+  // tools/check_cornice_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k10_cornices.json', NONE, 'the K10 cornice kit data — built into no scene yet: check_cornice_kit.py --check'],
+  ['generators/archetypes/k10_cornices.py', NONE, 'the K10 cornice kit generator — imported by no scene build yet: check_cornice_kit.py --check'],
+  ['docs/RESEARCH/k10-cornice-kit/', NONE, 'the K10 cornice kit specimen and study — unpublished: check_cornice_kit.py --check'],
+  ['tools/study_k10_cornices.mjs', NONE, 'the K10 study renderer — run by hand, by no gate'],
 
   // --- PART 14: the arrival-to-jaunt path, on a fresh context (T-2044)
   // The jaunt modules are imported lazily, the first time the Jaunts menu opens, and

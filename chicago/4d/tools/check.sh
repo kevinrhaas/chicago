@@ -521,6 +521,19 @@ step "the K09 carved-trim kit builds every ring, hood, capital, tracery and leaf
 selftest "…and an even ring, a painted-thin stone, a floating block, a loose leaf, a back face on the wall or a skewed joint still fails it" \
   python3 tools/check_trim_kit.py --self-test
 
+# T-2316. ...and how the 1904 wall heads end. The K10 kit's parts are sized in
+# data/components/prairie_1904/k10_cornices.json and built by generators/archetypes/k10_cornices.py.
+# This rebuilds every variant and measures the geometry: every open edge of a piece lying on
+# another surface (no hanging end, no floating bracket), every closed kneeler, finial, ridge cap
+# and iron bar passing through its host, no doubled face, every run turning both corners of its
+# face by its own projection, brackets evenly spaced with one at every corner on both faces,
+# baluster gaps, no dormer below its roof, cresting posts, budgets, and the specimen GLB.
+step "the K10 cornice kit turns every corner and seats every bracket, rail, coping, dormer and bar (T-2316)" \
+  python3 tools/check_cornice_kit.py --check
+
+selftest "…and a dropped bracket, a lifted finial, a doubled dentil, a short crown, a sunk dormer or a missing post still fails it" \
+  python3 tools/check_cornice_kit.py --self-test
+
 # T-1963. The walls' relief is bound by reading the RECORD (route 2 of the photographic
 # fabric preparation, docs/GLB-CONTRACT.md § Wall substrates, PROPOSED): which wall is
 # clapboard, and how much of the wood's grain its finish lets through. That route's
