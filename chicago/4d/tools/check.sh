@@ -452,6 +452,18 @@ step "the 1904 sheet census assigns every Prairie frontage and named record once
 selftest "…and a dropped row, a doubled record or a kept misreading still fails it" \
   python3 ../prairie_1904_v1/tools/sheet_census.py --self-test
 
+# T-2327. ...and the ground each of those sheet 28 buildings stands on. The census names every
+# building and says of itself "Footprints are not digitized"; this reads them off the same
+# raster through the same fit, as outlines on the drawn walls (colour-classed fabric, joined
+# across its own lines, split into parts at solid walls) and gives every census polygon its
+# outline, data/traces/prairie_1904_footprints_s28.json. The contract holds every outline
+# inside its lot, counter-clockwise, assigned once and to a polygon the census names.
+step "sheet 28's 1904 building footprints re-derive from the raster and cover every census polygon (T-2327)" \
+  python3 tools/trace_prairie_1904_footprints.py --check
+
+selftest "…and a broken trace, a clockwise or out-of-lot outline, an unnamed or twice-named building still fails it" \
+  python3 tools/trace_prairie_1904_footprints.py --self-test
+
 # T-1728. ...and what that grid is paved with. data/street_surfaces/1904.json is AUTHORED:
 # every carriageway, alley and sidewalk band names a material, a tier, its sources and a
 # range that bounds 1 July 1904. The contract holds it to the grid (nothing drawn without
