@@ -42,22 +42,6 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
-  "value": "mckee_log_house",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "SEATED 2026-09-28 (T-1714) IN THE BUILDING THIS FIELD SAID DID NOT EXIST. The note here read: \"Andreas puts him in one of the 'small log buildings' near the agency house at the foot of State Street, alongside Billy Caldwell. Those buildings are not in data/structures/ ... so there is nothing to link to and nothing to date.\" They are now: mckee_log_house is one of the ring Wau-Bun and Andreas describe round Cobweb Castle, raised on their two sentences with an invented position and footprint it admits to. Nothing about the EVIDENCE moved — Andreas gives this man a log building in that vicinity and gives him no other house anywhere, so the seat is the only candidate the corpus holds, and it is graded at the inference rather than at his sentence. The date is still the group's: nothing puts this building in 1835 except the continuity argument its own record states."
- },
- "works_at": {
-  "value": "blacksmith_shop_state_st",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "The government blacksmith shop of the agency establishment, which is what this structure record IS. THE PARCEL'S BEST NEW OCCUPANT LINK: a building that had nobody in it now has the man the treaty paid for."
- },
  "associated_with": [
   {
    "kind": "home",

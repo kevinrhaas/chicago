@@ -54,6 +54,7 @@ PREFIX = "hh_inf_"
 sys.path.insert(0, str(ROOT / "generators"))
 sys.path.insert(0, str(ROOT / "tools"))
 from rebuild_resident_index import rebuild  # noqa: E402  (the manifest's one owner)
+from associations import HOME_KINDS, WORK_KINDS  # noqa: E402
 
 from band_notes import split_notes  # noqa: E402
 from roof_form import note_refusal, roof_kind  # noqa: E402
@@ -118,12 +119,19 @@ def null_block(note: str) -> dict:
     return {"value": None, "confidence": "reconstructed", "note": note}
 
 
-def link_block(sid, note: str) -> dict:
-    if sid is None:
-        return null_block(note)
+def link_row(kind: str, sid: str, note: str, tier: str = "reconstructed",
+             source: str | None = None) -> dict:
     # An invented person attached to an invented building. The link is a construction
-    # of this generator, not a reading of a source about either end of it.
-    return {"value": sid, "confidence": "reconstructed", "sources": [SPEC], "note": note}
+    # of this generator, not a reading of a source about either end of it — so a
+    # reconstructed row cites nothing, and the generator is named in its basis (T-2284:
+    # the row replaced the singular `lives_at`/`works_at`, which cited SPEC).
+    row = {"kind": kind, "place_or_structure_id": sid, "resolves_to": "structure",
+           "from": None, "to": None, "undated": True, "tier": tier,
+           "source_id": source, "note": note}
+    if tier == "reconstructed":
+        row["basis"] = {"kind": "rule", "id": "1835_inferred_household_programme",
+                        "note": f"Assigned under the reconstruction spec `{SPEC}`."}
+    return row
 
 
 def person(hh: dict, census: dict, idx: int | None = None, extra: dict | None = None) -> dict:
@@ -241,9 +249,12 @@ def household_record(hh: dict, census: dict, buildings: dict) -> dict:
             "argument in research_note, which is a statement about the town and not about a "
             "motive."),
         # T-2295: a null link is written under its absence key — the note is the card's
-        # "Lived at" / "Worked at" reason, and the singular pair carries values only.
-        ("lives_at" if lives else "no_home"): link_block(lives, lives_note),
-        ("works_at" if works else "no_workplace"): link_block(works, works_note),
+        # "Lived at" / "Worked at" reason. T-2284: a link that names a roof is a row.
+        **({} if lives else {"no_home": null_block(lives_note)}),
+        **({} if works else {"no_workplace": null_block(works_note)}),
+        **({"associated_with": [link_row(kind, sid, note) for kind, sid, note in (
+            ("home", lives, lives_note), ("workplace", works, works_note)) if sid]}
+           if lives or works else {}),
         "present_on_scene_date": {
             "value": "present",
             "confidence": "reconstructed",
@@ -1420,16 +1431,22 @@ def build_all() -> tuple[dict[Path, str], list[dict], list[dict]]:
     for link in programme["documented_household_links"]:
         path = HOUSEHOLDS / f"{link['household']}.json"
         doc = load(path)
-        for key in ("lives_at", "works_at"):
-            if link.get(key):
-                doc[key] = {
-                    "value": link[key],
-                    "confidence": "attested",
-                    "sources": [ANDREAS],
-                    "note": link["note"] + " Linked by the inferred-household programme's "
-                                           "building parcel (docs/ROADMAP.md K1, phase two); the "
-                                           "building record carries the evidence.",
-                }
+        for key, kind, family in (("lives_at", "home", HOME_KINDS),
+                                  ("works_at", "workplace", WORK_KINDS)):
+            # T-2284: the link is the record's row, added only where no row of the same
+            # family already stands on that roof.
+            rows = doc.setdefault("associated_with", [])
+            if link.get(key) and not any(r.get("kind") in family and
+                                         r.get("place_or_structure_id") == link[key]
+                                         for r in rows):
+                rows.append(link_row(
+                    kind, link[key],
+                    link["note"] + " Linked by the inferred-household programme's building "
+                                   "parcel (docs/ROADMAP.md K1, phase two); the building "
+                                   "record carries the evidence.",
+                    tier="attested", source=ANDREAS))
+            if not rows:
+                del doc["associated_with"]
         files[path] = dumps(doc, 1)
         documented_updates.append(doc)
 

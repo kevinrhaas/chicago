@@ -26,8 +26,9 @@ clause and knows whether the face was the evidence's limit or merely this pass's
 
 NOTHING HERE IS AUTHORED. Every row is derived from four committed sources:
 
-  1. `data/residents/households/*.json` — `lives_at` and `works_at`, each with its own
-     confidence, sources and note. 1,257 households; 20 name a dwelling and 50 a
+  1. `data/residents/households/*.json` — the home and workplace rows of each record's
+     `associated_with` (until T-2284, the singular `lives_at` and `works_at`), each with
+     its own tier, sources and note. 1,257 households; 20 name a dwelling and 50 a
      workplace, which is the measurement T-1147 opens with.
   2. The same files' `directories` block — `address_later` readings out of the 1839,
      1843 and 1844 volumes, each already ruled on by a committed back-projection pass
@@ -118,6 +119,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+from associations import home_row, work_row  # noqa: E402
 
 HOUSEHOLDS = ROOT / "data" / "residents" / "households"
 REGISTER = ROOT / "data" / "research" / "newspapers" / "register_1835.json"
@@ -274,20 +276,29 @@ def household_rows() -> list[dict]:
         hid = household["id"]
         head = household.get("head")
         division = household.get("division")
-        for kind, field in (("home", "lives_at"), ("workplace", "works_at")):
-            claim = household.get(field)
-            # BOTH FIELDS ARE ALWAYS PRESENT, and both are a claim OBJECT whose `value`
-            # is null where no source reached a building — the same shape
-            # `party_size_on_arrival` uses. So an empty claim is `{"value": null, ...}`,
-            # not a missing key, and reading the key's presence as a claim would have
-            # reported 1,257 workplaces where the layer holds 50.
-            if claim is not None and claim.get("value") is None:
-                claim = None
+        for kind, field, row_of in (("home", "lives_at", home_row),
+                                    ("workplace", "works_at", work_row)):
+            # T-2284: THE CLAIM IS THE RECORD'S OWN ROW. The singular `lives_at` /
+            # `works_at` this read until then is retired; on the day it went, each of the
+            # 85 values it held here named the same roof, at the same tier and on the same
+            # sources, as the record's first home / workplace row on the scene date, so
+            # the table did not move. `field` survives only as the row's id
+            # (`<household>#lives_at`), which copied rows and sidecars cite.
+            claim = claim_of(row_of(household))
             if claim is None and kind == "workplace":
                 continue  # no workplace axis to fill, so no empty row — see the header
             rows.append(_household_row(hid, head, division, kind, field, claim))
         rows.extend(_directory_rows(household, hid, head, division))
     return rows
+
+
+def claim_of(row: dict | None) -> dict | None:
+    """An `associated_with` row read as the claim it states: the roof, its tier, its sources."""
+    if not row:
+        return None
+    return {"value": row["place_or_structure_id"], "confidence": row.get("tier"),
+            "sources": ([row["source_id"]] if row.get("source_id") else [])
+            + list(row.get("also_sources") or [])}
 
 
 def _household_row(hid, head, division, kind, field, claim) -> dict:

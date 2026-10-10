@@ -38,14 +38,6 @@
   ],
   "note": "'Reported as having assumed his official duties at the fort' - he was sent, like every other soldier in the scene."
  },
- "lives_at": {
-  "value": "fort_dearborn_officers_quarters",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "A commissioned officer of the garrison lodged in the officers' quarters. The building is in the dataset and the practice is universal for a post of this kind; no source puts this man in this building, hence inferred."
- },
  "no_workplace": {
   "value": null,
   "confidence": "reconstructed",

@@ -42,23 +42,6 @@
   ],
   "note": "He built the house he then kept, in the two years when the town's population went from about 350 to 3,265. The inference is the motive."
  },
- "lives_at": {
-  "value": "western_hotel",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1",
-   "drloih_hotels"
-  ],
-  "note": "A landlord lived in his house; not stated."
- },
- "works_at": {
-  "value": "western_hotel",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1",
-   "drloih_hotels"
-  ]
- },
  "associated_with": [
   {
    "kind": "home",

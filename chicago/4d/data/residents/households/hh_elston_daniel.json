@@ -63,14 +63,6 @@
   "confidence": "reconstructed",
   "note": "Not attested in anything this project holds."
  },
- "works_at": {
-  "value": "elston_soap_candle_manufactory",
-  "confidence": "attested",
-  "sources": [
-   "chicago_democrat_1833_11_26"
-  ],
-  "note": "data/structures/elston_soap_candle_manufactory.json carries 'Daniel Elston & Co.' as its occupants on the same advertisement."
- },
  "associated_with": [
   {
    "kind": "workplace",

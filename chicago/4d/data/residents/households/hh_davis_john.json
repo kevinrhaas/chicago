@@ -47,23 +47,6 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
-  "value": "steamboat_hotel",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1",
-   "drloih_hotels"
-  ],
-  "note": "A keeper lived in his house; not stated."
- },
- "works_at": {
-  "value": "steamboat_hotel",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1",
-   "drloih_hotels"
-  ]
- },
  "associated_with": [
   {
    "kind": "home",

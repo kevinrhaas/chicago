@@ -59,24 +59,6 @@
   ],
   "note": "His own advertisement describes the stand as 'lately occupied by Mr. Wm. W. Wattles', which is a succession, not a founding."
  },
- "lives_at": {
-  "value": "green_tree_tavern",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1",
-   "drloih_hotels"
-  ],
-  "note": "The building record has his tenancy running 1834-1837, which covers the scene date, and a landlord of this period lived in his house. Inferred rather than documented because the tenancy dates are the building record's reading of two sources that do not agree about who opened the house."
- },
- "works_at": {
-  "value": "green_tree_tavern",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1",
-   "drloih_hotels"
-  ],
-  "note": "Both sources behind the building record put Ingersoll in the Green Tree across 1835."
- },
  "associated_with": [
   {
    "kind": "home",

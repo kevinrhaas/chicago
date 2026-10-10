@@ -49,14 +49,6 @@
   "confidence": "reconstructed",
   "note": "Not attested."
  },
- "works_at": {
-  "value": "carpenter_south_water_store",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "THE TWO-SHOP PROBLEM, INHERITED FROM THE STRUCTURES LAYER. This dataset holds both philo_carpenter_log_shop on Lake Street near the river and carpenter_south_water_store, and Andreas says he removed FROM the first TO the second. The South Water store is the later of the two and is where the sources leave him, so it is the link; the log shop's own record already argues that its survival to the scene date is doubtful. Inferred, because 'subsequently' is not a date."
- },
  "associated_with": [
   {
    "kind": "workplace",

@@ -180,6 +180,7 @@ PROPOSAL = DATA / "research" / "residents" / "grading_proposal.json"
 MASTER = DATA / "research" / "residents" / "identity_master.json"
 
 sys.path.insert(0, str(ROOT / "tools"))
+from associations import home_of, workplace_of  # noqa: E402  (T-2284)
 from reconstructed_person import named_by_a_source  # noqa: E402
 from rebuild_resident_index import rebuild  # noqa: E402  (the manifest's one owner)
 from resident_mint_carry import carry_resident_mint  # noqa: E402  (T-1137)
@@ -1688,10 +1689,10 @@ def gate_problems(docs: dict, index: dict) -> list:
             if classes and classes <= {MUSTER_CLASS}:
                 problems.append(f"{where}/{p.get('id')}: rests on the 1832 muster alone, and "
                                 f"an 1832 enrollment dates a man rather than minting him")
-        for key in ("lives_at", "works_at"):
-            if (doc.get(key) or {}).get("value"):
-                problems.append(f"{where}: gained a {key}; the placement sweep does that, "
-                                f"once the resident list is complete")
+        for kind, place_of in (("home", home_of), ("workplace", workplace_of)):
+            if place_of(doc):
+                problems.append(f"{where}: gained a {kind} row; the placement sweep does "
+                                f"that, once the resident list is complete")
         arr = doc.get("arrival") or {}
         # T-1350. Every arrival this pass DERIVES is a bound, because its registers can
         # say nothing finer: a poll list prints a name and never a coming. But a card
@@ -2300,9 +2301,9 @@ def self_test() -> int:
             ("a person loses the civic_mint flag",
              lambda d, i: d[victim]["persons"][0].pop("civic_mint"), "civic_mint"),
             ("a household gains a roof",
-             lambda d, i: d[victim].update(lives_at=dict(d[victim].pop("no_home"),
-                                                          value="sauganash_hotel")),
-             "lives_at"),
+             lambda d, i: d[victim].setdefault("associated_with", []).append(
+                 {"kind": "home", "place_or_structure_id": "sauganash_hotel", "resolves_to": "structure", "from": None, "to": None, "tier": "reconstructed", "source_id": None, "note": "planted"}),
+             "gained a home row"),
             ("a person gains a trade",
              lambda d, i: d[victim]["persons"][0]["occupation"].update(value="carpenter"),
              "gained a trade"),

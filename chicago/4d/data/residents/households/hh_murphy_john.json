@@ -61,22 +61,6 @@
   ],
   "note": "The source states the occasion directly: Beaubien completed the house and the Murphys took charge of it."
  },
- "lives_at": {
-  "value": "exchange_coffee_house",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "A hotel keeper of this period lived in the house he kept, and Andreas has them 'there' until they 'removed to the old Sauganash' in 1836 - a verb about moving house."
- },
- "works_at": {
-  "value": "exchange_coffee_house",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "Andreas, twice, in two chapters."
- },
  "associated_with": [
   {
    "kind": "home",

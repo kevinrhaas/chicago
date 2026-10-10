@@ -37,22 +37,6 @@
   ],
   "note": "The church looked 'to the Home Mission Society for support for the year to come' and later resolved to assume his support itself; he came with the troops as their chaplain."
  },
- "lives_at": {
-  "value": "peck_store",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "ONE OF ONLY TWO DOCUMENTED RESIDENCE LINKS IN THIS PARCEL, and it is a lodging rather than a home. Andreas: 'Among these was P. F. W. Peck, who invited Mr. Porter to make his temporary lodging place and study in the unfinished loft of his two-story store, standing on the southwest corner of South Water and LaSalle streets.' data/structures/peck_store.json independently records the unfinished loft used as lodging. THE WORD 'TEMPORARY' IS IN THE SOURCE and this link is dated 1833; whether he was still in the loft in 1835, and whether he took his wife there, is unknown."
- },
- "works_at": {
-  "value": "first_presbyterian_church",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "His own congregation, in its own building at Lake and Clark by the scene date. data/structures/first_presbyterian_church.json deliberately records its occupants as the CONGREGATION rather than as a person, because no source names the minister in charge on 1 July 1835 - and this household is why. He is the minister and he may have been away."
- },
  "associated_with": [
   {
    "kind": "lodging",

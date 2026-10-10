@@ -51,22 +51,6 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
-  "value": "wolf_point_tavern",
-  "confidence": "inferred",
-  "sources": [
-   "drloih_hotels"
-  ],
-  "note": "A landlord lived in his house; the tenancy itself is the reconstructed part."
- },
- "works_at": {
-  "value": "wolf_point_tavern",
-  "confidence": "inferred",
-  "sources": [
-   "drloih_hotels"
-  ],
-  "note": "The Wolf Point house is the premises his tenancy is a tenancy OF, and a landlord's workplace is his house. Inferred rather than documented because the tenancy itself is the reconstructed part: the same body of sources that gives Walters the house from 1833 to 1836 also says the house stopped operating as a public house in 1834, so what he was doing here in July 1835 - if he was here - is open."
- },
  "associated_with": [
   {
    "kind": "home",
