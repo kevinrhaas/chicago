@@ -131,35 +131,105 @@ const CELL_PAD = 10;
 const WIDE_ASPECT = 3.4;   // above this a sign takes two columns
 
 /**
- * The four letterforms, as a canvas can carry them. A browser has no 1830s
- * specimen book in it, so these approximate the period's four working faces with
- * family, weight, horizontal scale and letter-spacing: the SIGNWRITER's roman
- * (a serif, generously spaced, with the drop shade a shop board almost always
- * had), the FAT FACE that is the 1830s display letter (the same serif at its
- * heaviest, widened), the EGYPTIAN slab that arrives beside it (a monospaced
- * slab-serif is the nearest thing a browser ships), and the plain BLOCK letter.
- * The letterform is invented — docs/LIBERTIES.md L158 says so — and what it has
- * to do is be legible from the footway and not be the same on two neighbouring
- * boards.
+ * THE PERIOD'S LETTERFORMS, AS TYPE THE PAGE CARRIES (T-2282). Until this ticket
+ * the four faces were approximated out of whatever the browser shipped — Georgia
+ * for the signwriter's roman, Georgia at 900 for the fat face, Courier New for
+ * the Egyptian and Helvetica for the block letter — so a board in 1835 Chicago
+ * was lettered in a 1990s screen serif, a typewriter and a 1957 grotesque. The
+ * owner, 2026-10-10: "make the letters painted in period fonts and colors
+ * correct for the sign … lay out the sign name correctly so it fits and is
+ * readable and matches period signs of the era". So four revivals of the faces
+ * a signwriter of the 1830s actually worked in are self-hosted beside the
+ * interface's own fonts (renderers/web/fonts/LICENSE.md, all SIL OFL 1.1):
+ *
+ *  * Old Standard TT — a revival of the "modern" roman of the period's own
+ *    type founders, the letter a signwriter's roman capitals followed; its
+ *    italic is the trade line's italic, which is how a board of the period set
+ *    the second line under a roman name.
+ *  * Abril Fatface — the FAT FACE, the heavy hairline-serifed display letter of
+ *    the 1820s and 1830s, the poster and shop-board letter of exactly this town.
+ *  * Alfa Slab One — the EGYPTIAN, the slab serif that arrives beside the fat
+ *    face (Figgins, 1815; every founder by the 1830s).
+ *  * Anton — the condensed GROTESQUE, the period's heavy sans capital (Caslon's
+ *    and Thorowgood's "Grotesque" and "Doric" of 1816-1832), standing in for it.
+ *
+ * Each face carries the period's own MIX: a board set its name in a display
+ * letter and the trade under it in a roman or an italic, never the whole board
+ * in one fount. The place line is small roman capitals, widely spaced, on every
+ * board. Which face a board takes is still the record's (`style.face`); the
+ * fonts are the renderer's, and they and the mix are reconstructed
+ * (docs/LIBERTIES.md L413). If the fonts fail to load the stacks fall back to
+ * the faces the layer used before, and the layer says so on its problems list.
  */
+const ROMAN = '"Old Standard TT", Georgia, "Times New Roman", Times, serif';
+const ITALIC = { family: ROMAN, style: 'italic', weight: 400, scaleX: 1.0, track: 0.01, mixed: true };
 const FACES = {
   signwriter: {
-    family: 'Georgia, "Times New Roman", Times, serif',
-    weight: 600, scaleX: 1.0, track: 0.07, shade: true,
+    name: { family: ROMAN, weight: 700, scaleX: 1.0, track: 0.06 },
+    trade: ITALIC,
+    shade: true,
   },
   fat_face: {
-    family: 'Georgia, "Times New Roman", Times, serif',
-    weight: 900, scaleX: 1.24, track: 0.0, shade: false,
+    name: { family: '"Abril Fatface", Georgia, "Times New Roman", serif', weight: 400, scaleX: 1.0, track: 0.02 },
+    trade: ITALIC,
+    shade: false,
   },
   egyptian: {
-    family: '"Courier New", Courier, monospace',
-    weight: 700, scaleX: 1.06, track: 0.02, shade: false,
+    name: { family: '"Alfa Slab One", Rockwell, "Courier New", serif', weight: 400, scaleX: 0.96, track: 0.03 },
+    trade: { family: ROMAN, weight: 700, scaleX: 1.0, track: 0.07 },
+    shade: false,
   },
   grotesque: {
-    family: 'Helvetica, Arial, "Liberation Sans", sans-serif',
-    weight: 800, scaleX: 0.88, track: 0.12, shade: false,
+    name: { family: 'Anton, Impact, "Arial Narrow", Helvetica, sans-serif', weight: 400, scaleX: 1.0, track: 0.07 },
+    trade: { family: ROMAN, weight: 700, scaleX: 1.0, track: 0.08 },
+    shade: false,
   },
 };
+const PLACE_FONT = { family: ROMAN, weight: 400, scaleX: 1.0, track: 0.14 };
+
+/** The faces' files, beside the interface's own in renderers/web/fonts/. */
+const SIGN_FONTS = [
+  { family: 'Old Standard TT', file: 'sign-old-standard-700.woff2', weight: '700', style: 'normal' },
+  { family: 'Old Standard TT', file: 'sign-old-standard-400.woff2', weight: '400', style: 'normal' },
+  { family: 'Old Standard TT', file: 'sign-old-standard-400-italic.woff2', weight: '400', style: 'italic' },
+  { family: 'Abril Fatface', file: 'sign-abril-fatface-400.woff2', weight: '400', style: 'normal' },
+  { family: 'Alfa Slab One', file: 'sign-alfa-slab-one-400.woff2', weight: '400', style: 'normal' },
+  { family: 'Anton', file: 'sign-anton-400.woff2', weight: '400', style: 'normal' },
+];
+const FONT_WAIT_MS = 8000;
+
+/**
+ * The six faces, loaded before the atlas is painted — a canvas letters with
+ * whatever is loaded at the instant it draws, and the atlas is drawn once.
+ * Resolves true when every face is in; false (with a problem recorded) when any
+ * failed or the wait ran out, and the boards are then lettered in the fallback
+ * stacks. Never throws: a sign in the wrong typeface is still a sign.
+ */
+async function loadSignFonts(problems) {
+  if (typeof document === 'undefined' || typeof FontFace !== 'function' || !document.fonts) {
+    return false;
+  }
+  const load = Promise.all(SIGN_FONTS.map(async (f) => {
+    const face = new FontFace(f.family, `url(${new URL(`../fonts/${f.file}`, import.meta.url)})`,
+      { weight: f.weight, style: f.style });
+    await face.load();
+    document.fonts.add(face);
+  }));
+  let timer = null;
+  const late = new Promise((_, reject) => {
+    timer = setTimeout(() => reject(new Error(`not loaded after ${FONT_WAIT_MS} ms`)), FONT_WAIT_MS);
+  });
+  try {
+    await Promise.race([load, late]);
+    return true;
+  } catch (err) {
+    problems.push(`signage: the period sign faces did not load (${err.message}) — the boards `
+      + 'are lettered in the fallback faces');
+    return false;
+  } finally {
+    clearTimeout(timer);
+  }
+}
 
 /** #rrggbb to [r,g,b] 0-255. */
 function hexRGB(hex) {
@@ -178,19 +248,60 @@ function shift(hex, by) {
   return `rgb(${f(r)}, ${f(g)}, ${f(b)})`;
 }
 
+/** Two colours mixed, `t` of the way from `a` to `b`. */
+function mix(a, b, t) {
+  const p = hexRGB(a);
+  const q = hexRGB(b);
+  const f = (k) => Math.round(p[k] + (q[k] - p[k]) * t);
+  return `rgb(${f(0)}, ${f(1)}, ${f(2)})`;
+}
+
 /** Is this ground dark? Decides which way the oval field and the shade move. */
 function isDark(hex) {
   const [r, g, b] = hexRGB(hex);
   return (0.299 * r + 0.587 * g + 0.114 * b) < 128;
 }
 
+/**
+ * IS THIS BOARD LETTERED IN GOLD LEAF? Read off the record's style, whose ids
+ * say it in words (`gold_on_black`, `gold_on_green`). Gilt is not a colour on a
+ * board, it is a metal: burnished, it carries the sky in its upper strokes and
+ * goes dark in its lower ones, and a gilder always set it off with a shade.
+ */
+function isGilt(sign) {
+  return /^gold_/.test(String(sign.style?.id || ''));
+}
+
+/** Is this board's ground the bare timber — a board nobody painted? */
+function isBare(sign) {
+  return String(sign.style?.ground || TIMBER_HEX).toLowerCase() === TIMBER_HEX;
+}
+
+/**
+ * A BARE BOARD IS CARVED, NOT PAINTED (T-2282). Lettering a bare plank in black
+ * paint and leaving the rest of it raw is not what a tradesman did; a sign left
+ * in the natural wood had its letters CUT — V-incised with a chisel, the cut
+ * then darkened by weather and dirt — which is how a carpenter or a joiner
+ * signed his own shop. So a hung or fixed board whose style is the bare timber
+ * has its lettering incised: dark in the colour atlas, a V-groove in the relief.
+ * A painted band on a building is paint by definition and is not carved.
+ */
+function isCarved(sign) {
+  return isBare(sign) && sign.mounting !== 'facade_painted';
+}
+
+/** A font shorthand a canvas accepts. */
+function fontOf(f, size) {
+  return `${f.style || 'normal'} ${f.weight} ${size}px ${f.family}`;
+}
+
 /** The width one line takes at a size, tracking and horizontal scale included. */
-function lineWidth(ctx, str, size, face) {
-  ctx.font = `${face.weight} ${size}px ${face.family}`;
+function lineWidth(ctx, str, size, f) {
+  ctx.font = fontOf(f, size);
   let w = 0;
   for (const ch of str) w += ctx.measureText(ch).width;
-  if (str.length > 1) w += face.track * size * (str.length - 1);
-  return w * face.scaleX;
+  if (str.length > 1) w += f.track * size * (str.length - 1);
+  return w * f.scaleX;
 }
 
 /**
@@ -199,9 +310,12 @@ function lineWidth(ctx, str, size, face) {
  * trade beneath it in a second face, and the place last and smallest — so a
  * board that set all three the same size would carry the right words in the
  * wrong voice. The numbers are a signwriter's ordinary step and are invented;
- * what is not invented is the ORDER, which is the advertisements'.
+ * what is not invented is the ORDER, which is the advertisements'. An italic
+ * trade line in upper and lower case reads smaller than capitals at the same
+ * body, so it takes a step more (`ITALIC_LIFT`).
  */
 const ROLE_WEIGHT = { name: 1.0, trade: 0.60, place: 0.44 };
+const ITALIC_LIFT = 1.12;
 
 /**
  * The wording broken into `n` lines, balanced by length. A shop board carried
@@ -212,6 +326,17 @@ const ROLE_WEIGHT = { name: 1.0, trade: 0.60, place: 0.44 };
 function splitInto(words, n) {
   if (n === 1) return [words.join(' ')];
   if (words.length < n) return null;
+  if (n === 2) {
+    // Two rows: the break that makes the longer row shortest, so a name
+    // breaks EXCHANGE / COFFEE HOUSE and not EXCHANGE COFFEE / HOUSE.
+    let bestK = 1;
+    let bestLen = Infinity;
+    for (let k = 1; k < words.length; k += 1) {
+      const len = Math.max(words.slice(0, k).join(' ').length, words.slice(k).join(' ').length);
+      if (len < bestLen) { bestLen = len; bestK = k; }
+    }
+    return [words.slice(0, bestK).join(' '), words.slice(bestK).join(' ')];
+  }
   const target = words.join(' ').length / n;
   const lines = [];
   let cur = [];
@@ -229,14 +354,14 @@ function splitInto(words, n) {
 }
 
 /** One line drawn centred, letter by letter so the tracking is real. */
-function drawTracked(ctx, str, cx, cy, size, face) {
+function drawTracked(ctx, str, cx, cy, size, f) {
   ctx.save();
   ctx.translate(cx, cy);
-  ctx.scale(face.scaleX, 1);
-  ctx.font = `${face.weight} ${size}px ${face.family}`;
+  ctx.scale(f.scaleX, 1);
+  ctx.font = fontOf(f, size);
   ctx.textBaseline = 'middle';
   ctx.textAlign = 'left';
-  const tr = face.track * size;
+  const tr = f.track * size;
   let w = 0;
   for (const ch of str) w += ctx.measureText(ch).width;
   if (str.length > 1) w += tr * (str.length - 1);
@@ -299,19 +424,35 @@ function drawDevice(ctx, cx, cy, s, gold, shade) {
 }
 
 /**
- * One sign's cell: its ground, its panel, its device where it has one, and its
- * wording in the register the record hands over — fitted to the shape of the
- * actual sign so the letters are not stretched when the quad samples it.
- * Returns the sub-rectangle, in pixels, that the sign's face maps to.
+ * HOW BIG THE LETTERS MAY BE, as a share of the face. A signwriter left a
+ * margin round the lettering about a letter's stem or two wide, and a little
+ * more under the shade; these leave it and no more. 0.88 × 0.80 was the old
+ * pair, and it put a long name hard against a ruled panel's inner rule.
  */
-function paintCell(ctx, x, y, cellW, sign) {
-  const style = sign.style || {};
-  const ground = style.ground || TIMBER_HEX;
-  const letter = style.letter || '#241a10';
-  const face = FACES[style.face] || FACES.signwriter;
-  ctx.fillStyle = ground;
-  ctx.fillRect(x, y, cellW, TILE_H);
+const TEXT_W_SHARE = 0.86;
+const TEXT_H_SHARE = 0.78;
+const LINE_GAP = 1.18;
+const NAME_SPLIT_GAIN = 1.3;
+const PLACE_DROP_ASPECT = 4.5;
+const PLACE_DROP_GAIN = 1.25;
+/** How far the smaller lines may grow into the board's slack, of the name. */
+const ROLE_CAP = { trade: 0.80, place: 0.60 };
 
+/**
+ * THE LAYOUT OF ONE SIGN'S FACE, without painting it: where the face sits in
+ * its cell, where the device goes, and every row of lettering with its face,
+ * size and centre — so the colour, the relief and the roughness atlases can all
+ * letter the SAME layout at their own scales, and the gate can read how big the
+ * letters came out (`legibility`).
+ *
+ * THE NAME IS NEVER BROKEN and never shrunk below the trade: a firm's name on
+ * its own line, largest, is the register. A trade or place line long enough may
+ * take two rows; every arrangement is tried and the one that lets the NAME be
+ * biggest wins, fewer rows on a tie.
+ */
+function layoutCell(ctx, x, y, cellW, sign) {
+  const style = sign.style || {};
+  const face = FACES[style.face] || FACES.signwriter;
   const cx0 = x + CELL_PAD;
   const cy0 = y + CELL_PAD;
   const cw = cellW - 2 * CELL_PAD;
@@ -323,44 +464,19 @@ function paintCell(ctx, x, y, cellW, sign) {
   const rx = cx0 + (cw - rw) / 2;
   const ry = cy0 + (ch - rh) / 2;
 
-  // The panel — a rule, two rules, or an oval field. The cheapest board had
-  // none; most had one; a gilt board on green very often had an oval.
-  const rule = Math.max(2, rh * 0.026);
-  ctx.strokeStyle = letter;
-  ctx.lineWidth = rule;
-  if (style.panel === 'single_rule') {
-    ctx.strokeRect(rx + rh * 0.06, ry + rh * 0.06, rw - rh * 0.12, rh - rh * 0.12);
-  } else if (style.panel === 'double_rule') {
-    ctx.strokeRect(rx + rh * 0.05, ry + rh * 0.05, rw - rh * 0.10, rh - rh * 0.10);
-    ctx.lineWidth = Math.max(1, rule * 0.5);
-    ctx.strokeRect(rx + rh * 0.12, ry + rh * 0.12, rw - rh * 0.24, rh - rh * 0.24);
-  } else if (style.panel === 'oval') {
-    ctx.fillStyle = shift(ground, isDark(ground) ? 16 : -16);
-    ctx.beginPath();
-    ctx.ellipse(rx + rw / 2, ry + rh / 2, rw / 2 - rh * 0.03, rh / 2 - rh * 0.03,
-      0, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.stroke();
-  }
-
-  // THE DEVICE takes the left-hand end of the face and the lettering takes the
-  // rest. The record says how much (`share`), because a board's proportions are
-  // the record's business; where there is no device the lettering has it all.
+  // A ruled panel or an oval takes its margin before the lettering does.
+  const inset = style.panel === 'double_rule' ? 0.13 : style.panel === 'single_rule' ? 0.08
+    : style.panel === 'oval' ? 0.0 : 0.0;
   const dev = sign.sign_device || null;
   const devShare = dev ? Math.min(0.45, Math.max(0.1, dev.share ?? 0.3)) : 0;
-  const tx = rx + rw * devShare;
-  const tw = rw * (1 - devShare);
-  if (dev) {
-    const s = Math.min(rh * 0.80, rw * devShare * 0.92);
-    drawDevice(ctx, rx + (rw * devShare) / 2, ry + rh / 2, s,
-      dev.colour || '#d9b036', dev.shade || '#7a5c14');
-  }
+  const tx = rx + rw * devShare + rh * inset;
+  const tw = rw * (1 - devShare) - 2 * rh * inset;
+  const th = rh * (1 - 2 * inset);
+  // An oval field holds its lettering inside the ellipse, not its box.
+  const oval = style.panel === 'oval';
+  const ovalW = oval ? 0.90 : 1.0;
+  const ovalH = oval ? 0.86 : 1.0;
 
-  // THE WORDING, in the record's own hierarchy. Each line carries a role and a
-  // role carries a relative size, so the proprietor reads largest and the place
-  // smallest whatever the board turns out to be. A `trade` or `place` line that
-  // is long may take TWO rows rather than dragging the whole block down with it,
-  // which is why the arrangements are enumerated instead of one being assumed.
   const all = Array.isArray(sign.sign_lines) && sign.sign_lines.length
     ? sign.sign_lines
     : [{ text: String(sign.sign_text || ''), role: 'name' }];
@@ -369,68 +485,334 @@ function paintCell(ctx, x, y, cellW, sign) {
   const keep = Array.isArray(sign.geometry?.lines) ? sign.geometry.lines : null;
   const kept = keep ? all.filter((l) => keep.includes(l.role)) : all;
   const given = kept.length ? kept : all;
-  const src = given
-    .map((l) => ({
-      words: String(l.text || '').toUpperCase().split(/\s+/).filter(Boolean),
-      w: ROLE_WEIGHT[l.role] ?? 1.0,
-    }))
-    .filter((l) => l.words.length);
-  // Every arrangement: each line takes one row, or two where it has the words
-  // for it and is not the name (a firm's name stays on its own line — that is
-  // the register). At most three source lines, so at most four arrangements.
-  const options = [[]];
-  for (let i = 0; i < src.length; i += 1) {
-    const l = src[i];
-    const splits = (l.w < 1.0 && l.words.length >= 3) ? [1, 2] : [1];
-    const next = [];
-    for (const opt of options) {
-      for (const n of splits) {
-        const rows = splitInto(l.words, n);
-        if (!rows) continue;
-        next.push(opt.concat(rows.map((t) => ({ text: t, w: l.w }))));
+  const src = given.map((l) => {
+    const role = ROLE_WEIGHT[l.role] !== undefined ? l.role : 'name';
+    const f = role === 'name' ? face.name : role === 'trade' ? face.trade : PLACE_FONT;
+    const text = String(l.text || '');
+    return {
+      role,
+      f,
+      words: (f.mixed ? text : text.toUpperCase()).split(/\s+/).filter(Boolean),
+      w: ROLE_WEIGHT[role] * (f.mixed ? ITALIC_LIFT : 1),
+    };
+  }).filter((l) => l.words.length);
+  const maxW = tw * TEXT_W_SHARE * ovalW;
+  const maxH = th * TEXT_H_SHARE * ovalH;
+  // Does this set of rows fit at base size `size`? Every row in the board's
+  // width — or, in an OVAL, in the ellipse's own chord at that row's height
+  // (a name set to the box ran over the oval) — and the block in its height.
+  const fitsAt = (rows, size) => {
+    const blockH = rows.reduce((a, r) => a + size * r.w * LINE_GAP, 0);
+    if (blockH > maxH) return false;
+    let yAt = -blockH / 2;
+    for (const r of rows) {
+      const h = size * r.w * LINE_GAP;
+      let room = maxW;
+      if (oval) {
+        const far = Math.max(Math.abs(yAt), Math.abs(yAt + h)) / (th * 0.5 * 0.94);
+        room = far >= 1 ? 0 : tw * 0.90 * Math.sqrt(1 - far * far);
       }
+      if (lineWidth(ctx, r.text, size * r.w, r.f) > room) return false;
+      yAt += h;
     }
-    options.length = 0;
-    options.push(...next);
+    return true;
+  };
+  const arrangements = (lines) => {
+    const options = [[]];
+    for (const l of lines) {
+      // A long NAME may take two rows too ("EXCHANGE / COFFEE HOUSE"), which a
+      // narrow hung board did as often as not — but only where it buys the
+      // whole board a much bigger letter (`NAME_SPLIT_GAIN`, below).
+      const longName = l.role === 'name' && l.words.length >= 2
+        && l.words.join(' ').length >= 14;
+      const splits = ((l.role !== 'name' && l.words.length >= 3) || longName) ? [1, 2] : [1];
+      const next = [];
+      for (const opt of options) {
+        for (const n of splits) {
+          const rows = splitInto(l.words, n);
+          if (!rows) continue;
+          next.push(opt.concat(rows.map((t) => ({ text: t, w: l.w, f: l.f, role: l.role }))));
+        }
+      }
+      options.length = 0;
+      options.push(...next);
+    }
+    return options;
+  };
+  // A BAND LONG AND SHALLOW leaves the street off where that is what lets the
+  // firm and its trade be read: a front painted along a whole warehouse carried
+  // its name and its business in one long line or two, and the street it
+  // stood in is the street the reader is standing in. Only past
+  // `PLACE_DROP_ASPECT`, and only where it buys `PLACE_DROP_GAIN`.
+  const candidates = arrangements(src).map((rows) => ({ rows, dropped: false }));
+  if (want >= PLACE_DROP_ASPECT && src.some((l) => l.role === 'place') && src.length > 1) {
+    for (const rows of arrangements(src.filter((l) => l.role !== 'place'))) {
+      candidates.push({ rows, dropped: true });
+    }
   }
-  const maxW = tw * 0.88;
-  const maxH = rh * 0.80;
   let best = null;
-  for (const rows of options) {
+  for (const { rows, dropped } of candidates) {
     if (!rows.length) continue;
     let lo = 4;
     let hi = Math.ceil(rh);
     while (lo < hi) {
       const mid = Math.ceil((lo + hi + 1) / 2);
-      const blockH = rows.reduce((a, r) => a + mid * r.w * 1.20, 0);
-      const fits = blockH <= maxH
-        && rows.every((r) => lineWidth(ctx, r.text, mid * r.w, face) <= maxW);
-      if (fits) lo = mid; else hi = mid - 1;
+      if (fitsAt(rows, mid)) lo = mid; else hi = mid - 1;
     }
-    // Prefer the arrangement that lets the NAME be biggest; on a tie, fewer rows.
-    if (!best || lo > best.size || (lo === best.size && rows.length < best.rows.length)) {
-      best = { rows, size: lo };
+    const nameRows = rows.filter((r) => r.role === 'name').length;
+    // Score by the letter the whole board gets; a split name or a dropped
+    // street only counts where it beats the plain arrangement by its margin;
+    // fewer rows on a tie.
+    const score = lo / (nameRows > 1 ? NAME_SPLIT_GAIN : 1) / (dropped ? PLACE_DROP_GAIN : 1);
+    if (!best || score > best.score || (score === best.score && rows.length < best.rows.length)) {
+      best = { rows, size: lo, score, dropped };
     }
   }
+  // THE SMALLER LINES TAKE UP THE SLACK. Where the NAME is held by the width
+  // of the board, the hierarchy's fixed step left the trade and the street a
+  // fraction of the height there was room for — a long firm's name over a
+  // trade line too small to read. So with the name's size fixed, every other
+  // row grows together into the height left, up to `ROLE_CAP` of the name.
   if (best && best.size >= 4) {
-    const heights = best.rows.map((r) => best.size * r.w * 1.20);
-    const blockH = heights.reduce((a, b) => a + b, 0);
+    const sub = best.rows.filter((r) => r.role !== 'name');
+    if (sub.length && sub.length < best.rows.length) {
+      const gMax = Math.min(...sub.map((r) => (ROLE_CAP[r.role] * (r.f.mixed ? ITALIC_LIFT : 1)) / r.w));
+      if (gMax > 1) {
+        const base = sub.map((r) => r.w);
+        const setG = (g) => sub.forEach((r, k) => { r.w = base[k] * g; });
+        let lo = 1;
+        let hi = gMax;
+        for (let it = 0; it < 14; it += 1) {
+          const mid = (lo + hi) / 2;
+          setG(mid);
+          if (fitsAt(best.rows, best.size)) lo = mid; else hi = mid;
+        }
+        setG(lo);
+      }
+    }
+  }
+  const lines = [];
+  let rule = null;
+  if (best && best.size >= 4) {
+    const heights = best.rows.map((r) => best.size * r.w * LINE_GAP);
+    let blockH = heights.reduce((a, b) => a + b, 0);
+    // A RULE UNDER THE NAME where the board has the room for it — a fine line
+    // with a lozenge at its middle, the commonest ornament a signwriter put
+    // between a firm and its trade. Only where it costs the lettering nothing.
+    const nameRows = best.rows.filter((r) => r.role === 'name').length;
+    const ruleH = best.size * 0.30;
+    const withRule = nameRows > 0 && nameRows < best.rows.length && blockH + ruleH <= maxH;
+    if (withRule) blockH += ruleH;
     const cxText = tx + tw / 2;
     let ly = ry + rh / 2 - blockH / 2;
     for (let i = 0; i < best.rows.length; i += 1) {
-      const size = best.size * best.rows[i].w;
-      const mid = ly + heights[i] / 2;
-      if (face.shade) {
-        ctx.fillStyle = isDark(ground) ? 'rgba(0,0,0,0.55)' : 'rgba(0,0,0,0.30)';
-        drawTracked(ctx, best.rows[i].text, cxText + size * 0.05, mid + size * 0.06,
-          size, face);
-      }
-      ctx.fillStyle = letter;
-      drawTracked(ctx, best.rows[i].text, cxText, mid, size, face);
+      const row = best.rows[i];
+      const size = best.size * row.w;
+      lines.push({ text: row.text, f: row.f, role: row.role, size,
+        cx: cxText, cy: ly + heights[i] / 2,
+        width: lineWidth(ctx, row.text, size, row.f) });
       ly += heights[i];
+      if (withRule && row.role === 'name' && best.rows[i + 1]?.role !== 'name') {
+        const nameW = lines[lines.length - 1].width;
+        rule = { cx: cxText, cy: ly + ruleH / 2, half: Math.min(maxW, nameW) * 0.22,
+          t: Math.max(1, best.size * 0.035) };
+        ly += ruleH;
+      }
     }
   }
-  return { rx, ry, rw, rh };
+  return {
+    rx, ry, rw, rh, face, lines, rule, dropped: best?.dropped ? ['place'] : [],
+    device: dev ? { cx: rx + (rw * devShare) / 2, cy: ry + rh / 2,
+      s: Math.min(rh * 0.80, rw * devShare * 0.92), dev } : null,
+  };
+}
+
+/**
+ * Letter a layout onto `ctx` at `s` times the colour atlas's scale, offset by
+ * (dx, dy) in the target's own pixels. `fill(line)` sets the fill for a line
+ * (a colour, or a gilt gradient); `null` fills white, which is the MASK the
+ * relief and roughness atlases are cut from.
+ */
+function letterLayout(ctx, L, s, dx, dy, fill = null) {
+  for (const ln of L.lines) {
+    ctx.fillStyle = fill ? fill(ln) : '#ffffff';
+    drawTracked(ctx, ln.text, ln.cx * s + dx, ln.cy * s + dy, ln.size * s, ln.f);
+  }
+  if (L.rule) {
+    const { cx, cy, half, t } = L.rule;
+    ctx.fillStyle = fill ? fill(null) : '#ffffff';
+    ctx.fillRect((cx - half) * s + dx, (cy - t / 2) * s + dy, 2 * half * s, Math.max(1, t * s));
+    const d = t * 2.6;
+    ctx.beginPath();
+    ctx.moveTo((cx - d) * s + dx, cy * s + dy);
+    ctx.lineTo(cx * s + dx, (cy - d * 0.7) * s + dy);
+    ctx.lineTo((cx + d) * s + dx, cy * s + dy);
+    ctx.lineTo(cx * s + dx, (cy + d * 0.7) * s + dy);
+    ctx.closePath();
+    ctx.fill();
+  }
+}
+
+/**
+ * GOLD LEAF, as a fill for one line: bright where a burnished letter catches the
+ * sky, the leaf's own yellow across its middle, and dark where its lower strokes
+ * face the street. Keyed to the record's letter colour so the two gilt
+ * colourways keep their own warmth.
+ */
+function giltFill(ctx, letter) {
+  return (ln) => {
+    if (!ln) return shift(letter, -10);
+    const g = ctx.createLinearGradient(0, ln.cy - ln.size * 0.42, 0, ln.cy + ln.size * 0.42);
+    g.addColorStop(0, mix(letter, '#fff3c4', 0.62));
+    g.addColorStop(0.34, mix(letter, '#ffe08a', 0.30));
+    g.addColorStop(0.60, letter);
+    g.addColorStop(1, mix(letter, '#3a2306', 0.50));
+    return g;
+  };
+}
+
+/**
+ * SMALT — THE SANDED GROUND. A dark shop board of the period was very often not
+ * plain paint: while the ground coat was wet it was dredged with smalt (ground
+ * blue glass) or sharp sand, which dried to a matte, gritty, faintly glittering
+ * surface the gilt or painted letters then stood out of. It is the texture a
+ * dark board reads by up close, so a dark painted ground gets a fine grit of
+ * lighter and darker grains here, and the roughness atlas makes it matte. The
+ * grit is under the lettering, as the sanding was.
+ */
+function smaltGround(ctx, L, sign) {
+  const rnd = seeded(`${sign.structure_id}#smalt`);
+  const n = Math.round(L.rw * L.rh * 0.16);
+  ctx.save();
+  for (let k = 0; k < n; k += 1) {
+    const light = rnd() < 0.55;
+    ctx.fillStyle = light ? `rgba(255, 255, 255, ${0.03 + rnd() * 0.06})`
+      : `rgba(0, 0, 0, ${0.10 + rnd() * 0.14})`;
+    const sz = 0.6 + rnd() * 1.1;
+    ctx.fillRect(L.rx + rnd() * L.rw, L.ry + rnd() * L.rh, sz, sz);
+  }
+  ctx.restore();
+}
+
+/**
+ * One sign's cell: its ground, its panel, its device where it has one, and its
+ * wording in the register the record hands over — fitted to the shape of the
+ * actual sign so the letters are not stretched when the quad samples it.
+ * Returns the layout, whose rx/ry/rw/rh are the sub-rectangle, in pixels, that
+ * the sign's face maps to.
+ */
+function paintCell(ctx, x, y, cellW, sign) {
+  const style = sign.style || {};
+  const ground = style.ground || TIMBER_HEX;
+  const letter = style.letter || '#241a10';
+  ctx.fillStyle = ground;
+  ctx.fillRect(x, y, cellW, TILE_H);
+  const L = layoutCell(ctx, x, y, cellW, sign);
+  const { rx, ry, rw, rh, face } = L;
+  const gilt = isGilt(sign);
+  const carved = isCarved(sign);
+  const dark = isDark(ground);
+  if (dark && !isBare(sign)) smaltGround(ctx, L, sign);
+
+  // The panel — a rule, two rules, or an oval field. The cheapest board had
+  // none; most had one; a gilt board on green very often had an oval.
+  const rule = Math.max(2, rh * 0.026);
+  ctx.strokeStyle = gilt ? shift(letter, 8) : letter;
+  ctx.lineWidth = rule;
+  if (style.panel === 'single_rule') {
+    ctx.strokeRect(rx + rh * 0.06, ry + rh * 0.06, rw - rh * 0.12, rh - rh * 0.12);
+  } else if (style.panel === 'double_rule') {
+    ctx.strokeRect(rx + rh * 0.05, ry + rh * 0.05, rw - rh * 0.10, rh - rh * 0.10);
+    ctx.lineWidth = Math.max(1, rule * 0.5);
+    ctx.strokeRect(rx + rh * 0.12, ry + rh * 0.12, rw - rh * 0.24, rh - rh * 0.24);
+  } else if (style.panel === 'oval') {
+    ctx.fillStyle = shift(ground, dark ? 16 : -16);
+    ctx.beginPath();
+    ctx.ellipse(rx + rw / 2, ry + rh / 2, rw / 2 - rh * 0.03, rh / 2 - rh * 0.03,
+      0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+  }
+
+  if (L.device) {
+    const { cx, cy, s, dev } = L.device;
+    drawDevice(ctx, cx, cy, s, dev.colour || '#d9b036', dev.shade || '#7a5c14');
+  }
+
+  if (!L.lines.length) return L;
+  const nameSize = L.lines.find((l) => l.role === 'name')?.size ?? L.lines[0].size;
+  if (carved) {
+    // INCISED: the cut is in shadow and holds the weather's dirt, so it reads
+    // as a dark letter in the wood's own brown; the relief atlas cuts the V.
+    // Not paint: the shadowed, dirt-darkened wood of the cut, a deep brown of
+    // the board's own tone rather than a black.
+    ctx.save();
+    ctx.globalAlpha = 0.72;
+    letterLayout(ctx, L, 1, 0, 0, () => 'rgb(58, 42, 26)');
+    ctx.restore();
+    return L;
+  }
+  // THE SHADE. Gilt was always shaded, and a signwriter's roman usually was: a
+  // dark offset down and to the right that stands the letter off its ground.
+  // On a light ground it is a darker tone of the ground, not black.
+  if (gilt || face.shade) {
+    const off = nameSize * 0.055;
+    ctx.save();
+    letterLayout(ctx, L, 1, off, off * 1.1,
+      () => (dark ? 'rgba(0, 0, 0, 0.62)' : shift(ground, -70)));
+    ctx.restore();
+  }
+  if (gilt) {
+    // A fine dark outline first, which is what keeps leaf crisp at a distance
+    // when the gradient's bright top would otherwise bleed into a light sky.
+    ctx.save();
+    ctx.lineJoin = 'round';
+    for (const ln of L.lines) {
+      ctx.save();
+      ctx.translate(ln.cx, ln.cy);
+      ctx.scale(ln.f.scaleX, 1);
+      ctx.font = fontOf(ln.f, ln.size);
+      ctx.textBaseline = 'middle';
+      ctx.strokeStyle = 'rgba(40, 24, 6, 0.55)';
+      ctx.lineWidth = Math.max(1, ln.size * 0.035);
+      const tr = ln.f.track * ln.size;
+      let w = 0;
+      for (const c of ln.text) w += ctx.measureText(c).width;
+      if (ln.text.length > 1) w += tr * (ln.text.length - 1);
+      let px = -w / 2;
+      for (const c of ln.text) {
+        ctx.strokeText(c, px, 0);
+        px += ctx.measureText(c).width + tr;
+      }
+      ctx.restore();
+    }
+    ctx.restore();
+    letterLayout(ctx, L, 1, 0, 0, giltFill(ctx, letter));
+  } else {
+    letterLayout(ctx, L, 1, 0, 0, () => letter);
+  }
+  return L;
+}
+
+/**
+ * HOW BIG THE LETTERING CAME OUT, in metres on the sign — what the gate holds
+ * a board to. A capital is about 0.7 of a fount's body in every face here.
+ */
+function legibilityOf(sign, L) {
+  const pxPerM = L.rw / Math.max(0.2, Number(sign.board_w_m) || 1);
+  const cap = (ln) => (ln.size * 0.70) / pxPerM;
+  const name = L.lines.find((l) => l.role === 'name');
+  const fits = L.lines.every((ln) => ln.width <= L.rw * 0.995);
+  return {
+    id: sign.structure_id,
+    rows: L.lines.length,
+    name_cap_m: name ? +cap(name).toFixed(3) : 0,
+    min_cap_m: L.lines.length ? +Math.min(...L.lines.map(cap)).toFixed(3) : 0,
+    px_per_m: Math.round(pxPerM),
+    fits,
+    lettered: L.lines.length > 0,
+    dropped: L.dropped,
+  };
 }
 
 /* -------------------------------------------------------------------------- */
@@ -628,17 +1010,22 @@ async function loadWood(assetBase, problems) {
 }
 
 /** A pattern of `tile` laid at `pxPerM` atlas pixels a metre, from (ox, oy). */
-function woodPattern(ctx, tile, span, pxPerM, ox, oy) {
+function woodPattern(ctx, tile, span, pxPerM, ox, oy, along = 1) {
   const pat = ctx.createPattern(tile, 'repeat');
   const s = (pxPerM * span) / WOOD_TILE_PX;
-  pat.setTransform(new DOMMatrix().translateSelf(ox, oy).scaleSelf(s, s));
+  pat.setTransform(new DOMMatrix().translateSelf(ox, oy).scaleSelf(s * along, s));
   return pat;
 }
 
-/** Is this board's ground the bare timber — a board nobody painted? */
-function isBare(sign) {
-  return String(sign.style?.ground || TIMBER_HEX).toLowerCase() === TIMBER_HEX;
-}
+/**
+ * A SIGN BOARD'S GRAIN RUNS LONG (T-2282). The library sheet is a square tile
+ * whose figure, laid at its own scale across a board, curled into short waves
+ * a hand's breadth long — read up close it looked like water, not pine. Sign
+ * stock was clear, straight-grained board, so the board's grain is laid out
+ * this many times longer along the board than across it. The carpentry's
+ * timber is untouched.
+ */
+const BOARD_GRAIN_ALONG = 2.6;
 
 /**
  * THE WEAR ON ONE BOARD, as a list of outlines in atlas pixels — computed once
@@ -756,7 +1143,7 @@ function weatherCell(ctxs, x, y, cellW, r, sign, wood) {
   ctx.clip();
   ctx.globalCompositeOperation = 'soft-light';
   ctx.globalAlpha = bare ? GRAIN_BARE : GRAIN_PAINTED;
-  ctx.fillStyle = woodPattern(ctx, B.grain, B.span, pxPerM, ox, oy);
+  ctx.fillStyle = woodPattern(ctx, B.grain, B.span, pxPerM, ox, oy, BOARD_GRAIN_ALONG);
   ctx.fillRect(x, y, cellW, TILE_H);
   ctx.restore();
   // The joints: a dark line where the boards meet, a lit lip under it.
@@ -773,7 +1160,7 @@ function weatherCell(ctxs, x, y, cellW, r, sign, wood) {
   if (shapes.length) {
     ctx.save();
     ctx.globalAlpha = 0.85;
-    ctx.fillStyle = woodPattern(ctx, B.bare, B.span, pxPerM, ox, oy);
+    ctx.fillStyle = woodPattern(ctx, B.bare, B.span, pxPerM, ox, oy, BOARD_GRAIN_ALONG);
     tracePath(ctx, shapes, 1);
     ctx.fill();
     ctx.restore();
@@ -805,7 +1192,7 @@ function weatherCell(ctxs, x, y, cellW, r, sign, wood) {
     nctx.beginPath();
     nctx.rect(x * ns, y * ns, cellW * ns, TILE_H * ns);
     nctx.clip();
-    nctx.fillStyle = woodPattern(nctx, B.normal, B.span, pxPerM * ns, ox * ns, oy * ns);
+    nctx.fillStyle = woodPattern(nctx, B.normal, B.span, pxPerM * ns, ox * ns, oy * ns, BOARD_GRAIN_ALONG);
     nctx.fillRect(x * ns, y * ns, cellW * ns, TILE_H * ns);
     if (!bare) {
       nctx.globalAlpha = 0.5;
@@ -813,7 +1200,7 @@ function weatherCell(ctxs, x, y, cellW, r, sign, wood) {
       nctx.fillRect(r.rx * ns, r.ry * ns, r.rw * ns, r.rh * ns);
       nctx.globalAlpha = 1;
       if (shapes.length) {
-        nctx.fillStyle = woodPattern(nctx, B.normal, B.span, pxPerM * ns, ox * ns, oy * ns);
+        nctx.fillStyle = woodPattern(nctx, B.normal, B.span, pxPerM * ns, ox * ns, oy * ns, BOARD_GRAIN_ALONG);
         tracePath(nctx, shapes, ns);
         nctx.fill();
       }
@@ -828,12 +1215,24 @@ function weatherCell(ctxs, x, y, cellW, r, sign, wood) {
     nctx.restore();
   }
 
-  // ROUGHNESS (green channel): paint on the face, bare wood where it wore.
+  // The lettering in relief: cut into a bare board, a film of paint on a
+  // painted one (T-2282).
+  if (nctx && r.lines) letterRelief(nctx, ns, r, sign);
+
+  // ROUGHNESS (green channel): paint on the face, bare wood where it wore. A
+  // sanded (smalt) ground is matte; gold leaf is the smoothest thing in the
+  // town and is what catches the sun (T-2282).
   if (rctx) {
     rctx.save();
     if (!bare) {
-      rctx.fillStyle = 'rgb(158, 158, 158)';
+      const smalt = isDark(sign.style?.ground || TIMBER_HEX);
+      rctx.fillStyle = smalt ? 'rgb(232, 232, 232)' : 'rgb(158, 158, 158)';
       rctx.fillRect(r.rx * rs, r.ry * rs, r.rw * rs, r.rh * rs);
+      if (r.lines?.length) {
+        const gilt = isGilt(sign);
+        letterLayout(rctx, r, rs, 0, 0,
+          () => (gilt ? 'rgb(72, 72, 72)' : 'rgb(158, 158, 158)'));
+      }
       if (shapes.length) {
         rctx.fillStyle = 'rgb(219, 219, 219)';
         tracePath(rctx, shapes, rs);
@@ -842,6 +1241,94 @@ function weatherCell(ctxs, x, y, cellW, r, sign, wood) {
     }
     rctx.restore();
   }
+}
+
+/**
+ * THE LETTERS IN RELIEF (T-2282), into the relief atlas the board's grain is
+ * already in. The layout is lettered again as a white mask at the relief
+ * atlas's scale, softened, and read as a height: NEGATIVE on a carved board —
+ * a V-cut, its walls as wide as its depth, which the sun lights on one side and
+ * shades on the other as a visitor walks past — and a whisker POSITIVE on a
+ * painted one, the film of a lettering enamel standing on its ground. The
+ * slope is added to the normal already there, so the grain carries on through
+ * the cut. Deterministic; nothing is stored; the mask canvas is dropped as soon
+ * as it is read.
+ */
+function boxBlur(src, w, h, r) {
+  if (r < 1) return src;
+  const tmp = new Float32Array(w * h);
+  const out = new Float32Array(w * h);
+  const n = 2 * r + 1;
+  for (let y = 0; y < h; y += 1) {
+    let acc = 0;
+    for (let k = -r; k <= r; k += 1) acc += src[y * w + Math.min(w - 1, Math.max(0, k))];
+    for (let x = 0; x < w; x += 1) {
+      tmp[y * w + x] = acc / n;
+      const add = Math.min(w - 1, x + r + 1);
+      const sub = Math.max(0, x - r);
+      acc += src[y * w + add] - src[y * w + sub];
+    }
+  }
+  for (let x = 0; x < w; x += 1) {
+    let acc = 0;
+    for (let k = -r; k <= r; k += 1) acc += tmp[Math.min(h - 1, Math.max(0, k)) * w + x];
+    for (let y = 0; y < h; y += 1) {
+      out[y * w + x] = acc / n;
+      const add = Math.min(h - 1, y + r + 1);
+      const sub = Math.max(0, y - r);
+      acc += tmp[add * w + x] - tmp[sub * w + x];
+    }
+  }
+  return out;
+}
+
+function letterRelief(nctx, ns, L, sign) {
+  if (!L.lines.length || typeof document === 'undefined') return;
+  const x0 = Math.floor(L.rx * ns);
+  const y0 = Math.floor(L.ry * ns);
+  const w = Math.ceil(L.rw * ns);
+  const h = Math.ceil(L.rh * ns);
+  if (w < 4 || h < 4) return;
+  const m = document.createElement('canvas');
+  m.width = w;
+  m.height = h;
+  const mctx = m.getContext('2d', { willReadFrequently: true });
+  if (!mctx) return;
+  mctx.fillStyle = '#000000';
+  mctx.fillRect(0, 0, w, h);
+  letterLayout(mctx, L, ns, -x0, -y0, null);
+  const md = mctx.getImageData(0, 0, w, h).data;
+  m.width = 0;
+  m.height = 0;
+  const carved = isCarved(sign);
+  const nameSize = (L.lines.find((l) => l.role === 'name') ?? L.lines[0]).size * ns;
+  const rad = carved ? Math.max(1, Math.round(nameSize * 0.045)) : 1;
+  let hgt = new Float32Array(w * h);
+  for (let i = 0; i < w * h; i += 1) hgt[i] = md[4 * i] / 255;
+  hgt = boxBlur(boxBlur(hgt, w, h, rad), w, h, rad);
+  // Height in relief-atlas pixels: a carved letter is cut as deep as its walls
+  // are wide; a painted one stands a fraction of a pixel.
+  const depth = carved ? -(2 * rad + 1) * 0.8 : 0.45;
+  const img = nctx.getImageData(x0, y0, w, h);
+  const p = img.data;
+  for (let y = 1; y < h - 1; y += 1) {
+    for (let x = 1; x < w - 1; x += 1) {
+      const i = y * w + x;
+      const gx = (hgt[i + 1] - hgt[i - 1]) * 0.5 * depth;
+      const gy = (hgt[i + w] - hgt[i - w]) * 0.5 * depth;
+      if (gx === 0 && gy === 0) continue;
+      const q = 4 * i;
+      let nx = p[q] / 127.5 - 1 - gx;
+      let ny = p[q + 1] / 127.5 - 1 + gy;
+      let nz = Math.max(0.2, p[q + 2] / 127.5 - 1);
+      const len = Math.hypot(nx, ny, nz);
+      nx /= len; ny /= len; nz /= len;
+      p[q] = Math.round((nx + 1) * 127.5);
+      p[q + 1] = Math.round((ny + 1) * 127.5);
+      p[q + 2] = Math.round((nz + 1) * 127.5);
+    }
+  }
+  nctx.putImageData(img, x0, y0);
 }
 
 /** The carpentry's cell: the timber tone, the timber's grain, its relief. */
@@ -863,6 +1350,40 @@ function paintTimberCell(ctxs, wood) {
     nctx.fillRect(0, 0, TILE_W * ns, TILE_H * ns);
     nctx.restore();
   }
+}
+
+/**
+ * A NAME PAINTED STRAIGHT ONTO BARE BOARDS HAS NO GROUND (T-2282). A painted
+ * band in the bare-timber style used to be a rectangle of timber-coloured
+ * "ground" with the name on it, laid over a wall of a different tone — a pale
+ * plank glued to the front. A signwriter painting a firm's name on an unpainted
+ * warehouse painted the LETTERS and nothing else. So in that one case the cell
+ * is cut back to its lettering: everything that is not a letter goes fully
+ * transparent, the material's alpha test drops it, and the building's own
+ * boards show between the letters.
+ */
+function isLettersOnly(sign) {
+  return sign.mounting === 'facade_painted' && isBare(sign);
+}
+
+function cutToLetters(ctx, x, y, cellW, L) {
+  // The mask first, on its own canvas: `destination-in` clears everything a
+  // single draw does not cover, so the whole lettering has to be ONE draw.
+  const m = document.createElement('canvas');
+  m.width = cellW;
+  m.height = TILE_H;
+  const mctx = m.getContext('2d');
+  if (!mctx) return;
+  letterLayout(mctx, L, 1, -x, -y, null);
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(x, y, cellW, TILE_H);
+  ctx.clip();
+  ctx.globalCompositeOperation = 'destination-in';
+  ctx.drawImage(m, x, y);
+  ctx.restore();
+  m.width = 0;
+  m.height = 0;
 }
 
 /**
@@ -977,12 +1498,16 @@ function buildAtlas(signs, wood = null, lowSpec = false) {
       point: out.timber,
     };
   }
+  const legibility = [];
+  let lettersOnly = 0;
   for (const cell of cells) {
     const x = cell.col * TILE_W;
     const y = cell.row * TILE_H;
     const cellW = cell.span * TILE_W;
     const r = paintCell(ctx, x, y, cellW, cell.sign);
     if (wood) weatherCell(ctxs, x, y, cellW, r, cell.sign, wood);
+    if (isLettersOnly(cell.sign)) { cutToLetters(ctx, x, y, cellW, r); lettersOnly += 1; }
+    legibility.push(legibilityOf(cell.sign, r));
     out.signs.set(cell.sign.structure_id, {
       // The face's rectangle, as (u0, v0) bottom-left to (u1, v1) top-right.
       rect: [r.rx / W, 1 - (r.ry + r.rh) / H, (r.rx + r.rw) / W, 1 - r.ry / H],
@@ -1010,6 +1535,8 @@ function buildAtlas(signs, wood = null, lowSpec = false) {
   if (normalCanvas) out.normalMap = dataTexture(lowSpec ? shrinkForPhone(normalCanvas) : normalCanvas);
   if (roughCanvas) out.roughnessMap = dataTexture(lowSpec ? shrinkForPhone(roughCanvas) : roughCanvas);
   out.cells = cells.length;
+  out.legibility = legibility;
+  out.lettersOnly = lettersOnly;
   return out;
 }
 
@@ -1488,6 +2015,7 @@ export async function createSignage({
   }
   // The wood loads beside the records; the atlas waits for both.
   const woodLoading = loadWood(assetBase, problems);
+  const fontsLoading = loadSignFonts(problems);
   const wanted = Array.isArray(index.signage) ? index.signage : [];
   const loaded = await Promise.all(wanted.map(async (s) => {
     if (!s.file) return [s.id, null, 'the manifest gave no file'];
@@ -1508,6 +2036,7 @@ export async function createSignage({
   // ONE ATLAS FOR THE WHOLE TOWN, painted before a triangle is emitted, because
   // every triangle needs the uv it hands back.
   const wood = await woodLoading;
+  const fonts = await fontsLoading;
   const atlas = buildAtlas(all, wood, lowSpec);
   if (!atlas) {
     problems.push('signage: no canvas to paint the signs on — the boards are drawn '
@@ -1584,6 +2113,10 @@ export async function createSignage({
    */
   mat.shadowSide = THREE.BackSide;
   if (atlas) mat.map = atlas.texture;
+  // Letters painted straight onto bare boards are cut out of their cell, and
+  // the alpha test is what drops the rest of it (T-2282). Every other cell in
+  // the atlas is opaque, so nothing else is touched.
+  if (atlas?.lettersOnly) mat.alphaTest = 0.5;
   if (atlas?.normalMap) {
     mat.normalMap = atlas.normalMap;
     mat.roughnessMap = atlas.roughnessMap ?? null;
@@ -1620,7 +2153,10 @@ export async function createSignage({
   group.add(mesh);
   group.userData.census = out.census;
   if (atlas) {
-    out.atlas = { cells: atlas.cells, size: atlas.size, uploaded: atlas.uploaded, wood: wood ? [wood.board.id, wood.timber.id] : null };
+    out.atlas = { cells: atlas.cells, size: atlas.size, uploaded: atlas.uploaded, wood: wood ? [wood.board.id, wood.timber.id] : null, fonts };
+    // How big every board's lettering came out, in metres on the board — what
+    // the release gate holds the layer to (T-2282).
+    out.legibility = atlas.legibility;
   }
 
   const raycaster = new THREE.Raycaster();

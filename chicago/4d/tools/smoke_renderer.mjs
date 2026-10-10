@@ -3516,6 +3516,86 @@ for (const [label, viewport, touch] of [
     check(`${label}: every sign stands outside its own facade`,
       boards.worstInside >= -0.05,
       `deepest vertex ${boards.worstInside?.toFixed(3)} m behind the facade plane`);
+    // --- NO NAME HIDDEN BY ITS OWN WALL, AND EVERY ONE LEGIBLE (T-2282) ---------
+    //
+    // The owner's screenshot of Newberry & Dole's warehouse: the firm's name was
+    // gone and the trade line cut in half, because the painted band stood 0.03 m
+    // off a wall whose boards stand out 0.047 m. "Outside its own facade" above
+    // was green the whole time — it measures the footprint plane, not the boards
+    // drawn on it. So this casts rays at every flat sign's own rectangle against
+    // the town's buildings and fails on any point where the building's face
+    // stands in front of the lettering. And the layer reports how big every
+    // board's lettering came out, so a board lettered too small to read, or a
+    // line wider than its board, fails here rather than on the owner's phone.
+    const signFaces = await page.evaluate(async (mod) => {
+      const THREE = await import(mod);
+      const api = window.__chicago4d;
+      const s = api.signage;
+      const mesh = s?.group?.children?.[0];
+      if (!mesh) return null;
+      let scene = s.group;
+      while (scene.parent) scene = scene.parent;
+      const targets = [];
+      scene.traverse((o) => {
+        if (!o.isMesh) return;
+        for (let p = o; p; p = p.parent) if (p.name === 'structures') { targets.push(o); return; }
+      });
+      const pos = mesh.geometry.getAttribute('position');
+      const rc = new THREE.Raycaster();
+      const hidden = [];
+      let flat = 0;
+      let rays = 0;
+      for (const sp of s.spans) {
+        const sg = s.signs.find((x) => x.structure_id === sp.id);
+        if (!sg || !['facade_painted', 'wall_board'].includes(sg.mounting)) continue;
+        flat++;
+        let ymax = -Infinity;
+        for (let i = sp.from * 3; i < sp.to * 3; i++) ymax = Math.max(ymax, pos.getY(i));
+        const b = sg.facade_bearing_deg * Math.PI / 180;
+        const ox = Math.sin(b); const oz = -Math.cos(b);
+        const wx = Math.cos(b); const wz = Math.sin(b);
+        const ax = sg.anchor_local_enu_m[0]; const az = -sg.anchor_local_enu_m[1];
+        const proud = sg.geometry?.proud_m ?? 0.03;
+        // The lettered face: a band IS its quad; a wall board's face is its
+        // front, a board's thickness out, under the cap.
+        const face = sg.mounting === 'wall_board' ? proud + (sg.board_thickness_m ?? 0.05) : proud;
+        const top = sg.mounting === 'wall_board' && sg.geometry?.capped !== false ? ymax - 0.05 : ymax;
+        let worst = 0;
+        let over = 0;
+        let n = 0;
+        for (let i = 0; i < 7; i++) {
+          for (let j = 0; j < 5; j++) {
+            const u = (i / 6 - 0.5) * sg.board_w_m * 0.9;
+            const y = top - sg.board_h_m * (0.1 + 0.8 * j / 4);
+            rc.set(new THREE.Vector3(ax + wx * u + ox * (face + 1), y, az + wz * u + oz * (face + 1)),
+              new THREE.Vector3(-ox, 0, -oz));
+            rc.far = 2;
+            const hit = rc.intersectObjects(targets, false)[0];
+            n++;
+            rays++;
+            if (!hit) continue;
+            const stands = face + 1 - hit.distance;
+            if (stands > face - 0.004) { over++; worst = Math.max(worst, stands - face); }
+          }
+        }
+        if (over) hidden.push(`${sg.structure_id} ${over}/${n} (wall ${worst.toFixed(3)} m in front)`);
+      }
+      return { flat, rays, hidden, legibility: s.legibility ?? null, fonts: s.atlas?.fonts ?? null };
+    }, `${MODULE_BASE}../vendor/three-0.185.1/three.module.js`);
+    check(`${label}: no flat sign's lettering is hidden behind its own wall`,
+      signFaces && signFaces.flat >= 15 && signFaces.hidden.length === 0,
+      `${signFaces?.flat} flat sign(s), ${signFaces?.rays} rays at their faces; `
+      + `${signFaces?.hidden?.length ?? '?'} hidden`
+      + (signFaces?.hidden?.length ? `: ${signFaces.hidden.join('; ')}` : ''));
+    const leg = signFaces?.legibility ?? [];
+    const unread = leg.filter((l) => !l.lettered || !l.fits || l.name_cap_m < 0.05 || l.min_cap_m < 0.025);
+    check(`${label}: every board is lettered in the period faces, fitted and legible`,
+      signFaces?.fonts === true && leg.length === boards.signs && unread.length === 0,
+      `faces ${signFaces?.fonts ? 'loaded' : 'NOT loaded'}; ${leg.length} board(s) laid out, `
+      + `smallest name capital ${leg.length ? Math.min(...leg.map((l) => l.name_cap_m)).toFixed(3) : '?'} m, `
+      + `smallest line ${leg.length ? Math.min(...leg.map((l) => l.min_cap_m)).toFixed(3) : '?'} m`
+      + (unread.length ? `; unread: ${unread.map((l) => `${l.id} (name ${l.name_cap_m} m, `
+        + `line ${l.min_cap_m} m${l.fits ? '' : ', OVERFLOWS'})`).join(', ')}` : ''));
     // --- what the signs SAY, and that no two of them are alike (T-0066) ------
     //
     // The owner asked for three things in one sentence — the name on the board,

@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1611, ts: '2026-10-10T04:09:51.152Z', date: 'Oct 9, 2026, 11:09 PM CT', title: 'Every shop sign readable, in period lettering', kind: 'fix',
+    items: [
+      'Walk South Water Street to Franklin: Newberry & Dole\u2019s warehouse now shows its whole sign. The firm\u2019s name was hidden behind the warehouse\u2019s own boards, and so was lettering on 13 other painted fronts and shop fascias across 1835. All of them now sit in front of the wall.',
+      'Every board is lettered in faces of the 1830s: a signwriter\u2019s roman, the fat face, the slab-serif Egyptian and a condensed grotesque. The name goes largest on its own line, with the trade under it in roman italic or capitals and the street in small capitals.',
+      'Gold lettering looks like gold leaf, with a burnished shine and a dark shade. Dark boards have the sanded, matte finish painters gave them.',
+      'Plain unpainted boards have their letters carved into the wood, so the cuts catch light and shadow as you walk past.',
+      'The lettering styles are reconstructed: no record shows how any 1835 Chicago sign was lettered.',
+    ] },
   { v: 1610, ts: '2026-10-10T03:02:42.351Z', date: 'Oct 9, 2026, 10:02 PM CT', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
     items: [
       'Nothing you can see changes. Where a household\u2019s dated home was copied from the old single home line, it now also carries that line\u2019s own reasoning and what would replace it, so the seat a card shows no longer depends on the old line.',

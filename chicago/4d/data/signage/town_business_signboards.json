@@ -1111,7 +1111,7 @@
       "board_h_m": 0.24,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.05,
+        "proud_m": 0.07,
         "lines": [
           "name"
         ],
@@ -1241,7 +1241,7 @@
       "board_h_m": 0.66,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 1.36,
       "wall_height_m": 3.2,
@@ -1359,7 +1359,7 @@
       "board_h_m": 0.76,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 1.45,
       "wall_height_m": 2.8,
@@ -1457,7 +1457,7 @@
       "board_h_m": 0.86,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 1.61,
       "wall_height_m": 3.6,
@@ -1589,7 +1589,7 @@
       "board_h_m": 0.74,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 1.65,
       "wall_height_m": 2.8,
@@ -2473,7 +2473,7 @@
       "board_h_m": 0.81,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 1.62,
       "wall_height_m": 3.4,
@@ -2712,7 +2712,7 @@
       "board_h_m": 0.45,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 2.12,
       "wall_height_m": 3.1,
@@ -2930,7 +2930,7 @@
       "board_h_m": 0.57,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 1.11,
       "wall_height_m": 2.5,
@@ -3116,7 +3116,7 @@
       "board_h_m": 1.02,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 1.6,
       "wall_height_m": 3.2,
@@ -3217,7 +3217,7 @@
       "board_h_m": 1.15,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 1.9,
       "wall_height_m": 3.4,
@@ -3387,7 +3387,7 @@
       "board_h_m": 0.76,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 1.57,
       "wall_height_m": 3.0,
@@ -4612,7 +4612,7 @@
       "board_h_m": 0.24,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.05,
+        "proud_m": 0.07,
         "lines": [
           "name"
         ],
@@ -4822,7 +4822,7 @@
       "board_h_m": 0.45,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 0.74,
       "wall_height_m": 3.55,
@@ -4921,7 +4921,7 @@
       "board_h_m": 0.69,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 1.5,
       "wall_height_m": 3.46,
@@ -5528,7 +5528,7 @@
       "board_h_m": 0.24,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.05,
+        "proud_m": 0.07,
         "lines": [
           "name"
         ],
@@ -5728,7 +5728,7 @@
       "board_h_m": 0.85,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 2.41,
       "wall_height_m": 6.69,
@@ -5866,7 +5866,7 @@
       "board_h_m": 0.65,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 2.2,
       "wall_height_m": 3.54,
@@ -5982,7 +5982,7 @@
       "board_h_m": 0.64,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 2.45,
       "wall_height_m": 3.72,
@@ -6461,7 +6461,7 @@
       "board_h_m": 0.24,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.05,
+        "proud_m": 0.07,
         "lines": [
           "name"
         ],
@@ -6588,7 +6588,7 @@
       "board_h_m": 0.83,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 1.54,
       "wall_height_m": 6.76,
@@ -6722,7 +6722,7 @@
       "board_h_m": 0.24,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.05,
+        "proud_m": 0.07,
         "lines": [
           "name"
         ]
@@ -6848,7 +6848,7 @@
       "board_h_m": 0.24,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.05,
+        "proud_m": 0.07,
         "lines": [
           "name"
         ],
@@ -7071,7 +7071,7 @@
       "board_h_m": 0.85,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 1.63,
       "wall_height_m": 5.8,
@@ -7353,7 +7353,7 @@
       "board_h_m": 0.64,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 2.45,
       "wall_height_m": 3.88,
@@ -7470,7 +7470,7 @@
       "board_h_m": 0.85,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 2.29,
       "wall_height_m": 6.62,
@@ -7702,7 +7702,7 @@
       "board_h_m": 0.61,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 2.41,
       "wall_height_m": 6.51,
@@ -8084,7 +8084,7 @@
       "board_h_m": 0.76,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 1.57,
       "wall_height_m": 6.09,
@@ -8297,7 +8297,7 @@
       "board_h_m": 0.43,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.03
+        "proud_m": 0.065
       },
       "reach_m": 0.85,
       "wall_height_m": 3.17,
@@ -8405,7 +8405,7 @@
       "board_h_m": 0.24,
       "board_thickness_m": 0.05,
       "geometry": {
-        "proud_m": 0.05,
+        "proud_m": 0.07,
         "lines": [
           "name"
         ]

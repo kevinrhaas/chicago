@@ -1366,7 +1366,17 @@ AWNING_PROJECTION_M = 1.45   # the hood over the door, out of the wall
 AWNING_DROP_M = 0.34         # its outer edge below its inner one — the fall of a hood
 AWNING_MARGIN_M = 0.45       # hood wider than the board it shelters, each side
 WALL_BOARD_PROUD_M = 0.02    # a board fixed flat on the front stands this far off it
-BAND_PROUD_M = 0.03          # a name painted on the boards, this far proud to draw
+# A PAINTED NAME HAS TO STAND OUTSIDE THE BOARDS IT IS PAINTED ON (T-2282). The owner,
+# 2026-10-10, on a screenshot of Newberry & Dole's warehouse: the top of the sign is cut
+# off. It was: the band stood 0.03 m off the footprint plane, and an outbuilding's
+# boards are drawn 0.030 m thick jittered x0.65-1.55 (`outbuilding.BOARD_T_M`), so
+# whole courses stood up to 0.047 m out and swallowed the firm's name. Measured by
+# raycasting every flat sign's rectangle against the town's own buildings, 14 of the 39
+# flat signs were partly or wholly behind their own walls; the deepest cladding face
+# across all of them is 0.049 m, and a fascia's boards 0.053 m. So a band stands at
+# 0.065 m and a name on a fascia at 0.07 m — clear of the deepest course by 1.5 cm, which
+# is still paint on the wall at any distance a visitor reads it from.
+BAND_PROUD_M = 0.065        # a name painted on the boards, this far proud to draw (T-2282)
 BAND_FOOT_M = 2.30           # and its foot this high, clear of any door head
 BAND_EAVE_CLEAR_M = 0.25     # unless the wall has not the height, then under the eave
 POST_STAND_M = 1.90          # a post stands this far out from the facade
@@ -1451,7 +1461,7 @@ FASCIA_KINDS = ("archetype_sign", "fascia")
 FASCIA_MIN_W_M = 1.50        # under this a fascia is a head casing, not a signboard
 FASCIA_END_INSET_M = 0.06    # the fascia's ends left showing past the lettering
 FASCIA_EDGE_INSET_M = 0.02   # ...and its top and bottom edges
-FASCIA_PROUD_M = 0.05        # the lettered face stands over the fascia's own boards
+FASCIA_PROUD_M = 0.07        # the lettered face stands over the fascia's own boards (T-2282)
 SHRINK_STEP = 0.05           # a shrunk board keeps its aspect, 5 % at a time
 SHRINK_MIN_W_M = 0.70        # the smallest board a name can be read on from the walk
 SHRINK_MIN_H_M = 0.30
