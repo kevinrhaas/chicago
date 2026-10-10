@@ -1,0 +1,410 @@
+{
+  "id": "prairie_1904_k01",
+  "title": "Metric component contract for the Prairie Avenue 1904 programme (package K01)",
+  "ticket": "T-2265",
+  "parent": "T-1843",
+  "programme": "T-1837",
+  "status": "Declared, not yet built to. No component in the scene is emitted against this contract today; T-2266 builds the first assembly (a small 1808 Prairie frontage) from it, beside the canonical Glessner asset. Until then the contract is checked for its own consistency, and the Glessner baseline (glessner_baseline.json) is the measured reference a new component is compared with.",
+  "rule": "Shared construction, never shared facades: a component is a wall, an opening, a roof or a stair built from declared parameters, never a whole house reused (tickets/evidence/T-1837-prairie-1904-architectural-study/ASSET-CATALOG.md). This file adds NO geometry convention of its own: the frame below is docs/GLB-CONTRACT.md restated for components, and where the two ever differ GLB-CONTRACT.md wins and this file is wrong.",
+  "frame": {
+    "units": "metres",
+    "axes": "Y-up, right-handed, glTF native (docs/GLB-CONTRACT.md § Geometry)",
+    "plan_origin": "the structure footprint polygon's own (0, 0): the point the record's position refers to. Not the centroid, not a bounding-box corner unless the polygon puts (0, 0) there (Glessner's does: data/structures/glessner_house.json footprint note).",
+    "vertical_origin_datum": "grade",
+    "footprint_to_3d": {
+      "u": "+X",
+      "v": "-Z"
+    },
+    "placement": "from the structure record, never baked into the GLB: local_e -> +X, local_n -> -Z, rotation_deg clockwise from grid north (three.js rotation.y = -deg * PI / 180). A component inside a structure is placed in that structure's frame by its socket, so it carries no world position of its own.",
+    "component_frame": "each component is authored about its own local origin at its `base` socket: +X along the wall it belongs to, +Y up, +Z out of the wall's outer face. A component's transform into the structure frame is a rotation about Y and a translation only; scale is always 1, so a metre in a component is a metre in the scene."
+  },
+  "datums": [
+    {
+      "id": "grade",
+      "meaning": "local finished grade at the base of the street wall; y = 0. Where grade falls along a lot, each wall states its own grade offset from this one, in metres."
+    },
+    {
+      "id": "walk",
+      "meaning": "the public sidewalk in front of the entry, metres above grade (Glessner's HABS sheet 6 prints the walk 0.74 ft below its door datum)."
+    },
+    {
+      "id": "basement_sill",
+      "meaning": "the sill of the basement or area lights."
+    },
+    {
+      "id": "principal_floor",
+      "meaning": "the finished principal floor, which an entry stair solves to in whole risers.",
+      "range_m": [
+        0.8,
+        1.8
+      ],
+      "range_confidence": "reconstructed",
+      "rule_source": "RECONSTRUCTION-RULES.md § Starting ranges: Raised principal floor"
+    },
+    {
+      "id": "floor_2",
+      "meaning": "the second finished floor; floor_3 and above follow by the same rule."
+    },
+    {
+      "id": "sill",
+      "meaning": "a facade's ordinary sill line, per storey: sill_<floor id>."
+    },
+    {
+      "id": "cornice",
+      "meaning": "the top of the principal cornice or parapet coping."
+    },
+    {
+      "id": "eave",
+      "meaning": "the eave line where the main roof meets the wall plane."
+    },
+    {
+      "id": "ridge",
+      "meaning": "the main roof's ridge."
+    },
+    {
+      "id": "chimney",
+      "meaning": "the top of the tallest stack's cap."
+    }
+  ],
+  "datum_order": [
+    [
+      "grade",
+      "principal_floor"
+    ],
+    [
+      "basement_sill",
+      "principal_floor"
+    ],
+    [
+      "principal_floor",
+      "floor_2"
+    ],
+    [
+      "floor_2",
+      "eave"
+    ],
+    [
+      "eave",
+      "ridge"
+    ]
+  ],
+  "datum_rules": [
+    "Every datum is metres above `grade` in the structure frame, stated once per structure and read by every component; no component carries its own copy of a height another component also uses.",
+    "Each pair in datum_order holds as `lower <= higher` wherever both are declared for a structure. cornice, walk, sill and chimney are deliberately unordered: a parapet can stand above an eave, a walk below grade, a stack below a tower ridge.",
+    "A datum carries its own provenance (confidence, sources or note) like any other attribute (docs/SOURCES.md and the record schema)."
+  ],
+  "provenance": {
+    "confidence": [
+      "attested",
+      "inferred",
+      "reconstructed"
+    ],
+    "per_parameter": [
+      "confidence",
+      "sources",
+      "note"
+    ],
+    "rule": "The validator's vocabulary (tools/validate.py CONFIDENCE). attested needs a resolving source id; inferred and reconstructed need a note. A starting range from RECONSTRUCTION-RULES.md is a prior, so a value taken from it is reconstructed until a source for that house replaces it. The geometry carries the same grade in _CONFIDENCE (docs/GLB-CONTRACT.md § The confidence channel)."
+  },
+  "component_id": {
+    "pattern": "^k01\\.(wall|opening|roof|stair)\\.[a-z][a-z0-9_]*(\\.[lr])?$",
+    "rule": "<package>.<family>.<variant>[.<hand>]. Stable for the life of the asset: a bake may change a component's geometry but never its id, and a renamed id is a new component, never a silent edit. Ids are what fixed cameras, baseline hashes and the review trail key on."
+  },
+  "handedness": {
+    "variants": [
+      "l",
+      "r"
+    ],
+    "rule": "`r` is `l` mirrored in the component's own YZ plane (x -> -x). Mirroring reverses every triangle, so the emitter re-winds each face to stay counter-clockwise and outward, and mirrors TEXCOORD_0's u so courses still read the right way. A handed pair shares one parameter record; only the hand differs."
+  },
+  "seed": {
+    "rule": "seed = the first 8 hex digits of sha256('<structure_id>|<component_id>|<instance index>') read as an unsigned 32-bit integer",
+    "why": "the same house bakes the same stone chips, course offsets and weathering on every machine and every run, and two instances of one component still differ. Never a clock, never a global counter whose value depends on what else was baked first."
+  },
+  "scale_uv": {
+    "rule": "TEXCOORD_0 is surface metres divided by the fabric's tile_m: walls project a horizontal tangent and height, roofs a contour tangent and the uphill vector (generators/archetypes/masonry_house_v4_materials.py assign_metric_uvs). So median UV units per metre times tile_m is 1 on every textured surface, and a 0.20 m brick reads as 0.20 m beside any other component on the same library.",
+    "library": "assets/textures/glessner-v4/material-library.json"
+  },
+  "families": [
+    {
+      "family": "wall",
+      "meaning": "one wall plane of one storey band or more, with its openings cut through it.",
+      "parameters": {
+        "thickness_m": {
+          "unit": "m",
+          "ranges": {
+            "masonry": [
+              0.23,
+              0.45
+            ],
+            "frame": [
+              0.12,
+              0.22
+            ]
+          },
+          "confidence": "reconstructed",
+          "rule_source": "RECONSTRUCTION-RULES.md § Starting ranges: Solid exterior wall / reveal"
+        },
+        "construction": {
+          "unit": "enum",
+          "values": [
+            "masonry",
+            "frame"
+          ]
+        },
+        "base_datum": {
+          "unit": "datum",
+          "datum": "grade"
+        },
+        "top_datum": {
+          "unit": "datum",
+          "datum": "eave"
+        },
+        "length_m": {
+          "unit": "m"
+        }
+      },
+      "sockets": [
+        {
+          "id": "base",
+          "datum": "grade",
+          "meaning": "the component origin: outer face, left end, at grade"
+        },
+        {
+          "id": "top",
+          "datum": "eave",
+          "meaning": "where a roof's eave socket seats"
+        },
+        {
+          "id": "opening",
+          "meaning": "one per cut opening, at the opening's sill socket"
+        }
+      ],
+      "material_slots": [
+        "body",
+        "mortar",
+        "trim",
+        "foundation"
+      ],
+      "example_ids": [
+        "k01.wall.street_front",
+        "k01.wall.rear_service"
+      ]
+    },
+    {
+      "family": "opening",
+      "meaning": "a true aperture through its wall — reveal, sash, glass and a dark enclosed backing — never a painted panel.",
+      "parameters": {
+        "clear_width_m": {
+          "unit": "m",
+          "range": [
+            0.75,
+            1.15
+          ],
+          "confidence": "reconstructed",
+          "rule_source": "RECONSTRUCTION-RULES.md § Starting ranges: Sash proportions"
+        },
+        "clear_height_m": {
+          "unit": "m",
+          "range": [
+            1.5,
+            2.4
+          ],
+          "confidence": "reconstructed",
+          "rule_source": "RECONSTRUCTION-RULES.md § Starting ranges: Sash proportions"
+        },
+        "sill_datum": {
+          "unit": "datum",
+          "datum": "sill"
+        },
+        "reveal_depth_m": {
+          "unit": "m",
+          "meaning": "outer face to sash plane; never deeper than the host wall's thickness_m"
+        },
+        "head": {
+          "unit": "enum",
+          "values": [
+            "flat",
+            "segmental",
+            "round",
+            "pointed"
+          ]
+        },
+        "hand": {
+          "unit": "enum",
+          "values": [
+            "l",
+            "r",
+            "none"
+          ]
+        }
+      },
+      "sockets": [
+        {
+          "id": "sill",
+          "datum": "sill",
+          "meaning": "the component origin: centre of the sill at the outer wall face"
+        },
+        {
+          "id": "head",
+          "meaning": "centre of the head at the outer wall face"
+        },
+        {
+          "id": "sash_plane",
+          "meaning": "the glazing plane, reveal_depth_m behind the outer face"
+        }
+      ],
+      "material_slots": [
+        "reveal",
+        "sash",
+        "glass",
+        "backing",
+        "sill_stone"
+      ],
+      "example_ids": [
+        "k01.opening.sash_flat",
+        "k01.opening.sash_segmental",
+        "k01.opening.casement_round.l",
+        "k01.opening.casement_round.r"
+      ]
+    },
+    {
+      "family": "roof",
+      "meaning": "the main roof planes, trimmed at their true intersections, with eave and ridge on the structure's datums.",
+      "parameters": {
+        "pitch_deg": {
+          "unit": "deg",
+          "ranges": {
+            "ordinary": [
+              25,
+              45
+            ],
+            "steep": [
+              45,
+              65
+            ]
+          },
+          "confidence": "reconstructed",
+          "rule_source": "RECONSTRUCTION-RULES.md § Starting ranges: Main roof"
+        },
+        "eave_datum": {
+          "unit": "datum",
+          "datum": "eave"
+        },
+        "ridge_datum": {
+          "unit": "datum",
+          "datum": "ridge"
+        },
+        "overhang_m": {
+          "unit": "m",
+          "meaning": "eave projection beyond the wall plane, measured horizontally"
+        }
+      },
+      "sockets": [
+        {
+          "id": "eave",
+          "datum": "eave",
+          "meaning": "the component origin: the eave line's left end, on the wall plane"
+        },
+        {
+          "id": "ridge",
+          "datum": "ridge",
+          "meaning": "the ridge line"
+        }
+      ],
+      "material_slots": [
+        "covering",
+        "flashing",
+        "fascia",
+        "soffit"
+      ],
+      "example_ids": [
+        "k01.roof.gable",
+        "k01.roof.hip"
+      ]
+    },
+    {
+      "family": "stair",
+      "meaning": "an entry stair or stoop solved in whole risers from walk to principal floor.",
+      "parameters": {
+        "riser_m": {
+          "unit": "m",
+          "range": [
+            0.14,
+            0.19
+          ],
+          "confidence": "reconstructed",
+          "rule_source": "RECONSTRUCTION-RULES.md § Starting ranges: Stone/timber entry stair"
+        },
+        "tread_m": {
+          "unit": "m",
+          "range": [
+            0.25,
+            0.34
+          ],
+          "confidence": "reconstructed",
+          "rule_source": "RECONSTRUCTION-RULES.md § Starting ranges: Stone/timber entry stair"
+        },
+        "from_datum": {
+          "unit": "datum",
+          "datum": "walk"
+        },
+        "to_datum": {
+          "unit": "datum",
+          "datum": "principal_floor"
+        }
+      },
+      "sockets": [
+        {
+          "id": "foot",
+          "datum": "walk",
+          "meaning": "the component origin: centre of the bottom nosing at walk level"
+        },
+        {
+          "id": "landing",
+          "datum": "principal_floor",
+          "meaning": "centre of the top landing at the door threshold"
+        }
+      ],
+      "material_slots": [
+        "tread",
+        "riser",
+        "cheek",
+        "rail"
+      ],
+      "example_ids": [
+        "k01.stair.straight_stoop",
+        "k01.stair.left_turn.l",
+        "k01.stair.left_turn.r"
+      ]
+    }
+  ],
+  "measures": {
+    "_doc": "How tools/k01_contract.mjs --measure reads an asset, and the bounds the verdicts hold it to. Measured on the GLB as a renderer loads it: the node's transform applied, KHR_mesh_quantization dequantized, EXT_meshopt_compression decoded.",
+    "envelope_materials": "^(granite|brick|limestone_trim|rough_stone_trim|mortar)",
+    "storey_band_m": [
+      1.0,
+      6.0
+    ],
+    "envelope_rule": "The walls are the envelope, read in the storey band: vertices of envelope_materials between storey_band_m[0] and [1] metres above grade. Below the band stand stoops, paving and terraces, which a limestone or granite slot also draws and which are supposed to reach past the footprint (Glessner's limestone front paving runs 4.79 m out to the Prairie Avenue line, its north porch steps 1.03 m toward Eighteenth Street); above it cornices and eaves project by design. Lawn, drive, roof, glass and ornament are never envelope.",
+    "wall_base_materials": "^(granite|brick)",
+    "wall_base_rule": "The vertical origin is read from the masonry walls alone: their lowest vertex is grade. Ground-contact pieces (paving, lawn, area grilles, copings) may be sunk below grade to meet the terrain without a gap; their depth is recorded per material in the baseline's below_grade_m, not judged.",
+    "quantum_m": 0.001,
+    "quantum_rule": "Vertices are compared on a 1 mm grid. Two triangles on the same three grid points are COINCIDENT — same winding (a doubled face) or opposite (two boundary faces back to back, the hidden face between two touching parts). A triangle with two of its corners in one grid cell is degenerate and counted apart. Faces that overlap without sharing all three corners are NOT measured here.",
+    "base_tolerance_m": 0.01,
+    "inset_tolerance_m": 0.01,
+    "max_overhang_m": 1.0,
+    "origin_rule": "Hidden origin offset: the envelope's lowest point is on grade within base_tolerance_m, and on every side the envelope covers the footprint (no more than inset_tolerance_m short) and passes it by no more than max_overhang_m — a plinth, a string course or a reveal may project, a wall displaced by a metre may not.",
+    "tier_scale_ratio": 0.0005,
+    "drift_rule": "Scale drift is a ratio: for each axis, the web or light tier's whole extent over the full master's, minus 1, within tier_scale_ratio (0.05%, 27 mm on Glessner's 54 m). The whole extent is the asset's own outermost geometry — the site paving at both ends of the lot, the ridge ornament on top — which no tier simplifies. The wall band's four plan faces are recorded beside it as wall_face_shift_m and NOT judged: the light tier reduces carving and surface sampling only (tools/_glessner_lod.py), so a rock-faced wall face may come in while the opposite face stays put, which is relief, not scale. Quantization on Glessner's web tiers is about 0.83 mm a step (27.19 m node scale over 32767).",
+    "uv_tolerance": 0.05,
+    "uv_rule": "Per material whose base-colour image is a library fabric, |median sqrt(UV area / surface area) * sqrt(tile_u * tile_v) - 1| <= uv_tolerance. KHR_texture_transform on top of TEXCOORD_0 is recorded, not judged: it is how a photographic plate repeats inside one metric tile.",
+    "coincident_faces_allowed_new": 0,
+    "coincident_rule": "A component built to this contract emits no coincident face. The canonical Glessner asset is PRESERVED, not rebuilt (T-1843 scope): its count is measured into the baseline as the reference, and a verdict that is not ok there names the ticket that owns it."
+  },
+  "reference": {
+    "baseline": "data/components/prairie_1904/glessner_baseline.json",
+    "structure_id": "glessner_house",
+    "why": "The canonical Glessner v4 asset is the comparison every K01 component is shown beside (ASSET-CATALOG.md § K01): its hashes, costs and measures are the fixed point a new frontage is priced and checked against."
+  }
+}

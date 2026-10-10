@@ -2437,8 +2437,10 @@ def self_test() -> int:
     # folded into Mark Noble jun.'s as the bride the Democrat prints, as Betsy Weaver's was.
     # T-2233 RESTATED IT FROM 934 TO 933: Mary Noble's card, ruled into the town, is folded
     # into George Bickerdyke's as the bride the same column prints.
+    # T-1550 RESTATED IT FROM 933 TO 932: the register's Charles Beaubien, ruled present, folds
+    # onto Charles H. Beaubien's card (C18), and his house retires with the fold.
     fires("every household the rulings file names was ruled present",
-          len(ruled_present()) == 933)
+          len(ruled_present()) == 932)
     fires("a letter-list mint is refused",
           eligibility(card(source_pass="letter_list"))[0] is False)
     fires("an evidence-only container is refused by its id",

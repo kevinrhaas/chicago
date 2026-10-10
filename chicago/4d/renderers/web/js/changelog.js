@@ -6,6 +6,23 @@ export const CHANGELOG = [ // newest first
       'The glass is the dark glass Glessner House uses in 1904: a near-black pane that reflects the sky. Chicago merchants sold window glass and ready-made sash by the box in 1833–35, so cabins have glass too. Barns and sheds stay unglazed.',
       'Store show windows are small panes, the 8×10 inch sizes the town’s merchants sold. Many cabin windows have board shutters standing open. Barn and shed doors now hang on strap hinges.',
     ] },
+  { v: 1608, ts: '2026-10-10T02:34:31.860Z', date: 'Oct 9, 2026, 9:34 PM CT', title: 'The groundwork for people in the town: one skeleton, one rulebook', kind: 'change',
+    items: [
+      'Nothing you can see changes, and no person is drawn: the town still shows no human figures, for anyone, until that rule is lifted.',
+      'Every future figure now shares one skeleton, one set of clothing slots, facial expressions and movement names. It is built once in Blender, shown first in this browser, and exportable to Unreal later. Each figure is tied to the person card it depicts and says how much of its look is evidence and how much is invented.',
+      'A figure that would need review before being shown keeps that flag, and any figure asking to be shown is refused while the no-figures rule stands.',
+    ] },
+  { v: 1607, ts: '2026-10-10T02:18:30.123Z', date: 'Oct 9, 2026, 9:18 PM CT', title: 'Prairie Avenue’s building parts get one set of measurements', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. The walls, windows, roofs and front steps of the 1904 houses still to come will now be built from one rule book. Everything is in metres, measured up from the ground.',
+      'The Glessner House was checked against that rule book. It is the right size in all three of its download sizes, and its walls stand where its floor plan says.',
+      'A few small faults turned up: hidden doubled faces in the stone trim on the Prairie Avenue front and where two roof pieces meet. They are filed to be fixed when the house is next rebuilt.',
+    ] },
+  { v: 1606, ts: '2026-10-10T01:40:14.964Z', date: 'Oct 9, 2026, 8:40 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
+    items: [
+      'Charles Beaubien, father of Susan at her baptism at St Mary\u2019s on 24 December 1834, stood in the town as a second man, with a house of his own. He is Charles H. Beaubien, the voter and violinist, now on one card. The history of Chicago names Charles H. as J. B. Beaubien\u2019s son, teaching the fort\u2019s children in 1829, and his death notice puts his birth in 1806 or 1807. No record the town holds names a second Charles Beaubien.',
+      'His second house is gone. Other households move into it and the houses they leave. Patrick Meleney now has a standing house on the South side instead of a lot south of Monroe, and Samuel Miller and the reconstructed household of Ruth Woodruff are given lots there.',
+    ] },
   { v: 1605, ts: '2026-10-10T01:25:22.744Z', date: 'Oct 9, 2026, 8:25 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
     items: [
       'Nothing you can see changes. The reconstruction\u2019s work list asked for ten more South-side family households than the town could form, after letter-list names stopped counting as households on 9 October.',
