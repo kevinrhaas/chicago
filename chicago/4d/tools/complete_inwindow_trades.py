@@ -358,16 +358,19 @@ SEATS_AT = {
 STRUCTURES = DATA / "structures"
 
 
-def structure_functions() -> dict[str, str]:
+def structure_docs() -> dict[str, dict]:
+    """Each structure's function value and the name a card prints for it."""
     out = {}
     for path in sorted(STRUCTURES.glob("*.json")):
         doc = load_json(path)
         fn = doc.get("function")
-        out[path.stem] = (fn or {}).get("value") if isinstance(fn, dict) else fn
+        out[path.stem] = {"function": (fn or {}).get("value") if isinstance(fn, dict) else fn,
+                          "name": doc.get("name") or path.stem}
     return out
 
 
-def seat(house: dict, ruling: dict, cards_by_id: dict, functions: dict) -> dict | None:
+def seat(house: dict, ruling: dict, cards_by_id: dict, functions: dict,
+         names: dict | None = None) -> dict | None:
     """The structure the lead keeper's card already puts this trade in, or nothing."""
     card = cards_by_id.get(house["keepers"][0]["household_id"]) or {}
     works = work_row(card) or {}
@@ -378,6 +381,7 @@ def seat(house: dict, ruling: dict, cards_by_id: dict, functions: dict) -> dict 
     if functions.get(sid) not in allowed:
         return None
     return {"structure_id": sid, "function": functions.get(sid),
+            "name": (names or {}).get(sid) or sid,
             "confidence": works.get("tier"),
             "sources": sorted({works.get("source_id"), *(works.get("also_sources") or [])} - {None})}
 
@@ -387,6 +391,10 @@ WORDS = {"forwarding_and_commission": "forwarding and commission merchant"}
 
 def _phrase(occupation: str) -> str:
     return WORDS.get(occupation, occupation.replace("_", " "))
+
+
+def _a(noun: str) -> str:
+    return ("an " if noun[:1] in "aeiou" else "a ") + noun
 
 
 def _location(seated: dict | None, house: dict) -> dict:
@@ -417,15 +425,18 @@ def _location(seated: dict | None, house: dict) -> dict:
         "to": None,
         "tier": "inferred",
         "basis": (
-            "THE KEEPER'S CARD ALREADY PUTS THIS TRADE IN THIS ROOF. %s carries "
-            "`works_at: %s` at %s on %s, and that structure's own committed `function` reads "
-            "`%s` — the term this trade's premises ruling names. A `works_at` that named a "
-            "roof of another function would be a BUILT-BY link rather than a workplace and is "
-            "refused here. The tier is capped at `inferred` because the house itself is an "
-            "inference: it is the firm, not the roof, that no source prints."
-            % (house["keepers"][0]["household_id"], seated["structure_id"],
-               seated["confidence"] or "an ungraded link",
-               ", ".join(seated["sources"]) or "the card's own reading", seated["function"])),
+            "THE KEEPER'S CARD ALREADY PUTS THIS TRADE IN THIS ROOF. %s's household card "
+            "(%s) gives %s as its workplace, graded %s on %s, and the town records that "
+            "building as %s — "
+            "the kind of roof this trade's premises ruling names. A workplace that named a "
+            "roof of another kind would be a building the keeper built rather than the one "
+            "the trade was kept in, and is refused here. The tier is capped at inferred "
+            "because the house itself is an inference: it is the firm, not the roof, that "
+            "no source prints."
+            % (house["keepers"][0]["name"], house["keepers"][0]["household_id"],
+               seated["name"], seated["confidence"] or "ungraded",
+               ", ".join(seated["sources"]) or "the card's own reading",
+               _a((seated["function"] or "building").replace("_", " ")))),
     }
 
 
@@ -600,12 +611,14 @@ def derive() -> tuple[dict, list[dict], dict]:
     state = candidates(ruled, linked, unlinked, identity_holds())
     communities = person_communities()
     cards_by_id = {card["id"]: card for _, card in cards()}
-    functions = structure_functions()
+    docs = structure_docs()
+    functions = {sid: d["function"] for sid, d in docs.items()}
+    names = {sid: d["name"] for sid, d in docs.items()}
     built = []
     for house in houses(state["raise"]):
         ruling = ruled[house["occupation"]]
         built.append(record(house, ruled, communities,
-                            seat(house, ruling, cards_by_id, functions)))
+                            seat(house, ruling, cards_by_id, functions, names)))
     ids = [d["id"] for d in built]
     if len(set(ids)) != len(ids):
         raise Fault("two raised houses share an id: %s"
@@ -764,9 +777,14 @@ def self_test() -> int:
     assert got and got["function"] == "tavern_inn", \
         "a hotel keeper was refused a roof the town records as a tavern_inn"
     assert _location(None, house)["kind"] == "unplaceable", "an unseated house was not unplaceable"
+    got = seat(house, inn, cards_by_id, {"western_hotel": "tavern_inn"},
+               {"western_hotel": "The Western Hotel"})
+    said = _location(got, house)["basis"]
+    assert "The Western Hotel" in said and "works_at" not in said and "`" not in said, \
+        "a premises sentence quoted a field name instead of the building's own name (T-2283)"
     print("  held: the seating rule takes a workplace link and refuses a built-by one")
 
-    print("%d guards fired, 11 assertions held." % len(fired))
+    print("%d guards fired, 12 assertions held." % len(fired))
     return 0
 
 

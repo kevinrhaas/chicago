@@ -134,6 +134,16 @@ later tickets would otherwise each make for themselves.
   for T-1787 to measure rather than guessed here. No review record exists yet, so a
   review_required person cannot be shown even after L1 lifts.
 
+## T-2285 — the waiting families' share goes on to the cells still short (2026-10-10)
+
+T-2256 spread the 23 families waiting on a roof over the three family_dwelling rows pro rata
+and capped each share at its row's shortfall, so the South's 12 discharged its 10 and two
+families discharged nothing while the North and West stood short. `waiting_families_ruling`
+now spreads a share past its row's shortfall on over the rows still short (pro rata on
+their targets, until it is spent): all 23 discharge, North 7 / South 10 / West 6, and the
+North owes 1 and the West 9. T-2279 was split: **T-2286** owns those ten, measured: no held
+head, waiting family or household beyond the index is left to fill them.
+
 ## T-2255 — the off-plat deal reads the letter-list ruling (2026-10-09)
 
 T-1645 made the platted deal owe the letter-list cohort (T-0379) and hand it on;
