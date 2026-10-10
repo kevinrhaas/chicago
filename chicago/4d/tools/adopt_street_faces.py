@@ -300,6 +300,7 @@ from compile_gazetteer import (  # noqa: E402  — the identity policy has one h
 # gates that reading on every commit; this pass only asks it a question it had never
 # been asked.
 from normalise_structure_function import TRADE_BANDS  # noqa: E402
+from associations import home_of  # noqa: E402
 
 DATA = ROOT / "data"
 REGISTER = DATA / "research" / "newspapers" / "register_1835.json"
@@ -570,7 +571,7 @@ def named_dwellings() -> dict[str, list[str]]:
     out: dict[str, list[str]] = {}
     for path in sorted(HOUSEHOLDS.glob("*.json")):
         doc = load(path)
-        at = (doc.get("lives_at") or {}).get("value")
+        at = home_of(doc)
         if isinstance(at, str) and at:
             out.setdefault(at, []).append(doc["id"])
     return out
