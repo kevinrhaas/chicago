@@ -53,6 +53,7 @@ import struct
 from pathlib import Path
 
 from . import k03_brick
+from . import k09_frontage
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
@@ -113,6 +114,8 @@ MATERIALS = {
     "blind": {"color": (0.80, 0.74, 0.60), "roughness": 0.95},
     "curtain": {"color": (0.42, 0.16, 0.13), "roughness": 0.9},
     "door_leaf": {"color": (0.29, 0.17, 0.085), "roughness": 0.62},
+    # T-2310: the K09 kit's carving (capital leaves) apart from its dressed trim
+    "carved_trim": {"fabric": "limestone", "color": (0.97, 0.94, 0.87), "roughness": 0.88},
     "fascia": {"color": (0.27, 0.24, 0.20), "roughness": 0.7},
     # T-2293: the K04 roof. The covering's fabric is the record's (roof_covering), so
     # this entry's is only a default; flashing and rainwater are named by fabric.
@@ -211,6 +214,7 @@ class Assembly:
         if params.roof:
             self.fabric["slate_covering"] = params.roof["covering"]
         self.soffit_m = None   # set by build(); the soot band hangs from it
+        self.trim_triangles: dict[str, int] = {}   # T-2310: K09 trim, per kit id
 
     def prim(self, name):
         if name not in self.prims:
@@ -337,7 +341,9 @@ class Assembly:
             else:
                 k03_brick.soldier_head(self, seed, frame, s0, s1, y1, conf)
             return
-        # a flat lintel over every opening
+        # T-2310: a K09 head where the record names one; else a flat lintel
+        if k09_frontage.dress(self, op, frame, max(conf, p.conf("street_front_trim"))):
+            return
         self.proud_box(stone_trim, frame, s0 - 0.12, s1 + 0.12, y1, y1 + 0.30, 0.03, seed, conf)
 
     # -- K06 glazing (T-2298) ------------------------------------------------------------
@@ -368,7 +374,12 @@ class Assembly:
     def glaze(self, op, frame, body_mat, stone_trim, seed, conf):
         from . import k06_windows
         O, R, N = frame
-        o = k06_windows.Opening(self.kit_variant(op), self._kit)
+        # T-2310: under a K09 architrave the sill's horns run past its outer edge, so the
+        # architrave's open feet stand on the sill and never hang over the wall
+        kit, reach = self._kit, k09_frontage.sill_reach(self.p, op)
+        if reach > kit["parts"]["sill"]["horn_m"]:
+            kit = dict(kit, parts=dict(kit["parts"], sill=dict(kit["parts"]["sill"], horn_m=reach)))
+        o = k06_windows.Opening(self.kit_variant(op), kit)
         o.seed = seed                      # the blind's drop follows this instance, not the kit's
         o.build()
         # K06's frame: +X along the wall, +Y up, +Z out of it, the origin at the sill socket

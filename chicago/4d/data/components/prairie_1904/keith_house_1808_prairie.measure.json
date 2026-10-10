@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 2532844,
-      "sha256": "e401a60763f8e8399857e8edc19e1e1d46c906c854048d7d49b7732d97b6acd8",
+      "bytes": 3398276,
+      "sha256": "92cddf6d32dfbd7793c5f8b836a7ac8ea0e940afac185ff6ea865d094ab2df68",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -17,10 +17,10 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 19,
-        "materials": 19,
-        "triangles": 14445,
-        "vertices": 31487
+        "draw_primitives": 20,
+        "materials": 20,
+        "triangles": 25309,
+        "vertices": 53645
       },
       "texture": {
         "images": 8,
@@ -49,7 +49,7 @@
           -10.4
         ],
         "max": [
-          18.05,
+          18.235,
           5.5,
           0.05
         ]
@@ -117,6 +117,15 @@
             1
           ],
           "uv_per_m_times_tile_m": 1
+        },
+        "carved_trim": {
+          "median_uv_per_m": 0.8332,
+          "fabric": "limestone",
+          "tile_m": [
+            1.2,
+            1.2
+          ],
+          "uv_per_m_times_tile_m": 0.9998
         },
         "curtain": {
           "median_uv_per_m": 1
@@ -204,7 +213,7 @@
         },
         "overhang_m": {
           "west": 0.05,
-          "east": 0.05,
+          "east": 0.235,
           "north": 0,
           "south": 0.05
         },
@@ -214,8 +223,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 963756,
-      "sha256": "8610adfb6882ee46e4f6805ca853194f14272f9b6eb5b0c54c444a760a49e37c",
+      "bytes": 1209424,
+      "sha256": "bc2f1fe1f1ac427145b89a963531b154cf025f6cbf4b5c53cc0c6c59231cc898",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -231,10 +240,10 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 19,
-        "materials": 19,
-        "triangles": 14445,
-        "vertices": 28570
+        "draw_primitives": 20,
+        "materials": 20,
+        "triangles": 25309,
+        "vertices": 49978
       },
       "texture": {
         "images": 8,
@@ -263,7 +272,7 @@
           -10.4005
         ],
         "max": [
-          18.0497,
+          18.235,
           5.4996,
           0.0498
         ]
@@ -326,6 +335,15 @@
           ],
           "uv_per_m_times_tile_m": 0.9951
         },
+        "carved_trim": {
+          "median_uv_per_m": 0.8293,
+          "fabric": "limestone",
+          "tile_m": [
+            1.2,
+            1.2
+          ],
+          "uv_per_m_times_tile_m": 0.9951
+        },
         "dormer_stone": {
           "median_uv_per_m": 0.8336,
           "fabric": "limestone",
@@ -345,13 +363,13 @@
           "uv_per_m_times_tile_m": 0.9929
         },
         "limestone_trim": {
-          "median_uv_per_m": 0.8331,
+          "median_uv_per_m": 0.8327,
           "fabric": "limestone",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 0.9997
+          "uv_per_m_times_tile_m": 0.9993
         },
         "rough_stone_trim": {
           "median_uv_per_m": 0.8335,
@@ -394,7 +412,7 @@
         },
         "overhang_m": {
           "west": 0.0505,
-          "east": 0.0497,
+          "east": 0.235,
           "north": 0.0005,
           "south": 0.0498
         },
@@ -416,7 +434,7 @@
           ],
           "wall_face_shift_m": [
             -0.0005,
-            -0.0003,
+            0,
             -0.0005,
             -0.0002
           ],

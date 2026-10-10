@@ -102,6 +102,7 @@ class K01FrontageParams:
     # T-2298: the K06 variant each K01 opening kind is glazed with (k06_windows.json)
     window_kit: dict = field(default_factory=dict)
     service_wall_brick: str = ""      # the K03 panel the brick walls wear (T-2291)
+    street_front_trim: dict = field(default_factory=dict)   # K09 heads, entrance, aprons (T-2310)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -135,6 +136,7 @@ CONSUMED = frozenset({
     "eave_overhang_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m",
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
     "basement_lights", "roof_covering", "dormer", "rainwater", "window_kit", "service_wall_brick",
+    "street_front_trim",
 })
 
 WALLS = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south")
@@ -371,6 +373,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         basement_sill_m=bsill, openings=tuple(openings), service_wall_brick=panel,
         roof=k04, dormer=dormer, rainwater=rainwater,
         window_kit={k: kit[k] for k in sorted(kit)},
+        street_front_trim=dict(val("street_front_trim", {}) or {}),
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )
