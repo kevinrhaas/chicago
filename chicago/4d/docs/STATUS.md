@@ -17,6 +17,38 @@ block that stands in for the wing.
   published app, with zero errors. The kit gate now holds every scene conservatory to its rules.
   Costs are in `docs/RESEARCH/k13-pullman-bay-2306/README.md`.
 
+## T-2289 — K02 stone at 1808 Prairie: a rock-faced front laid round the kits (2026-10-10)
+
+**Visible.** In the 1904 scene the street front of the 1808 Prairie house beside Glessner's is no
+longer one flat face. It is rock-faced Lemont limestone laid in courses, every stone its own size
+and its own window of the fabric, with recessed joints, bevelled arrises and the odd chipped corner.
+A rusticated base of two channel-jointed courses runs under a weathered coping, two dressed belts
+cross the front, the area light and the third-floor windows carry flat arches of radiating
+voussoirs, and on the south corner the quoins return into the brick, long and short in turn.
+
+- **Laid round the kits, not over them.** This was first built (#636) on a front that had no K06,
+  K07, K08 or K09 work yet, and it laid its own slip sills and flat arches over every opening. It
+  has been rebuilt on the front as it now stands: K06 keeps every sill, K09 every head it names
+  (the principal floor's surround and apron, the second floor's hoods, the ringed entrance), K07
+  the stoop and K08 the bow. Each kit notes the extent of what it seats on the wall, and the course
+  under it is dressed smooth and flush, so nothing stands on a rock face; K02 builds only the
+  walling, base, coping, belts, quoins and the flat arches K09 leaves to it.
+- **Data, not pixels.** The record names the fabric, dressing, trim, base courses and bonded corner
+  (`form.stone_front`). `k01_frontage_params._k02` resolves every course height, block length,
+  joint, recess, bevel, chip, projection, return, channel and fall from `k02_stone_profiles.json`
+  into the mesh's input hash, and refuses a fabric that is not coursed ashlar, a base outside the
+  profile's course count, a bonded north corner and a base that does not finish on the area
+  lights' heads.
+- **Measured.** `keith_house_1808_prairie.measure.json`: every verdict ok on both tiers, **0
+  coincident and 0 degenerate faces**, metric UV x tile 1.000 full for Lemont, dressed trim and
+  mortar (0.998 / 0.997 / 1.000 web). `k01_contract.mjs` now reads the K02 tiles. 30,828 → 40,418
+  triangles, 25 → 26 primitives (the mortar), web tier 1,223 → 1,941 KB.
+- **Not done, said.** Chips are kept only where they stay in front of the joint's floor (47 on 214
+  rock-faced stones, at corners only); trim's 1-3 mm chips are not built; a dressed seat runs a
+  whole course high; the K08 bow keeps Glessner's limestone rather than Lemont. The stone is a
+  working interpretation: the register reads "rock-faced" and names no stone. The real Keith/Field
+  front (bay, loggia, parapet) is T-1882's (`docs/LIBERTIES.md` L-k02-1808-stone-2289).
+
 ## T-2302 — the 1808 Prairie roof rebuilt from the K05 kit, with two chimneys (2026-10-10)
 
 **Visible.** In the 1904 scene, 1808 Prairie's roof is one closed solid built by the K05 kit

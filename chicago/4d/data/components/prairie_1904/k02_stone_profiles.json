@@ -6,7 +6,7 @@
   "programme": "T-1837",
   "contract": "data/components/prairie_1904/k01_contract.json",
   "library": "assets/textures/prairie_1904_stone/manifest.json",
-  "status": "Declared with its library, not yet laid by any component. T-2289 builds the first K02 masonry from these numbers on the 1808 Prairie exemplar; until then nothing in the scene reads this file.",
+  "status": "Laid. T-2289 built the first K02 masonry from these numbers: the 1808 Prairie exemplar's street front (data/structures/keith_house_1808_prairie.json form.stone_front), resolved by generators/archetypes/k01_frontage_params.py _k02, which refuses a value outside them.",
   "rule": "The maps carry what lies inside one stone's face. Everything at the scale of a stone (its course, its joint, its arris, its chips, its rock-faced projection) is GEOMETRY a component builds from the numbers below, in metres, in the K01 component frame. The one exception is random rubble, which has no courses to build and carries its pattern in its map (pattern_in_map).",
   "tier": "reconstructed",
   "liberty": "L-k02-stone-library-2288",

@@ -39,8 +39,9 @@ programme's walls, trim and foundations, built by one deterministic script,
 
 **Nothing.** Which building wears which stone is its structure record's to say, at its own tier;
 the colour, grain and dressing of every map, and every number in the profiles, is ours
-(`docs/LIBERTIES.md` L-k02-stone-library-2288). Nothing in the 1904 scene binds these maps yet:
-T-2289 lays them on the 1808 Prairie exemplar.
+(`docs/LIBERTIES.md` L-k02-stone-library-2288). The 1904 scene binds them on the 1808 Prairie
+exemplar's street front (T-2289, `docs/RESEARCH/k02-1808-stone-2289/README.md`): Lemont rock-faced
+walling and dressed trim, their web base colour and OpenGL normal maps.
 
 ## Seeing them
 

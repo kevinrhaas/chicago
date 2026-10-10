@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 470,
+  "count": 472,
   "liberties": [
     {
       "id": "L1",
@@ -29133,6 +29133,37 @@
       ]
     },
     {
+      "id": "L-k12-coach-house-kit-2320",
+      "title": "The Prairie coach-house kit: every coach house, stable fitting and service wing reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 Prairie programme's alley buildings (package K12, T-2320) are built by `generators/archetypes/k12_coach_house.py` from `data/components/prairie_1904/k12_coach_house.json`, whose one variant is a two-storey brick coach house on an alley: a carriage bay with a pair of boarded leaves on strap hinges under a boarded head panel and a segmental brick ring, a man door, four-light stable sash, a loft hatch under a hoist beam with its hook, a party wall on the lot line that rises above the gable roof and returns past both eaves under a stone coping, an external stair with a landing up to a loft door on the open gable, a cleated ramp between retaining walls down to a basement door, a one-storey lean-to with a two-leaf stable door, and a flat-roofed connecting wing from the coach house to the house's rear wall. Every wall is a solid with its openings cut through it; every piece stands on or passes through what carries it; none is a texture. **What is invented.** Every dimension and every arrangement: the 9.0 by 6.6 m plan, the 3.6 m carriage room and 2.7 m loft, the 40 degree roof and its eaves and verge, the 13- and 9-inch walls, the 1.8 m basement, the party wall's 0.45 m parapet and 0.5 m returns and its coping section, the carriage bay's 3.0 m clear width (range 2.7-3.6 m), its 0.35 m rise and two-rowlock ring, the leaves, straps and their heights, the hatch and the hoist beam's section and reach, the sash's bars and lights, every sill and lintel, the ramp's 1 in 4 grade, width, landing, curbs and cleats, the stair's 0.20 m risers, 0.24 m goings, stringers, landing, posts and rails, the lean-to's 20 degree pitch and the wing's plan and height, and where every opening sits on every wall. The parts follow the study's asset catalog (K12: \"one/two-storey brick/frame/mixed service buildings, hay/loft doors, carriage bays, sash, roof ventilator only when supported, ramps, lean-tos and connecting wings\"), which is the study's reading of its images and not a source record here; the forms are the ordinary ones of a horse-drawn coach house and copy no named building. **What is not.** Nothing in the kit is attested, and no lot carries it yet (T-2321 builds the first K12 coach house or wing behind a named house). It builds no roof ventilator, because no source here shows one (the data's `ventilator_needs_evidence` restriction, which the generator enforces), and it reads no 1911 garage or auto label as 1904 use (`no_1911_use_labels`). Glessner's stable is its own canonical asset and is not touched (`never_replaces_landmark`)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a lot's own photograph, plan, fire-insurance sheet or building permit shows its coach house's size, storeys, openings, roof or wing, and that lot takes it in place of the kit's working arrangement; a period stable-builder's or architect's pattern book replaces a part's sizes for every lot at once."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2320 (piece 1 of T-1854, K12)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k12-coach-house-kit/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2320)."
+        }
+      ]
+    },
+    {
       "id": "L-k14-condition-kit-2324",
       "title": "The Prairie condition kit: every age, stain, trail, plume, worn path and lawn edge reconstructed",
       "section": "per_subject",
@@ -29160,6 +29191,50 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2324)."
+        }
+      ]
+    },
+    {
+      "id": "L-k02-1808-stone-2289",
+      "title": "The 1808 Prairie stone front: Lemont limestone in rock-faced courses round the kits, its base, coping, quoins and flat arches, all reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.stone_front"
+        }
+      ],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Lay the street front of the 1808 Prairie K01 frontage (L-k01-1808-frontage-2266) as K02 coursed ashlar from the stone library (L-k02-stone-library-2288) instead of one flat face: rock-faced Lemont limestone in 35 courses (two of them a rusticated base of 0.41 m courses, channel-jointed 18 x 12 mm, under a 0.23 m weathered coping whose top is the area lights' head line), cut into stones of 0.40-1.20 m with 10 mm joints recessed 5 mm, an 8 mm bevelled arris and a rock face standing 0-25 mm proud; two belts of dressed trim 0.05 m proud; a flat arch of voussoirs over each opening the record's `street_front_trim` leaves a flat head (the area light and the three third-floor windows); and quoins returning on the south corner, alternately long (0.48-0.59 m) and short (0.25-0.30 m). The kits that had dressed this front before the stone was laid keep what they build: the K06 sills (L-k06-1808-windows-2298), the K09 surrounds, hoods, apron and ringed entrance (T-2310), the K07 stoop (T-2304) and the K08 bow (T-2308). Every piece one of them seats on the wall is noted with its extent, and the course under it is laid in dressed stone, smooth and flush, so no sill, console, colonnette or bay junction stands on a rock face. Every course height, length, joint, recess, bevel, chip, projection, return, channel and fall is the K02 profile's, resolved by `k01_frontage_params._k02` and refused outside it. **What is invented.** The stone. The T-1837 register reads a \"rock-faced\" stone front from the Inland Architect plate of February 1888 and names no stone, so Lemont limestone — Chicago's own quarry stone and the library's pale coursed walling — is a working interpretation, not a reading; a brownstone or Bedford front is as possible. The course lines are struck on this assembly's own base, sill beds, heads, flat-arch tops and belts, which are K01 reconstructions, so the coursing is too. What this assembly adds to the profiles is its own: the flat arch (a 0.12 m seat each side, 0.30 m deep, about 0.2 m voussoirs whose joints radiate from a point set by a 12 degree splay, carried over from the K01 lintel it replaces), the dressed seat under a kit piece (its extent widened by a joint and an arris, 0.023 m, and run out to the course lines), and the coping's height (0.23 m, chosen so two base courses at the profile's 0.41 m and the coping finish exactly on the area lights' heads). **Where it departs from its own profile.** Chips are drawn at the profile's rate (1.2 a metre of arris, 2-10 mm deep) but kept only where the chip's floor stays in front of the joint's 5 mm floor, so 47 survive on 214 rock-faced stones and they sit only at corners; the dressed trim's chips (1-3 mm) are not built, being at the depth of the 1 mm measure grid. Trim set in the walling takes the walling's 5 mm recess rather than its own 1 mm. A dressed seat runs a whole course high, so the smooth stone round a sill or an apron is a course deeper than the piece it carries. The K08 bow keeps its own stone (Glessner's limestone slot, not Lemont), and the walling behind it is laid in dressed stone that nothing sees. The north corner is not bonded: it stands 0.02 m from Glessner's south face, closer than a rock face projects."
+        },
+        {
+          "label": "How to resolve",
+          "text": "T-1882 and T-1883 build the actual Keith/Field front from the 1888 plate (its south curved bay, north loggia and pierced parapet), which replaces this coursing; a reading of the plate's stone, or a specification, replaces the fabric in the record's `stone_front`, and the profiles then lay it."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.stone_front`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2289 (piece 2 of T-1844, K02)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k02-1808-stone-2289/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2289)."
         }
       ]
     },
