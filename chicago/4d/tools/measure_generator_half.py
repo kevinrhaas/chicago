@@ -542,8 +542,12 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # pullman_house_1729_prairie_conservatory, which writes its glTF in pure Python
 # (generators/k13_emit.py) and so restales on none of the rows below.
 #
+# 715 -> 733 on 2026-10-10 (T-2329): the eighteen houses and alley buildings of the Prairie
+# district draft's west side (18th to 20th), which write their glTF in pure Python
+# (generators/draft_emit.py) and so restale on none of the rows below.
+#
 STATED = {
-    "assets": 715,
+    "assets": 733,
     "restales": {
         "generators/common/*.py": 713,
         "generators/common/__init__.py": 0,

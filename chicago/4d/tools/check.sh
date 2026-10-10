@@ -171,6 +171,12 @@ step "the K01 assemblies are the bytes their records build (T-2266)" \
   python3 generators/k01_emit.py --check
 step "the K13 conservatories in the scene are the bytes their records build (T-2306)" \
   python3 generators/k13_emit.py --check
+step "the Prairie district draft's records are what its rules build from the traced sheets (T-2329)" \
+  python3 tools/draft_prairie_1904.py --check
+selftest "…and the draft builder still fits rectangles inside a part, reads the notation and refuses a hand edit" \
+  python3 tools/draft_prairie_1904.py --self-test
+step "the Prairie district draft's houses are the bytes their records build (T-2329)" \
+  python3 generators/draft_emit.py --check
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
