@@ -458,6 +458,14 @@ const COVERAGE = [
   ['docs/RESEARCH/k11-ironwork-kit/', NONE, 'the K11 ironwork kit specimen and study — unpublished: check_ironwork_kit.py --check'],
   ['tools/study_k11_ironwork.mjs', NONE, 'the K11 study renderer — run by hand, by no gate'],
 
+  // T-2312. The K15 chimney kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2313 builds a house's chimneys from it, so no
+  // part draws it; tools/check_chimney_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k15_chimneys.json', NONE, 'the K15 chimney kit data — built into no scene yet: check_chimney_kit.py --check'],
+  ['generators/archetypes/k15_chimneys.py', NONE, 'the K15 chimney kit generator — imported by no scene build yet: check_chimney_kit.py --check'],
+  ['docs/RESEARCH/k15-chimney-kit/', NONE, 'the K15 chimney kit specimen and study — unpublished: check_chimney_kit.py --check'],
+  ['tools/study_k15_chimneys.mjs', NONE, 'the K15 study renderer — run by hand, by no gate'],
+
   // --- PART 14: the arrival-to-jaunt path, on a fresh context (T-2044)
   // The jaunt modules are imported lazily, the first time the Jaunts menu opens, and
   // no part before 14 opens it: until this part they were unmapped, so a one-line

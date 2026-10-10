@@ -1,4 +1,31 @@
 export const CHANGELOG = [ // newest first
+  { v: 1652, ts: '2026-10-10T16:01:16.239Z', date: 'Oct 10, 2026, 11:01 AM CT', title: '1835 opens faster: a third less to download', kind: 'improvement',
+    items: [
+      'A first visit to 1835 downloads 12.0 MB instead of 14.5 MB, in 944 requests instead of 1,615.',
+      'The building records now travel fifty to a file. A source that hundreds of buildings cite is sent once, not once per building.',
+      'Every card shows exactly what it showed before. Each record is still whole and readable at its own address.',
+    ] },
+  { v: 1651, ts: '2026-10-10T16:01:16.239Z', date: 'Oct 10, 2026, 11:01 AM CT', title: '1808 Prairie Avenue gets its carved stone trim', kind: 'feature',
+    items: [
+      'The house beside Glessner in 1904 now has a carved stone front door: a round arch of dressed stones on two columns with leafy capitals.',
+      'The principal-floor windows have moulded frames, cornices on scrolled brackets and a carved leaf panel below. The second-floor windows have cornices, and the top floor stays plain.',
+      'Every piece is real relief from the new trim kit, so it casts its own shadows. It is a careful guess, because no photograph of this house\'s carving has been read yet.',
+      'Glessner\'s own carving is untouched and still unlike anything from the kit.',
+    ] },
+  { v: 1650, ts: '2026-10-10T15:03:11.348Z', date: 'Oct 10, 2026, 10:03 AM CT', title: 'A chimney kit for Prairie Avenue: stacks, flues, pots, flashing and crickets', kind: 'feature',
+    items: [
+      'Four chimneys for the 1904 houses: a plain brick service stack, a three-flue stack on a ridge with clay pots, a dressed-stone stack, and a carved stack of the Sherman house\'s kind.',
+      'Each stack is built into its roof as one solid. The flues are real dark openings, and stepped flashing and a cricket seal where the stack meets the slates.',
+      'A lighter version of each stack keeps its exact place and height for distant views.',
+      'No house uses the kit yet; a named Prairie Avenue house is the first to get its chimneys from it.',
+    ] },
+  { v: 1649, ts: '2026-10-10T15:03:11.348Z', date: 'Oct 10, 2026, 10:03 AM CT', title: 'Slate, copper and rainwater goods on 1808 Prairie', kind: 'feature',
+    items: [
+      'The house beside the Glessner House now has a dark slate roof, laid in true-size courses.',
+      'Copper rolls cap the hips and ridge, and a dormer looks out over Prairie Avenue, with copper valleys and an apron.',
+      'A copper gutter on iron brackets runs round the eave. Five downpipes carry it to splash stones on the ground.',
+      'All of it is reconstructed: no source shows this roof, and the house\'s record says so.',
+    ] },
   { v: 1648, ts: '2026-10-10T14:30:16.688Z', date: 'Oct 10, 2026, 9:30 AM CT', title: 'A conservatory kit for Prairie Avenue: glasshouses that read as frames', kind: 'feature',
     items: [
       'Five glasshouses for the 1904 houses: a lean-to, a free-standing span house, one with a raised lantern, a curved-roof lean-to and a canted bay.',
