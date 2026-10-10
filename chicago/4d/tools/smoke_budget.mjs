@@ -463,6 +463,14 @@ const COVERAGE = [
   ['docs/RESEARCH/k11-ironwork-kit/', NONE, 'the K11 ironwork kit specimen and study — unpublished: check_ironwork_kit.py --check'],
   ['tools/study_k11_ironwork.mjs', NONE, 'the K11 study renderer — run by hand, by no gate'],
 
+  // T-2320. The K12 coach-house kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2321 puts it on a lot, so no part draws it;
+  // tools/check_coach_house_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k12_coach_house.json', NONE, 'the K12 coach-house kit data — built into no scene yet: check_coach_house_kit.py --check'],
+  ['generators/archetypes/k12_coach_house.py', NONE, 'the K12 coach-house kit generator — imported by no scene build yet: check_coach_house_kit.py --check'],
+  ['docs/RESEARCH/k12-coach-house-kit/', NONE, 'the K12 coach-house kit specimen and study — unpublished: check_coach_house_kit.py --check'],
+  ['tools/study_k12_coach_house.mjs', NONE, 'the K12 study renderer — run by hand, by no gate'],
+
   // T-2312. The K15 chimney kit is built into a specimen GLB under docs/ that nothing
   // publishes and no scene loads until T-2313 builds a house's chimneys from it, so no
   // part draws it; tools/check_chimney_kit.py gates the data, the generator and the specimen.

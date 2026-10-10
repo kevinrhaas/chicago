@@ -107,7 +107,7 @@ def _lay(a, var, frame, s_c, y_off, conf, cid):
         if piece.role in BOARD_ROLES:
             continue
         mat = ROLE_MATERIAL[piece.role]
-        tu, tv = a.tiles[MATERIALS[mat]["fabric"]]
+        tu, tv = a.tiles[a.fabric[mat]]   # the fabric the slot is bound to (K02's, T-2289)
         pr = a.prim(mat)
         base = len(pr.pos)
         m = piece.mesh
@@ -120,6 +120,9 @@ def _lay(a, var, frame, s_c, y_off, conf, cid):
             pr.tone.append(pr.tone_of(p[1]) if pr.tone_of else 1.0)
         pr.idx += [base + i for i in m.idx]
         tris += m.triangles()
+    if hasattr(a, "seat"):   # T-2289: where the pieces stand, for a coursed front to dress
+        a.seat(frame, [(s_c + q[0], y_off + q[1], q[2]) for piece in var.pieces
+                       if piece.role not in BOARD_ROLES for q in piece.mesh.pos], cid)
     a.trim_triangles[cid] = a.trim_triangles.get(cid, 0) + tris   # costed per kit id
     return tris
 
