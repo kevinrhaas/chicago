@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 1640, ts: '2026-10-10T10:17:12.437Z', date: 'Oct 10, 2026, 5:17 AM CT', title: 'A roof kit for Prairie Avenue: hips, gables, mansards, towers and dormers', kind: 'feature',
+    items: [
+      'Ten roof types for the 1904 houses: a hipped roof, a plain gable, stepped and curved parapet gables, two mansards, an octagonal spire, a cone, a cross gable and a dormer.',
+      'Each roof is built as one closed solid, so valleys and gable ends are cut exactly where the surfaces meet. No plane pokes through a gable and no cornice floats.',
+      'Eaves, verges, returns, copings and dormer cheeks are real parts, ready for slate and flashing.',
+      'No house uses the kit yet; 1808 Prairie is the first to get a roof from it.',
+    ] },
+  { v: 1639, ts: '2026-10-10T09:45:40.719Z', date: 'Oct 10, 2026, 4:45 AM CT', title: 'A cabin and a merchant\'s house finish the block south of Monroe', kind: 'feature',
+    items: [
+      'Walk south across Monroe Street on Market to the far end of the first School Section block. Its two east corners now have houses: a one-room log cabin facing Monroe and a merchant\'s frame house facing Adams.',
+      'Open them and their cards name the Vieaux household in the cabin and the Church household in the house. Both were waiting for a lot on this block.',
+      'Both are reconstructions. The state sold these lots in 1833, but no record shows what stood on them in 1835.',
+      'No household dealt a lot in the town is still waiting for its house. The two Market Street corners of the block stay open.',
+    ] },
   { v: 1638, ts: '2026-10-10T09:07:58.320Z', date: 'Oct 10, 2026, 4:07 AM CT', title: 'Wall and boardwalk grain now lines up with its relief', kind: 'fix',
     items: [
       'On every clapboard and log wall, and on the plank walks along the trading frontages, the wood\'s colour, shine and shading were drawn upside down against its raised grain, so a knot\'s dark mark and its raised bump sat in different places.',
