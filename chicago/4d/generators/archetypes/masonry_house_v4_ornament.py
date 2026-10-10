@@ -110,6 +110,11 @@ class Relief:
 
         def vertex(i,j):
             t=i/steps;v=2*j/across-1
+            # Root and tip close on the midrib. Their width floor left a row of
+            # sub-millimetre slivers there, which the K01 measure reads as
+            # coincident faces, and laid one leaf's over another's wherever
+            # blades fan from one root (T-2267).
+            if i in (0,steps):v=0
             cx,cz=centre(t)
             lobes=.80+.20*math.cos(6*math.pi*t+phase+(0 if v<0 else .5))
             half=width*.5*max(.015,math.sin(math.pi*t))**.68*lobes
@@ -130,13 +135,14 @@ class Relief:
                     cells.add((i,j))
         for i,j in sorted(cells):
             corners=[(i,j),(i+1,j),(i+1,j+1),(i,j+1)]
-            self.face([grid[k] for k in corners])
+            pts=[grid[k] for k in corners]
+            self.face([p for n,p in enumerate(pts) if p!=pts[n-1]])
             # Close outer edges and the negative eye: no paper-thin leaves.
             for a,c,other in [(corners[0],corners[1],(i,j-1)),
                               (corners[1],corners[2],(i+1,j)),
                               (corners[2],corners[3],(i,j+1)),
                               (corners[3],corners[0],(i-1,j))]:
-                if other not in cells:
+                if other not in cells and grid[a]!=grid[c]:
                     p,q=grid[a],grid[c]
                     self.face([p,q,(q[0],q[1],q[2]-.010),
                                (p[0],p[1],p[2]-.010)],normal=None)

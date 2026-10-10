@@ -15471,7 +15471,7 @@ is what a release could take back from a pass that has already published its kee
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
-**Scope:** `off_plat_seats.seats[dealt]` — 99 households (73 until T-1746 raised 26 North Division dwellings south of Michigan Street, 2026-10-05, L393: the thirteen households whose platted slots stood on Kinzie's Addition's two subdivided blocks are seated here under standing roofs, and thirteen more owed North tradesmen's and labourers' households with them, the deal stepping a roof at a time down its own order) given a parcel of the committed
+**Scope:** `off_plat_seats.seats[dealt]` — 95 households (99 until T-2255 made this deal read the owner's letter-list ruling of 2026-08-30 (T-0379) before it deals, as T-1645 made the platted deal read it, 2026-10-09: the 69 letter-list households it had seated are owed with the platted deal's own `refused_by` and reason (773 rows owed so in all), their roofs go to the next rows of their clauses' order, and 65 households handed on until then are seated, 47 North and 18 West; all 30 households seated before stay seated, 28 of them under another roof, because no off-plat roof carries its household back as a platted roof does (T-1638). Two rules the ruling exposed are stated in the tool: the two West labourers the farmstead rule passes over, hh_lloyd_alexander and hh_murray_alonzo, take the best cabin left free once every row is dealt (recon_1835_west_028 and recon_1835_west_027), which moves nobody; and in the West the farm clause takes a farmstead or nothing, because the bare cabins the letter-list labourers had filled are labourers' and a farm household under one is no farmstead (T-1794). So four West cabins — recon_1835_west_001, _011, _013 and _026 — stand unspent, each with the count of the households its clauses admit and why none of them is left to take it; 73 until T-1746 raised 26 North Division dwellings south of Michigan Street, 2026-10-05, L393: the thirteen households whose platted slots stood on Kinzie's Addition's two subdivided blocks are seated here under standing roofs, and thirteen more owed North tradesmen's and labourers' households with them, the deal stepping a roof at a time down its own order) given a parcel of the committed
 ground the plat's own lot ledger does not draw, in
 `data/reconstruction/1835_off_plat_seats.json` beside the 1,302 written refusals,
 re-derived by `tools/seat_off_plat_ground_1835.py --build` and gated by its `--check`.
@@ -22620,6 +22620,42 @@ Mark Beaubien's house elsewhere in July 1835 retires the keeper seating, not the
 **Ticket:** T-2196 (of T-1957).
 **Related:** **L410**, **L409**, **L270**, **L252**, **L90**.
 **Recorded:** 2026-10-09 (T-2196).
+
+### L414 — Signboards lettered in period faces, gilt in leaf, dark grounds sanded and bare boards carved
+
+**Applies to:** every board and painted name drawn by `renderers/web/js/signage.js` from
+`data/signage/town_business_signboards.json`.
+
+**What we invented:** the lettering's look. The four letterforms the record names (`style.face`)
+are now drawn in four self-hosted revivals of the period's own faces (renderers/web/fonts/LICENSE.md):
+the signwriter's roman in Old Standard TT bold, the fat face in Abril Fatface, the Egyptian in Alfa
+Slab One and the grotesque in Anton. Each board mixes faces as boards of the period did: the name in
+its display letter, largest and on one line; the trade under it in Old Standard's italic (roman and fat
+face boards) or its bold capitals (Egyptian and grotesque); the place in small, wide-spaced roman
+capitals; and, where the board has the room, a fine rule with a lozenge between name and trade. The two
+gold colourways are drawn as gold leaf: a burnished gradient, a fine dark outline and a dark shade, and
+the smoothest surface in the town in the roughness map. Every dark painted ground is drawn smalted
+(sanded while wet: a fine grit, matte). A hung or fixed board in the bare timber is CARVED: its letters
+are V-cut into the wood in the relief map and darkened, not painted. Painted letters stand a film's
+thickness in relief.
+
+**Why:** the owner, 2026-10-10, on Newberry & Dole's warehouse: make all signs "period correct and
+legible", lettered "in period fonts and colors correct for the sign", with "excellent texture for the
+sign if painted or on carved raw wood", laid out "so it fits and is readable and matches period signs of
+the era". The old faces were whatever a browser ships (Georgia, Courier New, Helvetica), all capitals in
+one fount. Gilding with a shade, smalted grounds and incised lettering on plain boards are all standard
+practice in American sign work of the 1830s, but no source records the lettering of any board in
+Chicago, so all of it is reconstructed.
+
+**Consequence:** the town's signs read as signwriters' work of the period, not screen type. None of it
+is evidence about any one board: which face, colours and mounting a board has is still the generator's
+rule (**L159**), and only the drawing of them changed.
+
+**How to resolve:** a description, drawing or photograph of a particular Chicago board of the 1830s
+replaces this treatment on that board: its letterform, its colours, whether it was gilt or carved.
+
+**Related:** **L159**, **L130**, **L169**.
+**Recorded:** 2026-10-10 (T-2282).
 
 ### L-glessner-west-profile-2231 — Front west gable and lower rear proportions
 

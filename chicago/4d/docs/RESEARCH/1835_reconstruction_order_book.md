@@ -8,7 +8,7 @@
 | | target | known | to reconstruct |
 |---|---:|---:|---:|
 | Persons | 2,549 | 1,418 | 1,798 |
-| Households | 645 | 165 | 435 |
+| Households | 645 | 165 | 424 |
 | Businesses (enumerated classes) | 109 | 128 | 7 |
 | Roofs | 668 | 679 | 8 |
 
@@ -23,7 +23,7 @@
 
 *T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?*
 
-Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 0. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
+Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 12. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
 
 **Verdict:** reopen T-1171 for the persons; the households are discharged
 
@@ -355,8 +355,8 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 |---|---:|---:|
 | T-1174 | 595 | 27 |
 | T-2021 | 469 | 19 |
-| T-2193 | 320 | 3 |
 | T-1347 | 309 | 24 |
+| T-2193 | 297 | 3 |
 | T-1171 | 294 | 19 |
 | T-1371 | 138 | 35 |
 | T-1533 | 26 | 5 |
@@ -399,14 +399,14 @@ The roster offers 1,786 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,424
-- seated: 319 — 314 by adopting a roof that already stands, 5 by asking for one
-- still on no ground at all: 1,105
-- of the 679 roofs the town already has, 314 now carry a reconstructed household
+- seated: 315 — 310 by adopting a roof that already stands, 5 by asking for one
+- still on no ground at all: 1,109
+- of the 679 roofs the town already has, 310 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
 | The committed plat | T-1613 | 1,424 | 220 | 215 | 5 | 1,204 |
-| The ground the plat does not draw | T-1614 | 1,204 | 99 | 99 | 0 | 1,105 |
+| The ground the plat does not draw | T-1614 | 1,204 | 95 | 95 | 0 | 1,109 |
 
 5 slot(s) on 1 block(s) — blk_school_section_tier_82. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
@@ -418,7 +418,7 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_rc_woodruff_ruth` | `blk_school_section_tier_82` | `blk_school_section_tier_82#02` | D2 | `labourer_dwellings` |
 | `hh_vieaux_susanne` | `blk_school_section_tier_82` | `blk_school_section_tier_82#07` | D2 | `labourer_dwellings` |
 
-1,105 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,109 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
@@ -578,9 +578,9 @@ The households the model wants, by kind and division.
 | `households/boarding_house/north` | 12 | 3 | 9 | 6 | T-2023 |
 | `households/boarding_house/south` | 41 | 12 | 29 | 7 | T-2023 |
 | `households/boarding_house/west` | 9 | 2 | 7 | 3 | T-2023 |
-| `households/family_dwelling/north` | 123 | 27 | 96 | 96 | T-2256 |
+| `households/family_dwelling/north` | 123 | 27 | 90 | 88 | T-2279 |
 | `households/family_dwelling/south` | 258 | 74 | 174 | 174 | T-2256 |
-| `households/family_dwelling/west` | 110 | 21 | 89 | 89 | T-2256 |
+| `households/family_dwelling/west` | 110 | 21 | 84 | 74 | T-2279 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 0 | T-2023 |
 | `households/inn_tavern/south` | 7 | 2 | 5 | 5 | T-2023 |
 | `households/inn_tavern/west` | 4 | 1 | 3 | 1 | T-2023 |
@@ -592,7 +592,7 @@ The households the model wants, by kind and division.
 
 **The store rows, ruled (T-2194).** The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged; 8 more stand a house of trade whose keeper the town places on another roof, so nobody lived over them; 4 stand a house of trade whose keeper the town holds no card for, so nobody is seated over them; and 0 are still owed: a keeper for a store roof that stands with nobody in it. BOTH. The book over-orders the store rows, by what it ordered above one household a store roof, and that is discharged here. And the index is short: the household quota counts houses off the residents index alone, so the trade households the reconstruction drew as heads of their own and seated on a roof, the readmitted and the underdocumented are outside the count. They are people the cards hold present, not an order to fill, and T-2236 forms the store households from the keepers of the houses of trade the town holds, over their own stores, rather than from anybody new; what it could not form is T-2246's.
 
-**The family rows, ruled (T-2256).** The held heads fall 10 short of the family_dwelling order. The housing deal holds 23 families present on the scene date and waiting on a roof behind the census ceiling, none of them a letter-list household, 23 with no division on the card; spread pro rata on the cells' targets, as rule 2 spreads the unplaced known, they discharge 10 and 0 are still owed. NOT A HOUSEHOLD THE TOWN LACKS. Rule 2 never orders a replacement for somebody standing in the town, and these families stand in it on their own cards: what they lack is a roof, which the remaining dwelling builds raise, and the deal seats them where the room is when they do.
+**The family rows, ruled (T-2256).** The held heads fall 33 short of the family_dwelling order. The housing deal holds 23 families present on the scene date and waiting on a roof behind the census ceiling, none of them a letter-list household, 23 with no division on the card; spread pro rata on the cells' targets, as rule 2 spreads the unplaced known, they discharge 21 and 12 are still owed. NOT A HOUSEHOLD THE TOWN LACKS. Rule 2 never orders a replacement for somebody standing in the town, and these families stand in it on their own cards: what they lack is a roof, which the remaining dwelling builds raise, and the deal seats them where the room is when they do.
 
 ## Businesses
 

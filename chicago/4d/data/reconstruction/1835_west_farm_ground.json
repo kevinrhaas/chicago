@@ -30,12 +30,12 @@
   "owed": 44,
   "seated_in_farmsteads": [
    {
-    "id": "hh_ayers_david",
+    "id": "hh_bell_william_a",
     "cabin": "recon_1835_west_054",
     "barn": "recon_1835_west_053"
    },
    {
-    "id": "hh_beegle_a",
+    "id": "hh_blake_edio_l",
     "cabin": "recon_1835_west_052",
     "barn": "recon_1835_west_055"
    }
@@ -49,7 +49,8 @@
    "T-1615": 44
   },
   "why_owed": {
-   "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule": 44
+   "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. The deal reads the ruling before it deals (T-1645), so no roof is offered to this row and the roof it would have taken goes on to the next row of its clause order": 23,
+   "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule": 21
   },
   "statement": "every one of them is `policy_only`: a name from the post office's letter lists with no address, its division dealt from the order book's household target and its class from the town model's employment distribution, whose `Agriculture` column is the farms clause. No source puts any of them on any ground — the post office served the whole country round, and a farmer who collected mail at Chicago need not have farmed inside the modelled box."
  },
