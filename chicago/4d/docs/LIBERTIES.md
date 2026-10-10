@@ -23482,6 +23482,7 @@ each bay's band sits on the front's second-floor belt. **What is not.** Nothing 
 attested. Both bays take the record's `reconstructed` tier on every vertex.
 **How to resolve:** T-1882/T-1883 build the 1888 plate's front, curved bay included, and replace the
 bow; a photograph or plan of 1808's rear replaces or removes the canted bay.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.bays`.
 **Ticket:** T-2308 (piece 2 of T-1850, K08).
 **Review:** `docs/RESEARCH/k08-1808-bays-2308/README.md`.
 **Recorded:** 2026-10-10 (T-2308).
