@@ -6,7 +6,7 @@
   "programme": "T-1837",
   "contract": "data/components/prairie_1904/k01_contract.json",
   "library": "assets/textures/prairie_1904_roofs/manifest.json",
-  "status": "Declared and generated, not yet built to. No roof in the scene binds these fabrics today; T-2293 builds the first K04 roof (slate courses, caps, valleys, an apron and the rainwater goods) on the 1808 exemplar from this file and these maps.",
+  "status": "Built to since T-2293: the 1808 Prairie exemplar (data/structures/keith_house_1808_prairie.json, generators/archetypes/k01_frontage.py) is slated in slate_pennsylvania with copper_sheet caps, valleys, apron, step flashing, gutter and pipes, every one of its dimensions read from the profiles below through generators/archetypes/k01_frontage_params.py (docs/RESEARCH/k04-1808-roof-2293/README.md).",
   "rule": "A fabric's module is DATA, here, and the map is generated from it: every coursed map's tile is a whole number of its own slates, tiles, pans or sheets (tile_m = columns x width, courses x exposure), so a K01 roof that maps TEXCOORD_0 = surface metres / tile_m registers its courses at true size and no slate is ever scaled to fit a roof. Edges, caps, valleys, aprons, gutters and pipes are GEOMETRY built from the profiles below, never painted into a covering map.",
   "slots": {
     "_doc": "The K01 roof family's material_slots, and which fabrics may fill each. covering is the roof plane; flashing every valley, apron, step and cap; rainwater the gutters, outlets, pipes and shoes (a K04 addition: the K01 contract's roof family names covering, flashing, fascia and soffit, and rainwater goods hang below its eave socket).",
