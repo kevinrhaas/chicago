@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1600, ts: '2026-10-10T00:00:19.519Z', date: 'Oct 9, 2026, 7:00 PM CT', title: 'Prairie Avenue’s building parts get one set of measurements', kind: 'change',
+  { v: 1601, ts: '2026-10-10T00:01:30.774Z', date: 'Oct 9, 2026, 7:01 PM CT', title: 'Prairie Avenue’s building parts get one set of measurements', kind: 'change',
     items: [
       'Nothing you can see changes yet. The walls, windows, roofs and front steps of the 1904 houses still to come will now be built from one rule book. Everything is in metres, measured up from the ground.',
       'The Glessner House was checked against that rule book. It is the right size in all three of its download sizes, and its walls stand where its floor plan says.',
-      'One small fault turned up: six doubled faces in the stone trim on the Prairie Avenue front. It is filed to be fixed when the house is next rebuilt.',
+      'A few small faults turned up: hidden doubled faces in the stone trim on the Prairie Avenue front and where two roof pieces meet. They are filed to be fixed when the house is next rebuilt.',
+    ] },
+  { v: 1600, ts: '2026-10-09T23:46:46.583Z', date: 'Oct 9, 2026, 6:46 PM CT', title: 'Glessner gets solid ridge caps and finished roof edges', kind: 'fix',
+    items: [
+      'Raised clay ridge caps now have solid ends and stop cleanly at chimneys and the stable cupola. Tower and dormer finials have seated moulded bases.',
+      'Layered eave edges, capped dormer hips and metal flashing give the roof more depth in close views. Full and Light retain the repaired roof shapes.',
     ] },
   { v: 1599, ts: '2026-10-09T23:18:57.259Z', date: 'Oct 9, 2026, 6:18 PM CT', title: 'Prairie Avenue’s 20th-to-22nd blocks: every 1904 building accounted for', kind: 'feature',
     items: [

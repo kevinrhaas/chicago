@@ -5,8 +5,8 @@ DERIVED — regenerate with `tools/measure_roof_id_migration.py --build`. T-1483
 T-1445 returned 32 refamily verdicts; T-1451 carried out the 6 whose record id does not encode its family. These are the other 26. Each becomes a new id the moment its family moves, and the id is named across the tree. NOTHING IS MOVED HERE: this is the measurement the three carry-out tickets (T-1481 south, T-1482 the platted blocks, T-1484 north) each stand on.
 
 - roofs whose id moves: **2**
-- files that name one: **20**
-- of those, **0** hold a reference a rename would falsify, **0** rename, **19** are re-derived by their own tool, **1** are frozen records of a past run
+- files that name one: **21**
+- of those, **0** hold a reference a rename would falsify, **1** rename, **19** are re-derived by their own tool, **1** are frozen records of a past run
 
 ## The rows that cost judgement
 
@@ -21,15 +21,16 @@ A reference is not always a pointer. These assert what the roof IS, and the verd
 
 | roof | becomes | renamed | re-derived | frozen | adjudicated |
 | --- | --- | ---: | ---: | ---: | ---: |
-| `recon_1835_blk_washington_market_a3_15` | `recon_1835_blk_washington_market_d2_15` | 0 | 18 | 1 | 0 |
-| `recon_1835_blk_washington_market_a4_12` | `recon_1835_blk_washington_market_d2_12` | 0 | 18 | 1 | 0 |
+| `recon_1835_blk_washington_market_a3_15` | `recon_1835_blk_washington_market_d2_15` | 1 | 18 | 1 | 0 |
+| `recon_1835_blk_washington_market_a4_12` | `recon_1835_blk_washington_market_d2_12` | 1 | 18 | 1 | 0 |
 
-## Renamed — 0 file(s)
+## Renamed — 1 file(s)
 
 A plain pointer at the record. The migration rewrites the string and nothing else is owed.
 
 | file | roofs | why |
 | --- | ---: | --- |
+| `docs/RESEARCH/glessner-roof-details-2205/repository-validation.log` | 2 | a plain pointer at the record |
 
 ## Re-derived — 19 file(s)
 
