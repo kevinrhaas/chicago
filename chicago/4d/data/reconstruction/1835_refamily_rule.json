@@ -75,7 +75,7 @@
         "may_change": [],
         "label": "the household stands on the ground",
         "rewrites": "nothing — the move is refused",
-        "says": "`lives_at` resolves, so a roof has been placed on a lot in a division. A bucket move would make the card and the standing roof disagree about which side of the river this person lives on."
+        "says": "The card's home row resolves, so a roof has been placed on a lot in a division. A bucket move would make the card and the standing roof disagree about which side of the river this person lives on."
       },
       {
         "id": "R_division_is_a_reading",

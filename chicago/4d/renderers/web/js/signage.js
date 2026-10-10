@@ -158,7 +158,7 @@ const WIDE_ASPECT = 3.4;   // above this a sign takes two columns
  * in one fount. The place line is small roman capitals, widely spaced, on every
  * board. Which face a board takes is still the record's (`style.face`); the
  * fonts are the renderer's, and they and the mix are reconstructed
- * (docs/LIBERTIES.md L413). If the fonts fail to load the stacks fall back to
+ * (docs/LIBERTIES.md L414). If the fonts fail to load the stacks fall back to
  * the faces the layer used before, and the layer says so on its problems list.
  */
 const ROMAN = '"Old Standard TT", Georgia, "Times New Roman", Times, serif';

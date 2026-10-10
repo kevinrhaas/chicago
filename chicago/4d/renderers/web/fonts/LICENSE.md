@@ -14,4 +14,4 @@ sign atlas by `js/signage.js` — not interface type. Latin subsets of Google Fo
 self-hosted for the same reason, every one under the SIL Open Font License 1.1: Old Standard TT
 (regular, bold, italic — the signwriter's roman and the trade line's italic), Abril Fatface (the
 fat face), Alfa Slab One (the Egyptian) and Anton (the condensed grotesque). Which period letter
-each one stands in for, and that the choice is reconstructed, is docs/LIBERTIES.md L413.
+each one stands in for, and that the choice is reconstructed, is docs/LIBERTIES.md L414.

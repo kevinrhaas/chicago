@@ -255,6 +255,8 @@ WORKS_TRADES = {
                                   "the river",
     "large_river_warehouse": "a river warehouse names its firm for the shipper "
                              "on the river",
+    "lumber_shed": "a lumber shed names its yard for the builder who buys boards "
+                   "off it",
     "carpenter_or_joiner_shop": "a joiner's shop, named on its front for the "
                                 "builder who orders from it",
     "cooper_wagon_or_wheelwright_shop": "a wright's shop, named on its front for "

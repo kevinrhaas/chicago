@@ -1,11 +1,36 @@
 export const CHANGELOG = [ // newest first
-  { v: 1611, ts: '2026-10-10T04:09:51.152Z', date: 'Oct 9, 2026, 11:09 PM CT', title: 'Every shop sign readable, in period lettering', kind: 'fix',
+  { v: 1616, ts: '2026-10-10T04:17:20.363Z', date: 'Oct 9, 2026, 11:17 PM CT', title: 'The housing and deal tools read each household’s dated places', kind: 'change',
     items: [
-      'Walk South Water Street to Franklin: Newberry & Dole\u2019s warehouse now shows its whole sign. The firm\u2019s name was hidden behind the warehouse\u2019s own boards, and so was lettering on 13 other painted fronts and shop fascias across 1835. All of them now sit in front of the wall.',
-      'Every board is lettered in faces of the 1830s: a signwriter\u2019s roman, the fat face, the slab-serif Egyptian and a condensed grotesque. The name goes largest on its own line, with the trade under it in roman italic or capitals and the street in small capitals.',
-      'Gold lettering looks like gold leaf, with a burnished shine and a dark shade. Dark boards have the sanded, matte finish painters gave them.',
-      'Plain unpainted boards have their letters carved into the wood, so the cuts catch light and shadow as you walk past.',
-      'The lettering styles are reconstructed: no record shows how any 1835 Chicago sign was lettered.',
+      'Nothing you can see changes. The tools that house the present, re-family the order book, seat street faces, replace invented names and spend the trade and premises research now take a household’s home and workplace from the dated places on its card.',
+      'Every seat, roof and ruling comes out exactly as before. The research notes now point at the dated place they read rather than the old single workplace line, which is being retired.',
+    ] },
+  { v: 1615, ts: '2026-10-10T04:10:30.121Z', date: 'Oct 9, 2026, 11:10 PM CT', title: 'The later-directory crosswalks read each household’s dated places', kind: 'change',
+    items: [
+      'Nothing you can see changes. The tools that match the 1839, 1843 and 1844 directories against the town, and the two that read a later printed address back to 1835, now take where a household lived and worked from the dated places on its card.',
+      'Every match, refusal and placement comes out exactly as before, even with the old single home and workplace lines removed from the records.',
+    ] },
+  { v: 1614, ts: '2026-10-10T03:58:17.096Z', date: 'Oct 9, 2026, 10:58 PM CT', title: 'The resident index and audits read each household’s dated places', kind: 'change',
+    items: [
+      'Nothing you can see changes. The resident index, the resident audit, the population profile, the research sign-off and the residents summary now take where a household lived and worked from the dated places on its card, the same entries its card shows you.',
+      'Every figure, row and table comes out exactly as before, even with the old single home and workplace lines removed from the records.',
+      'A card’s “no known address” reason still comes from the old line, because a place nobody can name has no dated entry to carry it. Where that wording goes is decided before the old lines retire.',
+    ] },
+  { v: 1613, ts: '2026-10-10T03:56:56.811Z', date: 'Oct 9, 2026, 10:56 PM CT', title: 'Every 1835 door is shut and every window glazed', kind: 'feature',
+    items: [
+      'Doors were black holes in the wall. Houses, taverns, stores and fort buildings now have closed panelled doors on a sill. Shops have half-glazed doors with a transom light, and cabins have board doors on iron strap hinges.',
+      'Windows were black panels with flat bars. Each now sits in a board casing with a sloped sill and a drip cap. The sash is set back so the frame casts a shadow.',
+      'The glass is the dark glass Glessner House uses in 1904: a near-black pane that reflects the sky. Chicago merchants sold window glass and ready-made sash by the box in 1833–35, so cabins have glass too. Barns and sheds stay unglazed.',
+      'Store show windows are small panes, the 8×10 inch sizes the town’s merchants sold. Many cabin windows have board shutters standing open. Barn and shed doors now hang on strap hinges.',
+    ] },
+  { v: 1612, ts: '2026-10-10T03:43:50.834Z', date: 'Oct 9, 2026, 10:43 PM CT', title: 'Release notes no longer hold up each other\'s merges', kind: 'chore',
+    items: [
+      'Nothing in the app changes. Each change now carries its release note as a file of its own, and the note joins this list after the change lands, so changes waiting to merge stop colliding on the top line of this list.',
+    ] },
+  { v: 1611, ts: '2026-10-10T03:18:31.813Z', date: 'Oct 9, 2026, 10:18 PM CT', title: 'A lumber shed on the South Branch below Washington Street', kind: 'feature',
+    items: [
+      'Walk down Market Street south of Washington and look toward the river. A long plank shed now stands on the bank, open along one side, facing the South Branch. It is the town\u2019s first lumber shed.',
+      'The Chicago Democrat shows lumber reaching Chicago by boat, from St. Joseph\u2019s sawmills and a yard on South Water Street. So the shed stands where boards would come off a schooner.',
+      'No source places this shed or names its owner. It is a reconstruction, and its card says so. It is not David Carver\u2019s yard, which the paper puts on South Water Street.',
     ] },
   { v: 1610, ts: '2026-10-10T03:02:42.351Z', date: 'Oct 9, 2026, 10:02 PM CT', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
     items: [

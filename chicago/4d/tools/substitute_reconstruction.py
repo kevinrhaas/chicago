@@ -109,6 +109,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+from associations import home_of  # noqa: E402
+
 BUSINESSES = ROOT / "data" / "businesses"
 TRADE_HEADS = ROOT / "data" / "residents" / "reconstructed_trades"
 ORDER_BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
@@ -163,6 +166,7 @@ GENERATOR_OF_PHASE = (
     ("west_freight_forks_1835", "tools/generate_west_freight.py"),
     ("west_freight_bank_1835", "tools/generate_west_freight.py"),
     ("north_freight_bank_1835", "tools/generate_north_freight.py"),
+    ("south_lumber_shed_1835", "tools/generate_south_lumber.py"),
 )
 
 # The liberties that cover EVERY reconstruction (`recon_*`, `inf_*`) state a rule for the
@@ -546,8 +550,8 @@ def plan(candidate: dict, match: dict, buckets: dict, shares: dict) -> dict:
         out["performed_by"] = "tools/reconstruct_trade_households.py --build"
         out["withdrawn_if"] = th.get("withdrawn_if")
         out["roof"] = ("none to carry: T-1199 seats these households and this card is "
-                       "not seated" if not (record.get("lives_at") or {}).get("value")
-                       else "carry %s" % record["lives_at"]["value"])
+                       "not seated" if not home_of(record)
+                       else "carry %s" % home_of(record))
         out["order_book"] = {
             "bucket": th.get("bucket"),
             "reading": "the person bucket this head was ordered out of takes the "
