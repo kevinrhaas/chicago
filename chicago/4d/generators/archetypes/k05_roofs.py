@@ -51,6 +51,16 @@ VARIANT_GAP = 4.0     # metres of ground between two variants on the specimen bo
 
 sys.setrecursionlimit(20000)
 
+
+def _fsum(xs):
+    """Left-to-right float addition. Python 3.12 made the builtin sum() compensated, so
+    it rounds differently from 3.11 (which CI runs), and the specimen must be the same
+    bytes on both."""
+    t = 0.0
+    for x in xs:
+        t += x
+    return t
+
 # Role -> material. A role is what the gate and the graph read (which part a face is);
 # a material is what a renderer binds. Fixed order: the file is the same bytes every run.
 ROLE_MATERIAL = {
@@ -274,7 +284,7 @@ def _clean2(pts, tol=1e-9):
 
 
 def _area2d(pts):
-    return sum(p[0] * q[1] - q[0] * p[1] for p, q in zip(pts, pts[1:] + pts[:1])) / 2
+    return _fsum(p[0] * q[1] - q[0] * p[1] for p, q in zip(pts, pts[1:] + pts[:1])) / 2
 
 
 def _convex2d(pts):
@@ -381,8 +391,8 @@ def ring_stack(rings, band_roles, bottom_role, top_role="covering"):
     last ring has area (an apex or a ridge closes itself)."""
     polys = []
     n = len(rings[0][1])
-    cx = sum(p[0] for p in rings[0][1]) / n
-    cz = sum(p[1] for p in rings[0][1]) / n
+    cx = _fsum(p[0] for p in rings[0][1]) / n
+    cz = _fsum(p[1] for p in rings[0][1]) / n
     y0, r0 = rings[0]
     pl = oriented([(x, y0, z) for x, z in r0], bottom_role, (0.0, -1.0, 0.0))
     if pl:
@@ -633,8 +643,8 @@ def _plan_prism(ring, y0, y1):
     pts = list(ring)
     if _area2d(pts) < 0:
         pts.reverse()
-    cx = sum(p[0] for p in pts) / len(pts)
-    cz = sum(p[1] for p in pts) / len(pts)
+    cx = _fsum(p[0] for p in pts) / len(pts)
+    cz = _fsum(p[1] for p in pts) / len(pts)
     polys = []
     for i in range(len(pts)):
         a, b = pts[i], pts[(i + 1) % len(pts)]
@@ -739,8 +749,10 @@ def close(polys, tol=1e-5):
     #    the BSP left on an edge: the two faces either side both drop it
     def straight_at(lp, k, n):
         a, b, c = pts[lp[k - 1]], pts[lp[k]], pts[lp[(k + 1) % len(lp)]]
-        x = _cross(_sub(b, a), _sub(c, b))
-        return abs(_dot(x, n)) < 1e-12 and _dot(_sub(b, a), _sub(c, b)) > 0
+        ac = _sub(c, a)
+        x = _cross(_sub(b, a), ac)
+        # within the weld tolerance of its neighbours' line, and between them
+        return _dot(x, x) <= tol * tol * _dot(ac, ac) and _dot(_sub(b, a), _sub(c, b)) > 0
     for _ in range(4):
         corner = set()
         for loops, role, n, merged in faces:
@@ -761,14 +773,14 @@ def close(polys, tol=1e-5):
     for loops, role, n, merged in faces:
         tri = []
         if merged:
-            area_in = sum(_poly_area(pts, lp, n) for lp in loops)
+            area_in = _fsum(_poly_area(pts, lp, n) for lp in loops)
             for lp in loops:
                 t = _earclip_loop(pts, lp, n)
                 if t is None:
                     tri = None
                     break
                 tri += t
-            if tri is not None and abs(area_in - sum(_poly_area(pts, t, n) for t in tri)) <= 1e-6 * max(1.0, area_in):
+            if tri is not None and abs(area_in - _fsum(_poly_area(pts, t, n) for t in tri)) <= 1e-6 * max(1.0, area_in):
                 tris += [(a, b, c, role, n) for a, b, c in tri]
                 continue
         for lp in loops:
@@ -787,7 +799,7 @@ def _fan(wd, full, pl):
                    for k in range(len(P)))
     if len(full) == 3 or not straight:
         return [(full[0], full[k], full[k + 1], pl.role, n) for k in range(1, len(full) - 1)]
-    cen = tuple(sum(q[c] for q in P) / len(P) for c in range(3))
+    cen = tuple(_fsum(q[c] for q in P) / len(P) for c in range(3))
     ci = wd.add(cen)
     out = []
     for k in range(len(full)):
@@ -855,7 +867,9 @@ def _earclip_loop(pts, loop, n):
         for k in range(len(idx)):
             i0, i1, i2 = idx[k - 1], idx[k], idx[(k + 1) % len(idx)]
             a, b, c = P[i0], P[i1], P[i2]
-            if cr(a, b, c) <= 1e-10:
+            x = cr(a, b, c)
+            # an ear thinner than the weld tolerance is a sliver, not a triangle
+            if x <= 1e-10 or x * x <= 1e-10 * ((c[0] - a[0]) ** 2 + (c[1] - a[1]) ** 2):
                 continue
             blocked = False
             for j in idx:
@@ -915,7 +929,7 @@ def graph(pts, tris, data):
             if ang < seam:
                 seams += 1
                 continue
-            c2 = tuple(sum(pts[i][k] for i in t2[:3]) / 3 for k in range(3))
+            c2 = tuple(_fsum(pts[i][k] for i in t2[:3]) / 3 for k in range(3))
             convex = _dot(n1, _sub(c2, pts[a])) < 0
             d = _sub(pts[b], pts[a])
             level = abs(d[1]) <= lvl * math.sqrt(_dot(d, d))
@@ -926,7 +940,7 @@ def graph(pts, tris, data):
                 kind = "kick" if level else "valley"
         else:
             (other, ot), ct = ((r2, t2), t1) if r1 == "covering" else ((r1, t1), t2)
-            oc = tuple(sum(pts[i][k] for i in ot[:3]) / 3 for k in range(3))
+            oc = tuple(_fsum(pts[i][k] for i in ot[:3]) / 3 for k in range(3))
             # in front of the covering's plane: the part stands on the roof; behind it,
             # the part hangs under the covering's edge (a fascia, a rake board)
             standing = _dot(_tri_normal(pts, ct), _sub(oc, pts[a])) > 1e-6
@@ -993,9 +1007,16 @@ def _shift(polys, dx):
     return [Poly([(p[0] + dx, p[1], p[2]) for p in pl.v], pl.role) for pl in polys]
 
 
+def _snap(solids):
+    """Every element vertex on a micrometre grid, so a last-ulp difference in a platform's
+    tan or cos never reaches the union, and the specimen is the same bytes everywhere."""
+    return [[Poly([tuple(round(c, 6) + 0.0 for c in p) for p in pl.v], pl.role) for pl in s] for s in solids]
+
+
 def build_variant(v: dict, data: dict, origin=(0.0, 0.0, 0.0), joined: bool = True) -> Roof:
     solids, meta = variant_solids(v, data)
-    solids = [_shift(s, origin[0]) for s in solids] if origin[0] else solids
+    solids = _snap(solids)
+    solids = _snap([_shift(s, origin[0]) for s in solids]) if origin[0] else solids
     polys = union_all(solids) if joined else [p for s in solids for p in s]
     pts, tris = close(polys)
     return Roof(v, pts, tris, meta, origin, len(solids))
@@ -1022,7 +1043,7 @@ def load() -> dict:
 
 
 def triangles(r: Roof, include_board: bool = False) -> int:
-    return sum(1 for t in r.tris if include_board or t[3] not in BOARD_ROLES)
+    return _fsum(1 for t in r.tris if include_board or t[3] not in BOARD_ROLES)
 
 
 # -- glTF ---------------------------------------------------------------------------------------------

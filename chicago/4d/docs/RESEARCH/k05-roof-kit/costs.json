@@ -1,6 +1,6 @@
 {
   "_doc": "Measured by tools/study_k05_roofs.mjs on the specimen GLB. Triangles and draw calls are exact; frame_ms is headless Chromium on a software rasteriser (SwiftShader), a relative figure for comparing kit revisions, not a device frame time.",
-  "specimen_bytes": 318692,
+  "specimen_bytes": 318736,
   "roofs": [
     {
       "id": "k05.roof.hip",
