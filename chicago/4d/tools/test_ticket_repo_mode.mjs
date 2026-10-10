@@ -54,7 +54,16 @@ function ticketText(id, title, extra = {}) {
 {
   const seed = path.join(root, 'seed');
   mkdirSync(path.join(seed, 'T-1500-1749'), { recursive: true });
-  writeFileSync(path.join(seed, 'QUEUE.md'), '# QUEUE — top is next.\n\nT-1501 — first\nT-1502 — second\nT-1503 — third\n');
+  // Two tickets parked behind T-1501: one names it alone and moves when it merges, one
+  // names more than a ticket and stays a person's call (section 3b).
+  writeFileSync(path.join(seed, 'QUEUE.md'), '# QUEUE — top is next.\n\nT-1501 — first\nT-1502 — second\nT-1503 — third\n'
+    + '\n# --- 8b. BLOCKED AND WAITING\n# BLOCKED-TECH T-1498 (opened 2026-09-20, META) — chained\n#     waits: T-1501 — the same house\n'
+    + '# BLOCKED-TECH T-1499 (opened 2026-09-20, META) — gated\n#     waits: T-1501 and a qualified runner\n');
+  mkdirSync(path.join(seed, 'T-1250-1499'), { recursive: true });
+  writeFileSync(path.join(seed, 'T-1250-1499', 'T-1498-chained.md'),
+    ticketText('T-1498', 'chained', { state: 'blocked-tech', blocked_on: 'T-1501 — the same house' }));
+  writeFileSync(path.join(seed, 'T-1250-1499', 'T-1499-gated.md'),
+    ticketText('T-1499', 'gated', { state: 'blocked-tech', blocked_on: 'T-1501 and a qualified runner' }));
   writeFileSync(path.join(seed, 'QUEUE_ORDER.md'), '# RE-RANK LEDGER\n#   2026-09-20  seeded\n');
   writeFileSync(path.join(seed, '.gitignore'), 'BOARD.md\ntickets.json\n');
   for (const [id, title] of [['T-1501', 'first'], ['T-1502', 'second'], ['T-1503', 'third']]) {
@@ -182,6 +191,18 @@ try {
   check('settle: …and takes its queue line', !/^T-1501\b/m.test(remote('QUEUE.md')));
   check('settle: a PR closed unmerged reopens its ticket with a note',
     front(after2, 'state') === 'open' && front(after2, 'pr') === 'null' && /was closed without merging/.test(after2));
+
+  console.log('3b. settle moves a chain on: a ticket blocked on the merged one takes its place');
+  const chained = remote('T-1250-1499/T-1498-chained.md');
+  const gated = remote('T-1250-1499/T-1499-gated.md');
+  const qs = remote('QUEUE.md');
+  check('settle: a ticket blocked on exactly the merged ticket reopens, with a note',
+    front(chained, 'state') === 'open' && front(chained, 'blocked_on') === 'null'
+    && /\*\*Unblocked .*\*\* T-1501 merged \(PR #41\).*The block read: T-1501 — the same house$/m.test(chained), r.stdout + chained);
+  check('…in the merged ticket\'s queue line, above the line that was below it',
+    /^T-1498 — chained\nT-1502 — second$/m.test(qs) && !/BLOCKED-TECH T-1498/.test(qs), qs);
+  check('…while one whose block names more than the ticket stays blocked and listed',
+    front(gated, 'state') === 'blocked-tech' && /BLOCKED-TECH T-1499/.test(qs) && !/^T-1499 /m.test(qs), qs);
 
   console.log('4. new tickets: the folder of 250, and a collision renumbered');
   r = tool(A, 'new', 'fourth', '--after', 'T-1502', '--by', 'loop');

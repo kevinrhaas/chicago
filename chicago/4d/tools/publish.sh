@@ -325,6 +325,12 @@ if [ -d data/sidecars ]; then
   # households slim and their reasoning beside it in households/<id>.json, which a
   # card fetches when it opens. check.sh gates the shipped form against the source.
   node tools/defer_household_notes.mjs --site "$SITE/data/sidecars"
+  # Then the boot copies (T-2315): every scene's sidecars packed against each other,
+  # so a value hundreds of records repeat — a citation, a family's reasoning — loads
+  # once at boot instead of once per record. The records themselves stay whole at their
+  # URLs; scene-loader.js reads boot/ and rehydrates. check.sh gates each boot copy back
+  # to its record.
+  node tools/pack_boot_sidecars.mjs --site "$SITE/data/sidecars"
 fi
 
 # Vegetation: the flora manifest plus every zone and palette file it names. The

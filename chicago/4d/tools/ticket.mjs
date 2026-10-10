@@ -2404,6 +2404,32 @@ function queueWriteBlockedLine(t) {
   writeFileSync(QUEUE, `${lines.join('\n')}\n`);
 }
 
+/** A SUCCESSOR TAKES ITS PREDECESSOR'S PLACE (owner, 2026-10-10: "One at a time"). Five
+ *  kit tickets that all rebuild the same house, 1808 Prairie, were open as five PRs at
+ *  once; only one could land at a time and every merge sent the other four round again.
+ *  So such work is chained: each waits as `blocked-tech` with `blocked_on: T-NNNN` (or
+ *  `T-NNNN — why`), naming the one before it. When `settle` sees that ticket's PR merge,
+ *  this reopens every ticket waiting on it in the merged ticket's own queue line, so the
+ *  chain moves on its own and keeps the place the owner ranked. Anything longer than a
+ *  bare id, such as "T-0252 shared export decision, T-1357 bundle", is a person's call
+ *  and stays blocked. Call it before the merged ticket's line is removed. */
+const SUCCESSOR_OF = /^(T-\d{4})(?:\s+—\s|\s*$)/;
+function unblockSuccessors(done, tickets) {
+  const next = tickets.filter((s) => s.state === 'blocked-tech'
+    && SUCCESSOR_OF.exec(String(s.blocked_on ?? '').trim())?.[1] === done.id);
+  for (const s of [...next].reverse()) {
+    // The block's reason often carries findings (T-2317's held the plate it must
+    // follow), and `blocked_on` is cleared here, so the note keeps it word for word.
+    const why = String(s.blocked_on).trim();
+    s.state = 'open'; s.blocked_on = null;
+    s.body = `${String(s.body ?? '').replace(/\s*$/, '')}\n\n**Unblocked ${today()}:** ${done.id} merged (PR #${done.pr}); this took its place in the queue. The block read: ${why}\n`;
+    writeTicket(s); queueDropBlockedLines(s.id);
+    if (!queueInsertAfter(s, done.id)) queueAppend(s);
+    console.log(`  ${s.id} unblocked — ${done.id} merged; it takes ${done.id}'s queue line`);
+  }
+  return next.length;
+}
+
 const DECISION_BAND = '# --- 0. WAITING ON THE OWNER — answer on Manager\'s 4D Board; runs skip these until answered';
 /** A ticket with no place in the queue (it was blocked) goes into band 0, at the very
  *  top where the owner looks first. Its `decision: pending` keeps it out of the
@@ -3910,7 +3936,9 @@ switch (cmd) {
       if (pr.merged_at) {
         t.state = 'done'; t.closed_at = pr.merged_at;
         t.closed = new Date(pr.merged_at).toLocaleDateString('en-CA', { timeZone: 'America/Chicago' });
-        writeTicket(t); queueRemove(t.id); n += 1;
+        writeTicket(t);
+        n += unblockSuccessors(t, tickets);
+        queueRemove(t.id); n += 1;
         console.log(`  ${t.id} done — PR #${t.pr} merged ${pr.merged_at}`);
         warnIfThisClosedASplit(t, loadAll());
       } else if (pr.state === 'closed') {

@@ -2594,6 +2594,18 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_cornice_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_ironwork_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_condition_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_corridor_line.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2607,6 +2619,10 @@
       "wrote_ignored": []
     },
     "tools/check_enclosure_owners.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_entrance_kit.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -2706,6 +2722,22 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_roof_library.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_window_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_roof_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_chimney_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_structure_corridors.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2731,6 +2763,18 @@
       "wrote_ignored": []
     },
     "tools/check_window_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_conservatory_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_bay_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_trim_kit.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -2867,6 +2911,10 @@
       "wrote_ignored": []
     },
     "tools/death_readings.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/pack_boot_sidecars.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -4532,6 +4580,10 @@
       "wrote_ignored": []
     },
     "tools/staffing_mint_order_1835.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/stale_derivatives.py": {
       "wrote": [],
       "wrote_ignored": []
     },
