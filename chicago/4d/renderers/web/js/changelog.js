@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', title: 'Every 1835 door is shut and every window glazed', kind: 'feature',
+    items: [
+      'Doors were black holes in the wall. Houses, taverns, stores and fort buildings now have closed panelled doors on a sill. Shops have half-glazed doors with a transom light, and cabins have board doors on iron strap hinges.',
+      'Windows were black panels with flat bars. Each now sits in a board casing with a sloped sill and a drip cap. The sash is set back so the frame casts a shadow.',
+      'The glass is the dark glass Glessner House uses in 1904: a near-black pane that reflects the sky. Chicago merchants sold window glass and ready-made sash by the box in 1833–35, so cabins have glass too. Barns and sheds stay unglazed.',
+      'Store show windows are small panes, the 8×10 inch sizes the town’s merchants sold. Many cabin windows have board shutters standing open. Barn and shed doors now hang on strap hinges.',
+    ] },
   { v: 1605, ts: '2026-10-10T01:25:22.744Z', date: 'Oct 9, 2026, 8:25 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
     items: [
       'Nothing you can see changes. The reconstruction\u2019s work list asked for ten more South-side family households than the town could form, after letter-list names stopped counting as households on 9 October.',
