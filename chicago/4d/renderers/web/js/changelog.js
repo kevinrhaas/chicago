@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1631, ts: '2026-10-10T07:26:10.419Z', date: 'Oct 10, 2026, 2:26 AM CT', title: 'Prairie Avenue\'s streets are lit the right way up', kind: 'fix',
+    items: [
+      'Walk the 1904 Prairie Avenue scene and look along a street at a low sun. Asphalt grain, macadam ruts, brick joints, the walk\'s block joints and the curbstones\' edges now catch the light on the side facing it.',
+      'Before, every street surface had its relief flipped across the street, so a rut could read as a ridge. The surface maps were drawn in the wrong convention for the viewer. They are now redrawn, and the check fails if any map flips again.',
+    ] },
   { v: 1630, ts: '2026-10-10T07:10:33.210Z', date: 'Oct 10, 2026, 2:10 AM CT', title: 'Six building stones prepared for Prairie Avenue\'s houses', kind: 'add',
     items: [
       'Nothing you can see changes yet: no house in 1904 wears these stones until the next step lays them on 1808 Prairie, Glessner\'s neighbour.',
