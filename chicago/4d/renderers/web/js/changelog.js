@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'The tools that seat the town read each household\u2019s dated places', kind: 'change',
+  { v: 1603, ts: '2026-10-10T00:47:59.621Z', date: 'Oct 9, 2026, 7:47 PM CT', title: 'The tools that seat the town read each household\u2019s dated places', kind: 'change',
     items: [
       'Nothing you can see changes. The tools that give households their houses, deal the empty roofs, audit the town and count its census now read where a household lived and worked from the dated places on its card, the same entries its card shows you.',
       'Every seat, count and census figure comes out exactly as before, even with the old single home and workplace lines removed from the records, which is what lets those lines be retired next.',
