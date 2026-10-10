@@ -24,8 +24,11 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
                             planes, glass, blind, curtain edges and an enclosed dark
                             room, a stone sill with its drip; and a flat lintel
   k01.opening.area_light    the basement lights: K06's three-light fixed area light
-  k01.opening.door_leaf     reveal, threshold and a recessed oak leaf
-  k01.stair.straight_stoop  whole risers from the walk to the principal floor
+  k01.opening.door_leaf     a K07 entrance (T-2304): reveal, threshold, frame, a
+                            four-panel leaf with its knob, a two-light transom with
+                            the dark hall behind it; and a flat lintel
+  k01.stair.straight_stoop  K07's straight stoop: whole equal risers from grade to the
+                            threshold between cheek walls, clear of the public walk
   k01.roof.hip              four planes on true hips, fascia and soffit; since
                             T-2293 slated from the K04 library (courses registered
                             at the eave, a cut edge and its underside), copper
@@ -56,6 +59,7 @@ import struct
 from pathlib import Path
 
 from . import k03_brick
+from . import k09_frontage
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
@@ -116,6 +120,10 @@ MATERIALS = {
     "blind": {"color": (0.80, 0.74, 0.60), "roughness": 0.95},
     "curtain": {"color": (0.42, 0.16, 0.13), "roughness": 0.9},
     "door_leaf": {"color": (0.29, 0.17, 0.085), "roughness": 0.62},
+    # T-2304: K07's hardware (k07_entrances.json parts.hardware): the knob on its rose
+    "door_iron": {"color": (0.17, 0.16, 0.15), "roughness": 0.45},
+    # T-2310: the K09 kit's carving (capital leaves) apart from its dressed trim
+    "carved_trim": {"fabric": "limestone", "color": (0.97, 0.94, 0.87), "roughness": 0.88},
     "fascia": {"color": (0.27, 0.24, 0.20), "roughness": 0.7},
     # T-2293: the K04 roof. The covering's fabric is the record's (roof_covering), so
     # this entry's is only a default; flashing and rainwater are named by fabric.
@@ -238,6 +246,7 @@ class Assembly:
         if params.roof:
             self.fabric["slate_covering"] = params.roof["covering"]
         self.soffit_m = None   # set by build(); the soot band hangs from it
+        self.trim_triangles: dict[str, int] = {}   # T-2310: K09 trim, per kit id
 
     def prim(self, name):
         if name not in self.prims:
@@ -331,10 +340,12 @@ class Assembly:
         door = op.component == "k01.opening.door_leaf"
         if MATERIALS[body_mat].get("courses"):
             conf = max(conf, p.conf("service_wall_brick"))
-        recess = 0.22 if door else self.kit_reveal(op)
+        recess = self.door_reveal() if door else self.kit_reveal(op)
         params = {"clear_width_m": op.width_m, "clear_height_m": op.height_m, "reveal_m": recess,
                   "wall": op.wall}
-        if not door:
+        if door:
+            params["k07_variant"] = p.entrance_kit["variant"]
+        else:
             params["k06_variant"] = p.window_kit[op.component]["variant"]
         seed = self.instance(op.component, "opening", params,
                              {"sill": P(op.s_m, y0, 0), "head": P(op.s_m, y1, 0),
@@ -344,17 +355,8 @@ class Assembly:
             # blind, curtain and an enclosed room — built about this hole's sill socket
             self.glaze(op, frame, body_mat, stone_trim, seed, conf)
         else:
-            # the reveal, in the wall's own body
-            pr = self.prim(body_mat)
-            bj = self.basis(body_mat, O, N, Y, seed)
-            bh = self.basis(body_mat, O, R, N, seed)
-            pr.face([P(s0, y0, 0), P(s0, y0, -recess), P(s0, y1, -recess), P(s0, y1, 0)], R, bj, conf)
-            pr.face([P(s1, y0, 0), P(s1, y0, -recess), P(s1, y1, -recess), P(s1, y1, 0)], _mul(R, -1), bj, conf)
-            pr.face([P(s0, y1, 0), P(s1, y1, 0), P(s1, y1, -recess), P(s0, y1, -recess)], _mul(Y, -1), bh, conf)
-            self.prim("stoop_stone").face([P(s0, y0, 0), P(s1, y0, 0), P(s1, y0, -recess), P(s0, y0, -recess)],
-                                          Y, self.basis("stoop_stone", O, R, N, seed), conf)
-            self.prim("door_leaf").face([P(s0, y0, -recess), P(s1, y0, -recess), P(s1, y1, -recess),
-                                         P(s0, y1, -recess)], N, self.basis("door_leaf", O, R, Y, seed), conf)
+            # T-2304: the door is a K07 entrance and its stoop, built about the threshold
+            self.enter(op, frame, body_mat, seed, conf)
         if MATERIALS[body_mat].get("courses") and not door:
             # T-2291: a brick wall's opening takes a brick head, not the front's stone
             # lintel — two rowlock rings on a segmental arch, or a soldier flat head
@@ -365,7 +367,9 @@ class Assembly:
             else:
                 k03_brick.soldier_head(self, seed, frame, s0, s1, y1, conf)
             return
-        # a flat lintel over every opening
+        # T-2310: a K09 head where the record names one; else a flat lintel
+        if k09_frontage.dress(self, op, frame, max(conf, p.conf("street_front_trim"))):
+            return
         self.proud_box(stone_trim, frame, s0 - 0.12, s1 + 0.12, y1, y1 + 0.30, 0.03, seed, conf)
 
     # -- K06 glazing (T-2298) ------------------------------------------------------------
@@ -396,19 +400,33 @@ class Assembly:
     def glaze(self, op, frame, body_mat, stone_trim, seed, conf):
         from . import k06_windows
         O, R, N = frame
-        o = k06_windows.Opening(self.kit_variant(op), self._kit)
+        # T-2310: under a K09 architrave the sill's horns run past its outer edge, so the
+        # architrave's open feet stand on the sill and never hang over the wall
+        kit, reach = self._kit, k09_frontage.sill_reach(self.p, op)
+        if reach > kit["parts"]["sill"]["horn_m"]:
+            kit = dict(kit, parts=dict(kit["parts"], sill=dict(kit["parts"]["sill"], horn_m=reach)))
+        o = k06_windows.Opening(self.kit_variant(op), kit)
         o.seed = seed                      # the blind's drop follows this instance, not the kit's
         o.build()
-        # K06's frame: +X along the wall, +Y up, +Z out of it, the origin at the sill socket
+        roles = {r: (stone_trim if m == "stone" else (m or body_mat)) for r, m in self.K06_ROLES.items()}
+        self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf))
+
+    def graft(self, o, kit, roles, frame, op, seed_conf):
+        """Carry a kit's built opening into this assembly. A kit's frame is +X along the
+        wall, +Y up, +Z out of it, its origin at the opening's socket on the outer face (a
+        K06 sill, a K07 threshold); `roles` maps each kit role to this assembly's material.
+        The head band is left out: the K01 flat lintel (or a brick wall's own head)
+        dresses every head."""
+        O, R, N = frame
         base = _add(O, _add(_mul(R, op.s_m), _mul(Y, op.sill_m)))
         W = lambda q: _add(base, _add(_add(_mul(R, q[0]), _mul(Y, q[1])), _mul(N, q[2])))
         for role, src in o.prims.items():
             if role == "head":
                 continue
-            if role not in self.K06_ROLES:
-                raise ValueError(f"K06 role {role!r} has no material on a K01 frontage")
-            mat = self.K06_ROLES[role] or body_mat
-            mat = stone_trim if mat == "stone" else mat
+            if role not in roles:
+                raise ValueError(f"{kit} role {role!r} has no material on a K01 frontage")
+            mat = roles[role]
+            seed, conf = seed_conf(role)
             fab = MATERIALS[mat].get("fabric")
             tu, tv = self.tiles[fab] if fab else (1.0, 1.0)
             _, _, _, _, _, ou, ov = self.basis(mat, O, R, Y, seed)
@@ -486,33 +504,67 @@ class Assembly:
         xs = [q[0] for pr in built.prims.values() for q in pr.pos]
         return top, (b["s_m"] + min(xs), b["s_m"] + max(xs))
 
-    # -- k01.stair.straight_stoop ------------------------------------------------------
-    def stoop(self, frame, s_c):
+    # -- K07 entrance (T-2304) ------------------------------------------------------------
+    # K07 role -> this assembly's material: the reveal in the front's own stone, the
+    # threshold and every part of the stoop in the stoop stone, the frame, leaf and transom
+    # sash in the door's joinery, the knob iron, the transom's glass and the dark hall
+    # behind it the windows' own. A role not named here — a porch, an area wall, a guard
+    # stone — is one this house's variant does not build, and is refused.
+    K07_ROLES = {"reveal": None, "threshold": "stoop_stone", "landing": "stoop_stone",
+                 "tread": "stoop_stone", "riser": "stoop_stone", "stair_end": "stoop_stone",
+                 "cheek": "stoop_stone", "frame": "door_leaf", "leaf": "door_leaf",
+                 "sash_outer": "door_leaf", "glass_outer": "glass", "glass_leaf": "glass",
+                 "hardware": "door_iron", "backing": "backing"}
+    STAIR_ROLES = frozenset({"landing", "tread", "riser", "stair_end", "cheek"})
+
+    def door_variant(self) -> dict:
+        """The record's K07 variant at this house's own door and stoop: the K01 hole's clear
+        size, and the stair solved from its principal floor, tread, landing and width."""
+        from . import k07_entrances
+        p = self.p
+        if not hasattr(self, "_entrances"):
+            self._entrances = k07_entrances.load()
+        v = dict(next(x for x in self._entrances["variants"] if x["id"] == p.entrance_kit["variant"]))
+        door = next(o for o in p.openings if o.component == "k01.opening.door_leaf")
+        v["clear_width_m"], v["clear_height_m"] = door.width_m, door.height_m
+        v["stair"] = dict(v["stair"], floor_m=p.principal_floor_m, going_m=p.tread_m,
+                          landing_m=p.landing_depth_m, width_m=p.stoop_width_m)
+        v["front_yard_m"] = p.entrance_kit["front_yard_m"]
+        return v
+
+    def door_reveal(self) -> float:
+        v = self.door_variant()
+        return v.get("reveal_depth_m", self._entrances["parts"]["reveal_depth_m"]["value"])
+
+    def enter(self, op, frame, body_mat, seed, conf):
+        from . import k07_entrances
         p = self.p
         O, R, N = frame
+        o = k07_entrances.Entrance(self.door_variant(), self._entrances)
+        o.seed = seed
+        o.build()
+        st = o.meta["stair"]
+        if st["risers"] != p.risers:
+            raise ValueError(f"K07 built {st['risers']} risers and the K01 stair solves {p.risers}")
+        # the walk rule, on the built mesh: nothing the entrance builds reaches the walk
+        reach = max(q[2] for pr in o.prims.values() for q in pr.pos)
+        if reach >= p.entrance_kit["front_yard_m"]:
+            raise ValueError(f"the entrance reaches {reach:.3f} m from the front, onto the walk at "
+                             f"{p.entrance_kit['front_yard_m']} m")
+        stair_conf = p.worst_conf("principal_floor_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m")
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
-        n, r, t, L = p.risers, p.riser_m, p.tread_m, p.landing_depth_m
-        sa, sb = s_c - p.stoop_width_m / 2, s_c + p.stoop_width_m / 2
-        conf = p.worst_conf("principal_floor_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m")
-        foot = L + (n - 1) * t
-        seed = self.instance("k01.stair.straight_stoop", "stair",
-                             {"riser_m": r, "tread_m": t, "risers": n, "landing_depth_m": L,
-                              "width_m": p.stoop_width_m},
-                             {"foot": P(s_c, 0.0, foot), "landing": P(s_c, n * r, 0.0)})
-        pr = self.prim("stoop_stone")
-        bt = self.basis("stoop_stone", O, R, N, seed)
-        bv = self.basis("stoop_stone", O, R, Y, seed)
-        bs = self.basis("stoop_stone", O, N, Y, seed)
-        # columns, landing first: (near d, far d, top y)
-        cols = [(0.0, L, n * r)] + [(L + (n - 1 - k) * t, L + (n - k) * t, k * r) for k in range(n - 1, 0, -1)]
-        for (d0, d1, top) in cols:
-            pr.face([P(sa, top, d0), P(sb, top, d0), P(sb, top, d1), P(sa, top, d1)], Y, bt, conf)
-            low = top - r
-            pr.face([P(sa, low, d1), P(sb, low, d1), P(sb, top, d1), P(sa, top, d1)], N, bv, conf)
-            pr.face([P(sa, 0, d0), P(sa, 0, d1), P(sa, top, d1), P(sa, top, d0)], _mul(R, -1), bs, conf)
-            pr.face([P(sb, 0, d0), P(sb, 0, d1), P(sb, top, d1), P(sb, top, d0)], R, bs, conf)
-        # A column's riser runs only from the next column's tread to its own: below
-        # that is the inside of the stoop, between two columns, and is not drawn.
+        stair_seed = self.instance("k01.stair.straight_stoop", "stair",
+                                   {"riser_m": st["riser_m"], "tread_m": st["going_m"], "risers": st["risers"],
+                                    "landing_depth_m": p.landing_depth_m, "width_m": p.stoop_width_m,
+                                    "k07_variant": p.entrance_kit["variant"], "cheeks": True,
+                                    "front_yard_m": p.entrance_kit["front_yard_m"]},
+                                   {"foot": P(op.s_m, 0.0, st["foot_out_m"]), "landing": P(op.s_m, op.sill_m, 0.0),
+                                    **{f"{k}_{end}": P(op.s_m + q[0], op.sill_m + q[1], q[2])
+                                       for k, ends in sorted(o.sockets.items())
+                                       for end, q in zip(("top", "foot"), ends)}})
+        roles = {r: (m or body_mat) for r, m in self.K07_ROLES.items()}
+        self.graft(o, "K07", roles, frame, op,
+                   lambda role: (stair_seed, stair_conf) if role in self.STAIR_ROLES else (seed, conf))
 
     # -- k01.roof.hip ------------------------------------------------------------------
     def roof(self):
@@ -922,7 +974,7 @@ def _pieces(s0, s1, gaps):
 
 
 def build(params, structure_id: str):
-    """The assembly: walls with their openings cut, the stoop, the roof."""
+    """The assembly: walls with their openings cut, the entrance and its stoop, the roof."""
     p = params
     a = Assembly(structure_id, p)
     D, W, E = p.depth_m, p.width_m, p.eave_m
@@ -960,8 +1012,6 @@ def build(params, structure_id: str):
         frame = frames[cid][0][0]
         for s0, s1 in _pieces(s_from, s_to, gaps[cid]):   # T-2308: stopped against a bay
             k03_brick.string_course(a, seed_of(structure_id, cid, 0), frame, s0, s1, floors[1], sc_conf)
-    door = next(o for o in p.openings if o.component == "k01.opening.door_leaf")
-    a.stoop(frames["k01.wall.street_front"][0][0], door.s_m)
     a.roof()
     # T-2308: the K08 bays, each on its wall. Its roof leans on that wall, so an opening
     # left above it must clear the roof — the K06 sill (0.10 m) and 0.05 m of flashing.

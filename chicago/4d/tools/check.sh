@@ -3422,6 +3422,12 @@ selftest "deferred household notes: the card's fields stay, the reasoning leaves
 step "the shipped sidecars carry their households, notes beside them (T-2151)" \
   node tools/defer_household_notes.mjs --check
 
+selftest "packed boot sidecars: repeated values ship once, every record comes back whole (T-2315)" \
+  node tools/pack_boot_sidecars.mjs --self-test
+
+step "the boot sidecars rehydrate to the records at their own URLs (T-2315)" \
+  node tools/pack_boot_sidecars.mjs --check
+
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs
 

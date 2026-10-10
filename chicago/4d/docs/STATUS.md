@@ -59,6 +59,29 @@ at grade. The library's `status` now says it is built to.
   `form.rainwater`), and the house was rebuilt and re-measured with all three: 14,445 triangles,
   19 primitives, web tier 964 KB, every verdict ok, 0 coincident faces.
 
+## T-2304 — K07 entrance and stoop on the 1808 exemplar (2026-10-10)
+
+**Visible.** In the 1904 scene, the house at 1808 Prairie now has a real front door, built from
+the K07 kit (T-2303). It replaces the K01 proof's flat leaf and its stoop of solid columns. The door
+is a four-panel leaf in a reveal, with a frame, a knob, a threshold, a two-light transom and a dark
+hall behind the glass. The stoop below it has nine equal risers between cheek walls, with a landing
+level with the threshold and its foot on grade. It stops 1.15 m short of Prairie Avenue's walk.
+
+- **What it is.** `form.entrance_kit` on the record names the variant and the front yard, 4.75 m,
+  measured on the 1904 street grid. `Assembly.enter` builds the K07 `Entrance` about the door's
+  threshold, solving the stair from the record's floor, tread, landing and width. It merges the
+  parts into the house's materials through the same graft the K06 windows use. Params refuse a
+  stoop that reaches the walk, and the generator re-measures the built mesh against it. One new
+  material, `door_iron`, makes the house 17 draw primitives where it was 16. `mesh_inputs` now
+  hashes `k07_entrances.py` and `k07_entrances.json` for every `k01_frontage`.
+- **Honest limits.** No source shows this entrance. The register's Ionic loggia is T-1882's, built
+  from the 1888 plate (L-k07-1808-entrance-2304). There is no carriage opening: the lot's carriage
+  house is the detached rear building, which is T-1935's. The walker still treats the stoop as
+  open ground, as it did the K01 stoop: only the footprint blocks.
+- **Verified.** `tools/qa_k07_t2304.mjs` checks front, oblique, rear and roof, plus the door at
+  2.5 m and the stoop from the walk, at both viewports. Costs are in
+  `docs/RESEARCH/k07-1808-entrance-2304/README.md`.
+
 ## T-2298 — K06 windows on the 1808 exemplar (2026-10-10)
 
 **Visible.** In the 1904 scene, every window of the house at 1808 Prairie is now a real opening
