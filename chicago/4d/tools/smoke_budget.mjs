@@ -405,6 +405,13 @@ const COVERAGE = [
   ['generators/archetypes/k06_windows.py', NONE, 'the K06 window kit generator — imported by no scene build yet: check_window_kit.py --check'],
   ['docs/RESEARCH/k06-window-kit/', NONE, 'the K06 window kit specimen and study — unpublished: check_window_kit.py --check'],
   ['tools/study_k06_windows.mjs', NONE, 'the K06 study renderer — run by hand, by no gate'],
+  // T-2301. The K05 roof kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2302 roofs a house from it, so no part draws
+  // it; tools/check_roof_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k05_roofs.json', NONE, 'the K05 roof kit data — built into no scene yet: check_roof_kit.py --check'],
+  ['generators/archetypes/k05_roofs.py', NONE, 'the K05 roof kit generator — imported by no scene build yet: check_roof_kit.py --check'],
+  ['docs/RESEARCH/k05-roof-kit/', NONE, 'the K05 roof kit specimen and study — unpublished: check_roof_kit.py --check'],
+  ['tools/study_k05_roofs.mjs', NONE, 'the K05 study renderer — run by hand, by no gate'],
   // T-2305. The K13 conservatory kit is built into a specimen GLB under docs/ that nothing
   // publishes and no scene loads until T-2306 builds a Pullman bay from it, so no part
   // draws it; tools/check_conservatory_kit.py gates the data, the generator and the specimen.
