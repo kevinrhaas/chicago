@@ -788,8 +788,9 @@ def report(doc: dict) -> str:
     lines += [
         "",
         "`households` is the per-household file `data/residents/households/<id>.json`, "
-        "which carries both the `lives_at`/`works_at` claim and the back-projection "
-        "ruling on a later address. A street-only business is adjudicated by "
+        "which carries both the home and workplace rows of `associated_with` (until "
+        "T-2284, the singular `lives_at`/`works_at`) and the back-projection ruling on a "
+        "later address. A street-only business is adjudicated by "
         "`street_face_adoptions.json` and not by the register: the register says the "
         "paper reached a street and stopped, and the adoption file is what then dealt a "
         "roof or refused the face.",

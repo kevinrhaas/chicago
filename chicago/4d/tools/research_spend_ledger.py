@@ -605,6 +605,18 @@ def prose_target_index(paths, root: Path, keys: set[str], kind: str,
         if isinstance(node, dict):
             confidence = node.get("confidence")
             sources_here = cited_sources(node) if confidence in STRUCTURED_CONFIDENCE else set()
+            # T-2284: the singular `lives_at`/`works_at` block was a `confidence`/`sources`
+            # claim this walk read; it is retired, and its words, grade and sources live on
+            # in the `associated_with` row T-1273 copied from it (marked so in its note),
+            # which grades itself `tier` and cites `source_id` + `also_sources`. Only those
+            # rows: a row a reading wrote in its own hand was never a target here, and
+            # reading it now would close units the ruling registers already close.
+            if not sources_here and "place_or_structure_id" in node \
+                    and str(node.get("note") or "").endswith("(T-1273)") \
+                    and node.get("tier") in STRUCTURED_CONFIDENCE:
+                sources_here = {v for v in [node.get("source_id"),
+                                            *(node.get("also_sources") or [])]
+                                if isinstance(v, str) and v}
             if sources_here:
                 tokens = set()
                 for value in naming_strings(
