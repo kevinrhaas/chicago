@@ -117,9 +117,9 @@
           "note": "Common brick, a 13-inch wall, inside the masonry range; the Sanborn sheet prints no wall thickness for this lot."
         },
         "service_wall_brick": {
-          "value": "K03 common buff brick in common bond (a header course every sixth), 9 mm weathered lime joints; two rowlock rings on segmental heads, soldier flat heads on the third storey; a projecting stretcher string course at the second floor; soot under the eave and damp at grade",
+          "value": "common_buff_common_6",
           "confidence": "reconstructed",
-          "note": "The 1911 Sanborn sheet colours the house brick and the T-1837 register asks for 'Common-brick side and rear ranges'; the fabric, bond, heads, string course and grime are the K03 library's reconstruction laid on those walls, with no photograph of 1808's side or rear read (liberty L-k03-1808-service-brick-2291, T-2291)."
+          "note": "The 1911 Sanborn sheet colours the house brick and the T-1837 register asks for 'Common-brick side and rear ranges'; the fabric, bond, heads, string course and grime are the K03 library's common buff brick in common bond (a header course every sixth, 9 mm weathered lime joints), laid with two rowlock rings on segmental heads (soldier flat heads under the eave), a projecting string course at the second floor and soot and damp masks, with no photograph of 1808's side or rear read (liberty L-k03-1808-service-brick-2291, T-2291)."
         },
         "roof_form": {
           "value": "hip",

@@ -91,6 +91,7 @@ class K01FrontageParams:
     rear_bays: tuple                  # window centres along the rear wall, north to south
     basement_sill_m: float
     openings: tuple = ()
+    service_wall_brick: str = ""      # the K03 panel the brick walls wear (T-2291)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -123,7 +124,7 @@ CONSUMED = frozenset({
     "wall_thickness_front_m", "wall_thickness_side_m", "roof_form", "roof_pitch_deg",
     "eave_overhang_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m",
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
-    "basement_lights",
+    "basement_lights", "service_wall_brick",
 })
 
 
@@ -221,6 +222,13 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if bsill + float(bl["height_m"]) + 0.30 > pf + float(sash[0]["sill_above_floor_m"]) - 0.10:
         raise ParamError("the basement lights' lintels run into the principal storey's sills")
 
+    # T-2291: the brick walls wear a K03 panel the record names; k03_brick lays one
+    from . import k03_brick
+    panel = val("service_wall_brick", k03_brick.PANEL)
+    if panel != k03_brick.PANEL:
+        raise ParamError(f"service_wall_brick = {panel!r}: k03_brick lays {k03_brick.PANEL!r} alone; "
+                         f"another K03 panel is a new slot in generators/archetypes/k03_brick.py")
+
     names = sorted(CONSUMED)
     params = K01FrontageParams(
         depth_m=depth, width_m=width, stories=stories, principal_floor_m=pf,
@@ -232,7 +240,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         front_bays=front_bays,
         side_bays=tuple(float(s) for s in val("side_bays")),
         rear_bays=tuple(float(s) for s in val("rear_bays")),
-        basement_sill_m=bsill, openings=tuple(openings),
+        basement_sill_m=bsill, openings=tuple(openings), service_wall_brick=panel,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

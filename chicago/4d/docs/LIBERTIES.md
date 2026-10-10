@@ -23053,6 +23053,7 @@ return and rear. The pressed front is bound when T-1919 builds Sherman.
 
 **What would replace it.** A photograph or drawing of 1808's side or rear: bond, head form,
 string course. A dated soot reading for Prairie Avenue c. 1904.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.service_wall_brick`
 **Ticket:** T-2291 (piece 2 of T-1845).
 **Review:** `docs/RESEARCH/k03-1808-service-brick-2291/README.md`.
 **Recorded:** 2026-10-10 (T-2291).

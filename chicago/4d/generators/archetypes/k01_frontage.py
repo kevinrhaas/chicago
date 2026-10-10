@@ -241,6 +241,8 @@ class Assembly:
         y0, y1 = op.sill_m, op.head_m
         conf = p.worst_conf("footprint", "sash_by_storey", "front_bays", "side_bays", "rear_bays")
         door = op.component == "k01.opening.door_leaf"
+        if MATERIALS[body_mat].get("courses"):
+            conf = max(conf, p.conf("service_wall_brick"))
         recess = 0.22 if door else thickness
         seed = self.instance(op.component, "opening",
                              {"clear_width_m": op.width_m, "clear_height_m": op.height_m,
@@ -397,7 +399,7 @@ def build(params, structure_id: str):
     # T-2291: a projecting stretcher course at the second-floor line on the south wall
     # and the rear, the south one run out past the quoin so the two meet; the north
     # wall is a blank party wall against the Glessner court and carries none
-    sc_conf = p.worst_conf("storey_heights_m", "construction")
+    sc_conf = p.worst_conf("storey_heights_m", "construction", "service_wall_brick")
     for cid, s_from, s_to in (("k01.wall.side.south", -k03_brick.STRING_PROUD, D),
                               ("k01.wall.rear_service", 0.0, W)):
         frame = frames[cid][0][0]
