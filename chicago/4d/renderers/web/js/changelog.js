@@ -1,9 +1,26 @@
 export const CHANGELOG = [ // newest first
-  { v: 1611, ts: '2026-10-10T03:35:58.497Z', date: 'Oct 9, 2026, 10:35 PM CT', title: '65 more households are given a house beyond the platted town', kind: 'fix',
+  { v: 1614, ts: '2026-10-10T03:58:17.096Z', date: 'Oct 9, 2026, 10:58 PM CT', title: 'The resident index and audits read each household’s dated places', kind: 'change',
     items: [
-      'Outside the platted town, in the North and West Divisions, 69 houses had been given to households known only from the post office\u2019s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address. The houses on the plat already followed that ruling, and now these do too.',
-      'Those houses go to the next households in line for them. In People, 65 more household cards now show \u201cGo to the roof the policy deals it, off the plat\u201d, and the 69 letter-list cards no longer show it. The houses\u2019 cards list the new households.',
-      'The 30 households already housed there keep a house, though 28 of them are now in a different one. In the West, a farm household is only given a cabin with a barn beside it, so four West cabins stand empty, and each says why.',
+      'Nothing you can see changes. The resident index, the resident audit, the population profile, the research sign-off and the residents summary now take where a household lived and worked from the dated places on its card, the same entries its card shows you.',
+      'Every figure, row and table comes out exactly as before, even with the old single home and workplace lines removed from the records.',
+      'A card’s “no known address” reason still comes from the old line, because a place nobody can name has no dated entry to carry it. Where that wording goes is decided before the old lines retire.',
+    ] },
+  { v: 1613, ts: '2026-10-10T03:56:56.811Z', date: 'Oct 9, 2026, 10:56 PM CT', title: 'Every 1835 door is shut and every window glazed', kind: 'feature',
+    items: [
+      'Doors were black holes in the wall. Houses, taverns, stores and fort buildings now have closed panelled doors on a sill. Shops have half-glazed doors with a transom light, and cabins have board doors on iron strap hinges.',
+      'Windows were black panels with flat bars. Each now sits in a board casing with a sloped sill and a drip cap. The sash is set back so the frame casts a shadow.',
+      'The glass is the dark glass Glessner House uses in 1904: a near-black pane that reflects the sky. Chicago merchants sold window glass and ready-made sash by the box in 1833–35, so cabins have glass too. Barns and sheds stay unglazed.',
+      'Store show windows are small panes, the 8×10 inch sizes the town’s merchants sold. Many cabin windows have board shutters standing open. Barn and shed doors now hang on strap hinges.',
+    ] },
+  { v: 1612, ts: '2026-10-10T03:43:50.834Z', date: 'Oct 9, 2026, 10:43 PM CT', title: 'Release notes no longer hold up each other\'s merges', kind: 'chore',
+    items: [
+      'Nothing in the app changes. Each change now carries its release note as a file of its own, and the note joins this list after the change lands, so changes waiting to merge stop colliding on the top line of this list.',
+    ] },
+  { v: 1611, ts: '2026-10-10T03:18:31.813Z', date: 'Oct 9, 2026, 10:18 PM CT', title: 'A lumber shed on the South Branch below Washington Street', kind: 'feature',
+    items: [
+      'Walk down Market Street south of Washington and look toward the river. A long plank shed now stands on the bank, open along one side, facing the South Branch. It is the town\u2019s first lumber shed.',
+      'The Chicago Democrat shows lumber reaching Chicago by boat, from St. Joseph\u2019s sawmills and a yard on South Water Street. So the shed stands where boards would come off a schooner.',
+      'No source places this shed or names its owner. It is a reconstruction, and its card says so. It is not David Carver\u2019s yard, which the paper puts on South Water Street.',
     ] },
   { v: 1610, ts: '2026-10-10T03:02:42.351Z', date: 'Oct 9, 2026, 10:02 PM CT', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
     items: [

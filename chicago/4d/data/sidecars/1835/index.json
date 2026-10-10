@@ -13856,6 +13856,12 @@
       "asset": "gltf/recon_1835_south_a5_044__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_south_branch_lumber_f4_001",
+      "name": "Reconstructed F4 lumber shed #001",
+      "sidecar": "sidecars/1835/recon_1835_south_branch_lumber_f4_001.json",
+      "asset": "gltf/recon_1835_south_branch_lumber_f4_001__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_south_c3_015",
       "name": "Reconstructed C3 narrow two-story store #015",
       "sidecar": "sidecars/1835/recon_1835_south_c3_015.json",

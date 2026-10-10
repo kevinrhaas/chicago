@@ -161,7 +161,9 @@ def storeys(levels: str, key: str | None = None) -> tuple[float, bool]:
     """
     text = str(levels or "1").strip()
     loft = "loft" in text
-    head = text.split("+")[0].strip()
+    # F4 writes `1/open`: one storey, and the `/open` is a claim about its WALLS that
+    # `roof_form.OPEN_SIDED_FAMILIES` reads, not a second storey count (T-2269).
+    head = text.split("+")[0].split("/")[0].strip()
     band = RANGE_RE.match(head)
     if band:
         lo, hi = float(band.group(1)), float(band.group(2))

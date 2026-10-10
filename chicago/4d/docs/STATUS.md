@@ -1,3 +1,35 @@
+## T-2278 — doors, windows and their trim on every 1835 building (2026-10-10)
+
+Owner's ask: give every structure correct door and window openings and their trim, and use
+Glessner's dark glass where a building could have had glass. Recorded as **L413**.
+
+- **One kit, `generators/common/openings.py`,** builds every opening the frame dwellings, log
+  dwellings, stores, taverns and fort buildings draw: a board casing standing 5 cm off the wall
+  with its returns, the pane set 13 mm back so the jambs read as a reveal, a sloped sill with
+  horns, a drip cap, flat sash bars, and a closed door in every doorway (panelled; half-glazed with
+  a transom on a shop; board-and-batten on iron strap hinges for a cabin, a freight door or a
+  magazine). About half the cabins get a pair of open board shutters. Outbuildings keep their board
+  doors and gain strap hinges; barns, sheds and stables stay unglazed.
+- **History.** Window glass by the box and ready-made sash were advertised in the Chicago Democrat
+  1833-35 by five merchants already on their business records, so a log house in this town is
+  glazed too.
+- **Glass.** `materials.GLASS` is now Glessner's drawn dark pane (the GLB colour at 12 per cent,
+  roughness 0.065). Opaque, so it costs no extra pass. The door paints and the glass are named
+  materials (`MeshBuilder.named_mat`), so they join the town batch at no extra draw call.
+- **Rebake.** Every structure was rebaked (common/ changed); 674 masters moved, plus the four
+  Glessner and Bates structure versions. The three ground epochs' input hashes moved too, but
+  their meshes do not depend on the change: a clean-dev bake and this branch's bake are byte-
+  identical for e1830 and e1871 (e1834 reproduces the committed bytes), so the committed ground
+  bytes are kept and only the hash is re-stamped.
+- **Cost, desktop 1280x800, six stands, stepped, against dev before the change:** full +65k to
+  +151k (worst West prairie 3,210,825 -> 3,362,063), balanced +59k to +139k (2,334,552 ->
+  2,473,184), light +29k to +117k (1,021,552 -> 1,138,298). Draw calls +0 to +3. JS heap after gc
+  1131.7 -> 1180.1 MiB. Dev was already over all three desktop ceilings before this change.
+- **Cost, phone 390x780, same sweep:** full +48k to +124k (worst 2,766,354 -> 2,890,515), balanced
+  +46k to +122k (2,047,667 -> 2,169,656), light +18k to +101k (868,283 -> 968,880); every tier
+  stays inside its ceiling (light by 36,120). JS heap after gc 1124.9 -> 1175.7 MiB. The ceilings
+  are not moved here.
+
 ## T-1786 — the portable human contract (2026-10-10)
 
 First ticket of the owner's portable-humans programme (T-1786 to T-1792). **Nothing in the scene
