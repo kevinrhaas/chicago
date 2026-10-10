@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 456,
+  "count": 457,
   "liberties": [
     {
       "id": "L1",
@@ -28609,6 +28609,46 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2309)."
+        }
+      ]
+    },
+    {
+      "id": "L-k09-1808-trim-2310",
+      "title": "1808 Prairie's street front in K09 carved trim: entrance, window heads and apron panels, all reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.street_front_trim"
+        }
+      ],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the street front of the 1808 Prairie K01 frontage (T-2266) wears the K09 carved-trim kit's own pieces (T-2309). The door has a round ring of thirteen voussoirs with a label returned level at its springs. The ring springs from two engaged foliate colonnettes standing on the stoop's landing. The half-round over the flat door head is the wall's own face, a plain tympanum. The principal-floor windows wear the kit's restrained surround: an architrave whose feet stand on a sill lengthened to carry them, and a cornice hood on two scrolled consoles. Under each sits the kit's bounded foliate apron panel, centred between the basement light's lintel and the sill. The second-floor windows take the cornice hood alone. The third floor keeps K01's flat lintel, so the trim lightens as the front rises. The label's crown stops 4 cm under the second-floor belt course, and the generator refuses a front where it would not. **What is attested.** Very little: that the house stood in 1904 with a stone street front (the record's `construction`, inferred from the 1911 Sanborn sheet 28). The T-1837 building register reads a \"Romanesque-classical stone front\" and a \"north entrance loggia with Ionic columns\" at `pa-1808-6`. It reads them off the 1888 *Inland Architect* plate, which is not a source record here. The register is a request, not a source. **What is invented.** Every form, motif and placement. The round ring and its voussoir count, the foliate capitals (the register's Ionic order is not in the kit), the hood and architrave on the windows, the apron panels and which storeys take which head. The leaves are the kit's generic, newly designed motif (L-k09-carved-trim-kit-2309). They copy no carving of 1808 Prairie, because none has been read. **What it does not do.** It does not touch Glessner. Glessner's carving is documented and authored from its own evidence, and the kit's `restrictions` forbid a generic motif from replacing a landmark's documented carving. It does not build the register's entrance loggia, balustraded balcony or pierced parapet, which belong to the entrance (K07, T-2304) and cornice/parapet (T-1852) packages. Each of those would replace part of this trim when it is built. **What would replace it.** The 1888 plate deposited and read as a source, or a photograph of 1808's front. Either would replace the generic portal with the documented loggia and its order, and set the window heads from the photograph."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.street_front_trim`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2310 (piece 2 of T-1851, K09)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k09-1808-trim-2310/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2310)."
         }
       ]
     },

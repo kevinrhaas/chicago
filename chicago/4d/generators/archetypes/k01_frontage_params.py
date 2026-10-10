@@ -92,6 +92,7 @@ class K01FrontageParams:
     basement_sill_m: float
     openings: tuple = ()
     service_wall_brick: str = ""      # the K03 panel the brick walls wear (T-2291)
+    street_front_trim: dict = field(default_factory=dict)   # K09 heads, entrance, aprons (T-2310)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -124,7 +125,7 @@ CONSUMED = frozenset({
     "wall_thickness_front_m", "wall_thickness_side_m", "roof_form", "roof_pitch_deg",
     "eave_overhang_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m",
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
-    "basement_lights", "service_wall_brick",
+    "basement_lights", "service_wall_brick", "street_front_trim",
 })
 
 
@@ -241,6 +242,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         side_bays=tuple(float(s) for s in val("side_bays")),
         rear_bays=tuple(float(s) for s in val("rear_bays")),
         basement_sill_m=bsill, openings=tuple(openings), service_wall_brick=panel,
+        street_front_trim=dict(val("street_front_trim", {}) or {}),
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

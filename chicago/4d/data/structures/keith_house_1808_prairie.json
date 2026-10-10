@@ -121,6 +121,22 @@
           "confidence": "reconstructed",
           "note": "The 1911 Sanborn sheet colours the house brick and the T-1837 register asks for 'Common-brick side and rear ranges'; the fabric, bond, heads, string course and grime are the K03 library's common buff brick in common bond (a header course every sixth, 9 mm weathered lime joints), laid with two rowlock rings on segmental heads (soldier flat heads under the eave), a projecting string course at the second floor and soot and damp masks, with no photograph of 1808's side or rear read (liberty L-k03-1808-service-brick-2291, T-2291)."
         },
+        "street_front_trim": {
+          "value": {
+            "entrance": "k09.entrance.ring_on_colonnettes",
+            "by_storey": [
+              "k09.surround.rowhouse_restrained",
+              "k09.trim.lintel_cornice_hood",
+              "k01.flat_lintel"
+            ],
+            "apron": "k09.trim.foliate_panel",
+            "apron_storeys": [
+              0
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "The street front's carved trim, from the K09 carved-trim kit (T-2309, data/components/prairie_1904/k09_trim.json): a round ring of thirteen voussoirs and a label over the door, springing from two engaged foliate colonnettes on the stoop's landing; the principal-floor windows in the kit's restrained surround (an architrave, and a cornice hood on scrolled consoles) over a bounded foliate apron panel; the second floor's windows under the cornice hood alone; the third floor's keeping K01's flat lintel, so the trim lightens as the front rises. RECONSTRUCTED: the T-1837 register reads 'Romanesque-classical stone front' and an Ionic-columned entrance loggia off the 1888 Inland Architect plate, but that plate is not a source record here and no photograph of 1808's carving has been read, so every form, motif and placement is the kit's generic one (liberty L-k09-1808-trim-2310, T-2310). Glessner's documented carving is its own and is not drawn from this kit."
+        },
         "roof_form": {
           "value": "hip",
           "confidence": "reconstructed",

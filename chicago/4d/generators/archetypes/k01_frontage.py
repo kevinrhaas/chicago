@@ -43,6 +43,7 @@ import struct
 from pathlib import Path
 
 from . import k03_brick
+from . import k09_frontage
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
@@ -97,6 +98,8 @@ MATERIALS = {
     "glass": {"color": (0.045, 0.055, 0.065), "roughness": 0.08},
     "backing": {"color": (0.018, 0.017, 0.016), "roughness": 1.0},
     "door_leaf": {"color": (0.29, 0.17, 0.085), "roughness": 0.62},
+    # T-2310: the K09 kit's carving (capital leaves) apart from its dressed trim
+    "carved_trim": {"fabric": "limestone", "color": (0.97, 0.94, 0.87), "roughness": 0.88},
     "fascia": {"color": (0.27, 0.24, 0.20), "roughness": 0.7},
     "slate_covering": {"color": (0.20, 0.215, 0.24), "roughness": 0.78},
 }
@@ -157,6 +160,7 @@ class Assembly:
         self.prims: dict[str, Prim] = {}
         self.components: dict[str, dict] = {}
         self.soffit_m = None   # set by build(); the soot band hangs from it
+        self.trim_triangles: dict[str, int] = {}   # T-2310: K09 trim, per kit id
 
     def prim(self, name):
         if name not in self.prims:
@@ -285,8 +289,9 @@ class Assembly:
             sp.face([P(ia, ic, -r), P(ib, ic, -r), P(ib, ic, -r - g), P(ia, ic, -r - g)], Y, bih, conf)
             self.prim("glass").face([P(ia, ic, -r - g), P(ib, ic, -r - g), P(ib, id_, -r - g),
                                      P(ia, id_, -r - g)], N, self.basis("glass", O, R, Y, seed), conf)
-            # a stone sill, proud of the face
-            self.proud_box(stone_trim, frame, s0 - 0.08, s1 + 0.08, y0 - 0.10, y0, 0.06, seed, conf)
+            # a stone sill, proud of the face (T-2310: past an architrave's feet)
+            reach = k09_frontage.sill_reach(p, op)
+            self.proud_box(stone_trim, frame, s0 - reach, s1 + reach, y0 - 0.10, y0, 0.06, seed, conf)
         if MATERIALS[body_mat].get("courses") and not door:
             # T-2291: a brick wall's opening takes a brick head, not the front's stone
             # lintel — two rowlock rings on a segmental arch, or a soldier flat head
@@ -297,7 +302,9 @@ class Assembly:
             else:
                 k03_brick.soldier_head(self, seed, frame, s0, s1, y1, conf)
             return
-        # a flat lintel over every opening
+        # T-2310: a K09 head where the record names one; else a flat lintel
+        if k09_frontage.dress(self, op, frame, max(conf, p.conf("street_front_trim"))):
+            return
         self.proud_box(stone_trim, frame, s0 - 0.12, s1 + 0.12, y1, y1 + 0.30, 0.03, seed, conf)
 
     # -- k01.stair.straight_stoop ------------------------------------------------------
