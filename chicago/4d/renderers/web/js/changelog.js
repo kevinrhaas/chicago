@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1608, ts: '2026-10-10T02:39:53.737Z', date: 'Oct 9, 2026, 9:39 PM CT', title: 'The housing and deal tools read each household\u2019s dated places', kind: 'change',
+  { v: null, ts: '', title: 'The housing and deal tools read each household\u2019s dated places', kind: 'change',
     items: [
       'Nothing you can see changes. The tools that house the present, re-family the order book, seat street faces, replace invented names and spend the trade and premises research now take a household\u2019s home and workplace from the dated places on its card.',
       'Every seat, roof and ruling comes out exactly as before. The research notes now point at the dated place they read rather than the old single workplace line, which is being retired.',
+    ] },
+  { v: 1608, ts: '2026-10-10T02:34:31.860Z', date: 'Oct 9, 2026, 9:34 PM CT', title: 'The groundwork for people in the town: one skeleton, one rulebook', kind: 'change',
+    items: [
+      'Nothing you can see changes, and no person is drawn: the town still shows no human figures, for anyone, until that rule is lifted.',
+      'Every future figure now shares one skeleton, one set of clothing slots, facial expressions and movement names. It is built once in Blender, shown first in this browser, and exportable to Unreal later. Each figure is tied to the person card it depicts and says how much of its look is evidence and how much is invented.',
+      'A figure that would need review before being shown keeps that flag, and any figure asking to be shown is refused while the no-figures rule stands.',
     ] },
   { v: 1607, ts: '2026-10-10T02:18:30.123Z', date: 'Oct 9, 2026, 9:18 PM CT', title: 'Prairie Avenue’s building parts get one set of measurements', kind: 'change',
     items: [

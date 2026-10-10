@@ -1,0 +1,173 @@
+{
+  "contract": "chicago4d_human",
+  "version": 1,
+  "ticket": "T-1786",
+  "doc": "docs/HUMAN-ASSET-CONTRACT.md",
+  "_doc": "The portable human contract, machine-readable half. docs/HUMAN-ASSET-CONTRACT.md is the prose and wins on any difference of intent; this file is what tools/human_contract.py holds a GLB and an instance record to. A change here is a change to every human asset and every engine that reads one: propose it, version it, never edit it to make an asset pass.",
+  "l1": {
+    "in_force": true,
+    "rule": "AGENTS.md § Standing constraint, and docs/LIBERTIES.md L1: no human figure is drawn, for anyone, in any scene. Until the owner lifts it there, an instance record may not ask to be shown; tools/human_contract.py refuses `display: shown` while this reads true.",
+    "lifted_by": "the owner, in AGENTS.md, and nobody else"
+  },
+  "frame": {
+    "container": "glb",
+    "units": "metres",
+    "up_axis": "+Y",
+    "handedness": "right",
+    "front_axis": "+Z",
+    "origin": "on the ground plane (y = 0 at the soles of the rest pose), midway between the feet in plan",
+    "rest_pose": "T-pose: standing upright, legs straight and hip-width apart, arms horizontal along +X (the figure's left) and -X (its right), palms down, thumbs forward, head level and facing +Z",
+    "node_scale": "every node from the scene root to the last bone carries scale 1 (absent, or [1, 1, 1]); size lives in the vertex positions, never in a transform",
+    "rest_height_m": { "min": 0.45, "max": 2.3, "why": "an infant held upright to a tall adult; a mesh outside it is almost always a unit error — the same adult authored in centimetres reads 175" },
+    "max_root_offset_m": 0.15
+  },
+  "skeleton": {
+    "id": "c4d_humanoid_v1",
+    "root": "root",
+    "_doc": "One skeleton for every human, resident or named. Bone names are the contract: a shared clip drives any figure that carries them. Names follow the common retargeting convention (lower case, _l/_r suffix, numbered chains), so an engine's own retargeter maps them without a hand table; the convention is borrowed, the authority is this file. The list is exact — every bone required, in this parentage — and only `ext_` bones may be added.",
+    "bones": [
+      ["root", null],
+      ["pelvis", "root"],
+      ["spine_01", "pelvis"],
+      ["spine_02", "spine_01"],
+      ["spine_03", "spine_02"],
+      ["neck_01", "spine_03"],
+      ["head", "neck_01"],
+      ["jaw", "head"],
+      ["eye_l", "head"],
+      ["eye_r", "head"],
+      ["clavicle_l", "spine_03"],
+      ["upperarm_l", "clavicle_l"],
+      ["lowerarm_l", "upperarm_l"],
+      ["hand_l", "lowerarm_l"],
+      ["thumb_01_l", "hand_l"],
+      ["thumb_02_l", "thumb_01_l"],
+      ["thumb_03_l", "thumb_02_l"],
+      ["index_01_l", "hand_l"],
+      ["index_02_l", "index_01_l"],
+      ["index_03_l", "index_02_l"],
+      ["middle_01_l", "hand_l"],
+      ["middle_02_l", "middle_01_l"],
+      ["middle_03_l", "middle_02_l"],
+      ["ring_01_l", "hand_l"],
+      ["ring_02_l", "ring_01_l"],
+      ["ring_03_l", "ring_02_l"],
+      ["pinky_01_l", "hand_l"],
+      ["pinky_02_l", "pinky_01_l"],
+      ["pinky_03_l", "pinky_02_l"],
+      ["clavicle_r", "spine_03"],
+      ["upperarm_r", "clavicle_r"],
+      ["lowerarm_r", "upperarm_r"],
+      ["hand_r", "lowerarm_r"],
+      ["thumb_01_r", "hand_r"],
+      ["thumb_02_r", "thumb_01_r"],
+      ["thumb_03_r", "thumb_02_r"],
+      ["index_01_r", "hand_r"],
+      ["index_02_r", "index_01_r"],
+      ["index_03_r", "index_02_r"],
+      ["middle_01_r", "hand_r"],
+      ["middle_02_r", "middle_01_r"],
+      ["middle_03_r", "middle_02_r"],
+      ["ring_01_r", "hand_r"],
+      ["ring_02_r", "ring_01_r"],
+      ["ring_03_r", "ring_02_r"],
+      ["pinky_01_r", "hand_r"],
+      ["pinky_02_r", "pinky_01_r"],
+      ["pinky_03_r", "pinky_02_r"],
+      ["thigh_l", "pelvis"],
+      ["calf_l", "thigh_l"],
+      ["foot_l", "calf_l"],
+      ["ball_l", "foot_l"],
+      ["thigh_r", "pelvis"],
+      ["calf_r", "thigh_r"],
+      ["foot_r", "calf_r"],
+      ["ball_r", "foot_r"]
+    ],
+    "extension_prefix": "ext_",
+    "extension_rule": "An asset may add bones whose names start `ext_` (a coat tail, a queue of hair, a hat brim) under any contract bone. No shared clip animates them, no contract bone may be parented under one, and an engine that drops them still has the whole contract skeleton.",
+    "max_influences_per_vertex": 4,
+    "weights": "normalised to 1.0 per vertex; a bone may carry zero weight on a light LOD (fingers on lod2-lod3) but is never removed from it"
+  },
+  "sockets": {
+    "_doc": "Attachment points: empty nodes named `socket_<name>`, each a child of the bone it rides on, oriented so +Z points out of the palm/away from the body. Props attach here and nowhere else.",
+    "required": [
+      ["socket_hand_l", "hand_l"],
+      ["socket_hand_r", "hand_r"],
+      ["socket_head", "head"]
+    ],
+    "optional": [
+      ["socket_back", "spine_03"],
+      ["socket_hip_l", "pelvis"],
+      ["socket_hip_r", "pelvis"]
+    ]
+  },
+  "materials": {
+    "_doc": "Material slots. A glTF material is named `<slot>` or `<slot>__<variant>` (e.g. `garment_upper__frock_coat_brown`); the variant is what an instance's clothing choice selects. Every slot below marked required must appear on every LOD.",
+    "name_pattern": "^(?P<slot>[a-z_]+?)(__(?P<variant>[a-z0-9_]+))?$",
+    "required": ["skin", "eyes", "garment_upper", "garment_lower", "footwear"],
+    "optional": ["hair", "headwear", "garment_outer", "teeth_mouth", "accessory"]
+  },
+  "morphs": {
+    "_doc": "Facial shape keys, named on the ARKit blendshape list because it is the widest engine-neutral face vocabulary (and the one a later Unreal face rig reads), not because anything here depends on Apple or on MetaHuman. glTF carries the names in mesh.extras.targetNames — the Blender exporter writes them there. Required on lod0 and lod1; lod2 and lod3 may carry none, and a renderer degrades by holding the face still.",
+    "required_lods": [0, 1],
+    "required": ["eyeBlinkLeft", "eyeBlinkRight", "jawOpen"],
+    "optional": [
+      "browDownLeft", "browDownRight", "browInnerUp", "browOuterUpLeft", "browOuterUpRight",
+      "cheekPuff", "cheekSquintLeft", "cheekSquintRight",
+      "eyeLookDownLeft", "eyeLookDownRight", "eyeLookInLeft", "eyeLookInRight",
+      "eyeLookOutLeft", "eyeLookOutRight", "eyeLookUpLeft", "eyeLookUpRight",
+      "eyeSquintLeft", "eyeSquintRight", "eyeWideLeft", "eyeWideRight",
+      "jawForward", "jawLeft", "jawRight",
+      "mouthClose", "mouthDimpleLeft", "mouthDimpleRight", "mouthFrownLeft", "mouthFrownRight",
+      "mouthFunnel", "mouthLeft", "mouthLowerDownLeft", "mouthLowerDownRight",
+      "mouthPressLeft", "mouthPressRight", "mouthPucker", "mouthRight",
+      "mouthRollLower", "mouthRollUpper", "mouthShrugLower", "mouthShrugUpper",
+      "mouthSmileLeft", "mouthSmileRight", "mouthStretchLeft", "mouthStretchRight",
+      "mouthUpperUpLeft", "mouthUpperUpRight", "noseSneerLeft", "noseSneerRight"
+    ]
+  },
+  "clips": {
+    "_doc": "Animation clips are named `<verb>` or `<verb>_<variant>` in lower snake case (`idle`, `walk`, `gesture_point`, `work_saw`), unique within an asset, in place (no root motion: a walk's ground speed is stated in the clip's extras as `speed_m_s`, and the actor moves the root). A clip animates contract bones and morphs only.",
+    "name_pattern": "^[a-z]+(_[a-z0-9]+)*$",
+    "verbs": ["idle", "walk", "talk", "gesture", "work", "sit", "turn"],
+    "required_for_actor": ["idle", "walk"]
+  },
+  "lods": {
+    "_doc": "Four LODs, one GLB each: `<asset_id>.lod<N>.glb`. Every LOD carries the whole contract skeleton and the required material slots; only lod0-lod1 owe the face. The detail tiers pick from them; the triangle budgets are T-1787's to measure, not this file's to guess.",
+    "levels": [0, 1, 2, 3],
+    "file_pattern": "^(?P<asset_id>[a-z0-9_]+)\\.lod(?P<lod>[0-3])\\.glb$",
+    "tiers": {
+      "full": [0, 1, 2, 3],
+      "balanced": [1, 2, 3],
+      "light": [2, 3]
+    }
+  },
+  "provenance": {
+    "_doc": "Every asset carries `scenes[0].extras.chicago4d_human` (the Blender exporter writes scene custom properties there). An asset is a DEPICTION, so its grade is the grade of how it looks, not of the person it may later be bound to: a generic resident body is `reconstructed`; a likeness from a portrait is `attested` by that portrait's source.",
+    "required_fields": ["contract_version", "kind", "asset_id", "lod", "skeleton", "grade", "basis", "license", "master", "authored_by"],
+    "kinds": {
+      "body": "a figure: skinned mesh, the whole skeleton, the required material slots and sockets, the face on lod0-lod1; its own clips are optional",
+      "clips": "an animation library: the whole skeleton and its clips, no mesh; `lod` is 0 and the file is `<asset_id>.lod0.glb`"
+    },
+    "grades": ["attested", "inferred", "reconstructed"],
+    "grade_rules": {
+      "attested": "names at least one source_id in `sources`, each resolving in data/sources/",
+      "inferred": "states its reasoning in `basis`",
+      "reconstructed": "states what bounded the invention in `basis`, and the asset's LIBERTIES entry is named in `liberty`"
+    },
+    "license_rule": "a licence string the repository can honour (assets/LICENSES.md); `check_required` sources may be cited in `sources` but no asset is derived from them (AGENTS.md rule 6)"
+  },
+  "delivery": {
+    "_doc": "What the browser can open TODAY. The renderer's GLTFLoader is given a Meshopt decoder (renderers/web/js/scene-loader.js) and no KTX2 or Draco loader, so an asset using either throws on load — the KTX2 half of this was measured on a bake and is written up in tools/web_derivatives.sh. Lift a refusal here only in the same change that wires the loader and proves it on a textured asset.",
+    "allowed_extensions": ["EXT_meshopt_compression", "KHR_mesh_quantization", "KHR_materials_emissive_strength", "KHR_texture_transform"],
+    "refused_extensions": {
+      "KHR_texture_basisu": "KTX2 textures: the renderer never calls setKTX2Loader (tools/web_derivatives.sh, BAKE_KTX2)",
+      "KHR_draco_mesh_compression": "Draco: the renderer never calls setDRACOLoader; Meshopt is this project's compression"
+    }
+  },
+  "unreal": {
+    "_doc": "The Unreal handoff is an EXPORT of the same Blender master, never a second master. FBX or glTF, same bone names, same clip names, same material slots; metres become Unreal centimetres on import. No ticket in this programme may require MetaHuman assets, Control Rig or Unreal materials to complete.",
+    "authoritative": false,
+    "formats": ["fbx", "glb"]
+  }
+}
