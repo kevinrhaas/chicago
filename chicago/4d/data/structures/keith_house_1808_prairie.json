@@ -307,6 +307,122 @@
           },
           "confidence": "reconstructed",
           "note": "The door and its stoop are built from the K07 kit (T-2304): the kit's stone-front entrance, a four-panel leaf under a two-light transom with the dark hall behind it, in the K01 proof's own 1.20 x 2.70 m hole, at the head of a straight stone stoop between cheek walls solved from this record's principal floor, tread, landing and width (nine equal risers of 0.167 m). front_yard_m is the 1904 street grid's own distance, measured at the door square to the front, from the front face to the inner edge of Prairie Avenue's walk band (data/street_grid/1904.json face prairie__indiana_prairie_18_20: the front stands 4.44 m behind the street line and the walk begins 1 ft further out, 4.75 m); the stoop reaches 3.60 m. No source shows this house's door, transom or stoop; the register's north entrance loggia with Ionic columns, balustraded balcony and stair is T-1882's to build from the 1888 plate. The main range has no carriage opening: the 1911 Sanborn sheet draws this lot's carriage house as the detached rear building, T-1935's."
+        },
+        "bays": {
+          "value": [
+            {
+              "id": "south_front_bow",
+              "variant": "k08.bay.bowed",
+              "wall": "k01.wall.street_front",
+              "s_m": 2.5,
+              "fabric": "stone",
+              "storeys": [
+                {
+                  "height_m": 5.4,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 2.3,
+                      "sill_m": 2.25,
+                      "at_deg": [
+                        -36,
+                        0,
+                        36
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.6,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 2.2,
+                      "sill_m": 0.85,
+                      "at_deg": [
+                        -36,
+                        0,
+                        36
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "cone",
+                "pitch": 0.25,
+                "covering": "copper_standing_seam"
+              }
+            },
+            {
+              "id": "rear_canted",
+              "variant": "k08.bay.canted",
+              "wall": "k01.wall.rear_service",
+              "s_m": 3.0,
+              "fabric": "brick",
+              "storeys": [
+                {
+                  "height_m": 5.4,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.75,
+                      "clear_height_m": 2.3,
+                      "sill_m": 2.25,
+                      "at": [
+                        0.18,
+                        0.82
+                      ],
+                      "recess_m": 0.4
+                    },
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.95,
+                      "clear_height_m": 2.3,
+                      "sill_m": 2.25,
+                      "at": [
+                        0.5
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.6,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.75,
+                      "clear_height_m": 2.2,
+                      "sill_m": 0.85,
+                      "at": [
+                        0.18,
+                        0.82
+                      ],
+                      "recess_m": 0.4
+                    },
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.95,
+                      "clear_height_m": 2.2,
+                      "sill_m": 0.85,
+                      "at": [
+                        0.5
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.25,
+                "covering": "tin_flat_seam_painted"
+              }
+            }
+          ],
+          "confidence": "reconstructed",
+          "note": "Two K08 bays (T-2308), built by generators/archetypes/k08_bays.py from data/components/prairie_1904/k08_bays.json. SOUTH FRONT BOW: the T-1837 frontage register (frontage-28-037) reads 'the south curved bay' on the Inland Architect plate of February 1888; that plate is not a source record here, so its plan, size and windows are the kit's segmental bow (3.2 m on its chord, 0.9 m out) centred 2.5 m from the south corner (0.5 m north of the front's south window axis, so its eaves clear the T-2293 downpipe at 0.35 m), two storeys from grade to under the third-floor sill, three bent sashes a storey at the house's own front sash heights, under a low copper cone. T-1882/T-1883 own the plate's actual bay and replace this one. REAR CANTED BAY: no source shows 1808's rear; a two-storey canted bay is the commonest Prairie Avenue bay (k08_bays.json), set on the rear's north window bay in the house's common brick with stone dressings, under a low tin hip. Each bay's band sits on the front's second-floor belt (5.4 m), its wall top 9.0 m, so its roof (pitch 0.25) meets the wall clear of the third-floor sill above it; the host wall carries no opening behind either. Liberty L-k08-1808-bays-2308."
         }
       }
     }

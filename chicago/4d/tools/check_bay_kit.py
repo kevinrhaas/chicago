@@ -428,9 +428,24 @@ def check_variant(v, data, full=None, light=None):
             + rule_costs(full, data, "full") + rule_costs(light, data, "light"))
 
 
+def house_bays():
+    """Every K08 bay a K01 frontage record carries, resolved as its builder resolves it (T-2308)."""
+    import json
+    from archetypes import k01_frontage_params as P
+    out = []
+    for f in sorted((ROOT / "data" / "structures").glob("*.json")):
+        st = json.loads(f.read_text())
+        if not isinstance(st, dict) or st.get("archetype") != "k01_frontage":
+            continue
+        for ph in st.get("phases", []):
+            out += [b["variant"] for b in P.from_phase(ph, st).bays]
+    return out
+
+
 def check(data, glb_check=True):
     fails = []
-    for v in data["variants"]:
+    # T-2308: a bay on a house is held to the same rules as the kit's own, at both tiers
+    for v in [*data["variants"], *house_bays()]:
         try:
             got = check_variant(v, data)
         except Exception as e:  # a variant the generator cannot build is a failure, not a crash
@@ -579,6 +594,10 @@ def main(argv) -> int:
         print(f"FAIL — {len(fails)} K08 bay kit rule(s) broken")
         return 1
     tris = {v["id"]: K.triangles(K.build_variant(v, data, "full", board=False)) for v in data["variants"]}
+    for v in house_bays():
+        t = {tier: K.triangles(K.build_variant(v, data, tier, board=False)) for tier in ("full", "light")}
+        print(f"ok   {v['id']}: a {v['plan']['kind']} {v['kind']} on its house, {t['full']} triangles full, "
+              f"{t['light']} light, held to every rule below")
     print(f"ok   the K08 bay kit: {len(tris)} variants, each keyed to its wall and closed, every pane over its own "
           f"recess one glass layer deep, curves cut fine with true normals, supported on a plinth or corbels, the "
           f"light tier on the full tier's silhouette; {min(tris.values())}-{max(tris.values())} triangles a variant; "

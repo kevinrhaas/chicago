@@ -125,6 +125,8 @@ def _code_shas(archetype: str, params=None) -> dict[str, str]:
         wanted += [gen / "archetypes" / h for h in PURE_PYTHON_HELPERS.get(archetype, ())]
         if archetype == "k01_frontage":
             wanted += [gen / "archetypes" / "k06_windows.py", gen / "archetypes" / "k07_entrances.py"]
+            # T-2308: a record's bays are built by the K08 kit, so its module moves vertices
+            wanted += [gen / "archetypes" / "k08_bays.py"]
     # T-1730: the high-detail Glessner build delegates to v4-only modules.
     # Hash every module in that family, including the material/texture recipe;
     # the legacy path never imports them. New helpers in the family therefore
@@ -217,6 +219,9 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
         # T-2310: the K09 kit's sizes are data, and its trim is laid from them
         kit = ROOT / "data" / "components" / "prairie_1904" / "k09_trim.json"
         doc["component_data"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}
+        # T-2308: and the bay kit's — its parts, curves and roofs size every bay a record names
+        bays = ROOT / "data" / "components" / "prairie_1904" / "k08_bays.json"
+        doc["bay_kit"] = {bays.relative_to(ROOT).as_posix(): _sha_file(bays)}
     if arch == "masonry_house" and getattr(params, "detail_profile", "") == "glessner_v4":
         # The map bytes are inputs too: replacing a normal map must demand a
         # bake just as changing a stone's depth does. Only v4 reads this folder.
