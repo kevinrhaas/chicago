@@ -578,6 +578,21 @@ step "the K10 cornice kit turns every corner and seats every bracket, rail, copi
 selftest "…and a dropped bracket, a lifted finial, a doubled dentil, a short crown, a sunk dormer or a missing post still fails it" \
   python3 tools/check_cornice_kit.py --self-test
 
+# T-2312. ...and how a 1904 chimney meets its roof. The K15 kit's parts are sized in
+# data/components/prairie_1904/k15_chimneys.json and built by
+# generators/archetypes/k15_chimneys.py: each stack joined to a K05 roof by the boolean
+# union, its flues cut out by the difference. This rebuilds every variant and both tiers
+# and measures the built surface: watertight, one shell with its roof, no doubled face,
+# no face through another, nothing below the covering, every flue a dark recess of its
+# depth, the draught clearance, cricket or back flashing as the width asks, stepped
+# flashing on every side, a light tier on the same centre and top, the budget, and the
+# specimen GLB the generator's bytes.
+step "the K15 chimney kit seats every stack in its roof as one closed solid, flues recessed and flashed on every side (T-2312)" \
+  python3 tools/check_chimney_kit.py --check
+
+selftest "…and a hole, a floating or sunken shaft, an uncut or grey flue, a short stack, a missing cricket or flashing, or a light tier off its stack still fails it" \
+  python3 tools/check_chimney_kit.py --self-test
+
 # T-1963. The walls' relief is bound by reading the RECORD (route 2 of the photographic
 # fabric preparation, docs/GLB-CONTRACT.md § Wall substrates, PROPOSED): which wall is
 # clapboard, and how much of the wood's grain its finish lets through. That route's

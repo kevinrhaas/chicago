@@ -1,0 +1,451 @@
+{
+  "method": "Actual published /1904/ app, normal boot; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 12 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "load_ms_to_ready": 7352,
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "data/gltf/keith_house_1808_prairie__as_built_1886.glb",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "url": "data/gltf/glessner_house__as_built_1887.light.glb",
+          "status": 200,
+          "bytes": 0
+        }
+      ],
+      "stands": [
+        {
+          "name": "street-eye",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 65,
+            "triangles": 454283,
+            "programs": 21,
+            "geometries": 51,
+            "textures": 140,
+            "batches": 23,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 28032496,
+            "fps": 3,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 684,
+          "camera": [
+            1409.9,
+            -3244.81,
+            6.05
+          ],
+          "target": [
+            1387.9,
+            -3245.07,
+            11.35
+          ]
+        },
+        {
+          "name": "oblique",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 64,
+            "triangles": 455039,
+            "programs": 21,
+            "geometries": 52,
+            "textures": 142,
+            "batches": 23,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 28032496,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 809.8,
+          "camera": [
+            1403.07,
+            -3260.09,
+            6.05
+          ],
+          "target": [
+            1381.86,
+            -3242.34,
+            11.35
+          ]
+        },
+        {
+          "name": "rear",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 64,
+            "triangles": 454667,
+            "programs": 21,
+            "geometries": 53,
+            "textures": 144,
+            "batches": 23,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 28032496,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 581.1,
+          "camera": [
+            1353,
+            -3253.67,
+            6.05
+          ],
+          "target": [
+            1369.9,
+            -3245.28,
+            11.35
+          ]
+        },
+        {
+          "name": "roof",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 65,
+            "triangles": 454777,
+            "programs": 21,
+            "geometries": 53,
+            "textures": 144,
+            "batches": 23,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 28032496,
+            "fps": 0,
+            "cameraNear": 1.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 832.7,
+          "camera": [
+            1404.12,
+            -3264.08,
+            31.35
+          ],
+          "target": [
+            1378.9,
+            -3245.17,
+            15.35
+          ]
+        },
+        {
+          "name": "courtyard-join",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 64,
+            "triangles": 454852,
+            "programs": 21,
+            "geometries": 57,
+            "textures": 150,
+            "batches": 23,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 28032496,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 567.2,
+          "camera": [
+            1363.71,
+            -3229.55,
+            6.05
+          ],
+          "target": [
+            1375.84,
+            -3240.01,
+            10.35
+          ]
+        },
+        {
+          "name": "dormer",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 65,
+            "triangles": 454597,
+            "programs": 21,
+            "geometries": 57,
+            "textures": 150,
+            "batches": 23,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 28032496,
+            "fps": 0,
+            "cameraNear": 0.6000000000000001,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 663.1,
+          "camera": [
+            1398.9,
+            -3244.94,
+            19.85
+          ],
+          "target": [
+            1387.5,
+            -3245.07,
+            18.35
+          ]
+        },
+        {
+          "name": "eave-grazing",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 65,
+            "triangles": 455621,
+            "programs": 21,
+            "geometries": 57,
+            "textures": 150,
+            "batches": 23,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 28032496,
+            "fps": 0,
+            "cameraNear": 0.55,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 835.5,
+          "camera": [
+            1393.01,
+            -3254.71,
+            17.55
+          ],
+          "target": [
+            1384.95,
+            -3249.7,
+            16.35
+          ]
+        },
+        {
+          "name": "downpipe-shoe",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 65,
+            "triangles": 455102,
+            "programs": 21,
+            "geometries": 57,
+            "textures": 150,
+            "batches": 23,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 2,
+            "structuresExpected": 2,
+            "structuresStanding": 2,
+            "bytes": 28032496,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 690.9,
+          "camera": [
+            1390.58,
+            -3252.04,
+            5.65
+          ],
+          "target": [
+            1388.06,
+            -3250.61,
+            4.6
+          ]
+        }
+      ]
+    }
+  ]
+}
