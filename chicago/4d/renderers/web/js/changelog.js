@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1638, ts: '2026-10-10T09:07:58.320Z', date: 'Oct 10, 2026, 4:07 AM CT', title: 'Wall and boardwalk grain now lines up with its relief', kind: 'fix',
+    items: [
+      'On every clapboard and log wall, and on the plank walks along the trading frontages, the wood\'s colour, shine and shading were drawn upside down against its raised grain, so a knot\'s dark mark and its raised bump sat in different places.',
+      'Colour, roughness and shading now sit exactly on the grain they describe, so knots, checks and lap lines read as one surface up close.',
+    ] },
   { v: 1637, ts: '2026-10-10T09:04:09.148Z', date: 'Oct 10, 2026, 4:04 AM CT', title: '1808 Prairie\'s side and rear walls in common brick', kind: 'feature',
     items: [
       'The side, rear and party walls of 1808 Prairie are now common buff brick in common bond, with a header course every sixth course. They used to borrow Glessner\'s courtyard brick.',
