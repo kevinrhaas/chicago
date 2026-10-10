@@ -14,13 +14,13 @@ D5 and an H3 and left four `slot` requests on it; this raises those four.
   generators → reconcile_665 → the seating chain): **219 seated, all adopted, 0 slots left.**
   hh_merrill_george_w, hh_merill_isaac and hh_meleney_patrick adopt the houses they asked for;
   hh_rc_wilcox_martha adopts the D2, and hh_vieaux_susanne, who asked for it, is seated on the
-  standing D1 `recon_1835_south_d1_018` on Lake–Dearborn (adoption runs first). Keepers 205 → 209;
+  standing D1 `recon_1835_south_d1_018` on Lake–Dearborn (adoption runs first). Keepers 205 → 208 on the tree merged with T-1550;
   the D2's keeper is refused on the card (no source carries hh_rc_wilcox_martha's name).
 - **Baked** with `bake.sh --only` (pinned Blender 4.5.3): the four new meshes and the D1, whose
   finish and age state moved with its occupant. 708 assets fresh.
 - **Re-derived:** `rederive.mjs --tail` from compile_liberties (settled in one lap), the completion
   audit, entrances, alley lanes, woodpiles, hay limits and the land-tract join.
-- **Restated:** L263 664 → 668, L276 205 → 209.
+- **Restated:** L263 664 → 668, L276 205 → 208.
 
 ## T-2206 — Glessner roof and courtyard proportions audited
 
