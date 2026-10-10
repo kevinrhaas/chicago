@@ -44,13 +44,13 @@
   "note": "NOT DRAWN HERE, AND THE REASON IS A CIRCLE. The arrival model's own distribution — `arrival_year_of_the_known_layer` — is computed over the compiled scene, and the scene carries these cards; an arrival written here would move the table that drew it, and the research layer's own arrival fills (T-1169) re-derive from that table. The programme's arrival stage owns this block, and T-1179 is where these cards join the tree it runs over.",
   "seated_by": "T-1169 (the arrival fill), T-1179 (converge)"
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "tier": "unknown",
   "note": "Not seated. T-1199 seats the reconstructed households on the lot grid by the placement policy; the division above is the bucket this head was RE-FAMILIED INTO, not the one he was dealt in, and `refamilied` above names both."
  },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "tier": "unknown",

@@ -181,6 +181,8 @@
       "lives_at.note",
       "modelled_family.note",
       "name",
+      "no_home.note",
+      "no_workplace.note",
       "old_settler_deaths.note",
       "old_settler_deaths.people[].as_read",
       "old_settler_deaths.people[].birth_year_arithmetic",

@@ -87,7 +87,19 @@
         "attested": 8,
         "inferred": 15,
         "reconstructed": 11,
+        "unknown": 0
+      },
+      "no_home": {
+        "attested": 0,
+        "inferred": 0,
+        "reconstructed": 0,
         "unknown": 1425
+      },
+      "no_workplace": {
+        "attested": 0,
+        "inferred": 0,
+        "reconstructed": 0,
+        "unknown": 1408
       },
       "origin": {
         "attested": 11,
@@ -177,7 +189,7 @@
         "attested": 32,
         "inferred": 19,
         "reconstructed": 0,
-        "unknown": 1408
+        "unknown": 0
       }
     },
     "reconstructed_by_basis": {

@@ -979,14 +979,14 @@ def card_for(slot, pool, sizes, caps, taken_names: set, taken_ids: set,
                     "cards join the tree it runs over.",
             "seated_by": "T-1169 (the arrival fill), T-1179 (converge)",
         },
-        "lives_at": {
+        "no_home": {
             "value": None,
             "confidence": RECONSTRUCTED,
             "tier": "unknown",
             "note": "Not seated. T-1199 seats the reconstructed households on the lot "
                     "grid by the placement policy; the division above is the bucket's.",
         },
-        "works_at": {
+        "no_workplace": {
             "value": None,
             "confidence": RECONSTRUCTED,
             "tier": "unknown",
@@ -1049,7 +1049,7 @@ def card_for(slot, pool, sizes, caps, taken_names: set, taken_ids: set,
                 "against it, which is now nothing." % (
                     card["household_owed"]["size_drawn"], bucket, move["to_bucket"]),
     }
-    card["lives_at"] = dict(card["lives_at"], note=(
+    card["no_home"] = dict(card["no_home"], note=(
         "Not seated. T-1199 seats the reconstructed households on the lot grid by the "
         "placement policy; the division above is the bucket this head was RE-FAMILIED "
         "INTO, not the one he was dealt in, and `refamilied` above names both."))

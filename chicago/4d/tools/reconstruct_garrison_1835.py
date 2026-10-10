@@ -154,7 +154,7 @@ FAMILY_SIZE_MIN, FAMILY_SIZE_MAX = 2, 6
 # The keys this stage writes and `--check` re-derives. Everything else on a card belongs to
 # another stage of the same programme and is that stage's to prove.
 OWNED_KEYS = ("id", "name", "division", "head", "source_pass", "arrival",
-              "party_size_on_arrival", "lives_at", "works_at", "associated_with",
+              "party_size_on_arrival", "lives_at", "no_workplace", "associated_with",
               "present_on_scene_date", "garrison", "persons",
               "touches_removal", "review_required", "research_note")
 
@@ -734,7 +734,7 @@ def common_card(hid: str, name: str, head_id: str, lives_at: str, seated_why: st
         "replaceable_by": dict(replaceable_by),
         "note": seated_why,
     }
-    card["works_at"] = {
+    card["no_workplace"] = {
         "value": None,
         "confidence": RECONSTRUCTED,
         "note": "THE POST IS THE WORKPLACE AND THE POST IS THE DWELLING. A separate "

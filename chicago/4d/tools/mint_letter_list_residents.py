@@ -1282,11 +1282,11 @@ def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str],
         "reason_for_coming": {
             "value": None, "confidence": "reconstructed", "note": "Not attested.",
         },
-        "lives_at": {
+        "no_home": {
             "value": None, "confidence": "reconstructed",
             "note": "Not attested: a letter list gives a name and no address.",
         },
-        "works_at": {
+        "no_workplace": {
             "value": None, "confidence": "reconstructed",
             "note": "Not attested. No trade is recorded, so there is no premises to seek.",
         },
@@ -2414,7 +2414,7 @@ def self_test() -> int:
         d[victim]["persons"][0]["letter_list_returns"] = []
 
     def give_a_roof(d, i, s):
-        d[victim]["lives_at"]["value"] = "sauganash_hotel"
+        d[victim]["lives_at"] = dict(d[victim].pop("no_home"), value="sauganash_hotel")
 
     def give_a_trade(d, i, s):
         d[victim]["persons"][0]["occupation"]["value"] = "carpenter"

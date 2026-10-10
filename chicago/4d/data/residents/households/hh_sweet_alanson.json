@@ -51,12 +51,12 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested in anything this project holds."
  },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "note": "NOT MODELLED. No premises for this man is named in any source reached and none is in data/structures/."

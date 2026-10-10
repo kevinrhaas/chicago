@@ -80,7 +80,7 @@
   },
   "note": "SEATED AT THE BARRACKS, AND T-1715 RE-EXAMINED THAT AGAINST THE PLAN THE CARD ASKS FOR. The 1835 General Regulations quarter washerwomen inside the same allowance as the men (art. 31), so the barracks is where the Regulations themselves put them and the seating is not a shortcut. The plan this project holds is the 1830 Harrison survey, and it was read again for this: it letters the barn, the wash house, the shop, the well and a pair of blocks it calls `Out Buildings`, and it letters NO married quarters. The pair is the only candidate and it is refused — 24 x 19 ft and 13 x 10 ft, unlabelled, and already built as `fort_dearborn_out_building_a` and `_b` on a record that declines to name a use; moving eight households onto them would be naming one. A hut outside the palisade, which is where married soldiers often were, is still a structure nobody drew. WHAT CHANGED IS THE ARITHMETIC THAT ARGUED AGAINST IT: the quartering check used to report the barracks 26 quarters short and offer the storey count as an open reading, and the record asserts two storeys, so on what stands the allowance is met with room over. The seating is still reconstructed and still replaceable by a plan that assigns quarters; it is no longer the weakest line on this card."
  },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "note": "THE POST IS THE WORKPLACE AND THE POST IS THE DWELLING. A separate `works_at` would assert a second building for the same duty; the fort's own structures carry the garrison on their occupants blocks."
