@@ -102,6 +102,10 @@ step "loading evidence refuses promoted or unrelated facts (T-1275)" \
   python3 tools/test_loading_content.py
 step "loading cards: seeded bags, dwell, stop and humor cap (T-1275)" \
   node tools/test_loading_content.mjs
+step "Portable human contract holds; every human GLB and instance is held to it (T-1786)" \
+  python3 tools/human_contract.py --check
+selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
+  python3 tools/human_contract.py --self-test
 
 # THE MIRROR IS BUILT FIRST, BECAUSE IT IS NOT IN THE REPOSITORY ANY MORE (T-0938).
 #
@@ -157,6 +161,10 @@ selftest "Scene bundle: one commit packed reproducibly; tampered, missing, extra
   python3 tools/scene_bundle.py --self-test
 step "Glessner's west roof has one continuous envelope and a lower rear eave (T-1830)" \
   python3 tools/test_glessner_roof_envelope.py
+step "Prairie 1904 K01 component contract holds, and the Glessner baseline is the package it measured (T-2265)" \
+  node tools/k01_contract.mjs --check
+selftest "…coincident faces, hidden origin offsets and tier scale drift are caught on synthetic GLBs" \
+  node tools/k01_contract.mjs --self-test
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines

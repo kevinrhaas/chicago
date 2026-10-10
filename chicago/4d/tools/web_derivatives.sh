@@ -353,6 +353,10 @@ if [ -n "$resolved_cli" ]; then
   # Turning this on is part of W2 (docs/RENDERING.md), and the order is: wire
   # KTX2Loader + a vendored transcoder into the renderer FIRST, prove it loads a
   # textured asset, and only then set BAKE_KTX2=1 here.
+  # The same constraint binds human assets (T-1786): data/humans/contract.json
+  # § delivery refuses KHR_texture_basisu (and Draco, which has no loader either),
+  # and tools/human_contract.py --glb refuses an export that uses it. Lift both in
+  # the change that wires the loader, not before.
   # POSITION PRECISION IS PER-MESH, AND ONE MESH IN THIS TOWN IS 5 KM WIDE.
   #
   # `gltf-transform` quantises POSITION to a bit depth under ONE UNIFORM node
