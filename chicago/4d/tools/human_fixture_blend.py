@@ -8,7 +8,8 @@ browser, on every LOD, with the contract's whole skeleton, its five required mat
 slots, the three required face morphs, the two clips an actor needs and the three
 required sockets. It is built from code, so this script is its master: the .blend it
 writes is an intermediate that tools/human_export.sh rebuilds on every run, and the
-GLBs under assets/humans/fixture/ are what that rebuild must reproduce byte for byte.
+GLBs under assets/humans/ (and assets/humans/web/) are what that rebuild must
+reproduce byte for byte.
 
 Everything a real body (T-1789) will be authored by hand in Blender, this builds from
 primitives: tapered cylinders on each bone, spheres for the head and eyes, boxes for

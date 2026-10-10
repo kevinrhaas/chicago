@@ -21,12 +21,16 @@ name: Chicago 4D — portable humans
 # human_fixture.mjs --check), so a hand-edited GLB cannot pass there even when this does
 # not run.
 on:
+  # The same paths for both: web_derivatives.sh carries the gltf-transform pin the
+  # derivatives are made with, and the vendored three.js and scene-loader.js are
+  # what the browser proof decodes them with.
   pull_request:
     paths:
       - 'chicago/4d/tools/human_*'
       - 'chicago/4d/assets/humans/**'
       - 'chicago/4d/data/humans/**'
       - 'chicago/4d/generators/blender.pin'
+      - 'chicago/4d/tools/web_derivatives.sh'
       - 'chicago/4d/renderers/web/vendor/**'
       - 'chicago/4d/renderers/web/js/scene-loader.js'
       - '.github/workflows/chicago-4d-humans.yml'
@@ -38,6 +42,8 @@ on:
       - 'chicago/4d/data/humans/**'
       - 'chicago/4d/generators/blender.pin'
       - 'chicago/4d/tools/web_derivatives.sh'
+      - 'chicago/4d/renderers/web/vendor/**'
+      - 'chicago/4d/renderers/web/js/scene-loader.js'
       - '.github/workflows/chicago-4d-humans.yml'
   workflow_dispatch:
 

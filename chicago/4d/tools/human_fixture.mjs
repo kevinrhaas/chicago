@@ -192,7 +192,7 @@ for (const f of files) {
 }
 
 // The structural readings must not move without a rebuild; timings may.
-const STRUCT = ['sha256', 'bytes', 'triangles', 'vertices', 'draw_calls', 'materials', 'joints'];
+const STRUCT = ['sha256', 'bytes', 'triangles', 'vertices', 'draw_calls', 'materials', 'textures', 'joints'];
 if (MODE !== '--write') {
   let committed = null;
   try { committed = JSON.parse(await readFile(MEASURE, 'utf8')); } catch { /* none */ }

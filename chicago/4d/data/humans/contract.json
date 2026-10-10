@@ -133,7 +133,7 @@
     "required_for_actor": ["idle", "walk"]
   },
   "lods": {
-    "_doc": "Four LODs, one GLB each: `<asset_id>.lod<N>.glb`. Every LOD carries the whole contract skeleton and the required material slots; only lod0-lod1 owe the face. The detail tiers pick from them; the triangle budgets are T-1787's to measure, not this file's to guess.",
+    "_doc": "Four LODs, one GLB each: `<asset_id>.lod<N>.glb`. Every LOD carries the whole contract skeleton and the required material slots; only lod0-lod1 owe the face. The detail tiers pick from them. The per-LOD triangle, draw, texture and byte costs are measured, not guessed: tools/human_fixture.mjs records them in data/humans/fixture.measure.json and docs/HUMAN-ASSET-CONTRACT.md § 8 publishes them (T-1787).",
     "levels": [0, 1, 2, 3],
     "file_pattern": "^(?P<asset_id>[a-z0-9_]+)\\.lod(?P<lod>[0-3])\\.glb$",
     "tiers": {
