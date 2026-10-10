@@ -653,6 +653,20 @@ function letterLayout(ctx, L, s, dx, dy, fill = null) {
   }
 }
 
+/** The block shade under each line, offset by `k` of that line's own size. */
+function shadeLayout(ctx, L, k, fill) {
+  for (const ln of L.lines) {
+    const off = ln.size * k;
+    ctx.fillStyle = fill(ln);
+    drawTracked(ctx, ln.text, ln.cx + off, ln.cy + off * 1.1, ln.size, ln.f);
+  }
+  if (L.rule) {
+    const { cx, cy, half, t } = L.rule;
+    ctx.fillStyle = fill(null);
+    ctx.fillRect(cx - half + t, cy - t / 2 + t, 2 * half, Math.max(1, t));
+  }
+}
+
 /**
  * GOLD LEAF, as a fill for one line: bright where a burnished letter catches the
  * sky, the leaf's own yellow across its middle, and dark where its lower strokes
@@ -663,10 +677,10 @@ function giltFill(ctx, letter) {
   return (ln) => {
     if (!ln) return shift(letter, -10);
     const g = ctx.createLinearGradient(0, ln.cy - ln.size * 0.42, 0, ln.cy + ln.size * 0.42);
-    g.addColorStop(0, mix(letter, '#fff3c4', 0.62));
-    g.addColorStop(0.34, mix(letter, '#ffe08a', 0.30));
-    g.addColorStop(0.60, letter);
-    g.addColorStop(1, mix(letter, '#3a2306', 0.50));
+    g.addColorStop(0, mix(letter, '#fff6d6', 0.70));
+    g.addColorStop(0.30, mix(letter, '#ffd257', 0.50));
+    g.addColorStop(0.58, mix(letter, '#e3a91c', 0.25));
+    g.addColorStop(1, mix(letter, '#4a2a06', 0.45));
     return g;
   };
 }
@@ -740,7 +754,6 @@ function paintCell(ctx, x, y, cellW, sign) {
   }
 
   if (!L.lines.length) return L;
-  const nameSize = L.lines.find((l) => l.role === 'name')?.size ?? L.lines[0].size;
   if (carved) {
     // INCISED: the cut is in shadow and holds the weather's dirt, so it reads
     // as a dark letter in the wood's own brown; the relief atlas cuts the V.
@@ -752,15 +765,19 @@ function paintCell(ctx, x, y, cellW, sign) {
     ctx.restore();
     return L;
   }
-  // THE SHADE. Gilt was always shaded, and a signwriter's roman usually was: a
-  // dark offset down and to the right that stands the letter off its ground.
-  // On a light ground it is a darker tone of the ground, not black.
-  if (gilt || face.shade) {
-    const off = nameSize * 0.055;
-    ctx.save();
-    letterLayout(ctx, L, 1, off, off * 1.1,
-      () => (dark ? 'rgba(0, 0, 0, 0.62)' : shift(ground, -70)));
-    ctx.restore();
+  // THE SHADE. Gilt was always shaded, and so, by the 1830s, was nearly every
+  // board a signwriter sold: a block offset down and to the right that stands
+  // the letter off its ground, and is what a period board is recognised by
+  // across a street. Each line's shade is in proportion to its own letter. On a
+  // light ground it is a darker tone of the ground, not black; gilt on a dark
+  // ground was shaded in a lake-brown that reads against the black, where a
+  // black shade would vanish (T-2287).
+  if (!isLettersOnly(sign)) {
+    const shadeOf = () => {
+      if (!dark) return shift(ground, -70);
+      return gilt ? '#5a2410' : 'rgba(0, 0, 0, 0.62)';
+    };
+    shadeLayout(ctx, L, gilt || face.shade ? 0.06 : 0.045, shadeOf);
   }
   if (gilt) {
     // A fine dark outline first, which is what keeps leaf crisp at a distance
@@ -788,6 +805,10 @@ function paintCell(ctx, x, y, cellW, sign) {
     }
     ctx.restore();
     letterLayout(ctx, L, 1, 0, 0, giltFill(ctx, letter));
+  } else if (isLettersOnly(sign)) {
+    // Straight onto bare boards: the paint has soaked into the wood and chalked
+    // in the sun, so it is the letter's colour a little way toward the boards'.
+    letterLayout(ctx, L, 1, 0, 0, () => mix(letter, ground, 0.2));
   } else {
     letterLayout(ctx, L, 1, 0, 0, () => letter);
   }
@@ -1118,6 +1139,19 @@ function jointsOf(sign, r, pxPerM) {
 }
 
 /**
+ * The moulding round a hung or fixed board, as its width in atlas pixels: about
+ * 3.5 cm of bead, and never more than a sixteenth of the board's height. None
+ * for a painted band, which is paint on the building and has no edge of its
+ * own (T-2287).
+ */
+const FRAME_M = 0.035;
+function frameOf(sign, r, pxPerM) {
+  if (sign.mounting === 'facade_painted') return null;
+  const fw = Math.min(FRAME_M * pxPerM, r.rh / 16);
+  return fw >= 3 ? { fw } : null;
+}
+
+/**
  * EVERYTHING THAT MAKES A PAINTED CELL A BOARD rather than a flat panel: the
  * grain through the paint, the joints, the wear and the grime at its foot, in
  * the colour atlas; the same grain and joints in relief, with the paint filling
@@ -1156,6 +1190,72 @@ function weatherCell(ctxs, x, y, cellW, r, sign, wood) {
     ctx.fillRect(r.rx, jy + jw / 2, r.rw, jw * 0.6);
   }
   ctx.restore();
+  // A DARK GROUND IN DAYLIGHT is not black. Soft light does nothing to a
+  // near-black, so the board's brushed grain is lifted through it on its own,
+  // and the weather is added: rain runs down the face from the top edge and
+  // leaves pale streaks of chalked paint. This is what a black board in a
+  // photograph of the period is — a dark grey, grained, streaked surface the
+  // gilt stands out of (T-2287).
+  if (!bare && isDark(sign.style?.ground || TIMBER_HEX)) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(r.rx, r.ry, r.rw, r.rh);
+    ctx.clip();
+    ctx.globalCompositeOperation = 'screen';
+    ctx.globalAlpha = 0.30;
+    ctx.fillStyle = woodPattern(ctx, B.grain, B.span, pxPerM, ox, oy, BOARD_GRAIN_ALONG);
+    ctx.fillRect(r.rx, r.ry, r.rw, r.rh);
+    ctx.globalAlpha = 1;
+    const srnd = seeded(`${sign.structure_id}#streaks`);
+    const streaks = Math.round((r.rw / pxPerM) * 22);
+    for (let k = 0; k < streaks; k += 1) {
+      const sx = r.rx + srnd() * r.rw;
+      const len = r.rh * (0.15 + srnd() * srnd() * 0.85);
+      const sw = Math.max(1, pxPerM * (0.004 + srnd() * 0.012));
+      const g = ctx.createLinearGradient(0, r.ry, 0, r.ry + len);
+      const a = 0.07 + srnd() * 0.12;
+      g.addColorStop(0, `rgba(190, 186, 172, ${a})`);
+      g.addColorStop(1, 'rgba(190, 186, 172, 0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(sx, r.ry, sw, len);
+    }
+    ctx.restore();
+  }
+  // THE MOULDING. A board hung or fixed in the street was framed — a planted
+  // bead or ovolo round its edge, painted with the ground — and its raised lip
+  // is what makes it read as a made object rather than a card. Drawn here as
+  // the light on its upper and left faces and the shadow on its lower and
+  // right ones; the relief atlas carries the same bevel (T-2287).
+  const frame = frameOf(sign, r, pxPerM);
+  if (frame) {
+    const { fw } = frame;
+    ctx.save();
+    // The bead is picked out: in leaf on a gilt board, as a gilder finished it,
+    // and a tone off the ground on any other.
+    const gnd = sign.style?.ground || TIMBER_HEX;
+    const bead = isGilt(sign) ? shift(sign.style?.letter || '#c9a227', -18)
+      : shift(gnd, isDark(gnd) ? 26 : -26);
+    ctx.fillStyle = bead;
+    ctx.fillRect(r.rx, r.ry, r.rw, fw);
+    ctx.fillRect(r.rx, r.ry + r.rh - fw, r.rw, fw);
+    ctx.fillRect(r.rx, r.ry, fw, r.rh);
+    ctx.fillRect(r.rx + r.rw - fw, r.ry, fw, r.rh);
+    const lit = 'rgba(255, 248, 230, 0.16)';
+    const shd = 'rgba(16, 10, 4, 0.34)';
+    ctx.fillStyle = lit;
+    ctx.fillRect(r.rx, r.ry, r.rw, fw * 0.45);
+    ctx.fillRect(r.rx, r.ry, fw * 0.45, r.rh);
+    ctx.fillStyle = shd;
+    ctx.fillRect(r.rx, r.ry + r.rh - fw * 0.45, r.rw, fw * 0.45);
+    ctx.fillRect(r.rx + r.rw - fw * 0.45, r.ry, fw * 0.45, r.rh);
+    // and inside the lip, the step down to the field: shadow above and left
+    ctx.fillStyle = 'rgba(16, 10, 4, 0.30)';
+    ctx.fillRect(r.rx + fw, r.ry + fw, r.rw - 2 * fw, Math.max(1, fw * 0.22));
+    ctx.fillRect(r.rx + fw, r.ry + fw, Math.max(1, fw * 0.22), r.rh - 2 * fw);
+    ctx.fillStyle = 'rgba(255, 248, 230, 0.10)';
+    ctx.fillRect(r.rx + fw, r.ry + r.rh - fw - Math.max(1, fw * 0.22), r.rw - 2 * fw, Math.max(1, fw * 0.22));
+    ctx.restore();
+  }
   // The wear: bare wood where the paint has gone.
   if (shapes.length) {
     ctx.save();
@@ -1205,6 +1305,22 @@ function weatherCell(ctxs, x, y, cellW, r, sign, wood) {
         nctx.fill();
       }
     }
+    if (frame) {
+      // The lip's outer half rises from the board's edge, its inner half falls
+      // to the field: four facing strips each side, one normal apiece.
+      const fw = frame.fw * ns;
+      const X = r.rx * ns; const Y = r.ry * ns; const W = r.rw * ns; const H = r.rh * ns;
+      const h = fw / 2;
+      const strip = (col, x0, y0, w0, h0) => { nctx.fillStyle = col; nctx.fillRect(x0, y0, w0, h0); };
+      strip('rgb(128, 180, 230)', X, Y, W, h);              // top, outer: faces up
+      strip('rgb(128, 76, 230)', X, Y + H - h, W, h);       // bottom, outer: faces down
+      strip('rgb(76, 128, 230)', X, Y, h, H);               // left, outer: faces left
+      strip('rgb(180, 128, 230)', X + W - h, Y, h, H);      // right, outer: faces right
+      strip('rgb(128, 76, 230)', X + h, Y + h, W - 2 * h, h);           // top, inner
+      strip('rgb(128, 180, 230)', X + h, Y + H - fw, W - 2 * h, h);     // bottom, inner
+      strip('rgb(180, 128, 230)', X + h, Y + h, h, H - 2 * h);          // left, inner
+      strip('rgb(76, 128, 230)', X + W - fw, Y + h, h, H - 2 * h);      // right, inner
+    }
     const gw = Math.max(1, pxPerM * 0.004 * ns);
     for (const jy of joints) {
       nctx.fillStyle = 'rgb(128, 84, 236)';    // the upper flank faces down
@@ -1221,20 +1337,22 @@ function weatherCell(ctxs, x, y, cellW, r, sign, wood) {
 
   // ROUGHNESS (green channel): paint on the face, bare wood where it wore. A
   // sanded (smalt) ground is matte; gold leaf is the smoothest thing in the
-  // town and is what catches the sun (T-2282).
+  // town and is what catches the sun (T-2287). The blue channel is held at
+  // zero: leaf drawn as a true metal reflects this scene's sky, which is all
+  // the environment there is, and turns a mint green no gilder ever sold.
   if (rctx) {
     rctx.save();
     if (!bare) {
       const smalt = isDark(sign.style?.ground || TIMBER_HEX);
-      rctx.fillStyle = smalt ? 'rgb(232, 232, 232)' : 'rgb(158, 158, 158)';
+      rctx.fillStyle = smalt ? 'rgb(232, 232, 0)' : 'rgb(158, 158, 0)';
       rctx.fillRect(r.rx * rs, r.ry * rs, r.rw * rs, r.rh * rs);
       if (r.lines?.length) {
         const gilt = isGilt(sign);
         letterLayout(rctx, r, rs, 0, 0,
-          () => (gilt ? 'rgb(72, 72, 72)' : 'rgb(158, 158, 158)'));
+          () => (gilt ? 'rgb(72, 72, 0)' : 'rgb(158, 158, 0)'));
       }
       if (shapes.length) {
-        rctx.fillStyle = 'rgb(219, 219, 219)';
+        rctx.fillStyle = 'rgb(219, 219, 0)';
         tracePath(rctx, shapes, rs);
         rctx.fill();
       }
@@ -1375,6 +1493,21 @@ function cutToLetters(ctx, x, y, cellW, L) {
   const mctx = m.getContext('2d');
   if (!mctx) return;
   letterLayout(mctx, L, 1, -x, -y, null);
+  // Paint straight on weathered boards does not stay whole: it lifts in small
+  // flakes along the grain, and the boards show through (T-2287).
+  const rnd = seeded(`${L.rx},${L.ry}#flake`);
+  const pits = Math.round(L.rw * L.rh * 0.004);
+  mctx.globalCompositeOperation = 'destination-out';
+  mctx.fillStyle = '#000000';
+  for (let k = 0; k < pits; k += 1) {
+    const px = L.rx - x + rnd() * L.rw;
+    const py = L.ry - y + rnd() * L.rh;
+    const rw = 0.6 + rnd() * rnd() * 4.5;
+    mctx.beginPath();
+    mctx.ellipse(px, py, rw * (1.4 + rnd()), rw * 0.6, 0, 0, Math.PI * 2);
+    mctx.fill();
+  }
+  mctx.globalCompositeOperation = 'source-over';
   ctx.save();
   ctx.beginPath();
   ctx.rect(x, y, cellW, TILE_H);
@@ -1474,7 +1607,7 @@ function buildAtlas(signs, wood = null, lowSpec = false) {
     if (nctx && rctx) {
       nctx.fillStyle = 'rgb(128, 128, 255)';
       nctx.fillRect(0, 0, normalCanvas.width, normalCanvas.height);
-      rctx.fillStyle = 'rgb(224, 224, 224)';   // bare weathered timber, 0.88
+      rctx.fillStyle = 'rgb(224, 224, 0)';   // bare weathered timber, 0.88; not metal
       rctx.fillRect(0, 0, roughCanvas.width, roughCanvas.height);
     } else {
       normalCanvas = null; roughCanvas = null; nctx = null; rctx = null;
