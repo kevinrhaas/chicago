@@ -19,7 +19,7 @@
   {
    "what": "residents layer, persons",
    "path": "data/residents/households/",
-   "n": 1438
+   "n": 1437
   },
   {
    "what": "voter, poll and tax list entries (T-0493)",
@@ -43,7 +43,7 @@
   "residents_matched_one_bidder": 19,
   "residents_ambiguous": 1,
   "residents_contested": 10,
-  "residents_surname_only_refused": 94,
+  "residents_surname_only_refused": 93,
   "voters_matched_one_bidder": 20,
   "voters_ambiguous": 1,
   "voters_surname_only_refused": 43,
@@ -1816,11 +1816,6 @@
     "name": "Caroline Beaubien",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Beaubien' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'C' of 'Caroline Beaubien'. A surname-only agreement is a refusal."
-   },
-   {
-    "name": "Charles Beaubien",
-    "candidates_under_that_surname": 1,
-    "rule": "The surname 'Beaubien' stands among the Fort Dearborn Addition bidders and no bidder under it carries the initial 'C' of 'Charles Beaubien'. A surname-only agreement is a refusal."
    },
    {
     "name": "Charles H Beaubien",

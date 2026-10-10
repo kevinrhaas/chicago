@@ -8,10 +8,10 @@
  "what_a_match_here_does_not_mean": "It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload.",
  "rule": "SURNAME must match after both are folded (case, punctuation and the transcriber's usual confusions removed), AND the first initial of the given name must match. A surname-only agreement is a REFUSAL, however good it looks. Where one 1835 person meets more than one entry the match is AMBIGUOUS and is filed as such; where two 1835 people meet one entry it is CONTESTED and no match is made.",
  "counts": {
-  "residents_considered": 1438,
+  "residents_considered": 1437,
   "matched_one_entry": 64,
   "matched_more_than_one_ambiguous": 17,
-  "one_entry_contested_by_two_residents": 20,
+  "one_entry_contested_by_two_residents": 19,
   "surname_present_initial_absent_refused": 268,
   "matches_carrying_a_birth_year": 42,
   "matches_carrying_a_date_of_death": 57
@@ -1897,7 +1897,7 @@
    "household_id": "hh_beaubien_caroline",
    "grade_1835": "inferred",
    "occupation_1835": "none_recorded",
-   "rule": "Surname 'Beaubien' folds to the same string as the entry's, and the given name of both begins C. CONTESTED: 3 residents of 1835 meet this one entry on that rule, and at most one of them is the person printed. The match is not made.",
+   "rule": "Surname 'Beaubien' folds to the same string as the entry's, and the given name of both begins C. CONTESTED: 2 residents of 1835 meet this one entry on that rule, and at most one of them is the person printed. The match is not made.",
    "resident_given_is_initial_only": false,
    "entries": [
     {
@@ -1919,39 +1919,6 @@
    ],
    "carry_rule": "Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record.",
    "contested_with": [
-    "Charles Beaubien",
-    "Charles H Beaubien"
-   ]
-  },
-  {
-   "resident": "Charles Beaubien",
-   "person_id": "beaubien_charles",
-   "household_id": "hh_beaubien_charles",
-   "grade_1835": "inferred",
-   "occupation_1835": "none_recorded",
-   "rule": "Surname 'Beaubien' folds to the same string as the entry's, and the given name of both begins C. CONTESTED: 3 residents of 1835 meet this one entry on that rule, and at most one of them is the person printed. The match is not made.",
-   "resident_given_is_initial_only": false,
-   "entries": [
-    {
-     "record": "fdn0029",
-     "as_read": "Beaubien, Charles Henry, died, Gross Point, Ill., 1858, aged 51.",
-     "trade_or_office": null,
-     "manner_of_death": "died",
-     "place_of_death": "Gross Point, Ill.",
-     "death_date": "1858",
-     "age_as_printed": "aged 51",
-     "birth_year_earliest": 1806,
-     "birth_year_latest": 1807,
-     "birth_year_arithmetic": "The page prints the death as '1858' and the age as 'aged 51'. An age of 51 completed years means at least 51 and less than 52, so the birth falls between 1806-01-02 and 1807-12-31: the birth year is 1806 or 1807. The subtraction is this project's; the page states no year of birth."
-    }
-   ],
-   "could_carry": [
-    "birth_year",
-    "date_of_death"
-   ],
-   "carry_rule": "Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record.",
-   "contested_with": [
-    "Caroline Beaubien",
     "Charles H Beaubien"
    ]
   },
@@ -1959,9 +1926,9 @@
    "resident": "Charles H Beaubien",
    "person_id": "beaubien_charles_h",
    "household_id": "hh_beaubien_charles_h",
-   "grade_1835": "inferred",
+   "grade_1835": "attested",
    "occupation_1835": "none_recorded",
-   "rule": "Surname 'Beaubien' folds to the same string as the entry's, and the given name of both begins C. CONTESTED: 3 residents of 1835 meet this one entry on that rule, and at most one of them is the person printed. The match is not made.",
+   "rule": "Surname 'Beaubien' folds to the same string as the entry's, and the given name of both begins C. CONTESTED: 2 residents of 1835 meet this one entry on that rule, and at most one of them is the person printed. The match is not made.",
    "resident_given_is_initial_only": false,
    "entries": [
     {
@@ -1983,8 +1950,7 @@
    ],
    "carry_rule": "Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record.",
    "contested_with": [
-    "Caroline Beaubien",
-    "Charles Beaubien"
+    "Caroline Beaubien"
    ]
   },
   {
