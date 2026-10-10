@@ -3437,6 +3437,11 @@ selftest "the bake builds the ref it was given, and the nightly still builds dev
 selftest "the bake is skipped only when the freshness register says nothing staled" \
   python3 tools/bake_warranted.py --self-test
 
+# T-2314. A whole-town bake derives only the masters the record says moved; deriving
+# all ~714 pushed the content-build job past its thirty-minute ceiling.
+selftest "a whole-town bake derives exactly the masters whose bytes moved (T-2314)" \
+  python3 tools/stale_derivatives.py --self-test
+
 # The duplicate-id remedy, tested in the only state it ever runs in. `restamp`
 # used to find the ticket by FILE (its own comment explains that with two files
 # sharing an id, nothing else can tell them apart) and then edit the queue by ID,
