@@ -85,7 +85,7 @@ const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
 /**
  * HOW A SIGN IS DRAWN rather than what any shop claimed. The record carries the
  * board's own size, its mounting and the mounting's principal dimensions; these
- * are the small timber that hangs it — strap thickness, the strut under a
+ * are the small timber and iron that hang it — the chain, the knee under a
  * bracket, the cap over a wall board — the division `enclosures.js` makes
  * between a fence's line (the record's) and a rail's thickness (the renderer's).
  * The bracket numbers are still `generators/archetypes/log_dwelling.py::_sign`'s,
@@ -93,12 +93,41 @@ const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
  * board rather than two.
  */
 const ARM_T_M = 0.045;
-const HANGER_T_M = 0.022;
-const HANGER_W_M = 0.018;
 const AWNING_T_M = 0.05;
 const AWNING_BRACKET_T_M = 0.05;
 const WALL_CAP_T_M = 0.05;
 const POST_ARM_T_M = 0.09;
+
+/**
+ * THE IRONWORK A HUNG BOARD ACTUALLY HANGS BY (T-2281). The owner, 2026-10-10,
+ * on a screenshot of the Sauganash's board: "they are missing a chain or rope
+ * or something I think the signs hang in the air with nothing supporting them".
+ * He was right twice over. The bracket board ran ONE arm out of the wall at the
+ * board's middle and dropped its two hangers at a third of the board's width
+ * either side of it, ALONG the wall, so neither hanger was under anything; and
+ * every hanger in the layer was a flat timber slat, which reads as a stick
+ * glued to the board rather than as the thing holding it up.
+ *
+ * So every hung board now hangs on forged chain: an eye stapled to the timber
+ * that carries it, a run of links turning a quarter-turn each, and a staple
+ * driven into the board's top edge. Short chain on iron eyes is how a swinging
+ * shop board was hung through the period — it is what lets it swing instead of
+ * splitting at the fixing — and the town had smiths to forge it (the fort's
+ * made the Wolf Point sign's hinges). Every dimension is reconstructed, bounded
+ * by a hand-forged sign chain of 8–10 mm stock in links two to three inches
+ * long; docs/LIBERTIES.md L412 records it.
+ *
+ * Sized to be SEEN from the footway, not to be counted: a 9 mm bar at the 3.6 m
+ * close stand is about three pixels of a desktop frame, which is the scale at
+ * which a link reads as a link and not as a thicker rod.
+ */
+const CHAIN_WIRE_M = 0.009;       // the bar a link is forged from
+const CHAIN_LINK_L_M = 0.064;     // a link's outside length
+const CHAIN_LINK_W_M = 0.036;     // and its outside width
+const STAPLE_W_M = 0.05;          // the eye or staple a chain is hooked to
+const STAPLE_H_M = 0.022;
+const IRON_HEX = '#2f2b28';       // black iron, weathered (reconstructed)
+const RUST_HEX = '#6b4430';
 
 /**
  * The weathered plank every bracket, post, hood and strap is made of. The
@@ -866,6 +895,31 @@ function paintTimberCell(ctxs, wood) {
 }
 
 /**
+ * The ironwork's cell (T-2281): black iron gone a little to rust, smoother than
+ * the weathered timber beside it, and flat (no grain in its relief). Sampled at
+ * its middle only, so the mottling is there to keep the tone from reading as
+ * printer's black under a low sun, not to be seen as a pattern.
+ */
+function paintIronCell(ctxs, x, y) {
+  const { ctx, nctx, rctx, ns, rs } = ctxs;
+  ctx.save();
+  ctx.fillStyle = IRON_HEX;
+  ctx.fillRect(x, y, TILE_W, TILE_H);
+  ctx.globalAlpha = 0.18;
+  ctx.fillStyle = RUST_HEX;
+  ctx.fillRect(x + TILE_W * 0.25, y + TILE_H * 0.25, TILE_W * 0.5, TILE_H * 0.5);
+  ctx.restore();
+  if (nctx) {
+    nctx.fillStyle = 'rgb(128, 128, 255)';
+    nctx.fillRect(x * ns, y * ns, TILE_W * ns, TILE_H * ns);
+  }
+  if (rctx) {
+    rctx.fillStyle = 'rgb(166, 166, 166)';   // forged iron, 0.65
+    rctx.fillRect(x * rs, y * rs, TILE_W * rs, TILE_H * rs);
+  }
+}
+
+/**
  * Lay every sign out on one canvas and hand back the texture plus, for each
  * sign, the uv rectangle its face samples and the uv point its edges take.
  *
@@ -919,6 +973,10 @@ function buildAtlas(signs, wood = null, lowSpec = false) {
     cells.push({ sign, col, row, span });
     col += span;
   }
+  // The ironwork's cell (T-2281) takes the next free slot, so it costs a row
+  // only when the last one is already full.
+  if (col + 1 > ATLAS_COLS) { col = 0; row += 1; }
+  const ironCell = { col, row };
   const rows = row + 1;
   canvas.width = ATLAS_COLS * TILE_W;
   canvas.height = rows * TILE_H;
@@ -962,10 +1020,18 @@ function buildAtlas(signs, wood = null, lowSpec = false) {
   const ctxs = { ctx, nctx, rctx, ns, rs };
   if (wood) paintTimberCell(ctxs, wood);
 
+  paintIronCell(ctxs, ironCell.col * TILE_W, ironCell.row * TILE_H);
+
   const W = canvas.width;
   const H = canvas.height;
   const uvOf = (px, py) => [px / W, 1 - py / H];
-  const out = { timber: uvOf(TILE_W * 0.5, TILE_H * 0.5), signs: new Map() };
+  const out = {
+    timber: uvOf(TILE_W * 0.5, TILE_H * 0.5),
+    // One point in the middle of the iron cell: a link is a few pixels across
+    // at any stand, so it needs the iron's tone and roughness and no figure.
+    iron: uvOf(ironCell.col * TILE_W + TILE_W * 0.5, ironCell.row * TILE_H + TILE_H * 0.5),
+    signs: new Map(),
+  };
   if (wood) {
     // The metric cell the carpentry maps onto (`timberUv`), inset so no mip
     // level reaches the painted cell beside it.
@@ -1169,6 +1235,57 @@ function pushBar(buf, a, b, wx, wz, halfW, halfT, level, solid) {
   pushHull(buf, p, level, timberUv(solid, halfLen, halfW, halfT, seedAt(a[0], a[1], a[2])));
 }
 
+/** A small iron member: a box like `pushBox`, sampling the iron cell's one point. */
+function pushIronBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level, iron) {
+  pushHull(buf, boxCorners(cx, cy, cz, ux, uz, halfLen, halfW, halfH), level, () => iron);
+}
+
+/**
+ * A HUNG BOARD'S CHAIN (T-2281), from the underside of whatever carries it
+ * (`yTop`) down to the top edge of the board (`yBot`), at (x, z).
+ *
+ * At each end an eye — a short iron block lying along the board — that the end
+ * link is hooked through: driven up into the arm, hood or cross-arm, and down
+ * into the board. Between them, links of `CHAIN_LINK_*` stock, each a closed
+ * loop of four bars, every other one turned a quarter-turn (in the plane of the
+ * board, then across it), and overlapping by their bar's thickness at each end
+ * as real links do. The count is whatever fits the drop at about a link's
+ * inside length a link; the pitch is then stretched or squeezed so the run
+ * meets both eyes exactly, which is a few millimetres a link at most.
+ *
+ * About 200 triangles a chain. Forty-one hung boards in 1835 is about sixteen
+ * thousand, which is under one tree's worth of the flora layer.
+ */
+function pushChain(buf, x, z, yTop, yBot, wx, wz, level, iron) {
+  const r = CHAIN_WIRE_M / 2;
+  // The eyes, each half in the timber it is driven into.
+  pushIronBox(buf, x, yTop, z, wx, wz, STAPLE_W_M / 2, r * 1.4, STAPLE_H_M / 2, level, iron);
+  pushIronBox(buf, x, yBot, z, wx, wz, STAPLE_W_M / 2, r * 1.4, STAPLE_H_M / 2, level, iron);
+  const top = yTop - STAPLE_H_M / 2 + r;
+  const bot = yBot + STAPLE_H_M / 2 - r;
+  const run = top - bot;
+  if (run <= CHAIN_WIRE_M * 2) return;
+  const L = Math.min(CHAIN_LINK_L_M, run);
+  const inside = L - 2 * CHAIN_WIRE_M;
+  const n = Math.max(1, Math.round((run - L) / inside) + 1);
+  const pitch = n > 1 ? (run - L) / (n - 1) : 0;
+  const halfW = CHAIN_LINK_W_M / 2;
+  for (let k = 0; k < n; k += 1) {
+    const cy = top - L / 2 - k * pitch;
+    // The link's plane: along the board, then across it.
+    const ux = k % 2 ? -wz : wx;
+    const uz = k % 2 ? wx : wz;
+    for (const s of [-1, 1]) {
+      // The two sides…
+      pushIronBox(buf, x + ux * s * (halfW - r), cy, z + uz * s * (halfW - r),
+        ux, uz, r, r, L / 2, level, iron);
+      // …and the two ends, which are what makes it a loop and not two rods.
+      pushIronBox(buf, x, cy + s * (L / 2 - r), z,
+        ux, uz, halfW - 2 * r, r, r, level, iron);
+    }
+  }
+}
+
 /**
  * THE BOARD ITSELF, and the one piece of UV arithmetic worth explaining.
  *
@@ -1248,7 +1365,7 @@ function wallBase(quad, terrain) {
  * renderer's world is (E, up, −N), which is where every negated north below
  * comes from.
  */
-function buildSign(buf, sign, terrain, art, timber, problems) {
+function buildSign(buf, sign, terrain, art, timber, problems, iron = timber) {
   const anchor = sign.anchor_local_enu_m;
   if (!Array.isArray(anchor) || anchor.length !== 2) {
     problems.push(`signage: ${sign.structure_id} carries no anchor — no sign is put up`);
@@ -1317,16 +1434,18 @@ function buildSign(buf, sign, terrain, art, timber, problems) {
             az + offZ + oz * (proj - 0.10)],
           wx, wz, AWNING_BRACKET_T_M / 2, AWNING_BRACKET_T_M / 2, level, solid);
       }
-      // Two straps and the board under the hood's outer edge.
+      // Two chains (T-2281) and the board under the hood's outer edge. Each
+      // chain hooks into the hood's underside where it actually is at that
+      // depth — the hood falls outward, so that is a little above its lip.
       const drop = g.hanger_drop_m ?? 0.20;
       const hangOut = proj - 0.14;
       const boardY = y - fall - AWNING_T_M / 2 - drop - bh / 2;
+      const hoodUnder = y - fall * (hangOut / proj) - AWNING_T_M / 2;
       for (const s of [-1, 1]) {
-        pushBox(buf,
+        pushChain(buf,
           ax + ox * hangOut + wx * s * bw * 0.34,
-          y - fall - drop / 2,
           az + oz * hangOut + wz * s * bw * 0.34,
-          ox, oz, HANGER_T_M, HANGER_W_M, drop / 2, level, solid);
+          hoodUnder, boardY + bh / 2, wx, wz, level, iron);
       }
       pushBoard(buf, ax + ox * hangOut, boardY, az + oz * hangOut,
         wx, wz, bw / 2, bt / 2, bh / 2, level, art);
@@ -1372,11 +1491,11 @@ function buildSign(buf, sign, terrain, art, timber, problems) {
         [px + wx * 0.46, armY - POST_ARM_T_M / 2, pz + wz * 0.46],
         ox, oz, POST_ARM_T_M * 0.35, POST_ARM_T_M * 0.35, level, solid);
       const hang = arm * 0.55;
+      // Two chains from under the cross-arm (T-2281).
       for (const s of [-1, 1]) {
-        pushBox(buf,
-          px + wx * (hang + s * bw * 0.36), armY - drop / 2,
-          pz + wz * (hang + s * bw * 0.36),
-          ox, oz, HANGER_T_M, HANGER_W_M, drop / 2, level, solid);
+        pushChain(buf,
+          px + wx * (hang + s * bw * 0.36), pz + wz * (hang + s * bw * 0.36),
+          armY - POST_ARM_T_M / 2, armY - drop, wx, wz, level, iron);
       }
       pushBoard(buf, px + wx * hang, armY - drop - bh / 2, pz + wz * hang,
         wx, wz, bw / 2, bt / 2, bh / 2, level, art);
@@ -1393,24 +1512,35 @@ function buildSign(buf, sign, terrain, art, timber, problems) {
       break;
     }
     default: {
-      // THE BRACKET BOARD, unchanged since T-0039 but for its size and its
-      // paint: the wolf sign's own arm, strut, straps and plank.
+      // THE BRACKET BOARD — the wolf sign's arm, strut and plank, since T-0039.
+      //
+      // TWO ARMS, ONE OVER EACH CHAIN (T-2281). This used to run a single arm
+      // out at the board's middle and hang the board's two straps a third of
+      // its width either side of it, ALONG the wall: the board faces the street,
+      // the arm came straight at the viewer, and neither strap was under it —
+      // the owner's Sauganash screenshot. A board hung face-on to the street
+      // from paired brackets is the arrangement that keeps every name in this
+      // record readable from the footway it was placed to be read from, so the
+      // board keeps its facing and gains the second bracket it always needed.
       const arm = g.arm_m ?? 1.15;
       const drop = g.hanger_drop_m ?? 0.20;
-      pushBox(buf, ax + ox * (arm / 2), y + ARM_T_M, az + oz * (arm / 2),
-        ox, oz, arm / 2, ARM_T_M, ARM_T_M, level, solid);
-      // The strut under it, a shorter brace kept slim on purpose: an earlier
-      // bracket in this project read as the object with a board attached rather
-      // than the other way round. On a shop the board is the point.
-      pushBox(buf, ax + ox * 0.30, y - 0.19, az + oz * 0.30,
-        ox, oz, 0.30, ARM_T_M * 0.6, ARM_T_M * 0.6, level, solid);
       const hang = arm * 0.72;
+      const brace = Math.min(0.46, arm * 0.4);
       for (const s of [-1, 1]) {
-        pushBox(buf,
-          ax + ox * hang + wx * s * bw * 0.32,
-          y - drop / 2,
-          az + oz * hang + wz * s * bw * 0.32,
-          ox, oz, HANGER_T_M, HANGER_W_M, drop / 2, level, solid);
+        const sx = wx * s * bw * 0.32;
+        const sz = wz * s * bw * 0.32;
+        pushBox(buf, ax + sx + ox * (arm / 2), y + ARM_T_M, az + sz + oz * (arm / 2),
+          ox, oz, arm / 2, ARM_T_M, ARM_T_M, level, solid);
+        // A knee from the wall up under the arm, kept slim on purpose: an
+        // earlier bracket in this project read as the object with a board
+        // attached rather than the other way round. On a shop the board is the
+        // point. It replaces a level strut that touched the arm nowhere.
+        pushBar(buf,
+          [ax + sx, y - brace, az + sz],
+          [ax + sx + ox * brace, y, az + sz + oz * brace],
+          wx, wz, ARM_T_M * 0.55, ARM_T_M * 0.55, level, solid);
+        pushChain(buf, ax + sx + ox * hang, az + sz + oz * hang,
+          y, y - drop, wx, wz, level, iron);
       }
       pushBoard(buf, ax + ox * hang, y - drop - bh / 2, az + oz * hang,
         wx, wz, bw / 2, bt / 2, bh / 2, level, art);
@@ -1515,6 +1645,7 @@ export async function createSignage({
   }
   const plain = { rect: [0.02, 0.02, 0.06, 0.06], solid: [0.04, 0.98] };
   const timberUV = atlas?.timber ?? plain.solid;
+  const ironUV = atlas?.iron ?? (Array.isArray(timberUV) ? timberUV : timberUV.point);
 
   const buf = { pos: [], nrm: [], uv: [], conf: [] };
   /**
@@ -1539,7 +1670,7 @@ export async function createSignage({
     }
     const art = atlas?.signs.get(sign.structure_id) ?? plain;
     const from = buf.pos.length / 9;
-    if (!buildSign(buf, sign, terrain, art, timberUV, problems)) continue;
+    if (!buildSign(buf, sign, terrain, art, timberUV, problems, ironUV)) continue;
     spans.push({ id: sign.structure_id, from, to: buf.pos.length / 9 });
     out.signs.push(sign);
     out.census.boards += 1;

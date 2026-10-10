@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1610, ts: '2026-10-10T03:40:26.261Z', date: 'Oct 9, 2026, 10:40 PM CT', title: 'Hanging signs hang on iron chains', kind: 'fix',
+    items: [
+      'Walk up to the Sauganash Hotel, or any shop or inn whose sign hangs out over the footway. Every hanging board now hangs on two short forged iron chains, hooked into the arm, hood or post above it and stapled into the board.',
+      'A sign on a wall bracket gets a second arm, one over each chain, each carried by a brace from the wall. Before, one arm stood in the middle and the board hung from nothing.',
+      'The chains and their sizes are reconstructed: no record says how any 1835 Chicago sign was hung.',
+    ] },
   { v: 1609, ts: '2026-10-10T02:48:43.449Z', date: 'Oct 9, 2026, 9:48 PM CT', title: 'Closing one task no longer quietly reopens another', kind: 'fix',
     items: [
       'Nothing you can see changes. When the build loop marks a task finished, it now records only that task. A week ago, finishing one task also published a private scratch edit to another, which put already-finished work back on the to-do list. That task is closed again.',

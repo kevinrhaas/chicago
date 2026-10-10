@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 441,
+  "count": 442,
   "liberties": [
     {
       "id": "L1",
@@ -27629,6 +27629,45 @@
         {
           "label": "Recorded",
           "text": "2026-10-09 (T-2196)."
+        }
+      ]
+    },
+    {
+      "id": "L412",
+      "title": "Hung signboards hang on forged chain, and a bracket board from two arms",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Applies to",
+          "text": "every hung board drawn by `renderers/web/js/signage.js` — the `bracket_board`, `awning_board` and `post_board` mountings of `data/signage/town_business_signboards.json`."
+        },
+        {
+          "label": "What we invented",
+          "text": "how a hung board hangs. Each one hangs on two short runs of forged iron chain: an eye driven into the timber that carries it, links of 9 mm stock about 64 × 36 mm turning a quarter-turn each, and a staple driven into the board's top edge, in a weathered black iron. A bracket board now has two timber arms, one over each chain and each carried by a diagonal knee from the wall, where it had one arm at its middle and a level strut under it that touched the arm nowhere. The board keeps its facing (face-on to the street) and its height."
+        },
+        {
+          "label": "Why",
+          "text": "the owner reported on 2026-10-10, on a screenshot of the Sauganash's board, that the hanging signs float with nothing supporting them. The bracket board's two timber straps were hung a third of the board's width either side of its single arm, along the wall, so neither was under anything; the hood and post straps were under timber but drawn as flat slats. Short chain on iron eyes is the common way a swinging board was hung in the period, and the town had smiths (the fort's forged the Wolf Point sign's hinges, **L20**). No source records how any 1835 Chicago board was hung, so the hardware and its sizes are reconstructed."
+        },
+        {
+          "label": "Consequence",
+          "text": "every hung board in the town is visibly carried by iron chain from the member above it. That is a claim about how such boards were hung, not about any board. The Wolf Point sign is unchanged: its hinges are the source's own (**L20**)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a description or image of how a particular 1830s Chicago board was hung (rings, rods, hinges, rope) replaces the chain on that board."
+        },
+        {
+          "label": "Related",
+          "text": "**L346**, **L158**, **L20**, **T-0039**, **T-1836**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2281)."
         }
       ]
     },
