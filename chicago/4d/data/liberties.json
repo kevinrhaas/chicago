@@ -27878,12 +27878,6 @@
           "domain": "structure",
           "structure": "keith_house_1808_prairie",
           "phase": "as_built_1886",
-          "aspect": "form.construction"
-        },
-        {
-          "domain": "structure",
-          "structure": "keith_house_1808_prairie",
-          "phase": "as_built_1886",
           "aspect": "form.eave_overhang_m"
         },
         {
@@ -27988,7 +27982,7 @@
         },
         {
           "label": "Covers",
-          "text": "`keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.construction`, `keith_house_1808_prairie.as_built_1886.form.principal_floor_m`, `keith_house_1808_prairie.as_built_1886.form.storey_heights_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_form`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`."
+          "text": "`keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.principal_floor_m`, `keith_house_1808_prairie.as_built_1886.form.storey_heights_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_form`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`."
         },
         {
           "label": "Review",
