@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
+  { v: 1609, ts: '2026-10-10T03:06:30.015Z', date: 'Oct 9, 2026, 10:06 PM CT', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
     items: [
       'Nothing you can see changes. Where a household\u2019s dated home was copied from the old single home line, it now also carries that line\u2019s own reasoning and what would replace it, so the seat a card shows no longer depends on the old line.',
       'The garrison\u2019s eleven households keep their own \u201cWould move it up the ladder\u201d line, a plan of the post that assigns its quarters, and every seat in the town reads exactly as before.',
