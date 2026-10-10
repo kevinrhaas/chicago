@@ -1,8 +1,12 @@
 export const CHANGELOG = [ // newest first
-  { v: 1609, ts: '2026-10-10T02:57:39.430Z', date: 'Oct 9, 2026, 9:57 PM CT', title: 'The housing and deal tools read each household\u2019s dated places', kind: 'change',
+  { v: 1610, ts: '2026-10-10T03:04:22.413Z', date: 'Oct 9, 2026, 10:04 PM CT', title: 'The housing and deal tools read each household\u2019s dated places', kind: 'change',
     items: [
       'Nothing you can see changes. The tools that house the present, re-family the order book, seat street faces, replace invented names and spend the trade and premises research now take a household\u2019s home and workplace from the dated places on its card.',
       'Every seat, roof and ruling comes out exactly as before. The research notes now point at the dated place they read rather than the old single workplace line, which is being retired.',
+    ] },
+  { v: 1609, ts: '2026-10-10T02:48:43.449Z', date: 'Oct 9, 2026, 9:48 PM CT', title: 'Closing one task no longer quietly reopens another', kind: 'fix',
+    items: [
+      'Nothing you can see changes. When the build loop marks a task finished, it now records only that task. A week ago, finishing one task also published a private scratch edit to another, which put already-finished work back on the to-do list. That task is closed again.',
     ] },
   { v: 1608, ts: '2026-10-10T02:34:31.860Z', date: 'Oct 9, 2026, 9:34 PM CT', title: 'The groundwork for people in the town: one skeleton, one rulebook', kind: 'change',
     items: [
