@@ -30,6 +30,7 @@
   "h_jones_store",
   "harmon_log_cabin",
   "harmon_loomis_store",
+  "heacock_house_monroe",
   "inf_bakery_lake",
   "inf_barber_shop",
   "inf_blacksmith_shop_west",
@@ -3856,6 +3857,78 @@
     [690.59, -588.68],
     [693.57, -588.78],
     [696.56, -588.47]
+   ],
+   [
+    [574.98, -725.25],
+    [572.0, -725.2],
+    [569.02, -725.42],
+    [566.04, -725.29],
+    [563.06, -725.32],
+    [560.08, -725.42],
+    [557.1, -725.17],
+    [554.12, -725.29],
+    [551.13, -725.54],
+    [548.15, -725.23],
+    [545.17, -725.18],
+    [542.19, -725.45],
+    [539.21, -725.32],
+    [536.23, -725.28],
+    [533.25, -725.4],
+    [530.27, -725.21],
+    [527.29, -725.3],
+    [524.31, -725.52],
+    [521.33, -725.22],
+    [518.35, -725.17],
+    [515.37, -725.49],
+    [512.39, -725.34],
+    [509.41, -725.23],
+    [506.43, -725.38],
+    [503.45, -725.25],
+    [500.47, -725.3],
+    [497.49, -725.49],
+    [494.5, -725.21],
+    [491.52, -725.17],
+    [488.54, -725.51],
+    [485.56, -725.34],
+    [482.58, -725.18],
+    [479.6, -725.39],
+    [476.62, -725.3],
+    [473.64, -725.29],
+    [473.64, -727.8],
+    [476.62, -727.65],
+    [479.6, -727.8],
+    [482.58, -727.71],
+    [485.56, -727.56],
+    [488.54, -727.87],
+    [491.52, -727.83],
+    [494.5, -727.52],
+    [497.49, -727.74],
+    [500.47, -727.84],
+    [503.45, -727.64],
+    [506.43, -727.75],
+    [509.41, -727.73],
+    [512.39, -727.59],
+    [515.37, -727.86],
+    [518.35, -727.81],
+    [521.33, -727.5],
+    [524.31, -727.75],
+    [527.29, -727.88],
+    [530.27, -727.62],
+    [533.25, -727.71],
+    [536.23, -727.76],
+    [539.21, -727.62],
+    [542.19, -727.83],
+    [545.17, -727.79],
+    [548.15, -727.51],
+    [551.13, -727.77],
+    [554.12, -727.9],
+    [557.1, -727.6],
+    [560.08, -727.68],
+    [563.06, -727.79],
+    [566.04, -727.65],
+    [569.02, -727.8],
+    [572.0, -727.78],
+    [574.98, -727.52]
    ]
   ],
   "note": "One ring per lane piece: a band 2.4 m wide down the plat strip's own centreline (narrower where the strip is, leaving 0.6 m of turf each side), its edges wandering 0.22 m over 9.0 m, carried at each end across the corridor to the cross street's track when one lies within 16.0 m and 0.4 m onto it, widening 1.2 m each side over the last 4.0 m; 1.5 m past the block edge where the cross street has no track. Cut where a committed footprint grown by 0.5 m stands across it. Reconstructed \u2014 bounded by the plat strip and a cart's track."
@@ -4833,6 +4906,21 @@
     "recon_1835_blk_school_section_tier_119_d6_01",
     "recon_1835_blk_school_section_tier_119_d7_07"
    ]
+  },
+  {
+   "alley_of": "blk_school_section_tier_117",
+   "grid": "school_section_tier",
+   "strip_width_m": 5.48,
+   "worn_width_m": 2.4,
+   "alley_length_m": 98.34,
+   "meets": [
+    null,
+    null
+   ],
+   "drawn_m": 101.34,
+   "served": [
+    "heacock_house_monroe"
+   ]
   }
  ],
  "left_in_turf": [
@@ -4870,6 +4958,26 @@
   },
   {
    "alley_of": "blk_michigan_st_tract_east_south",
+   "why": "no structure stands on this block on the scene date, so nothing wears its alley"
+  },
+  {
+   "alley_of": "blk_school_section_tier_82",
+   "why": "no structure stands on this block on the scene date, so nothing wears its alley"
+  },
+  {
+   "alley_of": "blk_school_section_tier_93",
+   "why": "no structure stands on this block on the scene date, so nothing wears its alley"
+  },
+  {
+   "alley_of": "blk_school_section_tier_96",
+   "why": "no structure stands on this block on the scene date, so nothing wears its alley"
+  },
+  {
+   "alley_of": "blk_school_section_tier_120",
+   "why": "no structure stands on this block on the scene date, so nothing wears its alley"
+  },
+  {
+   "alley_of": "blk_school_section_tier_141",
    "why": "no structure stands on this block on the scene date, so nothing wears its alley"
   }
  ],
