@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 457,
+  "count": 458,
   "liberties": [
     {
       "id": "L1",
@@ -28578,6 +28578,37 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2301)."
+        }
+      ]
+    },
+    {
+      "id": "L-k07-entrance-kit-2303",
+      "title": "The Prairie entrance kit: every door, stoop, porch, area stair and carriage opening, all reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 Prairie programme's entrances (package K07, T-2303) are six parametric entrances built by `generators/archetypes/k07_entrances.py` from `data/components/prairie_1904/k07_entrances.json`: a four-panel door under a two-light transom at the head of a straight stone stoop between cheek walls; a pair of leaves under a radial fanlight, set deep in a round-arched opening through a 0.6 m wall with a 0.4 m vestibule beyond it, up a broad stoop; a glazed door under a segmental transom reached by curved stone steps that spread as they descend; a coach house's two boarded carriage leaves on strap hinges, hung at the wall's inner face under a bearing stone lintel with a wheel-guard stone at each jamb; a timber porch (deck, set-back skirt, four posts, beam, flat roof deck and timber steps) before a four-panel door; and a basement door at the foot of an area stair between retaining walls. Each is a hole through its wall with a reveal and a threshold, a frame, panelled leaves standing 6 mm clear of the threshold, glass only in a transom, fanlight or glazed panel with a dark hall behind it, and a stair whose risers are solved as equal integers from the floor height, landing level with the threshold and standing on grade. **What is invented.** Every dimension and every choice: the reveal, the door frame's face and depth, the 2 1/8 in leaf, its stiles, rails, lock rail, panel layout and panel recess, the leaf's gap, the transom and fanlight sizes and their light counts, the hall's depth behind the glass, the knob, its height and the strap hinges; the floor heights (1.2, 1.5, 0.9 and 0.85 m above grade, each inside RECONSTRUCTION-RULES.md's raised-floor range of 0.8-1.8 m) and the 1.5 m area depth; the goings (0.28-0.32 m) and the risers they give (0.167-0.18 m, inside the rule's 0.14-0.19 m riser and 0.25-0.34 m tread ranges); the landings, stoop widths, cheek walls and their height above the nosing line, the curved steps' plan, the porch's deck, skirt, posts, beam and roof carcass, the area's walls and coping; the carriage opening's size, lintel and guard stones; each specimen's front yard (1.0-6.0 m to the public walk's inner edge); and the colours: dark varnished joinery, buff stone, a cream painted porch, dark iron hardware. No nosing projects past a riser, and no carving, moulding profile, ironwork rail or porch roof covering is modelled: the rail is K11's (T-1853), the porch roof's covering K04/K05's, the entrance carving K09's (T-1851). The choice of variants reads the study's catalogue entry and family rules (\"high stoop\", \"thick round-arched reveals\", \"timber porch\", \"carriage aperture\", \"stone straight/curved stoops\", \"basement stairs\"), which are the study's reading and not a source record here. **What is not.** Nothing in the kit is attested; no house is entered through it yet (T-2304 builds the first K07 entrance on the 1808 exemplar)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a house's own photograph, drawing or survey shows its door, stoop, porch or carriage opening, and that house takes them in place of the kit's working sizes; its reconciled lot and floor datums replace the specimen's floor height and front yard; a period joinery or stair specification replaces a part's dimensions for every house at once."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2303 (piece 1 of T-1849, K07)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k07-entrance-kit/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2303)."
         }
       ]
     },
