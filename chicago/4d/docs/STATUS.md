@@ -16,6 +16,25 @@ block that stands in for the wing.
 - **Verified.** Front, oblique, rear, roof and a 2.5 m raking view at both viewports in the
   published app, with zero errors. The kit gate now holds every scene conservatory to its rules.
   Costs are in `docs/RESEARCH/k13-pullman-bay-2306/README.md`.
+## T-2323 — K16 on 1638 Prairie: the Shortall-Gregory house's Gothic timber front (2026-10-10)
+
+The first house built from the K16 timber kit, and the first frame house on Prairie Avenue in the
+1904 scene: `shortall_gregory_house_1638_prairie_front`, placed from sheet 20's plan (front 10.8 m
+behind the street line, 8.13 m wide, canted bay and open porch where the sheet draws them). The kit's
+Gothic gable with pierced bargeboards and shingle bands, a clapboard wall with its corner and bracketed
+eave, and a two-post porch stand along the front. Behind them is a plain stand-in body, and a plain
+block stands in the bay's place.
+
+- **What is honest about it.** Plan and position are inferred from the sheet. Every height, every
+  sash and the bargeboard's pattern are the kit's (L-k16-1638-front-2323). The oculus, pointed heads,
+  hood moulds and corner tower the register describes are not built (T-1865). The body and bay are
+  stand-ins (T-1864).
+- **The kit changed in one place.** A clapboard course whose only joint fell within `min_piece_m` of
+  an end used to run longer than its board. The builder now puts that joint back, and the specimen is
+  byte-identical. The self-test that relied on the fault now breaks the rule on a built wall instead.
+- **Gate.** `check_timber_kit.py` holds each house's parts to the kit's rules, and `k16_emit.py
+  --check` holds the GLB to its record. Views and costs:
+  `docs/RESEARCH/k16-1638-front-2323/README.md`.
 
 ## T-2289 — K02 stone at 1808 Prairie: a rock-faced front laid round the kits (2026-10-10)
 

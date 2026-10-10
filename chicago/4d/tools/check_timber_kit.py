@@ -442,7 +442,7 @@ def rule_data(data):
     return out
 
 
-def check(data, glb_check=True, mats=None, role_material=None):
+def check(data, glb_check=True, mats=None, role_material=None, with_houses=True):
     fails = list(rule_data(data)) + rule_scale(data)
     mats = mats or K.materials(data)
     fails += rule_classes(data, mats)
@@ -458,12 +458,57 @@ def check(data, glb_check=True, mats=None, role_material=None):
                   + rule_timber(sm, data, mats, role_material) + rule_wear(sm, data) + rule_doubled(sm, data)
                   + rule_costs(sm, data) + rule_metric(sm, data)):
             fails.append(f"{v['id']}: {f}")
+    if with_houses:
+        fails += check_houses(data, mats, role_material)
     if glb_check:
         blob = K.to_glb(K.build_kit(data), data)
         out = ROOT / data["specimen"]
         if not out.exists() or out.read_bytes() != blob:
             fails.append(f"specimen: {data['specimen']} is not the generator's bytes — run "
                          f"python3 generators/archetypes/k16_timber.py")
+    return fails
+
+
+_HOUSES = []
+
+
+def houses():
+    """[(record, phase)] for every k16_timber record in data/structures/ (T-2323), read once:
+    a caller that changes one deep-copies it first."""
+    if not _HOUSES:
+        for f in sorted((ROOT / "data" / "structures").glob("*.json")):
+            text = f.read_text()
+            if '"k16_timber"' not in text:     # skip parsing the ~700 records that are not
+                continue
+            st = json.loads(text)
+            if isinstance(st, dict) and st.get("archetype") == "k16_timber":
+                _HOUSES.extend((st, ph) for ph in st.get("phases", []))
+    return _HOUSES
+
+
+def check_houses(data, mats=None, role_material=None, records=None):
+    """T-2323: every house built from the kit is held to the kit's rules, part by part, as
+    generators/k16_emit.py builds it — the gable, the wall and a porch half each measured
+    the way their specimen samples are."""
+    from archetypes import k16_timber_params as KP
+    fails = []
+    mats = mats or K.materials(data)
+    for st, ph in (houses() if records is None else records):
+        rid = f"{st['id']}/{ph['id']}"
+        try:
+            KP.from_phase(ph, st)
+            parts = K.structure_parts(st, ph, data)
+            K.structure_house(st, ph, data)
+        except Exception as e:  # a record the builder cannot build is a failure, not a crash
+            fails.append(f"house: {rid} does not build ({type(e).__name__}: {e})")
+            continue
+        for k in ("gable", "wing_wall", "porch_right"):
+            sm = parts[k]
+            for f in (rule_thickness(sm, data) + rule_lapped(sm, data) + rule_stagger(sm, data)
+                      + rule_proud(sm, data) + rule_pierced(sm, data) + rule_end_grain(sm, data)
+                      + rule_timber(sm, data, mats, role_material) + rule_wear(sm, data) + rule_doubled(sm, data)
+                      + rule_costs(sm, data) + rule_metric(sm, data)):
+                fails.append(f"house {rid} {k}: {f}")
     return fails
 
 
@@ -513,7 +558,6 @@ def self_test(data) -> int:
         ("a masonry wall's thickness under clapboard", m_masonry, "masonry wall's thickness"),
         ("corner boards thinner than the clapboard butts", m_proud, "proud"),
         ("joints a hand's width apart course over course", m_stagger, "in neighbouring courses"),
-        ("a clapboard longer than its board", m_long, "longer than the 2.4 m board"),
         ("battens narrower than their gap allows", m_batten, "open joint"),
         ("decorative shingles as a wall's walling", m_restrict, "breaks the restriction"),
         ("a wall over budget", m_cost, "over its wall budget"),
@@ -525,7 +569,7 @@ def self_test(data) -> int:
     for name, mut, want in cases:
         d = copy.deepcopy(data)
         mut(d)
-        got = check(d, glb_check=False)
+        got = check(d, glb_check=False, with_houses=False)   # a kit rule, read on the samples
         hit = any(want in f for f in got)
         print(f"self-test | {'ok  ' if hit else 'FAIL'} {name} -> {'refused: ' + next((f for f in got if want in f), '') if hit else 'NOT refused'}")
         bad += not hit
@@ -551,6 +595,12 @@ def self_test(data) -> int:
         x, y, z = pr.pos[i0 + k]
         pr.pos[i0 + k] = (x, y, z + 0.006)
     geo.append(("a course standing off the course below", rule_lapped(sm, data), "does not rest"))
+    # T-2323: the builder now puts back a joint min_piece dropped, so no data change makes it
+    # lay an over-long board; the break is a wall of 12 ft boards judged by 2.4 m ones
+    sm = built("k16.wall.clapboard_corner")
+    d = copy.deepcopy(data)
+    m_long(d)
+    geo.append(("a clapboard longer than its board", rule_stagger(sm, d), "longer than the 2.4 m board"))
     sm = built("k16.wall.clapboard_corner")
     pr = sm.prims["end_grain"]
     pr.idx = []
@@ -569,6 +619,16 @@ def self_test(data) -> int:
     mats = K.materials(data)
     mats["stained"] = dict(mats["stained"], color=mats["body"]["color"])
     geo.append(("stained joinery painted the body colour", rule_classes(data, mats), "must read apart"))
+    # T-2323: a house front, broken in its record and in its built parts
+    if houses():
+        st, ph = copy.deepcopy(houses()[0])
+        ph["form"]["wing_wall"]["value"]["kind"] = "batten_wall"
+        geo.append(("a house whose wall beside the gable is not a clapboard wall",
+                    check_houses(data, records=[(st, ph)]), "must be a kit 'clapboard_wall' variant"))
+        st, ph = copy.deepcopy(houses()[0])
+        ph["form"]["gable"]["value"]["width_m"] = 7.6
+        geo.append(("a house gable so wide its shingles break the gable budget",
+                    rule_costs(K.structure_parts(st, ph, data)["gable"], data), "over its gable budget"))
     for name, got, want in geo:
         hit = any(want in f for f in got)
         print(f"self-test | {'ok  ' if hit else 'FAIL'} {name} -> {'refused: ' + next((f for f in got if want in f), '') if hit else 'NOT refused'}")
@@ -600,6 +660,8 @@ def main(argv) -> int:
     tri = [K.triangles(s) for s in kit]
     courses = sum(1 for s in kit for c in s.meta["courses"])
     holes = sum(len(s.meta["piercings"]) for s in kit)
+    hs = houses()
+    print(f"ok   {len(hs)} house front(s) built from the kit hold to the same rules, part by part (T-2323)")
     print(f"ok   the K16 timber kit: {len(kit)} samples, {courses} lapped courses each resting on the last with a "
           f"shadow line, joints staggered, battens over every joint, trim proud of its cladding, {holes} piercings "
           f"cut through, a {data['wall']['thickness_m']} m frame wall, no doubled face; {min(tri)}-{max(tri)} "

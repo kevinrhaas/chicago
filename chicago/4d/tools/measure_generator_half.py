@@ -542,12 +542,16 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # pullman_house_1729_prairie_conservatory, which writes its glTF in pure Python
 # (generators/k13_emit.py) and so restales on none of the rows below.
 #
-# 715 -> 733 on 2026-10-10 (T-2329): the eighteen houses and alley buildings of the Prairie
+# 715 -> 716 on 2026-10-10 (T-2323): the first K16 timber front in the scene,
+# shortall_gregory_house_1638_prairie_front, which writes its glTF in pure Python
+# (generators/k16_emit.py) and so restales on none of the rows below.
+#
+# 716 -> 734 on 2026-10-10 (T-2329): the eighteen houses and alley buildings of the Prairie
 # district draft's west side (18th to 20th), which write their glTF in pure Python
 # (generators/draft_emit.py) and so restale on none of the rows below.
 #
 STATED = {
-    "assets": 733,
+    "assets": 734,
     "restales": {
         "generators/common/*.py": 713,
         "generators/common/__init__.py": 0,

@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
-"""Digitise the 1904 building footprints off a Prairie Avenue Sanborn sheet (T-2327).
+"""Digitise the 1904 building footprints off a Prairie Avenue Sanborn sheet (T-2327, T-2328).
 
     python3 tools/trace_prairie_1904_footprints.py            # (re)write the footprint file(s)
     python3 tools/trace_prairie_1904_footprints.py --check    # re-derive, change nothing
     python3 tools/trace_prairie_1904_footprints.py --self-test
-    python3 tools/trace_prairie_1904_footprints.py --overlay DIR   # the study images
+    python3 tools/trace_prairie_1904_footprints.py --sheet 20 --overlay DIR   # one sheet's study images
+
+SHEETS. Sheet 28 (18th-20th, T-2327, for T-2159) and sheet 20 (16th-18th, T-2328, for
+T-2160). A sheet is added as one SHEETS entry -- its fit, its census, its blocks -- and the
+reading below is the same for every sheet; nothing in it is tuned per sheet.
 
 WHAT THIS IS. The outlines T-2159's draft builder stands each Prairie Avenue house on. The
-T-1841 sheet census names every building on the sheet (`s28-1812-front`, `s28-1812-rear`, ...)
+sheet census (T-1841 for sheet 28, T-1840 for sheet 20) names every building on the sheet (`s28-1812-front`, `s28-1812-rear`, ...)
 and rules on its 1904 state, but says of itself "Footprints are not digitized and no
 dimension is claimed"; the only coordinates on these blocks were the parcel lines
 (data/street_grid/1904.json, T-0474). This tool reads the buildings' outlines off the same
@@ -67,6 +71,16 @@ SHEETS = {
         "census": "sheet-28.json",
         "blocks": ("blk_indiana_prairie_18_20", "blk_prairie_calumet_18_20"),
         "out": ROOT / "data" / "traces" / "prairie_1904_footprints_s28.json",
+        "ticket": "T-2327",
+        "census_ticket": "T-1841",
+    },
+    "20": {
+        "gcp": "sanborn_1911_v3_sheet_20",
+        "census": "sheet-20.json",
+        "blocks": ("blk_indiana_prairie_16_18", "blk_prairie_ic_16_18"),
+        "out": ROOT / "data" / "traces" / "prairie_1904_footprints_s20.json",
+        "ticket": "T-2328",
+        "census_ticket": "T-1840",
     },
 }
 
@@ -227,9 +241,15 @@ def outline(mask: np.ndarray, off: tuple, fit: Fit) -> dict:
 # reading a parcel
 
 
-def street_axis(parcel: dict) -> tuple:
-    """Unit vector (local) from the rear lot line toward the street, and the street line's
-    midpoint, from the parcel's named corners."""
+def street_axis(lots: list) -> tuple:
+    """Unit vector (local) from the rear lot line toward the street, the street line's
+    midpoint, and the lot depth, from the parcels' named corners. Several lots read as one
+    ground share a street line, so the axis is the first lot's and the depth the deepest."""
+    u, front, depth = _street_axis(lots[0])
+    return u, front, max([depth] + [_street_axis(q)[2] for q in lots[1:]])
+
+
+def _street_axis(parcel: dict) -> tuple:
     c = parcel["corners_local_m"]
     if parcel["side"] == "west":
         front = (np.array(c["NE_street"]) + np.array(c["SE_street"])) / 2
@@ -283,30 +303,41 @@ def part_masks(fabric: np.ndarray, gm: np.ndarray) -> list:
     return out
 
 
-def read_parcel(cls: np.ndarray, origin: tuple, parcel: dict, fit: Fit, n_rear: int) -> tuple:
+def read_parcel(cls: np.ndarray, origin: tuple, lots: list, fit: Fit, n_rear: int,
+                has_front: bool = True) -> tuple:
+    """The buildings on one ground: a lot, or several lots one census frontage spans (read as
+    their union, so a building standing across a strip line is one building, not pieces)."""
     ox, oy = origin
-    poly_px = [[fit.pixel(*p)[0] - ox, fit.pixel(*p)[1] - oy] for p in parcel["polygon_local_m"]]
-    xs, ys = [p[0] for p in poly_px], [p[1] for p in poly_px]
+    polys = [[[fit.pixel(*p)[0] - ox, fit.pixel(*p)[1] - oy] for p in q["polygon_local_m"]] for q in lots]
+    xs, ys = [p[0] for pp in polys for p in pp], [p[1] for pp in polys for p in pp]
     x0, y0 = max(int(min(xs)) - 2, 0), max(int(min(ys)) - 2, 0)
     x1, y1 = int(max(xs)) + 3, int(max(ys)) + 3
     sub = cls[y0:y1, x0:x1]
-    lot = polygon_mask(sub.shape, [[p[0] - x0, p[1] - y0] for p in poly_px], PARCEL_INSET_PX)
+    if len(polys) == 1:
+        lot = polygon_mask(sub.shape, [[p[0] - x0, p[1] - y0] for p in polys[0]], PARCEL_INSET_PX)
+    else:
+        lot = np.logical_or.reduce([polygon_mask(sub.shape, [[p[0] - x0, p[1] - y0] for p in pp], 0)
+                                    for pp in polys])
+        lot = ndimage.binary_erosion(lot, iterations=PARCEL_INSET_PX)
     fabric = (sub > 0) & lot
     fabric = ndimage.binary_opening(fabric, iterations=1)
     groups = ndimage.binary_fill_holes(ndimage.binary_closing(fabric, iterations=BRIDGE_PX)) & lot
     glab, gn = ndimage.label(groups, structure=np.ones((3, 3)))
     off = (x0 + ox, y0 + oy)
-    u, front, depth = street_axis(parcel)
+    u, front, depth = street_axis(lots)
     gms = [glab == g for g in range(1, gn + 1) if (glab == g).sum() >= MIN_BUILDING_PX]
     gms.sort(key=lambda m: _depths(m, off, fit, u, front)[0])
     # A service building the sheet draws against the house's rear wall closes into the
     # house's group. When the census names more detached buildings than stand apart, the
     # street group's parts that begin in the rear REAR_SPLIT of the lot are split off as one.
+    # Never where the census names no front building (there is no house to split it from),
+    # and never so far that nothing is left at the street.
     split = None
-    if gms and len(gms) - 1 < n_rear:
+    if gms and has_front and len(gms) - 1 < n_rear:
         back = [pm for pm in part_masks(fabric, gms[0])
                 if _depths(pm, off, fit, u, front)[0] >= (1 - REAR_SPLIT) * depth]
-        if back:
+        if back and (gms[0] & ~ndimage.binary_dilation(np.logical_or.reduce(back), iterations=1)).sum() \
+                >= MIN_BUILDING_PX:
             U = np.logical_or.reduce(back)
             gms.insert(1, U)
             gms[0] = gms[0] & ~ndimage.binary_dilation(U, iterations=1)
@@ -353,23 +384,69 @@ def read_parcel(cls: np.ndarray, origin: tuple, parcel: dict, fit: Fit, n_rear: 
     return out, depth
 
 
+FRONT_KINDS = ("front", "attached", "non_building_use")   # what stands at the street
+
+
+def for_1904(b: dict, crow: list) -> str:
+    """Whether this outline IS the 1904 building, on the census's own ruling for its frontage.
+    `as_mapped`: the census rules the polygon present in 1904 as the 1911 sheet draws it.
+    `not_1904`: the census backcasts the frontage from the 1886 plate (`backcast_1886`), so a
+    front outline here is the 1911 replacement -- or, with no front drawn, the 1904 house is
+    simply not on this sheet -- and a draft must not stand on it."""
+    rows = [f for f in crow if set(b.get("census_ids", [])) & {p["id"] for p in f["polygons"]}]
+    if any(f["decision_1904"] == "backcast_1886" for f in rows) and b.get("kind") in ("front", "non_building_use"):
+        return "not_1904"
+    return "as_mapped" if rows and all(f["decision_1904"] == "present_as_mapped" for f in rows) else \
+        ("as_mapped_rear_of_backcast" if rows else "no_census_ruling")
+
+
+def grounds(parcels: list, census: dict) -> list:
+    """The parcels in sheet order, as grounds: a lot on its own, or -- where one census
+    frontage with polygons spans several lots -- those lots together, in sheet order."""
+    out, taken = [], set()
+    for parcel in parcels:
+        if parcel["id"] in taken:
+            continue
+        span = {parcel["id"]}
+        for f in census["frontages"]:
+            if parcel["id"] in f["parcel_ids"] and f["polygons"] and len(f["parcel_ids"]) > 1:
+                span |= set(f["parcel_ids"])
+        lots = [q for q in parcels if q["id"] in span and q["id"] not in taken]
+        taken |= {q["id"] for q in lots}
+        out.append(lots)
+    return out
+
+
 def assign(buildings: list, census_rows: list, vacant: list, depth: float) -> list:
     """Census polygon ids onto traced buildings (rule in the module doc)."""
     polys = [p for row in census_rows for p in row["polygons"]]
-    front = [p["id"] for p in polys if p["kind"] in ("front", "attached")]
+    front = [p["id"] for p in polys if p["kind"] in FRONT_KINDS]
     rear = [p["id"] for p in polys if p["kind"] == "detached_service"]
     vac = [v["id"] for v in vacant]
     left = list(buildings)
     if front and left:
         b = min(left, key=lambda b: b["from_street_m"][0])
-        b["census_ids"], b["kind"] = front, "front"
+        dwelling = any(p["kind"] in ("front", "attached") for p in polys)
+        b["census_ids"], b["kind"] = front, "front" if dwelling else "non_building_use"
         left.remove(b)
     left.sort(key=lambda b: -b["from_street_m"][1])          # nearest the alley first
-    for pid in rear:
+    placed = []
+    for pid in list(rear):
         if not left:
             break
         b = left.pop(0)
         b["census_ids"], b["kind"] = [pid], "detached_service"
+        placed.append(b)
+    # More detached ids than detached outlines: the sheet draws two service buildings joined
+    # (a stable against a range), so they trace as one outline of several parts. The ids left
+    # over go onto the joined outline nearest the alley that has more than one part.
+    over = [i for i in rear if not any(i in b["census_ids"] for b in placed)]
+    joined = [b for b in placed if len(b.get("parts", [])) > 1]
+    if over and joined:
+        joined[0]["census_ids"] = joined[0]["census_ids"] + over
+        joined[0]["note"] = ((joined[0].get("note") + "; ") if joined[0].get("note") else "") + (
+            f"the census names {len(joined[0]['census_ids'])} detached buildings here and the sheet draws "
+            "them joined: one outline carries every id, and its parts are where they divide")
     for b in left:
         if vac:
             b["census_ids"], b["kind"] = vac, "vacant_ground_structure"
@@ -401,26 +478,33 @@ def build(sheet: str) -> dict:
         rgb = np.asarray(im.convert("RGB").crop((x0, y0, x1, y1)))
     cls = classify(rgb)
     rows, problems = [], []
-    for parcel in parcels:
-        crow = [f for f in census["frontages"] if parcel["id"] in f["parcel_ids"] and f["polygons"]]
+    for lots in grounds(parcels, census):
+        parcel, ids = lots[0], {q["id"] for q in lots}
+        crow = [f for f in census["frontages"] if ids & set(f["parcel_ids"]) and f["polygons"]]
         alias = [f["frontage_id"] for f in census["frontages"]
-                 if parcel["id"] in f["parcel_ids"] and not f["polygons"]]
-        vac = [v for v in census["vacant_ground"] if parcel["id"] in v["parcel_ids"]]
+                 if ids & set(f["parcel_ids"]) and not f["polygons"]]
+        vac = [v for v in census["vacant_ground"] if ids & set(v["parcel_ids"])]
         n_rear = sum(1 for f in crow for p in f["polygons"] if p["kind"] == "detached_service")
-        buildings, depth = read_parcel(cls, (x0, y0), parcel, fit, n_rear)
+        has_front = any(p["kind"] in FRONT_KINDS for f in crow for p in f["polygons"])
+        buildings, depth = read_parcel(cls, (x0, y0), lots, fit, n_rear, has_front)
         missing = assign(buildings, crow, vac, depth)
+        decision = sorted({f["decision_1904"] for f in crow}) or (["vacant"] if vac else [])
         for k, b in enumerate(buildings):
-            b["id"] = f"s28fp-{parcel['id'].removeprefix('prairie_')}-b{k + 1}"
+            b["id"] = f"s{sheet}fp-{parcel['id'].removeprefix('prairie_')}-b{k + 1}"
+            b["for_1904"] = for_1904(b, crow)
         rows.append({
             "parcel_id": parcel["id"],
+            **({"ground_parcel_ids": [q["id"] for q in lots],
+                "ground_note": "one census frontage spans these lots, so they are read as one ground"}
+               if len(lots) > 1 else {}),
             "side": parcel["side"],
             "addresses_1911": parcel.get("addresses_1911", []),
             "census_frontages": [f["frontage_id"] for f in crow],
             "census_aliases": alias,
-            "census_decision_1904": sorted({f["decision_1904"] for f in crow}) or (["vacant"] if vac else []),
+            "census_decision_1904": decision,
             "lot_depth_m": r2(depth),
             "census_ids_not_traced": missing,
-            "buildings": [{k: b[k] for k in ("id", "kind", "census_ids", "note", "area_m2", "from_street_m",
+            "buildings": [{k: b[k] for k in ("id", "kind", "census_ids", "for_1904", "note", "area_m2", "from_street_m",
                                              "polygon_local_m", "polygon_px", "parts")}
                           for b in buildings],
         })
@@ -429,10 +513,10 @@ def build(sheet: str) -> dict:
     n_b = sum(len(r["buildings"]) for r in rows)
     return {
         "_doc": ("Building footprints on Sanborn 1911 vol. 3 sheet " + sheet + " for the 1904 target, one "
-                 "outline per building and per drawn part, keyed to the T-1841 sheet census. GENERATED by "
-                 "tools/trace_prairie_1904_footprints.py from the committed raster through the T-1250 fit -- "
-                 "do not hand-edit; re-run the tool. T-2327."),
-        "ticket": "T-2327",
+                 "outline per building and per drawn part, keyed to the " + spec["census_ticket"] + " sheet census. "
+                 "GENERATED by tools/trace_prairie_1904_footprints.py from the committed raster through the "
+                 "T-1250 fit -- do not hand-edit; re-run the tool. " + spec["ticket"] + "."),
+        "ticket": spec["ticket"],
         "sheet": sheet,
         "target_date": census["target_date"],
         "source": gcp["source"],
@@ -440,7 +524,8 @@ def build(sheet: str) -> dict:
         "frame": "local ENU metres of data/datum.json (x east, y north); polygon_px on the raster named above",
         "fit": {"gcp_file": f"data/traces/gcp/{spec['gcp']}_gcps.json", **gcp["fit"]["coefficients"],
                 "m_per_px": fit.m_per_px,
-                "independent_rms_m": gcp["independent_checks"]["rms_component_m"]},
+                "fit_rms_m": gcp["fit"]["rms_m"],
+                "independent_rms_m": gcp.get("independent_checks", {}).get("rms_component_m")},
         "census": f"chicago/prairie_1904_v1/data/sheet_census/{spec['census']}",
         "parcels_from": "data/street_grid/1904.json",
         "method": {
@@ -448,22 +533,39 @@ def build(sheet: str) -> dict:
             "bridge_px": BRIDGE_PX, "line_half_px": LINE_HALF_PX, "simplify_px": SIMPLIFY_PX,
             "min_part_m2": r2(MIN_PART_PX * fit.m_per_px ** 2),
             "min_building_m2": r2(MIN_BUILDING_PX * fit.m_per_px ** 2),
-            "assignment": ("the building nearest the street takes the frontage's front and attached census ids; "
-                           "the others take its detached_service ids nearest the alley first; one left over on "
-                           "vacant ground takes that ground's id, any other is kept as unassigned"),
+            "assignment": ("the building nearest the street takes the frontage's front, attached and "
+                           "non_building_use census ids; the others take its detached_service ids nearest the alley "
+                           "first, and detached ids left over go onto the joined (several-part) outline nearest the "
+                           "alley; one left over on vacant ground takes that ground's id, any other is kept as "
+                           "unassigned. A frontage spanning several lots is read on their union"),
         },
         "tiers": {
-            "outline": "inferred -- a 1911 survey carried to 1904 on T-1841's per-polygon ruling",
+            "outline": f"inferred -- a 1911 survey carried to 1904 on {spec['census_ticket']}'s per-polygon ruling",
             "part_role": "inferred -- colour, size and position by the rule in each part's role_rule",
             "storeys": "not read here: the census's printed notation is the storey reading",
+            "for_1904": ("per building: as_mapped (the census rules it present in 1904 as drawn); not_1904 (a "
+                         "front the census backcasts from the 1886 plate -- the 1911 outline is a later "
+                         "replacement and no draft stands on it); as_mapped_rear_of_backcast (a rear building "
+                         "on a backcast frontage, drawn in 1911 and not ruled out); no_census_ruling"),
         },
-        "accuracy": ("the georeference's independent check (standing houses 1.47 m RMS, worst 1.9 m) plus about "
-                     "a pixel of trace; relative accuracy inside one lot is the trace's, about 0.1 m"),
+        "accuracy": accuracy(gcp),
         "counts": {"parcels": len(rows), "buildings": n_b,
                    "parts": sum(len(b["parts"]) for r in rows for b in r["buildings"])},
         "problems": problems,
         "parcels": rows,
     }
+
+
+def accuracy(gcp: dict) -> str:
+    """The sheet's absolute accuracy, as its own GCP file states it -- never borrowed from another sheet."""
+    ind = gcp.get("independent_checks")
+    if ind:
+        head = (f"the georeference's independent check ({ind['rms_component_m']} m RMS per component, worst "
+                f"{ind['max_component_m']} m)")
+    else:
+        head = (f"the georeference's own fit residual ({gcp['fit']['rms_m']} m RMS on its control crossings; "
+                "the sheet's GCP file carries no independent check, so nothing better is claimed)")
+    return head + " plus about a pixel of trace; relative accuracy inside one lot is the trace's, about 0.1 m"
 
 
 _PAIR = re.compile(r"\[\s*(-?[\d.]+),\s*(-?[\d.]+)\s*\]")
@@ -483,7 +585,7 @@ def contract(doc: dict, grid: dict) -> list:
     parcels = {p["id"]: p for p in grid["parcels"]}
     seen = {}
     for row in doc["parcels"]:
-        lot = parcels[row["parcel_id"]]["polygon_local_m"]
+        lots = [parcels[i]["polygon_local_m"] for i in row.get("ground_parcel_ids", [row["parcel_id"]])]
         if row["census_ids_not_traced"]:
             bad.append(f"{row['parcel_id']}: census ids with no outline {row['census_ids_not_traced']}")
         for b in row["buildings"]:
@@ -493,7 +595,7 @@ def contract(doc: dict, grid: dict) -> list:
             if b["kind"] == "unassigned":
                 bad.append(f"{b['id']}: a building the census does not name")
             for p in poly:
-                if not inside_tol(p, lot, 0.35):
+                if not any(inside_tol(p, lot, 0.35) for lot in lots):
                     bad.append(f"{b['id']}: vertex {p} outside its lot {row['parcel_id']}")
                     break
             for i in b["census_ids"]:
@@ -555,6 +657,22 @@ def self_test() -> int:
     ok("assign: alley building takes the rear", b2["census_ids"] == ["r"] and not missing)
     b3 = {"from_street_m": [2.0, 20.0]}
     ok("assign: an untraced census id is reported", assign([b3], rows, [], 54.0) == ["r"])
+    st = {"from_street_m": [1.0, 20.0]}
+    ok("assign: a non-building use at the street takes its id",
+       assign([st], [{"polygons": [{"id": "n", "kind": "non_building_use"}]}], [], 30.0) == []
+       and st["kind"] == "non_building_use" and st["census_ids"] == ["n"])
+    h = {"from_street_m": [2.0, 20.0]}; j = {"from_street_m": [40.0, 55.0], "parts": [{}, {}]}
+    two = [{"polygons": [{"id": "f", "kind": "front"}, {"id": "r1", "kind": "detached_service"},
+                         {"id": "r2", "kind": "detached_service"}]}]
+    ok("assign: two detached ids on one joined outline", assign([h, j], two, [], 56.0) == []
+       and j["census_ids"] == ["r1", "r2"] and "joined" in j["note"])
+    j1 = {"from_street_m": [40.0, 55.0], "parts": [{}]}
+    ok("assign: a one-part outline does not absorb a second id",
+       assign([dict(h), j1], two, [], 56.0) == ["r2"])
+    cen = {"frontages": [{"parcel_ids": ["a", "b"], "polygons": [{"id": "r", "kind": "detached_service"}]},
+                         {"parcel_ids": ["c"], "polygons": [{"id": "f", "kind": "front"}]}]}
+    ok("grounds: a frontage over two lots reads them as one ground",
+       [[q["id"] for q in g] for g in grounds([{"id": "a"}, {"id": "b"}, {"id": "c"}], cen)] == [["a", "b"], ["c"]])
     grid = {"parcels": [{"id": "x", "polygon_local_m": lot}]}
     good = {"parcels": [{"parcel_id": "x", "census_ids_not_traced": [], "buildings": [
         {"id": "b", "kind": "front", "census_ids": ["f"], "polygon_local_m": [[1, 1], [4, 1], [4, 4]],
@@ -605,12 +723,17 @@ def main() -> int:
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--self-test", action="store_true")
     ap.add_argument("--overlay", metavar="DIR")
+    ap.add_argument("--sheet", choices=sorted(SHEETS), help="only this sheet (required with --overlay)")
     a = ap.parse_args()
+    if a.overlay and not a.sheet:
+        ap.error("--overlay writes one sheet's images; name it with --sheet")
     if a.self_test:
         return self_test()
     grid = json.loads(GRID.read_text(encoding="utf-8"))
     rc = 0
     for sheet, spec in SHEETS.items():
+        if a.sheet and sheet != a.sheet:
+            continue
         doc = build(sheet)
         text = dumps(doc)
         bad = contract(doc, grid)

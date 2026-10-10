@@ -35,7 +35,7 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 708,
+    "structures_placed": 691,
     "structures_reached": 128,
     "structures_reached_by_grade": {
       "inferred": 25,
@@ -45,7 +45,7 @@
       "09": 516,
       "10": 1,
       "16": 42,
-      "outside the four sections": 21
+      "outside the four sections": 4
     },
     "school_section": {
       "parcels": {
@@ -40467,27 +40467,10 @@
       "recon_1835_blk_school_section_tier_95_d6_07"
     ],
     "outside the four sections": [
-      "edson_keith_house_1906_prairie",
-      "edson_keith_house_1906_prairie_coach_house",
-      "elbridge_keith_house_1900_prairie",
-      "elbridge_keith_house_1900_prairie_coach_house",
       "glessner_house",
-      "henderson_house_1816_prairie",
-      "henderson_house_1816_prairie_coach_house",
-      "house_1828_prairie",
-      "house_1828_prairie_coach_house",
-      "house_1918_prairie",
-      "house_1918_prairie_coach_house",
-      "jones_house_1834_prairie",
-      "jones_house_1834_prairie_coach_house",
       "keith_house_1808_prairie",
-      "marsh_house_1824_prairie",
-      "marsh_house_1824_prairie_coach_house",
-      "moulton_lowden_house_1912_prairie",
-      "moulton_lowden_house_1912_prairie_coach_house",
       "pullman_house_1729_prairie_conservatory",
-      "shed_1834_1900_prairie",
-      "wheeler_house_1812_prairie"
+      "shortall_gregory_house_1638_prairie_front"
     ]
   }
 }

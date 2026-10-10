@@ -16194,6 +16194,7 @@ for (const [label, viewport, touch] of [
         // T-2329 added the district draft's west side of the 18th-20th block: eighteen
         // prairie_draft records, held by name with the rest.
         const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
+          'shortall_gregory_house_1638_prairie_front',   // T-2323's K16 front, which landed without its name here
           'edson_keith_house_1906_prairie',
           'edson_keith_house_1906_prairie_coach_house',
           'elbridge_keith_house_1900_prairie',
