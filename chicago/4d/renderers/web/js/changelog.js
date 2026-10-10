@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1624, ts: '2026-10-10T05:37:02.063Z', date: 'Oct 10, 2026, 12:37 AM CT', title: 'Hanging signs hang on iron chains', kind: 'fix',
+    items: [
+      'Walk up to the Sauganash Hotel, or any shop or inn whose sign hangs out over the footway. Every hanging board now hangs on two short forged iron chains, hooked into the arm, hood or post above it and stapled into the board.',
+      'A sign on a wall bracket gets a second arm, one over each chain, each carried by a brace from the wall. Before, one arm stood in the middle and the board hung from nothing.',
+      'The chains and their sizes are reconstructed: no record says how any 1835 Chicago sign was hung.',
+    ] },
   { v: 1623, ts: '2026-10-10T05:25:38.157Z', date: 'Oct 10, 2026, 12:25 AM CT', title: 'A neighbour for the Glessner House at 1808 Prairie', kind: 'feature',
     items: [
       'In 1904, walk south from the Glessner House along Prairie Avenue and a second house now stands on the next lot: three storeys over a basement, with a stone front, common-brick sides and a hip roof.',
