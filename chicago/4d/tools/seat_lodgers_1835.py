@@ -1515,6 +1515,11 @@ def house_card(place: dict, persons: list, seated: list) -> dict:
 
 def _house_card(place: dict, persons: list, seated: list) -> dict:
     keeper = next((p for p in persons if p["relationship"] == "head"), None)
+    bed_note = (f"THE BED IS THE CLAIM. The lodging model puts {place['beds_ordinary']} "
+                f"people in this house on an ordinary night and {place['beds_crowded']} "
+                f"when it was full, apportioned from the town model's own bracket. "
+                f"These people are here because the beds are, and for no other "
+                f"reason.")
     return {
         "id": f"hh_lodging_{place['id']}",
         "name": f"The lodgers of {place['name']}",
@@ -1572,11 +1577,7 @@ def _house_card(place: dict, persons: list, seated: list) -> dict:
             "basis": {
                 "kind": "model",
                 "id": "1835_lodging_model",
-                "note": f"THE BED IS THE CLAIM. The lodging model puts {place['beds_ordinary']} "
-                        f"people in this house on an ordinary night and {place['beds_crowded']} "
-                        f"when it was full, apportioned from the town model's own bracket. "
-                        f"These people are here because the beds are, and for no other "
-                        f"reason.",
+                "note": bed_note,
             },
             "seed": f"{STAGE}:{place['id']}:lives_at",
             "replaceable_by": {
@@ -1591,6 +1592,20 @@ def _house_card(place: dict, persons: list, seated: list) -> dict:
             "note": "Not seated. A lodger's workplace is the business band's (T-1189) "
                     "and a keeper's premises is the house they are already in.",
         },
+        # T-2259: the bed again, as the row the scene compiler reads. Undated and
+        # sourceless because it is the lodging model's claim about an ordinary night,
+        # not a stay any source records.
+        "associated_with": [{
+            "kind": "lodging",
+            "place_or_structure_id": place["id"],
+            "resolves_to": "structure",
+            "from": None,
+            "to": None,
+            "undated": True,
+            "tier": RECONSTRUCTED,
+            "source_id": None,
+            "note": bed_note,
+        }],
         "present_on_scene_date": {
             "value": "present",
             "confidence": RECONSTRUCTED,
