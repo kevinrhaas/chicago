@@ -85,7 +85,7 @@ const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
 /**
  * HOW A SIGN IS DRAWN rather than what any shop claimed. The record carries the
  * board's own size, its mounting and the mounting's principal dimensions; these
- * are the small timber that hangs it — strap thickness, the strut under a
+ * are the small timber and iron that hang it — the chain, the knee under a
  * bracket, the cap over a wall board — the division `enclosures.js` makes
  * between a fence's line (the record's) and a rail's thickness (the renderer's).
  * The bracket numbers are still `generators/archetypes/log_dwelling.py::_sign`'s,
@@ -93,12 +93,41 @@ const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
  * board rather than two.
  */
 const ARM_T_M = 0.045;
-const HANGER_T_M = 0.022;
-const HANGER_W_M = 0.018;
 const AWNING_T_M = 0.05;
 const AWNING_BRACKET_T_M = 0.05;
 const WALL_CAP_T_M = 0.05;
 const POST_ARM_T_M = 0.09;
+
+/**
+ * THE IRONWORK A HUNG BOARD ACTUALLY HANGS BY (T-2281). The owner, 2026-10-10,
+ * on a screenshot of the Sauganash's board: "they are missing a chain or rope
+ * or something I think the signs hang in the air with nothing supporting them".
+ * He was right twice over. The bracket board ran ONE arm out of the wall at the
+ * board's middle and dropped its two hangers at a third of the board's width
+ * either side of it, ALONG the wall, so neither hanger was under anything; and
+ * every hanger in the layer was a flat timber slat, which reads as a stick
+ * glued to the board rather than as the thing holding it up.
+ *
+ * So every hung board now hangs on forged chain: an eye stapled to the timber
+ * that carries it, a run of links turning a quarter-turn each, and a staple
+ * driven into the board's top edge. Short chain on iron eyes is how a swinging
+ * shop board was hung through the period — it is what lets it swing instead of
+ * splitting at the fixing — and the town had smiths to forge it (the fort's
+ * made the Wolf Point sign's hinges). Every dimension is reconstructed, bounded
+ * by a hand-forged sign chain of 8–10 mm stock in links two to three inches
+ * long; docs/LIBERTIES.md L412 records it.
+ *
+ * Sized to be SEEN from the footway, not to be counted: a 9 mm bar at the 3.6 m
+ * close stand is about three pixels of a desktop frame, which is the scale at
+ * which a link reads as a link and not as a thicker rod.
+ */
+const CHAIN_WIRE_M = 0.009;       // the bar a link is forged from
+const CHAIN_LINK_L_M = 0.064;     // a link's outside length
+const CHAIN_LINK_W_M = 0.036;     // and its outside width
+const STAPLE_W_M = 0.05;          // the eye or staple a chain is hooked to
+const STAPLE_H_M = 0.022;
+const IRON_HEX = '#2f2b28';       // black iron, weathered (reconstructed)
+const RUST_HEX = '#6b4430';
 
 /**
  * The weathered plank every bracket, post, hood and strap is made of. The
@@ -653,6 +682,20 @@ function letterLayout(ctx, L, s, dx, dy, fill = null) {
   }
 }
 
+/** The block shade under each line, offset by `k` of that line's own size. */
+function shadeLayout(ctx, L, k, fill) {
+  for (const ln of L.lines) {
+    const off = ln.size * k;
+    ctx.fillStyle = fill(ln);
+    drawTracked(ctx, ln.text, ln.cx + off, ln.cy + off * 1.1, ln.size, ln.f);
+  }
+  if (L.rule) {
+    const { cx, cy, half, t } = L.rule;
+    ctx.fillStyle = fill(null);
+    ctx.fillRect(cx - half + t, cy - t / 2 + t, 2 * half, Math.max(1, t));
+  }
+}
+
 /**
  * GOLD LEAF, as a fill for one line: bright where a burnished letter catches the
  * sky, the leaf's own yellow across its middle, and dark where its lower strokes
@@ -663,10 +706,10 @@ function giltFill(ctx, letter) {
   return (ln) => {
     if (!ln) return shift(letter, -10);
     const g = ctx.createLinearGradient(0, ln.cy - ln.size * 0.42, 0, ln.cy + ln.size * 0.42);
-    g.addColorStop(0, mix(letter, '#fff3c4', 0.62));
-    g.addColorStop(0.34, mix(letter, '#ffe08a', 0.30));
-    g.addColorStop(0.60, letter);
-    g.addColorStop(1, mix(letter, '#3a2306', 0.50));
+    g.addColorStop(0, mix(letter, '#fff6d6', 0.70));
+    g.addColorStop(0.30, mix(letter, '#ffd257', 0.50));
+    g.addColorStop(0.58, mix(letter, '#e3a91c', 0.25));
+    g.addColorStop(1, mix(letter, '#4a2a06', 0.45));
     return g;
   };
 }
@@ -740,7 +783,6 @@ function paintCell(ctx, x, y, cellW, sign) {
   }
 
   if (!L.lines.length) return L;
-  const nameSize = L.lines.find((l) => l.role === 'name')?.size ?? L.lines[0].size;
   if (carved) {
     // INCISED: the cut is in shadow and holds the weather's dirt, so it reads
     // as a dark letter in the wood's own brown; the relief atlas cuts the V.
@@ -752,15 +794,19 @@ function paintCell(ctx, x, y, cellW, sign) {
     ctx.restore();
     return L;
   }
-  // THE SHADE. Gilt was always shaded, and a signwriter's roman usually was: a
-  // dark offset down and to the right that stands the letter off its ground.
-  // On a light ground it is a darker tone of the ground, not black.
-  if (gilt || face.shade) {
-    const off = nameSize * 0.055;
-    ctx.save();
-    letterLayout(ctx, L, 1, off, off * 1.1,
-      () => (dark ? 'rgba(0, 0, 0, 0.62)' : shift(ground, -70)));
-    ctx.restore();
+  // THE SHADE. Gilt was always shaded, and so, by the 1830s, was nearly every
+  // board a signwriter sold: a block offset down and to the right that stands
+  // the letter off its ground, and is what a period board is recognised by
+  // across a street. Each line's shade is in proportion to its own letter. On a
+  // light ground it is a darker tone of the ground, not black; gilt on a dark
+  // ground was shaded in a lake-brown that reads against the black, where a
+  // black shade would vanish (T-2287).
+  if (!isLettersOnly(sign)) {
+    const shadeOf = () => {
+      if (!dark) return shift(ground, -70);
+      return gilt ? '#5a2410' : 'rgba(0, 0, 0, 0.62)';
+    };
+    shadeLayout(ctx, L, gilt || face.shade ? 0.06 : 0.045, shadeOf);
   }
   if (gilt) {
     // A fine dark outline first, which is what keeps leaf crisp at a distance
@@ -788,6 +834,10 @@ function paintCell(ctx, x, y, cellW, sign) {
     }
     ctx.restore();
     letterLayout(ctx, L, 1, 0, 0, giltFill(ctx, letter));
+  } else if (isLettersOnly(sign)) {
+    // Straight onto bare boards: the paint has soaked into the wood and chalked
+    // in the sun, so it is the letter's colour a little way toward the boards'.
+    letterLayout(ctx, L, 1, 0, 0, () => mix(letter, ground, 0.2));
   } else {
     letterLayout(ctx, L, 1, 0, 0, () => letter);
   }
@@ -1118,6 +1168,19 @@ function jointsOf(sign, r, pxPerM) {
 }
 
 /**
+ * The moulding round a hung or fixed board, as its width in atlas pixels: about
+ * 3.5 cm of bead, and never more than a sixteenth of the board's height. None
+ * for a painted band, which is paint on the building and has no edge of its
+ * own (T-2287).
+ */
+const FRAME_M = 0.035;
+function frameOf(sign, r, pxPerM) {
+  if (sign.mounting === 'facade_painted') return null;
+  const fw = Math.min(FRAME_M * pxPerM, r.rh / 16);
+  return fw >= 3 ? { fw } : null;
+}
+
+/**
  * EVERYTHING THAT MAKES A PAINTED CELL A BOARD rather than a flat panel: the
  * grain through the paint, the joints, the wear and the grime at its foot, in
  * the colour atlas; the same grain and joints in relief, with the paint filling
@@ -1156,6 +1219,72 @@ function weatherCell(ctxs, x, y, cellW, r, sign, wood) {
     ctx.fillRect(r.rx, jy + jw / 2, r.rw, jw * 0.6);
   }
   ctx.restore();
+  // A DARK GROUND IN DAYLIGHT is not black. Soft light does nothing to a
+  // near-black, so the board's brushed grain is lifted through it on its own,
+  // and the weather is added: rain runs down the face from the top edge and
+  // leaves pale streaks of chalked paint. This is what a black board in a
+  // photograph of the period is — a dark grey, grained, streaked surface the
+  // gilt stands out of (T-2287).
+  if (!bare && isDark(sign.style?.ground || TIMBER_HEX)) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(r.rx, r.ry, r.rw, r.rh);
+    ctx.clip();
+    ctx.globalCompositeOperation = 'screen';
+    ctx.globalAlpha = 0.30;
+    ctx.fillStyle = woodPattern(ctx, B.grain, B.span, pxPerM, ox, oy, BOARD_GRAIN_ALONG);
+    ctx.fillRect(r.rx, r.ry, r.rw, r.rh);
+    ctx.globalAlpha = 1;
+    const srnd = seeded(`${sign.structure_id}#streaks`);
+    const streaks = Math.round((r.rw / pxPerM) * 22);
+    for (let k = 0; k < streaks; k += 1) {
+      const sx = r.rx + srnd() * r.rw;
+      const len = r.rh * (0.15 + srnd() * srnd() * 0.85);
+      const sw = Math.max(1, pxPerM * (0.004 + srnd() * 0.012));
+      const g = ctx.createLinearGradient(0, r.ry, 0, r.ry + len);
+      const a = 0.07 + srnd() * 0.12;
+      g.addColorStop(0, `rgba(190, 186, 172, ${a})`);
+      g.addColorStop(1, 'rgba(190, 186, 172, 0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(sx, r.ry, sw, len);
+    }
+    ctx.restore();
+  }
+  // THE MOULDING. A board hung or fixed in the street was framed — a planted
+  // bead or ovolo round its edge, painted with the ground — and its raised lip
+  // is what makes it read as a made object rather than a card. Drawn here as
+  // the light on its upper and left faces and the shadow on its lower and
+  // right ones; the relief atlas carries the same bevel (T-2287).
+  const frame = frameOf(sign, r, pxPerM);
+  if (frame) {
+    const { fw } = frame;
+    ctx.save();
+    // The bead is picked out: in leaf on a gilt board, as a gilder finished it,
+    // and a tone off the ground on any other.
+    const gnd = sign.style?.ground || TIMBER_HEX;
+    const bead = isGilt(sign) ? shift(sign.style?.letter || '#c9a227', -18)
+      : shift(gnd, isDark(gnd) ? 26 : -26);
+    ctx.fillStyle = bead;
+    ctx.fillRect(r.rx, r.ry, r.rw, fw);
+    ctx.fillRect(r.rx, r.ry + r.rh - fw, r.rw, fw);
+    ctx.fillRect(r.rx, r.ry, fw, r.rh);
+    ctx.fillRect(r.rx + r.rw - fw, r.ry, fw, r.rh);
+    const lit = 'rgba(255, 248, 230, 0.16)';
+    const shd = 'rgba(16, 10, 4, 0.34)';
+    ctx.fillStyle = lit;
+    ctx.fillRect(r.rx, r.ry, r.rw, fw * 0.45);
+    ctx.fillRect(r.rx, r.ry, fw * 0.45, r.rh);
+    ctx.fillStyle = shd;
+    ctx.fillRect(r.rx, r.ry + r.rh - fw * 0.45, r.rw, fw * 0.45);
+    ctx.fillRect(r.rx + r.rw - fw * 0.45, r.ry, fw * 0.45, r.rh);
+    // and inside the lip, the step down to the field: shadow above and left
+    ctx.fillStyle = 'rgba(16, 10, 4, 0.30)';
+    ctx.fillRect(r.rx + fw, r.ry + fw, r.rw - 2 * fw, Math.max(1, fw * 0.22));
+    ctx.fillRect(r.rx + fw, r.ry + fw, Math.max(1, fw * 0.22), r.rh - 2 * fw);
+    ctx.fillStyle = 'rgba(255, 248, 230, 0.10)';
+    ctx.fillRect(r.rx + fw, r.ry + r.rh - fw - Math.max(1, fw * 0.22), r.rw - 2 * fw, Math.max(1, fw * 0.22));
+    ctx.restore();
+  }
   // The wear: bare wood where the paint has gone.
   if (shapes.length) {
     ctx.save();
@@ -1205,6 +1334,22 @@ function weatherCell(ctxs, x, y, cellW, r, sign, wood) {
         nctx.fill();
       }
     }
+    if (frame) {
+      // The lip's outer half rises from the board's edge, its inner half falls
+      // to the field: four facing strips each side, one normal apiece.
+      const fw = frame.fw * ns;
+      const X = r.rx * ns; const Y = r.ry * ns; const W = r.rw * ns; const H = r.rh * ns;
+      const h = fw / 2;
+      const strip = (col, x0, y0, w0, h0) => { nctx.fillStyle = col; nctx.fillRect(x0, y0, w0, h0); };
+      strip('rgb(128, 180, 230)', X, Y, W, h);              // top, outer: faces up
+      strip('rgb(128, 76, 230)', X, Y + H - h, W, h);       // bottom, outer: faces down
+      strip('rgb(76, 128, 230)', X, Y, h, H);               // left, outer: faces left
+      strip('rgb(180, 128, 230)', X + W - h, Y, h, H);      // right, outer: faces right
+      strip('rgb(128, 76, 230)', X + h, Y + h, W - 2 * h, h);           // top, inner
+      strip('rgb(128, 180, 230)', X + h, Y + H - fw, W - 2 * h, h);     // bottom, inner
+      strip('rgb(180, 128, 230)', X + h, Y + h, h, H - 2 * h);          // left, inner
+      strip('rgb(76, 128, 230)', X + W - fw, Y + h, h, H - 2 * h);      // right, inner
+    }
     const gw = Math.max(1, pxPerM * 0.004 * ns);
     for (const jy of joints) {
       nctx.fillStyle = 'rgb(128, 84, 236)';    // the upper flank faces down
@@ -1221,20 +1366,22 @@ function weatherCell(ctxs, x, y, cellW, r, sign, wood) {
 
   // ROUGHNESS (green channel): paint on the face, bare wood where it wore. A
   // sanded (smalt) ground is matte; gold leaf is the smoothest thing in the
-  // town and is what catches the sun (T-2282).
+  // town and is what catches the sun (T-2287). The blue channel is held at
+  // zero: leaf drawn as a true metal reflects this scene's sky, which is all
+  // the environment there is, and turns a mint green no gilder ever sold.
   if (rctx) {
     rctx.save();
     if (!bare) {
       const smalt = isDark(sign.style?.ground || TIMBER_HEX);
-      rctx.fillStyle = smalt ? 'rgb(232, 232, 232)' : 'rgb(158, 158, 158)';
+      rctx.fillStyle = smalt ? 'rgb(232, 232, 0)' : 'rgb(158, 158, 0)';
       rctx.fillRect(r.rx * rs, r.ry * rs, r.rw * rs, r.rh * rs);
       if (r.lines?.length) {
         const gilt = isGilt(sign);
         letterLayout(rctx, r, rs, 0, 0,
-          () => (gilt ? 'rgb(72, 72, 72)' : 'rgb(158, 158, 158)'));
+          () => (gilt ? 'rgb(72, 72, 0)' : 'rgb(158, 158, 0)'));
       }
       if (shapes.length) {
-        rctx.fillStyle = 'rgb(219, 219, 219)';
+        rctx.fillStyle = 'rgb(219, 219, 0)';
         tracePath(rctx, shapes, rs);
         rctx.fill();
       }
@@ -1353,6 +1500,31 @@ function paintTimberCell(ctxs, wood) {
 }
 
 /**
+ * The ironwork's cell (T-2281): black iron gone a little to rust, smoother than
+ * the weathered timber beside it, and flat (no grain in its relief). Sampled at
+ * its middle only, so the mottling is there to keep the tone from reading as
+ * printer's black under a low sun, not to be seen as a pattern.
+ */
+function paintIronCell(ctxs, x, y) {
+  const { ctx, nctx, rctx, ns, rs } = ctxs;
+  ctx.save();
+  ctx.fillStyle = IRON_HEX;
+  ctx.fillRect(x, y, TILE_W, TILE_H);
+  ctx.globalAlpha = 0.18;
+  ctx.fillStyle = RUST_HEX;
+  ctx.fillRect(x + TILE_W * 0.25, y + TILE_H * 0.25, TILE_W * 0.5, TILE_H * 0.5);
+  ctx.restore();
+  if (nctx) {
+    nctx.fillStyle = 'rgb(128, 128, 255)';
+    nctx.fillRect(x * ns, y * ns, TILE_W * ns, TILE_H * ns);
+  }
+  if (rctx) {
+    rctx.fillStyle = 'rgb(166, 166, 166)';   // forged iron, 0.65
+    rctx.fillRect(x * rs, y * rs, TILE_W * rs, TILE_H * rs);
+  }
+}
+
+/**
  * A NAME PAINTED STRAIGHT ONTO BARE BOARDS HAS NO GROUND (T-2282). A painted
  * band in the bare-timber style used to be a rectangle of timber-coloured
  * "ground" with the name on it, laid over a wall of a different tone — a pale
@@ -1375,6 +1547,21 @@ function cutToLetters(ctx, x, y, cellW, L) {
   const mctx = m.getContext('2d');
   if (!mctx) return;
   letterLayout(mctx, L, 1, -x, -y, null);
+  // Paint straight on weathered boards does not stay whole: it lifts in small
+  // flakes along the grain, and the boards show through (T-2287).
+  const rnd = seeded(`${L.rx},${L.ry}#flake`);
+  const pits = Math.round(L.rw * L.rh * 0.004);
+  mctx.globalCompositeOperation = 'destination-out';
+  mctx.fillStyle = '#000000';
+  for (let k = 0; k < pits; k += 1) {
+    const px = L.rx - x + rnd() * L.rw;
+    const py = L.ry - y + rnd() * L.rh;
+    const rw = 0.6 + rnd() * rnd() * 4.5;
+    mctx.beginPath();
+    mctx.ellipse(px, py, rw * (1.4 + rnd()), rw * 0.6, 0, 0, Math.PI * 2);
+    mctx.fill();
+  }
+  mctx.globalCompositeOperation = 'source-over';
   ctx.save();
   ctx.beginPath();
   ctx.rect(x, y, cellW, TILE_H);
@@ -1440,6 +1627,10 @@ function buildAtlas(signs, wood = null, lowSpec = false) {
     cells.push({ sign, col, row, span });
     col += span;
   }
+  // The ironwork's cell (T-2281) takes the next free slot, so it costs a row
+  // only when the last one is already full.
+  if (col + 1 > ATLAS_COLS) { col = 0; row += 1; }
+  const ironCell = { col, row };
   const rows = row + 1;
   canvas.width = ATLAS_COLS * TILE_W;
   canvas.height = rows * TILE_H;
@@ -1474,7 +1665,7 @@ function buildAtlas(signs, wood = null, lowSpec = false) {
     if (nctx && rctx) {
       nctx.fillStyle = 'rgb(128, 128, 255)';
       nctx.fillRect(0, 0, normalCanvas.width, normalCanvas.height);
-      rctx.fillStyle = 'rgb(224, 224, 224)';   // bare weathered timber, 0.88
+      rctx.fillStyle = 'rgb(224, 224, 0)';   // bare weathered timber, 0.88; not metal
       rctx.fillRect(0, 0, roughCanvas.width, roughCanvas.height);
     } else {
       normalCanvas = null; roughCanvas = null; nctx = null; rctx = null;
@@ -1483,10 +1674,18 @@ function buildAtlas(signs, wood = null, lowSpec = false) {
   const ctxs = { ctx, nctx, rctx, ns, rs };
   if (wood) paintTimberCell(ctxs, wood);
 
+  paintIronCell(ctxs, ironCell.col * TILE_W, ironCell.row * TILE_H);
+
   const W = canvas.width;
   const H = canvas.height;
   const uvOf = (px, py) => [px / W, 1 - py / H];
-  const out = { timber: uvOf(TILE_W * 0.5, TILE_H * 0.5), signs: new Map() };
+  const out = {
+    timber: uvOf(TILE_W * 0.5, TILE_H * 0.5),
+    // One point in the middle of the iron cell: a link is a few pixels across
+    // at any stand, so it needs the iron's tone and roughness and no figure.
+    iron: uvOf(ironCell.col * TILE_W + TILE_W * 0.5, ironCell.row * TILE_H + TILE_H * 0.5),
+    signs: new Map(),
+  };
   if (wood) {
     // The metric cell the carpentry maps onto (`timberUv`), inset so no mip
     // level reaches the painted cell beside it.
@@ -1696,6 +1895,57 @@ function pushBar(buf, a, b, wx, wz, halfW, halfT, level, solid) {
   pushHull(buf, p, level, timberUv(solid, halfLen, halfW, halfT, seedAt(a[0], a[1], a[2])));
 }
 
+/** A small iron member: a box like `pushBox`, sampling the iron cell's one point. */
+function pushIronBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level, iron) {
+  pushHull(buf, boxCorners(cx, cy, cz, ux, uz, halfLen, halfW, halfH), level, () => iron);
+}
+
+/**
+ * A HUNG BOARD'S CHAIN (T-2281), from the underside of whatever carries it
+ * (`yTop`) down to the top edge of the board (`yBot`), at (x, z).
+ *
+ * At each end an eye — a short iron block lying along the board — that the end
+ * link is hooked through: driven up into the arm, hood or cross-arm, and down
+ * into the board. Between them, links of `CHAIN_LINK_*` stock, each a closed
+ * loop of four bars, every other one turned a quarter-turn (in the plane of the
+ * board, then across it), and overlapping by their bar's thickness at each end
+ * as real links do. The count is whatever fits the drop at about a link's
+ * inside length a link; the pitch is then stretched or squeezed so the run
+ * meets both eyes exactly, which is a few millimetres a link at most.
+ *
+ * About 200 triangles a chain. Forty-one hung boards in 1835 is about sixteen
+ * thousand, which is under one tree's worth of the flora layer.
+ */
+function pushChain(buf, x, z, yTop, yBot, wx, wz, level, iron) {
+  const r = CHAIN_WIRE_M / 2;
+  // The eyes, each half in the timber it is driven into.
+  pushIronBox(buf, x, yTop, z, wx, wz, STAPLE_W_M / 2, r * 1.4, STAPLE_H_M / 2, level, iron);
+  pushIronBox(buf, x, yBot, z, wx, wz, STAPLE_W_M / 2, r * 1.4, STAPLE_H_M / 2, level, iron);
+  const top = yTop - STAPLE_H_M / 2 + r;
+  const bot = yBot + STAPLE_H_M / 2 - r;
+  const run = top - bot;
+  if (run <= CHAIN_WIRE_M * 2) return;
+  const L = Math.min(CHAIN_LINK_L_M, run);
+  const inside = L - 2 * CHAIN_WIRE_M;
+  const n = Math.max(1, Math.round((run - L) / inside) + 1);
+  const pitch = n > 1 ? (run - L) / (n - 1) : 0;
+  const halfW = CHAIN_LINK_W_M / 2;
+  for (let k = 0; k < n; k += 1) {
+    const cy = top - L / 2 - k * pitch;
+    // The link's plane: along the board, then across it.
+    const ux = k % 2 ? -wz : wx;
+    const uz = k % 2 ? wx : wz;
+    for (const s of [-1, 1]) {
+      // The two sides…
+      pushIronBox(buf, x + ux * s * (halfW - r), cy, z + uz * s * (halfW - r),
+        ux, uz, r, r, L / 2, level, iron);
+      // …and the two ends, which are what makes it a loop and not two rods.
+      pushIronBox(buf, x, cy + s * (L / 2 - r), z,
+        ux, uz, halfW - 2 * r, r, r, level, iron);
+    }
+  }
+}
+
 /**
  * THE BOARD ITSELF, and the one piece of UV arithmetic worth explaining.
  *
@@ -1775,7 +2025,7 @@ function wallBase(quad, terrain) {
  * renderer's world is (E, up, −N), which is where every negated north below
  * comes from.
  */
-function buildSign(buf, sign, terrain, art, timber, problems) {
+function buildSign(buf, sign, terrain, art, timber, problems, iron = timber) {
   const anchor = sign.anchor_local_enu_m;
   if (!Array.isArray(anchor) || anchor.length !== 2) {
     problems.push(`signage: ${sign.structure_id} carries no anchor — no sign is put up`);
@@ -1844,16 +2094,18 @@ function buildSign(buf, sign, terrain, art, timber, problems) {
             az + offZ + oz * (proj - 0.10)],
           wx, wz, AWNING_BRACKET_T_M / 2, AWNING_BRACKET_T_M / 2, level, solid);
       }
-      // Two straps and the board under the hood's outer edge.
+      // Two chains (T-2281) and the board under the hood's outer edge. Each
+      // chain hooks into the hood's underside where it actually is at that
+      // depth — the hood falls outward, so that is a little above its lip.
       const drop = g.hanger_drop_m ?? 0.20;
       const hangOut = proj - 0.14;
       const boardY = y - fall - AWNING_T_M / 2 - drop - bh / 2;
+      const hoodUnder = y - fall * (hangOut / proj) - AWNING_T_M / 2;
       for (const s of [-1, 1]) {
-        pushBox(buf,
+        pushChain(buf,
           ax + ox * hangOut + wx * s * bw * 0.34,
-          y - fall - drop / 2,
           az + oz * hangOut + wz * s * bw * 0.34,
-          ox, oz, HANGER_T_M, HANGER_W_M, drop / 2, level, solid);
+          hoodUnder, boardY + bh / 2, wx, wz, level, iron);
       }
       pushBoard(buf, ax + ox * hangOut, boardY, az + oz * hangOut,
         wx, wz, bw / 2, bt / 2, bh / 2, level, art);
@@ -1899,11 +2151,11 @@ function buildSign(buf, sign, terrain, art, timber, problems) {
         [px + wx * 0.46, armY - POST_ARM_T_M / 2, pz + wz * 0.46],
         ox, oz, POST_ARM_T_M * 0.35, POST_ARM_T_M * 0.35, level, solid);
       const hang = arm * 0.55;
+      // Two chains from under the cross-arm (T-2281).
       for (const s of [-1, 1]) {
-        pushBox(buf,
-          px + wx * (hang + s * bw * 0.36), armY - drop / 2,
-          pz + wz * (hang + s * bw * 0.36),
-          ox, oz, HANGER_T_M, HANGER_W_M, drop / 2, level, solid);
+        pushChain(buf,
+          px + wx * (hang + s * bw * 0.36), pz + wz * (hang + s * bw * 0.36),
+          armY - POST_ARM_T_M / 2, armY - drop, wx, wz, level, iron);
       }
       pushBoard(buf, px + wx * hang, armY - drop - bh / 2, pz + wz * hang,
         wx, wz, bw / 2, bt / 2, bh / 2, level, art);
@@ -1920,24 +2172,35 @@ function buildSign(buf, sign, terrain, art, timber, problems) {
       break;
     }
     default: {
-      // THE BRACKET BOARD, unchanged since T-0039 but for its size and its
-      // paint: the wolf sign's own arm, strut, straps and plank.
+      // THE BRACKET BOARD — the wolf sign's arm, strut and plank, since T-0039.
+      //
+      // TWO ARMS, ONE OVER EACH CHAIN (T-2281). This used to run a single arm
+      // out at the board's middle and hang the board's two straps a third of
+      // its width either side of it, ALONG the wall: the board faces the street,
+      // the arm came straight at the viewer, and neither strap was under it —
+      // the owner's Sauganash screenshot. A board hung face-on to the street
+      // from paired brackets is the arrangement that keeps every name in this
+      // record readable from the footway it was placed to be read from, so the
+      // board keeps its facing and gains the second bracket it always needed.
       const arm = g.arm_m ?? 1.15;
       const drop = g.hanger_drop_m ?? 0.20;
-      pushBox(buf, ax + ox * (arm / 2), y + ARM_T_M, az + oz * (arm / 2),
-        ox, oz, arm / 2, ARM_T_M, ARM_T_M, level, solid);
-      // The strut under it, a shorter brace kept slim on purpose: an earlier
-      // bracket in this project read as the object with a board attached rather
-      // than the other way round. On a shop the board is the point.
-      pushBox(buf, ax + ox * 0.30, y - 0.19, az + oz * 0.30,
-        ox, oz, 0.30, ARM_T_M * 0.6, ARM_T_M * 0.6, level, solid);
       const hang = arm * 0.72;
+      const brace = Math.min(0.46, arm * 0.4);
       for (const s of [-1, 1]) {
-        pushBox(buf,
-          ax + ox * hang + wx * s * bw * 0.32,
-          y - drop / 2,
-          az + oz * hang + wz * s * bw * 0.32,
-          ox, oz, HANGER_T_M, HANGER_W_M, drop / 2, level, solid);
+        const sx = wx * s * bw * 0.32;
+        const sz = wz * s * bw * 0.32;
+        pushBox(buf, ax + sx + ox * (arm / 2), y + ARM_T_M, az + sz + oz * (arm / 2),
+          ox, oz, arm / 2, ARM_T_M, ARM_T_M, level, solid);
+        // A knee from the wall up under the arm, kept slim on purpose: an
+        // earlier bracket in this project read as the object with a board
+        // attached rather than the other way round. On a shop the board is the
+        // point. It replaces a level strut that touched the arm nowhere.
+        pushBar(buf,
+          [ax + sx, y - brace, az + sz],
+          [ax + sx + ox * brace, y, az + sz + oz * brace],
+          wx, wz, ARM_T_M * 0.55, ARM_T_M * 0.55, level, solid);
+        pushChain(buf, ax + sx + ox * hang, az + sz + oz * hang,
+          y, y - drop, wx, wz, level, iron);
       }
       pushBoard(buf, ax + ox * hang, y - drop - bh / 2, az + oz * hang,
         wx, wz, bw / 2, bt / 2, bh / 2, level, art);
@@ -2044,6 +2307,7 @@ export async function createSignage({
   }
   const plain = { rect: [0.02, 0.02, 0.06, 0.06], solid: [0.04, 0.98] };
   const timberUV = atlas?.timber ?? plain.solid;
+  const ironUV = atlas?.iron ?? (Array.isArray(timberUV) ? timberUV : timberUV.point);
 
   const buf = { pos: [], nrm: [], uv: [], conf: [] };
   /**
@@ -2068,7 +2332,7 @@ export async function createSignage({
     }
     const art = atlas?.signs.get(sign.structure_id) ?? plain;
     const from = buf.pos.length / 9;
-    if (!buildSign(buf, sign, terrain, art, timberUV, problems)) continue;
+    if (!buildSign(buf, sign, terrain, art, timberUV, problems, ironUV)) continue;
     spans.push({ id: sign.structure_id, from, to: buf.pos.length / 9 });
     out.signs.push(sign);
     out.census.boards += 1;
@@ -2153,7 +2417,13 @@ export async function createSignage({
   group.add(mesh);
   group.userData.census = out.census;
   if (atlas) {
-    out.atlas = { cells: atlas.cells, size: atlas.size, uploaded: atlas.uploaded, wood: wood ? [wood.board.id, wood.timber.id] : null, fonts };
+    out.atlas = {
+      cells: atlas.cells, size: atlas.size, uploaded: atlas.uploaded,
+      wood: wood ? [wood.board.id, wood.timber.id] : null, fonts,
+      // The one uv every chain link samples (T-2281), so a reader measuring a
+      // sign's PAINTED face can leave the ironwork out of it.
+      iron: atlas.iron,
+    };
     // How big every board's lettering came out, in metres on the board — what
     // the release gate holds the layer to (T-2282).
     out.legibility = atlas.legibility;

@@ -1009,6 +1009,16 @@
       "phase_id": "frame_1835",
       "structure_id": "john_holbrook_store"
     },
+    "keith_house_1808_prairie__as_built_1886.glb": {
+      "archetype": "k01_frontage",
+      "baked_ao": false,
+      "bytes": 1864120,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "43ee6ab5693a5bd7e5fdbb06ad551b943764b0dd58b1313343d3a5d2ff725499",
+      "kind": "generated",
+      "phase_id": "as_built_1886",
+      "structure_id": "keith_house_1808_prairie"
+    },
     "kelsey_boarding_house__frame_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,

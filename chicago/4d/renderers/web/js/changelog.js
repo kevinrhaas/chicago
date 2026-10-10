@@ -1,4 +1,24 @@
 export const CHANGELOG = [ // newest first
+  { v: 1624, ts: '2026-10-10T05:37:02.063Z', date: 'Oct 10, 2026, 12:37 AM CT', title: 'Hanging signs hang on iron chains', kind: 'fix',
+    items: [
+      'Walk up to the Sauganash Hotel, or any shop or inn whose sign hangs out over the footway. Every hanging board now hangs on two short forged iron chains, hooked into the arm, hood or post above it and stapled into the board.',
+      'A sign on a wall bracket gets a second arm, one over each chain, each carried by a brace from the wall. Before, one arm stood in the middle and the board hung from nothing.',
+      'The chains and their sizes are reconstructed: no record says how any 1835 Chicago sign was hung.',
+    ] },
+  { v: 1623, ts: '2026-10-10T05:25:38.157Z', date: 'Oct 10, 2026, 12:25 AM CT', title: 'A neighbour for the Glessner House at 1808 Prairie', kind: 'feature',
+    items: [
+      'In 1904, walk south from the Glessner House along Prairie Avenue and a second house now stands on the next lot: three storeys over a basement, with a stone front, common-brick sides and a hip roof.',
+      'Its north wall closes the Glessner courtyard on the south, as the 1911 fire-insurance map draws it. The courtyard no longer opens onto empty ground.',
+      'It is the first house built from Prairie Avenue’s shared building parts. Its walls, windows, front steps and roof are each one reusable part, measured in metres.',
+      'Most of it is a reconstruction, and the confidence view says so. The map gives only its three storeys, its basement and its brick. The real stone front, curved bay and columned entrance are still to come.',
+    ] },
+  { v: 1622, ts: '2026-10-10T05:25:38.157Z', date: 'Oct 10, 2026, 12:25 AM CT', title: 'Shop signs closer to a photograph', kind: 'change',
+    items: [
+      'Every painted board\'s lettering is shaded the way signwriters shaded it, so names stand off their boards across a street.',
+      'Hung and fixed boards have a raised moulded edge, gilt on the gold-lettered boards.',
+      'Dark boards show their brushed grain and rain streaks instead of reading as flat black.',
+      'Names painted straight onto bare warehouse boards have faded toward the wood and flaked.',
+    ] },
   { v: 1621, ts: '2026-10-10T05:10:39.889Z', date: 'Oct 10, 2026, 12:10 AM CT', title: 'Two families waiting for a house now count where they are needed', kind: 'fix',
     items: [
       'The reconstruction’s order book holds 23 families who were in town on 1 July 1835 but could not be housed without crowding more people into each house than the census counted. The book counts them towards the family houses each division is short of, so it does not order made-up families to replace them.',

@@ -1,0 +1,258 @@
+{
+  "id": "keith_house_1808_prairie",
+  "phase": "as_built_1886",
+  "name": "Osborn R. Keith house (1808 Prairie Avenue), K01 frontage assembly",
+  "aka": [
+    "1808 Prairie Avenue",
+    "1808 S. Prairie Avenue",
+    "Keith / Field residence"
+  ],
+  "archetype": "k01_frontage",
+  "asset": "gltf/keith_house_1808_prairie__as_built_1886.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "documented_range": {
+    "from": "1886-01-01",
+    "to": "1968-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_vol3_sheet_28",
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "STANDING IN 1904 is what the scene needs, and it rests on the 1911 Sanborn sheet 28 carried back seven years, the same reading the Glessner record and the 1904 parcels make of it (the Glessner House correspondent reads no change on this sheet between 1904 and 1911). FROM: the T-1837 building register reports 1886 (Cobb & Frost); it is not a source record here, so the day is the 1st of January and the confidence inferred. TO: the register reports the loss in 1968; same footing, the year's last day."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1369.959,
+    "local_n": -3250.476,
+    "rotation_deg": -0.669,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "sanborn_1911_vol3_sheet_28",
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "position_note": "Placed in the Glessner record's own frame, so the two share one bearing and one building line exactly. The footprint origin (its SW corner) is Glessner-frame u 31.149, v -10.42: the front wall on Glessner's east face line (u 49.149, 14.7 ft behind the Prairie Avenue line — RECONSTRUCTED: Sanborn 1911 draws 1808 set back on a common line with its neighbour, and the sheet is not read here to the foot for this lot), and the north wall 0.02 m south of Glessner's south face (v 0), closing its courtyard as the sheet draws. The south wall then stands 1.1 m inside the parcel's south line at the street. Rotation -0.669 degrees is Glessner's, the 18th Street line's bearing less 90.",
+    "symbolic_location": "1808 S. Prairie Avenue: west side of Prairie between 18th and 20th Streets, the lot directly south of the Glessner house, parcel prairie_1808 (data/street_grid/1904.json).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "ground",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        18.0,
+        0.0
+      ],
+      [
+        18.0,
+        10.4
+      ],
+      [
+        0.0,
+        10.4
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "sanborn_1911_vol3_sheet_28",
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The main range only, 18.0 m deep by 10.4 m across the front. RECONSTRUCTED: the 1911 sheet draws a brick house the width of most of its 38.1 ft lot, but its depth and side passage are not read here to a figure; 10.4 m leaves a 1.1 m passage on the south and 18.0 m is a Prairie Avenue town house of three bays. The detached rear garage the sheet also draws is T-1935's."
+  },
+  "attributes": {
+    "stories": {
+      "value": 3,
+      "confidence": "attested",
+      "note": "'3B' on the 1911 Sanborn sheet 28: three storeys and a basement. Carried back to 1904 with the sheet.",
+      "sources": [
+        "sanborn_1911_vol3_sheet_28",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ]
+    },
+    "construction": {
+      "value": "brick_with_stone_front",
+      "confidence": "inferred",
+      "note": "The 1911 sheet colours the house brick, and the T-1837 frontage register reads it 'brick with stone front'. The stone front is the register's reading of the 1888 plate, so the pairing is carried here as the sheet's brick plus a reconstructed stone street wall.",
+      "sources": [
+        "sanborn_1911_vol3_sheet_28",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ]
+    },
+    "principal_floor_m": {
+      "value": 1.5,
+      "confidence": "reconstructed",
+      "note": "A raised principal floor over the basement, inside the contract's principal_floor range [0.8, 1.8] (RECONSTRUCTION-RULES.md § Starting ranges); 1.50 m solves to nine whole risers of 0.167 m."
+    },
+    "storey_heights_m": {
+      "value": [
+        4.0,
+        3.6,
+        3.3
+      ],
+      "confidence": "reconstructed",
+      "note": "Floor-to-floor, principal storey tallest: a reconstruction of the usual diminishing storeys of a three-storey Prairie Avenue house; no source reads these here."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "The stone street wall at the top of the contract's masonry range [0.23, 0.45]; it sets the reveal depth of every front opening."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "Common brick, a 13-inch wall, inside the masonry range; the Sanborn sheet prints no wall thickness for this lot."
+    },
+    "roof_form": {
+      "value": "hip",
+      "confidence": "reconstructed",
+      "note": "A hip roof, the contract's k01.roof.hip. The register's pierced stone parapet is T-1882's to build; behind it a pitched roof is the reconstruction's simplest honest cover."
+    },
+    "roof_pitch_deg": {
+      "value": 40,
+      "confidence": "reconstructed",
+      "note": "Inside the contract's ordinary pitch range [25, 45]."
+    },
+    "eave_overhang_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "A modest eave; the fascia and soffit close it."
+    },
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "Inside the contract's tread range [0.25, 0.34]."
+    },
+    "stair_landing_depth_m": {
+      "value": 1.2,
+      "confidence": "reconstructed",
+      "note": "A landing one door-swing deep before the threshold."
+    },
+    "stoop_width_m": {
+      "value": 1.8,
+      "confidence": "reconstructed",
+      "note": "The stoop half again the door's width."
+    },
+    "entrance_bay": {
+      "value": "north",
+      "confidence": "reconstructed",
+      "note": "The register reads a north entrance on the 1888 plate; the plate is not a source record here, so the side is carried as reconstructed."
+    },
+    "front_bays": {
+      "value": [
+        2.0,
+        5.0,
+        8.4
+      ],
+      "confidence": "reconstructed",
+      "note": "Three bays across the 10.4 m front, south to north, the north bay the entrance."
+    },
+    "side_bays": {
+      "value": [
+        3.0,
+        7.0,
+        11.0,
+        15.0
+      ],
+      "confidence": "reconstructed",
+      "note": "Four windows a storey along the south wall, west to east, the passage side."
+    },
+    "rear_bays": {
+      "value": [
+        3.0,
+        7.4
+      ],
+      "confidence": "reconstructed",
+      "note": "Two windows a storey in the rear wall."
+    },
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.75,
+          "width_m": 1.05,
+          "height_m": 2.3
+        },
+        {
+          "sill_above_floor_m": 0.75,
+          "width_m": 1.05,
+          "height_m": 2.2
+        },
+        {
+          "sill_above_floor_m": 0.65,
+          "width_m": 1.0,
+          "height_m": 1.7
+        }
+      ],
+      "confidence": "reconstructed",
+      "note": "Double-hung sash, diminishing upward, every clear width and height inside the contract's sash ranges ([0.75, 1.15] and [1.5, 2.4])."
+    },
+    "basement_lights": {
+      "value": {
+        "sill_m": 0.35,
+        "width_m": 0.9,
+        "height_m": 0.7
+      },
+      "confidence": "reconstructed",
+      "note": "Area lights under the two front windows; the basement the Sanborn 'B' records."
+    },
+    "function": {
+      "value": "residence",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_vol3_sheet_28",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The 1911 Sanborn sheet 28 draws a three-storey-and-basement brick house ('3B') with a rear two-storey garage on the lot; a house of that kind on Prairie Avenue in 1904 is a residence. The T-1837 building register names it the Osborn R. Keith (later Stanley Field) residence, reported 1886 by Cobb & Frost; that register's evidence handles are not yet source records here, so the names ride in the record's name and aka, not in a cited attribute."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "sanborn_1911_chicago_v3_sheet_28",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "The water's edge beside the Illinois Central from about 40 m north of 18th Street to about 80 m south of it, and the easternmost track on to the paper's edge, as of 1911",
+        "The 1800 Prairie lot and the Glessner House footprint (stone, courtyard plan) as of 1911, and every Prairie- and Calumet-facing footprint from 18th to 20th Street",
+        "Its own printed Scale of Feet"
+      ],
+      "what_it_does_not_supply": [
+        "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+        "A construction date for any building it draws",
+        "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+        "Architecture above the footprint beyond its story count, material colour and roof symbol",
+        "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+      ]
+    },
+    {
+      "source_id": "sanborn_1911_vol3_sheet_28",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Vol. 3 (1911), sheet 28: E. 18th St. to E. 20th St., Prairie Av. Blvd. and Calumet Av. to the Illinois Central / Michigan Central tracks and Lake Michigan. Scale 1\" = 50'. Stamped 'Fire Insurance Map Collection, Geography and Map Division, Library of Congress'; header 'Chicago Vol. 3', with 1891-edition cross-references (245-246) (252-253).",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the house's position on its lot: north face on the E. 18th Street line, west face on the alley line, east face about 14.7 ft (±1.5 ft) behind the Prairie Avenue street line",
+        "a check on the HABS envelope: about 161 x 75 ft overall and a 35 x 59 ft west wing at 1\" = 50'",
+        "materials by colour (stone street walls, brick courtyard walls) and storeys (2B main house, 1½ west wing) in 1911",
+        "the neighbour that closes the courtyard on the south in 1911 (1808 Prairie and its rear garage)"
+      ],
+      "what_it_does_not_supply": [
+        "anything about 1904 directly: a 1911 sheet shows only that a structure stood in 1911",
+        "the 1904 use of the west wing: '1911 GARAGE' cannot be backdated",
+        "architecture above the footprint - roof pitches, chimneys, openings",
+        "lot dimensions in figures for this lot: none are printed on it"
+      ]
+    }
+  ],
+  "research_note": "T-2266 — the first assembly built to the Prairie 1904 K01 metric component contract (data/components/prairie_1904/k01_contract.json, T-2265), beside the canonical Glessner asset. It is a SMALL PROOF, not the house: the street front, side and rear walls of the main range with their openings, the entry stoop and a hip roof, every part a K01 component with a stable id, a seed and metric UVs, and every dimension a reconstruction inside the contract's declared ranges. What the house actually looked like — the rock-faced Romanesque-classical front, the south curved bay, the north entrance loggia with Ionic columns, the pierced parapet (T-1837 FRONTAGE-REGISTER frontage-28-037, read from the Inland Architect plate of February 1888) — is owned by T-1882 and T-1883, the detached rear garage by T-1935; this assembly replaces none of that and is replaced by it. The north wall closes the Glessner courtyard 0.02 m south of Glessner's south face, the clearance the K01 measure needs to keep two assets' faces from coinciding (docs/LIBERTIES.md, T-2266).",
+  "research_doc": "",
+  "review_required": false
+}

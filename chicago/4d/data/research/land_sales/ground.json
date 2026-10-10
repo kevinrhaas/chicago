@@ -35,7 +35,7 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 680,
+    "structures_placed": 681,
     "structures_reached": 128,
     "structures_reached_by_grade": {
       "inferred": 25,
@@ -45,7 +45,7 @@
       "09": 514,
       "10": 1,
       "16": 36,
-      "outside the four sections": 1
+      "outside the four sections": 2
     },
     "school_section": {
       "parcels": {
@@ -40459,7 +40459,8 @@
       "recon_1835_blk_school_section_tier_95_d6_07"
     ],
     "outside the four sections": [
-      "glessner_house"
+      "glessner_house",
+      "keith_house_1808_prairie"
     ]
   }
 }

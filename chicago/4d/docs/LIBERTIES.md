@@ -22621,6 +22621,36 @@ Mark Beaubien's house elsewhere in July 1835 retires the keeper seating, not the
 **Related:** **L410**, **L409**, **L270**, **L252**, **L90**.
 **Recorded:** 2026-10-09 (T-2196).
 
+### L412 — Hung signboards hang on forged chain, and a bracket board from two arms
+
+**Applies to:** every hung board drawn by `renderers/web/js/signage.js` — the `bracket_board`,
+`awning_board` and `post_board` mountings of `data/signage/town_business_signboards.json`.
+
+**What we invented:** how a hung board hangs. Each one hangs on two short runs of forged iron chain:
+an eye driven into the timber that carries it, links of 9 mm stock about 64 × 36 mm turning a
+quarter-turn each, and a staple driven into the board's top edge, in a weathered black iron. A
+bracket board now has two timber arms, one over each chain and each carried by a diagonal knee
+from the wall, where it had one arm at its middle and a level strut under it that touched the arm
+nowhere. The board keeps its facing (face-on to the street) and its height.
+
+**Why:** the owner reported on 2026-10-10, on a screenshot of the Sauganash's board, that the
+hanging signs float with nothing supporting them. The bracket board's two timber straps were hung
+a third of the board's width either side of its single arm, along the wall, so neither was under
+anything; the hood and post straps were under timber but drawn as flat slats. Short chain on iron
+eyes is the common way a swinging board was hung in the period, and the town had smiths (the
+fort's forged the Wolf Point sign's hinges, **L20**). No source records how any 1835 Chicago board
+was hung, so the hardware and its sizes are reconstructed.
+
+**Consequence:** every hung board in the town is visibly carried by iron chain from the member
+above it. That is a claim about how such boards were hung, not about any board. The Wolf Point
+sign is unchanged: its hinges are the source's own (**L20**).
+
+**How to resolve:** a description or image of how a particular 1830s Chicago board was hung
+(rings, rods, hinges, rope) replaces the chain on that board.
+
+**Related:** **L346**, **L158**, **L20**, **T-0039**, **T-1836**.
+**Recorded:** 2026-10-10 (T-2281).
+
 ### L414 — Signboards lettered in period faces, gilt in leaf, dark grounds sanded and bare boards carved
 
 **Applies to:** every board and painted name drawn by `renderers/web/js/signage.js` from
@@ -22637,7 +22667,13 @@ gold colourways are drawn as gold leaf: a burnished gradient, a fine dark outlin
 the smoothest surface in the town in the roughness map. Every dark painted ground is drawn smalted
 (sanded while wet: a fine grit, matte). A hung or fixed board in the bare timber is CARVED: its letters
 are V-cut into the wood in the relief map and darkened, not painted. Painted letters stand a film's
-thickness in relief.
+thickness in relief. Since T-2287, for a photographic finish: every painted board's lettering carries
+a block shade (lake-brown under gilt on a dark ground, a darker tone of the ground on a light one); a hung
+or fixed board is framed by a raised bead about 3.5 cm wide, picked out in leaf on a gilt board and a tone
+off the ground on any other; a dark ground shows its brushed grain and pale rain streaks from its top
+edge; and a name painted straight onto bare boards is chalked toward the wood and has lifted in small
+flakes. Gold leaf is NOT drawn as a metal: this scene's only environment is its sky, and leaf reflecting
+it turns mint green.
 
 **Why:** the owner, 2026-10-10, on Newberry & Dole's warehouse: make all signs "period correct and
 legible", lettered "in period fonts and colors correct for the sign", with "excellent texture for the
@@ -22655,7 +22691,7 @@ rule (**L159**), and only the drawing of them changed.
 replaces this treatment on that board: its letterform, its colours, whether it was gilt or carved.
 
 **Related:** **L159**, **L130**, **L169**.
-**Recorded:** 2026-10-10 (T-2282).
+**Recorded:** 2026-10-10 (T-2282; extended by T-2287, after the owner's "photographic quality is a must").
 
 ### L-glessner-west-profile-2231 — Front west gable and lower rear proportions
 
@@ -22805,6 +22841,37 @@ measurements or calibrated close photographs can replace these sections.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Review:** `docs/RESEARCH/glessner-roof-details-2205/README.md`.
 **Recorded:** 2026-10-09.
+
+### L-k01-1808-frontage-2266 — The 1808 Prairie K01 frontage: a reconstructed main range
+
+**Decision:** Stand a three-storey-and-basement house on the 1808 Prairie lot, built
+from K01 components (data/components/prairie_1904/k01_contract.json): a stone street
+front of three bays with a north entrance and stoop, common-brick side and rear
+walls with double-hung sash, a 40-degree hip roof. 18.0 m deep by 10.4 m across,
+its front on Glessner's building line and its north wall 0.02 m south of
+Glessner's south face.
+**Basis:** The 1911 Sanborn sheet 28 (`sanborn_1911_vol3_sheet_28`,
+`sanborn_1911_chicago_v3_sheet_28`) draws a brick house of three storeys and a
+basement ('3B') closing the Glessner courtyard on the south, carried back to 1904
+as the Glessner record carries the same sheet. That is attested for the storeys
+and inferred for the brick. Everything else is reconstructed inside the K01
+contract's declared ranges: the depth and side passage, the storey heights
+(4.0, 3.6, 3.3 m), the 1.50 m principal floor and its nine risers, the wall
+thicknesses, the bays and sash, the roof form and pitch, the stoop, the colours.
+The stone front and the north entrance are the T-1837 frontage register's reading
+of the Inland Architect plate of February 1888, which is not a source record
+here, so both are carried as reconstructed. The 0.02 m between the two houses is
+the clearance that keeps two assets' faces from coinciding; the sheet draws them
+touching. The brick is the Glessner library's common-brick grain with no
+coursing, a flat fabric until T-1845's brick materials land.
+**How to resolve:** T-1882 and T-1883 build the actual Keith/Field front (rock-faced
+Romanesque-classical stone, the south curved bay, the north loggia with Ionic
+columns, the pierced parapet) from the 1888 plate once it is a source record;
+T-1935 the detached rear garage. A measured reading of sheet 28 for this lot
+replaces the footprint.
+**Covers:** `keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.principal_floor_m`, `keith_house_1808_prairie.as_built_1886.form.storey_heights_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_form`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`.
+**Review:** `docs/RESEARCH/k01-1808-frontage-2266/browser-validation.json`.
+**Recorded:** 2026-10-10.
 
 ### L-south-lumber-shed-2269 — The South's lumber shed: an open-sided shed on the South Branch's east bank that no source seats
 
