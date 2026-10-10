@@ -7,7 +7,7 @@
   "contract": "data/components/prairie_1904/k01_contract.json",
   "generator": "generators/archetypes/k06_windows.py",
   "specimen": "docs/RESEARCH/k06-window-kit/k06_window_kit.glb",
-  "status": "Declared and generated, not yet built to. No house in the scene is glazed from this kit today; T-2298 builds the first K06 openings on the 1808 exemplar from this file and this generator, replacing the K01 proof's single-plane sash.",
+  "status": "Built to. The 1808 exemplar (keith_house_1808_prairie, T-2298) is glazed from this file and this generator: its 26 sashes are sash_2over2_flat and its two basement lights area_light without the well, each at its record's own clear size (form.window_kit), replacing the K01 proof's single-plane sash. No other house is glazed from the kit yet.",
   "rule": "A window is a true aperture, never a painted panel: a hole through its wall, a reveal on every edge of the hole, a frame, one or two sashes each in its own plane, glass set inside its sash, a blind and curtain edges behind the innermost glass, and a dark enclosed interior behind all of it. Every part is placed by the DEPTH ORDER below, and the glass is the ONLY transparent surface, one layer per light, so no view sorts one transparency against another and no ray through a pane reaches the sky. The parts' sizes are data here and the generator reads them; the check (tools/check_window_kit.py) rebuilds every variant and holds the built geometry to this file.",
   "depth_order": {
     "_doc": "Metres behind the wall's outer face (component frame: +Z out of the wall, so a depth d is z = -d). Each stage must be strictly deeper than the one before it in the BUILT mesh; the check measures it per opening.",

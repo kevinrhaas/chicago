@@ -20,9 +20,10 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
   k01.wall.side.north       the party side against the Glessner court: blank brick
   k01.wall.side.south       common brick, four bays a storey
   k01.wall.rear_service     common brick, two bays a storey
-  k01.opening.sash_flat     reveal, sash ring, meeting rail, glass, dark backing,
-                            stone sill and flat lintel
-  k01.opening.area_light    the basement lights: the same, no meeting rail
+  k01.opening.sash_flat     a K06 window (T-2298): reveal, frame, two sashes in two
+                            planes, glass, blind, curtain edges and an enclosed dark
+                            room, a stone sill with its drip; and a flat lintel
+  k01.opening.area_light    the basement lights: K06's three-light fixed area light
   k01.opening.door_leaf     reveal, threshold and a recessed oak leaf
   k01.stair.straight_stoop  whole risers from the walk to the principal floor
   k01.roof.hip              four planes on true hips, fascia and soffit
@@ -95,8 +96,13 @@ MATERIALS = {
     "limestone_trim": {"fabric": "limestone", "color": (1.0, 0.97, 0.90), "roughness": 0.85},
     "stoop_stone": {"fabric": "limestone", "color": (0.95, 0.92, 0.86), "roughness": 0.88},
     "sash": {"color": (0.12, 0.19, 0.14), "roughness": 0.6},
-    "glass": {"color": (0.045, 0.055, 0.065), "roughness": 0.08},
+    # T-2298: K06's glass (k06_windows.json parts.glass): one thin blended layer, so the
+    # blind, the curtain edges and the dark room read through it
+    "glass": {"color": (0.05, 0.065, 0.075), "roughness": 0.04, "alpha": 0.32},
     "backing": {"color": (0.018, 0.017, 0.016), "roughness": 1.0},
+    # T-2298: what a K06 window holds behind its glass (k06_windows.json parts)
+    "blind": {"color": (0.80, 0.74, 0.60), "roughness": 0.95},
+    "curtain": {"color": (0.42, 0.16, 0.13), "roughness": 0.9},
     "door_leaf": {"color": (0.29, 0.17, 0.085), "roughness": 0.62},
     # T-2310: the K09 kit's carving (capital leaves) apart from its dressed trim
     "carved_trim": {"fabric": "limestone", "color": (0.97, 0.94, 0.87), "roughness": 0.88},
@@ -247,51 +253,30 @@ class Assembly:
         door = op.component == "k01.opening.door_leaf"
         if MATERIALS[body_mat].get("courses"):
             conf = max(conf, p.conf("service_wall_brick"))
-        recess = 0.22 if door else thickness
-        seed = self.instance(op.component, "opening",
-                             {"clear_width_m": op.width_m, "clear_height_m": op.height_m,
-                              "reveal_m": recess, "wall": op.wall},
+        recess = 0.22 if door else self.kit_reveal(op)
+        params = {"clear_width_m": op.width_m, "clear_height_m": op.height_m, "reveal_m": recess,
+                  "wall": op.wall}
+        if not door:
+            params["k06_variant"] = p.window_kit[op.component]["variant"]
+        seed = self.instance(op.component, "opening", params,
                              {"sill": P(op.s_m, y0, 0), "head": P(op.s_m, y1, 0),
-                              "sash_plane": P(op.s_m, y0, -0.10)})
-        # the reveal, in the wall's own body
-        pr = self.prim(body_mat)
-        bj = self.basis(body_mat, O, N, Y, seed)
-        bh = self.basis(body_mat, O, R, N, seed)
-        pr.face([P(s0, y0, 0), P(s0, y0, -recess), P(s0, y1, -recess), P(s0, y1, 0)], R, bj, conf)
-        pr.face([P(s1, y0, 0), P(s1, y0, -recess), P(s1, y1, -recess), P(s1, y1, 0)], _mul(R, -1), bj, conf)
-        pr.face([P(s0, y1, 0), P(s1, y1, 0), P(s1, y1, -recess), P(s0, y1, -recess)], _mul(Y, -1), bh, conf)
-        sill_mat = "stoop_stone" if door else body_mat
-        self.prim(sill_mat).face([P(s0, y0, 0), P(s1, y0, 0), P(s1, y0, -recess), P(s0, y0, -recess)], Y,
-                                 self.basis(sill_mat, O, R, N, seed), conf)
-        if door:
+                              "sash_plane": P(op.s_m, y0, -(recess if door else recess + 0.012))})
+        if not door:
+            # T-2298: a window is a K06 opening — reveal, sill, frame, sashes, glass,
+            # blind, curtain and an enclosed room — built about this hole's sill socket
+            self.glaze(op, frame, body_mat, stone_trim, seed, conf)
+        else:
+            # the reveal, in the wall's own body
+            pr = self.prim(body_mat)
+            bj = self.basis(body_mat, O, N, Y, seed)
+            bh = self.basis(body_mat, O, R, N, seed)
+            pr.face([P(s0, y0, 0), P(s0, y0, -recess), P(s0, y1, -recess), P(s0, y1, 0)], R, bj, conf)
+            pr.face([P(s1, y0, 0), P(s1, y0, -recess), P(s1, y1, -recess), P(s1, y1, 0)], _mul(R, -1), bj, conf)
+            pr.face([P(s0, y1, 0), P(s1, y1, 0), P(s1, y1, -recess), P(s0, y1, -recess)], _mul(Y, -1), bh, conf)
+            self.prim("stoop_stone").face([P(s0, y0, 0), P(s1, y0, 0), P(s1, y0, -recess), P(s0, y0, -recess)],
+                                          Y, self.basis("stoop_stone", O, R, N, seed), conf)
             self.prim("door_leaf").face([P(s0, y0, -recess), P(s1, y0, -recess), P(s1, y1, -recess),
                                          P(s0, y1, -recess)], N, self.basis("door_leaf", O, R, Y, seed), conf)
-        else:
-            self.prim("backing").face([P(s0, y0, -recess), P(s1, y0, -recess), P(s1, y1, -recess),
-                                       P(s0, y1, -recess)], N, self.basis("backing", O, R, Y, seed), conf)
-            # the sash: a ring at the sash plane, a meeting rail, glass just behind it
-            r, f, g = 0.10, 0.065, 0.03
-            sp = self.prim("sash")
-            bs = self.basis("sash", O, R, Y, seed)
-            ring = [(s0, s1, y0, y0 + f), (s0, s1, y1 - f, y1), (s0, s0 + f, y0 + f, y1 - f),
-                    (s1 - f, s1, y0 + f, y1 - f)]
-            if op.meeting_rail:
-                ym = (y0 + y1) / 2
-                ring.append((s0 + f, s1 - f, ym - 0.028, ym + 0.028))
-            for (a, b_, c, d) in ring:
-                sp.face([P(a, c, -r), P(b_, c, -r), P(b_, d, -r), P(a, d, -r)], N, bs, conf)
-            bi = self.basis("sash", O, N, Y, seed)
-            bih = self.basis("sash", O, R, N, seed)
-            ia, ib, ic, id_ = s0 + f, s1 - f, y0 + f, y1 - f
-            sp.face([P(ia, ic, -r), P(ia, ic, -r - g), P(ia, id_, -r - g), P(ia, id_, -r)], R, bi, conf)
-            sp.face([P(ib, ic, -r), P(ib, ic, -r - g), P(ib, id_, -r - g), P(ib, id_, -r)], _mul(R, -1), bi, conf)
-            sp.face([P(ia, id_, -r), P(ib, id_, -r), P(ib, id_, -r - g), P(ia, id_, -r - g)], _mul(Y, -1), bih, conf)
-            sp.face([P(ia, ic, -r), P(ib, ic, -r), P(ib, ic, -r - g), P(ia, ic, -r - g)], Y, bih, conf)
-            self.prim("glass").face([P(ia, ic, -r - g), P(ib, ic, -r - g), P(ib, id_, -r - g),
-                                     P(ia, id_, -r - g)], N, self.basis("glass", O, R, Y, seed), conf)
-            # a stone sill, proud of the face (T-2310: past an architrave's feet)
-            reach = k09_frontage.sill_reach(p, op)
-            self.proud_box(stone_trim, frame, s0 - reach, s1 + reach, y0 - 0.10, y0, 0.06, seed, conf)
         if MATERIALS[body_mat].get("courses") and not door:
             # T-2291: a brick wall's opening takes a brick head, not the front's stone
             # lintel — two rowlock rings on a segmental arch, or a soldier flat head
@@ -306,6 +291,66 @@ class Assembly:
         if k09_frontage.dress(self, op, frame, max(conf, p.conf("street_front_trim"))):
             return
         self.proud_box(stone_trim, frame, s0 - 0.12, s1 + 0.12, y1, y1 + 0.30, 0.03, seed, conf)
+
+    # -- K06 glazing (T-2298) ------------------------------------------------------------
+    # K06 role -> this assembly's material. The reveal is the wall's own body and the
+    # sill the front's stone trim; the head band is left out, since the K01 lintel (or a
+    # brick wall's own head) dresses the head. A role not named here — a mullion, a
+    # came, a well — is one this house's variants do not build, and is refused.
+    K06_ROLES = {"reveal": None, "sill": "stone", "frame": "sash", "sash_outer": "sash",
+                 "sash_inner": "sash", "glass_outer": "glass", "glass_inner": "glass",
+                 "blind": "blind", "curtain": "curtain", "backing": "backing"}
+
+    def kit_variant(self, op) -> dict:
+        from . import k06_windows
+        if not hasattr(self, "_kit"):
+            self._kit = k06_windows.load()
+        entry = self.p.window_kit[op.component]
+        v = dict(next(x for x in self._kit["variants"] if x["id"] == entry["variant"]))
+        v["clear_width_m"], v["clear_height_m"] = op.width_m, op.height_m
+        if not entry["well"]:
+            v["well"] = False
+        return v
+
+    def kit_reveal(self, op) -> float:
+        self.kit_variant(op)
+        v = next(x for x in self._kit["variants"] if x["id"] == self.p.window_kit[op.component]["variant"])
+        return v.get("overrides", {}).get("reveal_depth_m", self._kit["parts"]["reveal_depth_m"]["value"])
+
+    def glaze(self, op, frame, body_mat, stone_trim, seed, conf):
+        from . import k06_windows
+        O, R, N = frame
+        # T-2310: under a K09 architrave the sill's horns run past its outer edge, so the
+        # architrave's open feet stand on the sill and never hang over the wall
+        kit, reach = self._kit, k09_frontage.sill_reach(self.p, op)
+        if reach > kit["parts"]["sill"]["horn_m"]:
+            kit = dict(kit, parts=dict(kit["parts"], sill=dict(kit["parts"]["sill"], horn_m=reach)))
+        o = k06_windows.Opening(self.kit_variant(op), kit)
+        o.seed = seed                      # the blind's drop follows this instance, not the kit's
+        o.build()
+        # K06's frame: +X along the wall, +Y up, +Z out of it, the origin at the sill socket
+        base = _add(O, _add(_mul(R, op.s_m), _mul(Y, op.sill_m)))
+        W = lambda q: _add(base, _add(_add(_mul(R, q[0]), _mul(Y, q[1])), _mul(N, q[2])))
+        for role, src in o.prims.items():
+            if role == "head":
+                continue
+            if role not in self.K06_ROLES:
+                raise ValueError(f"K06 role {role!r} has no material on a K01 frontage")
+            mat = self.K06_ROLES[role] or body_mat
+            mat = stone_trim if mat == "stone" else mat
+            fab = MATERIALS[mat].get("fabric")
+            tu, tv = self.tiles[fab] if fab else (1.0, 1.0)
+            _, _, _, _, _, ou, ov = self.basis(mat, O, R, Y, seed)
+            dst = self.prim(mat)
+            off = len(dst.pos)
+            for q, n, uv in zip(src.pos, src.nrm, src.uv):
+                dst.pos.append(W(q))
+                dst.nrm.append(_add(_add(_mul(R, n[0]), _mul(Y, n[1])), _mul(N, n[2])))
+                # K06 writes metres (tile 1, no offset); a fabric divides by its own tile
+                dst.uv.append((uv[0] / tu + ou, uv[1] / tv + ov) if fab else uv)
+                dst.conf.append(conf)
+                dst.tone.append(dst.tone_of(dst.pos[-1][1]) if dst.tone_of else 1.0)  # T-2291's mask
+            dst.idx += [off + i for i in src.idx]
 
     # -- k01.stair.straight_stoop ------------------------------------------------------
     def stoop(self, frame, s_c):
@@ -461,8 +506,10 @@ def to_glb(a: Assembly, structure_id: str, phase_id: str, scene_ids, extras: dic
             continue
         spec = MATERIALS[name]
         mat = {"name": name, "pbrMetallicRoughness": {
-            "baseColorFactor": [*spec["color"], 1.0], "metallicFactor": 0.0,
+            "baseColorFactor": [*spec["color"], spec.get("alpha", 1.0)], "metallicFactor": 0.0,
             "roughnessFactor": spec["roughness"]}}
+        if "alpha" in spec:
+            mat["alphaMode"] = "BLEND"
         if tuple(spec["color"]) == (1.0, 1.0, 1.0):
             # glTF's default, which gltf-transform drops from the web derivative: write
             # it the same way here, so master and derivative name the same colours

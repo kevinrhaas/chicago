@@ -507,6 +507,34 @@ step "the K05 roof kit builds every roof as one closed, uncrossed solid with its
 selftest "…and a hole, an inward face, a doubled face, a roof through its gable, a floating return or a low parapet still fails it" \
   python3 tools/check_roof_kit.py --self-test
 
+# T-2307. ...and what the 1904 bays, oriels and towers are. The K08 kit's plans, supports,
+# bands, eaves and roofs are sized in data/components/prairie_1904/k08_bays.json and built
+# by generators/archetypes/k08_bays.py, its windows from K06. This rebuilds every variant at
+# both tiers and measures the geometry: keyed to its wall and never behind it, closed (rays
+# from inside meet the bay), every pane over its own recess one glass layer deep, recesses
+# inside the bay and clear of each other, no doubled face, curves cut fine with true
+# normals, a plinth or corbels within their oversail, the light tier on the full tier's
+# silhouette, the triangle budgets, and the specimen GLB the generator's bytes.
+step "the K08 bay kit builds every bay, oriel and tower closed against its wall, its curves unfaceted (T-2307)" \
+  python3 tools/check_bay_kit.py --check
+
+selftest "…and a window off its run, a recess through the wall, a faceted curve, an oriel on one deep course or a roof with a hole still fails it" \
+  python3 tools/check_bay_kit.py --self-test
+
+# T-2303. ...and what the 1904 entrances are. The K07 kit's parts are sized in
+# data/components/prairie_1904/k07_entrances.json and built by
+# generators/archetypes/k07_entrances.py. This rebuilds every variant and measures the
+# geometry: the landing level with the threshold, the stair's foot on grade, equal
+# risers and goings inside the reconstruction rules' ranges, every step closed, the walk
+# clear, a carriage opening through its wall under a bearing lintel, a closed reveal,
+# leaves clear of the floor, a hall behind every light, no doubled face, the triangle
+# budget, and the specimen GLB the generator's bytes.
+step "the K07 entrance kit lands every stair on its threshold and on grade, risers equal, the walk clear (T-2303)" \
+  python3 tools/check_entrance_kit.py --check
+
+selftest "…and an unequal riser, an open step, a stoop on the walk, an unbearing lintel or a floating leaf still fails it" \
+  python3 tools/check_entrance_kit.py --self-test
+
 # T-2309. ...and what the 1904 trim is. The K09 kit's parts are sized in
 # data/components/prairie_1904/k09_trim.json and built by generators/archetypes/k09_trim.py.
 # This rebuilds every variant and measures the geometry: every open edge of a piece lying on

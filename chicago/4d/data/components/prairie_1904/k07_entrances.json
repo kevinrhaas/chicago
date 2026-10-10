@@ -1,0 +1,75 @@
+{
+  "id": "prairie_1904_k07_entrances",
+  "title": "Entrances, stoops, porches and carriage doors for the Prairie Avenue 1904 programme (package K07, the kit)",
+  "ticket": "T-2303",
+  "parent": "T-1849",
+  "programme": "T-1837",
+  "contract": "data/components/prairie_1904/k01_contract.json",
+  "generator": "generators/archetypes/k07_entrances.py",
+  "specimen": "docs/RESEARCH/k07-entrance-kit/k07_entrance_kit.glb",
+  "status": "Declared and generated, not yet built to. No house in the scene is entered through this kit today; T-2304 builds the first K07 entrance, stoop and carriage opening on the 1808 exemplar from this file and this generator.",
+  "rule": "An entrance is a real opening with a way up to it, never a painted panel on a box: a hole through its wall with a reveal on every edge and a threshold under it, a frame, door leaves of rails, stiles and recessed panels standing just clear of the threshold, glass only in a transom, fanlight or glazed panel with a dark hall behind it, and a stair whose landing meets the threshold at the principal floor and whose last riser stands on grade, every riser equal, every tread and riser and both ends of every step closed, and nothing crossing the public walk. A carriage opening goes through the whole wall and carries a lintel that bears on both jambs. The parts' sizes are data here and the generator reads them; the check (tools/check_entrance_kit.py) rebuilds every variant and holds the built geometry to this file.",
+  "frame": {
+    "_doc": "Each variant is built about its `threshold` socket (k01_contract.json opening family): origin at the centre of the door opening on the wall's outer face, at the threshold's top, which is the floor the door serves. +X runs along the wall, +Y up, +Z out of the wall towards the street. A stoop's grade is therefore at y = -floor_m; a basement door's area stair climbs to grade at y = +area_depth_m.",
+    "depth_order": ["outer_face", "frame_face", "leaf_face", "glass", "backing"],
+    "rule": "reveal_depth_m (outer face to frame face) never exceeds the host wall's thickness_m, except by a vestibule the variant declares; a leaf stands behind its frame face; every glass light has the dark backing at least backing.depth_m behind it."
+  },
+  "host_wall": {
+    "thickness_m": 0.36,
+    "range_m": [0.23, 0.45],
+    "confidence": "reconstructed",
+    "rule_source": "RECONSTRUCTION-RULES.md section Starting ranges: Solid exterior wall / reveal",
+    "note": "The specimen wall, the K06 kit's: a 0.36 m masonry wall. A variant may override it (the Romanesque entrance stands in a thicker rock-faced wall), and a house's own wall replaces it."
+  },
+  "parts": {
+    "_doc": "The working sizes every variant starts from. A variant may override reveal_depth_m and host_wall_m under its own keys.",
+    "reveal_depth_m": {"value": 0.115, "range": [0.075, 0.23], "confidence": "reconstructed", "note": "Outer face to the door frame: a masonry wall's outer leaf, the K06 reveal, so a door and its windows stand at one depth."},
+    "frame": {"face_m": 0.055, "depth_m": 0.13, "confidence": "reconstructed", "note": "The door frame's exposed face inside the reveal and how far it runs back: a heavier member than a window's box frame. No sill member: the threshold is the frame's foot."},
+    "stop_m": 0.012,
+    "leaf": {"thickness_m": 0.054, "stile_m": 0.12, "top_rail_m": 0.12, "bottom_rail_m": 0.24, "lock_rail_m": 0.2, "lock_rail_y_m": 0.95, "mid_stile_m": 0.1, "panel_recess_m": 0.016, "gap_m": 0.006, "max_gap_m": 0.012, "confidence": "reconstructed", "note": "A 2 1/8 in panelled leaf: stiles and top rail of about 4 3/4 in, a deep bottom rail, a lock rail at the knob's height, panels sunk 5/8 in behind the framing. The leaf stands 6 mm clear of the threshold: it swings, so it may not touch it, and it may not float."},
+    "sash": {"stile_m": 0.05, "confidence": "reconstructed", "note": "The ring a transom or fanlight's glass sits in, K06's sash stile."},
+    "muntin": {"width_m": 0.022, "confidence": "reconstructed", "note": "K06's muntin, dividing a transom's lights and a fanlight's sectors."},
+    "transom_bar_m": 0.07,
+    "glass": {"setback_m": 0.016, "base_color": [0.05, 0.065, 0.075], "alpha": 0.32, "roughness": 0.04, "metallic": 0.0, "confidence": "reconstructed", "note": "K06's glass: one thin transparent layer per light, set into its sash or panel."},
+    "backing": {"depth_m": 0.9, "color": [0.032, 0.028, 0.025], "confidence": "reconstructed", "note": "The hall behind the door: the opening's outline carried back and capped in a dark finish, so a transom, fanlight or glazed panel shows a dark interior and never sky."},
+    "hardware": {"knob_m": 0.06, "knob_proud_m": 0.06, "knob_from_edge_m": 0.07, "strap_length_m": 0.75, "strap_width_m": 0.055, "strap_proud_m": 0.008, "color": [0.17, 0.16, 0.15], "confidence": "reconstructed", "note": "A knob on its rose at the lock rail, 70 mm in from the leaf's latch edge, and on a carriage leaf three wrought strap hinges running in from the hanging stile. Bronze and black iron are both usual; dark iron is the working finish."},
+    "head_band": {"width_m": 0.2, "proud_m": 0.03, "confidence": "reconstructed", "note": "K06's head dressing envelope: a flat lintel or an arch band from spring to spring. Its voussoirs and stone are K02's (T-2289)."},
+    "stair": {"riser_range_m": [0.14, 0.19], "tread_range_m": [0.25, 0.34], "riser_target_m": 0.17, "rule_source": "RECONSTRUCTION-RULES.md section Starting ranges: Stone/timber entry stair", "confidence": "reconstructed", "note": "Integer risers solved from the floor height: n = round(floor / 0.17), each riser floor / n, so every riser is equal and the flight lands exactly on the floor and on grade. The going is the variant's, inside the rule's tread range. No nosing projects past a riser (recorded in the liberty)."},
+    "cheek": {"thickness_m": 0.3, "above_nosing_m": 0.3, "confidence": "reconstructed", "note": "A stone stoop's cheek walls: solid, their tops running parallel to the nosing line and level beside the landing, the handrail sockets on their tops at the newels. The rail itself is ironwork, K11's."},
+    "guard_stone": {"width_m": 0.2, "proud_m": 0.2, "height_m": 0.45, "confidence": "reconstructed", "note": "A wheel-guard stone at the foot of each carriage jamb, so a hub strikes stone and not the arris."},
+    "lintel": {"bearing_min_m": 0.15, "height_min_m": 0.2, "confidence": "reconstructed", "note": "A carriage opening's lintel must reach past each jamb by at least its bearing and be at least this deep: an opening that wide is spanned by a member, not by a line on the wall."},
+    "porch": {"deck_thickness_m": 0.2, "skirt_set_m": 0.06, "post_m": 0.16, "post_inset_m": 0.12, "beam_m": [0.26, 0.22], "roof_thickness_m": 0.16, "roof_overhang_m": 0.18, "confidence": "reconstructed", "note": "A timber porch: a boarded deck whose fascia stands proud of a skirt set back beneath it, square posts on the deck carrying a beam and a flat roof deck. The roof's covering, cornice and brackets are K04/K10's; this is the porch's carcass."},
+    "area": {"wall_m": 0.23, "coping_m": 0.06, "confidence": "reconstructed", "note": "A basement area stair: retaining walls each side from the area floor to a coping just above grade."},
+    "raised_floor_range_m": [0.8, 1.8],
+    "raised_floor_rule_source": "RECONSTRUCTION-RULES.md section Starting ranges: Raised principal floor"
+  },
+  "restrictions": [
+    {"part": "walk", "rule": "clear", "why": "ASSET-CATALOG.md section K07: a prototype 'clears public walks'. Each variant states its front yard (the face of the building to the inner edge of the public walk) and nothing it builds may reach past it."},
+    {"part": "carriage", "rule": "through_and_spanned", "why": "ASSET-CATALOG.md section K07: a 'carriage opening has thickness and lintel, not a texture panel'. Its reveal runs the wall's full thickness and its lintel bears on both jambs."}
+  ],
+  "costs": {
+    "_doc": "Triangle budget per entrance as built, the board excluded. An entrance over its budget is refused, so a kit change that bloats every door in the town is caught here.",
+    "max_triangles": {"entrance": 800, "porch": 450, "carriage": 450}
+  },
+  "_variants_doc": "clear_width_m and clear_height_m are the hole in the wall (the head's apex for an arched head). leaves: 1 or 2. panels: [columns, rows] of each leaf; rails_y_m: the centres of the rails dividing its rows, measured from the threshold (default: one lock rail); glazed_rows: rows whose panel is glass. transom_m: a fixed transom light over the leaves of a flat head; an arched head always has its fanlight. stair.kind: straight (a stone stoop), bowed (curved stone steps), porch (a timber porch with steps), area (a basement area stair down from grade), or none (the floor is grade). floor_m: the floor above grade (straight, bowed, porch); area_depth_m: grade above the basement floor (area). front_yard_m: the building face to the public walk's inner edge in the specimen.",
+  "variants": [
+    {"id": "k07.entrance.panel_door_stoop", "use": "principal", "head": "flat", "clear_width_m": 1.05, "clear_height_m": 2.9, "leaves": 1, "panels": [2, 2], "transom_m": 0.42, "transom_lights": 2,
+     "stair": {"kind": "straight", "floor_m": 1.2, "going_m": 0.3, "landing_m": 1.2, "width_m": 1.65, "cheeks": true}, "front_yard_m": 4.5,
+     "confidence": "reconstructed", "note": "The stone-front house's entrance: a four-panel leaf under a two-light transom and a flat stone lintel, at the head of a straight stone stoop between cheek walls (the study's 'high stoop'; the stone-front family rule's 'high stoop, genuine sash recesses')."},
+    {"id": "k07.entrance.double_door_deep_arch", "use": "principal", "head": "round", "clear_width_m": 1.7, "clear_height_m": 3.5, "leaves": 2, "panels": [1, 2], "host_wall_m": 0.6, "reveal_depth_m": 0.95, "vestibule_m": 0.4,
+     "stair": {"kind": "straight", "floor_m": 1.5, "going_m": 0.32, "landing_m": 1.4, "width_m": 2.5, "cheeks": true}, "front_yard_m": 6.0,
+     "confidence": "reconstructed", "note": "The Romanesque entrance: a pair of leaves set deep in a round-arched opening through a 0.6 m wall, a 0.4 m vestibule beyond the wall's own depth, a radial fanlight over the leaves, and a broad straight stoop (the family rule's 'thick round-arched reveals'; the register's 'deep round-arched entrance')."},
+    {"id": "k07.entrance.glazed_door_bowed_stoop", "use": "principal", "head": "segmental", "clear_width_m": 1.0, "clear_height_m": 2.75, "leaves": 1, "panels": [1, 2], "glazed_rows": [1], "transom_m": 0.4, "transom_lights": 1,
+     "stair": {"kind": "bowed", "floor_m": 0.9, "going_m": 0.32, "landing_m": 1.0, "half_angle_deg": 42, "centre_behind_m": 1.0}, "front_yard_m": 3.5,
+     "confidence": "reconstructed", "note": "A glazed timber door, its upper panel glass, under a segmental fanlight, reached by curved stone steps that spread as they descend: the study's 'stone curved stoop' for a lower principal floor."},
+    {"id": "k07.entrance.carriage_doors", "use": "service", "head": "flat", "clear_width_m": 2.7, "clear_height_m": 3.0, "leaves": 2, "panels": [1, 3], "rails_y_m": [1.05, 2.05], "carriage": true, "reveal_depth_m": 0.36, "lintel": {"height_m": 0.34, "bearing_m": 0.3, "proud_m": 0.04},
+     "stair": {"kind": "none"}, "front_yard_m": 1.0,
+     "confidence": "reconstructed", "note": "A coach house's carriage opening: two boarded leaves on strap hinges, hung at the wall's inner face so the opening shows the wall's whole thickness, under a stone lintel bearing on both jambs, a wheel-guard stone at each jamb's foot, the floor at grade (the register's coach houses; RECONSTRUCTION-RULES' rear service building, 'carriage aperture')."},
+    {"id": "k07.entrance.porch", "use": "principal", "head": "flat", "clear_width_m": 1.0, "clear_height_m": 2.75, "leaves": 1, "panels": [2, 2], "transom_m": 0.38, "transom_lights": 1,
+     "stair": {"kind": "porch", "floor_m": 0.85, "going_m": 0.3, "deck_m": 2.4, "deck_width_m": 4.2, "step_width_m": 1.4, "posts": 4, "post_height_m": 2.8}, "front_yard_m": 5.0,
+     "confidence": "reconstructed", "note": "The frame villa's entrance: a four-panel door with a transom opening onto a timber porch, its deck at the principal floor over a set-back skirt, four posts carrying a beam and a flat roof, and timber steps to grade (the frame/Italianate family rule's 'timber porch')."},
+    {"id": "k07.entrance.basement_area_stair", "use": "basement", "head": "flat", "clear_width_m": 0.9, "clear_height_m": 2.1, "leaves": 1, "panels": [2, 2],
+     "stair": {"kind": "area", "area_depth_m": 1.5, "going_m": 0.28, "landing_m": 1.0, "width_m": 1.1}, "front_yard_m": 4.5,
+     "confidence": "reconstructed", "note": "The basement service door: a four-panel leaf at the foot of an area stair that climbs away from the door to grade between retaining walls with a coping just above grade (the study's 'basement stairs')."}
+  ]
+}

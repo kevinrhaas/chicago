@@ -24,6 +24,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 CONTRACT = ROOT / "data" / "components" / "prairie_1904" / "k01_contract.json"
+WINDOW_KIT = ROOT / "data" / "components" / "prairie_1904" / "k06_windows.json"
 
 CONFIDENCE_VALUE = {"attested": 0.0, "inferred": 0.5, "reconstructed": 1.0}
 
@@ -91,6 +92,8 @@ class K01FrontageParams:
     rear_bays: tuple                  # window centres along the rear wall, north to south
     basement_sill_m: float
     openings: tuple = ()
+    # T-2298: the K06 variant each K01 opening kind is glazed with (k06_windows.json)
+    window_kit: dict = field(default_factory=dict)
     service_wall_brick: str = ""      # the K03 panel the brick walls wear (T-2291)
     street_front_trim: dict = field(default_factory=dict)   # K09 heads, entrance, aprons (T-2310)
     confidence: dict = field(default_factory=dict)
@@ -125,7 +128,7 @@ CONSUMED = frozenset({
     "wall_thickness_front_m", "wall_thickness_side_m", "roof_form", "roof_pitch_deg",
     "eave_overhang_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m",
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
-    "basement_lights", "service_wall_brick", "street_front_trim",
+    "basement_lights", "window_kit", "service_wall_brick", "street_front_trim",
 })
 
 
@@ -223,6 +226,30 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if bsill + float(bl["height_m"]) + 0.30 > pf + float(sash[0]["sill_above_floor_m"]) - 0.10:
         raise ParamError("the basement lights' lintels run into the principal storey's sills")
 
+    # T-2298: every glazed K01 opening is built from a K06 variant. The K01 wall cuts a
+    # rectangular hole, so only a flat-headed variant fits it; an arched head is a
+    # different hole and a different wall, not a swap of this attribute.
+    kit = {}
+    variants = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
+    for comp, entry in sorted((val("window_kit") or {}).items()):
+        # a variant id, or {"variant": id, "well": false} where the record's own datums
+        # put a basement light's sill above grade and so leave its area well out
+        entry = {"variant": entry} if isinstance(entry, str) else dict(entry)
+        kit[comp] = {"variant": entry["variant"], "well": bool(entry.get("well", True))}
+    for comp in sorted({o.component for o in openings} - {"k01.opening.door_leaf"}):
+        vid = kit.get(comp, {}).get("variant")
+        if vid not in variants:
+            raise ParamError(f"window_kit names no K06 variant for {comp} (k06_windows.json)")
+        v = variants[vid]
+        if v["head"] != "flat":
+            raise ParamError(f"window_kit: {vid} has a {v['head']} head, and a K01 wall cuts "
+                             f"a rectangular hole")
+        if v.get("well") and kit[comp]["well"] and comp == "k01.opening.area_light" and bsill > 0:
+            raise ParamError(f"window_kit: {vid} sits in an area well, but these basement "
+                             f"lights' sills stand {bsill} m above grade; set \"well\": false")
+        if v["operation"].startswith("double_hung") != any(
+                o.meeting_rail for o in openings if o.component == comp):
+            raise ParamError(f"window_kit: {vid} is {v['operation']}, which {comp} is not")
     # T-2291: the brick walls wear a K03 panel the record names; k03_brick lays one
     from . import k03_brick
     panel = val("service_wall_brick", k03_brick.PANEL)
@@ -242,6 +269,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         side_bays=tuple(float(s) for s in val("side_bays")),
         rear_bays=tuple(float(s) for s in val("rear_bays")),
         basement_sill_m=bsill, openings=tuple(openings), service_wall_brick=panel,
+        window_kit={k: kit[k] for k in sorted(kit)},
         street_front_trim=dict(val("street_front_trim", {}) or {}),
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},

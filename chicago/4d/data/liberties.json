@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 457,
+  "count": 460,
   "liberties": [
     {
       "id": "L1",
@@ -28582,6 +28582,68 @@
       ]
     },
     {
+      "id": "L-k08-bay-kit-2307",
+      "title": "The Prairie bay kit: every bay, oriel and tower, its supports, bands, eaves and caps, all reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 Prairie programme's bays, oriels and towers (package K08, T-2307) are seven parametric projections built by `generators/archetypes/k08_bays.py` from `data/components/prairie_1904/k08_bays.json`: a two-storey rectangular bay, a two-storey bay canted at 45 degrees, a two-storey segmental bow, a three-storey full-height projection under a flat deck, a canted upper oriel on five stepped corbel courses, a three-storey round tower under a copper cone, and a three-storey octagonal tower under an eight-sided copper spire. Each is keyed to its host wall's face and closed by it, stands on a stone plinth or on corbels, is banded at each floor, and carries K06 windows as closed recesses; on the bow and the round tower the sashes and their glass are bent to the curve. **What is invented.** Every dimension and every proportion: the plans (the rectangular bay's 2.6 by 1.2 m, the canted bay's 1.5 m front and 1.1 m projection, the bow's 3.2 m chord and 0.9 m rise, the projection's 4.0 by 0.6 m, the oriel's 1.3 m front and 0.75 m projection, the towers' 1.6 m radius and how far their centres stand proud of the wall); the storey heights, sill heights and window sizes and positions; the 0.36 m wall, the 0.6 m plinth and its 50 mm projection, the 160 mm floor band, the 0.3 m eaves and 0.2 m fascia; the oriel's corbel courses, their 0.2 m height and the 0.65 oversail ratio they are held to; the recess depths behind the glass; the roof pitches (0.6 on the slate hips, 0.45 on the bow's cone, 0.8 on the oriel, 1.9 on the towers' caps) and which K04 covering each roof names; the finial; the flat colours of the masonry, stone, trim, slate and copper; and that the towers stand engaged in one wall with their caps closed by a flat back where the wall plane cuts them (on a house the main roof meets them there). Bent sashes with bent glass are a reconstruction of what a curved bay or tower could carry; a house whose photograph shows flat sashes in a curved wall takes those instead. The choice of variants reads ASSET-CATALOG.md section K08 (\"rectangular, canted and bowed bays; full-height projections and corbelled upper oriels; circular/polygonal corner towers; copper caps\") and the reconstruction rules' \"bays have foundations or corbels\", which are the study's reading of its images and not a source record here. **What is not.** Nothing in the kit is attested; no house in the scene carries a bay, oriel or tower from it yet (T-2308 builds the first on a Prairie Avenue 1904 house)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a house's own photograph, drawing or atlas footprint gives its bay's plan, projection, storeys, window rhythm, support and cap, and that house takes them in place of the kit's working sizes; a dated builder's guide or a Chicago stone or copper contractor's catalogue c. 1880-1904 replaces a part's dimensions or a cap's pitch for every house at once."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2307 (piece 1 of T-1850, K08)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k08-bay-kit/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2307)."
+        }
+      ]
+    },
+    {
+      "id": "L-k07-entrance-kit-2303",
+      "title": "The Prairie entrance kit: every door, stoop, porch, area stair and carriage opening, all reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 Prairie programme's entrances (package K07, T-2303) are six parametric entrances built by `generators/archetypes/k07_entrances.py` from `data/components/prairie_1904/k07_entrances.json`: a four-panel door under a two-light transom at the head of a straight stone stoop between cheek walls; a pair of leaves under a radial fanlight, set deep in a round-arched opening through a 0.6 m wall with a 0.4 m vestibule beyond it, up a broad stoop; a glazed door under a segmental transom reached by curved stone steps that spread as they descend; a coach house's two boarded carriage leaves on strap hinges, hung at the wall's inner face under a bearing stone lintel with a wheel-guard stone at each jamb; a timber porch (deck, set-back skirt, four posts, beam, flat roof deck and timber steps) before a four-panel door; and a basement door at the foot of an area stair between retaining walls. Each is a hole through its wall with a reveal and a threshold, a frame, panelled leaves standing 6 mm clear of the threshold, glass only in a transom, fanlight or glazed panel with a dark hall behind it, and a stair whose risers are solved as equal integers from the floor height, landing level with the threshold and standing on grade. **What is invented.** Every dimension and every choice: the reveal, the door frame's face and depth, the 2 1/8 in leaf, its stiles, rails, lock rail, panel layout and panel recess, the leaf's gap, the transom and fanlight sizes and their light counts, the hall's depth behind the glass, the knob, its height and the strap hinges; the floor heights (1.2, 1.5, 0.9 and 0.85 m above grade, each inside RECONSTRUCTION-RULES.md's raised-floor range of 0.8-1.8 m) and the 1.5 m area depth; the goings (0.28-0.32 m) and the risers they give (0.167-0.18 m, inside the rule's 0.14-0.19 m riser and 0.25-0.34 m tread ranges); the landings, stoop widths, cheek walls and their height above the nosing line, the curved steps' plan, the porch's deck, skirt, posts, beam and roof carcass, the area's walls and coping; the carriage opening's size, lintel and guard stones; each specimen's front yard (1.0-6.0 m to the public walk's inner edge); and the colours: dark varnished joinery, buff stone, a cream painted porch, dark iron hardware. No nosing projects past a riser, and no carving, moulding profile, ironwork rail or porch roof covering is modelled: the rail is K11's (T-1853), the porch roof's covering K04/K05's, the entrance carving K09's (T-1851). The choice of variants reads the study's catalogue entry and family rules (\"high stoop\", \"thick round-arched reveals\", \"timber porch\", \"carriage aperture\", \"stone straight/curved stoops\", \"basement stairs\"), which are the study's reading and not a source record here. **What is not.** Nothing in the kit is attested; no house is entered through it yet (T-2304 builds the first K07 entrance on the 1808 exemplar)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a house's own photograph, drawing or survey shows its door, stoop, porch or carriage opening, and that house takes them in place of the kit's working sizes; its reconciled lot and floor datums replace the specimen's floor height and front yard; a period joinery or stair specification replaces a part's dimensions for every house at once."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2303 (piece 1 of T-1849, K07)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k07-entrance-kit/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2303)."
+        }
+      ]
+    },
+    {
       "id": "L-k09-carved-trim-kit-2309",
       "title": "The Prairie carved-trim kit: every ring, moulding, hood, capital, tracery bar and leaf reconstructed",
       "section": "per_subject",
@@ -28609,6 +28671,50 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2309)."
+        }
+      ]
+    },
+    {
+      "id": "L-k06-1808-windows-2298",
+      "title": "The 1808 exemplar's windows: every sash, sill, blind and room built from the reconstructed K06 kit",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.window_kit"
+        }
+      ],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "every window of the 1808 Prairie house (`keith_house_1808_prairie`, as built 1886) is a K06 opening (T-2298), built by `generators/archetypes/k06_windows.py` inside the K01 assembly. The 26 double-hung windows on the stone front, the south wall and the rear are the kit's `k06.opening.sash_2over2_flat`, each at its storey's clear size from `form.sash_by_storey`. The two basement lights under the front windows are `k06.opening.area_light`, without its area well. The stone sill with its drip replaces the K01 proof's plain block, and the K01 flat lintel (or a brick wall's own head) still dresses each head. The door keeps K01's recessed leaf. **What is invented.** The choice of two lights over two for every sash. No source shows this house's glazing, and plate-glass one-over-one is as likely for an 1886 stone front. Two-over-two is the kit's commonest form, not a reading of the house. Also invented: leaving the basement lights' well out, because this record's own datums set their sills 0.35 m above grade (`form.basement_lights`); each blind's seeded drop; and every dimension and colour the kit itself invents (L-k06-window-kit-2297). The glass is the kit's one thin blended layer, drawn as a blended pane by the walkthrough. It is not KHR transmission, so the dark-pane default of T-2183, which replaces transmissive glass only, leaves it alone. **What is not.** Nothing here is attested. The storeys and the brick come from the 1911 Sanborn sheet as the house's own record says, and the windows' positions and sizes are the K01 record's own reconstructed bays and sash."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the 1888 Inland Architect plate, once it is a source record, shows the front's sash and heads, and T-1882/T-1883 build the actual Keith/Field front from it. That replaces this attribute's variant for the street front, and the plate's arched openings take a variant with a matching arched hole."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.window_kit`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2298 (piece 2 of T-1848, K06)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k06-1808-windows-2298/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2298)."
         }
       ]
     },

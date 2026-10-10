@@ -228,6 +228,17 @@
           },
           "confidence": "reconstructed",
           "note": "Area lights under the two front windows; the basement the Sanborn 'B' records."
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "Every window is built from the K06 kit (T-2298): the double-hung sashes of every storey on all three glazed walls as the kit's working street sash, two lights over two, at this record's own clear sizes; the basement lights as the kit's three-light area light, without its area well, since this record sets their sills 0.35 m above grade. No source shows these sashes' glazing; two-over-two is the kit's commonest form, not a reading of this house."
         }
       }
     }

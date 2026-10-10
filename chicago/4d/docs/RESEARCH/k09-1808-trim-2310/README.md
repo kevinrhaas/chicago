@@ -63,6 +63,13 @@ The K09 triangles by trim id are 6,336 for the entrance, 3,632 for the two apron
 the two principal-floor surrounds and 516 for the three hoods. The five flat lintels they replace
 were 60.
 
+**Re-lapped onto dev after T-2298's K06 windows (#639).** With the K06 kit's windows on the
+same house, the full GLB is 2,962,052 B (dev without this trim: 2,096,632 B), the web GLB
+1,068,004 B (822,848 B), 22,112 triangles in 17 primitives, 0 coincident faces and every K01
+verdict ok. The window sill is now the K06 kit's stone sill. Under an architrave its horns run
+0.18 m past each jamb instead of the kit's 0.08 m (`k09_frontage.sill_reach`), so the
+architrave's feet still stand on stone. The browser stands below were taken before the re-lap.
+
 In the app (`browser-validation-desktop.json`, `browser-validation-mobile.json`), every stand
 stays within budget:
 - **Desktop, full detail:** 64-67 draws, 2.51-2.53 M triangles of a 3.8 M budget, 124-146
