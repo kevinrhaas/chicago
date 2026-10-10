@@ -686,7 +686,8 @@ INN_TRADES = ("tavern_inn", "hotel", "boarding_house")
 FORWARDING_TRADES = ("forwarding_and_commission_store", "forwarding_commission_warehouse",
                      "warehouse_and_slaughter_yard", "slaughterhouse_packing",
                      "packing_house", "freight_or_storage_shed", "freight_shed",
-                     "narrow_two_story_warehouse", "large_river_warehouse")
+                     "narrow_two_story_warehouse", "large_river_warehouse",
+                     "lumber_shed")
 # THE WALK ITSELF IS DEALT BY BUSINESS TOO (T-1814), and `walk` is that column. An
 # inn's and a store's customers come on foot to a door, so they front the town's
 # 6 ft BOARD walk the layer already lays. A forwarding house or warehouse loads and

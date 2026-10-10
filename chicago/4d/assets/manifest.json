@@ -5194,6 +5194,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_a5_044"
     },
+    "recon_1835_south_branch_lumber_f4_001__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 174368,
+      "inputs_sha256": "aebef3a616e6f7e1a23952b86e549da1f1eb58342c8db3bf1dcf0862fd827ee1",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_south_branch_lumber_f4_001"
+    },
     "recon_1835_south_c3_015__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,

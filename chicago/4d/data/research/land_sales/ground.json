@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 679,
+    "structures_placed": 680,
     "structures_reached": 128,
     "structures_reached_by_grade": {
       "inferred": 25,
       "reconstructed": 103
     },
     "structures_unreached_by_section": {
-      "09": 513,
+      "09": 514,
       "10": 1,
       "16": 36,
       "outside the four sections": 1
@@ -40299,6 +40299,7 @@
       "recon_1835_south_a4_042",
       "recon_1835_south_a4_048",
       "recon_1835_south_a5_044",
+      "recon_1835_south_branch_lumber_f4_001",
       "recon_1835_south_c3_015",
       "recon_1835_south_c3_040",
       "recon_1835_south_d1_003",

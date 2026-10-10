@@ -14357,7 +14357,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 664 phases (663 until T-2196's boarding house party-walled to the D5 on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L411; 662 until T-2238's larger frame house on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L410; 659 until T-2176's three roofs — a larger frame house on the School Section tier's block 81, a larger tradesman's house on its block 95 and a barn on blk_south_water_wells, 2026-10-08, L408; 658 until T-2174's two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge on blk_south_water_dearborn, 2026-10-08, L406; 653 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, L407; 647 until T-2147's six houses on the School Section tier's Market block south of Madison, blk_school_section_tier_81, 2026-10-08, L397; 644 until T-2169's last three yard buildings on plat block 50, blk_washington_clinton, 2026-10-08, L404; 631 until T-2146's thirteen houses on the School Section tier's Wells blocks south of Madison, blk_school_section_tier_94 and _95, 2026-10-08, L405; 628 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08, L401; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 665 phases (664 until T-2269's lumber shed on the South Branch's east bank south of Washington Street, 2026-10-10, L-south-lumber-shed-2269; 663 until T-2196's boarding house party-walled to the D5 on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L411; 662 until T-2238's larger frame house on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L410; 659 until T-2176's three roofs — a larger frame house on the School Section tier's block 81, a larger tradesman's house on its block 95 and a barn on blk_south_water_wells, 2026-10-08, L408; 658 until T-2174's two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge on blk_south_water_dearborn, 2026-10-08, L406; 653 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, L407; 647 until T-2147's six houses on the School Section tier's Market block south of Madison, blk_school_section_tier_81, 2026-10-08, L397; 644 until T-2169's last three yard buildings on plat block 50, blk_washington_clinton, 2026-10-08, L404; 631 until T-2146's thirteen houses on the School Section tier's Wells blocks south of Madison, blk_school_section_tier_94 and _95, 2026-10-08, L405; 628 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08, L401; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -22769,6 +22769,55 @@ measurements or calibrated close photographs can replace these sections.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Review:** `docs/RESEARCH/glessner-roof-details-2205/README.md`.
 **Recorded:** 2026-10-09.
+
+### L-south-lumber-shed-2269 — The South's lumber shed: an open-sided shed on the South Branch's east bank that no source seats
+
+**Applies to:** `recon_1835_south_branch_lumber_f4_001` (`data/structures/`), written by
+`tools/generate_south_lumber.py` from `data/reconstruction/1835_south_lumber_shed.json`.
+
+**What we invented:** The whole building. The order book's South `warehouses_freight/street_line`
+band sets ten freight roofs and found seven standing; of the three it owes, T-2175 gave the two
+F3 river warehouses to T-2268 and the **F4** lumber shed to T-2269. This is that roof: the
+town's first lumber shed, on the `outbuilding` archetype the crosswalk names for F4, built as
+plank walls with no door and one side left open as posts and a roof (`open_sides: left`, the
+family's own, read off the crosswalk's "1/open" and "open posts with slab boards"). It stands
+off the plat on the dry strip between Market Street's corridor and the South Branch, its back
+wall 3.0 m inside Market's west line and its north wall 40.0 m south of Washington's south line,
+facing the branch. Footprint, eave, pitch, finish and the shingle exposure (L263) are
+type-level values from the reconstruction specification, sampled deterministically from the F4
+band. No owner, lumber merchant, stock or occupant is claimed, and no board stack is drawn.
+
+**Why the water, and why here:** the roof stands on the placement policy's new `lumber_landing`
+clause (T-2269), which seats a record whose function is `lumber_shed` within
+`bank_landing_reach_m` (27.09 m) of traced water. It rests on the Chicago Democrat as this
+project's register reads it (`chicago_democrat_1833_1835`): the town's lumber was a lake trade,
+steam-sawn at St. Joseph and sold from South Water Street (David Carver's lumber yard, printed
+December 1833 to July 1835), and a lumber yard and warehouse was announced for the opening of
+navigation. No printing places a yard's shed, so the clause is inferred and this roof is
+reconstructed. T-2268 found no free South lot inside the reach and the Dearborn reach's bank
+full, which leaves the South Branch's east bank; T-2268's warehouses take its Madison end. The
+shed's station is where the bank's fall across its depth first comes inside the generators'
+0.30 m relief bound: 0.36 m at 3 m south of Washington, 0.30 m at 30 m, 0.27 m at 40 m. The
+brickyard filed under F4 is still seated by its clay: `lumber_landing` names its function and
+refuses it, and its outlier reason stands.
+
+**Bounds held by the generator:** off every platted lot; out of every drawn street corridor and
+refused region; 18.01 m from traced water, inside the clause's 27.09 m (read from the policy,
+not copied) and outside the 8 m anonymous setback; 41.25 m from the nearest footprint; dry
+modelled ground at every corner with 0.27 m of relief; front toward the branch. `--self-test`
+refuses a shed moved into Market or Washington Street, one moved down the bank into the branch,
+one turned to face Market Street, a brickyard seated by the lumber landing and a family the
+recipe did not order.
+
+**Would replace:** Any reading that seats a named lumber merchant's yard or shed on the South
+Branch's east bank in July 1835, or places David Carver's South Water Street yard on the water,
+substitutes for this roof rather than standing beside it.
+
+**Covers:** `recon_1835_south_branch_lumber_f4_001.inferred_1835.position`, `recon_1835_south_branch_lumber_f4_001.inferred_1835.footprint`.
+
+**Ticket:** T-2269 (the F4 T-2175 handed on).
+
+**Recorded:** 2026-10-10 (T-2269).
 
 ### L413 — Doors, windows and their trim on every 1835 building, and the glass in them
 
