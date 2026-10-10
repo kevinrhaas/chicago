@@ -14,6 +14,9 @@ try {
   await page.goto(new URL('walk/glessner-baseline.html',base).href);
   await page.waitForFunction(()=>window.__glessnerBaseline?.ready||window.__glessnerBaseline?.error,null,{timeout:120000});
   assert.equal(await page.evaluate(()=>__glessnerBaseline.error),undefined);
+  // T-2206 adds current candidate measurements. This historical QA must still
+  // require the frozen T-2200 asset, rather than silently test the new default.
+  if(await page.locator('#measurement').count())await page.selectOption('#measurement','baseline');
   assert.equal(await page.evaluate(()=>__glessnerBaseline.hashMatches),true,'Model is not the frozen baseline');
   const views=await page.evaluate(()=>__glessnerBaseline.data.views.map(v=>({id:v.id,clear:['public domain','no known restrictions'].includes(v.rights),size:v.image_size,count:v.landmarks.length})));
   for(const view of views){

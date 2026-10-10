@@ -130,7 +130,7 @@
       "name": "The Calhoun household",
       "division": "south",
       "relation": "worked here",
-      "why": "The paper's own imprint. This is the strongest work link in the parcel because it is contemporary, self-reported and printed.",
+      "why": "The paper's own imprint. This is the strongest work link in the parcel because it is contemporary, self-reported and printed. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_calhoun_john#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "chicago_democrat_1833_11_26"
       ],
@@ -158,7 +158,7 @@
       "name": "The Democrat's printers",
       "division": "south",
       "relation": "worked here",
-      "why": "'In the employ of Mr. Calhoun', whose office's address the paper itself prints.",
+      "why": "'In the employ of Mr. Calhoun', whose office's address the paper itself prints. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_democrat_printers#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "andreas_1884_v1"
       ],
@@ -186,7 +186,7 @@
       "name": "The Kimball household",
       "division": "south",
       "relation": "worked here",
-      "why": "data/structures/chicago_democrat_office.json is recorded as a printing office AND a store on exactly this reading: the paper's imprint and Kimball's advertisement put both at the corner of South Water and Clark in the same issue. Inferred rather than documented because 'on the corner of' names a junction and not a building, and two businesses at one junction need not share one roof.",
+      "why": "data/structures/chicago_democrat_office.json is recorded as a printing office AND a store on exactly this reading: the paper's imprint and Kimball's advertisement put both at the corner of South Water and Clark in the same issue. Inferred rather than documented because 'on the corner of' names a junction and not a building, and two businesses at one junction need not share one roof. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_kimball_walter#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "chicago_democrat_1833_11_26"
       ],
