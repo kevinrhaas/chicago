@@ -2754,6 +2754,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_conservatory_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_bay_kit.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4556,6 +4560,10 @@
       "wrote_ignored": []
     },
     "tools/staffing_mint_order_1835.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/stale_derivatives.py": {
       "wrote": [],
       "wrote_ignored": []
     },

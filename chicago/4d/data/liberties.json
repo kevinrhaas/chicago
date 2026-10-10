@@ -28511,6 +28511,37 @@
       ]
     },
     {
+      "id": "L-k13-conservatory-kit-2305",
+      "title": "The Prairie conservatory kit: every glasshouse, its frame, glass, plinth, rainwater and planting, all reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 Prairie programme's conservatories and greenhouses (package K13, T-2305) are five parametric houses built by `generators/archetypes/k13_conservatories.py` from `data/components/prairie_1904/k13_conservatories.json`: a single-pitch lean-to, a free-standing span-roofed house with a louvred ridge ventilator, a span house with a raised lantern, a curvilinear lean-to on curved ribs, and a canted conservatory bay against a house wall. Each is a three-tier frame (posts, rafters, ribs, corner posts, hips and jambs; the sill, eave, ridge, verge and wall plates; glazing bars running one way) carrying one convex envelope of single-sided glass, on a brick plinth under a stone coping, with a half-glazed door, K04's half-round gutters, downpipes, shoes and splash stones, and a staging bench of low pot-plant masses inside. **What is invented.** Every dimension: the members' faces and how far each stands proud of and runs behind the glass, the 1 in glazing bar, the 8-16 in panes, the bay spacing, the eave heights, pitches, the lantern's size and the curvilinear roof's quarter-ellipse; the two-foot brick plinth and its coping; the door's width, height, panel and lock rail; the ridge ventilator's louvres; the staging's height and depth and every plant mass's seeded size; the white-painted frame, the glass's tint and transparency, the opaque glass substitute on the lantern, the brick, stone, tile floor and foliage colours. The rainwater sizes, fall, bracket spacing and shoe are K04's (L-k04-roof-library-2292), themselves reconstructed. Three choices are made for the renderer rather than from any source: the glass is drawn single-sided as one convex envelope so no line of sight crosses two transparent panes; a lantern is glazed with an opaque substitute because it stands outside that envelope; and the ridge is ventilated by louvres rather than by top-hung lights in the glazing. Glazing laps, horticultural glass's green tint, heating pipes, blinds and shading are not modelled. The choice of forms reads the study's building register (\"dated conservatory/palm-house complex\", \"conservatory bay\", \"greenhouse complex behind adjacent lots\"), which is the study's reading of its images and not a source record here. **What is not.** Nothing in the kit is attested; no house in the scene has a conservatory from it yet (T-2306 builds the first, a Pullman service-garden bay)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a house's own photograph, drawing or insurance-map outline shows its conservatory's form, bays, roof and glazing, and that house takes them in place of the kit's working sizes; a period horticultural builder's catalogue (iron or timber glasshouse sections) replaces a member's dimensions for every house at once."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2305 (piece 1 of T-1855, K13)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k13-conservatory-kit/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2305)."
+        }
+      ]
+    },
+    {
       "id": "L-k03-1808-service-brick-2291",
       "title": "1808 Prairie's return and rear in K03 common brick: bond, heads, string course and grime, all reconstructed",
       "section": "per_subject",
