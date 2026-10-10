@@ -1,0 +1,85 @@
+{
+  "id": "foundation_rubble",
+  "package": "K02",
+  "dressing": "random_rubble",
+  "tile_m": [
+    2.0,
+    2.0
+  ],
+  "resolution_px": {
+    "basecolor": 1024,
+    "normal_gl": 1024,
+    "orm": 512,
+    "height16": 512
+  },
+  "px_per_m": 512.0,
+  "height16_range_m": 0.03008,
+  "mean_roughness": 0.9,
+  "measured": {
+    "relief_m": 0.03008,
+    "mean_roughness_measured": 0.888,
+    "mean_basecolor_srgb": [
+      155,
+      146,
+      130
+    ],
+    "seam_to_interior_step": 1.005
+  },
+  "colors_srgb": [
+    [
+      158,
+      150,
+      134
+    ],
+    [
+      104,
+      98,
+      88
+    ]
+  ],
+  "note": "Random rubble for foundations and rear basement walls: irregular limestone and fieldstone pieces 0.15-0.45 m across in a sandy lime mortar recessed about 15 mm. The one fabric whose joints are in the map (random rubble has no courses).",
+  "confidence": "reconstructed appearance; which building wears this stone is its structure record's to say, at its own tier",
+  "orientation": "image x = along the stone's natural bed (the wall's horizontal for walling); image y = up the wall. TEXCOORD_0 = surface metres / tile_m (K01 uv rule)",
+  "joints": "geometry, from data/components/prairie_1904/k02_stone_profiles.json; EXCEPT this fabric, whose random-rubble joints are in the map",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y",
+    "height16": "linear 16-bit, 0 = lowest point of height16_range_m",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "files": {
+    "basecolor.png": "foundation_rubble_basecolor.png",
+    "normal_gl.png": "foundation_rubble_normal_gl.png",
+    "orm.png": "foundation_rubble_orm.png",
+    "height16.png": "foundation_rubble_height16.png",
+    "basecolor_web.jpg": "foundation_rubble_basecolor_web.jpg",
+    "normal_gl_web.jpg": "foundation_rubble_normal_gl_web.jpg",
+    "orm_web.jpg": "foundation_rubble_orm_web.jpg"
+  },
+  "web": {
+    "basecolor": "foundation_rubble_basecolor_web.jpg",
+    "normal_gl": "foundation_rubble_normal_gl_web.jpg",
+    "orm": "foundation_rubble_orm_web.jpg"
+  },
+  "bytes": {
+    "basecolor.png": 1370281,
+    "normal_gl.png": 1516855,
+    "orm.png": 225007,
+    "height16.png": 444382,
+    "basecolor_web.jpg": 169370,
+    "normal_gl_web.jpg": 379650,
+    "orm_web.jpg": 39212
+  },
+  "sha256": {
+    "basecolor.png": "8729237a7907d0046d3e516c1c139d91f1b68d2eb276c4b6ae34a68057fc822a",
+    "normal_gl.png": "d66b42d91dfaf49a4514fac217baaf667f95c405feef4e275af2a5377dfc9b88",
+    "orm.png": "115d716d90a7c2af20e0214cdc50ce390f7e3387e6114e81bfc665a71980b734",
+    "height16.png": "49a8b157e63f0233fb60197bd69f4e9abcb596dca204a993589138fb1bc769d4",
+    "basecolor_web.jpg": "031f2cfc80f7b8bba212a7204af17e25a6f48c7b25fe293e43a79e8c9e9f07b3",
+    "normal_gl_web.jpg": "03048ecde2000b9fe0367702330ff5ab14ee7ee9133e4edd9d3c9e1c1b57203a",
+    "orm_web.jpg": "67b9bbbb1365b47d0afd57addb6c09253dd0f6c800f85c778b77b8a152f1506a"
+  },
+  "seamless": true,
+  "generator_seed": 19040806,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_stone.py); no photograph sampled"
+}

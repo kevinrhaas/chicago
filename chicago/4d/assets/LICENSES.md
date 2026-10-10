@@ -562,6 +562,79 @@ textures/prairie_1904_brick/profiles.json
 textures/prairie_1904_brick/tools/generate_prairie_1904_brick.py
 ```
 
+### The Prairie Avenue 1904 stone library (K02) — `textures/prairie_1904_stone/`
+
+T-2288, piece 1 of T-1844. Six procedural stone fabrics for the 1904 programme's walls, trim and
+foundations (rock-faced granite, brown sandstone, Lemont and Bedford limestone, dressed trim,
+foundation rubble), built by the generator that ships inside it
+(`tools/generate_prairie_1904_stone.py`, deterministic, seeded per fabric). Which building wears
+which stone is its structure record's to say; the look of every map is reconstructed
+(`docs/LIBERTIES.md` L-k02-stone-library-2288).
+
+| item | licence | cleared for | NOT cleared for |
+|---|---|---|---|
+| `textures/prairie_1904_stone/**` — *Prairie Avenue 1904 stone library (K02) v1.0.0*, original procedural output generated for this project. Full text at `textures/prairie_1904_stone/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1835 and 1904 street libraries' terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` says its appearance is reconstructed and that a structure record, not the map, carries the evidence |
+
+**Not published.** No scene binds these maps yet and `tools/publish.sh` ships none of them; T-2289
+lays them on the 1808 Prairie exemplar.
+
+Every file, as the checker matches them one by one:
+
+```
+textures/prairie_1904_stone/LICENSE.txt
+textures/prairie_1904_stone/README.md
+textures/prairie_1904_stone/contact_sheet.jpg
+textures/prairie_1904_stone/dressed_trim/dressed_trim_basecolor.png
+textures/prairie_1904_stone/dressed_trim/dressed_trim_basecolor_web.jpg
+textures/prairie_1904_stone/dressed_trim/dressed_trim_height16.png
+textures/prairie_1904_stone/dressed_trim/dressed_trim_normal_gl.png
+textures/prairie_1904_stone/dressed_trim/dressed_trim_normal_gl_web.jpg
+textures/prairie_1904_stone/dressed_trim/dressed_trim_orm.png
+textures/prairie_1904_stone/dressed_trim/dressed_trim_orm_web.jpg
+textures/prairie_1904_stone/dressed_trim/material.json
+textures/prairie_1904_stone/foundation_rubble/foundation_rubble_basecolor.png
+textures/prairie_1904_stone/foundation_rubble/foundation_rubble_basecolor_web.jpg
+textures/prairie_1904_stone/foundation_rubble/foundation_rubble_height16.png
+textures/prairie_1904_stone/foundation_rubble/foundation_rubble_normal_gl.png
+textures/prairie_1904_stone/foundation_rubble/foundation_rubble_normal_gl_web.jpg
+textures/prairie_1904_stone/foundation_rubble/foundation_rubble_orm.png
+textures/prairie_1904_stone/foundation_rubble/foundation_rubble_orm_web.jpg
+textures/prairie_1904_stone/foundation_rubble/material.json
+textures/prairie_1904_stone/granite_rock_faced/granite_rock_faced_basecolor.png
+textures/prairie_1904_stone/granite_rock_faced/granite_rock_faced_basecolor_web.jpg
+textures/prairie_1904_stone/granite_rock_faced/granite_rock_faced_height16.png
+textures/prairie_1904_stone/granite_rock_faced/granite_rock_faced_normal_gl.png
+textures/prairie_1904_stone/granite_rock_faced/granite_rock_faced_normal_gl_web.jpg
+textures/prairie_1904_stone/granite_rock_faced/granite_rock_faced_orm.png
+textures/prairie_1904_stone/granite_rock_faced/granite_rock_faced_orm_web.jpg
+textures/prairie_1904_stone/granite_rock_faced/material.json
+textures/prairie_1904_stone/limestone_bedford/limestone_bedford_basecolor.png
+textures/prairie_1904_stone/limestone_bedford/limestone_bedford_basecolor_web.jpg
+textures/prairie_1904_stone/limestone_bedford/limestone_bedford_height16.png
+textures/prairie_1904_stone/limestone_bedford/limestone_bedford_normal_gl.png
+textures/prairie_1904_stone/limestone_bedford/limestone_bedford_normal_gl_web.jpg
+textures/prairie_1904_stone/limestone_bedford/limestone_bedford_orm.png
+textures/prairie_1904_stone/limestone_bedford/limestone_bedford_orm_web.jpg
+textures/prairie_1904_stone/limestone_bedford/material.json
+textures/prairie_1904_stone/limestone_lemont/limestone_lemont_basecolor.png
+textures/prairie_1904_stone/limestone_lemont/limestone_lemont_basecolor_web.jpg
+textures/prairie_1904_stone/limestone_lemont/limestone_lemont_height16.png
+textures/prairie_1904_stone/limestone_lemont/limestone_lemont_normal_gl.png
+textures/prairie_1904_stone/limestone_lemont/limestone_lemont_normal_gl_web.jpg
+textures/prairie_1904_stone/limestone_lemont/limestone_lemont_orm.png
+textures/prairie_1904_stone/limestone_lemont/limestone_lemont_orm_web.jpg
+textures/prairie_1904_stone/limestone_lemont/material.json
+textures/prairie_1904_stone/sandstone_brown/material.json
+textures/prairie_1904_stone/sandstone_brown/sandstone_brown_basecolor.png
+textures/prairie_1904_stone/sandstone_brown/sandstone_brown_basecolor_web.jpg
+textures/prairie_1904_stone/sandstone_brown/sandstone_brown_height16.png
+textures/prairie_1904_stone/sandstone_brown/sandstone_brown_normal_gl.png
+textures/prairie_1904_stone/sandstone_brown/sandstone_brown_normal_gl_web.jpg
+textures/prairie_1904_stone/sandstone_brown/sandstone_brown_orm.png
+textures/prairie_1904_stone/sandstone_brown/sandstone_brown_orm_web.jpg
+textures/prairie_1904_stone/tools/generate_prairie_1904_stone.py
+```
+
 | path | source | license | notes |
 |---|---|---|---|
 

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>K02 stone library · raking and diffuse study</title><link rel="icon" href="data:,">
+<!-- T-2288: a study page, served by tools/k02_stone_study.mjs from chicago/4d and never published.
+     Each fabric is laid as real blocks from data/components/prairie_1904/k02_stone_profiles.json
+     with metric UVs (K01: surface metres / tile_m), so what it shows is what a component will draw. -->
+<style>
+  html,body{margin:0;height:100%;background:#1a1b19;color:#ebe8dc;font:13px/1.3 system-ui,sans-serif;overflow:hidden}
+  canvas{display:block;width:100%;height:100%}
+  #labels{position:fixed;inset:0;pointer-events:none}
+  #labels div{position:absolute;padding:3px 6px;background:rgba(26,27,25,.72);border-radius:3px;white-space:nowrap}
+  #labels small{color:#a6a99d}
+  #title{position:fixed;left:8px;bottom:6px;color:#a6a99d}
+</style>
+<script type="importmap">{"imports":{"three":"../renderers/web/vendor/three-0.185.1/three.module.js"}}</script>
+</head><body><div id="labels"></div><div id="title"></div>
+<script type="module">
+import * as THREE from 'three';
+
+const q = new URLSearchParams(location.search);
+const LIGHT = q.get('light') === 'diffuse' ? 'diffuse' : 'raking';
+const VIEW = q.get('view') === 'close' ? 'close' : 'panel';
+const LIB = '../assets/textures/prairie_1904_stone/';
+const t0 = performance.now();
+
+const [manifest, profiles] = await Promise.all([
+  fetch(LIB + 'manifest.json').then((r) => r.json()),
+  fetch('../data/components/prairie_1904/k02_stone_profiles.json').then((r) => r.json()),
+]);
+
+// K01's seed rule: a block's seed is its component, instance and index, never a clock.
+function rng(seed) {
+  let s = 0;
+  for (const ch of seed) s = (Math.imul(s ^ ch.charCodeAt(0), 2654435761) + 0x9e3779b9) >>> 0;
+  return () => { s = (s + 0x6d2b79f5) >>> 0; let t = s; t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+}
+const between = (r, [a, b]) => a + (b - a) * r();
+
+const loader = new THREE.TextureLoader();
+const tex = (url, srgb) => new Promise((ok, no) => loader.load(url, (t) => {
+  t.wrapS = t.wrapT = THREE.RepeatWrapping;
+  t.colorSpace = srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace;
+  t.anisotropy = 8;
+  ok(t);
+}, undefined, no));
+
+async function material(dir, files) {
+  const [map, normalMap, orm] = await Promise.all([
+    tex(dir + files.basecolor, true), tex(dir + files.normal_gl, false), tex(dir + files.orm, false)]);
+  return new THREE.MeshStandardMaterial({ map, normalMap, roughnessMap: orm, aoMap: orm, metalness: 0 });
+}
+
+const W = 1.2, H = 1.0;                          // every panel: 1.2 m of wall, 1.0 m high
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x1a1b19);
+const mortar = await material('../assets/textures/glessner-v4/',
+  { basecolor: 'mortar_basecolor.jpg', normal_gl: 'mortar_normal.png', orm: 'mortar_roughness.png' });
+mortar.aoMap = null;
+
+// metric UVs on a box: each face projects its own two axes, divided by the tile
+function metricBox(w, h, d, x0, y0, tile, offU, offV, flip) {
+  const g = new THREE.BoxGeometry(w, h, d);
+  const p = g.attributes.position, n = g.attributes.normal, uv = g.attributes.uv;
+  for (let i = 0; i < p.count; i++) {
+    const x = p.getX(i) + x0, y = p.getY(i) + y0, z = p.getZ(i);
+    const ax = Math.abs(n.getX(i)), ay = Math.abs(n.getY(i));
+    let u = ax > 0.5 ? z : x, v = ay > 0.5 ? z : y;
+    if (flip) u = -u;
+    uv.setXY(i, u / tile + offU, v / tile + offV);
+  }
+  return g;
+}
+
+function panel(m, prof, mat) {
+  const grp = new THREE.Group();
+  const tile = m.tile_m[0];
+  if (prof.pattern_in_map) {                      // random rubble: its joints are in the map
+    grp.add(new THREE.Mesh(metricBox(W, H, 0.12, 0, 0, tile, 0, 0, false), mat));
+    return grp;
+  }
+  const back = new THREE.Mesh(new THREE.BoxGeometry(W, H, 0.1), mortar);
+  back.position.z = -0.05 - prof.joint.recess_m;
+  grp.add(back);
+  const r = rng(`k02.study.${m.id}`);
+  const j = prof.joint.width_m;
+  let y = -H / 2, course = 0;
+  while (y < H / 2 - 0.02) {
+    const ch = Math.min(between(r, prof.course_height_m), H / 2 - y);
+    let x = -W / 2 - r() * prof.block_length_m[0];   // the bond: no joint on the panel edge twice
+    let block = 0;
+    while (x < W / 2) {
+      const len = between(r, prof.block_length_m);
+      const a = Math.max(x, -W / 2), b = Math.min(x + len, W / 2);
+      if (b - a > j * 2) {
+        const br = rng(`k02.study.${m.id}.${course}.${block}`);
+        const bw = b - a - (b < W / 2 ? j : 0), bh = ch - j, cx = a + bw / 2, cy = y + bh / 2;
+        const proj = prof.rock_face_projection_m ? between(br, prof.rock_face_projection_m) : 0;
+        const g = metricBox(bw, bh, 0.1 + proj, cx, cy, tile, br(), br(), br() < 0.5);
+        const mesh = new THREE.Mesh(g, mat);
+        mesh.position.set(cx, cy, -0.05 + proj / 2);
+        grp.add(mesh);
+      }
+      x += len; block++;
+    }
+    y += ch; course++;
+  }
+  // panels are built centred on their own origin; blocks were placed in panel space
+  return grp;
+}
+
+const fabrics = manifest.materials;
+const portrait = innerWidth < innerHeight;
+const cols = portrait ? 2 : 3, rows = Math.ceil(fabrics.length / cols);
+const gap = 0.25;
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+document.body.prepend(renderer.domElement);
+
+const cells = [];
+for (const [i, m] of fabrics.entries()) {
+  const prof = profiles.fabrics[m.id];
+  const mat = await material(LIB + m.id + '/', m.web);
+  const p = panel(m, prof, mat);
+  const cx = (i % cols - (cols - 1) / 2) * (W + gap), cy = -(Math.floor(i / cols) - (rows - 1) / 2) * (H + gap);
+  p.position.set(cx, cy, 0);
+  scene.add(p);
+  cells.push({ m, prof, cx, cy });
+}
+
+if (LIGHT === 'raking') {
+  // a low sun skimming the wall from the upper left: 8 degrees off the face
+  const sun = new THREE.DirectionalLight(0xfff4e0, 3.2);
+  const a = THREE.MathUtils.degToRad(8);
+  sun.position.set(-Math.cos(a) * 0.82, Math.cos(a) * 0.57, Math.sin(a)).multiplyScalar(20);
+  scene.add(sun, new THREE.HemisphereLight(0xdfe6ee, 0x3a3630, 0.25));
+} else {
+  scene.add(new THREE.HemisphereLight(0xeef2f6, 0x8a8478, 2.4));
+}
+
+const aspect = innerWidth / innerHeight;
+const camera = new THREE.PerspectiveCamera(20, aspect, 0.05, 100);
+const spanW = cols * W + (cols - 1) * gap + 0.3, spanH = rows * H + (rows - 1) * gap + 0.45;
+const fov = THREE.MathUtils.degToRad(camera.fov);
+let dist = Math.max(spanH / 2 / Math.tan(fov / 2), spanW / 2 / (Math.tan(fov / 2) * aspect));
+if (VIEW === 'close') dist = 0.0;                 // set per cell below
+camera.position.set(0, 0, dist);
+camera.lookAt(0, 0, 0);
+
+const labels = document.getElementById('labels');
+function label(c, x, y) {
+  const d = document.createElement('div');
+  d.style.left = `${x}px`; d.style.top = `${y}px`;
+  // a phone's column is too narrow for the details: the name alone, so labels never overlap
+  const more = portrait ? '' : ` <small>· tile ${c.m.tile_m[0]} m · joint ${(c.prof.joint.width_m * 1000).toFixed(0)} mm${c.prof.pattern_in_map ? ' in map' : ''}</small>`;
+  d.innerHTML = `${c.m.id.replace(/_/g, ' ')}${more}`;
+  labels.append(d);
+}
+
+// render() returns before the GPU is done; reading one pixel back waits for it, so a frame
+// time below is the whole frame, not the call. Draw counts accumulate over a frame's viewports.
+const gl = renderer.getContext(), px = new Uint8Array(4);
+const settle = () => gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);
+renderer.info.autoReset = false;
+const frames = [];
+function draw() { renderer.info.reset(); const s = performance.now(); renderer.render(scene, camera); settle(); frames.push(performance.now() - s); }
+
+if (VIEW === 'panel') {
+  draw();
+  for (const c of cells) {
+    const v = new THREE.Vector3(c.cx - W / 2, c.cy + H / 2, 0.1).project(camera);
+    label(c, (v.x + 1) / 2 * innerWidth, (1 - v.y) / 2 * innerHeight - 22);
+  }
+} else {
+  // a 0.5 m window on every panel's centre, one viewport cell each, metre for metre alike
+  renderer.setScissorTest(true);
+  const cw = innerWidth / cols, chh = innerHeight / rows;
+  const cam = new THREE.PerspectiveCamera(20, cw / chh, 0.05, 100);
+  const d = Math.max(0.25 / Math.tan(fov / 2), 0.25 / (Math.tan(fov / 2) * cw / chh));
+  for (let f = 0; f < 6; f++) {   // the first frame uploads the textures; the median skips it
+    renderer.info.reset();
+    const s = performance.now();
+    cells.forEach((c, i) => {
+      const x = (i % cols) * cw, y = innerHeight - (Math.floor(i / cols) + 1) * chh;
+      renderer.setViewport(x, y, cw, chh); renderer.setScissor(x, y, cw, chh);
+      cam.position.set(c.cx, c.cy, d); cam.lookAt(c.cx, c.cy, 0);
+      renderer.render(scene, cam);
+      if (f === 0) label(c, x + 6, innerHeight - y - chh + 6);
+    });
+    settle();
+    frames.push(performance.now() - s);
+  }
+}
+for (let i = 0; i < 20; i++) {
+  if (VIEW === 'panel') draw();
+}
+const info = renderer.info;
+document.getElementById('title').textContent =
+  `K02 stone library · ${LIGHT} light · ${VIEW === 'close' ? '0.5 m windows' : '1.2 × 1.0 m panels'} · reconstructed (L-k02-stone-library-2288)`;
+window.__study = {
+  ready: true, light: LIGHT, view: VIEW, viewport: [innerWidth, innerHeight],
+  load_ms: Math.round(performance.now() - t0),
+  draw_calls: info.render.calls, triangles: info.render.triangles,
+  textures: info.memory.textures, geometries: info.memory.geometries,
+  frame_ms_median: frames.sort((a, b) => a - b)[Math.floor(frames.length / 2)],
+  blocks: scene.children.reduce((n, g) => n + (g.children ? g.children.length : 0), 0),
+};
+</script></body></html>
