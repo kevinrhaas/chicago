@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1616, ts: '2026-10-10T04:17:20.363Z', date: 'Oct 9, 2026, 11:17 PM CT', title: 'The housing and deal tools read each household’s dated places', kind: 'change',
+    items: [
+      'Nothing you can see changes. The tools that house the present, re-family the order book, seat street faces, replace invented names and spend the trade and premises research now take a household’s home and workplace from the dated places on its card.',
+      'Every seat, roof and ruling comes out exactly as before. The research notes now point at the dated place they read rather than the old single workplace line, which is being retired.',
+    ] },
   { v: 1615, ts: '2026-10-10T04:10:30.121Z', date: 'Oct 9, 2026, 11:10 PM CT', title: 'The later-directory crosswalks read each household’s dated places', kind: 'change',
     items: [
       'Nothing you can see changes. The tools that match the 1839, 1843 and 1844 directories against the town, and the two that read a later printed address back to 1835, now take where a household lived and worked from the dated places on its card.',
