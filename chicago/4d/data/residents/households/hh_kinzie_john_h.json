@@ -45,14 +45,6 @@
   "confidence": "reconstructed",
   "note": "NOT ATTESTED, AND ONE CANDIDATE IS EXPLICITLY RULED OUT. Charles Butler in 1833 recollected that the old Kinzie house on the north side 'had been previously destroyed by fire'; an 1830s list Andreas prints says it 'was then unoccupied and in a dilapidated state'. Either way it is not a residence for this household and this dataset does not model it."
  },
- "works_at": {
-  "value": "jh_kinzie_forwarding_store",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "The building record is graded inferred for a name reason this household inherits: Andreas's list says 'Jim Kinzie's store' and the 1834 advertisement says J. H. Kinzie, and those are two different men of the same family. The record follows the advertisement. This dataset also holds kinzie_hunter_warehouse under 'John H. Kinzie and Lieut. David Hunter', which is a second premises and is not linked here."
- },
  "associated_with": [
   {
    "kind": "workplace",

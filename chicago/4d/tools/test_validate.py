@@ -19,6 +19,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import validate as V  # noqa: E402
+from associations import home_of, workplace_of  # noqa: E402
 
 FAILURES: list[str] = []
 
@@ -2821,24 +2822,30 @@ def _resident_household(**kw) -> dict:
             h[absence] = h.pop(key)
         elif key in kw and absence not in kw:
             h.pop(absence, None)
-    if "associated_with" not in kw:
-        # T-2258: every committed record carries its singular links among its
-        # plural rows (the card prints only the rows), so the fixture does too.
-        rows = []
-        for key, kind in (("lives_at", "home"), ("works_at", "workplace")):
-            node = h.get(key) or {}
-            if not node.get("value"):
-                continue
-            tier = node.get("confidence")
-            tier = tier if tier in ("attested", "inferred", "reconstructed") else "inferred"
-            rows.append({"kind": kind, "place_or_structure_id": node["value"],
-                         "resolves_to": "structure", "from": "1833", "to": None,
-                         "tier": tier,
-                         "source_id": None if tier == "reconstructed"
-                         else (node.get("sources") or ["s1"])[0],
-                         "note": "the fixture's singular link, carried as a row"})
-        if rows:
-            h["associated_with"] = rows
+    # T-2284: the singular pair is retired, so a case that names a place through it gets
+    # the record the writers now write — the place as an `associated_with` row (unless the
+    # case wrote its own rows) and no `lives_at`/`works_at` key at all.
+    rows = []
+    for key, kind in (("lives_at", "home"), ("works_at", "workplace")):
+        node = h.pop(key, None) or {}
+        if not node.get("value") or "associated_with" in kw:
+            continue
+        tier = node.get("confidence")
+        tier = tier if tier in ("attested", "inferred", "reconstructed") else "inferred"
+        rows.append({"kind": kind, "place_or_structure_id": node["value"],
+                     "resolves_to": "structure", "from": "1833", "to": None,
+                     "tier": tier,
+                     "source_id": None if tier == "reconstructed"
+                     else (node.get("sources") or ["s1"])[0],
+                     "note": "the fixture's link, carried as a row"})
+    if rows:
+        h["associated_with"] = rows
+    # …and a record whose rows name a home does not also say it has none.
+    for absence, kinds in (("no_home", ("home", "lodging")),
+                           ("no_workplace", V.WORK_KINDS)):
+        if absence not in kw and any(r.get("kind") in kinds
+                                     for r in h.get("associated_with") or []):
+            h.pop(absence, None)
     return h
 
 
@@ -2853,8 +2860,8 @@ def _resident_index(households: list, **kw) -> dict:
         entries.append({
             "id": h["id"], "file": f"households/{h['id']}.json", "head": h["head"],
             "division": h["division"], "persons": len(h["persons"]), "grades": g,
-            "lives_at": (h.get("lives_at") or {}).get("value"),
-            "works_at": (h.get("works_at") or {}).get("value"),
+            "lives_at": home_of(h),
+            "works_at": workplace_of(h),
             "present_on_scene_date": h["present_on_scene_date"].get("value"),
             "review_required": h["review_required"],
         })
@@ -2934,28 +2941,26 @@ def test_a_place_relationship_is_plural_dated_and_cannot_drift() -> None:
                                    "note": "not modelled"})
         return _resident_household(**kw)
 
-    rep = _run_residents([hh(
-        lives_at={"value": "st1", "confidence": "attested", "sources": ["s1"], "note": "n"},
-        associated_with=[row()])])
-    check("a plural dated relationship that agrees with the singular link passes",
-          not rep.errors, rep.errors)
+    rep = _run_residents([hh(associated_with=[row()])])
+    check("a plural dated relationship passes", not rep.errors, rep.errors)
 
-    # The drift this is for: two shapes, two answers, and a reader gets whichever
-    # field they happened to load.
-    rep = _run_residents([hh(
-        lives_at={"value": "st1", "confidence": "attested", "sources": ["s1"], "note": "n"},
-        associated_with=[row(place_or_structure_id="st2")])], structures=("st1", "st2"))
-    check("the singular link may not drift from the plural one",
-          any("may not drift" in e for e in rep.errors), rep.errors)
+    # T-2284: the singular pair is retired. Two shapes for one claim was how a reader
+    # got whichever answer the field they loaded gave, so the old shape is refused
+    # outright — beside a row that agrees with it, and on a record with no rows at all.
+    agreeing = hh(associated_with=[row()])
+    agreeing["lives_at"] = {"value": "st1", "confidence": "attested", "sources": ["s1"],
+                            "note": "n"}
+    rep = _run_residents([agreeing])
+    check("the retired singular link is refused even where a row agrees with it",
+          any("is retired (T-2284)" in e for e in rep.errors), rep.errors)
 
-    # T-2258: the card prints the rows and not the pair, so a singular link on a
-    # record with no rows at all is a claim nobody would be shown.
-    bare = hh(lives_at={"value": "st1", "confidence": "attested", "sources": ["s1"],
-                        "note": "n"})
+    bare = hh()
     bare.pop("associated_with", None)
+    bare["works_at"] = {"value": "st1", "confidence": "attested", "sources": ["s1"],
+                        "note": "n"}
     rep = _run_residents([bare])
-    check("a singular link no plural row carries is refused, even with no rows",
-          any("may not drift" in e for e in rep.errors), rep.errors)
+    check("the retired singular link is refused on a record with no rows",
+          any("is retired (T-2284)" in e for e in rep.errors), rep.errors)
 
     # A row is defined over CLAIMS, so it always names a place; and the rung it
     # claims has to be the one the evidence reached.
@@ -3213,18 +3218,18 @@ def test_each_grade_owes_what_it_claims() -> None:
 
 
 def test_a_resident_points_at_a_real_building_or_at_nothing() -> None:
-    """lives_at / works_at are the whole point: households justify structures."""
+    """A home and a workplace are the whole point: households justify structures."""
     rep = _run_residents([_resident_household(
         works_at={"value": "no_such_building", "confidence": "attested",
                   "sources": ["s1"], "note": "n"})])
-    check("works_at naming a structure that does not exist is an error",
+    check("a workplace row naming a structure that does not exist is an error",
           any("not a structure id" in e for e in rep.errors), rep.errors)
 
     rep = _run_residents([_resident_household(
         persons=[_resident_person(lives_at={"value": "no_such_building",
                                             "confidence": "inferred", "note": "n"})])])
-    check("a person-level link is held to the same rule",
-          any("not a structure id" in e for e in rep.errors), rep.errors)
+    check("a person-level singular link is refused as retired (T-2284)",
+          any("is retired (T-2284)" in e for e in rep.errors), rep.errors)
 
     # No address is a legitimate and expected answer - the building may not be built
     # yet - but it is a CLAIM about the dataset and owes a note. T-2295: it is written

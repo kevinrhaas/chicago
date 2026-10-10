@@ -39,7 +39,7 @@ twelve, and this stage fills both. A refusal that only lived in a ticket would h
 the book ordering ten households nobody could ever honestly write.
 
 WHAT IS INVENTED HERE, EXACTLY. Two people, and nothing else about the two buildings. Each
-is a head of their own household, carries a name from the invented pools, a `lives_at` that
+is a head of their own household, carries a name from the invented pools, a home row that
 is the roof the adjudication admitted, and — for the keeper alone — an occupation, which is
 the appointment rather than a draw. No age is written: the household buckets carry no age
 axis, so no band ordered one and this stage will not invent what nothing asked for.
@@ -85,6 +85,7 @@ LEDGER = DATA / "reconstruction" / "1835_institutional_households.json"
 STRUCTURES = DATA / "structures"
 
 sys.path.insert(0, str(ROOT / "tools"))
+from associations import home_of, workplace_of  # noqa: E402
 
 STAGE = "institutional_households"
 TICKET = "T-1531"
@@ -454,10 +455,40 @@ def card_for(row: dict, rule: dict, pool: dict, sizes: list,
                     "that drew it. The programme's arrival stage owns this block.",
             "seated_by": "T-1169 (the arrival fill), T-1179 (converge)",
         },
-        "lives_at": {
-            "value": bed,
+        # T-2295: a null link is written under its absence key, `no_workplace`.
+        **({} if rule["occupation"] else {"no_workplace": {
+            "value": None,
             "confidence": RECONSTRUCTED,
+            "tier": "unknown",
+            "note": "Not attested and not drawn. Nothing states what the people in this "
+                    "house did.",
+        }}),
+        # T-2259: the two links, as the rows the scene compiler reads. Undated and
+        # sourceless: the household is a reconstruction ordered onto a roof that stands,
+        # not a stay any source dates. Since T-2284 they are the only place the links are
+        # written, so the home row carries the rule that seated it, what would replace
+        # it, and — where the bed is not the institution's own roof — why.
+        "associated_with": [{
+            "kind": "home",
+            "place_or_structure_id": bed,
+            "resolves_to": "structure",
+            "from": None,
+            "to": None,
+            "undated": True,
             "tier": RECONSTRUCTED,
+            "source_id": None,
+            "note": " ".join(part for part in (
+                f"THE ROOF IS THE CLAIM, and it is the only part of this card that is "
+                f"not an invention. {row['why']}",
+                None if bed == sid else (
+                    f"THE BED IS AT {structure_name(bed)} AND THE HOUSEHOLD WAS ORDERED BY "
+                    f"{place_name} (T-1716). The adjudication asks its question of the "
+                    f"institution and the institution answers with its own quarters; the "
+                    f"workplace stays the institution, because that is what the office is."),
+                "SEATED ON A BUILDING THAT STANDS. Unlike the trade and family "
+                "reconstructions, this household is not waiting on T-1199 for a lot: "
+                "the roof it is under is a committed, placed record and is the reason "
+                "the household was ordered at all.") if part),
             "basis": {
                 "kind": "rule",
                 "id": "1835_institutional_lodging",
@@ -468,40 +499,6 @@ def card_for(row: dict, rule: dict, pool: dict, sizes: list,
                 "kind": "person",
                 "match": "a source naming who lived at this building on the scene date",
             },
-            "at_the_institution": None if bed == sid else (
-                f"THE BED IS AT {structure_name(bed)} AND THE HOUSEHOLD WAS ORDERED BY "
-                f"{place_name} (T-1716). The adjudication asks its question of the "
-                f"institution and the institution answers with its own quarters; "
-                f"`works_at` stays the institution, because that is what the office is."),
-            "note": "SEATED ON A BUILDING THAT STANDS. Unlike the trade and family "
-                    "reconstructions, this household is not waiting on T-1199 for a lot: "
-                    "the roof it is under is a committed, placed record and is the reason "
-                    "the household was ordered at all.",
-        },
-        # T-2295: a null link is written under its absence key, `no_workplace`.
-        ("works_at" if rule["occupation"] else "no_workplace"): {
-            "value": sid if rule["occupation"] else None,
-            "confidence": RECONSTRUCTED,
-            "tier": RECONSTRUCTED if rule["occupation"] else "unknown",
-            "note": ("The establishment is the building: the keepership of this light is "
-                     "kept at the light." if rule["occupation"] else
-                     "Not attested and not drawn. Nothing states what the people in this "
-                     "house did."),
-        },
-        # T-2259: the two links again, as the rows the scene compiler reads. Undated
-        # and sourceless: the household is a reconstruction ordered onto a roof that
-        # stands, not a stay any source dates.
-        "associated_with": [{
-            "kind": "home",
-            "place_or_structure_id": bed,
-            "resolves_to": "structure",
-            "from": None,
-            "to": None,
-            "undated": True,
-            "tier": RECONSTRUCTED,
-            "source_id": None,
-            "note": f"THE ROOF IS THE CLAIM, and it is the only part of this card that is "
-                    f"not an invention. {row['why']}",
         }] + ([{
             "kind": "workplace",
             "place_or_structure_id": sid,
@@ -806,13 +803,13 @@ def self_test() -> int:
          all(c["persons"][0]["age_band"] is None for c in cards.values()))
     beds = {r["structure"]: (r.get("sleeps_at") or r["structure"]) for r in rows}
     case("every card is seated on the roof the adjudication names for its bed",
-         all(c["lives_at"]["value"] == beds[c["institutional_household"]["place"]]
+         all(home_of(c) == beds[c["institutional_household"]["place"]]
              for c in cards.values()))
     case("a bed moved off the roof that ordered it still works at the institution",
-         all(c["works_at"]["value"] == c["institutional_household"]["place"]
+         all(workplace_of(c) == c["institutional_household"]["place"]
              for c in cards.values()
-             if c["works_at"]["value"] and
-             c["lives_at"]["value"] != c["institutional_household"]["place"]))
+             if workplace_of(c) and
+             home_of(c) != c["institutional_household"]["place"]))
     case("every sleeps_at names a committed structure record",
          all((STRUCTURES / f'{b}.json').exists() for b in beds.values()))
     case("no invented name is a name the layer's real people bear",

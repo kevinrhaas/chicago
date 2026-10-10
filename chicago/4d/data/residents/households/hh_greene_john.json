@@ -46,24 +46,6 @@
    "drloih_fort_dearborn"
   ]
  },
- "lives_at": {
-  "value": "fort_dearborn_commandants_quarters",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1",
-   "drloih_fort_dearborn"
-  ],
-  "note": "The commanding officer's quarters are a building in this dataset and he was the commanding officer. This is the one lives_at link in the parcel that is true by definition of the building rather than by evidence about the man."
- },
- "works_at": {
-  "value": "fort_dearborn_palisade",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1",
-   "drloih_fort_dearborn"
-  ],
-  "note": "The post itself. data/structures/fort_dearborn_palisade.json already carries 'United States 5th Infantry, Maj. John Greene commanding' as its occupants; this household is the other end of that link."
- },
  "associated_with": [
   {
    "kind": "home",

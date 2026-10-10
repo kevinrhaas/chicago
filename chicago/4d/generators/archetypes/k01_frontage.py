@@ -51,6 +51,8 @@ import math
 import struct
 from pathlib import Path
 
+from . import k03_brick
+
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
 ROOFS = ROOT / "assets" / "textures" / "prairie_1904_roofs"   # K04, T-2292
@@ -118,28 +120,45 @@ MATERIALS = {
     "k04_painted_tin_sheet": {"fabric": "painted_tin_sheet", "color": (1.0, 1.0, 1.0), "roughness": 0.6},
     "iron": {"color": (0.055, 0.055, 0.06), "roughness": 0.55},
 }
+# T-2291: the side and rear walls are K03 common brick, not Glessner's courtyard
+# brick_buff, and the brick heads, string course and units add their own slots.
+MATERIALS.update(k03_brick.MATERIALS)
 
 
 def _tiles() -> dict:
     lib = json.loads((LIBRARY / "material-library.json").read_text())["materials"]
-    out = {m["name"]: tuple(m["tile_m"]) for m in lib}
+    out = {m["name"]: tuple(m["tile_m"]) for m in lib} | k03_brick.TILES
     for m in json.loads((ROOFS / "manifest.json").read_text())["materials"]:
         out[m["id"]] = tuple(m["tile_m"])
     return out
 
 
 def _k04_fabric(fab: str) -> dict | None:
-    """A K04 fabric's material.json, or None for a Glessner-library fabric."""
+    """A K04 fabric's material.json, or None for a fabric from another library."""
     f = ROOFS / fab / "material.json"
     return json.loads(f.read_text()) if f.exists() else None
+
+
+def _images(fab: str) -> dict:
+    """The JPEG(s) a fabric embeds: K03's and K04's from their own libraries (base colour
+    and OpenGL normal map), the rest Glessner's base colour alone."""
+    if fab in k03_brick.IMAGES:
+        return k03_brick.IMAGES[fab]
+    k04 = _k04_fabric(fab)
+    if k04 is not None:
+        # T-2293: the relief a raking sun reads on slate courses and dressed copper
+        return {"basecolor": ROOFS / fab / k04["web"]["basecolor"],
+                "normal": ROOFS / fab / k04["web"]["normal_gl"]}
+    return {"basecolor": LIBRARY / f"{fab}_basecolor.jpg"}
 
 
 class Prim:
     """One primitive: one material, flat-shaded faces, metric UVs, a confidence."""
 
-    def __init__(self, name: str):
+    def __init__(self, name: str, tone=None):
         self.name = name
         self.pos, self.nrm, self.uv, self.conf, self.idx = [], [], [], [], []
+        self.tone_of, self.tone = tone, []   # T-2291: the soot/damp mask, per vertex
 
     def face(self, pts, normal, basis, conf):
         """A convex planar polygon. `basis` = (origin, u axis, v axis, tile_u, tile_v,
@@ -160,6 +179,7 @@ class Prim:
             # glTF's v runs down the image, so height goes in negated: courses upright
             self.uv.append((_dot(d, au) / tu + ou, -_dot(d, av) / tv + ov))
             self.conf.append(conf)
+            self.tone.append(self.tone_of(p[1]) if self.tone_of else 1.0)
         for i in range(1, len(pts) - 1):
             self.idx += [base, base + i, base + i + 1]
 
@@ -184,10 +204,14 @@ class Assembly:
         self.fabric = {k: v.get("fabric") for k, v in MATERIALS.items()}
         if params.roof:
             self.fabric["slate_covering"] = params.roof["covering"]
+        self.soffit_m = None   # set by build(); the soot band hangs from it
 
     def prim(self, name):
         if name not in self.prims:
-            self.prims[name] = Prim(name)
+            tone = None
+            if MATERIALS[name].get("condition"):
+                tone = lambda y: k03_brick.tone(y, self.soffit_m)
+            self.prims[name] = Prim(name, tone)
         return self.prims[name]
 
     def instance(self, cid, family, params, sockets):
@@ -201,9 +225,16 @@ class Assembly:
                                "sockets": {k: [round(x, 4) for x in v] for k, v in sockets.items()}})
         return seed
 
-    def basis(self, mat, origin, au, av, seed, course_v=None):
+    def basis(self, mat, origin, au, av, seed, phase_u=None, course_v=None):
         fab = self.fabric[mat]
         tu, tv = self.tiles[fab] if fab else (1.0, 1.0)
+        if MATERIALS[mat].get("courses"):
+            # a coursed fabric (T-2291): v = 0 on a bed joint at grade on every wall, so
+            # courses run level round a corner; u is the wall's corner phase, or the
+            # seed's whole-module step where no corner sets one
+            if phase_u is None:
+                phase_u = (seed % 4) / 4.0
+            return (origin, au, av, tu, tv, phase_u, 0.0)
         # the seed moves the fabric, so two instances of one component differ
         ov = (seed >> 16) / 65536.0
         if course_v is not None:
@@ -239,7 +270,10 @@ class Assembly:
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
         sb = sorted({0.0, length, *[e for h in holes for e in (h[0], h[1])]})
         yb = sorted({0.0, height, *extra_breaks, *[e for h in holes for e in (h[2], h[3])]})
-        b = self.basis(mat, O, R, Y, seed)
+        phase = None
+        if MATERIALS[mat].get("courses"):  # T-2291: the bond turns the quoin
+            phase = k03_brick.phase_u(cid, length, self.tiles[MATERIALS[mat]["fabric"]][0])
+        b = self.basis(mat, O, R, Y, seed, phase)
         pr = self.prim(mat)
         for i in range(len(sb) - 1):
             for j in range(len(yb) - 1):
@@ -261,6 +295,8 @@ class Assembly:
         y0, y1 = op.sill_m, op.head_m
         conf = p.worst_conf("footprint", "sash_by_storey", "front_bays", "side_bays", "rear_bays")
         door = op.component == "k01.opening.door_leaf"
+        if MATERIALS[body_mat].get("courses"):
+            conf = max(conf, p.conf("service_wall_brick"))
         recess = 0.22 if door else thickness
         seed = self.instance(op.component, "opening",
                              {"clear_width_m": op.width_m, "clear_height_m": op.height_m,
@@ -305,6 +341,16 @@ class Assembly:
                                      P(ia, id_, -r - g)], N, self.basis("glass", O, R, Y, seed), conf)
             # a stone sill, proud of the face
             self.proud_box(stone_trim, frame, s0 - 0.08, s1 + 0.08, y0 - 0.10, y0, 0.06, seed, conf)
+        if MATERIALS[body_mat].get("courses") and not door:
+            # T-2291: a brick wall's opening takes a brick head, not the front's stone
+            # lintel — two rowlock rings on a segmental arch, or a soldier flat head
+            # where the eave leaves no room for the rings and their rise
+            crown = y1 + k03_brick.RISE_TO_SPAN * op.width_m + k03_brick.RINGS * (k03_brick.BED + k03_brick.JOINT)
+            if crown < self.soffit_m - k03_brick.COURSE:
+                k03_brick.segmental_head(self, seed, frame, s0, s1, y1, conf)
+            else:
+                k03_brick.soldier_head(self, seed, frame, s0, s1, y1, conf)
+            return
         # a flat lintel over every opening
         self.proud_box(stone_trim, frame, s0 - 0.12, s1 + 0.12, y1, y1 + 0.30, 0.03, seed, conf)
 
@@ -369,7 +415,7 @@ class Assembly:
             nrm = _unit(_cross(_sub(pts[1], pts[0]), _sub(pts[-1], pts[0])))
             uphill = _unit(_cross(nrm, contour))
             planes[name] = nrm
-            pr.face(pts, nrm, self.basis("slate_covering", pts[0], contour, uphill, seed, phase), conf)
+            pr.face(pts, nrm, self.basis("slate_covering", pts[0], contour, uphill, seed, course_v=phase), conf)
             if not k:
                 continue
             # the cut edge: the doubled eave course's butt, two slates thick, and the
@@ -498,7 +544,7 @@ class Assembly:
             uphill = _unit(_cross(nrm, contour))
             if uphill[1] < 0:
                 uphill = _mul(uphill, -1)
-            pr.face(pts, nrm, self.basis("slate_covering", pts[0], contour, uphill, seed, phase), conf)
+            pr.face(pts, nrm, self.basis("slate_covering", pts[0], contour, uphill, seed, course_v=phase), conf)
             sides[sgn] = (nrm, z_e)
             # the cheek under it: slated, a triangle standing on the hip
             pr.face([(xf, ys, z_e), (xf, yde, z_e), (xl, yde, z_e)], (0.0, 0.0, sgn),
@@ -737,6 +783,7 @@ def build(params, structure_id: str):
     a = Assembly(structure_id, p)
     D, W, E = p.depth_m, p.width_m, p.eave_m
     yf = E - p.eave_overhang_m * math.tan(math.radians(p.roof_pitch_deg)) - 0.20
+    a.soffit_m = yf
     floors = p.floors_m
     belts = [(floors[1] - 0.20, floors[1], 0.05)] + ([(floors[2] - 0.15, floors[2], 0.05)] if len(floors) > 2 else [])
 
@@ -754,10 +801,19 @@ def build(params, structure_id: str):
     }
     frames = {}
     for cid, (mat, O, R, length, t, bands) in walls.items():
-        frames[cid] = (a.wall(cid, mat, O, R, length, E, t, holes(cid), (yf,), bands), mat)
+        breaks = (yf, *k03_brick.condition_breaks(yf)) if MATERIALS[mat].get("condition") else (yf,)
+        frames[cid] = (a.wall(cid, mat, O, R, length, E, t, holes(cid), breaks, bands), mat)
     for op in p.openings:
         (frame, t), mat = frames[op.wall]
         a.opening(op, frame, t, mat, "limestone_trim")
+    # T-2291: a projecting stretcher course at the second-floor line on the south wall
+    # and the rear, the south one run out past the quoin so the two meet; the north
+    # wall is a blank party wall against the Glessner court and carries none
+    sc_conf = p.worst_conf("storey_heights_m", "construction", "service_wall_brick")
+    for cid, s_from, s_to in (("k01.wall.side.south", -k03_brick.STRING_PROUD, D),
+                              ("k01.wall.rear_service", 0.0, W)):
+        frame = frames[cid][0][0]
+        k03_brick.string_course(a, seed_of(structure_id, cid, 0), frame, s_from, s_to, floors[1], sc_conf)
     door = next(o for o in p.openings if o.component == "k01.opening.door_leaf")
     a.stoop(frames["k01.wall.street_front"][0][0], door.s_m)
     a.roof()
@@ -811,30 +867,21 @@ def to_glb(a: Assembly, structure_id: str, phase_id: str, scene_ids, extras: dic
             "baseColorFactor": [*spec["color"], 1.0], "metallicFactor": spec.get("metallic", 0.0),
             "roughnessFactor": spec["roughness"]}}
         if tuple(spec["color"]) == (1.0, 1.0, 1.0):
-            # the glTF default, written as an absence: the web tier's optimiser drops a
-            # default factor, and the derivative gate would read that as a lost colour
+            # glTF's default, which gltf-transform drops from the web derivative: write
+            # it the same way here, so master and derivative name the same colours
             del mat["pbrMetallicRoughness"]["baseColorFactor"]
         fab = a.fabric[name]
-
-        def texture(key, path):
-            if key not in image_of:
-                images.append({"name": key, "mimeType": "image/jpeg", "bufferView": view(path.read_bytes())})
-                textures.append({"sampler": 0, "source": len(images) - 1})
-                image_of[key] = len(textures) - 1
-            return image_of[key]
-
         if fab:
-            k04 = _k04_fabric(fab)
-            if k04 is None:
-                mat["pbrMetallicRoughness"]["baseColorTexture"] = {
-                    "index": texture(f"{fab}_basecolor", LIBRARY / f"{fab}_basecolor.jpg"), "texCoord": 0}
-            else:
-                # T-2293: a K04 fabric binds its web base colour and its OpenGL normal map,
-                # the relief a raking sun reads on slate courses and dressed copper
-                mat["pbrMetallicRoughness"]["baseColorTexture"] = {
-                    "index": texture(f"{fab}_basecolor", ROOFS / fab / k04["web"]["basecolor"]), "texCoord": 0}
-                mat["normalTexture"] = {"index": texture(f"{fab}_normal_gl", ROOFS / fab / k04["web"]["normal_gl"]),
-                                        "texCoord": 0}
+            imgs = _images(fab)
+            for role, src in imgs.items():
+                if (fab, role) not in image_of:
+                    images.append({"name": src.stem.removesuffix("_web"), "mimeType": "image/jpeg",
+                                   "bufferView": view(src.read_bytes())})
+                    textures.append({"sampler": 0, "source": len(images) - 1})
+                    image_of[(fab, role)] = len(textures) - 1
+            mat["pbrMetallicRoughness"]["baseColorTexture"] = {"index": image_of[(fab, "basecolor")], "texCoord": 0}
+            if spec.get("normal") or (_k04_fabric(fab) is not None and "normal" in imgs):
+                mat["normalTexture"] = {"index": image_of[(fab, "normal")], "texCoord": 0}
         materials.append(mat)
         ctype = 5123 if len(pr.pos) < 65536 else 5125
         primitives.append({
@@ -843,6 +890,7 @@ def to_glb(a: Assembly, structure_id: str, phase_id: str, scene_ids, extras: dic
                 "NORMAL": accessor(pr.nrm, 5126, "VEC3", 3, 34962),
                 "TEXCOORD_0": accessor(pr.uv, 5126, "VEC2", 2, 34962),
                 "_CONFIDENCE": accessor(pr.conf, 5126, "SCALAR", 1, 34962),
+                **({"_TONE": accessor(pr.tone, 5126, "SCALAR", 1, 34962)} if pr.tone_of else {}),
             },
             "indices": accessor(pr.idx, ctype, "SCALAR", 1, 34963),
             "material": len(materials) - 1,

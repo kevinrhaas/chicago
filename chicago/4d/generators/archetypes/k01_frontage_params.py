@@ -98,6 +98,7 @@ class K01FrontageParams:
     roof: dict = field(default_factory=dict)       # T-2293: covering, caps, flashing (K04)
     dormer: dict = field(default_factory=dict)     # T-2293: the front dormer, if any
     rainwater: dict = field(default_factory=dict)  # T-2293: gutters, outlets, pipes (K04)
+    service_wall_brick: str = ""      # the K03 panel the brick walls wear (T-2291)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -130,7 +131,7 @@ CONSUMED = frozenset({
     "wall_thickness_front_m", "wall_thickness_side_m", "roof_form", "roof_pitch_deg",
     "eave_overhang_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m",
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
-    "basement_lights", "roof_covering", "dormer", "rainwater",
+    "basement_lights", "roof_covering", "dormer", "rainwater", "service_wall_brick",
 })
 
 WALLS = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south")
@@ -322,6 +323,13 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if dormer["sash"]["sill_m"] - 0.10 < k04["apron_upstand_m"]:
             raise ParamError("the dormer sash's sill sits on its apron's upstand")
 
+    # T-2291: the brick walls wear a K03 panel the record names; k03_brick lays one
+    from . import k03_brick
+    panel = val("service_wall_brick", k03_brick.PANEL)
+    if panel != k03_brick.PANEL:
+        raise ParamError(f"service_wall_brick = {panel!r}: k03_brick lays {k03_brick.PANEL!r} alone; "
+                         f"another K03 panel is a new slot in generators/archetypes/k03_brick.py")
+
     names = sorted(CONSUMED)
     params = K01FrontageParams(
         depth_m=depth, width_m=width, stories=stories, principal_floor_m=pf,
@@ -333,7 +341,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         front_bays=front_bays,
         side_bays=tuple(float(s) for s in val("side_bays")),
         rear_bays=tuple(float(s) for s in val("rear_bays")),
-        basement_sill_m=bsill, openings=tuple(openings),
+        basement_sill_m=bsill, openings=tuple(openings), service_wall_brick=panel,
         roof=k04, dormer=dormer, rainwater=rainwater,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},

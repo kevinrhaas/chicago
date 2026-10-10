@@ -50,8 +50,6 @@ const RECORD = 'data/structures/glessner_house.json';
 const LIBRARY = 'assets/textures/glessner-v4/material-library.json';
 // T-2293: the K04 roof library's fabrics, measured by the same metric-UV rule
 const ROOF_LIBRARY = 'assets/textures/prairie_1904_roofs/manifest.json';
-const fabricLibrary = () => [...readJson(LIBRARY).materials,
-  ...(existsSync(path.join(APP, ROOF_LIBRARY)) ? readJson(ROOF_LIBRARY).materials.map((m) => ({ name: m.id, tile_m: m.tile_m })) : [])];
 const TIERS = [
   ['full', 'assets/gltf/glessner_house__as_built_1887.glb'],
   ['web', 'assets/web/glessner_house__as_built_1887.glb'],
@@ -514,6 +512,26 @@ function assetTiers(structureId) {
   return { name, phase: manifest[name].phase_id, tiers: [['full', `assets/gltf/${name}`], ['web', `assets/web/${name}`]] };
 }
 
+/**
+ * The fabrics an assembly can bind: Glessner v4's library, and the K03 brick library a
+ * K01 brick wall wears since T-2291 (its material.json files carry `id` and `tile_m`),
+ * so a K03 wall's metric UVs are held to its own tile and not passed over unmeasured.
+ */
+function assemblyLibrary() {
+  const k03 = 'assets/textures/prairie_1904_brick';
+  const own = [];
+  for (const group of ['brick', 'mortar', 'panel']) {
+    for (const id of readdirSync(path.join(APP, k03, group)).sort()) {
+      const m = readJson(`${k03}/${group}/${id}/material.json`);
+      own.push({ name: m.id, tile_m: m.tile_m });
+    }
+  }
+  // T-2293: the K04 roof library's fabrics, by id
+  const roofs = existsSync(path.join(APP, ROOF_LIBRARY))
+    ? readJson(ROOF_LIBRARY).materials.map((m) => ({ name: m.id, tile_m: m.tile_m })) : [];
+  return [...readJson(LIBRARY).materials, ...own, ...roofs];
+}
+
 async function measureAsset(structureId) {
   if (!structureId) throw new Error('usage: --measure-asset <structure_id>');
   const c = readJson(CONTRACT);
@@ -521,7 +539,7 @@ async function measureAsset(structureId) {
   const record = readJson(`data/structures/${structureId}.json`);
   const { phase, tiers: files } = assetTiers(structureId);
   const footprint = record.phases.find((p) => p.id === phase).footprint.polygon;
-  const library = fabricLibrary();
+  const library = assemblyLibrary();
   const tiers = {};
   for (const [tier, file] of files) {
     const buf = readFileSync(path.join(APP, file));
