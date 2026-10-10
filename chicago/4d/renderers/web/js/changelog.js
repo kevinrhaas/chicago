@@ -5,6 +5,7 @@ export const CHANGELOG = [ // newest first
       'Open the three frame houses and their cards name the Merrill, Merill and Meleney households, who were waiting for a lot here. The cottage\u2019s card names nobody: no source carries its household\u2019s name, and the card says so.',
       'All four are reconstructions. The state sold these lots in 1833, but no record shows what stood on them in 1835.',
       'The block\u2019s corner lots stay open. The town still owes this block one cottage and one boarding house, and no household is waiting for either yet.',
+    ] },
   { v: 1605, ts: '2026-10-10T01:25:22.744Z', date: 'Oct 9, 2026, 8:25 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
     items: [
       'Nothing you can see changes. The reconstruction\u2019s work list asked for ten more South-side family households than the town could form, after letter-list names stopped counting as households on 9 October.',
