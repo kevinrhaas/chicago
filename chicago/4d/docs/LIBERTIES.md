@@ -23088,3 +23088,31 @@ photograph of the house's roof or rainwater goods replaces the covering, the cap
 **Ticket:** T-2293 (piece 2 of T-1846, K04).
 **Review:** `docs/RESEARCH/k04-1808-roof-2293/README.md`.
 **Recorded:** 2026-10-10 (T-2293).
+
+### L-k02-stone-library-2288 — The 1904 stone library: how six building stones look, and the joints and edges they are laid with
+
+**Decision:** the Prairie Avenue programme's shared stone (package K02, T-1844) is six procedural
+fabrics in `assets/textures/prairie_1904_stone/` (rock-faced granite, warm brown sandstone, Lemont
+limestone, Bedford limestone, smooth dressed trim and foundation rubble) and one file of joint and
+edge numbers, `data/components/prairie_1904/k02_stone_profiles.json`, that a component lays them
+with: course heights, block lengths, joint width and recess, arris bevel, chip rate and size,
+rock-faced projection, corner-bond returns, rusticated-base channels, coping fall and the rule that
+turns a voussoir's bed perpendicular to the arch's thrust.
+
+**What is attested, and only as an analogue.** One Prairie Avenue wall's courses are transcribed:
+Glessner's street granite, 24 courses of 7.5-20 in, a 0.025 ft joint and 0.025-0.15 ft of
+rock-faced relief (`data/structures/glessner_house.json` v4_detail, from HABS sheet 5). The granite
+profile is bounded by it and the other stones' ranges are set beside it. That is an analogue for the
+other houses, not a reading of any of them. Which stone each register row names is the study's
+building register (T-1837), and the profiles cite those rows; they place no stone on any house.
+
+**What is invented.** Every colour, grain, mineral fleck, bedding lamina, iron stain, pit, tool mark
+and facet of every map, and every number in the profiles that Glessner does not bound. The granite is
+deliberately grey, not Glessner's pinkish stone: no register row names granite on another house, and
+the landmark keeps its own library.
+
+**How to resolve:** a photograph, drawing or specification of a named house's stonework replaces its
+fabric's numbers and look for that house, in that house's own record; a dated colour source for
+Chicago brownstone, Lemont or Bedford stone c. 1904 replaces the palette here.
+**Ticket:** T-2288 (piece 1 of T-1844).
+**Recorded:** 2026-10-10 (T-2288).

@@ -1,0 +1,85 @@
+{
+  "id": "limestone_lemont",
+  "package": "K02",
+  "dressing": "pitched",
+  "tile_m": [
+    1.2,
+    1.2
+  ],
+  "resolution_px": {
+    "basecolor": 1024,
+    "normal_gl": 1024,
+    "orm": 512,
+    "height16": 512
+  },
+  "px_per_m": 853.33,
+  "height16_range_m": 0.00463,
+  "mean_roughness": 0.88,
+  "measured": {
+    "relief_m": 0.00463,
+    "mean_roughness_measured": 0.88,
+    "mean_basecolor_srgb": [
+      162,
+      153,
+      128
+    ],
+    "seam_to_interior_step": 1.055
+  },
+  "colors_srgb": [
+    [
+      184,
+      174,
+      148
+    ],
+    [
+      142,
+      132,
+      110
+    ]
+  ],
+  "note": "Lemont (Joliet) dolomitic limestone, the local building stone: buff-grey with yellow-ochre iron staining, small solution pits, the odd dark stylolite seam along the bed, and a hammer-dressed face.",
+  "confidence": "reconstructed appearance; which building wears this stone is its structure record's to say, at its own tier",
+  "orientation": "image x = along the stone's natural bed (the wall's horizontal for walling); image y = up the wall. TEXCOORD_0 = surface metres / tile_m (K01 uv rule)",
+  "joints": "geometry, from data/components/prairie_1904/k02_stone_profiles.json",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y",
+    "height16": "linear 16-bit, 0 = lowest point of height16_range_m",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "files": {
+    "basecolor.png": "limestone_lemont_basecolor.png",
+    "normal_gl.png": "limestone_lemont_normal_gl.png",
+    "orm.png": "limestone_lemont_orm.png",
+    "height16.png": "limestone_lemont_height16.png",
+    "basecolor_web.jpg": "limestone_lemont_basecolor_web.jpg",
+    "normal_gl_web.jpg": "limestone_lemont_normal_gl_web.jpg",
+    "orm_web.jpg": "limestone_lemont_orm_web.jpg"
+  },
+  "web": {
+    "basecolor": "limestone_lemont_basecolor_web.jpg",
+    "normal_gl": "limestone_lemont_normal_gl_web.jpg",
+    "orm": "limestone_lemont_orm_web.jpg"
+  },
+  "bytes": {
+    "basecolor.png": 806113,
+    "normal_gl.png": 1686125,
+    "orm.png": 273036,
+    "height16.png": 457333,
+    "basecolor_web.jpg": 71483,
+    "normal_gl_web.jpg": 354160,
+    "orm_web.jpg": 44306
+  },
+  "sha256": {
+    "basecolor.png": "0b1313ba52d5d77d2502917bc2ca0d40c43dfa36507fcf88ed60917c285bf08c",
+    "normal_gl.png": "d20727c2af8a5c50b8383636312edbb868113771fe3e68216051b27c50bd1532",
+    "orm.png": "d0582f4c7f318a375e32f93c58bf4bfa2a57a8eb5e225837dabf79145576a44c",
+    "height16.png": "5c96d82ddf737fd79a9c5abea853941cddc86a93608cd2ddaa99f917399c5190",
+    "basecolor_web.jpg": "e6bfbdf6890411761532d634cb108505ff5b580ceabb1255bcdb020cc70b2a65",
+    "normal_gl_web.jpg": "8061d14f719f52f262bb12778387975a5026f88388113ccda341649b004982bf",
+    "orm_web.jpg": "7531af84c92c2522eccfa4e21ec19b7ab19d5635f77284f4d11800cafd590e1c"
+  },
+  "seamless": true,
+  "generator_seed": 19040803,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_stone.py); no photograph sampled"
+}
