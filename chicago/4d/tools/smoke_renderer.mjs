@@ -1545,6 +1545,9 @@ for (const [label, viewport, touch] of [
   };
 
   const errors = [];
+  // T-1788: anything asked for under humans/ — a figure, its records or the contract.
+  const humanRequests = [];
+  page.on('request', (r) => { if (/\/humans\//.test(new URL(r.url()).pathname)) humanRequests.push(r.url()); });
   page.on('pageerror', (e) => errors.push(`pageerror: ${e.message || e}`));
   page.on('response', (r) => {
     if (r.status() >= 400) errors.push(`HTTP ${r.status()} ${r.url()}`);
@@ -1600,6 +1603,18 @@ for (const [label, viewport, touch] of [
 
     const structures = await page.evaluate(() => window.__chicago4d.registry.size);
     check(`${label}: scene has structures`, structures > 0, `${structures} loaded`);
+
+    // THE SCENE-YEAR GATE FOR FIGURES (T-1788). The human layer (humans.js) is mounted for
+    // every scene and fetches only for one that lists `humans`; none does, and L1 stands
+    // besides, so it must be in the scene, empty, and have asked for nothing at all.
+    const humans = await page.evaluate(() => {
+      const h = window.__chicago4d.humans;
+      return h ? { count: h.count, records: h.records.length, inScene: !!h.group.parent } : null;
+    });
+    check(`${label}: the human layer is mounted and draws nobody`,
+      !!humans && humans.count === 0 && humans.records === 0 && humans.inScene, JSON.stringify(humans));
+    check(`${label}: nothing under humans/ is requested for a scene that does not list it`,
+      humanRequests.length === 0, humanRequests.slice(0, 3).join(' | '));
 
     /**
      * DRAWN AGAINST INDEXED (T-1126). "The scene has structures" passes with one
