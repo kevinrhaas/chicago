@@ -18,6 +18,15 @@ name: Chicago 4D — fold changelog entries
 # GITHUB_TOKEN starts no other workflow, so deploy.yml would not publish the
 # folded changelog until the next unrelated push to dev.
 #
+# IT ALSO RE-DERIVES THE TWO FILES THAT CARRY A COUNT (2026-10-10). Each PR that adds a
+# liberty bumps `"count"` in data/liberties.json and the liberties row of
+# docs/measurements/source_use_coverage.md from N to N+1. Two such PRs, each green on
+# its own, merge into dev without a conflict, because both sides made the SAME edit,
+# and dev is left at N+1 with N+2 liberties. Every PR gate after that went red on
+# "liberties derived from docs/LIBERTIES.md" and "Source-use backlinks" until
+# somebody re-derived by hand (#631, #651, #653 on 2026-10-10). Every PR now carries
+# an entry file, so this runs after every merge and puts the count back.
+#
 # ONE AT A TIME, NEVER CANCELLED: two folds racing would both number the same
 # entries. A push rejected because dev moved is retried from the new dev.
 on:
@@ -25,6 +34,7 @@ on:
     branches: [dev]
     paths:
       - 'chicago/4d/changelog.d/**'
+      - 'chicago/4d/docs/LIBERTIES.md'
   workflow_dispatch:
 
 concurrency:
@@ -66,14 +76,18 @@ jobs:
             git fetch --quiet origin dev
             git reset --quiet --hard origin/dev
             ( cd chicago/4d && node tools/changelog-entries.mjs --fold )
+            ( cd chicago/4d && python3 tools/compile_liberties.py >/dev/null \
+                            && python3 tools/compile_source_use.py >/dev/null )
             if [ -z "$(git status --porcelain -- chicago/4d)" ]; then
-              echo "nothing pending in chicago/4d/changelog.d/ — dev is already folded"
+              echo "nothing pending in chicago/4d/changelog.d/ and the counts agree — dev is already folded"
               exit 0
             fi
-            ( cd chicago/4d && node tools/check-changelog.mjs )
+            ( cd chicago/4d && node tools/check-changelog.mjs \
+                            && python3 tools/compile_liberties.py --check \
+                            && python3 tools/compile_source_use.py --check )
             git add -A chicago/4d
-            git commit --quiet -m "changelog: fold entry files into changelog.js" \
-              -m "Folded and stamped by chicago-4d-changelog-fold.yml after the merge."
+            git commit --quiet -m "changelog: fold entry files into changelog.js; re-derive merged counts" \
+              -m "Folded and stamped by chicago-4d-changelog-fold.yml after the merge; data/liberties.json and source_use_coverage.md re-derived."
             if git push origin HEAD:dev; then
               exit 0
             fi

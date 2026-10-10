@@ -1,4 +1,38 @@
 export const CHANGELOG = [ // newest first
+  { v: 1650, ts: '2026-10-10T15:03:11.348Z', date: 'Oct 10, 2026, 10:03 AM CT', title: 'A chimney kit for Prairie Avenue: stacks, flues, pots, flashing and crickets', kind: 'feature',
+    items: [
+      'Four chimneys for the 1904 houses: a plain brick service stack, a three-flue stack on a ridge with clay pots, a dressed-stone stack, and a carved stack of the Sherman house\'s kind.',
+      'Each stack is built into its roof as one solid. The flues are real dark openings, and stepped flashing and a cricket seal where the stack meets the slates.',
+      'A lighter version of each stack keeps its exact place and height for distant views.',
+      'No house uses the kit yet; a named Prairie Avenue house is the first to get its chimneys from it.',
+    ] },
+  { v: 1649, ts: '2026-10-10T15:03:11.348Z', date: 'Oct 10, 2026, 10:03 AM CT', title: 'Slate, copper and rainwater goods on 1808 Prairie', kind: 'feature',
+    items: [
+      'The house beside the Glessner House now has a dark slate roof, laid in true-size courses.',
+      'Copper rolls cap the hips and ridge, and a dormer looks out over Prairie Avenue, with copper valleys and an apron.',
+      'A copper gutter on iron brackets runs round the eave. Five downpipes carry it to splash stones on the ground.',
+      'All of it is reconstructed: no source shows this roof, and the house\'s record says so.',
+    ] },
+  { v: 1648, ts: '2026-10-10T14:30:16.688Z', date: 'Oct 10, 2026, 9:30 AM CT', title: 'A conservatory kit for Prairie Avenue: glasshouses that read as frames', kind: 'feature',
+    items: [
+      'Five glasshouses for the 1904 houses: a lean-to, a free-standing span house, one with a raised lantern, a curved-roof lean-to and a canted bay.',
+      'The frame reads in order: posts and ribs first, then the plates that tie them, then the slender glazing bars.',
+      'Each stands on a brick plinth with a door, a gutter on every eave and a downpipe down to the ground.',
+      'Inside, a staging bench of potted plants, kept low and clear of the glass.',
+      'No house uses the kit yet; the Pullman service garden is the first to get one.',
+    ] },
+  { v: 1647, ts: '2026-10-10T14:30:16.688Z', date: 'Oct 10, 2026, 9:30 AM CT', title: 'A whole-town bake derives only what moved, and fits its ceiling', kind: 'fix',
+    items: [
+      'Every pull request\'s content build was being cut off at its 30-minute ceiling, because re-deriving all 714 web meshes took about twenty minutes before the gate even started. Now a whole-town bake derives only the meshes whose master actually changed: on today\'s tree a full rebuild of 712 masters moved none of them, so derivation fell from about twenty minutes to 42 seconds.',
+      'Nothing is skipped that could have changed: the record of which master each shipped mesh came from decides, the same record the gate checks, and BAKE_DERIVE_ALL=1 still derives every mesh.',
+    ] },
+  { v: 1646, ts: '2026-10-10T14:09:54.710Z', date: 'Oct 10, 2026, 9:09 AM CT', title: 'A cornice kit for Prairie Avenue: brackets, balustrades, gables and cresting', kind: 'feature',
+    items: [
+      'Seven wall heads for the 1904 houses: a bracketed timber cornice, a pressed-metal one, a dentilled stone entablature, a balustrade with urns, a shaped gable, a pedimented dormer and iron roof cresting.',
+      'Every cornice turns its corners as one moulding and ends on a wall or a proper return, never in mid-air.',
+      'The dormer stands on its roof and its pediment sits on its own cornice; the cresting\'s iron scrolls and spears stand in the ridge.',
+      'All of it is newly designed and copies no real house. No house uses the kit yet.',
+    ] },
   { v: 1645, ts: '2026-10-10T13:37:34.569Z', date: 'Oct 10, 2026, 8:37 AM CT', title: 'A bay, oriel and tower kit for Prairie Avenue', kind: 'feature',
     items: [
       'Seven projections for the 1904 houses: a rectangular, a canted and a bowed bay, a full-height projection, a corbelled oriel, and a round and an octagonal tower.',
