@@ -138,7 +138,7 @@ from measure_corridor_intrusion import is_street_furniture  # noqa: E402
 from measure_street_frontage import layer_of, layer_of_record  # noqa: E402
 from placement_policy_1835 import constant  # noqa: E402
 from generate_plat_lots import (  # noqa: E402
-    SCHOOL_SECTION_TIER_PATH, school_section_tier_joins,
+    SCHOOL_SECTION_TIER_PATHS, school_section_tier_joins,
 )
 from plat_corridors import corridors, omitted_corridors, sampled  # noqa: E402
 from town_year import touches_year  # noqa: E402  (T-1732)
@@ -500,9 +500,15 @@ def tier_frontage_streets() -> set[str]:
     blocks `generate_plat_lots.school_section_tier_joins` builds on, and never authored as
     a list: a block joining the platted layer brings the streets its lots face with it.
     On 2026-10-06 that is Madison (already a platted corridor) and Monroe (not one).
+
+    BOTH TIERS (T-2254). The Monroe-to-Adams tier joined the platted layer on 2026-10-09
+    (T-2253) in its own file, and this read only the first one, so Adams was never a
+    frontage corridor and block 82's two Adams-face houses read as fronting no street.
+    It reads every tier `generate_plat_lots.SCHOOL_SECTION_TIER_PATHS` names, the same
+    list the joins themselves are built from.
     """
-    doc = load(SCHOOL_SECTION_TIER_PATH)
-    return {lot["fronts"] for block in doc["blocks"] if school_section_tier_joins(block)
+    return {lot["fronts"] for path in SCHOOL_SECTION_TIER_PATHS
+            for block in load(path)["blocks"] if school_section_tier_joins(block)
             for lot in block["lots"] if lot.get("fronts")}
 
 
@@ -1048,9 +1054,10 @@ def self_test() -> int:
     # THE TIER'S FRONTAGE (T-2149), on the lots that earned it: every lot of the School
     # Section tier's cut, read as a footprint, fronts the street the cut says it faces.
     # Before the ruling the Monroe face read `None` (Madison, 98 m off, was the nearest).
-    tier = load(SCHOOL_SECTION_TIER_PATH)
+    # Both tiers since T-2254: the Monroe-to-Adams tier's lots front Monroe and Adams.
     tier_lanes = frontage_corridors()
-    lots = [(block["id"], lot) for block in tier["blocks"]
+    lots = [(block["id"], lot) for path in SCHOOL_SECTION_TIER_PATHS
+            for block in load(path)["blocks"]
             if school_section_tier_joins(block) for lot in block["lots"]]
     wrong = [f"{bid} lot {lot['lot']}: {street}"
              for bid, lot in lots
@@ -1058,8 +1065,9 @@ def self_test() -> int:
                                                 tier_lanes, water)]
              if street != lot["fronts"]]
     checks.append(("every lot of the School Section tier's joined blocks fronts the "
-                   "street its cut names — Monroe included",
-                   bool(lots) and not wrong and any(l["fronts"] == "monroe" for _, l in lots),
+                   "street its cut names — Monroe and Adams included",
+                   bool(lots) and not wrong and any(l["fronts"] == "monroe" for _, l in lots)
+                   and any(l["fronts"] == "adams" for _, l in lots),
                    f"{len(lots) - len(wrong)} of {len(lots)}"
                    + (f"; {'; '.join(wrong[:4])}" if wrong else "")))
 
