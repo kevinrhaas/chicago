@@ -1,0 +1,24 @@
+{
+  "id": "south_lumber_shed_1835",
+  "target_date": "1835-07-01",
+  "owning_ticket": "T-2269",
+  "parent_ticket": "T-2175",
+  "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+  "research_memo": "docs/RESEARCH/1835_placement_policy.md",
+  "tier": "reconstructed",
+  "clause": "lumber_landing",
+  "basis": "The order book's structures/warehouses_freight/south/street_line band sets 10 and finds 7 standing, and of the three it owes T-2175 split the two F3 large river warehouses to T-2268 and the F4 lumber shed to this recipe. The 668-roof schedule dealt the F4 to the Market wedge, which T-2195 cut to four lots and T-2238 and T-2196 filled, so it sat on `south_plat_beyond_committed_control`, the gated balance south of Madison, which is ground with no river. THE CLAUSE. Until T-2269 no clause would seat a lumber shed by the water: bank_landing admits F1-F3 only, because the brickyard filed under F4 is seated by its clay, and the structure vocabulary had no term for a lumber shed at all. lumber_landing (tools/placement_policy_1835.py) seats a record whose function is `lumber_shed` within bank_landing_reach_m (27.09 m) of traced water, on the Chicago Democrat's reading of the town's lumber trade as a lake trade: boards landed off schooners, sold from South Water Street (David Carver's lumber yard, December 1833 to July 1835) and announced for the opening of navigation. THE GROUND. T-2268 measured that no free South Division lot stands within the landing's reach of the water and that the Dearborn reach's bank takes no more sheds, and found the one bank left: the South Branch's east bank, the dry, unplatted strip between Market Street's corridor and the traced water, 35-49 m wide from Washington to Madison and outside every platted lot, no-build region and camp candidate. T-2268's two F3s take its Madison end, within about 33 m of Madison's line. This shed takes the stretch above them, 40.0 m south of Washington Street's south line, because that is where the bank's fall across a lumber shed's depth first comes inside the generators' 0.30 m relief bound: measured on this footprint, 0.36 m at 3 m south of Washington, 0.33 m at 20 m, 0.30 m at 30 m and 0.27 m at 40 m. Its back wall stands 3.0 m inside Market Street's west line and its front faces the branch its boards come off, as the warehouses below it do. Its open side is the family's own (roof_form.OPEN_SIDED_FAMILIES, read off the crosswalk's '1/open' and 'open posts'). David Carver's yard was printed on South Water Street, not here, and this roof does not claim to be it.",
+  "replaceable_by": "Any reading that seats a named lumber merchant's yard or shed on the South Branch's east bank in July 1835, or that places David Carver's South Water Street yard on the water, substitutes for this roof rather than adding beside it; the order book's South street-line freight band is the count it fills.",
+  "street": "market",
+  "corner_street": "washington",
+  "placements": [
+    {
+      "structure_id": "recon_1835_south_branch_lumber_f4_001",
+      "family": "F4",
+      "sequence": 1,
+      "rear_setback_m": 3.0,
+      "station_m": 40.0,
+      "geometry_seed": "recon_1835_south_branch_lumber_f4_001"
+    }
+  ]
+}

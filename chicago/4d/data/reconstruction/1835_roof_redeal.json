@@ -24,8 +24,8 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 551,
-    "keep": 549,
+    "audited": 552,
+    "keep": 550,
     "refamily": 2,
     "retire": 0,
     "kept_occupied": 5,
@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 0,
     "roof_target": 668,
-    "standing_before": 659,
-    "standing_after": 659,
-    "short_of_the_programme_before": 9,
-    "short_of_the_programme_after": 9
+    "standing_before": 660,
+    "standing_after": 660,
+    "short_of_the_programme_before": 8,
+    "short_of_the_programme_after": 8
   },
   "ledger": [
     {
@@ -320,11 +320,11 @@
       "group": "warehouses_freight",
       "division": "south",
       "target": 11,
-      "standing": 8,
-      "anonymous": 4,
-      "head_before": 3,
-      "standing_after": 8,
-      "head_after": 3
+      "standing": 9,
+      "anonymous": 5,
+      "head_before": 2,
+      "standing_after": 9,
+      "head_after": 2
     },
     {
       "bucket": "structures/warehouses_freight/west",
@@ -8673,6 +8673,24 @@
       "verdict": "keep",
       "bucket": "structures/small_outbuildings/south",
       "reason": "the order book has an occupant class for a A5 roof in the south division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_south_branch_lumber_f4_001",
+      "division": "south",
+      "family": "F4",
+      "group": "warehouses_freight",
+      "programme_phase": "south_lumber_shed_1835",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 2122.7,
+      "street": "market",
+      "street_class": "principal",
+      "setback_m": 3.0,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/warehouses_freight/south",
+      "reason": "the order book has an occupant class for a F4 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_south_c3_015",
