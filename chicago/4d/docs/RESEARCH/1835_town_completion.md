@@ -68,8 +68,8 @@ Of the **3,382** people housed in a standing building: **11.3 % attested** (381)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| occupied | 51 | 9 | 336 | 396 |
-| occupants named in prose only | 8 | 10 | 76 | 94 |
+| occupied | 51 | 9 | 337 | 397 |
+| occupants named in prose only | 8 | 10 | 75 | 93 |
 | a use that needs nobody | 25 | 6 | 158 | 189 |
 | empty, owing somebody | 0 | 0 | 3 | 3 |
 | **all** | **84** | **25** | **573** | **682** |

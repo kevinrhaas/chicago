@@ -22803,3 +22803,52 @@ measurements or calibrated close photographs can replace these sections.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Review:** `docs/RESEARCH/glessner-roof-details-2205/README.md`.
 **Recorded:** 2026-10-09.
+
+### L-south-lumber-shed-2269 — The South's lumber shed: an open-sided shed on the South Branch's east bank that no source seats
+
+**Applies to:** `recon_1835_south_branch_lumber_f4_001` (`data/structures/`), written by
+`tools/generate_south_lumber.py` from `data/reconstruction/1835_south_lumber_shed.json`.
+
+**What we invented:** The whole building. The order book's South `warehouses_freight/street_line`
+band sets ten freight roofs and found seven standing; of the three it owes, T-2175 gave the two
+F3 river warehouses to T-2268 and the **F4** lumber shed to T-2269. This is that roof: the
+town's first lumber shed, on the `outbuilding` archetype the crosswalk names for F4, built as
+plank walls with no door and one side left open as posts and a roof (`open_sides: left`, the
+family's own, read off the crosswalk's "1/open" and "open posts with slab boards"). It stands
+off the plat on the dry strip between Market Street's corridor and the South Branch, its back
+wall 3.0 m inside Market's west line and its north wall 40.0 m south of Washington's south line,
+facing the branch. Footprint, eave, pitch, finish and the shingle exposure (L263) are
+type-level values from the reconstruction specification, sampled deterministically from the F4
+band. No owner, lumber merchant, stock or occupant is claimed, and no board stack is drawn.
+
+**Why the water, and why here:** the roof stands on the placement policy's new `lumber_landing`
+clause (T-2269), which seats a record whose function is `lumber_shed` within
+`bank_landing_reach_m` (27.09 m) of traced water. It rests on the Chicago Democrat as this
+project's register reads it (`chicago_democrat_1833_1835`): the town's lumber was a lake trade,
+steam-sawn at St. Joseph and sold from South Water Street (David Carver's lumber yard, printed
+December 1833 to July 1835), and a lumber yard and warehouse was announced for the opening of
+navigation. No printing places a yard's shed, so the clause is inferred and this roof is
+reconstructed. T-2268 found no free South lot inside the reach and the Dearborn reach's bank
+full, which leaves the South Branch's east bank; T-2268's warehouses take its Madison end. The
+shed's station is where the bank's fall across its depth first comes inside the generators'
+0.30 m relief bound: 0.36 m at 3 m south of Washington, 0.30 m at 30 m, 0.27 m at 40 m. The
+brickyard filed under F4 is still seated by its clay: `lumber_landing` names its function and
+refuses it, and its outlier reason stands.
+
+**Bounds held by the generator:** off every platted lot; out of every drawn street corridor and
+refused region; 18.01 m from traced water, inside the clause's 27.09 m (read from the policy,
+not copied) and outside the 8 m anonymous setback; 41.25 m from the nearest footprint; dry
+modelled ground at every corner with 0.27 m of relief; front toward the branch. `--self-test`
+refuses a shed moved into Market or Washington Street, one moved down the bank into the branch,
+one turned to face Market Street, a brickyard seated by the lumber landing and a family the
+recipe did not order.
+
+**Would replace:** Any reading that seats a named lumber merchant's yard or shed on the South
+Branch's east bank in July 1835, or places David Carver's South Water Street yard on the water,
+substitutes for this roof rather than standing beside it.
+
+**Covers:** `recon_1835_south_branch_lumber_f4_001.inferred_1835.position`, `recon_1835_south_branch_lumber_f4_001.inferred_1835.footprint`.
+
+**Ticket:** T-2269 (the F4 T-2175 handed on).
+
+**Recorded:** 2026-10-10 (T-2269).

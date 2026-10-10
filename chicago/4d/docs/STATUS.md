@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## T-2254 — four houses on the School Section tier's block 82 (2026-10-10)
 
 Piece 3 of 3 of T-2247 (owner ruling b: cross Monroe). T-2253 dealt the block two D2, two D4, a
@@ -22,7 +21,15 @@ D5 and an H3 and left four `slot` requests on it; this raises those four.
 - **Re-derived:** `rederive.mjs --tail` from compile_liberties (settled in one lap), the completion
   audit, entrances, alley lanes, woodpiles, hay limits and the land-tract join.
 - **Restated:** L263 664 → 668, L276 205 → 209.
-=======
+- **Finished from a cancelled run** (salvage draft #612): merged with dev after T-2269's lumber
+  shed and T-2271, the seating re-walked to a byte-stable fixpoint. On the merged tree the deal
+  reads **220 seated (219 adopted, 1 slot)**: the four houses go to hh_rc_shea_margaret (D2),
+  hh_merrill_george_w (D5), hh_merill_isaac and hh_meleney_patrick (D4s); hh_miller_samuel adopts
+  the D5 `recon_1835_south_d5_016` Meleney leaves (rebaked: its finish moved with its occupant);
+  hh_rc_woodruff_ruth holds a D1 slot on lot 7, which T-2270 owns. Keepers 209. L263 restated
+  to 669 (with the lumber shed), L270 to 220, L276 to 209; 709 assets fresh. The changelog moved
+  to `changelog.d/T-2254.json`.
+
 ## T-1786 — the portable human contract (2026-10-10)
 
 First ticket of the owner's portable-humans programme (T-1786 to T-1792). **Nothing in the scene
@@ -60,7 +67,6 @@ later tickets would otherwise each make for themselves.
   is T-1787's tiny rigged CI fixture. The per-LOD triangle, texture and draw budgets are left
   for T-1787 to measure rather than guessed here. No review record exists yet, so a
   review_required person cannot be shown even after L1 lifts.
->>>>>>> origin/dev
 
 ## T-2206 — Glessner roof and courtyard proportions audited
 

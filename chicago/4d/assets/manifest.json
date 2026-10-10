@@ -5485,8 +5485,8 @@
     "recon_1835_south_d5_016__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 39524,
-      "inputs_sha256": "f059054c3d52cac669a855916c6b39c41aba74d1d436704a47d544ed0c3babf8",
+      "bytes": 39212,
+      "inputs_sha256": "c4032f3cf3460ed120d97ff75844e76ce3d58744c3b01ecb786ee42ad277fd72",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d5_016"

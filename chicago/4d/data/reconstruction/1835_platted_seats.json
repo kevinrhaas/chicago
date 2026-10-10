@@ -113,15 +113,15 @@
     "clause": "tradesman_dwellings",
     "district": "south",
     "how": "adopted",
-    "would_take": "recon_1835_blk_south_water_lasalle_d4_02",
-    "lot_id": "blk_south_water_lasalle#04"
+    "would_take": "recon_1835_blk_randolph_wells_d4_04",
+    "lot_id": "blk_randolph_wells#06"
    },
    {
     "id": "hh_morrison_amanda",
     "clause": "tradesman_dwellings",
     "district": "south",
     "how": "adopted",
-    "would_take": "recon_1835_blk_south_water_lasalle_d5_01",
+    "would_take": "recon_1835_blk_south_water_lasalle_d4_02",
     "lot_id": "blk_south_water_lasalle#04"
    },
    {
@@ -129,11 +129,19 @@
     "clause": "tradesman_dwellings",
     "district": "south",
     "how": "adopted",
+    "would_take": "recon_1835_blk_south_water_lasalle_d5_01",
+    "lot_id": "blk_south_water_lasalle#04"
+   },
+   {
+    "id": "hh_mulford_e_h",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "how": "adopted",
     "would_take": "recon_1835_blk_lake_market_d4_02",
     "lot_id": "blk_lake_market#04"
    },
    {
-    "id": "hh_mulford_e_h",
+    "id": "hh_mulford_james_h",
     "clause": "tradesman_dwellings",
     "district": "south",
     "how": "adopted",
@@ -141,7 +149,7 @@
     "lot_id": "blk_south_water_franklin#06"
    },
    {
-    "id": "hh_mulford_james_h",
+    "id": "hh_murphy_mary",
     "clause": "tradesman_dwellings",
     "district": "south",
     "how": "adopted",
@@ -149,24 +157,16 @@
     "lot_id": "blk_randolph_dearborn#01"
    },
    {
-    "id": "hh_murphy_mary",
+    "id": "hh_murray_catherine",
     "clause": "tradesman_dwellings",
     "district": "south",
     "how": "adopted",
     "would_take": "recon_1835_blk_randolph_clark_d6_04",
     "lot_id": "blk_randolph_clark#07"
-   },
-   {
-    "id": "hh_murray_catherine",
-    "clause": "tradesman_dwellings",
-    "district": "south",
-    "how": "adopted",
-    "would_take": "recon_1835_south_d5_016",
-    "lot_id": "blk_lake_clark#06"
    }
   ],
-  "households_that_would_change_roof": 12,
-  "reading": "the business deal holds 45 roofs on the plat, 31 of them raised as houses of trade. Released, this deal would adopt 10 of them — 7 by a household seated nowhere today and 3 by households already seated, moving to a better-scored lot — and seat 8 more household(s) in all, counting any the moves leave a roof or a slot for; 12 seated household(s) would change roof or lot. So the precedence costs the households 8 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
+  "households_that_would_change_roof": 11,
+  "reading": "the business deal holds 45 roofs on the plat, 31 of them raised as houses of trade. Released, this deal would adopt 10 of them — 8 by a household seated nowhere today and 2 by households already seated, moving to a better-scored lot — and seat 8 more household(s) in all, counting any the moves leave a roof or a slot for; 11 seated household(s) would change roof or lot. So the precedence costs the households 8 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
  },
  "roofs_held_back": [
   {

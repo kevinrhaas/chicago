@@ -524,13 +524,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # South Branch's east bank (recon_1835_south_branch_lumber_f4_001), through emit.py and the
 # common modules.
 #
+# 705 -> 709 and 699 -> 703 on 2026-10-10 (T-2254): four houses on the School Section tier's
+# block 82 (recon_1835_blk_school_section_tier_82_d2_01, _d4_03, _d4_04 and _d5_02), through
+# emit.py and the common modules.
+#
 STATED = {
-    "assets": 705,
+    "assets": 709,
     "restales": {
-        "generators/common/*.py": 705,
+        "generators/common/*.py": 709,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 699,
+        "generators/emit.py": 703,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
