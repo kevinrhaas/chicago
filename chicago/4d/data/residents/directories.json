@@ -48,9 +48,9 @@
   }
  ],
  "counts": {
-  "people_shown": 238,
+  "people_shown": 237,
   "people_met_by_more_than_one_volume": 147,
-  "carrying_an_occupation": 128,
+  "carrying_an_occupation": 129,
   "carrying_an_address": 165,
   "line_held_but_parse_refused": 0,
   "split_refused_trades": 12,
@@ -58,10 +58,10 @@
   "grades_1835_changed": 0,
   "by_volume": {
    "fergus_1839": {
-    "people": 181,
-    "single_entry": 164,
+    "people": 180,
+    "single_entry": 165,
     "ambiguous": 11,
-    "contested": 6,
+    "contested": 4,
     "split_refused_fields": 0
    },
    "fergus_1843": {
@@ -960,48 +960,10 @@
    ]
   },
   {
-   "person_id": "beaubien_charles",
-   "household_id": "hh_beaubien_charles",
-   "resident": "Charles Beaubien",
-   "grade_1835": "inferred",
-   "occupation_1835": "none_recorded",
-   "lives_at_1835": null,
-   "works_at_1835": null,
-   "appearances": [
-    {
-     "volume": "fergus_1839",
-     "title": "Fergus's Chicago directory of 1839",
-     "year": 1839,
-     "source_id": "fergus_chicago_directory_1839",
-     "match_status": "contested",
-     "match_rule": "Surname 'Beaubien' folds to the same string as the 1839 entry's, and the given name of both begins C. CONTESTED: 2 residents of 1835 meet this one 1839 entry on that rule, and at most one of them is the person printed. The match is not made.",
-     "reading": "transcription_mediated",
-     "entries": [
-      {
-       "claim_id": "f1839_e0081",
-       "printed_page": 6,
-       "as_printed": "Beaubien, Charles IT, violinist"
-      }
-     ],
-     "holds": [],
-     "split_refused": {},
-     "sources": [
-      "fergus_chicago_directory_1839"
-     ]
-    }
-   ],
-   "occupation_later": null,
-   "address_later": null,
-   "holds_a_line_whose_parse_does_not_cross": false,
-   "sources": [
-    "fergus_chicago_directory_1839"
-   ]
-  },
-  {
    "person_id": "beaubien_charles_h",
    "household_id": "hh_beaubien_charles_h",
    "resident": "Charles H Beaubien",
-   "grade_1835": "inferred",
+   "grade_1835": "attested",
    "occupation_1835": "none_recorded",
    "lives_at_1835": null,
    "works_at_1835": null,
@@ -1011,8 +973,8 @@
      "title": "Fergus's Chicago directory of 1839",
      "year": 1839,
      "source_id": "fergus_chicago_directory_1839",
-     "match_status": "contested",
-     "match_rule": "Surname 'Beaubien' folds to the same string as the 1839 entry's, and the given name of both begins C. CONTESTED: 2 residents of 1835 meet this one 1839 entry on that rule, and at most one of them is the person printed. The match is not made.",
+     "match_status": "single_entry",
+     "match_rule": "Surname 'Beaubien' folds to the same string as the 1839 entry's, and the given name of both begins C.",
      "reading": "transcription_mediated",
      "entries": [
       {
@@ -1021,14 +983,28 @@
        "as_printed": "Beaubien, Charles IT, violinist"
       }
      ],
-     "holds": [],
+     "holds": [
+      "occupation"
+     ],
      "split_refused": {},
      "sources": [
       "fergus_chicago_directory_1839"
      ]
     }
    ],
-   "occupation_later": null,
+   "occupation_later": {
+    "value": "violinist",
+    "confidence": "attested",
+    "describes_date": 1839,
+    "sources": [
+     "fergus_chicago_directory_1839"
+    ],
+    "claim_id": "f1839_e0081",
+    "as_printed": "Beaubien, Charles IT, violinist",
+    "printed_fields": "f1839_e0081 | Beaubien, Charles IT, violinist | violinist",
+    "split": "The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim.",
+    "note": "Fergus's Chicago directory of 1839 prints this trade against this person, in the entry quoted on the card: 'Beaubien, Charles IT, violinist'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry."
+   },
    "address_later": null,
    "holds_a_line_whose_parse_does_not_cross": false,
    "sources": [
