@@ -507,6 +507,22 @@ step "the K05 roof kit builds every roof as one closed, uncrossed solid with its
 selftest "…and a hole, an inward face, a doubled face, a roof through its gable, a floating return or a low parapet still fails it" \
   python3 tools/check_roof_kit.py --self-test
 
+# T-2305. ...and what the 1904 conservatories are. The K13 kit's houses are sized in
+# data/components/prairie_1904/k13_conservatories.json and built by
+# generators/archetypes/k13_conservatories.py. This rebuilds every house and measures
+# the geometry: every primary prouder and wider than every plate and every plate than
+# every glazing bar, panes inside the glass range with the bars dividing each run evenly,
+# the glass one convex single-sided envelope (one transparency per line of sight), no
+# glass below the plinth's coping, every eave to a K04 gutter and every pipe to grade
+# clear of the coping, the planting opaque, clear of the glass and below the eave, the
+# curvilinear roof on its curve, no doubled face, the triangle budget, and the specimen
+# GLB the generator's bytes.
+step "the K13 conservatory kit builds every glasshouse as a three-tier frame over one convex single-sided envelope, every eave to grade (T-2305)" \
+  python3 tools/check_conservatory_kit.py --check
+
+selftest "…and bars as heavy as plates, a transparent lantern, an inward pane, a gutterless eave, a short pipe or a plant scene still fails it" \
+  python3 tools/check_conservatory_kit.py --self-test
+
 # T-2307. ...and what the 1904 bays, oriels and towers are. The K08 kit's plans, supports,
 # bands, eaves and roofs are sized in data/components/prairie_1904/k08_bays.json and built
 # by generators/archetypes/k08_bays.py, its windows from K06. This rebuilds every variant at
@@ -548,6 +564,19 @@ step "the K09 carved-trim kit builds every ring, hood, capital, tracery and leaf
 
 selftest "…and an even ring, a painted-thin stone, a floating block, a loose leaf, a back face on the wall or a skewed joint still fails it" \
   python3 tools/check_trim_kit.py --self-test
+
+# T-2316. ...and how the 1904 wall heads end. The K10 kit's parts are sized in
+# data/components/prairie_1904/k10_cornices.json and built by generators/archetypes/k10_cornices.py.
+# This rebuilds every variant and measures the geometry: every open edge of a piece lying on
+# another surface (no hanging end, no floating bracket), every closed kneeler, finial, ridge cap
+# and iron bar passing through its host, no doubled face, every run turning both corners of its
+# face by its own projection, brackets evenly spaced with one at every corner on both faces,
+# baluster gaps, no dormer below its roof, cresting posts, budgets, and the specimen GLB.
+step "the K10 cornice kit turns every corner and seats every bracket, rail, coping, dormer and bar (T-2316)" \
+  python3 tools/check_cornice_kit.py --check
+
+selftest "…and a dropped bracket, a lifted finial, a doubled dentil, a short crown, a sunk dormer or a missing post still fails it" \
+  python3 tools/check_cornice_kit.py --self-test
 
 # T-2312. ...and how a 1904 chimney meets its roof. The K15 kit's parts are sized in
 # data/components/prairie_1904/k15_chimneys.json and built by
@@ -3479,6 +3508,11 @@ selftest "the bake builds the ref it was given, and the nightly still builds dev
 # drift guards that the workflow still asks at all.
 selftest "the bake is skipped only when the freshness register says nothing staled" \
   python3 tools/bake_warranted.py --self-test
+
+# T-2314. A whole-town bake derives only the masters the record says moved; deriving
+# all ~714 pushed the content-build job past its thirty-minute ceiling.
+selftest "a whole-town bake derives exactly the masters whose bytes moved (T-2314)" \
+  python3 tools/stale_derivatives.py --self-test
 
 # The duplicate-id remedy, tested in the only state it ever runs in. `restamp`
 # used to find the ticket by FILE (its own comment explains that with two files

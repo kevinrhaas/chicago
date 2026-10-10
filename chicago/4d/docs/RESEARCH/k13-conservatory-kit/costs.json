@@ -1,0 +1,63 @@
+{
+  "_doc": "Measured by tools/study_k13_conservatories.mjs on the specimen GLB. Triangles and draw calls are exact; frame_ms is headless Chromium on a software rasteriser (SwiftShader), a relative figure for comparing kit revisions, not a device frame time.",
+  "specimen_bytes": 578324,
+  "houses": [
+    {
+      "id": "k13.house.lean_to",
+      "triangles_house": 772,
+      "triangles_with_board": 782,
+      "vertices_with_board": 1524,
+      "draw_calls": 10
+    },
+    {
+      "id": "k13.house.span",
+      "triangles_house": 1503,
+      "triangles_with_board": 1505,
+      "vertices_with_board": 2913,
+      "draw_calls": 10
+    },
+    {
+      "id": "k13.house.span_lantern",
+      "triangles_house": 2224,
+      "triangles_with_board": 2226,
+      "vertices_with_board": 4304,
+      "draw_calls": 11
+    },
+    {
+      "id": "k13.house.curvilinear_lean_to",
+      "triangles_house": 1686,
+      "triangles_with_board": 1696,
+      "vertices_with_board": 3114,
+      "draw_calls": 10
+    },
+    {
+      "id": "k13.bay.canted",
+      "triangles_house": 840,
+      "triangles_with_board": 850,
+      "vertices_with_board": 1670,
+      "draw_calls": 10
+    }
+  ],
+  "board": {
+    "desktop": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "draw_calls": 72,
+      "triangles": 9607,
+      "frame_ms_median": 0.5,
+      "geometries": 64
+    },
+    "mobile": {
+      "viewport": [
+        390,
+        780
+      ],
+      "draw_calls": 54,
+      "triangles": 7985,
+      "frame_ms_median": 0.3,
+      "geometries": 64
+    }
+  }
+}
