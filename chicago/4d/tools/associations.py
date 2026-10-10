@@ -256,6 +256,58 @@ def check_association_rows(where: str, rows, *, error, structure_ids: set, sourc
         seen.add(key)
 
 
+# --------------------------------------------------------------------------
+# The reader (T-2260). Where a record lived and worked, from its rows alone.
+#
+# The seating, deal, audit and census tools used to read the singular pair and
+# now read these. The rule is compile_scene.py's (T-2259): only a row that reaches
+# a STRUCTURE puts a record under a roof — a street, a face or a division is where
+# the evidence stopped — and a row a source CLOSES before the scene date is a place
+# the household had left. Rows keep the record's own order, so the first is the
+# one the singular pair named; `validate.py`'s `singular_drift` is what holds that.
+
+SCENE_DATE = dt.date(1835, 7, 1)
+
+
+def roof_rows(record: dict, kinds, scene: dt.date = SCENE_DATE) -> list[dict]:
+    """The `kinds` rows that put `record` under a roof on `scene`, in the record's order."""
+    out = []
+    for r in record.get("associated_with") or []:
+        if not isinstance(r, dict) or r.get("kind") not in kinds:
+            continue
+        if r.get("resolves_to") != "structure" or not r.get("place_or_structure_id"):
+            continue
+        ends = read_bounds(r.get("to")) if r.get("to") is not None else None
+        if ends and ends[1] < scene:
+            continue
+        out.append(r)
+    return out
+
+
+def home_row(record: dict, scene: dt.date = SCENE_DATE) -> dict | None:
+    """The row naming where `record` lived on `scene`, or None."""
+    rows = roof_rows(record, HOME_KINDS, scene)
+    return rows[0] if rows else None
+
+
+def work_row(record: dict, scene: dt.date = SCENE_DATE) -> dict | None:
+    """The row naming where `record` worked on `scene`, or None."""
+    rows = roof_rows(record, WORK_KINDS, scene)
+    return rows[0] if rows else None
+
+
+def home_of(record: dict, scene: dt.date = SCENE_DATE) -> str | None:
+    """The structure `record` lived in on `scene` — what `lives_at.value` used to say."""
+    row = home_row(record, scene)
+    return row["place_or_structure_id"] if row else None
+
+
+def workplace_of(record: dict, scene: dt.date = SCENE_DATE) -> str | None:
+    """The structure `record` worked in on `scene` — what `works_at.value` used to say."""
+    row = work_row(record, scene)
+    return row["place_or_structure_id"] if row else None
+
+
 def singular_drift(record: dict, rows) -> list[str]:
     """While both shapes exist, the singular link must appear among the plural rows.
 
@@ -456,6 +508,26 @@ def self_test() -> int:
     ok = bool(drift)
     print(("ok   " if ok else "FAIL ") + "the singular link drifting from the plural one")
     failed += 0 if ok else 1
+
+    # T-2260: the reader the seating, deal, audit and census tools use.
+    left = {**base, "place_or_structure_id": "kinzie_house", "to": "1834"}
+    street = {**base, "place_or_structure_id": "lake_street", "resolves_to": "street"}
+    work = {**base, "kind": "business_premises"}
+    for label, rec, want in [
+        ("the reader names the home row's roof", {"associated_with": [base]}, ("peck_store", None)),
+        ("the reader skips a home the source closes before the scene",
+         {"associated_with": [left, base]}, ("peck_store", None)),
+        ("the reader skips a home that reaches only a street",
+         {"associated_with": [street]}, (None, None)),
+        ("the reader names a workplace and no home from a premises row",
+         {"associated_with": [work]}, (None, "peck_store")),
+        ("the reader ignores the singular pair",
+         {"lives_at": {"value": "peck_store"}, "works_at": {"value": "peck_store"}}, (None, None)),
+    ]:
+        got = (home_of(rec), workplace_of(rec))
+        ok = got == want
+        print(("ok   " if ok else "FAIL ") + label + ("" if ok else f"  -> {got}"))
+        failed += 0 if ok else 1
 
     kept = singular_drift({"lives_at": {"value": "peck_store"}}, [base])
     ok = not kept

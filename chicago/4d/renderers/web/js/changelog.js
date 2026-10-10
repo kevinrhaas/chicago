@@ -1,9 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1603, ts: '2026-10-10T01:03:06.771Z', date: 'Oct 9, 2026, 8:03 PM CT', title: 'Prairie Avenue’s building parts get one set of measurements', kind: 'change',
+  { v: null, ts: '', title: 'Prairie Avenue’s building parts get one set of measurements', kind: 'change',
     items: [
       'Nothing you can see changes yet. The walls, windows, roofs and front steps of the 1904 houses still to come will now be built from one rule book. Everything is in metres, measured up from the ground.',
       'The Glessner House was checked against that rule book. It is the right size in all three of its download sizes, and its walls stand where its floor plan says.',
       'A few small faults turned up: hidden doubled faces in the stone trim on the Prairie Avenue front and where two roof pieces meet. They are filed to be fixed when the house is next rebuilt.',
+    ] },
+  { v: 1604, ts: '2026-10-10T01:02:46.060Z', date: 'Oct 9, 2026, 8:02 PM CT', title: 'The tools that seat the town read each household\u2019s dated places', kind: 'change',
+    items: [
+      'Nothing you can see changes. The tools that give households their houses, deal the empty roofs, audit the town and count its census now read where a household lived and worked from the dated places on its card, the same entries its card shows you.',
+      'Every seat, count and census figure comes out exactly as before, even with the old single home and workplace lines removed from the records, which is what lets those lines be retired next.',
+    ] },
+  { v: 1603, ts: '2026-10-10T00:46:47.918Z', date: 'Oct 9, 2026, 7:46 PM CT', title: 'Glessner roof proportions gain a reviewable comparison audit', kind: 'feature',
+    items: [
+      'Open Glessner’s photographic comparison page to review the current roof, dormers and courtyard bay against the fixed reference cameras. A dimension table gives the evidence, confidence and remaining disagreements.',
+      'The earlier baseline remains available for comparison. The repaired house geometry is retained; the lifted copper corner remains an identified repair for its own ticket.',
     ] },
   { v: 1602, ts: '2026-10-10T00:25:08.610Z', date: 'Oct 9, 2026, 7:25 PM CT', title: 'A building card\u2019s residents are read from their dated places', kind: 'fix',
     items: [

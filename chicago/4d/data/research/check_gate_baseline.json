@@ -2,11 +2,11 @@
   "schema": 2,
   "ticket": "T-0714, with T-0896's reasons",
   "what": "The tools carrying a --check mode that tools/check.sh does not run with --check, and WHY each one is not. A ratchet, not a target: this list may shrink, and audit_check_gates.py --gate fails when it grows, when it is left standing above what the tree actually shows, or when a row states no reason.",
-  "how_to_change_it": "Gate the tool in tools/check.sh and re-run --write, or, if it cannot be gated today, write why_not_gated on its row here \u2014 --write carries that field forward \u2014 and point owner_ticket at whoever owns the answer. The gate fails on a row with no reason, and on a row the gate has since started running.",
+  "how_to_change_it": "Gate the tool in tools/check.sh and re-run --write, or, if it cannot be gated today, write why_not_gated on its row here — --write carries that field forward — and point owner_ticket at whoever owns the answer. The gate fails on a row with no reason, and on a row the gate has since started running.",
   "counts": {
-    "check_capable": 287,
-    "gated": 278,
-    "ungated": 9
+    "check_capable": 291,
+    "gated": 281,
+    "ungated": 10
   },
   "ungated": [
     {
@@ -16,9 +16,15 @@
       "owner_ticket": "T-2228"
     },
     {
+      "tool": "tools/glessner_proportion_audit.py",
+      "other_modes_in_check_sh": [],
+      "why_not_gated": "T-2206 is a dated candidate audit against frozen T-2200 cameras. Its --check verifies the exact audited master, Full, Light and data bytes; future completion tickets deliberately change those assets. A per-commit gate would force rewriting a historical audit or forbid legitimate model changes. Run --check on the audited snapshot and use an explicitly reviewed new candidate for later work. Six camera behavior tests and the published browser stale-asset warning protect the comparison method; T-2228 owns cross-version photographic sign-off.",
+      "owner_ticket": "T-2228"
+    },
+    {
       "tool": "tools/measure_street_widths.py",
       "other_modes_in_check_sh": [],
-      "why_not_gated": "Not gateable per commit: `--check` re-reads the Wright sheet over the IIIF endpoint (the region caches to /tmp and is not committed) and needs numpy and Pillow, so a cold tree reaches the network. Measured GREEN \u2014 5 s, 11 corridors, none drifted more than 0.6 ft \u2014 with the readers installed. The way to gate it is trace_river.py's split: an offline `--check-properties` half over the committed metres. It has none yet."
+      "why_not_gated": "Not gateable per commit: `--check` re-reads the Wright sheet over the IIIF endpoint (the region caches to /tmp and is not committed) and needs numpy and Pillow, so a cold tree reaches the network. Measured GREEN — 5 s, 11 corridors, none drifted more than 0.6 ft — with the readers installed. The way to gate it is trace_river.py's split: an offline `--check-properties` half over the committed metres. It has none yet."
     },
     {
       "tool": "tools/rename_household_ids.py",
@@ -28,12 +34,12 @@
     {
       "tool": "tools/trace_shoreline.py",
       "other_modes_in_check_sh": [],
-      "why_not_gated": "Not gateable per commit, for the reason check.sh already states about trace_river.py: `--check` re-traces a Digital Commonwealth scan over the network and needs numpy, scipy and Pillow. Its three sibling traces carry a `--check-properties` offline half the gate does run; this one does not, and writing it is how this gets gated. Measured GREEN \u2014 24 s, all 316 water vertices and both harbour shore runs stand."
+      "why_not_gated": "Not gateable per commit, for the reason check.sh already states about trace_river.py: `--check` re-traces a Digital Commonwealth scan over the network and needs numpy, scipy and Pillow. Its three sibling traces carry a `--check-properties` offline half the gate does run; this one does not, and writing it is how this gets gated. Measured GREEN — 24 s, all 316 water vertices and both harbour shore runs stand."
     },
     {
       "tool": "tools/trace_shoreline_1830.py",
       "other_modes_in_check_sh": [],
-      "why_not_gated": "Not gateable per commit, for the same reason as trace_shoreline.py: `--check` re-fetches the Harrison plate from the Internet Archive and needs numpy, scipy and Pillow. What the gate runs instead is tools/measure_shore_1812_harrison.py --check, offline, over the committed reading this tool writes (T-1286). Measured GREEN 2026-10-02 \u2014 the reading re-traced byte for byte, stockade 8.0 px inside its 12 px tolerance.",
+      "why_not_gated": "Not gateable per commit, for the same reason as trace_shoreline.py: `--check` re-fetches the Harrison plate from the Internet Archive and needs numpy, scipy and Pillow. What the gate runs instead is tools/measure_shore_1812_harrison.py --check, offline, over the committed reading this tool writes (T-1286). Measured GREEN 2026-10-02 — the reading re-traced byte for byte, stockade 8.0 px inside its 12 px tolerance.",
       "owner_ticket": "T-1243"
     },
     {
@@ -52,7 +58,7 @@
     {
       "tool": "tools/measure_boot_payload.mjs",
       "other_modes_in_check_sh": [],
-      "why_not_gated": "T-0727/T-1156. The --check re-measures the boot payload in a real headless browser against the PUBLISHED mirror (~40 s plus a publish) \u2014 check.sh takes seconds and runs no browser. Deliberately ungated until T-1156 wires it into a nightly smoke leg, whose leg budgeting belongs to T-0167.",
+      "why_not_gated": "T-0727/T-1156. The --check re-measures the boot payload in a real headless browser against the PUBLISHED mirror (~40 s plus a publish) — check.sh takes seconds and runs no browser. Deliberately ungated until T-1156 wires it into a nightly smoke leg, whose leg budgeting belongs to T-0167.",
       "owner_ticket": "T-1156"
     },
     {
