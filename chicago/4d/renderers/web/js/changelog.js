@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1613, ts: '2026-10-10T03:56:56.811Z', date: 'Oct 9, 2026, 10:56 PM CT', title: 'Every 1835 door is shut and every window glazed', kind: 'feature',
+    items: [
+      'Doors were black holes in the wall. Houses, taverns, stores and fort buildings now have closed panelled doors on a sill. Shops have half-glazed doors with a transom light, and cabins have board doors on iron strap hinges.',
+      'Windows were black panels with flat bars. Each now sits in a board casing with a sloped sill and a drip cap. The sash is set back so the frame casts a shadow.',
+      'The glass is the dark glass Glessner House uses in 1904: a near-black pane that reflects the sky. Chicago merchants sold window glass and ready-made sash by the box in 1833–35, so cabins have glass too. Barns and sheds stay unglazed.',
+      'Store show windows are small panes, the 8×10 inch sizes the town’s merchants sold. Many cabin windows have board shutters standing open. Barn and shed doors now hang on strap hinges.',
+    ] },
   { v: 1612, ts: '2026-10-10T03:43:50.834Z', date: 'Oct 9, 2026, 10:43 PM CT', title: 'Release notes no longer hold up each other\'s merges', kind: 'chore',
     items: [
       'Nothing in the app changes. Each change now carries its release note as a file of its own, and the note joins this list after the change lands, so changes waiting to merge stop colliding on the top line of this list.',
