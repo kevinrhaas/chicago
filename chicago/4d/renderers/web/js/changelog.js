@@ -1,9 +1,4 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Glessner House rebuilt without its hidden doubled faces', kind: 'fix',
-    items: [
-      'Go close to the carved leaves over the Prairie Avenue entrance and on the porch capitals. Their roots and tips now close cleanly, where thin slivers used to lie on top of each other. The change is a few pixels at the leaf tips. Nothing else on the house moves.',
-      'Two hidden faults are also gone: doubled end caps inside the roof ridge, and doubled ends in the copper flashing round the chimneys. The detailed house is about 10,000 triangles lighter and its downloads are slightly smaller.',
-    ] },
   { v: 1613, ts: '2026-10-10T03:56:56.811Z', date: 'Oct 9, 2026, 10:56 PM CT', title: 'Every 1835 door is shut and every window glazed', kind: 'feature',
     items: [
       'Doors were black holes in the wall. Houses, taverns, stores and fort buildings now have closed panelled doors on a sill. Shops have half-glazed doors with a transom light, and cabins have board doors on iron strap hinges.',
