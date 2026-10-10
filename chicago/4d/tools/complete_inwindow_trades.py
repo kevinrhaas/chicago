@@ -56,8 +56,9 @@ WHAT IT REFUSES TO DO.
     buckets are cut against and orders nothing.
 
 WHERE A HOUSE IS SEATED, AND WHERE IT IS NOT. 22 of the 45 keepers already carry a
-`works_at` structure on their card, so the premises is not unknown at all — Rufus Brown's
-boarding house, McKee's smithy on State Street, the Tremont. But `works_at` also holds
+workplace row on their card (`associations.work_row`, T-2276), so the premises is not unknown
+at all — Rufus Brown's boarding house, McKee's smithy on State Street, the Tremont. But that
+link also holds
 BUILT-BY links, which are not workplaces: Augustine Taylor "works at" St Mary's because he
 raised it, and Anson Taylor at the South Branch raft bridge for the same reason. So the
 link is taken only when the STRUCTURE'S OWN committed `function` is the term the premises
@@ -79,6 +80,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from associations import work_row  # noqa: E402
 from compile_businesses import (  # noqa: E402  — one derivation of a house's community
     RESIDENT_CARD_DIRS,
     derive_proprietor_community,
@@ -368,16 +370,16 @@ def structure_functions() -> dict[str, str]:
 def seat(house: dict, ruling: dict, cards_by_id: dict, functions: dict) -> dict | None:
     """The structure the lead keeper's card already puts this trade in, or nothing."""
     card = cards_by_id.get(house["keepers"][0]["household_id"]) or {}
-    works = card.get("works_at") or {}
-    sid = works.get("value")
+    works = work_row(card) or {}
+    sid = works.get("place_or_structure_id")
     if not sid:
         return None
     allowed = SEATS_AT.get(ruling.get("signage_function") or "", ())
     if functions.get(sid) not in allowed:
         return None
     return {"structure_id": sid, "function": functions.get(sid),
-            "confidence": works.get("confidence"),
-            "sources": sorted(works.get("sources") or [])}
+            "confidence": works.get("tier"),
+            "sources": sorted({works.get("source_id"), *(works.get("also_sources") or [])} - {None})}
 
 
 WORDS = {"forwarding_and_commission": "forwarding and commission merchant"}
@@ -747,16 +749,17 @@ def self_test() -> int:
     house = {"occupation": "carpenter",
              "keepers": [{"household_id": "hh_1", "person_id": "p1", "name": "A"}]}
     shop = {"signage_function": "shop"}
-    cards_by_id = {"hh_1": {"id": "hh_1", "works_at": {"value": "st_marys_church",
-                                                       "confidence": "inferred",
-                                                       "sources": ["andreas_1884_v1"]}}}
+    work = {"kind": "workplace", "place_or_structure_id": "st_marys_church",
+            "resolves_to": "structure", "from": None, "to": None,
+            "tier": "inferred", "source_id": "andreas_1884_v1"}
+    cards_by_id = {"hh_1": {"id": "hh_1", "associated_with": [work]}}
     assert seat(house, shop, cards_by_id, {"st_marys_church": "church"}) is None, \
         "a built-by link seated a carpenter's shop in a church"
-    cards_by_id["hh_1"]["works_at"]["value"] = "a_shop"
+    work["place_or_structure_id"] = "a_shop"
     got = seat(house, shop, cards_by_id, {"a_shop": "shop"})
     assert got and got["structure_id"] == "a_shop", "a real workplace link was not seated"
     inn = {"signage_function": "hotel"}
-    cards_by_id["hh_1"]["works_at"]["value"] = "western_hotel"
+    work["place_or_structure_id"] = "western_hotel"
     got = seat(house, inn, cards_by_id, {"western_hotel": "tavern_inn"})
     assert got and got["function"] == "tavern_inn", \
         "a hotel keeper was refused a roof the town records as a tavern_inn"
