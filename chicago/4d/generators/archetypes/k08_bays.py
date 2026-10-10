@@ -131,7 +131,7 @@ def clip_half(poly, f):
 
 
 def area(poly) -> float:
-    return sum(p[0] * q[1] - q[0] * p[1] for p, q in zip(poly, poly[1:] + poly[:1])) / 2
+    return math.fsum(p[0] * q[1] - q[0] * p[1] for p, q in zip(poly, poly[1:] + poly[:1])) / 2
 
 
 def hull(points):
@@ -294,7 +294,7 @@ def plan_of(v: dict):
 
 def locate(runs, plan, w: dict):
     """Where each of a window entry's positions falls: (run index, s of its centre)."""
-    total = sum(r.L for r in runs)
+    total = math.fsum(r.L for r in runs)
     out = []
     if "at" in w:
         for f in w["at"]:
@@ -548,8 +548,8 @@ class Bay:
         y_sill = o.O[1]
         panes = []
         for p in o.panes:
-            cs = sum(q[0] for q in p["poly"]) / len(p["poly"]) + s
-            cy = sum(q[1] for q in p["poly"]) / len(p["poly"]) + y_sill
+            cs = math.fsum(q[0] for q in p["poly"]) / len(p["poly"]) + s
+            cy = math.fsum(q[1] for q in p["poly"]) / len(p["poly"]) + y_sill
             al, ou = run.frame(cs)
             panes.append({"at": run.world(cs, cy, -p["depth_m"]), "out": ou, "along": al})
         bk = o.prims["backing"].pos
