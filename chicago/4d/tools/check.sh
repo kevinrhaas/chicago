@@ -461,6 +461,15 @@ step "the 1904 street surfaces cover the grid, cite real sources and bound the s
 selftest "…and a bare surface, an invented source, a report made to attest or a range that misses still fails it" \
   python3 tools/check_street_surfaces.py --self-test
 
+# T-2296. ...and the relief those surfaces are lit with points the right way. The library's
+# generator wrote green as -dh/drow, the DirectX sign, into every `normal_gl` map, and
+# street-grid.js binds `normal_gl_web.jpg` into three.js, which reads OpenGL (+V up the
+# image): every pothole, rut and joint was lit as a bump across the street. This
+# correlates each map's red and green with its own height16's slopes, so a flipped
+# channel is red whatever its strength.
+step "the 1904 street normals are OpenGL-handed, as the renderer binds them (T-2296)" \
+  python3 tools/check_street_surfaces.py --handedness
+
 # T-2292. ...and what the 1904 roofs are covered in. The K04 library's slates, tiles, pans
 # and sheets are sized in data/components/prairie_1904/k04_roofs.json and drawn by the
 # generator in assets/textures/prairie_1904_roofs/; a K01 roof maps TEXCOORD_0 = metres /
@@ -472,6 +481,19 @@ step "the K04 roof library registers to its data, wraps seamlessly and cites wha
 
 selftest "…and a scaled tile, a broken lap, an odd bond, an oversized slate or a tile built from a barred source still fails it" \
   python3 tools/check_roof_library.py --self-test
+
+# T-2297. ...and what the 1904 windows are. The K06 kit's parts are sized in
+# data/components/prairie_1904/k06_windows.json and built by
+# generators/archetypes/k06_windows.py. This rebuilds every variant and measures the
+# geometry: each stage of the window strictly deeper than the last, every hole edge
+# closed by a reveal, a dark room behind every pane, glass the only transparency and one
+# layer of it per line of sight, no doubled face, even muntins, true arches, the
+# triangle budget, and the specimen GLB the generator's bytes.
+step "the K06 window kit builds every window as a closed recess over an enclosed room, one glass layer deep (T-2297)" \
+  python3 tools/check_window_kit.py --check
+
+selftest "…and a blind before the glass, a missing jamb, a holed backing, a doubled pane or a leaded street sash still fails it" \
+  python3 tools/check_window_kit.py --self-test
 
 # T-1963. The walls' relief is bound by reading the RECORD (route 2 of the photographic
 # fabric preparation, docs/GLB-CONTRACT.md § Wall substrates, PROPOSED): which wall is

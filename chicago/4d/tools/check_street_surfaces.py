@@ -30,6 +30,17 @@ evidence. So the contract is:
   * PIECES. A carriageway cut into pieces cuts at a carriageway the grid has, and only its
     last piece runs to the end.
 
+    python3 tools/check_street_surfaces.py --handedness  # the normals' sign (T-2296)
+
+  * HANDEDNESS (T-2296). Each `normal_gl` map, and the web JPEG the renderer actually
+    binds, is OpenGL-handed against its own `height16`: red falls where height rises
+    to the right and green rises where height rises DOWN the image, because +V runs up
+    it (three.js loads with flipY). Measured as the correlation of each channel with
+    the height's central difference, so it reads the sign, not the strength. Every map
+    shipped from T-1728 to T-2296 had green at -0.68..-1.00 — the DirectX map under the
+    OpenGL name. It re-reads rasters, so with no numpy or Pillow it says so and stands
+    aside (tools/check_gate_readers.py makes that red in CI).
+
 It reads; it writes nothing.
 """
 from __future__ import annotations
@@ -248,6 +259,57 @@ def table(doc: dict, grid: dict) -> str:
     return "\n".join(rows)
 
 
+# A channel must track its gradient at least this well, in the right sign. The web JPEGs
+# at quality 92 read 0.68 on the curbstone's flat tops and 0.98+ on everything with
+# relief, so 0.5 refuses a flipped map (-0.68 at best) with room for the encoder.
+HANDED_MIN = 0.5
+
+
+def handedness(height, normal) -> dict:
+    """Correlate a normal map's red and green with its height's slopes.
+
+    `height` is HxW, `normal` HxWx3, both 0..1. Returns {"red": r, "green": g}, where an
+    OpenGL-handed map reads r ~ -1 against dh/dcol and g ~ +1 against dh/drow.
+    """
+    import numpy as np
+    h = np.asarray(height, dtype=np.float64)
+    n = np.asarray(normal, dtype=np.float64)
+    gx = (np.roll(h, -1, 1) - np.roll(h, 1, 1)).ravel()
+    gy = (np.roll(h, -1, 0) - np.roll(h, 1, 0)).ravel()
+    return {"red": float(np.corrcoef(n[..., 0].ravel(), gx)[0, 1]),
+            "green": float(np.corrcoef(n[..., 1].ravel(), gy)[0, 1])}
+
+
+def handed_faults(where: str, c: dict) -> list:
+    bad = []
+    if not c["red"] <= -HANDED_MIN:
+        bad.append(f"{where}: red reads {c['red']:+.3f} against dh/dx; OpenGL wants <= -{HANDED_MIN}")
+    if not c["green"] >= HANDED_MIN:
+        bad.append(f"{where}: green reads {c['green']:+.3f} against dh/drow; OpenGL wants >= "
+                   f"+{HANDED_MIN} (+V runs up the image) — a negative one is a DirectX map")
+    return bad
+
+
+def check_handedness(doc: dict, textures: Path = TEXTURES):
+    """(faults, lines) for every material's normal_gl and its web JPEG; None if no readers."""
+    try:
+        import numpy as np
+        from PIL import Image
+    except ImportError:
+        return None
+    bad, lines = [], []
+    for mid, m in sorted((doc.get("materials") or {}).items()):
+        d = textures / doc.get("texture_library", "textures/prairie_1904_pbr/") / m.get("texture", "")
+        sheet = load(d / "material.json")
+        h = np.asarray(Image.open(d / f"{d.name}_height16.png"), dtype=np.float64) / 65535.0
+        for name in (f"{d.name}_normal_gl.png", (sheet.get("web") or {}).get("normal_gl")):
+            rgb = np.asarray(Image.open(d / name).convert("RGB"), dtype=np.float64) / 255.0
+            c = handedness(h, rgb)
+            lines.append(f"{name:42s} red {c['red']:+.3f}  green {c['green']:+.3f}")
+            bad += handed_faults(f"material {mid}: {name}", c)
+    return bad, lines
+
+
 def check() -> list:
     for p in (SURFACES, GRID):
         if not p.exists():
@@ -301,6 +363,33 @@ def self_test() -> int:
                   day("1904", "from") <= dt.date(1904, 7, 1) <= day("1904", "to") and
                   day("1905", "from") > dt.date(1904, 7, 1)))
     cases.append(("the committed surfaces pass", not contract(base, grid, tiers, libs)))
+    try:
+        import numpy as np
+    except ImportError:
+        np = None
+    if np is None:
+        print("   skip handedness cases: numpy is not installed (check_gate_readers.py names this)")
+    else:
+        # A tilted plane rising DOWN the image and to the right: its OpenGL normal leans
+        # up-image (green high) and left (red low). The DirectX map flips only green.
+        rows, cols = np.mgrid[0:64, 0:64] / 64.0
+        h = 0.3 * rows + 0.2 * cols + 0.05 * np.sin(rows * 37) * np.cos(cols * 23)
+        gx = np.roll(h, -1, 1) - np.roll(h, 1, 1)
+        gy = np.roll(h, -1, 0) - np.roll(h, 1, 0)
+        n = np.stack((-gx, gy, np.full_like(h, 0.02)), axis=-1)
+        n = n / np.linalg.norm(n, axis=-1, keepdims=True) * 0.5 + 0.5
+        dxm = n.copy()
+        dxm[..., 1] = 1 - dxm[..., 1]
+        cases.append(("an OpenGL-handed normal map passes the handedness rule",
+                      not handed_faults("gl", handedness(h, n))))
+        cases.append(("a DirectX map filed as normal_gl is refused (T-2296)",
+                      any("DirectX" in b for b in handed_faults("dx", handedness(h, dxm)))))
+        flipped_red = n.copy()
+        flipped_red[..., 0] = 1 - flipped_red[..., 0]
+        cases.append(("a map with red mirrored is refused",
+                      any("red reads" in b for b in handed_faults("r", handedness(h, flipped_red)))))
+        got = check_handedness(base)
+        cases.append(("the committed normal maps are OpenGL-handed", got is not None and not got[0]))
     for label, ok in cases:
         print(("   ok   " if ok else "   FAIL ") + label)
     return 0 if all(ok for _, ok in cases) else 1
@@ -311,9 +400,25 @@ def main() -> int:
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--self-test", action="store_true")
     ap.add_argument("--table", action="store_true")
+    ap.add_argument("--handedness", action="store_true")
     a = ap.parse_args()
     if a.self_test:
         return self_test()
+    if a.handedness:
+        got = check_handedness(load(SURFACES))
+        if got is None:
+            print("SKIP the normals' handedness: numpy or Pillow is not installed — a banked "
+                  "reading, not a pass (tools/check_gate_readers.py)")
+            return 0
+        bad, lines = got
+        for line in lines:
+            print("  ", line)
+        for b in bad:
+            print("FAIL", b)
+        if not bad:
+            print(f"OK {len(lines)} normal maps are OpenGL-handed against their own height "
+                  f"(|r| and g >= {HANDED_MIN})")
+        return 1 if bad else 0
     if a.table:
         print(table(load(SURFACES), load(GRID)))
         return 0
