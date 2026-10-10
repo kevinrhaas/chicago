@@ -23295,6 +23295,7 @@ string course. A dated soot reading for Prairie Avenue c. 1904.
 **Ticket:** T-2291 (piece 2 of T-1845).
 **Review:** `docs/RESEARCH/k03-1808-service-brick-2291/README.md`.
 **Recorded:** 2026-10-10 (T-2291).
+
 ### L-k05-roof-kit-2301 — The Prairie roof kit: every pitch, overhang, verge, return, parapet and dormer reconstructed
 
 **Decision:** the 1904 Prairie programme's roof construction (package K05, T-2301) is ten
@@ -23885,3 +23886,20 @@ once.
 **Ticket:** T-2322 (piece 1 of T-1858, K16).
 **Review:** `docs/RESEARCH/k16-timber-kit/README.md`.
 **Recorded:** 2026-10-10 (T-2322).
+
+### L417 — The portable-human pipeline's test figure, which is nobody
+
+**Decision:** `c4d_fixture`, the four-LOD body under `assets/humans/` (and its Meshopt derivatives in
+`assets/humans/web/`), is a deliberately plain figure built from primitives by
+`tools/human_fixture_blend.py`: tapered cylinders on the 56 contract bones, spheres for the head and
+eyes, boxes for the feet and the light LODs' mitten hands, a generated 64 px twill on `garment_upper`,
+1.70 m tall, with three face morphs and an `idle` and a `walk` that were keyed by hand. **Everything
+about it is invented**, and on purpose: it exists to prove the road Blender -> GLB -> the browser
+(T-1787) on every LOD, not to depict anyone. It is not a resident, carries no `person_id`, has no
+instance record, and no scene loads it, so L1 is untouched; it is drawn only by the test page
+`tools/human_fixture.html`, which is never published.
+**Applies to:** `assets/humans/c4d_fixture.lod0-3.glb` and `assets/humans/web/c4d_fixture.lod0-3.glb`. No
+structure, terrain or person carries it, so it discharges no `Covers` token.
+**Ticket:** T-1787.
+**Review:** `data/humans/fixture.measure.json` (the browser verdicts and costs).
+**Recorded:** 2026-10-10 (T-1787).
