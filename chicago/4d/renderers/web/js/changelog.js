@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1665, ts: '2026-10-10T22:13:35.469Z', date: 'Oct 10, 2026, 5:13 PM CT', title: '1638 Prairie gets its Gothic timber front', kind: 'feature',
+    items: [
+      'The Shortall-Gregory house stands at 1638 Prairie, placed from the 1911 Sanborn plan.',
+      'A steep gable of fish-scale shingles under pierced bargeboards, with a finial at the peak.',
+      'Clapboard laid board by board, corner boards, cased sash and a bracketed eave beside it.',
+      'A lattice-skirted porch with chamfered posts across the north end, where the map draws it.',
+      'The body behind and the canted bay are plain stand-ins until the house\'s envelope is built.',
+    ] },
   { v: 1664, ts: '2026-10-10T21:39:56.000Z', date: 'Oct 10, 2026, 4:39 PM CT', title: 'Every building on Prairie Avenue\'s 16th–18th block, traced off the 1911 map', kind: 'chore',
     items: [
       'Nothing you can see changed yet. 49 buildings on the 16th–18th block now have real outlines, read off the fire-insurance map\'s drawn walls.',
