@@ -679,10 +679,25 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
   serve); the gate runs it for you either way.
   `site/4d/` is a generated mirror and `deploy.yml` only fires on `site/**`, so
   skipping it ships nothing while looking merged.
-- **Changelog**: prepend one entry to `renderers/web/js/changelog.js` with all three
-  authored fields blank — `v: null, ts: '', date: ''` — then run
-  `node tools/stamp-changelog.mjs` and `node tools/check-changelog.mjs`. **Stamp BEFORE
-  merging to `dev`; nothing stamps later in the pipeline.**
+- **Changelog: add ONE entry FILE, `changelog.d/<ticket>.json`, and do not touch
+  `renderers/web/js/changelog.js` (owner, 2026-10-10).** The file holds
+  `{ "title": …, "kind": …, "items": [ … ] }` and nothing else — no `v`, `ts` or `date`.
+  Check it with `node tools/changelog-entries.mjs --check` (`check.sh` runs that too); the
+  What's-New budget below applies to it unchanged. After the PR merges,
+  `.github/workflows/chicago-4d-changelog-fold.yml` folds every pending file into
+  `changelog.js` on `dev` (newest landing on top), stamps it, deletes the file and pushes
+  one commit, so the published changelog keeps its exact format. `changelog.d/README.md`
+  shows an example.
+  - **Why a file:** every PR used to edit the top line of `changelog.js`, GitHub does not run
+    this repo's merge drivers, so every open PR conflicted with every landing. With ten lanes
+    and a twelve-minute gate a sibling always landed first; on 2026-10-09/10 #607, #608, #610
+    and #613 each lost three merges to that one line. Two PRs never write the same entry
+    file, so they never conflict on it.
+  - Name the file after the ticket (`T-2250.json`); two files with the same title are refused.
+  - **The old way still passes** (prepend to `changelog.js` with `v: null, ts: '', date: ''`,
+    then `node tools/stamp-changelog.mjs` and `node tools/check-changelog.mjs`), so a PR
+    opened before 2026-10-10 need not be redone. The notes below are about that file and
+    still hold for anyone who edits it.
   - `date: ''` must be *present*: the stamper fills an empty `ts` but only *regenerates* a
     `date` that already exists, so an entry authored without the key fails the contract check.
   - `v: null` because the number is not yours to guess. Two branches that each compute
@@ -700,8 +715,8 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
     are re-stamped. `check-changelog.mjs` holds the working tree to its merge base with `dev`
     and refuses an entry that was dropped, re-stamped or renumbered: measured over every dev
     merge since 2026-08, that happened 25 times and read "contract OK" every time.
-  - Nothing stamps after merge. The file is authored inside the app because the What's-new
-    tab imports it; `publish.sh` mirrors it to `site/4d/js/changelog.js`, the URL
+  - Only the fold stamps after merge, and only entry files. The file is authored inside
+    the app because the What's-new tab imports it; `publish.sh` mirrors it to `site/4d/js/changelog.js`, the URL
     Manager and the polecat.live launcher parse live, which must not move — and to
     `site/4d/walk/js/changelog.js` inside the copied renderer tree.
   - **Stamping after `publish.sh` is safe (T-0155).** Both mirrors are compared byte for

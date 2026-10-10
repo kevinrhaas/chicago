@@ -47,6 +47,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from common import materials  # noqa: E402
+from common import openings  # noqa: E402
 from common.mesh import MeshBuilder, simple_material  # noqa: E402
 from archetypes.frame_storefront_params import (  # noqa: E402
     CORNER_BOARD_M, GOODS_DOOR_H_M, POST_FACE_M, POST_SPACING_M, SHEATHING_M,
@@ -308,26 +309,60 @@ def _flat(b: MeshBuilder, x0: float, y0: float, x1: float, y1: float, z: float,
     b.add_poly(pts, conf, mat)
 
 
-def _opening(b: MeshBuilder, axis: str, plane: float, u0: float, u1: float,
-             z0: float, z1: float, outward: int, conf: float,
-             surround: int = M_TRIM, relief: float = CLAD_RELIEF_M) -> None:
-    """A door or window on an elevation that is not the shopfront: a dark panel
-    inside a sawn surround, both sitting proud of the cladding.
+def _kit(b: MeshBuilder) -> openings.Mats:
+    """The openings kit's materials (T-2278): casing and sash in the store's trim, its
+    own glass row (Glessner's dark pane, off the sheet), a door leaf dealt a paint,
+    weathered board for freight doors and hatches, and strap iron."""
+    # A shop door is dealt a paint whatever the walls carry: it was the one surface
+    # of a store a customer put a hand to, and the cheapest one to paint.
+    rgba, rough = openings.door_paint(b.name, True)
+    return openings.Mats(
+        casing=M_TRIM, sash=M_TRIM, glass=M_GLASS,
+        door=b.named_mat("door", rgba, rough),
+        panel=b.named_mat("door_panel", openings.shade(rgba, 0.70), rough),
+        iron=b.named_mat("iron", *openings.STRAP_IRON))
 
-    Surfaces, not holes — at this LOD an opening would show the inside of the far
-    wall. The surround is not decoration: an opening drawn as a bare dark rectangle
-    has to sit proud of the cladding to be visible at all, which makes it read as a
-    plaque glued to the wall.
+
+def _board_kit(b: MeshBuilder) -> openings.Mats:
+    """The same kit with a weathered board leaf: a freight door is not a front door."""
+    k = _kit(b)
+    rgba, rough = openings.WEATHERED_BOARD
+    board = b.named_mat("board_door", rgba, rough)
+    return openings.Mats(casing=k.casing, sash=k.sash, glass=k.glass, door=board,
+                         panel=b.named_mat("board_joint", openings.shade(rgba, 0.45), rough),
+                         iron=k.iron)
+
+
+def _opening(b: MeshBuilder, axis: str, plane: float, u0: float, u1: float,
+             z0: float, z1: float, outward: int, conf: float, kind: str = "window",
+             relief: float = CLAD_RELIEF_M) -> None:
+    """A door or window on an elevation that is not the shopfront, built by the shared
+    openings kit (T-2278).
+
+    Before this every one of them — window, front door, freight door, loft hatch — was
+    the same glass-coloured panel inside a flat surround, so a store's freight doors
+    were drawn as two storeys of glass. Now each is what it is: a cased window with
+    its sash set back over the town's dark glass (`window`, and the half storey's
+    small fixed light, `attic`); a panelled front door (`door`); a pair of board
+    leaves on strap hinges (`goods`, `hoist`); a closed board hatch (`loft`).
     """
-    off = relief + 0.010
-    m = 0.075
-    # The surround never dips below grade. GROUND_CONTACT says this archetype's
-    # footprint outline meets the terrain at z = 0, and a sill board 55 mm into the
-    # ground is a small lie told against exactly the declaration the gate reads.
-    _panel(b, axis, plane + outward * off, u0 - m, u1 + m, max(z0 - m, 0.0), z1 + m,
-           outward, conf, surround)
-    _panel(b, axis, plane + outward * (off + 0.006), u0, u1, z0, z1,
-           outward, conf, M_GLASS)
+    w = openings.Wall(axis, plane, outward, relief)
+    if kind == "door":
+        openings.panelled_door(b, w, u0, u1, z0, z1, conf, _kit(b))
+    elif kind in ("goods", "hoist"):
+        openings.batten_door(b, w, u0, u1, z0, z1, conf, _board_kit(b), leaves=2,
+                             cap=True, casing_w=0.11, proud=0.045)
+    elif kind == "loft":
+        k = _board_kit(b)
+        openings.surround(b, w, u0, u1, z0, z1, conf, k, sill=False, cap=True)
+        openings.board_shutter(b, w, u0, u1, z0, z1, conf, k, boards=4)
+    elif kind == "attic":
+        openings.window(b, w, u0, u1, z0, z1, conf, _kit(b), 3, (2,))
+    else:
+        h = z1 - z0
+        rows = max(2, round((h - 0.13) / 0.28))
+        up = (rows + 1) // 2
+        openings.window(b, w, u0, u1, z0, z1, conf, _kit(b), 3, (up, rows - up))
 
 
 def _board(b: MeshBuilder, x0: float, y0: float, x1: float, y1: float,
@@ -584,7 +619,13 @@ def _reveal(b: MeshBuilder, y: float, u0: float, u1: float, z0: float, z1: float
 
 def _show_window(b: MeshBuilder, y: float, u0: float, u1: float, head: float,
                  reveal: float, conf: float) -> None:
-    """One display bay: a solid stall riser to counter height, then glass."""
+    """One display bay: a solid stall riser to counter height, then glass.
+
+    The glass is small lights in a fixed sash (T-2278), because glass came by scow and
+    was sold by the box in 8 x 10 and 7 x 9 in panes: the Democrat's merchants
+    advertised no larger. Before this a bay was three panes across by two high, which
+    is plate glass the town could not have bought.
+    """
     sill = SHOP_SILL_Z_M
     top = head - 0.13
     _panel(b, "y", y, u0, u1, 0.0, sill, 1, conf, M_TRIM)          # stall riser
@@ -593,28 +634,27 @@ def _show_window(b: MeshBuilder, y: float, u0: float, u1: float, head: float,
            skip=("bottom", "front"))                                # counter sill
     _panel(b, "y", y - reveal, u0, u1, sill, top, 1, conf, M_GLASS)
     _reveal(b, y, u0, u1, sill, top, reveal, conf)
-    # muntins: small panes, because glass came by scow and was sold by the light
-    for f in (0.333, 0.667):
-        x = u0 + (u1 - u0) * f
-        _board(b, x - 0.014, y - reveal, x + 0.014, y - reveal + 0.020, sill, top,
-               conf, M_TRIM, skip=("bottom", "front"))
-    zm = sill + (top - sill) * 0.5
-    _board(b, u0, y - reveal, u1, y - reveal + 0.018, zm - 0.014, zm + 0.014,
-           conf, M_TRIM, skip=("front",))
+    across = max(3, round((u1 - u0 - 0.09) / 0.235))
+    rows = max(3, round((top - sill - 0.09) / 0.285))
+    w = openings.Wall("y", y - reveal, 1, 0.0)
+    openings.sash(b, w, u0, u1, sill, top, conf, M_TRIM, across, (rows,),
+                  n=0.014)
 
 
 def _shop_door(b: MeshBuilder, y: float, u0: float, u1: float, head: float,
                reveal: float, conf: float) -> None:
-    """The shop door: a panelled leaf set back in the wall, with a light over it."""
+    """The shop door: a panelled leaf glazed in its upper half, set back in the wall,
+    with a transom light over it (T-2278). Before this the whole leaf was glass with
+    four stiles stood on it, which read as a black doorway."""
     top = min(2.06, head - 0.22)
     _panel(b, "y", y, u0, u1, top, head, 1, conf, M_TRIM)          # head board
-    _panel(b, "y", y - reveal, u0, u1, 0.0, top, 1, conf, M_GLASS)
     _reveal(b, y, u0, u1, 0.0, top, reveal, conf)
-    # two sunk panels, suggested by the stiles standing proud of the leaf
-    for z0, z1 in ((0.12, 0.92), (1.02, top - 0.10)):
-        for x in (u0 + 0.10, u1 - 0.10):
-            _board(b, x - 0.035, y - reveal, x + 0.035, y - reveal + 0.022, z0, z1,
-                   conf, M_TRIM, skip=("bottom", "front"))
+    w = openings.Wall("y", y - reveal, 1, 0.0)
+    k = _kit(b)
+    leaf_top = top - 0.30
+    openings.transom_light(b, w, u0, u1, leaf_top, top, conf, k, n=0.0)
+    openings.panelled_leaf(b, w, u0, u1, 0.0, leaf_top, conf, k,
+                           glazed_upper=(2, 3), n=0.004)
 
 
 def _sign(b: MeshBuilder, p: FrameStorefrontParams,
@@ -696,7 +736,7 @@ def _plain_door(b: MeshBuilder, p: FrameStorefrontParams, x0: float, x1: float,
     face, and a shop window invented for it would be evidence manufactured out of
     a trade."""
     u0, u1, z0, z1 = plain_door_rect(x0, x1)
-    _opening(b, "y", y, u0, u1, z0, z1, 1, conf)
+    _opening(b, "y", y, u0, u1, z0, z1, 1, conf, kind="door")
 
 
 def _goods_door(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float,
@@ -720,19 +760,12 @@ def _goods_door(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float,
     spans = p.goods_door_spans_m
     if p.goods_door_side == "rear":
         for u0, u1 in spans:
-            _opening(b, "y", y0, u0, u1, 0.02, h, -1, conf)
-            cx = (u0 + u1) / 2.0
-            _board(b, cx - 0.035, y0 - 0.055, cx + 0.035, y0 - 0.030, 0.02, h,
-                   conf, M_TRIM, skip=("bottom", "back"))
+            _opening(b, "y", y0, u0, u1, 0.02, h, -1, conf, kind="goods")
         return
     sgn = _loading_sign(p)
     xx = x1 if sgn > 0 else x0
     for u0, u1 in spans:
-        _opening(b, "x", xx, u0, u1, 0.02, h, int(sgn), conf)
-        # the meeting stile between the two leaves
-        yc = (u0 + u1) / 2.0
-        _board(b, min(xx, xx + sgn * 0.055), yc - 0.035, max(xx, xx + sgn * 0.055),
-               yc + 0.035, 0.02, h, conf, M_TRIM, skip=("bottom",))
+        _opening(b, "x", xx, u0, u1, 0.02, h, int(sgn), conf, kind="goods")
 
 
 def _loft_opening(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float,
@@ -753,11 +786,12 @@ def _loft_opening(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float
         sgn = -_loading_sign(p)
         xx = (x1 if sgn > 0 else x0) + sgn * ROOF_OVERHANG_M
         yc = (y0 + y1) / 2.0
-        _opening(b, "x", xx, yc - hw, yc + hw, zc - hh, zc + hh, int(sgn), conf)
+        _opening(b, "x", xx, yc - hw, yc + hw, zc - hh, zc + hh, int(sgn), conf,
+                 kind="loft")
     else:
         xc = (x0 + x1) / 2.0
         _opening(b, "y", y0 - ROOF_OVERHANG_M, xc - hw, xc + hw, zc - hh, zc + hh,
-                 -1, conf)
+                 -1, conf, kind="loft")
 
 
 def _gable_plane(p: FrameStorefrontParams, x0: float, y0: float, x1: float,
@@ -849,7 +883,7 @@ def _attic_openings(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: flo
             continue
         uc = (u0 + u1) / 2.0
         _opening(b, axis, plane, uc - ATTIC_WIN_W_M / 2, uc + ATTIC_WIN_W_M / 2,
-                 z0, z1, int(sgn), conf)
+                 z0, z1, int(sgn), conf, kind="attic")
 
 
 def _hoist_door(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float,
@@ -904,17 +938,10 @@ def _hoist_door(b: MeshBuilder, p: FrameStorefrontParams, x0: float, y0: float,
     # what is iterated, and a single-bay record draws exactly what it drew before.
     for gu0, gu1 in p.goods_door_spans_m:
         uc = (gu0 + gu1) / 2.0
+        # a pair of board leaves meeting in the middle (T-2278), as the goods door
+        # below it carries
         _opening(b, axis, plane, uc - HOIST_DOOR_W_M / 2, uc + HOIST_DOOR_W_M / 2,
-                 z0, z1, int(sgn), conf)
-        # the meeting stile between the two leaves, as the goods door below it carries
-        if axis == "x":
-            _board(b, min(plane, plane + sgn * 0.055), uc - 0.035,
-                   max(plane, plane + sgn * 0.055), uc + 0.035, z0, z1, conf, M_TRIM,
-                   skip=("bottom",))
-        else:
-            _board(b, uc - 0.035, min(plane, plane + sgn * 0.055),
-                   uc + 0.035, max(plane, plane + sgn * 0.055), z0, z1, conf, M_TRIM,
-                   skip=("bottom",))
+                 z0, z1, int(sgn), conf, kind="hoist")
 
         # THE BEAM, through the gable a third of the way up its rise and projecting
         # past the roof's own overhang. A shallow pitch, or a bay far enough out

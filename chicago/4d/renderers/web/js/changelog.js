@@ -1,8 +1,25 @@
 export const CHANGELOG = [ // newest first
-  { v: 1611, ts: '2026-10-10T03:37:15.393Z', date: 'Oct 9, 2026, 10:37 PM CT', title: 'Glessner House rebuilt without its hidden doubled faces', kind: 'fix',
+  { v: null, ts: '', title: 'Glessner House rebuilt without its hidden doubled faces', kind: 'fix',
     items: [
       'Go close to the carved leaves over the Prairie Avenue entrance and on the porch capitals. Their roots and tips now close cleanly, where thin slivers used to lie on top of each other. The change is a few pixels at the leaf tips. Nothing else on the house moves.',
       'Two hidden faults are also gone: doubled end caps inside the roof ridge, and doubled ends in the copper flashing round the chimneys. The detailed house is about 10,000 triangles lighter and its downloads are slightly smaller.',
+    ] },
+  { v: 1613, ts: '2026-10-10T03:56:56.811Z', date: 'Oct 9, 2026, 10:56 PM CT', title: 'Every 1835 door is shut and every window glazed', kind: 'feature',
+    items: [
+      'Doors were black holes in the wall. Houses, taverns, stores and fort buildings now have closed panelled doors on a sill. Shops have half-glazed doors with a transom light, and cabins have board doors on iron strap hinges.',
+      'Windows were black panels with flat bars. Each now sits in a board casing with a sloped sill and a drip cap. The sash is set back so the frame casts a shadow.',
+      'The glass is the dark glass Glessner House uses in 1904: a near-black pane that reflects the sky. Chicago merchants sold window glass and ready-made sash by the box in 1833–35, so cabins have glass too. Barns and sheds stay unglazed.',
+      'Store show windows are small panes, the 8×10 inch sizes the town’s merchants sold. Many cabin windows have board shutters standing open. Barn and shed doors now hang on strap hinges.',
+    ] },
+  { v: 1612, ts: '2026-10-10T03:43:50.834Z', date: 'Oct 9, 2026, 10:43 PM CT', title: 'Release notes no longer hold up each other\'s merges', kind: 'chore',
+    items: [
+      'Nothing in the app changes. Each change now carries its release note as a file of its own, and the note joins this list after the change lands, so changes waiting to merge stop colliding on the top line of this list.',
+    ] },
+  { v: 1611, ts: '2026-10-10T03:18:31.813Z', date: 'Oct 9, 2026, 10:18 PM CT', title: 'A lumber shed on the South Branch below Washington Street', kind: 'feature',
+    items: [
+      'Walk down Market Street south of Washington and look toward the river. A long plank shed now stands on the bank, open along one side, facing the South Branch. It is the town\u2019s first lumber shed.',
+      'The Chicago Democrat shows lumber reaching Chicago by boat, from St. Joseph\u2019s sawmills and a yard on South Water Street. So the shed stands where boards would come off a schooner.',
+      'No source places this shed or names its owner. It is a reconstruction, and its card says so. It is not David Carver\u2019s yard, which the paper puts on South Water Street.',
     ] },
   { v: 1610, ts: '2026-10-10T03:02:42.351Z', date: 'Oct 9, 2026, 10:02 PM CT', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
     items: [
