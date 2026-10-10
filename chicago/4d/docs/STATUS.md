@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## T-2266 — the first K01 assembly: a frontage at 1808 Prairie (2026-10-10)
 
 **Visible.** In the 1904 scene a three-storey-and-basement house now stands on the 1808 Prairie
@@ -48,7 +47,7 @@ lot, directly south of the Glessner House. Its north wall closes the Glessner co
 - **Residual.** There is no light tier: `tools/web_derivatives.sh` reduces Glessner alone, and at
   2,218 triangles this asset needs none. The 0.02 m gap between the two houses' faces is a liberty,
   because the sheet draws them touching.
-=======
+
 ## T-2278 — doors, windows and their trim on every 1835 building (2026-10-10)
 
 Owner's ask: give every structure correct door and window openings and their trim, and use
@@ -80,7 +79,6 @@ Glessner's dark glass where a building could have had glass. Recorded as **L413*
   +46k to +122k (2,047,667 -> 2,169,656), light +18k to +101k (868,283 -> 968,880); every tier
   stays inside its ceiling (light by 36,120). JS heap after gc 1124.9 -> 1175.7 MiB. The ceilings
   are not moved here.
->>>>>>> origin/dev
 
 ## T-1786 — the portable human contract (2026-10-10)
 

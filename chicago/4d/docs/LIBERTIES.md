@@ -22770,7 +22770,6 @@ measurements or calibrated close photographs can replace these sections.
 **Review:** `docs/RESEARCH/glessner-roof-details-2205/README.md`.
 **Recorded:** 2026-10-09.
 
-<<<<<<< HEAD
 ### L-k01-1808-frontage-2266 — The 1808 Prairie K01 frontage: a reconstructed main range
 
 **Decision:** Stand a three-storey-and-basement house on the 1808 Prairie lot, built
@@ -22801,7 +22800,7 @@ replaces the footprint.
 **Covers:** `keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.principal_floor_m`, `keith_house_1808_prairie.as_built_1886.form.storey_heights_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_form`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`.
 **Review:** `docs/RESEARCH/k01-1808-frontage-2266/browser-validation.json`.
 **Recorded:** 2026-10-10.
-=======
+
 ### L-south-lumber-shed-2269 — The South's lumber shed: an open-sided shed on the South Branch's east bank that no source seats
 
 **Applies to:** `recon_1835_south_branch_lumber_f4_001` (`data/structures/`), written by
@@ -22882,4 +22881,3 @@ adopted, not measured — `materials.GLASS`.
 replaces the kit's choices for that building; a source on door colour in the town replaces the deal.
 **Ticket:** T-2278.
 **Recorded:** 2026-10-10 (T-2278).
->>>>>>> origin/dev
