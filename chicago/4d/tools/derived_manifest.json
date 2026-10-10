@@ -325,6 +325,19 @@
       ]
     },
     {
+      "why": "A SOURCE READ OUT OF ITS COMMITTED ORIGINAL (T-2327): sheet 28's 1904 building footprints, read off the committed Sanborn raster through the GCP file tools/georef_prairie_1904.py writes, clipped to the lots data/street_grid/1904.json carries and keyed to the authored T-1841 sheet census. It reads the parcel grid the step above writes, so it follows that step.",
+      "command": [
+        "python3",
+        "tools/trace_prairie_1904_footprints.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/trace_prairie_1904_footprints.py",
+        "--check"
+      ]
+    },
+    {
       "why": "A READER OF COMMITTED READINGS (T-1251): writes only the derived fields of the e1871_postfire terrain spec, from data/terrain/e1871_grade_readings.json, the committed 1835 heightfield and the shoreline the step above writes, so it follows that step.",
       "command": [
         "python3",
