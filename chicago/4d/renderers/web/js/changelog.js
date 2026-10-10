@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 1615, ts: '2026-10-10T04:10:30.121Z', date: 'Oct 9, 2026, 11:10 PM CT', title: 'The later-directory crosswalks read each household’s dated places', kind: 'change',
+    items: [
+      'Nothing you can see changes. The tools that match the 1839, 1843 and 1844 directories against the town, and the two that read a later printed address back to 1835, now take where a household lived and worked from the dated places on its card.',
+      'Every match, refusal and placement comes out exactly as before, even with the old single home and workplace lines removed from the records.',
+    ] },
+  { v: 1614, ts: '2026-10-10T03:58:17.096Z', date: 'Oct 9, 2026, 10:58 PM CT', title: 'The resident index and audits read each household’s dated places', kind: 'change',
+    items: [
+      'Nothing you can see changes. The resident index, the resident audit, the population profile, the research sign-off and the residents summary now take where a household lived and worked from the dated places on its card, the same entries its card shows you.',
+      'Every figure, row and table comes out exactly as before, even with the old single home and workplace lines removed from the records.',
+      'A card’s “no known address” reason still comes from the old line, because a place nobody can name has no dated entry to carry it. Where that wording goes is decided before the old lines retire.',
+    ] },
   { v: 1613, ts: '2026-10-10T03:56:56.811Z', date: 'Oct 9, 2026, 10:56 PM CT', title: 'Every 1835 door is shut and every window glazed', kind: 'feature',
     items: [
       'Doors were black holes in the wall. Houses, taverns, stores and fort buildings now have closed panelled doors on a sill. Shops have half-glazed doors with a transom light, and cabins have board doors on iron strap hinges.',

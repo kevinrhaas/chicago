@@ -46,6 +46,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+# A household's home and workplace are read off its dated associated_with rows (T-2275):
+# the singular lives_at/works_at pair is being retired (T-2261), and these are its reader.
+from associations import home_of, workplace_of  # noqa: E402
 from back_project_addresses import (  # noqa: E402
     NOT_1835,
     RESIDENCE_PREFIX,
@@ -151,7 +154,7 @@ def adjudicate_one(streets, hh, persons, person, claim) -> dict:
     year = int(claim.get("describes_date") or 0)
     pid = person["person_id"]
     trade = ((persons.get(pid) or {}).get("occupation") or {}).get("value")
-    lives_at = (hh.get("lives_at") or {}).get("value")
+    lives_at = home_of(hh)
     row = {
         "household_id": hh["id"],
         "person_id": pid,
@@ -377,8 +380,8 @@ def block_for(row: dict) -> dict:
 
 def counts(rows, records) -> dict:
     placed = [r for r in rows if r["outcome"] == "placed"]
-    lives = sum(1 for _, h in records if (h.get("lives_at") or {}).get("value"))
-    works = sum(1 for _, h in records if (h.get("works_at") or {}).get("value"))
+    lives = sum(1 for _, h in records if home_of(h))
+    works = sum(1 for _, h in records if workplace_of(h))
     return {
         "addresses_adjudicated": len(rows),
         "printed_as_a_residence": len([r for r in rows if r["kind"] == "resides"]),
@@ -481,7 +484,9 @@ def self_test() -> int:
     fails = []
 
     def one(printed, trade=None, lives=None, year=1843):
-        hh = {"id": "hh_t", "lives_at": {"value": lives},
+        rows = [{"kind": "home", "place_or_structure_id": lives,
+                 "resolves_to": "structure", "from": None, "to": None}] if lives else []
+        hh = {"id": "hh_t", "associated_with": rows,
               "persons": [{"id": "p", "name": "T", "occupation": {"value": trade}}]}
         person = {"person_id": "p"}
         claim = {"value": printed, "describes_date": year,

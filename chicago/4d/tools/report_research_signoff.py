@@ -42,6 +42,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from associations import home_of, workplace_of  # noqa: E402
 from research_spend_ledger import (  # noqa: E402
     LEDGER,
     OPEN_TICKET_STATES,
@@ -253,9 +254,13 @@ def measure_axis3(cards: list[dict]) -> dict:
     linkage: Counter = Counter()
     unreasoned: list[str] = []
     for card in cards:
-        works = card.get("works_at") or {}
-        seat = works.get("value")
-        reason = works.get("note")
+        # T-2277: the seat is the record's own workplace row. The REASON is read off
+        # the singular `works_at` still, because it is only ever read when there is no
+        # seat: it is the note on a NULL link — why no premises resolves — and an
+        # absence has no row to carry it. Where that prose goes when the pair retires
+        # is T-2274's to settle.
+        seat = workplace_of(card)
+        reason = (card.get("works_at") or {}).get("note")
         for person in card.get("persons") or []:
             rows = [r for r in (person.get("roles") or [])
                     if isinstance(r, dict) and r.get("covers_scene_date")
@@ -308,9 +313,9 @@ def measure_axis4(cards: list[dict]) -> dict:
     with_lives_at = 0
     with_works_at = 0
     for card in cards:
-        if (card.get("lives_at") or {}).get("value"):
+        if home_of(card):
             with_lives_at += 1
-        if (card.get("works_at") or {}).get("value"):
+        if workplace_of(card):
             with_works_at += 1
         if card.get("associated_with"):
             associations += len(card["associated_with"])
