@@ -198,7 +198,7 @@ try {
   const qs = remote('QUEUE.md');
   check('settle: a ticket blocked on exactly the merged ticket reopens, with a note',
     front(chained, 'state') === 'open' && front(chained, 'blocked_on') === 'null'
-    && /\*\*Unblocked .*\*\* T-1501 merged \(PR #41\)/.test(chained), r.stdout + chained);
+    && /\*\*Unblocked .*\*\* T-1501 merged \(PR #41\).*The block read: T-1501 — the same house$/m.test(chained), r.stdout + chained);
   check('…in the merged ticket\'s queue line, above the line that was below it',
     /^T-1498 — chained\nT-1502 — second$/m.test(qs) && !/BLOCKED-TECH T-1498/.test(qs), qs);
   check('…while one whose block names more than the ticket stays blocked and listed',

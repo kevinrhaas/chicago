@@ -2418,8 +2418,11 @@ function unblockSuccessors(done, tickets) {
   const next = tickets.filter((s) => s.state === 'blocked-tech'
     && SUCCESSOR_OF.exec(String(s.blocked_on ?? '').trim())?.[1] === done.id);
   for (const s of [...next].reverse()) {
+    // The block's reason often carries findings (T-2317's held the plate it must
+    // follow), and `blocked_on` is cleared here, so the note keeps it word for word.
+    const why = String(s.blocked_on).trim();
     s.state = 'open'; s.blocked_on = null;
-    s.body = `${String(s.body ?? '').replace(/\s*$/, '')}\n\n**Unblocked ${today()}:** ${done.id} merged (PR #${done.pr}); this took its place in the queue.\n`;
+    s.body = `${String(s.body ?? '').replace(/\s*$/, '')}\n\n**Unblocked ${today()}:** ${done.id} merged (PR #${done.pr}); this took its place in the queue. The block read: ${why}\n`;
     writeTicket(s); queueDropBlockedLines(s.id);
     if (!queueInsertAfter(s, done.id)) queueAppend(s);
     console.log(`  ${s.id} unblocked — ${done.id} merged; it takes ${done.id}'s queue line`);
