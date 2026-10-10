@@ -520,17 +520,21 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 703 -> 704 and 697 -> 698 on 2026-10-09 (T-2196): a boarding house party-walled to that D5
 # (recon_1835_blk_south_water_market_h3_02), through emit.py and the common modules.
 #
-# 704 -> 705 on 2026-10-10 (T-2266): the first K01 assembly, keith_house_1808_prairie, which
+# 704 -> 705 and 698 -> 699 on 2026-10-10 (T-2269): the town's first lumber shed, on the
+# South Branch's east bank (recon_1835_south_branch_lumber_f4_001), through emit.py and the
+# common modules.
+#
+# 705 -> 706 on 2026-10-10 (T-2266): the first K01 assembly, keith_house_1808_prairie, which
 # writes its glTF in pure Python (generators/k01_emit.py) and so restales on none of the
 # rows below — emit.py, the common modules and build.py stay where they were.
 #
 STATED = {
-    "assets": 705,
+    "assets": 706,
     "restales": {
-        "generators/common/*.py": 704,
+        "generators/common/*.py": 705,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 698,
+        "generators/emit.py": 699,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

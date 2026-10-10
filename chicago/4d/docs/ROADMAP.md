@@ -1,3 +1,9 @@
+## T-2278 — doors, windows and trim on every 1835 building
+
+Every 1835 opening comes from one kit (`generators/common/openings.py`): cased, sill-and-cap
+windows with sash set back and Glessner's dark glass, and a closed door in every doorway. L413
+records what is invented. Cost and the ceiling question are in STATUS.
+
 ## T-2206 — Glessner roof and courtyard proportions audited
 
 The comparison page now measures the current assets through all nine frozen T-2200

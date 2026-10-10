@@ -863,6 +863,14 @@ step "North freight roof on the North Water bank matches its recipe" \
 selftest "…and its validator refuses bad ground" \
   python3 tools/generate_north_freight.py --self-test
 
+# T-2269: the South street line's owed lumber shed, on the South Branch's east bank south of
+# Washington. Off the plat, on the placement policy's `lumber_landing` clause; the record
+# re-derives from the recipe, and the validator is proved by breaking it.
+step "South Branch lumber shed matches its recipe" \
+  python3 tools/generate_south_lumber.py --check
+selftest "…and its validator refuses bad ground" \
+  python3 tools/generate_south_lumber.py --self-test
+
 step "Canal approach trade roofs match their bounded recipe" \
   python3 tools/generate_canal_approach_trade.py --check
 selftest "Canal trade placement refuses collisions and missing ground" \
@@ -3108,6 +3116,18 @@ step "changelog contract" \
 # half that read "contract OK" on 25 dev merges; prove its refusals still fire.
 selftest "…and a shipped release note cannot leave or change its number" \
   node tools/changelog-history.mjs --self-test
+
+# THE ENTRY AS A FILE OF ITS OWN (owner, 2026-10-10). A PR writes its What's-New
+# entry to changelog.d/<name>.json instead of the top line of changelog.js, because
+# that one line made every open PR conflict with every landing (#607, #608, #610 and
+# #613 each lost three merges to it). The fold on dev turns the file into an entry
+# after the merge. Hold the pending files to the contract and budget now, while the
+# PR is open, so the fold never meets a file it must refuse.
+step "pending changelog entry files are well formed and inside the What's-New budget" \
+  node tools/changelog-entries.mjs --check
+
+selftest "…and the fold numbers, orders and deletes them, and refuses a bad one" \
+  node tools/changelog-entries.mjs --self-test
 
 # The ticket queue: the operational "what next" the owner ordered on 2026-08-17
 # after his own requests went untraceable in the ROADMAP. Duplicate ids, queue
