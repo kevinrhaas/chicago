@@ -29,6 +29,17 @@ D5 and an H3 and left four `slot` requests on it; this raises those four.
   hh_rc_woodruff_ruth holds a D1 slot on lot 7, which T-2270 owns. Keepers 209. L263 restated
   to 669 (with the lumber shed), L270 to 220, L276 to 209; 709 assets fresh. The changelog moved
   to `changelog.d/T-2254.json`.
+- **Lapped onto dev after T-2278, T-2255, T-2281..T-2294 and T-2268** (resume PR #627). The
+  frontage census now reads both School Section tiers (`tier_frontage_streets` read only the
+  Madison–Monroe file, so Adams was no frontage corridor and the two Adams-face houses fronted no
+  street). Seating at its fixpoint (two laps, the second moving nothing): **221 seated, 219
+  adopted, 2 slots** — the four houses go to hh_rc_shea_margaret (D2), hh_merrill_george_w (D5),
+  hh_merill_isaac and hh_meleney_patrick (D4s); hh_vieaux_susanne (D1, lot 6) and hh_church_thomas
+  (H1, lot 7) hold the block's last two requests, T-2270's. Keepers 208. `BUSINESS_DEAL_COSTS`
+  10 → 8. The liberty is **L416** (T-2281 and T-2268 took L412 and L415 while this was open);
+  L263 671, L270 221, L276 208. Six meshes rebaked onto T-2278's doors and windows (the four
+  houses, `recon_1835_south_d1_018`, `recon_1835_south_d5_016`); 712 assets. The South's barn and
+  outbuilding order-book rows follow the dwellings to T-2270.
 ## T-2266 — the first K01 assembly: a frontage at 1808 Prairie (2026-10-10)
 
 **Visible.** In the 1904 scene a three-storey-and-basement house now stands on the 1808 Prairie

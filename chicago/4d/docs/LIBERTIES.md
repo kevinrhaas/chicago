@@ -22754,7 +22754,13 @@ and the schedule's (**L270**). The set-backs and lateral offsets copy block 81's
 families across Monroe (**L397**). **Not built:** the schedule's second D2 and its H3, which
 `1835_platted_seats.json` lists under `plan_left_unclaimed` because no banded South row is admitted
 by a clause that takes them; lot 0 stays the block's reserved open lot and lots 1, 6 and 7 stay free
-for them.
+for them. **Re-read on the tree merged with T-2268 (2026-10-10):** T-2268's re-apportionment
+re-dealt the block's balance, and at the seating chain's fixpoint the four houses keep their families
+and are adopted by hh_rc_shea_margaret (the D2 on lot 2), hh_merrill_george_w (the D5 on lot 3),
+hh_merill_isaac (the D4 on lot 4) and hh_meleney_patrick (the D4 on lot 5); the block's two requests
+left are a D1 slot on lot 6 (hh_vieaux_susanne) and an H1 slot on lot 7 (hh_church_thomas), which
+T-2270 owns, and nothing is `plan_left_unclaimed`. The Adams-face houses front Adams in the frontage
+census (`tools/measure_frontage_fabric.py` reads both School Section tiers since this ticket).
 
 **How to resolve:** a dated record of an improvement on School Section block 82 (a lot sale with
 improvements, a tax or insurance record, a reminiscence) substitutes for the compatible anonymous
