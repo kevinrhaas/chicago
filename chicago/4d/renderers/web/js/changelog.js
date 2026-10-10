@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1601, ts: '2026-10-10T00:01:30.774Z', date: 'Oct 9, 2026, 7:01 PM CT', title: 'Prairie Avenue’s building parts get one set of measurements', kind: 'change',
+  { v: null, ts: '', title: 'Prairie Avenue’s building parts get one set of measurements', kind: 'change',
     items: [
       'Nothing you can see changes yet. The walls, windows, roofs and front steps of the 1904 houses still to come will now be built from one rule book. Everything is in metres, measured up from the ground.',
       'The Glessner House was checked against that rule book. It is the right size in all three of its download sizes, and its walls stand where its floor plan says.',
       'A few small faults turned up: hidden doubled faces in the stone trim on the Prairie Avenue front and where two roof pieces meet. They are filed to be fixed when the house is next rebuilt.',
+    ] },
+  { v: 1601, ts: '2026-10-10T00:05:59.930Z', date: 'Oct 9, 2026, 7:05 PM CT', title: 'The town\u2019s last six South houses get their lots, south of Monroe', kind: 'change',
+    items: [
+      'Walk south across Monroe Street between the river and State Street. Six more School Section blocks are now divided into lots: cropped, grazed ground like the empty lots in town, no longer open prairie.',
+      'Russell Heacock\u2019s house near Monroe now stands on its own fenced lot, with a privy and a kept yard, like its neighbours north of Monroe.',
+      'The South side still owes five houses and one boarding house. They will stand on one of these blocks, one house to a lot. Four households without a home are now given a lot there, and their cards say so. The houses come next.',
+      'The three riverside warehouses the South still owes are not sent this far from the river. They wait for the South Water Street front.',
     ] },
   { v: 1600, ts: '2026-10-09T23:46:46.583Z', date: 'Oct 9, 2026, 6:46 PM CT', title: 'Glessner gets solid ridge caps and finished roof edges', kind: 'fix',
     items: [

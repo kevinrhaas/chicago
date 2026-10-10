@@ -25,19 +25,20 @@
     ],
     "confidence": "derived",
     "counts": {
-      "runs_joined_to_a_household": 1,
+      "runs_joined_to_a_household": 2,
       "runs_bounding_structures_only": 92,
-      "households_that_gained_a_fence": 1,
-      "lots_named": 93,
+      "households_that_gained_a_fence": 2,
+      "lots_named": 94,
       "households": [
-        "hh_harmon_elijah_d"
+        "hh_harmon_elijah_d",
+        "hh_heacock_russel_e"
       ]
     },
     "not_joined_on_the_occupants_prose": {
       "_doc": "THE JOIN DOES NOT READ `occupants`, and this is the count of what it passed over. A structure record's occupants block is prose that often names a household id; most of those ids belong to households the 2026-09-02 synthesis removed and the index no longer holds (T-0516), and a mention is not an occupancy — philo_carpenter_log_shop names hh_chappel_eliza_mir in a sentence whose own value says no occupant is attested there. Joining on it would hand ground to the wrong household while looking like evidence, so the refusals above stand and this is what they cost.",
-      "structures_naming_a_household_in_prose": 1,
-      "household_ids_so_named": 1,
-      "of_those_the_index_still_holds": 1,
+      "structures_naming_a_household_in_prose": 2,
+      "household_ids_so_named": 2,
+      "of_those_the_index_still_holds": 2,
       "of_those_naming_a_household_that_no_longer_exists": 0
     },
     "refusals": "`refused: no_household_names_this_ground` IS THE REFUSAL, and here is the reason it stands for, stated once because it is the same reason every time. A run with no household is not blank and is not guessed at: it names the structures whose ground it bounds and carries a `refused` line giving the reason, which is the same reason for every one of them — the household layer holds a real `lives_at` for 20 of its 1,380 households and a real `works_at` for 50, all of them at named landmarks, so most improved lots in this town have buildings no household record names. That is a gap in the address work (T-0514), not in this join, and the join picks up whatever the sweep lands without a line of the rule changing.",
@@ -3411,6 +3412,47 @@
         }
       ],
       "note": "THE HOUSE LOT: blk_school_section_tier_119 lot 7 of the platted grid, holding recon_1835_blk_school_section_tier_119_d7_07 (small_two_story_frame_house) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE RECTANGLE IS DERIVED AND NOT PLACED: 8.53 x 6.10 m at the back of the lot, 0.914 m inside the rear and side lot lines, 3.048 m or more clear of the house's own back face, and centred on the house. Every metre of it comes from data/traces/vectors/thompson_lots.json and this building's committed footprint; the SIZE of the plot and its position at the rear are the invention, and they are the same for every lot on this record. THE CEILING ON THE PLOT — 28 x 20 ft — is invented twice over: nothing states a garden's size, and the number is additionally bounded by the renderer's own triangle budget, because a paled fence is thousands of small boxes and this layer draws in one pass. docs/LIBERTIES.md L129 claims that, on the precedent of L121."
+    },
+    {
+      "id": "blk_school_section_tier_117_lot2",
+      "path_local_enu_m": [
+        [
+          513.78,
+          -686.01
+        ],
+        [
+          522.32,
+          -686.01
+        ],
+        [
+          522.32,
+          -692.11
+        ],
+        [
+          513.78,
+          -692.11
+        ],
+        [
+          513.78,
+          -686.01
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_117_lot2",
+          "structures": [
+            "heacock_house_monroe"
+          ],
+          "households": [
+            {
+              "id": "hh_heacock_russel_e",
+              "held_as": "home",
+              "at": "heacock_house_monroe"
+            }
+          ]
+        }
+      ],
+      "note": "THE HOUSE LOT: blk_school_section_tier_117 lot 2 of the platted grid, holding heacock_house_monroe (dwelling) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'attested' on its own record, and the garden stands at that tier or below it. WORKED BY hh_heacock_russel_e, the household the committed index puts here. THE RECTANGLE IS DERIVED AND NOT PLACED: 8.53 x 6.10 m at the back of the lot, 0.914 m inside the rear and side lot lines, 3.048 m or more clear of the house's own back face, and centred on the house. Every metre of it comes from data/traces/vectors/thompson_lots.json and this building's committed footprint; the SIZE of the plot and its position at the rear are the invention, and they are the same for every lot on this record. THE CEILING ON THE PLOT — 28 x 20 ft — is invented twice over: nothing states a garden's size, and the number is additionally bounded by the renderer's own triangle budget, because a paled fence is thousands of small boxes and this layer draws in one pass. docs/LIBERTIES.md L129 claims that, on the precedent of L121."
     }
   ],
   "openings": [
@@ -4432,6 +4474,17 @@
       "at_local_enu_m": [
         680.87,
         -627.17
+      ],
+      "width_m": 1.067,
+      "confidence": "reconstructed",
+      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is centred in the side that faces the back door; 3 ft 6 in is a person with a hoe or a basket, not a team. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard and the pound, because a hung gate would be an invention on top of an invention."
+    },
+    {
+      "id": "blk_school_section_tier_117_lot2_gate",
+      "on": "dooryard",
+      "at_local_enu_m": [
+        518.05,
+        -686.01
       ],
       "width_m": 1.067,
       "confidence": "reconstructed",
