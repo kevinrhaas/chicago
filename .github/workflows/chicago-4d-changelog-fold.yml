@@ -1,0 +1,84 @@
+name: Chicago 4D — fold changelog entries
+
+# THE CHANGELOG ENTRY ARRIVES AS A FILE AND IS FOLDED IN AFTER THE MERGE (owner,
+# 2026-10-10). Every PR used to write its What's-New entry onto the top line of
+# renderers/web/js/changelog.js. GitHub does not run the repo's merge drivers, so
+# that one line conflicted between every pair of open PRs: with ten steward lanes
+# and a twelve-minute gate, a sibling always landed first, and the PR went back for
+# a lap. On 2026-10-09/10 #607, #608, #610 and #613 each lost three merges to it.
+#
+# Now a PR adds chicago/4d/changelog.d/<name>.json ({ title, kind, items }, no
+# number, no time). Two PRs never write the same file, so they never conflict. This
+# workflow runs when such a file reaches dev: it prepends each pending entry to
+# changelog.js, runs the stamper (number, ts, date), deletes the
+# folded files and pushes one commit to dev. The published changelog.js keeps its
+# exact format, so Manager and the launcher see no change.
+#
+# NEEDS STEWARD_PAT, for the reason pr-lap and merge-ready give: a push made with
+# GITHUB_TOKEN starts no other workflow, so deploy.yml would not publish the
+# folded changelog until the next unrelated push to dev.
+#
+# ONE AT A TIME, NEVER CANCELLED: two folds racing would both number the same
+# entries. A push rejected because dev moved is retried from the new dev.
+on:
+  push:
+    branches: [dev]
+    paths:
+      - 'chicago/4d/changelog.d/**'
+  workflow_dispatch:
+
+concurrency:
+  group: chicago-4d-changelog-fold
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  fold:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check the secret before doing anything
+        env:
+          P: ${{ secrets.STEWARD_PAT }}
+        run: |
+          [ -n "$P" ] || {
+            echo "::error::STEWARD_PAT is missing. Without it the fold's push does not"
+            echo "::error::start deploy.yml, and the entry waits for the next push to dev."
+            exit 1; }
+
+      - uses: actions/checkout@v4
+        with:
+          ref: dev
+          fetch-depth: 0
+          token: ${{ secrets.STEWARD_PAT }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Fold pending entries into changelog.js and push to dev
+        run: |
+          git config user.name  "polecat-ci"
+          git config user.email "ci@polecat.live"
+          for attempt in 1 2 3 4 5; do
+            git fetch --quiet origin dev
+            git reset --quiet --hard origin/dev
+            ( cd chicago/4d && node tools/changelog-entries.mjs --fold )
+            if [ -z "$(git status --porcelain -- chicago/4d)" ]; then
+              echo "nothing pending in chicago/4d/changelog.d/ — dev is already folded"
+              exit 0
+            fi
+            ( cd chicago/4d && node tools/check-changelog.mjs )
+            git add -A chicago/4d
+            git commit --quiet -m "changelog: fold entry files into changelog.js" \
+              -m "Folded and stamped by chicago-4d-changelog-fold.yml after the merge."
+            if git push origin HEAD:dev; then
+              exit 0
+            fi
+            echo "::warning::dev moved during the fold (attempt $attempt); retrying from the new dev"
+            sleep $((attempt * 5))
+          done
+          echo "::error::could not push the fold after 5 attempts; re-run this workflow"
+          exit 1

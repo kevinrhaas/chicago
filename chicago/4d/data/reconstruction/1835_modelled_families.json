@@ -23,11 +23,11 @@
   "the head is not an adult the household model seats as a husband": 47,
   "the head's own trade says he kept no wife": 1,
   "the household carries a standing review, and only T-1177's stage may reconstruct within one": 4,
-  "the order book has no woman left in this house's cell": 332
+  "the order book has no woman left in this house's cell": 331
  },
  "refused_by_the_order_book": {
   "persons/female/20_29/north/family/none": 57,
-  "persons/female/20_29/south/family/none": 162,
+  "persons/female/20_29/south/family/none": 161,
   "persons/female/20_29/west/family/none": 51,
   "persons/female/30_39/north/family/none": 16,
   "persons/female/30_39/south/family/none": 30,
@@ -41,12 +41,12 @@
   "persons/male/under_10/north/family/none": 2,
   "persons/male/under_10/south/family/none": 3
  },
- "houses_the_book_refused": 332,
+ "houses_the_book_refused": 331,
  "size_drawn_histogram": {
   "1": 38,
   "2": 65,
   "3": 91,
-  "4": 77,
+  "4": 76,
   "5": 63,
   "6": 62,
   "7": 37,
@@ -55,7 +55,7 @@
  "size_refused_histogram": {
   "2": 52,
   "3": 75,
-  "4": 65,
+  "4": 64,
   "5": 51,
   "6": 43,
   "7": 28,
@@ -238,12 +238,6 @@
    "kin_seated": 7,
    "household_type": "family_with_children",
    "married_from": "hh_rc_pelletier_josette"
-  },
-  "hh_beaubien_charles": {
-   "size_drawn": 4,
-   "kin_seated": 4,
-   "household_type": "family_with_children",
-   "married_from": "hh_rc_shea_margaret"
   },
   "hh_beaubien_john_s": {
    "size_drawn": 4,
@@ -2162,11 +2156,6 @@
    "head_band_low": 40,
    "size_drawn": 5
   },
-  "hh_beaubien_charles": {
-   "wife_cell": "persons/female/20_29/south/family/none",
-   "head_band_low": 30,
-   "size_drawn": 4
-  },
   "hh_beaubien_charles_h": {
    "wife_cell": "persons/female/20_29/south/family/none",
    "head_band_low": 20,
@@ -3769,10 +3758,10 @@
    "the child cap: no child of the house is older than his band's low minus 20",
    "the kin range: the joined house holds at most 8"
   ],
-  "houses_refused_a_wife": 332,
+  "houses_refused_a_wife": 331,
   "houses_refused_by_division": {
    "north": 16,
-   "south": 48,
+   "south": 47,
    "west": 23
   },
   "woman_headed_houses": 124,
@@ -3785,13 +3774,13 @@
    "already re-familied by T-1564": 24,
    "past the kin range of 8 once a husband joins it": 9
   },
-  "matched": 86,
+  "matched": 85,
   "matched_by_division": {
    "north": 16,
-   "south": 48,
+   "south": 47,
    "west": 22
   },
-  "matched_if_the_re_familied_moved_too": 86,
+  "matched_if_the_re_familied_moved_too": 85,
   "houses_no_woman_in_the_town_fits": 246,
   "houses_no_woman_fits_by_wife_cell": {
    "persons/female/20_29/north/family/none": 51,
@@ -3803,18 +3792,18 @@
    "persons/female/40_49/south/family/none": 2,
    "persons/female/40_49/west/family/none": 1
   },
-  "women_left_heading_their_own_house": 38,
+  "women_left_heading_their_own_house": 39,
   "female_headed_households": {
    "before": [
     242,
-    1524
+    1523
    ],
    "after": [
-    156,
+    157,
     1438
    ],
-   "share_before": 0.1588,
-   "share_after": 0.1085,
+   "share_before": 0.1589,
+   "share_after": 0.1092,
    "note": "Present households, as the order book counts the town. A move folds one house into another, so the town loses a household for every pair and the female-headed share falls on both ends of the fraction."
   },
   "pairs": [
@@ -3901,10 +3890,6 @@
    {
     "house": "hh_arquette_michel",
     "wife_and_children_from": "hh_rc_sheldon_lucy"
-   },
-   {
-    "house": "hh_beaubien_charles",
-    "wife_and_children_from": "hh_rc_shea_margaret"
    },
    {
     "house": "hh_bennett_william",
@@ -4167,17 +4152,17 @@
  "married_from_the_town": {
   "ticket": "T-2020",
   "of": "T-1171",
-  "houses": 86,
-  "people_moved": 374,
+  "houses": 85,
+  "people_moved": 371,
   "by_division": {
-   "south": 48,
+   "south": 47,
    "west": 22,
    "north": 16
   },
   "kin_seated_histogram": {
    "2": 7,
    "3": 9,
-   "4": 11,
+   "4": 10,
    "5": 16,
    "6": 15,
    "7": 19,
@@ -4227,12 +4212,12 @@
   },
   "the_town_the_book_converges_to": 3074,
   "adult_sex_ratio": [
-   396.2,
-   274.0
+   395.9,
+   273.8
   ],
   "under_ten_share": [
-   0.1852,
-   0.262
+   0.1853,
+   0.2621
   ],
   "the_model_s_under_ten_bracket": [
    0.2,
@@ -4435,28 +4420,28 @@
  },
  "measurement": {
   "the_town_the_book_counts": "present households only",
-  "people_before_this_stage": 2100,
-  "people_after_this_stage": 2865,
+  "people_before_this_stage": 2099,
+  "people_after_this_stage": 2864,
   "adults_after_this_stage": {
-   "male": 1244,
+   "male": 1243,
    "female": 454
   },
-  "adult_sex_ratio_before": 545.6,
-  "adult_sex_ratio_after": 274.0,
+  "adult_sex_ratio_before": 545.2,
+  "adult_sex_ratio_after": 273.8,
   "the_model_s_range": [
    120.9,
    150.0
   ],
   "inside_the_model_s_range": false,
-  "what_closes_it": "NOTHING THIS STAGE MAY DRAW CLOSES IT, AND NEITHER DOES A MOVE OR THE RULING. 332 married houses were refused because the book had no woman left in their cell. Re-housing the town's own women into them moves nobody between the sexes; of the 332, 86 took the wife and children of one of T-1174's woman-headed houses (`re_housing`, T-2019; T-2020 moved them) and 246 could take no woman the town holds. T-2021 ruled on those: 140 are given the whole family drawn for them, 140 wives among 469 people, and 105 stand alone, because the walk stops where the town's under-ten share or its count would leave the model. The wives move the ratio, and the children that come with them are what stop it: the town reaches the top of the model's under-ten bracket long before it reaches the model's sex ratio.",
+  "what_closes_it": "NOTHING THIS STAGE MAY DRAW CLOSES IT, AND NEITHER DOES A MOVE OR THE RULING. 331 married houses were refused because the book had no woman left in their cell. Re-housing the town's own women into them moves nobody between the sexes; of the 331, 85 took the wife and children of one of T-1174's woman-headed houses (`re_housing`, T-2019; T-2020 moved them) and 246 could take no woman the town holds. T-2021 ruled on those: 140 are given the whole family drawn for them, 140 wives among 469 people, and 105 stand alone, because the walk stops where the town's under-ten share or its count would leave the model. The wives move the ratio, and the children that come with them are what stop it: the town reaches the top of the model's under-ten bracket long before it reaches the model's sex ratio.",
   "female_headed_households_after_the_moves": [
-   156,
+   157,
    1438
   ],
   "age_pyramid_after": {
    "10_19": 409,
    "20_29": 982,
-   "30_39": 486,
+   "30_39": 485,
    "40_49": 147,
    "50_plus": 83,
    "under_10": 748
@@ -4472,15 +4457,15 @@
    "8": 0.0487
   },
   "household_size_drawn_share": {
-   "1": 0.0833,
-   "2": 0.1425,
-   "3": 0.1996,
-   "4": 0.1689,
-   "5": 0.1382,
-   "6": 0.136,
-   "7": 0.0811,
-   "8": 0.0504
+   "1": 0.0835,
+   "2": 0.1429,
+   "3": 0.2,
+   "4": 0.167,
+   "5": 0.1385,
+   "6": 0.1363,
+   "7": 0.0813,
+   "8": 0.0505
   },
-  "largest_share_gap": 0.0263
+  "largest_share_gap": 0.0262
  }
 }

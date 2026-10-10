@@ -55,6 +55,10 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+# A household's home and workplace are read off its dated associated_with rows (T-2275):
+# the singular lives_at/works_at pair is being retired (T-2261), and these are its reader.
+from associations import home_of, workplace_of  # noqa: E402
 DATA = ROOT / "data"
 HOUSEHOLDS = DATA / "residents" / "households"
 STREETS = DATA / "streets" / "1835.json"
@@ -405,7 +409,7 @@ def adjudicate_one(streets, hh, persons, person, claim) -> dict:
     year = int(claim.get("describes_date") or 0)
     pid = person["person_id"]
     trade = ((persons.get(pid) or {}).get("occupation") or {}).get("value")
-    works_at = (hh.get("works_at") or {}).get("value")
+    works_at = workplace_of(hh)
     row = {
         "household_id": hh["id"],
         "person_id": pid,
@@ -677,8 +681,8 @@ def counts(rows: list[dict]) -> dict:
 
 
 def link_counts(records) -> tuple[int, int]:
-    lives = sum(1 for _, h in records if (h.get("lives_at") or {}).get("value"))
-    works = sum(1 for _, h in records if (h.get("works_at") or {}).get("value"))
+    lives = sum(1 for _, h in records if home_of(h))
+    works = sum(1 for _, h in records if workplace_of(h))
     return lives, works
 
 
@@ -778,7 +782,9 @@ def self_test() -> int:
     fails = []
 
     def one(printed, trade, works, year=1839):
-        hh = {"id": "hh_t", "works_at": {"value": works},
+        rows = [{"kind": "workplace", "place_or_structure_id": works,
+                 "resolves_to": "structure", "from": None, "to": None}] if works else []
+        hh = {"id": "hh_t", "associated_with": rows,
               "persons": [{"id": "p", "name": "T", "occupation": {"value": trade}}]}
         persons = {"p": hh["persons"][0]}
         person = {"person_id": "p"}

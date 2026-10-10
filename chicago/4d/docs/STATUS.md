@@ -1,3 +1,73 @@
+## T-2278 — doors, windows and their trim on every 1835 building (2026-10-10)
+
+Owner's ask: give every structure correct door and window openings and their trim, and use
+Glessner's dark glass where a building could have had glass. Recorded as **L413**.
+
+- **One kit, `generators/common/openings.py`,** builds every opening the frame dwellings, log
+  dwellings, stores, taverns and fort buildings draw: a board casing standing 5 cm off the wall
+  with its returns, the pane set 13 mm back so the jambs read as a reveal, a sloped sill with
+  horns, a drip cap, flat sash bars, and a closed door in every doorway (panelled; half-glazed with
+  a transom on a shop; board-and-batten on iron strap hinges for a cabin, a freight door or a
+  magazine). About half the cabins get a pair of open board shutters. Outbuildings keep their board
+  doors and gain strap hinges; barns, sheds and stables stay unglazed.
+- **History.** Window glass by the box and ready-made sash were advertised in the Chicago Democrat
+  1833-35 by five merchants already on their business records, so a log house in this town is
+  glazed too.
+- **Glass.** `materials.GLASS` is now Glessner's drawn dark pane (the GLB colour at 12 per cent,
+  roughness 0.065). Opaque, so it costs no extra pass. The door paints and the glass are named
+  materials (`MeshBuilder.named_mat`), so they join the town batch at no extra draw call.
+- **Rebake.** Every structure was rebaked (common/ changed); 674 masters moved, plus the four
+  Glessner and Bates structure versions. The three ground epochs' input hashes moved too, but
+  their meshes do not depend on the change: a clean-dev bake and this branch's bake are byte-
+  identical for e1830 and e1871 (e1834 reproduces the committed bytes), so the committed ground
+  bytes are kept and only the hash is re-stamped.
+- **Cost, desktop 1280x800, six stands, stepped, against dev before the change:** full +65k to
+  +151k (worst West prairie 3,210,825 -> 3,362,063), balanced +59k to +139k (2,334,552 ->
+  2,473,184), light +29k to +117k (1,021,552 -> 1,138,298). Draw calls +0 to +3. JS heap after gc
+  1131.7 -> 1180.1 MiB. Dev was already over all three desktop ceilings before this change.
+- **Cost, phone 390x780, same sweep:** full +48k to +124k (worst 2,766,354 -> 2,890,515), balanced
+  +46k to +122k (2,047,667 -> 2,169,656), light +18k to +101k (868,283 -> 968,880); every tier
+  stays inside its ceiling (light by 36,120). JS heap after gc 1124.9 -> 1175.7 MiB. The ceilings
+  are not moved here.
+
+## T-1786 — the portable human contract (2026-10-10)
+
+First ticket of the owner's portable-humans programme (T-1786 to T-1792). **Nothing in the scene
+changes, and L1 stands**: no human figure is drawn, for anyone. This fixes the decisions the
+later tickets would otherwise each make for themselves.
+
+- **`docs/HUMAN-ASSET-CONTRACT.md`** is the contract in prose.
+  **`data/humans/contract.json`** is its machine-readable half:
+  - one 56-bone skeleton, `c4d_humanoid_v1`, with `ext_` extension bones
+  - three required sockets
+  - five required and five optional material slots, using `<slot>__<variant>` names
+  - the face on ARKit morph names, required on lod0 and lod1 only
+  - a clip grammar of `<verb>[_<variant>]` with seven verbs, in place
+  - four LODs mapped to the full, balanced and light tiers
+  - provenance fields for the DEPICTION's own grade
+  - the delivery limits
+  - Unreal as an export, never a master
+- **`data/humans/human_instance.schema.json`** is the instance record. It binds an asset to an
+  existing person id in one scene. Appearance, animation and behaviour are separate blocks.
+  `display` is refused `shown` while `l1.in_force` is true, and `review_required` is carried
+  from the person's record and cannot be dropped.
+- **`tools/human_contract.py`** has three modes:
+  - `--check` (in check.sh) holds the contract to itself and to the schema, then checks every
+    GLB under `assets/humans/` and every instance under `data/humans/instances/`. There are
+    none of either yet, so it reports 0 and 0.
+  - `--glb` is for T-1787's exporter.
+  - `--self-test` has 49 assertions. It builds a conforming synthetic body from the contract
+    and breaks it one way at a time, then does the same for instances. Every refusal the
+    ticket names fires by code: an incompatible skeleton, a missing material slot or morph,
+    duplicate clip names, non-metric scale (in positions or hidden in a 0.01 transform), and
+    missing provenance or licence. So do refusals for KTX2 and Draco, which the renderer
+    cannot load.
+- **What is not proved.** The fixtures are JSON-only GLBs: names, hierarchy, accessor bounds
+  and extras, with no vertex data. No real Blender export has been through the gate yet; that
+  is T-1787's tiny rigged CI fixture. The per-LOD triangle, texture and draw budgets are left
+  for T-1787 to measure rather than guessed here. No review record exists yet, so a
+  review_required person cannot be shown even after L1 lifts.
+
 ## T-2206 — Glessner roof and courtyard proportions audited
 
 The comparison page now measures the current assets through all nine frozen T-2200

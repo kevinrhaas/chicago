@@ -1,9 +1,63 @@
 export const CHANGELOG = [ // newest first
-  { v: 1605, ts: '2026-10-10T01:42:19.000Z', date: 'Oct 9, 2026, 8:42 PM CT', title: 'Two river warehouses on the South Branch below Market Street', kind: 'feature',
+  { v: 1615, ts: '2026-10-10T04:10:30.121Z', date: 'Oct 9, 2026, 11:10 PM CT', title: 'The later-directory crosswalks read each household’s dated places', kind: 'change',
     items: [
-      'Walk down Market Street toward Madison and look west, toward the river. Two large frame warehouses now stand on the bank between Market Street and the South Branch, below Washington Street, facing the water with a cart way between them.',
-      'They are two of the three warehouses the town still owed its river trade. Every lot on South Water Street was already built on, and this stretch of bank was the one riverside ground left. Newberry & Dole\u2019s packing house already stands on it, a block north.',
-      'Both are reconstructed: no source puts a building here. The third warehouse the town owes, a lumber shed, is still to come.',
+      'Nothing you can see changes. The tools that match the 1839, 1843 and 1844 directories against the town, and the two that read a later printed address back to 1835, now take where a household lived and worked from the dated places on its card.',
+      'Every match, refusal and placement comes out exactly as before, even with the old single home and workplace lines removed from the records.',
+    ] },
+  { v: 1614, ts: '2026-10-10T03:58:17.096Z', date: 'Oct 9, 2026, 10:58 PM CT', title: 'The resident index and audits read each household’s dated places', kind: 'change',
+    items: [
+      'Nothing you can see changes. The resident index, the resident audit, the population profile, the research sign-off and the residents summary now take where a household lived and worked from the dated places on its card, the same entries its card shows you.',
+      'Every figure, row and table comes out exactly as before, even with the old single home and workplace lines removed from the records.',
+      'A card’s “no known address” reason still comes from the old line, because a place nobody can name has no dated entry to carry it. Where that wording goes is decided before the old lines retire.',
+    ] },
+  { v: 1613, ts: '2026-10-10T03:56:56.811Z', date: 'Oct 9, 2026, 10:56 PM CT', title: 'Every 1835 door is shut and every window glazed', kind: 'feature',
+    items: [
+      'Doors were black holes in the wall. Houses, taverns, stores and fort buildings now have closed panelled doors on a sill. Shops have half-glazed doors with a transom light, and cabins have board doors on iron strap hinges.',
+      'Windows were black panels with flat bars. Each now sits in a board casing with a sloped sill and a drip cap. The sash is set back so the frame casts a shadow.',
+      'The glass is the dark glass Glessner House uses in 1904: a near-black pane that reflects the sky. Chicago merchants sold window glass and ready-made sash by the box in 1833–35, so cabins have glass too. Barns and sheds stay unglazed.',
+      'Store show windows are small panes, the 8×10 inch sizes the town’s merchants sold. Many cabin windows have board shutters standing open. Barn and shed doors now hang on strap hinges.',
+    ] },
+  { v: 1612, ts: '2026-10-10T03:43:50.834Z', date: 'Oct 9, 2026, 10:43 PM CT', title: 'Release notes no longer hold up each other\'s merges', kind: 'chore',
+    items: [
+      'Nothing in the app changes. Each change now carries its release note as a file of its own, and the note joins this list after the change lands, so changes waiting to merge stop colliding on the top line of this list.',
+    ] },
+  { v: 1611, ts: '2026-10-10T03:18:31.813Z', date: 'Oct 9, 2026, 10:18 PM CT', title: 'A lumber shed on the South Branch below Washington Street', kind: 'feature',
+    items: [
+      'Walk down Market Street south of Washington and look toward the river. A long plank shed now stands on the bank, open along one side, facing the South Branch. It is the town\u2019s first lumber shed.',
+      'The Chicago Democrat shows lumber reaching Chicago by boat, from St. Joseph\u2019s sawmills and a yard on South Water Street. So the shed stands where boards would come off a schooner.',
+      'No source places this shed or names its owner. It is a reconstruction, and its card says so. It is not David Carver\u2019s yard, which the paper puts on South Water Street.',
+    ] },
+  { v: 1610, ts: '2026-10-10T03:02:42.351Z', date: 'Oct 9, 2026, 10:02 PM CT', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
+    items: [
+      'Nothing you can see changes. Where a household\u2019s dated home was copied from the old single home line, it now also carries that line\u2019s own reasoning and what would replace it, so the seat a card shows no longer depends on the old line.',
+      'The garrison\u2019s eleven households keep their own \u201cWould move it up the ladder\u201d line, a plan of the post that assigns its quarters, and every seat in the town reads exactly as before.',
+    ] },
+  { v: 1609, ts: '2026-10-10T02:48:43.449Z', date: 'Oct 9, 2026, 9:48 PM CT', title: 'Closing one task no longer quietly reopens another', kind: 'fix',
+    items: [
+      'Nothing you can see changes. When the build loop marks a task finished, it now records only that task. A week ago, finishing one task also published a private scratch edit to another, which put already-finished work back on the to-do list. That task is closed again.',
+    ] },
+  { v: 1608, ts: '2026-10-10T02:34:31.860Z', date: 'Oct 9, 2026, 9:34 PM CT', title: 'The groundwork for people in the town: one skeleton, one rulebook', kind: 'change',
+    items: [
+      'Nothing you can see changes, and no person is drawn: the town still shows no human figures, for anyone, until that rule is lifted.',
+      'Every future figure now shares one skeleton, one set of clothing slots, facial expressions and movement names. It is built once in Blender, shown first in this browser, and exportable to Unreal later. Each figure is tied to the person card it depicts and says how much of its look is evidence and how much is invented.',
+      'A figure that would need review before being shown keeps that flag, and any figure asking to be shown is refused while the no-figures rule stands.',
+    ] },
+  { v: 1607, ts: '2026-10-10T02:18:30.123Z', date: 'Oct 9, 2026, 9:18 PM CT', title: 'Prairie Avenue’s building parts get one set of measurements', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. The walls, windows, roofs and front steps of the 1904 houses still to come will now be built from one rule book. Everything is in metres, measured up from the ground.',
+      'The Glessner House was checked against that rule book. It is the right size in all three of its download sizes, and its walls stand where its floor plan says.',
+      'A few small faults turned up: hidden doubled faces in the stone trim on the Prairie Avenue front and where two roof pieces meet. They are filed to be fixed when the house is next rebuilt.',
+    ] },
+  { v: 1606, ts: '2026-10-10T01:40:14.964Z', date: 'Oct 9, 2026, 8:40 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
+    items: [
+      'Charles Beaubien, father of Susan at her baptism at St Mary\u2019s on 24 December 1834, stood in the town as a second man, with a house of his own. He is Charles H. Beaubien, the voter and violinist, now on one card. The history of Chicago names Charles H. as J. B. Beaubien\u2019s son, teaching the fort\u2019s children in 1829, and his death notice puts his birth in 1806 or 1807. No record the town holds names a second Charles Beaubien.',
+      'His second house is gone. Other households move into it and the houses they leave. Patrick Meleney now has a standing house on the South side instead of a lot south of Monroe, and Samuel Miller and the reconstructed household of Ruth Woodruff are given lots there.',
+    ] },
+  { v: 1605, ts: '2026-10-10T01:25:22.744Z', date: 'Oct 9, 2026, 8:25 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The reconstruction\u2019s work list asked for ten more South-side family households than the town could form, after letter-list names stopped counting as households on 9 October.',
+      'Those ten are not missing. The town already holds 23 families present in July 1835 who are still waiting for a house, so the list no longer asks for anyone to be invented in their place. It now owes no family houses in any division.',
+      'Nobody was added, moved or given a house. The 23 families still wait for the town\u2019s next dwellings to be built.',
     ] },
   { v: 1604, ts: '2026-10-10T01:02:46.060Z', date: 'Oct 9, 2026, 8:02 PM CT', title: 'The tools that seat the town read each household\u2019s dated places', kind: 'change',
     items: [

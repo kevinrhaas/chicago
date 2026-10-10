@@ -1,0 +1,164 @@
+{
+  "id": "recon_1835_south_branch_lumber_f4_001",
+  "name": "Reconstructed F4 lumber shed #001",
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "inferred_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "An invented count-unit for July 1835, not evidence that this particular building existed."
+      },
+      "position": {
+        "utm_e": 447141.385,
+        "utm_n": 4636944.829,
+        "rotation_deg": 270.340257,
+        "symbolic_location": "Reconstructed lumber shed on the South Branch's east bank below Market Street, south of Washington Street, facing the branch",
+        "confidence": "reconstructed",
+        "note": "Off the plat: the strip between Market Street's corridor and the traced water carries no lot line. The roof's back wall stands 3.0 m inside Market's west line, its north wall 40.0 m south of Washington's south line, and its front faces the branch the boards would come off. Chosen under the lumber-landing clause (T-2269): a lumber yard stacked what a schooner landed, no South Water lot is free, and this is the one bank left, above the Madison end T-2268's warehouses take, where the bank's relief first allows a roof; no source seats a building here.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "No parcel-by-parcel July 1835 South Division roof register survives in the supplied evidence."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            10.412,
+            0
+          ],
+          [
+            10.412,
+            18.94
+          ],
+          [
+            0,
+            18.94
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "Deterministically sampled 10.412 by 18.940 metre rectangle inside the F4 typology band; neither dimension is attested for this invented roof."
+      },
+      "form": {
+        "wall_height_m": {
+          "value": 4.084,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the F4 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the F4 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "roof_pitch_deg": {
+          "value": 23.7,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the F4 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "construction": {
+          "value": "plank",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the F4 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "door": {
+          "value": "none",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the F4 family's key geometry parameters do not speak to a door type, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+        },
+        "door_side": {
+          "value": "front",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the F4 family's key geometry parameters do not speak to a door side, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+        },
+        "loft": {
+          "value": false,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the F4 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "board_gap_m": {
+          "value": 0.012,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the F4 family's key geometry parameters do not speak to a board gap, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the F4 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+        },
+        "open_sides": {
+          "value": [
+            "left"
+          ],
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the F4 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        }
+      },
+      "change_note": "T-2269 adds the South street line's owed lumber shed without moving an existing building."
+    }
+  ],
+  "function": {
+    "value": "lumber_shed",
+    "confidence": "reconstructed",
+    "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+    ],
+    "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. The F4 type fills the South Division's street-line freight band in the order book. No lumber merchant, owner or stock is recovered for it."
+  },
+  "reconstruction": {
+    "status": "inferred_anonymous",
+    "family": "F4",
+    "district": "south",
+    "inventory_class": "principal_functional",
+    "programme_phase": "south_lumber_shed_1835",
+    "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+    "sequence": 1,
+    "finish_key": "fresh_timber",
+    "roof_condition": "fresh",
+    "age_state": "new",
+    "fabric_basis": {
+      "rule": "F-F",
+      "class": "freight",
+      "by": "type",
+      "household": null,
+      "words": "new-sawn boards under a new roof — a lumber shed, new-built (rule F-F: the freight trade's by its type)"
+    }
+  },
+  "research_note": "RECONSTRUCTED, NOT A RECOVERED ADDRESS. The order book's South street-line freight band sets ten roofs; this is its lumber shed. The family, the place on the bank, the dimensions, the open side, the finish and every form value are inventions bounded by the reconstruction specification and recorded in docs/LIBERTIES.md. The Chicago Democrat prints David Carver's lumber yard on South Water Street from December 1833 to July 1835; this shed is not claimed to be his, and a reading that places his yard on the water, or any named yard on this bank, replaces it.",
+  "review_required": false
+}

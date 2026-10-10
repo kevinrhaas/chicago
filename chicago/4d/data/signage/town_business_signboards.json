@@ -754,6 +754,7 @@
       "forwarding_commission_warehouse",
       "freight_or_storage_shed",
       "large_river_warehouse",
+      "lumber_shed",
       "narrow_two_story_warehouse",
       "packing_house",
       "slaughterhouse_packing",
@@ -8653,13 +8654,8 @@
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
-      "structure_id": "recon_1835_south_branch_freight_f3_001",
-      "trade": "large_river_warehouse",
-      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
-    },
-    {
-      "structure_id": "recon_1835_south_branch_freight_f3_002",
-      "trade": "large_river_warehouse",
+      "structure_id": "recon_1835_south_branch_lumber_f4_001",
+      "trade": "lumber_shed",
       "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {

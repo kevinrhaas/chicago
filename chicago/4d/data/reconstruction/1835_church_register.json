@@ -130,8 +130,8 @@
  "persistence_model": {
   "id": "persistence_1835",
   "form": "persistence(L) = exp(-lambda * L), L in years before 1835-07-01",
-  "lambda_per_year": 0.063541,
-  "one_year_persistence": 0.9384,
+  "lambda_per_year": 0.064844,
+  "one_year_persistence": 0.9372,
   "measured_on": [
    {
     "volume": "Fergus 1839, the first ward-by-ward list after the scene",
@@ -139,7 +139,7 @@
     "counts_key": "counts.residents_matched_one_entry",
     "dated": "1839-07-01",
     "years_after_the_scene": 4.0001,
-    "of_the_layer_still_named": 164
+    "of_the_layer_still_named": 165
    },
    {
     "volume": "Fergus 1843",
@@ -256,7 +256,7 @@
    "dated_evidence_read_as": "1833-10-10",
    "present_on_scene_date": {
     "value": "absent",
-    "persistence": 0.8963,
+    "persistence": 0.8943,
     "years_before_the_scene": 1.7221,
     "seed": "hh_cr_jaespquaa:persistence"
    }
@@ -281,7 +281,7 @@
    "dated_evidence_read_as": "1833-10-08",
    "present_on_scene_date": {
     "value": "present",
-    "persistence": 0.896,
+    "persistence": 0.894,
     "years_before_the_scene": 1.7276,
     "seed": "hh_cr_marianne:persistence"
    }

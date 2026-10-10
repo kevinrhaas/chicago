@@ -173,6 +173,9 @@ const COVERAGE = [
   ['renderers/web/js/glessner-baseline.js', NONE, 'isolated page: qa_glessner_t2200.mjs'],
   ['renderers/web/css/glessner-baseline.css', NONE, 'isolated page: qa_glessner_t2200.mjs'],
   ['data/comparisons/glessner/', NONE, 'isolated comparison data: qa_glessner_t2200.mjs'],
+  // T-2265: the K01 component contract and the Glessner baseline measured against it.
+  // Read by tools/k01_contract.mjs in check.sh; neither published nor fetched.
+  ['data/components/', NONE, 'component contract + measured baseline: k01_contract.mjs --check'],
   // --- read by no part of the scene: the gate's own tooling, the backlog, the
   // --- prose. check.sh is what covers these, not the renderer.
   ['tools/', NONE, 'the gate\'s own tooling — not served to the browser'],
@@ -188,8 +191,16 @@ const COVERAGE = [
   // per viewport to cover a JSON file nothing reads.
   ['data/render/', NONE, 'committed instrument readings — neither published nor fetched'],
   ['docs/', NONE, 'prose — except docs/LIBERTIES.md, which compiles into the scene'],
+  // T-1786: the portable human contract. No scene reads it yet (L1 stands, nothing
+  // is drawn); tools/human_contract.py holds it in check.sh.
+  ['data/humans/', NONE, 'human contract + instance schema: human_contract.py --check'],
   ['README.md', NONE, 'prose'],
   ['AGENTS.md', NONE, 'prose'],
+  // The changelog entry file a PR adds (owner, 2026-10-10). Nothing serves or imports
+  // it: the fold on dev turns it into renderers/web/js/changelog.js after the merge,
+  // and on the PR `changelog-entries.mjs --check` holds its shape and budget. Without
+  // this row every PR, which now always carries one, would price at the whole gate.
+  ['changelog.d/', NONE, 'changelog entry files — folded into changelog.js on dev, not served'],
   ['tools/smoke_renderer.mjs', ALL, 'the gate itself'],
 
   // --- the whole scene: geometry, the scene graph, the boot chain, the mirror

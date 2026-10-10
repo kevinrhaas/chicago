@@ -2729,6 +2729,19 @@
       ]
     },
     {
+      "why": "T-2269: the South street line's owed lumber shed, written from its own recipe on the South Branch's east bank south of Washington. PLACED BY LAYER beside generate_west_freight.py and generate_north_freight.py: it reads the committed corridors, lots, terrain and footprints and writes one structure record nothing else in this order reads back before the scene compiles.",
+      "command": [
+        "python3",
+        "tools/generate_south_lumber.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/generate_south_lumber.py",
+        "--check"
+      ]
+    },
+    {
       "why": "T-2022: the North Division's seventh freight roof, written from its own recipe on the North Water bank at LaSalle. PLACED BY LAYER beside generate_west_freight.py: it reads the committed North tier, terrain and footprints and writes one structure record nothing else in this order reads back before the scene compiles.",
       "command": [
         "python3",
