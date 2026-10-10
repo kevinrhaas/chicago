@@ -48,6 +48,8 @@ const BASELINE = 'data/components/prairie_1904/glessner_baseline.json';
 const PACKAGE = 'docs/RESEARCH/glessner-v4-recovery/manifest.json';
 const RECORD = 'data/structures/glessner_house.json';
 const LIBRARY = 'assets/textures/glessner-v4/material-library.json';
+// T-2293: the K04 roof library's fabrics, measured by the same metric-UV rule
+const ROOF_LIBRARY = 'assets/textures/prairie_1904_roofs/manifest.json';
 const TIERS = [
   ['full', 'assets/gltf/glessner_house__as_built_1887.glb'],
   ['web', 'assets/web/glessner_house__as_built_1887.glb'],
@@ -524,7 +526,10 @@ function assemblyLibrary() {
       own.push({ name: m.id, tile_m: m.tile_m });
     }
   }
-  return [...readJson(LIBRARY).materials, ...own];
+  // T-2293: the K04 roof library's fabrics, by id
+  const roofs = existsSync(path.join(APP, ROOF_LIBRARY))
+    ? readJson(ROOF_LIBRARY).materials.map((m) => ({ name: m.id, tile_m: m.tile_m })) : [];
+  return [...readJson(LIBRARY).materials, ...own, ...roofs];
 }
 
 async function measureAsset(structureId) {

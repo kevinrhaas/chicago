@@ -11,7 +11,10 @@ import path from 'node:path';
 import {createRequire} from 'node:module';
 const root=process.cwd(),require=createRequire(path.join(root,'tools/qa.mjs'));
 const {chromium}=require('playwright');
-const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH/k01-1808-frontage-2266');
+// T-2293: QA_K04=1 re-reads the same house for its K04 roof — the stands below plus a
+// dormer, a grazing look along the eave and a downpipe's shoe — into its own folder.
+const K04=process.env.QA_K04==='1';
+const site=path.resolve(root,'../../site/4d'),out=path.join(root,K04?'docs/RESEARCH/k04-1808-roof-2293':'docs/RESEARCH/k01-1808-frontage-2266');
 fs.mkdirSync(out,{recursive:true});
 const ID='keith_house_1808_prairie';
 const types={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.glb':'model/gltf-binary','.svg':'image/svg+xml'};
@@ -25,6 +28,11 @@ const STANDS=[
  ['rear',[-17,-3,1.7],[0,5.2,7]],
  ['roof',[34,-14,27],[9,5.2,11]],
  ['courtyard-join',[-6,21,1.7],[6,10.4,6]],
+ ...(K04?[
+  ['dormer',[29,5.2,15.5],[17.6,5.2,14]],
+  ['eave-grazing',[23,-4.5,13.2],[15,0.6,12]],
+  ['downpipe-shoe',[20.6,-1.8,1.3],[18.1,-0.35,0.25]],
+ ]:[]),
 ];
 const results=[];let failed=null;
 try{

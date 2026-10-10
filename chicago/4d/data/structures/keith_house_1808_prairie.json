@@ -127,14 +127,14 @@
           "note": "A hip roof, the contract's k01.roof.hip. The register's pierced stone parapet is T-1882's to build; behind it a pitched roof is the reconstruction's simplest honest cover."
         },
         "roof_pitch_deg": {
-          "value": 40,
+          "value": 45,
           "confidence": "reconstructed",
-          "note": "Inside the contract's ordinary pitch range [25, 45]."
+          "note": "At the top of the contract's ordinary pitch range [25, 45]. Raised from 40 by T-2293 so the roof takes the K04 library's Pennsylvania slate as it is cut: a 10 x 20 in slate on a 3 in headlap, which k04_roofs.json slate_exposure allows from 45 degrees up (a 25-45 degree roof asks 4 in). Steepening the roof is the honest move; stretching the courses to a 4 in lap would not be."
         },
         "eave_overhang_m": {
-          "value": 0.45,
+          "value": 0.38,
           "confidence": "reconstructed",
-          "note": "A modest eave; the fascia and soffit close it."
+          "note": "A modest eave; the fascia and soffit close it. 0.38 m since T-2293: at 45 degrees a 0.45 m eave would bring the soffit down onto the top storey's lintels, which k01_frontage_params refuses."
         },
         "stair_tread_m": {
           "value": 0.3,
@@ -212,6 +212,64 @@
           },
           "confidence": "reconstructed",
           "note": "Area lights under the two front windows; the basement the Sanborn 'B' records."
+        },
+        "roof_covering": {
+          "value": {
+            "fabric": "slate_pennsylvania",
+            "flashing": "copper_sheet",
+            "caps": "copper_ridge_roll"
+          },
+          "confidence": "reconstructed",
+          "note": "T-2293, the first roof built from the K04 library (data/components/prairie_1904/k04_roofs.json): the steep main roof's default, dark Pennsylvania slate, with copper ridge and hip rolls, an open copper valley at each dormer cheek, a copper apron and step flashings. The T-1837 register names slate on every steep main roof whose covering it describes; no source here reads this house's roof, so fabric, caps and flashing are reconstructed (docs/LIBERTIES.md, T-2293)."
+        },
+        "dormer": {
+          "value": {
+            "width_m": 1.5,
+            "face_setback_m": 0.3,
+            "face_height_m": 2.15,
+            "face_thickness_m": 0.2,
+            "pitch_deg": 45,
+            "verge_m": 0.15,
+            "sash": {
+              "sill_m": 0.25,
+              "width_m": 0.85,
+              "height_m": 1.5
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "One gabled dormer on the street hip, centred over the front, its face 0.30 m behind the wall line: the K04 package's dormer apron, valleys and step flashing need a dormer to dress, and a front dormer lighting the attic is the commonest Prairie Avenue form. The 1888 plate the register reads shows a pierced parapet, not this; the parapet is T-1882's, and this dormer is a reconstruction it replaces. Its sash is the contract's smallest opening (0.85 x 1.5 m)."
+        },
+        "rainwater": {
+          "value": {
+            "gutter": "half_round",
+            "fabric": "copper_sheet",
+            "downpipe": "round",
+            "ends_at": "grade_with_splash_stone",
+            "downpipes": [
+              {
+                "wall": "k01.wall.street_front",
+                "s_m": 0.35
+              },
+              {
+                "wall": "k01.wall.street_front",
+                "s_m": 10.05
+              },
+              {
+                "wall": "k01.wall.side.south",
+                "s_m": 9.0
+              },
+              {
+                "wall": "k01.wall.rear_service",
+                "s_m": 0.35
+              },
+              {
+                "wall": "k01.wall.rear_service",
+                "s_m": 10.05
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "A 5 in half-round copper gutter hung on wrought-iron brackets at 30 in round the whole eave, falling 0.5% to five outlets, each over a 3.5 in round copper downpipe strapped to the wall that ends in a shoe over a splash stone at grade (k04_roofs.json gutter and downpipe). Pipes stand by the corners of the front and rear and halfway along the south passage wall, clear of every opening; none on the north wall, which closes the Glessner court 0.02 m off its face, so the north run is 20.5 m of gutter between its two corner outlets, over the profile's 12 m, and falls both ways from its middle (no point of it more than 10.3 m from an outlet). All reconstructed."
         },
         "window_kit": {
           "value": {
