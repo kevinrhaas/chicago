@@ -1,8 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1611, ts: '2026-10-10T03:31:52.804Z', date: 'Oct 9, 2026, 10:31 PM CT', title: 'The later-directory crosswalks read each household\u2019s dated places', kind: 'change',
+  { v: null, ts: '', title: 'The later-directory crosswalks read each household\u2019s dated places', kind: 'change',
     items: [
       'Nothing you can see changes. The tools that match the 1839, 1843 and 1844 directories against the town, and the two that read a later printed address back to 1835, now take where a household lived and worked from the dated places on its card.',
       'Every match, refusal and placement comes out exactly as before, even with the old single home and workplace lines removed from the records.',
+    ] },
+  { v: 1612, ts: '2026-10-10T03:43:50.834Z', date: 'Oct 9, 2026, 10:43 PM CT', title: 'Release notes no longer hold up each other\'s merges', kind: 'chore',
+    items: [
+      'Nothing in the app changes. Each change now carries its release note as a file of its own, and the note joins this list after the change lands, so changes waiting to merge stop colliding on the top line of this list.',
+    ] },
+  { v: 1611, ts: '2026-10-10T03:18:31.813Z', date: 'Oct 9, 2026, 10:18 PM CT', title: 'A lumber shed on the South Branch below Washington Street', kind: 'feature',
+    items: [
+      'Walk down Market Street south of Washington and look toward the river. A long plank shed now stands on the bank, open along one side, facing the South Branch. It is the town\u2019s first lumber shed.',
+      'The Chicago Democrat shows lumber reaching Chicago by boat, from St. Joseph\u2019s sawmills and a yard on South Water Street. So the shed stands where boards would come off a schooner.',
+      'No source places this shed or names its owner. It is a reconstruction, and its card says so. It is not David Carver\u2019s yard, which the paper puts on South Water Street.',
     ] },
   { v: 1610, ts: '2026-10-10T03:02:42.351Z', date: 'Oct 9, 2026, 10:02 PM CT', title: 'A household\u2019s dated home now carries its own reasoning', kind: 'change',
     items: [
