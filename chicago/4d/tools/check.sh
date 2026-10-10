@@ -517,6 +517,18 @@ step "the WebP maps the renderer binds decode pixel-identical to their PNG maste
 selftest "…and a missing, lossy, resized, mislabelled or orphaned derivative still fails it" \
   python3 tools/web_textures.py --self-test
 
+# T-2299. ...and the relief in them points the way its name says. The 1835 library's
+# generator wrote green as -dh/drow, the DirectX sign, into every `normal_gl` and filed
+# the OpenGL map as `normal_dx`, as the 1904 street library did until T-2296. Every
+# board, log, shingle and signboard binds `normal_gl` through a flipY'd texture, so all
+# of it was lit upside down along +V. This correlates both files of all 27 materials,
+# and the WebPs the renderer binds, with their own height16's slopes.
+step "the 1835 library's normal maps are handed as named, OpenGL and DirectX (T-2299)" \
+  python3 tools/check_1835_normals.py --check
+
+selftest "…and a DirectX map filed as OpenGL, the reverse, or a mirrored red still fails it" \
+  python3 tools/check_1835_normals.py --self-test
+
 # T-1251. The ground's zone table for the same scene. Its street crowns are READINGS
 # (data/terrain/e1871_grade_readings.json) put through the spec's own datum
 # conversion, its fill is the difference to the committed 1835 heightfield and

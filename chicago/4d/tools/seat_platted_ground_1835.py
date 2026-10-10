@@ -208,7 +208,12 @@ BUSINESS_DEAL_HOLDS = 45
 # two F3s it had carried; its slots go to the tradesman rows the re-dealt mix admits, which moves
 # the queue a release would draw on, so a release of the business deal's roofs seats ten
 # households. The hold is unchanged at 45 (L270).
-BUSINESS_DEAL_COSTS = 10
+# 10 -> 8 on 2026-10-10 (T-2254, on the tree merged with T-2268): four of block 82's requests
+# are raised as houses and adopted, so the two D5 slots T-2268's re-deal had put on the block
+# for hh_montgomery_l_w and hh_morrison_amanda are no longer dealt from the queues a release
+# would draw on, and a release of the business deal's roofs seats eight households again.
+# The hold is unchanged at 45 (L270).
+BUSINESS_DEAL_COSTS = 8
 
 TICKET = "T-1613"
 PARENT = "T-1199"
