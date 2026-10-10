@@ -102,6 +102,10 @@ step "loading evidence refuses promoted or unrelated facts (T-1275)" \
   python3 tools/test_loading_content.py
 step "loading cards: seeded bags, dwell, stop and humor cap (T-1275)" \
   node tools/test_loading_content.mjs
+step "Portable human contract holds; every human GLB and instance is held to it (T-1786)" \
+  python3 tools/human_contract.py --check
+selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
+  python3 tools/human_contract.py --self-test
 
 # THE MIRROR IS BUILT FIRST, BECAUSE IT IS NOT IN THE REPOSITORY ANY MORE (T-0938).
 #

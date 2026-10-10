@@ -188,6 +188,9 @@ const COVERAGE = [
   // per viewport to cover a JSON file nothing reads.
   ['data/render/', NONE, 'committed instrument readings — neither published nor fetched'],
   ['docs/', NONE, 'prose — except docs/LIBERTIES.md, which compiles into the scene'],
+  // T-1786: the portable human contract. No scene reads it yet (L1 stands, nothing
+  // is drawn); tools/human_contract.py holds it in check.sh.
+  ['data/humans/', NONE, 'human contract + instance schema: human_contract.py --check'],
   ['README.md', NONE, 'prose'],
   ['AGENTS.md', NONE, 'prose'],
   ['tools/smoke_renderer.mjs', ALL, 'the gate itself'],
