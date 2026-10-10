@@ -1,0 +1,166 @@
+{
+  "id": "pullman_house_1729_prairie_conservatory",
+  "name": "George M. Pullman house (1729 Prairie Avenue): the conservatory bay on its east wing, K13",
+  "aka": [
+    "1729 Prairie Avenue",
+    "1729 S. Prairie Avenue",
+    "Pullman residence, east wing"
+  ],
+  "archetype": "k13_conservatories",
+  "function": {
+    "value": "residence",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "Sheet 20 draws the Pullman lot's house (3B, stone) with a one-storey-and-basement stone wing ('1B') running east along the north of the lot to a two-storey garage, and a semicircular projection on that wing's south face into the court between house and garage. The wing is part of the residence; the projection's use is not printed on the sheet, and its reading as a glazed conservatory bay is RECONSTRUCTED (see the conservatory entry)."
+  },
+  "review_required": false,
+  "research_note": "T-2306 — the first house built in the scene from the K13 conservatory kit (data/components/prairie_1904/k13_conservatories.json, T-2305): piece 2 of T-1855. It is the bay alone on a plain block standing for the wing's wall. The Pullman main house is T-1880/T-1881, the stable, east addition and estate grounds T-1934; each replaces the block here when it lands, and this record's bay moves onto that wing's own wall.",
+  "phases": [
+    {
+      "id": "as_standing_1904",
+      "documented_range": {
+        "from": "1892-01-01",
+        "to": "1922-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_20"
+        ],
+        "note": "STANDING IN 1904 is what the scene needs, and it rests on sheet 20 of the 1911 Sanborn carried back seven years, the reading the Glessner and 1808 records and the 1904 parcels make of these sheets. FROM: the T-1837 building register reports an 1892 east addition to the Pullman house, and the wing toward the stable is read as part of it; the register is not a source record here, so the day is the 1st of January and the confidence inferred. TO: the register reports the house's loss in 1922; same footing, the year's last day."
+      },
+      "position": {
+        "utm_e": 448536.148,
+        "utm_n": 4634226.987,
+        "rotation_deg": -0.815,
+        "symbolic_location": "1729 S. Prairie Avenue: east side of Prairie between 16th and 18th Streets, the corner lot on 18th Street, parcel prairie_1729 (data/street_grid/1904.json); on the south face of the house's east wing, looking onto the court between the house and the garage.",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_20"
+        ],
+        "note": "The bay's centre on the wing's south wall line, read off the committed sheet 20 raster at pixel (4756.5, 5514) — the middle of the semicircle's chord, where it leaves the wing's south line — and carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json, 2.46 m RMS): local E 1463.45, N -3168.81. The bearing is the sheet's own rotation in that fit (0.815 degrees), so the wing runs along the sheet's ruled lines.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; none reads a 1911 Sanborn sheet. This position is pixel (4756.5, 5514) of the committed sheet 20 raster carried through the similarity in data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json (local_e = a*px + b*py + c, local_n = d*px + e*py + f) plus the datum origin, and the note carries the pixel and the result so the sum can be recomputed by hand."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            -9.115,
+            0.0
+          ],
+          [
+            -1.72,
+            0.0
+          ],
+          [
+            -1.392,
+            -1.011
+          ],
+          [
+            -0.532,
+            -1.636
+          ],
+          [
+            0.532,
+            -1.636
+          ],
+          [
+            1.392,
+            -1.011
+          ],
+          [
+            1.72,
+            0.0
+          ],
+          [
+            8.201,
+            0.0
+          ],
+          [
+            8.201,
+            4.418
+          ],
+          [
+            -9.115,
+            4.418
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_20"
+        ],
+        "note": "About the bay's centre, u east and v north. The wing's south face from the house's east wall (9.115 m west) to where the wing steps back before the garage (8.201 m east), and its depth to the north wall line (4.418 m), measured between line centres on the sheet at 0.0508 m a pixel; the semicircle 3.45 m across and 1.55 m out, which a 1.72 m radius carries within the drawn line's width, built as five planar facets. The wing's step and its run on west along the house's north side are not built: the block stops at the house's east wall line."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "'1B' on the wing: one storey and a basement.",
+          "geometry": "simplified"
+        },
+        "construction": {
+          "value": "stone",
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "Drawn blue, the sheet's colour for stone, like the house it joins.",
+          "geometry": "simplified"
+        },
+        "host_wall": {
+          "value": {
+            "west_m": 9.115,
+            "east_m": 8.201,
+            "depth_m": 4.418,
+            "height_m": 5.4,
+            "base_course_m": 0.9,
+            "coping_m": 0.3,
+            "color": [
+              0.4,
+              0.29,
+              0.24
+            ]
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "A plain closed block in the place of the wing: its plan is the sheet's (above) and its height RECONSTRUCTED, 5.4 m to the top for a basement standing about a metre out of the ground under one tall storey and a parapet. A 0.9 m base course (stopped either side of the bay) and a 0.3 m coping band stand 5 cm proud so it reads as masonry, in a reconstructed brownstone colour after the register's 'brownstone main block'. No opening, cornice or roof detail is modelled on it; it is there so the bay stands against a wall and not in the air, and T-1934's wing replaces it."
+        },
+        "conservatory": {
+          "value": {
+            "id": "k13.bay.pullman_1729_segmental",
+            "form": "segmental_bay",
+            "radius_m": 1.72,
+            "facets": 5,
+            "eave_m": 2.6,
+            "wall_top_m": 3.7,
+            "bays": 1,
+            "door": null,
+            "gutters": [
+              {
+                "eave": "front",
+                "outlet": "both"
+              }
+            ],
+            "ridge_vent": false,
+            "planting": [
+              "bench_front"
+            ],
+            "bench_out_m": 0.3
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "The plan is the sheet's semicircle (inferred, above); everything else is RECONSTRUCTED from the K13 kit (L-k13-conservatory-kit-2305) and recorded as L-k13-pullman-bay-2306. The sheet does not say the projection is glazed. A conservatory is chosen because the T-1837 building register gives the Pullman estate a dated conservatory and palm-house complex, and a glazed bay on the sunny side of a service wing facing the garden court is the form the kit's canted bay already takes; the register's own conservatory plate is not a source record here. Five facets on the semicircle, a 2.6 m eave over the kit's plinth, a half-cone of glass to 3.7 m on the wall, one glazing bay a facet, the gutter falling from its middle to a pipe at each end against the wall, and a staging bench of pot plants across the bay. Entered from the wing, so it has no door of its own."
+        }
+      }
+    }
+  ]
+}

@@ -16,6 +16,12 @@
       "name": "Osborn R. Keith house (1808 Prairie Avenue), K01 frontage assembly",
       "sidecar": "sidecars/1904/keith_house_1808_prairie.json",
       "asset": "gltf/keith_house_1808_prairie__as_built_1886.glb"
+    },
+    {
+      "id": "pullman_house_1729_prairie_conservatory",
+      "name": "George M. Pullman house (1729 Prairie Avenue): the conservatory bay on its east wing, K13",
+      "sidecar": "sidecars/1904/pullman_house_1729_prairie_conservatory.json",
+      "asset": "gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb"
     }
   ],
   "excluded_by_date": [
