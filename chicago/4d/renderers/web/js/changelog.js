@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1644, ts: '2026-10-10T13:15:20.426Z', date: 'Oct 10, 2026, 8:15 AM CT', title: 'An entrance kit for Prairie Avenue: doors, stoops, porches and carriage doors', kind: 'feature',
+    items: [
+      'Six entrance types for the 1904 houses: a stone stoop to a panelled door, a deep round-arched doorway with double doors, curved stone steps, a timber porch, a basement area stair and a coach house\'s carriage doors.',
+      'Each door sits in a real opening with depth, and every stair lands level with its doorstep and stands on the ground, with equal steps.',
+      'Nothing in the kit reaches onto the public sidewalk.',
+      'No house uses the kit yet; 1808 Prairie is the first to get these entrances.',
+    ] },
   { v: 1643, ts: '2026-10-10T12:22:21.116Z', date: 'Oct 10, 2026, 7:22 AM CT', title: '1808 Prairie gets real windows', kind: 'feature',
     items: [
       'Every window of the house beside Glessner is now built from the new window kit. It has a deep reveal, two sashes at their own depths, glass, and a stone sill with a drip.',

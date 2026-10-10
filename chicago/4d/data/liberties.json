@@ -28582,6 +28582,37 @@
       ]
     },
     {
+      "id": "L-k08-bay-kit-2307",
+      "title": "The Prairie bay kit: every bay, oriel and tower, its supports, bands, eaves and caps, all reconstructed",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 Prairie programme's bays, oriels and towers (package K08, T-2307) are seven parametric projections built by `generators/archetypes/k08_bays.py` from `data/components/prairie_1904/k08_bays.json`: a two-storey rectangular bay, a two-storey bay canted at 45 degrees, a two-storey segmental bow, a three-storey full-height projection under a flat deck, a canted upper oriel on five stepped corbel courses, a three-storey round tower under a copper cone, and a three-storey octagonal tower under an eight-sided copper spire. Each is keyed to its host wall's face and closed by it, stands on a stone plinth or on corbels, is banded at each floor, and carries K06 windows as closed recesses; on the bow and the round tower the sashes and their glass are bent to the curve. **What is invented.** Every dimension and every proportion: the plans (the rectangular bay's 2.6 by 1.2 m, the canted bay's 1.5 m front and 1.1 m projection, the bow's 3.2 m chord and 0.9 m rise, the projection's 4.0 by 0.6 m, the oriel's 1.3 m front and 0.75 m projection, the towers' 1.6 m radius and how far their centres stand proud of the wall); the storey heights, sill heights and window sizes and positions; the 0.36 m wall, the 0.6 m plinth and its 50 mm projection, the 160 mm floor band, the 0.3 m eaves and 0.2 m fascia; the oriel's corbel courses, their 0.2 m height and the 0.65 oversail ratio they are held to; the recess depths behind the glass; the roof pitches (0.6 on the slate hips, 0.45 on the bow's cone, 0.8 on the oriel, 1.9 on the towers' caps) and which K04 covering each roof names; the finial; the flat colours of the masonry, stone, trim, slate and copper; and that the towers stand engaged in one wall with their caps closed by a flat back where the wall plane cuts them (on a house the main roof meets them there). Bent sashes with bent glass are a reconstruction of what a curved bay or tower could carry; a house whose photograph shows flat sashes in a curved wall takes those instead. The choice of variants reads ASSET-CATALOG.md section K08 (\"rectangular, canted and bowed bays; full-height projections and corbelled upper oriels; circular/polygonal corner towers; copper caps\") and the reconstruction rules' \"bays have foundations or corbels\", which are the study's reading of its images and not a source record here. **What is not.** Nothing in the kit is attested; no house in the scene carries a bay, oriel or tower from it yet (T-2308 builds the first on a Prairie Avenue 1904 house)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a house's own photograph, drawing or atlas footprint gives its bay's plan, projection, storeys, window rhythm, support and cap, and that house takes them in place of the kit's working sizes; a dated builder's guide or a Chicago stone or copper contractor's catalogue c. 1880-1904 replaces a part's dimensions or a cap's pitch for every house at once."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2307 (piece 1 of T-1850, K08)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k08-bay-kit/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-10 (T-2307)."
+        }
+      ]
+    },
+    {
       "id": "L-k07-entrance-kit-2303",
       "title": "The Prairie entrance kit: every door, stoop, porch, area stair and carriage opening, all reconstructed",
       "section": "per_subject",
