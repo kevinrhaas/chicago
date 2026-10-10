@@ -65,12 +65,12 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "note": "NO ROOF AND NO LOT, AND THE DIVISION ABOVE IS NOT THE ONE THIS HOUSE WAS DEALT IN. T-1199 seats every reconstructed household on the lot grid; the division this card states is the north one it was RE-FAMILIED into, not the west one it was drawn in, and `refamilied` above names both. A coordinate invented here would be a fabricated location, which docs/LIBERTIES.md refuses outright."
  },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "note": "No workplace is assigned from a reconstructed household; T-1189 staffs the businesses and T-1199 seats the premises."

@@ -2803,7 +2803,7 @@ def _resident_household(**kw) -> dict:
         "origin": {"value": None, "confidence": "inferred", "note": "not attested"},
         "reason_for_coming": {"value": None, "confidence": "inferred",
                               "note": "not attested"},
-        "lives_at": {"value": None, "confidence": "inferred", "note": "not modelled"},
+        "no_home": {"value": None, "confidence": "inferred", "note": "not modelled"},
         "works_at": {"value": "st1", "confidence": "attested", "sources": ["s1"],
                      "note": "s1 puts him there"},
         "present_on_scene_date": {"value": "present", "confidence": "inferred",
@@ -2813,6 +2813,14 @@ def _resident_household(**kw) -> dict:
         "research_note": "why this household is written",
     }
     h.update(kw)
+    # T-2295: a null link is written as its absence, so a case that passes one in
+    # (`works_at={"value": None, ...}`) gets the record the writers now write, and a
+    # case that names a place drops the default absence it would contradict.
+    for key, absence in (("lives_at", "no_home"), ("works_at", "no_workplace")):
+        if key in kw and (kw[key] or {}).get("value") is None:
+            h[absence] = h.pop(key)
+        elif key in kw and absence not in kw:
+            h.pop(absence, None)
     if "associated_with" not in kw:
         # T-2258: every committed record carries its singular links among its
         # plural rows (the card prints only the rows), so the fixture does too.
@@ -2845,7 +2853,8 @@ def _resident_index(households: list, **kw) -> dict:
         entries.append({
             "id": h["id"], "file": f"households/{h['id']}.json", "head": h["head"],
             "division": h["division"], "persons": len(h["persons"]), "grades": g,
-            "lives_at": h["lives_at"].get("value"), "works_at": h["works_at"].get("value"),
+            "lives_at": (h.get("lives_at") or {}).get("value"),
+            "works_at": (h.get("works_at") or {}).get("value"),
             "present_on_scene_date": h["present_on_scene_date"].get("value"),
             "review_required": h["review_required"],
         })
@@ -3217,17 +3226,33 @@ def test_a_resident_points_at_a_real_building_or_at_nothing() -> None:
     check("a person-level link is held to the same rule",
           any("not a structure id" in e for e in rep.errors), rep.errors)
 
-    # Null is a legitimate and expected answer - the building may not be built
-    # yet - but it is a CLAIM about the dataset and owes a note.
+    # No address is a legitimate and expected answer - the building may not be built
+    # yet - but it is a CLAIM about the dataset and owes a note. T-2295: it is written
+    # as `no_home` / `no_workplace`, not as a null singular link.
     rep = _run_residents([_resident_household(
         works_at={"value": None, "confidence": "inferred", "note": ""})])
-    check("a null link with no note is an error",
-          any("null and carries no note" in e for e in rep.errors), rep.errors)
+    check("an absence with no note is an error",
+          any("carries no note" in e for e in rep.errors), rep.errors)
 
     rep = _run_residents([_resident_household(
         works_at={"value": None, "confidence": "inferred",
                   "note": "not modelled; no structure record exists"})])
-    check("a null link with a note passes", not rep.errors, rep.errors)
+    check("an absence with a note passes", not rep.errors, rep.errors)
+
+    rep = _run_residents([dict(_resident_household(), lives_at={
+        "value": None, "confidence": "inferred", "note": "not modelled"})])
+    check("a null singular link is refused: it is written as its absence",
+          any("is written as `no_home`" in e for e in rep.errors), rep.errors)
+
+    rep = _run_residents([_resident_household(
+        no_home={"value": "st1", "confidence": "inferred", "note": "n"})])
+    check("an absence that names a place is an error",
+          any("An absence names no place" in e for e in rep.errors), rep.errors)
+
+    rep = _run_residents([_resident_household(
+        no_workplace={"value": None, "confidence": "inferred", "note": "n"})])
+    check("an absence beside a row naming that kind of place is an error",
+          any("One of them is wrong" in e for e in rep.errors), rep.errors)
 
 
 def test_a_role_is_dated_and_the_1835_field_is_only_their_view() -> None:

@@ -693,11 +693,11 @@ def derive():
                 "up from a slave state — the record does not say, and an origin written "
                 "here would be this project answering the one question its sources most "
                 "conspicuously do not."), tier="unknown"),
-            "lives_at": attribute(None, (
+            "no_home": attribute(None, (
                 "Not seated. T-1199 seats the reconstructed households on the lot grid "
                 "by the placement policy; this card carries no division because no "
                 "reading places a free Black household in one."), tier="unknown"),
-            "works_at": attribute(None, (
+            "no_workplace": attribute(None, (
                 "Not seated. The two firms this stage writes carry their keepers; "
                 "T-1189 staffs the business layer."), tier="unknown"),
             "present_on_scene_date": attribute(

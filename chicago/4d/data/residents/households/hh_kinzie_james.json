@@ -50,7 +50,7 @@
   ],
   "note": "Andreas's residents list places 'James Kinzie and family' near Wentworth's tavern and this dataset's james_kinzie_house sits in that row, south of the tavern, on the strength of the same clause. Inferred rather than documented because the building record itself calls its evidence 'a single clause' and grades its own position inferred."
  },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "note": "NOT ATTESTED AT THE SCENE DATE. He built the Green Tree and Chester Ingersoll kept it; he built a tavern on the west side of the South Branch and a Mr Crook kept it. This dataset holds james_kinzie_house as his residence and that is a lives_at, not a works_at."

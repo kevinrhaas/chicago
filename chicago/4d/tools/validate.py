@@ -28,7 +28,7 @@ import re
 import sys
 from pathlib import Path
 
-from associations import (ASSOCIATION_KINDS, ASSOCIATION_RESOLUTION,
+from associations import (ASSOCIATION_KINDS, ASSOCIATION_RESOLUTION, HOME_KINDS, WORK_KINDS,
                          check_association_rows, singular_drift)
 from heightfield import Heightfield
 from migrate_attribute_tiers import check_tier_block
@@ -5115,8 +5115,16 @@ ARRIVAL_FLOOR = dt.date(1800, 1, 1)
 
 RESIDENT_HOUSEHOLD_KEYS = ("id", "name", "division", "head", "arrival",
                            "party_size_on_arrival", "origin", "reason_for_coming",
-                           "lives_at", "works_at", "present_on_scene_date", "persons",
+                           "present_on_scene_date", "persons",
                            "touches_removal", "review_required", "research_note")
+
+# T-2295. Where no address resolves, the reason is a claim the card prints ("Lived at" /
+# "Worked at" — residents.js `absenceRow`), and it used to ride on a NULL `lives_at` /
+# `works_at`. The singular pair is retiring (T-2284), so the absence has its own key and the
+# pair is written only to carry a value. The block keeps its shape — `value: null`, a
+# confidence, a note — so the confidence tally and the tier census count it as before.
+RESIDENT_ABSENCE_KEYS = (("lives_at", "no_home", HOME_KINDS),
+                         ("works_at", "no_workplace", WORK_KINDS))
 
 # --------------------------------------------------------------------------
 # kin: a relationship BETWEEN two households (T-0597)
@@ -5586,6 +5594,31 @@ def check_resident_link(where: str, key: str, node, structure_ids: set, rep: Rep
                          f"parcel closes the loop by building the structure")
 
 
+def check_resident_absence(where: str, key: str, kinds: tuple, h: dict, rep: Report) -> None:
+    """`no_home` / `no_workplace`: the reason no address resolves (T-2295).
+
+    An absence is a claim like any other, so it carries a confidence and the note that says
+    which absence it is — not in the dataset, not attested, not seated. And it may not stand
+    beside the thing it says is missing: a record that names a home in `associated_with`
+    cannot also say it has none, or the card would print both."""
+    node = h.get(key)
+    if not isinstance(node, dict) or "confidence" not in node:
+        rep.error(where, f"{key} must be an attested block with a confidence and a note")
+        return
+    if node.get("value") is not None:
+        rep.error(where, f"{key} carries a value ({node.get('value')!r}). An absence names no "
+                         f"place; a place is a row in associated_with")
+    if not (node.get("note") or "").strip():
+        rep.error(where, f"{key} carries no note. The note is the reason no address resolves, "
+                         f"and it is what the card prints")
+    named = sorted({r.get("place_or_structure_id") for r in h.get("associated_with") or []
+                    if isinstance(r, dict) and r.get("kind") in kinds})
+    if named:
+        rep.error(where, f"{key} says no address resolves, and associated_with names "
+                         f"{', '.join(map(str, named))} as a {'/'.join(kinds)}. One of them is "
+                         f"wrong")
+
+
 def check_business_layer(structure_ids: set, rep: Report, tally: dict,
                          data_root: Path | None = None) -> None:
     """data/businesses/ — every id a record points at has to answer (T-1310).
@@ -5946,8 +5979,14 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
                                  f"Saying a documented resident may not have been here is a "
                                  f"finding and owes its reasoning")
 
-        for k in ("lives_at", "works_at"):
-            check_resident_link(where, k, h.get(k), structure_ids, rep)
+        for k, absence, kinds in RESIDENT_ABSENCE_KEYS:
+            if k in h:
+                check_resident_link(where, k, h.get(k), structure_ids, rep)
+                if isinstance(h.get(k), dict) and h[k].get("value") is None:
+                    rep.error(where, f"{k} is null. A null link is an ABSENCE and is written as "
+                                     f"`{absence}` (T-2295): the singular pair carries values only")
+            if absence in h:
+                check_resident_absence(where, absence, kinds, h, rep)
 
         # --- associated_with: the plural, dated form of the two links above ---
         # T-1238. `lives_at`/`works_at` are singular and undated, and the sources
