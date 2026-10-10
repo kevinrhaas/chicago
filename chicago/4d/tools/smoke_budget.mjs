@@ -397,6 +397,13 @@ const COVERAGE = [
   // T-2292. The K04 roof library is published by nothing and bound by no renderer until
   // T-2293 builds a roof from it, so no part draws it; tools/check_roof_library.py gates it.
   ['assets/textures/prairie_1904_roofs/', NONE, 'the K04 roof library — bound by no renderer yet: check_roof_library.py --check'],
+  // T-2297. The K06 window kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2298 glazes a house from it, so no part draws
+  // it; tools/check_window_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k06_windows.json', NONE, 'the K06 window kit data — built into no scene yet: check_window_kit.py --check'],
+  ['generators/archetypes/k06_windows.py', NONE, 'the K06 window kit generator — imported by no scene build yet: check_window_kit.py --check'],
+  ['docs/RESEARCH/k06-window-kit/', NONE, 'the K06 window kit specimen and study — unpublished: check_window_kit.py --check'],
+  ['tools/study_k06_windows.mjs', NONE, 'the K06 study renderer — run by hand, by no gate'],
 
   // --- PART 14: the arrival-to-jaunt path, on a fresh context (T-2044)
   // The jaunt modules are imported lazily, the first time the Jaunts menu opens, and
