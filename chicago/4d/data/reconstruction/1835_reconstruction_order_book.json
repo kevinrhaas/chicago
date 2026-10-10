@@ -1603,8 +1603,8 @@
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 679,
-    "roofs_to_build": 8,
+    "roofs_standing": 681,
+    "roofs_to_build": 6,
     "persons_standing": 2864,
     "persons_still_owed": 13,
     "persons_when_the_book_is_filled": 2877,
@@ -1626,9 +1626,9 @@
     "still_owed": 1109,
     "roofs_adopted": 310,
     "slots_requested": 5,
-    "roofs_standing": 679,
-    "roofs_standing_unseated": 369,
-    "share_of_standing_roofs_seated": 0.4566,
+    "roofs_standing": 681,
+    "roofs_standing_unseated": 371,
+    "share_of_standing_roofs_seated": 0.4552,
     "passes": [
       {
         "key": "platted",
@@ -1651,10 +1651,10 @@
           "west": 42
         },
         "by_clause": {
-          "labourer_dwellings": 40,
+          "labourer_dwellings": 38,
           "lodging_near_the_landings": 2,
           "merchant_and_professional_dwellings": 36,
-          "tradesman_dwellings": 142
+          "tradesman_dwellings": 144
         }
       },
       {
@@ -1668,7 +1668,7 @@
         "handed_on": 1109,
         "roofs_adopted": 95,
         "slots_requested": 0,
-        "roofs_offered_for_adoption": 108,
+        "roofs_offered_for_adoption": 110,
         "roofs_held_back": 17,
         "ground_taken": 16,
         "ground_taken_unit": "parcels",
@@ -1713,28 +1713,28 @@
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_82",
         "lot_id": "blk_school_section_tier_82#03",
+        "family": "D4",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      },
+      {
+        "household_id": "hh_montgomery_l_w",
+        "name": "The Montgomery household — a documented shoemaker, unplaced in the town",
+        "district": "south",
+        "clause": "tradesman_dwellings",
+        "block_id": "blk_school_section_tier_82",
+        "lot_id": "blk_school_section_tier_82#02",
         "family": "D5",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_rc_woodruff_ruth",
-        "name": "Reconstructed household — Ruth Woodruff, a woman boarding with her family in the south division",
+        "household_id": "hh_morrison_amanda",
+        "name": "The Morrison household — a name the town's own records carry",
         "district": "south",
-        "clause": "labourer_dwellings",
-        "block_id": "blk_school_section_tier_82",
-        "lot_id": "blk_school_section_tier_82#02",
-        "family": "D2",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_vieaux_susanne",
-        "name": "The Vieaux household — a name the town's own records carry",
-        "district": "south",
-        "clause": "labourer_dwellings",
+        "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_82",
         "lot_id": "blk_school_section_tier_82#07",
-        "family": "D2",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "family": "D5",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       }
     ],
     "slot_blocks": [
@@ -5147,11 +5147,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 679,
+        "standing_records": 681,
         "standing_with_an_occupant": 368,
-        "standing_without_an_occupant": 311,
-        "to_build_total": 8,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 311 of the 679 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "standing_without_an_occupant": 313,
+        "to_build_total": 6,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 313 of the 681 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5537,14 +5537,14 @@
             "band": "street_line"
           },
           "target": 10,
-          "standing": 8,
-          "to_build": 2,
+          "standing": 10,
+          "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-2268",
           "ground_waits_on": [],
-          "basis": "the REMAINDER band: the cell's 11 less the 1 roof(s) its closed band(s) hold, and the whole of the 2 the 668-roof programme still orders here — this is the half the order is against. The street line is platted ground with party lines and a documented trade fabric on it, T-1639's tree raised and re-familied its stores and warehouses across five closed runs, and what the cell still orders is warehouses on it — not sheds on the bank. T-1673 is filed for them. T-2175 carried the line's last three when T-1673 was split, and was split in turn (2026-10-09): T-2269 raised the F4 lumber shed on the South Branch's east bank, so the two F3 river warehouses are what the band still owes, and T-2268 is the piece filed for them",
-          "band_title": "the warehouses on platted ground: South Water Street's party lines from Market to State, and the Lake Street blocks"
+          "basis": "the REMAINDER band: the cell's 11 less the 1 roof(s) its closed band(s) hold, and the whole of the 0 the 668-roof programme still orders here — this is the half the order is against. The street line is platted ground with party lines and a documented trade fabric on it, T-1639's tree raised and re-familied its stores and warehouses across five closed runs, and what the cell still orders is warehouses on it — not sheds on the bank. T-1673 is filed for them. T-2175 carried the line's last three when T-1673 was split, and was split in turn (2026-10-09): T-2269 raised the F4 lumber shed on the South Branch's east bank, so the two F3 river warehouses are what the band still owes, and T-2268 is the piece filed for them",
+          "band_title": "the warehouses of the street line: South Water Street's party lines from Market to State, the Lake Street blocks, and the South Branch's east bank below Market Street"
         },
         {
           "key": "structures/warehouses_freight/south/river_bank",
@@ -5668,8 +5668,8 @@
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
         "roofs_on_committed_ground": 6,
-        "roofs_gated_on_coverage": 2,
-        "statement": "6 of the 8 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 2 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "roofs_gated_on_coverage": 0,
+        "statement": "6 of the 6 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 0 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5891,16 +5891,6 @@
           "waiting_on": "a placement policy for this survey. The lot lines are the sheet's and they are on the grid; what is missing is any evidence of who stood on them — see data/traces/wabansia_seating.json § occupancy_before_1835_07_01, one unplaced household in the whole survey. Dealing this district's remainder onto them at the Original Town's units-per-lot would be a density read off other ground, and these lots are not that size.",
           "owning_tickets": [],
           "filled": 0
-        },
-        {
-          "key": "ground/south_plat_beyond_committed_control",
-          "axes": {
-            "division": "south"
-          },
-          "roofs_gated": 2,
-          "waiting_on": "GROUND, AND NOT STREET CONTROL ANY MORE. The S9 street work this balance used to name is done: T-1707 carried the plat's 7 north-south columns, Market to State, to Madison Street, and each one's committed line now ends at local N -519, -519, -519, -519, -519, -519, -519, inside Madison's own corridor at every one of the 7 (measured by tools/measure_southern_ground.py). Madison is the plat's south line, so there is no street left to carry inside the Original Town. The roofs here are the ones the deal found no room for on any named South block, the plat's last tier from Washington to Madison among them, nor on the School Section's Madison-Monroe tier, the one ground across Madison the owner's 2026-10-05 ruling opened (T-1755 option b, joined by T-2144: one roof to a lot, each block keeping a lot open), nor on the section's next tier, Monroe to Adams, cut into the October 1833 register's lots (T-2252) and joined on the same terms by the owner's 2026-10-09 ruling on T-2247 (option b, T-2253). Neither tier takes a warehouse: the rulings opened them to the South's houses, so a freight roof is passed on to this balance, owed to the South Water and Lake street line (T-2175) and not to the prairie. Ground east of State is not coming at any date — it is the United States Reservation (T-E2).",
-          "owning_tickets": [],
-          "filled": 0
         }
       ]
     }
@@ -5989,7 +5979,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "311 of 679 standing records carry no occupants block."
+      "measured_now": "313 of 681 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
