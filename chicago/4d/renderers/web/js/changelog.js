@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1608, ts: '2026-10-10T02:34:31.860Z', date: 'Oct 9, 2026, 9:34 PM CT', title: 'The groundwork for people in the town: one skeleton, one rulebook', kind: 'change',
+    items: [
+      'Nothing you can see changes, and no person is drawn: the town still shows no human figures, for anyone, until that rule is lifted.',
+      'Every future figure now shares one skeleton, one set of clothing slots, facial expressions and movement names. It is built once in Blender, shown first in this browser, and exportable to Unreal later. Each figure is tied to the person card it depicts and says how much of its look is evidence and how much is invented.',
+      'A figure that would need review before being shown keeps that flag, and any figure asking to be shown is refused while the no-figures rule stands.',
+    ] },
   { v: 1607, ts: '2026-10-10T02:18:30.123Z', date: 'Oct 9, 2026, 9:18 PM CT', title: 'Prairie Avenue’s building parts get one set of measurements', kind: 'change',
     items: [
       'Nothing you can see changes yet. The walls, windows, roofs and front steps of the 1904 houses still to come will now be built from one rule book. Everything is in metres, measured up from the ground.',
