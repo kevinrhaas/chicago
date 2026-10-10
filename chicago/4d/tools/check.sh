@@ -167,6 +167,8 @@ selftest "…coincident faces, hidden origin offsets and tier scale drift are ca
   node tools/k01_contract.mjs --self-test
 step "the K01 assemblies are the bytes their records build (T-2266)" \
   python3 generators/k01_emit.py --check
+step "the K13 conservatories in the scene are the bytes their records build (T-2306)" \
+  python3 generators/k13_emit.py --check
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines

@@ -342,8 +342,42 @@ def form_canted_bay(v, data):
     }
 
 
+def form_segmental_bay(v, data):
+    """T-2306: a bay on a half-polygon of `facets` sides inscribed in a semicircle of
+    `radius_m` against the house wall, under a half-cone of glass triangles whose hips
+    all run to one apex on the wall at `wall_top_m`. The Pullman wing's bay is drawn as
+    a semicircle on the 1911 sheet; this is the kit's way of building one in planar glass."""
+    R, n, he, hw = v["radius_m"], v["facets"], v["eave_m"], v["wall_top_m"]
+    if n < 3:
+        raise ValueError(f"{v['id']}: a segmental bay needs at least 3 facets, not {n}")
+    if hw <= he:
+        raise ValueError(f"{v['id']}: wall_top_m {hw} does not rise above eave_m {he}")
+    ring = [(R * math.cos(math.pi * k / n), R * math.sin(math.pi * k / n)) for k in range(n + 1)]
+    ring[0], ring[-1] = (R, 0.0), (-R, 0.0)       # exactly on the wall
+    apex = (0.0, hw, 0.0)
+    b = v["bays"]
+    P = []
+    for k in range(n):
+        (x0, z0), (x1, z1) = ring[k], ring[k + 1]
+        hint = ((x0 + x1) / 2, 0.0, (z0 + z1) / 2)
+        P.append(Panel(f"facet_{k}", [(x0, 0, z0), (x1, 0, z1), (x1, he, z1), (x0, he, z0)], hint,
+                       plinth=True, bays=b))
+        P.append(Panel(f"roof_{k}", [(x0, he, z0), (x1, he, z1), apex], (hint[0], 1.0, hint[2]), bays=b))
+    plan_pts = list(reversed(ring))                # left to right along the wall, as the canted bay's
+    # the staging runs on the chord of the first and last facets, stood out toward the glass
+    xb, zb = R * math.cos(math.pi / n), R * math.sin(math.pi / n) + v.get("bench_out_m", 0.0)
+    return {
+        "panels": P, "host": True, "closed": False,
+        "plan": plan_pts,
+        "eaves": {"front": [(x, he, z) for x, z in plan_pts]},
+        "ridges": [], "benches": [("front", (-xb, zb), (xb, zb))], "border": None,
+        "eave_m": he, "top_m": hw, "centre": (0.0, hw / 2, R / 2),
+    }
+
+
 FORMS = {"lean_to": form_lean_to, "span": form_span, "span_lantern": form_span_lantern,
-         "curvilinear_lean_to": form_curvilinear_lean_to, "canted_bay": form_canted_bay}
+         "curvilinear_lean_to": form_curvilinear_lean_to, "canted_bay": form_canted_bay,
+         "segmental_bay": form_segmental_bay}
 
 
 # -- the builder ----------------------------------------------------------------------------
@@ -1196,7 +1230,40 @@ def _pad(b: bytes, fill: bytes = b"\x00") -> bytes:
     return b + fill * ((4 - len(b) % 4) % 4)
 
 
-def to_glb(kit: list[House], data: dict) -> bytes:
+# -- a house in the scene (T-2306) --------------------------------------------------------------
+
+def host_wing(h: House, host: dict):
+    """The wall a host form stands against, closed as a plain block: the bay's own wall
+    runs west_m and east_m either side of the bay's centre, and the block goes depth_m
+    back (north, -z) and height_m up. Role `wall`, so it is costed apart from the house."""
+    x0, x1, D, H = -host["west_m"], host["east_m"], host["depth_m"], host["height_m"]
+    h.face("wall", [(x0, 0, 0), (x1, 0, 0), (x1, H, 0), (x0, H, 0)], (0, 0, 1))
+    h.face("wall", [(x1, 0, -D), (x0, 0, -D), (x0, H, -D), (x1, H, -D)], (0, 0, -1))
+    h.face("wall", [(x0, 0, -D), (x0, 0, 0), (x0, H, 0), (x0, H, -D)], (-1, 0, 0))
+    h.face("wall", [(x1, 0, 0), (x1, 0, -D), (x1, H, -D), (x1, H, 0)], (1, 0, 0))
+    h.face("wall", [(x0, H, 0), (x1, H, 0), (x1, H, -D), (x0, H, -D)], Y)
+    h.meta["host"] = {"x": [x0, x1], "z": [-D, 0.0], "height_m": H}
+
+
+def structure_house(st: dict, phase: dict, data: dict | None = None) -> House:
+    """The conservatory a k13_conservatories record names, built against its host wall."""
+    data = data or load()
+    form = phase["form"]
+    h = House(form["conservatory"]["value"], data).build()
+    if h.form["host"]:
+        host_wing(h, form["host_wall"]["value"])
+    return h
+
+
+def structure_glb(h: House, data: dict, structure_id: str, phase_id: str, scene_ids) -> bytes:
+    name = f"{structure_id}__{phase_id}"
+    return to_glb([h], data, node_name=name, node_extras={
+        "structure_id": structure_id, "phase_id": phase_id, "scene_ids": list(scene_ids)},
+        extras={"ticket": "T-2306", "structure": f"data/structures/{structure_id}.json"})
+
+
+def to_glb(kit: list[House], data: dict, node_name: str | None = None, node_extras: dict | None = None,
+           extras: dict | None = None) -> bytes:
     mats = materials(data)
     bin_ = bytearray()
     views, accessors, meshes, nodes = [], [], [], []
@@ -1255,9 +1322,9 @@ def to_glb(kit: list[House], data: dict) -> bytes:
                 "_CONFIDENCE": accessor(conf, 5126, "SCALAR", 1, 34962)},
                 "indices": accessor(idx, ctype, "SCALAR", 1, 34963),
                 "material": mat_names.index(name)})
-        meshes.append({"name": h.v["id"], "primitives": prims_out})
+        meshes.append({"name": node_name or h.v["id"], "primitives": prims_out})
         widths = [p["u_width"] for p in h.panes]
-        nodes.append({"name": h.v["id"], "mesh": len(meshes) - 1, "extras": {
+        nodes.append({"name": node_name or h.v["id"], "mesh": len(meshes) - 1, "extras": {**(node_extras or {}),
             "component_id": h.v["id"], "family": "conservatory", "form": h.v["form"], "seed": h.seed,
             "origin": [round(c, 4) for c in h.O],
             "triangles_house": triangles(h), "triangles_with_board": triangles(h, True),
@@ -1268,6 +1335,9 @@ def to_glb(kit: list[House], data: dict) -> bytes:
                          "pane_width_m": [round(min(widths), 4), round(max(widths), 4)],
                          "members": {t: sum(1 for m in h.members if m["tier"] == t) for t in TIERS},
                          "gutters": len(h.gutters), "pipes": len(h.pipes)}}})
+        if h.meta.get("host"):
+            nodes[-1]["extras"]["host"] = {k: ([round(c, 4) for c in x] if isinstance(x, list) else round(x, 4))
+                                           for k, x in h.meta["host"].items()}
     gltf = {
         "asset": {"version": "2.0", "generator": GENERATOR},
         "scene": 0,
@@ -1280,7 +1350,7 @@ def to_glb(kit: list[House], data: dict) -> bytes:
         "buffers": [{"byteLength": len(bin_)}],
         "extras": {"k13": {"data": "data/components/prairie_1904/k13_conservatories.json", "ticket": "T-2305",
                            "contract": "data/components/prairie_1904/k01_contract.json",
-                           "rainwater": "data/components/prairie_1904/k04_roofs.json"}},
+                           "rainwater": "data/components/prairie_1904/k04_roofs.json", **(extras or {})}},
     }
     js = _pad(json.dumps(gltf, separators=(",", ":"), sort_keys=True).encode(), b" ")
     body = bytes(bin_)
