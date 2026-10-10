@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Four houses stand south of Monroe on Market Street', kind: 'feature',
+    items: [
+      'Walk south across Monroe Street on Market. The first School Section block below Monroe now has four houses: a small cottage and a tradesman\u2019s frame house facing Monroe, and a larger frame house and another tradesman\u2019s house facing Adams.',
+      'Open the three frame houses and their cards name the Merrill, Merill and Meleney households, who were waiting for a lot here. The cottage\u2019s card names nobody: no source carries its household\u2019s name, and the card says so.',
+      'All four are reconstructions. The state sold these lots in 1833, but no record shows what stood on them in 1835.',
+      'The block\u2019s corner lots stay open. The town still owes this block one cottage and one boarding house, and no household is waiting for either yet.',
+    ] },
   { v: 1601, ts: '2026-10-10T00:05:59.930Z', date: 'Oct 9, 2026, 7:05 PM CT', title: 'The town\u2019s last six South houses get their lots, south of Monroe', kind: 'change',
     items: [
       'Walk south across Monroe Street between the river and State Street. Six more School Section blocks are now divided into lots: cropped, grazed ground like the empty lots in town, no longer open prairie.',

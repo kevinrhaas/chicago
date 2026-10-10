@@ -1,3 +1,27 @@
+## T-2254 — four houses on the School Section tier's block 82 (2026-10-10)
+
+Piece 3 of 3 of T-2247 (owner ruling b: cross Monroe). T-2253 dealt the block two D2, two D4, a
+D5 and an H3 and left four `slot` requests on it; this raises those four.
+
+- **One recipe entry** in `1835_platted_block_parcels.json` (`phase3_platted_block_school_section_tier_82`),
+  built by `generate_block_infill.py`: D2 on lot 2 and D4 on lot 4 facing Monroe, D5 on lot 3 and
+  D4 on lot 5 facing Adams, set out as block 81's houses across Monroe. Lot 0 stays the reserved
+  open lot; lots 1, 6 and 7 stay free. **L412** records the invention.
+- **Not built: the second D2 (now dealt as a D1) and the H3.** Both are `plan_left_unclaimed` — no
+  banded South row is admitted by a clause that takes them — and the H3's beds move the lodging
+  model `seat_lodgers_1835.py` freezes, the reason blocks 95 and 81 left theirs to T-1957.
+- **Seating at its fixpoint in two laps** (adopt → reconcile_665 → keepers → the four infill
+  generators → reconcile_665 → the seating chain): **219 seated, all adopted, 0 slots left.**
+  hh_merrill_george_w, hh_merill_isaac and hh_meleney_patrick adopt the houses they asked for;
+  hh_rc_wilcox_martha adopts the D2, and hh_vieaux_susanne, who asked for it, is seated on the
+  standing D1 `recon_1835_south_d1_018` on Lake–Dearborn (adoption runs first). Keepers 205 → 209;
+  the D2's keeper is refused on the card (no source carries hh_rc_wilcox_martha's name).
+- **Baked** with `bake.sh --only` (pinned Blender 4.5.3): the four new meshes and the D1, whose
+  finish and age state moved with its occupant. 708 assets fresh.
+- **Re-derived:** `rederive.mjs --tail` from compile_liberties (settled in one lap), the completion
+  audit, entrances, alley lanes, woodpiles, hay limits and the land-tract join.
+- **Restated:** L263 664 → 668, L276 205 → 209.
+
 ## T-2253 — the Monroe-Adams tier joins the grid and the roof schedule (2026-10-09)
 
 Piece 2 of 3 of T-2247, on the owner's ruling (b): cross Monroe. T-2252 cut the tier into lots;
