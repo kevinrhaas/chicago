@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1637, ts: '2026-10-10T09:04:09.148Z', date: 'Oct 10, 2026, 4:04 AM CT', title: '1808 Prairie\'s side and rear walls in common brick', kind: 'feature',
+    items: [
+      'The side, rear and party walls of 1808 Prairie are now common buff brick in common bond, with a header course every sixth course. They used to borrow Glessner\'s courtyard brick.',
+      'Windows on those walls have brick arches: two rings of rowlock bricks on the lower floors, and a soldier course under the eave.',
+      'A brick string course runs at the second floor and turns the back corner, and the courses stay level round it.',
+      'Soot darkens the wall under the eave and damp darkens its foot. Both are reconstructed, like the brick itself; the house\'s card says so.',
+    ] },
   { v: 1636, ts: '2026-10-10T08:59:58.799Z', date: 'Oct 10, 2026, 3:59 AM CT', title: 'A household\'s home and workplace are written one way now', kind: 'improvement',
     items: [
       'The old single-address fields are gone from every household record: where a household lived and worked is now only the dated rows its card already shows, so the two can never disagree.',
