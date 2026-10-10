@@ -7,35 +7,35 @@
  "target_date": "1835-07-01",
  "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / placement.local_n use.",
  "counts": {
-  "dwellings": 397,
+  "dwellings": 399,
   "by_row": {
-   "cabin": 41,
+   "cabin": 42,
    "cottage": 174,
    "house": 92,
    "keeper": 21,
-   "merchant": 36,
+   "merchant": 37,
    "shanty": 32
   },
   "by_class": {
    "keeper": 21,
-   "labourer": 88,
-   "merchant": 36,
+   "labourer": 89,
+   "merchant": 37,
    "tradesman": 251
   },
   "by_basis": {
    "default": 16,
-   "fabric_rule": 349,
+   "fabric_rule": 351,
    "function": 6,
    "household_trade": 11,
    "reconstruction_occupation": 14
   },
   "items": {
-   "chopping_block": 364,
-   "cordwood": 418,
-   "log_heap": 41,
+   "chopping_block": 366,
+   "cordwood": 420,
+   "log_heap": 42,
    "slab_heap": 32
   },
-  "piled": 396,
+  "piled": 398,
   "refused": 1
  },
  "existence": {
@@ -4966,6 +4966,42 @@
    ]
   },
   {
+   "structure_id": "recon_1835_blk_school_section_tier_82_d1_05",
+   "name": "Reconstructed D1 older log dwelling #05",
+   "function": "older_log_dwelling",
+   "household_class": "labourer",
+   "household_by": "fabric_rule",
+   "house": "log",
+   "row": "cabin",
+   "rule": "Y-W2",
+   "confidence": "reconstructed",
+   "wall": "side",
+   "items": [
+    {
+     "kind": "log_heap",
+     "at_local_enu_m": [
+      180.95,
+      -677.2
+     ],
+     "bearing_deg": 90.0,
+     "logs": 4,
+     "log_length_m": 2.87,
+     "depth_m": 1.74,
+     "seed": 77666361
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      178.98,
+      -676.21
+     ],
+     "bearing_deg": 90.0,
+     "billets": 2,
+     "seed": 1216534071
+    }
+   ]
+  },
+  {
    "structure_id": "recon_1835_blk_school_section_tier_82_d2_01",
    "name": "Reconstructed D2 rough plank dwelling or shanty #01",
    "function": "rough_plank_dwelling_or_shanty",
@@ -5110,6 +5146,56 @@
      "bearing_deg": 90.0,
      "billets": 1,
      "seed": 1192215917
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_82_h1_06",
+   "name": "Reconstructed H1 larger one-and-a-half-story house #06",
+   "function": "larger_one_and_a_half_story_house",
+   "household_class": "merchant",
+   "household_by": "fabric_rule",
+   "house": "larger",
+   "row": "merchant",
+   "rule": "Y-W5",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      180.16,
+      -774.65
+     ],
+     "bearing_deg": 90.0,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 1.06,
+     "stick": "cord",
+     "seed": 1655945847
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      180.16,
+      -777.44
+     ],
+     "bearing_deg": 90.0,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 0.91,
+     "stick": "cord",
+     "seed": 455071575
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      178.45,
+      -773.88
+     ],
+     "bearing_deg": 90.0,
+     "billets": 2,
+     "seed": 2006908411
     }
    ]
   },

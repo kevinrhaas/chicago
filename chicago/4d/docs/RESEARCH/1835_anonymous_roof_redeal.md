@@ -4,12 +4,12 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
-- audited: **558** anonymous roofs
-- keep: **556** (5 kept over a policy breach because they are seated, 7 because nothing they could become is wanted here)
-- refamily: **2** (0 of them into a band that already fits the committed footprint)
+- audited: **560** anonymous roofs
+- keep: **560** (5 kept over a policy breach because they are seated, 9 because nothing they could become is wanted here)
+- refamily: **0** (0 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 666 stand, so the town is 2 roofs short before this audit and 2 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 668 roofs and 668 stand, so the town is 0 roofs short before this audit and 0 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
@@ -26,13 +26,13 @@ The programme wants 668 roofs and 666 stand, so the town is 2 roofs short before
 | `structures/institutional_public/south` | 5 | 5 | 0 | 0 | 5 | 0 |
 | `structures/institutional_public/west` | 1 | 1 | 0 | 0 | 1 | 0 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | 3 | 0 |
-| `structures/larger_boarding_houses/south` | 28 | 27 | 26 | 1 | 28 | 0 |
+| `structures/larger_boarding_houses/south` | 28 | 28 | 27 | 0 | 28 | 0 |
 | `structures/larger_boarding_houses/west` | 6 | 6 | 6 | 0 | 6 | 0 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 6 | 0 | 8 | 0 |
-| `structures/ordinary_dwellings/south` | 176 | 175 | 166 | 1 | 176 | 0 |
+| `structures/ordinary_dwellings/south` | 176 | 176 | 167 | 0 | 176 | 0 |
 | `structures/ordinary_dwellings/west` | 75 | 75 | 71 | 0 | 75 | 0 |
 | `structures/ordinary_dwellings/north` | 84 | 84 | 78 | 0 | 84 | 0 |
-| `structures/small_outbuildings/south` | 48 | 48 | 47 | 0 | 46 | 2 |
+| `structures/small_outbuildings/south` | 48 | 48 | 47 | 0 | 48 | 0 |
 | `structures/small_outbuildings/west` | 14 | 14 | 14 | 0 | 14 | 0 |
 | `structures/small_outbuildings/north` | 20 | 20 | 17 | 0 | 20 | 0 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | 3 | 0 |
@@ -48,20 +48,19 @@ The programme wants 668 roofs and 666 stand, so the town is 2 roofs short before
 | `structures/workshops/north` | 7 | 7 | 3 | 0 | 7 | 0 |
 | `structures/workshops/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
 
-## The 2 roofs that change
+## The 0 roofs that change
 
-| roof | division | from | to | verdict | why |
-| --- | --- | --- | --- | --- | --- |
-| `recon_1835_blk_washington_market_a3_15` | south | A3 | D2 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
-| `recon_1835_blk_washington_market_a4_12` | south | A4 | H1 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
+None: every anonymous roof stands in a cell the order book can still fill, in a place its own family's clauses accept.
 
-## The 12 breaches owed out
+## The 14 breaches owed out
 
 | roof | division | family | why it was kept |
 | --- | --- | --- | --- |
 | `inf_sawpit_shed` | south | W5 | the placement policy refuses this family here — stands on a principal street, which heavy_and_noxious_trades avoids — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets |
 | `recon_1835_blk_south_water_dearborn_f2_11` | south | F2 | the placement policy refuses this family here — stands 37.08 m from the traced water, beyond the 27.09 m bank_landing reaches across a river street — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets |
 | `recon_1835_blk_south_water_market_h3_02` | south | H3 | the placement policy refuses this family here — stands 5.00 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets |
+| `recon_1835_blk_washington_market_a3_15` | south | A3 | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids — and no family it could become stands in a group this division is short in; the breach is owed out rather than dealt away |
+| `recon_1835_blk_washington_market_a4_12` | south | A4 | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids — and no family it could become stands in a group this division is short in; the breach is owed out rather than dealt away |
 | `recon_1835_north_c3_064` | north | C3 | the placement policy refuses this family here — stands on a light street, which commercial_front avoids — and no family it could become stands in a group this division is short in; the breach is owed out rather than dealt away |
 | `recon_1835_north_c3_066` | north | C3 | the placement policy refuses this family here — stands 3.44 m off the street line (2.71 m), and commercial_front puts it on the line — and no family it could become stands in a group this division is short in; the breach is owed out rather than dealt away |
 | `recon_1835_north_c4_067` | north | C4 | the placement policy refuses this family here — stands on a light street, which commercial_front avoids — and no family it could become stands in a group this division is short in; the breach is owed out rather than dealt away |
