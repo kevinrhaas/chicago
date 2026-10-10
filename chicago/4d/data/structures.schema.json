@@ -43,6 +43,7 @@
         "masonry_house",
         "camp",
         "k01_frontage",
+        "k13_conservatories",
         "authored"
       ],
       "description": "Generator module that builds this structure. 'authored' means a hand-built hero asset, exempt from regeneration but not from provenance."

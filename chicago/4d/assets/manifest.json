@@ -1370,6 +1370,16 @@
       "phase_id": "frame_1830s",
       "structure_id": "pruyne_kimball_drugstore"
     },
+    "pullman_house_1729_prairie_conservatory__as_standing_1904.glb": {
+      "archetype": "k13_conservatories",
+      "baked_ao": false,
+      "bytes": 84172,
+      "generator": "generators/k13_emit.py",
+      "inputs_sha256": "d19ab376c5235942a39679d731bad759dad79415eb1f9c79dd6aa86aeb4fd8b5",
+      "kind": "generated",
+      "phase_id": "as_standing_1904",
+      "structure_id": "pullman_house_1729_prairie_conservatory"
+    },
     "recon_1835_bank_freight_f3_001__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,

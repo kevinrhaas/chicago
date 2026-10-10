@@ -349,6 +349,28 @@ def rule_data(data):
     return out
 
 
+def scene_houses(data, fails):
+    """[(structure id, phase id, house)] for every k13_conservatories record, built as
+    generators/k13_emit.py builds it (T-2306)."""
+    out = []
+    for p in sorted((ROOT / "data" / "structures").glob("*.json")):
+        st = json.loads(p.read_text())
+        if not isinstance(st, dict) or st.get("archetype") != "k13_conservatories":
+            continue
+        for phase in st.get("phases", []):
+            v = (phase.get("form", {}).get("conservatory") or {}).get("value") or {}
+            if not str(v.get("id", "")).startswith("k13."):
+                fails.append(f"{st['id']}/{phase['id']}: its conservatory is not a k13.* component")
+            if v.get("form") not in K.FORMS:
+                fails.append(f"{st['id']}/{phase['id']}: its conservatory has no known form ({v.get('form')})")
+                continue
+            try:
+                out.append((st["id"], phase["id"], K.structure_house(st, phase, data)))
+            except Exception as e:  # noqa: BLE001
+                fails.append(f"{st['id']}/{phase['id']}: does not build ({type(e).__name__}: {e})")
+    return out
+
+
 def check(data, glb_check=True):
     fails = list(rule_data(data))
     mats = K.materials(data)
@@ -363,6 +385,13 @@ def check(data, glb_check=True):
                   + rule_curve(h, data) + rule_vent(h, data) + rule_doubled(h, data)
                   + rule_costs(h, data) + rule_metric(h, data)):
             fails.append(f"{v['id']}: {f}")
+    # T-2306: and every house a structure record builds from the kit, held to the same rules
+    for sid, phase_id, h in scene_houses(data, fails):
+        for f in (rule_hierarchy(h, data) + rule_panes(h, data) + rule_envelope(h, data, mats)
+                  + rule_plinth(h, data) + rule_rainwater(h, data) + rule_planting(h, data)
+                  + rule_curve(h, data) + rule_vent(h, data) + rule_doubled(h, data)
+                  + rule_costs(h, data) + rule_metric(h, data)):
+            fails.append(f"{sid}/{phase_id}: {f}")
     if glb_check:
         blob = K.to_glb(K.build_kit(data), data)
         out = ROOT / data["specimen"]
@@ -508,7 +537,8 @@ def main(argv) -> int:
     ts = [K.triangles(K.build_variant(v, data, with_board=False, index=i)) for i, v in enumerate(data["variants"])]
     print(f"ok   the K13 conservatory kit: {n} houses, each a three-tier frame over one convex single-sided glass "
           f"envelope on a plinth, every eave to a gutter and every pipe to grade, a restrained planting inside; "
-          f"{min(ts)}-{max(ts)} triangles a house; the specimen GLB is the generator's bytes")
+          f"{min(ts)}-{max(ts)} triangles a house; the specimen GLB is the generator's bytes; "
+          f"{len(scene_houses(data, []))} house(s) in the scene held to the same rules")
     return 0
 
 
