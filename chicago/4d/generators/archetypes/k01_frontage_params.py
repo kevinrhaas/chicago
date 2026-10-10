@@ -28,6 +28,7 @@ CONTRACT = ROOT / "data" / "components" / "prairie_1904" / "k01_contract.json"
 # gutters and pipes are built to. Read here, not in the builder, so every number the
 # roof is built from is a resolved parameter and is in the mesh's input hash.
 K04 = ROOT / "data" / "components" / "prairie_1904" / "k04_roofs.json"
+WINDOW_KIT = ROOT / "data" / "components" / "prairie_1904" / "k06_windows.json"
 
 CONFIDENCE_VALUE = {"attested": 0.0, "inferred": 0.5, "reconstructed": 1.0}
 
@@ -98,6 +99,8 @@ class K01FrontageParams:
     roof: dict = field(default_factory=dict)       # T-2293: covering, caps, flashing (K04)
     dormer: dict = field(default_factory=dict)     # T-2293: the front dormer, if any
     rainwater: dict = field(default_factory=dict)  # T-2293: gutters, outlets, pipes (K04)
+    # T-2298: the K06 variant each K01 opening kind is glazed with (k06_windows.json)
+    window_kit: dict = field(default_factory=dict)
     service_wall_brick: str = ""      # the K03 panel the brick walls wear (T-2291)
     confidence: dict = field(default_factory=dict)
 
@@ -131,7 +134,7 @@ CONSUMED = frozenset({
     "wall_thickness_front_m", "wall_thickness_side_m", "roof_form", "roof_pitch_deg",
     "eave_overhang_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m",
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
-    "basement_lights", "roof_covering", "dormer", "rainwater", "service_wall_brick",
+    "basement_lights", "roof_covering", "dormer", "rainwater", "window_kit", "service_wall_brick",
 })
 
 WALLS = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south")
@@ -323,6 +326,30 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if dormer["sash"]["sill_m"] - 0.10 < k04["apron_upstand_m"]:
             raise ParamError("the dormer sash's sill sits on its apron's upstand")
 
+    # T-2298: every glazed K01 opening is built from a K06 variant. The K01 wall cuts a
+    # rectangular hole, so only a flat-headed variant fits it; an arched head is a
+    # different hole and a different wall, not a swap of this attribute.
+    kit = {}
+    variants = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
+    for comp, entry in sorted((val("window_kit") or {}).items()):
+        # a variant id, or {"variant": id, "well": false} where the record's own datums
+        # put a basement light's sill above grade and so leave its area well out
+        entry = {"variant": entry} if isinstance(entry, str) else dict(entry)
+        kit[comp] = {"variant": entry["variant"], "well": bool(entry.get("well", True))}
+    for comp in sorted({o.component for o in openings} - {"k01.opening.door_leaf"}):
+        vid = kit.get(comp, {}).get("variant")
+        if vid not in variants:
+            raise ParamError(f"window_kit names no K06 variant for {comp} (k06_windows.json)")
+        v = variants[vid]
+        if v["head"] != "flat":
+            raise ParamError(f"window_kit: {vid} has a {v['head']} head, and a K01 wall cuts "
+                             f"a rectangular hole")
+        if v.get("well") and kit[comp]["well"] and comp == "k01.opening.area_light" and bsill > 0:
+            raise ParamError(f"window_kit: {vid} sits in an area well, but these basement "
+                             f"lights' sills stand {bsill} m above grade; set \"well\": false")
+        if v["operation"].startswith("double_hung") != any(
+                o.meeting_rail for o in openings if o.component == comp):
+            raise ParamError(f"window_kit: {vid} is {v['operation']}, which {comp} is not")
     # T-2291: the brick walls wear a K03 panel the record names; k03_brick lays one
     from . import k03_brick
     panel = val("service_wall_brick", k03_brick.PANEL)
@@ -343,6 +370,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         rear_bays=tuple(float(s) for s in val("rear_bays")),
         basement_sill_m=bsill, openings=tuple(openings), service_wall_brick=panel,
         roof=k04, dormer=dormer, rainwater=rainwater,
+        window_kit={k: kit[k] for k in sorted(kit)},
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

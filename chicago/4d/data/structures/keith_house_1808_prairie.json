@@ -270,6 +270,17 @@
           },
           "confidence": "reconstructed",
           "note": "A 5 in half-round copper gutter hung on wrought-iron brackets at 30 in round the whole eave, falling 0.5% to five outlets, each over a 3.5 in round copper downpipe strapped to the wall that ends in a shoe over a splash stone at grade (k04_roofs.json gutter and downpipe). Pipes stand by the corners of the front and rear and halfway along the south passage wall, clear of every opening; none on the north wall, which closes the Glessner court 0.02 m off its face, so the north run is 20.5 m of gutter between its two corner outlets, over the profile's 12 m, and falls both ways from its middle (no point of it more than 10.3 m from an outlet). All reconstructed."
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "Every window is built from the K06 kit (T-2298): the double-hung sashes of every storey on all three glazed walls as the kit's working street sash, two lights over two, at this record's own clear sizes; the basement lights as the kit's three-light area light, without its area well, since this record sets their sills 0.35 m above grade. No source shows these sashes' glazing; two-over-two is the kit's commonest form, not a reading of this house."
         }
       }
     }

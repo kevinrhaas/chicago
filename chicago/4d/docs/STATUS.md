@@ -32,6 +32,30 @@ at grade. The library's `status` now says it is built to.
   carries both (the K04 textures go through the same `_images` path as K03's), and the house was
   rebuilt and re-measured with both: 11,351 triangles, 17 primitives, web tier 923 KB, every
   verdict ok, 0 coincident faces. The triangle counts above are this ticket's own, before K03.
+- **Landed beside T-2298.** K06's windows reached dev while this was open; the generator and the
+  record now carry both (`form.window_kit` beside `form.roof_covering`, `form.dormer` and
+  `form.rainwater`), and the house was rebuilt and re-measured with all three: 14,445 triangles,
+  19 primitives, web tier 964 KB, every verdict ok, 0 coincident faces.
+
+## T-2298 — K06 windows on the 1808 exemplar (2026-10-10)
+
+**Visible.** In the 1904 scene, every window of the house at 1808 Prairie is now a real opening
+built from the K06 kit (T-2297), replacing the K01 proof's single-plane sash. Each has a reveal,
+a frame, two sashes at two depths, glass, a blind and curtain edges behind it, and a dark room
+behind those. The stone sill has a drip.
+That is 26 two-over-two sashes and two three-light basement lights, at the record's own sizes.
+
+- **What it is.** `form.window_kit` on the record names the variant for each K01 opening kind.
+  `Assembly.glaze` builds the K06 `Opening` about each hole's sill socket and merges its parts into
+  the house's materials. Only two are new, `blind` and `curtain`, so the house is 12 draw primitives
+  where it was 10. `mesh_inputs` now hashes `k06_windows.py` and `k06_windows.json` for every
+  `k01_frontage`, so a kit change stales the house.
+- **Honest limits.** The two-over-two pattern is the kit's commonest form, not a reading of this
+  house (L-k06-1808-windows-2298). Heads are still the K01 flat lintel until K02/K03 dress them,
+  and the glass is a blended layer, not transmission. Frame times come from software GL.
+- **Verified.** `tools/qa_k06_t2298.mjs` checks front, oblique, rear and roof, plus two windows at
+  2.5-3 m, at both viewports, with zero errors. Costs are in
+  `docs/RESEARCH/k06-1808-windows-2298/README.md`.
 
 ## T-2270 — a cabin and a merchant's house on the east corners of block 82 (2026-10-10)
 

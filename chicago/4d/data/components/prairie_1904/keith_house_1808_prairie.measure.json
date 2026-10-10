@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 2288308,
-      "sha256": "d04117ff2f03cbd58b9d5ef1cb4996c1857a3ed51a828713c00f4d7253030c29",
+      "bytes": 2532844,
+      "sha256": "e401a60763f8e8399857e8edc19e1e1d46c906c854048d7d49b7732d97b6acd8",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -17,10 +17,10 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 17,
-        "materials": 17,
-        "triangles": 11351,
-        "vertices": 25299
+        "draw_primitives": 19,
+        "materials": 19,
+        "triangles": 14445,
+        "vertices": 31487
       },
       "texture": {
         "images": 8,
@@ -44,14 +44,14 @@
       },
       "envelope_bbox_m": {
         "min": [
-          -0.06,
+          -0.05,
           1.05,
           -10.4
         ],
         "max": [
-          18.06,
+          18.05,
           5.5,
-          0.06
+          0.05
         ]
       },
       "wall_base_y_m": 0,
@@ -68,6 +68,9 @@
       },
       "metric_uv": {
         "backing": {
+          "median_uv_per_m": 1
+        },
+        "blind": {
           "median_uv_per_m": 1
         },
         "brick": {
@@ -114,6 +117,9 @@
             1
           ],
           "uv_per_m_times_tile_m": 1
+        },
+        "curtain": {
+          "median_uv_per_m": 1
         },
         "door_leaf": {
           "median_uv_per_m": 1
@@ -197,10 +203,10 @@
           ]
         },
         "overhang_m": {
-          "west": 0.06,
-          "east": 0.06,
+          "west": 0.05,
+          "east": 0.05,
           "north": 0,
-          "south": 0.06
+          "south": 0.05
         },
         "base_y_m": 0,
         "ok": true
@@ -208,8 +214,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 922808,
-      "sha256": "33e52bb8a9fbc6a4ec0954042e04e616375cb1c8d5ce4fea8a265046550b62f7",
+      "bytes": 963756,
+      "sha256": "8610adfb6882ee46e4f6805ca853194f14272f9b6eb5b0c54c444a760a49e37c",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -225,10 +231,10 @@
         }
       ],
       "mesh": {
-        "draw_primitives": 17,
-        "materials": 17,
-        "triangles": 11351,
-        "vertices": 22266
+        "draw_primitives": 19,
+        "materials": 19,
+        "triangles": 14445,
+        "vertices": 28570
       },
       "texture": {
         "images": 8,
@@ -252,14 +258,14 @@
       },
       "envelope_bbox_m": {
         "min": [
-          -0.06,
+          -0.0505,
           1.05,
           -10.4005
         ],
         "max": [
-          18.0606,
+          18.0497,
           5.4996,
-          0.0592
+          0.0498
         ]
       },
       "wall_base_y_m": 0.0002,
@@ -321,13 +327,13 @@
           "uv_per_m_times_tile_m": 0.9951
         },
         "dormer_stone": {
-          "median_uv_per_m": 0.8338,
+          "median_uv_per_m": 0.8336,
           "fabric": "limestone",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 1.0006
+          "uv_per_m_times_tile_m": 1.0003
         },
         "k04_copper_sheet": {
           "median_uv_per_m": 0.8274,
@@ -339,22 +345,22 @@
           "uv_per_m_times_tile_m": 0.9929
         },
         "limestone_trim": {
-          "median_uv_per_m": 0.8365,
+          "median_uv_per_m": 0.8331,
           "fabric": "limestone",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 1.0038
+          "uv_per_m_times_tile_m": 0.9997
         },
         "rough_stone_trim": {
-          "median_uv_per_m": 0.8332,
+          "median_uv_per_m": 0.8335,
           "fabric": "limestone",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 0.9998
+          "uv_per_m_times_tile_m": 1.0002
         },
         "slate_covering": {
           "median_uv_per_m": 0.5338,
@@ -387,10 +393,10 @@
           ]
         },
         "overhang_m": {
-          "west": 0.06,
-          "east": 0.0606,
+          "west": 0.0505,
+          "east": 0.0497,
           "north": 0.0005,
-          "south": 0.0592
+          "south": 0.0498
         },
         "base_y_m": 0.0002,
         "ok": true
@@ -409,10 +415,10 @@
             -0.00007
           ],
           "wall_face_shift_m": [
-            0,
-            0.0006,
             -0.0005,
-            -0.0008
+            -0.0003,
+            -0.0005,
+            -0.0002
           ],
           "ok": true
         }
