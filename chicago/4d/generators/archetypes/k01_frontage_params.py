@@ -958,9 +958,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(f"yard.built {yard.get('built')} is not the phase's own year ({built_from or 'none'}): "
                              f"the kit ages a yard from when its house was built")
 
-    # T-2358: the K14 condition kit. Its water trails hang from the K06 sills, so it needs
-    # the sills seated before the walls are cut: a stone front lays its openings first, a
-    # brick K01 house its walls, and that order is not this ticket's to change (T-2361)
+    # T-2358: the K14 condition kit. Its water trails hang from the K06 sills; a stone front
+    # seats them before it cuts its walls, and a brick house reads them off a kit-less build
+    # of itself first (T-2364), so either construction may name it
     condition = {}
     cond = val("condition")
     if cond:
@@ -969,9 +969,6 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         built = cond.get("built")
         if not isinstance(built, int) or not 1830 <= built <= 1904:
             raise ParamError(f"condition.built {built!r} is not a completion year standing by 1904")
-        if not stone:
-            raise ParamError("condition needs a K02 stone front: a brick K01 house cuts its walls "
-                             "before its sills are seated, so no wall could carry a sill's trail")
         # T-2359: the chimney plume lies on a compass bearing, so the kit is read in the
         # house's own frame turned by the placement's rotation (+ clockwise, as buildings.js)
         rotation = float(((phase.get("position") or {}).get("rotation_deg")) or 0.0)

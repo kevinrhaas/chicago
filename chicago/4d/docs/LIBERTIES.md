@@ -24883,6 +24883,31 @@ and a slate entry in the kit's fabric responses from a study of weathered Pennsy
 **Review:** `docs/RESEARCH/k14-1808-roof-2359/README.md`.
 **Recorded:** 2026-10-11 (T-2359).
 
+### L-k14-1608-brick-2364 — 1608 Prairie, a brick-fronted house, weathered by the K14 kit at the 1886 plate's bound
+
+**Decision:** 1608 Prairie is the first brick-fronted house to take its condition from the K14 kit
+(T-2324). Until T-2364 the kit refused one: a brick K01 house cuts its walls before it seats its
+K06 sills, so no wall could be cut for a sill's trail. The builder now reads the sills off a build
+of the same record without the kit before it cuts the walls (the same seats, laid by the same
+calls), so all four brick walls carry a trail below each sill and behind each downpipe, damp at the
+foot and soot under the soffit. The house's stone dressings (sills, heads, belts, and the brick
+bay's plinth, bands, sills and heads) weather as the kit's dressed trim, the fabric 1808's stone
+front gives its trim; they wore no condition before. The record names the kit with a completion
+year of 1886, so on 1904-07-01 every wall layer is at 0.45 of its full-age strength, and the brick
+reads lighter than the fixed 40-year K03 mask it wore since T-2341. **What is attested.** Only the
+bound: Robinson's 1886 atlas, plate 10 (`robinson_1886_chicago_plate_10`), draws a house on lot 5
+where the record's main body stands, its outline within the two maps' fits (4.54 m and 2.46 m RMS)
+of the 1911 sheet's, so the house stood by 1886. **What is invented.** Taking that bound as the
+completion year. It is the youngest the evidence allows, so the weathering shown is a floor; any
+earlier year would darken it. That the 1886 house and the 1911 one are the same building is
+inferred from the matching outline, not read. **What would replace it.** A building permit, a
+directory or a dated photograph of 1608 Prairie, giving its completion year and the staining of
+its walls.
+**Covers:** `house_1608_prairie.as_mapped_1904.form.condition`
+**Ticket:** T-2364 (piece 1 of T-2361, K14).
+**Review:** `docs/RESEARCH/k14-1608-brick-2364/README.md`.
+**Recorded:** 2026-10-11 (T-2364).
+
 ### L-k01-1612-goodman-2366 — 1612 Prairie rebuilt from its own photograph: the stone front read through a camera solve, the rest of the house still reconstructed
 
 **Decision:** T-2344 built 1612's front from the Prairie library's one-line summary of the house and never opened the photograph the library linked beside it (`chicagology_1612_prairie_photo`, the library's a16-cgy-1612-studebaker-photo, supplied by the owner on 2026-10-11). T-2366 rebuilds the street front from that photograph, in place and under the same id, and replaces `L-k01-1612-goodman-2344`. The camera is solved from the print alone (a level camera, verticals vertical, the front's courses converging), scaled by the 1911 Sanborn's 11.25 m front (`data/reference_views/goodman_house_1612_prairie/front_from_southeast.json`), and `tools/photo_match.mjs` renders the built house from that camera beside the print.
