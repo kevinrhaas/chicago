@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1700, ts: '2026-10-11T21:44:31.628Z', date: 'Oct 11, 2026, 4:44 PM CT', title: '1616 Prairie gets back its rear range', kind: 'feature',
+    items: [
+      'Behind the brick house at 1616 Prairie, the small two-storey brick range the 1911 atlas draws stands again, against the north end of the back wall.',
+      'The draft had shown it as a one-storey box half its size; the atlas marks it two storeys, and its outline is now followed.',
+      'The house\'s back windows move south to clear it. Heights, windows and the flat tin roof are reconstructed, and the card says so.',
+    ] },
   { v: 1699, ts: '2026-10-11T20:23:59.471Z', date: 'Oct 11, 2026, 3:23 PM CT', title: 'Liberties, by name, everywhere', kind: 'change',
     items: [
       'The Evidence tile, the building card\'s tab and its section now read Liberties, in every year.',
