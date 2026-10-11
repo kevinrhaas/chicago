@@ -20,7 +20,9 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
                             record with no `stone_front` (T-2341), a front of the
                             side walls' K03 brick whose openings keep their stone
                             sills, K09 heads or flat lintels, under stone belts
-  k01.wall.side.north       the party side against the Glessner court: blank brick
+  k01.wall.side.north       the party side against the Glessner court: blank brick; or, on a
+                            record naming `north_bays` (T-2342), a corner house's street
+                            side, windowed like the south wall
   k01.wall.side.south       common brick, four bays a storey
   k01.wall.rear_service     common brick, two bays a storey
   k01.opening.sash_flat     a K06 window (T-2298): reveal, frame, two sashes in two
@@ -450,6 +452,8 @@ class Assembly:
         s0, s1 = op.s_m - op.width_m / 2, op.s_m + op.width_m / 2
         y0, y1 = op.sill_m, op.head_m
         conf = p.worst_conf("footprint", "sash_by_storey", "front_bays", "side_bays", "rear_bays")
+        if op.wall == "k01.wall.side.north":
+            conf = max(conf, p.conf("north_bays"))
         door = op.component == "k01.opening.door_leaf"
         if MATERIALS[body_mat].get("courses"):
             conf = max(conf, p.conf("service_wall_brick"))
@@ -1596,10 +1600,14 @@ def build(params, structure_id: str):
         a.opening(op, frame, t, mat, "limestone_trim")
     # T-2291: a projecting stretcher course at the second-floor line on the south wall
     # and the rear, the south one run out past the quoin so the two meet; the north
-    # wall is a blank party wall against the Glessner court and carries none
+    # wall is a blank party wall against the Glessner court and carries none. A windowed
+    # north wall (T-2342, a street side) takes one, run out past the north-west corner
+    # to meet the rear's as the south one meets it at the south-west
     sc_conf = p.worst_conf("storey_heights_m", "construction", "service_wall_brick")
-    for cid, s_from, s_to in (("k01.wall.side.south", -k03_brick.STRING_PROUD, D),
-                              ("k01.wall.rear_service", 0.0, W)):
+    courses = [("k01.wall.side.south", -k03_brick.STRING_PROUD, D), ("k01.wall.rear_service", 0.0, W)]
+    if p.north_bays:
+        courses.append(("k01.wall.side.north", 0.0, D + k03_brick.STRING_PROUD))
+    for cid, s_from, s_to in courses:
         frame = frames[cid][0][0]
         for s0, s1 in _pieces(s_from, s_to, gaps[cid]):   # T-2308: stopped against a bay
             k03_brick.string_course(a, seed_of(structure_id, cid, 0), frame, s0, s1, floors[1], sc_conf)
