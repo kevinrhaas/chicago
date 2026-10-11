@@ -391,9 +391,16 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
 
     if val("roof_form") != "hip":
         raise ParamError("k01_frontage builds the contract's k01.roof.hip only")
-    if val("construction") != "brick_with_stone_front":
-        raise ParamError("k01_frontage builds a stone street front on common-brick side and "
-                         "rear walls; another construction is another assembly")
+    # T-2341: a plain brick house is the same assembly with its street front laid in the
+    # K03 brick too, its openings dressed in stone; which front it is, the record's
+    # `stone_front` says — named for a stone front, absent for a brick one
+    construction = val("construction")
+    if construction not in ("brick_with_stone_front", "brick"):
+        raise ParamError("k01_frontage builds a stone or a brick street front on common-brick "
+                         "side and rear walls; another construction is another assembly")
+    if (construction == "brick_with_stone_front") != bool(val("stone_front")):
+        raise ParamError(f"construction {construction!r}: a stone street front names its K02 "
+                         "stone_front and a brick one names none")
 
     stories = int(val("stories"))
     heights = tuple(float(h) for h in val("storey_heights_m"))
