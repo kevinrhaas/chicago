@@ -157,9 +157,9 @@
     },
     {
       "id": "house_1600_prairie",
-      "name": "1600 Prairie Avenue — Brick masonry (district draft; refined by T-1859)",
+      "name": "1600 Prairie Avenue — brick corner house, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1600_prairie.json",
-      "asset": "gltf/house_1600_prairie__draft_1904.glb"
+      "asset": "gltf/house_1600_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1601_prairie",
