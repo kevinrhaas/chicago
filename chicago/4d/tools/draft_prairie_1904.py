@@ -170,12 +170,30 @@ def footprint_uv(sid: str, frame, datum) -> list:
             for x, y in ph["footprint"]["polygon"]]
 
 
-def rects_for(poly, fit, front_from_u=None, keep_out=()):
+def close_cells(cells, gap):
+    """Fill runs of up to `gap` empty cells lying between filled ones along either axis: the
+    drawn line between two traced buildings that stand as one (T-2351's joined coach house)."""
+    out = set(cells)
+    for (i, j) in cells:
+        for di, dj in ((1, 0), (0, 1)):
+            for n in range(2, gap + 2):
+                if (i + di * n, j + dj * n) in cells:
+                    if all((i + di * k, j + dj * k) not in cells for k in range(1, n)):
+                        out |= {(i + di * k, j + dj * k) for k in range(1, n)}
+                    break
+    return out
+
+
+def rects_for(poly, fit, front_from_u=None, keep_out=(), close=0):
     """Rectangles inside `poly`, largest first. With `front_from_u` (a frontage row's
     `front_body_from_u_m`) the first is the largest in front of that lot-frame u, so a
-    house traced in one piece with its rear range keeps its street body as the main."""
+    house traced in one piece with its rear range keeps its street body as the main.
+    `poly` may be a list of rings, filled as one (with `close`, across the line between)."""
     cell = fit["cell_m"]
-    cells = scanfill(poly, cell)
+    rings = poly if poly and isinstance(poly[0][0], (list, tuple)) else [poly]
+    cells = set().union(*(scanfill(r, cell) for r in rings))
+    if close:
+        cells = close_cells(cells, close)
     for k in keep_out:
         cells -= scanfill(k, cell)
     total = len(cells)
@@ -283,6 +301,12 @@ def build_records(rules=None) -> dict:
         for vg in census.get("vacant_ground", []):
             polys[vg["id"]] = (None, vg)
         fronts = {f["frontage_id"]: f for f in census["frontages"]}
+        # two traced buildings the census rules one (2108/2110's coach house), and a trace's
+        # census assignment the sheet corrects (2140's two rear buildings): block rows
+        joins = {j["into"]: j for j in block.get("join", [])}
+        joined = {j["from"] for j in joins.values()}
+        fixes = {k: v for k, v in block.get("census_fix", {}).items() if not k.startswith("_")}
+        traced = {b["id"]: (pc, b) for pc in trace["parcels"] for b in pc["buildings"]}
         for parcel in plate_parcels(block, fronts, polys) + trace["parcels"]:
             side = parcel["side"]
             if side not in block["sides"]:
@@ -293,7 +317,22 @@ def build_records(rules=None) -> dict:
             lot_v = (min(p[1] for p in lot), max(p[1] for p in lot))
             street_u = max(p[0] for p in lot)
             house_sid = None
-            for b in split_townhouses(parcel["buildings"], polys, rules):
+            house_by_fid = {}
+            bs = []
+            for b in parcel["buildings"]:
+                if b["id"] in joined:
+                    continue
+                if b["id"] in fixes:
+                    b = {**b, "census_ids": fixes[b["id"]]["census_ids"], "census_fix": fixes[b["id"]]}
+                if b["id"] in joins:
+                    b = join_building(b, parcel, joins[b["id"]], traced, grid, frame)
+                elif b["kind"] != "front" and block.get("service_outline") and b.get("polygon_local_m"):
+                    # sheet 35 crosses its stables corner to corner, and the trace splits each
+                    # along the cross into four triangles: the building's outline is its fill
+                    b = {**b, "parts": [{"id": "outline", "role": "main", "material": b["parts"][0]["material"],
+                                         "area_m2": b["area_m2"], "rings": [b["polygon_local_m"]]}]}
+                bs.append(b)
+            for b in split_townhouses(bs, polys, rules):
                 if any(c in rules["skip"] for c in b["census_ids"]):
                     continue
                 f, cp = polys[b["census_ids"][0]]
@@ -306,12 +345,38 @@ def build_records(rules=None) -> dict:
                     frow = rules["frontages"][fid]
                 kind = "house" if b["kind"] == "front" else "service"
                 row = reg.get(fid, {}) if fid else {}
-                rec = draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, frame, lot_v,
-                                   street_u, datum, hts, fit, house_sid)
+                # a lot several census frontages share (sheet 35's 2000, 2010 and 2018) keeps each
+                # house's own number and gives each stable its own frontage's house
+                shared = bool(parcel.get("frontage_shares"))
+                rec = draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, frame,
+                                   b["join"]["lot_v"] if b.get("join") else lot_v,
+                                   street_u, datum, hts, fit, house_by_fid.get(fid) if shared else house_sid,
+                                   polys, shared)
                 if kind == "house" and not (house_sid and b.get("split_of")):
                     house_sid = rec["id"]
+                if kind == "house":
+                    house_by_fid[fid] = rec["id"]
                 out[rec["id"]] = rec
     return out
+
+
+def join_building(b, parcel, j, traced, grid, frame) -> dict:
+    """One building out of two traced on neighbouring lots (sheet 35's 2108/2110 coach house,
+    drawn across both lots and divided on the line): the two outlines are filled as one part,
+    the drawn line between them closed, and the lot line kept as the party wall's plan v."""
+    opc, other = traced[j["from"]]
+    lots = {pid: [to_uv(frame, q) for q in grid[pid]["polygon_local_m"]]
+            for pid in (parcel["parcel_id"], opc["parcel_id"])}
+    mine, theirs = lots[parcel["parcel_id"]], lots[opc["parcel_id"]]
+    mv = (min(q[1] for q in mine), max(q[1] for q in mine))
+    tv = sum(q[1] for q in theirs) / len(theirs)
+    every = [q[1] for ring in lots.values() for q in ring]
+    return {**b, "census_ids": b["census_ids"] + other["census_ids"],
+            "parts": [{"id": f"{b['id']}+{other['id']}", "role": "main", "material": b["parts"][0]["material"],
+                       "area_m2": round(b["area_m2"] + other["area_m2"], 2),
+                       "rings": [b["polygon_local_m"], other["polygon_local_m"]]}],
+            "join": {**j, "with": other["id"], "lot_parcels": [parcel["parcel_id"], opc["parcel_id"]],
+                     "lot_v": (min(every), max(every)), "party_v": mv[0] if tv < mv[0] else mv[1]}}
 
 
 def plate_parcels(block, fronts, polys) -> list:
@@ -352,8 +417,9 @@ def split_townhouses(buildings, polys, rules):
 
 
 def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, frame, lot_v, street_u,
-                 datum, hts, fit, house_sid):
+                 datum, hts, fit, house_sid, polys=None, shared=False):
     plate = b.get("plate")
+    join = b.get("join")
     if plate:
         # a plate house carries its own frontage overlay: 1609 and 1611 are one census frontage's lost pair
         frow = {**frow, **plate.get("frontage", {})}
@@ -361,6 +427,11 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     row = {**row, **frow.get("register", {})}
     # a service-kind building that is no one's stable names its own use (sheet 20's 16th Street station)
     use = frow.get("use") if kind == "service" else None
+    front_use = use
+    # one of several service buildings on a lot names its own id suffix and, if it is no one's
+    # stable, its use (2140's three-storey alley building beside its stable)
+    svc = frow.get("services", {}).get(cp.get("id"), {}) if kind == "service" else {}
+    use = svc.get("use", use)
     src = plate["source"] if plate else block.get("source", SOURCE)
     cen = block.get("census_ticket", "T-1841")
     fit_note = plate["fit_note"] if plate else block.get(
@@ -371,9 +442,15 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     # a record already standing on part of the traced fabric (1729's K13 conservatory wing) is kept out of the fill
     keep = [footprint_uv(k, frame, datum) for k in frow.get("keep_out", [])]
     for part in sorted(b["parts"], key=lambda p: (order.get(p["role"], 9), -p["area_m2"], p["id"])):
-        poly = [to_uv(frame, q) for q in part["polygon_local_m"]]
+        if part.get("rings"):
+            poly = [[to_uv(frame, q) for q in ring] for ring in part["rings"]]
+        else:
+            poly = [to_uv(frame, q) for q in part["polygon_local_m"]]
         rs, cov = rects_for(poly, fit, frow.get("front_body_from_u_m")
-                            if part["role"] == "main" and kind == "house" else None, keep)
+                            if part["role"] == "main" and kind == "house" else None, keep,
+                            close=(join or {}).get("close_cells", 0) or (
+                                frow.get("close_cells", 0) if kind == "house" else
+                                block.get("service_outline", {}).get("close_cells", 0)))
         for k, r in enumerate(rs):
             pieces.append({"trace_part": part["id"], "trace_role": part["role"], "material": part["material"],
                            "rect": r, "k": k, "coverage": round(cov, 3)})
@@ -440,17 +517,17 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
 
     # ---- identity
     num = (row.get("address", "") or "").split(" ")[0] if kind == "house" or fid else ""
-    addr = (num if b.get("split_of") or plate else "") or parcel["parcel_id"].split("_", 1)[1]
+    addr = (num if b.get("split_of") or plate or shared else "") or parcel["parcel_id"].split("_", 1)[1]
     slug = frow.get("slug") or "house"
     base_id = f"{slug}_{addr}_prairie" if f else f"shed_{addr}_prairie"
     if kind == "service":
         # a lot whose house this pass does not draft names it (`house_id`): 1638's K16 front, 1620's plate house
         owner_sid = house_sid or frow.get("house_id")
-        sid = f"{owner_sid}_coach_house" if owner_sid and f else base_id
+        sid = f"{owner_sid}_{svc.get('suffix', 'coach_house')}" if owner_sid and f else base_id
     else:
         sid = base_id
     seed = seed_of(sid)
-    front_tickets = row.get("front_tickets", "") if kind == "house" or use else ""
+    front_tickets = row.get("front_tickets", "") if kind == "house" or front_use else ""
     rear_ticket = block["rear_ticket"][parcel["side"]]
     # a side drafted by a later ticket names its own pass and liberty (T-2330 drafts block 28's east)
     side_rules = block.get("by_side", {}).get(parcel["side"], {})
@@ -464,10 +541,17 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     feats = []
     for ft in (frow.get("features", []) if kind == "house" else []):
         ft = dict(ft)
-        corner = ft.pop("corner")
-        r = ft.get("radius_m", 1.9)
-        at = [round(mu1 - mu0 - r * 0.35, 3), round((r * 0.35) if corner == "front_v0" else (width - r * 0.35), 3)]
+        if ft.pop("on", None) == "bay":
+            # a turret standing on the sheet's own round front bay (2130's), centred on it
+            bay = next(p["rect"] for p in parts if p["role"] == "bay")
+            at = [round((bay[0] + bay[2]) / 2, 3), round((bay[1] + bay[3]) / 2, 3)]
+        else:
+            corner = ft.pop("corner")
+            r = ft.get("radius_m", 1.9)
+            at = [round(mu1 - mu0 - r * 0.35, 3), round((r * 0.35) if corner == "front_v0" else (width - r * 0.35), 3)]
         feats.append({**ft, "at": at})
+    if join and join.get("party_wall"):
+        feats.append({"kind": "party_wall", "v": round(join["party_v"] - mv0, 3)})
     elev = {
         "kind": kind,
         "seed": seed,
@@ -485,6 +569,9 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
         "features": feats,
         "draft_label": {"pass": pass_, "refined_by": refined_by},
     }
+    if kind == "house" and frow.get("works"):
+        # a house still building on the target date (2126's Robbins house): its shell, not its roof
+        elev["works"] = {k: v for k, v in frow["works"].items() if k != "note"}
     if frame[2][1] < 0:
         # the plan's v axis runs along the front; on the east side of the avenue it points
         # south, so the archetype is told which way high v faces before it reads `entrance`
@@ -522,6 +609,13 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
         function = _attr(use["function"], "inferred",
                          f"The 1911 sheet reads '{cp.get('reading_1911', '')}'. " + (cp.get("note_1904") or "")
                          + f" Carried to 1904 on the {cen} census ruling ({(f or {}).get('decision_1904')}).", [src])
+    elif join:
+        # one building on two lots: both halves' readings, and the ruling that makes them one
+        _, ocp = polys[b["census_ids"][-1]]
+        name = f"{where} — {join['name']} (district draft; refined by {rear_ticket})"
+        function = _attr("barn_or_carriage_shed", "inferred",
+                         f"The 1911 sheet reads '{cp.get('reading_1911', '')}' and '{ocp.get('reading_1911', '')}'. "
+                         f"{cp.get('note_1904') or ''} {join['note']}".replace("  ", " "), [src])
     else:
         owner = f"the house at {frow.get('house_address', addr)}" if f else "neither neighbour (the sheet does not show whose)"
         name = (f"{where} — the alley building of {owner} (district draft; refined by {rear_ticket})"
@@ -530,11 +624,16 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
                          f"The 1911 sheet reads '{cp.get('reading_1911', '')}'. "
                          + (cp.get("note_1904") or "Backcast to 1904 as a yard outbuilding on the census ruling."),
                          [src])
+    if b.get("census_fix"):
+        # the trace gave this building its neighbour's census id; the sheet, read again, corrects it
+        function["note"] += f" {b['census_fix']['note']}"
+    if kind == "house" and frow.get("works"):
+        function["note"] += f" {frow['works']['note']}"
     drawn = "; ".join(p["from"] for p in parts)
     rec = {
         "id": sid,
         "name": name,
-        "aka": sorted({where} | set(frow.get("aka", []) if kind == "house" else [])),
+        "aka": sorted({where} | set(frow.get("aka", []) if kind == "house" else (join or {}).get("aka", []))),
         "archetype": ARCHETYPE,
         "function": function,
         "review_required": False,
@@ -543,7 +642,7 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
             f"complete from the street, the walks, the alley and the air, that {', '.join(refined_by)} refine{'s' if len(refined_by) == 1 else ''} "
             f"in place under this same id. Written by tools/draft_prairie_1904.py from the "
             f"{plate['label'] if plate else f'sheet {sheet} trace'} "
-            f"({b['id']}), the {cen} census ({', '.join(census_ids)}) and the T-1837 register row {fid or 'none'}"
+            f"({b['id']}{' and ' + join['with'] + ', filled as one building' if join else ''}), the {cen} census ({', '.join(census_ids)}) and the T-1837 register row {fid or 'none'}"
             f"{' (' + fam_name + ')' if fam_name else ''}; every height, roof, opening and feature is the draft rules' "
             f"reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty {liberty})."),
         "phases": [{
@@ -599,7 +698,7 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
                                          f"bays, entrance side, chimneys and dormers are counts the family rules choose, "
                                          f"and the seed {seed} only tints the fabric inside +-6 %. Liberty {liberty}."),
                 "draft": _attr({"pass": pass_, "liberty": liberty, "register_row": fid, "census_ids": census_ids,
-                                "trace_building": b["id"], "seed": seed, "replaceable_by": refined_by,
+                                "trace_building": b["id"] if not join else f"{b['id']}+{join['with']}", "seed": seed, "replaceable_by": refined_by,
                                 "card": f"District draft — refined by {', '.join(refined_by)}."},
                                "reconstructed",
                                "The draft's own provenance: the pass that wrote it, the rows it read and the "
