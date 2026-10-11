@@ -363,8 +363,13 @@
     "s28-1808-front": "1808 Prairie already stands as the K01 frontage assembly (data/structures/keith_house_1808_prairie.json), well past a draft; T-1882 and T-1883 refine that record, not this pass.",
     "s28-1812-rear": "1812's coach house is being built from the K12 kit as wheeler_house_1812_prairie_coach_house (T-2321, PR #666); the draft does not stand a second building in its place.",
     "s20-1638-f": "1638's street front already stands as the K16 timber record shortall_gregory_house_1638_prairie_front (T-2323) on a plain body read off this sheet; T-2323 asked the draft to keep that record, so the draft adds only the stable behind it.",
+    "s20-1600-f": "1600 Prairie is refined in place by T-2342 (piece 2 of T-1859) as the K01 brick corner house house_1600_prairie, under the draft's own id; the draft does not stand a second building on it.",
+    "r1886-1620-f": "1620 Prairie, the Robert Law house, is refined in place by T-1861 as the K01 brick frontage law_house_1620_prairie, under the draft's own id; the draft does not stand a second building on it, and its stable on the alley stays the draft's.",
+    "s20-1608-f": "1608 Prairie is refined in place by T-2341 (piece 1 of T-1859) as the K01 brick frontage house_1608_prairie, under the draft's own id; the draft does not stand a second building on it.",
     "s20-1607-f": "1607-1611's four-storey loft is the 1911 replacement of the lot-6 frame pair (T-1840 census, backcast_1886): the draft stands 1609 and 1611 from Robinson 1886 instead (block 20's `plates`), and the loft not at all.",
-    "s20-1612-f": "1612 Prairie now stands as the K01 frontage assembly goodman_house_1612_prairie (T-2344, piece 1 of T-1860), which refines this draft in place under the draft's own id; the draft stands no second building beside it."
+    "s20-1612-f": "1612 Prairie now stands as the K01 frontage assembly goodman_house_1612_prairie (T-2344, piece 1 of T-1860), which refines this draft in place under the draft's own id; the draft stands no second building beside it.",
+    "s20-1616-f": "1616 Prairie's main body now stands as the K01 brick frontage house_1616_prairie (T-2353, piece 1 of T-2345), which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's one-storey rear range is T-2354's.",
+    "s20-1628-f": "1628 Prairie's main body now stands as the K01 brick frontage house_1628_prairie (T-2355, piece 1 of T-1862), the south half of the pair with 1626, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's three-storey rear wing waits for T-2347."
   },
   "frontages": {
     "frontage-28-038": {
@@ -385,7 +390,7 @@
       "pitch_deg": 35,
       "attic_dormers": true,
       "entrance": "south",
-      "why": "2½B on the map: two full storeys and a half in the roof, read as dormers in a hip behind the stone front."
+      "why": "2\u00bdB on the map: two full storeys and a half in the roof, read as dormers in a hip behind the stone front."
     },
     "frontage-28-041": {
       "slug": "house",
@@ -427,7 +432,7 @@
           "cap_m": 6.0
         }
       ],
-      "why": "Chateauesque: the register's 'conical corner turret' and 'steep slate roof'; 2½B read as dormers in the steep hip."
+      "why": "Chateauesque: the register's 'conical corner turret' and 'steep slate roof'; 2\u00bdB read as dormers in the steep hip."
     },
     "frontage-28-047": {
       "slug": "house",
@@ -442,7 +447,7 @@
           "cap_m": 4.5
         }
       ],
-      "why": "2½S.B. with a 'bay4B': a bay carried a storey above the house, drawn as a corner tower; its corner is not read off the sheet and is reconstructed."
+      "why": "2\u00bdS.B. with a 'bay4B': a bay carried a storey above the house, drawn as a corner tower; its corner is not read off the sheet and is reconstructed."
     },
     "frontage-28-048": {
       "skip": "The census rules 1936 an alias of 1918 with no footprint of its own (no dwelling drawn on the lot)."
@@ -522,7 +527,7 @@
       "slug": "marshall_field_jr_house",
       "entrance": "north",
       "front_body_from_u_m": 21.3,
-      "why": "2½S.B.: two full storeys and a half in the roof, read as gabled dormers in a hip over the post-1902 enlargement; the projecting tower/bay is T-1906's. The 1911 sheet's Gatlin Institute is a 1911 use and is not carried back. The sheet traces the house and its rear range as one part, whose largest rectangle is a 47 m strip down the lot; the main body is fitted in front of the part's own break at 21.3 m from the rear lot line, where it narrows to the street front, and the rear range behind it."
+      "why": "2\u00bdS.B.: two full storeys and a half in the roof, read as gabled dormers in a hip over the post-1902 enlargement; the projecting tower/bay is T-1906's. The 1911 sheet's Gatlin Institute is a 1911 use and is not carried back. The sheet traces the house and its rear range as one part, whose largest rectangle is a 47 m strip down the lot; the main body is fitted in front of the part's own break at 21.3 m from the rear lot line, where it narrows to the street front, and the rear range behind it."
     },
     "frontage-28-057": {
       "slug": "kellogg_house",
@@ -564,7 +569,9 @@
     "frontage-20-005": {
       "slug": "house",
       "entrance": "north",
-      "why": "2½B brick: two full storeys and a half in the roof, read as dormers in the brick family's hip; the sheet's frame bay at its north-east corner stands as a projection."
+      "why": "2\u00bdB brick: two full storeys and a half in the roof, read as dormers in the brick family's hip; the sheet's frame bay at its north-east corner stands as a projection.",
+      "house_id": "house_1616_prairie",
+      "house_address": "1616"
     },
     "frontage-20-006": {
       "slug": "law_house",
@@ -583,7 +590,9 @@
     "frontage-20-008": {
       "slug": "house",
       "entrance": "south",
-      "why": "3B brick, the south half of the pair with 1626: the same family, its entrance mirrored to the south end."
+      "why": "3B brick, the south half of the pair with 1626: the same family, its entrance mirrored to the south end.",
+      "house_id": "house_1628_prairie",
+      "house_address": "1628"
     },
     "frontage-20-009": {
       "slug": "house",
@@ -725,7 +734,7 @@
       "slug": "house",
       "roof": "mansard",
       "entrance": "south",
-      "why": "3B brick with a 4-storey rear section, the south unit of the group (the census reads it 3½B): a mansard over the mapped storeys carries the half storey, its door at the group's south end; the rear section stands as the sheet traces it."
+      "why": "3B brick with a 4-storey rear section, the south unit of the group (the census reads it 3\u00bdB): a mansard over the mapped storeys carries the half storey, its door at the group's south end; the rear section stands as the sheet traces it."
     },
     "frontage-20-031": {
       "slug": "spalding_house",
@@ -733,7 +742,7 @@
       "pitch_deg": 50,
       "attic_dormers": true,
       "entrance": "south",
-      "why": "The register's Spalding remodel of the Grosvenor house: 'brick block with steep hip/mansard roof, dormers, tall chimneys, full-height swell bay, projecting gabled wing', drawn as a steep hip with dormers over the 2½B body, the sheet's frame bay as a projection. The 1904 Blue Book lists W. G. Hibbard Jr. at 1637, so the Spalding name is the one provisional association the census keeps; T-1870 rules."
+      "why": "The register's Spalding remodel of the Grosvenor house: 'brick block with steep hip/mansard roof, dormers, tall chimneys, full-height swell bay, projecting gabled wing', drawn as a steep hip with dormers over the 2\u00bdB body, the sheet's frame bay as a projection. The 1904 Blue Book lists W. G. Hibbard Jr. at 1637, so the Spalding name is the one provisional association the census keeps; T-1870 rules."
     },
     "frontage-20-032": {
       "slug": "hibbard_house",
@@ -742,7 +751,7 @@
       "brackets": true,
       "attic_dormers": true,
       "entrance": "centre",
-      "why": "The register's Italianate mansion with rear addition (the Hibbard house): a low hip on bracketed eaves over the 2½S.B. stone-based body, the half storey as dormers, the 1874 rear range as the sheet traces it; the arched lights, oriel and two-level rear veranda are T-1875's and T-1876's."
+      "why": "The register's Italianate mansion with rear addition (the Hibbard house): a low hip on bracketed eaves over the 2\u00bdS.B. stone-based body, the half storey as dormers, the 1874 rear range as the sheet traces it; the arched lights, oriel and two-level rear veranda are T-1875's and T-1876's."
     },
     "frontage-20-033": {
       "slug": "kellogg_house",
@@ -866,7 +875,7 @@
           "cap_m": 5.0
         }
       ],
-      "why": "The Thomas Murdoch house (Cobb, 1890): the register's 'stone-front block with brick rear, prominent rounded street bay/turret with conical cap, 2.5/3-storey transitions': the sheet's 2½ read as dormers in a hip, and a turret under a cone stood on the round bay the sheet draws at the front's north end (its rectangle, fitted from the stone part, is where the turret stands). T-1927 reads its height and cap."
+      "why": "The Thomas Murdoch house (Cobb, 1890): the register's 'stone-front block with brick rear, prominent rounded street bay/turret with conical cap, 2.5/3-storey transitions': the sheet's 2\u00bd read as dormers in a hip, and a turret under a cone stood on the round bay the sheet draws at the front's north end (its rectangle, fitted from the stone part, is where the turret stands). T-1927 reads its height and cap."
     },
     "frontage-35-071": {
       "slug": "tucker_smith_house",
@@ -898,7 +907,7 @@
       "roof": "hip",
       "pitch_deg": 38,
       "entrance": "north",
-      "why": "2½B brick with a stone front on the 20th Street corner (W. C. Free's in the 1904 Blue Book, a lead and not an identity): the register's stone-front family is a flat roof, but the sheet's half storey is a roof storey, so the draft takes the default hip with dormers over the stone street face and its traced bay; the door is toward the corner, beside the frame porch the sheet draws on the 20th Street side."
+      "why": "2\u00bdB brick with a stone front on the 20th Street corner (W. C. Free's in the 1904 Blue Book, a lead and not an identity): the register's stone-front family is a flat roof, but the sheet's half storey is a roof storey, so the draft takes the default hip with dormers over the stone street face and its traced bay; the door is toward the corner, beside the frame porch the sheet draws on the 20th Street side."
     },
     "frontage-35-073": {
       "slug": "house",
@@ -921,7 +930,7 @@
       "chimneys": 2,
       "front_bays": 2,
       "entrance": "north",
-      "why": "The Max A. Mayer house (Burnham & Root, 1888): the register's 'ogee gable with finial, two attic lights, tall chimneys' on a narrow party-wall front, drawn as the kit's shaped street gable over the 2½B brick body, two bays wide. Its ogee curve, carved frieze and bowed window group are T-1913's and T-1914's; the draft keeps only the silhouette."
+      "why": "The Max A. Mayer house (Burnham & Root, 1888): the register's 'ogee gable with finial, two attic lights, tall chimneys' on a narrow party-wall front, drawn as the kit's shaped street gable over the 2\u00bdB brick body, two bays wide. Its ogee curve, carved frieze and bowed window group are T-1913's and T-1914's; the draft keeps only the silhouette."
     },
     "frontage-35-076": {
       "slug": "house",
@@ -935,7 +944,7 @@
           "cap_m": 4.8
         }
       ],
-      "why": "The Romanesque neighbour of Mayer (the Lambs' in the 1904 Blue Book): the register's 'rough ashlar front, round-arched entrance, rounded corner turret/conical cap' as the Romanesque family's steep hip with dormers over the 2½B body, and a turret under a cone on the south front corner, where the sheet draws its stone rounded bay. Seen in the 1890s Mayer photograph; T-1915 reads it."
+      "why": "The Romanesque neighbour of Mayer (the Lambs' in the 1904 Blue Book): the register's 'rough ashlar front, round-arched entrance, rounded corner turret/conical cap' as the Romanesque family's steep hip with dormers over the 2\u00bdB body, and a turret under a cone on the south front corner, where the sheet draws its stone rounded bay. Seen in the 1890s Mayer photograph; T-1915 reads it."
     },
     "frontage-35-077": {
       "slug": "reid_house",
@@ -967,12 +976,12 @@
           "cap_m": 5.2
         }
       ],
-      "why": "The James L. High house (built for Benjamin Adams in the late 1870s; High's from 1886, with his 1887 rear range): the register's 'steep main gable, conical rounded corner tower, arched entry' as a steep gable to the avenue over the 2½B body and a round tower under a cone on the north front corner, where the sheet draws its front projection. Its broad side wing's secondary gable is T-1917's."
+      "why": "The James L. High house (built for Benjamin Adams in the late 1870s; High's from 1886, with his 1887 rear range): the register's 'steep main gable, conical rounded corner tower, arched entry' as a steep gable to the avenue over the 2\u00bdB body and a round tower under a cone on the north front corner, where the sheet draws its front projection. Its broad side wing's secondary gable is T-1917's."
     },
     "frontage-35-080": {
       "slug": "house",
       "entrance": "north",
-      "why": "2½B brick on a wide lot, the house the register associates with Silas B. Cobb (an open association, so the id names no one): the villa family's low hip with dormers over the traced body, its frame porch as the sheet draws it, restrained as the register asks ('no borrowed named mansion facade'). T-1917 reads it."
+      "why": "2\u00bdB brick on a wide lot, the house the register associates with Silas B. Cobb (an open association, so the id names no one): the villa family's low hip with dormers over the traced body, its frame porch as the sheet draws it, restrained as the register asks ('no borrowed named mansion facade'). T-1917 reads it."
     },
     "frontage-35-081": {
       "slug": "tolman_house",
@@ -1004,7 +1013,7 @@
     "frontage-35-084": {
       "slug": "house",
       "entrance": "south",
-      "why": "2½B brick on the 21st Street corner (the Pikes' in the 1904 Blue Book): the brick family's hip with dormers for the half storey over its long rear range, its frame porches as the sheet traces them; its door toward the corner."
+      "why": "2\u00bdB brick on the 21st Street corner (the Pikes' in the 1904 Blue Book): the brick family's hip with dormers for the half storey over its long rear range, its frame porches as the sheet traces them; its door toward the corner."
     },
     "frontage-35-085": {
       "slug": "roloson_house",

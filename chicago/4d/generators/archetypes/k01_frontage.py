@@ -16,8 +16,13 @@ module and its parameter module, and nothing else, for this archetype.
 
 THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
 
-  k01.wall.street_front     the stone front, its openings cut through it
-  k01.wall.side.north       the party side against the Glessner court: blank brick
+  k01.wall.street_front     the stone front, its openings cut through it; or, for a
+                            record with no `stone_front` (T-2341), a front of the
+                            side walls' K03 brick whose openings keep their stone
+                            sills, K09 heads or flat lintels, under stone belts
+  k01.wall.side.north       the party side against the Glessner court: blank brick; or, on a
+                            record naming `north_bays` (T-2342), a corner house's street
+                            side, windowed like the south wall
   k01.wall.side.south       common brick, four bays a storey
   k01.wall.rear_service     common brick, two bays a storey
   k01.opening.sash_flat     a K06 window (T-2298): reveal, frame, two sashes in two
@@ -72,6 +77,7 @@ the contract's measure refuses.
 from __future__ import annotations
 
 import hashlib
+import itertools
 import json
 import math
 import random
@@ -88,6 +94,13 @@ LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
 ROOFS = ROOT / "assets" / "textures" / "prairie_1904_roofs"   # K04, T-2292
 STONE = ROOT / "assets" / "textures" / "prairie_1904_stone"   # K02, T-2288
 GENERATOR = "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)"
+# T-2358: where a gutter outlet's trail starts, and how far a vertex may lie off a wall's
+# plane and still weather as that wall. Reconstructed (L-k14-1808-walls-2358): the swan neck
+# meets the wall just under the soffit and wets it either side of the pipe; a K08 bay stands
+# up to a metre proud and a reveal goes the wall's thickness in.
+K14_OUTLET_BELOW_SOFFIT_M = 0.15
+K14_OUTLET_MARGIN_M = 0.03
+K14_REACH_OUT_M, K14_REACH_IN_M = 1.2, 1.0
 
 Y = (0.0, 1.0, 0.0)
 
@@ -178,6 +191,10 @@ MATERIALS.update({
     "bay_copper": {"color": (0.37, 0.52, 0.45), "roughness": 0.45, "metallic": 0.35},
     "bay_tin": {"color": (0.30, 0.22, 0.18), "roughness": 0.7},
 })
+# T-2313: a K15 stack's soot band (k15_chimneys.json `soot`): the K03 brick darkened, so
+# its courses and texture run on through the band; and the clay pot, should a source show one
+MATERIALS["chimney_soot"] = dict(k03_brick.MATERIALS["brick"], color=(0.48, 0.40, 0.37))
+MATERIALS["chimney_pot"] = {"color": (0.66, 0.36, 0.22), "roughness": 0.8}
 # T-2319: the K11 boundary wall's brick. Its own slot for the bays' reason: "brick" is an
 # envelope material, and the contract reads grade off its lowest vertex, so a boundary wall
 # sunk 0.10 m in it would move the house's origin and stretch its envelope to the street.
@@ -332,6 +349,14 @@ class Assembly:
         if params.roof:
             self.fabric["slate_covering"] = params.roof["covering"]
         self.soffit_m = None   # set by build(); the soot band hangs from it
+        # T-2358: a record that names the K14 condition kit weathers to its own age in 1904
+        # instead of wearing K03's fixed full-age mask; its walls are registered by build()
+        self.k14, self.k14_walls = None, {}
+        if params.condition:
+            from . import k14_condition
+            self.k14 = k14_condition.Condition()
+            self.k14_seed = k14_condition.property_seed(structure_id)
+            self.k14_built = params.condition["built"]
         self.trim_triangles: dict[str, int] = {}   # T-2310: K09 trim, per kit id
         # T-2289: a coursed stone front lays its walling and its trim in K02 fabrics,
         # whose maps carry their own colour, so the factors go to white
@@ -357,10 +382,90 @@ class Assembly:
     def prim(self, name):
         if name not in self.prims:
             tone = None
-            if MATERIALS[name].get("condition"):
+            if self.k14 is not None and self.k14_fabric(name):
+                tone = lambda y: 1.0   # T-2358: evaluated over every vertex by condition_tones
+            elif MATERIALS[name].get("condition"):
                 tone = lambda y: k03_brick.tone(y, self.soffit_m)
             self.prims[name] = Prim(name, tone)
         return self.prims[name]
+
+    # -- T-2358: the K14 condition kit --------------------------------------------------
+    def k14_fabric(self, name):
+        """The K02/K03 fabric id a slot weathers as, or None for a slot the kit leaves alone:
+        every K03 brick slot, and the K02 walling and trim of a stone front and its bays."""
+        st = self.p.stone
+        if MATERIALS[name].get("condition"):
+            return k03_brick.FABRIC
+        if st and name in ("rough_stone_trim", "bay_stone"):
+            return st["fabric"]
+        if st and name == "limestone_trim":
+            return st["trim"]
+        return None
+
+    def k14_sources(self, cid):
+        """A wall's water-trail sources, in its own frame: every K06 sill seated on it (its
+        proud extent, horns and all, the trail hanging from its underside) and every gutter
+        outlet whose downpipe runs down it, the trail from just under the soffit where the
+        swan neck meets the wall. Sills first along the wall, then outlets: the order is the
+        trail's index, and so its draw from the property's seed."""
+        O = self.k14_walls[cid][0]
+        sills = sorted((s0, s1, y0) for s0, s1, y0, _, kind in self.footprints.get(tuple(O), [])
+                       if kind == "K06.sill")
+        out = [{"kind": "sill", "x0": round(s0, 4), "x1": round(s1, 4), "y": round(y0, 4)}
+               for s0, s1, y0 in sills]
+        r = self.p.rainwater
+        if r:
+            half = r["pipe_diameter_m"] / 2 + K14_OUTLET_MARGIN_M
+            out += [{"kind": "outlet", "x0": round(x["s_m"] - half, 4), "x1": round(x["s_m"] + half, 4),
+                     "y": round(self.soffit_m - K14_OUTLET_BELOW_SOFFIT_M, 4)}
+                    for x in sorted(r["downpipes"], key=lambda x: x["s_m"]) if x["wall"] == cid]
+        return out
+
+    def k14_breaks(self, cid):
+        """The rows and columns a wall needs so `_TONE` can carry the kit's layers: the
+        kit's own rows (damp top, soot band, each trail's head and foot) and, for each
+        trail, its two edges, their soft fall-off and its centre line."""
+        L = self.k14_walls[cid][3]
+        src = self.k14_sources(cid)
+        rows = self.k14.wall_breaks(self.soffit_m, built=self.k14_built, sources=tuple(src), seed=self.k14_seed)
+        soft = self.k14.layers["water_trails"]["edge_soft_m"]
+        cols = {round(min(max(x, 0.0), L), 4) for t in src
+                for x in (t["x0"] - soft, t["x0"], (t["x0"] + t["x1"]) / 2, t["x1"], t["x1"] + soft)}
+        return tuple(rows), tuple(sorted(cols))
+
+    def condition_tones(self):
+        """Every weathering slot's `_TONE`, once everything is laid: each vertex is read in
+        the frame of the wall whose plane it is nearest (on the face, in a reveal, or on a
+        kit piece standing proud of it), so its trails and its damp line's wobble are that
+        wall's; a vertex off every wall (a boundary wall, a stack over the roof) takes the
+        height layers alone."""
+        if self.k14 is None:
+            return
+        import numpy as np
+        walls = list(self.k14_walls.items())
+        srcs = [tuple(self.k14_sources(cid)) for cid, _ in walls]
+        for name in sorted(self.prims):
+            pr, fab = self.prims[name], self.k14_fabric(name)
+            if fab is None or not pr.pos:
+                continue
+            P = np.asarray(pr.pos, dtype=np.float64)
+            best = np.full(len(P), np.inf)
+            on = np.full(len(P), -1)
+            xs = np.zeros(len(P))
+            for i, (_, (O, R, N, L)) in enumerate(walls):
+                v = P - np.asarray(O)
+                sv, dv = v @ np.asarray(R), v @ np.asarray(N)
+                ok = (sv >= -0.02) & (sv <= L + 0.02) & (dv >= -K14_REACH_IN_M) & (dv <= K14_REACH_OUT_M) \
+                    & (np.abs(dv) < best)
+                best[ok], on[ok], xs[ok] = np.abs(dv[ok]), i, sv[ok]
+            tone = np.ones(len(P))
+            for i in range(-1, len(walls)):
+                m = on == i
+                if m.any():
+                    tone[m] = self.k14.wall_tone(P[m, 1], self.soffit_m, built=self.k14_built, fabric=fab,
+                                                 seed=self.k14_seed, x=xs[m] if i >= 0 else 0.0,
+                                                 sources=srcs[i] if i >= 0 else ())
+            pr.tone = [round(float(t), 4) for t in tone]
 
     def instance(self, cid, family, params, sockets):
         """Register one instance of a component; return its seed."""
@@ -407,7 +512,7 @@ class Assembly:
         pr.face([P(s1, y0, 0), P(s1, y0, d), P(s1, y1, d), P(s1, y1, 0)], R, be, conf)
 
     # -- k01.wall.* ----------------------------------------------------------------
-    def wall(self, cid, mat, O, R, length, height, thickness, holes, extra_breaks=(), bands=(), gaps=()):
+    def wall(self, cid, mat, O, R, length, height, thickness, holes, extra_breaks=(), bands=(), gaps=(), cols=()):
         p = self.p
         N = _cross(R, Y)
         conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction")
@@ -416,7 +521,7 @@ class Assembly:
                                            "openings": len(holes)},
                              {"base": O, "top": _add(O, _mul(Y, height))})
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
-        sb = sorted({0.0, length, *[e for h in holes for e in (h[0], h[1])]})
+        sb = sorted({0.0, length, *cols, *[e for h in holes for e in (h[0], h[1])]})
         yb = sorted({0.0, height, *extra_breaks, *[e for h in holes for e in (h[2], h[3])]})
         phase = None
         if MATERIALS[mat].get("courses"):  # T-2291: the bond turns the quoin
@@ -447,6 +552,8 @@ class Assembly:
         s0, s1 = op.s_m - op.width_m / 2, op.s_m + op.width_m / 2
         y0, y1 = op.sill_m, op.head_m
         conf = p.worst_conf("footprint", "sash_by_storey", "front_bays", "side_bays", "rear_bays")
+        if op.wall == "k01.wall.side.north":
+            conf = max(conf, p.conf("north_bays"))
         door = op.component == "k01.opening.door_leaf"
         if MATERIALS[body_mat].get("courses"):
             conf = max(conf, p.conf("service_wall_brick"))
@@ -467,10 +574,13 @@ class Assembly:
         else:
             # T-2304: the door is a K07 entrance and its stoop, built about the threshold
             self.enter(op, frame, body_mat, seed, conf)
-        if MATERIALS[body_mat].get("courses") and not door:
+        brick_head = op.wall != "k01.wall.street_front" or p.street_front_trim.get("brick_heads") == "segmental"
+        if MATERIALS[body_mat].get("courses") and not door and brick_head:
             # T-2291: a brick wall's opening takes a brick head, not the front's stone
             # lintel — two rowlock rings on a segmental arch, or a soldier flat head
-            # where the eave leaves no room for the rings and their rise
+            # where the eave leaves no room for the rings and their rise. A brick STREET
+            # front (T-2341) keeps the front's stone dressings: its K09 head or the lintel,
+            # unless its record arches them in the brick too (T-1861, `brick_heads`)
             crown = y1 + k03_brick.RISE_TO_SPAN * op.width_m + k03_brick.RINGS * (k03_brick.BED + k03_brick.JOINT)
             if crown < self.soffit_m - k03_brick.COURSE:
                 k03_brick.segmental_head(self, seed, frame, s0, s1, y1, conf)
@@ -479,6 +589,9 @@ class Assembly:
             return
         # T-2310: a K09 head where the record names one; else a flat lintel
         if k09_frontage.dress(self, op, frame, max(conf, p.conf("street_front_trim"))) or coursed:
+            return
+        # T-2326: a dormer whose face K10 dresses takes the kit's pediment cornice as its head
+        if op.wall == "k01.wall.dormer_face" and k10_frontage.dresses_dormer(p):
             return
         self.proud_box(stone_trim, frame, s0 - 0.12, s1 + 0.12, y1, y1 + 0.30, 0.03, seed, conf)
 
@@ -1124,8 +1237,12 @@ class Assembly:
                                 zc - sw / 2, zc + sw / 2, P,
                                 lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
             self.dormer_geom = {"xf": xf, "ys": ys, "yde": yde, "dhs": dhs, "dhe": dhe, "ridge": dry,
-                                "zs": zc + wd / 2, "zn": zc - wd / 2}
+                                "zs": zc + wd / 2, "zn": zc - wd / 2, "dt": dt, "overhang": dp["overhang_m"],
+                                "back": back}
+        # T-2302's plain stacks, for a record that names no K15 variant (1612 Goodman)
         for c in p.chimneys:
+            if "k15" in c:
+                continue
             sx, sz = c["plan_m"]
             u, z = c["u_m"], -c["v_m"]
             top = c["top_m"]
@@ -1139,11 +1256,33 @@ class Assembly:
                                       (u + sx / 2 + cp, top), (u - sx / 2 - cp, top)],
                                      z - sz / 2 - cp, z + sz / 2 + cp, P, "coping", "coping", "coping"))
         polys = k5.union_all(k5._snap(solids))
+        # T-2313: each stack from the K15 kit, built in this roof as the kit builds its
+        # specimen's (k15_chimneys.build_variant): its parts joined and its flues cut on
+        # their own, then joined to the roof, so the shaft is cut where it passes through
+        # the slate, the flashing where it lies on it and the cricket where it meets it
+        self.stacks = []
+        k15s = [c for c in p.chimneys if "k15" in c]
+        if k15s:
+            from . import k15_chimneys as k15
+            data = k15.load()
+
+            def cover(x, z):   # the hip's covering over a plan point (x = u, z = -v)
+                return E + tp * max(0.0, min(x, D - x, -z, W + z))
+            for c in k15s:
+                s = dict(c["k15"], x=c["u_m"], z=-c["v_m"])
+                parts, meta = k15.stack_solids(s, k15.Frame(s, cover), data, tp)
+                parts = {key: (k5._snap(x) if isinstance(x, list) else x) for key, x in parts.items()}
+                polys = k5.union(polys, k15.join_stack(parts))
+                self.stacks.append(dict(meta, id=c["id"], centre=[c["u_m"], c["v_m"]]))
         if recess is not None:
             polys = k5.subtract(polys, k5._snap([recess])[0])
-        pts, tris = k5.close(polys)
+        pts, tris = _weld_shell(*k5.close(polys))
         self.roof_shell = (pts, tris)
-        self.roof_graph = k5.graph(pts, tris, kit)
+        # the graph reads a stack's every part as `chimney`, which K05 already classes as
+        # an abutment: the K15 flashing and cricket ARE what dresses the covering there
+        self.roof_graph = k5.graph(pts, tris if not k15s else
+                                   [t[:3] + (("chimney" if t[3] in self.STACK else t[3]),) + t[4:] for t in tris],
+                                   kit)
         self._emit_shell(pts, tris, seed, conf)
         if d:
             self.dormer_sash(seed)
@@ -1157,6 +1296,14 @@ class Assembly:
     SHELL = {"covering": "slate_covering", "cheek": "slate_covering", "fascia": "fascia",
              "soffit": "fascia", "verge": "fascia", "return": "fascia", "dormer_face": "dormer_stone",
              "reveal": "dormer_stone", "backing": "backing", "chimney": "brick", "coping": "limestone_trim"}
+    # T-2313: the K15 stack's roles. Shaft and courses wear the side walls' K03 brick, the
+    # cap the front's limestone trim, the flues the dark of a window's backing, the
+    # flashing and cricket the roof's own K04 flashing (`_flashing`); soot is its own slot
+    STACK = {"shaft_brick": "brick", "corbel_brick": "brick", "panel": "brick", "soot": "chimney_soot",
+             "shaft_stone": "rough_stone_trim", "corbel_stone": "rough_stone_trim",
+             "cap_stone": "limestone_trim", "band": "limestone_trim", "dentil": "limestone_trim",
+             "cap_cement": "limestone_trim", "flue": "backing", "pot": "chimney_pot",
+             "flashing": None, "cricket": None}
     BOARD = ("wall", "base")   # the body under the roof: the walls' own business
     OPEN = ("window",)         # the sash recess's back: the K06 opening set in it closes it
 
@@ -1176,9 +1323,12 @@ class Assembly:
         for a, b, c, role, n in tris:
             if role in self.BOARD or role in self.OPEN:
                 continue
-            if role not in self.SHELL:
+            if role in self.STACK:
+                mat = self.STACK[role] or self._flashing()
+            elif role not in self.SHELL:
                 raise ValueError(f"the K05 union left a {role!r} face on the roof")
-            mat = self.SHELL[role]
+            else:
+                mat = self.SHELL[role]
             tri = [pts[a], pts[b], pts[c]]
             if role == "covering":
                 key = tuple(round(x, 5) for x in n) + (round(_dot(n, pts[a]), 4),)
@@ -1521,6 +1671,50 @@ class Assembly:
             self.prim("backing").face(rings[-1][:-1], dirs[-1], self.basis("backing", path[-1], ref, Y, seed), conf)
 
 
+# T-2313: what the joined roof is welded on before it is emitted. A K15 apron's planes, 6 and
+# 10 mm off a stack's face, cut contour lines across the whole slope, and where they cross a
+# hip the union leaves points a millimetre or so apart. The contract reads every tier on a
+# 1 mm grid (k01_contract.json measures.quantum_m), and two points can share one of its cells
+# only if they lie within its diagonal (sqrt(3) mm); the web tier's 16-bit positions move a
+# point by a fraction of a millimetre more. So the shell is welded at 2 mm, which no part of
+# the roof is built finer than (the thinnest is K15's 6 mm flashing).
+SHELL_WELD_M = 0.002
+
+
+def _weld_shell(pts, tris):
+    """Merge the shell's points that lie within SHELL_WELD_M of each other (into the lowest
+    index) and drop the triangles that collapse: the edge collapse a 1 mm quantum would
+    otherwise read as a degenerate face. The roof gate (check_roof_kit.py) proves the
+    result still closed and one shell."""
+    cell = {}
+    for i, p in enumerate(pts):
+        cell.setdefault(tuple(math.floor(c / SHELL_WELD_M) for c in p), []).append(i)
+    root = list(range(len(pts)))
+
+    def find(i):
+        while root[i] != i:
+            root[i] = root[root[i]]
+            i = root[i]
+        return i
+    for key, ids in cell.items():
+        near = [j for d in itertools.product((-1, 0, 1), repeat=3)
+                for j in cell.get((key[0] + d[0], key[1] + d[1], key[2] + d[2]), ())]
+        for i in ids:
+            for j in near:
+                if j < i and math.dist(pts[i], pts[j]) <= SHELL_WELD_M:
+                    a, b = find(i), find(j)
+                    if a != b:
+                        root[max(a, b)] = min(a, b)
+    if all(find(i) == i for i in range(len(pts))):
+        return pts, tris
+    out = []
+    for a, b, c, role, n in tris:
+        a, b, c = find(a), find(b), find(c)
+        if len({a, b, c}) == 3:
+            out.append((a, b, c, role, n))
+    return pts, out
+
+
 def _pieces(s0, s1, gaps):
     """[s0, s1] less every (a, b) gap: what is left of a course a bay stops."""
     out, at = [], s0
@@ -1550,12 +1744,23 @@ def build(params, structure_id: str):
     # The four walls, each about its base socket: outer face, left end (seen from
     # outside), at grade. +X is east (footprint u), -Z is north (footprint v).
     walls = {
-        "k01.wall.street_front": ("rough_stone_trim", (D, 0.0, 0.0), (0.0, 0.0, -1.0), W, p.front_thickness_m, belts),
+        # T-2341: a record with no K02 stone front is a brick house, its front in the K03 brick
+        "k01.wall.street_front": ("rough_stone_trim" if p.stone else "brick", (D, 0.0, 0.0), (0.0, 0.0, -1.0),
+                                  W, p.front_thickness_m, belts),
         "k01.wall.side.north": ("brick", (D, 0.0, -W), (-1.0, 0.0, 0.0), D, p.side_thickness_m, ()),
         "k01.wall.rear_service": ("brick", (0.0, 0.0, -W), (0.0, 0.0, 1.0), W, p.side_thickness_m, ()),
         "k01.wall.side.south": ("brick", (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), D, p.side_thickness_m, ()),
     }
     gaps = {cid: [bay["span_m"] for bay in p.bays if bay["wall"] == cid] for cid in walls}
+    if a.k14 is not None:   # T-2358: each wall's frame, for its trails and its damp line
+        a.k14_walls = {cid: (O, R, _cross(R, Y), length) for cid, (mat, O, R, length, t, bands) in walls.items()}
+
+    def breaks_of(cid, mat):
+        """A wall's vertex rows (and, under the K14 kit, its trail columns)."""
+        if a.k14 is not None and a.k14_fabric(mat):
+            rows, cols = a.k14_breaks(cid)
+            return (yf, *rows), cols
+        return ((yf, *k03_brick.condition_breaks(yf)) if MATERIALS[mat].get("condition") else (yf,)), ()
     frames, laid = {}, {}
     if p.stone:
         # T-2289: a coursed stone front is laid round what the kits seat on it, so the
@@ -1572,17 +1777,17 @@ def build(params, structure_id: str):
         for cid, (mat, O, R, length, t, bands) in walls.items():
             if cid == "k01.wall.street_front":
                 continue
-            breaks = (yf, *k03_brick.condition_breaks(yf)) if MATERIALS[mat].get("condition") else (yf,)
+            breaks, cols = breaks_of(cid, mat)
             # the south corner's quoins are cut out of the brick they return into
             bond = [(length - q[0], length, q[1], q[2]) for q in quoins] if cid == "k01.wall.side.south" else []
-            a.wall(cid, mat, O, R, length, E, t, holes(cid) + bond, breaks, bands, gaps[cid])
+            a.wall(cid, mat, O, R, length, E, t, holes(cid) + bond, breaks, bands, gaps[cid], cols)
         if quoins:
             a.quoins(frames["k01.wall.side.south"][0][0], D, quoins)
     for cid, (mat, O, R, length, t, bands) in walls.items():
         if cid in frames:
             continue
-        breaks = (yf, *k03_brick.condition_breaks(yf)) if MATERIALS[mat].get("condition") else (yf,)
-        frames[cid] = (a.wall(cid, mat, O, R, length, E, t, holes(cid), breaks, bands, gaps[cid]), mat)
+        breaks, cols = breaks_of(cid, mat)
+        frames[cid] = (a.wall(cid, mat, O, R, length, E, t, holes(cid), breaks, bands, gaps[cid], cols), mat)
     for op in p.openings:
         if p.stone:
             break
@@ -1590,10 +1795,14 @@ def build(params, structure_id: str):
         a.opening(op, frame, t, mat, "limestone_trim")
     # T-2291: a projecting stretcher course at the second-floor line on the south wall
     # and the rear, the south one run out past the quoin so the two meet; the north
-    # wall is a blank party wall against the Glessner court and carries none
+    # wall is a blank party wall against the Glessner court and carries none. A windowed
+    # north wall (T-2342, a street side) takes one, run out past the north-west corner
+    # to meet the rear's as the south one meets it at the south-west
     sc_conf = p.worst_conf("storey_heights_m", "construction", "service_wall_brick")
-    for cid, s_from, s_to in (("k01.wall.side.south", -k03_brick.STRING_PROUD, D),
-                              ("k01.wall.rear_service", 0.0, W)):
+    courses = [("k01.wall.side.south", -k03_brick.STRING_PROUD, D), ("k01.wall.rear_service", 0.0, W)]
+    if p.north_bays:
+        courses.append(("k01.wall.side.north", 0.0, D + k03_brick.STRING_PROUD))
+    for cid, s_from, s_to in courses:
         frame = frames[cid][0][0]
         for s0, s1 in _pieces(s_from, s_to, gaps[cid]):   # T-2308: stopped against a bay
             k03_brick.string_course(a, seed_of(structure_id, cid, 0), frame, s0, s1, floors[1], sc_conf)
@@ -1622,6 +1831,7 @@ def build(params, structure_id: str):
     # T-2319: the K11 boundary — the front fence on the street line, a pair of gates on the
     # walk to the stoop, a gate across the side passage, the south boundary wall
     k11_frontage.dress(a)
+    a.condition_tones()   # T-2358: last, so every sill and kit piece is laid and toned
     return a
 
 
