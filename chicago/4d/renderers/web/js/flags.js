@@ -25,8 +25,9 @@
  *    are laid out and which way the wind takes it are RECONSTRUCTED — L390 —
  *    and the confidence view dithers the cloth accordingly.
  *
- * WHAT IT COSTS. One draw call and one 512 px canvas texture a flag, a 24 x 12
- * cloth (576 triangles), and no CPU work a frame beyond adding `dt` to one
+ * WHAT IT COSTS. One 512 px canvas texture a flag, a 32 x 14 cloth (896
+ * triangles), and a three-sided hemp halyard of three short tubes (204
+ * triangles, one draw call), and no CPU work a frame beyond adding `dt` to one
  * uniform: the flutter is a vertex-shader travelling wave with its normal
  * taken analytically, so nothing is rebuilt, uploaded or allocated while it
  * moves. The animation clock's hold (`setAnimationHold`) stills it, so every
@@ -54,24 +55,47 @@ export const PATTERNS = {
 
 /**
  * HOW BIG, AND WHERE THE WIND IS. Reconstructed (L390), every one.
- *  - The fly is a share of the staff: a post flag of the period ran to about a
- *    third of its staff (the 1813 storm flag at Fort McHenry was 17 x 25 ft on
- *    a staff of about 90); 0.30 gives the 1835 staff a 15 ft flag and the 1812
- *    staff a 22 ft one. Hoist to fly 1 : 1.6, inside the spread of surviving
- *    flags of both counts.
+ *  - THE SIZE IS A POST'S EVERYDAY FLAG, NOT A FORTRESS'S (T-2333, the owner
+ *    2026-10-10: "they seem a bit large"). The sizes that survive are the big
+ *    ones: Fort McHenry's 1813 storm flag 17 x 25 ft and its garrison flag
+ *    30 x 42; the garrison flag the British took at Fort Niagara in 1813 at
+ *    least 22 x 28. The Army's regulations, when they first fix sizes (the
+ *    revised regulations of 1861, as transcribed), give the garrison flag
+ *    20 x 36 ft for great days, the storm flag 10 x 20 for every other day,
+ *    and the recruiting flag 4 ft 4 in x 9 ft 9 in. Fort Dearborn was a
+ *    one-company post at the end of the supply line, its flag "weather-beaten"
+ *    in Andreas, flown "in pleasant weather": the everyday flag, on the small
+ *    side of the regulation storm flag and above the recruiting flag. So
+ *    6 ft 6 in x 12 ft at both forts, hoist to fly 1 : 1.85, between the 1861
+ *    garrison flag's 1 : 1.8 and the later storm flag's 1 : 1.92. The staff's
+ *    height does not set it: the first fort's taller staff flew the same issue.
+ *    (Was 0.30 of the staff: 15 ft and 22 ft, a fortress's flag on a post.)
  *  - The wind is a July south-westerly — Chicago's prevailing summer wind — at
  *    a breeze that holds the flag out and ripples it rather than cracking it.
  */
-const FLY_SHARE = 0.30;
-const HOIST_TO_FLY = 1 / 1.6;
+const FLY_M = 12 * 0.3048;
+const HOIST_TO_FLY = 1 / 1.85;
 const WIND_FROM_DEG = 225;
 /** The truck and the gap above the head of the flag, metres. */
 const TRUCK_GAP_M = 0.18;
 /** Cloth resolution: segments along the fly and the hoist. */
-const SEG_U = 24;
-const SEG_V = 12;
-/** The wave: crests a fly, crest speed (fly lengths a second), and depth. */
-const WAVE = { crests: 1.6, speed: 0.55, amp: 0.11, droop: 0.06 };
+const SEG_U = 32;
+const SEG_V = 14;
+/**
+ * THE HALYARD. A hemp line of about 3/4 in, rove through a sheave in the truck:
+ * one part made fast to the head and foot of the flag's heading, the other
+ * hanging free beside the staff, both belayed to a cleat at shoulder height.
+ * Three-sided tubes — at any distance the line is a pixel wide, and a round
+ * section would buy nothing but triangles. Reconstructed (L390).
+ */
+const HALYARD = { radius: 0.011, sides: 3, cleatM: 1.3, color: 0x6f6250 };
+/**
+ * The wave. Wool bunting is heavy and soft: in a breeze it hangs out in
+ * several shallow folds that roll down the fly, sags at the fly end, and never
+ * stands out flat or cracks like silk. Crests a fly, crest speed (fly lengths
+ * a second), depth, the sag, and a finer ripple riding on the folds.
+ */
+const WAVE = { crests: 2.3, speed: 0.42, amp: 0.075, droop: 0.16, ripple: 0.22 };
 
 /**
  * THE CLOTH'S COLOURS, worn. Andreas's "weather-beaten" is a reading of the
@@ -158,21 +182,62 @@ export function paintFlag(patternId, { width = 512, seed = 1835 } = {}) {
   ctx.fillStyle = rgb(CLOTH.white);
   const rows = pat.rows.length;
   const r = Math.min(uh / rows, uw / Math.max(...pat.rows)) * 0.36;
+  // The stars are cut from cotton and sewn on by hand, each a little off its
+  // neighbour in place, size and turn — a flag of the period is never a print.
+  const sew = rng(seed ^ 0x5eed);
   pat.rows.forEach((n, row) => {
     const y = uh * (row + 0.5) / rows;
     const shift = pat.stagger && row % 2 === 1 ? 0.5 : 0;
     const cols = pat.stagger ? n + 0.5 : n;
     for (let k = 0; k < n; k += 1) {
       const x = uw * (k + 0.5 + (pat.stagger ? shift : 0)) / cols;
-      star(ctx, x, y, r);
+      const j = () => (sew() - 0.5) * 2;
+      ctx.save();
+      ctx.translate(x + j() * r * 0.12, y + j() * r * 0.12);
+      ctx.rotate(j() * 0.12);
+      star(ctx, 0, 0, r * (1 + j() * 0.06));
+      ctx.restore();
     }
   });
+  // THE SEAMS. Bunting came in narrow widths, so every stripe is its own strip
+  // and the canton its own panel, lapped and stitched: a faint dark line where
+  // each strip overlaps the next.
+  ctx.strokeStyle = 'rgba(40,24,20,0.28)';
+  ctx.lineWidth = Math.max(1, h / 300);
+  for (let i = 1; i < pat.stripes; i += 1) {
+    const y = Math.round(i * stripeH) + 0.5;
+    ctx.beginPath();
+    ctx.moveTo(i < pat.union.stripes ? uw : 0, y);
+    ctx.lineTo(w, y);
+    ctx.stroke();
+  }
+  ctx.beginPath();
+  ctx.moveTo(uw + 0.5, 0);
+  ctx.lineTo(uw + 0.5, uh);
+  ctx.lineTo(0, uh + 0.5);
+  ctx.stroke();
+  // The heading: a strip of heavier canvas down the hoist, where the halyard
+  // runs through.
+  ctx.fillStyle = 'rgba(214,204,178,0.92)';
+  ctx.fillRect(0, 0, Math.max(3, w * 0.018), h);
+  // Wool takes dye unevenly and its edges are not knife-cut: soften every
+  // boundary by a thread or two before the weave goes on.
+  const soft = document.createElement('canvas');
+  soft.width = w;
+  soft.height = h;
+  const sctx = soft.getContext('2d');
+  if ('filter' in sctx) sctx.filter = `blur(${(w / 512 * 0.9).toFixed(2)}px)`;
+  sctx.drawImage(cv, 0, 0);
+  ctx.clearRect(0, 0, w, h);
+  ctx.drawImage(soft, 0, 0);
   // THE WEAR. Bleaching toward the fly, a grime of uneven fading over all of
   // it, and a frayed fly edge: three passes of the same seeded noise.
   const img = ctx.getImageData(0, 0, w, h);
   const d = img.data;
   const rand = rng(seed);
   const blot = new Float32Array(16 * 10).map(() => rand());
+  const warp = new Float32Array(97).map(() => rand() - 0.5);
+  const weft = new Float32Array(89).map(() => rand() - 0.5);
   for (let y = 0; y < h; y += 1) {
     for (let x = 0; x < w; x += 1) {
       const u = x / w;
@@ -181,9 +246,14 @@ export function paintFlag(patternId, { width = 512, seed = 1835 } = {}) {
       const b = blot[gy * 16 + gx];
       const bleach = wear * (0.10 + 0.22 * u * u + 0.06 * b);
       const grime = 1 - wear * (0.05 + 0.07 * (1 - b)) * (0.6 + 0.4 * rand());
+      // The weave: a plain open weave of worsted, so every row and column of
+      // threads catches the light a little differently, with a slub here and
+      // there. Multiplied in, so it shows on every colour without moving it.
+      const weave = 1 + 0.055 * (warp[x % warp.length] + weft[y % weft.length])
+        + 0.035 * (rand() - 0.5) + ((x + y) % 2 === 0 ? 0.018 : -0.018);
       const i = (y * w + x) * 4;
       for (let c = 0; c < 3; c += 1) {
-        const v = d[i + c] * grime;
+        const v = d[i + c] * grime * weave;
         d[i + c] = Math.max(0, Math.min(255, v + (226 - v) * bleach));
       }
     }
@@ -220,9 +290,13 @@ vec3 chiFlag( vec2 st ) {
   float k = 6.2831853 * ${WAVE.crests.toFixed(3)};
   float ph = k * u - 6.2831853 * ${WAVE.speed.toFixed(3)} * uFlagTime;
   float z = ${WAVE.amp.toFixed(3)} * uFlagFly * grow
-          * ( sin( ph ) + 0.35 * sin( 1.7 * ph + 2.3 * v + 0.6 * uFlagTime ) );
-  float droop = ${WAVE.droop.toFixed(3)} * uFlagHoist * u * u;
-  float pull = 0.03 * uFlagFly * grow * ( 1.0 - cos( ph ) );
+          * ( sin( ph ) + 0.35 * sin( 1.7 * ph + 2.3 * v + 0.6 * uFlagTime )
+            + ${WAVE.ripple.toFixed(3)} * sin( 3.1 * ph - 4.0 * v + 1.3 * uFlagTime ) );
+  // The fly end sags under its own weight, the foot more than the head, and
+  // the sag rocks a little as the folds pass.
+  float droop = ${WAVE.droop.toFixed(3)} * uFlagHoist * u * u
+              * ( 0.75 + 0.25 * ( 1.0 - v ) ) * ( 1.0 + 0.15 * sin( ph ) );
+  float pull = 0.04 * uFlagFly * grow * ( 1.0 - cos( ph ) );
   return vec3( -pull, -droop, z );
 }
 `;
@@ -244,6 +318,56 @@ vec3 chiFlag( vec2 st ) {
 }
 
 /**
+ * The halyard, in the holder's frame: the staff's axis is x = z = 0, the
+ * flag's head is at (radius, 0, 0) and the wind blows toward +x. One part runs
+ * from the truck to the head of the heading and on from its foot down to the
+ * cleat; the other hangs free from the truck to the cleat. Each long run bows
+ * a little downwind, as a line does that is belayed but not bar-taut.
+ */
+function halyard({ hoist, radius, staffH, material }) {
+  const truck = new THREE.Vector3(radius * 0.8, TRUCK_GAP_M * 0.55, 0);
+  const cleat = new THREE.Vector3(radius * 1.15, -(staffH - TRUCK_GAP_M) + HALYARD.cleatM, 0);
+  const run = (a, b, bow, zOff, segs) => {
+    const pts = [];
+    for (let i = 0; i <= segs; i += 1) {
+      const t = i / segs;
+      const p = a.clone().lerp(b, t);
+      p.x += bow * 4 * t * (1 - t);
+      p.z += zOff * Math.sin(Math.PI * Math.min(1, t * 6)) ;
+      pts.push(p);
+    }
+    return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), segs, HALYARD.radius, HALYARD.sides, false);
+  };
+  const head = new THREE.Vector3(radius, 0, 0);
+  const foot = new THREE.Vector3(radius, -hoist, 0);
+  const lower = foot.distanceTo(cleat);
+  const parts = [
+    run(truck, head, 0.01, 0, 2),
+    run(foot, cleat, Math.min(0.35, lower * 0.012), 0, 14),
+    run(truck, cleat, Math.min(0.30, staffH * 0.008), HALYARD.radius * 3, 18),
+  ];
+  // One mesh, one draw call: the three tubes' triangles concatenated.
+  const pos = [];
+  const nor = [];
+  for (const geo of parts) {
+    const g = geo.toNonIndexed();
+    pos.push(...g.getAttribute('position').array);
+    nor.push(...g.getAttribute('normal').array);
+    g.dispose();
+    geo.dispose();
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.setAttribute('normal', new THREE.Float32BufferAttribute(nor, 3));
+  geo.setAttribute('_confidence',
+    new THREE.BufferAttribute(new Float32Array(pos.length / 3).fill(LEVELS.reconstructed), 1));
+  const m = new THREE.Mesh(geo, material);
+  m.name = 'halyard';
+  m.castShadow = false;
+  return m;
+}
+
+/**
  * Hang a flag on every staff the scene's records fly one from.
  *
  * @param {object} o
@@ -258,6 +382,8 @@ export function createFlags({ registry, buildings, confidence = null, problems =
   const uniforms = { uFlagTime: { value: 0 } };
   const drawn = [];
   const bounds = buildings?.instanceBounds?.() ?? {};
+  const ropeMat = new THREE.MeshStandardMaterial({ color: HALYARD.color, roughness: 1, metalness: 0 });
+  if (confidence?.patch) confidence.patch(ropeMat);
 
   for (const flag of flagsFlown(registry)) {
     const m = buildings?.matrixOf?.(flag.id);
@@ -277,14 +403,17 @@ export function createFlags({ registry, buildings, confidence = null, problems =
       (box.min[2] + box.max[2]) / 2).applyMatrix4(m);
     const staffH = axis.y - foot.y;
     const radius = Math.max(0.04, Math.min(box.max[0] - box.min[0], box.max[2] - box.min[2]) / 2 * 0.6);
-    const fly = staffH * FLY_SHARE;
+    const fly = FLY_M;
     const hoist = fly * HOIST_TO_FLY;
 
     const tex = new THREE.CanvasTexture(paintFlag(flag.pattern, { seed: flag.id.length * 7919 }));
     tex.colorSpace = THREE.SRGBColorSpace;
     tex.anisotropy = 4;
-    const mat = new THREE.MeshStandardMaterial({
-      map: tex, side: THREE.DoubleSide, roughness: 0.92, metalness: 0,
+    // Wool is matte with a soft sheen at grazing light, never a gloss: the
+    // physical material's sheen lobe is that, and it costs nothing a frame.
+    const mat = new THREE.MeshPhysicalMaterial({
+      map: tex, side: THREE.DoubleSide, roughness: 1, metalness: 0,
+      sheen: 0.5, sheenRoughness: 0.85, sheenColor: new THREE.Color(0.9, 0.86, 0.78),
       alphaTest: 0.5,
     });
     const flagUniforms = { ...uniforms, uFlagFly: { value: fly }, uFlagHoist: { value: hoist } };
@@ -314,6 +443,7 @@ export function createFlags({ registry, buildings, confidence = null, problems =
     holder.rotation.y = Math.atan2(-Math.cos(to), Math.sin(to)) * -1;
     mesh.position.x = radius;
     holder.add(mesh);
+    holder.add(halyard({ fly, hoist, radius, staffH, material: ropeMat }));
     group.add(holder);
     drawn.push({ id: flag.id, pattern: flag.pattern, fly_m: Number(fly.toFixed(2)),
       hoist_m: Number(hoist.toFixed(2)), confidence: flag.confidence });
