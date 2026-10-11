@@ -10,8 +10,8 @@
  * `SMOKE_VIEWPORT=mobile` (or `desktop`) runs one of the two while iterating.
  * That is not the gate and the run says so on its first line.
  *
- * `SMOKE_STAGE=1` … `14` runs one part of each viewport's body (T-0060, re-cut
- * by T-0121, T-0167, T-0346, T-0173 and T-0170), and `SMOKE_STAGE=1-2` runs a
+ * `SMOKE_STAGE=1` … `15` runs one part of each viewport's body (T-0060, re-cut
+ * by T-0121, T-0167, T-0346, T-0173, T-0170 and T-2337), and `SMOKE_STAGE=1-2` runs a
  * contiguous run.
  * The cuts sit at section boundaries measured for zero crossing bindings. It
  * exists because a steward run's single foreground command is capped at ten
@@ -39,12 +39,15 @@
  * are thirteen.
  * T-2044 APPENDED PART 14: the arrival-to-jaunt path a visitor walks, on a fresh
  * context that does not wave the welcome through. An append renumbers nothing.
+ * T-2337 halved PART 10 again at the sward census in every community: on an
+ * idle runner at 1280x800 it was killed at 9 m 45 s inside that census, so old
+ * parts 11-14 became 12-15 and there are fifteen.
  *
  * A staged run is not the gate either, and says so; the gate is both viewports,
  * every part, e.g.:
  *
- *   for s in 1-2 3-6 7-9 10-13 14;            do SMOKE_VIEWPORT=mobile  SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
- *   for s in 1 2 3 4 5 6 7 8 9 10 11 12 13 14; do SMOKE_VIEWPORT=desktop SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
+ *   for s in 1-2 3-6 7-9 10-14 15;               do SMOKE_VIEWPORT=mobile  SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
+ *   for s in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15; do SMOKE_VIEWPORT=desktop SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
  *
  * `SMOKE_TIMING=1` stamps each check line with the elapsed clock. Off by
  * default; turn it on to profile a part, because a part that BREACHES the
@@ -1311,7 +1314,14 @@ if (ONLY) console.log(`NOT THE FULL GATE — viewports filtered to "${ONLY}"\n`)
 // append, so parts 1-13 keep their numbers and every banked reading stands; it
 // joins no existing leg either, because it boots the town a second time and a
 // leg already near its cap should not carry that. Its own nightly leg is `14`.
-const PARTS = 14;
+// T-2337 HALVED PART 10 again, because it had grown back past the ceiling: at
+// 1280x800 on an idle steward runner it was killed at 9 m 45 s, inside the
+// K49(f) sward census in every community that began at 7 m 27 s. The census and
+// the three sections after it (the marsh substrate, the pop-in, the flower
+// heads) become part 11, so old parts 11-14 are renumbered 12-15. The pairing
+// rule is unchanged in content — 1+2, 3+4+5+6, 7+8+9, 10+11+12+13+14, 15 — and
+// the nightly legs widen `10-13` to `10-14` and move `14` to `15`.
+const PARTS = 15;
 const STAGE = process.env.SMOKE_STAGE || '';
 // `3` is one part; `3-4` is a contiguous run of them; `1,5-6` is any set. The
 // range form exists so the cheap viewport does not pay eight boots to run a
@@ -1431,6 +1441,28 @@ for (const [label, viewport, touch] of [
   // re-boot's enterTown landed inside it, so the town was never entered and desktop
   // part 3's version chip read visible:false inside a hidden HUD. So wait for the
   // welcome (bounded), and retry the entry until the welcome says it took.
+  // T-2337 — HOLD THE DRAWS WHILE A READING THAT READS NO PIXEL RUNS. Inside the
+  // town every animation frame (and every `step()`) draws the whole scene in
+  // software, which is seconds a frame at 1280x800; a reading that only asks the
+  // flora what it dealt, or reads instance buffers back, pays for those draws
+  // and uses none of them. Measured on the steward runner on 2026-10-11, one
+  // `setDetail('balanced')` took 252.7 s in the town against 22.8 s behind the
+  // gate. `holdDraws(true)` swaps `renderer.render` for a no-op — what
+  // `tools/measure_walk_frames.mjs` does while it drives a walk — and leaves the
+  // tick running, so the flora, trees and walker still update; `holdDraws(false)`
+  // puts the draw back. Call the pair around a `try`/`finally`, and never around
+  // anything that photographs a frame or reads `renderer.info`.
+  const holdDraws = (on) => page.evaluate((hold) => {
+    const r = window.__chicago4d.renderer;
+    if (hold && !window.__smokeHeldDraw) {
+      window.__smokeHeldDraw = r.render;
+      r.render = () => {};
+    } else if (!hold && window.__smokeHeldDraw) {
+      r.render = window.__smokeHeldDraw;
+      delete window.__smokeHeldDraw;
+    }
+  }, on);
+
   const enterTown = () => page.evaluate(async () => {
     if (!document.getElementById('gate').hasAttribute('hidden')) {
       const welcome = window.__chicago4d.welcome;
@@ -1750,7 +1782,7 @@ for (const [label, viewport, touch] of [
     // times over the desktop pass instead of twice, on the very reading this
     // gate can least afford.
     let streetLayer = null;
-    if (anyStage(7, 10, 11)) {
+    if (anyStage(7, 10, 12)) {
       streetLayer = await page.evaluate(() => {
         const a = window.__chicago4d;
         // Sample the dynamic flora from a known dry South Division viewpoint.
@@ -11012,13 +11044,15 @@ for (const [label, viewport, touch] of [
 
     inStageWork = false;
     } // end PART 9 (T-0060 stage 3b, cut by T-0121; renumbered by T-0346 and T-0173)
-    // PART 10 — the flora census through the flower heads: the drawn population,
-    // the horizon timber, the sward dealt in every community, the marsh's
-    // substrate, T-0035's pop-in and R-BUG7's head-attachment census. The head
-    // of T-0060's stage 4a; T-0170 cut the ragged boundary, the ground cover,
-    // the street readouts and the Settings units off its tail into part 11,
-    // because at 1280x800 the whole of it ran past the ten-minute foreground
-    // ceiling and was killed there with two sections still to run.
+    // PART 10 — the flora census through the sward at one station: the rooted
+    // plants, the trees at their stations, the buildings at their anchors, the
+    // horizon timber and the far treeline, the drawn population and the sward
+    // asked what the wood was asked. The head of T-0060's stage 4a; T-0170 cut
+    // the ragged boundary, the ground cover, the street readouts and the
+    // Settings units off its tail into what is now part 12, because at 1280x800
+    // the whole of it ran past the ten-minute foreground ceiling and was killed
+    // there with two sections still to run. T-2337 cut it AGAIN, at the census
+    // in every community, for the same reason — see part 11's header.
     //
     // Every binding it shares with earlier parts (`streetLayer`) is read above
     // the split; the teleport below re-establishes the camera pose it expects on
@@ -11556,6 +11590,40 @@ for (const [label, viewport, touch] of [
       + `${dealt.reduce((t, d) => t + d.drawn, 0)} slots in ${dealt.map((d) => (
         `${d.community}.${d.list}=${d.drawn}`)).join(' ')}`);
 
+    inStageWork = false;
+    } // end PART 10 (T-0060 stage 4a, cut by T-0121; renumbered by T-0346 and T-0173, halved by T-0170 and again by T-2337)
+    // PART 11 — the sward census in every community through the flower heads:
+    // K49(f)'s census at every detail level, the marsh's substrate, T-0035's
+    // pop-in and R-BUG7's head-attachment census. The tail of what T-0170 left
+    // as part 10.
+    //
+    // T-2337 CUT IT HERE, because part 10 had stopped fitting the ten minutes
+    // again. Profiled at 1280x800 with SMOKE_TIMING=1 on the steward runner on
+    // 2026-10-11, load average under 0.6 and no other Chromium on the box, it
+    // was killed at 9 m 45 s inside this census, which began at 7 m 27 s: the
+    // census stands in every community at four bearings (T-2146) and at every
+    // detail level, so it is the one section of the part that grows with the
+    // town's communities. The head keeps the boot (1 m 23 s) and everything up
+    // to the sward at one station; this part pays its own boot for the census
+    // and the three sections that follow it. Renumbered after it: old 11-14
+    // are 12-15.
+    //
+    // No binding crosses. The head declares twenty-two names at this indent
+    // (`swardAt`, `rootLayer`, `horizon`, `sward`, `band`, `planted`, `over`,
+    // …); every occurrence of any of them below is prose, a string, a property
+    // name or a different local inside a `page.evaluate`. Nothing here reads
+    // `streetLayer`, so it stays out of that guard. Every section below sets its
+    // own view — the census hands `flora.update` synthetic cameras and puts the
+    // walker's back, and the pop-in walk and the head census teleport — so this
+    // part takes no pose beyond putting the walker on the ground.
+    if (stageOn(11)) {
+    inStageWork = true;
+
+    // Same fresh-boot accommodation as the part above. In a full run both of
+    // these are no-ops.
+    await enterTown();
+    await page.evaluate(() => { window.__chicago4d.setFly(false); });
+
     // --- and the same sward census in every community (ROADMAP K49(f)) -----
 
     // ROADMAP K49(f) — AND NOW THE SAME CENSUS IN EVERY COMMUNITY, AS A GATE.
@@ -11583,79 +11651,87 @@ for (const [label, viewport, touch] of [
     // station missing a plant; it is a plant that is nowhere. `expected` is the
     // list's own recorded share of the slots dealt, so this asserts the deal
     // against the record rather than against a baseline.
-    const everywhere = await page.evaluate(async () => {
-      const a = window.__chicago4d;
-      const wanted = a.flora.substrates().map((z) => z.id);
-      // T-2332: INSIDE each community, not on the first sliver of it the scan
-      // meets. The station used to be the first plantable point in scan order,
-      // and as the 1835 town grew that point became a strip of sand prairie
-      // between lots at 762,494, where the ring dealt the prairie 369 slots and
-      // its butterfly weed an expectation of 1.38 — one draw of a sample read
-      // as an exclusion. A station now stands where every point 12 m and 24 m
-      // out on eight bearings is the same community and plantable (there the
-      // prairie is dealt 4,195-5,019 slots and the butterfly weed ~15, drawn
-      // 52-59). That RAISES what each list is owed, so the bar is no looser.
-      // A community with no such interior keeps its first point and is named.
-      const own = (z, e, n) => a.flora.zoneAt(e, n) === z && a.flora.plantableAt(e, n);
-      const AROUND = [12, 24].flatMap((r) => [[1, 0], [0, 1], [-1, 0], [0, -1],
-        [0.7, 0.7], [-0.7, 0.7], [0.7, -0.7], [-0.7, -0.7]].map(([u, v]) => [u * r, v * r]));
-      const spots = {};
-      const edge = {};
-      for (let e = -900; e <= 1200 && Object.keys(spots).length < wanted.length; e += 6) {
-        for (let n = -700; n <= 700; n += 6) {
-          const z = a.flora.zoneAt(e, n);
-          if (!z || spots[z] || !a.flora.plantableAt(e, n)) continue;
-          if (!edge[z]) edge[z] = [e, n];
-          if (AROUND.every(([de, dn]) => own(z, e + de, n + dn))) spots[z] = [e, n];
-        }
-      }
-      const atEdge = Object.keys(edge).filter((z) => !spots[z]);
-      for (const z of atEdge) spots[z] = edge[z];
-      // A scene-wide absence cannot be inferred from north-facing views alone.
-      // Keep every original plantable station and survey all four cardinal
-      // bearings there. Sampling is fixed independently of the species; the
-      // original north-facing samples and the owed/drawn bar stay in the census.
-      const stations = Object.entries(spots).flatMap(([zone, at]) =>
-        [0, 90, 180, 270].map((bearing) => ({ zone, at, bearing })));
-      const started = a.detail;
-      const levels = [];
-      for (const level of a.detailOrder) {
-        await a.setDetail(level);
-        const rows = [];
-        for (const { zone, at: [e, n], bearing } of stations) {
-          const camera = {
-            getWorldPosition: (v) => { v.set(e, 1.7, -n); return v; },
-            getWorldDirection: (v) => {
-              const angle = bearing * Math.PI / 180;
-              v.set(Math.sin(angle), 0, -Math.cos(angle)); return v;
-            },
-          };
-          a.flora.update(0.016, camera);
-          a.flora.update(0.016, camera);
-          for (const d of a.flora.stats.draws) {
-            if (d.drawn <= 0) continue;
-            rows.push({
-              at: zone,
-              community: d.community,
-              list: d.list,
-              drawn: d.drawn,
-              species: d.species.map((s) => ({
-                id: s.id, drawn: s.drawn, expected: s.expected,
-              })),
-            });
+    // T-2337: the census costs no frames, and is HELD to that — see `holdDraws`.
+    // Inside the town each `setDetail` below took 252.7 s of software draws.
+    let everywhere;
+    await holdDraws(true);
+    try {
+      everywhere = await page.evaluate(async () => {
+        const a = window.__chicago4d;
+        const wanted = a.flora.substrates().map((z) => z.id);
+        // T-2332: INSIDE each community, not on the first sliver of it the scan
+        // meets. The station used to be the first plantable point in scan order,
+        // and as the 1835 town grew that point became a strip of sand prairie
+        // between lots at 762,494, where the ring dealt the prairie 369 slots and
+        // its butterfly weed an expectation of 1.38 — one draw of a sample read
+        // as an exclusion. A station now stands where every point 12 m and 24 m
+        // out on eight bearings is the same community and plantable (there the
+        // prairie is dealt 4,195-5,019 slots and the butterfly weed ~15, drawn
+        // 52-59). That RAISES what each list is owed, so the bar is no looser.
+        // A community with no such interior keeps its first point and is named.
+        const own = (z, e, n) => a.flora.zoneAt(e, n) === z && a.flora.plantableAt(e, n);
+        const AROUND = [12, 24].flatMap((r) => [[1, 0], [0, 1], [-1, 0], [0, -1],
+          [0.7, 0.7], [-0.7, 0.7], [0.7, -0.7], [-0.7, -0.7]].map(([u, v]) => [u * r, v * r]));
+        const spots = {};
+        const edge = {};
+        for (let e = -900; e <= 1200 && Object.keys(spots).length < wanted.length; e += 6) {
+          for (let n = -700; n <= 700; n += 6) {
+            const z = a.flora.zoneAt(e, n);
+            if (!z || spots[z] || !a.flora.plantableAt(e, n)) continue;
+            if (!edge[z]) edge[z] = [e, n];
+            if (AROUND.every(([de, dn]) => own(z, e + de, n + dn))) spots[z] = [e, n];
           }
         }
-        levels.push({ level, rows });
-      }
-      // Put the visitor's own detail level and the walker's own camera back
-      // before anything else reads either.
-      await a.setDetail(started);
-      if (a.camera) {
-        a.flora.update(0.016, a.camera);
-        a.flora.update(0.016, a.camera);
-      }
-      return { spots: Object.keys(spots), atEdge, stationCount: stations.length, levels };
-    });
+        const atEdge = Object.keys(edge).filter((z) => !spots[z]);
+        for (const z of atEdge) spots[z] = edge[z];
+        // A scene-wide absence cannot be inferred from north-facing views alone.
+        // Keep every original plantable station and survey all four cardinal
+        // bearings there. Sampling is fixed independently of the species; the
+        // original north-facing samples and the owed/drawn bar stay in the census.
+        const stations = Object.entries(spots).flatMap(([zone, at]) =>
+          [0, 90, 180, 270].map((bearing) => ({ zone, at, bearing })));
+        const started = a.detail;
+        const levels = [];
+        for (const level of a.detailOrder) {
+          await a.setDetail(level);
+          const rows = [];
+          for (const { zone, at: [e, n], bearing } of stations) {
+            const camera = {
+              getWorldPosition: (v) => { v.set(e, 1.7, -n); return v; },
+              getWorldDirection: (v) => {
+                const angle = bearing * Math.PI / 180;
+                v.set(Math.sin(angle), 0, -Math.cos(angle)); return v;
+              },
+            };
+            a.flora.update(0.016, camera);
+            a.flora.update(0.016, camera);
+            for (const d of a.flora.stats.draws) {
+              if (d.drawn <= 0) continue;
+              rows.push({
+                at: zone,
+                community: d.community,
+                list: d.list,
+                drawn: d.drawn,
+                species: d.species.map((s) => ({
+                  id: s.id, drawn: s.drawn, expected: s.expected,
+                })),
+              });
+            }
+          }
+          levels.push({ level, rows });
+        }
+        // Put the visitor's own detail level and the walker's own camera back
+        // before anything else reads either.
+        await a.setDetail(started);
+        if (a.camera) {
+          a.flora.update(0.016, a.camera);
+          a.flora.update(0.016, a.camera);
+        }
+        return { spots: Object.keys(spots), atEdge, stationCount: stations.length, levels };
+      });
+    } finally {
+      await holdDraws(false);
+    }
     // Summed over every station, per (community, list, species) — the scene's
     // answer, at one detail level.
     const swardCensus = (rows) => {
@@ -11774,7 +11850,7 @@ for (const [label, viewport, touch] of [
       // Sauganash stands in is short turf now: past its own near ring the ground
       // paints it, so a walk from the hotel door saw no plant arrive at all and
       // the bar below read a vacuous zero. It starts instead at the nearest
-      // dense, plantable ground with plantable ground ahead of it — part 11's own
+      // dense, plantable ground with plantable ground ahead of it — part 12's own
       // rule for a sward drawn as plants — searched outward from the hotel, so a
       // town that grows (T-2084) moves the walk rather than emptying it.
       const denseIds = new Set(a.flora.communities()
@@ -11963,177 +12039,187 @@ for (const [label, viewport, touch] of [
     // top. The foot is taken from the archetype's own lowest vertex rather than
     // from a constant here, so the assertion survives a change of anchoring.
     // `tools/measure_head_support.mjs` is the same reading with the numbers.
-    const headSupport = await page.evaluate(() => {
-      const a = window.__chicago4d;
-      const clamp01 = (x) => (x < 0 ? 0 : x > 1 ? 1 : x);
-      const fadeOf = (r, i, d) => clamp01((r[i] - d) / Math.max(r[i + 1], 1e-4))
-        * (r[i + 3] > 0 ? clamp01((d - r[i + 2]) / r[i + 3]) : 1);
-      /** Sets a head is ever hung from. A MID clump card is a billboard standing
-       *  for a patch of matrix and carries no head, so counting one as support
-       *  is a free pass — it is what made a first cut of this read zero.
-       *
-       *  `flora-far` is not that card, and since T-0209 it is not excluded:
-       *  the far band deals the WHOLE community, and a flowering forb's far
-       *  card carries its flower — `rebuildFar` calls `maybeHead` on it. The
-       *  comment this replaces predates that and had gone false. Measured on
-       *  the published mirror 2026-09-01: 2693 of 2693 orphans stood on a far
-       *  card at 0.000 m whose top reached them. `flora-mid` stays out, and
-       *  that is measured too — its scatter deals graminoids and never calls
-       *  `maybeHead`, and no orphan stood on one. */
-      const ROOTED = new Set(['flora-near', 'flora-forb', 'flora-rosette', 'flora-shrub',
-        'flora-far']);
-      /** A card's `spread` is its billboard HALF-WIDTH — 1.5 m at the near far
-       *  band, not a stem's radius. Counting that as the support's reach would
-       *  pass any head within a card's width of one, which is the free pass the
-       *  note above refuses. A card carries only the head `maybeHead` puts at
-       *  its own `e,n`, so it supports at its foot and nowhere else. */
-      const CARD = new Set(['flora-far']);
-      /** Under a twentieth of coverage the screen-door dither is writing one
-       *  pixel in twenty of a head that is already only a few across at the
-       *  distances its own ring covers. */
-      const FADE_FLOOR = 0.05;
-      const SLACK = 0.02; // a stem is centimetres thick; float is not a fault
+    // T-2337: this reads instance buffers, never a pixel, and each of its
+    // seventy-odd `step()`s forced a full software draw of the town — so the
+    // draws are held while it walks the anchors (see `holdDraws`). `step()`
+    // still runs the tick, which is where the sward is rebuilt.
+    let headSupport;
+    await holdDraws(true);
+    try {
+      headSupport = await page.evaluate(() => {
+        const a = window.__chicago4d;
+        const clamp01 = (x) => (x < 0 ? 0 : x > 1 ? 1 : x);
+        const fadeOf = (r, i, d) => clamp01((r[i] - d) / Math.max(r[i + 1], 1e-4))
+          * (r[i + 3] > 0 ? clamp01((d - r[i + 2]) / r[i + 3]) : 1);
+        /** Sets a head is ever hung from. A MID clump card is a billboard standing
+         *  for a patch of matrix and carries no head, so counting one as support
+         *  is a free pass — it is what made a first cut of this read zero.
+         *
+         *  `flora-far` is not that card, and since T-0209 it is not excluded:
+         *  the far band deals the WHOLE community, and a flowering forb's far
+         *  card carries its flower — `rebuildFar` calls `maybeHead` on it. The
+         *  comment this replaces predates that and had gone false. Measured on
+         *  the published mirror 2026-09-01: 2693 of 2693 orphans stood on a far
+         *  card at 0.000 m whose top reached them. `flora-mid` stays out, and
+         *  that is measured too — its scatter deals graminoids and never calls
+         *  `maybeHead`, and no orphan stood on one. */
+        const ROOTED = new Set(['flora-near', 'flora-forb', 'flora-rosette', 'flora-shrub',
+          'flora-far']);
+        /** A card's `spread` is its billboard HALF-WIDTH — 1.5 m at the near far
+         *  band, not a stem's radius. Counting that as the support's reach would
+         *  pass any head within a card's width of one, which is the free pass the
+         *  note above refuses. A card carries only the head `maybeHead` puts at
+         *  its own `e,n`, so it supports at its foot and nowhere else. */
+        const CARD = new Set(['flora-far']);
+        /** Under a twentieth of coverage the screen-door dither is writing one
+         *  pixel in twenty of a head that is already only a few across at the
+         *  distances its own ring covers. */
+        const FADE_FLOOR = 0.05;
+        const SLACK = 0.02; // a stem is centimetres thick; float is not a fault
 
-      const meshes = [];
-      a.flora.group.traverse((o) => { if (o.isInstancedMesh) meshes.push(o); });
-      const footOf = (g) => {
-        const p = g.getAttribute('position').array;
-        let lo = Infinity;
-        for (let i = 1; i < p.length; i += 3) if (p[i] < lo) lo = p[i];
-        return lo;
-      };
-      const nominal = new Map(meshes.map((m) => [m.name, footOf(m.geometry)]));
+        const meshes = [];
+        a.flora.group.traverse((o) => { if (o.isInstancedMesh) meshes.push(o); });
+        const footOf = (g) => {
+          const p = g.getAttribute('position').array;
+          let lo = Infinity;
+          for (let i = 1; i < p.length; i += 3) if (p[i] < lo) lo = p[i];
+          return lo;
+        };
+        const nominal = new Map(meshes.map((m) => [m.name, footOf(m.geometry)]));
 
-      let drawn = 0; let unsupported = 0; let worst = null;
-      let onCard = 0; const bySet = new Map();
-      const anchors = a.scene?.anchors ?? [];
-      for (const anchor of anchors) {
-        for (const yaw of [0, 90, 180, 270]) {
-          a.walker.teleport({ local_e: anchor.local_e, local_n: anchor.local_n, yaw_deg: yaw });
-          // One frame is a rebuild — the sward is scattered from the camera on
-          // the step that carries it, which is what `popIn` above walks on.
-          a.step();
-          const cx = a.camera.position.x; const cz = a.camera.position.z;
-          // Every rooted plant, on a one-metre grid.
-          const grid = new Map();
-          for (const m of meshes) {
-            if (!ROOTED.has(m.name) || !m.count) continue;
-            const mm = m.instanceMatrix.array;
-            const fl = m.geometry.getAttribute('aFlora').array;
-            const rg = m.geometry.getAttribute('aChiRing').array;
-            for (let i = 0; i < m.count; i++) {
-              const o = i * 16;
-              const x = mm[o + 12]; const z = mm[o + 14];
-              const f = fadeOf(rg, i * 4, Math.hypot(x - cx, z - cz));
-              // T-0035: the ring ramp is coverage, not height. A plant is drawn
-              // whole or not at all, so the drawn top and the drawn reach are
-              // the record's own numbers and the ramp only says WHETHER.
-              if (f <= 0) continue;
-              // `heightAt` is null for a set with no ring of its own, which is
-              // what `flora-far` is — T-0035 draws every visible plant whole,
-              // so the fraction is 1 and the null is "no ramp", not "no height".
-              const h = a.flora.heightAt(m.name, Math.hypot(x - cx, z - cz), rg[i * 4]) ?? 1;
-              const key = `${Math.floor(x)},${Math.floor(z)}`;
-              let b = grid.get(key);
-              if (!b) { b = []; grid.set(key, b); }
-              b.push({ x, z, top: mm[o + 13] + fl[i * 4] * h, set: m.name,
-                r: CARD.has(m.name) ? 0 : fl[i * 4 + 1] * h });
-            }
-          }
-          // T-0448 diagnostic, second grid: the meshes ROOTED leaves out, built
-          // the same way and consulted only to explain an orphan. The support
-          // test above does not read it, so the count stays comparable.
-          const cardGrid = new Map();
-          for (const m of meshes) {
-            if (ROOTED.has(m.name) || m.name.startsWith('flora-head-') || !m.count) continue;
-            const mm = m.instanceMatrix.array;
-            const fl = m.geometry.getAttribute('aFlora').array;
-            const rg = m.geometry.getAttribute('aChiRing').array;
-            for (let i = 0; i < m.count; i++) {
-              const o = i * 16;
-              const x = mm[o + 12]; const z = mm[o + 14];
-              if (fadeOf(rg, i * 4, Math.hypot(x - cx, z - cz)) <= 0) continue;
-              const h = a.flora.heightAt(m.name, Math.hypot(x - cx, z - cz), rg[i * 4]) ?? 1;
-              const key = `${Math.floor(x)},${Math.floor(z)}`;
-              let b = cardGrid.get(key);
-              if (!b) { b = []; cardGrid.set(key, b); }
-              b.push({ x, z, top: mm[o + 13] + fl[i * 4] * h, r: fl[i * 4 + 1] * h, set: m.name });
-            }
-          }
-          for (const m of meshes) {
-            if (!m.name.startsWith('flora-head-') || !m.count) continue;
-            const lo = nominal.get(m.name);
-            const mm = m.instanceMatrix.array;
-            const fl = m.geometry.getAttribute('aFlora').array;
-            const rg = m.geometry.getAttribute('aChiRing').array;
-            const rise = m.geometry.getAttribute('aChiRise').array;
-            for (let i = 0; i < m.count; i++) {
-              const o = i * 16;
-              const x = mm[o + 12]; const y = mm[o + 13]; const z = mm[o + 14];
-              const f = fadeOf(rg, i * 4, Math.hypot(x - cx, z - cz));
-              if (f <= FADE_FLOOR) continue;
-              drawn++;
-              // `rise` is still read back — it is what puts this head over its
-              // plant's base — but the world-space descent that used to subtract
-              // `rise * (1 - fade)` from it is gone with the scale it chased.
-              const s = lo * fl[i * 4];
-              const fx = x + mm[o + 4] * s;
-              const fy = y + mm[o + 5] * s;
-              const fz = z + mm[o + 6] * s;
-              let best = -Infinity;
-              // T-0448 diagnostic: the nearest rooted plant IGNORING the radius
-              // test, so an orphan can be told from a stem the radius missed.
-              let nearest = null;
-              for (let kx = Math.floor(fx) - 1; kx <= Math.floor(fx) + 1; kx++) {
-                for (let kz = Math.floor(fz) - 1; kz <= Math.floor(fz) + 1; kz++) {
-                  const b = grid.get(`${kx},${kz}`);
-                  if (!b) continue;
-                  for (const p of b) {
-                    const d = Math.hypot(p.x - fx, p.z - fz);
-                    if (!nearest || d < nearest.d) nearest = { d, r: p.r, top: p.top, set: p.set };
-                    if (p.top > best
-                      && d <= Math.max(0.05, p.r) + SLACK) best = p.top;
-                  }
-                }
+        let drawn = 0; let unsupported = 0; let worst = null;
+        let onCard = 0; const bySet = new Map();
+        const anchors = a.scene?.anchors ?? [];
+        for (const anchor of anchors) {
+          for (const yaw of [0, 90, 180, 270]) {
+            a.walker.teleport({ local_e: anchor.local_e, local_n: anchor.local_n, yaw_deg: yaw });
+            // One frame is a rebuild — the sward is scattered from the camera on
+            // the step that carries it, which is what `popIn` above walks on.
+            a.step();
+            const cx = a.camera.position.x; const cz = a.camera.position.z;
+            // Every rooted plant, on a one-metre grid.
+            const grid = new Map();
+            for (const m of meshes) {
+              if (!ROOTED.has(m.name) || !m.count) continue;
+              const mm = m.instanceMatrix.array;
+              const fl = m.geometry.getAttribute('aFlora').array;
+              const rg = m.geometry.getAttribute('aChiRing').array;
+              for (let i = 0; i < m.count; i++) {
+                const o = i * 16;
+                const x = mm[o + 12]; const z = mm[o + 14];
+                const f = fadeOf(rg, i * 4, Math.hypot(x - cx, z - cz));
+                // T-0035: the ring ramp is coverage, not height. A plant is drawn
+                // whole or not at all, so the drawn top and the drawn reach are
+                // the record's own numbers and the ramp only says WHETHER.
+                if (f <= 0) continue;
+                // `heightAt` is null for a set with no ring of its own, which is
+                // what `flora-far` is — T-0035 draws every visible plant whole,
+                // so the fraction is 1 and the null is "no ramp", not "no height".
+                const h = a.flora.heightAt(m.name, Math.hypot(x - cx, z - cz), rg[i * 4]) ?? 1;
+                const key = `${Math.floor(x)},${Math.floor(z)}`;
+                let b = grid.get(key);
+                if (!b) { b = []; grid.set(key, b); }
+                b.push({ x, z, top: mm[o + 13] + fl[i * 4] * h, set: m.name,
+                  r: CARD.has(m.name) ? 0 : fl[i * 4 + 1] * h });
               }
-              if (best < fy - SLACK) {
-                unsupported++;
-                // T-0448: does a mesh ROOTED excludes stand where the stem is
-                // missing, and would it have counted? Answers whether these are
-                // far-card heads (T-0209) or geometry over nothing at all.
-                let card = null;
+            }
+            // T-0448 diagnostic, second grid: the meshes ROOTED leaves out, built
+            // the same way and consulted only to explain an orphan. The support
+            // test above does not read it, so the count stays comparable.
+            const cardGrid = new Map();
+            for (const m of meshes) {
+              if (ROOTED.has(m.name) || m.name.startsWith('flora-head-') || !m.count) continue;
+              const mm = m.instanceMatrix.array;
+              const fl = m.geometry.getAttribute('aFlora').array;
+              const rg = m.geometry.getAttribute('aChiRing').array;
+              for (let i = 0; i < m.count; i++) {
+                const o = i * 16;
+                const x = mm[o + 12]; const z = mm[o + 14];
+                if (fadeOf(rg, i * 4, Math.hypot(x - cx, z - cz)) <= 0) continue;
+                const h = a.flora.heightAt(m.name, Math.hypot(x - cx, z - cz), rg[i * 4]) ?? 1;
+                const key = `${Math.floor(x)},${Math.floor(z)}`;
+                let b = cardGrid.get(key);
+                if (!b) { b = []; cardGrid.set(key, b); }
+                b.push({ x, z, top: mm[o + 13] + fl[i * 4] * h, r: fl[i * 4 + 1] * h, set: m.name });
+              }
+            }
+            for (const m of meshes) {
+              if (!m.name.startsWith('flora-head-') || !m.count) continue;
+              const lo = nominal.get(m.name);
+              const mm = m.instanceMatrix.array;
+              const fl = m.geometry.getAttribute('aFlora').array;
+              const rg = m.geometry.getAttribute('aChiRing').array;
+              const rise = m.geometry.getAttribute('aChiRise').array;
+              for (let i = 0; i < m.count; i++) {
+                const o = i * 16;
+                const x = mm[o + 12]; const y = mm[o + 13]; const z = mm[o + 14];
+                const f = fadeOf(rg, i * 4, Math.hypot(x - cx, z - cz));
+                if (f <= FADE_FLOOR) continue;
+                drawn++;
+                // `rise` is still read back — it is what puts this head over its
+                // plant's base — but the world-space descent that used to subtract
+                // `rise * (1 - fade)` from it is gone with the scale it chased.
+                const s = lo * fl[i * 4];
+                const fx = x + mm[o + 4] * s;
+                const fy = y + mm[o + 5] * s;
+                const fz = z + mm[o + 6] * s;
+                let best = -Infinity;
+                // T-0448 diagnostic: the nearest rooted plant IGNORING the radius
+                // test, so an orphan can be told from a stem the radius missed.
+                let nearest = null;
                 for (let kx = Math.floor(fx) - 1; kx <= Math.floor(fx) + 1; kx++) {
                   for (let kz = Math.floor(fz) - 1; kz <= Math.floor(fz) + 1; kz++) {
-                    const b = cardGrid.get(`${kx},${kz}`);
+                    const b = grid.get(`${kx},${kz}`);
                     if (!b) continue;
                     for (const p of b) {
                       const d = Math.hypot(p.x - fx, p.z - fz);
-                      if (!card || d < card.d) card = { d, r: p.r, top: p.top, set: p.set };
+                      if (!nearest || d < nearest.d) nearest = { d, r: p.r, top: p.top, set: p.set };
+                      if (p.top > best
+                        && d <= Math.max(0.05, p.r) + SLACK) best = p.top;
                     }
                   }
                 }
-                if (card && card.d <= Math.max(0.05, card.r) + SLACK && card.top >= fy - SLACK) {
-                  onCard++;
-                  bySet.set(card.set, (bySet.get(card.set) ?? 0) + 1);
-                }
-                const gap = best === -Infinity ? null : fy - best;
-                if (!worst || (gap ?? 9) > (worst.gap ?? 9) || best === -Infinity) {
-                  worst = { set: m.name, at: anchor.id, yaw, y: fy, gap, rise: rise[i],
-                    orphan: best === -Infinity,
-                    // What was actually there, and why it did not count.
-                    nearest: nearest && { set: nearest.set, d: +nearest.d.toFixed(3),
-                      r: +nearest.r.toFixed(3), reach: +(nearest.top - fy).toFixed(3) },
-                    card: card && { set: card.set, d: +card.d.toFixed(3),
-                      r: +card.r.toFixed(3), reach: +(card.top - fy).toFixed(3) } };
+                if (best < fy - SLACK) {
+                  unsupported++;
+                  // T-0448: does a mesh ROOTED excludes stand where the stem is
+                  // missing, and would it have counted? Answers whether these are
+                  // far-card heads (T-0209) or geometry over nothing at all.
+                  let card = null;
+                  for (let kx = Math.floor(fx) - 1; kx <= Math.floor(fx) + 1; kx++) {
+                    for (let kz = Math.floor(fz) - 1; kz <= Math.floor(fz) + 1; kz++) {
+                      const b = cardGrid.get(`${kx},${kz}`);
+                      if (!b) continue;
+                      for (const p of b) {
+                        const d = Math.hypot(p.x - fx, p.z - fz);
+                        if (!card || d < card.d) card = { d, r: p.r, top: p.top, set: p.set };
+                      }
+                    }
+                  }
+                  if (card && card.d <= Math.max(0.05, card.r) + SLACK && card.top >= fy - SLACK) {
+                    onCard++;
+                    bySet.set(card.set, (bySet.get(card.set) ?? 0) + 1);
+                  }
+                  const gap = best === -Infinity ? null : fy - best;
+                  if (!worst || (gap ?? 9) > (worst.gap ?? 9) || best === -Infinity) {
+                    worst = { set: m.name, at: anchor.id, yaw, y: fy, gap, rise: rise[i],
+                      orphan: best === -Infinity,
+                      // What was actually there, and why it did not count.
+                      nearest: nearest && { set: nearest.set, d: +nearest.d.toFixed(3),
+                        r: +nearest.r.toFixed(3), reach: +(nearest.top - fy).toFixed(3) },
+                      card: card && { set: card.set, d: +card.d.toFixed(3),
+                        r: +card.r.toFixed(3), reach: +(card.top - fy).toFixed(3) } };
+                  }
                 }
               }
             }
           }
         }
-      }
-      return { drawn, unsupported, worst, poses: anchors.length * 4,
-        onCard, bySet: [...bySet].sort((p, q) => q[1] - p[1]) };
-    });
+        return { drawn, unsupported, worst, poses: anchors.length * 4,
+          onCard, bySet: [...bySet].sort((p, q) => q[1] - p[1]) };
+      });
+    } finally {
+      await holdDraws(false);
+    }
     check(`${label}: every drawn flower head has a plant under its own stalk`,
       headSupport.drawn > 500 && headSupport.unsupported === 0,
       `${headSupport.unsupported} of ${headSupport.drawn} drawn heads over `
@@ -12160,8 +12246,8 @@ for (const [label, viewport, touch] of [
         : ''));
 
     inStageWork = false;
-    } // end PART 10 (T-0060 stage 4a, cut by T-0121; renumbered by T-0346 and T-0173, halved by T-0170)
-    // PART 11 — the sward's ragged boundary through the units a visitor reads:
+    } // end PART 11 (the tail of T-0170's part 10, cut out of it by T-2337)
+    // PART 12 — the sward's ragged boundary through the units a visitor reads:
     // the boundary and its fringe, each community's own recorded ground cover,
     // the street readouts, the navigation guide and the Settings units. The
     // second half of T-0060's stage 4a.
@@ -12182,7 +12268,7 @@ for (const [label, viewport, touch] of [
     // scan turned up six other names below this line (`headSupport`, `horizon`,
     // `over`, `planted`, `popIn`, `sward`) and every occurrence is prose or a
     // string, not the binding.
-    if (stageOn(11)) {
+    if (stageOn(12)) {
     inStageWork = true;
 
     // Same fresh-boot accommodation as the part above: the tail of this one
@@ -12595,7 +12681,7 @@ for (const [label, viewport, touch] of [
 
     // T-2015: desktop 9-11 reached this chrome after every scene assertion
     // passed, then its native click timed out at 90 s (3.36/3.56 s frames).
-    // Use the same visibility, disabled, box and occlusion checks as part 12;
+    // Use the same visibility, disabled, box and occlusion checks as part 13;
     // these controls do not require a frame-bound trusted mouse event.
     // The guide and unit-system assertions below remain unchanged.
     // The menu is built from the two runtime collections, not from a sampled
@@ -12662,10 +12748,10 @@ for (const [label, viewport, touch] of [
       JSON.stringify(unitChoice));
 
     inStageWork = false;
-    } // end PART 11 (the tail of T-0060 stage 4a, cut out of part 10 by T-0170)
-    // PART 12 — eye height through What's-new: the settings, the Go-to tab and
+    } // end PART 12 (the tail of T-0060 stage 4a, cut out of part 10 by T-0170; renumbered by T-2337)
+    // PART 13 — eye height through What's-new: the settings, the Go-to tab and
     // the release notes. The head of T-0060's stage 4b; T-0167 cut the Evidence
-    // panel and free-fly off its tail into part 13.
+    // panel and free-fly off its tail into what is now part 14.
     //
     // It drives the panel chrome from its first line, so it enters the town on
     // its own account. It takes no pose of its own on purpose: the checks below
@@ -12681,10 +12767,10 @@ for (const [label, viewport, touch] of [
     // part down before one assertion had run. Not one assertion is dropped or
     // softened by the change: `clickChrome` hit-tests the control at its own
     // centre the way a real click does, and says what covered it when it fails.
-    if (stageOn(12)) {
+    if (stageOn(13)) {
     inStageWork = true;
     await enterTown();
-    // …and the PANEL, which part 11 leaves open at its last line and this part
+    // …and the PANEL, which part 12 leaves open at its last line and this part
     // reaches straight into: its first statement clicks a tab inside it, and a
     // click on a tab that has no layout waits ninety seconds and dies. Guarded
     // on the panel's own hidden state rather than toggling, for the same reason
@@ -13095,7 +13181,7 @@ for (const [label, viewport, touch] of [
 
     // T-0701: the drawer and the building card share the right-hand slot. With
     // a card open, opening the drawer TUCKS the card (a transform + visibility,
-    // never `hidden` — the card must not be collateral, see part 13) and
+    // never `hidden` — the card must not be collateral, see part 14) and
     // closing brings it back. The .24 s transition is polled to its end rather
     // than waited for: under load a fixed wait was not enough (REPORT-shell).
     // The drawer itself reaches the bottom of the viewport and starts under the
@@ -14493,8 +14579,8 @@ for (const [label, viewport, touch] of [
       `${ret.flagged.length} of ${ret.total} flagged: ${ret.flagged.join(' | ')}`);
 
     inStageWork = false;
-    } // end PART 12 (T-0060 stage 4b-i, cut by T-0121, halved by T-0167; renumbered by T-0346, T-0173 and T-0170)
-    // PART 13 — the Evidence panel through inspecting from the air: the
+    } // end PART 13 (T-0060 stage 4b-i, cut by T-0121, halved by T-0167; renumbered by T-0346, T-0173, T-0170 and T-2337)
+    // PART 14 — the Evidence panel through inspecting from the air: the
     // liberties, the people, the wildlife, what is not here, what the ground
     // claims, free-fly and the two inspect keys. The tail of T-0060's stage 4.
     //
@@ -14512,7 +14598,7 @@ for (const [label, viewport, touch] of [
     // carries its own guarded panel-open and clicks the Evidence tab itself, so
     // unlike part 12 this part needs no panel guard bolted on. It takes no pose
     // — free-fly is entered from wherever the visitor stands.
-    if (stageOn(13)) {
+    if (stageOn(14)) {
     inStageWork = true;
     await enterTown();
     // --- the liberties, in the Evidence panel ------------------------------
@@ -16406,9 +16492,9 @@ for (const [label, viewport, touch] of [
     }
 
     inStageWork = false;
-    } // end PART 13 (T-0060 stage 4b-ii, cut by T-0167; renumbered by T-0346, T-0173 and T-0170)
+    } // end PART 14 (T-0060 stage 4b-ii, cut by T-0167; renumbered by T-0346, T-0173, T-0170 and T-2337)
 
-    // --- PART 14: the arrival-to-jaunt path, end to end (T-2044, from T-1272) --------
+    // --- PART 15: the arrival-to-jaunt path, end to end (T-2044, from T-1272) --------
     // Every part above boots with the welcome waved straight through (`enterTown`), so
     // the path a visitor actually walks — the arrival year counting down, the welcome,
     // the Starting At… picker, a jaunt, the cards and sources it links to, a change of
@@ -16417,11 +16503,11 @@ for (const [label, viewport, touch] of [
     // context, because the first thing it asserts is what the arrival shows before
     // `api.ready`, and the body's own page has long since passed that moment. The main
     // page is parked on about:blank first so two copies of the town do not split the
-    // machine's frames; part 14 is the last part, so nothing after it reads that page.
+    // machine's frames; part 15 is the last part, so nothing after it reads that page.
     // Rides are finished with `travel.simulate`, as the jaunt harnesses do: what is
     // asserted is the outing's state and its controls, not the speed of a horse drawn
     // in software at a few frames a second.
-    if (stageOn(14)) {
+    if (stageOn(15)) {
     inStageWork = true;
     await page.goto('about:blank');
     const ctx14 = await browser.newContext({
@@ -16456,11 +16542,11 @@ for (const [label, viewport, touch] of [
     // so the first desktop run spent a minute or more on each step and was killed at
     // the ceiling with the mode change still running.
     const until = (fn, arg = null) => p14.waitForFunction(fn, arg, { polling: 250 });
-    p14.on('pageerror', (e) => errors.push(`part 14 pageerror: ${e.message || e}`));
-    p14.on('response', (r) => { if (r.status() >= 400) errors.push(`part 14 HTTP ${r.status()} ${r.url()}`); });
+    p14.on('pageerror', (e) => errors.push(`part 15 pageerror: ${e.message || e}`));
+    p14.on('response', (r) => { if (r.status() >= 400) errors.push(`part 15 HTTP ${r.status()} ${r.url()}`); });
     p14.on('console', (m) => {
       const t = m.text();
-      if (m.type() === 'error' && !t.startsWith('Failed to load resource')) errors.push(`part 14 console.error: ${t}`);
+      if (m.type() === 'error' && !t.startsWith('Failed to load resource')) errors.push(`part 15 console.error: ${t}`);
     });
     const jaunt = () => p14.evaluate(() => {
       const s = window.__chicago4d.jaunts.state;
@@ -16490,7 +16576,7 @@ for (const [label, viewport, touch] of [
         }
         return { x, y };
       }, [sel, text]);
-      if (at.why) throw new Error(`part 14 tap: ${at.why}${text ? ` ("${text}")` : ''}`);
+      if (at.why) throw new Error(`part 15 tap: ${at.why}${text ? ` ("${text}")` : ''}`);
       await p14.mouse.click(at.x, at.y);
     };
 
@@ -16628,7 +16714,7 @@ for (const [label, viewport, touch] of [
     if (KEEP) await p14.screenshot({ path: path.join(KEEP, `part14-${viewport.width}x${viewport.height}.png`) });
     await ctx14.close();
     inStageWork = false;
-    } // end PART 14 (T-2044)
+    } // end PART 15 (T-2044; renumbered from 14 by T-2337)
     } catch (e) {
       inStageWork = false;
       thrown = e;

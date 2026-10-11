@@ -1,0 +1,7 @@
+{
+  "title": "The flora checks run in half the time",
+  "kind": "chore",
+  "items": [
+    "The automated walk-through that checks the plants now counts them without drawing the town on every step, so the check finishes inside its time limit again. Nothing you see in the town changed."
+  ]
+}

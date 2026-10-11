@@ -1,6 +1,130 @@
 {
-  "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
+  "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13); on 2026-10-11 T-2337 halved part 10 again (11-14 -> 12-15). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
+    {
+      "viewport": "mobile",
+      "stage": "11",
+      "parts": [
+        11
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 21,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 174,
+      "takenAt": "2026-10-11T04:03:29.905Z",
+      "ref": "steward/t2337-smoke-part10-recut",
+      "commit": "51ef0077b03e",
+      "devCommit": "0a2491b510c2",
+      "treeHash": "sha256:a61eb2e8b2e7f893",
+      "treeDirty": false,
+      "changelogHash": "sha256:a1b3a9b10b0745eb",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.8,
+          4.6,
+          4.5
+        ]
+      },
+      "source": "/tmp/smoke-m11.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "10",
+      "parts": [
+        10
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 30,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 125,
+      "takenAt": "2026-10-11T04:03:29.805Z",
+      "ref": "steward/t2337-smoke-part10-recut",
+      "commit": "51ef0077b03e",
+      "devCommit": "0a2491b510c2",
+      "treeHash": "sha256:a61eb2e8b2e7f893",
+      "treeDirty": false,
+      "changelogHash": "sha256:a1b3a9b10b0745eb",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.8,
+          4.6,
+          4.5
+        ]
+      },
+      "source": "/tmp/smoke-m10.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "11",
+      "parts": [
+        11
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 21,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 483,
+      "takenAt": "2026-10-11T03:46:30.312Z",
+      "ref": "dev",
+      "commit": "0a2491b510c2",
+      "devCommit": "0a2491b510c2",
+      "treeHash": "sha256:3f9139ca6a72ef3d",
+      "treeDirty": true,
+      "changelogHash": "sha256:a1b3a9b10b0745eb",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          0.8,
+          3.1,
+          3.8
+        ]
+      },
+      "source": "/tmp/smoke-d11.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "10",
+      "parts": [
+        10
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 30,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 473,
+      "takenAt": "2026-10-11T03:46:30.210Z",
+      "ref": "dev",
+      "commit": "0a2491b510c2",
+      "devCommit": "0a2491b510c2",
+      "treeHash": "sha256:3f9139ca6a72ef3d",
+      "treeDirty": true,
+      "changelogHash": "sha256:a1b3a9b10b0745eb",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          0.8,
+          3.1,
+          3.8
+        ]
+      },
+      "source": "/tmp/smoke-d10.log"
+    },
     {
       "viewport": "mobile",
       "stage": "1-2",
@@ -1633,68 +1757,6 @@
     },
     {
       "viewport": "mobile",
-      "stage": "14",
-      "parts": [
-        14
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 23,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 306,
-      "takenAt": "2026-10-05T04:34:28.236Z",
-      "ref": "claude/project-thread-11f45r",
-      "commit": "56b6958f6bbe",
-      "devCommit": "74f7134c3d0a",
-      "treeHash": "sha256:c95b9c169bda4b80",
-      "treeDirty": true,
-      "changelogHash": "sha256:a69e542cd80fd095",
-      "host": {
-        "kind": "local",
-        "cpus": 4,
-        "memGB": 15.7,
-        "loadavg": [
-          2.4,
-          3.3,
-          3.5
-        ]
-      },
-      "source": "/tmp/claude-0/smoke14m.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 97,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 522,
-      "takenAt": "2026-10-05T03:32:47.907Z",
-      "ref": "steward/t0239-frontage-note-gate",
-      "commit": "948c71d51571",
-      "devCommit": "5ac49c9bc5f3",
-      "treeHash": "sha256:363cc45848d448d2",
-      "treeDirty": false,
-      "changelogHash": "sha256:7f755c992abc8758",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          2.4,
-          3.8,
-          3.5
-        ]
-      },
-      "source": "/tmp/smoke_m12.log"
-    },
-    {
-      "viewport": "mobile",
       "stage": "3-6",
       "parts": [
         3,
@@ -1754,66 +1816,6 @@
         "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
       },
       "source": "gh-run:37159054129 https://github.com/kevinrhaas/chicago/actions/runs/37159054129"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "10-13",
-      "parts": [
-        10,
-        11,
-        12,
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 247,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 2106,
-      "takenAt": "2026-10-03T22:05:21Z",
-      "ref": "steward/t2035-vegetation-continuity",
-      "commit": "ac66939285d9",
-      "devCommit": "98ece8ad1996",
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": "sha256:3b108f29a6f45897",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
-      },
-      "source": "gh-run:37157238337 https://github.com/kevinrhaas/chicago/actions/runs/37157238337"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "10-13",
-      "parts": [
-        10,
-        11,
-        12,
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 247,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1551,
-      "takenAt": "2026-10-03T22:05:11Z",
-      "ref": "steward/t2035-vegetation-continuity",
-      "commit": "ac66939285d9",
-      "devCommit": "98ece8ad1996",
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": "sha256:3b108f29a6f45897",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
-      },
-      "source": "gh-run:37157228565 https://github.com/kevinrhaas/chicago/actions/runs/37157228565"
     },
     {
       "viewport": "desktop",
