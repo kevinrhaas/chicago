@@ -69,3 +69,27 @@ only). **Not followed:** the range's south wall traced about 0.2 m inside the fr
 leaves a rear hip with no covering plane either side and the build refuses; at 34 it closes. The
 pitch is therefore 34, still inside the contract's ordinary range. The fault is K05's, on this
 plan, and is noted here rather than worked round in the kit.
+
+## Captured and measured
+
+`node tools/qa_k01_t2343.mjs` on the published `/1904/` app; *before* is `dev` at 180394451
+(the draft), *after* this branch. Desktop 1280×800 at full, phone 390×780 at light. Stands:
+front (across Prairie), oblique from the south walk (6 m up), the rear range from the alley
+(north-west, 4 m up), rear (the yard behind), roof (the air, north-east). 0 page errors and 0
+failed requests on all four runs; every stand within the scene budget.
+
+| | load to ready | JS heap | draw calls | triangles | frame (software GL) |
+|---|---|---|---|---|---|
+| desktop before → after | 25.9 → 39.8 s | 25.5 → 25.8 MB | 87-105 → 99-117 (+12) | 1.60-2.79 M → 1.65-2.84 M (+50 k) | +2 to +4 % |
+| phone before → after | 14.3 → 14.9 s | 25.5 → 25.8 MB | 59-64 → 70-76 (+11 to +12) | 276-329 k → 326-378 k (+50 k) | +5 to +10 % |
+
+The master is 3.56 MB and the web derivative 1.19 MB (the draft's were a small fraction of
+that; 1600's are 3.94 and 1.13 MB). Desktop load swings by many seconds between runs on this
+runner (1608's note measured 25-38 s on one tree), so the rise is not a claim; frame time is a
+relative reading on software GL, not a device claim.
+
+## Limits
+
+- No photograph, plate or description of 1604 has been read; every form is the kits'.
+- The entry strip's frame walls and slate roof wait on a frame-walled wing; T-2347 (1634's wing)
+  and T-2354 (1616's range) can now stand on `rear_wings` as built here.
