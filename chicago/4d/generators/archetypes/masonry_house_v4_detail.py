@@ -1053,9 +1053,79 @@ def bay(b,y,params):
 
 
 
+def _arched_hole(l,r,sill,spring,segments):
+    """A round-headed opening in face (u, z) coordinates, sill to crown."""
+    c,rad=(l+r)/2,(r-l)/2
+    return [(l,sill),(r,sill)]+[(c+rad*math.cos(math.pi*i/segments),
+                                 spring+rad*math.sin(math.pi*i/segments))
+                                for i in range(segments+1)]
+
+
+def dovecote_band(b,t,x0,x1,y0,y1):
+    """The stable cupola's vent band as HABS photograph 1 shows it (T-2207).
+
+    Two tiers of round-headed pigeon holes, each tier standing on its own
+    projecting landing board, in place of the slatted louvres the band carried
+    before. The form is read from the photograph; counts and stock sizes are
+    bounded reconstruction (docs/LIBERTIES.md L-glessner-cupola-2207).
+    """
+    lo,hi=t['louvre'];conf=t['conf'];v=t['vent'];reconstructed=1.0
+    tiers,per_face=v['tiers'],v['per_face'];width=v['opening_width_m']
+    perch=v['perch_projection_m'];board=.025
+    segments=3 if getattr(b,'reduced_roof_details',False) else 6
+    step=(hi-lo)/tiers
+    for pl,(a,c) in (({'axis':'x','sign':1,'at':x1},(y0,y1)),
+                     ({'axis':'x','sign':-1,'at':x0},(y0,y1)),
+                     ({'axis':'y','sign':1,'at':y1},(x0,x1)),
+                     ({'axis':'y','sign':-1,'at':y0},(x0,x1))):
+        ua,uc=a+.12,c-.12;n=legacy._plane_dir(pl)
+        holes=[]
+        for tier in range(tiers):
+            base=lo+tier*step;sill=base+board+.012
+            crown=base+step-.03;spring=crown-width/2
+            for k in range(per_face):
+                mid=ua+(uc-ua)*(k+.5)/per_face
+                holes.append(_arched_hole(mid-width/2,mid+width/2,sill,spring,segments))
+            # The landing board the birds alight on, one per tier and face;
+            # it stops short of the corner so two faces' boards never meet.
+            slab(b,pl,ua,uc,base,base+board,-.04,perch,reconstructed,WOOD)
+        wall=[(a,t['z0']),(c,t['z0']),(c,t['top_z']),(a,t['top_z'])]
+        for fragment in subtract(wall,holes):
+            solid_polygon(b,pl,fragment,-.08,0,conf,WOOD)
+        # The dark cote behind the holes: one closing card per face.
+        b.raw([legacy._plane_point(pl,u,z,-.17) for u,z in
+               [(ua,lo),(uc,lo),(uc,hi),(ua,hi)]],reconstructed,DARK_GLASS,n)
+
+
+def flared_turret_roof(b,t,x0,x1,y0,y1):
+    """A pyramid that kicks out over a deep eave, as photographs 1 and 17 show.
+
+    The apex and body top are the record's own; only the eave ring moves, out
+    by `overhang` and down by `drop`, and the bottom `flare_run` of the slope
+    eases to `flare_pitch` (T-2207). The roof-edge pass dresses the eave's
+    fascia, as it does every other eave in the house.
+    """
+    e=t['eave'];conf=t['conf'];cx,cy=(x0+x1)/2,(y0+y1)/2
+    ov,ze=e['overhang_m'],t['top_z']-e['drop_m']
+    zk=ze+e['flare_run_m']*e['flare_pitch'];kv=ov-e['flare_run_m']
+    def ring(o,z):
+        return [(x0-o,y0-o,z),(x1+o,y0-o,z),(x1+o,y1+o,z),(x0-o,y1+o,z)]
+    eave,kink=ring(ov,ze),ring(kv,zk)
+    for i in range(4):
+        j=(i+1)%4
+        legacy._up(b,[eave[i],eave[j],kink[j],kink[i]],conf,ROOF)
+        legacy._up(b,[kink[i],kink[j],(cx,cy,t['apex_z'])],conf,ROOF)
+    legacy._poly_facing(b,eave,conf,ROOF,(0,0,-1))
+    legacy._finial(b,cx,cy,t['apex_z'],t['finial_m'],conf,COPPER)
+
+
 def louvred_turret(b,t):
     """Retain the stable turret envelope; its band is timber louvres, not glass."""
     x0,x1=sorted((t['x0'],t['x1']));y0,y1=sorted((t['y0'],t['y1']))
+    if t.get('vent') and t.get('eave'):
+        dovecote_band(b,t,x0,x1,y0,y1)
+        flared_turret_roof(b,t,x0,x1,y0,y1)
+        return
     lo,hi=t['louvre'];conf=t['conf'];reconstructed=1.0
     for pl,(a,c) in (({'axis':'x','sign':1,'at':x1},(y0,y1)),
                      ({'axis':'x','sign':-1,'at':x0},(y0,y1)),

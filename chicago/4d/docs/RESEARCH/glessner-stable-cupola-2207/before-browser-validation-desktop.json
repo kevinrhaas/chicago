@@ -1,0 +1,292 @@
+{
+  "method": "Actual published /1904/ app, normal boot, full desktop and light mobile; animation paused after readiness for deterministic review cameras. T-2207: the stable's north gable, its cupola from the north-west and the east, the hoist corbel close to, and the street view HABS photograph 1 was taken from.",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:34521/data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:34521/data/gltf/glessner_house__as_built_1887.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "north-gable",
+          "detail": "full",
+          "glassModes": [],
+          "problems": [],
+          "stats": {
+            "drawCalls": 121,
+            "triangles": 3092687,
+            "programs": 35,
+            "geometries": 96,
+            "textures": 237,
+            "batches": 65,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 91,
+            "structuresExpected": 91,
+            "structuresStanding": 91,
+            "bytes": 64092752,
+            "fps": 0,
+            "cameraNear": 0.35000000000000003,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1344.4092459108501,
+            -3204.350763437367,
+            12.540440280685424
+          ],
+          "target": [
+            1344.5668717405374,
+            -3217.8498431874023,
+            12.940440280685426
+          ]
+        },
+        {
+          "name": "cupola-nw",
+          "detail": "full",
+          "glassModes": [],
+          "problems": [],
+          "stats": {
+            "drawCalls": 120,
+            "triangles": 3122381,
+            "programs": 35,
+            "geometries": 98,
+            "textures": 241,
+            "batches": 65,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 91,
+            "structuresExpected": 91,
+            "structuresStanding": 91,
+            "bytes": 64092752,
+            "fps": 0,
+            "cameraNear": 0.55,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1336.8514986158532,
+            -3211.4394908143336,
+            17.940440280685426
+          ],
+          "target": [
+            1344.6616714255201,
+            -3223.399114582795,
+            16.440440280685426
+          ]
+        },
+        {
+          "name": "cupola-east",
+          "detail": "full",
+          "glassModes": [],
+          "problems": [],
+          "stats": {
+            "drawCalls": 109,
+            "triangles": 2942432,
+            "programs": 35,
+            "geometries": 98,
+            "textures": 241,
+            "batches": 65,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 91,
+            "structuresExpected": 91,
+            "structuresStanding": 91,
+            "bytes": 64092752,
+            "fps": 0,
+            "cameraNear": 0.55,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1355.4086174694894,
+            -3216.2231442144052,
+            17.740440280685426
+          ],
+          "target": [
+            1344.6616714255201,
+            -3223.399114582795,
+            16.440440280685426
+          ]
+        },
+        {
+          "name": "hoist-close",
+          "detail": "full",
+          "glassModes": [],
+          "problems": [],
+          "stats": {
+            "drawCalls": 119,
+            "triangles": 3084095,
+            "programs": 35,
+            "geometries": 98,
+            "textures": 241,
+            "batches": 65,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 91,
+            "structuresExpected": 91,
+            "structuresStanding": 91,
+            "bytes": 64092752,
+            "fps": 0,
+            "cameraNear": 0.35000000000000003,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1344.496815816232,
+            -3211.850252187386,
+            12.940440280685426
+          ],
+          "target": [
+            1344.5668717405374,
+            -3217.8498431874023,
+            11.540440280685425
+          ]
+        },
+        {
+          "name": "street-nw",
+          "detail": "full",
+          "glassModes": [],
+          "problems": [],
+          "stats": {
+            "drawCalls": 122,
+            "triangles": 3126542,
+            "programs": 35,
+            "geometries": 99,
+            "textures": 243,
+            "batches": 65,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 91,
+            "structuresExpected": 91,
+            "structuresStanding": 91,
+            "bytes": 64092752,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1322.1773472217185,
+            -3196.6098151313663,
+            6.040440280685425
+          ],
+          "target": [
+            1344.4677472397152,
+            -3221.3512392423113,
+            11.840440280685424
+          ]
+        }
+      ]
+    }
+  ]
+}
