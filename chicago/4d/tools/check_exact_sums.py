@@ -292,7 +292,10 @@ GENERATORS = ROOT / "generators"
 #: not listed, a new pure-Python archetype among them, starts at 0.
 EMITTER_SUMS = {"k01_frontage.py": 5, "k06_windows.py": 5, "k09_trim.py": 5,
                 "k10_cornices.py": 2, "k11_ironwork.py": 3, "k12_coach_house.py": 2,
-                "k13_conservatories.py": 6, "k15_chimneys.py": 1, "k16_timber.py": 1}
+                "k13_conservatories.py": 6, "k14_yard.py": 2, "k15_chimneys.py": 1,
+                "k16_timber.py": 1}
+# k14_yard.py's two (T-2360, landed beside this gate) add _up_grid's integer triangle
+# counts, which no Python adds differently; they sit here so the yard's bytes stay put.
 
 
 def emitter_modules() -> list[str]:
