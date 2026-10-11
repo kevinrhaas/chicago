@@ -8,9 +8,9 @@
         "height": 800
       },
       "detail": "full",
-      "load_ms_to_ready": 30820,
-      "js_heap_used_bytes": 31132496,
-      "js_heap_total_bytes": 32075776,
+      "load_ms_to_ready": 30850,
+      "js_heap_used_bytes": 31188260,
+      "js_heap_total_bytes": 31813632,
       "draft_records_in_registry": 144,
       "placed": [
         "house_1634_prairie",
@@ -38,7 +38,7 @@
             "triangles": 1815558,
             "programs": 35,
             "geometries": 105,
-            "textures": 285,
+            "textures": 283,
             "batches": 81,
             "wallRelief": {
               "off": false,
@@ -60,7 +60,7 @@
             "structures": 150,
             "structuresExpected": 150,
             "structuresStanding": 150,
-            "bytes": 68668764,
+            "bytes": 68668692,
             "fps": 0,
             "cameraNear": 0.1,
             "budget": {
@@ -69,7 +69,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 3376.4,
+          "frame_ms_median": 3563.6,
           "camera": [
             1405.2,
             -3059.3,
@@ -112,7 +112,7 @@
             "structures": 150,
             "structuresExpected": 150,
             "structuresStanding": 150,
-            "bytes": 68668764,
+            "bytes": 68668692,
             "fps": 0,
             "cameraNear": 0.1,
             "budget": {
@@ -121,7 +121,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 3754.1,
+          "frame_ms_median": 3772,
           "camera": [
             1401,
             -3081,
@@ -164,7 +164,7 @@
             "structures": 150,
             "structuresExpected": 150,
             "structuresStanding": 150,
-            "bytes": 68668764,
+            "bytes": 68668692,
             "fps": 0,
             "cameraNear": 0.1,
             "budget": {
@@ -173,7 +173,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 5285.9,
+          "frame_ms_median": 5515.3,
           "camera": [
             1401,
             -3037,
@@ -216,7 +216,7 @@
             "structures": 150,
             "structuresExpected": 150,
             "structuresStanding": 150,
-            "bytes": 68668764,
+            "bytes": 68668692,
             "fps": 0,
             "cameraNear": 0.30000000000000004,
             "budget": {
@@ -225,7 +225,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 3821.4,
+          "frame_ms_median": 3937.3,
           "camera": [
             1338,
             -3047,
@@ -268,7 +268,7 @@
             "structures": 150,
             "structuresExpected": 150,
             "structuresStanding": 150,
-            "bytes": 68668764,
+            "bytes": 68668692,
             "fps": 0,
             "cameraNear": 1.2000000000000002,
             "budget": {
@@ -277,7 +277,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 7112.2,
+          "frame_ms_median": 7868.7,
           "camera": [
             1396,
             -3029,

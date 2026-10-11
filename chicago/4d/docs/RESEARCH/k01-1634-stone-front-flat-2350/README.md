@@ -52,7 +52,8 @@ the front. Built:
   stone lintels on the third.
 - The K07 door and stoop at the pair's north end.
 - The sheet's stone bay as K08's rectangular bay (2.6 × 1.2 m, the kit's plan; the sheet draws
-  3.0 × 1.25 m), three storeys, stopping under the cornice's brackets.
+  3.0 × 1.25 m), three storeys (the third 2.1 m to its eave, its sash K06's ordinary 1.5 m) under
+  a low tin hip, stopping under the cornice's brackets.
 - The flat roof above, with two brick stacks against the party wall.
 - **The south wall is the party wall with 1636 and is blank.** The north wall has three windows a
   storey over 1630's side yard, and the rear wall has two.
@@ -94,10 +95,10 @@ yard), roof (the air). Both runs had 0 page errors and 0 failed requests, and ev
 
 | | load to ready | JS heap | draw calls | triangles |
 |---|---|---|---|---|
-| desktop | 30.8 s | 31.1 MB | 117-149 | 1.82-3.21 M |
-| phone | 18.6 s | 31.1 MB | 83-114 | 399-688 k |
+| desktop | 30.9 s | 31.2 MB | 117-149 | 1.82-3.21 M |
+| phone | 19.8 s | 31.1 MB | 83-114 | 399-688 k |
 
-The master is 3.40 MB and the web derivative 1.44 MB. No *before* reading was taken this run. The
+The master is 3.40 MB and the web derivative 1.48 MB. No *before* reading was taken this run. The
 draft it replaces was 1634's one box with a wing and a bay. Frame times and load are software GL on
 the runner, a relative reading.
 
