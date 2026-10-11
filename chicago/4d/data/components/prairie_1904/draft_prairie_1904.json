@@ -312,7 +312,8 @@
     "s20-1608-f": "1608 Prairie is refined in place by T-2341 (piece 1 of T-1859) as the K01 brick frontage house_1608_prairie, under the draft's own id; the draft does not stand a second building on it.",
     "s20-1607-f": "1607-1611's four-storey loft is the 1911 replacement of the lot-6 frame pair (T-1840 census, backcast_1886): the draft stands 1609 and 1611 from Robinson 1886 instead (block 20's `plates`), and the loft not at all.",
     "s20-1612-f": "1612 Prairie now stands as the K01 frontage assembly goodman_house_1612_prairie (T-2344, piece 1 of T-1860), which refines this draft in place under the draft's own id; the draft stands no second building beside it.",
-    "s20-1616-f": "1616 Prairie's main body now stands as the K01 brick frontage house_1616_prairie (T-2353, piece 1 of T-2345), which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's one-storey rear range is T-2354's."
+    "s20-1616-f": "1616 Prairie's main body now stands as the K01 brick frontage house_1616_prairie (T-2353, piece 1 of T-2345), which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's one-storey rear range is T-2354's.",
+    "s20-1626-f": "1626 Prairie's main body now stands as the K01 brick frontage house_1626_prairie with its frame front bay (T-2356, piece 2 of T-1862), the north half of the pair with 1628, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's rear 1B piece and 2B wing wait for T-2347."
   },
   "frontages": {
     "frontage-28-038": {
@@ -528,7 +529,9 @@
     "frontage-20-007": {
       "slug": "house",
       "entrance": "north",
-      "why": "3B brick, the north half of a pair attached to 1628: the brick family's hip, its entrance at the north end so the pair's doors stand at their outer ends."
+      "why": "3B brick, the north half of a pair attached to 1628: the brick family's hip, its entrance at the north end so the pair's doors stand at their outer ends.",
+      "house_id": "house_1626_prairie",
+      "house_address": "1626"
     },
     "frontage-20-008": {
       "slug": "house",
