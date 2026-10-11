@@ -683,7 +683,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         built = cond.get("built")
         if not isinstance(built, int) or not 1830 <= built <= 1904:
             raise ParamError(f"condition.built {built!r} is not a completion year standing by 1904")
-        condition = {"kit": CONDITION_KIT, "built": built}
+        # T-2359: the chimney plume lies on a compass bearing, so the kit is read in the
+        # house's own frame turned by the placement's rotation (+ clockwise, as buildings.js)
+        rotation = float(((phase.get("position") or {}).get("rotation_deg")) or 0.0)
+        condition = {"kit": CONDITION_KIT, "built": built, "rotation_deg": rotation}
 
     names = sorted(CONSUMED)
     params = K01FrontageParams(
