@@ -498,6 +498,17 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             "finial_m": round(float(t.get("finial_ft", 0.0)) * FT, 4),
             "conf": cf(attr),
         })
+        if "vent" in t and "eave" in t:
+            v, e = t["vent"], t["eave"]
+            p.turrets[-1]["vent"] = {
+                "tiers": int(v["tiers"]), "per_face": int(v["per_face"]),
+                "opening_width_m": float(v["opening_width_ft"]) * FT,
+                "perch_projection_m": float(v["perch_projection_ft"]) * FT}
+            p.turrets[-1]["eave"] = {
+                "overhang_m": float(e["overhang_ft"]) * FT,
+                "drop_m": float(e["drop_ft"]) * FT,
+                "flare_run_m": float(e["flare_run_ft"]) * FT,
+                "flare_pitch": float(e["flare_pitch"])}
 
     # --------------------------------------------------------------- chimneys
     def chimney(name, ws, ss, base, top, conf):
@@ -793,6 +804,14 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     "z": [fr.z(v) for v in hoist["z"]],
                     "projection": hoist["projection_ft"]*FT},
                 "loft_frame": stable_fabric["loft_frame_ft"]*FT}
+            if "hook_drop_ft" in hoist:
+                p.detail["north_stable_fabric"]["hoist_stone"]["hook_drop"] = \
+                    hoist["hook_drop_ft"]*FT
+            leaves = stable_fabric.get("loft_leaves")
+            if leaves:
+                p.detail["north_stable_fabric"]["loft_leaves"] = {
+                    "boards_per_leaf": int(leaves["boards_per_leaf"]),
+                    "thickness": leaves["thickness_ft"]*FT}
         cr = raw.get("copper_return")
         if cr:
             p.detail["copper_return"] = {"x0": min(fr.x(w) for w in cr["W"]),
