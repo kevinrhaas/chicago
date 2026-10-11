@@ -56,7 +56,7 @@
  },
  "fills": {
   "households/family_dwelling/north": 10,
-  "households/family_dwelling/south": 18,
+  "households/family_dwelling/south": 19,
   "households/family_dwelling/west": 11,
   "persons/female/10_19/north/family/none": 23,
   "persons/female/10_19/south/family/none": 54,
@@ -132,13 +132,13 @@
  "growth_drawn": {},
  "folded_into_married_houses": {
   "ticket": "T-2020",
-  "households": 85,
+  "households": 84,
   "by_division": {
    "north": 16,
-   "south": 47,
+   "south": 46,
    "west": 22
   },
-  "people": 371,
+  "people": 364,
   "note": "Dealt here and then folded into a married house the order book refused a wife (data/reconstruction/1835_folded_houses.json). The counters above are the deal; `fills` no longer counts these houses as dwellings."
  },
  "measurement": {

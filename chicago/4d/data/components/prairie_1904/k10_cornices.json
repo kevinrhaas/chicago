@@ -61,6 +61,11 @@
         "confidence": "reconstructed",
         "note": "The horizontal cornice of a dormer's pediment, returned along both cheeks and capped."
       },
+      "bed_mould": {
+        "points": [[0.0, 0.0], [0.008, 0.0], [0.008, 0.008], [0.0095, 0.0194], [0.0139, 0.03], [0.0209, 0.0391], [0.03, 0.0461], [0.0406, 0.0505], [0.052, 0.052], [0.06, 0.052], [0.06, 0.06]],
+        "confidence": "reconstructed",
+        "note": "A bed moulding for an eave whose soffit is already built (T-2317): a fillet, a 44 mm cove and a fillet, 60 mm each way, open on the wall behind it AND on the soffit above it, so it lays no face on either. It is the cornice's line where a wall head has no room for a frieze, and it stops against the side of every bracket it meets."
+      },
       "rail": {
         "points": [[0.0, 0.0], [0.03, 0.025], [0.03, 0.075], [0.0, 0.1], [-0.3, 0.1], [-0.33, 0.075], [-0.33, 0.025], [-0.3, 0.0]],
         "closed": true,
