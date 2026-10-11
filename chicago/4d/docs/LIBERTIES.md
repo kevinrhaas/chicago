@@ -24737,6 +24737,33 @@ the cupola would replace every number above.
 **Ticket:** T-2207 (Glessner exterior audit GA-08).
 **Recorded:** 2026-10-11 (T-2207).
 
+### L-glessner-coursing-2208 — The Glessner granite laid from its corners and jambs, with pitched arrises, by a rule of ours
+
+**Decision:** the rock-faced granite on every Glessner wall is re-laid (T-2208, Glessner exterior
+audit GA-09A). Course heights are unchanged — they are still the 24 HABS-measured courses in
+`v4_detail.ashlar_courses_in`. What changed is how each course is cut into stones. A course that
+passes wholly beside a straight opening jamb is cut AT that jamb, so the jamb is the end of a whole
+stone that runs to the reveal with no joint, instead of a sliver the opening happened to leave.
+Each run between corners and jambs starts and ends with one long and one short stone, swapped
+course by course, so vertical joints never stack up a corner or a jamb, and the stones between are
+whole, scaled to fill the run, so no run ends in a sliver. Every rock face now falls over its outer
+85 mm to a straight arris 16 mm proud of the bed — the front of an opening's reveal — so joints read
+as lines at street distance and a jamb stone meets its return flush; the stone's interior relief is
+unchanged.
+**What is invented.** The rule itself: the long end stone at 1.3 and the short at 0.62 of the
+course's mean stone, the middle stones between 0.7 and 1.35 of it, the 85 mm margin and the 16 mm
+arris. No measured elevation of the stone joints was read, and no photograph was re-read stone by
+stone for this ticket: the rule is the ordinary practice of rock-faced coursed ashlar (bonded
+corners, whole jamb stones, edges pitched to a line), applied as a reconstruction, not a reading.
+**What is not changed.** Course heights, the wall plane, every opening, sill, lintel and arch, the
+brick, and the plan envelope (K01 scale-drift and origin checks unchanged; the furthest west
+projection falls 1 cm because edge relief no longer reaches 70 mm).
+**How to resolve:** a rectified photograph or measured elevation of one street front with its joints
+legible would replace the rule with the stones; GA-09B (T-2209) calibrates the texture and shadow.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2208 (Glessner exterior audit GA-09A).
+**Recorded:** 2026-10-11 (T-2208).
+
 ### L-k14-1808-roof-2359 — 1808 Prairie's slate carries the K14 chimney plume at 18 years, on plan rows this ticket chose
 
 **Decision:** 1808 Prairie's slate takes the K14 kit's chimney plume (`chimney_soot`, T-2324)
