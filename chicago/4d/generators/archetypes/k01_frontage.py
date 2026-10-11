@@ -505,6 +505,9 @@ class Assembly:
         # T-2310: a K09 head where the record names one; else a flat lintel
         if k09_frontage.dress(self, op, frame, max(conf, p.conf("street_front_trim"))) or coursed:
             return
+        # T-2326: a dormer whose face K10 dresses takes the kit's pediment cornice as its head
+        if op.wall == "k01.wall.dormer_face" and k10_frontage.dresses_dormer(p):
+            return
         self.proud_box(stone_trim, frame, s0 - 0.12, s1 + 0.12, y1, y1 + 0.30, 0.03, seed, conf)
 
     # -- K02 masonry: the coursed stone front (T-2289) -------------------------------
@@ -1150,7 +1153,8 @@ class Assembly:
                                 zc - sw / 2, zc + sw / 2, P,
                                 lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
             self.dormer_geom = {"xf": xf, "ys": ys, "yde": yde, "dhs": dhs, "dhe": dhe, "ridge": dry,
-                                "zs": zc + wd / 2, "zn": zc - wd / 2}
+                                "zs": zc + wd / 2, "zn": zc - wd / 2, "dt": dt, "overhang": dp["overhang_m"],
+                                "back": back}
         # T-2302's plain stacks, for a record that names no K15 variant (1612 Goodman)
         for c in p.chimneys:
             if "k15" in c:
