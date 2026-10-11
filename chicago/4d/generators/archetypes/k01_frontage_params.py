@@ -599,6 +599,16 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         stone["base_course_m"] = round(course, 5)
         stone["coping_top_m"] = round(top, 5)
 
+    # T-1861: a brick street front may lay its windows' heads in the brick, as its side and
+    # rear walls do (two rowlock rings on a segmental arch), instead of the stone lintel or
+    # K09 head `by_storey` names; the hole stays the K01 rectangle, so the sash stays flat
+    trim = dict(val("street_front_trim", {}) or {})
+    if trim.get("brick_heads") not in (None, "segmental"):
+        raise ParamError("street_front_trim.brick_heads builds 'segmental' alone")
+    if trim.get("brick_heads") and construction != "brick":
+        raise ParamError("street_front_trim.brick_heads arches the brick; a stone front is laid "
+                         "by its K02 stone_front")
+
     names = sorted(CONSUMED)
     params = K01FrontageParams(
         depth_m=depth, width_m=width, stories=stories, principal_floor_m=pf,
@@ -614,7 +624,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         basement_sill_m=bsill, openings=tuple(openings), service_wall_brick=panel,
         roof=k04, dormer=dormer, rainwater=rainwater, chimneys=tuple(chimneys),
         window_kit={k: kit[k] for k in sorted(kit)}, entrance_kit=door_kit, bays=bays,
-        street_front_trim=dict(val("street_front_trim", {}) or {}),
+        street_front_trim=trim,
         wall_head=dict(val("wall_head", {}) or {}),
         boundary=dict(val("boundary", {}) or {}),
         stone=stone,
