@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1695, ts: '2026-10-11T17:49:08.904Z', date: 'Oct 11, 2026, 12:49 PM CT', title: '1808 Prairie\'s front yard: a lawn, a stone walk, a cinder path', kind: 'feature',
+    items: [
+      'The ground inside 1808 Prairie\'s iron fence is now a kept lawn, with a thin bare edge cut along the foot of the house and round its bay.',
+      'A short walk of stone flags runs from the foot of the front steps through the gate to the sidewalk, slightly worn along its middle.',
+      'A cinder path runs from the side gate down the passage to the back of the house, beaten darker where people walk.',
+      'The ground under the open front steps is bare earth.',
+      'All of it is a reconstruction aged to the house\'s 18 years in 1904: no picture of this yard has been found.',
+    ] },
   { v: 1694, ts: '2026-10-11T17:12:15.057Z', date: 'Oct 11, 2026, 12:12 PM CT', title: 'Prairie Avenue\'s 20th–22nd block fills in on the east side', kind: 'feature',
     items: [
       'Seventeen buildings now line the east side of Prairie Avenue from 20th to 22nd Street in 1904, with the sixteen stables and rear buildings behind them on the alley. Each one is a draft built from the 1911 fire-insurance map and our survey of the street.',

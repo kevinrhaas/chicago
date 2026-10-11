@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 496,
+  "count": 497,
   "liberties": [
     {
       "id": "L1",
@@ -32911,6 +32911,46 @@
         {
           "label": "Recorded",
           "text": "2026-10-11 (T-2358)."
+        }
+      ]
+    },
+    {
+      "id": "L-k14-1808-yard-2360",
+      "title": "1808 Prairie's front yard laid as lawn, a stone front walk and a cinder side walk, aged by the K14 kit, all reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-10-11",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the ground inside 1808 Prairie's K11 boundary (T-2319) is laid as surfaces of its own, aged by the K14 condition kit's two ground layers (T-2324) at the house's own age: built 1886, so 18 years standing on 1904-07-01 and the kit's age factor 0.45. The front yard, from the street front (and the foot of its stone bay) to the fence curb's house face and from the house's south wall line to the north lot line, is turf (Glessner's courtyard turf map), its surface 0.035 m over grade so the drawn terrain, which rises up to 0.018 m above the point the house is bedded on, never covers it. Along the street front's wall foot and round the bay a bare strip is cut: the kit's `grass_edge` at that age, 0.14 m wide, its line wobbling 0.02 m by the property's seed, measured square to the wall so it keeps its width round the bay's curve (0.12 to 0.25 m in plan where the curve turns steeply). The stoop is an open stair whose foot alone touches grade, so the ground under it shows: it is laid as bare earth, since no lawn is kept in its shade. The front walk runs from the stoop's foot through the entrance pair to the public walk, 1.28 m wide between the gate piers, in two flags of the stoop's own stone standing 0.025 m over the lawn with an open joint between them, its centre darkened by the kit's front-walk `path_wear` (a swept, polished line: 0.9 at full wear, 0.975 at this age). The service walk is cinder down the side passage, from the side gate to the house's rear corner (u 0), between the boundary wall's north face and the house's south wall, beaten along its centre by the kit's service-walk `path_wear` (0.78 at full wear, the K14 study's cinder; 0.91 at this age). Every tone is a grey multiplier on the vertices (`_TONE`), so each surface keeps its own colour; the bare strip is a surface, because earth beside turf is a change of material a grey multiplier cannot draw. **What is attested.** Where the yard can be: the 1911 Sanborn sheet 28's parcel lines and the house it draws, through the K11 boundary that reads them. Nothing about the yard itself. **What is invented.** All of it: that the front is a lawn, that the walk is stone flags and the passage cinder, the flags' size and height, the earth under the stoop, the cinder's and earth's colours, and the kit's widths and wear (themselves reconstructed, L-k14-condition-kit-2324). None of it was read off a picture of 1808 Prairie. **What would replace it.** A dated photograph of 1808's front, or of any Prairie Avenue front yard of the 1890s, replaces the surfaces it shows; the kit's own numbers are replaced where its liberty says."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.yard`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2360 (piece 3 of T-2325)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k14-1808-yard-2360/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-11 (T-2360)."
         }
       ]
     },
