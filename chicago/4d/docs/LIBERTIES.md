@@ -24647,6 +24647,7 @@ a photograph of the roof.
 **Review:** `docs/RESEARCH/k10-1808-dormer-face-2326/README.md`.
 **Recorded:** 2026-10-11 (T-2326).
 
+
 ### L-k14-1808-walls-2358 — 1808 Prairie's walls weathered by the K14 kit at 18 years, with its outlet trails and its wall reach reconstructed
 
 **Decision:** 1808 Prairie is the first house to take its condition from the K14 kit (T-2324). Its
@@ -24675,3 +24676,31 @@ staining replaces this property's values; the house's completion year from a per
 **Ticket:** T-2358 (piece 1 of T-2325, K14).
 **Review:** `docs/RESEARCH/k14-1808-walls-2358/README.md`.
 **Recorded:** 2026-10-11 (T-2358).
+
+### L-glessner-cupola-2207 — The Glessner stable cupola as a two-tier dovecote, and the loft door and hoist iron, at counts and sizes of ours
+
+**Decision:** the stable's ridge cupola is no longer a slatted louvre box (T-2207, Glessner exterior
+audit GA-08). HABS photograph 1 (1963), read at five times on the committed web copy, shows its vent
+band as two tiers of round-headed pigeon holes, each tier standing on a projecting landing board,
+under a pyramid whose foot kicks out over a deep eave; photograph 17 (1965) shows the same flared
+pyramid from the north-east. The cupola is built that way, inside the envelope T-1999/T-2231 set:
+its plan, centre, body top and apex do not move. On the north gable the loft door's two board
+leaves stand open inward against the reveals, and an iron eye and hook hang under the nose of the
+hoist stone.
+**What is invented.** Three holes a face a tier, each 0.75 ft wide with a round head; 0.3 ft landing
+boards; a 1.25 ft eave, dropped 0.1 ft below the body top, whose lowest 0.75 ft eases to a 0.55
+pitch. The loft leaves (six boards a leaf, 0.13 ft stock, two strap hinges each), that they open
+inward, that they stand open, and the eye and hook, 0.9 ft under the stone. The photograph gives the
+form and the proportions these were checked against; it gives none of them as a measurement.
+**What is inferred, not invented.** That the 1963 dovecote stood in 1904: nothing read records work
+on the cupola, and the 1946 alteration list (HABS data p. 2) does not name it. That a door hung in
+the loft opening: the same list records it "closed up" in 1946. The 1946 boarding with its vent,
+which photographs 1 and 15 show, is not carried back.
+**Ruled out, not built.** A hay hood and a timber hoist beam: no source shows either, and photograph
+1's long shadow across the gable is the hoist stone's own in a grazing evening sun.
+**How to resolve:** the c. 1887 Cornell (A. D. White) view of the stable end, cited by the audit as
+#104 and link-only here, would date the dovecote and may show the loft door; a measured drawing of
+the cupola would replace every number above.
+**Covers:** `glessner_house.as_built_1887.form.turret_stable`, `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2207 (Glessner exterior audit GA-08).
+**Recorded:** 2026-10-11 (T-2207).

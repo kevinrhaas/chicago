@@ -52,12 +52,39 @@ def loft_opening(b,o,detail):
     from archetypes import masonry_house_v4_detail as v
     a,c,z0,z1=o['u0'],o['u1'],o['z0'],o['z1'];w=detail['loft_frame']
     # A loft aperture, not a domestic sash with a meeting rail and linen shade.
+    leaves=detail.get('loft_leaves')
+    depth=-1.10
+    if leaves:
+        span=(c-a-2*w)/2
+        depth=min(depth,-.30-span-.08)
     v.interior_recess(b,[(a+w,z0+w),(c-w,z0+w),(c-w,z1-w),(a+w,z1-w)],
         lambda u,z,off:v.legacy._plane_point(o,u,z,off),v.legacy._plane_dir(o),
-        front=-.29,back=-1.10)
+        front=-.29,back=depth)
     for l,r,bot,top in [(a,a+w,z0,z1),(c-w,c,z0,z1),
                         (a,c,z0,z0+w),(a,c,z1-w,z1)]:
         v.slab(b,o,l,r,bot,top,-.30,-.18,1.0,v.WOOD)
+    if leaves:
+        loft_leaves(b,o,a+w,c-w,z0+w,z1-w,span,leaves)
+
+
+def loft_leaves(b,o,a,c,lo,hi,span,d):
+    """The loft door's two board leaves, hung on the frame and standing open
+    inward against the reveals (T-2207). HABS data p. 2 has the loft door
+    'closed up' in 1946, so a door hung here before; its leaves, boards and
+    strap hinges are reconstructed (docs/LIBERTIES.md L-glessner-cupola-2207).
+    """
+    from archetypes import masonry_house_v4_detail as v
+    conf=1.0;t=d['thickness'];count=d['boards_per_leaf'];gap=.012
+    top,bottom=hi-.015,lo+.015
+    for side in (0,1):
+        # Each leaf lies square to the wall, a hand's breadth off the reveal.
+        u0,u1=(a+gap,a+gap+t) if side==0 else (c-gap-t,c-gap)
+        for i in range(count):
+            near=-.30-span*i/count-.0025;far=-.30-span*(i+1)/count+.0025
+            v.slab(b,o,u0,u1,bottom,top,far,near,conf,v.WOOD)
+        face=(u1+.006,u1+.014) if side==0 else (u0-.014,u0-.006)
+        for z in (bottom+.22,top-.22):
+            v.slab(b,o,face[0],face[1],z-.03,z+.03,-.30-span*.72,-.31,conf,v.IRON)
 
 
 def rough_stone(b,plane,poly,seed):
@@ -97,6 +124,19 @@ def stable_fabric(b,p):
     b.raw(front,1.0,v.GRANITE,v.legacy._plane_dir(pl))
     for i in range(4):
         j=(i+1)%4;b.raw([back[i],back[j],front[j],front[i]],1.0,v.GRANITE)
+    drop=h.get('hook_drop')
+    if drop:
+        # An iron eye under the corbel's nose and the hook a tackle hung from
+        # (T-2207); the stone is HABS's, the ironwork reconstructed.
+        mid=(a+c)/2;nose=depth-.10;under=lo+(hi-lo)*.40
+        v.slab(b,pl,mid-.012,mid+.012,under-drop*.55,under,nose-.012,nose+.012,1.0,v.IRON)
+        # A square loop of bar: the rails end inside the stiles and the stiles
+        # inside the rails, so no two bar faces lie in one plane.
+        zt,zb=under-drop*.55,under-drop
+        for z in (zt,zb):
+            v.slab(b,pl,mid-.065,mid+.065,z-.011,z+.011,nose-.008,nose+.008,1.0,v.IRON)
+        for u in (mid-.06,mid+.06):
+            v.slab(b,pl,u-.011,u+.011,zb-.008,zt+.008,nose-.011,nose+.011,1.0,v.IRON)
 
 
 def porch_cheek(b,d,landing):
