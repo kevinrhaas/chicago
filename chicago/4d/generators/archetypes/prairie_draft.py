@@ -472,8 +472,11 @@ def build(params, structure_id: str):
             centres = _spread(a, b, n, 0.5 if role != "main" else 0.7)
             door_s = None
             if front and role == "main":
-                door_s = centres[-1] if e.get("entrance", "north") == "north" else (
-                    centres[0] if e.get("entrance") == "south" else centres[len(centres) // 2])
+                # high v faces north unless the record says otherwise (the east side's lots)
+                hi = e.get("v_toward", "north")
+                lo = {"north": "south", "south": "north"}[hi]
+                door_s = centres[-1] if e.get("entrance", "north") == hi else (
+                    centres[0] if e.get("entrance") == lo else centres[len(centres) // 2])
             if not is_house and side == "u0":
                 # the alley face: a carriage door in the middle, a loft door above it
                 cs = (a + b) / 2
@@ -536,25 +539,30 @@ def build(params, structure_id: str):
         if kind == "corner_tower":
             r = float(feat.get("radius_m", 1.9))
             cu, cv = feat["at"]
-            ring = [(cu + r * math.cos(math.radians(22.5 + 45 * k)), cv + r * math.sin(math.radians(22.5 + 45 * k)))
-                    for k in range(8)]
+            # 8 sides under a cone (the default), or 4 under a pyramid: a square tower (T-2330)
+            ns = int(feat.get("sides", 8))
+            half, step = 180 / ns, 360 / ns
+            ring = [(cu + r * math.cos(math.radians(half + step * k)), cv + r * math.sin(math.radians(half + step * k)))
+                    for k in range(ns)]
             y1 = main_eave + float(feat.get("above_eave_m", 2.8))
             prism(m, front_mat, ring, 0.0, y1)
-            prism(m, "cornice", [(cu + (r + 0.25) * math.cos(math.radians(22.5 + 45 * k)),
-                                  cv + (r + 0.25) * math.sin(math.radians(22.5 + 45 * k))) for k in range(8)],
+            prism(m, "cornice", [(cu + (r + 0.25) * math.cos(math.radians(half + step * k)),
+                                  cv + (r + 0.25) * math.sin(math.radians(half + step * k))) for k in range(ns)],
                   y1 - 0.35, y1)
-            cone(m, "roof", [(cu + (r + 0.3) * math.cos(math.radians(11.25 + 22.5 * k)),
-                              cv + (r + 0.3) * math.sin(math.radians(11.25 + 22.5 * k))) for k in range(16)],
-                 y1, y1 + float(feat.get("cap_m", 5.5)))
+            cap_ring = ([(cu + (r + 0.3) * math.cos(math.radians(11.25 + 22.5 * k)),
+                          cv + (r + 0.3) * math.sin(math.radians(11.25 + 22.5 * k))) for k in range(16)] if ns == 8 else
+                        [(cu + (r + 0.3) * math.cos(math.radians(half + step * k)),
+                          cv + (r + 0.3) * math.sin(math.radians(half + step * k))) for k in range(ns)])
+            cone(m, "roof", cap_ring, y1, y1 + float(feat.get("cap_m", 5.5)))
             m.box("cornice", cu - 0.06, cu + 0.06, cv - 0.06, cv + 0.06, y1 + float(feat.get("cap_m", 5.5)) - 0.2,
                   y1 + float(feat.get("cap_m", 5.5)) + 0.9)
             # sash on the three faces that look out over the street and the side
             for k in range(int(params.stories) + 1):
                 base = pf + sum(hs[:k]) if k < len(hs) else main_eave + 0.4
                 for j in (0, 1, 7):
-                    ang = math.radians(45 * j)
+                    ang = math.radians(step * (j if j < 2 else ns - 1))
                     nu, nv = math.cos(ang), math.sin(ang)
-                    du_ = r * math.cos(math.radians(22.5))
+                    du_ = r * math.cos(math.radians(half))
                     gu, gv = cu + nu * (du_ + 0.02), cv + nv * (du_ + 0.02)
                     tu, tv = -nv, nu
                     w2 = 0.42
