@@ -388,7 +388,9 @@ const COVERAGE = [
   ['data/traces/prairie_1904_footprints_s28.json', NONE, 'sheet 28 1904 footprints — built into no scene yet: trace_prairie_1904_footprints.py --check'],
   // T-2328. Sheet 20's are the same reading for T-2160's draft, built into no scene yet either.
   ['data/traces/prairie_1904_footprints_s20.json', NONE, 'sheet 20 1904 footprints — built into no scene yet: trace_prairie_1904_footprints.py --check'],
-  ['tools/trace_prairie_1904_footprints.py', NONE, 'the sheet 28 and 20 footprint tracer — read by no scene build yet: its own --check'],
+  // T-2340. Sheet 35's, for T-2161's draft of the 20th-22nd block, built into no scene yet.
+  ['data/traces/prairie_1904_footprints_s35.json', NONE, 'sheet 35 1904 footprints — built into no scene yet: trace_prairie_1904_footprints.py --check'],
+  ['tools/trace_prairie_1904_footprints.py', NONE, 'the sheet 28, 20 and 35 footprint tracer — read by no scene build yet: its own --check'],
   ['data/traces/README.md', NONE, 'prose — the index of the traces; publish.sh mirrors nothing under data/traces/'],
   ['data/town_census.json', [12], 'the two ladders in Evidence → City'],
   ['data/render/town_completion_1835.json', [12], 'the completion row in Evidence → City'],
