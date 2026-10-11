@@ -338,6 +338,19 @@
       ]
     },
     {
+      "why": "THE DISTRICT DRAFT'S RECORDS (T-2329): one prairie_draft structure record per building on every Prairie Avenue block side data/components/prairie_1904/draft_prairie_1904.json names, written from the sheet footprints the step above traces, the authored sheet census and the T-1837 register rows. It reads the footprints, so it follows that step.",
+      "command": [
+        "python3",
+        "tools/draft_prairie_1904.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/draft_prairie_1904.py",
+        "--check"
+      ]
+    },
+    {
       "why": "A READER OF COMMITTED READINGS (T-1251): writes only the derived fields of the e1871_postfire terrain spec, from data/terrain/e1871_grade_readings.json, the committed 1835 heightfield and the shoreline the step above writes, so it follows that step.",
       "command": [
         "python3",

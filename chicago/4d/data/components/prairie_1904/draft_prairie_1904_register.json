@@ -1,0 +1,258 @@
+{
+  "_doc": "The T-1837 frontage-register rows the district draft reads, copied from the tickets repo's evidence/T-1837-prairie-1904-architectural-study/frontage-register.csv by tools/draft_prairie_1904.py so the gate can re-derive the drafts without that checkout.",
+  "rows": {
+    "frontage-28-036": {
+      "frontage_id": "frontage-28-036",
+      "address": "1800",
+      "side": "west",
+      "sheet": "28",
+      "raw_story_notation": "2B",
+      "map_material": "stone",
+      "family": "Existing Glessner benchmark",
+      "front_tickets": "existing Glessner; no new build",
+      "rear_ticket": "existing Glessner stable"
+    },
+    "frontage-28-037": {
+      "frontage_id": "frontage-28-037",
+      "address": "1808",
+      "side": "west",
+      "sheet": "28",
+      "raw_story_notation": "3B; rear2B",
+      "map_material": "brick with stone front",
+      "family": "Keith/Field Romanesque-classical stone front",
+      "front_tickets": "T-1882, T-1883",
+      "rear_ticket": "T-1935"
+    },
+    "frontage-28-038": {
+      "frontage_id": "frontage-28-038",
+      "address": "1812",
+      "side": "west",
+      "sheet": "28",
+      "raw_story_notation": "3B",
+      "map_material": "brick",
+      "family": "Wheeler Dutch/Flemish gable rowhouse",
+      "front_tickets": "T-1884, T-1885",
+      "rear_ticket": "T-1935"
+    },
+    "frontage-28-039": {
+      "frontage_id": "frontage-28-039",
+      "address": "1816",
+      "side": "west",
+      "sheet": "28",
+      "raw_story_notation": "3S.B.; rear2B",
+      "map_material": "brick",
+      "family": "Henderson Second Empire",
+      "front_tickets": "T-1886",
+      "rear_ticket": "T-1935"
+    },
+    "frontage-28-040": {
+      "frontage_id": "frontage-28-040",
+      "address": "1824",
+      "side": "west",
+      "sheet": "28",
+      "raw_story_notation": "2½B; rear2B",
+      "map_material": "brick with stone front",
+      "family": "Pomeroy/Marsh altered stone-front villa",
+      "front_tickets": "T-1887",
+      "rear_ticket": "T-1935"
+    },
+    "frontage-28-041": {
+      "frontage_id": "frontage-28-041",
+      "address": "1828",
+      "side": "west",
+      "sheet": "28",
+      "raw_story_notation": "3B; rear2B",
+      "map_material": "brick with stone front",
+      "family": "Stone-front masonry",
+      "front_tickets": "T-1887",
+      "rear_ticket": "T-1935"
+    },
+    "frontage-28-042": {
+      "frontage_id": "frontage-28-042",
+      "address": "1834",
+      "side": "west",
+      "sheet": "28",
+      "raw_story_notation": "3S.B.",
+      "map_material": "brick with stone front",
+      "family": "Jones villa with mansard addition",
+      "front_tickets": "T-1888",
+      "rear_ticket": "T-1935"
+    },
+    "frontage-28-043": {
+      "frontage_id": "frontage-28-043",
+      "address": "1900",
+      "side": "west",
+      "sheet": "28",
+      "raw_story_notation": "3B; rear1B",
+      "map_material": "brick with stone front",
+      "family": "Elbridge Keith Second Empire",
+      "front_tickets": "T-1897",
+      "rear_ticket": "T-1935"
+    },
+    "frontage-28-044": {
+      "frontage_id": "frontage-28-044",
+      "address": "1906",
+      "side": "west",
+      "sheet": "28",
+      "raw_story_notation": "3B",
+      "map_material": "brick with stone front",
+      "family": "Edson Keith Italianate, attribution uncertain",
+      "front_tickets": "T-1898",
+      "rear_ticket": "T-1935"
+    },
+    "frontage-28-045": {
+      "frontage_id": "frontage-28-045",
+      "address": "1908",
+      "side": "west",
+      "sheet": "28",
+      "raw_story_notation": "2½B; rear1B/2B",
+      "map_material": "brick with stone front",
+      "family": "Stone-front masonry",
+      "front_tickets": "T-1898",
+      "rear_ticket": "T-1935"
+    },
+    "frontage-28-046": {
+      "frontage_id": "frontage-28-046",
+      "address": "1912",
+      "side": "west",
+      "sheet": "28",
+      "raw_story_notation": "2½B; rear3B",
+      "map_material": "stone with brick rear",
+      "family": "Moulton/Lowden Chateauesque",
+      "front_tickets": "T-1899, T-1900",
+      "rear_ticket": "T-1935"
+    },
+    "frontage-28-047": {
+      "frontage_id": "frontage-28-047",
+      "address": "1916 (1930)",
+      "side": "west",
+      "sheet": "28",
+      "raw_story_notation": "2½S.B.; bay4B; rear2B",
+      "map_material": "brick",
+      "family": "Identity conflict beside Allerton",
+      "front_tickets": "T-1901, T-1902",
+      "rear_ticket": "T-1935"
+    },
+    "frontage-28-048": {
+      "frontage_id": "frontage-28-048",
+      "address": "1936",
+      "side": "west",
+      "sheet": "28",
+      "raw_story_notation": "",
+      "map_material": "none",
+      "family": "Thompson/Allerton Italianate estate",
+      "front_tickets": "T-1901, T-1902",
+      "rear_ticket": "T-1935"
+    },
+    "frontage-28-049": {
+      "frontage_id": "frontage-28-049",
+      "address": "1801",
+      "side": "east",
+      "sheet": "28",
+      "raw_story_notation": "3B",
+      "map_material": "stone",
+      "family": "Kimball Chateauesque",
+      "front_tickets": "T-1889, T-1890",
+      "rear_ticket": "T-1936"
+    },
+    "frontage-28-050": {
+      "frontage_id": "frontage-28-050",
+      "address": "1811",
+      "side": "east",
+      "sheet": "28",
+      "raw_story_notation": "3B; section2B",
+      "map_material": "brick with stone front",
+      "family": "Coleman/Ames Romanesque",
+      "front_tickets": "T-1891, T-1892",
+      "rear_ticket": "T-1936"
+    },
+    "frontage-28-051": {
+      "frontage_id": "frontage-28-051",
+      "address": "1815",
+      "side": "east",
+      "sheet": "28",
+      "raw_story_notation": "3B",
+      "map_material": "stone",
+      "family": "Sears/Meeker stone mansion",
+      "front_tickets": "T-1893",
+      "rear_ticket": "T-1936"
+    },
+    "frontage-28-052": {
+      "frontage_id": "frontage-28-052",
+      "address": "1823",
+      "side": "east",
+      "sheet": "28",
+      "raw_story_notation": "3B; rear2B",
+      "map_material": "brick",
+      "family": "Dent masonry mansion",
+      "front_tickets": "T-1894",
+      "rear_ticket": "T-1936"
+    },
+    "frontage-28-053": {
+      "frontage_id": "frontage-28-053",
+      "address": "1827",
+      "side": "east",
+      "sheet": "28",
+      "raw_story_notation": "3B",
+      "map_material": "stone with brick rear",
+      "family": "Doane towered stone mansion",
+      "front_tickets": "T-1895, T-1896",
+      "rear_ticket": "T-1936"
+    },
+    "frontage-28-054": {
+      "frontage_id": "frontage-28-054",
+      "address": "1901",
+      "side": "east",
+      "sheet": "28",
+      "raw_story_notation": "3B",
+      "map_material": "stone with brick rear",
+      "family": "Ream, post-1887 reconstruction",
+      "front_tickets": "T-1903",
+      "rear_ticket": "T-1936"
+    },
+    "frontage-28-055": {
+      "frontage_id": "frontage-28-055",
+      "address": "1905",
+      "side": "east",
+      "sheet": "28",
+      "raw_story_notation": "3S.B.",
+      "map_material": "brick",
+      "family": "Field Sr. Second Empire",
+      "front_tickets": "T-1904, T-1905",
+      "rear_ticket": "T-1936"
+    },
+    "frontage-28-056": {
+      "frontage_id": "frontage-28-056",
+      "address": "1919",
+      "side": "east",
+      "sheet": "28",
+      "raw_story_notation": "2½S.B.",
+      "map_material": "brick",
+      "family": "Field Jr., post-1902 enlargement",
+      "front_tickets": "T-1906, T-1907",
+      "rear_ticket": "T-1936"
+    },
+    "frontage-28-057": {
+      "frontage_id": "frontage-28-057",
+      "address": "1923",
+      "side": "east",
+      "sheet": "28",
+      "raw_story_notation": "3S.B.",
+      "map_material": "brick",
+      "family": "Kellogg map-led masonry mansion",
+      "front_tickets": "T-1908",
+      "rear_ticket": "T-1936"
+    },
+    "frontage-28-058": {
+      "frontage_id": "frontage-28-058",
+      "address": "1945",
+      "side": "east",
+      "sheet": "28",
+      "raw_story_notation": "3S.B.; rear2B",
+      "map_material": "brick",
+      "family": "George Armour/Corwith corner mansion",
+      "front_tickets": "T-1908",
+      "rear_ticket": "T-1936"
+    }
+  }
+}
