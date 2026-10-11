@@ -1,0 +1,27 @@
+{
+ "id": "inland_architect_1888_02_keith_plate",
+ "type": "illustration",
+ "citation": "\"Residence for O. R. Keith, Chicago. Cobb & Frost, Architects.\" Photographic plate with the first-floor plan printed beneath it. The Inland Architect and News Record, vol. XI, no. 1 (February 1888), plate section.",
+ "date": "1888-02",
+ "describes_date": "c. 1887 (the photograph); the house as built in 1886-1887",
+ "repository": "Published in The Inland Architect and News Record; read from the Internet Archive's scan of the issue, item sim_inland-architect-and-news-record_1888-02_11_1, scan leaf n14 (3480 x 5356 px, greyscale). The issue's index lists the plate as 'Residence for O. R. Keith, Prairie avenue, near Chicago; Cobb & Frost, architects.'",
+ "url": "https://archive.org/details/sim_inland-architect-and-news-record_1888-02_11_1/page/n14",
+ "locator": "Scan leaf n14: the photograph of the street front (upper three-quarters of the leaf) and the first-floor plan beneath it (vestibule, hall, library, music room, conservatory, dining room, pantry). Read for the plan's fireplaces and for what the photograph shows above the parapet.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "The 1888 publication is public domain in the United States; the scan is the Internet Archive's of a serials-in-microfilm copy and carries no stated licence. check_required, as for the Glessner plate of the same issue (inland_architect_1888_02_glessner_exterior): cited in text, positions read from it as numbers, nothing traced or derived from the image as an asset, and the image is not committed.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Fetched 2026-10-11 from https://archive.org/download/sim_inland-architect-and-news-record_1888-02_11_1/page/n14.jpg into a scratch directory only and read at full resolution; the item's _djvu.txt was searched for 'Keith' to confirm the caption and the index entry.",
+ "note": "The plan is drawn with the street on the left and the round library bay at the top, which the photograph fixes as the south side (the bay stands south of the entrance loggia, as the T-1837 register also reads it). It draws three fireplaces, each set across a corner: the library's (south wall, against the music room's partition), the hall's (north wall, at the foot of the main stair) and the dining room's (on the rear range, against the pantry). The photograph shows the stone street front up to its pierced parapet with corner turrets; nothing is seen to rise above the parapet, and from the camera's position a stack several metres behind the front would stand below the parapet's line, so the photograph neither shows nor rules out the stacks.",
+ "what_it_supplies": [
+  "the first floor's room layout and the number and place of its fireplaces",
+  "the street front as photographed about 1887: the round south bay, the north entrance loggia with its columns and balustraded balcony, the pierced parapet"
+ ],
+ "what_it_does_not_supply": [
+  "the upper floors' plans: a fireplace above the first floor is inferred, not drawn",
+  "any chimney's height, size, cap or pots: none is visible above the parapet",
+  "dimensions: the plan carries no scale bar; it is read at the scale the house's recorded width gives it",
+  "colour"
+ ]
+}

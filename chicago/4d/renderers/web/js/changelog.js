@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 1688, ts: '2026-10-11T11:41:18.892Z', date: 'Oct 11, 2026, 6:41 AM CT', title: '1628 Prairie stands as a detailed three-storey brick house', kind: 'feature',
+    items: [
+      '1628 Prairie Avenue, the south half of a brick pair with 1626, is no longer a plain draft box: it is built from the brick frontage kit, with common-brick walls, stone-headed two-over-two sash and a high stone stoop and door at its south end.',
+      'Its blank north wall is the party wall it shares with 1626; a bracketed cornice runs under a low tin hip roof with two brick chimneys, copper gutters and downpipes.',
+      'Its plan, three storeys and place on the lot are read from the 1911 Sanborn map; every height, window, the roof and the trim are reconstructed, and the house\'s card says so.',
+      'The three-storey wing behind it is not standing for now; it returns once the kit can build a rear wing.',
+    ] },
+  { v: 1687, ts: '2026-10-11T11:29:12.843Z', date: 'Oct 11, 2026, 6:29 AM CT', title: '1808 Prairie\'s chimneys stand over the fireplaces of its 1888 plan', kind: 'improvement',
+    items: [
+      'In the 1904 town, 1808 Prairie Avenue\'s two chimneys moved from the ridge to the side walls, over the library and hall fireplaces drawn on the house\'s 1888 published plan.',
+      'Each is a brick stack with three dark flue openings, a stone cap, stepped flashing down the slate and a small saddle roof behind it to shed water.',
+      'Their height and form are reconstructed: the plate\'s photograph shows no chimney above the front parapet.',
+    ] },
+  { v: 1686, ts: '2026-10-11T10:39:17.282Z', date: 'Oct 11, 2026, 5:39 AM CT', title: '1620 Prairie, the Law house, gets arched windows and an iron fence', kind: 'feature',
+    items: [
+      'The brick Law house at 1620 Prairie is no longer a draft: brick on every wall, built from the Prairie Avenue kit across its full 1886 front.',
+      'Every window now stands under a brick arch, the arched windows the house is remembered for.',
+      'A canted bay rises two storeys on the north half of the front, beside a high stoop to the door.',
+      'A scroll-band iron fence and gates close its front yard, with a low brick wall along the south lot line.',
+      'Its proportions and trim are reconstructed from the 1886 atlas outline, and its card says so.',
+    ] },
   { v: 1685, ts: '2026-10-11T09:38:02.502Z', date: 'Oct 11, 2026, 4:38 AM CT', title: '1616 Prairie stands as a detailed brick house', kind: 'feature',
     items: [
       '1616 Prairie Avenue\'s main body is no longer a plain draft box: it is built from the brick frontage kit, with common-brick walls, stone-headed two-over-two sash, a high stone stoop and door on the north half, and a bracketed cornice.',

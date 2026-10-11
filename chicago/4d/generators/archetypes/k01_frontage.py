@@ -77,6 +77,7 @@ the contract's measure refuses.
 from __future__ import annotations
 
 import hashlib
+import itertools
 import json
 import math
 import random
@@ -183,6 +184,10 @@ MATERIALS.update({
     "bay_copper": {"color": (0.37, 0.52, 0.45), "roughness": 0.45, "metallic": 0.35},
     "bay_tin": {"color": (0.30, 0.22, 0.18), "roughness": 0.7},
 })
+# T-2313: a K15 stack's soot band (k15_chimneys.json `soot`): the K03 brick darkened, so
+# its courses and texture run on through the band; and the clay pot, should a source show one
+MATERIALS["chimney_soot"] = dict(k03_brick.MATERIALS["brick"], color=(0.48, 0.40, 0.37))
+MATERIALS["chimney_pot"] = {"color": (0.66, 0.36, 0.22), "roughness": 0.8}
 # T-2319: the K11 boundary wall's brick. Its own slot for the bays' reason: "brick" is an
 # envelope material, and the contract reads grade off its lowest vertex, so a boundary wall
 # sunk 0.10 m in it would move the house's origin and stretch its envelope to the street.
@@ -542,11 +547,13 @@ class Assembly:
         else:
             # T-2304: the door is a K07 entrance and its stoop, built about the threshold
             self.enter(op, frame, body_mat, seed, conf)
-        if MATERIALS[body_mat].get("courses") and not door and op.wall != "k01.wall.street_front":
+        brick_head = op.wall != "k01.wall.street_front" or p.street_front_trim.get("brick_heads") == "segmental"
+        if MATERIALS[body_mat].get("courses") and not door and brick_head:
             # T-2291: a brick wall's opening takes a brick head, not the front's stone
             # lintel — two rowlock rings on a segmental arch, or a soldier flat head
             # where the eave leaves no room for the rings and their rise. A brick STREET
-            # front (T-2341) keeps the front's stone dressings: its K09 head or the lintel
+            # front (T-2341) keeps the front's stone dressings: its K09 head or the lintel,
+            # unless its record arches them in the brick too (T-1861, `brick_heads`)
             crown = y1 + k03_brick.RISE_TO_SPAN * op.width_m + k03_brick.RINGS * (k03_brick.BED + k03_brick.JOINT)
             if crown < self.soffit_m - k03_brick.COURSE:
                 k03_brick.segmental_head(self, seed, frame, s0, s1, y1, conf)
@@ -1201,7 +1208,10 @@ class Assembly:
                                 lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
             self.dormer_geom = {"xf": xf, "ys": ys, "yde": yde, "dhs": dhs, "dhe": dhe, "ridge": dry,
                                 "zs": zc + wd / 2, "zn": zc - wd / 2}
+        # T-2302's plain stacks, for a record that names no K15 variant (1612 Goodman)
         for c in p.chimneys:
+            if "k15" in c:
+                continue
             sx, sz = c["plan_m"]
             u, z = c["u_m"], -c["v_m"]
             top = c["top_m"]
@@ -1215,11 +1225,33 @@ class Assembly:
                                       (u + sx / 2 + cp, top), (u - sx / 2 - cp, top)],
                                      z - sz / 2 - cp, z + sz / 2 + cp, P, "coping", "coping", "coping"))
         polys = k5.union_all(k5._snap(solids))
+        # T-2313: each stack from the K15 kit, built in this roof as the kit builds its
+        # specimen's (k15_chimneys.build_variant): its parts joined and its flues cut on
+        # their own, then joined to the roof, so the shaft is cut where it passes through
+        # the slate, the flashing where it lies on it and the cricket where it meets it
+        self.stacks = []
+        k15s = [c for c in p.chimneys if "k15" in c]
+        if k15s:
+            from . import k15_chimneys as k15
+            data = k15.load()
+
+            def cover(x, z):   # the hip's covering over a plan point (x = u, z = -v)
+                return E + tp * max(0.0, min(x, D - x, -z, W + z))
+            for c in k15s:
+                s = dict(c["k15"], x=c["u_m"], z=-c["v_m"])
+                parts, meta = k15.stack_solids(s, k15.Frame(s, cover), data, tp)
+                parts = {key: (k5._snap(x) if isinstance(x, list) else x) for key, x in parts.items()}
+                polys = k5.union(polys, k15.join_stack(parts))
+                self.stacks.append(dict(meta, id=c["id"], centre=[c["u_m"], c["v_m"]]))
         if recess is not None:
             polys = k5.subtract(polys, k5._snap([recess])[0])
-        pts, tris = k5.close(polys)
+        pts, tris = _weld_shell(*k5.close(polys))
         self.roof_shell = (pts, tris)
-        self.roof_graph = k5.graph(pts, tris, kit)
+        # the graph reads a stack's every part as `chimney`, which K05 already classes as
+        # an abutment: the K15 flashing and cricket ARE what dresses the covering there
+        self.roof_graph = k5.graph(pts, tris if not k15s else
+                                   [t[:3] + (("chimney" if t[3] in self.STACK else t[3]),) + t[4:] for t in tris],
+                                   kit)
         self._emit_shell(pts, tris, seed, conf)
         if d:
             self.dormer_sash(seed)
@@ -1233,6 +1265,14 @@ class Assembly:
     SHELL = {"covering": "slate_covering", "cheek": "slate_covering", "fascia": "fascia",
              "soffit": "fascia", "verge": "fascia", "return": "fascia", "dormer_face": "dormer_stone",
              "reveal": "dormer_stone", "backing": "backing", "chimney": "brick", "coping": "limestone_trim"}
+    # T-2313: the K15 stack's roles. Shaft and courses wear the side walls' K03 brick, the
+    # cap the front's limestone trim, the flues the dark of a window's backing, the
+    # flashing and cricket the roof's own K04 flashing (`_flashing`); soot is its own slot
+    STACK = {"shaft_brick": "brick", "corbel_brick": "brick", "panel": "brick", "soot": "chimney_soot",
+             "shaft_stone": "rough_stone_trim", "corbel_stone": "rough_stone_trim",
+             "cap_stone": "limestone_trim", "band": "limestone_trim", "dentil": "limestone_trim",
+             "cap_cement": "limestone_trim", "flue": "backing", "pot": "chimney_pot",
+             "flashing": None, "cricket": None}
     BOARD = ("wall", "base")   # the body under the roof: the walls' own business
     OPEN = ("window",)         # the sash recess's back: the K06 opening set in it closes it
 
@@ -1252,9 +1292,12 @@ class Assembly:
         for a, b, c, role, n in tris:
             if role in self.BOARD or role in self.OPEN:
                 continue
-            if role not in self.SHELL:
+            if role in self.STACK:
+                mat = self.STACK[role] or self._flashing()
+            elif role not in self.SHELL:
                 raise ValueError(f"the K05 union left a {role!r} face on the roof")
-            mat = self.SHELL[role]
+            else:
+                mat = self.SHELL[role]
             tri = [pts[a], pts[b], pts[c]]
             if role == "covering":
                 key = tuple(round(x, 5) for x in n) + (round(_dot(n, pts[a]), 4),)
@@ -1595,6 +1638,50 @@ class Assembly:
                         self.basis(mat, A_[j], d, _unit(_sub(A_[j + 1], A_[j])), seed), conf)
         if cap_end:
             self.prim("backing").face(rings[-1][:-1], dirs[-1], self.basis("backing", path[-1], ref, Y, seed), conf)
+
+
+# T-2313: what the joined roof is welded on before it is emitted. A K15 apron's planes, 6 and
+# 10 mm off a stack's face, cut contour lines across the whole slope, and where they cross a
+# hip the union leaves points a millimetre or so apart. The contract reads every tier on a
+# 1 mm grid (k01_contract.json measures.quantum_m), and two points can share one of its cells
+# only if they lie within its diagonal (sqrt(3) mm); the web tier's 16-bit positions move a
+# point by a fraction of a millimetre more. So the shell is welded at 2 mm, which no part of
+# the roof is built finer than (the thinnest is K15's 6 mm flashing).
+SHELL_WELD_M = 0.002
+
+
+def _weld_shell(pts, tris):
+    """Merge the shell's points that lie within SHELL_WELD_M of each other (into the lowest
+    index) and drop the triangles that collapse: the edge collapse a 1 mm quantum would
+    otherwise read as a degenerate face. The roof gate (check_roof_kit.py) proves the
+    result still closed and one shell."""
+    cell = {}
+    for i, p in enumerate(pts):
+        cell.setdefault(tuple(math.floor(c / SHELL_WELD_M) for c in p), []).append(i)
+    root = list(range(len(pts)))
+
+    def find(i):
+        while root[i] != i:
+            root[i] = root[root[i]]
+            i = root[i]
+        return i
+    for key, ids in cell.items():
+        near = [j for d in itertools.product((-1, 0, 1), repeat=3)
+                for j in cell.get((key[0] + d[0], key[1] + d[1], key[2] + d[2]), ())]
+        for i in ids:
+            for j in near:
+                if j < i and math.dist(pts[i], pts[j]) <= SHELL_WELD_M:
+                    a, b = find(i), find(j)
+                    if a != b:
+                        root[max(a, b)] = min(a, b)
+    if all(find(i) == i for i in range(len(pts))):
+        return pts, tris
+    out = []
+    for a, b, c, role, n in tris:
+        a, b, c = find(a), find(b), find(c)
+        if len({a, b, c}) == 3:
+            out.append((a, b, c, role, n))
+    return pts, out
 
 
 def _pieces(s0, s1, gaps):

@@ -160,8 +160,8 @@ CONSUMED = frozenset({
     "eave_overhang_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m",
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
     "basement_lights", "roof_covering", "dormer", "rainwater", "window_kit", "service_wall_brick",
-    "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "stone_front",
-    "boundary", "north_bays", "rear_wings",
+    "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
+    "stone_front", "boundary", "north_bays", "rear_wings",
 })
 
 WALLS = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south")
@@ -657,14 +657,21 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError(f"entrance_kit: K07 solves {pf} m in {k07_risers} risers and the K01 stair in "
                          f"{risers}; one stoop cannot be both")
     door_kit = {"variant": ev["id"], "front_yard_m": yard}
-    # T-2302: chimney stacks, each a closed prism the K05 union joins into the roof, so
-    # its penetration through the covering is cut where the two really meet
+    # T-2313: chimney stacks from the K15 kit (data/components/prairie_1904/k15_chimneys.json),
+    # each built by k15_chimneys.stack_solids in the house's own roof and joined into the K05
+    # roof solid. The FORM (kit variant, flues, top) is `chimneys`; WHERE each stands is
+    # `chimney_positions`, a separate attribute because it rests on a source (the plan's
+    # fireplaces) and the form does not.
     chimneys = []
     ch = val("chimneys")
-    if ch:
+    tp = math.tan(math.radians(pitch))
+    if ch and "plan_m" in ch:
+        # T-2302's plain stacks, kept for a record that names no K15 variant (1612 Goodman,
+        # T-2344): each a closed prism the K05 union joins into the roof, so its penetration
+        # through the covering is cut where the two really meet
         sx, sz = (float(v) for v in ch["plan_m"])
         above, cap_p, cap_d = float(ch["top_above_ridge_m"]), float(ch["cap_proud_m"]), float(ch["cap_depth_m"])
-        ridge = (round(pf + sum(heights), 4) + width / 2 * math.tan(math.radians(pitch)))
+        ridge = (round(pf + sum(heights), 4) + width / 2 * tp)
         for st_ in ch["stacks"]:
             u, v = float(st_["u_m"]), float(st_["v_m"])
             if not (sx / 2 + 0.3 <= u <= depth - sx / 2 - 0.3 and sz / 2 + 0.3 <= v <= width - sz / 2 - 0.3):
@@ -673,14 +680,55 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 raise ParamError("a chimney stops less than 0.6 m above the ridge")
             chimneys.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": round(ridge + above, 4),
                              "cap_proud_m": cap_p, "cap_depth_m": cap_d})
-        if dormer:
-            tp = math.tan(math.radians(pitch))
-            d_ridge = (dormer["face_setback_m"] * tp + dormer["face_height_m"]
-                       + dormer["width_m"] / 2 * math.tan(math.radians(dormer["pitch_deg"])))
-            back = depth - d_ridge / tp - 0.5   # where k01_frontage starts the dormer's body
-            for c in chimneys:
-                if abs(c["v_m"] - width / 2) < dormer["width_m"] / 2 + 0.5 + sz / 2 and c["u_m"] + sx / 2 > back - 0.3:
-                    raise ParamError("a chimney stands in the dormer's body")
+    elif ch:
+        from . import k15_chimneys as k15
+        k15kit = k15.load()
+        k15at = {c["stack"]: c for c in val("chimney_positions", [])}
+        k15E = round(pf + sum(heights), 4)
+
+        def cover(u, v):   # the hip's covering over a plan point, at the wall line E
+            return k15E + tp * max(0.0, min(u, depth - u, v, width - v))
+        k15dr = k15kit["draught"]
+        for st_ in ch["stacks"]:
+            sid = st_["id"]
+            if sid not in k15at:
+                raise ParamError(f"chimney {sid!r} has no entry in chimney_positions")
+            u, v = float(k15at[sid]["u_m"]), float(k15at[sid]["v_m"])
+            k15var = next((x for x in k15kit["variants"] if x["id"] == st_["from"]), None)
+            if k15var is None or len(k15var["stacks"]) != 1:
+                raise ParamError(f"chimney {sid!r}: {st_['from']!r} is not a one-stack K15 variant")
+            spec = {k: v_ for k, v_ in k15var["stacks"][0].items() if k not in ("x", "z")}
+            if not st_.get("pots", True):
+                spec["flues"] = [{"at": fl["at"]} for fl in spec["flues"]]
+            spec["top_m"] = float(st_["top_m"])
+            spec["across"] = "x" if st_["width_along"] == "u" else "z"
+            # plan_m is (along u, along v), whichever way the stack is turned
+            sx, sz = ((spec["width_m"], spec["depth_m"]) if spec["across"] == "x"
+                      else (spec["depth_m"], spec["width_m"]))
+            if not (sx / 2 + 0.3 <= u <= depth - sx / 2 - 0.3 and sz / 2 + 0.3 <= v <= width - sz / 2 - 0.3):
+                raise ParamError(f"chimney {sid!r} at ({u}, {v}) does not stand inside the footprint")
+            # K15's draught rule, on this roof: the top clears the covering within the
+            # radius by clear_m, and its own emergence by min_above_own_m
+            r, k15n = k15dr["radius_m"], 24
+            near = max(cover(u + r * (2 * i / k15n - 1), v + r * (2 * j / k15n - 1))
+                       for i in range(k15n + 1) for j in range(k15n + 1))
+            own = max(cover(u + a * sx / 2, v + b * sz / 2) for a in (-1, 1) for b in (-1, 1))
+            need = max(near + k15dr["clear_m"], own + k15dr["min_above_own_m"])
+            if spec["top_m"] < need - 1e-9:
+                raise ParamError(f"chimney {sid!r} tops at {spec['top_m']} m; K15's draught rule asks "
+                                 f"{need:.3f} m (covering {near:.3f} m within {r} m)")
+            k15cap = spec["cap"]
+            chimneys.append({"id": sid, "from": st_["from"], "u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": spec["top_m"],
+                             "cap_proud_m": k15cap["projection_m"], "cap_depth_m": k15cap["thickness_m"],
+                             "k15": spec})
+    if chimneys and dormer:
+        d_ridge = (dormer["face_setback_m"] * tp + dormer["face_height_m"]
+                   + dormer["width_m"] / 2 * math.tan(math.radians(dormer["pitch_deg"])))
+        back = depth - d_ridge / tp - 0.5   # where k01_frontage starts the dormer's body
+        for c in chimneys:
+            sx, sz = c["plan_m"]
+            if abs(c["v_m"] - width / 2) < dormer["width_m"] / 2 + 0.5 + sz / 2 and c["u_m"] + sx / 2 > back - 0.3:
+                raise ParamError("a chimney stands in the dormer's body")
 
     # T-2291: the brick walls wear a K03 panel the record names; k03_brick lays one
     from . import k03_brick
@@ -707,6 +755,16 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         stone["base_course_m"] = round(course, 5)
         stone["coping_top_m"] = round(top, 5)
 
+    # T-1861: a brick street front may lay its windows' heads in the brick, as its side and
+    # rear walls do (two rowlock rings on a segmental arch), instead of the stone lintel or
+    # K09 head `by_storey` names; the hole stays the K01 rectangle, so the sash stays flat
+    trim = dict(val("street_front_trim", {}) or {})
+    if trim.get("brick_heads") not in (None, "segmental"):
+        raise ParamError("street_front_trim.brick_heads builds 'segmental' alone")
+    if trim.get("brick_heads") and construction != "brick":
+        raise ParamError("street_front_trim.brick_heads arches the brick; a stone front is laid "
+                         "by its K02 stone_front")
+
     names = sorted(CONSUMED)
     params = K01FrontageParams(
         depth_m=depth, width_m=width, stories=stories, principal_floor_m=pf,
@@ -722,7 +780,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         basement_sill_m=bsill, openings=tuple(openings), service_wall_brick=panel,
         roof=k04, dormer=dormer, rainwater=rainwater, chimneys=tuple(chimneys),
         window_kit={k: kit[k] for k in sorted(kit)}, entrance_kit=door_kit, bays=bays,
-        street_front_trim=dict(val("street_front_trim", {}) or {}),
+        street_front_trim=trim,
         wall_head=dict(val("wall_head", {}) or {}),
         boundary=dict(val("boundary", {}) or {}),
         stone=stone, rear_wings=wings,
