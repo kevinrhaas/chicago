@@ -388,6 +388,11 @@ class Assembly:
                                      ("dress_stone", st["trim"], round(st["trim_roughness"] + 0.02, 3))):
                 self.fabric[slot] = fab
                 self.spec[slot] |= {"color": (1.0, 1.0, 1.0), "roughness": rough}
+            # T-2350: a bay laid in the front's own stone (`front_stone`) wears its K02 fabric
+            # too, a shade rougher so the web derivative keeps the bay's slot its own
+            if any(b["fabric"] == "front_stone" for b in params.bays):
+                self.fabric["bay_stone"] = st["fabric"]
+                self.spec["bay_stone"] |= {"color": (1.0, 1.0, 1.0), "roughness": round(st["fabric_roughness"] + 0.02, 3)}
         # T-2289: what each kit seats on a wall, as (s0, s1, y0, y1, kind) in that wall's
         # frame, keyed by the frame's origin: the coursed front dresses the stone under it
         self.footprints: dict[tuple, list] = {}
@@ -1594,6 +1599,7 @@ class Assembly:
         self.stacks = []
         self.roof_shell = (pts, tris)
         self.roof_graph = k5.graph(pts, tris, kit)
+        self.dressed = {"ridge": 0, "hip": 0, "valley": 0}   # a deck has no line for K04 to cap
         self.front_parapet_u = D - tw - 1e-6          # _emit_shell: the blocking course is the front's
         self._emit_shell(*self.k14_roof_rows(pts, tris), seed, conf)
         return yf

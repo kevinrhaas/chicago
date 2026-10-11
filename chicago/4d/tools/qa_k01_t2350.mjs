@@ -21,11 +21,11 @@ await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const browser=await chromium.launch({executablePath:process.env.PW_EXECUTABLE || undefined,args:['--no-sandbox','--enable-unsafe-swiftshader']});
 // [name, eye, target]: east, north, metres above the ground at the eye (the target's at its own)
 const STANDS=[
- ['front',[1405.2,-3059.3,1.7],[1369.7,-3059.3,5]],
- ['oblique-south',[1388.2,-3079.3,1.7],[1371.7,-3059.3,5]],
- ['oblique-north',[1388.2,-3041.3,1.7],[1371.7,-3059.3,5]],
- ['rear',[1351.2,-3066.1,1.7],[1366.2,-3058.8,5]],
- ['roof',[1399.2,-3033.3,34],[1370.2,-3059.3,6]],
+ ['front',[1405.2,-3059.3,1.7],[1369.7,-3059.3,6]],
+ ['oblique-south',[1401,-3081,1.7],[1370,-3059.3,6]],
+ ['oblique-north',[1401,-3037,1.7],[1370,-3059.3,6]],
+ ['rear',[1338,-3047,7],[1360,-3059,8]],
+ ['roof',[1396,-3029,30],[1366,-3059.3,11]],
 ];
 const PART=process.env.QA_PART||'';
 const RUN=PART==='a'?STANDS.slice(0,3):PART==='b'?STANDS.slice(3):STANDS;

@@ -365,7 +365,7 @@ def _k02(front: dict) -> dict:
     }
 
 
-BAY_FABRICS = ("stone", "brick")
+BAY_FABRICS = ("stone", "brick", "front_stone")   # T-2350: front_stone, the K02 front's own fabric
 BAY_PIER_M = 0.30          # masonry left between a bay's junction and its wall's corner
 
 
@@ -378,7 +378,7 @@ def _bay_span(plan: dict) -> tuple:
     raise ParamError(f"a K01 bay's plan is a polyline or a bow, not a {plan['kind']}")
 
 
-def _bays(entries, wall_len: dict, openings: list, structure_id: str):
+def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_stone: bool = False):
     """Resolve the record's `bays` against the K08 kit; drop the host openings each covers.
 
     A bay stands in front of its wall from grade to its own wall top, so every host
@@ -434,6 +434,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str):
                 raise ParamError(f"bays: {e['id']}'s junction at s {a:.3f}..{b:.3f} cuts the opening at "
                                  f"s {o.s_m} on {o.wall}")
             openings.remove(o)
+        if e.get("fabric") == "front_stone" and not front_stone:
+            raise ParamError(f"bays: {e['id']} is laid in the front's stone, and the record names no K02 stone_front")
         out.append({"id": e["id"], "wall": e["wall"], "s_m": s, "span_m": (round(a, 4), round(b, 4)),
                     "fabric": e.get("fabric", "stone"), "variant": v})
     return tuple(out)
@@ -922,7 +924,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
 
     bays = _bays(val("bays"), {"k01.wall.street_front": width, "k01.wall.rear_service": width,
                                "k01.wall.side.south": depth, "k01.wall.side.north": depth},
-                 openings, (record or {}).get("id", ""))
+                 openings, (record or {}).get("id", ""), bool(val("stone_front")))
 
     wings = _rear_wings(val("rear_wings"), depth, width, openings, cw,
                         opening["parameters"]["clear_height_m"]["range"], (record or {}).get("id", ""))
