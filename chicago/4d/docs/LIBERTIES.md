@@ -24553,3 +24553,32 @@ a photograph of the roof.
 **Ticket:** T-2326.
 **Review:** `docs/RESEARCH/k10-1808-dormer-face-2326/README.md`.
 **Recorded:** 2026-10-11 (T-2326).
+
+### L-k14-1808-walls-2358 — 1808 Prairie's walls weathered by the K14 kit at 18 years, with its outlet trails and its wall reach reconstructed
+
+**Decision:** 1808 Prairie is the first house to take its condition from the K14 kit (T-2324). Its
+record names the kit and a completion year, 1886, so on 1904-07-01 it has stood 18 years and every
+wall layer is at 0.45 of its full-age strength. That replaces the fixed K03 soot and damp the
+house wore since T-2291, which were the kit's 40-year values: the common-brick returns and rear
+come out lighter, and the rock-faced Lemont front, its dressed trim and its stone bay, which wore
+no condition before, now carry the same damp at the plinth and soot under the soffit. A trail
+hangs below each K06 sill, from the sill's own underside and across its full width with the horns.
+The walls are cut with a vertex row at each trail's head and foot and a column at its edges, so
+`_TONE` can carry it. Six things are this ticket's own. A gutter outlet's trail starts 0.15 m under
+the soffit, where the swan neck meets the wall, and runs down behind the pipe 0.03 m either side
+of it. A vertex weathers as the wall whose plane it is nearest, if it lies within 1.2 m in front
+of that wall or 1.0 m behind it, so a reveal, a sill or a bay weathers with its wall. Anything
+further off (the boundary wall, a stack over the roof) takes the height layers alone. The
+mortar, paint, roof, chimney-plume and ground layers are not applied here (T-2359, T-2360).
+**What is attested.** Nothing. The 1886 date is the T-1837 register's Cobb & Frost reading, carried
+as inferred on the record's documented range, and every layer value is the kit's
+(L-k14-condition-kit-2324).
+**What is invented.** The outlet trail's start and width, the reach that ties a vertex to a wall,
+and the choice to weather the stone front and the brick by one rule at one age.
+**What would replace it.** A dated photograph of 1808 Prairie's front or south wall, whose
+staining replaces this property's values; the house's completion year from a permit or the
+1888 plate deposited as a source.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.condition`
+**Ticket:** T-2358 (piece 1 of T-2325, K14).
+**Review:** `docs/RESEARCH/k14-1808-walls-2358/README.md`.
+**Recorded:** 2026-10-11 (T-2358).
