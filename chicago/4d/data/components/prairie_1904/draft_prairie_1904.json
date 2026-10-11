@@ -310,6 +310,176 @@
     "s20-1607-f": "1607-1611's four-storey loft is the 1911 replacement of the lot-6 frame pair (T-1840 census, backcast_1886): the draft stands 1609 and 1611 from Robinson 1886 instead (block 20's `plates`), and the loft not at all."
   },
   "frontages": {
+    "frontage-28-038": {
+      "slug": "wheeler_house",
+      "front_bays": 2,
+      "entrance": "south",
+      "attic_window": true,
+      "why": "The register's 'high shaped gable and attic grid window' on a 3B rowhouse: the shaped gable is the house's silhouette, so it is the one feature drawn; the oriel and balcony are T-1884's."
+    },
+    "frontage-28-039": {
+      "slug": "henderson_house",
+      "entrance": "north",
+      "why": "Second Empire: the register's mansard with dormers over the mapped rounded front bays, which the fitted plan carries as a projecting bay."
+    },
+    "frontage-28-040": {
+      "slug": "marsh_house",
+      "roof": "hip",
+      "pitch_deg": 35,
+      "attic_dormers": true,
+      "entrance": "south",
+      "why": "2½B on the map: two full storeys and a half in the roof, read as dormers in a hip behind the stone front."
+    },
+    "frontage-28-041": {
+      "slug": "house",
+      "entrance": "north",
+      "why": "A stone-front house with no named form: the stone-front family's flat roof behind a cornice."
+    },
+    "frontage-28-042": {
+      "slug": "jones_house",
+      "roof": "mansard",
+      "entrance": "north",
+      "why": "The register's 'recorded 1886 mansard storey': 3S.B. read as three storeys and the mansard over them."
+    },
+    "frontage-28-043": {
+      "slug": "elbridge_keith_house",
+      "entrance": "south",
+      "why": "Second Empire: slate mansard and dormers over the mapped corner bay."
+    },
+    "frontage-28-044": {
+      "slug": "edson_keith_house",
+      "entrance": "north",
+      "aka": [
+        "1908 Prairie Avenue"
+      ],
+      "why": "Italianate stone front with the register's 'deep bracketed cornice'; 1908 is attached and the census rules the two one building, so one record carries both fronts."
+    },
+    "frontage-28-045": {
+      "merged_into": "frontage-28-044"
+    },
+    "frontage-28-046": {
+      "slug": "moulton_lowden_house",
+      "attic_dormers": true,
+      "entrance": "north",
+      "features": [
+        {
+          "kind": "corner_tower",
+          "corner": "front_v0",
+          "radius_m": 2.0,
+          "above_eave_m": 3.0,
+          "cap_m": 6.0
+        }
+      ],
+      "why": "Chateauesque: the register's 'conical corner turret' and 'steep slate roof'; 2½B read as dormers in the steep hip."
+    },
+    "frontage-28-047": {
+      "slug": "house",
+      "attic_dormers": true,
+      "entrance": "north",
+      "features": [
+        {
+          "kind": "corner_tower",
+          "corner": "front_v1",
+          "radius_m": 1.8,
+          "above_eave_m": 3.4,
+          "cap_m": 4.5
+        }
+      ],
+      "why": "2½S.B. with a 'bay4B': a bay carried a storey above the house, drawn as a corner tower; its corner is not read off the sheet and is reconstructed."
+    },
+    "frontage-28-048": {
+      "skip": "The census rules 1936 an alias of 1918 with no footprint of its own (no dwelling drawn on the lot)."
+    },
+    "frontage-28-049": {
+      "slug": "kimball_house",
+      "stone": "stone",
+      "front_bays": 4,
+      "attic_dormers": true,
+      "entrance": "centre",
+      "features": [
+        {
+          "kind": "corner_tower",
+          "corner": "front_v0",
+          "radius_m": 2.4,
+          "above_eave_m": 3.6,
+          "cap_m": 6.5
+        }
+      ],
+      "why": "Chateauesque in Bedford stone, not brownstone: the register's 'tall hip/slate roofs, corner tower and conical cap, elaborate gabled dormers' and 'broad curved entry stair'. The tower is drawn at the 18th Street corner, where the corner lot shows it to the intersection; the sheet does not place it, so its corner is reconstructed."
+    },
+    "frontage-28-050": {
+      "slug": "coleman_ames_house",
+      "stone": "brownstone",
+      "front_bays": 3,
+      "entrance": "north",
+      "why": "Romanesque: the register's 'rock-faced brown sandstone front' over 'brick side and rear', so the stone front is brownstone and the walls behind it brick; the steep Romanesque hip stands for the upper gable, whose arched lights are T-1891's."
+    },
+    "frontage-28-051": {
+      "slug": "sears_meeker_house",
+      "roof": "mansard",
+      "entrance": "south",
+      "why": "The register's 'stone facade, mansard with gabled dormers' and 'projecting bay'; the 1902 Heun alterations are T-1893's to compare."
+    },
+    "frontage-28-052": {
+      "slug": "dent_house",
+      "roof": "mansard",
+      "chimneys": 3,
+      "entrance": "north",
+      "why": "The register's 'three-storey wall, high attic/mansard profile, tall chimneys' on a brick body (the map's colour, not the engraving's ashlar); rear2B is the two-storey range."
+    },
+    "frontage-28-053": {
+      "slug": "doane_house",
+      "roof": "mansard",
+      "entrance": "south",
+      "features": [
+        {
+          "kind": "corner_tower",
+          "corner": "front_v0",
+          "sides": 4,
+          "radius_m": 2.2,
+          "above_eave_m": 4.0,
+          "cap_m": 4.2
+        },
+        {
+          "kind": "corner_tower",
+          "corner": "front_v1",
+          "radius_m": 1.6,
+          "above_eave_m": 0.8,
+          "cap_m": 3.6
+        }
+      ],
+      "why": "The register's 'mansard and dormers, square/pyramidal tower and separate conical bay' and its rule 'preserve both different tower geometries': a square tower under a pyramid at one front corner and a lower round bay under a cone at the other. Which corner carries which is not read off the sheet and is reconstructed."
+    },
+    "frontage-28-054": {
+      "slug": "ream_house",
+      "roof": "mansard",
+      "entrance": "centre",
+      "why": "The register's post-1887 phase: 'stone-faced Second Empire facade, post-fire upper floor, mansard/dormers, deep cornice, classical portico', the portico drawn as a central entrance."
+    },
+    "frontage-28-055": {
+      "slug": "marshall_field_house",
+      "entrance": "centre",
+      "why": "Second Empire: the register's 'broad brick/stone mansion, mansard and angular corner bay, dormers' and 'central portico'; the conservatory bay and the 1904 fence are T-1904's and T-1905's."
+    },
+    "frontage-28-056": {
+      "slug": "marshall_field_jr_house",
+      "entrance": "north",
+      "front_body_from_u_m": 21.3,
+      "why": "2½S.B.: two full storeys and a half in the roof, read as gabled dormers in a hip over the post-1902 enlargement; the projecting tower/bay is T-1906's. The 1911 sheet's Gatlin Institute is a 1911 use and is not carried back. The sheet traces the house and its rear range as one part, whose largest rectangle is a 47 m strip down the lot; the main body is fitted in front of the part's own break at 21.3 m from the rear lot line, where it narrows to the street front, and the rear range behind it."
+    },
+    "frontage-28-057": {
+      "slug": "kellogg_house",
+      "roof": "hip",
+      "pitch_deg": 35,
+      "entrance": "south",
+      "why": "The register's 'restrained masonry villa vocabulary' and its rule 'do not invent a landmark tower': a low hip over the mapped three storeys, no tower."
+    },
+    "frontage-28-058": {
+      "slug": "armour_corwith_house",
+      "attic_dormers": true,
+      "entrance": "north",
+      "why": "The register's 'corner mansion with substantial roof/attic, deep Prairie facade and long 20th Street elevation': a hip with attic dormers over the mapped house, its rear2B range behind."
+    },
     "frontage-20-001": {
       "slug": "house",
       "entrance": "south",
@@ -543,176 +713,6 @@
         "pullman_house_1729_prairie_conservatory"
       ],
       "wing_storeys": 2
-    },
-    "frontage-28-038": {
-      "slug": "wheeler_house",
-      "front_bays": 2,
-      "entrance": "south",
-      "attic_window": true,
-      "why": "The register's 'high shaped gable and attic grid window' on a 3B rowhouse: the shaped gable is the house's silhouette, so it is the one feature drawn; the oriel and balcony are T-1884's."
-    },
-    "frontage-28-039": {
-      "slug": "henderson_house",
-      "entrance": "north",
-      "why": "Second Empire: the register's mansard with dormers over the mapped rounded front bays, which the fitted plan carries as a projecting bay."
-    },
-    "frontage-28-040": {
-      "slug": "marsh_house",
-      "roof": "hip",
-      "pitch_deg": 35,
-      "attic_dormers": true,
-      "entrance": "south",
-      "why": "2½B on the map: two full storeys and a half in the roof, read as dormers in a hip behind the stone front."
-    },
-    "frontage-28-041": {
-      "slug": "house",
-      "entrance": "north",
-      "why": "A stone-front house with no named form: the stone-front family's flat roof behind a cornice."
-    },
-    "frontage-28-042": {
-      "slug": "jones_house",
-      "roof": "mansard",
-      "entrance": "north",
-      "why": "The register's 'recorded 1886 mansard storey': 3S.B. read as three storeys and the mansard over them."
-    },
-    "frontage-28-043": {
-      "slug": "elbridge_keith_house",
-      "entrance": "south",
-      "why": "Second Empire: slate mansard and dormers over the mapped corner bay."
-    },
-    "frontage-28-044": {
-      "slug": "edson_keith_house",
-      "entrance": "north",
-      "aka": [
-        "1908 Prairie Avenue"
-      ],
-      "why": "Italianate stone front with the register's 'deep bracketed cornice'; 1908 is attached and the census rules the two one building, so one record carries both fronts."
-    },
-    "frontage-28-045": {
-      "merged_into": "frontage-28-044"
-    },
-    "frontage-28-046": {
-      "slug": "moulton_lowden_house",
-      "attic_dormers": true,
-      "entrance": "north",
-      "features": [
-        {
-          "kind": "corner_tower",
-          "corner": "front_v0",
-          "radius_m": 2.0,
-          "above_eave_m": 3.0,
-          "cap_m": 6.0
-        }
-      ],
-      "why": "Chateauesque: the register's 'conical corner turret' and 'steep slate roof'; 2½B read as dormers in the steep hip."
-    },
-    "frontage-28-047": {
-      "slug": "house",
-      "attic_dormers": true,
-      "entrance": "north",
-      "features": [
-        {
-          "kind": "corner_tower",
-          "corner": "front_v1",
-          "radius_m": 1.8,
-          "above_eave_m": 3.4,
-          "cap_m": 4.5
-        }
-      ],
-      "why": "2½S.B. with a 'bay4B': a bay carried a storey above the house, drawn as a corner tower; its corner is not read off the sheet and is reconstructed."
-    },
-    "frontage-28-048": {
-      "skip": "The census rules 1936 an alias of 1918 with no footprint of its own (no dwelling drawn on the lot)."
-    },
-    "frontage-28-049": {
-      "slug": "kimball_house",
-      "stone": "stone",
-      "front_bays": 4,
-      "attic_dormers": true,
-      "entrance": "centre",
-      "features": [
-        {
-          "kind": "corner_tower",
-          "corner": "front_v0",
-          "radius_m": 2.4,
-          "above_eave_m": 3.6,
-          "cap_m": 6.5
-        }
-      ],
-      "why": "Chateauesque in Bedford stone, not brownstone: the register's 'tall hip/slate roofs, corner tower and conical cap, elaborate gabled dormers' and 'broad curved entry stair'. The tower is drawn at the 18th Street corner, where the corner lot shows it to the intersection; the sheet does not place it, so its corner is reconstructed."
-    },
-    "frontage-28-050": {
-      "slug": "coleman_ames_house",
-      "stone": "brownstone",
-      "front_bays": 3,
-      "entrance": "north",
-      "why": "Romanesque: the register's 'rock-faced brown sandstone front' over 'brick side and rear', so the stone front is brownstone and the walls behind it brick; the steep Romanesque hip stands for the upper gable, whose arched lights are T-1891's."
-    },
-    "frontage-28-051": {
-      "slug": "sears_meeker_house",
-      "roof": "mansard",
-      "entrance": "south",
-      "why": "The register's 'stone facade, mansard with gabled dormers' and 'projecting bay'; the 1902 Heun alterations are T-1893's to compare."
-    },
-    "frontage-28-052": {
-      "slug": "dent_house",
-      "roof": "mansard",
-      "chimneys": 3,
-      "entrance": "north",
-      "why": "The register's 'three-storey wall, high attic/mansard profile, tall chimneys' on a brick body (the map's colour, not the engraving's ashlar); rear2B is the two-storey range."
-    },
-    "frontage-28-053": {
-      "slug": "doane_house",
-      "roof": "mansard",
-      "entrance": "south",
-      "features": [
-        {
-          "kind": "corner_tower",
-          "corner": "front_v0",
-          "sides": 4,
-          "radius_m": 2.2,
-          "above_eave_m": 4.0,
-          "cap_m": 4.2
-        },
-        {
-          "kind": "corner_tower",
-          "corner": "front_v1",
-          "radius_m": 1.6,
-          "above_eave_m": 0.8,
-          "cap_m": 3.6
-        }
-      ],
-      "why": "The register's 'mansard and dormers, square/pyramidal tower and separate conical bay' and its rule 'preserve both different tower geometries': a square tower under a pyramid at one front corner and a lower round bay under a cone at the other. Which corner carries which is not read off the sheet and is reconstructed."
-    },
-    "frontage-28-054": {
-      "slug": "ream_house",
-      "roof": "mansard",
-      "entrance": "centre",
-      "why": "The register's post-1887 phase: 'stone-faced Second Empire facade, post-fire upper floor, mansard/dormers, deep cornice, classical portico', the portico drawn as a central entrance."
-    },
-    "frontage-28-055": {
-      "slug": "marshall_field_house",
-      "entrance": "centre",
-      "why": "Second Empire: the register's 'broad brick/stone mansion, mansard and angular corner bay, dormers' and 'central portico'; the conservatory bay and the 1904 fence are T-1904's and T-1905's."
-    },
-    "frontage-28-056": {
-      "slug": "marshall_field_jr_house",
-      "entrance": "north",
-      "front_body_from_u_m": 21.3,
-      "why": "2½S.B.: two full storeys and a half in the roof, read as gabled dormers in a hip over the post-1902 enlargement; the projecting tower/bay is T-1906's. The 1911 sheet's Gatlin Institute is a 1911 use and is not carried back. The sheet traces the house and its rear range as one part, whose largest rectangle is a 47 m strip down the lot; the main body is fitted in front of the part's own break at 21.3 m from the rear lot line, where it narrows to the street front, and the rear range behind it."
-    },
-    "frontage-28-057": {
-      "slug": "kellogg_house",
-      "roof": "hip",
-      "pitch_deg": 35,
-      "entrance": "south",
-      "why": "The register's 'restrained masonry villa vocabulary' and its rule 'do not invent a landmark tower': a low hip over the mapped three storeys, no tower."
-    },
-    "frontage-28-058": {
-      "slug": "armour_corwith_house",
-      "attic_dormers": true,
-      "entrance": "north",
-      "why": "The register's 'corner mansion with substantial roof/attic, deep Prairie facade and long 20th Street elevation': a hip with attic dormers over the mapped house, its rear2B range behind."
     }
   }
 }

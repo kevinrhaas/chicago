@@ -1,4 +1,30 @@
 export const CHANGELOG = [ // newest first
+  { v: 1676, ts: '2026-10-11T04:08:13.534Z', date: 'Oct 10, 2026, 11:08 PM CT', title: 'Prairie Avenue\'s 16th–18th block fills in on the west side', kind: 'feature',
+    items: [
+      'Nineteen houses and thirteen stables now stand on the west side of Prairie Avenue between 16th and 18th Streets, all built from the Sanborn map\'s own footprints.',
+      '1700 and 1706 stand as the two Glessner-family townhouses, mirrored, with no third house at 1702.',
+      'The Robert Law house at 1620 is back for 1904. The 1911 map shows the lot empty, so its outline is read from Robinson\'s 1886 atlas.',
+      'Each house\'s card says it is a draft and names the ticket that will refine it.',
+    ] },
+  { v: 1675, ts: '2026-10-11T04:08:13.534Z', date: 'Oct 10, 2026, 11:08 PM CT', title: 'The Light detail budget makes room for the town\'s windows', kind: 'chore',
+    items: [
+      'Nothing you can see changes in the town. Light is the setting weaker machines start on, and on a desktop screen it had gone over its triangle budget once every 1835 building got windows, doors and trim and the signs got chains.',
+      'With the owner\'s go-ahead, Light\'s budget now matches what the town draws from the busiest view on the West prairie, plus the same small margin it had before.',
+      'On a phone the town still fits inside the old Light budget. The draw-call limit has not moved.',
+    ] },
+  { v: 1674, ts: '2026-10-11T03:32:26.976Z', date: 'Oct 10, 2026, 10:32 PM CT', title: 'The Full and Balanced detail budgets make room for the town\'s windows', kind: 'chore',
+    items: [
+      'Every 1835 building now has windows, doors and trim, and the hanging signs hang on chains. Seen from the West prairie, that pushed the Full and Balanced settings past their triangle budgets.',
+      'Both budgets now match what the town actually draws, measured at all six test views on desktop and phone.',
+      'Light, the setting weaker machines start on, keeps its budget for now while the owner decides how to bring it back inside.',
+    ] },
+  { v: 1673, ts: '2026-10-11T03:14:13.977Z', date: 'Oct 10, 2026, 10:14 PM CT', title: 'Prairie Avenue\'s east side, 18th to 20th, joins the first draft', kind: 'feature',
+    items: [
+      'Ten houses and seven barns and garages now face Glessner across Prairie Avenue, from Kimball\'s corner at 18th Street to the Armour house at 20th, on the outlines traced off the 1911 map.',
+      'The landmarks show their shapes: a conical corner tower on the pale-stone Kimball house, a brownstone front at 1811, mansards along the row, and Doane\'s square tower beside a round bay.',
+      'Across the street from 1808 and 1812, the four houses at the landing now read as four different houses.',
+      'These are drafts too, and their cards say so: every height, roof and window is reconstructed, and each card names the ticket that will refine it.',
+    ] },
   { v: 1672, ts: '2026-10-11T02:02:05.680Z', date: 'Oct 10, 2026, 9:02 PM CT', title: 'Prairie Avenue 1904: a coach house on the alley behind 1812', kind: 'feature',
     items: [
       'Walk round to the alley behind the houses beside the Glessner House: the lot south of 1808 Prairie now has its two-storey brick coach house, the first built from the new coach-house kit.',
