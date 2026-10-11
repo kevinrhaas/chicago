@@ -97,6 +97,7 @@ CONSUMED = frozenset({
     "opening_heights",
     "eave_cornice",
     "courtyard_gate", "courtyard_gate_heights",
+    "courtyard_wall", "courtyard_wall_heights",
     "courtyard_ground", "prairie_frontage",
 })
 
@@ -106,6 +107,7 @@ GROUND_CONTACT = "perimeter"
 
 WALL_KINDS = ("granite", "brick", "trim", "wood", "none")
 FACES = ("north", "south", "east", "west")
+WALL_RUN_ENDS = ("free", "wall")
 OPENING_KINDS = ("window", "door", "doors", "arch", "dark", "fan", "band")
 
 
@@ -606,6 +608,33 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                             "thick_m": round(float(gate.get("thick_ft", 1.5)) * FT, 4),
                             "z1": fr.zval(gh[kind]),
                             "conf": cf("courtyard_gate", "courtyard_gate_heights")})
+
+    # ------------------------------------------------------ courtyard wall
+    # Free-standing boundary runs (T-2201). Each run is a box on its face line like a
+    # gate piece, and says what each end of its span meets, so the coping stops where
+    # it meets a taller wall instead of burying itself in it:
+    #   free  the coping overhangs the end;
+    #   wall  the end butts a taller wall: body and coping stop flush, end faces dropped.
+    cw = val("courtyard_wall")
+    if cw:
+        wh = val("courtyard_wall_heights") or {}
+        for run in cw["runs"]:
+            kind = run["kind"]
+            if kind not in wh:
+                raise ParamError(f"courtyard_wall run '{run.get('name')}' kind '{kind}' "
+                                 f"has no height in courtyard_wall_heights")
+            ends = list(run.get("ends", ["free", "free"]))
+            if len(ends) != 2 or any(e not in WALL_RUN_ENDS for e in ends):
+                raise ParamError(f"courtyard_wall run '{run.get('name')}' ends {ends} "
+                                 f"must be two of {WALL_RUN_ENDS}")
+            ua, ub = (_u(fr, run["face"], v) for v in run["span"])
+            if ua > ub:
+                ua, ub, ends = ub, ua, ends[::-1]
+            p.walls.append({**_face(fr, run["face"], run["at"]), "kind": kind,
+                            "u0": ua, "u1": ub, "ends": ends,
+                            "thick_m": round(float(run["thick_ft"]) * FT, 4),
+                            "z1": fr.zval(wh[kind]),
+                            "conf": cf("courtyard_wall", "courtyard_wall_heights")})
 
     # ---------------------------------------------------------------- ground
     cg = val("courtyard_ground")
