@@ -953,14 +953,14 @@
       "phase_id": "draft_1904",
       "structure_id": "house_1604_prairie"
     },
-    "house_1608_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "house_1608_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 174260,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "dc6a93a39a2a86f4f326a2a22bd136bdcd923563481714fd3d28d15bc420ee0b",
+      "bytes": 2685080,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "a0c40001ff9d52348408150175a72298c774eae6001d43ce09931797ef87452d",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "house_1608_prairie"
     },
     "house_1609_prairie__draft_1904.glb": {

@@ -5,8 +5,7 @@ refined **in place**: `house_1600_prairie` keeps its id, its traced main-body re
 placement, and its archetype changes from `prairie_draft` to `k01_frontage`. The draft rules'
 `skip` names `s20-1600-f`, so the draft builder stands no second building there.
 
-Built on the brick street front T-2341 taught K01 (PR #684). That change is carried here
-unaltered, line for line, so this branch builds on `dev` whichever of the two lands first.
+Built on the brick street front T-2341 taught K01 (PR #684, merged to `dev` while this was built).
 
 ## The builder changes
 
