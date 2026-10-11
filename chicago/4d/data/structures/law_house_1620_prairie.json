@@ -1,10 +1,10 @@
 {
   "id": "law_house_1620_prairie",
-  "name": "1620 Prairie Avenue — Robert Law house restored for 1904 (district draft; refined by T-1861)",
+  "name": "1620 Prairie Avenue — Robert Law house restored for 1904",
   "aka": [
     "1620 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k01_frontage",
   "function": {
     "value": "residence",
     "confidence": "inferred",
@@ -14,10 +14,10 @@
     "note": "The 1911 sheet draws no front building at 1620. The T-1840 census (frontage-20-006, backcast_1886) stands the Robert Law house for 1904 because Robinson 1886 plate 10 prints 1620 against a brick house on lots 13-14 and the 1904 Blue Book lists the F. VanS. Hibbard household at the address (named record pa-1620-1904-correction); residence is inferred from that listing."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2334, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1861 refines in place under this same id. Written by tools/draft_prairie_1904.py from the Robinson 1886 plate 10 reading (r1886-1620-f: the outline in the plate's pixels, carried by its T-1250 fit) (r1886-1620-f), the T-1840 census (r1886-1620-f) and the T-1837 register row frontage-20-006 (Robert Law house restored for 1904); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-west-2334).",
+  "research_note": "Refined from the district draft (T-2334) in place by T-1861, under the draft's own id, as a K01 brick frontage: the plate's L under one rectangle, a canted bay on the north half of the front, segmental brick arches over the street windows, a high stoop, a bracketed cornice and a tin hip. Plan, place and brick are read off Robinson 1886 plate 10 (r1886-1620-f, through its T-1250 fit); the brief is the T-1837 register row frontage-20-006, which is not a source record; every height, opening, the roof and the trim are the kits' reconstruction (liberty L-k01-1620-law-1861). The rear stable is a separate record, still the draft's. The 1898 Tribune drawing the register names has not been read.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "restored_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1904-07-01",
@@ -25,18 +25,18 @@
         "sources": [
           "robinson_1886_chicago_plate_10"
         ],
-        "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the house and the T-1840 census carries it to 1904 on the 1904 Blue Book's listing at 1620. The 1911 sheet shows the frontage open, so the house was gone by then; when it was built and when it went are T-1861's to read."
+        "note": "The 1904 target and no more, the draft's claim kept: Robinson 1886 draws the house and the T-1840 census carries it to 1904 on the 1904 Blue Book's listing at 1620. The 1911 sheet shows the frontage open, so the house was gone by then; when it was built and when it went are not read."
       },
       "position": {
-        "utm_e": 448438.406,
-        "utm_n": 4634375.311,
+        "utm_e": 448438.444,
+        "utm_n": 4634371.561,
         "rotation_deg": -0.579,
         "symbolic_location": "1620 S. Prairie Avenue, parcel prairie_1620 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
         "confidence": "inferred",
         "sources": [
           "robinson_1886_chicago_plate_10"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 32.750, v -0.250 m from the middle of the rear lot line), through the T-1250 fit of the plate: the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading. Rotation -0.579 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The rear corner of the plate's L at its south wall (lot frame u 32.750, v -4.000 m from the middle of the rear lot line): 3.75 m south of the draft's origin, because the K01 rectangle runs across the whole front, the main body and its shallower south part together (see footprint). Placed through the T-1250 fit of Robinson 1886 plate 10, 4.54 m RMS, the weakest of the four T-1250 fits, plus about a pixel (0.35 m) of reading; rotation -0.579 degrees turns the plan's u axis onto the lot's own rear-to-street line, the draft's.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -54,24 +54,24 @@
           ],
           [
             16.75,
-            7.5
+            11.25
           ],
           [
             0.0,
-            7.5
+            11.25
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "robinson_1886_chicago_plate_10"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "One rectangle round the plate's L (trace r1886-1620-f, read by the draft as a 16.75 x 7.5 m main body and a 10.75 x 3.75 m shallower south part along the front): 16.75 m from the rear wall to the front by 11.25 m across the front. K01 builds one rectangle, so it CLOSES the 6.0 x 3.75 m notch the plate leaves at the south-west (rear) corner, 22.5 m2 over the traced 168 m2, as 1612's rectangle closes its court; a traced rear notch is K01's to learn (T-2347)."
       },
       "form": {
         "stories": {
           "value": 2,
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the house. Two storeys over a raised basement is the draft's reading of the register's 'irregular earlier brick envelope' with a 'bounded roof'; T-1861 reads the 1898 numbered drawing the register names."
+          "note": "RECONSTRUCTED: Robinson's 1886 atlas prints no storey count and the 1911 sheet, which would, no longer draws the house. Two storeys over a raised basement is the register's 'irregular earlier brick envelope' under a 'bounded roof' read at the height of its brick neighbours 1608 and 1612 (two storeys each on sheet 20); the 1898 Tribune drawing the register names would settle it and has not been read."
         },
         "construction": {
           "value": "brick",
@@ -79,99 +79,329 @@
           "sources": [
             "robinson_1886_chicago_plate_10"
           ],
-          "note": "Robinson 1886 colours the building pink, the plate's brick (its frame buildings are yellow); the register's 'irregular earlier brick envelope' agrees."
+          "note": "Robinson 1886 plate 10 colours the building pink, the plate's brick (its frame buildings are yellow); the register's 'irregular earlier brick envelope' agrees. Built as a plain brick street front on common-brick side and rear walls (T-2341's K01 brick front); no stone front is read."
         },
-        "draft_plan": {
+        "principal_floor_m": {
+          "value": 1.4,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the register's 'stoop' read as the high stoop of its brick neighbours: a principal floor 1.4 m above grade, inside RECONSTRUCTION-RULES' range, the draft's own figure kept."
+        },
+        "storey_heights_m": {
+          "value": [
+            3.9,
+            3.6
+          ],
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: 3.9 m and 3.6 m, 1608's, inside RECONSTRUCTION-RULES' ranges; the draft's 3.5 m upper storey left no room for the brick arch under the K10 cornice's bed moulding. Nothing read states them."
+        },
+        "wall_thickness_front_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: a brick-and-a-half wall, as 1608's."
+        },
+        "wall_thickness_side_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: a brick-and-a-half wall, as 1608's."
+        },
+        "service_wall_brick": {
+          "value": "common_buff_common_6",
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the K03 common brick panel 1608 wears; the plate's pink says brick and nothing says which."
+        },
+        "street_front_trim": {
           "value": {
-            "parts": [
+            "by_storey": [
+              "k01.flat_lintel",
+              "k01.flat_lintel"
+            ],
+            "brick_heads": "segmental"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the register's 'arched windows' (its 1898 numbered drawing 'supports bay/arches'; the drawing is not read here) built as two rowlock rings on a segmental arch over every street window, the head this house's own side and rear walls already wear (T-2291), taught to the brick street front by T-1861 (`brick_heads`). The K01 wall cuts a rectangular hole, so the sash under each arch stays flat-headed and the arch springs from its jambs; an arched sash is a different hole and is not built. by_storey names K01's flat lintel only because brick_heads replaces it."
+        },
+        "wall_head": {
+          "value": {
+            "cornice": "k10.cornice.bracketed_timber"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: a K10 bracketed timber cornice round all four walls, the earlier Italianate brick house's usual eave; the register states only a 'bounded roof'."
+        },
+        "roof_form": {
+          "value": "hip",
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the register's 'bounded roof' read as a low hip, the only roof K01 builds; the draft's hip kept."
+        },
+        "roof_pitch_deg": {
+          "value": 30,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: a 30-degree hip, 1608's, inside the contract's ordinary range."
+        },
+        "eave_overhang_m": {
+          "value": 0.6,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: 0.6 m, 1608's."
+        },
+        "stair_tread_m": {
+          "value": 0.3,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: 0.3 m treads, as 1608's."
+        },
+        "stair_landing_depth_m": {
+          "value": 1.2,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: a 1.2 m landing, as 1608's."
+        },
+        "stoop_width_m": {
+          "value": 1.8,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: a 1.8 m stoop, as 1608's."
+        },
+        "entrance_bay": {
+          "value": "south",
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the door on the south bay of the front, where the plate's L carries its shallower south part; the bay takes the north half, as the draft had it."
+        },
+        "front_bays": {
+          "value": [
+            1.9,
+            5.4,
+            8.6
+          ],
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: three bays across the 11.25 m front: the door at 1.9 m from the south corner, a window at 5.4 m and the bay at 8.6 m, its eaves clear of the K10 corner bracket. The plate draws no openings."
+        },
+        "side_bays": {
+          "value": [
+            2.4,
+            6.6,
+            10.6,
+            14.4
+          ],
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: four windows a storey along the 16.75 m south wall, rear to front; nothing draws them."
+        },
+        "rear_bays": {
+          "value": [
+            2.4,
+            5.6,
+            8.8
+          ],
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: three windows a storey across the rear wall; the register: 'rear windows remain reconstructed'."
+        },
+        "north_bays": {
+          "value": [
+            3.0,
+            8.0,
+            13.0
+          ],
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: three windows a storey on the north wall, front to rear. It faces 1616 across a 4.7 m side yard (the lot runs to v 15.95 in this frame), not a party wall, so it is not left blank; nothing draws them."
+        },
+        "sash_by_storey": {
+          "value": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 1.0,
+              "height_m": 2.3
+            },
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 1.0,
+              "height_m": 1.9
+            }
+          ],
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: 1608's two-over-two sash, 1.0 m wide, 2.3 m in the principal storey and 1.9 m above, each under its brick arch."
+        },
+        "basement_lights": {
+          "value": {
+            "sill_m": 0.35,
+            "width_m": 0.9,
+            "height_m": 0.7
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: 1608's basement lights."
+        },
+        "roof_covering": {
+          "value": {
+            "fabric": "tin_standing_seam_painted",
+            "flashing": "copper_sheet",
+            "caps": "copper_ridge_roll"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: painted standing-seam tin with copper flashing and ridge roll, the K04 covering 1608 and 1600 wear."
+        },
+        "chimneys": {
+          "value": {
+            "plan_m": [
+              0.9,
+              0.75
+            ],
+            "top_above_ridge_m": 0.9,
+            "cap_proud_m": 0.05,
+            "cap_depth_m": 0.15,
+            "stacks": [
               {
-                "id": "r1",
-                "role": "main",
-                "storeys": 2,
-                "roof": "hip",
-                "rect": [
-                  0.0,
-                  0.0,
-                  16.75,
-                  7.5
-                ],
-                "from": "r1886-1620-f p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 96% of its fill"
+                "u_m": 4.5,
+                "v_m": 5.625
               },
               {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  6.0,
-                  -3.75,
-                  16.75,
-                  0.0
-                ],
-                "from": "r1886-1620-f p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 96% of its fill"
+                "u_m": 12.4,
+                "v_m": 5.625
               }
-            ],
-            "lot_v": [
-              -11.461,
-              12.201
-            ],
-            "street_u": 22.679
+            ]
           },
-          "confidence": "inferred",
-          "sources": [
-            "robinson_1886_chicago_plate_10"
-          ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): r1886-1620-f p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 96% of its fill; r1886-1620-f p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 96% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: two brick stacks on the ridge line, one over each half of the house, 1608's stack and cap; nothing read places them."
         },
-        "draft_elevation": {
+        "rainwater": {
           "value": {
-            "kind": "house",
-            "seed": 3331540667,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 32,
-            "mansard_lower_m": 3.0,
-            "front_bays": 3,
-            "entrance": "south",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2334",
-              "refined_by": [
-                "T-1861"
-              ]
+            "gutter": "half_round",
+            "fabric": "copper_sheet",
+            "downpipe": "round",
+            "ends_at": "grade_with_splash_stone",
+            "downpipes": [
+              {
+                "wall": "k01.wall.street_front",
+                "s_m": 0.45
+              },
+              {
+                "wall": "k01.wall.side.south",
+                "s_m": 8.5
+              },
+              {
+                "wall": "k01.wall.rear_service",
+                "s_m": 0.35
+              },
+              {
+                "wall": "k01.wall.rear_service",
+                "s_m": 10.9
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: K04 half-round copper gutters and round pipes to splash stones, as 1608's: one at the front's south corner, one midway along the south wall and one at each end of the rear; none on the north wall."
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
             }
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The Robert Law house restored for 1904 (the register's 'irregular earlier brick envelope across lots 13-14, projecting bay, arched windows, stoop, bounded roof'): the plate's L read as the main body and its shallower south part, under a low hip. Its stable on the alley is the sheet's own long two-storey brick building. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3331540667 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-west-2334."
+          "note": "RECONSTRUCTED: the K06 two-over-two flat sash and area lights 1608 wears."
         },
-        "draft": {
+        "entrance_kit": {
           "value": {
-            "pass": "T-2334",
-            "liberty": "L-draft-prairie-16-18-west-2334",
-            "register_row": "frontage-20-006",
-            "census_ids": [
-              "r1886-1620-f"
-            ],
-            "trace_building": "r1886-1620-f",
-            "seed": 3331540667,
-            "replaceable_by": [
-              "T-1861"
-            ],
-            "card": "District draft — refined by T-1861."
+            "k01.opening.door_leaf": {
+              "variant": "k07.entrance.panel_door_stoop",
+              "front_yard_m": 6.24
+            }
           },
           "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "note": "RECONSTRUCTED: the K07 four-panel door under a two-light transom at the head of a straight stone stoop solved from the principal floor. front_yard_m is the street grid's own distance: the front stands 5.93 m behind the Prairie Avenue street line (the draft's street_u 22.679 less the 16.75 m body) and the walk begins 1 ft further out, 6.24 m."
+        },
+        "boundary": {
+          "value": {
+            "street_line_m": 5.93,
+            "lot_s_m": [
+              -7.711,
+              15.951
+            ],
+            "fence": "k11.fence.scroll_band",
+            "entrance_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "leaves": 2,
+              "clear_m": 1.3,
+              "drawn_deg": 0
+            },
+            "side_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "pier_s_m": -6.2,
+              "drawn_deg": 0
+            },
+            "wall": {
+              "variant": "k11.wall.brick_with_piers",
+              "from_u_m": 12.0,
+              "height_m": 1.2
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the register's 'lattice/iron boundary' built from the K11 ironwork kit as its scroll-band fence (a band of C-scrolls under the top rail, the kit's nearest to a lattice) on a stone curb along the street line, 5.93 m in front of the front face (the draft's street_u 22.679 less the 16.75 m body), from the north lot line to the gate of the carriage passage on the south; a pair of walk-gate leaves between stone piers on the walk to the stoop; a single walk gate 1.06 m clear across the south side yard's mouth beside the lot line (the yard is 7.7 m wide here, so the gate does not reach the house's south wall as 1808's does); and the kit's brick wall with piers, 1.2 m high, on the south lot line from the street back to u 12.0. The lot lines (s -7.711 and 15.951 along the front from the south corner) are the draft's lot_v for parcel prairie_1620 in this frame. The register names the boundary's kind and nothing else; its pattern, heights, gates and wall are the kit's."
+        },
+        "bays": {
+          "value": [
+            {
+              "id": "front_canted",
+              "variant": "k08.bay.canted",
+              "wall": "k01.wall.street_front",
+              "s_m": 8.6,
+              "fabric": "brick",
+              "storeys": [
+                {
+                  "height_m": 5.3,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.75,
+                      "clear_height_m": 2.3,
+                      "sill_m": 2.15,
+                      "at": [
+                        0.18,
+                        0.82
+                      ],
+                      "recess_m": 0.4
+                    },
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.95,
+                      "clear_height_m": 2.3,
+                      "sill_m": 2.15,
+                      "at": [
+                        0.5
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "height_m": 2.4,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.75,
+                      "clear_height_m": 1.5,
+                      "sill_m": 0.6,
+                      "at": [
+                        0.18,
+                        0.82
+                      ],
+                      "recess_m": 0.4
+                    },
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.95,
+                      "clear_height_m": 1.5,
+                      "sill_m": 0.6,
+                      "at": [
+                        0.5
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.25,
+                "covering": "tin_flat_seam_painted"
+              }
+            }
+          ],
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the register's 'projecting bay' (its 1898 numbered drawing 'supports bay/arches', not read here) as the K08 canted bay 1608 wears, two storeys under a low tin hip on the north half of the front, centred 8.6 m from the south corner so its eaves clear the K10 corner bracket. Robinson's plate draws no bay at this scale, so neither its place nor its plan is read."
         }
       }
     }

@@ -479,11 +479,13 @@ class Assembly:
         else:
             # T-2304: the door is a K07 entrance and its stoop, built about the threshold
             self.enter(op, frame, body_mat, seed, conf)
-        if MATERIALS[body_mat].get("courses") and not door and op.wall != "k01.wall.street_front":
+        brick_head = op.wall != "k01.wall.street_front" or p.street_front_trim.get("brick_heads") == "segmental"
+        if MATERIALS[body_mat].get("courses") and not door and brick_head:
             # T-2291: a brick wall's opening takes a brick head, not the front's stone
             # lintel — two rowlock rings on a segmental arch, or a soldier flat head
             # where the eave leaves no room for the rings and their rise. A brick STREET
-            # front (T-2341) keeps the front's stone dressings: its K09 head or the lintel
+            # front (T-2341) keeps the front's stone dressings: its K09 head or the lintel,
+            # unless its record arches them in the brick too (T-1861, `brick_heads`)
             crown = y1 + k03_brick.RISE_TO_SPAN * op.width_m + k03_brick.RINGS * (k03_brick.BED + k03_brick.JOINT)
             if crown < self.soffit_m - k03_brick.COURSE:
                 k03_brick.segmental_head(self, seed, frame, s0, s1, y1, conf)

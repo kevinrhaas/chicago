@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1686, ts: '2026-10-11T10:39:17.282Z', date: 'Oct 11, 2026, 5:39 AM CT', title: '1620 Prairie, the Law house, gets arched windows and an iron fence', kind: 'feature',
+    items: [
+      'The brick Law house at 1620 Prairie is no longer a draft: brick on every wall, built from the Prairie Avenue kit across its full 1886 front.',
+      'Every window now stands under a brick arch, the arched windows the house is remembered for.',
+      'A canted bay rises two storeys on the north half of the front, beside a high stoop to the door.',
+      'A scroll-band iron fence and gates close its front yard, with a low brick wall along the south lot line.',
+      'Its proportions and trim are reconstructed from the 1886 atlas outline, and its card says so.',
+    ] },
   { v: 1685, ts: '2026-10-11T09:38:02.502Z', date: 'Oct 11, 2026, 4:38 AM CT', title: '1616 Prairie stands as a detailed brick house', kind: 'feature',
     items: [
       '1616 Prairie Avenue\'s main body is no longer a plain draft box: it is built from the brick frontage kit, with common-brick walls, stone-headed two-over-two sash, a high stone stoop and door on the north half, and a bracketed cornice.',
