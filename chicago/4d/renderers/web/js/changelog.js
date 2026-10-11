@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1684, ts: '2026-10-11T09:16:25.512Z', date: 'Oct 11, 2026, 4:16 AM CT', title: '1600 Prairie, the 16th Street corner house, gets its curved bay', kind: 'feature',
+    items: [
+      'The brick house on the corner of Prairie and 16th Street is no longer a draft: brick on every wall, built from the Prairie Avenue kit.',
+      'Its 16th Street side now has windows on both floors, as a corner house would, instead of a blank wall.',
+      'The curved bay the 1911 atlas draws on its Prairie front stands as a half-round, two storeys of curved sashes under a copper cone.',
+      'A stoop on the south half, a bracketed cornice and a low tin hip. Its proportions and trim are reconstructed, and its card says so.',
+    ] },
   { v: 1683, ts: '2026-10-11T08:12:20.363Z', date: 'Oct 11, 2026, 3:12 AM CT', title: '1608 Prairie becomes a finished brick house', kind: 'improvement',
     items: [
       'The draft box at 1608 Prairie Avenue is now a built brick house: brick on all four walls, stone sills and window hoods, a bracketed cornice and a low tin roof.',
