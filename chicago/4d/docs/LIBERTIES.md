@@ -24540,17 +24540,28 @@ the cornice and its brackets; the roof's form (a hip, the only roof K01 builds),
 0.5 m eave and tin covering, the pitch and eave being the one pair the K05 union builds on this plan
 with the dormer; the dormer's size and sash (the K01 proof's); the two chimney stacks; the gutters
 and downpipes. The north wall is blank, as K01 builds it.
-**What is not built.** The sheet's one-storey brick range behind the north end of the rear wall
-(about 2.5 m by 1.5 m, the draft's r2): K01 builds one rectangle, and T-2354 stands the range once
-T-2347 teaches K01 a traced rear wing. The 1911 sheet's frame bay at the north-east corner: the
+**The rear range (T-2354, 2026-10-11).** The piece the sheet draws behind the north end of the
+rear wall now stands on K01's rear wings (T-2343) as wing `rear_range`. Read: its place and size off
+the raster through the T-1250 fit (2.6 m out from the rear wall, 2.2 m along it, its north wall flush
+with the main body's), brick, and the '2' the sheet letters in it with no 'B' (T-1840 census
+s20-1616-a1, '2-storey brick rear piece') — two storeys, no basement. The draft had stood it as
+ONE storey, its rules' default for a range, and fitted it 1.5 m along because the lettering inside
+the small outline broke the trace's south line; the sheet's outline is a clean rectangle. Invented:
+its floors (0.3 m and 3.5 m, so its upper floor is not on the house's), its walls' brick, its one
+window a storey in the south and rear walls, its blank north wall, and its flat painted-tin deck,
+fascia and overhang, with no gutter. The small circle the sheet prints in it is not modelled. To
+give the range its junction, the main rear wall's two windows a storey move from 1.75 and 4.75 m to
+3.4 and 5.3 m (centred on the wall the range leaves free) and its north downpipe from the corner to
+2.45 m, just south of the range.
+**What is not built.** The 1911 sheet's frame bay at the north-east corner: the
 trace fits no part to it, the draft did not stand it, and a frame bay on a brick front of the period
 is as likely a later addition as an original one.
 **How to resolve:** a photograph, plate or description of 1616, ingested as a source, replaces the
-kits' choices in place; T-2354 stands the range.
-**Covers:** `house_1616_prairie.as_mapped_1904.form.principal_floor_m`, `house_1616_prairie.as_mapped_1904.form.storey_heights_m`, `house_1616_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1616_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1616_prairie.as_mapped_1904.form.service_wall_brick`, `house_1616_prairie.as_mapped_1904.form.street_front_trim`, `house_1616_prairie.as_mapped_1904.form.wall_head`, `house_1616_prairie.as_mapped_1904.form.roof_form`, `house_1616_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1616_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1616_prairie.as_mapped_1904.form.stair_tread_m`, `house_1616_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1616_prairie.as_mapped_1904.form.stoop_width_m`, `house_1616_prairie.as_mapped_1904.form.entrance_bay`, `house_1616_prairie.as_mapped_1904.form.front_bays`, `house_1616_prairie.as_mapped_1904.form.side_bays`, `house_1616_prairie.as_mapped_1904.form.rear_bays`, `house_1616_prairie.as_mapped_1904.form.sash_by_storey`, `house_1616_prairie.as_mapped_1904.form.basement_lights`, `house_1616_prairie.as_mapped_1904.form.roof_covering`, `house_1616_prairie.as_mapped_1904.form.dormer`, `house_1616_prairie.as_mapped_1904.form.chimneys`, `house_1616_prairie.as_mapped_1904.form.rainwater`, `house_1616_prairie.as_mapped_1904.form.window_kit`, `house_1616_prairie.as_mapped_1904.form.entrance_kit`
-**Ticket:** T-2353 (piece 1 of T-2345).
-**Review:** `docs/RESEARCH/k01-1616-brick-2353/README.md`.
-**Recorded:** 2026-10-11 (T-2353).
+kits' choices in place.
+**Covers:** `house_1616_prairie.as_mapped_1904.form.principal_floor_m`, `house_1616_prairie.as_mapped_1904.form.storey_heights_m`, `house_1616_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1616_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1616_prairie.as_mapped_1904.form.service_wall_brick`, `house_1616_prairie.as_mapped_1904.form.street_front_trim`, `house_1616_prairie.as_mapped_1904.form.wall_head`, `house_1616_prairie.as_mapped_1904.form.roof_form`, `house_1616_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1616_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1616_prairie.as_mapped_1904.form.stair_tread_m`, `house_1616_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1616_prairie.as_mapped_1904.form.stoop_width_m`, `house_1616_prairie.as_mapped_1904.form.entrance_bay`, `house_1616_prairie.as_mapped_1904.form.front_bays`, `house_1616_prairie.as_mapped_1904.form.side_bays`, `house_1616_prairie.as_mapped_1904.form.rear_bays`, `house_1616_prairie.as_mapped_1904.form.rear_wings`, `house_1616_prairie.as_mapped_1904.form.sash_by_storey`, `house_1616_prairie.as_mapped_1904.form.basement_lights`, `house_1616_prairie.as_mapped_1904.form.roof_covering`, `house_1616_prairie.as_mapped_1904.form.dormer`, `house_1616_prairie.as_mapped_1904.form.chimneys`, `house_1616_prairie.as_mapped_1904.form.rainwater`, `house_1616_prairie.as_mapped_1904.form.window_kit`, `house_1616_prairie.as_mapped_1904.form.entrance_kit`
+**Ticket:** T-2353 (piece 1 of T-2345); T-2354 (piece 2, the rear range).
+**Review:** `docs/RESEARCH/k01-1616-brick-2353/README.md`, `docs/RESEARCH/k01-1616-rear-range-2354/README.md`.
+**Recorded:** 2026-10-11 (T-2353; T-2354).
 ### L-k01-1620-law-1861 — 1620 Prairie, the Robert Law house, refined from the district draft to a K01 brick house: the plate's L under one rectangle, a canted bay, brick-arched windows and a scroll-band fence, everything but plan, place and brick the kits'
 
 **Decision:** the Robert Law house at 1620 Prairie Avenue (T-1861, package N03 of T-1837) is no
