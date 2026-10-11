@@ -2414,8 +2414,30 @@ async function boot() {
   // runs on a tap.
   const popup = createPopup(popupRoot, {
     onBusiness: (id) => openBusiness(id),
-    onShow: (record) => { void ensureLiberties(); void ensureHouseholdNotes(record); },
+    onShow: (record) => { void ensureLiberties(); void ensureHouseholdNotes(record); void ensurePictures(); },
   });
+  // The pictures of each building, for the card's Images tab (T-2389). Off the boot path
+  // for the liberties' reason: only the card reads it, so it is fetched the first time a
+  // card is drawn. publish.sh writes it (tools/compile_pictures.py); a failure leaves the
+  // tab saying the index is offline and records a problem — never the walkthrough down.
+  let picturesPromise = null;
+  const ensurePictures = () => {
+    if (!picturesPromise) {
+      const url = new URL(`pictures/${loaded.scene.id ?? YEAR}.json`, bases.dataBase);
+      picturesPromise = fetch(url, { cache: 'no-cache' })
+        .then((res) => {
+          if (!res.ok) throw new Error(`${res.status}`);
+          return res.json();
+        })
+        .then((doc) => { popup.setPictures(doc); return doc; })
+        .catch((err) => {
+          problems.push(`pictures/${loaded.scene.id ?? YEAR}.json: ${err.message} — the cards' Images tab is empty`);
+          popup.setPictures(null);
+          return null;
+        });
+    }
+    return picturesPromise;
+  };
   // The households' reasoning, per record, on first need (T-2151). publish.sh ships a
   // seated record's households slim — names, roles, grades and basis, which the title,
   // the search and the card draw at once — and the paragraphs behind each `why` toggle

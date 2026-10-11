@@ -51,6 +51,8 @@ const COPIES = [
   ['data/datum.json', 'data/datum.json'],
   ['data/comparisons/glessner/', 'data/comparisons/glessner/'],
   ['data/liberties.json', 'data/liberties.json'],
+  // Written into the tree by tools/compile_pictures.py just before the copy (T-2389).
+  ['data/pictures/', 'data/pictures/'],
   ['data/town_census.json', 'data/town_census.json'],
   ['data/render/town_completion_1835.json', 'data/render/town_completion_1835.json'],
   ['data/reconstruction/1835_hay_limits.json', 'data/reconstruction/1835_hay_limits.json'],
