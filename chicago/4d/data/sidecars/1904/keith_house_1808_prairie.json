@@ -531,7 +531,32 @@
         "built": 1886
       },
       "confidence": "reconstructed",
-      "note": "T-2358: the house weathers to its own age on 1904-07-01 from the K14 condition kit (T-2324) rather than wearing K03's fixed full-age soot and damp. Reconstructed because every layer value is the kit's reconstruction; BUILT 1886 alone is a reading, the T-1837 building register's Cobb & Frost date that documented_range carries as inferred, so on the target date the house has stood 18 years and the kit's age factor is 0.45: damp at the wall foot and the rusticated plinth, soot under the soffit and a trail below every K06 sill and down the wall behind each downpipe, each at under half its full-age strength and scaled by the fabric (the common buff brick 1.0, the rock-faced Lemont walling 1.1, the dressed trim 1.2). Every layer's value is the kit's reconstruction (L-k14-condition-kit-2324); where an outlet's trail starts and which wall a kit piece weathers with are this ticket's (L-k14-1808-walls-2358). A dated photograph of the house would replace them."
+      "note": "T-2358: the house weathers to its own age on 1904-07-01 from the K14 condition kit (T-2324) rather than wearing K03's fixed full-age soot and damp. Reconstructed because every layer value is the kit's reconstruction; BUILT 1886 alone is a reading, the T-1837 building register's Cobb & Frost date that documented_range carries as inferred, so on the target date the house has stood 18 years and the kit's age factor is 0.45: damp at the wall foot and the rusticated plinth, soot under the soffit and a trail below every K06 sill and down the wall behind each downpipe, each at under half its full-age strength and scaled by the fabric (the common buff brick 1.0, the rock-faced Lemont walling 1.1, the dressed trim 1.2). Every layer's value is the kit's reconstruction (L-k14-condition-kit-2324); where an outlet's trail starts and which wall a kit piece weathers with are this ticket's (L-k14-1808-walls-2358). A dated photograph of the house would replace them. T-2359: the slate takes the kit's chimney plume leeward of the two K15 stacks at the same age, 1.35 m long and at most 0.90 at a stack's centre, read on a compass bearing through the placement's rotation (rotation_deg, resolved by the generator); the roof's plan rows and slate's full-strength response are that ticket's (L-k14-1808-roof-2359)."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1886,
+        "lawn": "turf",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.6,
+          "top_m": 0.06,
+          "wear_tone": 0.9
+        },
+        "service_walk": {
+          "surface": "cinder",
+          "to_u_m": 0.0,
+          "wear_tone": 0.78
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The ground inside the K11 boundary, from the K14 condition kit (T-2324, data/components/prairie_1904/k14_condition.json) at the house's own age: built 1886 (this phase's documented year), so 18 years standing on 1904-07-01 and the kit's age factor 0.45. THE LINES are the boundary's and the house's: the front yard runs from the street front (and the foot of its stone bay) to the fence curb's house face, between the house's south wall line and the north lot line (s 10.225), which is all the sheet's parcel gives. THE LAWN is turf over that yard, Glessner's courtyard turf map, its surface 0.035 m over grade (the terrain under this yard rises up to 0.018 m above the lowest point the renderer beds the house on). Along the street front's wall foot and round the bay a bare strip is cut, the kit's grass_edge at 0.45: 0.14 m wide, its line wobbling 0.02 m by the property's seed. Under the stoop, an open stair whose foot alone touches grade, the ground is bare earth: no lawn is kept in its shade. THE FRONT WALK runs from the stoop's foot through the entrance pair to the public walk, 1.28 m wide between the gate piers, in flags of the stoop's own stone 0.025 m proud of the lawn, worn along its centre by the kit's front_walk path_wear (a polished line, to 0.9 at full wear). THE SERVICE WALK is cinder down the side passage, from the side gate to the house's rear corner (u 0), between the boundary wall's north face and the house's south wall, beaten along its centre by the kit's service_walk path_wear (to 0.78 at full wear, the K14 study's cinder). RECONSTRUCTED: no source read here shows 1808's yard, its lawn, its walks or their surfaces; the sheet bounds where they can be and nothing more. Every surface and number is the kit's generic one or chosen here (liberty L-k14-1808-yard-2360, T-2360)."
     },
     "function": {
       "value": "residence",

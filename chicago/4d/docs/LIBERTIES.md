@@ -24712,6 +24712,42 @@ staining replaces this property's values; the house's completion year from a per
 **Review:** `docs/RESEARCH/k14-1808-walls-2358/README.md`.
 **Recorded:** 2026-10-11 (T-2358).
 
+### L-k14-1808-yard-2360 — 1808 Prairie's front yard laid as lawn, a stone front walk and a cinder side walk, aged by the K14 kit, all reconstructed
+
+**Decision:** the ground inside 1808 Prairie's K11 boundary (T-2319) is laid as surfaces of its
+own, aged by the K14 condition kit's two ground layers (T-2324) at the house's own age: built
+1886, so 18 years standing on 1904-07-01 and the kit's age factor 0.45. The front yard, from the
+street front (and the foot of its stone bay) to the fence curb's house face and from the house's
+south wall line to the north lot line, is turf (Glessner's courtyard turf map), its surface 0.035 m over grade so the drawn terrain, which
+rises up to 0.018 m above the point the house is bedded on, never covers it. Along the street
+front's wall foot and round the bay a bare strip is cut: the kit's `grass_edge` at that age,
+0.14 m wide, its line wobbling 0.02 m by the property's seed, measured square to the wall so it
+keeps its width round the bay's curve (0.12 to 0.25 m in plan where the curve turns steeply). The
+stoop is an open stair whose foot alone touches grade, so the ground under it shows: it is laid
+as bare earth, since no lawn is kept in its shade. The front walk runs from the stoop's foot
+through the entrance pair to the public walk, 1.28 m wide between the gate piers, in two flags of
+the stoop's own stone standing 0.025 m over the lawn with an open joint between them, its centre
+darkened by the kit's front-walk `path_wear` (a swept, polished line: 0.9 at full wear, 0.975 at
+this age). The service walk is cinder down the side passage, from the side gate to the house's
+rear corner (u 0), between the boundary wall's north face and the house's south wall, beaten
+along its centre by the kit's service-walk `path_wear` (0.78 at full wear, the K14 study's
+cinder; 0.91 at this age). Every tone is a grey multiplier on the vertices (`_TONE`), so each
+surface keeps its own colour; the bare strip is a surface, because earth beside turf is a change
+of material a grey multiplier cannot draw.
+**What is attested.** Where the yard can be: the 1911 Sanborn sheet 28's parcel lines and the
+house it draws, through the K11 boundary that reads them. Nothing about the yard itself.
+**What is invented.** All of it: that the front is a lawn, that the walk is stone flags and the
+passage cinder, the flags' size and height, the earth under the stoop, the cinder's and earth's
+colours, and the kit's widths and wear (themselves reconstructed, L-k14-condition-kit-2324). None
+of it was read off a picture of 1808 Prairie.
+**What would replace it.** A dated photograph of 1808's front, or of any Prairie Avenue front yard
+of the 1890s, replaces the surfaces it shows; the kit's own numbers are replaced where its
+liberty says.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.yard`
+**Ticket:** T-2360 (piece 3 of T-2325).
+**Review:** `docs/RESEARCH/k14-1808-yard-2360/README.md`.
+**Recorded:** 2026-10-11 (T-2360).
+
 ### L-glessner-cupola-2207 — The Glessner stable cupola as a two-tier dovecote, and the loft door and hoist iron, at counts and sizes of ours
 
 **Decision:** the stable's ridge cupola is no longer a slatted louvre box (T-2207, Glessner exterior
@@ -24739,3 +24775,28 @@ the cupola would replace every number above.
 **Covers:** `glessner_house.as_built_1887.form.turret_stable`, `glessner_house.as_built_1887.form.v4_detail`.
 **Ticket:** T-2207 (Glessner exterior audit GA-08).
 **Recorded:** 2026-10-11 (T-2207).
+
+### L-k14-1808-roof-2359 — 1808 Prairie's slate carries the K14 chimney plume at 18 years, on plan rows this ticket chose
+
+**Decision:** 1808 Prairie's slate takes the K14 kit's chimney plume (`chimney_soot`, T-2324)
+leeward of each of its two K15 stacks, at the house's own age: 18 years on 1904-07-01, so the
+plume is at 0.45 of its full-age strength, 1.35 m long from the stack's centre, 30 degrees either
+side of bearing 70 and at most 0.90 at the centre. Under the stack itself the covering is gone, so
+the darkest slate reads 0.946, at the stack's lee face. The bearing is a compass bearing, so the
+house's frame is turned by its placement's -0.669 degrees before the kit is read. Three things are
+this ticket's own. The roof shell's covering is cut in plan into rows 0.225 m apart (six to the
+plume's length) inside a box round each plume, so `_TONE` has vertices to ride. The faces those cuts
+touch are fanned from their centroids, so the shell stays closed. And the slate takes the plume at
+the kit's full strength, because the kit's fabric responses name no slate: response 1.0, the kit's
+own default. Nothing else on the roof is toned: not the flashing, the caps or the stacks (K15 dresses
+its own sooted band).
+**What is attested.** Nothing. The stack positions are T-2313's inferred reading of the 1888 plate,
+the 1886 date the register's, and every plume value is the kit's (L-k14-condition-kit-2324).
+**What is invented.** The row spacing, the box round each plume, the measuring from the stack's
+centre rather than its face, and slate's response of 1.0.
+**What would replace it.** A dated photograph of 1808 Prairie's roof showing its stacks' staining,
+and a slate entry in the kit's fabric responses from a study of weathered Pennsylvania slate.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.condition`
+**Ticket:** T-2359 (piece 2 of T-2325, K14).
+**Review:** `docs/RESEARCH/k14-1808-roof-2359/README.md`.
+**Recorded:** 2026-10-11 (T-2359).

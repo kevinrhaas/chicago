@@ -123,6 +123,7 @@ class K01FrontageParams:
     street_front_trim: dict = field(default_factory=dict)   # K09 heads, entrance, aprons (T-2310)
     wall_head: dict = field(default_factory=dict)   # K10 cornice and cresting (T-2317)
     boundary: dict = field(default_factory=dict)    # K11 fence, gates, piers, wall (T-2319)
+    yard: dict = field(default_factory=dict)        # K14 lawn, front walk, service walk (T-2360)
     stone: dict = field(default_factory=dict)      # T-2289: the coursed stone front (K02)
     # T-2358: the K14 condition kit, opted into per record — {"kit", "built"} — so the walls
     # weather to the house's own age in 1904; empty keeps K03's fixed soot and damp mask
@@ -161,7 +162,7 @@ CONSUMED = frozenset({
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
     "basement_lights", "roof_covering", "dormer", "rainwater", "window_kit", "service_wall_brick",
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
-    "stone_front", "boundary", "north_bays", "condition",
+    "stone_front", "boundary", "north_bays", "yard", "condition",
 })
 
 #: T-2358: the one condition kit a record may name (K14, T-2324)
@@ -663,6 +664,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError("street_front_trim.brick_heads arches the brick; a stone front is laid "
                          "by its K02 stone_front")
 
+    # T-2360: the K14 yard's age is the house's own: the year its phase was built in
+    yard = dict(val("yard", {}) or {})
+    if yard:
+        built_from = ((phase.get("documented_range") or {}).get("from") or "")[:4]
+        if str(yard.get("built")) != built_from:
+            raise ParamError(f"yard.built {yard.get('built')} is not the phase's own year ({built_from or 'none'}): "
+                             f"the kit ages a yard from when its house was built")
+
     # T-2358: the K14 condition kit. Its water trails hang from the K06 sills, so it needs
     # the sills seated before the walls are cut: a stone front lays its openings first, a
     # brick K01 house its walls, and that order is not this ticket's to change (T-2361)
@@ -677,7 +686,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if not stone:
             raise ParamError("condition needs a K02 stone front: a brick K01 house cuts its walls "
                              "before its sills are seated, so no wall could carry a sill's trail")
-        condition = {"kit": CONDITION_KIT, "built": built}
+        # T-2359: the chimney plume lies on a compass bearing, so the kit is read in the
+        # house's own frame turned by the placement's rotation (+ clockwise, as buildings.js)
+        rotation = float(((phase.get("position") or {}).get("rotation_deg")) or 0.0)
+        condition = {"kit": CONDITION_KIT, "built": built, "rotation_deg": rotation}
 
     names = sorted(CONSUMED)
     params = K01FrontageParams(
@@ -697,6 +709,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         street_front_trim=trim,
         wall_head=dict(val("wall_head", {}) or {}),
         boundary=dict(val("boundary", {}) or {}),
+        yard=yard,
         stone=stone, condition=condition,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
