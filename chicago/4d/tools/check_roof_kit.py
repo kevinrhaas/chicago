@@ -15,7 +15,9 @@ surface, welded on K01's 1 mm quantum, against the lessons of the Glessner roof 
   crossing   no triangle passes through another: no roof plane crosses a gable, a
              parapet or a dormer cheek, and no element pokes through another
   parapet    a parapet gable's covering stops at the parapet's inner face, and every
-             point of the parapet's top clears the roof behind it by the upstand
+             point of the parapet's top clears the roof behind it by the upstand; a flat
+             roof's deck stops at its parapets' and blocking course's inner faces, and
+             their coped top clears the deck's high line by the upstand (T-2349)
   graph      the ridges, hips, valleys, curbs, eaves, verges, returns and abutments read
              off the built surface are the ones the variant declares
   hidden     no face of an element's interior survives the union
@@ -205,6 +207,21 @@ def parapet_clearance(r, data):
     return round(intrusion, 5), round(least, 4)
 
 
+def flat_clearance(r, data):
+    """For a flat roof (T-2349): how far the deck reaches into the side parapets' or the
+    blocking course's band (must be nothing), and the least clear height of their top,
+    read off the built copings' undersides, above the deck's highest point."""
+    v = r.v
+    tw = data["parts"]["parapet"]["thickness_m"]
+    W, D = v["width_m"], v["depth_m"]
+    x0, z0 = r.O[0], r.O[2]
+    cov = [r.pts[i] for t in r.tris if t[3] == "covering" for i in t[:3]]
+    xs, zs = [p[0] - x0 for p in cov], [p[2] - z0 for p in cov]
+    intrusion = max(0.0, tw - min(xs), max(xs) - (W - tw), max(zs) - (D - tw))
+    top = min(r.pts[i][1] for t in r.tris if t[3] == "coping" for i in t[:3])
+    return round(intrusion, 5), round(top - max(p[1] for p in cov), 4)
+
+
 def verdicts(kit, data, specimen_ok=True):
     """[(ok, label, detail)] for every rule, every variant."""
     out = []
@@ -233,6 +250,11 @@ def verdicts(kit, data, specimen_ok=True):
             up = data["parts"]["parapet"]["upstand_min_m"]
             out.append((intr <= 1e-3 and least >= up - 1e-3, f"{vid} parapet",
                         f"covering into the parapet {intr} m, least upstand {least} m (min {up})"))
+        if v["kind"] == "flat":
+            intr, least = flat_clearance(r, data)
+            up = data["parts"]["parapet"]["upstand_min_m"]
+            out.append((intr <= 1e-3 and least >= up - 1e-3, f"{vid} parapet",
+                        f"deck into the parapets {intr} m, least upstand {least} m (min {up})"))
         g = K.graph(r.pts, r.tris, data)
         got = g["counts"]
         want = v["expect"]
@@ -394,6 +416,17 @@ def run_self_test() -> int:
         r = one("k05.roof.gable_stepped", d)
         return res_of(r, data)
     case("a stepped parapet built 0.05 m clear, held to 0.3", "parapet", low_parapet)
+
+    # T-2349: a flat roof's parapets built too low over its deck, and laid without the union
+    def low_blocking_course():
+        d = copy.deepcopy(data)
+        [v for v in d["variants"] if v["id"] == "k05.roof.flat_parapet"][0]["upstand_m"] = 0.05
+        return res_of(one("k05.roof.flat_parapet", d), d)
+    case("a flat roof's parapets built 0.05 m clear of its deck, held to 0.3", "parapet", low_blocking_course)
+
+    def unjoined_flat():
+        return res_of(one("k05.roof.flat_parapet", joined=False))
+    case("a flat roof laid without the union: the deck through its parapets", "crossing", unjoined_flat)
 
     # graph: a declared valley the roof does not have
     def graph_lie():
