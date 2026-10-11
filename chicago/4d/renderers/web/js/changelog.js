@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1687, ts: '2026-10-11T11:29:12.843Z', date: 'Oct 11, 2026, 6:29 AM CT', title: '1808 Prairie\'s chimneys stand over the fireplaces of its 1888 plan', kind: 'improvement',
+    items: [
+      'In the 1904 town, 1808 Prairie Avenue\'s two chimneys moved from the ridge to the side walls, over the library and hall fireplaces drawn on the house\'s 1888 published plan.',
+      'Each is a brick stack with three dark flue openings, a stone cap, stepped flashing down the slate and a small saddle roof behind it to shed water.',
+      'Their height and form are reconstructed: the plate\'s photograph shows no chimney above the front parapet.',
+    ] },
   { v: 1686, ts: '2026-10-11T10:39:17.282Z', date: 'Oct 11, 2026, 5:39 AM CT', title: '1620 Prairie, the Law house, gets arched windows and an iron fence', kind: 'feature',
     items: [
       'The brick Law house at 1620 Prairie is no longer a draft: brick on every wall, built from the Prairie Avenue kit across its full 1886 front.',
