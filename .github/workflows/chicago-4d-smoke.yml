@@ -30,7 +30,7 @@ on:
         required: false
         default: ''
       stage:
-        description: 'SMOKE_STAGE — empty for the full body, or a part 1..14 / a range like 3-4'
+        description: 'SMOKE_STAGE — empty for the full body, or a part 1..15 / a range like 3-4'
         required: false
         default: ''
 
