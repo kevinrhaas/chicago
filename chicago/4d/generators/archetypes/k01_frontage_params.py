@@ -119,6 +119,7 @@ class K01FrontageParams:
     bays: tuple = ()
     street_front_trim: dict = field(default_factory=dict)   # K09 heads, entrance, aprons (T-2310)
     wall_head: dict = field(default_factory=dict)   # K10 cornice and cresting (T-2317)
+    boundary: dict = field(default_factory=dict)    # K11 fence, gates, piers, wall (T-2319)
     stone: dict = field(default_factory=dict)      # T-2289: the coursed stone front (K02)
     confidence: dict = field(default_factory=dict)
 
@@ -154,6 +155,7 @@ CONSUMED = frozenset({
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
     "basement_lights", "roof_covering", "dormer", "rainwater", "window_kit", "service_wall_brick",
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "stone_front",
+    "boundary",
 })
 
 WALLS = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south")
@@ -589,6 +591,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         window_kit={k: kit[k] for k in sorted(kit)}, entrance_kit=door_kit, bays=bays,
         street_front_trim=dict(val("street_front_trim", {}) or {}),
         wall_head=dict(val("wall_head", {}) or {}),
+        boundary=dict(val("boundary", {}) or {}),
         stone=stone,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
