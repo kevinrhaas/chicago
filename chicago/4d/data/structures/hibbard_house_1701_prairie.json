@@ -1,0 +1,225 @@
+{
+  "id": "hibbard_house_1701_prairie",
+  "name": "1701 Prairie Avenue — Italianate mansion with rear addition (district draft; refined by T-1875, T-1876)",
+  "aka": [
+    "1701 S. Prairie Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "function": {
+    "value": "residence",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "The 1911 sheet labels the building with a 1911 use, '2½-storey brick dwelling over a stone basement (D, '2½SB'), with a 1-storey stone (blue) piece at its north-west corner and frame porches', which the draft does not carry back to 1904 (the T-1837 register warns not to assume the 1904 use from it). The register's family row, 'Italianate mansion with rear addition', names it a house, so the 1904 function is inferred residence on that row and the T-1840 census ruling (present_as_mapped)."
+  },
+  "review_required": false,
+  "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1875, T-1876 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1701-b1), the T-1840 census (s20-1701-f, s20-1701-a1) and the T-1837 register row frontage-20-032 (Italianate mansion with rear addition); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335).",
+  "phases": [
+    {
+      "id": "draft_1904",
+      "documented_range": {
+        "from": "1904-07-01",
+        "to": "1911-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_20"
+        ],
+        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+      },
+      "position": {
+        "utm_e": 448519.74,
+        "utm_n": 4634320.919,
+        "rotation_deg": 179.605,
+        "symbolic_location": "1701 S. Prairie Avenue, parcel prairie_1701 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_20"
+        ],
+        "note": "The rear corner of the main body's rectangle (lot frame u 24.000, v -10.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.605 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            28.25,
+            0.0
+          ],
+          [
+            28.25,
+            6.5
+          ],
+          [
+            0.0,
+            6.5
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_20"
+        ],
+        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+      },
+      "form": {
+        "stories": {
+          "value": 2,
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "'2½S.B.' printed on the 1911 sheet: 2 full storeys and a half storey in the roof."
+        },
+        "construction": {
+          "value": "brick",
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "The register reads the map's colours as 'brick'."
+        },
+        "draft_plan": {
+          "value": {
+            "parts": [
+              {
+                "id": "r1",
+                "role": "main",
+                "storeys": 2,
+                "roof": "hip",
+                "rect": [
+                  0.0,
+                  0.0,
+                  28.25,
+                  6.5
+                ],
+                "from": "s20fp-1701-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill"
+              },
+              {
+                "id": "r2",
+                "role": "wing",
+                "storeys": 2,
+                "roof": "hip",
+                "rect": [
+                  17.75,
+                  6.5,
+                  30.0,
+                  15.25
+                ],
+                "from": "s20fp-1701-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill"
+              },
+              {
+                "id": "r3",
+                "role": "wing",
+                "storeys": 2,
+                "roof": "flat",
+                "rect": [
+                  0.0,
+                  -1.25,
+                  19.0,
+                  0.0
+                ],
+                "from": "s20fp-1701-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 85% of its fill"
+              },
+              {
+                "id": "r4",
+                "role": "range",
+                "storeys": 1,
+                "roof": "flat",
+                "rect": [
+                  13.75,
+                  12.0,
+                  17.5,
+                  15.75
+                ],
+                "from": "s20fp-1701-b1 p3 (range, frame), rectangle 1 of that part; the part's rectangles cover 92% of its fill"
+              },
+              {
+                "id": "r5",
+                "role": "bay",
+                "storeys": 2,
+                "roof": "flat",
+                "rect": [
+                  28.5,
+                  0.25,
+                  31.25,
+                  5.0
+                ],
+                "from": "s20fp-1701-b1 p2 (range, stone), rectangle 1 of that part; the part's rectangles cover 87% of its fill"
+              }
+            ],
+            "lot_v": [
+              -6.281,
+              26.781
+            ],
+            "street_u": 37.737
+          },
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1701-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s20fp-1701-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill; s20fp-1701-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 85% of its fill; s20fp-1701-b1 p3 (range, frame), rectangle 1 of that part; the part's rectangles cover 92% of its fill; s20fp-1701-b1 p2 (range, stone), rectangle 1 of that part; the part's rectangles cover 87% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+        },
+        "draft_elevation": {
+          "value": {
+            "kind": "house",
+            "seed": 1737476123,
+            "principal_floor_m": 1.4,
+            "storey_heights_m": [
+              3.9,
+              3.5,
+              3.3,
+              3.1
+            ],
+            "roof_pitch_deg": 25,
+            "mansard_lower_m": 3.0,
+            "front_bays": 2,
+            "entrance": "centre",
+            "side_spacing_m": 2.6,
+            "chimneys": 2,
+            "brackets": true,
+            "attic_dormers": true,
+            "stone": "stone",
+            "features": [],
+            "draft_label": {
+              "pass": "T-2335",
+              "refined_by": [
+                "T-1875",
+                "T-1876"
+              ]
+            },
+            "v_toward": "south"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED by the draft rules, family row 'Italianate' overlaid with the frontage row: The register's Italianate mansion with rear addition (the Hibbard house): a low hip on bracketed eaves over the 2½S.B. stone-based body, the half storey as dormers, the 1874 rear range as the sheet traces it; the arched lights, oriel and two-level rear veranda are T-1875's and T-1876's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1737476123 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-east-2335."
+        },
+        "draft": {
+          "value": {
+            "pass": "T-2335",
+            "liberty": "L-draft-prairie-16-18-east-2335",
+            "register_row": "frontage-20-032",
+            "census_ids": [
+              "s20-1701-f",
+              "s20-1701-a1"
+            ],
+            "trace_building": "s20fp-1701-b1",
+            "seed": 1737476123,
+            "replaceable_by": [
+              "T-1875",
+              "T-1876"
+            ],
+            "card": "District draft — refined by T-1875, T-1876."
+          },
+          "confidence": "reconstructed",
+          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+          "geometry": "record_only"
+        }
+      }
+    }
+  ]
+}

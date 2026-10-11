@@ -14473,7 +14473,7 @@ than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
-**Scope:** `structures.records[brick_fabric]` — 54 structures (16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either). The `brick` substrate in
+**Scope:** `structures.records[brick_fabric]` — 67 structures (16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
 `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four
 are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
 `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says "two records are
@@ -24074,6 +24074,52 @@ buildings are T-1932's.
 **Ticket:** T-2334 (piece 1 of T-2160, the district draft's 16th-18th block).
 **Review:** `docs/RESEARCH/prairie-draft-16-18-west-2334/README.md`.
 **Recorded:** 2026-10-11 (T-2334).
+
+### L-draft-prairie-16-18-east-2335 — The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate
+
+**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1601_prairie.draft_1904.form.draft_elevation`, `house_1601_prairie.draft_1904.form.draft`, `house_1609_prairie.draft_1904.form.stories`, `house_1609_prairie.draft_1904.form.draft_elevation`, `house_1609_prairie.draft_1904.form.draft`, `house_1611_prairie.draft_1904.form.stories`, `house_1611_prairie.draft_1904.form.draft_elevation`, `house_1611_prairie.draft_1904.form.draft`, `house_1613_prairie.draft_1904.form.draft_elevation`, `house_1613_prairie.draft_1904.form.draft`, `house_1615_prairie.draft_1904.form.draft_elevation`, `house_1615_prairie.draft_1904.form.draft`, `house_1619_prairie.draft_1904.form.draft_elevation`, `house_1619_prairie.draft_1904.form.draft`, `house_1621_prairie.draft_1904.form.draft_elevation`, `house_1621_prairie.draft_1904.form.draft`, `house_1623_prairie.draft_1904.form.draft_elevation`, `house_1623_prairie.draft_1904.form.draft`, `house_1625_prairie.draft_1904.form.draft_elevation`, `house_1625_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
+**Decision:** the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run
+by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
+and "What is not" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840
+census. Block 20's east side stands thirteen houses, the station and four alley buildings: 1601,
+1609 and 1611 (the lost frame pair), the 1613/1615 pair, 1619, the 1621-1625 group of three, 1637
+Spalding, 1701 Hibbard, 1709 Kellogg, 1721 Dexter and 1729 Pullman, the Illinois Central's 16th
+Street station at 1605, and the buildings the sheet draws by the tracks behind 1637, 1701, 1709 and
+1721. That is every east-side row of the census (frontage-20-022 to -035). Nothing on the west side
+or on sheet 28 moves.
+**What is invented on this side, beyond the 18th-20th list.** The group of three at 1621-1625 is
+attested as attached, not as one design, so its three fronts are drawn three ways (a hip, a flat
+bracketed cornice, a mansard for 1625's half storey). The 1613/1615 pair, which the sheet attests,
+mirrors its doors to its outer ends, as 1609/1611 do. Four storeys on 1613-1619 are read flat
+behind a cornice. 1701's Italianate body is a low bracketed hip with its half storey as dormers.
+1605's station stands as the draft's plain two-storey gabled outbuilding with the use
+`railway_station` (a term added to the function vocabulary for it); its platforms and canopies are
+T-1866's.
+**1609 and 1611, the pair the 1911 sheet does not draw.** The census rules the 1911 loft at
+1607-1611 a later replacement and stands, on the supplied expert guidance, the frame pair Robinson
+1886 draws on lot 6 (backcast_1886; pa-1609- and pa-1611-1904-correction). Each half is read off
+Robinson 1886 plate 10 in the plate's own pixels, split at the line the plate draws across it,
+and carried by the plate's T-1250 fit (4.54 m RMS, the weakest of the four), so their plans are
+inferred from that plate. Their two storeys are RECONSTRUCTED: the atlas prints none. Their
+documented ranges claim 1904-07-01 and nothing either side. The loft is not drawn.
+**1721, one Dexter house.** The register read the sheet's 1721 as 1719; the census rules the two
+one property (study ruling 3), so one house stands under 1721 and carries 1719 as its alias.
+**1635, nothing.** Forsyth's 1635 is `phase_unresolved` in the census, on the strip next north of
+1637; the draft builds nothing there and does not put the house on 1637 or 1625. T-1870 rules.
+**1729 and its conservatory.** The east wing's south bay is the K13 record already standing
+(`pullman_house_1729_prairie_conservatory`, T-2306) on a plain block in the wing's place. The draft
+keeps that record's footprint out of the traced fabric (`keep_out`), so the wing is drawn once, and
+stands the sheet's two-storey building at the wing's east end at two storeys (`wing_storeys`).
+**What is not drafted here.** Pullman's two glasshouse ranges and the lodge between them stand on
+sheet 28's ground across 18th Street, allocated to the Pullman estate (T-1934) but never traced, so
+no polygon exists for the builder to read; and the draft archetype has no glass roof. They are left
+to T-1934, whose ticket says so.
+**How to resolve:** each house's per-building ticket (T-1866 to T-1881, named on its card and in
+its record's `draft.replaceable_by`) replaces its attributes in place, under the same id; the alley
+buildings are T-1933's.
+**Ticket:** T-2335 (piece 2 of T-2160, the district draft's 16th-18th block).
+**Review:** `docs/RESEARCH/prairie-draft-16-18-east-2335/README.md`.
+**Recorded:** 2026-10-11 (T-2335).
 
 ### L417 — The portable-human pipeline's test figure, which is nobody
 

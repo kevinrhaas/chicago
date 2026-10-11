@@ -110,12 +110,20 @@
     "20": {
       "where": "Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20)",
       "sides": [
-        "west"
+        "west",
+        "east"
       ],
       "source": "sanborn_1911_chicago_v3_sheet_20",
       "census_ticket": "T-1840",
       "pass": "T-2334",
       "liberty": "L-draft-prairie-16-18-west-2334",
+      "by_side": {
+        "_doc": "As block 28's: the east side is drafted by T-2335, the second piece of T-2160, under its own pass and liberty.",
+        "east": {
+          "pass": "T-2335",
+          "liberty": "L-draft-prairie-16-18-east-2335"
+        }
+      },
       "fit_note": "the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed",
       "rear_ticket": {
         "west": "T-1932",
@@ -178,6 +186,118 @@
           "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the house. Two storeys over a raised basement is the draft's reading of the register's 'irregular earlier brick envelope' with a 'bounded roof'; T-1861 reads the 1898 numbered drawing the register names.",
           "construction": "brick",
           "construction_note": "Robinson 1886 colours the building pink, the plate's brick (its frame buildings are yellow); the register's 'irregular earlier brick envelope' agrees."
+        },
+        {
+          "_doc": "1609 is the 1904 house under the 1911 sheet's four-storey loft at 1607-1611, which the T-1840 census rules a later replacement (frontage-20-024, backcast_1886): Robinson 1886 plate 10 draws the frame pair on lot 6, and the dividing line puts 1609 on its north half. The outline is read in the plate's own pixels (4x and 12x enlargements on a 5-px grid, about +/- 1 px) and carried by the plate's T-1250 similarity, as 1620's is on the west side.",
+          "id": "r1886-1609-f",
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "frontage_id": "frontage-20-024",
+          "parcel_id": "prairie_1607",
+          "lot_parcels": [
+            "prairie_1607"
+          ],
+          "material": "frame",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "stories": 2,
+          "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, draws the four-storey loft that replaced the pair. Two storeys is the draft's reading of the register's 'modest frame facade, timber cornice, sash windows and bounded roof/stoop'; T-1867 reads the pair's height.",
+          "construction": "frame",
+          "construction_note": "Robinson 1886 colours the pair yellow, the plate's frame (its brick buildings are pink, as the pair on lot 7 next south is); the register's 'pre-1911 paired frame house' agrees.",
+          "polygon_px": [
+            [
+              564.5,
+              1045.5
+            ],
+            [
+              595.0,
+              1045.5
+            ],
+            [
+              595.0,
+              1059.5
+            ],
+            [
+              564.5,
+              1059.5
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1609-f: the north half of the lot-6 frame pair in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 prints 1609 and 1611 against one yellow (frame) building on lot 6, divided by a line across it: about 10.5 m deep, its north part about 4.8 m and its south part about 5.4 m along the street, both fronts on one line about 4 m back from the Prairie Avenue line.",
+          "function_note": "The 1911 sheet draws a 1911 loft at 1607-1611, not a 1904 building. The T-1840 census (frontage-20-024, backcast_1886) stands the lot-6 frame pair for 1904 on the supplied expert guidance (named record pa-1609-1904-correction) because Robinson 1886 plate 10 prints 1609 against the north half of it. There is no 1904 directory listing at the address; residence is inferred from the register's 'pre-1911 paired frame house'.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the pair and the T-1840 census carries it to 1904 on the expert guidance. The 1911 sheet draws the loft in its place, so the pair was gone by then; when 1609 was built and when it went are T-1867's to read."
+          },
+          "frontage": {
+            "register": {
+              "address": "1609",
+              "family": "Pre-1911 paired frame house",
+              "map_material": "frame"
+            },
+            "entrance": "north",
+            "why": "The register's 'pre-1911 paired frame house' (1609, the first member of the lot-6 pair): two frame storeys under a simple gable with one stack, the pair's doors at its outer ends so the two read as two houses with 1611 across the party wall."
+          }
+        },
+        {
+          "_doc": "1611 is the 1904 house under the 1911 sheet's four-storey loft at 1607-1611, which the T-1840 census rules a later replacement (frontage-20-024, backcast_1886): Robinson 1886 plate 10 draws the frame pair on lot 6, and the dividing line puts 1611 on its south half. The outline is read in the plate's own pixels (4x and 12x enlargements on a 5-px grid, about +/- 1 px) and carried by the plate's T-1250 similarity, as 1620's is on the west side.",
+          "id": "r1886-1611-f",
+          "source": "robinson_1886_chicago_plate_10",
+          "gcps": "data/traces/gcp/robinson_1886_plate_10_gcps.json",
+          "frontage_id": "frontage-20-024",
+          "parcel_id": "prairie_1607",
+          "lot_parcels": [
+            "prairie_1607"
+          ],
+          "material": "frame",
+          "fit_note": "the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading",
+          "stories": 2,
+          "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, draws the four-storey loft that replaced the pair. Two storeys is the draft's reading of the register's 'modest frame facade, timber cornice, sash windows and bounded roof/stoop'; T-1867 reads the pair's height.",
+          "construction": "frame",
+          "construction_note": "Robinson 1886 colours the pair yellow, the plate's frame (its brick buildings are pink, as the pair on lot 7 next south is); the register's 'pre-1911 paired frame house' agrees.",
+          "polygon_px": [
+            [
+              564.5,
+              1059.5
+            ],
+            [
+              595.0,
+              1059.5
+            ],
+            [
+              595.0,
+              1075.0
+            ],
+            [
+              564.25,
+              1075.0
+            ]
+          ],
+          "label": "Robinson 1886 plate 10 reading (r1886-1611-f: the south half of the lot-6 frame pair in the plate's pixels, carried by its T-1250 fit)",
+          "reading": "Robinson 1886 plate 10 prints 1609 and 1611 against one yellow (frame) building on lot 6, divided by a line across it: about 10.5 m deep, its north part about 4.8 m and its south part about 5.4 m along the street, both fronts on one line about 4 m back from the Prairie Avenue line.",
+          "function_note": "The 1911 sheet draws a 1911 loft at 1607-1611, not a 1904 building. The T-1840 census (frontage-20-024, backcast_1886) stands the lot-6 frame pair for 1904 on the supplied expert guidance (named record pa-1611-1904-correction) because Robinson 1886 plate 10 prints 1611 against the south half of it. There is no 1904 directory listing at the address; residence is inferred from the register's 'pre-1911 paired frame house'.",
+          "documented_range": {
+            "from": "1904-07-01",
+            "to": "1904-07-01",
+            "confidence": "inferred",
+            "sources": [
+              "robinson_1886_chicago_plate_10"
+            ],
+            "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the pair and the T-1840 census carries it to 1904 on the expert guidance. The 1911 sheet draws the loft in its place, so the pair was gone by then; when 1611 was built and when it went are T-1867's to read."
+          },
+          "frontage": {
+            "register": {
+              "address": "1611",
+              "family": "Pre-1911 paired frame house",
+              "map_material": "frame"
+            },
+            "entrance": "south",
+            "why": "The register's 'pre-1911 paired frame house' (1611, the second member of the lot-6 pair): two frame storeys under a simple gable with one stack, the pair's doors at its outer ends so the two read as two houses with 1609 across the party wall."
+          }
         }
       ]
     }
@@ -186,9 +306,244 @@
     "s28-1800-front": "1800 Prairie is the Glessner house, the canonical benchmark (data/structures/glessner_house.json); the draft is judged beside it and never touches it.",
     "s28-1808-front": "1808 Prairie already stands as the K01 frontage assembly (data/structures/keith_house_1808_prairie.json), well past a draft; T-1882 and T-1883 refine that record, not this pass.",
     "s28-1812-rear": "1812's coach house is being built from the K12 kit as wheeler_house_1812_prairie_coach_house (T-2321, PR #666); the draft does not stand a second building in its place.",
-    "s20-1638-f": "1638's street front already stands as the K16 timber record shortall_gregory_house_1638_prairie_front (T-2323) on a plain body read off this sheet; T-2323 asked the draft to keep that record, so the draft adds only the stable behind it."
+    "s20-1638-f": "1638's street front already stands as the K16 timber record shortall_gregory_house_1638_prairie_front (T-2323) on a plain body read off this sheet; T-2323 asked the draft to keep that record, so the draft adds only the stable behind it.",
+    "s20-1607-f": "1607-1611's four-storey loft is the 1911 replacement of the lot-6 frame pair (T-1840 census, backcast_1886): the draft stands 1609 and 1611 from Robinson 1886 instead (block 20's `plates`), and the loft not at all."
   },
   "frontages": {
+    "frontage-20-001": {
+      "slug": "house",
+      "entrance": "south",
+      "why": "2B brick with the sheet's 'curved bay on the Prairie face': the brick family's hip over two storeys, the bay drawn as a square-cornered projection; nothing stands behind it on the sheet."
+    },
+    "frontage-20-002": {
+      "slug": "house",
+      "entrance": "north",
+      "why": "3B brick, rear 2B: the brick family's hip over three storeys and the two-storey rear range behind."
+    },
+    "frontage-20-003": {
+      "slug": "house",
+      "roof": "flat",
+      "brackets": true,
+      "entrance": "south",
+      "why": "2B brick with a bay on the Prairie face: drawn flat behind a bracketed cornice so that it does not repeat 1600's hip two lots north; which roof it had is T-1859's."
+    },
+    "frontage-20-004": {
+      "slug": "goodman_house",
+      "entrance": "centre",
+      "why": "Italianate stone front: the register's 'smooth ashlar street face, common-brick returns ... arched columned entrance, high stoop, bracketed cornice', the entrance drawn central."
+    },
+    "frontage-20-005": {
+      "slug": "house",
+      "entrance": "north",
+      "why": "2½B brick: two full storeys and a half in the roof, read as dormers in the brick family's hip; the sheet's frame bay at its north-east corner stands as a projection."
+    },
+    "frontage-20-006": {
+      "slug": "law_house",
+      "house_id": "law_house_1620_prairie",
+      "house_address": "1620",
+      "roof": "hip",
+      "pitch_deg": 32,
+      "entrance": "south",
+      "why": "The Robert Law house restored for 1904 (the register's 'irregular earlier brick envelope across lots 13-14, projecting bay, arched windows, stoop, bounded roof'): the plate's L read as the main body and its shallower south part, under a low hip. Its stable on the alley is the sheet's own long two-storey brick building."
+    },
+    "frontage-20-007": {
+      "slug": "house",
+      "entrance": "north",
+      "why": "3B brick, the north half of a pair attached to 1628: the brick family's hip, its entrance at the north end so the pair's doors stand at their outer ends."
+    },
+    "frontage-20-008": {
+      "slug": "house",
+      "entrance": "south",
+      "why": "3B brick, the south half of the pair with 1626: the same family, its entrance mirrored to the south end."
+    },
+    "frontage-20-009": {
+      "slug": "house",
+      "roof": "gable",
+      "pitch_deg": 40,
+      "chimneys": 1,
+      "entrance": "north",
+      "why": "The register's 'small earlier frame house': 2BB frame read as two storeys under a simple gable with one stack, keeping its small scale between the masonry houses."
+    },
+    "frontage-20-010": {
+      "slug": "house",
+      "entrance": "north",
+      "why": "3B stone-front, attached to 1636 as a pair: the stone-front family's flat roof behind a cornice, the entrance at the pair's north end."
+    },
+    "frontage-20-011": {
+      "slug": "house",
+      "entrance": "south",
+      "why": "3B stone-front, the south half of the pair with 1634: the same family mirrored, the one repeated front on the block, which the sheet's attached pair attests."
+    },
+    "frontage-20-012": {
+      "slug": "shortall_gregory_house",
+      "house_id": "shortall_gregory_house_1638_prairie",
+      "house_address": "1638",
+      "why": "The house is the K16 record already standing (see skip); this row names it so its stable keeps its family's id."
+    },
+    "frontage-20-013": {
+      "slug": "glessner_lee_house",
+      "house_part": "p2",
+      "roof": "hip",
+      "pitch_deg": 28,
+      "front_bays": 3,
+      "entrance": "north",
+      "why": "The register's 'paired mirror-image Georgian brick envelope, restrained classical cornice': the north unit of the U-shaped block, the sheet's own north part (p2 of s20fp-1700-b1), under a low hip, its door at the outer (north) end."
+    },
+    "frontage-20-014": {
+      "skip": "1702 is a second number printed on the 1700 front (census alias; study ruling 2): no third house."
+    },
+    "frontage-20-015": {
+      "slug": "george_glessner_house",
+      "house_part": "p1",
+      "roof": "hip",
+      "pitch_deg": 28,
+      "front_bays": 3,
+      "entrance": "south",
+      "why": "The mirrored partner to 1700 with its own entrance: the south unit (p1 of s20fp-1700-b1) under the same low hip, its door at the outer (south) end, so the pair reads as two houses and one composition."
+    },
+    "frontage-20-016": {
+      "slug": "house",
+      "roof": "flat",
+      "entrance": "north",
+      "why": "The register's 'three-storey/basement brick townhouse with separate entry, cornice, regular sash': flat behind a cornice, attached by a party wall to 1706."
+    },
+    "frontage-20-017": {
+      "slug": "house",
+      "entrance": "south",
+      "why": "2B brick with a stone front: the stone-front family's flat roof behind a cornice."
+    },
+    "frontage-20-018": {
+      "slug": "walker_house",
+      "roof": "hip",
+      "pitch_deg": 30,
+      "brackets": true,
+      "entrance": "centre",
+      "why": "The register's Tyrrell/Walker 'Italianate frame': a low hip on deep bracketed eaves over the 2BB frame body, the central stair drawn as a central entrance; the central gable, canted bay and full-width porch are T-1873's."
+    },
+    "frontage-20-019": {
+      "slug": "house",
+      "entrance": "north",
+      "why": "2B brick with a bay: the brick family's hip over two storeys."
+    },
+    "frontage-20-020": {
+      "slug": "house",
+      "roof": "flat",
+      "brackets": true,
+      "entrance": "south",
+      "why": "3B brick, rear 2B, the main block outlined by a dashed line: flat behind a bracketed cornice so that the three brick houses 1726-1736 do not share one roof; which it had is T-1874's."
+    },
+    "frontage-20-021": {
+      "slug": "house",
+      "roof": "mansard",
+      "entrance": "north",
+      "why": "The register's 'three-storey brick corner dwelling with bounded mansard/attic treatment' at the 18th Street corner: a mansard over the mapped three storeys."
+    },
+    "frontage-20-022": {
+      "slug": "house",
+      "roof": "gable",
+      "pitch_deg": 40,
+      "chimneys": 1,
+      "entrance": "south",
+      "why": "2-storey frame at the 16th Street corner, 'stepped outline' on the sheet: the small frame house's simple gable with one stack (as 1630's across the avenue), the steps standing as the fitted rectangles; its door is on the south, away from the corner's station traffic, and T-1866 reads it."
+    },
+    "frontage-20-023": {
+      "slug": "ic_16th_street_station",
+      "use": {
+        "function": "railway_station",
+        "name": "the Illinois Central's 16th Street station"
+      },
+      "why": "Not a house: the sheet letters the two-storey frame building 'ILLINOIS CENTRAL R.R. 16TH ST. STATION' and Robinson 1886 shows a station on the same ground, so the census carries the use to 1904. It stands as the draft's plain two-storey gabled outbuilding with its own name and use; its platforms, canopies and signs are T-1866's. (The register's '1603' row is this frontage; the sheet prints 1605.)"
+    },
+    "frontage-20-024": {
+      "slug": "house",
+      "roof": "gable",
+      "pitch_deg": 40,
+      "chimneys": 1,
+      "why": "The 1904 houses on this frontage are the lot-6 frame pair 1609 and 1611 (block 20's `plates`), each with its own overlay there; the 1911 loft is skipped."
+    },
+    "frontage-20-025": {
+      "slug": "house",
+      "roof": "flat",
+      "brackets": true,
+      "entrance": "north",
+      "why": "4-storey brick, the north half of a pair attached to 1615: four storeys read flat behind a bracketed cornice, a terrace house's roof, its door at the pair's outer (north) end."
+    },
+    "frontage-20-026": {
+      "slug": "house",
+      "roof": "flat",
+      "brackets": true,
+      "entrance": "south",
+      "why": "4-storey brick, the south half of the pair with 1613: the same roof and cornice, its door mirrored to the outer (south) end. The sheet's attached pair attests the repeat."
+    },
+    "frontage-20-027": {
+      "slug": "house",
+      "entrance": "north",
+      "why": "4-storey brick with a stone front and a half-round rear porch: the stone-front family's flat roof behind a cornice; the sheet's stone front stands as its own piece."
+    },
+    "frontage-20-028": {
+      "slug": "house",
+      "entrance": "north",
+      "why": "3B brick, the north unit of an attached group of three (1621-1625): the brick family's hip, its door at the group's north end."
+    },
+    "frontage-20-029": {
+      "slug": "house",
+      "roof": "flat",
+      "brackets": true,
+      "entrance": "north",
+      "why": "3B brick, the middle unit of the group: flat behind a bracketed cornice so that the group's three fronts are not one repeated face (the study attests the attachment, not a uniform design); which it had is T-1869's."
+    },
+    "frontage-20-030": {
+      "slug": "house",
+      "roof": "mansard",
+      "entrance": "south",
+      "why": "3B brick with a 4-storey rear section, the south unit of the group (the census reads it 3½B): a mansard over the mapped storeys carries the half storey, its door at the group's south end; the rear section stands as the sheet traces it."
+    },
+    "frontage-20-031": {
+      "slug": "spalding_house",
+      "roof": "hip_steep",
+      "pitch_deg": 50,
+      "attic_dormers": true,
+      "entrance": "south",
+      "why": "The register's Spalding remodel of the Grosvenor house: 'brick block with steep hip/mansard roof, dormers, tall chimneys, full-height swell bay, projecting gabled wing', drawn as a steep hip with dormers over the 2½B body, the sheet's frame bay as a projection. The 1904 Blue Book lists W. G. Hibbard Jr. at 1637, so the Spalding name is the one provisional association the census keeps; T-1870 rules."
+    },
+    "frontage-20-032": {
+      "slug": "hibbard_house",
+      "roof": "hip",
+      "pitch_deg": 25,
+      "brackets": true,
+      "attic_dormers": true,
+      "entrance": "centre",
+      "why": "The register's Italianate mansion with rear addition (the Hibbard house): a low hip on bracketed eaves over the 2½S.B. stone-based body, the half storey as dormers, the 1874 rear range as the sheet traces it; the arched lights, oriel and two-level rear veranda are T-1875's and T-1876's."
+    },
+    "frontage-20-033": {
+      "slug": "kellogg_house",
+      "roof": "hip",
+      "pitch_deg": 30,
+      "entrance": "south",
+      "why": "The register's Palmer Kellogg successor: 'irregular three-storey brick envelope, bay projection, rear 2/1-storey ranges, recessed entry, cornice and bounded roof profile', a low hip over the 3B body with the sheet's corner bays as projections. The Boyington/Williams predecessor is excluded (study ruling 10)."
+    },
+    "frontage-20-034": {
+      "slug": "dexter_house",
+      "register": {
+        "address": "1721"
+      },
+      "roof": "flat",
+      "chimneys": 2,
+      "entrance": "centre",
+      "aka": [
+        "1719 Prairie Avenue"
+      ],
+      "why": "The Dexter house in its post-1889 phase (the register's 'flat classical front, rusticated base, entry portico, upper balcony, cornice and chimneys'): flat behind a cornice, a central entrance. The sheet prints 1721 where the register read 1719; the census rules them one property (study ruling 3), so one house stands and 1719 is its alias."
+    },
+    "frontage-20-035": {
+      "slug": "pullman_house",
+      "entrance": "centre",
+      "why": "The Pullman house, the register's 'brownstone main block, mansard/dormers/cresting, Prairie portico': the Second Empire family's mansard over the 3B stone body, the entrance central on the Prairie front. The east wing's conservatory bay is the K13 record already standing (pullman_house_1729_prairie_conservatory, T-2306), and the porte-cochere, 1892 east addition, stable and glasshouses are T-1880, T-1881 and T-1934's. The draft keeps that record's footprint out of the traced fabric (`keep_out`), so the wing is drawn once; the sheet's two-storey building at the wing's east end (lettered GARAGE, a 1911 use) stands at two storeys (`wing_storeys`), not the house's three.",
+      "keep_out": [
+        "pullman_house_1729_prairie_conservatory"
+      ],
+      "wing_storeys": 2
+    },
     "frontage-28-038": {
       "slug": "wheeler_house",
       "front_bays": 2,
@@ -358,134 +713,6 @@
       "attic_dormers": true,
       "entrance": "north",
       "why": "The register's 'corner mansion with substantial roof/attic, deep Prairie facade and long 20th Street elevation': a hip with attic dormers over the mapped house, its rear2B range behind."
-    },
-    "frontage-20-001": {
-      "slug": "house",
-      "entrance": "south",
-      "why": "2B brick with the sheet's 'curved bay on the Prairie face': the brick family's hip over two storeys, the bay drawn as a square-cornered projection; nothing stands behind it on the sheet."
-    },
-    "frontage-20-002": {
-      "slug": "house",
-      "entrance": "north",
-      "why": "3B brick, rear 2B: the brick family's hip over three storeys and the two-storey rear range behind."
-    },
-    "frontage-20-003": {
-      "slug": "house",
-      "roof": "flat",
-      "brackets": true,
-      "entrance": "south",
-      "why": "2B brick with a bay on the Prairie face: drawn flat behind a bracketed cornice so that it does not repeat 1600's hip two lots north; which roof it had is T-1859's."
-    },
-    "frontage-20-004": {
-      "slug": "goodman_house",
-      "entrance": "centre",
-      "why": "Italianate stone front: the register's 'smooth ashlar street face, common-brick returns ... arched columned entrance, high stoop, bracketed cornice', the entrance drawn central."
-    },
-    "frontage-20-005": {
-      "slug": "house",
-      "entrance": "north",
-      "why": "2½B brick: two full storeys and a half in the roof, read as dormers in the brick family's hip; the sheet's frame bay at its north-east corner stands as a projection."
-    },
-    "frontage-20-006": {
-      "slug": "law_house",
-      "house_id": "law_house_1620_prairie",
-      "house_address": "1620",
-      "roof": "hip",
-      "pitch_deg": 32,
-      "entrance": "south",
-      "why": "The Robert Law house restored for 1904 (the register's 'irregular earlier brick envelope across lots 13-14, projecting bay, arched windows, stoop, bounded roof'): the plate's L read as the main body and its shallower south part, under a low hip. Its stable on the alley is the sheet's own long two-storey brick building."
-    },
-    "frontage-20-007": {
-      "slug": "house",
-      "entrance": "north",
-      "why": "3B brick, the north half of a pair attached to 1628: the brick family's hip, its entrance at the north end so the pair's doors stand at their outer ends."
-    },
-    "frontage-20-008": {
-      "slug": "house",
-      "entrance": "south",
-      "why": "3B brick, the south half of the pair with 1626: the same family, its entrance mirrored to the south end."
-    },
-    "frontage-20-009": {
-      "slug": "house",
-      "roof": "gable",
-      "pitch_deg": 40,
-      "chimneys": 1,
-      "entrance": "north",
-      "why": "The register's 'small earlier frame house': 2BB frame read as two storeys under a simple gable with one stack, keeping its small scale between the masonry houses."
-    },
-    "frontage-20-010": {
-      "slug": "house",
-      "entrance": "north",
-      "why": "3B stone-front, attached to 1636 as a pair: the stone-front family's flat roof behind a cornice, the entrance at the pair's north end."
-    },
-    "frontage-20-011": {
-      "slug": "house",
-      "entrance": "south",
-      "why": "3B stone-front, the south half of the pair with 1634: the same family mirrored, the one repeated front on the block, which the sheet's attached pair attests."
-    },
-    "frontage-20-012": {
-      "slug": "shortall_gregory_house",
-      "house_id": "shortall_gregory_house_1638_prairie",
-      "house_address": "1638",
-      "why": "The house is the K16 record already standing (see skip); this row names it so its stable keeps its family's id."
-    },
-    "frontage-20-013": {
-      "slug": "glessner_lee_house",
-      "house_part": "p2",
-      "roof": "hip",
-      "pitch_deg": 28,
-      "front_bays": 3,
-      "entrance": "north",
-      "why": "The register's 'paired mirror-image Georgian brick envelope, restrained classical cornice': the north unit of the U-shaped block, the sheet's own north part (p2 of s20fp-1700-b1), under a low hip, its door at the outer (north) end."
-    },
-    "frontage-20-014": {
-      "skip": "1702 is a second number printed on the 1700 front (census alias; study ruling 2): no third house."
-    },
-    "frontage-20-015": {
-      "slug": "george_glessner_house",
-      "house_part": "p1",
-      "roof": "hip",
-      "pitch_deg": 28,
-      "front_bays": 3,
-      "entrance": "south",
-      "why": "The mirrored partner to 1700 with its own entrance: the south unit (p1 of s20fp-1700-b1) under the same low hip, its door at the outer (south) end, so the pair reads as two houses and one composition."
-    },
-    "frontage-20-016": {
-      "slug": "house",
-      "roof": "flat",
-      "entrance": "north",
-      "why": "The register's 'three-storey/basement brick townhouse with separate entry, cornice, regular sash': flat behind a cornice, attached by a party wall to 1706."
-    },
-    "frontage-20-017": {
-      "slug": "house",
-      "entrance": "south",
-      "why": "2B brick with a stone front: the stone-front family's flat roof behind a cornice."
-    },
-    "frontage-20-018": {
-      "slug": "walker_house",
-      "roof": "hip",
-      "pitch_deg": 30,
-      "brackets": true,
-      "entrance": "centre",
-      "why": "The register's Tyrrell/Walker 'Italianate frame': a low hip on deep bracketed eaves over the 2BB frame body, the central stair drawn as a central entrance; the central gable, canted bay and full-width porch are T-1873's."
-    },
-    "frontage-20-019": {
-      "slug": "house",
-      "entrance": "north",
-      "why": "2B brick with a bay: the brick family's hip over two storeys."
-    },
-    "frontage-20-020": {
-      "slug": "house",
-      "roof": "flat",
-      "brackets": true,
-      "entrance": "south",
-      "why": "3B brick, rear 2B, the main block outlined by a dashed line: flat behind a bracketed cornice so that the three brick houses 1726-1736 do not share one roof; which it had is T-1874's."
-    },
-    "frontage-20-021": {
-      "slug": "house",
-      "roof": "mansard",
-      "entrance": "north",
-      "why": "The register's 'three-storey brick corner dwelling with bounded mansard/attic treatment' at the 18th Street corner: a mansard over the mapped three storeys."
     }
   }
 }
