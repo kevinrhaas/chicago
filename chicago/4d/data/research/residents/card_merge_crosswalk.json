@@ -353,6 +353,23 @@
   {
    "outcome": "merged",
    "person_id": "franchre_louis",
+   "folded_person_id": "franchere_l",
+   "rule": "C2",
+   "cluster": "franchere",
+   "record_ids": [
+    "st_cyr_marriage_001_3"
+   ],
+   "domains": [
+    "church"
+   ],
+   "sources": [
+    "st_cyr_register_ichr_v4"
+   ],
+   "evidence": "T-2251: 'franchere_l' and 'franchre_louis' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'franchere'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "franchre_louis",
    "folded_person_id": "louis_franch_re",
    "rule": "C17",
    "cluster": "franchre-franch-re",

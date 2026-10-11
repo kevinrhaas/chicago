@@ -137,6 +137,24 @@
           "confidence": "reconstructed",
           "note": "The street front's carved trim, from the K09 carved-trim kit (T-2309, data/components/prairie_1904/k09_trim.json): a round ring of thirteen voussoirs and a label over the door, springing from two engaged foliate colonnettes on the stoop's landing; the principal-floor windows in the kit's restrained surround (an architrave, and a cornice hood on scrolled consoles) over a bounded foliate apron panel; the second floor's windows under the cornice hood alone; the third floor's keeping K01's flat lintel, so the trim lightens as the front rises. RECONSTRUCTED: the T-1837 register reads 'Romanesque-classical stone front' and an Ionic-columned entrance loggia off the 1888 Inland Architect plate, but that plate is not a source record here and no photograph of 1808's carving has been read, so every form, motif and placement is the kit's generic one (liberty L-k09-1808-trim-2310, T-2310). Glessner's documented carving is its own and is not drawn from this kit."
         },
+        "wall_head": {
+          "value": {
+            "cornice": "k10.cornice.bracketed_timber",
+            "cresting": "k10.cresting.iron_ridge",
+            "clear_of": [
+              {
+                "wall": "k01.wall.side.north",
+                "s_m": [
+                  1.6,
+                  6.8
+                ],
+                "note": "Glessner's south gable stands against the party wall here: read off glessner_house__as_built_1887.glb in this frame, its mass within 0.40 m of the wall rises above the brackets' feet (11.34 m) from u 11.4 to u 16.2 (s 1.8 to 6.6), to 14.70 m at u 13.5. No bracket stands in it; the bed moulding, like the K05 eave above it, runs on inside the gable."
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "The wall head, from the K10 cornice kit (T-2316, data/components/prairie_1904/k10_cornices.json): the kit's scrolled timber brackets at full size under the K05 soffit, standing on the piers between the third storey's heads and one 0.20 m from every corner on both faces, with the kit's bed moulding swept between them round all four corners; and the kit's cast-iron cresting let into the K04 copper ridge roll between the two chimney stacks. Along the north party wall the brackets stop where Glessner's south gable leans on it (s 1.6-6.8 m, measured off the Glessner asset), and the bed moulding runs on inside that gable as the K05 eave does. RECONSTRUCTED: no source read here shows 1808's wall head. The T-1837 register reads a 'pierced parapet' off the 1888 Inland Architect plate, which is not a source record here, and a parapet does not stand on a hipped roof with an open eave, so none is built. Every profile, size and spacing is the kit's generic one (liberty L-k10-1808-wall-head-2317, T-2317). Glessner's documented wall head is its own and is not drawn from this kit."
+        },
         "roof_form": {
           "value": "hip",
           "confidence": "reconstructed",

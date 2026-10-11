@@ -35,8 +35,8 @@ Unchanged by this pass and restated because it is the other half of the axis T-1
 | structure | 34 |
 | lot | 0 |
 | face | 0 |
-| division | 89 |
-| none | 1336 |
+| division | 90 |
+| none | 1335 |
 
 ## The four questions
 

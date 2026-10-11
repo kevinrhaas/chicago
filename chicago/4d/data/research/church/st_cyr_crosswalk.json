@@ -5,12 +5,12 @@
   "source_id": "st_cyr_register_ichr_v4",
   "pass": "T-0573",
   "target": "data/residents/households/*.json — every named person, at every grade",
-  "targets_examined": 1439,
+  "targets_examined": 1438,
   "rule": "Surnames must fold equal after case and punctuation are dropped, AND the forenames must agree initial for initial in one direction or the other. A surname-only agreement is always a refusal. A row the page prints without a forename is reported no_forename, carried and never matched.",
   "counts": {
-    "candidate": 34,
+    "candidate": 33,
+    "unmatched": 382,
     "refusal": 107,
-    "unmatched": 381,
     "no_forename": 4,
     "ruled_no_town_change": 5
   },
@@ -60,16 +60,9 @@
       "role": "witness",
       "describes_date": "1834",
       "scene_year": false,
-      "outcome": "candidate",
-      "residents": [
-        {
-          "person_id": "franchere_l",
-          "name": "L Franchere",
-          "grade": "inferred",
-          "occupation": "none_recorded"
-        }
-      ],
-      "rule": "Surname folds equal and the forenames agree initial for initial: 'L. Franchere' against 'L Franchere'. That is a candidate and not a merge; a merge needs a second attribute to agree as well. NOT THE SCENE YEAR: this reading is dated 1834 and under the ladder ratified 2026-09-03 it may date and corroborate and may never mint or promote, whatever it reaches."
+      "outcome": "unmatched",
+      "residents": [],
+      "rule": "No person in data/residents/ carries a surname folding to 'franchere'. NOT THE SCENE YEAR: this reading is dated 1834 and under the ladder ratified 2026-09-03 it may date and corroborate and may never mint or promote, whatever it reaches."
     },
     {
       "record_id": "st_cyr_marriage_001_4",

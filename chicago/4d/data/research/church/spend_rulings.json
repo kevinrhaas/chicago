@@ -11,9 +11,9 @@
     "the_family_pass_finds_an_identity_nobody_has_asserted": 9,
     "the_family_pass_finds_the_relative_is_nobody_this_town_holds": 11,
     "the_kin_survey_already_ruled_the_register_tie": 6,
-    "the_register_appearance_identity_is_a_candidate_and_not_a_merge": 10,
+    "the_register_appearance_identity_is_a_candidate_and_not_a_merge": 9,
     "the_register_appearance_identity_was_refused_in_the_crosswalk": 27,
-    "the_register_appearance_names_nobody_this_town_holds": 13,
+    "the_register_appearance_names_nobody_this_town_holds": 14,
     "the_register_entry_names_no_relative": 3,
     "the_register_reading_is_about_the_town_and_not_a_person": 6,
     "the_roll_is_beyond_the_reading_window": 26
@@ -263,8 +263,8 @@
     },
     {
       "unit": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_001_3",
-      "rule": "the_register_appearance_identity_is_a_candidate_and_not_a_merge",
-      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_001_3: L. Franchere stands as witness at a register entry dated 1834 at Chicago. st_cyr_crosswalk.json rules it 'candidate': Surname folds equal and the forenames agree initial for initial: 'L. Franchere' against 'L Franchere'. That is a candidate and not a merge; a merge needs a second attribute to agree as well. NOT THE SCENE YEAR: this reading is dated 1834 and under the ladder ratified 2026-09-03 it may date and corroborate and may …"
+      "rule": "the_register_appearance_names_nobody_this_town_holds",
+      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_001_3: L. Franchere stands as witness at a register entry dated 1834 at Chicago. st_cyr_crosswalk.json rules it 'unmatched': No person in data/residents/ carries a surname folding to 'franchere'. NOT THE SCENE YEAR: this reading is dated 1834 and under the ladder ratified 2026-09-03 it may date and corroborate and may never mint or promote, whatever it reaches."
     },
     {
       "unit": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_001_4",

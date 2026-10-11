@@ -4,18 +4,17 @@
  "generated_by": "tools/consolidate_town_cards.py --apply",
  "ticket": "T-0839",
  "counts": {
-  "town_people": 1439,
+  "town_people": 1438,
   "open_clusters": 20,
   "cards_in_open_clusters": 43,
   "rulings": {
    "distinct": 73,
-   "merge": 54,
-   "undecided_T-2251": 1,
+   "merge": 55,
    "undecided_owner": 1,
    "undecided_rule": 12
   },
-  "landed_merges": 54,
-  "cards_folded": 73
+  "landed_merges": 55,
+  "cards_folded": 74
  },
  "landed": [
   {
@@ -180,6 +179,16 @@
     "eldredge_john_w"
    ],
    "rule": "C9"
+  },
+  {
+   "cluster": "franchere",
+   "survivor": "franchre_louis",
+   "survivor_household": "hh_franchre_louis",
+   "survivor_on_the_cards": true,
+   "folded": [
+    "franchere_l"
+   ],
+   "rule": "C2"
   },
   {
    "cluster": "franchre-franch-re",
