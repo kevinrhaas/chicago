@@ -81,6 +81,15 @@ The viewer's **Images** section reads the merged file `../../data/images.json`
 
      The viewer badges these items "Rights pending". If a holder refuses, delete the stored copies
      (fetch_image.py output in the store) and set the record back to link-only.
+   - **Reference copies, attributed (owner, 2026-10-11).** *"You should be able to see photos
+     from chicagology and other sites to read and consider them and bring them into our repo and
+     include attribution"*, and he chose to keep them in the public image store. So a record
+     marked `unknown — link only` or `copyright — link only` that shows a building in the
+     district MAY be copied into the store as a **reference copy**: the bytes are kept so every
+     build can be checked against the picture (the image gate, `chicago/4d/data/reference_views/`),
+     the record keeps its `rights` and gains `reference_copy` (the holder, creator, page URL and
+     the credit line shown wherever it is), and nothing is derived from it as an asset (no texture,
+     no trace). If a holder asks, the copy is deleted and the record goes back to link-only.
 3. **A later image is evidence of its own date.** Say what changed between 1904 and the
    image date where it is known (HABS 1960s photos post-date alterations and demolitions).
 4. Prefer front elevations; collect every angle.

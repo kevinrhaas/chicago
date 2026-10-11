@@ -693,6 +693,31 @@ function tripwireSelfTest() {
   return process.exitCode ? 1 : 0;
 }
 
+/**
+ * THE IMAGE GATE (T-2368). Owner, 2026-10-11: a building with a photograph or a drawing of
+ * it is built until it "look[s] exactly perfectly like the image or drawing", and "you don't
+ * wrap the case until it matches the photo". A ticket whose body has an `## Image gate`
+ * section naming structure ids does not close (`done`, which sets `review`) until each of
+ * them matches every reference view committed for it — see tools/image_gate.mjs and
+ * data/reference_views/README.md. Nothing else is refused: an edit never needs a photo.
+ */
+function refuseIfImageGateOpen(t) {
+  if (!/^## Image gate/m.test(t.body || '')) return;
+  // run, not imported: the self-tests copy this file alone into a sandbox
+  const gate = path.join(HERE, 'image_gate.mjs');
+  const r = existsSync(gate)
+    ? spawnSync(process.execPath, [gate, '--ticket', t.file], { encoding: 'utf8' })
+    : { status: 1, stdout: `${gate} is missing, so the image gate cannot be read\n` };
+  if (r.status === 0) return;
+  console.error(`\n${t.id} IS NOT FINISHED: ITS BUILDING DOES NOT YET MATCH ITS PICTURES (the image gate).\n`);
+  for (const w of String(r.stdout || r.stderr || '').trim().split('\n')) console.error(`  ${w}`);
+  console.error(`\nRender each view from its camera (node tools/photo_match.mjs data/reference_views/<id>/<view>.json),`);
+  console.error(`fix what differs, and set the match record's verdict to "matches" with nothing open.`);
+  console.error(`A picture that is wrong about the building is argued in the ticket and passed with:`);
+  console.error(`      node tools/ticket.mjs done ${t.id} --pr N --anyway --why "<reason>"\n`);
+  process.exit(1);
+}
+
 function refuseIfATripwireNamesIt(t, becoming) {
   const hits = tripwiresNaming(t.id);
   const live = hits.filter((h) => h.shape === 'handoff' || h.records !== becoming);
@@ -2846,7 +2871,7 @@ switch (cmd) {
       // T-1548. Checked HERE, while the PR is still open and the run is still present:
       // `review` is what settle turns into `done` on merge, and a tripwire this ticket
       // trips is fixable in this PR and nowhere cheaper.
-      if (!flag('anyway')) { refuseIfATripwireNamesIt(t, 'review'); refuseIfClosingStrandsAnAncestor(t); }
+      if (!flag('anyway')) { refuseIfImageGateOpen(t); refuseIfATripwireNamesIt(t, 'review'); refuseIfClosingStrandsAnAncestor(t); }
       t.state = 'review'; t.pr = String(pr).replace(/^#/, '');
       writeTicket(t); queueDropBlockedLines(t.id); generateBoard(loadAll());
       commitMessage = `${t.id}: review — PR #${t.pr}`;
@@ -2855,7 +2880,7 @@ switch (cmd) {
     }
     t.state = 'done'; t.closed = today(); t.closed_at = nowIso(); t.pr = flag('pr');
     if (!t.pr) { console.error('done needs --pr N — the closing PR is the receipt'); process.exit(1); }
-    if (!flag('anyway')) { refuseIfATripwireNamesIt(t, 'done'); refuseIfClosingStrandsAnAncestor(t); }  // T-1548 / T-1581
+    if (!flag('anyway')) { refuseIfImageGateOpen(t); refuseIfATripwireNamesIt(t, 'done'); refuseIfClosingStrandsAnAncestor(t); }  // T-1548 / T-1581 / T-2368
     writeTicket(t); queueRemove(t.id); queueDropBlockedLines(t.id); generateBoard(loadAll());
     // THE CLAIM IS KEPT, AND COLLECTED BY AGE (T-1351). This used to give the marker
     // back here. The reasoning left behind by T-1145 — which moved `split` off the

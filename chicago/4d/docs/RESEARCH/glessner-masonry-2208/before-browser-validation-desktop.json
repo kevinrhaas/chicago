@@ -1,0 +1,344 @@
+{
+  "method": "Actual published /1904/ app, normal boot, full desktop and light mobile; animation paused after readiness for deterministic review cameras. T-2208: the Prairie Avenue front from the street and close to its basement jambs, the north-east corner, the shaded 18th Street (north) face from across the street and close to, and the alley (west) face.",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:44977/data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:44977/data/gltf/glessner_house__as_built_1887.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "prairie-street",
+          "detail": "full",
+          "glassModes": [],
+          "problems": [],
+          "stats": {
+            "drawCalls": 121,
+            "triangles": 3070770,
+            "programs": 35,
+            "geometries": 89,
+            "textures": 227,
+            "batches": 67,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 66153428,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1410.5566561389624,
+            -3228.580078741639,
+            6.040440280685425
+          ],
+          "target": [
+            1387.5582239722353,
+            -3228.848626451477,
+            10.840440280685424
+          ]
+        },
+        {
+          "name": "prairie-jambs",
+          "detail": "full",
+          "glassModes": [],
+          "problems": [],
+          "stats": {
+            "drawCalls": 121,
+            "triangles": 3074071,
+            "programs": 35,
+            "geometries": 91,
+            "textures": 231,
+            "batches": 67,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 66153428,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1393.1220669861964,
+            -3234.2840336042113,
+            6.540440280685425
+          ],
+          "target": [
+            1387.794616053879,
+            -3236.246370620055,
+            7.540440280685425
+          ]
+        },
+        {
+          "name": "corner-ne",
+          "detail": "full",
+          "glassModes": [],
+          "problems": [],
+          "stats": {
+            "drawCalls": 123,
+            "triangles": 3138385,
+            "programs": 35,
+            "geometries": 93,
+            "textures": 233,
+            "batches": 67,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 66153428,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1391.575792269052,
+            -3213.200650704422,
+            6.740440280685425
+          ],
+          "target": [
+            1387.5733560929477,
+            -3217.297662378339,
+            7.540440280685425
+          ]
+        },
+        {
+          "name": "north-shaded",
+          "detail": "full",
+          "glassModes": [],
+          "problems": [],
+          "stats": {
+            "drawCalls": 127,
+            "triangles": 3279724,
+            "programs": 35,
+            "geometries": 98,
+            "textures": 243,
+            "batches": 67,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 66153428,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1368.255943466862,
+            -3203.0722425450426,
+            6.040440280685425
+          ],
+          "target": [
+            1368.4246614845642,
+            -3217.5212575367473,
+            9.840440280685424
+          ]
+        },
+        {
+          "name": "north-close",
+          "detail": "full",
+          "glassModes": [],
+          "problems": [],
+          "stats": {
+            "drawCalls": 118,
+            "triangles": 3153371,
+            "programs": 35,
+            "geometries": 98,
+            "textures": 243,
+            "batches": 67,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 66153428,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1371.3783368344043,
+            -3213.536498832917,
+            6.540440280685425
+          ],
+          "target": [
+            1368.4246614845642,
+            -3217.5212575367473,
+            7.340440280685425
+          ]
+        },
+        {
+          "name": "west-alley",
+          "detail": "full",
+          "glassModes": [],
+          "problems": [],
+          "stats": {
+            "drawCalls": 124,
+            "triangles": 3126409,
+            "programs": 35,
+            "geometries": 103,
+            "textures": 253,
+            "batches": 67,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 66153428,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1329.5855296135185,
+            -3231.5256973864343,
+            6.040440280685425
+          ],
+          "target": [
+            1338.584916113542,
+            -3231.4206134999763,
+            9.840440280685424
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -24,7 +24,11 @@ What the record's `boundary` names, and what is built for it:
             (the coach house stands on the alley), so it is gated, never fenced.
   wall      `k11.wall.brick_with_piers` on the south lot line, its south face on the line,
             from the street pier back to the neighbour's front: 1812's draft stands on the
-            line behind that, and the wall stops short of it.
+            line behind that, and the wall stops short of it. A record that names no `wall`
+            (T-2366: 1612's photograph shows none) builds none, and its side gate hangs on
+            a pier of its own on the lot line.
+  posts     (T-2366) where a record names `posts`, every gate hangs on a cast-iron post of
+            that section and height, with no urn, instead of the kit's stone pier.
 
 A generic kit part is allowed here because 1808's own boundary is not read in any source
 this project holds (k11_ironwork.json `restrictions`: a generic part never stands in place
@@ -67,7 +71,9 @@ def spec(params) -> dict | None:
     for g in ("entrance_gate", "side_gate"):
         if t[g].get("variant") != GATE:
             raise ValueError(f"boundary.{g} builds {GATE!r} alone")
-    if t["wall"].get("variant") != WALL:
+    # T-2366: a lot whose side is not walled (1612's photograph shows its fence alone)
+    # names no `wall`
+    if t.get("wall") and t["wall"].get("variant") != WALL:
         raise ValueError(f"boundary.wall builds {WALL!r} alone")
     s0, s1 = t["lot_s_m"]
     if not s0 <= 0.0 < params.width_m <= s1 + 0.25:
@@ -132,6 +138,16 @@ def dress(a):
     D = p.depth_m
     G, Pr, Wd = P["gate"], P["pier"], P["wall"]
     ps, wp = Pr["section_m"], Wd["pier_m"]
+    # T-2366: a record whose gates hang on cast-iron posts, not stone piers (1612's
+    # photograph): `posts` names their section and height, and they carry no urn
+    po = t.get("posts")
+    if po:
+        ps = po["section_m"]
+
+    def pier(x):
+        if po:
+            return var.pier(x, urn=False, half=ps / 2, h=po["height_m"], role="iron", cap_role="iron")
+        return var.pier(x)
     s_south, s_north = t["lot_s_m"]
     street = D + t["street_line_m"]
     line = street - P["curb"]["width_m"] / 2           # the curb's street face on the street line
@@ -150,7 +166,7 @@ def dress(a):
     if c < G["clear_min_m"]:
         raise ValueError(f"the entrance gate's {c} m is under the kit's {G['clear_min_m']} m clear")
     ea, eb = door.s_m - c / 2, door.s_m + c / 2
-    pe1, pe2 = var.pier(ea - ps / 2), var.pier(eb + ps / 2)
+    pe1, pe2 = pier(ea - ps / 2), pier(eb + ps / 2)
     Lw = (c - 2 * G["hinge_offset_m"] - G["keeper_gap_m"]) / 2
     hxa, ha = var.hinges(pe1.name, ea)
     leaf_a = var.leaf(ha, hxa, Lw, E["drawn_deg"], tag=" south")
@@ -163,11 +179,12 @@ def dress(a):
     # the side passage: the wall's street pier (its south face on the lot line) to a stone
     # pier in line with the house's south wall; hung on the wall pier, shut on the stone one
     S = t["side_gate"]
-    sa, sb = s_south + wp, S["pier_s_m"]
+    sa, sb = s_south + (wp if t.get("wall") else ps), S["pier_s_m"]
     if sb - sa < G["clear_min_m"]:
         raise ValueError(f"the side passage's gate has {sb - sa:.3f} m clear, under the kit's {G['clear_min_m']} m")
-    ps1 = var.pier(sb + ps / 2)
-    hxs, hs = var.hinges("wall pier", sa)
+    ps1 = pier(sb + ps / 2)
+    # hung on the wall's street pier, or with no wall on a stone pier on the lot line
+    hxs, hs = var.hinges("wall pier" if t.get("wall") else pier(s_south + ps / 2).name, sa)
     k = G["keeper_proud_m"]
     var.member("latch keeper", "iron", ps1.name, sb - k, sb + 0.06, 0.88, 0.92, -0.015, 0.015, gate=True)
     leaf_s = var.leaf(hs, hxs, (sb - k - G["keeper_gap_m"]) - hxs, S["drawn_deg"], tag=" side")
@@ -193,12 +210,13 @@ def dress(a):
         raise ValueError(f"the boundary reaches X {reach:.3f}, onto the walk at {walk:.3f}")
 
     # the wall, on the south lot line from the street pier back toward 1812's front
-    W = t["wall"]
+    W = t.get("wall")
     wv = K.Variant({"id": WALL, "kind": "wall"}, data)
-    x0 = W["from_u_m"]
-    piers = wv.wall_run(x0, line, H=W["height_m"])
-    for pc in wv.pieces:
-        _to_wall(pc.mesh, -(s_south + wp / 2))
+    if W:
+        x0 = W["from_u_m"]
+        piers = wv.wall_run(x0, line, H=W["height_m"])
+        for pc in wv.pieces:
+            _to_wall(pc.mesh, -(s_south + wp / 2))
 
     a.instance(fence, "fence", {"length_m": round((ea - ps) - (sb + ps) + (s_north - 0.12) - (eb + ps), 4),
                                         "runs": 2, "posts": len(south) + len(north) - 3},
@@ -207,11 +225,14 @@ def dress(a):
                               "stoop_foot_m": round(foot - D, 4)},
                {"opening": (line, 0.0, -door.s_m)})
     a.instance(GATE, "gate", {"leaves": 1, "clear_m": round(sb - sa, 4)}, {"opening": (line, 0.0, -(sa + sb) / 2)})
-    a.instance(WALL, "wall", {"length_m": round(line - x0, 4), "height_m": W["height_m"], "piers": len(piers)},
-               {"street_end": (line, 0.0, -(s_south + wp / 2)), "rear_end": (x0, 0.0, -(s_south + wp / 2))})
+    if W:
+        a.instance(WALL, "wall", {"length_m": round(line - x0, 4), "height_m": W["height_m"], "piers": len(piers)},
+                   {"street_end": (line, 0.0, -(s_south + wp / 2)), "rear_end": (x0, 0.0, -(s_south + wp / 2))})
     _lay(a, [pc for pc in var.pieces if not pc.meta.get("gate")], conf, fence)
     _lay(a, [pc for pc in var.pieces if pc.meta.get("gate")], conf, GATE)
-    _lay(a, wv.pieces, conf, WALL)
+    if W:
+        _lay(a, wv.pieces, conf, WALL)
     a.boundary = {"line_x_m": round(line, 4), "stoop_foot_x_m": round(foot, 4), "leaf_reach_m": round(R, 4),
                   "entrance_s_m": [round(ea, 4), round(eb, 4)], "side_gate_s_m": [round(sa, 4), round(sb, 4)],
-                  "fence_posts_s_m": [round(x, 3) for x in south + north], "wall_piers_x_m": [round(x, 3) for x in wv.meta["piers"]]}
+                  "fence_posts_s_m": [round(x, 3) for x in south + north],
+                  "wall_piers_x_m": [round(x, 3) for x in wv.meta["piers"]] if W else []}

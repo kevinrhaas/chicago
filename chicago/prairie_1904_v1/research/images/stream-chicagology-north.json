@@ -2562,11 +2562,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/1701prairie.jpg",
   "rights": "unknown — link only",
   "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1701-hibbard-photo-wide.jpg",
+   "display_bytes": 286058,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/1701prairie.jpg",
+   "original_bytes": 853114,
+   "original_px": [
+    1945,
+    1207
+   ],
+   "original_sha256": "df02d06795d385164e98bab765477cf67d4bce195f7a636c2cd8c12cef467bcc",
+   "thumb": "research/images/files/cgn-1701-hibbard-photo-wide-thumb.jpg",
+   "thumb_bytes": 26915
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "SAME PHOTOGRAPH as a16-ghm-blog-1701-hibbard-front / a16-ghm-blog-1701-sullivan-post (Glessner House blog), in a wider and sharper copy (1945 px) that shows more at right: beyond the Hibbard house, a low building with a domed cupola and a lantern (probably a stable/outbuilding south toward 1709) and a picket fence. Brick Italianate with stone quoins and window hoods, canted two-storey bays, columned side porch, balustraded roof deck, ornamental cast-iron fence on a stone curb, bare trees.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1701prairie/",
+    "collection": "Chicagology 1701 page (no source credited)",
+    "creator": "unknown photographer",
+    "date": "undated (after the 1874 addition; probably 1880s–1890s)",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "1701 S. Prairie [William G. Hibbard residence]"
+   }
+  }
  },
  {
   "id": "cgn-1701-hibbard-portrait",
@@ -2594,11 +2619,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/williamghibbard.jpg",
   "rights": "unknown — link only",
   "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1701-hibbard-portrait.jpg",
+   "display_bytes": 53713,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/williamghibbard.jpg",
+   "original_bytes": 187824,
+   "original_px": [
+    800,
+    833
+   ],
+   "original_sha256": "2ebcf951668673729f4406bdae07e994fdd0d90441b521506a6596680c71ba11",
+   "thumb": "research/images/files/cgn-1701-hibbard-portrait-thumb.jpg",
+   "thumb_bytes": 17864
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "Steel-engraved bust portrait of W. G. Hibbard, printed beside the 1903 obituary. A person, not the house.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1701prairie/",
+    "collection": "Chicagology 1701 page (no source credited)",
+    "creator": "unknown engraver",
+    "date": "undated",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "William G. Hibbard [portrait]"
+   }
+  }
  },
  {
   "id": "cgn-1701-tribune-1903-hibbard-headline",
@@ -2759,11 +2809,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/1702prairieA.jpg",
   "rights": "unknown — link only",
   "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1702-staples-photo-copy.jpg",
+   "display_bytes": 403836,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/1702prairieA.jpg",
+   "original_bytes": 1154858,
+   "original_px": [
+    1428,
+    1530
+   ],
+   "original_sha256": "5d5f565bb7fadbf832e8cdcc8802537b214c88ea2ba4050d4a965988953a798a",
+   "thumb": "research/images/files/cgn-1702-staples-photo-copy-thumb.jpg",
+   "thumb_bytes": 53492
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "SAME PHOTOGRAPH as a16-ghm-blog-1702-staples (Glessner House blog), slightly differently cropped: the 1853 Staples Italianate villa — two storeys, low hipped roof with a square belvedere, bracketed cornice, full-width veranda with balustraded deck, side bay window, picket fence. Chicagology's caption pairs it with the remodelled view (cgn-1702-harvey-remodelled-photo).",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1702prairie/",
+    "collection": "Chicagology 1702 page (no source credited)",
+    "creator": "unknown photographer",
+    "date": "undated (before the 1880 remodelling)",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "1702 S. Prairie. [John N. Staples house before the Harvey remodelling]"
+   }
+  }
  },
  {
   "id": "cgn-1702-harvey-remodelled-photo",
@@ -2791,11 +2866,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/1702prairie.jpg",
   "rights": "unknown — link only",
   "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1702-harvey-remodelled-photo.jpg",
+   "display_bytes": 274390,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/1702prairie.jpg",
+   "original_bytes": 839790,
+   "original_px": [
+    1533,
+    1472
+   ],
+   "original_sha256": "ff66b3f774af1d1d9e74f55d6ddff84e787678de1aa44beac08d6d937eca8497",
+   "thumb": "research/images/files/cgn-1702-harvey-remodelled-photo-thumb.jpg",
+   "thumb_bytes": 33664
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "KEY FIND FOR 1702 (thin building): the T. W. Harvey house after its 1880 remodelling — a Second Empire front with a slate mansard and pedimented dormers, a two-storey canted corner bay rising to a tall concave-mansard tower roof with a dormer at the right (north?) end, a one-storey columned entrance porch with arched openings and a curved roof, panelled wall surfaces, high basement and stoop; a coachman and footman in top hats on a brougham at the kerb, a gas lamp, granite curb and a rough street surface. Demolished c.1899–1900 when Glessner bought the lot, so it shows the PRE-1904 predecessor of the 1700/1706 townhouses. Page text: permits 1878 (Busby, 3-storey and basement addition, $12,000) and 1879 (two-storey barn, $3,000); the Inter Ocean (21 Nov 1879) called it \"a two-story brownstone front\".",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1702prairie/",
+    "collection": "Chicagology 1702 page (no source credited)",
+    "creator": "unknown photographer",
+    "date": "undated (after the 1880 Harvey remodelling; before the 1899 sale and razing)",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "1702 S. Prairie after Mr. Harvey remodeled the house."
+   }
+  }
  },
  {
   "id": "cgn-1706-us-census-1910-glessner",
@@ -3128,11 +3228,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/1729prairiedrawingroom.jpg",
   "rights": "unknown — link only",
   "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1729-drawing-room.jpg",
+   "display_bytes": 335196,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/1729prairiedrawingroom.jpg",
+   "original_bytes": 1078403,
+   "original_px": [
+    1985,
+    1190
+   ],
+   "original_sha256": "dac1b4d2b9c52059f2153cab6dab19480c35c2aecb1a980beef59629f01033db",
+   "thumb": "research/images/files/cgn-1729-drawing-room-thumb.jpg",
+   "thumb_bytes": 27108
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "Interior of the long Pullman drawing room seen from one end: fluted columns on panelled pedestals, mirrored piers, crystal chandeliers, coved and painted ceiling, patterned carpets, upholstered furniture and an octagonal table with porcelain figures. A DIFFERENT VIEW from the Glessner blog's drawing-room photograph (a16-ghm-blog-pullman-drawing-room, taken toward the piano end). The page quotes the Tribune: the room \"surpasses any room of its kind in Chicago\".",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1729prairie/",
+    "collection": "Chicagology 1729 page (no source credited)",
+    "creator": "unknown photographer",
+    "date": "undated",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "Pullman drawing room, 1729 S. Prairie [interior]"
+   }
+  }
  },
  {
   "id": "cgn-1729-pullman-1901-detroit-copy",
@@ -3205,11 +3330,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/1729prairie1902.jpg",
   "rights": "unknown — link only",
   "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1729-pullman-1902.jpg",
+   "display_bytes": 125581,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/1729prairie1902.jpg",
+   "original_bytes": 391393,
+   "original_px": [
+    1000,
+    585
+   ],
+   "original_sha256": "76f03000a82416afed94da9a60f70219e166fe4564aa252f2a2e51a835ce4723",
+   "thumb": "research/images/files/cgn-1729-pullman-1902-thumb.jpg",
+   "thumb_bytes": 26684
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "NEW VIEW (not one of the two Detroit negatives): the Pullman house from the north-west across Prairie Avenue in leaf-less season — the brownstone west front with its columned entrance porch at left, mansard with dormers and chimneys, the arched porte-cochère/entrance on the south side toward 18th Street at right, and beyond it a low domed building (the conservatory or palm room of the 1892 Beman additions). Low stone coping and posts along the walk, young street trees. Post-1892 (shows the Beman work); the 1902 date is Chicagology's and unsourced. Good front-elevation evidence near 1904.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1729prairie/",
+    "collection": "Chicagology 1729 page (no source credited)",
+    "creator": "unknown photographer (halftone reproduction)",
+    "date": "Chicagology caption 1902 (source not given)",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "Pullman Mansion 1902"
+   }
+  }
  },
  {
   "id": "cgn-1729-tribune-1899-butterflies-headline",
@@ -3739,7 +3889,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/glessnerhouse1887.jpg",
   "rights": "unknown — link only",
   "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1800-glessner-1887-construction-copy.jpg",
+   "display_bytes": 217014,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/glessnerhouse1887.jpg",
+   "original_bytes": 685892,
+   "original_px": [
+    1536,
+    1110
+   ],
+   "original_sha256": "dd7a0b14ed170201b3913f32e14bd869a977a5ccd445090e0ae2a7c376203575",
+   "thumb": "research/images/files/cgn-1800-glessner-1887-construction-copy-thumb.jpg",
+   "thumb_bytes": 22693
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "SAME PHOTOGRAPH as a18-gho-house-under-construction-1887 (Glessner House): the north (18th Street) front from the north-east with workmen, a ladder and debris, gas lamp and young trees. Here in black-and-white and slightly larger.",
@@ -3793,7 +3956,19 @@
      }
     }
    }
-  ]
+  ],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1800prairie/",
+    "collection": "Chicagology 1800 page (no source credited)",
+    "creator": "unknown photographer",
+    "date": "1887",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "John J. Glessner, 1800 S. Prairie, 1886 and 1887 [second image: house under construction]"
+   }
+  }
  },
  {
   "id": "cgn-1800-tribune-1965-glessner-headline",
@@ -4130,11 +4305,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/pomeroy1853map.jpg",
   "rights": "unknown — link only",
   "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1804-1853-map-prairie-old-to-cross.jpg",
+   "display_bytes": 454292,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/pomeroy1853map.jpg",
+   "original_bytes": 2551541,
+   "original_px": [
+    1867,
+    2012
+   ],
+   "original_sha256": "d7aba7d7b0c2d31da0cda43972332654ee72a149a8a4dace2ded4b3e60994ba8",
+   "thumb": "research/images/files/cgn-1804-1853-map-prairie-old-to-cross-thumb.jpg",
+   "thumb_bytes": 31441
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "Hand-coloured printed map of the district from State Street to the lake shore and railway: streets named Butterfield, Dearborn, Gross, Old, New, North, Michigan Avenue and Prairie Avenue; subdivision lots with owners' names written in (e.g. E. L. Sherman, J. Y. Scammon, J. Harper, G. Smith, A. Gibbs, B. Smith, Mrs Clarke); block numbers 76 and 22. Shows Prairie Avenue as a barely subdivided strip in 1853. Rights left link-only because the edition/publisher is not identified on the page (it is evidently printed, so probably PD once identified). Printed on both the 1804 and 1824 pages.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1804prairie/",
+    "collection": "Chicagology 1804 and 1824 pages (file name \"pomeroy1853map\"); original holder not credited",
+    "creator": "unknown (map publisher not named on the page)",
+    "date": "1853 (per the page caption)",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "Prairie Avenue, Old (18th street) to Cross (19th street), 1853 [map]"
+   }
+  }
  },
  {
   "id": "cgn-1808-inland-1888-keith-copy",
@@ -4252,11 +4452,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1811sprairie.jpg",
   "rights": "unknown — link only",
   "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1811-coleman-ames-photo.jpg",
+   "display_bytes": 375336,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1811sprairie.jpg",
+   "original_bytes": 780062,
+   "original_px": [
+    1303,
+    1598
+   ],
+   "original_sha256": "f5f649a8a9cf898f3ccbd98ad182503bfa96078decae0ba67a256043c6d92a52",
+   "thumb": "research/images/files/cgn-1811-coleman-ames-photo-thumb.jpg",
+   "thumb_bytes": 33406
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "A DIFFERENT NEGATIVE from the Inland Architect 1888 plate (dw-rb-inland-ames-coleman-1811-plate) and the Glessner blog print (a18-gh-1811-ames-house): a wider oblique from the south-west showing the rock-faced sandstone front with the corbelled bay and carved parapet, steep gable with arched window group, deep round-arched entrance with stair and cheek walls, the long brick north side wall, an iron area grille, stone horse-block/curb stones, a gas lamp at left, concrete/stone walks, parkway grass and a granite-curbed street; leafless young tree. Probably c.1887–1895.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1811prairie/",
+    "collection": "Chicagology 1811 page (no source credited)",
+    "creator": "unknown photographer",
+    "date": "undated (after 1886)",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "1811 S. Prairie Ave. [Coleman / Ames house]"
+   }
+  }
  },
  {
   "id": "cgn-1811-tribune-1894-ames-for-sale-ad",
@@ -4380,11 +4605,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/josephsears1815prairiediningroom.jpg",
   "rights": "unknown — link only",
   "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1815-sears-dining-room.jpg",
+   "display_bytes": 365601,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/josephsears1815prairiediningroom.jpg",
+   "original_bytes": 1683193,
+   "original_px": [
+    2365,
+    1432
+   ],
+   "original_sha256": "b25b4ae67a976e56cc916598b4fcd1291b67c69c49dd90a6cb710e939f8083e5",
+   "thumb": "research/images/files/cgn-1815-sears-dining-room-thumb.jpg",
+   "thumb_bytes": 25128
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "Interior (Chicagology says \"John Sears\", the file name and the house say Joseph Sears): a parlour/dining room with heavy portières and lace at a tall window, gilt-framed paintings, a gasolier with glass shades, Eastlake-style furniture, busts on pedestals, carved overmantel/cornice. Pre-Meeker (before the c.1905 Heun remodel).",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1815prairie/",
+    "collection": "Chicagology 1815 page (no source credited)",
+    "creator": "unknown photographer",
+    "date": "undated (Sears occupancy 1882–1902)",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "John Sears' dining room at 1815 S. Prairie."
+   }
+  }
  },
  {
   "id": "cgn-1815-sears-log-cabin-playhouse",
@@ -4412,11 +4662,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/1815prairielogcabin.jpg",
   "rights": "unknown — link only",
   "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1815-sears-log-cabin-playhouse.jpg",
+   "display_bytes": 185331,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/1815prairielogcabin.jpg",
+   "original_bytes": 349596,
+   "original_px": [
+    1145,
+    824
+   ],
+   "original_sha256": "a0975482b57e797c72a52dbfbf59567e2831391ad5a2f6c9da1ee1ebffb0d60c",
+   "thumb": "research/images/files/cgn-1815-sears-log-cabin-playhouse-thumb.jpg",
+   "thumb_bytes": 31622
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "A one-room log cabin with a shed-roofed porch among trees — the Sears children's playhouse that stood in the 1815 grounds until 1892, photographed after it was moved to Joseph Sears's Kenilworth home (so the setting is Kenilworth). Evidence that a log playhouse stood in the 1815 yard before 1892 — absent in 1904.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1815prairie/",
+    "collection": "Chicagology 1815 page (no source credited)",
+    "creator": "unknown photographer",
+    "date": "undated (after the 1892 move to Kenilworth)",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "Log Cabin Playhouse at 1815 S. Prairie [as re-erected in Kenilworth]"
+   }
+  }
  },
  {
   "id": "cgn-1815-tribune-1949-among-the-authors",
@@ -4502,11 +4777,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/prairieavenuemeeker.jpg",
   "rights": "copyright — link only",
   "rights_basis": "1949 book jacket; presumed in copyright — link only",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1815-meeker-prairie-avenue-jacket-1949.jpg",
+   "display_bytes": 488530,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/prairieavenuemeeker.jpg",
+   "original_bytes": 2306307,
+   "original_px": [
+    2960,
+    1814
+   ],
+   "original_sha256": "a0a051802e77017afe1d40074fe66ff67dccbc567296503a511ef12860c302ca",
+   "thumb": "research/images/files/cgn-1815-meeker-prairie-avenue-jacket-1949-thumb.jpg",
+   "thumb_bytes": 30144
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "Colour jacket illustration of an imagined winter Prairie Avenue street (mansard and towered brick houses, carriages). Fiction illustration, not evidence for any house.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1815prairie/",
+    "collection": "Chicagology 1815 page (uncaptioned)",
+    "creator": "Alfred A. Knopf (jacket artist not named)",
+    "date": "1949",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "copyright — link only",
+    "title": "Prairie Avenue, a novel by Arthur Meeker (Alfred A. Knopf, 1949) — dust jacket"
+   }
+  }
  },
  {
   "id": "cgn-1815-tribune-1949-meeker-photo-appeal-ad",
@@ -4635,11 +4935,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/1824prairie.jpg",
   "rights": "unknown — link only",
   "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1824-pomeroy-italianate-copy.jpg",
+   "display_bytes": 203738,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/1824prairie.jpg",
+   "original_bytes": 425717,
+   "original_px": [
+    1351,
+    997
+   ],
+   "original_sha256": "2e1416b1102f88111012e4cb64f94f91de2a874fda600e5d3bb88e0088443021",
+   "thumb": "research/images/files/cgn-1824-pomeroy-italianate-copy-thumb.jpg",
+   "thumb_bytes": 31524
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "SAME PHOTOGRAPH as a18-gh-pomeroy-house-italianate (Glessner House blog), slightly wider: the c.1857 Pomeroy Italianate villa with a square belvedere, bracketed eaves, an arcaded side porch with balustraded deck, painted stuccoed walls, iron and picket fences; a taller mansard neighbour at right.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1824prairie/",
+    "collection": "Chicagology 1824 page (no source credited)",
+    "creator": "unknown photographer",
+    "date": "undated (before the later stone front)",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "1824 Prairie Avenue"
+   }
+  }
  },
  {
   "id": "cgn-1827-tribune-1882-chicago-home-headline",
@@ -4712,11 +5037,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/postfire/1827prairie.jpg",
   "rights": "unknown — link only",
   "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1827-doane-exterior.jpg",
+   "display_bytes": 356278,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/postfire/1827prairie.jpg",
+   "original_bytes": 954891,
+   "original_px": [
+    1444,
+    1770
+   ],
+   "original_sha256": "7181f35f8545e4dc7335336fdd1412fe13ff83fac325863869b98496c956a211",
+   "thumb": "research/images/files/cgn-1827-doane-exterior-thumb.jpg",
+   "thumb_bytes": 34995
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "SAME PHOTOGRAPH as a18-gh-doane-exterior (Glessner House blog, \"Electricity comes to Prairie Avenue – 1882\"), in a larger copy (1444×1770). Exterior from the north-west: three storeys of coursed sandstone with a slate mansard; a square corner tower with a tall pyramidal roof and iron finials, a second conical-roofed bay, gabled dormers with carved panels, segmental and square-headed windows with incised hoods, belt courses, a balustraded porch/terrace at far left, a low ornamental iron fence on a stone curb, a wide walk and a young street tree.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1827prairie/",
+    "collection": "Chicagology 1827 page (no source credited)",
+    "creator": "unknown photographer",
+    "date": "undated (after completion in late 1882)",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "1827 S. Prairie [John W. Doane residence]"
+   }
+  }
  },
  {
   "id": "cgn-1827-doane-main-hall",
@@ -4744,11 +5094,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/1827prairieentrance.jpg",
   "rights": "unknown — link only",
   "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1827-doane-main-hall.jpg",
+   "display_bytes": 138220,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/1827prairieentrance.jpg",
+   "original_bytes": 381633,
+   "original_px": [
+    900,
+    669
+   ],
+   "original_sha256": "46ddcc6dbd078b2ef150026cd932ee3f89f705f86a7278ee3d485af6352d20c6",
+   "thumb": "research/images/files/cgn-1827-doane-main-hall-thumb.jpg",
+   "thumb_bytes": 37408
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "Interior of the oak main hall: carved arcade on columns separating the stair hall, galleried well with balusters overhead, coffered and carved ceiling, turned balustrade, patterned carpet, portières. SAME PHOTOGRAPH as a18-gh-doane-stairhall (Glessner House blog, sepia) — probably the Artistic Houses (1883–84) \"Mr. J. W. Doane's Hall\" view (cf. a18-artistic-houses-doane-hall-2, dw-rb-artistic-houses-doane-1827-hall-stair); rights left link-only because the page names no source.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1827prairie/",
+    "collection": "Chicagology 1827 page (no source credited)",
+    "creator": "unknown photographer",
+    "date": "undated (probably 1883–84)",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "The Main Hall Entryway, with stairway leading to the second story. [1827 S. Prairie]"
+   }
+  }
  },
  {
   "id": "cgn-1828-shipman-automobile-copy",
@@ -4774,11 +5149,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1828sprairie.jpg",
   "rights": "unknown — link only",
   "rights_basis": "chicagology reproduction; the caption does not establish publication before 1929 or name the holder",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgn-1828-shipman-automobile-copy.jpg",
+   "display_bytes": 147161,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1828sprairie.jpg",
+   "original_bytes": 287728,
+   "original_px": [
+    1200,
+    969
+   ],
+   "original_sha256": "74da98f3b63b136985d6e39ca119e3e38da7e45342658c077a878f63cc329490",
+   "thumb": "research/images/files/cgn-1828-shipman-automobile-copy-thumb.jpg",
+   "thumb_bytes": 29967
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "SAME PHOTOGRAPH as a18-gh-shipman-1828-with-automobile (Glessner House blog): D. B. Shipman in an early runabout in front of the light stone front with its hooded porch and stoop, iron fences, the bayed neighbour at right, a rough unpaved-looking street edge with stone curbs. 1828 is not in the building index.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1828prairie/",
+    "collection": "Chicagology 1828 page (no source credited)",
+    "creator": "unknown photographer",
+    "date": "Chicagology caption \"about 1897\"",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "1828 S. Prairie Ave. About 1897"
+   }
+  }
  },
  {
   "id": "cgn-1600-text",

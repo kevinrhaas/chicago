@@ -250,14 +250,14 @@ class Variant:
             self.panel(faces[i][1], faces[i + 1][0], hosts[i], style, f"{group} panel {i + 1}")
         return xs
 
-    def pier(self, cx, urn=True, half=None, h=None, role="stone"):
+    def pier(self, cx, urn=True, half=None, h=None, role="stone", cap_role="stone"):
         Pr = self.P["pier"]
         half = half or Pr["section_m"] / 2
         h = h or Pr["height_m"]
         p = self.member(self.name("pier"), role, "ground", cx - half, cx + half, -Pr["sink_m"], h, -half, half,
                         pier=True)
         o = Pr["cap_overhang_m"]
-        cap = self.member(self.name("pier cap"), "stone", p.name, cx - half - o, cx + half + o,
+        cap = self.member(self.name("pier cap"), cap_role, p.name, cx - half - o, cx + half + o,
                           h - Pr["cap_sink_m"], h - Pr["cap_sink_m"] + Pr["cap_height_m"], -half - o, half + o)
         if urn:
             self.finial(cap.name, cx, 0.0, h - Pr["cap_sink_m"] + Pr["cap_height_m"], Pr["urn"], sink=Pr["urn_sink_m"],

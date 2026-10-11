@@ -430,3 +430,57 @@ def check_frontage_ground():
 
 
 check_frontage_ground()
+
+
+# T-2208: a straight jamb ends whole stones (no sliver, no joint against the
+# reveal); each run alternates long/short end stones by course so joints never
+# stack at a corner or jamb; and every rock face falls to its 16 mm pitch line
+# at the stone's edge while the interior keeps its full relief.
+def check_coursing():
+    class Coursing(Recorder):
+        def __init__(self):
+            super().__init__()
+            # A second, shorter window lands in the middle of the run beside the
+            # first: that run must still be laid (it once came out bare bed).
+            self.openings=[{'kind':'window','axis':'y','sign':1,'at':0,'face':'north',
+                            'u0':2.3,'u1':3.5,'z0':.9,'z1':2.6},
+                           {'kind':'window','axis':'y','sign':1,'at':0,'face':'north',
+                            'u0':4.55,'u1':4.95,'z0':1.1,'z1':1.5}]
+            self.course_schedule=[.4572,.2413,.3429,.1905]
+            self.stones=[]
+        def block(self, polygon, point, normal, confidence, mat, rng, holes=None):
+            self.stones.append(detail.bounds(polygon))
+    w=Coursing();w.wall([(0,0,0),(0,0,3.2),(6,0,3.2),(6,0,0)],.75,detail.GRANITE)
+    rows={}
+    # This wall's local u runs west (-x); read the spans in metres along x.
+    for x0,z0,x1,z1 in w.stones:rows.setdefault(round(z0,4),[]).append((-x1,-x0))
+    for z in rows:
+        if .9<=z<=2.3:
+            laid=sum(min(b,6)-max(a,3.5) for a,b in rows[z] if b>3.5)
+            assert laid>2.3, f'the run beside the window at {z} is bare bed ({laid:.2f} m laid)'
+    jambed=0
+    for z,spans in rows.items():
+        spans.sort()
+        assert min(b-a for a,b in spans)>.25 or len(spans)<3, f'a sliver stone in the course at {z}'
+        if .9<=z<=2.3:
+            assert all(b<=2.3+1e-9 or a>=3.5-1e-9 for a,b in spans), \
+                'a stone face crosses the jamb of a whole course'
+        if any(abs(b-2.3)<1e-9 for a,b in spans) and any(abs(a-3.5)<1e-9 for a,b in spans):
+            jambed+=1
+    assert jambed>=3, f'only {jambed} courses end flush on both jambs'
+    order=sorted(rows)
+    firsts=[rows[z][0][1]-rows[z][0][0] for z in order]
+    assert all(abs(a-b)>.2 for a,b in zip(firsts,firsts[1:])), 'corner joints stack over each other'
+    stone=[(0,0),(1.2,0),(1.2,.4),(0,.4)]
+    facets=list(detail.fractured_stone(stone,.04,random.Random(7)))
+    edge=[q[2] for poly,front in facets if front for q in poly
+          if min(q[0],1.2-q[0],q[1],.4-q[1])<.012]
+    inner=[q[2] for poly,front in facets if front for q in poly
+           if min(q[0],1.2-q[0],q[1],.4-q[1])>detail.PITCH_MARGIN]
+    assert edge and max(abs(v-detail.PITCH_LINE) for v in edge)<.004, 'a rock face overruns its pitched arris'
+    assert inner and sum(inner)/len(inner)>detail.PITCH_LINE+.015, 'the rock face lost its projection'
+    print(f'PASS coursing: {jambed} courses end flush on both jambs; {len(order)} alternating corner stones; '
+          f'{len(edge)} arris samples on the pitch line, interior mean {1000*sum(inner)/len(inner):.0f} mm proud')
+
+
+check_coursing()

@@ -1,0 +1,37 @@
+{
+  "structure_id": "goodman_house_1612_prairie",
+  "view": "front_from_southeast",
+  "glb": "assets/gltf/goodman_house_1612_prairie__as_built_1869.glb",
+  "glb_sha256": "65c6b4a1b94313617a78d7a782964fb5d631fabef3a73dda315f8c240bda933b",
+  "camera_sha256": "0ee30d4fc48f700e1fa4928ab91a6405c5309befb8ba8ea5cd76dd6ce9fc7e4b",
+  "side_by_side": "docs/RESEARCH/photo-match/goodman_house_1612_prairie/front_from_southeast-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "cornice: the print's brackets are paired, deeper and closer, over a frieze that reads dark from end to end; the build's are single, evenly spaced, over a light band",
+      "status": "open"
+    },
+    {
+      "what": "south wall: the print shows a canted bay on the brick side wall behind the front; the build's side is flat",
+      "status": "open"
+    },
+    {
+      "what": "stoop: the print's steps are fewer and narrower between iron hand-rails; the build's are a long stone flight with stone cheeks",
+      "status": "open"
+    },
+    {
+      "what": "portico: the print's porch stands closer to the wall and reads flatter; the build's projects further, with deep open sides",
+      "status": "open"
+    },
+    {
+      "what": "colour of the stone, the brick, the iron and the sash: the print is monochrome",
+      "status": "not shown"
+    },
+    {
+      "what": "three bays, entrance in the middle; round-arched paired upper lights, tall principal windows and paired basement lights, each under a long keystone; banded stone to the frieze; frontispiece and arched portico; iron guards and grilles; fence on iron posts",
+      "status": "fixed"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "T-2366, 2026-10-11, side by side at docs/RESEARCH/photo-match/goodman_house_1612_prairie/front_from_southeast-side-by-side.jpg"
+}
