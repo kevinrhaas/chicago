@@ -14473,7 +14473,7 @@ than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
-**Scope:** `structures.records[brick_fabric]` — 67 structures (16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
+**Scope:** `structures.records[brick_fabric]` — 84 structures (16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either). The `brick` substrate in
 `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four
 are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
 `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says "two records are
@@ -24172,6 +24172,57 @@ buildings are T-1933's.
 **Review:** `docs/RESEARCH/prairie-draft-16-18-east-2335/README.md`.
 **Recorded:** 2026-10-11 (T-2335).
 
+### L-draft-prairie-20-22-west-2351 — The west side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, the Robbins house rising, one coach house for 2108 and 2110, and 2140's towers in one roof state
+
+**Covers:** `buckingham_house_2036_prairie.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie.draft_1904.form.draft`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie.draft_1904.form.draft_elevation`, `house_2000_prairie.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie.draft_1904.form.draft_elevation`, `house_2010_prairie.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie.draft_1904.form.draft_elevation`, `house_2018_prairie.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie.draft_1904.form.draft_elevation`, `house_2026_prairie.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie.draft_1904.form.draft_elevation`, `house_2120_prairie.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `rees_house_2110_prairie.draft_1904.form.draft_elevation`, `rees_house_2110_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`
+**Decision:** the district draft's 20th-22nd block, west side (T-2351, piece 1 of T-2161), run
+by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
+and "What is not" hold here word for word, reading sheet 35's trace (T-2340) and the T-1842
+census. Block 35's west side stands thirteen houses and thirteen alley buildings: the frame pair
+2000 and 2010, 2018, 2026, 2036 Buckingham, 2100 Sherman, 2108 Mark Kimball, 2110 Rees at its
+historical site, 2112 Rothschild, 2120, 2126 Robbins, 2130 Murdoch and 2140 Tucker/Smith, with the
+stable or coach house the sheet draws behind each, one coach house shared by 2108 and 2110, and
+2140's three-storey building on the alley beside its stable. That is every west-side row of the
+census (frontage-35-059 to -071). Nothing on sheets 20 or 28 moves.
+**What is invented on this side, beyond the 18th-20th list.** 2000 and 2010, which the sheet
+draws as twins in plan, are one design with their doors mirrored. Roofs are varied where the
+register names no form so that neighbours do not share one face: 2018 plain and 2026 bracketed
+behind their stone fronts, 2108 flat, 2110 a steep street gable (the register's 'tall gable'),
+2112 bracketed. Each building's roof and storey heights are the draft rules'. The sheet's crossed
+stables are filled from their traced outlines (block 35's `service_outline`), so the one-storey
+pieces a few of them carry stand at the stable's own two storeys. 2130's turret stands on the
+round bay the sheet draws on its front, under a cone the register names.
+**2126, a building site.** The census rules 2126 a building site on 1 July 1904 (r35-robbins-2126):
+the Hamill house razed, the Robbins house rising, finished by the May 1905 plate. The draft stands
+that ONE working phase: a hollow brick shell two of its three storeys up over its stone basement,
+the street wall and its returns 1.6 m into the third, empty openings in the finished house's five
+bays, no roof, a deck at the principal floor and a pole scaffold. How far the walls had risen is
+the draft's reconstruction and nothing more: no permit or progress photograph dates the month. The
+May 1905 plate is not read as July 1904 evidence. The alley stable stands, as the ruling has it.
+**2108/2110, one coach house.** The sheet draws one two-storey brick stable across the alley end of
+both lots, divided on the lot line, and the census rules it one building (r35-2108-2110-coach-house).
+The T-2340 trace outlines it as two; the draft fills the two outlines as one envelope under one
+roof (block 35's `join`) and stands the lot line through it as a coped party wall. It is one record,
+`mark_kimball_house_2108_prairie_coach_house`, whose south half is Rees's.
+**2140, one roof state.** The register asks for ONE declared 1904 state of the towers, flat-topped
+and crested or the later conical spires, never both. The spires are dated only by a 1928 photograph,
+and nothing found puts them on the house by 1904, so the draft draws the house's first state: the
+round corner tower flat-topped inside an iron cresting. A dated view showing spires by July 1904
+replaces it (T-1928, T-1929). 2140's two rear buildings carry each other's census ids in the T-2340
+trace; read again on the raster (the yard building crossed and numbered 2, the alley building
+lettered CATERER and numbered 3), the draft swaps them back (block 35's `census_fix`). The
+three-storey alley building's 1911 use is not carried back: it stands as an `outbuilding`.
+**What is not drafted here.** The 6- and 8-ft brick walls the sheet draws along 21st Street and the
+alley (2036, 2100, 2140) and 2026's open ground: the draft archetype has no boundary walls, and the
+per-building tickets build them. 2100's oriel, 2110's tympanum and loggia, and 2140's porch, glass
+room and exterior stairs are the per-building tickets'.
+**How to resolve:** each house's per-building ticket (T-1909 to T-1929, named on its card and in
+its record's `draft.replaceable_by`) replaces its attributes in place, under the same id; the alley
+buildings are T-1937's.
+**Ticket:** T-2351 (piece 1 of T-2161, the district draft's 20th-22nd block).
+**Review:** `docs/RESEARCH/prairie-draft-20-22-west-2351/README.md`.
+**Recorded:** 2026-10-11 (T-2351).
+
 ### L417 — The portable-human pipeline's test figure, which is nobody
 
 **Decision:** `c4d_fixture`, the four-LOD body under `assets/humans/` (and its Meshopt derivatives in
@@ -24553,6 +24604,35 @@ a photograph of the roof.
 **Ticket:** T-2326.
 **Review:** `docs/RESEARCH/k10-1808-dormer-face-2326/README.md`.
 **Recorded:** 2026-10-11 (T-2326).
+
+### L-k14-1808-walls-2358 — 1808 Prairie's walls weathered by the K14 kit at 18 years, with its outlet trails and its wall reach reconstructed
+
+**Decision:** 1808 Prairie is the first house to take its condition from the K14 kit (T-2324). Its
+record names the kit and a completion year, 1886, so on 1904-07-01 it has stood 18 years and every
+wall layer is at 0.45 of its full-age strength. That replaces the fixed K03 soot and damp the
+house wore since T-2291, which were the kit's 40-year values: the common-brick returns and rear
+come out lighter, and the rock-faced Lemont front, its dressed trim and its stone bay, which wore
+no condition before, now carry the same damp at the plinth and soot under the soffit. A trail
+hangs below each K06 sill, from the sill's own underside and across its full width with the horns.
+The walls are cut with a vertex row at each trail's head and foot and a column at its edges, so
+`_TONE` can carry it. Six things are this ticket's own. A gutter outlet's trail starts 0.15 m under
+the soffit, where the swan neck meets the wall, and runs down behind the pipe 0.03 m either side
+of it. A vertex weathers as the wall whose plane it is nearest, if it lies within 1.2 m in front
+of that wall or 1.0 m behind it, so a reveal, a sill or a bay weathers with its wall. Anything
+further off (the boundary wall, a stack over the roof) takes the height layers alone. The
+mortar, paint, roof, chimney-plume and ground layers are not applied here (T-2359, T-2360).
+**What is attested.** Nothing. The 1886 date is the T-1837 register's Cobb & Frost reading, carried
+as inferred on the record's documented range, and every layer value is the kit's
+(L-k14-condition-kit-2324).
+**What is invented.** The outlet trail's start and width, the reach that ties a vertex to a wall,
+and the choice to weather the stone front and the brick by one rule at one age.
+**What would replace it.** A dated photograph of 1808 Prairie's front or south wall, whose
+staining replaces this property's values; the house's completion year from a permit or the
+1888 plate deposited as a source.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.condition`
+**Ticket:** T-2358 (piece 1 of T-2325, K14).
+**Review:** `docs/RESEARCH/k14-1808-walls-2358/README.md`.
+**Recorded:** 2026-10-11 (T-2358).
 
 ### L-k14-1808-yard-2360 — 1808 Prairie's front yard laid as lawn, a stone front walk and a cinder side walk, aged by the K14 kit, all reconstructed
 

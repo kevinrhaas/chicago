@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 1692, ts: '2026-10-11T15:02:05.122Z', date: 'Oct 11, 2026, 10:02 AM CT', title: 'Prairie Avenue\'s 20th–22nd block fills in on the west side', kind: 'feature',
+    items: [
+      'Thirteen houses and their alley buildings now stand on the west side of Prairie Avenue between 20th and 22nd Streets, from the frame pair at 2000 and 2010 to the Byron L. Smith house on the 22nd Street corner.',
+      'The Robbins house at 2126 is still being built in July 1904. Its brick walls are two storeys up, with no roof yet and a scaffold along the street.',
+      'Kimball and Rees share one coach house behind 2108 and 2110, a single building divided by a party wall, as it was in 1888.',
+      'The Rees house stands at its original 2110 address, not the spot it was moved to in 2014.',
+      'The Smith house\'s corner tower has its early flat, crested top, because nothing dates its later spires to 1904.',
+    ] },
+  { v: 1691, ts: '2026-10-11T14:56:04.119Z', date: 'Oct 11, 2026, 9:56 AM CT', title: '1808 Prairie shows its own age: eighteen years of weather', kind: 'feature',
+    items: [
+      '1808 Prairie is the first house to weather by its own age. Built in 1886, it has stood eighteen years by July 1904.',
+      'Its stone front is now faintly darker at the foot and under the eaves. Faint streaks run down from each window sill and behind each downpipe.',
+      'The brick side and rear walls read lighter than before. They had worn the grime of a forty-year-old wall.',
+      'Every other house is unchanged.',
+    ] },
   { v: 1690, ts: '2026-10-11T13:40:27.505Z', date: 'Oct 11, 2026, 8:40 AM CT', title: '1808 Prairie\'s roof dormer gets a pediment', kind: 'feature',
     items: [
       'The dormer on 1808 Prairie\'s front roof now has a pediment: a moulded cornice across its face that turns back along both sides, and two stepped bands under the gable\'s edge.',

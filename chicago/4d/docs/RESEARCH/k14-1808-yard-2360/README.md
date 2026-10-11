@@ -63,14 +63,14 @@ twelve screenshots are in this folder (`browser-validation-*.json`, `desktop-*.j
 `tools/k01_contract.mjs --measure-asset keith_house_1808_prairie`: origin, coincident faces,
 metric UV, scale drift all `ok`.
 
-## Costs (the house's asset, before -> after)
+## Costs (the house's asset, before -> after; "before" is dev with T-2358's weathered walls)
 
 | | full | web |
 |---|---|---|
-| bytes | 7,147,776 -> 8,071,276 (+923 KB) | 2,133,848 -> 2,430,064 (+296 KB) |
+| bytes | 7,840,196 -> 8,763,700 (+924 KB) | 2,175,620 -> 2,471,860 (+296 KB) |
 | draw primitives / materials | 28 -> 31 | 28 -> 31 |
-| triangles | 60,944 -> 63,260 (+2,316) | same |
-| vertices | 128,893 -> 135,827 | 107,609 -> 109,142 |
+| triangles | 67,312 -> 69,628 (+2,316) | same |
+| vertices | 141,629 -> 148,563 | 110,909 -> 112,442 |
 | images | 13 -> 15 (turf, gravel) | |
 | GPU texture memory (RGBA8 + mips) | 64.2 -> 75.4 MB | |
 

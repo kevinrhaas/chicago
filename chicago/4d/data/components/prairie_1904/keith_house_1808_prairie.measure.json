@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 8071276,
-      "sha256": "6ed886fb18ab684707f1ce2d63062c98fcaa55d6ff5909f87d697d2c211dcaec",
+      "bytes": 8763700,
+      "sha256": "b0573cdb08adcdd6b24ce0ff95d7cbc4073723715ac6a49ec903b9b32ba5351e",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -19,8 +19,8 @@
       "mesh": {
         "draw_primitives": 31,
         "materials": 31,
-        "triangles": 63260,
-        "vertices": 135827
+        "triangles": 69628,
+        "vertices": 148563
       },
       "texture": {
         "images": 15,
@@ -301,8 +301,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 2430064,
-      "sha256": "b972f938bc7b455ba8b6d75590dbefa19ec30706829279cc69018ab20c724ec3",
+      "bytes": 2471860,
+      "sha256": "2734623a5accd2701103ce8ea41958e1cad548596ddaa2197329bcfb04d2ae96",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -320,8 +320,8 @@
       "mesh": {
         "draw_primitives": 31,
         "materials": 31,
-        "triangles": 63260,
-        "vertices": 109142
+        "triangles": 69628,
+        "vertices": 112442
       },
       "texture": {
         "images": 15,
@@ -390,13 +390,13 @@
           "uv_per_m_times_tile_m": 0.9973
         },
         "brick": {
-          "median_uv_per_m": 1.2022,
+          "median_uv_per_m": 1.2027,
           "fabric": "common_buff_common_6",
           "tile_m": [
             0.8636,
             0.8001
           ],
-          "uv_per_m_times_tile_m": 0.9993
+          "uv_per_m_times_tile_m": 0.9997
         },
         "brick_unit_body": {
           "median_uv_per_m": 1.0078,

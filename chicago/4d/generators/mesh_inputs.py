@@ -94,7 +94,9 @@ PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_fro
                                        # T-2360: K14 lays the yard, from the condition kit's ground layers
                                        "k14_yard.py", "k14_condition.py",
                                        # T-2313: K15 builds the chimney stacks in the roof
-                                       "k15_chimneys.py"),
+                                       "k15_chimneys.py",
+                                       # T-2358: K14 weathers a record that names it
+                                       "k14_condition.py"),
                        # T-2306: the conservatory is cut with K01's Prim and K06's polygon helpers
                        "k13_conservatories": ("k01_frontage.py", "k06_windows.py"),
                        # T-2323: the timber front is cut with K01's Prim and K06's sash and polygon helpers
@@ -227,6 +229,10 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
         # T-2291: the K03 maps a K01 wall embeds are inputs, like Glessner v4's below
         from archetypes import k03_brick
         doc["textures"] = {p.relative_to(ROOT).as_posix(): _sha_file(p) for p in k03_brick.TEXTURE_FILES}
+        # T-2358: a record that names the K14 condition kit reads its layers as data
+        if getattr(params, "condition", None):
+            kit = ROOT / params.condition["kit"]
+            doc["condition_kit"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}
         # T-2298: the window kit's sizes are data the builder reads, like a texture
         kit = ROOT / "data" / "components" / "prairie_1904" / "k06_windows.json"
         doc["window_kit"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}
