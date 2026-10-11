@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1685, ts: '2026-10-11T09:38:02.502Z', date: 'Oct 11, 2026, 4:38 AM CT', title: '1616 Prairie stands as a detailed brick house', kind: 'feature',
+    items: [
+      '1616 Prairie Avenue\'s main body is no longer a plain draft box: it is built from the brick frontage kit, with common-brick walls, stone-headed two-over-two sash, a high stone stoop and door on the north half, and a bracketed cornice.',
+      'Its half storey is an attic under a low tin hip roof, lit by a gabled dormer on the street side, with two brick chimneys on the ridge and copper gutters and downpipes.',
+      'Its traced plan and place on the lot are read from the 1911 Sanborn map; every height, window, the roof and the trim are reconstructed, and the house\'s card says so.',
+      'The small one-storey brick range behind it is not standing for now; it returns once the kit can build a rear wing.',
+    ] },
   { v: 1684, ts: '2026-10-11T09:16:25.512Z', date: 'Oct 11, 2026, 4:16 AM CT', title: '1600 Prairie, the 16th Street corner house, gets its curved bay', kind: 'feature',
     items: [
       'The brick house on the corner of Prairie and 16th Street is no longer a draft: brick on every wall, built from the Prairie Avenue kit.',
