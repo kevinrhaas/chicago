@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 1702, ts: '2026-10-11T22:18:56.194Z', date: 'Oct 11, 2026, 5:18 PM CT', title: '1612 Prairie rebuilt from its own photograph', kind: 'fix',
+    items: [
+      'The Goodman house front now matches the period photograph of it, not a one-line summary: three bays, the entrance in the middle.',
+      'Every window is round-arched: paired lights upstairs, tall windows with iron guards below, barred basement lights, each under radiating stones and a long keystone.',
+      'An arched portico on columns at the head of the stoop, pilasters and a hood around it, and a dark frieze with small attic lights under the cornice.',
+      'Taller, as the photo shows: the principal floor sits 2.85 m up. No dormer, an iron fence on iron posts.',
+      'Every house is now built against its pictures: 201 more period photographs open in the Prairie library, each with its credit.',
+    ] },
+  { v: 1701, ts: '2026-10-11T22:18:56.194Z', date: 'Oct 11, 2026, 5:18 PM CT', title: 'Glessner House\'s granite laid as whole stones', kind: 'change',
+    items: [
+      'The rock-faced granite on every Glessner wall is re-cut into stones: windows and doors now sit between whole jamb stones instead of thin slivers, and corners alternate long and short stones course by course.',
+      'Each stone\'s rough face now falls to a straight edge, so the joints read as clean lines from across the street; the course heights are still the measured ones.',
+    ] },
   { v: 1700, ts: '2026-10-11T21:44:31.628Z', date: 'Oct 11, 2026, 4:44 PM CT', title: '1616 Prairie gets back its rear range', kind: 'feature',
     items: [
       'Behind the brick house at 1616 Prairie, the small two-storey brick range the 1911 atlas draws stands again, against the north end of the back wall.',
