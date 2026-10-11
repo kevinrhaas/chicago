@@ -1,0 +1,223 @@
+{
+  "id": "armour_corwith_house_1945_prairie",
+  "name": "1945 Prairie Avenue — George Armour/Corwith corner mansion (district draft; refined by T-1908)",
+  "aka": [
+    "1945 S. Prairie Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "function": {
+    "value": "residence",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The 1911 sheet marks the building 'D' (dwelling): '3S.B.; rear2B brick dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
+  },
+  "review_required": false,
+  "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1908 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1945-b1), the T-1841 census (s28-1945-front, s28-1945-wing) and the T-1837 register row frontage-28-058 (George Armour/Corwith corner mansion); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330).",
+  "phases": [
+    {
+      "id": "draft_1904",
+      "documented_range": {
+        "from": "1904-07-01",
+        "to": "1911-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_28"
+        ],
+        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+      },
+      "position": {
+        "utm_e": 448512.155,
+        "utm_n": 4633948.509,
+        "rotation_deg": 179.435,
+        "symbolic_location": "1945 S. Prairie Avenue, parcel prairie_1945 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_28"
+        ],
+        "note": "The rear corner of the main body's rectangle (lot frame u 29.500, v -6.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation 179.435 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            15.75,
+            0.0
+          ],
+          [
+            15.75,
+            12.0
+          ],
+          [
+            0.0,
+            12.0
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_28"
+        ],
+        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+      },
+      "form": {
+        "stories": {
+          "value": 3,
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "'3S.B.; rear2B' printed on the 1911 sheet: 3 full storeys."
+        },
+        "construction": {
+          "value": "brick",
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "The register reads the map's colours as 'brick'."
+        },
+        "draft_plan": {
+          "value": {
+            "parts": [
+              {
+                "id": "r1",
+                "role": "main",
+                "storeys": 3,
+                "roof": "hip",
+                "rect": [
+                  0.0,
+                  0.0,
+                  15.75,
+                  12.0
+                ],
+                "from": "s28fp-1945-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill"
+              },
+              {
+                "id": "r2",
+                "role": "wing",
+                "storeys": 3,
+                "roof": "flat",
+                "rect": [
+                  -3.25,
+                  3.75,
+                  0.0,
+                  13.0
+                ],
+                "from": "s28fp-1945-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill"
+              },
+              {
+                "id": "r3",
+                "role": "wing",
+                "storeys": 3,
+                "roof": "flat",
+                "rect": [
+                  9.0,
+                  -1.25,
+                  15.5,
+                  0.0
+                ],
+                "from": "s28fp-1945-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 85% of its fill"
+              },
+              {
+                "id": "r4",
+                "role": "range",
+                "storeys": 2,
+                "roof": "flat",
+                "rect": [
+                  -2.5,
+                  -0.5,
+                  0.0,
+                  3.5
+                ],
+                "from": "s28fp-1945-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill"
+              },
+              {
+                "id": "r5",
+                "role": "range",
+                "storeys": 2,
+                "roof": "flat",
+                "rect": [
+                  -3.75,
+                  1.25,
+                  -2.5,
+                  3.25
+                ],
+                "from": "s28fp-1945-b1 p2 (range, brick), rectangle 2 of that part; the part's rectangles cover 86% of its fill"
+              }
+            ],
+            "lot_v": [
+              -1.75,
+              14.25
+            ],
+            "street_u": 25.269
+          },
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1945-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s28fp-1945-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill; s28fp-1945-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 85% of its fill; s28fp-1945-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill; s28fp-1945-b1 p2 (range, brick), rectangle 2 of that part; the part's rectangles cover 86% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+        },
+        "draft_elevation": {
+          "value": {
+            "kind": "house",
+            "seed": 1428675031,
+            "principal_floor_m": 1.4,
+            "storey_heights_m": [
+              3.9,
+              3.5,
+              3.3,
+              3.1
+            ],
+            "roof_pitch_deg": 38,
+            "mansard_lower_m": 3.0,
+            "front_bays": 5,
+            "entrance": "north",
+            "side_spacing_m": 2.6,
+            "chimneys": 2,
+            "brackets": false,
+            "attic_dormers": true,
+            "stone": "stone",
+            "features": [],
+            "draft_label": {
+              "pass": "T-2330",
+              "refined_by": [
+                "T-1908"
+              ]
+            },
+            "v_toward": "south"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The register's 'corner mansion with substantial roof/attic, deep Prairie facade and long 20th Street elevation': a hip with attic dormers over the mapped house, its rear2B range behind. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1428675031 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-east-2330."
+        },
+        "draft": {
+          "value": {
+            "pass": "T-2330",
+            "liberty": "L-draft-prairie-18-20-east-2330",
+            "register_row": "frontage-28-058",
+            "census_ids": [
+              "s28-1945-front",
+              "s28-1945-wing"
+            ],
+            "trace_building": "s28fp-1945-b1",
+            "seed": 1428675031,
+            "replaceable_by": [
+              "T-1908"
+            ],
+            "card": "District draft — refined by T-1908."
+          },
+          "confidence": "reconstructed",
+          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+          "geometry": "record_only"
+        }
+      }
+    }
+  ]
+}

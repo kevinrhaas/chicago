@@ -159,13 +159,19 @@ def max_rect(cells):
     return out
 
 
-def rects_for(poly, fit):
+def rects_for(poly, fit, front_from_u=None):
+    """Rectangles inside `poly`, largest first. With `front_from_u` (a frontage row's
+    `front_body_from_u_m`) the first is the largest in front of that lot-frame u, so a
+    house traced in one piece with its rear range keeps its street body as the main."""
     cell = fit["cell_m"]
     cells = scanfill(poly, cell)
     total = len(cells)
     out = []
     while cells and len(out) < fit["max_rects"]:
-        r = max_rect(cells)
+        pool = cells
+        if front_from_u is not None and not out:
+            pool = {c for c in cells if c[0] * cell >= front_from_u} or cells
+        r = max_rect(pool)
         if r is None:
             break
         i0, j0, i1, j1 = r
@@ -300,7 +306,8 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     order = {"main": 0, "stone_front": 1, "range": 2, "porch": 3}
     for part in sorted(b["parts"], key=lambda p: (order.get(p["role"], 9), -p["area_m2"], p["id"])):
         poly = [to_uv(frame, q) for q in part["polygon_local_m"]]
-        rs, cov = rects_for(poly, fit)
+        rs, cov = rects_for(poly, fit, frow.get("front_body_from_u_m")
+                            if part["role"] == "main" and kind == "house" else None)
         for k, r in enumerate(rs):
             pieces.append({"trace_part": part["id"], "trace_role": part["role"], "material": part["material"],
                            "rect": r, "k": k, "coverage": round(cov, 3)})
@@ -375,6 +382,10 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     seed = seed_of(sid)
     front_tickets = row.get("front_tickets", "") if kind == "house" else ""
     rear_ticket = block["rear_ticket"][parcel["side"]]
+    # a side drafted by a later ticket names its own pass and liberty (T-2330 drafts block 28's east)
+    side_rules = block.get("by_side", {}).get(parcel["side"], {})
+    pass_ = side_rules.get("pass", rules["ticket"])
+    liberty = side_rules.get("liberty", block["liberty"])
     refined_by = [t.strip() for t in (front_tickets.split(",") if front_tickets else [rear_ticket]) if t.strip()]
 
     # ---- elevation
@@ -402,8 +413,12 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
         "attic_dormers": bool(frow.get("attic_dormers", False)) and kind == "house",
         "stone": fam.get("stone", "stone"),
         "features": feats,
-        "draft_label": {"pass": "T-2329", "refined_by": refined_by},
+        "draft_label": {"pass": pass_, "refined_by": refined_by},
     }
+    if frame[2][1] < 0:
+        # the plan's v axis runs along the front; on the east side of the avenue it points
+        # south, so the archetype is told which way high v faces before it reads `entrance`
+        elev["v_toward"] = "south"
     plan = {"parts": parts, "lot_v": lot_v_local, "street_u": street_local}
 
     # ---- placement
@@ -421,9 +436,15 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     if kind == "house":
         label = (row.get("address") or where).replace(" S. Prairie Avenue", "")
         name = f"{label} Prairie Avenue — {fam_name} (district draft; refined by {', '.join(refined_by)})"
+        reading = cp.get('reading_1911', '')
+        ruling = (f or {}).get('decision_1904', 'present_as_mapped')
         function = _attr("residence", "inferred",
-                         f"The 1911 sheet marks the building 'D' (dwelling): '{cp.get('reading_1911', '')}'. "
-                         f"Carried to 1904 on the T-1841 census ruling ({(f or {}).get('decision_1904', 'present_as_mapped')}).",
+                         f"The 1911 sheet marks the building 'D' (dwelling): '{reading}'. "
+                         f"Carried to 1904 on the T-1841 census ruling ({ruling})." if "(D)" in reading else
+                         f"The 1911 sheet labels the building with a 1911 use, '{reading}', which the draft does not "
+                         f"carry back to 1904 (the T-1837 register warns not to assume the 1904 use from it). "
+                         f"The register's family row, '{fam_name}', names it a house, so the 1904 function is "
+                         f"inferred residence on that row and the T-1841 census ruling ({ruling}).",
                          [SOURCE])
     else:
         owner = f"the house at {addr}" if f else "neither neighbour (the sheet does not show whose)"
@@ -433,7 +454,6 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
                          f"The 1911 sheet reads '{cp.get('reading_1911', '')}'. "
                          + (cp.get("note_1904") or "Backcast to 1904 as a yard outbuilding on the census ruling."),
                          [SOURCE])
-    liberty = block["liberty"]
     drawn = "; ".join(p["from"] for p in parts)
     rec = {
         "id": sid,
@@ -443,7 +463,7 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
         "function": function,
         "review_required": False,
         "research_note": (
-            f"A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, "
+            f"A DISTRICT DRAFT ({pass_}, the owner's district pass of 2026-10-08): a serviceable first model, "
             f"complete from the street, the walks, the alley and the air, that {', '.join(refined_by)} refine{'s' if len(refined_by) == 1 else ''} "
             f"in place under this same id. Written by tools/draft_prairie_1904.py from the sheet {sheet} trace "
             f"({b['id']}), the T-1841 census ({', '.join(census_ids)}) and the T-1837 register row {fid or 'none'}"
@@ -499,7 +519,7 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
                                          f"Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; "
                                          f"bays, entrance side, chimneys and dormers are counts the family rules choose, "
                                          f"and the seed {seed} only tints the fabric inside +-6 %. Liberty {liberty}."),
-                "draft": _attr({"pass": "T-2329", "liberty": liberty, "register_row": fid, "census_ids": census_ids,
+                "draft": _attr({"pass": pass_, "liberty": liberty, "register_row": fid, "census_ids": census_ids,
                                 "trace_building": b["id"], "seed": seed, "replaceable_by": refined_by,
                                 "card": f"District draft — refined by {', '.join(refined_by)}."},
                                "reconstructed",
