@@ -500,6 +500,15 @@ Work is parceled so parallel agents never collide. If you are a subagent:
   produced false alarms and lost work in this fleet before.
 - Your parcel is done when `tools/check.sh` passes and your outputs carry their provenance.
 - Do not run Blender unless your parcel changes geometry-affecting data. Bakes are batched.
+- **A building's pictures go on its card** (T-2389). The owner, 2026-10-11: *"As you build each
+  once can you include those photos images of the house on the card for the house on another
+  tab"*. The card's Images tab is generated at publish by `tools/compile_pictures.py` from the
+  Prairie library and `data/sources/`, so a draft, refine or rebuild that finds a photograph or
+  drawing of its building makes it reachable there: in the Prairie library, a record whose
+  `building_ids` names the building, with a credited copy in the image store whenever it can be
+  fetched (a link-only record shows as a link); for any other year, a `photograph` or
+  `illustration` record in `data/sources/` that the structure record names. Before closing, open
+  the card at 390x780 and see each picture on the Images tab with its credit.
 
 ## The two-speed build
 

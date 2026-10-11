@@ -255,6 +255,13 @@ cp -f data/comparisons/glessner/*.json "$SITE/data/comparisons/glessner/"
 # The liberties list the Evidence panel reads. Derived from docs/LIBERTIES.md,
 # which itself stays out of the payload.
 cp -f data/liberties.json "$SITE/data/"
+# The pictures of each building, for the card's Images tab (T-2389). DERIVED HERE, not
+# committed: the Prairie library and data/sources/ change under other tickets, so the
+# file is made from what this tree holds at the moment it ships. Fetched by the card on
+# first need; a failure here would leave every card's tab saying its index is offline.
+python3 tools/compile_pictures.py >/dev/null
+mkdir -p "$SITE/data/pictures"
+cp -f data/pictures/*.json "$SITE/data/pictures/"
 # The town census the gate screen shows — buildings standing and people housed
 # (T-0036). Derived by tools/town_census.py and re-derived by tools/check.sh; the
 # gate fetches it, so leaving it out of the mirror is a 404 on the deployed site

@@ -6944,6 +6944,18 @@ step "the agency relation still re-derives from the committed register" \
 selftest "…and its own refusals still fire when broken" \
   python3 tools/compile_agencies.py --self-test
 
+# T-2389. The cards' Images tab: each building's photographs and drawings, credited, joined
+# from the Prairie library and data/sources/. GENERATED, not committed (data/pictures/ is
+# ignored): the library changes under other tickets, and a committed join would go stale on
+# dev the moment one merged. So publish.sh (above) writes it, this derives it again in memory
+# and writes nothing, and the self-test holds the joins: a neighbour's picture, a demolished
+# predecessor's, a map, a portrait or a cited book is not this building's.
+step "the cards' pictures join the library and the sources to their buildings" \
+  python3 tools/compile_pictures.py --check
+
+selftest "…and the joins still keep out what is not a picture of this building" \
+  python3 tools/compile_pictures.py --self-test
+
 # T-1238. `associated_with[]` is the plural, dated form of `lives_at`/`works_at`, and
 # its coverage file is how the migration's remaining distance stays a number rather than
 # an impression: both shapes stand until the last record moves, and a half-migrated layer
