@@ -102,6 +102,13 @@ GENERATOR = "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)"
 K14_OUTLET_BELOW_SOFFIT_M = 0.15
 K14_OUTLET_MARGIN_M = 0.03
 K14_REACH_OUT_M, K14_REACH_IN_M = 1.2, 1.0
+# T-2359: a K15 stack's plume (k14_condition.json `chimney_soot`) is laid on the covering's
+# vertices, so the roof shell is cut with plan rows across the plume's reach: this many to its
+# length, each way, which puts a vertex every 0.23 m of 1808's 1.35 m plume. The plume is a
+# cone fading linearly to its tip and to its sides, so a vertex grid that fine carries it.
+K14_PLUME_ROWS = 6
+# a vertex within this of a row is ON it, so no row leaves a sliver the 2 mm weld collapses
+K14_ROW_SNAP_M = 0.005
 
 Y = (0.0, 1.0, 0.0)
 
@@ -473,6 +480,141 @@ class Assembly:
                                                  seed=self.k14_seed, x=xs[m] if i >= 0 else 0.0,
                                                  sources=srcs[i] if i >= 0 else ())
             pr.tone = [round(float(t), 4) for t in tone]
+        # T-2359: the chimney plume on the slate, leeward of each K15 stack
+        pr, plumes = self.prims.get("slate_covering"), self.k14_plumes()
+        if pr is not None and pr.pos and plumes:
+            P = np.asarray(pr.pos, dtype=np.float64)
+            rot = math.radians(self.p.condition["rotation_deg"])
+            tone = np.ones(len(P))
+            for x0, z0, _ in plumes:
+                dxl, dnl = P[:, 0] - x0, z0 - P[:, 2]   # east and north in the house's frame
+                tone = tone * self.k14.roof_tone(dxl * math.cos(rot) + dnl * math.sin(rot),
+                                                 dnl * math.cos(rot) - dxl * math.sin(rot),
+                                                 built=self.k14_built)
+            pr.tone = [round(float(t), 4) for t in np.maximum(tone, self.k14.floor)]
+
+    def k14_plumes(self):
+        """T-2359: each K15 stack's plume as (x, z, length) in this frame: the stack's centre
+        and how far its plume reaches at the house's age. Empty for a record that names no
+        condition kit or no K15 stack."""
+        if self.k14 is None or not getattr(self, "stacks", None):
+            return []
+        from .k14_condition import _lerp
+        L = _lerp(self.k14.layers["chimney_soot"]["length_m"], self.k14.factor(self.k14_built))
+        if L <= 0.0:
+            return []
+        return [(s["centre"][0], -s["centre"][1], L) for s in self.stacks]
+
+    def k14_roof_rows(self, pts, tris):
+        """T-2359: the roof shell cut with the rows a chimney plume needs. The joined shell's
+        covering is a few large triangles, and `_TONE` is read at vertices, so a plume a metre
+        and a half long has nothing to ride. Each plume's wedge (its bearing, half-angle and
+        length, turned into this frame by the record's rotation) is boxed in plan; the covering
+        is cut on the box's four sides and, inside it, by the plan lines x = c and z = c,
+        K14_PLUME_ROWS to the plume's length. Nothing but covering inside a box is cut, so a
+        stack, its flashing and the rest of the roof keep their triangles. A face that a cut
+        put a point on the edge of (a flashing, a stack's foot, the covering just outside the
+        box) takes that point and is fanned from its centroid, so every edge still has a face
+        on each side and the shell stays closed. The K05 solid the gates read (`roof_shell`)
+        is the uncut one; this is what is emitted."""
+        plumes = self.k14_plumes()
+        if not plumes:
+            return pts, tris
+        import numpy as np
+        L = self.k14.layers["chimney_soot"]
+        rot = self.p.condition["rotation_deg"]
+        P = [tuple(q) for q in pts]
+        made = {}
+
+        def point(i, j, axis, c):
+            key = (min(i, j), max(i, j), axis, c)
+            if key not in made:
+                a, b = P[key[0]], P[key[1]]
+                t = (c - a[axis]) / (b[axis] - a[axis])
+                q = [a[n] + (b[n] - a[n]) * t for n in range(3)]
+                q[axis] = c
+                made[key] = len(P)
+                P.append(tuple(q))
+            return made[key]
+
+        def split(ids, axis, c):
+            """A convex polygon cut on the plan line `axis` = c: its pieces, one or two."""
+            side = [P[i][axis] - c for i in ids]
+            if all(x >= -K14_ROW_SNAP_M for x in side) or all(x <= K14_ROW_SNAP_M for x in side):
+                return [ids]
+            lo, hi = [], []
+            for k, i in enumerate(ids):
+                j, si, sj = ids[(k + 1) % len(ids)], side[k], side[(k + 1) % len(ids)]
+                if abs(si) <= K14_ROW_SNAP_M:
+                    lo.append(i)
+                    hi.append(i)
+                else:
+                    (lo if si < 0 else hi).append(i)
+                if (si < -K14_ROW_SNAP_M and sj > K14_ROW_SNAP_M) or (si > K14_ROW_SNAP_M and sj < -K14_ROW_SNAP_M):
+                    m = point(i, j, axis, c)
+                    lo.append(m)
+                    hi.append(m)
+            return [lo, hi]
+        polys = [(list(t[:3]), tuple(t[3:])) for t in tris]
+        for x0, z0, length in plumes:
+            step = length / K14_PLUME_ROWS
+            arc = [L["lee_bearing_deg"] - L["half_angle_deg"] + i for i in range(2 * L["half_angle_deg"] + 1)]
+            ring = [(x0, z0)] + [(x0 + length * math.sin(math.radians(b - rot)),
+                                  z0 - length * math.cos(math.radians(b - rot))) for b in arc]
+            # the box, on whole rows from the stack's centre, and the rows inside it
+            box, rows = {}, []
+            for axis, c0, k in ((0, x0, 0), (2, z0, 1)):
+                i0 = math.floor((min(q[k] for q in ring) - c0) / step)
+                i1 = math.ceil((max(q[k] for q in ring) - c0) / step)
+                box[axis] = (round(c0 + i0 * step, 4), round(c0 + i1 * step, 4))
+                rows += [(axis, round(c0 + i * step, 4)) for i in range(i0 + 1, i1)]
+            rows = [(axis, c) for axis in (0, 2) for c in box[axis]] + rows   # its sides first
+            nxt = []
+            for ids, rest in polys:
+                if rest[0] != "covering" or any(
+                        max(P[i][axis] for i in ids) <= box[axis][0] + K14_ROW_SNAP_M
+                        or min(P[i][axis] for i in ids) >= box[axis][1] - K14_ROW_SNAP_M for axis in (0, 2)):
+                    nxt.append((ids, rest))
+                    continue
+                pieces = [ids]
+                for axis, c in rows:
+                    inside = []
+                    for q in pieces:
+                        if c in box[axis] or all(box[ax][0] - K14_ROW_SNAP_M <= P[i][ax] <= box[ax][1] + K14_ROW_SNAP_M
+                                                     for i in q for ax in (0, 2)):
+                            inside += split(q, axis, c)   # a side cuts the whole face; a row, the box
+                        else:
+                            inside.append(q)
+                    pieces = inside
+                nxt += [(q, rest) for q in pieces]
+            polys = nxt
+        # every edge a made point lies inside takes it, and that face is fanned from its centroid
+        new = np.asarray(P[len(pts):], dtype=np.float64)
+        out = []
+        for ids, rest in polys:
+            ring, mended = [], False
+            for k, i in enumerate(ids):
+                ring.append(i)
+                a, b = np.asarray(P[i]), np.asarray(P[ids[(k + 1) % len(ids)]])
+                ab = b - a
+                t = (new - a) @ ab / (ab @ ab)
+                off = np.linalg.norm(new - (a + np.outer(t, ab)), axis=1)
+                on = np.nonzero((t > 1e-9) & (t < 1 - 1e-9) & (off < 1e-6))[0]
+                if len(on):
+                    mended = True
+                    ring += [len(pts) + int(n) for n in on[np.argsort(t[on], kind="stable")]]
+            if mended:
+                c = len(P)
+                P.append(tuple(float(np.mean([P[i][n] for i in ring])) for n in range(3)))
+                fan = [(c, ring[k], ring[(k + 1) % len(ring)]) for k in range(len(ring))]
+            else:
+                fan = [(ids[0], ids[k], ids[k + 1]) for k in range(1, len(ids) - 1)]
+            for f in fan:
+                a, b, c = P[f[0]], P[f[1]], P[f[2]]
+                n = _cross(_sub(b, a), _sub(c, a))
+                if _dot(n, n) > 1e-14:
+                    out.append(f + rest)
+        return _weld_shell(P, out)
 
     def instance(self, cid, family, params, sockets):
         """Register one instance of a component; return its seed."""
@@ -1358,7 +1500,7 @@ class Assembly:
         self.roof_graph = k5.graph(pts, tris if not k15s else
                                    [t[:3] + (("chimney" if t[3] in self.STACK else t[3]),) + t[4:] for t in tris],
                                    kit)
-        self._emit_shell(pts, tris, seed, conf)
+        self._emit_shell(*self.k14_roof_rows(pts, tris), seed, conf)   # T-2359: the plume's rows
         if d:
             self.dormer_sash(seed)
         if k:

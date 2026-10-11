@@ -794,7 +794,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if not stone:
             raise ParamError("condition needs a K02 stone front: a brick K01 house cuts its walls "
                              "before its sills are seated, so no wall could carry a sill's trail")
-        condition = {"kit": CONDITION_KIT, "built": built}
+        # T-2359: the chimney plume lies on a compass bearing, so the kit is read in the
+        # house's own frame turned by the placement's rotation (+ clockwise, as buildings.js)
+        rotation = float(((phase.get("position") or {}).get("rotation_deg")) or 0.0)
+        condition = {"kit": CONDITION_KIT, "built": built, "rotation_deg": rotation}
 
     names = sorted(CONSUMED)
     params = K01FrontageParams(
