@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 1683, ts: '2026-10-11T08:12:20.363Z', date: 'Oct 11, 2026, 3:12 AM CT', title: '1608 Prairie becomes a finished brick house', kind: 'improvement',
+    items: [
+      'The draft box at 1608 Prairie Avenue is now a built brick house: brick on all four walls, stone sills and window hoods, a bracketed cornice and a low tin roof.',
+      'The canted bay on the Prairie front and the shallow projection on the south wall stand where the 1911 Sanborn map draws them.',
+      'The door moved to the north half of the front, because the map\'s bay takes the south half.',
+      'Its card no longer calls it a draft. The bricks, windows, cornice and roof are reconstructions, not readings of this house.',
+    ] },
+  { v: 1682, ts: '2026-10-11T07:17:48.753Z', date: 'Oct 11, 2026, 2:17 AM CT', title: '1612 Prairie, the Goodman house, gets its stone front', kind: 'feature',
+    items: [
+      'The Goodman house at 1612 Prairie is no longer a draft: a smooth limestone front on brick walls, built from the Prairie Avenue kit.',
+      'Two pairs of tall windows under carved hoods, an arched entrance on columns over a high stoop, and a bracketed cornice.',
+      'A low tin hip roof with a dormer lights the attic the 1911 atlas records, over the house and its rear wing.',
+      'Its proportions and trim are reconstructed, and its card says so; the arched window heads and the side porch are still to come.',
+    ] },
   { v: 1681, ts: '2026-10-11T05:56:20.200Z', date: 'Oct 11, 2026, 12:56 AM CT', title: 'The roof kit learns the rowhouse\'s flat roof behind its parapets', kind: 'add',
     items: [
       'A new roof in the Prairie kit: a tin deck falling gently to the rear wall, behind coped party-wall parapets and a blocking course over the front.',
