@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 1697, ts: '2026-10-11T19:10:02.010Z', date: 'Oct 11, 2026, 2:10 PM CT', title: 'District draft houses build the same on every Python', kind: 'chore',
+    items: [
+      'The Prairie Avenue draft houses now add their storey heights and centroids one term at a time, so a build on Python 3.12 writes the same bytes as the gate\'s 3.11 — the 2011 Prairie turret no longer comes out different on the build machine.',
+      'The exact-sum check now counts the sums in every pure-Python building kit, so the problem cannot creep back in.',
+    ] },
+  { v: 1696, ts: '2026-10-11T19:00:53.994Z', date: 'Oct 11, 2026, 2:00 PM CT', title: '1808 Prairie\'s chimneys begin to stain the slate downwind', kind: 'feature',
+    items: [
+      'The slate beside 1808 Prairie\'s two chimneys now carries a smoke stain. It lies east-north-east of each stack, downwind of Chicago\'s westerlies.',
+      'On a roof eighteen years old it is very faint: a few per cent darker, about a metre and a third long. It is hard to see by eye.',
+      'Every other house is unchanged.',
+    ] },
   { v: 1695, ts: '2026-10-11T17:49:08.904Z', date: 'Oct 11, 2026, 12:49 PM CT', title: '1808 Prairie\'s front yard: a lawn, a stone walk, a cinder path', kind: 'feature',
     items: [
       'The ground inside 1808 Prairie\'s iron fence is now a kept lawn, with a thin bare edge cut along the foot of the house and round its bay.',
