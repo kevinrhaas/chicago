@@ -269,16 +269,18 @@ def build_records(rules=None) -> dict:
                 polys[p["id"]] = (f, p)
         for vg in census.get("vacant_ground", []):
             polys[vg["id"]] = (None, vg)
-        for parcel in trace["parcels"]:
+        fronts = {f["frontage_id"]: f for f in census["frontages"]}
+        for parcel in plate_parcels(block, fronts, polys) + trace["parcels"]:
             side = parcel["side"]
             if side not in block["sides"]:
                 continue
             frame = lot_frame(grid[parcel["parcel_id"]])
-            lot = [to_uv(frame, p) for p in grid[parcel["parcel_id"]]["polygon_local_m"]]
+            lot = [to_uv(frame, p) for pid in parcel.get("lot_parcels", [parcel["parcel_id"]])
+                   for p in grid[pid]["polygon_local_m"]]
             lot_v = (min(p[1] for p in lot), max(p[1] for p in lot))
             street_u = max(p[0] for p in lot)
             house_sid = None
-            for b in parcel["buildings"]:
+            for b in split_townhouses(parcel["buildings"], polys, rules):
                 if any(c in rules["skip"] for c in b["census_ids"]):
                     continue
                 f, cp = polys[b["census_ids"][0]]
@@ -293,14 +295,56 @@ def build_records(rules=None) -> dict:
                 row = reg.get(fid, {}) if fid else {}
                 rec = draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, frame, lot_v,
                                    street_u, datum, hts, fit, house_sid)
-                if kind == "house":
+                if kind == "house" and not (house_sid and b.get("split_of")):
                     house_sid = rec["id"]
                 out[rec["id"]] = rec
     return out
 
 
+def plate_parcels(block, fronts, polys) -> list:
+    """Houses the 1911 sheet does not draw but the census stands for 1904 on an earlier
+    plate (sheet 20's 1620, carried from Robinson 1886): the block's `plates` rows give the
+    outline in that plate's pixels, and its GCP file's similarity carries them to local
+    metres, so the house is drafted from the plate the way a traced house is from the sheet."""
+    out = []
+    for pl in block.get("plates", []):
+        co = json.loads((ROOT / pl["gcps"]).read_text())["fit"]["coefficients"]
+        ring = [[round(co["a"] * x + co["b"] * y + co["c"], 2), round(co["d"] * x + co["e"] * y + co["f"], 2)]
+                for x, y in pl["polygon_px"]]
+        f = fronts[pl["frontage_id"]]
+        polys[pl["id"]] = (f, {"id": pl["id"], "kind": "front", "reading_1911": "", "reading_plate": pl["reading"]})
+        area = abs(sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(ring, ring[1:] + ring[:1]))) / 2
+        out.append({"parcel_id": pl["parcel_id"], "side": f["side"], "lot_parcels": pl["lot_parcels"],
+                    "buildings": [{"id": pl["id"], "kind": "front", "census_ids": [pl["id"]], "plate": pl,
+                                   "parts": [{"id": "p1", "role": "main", "material": pl["material"],
+                                              "area_m2": round(area, 2), "polygon_local_m": ring}]}]})
+    return out
+
+
+def split_townhouses(buildings, polys, rules):
+    """One traced building whose census ids belong to two frontages, each of whose rows
+    names its own traced part (`house_part`), is two houses (sheet 20's 1700 and 1706,
+    one U-shaped block on one lot): each keeps its own census id and its own part."""
+    for b in buildings:
+        rows = [(cid, rules["frontages"].get(polys[cid][0]["frontage_id"], {}))
+                for cid in b["census_ids"] if polys[cid][0]]
+        split = [(cid, r) for cid, r in rows if r.get("house_part")]
+        if len(split) < 2:
+            yield b
+            continue
+        for cid, r in split:
+            part = next(p for p in b["parts"] if p["id"] == r["house_part"])
+            yield {**b, "id": f"{b['id']}/{part['id']}", "census_ids": [cid], "split_of": b["id"],
+                   "parts": [{**part, "role": "main"}]}
+
+
 def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, frame, lot_v, street_u,
                  datum, hts, fit, house_sid):
+    plate = b.get("plate")
+    src = plate["source"] if plate else block.get("source", SOURCE)
+    cen = block.get("census_ticket", "T-1841")
+    fit_note = plate["fit_note"] if plate else block.get(
+        "fit_note", "the georeference's independent check is 1.47 m RMS")
     # ---- the plan: rectangles inside each traced part, in the lot frame
     pieces = []
     order = {"main": 0, "stone_front": 1, "range": 2, "porch": 3}
@@ -328,6 +372,8 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     notation = row.get("raw_story_notation", "") if kind == "house" else ""
     if kind == "house":
         full, half, rear_n, bay_n = storeys_of(notation)
+        if plate:
+            full, half = plate["stories"], False
     else:
         full, half = service_storeys(cp.get("reading_1911", ""))
         rear_n = bay_n = None
@@ -372,11 +418,13 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
 
     # ---- identity
     num = (row.get("address", "") or "").split(" ")[0] if kind == "house" or fid else ""
-    addr = parcel["parcel_id"].split("_", 1)[1]
+    addr = (num if b.get("split_of") else "") or parcel["parcel_id"].split("_", 1)[1]
     slug = frow.get("slug") or "house"
     base_id = f"{slug}_{addr}_prairie" if f else f"shed_{addr}_prairie"
     if kind == "service":
-        sid = f"{house_sid}_coach_house" if house_sid and f else base_id
+        # a lot whose house this pass does not draft names it (`house_id`): 1638's K16 front, 1620's plate house
+        owner_sid = house_sid or frow.get("house_id")
+        sid = f"{owner_sid}_coach_house" if owner_sid and f else base_id
     else:
         sid = base_id
     seed = seed_of(sid)
@@ -384,7 +432,7 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     rear_ticket = block["rear_ticket"][parcel["side"]]
     # a side drafted by a later ticket names its own pass and liberty (T-2330 drafts block 28's east)
     side_rules = block.get("by_side", {}).get(parcel["side"], {})
-    pass_ = side_rules.get("pass", rules["ticket"])
+    pass_ = side_rules.get("pass", block.get("pass", rules["ticket"]))
     liberty = side_rules.get("liberty", block["liberty"])
     refined_by = [t.strip() for t in (front_tickets.split(",") if front_tickets else [rear_ticket]) if t.strip()]
 
@@ -438,22 +486,23 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
         name = f"{label} Prairie Avenue — {fam_name} (district draft; refined by {', '.join(refined_by)})"
         reading = cp.get('reading_1911', '')
         ruling = (f or {}).get('decision_1904', 'present_as_mapped')
-        function = _attr("residence", "inferred",
+        function = _attr("residence", "inferred", plate["function_note"], [src]) if plate else _attr(
+                         "residence", "inferred",
                          f"The 1911 sheet marks the building 'D' (dwelling): '{reading}'. "
-                         f"Carried to 1904 on the T-1841 census ruling ({ruling})." if "(D)" in reading else
+                         f"Carried to 1904 on the {cen} census ruling ({ruling})." if "(D)" in reading else
                          f"The 1911 sheet labels the building with a 1911 use, '{reading}', which the draft does not "
                          f"carry back to 1904 (the T-1837 register warns not to assume the 1904 use from it). "
                          f"The register's family row, '{fam_name}', names it a house, so the 1904 function is "
-                         f"inferred residence on that row and the T-1841 census ruling ({ruling}).",
-                         [SOURCE])
+                         f"inferred residence on that row and the {cen} census ruling ({ruling}).",
+                         [src])
     else:
-        owner = f"the house at {addr}" if f else "neither neighbour (the sheet does not show whose)"
+        owner = f"the house at {frow.get('house_address', addr)}" if f else "neither neighbour (the sheet does not show whose)"
         name = (f"{where} — the alley building of {owner} (district draft; refined by {rear_ticket})"
                 if f else f"The shed on the strip between 1834 and 1900 Prairie Avenue (district draft; refined by {rear_ticket})")
         function = _attr("barn_or_carriage_shed", "inferred",
                          f"The 1911 sheet reads '{cp.get('reading_1911', '')}'. "
                          + (cp.get("note_1904") or "Backcast to 1904 as a yard outbuilding on the census ruling."),
-                         [SOURCE])
+                         [src])
     drawn = "; ".join(p["from"] for p in parts)
     rec = {
         "id": sid,
@@ -465,26 +514,27 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
         "research_note": (
             f"A DISTRICT DRAFT ({pass_}, the owner's district pass of 2026-10-08): a serviceable first model, "
             f"complete from the street, the walks, the alley and the air, that {', '.join(refined_by)} refine{'s' if len(refined_by) == 1 else ''} "
-            f"in place under this same id. Written by tools/draft_prairie_1904.py from the sheet {sheet} trace "
-            f"({b['id']}), the T-1841 census ({', '.join(census_ids)}) and the T-1837 register row {fid or 'none'}"
+            f"in place under this same id. Written by tools/draft_prairie_1904.py from the "
+            f"{plate['label'] if plate else f'sheet {sheet} trace'} "
+            f"({b['id']}), the {cen} census ({', '.join(census_ids)}) and the T-1837 register row {fid or 'none'}"
             f"{' (' + fam_name + ')' if fam_name else ''}; every height, roof, opening and feature is the draft rules' "
             f"reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty {liberty})."),
         "phases": [{
             "id": PHASE,
-            "documented_range": {
-                "from": "1904-07-01", "to": "1911-12-31", "confidence": "inferred", "sources": [SOURCE],
+            "documented_range": plate["documented_range"] if plate else {
+                "from": "1904-07-01", "to": "1911-12-31", "confidence": "inferred", "sources": [src],
                 "note": ("The draft claims the 1904 target and no more: the 1911 sheet draws the building and the "
-                         "T-1841 census rules it present in 1904 "
+                         f"{cen} census rules it present in 1904 "
                          f"({(f or {}).get('decision_1904') or cp.get('decision_1904', 'present_as_mapped')}). "
                          "Its building and loss dates are the per-building ticket's to read.")},
             "position": {
                 "utm_e": utm_e, "utm_n": utm_n, "rotation_deg": rot,
                 "symbolic_location": f"{where}, parcel {parcel['parcel_id']} (data/street_grid/1904.json), "
                                      f"{parcel['side']} side of Prairie Avenue, {block['where']}.",
-                "confidence": "inferred", "sources": [SOURCE],
+                "confidence": "inferred", "sources": [src],
                 "note": (f"The rear corner of the main body's rectangle (lot frame u {mu0:.3f}, v {mv0:.3f} m from "
-                         f"the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's "
-                         f"independent check is 1.47 m RMS. Rotation {rot} degrees turns the plan's u axis onto the "
+                         f"the middle of the rear lot line), through the T-1250 fit of the "
+                         f"{'plate' if plate else 'sheet'}: {fit_note}. Rotation {rot} degrees turns the plan's u axis onto the "
                          f"lot's own rear-to-street line."),
                 "derivation": {"method": "not_derivable",
                                "reason": "The four derivation methods re-derive from the 1835 files; this position is "
@@ -493,26 +543,28 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
             "footprint": {
                 "polygon": [[0.0, 0.0], [round(mu1 - mu0, 3), 0.0], [round(mu1 - mu0, 3), round(mv1 - mv0, 3)],
                             [0.0, round(mv1 - mv0, 3)]],
-                "confidence": "inferred", "sources": [SOURCE],
+                "confidence": "inferred", "sources": [src],
                 "note": ("The main body: the largest rectangle that fits inside the traced main part (u toward the "
                          "street, v along the front). The building's other rectangles are in draft_plan.")},
             "form": {
-                "stories": _attr(full, "attested",
+                "stories": _attr(plate["stories"], "reconstructed", plate["stories_note"]) if plate else _attr(
+                                 full, "attested",
                                  (f"'{notation}' printed on the 1911 sheet: {full} full storeys"
                                   f"{' and a half storey in the roof' if half else ''}." if kind == "house" else
                                   f"The census reading '{cp.get('reading_1911', '')}': {full} storeys"
-                                  f"{' and a half' if half else ''}."), [SOURCE]),
-                "construction": _attr(construction, "attested" if kind == "house" else "inferred",
+                                  f"{' and a half' if half else ''}."), [src]),
+                "construction": _attr(plate["construction"], "inferred", plate["construction_note"], [src])
+                if plate else _attr(construction, "attested" if kind == "house" else "inferred",
                                       (f"The register reads the map's colours as '{row.get('map_material', '')}'."
                                        if kind == "house" else
-                                       f"The trace's fabric colour on the main part: {main['material']}."), [SOURCE]),
+                                       f"The trace's fabric colour on the main part: {main['material']}."), [src]),
                 "draft_plan": _attr(plan, "inferred",
                                     f"Rectangles fitted inside the traced parts by the rules' fit (cell {fit['cell_m']} m, "
                                     f"at most {fit['max_rects']} a part, to {fit['coverage']:.0%} cover): {drawn}. Roles: "
                                     f"the main part's largest rectangle is the main body; a shallow rectangle at the "
                                     f"front is a bay; the sheet's ranges, porches and stone fronts keep their roles. "
                                     f"Storeys per piece and roof per piece are the draft rules' (reconstructed).",
-                                    [SOURCE]),
+                                    [src]),
                 "draft_elevation": _attr(elev, "reconstructed",
                                          f"RECONSTRUCTED by the draft rules, family row '{fam['family_rule']}'"
                                          f"{' overlaid with the frontage row: ' + frow['why'] if frow.get('why') else ''} "

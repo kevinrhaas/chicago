@@ -1,0 +1,200 @@
+{
+  "id": "law_house_1620_prairie",
+  "phase": "draft_1904",
+  "name": "1620 Prairie Avenue — Robert Law house restored for 1904 (district draft; refined by T-1861)",
+  "aka": [
+    "1620 S. Prairie Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "asset": "gltf/law_house_1620_prairie__draft_1904.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "documented_range": {
+    "from": "1904-07-01",
+    "to": "1904-07-01",
+    "confidence": "inferred",
+    "sources": [
+      "robinson_1886_chicago_plate_10"
+    ],
+    "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the house and the T-1840 census carries it to 1904 on the 1904 Blue Book's listing at 1620. The 1911 sheet shows the frontage open, so the house was gone by then; when it was built and when it went are T-1861's to read."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1365.706,
+    "local_n": -3020.489,
+    "rotation_deg": -0.579,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "robinson_1886_chicago_plate_10"
+    ],
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 32.750, v -0.250 m from the middle of the rear lot line), through the T-1250 fit of the plate: the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading. Rotation -0.579 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "symbolic_location": "1620 S. Prairie Avenue, parcel prairie_1620 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        16.75,
+        0.0
+      ],
+      [
+        16.75,
+        7.5
+      ],
+      [
+        0.0,
+        7.5
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "robinson_1886_chicago_plate_10"
+    ],
+    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the house. Two storeys over a raised basement is the draft's reading of the register's 'irregular earlier brick envelope' with a 'bounded roof'; T-1861 reads the 1898 numbered drawing the register names."
+    },
+    "construction": {
+      "value": "brick",
+      "confidence": "inferred",
+      "sources": [
+        "robinson_1886_chicago_plate_10"
+      ],
+      "note": "Robinson 1886 colours the building pink, the plate's brick (its frame buildings are yellow); the register's 'irregular earlier brick envelope' agrees."
+    },
+    "draft_plan": {
+      "value": {
+        "parts": [
+          {
+            "id": "r1",
+            "role": "main",
+            "storeys": 2,
+            "roof": "hip",
+            "rect": [
+              0.0,
+              0.0,
+              16.75,
+              7.5
+            ],
+            "from": "r1886-1620-f p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 96% of its fill"
+          },
+          {
+            "id": "r2",
+            "role": "wing",
+            "storeys": 2,
+            "roof": "flat",
+            "rect": [
+              6.0,
+              -3.75,
+              16.75,
+              0.0
+            ],
+            "from": "r1886-1620-f p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 96% of its fill"
+          }
+        ],
+        "lot_v": [
+          -11.461,
+          12.201
+        ],
+        "street_u": 22.679
+      },
+      "confidence": "inferred",
+      "sources": [
+        "robinson_1886_chicago_plate_10"
+      ],
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): r1886-1620-f p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 96% of its fill; r1886-1620-f p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 96% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+    },
+    "draft_elevation": {
+      "value": {
+        "kind": "house",
+        "seed": 3331540667,
+        "principal_floor_m": 1.4,
+        "storey_heights_m": [
+          3.9,
+          3.5,
+          3.3,
+          3.1
+        ],
+        "roof_pitch_deg": 32,
+        "mansard_lower_m": 3.0,
+        "front_bays": 3,
+        "entrance": "south",
+        "side_spacing_m": 2.6,
+        "chimneys": 2,
+        "brackets": false,
+        "attic_dormers": false,
+        "stone": "stone",
+        "features": [],
+        "draft_label": {
+          "pass": "T-2334",
+          "refined_by": [
+            "T-1861"
+          ]
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The Robert Law house restored for 1904 (the register's 'irregular earlier brick envelope across lots 13-14, projecting bay, arched windows, stoop, bounded roof'): the plate's L read as the main body and its shallower south part, under a low hip. Its stable on the alley is the sheet's own long two-storey brick building. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3331540667 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-west-2334."
+    },
+    "draft": {
+      "value": {
+        "pass": "T-2334",
+        "liberty": "L-draft-prairie-16-18-west-2334",
+        "register_row": "frontage-20-006",
+        "census_ids": [
+          "r1886-1620-f"
+        ],
+        "trace_building": "r1886-1620-f",
+        "seed": 3331540667,
+        "replaceable_by": [
+          "T-1861"
+        ],
+        "card": "District draft — refined by T-1861."
+      },
+      "confidence": "reconstructed",
+      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+      "geometry": "record_only"
+    },
+    "function": {
+      "value": "residence",
+      "confidence": "inferred",
+      "sources": [
+        "robinson_1886_chicago_plate_10"
+      ],
+      "note": "The 1911 sheet draws no front building at 1620. The T-1840 census (frontage-20-006, backcast_1886) stands the Robert Law house for 1904 because Robinson 1886 plate 10 prints 1620 against a brick house on lots 13-14 and the 1904 Blue Book lists the F. VanS. Hibbard household at the address (named record pa-1620-1904-correction); residence is inferred from that listing."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "robinson_1886_chicago_plate_10",
+      "citation": "Robinson, E. Robinson's Atlas of the City of Chicago. New York: E. Robinson, 1886. Plate 10, \"Part of 2.39.14 Assessors Div.\"",
+      "url": "",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "The water's edge beside the Illinois Central from above 16th Street to 18th, as of 1886 -- a bound, from before, on the 1904 edge",
+        "Lot and subdivision lines, and the outlines of the houses at 1609-1611 and 1620 Prairie that Glessner House names as standing in 1904 and gone by 1911"
+      ],
+      "what_it_does_not_supply": [
+        "Street widths: its bands are not drawn to the widths it prints (Prairie printed 66, drawn about 55 ft)",
+        "Anything as of 1904 on its own authority",
+        "Elevations or grades"
+      ]
+    }
+  ],
+  "research_note": "A DISTRICT DRAFT (T-2334, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1861 refines in place under this same id. Written by tools/draft_prairie_1904.py from the Robinson 1886 plate 10 reading (r1886-1620-f: the outline in the plate's pixels, carried by its T-1250 fit) (r1886-1620-f), the T-1840 census (r1886-1620-f) and the T-1837 register row frontage-20-006 (Robert Law house restored for 1904); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-west-2334).",
+  "research_doc": "",
+  "review_required": false
+}

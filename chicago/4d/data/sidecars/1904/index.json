@@ -72,10 +72,40 @@
       "asset": "gltf/elbridge_keith_house_1900_prairie_coach_house__draft_1904.glb"
     },
     {
+      "id": "george_glessner_house_1706_prairie",
+      "name": "1706 Prairie Avenue — George Glessner Georgian townhouse (district draft; refined by T-1871)",
+      "sidecar": "sidecars/1904/george_glessner_house_1706_prairie.json",
+      "asset": "gltf/george_glessner_house_1706_prairie__draft_1904.glb"
+    },
+    {
       "id": "glessner_house",
       "name": "John J. Glessner House",
       "sidecar": "sidecars/1904/glessner_house.json",
       "asset": "gltf/glessner_house__as_built_1887.glb"
+    },
+    {
+      "id": "glessner_lee_house_1700_prairie",
+      "name": "1700 Prairie Avenue — Glessner-Lee Georgian townhouse (district draft; refined by T-1871)",
+      "sidecar": "sidecars/1904/glessner_lee_house_1700_prairie.json",
+      "asset": "gltf/glessner_lee_house_1700_prairie__draft_1904.glb"
+    },
+    {
+      "id": "glessner_lee_house_1700_prairie_coach_house",
+      "name": "1700 S. Prairie Avenue — the alley building of the house at 1700 (district draft; refined by T-1932)",
+      "sidecar": "sidecars/1904/glessner_lee_house_1700_prairie_coach_house.json",
+      "asset": "gltf/glessner_lee_house_1700_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "goodman_house_1612_prairie",
+      "name": "1612 Prairie Avenue — Italianate stone-front masonry (district draft; refined by T-1860)",
+      "sidecar": "sidecars/1904/goodman_house_1612_prairie.json",
+      "asset": "gltf/goodman_house_1612_prairie__draft_1904.glb"
+    },
+    {
+      "id": "goodman_house_1612_prairie_coach_house",
+      "name": "1612 S. Prairie Avenue — the alley building of the house at 1612 (district draft; refined by T-1932)",
+      "sidecar": "sidecars/1904/goodman_house_1612_prairie_coach_house.json",
+      "asset": "gltf/goodman_house_1612_prairie_coach_house__draft_1904.glb"
     },
     {
       "id": "henderson_house_1816_prairie",
@@ -88,6 +118,138 @@
       "name": "1816 S. Prairie Avenue — the alley building of the house at 1816 (district draft; refined by T-1935)",
       "sidecar": "sidecars/1904/henderson_house_1816_prairie_coach_house.json",
       "asset": "gltf/henderson_house_1816_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_1600_prairie",
+      "name": "1600 Prairie Avenue — Brick masonry (district draft; refined by T-1859)",
+      "sidecar": "sidecars/1904/house_1600_prairie.json",
+      "asset": "gltf/house_1600_prairie__draft_1904.glb"
+    },
+    {
+      "id": "house_1604_prairie",
+      "name": "1604 Prairie Avenue — Brick masonry (district draft; refined by T-1859)",
+      "sidecar": "sidecars/1904/house_1604_prairie.json",
+      "asset": "gltf/house_1604_prairie__draft_1904.glb"
+    },
+    {
+      "id": "house_1608_prairie",
+      "name": "1608 Prairie Avenue — Brick masonry (district draft; refined by T-1859)",
+      "sidecar": "sidecars/1904/house_1608_prairie.json",
+      "asset": "gltf/house_1608_prairie__draft_1904.glb"
+    },
+    {
+      "id": "house_1616_prairie",
+      "name": "1616 Prairie Avenue — Brick masonry (district draft; refined by T-1860)",
+      "sidecar": "sidecars/1904/house_1616_prairie.json",
+      "asset": "gltf/house_1616_prairie__draft_1904.glb"
+    },
+    {
+      "id": "house_1616_prairie_coach_house",
+      "name": "1616 S. Prairie Avenue — the alley building of the house at 1616 (district draft; refined by T-1932)",
+      "sidecar": "sidecars/1904/house_1616_prairie_coach_house.json",
+      "asset": "gltf/house_1616_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_1626_prairie",
+      "name": "1626 Prairie Avenue — Brick masonry (district draft; refined by T-1862)",
+      "sidecar": "sidecars/1904/house_1626_prairie.json",
+      "asset": "gltf/house_1626_prairie__draft_1904.glb"
+    },
+    {
+      "id": "house_1626_prairie_coach_house",
+      "name": "1626 S. Prairie Avenue — the alley building of the house at 1626 (district draft; refined by T-1932)",
+      "sidecar": "sidecars/1904/house_1626_prairie_coach_house.json",
+      "asset": "gltf/house_1626_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_1628_prairie",
+      "name": "1628 Prairie Avenue — Brick masonry (district draft; refined by T-1862)",
+      "sidecar": "sidecars/1904/house_1628_prairie.json",
+      "asset": "gltf/house_1628_prairie__draft_1904.glb"
+    },
+    {
+      "id": "house_1628_prairie_coach_house",
+      "name": "1628 S. Prairie Avenue — the alley building of the house at 1628 (district draft; refined by T-1932)",
+      "sidecar": "sidecars/1904/house_1628_prairie_coach_house.json",
+      "asset": "gltf/house_1628_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_1630_prairie",
+      "name": "1630 Prairie Avenue — Small earlier frame house (district draft; refined by T-1862)",
+      "sidecar": "sidecars/1904/house_1630_prairie.json",
+      "asset": "gltf/house_1630_prairie__draft_1904.glb"
+    },
+    {
+      "id": "house_1630_prairie_coach_house",
+      "name": "1630 S. Prairie Avenue — the alley building of the house at 1630 (district draft; refined by T-1932)",
+      "sidecar": "sidecars/1904/house_1630_prairie_coach_house.json",
+      "asset": "gltf/house_1630_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_1634_prairie",
+      "name": "1634 Prairie Avenue — Stone-front masonry (district draft; refined by T-1863)",
+      "sidecar": "sidecars/1904/house_1634_prairie.json",
+      "asset": "gltf/house_1634_prairie__draft_1904.glb"
+    },
+    {
+      "id": "house_1636_prairie",
+      "name": "1636 Prairie Avenue — Stone-front masonry (district draft; refined by T-1863)",
+      "sidecar": "sidecars/1904/house_1636_prairie.json",
+      "asset": "gltf/house_1636_prairie__draft_1904.glb"
+    },
+    {
+      "id": "house_1708_prairie",
+      "name": "1708 Prairie Avenue — Thorne-associated map-led brick house (district draft; refined by T-1872)",
+      "sidecar": "sidecars/1904/house_1708_prairie.json",
+      "asset": "gltf/house_1708_prairie__draft_1904.glb"
+    },
+    {
+      "id": "house_1712_prairie",
+      "name": "1712 Prairie Avenue — Stone-front masonry (district draft; refined by T-1872)",
+      "sidecar": "sidecars/1904/house_1712_prairie.json",
+      "asset": "gltf/house_1712_prairie__draft_1904.glb"
+    },
+    {
+      "id": "house_1712_prairie_coach_house",
+      "name": "1712 S. Prairie Avenue — the alley building of the house at 1712 (district draft; refined by T-1932)",
+      "sidecar": "sidecars/1904/house_1712_prairie_coach_house.json",
+      "asset": "gltf/house_1712_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_1726_prairie",
+      "name": "1726 Prairie Avenue — Brick masonry (district draft; refined by T-1874)",
+      "sidecar": "sidecars/1904/house_1726_prairie.json",
+      "asset": "gltf/house_1726_prairie__draft_1904.glb"
+    },
+    {
+      "id": "house_1726_prairie_coach_house",
+      "name": "1726 S. Prairie Avenue — the alley building of the house at 1726 (district draft; refined by T-1932)",
+      "sidecar": "sidecars/1904/house_1726_prairie_coach_house.json",
+      "asset": "gltf/house_1726_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_1730_prairie",
+      "name": "1730 Prairie Avenue — Brick masonry (district draft; refined by T-1874)",
+      "sidecar": "sidecars/1904/house_1730_prairie.json",
+      "asset": "gltf/house_1730_prairie__draft_1904.glb"
+    },
+    {
+      "id": "house_1730_prairie_coach_house",
+      "name": "1730 S. Prairie Avenue — the alley building of the house at 1730 (district draft; refined by T-1932)",
+      "sidecar": "sidecars/1904/house_1730_prairie_coach_house.json",
+      "asset": "gltf/house_1730_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_1736_prairie",
+      "name": "1736 Prairie Avenue — Ingraham/McBirney map-led altered house (district draft; refined by T-1874)",
+      "sidecar": "sidecars/1904/house_1736_prairie.json",
+      "asset": "gltf/house_1736_prairie__draft_1904.glb"
+    },
+    {
+      "id": "house_1736_prairie_coach_house",
+      "name": "1736 S. Prairie Avenue — the alley building of the house at 1736 (district draft; refined by T-1932)",
+      "sidecar": "sidecars/1904/house_1736_prairie_coach_house.json",
+      "asset": "gltf/house_1736_prairie_coach_house__draft_1904.glb"
     },
     {
       "id": "house_1828_prairie",
@@ -148,6 +310,18 @@
       "name": "1801 Prairie Avenue — Kimball Chateauesque (district draft; refined by T-1889, T-1890)",
       "sidecar": "sidecars/1904/kimball_house_1801_prairie.json",
       "asset": "gltf/kimball_house_1801_prairie__draft_1904.glb"
+    },
+    {
+      "id": "law_house_1620_prairie",
+      "name": "1620 Prairie Avenue — Robert Law house restored for 1904 (district draft; refined by T-1861)",
+      "sidecar": "sidecars/1904/law_house_1620_prairie.json",
+      "asset": "gltf/law_house_1620_prairie__draft_1904.glb"
+    },
+    {
+      "id": "law_house_1620_prairie_coach_house",
+      "name": "1616-1620 S. Prairie Avenue — the alley building of the house at 1620 (district draft; refined by T-1932)",
+      "sidecar": "sidecars/1904/law_house_1620_prairie_coach_house.json",
+      "asset": "gltf/law_house_1620_prairie_coach_house__draft_1904.glb"
     },
     {
       "id": "marsh_house_1824_prairie",
@@ -228,10 +402,28 @@
       "asset": "gltf/shed_1834_1900_prairie__draft_1904.glb"
     },
     {
+      "id": "shortall_gregory_house_1638_prairie_coach_house",
+      "name": "1638 S. Prairie Avenue — the alley building of the house at 1638 (district draft; refined by T-1932)",
+      "sidecar": "sidecars/1904/shortall_gregory_house_1638_prairie_coach_house.json",
+      "asset": "gltf/shortall_gregory_house_1638_prairie_coach_house__draft_1904.glb"
+    },
+    {
       "id": "shortall_gregory_house_1638_prairie_front",
       "name": "Shortall-Gregory house (1638 Prairie Avenue): the timber street front, K16",
       "sidecar": "sidecars/1904/shortall_gregory_house_1638_prairie_front.json",
       "asset": "gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb"
+    },
+    {
+      "id": "walker_house_1720_prairie",
+      "name": "1720 Prairie Avenue — Tyrrell/Walker Italianate frame (district draft; refined by T-1873)",
+      "sidecar": "sidecars/1904/walker_house_1720_prairie.json",
+      "asset": "gltf/walker_house_1720_prairie__draft_1904.glb"
+    },
+    {
+      "id": "walker_house_1720_prairie_coach_house",
+      "name": "1720 S. Prairie Avenue — the alley building of the house at 1720 (district draft; refined by T-1932)",
+      "sidecar": "sidecars/1904/walker_house_1720_prairie_coach_house.json",
+      "asset": "gltf/walker_house_1720_prairie_coach_house__draft_1904.glb"
     },
     {
       "id": "wheeler_house_1812_prairie",
