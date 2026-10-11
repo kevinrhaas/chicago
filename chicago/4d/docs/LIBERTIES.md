@@ -14473,7 +14473,7 @@ than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
-**Scope:** `structures.records[brick_fabric]` — 6 structures (5 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today). The `brick` substrate in
+**Scope:** `structures.records[brick_fabric]` — 17 structures (16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`). The `brick` substrate in
 `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four
 are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
 `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says "two records are
@@ -23911,6 +23911,42 @@ once.
 **Ticket:** T-2322 (piece 1 of T-1858, K16).
 **Review:** `docs/RESEARCH/k16-timber-kit/README.md`.
 **Recorded:** 2026-10-10 (T-2322).
+
+### L-draft-prairie-18-20-west-2329 — The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
+
+**Covers:** `edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie.draft_1904.form.draft_elevation`, `house_1828_prairie.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`, `wheeler_house_1812_prairie.draft_1904.form.draft_elevation`, `wheeler_house_1812_prairie.draft_1904.form.draft`.
+**Decision:** the owner's district pass (2026-10-08) drafts the whole of Prairie Avenue as a
+serviceable first model that the per-building tickets then refine in place. On the west side of
+the 18th-20th block (Sanborn 1911 sheet 28) it stands nine houses and nine alley buildings —
+1812, 1816, 1824, 1828, 1834, 1900, 1906 with its attached 1908, 1912 and 1916 (1930) with their
+coach houses, and the shed on the strip between 1834 and 1900 — written by
+`tools/draft_prairie_1904.py` from the traced footprints (T-2327), the T-1841 census and the
+T-1837 frontage register, under the rules in `data/components/prairie_1904/draft_prairie_1904.json`,
+and built by `generators/archetypes/prairie_draft.py`. Glessner (1800), the 1808 K01 assembly and
+1812's K12 coach house (T-2321) are not touched.
+**What is invented.** Everything above the plan and the storey count: the 1.4 m principal floor
+over a basement, the 3.9, 3.5, 3.3 and 3.1 m storeys, the service buildings' 3.4 and 2.8 m storeys;
+each house's roof family as the register's family names it (mansard for the Second Empire houses
+and 1834's recorded mansard storey, a steep hip for the Chateauesque 1912, a stepped street gable
+for 1812's shaped gable, a flat roof behind a cornice for the stone fronts and the bracketed
+Italianate 1906, a hip for the rest), with its pitch, eave and the mansard's 72 and 18 degree
+faces; the count of front bays (one per 2.6 m of front, or the frontage row's own), the entrance
+side, the 2.6 m spacing of side and rear sash, every sash's 1.0 m width, height, sill and lintel;
+the dormers in a half storey; the stoops, door and transom; the chimney stacks; the turrets
+given to 1912 (the register's "conical corner turret") and to 1916 (its map's 'bay4B'), whose
+corners are not read off the sheet; the coach houses' gable roofs, carriage and loft doors; and
+the flat fabric colours, each nudged inside +-6 % by the record's seed so that no two neighbours
+share one. A wall within 0.9 m of a lot line is left blind as a party wall.
+**What is not.** The plan: every rectangle is fitted INSIDE a traced Sanborn part (inferred, the
+1911 sheet carried to 1904 on T-1841's ruling), never the parcel; the full storeys are the sheet's
+printed notation (attested); the fabric is the sheet's colour as the register reads it. No source
+is claimed for any form, and no house's draft copies another's.
+**How to resolve:** each house's own per-building ticket (named on its card and in its record's
+`draft.replaceable_by`) replaces its attributes in place, under the same id, from a photograph,
+plate, plan or measured drawing; the alley buildings are T-1935's.
+**Ticket:** T-2329 (piece 1 of T-2159, the district draft's 18th-20th block).
+**Review:** `docs/RESEARCH/prairie-draft-west-2329/README.md`.
+**Recorded:** 2026-10-10 (T-2329).
 
 ### L417 — The portable-human pipeline's test figure, which is nobody
 

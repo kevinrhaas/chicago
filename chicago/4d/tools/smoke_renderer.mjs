@@ -16223,11 +16223,32 @@ for (const [label, viewport, touch] of [
         // every bake leg died ENOENT above this line, so nothing read the list (T-2331).
         // T-2321 added the fifth, the K12 coach house on the alley behind 1812 Prairie.
         const stray = Object.entries(at.drawn).filter(([name, n]) => n > 0 && name !== 'structures');
+        // T-2329 added the district draft's west side of the 18th-20th block: eighteen
+        // prairie_draft records, held by name with the rest.
         const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
-          'shortall_gregory_house_1638_prairie_front', 'wheeler_house_1812_prairie_coach_house'];
-        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2321)`,
+          'shortall_gregory_house_1638_prairie_front',
+          'edson_keith_house_1906_prairie',
+          'edson_keith_house_1906_prairie_coach_house',
+          'elbridge_keith_house_1900_prairie',
+          'elbridge_keith_house_1900_prairie_coach_house',
+          'henderson_house_1816_prairie',
+          'henderson_house_1816_prairie_coach_house',
+          'house_1828_prairie',
+          'house_1828_prairie_coach_house',
+          'house_1918_prairie',
+          'house_1918_prairie_coach_house',
+          'jones_house_1834_prairie',
+          'jones_house_1834_prairie_coach_house',
+          'marsh_house_1824_prairie',
+          'marsh_house_1824_prairie_coach_house',
+          'moulton_lowden_house_1912_prairie',
+          'moulton_lowden_house_1912_prairie_coach_house',
+          'shed_1834_1900_prairie',
+          'wheeler_house_1812_prairie',
+          'wheeler_house_1812_prairie_coach_house'].sort();
+        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2321)`,
           stray.length === 0 && at.registry === PLACED_1904.length
-          && JSON.stringify([...at.placed].sort()) === JSON.stringify(PLACED_1904),
+          && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),
           `meshes: ${JSON.stringify(at.drawn)}; structures placed ${JSON.stringify(at.placed)}`);
         const houseHits = at.house?.hits ?? [];
         // Owner-reported date ambiguity: 1946 closes an exterior phase, not

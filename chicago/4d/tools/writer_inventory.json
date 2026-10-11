@@ -33,6 +33,13 @@
       "finding": "Reproduces: ran `--write` on a clean tree in 4s, wrote its outputs, changed no committed byte.",
       "placed": "after the structure and plat writers, before generate_dooryard_plantings.py, which reads its polygon (T-2084)"
     },
+    "draft_prairie_1904.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-10",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote the 18 prairie_draft records in data/structures/ and data/components/prairie_1904/draft_prairie_1904_register.json byte for byte, changed no committed byte; --check and --self-test write nothing in-tree (tools/measure_step_isolation.mjs --tool).",
+      "placed": "by layer, 2026-10-10 — the district draft's records, written from the sheet-28 footprints tools/trace_prairie_1904_footprints.py writes, so it follows that step (T-2329); see the manifest step"
+    },
     "settle_family_cycle.py": {
       "placement": "manifest",
       "write_mode": "--build",

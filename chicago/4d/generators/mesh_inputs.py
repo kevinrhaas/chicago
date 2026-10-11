@@ -83,7 +83,8 @@ class InputsError(ValueError):
 #: and the command alone, and carries no Blender pin.
 PURE_PYTHON = {"k01_frontage": "k01_emit.py", "k13_conservatories": "k13_emit.py",  # T-2306: K13
                "k16_timber": "k16_emit.py",  # T-2323: K16
-               "k12_coach_house": "k12_emit.py"}  # T-2321: K12
+               "k12_coach_house": "k12_emit.py",  # T-2321: K12
+               "prairie_draft": "draft_emit.py"}  # T-2329: the district draft
 #: The library modules a pure-Python archetype lays on its walls (T-2291), and so hashes
 #: beside the archetype: K03 brick's bond, heads and string course move vertices too.
 #: T-2302: and K05 builds its roof, from the kit's own parts (k05_roofs.json, hashed below).
