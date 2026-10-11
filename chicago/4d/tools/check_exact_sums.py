@@ -277,6 +277,74 @@ def summation_note() -> str:
                "UNCOMPENSATED here, the drift is live"))
 
 
+# ----------------------------------------------------------------------- emitters
+
+GENERATORS = ROOT / "generators"
+
+#: T-2363. The built-in sum() calls each pure-Python emitter module still makes. These
+#: modules write GLBs that a `--check` holds byte for byte on the gate's 3.11, and a
+#: float sum() in them is a byte that 3.12 can write differently: house_2011_prairie's
+#: turret did exactly that on the steward runner (#689). prairie_draft is at 0. The
+#: others are a RATCHET, not a pardon — their sites are counts and centroids whose
+#: `--check` is green under both 3.11 and 3.12 today, and converting one moves its
+#: module's hashed bytes and so re-emits every record it builds, which is that kit's
+#: own PR to make. A count may fall (lower it here) and may never rise; a module that is
+#: not listed, a new pure-Python archetype among them, starts at 0.
+EMITTER_SUMS = {"k01_frontage.py": 5, "k06_windows.py": 5, "k09_trim.py": 5,
+                "k10_cornices.py": 2, "k11_ironwork.py": 3, "k12_coach_house.py": 2,
+                "k13_conservatories.py": 6, "k14_yard.py": 2, "k15_chimneys.py": 1,
+                "k16_timber.py": 1}
+# k14_yard.py's two (T-2360, landed beside this gate) add _up_grid's integer triangle
+# counts, which no Python adds differently; they sit here so the yard's bytes stay put.
+
+
+def emitter_modules() -> list[str]:
+    """Every module a pure-Python emitter builds bytes with, as mesh_inputs names them."""
+    sys.path.insert(0, str(GENERATORS))
+    import mesh_inputs                                 # noqa: E402  (no bpy, by design)
+    names = {f"{arch}.py" for arch in mesh_inputs.PURE_PYTHON}
+    for helpers in mesh_inputs.PURE_PYTHON_HELPERS.values():
+        names.update(helpers)
+    return sorted(names)
+
+
+def builtin_sums(src: str) -> int:
+    """How many calls to the built-in `sum` a module's source makes (not fsum, not x.sum)."""
+    return sum(1 for n in ast.walk(ast.parse(src))
+               if isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == "sum")
+
+
+def emitter_ratchet(counts: dict[str, int], baseline: dict[str, int]) -> list[str]:
+    out = []
+    for name, n in sorted(counts.items()):
+        cap = baseline.get(name, 0)
+        if n > cap:
+            out.append(f"generators/archetypes/{name} makes {n} built-in sum() call(s), "
+                       f"{cap} allowed — a pure-Python emitter's bytes must not depend on "
+                       f"the Python minor version: add left to right (prairie_draft's "
+                       f"_seqsum) or with math.fsum (T-2363)")
+        elif n < cap:
+            out.append(f"generators/archetypes/{name} is down to {n} built-in sum() "
+                       f"call(s) — lower EMITTER_SUMS[{name!r}] from {cap} to {n} so the "
+                       f"ratchet holds it there")
+    return out
+
+
+def emitters() -> tuple[dict[str, int], list[str]]:
+    """The census of the emitter modules, and the draft adder held to 3.11's sum()."""
+    counts = {name: builtin_sums((GENERATORS / "archetypes" / name).read_text())
+              for name in emitter_modules()}
+    fail = emitter_ratchet(counts, EMITTER_SUMS)
+    from archetypes.prairie_draft import _seqsum      # noqa: E402
+    flat = [0.885] * 418
+    if _seqsum(flat) != naive_sum(flat):
+        fail.append(f"prairie_draft._seqsum adds the 418 flat samples to "
+                    f"{_seqsum(flat)!r}, not the uncompensated {naive_sum(flat)!r} every "
+                    f"committed draft was built with on 3.11 — the draft's bytes now "
+                    f"depend on how it adds")
+    return counts, fail
+
+
 # ----------------------------------------------------------------------------- main
 
 def main() -> int:
@@ -328,6 +396,12 @@ def main() -> int:
 
     fail += mutation()
 
+    counts, emitter_fail = emitters()
+    print(f"{len(counts)} pure-Python emitter module(s) censused; "
+          f"{sum(counts.values())} built-in sum() call(s) left, "
+          f"{counts.get('prairie_draft.py', 0)} in the district draft")
+    fail += emitter_fail
+
     for line in fail:
         print(f"  FAIL  {line}")
     return 1 if fail else 0
@@ -356,6 +430,18 @@ def self_test() -> int:
         bad.append("the annotation is not read from the line above the sum()")
     if _annotated(src.splitlines(), 2) is not None:
         bad.append("an unannotated site is reading somebody else's note")
+
+    src = ("import math\n"
+           "a = sum(xs)\n"
+           "b = math.fsum(xs) + np.sum(xs) + _seqsum(xs)\n")
+    if builtin_sums(src) != 1:
+        bad.append(f"the emitter census should see one built-in sum(), saw {builtin_sums(src)}")
+    if not emitter_ratchet({"prairie_draft.py": 1}, {}):
+        bad.append("a built-in sum() back in the district draft did not fail the ratchet")
+    if not emitter_ratchet({"k13_conservatories.py": 5}, {"k13_conservatories.py": 6}):
+        bad.append("a module that fell below its count did not ask for the ratchet to drop")
+    if emitter_ratchet({"k13_conservatories.py": 6}, {"k13_conservatories.py": 6}):
+        bad.append("a module at its count failed the ratchet")
 
     for line in bad:
         print(f"  FAIL  {line}")
