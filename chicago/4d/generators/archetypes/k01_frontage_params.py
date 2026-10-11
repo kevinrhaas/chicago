@@ -104,6 +104,9 @@ class K01FrontageParams:
     rear_bays: tuple                  # window centres along the rear wall, north to south
     basement_sill_m: float
     openings: tuple = ()
+    # T-2342: window centres along the north wall, east to west. None for the party wall
+    # K01 was cut for (1808's, 0.02 m off the Glessner court); a corner house's street side
+    north_bays: tuple = ()
     roof: dict = field(default_factory=dict)       # T-2293: covering, caps, flashing (K04)
     dormer: dict = field(default_factory=dict)     # T-2293: the front dormer, if any
     rainwater: dict = field(default_factory=dict)  # T-2293: gutters, outlets, pipes (K04)
@@ -155,7 +158,7 @@ CONSUMED = frozenset({
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
     "basement_lights", "roof_covering", "dormer", "rainwater", "window_kit", "service_wall_brick",
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
-    "stone_front", "boundary",
+    "stone_front", "boundary", "north_bays",
 })
 
 WALLS = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south")
@@ -339,6 +342,18 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str):
         if e.get("fabric", "stone") not in BAY_FABRICS:
             raise ParamError(f"bays: fabric {e.get('fabric')!r} is not one of {BAY_FABRICS}")
         v["id"] = f"{structure_id}|{e['id']}"
+        if "plan" in e:
+            # T-2342: a bow drawn on its sheet keeps the sheet's chord and rise; the kit's
+            # bow is the shape, never the size. Only a bow, and never past its semicircle:
+            # a deeper arc would swing back behind its own junctions
+            q = e["plan"]
+            if v["plan"]["kind"] != "bow" or q.get("kind") != "bow":
+                raise ParamError(f"bays: {e['id']} sizes its plan; only a K08 bow takes the record's chord and rise")
+            chord, rise = float(q["chord_m"]), float(q["rise_m"])
+            if not 0.0 < rise <= chord / 2:
+                raise ParamError(f"bays: {e['id']}'s bow rises {rise} m on a {chord} m chord; a segmental "
+                                 f"bow rises more than nothing and at most half its chord")
+            v["plan"] = {"kind": "bow", "chord_m": chord, "rise_m": rise}
         for k in ("storeys", "roof"):
             if k in e:
                 v[k] = _copy.deepcopy(e[k])
@@ -457,6 +472,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.south", float(s), round(sill, 4), w, h))
         for s in val("rear_bays"):
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.rear_service", float(s), round(sill, 4), w, h))
+        for s in val("north_bays") or ():
+            openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.north", float(s), round(sill, 4), w, h))
     openings.append(Opening("k01.opening.door_leaf", "k01.wall.street_front", door_s, round(pf, 4), 1.20, 2.70, False))
     bl = val("basement_lights")
     bsill = float(bl["sill_m"])
@@ -641,6 +658,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         front_bays=front_bays,
         side_bays=tuple(float(s) for s in val("side_bays")),
         rear_bays=tuple(float(s) for s in val("rear_bays")),
+        north_bays=tuple(float(s) for s in val("north_bays") or ()),
         basement_sill_m=bsill, openings=tuple(openings), service_wall_brick=panel,
         roof=k04, dormer=dormer, rainwater=rainwater, chimneys=tuple(chimneys),
         window_kit={k: kit[k] for k in sorted(kit)}, entrance_kit=door_kit, bays=bays,
