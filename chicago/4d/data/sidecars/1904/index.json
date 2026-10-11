@@ -481,9 +481,9 @@
     },
     {
       "id": "law_house_1620_prairie",
-      "name": "1620 Prairie Avenue — Robert Law house restored for 1904 (district draft; refined by T-1861)",
+      "name": "1620 Prairie Avenue — Robert Law house restored for 1904",
       "sidecar": "sidecars/1904/law_house_1620_prairie.json",
-      "asset": "gltf/law_house_1620_prairie__draft_1904.glb"
+      "asset": "gltf/law_house_1620_prairie__restored_1904.glb"
     },
     {
       "id": "law_house_1620_prairie_coach_house",

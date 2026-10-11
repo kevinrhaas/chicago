@@ -38,6 +38,9 @@ from __future__ import annotations
 import math
 
 FENCE = "k11.fence.spear_on_curb"
+# T-1861: the fences a record may name, and the run style each is built in (k11_ironwork
+# fence_run); the scroll band is the register's "lattice/iron boundary" at 1620
+FENCES = {FENCE: "spear", "k11.fence.scroll_band": "scroll"}
 GATE = "k11.gate.walk_gate_on_piers"
 WALL = "k11.wall.brick_with_piers"
 STREET_FRONT = "k01.wall.street_front"
@@ -59,8 +62,8 @@ def spec(params) -> dict | None:
     t = getattr(params, "boundary", None)
     if not t:
         return None
-    if t.get("fence") != FENCE:
-        raise ValueError(f"boundary.fence builds {FENCE!r} alone")
+    if t.get("fence") not in FENCES:
+        raise ValueError(f"boundary.fence builds one of {sorted(FENCES)}")
     for g in ("entrance_gate", "side_gate"):
         if t[g].get("variant") != GATE:
             raise ValueError(f"boundary.{g} builds {GATE!r} alone")
@@ -139,7 +142,8 @@ def dress(a):
     stoop = [q for q in a.prim("stoop_stone").pos if q[0] > D + 0.05 and abs(-q[2] - door.s_m) < 2.0]
     foot = max(q[0] for q in stoop)
 
-    var = K.Variant({"id": FENCE, "kind": "fence"}, data)
+    fence, style = t["fence"], FENCES[t["fence"]]
+    var = K.Variant({"id": fence, "kind": "fence"}, data)
     # the entrance: a pair of leaves square to the door, each hung on its own pier
     E = t["entrance_gate"]
     c = E["clear_m"]
@@ -171,8 +175,8 @@ def dress(a):
         raise ValueError("the side gate's leaf would sweep into the house's front")
     # the fence: from the side gate's pier to the entrance's, and from the entrance's to an
     # end post whose curb stops on the north lot line
-    south = var.fence_run(sb + ps, ea - ps, "spear", "south run", host_a=ps1.name, host_b=pe1.name)
-    north = var.fence_run(eb + ps, s_north - 0.12, "spear", "north run", host_a=pe2.name)
+    south = var.fence_run(sb + ps, ea - ps, style, "south run", host_a=ps1.name, host_b=pe1.name)
+    north = var.fence_run(eb + ps, s_north - 0.12, style, "north run", host_a=pe2.name)
     # the rule the kit's restriction states, on the built geometry: no curb, rail or picket
     # of a run inside an opening (the pier caps' 50 mm overhang stands above the gate)
     for lo, hi, what in ((ea, eb, "entrance"), (sa, sb, "side passage")):
@@ -196,7 +200,7 @@ def dress(a):
     for pc in wv.pieces:
         _to_wall(pc.mesh, -(s_south + wp / 2))
 
-    a.instance(FENCE, "fence", {"length_m": round((ea - ps) - (sb + ps) + (s_north - 0.12) - (eb + ps), 4),
+    a.instance(fence, "fence", {"length_m": round((ea - ps) - (sb + ps) + (s_north - 0.12) - (eb + ps), 4),
                                         "runs": 2, "posts": len(south) + len(north) - 3},
                       {"line_south": (line, 0.0, -(sb + ps)), "line_north": (line, 0.0, -(s_north - 0.12))})
     a.instance(GATE, "gate", {"leaves": 2, "clear_m": c, "leaf_m": round(Lw, 4), "swing_reach_m": round(R, 4),
@@ -205,7 +209,7 @@ def dress(a):
     a.instance(GATE, "gate", {"leaves": 1, "clear_m": round(sb - sa, 4)}, {"opening": (line, 0.0, -(sa + sb) / 2)})
     a.instance(WALL, "wall", {"length_m": round(line - x0, 4), "height_m": W["height_m"], "piers": len(piers)},
                {"street_end": (line, 0.0, -(s_south + wp / 2)), "rear_end": (x0, 0.0, -(s_south + wp / 2))})
-    _lay(a, [pc for pc in var.pieces if not pc.meta.get("gate")], conf, FENCE)
+    _lay(a, [pc for pc in var.pieces if not pc.meta.get("gate")], conf, fence)
     _lay(a, [pc for pc in var.pieces if pc.meta.get("gate")], conf, GATE)
     _lay(a, wv.pieces, conf, WALL)
     a.boundary = {"line_x_m": round(line, 4), "stoop_foot_x_m": round(foot, 4), "leaf_reach_m": round(R, 4),
