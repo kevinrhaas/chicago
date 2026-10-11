@@ -736,6 +736,9 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
 
 - `docs/LIBERTIES.md` is append-only. Every compression and invention gets recorded. The
   standard: *a visitor should be able to tell you which parts we made up.*
+- **In anything a visitor reads, those are called liberties** (owner, 2026-10-11): the
+  evidence tile, the popup tab and section, card headings, panel notes, in every year. Never
+  "what we made up" or a close variant on screen; the standard above is the internal rule.
 - `docs/STATUS.md` states what is unverified. Do not describe a gate as passed if it was skipped.
 - Where sources disagree, record the disagreement in `docs/RESEARCH/<id>.md` and pick the
   best-attested reading **with reasoning** — never silently choose.
