@@ -40,13 +40,13 @@ Liberty: `L-glessner-court-wall-2201`.
 
 ## Cost
 
-| tier | triangles before | after |
+| tier | triangles before (dev) | after |
 |---|---|---|
-| full (master) | 1,209,879 | 1,234,129 (web) / 1,236,197 measured in the first bake |
-| light | about 198,050 | 198,082 (cap 200,000) |
+| full | 1,209,879 | 1,234,129 |
+| web | 1,209,879 | 1,234,129 |
+| light | 198,064 | 198,082 |
 
-The full tier lays the wall in coursed brick relief like the house's courtyard walls (about
-24,000 triangles). The light tier draws it flat, which kept it under its cap: in relief it came
+The full tier lays the wall in coursed brick relief like the house's courtyard walls (+24,250 triangles). The light tier draws it flat, which kept it under its cap: in relief it came
 to 224,382.
 
 ## Browser evidence
