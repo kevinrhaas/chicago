@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 152032152,
-      "sha256": "251ea35f4430ae98ec1f48af5157aaddc1eb9bc67d4c2b135eafd8b45bee2ca8",
+      "bytes": 152263528,
+      "sha256": "62a43486442639bfce13e52601194a839dbdca5ab0a74135029324f2e9fc2a8c",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -21,8 +21,8 @@
       "mesh": {
         "draw_primitives": 28,
         "materials": 28,
-        "triangles": 1234129,
-        "vertices": 2856989
+        "triangles": 1236675,
+        "vertices": 2862337
       },
       "texture": {
         "images": 33,
@@ -66,7 +66,7 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 9261,
+        "degenerate": 9267,
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
@@ -328,8 +328,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 52244268,
-      "sha256": "e80ee81da9c9759e2b5e0bc40594e438b9332db5fc0def059c51b3b3aa64ad37",
+      "bytes": 52287340,
+      "sha256": "89a6b8f7bb65b1d21232126f92828457c494b8a0c71544e0b40533a2d2f5e657",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -348,8 +348,8 @@
       "mesh": {
         "draw_primitives": 28,
         "materials": 28,
-        "triangles": 1234129,
-        "vertices": 2835517
+        "triangles": 1236675,
+        "vertices": 2840089
       },
       "texture": {
         "images": 32,
@@ -555,13 +555,13 @@
           "uv_per_m_times_tile_m": 1
         },
         "oak": {
-          "median_uv_per_m": 0.7222,
+          "median_uv_per_m": 0.7223,
           "fabric": "oak",
           "tile_m": [
             0.8,
             2.4
           ],
-          "uv_per_m_times_tile_m": 1.0007
+          "uv_per_m_times_tile_m": 1.0009
         },
         "painted_wood": {
           "median_uv_per_m": 0.7218,
@@ -582,7 +582,7 @@
           "uv_per_m_times_tile_m": 1.0001
         },
         "roof_plane_1": {
-          "median_uv_per_m": 0.4583,
+          "median_uv_per_m": 0.4582,
           "fabric": "terracotta",
           "tile_m": [
             2.4384,
@@ -645,8 +645,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 27002028,
-      "sha256": "bad805b21771ab91a87e94ca30a3327c9d9cfba01c8d83c7fd0788612cfc9ead",
+      "bytes": 27016428,
+      "sha256": "48467c91f4da0ea64d062bbfc86a05fb4ab0da58d5e1d2fcf614976772e7489e",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -665,8 +665,8 @@
       "mesh": {
         "draw_primitives": 25,
         "materials": 25,
-        "triangles": 198082,
-        "vertices": 387789
+        "triangles": 199116,
+        "vertices": 389469
       },
       "texture": {
         "images": 32,
@@ -870,13 +870,13 @@
           "uv_per_m_times_tile_m": 1
         },
         "oak": {
-          "median_uv_per_m": 0.7228,
+          "median_uv_per_m": 0.7227,
           "fabric": "oak",
           "tile_m": [
             0.8,
             2.4
           ],
-          "uv_per_m_times_tile_m": 1.0015
+          "uv_per_m_times_tile_m": 1.0014
         },
         "painted_wood": {
           "median_uv_per_m": 0.7223,
@@ -897,13 +897,13 @@
           "uv_per_m_times_tile_m": 1
         },
         "roof_plane_1": {
-          "median_uv_per_m": 0.458,
+          "median_uv_per_m": 0.4579,
           "fabric": "terracotta",
           "tile_m": [
             2.4384,
             1.95072
           ],
-          "uv_per_m_times_tile_m": 0.9988
+          "uv_per_m_times_tile_m": 0.9987
         },
         "roof_plane_2": {
           "median_uv_per_m": 0.4579,

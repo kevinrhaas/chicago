@@ -42,11 +42,18 @@ def _ridge_point(r, along, across, height):
     return (at,along,z) if r['axis']=='y' else (along,at,z)
 
 
+def _eave_box(t):
+    o=t.get('eave',{}).get('overhang_m',0)
+    x0,x1=sorted((t['x0'],t['x1']));y0,y1=sorted((t['y0'],t['y1']))
+    return {'x0':x0-o,'x1':x1+o,'y0':y0-o,'y1':y1+o}
+
+
 def _ridge_intervals(params,r,lo,hi,radius):
     """Do not run closed cap stock through a chimney or the stable cupola."""
     intervals=[(lo,hi)]
+    # A turret's eave overhangs the ridge, so the cap stops at the eave's edge.
     obstacles=list(params.chimneys)+[
-        {**t,'z1':t['top_z']} for t in params.turrets]
+        {**t,'z1':t['top_z'],**_eave_box(t)} for t in params.turrets]
     for c in obstacles:
         if c['z1']<r['ridge_z']+.025: continue
         ca,cb=(c['x0'],c['x1']) if r['axis']=='y' else (c['y0'],c['y1'])
