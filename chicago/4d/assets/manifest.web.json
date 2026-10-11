@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
@@ -151,7 +151,7 @@
     "house_2005_prairie__draft_1904.glb": "d5331d0d39ba4e7c3d0d01bb84d32c261deed543b87174caaf10366404c1430a",
     "house_2010_prairie__draft_1904.glb": "4a189dd593d1ca4e72bbaa596fa5bffabb12e1494bcc73f54985f9e359788905",
     "house_2010_prairie_coach_house__draft_1904.glb": "8a746b2480ea2917d6a042d54f5589fbe027b9d884cfa8e6add9c65db51fc5e9",
-    "house_2011_prairie__draft_1904.glb": "cf9742fb81f89436985dc0bcd6b6f9197fdb4ff9ae6d630b2f3cc7e820a7b6ee",
+    "house_2011_prairie__draft_1904.glb": "b6b5da0200e5ee37d6f82aa03478199ccfb1c3c134944ce07c31090dd226192b",
     "house_2011_prairie_coach_house__draft_1904.glb": "dd919fd17b048f78dda5341610bafbe342ef8ff9a1055a65c2b709934ba06a3c",
     "house_2017_prairie__draft_1904.glb": "89263e70c1e5c7da6ac1062378d783ac342ba504a261a21d6af74d88b82ba2a2",
     "house_2017_prairie_coach_house__draft_1904.glb": "e53aa69a621533de90a06c1421772c86e883dbf4ce0d18db25e2539a3c5c5613",
