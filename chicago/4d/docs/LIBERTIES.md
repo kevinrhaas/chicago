@@ -23804,6 +23804,49 @@ photographs of the district replaces the age curve and the full-age values for e
 **Review:** `docs/RESEARCH/k14-condition-kit/README.md`.
 **Recorded:** 2026-10-10 (T-2324).
 
+### L-k10-1808-wall-head-2317 — 1808 Prairie's wall head from the K10 kit: brackets on the piers, a bed moulding round every corner, iron cresting on the ridge, all reconstructed
+
+**Decision:** the 1808 Prairie K01 frontage (T-2266) carries the K10 cornice kit's own pieces
+(T-2316) at its wall head and on its ridge. The kit's scrolled timber brackets stand at full size
+(0.48 m high, 0.34 m projection) under the K05 soffit, painted with the eave's fascia. One stands
+0.20 m from every corner on both faces. The rest stand evenly, no more than 0.60 m apart, along
+every pier the third storey's heads, the downpipes and the bays leave. Between each pair of
+brackets runs the kit's bed moulding, a fillet, 44 mm cove and fillet 60 mm each way. It is swept
+round every corner it crosses and dies into a bracket's side at both ends. The kit's cast-iron
+cresting stands on the main ridge between the two chimney stacks, 0.25 m clear of each cap, its
+base bar let 7 mm into the K04 copper ridge roll. That makes 3.30 m, six posts and five panels.
+The kit's 0.55 m frieze is not used. The third storey's lintels stop 0.07 m under the soffit, so a
+frieze could only run by cutting them. The brackets therefore keep to the piers and the bed
+moulding is the cornice's continuous line, and the generator refuses a head that would reach it.
+Along the north party wall the brackets stop where Glessner's south gable leans on it, at s
+1.6-6.8 m from the street corner. The stretch was measured off `glessner_house__as_built_1887.glb`:
+within 0.40 m of the wall, Glessner's mass rises above the brackets' feet (11.34 m) from u 11.4 to
+u 16.2. The bed moulding runs on inside that gable, as the K05 eave above it already does.
+
+**What is attested.** Nothing about this wall head. The T-1837 building register reads a "pierced
+parapet" at `pa-1808-6` off the 1888 *Inland Architect* plate, which is not a source record here.
+The register is a request, not a source. The record's hipped roof with an open eave (K05,
+reconstructed) leaves no parapet wall to stand one on, so none is built.
+
+**What is invented.** All of it. The choice of a bracketed eave over any other cornice, the bracket
+and moulding profiles (the kit's generic ones, L-k10-cornice-kit-2316), the pier rhythm and the
+1.4 m gaps it leaves over each window, the bed moulding's line, the cresting and where it stops.
+None of it was read off a picture of 1808 Prairie.
+
+**What it does not do.** It does not touch Glessner: Glessner's wall head is documented and
+authored from its own evidence, and the kit's `restrictions` let a generic section stand only
+where a house's own is unknown. It does not dress the dormer's face. The dormer's sash head
+stands 0.13 m under its own soffit, too little for the kit's 0.20 m pediment cornice, so that
+needs the dormer re-proportioned first. It builds no parapet.
+
+**What would replace it.** The 1888 plate deposited and read as a source, or a photograph of
+1808's front. Either would replace the generic eave with the documented parapet and cornice
+profile.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.wall_head`
+**Ticket:** T-2317 (piece 2 of T-1852, K10).
+**Review:** `docs/RESEARCH/k10-1808-wall-head-2317/README.md`.
+**Recorded:** 2026-10-10 (T-2317).
+
 ### L-k02-1808-stone-2289 — The 1808 Prairie stone front: Lemont limestone in rock-faced courses round the kits, its base, coping, quoins and flat arches, all reconstructed
 
 **Decision:** Lay the street front of the 1808 Prairie K01 frontage (L-k01-1808-frontage-2266) as K02
