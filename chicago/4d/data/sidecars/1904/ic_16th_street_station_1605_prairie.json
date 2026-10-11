@@ -1,0 +1,193 @@
+{
+  "id": "ic_16th_street_station_1605_prairie",
+  "phase": "draft_1904",
+  "name": "1605 S. Prairie Avenue — the Illinois Central's 16th Street station (district draft; refined by T-1866)",
+  "aka": [
+    "1605 S. Prairie Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "asset": "gltf/ic_16th_street_station_1605_prairie__draft_1904.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1430.024,
+    "local_n": -2953.649,
+    "rotation_deg": 179.609,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 2.000, v -6.000 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.609 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "symbolic_location": "1605 S. Prairie Avenue, parcel prairie_1605 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        20.5,
+        0.0
+      ],
+      [
+        20.5,
+        11.0
+      ],
+      [
+        0.0,
+        11.0
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The census reading '2-storey frame (yellow) building lettered ILLINOIS CENTRAL R.R. 16TH ST. STATION': 2 storeys."
+    },
+    "construction": {
+      "value": "frame",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The trace's fabric colour on the main part: frame."
+    },
+    "draft_plan": {
+      "value": {
+        "parts": [
+          {
+            "id": "r1",
+            "role": "main",
+            "storeys": 2,
+            "roof": "gable",
+            "rect": [
+              0.0,
+              0.0,
+              20.5,
+              11.0
+            ],
+            "from": "s20fp-1605-b1 p1 (main, frame), rectangle 1 of that part; the part's rectangles cover 98% of its fill"
+          }
+        ],
+        "lot_v": [
+          -0.19,
+          12.19
+        ],
+        "street_u": 22.193
+      },
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1605-b1 p1 (main, frame), rectangle 1 of that part; the part's rectangles cover 98% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+    },
+    "draft_elevation": {
+      "value": {
+        "kind": "service",
+        "seed": 1355794894,
+        "principal_floor_m": 0.0,
+        "storey_heights_m": [
+          3.4,
+          2.8,
+          2.6
+        ],
+        "roof_pitch_deg": 40,
+        "mansard_lower_m": 3.0,
+        "front_bays": 4,
+        "entrance": "north",
+        "side_spacing_m": 2.6,
+        "chimneys": 0,
+        "brackets": false,
+        "attic_dormers": false,
+        "stone": "stone",
+        "features": [],
+        "draft_label": {
+          "pass": "T-2335",
+          "refined_by": [
+            "T-1866"
+          ]
+        },
+        "v_toward": "south"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: Not a house: the sheet letters the two-storey frame building 'ILLINOIS CENTRAL R.R. 16TH ST. STATION' and Robinson 1886 shows a station on the same ground, so the census carries the use to 1904. It stands as the draft's plain two-storey gabled outbuilding with its own name and use; its platforms, canopies and signs are T-1866's. (The register's '1603' row is this frontage; the sheet prints 1605.) Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1355794894 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-east-2335."
+    },
+    "draft": {
+      "value": {
+        "pass": "T-2335",
+        "liberty": "L-draft-prairie-16-18-east-2335",
+        "register_row": "frontage-20-023",
+        "census_ids": [
+          "s20-1605-f"
+        ],
+        "trace_building": "s20fp-1605-b1",
+        "seed": 1355794894,
+        "replaceable_by": [
+          "T-1866"
+        ],
+        "card": "District draft — refined by T-1866."
+      },
+      "confidence": "reconstructed",
+      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+      "geometry": "record_only"
+    },
+    "function": {
+      "value": "railway_station",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The 1911 sheet reads '2-storey frame (yellow) building lettered ILLINOIS CENTRAL R.R. 16TH ST. STATION'. Robinson 1886 shows a frame building lettered 16TH ST. STATION, I.C.R.R. here, so the station use is carried to 1904. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "sanborn_1911_chicago_v3_sheet_20",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 20.",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "The Illinois Central / Michigan Central right-of-way and, from the 16th Street row south about 60 m, the water's edge beside it, as of 1911",
+        "Footprints, lot lines, street widths (66 ft; 16th Street 50 ft), addresses, material by colour and story counts for Indiana Av. to the tracks, 16th to 18th Street, as of 1911",
+        "Its own printed Scale of Feet, which the georeference uses as its scale"
+      ],
+      "what_it_does_not_supply": [
+        "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+        "A construction date for any building it draws",
+        "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+        "Architecture above the footprint beyond its story count, material colour and roof symbol",
+        "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+      ]
+    }
+  ],
+  "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1866 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1605-b1), the T-1840 census (s20-1605-f) and the T-1837 register row frontage-20-023; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335).",
+  "research_doc": "",
+  "review_required": false
+}

@@ -1,6 +1,6 @@
 {
   "_doc": "Measured by tools/study_k05_roofs.mjs on the specimen GLB. Triangles and draw calls are exact; frame_ms is headless Chromium on a software rasteriser (SwiftShader), a relative figure for comparing kit revisions, not a device frame time.",
-  "specimen_bytes": 318736,
+  "specimen_bytes": 335688,
   "roofs": [
     {
       "id": "k05.roof.hip",
@@ -71,6 +71,13 @@
       "triangles_with_board": 154,
       "vertices_with_board": 462,
       "draw_calls": 5
+    },
+    {
+      "id": "k05.roof.flat_parapet",
+      "triangles_roof": 92,
+      "triangles_with_board": 104,
+      "vertices_with_board": 312,
+      "draw_calls": 5
     }
   ],
   "board": {
@@ -79,20 +86,20 @@
         1280,
         800
       ],
-      "draw_calls": 65,
-      "triangles": 2710,
-      "frame_ms_median": 0.7,
-      "geometries": 65
+      "draw_calls": 72,
+      "triangles": 2704,
+      "frame_ms_median": 0.6,
+      "geometries": 70
     },
     "mobile": {
       "viewport": [
         390,
         780
       ],
-      "draw_calls": 50,
-      "triangles": 2416,
+      "draw_calls": 52,
+      "triangles": 2306,
       "frame_ms_median": 0.4,
-      "geometries": 65
+      "geometries": 70
     }
   }
 }
