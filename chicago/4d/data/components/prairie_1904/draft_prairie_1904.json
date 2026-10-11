@@ -1,5 +1,5 @@
 {
-  "_doc": "The rules of the Prairie Avenue DISTRICT DRAFT (owner, 2026-10-08; T-2159, split to T-2329 and T-2330; T-2160, split to T-2334 and T-2335). tools/draft_prairie_1904.py reads this file, the traced Sanborn footprints (data/traces/prairie_1904_footprints_s<sheet>.json), the sheet census and the T-1837 frontage register, and writes one prairie_draft structure record per building. A later block is drafted by ADDING rows here (a sheet under `blocks`, its frontages under `frontages`), never by editing the tool. Every number below is a RECONSTRUCTION bounded by the study's starting ranges (RECONSTRUCTION-RULES.md) and recorded as one liberty per block in docs/LIBERTIES.md.",
+  "_doc": "The rules of the Prairie Avenue DISTRICT DRAFT (owner, 2026-10-08; T-2159, split to T-2329 and T-2330; T-2160, split to T-2334 and T-2335; T-2161, split to T-2351 and T-2352). tools/draft_prairie_1904.py reads this file, the traced Sanborn footprints (data/traces/prairie_1904_footprints_s<sheet>.json), the sheet census and the T-1837 frontage register, and writes one prairie_draft structure record per building. A later block is drafted by ADDING rows here (a sheet under `blocks`, its frontages under `frontages`), never by editing the tool. Every number below is a RECONSTRUCTION bounded by the study's starting ranges (RECONSTRUCTION-RULES.md) and recorded as one liberty per block in docs/LIBERTIES.md.",
   "ticket": "T-2329",
   "fit": {
     "_doc": "How a traced part becomes rectangles: the part is scan-filled on a grid in its lot's own frame, and the largest rectangle inside the fill is taken, then the largest in what is left, until the rectangles cover `coverage` of the fill or `max_rects` are taken. A rectangle smaller than `min_rect_m2` or thinner than `min_side_m` is not taken; one lying `swallowed` or more inside an earlier rectangle of the building is dropped. A frontage row's `front_body_from_u_m` makes a house's first rectangle the largest in front of that lot-frame u (T-2330), for a house the sheet traces in one part with its rear range.",
@@ -300,6 +300,61 @@
           }
         }
       ]
+    },
+    "35": {
+      "where": "Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35)",
+      "sides": [
+        "west"
+      ],
+      "source": "sanborn_1911_chicago_v3_sheet_35",
+      "census_ticket": "T-1842",
+      "pass": "T-2351",
+      "liberty": "L-draft-prairie-20-22-west-2351",
+      "by_side": {
+        "_doc": "As blocks 20 and 28: the east side is the second piece of T-2161 (T-2352), under its own pass and liberty, and joins `sides` when it is drafted.",
+        "east": {
+          "pass": "T-2352",
+          "liberty": "L-draft-prairie-20-22-east-2352"
+        }
+      },
+      "fit_note": "the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy",
+      "rear_ticket": {
+        "west": "T-1937",
+        "east": "T-1938"
+      },
+      "service_outline": {
+        "_doc": "The sheet draws its stables crossed corner to corner, and on this coarser copy the T-2340 trace splits each along the cross into four triangles, which fit only as slivers. A service building on this block is filled from its traced outline instead, the cross's lines closed (up to two 0.25 m cells); its one-storey pieces then stand at its own height, which the draft accepts and T-1937 refines.",
+        "close_cells": 2
+      },
+      "join": [
+        {
+          "_doc": "Ruling r35-2108-2110-coach-house: the sheet draws ONE two-storey brick stable across the alley end of 2108 and 2110, divided on the lot line, and the T-2340 trace, which splits buildings on drawn lines, outlines it as two. The two outlines are filled as one part (the drawn line between them closed, up to six 0.25 m cells, the width the coarse copy's line and the trace's line margin leave between the halves), so one envelope stands under one roof, and the lot line stands through it as a party wall.",
+          "into": "s35fp-2108-b2",
+          "from": "s35fp-2110-b2",
+          "close_cells": 6,
+          "party_wall": true,
+          "name": "the coach house of 2108 and 2110, one building divided on their lot line",
+          "aka": [
+            "2110 S. Prairie Avenue (the south half)"
+          ],
+          "note": "One building, not two (census ruling r35-2108-2110-coach-house): the sheet draws a single two-storey brick stable across the alley end of both lots, divided on the lot line; Mark Kimball's coach house spanned both lots when Rees bought 2110 from him in 1888, Rees taking the south half behind a new party wall, and the February 1904 to-let notice for 2108 includes a good brick barn. The draft fills the two traced halves as one envelope and stands the lot line through it as that party wall."
+        }
+      ],
+      "census_fix": {
+        "_doc": "The T-2340 trace gave 2140's two rear buildings each other's census ids: it put s35-2140-alley (the three-storey building at the alley corner) on the free-standing building in the yard and s35-2140-rear (the crossed stable) on the building along the alley. Read again on the raster (the yard building is crossed and numbered 2; the alley building is lettered CATERER and numbered 3), the draft swaps them back. The trace is generated and is not edited here; its assignment rule is T-2340's tool's to mend.",
+        "s35fp-2140-b2": {
+          "census_ids": [
+            "s35-2140-rear"
+          ],
+          "note": "The T-2340 trace assigned this building s35-2140-alley; read again on the raster, it is the crossed two-storey stable standing free in the yard, numbered 2, and the draft gives it s35-2140-rear (block 35's census_fix)."
+        },
+        "s35fp-2140-b3": {
+          "census_ids": [
+            "s35-2140-alley"
+          ],
+          "note": "The T-2340 trace assigned this building s35-2140-rear; read again on the raster, it is the three-storey building along the alley lettered CATERER and numbered 3, and the draft gives it s35-2140-alley (block 35's census_fix)."
+        }
+      }
     }
   },
   "skip": {
@@ -728,6 +783,126 @@
         "pullman_house_1729_prairie_conservatory"
       ],
       "wing_storeys": 2
+    },
+    "frontage-35-059": {
+      "slug": "house",
+      "pitch_deg": 34,
+      "entrance": "north",
+      "why": "3BB frame on a deep lawn at the 20th Street corner (the register's 'painted clapboard, timber sash/eaves and porch'): three storeys under the default low hip, its wings and porches as the sheet traces them; its door is on the north, toward the corner, and 2010, the twin in plan the sheet attests, mirrors it."
+    },
+    "frontage-35-060": {
+      "slug": "house",
+      "pitch_deg": 34,
+      "entrance": "south",
+      "why": "3BB frame, the twin in plan of 2000 (the register's 'detached dwelling similar to 2000'): the same hip over three storeys, its door mirrored to the south, so the attested pair reads as two houses of one design."
+    },
+    "frontage-35-061": {
+      "slug": "house",
+      "entrance": "north",
+      "why": "3 brick, long and narrow, with a stone bay on its Prairie front: the stone-front family's flat roof behind a cornice, the bay as the sheet's own stone piece."
+    },
+    "frontage-35-062": {
+      "slug": "house",
+      "brackets": true,
+      "entrance": "south",
+      "why": "3B with a stone front and a brick rear divided on the diagonal: the stone-front family's flat roof, bracketed so that it does not repeat 2018's plain cornice next door; its door on the south, onto the wide open ground the sheet leaves beside it."
+    },
+    "frontage-35-063": {
+      "slug": "buckingham_house",
+      "roof": "hip",
+      "pitch_deg": 34,
+      "chimneys": 3,
+      "entrance": "centre",
+      "why": "The Ebenezer Buckingham house at the 21st Street corner (the register's 'mapped substantial brick house, basement, corner-facing elevation'): a low hip over the 3S.B. body with the sheet's bays as projections, the entrance central where the 1888 Inland Architect's portico stands. Its 6-ft walls along 21st Street are not drawn: the draft archetype has no boundary walls, and T-1911 builds them."
+    },
+    "frontage-35-064": {
+      "slug": "sherman_house",
+      "roof": "hip_steep",
+      "pitch_deg": 54,
+      "attic_dormers": true,
+      "chimneys": 3,
+      "entrance": "centre",
+      "why": "The John B. Sherman house (Burnham & Root, 1874), standing empty in 1904 after Sherman's death: the register's 'steep slate roof and stone dormers' and 'carved chimney tops' as a steep hip with dormers and three stacks over the 3S.B. brick body, the curved stair and clustered columns as a central entrance. The 1911 lettering McCORMICK MEDICAL COLLEGE is a later use and is not drawn; the oriel on its column is T-1919's."
+    },
+    "frontage-35-065": {
+      "slug": "mark_kimball_house",
+      "roof": "flat",
+      "entrance": "north",
+      "why": "The Mark Kimball house, empty and to let in the spring of 1904 (not W. W. Kimball's at 1801): the register's 'two-storey/basement brick house with simple cornice/roof' as a flat roof behind a plain cornice over the 2B body and its rear range. The to-let notice calls it a stone front and the sheet colours it brick; the draft keeps the sheet's brick, and T-1921 chooses."
+    },
+    "frontage-35-066": {
+      "slug": "rees_house",
+      "roof": "gable",
+      "pitch_deg": 52,
+      "front_bays": 2,
+      "entrance": "south",
+      "why": "The Harriet Rees house (Cobb & Frost, 1888) at its historical 2110 site, not its present one: the register's 'limestone front, tall gable' as a steep gable whose end faces the avenue over the 3B narrow body and its stone front, two bays wide. Its carved tympanum, loggia and bowed oriel are T-1922's and T-1923's."
+    },
+    "frontage-35-067": {
+      "slug": "rothschild_house",
+      "roof": "flat",
+      "brackets": true,
+      "entrance": "north",
+      "why": "The Rothschild stone-front townhouse: three storeys with a stone front and a rear 2B range, flat behind a bracketed cornice; the sheet's canted bay stands as its stone projection."
+    },
+    "frontage-35-068": {
+      "slug": "house",
+      "pitch_deg": 34,
+      "entrance": "north",
+      "why": "2-storey brick, a dwelling in 1904 (the 1904 Blue Book lists the Gorton household; DRESS MAKING is the 1911 use): the brick family's low hip over two storeys and its one-storey rear wing; its frame porches stand as the sheet traces them."
+    },
+    "frontage-35-069": {
+      "slug": "robbins_house",
+      "front_body_from_u_m": 34.0,
+      "front_bays": 5,
+      "entrance": "centre",
+      "works": {
+        "raised_storeys": 2,
+        "course_m": 1.6,
+        "note": "On the target date the house is not finished (census ruling r35-robbins-2126): Robbins bought the Hamill house in 1901 and razed it in 1904, and the May 1905 plate shows the new house complete. The draft therefore stands the working phase the ruling declares, the new house's brick shell partly raised and unroofed on the 1911 footprint, with the alley stable standing. How high the walls stood is RECONSTRUCTED: two of its three storeys and part of the third along the street."
+      },
+      "why": "The Robbins house (Mann, MacNeille & Lindeberg) RISING on 1 July 1904, in the one working phase census ruling r35-robbins-2126 declares: the brick shell two storeys up over its stone basement, the street wall and its returns 1.6 m into the third, openings empty, no roof, a deck at the principal floor and a pole scaffold along the street and the open side. The five-bay front and central entrance are the register's for the finished house (its 'five-bay red-brick front ... fanlit central entry'), laid out as openings only. The May 1905 plate is the finished design and is not read as July 1904 evidence; a 1904 permit or a dated progress photograph replaces this phase (T-1926)."
+    },
+    "frontage-35-070": {
+      "slug": "murdoch_house",
+      "roof": "hip",
+      "pitch_deg": 40,
+      "entrance": "south",
+      "features": [
+        {
+          "kind": "corner_tower",
+          "on": "bay",
+          "radius_m": 1.9,
+          "above_eave_m": 2.6,
+          "cap_m": 5.0
+        }
+      ],
+      "why": "The Thomas Murdoch house (Cobb, 1890): the register's 'stone-front block with brick rear, prominent rounded street bay/turret with conical cap, 2.5/3-storey transitions': the sheet's 2½ read as dormers in a hip, and a turret under a cone stood on the round bay the sheet draws at the front's north end (its rectangle, fitted from the stone part, is where the turret stands). T-1927 reads its height and cap."
+    },
+    "frontage-35-071": {
+      "slug": "tucker_smith_house",
+      "roof": "mansard",
+      "chimneys": 3,
+      "entrance": "south",
+      "features": [
+        {
+          "kind": "corner_tower",
+          "corner": "front_v0",
+          "radius_m": 2.6,
+          "above_eave_m": 1.4,
+          "cap": "flat_crested"
+        }
+      ],
+      "services": {
+        "s35-2140-alley": {
+          "suffix": "alley_building",
+          "use": {
+            "function": "outbuilding",
+            "name": "the three-storey building on the alley behind 2140"
+          }
+        }
+      },
+      "why": "The Tucker/Smith house (Van Osdel, 1876), Byron L. Smith's in 1904: the register's 'mansard/dormers, tall stacks' over the 3S.B. brick body and the sheet's round bay at the 22nd Street corner as a round tower. ONE ROOF STATE, as the register requires: its towers are drawn FLAT-TOPPED AND CRESTED, the house's first state (the pre-1881 stereo, under Tucker's name), because the conical spires are dated only by a 1928 photograph and nothing puts them on the house by 1904; a dated view showing spires by July 1904 replaces this state (T-1928, T-1929). The three-storey building at the alley corner is no one's stable: its 1911 use (CATERER) is not carried back, and it stands as an outbuilding."
     }
   }
 }
