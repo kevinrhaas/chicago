@@ -76,6 +76,7 @@ the contract's measure refuses.
 
 from __future__ import annotations
 
+import dataclasses
 import hashlib
 import itertools
 import json
@@ -102,6 +103,10 @@ GENERATOR = "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)"
 K14_OUTLET_BELOW_SOFFIT_M = 0.15
 K14_OUTLET_MARGIN_M = 0.03
 K14_REACH_OUT_M, K14_REACH_IN_M = 1.2, 1.0
+# T-2364: a brick house's stone dressings (its K06 sills, K09 heads and belts, a brick K08
+# bay's plinth, bands, sills and heads) weather as the kit's dressed trim, as a stone front's
+# trim does: the same cut limestone, whatever wall it sits in
+K14_BRICK_HOUSE_TRIM = "dressed_trim"
 
 Y = (0.0, 1.0, 0.0)
 
@@ -359,6 +364,8 @@ class Assembly:
         # T-2358: a record that names the K14 condition kit weathers to its own age in 1904
         # instead of wearing K03's fixed full-age mask; its walls are registered by build()
         self.k14, self.k14_walls = None, {}
+        # T-2364: the sills a brick house's trails hang from, read before its walls are cut
+        self.k14_sills = None
         if params.condition:
             from . import k14_condition
             self.k14 = k14_condition.Condition()
@@ -407,6 +414,8 @@ class Assembly:
             return st["fabric"]
         if st and name == "limestone_trim":
             return st["trim"]
+        if name in ("limestone_trim", "bay_stone"):   # T-2364: a brick house's stone dressings
+            return K14_BRICK_HOUSE_TRIM
         return None
 
     def k14_sources(self, cid):
@@ -416,7 +425,8 @@ class Assembly:
         swan neck meets the wall. Sills first along the wall, then outlets: the order is the
         trail's index, and so its draw from the property's seed."""
         O = self.k14_walls[cid][0]
-        sills = sorted((s0, s1, y0) for s0, s1, y0, _, kind in self.footprints.get(tuple(O), [])
+        seated = self.footprints if self.k14_sills is None else self.k14_sills
+        sills = sorted((s0, s1, y0) for s0, s1, y0, _, kind in seated.get(tuple(O), [])
                        if kind == "K06.sill")
         out = [{"kind": "sill", "x0": round(s0, 4), "x1": round(s1, 4), "y": round(y0, 4)}
                for s0, s1, y0 in sills]
@@ -1738,6 +1748,12 @@ def build(params, structure_id: str):
     """The assembly: walls with their openings cut, the entrance and its stoop, the roof."""
     p = params
     a = Assembly(structure_id, p)
+    if a.k14 is not None and not p.stone:
+        # T-2364: a stone front lays its openings before it cuts its walls; a brick house cuts
+        # its walls first, so the K06 sills its trails hang from are not seated yet when the
+        # walls need their trail columns. Read them off a build of the same record without
+        # the kit: the same seats, laid by the same calls, and nothing else is taken from it
+        a.k14_sills = build(dataclasses.replace(p, condition={}), structure_id).footprints
     D, W, E = p.depth_m, p.width_m, p.eave_m
     yf = E - p.eave_overhang_m * math.tan(math.radians(p.roof_pitch_deg)) - 0.20
     a.soffit_m = yf
