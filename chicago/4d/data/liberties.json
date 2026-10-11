@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 483,
+  "count": 484,
   "liberties": [
     {
       "id": "L1",
@@ -30700,6 +30700,381 @@
         {
           "label": "Recorded",
           "text": "2026-10-11 (T-2335)."
+        }
+      ]
+    },
+    {
+      "id": "L-draft-prairie-20-22-west-2351",
+      "title": "The west side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, the Robbins house rising, one coach house for 2108 and 2110, and 2140's towers in one roof state",
+      "section": "per_subject",
+      "subjects": [
+        "buckingham_house_2036_prairie",
+        "buckingham_house_2036_prairie_coach_house",
+        "house_2000_prairie",
+        "house_2000_prairie_coach_house",
+        "house_2010_prairie",
+        "house_2010_prairie_coach_house",
+        "house_2018_prairie",
+        "house_2018_prairie_coach_house",
+        "house_2026_prairie",
+        "house_2026_prairie_coach_house",
+        "house_2120_prairie",
+        "house_2120_prairie_coach_house",
+        "mark_kimball_house_2108_prairie",
+        "mark_kimball_house_2108_prairie_coach_house",
+        "murdoch_house_2130_prairie",
+        "murdoch_house_2130_prairie_coach_house",
+        "rees_house_2110_prairie",
+        "robbins_house_2126_prairie",
+        "robbins_house_2126_prairie_coach_house",
+        "rothschild_house_2112_prairie",
+        "rothschild_house_2112_prairie_coach_house",
+        "sherman_house_2100_prairie",
+        "sherman_house_2100_prairie_coach_house",
+        "tucker_smith_house_2140_prairie",
+        "tucker_smith_house_2140_prairie_alley_building",
+        "tucker_smith_house_2140_prairie_coach_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "buckingham_house_2036_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "buckingham_house_2036_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "buckingham_house_2036_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "buckingham_house_2036_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2000_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2000_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2000_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2000_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2010_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2010_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2010_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2010_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2018_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2026_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "mark_kimball_house_2108_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "mark_kimball_house_2108_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "mark_kimball_house_2108_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "mark_kimball_house_2108_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "murdoch_house_2130_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "murdoch_house_2130_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "murdoch_house_2130_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "murdoch_house_2130_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "rees_house_2110_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "rees_house_2110_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "rothschild_house_2112_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "rothschild_house_2112_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "rothschild_house_2112_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "rothschild_house_2112_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "sherman_house_2100_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "sherman_house_2100_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "sherman_house_2100_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "sherman_house_2100_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "tucker_smith_house_2140_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "tucker_smith_house_2140_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "tucker_smith_house_2140_prairie_alley_building",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "tucker_smith_house_2140_prairie_alley_building",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "tucker_smith_house_2140_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "tucker_smith_house_2140_prairie_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        }
+      ],
+      "recorded": "2026-10-11",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`buckingham_house_2036_prairie.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie.draft_1904.form.draft`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie.draft_1904.form.draft_elevation`, `house_2000_prairie.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie.draft_1904.form.draft_elevation`, `house_2010_prairie.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie.draft_1904.form.draft_elevation`, `house_2018_prairie.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie.draft_1904.form.draft_elevation`, `house_2026_prairie.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie.draft_1904.form.draft_elevation`, `house_2120_prairie.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `rees_house_2110_prairie.draft_1904.form.draft_elevation`, `rees_house_2110_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
+        },
+        {
+          "label": "Decision",
+          "text": "the district draft's 20th-22nd block, west side (T-2351, piece 1 of T-2161), run by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose \"What is invented\" and \"What is not\" hold here word for word, reading sheet 35's trace (T-2340) and the T-1842 census. Block 35's west side stands thirteen houses and thirteen alley buildings: the frame pair 2000 and 2010, 2018, 2026, 2036 Buckingham, 2100 Sherman, 2108 Mark Kimball, 2110 Rees at its historical site, 2112 Rothschild, 2120, 2126 Robbins, 2130 Murdoch and 2140 Tucker/Smith, with the stable or coach house the sheet draws behind each, one coach house shared by 2108 and 2110, and 2140's three-storey building on the alley beside its stable. That is every west-side row of the census (frontage-35-059 to -071). Nothing on sheets 20 or 28 moves. **What is invented on this side, beyond the 18th-20th list.** 2000 and 2010, which the sheet draws as twins in plan, are one design with their doors mirrored. Roofs are varied where the register names no form so that neighbours do not share one face: 2018 plain and 2026 bracketed behind their stone fronts, 2108 flat, 2110 a steep street gable (the register's 'tall gable'), 2112 bracketed. Each building's roof and storey heights are the draft rules'. The sheet's crossed stables are filled from their traced outlines (block 35's `service_outline`), so the one-storey pieces a few of them carry stand at the stable's own two storeys. 2130's turret stands on the round bay the sheet draws on its front, under a cone the register names. **2126, a building site.** The census rules 2126 a building site on 1 July 1904 (r35-robbins-2126): the Hamill house razed, the Robbins house rising, finished by the May 1905 plate. The draft stands that ONE working phase: a hollow brick shell two of its three storeys up over its stone basement, the street wall and its returns 1.6 m into the third, empty openings in the finished house's five bays, no roof, a deck at the principal floor and a pole scaffold. How far the walls had risen is the draft's reconstruction and nothing more: no permit or progress photograph dates the month. The May 1905 plate is not read as July 1904 evidence. The alley stable stands, as the ruling has it. **2108/2110, one coach house.** The sheet draws one two-storey brick stable across the alley end of both lots, divided on the lot line, and the census rules it one building (r35-2108-2110-coach-house). The T-2340 trace outlines it as two; the draft fills the two outlines as one envelope under one roof (block 35's `join`) and stands the lot line through it as a coped party wall. It is one record, `mark_kimball_house_2108_prairie_coach_house`, whose south half is Rees's. **2140, one roof state.** The register asks for ONE declared 1904 state of the towers, flat-topped and crested or the later conical spires, never both. The spires are dated only by a 1928 photograph, and nothing found puts them on the house by 1904, so the draft draws the house's first state: the round corner tower flat-topped inside an iron cresting. A dated view showing spires by July 1904 replaces it (T-1928, T-1929). 2140's two rear buildings carry each other's census ids in the T-2340 trace; read again on the raster (the yard building crossed and numbered 2, the alley building lettered CATERER and numbered 3), the draft swaps them back (block 35's `census_fix`). The three-storey alley building's 1911 use is not carried back: it stands as an `outbuilding`. **What is not drafted here.** The 6- and 8-ft brick walls the sheet draws along 21st Street and the alley (2036, 2100, 2140) and 2026's open ground: the draft archetype has no boundary walls, and the per-building tickets build them. 2100's oriel, 2110's tympanum and loggia, and 2140's porch, glass room and exterior stairs are the per-building tickets'."
+        },
+        {
+          "label": "How to resolve",
+          "text": "each house's per-building ticket (T-1909 to T-1929, named on its card and in its record's `draft.replaceable_by`) replaces its attributes in place, under the same id; the alley buildings are T-1937's."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2351 (piece 1 of T-2161, the district draft's 20th-22nd block)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/prairie-draft-20-22-west-2351/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-11 (T-2351)."
         }
       ]
     },

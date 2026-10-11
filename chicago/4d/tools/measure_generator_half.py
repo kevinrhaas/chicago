@@ -563,9 +563,11 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 16th Street station and four buildings by the tracks, emitted the same way and restaling on none
 # of the rows below either.
 #
-# 803 -> 862 on 2026-10-11 (T-2352): the 20th-22nd block, emitted the same way and restaling on
-# none of the rows below either - its east side's seventeen houses and sixteen rear buildings, and
-# the twenty-six of its west side (T-2351) that this branch stands on.
+# 803 -> 829 on 2026-10-11 (T-2351): the draft's west side of the 20th-22nd block, thirteen houses
+# and thirteen alley buildings, emitted the same way and restaling on none of the rows below either.
+#
+# 829 -> 862 on 2026-10-11 (T-2352): the draft's east side of the same block, seventeen houses and
+# sixteen rear buildings, emitted the same way and restaling on none of the rows below either.
 #
 STATED = {
     "assets": 862,

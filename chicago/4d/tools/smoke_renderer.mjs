@@ -16346,7 +16346,7 @@ for (const [label, viewport, touch] of [
         // T-2330 added its east side: seventeen more, the same way.
         // T-2334 added the 16th-18th block's west side: thirty-two more.
         // T-2335 added its east side: nineteen more, the station at 1605 among them.
-        // T-2351 added the 20th-22nd block's west side: twenty-six more, Robbins's works among them.
+        // T-2351 added the 20th-22nd block's west side: twenty-six more, 2126's building site among them.
         // T-2352 added its east side: thirty-three more.
         const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
           'shortall_gregory_house_1638_prairie_front',
