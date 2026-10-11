@@ -21685,7 +21685,7 @@ houses retires the shops rather than moving them.
 **Recorded:** 2026-10-05 (T-2134).
 
 ### L390 — Fort Dearborn's roofs sit on their walls, its timber is piece by piece, and its staffs fly the flag in law
-**Merge identity:** this entry was L384, then L390, on the Fort Dearborn branch; dev assigned
+**Merge identity:** this entry was L384, then L389, on the Fort Dearborn branch; dev assigned
 both numbers first (the Market block, then the Dearborn Street workshops). It is L390 here.
 **Decision:** in both forts (`generators/archetypes/fort_structure.py`, `palisade.py`,
 `renderers/web/js/flags.js`):
@@ -21701,10 +21701,22 @@ both numbers first (the Market block, then the Dearborn Street workshops). It is
   piece and darker at the foot; two ribbands run along the inside of each run; the timber grain
   runs up the picket.
 - **Flags.** The 1835 staff flies the 24-star, 13-stripe flag (stars in four rows of six); the
-  1812 staff the 15-star, 15-stripe flag (five staggered rows of three). The fly is 0.30 of the
-  staff (about 15 ft and 22 ft), hoist to fly 1 : 1.6, worn (the 1835 flag fully, the 1812 by
-  half: bleached toward a frayed fly end), streaming north-east on a south-westerly breeze with
-  a gentle travelling ripple.
+  1812 staff the 15-star, 15-stripe flag (five staggered rows of three). Both are a post's
+  everyday flag, 6 ft 6 in x 12 ft (hoist to fly 1 : 1.85), of wool bunting: stripes sewn as
+  separate strips, hand-sewn cotton stars, a canvas heading, worn (the 1835 flag fully, the 1812
+  by half: bleached toward a frayed fly end), hanging out in soft folds and sagging at the fly on
+  a south-westerly breeze. A hemp halyard runs from a sheave in the truck to the heading and down
+  to a cleat at shoulder height.
+- **Revised 2026-10-10 (T-2333), at the owner's direction** (*"they seem a bit large ... they
+  look a bit crisp, can you make them look more like period appropriate fabric?"*). The flags
+  were 0.30 of the staff, about 15 ft and 22 ft on the fly: a fortress's flag on a one-company
+  post. The surviving sizes are the large ones: Fort McHenry's 1813 storm flag 17 x 25 ft and
+  garrison flag 30 x 42; the garrison flag taken at Fort Niagara in 1813 at least 22 x 28 (WCNY,
+  "The capture of Fort Niagara"). The Army first fixes sizes in the revised regulations of 1861
+  (para. 1464, as transcribed secondhand): garrison flag 20 x 36 ft for great days, storm flag
+  10 x 20 for the rest, recruiting flag 4 ft 4 in x 9 ft 9 in. A small frontier post's everyday
+  flag sits between the last two, so both forts now fly 6 ft 6 in x 12 ft; the first fort's
+  taller staff does not earn it a larger issue.
 **Why:** the owner, 2026-10-05 (T-2123, T-2124), at the fort in 1835: *"the roof is hovering, so
 that should be fixed, and be sure to apply those textures that we have to everything ... that
 wood looks pretty plain, and we have done better ... can we have a US flag or whatever the period
@@ -21723,7 +21735,8 @@ the record grades `flag_flying` reconstructed. Nothing says the 1812 flag was up
 1812. The arrangement of the stars, the size, the colours' wear and the wind are ours.
 **How to resolve:** a quartermaster's account, a post return or a period view of either fort
 replaces the roofs and timber; any record of the post's colours (a requisition for a garrison
-or storm flag, its size) replaces the cloth; a weather record for 1 July 1835 settles whether it
+or storm flag, its size and its cloth) replaces the cloth; the 1861 regulations' text read at
+first hand replaces their secondhand transcription; a weather record for 1 July 1835 settles whether it
 was up, and from where the wind blew.
 **Related:** L204 (the staff's position), L232 (the fort's well), T-0096 (the staff found, and
 the bare-staff reading this supersedes at the owner's direction).
