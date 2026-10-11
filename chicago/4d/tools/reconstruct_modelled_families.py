@@ -2439,8 +2439,10 @@ def self_test() -> int:
     # into George Bickerdyke's as the bride the same column prints.
     # T-1550 RESTATED IT FROM 933 TO 932: the register's Charles Beaubien, ruled present, folds
     # onto Charles H. Beaubien's card (C18), and his house retires with the fold.
+    # T-2251 RESTATED IT FROM 932 TO 931: the 1834 marriage witness 'L. Franchere', ruled
+    # present, folds onto Louis Franchère's card (C2), and his house retires with the fold.
     fires("every household the rulings file names was ruled present",
-          len(ruled_present()) == 932)
+          len(ruled_present()) == 931)
     fires("a letter-list mint is refused",
           eligibility(card(source_pass="letter_list"))[0] is False)
     fires("an evidence-only container is refused by its id",

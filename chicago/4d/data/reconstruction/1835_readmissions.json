@@ -71,24 +71,24 @@
  },
  "counts": {
   "offered": {
-   "R1_in_window_uncertain": 880,
-   "R2_in_window_single_source": 208,
+   "R1_in_window_uncertain": 879,
+   "R2_in_window_single_source": 209,
    "R3_1834_return_or_muster": 28,
    "R5_later_only_backprojectable": 53
   },
   "readmitted": {
-   "R1_in_window_uncertain": 779,
+   "R1_in_window_uncertain": 778,
    "R2_in_window_single_source": 57,
    "R3_1834_return_or_muster": 20,
    "R5_later_only_backprojectable": 39
   },
   "withheld": {
    "R1_in_window_uncertain": 101,
-   "R2_in_window_single_source": 151,
+   "R2_in_window_single_source": 152,
    "R3_1834_return_or_muster": 8,
    "R5_later_only_backprojectable": 14
   },
-  "presence_ruled_present": 734,
+  "presence_ruled_present": 733,
   "presence_ruled_absent": 45,
   "cards_minted": 116,
   "minted_present": 105
@@ -7296,42 +7296,14 @@
    "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
   },
   {
-   "row_id": "card:hh_franchere_l",
-   "class": "R1_in_window_uncertain",
-   "household_id": "hh_franchere_l",
-   "name_as_read": "L Franchere",
-   "dated_evidence": "1834",
-   "dated_evidence_read_as": "1834-01-01",
-   "years_before_the_scene": 1.4949,
-   "persistence": 0.9076,
-   "seed": "hh_franchere_l:persistence",
-   "present_on_scene_date": {
-    "value": "present",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834, 1.49 years before the scene date, and says nothing after it. The persistence model gives 0.908 for that lag; the draw seeded on this household reads present."
-    },
-    "seed": "hh_franchere_l:persistence",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "any source that follows this person past 1 July 1835, or any source that places them elsewhere on it"
-    }
-   },
-   "the_inferred_value_this_stands_beside": "uncertain",
-   "withdrawn_if": "a later ruling finds this card a duplicate of another, in which case the retirement runs through tools/consolidate_town_cards.py and not by hand here"
-  },
-  {
    "row_id": "card:hh_franchre_louis",
    "class": "R1_in_window_uncertain",
    "household_id": "hh_franchre_louis",
    "name_as_read": "Louis Franchre",
-   "dated_evidence": "1833-06-05",
-   "dated_evidence_read_as": "1833-06-05",
-   "years_before_the_scene": 2.0699,
-   "persistence": 0.8744,
+   "dated_evidence": "1834",
+   "dated_evidence_read_as": "1834-01-01",
+   "years_before_the_scene": 1.4949,
+   "persistence": 0.9076,
    "seed": "hh_franchre_louis:persistence",
    "present_on_scene_date": {
     "value": "present",
@@ -7340,7 +7312,7 @@
     "basis": {
      "kind": "model",
      "id": "persistence_1835",
-     "note": "The corpus last names this person on 1833-06-05, 2.07 years before the scene date, and says nothing after it. The persistence model gives 0.874 for that lag; the draw seeded on this household reads present."
+     "note": "The corpus last names this person on 1834, 1.49 years before the scene date, and says nothing after it. The persistence model gives 0.908 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_franchre_louis:persistence",
     "replaceable_by": {
@@ -25127,6 +25099,13 @@
    "name_as_read": "William Bourque (Burke)",
    "reason": "the_reading_is_a_death_before_the_day",
    "why": "The register's own entry makes this name the decedent — \"June 1835 - Died suddenly, William Bourque (Burke).\" — dated 1835-06, before 1 July 1835. A death is not an appearance a persistence draw can price: the person was not in the town on the day, and no card is minted for them."
+  },
+  {
+   "row_id": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_001_3#0",
+   "class": "R2_in_window_single_source",
+   "name_as_read": "L. Franchere",
+   "reason": "a_card_merge_carried_the_reading",
+   "why": "A card merge folded the card this source row was read onto into a survivor spelt otherwise, and the survivor carries the row in its evidence. The name test cannot see across the spelling, so minting it would carry one person into the town twice."
   },
   {
    "row_id": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_04_4_sponsor#0",

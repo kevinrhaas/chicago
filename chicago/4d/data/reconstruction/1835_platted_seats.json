@@ -67,15 +67,15 @@
    "division_ground": 27,
    "farms_and_country_seats": 209,
    "heavy_and_noxious_trades": 2,
-   "labourer_dwellings": 89,
+   "labourer_dwellings": 90,
    "merchant_and_professional_dwellings": 378,
-   "tradesman_dwellings": 498
+   "tradesman_dwellings": 497
   },
   "owed_by_the_letter_list_ruling": 660,
   "roofs_offered_for_adoption": 232,
   "roofs_held_back": 62,
   "roofs_held_by_the_business_deal": 45,
-  "seats_the_business_deal_costs": 8
+  "seats_the_business_deal_costs": 9
  },
  "what_the_plat_could_not_hold": {
   "rows": 1203,
@@ -87,6 +87,7 @@
   "roofs_held": 45,
   "roofs_held_that_are_houses_of_trade": 31,
   "roofs_a_release_would_fill": [
+   "recon_1835_blk_lake_franklin_d1_02",
    "recon_1835_blk_lake_market_d4_02",
    "recon_1835_blk_randolph_clark_d6_04",
    "recon_1835_blk_randolph_dearborn_d1_16",
@@ -162,10 +163,18 @@
     "how": "adopted",
     "would_take": "recon_1835_blk_randolph_clark_d6_04",
     "lot_id": "blk_randolph_clark#07"
+   },
+   {
+    "id": "hh_rc_woodruff_ruth",
+    "clause": "labourer_dwellings",
+    "district": "south",
+    "how": "adopted",
+    "would_take": "recon_1835_blk_lake_franklin_d1_02",
+    "lot_id": "blk_lake_franklin#04"
    }
   ],
   "households_that_would_change_roof": 11,
-  "reading": "the business deal holds 45 roofs on the plat, 31 of them raised as houses of trade. Released, this deal would adopt 10 of them — 8 by a household seated nowhere today and 2 by households already seated, moving to a better-scored lot — and seat 8 more household(s) in all, counting any the moves leave a roof or a slot for; 11 seated household(s) would change roof or lot. So the precedence costs the households 8 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
+  "reading": "the business deal holds 45 roofs on the plat, 31 of them raised as houses of trade. Released, this deal would adopt 11 of them — 9 by a household seated nowhere today and 2 by households already seated, moving to a better-scored lot — and seat 9 more household(s) in all, counting any the moves leave a roof or a slot for; 11 seated household(s) would change roof or lot. So the precedence costs the households 9 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
  },
  "roofs_held_back": [
   {
@@ -5585,9 +5594,9 @@
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_cobb_martha",
+   "id": "hh_rc_bardwell_phebe",
    "kind": "household",
-   "name": "Reconstructed household — Martha Cobb, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Phebe Bardwell, a woman keeping her own house in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5605,13 +5614,13 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_cobb_martha|south|laundress|T-1512",
+   "seed": "hh_rc_bardwell_phebe|south|domestic|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_fairbanks_amanda",
+   "id": "hh_rc_cobb_martha",
    "kind": "household",
-   "name": "Reconstructed household — Amanda Fairbanks, a woman boarding with her family in the south division",
+   "name": "Reconstructed household — Martha Cobb, a woman keeping her own house in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5629,13 +5638,13 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_fairbanks_amanda|south|laundress|T-1512",
+   "seed": "hh_rc_cobb_martha|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_fisk_esther",
+   "id": "hh_rc_fairbanks_amanda",
    "kind": "household",
-   "name": "Reconstructed household — Esther Fisk, a woman boarding with her family in the south division",
+   "name": "Reconstructed household — Amanda Fairbanks, a woman boarding with her family in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5653,13 +5662,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_fisk_esther|south|laundress|T-1512",
+   "seed": "hh_rc_fairbanks_amanda|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_flynn_mary",
+   "id": "hh_rc_fisk_esther",
    "kind": "household",
-   "name": "Reconstructed household — Mary Flynn, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Esther Fisk, a woman boarding with her family in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5677,13 +5686,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_flynn_mary|south|domestic|T-1512",
+   "seed": "hh_rc_fisk_esther|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_hayes_bridget",
+   "id": "hh_rc_flynn_mary",
    "kind": "household",
-   "name": "Reconstructed household — Bridget Hayes, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Mary Flynn, a woman keeping her own house in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5701,13 +5710,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_hayes_bridget|south|domestic|T-1512",
+   "seed": "hh_rc_flynn_mary|south|domestic|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_mahoney_catherine",
+   "id": "hh_rc_hayes_bridget",
    "kind": "household",
-   "name": "Reconstructed household — Catherine Mahoney, a woman boarding with her family in the south division",
+   "name": "Reconstructed household — Bridget Hayes, a woman keeping her own house in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5725,13 +5734,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_mahoney_catherine|south|laundress|T-1512",
+   "seed": "hh_rc_hayes_bridget|south|domestic|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_shea_margaret",
+   "id": "hh_rc_mahoney_catherine",
    "kind": "household",
-   "name": "Reconstructed household — Margaret Shea, a woman keeping her own house in the south division",
+   "name": "Reconstructed household — Catherine Mahoney, a woman boarding with her family in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5749,13 +5758,13 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_shea_margaret|south|laundress|T-1512",
+   "seed": "hh_rc_mahoney_catherine|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_wilcox_martha",
+   "id": "hh_rc_shea_margaret",
    "kind": "household",
-   "name": "Reconstructed household — Martha Wilcox, a woman boarding with her family in the south division",
+   "name": "Reconstructed household — Margaret Shea, a woman keeping her own house in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5773,13 +5782,13 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_wilcox_martha|south|laundress|T-1512",
+   "seed": "hh_rc_shea_margaret|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_wilcox_sophronia",
+   "id": "hh_rc_wilcox_martha",
    "kind": "household",
-   "name": "Reconstructed household — Sophronia Wilcox, a woman boarding with her family in the south division",
+   "name": "Reconstructed household — Martha Wilcox, a woman boarding with her family in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5797,13 +5806,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_wilcox_sophronia|south|laundress|T-1512",
+   "seed": "hh_rc_wilcox_martha|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_woodruff_eliza",
+   "id": "hh_rc_wilcox_sophronia",
    "kind": "household",
-   "name": "Reconstructed household — Eliza Woodruff, a woman boarding with her family in the south division",
+   "name": "Reconstructed household — Sophronia Wilcox, a woman boarding with her family in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5821,13 +5830,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_woodruff_eliza|south|laundress|T-1512",
+   "seed": "hh_rc_wilcox_sophronia|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_woodruff_ruth",
+   "id": "hh_rc_woodruff_eliza",
    "kind": "household",
-   "name": "Reconstructed household — Ruth Woodruff, a woman boarding with her family in the south division",
+   "name": "Reconstructed household — Eliza Woodruff, a woman boarding with her family in the south division",
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
@@ -5845,7 +5854,7 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_woodruff_ruth|south|laundress|T-1512",
+   "seed": "hh_rc_woodruff_eliza|south|laundress|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
@@ -7175,15 +7184,6 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_franchere_l",
-   "kind": "household",
-   "band": "south/merchant_and_professional_dwellings",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "south",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_frauner_m",
    "kind": "household",
    "band": "south/merchant_and_professional_dwellings",
@@ -7883,6 +7883,15 @@
    "district": "south",
    "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. The deal reads the ruling before it deals (T-1645), so no roof is offered to this row and the roof it would have taken goes on to the next row of its clause order",
    "refused_by": "T-0379",
+   "handed_to": "T-1614"
+  },
+  {
+   "id": "hh_kimberly_ira",
+   "kind": "household",
+   "band": "north/merchant_and_professional_dwellings",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "north",
+   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
    "handed_to": "T-1614"
   },
   {
@@ -11709,15 +11718,6 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_kimberly_ira",
-   "kind": "household",
-   "band": "north/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_kimberly_osa",
    "kind": "household",
    "band": "north/tradesman_dwellings",
@@ -15129,6 +15129,15 @@
    "handed_to": "T-1614"
   },
   {
+   "id": "hh_rc_woodruff_ruth",
+   "kind": "household",
+   "band": "south/labourer_dwellings",
+   "clause": "labourer_dwellings",
+   "district": "south",
+   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "handed_to": "T-1614"
+  },
+  {
    "id": "hh_reel_absolam",
    "kind": "household",
    "band": "south/labourer_dwellings",
@@ -16401,9 +16410,9 @@
   {
    "id": "hh_laframboise_thrse",
    "kind": "household",
-   "band": "west/farms_and_country_seats",
+   "band": "south/farms_and_country_seats",
    "clause": "farms_and_country_seats",
-   "district": "west",
+   "district": "south",
    "why": "the clause seats this household outside the plat by its own terms (`ground:outside_plat`); the committed lot grid is not its ground",
    "handed_to": "T-1614"
   },
