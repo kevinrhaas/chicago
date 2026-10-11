@@ -98,7 +98,7 @@ permissions:
 # own rule. Each matrix leg prints "NOT THE FULL GATE" because on its own it is
 # not one; all ten legs together are, and `needs: smoke` fails if ANY fails.
 # The workflow reconstitutes the gate the suite refuses to let one run claim —
-# which holds only while the stage ranges tile 1..14 with no gap and no overlap.
+# which holds only while the stage ranges tile 1..15 with no gap and no overlap.
 #
 # WHY THE BRANCH IS PUSHED BEFORE THE SMOKE RUNS, and the PR only after. The push
 # is in `bake` so a red smoke never destroys twenty minutes of Blender output —
@@ -645,7 +645,7 @@ jobs:
   # `1-2 3-6 7-9 10-13`. The old part 10's content is now parts 10 and 11, both
   # inside the fourth leg, so no leg gained or lost a check.
   #
-  # THE RANGES MUST COVER 1..14 EXACTLY ONCE. Each leg prints "NOT THE FULL GATE"
+  # THE RANGES MUST COVER 1..15 EXACTLY ONCE. Each leg prints "NOT THE FULL GATE"
   # because on its own it is not one; the UNION of the ten legs is, and that
   # holds only while these four ranges tile the parts with no gap and no overlap.
   # smoke_renderer.mjs's own arithmetic — the parts' staged counts sum to an
@@ -675,6 +675,14 @@ jobs:
   # leg of its own, `14`, rather than widening `10-13`: the desktop tail is the
   # largest body measured above (1930 s), and part 14 boots the town a second
   # time. Ten legs now tile 1..14; parts 1-13 and their legs are untouched.
+  #
+  # T-2337 HALVED PART 10 AGAIN and renumbered 11-14 as 12-15, and this list
+  # moves with it on the same terms as T-0170's: `10-13` becomes `10-14` and
+  # `14` becomes `15`. The content of each leg is unchanged — old part 10 is new
+  # 10 + 11, both inside the fourth leg — so no leg gained or lost a check. The
+  # fourth leg got CHEAPER, not dearer: the same ticket stopped the sward census
+  # and the flower-head census drawing the town in software while they read
+  # numbers (held draws), and the second part's boot is a no-op inside a range.
   smoke:
     needs: bake
     runs-on: ubuntu-latest
@@ -683,7 +691,7 @@ jobs:
       fail-fast: false
       matrix:
         viewport: [mobile, desktop]
-        stage: ['1-2', '3-6', '7-9', '10-13', '14']
+        stage: ['1-2', '3-6', '7-9', '10-14', '15']
     steps:
       # T-0437: smoke imports tools and reads its two baseline JSON files;
       # the boot check also reads docs/SITE-BUDGET.md. All browser inputs come
