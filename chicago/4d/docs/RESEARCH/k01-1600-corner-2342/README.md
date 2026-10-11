@@ -64,6 +64,8 @@ the 16th Street side, rear (from the north-west), and roof (from the air). All f
 | desktop before → after | 26.1 → 39.8 s | 25.0 → 25.2 MB | 65-106 → 77-116 (+10 to +12) | 1.50-3.00 M → 1.56-3.06 M (+61 k) | +3 to +7 % |
 | phone before → after | 14.1 → 14.2 s | 25.0 → 25.3 MB | 36-70 → 48-81 (+11 to +12) | 179-617 k → 241-678 k (+61 k) | +5 to +15 % |
 
+The bow's upper sashes were then lowered 0.1 m (sill 0.5 m above the bay's upper floor) to fit
+inside its 2.2 m storey, as `tools/check_bay_kit.py` requires; the captures predate that change.
 The master is 3.94 MB and the web derivative 1.13 MB. Desktop load time swings by seconds
 between runs on this runner (1608's two readings spanned 25-38 s on the same tree), so the rise
 is not a claim. Frame time is a relative reading on software GL, not a device claim.
