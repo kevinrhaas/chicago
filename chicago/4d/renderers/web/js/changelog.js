@@ -1,4 +1,23 @@
 export const CHANGELOG = [ // newest first
+  { v: 1679, ts: '2026-10-11T05:13:34.862Z', date: 'Oct 11, 2026, 12:13 AM CT', title: 'The flora checks run in half the time', kind: 'chore',
+    items: [
+      'The automated walk-through that checks the plants now counts them without drawing the town on every step, so the check finishes inside its time limit again. Nothing you see in the town changed.',
+    ] },
+  { v: 1678, ts: '2026-10-11T05:05:03.577Z', date: 'Oct 11, 2026, 12:05 AM CT', title: 'Every building on Prairie Avenue\'s 20th–22nd block, traced off the 1911 map', kind: 'chore',
+    items: [
+      'Nothing you can see changed yet. 60 buildings on the 20th–22nd block now have real outlines, read off the fire-insurance map\'s drawn walls.',
+      'That includes the Sherman house at 2100, the Robbins house at 2126 and the Tucker–Smith corner mansion at 2140.',
+      'This block\'s map copy is much coarser than the other two, so its outlines are a little looser, and they say so.',
+      'These outlines are the ground the block\'s first draft of houses will stand on.',
+    ] },
+  { v: 1677, ts: '2026-10-11T05:00:16.518Z', date: 'Oct 11, 2026, 12:00 AM CT', title: '1808 Prairie gets an iron front fence, gates and a garden wall', kind: 'feature',
+    items: [
+      'A spear-topped iron fence on a stone curb now runs along 1808 Prairie\'s street line, ending where the lot does.',
+      'The walk to the front steps passes between two stone piers with urns, closed by a pair of short gates that swing clear of the stoop.',
+      'A second gate closes the narrow side passage to the back of the house, and a brick wall with stone copings runs along the boundary with 1812.',
+      'Nothing is built against Glessner\'s yard to the north, whose own boundary is documented.',
+      'Like the rest of the kit, the design is new: no picture of 1808\'s real fence has been read.',
+    ] },
   { v: 1676, ts: '2026-10-11T04:08:13.534Z', date: 'Oct 10, 2026, 11:08 PM CT', title: 'Prairie Avenue\'s 16th–18th block fills in on the west side', kind: 'feature',
     items: [
       'Nineteen houses and thirteen stables now stand on the west side of Prairie Avenue between 16th and 18th Streets, all built from the Sanborn map\'s own footprints.',
