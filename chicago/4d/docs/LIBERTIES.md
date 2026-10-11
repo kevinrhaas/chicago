@@ -24364,6 +24364,31 @@ the bow's size and place and settles the projection.
 **Review:** `docs/RESEARCH/k01-1600-corner-2342/README.md`.
 **Recorded:** 2026-10-11 (T-2342).
 
+### L-glessner-court-wall-2201 — The Glessner courtyard's south wall: a 1963 line carried to 1904, at a height and coping of ours
+
+**Decision:** the courtyard is closed on the south (T-2201). Between the east wing and W 59.055 the
+court's south side is 1808 Prairie's own north wall, as Glessner 1923 says ("by special arrangement
+the same brick were used in the adjoining house, so that all walls of the courtyard are of the same
+texture and color"), and 1808's record leaves that side open for this one. From 1808's rear face to
+the alley a free-standing common-brick wall stands on the line HABS sheet 2 draws, its north face on
+S 74.0, about 1.1 ft thick, to the granite gate pier's outer face. Each end of the run says what
+it meets, so the coping stops flush at 1808's wall and wraps the free end at the alley. The sheet's
+8.3 ft return south along the alley stands on 1808's lot line and is left to T-1944.
+**What is invented.** The wall's height, 9.0 ft above north grade, and its stone coping (0.18 m,
+overhanging 0.06 m on each free side): no sheet draws the wall in elevation, and HABS photograph 5
+does not frame it. Both are the alley gate's own reconstructed wall stub (L295), so the enclosure
+meets its gate at one coping line under the 9.5 ft pier. The reduced (light) tier draws the runs as
+flat textured brick, without the full tier's coursed relief, to stay inside its 200,000-triangle cap.
+**What is inferred, not invented.** That the 1963 line and thickness stood in 1904: the
+drawing is a survey of 1963, carried back because Glessner 1923 describes the brick-walled court as
+built and nothing read records exterior work before the 1946 conversion. The house museum's
+courtyard-wall page, cited by the T-2201 audit, is not a source record here and was not read.
+**How to resolve:** a photograph or drawing that shows the free-standing run in elevation gives its
+height and coping profile; a reading of the museum's courtyard-wall history as a source record
+dates the wall to 1887 directly.
+**Covers:** `glessner_house.as_built_1887.form.courtyard_wall_heights`.
+**Ticket:** T-2201 (Glessner exterior audit GA-03).
+**Recorded:** 2026-10-11 (T-2201).
 ### L-k01-1616-brick-front-2353 — 1616 Prairie's main body refined from the district draft to a K01 brick house with a street dormer for its half storey, everything but the plan the kits'
 
 **Decision:** the brick house at 1616 Prairie Avenue (T-2353, piece 1 of T-2345) is no longer a

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 490,
+  "count": 491,
   "liberties": [
     {
       "id": "L1",
@@ -31324,6 +31324,46 @@
         {
           "label": "Recorded",
           "text": "2026-10-11 (T-2342)."
+        }
+      ]
+    },
+    {
+      "id": "L-glessner-court-wall-2201",
+      "title": "The Glessner courtyard's south wall: a 1963 line carried to 1904, at a height and coping of ours",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.courtyard_wall_heights"
+        }
+      ],
+      "recorded": "2026-10-11",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the courtyard is closed on the south (T-2201). Between the east wing and W 59.055 the court's south side is 1808 Prairie's own north wall, as Glessner 1923 says (\"by special arrangement the same brick were used in the adjoining house, so that all walls of the courtyard are of the same texture and color\"), and 1808's record leaves that side open for this one. From 1808's rear face to the alley a free-standing common-brick wall stands on the line HABS sheet 2 draws, its north face on S 74.0, about 1.1 ft thick, to the granite gate pier's outer face. Each end of the run says what it meets, so the coping stops flush at 1808's wall and wraps the free end at the alley. The sheet's 8.3 ft return south along the alley stands on 1808's lot line and is left to T-1944. **What is invented.** The wall's height, 9.0 ft above north grade, and its stone coping (0.18 m, overhanging 0.06 m on each free side): no sheet draws the wall in elevation, and HABS photograph 5 does not frame it. Both are the alley gate's own reconstructed wall stub (L295), so the enclosure meets its gate at one coping line under the 9.5 ft pier. The reduced (light) tier draws the runs as flat textured brick, without the full tier's coursed relief, to stay inside its 200,000-triangle cap. **What is inferred, not invented.** That the 1963 line and thickness stood in 1904: the drawing is a survey of 1963, carried back because Glessner 1923 describes the brick-walled court as built and nothing read records exterior work before the 1946 conversion. The house museum's courtyard-wall page, cited by the T-2201 audit, is not a source record here and was not read."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph or drawing that shows the free-standing run in elevation gives its height and coping profile; a reading of the museum's courtyard-wall history as a source record dates the wall to 1887 directly."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.courtyard_wall_heights`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2201 (Glessner exterior audit GA-03)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-11 (T-2201)."
         }
       ]
     },

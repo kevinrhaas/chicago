@@ -1869,6 +1869,46 @@
       ],
       "note": "No sheet draws the gate or its pier in elevation. A 9-ft wall stub, an 8-ft pair of boarded oak leaves (closed) and a 9.5-ft pier are ours, bounded by the underpass's 8.1-ft clear height at the other end of the same carriage way. docs/LIBERTIES.md L295."
     },
+    "courtyard_wall": {
+      "value": {
+        "runs": [
+          {
+            "name": "south",
+            "face": "south",
+            "at": 74.55,
+            "thick_ft": 1.1,
+            "kind": "brick",
+            "span": [
+              59.055,
+              162.0
+            ],
+            "ends": [
+              "wall",
+              "free"
+            ]
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "note": "T-2201: the courtyard's south enclosure. Sheet 2 (first floor plan) is the only drawing of the property boundary (the drawings record's own words: 'no sheet draws the property boundary except the thin south boundary wall on sheets 2-3'). Measured on the committed 400-dpi scan at the sheet's 37.2 px/ft: a hatched masonry wall about 1.1 ft thick (40-45 px; its outer edge is hatch with no drawn line, +/- 0.15 ft) whose north face is the line of the east wing's south wall, S 74.0, so it stands on S 74.0-75.1, run along the whole south side to the alley, where it ends flush with the granite gate pier's outer face. The sheet also turns it south along the alley for 8.3 ft (310 px): that return stands on 1808's alley line, so it is 1808's lot boundary and is left to T-1944 rather than built from this record. Glessner 1923 (quoted in text only: its rights are unresolved, so it is not a source this geometry is built from) says the same brick was used 'in the adjoining house, so that all walls of the courtyard are of the same texture and color': between W 26.5 and W 59.055 the courtyard's south side IS 1808's three-storey north wall (keith_house_1808_prairie, which leaves its own north side open for this record), so the free-standing run starts where 1808's rear face stands (W 59.055, u 31.149 m in this frame) and runs to the outer face of the pier (W 162.0). It is common brick under a stone coping, the courtyard walls' own pair (HABS data pp. 20-21, as the construction note reads them; brick_tint, trim_tint). INFERRED, not attested: the drawing is a 1963 survey, carried to 1904 because the 1923 account describes the brick-walled court as built and nothing read records exterior work before the 1946 conversion (HABS data p. 3); the house museum's courtyard-wall page cited by the T-2201 audit is not a source record here and was not read for this. Height: courtyard_wall_heights. docs/LIBERTIES.md L-glessner-court-wall-2201."
+    },
+    "courtyard_wall_heights": {
+      "value": {
+        "brick": [
+          9.0,
+          "ng"
+        ]
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "note": "No sheet draws the wall in elevation or section, and HABS photograph 5 (c. 1923) frames the court toward the underpass with 1808's wall at its right edge, not the free-standing run. 9.0 ft above north grade is ours: it is the reconstructed height of the alley gate's own wall stub (courtyard_gate_heights), the same enclosure at its other end, so the two meet at one coping line under the 9.5-ft pier. The coping is the gate's: 0.18 m of stone, overhanging 0.06 m on each free side. docs/LIBERTIES.md L-glessner-court-wall-2201."
+    },
     "courtyard_ground": {
       "value": {
         "surfaces": [
