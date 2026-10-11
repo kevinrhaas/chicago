@@ -1130,19 +1130,36 @@ class Assembly:
                                 lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
             self.dormer_geom = {"xf": xf, "ys": ys, "yde": yde, "dhs": dhs, "dhe": dhe, "ridge": dry,
                                 "zs": zc + wd / 2, "zn": zc - wd / 2}
+        # T-2302's plain stacks, for a record that names no K15 variant (1612 Goodman)
+        for c in p.chimneys:
+            if "k15" in c:
+                continue
+            sx, sz = c["plan_m"]
+            u, z = c["u_m"], -c["v_m"]
+            top = c["top_m"]
+            P = k5.frame("z")
+            cp, cd = c["cap_proud_m"], c["cap_depth_m"]
+            # the stack stops inside its cap, so the two never share a face
+            solids.append(k5.extrude([(u - sx / 2, hs - 0.5), (u + sx / 2, hs - 0.5), (u + sx / 2, top - cd / 2),
+                                      (u - sx / 2, top - cd / 2)], z - sz / 2, z + sz / 2, P,
+                                     lambda i, p_, q_: "chimney" if i != 2 else "hidden", "chimney", "chimney"))
+            solids.append(k5.extrude([(u - sx / 2 - cp, top - cd), (u + sx / 2 + cp, top - cd),
+                                      (u + sx / 2 + cp, top), (u - sx / 2 - cp, top)],
+                                     z - sz / 2 - cp, z + sz / 2 + cp, P, "coping", "coping", "coping"))
         polys = k5.union_all(k5._snap(solids))
         # T-2313: each stack from the K15 kit, built in this roof as the kit builds its
         # specimen's (k15_chimneys.build_variant): its parts joined and its flues cut on
         # their own, then joined to the roof, so the shaft is cut where it passes through
         # the slate, the flashing where it lies on it and the cricket where it meets it
         self.stacks = []
-        if p.chimneys:
+        k15s = [c for c in p.chimneys if "k15" in c]
+        if k15s:
             from . import k15_chimneys as k15
             data = k15.load()
 
             def cover(x, z):   # the hip's covering over a plan point (x = u, z = -v)
                 return E + tp * max(0.0, min(x, D - x, -z, W + z))
-            for c in p.chimneys:
+            for c in k15s:
                 s = dict(c["k15"], x=c["u_m"], z=-c["v_m"])
                 parts, meta = k15.stack_solids(s, k15.Frame(s, cover), data, tp)
                 parts = {key: (k5._snap(x) if isinstance(x, list) else x) for key, x in parts.items()}
@@ -1154,7 +1171,7 @@ class Assembly:
         self.roof_shell = (pts, tris)
         # the graph reads a stack's every part as `chimney`, which K05 already classes as
         # an abutment: the K15 flashing and cricket ARE what dresses the covering there
-        self.roof_graph = k5.graph(pts, tris if not p.chimneys else
+        self.roof_graph = k5.graph(pts, tris if not k15s else
                                    [t[:3] + (("chimney" if t[3] in self.STACK else t[3]),) + t[4:] for t in tris],
                                    kit)
         self._emit_shell(pts, tris, seed, conf)

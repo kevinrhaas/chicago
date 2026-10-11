@@ -535,11 +535,26 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # fireplaces) and the form does not.
     chimneys = []
     ch = val("chimneys")
-    if ch:
+    tp = math.tan(math.radians(pitch))
+    if ch and "plan_m" in ch:
+        # T-2302's plain stacks, kept for a record that names no K15 variant (1612 Goodman,
+        # T-2344): each a closed prism the K05 union joins into the roof, so its penetration
+        # through the covering is cut where the two really meet
+        sx, sz = (float(v) for v in ch["plan_m"])
+        above, cap_p, cap_d = float(ch["top_above_ridge_m"]), float(ch["cap_proud_m"]), float(ch["cap_depth_m"])
+        ridge = (round(pf + sum(heights), 4) + width / 2 * tp)
+        for st_ in ch["stacks"]:
+            u, v = float(st_["u_m"]), float(st_["v_m"])
+            if not (sx / 2 + 0.3 <= u <= depth - sx / 2 - 0.3 and sz / 2 + 0.3 <= v <= width - sz / 2 - 0.3):
+                raise ParamError(f"chimney at ({u}, {v}) does not stand inside the footprint")
+            if above < 0.6:
+                raise ParamError("a chimney stops less than 0.6 m above the ridge")
+            chimneys.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": round(ridge + above, 4),
+                             "cap_proud_m": cap_p, "cap_depth_m": cap_d})
+    elif ch:
         from . import k15_chimneys as k15
         k15kit = k15.load()
         k15at = {c["stack"]: c for c in val("chimney_positions", [])}
-        tp = math.tan(math.radians(pitch))
         k15E = round(pf + sum(heights), 4)
 
         def cover(u, v):   # the hip's covering over a plan point, at the wall line E
@@ -577,14 +592,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             chimneys.append({"id": sid, "from": st_["from"], "u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": spec["top_m"],
                              "cap_proud_m": k15cap["projection_m"], "cap_depth_m": k15cap["thickness_m"],
                              "k15": spec})
-        if dormer:
-            d_ridge = (dormer["face_setback_m"] * tp + dormer["face_height_m"]
-                       + dormer["width_m"] / 2 * math.tan(math.radians(dormer["pitch_deg"])))
-            back = depth - d_ridge / tp - 0.5   # where k01_frontage starts the dormer's body
-            for c in chimneys:
-                sx, sz = c["plan_m"]
-                if abs(c["v_m"] - width / 2) < dormer["width_m"] / 2 + 0.5 + sz / 2 and c["u_m"] + sx / 2 > back - 0.3:
-                    raise ParamError("a chimney stands in the dormer's body")
+    if chimneys and dormer:
+        d_ridge = (dormer["face_setback_m"] * tp + dormer["face_height_m"]
+                   + dormer["width_m"] / 2 * math.tan(math.radians(dormer["pitch_deg"])))
+        back = depth - d_ridge / tp - 0.5   # where k01_frontage starts the dormer's body
+        for c in chimneys:
+            sx, sz = c["plan_m"]
+            if abs(c["v_m"] - width / 2) < dormer["width_m"] / 2 + 0.5 + sz / 2 and c["u_m"] + sx / 2 > back - 0.3:
+                raise ParamError("a chimney stands in the dormer's body")
 
     # T-2291: the brick walls wear a K03 panel the record names; k03_brick lays one
     from . import k03_brick
