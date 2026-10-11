@@ -95,9 +95,9 @@ T-2325's to choose with the road and yard materials.
 
 ## Still open
 
-- No structure takes its condition from the kit yet. T-2325 applies it to a named house and its
-  yard, baked and verified at both viewports, and decides whether its walls carry the layers on
-  `_TONE` rows or on a baked mask.
+- 1808 Prairie's walls take their condition from the kit since T-2358 (piece 1 of T-2325), on
+  `_TONE` rows: `docs/RESEARCH/k14-1808-walls-2358/`. Its roof plume, its yard and a newer neighbour
+  are T-2359, T-2360 and T-2361.
 - The K03 1808 service wall keeps its own constants; moving it onto the kit (at its own age) is a
   rebake, and belongs with a ticket that rebakes it.
 - Limestone that is rinsed by run-off often goes paler, not darker, beside its trails. A grey

@@ -1,0 +1,168 @@
+{
+  "id": "robbins_house_2126_prairie_coach_house",
+  "name": "2126 S. Prairie Avenue — the alley building of the house at 2126 (district draft; refined by T-1937)",
+  "aka": [
+    "2126 S. Prairie Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "function": {
+    "value": "barn_or_carriage_shed",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "note": "The 1911 sheet reads '2-storey brick stable (crossed) on the alley'. Drawn as a stable in 1911. Nothing says whether it is the Hamill stable kept through the rebuilding or new with the Robbins house; it stands in the working state."
+  },
+  "review_required": false,
+  "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1937 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2126-b2), the T-1842 census (s35-2126-rear) and the T-1837 register row frontage-35-069; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
+  "phases": [
+    {
+      "id": "draft_1904",
+      "documented_range": {
+        "from": "1904-07-01",
+        "to": "1911-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35"
+        ],
+        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (phase_unresolved). Its building and loss dates are the per-building ticket's to read."
+      },
+      "position": {
+        "utm_e": 448415.672,
+        "utm_n": 4633693.015,
+        "rotation_deg": -0.685,
+        "symbolic_location": "2126 S. Prairie Avenue, parcel prairie_2126 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35"
+        ],
+        "note": "The rear corner of the main body's rectangle (lot frame u 1.250, v -7.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.685 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            7.75,
+            0.0
+          ],
+          [
+            7.75,
+            13.0
+          ],
+          [
+            0.0,
+            13.0
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35"
+        ],
+        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+      },
+      "form": {
+        "stories": {
+          "value": 2,
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The census reading '2-storey brick stable (crossed) on the alley': 2 storeys."
+        },
+        "construction": {
+          "value": "brick",
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The trace's fabric colour on the main part: brick."
+        },
+        "draft_plan": {
+          "value": {
+            "parts": [
+              {
+                "id": "r1",
+                "role": "main",
+                "storeys": 2,
+                "roof": "gable",
+                "rect": [
+                  0.0,
+                  0.0,
+                  7.75,
+                  13.0
+                ],
+                "from": "s35fp-2126-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 77% of its fill"
+              }
+            ],
+            "lot_v": [
+              -1.375,
+              15.875
+            ],
+            "street_u": 53.592
+          },
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2126-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 77% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+        },
+        "draft_elevation": {
+          "value": {
+            "kind": "service",
+            "seed": 2729365160,
+            "principal_floor_m": 0.0,
+            "storey_heights_m": [
+              3.4,
+              2.8,
+              2.6
+            ],
+            "roof_pitch_deg": 40,
+            "mansard_lower_m": 3.0,
+            "front_bays": 5,
+            "entrance": "centre",
+            "side_spacing_m": 2.6,
+            "chimneys": 0,
+            "brackets": false,
+            "attic_dormers": false,
+            "stone": "stone",
+            "features": [],
+            "draft_label": {
+              "pass": "T-2351",
+              "refined_by": [
+                "T-1937"
+              ]
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: The Robbins house (Mann, MacNeille & Lindeberg) RISING on 1 July 1904, in the one working phase census ruling r35-robbins-2126 declares: the brick shell two storeys up over its stone basement, the street wall and its returns 1.6 m into the third, openings empty, no roof, a deck at the principal floor and a pole scaffold along the street and the open side. The five-bay front and central entrance are the register's for the finished house (its 'five-bay red-brick front ... fanlit central entry'), laid out as openings only. The May 1905 plate is the finished design and is not read as July 1904 evidence; a 1904 permit or a dated progress photograph replaces this phase (T-1926). Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2729365160 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-west-2351."
+        },
+        "draft": {
+          "value": {
+            "pass": "T-2351",
+            "liberty": "L-draft-prairie-20-22-west-2351",
+            "register_row": "frontage-35-069",
+            "census_ids": [
+              "s35-2126-rear"
+            ],
+            "trace_building": "s35fp-2126-b2",
+            "seed": 2729365160,
+            "replaceable_by": [
+              "T-1937"
+            ],
+            "card": "District draft — refined by T-1937."
+          },
+          "confidence": "reconstructed",
+          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+          "geometry": "record_only"
+        }
+      }
+    }
+  ]
+}
