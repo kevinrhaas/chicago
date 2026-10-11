@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1690, ts: '2026-10-11T13:40:27.505Z', date: 'Oct 11, 2026, 8:40 AM CT', title: '1808 Prairie\'s roof dormer gets a pediment', kind: 'feature',
+    items: [
+      'The dormer on 1808 Prairie\'s front roof now has a pediment: a moulded cornice across its face that turns back along both sides, and two stepped bands under the gable\'s edge.',
+      'To make room, the dormer stands about 20 cm taller; its window is the same size and the cornice is now its head.',
+      'Like the rest of the kit, it is newly designed: no picture of 1808\'s real roof has been read.',
+    ] },
   { v: 1689, ts: '2026-10-11T12:13:19.634Z', date: 'Oct 11, 2026, 7:13 AM CT', title: 'The Glessner courtyard is closed on the south', kind: 'feature',
     items: [
       '1904: a common-brick wall under a stone coping now closes the courtyard between 1808 Prairie\'s rear and the alley gate, on the line the 1963 HABS plan draws.',

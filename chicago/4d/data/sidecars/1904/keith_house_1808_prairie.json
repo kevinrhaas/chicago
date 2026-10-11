@@ -141,10 +141,11 @@
             ],
             "note": "Glessner's south gable stands against the party wall here: read off glessner_house__as_built_1887.glb in this frame, its mass within 0.40 m of the wall rises above the brackets' feet (11.34 m) from u 11.4 to u 16.2 (s 1.8 to 6.6), to 14.70 m at u 13.5. No bracket stands in it; the bed moulding, like the K05 eave above it, runs on inside the gable."
           }
-        ]
+        ],
+        "dormer": "k10.dormer.pedimented_on_bracketed_eave"
       },
       "confidence": "reconstructed",
-      "note": "The wall head, from the K10 cornice kit (T-2316, data/components/prairie_1904/k10_cornices.json): the kit's scrolled timber brackets at full size under the K05 soffit, standing on the piers between the third storey's heads and one 0.20 m from every corner on both faces, with the kit's bed moulding swept between them round all four corners; and the kit's cast-iron cresting let into the K04 copper ridge roll along the ridge (between the two T-2302 stacks until T-2313 moved the stacks onto the side walls, so the cresting now runs the ridge's length). Along the north party wall the brackets stop where Glessner's south gable leans on it (s 1.6-6.8 m, measured off the Glessner asset), and the bed moulding runs on inside that gable as the K05 eave does. RECONSTRUCTED: no source read here shows 1808's wall head. The T-1837 register reads a 'pierced parapet' off the 1888 Inland Architect plate, which is not a source record here, and a parapet does not stand on a hipped roof with an open eave, so none is built. Every profile, size and spacing is the kit's generic one (liberty L-k10-1808-wall-head-2317, T-2317). Glessner's documented wall head is its own and is not drawn from this kit."
+      "note": "The wall head, from the K10 cornice kit (T-2316, data/components/prairie_1904/k10_cornices.json): the kit's scrolled timber brackets at full size under the K05 soffit, standing on the piers between the third storey's heads and one 0.20 m from every corner on both faces, with the kit's bed moulding swept between them round all four corners; and the kit's cast-iron cresting let into the K04 copper ridge roll along the ridge (between the two T-2302 stacks until T-2313 moved the stacks onto the side walls, so the cresting now runs the ridge's length). The street dormer's face is the kit's pedimented dormer (T-2326): its 0.20 m dormer cornice across the face at the foot of the pediment, returned 0.13 m on both cheeks under their soffits and capped, the kit's two stepped raking bands on the tympanum under K05's verge, and no lintel over the sash, whose head the cornice is. the brackets stop where Glessner's south gable leans on it (s 1.6-6.8 m, measured off the Glessner asset), and the bed moulding runs on inside that gable as the K05 eave does. RECONSTRUCTED: no source read here shows 1808's wall head. The T-1837 register reads a 'pierced parapet' off the 1888 Inland Architect plate, which is not a source record here, and a parapet does not stand on a hipped roof with an open eave, so none is built. Every profile, size and spacing is the kit's generic one (liberties L-k10-1808-wall-head-2317, T-2317, and L-k10-1808-dormer-face-2326, T-2326). Glessner's documented wall head is its own and is not drawn from this kit."
     },
     "roof_form": {
       "value": "hip",
@@ -251,7 +252,7 @@
       "value": {
         "width_m": 1.5,
         "face_setback_m": 0.3,
-        "face_height_m": 2.15,
+        "face_height_m": 2.35,
         "face_thickness_m": 0.2,
         "pitch_deg": 45,
         "verge_m": 0.15,
@@ -262,7 +263,7 @@
         }
       },
       "confidence": "reconstructed",
-      "note": "One gabled dormer on the street hip, centred over the front, its face 0.30 m behind the wall line: the K04 package's dormer apron, valleys and step flashing need a dormer to dress, and a front dormer lighting the attic is the commonest Prairie Avenue form. The 1888 plate the register reads shows a pierced parapet, not this; the parapet is T-1882's, and this dormer is a reconstruction it replaces. Its sash is the contract's smallest opening (0.85 x 1.5 m)."
+      "note": "One gabled dormer on the street hip, centred over the front, its face 0.30 m behind the wall line: the K04 package's dormer apron, valleys and step flashing need a dormer to dress, and a front dormer lighting the attic is the commonest Prairie Avenue form. The 1888 plate the register reads shows a pierced parapet, not this; the parapet is T-1882's, and this dormer is a reconstruction it replaces. Its sash is the contract's smallest opening (0.85 x 1.5 m). T-2326 raised its face from 2.15 m to 2.35 m so the K10 dormer face fits: at 2.15 m the sash head stood 0.13 m under the cheeks' soffit, too little for the kit's 0.20 m pediment cornice and its 0.10 m window gap; at 2.35 m it stands 0.33 m under it (the sash, its sill and the face's setback unchanged)."
     },
     "chimneys": {
       "value": {
