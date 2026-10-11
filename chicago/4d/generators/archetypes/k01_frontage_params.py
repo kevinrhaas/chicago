@@ -125,6 +125,9 @@ class K01FrontageParams:
     boundary: dict = field(default_factory=dict)    # K11 fence, gates, piers, wall (T-2319)
     yard: dict = field(default_factory=dict)        # K14 lawn, front walk, service walk (T-2360)
     stone: dict = field(default_factory=dict)      # T-2289: the coursed stone front (K02)
+    # T-2343: traced ranges behind the main body, each a brick box with its own storeys,
+    # windows and flat deck, standing against the main rear wall or an earlier wing's
+    rear_wings: tuple = ()
     # T-2358: the K14 condition kit, opted into per record — {"kit", "built"} — so the walls
     # weather to the house's own age in 1904; empty keeps K03's fixed soot and damp mask
     condition: dict = field(default_factory=dict)
@@ -162,7 +165,7 @@ CONSUMED = frozenset({
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
     "basement_lights", "roof_covering", "dormer", "rainwater", "window_kit", "service_wall_brick",
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
-    "stone_front", "boundary", "north_bays", "yard", "condition",
+    "stone_front", "boundary", "north_bays", "rear_wings", "yard", "condition",
 })
 
 #: T-2358: the one condition kit a record may name (K14, T-2324)
@@ -385,6 +388,108 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str):
             openings.remove(o)
         out.append({"id": e["id"], "wall": e["wall"], "s_m": s, "span_m": (round(a, 4), round(b, 4)),
                     "fabric": e.get("fabric", "stone"), "variant": v})
+    return tuple(out)
+
+
+WING_SIDES = ("south", "north", "rear")
+
+
+def wing_walls(w: dict) -> dict:
+    """A rear wing's three outer walls, each as (origin, along) in the assembly's frame,
+    +X east (u) and -Z north (v), read left to right from outside as the main walls are:
+    south from the wing's rear end, north from its front end, the rear from its north end."""
+    u0, u1, v0, v1 = w["rect"]
+    return {"south": ((u0, 0.0, -v0), (1.0, 0.0, 0.0), u1 - u0),
+            "north": ((u1, 0.0, -v1), (-1.0, 0.0, 0.0), u1 - u0),
+            "rear": ((u0, 0.0, -v1), (0.0, 0.0, 1.0), v1 - v0)}
+
+
+def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
+    """Resolve the record's `rear_wings` (T-2343): the ranges a sheet draws behind the main
+    body, each a rectangle in the footprint frame whose front stands on the main rear wall
+    (u = 0) or on the rear wall of a wing listed before it, inside that wall's length.
+
+    A wing covers its host wall from grade to its deck: every host opening in that span
+    below the deck is behind it and is not cut, and one that straddles a junction is
+    refused, as a bay's. Its own windows are cut in its south, north and rear walls."""
+    out = []
+    for e in entries or ():
+        wid = e["id"]
+        u0, u1, v0, v1 = (float(x) for x in e["rect"])
+        if not (u0 < u1 <= 0.0 and v0 < v1):
+            raise ParamError(f"rear_wings: {wid}'s rect {e['rect']} is not a rectangle behind the main body")
+        if e.get("fabric", "brick") != "brick":
+            raise ParamError(f"rear_wings: {wid} is {e.get('fabric')!r}; a K01 wing is laid in the K03 brick")
+        if abs(u1) < 1e-9:
+            host, hv0, hv1, hwall = None, 0.0, width, "k01.wall.rear_service"
+        else:
+            hosts = [w for w in out if abs(w["rect"][0] - u1) < 1e-9]
+            if not hosts:
+                raise ParamError(f"rear_wings: {wid} stands on no wall: its front u {u1} is neither the main "
+                                 f"rear wall (0) nor the rear of a wing listed before it")
+            host = hosts[0]
+            hv0, hv1, hwall = host["rect"][2], host["rect"][3], f"k01.wall.wing.{host['id']}.rear"
+        if v0 < hv0 - 1e-9 or v1 > hv1 + 1e-9:
+            raise ParamError(f"rear_wings: {wid} runs v {v0}..{v1}, past its host wall's {hv0}..{hv1}")
+        heights = tuple(float(h) for h in e["storey_heights_m"])
+        floor = float(e["floor_m"])
+        floors, y = [], floor
+        for h in heights:
+            floors.append(round(y, 4))
+            y += h
+        top = round(y, 4)
+        roof = e["roof"]
+        if roof.get("kind") != "flat":
+            raise ParamError(f"rear_wings: {wid}'s roof is a {roof.get('kind')}; a K01 wing is decked flat")
+        if roof.get("covering") != "painted_tin_sheet":
+            raise ParamError(f"rear_wings: {wid}'s deck is covered in {roof.get('covering')!r}; a K01 wing "
+                             f"deck is K04's painted_tin_sheet")
+        ov, fas = float(roof["overhang_m"]), float(roof["fascia_m"])
+        if not (0.0 <= ov <= 0.6 and 0.1 <= fas <= 0.5):
+            raise ParamError(f"rear_wings: {wid}'s deck overhangs {ov} m on a {fas} m fascia, outside "
+                             f"0-0.6 m and 0.1-0.5 m")
+        deck = round(top + fas, 4)
+        sash = e["sash_by_storey"]
+        if len(sash) != len(heights):
+            raise ParamError(f"rear_wings: {wid}'s sash_by_storey needs one row per storey")
+        walls = wing_walls({"rect": (u0, u1, v0, v1)})
+        ops = []
+        for side, ss in sorted((e.get("windows") or {}).items()):
+            if side not in WING_SIDES:
+                raise ParamError(f"rear_wings: {wid} has no {side} wall ({', '.join(WING_SIDES)})")
+            length = walls[side][2]
+            for k, row in enumerate(sash):
+                sill = floors[k] + float(row["sill_above_floor_m"])
+                w_, h_ = float(row["width_m"]), float(row["height_m"])
+                _within(w_, cw, f"rear_wings.{wid}.sash_by_storey[{k}].width_m")
+                _within(h_, ch, f"rear_wings.{wid}.sash_by_storey[{k}].height_m")
+                if sill + h_ + 0.30 > top:
+                    raise ParamError(f"rear_wings: {wid}'s storey {k} heads run into its deck")
+                for s in ss:
+                    s = float(s)
+                    if s - w_ / 2 < 0.30 or s + w_ / 2 > length - 0.30:
+                        raise ParamError(f"rear_wings: {wid}'s {side} window at s {s} stands closer than "
+                                         f"0.30 m to a corner of its {length:.3f} m wall")
+                    ops.append(Opening("k01.opening.sash_flat", f"k01.wall.wing.{wid}.{side}", s,
+                                       round(sill, 4), w_, h_))
+        # what the wing covers of its host wall: s along that wall, from its left end
+        a, b = hv1 - v1, hv1 - v0
+        pool = openings if host is None else list(host["openings"])
+        for o in list(pool):
+            if o.wall != hwall:
+                continue
+            o0, o1 = o.s_m - o.width_m / 2 - 0.12, o.s_m + o.width_m / 2 + 0.12   # the head's horns
+            if o1 <= a or o0 >= b or o.sill_m - 0.15 >= deck:
+                continue
+            if o0 < a or o1 > b:
+                raise ParamError(f"rear_wings: {wid}'s junction at s {a:.3f}..{b:.3f} cuts the opening at "
+                                 f"s {o.s_m} on {o.wall}")
+            pool.remove(o)
+        if host is not None:
+            host["openings"] = tuple(pool)
+        out.append({"id": wid, "rect": (u0, u1, v0, v1), "host_wall": hwall, "host_span_m": (round(a, 4), round(b, 4)),
+                    "floors_m": tuple(floors), "top_m": top, "deck_m": deck, "overhang_m": ov, "fascia_m": fas,
+                    "host_v_m": (hv0, hv1), "openings": tuple(ops)})
     return tuple(out)
 
 
@@ -643,6 +748,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                "k01.wall.side.south": depth, "k01.wall.side.north": depth},
                  openings, (record or {}).get("id", ""))
 
+    wings = _rear_wings(val("rear_wings"), depth, width, openings, cw,
+                        opening["parameters"]["clear_height_m"]["range"], (record or {}).get("id", ""))
+
     stone = _k02(val("stone_front") or {})
     if stone:
         # the rusticated base and its coping run up to the area lights' heads, so the
@@ -710,7 +818,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         wall_head=dict(val("wall_head", {}) or {}),
         boundary=dict(val("boundary", {}) or {}),
         yard=yard,
-        stone=stone, condition=condition,
+        stone=stone, rear_wings=wings, condition=condition,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

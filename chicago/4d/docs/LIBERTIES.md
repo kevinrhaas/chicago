@@ -24079,7 +24079,7 @@ alley buildings are T-1936's.
 
 ### L-draft-prairie-16-18-west-2334 — The west side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and 1620 read off the 1886 plate
 
-**Covers:** `george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1604_prairie.draft_1904.form.draft_elevation`, `house_1604_prairie.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie.draft_1904.form.draft_elevation`, `house_1630_prairie.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1634_prairie.draft_1904.form.draft_elevation`, `house_1634_prairie.draft_1904.form.draft`, `house_1636_prairie.draft_1904.form.draft_elevation`, `house_1636_prairie.draft_1904.form.draft`, `house_1708_prairie.draft_1904.form.draft_elevation`, `house_1708_prairie.draft_1904.form.draft`, `house_1712_prairie.draft_1904.form.draft_elevation`, `house_1712_prairie.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie.draft_1904.form.draft_elevation`, `house_1726_prairie.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie.draft_1904.form.draft_elevation`, `house_1730_prairie.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `house_1736_prairie.draft_1904.form.draft_elevation`, `house_1736_prairie.draft_1904.form.draft`, `house_1736_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1736_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie.draft_1904.form.draft_elevation`, `walker_house_1720_prairie.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
+**Covers:** `george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie.draft_1904.form.draft_elevation`, `house_1630_prairie.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1634_prairie.draft_1904.form.draft_elevation`, `house_1634_prairie.draft_1904.form.draft`, `house_1636_prairie.draft_1904.form.draft_elevation`, `house_1636_prairie.draft_1904.form.draft`, `house_1708_prairie.draft_1904.form.draft_elevation`, `house_1708_prairie.draft_1904.form.draft`, `house_1712_prairie.draft_1904.form.draft_elevation`, `house_1712_prairie.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie.draft_1904.form.draft_elevation`, `house_1726_prairie.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie.draft_1904.form.draft_elevation`, `house_1730_prairie.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `house_1736_prairie.draft_1904.form.draft_elevation`, `house_1736_prairie.draft_1904.form.draft`, `house_1736_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1736_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie.draft_1904.form.draft_elevation`, `walker_house_1720_prairie.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 16th-18th block (T-2160, split to T-2334 for the west side
 and T-2335 for the east), run by the builder and under the rules of
 `L-draft-prairie-18-20-west-2329`, whose "What is invented" and "What is not" hold here word for
@@ -24100,6 +24100,9 @@ brick frontage under `L-k01-1600-corner-2342`, under the same id; its draft attr
 **1616 retired from this liberty by T-2353 (2026-10-11):** its main body now stands as the K01
 brick frontage under `L-k01-1616-brick-front-2353`, under the same id; its draft attributes are
 gone, and its stable keeps `house_1616_prairie_coach_house` here.
+**1604 retired from this liberty by T-2343 (2026-10-11):** the house now stands as the K01 brick
+frontage with its traced rear range on K01's rear wings under `L-k01-1604-rear-range-2343`, under
+the same id; its draft attributes are gone.
 **1628 retired from this liberty by T-2355 (2026-10-11):** its main body now stands as the K01
 brick frontage under `L-k01-1628-brick-front-2355`, under the same id; its draft attributes are
 gone, and its stable keeps `house_1628_prairie_coach_house` here.
@@ -24455,6 +24458,45 @@ the bow's size and place and settles the projection.
 **Ticket:** T-2342 (piece 2 of T-1859).
 **Review:** `docs/RESEARCH/k01-1600-corner-2342/README.md`.
 **Recorded:** 2026-10-11 (T-2342).
+
+### L-k01-1604-rear-range-2343 — 1604 Prairie refined from the district draft to a K01 brick house with its traced rear range: the three-storey block, the two-storey range and the west block behind it, everything else the kits'
+
+**Decision:** the brick house at 1604 Prairie Avenue (T-2343, piece 3 of T-1859) is no longer a
+district draft. It stands, under the draft's own id `house_1604_prairie`, as a `k01_frontage`
+record built by `generators/k01_emit.py` on the plain brick street front T-2341 taught K01, and
+T-2343 taught K01 its rear wings (`rear_wings`): rectangles behind the main body, each a K03 brick
+box with its own floors, K06 windows and a flat painted-tin deck, standing on the main rear wall or
+on the rear wall of a wing before it, which is not drawn behind it. The main body is the '3B'
+block; the range and the west block stand on two wings.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace, the
+T-1840 census (s20-1604-f '3B brick dwelling (D)', s20-1604-a1 '2B brick rear wing behind the
+front, joined by a narrow frame (yellow) entry strip', s20-1604-a2 '2-storey brick rear block, the
+westernmost piece') and the raster measured through the T-1250 fit: the front block's rectangle
+(12.2 m deep, 8.2 m wide) and its three storeys and basement; the range behind it, the house's full
+width and 8.3 m deep, two storeys and a basement; the west block, 3.7 m by 3.2 m on the north half
+of the range's rear, two storeys with no basement; all brick. The district draft had read the whole
+outline as one three-storey body 20.5 m deep; the main body's rear corner moves 8.40 m toward the
+street and 0.60 m south accordingly.
+**What is invented.** Every height (a 1.4 m principal floor and 3.9, 3.5 and 3.3 m storeys; the
+range's floors on the main body's first two, the west block's at 0.3 m and 3.5 m); the walls'
+thickness; the brick's colour, bond and grime (the one K03 panel); every window's kind, size and
+place on every wall of all three pieces, and every head (a K09 surround, a K09 cornice-hood lintel
+and a K01 flat lintel up the front); the door on the north bay, its stoop and width; the cornice and
+its brackets; the main roof's form (a hip, the only roof K01 builds), its 34-degree pitch, 0.6 m
+eave and tin covering; the two chimney stacks; the gutters and downpipes; the wings' flat
+painted-tin decks, their 0.15 m overhang and fascias, and their want of gutters.
+**What is folded or not built.** The yellow frame entry strip the sheet letters 'SLATED' between the
+front block and the range (about 0.95 m) is built as part of the brick range: its frame walls and
+slated roof are not modelled, because K01 lays brick only. The range's south wall, traced about
+0.2 m inside the front block's, is built flush with it; the trace's 0.4 m step south on the front
+block's rear half is not followed.
+**How to resolve:** a photograph, plate or description of 1604, ingested as a source, replaces the
+kits' choices in place; a frame-walled K01 wing (or a K16 timber piece) replaces the folded entry
+strip.
+**Covers:** `house_1604_prairie.as_mapped_1904.form.principal_floor_m`, `house_1604_prairie.as_mapped_1904.form.storey_heights_m`, `house_1604_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1604_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1604_prairie.as_mapped_1904.form.service_wall_brick`, `house_1604_prairie.as_mapped_1904.form.street_front_trim`, `house_1604_prairie.as_mapped_1904.form.wall_head`, `house_1604_prairie.as_mapped_1904.form.roof_form`, `house_1604_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1604_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1604_prairie.as_mapped_1904.form.stair_tread_m`, `house_1604_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1604_prairie.as_mapped_1904.form.stoop_width_m`, `house_1604_prairie.as_mapped_1904.form.entrance_bay`, `house_1604_prairie.as_mapped_1904.form.front_bays`, `house_1604_prairie.as_mapped_1904.form.side_bays`, `house_1604_prairie.as_mapped_1904.form.rear_bays`, `house_1604_prairie.as_mapped_1904.form.sash_by_storey`, `house_1604_prairie.as_mapped_1904.form.basement_lights`, `house_1604_prairie.as_mapped_1904.form.roof_covering`, `house_1604_prairie.as_mapped_1904.form.chimneys`, `house_1604_prairie.as_mapped_1904.form.rainwater`, `house_1604_prairie.as_mapped_1904.form.window_kit`, `house_1604_prairie.as_mapped_1904.form.entrance_kit`, `house_1604_prairie.as_mapped_1904.form.north_bays`.
+**Ticket:** T-2343 (piece 3 of T-1859).
+**Review:** `docs/RESEARCH/k01-1604-rear-range-2343/README.md`.
+**Recorded:** 2026-10-11 (T-2343).
 
 ### L-glessner-court-wall-2201 — The Glessner courtyard's south wall: a 1963 line carried to 1904, at a height and coping of ours
 
