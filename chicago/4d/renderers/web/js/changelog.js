@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1679, ts: '2026-10-11T05:13:34.862Z', date: 'Oct 11, 2026, 12:13 AM CT', title: 'The flora checks run in half the time', kind: 'chore',
+    items: [
+      'The automated walk-through that checks the plants now counts them without drawing the town on every step, so the check finishes inside its time limit again. Nothing you see in the town changed.',
+    ] },
   { v: 1678, ts: '2026-10-11T05:05:03.577Z', date: 'Oct 11, 2026, 12:05 AM CT', title: 'Every building on Prairie Avenue\'s 20th–22nd block, traced off the 1911 map', kind: 'chore',
     items: [
       'Nothing you can see changed yet. 60 buildings on the 20th–22nd block now have real outlines, read off the fire-insurance map\'s drawn walls.',
