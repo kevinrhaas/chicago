@@ -553,8 +553,11 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 734 -> 751 on 2026-10-11 (T-2330): the draft's east side of the same block, ten houses and
 # seven alley buildings, emitted the same way and restaling on none of the rows below either.
 #
+# 751 -> 783 on 2026-10-11 (T-2334): the draft's west side of the 16th-18th block, nineteen houses
+# and thirteen alley buildings, emitted the same way and restaling on none of the rows below either.
+#
 STATED = {
-    "assets": 751,
+    "assets": 783,
     "restales": {
         "generators/common/*.py": 713,
         "generators/common/__init__.py": 0,
