@@ -6,6 +6,8 @@
 // scene load, draws, triangles and a timed frame at every stand, and screenshots each.
 //   node tools/qa_k11_t2319.mjs            (after tools/publish.sh)
 //   QA_VIEWPORT=mobile node tools/qa_k11_t2319.mjs
+//   QA_STANDS=front,oblique ...   a subset, so each run fits a 600 s foreground call; the stands
+//                                  it reads are merged into that viewport's JSON by name
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
@@ -53,7 +55,8 @@ for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full']
  const placed=await page.evaluate(id=>Boolean(__chicago4d.registry.get(id)?.sidecar?.placement),ID);
  if(!placed)throw Error(`${ID} is not in the 1904 registry`);
  const stands=[];
- for(const [name,pos,target] of STANDS){
+ const only=process.env.QA_STANDS?.split(',');
+ for(const [name,pos,target] of STANDS.filter(([n])=>!only||only.includes(n))){
   const observation=await page.evaluate(({pos,target,id})=>{const a=__chicago4d,pl=a.registry.get(id).sidecar.placement,th=pl.rotation_deg*Math.PI/180;
    const ground=a.terrain.surfaceHeight(pl.local_e,pl.local_n);
    const en=([x,y,z])=>[pl.local_e+x*Math.cos(th)+y*Math.sin(th),pl.local_n-x*Math.sin(th)+y*Math.cos(th),ground+z];
@@ -75,5 +78,13 @@ for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full']
  await context.close();console.log(label+' actual published 1904 app with the K11 boundary: PASS');
 }
 }catch(e){failed=e;}
-finally{fs.writeFileSync(path.join(out,process.env.QA_VIEWPORT ? 'browser-validation-'+process.env.QA_VIEWPORT+'.json' : 'browser-validation.json'),JSON.stringify({method:'Actual published /1904/ app, normal boot; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 5 renders each waited on with a one-pixel read, on this machine\'s software GL (a relative reading, not a device claim).',results},null,2)+'\n');await browser.close();server.close();}
+finally{
+ const method='Actual published /1904/ app, normal boot; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 5 renders each waited on with a one-pixel read, on this machine\'s software GL (a relative reading, not a device claim).';
+ for(const row of results){
+  const file=path.join(out,`browser-validation-${row.label}.json`);
+  let prev=null;try{prev=JSON.parse(fs.readFileSync(file,'utf8')).results?.[0]}catch{}
+  if(prev&&process.env.QA_STANDS){const keep=prev.stands.filter(x=>!row.stands.some(y=>y.name===x.name));row.stands=STANDS.map(([n])=>[...keep,...row.stands].find(x=>x.name===n)).filter(Boolean);}
+  fs.writeFileSync(file,JSON.stringify({method,results:[row]},null,2)+'\n');
+ }
+ await browser.close();server.close();}
 if(failed){console.error(String(failed).slice(0,4000));process.exit(1);}

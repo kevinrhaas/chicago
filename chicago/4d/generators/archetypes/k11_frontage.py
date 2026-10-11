@@ -134,7 +134,7 @@ def dress(a):
     line = street - P["curb"]["width_m"] / 2           # the curb's street face on the street line
     walk = D + p.entrance_kit["front_yard_m"]           # the public walk's inner edge
 
-    # the stoop, as built: its foot and its sides, read off K07's mesh in front of the door
+    # the stoop, as built: how far its foot reaches, read off K07's mesh in front of the door
     door = next(o for o in p.openings if o.component == "k01.opening.door_leaf" and o.wall == STREET_FRONT)
     stoop = [q for q in a.prim("stoop_stone").pos if q[0] > D + 0.05 and abs(-q[2] - door.s_m) < 2.0]
     foot = max(q[0] for q in stoop)
@@ -196,10 +196,9 @@ def dress(a):
     for pc in wv.pieces:
         _to_wall(pc.mesh, -(s_south + wp / 2))
 
-    seed = a.instance(FENCE, "fence", {"length_m": round((ea - ps) - (sb + ps) + (s_north - 0.12) - (eb + ps), 4),
-                                        "runs": 2, "posts": len(south) + len(north) - 2},
+    a.instance(FENCE, "fence", {"length_m": round((ea - ps) - (sb + ps) + (s_north - 0.12) - (eb + ps), 4),
+                                        "runs": 2, "posts": len(south) + len(north) - 3},
                       {"line_south": (line, 0.0, -(sb + ps)), "line_north": (line, 0.0, -(s_north - 0.12))})
-    var.seed = wv.seed = seed
     a.instance(GATE, "gate", {"leaves": 2, "clear_m": c, "leaf_m": round(Lw, 4), "swing_reach_m": round(R, 4),
                               "stoop_foot_m": round(foot - D, 4)},
                {"opening": (line, 0.0, -door.s_m)})
