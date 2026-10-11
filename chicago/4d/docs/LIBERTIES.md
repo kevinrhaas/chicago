@@ -24173,3 +24173,45 @@ keeping this record's id.
 **Ticket:** T-2323 (piece 2 of T-1858, K16).
 **Review:** `docs/RESEARCH/k16-1638-front-2323/README.md`.
 **Recorded:** 2026-10-10 (T-2323).
+
+### L-k15-1808-chimneys-2313 — 1808 Prairie's two chimneys placed over the 1888 plan's fireplaces, and built from the K15 kit
+
+**Decision:** the 1808 Prairie exemplar (T-2313, piece 2 of T-1857) no longer carries the two
+plain boxes T-2302 stood on its ridge. It carries two stacks from the K15 chimney kit (T-2312),
+each built by `generators/archetypes/k15_chimneys.py` inside the house's own K05 roof and joined
+into it, so the shaft is cut where it passes through the slate, three flues are cut into each cap
+as dark recesses, and each stack has stepped side flashing, an apron below it and a cricket behind
+it. Both are the kit's grouped brick stack (1.155 × 0.525 m, two corbel courses, a stone cap)
+without its pots, turned along a side wall, and both stand 16.8 m above grade.
+**What is read, not invented.** WHERE they stand. The first-floor plan printed under the February
+1888 Inland Architect plate of the house (`inland_architect_1888_02_keith_plate`) draws two
+fireplaces in the main block, each set across a corner: the library's, where the round library
+meets the south wall and the music room's partition, and the hall's, against the north wall at the
+foot of the stair. The stacks stand over them: the library's 5.9 m behind the street front on the
+south wall, the hall's 4.4 m behind it on the north wall. A third fireplace, in the dining room,
+stands on the rear range, which this record does not build, so it has no stack here.
+**What is inferred.** That the flue rises in the wall behind each fireplace and that the rooms on
+the floors above have fireplaces over the one below, so one stack serves each corner. The plan is of
+one floor. It is read at the scale the house's 10.4 m width gives it, to about ±0.3 m.
+**What is invented.** Everything about the stacks above the roof: the plate's photograph is taken
+from the street and the parapet hides what stands behind it, so no source shows a chimney's size,
+height, cap or pots. The shaft, the three flues (one a storey), the corbels, the stone cap, the
+flashing and the cricket are the kit's (L-k15-chimney-kit-2312). The 16.8 m top is the kit's
+draught rule on this roof (the covering reaches 16.0 m within 3 m of each stack; the cap stands
+0.8 m above it), not a reading. No pot is set, because the kit sets one only where a source shows
+it. Each stack's plan centre is set 0.65 m in from its wall's face where the plan reads 0.54 and
+0.52 m: the footprint's margin asks at least 0.56 m, and a stack face within a centimetre of the
+K05 eave box's line left a sliver at the front hip.
+**Given up, said.** The roof is still the reconstructed hip of L-k05-1808-roof-2302, not the flat
+roof behind a pierced parapet the plate shows (T-1882's). On a hip the draught rule makes each
+stack rise 4 m above the eave side of the slope; behind a parapet it would be a short stack. The
+joined roof is welded at 2 mm before it is emitted (`k01_frontage.SHELL_WELD_M`): the apron's
+planes cross the hips a millimetre apart, and the contract's 1 mm grid would read the result as
+folded faces.
+**How to resolve:** a photograph of the house's roof or rear, or an upper-floor plan, gives the
+stacks' real height, size, flue count and caps, and the record takes them; T-1882's parapet and a
+flat roof would bring their tops down with it.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.chimneys`.
+**Ticket:** T-2313 (piece 2 of T-1857, K15).
+**Review:** `docs/RESEARCH/k15-1808-chimneys-2313/README.md`.
+**Recorded:** 2026-10-11 (T-2313).

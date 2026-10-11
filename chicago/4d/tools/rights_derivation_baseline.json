@@ -444,6 +444,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "keith_house_1808_prairie/as_built_1886/form.chimney_positions": {
+      "kind": "structure",
+      "blocked_sources": [
+        "inland_architect_1888_02_keith_plate"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "lake_house_construction/shell_1835/form.construction": {
       "kind": "structure",
       "blocked_sources": [
