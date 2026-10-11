@@ -549,12 +549,15 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 716 -> 734 on 2026-10-10 (T-2329): the eighteen houses and alley buildings of the Prairie
 # district draft's west side (18th to 20th), which write their glTF in pure Python
 # (generators/draft_emit.py) and so restale on none of the rows below.
+# 734 -> 735 on 2026-10-10 (T-2321, landing after T-2329): the first K12 coach house on a
+# named lot, wheeler_house_1812_prairie_coach_house, which writes its glTF in pure Python
+# (generators/k12_emit.py) and so restales on none of the rows below.
 #
-# 734 -> 751 on 2026-10-11 (T-2330): the draft's east side of the same block, ten houses and
+# 735 -> 752 on 2026-10-11 (T-2330, landing after T-2321): the draft's east side of the same block, ten houses and
 # seven alley buildings, emitted the same way and restaling on none of the rows below either.
 #
 STATED = {
-    "assets": 751,
+    "assets": 752,
     "restales": {
         "generators/common/*.py": 713,
         "generators/common/__init__.py": 0,

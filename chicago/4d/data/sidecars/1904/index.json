@@ -238,6 +238,12 @@
       "name": "1812 Prairie Avenue — Wheeler Dutch/Flemish gable rowhouse (district draft; refined by T-1884, T-1885)",
       "sidecar": "sidecars/1904/wheeler_house_1812_prairie.json",
       "asset": "gltf/wheeler_house_1812_prairie__draft_1904.glb"
+    },
+    {
+      "id": "wheeler_house_1812_prairie_coach_house",
+      "name": "Wheeler house (1812 Prairie Avenue): the coach house on the alley, K12",
+      "sidecar": "sidecars/1904/wheeler_house_1812_prairie_coach_house.json",
+      "asset": "gltf/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb"
     }
   ],
   "excluded_by_date": [

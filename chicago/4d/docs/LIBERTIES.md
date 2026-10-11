@@ -14473,7 +14473,7 @@ than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
-**Scope:** `structures.records[brick_fabric]` — 28 structures (4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 16 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either). The `brick` substrate in
+**Scope:** `structures.records[brick_fabric]` — 29 structures (16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either). The `brick` substrate in
 `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four
 are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
 `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says "two records are
@@ -23771,6 +23771,39 @@ for every lot at once.
 **Ticket:** T-2320 (piece 1 of T-1854, K12).
 **Review:** `docs/RESEARCH/k12-coach-house-kit/README.md`.
 **Recorded:** 2026-10-10 (T-2320).
+
+### L-k12-1812-coach-house-2321 — The coach house on the alley behind 1812 Prairie, built from the K12 kit on the outline the 1911 sheet draws
+
+**Decision:** the 1904 scene gains its first K12 coach house (T-2321), `wheeler_house_1812_prairie_coach_house`:
+the two-storey brick building that sheet 28 of the 1911 Sanborn draws across the whole width of the 1812
+Prairie lot on the alley, the lot directly south of the 1808 Keith house already standing in the scene.
+It is built by `generators/k12_emit.py` from the K12 kit (L-k12-coach-house-kit-2320). **What is read.**
+Its outline — 14.56 m deep from the alley line by 8.54 m along it, the lot's full width, measured between
+line centres on the committed raster and carried by the sheet's fitted similarity — its two storeys and
+its brick; the neighbours' alley buildings drawn hard against both ends, each with its own wall line
+about 0.4 m off; and the house's rear wall line 6.22 m east of it. Inferred for 1904 as every reading of
+these sheets is. **What is invented.** Its USE: the sheet letters it GARAGE, which is a 1911 use and is
+not read as the 1904 one (restriction `no_1911_use_labels`); the T-1841 sheet census backcasts the
+building and reconstructs it as the house's stable and coach house, and so does this — a carriage bay
+3.0 m clear with a loft hatch and hoist over it, a man door, stable sash and loft sash on the alley; a
+door onto the yard between stable sash and loft sash on the yard side — and nothing of a motor garage.
+Every opening's place and size is the kit's laid out for this lot; the sheet shows none. Both ends are
+party walls rising 0.45 m over the roof and returning 0.5 m past the eaves, because both neighbours
+stand against them; the kit's open gable, external stair, ramp, lean-to and wing are not built, because
+the sheet draws none of them and leaves no room for them. The roof is the kit's gable with its ridge along
+the alley, at 30 degrees rather than the kit's 40: the building is 14.6 m deep, and at 40 degrees its
+ridge would stand 6.1 m over the eaves, as tall again as the walls; 30 degrees puts it 4.2 m over them.
+The basement goes down 1.8 m all round, as the kit builds it, and is reached by nothing. The workyard is
+paved in brick: an apron 2.4 m deep along the yard wall and a 1.2 m walk from the yard door to the
+house's rear wall line, which the house (not yet built) will meet. Flat colours, no brick or slate
+texture. **What is not.** The outline, its place on the lot, its two storeys and its brick, and the
+distance to the house, are the sheet's. **How to resolve:** a photograph of the alley behind the 1800
+block of Prairie, or a building permit for the 1812 stable, entered as a source, gives its openings,
+roof and yard their true form; the Wheeler house (T-1884/T-1885) puts the house on the end of the walk.
+**Covers:** `wheeler_house_1812_prairie_coach_house.function`, `wheeler_house_1812_prairie_coach_house.as_standing_1904.form.coach_house`, `wheeler_house_1812_prairie_coach_house.as_standing_1904.form.stories`, `wheeler_house_1812_prairie_coach_house.as_standing_1904.form.construction`.
+**Ticket:** T-2321 (piece 2 of T-1854, K12).
+**Review:** `docs/RESEARCH/k12-1812-coach-house-2321/README.md`.
+**Recorded:** 2026-10-10 (T-2321).
 
 ### L-k14-condition-kit-2324 — The Prairie condition kit: every age, stain, trail, plume, worn path and lawn edge reconstructed
 
