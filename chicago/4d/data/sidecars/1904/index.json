@@ -193,9 +193,9 @@
     },
     {
       "id": "house_1616_prairie",
-      "name": "1616 Prairie Avenue — Brick masonry (district draft; refined by T-1860)",
+      "name": "1616 Prairie Avenue — brick house, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1616_prairie.json",
-      "asset": "gltf/house_1616_prairie__draft_1904.glb"
+      "asset": "gltf/house_1616_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1616_prairie_coach_house",
@@ -409,9 +409,9 @@
     },
     {
       "id": "law_house_1620_prairie",
-      "name": "1620 Prairie Avenue — Robert Law house restored for 1904 (district draft; refined by T-1861)",
+      "name": "1620 Prairie Avenue — Robert Law house restored for 1904",
       "sidecar": "sidecars/1904/law_house_1620_prairie.json",
-      "asset": "gltf/law_house_1620_prairie__draft_1904.glb"
+      "asset": "gltf/law_house_1620_prairie__restored_1904.glb"
     },
     {
       "id": "law_house_1620_prairie_coach_house",

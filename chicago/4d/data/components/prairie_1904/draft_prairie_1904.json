@@ -308,9 +308,11 @@
     "s28-1812-rear": "1812's coach house is being built from the K12 kit as wheeler_house_1812_prairie_coach_house (T-2321, PR #666); the draft does not stand a second building in its place.",
     "s20-1638-f": "1638's street front already stands as the K16 timber record shortall_gregory_house_1638_prairie_front (T-2323) on a plain body read off this sheet; T-2323 asked the draft to keep that record, so the draft adds only the stable behind it.",
     "s20-1600-f": "1600 Prairie is refined in place by T-2342 (piece 2 of T-1859) as the K01 brick corner house house_1600_prairie, under the draft's own id; the draft does not stand a second building on it.",
+    "r1886-1620-f": "1620 Prairie, the Robert Law house, is refined in place by T-1861 as the K01 brick frontage law_house_1620_prairie, under the draft's own id; the draft does not stand a second building on it, and its stable on the alley stays the draft's.",
     "s20-1608-f": "1608 Prairie is refined in place by T-2341 (piece 1 of T-1859) as the K01 brick frontage house_1608_prairie, under the draft's own id; the draft does not stand a second building on it.",
     "s20-1607-f": "1607-1611's four-storey loft is the 1911 replacement of the lot-6 frame pair (T-1840 census, backcast_1886): the draft stands 1609 and 1611 from Robinson 1886 instead (block 20's `plates`), and the loft not at all.",
-    "s20-1612-f": "1612 Prairie now stands as the K01 frontage assembly goodman_house_1612_prairie (T-2344, piece 1 of T-1860), which refines this draft in place under the draft's own id; the draft stands no second building beside it."
+    "s20-1612-f": "1612 Prairie now stands as the K01 frontage assembly goodman_house_1612_prairie (T-2344, piece 1 of T-1860), which refines this draft in place under the draft's own id; the draft stands no second building beside it.",
+    "s20-1616-f": "1616 Prairie's main body now stands as the K01 brick frontage house_1616_prairie (T-2353, piece 1 of T-2345), which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's one-storey rear range is T-2354's."
   },
   "frontages": {
     "frontage-28-038": {
@@ -510,7 +512,9 @@
     "frontage-20-005": {
       "slug": "house",
       "entrance": "north",
-      "why": "2½B brick: two full storeys and a half in the roof, read as dormers in the brick family's hip; the sheet's frame bay at its north-east corner stands as a projection."
+      "why": "2½B brick: two full storeys and a half in the roof, read as dormers in the brick family's hip; the sheet's frame bay at its north-east corner stands as a projection.",
+      "house_id": "house_1616_prairie",
+      "house_address": "1616"
     },
     "frontage-20-006": {
       "slug": "law_house",
