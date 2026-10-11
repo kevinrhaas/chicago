@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 152263528,
-      "sha256": "62a43486442639bfce13e52601194a839dbdca5ab0a74135029324f2e9fc2a8c",
+      "bytes": 153218624,
+      "sha256": "49a567868d7d3aa0ab78492ca9865469de9e51b9b32e69b9a42e2939aac4875e",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -21,8 +21,8 @@
       "mesh": {
         "draw_primitives": 28,
         "materials": 28,
-        "triangles": 1236675,
-        "vertices": 2862337
+        "triangles": 1246933,
+        "vertices": 2883137
       },
       "texture": {
         "images": 33,
@@ -46,8 +46,8 @@
       },
       "envelope_bbox_m": {
         "min": [
-          -0.2982,
-          1.0041,
+          -0.2886,
+          1.0046,
           -22.7108
         ],
         "max": [
@@ -66,7 +66,7 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 9267,
+        "degenerate": 9302,
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
@@ -317,7 +317,7 @@
           ]
         },
         "overhang_m": {
-          "west": 0.2982,
+          "west": 0.2886,
           "east": 0.11,
           "north": 0.1558,
           "south": 0.3952
@@ -328,8 +328,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 52287340,
-      "sha256": "89a6b8f7bb65b1d21232126f92828457c494b8a0c71544e0b40533a2d2f5e657",
+      "bytes": 52145068,
+      "sha256": "485bbcda878ef41e209ae96512ac86bc4a4a60f552a7b11a44c225b412fefa86",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -348,8 +348,8 @@
       "mesh": {
         "draw_primitives": 28,
         "materials": 28,
-        "triangles": 1236675,
-        "vertices": 2840089
+        "triangles": 1246933,
+        "vertices": 2856734
       },
       "texture": {
         "images": 32,
@@ -373,8 +373,8 @@
       },
       "envelope_bbox_m": {
         "min": [
-          -0.2986,
-          1.0041,
+          -0.2886,
+          1.0049,
           -22.7106
         ],
         "max": [
@@ -395,13 +395,13 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 9981,
-        "coincident": 0,
+        "degenerate": 9977,
+        "coincident": 1,
         "same_winding": 0,
-        "back_to_back": 0,
+        "back_to_back": 1,
         "shared_across_primitives": 0,
         "position_step_m": 0.0008299,
-        "coincident_shortest_edge_max_m": 0
+        "coincident_shortest_edge_max_m": 0.0008
       },
       "metric_uv": {
         "brick": {
@@ -472,52 +472,52 @@
           ]
         },
         "granite_1": {
-          "median_uv_per_m": 0.6248,
+          "median_uv_per_m": 0.625,
           "fabric": "granite",
           "tile_m": [
             1.6,
             1.6
           ],
-          "uv_per_m_times_tile_m": 0.9997,
+          "uv_per_m_times_tile_m": 1,
           "texture_transform_scale": [
             7.2727,
             7.2727
           ]
         },
         "granite_2": {
-          "median_uv_per_m": 0.6248,
+          "median_uv_per_m": 0.625,
           "fabric": "granite",
           "tile_m": [
             1.6,
             1.6
           ],
-          "uv_per_m_times_tile_m": 0.9997,
+          "uv_per_m_times_tile_m": 1.0001,
           "texture_transform_scale": [
             7.2727,
             7.2727
           ]
         },
         "granite_3": {
-          "median_uv_per_m": 0.6248,
+          "median_uv_per_m": 0.625,
           "fabric": "granite",
           "tile_m": [
             1.6,
             1.6
           ],
-          "uv_per_m_times_tile_m": 0.9997,
+          "uv_per_m_times_tile_m": 1,
           "texture_transform_scale": [
             7.2727,
             7.2727
           ]
         },
         "granite_4": {
-          "median_uv_per_m": 0.6248,
+          "median_uv_per_m": 0.625,
           "fabric": "granite",
           "tile_m": [
             1.6,
             1.6
           ],
-          "uv_per_m_times_tile_m": 0.9997,
+          "uv_per_m_times_tile_m": 1.0001,
           "texture_transform_scale": [
             7.2727,
             7.2727
@@ -609,13 +609,13 @@
           "uv_per_m_times_tile_m": 0.9994
         },
         "rough_stone_trim": {
-          "median_uv_per_m": 0.6247,
+          "median_uv_per_m": 0.6248,
           "fabric": "granite",
           "tile_m": [
             1.6,
             1.6
           ],
-          "uv_per_m_times_tile_m": 0.9996,
+          "uv_per_m_times_tile_m": 0.9997,
           "texture_transform_scale": [
             7.2727,
             7.2727
@@ -634,7 +634,7 @@
           ]
         },
         "overhang_m": {
-          "west": 0.2986,
+          "west": 0.2886,
           "east": 0.1102,
           "north": 0.1556,
           "south": 0.3953
@@ -645,8 +645,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 27016428,
-      "sha256": "48467c91f4da0ea64d062bbfc86a05fb4ab0da58d5e1d2fcf614976772e7489e",
+      "bytes": 26979680,
+      "sha256": "97673a85e8e95d6d648635143627cadff66c9485bd4edc6aa307f36b1a5beada",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -665,8 +665,8 @@
       "mesh": {
         "draw_primitives": 25,
         "materials": 25,
-        "triangles": 199116,
-        "vertices": 389469
+        "triangles": 197304,
+        "vertices": 385411
       },
       "texture": {
         "images": 32,
@@ -710,7 +710,7 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 110,
+        "degenerate": 108,
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
@@ -819,7 +819,7 @@
             1.6,
             1.6
           ],
-          "uv_per_m_times_tile_m": 0.9999,
+          "uv_per_m_times_tile_m": 1,
           "texture_transform_scale": [
             7.2727,
             7.2727
@@ -971,7 +971,7 @@
             0.000008
           ],
           "wall_face_shift_m": [
-            -0.0004,
+            0,
             0.0002,
             0.0002,
             0.0001
@@ -985,7 +985,7 @@
             -0.000025
           ],
           "wall_face_shift_m": [
-            0.0097,
+            0.0001,
             0.0004,
             0.0205,
             -0.0003
@@ -1001,8 +1001,11 @@
       "ok": true,
       "counts": {
         "full": 0,
-        "web": 0,
+        "web": 1,
         "light": 0
+      },
+      "quantization": {
+        "web": "1 on the 0.0008299 m position lattice, none larger than a 0.0008 m shortest edge; the master has none and this tier carries its triangles one for one"
       }
     },
     "metric_uv": {
