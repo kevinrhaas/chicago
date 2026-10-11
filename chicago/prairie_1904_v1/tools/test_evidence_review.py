@@ -57,10 +57,14 @@ class EvidenceReviewTests(unittest.TestCase):
         r['evidence_review']['family_members'].append('missing-source')
         self.assertTrue(any('inconsistent family' in e for e in validate_reviews(records)))
 
-    def test_new_florian_views_are_link_only(self):
+    def test_new_florian_views_are_held_only_as_credited_reference_copies(self):
+        # T-2199 left these link-only; the owner ruled on 2026-10-11 that such pictures are held
+        # as reference copies with their credit (T-2368). Their rights do not change.
         for suffix in ('entry-curb', 'northeast-overall', 'courtyard-bow-chimney'):
             r = next(r for r in self.records if r['id'] == 'a18-gh-florian-1948-' + suffix)
-            self.assertIsNone(r['local'])
+            if r['local']:
+                self.assertTrue(r['reference_copy']['basis'])
+                self.assertTrue(r['reference_copy']['credit']['catalog_url'])
             self.assertEqual(r['rights'], 'copyright — link only')
             self.assertEqual(r['evidence_review']['phase'], 'after target year')
 

@@ -1577,11 +1577,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1834sprairie.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Undated photograph; no publication or holder named on the page",
-  "local": null,
+  "local": {
+   "display": "research/images/files/cgs-1834-jones-photo.jpg",
+   "display_bytes": 146541,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1834sprairie.jpg",
+   "original_bytes": 484496,
+   "original_px": [
+    1200,
+    900
+   ],
+   "original_sha256": "f4d17d6f1284942da65585666141761ea50d490691f666a3a8bd9bf8df412aa8",
+   "thumb": "research/images/files/cgs-1834-jones-photo-thumb.jpg",
+   "thumb_bytes": 26279
+  },
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, south half 1834–2140; every image on the page enumerated)",
   "notes": "Chicagology's copy (1200×900) of the same photograph the Glessner House blog shows for the Fernando Jones house (a18-gh-1834-fernando-jones). Two-storey Italianate brick house on a high rusticated stone basement: bracketed cornice with a pediment-like centre gable and oculus, segmental-arched stone window hoods, an angled one-storey bay on the north (left), front stoop with ornamental cast-iron railings, iron balconettes at the parlour windows; newly planted parkway saplings; the Italianate neighbour at right (south) and a cupola at far left. Date bounds: built 1866 (page life span 1866–1942); the house shows no third storey, while the Tribune of 5 Jan 1942 reports a fire on its 'vacant third floor' (cgs-1834-text), so the photo predates the third-storey (mansard) addition the library dates to 1886. Does NOT show the 1904 roofline.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/1834prairie/",
+    "collection": "Chicagology Prairie Avenue address pages (1834 page); original holder not credited",
+    "creator": "unknown photographer (not credited on the page)",
+    "date": "undated (no date on the page)",
+    "repository": "Chicagology (chicagology.com)",
+    "rights": "unknown — link only",
+    "title": "1834 S. Prairie"
+   }
+  }
  },
  {
   "id": "cgs-1834-tribune-1911-jones-headline",

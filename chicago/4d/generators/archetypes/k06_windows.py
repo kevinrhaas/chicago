@@ -206,6 +206,14 @@ class Opening:
         return (self.O[0] + s, self.O[1] + y, self.O[2] - d)
 
     def face(self, role, pts, hint):
+        # T-2366: a round head's region that starts on its own spring (a fanlight's, a
+        # fixed light's upper pane) repeats a corner; a repeated point is no vertex
+        # (kept to round heads, whose regions alone do it: the flat and segmental
+        # variants' meshes, which committed houses carry, stay their bytes)
+        if self.v.get("head") == "round":
+            pts = [q for i, q in enumerate(pts) if math.dist(q, pts[i - 1]) > 1e-6]
+            if len(pts) < 3:
+                return
         n = (0.0, 0.0, 0.0)
         for i, a in enumerate(pts):
             b = pts[(i + 1) % len(pts)]
