@@ -77,14 +77,14 @@
    "division_ground": 27,
    "farms_and_country_seats": 205,
    "heavy_and_noxious_trades": 1,
-   "labourer_dwellings": 68,
+   "labourer_dwellings": 69,
    "merchant_and_professional_dwellings": 368,
-   "tradesman_dwellings": 439
+   "tradesman_dwellings": 438
   },
   "owed_by_district": {
    "north": 237,
-   "south": 654,
-   "west": 217
+   "south": 655,
+   "west": 216
   },
   "owed_by_the_letter_list_ruling": 773,
   "roofs_offered_for_adoption": 110,
@@ -105,10 +105,10 @@
   },
   "rows_owed_by_district": {
    "north": 237,
-   "south": 654,
-   "west": 217
+   "south": 655,
+   "west": 216
   },
-  "statement": "not one free reconstruction roof stands off the plat in the South Division: every South Division roof this project raised stands on a lot of the committed plat, and T-1613 dealt what was free of them. So the 654 South Division rows handed on here could not be seated by ANY clause, and their reason is a shortage of roofs rather than a shortage of clauses. It is the sharpest reading of the coverage gate in either file."
+  "statement": "not one free reconstruction roof stands off the plat in the South Division: every South Division roof this project raised stands on a lot of the committed plat, and T-1613 dealt what was free of them. So the 655 South Division rows handed on here could not be seated by ANY clause, and their reason is a shortage of roofs rather than a shortage of clauses. It is the sharpest reading of the coverage gate in either file."
  },
  "farmsteads": {
   "ticket": "T-1794",
@@ -356,7 +356,7 @@
    "family": "D1",
    "district": "west",
    "parcel_id": "canal_commissioners_1830",
-   "why": "every one of the 68 household(s) in scope whose clause admits a D1 roof in this division is answered — 12 seated under another roof; 35 refused a roof by the owner's letter-list ruling (T-0379); 21 farm household(s) the farmstead rule (T-1794) seats only in a cabin with a barn beside it — so nobody in scope is left to take it"
+   "why": "every one of the 67 household(s) in scope whose clause admits a D1 roof in this division is answered — 12 seated under another roof; 35 refused a roof by the owner's letter-list ruling (T-0379); 20 farm household(s) the farmstead rule (T-1794) seats only in a cabin with a barn beside it — so nobody in scope is left to take it"
   },
   {
    "structure_id": "recon_1835_west_011",
@@ -384,7 +384,7 @@
    "family": "D1",
    "district": "west",
    "parcel_id": "canal_commissioners_1830",
-   "why": "every one of the 68 household(s) in scope whose clause admits a D1 roof in this division is answered — 12 seated under another roof; 35 refused a roof by the owner's letter-list ruling (T-0379); 21 farm household(s) the farmstead rule (T-1794) seats only in a cabin with a barn beside it — so nobody in scope is left to take it"
+   "why": "every one of the 67 household(s) in scope whose clause admits a D1 roof in this division is answered — 12 seated under another roof; 35 refused a roof by the owner's letter-list ruling (T-0379); 20 farm household(s) the farmstead rule (T-1794) seats only in a cabin with a barn beside it — so nobody in scope is left to take it"
   }
  ],
  "seats": [
@@ -1280,33 +1280,6 @@
    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_kimberly_ira",
-   "kind": "household",
-   "name": "The Kimberly household — a name the town's own records carry",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "band": "north/tradesman_dwellings",
-   "parcel_id": "canal_section_9_remainder",
-   "parcel_kind": "survey_tract",
-   "granularity": "tract",
-   "block_id": null,
-   "fronts": null,
-   "street_class": "unplatted",
-   "ground_tokens": [
-    "outside_plat",
-    "unplatted"
-   ],
-   "how": "adopted",
-   "structure_id": "recon_1835_north_d4_072",
-   "family": "D4",
-   "stands_on": "tract",
-   "setback_class": "typology",
-   "policy_rule": "tradesman_dwellings",
-   "order_book_draw": null,
-   "seed": "hh_kimberly_ira|T-1522|division:10a70fcdafa9|class:8bb6ae7647f6",
-   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
    "id": "hh_kimberly_osa",
    "kind": "household",
    "name": "The Kimberly household — a name the town's own records carry",
@@ -1324,7 +1297,7 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_north_d4_069",
+   "structure_id": "recon_1835_north_d4_072",
    "family": "D4",
    "stands_on": "tract",
    "setback_class": "typology",
@@ -1351,7 +1324,7 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_north_d4_056",
+   "structure_id": "recon_1835_north_d4_069",
    "family": "D4",
    "stands_on": "tract",
    "setback_class": "typology",
@@ -1367,7 +1340,7 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "parcel_id": "kinzies_addition",
+   "parcel_id": "canal_section_9_remainder",
    "parcel_kind": "survey_tract",
    "granularity": "tract",
    "block_id": null,
@@ -1378,7 +1351,7 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_north_d4_043",
+   "structure_id": "recon_1835_north_d4_056",
    "family": "D4",
    "stands_on": "tract",
    "setback_class": "typology",
@@ -1405,7 +1378,7 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_north_d4_039",
+   "structure_id": "recon_1835_north_d4_043",
    "family": "D4",
    "stands_on": "tract",
    "setback_class": "typology",
@@ -1418,6 +1391,33 @@
    "id": "hh_leonard_n",
    "kind": "household",
    "name": "The Leonard household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "band": "north/tradesman_dwellings",
+   "parcel_id": "kinzies_addition",
+   "parcel_kind": "survey_tract",
+   "granularity": "tract",
+   "block_id": null,
+   "fronts": null,
+   "street_class": "unplatted",
+   "ground_tokens": [
+    "outside_plat",
+    "unplatted"
+   ],
+   "how": "adopted",
+   "structure_id": "recon_1835_north_d4_039",
+   "family": "D4",
+   "stands_on": "tract",
+   "setback_class": "typology",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_leonard_n|T-1522|division:0ae4f38c4fd1|class:9d1834ff2060",
+   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_liton_robert_w",
+   "kind": "household",
+   "name": "The Liton household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
@@ -1438,13 +1438,13 @@
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_leonard_n|T-1522|division:0ae4f38c4fd1|class:9d1834ff2060",
+   "seed": "hh_liton_robert_w|T-1522|division:145fc1b6cf99|class:cf706ee2c083",
    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_liton_robert_w",
+   "id": "hh_long_john",
    "kind": "household",
-   "name": "The Liton household — a name the town's own records carry",
+   "name": "The Long household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
@@ -1460,33 +1460,6 @@
    ],
    "how": "adopted",
    "structure_id": "recon_1835_north_d4_017",
-   "family": "D4",
-   "stands_on": "tract",
-   "setback_class": "typology",
-   "policy_rule": "tradesman_dwellings",
-   "order_book_draw": null,
-   "seed": "hh_liton_robert_w|T-1522|division:145fc1b6cf99|class:cf706ee2c083",
-   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
-   "id": "hh_long_john",
-   "kind": "household",
-   "name": "The Long household — a name the town's own records carry",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "band": "north/tradesman_dwellings",
-   "parcel_id": "canal_section_9_remainder",
-   "parcel_kind": "survey_tract",
-   "granularity": "tract",
-   "block_id": null,
-   "fronts": null,
-   "street_class": "unplatted",
-   "ground_tokens": [
-    "outside_plat",
-    "unplatted"
-   ],
-   "how": "adopted",
-   "structure_id": "recon_1835_north_d4_015",
    "family": "D4",
    "stands_on": "tract",
    "setback_class": "typology",
@@ -1529,7 +1502,7 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "parcel_id": "kinzies_addition",
+   "parcel_id": "canal_section_9_remainder",
    "parcel_kind": "survey_tract",
    "granularity": "tract",
    "block_id": null,
@@ -1540,8 +1513,8 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_north_d3_089",
-   "family": "D3",
+   "structure_id": "recon_1835_north_d4_015",
+   "family": "D4",
    "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -1583,6 +1556,33 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
+   "parcel_id": "kinzies_addition",
+   "parcel_kind": "survey_tract",
+   "granularity": "tract",
+   "block_id": null,
+   "fronts": null,
+   "street_class": "unplatted",
+   "ground_tokens": [
+    "outside_plat",
+    "unplatted"
+   ],
+   "how": "adopted",
+   "structure_id": "recon_1835_north_d3_089",
+   "family": "D3",
+   "stands_on": "tract",
+   "setback_class": "typology",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_molony_denis|T-1522|division:16152c02e482|class:f4ec08057bfc",
+   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_moore_henry",
+   "kind": "household",
+   "name": "The Moore household — a documented attorney, unplaced in the town",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "band": "north/tradesman_dwellings",
    "parcel_id": "blk_kinzie_dearborn_north#02",
    "parcel_kind": "tier_lot",
    "granularity": "lot",
@@ -1597,33 +1597,6 @@
    "structure_id": "recon_1835_north_d3_081",
    "family": "D3",
    "stands_on": "lot",
-   "setback_class": "typology",
-   "policy_rule": "tradesman_dwellings",
-   "order_book_draw": null,
-   "seed": "hh_molony_denis|T-1522|division:16152c02e482|class:f4ec08057bfc",
-   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
-   "id": "hh_moore_henry",
-   "kind": "household",
-   "name": "The Moore household — a documented attorney, unplaced in the town",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "band": "north/tradesman_dwellings",
-   "parcel_id": "canal_section_9_remainder",
-   "parcel_kind": "survey_tract",
-   "granularity": "tract",
-   "block_id": null,
-   "fronts": null,
-   "street_class": "unplatted",
-   "ground_tokens": [
-    "outside_plat",
-    "unplatted"
-   ],
-   "how": "adopted",
-   "structure_id": "recon_1835_north_d3_073",
-   "family": "D3",
-   "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
@@ -1648,7 +1621,7 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_north_d3_055",
+   "structure_id": "recon_1835_north_d3_073",
    "family": "D3",
    "stands_on": "tract",
    "setback_class": "typology",
@@ -1664,7 +1637,7 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "parcel_id": "kinzies_addition",
+   "parcel_id": "canal_section_9_remainder",
    "parcel_kind": "survey_tract",
    "granularity": "tract",
    "block_id": null,
@@ -1675,7 +1648,7 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_north_d3_042",
+   "structure_id": "recon_1835_north_d3_055",
    "family": "D3",
    "stands_on": "tract",
    "setback_class": "typology",
@@ -1691,7 +1664,7 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "parcel_id": "canal_section_9_remainder",
+   "parcel_id": "kinzies_addition",
    "parcel_kind": "survey_tract",
    "granularity": "tract",
    "block_id": null,
@@ -1702,7 +1675,7 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_north_d3_038",
+   "structure_id": "recon_1835_north_d3_042",
    "family": "D3",
    "stands_on": "tract",
    "setback_class": "typology",
@@ -1729,7 +1702,7 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_north_d3_024",
+   "structure_id": "recon_1835_north_d3_038",
    "family": "D3",
    "stands_on": "tract",
    "setback_class": "typology",
@@ -1799,9 +1772,9 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "parcel_id": null,
-   "parcel_kind": "on_no_committed_parcel",
-   "granularity": "unplatted",
+   "parcel_id": "canal_section_9_remainder",
+   "parcel_kind": "survey_tract",
+   "granularity": "tract",
    "block_id": null,
    "fronts": null,
    "street_class": "unplatted",
@@ -1810,9 +1783,9 @@
     "unplatted"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_north_d3_020",
+   "structure_id": "recon_1835_north_d3_024",
    "family": "D3",
-   "stands_on": "unplatted",
+   "stands_on": "tract",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
@@ -1853,6 +1826,33 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
+   "parcel_id": null,
+   "parcel_kind": "on_no_committed_parcel",
+   "granularity": "unplatted",
+   "block_id": null,
+   "fronts": null,
+   "street_class": "unplatted",
+   "ground_tokens": [
+    "outside_plat",
+    "unplatted"
+   ],
+   "how": "adopted",
+   "structure_id": "recon_1835_north_d3_020",
+   "family": "D3",
+   "stands_on": "unplatted",
+   "setback_class": "typology",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_rc_connor_margaret|north|dressmaker|T-1512",
+   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_rc_murphy_margaret",
+   "kind": "household",
+   "name": "Reconstructed household — Margaret Murphy, a woman keeping her own house in the north division",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "band": "north/tradesman_dwellings",
    "parcel_id": "blk_kinzie_clark_north#06",
    "parcel_kind": "tier_lot",
    "granularity": "lot",
@@ -1870,13 +1870,13 @@
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_connor_margaret|north|dressmaker|T-1512",
+   "seed": "hh_rc_murphy_margaret|north|milliner|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_murphy_margaret",
+   "id": "hh_rc_thayer_amanda",
    "kind": "household",
-   "name": "Reconstructed household — Margaret Murphy, a woman keeping her own house in the north division",
+   "name": "Reconstructed household — Amanda Thayer, a woman keeping her own house in the north division",
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
@@ -1897,13 +1897,13 @@
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_rc_murphy_margaret|north|milliner|T-1512",
+   "seed": "hh_rc_thayer_amanda|north|milliner|T-1512",
    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_rc_thayer_amanda",
+   "id": "hh_reed_s_w",
    "kind": "household",
-   "name": "Reconstructed household — Amanda Thayer, a woman keeping her own house in the north division",
+   "name": "The Reed household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
@@ -1919,33 +1919,6 @@
    ],
    "how": "adopted",
    "structure_id": "recon_1835_north_d4_079",
-   "family": "D4",
-   "stands_on": "lot",
-   "setback_class": "typology",
-   "policy_rule": "tradesman_dwellings",
-   "order_book_draw": null,
-   "seed": "hh_rc_thayer_amanda|north|milliner|T-1512",
-   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
-   "id": "hh_reed_s_w",
-   "kind": "household",
-   "name": "The Reed household — a name the town's own records carry",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "band": "north/tradesman_dwellings",
-   "parcel_id": "blk_kinzie_dearborn_north#06",
-   "parcel_kind": "tier_lot",
-   "granularity": "lot",
-   "block_id": "blk_kinzie_dearborn_north",
-   "fronts": "kinzie",
-   "street_class": "ordinary",
-   "ground_tokens": [
-    "outside_plat",
-    "wet"
-   ],
-   "how": "adopted",
-   "structure_id": "recon_1835_north_d4_018",
    "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -2015,10 +1988,10 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "parcel_id": "blk_kinzie_clark_north#00",
+   "parcel_id": "blk_kinzie_dearborn_north#06",
    "parcel_kind": "tier_lot",
    "granularity": "lot",
-   "block_id": "blk_kinzie_clark_north",
+   "block_id": "blk_kinzie_dearborn_north",
    "fronts": "kinzie",
    "street_class": "ordinary",
    "ground_tokens": [
@@ -2026,7 +1999,7 @@
     "wet"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_north_d4_004",
+   "structure_id": "recon_1835_north_d4_018",
    "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -2069,7 +2042,7 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "parcel_id": "blk_kinzie_clark_north#06",
+   "parcel_id": "blk_kinzie_clark_north#00",
    "parcel_kind": "tier_lot",
    "granularity": "lot",
    "block_id": "blk_kinzie_clark_north",
@@ -2080,8 +2053,8 @@
     "wet"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_north_d3_006",
-   "family": "D3",
+   "structure_id": "recon_1835_north_d4_004",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -2150,19 +2123,19 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "parcel_id": "blk_kinzie_clark_north#03",
+   "parcel_id": "blk_kinzie_clark_north#06",
    "parcel_kind": "tier_lot",
    "granularity": "lot",
    "block_id": "blk_kinzie_clark_north",
-   "fronts": null,
-   "street_class": "unplatted",
+   "fronts": "kinzie",
+   "street_class": "ordinary",
    "ground_tokens": [
     "outside_plat",
     "wet"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_north_d4_005",
-   "family": "D4",
+   "structure_id": "recon_1835_north_d3_006",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -2177,10 +2150,10 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
-   "parcel_id": "blk_kinzie_lasalle_north#03",
+   "parcel_id": "blk_kinzie_clark_north#03",
    "parcel_kind": "tier_lot",
    "granularity": "lot",
-   "block_id": "blk_kinzie_lasalle_north",
+   "block_id": "blk_kinzie_clark_north",
    "fronts": null,
    "street_class": "unplatted",
    "ground_tokens": [
@@ -2188,8 +2161,8 @@
     "wet"
    ],
    "how": "adopted",
-   "structure_id": "recon_1835_north_d3_002",
-   "family": "D3",
+   "structure_id": "recon_1835_north_d4_005",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
@@ -2231,6 +2204,33 @@
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
+   "parcel_id": "blk_kinzie_lasalle_north#03",
+   "parcel_kind": "tier_lot",
+   "granularity": "lot",
+   "block_id": "blk_kinzie_lasalle_north",
+   "fronts": null,
+   "street_class": "unplatted",
+   "ground_tokens": [
+    "outside_plat",
+    "wet"
+   ],
+   "how": "adopted",
+   "structure_id": "recon_1835_north_d3_002",
+   "family": "D3",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_smith_lawrence|T-1522|division:0fe574c5dc01|class:f5aba2d39238",
+   "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_spalding_l_f",
+   "kind": "household",
+   "name": "The Spalding household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "band": "north/tradesman_dwellings",
    "parcel_id": "blk_kinzie_clark_north#07",
    "parcel_kind": "tier_lot",
    "granularity": "lot",
@@ -2248,13 +2248,13 @@
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_smith_lawrence|T-1522|division:0fe574c5dc01|class:f5aba2d39238",
+   "seed": "hh_spalding_l_f|T-1522|division:0d5f7ca96033|class:8ea78c436f57",
    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_spalding_l_f",
+   "id": "hh_stevens_l",
    "kind": "household",
-   "name": "The Spalding household — a name the town's own records carry",
+   "name": "The Stevens household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "north",
    "band": "north/tradesman_dwellings",
@@ -2275,7 +2275,7 @@
    "setback_class": "typology",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_spalding_l_f|T-1522|division:0d5f7ca96033|class:8ea78c436f57",
+   "seed": "hh_stevens_l|T-1522|division:28364d86270a|class:fe9b66b13af9",
    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
@@ -4033,15 +4033,6 @@
    "handed_to": "T-1615"
   },
   {
-   "id": "hh_franchere_l",
-   "kind": "household",
-   "band": "south/merchant_and_professional_dwellings",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "south",
-   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
-   "handed_to": "T-1615"
-  },
-  {
    "id": "hh_frauner_m",
    "kind": "household",
    "band": "south/merchant_and_professional_dwellings",
@@ -4741,6 +4732,15 @@
    "district": "south",
    "why": "a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. The deal reads the ruling before it deals (T-1645), so no roof is offered to this row and the roof it would have taken goes on to the next row of its clause order",
    "refused_by": "T-0379",
+   "handed_to": "T-1615"
+  },
+  {
+   "id": "hh_kimberly_ira",
+   "kind": "household",
+   "band": "north/merchant_and_professional_dwellings",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "north",
+   "why": "every one of the 8 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10022,15 +10022,6 @@
    "handed_to": "T-1615"
   },
   {
-   "id": "hh_stevens_l",
-   "kind": "household",
-   "band": "north/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "why": "every one of the 48 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
-   "handed_to": "T-1615"
-  },
-  {
    "id": "hh_stimson_s_c",
    "kind": "household",
    "band": "south/tradesman_dwellings",
@@ -11312,6 +11303,15 @@
    "handed_to": "T-1615"
   },
   {
+   "id": "hh_rc_woodruff_ruth",
+   "kind": "household",
+   "band": "south/labourer_dwellings",
+   "clause": "labourer_dwellings",
+   "district": "south",
+   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "handed_to": "T-1615"
+  },
+  {
    "id": "hh_reel_absolam",
    "kind": "household",
    "band": "south/labourer_dwellings",
@@ -12477,10 +12477,10 @@
   {
    "id": "hh_laframboise_thrse",
    "kind": "household",
-   "band": "west/farms_and_country_seats",
+   "band": "south/farms_and_country_seats",
    "clause": "farms_and_country_seats",
-   "district": "west",
-   "why": "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "district": "south",
+   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {

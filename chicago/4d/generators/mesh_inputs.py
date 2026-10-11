@@ -83,15 +83,20 @@ class InputsError(ValueError):
 #: and the command alone, and carries no Blender pin.
 PURE_PYTHON = {"k01_frontage": "k01_emit.py", "k13_conservatories": "k13_emit.py",  # T-2306: K13
                "k16_timber": "k16_emit.py",  # T-2323: K16
+               "k12_coach_house": "k12_emit.py",  # T-2321: K12
                "prairie_draft": "draft_emit.py"}  # T-2329: the district draft
 #: The library modules a pure-Python archetype lays on its walls (T-2291), and so hashes
 #: beside the archetype: K03 brick's bond, heads and string course move vertices too.
 #: T-2302: and K05 builds its roof, from the kit's own parts (k05_roofs.json, hashed below).
-PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_frontage.py", "k09_trim.py"),
+PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_frontage.py", "k09_trim.py",
+                                       "k10_frontage.py", "k10_cornices.py"),
                        # T-2306: the conservatory is cut with K01's Prim and K06's polygon helpers
                        "k13_conservatories": ("k01_frontage.py", "k06_windows.py"),
                        # T-2323: the timber front is cut with K01's Prim and K06's sash and polygon helpers
-                       "k16_timber": ("k01_frontage.py", "k06_windows.py")}
+                       "k16_timber": ("k01_frontage.py", "k06_windows.py"),
+                       # T-2321: the coach house is cut with K09's mesh primitives, K01's vector
+                       # helpers and K10's sweep (its party-wall coping)
+                       "k12_coach_house": ("k09_trim.py", "k01_frontage.py", "k10_cornices.py")}
 
 
 def _sha_file(p: Path) -> str:
@@ -226,6 +231,9 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
         # T-2310: the K09 kit's sizes are data, and its trim is laid from them
         kit = ROOT / "data" / "components" / "prairie_1904" / "k09_trim.json"
         doc["component_data"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}
+        # T-2317: and the K10 kit's, which the brackets, bed moulding and cresting are built from
+        k10 = ROOT / "data" / "components" / "prairie_1904" / "k10_cornices.json"
+        doc["component_data"][k10.relative_to(ROOT).as_posix()] = _sha_file(k10)
         # T-2308: and the bay kit's — its parts, curves and roofs size every bay a record names
         bays = ROOT / "data" / "components" / "prairie_1904" / "k08_bays.json"
         doc["bay_kit"] = {bays.relative_to(ROOT).as_posix(): _sha_file(bays)}
@@ -245,6 +253,11 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
         for kit in ("k16_timber.json", "k06_windows.json"):
             f = ROOT / "data" / "components" / "prairie_1904" / kit
             doc.setdefault("component_data", {})[f.relative_to(ROOT).as_posix()] = _sha_file(f)
+    if arch == "k12_coach_house":
+        # T-2321: the kit's parts (wall, storeys, roof, party wall, openings, workyard) are
+        # data the builder reads
+        kit = ROOT / "data" / "components" / "prairie_1904" / "k12_coach_house.json"
+        doc["component_data"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}
     if arch == "masonry_house" and getattr(params, "detail_profile", "") == "glessner_v4":
         # The map bytes are inputs too: replacing a normal map must demand a
         # bake just as changing a stone's depth does. Only v4 reads this folder.

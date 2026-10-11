@@ -223,6 +223,16 @@ def slab(m: Mesh, outline, holes, n0, n1, open_edges=()):
         tube(m, h, n0, n1, inward=True)
 
 
+def sides(m: Mesh, poly2, z0, z1):
+    """`prism` without either end: a section run between two walls it dies into (T-2321)."""
+    if area2(poly2) < 0:
+        poly2 = list(reversed(poly2))
+    for i in range(len(poly2)):
+        a, b = poly2[i], poly2[(i + 1) % len(poly2)]
+        out = (b[1] - a[1], -(b[0] - a[0]), 0.0)
+        m.poly([(a[0], a[1], z0), (b[0], b[1], z0), (b[0], b[1], z1), (a[0], a[1], z1)], out)
+
+
 def segment_arc(s0, s1, head, rise, n=12, extra=0.0):
     """A segmental arch springing at (s0, head) and (s1, head) with `rise`, from s1 over
     the crown to s0, at radius R + extra. Returns the points and (centre, R)."""
@@ -241,10 +251,10 @@ def segment_arc(s0, s1, head, rise, n=12, extra=0.0):
 
 
 class Variant:
-    def __init__(self, v, data, origin=(0.0, 0.0, 0.0), index=0):
+    def __init__(self, v, data, origin=(0.0, 0.0, 0.0), index=0, structure_id="k12_coach_house_kit"):
         self.v, self.data, self.O = v, data, origin
         self.P = data["parts"]
-        self.seed = seed_of(v["id"], index)
+        self.seed = seed_of(v["id"], index, structure_id)
         self.pieces: list[Piece] = []
         self.walls: dict = {}
         self.meta: dict = {"openings": [], "stands": []}
@@ -269,21 +279,31 @@ class Variant:
         B = P["basement"]["depth_m"]
         E = P["storeys"]["ground_m"] + P["storeys"]["loft_m"]
         R = P["roof"]
-        tan = math.tan(math.radians(R["pitch_deg"]))
-        dr = R["thickness_m"] / math.cos(math.radians(R["pitch_deg"]))
-        self.dims = dict(W=W, D=D, t=t, tp=tp, B=B, E=E, tan=tan, dr=dr)
+        # T-2321: a named lot may state its own pitch (a deep coach house would otherwise
+        # carry a roof as tall as its walls), and may close its east end with a second party
+        # wall where a neighbour's building stands against it, so it has no open gable
+        pitch = v.get("pitch_deg", R["pitch_deg"])
+        east = v.get("east_end", "gable")
+        if east not in ("gable", "party"):
+            raise ValueError(f"{v['id']}: east_end {east!r} is neither 'gable' nor 'party'")
+        tan = math.tan(math.radians(pitch))
+        dr = R["thickness_m"] / math.cos(math.radians(pitch))
+        self.dims = dict(W=W, D=D, t=t, tp=tp, B=B, E=E, tan=tan, dr=dr, east=east)
         yu = lambda s: E + min(s, D - s) * tan          # roof underside, s back from the alley face
-        L = W - tp
+        tpe = tp if east == "party" else 0.0
+        L = W - tp - tpe
 
         # the alley wall, the yard wall: full length from the party wall to the open gable
+        # (an end that meets a party wall is left open: it lies on the party wall's face)
         self.wall("alley", Frame((-W / 2 + tp, 0.0, 0.0), X, Z),
-                  [(0.0, -B), (L, -B), (L, E), (0.0, E)], t, open_edges={0, 3})
-        self.wall("yard", Frame((W / 2, 0.0, -D), (-1.0, 0.0, 0.0), (0.0, 0.0, -1.0)),
-                  [(0.0, -B), (L, -B), (L, E), (0.0, E)], t, open_edges={0, 1})
-        # the open gable: between the eave walls below the eave, over their tops above it
-        self.wall("gable", Frame((W / 2, 0.0, 0.0), (0.0, 0.0, -1.0), X),
-                  [(t, -B), (D - t, -B), (D - t, E), (D, E), (D / 2, yu(D / 2)), (0.0, E), (t, E)], t,
-                  open_edges=set(range(7)))
+                  [(0.0, -B), (L, -B), (L, E), (0.0, E)], t, open_edges={0, 1, 3} if tpe else {0, 3})
+        self.wall("yard", Frame((W / 2 - tpe, 0.0, -D), (-1.0, 0.0, 0.0), (0.0, 0.0, -1.0)),
+                  [(0.0, -B), (L, -B), (L, E), (0.0, E)], t, open_edges={0, 1, 3} if tpe else {0, 1})
+        if east == "gable":
+            # the open gable: between the eave walls below the eave, over their tops above it
+            self.wall("gable", Frame((W / 2, 0.0, 0.0), (0.0, 0.0, -1.0), X),
+                      [(t, -B), (D - t, -B), (D - t, E), (D, E), (D / 2, yu(D / 2)), (0.0, E), (t, E)], t,
+                      open_edges=set(range(7)))
         # the party wall on the lot line: past both eaves and above the roof by the parapet
         PW = P["party_wall"]
         ret, par = PW["return_m"], PW["parapet_m"]
@@ -296,23 +316,42 @@ class Variant:
         cop = self.piece("party wall coping", "stone", "rooted", host="party wall")
         sweep(cop.mesh, [(xc, yt(s), s - D - ret) for s in (0.0, Lp / 2, Lp)], X, PW["coping"]["points"],
               closed=True, caps=(True, True))
+        if east == "party":
+            # the east party wall is the west one turned about the building's middle
+            self.wall("party_east", Frame((W / 2, 0.0, ret), (0.0, 0.0, -1.0), X),
+                      [(0.0, -B), (Lp, -B), (Lp, yt(Lp)), (Lp / 2, yt(Lp / 2)), (0.0, yt(0.0))], tp,
+                      open_edges={0}, name="east party wall")
+            cop = self.piece("east party wall coping", "stone", "rooted", host="east party wall")
+            sweep(cop.mesh, [(W / 2 - tp / 2, yt(s), s - D - ret) for s in (0.0, Lp / 2, Lp)], X,
+                  PW["coping"]["points"], closed=True, caps=(True, True))
 
         # the roof: one slab across the ridge, dying into the party wall, a verge at the gable
         o = R["eave_m"]
         sec = [(-o, yu(-o)), (D / 2, yu(D / 2)), (D + o, yu(D + o)),
                (D + o, yu(D + o) + dr), (D / 2, yu(D / 2) + dr), (-o, yu(-o) + dr)]
         roof = self.piece("roof", "roof", "open")
-        prism(roof.mesh, sec, -W / 2 + tp, W / 2 + R["verge_m"], back=False)
+        if east == "party":     # dying into a party wall at both ends: neither end is capped
+            sides(roof.mesh, sec, -W / 2 + tp, W / 2 - tp)
+        else:
+            prism(roof.mesh, sec, -W / 2 + tp, W / 2 + R["verge_m"], back=False)
         WORLD_E.apply(roof.mesh)
-        self.meta["roof"] = {"E": E, "tan": tan, "D": D}
+        self.meta["roof"] = {"E": E, "tan": tan, "D": D, "pitch_deg": pitch}
 
-        self.ramp()
-        self.stair()
-        self.lean_to()
-        self.wing()
+        # T-2321: the fittings are the variant's to ask for. The specimen asks for all four;
+        # a named lot builds only what its own sheet leaves room for
+        for part, build in (("ramp", self.ramp), ("stair", self.stair), ("lean_to", self.lean_to),
+                            ("wing", self.wing)):
+            if v.get(part):
+                build()
+        if v.get("workyard"):
+            self.workyard()
         for op in v["openings"]:
             self.fit(op)
-        self.boards()
+        if v.get("ramp") and v.get("wing"):
+            self.boards()
+        else:
+            self.boards_plain()
+        self.meta["head"] = max(q[1] for p in self.pieces for q in p.mesh.pos)
         self.stands()
         return self
 
@@ -596,10 +635,54 @@ class Variant:
         box(h.mesh, wv["x0"] - 0.7, wv["x1"] + 0.7, 0.0, 4.6, zh - 0.33, zh, skip=("bottom",))
         self.meta["head"] = max(q[1] for p in self.pieces for q in p.mesh.pos)
 
+    def boards_plain(self):
+        """The ground and basement floor under a variant with no ramp (T-2321): the ground
+        goes round the building's outline, party-wall returns included, and the walls' feet
+        stand on the basement floor under it."""
+        d = self.dims
+        W, D, tp, B = d["W"], d["D"], d["tp"], d["B"]
+        ret = self.P["party_wall"]["return_m"]
+        east = d["east"] == "party"
+        hole = [(-W / 2, ret), (-W / 2 + tp, ret), (-W / 2 + tp, 0.0)]
+        hole += [(W / 2 - tp, 0.0), (W / 2 - tp, ret), (W / 2, ret), (W / 2, -D - ret), (W / 2 - tp, -D - ret),
+                 (W / 2 - tp, -D)] if east else [(W / 2, 0.0), (W / 2, -D)]
+        hole += [(-W / 2 + tp, -D), (-W / 2 + tp, -D - ret), (-W / 2, -D - ret)]
+        wy = self.meta.get("workyard")
+        z_far = (wy["z_house"] if wy else -D) - 14.0
+        x_lo, x_hi, z_lo, z_hi = -W / 2 - 16.0, W / 2 + 16.0, z_far, ret + 18.0
+        g = self.piece("ground (board)", "ground", "board")
+        face(g.mesh, [(x_lo, 0.0, z_hi), (x_hi, 0.0, z_hi), (x_hi, 0.0, z_lo), (x_lo, 0.0, z_lo)], Y,
+             holes=[[(x, 0.0, z) for x, z in hole]])
+        f = self.piece("basement floor (board)", "ground", "board")
+        f.mesh.poly([(-W / 2 - 0.1, -B, ret + 0.1), (W / 2 + 0.1, -B, ret + 0.1), (W / 2 + 0.1, -B, -D - ret - 0.1),
+                     (-W / 2 - 0.1, -B, -D - ret - 0.1)], Y)
+
+    def workyard(self):
+        """The paved workyard behind a coach house on a named lot (T-2321): an apron along
+        the yard wall the width of the building between its party walls, and a walk from it
+        to the house's rear wall line, so the yard door and the house are joined on paving.
+        Both are open slabs whose foot lies on the ground."""
+        d, wv, WP = self.dims, self.v["workyard"], self.P["workyard"]
+        W, D, tp = d["W"], d["D"], d["tp"]
+        east = d["east"] == "party"
+        gap = WP["clear_of_walls_m"]
+        x0, x1 = -W / 2 + tp + gap, ((W / 2 - tp) if east else W / 2) - gap
+        th = WP["paving_m"]
+        za = -D - wv["apron_m"]
+        zh = -D - wv["to_house_m"]
+        ap = self.piece("workyard apron", "paving", "open")
+        box(ap.mesh, x0, x1, 0.0, th, za, -D, skip=("bottom", "front"))
+        wa, wb = wv["walk_x"] - WP["walk_m"] / 2, wv["walk_x"] + WP["walk_m"] / 2
+        wk = self.piece("workyard walk", "paving", "open")
+        box(wk.mesh, wa, wb, 0.0, th, zh, za, skip=("bottom", "front"))
+        self.meta["workyard"] = {"z_house": zh, "apron": (x0, x1, za), "walk": (wa, wb), "paving_m": th}
+
     def stands(self):
         """The study's stands: (name, eye, target, light). Near ones at 2-5 m from the part."""
         d = self.dims
         W, D, E = d["W"], d["D"], d["E"]
+        if not (self.v.get("ramp") and self.v.get("stair")):
+            return self.stands_plain()
         rm = self.meta["ramp"]
         cx = (rm["x"][0] + rm["x"][1]) / 2
         cb = next(o for o in self.meta["openings"] if o["id"] == "carriage")
@@ -620,6 +703,24 @@ class Variant:
         ]
         self.meta["focus"] = [0.0, E / 2, 0.0]
 
+    def stands_plain(self):
+        """Stands for a variant with no stair or ramp: the four sides, the roof and the
+        alley-face parts close (T-2321)."""
+        d = self.dims
+        W, D, E = d["W"], d["D"], d["E"]
+        cb = next(o for o in self.meta["openings"] if o["kind"] == "carriage")
+        cs = cb["s0"] - W / 2 + d["tp"] + (cb["s1"] - cb["s0"]) / 2
+        far = D + 10.0
+        self.meta["stands"] = [
+            ("alley front, 14 m", (0.5, 1.6, 14.0), (0.0, 4.2, -D / 2), "diffuse"),
+            ("alley oblique, 15 m, raking sun", (12.0, 2.0, 9.5), (0.0, 4.0, -D / 2), "raking"),
+            ("yard side, from the workyard", (-1.0, 1.7, -far), (0.0, 3.5, -D), "diffuse"),
+            ("from above, 40 degrees", (14.0, 17.0, 12.0), (0.0, 3.0, -D / 2), "diffuse"),
+            ("carriage bay, 3 m, raking", (cs + 1.4, 1.6, 2.7), (cs, 1.7, 0.0), "raking"),
+            ("party wall return and coping, 4 m", (-W / 2 - 2.6, E + 2.4, 3.0), (-W / 2, E + 0.4, 0.2), "diffuse"),
+        ]
+        self.meta["focus"] = [0.0, E / 2, -D / 2]
+
 
 def load() -> dict:
     return json.loads(DATA.read_text())
@@ -627,6 +728,37 @@ def load() -> dict:
 
 def build_variant(v: dict, data: dict, origin=(0.0, 0.0, 0.0), index: int = 0) -> Variant:
     return Variant(v, data, origin, index).build()
+
+
+#: The kit's frame (+X along the alley wall, +Y up, +Z out of it into the alley) carried to
+#: the renderer's structure frame (+x east, +y up, +z south; docs/GLB-CONTRACT.md) for a
+#: coach house whose alley lies on the named side of it (T-2321). Both are rotations.
+FACING = {"west": lambda p: (-p[2], p[1], p[0]),     # +Z west, +X south
+          "east": lambda p: (p[2], p[1], -p[0])}     # +Z east, +X north
+
+
+def structure_variant(st: dict, phase: dict, data: dict | None = None) -> Variant:
+    """The coach house a k12_coach_house structure record names, built in the kit's frame."""
+    data = data or load()
+    v = phase["form"]["coach_house"]["value"]
+    if v.get("alley_side") not in FACING:
+        raise ValueError(f"{st['id']}: alley_side {v.get('alley_side')!r} is not one of {sorted(FACING)}")
+    return Variant(v, data, index=0, structure_id=st["id"]).build()
+
+
+def structure_glb(var: Variant, data: dict, structure_id: str, phase_id: str, scene_ids) -> bytes:
+    """The structure's GLB: no boards, turned into the structure frame, its origin the middle
+    of the alley wall's outer face at grade — the point the record's position names."""
+    turn = FACING[var.v["alley_side"]]
+    for p in var.pieces:
+        p.mesh.pos = [turn(q) for q in p.mesh.pos]
+        p.mesh.nrm = [turn(q) for q in p.mesh.nrm]
+    name = f"{structure_id}__{phase_id}"
+    var.meta["stands"] = [(n, turn(e), turn(a), li) for n, e, a, li in var.meta["stands"]]
+    var.meta["focus"] = list(turn(var.meta["focus"]))
+    return to_glb([var], data, node_name=name, boards=False, node_extras={
+        "structure_id": structure_id, "phase_id": phase_id, "scene_ids": list(scene_ids)},
+        extras={"named_target": "T-2321", "structure": f"data/structures/{structure_id}.json"})
 
 
 def build_kit(data: dict | None = None) -> list[Variant]:
@@ -640,7 +772,10 @@ def triangles(var: Variant, include_board: bool = False) -> int:
 
 # -- glTF -------------------------------------------------------------------------------------
 
-def to_glb(kit: list[Variant], data: dict) -> bytes:
+def to_glb(kit: list[Variant], data: dict, node_name: str | None = None, node_extras: dict | None = None,
+           extras: dict | None = None, boards: bool = True) -> bytes:
+    """The specimen with its boards by default; a structure in the scene (T-2321) passes its
+    node name and extras and `boards=False`, and carries only the materials it draws."""
     bin_ = bytearray()
     views, accessors, meshes, nodes = [], [], [], []
 
@@ -663,6 +798,10 @@ def to_glb(kit: list[Variant], data: dict) -> bytes:
         return len(accessors) - 1
 
     mat_names = list(MATERIALS)
+    if not boards:
+        used = {ROLE_MATERIAL[p.role] for var in kit for p in var.pieces
+                if p.role not in BOARD_ROLES and p.mesh.idx}
+        mat_names = [n for n in mat_names if n in used]
     materials_out = []
     for n in mat_names:
         m = {"name": f"k12_{n}", "pbrMetallicRoughness": {
@@ -674,6 +813,8 @@ def to_glb(kit: list[Variant], data: dict) -> bytes:
     for var in kit:
         by_mat: dict[str, list[Mesh]] = {}
         for role in ROLE_MATERIAL:
+            if not boards and role in BOARD_ROLES:
+                continue
             for p in var.pieces:
                 if p.role == role and p.mesh.idx:
                     by_mat.setdefault(ROLE_MATERIAL[role], []).append(p.mesh)
@@ -702,10 +843,10 @@ def to_glb(kit: list[Variant], data: dict) -> bytes:
                 "_CONFIDENCE": accessor(conf, 5126, "SCALAR", 1, 34962)},
                 "indices": accessor(idx, ctype, "SCALAR", 1, 34963),
                 "material": mat_names.index(name)})
-        meshes.append({"name": var.v["id"], "primitives": prims_out})
+        meshes.append({"name": node_name or var.v["id"], "primitives": prims_out})
         top = max(q[1] for p in var.pieces for q in p.mesh.pos)
         r4 = lambda q: [round(c, 4) for c in q]
-        nodes.append({"name": var.v["id"], "mesh": len(meshes) - 1, "extras": {
+        nodes.append({"name": node_name or var.v["id"], "mesh": len(meshes) - 1, "extras": {**(node_extras or {}),
             "component_id": var.v["id"], "family": "service", "kind": var.v["kind"],
             "seed": var.seed, "origin": r4(var.O),
             "pieces": sum(1 for p in var.pieces if p.role not in BOARD_ROLES),
@@ -724,7 +865,7 @@ def to_glb(kit: list[Variant], data: dict) -> bytes:
         "bufferViews": views,
         "buffers": [{"byteLength": len(bin_)}],
         "extras": {"k12": {"data": "data/components/prairie_1904/k12_coach_house.json", "ticket": "T-2320",
-                           "contract": "data/components/prairie_1904/k01_contract.json"}},
+                           "contract": "data/components/prairie_1904/k01_contract.json", **(extras or {})}},
     }
     js = _pad(json.dumps(gltf, separators=(",", ":"), sort_keys=True).encode(), b" ")
     body = bytes(bin_)

@@ -1472,9 +1472,9 @@
     "keith_house_1808_prairie__as_built_1886.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 5625708,
+      "bytes": 6299732,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "a223a07d76651ca57eb9ad75ba3883e17f9b886346412d9546cdc60b80b501ec",
+      "inputs_sha256": "7faf880958b5e3296f518e5ab4d48f3a86cda7014a77c22acf47fc400d6aad1c",
       "kind": "generated",
       "phase_id": "as_built_1886",
       "structure_id": "keith_house_1808_prairie"
@@ -1955,7 +1955,7 @@
       "baked_ao": false,
       "bytes": 84172,
       "generator": "generators/k13_emit.py",
-      "inputs_sha256": "d19ab376c5235942a39679d731bad759dad79415eb1f9c79dd6aa86aeb4fd8b5",
+      "inputs_sha256": "549547600675a2c9c75564f2df1a0cc237dfd41b8d093931ffb29396ce74ab35",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_house_1729_prairie_conservatory"
@@ -6822,7 +6822,7 @@
       "baked_ao": false,
       "bytes": 997096,
       "generator": "generators/k16_emit.py",
-      "inputs_sha256": "001f148faaa7316c14b1e039b876af343214514b563172b4e593f4033a83f8f7",
+      "inputs_sha256": "d806b52ac93b8eaa40af732f25a56cca8d7b36ae301a499ce4298c9555b822fe",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "shortall_gregory_house_1638_prairie_front"
@@ -7105,6 +7105,16 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "wheeler_house_1812_prairie"
+    },
+    "wheeler_house_1812_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
+      "baked_ao": false,
+      "bytes": 98532,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "56b448ca7e4d4ce8a513a0c58338887e2272543c1f05375bbdf0d9f898f7261c",
+      "kind": "generated",
+      "phase_id": "as_standing_1904",
+      "structure_id": "wheeler_house_1812_prairie_coach_house"
     },
     "wolf_point_tavern__log_frame_1828.glb": {
       "archetype": "log_dwelling",

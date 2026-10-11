@@ -175,6 +175,8 @@ step "the K13 conservatories in the scene are the bytes their records build (T-2
   python3 generators/k13_emit.py --check
 step "the K16 timber fronts in the scene are the bytes their records build (T-2323)" \
   python3 generators/k16_emit.py --check
+step "the K12 coach houses in the scene are the bytes their records build (T-2321)" \
+  python3 generators/k12_emit.py --check
 step "the Prairie district draft's records are what its rules build from the traced sheets (T-2329)" \
   python3 tools/draft_prairie_1904.py --check
 selftest "…and the draft builder still fits rectangles inside a part, reads the notation and refuses a hand edit" \

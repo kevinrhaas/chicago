@@ -35,7 +35,7 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 758,
+    "structures_placed": 727,
     "structures_reached": 128,
     "structures_reached_by_grade": {
       "inferred": 25,
@@ -45,7 +45,7 @@
       "09": 516,
       "10": 1,
       "16": 42,
-      "outside the four sections": 71
+      "outside the four sections": 40
     },
     "school_section": {
       "parcels": {
@@ -40478,36 +40478,9 @@
       "edson_keith_house_1906_prairie_coach_house",
       "elbridge_keith_house_1900_prairie",
       "elbridge_keith_house_1900_prairie_coach_house",
-      "george_glessner_house_1706_prairie",
       "glessner_house",
-      "glessner_lee_house_1700_prairie",
-      "glessner_lee_house_1700_prairie_coach_house",
-      "goodman_house_1612_prairie",
-      "goodman_house_1612_prairie_coach_house",
       "henderson_house_1816_prairie",
       "henderson_house_1816_prairie_coach_house",
-      "house_1600_prairie",
-      "house_1604_prairie",
-      "house_1608_prairie",
-      "house_1616_prairie",
-      "house_1616_prairie_coach_house",
-      "house_1626_prairie",
-      "house_1626_prairie_coach_house",
-      "house_1628_prairie",
-      "house_1628_prairie_coach_house",
-      "house_1630_prairie",
-      "house_1630_prairie_coach_house",
-      "house_1634_prairie",
-      "house_1636_prairie",
-      "house_1708_prairie",
-      "house_1712_prairie",
-      "house_1712_prairie_coach_house",
-      "house_1726_prairie",
-      "house_1726_prairie_coach_house",
-      "house_1730_prairie",
-      "house_1730_prairie_coach_house",
-      "house_1736_prairie",
-      "house_1736_prairie_coach_house",
       "house_1828_prairie",
       "house_1828_prairie_coach_house",
       "house_1918_prairie",
@@ -40518,8 +40491,6 @@
       "kellogg_house_1923_prairie",
       "kellogg_house_1923_prairie_coach_house",
       "kimball_house_1801_prairie",
-      "law_house_1620_prairie",
-      "law_house_1620_prairie_coach_house",
       "marsh_house_1824_prairie",
       "marsh_house_1824_prairie_coach_house",
       "marshall_field_house_1905_prairie",
@@ -40533,11 +40504,9 @@
       "sears_meeker_house_1815_prairie",
       "sears_meeker_house_1815_prairie_coach_house",
       "shed_1834_1900_prairie",
-      "shortall_gregory_house_1638_prairie_coach_house",
       "shortall_gregory_house_1638_prairie_front",
-      "walker_house_1720_prairie",
-      "walker_house_1720_prairie_coach_house",
-      "wheeler_house_1812_prairie"
+      "wheeler_house_1812_prairie",
+      "wheeler_house_1812_prairie_coach_house"
     ]
   }
 }

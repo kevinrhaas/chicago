@@ -1,4 +1,31 @@
 export const CHANGELOG = [ // newest first
+  { v: 1672, ts: '2026-10-11T02:02:05.680Z', date: 'Oct 10, 2026, 9:02 PM CT', title: 'Prairie Avenue 1904: a coach house on the alley behind 1812', kind: 'feature',
+    items: [
+      'Walk round to the alley behind the houses beside the Glessner House: the lot south of 1808 Prairie now has its two-storey brick coach house, the first built from the new coach-house kit.',
+      'It stands where the 1911 fire-insurance map draws it, the full width of the lot, with a party wall rising above the roof at each end where the neighbours\' buildings meet it.',
+      'On the alley: a carriage bay with strap-hinged doors under a brick arch, a loft hatch with its hoist beam, a side door and stable windows. On the yard side, a door and windows look onto a brick-paved yard, and a walk runs to the back of the house.',
+      'The 1911 map labels it a garage; in 1904 it was a stable, so nothing of a motor garage is built. Its doors, windows, roof and yard are reconstructions, and the house in front of it is not built yet.',
+    ] },
+  { v: 1671, ts: '2026-10-11T01:18:10.556Z', date: 'Oct 10, 2026, 8:18 PM CT', title: '1808 Prairie gets its eave brackets and roof cresting', kind: 'feature',
+    items: [
+      'Scrolled brackets now carry 1808 Prairie\'s eave on all four sides, standing on the stonework between the top-floor windows, with a moulding along the wall head that turns every corner.',
+      'Iron cresting, with scrolls, spears and spiked posts, stands on the ridge between the two chimneys.',
+      'Where Glessner\'s gable leans on the shared north wall, the brackets stop rather than run into it.',
+      'Like the rest of the kit, all of it is newly designed: no picture of 1808\'s real cornice has been read.',
+    ] },
+  { v: 1670, ts: '2026-10-11T01:18:10.556Z', date: 'Oct 10, 2026, 8:18 PM CT', title: 'Behind the scenes: the plant checks stand where the plants are again', kind: 'fix',
+    items: [
+      'Nothing you can see changed. Two of the walkthrough\'s own plant checks had gone red on a phone, and the plants were never the problem.',
+      'The check that walks you into the grass looked for its starting point only due north, south, east and west of the Sauganash. The town has grown across all four of those lines, so it stood on lawn and watched nothing arrive. It now looks in every direction and takes the nearest real grass.',
+      'The check that every species is drawn somewhere stood on a thin strip of sand prairie between two lots, where butterfly weed was owed barely one plant. It now stands inside each community, where butterfly weed is owed about fifteen and draws more than fifty.',
+    ] },
+  { v: 1669, ts: '2026-10-11T01:18:10.556Z', date: 'Oct 10, 2026, 8:18 PM CT', title: 'Louis Franchère is one person in 1835, not two', kind: 'change',
+    items: [
+      'Until now the town counted two people: \'Louis Franchère\', a godparent at St Mary\'s in June 1833, and \'L. Franchere\', a witness at Father St Cyr\'s first Chicago marriage in 1834. People now shows one card for him, holding both records.',
+      'The marriage page that could spell out his first name is not available to us. So the merge rests on what we do have: the 1833 petition of Chicago\'s Catholics lists only one Franchère, and his name is Louis. The 1921 journal that prints the marriage also leaves the accents off French names.',
+      'Nothing was lost. The second card is kept whole, and the ruling says which page would undo the merge.',
+      'One fewer household means a few nearby families moved over by one house.',
+    ] },
   { v: 1668, ts: '2026-10-11T00:32:33.826Z', date: 'Oct 10, 2026, 7:32 PM CT', title: 'Fort Dearborn\'s flags: post-sized, wool bunting, on a halyard', kind: 'feature',
     items: [
       'Both forts now fly a frontier post\'s everyday flag, 6 ft 6 in by 12 ft, down from 15 ft and 22 ft. The size is checked against the period\'s surviving flags and the Army\'s later regulation sizes.',

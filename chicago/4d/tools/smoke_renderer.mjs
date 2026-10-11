@@ -11586,13 +11586,31 @@ for (const [label, viewport, touch] of [
     const everywhere = await page.evaluate(async () => {
       const a = window.__chicago4d;
       const wanted = a.flora.substrates().map((z) => z.id);
+      // T-2332: INSIDE each community, not on the first sliver of it the scan
+      // meets. The station used to be the first plantable point in scan order,
+      // and as the 1835 town grew that point became a strip of sand prairie
+      // between lots at 762,494, where the ring dealt the prairie 369 slots and
+      // its butterfly weed an expectation of 1.38 — one draw of a sample read
+      // as an exclusion. A station now stands where every point 12 m and 24 m
+      // out on eight bearings is the same community and plantable (there the
+      // prairie is dealt 4,195-5,019 slots and the butterfly weed ~15, drawn
+      // 52-59). That RAISES what each list is owed, so the bar is no looser.
+      // A community with no such interior keeps its first point and is named.
+      const own = (z, e, n) => a.flora.zoneAt(e, n) === z && a.flora.plantableAt(e, n);
+      const AROUND = [12, 24].flatMap((r) => [[1, 0], [0, 1], [-1, 0], [0, -1],
+        [0.7, 0.7], [-0.7, 0.7], [0.7, -0.7], [-0.7, -0.7]].map(([u, v]) => [u * r, v * r]));
       const spots = {};
+      const edge = {};
       for (let e = -900; e <= 1200 && Object.keys(spots).length < wanted.length; e += 6) {
         for (let n = -700; n <= 700; n += 6) {
           const z = a.flora.zoneAt(e, n);
-          if (z && !spots[z] && a.flora.plantableAt(e, n)) spots[z] = [e, n];
+          if (!z || spots[z] || !a.flora.plantableAt(e, n)) continue;
+          if (!edge[z]) edge[z] = [e, n];
+          if (AROUND.every(([de, dn]) => own(z, e + de, n + dn))) spots[z] = [e, n];
         }
       }
+      const atEdge = Object.keys(edge).filter((z) => !spots[z]);
+      for (const z of atEdge) spots[z] = edge[z];
       // A scene-wide absence cannot be inferred from north-facing views alone.
       // Keep every original plantable station and survey all four cardinal
       // bearings there. Sampling is fixed independently of the species; the
@@ -11636,7 +11654,7 @@ for (const [label, viewport, touch] of [
         a.flora.update(0.016, a.camera);
         a.flora.update(0.016, a.camera);
       }
-      return { spots: Object.keys(spots), stationCount: stations.length, levels };
+      return { spots: Object.keys(spots), atEdge, stationCount: stations.length, levels };
     });
     // Summed over every station, per (community, list, species) — the scene's
     // answer, at one detail level.
@@ -11668,6 +11686,7 @@ for (const [label, viewport, touch] of [
       `${everywhere.spots.length} communities stood in at ${everywhere.stationCount} cardinal views, ${richest.lists} populated list(s), `
       + `${richest.pairs} (list, species) pairs, ${richest.slots} slots dealt at detail `
       + `'${richest.level}'`
+      + `${everywhere.atEdge.length ? `; no interior, stood at the edge: ${everywhere.atEdge.join(', ')}` : ''}`
       + `${richest.nowhere.length ? `; DRAWN NOWHERE: ${richest.nowhere.join(', ')}` : ''}`);
     // Reported, not gated: the same census at the levels a visitor can turn the
     // scene down to. THE RESIDUAL IS REAL AND IS NAMED RATHER THAN GATED AWAY —
@@ -11761,9 +11780,20 @@ for (const [label, viewport, touch] of [
       const denseIds = new Set(a.flora.communities()
         .filter((c) => c.graminoids && c.matrixShare >= 0.7).map((c) => c.id));
       const sward = (e, n) => denseIds.has(a.flora.zoneAt(e, n)) && a.flora.plantableAt(e, n);
-      let start = { local_e: 107, local_n: -103 };
+      //
+      // T-2332: OUTWARD IN EVERY DIRECTION, ring by ring, not along four lines.
+      // The search used to walk only the four compass lines out of the hotel,
+      // and once the 1835 town had grown across all four of them (block 82,
+      // the Monroe-Adams tier, the South Branch sheds) no line crossed 12 m of
+      // sward inside 900 m, so the walk fell back to the hotel door's turf and
+      // read 0 arrivals and 0 plant-frames on a field that was drawing fine.
+      // Each ring is the square of points `d` metres out, read in a fixed order,
+      // so the nearest qualifying ground wins and the walk stays reproducible.
+      let start = null;
       found: for (let d = 0; d <= 900; d += 6) {
-        for (const [de, dn] of [[-d, 0], [0, -d], [d, 0], [0, d]]) {
+        const ring = d === 0 ? [[0, 0]] : [];
+        for (let t = -d; t < d; t += 6) ring.push([t, -d], [d, t], [-t, d], [-d, -t]);
+        for (const [de, dn] of ring) {
           const e = 107 + de;
           const n = -103 + dn;
           if ([0, 3, 6, 9, 12].every((k) => sward(e, n - k))) {
@@ -11772,7 +11802,7 @@ for (const [label, viewport, touch] of [
           }
         }
       }
-      a.walker.teleport({ ...start, yaw_deg: 180 });
+      a.walker.teleport({ ...(start ?? { local_e: 107, local_n: -103 }), yaw_deg: 180 });
       a.step();
       const snap = () => {
         const p = a.camera.position;
@@ -11877,7 +11907,7 @@ for (const [label, viewport, touch] of [
         prev = now;
       }
       return { inset, arrivals, worst, worstAt, shortest, shortestAt, grew, grewAt,
-        drawnPlants, pace: PACE, step: rings.step };
+        drawnPlants, pace: PACE, step: rings.step, start };
     });
     check(`${label}: every flora fade ring is inset inside its own lattice`,
       popIn.inset.length === 3
@@ -11891,7 +11921,9 @@ for (const [label, viewport, touch] of [
     // that one pace of overshoot let a tuft arrive at 100% (6.93 m, T-2085).
     check(`${label}: a plant in front of the walker never arrives already visible`,
       popIn.arrivals >= 20 && popIn.worst <= 0.10,
-      `${popIn.arrivals} arrivals over ${(20 * popIn.pace).toFixed(2)} m; worst coverage `
+      `${popIn.arrivals} arrivals over ${(20 * popIn.pace).toFixed(2)} m from `
+      + (popIn.start ? `${popIn.start.local_e},${popIn.start.local_n}` : 'NO SWARD START (the hotel door)')
+      + `; worst coverage `
       + `${(popIn.worst * 100).toFixed(1)}% of full`
       + (popIn.worstAt ? ` (${popIn.worstAt.set} at ${popIn.worstAt.d.toFixed(2)} m)` : ''));
 
@@ -16221,6 +16253,7 @@ for (const [label, viewport, touch] of [
         // on the Pullman house's east wing at 1729 Prairie. T-2323 added the fourth, the K16
         // timber front of the Shortall-Gregory house at 1638 Prairie (#668) — merged while
         // every bake leg died ENOENT above this line, so nothing read the list (T-2331).
+        // T-2321 added the fifth, the K12 coach house on the alley behind 1812 Prairie.
         const stray = Object.entries(at.drawn).filter(([name, n]) => n > 0 && name !== 'structures');
         // T-2329 added the district draft's west side of the 18th-20th block: eighteen
         // prairie_draft records, held by name with the rest.
@@ -16294,8 +16327,9 @@ for (const [label, viewport, touch] of [
           'law_house_1620_prairie_coach_house',
           'shortall_gregory_house_1638_prairie_coach_house',
           'walker_house_1720_prairie',
-          'walker_house_1720_prairie_coach_house'].sort();
-        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2334)`,
+          'walker_house_1720_prairie_coach_house',
+          'wheeler_house_1812_prairie_coach_house'].sort();
+        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),
           `meshes: ${JSON.stringify(at.drawn)}; structures placed ${JSON.stringify(at.placed)}`);

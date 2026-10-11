@@ -59,15 +59,15 @@
   "persons": 848
  },
  "counts": {
-  "identities": 6950,
+  "identities": 6949,
   "by_grade": {
    "None": 45,
    "not_1835_resident": 4499,
-   "inferred": 2019,
+   "inferred": 2018,
    "attested": 387
   },
   "by_subtype": {
-   "None": 5309,
+   "None": 5308,
    "projected_resident": 1641
   },
   "by_rule": {
@@ -79,7 +79,7 @@
    "G2b": 30,
    "G1a": 51,
    "G1c": 30,
-   "G2c": 168,
+   "G2c": 167,
    "G2a": 33,
    "G4": 1
   },
@@ -2350,8 +2350,7 @@
   {"identity":"id_fox_rebecca","name":"Rebecca Fox","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["church:st_cyr_marriage_033_2"],"evidence_classes":["church_after_1835"]},
   {"identity":"id_foyce_william","name":"William Foyce","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["directories:f1843_e1003","directories:n1844_e0639"],"evidence_classes":["directory_1843","directory_1844"]},
   {"identity":"id_frame_david_p","name":"David P Frame","canonical_person_id":"frame_david_p","rule":"G3","grade":"inferred","resident_subtype":"projected_resident","evidence":["newspapers:person_david_p_frame"],"evidence_classes":["newspaper_letter_list","town_layer"]},
-  {"identity":"id_franchere_l","name":"L Franchere","canonical_person_id":"franchere_l","rule":"G2c","grade":"inferred","resident_subtype":null,"evidence":["church:st_cyr_marriage_001_3"],"evidence_classes":["church_1833_1835","town_layer"]},
-  {"identity":"id_franchre_louis","name":"Louis Franchre","canonical_person_id":"franchre_louis","rule":"G2c","grade":"inferred","resident_subtype":null,"evidence":["church:st_marys_bapt_1833_05_4_sponsor"],"evidence_classes":["church_1833_1835","town_layer"]},
+  {"identity":"id_franchre_louis","name":"Louis Franchre","canonical_person_id":"franchre_louis","rule":"G2c","grade":"inferred","resident_subtype":null,"evidence":["church:st_marys_bapt_1833_05_4_sponsor","church:st_cyr_marriage_001_3"],"evidence_classes":["church_1833_1835","town_layer"]},
   {"identity":"id_frank_arnold","name":"Arnold Frank","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["old_settlers:fdn0221","directories:f1843_e1006","directories:n1844_e0642"],"evidence_classes":["death_notice","directory_1843","directory_1844"]},
   {"identity":"id_frank_henry","name":"Henry Frank","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["directories:f1843_e1005","directories:n1844_e0641"],"evidence_classes":["directory_1843","directory_1844"]},
   {"identity":"id_frank_john","name":"John Frank","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["directories:f1843_e1004","directories:n1844_e0640"],"evidence_classes":["directory_1843","directory_1844"]},

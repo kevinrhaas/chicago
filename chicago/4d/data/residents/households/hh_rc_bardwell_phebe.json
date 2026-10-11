@@ -1,48 +1,26 @@
 {
- "id": "hh_franchere_l",
- "name": "The Franchere household — a name the town's own records carry",
- "division": "unplaced",
- "division_reconstructed": {
-  "value": "south",
-  "confidence": "reconstructed",
-  "tier": "reconstructed",
-  "band": "south/merchant_and_professional_dwellings",
-  "clause": "merchant_and_professional_dwellings",
-  "note": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's merchant_and_professional_dwellings clause. The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
-  "basis": {
-   "kind": "model",
-   "id": "policy_only_deal",
-   "note": "data/reconstruction/1835_address_book.json#policy_only_deal — the division off the reconstruction order book's household target by division, the class off the town model's employment_shape_1840 distribution, dealt exact by largest remainder on a seeded order."
-  },
-  "seed": "hh_franchere_l|T-1522|division:87ce4e477578|class:5183e4bfc2e6",
-  "replaceable_by": {
-   "kind": "household",
-   "match": "any source that places this household in a division or nearer"
-  },
-  "written_by_stage": "policy_only_division"
- },
- "head": "franchere_l",
- "source_pass": "civic",
+ "id": "hh_rc_bardwell_phebe",
+ "name": "Reconstructed household — Phebe Bardwell, a woman keeping her own house in the south division",
+ "division": "south",
+ "head": "rc_bardwell_phebe",
+ "source_pass": "reconstructed_women_children",
  "arrival": {
-  "value": "1834-12-31",
-  "confidence": "inferred",
-  "sources": [
-   "st_cyr_register_ichr_v4"
-  ],
-  "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 31 December 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
-  "precision": "not_later_than"
+  "value": "1835-07-01",
+  "precision": "not_later_than",
+  "confidence": "reconstructed",
+  "note": "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING. No source names this household, so none dates its coming. What the record does say is that it was here on 1835-07-01 — that is the whole of what this stage claims — and a household here on that day arrived not later than it. Nothing narrower is known; the year below is DRAWN from that bound by the programme's arrival stage against the years the known layer records."
  },
  "arrival_year": {
-  "value": 1834,
+  "value": 1835,
   "confidence": "reconstructed",
   "tier": "reconstructed",
-  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1834-12-31 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-07-01 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
   "basis": {
    "kind": "model",
    "id": "arrival",
-   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1834."
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1835."
   },
-  "seed": "hh_franchere_l:arrival_year",
+  "seed": "hh_rc_bardwell_phebe:arrival_year",
   "replaceable_by": {
    "kind": "person",
    "match": "a dated source that says which year this household came to Chicago"
@@ -52,10 +30,10 @@
  "party_size_on_arrival": {
   "value": null,
   "confidence": "reconstructed",
-  "note": "Not attested."
+  "note": "Not claimed. The household model draws how many people this house held on 1 July 1835 and says nothing about how many of them travelled together."
  },
  "origin": {
-  "value": "New York State",
+  "value": "New England",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
@@ -64,7 +42,7 @@
    "id": "origin",
    "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
   },
-  "seed": "hh_franchere_l:origin_region",
+  "seed": "hh_rc_bardwell_phebe:origin_region",
   "replaceable_by": {
    "kind": "person",
    "match": "a source that says where this household came from"
@@ -72,14 +50,14 @@
   "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+  "value": "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
   "basis": {
    "kind": "rule",
    "id": "reason_from_arrival_cohort",
-   "note": "arrival_fill.cohort_reasons — the household's arrival year (1834) is the only thing about it this value rests on."
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1835) is the only thing about it this value rests on."
   },
   "replaceable_by": {
    "kind": "person",
@@ -90,144 +68,35 @@
  "no_home": {
   "value": null,
   "confidence": "reconstructed",
-  "note": "Not attested: the lists that name this person give no address. The placement sweep assigns homes once the resident list is complete (T-0514, the owner's own sequencing) and this pass will not guess one."
+  "note": "NO ROOF AND NO LOT. This stage seats nobody: the ground the north and west divisions still want is T-1191–T-1194's and T-1199 seats every reconstructed household on it. A coordinate invented here would be a fabricated location, which docs/LIBERTIES.md refuses outright."
  },
  "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
-  "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
+  "note": "No workplace is assigned from a reconstructed household; T-1189 staffs the businesses and T-1199 seats the premises."
  },
  "present_on_scene_date": {
-  "value": "uncertain",
-  "confidence": "inferred",
-  "sources": [
-   "st_cyr_register_ichr_v4"
-  ],
-  "last_dated_appearance": {
-   "as_read": "1834",
-   "precision": "year",
-   "reaches": "1834-12-31",
-   "includes_scene_date": false,
-   "days_before_scene_date": 182,
-   "leg": "sighting",
-   "person": "franchere_l",
-   "record": "st_cyr_marriage_001_3",
-   "sources": [
-    "st_cyr_register_ichr_v4"
-   ],
-   "note": "A DATED READING OF THIS PERSON, AND THE LAST ONE THE CORPUS HOLDS. Read from `church_evidence` as `1834`, which reaches 1834-12-31 — 182 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
-  },
-  "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+  "value": "present",
+  "confidence": "reconstructed",
+  "note": "PRESENCE IS THE HYPOTHESIS, not a finding about anybody. This household exists because the town of 1 July 1835 demonstrably held women and children the naming sources never printed — the order book counts how many, by sex, age and division — and this is one of them."
  },
- "modelled_family": {
-  "stage": "modelled_families",
-  "ticket": "T-1171",
-  "household_type": "family_with_children",
-  "size_drawn": 3,
-  "kin_seated": 8,
-  "seed": "hh_franchere_l:household_size",
-  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house.",
-  "married": {
-   "ticket": "T-2020",
-   "wife": "rc_bardwell_phebe",
-   "from_household": "hh_rc_bardwell_phebe",
-   "what_happened": "NOT DRAWN FOR THIS HOUSE: MOVED INTO IT. The household model drew this house married and the order book had no woman left in its wife's cell, so no wife was drawn. Phebe Bardwell headed a house of her own, dealt by T-1174 to fill the women and children the age pyramid lacked; she fits this house by its own rules — her division, a band never above his, no child older than his band allows — and T-2020 folds her house into his: she is his wife here and the 6 of her house come with her. Every name, age band and seed is the one T-1174 drew; the children keep the surname they were dealt with. Both people are the town's invention at the `reconstructed` tier, and the marriage is too: no source says L Franchere married anybody."
-  }
+ "women_children": {
+  "stage": "women_and_children",
+  "ticket": "T-1174",
+  "household_type": "female_headed",
+  "head_trade": "domestic",
+  "head_trade_seed": "rc_wc_south_009:female_trades",
+  "size_drawn": 6,
+  "seated": 7,
+  "seated_beyond_the_draw": 1,
+  "seed": "rc_wc_south_009:household_size",
+  "note": "The women and children the age pyramid still lacks. A servant, an apprentice or a lodger this house may also have held is priced by T-1183 and seated by T-1173 and T-1175; the drawn size is a floor on the house, and where the division's child buckets were still short after every house was drawn the remainder was seated across them and says so."
  },
  "persons": [
   {
-   "id": "franchere_l",
-   "name": "L Franchere",
-   "relationship": "head",
-   "grade": "inferred",
-   "civic_mint": true,
-   "ladder_rule": "G2c",
-   "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it."
-   },
-   "sources": [
-    "st_cyr_register_ichr_v4"
-   ],
-   "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 31 December 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1).",
-   "church_evidence": [
-    {
-     "list": "church_1833_1835",
-     "as_read": "L. Franchere",
-     "locator": "witness",
-     "record_id": "st_cyr_marriage_001_3",
-     "describes_date": "1834",
-     "source": "st_cyr_register_ichr_v4",
-     "rule": "G2c"
-    }
-   ],
-   "associated_with": [
-    {
-     "kind": "church",
-     "place_or_structure_id": "st_marys_church",
-     "resolves_to": "structure",
-     "from": "1834",
-     "to": "1834",
-     "tier": "attested",
-     "source_id": "st_cyr_register_ichr_v4",
-     "note": "THE REGISTER NAMES HIM AT A PARISH ACT, AND THAT IS THE WHOLE OF THE CLAIM. Father St. Cyr's register carries this person as witness in st_cyr_marriage_001_3, dated 1834 and tied to this card by the church crosswalk's rule G2c. `st_marys_church` is his church, which the structure record states — 'St. Cyr selected the lot in 1833 and ... was succeeded by Father O'Meara only after 1837, so he is the pastor across the whole scene window'. THIS IS NOT A MEMBERSHIP ROW: being a witness, a party or a decedent at a Catholic act is what the register states, and the dates are the act's own, which is why `from` and `to` are the same day and the row is not carried forward to the scene date."
-    }
-   ],
-   "merge_ruling": [
-    {
-     "ticket": "T-1554",
-     "verdict": "undecided",
-     "rule": "U1",
-     "cluster": "franchere",
-     "weighed_against": [
-      "franchre_louis"
-     ],
-     "referred_to": "T-2251",
-     "for_merge": "One man is the likely reading and both cards stand on FATHER ST CYR'S OWN HAND. 'L. Franchere' is a witness in the St Cyr register (ICHR v4) in 1834; 'Louis Franchère' is a sponsor in St Mary's baptismal register on 5 June 1833. L agrees with Louis as an initial stands for a forename, the surname is one name — Franchère — and the apparent one-letter gap is this project's own transcription, one source printing the grave accent and the other not. Neither stem is otherwise populated: one card each, and Franchere is set three times in three texts while Franchre is set nowhere at all, because it is not a spelling anybody used. READ AGAIN BY T-1554, AND NOTHING ON THE PAGE CUTS AGAINST IT: the Review's tabulation of the marriage (vol. 4, July 1921) sets the witness at the first marriage St Cyr entered at Chicago, beside T. B. Beubien, with nothing about him that the sponsor of 5 June 1833 contradicts; and the 1833 petition of Chicago's Catholics to Bishop Rosati, which the Review printed in vol. 3 (January 1921, p. 231), lists 'Francherez, Louis 1' among the heads of family, so a Louis of the stem was a Catholic at Chicago in the year of the baptism. That is a Louis again, not an L., and the petition is not yet a source this project holds.",
-     "against_merge": "THE PAGE WAS READ AND IT PRINTS THE INITIAL. T-1554 read every printing of this entry this project can reach, on 2026-10-09, and each sets 'L. Franchere': the Genealogy Trails page (data/research/church/text/st_cyr_marriages_1834_1839.txt, line 7) and, behind it, the Illinois Catholic Historical Review vol. 4, July 1921, 'The First Chicago Marriage Records', first row ('-1834 | N. Murphy, Mrs. M. Frauner | L. Franchere, T. B. Beubien | J. M. I. Saint Cyr'), in two independent archive.org scans of the volume (illinoiscatholic04illi_0 and illinoiscatholic04unse). So the web transcription is faithful and the 1921 tabulator gave no forename either; T-1525's premise that 'reading that entry for a full forename settles it' is spent on every printing. NOR IS ANY ONE TITLE CAUGHT SETTING BOTH: the Review tabulated the baptisms in vol. 3 no. 4 (April 1921, pp. 406-408, archive.org illinoiscatholic03unse_2) and its table runs from the entry of 26 May 1833 straight to 15 May 1834, omitting the entry of 5 June 1833 where the deposited scan reads 'Louis Franchère'. So the Review sets 'Franchere' without its accent in the one place and nowhere sets the other, and the cards' 'franchre' is this project's extraction dropping the è (T-2197 recorded that for this card). C2 would fold an initial onto its one full forename, but it does so on a surname the two printings share, and C9 and C10 ask for the printer's own demonstration that two settings are one name; neither is in hand, and the accent is not to be waved through on the merge it would decide. THE ANSWER IS STILL ON A PAGE, AND THE PAGE EXISTS: the Review (vol. 3, p. 405) quotes the register's fly leaf — 'This record of baptisms and marriages solemnized from the year 1833-39 … was collected and bound by me in the year 1880. Jos. P. Rouges, Rector' — so the marriage is entered in the same book whose title page and pages 1-19 are deposited at chicago/reference/catholic-baptisms-1833-1835/, in St Cyr's own hand. Its marriage leaves are not deposited. U1 stands and T-2251 owns depositing and reading that leaf."
-    }
-   ],
-   "sex": "male",
-   "sex_basis": {
-    "value": "male",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "sex_share_of_the_roll",
-     "note": "Drawn at 95.1% male, the rate measured on the civic roll's own people whose sex the evidence settles. data/reconstruction/1835_sex_age_model.json holds the measurement."
-    },
-    "seed": "franchere_l:sex_ratio",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
-    },
-    "note": "A DRAW, NOT A READING. Nothing about this person says which sex they were: T-1303 refused the name and was right to. This value is drawn from the measured male share of the roll the person was named on, seeded by their own id so the draw reproduces - retype 'franchere_l:sex_ratio' and the same face comes up. It carries no weight as evidence about this person and it is never promoted. The rate is a ceiling rather than a point reading, because the forename table that settled the rest was built mostly on men's names."
-   },
-   "age_band": {
-    "value": "30-39",
-    "low": 30,
-    "high": 39,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 30 under 40', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
-    },
-    "seed": "franchere_l:age_bands_1840",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('franchere_l:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
-   }
-  },
-  {
    "id": "rc_bardwell_phebe",
    "name": "Phebe Bardwell",
-   "relationship": "wife",
+   "relationship": "head",
    "grade": "reconstructed",
    "sex": "female",
    "age_band": {
@@ -304,12 +173,7 @@
     "community": "yankee",
     "review_required": false
    },
-   "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_bardwell_phebe",
-    "relationship_as_dealt": "head"
-   }
+   "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1)."
   },
   {
    "id": "rc_bardwell_phebe_1",
@@ -373,12 +237,7 @@
     "community": "yankee",
     "review_required": false
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_bardwell_phebe",
-    "relationship_as_dealt": "son"
-   }
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_bardwell_phebe_2",
@@ -442,12 +301,7 @@
     "community": "yankee",
     "review_required": false
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_bardwell_phebe",
-    "relationship_as_dealt": "son"
-   }
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_bardwell_phebe_3",
@@ -511,12 +365,7 @@
     "community": "yankee",
     "review_required": false
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_bardwell_phebe",
-    "relationship_as_dealt": "daughter"
-   }
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_bardwell_phebe_4",
@@ -580,12 +429,7 @@
     "community": "yankee",
     "review_required": false
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_bardwell_phebe",
-    "relationship_as_dealt": "son"
-   }
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_bardwell_phebe_5",
@@ -649,12 +493,7 @@
     "community": "yankee",
     "review_required": false
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_bardwell_phebe",
-    "relationship_as_dealt": "son"
-   }
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
   },
   {
    "id": "rc_bardwell_phebe_6",
@@ -718,15 +557,10 @@
     "community": "yankee",
     "review_required": false
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_bardwell_phebe",
-    "relationship_as_dealt": "son"
-   }
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
   }
  ],
  "touches_removal": false,
  "review_required": false,
- "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
+ "research_note": "RECONSTRUCTED HOUSEHOLD — a drawn domestic, in the south division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1)."
 }
