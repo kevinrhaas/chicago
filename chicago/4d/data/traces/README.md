@@ -13,7 +13,7 @@ gcp/       This project's ground control: per-map GCPs with pixel coords,
 vectors/   (S2+) per-map traced vector layers, each tagged with its source_id
 ```
 
-Seven files sit at the top level rather than in those directories, because none of them is
+Eight files sit at the top level rather than in those directories, because none of them is
 a transform or a vector layer: they are READINGS of a sheet, carrying what a numeral
 says and the crop where it says it.
 
@@ -56,6 +56,11 @@ prairie_1904_footprints_s20.json      The same for sheet 20, 16th to 18th, keyed
                                       building says `for_1904`: 1607's 1911 loft is
                                       `not_1904`, the 1886 frame pair it replaced is not on
                                       this sheet.
+prairie_1904_footprints_s35.json      The same for sheet 35, 20th to 22nd, keyed to the
+                                      T-1842 census (T-2340, for T-2161's draft). Read off a
+                                      copy 3.7x coarser than sheets 20 and 28, so its pixel
+                                      rules are scaled and its parts are rougher; 2000, 2010
+                                      and 2018 share one lot and are divided among it.
 ```
 
 Two of those five are readings of ONE plate by ONE transform, stated in each file and

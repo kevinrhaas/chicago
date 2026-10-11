@@ -472,7 +472,9 @@ selftest "…and a dropped row, a doubled record or a kept misreading still fail
 # inside its lot, counter-clockwise, assigned once and to a polygon the census names.
 # T-2328 adds sheet 20 (16th-18th, the T-1840 census, for T-2160) as one more SHEETS entry:
 # data/traces/prairie_1904_footprints_s20.json, the same reading, the same contract.
-step "sheets 28 and 20's 1904 building footprints re-derive from the raster and cover every census polygon (T-2327, T-2328)" \
+# T-2340 adds sheet 35 (20th-22nd, the T-1842 census, for T-2161), read off a coarser copy
+# with the pixel rules scaled to it: data/traces/prairie_1904_footprints_s35.json.
+step "sheets 28, 20 and 35's 1904 building footprints re-derive from the raster and cover every census polygon (T-2327, T-2328, T-2340)" \
   python3 tools/trace_prairie_1904_footprints.py --check
 
 selftest "…and a broken trace, a clockwise or out-of-lot outline, an unnamed or twice-named building still fails it" \
