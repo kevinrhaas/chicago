@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1677, ts: '2026-10-11T05:00:16.518Z', date: 'Oct 11, 2026, 12:00 AM CT', title: '1808 Prairie gets an iron front fence, gates and a garden wall', kind: 'feature',
+    items: [
+      'A spear-topped iron fence on a stone curb now runs along 1808 Prairie\'s street line, ending where the lot does.',
+      'The walk to the front steps passes between two stone piers with urns, closed by a pair of short gates that swing clear of the stoop.',
+      'A second gate closes the narrow side passage to the back of the house, and a brick wall with stone copings runs along the boundary with 1812.',
+      'Nothing is built against Glessner\'s yard to the north, whose own boundary is documented.',
+      'Like the rest of the kit, the design is new: no picture of 1808\'s real fence has been read.',
+    ] },
   { v: 1676, ts: '2026-10-11T04:08:13.534Z', date: 'Oct 10, 2026, 11:08 PM CT', title: 'Prairie Avenue\'s 16th–18th block fills in on the west side', kind: 'feature',
     items: [
       'Nineteen houses and thirteen stables now stand on the west side of Prairie Avenue between 16th and 18th Streets, all built from the Sanborn map\'s own footprints.',
