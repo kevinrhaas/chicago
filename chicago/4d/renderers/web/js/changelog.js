@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1691, ts: '2026-10-11T14:56:04.119Z', date: 'Oct 11, 2026, 9:56 AM CT', title: '1808 Prairie shows its own age: eighteen years of weather', kind: 'feature',
+    items: [
+      '1808 Prairie is the first house to weather by its own age. Built in 1886, it has stood eighteen years by July 1904.',
+      'Its stone front is now faintly darker at the foot and under the eaves. Faint streaks run down from each window sill and behind each downpipe.',
+      'The brick side and rear walls read lighter than before. They had worn the grime of a forty-year-old wall.',
+      'Every other house is unchanged.',
+    ] },
   { v: 1690, ts: '2026-10-11T13:40:27.505Z', date: 'Oct 11, 2026, 8:40 AM CT', title: '1808 Prairie\'s roof dormer gets a pediment', kind: 'feature',
     items: [
       'The dormer on 1808 Prairie\'s front roof now has a pediment: a moulded cornice across its face that turns back along both sides, and two stepped bands under the gable\'s edge.',
