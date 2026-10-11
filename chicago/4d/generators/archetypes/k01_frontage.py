@@ -88,6 +88,7 @@ from . import k03_brick
 from . import k09_frontage
 from . import k10_frontage
 from . import k11_frontage
+from . import k14_yard
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
@@ -200,6 +201,12 @@ MATERIALS["chimney_pot"] = {"color": (0.66, 0.36, 0.22), "roughness": 0.8}
 # sunk 0.10 m in it would move the house's origin and stretch its envelope to the street.
 MATERIALS["k11_wall_brick"] = dict(k03_brick.MATERIALS["brick"],
                                    roughness=round(k03_brick.MATERIALS["brick"]["roughness"] + 0.04, 2))
+# T-2360: the K14 yard's ground (k14_yard.py). Glessner's own turf and gravel maps, the
+# cinder darker than its drive; the bare earth a flat colour, the K14 study's (104, 90, 70)
+# in linear. The front walk's flags are the stoop's stone and take no slot of their own.
+MATERIALS["yard_turf"] = {"fabric": "turf", "color": (1.0, 1.0, 1.0), "roughness": 0.96}
+MATERIALS["yard_earth"] = {"color": (0.139, 0.102, 0.061), "roughness": 1.0}
+MATERIALS["yard_cinder"] = {"fabric": "gravel", "color": (0.52, 0.50, 0.47), "roughness": 0.93}
 # K08 role -> slot; `body` is the bay's fabric (bay_stone or bay_brick), `cover` its
 # roof's K04 covering. A came is a leaded light's, which no K01 bay glazes.
 K08_ROLES = {"wall": "body", "reveal": "body", "mullion": "body", "roof_back": "body",
@@ -1905,6 +1912,9 @@ def build(params, structure_id: str):
     # T-2319: the K11 boundary — the front fence on the street line, a pair of gates on the
     # walk to the stoop, a gate across the side passage, the south boundary wall
     k11_frontage.dress(a)
+    # T-2360: the K14 yard inside that boundary — the lawn and its bare strip at the wall
+    # foot, earth under the open stoop, the front walk's flags and the side passage's cinder
+    k14_yard.dress(a)
     a.condition_tones()   # T-2358: last, so every sill and kit piece is laid and toned
     return a
 
@@ -1981,7 +1991,9 @@ def to_glb(a: Assembly, structure_id: str, phase_id: str, scene_ids, extras: dic
                 "NORMAL": accessor(pr.nrm, 5126, "VEC3", 3, 34962),
                 "TEXCOORD_0": accessor(pr.uv, 5126, "VEC2", 2, 34962),
                 "_CONFIDENCE": accessor(pr.conf, 5126, "SCALAR", 1, 34962),
-                **({"_TONE": accessor(pr.tone, 5126, "SCALAR", 1, 34962)} if pr.tone_of else {}),
+                # T-2360: and a prim whose tones were laid point by point (a K14 walk's wear)
+                **({"_TONE": accessor(pr.tone, 5126, "SCALAR", 1, 34962)}
+                   if pr.tone_of or any(t != 1.0 for t in pr.tone) else {}),
             },
             "indices": accessor(pr.idx, ctype, "SCALAR", 1, 34963),
             "material": len(materials) - 1,

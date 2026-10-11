@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 1694, ts: '2026-10-11T17:12:15.057Z', date: 'Oct 11, 2026, 12:12 PM CT', title: 'Prairie Avenue\'s 20th–22nd block fills in on the east side', kind: 'feature',
+    items: [
+      'Seventeen buildings now line the east side of Prairie Avenue from 20th to 22nd Street in 1904, with the sixteen stables and rear buildings behind them on the alley. Each one is a draft built from the 1911 fire-insurance map and our survey of the street.',
+      'A few landmarks have their outline: the Mayer house\'s tall stepped gable, the corner turrets at 2011 and the High house, Reid\'s heavy cornice and Mrs. Armour\'s mansard.',
+      'The three 1869 limestone houses at 2031 to 2035 share one cornice line but have different doorways. They are a row, not three copies.',
+      'The corner at 22nd Street is left open, as nothing shows a building there in 1904. The flats at 2127 and 2129 stand as one building.',
+      'Heights, roofs, windows and doors are our reconstruction, and each house\'s card says so. It also names the ticket that will refine that house.',
+    ] },
+  { v: 1693, ts: '2026-10-11T16:35:44.212Z', date: 'Oct 11, 2026, 11:35 AM CT', title: 'Glessner\'s stable cupola is a pigeon cote again', kind: 'improvement',
+    items: [
+      'The little tower on the stable roof was a louvred box. It is now what the 1963 survey photograph shows: two tiers of round-headed pigeon holes, each on its own landing board.',
+      'Its pointed roof now flares out over a deeper eave.',
+      'On the north gable, the hayloft door\'s two board leaves stand open inside the loft opening.',
+      'An iron eye and hook hang under the stone that carried the hay hoist.',
+      'Hole counts, sizes, the door and the ironwork are reconstructions, recorded as such.',
+    ] },
   { v: 1692, ts: '2026-10-11T15:02:05.122Z', date: 'Oct 11, 2026, 10:02 AM CT', title: 'Prairie Avenue\'s 20th–22nd block fills in on the west side', kind: 'feature',
     items: [
       'Thirteen houses and their alley buildings now stand on the west side of Prairie Avenue between 20th and 22nd Streets, from the frame pair at 2000 and 2010 to the Byron L. Smith house on the 22nd Street corner.',
