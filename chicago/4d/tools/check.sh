@@ -46,6 +46,12 @@ STRICT=""
 # file so that tools/test_check_harness.sh can source and exercise it (T-0763).
 source "$_check_tools/check_harness.sh"
 
+step "Every building's reference views and match records read; where each stands against its pictures (T-2368)" \
+  node tools/image_gate.mjs --check
+
+step "The image gate refuses to close a building that does not match its pictures (T-2368)" \
+  node tools/image_gate.mjs --test
+
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
 

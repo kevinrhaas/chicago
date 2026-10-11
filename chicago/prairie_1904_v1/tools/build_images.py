@@ -97,7 +97,11 @@ def merge(lib):
                     if not (req.startswith('research/images/rights-requests/') and (P / req).is_file()):
                         errors.append(f'{where}: a pending-rights copy must name its request file in rights_request')
                 elif rights not in COPYABLE and not str(local.get('display', '')).startswith('research/public/'):
-                    errors.append(f'{where}: a local copy of a {rights} item')
+                    # owner, 2026-10-11: a picture the library could only link may be held as a
+                    # REFERENCE copy, with its credit, so builds are checked against it (T-2368)
+                    rc = r.get('reference_copy') or {}
+                    if not (rc.get('basis') and (rc.get('credit') or {}).get('catalog_url')):
+                        errors.append(f'{where}: a local copy of a {rights} item (a reference copy names its basis and its credit with the holder\'s catalog_url)')
                 for k in ('display', 'thumb'):
                     v = local.get(k)
                     if v and not (P / v).is_file() and not (v.startswith(store['prefix']) and v[len(store['prefix']):] in store['files']):

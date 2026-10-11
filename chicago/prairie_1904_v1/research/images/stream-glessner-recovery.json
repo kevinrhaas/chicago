@@ -25,7 +25,20 @@
     "image_url": "https://repository.iit.edu/islandora/object/islandora%3A1001086/datastream/JPG/view",
     "rights": "copyright — link only",
     "rights_basis": "IIT catalog: In Copyright (rightsstatements.org/vocab/InC/1.0/). Medium JPEG publicly displayed; original TIFF marked File Restricted.",
-    "local": null,
+    "local": {
+      "display": "research/images/files/a18-iit-glessner-prairie-facade-1945.jpg",
+      "display_bytes": 369808,
+      "fetched": "2026-10-11",
+      "fetched_from": "https://repository.iit.edu/islandora/object/islandora%3A1001086/datastream/JPG/view",
+      "original_bytes": 377669,
+      "original_px": [
+        1500,
+        1259
+      ],
+      "original_sha256": "a3ddec522f3ce1909538a4b6f0a8e18a91b7597c6913de788e01169363f35f33",
+      "thumb": "research/images/files/a18-iit-glessner-prairie-facade-1945-thumb.jpg",
+      "thumb_bytes": 29257
+    },
     "verified": "viewed",
     "found_via": "T-2199: supplied IIT lead; public catalog and medium JPEG reviewed 2026-10-09.",
     "measurements": [],
@@ -56,6 +69,18 @@
       "independent_evidence": "Additional dated exterior viewpoint relative to the compared library images; not independent proof of 1904 condition.",
       "detail": "Public medium JPEG retrieved and visually inspected. Restricted original TIFF not requested.",
       "source_sha256": "a3ddec522f3ce1909538a4b6f0a8e18a91b7597c6913de788e01169363f35f33"
+    },
+    "reference_copy": {
+      "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+      "credit": {
+        "catalog_url": "https://repository.iit.edu/islandora/object/islandora%3A1001086",
+        "collection": "Office of Communications and Marketing photographs, 1905–1999",
+        "creator": "Unknown photographer",
+        "date": "1945 (IIT catalog)",
+        "repository": "Illinois Institute of Technology, University Archives and Special Collections",
+        "rights": "copyright — link only",
+        "title": "Glessner House, Chicago, Illinois, 1945"
+      }
     }
   }
 ]

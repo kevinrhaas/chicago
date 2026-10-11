@@ -3,8 +3,120 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 109566784,
+ "bytes": 156845134,
  "files": {
+  "a16-aic-lantern-fort-dearborn-monument-thumb.jpg": {
+   "bytes": 16725,
+   "sha256": "11d70a1700fdb5cafdc7bc3f7134d6220bf09b21688aae0c75d22cb566a3d4fb"
+  },
+  "a16-aic-lantern-fort-dearborn-monument.jpg": {
+   "bytes": 169681,
+   "sha256": "cbbfc24295c1460ca4f4689f6d3776a1d15fa3139aca431ef31b66d6da809077"
+  },
+  "a16-aic-lowe-pullman-conservatory-c1897-thumb.jpg": {
+   "bytes": 30059,
+   "sha256": "2ee092669b4a90d6ce1214b9c12294764a90085fc36cbf5adc8dc0a3ae9053f4"
+  },
+  "a16-aic-lowe-pullman-conservatory-c1897.jpg": {
+   "bytes": 177257,
+   "sha256": "0a6e2f7ba24d148be89aea3a50e1b39b527d38023b13d9a5f5370a1ff6441560"
+  },
+  "a16-aic-lowe-pullman-drawing-room-plan-1891-thumb.jpg": {
+   "bytes": 17056,
+   "sha256": "6e0e1951446d28c97e90a66dcba08be715ce343c090189f724e144c38bb89b1a"
+  },
+  "a16-aic-lowe-pullman-drawing-room-plan-1891.jpg": {
+   "bytes": 262149,
+   "sha256": "cf2d90ea6f2b3d5f6da44326a5562ce954c8d4198b983d623909f5cd0c4a1e49"
+  },
+  "a16-aic-lowe-pullman-interior-75892-thumb.jpg": {
+   "bytes": 29628,
+   "sha256": "8b3232bc8b05789ee2c3108150733d6e2f24354688028cd2c73c0fb40c5bc4e3"
+  },
+  "a16-aic-lowe-pullman-interior-75892.jpg": {
+   "bytes": 176881,
+   "sha256": "145b779222bc9879fbf33b35287b0acfa9c90406d15e91c8ed16cf90c04922a4"
+  },
+  "a16-aic-lowe-pullman-interior-75924-thumb.jpg": {
+   "bytes": 31242,
+   "sha256": "792b4bdb6c4438f3ce238e1203bd54995a47d008765031e02831688df0f9cf7a"
+  },
+  "a16-aic-lowe-pullman-interior-75924.jpg": {
+   "bytes": 226371,
+   "sha256": "11244f25adb3d6ed01a0ae672af12d1f5d036271dceff2f57e122ae83da5c90d"
+  },
+  "a16-aic-lowe-pullman-interior-75954-thumb.jpg": {
+   "bytes": 29177,
+   "sha256": "84ba4b7cc3d3da6779459c539fe9c88a03971c7c11454533502b919d7b53976e"
+  },
+  "a16-aic-lowe-pullman-interior-75954.jpg": {
+   "bytes": 180545,
+   "sha256": "fd6b5366fadc9d48f8d03353c20a688b380376cdb96eccba9a2bd07a717260d7"
+  },
+  "a16-aic-lowe-pullman-interior-75955-thumb.jpg": {
+   "bytes": 30213,
+   "sha256": "8bedec9977bc003ce918a43be00be318855fb533d8dac7046019144848bddec6"
+  },
+  "a16-aic-lowe-pullman-interior-75955.jpg": {
+   "bytes": 196437,
+   "sha256": "0ebb7f3821896d02e2a2e2ce786563c2837462da0c662a13050d926da7f2c9be"
+  },
+  "a16-aic-lowe-pullman-interior-75956-thumb.jpg": {
+   "bytes": 26809,
+   "sha256": "72e02670d11002e2f0ca9ee8e54c489fc179de6af055c4356bc9f73c20707e79"
+  },
+  "a16-aic-lowe-pullman-interior-75956.jpg": {
+   "bytes": 174768,
+   "sha256": "412f5e59d21676cbac9e3150fab3a3afdd8c497d3acbc03a9878e2daada0925e"
+  },
+  "a16-aic-reed-prairie-at-18th-looking-south-1941-thumb.jpg": {
+   "bytes": 16005,
+   "sha256": "4c0530d80eeddb3072436222de122845b097e05d36e270e778f0980f69ab1f08"
+  },
+  "a16-aic-reed-prairie-at-18th-looking-south-1941.jpg": {
+   "bytes": 91887,
+   "sha256": "3b4f0ce948683f403152a903c1ae37ec950c87eb79bda2a0ef7f376146c4f1e2"
+  },
+  "a16-aic-taylor-album-pullman-p69-thumb.jpg": {
+   "bytes": 25330,
+   "sha256": "08f0783e493e97e5196d9f2d8cf5e57f8c06419f627838c571049b6bcbacbf2f"
+  },
+  "a16-aic-taylor-album-pullman-p69.jpg": {
+   "bytes": 171701,
+   "sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345"
+  },
+  "a16-aic-taylor-fort-dearborn-monument-1893-thumb.jpg": {
+   "bytes": 20667,
+   "sha256": "7e6f14da86177b106c3e40231f82f9f58a0a267994321c2e862f6279ef6a30e4"
+  },
+  "a16-aic-taylor-fort-dearborn-monument-1893.jpg": {
+   "bytes": 206053,
+   "sha256": "4a3526daf3d99feda753e5fbcb7b704429949d7ab39f93d3dfef84d1a2189029"
+  },
+  "a16-aic-taylor-pullman-from-nw-thumb.jpg": {
+   "bytes": 29087,
+   "sha256": "392e36f2e646e602954a3447e033cf790ddca0865b13e41de989a20a288c8b41"
+  },
+  "a16-aic-taylor-pullman-from-nw.jpg": {
+   "bytes": 189584,
+   "sha256": "7e09cff542e8006816e1c37ef2165813df4858e4e76675f68f9dc20964369bb5"
+  },
+  "a16-aic-taylor-pullman-from-sw-palm-house-thumb.jpg": {
+   "bytes": 20247,
+   "sha256": "450181ec7c0e6ea3f44f1b76334fe6a12f50bfa8dab414ac0fe04361bbc7c07f"
+  },
+  "a16-aic-taylor-pullman-from-sw-palm-house.jpg": {
+   "bytes": 135900,
+   "sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa"
+  },
+  "a16-aic-taylor-pullman-west-front-palm-house-thumb.jpg": {
+   "bytes": 33914,
+   "sha256": "08fa3e686c4c2e715e143b2ceff3cc574e2d71bcfa0dbc362facec26e20b652e"
+  },
+  "a16-aic-taylor-pullman-west-front-palm-house.jpg": {
+   "bytes": 231928,
+   "sha256": "ac3c59513afea361ab73f82c36b8ba7bc75728eeb05cabc4262fa7c7c5dd11d1"
+  },
   "a16-albertype-1890-pullman-residence-thumb.jpg": {
    "bytes": 35938,
    "sha256": "6b7474f076f46f7d5801b951ae807fcf8fa8afca2ee6ca4fdc7ec47af1130b78"
@@ -20,6 +132,70 @@
   "a16-andreas-1884-chicagos-historic-tree.jpg": {
    "bytes": 395450,
    "sha256": "dbc39634e7c08fe408e196a515e7bf067ffdee8a0dc9e2f25f3c5426d2514f94"
+  },
+  "a16-cgy-1609-loft-1910-thumb.jpg": {
+   "bytes": 22619,
+   "sha256": "d8d54a8bb457772121f6c3237e2efb70f567950d6fd35002ff6520fb61b6ab0c"
+  },
+  "a16-cgy-1609-loft-1910.jpg": {
+   "bytes": 140424,
+   "sha256": "a02340dc68676cca0c0c3f961473143019dde4fa5394a10f6bb35dbec05a9c1d"
+  },
+  "a16-cgy-1612-studebaker-photo-thumb.jpg": {
+   "bytes": 26279,
+   "sha256": "e014386370aca08c4684ca4c485e2506b1667488dcd9e258ad83e5703319a60b"
+  },
+  "a16-cgy-1612-studebaker-photo.jpg": {
+   "bytes": 259507,
+   "sha256": "440de402c144e7323b0063cae0574a1f8e0697049ed9e91bc9187b6c4b621c3a"
+  },
+  "a16-cgy-1638-gothic-photo-thumb.jpg": {
+   "bytes": 25836,
+   "sha256": "49c26760041487327c48a1e353de7f0378892a21d8607f378c57870d4c9d6b05"
+  },
+  "a16-cgy-1638-gothic-photo.jpg": {
+   "bytes": 101136,
+   "sha256": "c57ee5e7463331d871a9ae4555fb95b8da8b8c2a3640a1a8a24fc907aa021646"
+  },
+  "a16-cgy-1700-1706-townhouses-thumb.jpg": {
+   "bytes": 27919,
+   "sha256": "b95b7f327e24d91cc7a4391128a9041cb8b78ff290864e564d065f0b73ced7f9"
+  },
+  "a16-cgy-1700-1706-townhouses.jpg": {
+   "bytes": 609208,
+   "sha256": "56843b92bab0a3581dfa1629949584543d6d12f5e9e556b699e9df6e91275a87"
+  },
+  "a16-cgy-1701-hibbard-engraving-thumb.jpg": {
+   "bytes": 24770,
+   "sha256": "d888a0f9cc0f865655cf929d293cf2201d214ff376b3a047d40a842612fa25dd"
+  },
+  "a16-cgy-1701-hibbard-engraving.jpg": {
+   "bytes": 121939,
+   "sha256": "b7ac0a576f984730219c8bfc129485faea37c4f9798ac87479982651698f0c17"
+  },
+  "a16-cgy-1729-beman-addition-thumb.jpg": {
+   "bytes": 24841,
+   "sha256": "e6e6b604ccc46a2dcc4ef5e6e9a047055732e7e334e8ce20d142505e8a4369fe"
+  },
+  "a16-cgy-1729-beman-addition.jpg": {
+   "bytes": 90995,
+   "sha256": "d6eb3143534f36d18f61218df7f0880ae62c686b5c0ad8e114fca80b13efe54c"
+  },
+  "a16-cgy-1729-dailynews-photo-thumb.jpg": {
+   "bytes": 23589,
+   "sha256": "a4838d8c63a9306b559aea8b34b8ad3276e4a09fc6d97a042ec9bf9db14dcb35"
+  },
+  "a16-cgy-1729-dailynews-photo.jpg": {
+   "bytes": 84213,
+   "sha256": "58f5bd59443bd2f4f206424d7550ef25a202994799dc3655bc48afea9c368eab"
+  },
+  "a16-cgy-hibbardville-map-1940-thumb.jpg": {
+   "bytes": 35607,
+   "sha256": "a50ce7880b6d95316a16e588f659f263bb1ed0a82f0fe80513b9fc2edae068d9"
+  },
+  "a16-cgy-hibbardville-map-1940.jpg": {
+   "bytes": 462614,
+   "sha256": "e4d007c2c30cb35f0a24f75a08fa6451f0a78f8611f562179de010b68b0c8d14"
   },
   "a16-cgy-landowner-1874-1620-law-thumb.jpg": {
    "bytes": 30230,
@@ -61,6 +237,22 @@
    "bytes": 117020,
    "sha256": "7ec1f304bc3d8a9929791313a647f18ff2b5cfbac5006b7ed8e579820c0de16b"
   },
+  "a16-ghm-blog-1637-grosvenor-asbuilt-thumb.jpg": {
+   "bytes": 19062,
+   "sha256": "efdeccc4a5a747f57b0d94e6c4a06f54a5f754869e2cec5908910a0001a9d2e3"
+  },
+  "a16-ghm-blog-1637-grosvenor-asbuilt.jpg": {
+   "bytes": 76934,
+   "sha256": "75198e2332b04505f6bfbbc7b5567130138baee19cd79c332f728123a64b3a2d"
+  },
+  "a16-ghm-blog-1637-spalding-remodel-thumb.jpg": {
+   "bytes": 45419,
+   "sha256": "5ab73661d981b314b1affdf1bffd3625f672b1b7194a08868686b533751737c0"
+  },
+  "a16-ghm-blog-1637-spalding-remodel.jpg": {
+   "bytes": 161468,
+   "sha256": "623aefdf2d4fa77eba389efc6ab9970af93d7c20d0782a3d6994920ff82f89fa"
+  },
   "a16-ghm-blog-1700-1706-construction-1901-thumb.jpg": {
    "bytes": 24667,
    "sha256": "f6587f98283dbb19282fbfb27a750145bd740f2be025bc9dd88f8f3ca87a75a8"
@@ -68,6 +260,38 @@
   "a16-ghm-blog-1700-1706-construction-1901.jpg": {
    "bytes": 62869,
    "sha256": "1ff92f1791176a4903d03470860b37f47871e6cca149297be8248f40c98f081b"
+  },
+  "a16-ghm-blog-1701-hibbard-front-thumb.jpg": {
+   "bytes": 30134,
+   "sha256": "e28cc0950bc612628f22505886dfd1831e8be477d5b4dcbbe2e6c52bc2788eca"
+  },
+  "a16-ghm-blog-1701-hibbard-front.jpg": {
+   "bytes": 75588,
+   "sha256": "efe0d0abff58f1f04298ec5d01ab59611d986ce1f3244194c2205c06d963c0c8"
+  },
+  "a16-ghm-blog-1701-hibbard-rear-thumb.jpg": {
+   "bytes": 21540,
+   "sha256": "1bd2b5a9a70db53d8bf00352248d6ee0e9e6e5c3db2ac3d1730954e9079696fd"
+  },
+  "a16-ghm-blog-1701-hibbard-rear.jpg": {
+   "bytes": 54868,
+   "sha256": "6ca5124a0a6b3134e7b98e817edb87622a98aada87b89d01f00497d10f8caeca"
+  },
+  "a16-ghm-blog-1701-sullivan-post-thumb.jpg": {
+   "bytes": 37413,
+   "sha256": "711e523c8ff99cc2597a3afeec7097512c916cc2144727f81ecd7e4012ea91aa"
+  },
+  "a16-ghm-blog-1701-sullivan-post.jpg": {
+   "bytes": 149474,
+   "sha256": "0f502717b11684413cc052cbc073c22c2256805369b38743d80daa7a7eed1982"
+  },
+  "a16-ghm-blog-1702-staples-thumb.jpg": {
+   "bytes": 51438,
+   "sha256": "27b526e9352fc60b0e649960e853b6c67fa6388f65b4771e2c0dd5c0e2f3b830"
+  },
+  "a16-ghm-blog-1702-staples.jpg": {
+   "bytes": 203254,
+   "sha256": "7b906bb0cec885d175fc3fb0746d15a8b904ce77f44a73d0c4b5ab4d9a9094ef"
   },
   "a16-ghm-blog-1708-1706-1700-christmas-thumb.jpg": {
    "bytes": 22862,
@@ -85,6 +309,22 @@
    "bytes": 224047,
    "sha256": "5fef608a8b4f00ced4e21f4bbddbdf33e2c265a3206d6f839af2354e9ce1515e"
   },
+  "a16-ghm-blog-1720-tyrrell-house-thumb.jpg": {
+   "bytes": 29487,
+   "sha256": "3b2116004e1a5d3d13ae77e6d658548679f3a50778640af6a25542dda17ea801"
+  },
+  "a16-ghm-blog-1720-tyrrell-house.jpg": {
+   "bytes": 181082,
+   "sha256": "8bcc2366a0f42187342eb728565c1e9f4f174181977230ce70aebda733719b81"
+  },
+  "a16-ghm-blog-1720-walker-curbstone-2015-thumb.jpg": {
+   "bytes": 27553,
+   "sha256": "3c0877fd1506386933ae5905785671e80cc0b2e88ade7219d1f01deefdf6a2e1"
+  },
+  "a16-ghm-blog-1720-walker-curbstone-2015.jpg": {
+   "bytes": 90881,
+   "sha256": "e365563b86f705d2c6031991d368c723f14d0610460bdb26ad11ee06fabe049a"
+  },
   "a16-ghm-blog-1721-dexter-c1888-thumb.jpg": {
    "bytes": 22601,
    "sha256": "6fb2b010e09c044a380a4143f24855c960e5baaaf0d778b64838568907218f44"
@@ -93,6 +333,30 @@
    "bytes": 75961,
    "sha256": "cf6aeeb2325eb9fb01d3a7d336bda285db484bd1797c6f055b07d29b4a28a77d"
   },
+  "a16-ghm-blog-1730-otis-1940s-thumb.jpg": {
+   "bytes": 21581,
+   "sha256": "b4202efcfe166d54525c51113e91edcf2c658a50c0703aa6535f8350a30b05b2"
+  },
+  "a16-ghm-blog-1730-otis-1940s.jpg": {
+   "bytes": 55226,
+   "sha256": "feed9a138f46f304daf15e700c48e5bfa6a92c08ce877da3296c081be0273f4b"
+  },
+  "a16-ghm-blog-1736-mcbirney-c1890-thumb.jpg": {
+   "bytes": 27043,
+   "sha256": "7197acb196c19d9f6d1a5aaefc03c9f702ecf1d3e9b4919725815b871b98303c"
+  },
+  "a16-ghm-blog-1736-mcbirney-c1890.jpg": {
+   "bytes": 91969,
+   "sha256": "c3b9a67372ccd09aea1798b29b39dc484d5e4d3c13ea10e2afe03df2d2b16062"
+  },
+  "a16-ghm-blog-1736-mcbirney-curbstone-2015-thumb.jpg": {
+   "bytes": 31566,
+   "sha256": "2cdb033b381357546236d79c4db80b2c63fac31c93a7e23f28a027132ea64a8c"
+  },
+  "a16-ghm-blog-1736-mcbirney-curbstone-2015.jpg": {
+   "bytes": 93486,
+   "sha256": "e00ecb6ae69e77b85cd389f0d5fd72eb17859ab9df670a7c88260957cd046279"
+  },
   "a16-ghm-blog-massacre-tree-george-glessner-c1888-thumb.jpg": {
    "bytes": 21140,
    "sha256": "3d9b805cd0cfd9bd08790cb14b859de7acbfaeac51ea6a5c805875954a33f458"
@@ -100,6 +364,54 @@
   "a16-ghm-blog-massacre-tree-george-glessner-c1888.jpg": {
    "bytes": 62092,
    "sha256": "0d381f0e9306cd3fd2719040c88f650c2fcc79a24bafaede7aaa4647fed0fd52"
+  },
+  "a16-ghm-blog-massacre-tree-pullman-coachhouse-thumb.jpg": {
+   "bytes": 35613,
+   "sha256": "372f8fca8d243813537e97b39d4985cb8d5141fc88c350f08b98c29a7c764e98"
+  },
+  "a16-ghm-blog-massacre-tree-pullman-coachhouse.jpg": {
+   "bytes": 187697,
+   "sha256": "26a9ac4e72eb829f8e435ae0c360b872fcf4eeb922c584a644543236ce4805f5"
+  },
+  "a16-ghm-blog-pullman-completed-thumb.jpg": {
+   "bytes": 37072,
+   "sha256": "24f70f9e7502f4164c744dd36211b1701a9d0fe4954db03fd7c7f323d9fa4285"
+  },
+  "a16-ghm-blog-pullman-completed.jpg": {
+   "bytes": 97027,
+   "sha256": "e659c4c7be4a616dba7912f7139bcc7a58f0aae6281c16794ffb670c9501fdde"
+  },
+  "a16-ghm-blog-pullman-drawing-room-thumb.jpg": {
+   "bytes": 34332,
+   "sha256": "93ab4484abe759124dd5e675599159e4db1225a6caf06acf6ed8e34e6351a5df"
+  },
+  "a16-ghm-blog-pullman-drawing-room.jpg": {
+   "bytes": 94015,
+   "sha256": "6a439a050fdd9ec4c07fdf137e8775c6495982bd7314b8d6ee0f6f939061cf63"
+  },
+  "a16-ghm-blog-pullman-site-garage-1981-thumb.jpg": {
+   "bytes": 16366,
+   "sha256": "fc3906e525616c26eef9a114c5c66f7621aa815c0ca0fb22466420e0c25f2b01"
+  },
+  "a16-ghm-blog-pullman-site-garage-1981.jpg": {
+   "bytes": 41077,
+   "sha256": "9f3a832ac5aceb2cd39a0282c98300af72fad965f1c8476280bafaa39aa4a97b"
+  },
+  "a16-ghm-blog-pullman-terrace-thumb.jpg": {
+   "bytes": 25877,
+   "sha256": "73361dbc944659b2cf02f8126438b0e85f9e033e17ffae72f1aa98cca425868c"
+  },
+  "a16-ghm-blog-pullman-terrace.jpg": {
+   "bytes": 77691,
+   "sha256": "d0701f5ea304fe67cd61e7c3275f3952400dadc693fdafc134494eca31c05f42"
+  },
+  "a16-ghm-blog-pullman-wall-1981-thumb.jpg": {
+   "bytes": 30188,
+   "sha256": "ce1103d01b2558065a28c01c7829c52011b23eaecac7c6c621fbdd6fb6cc2fdd"
+  },
+  "a16-ghm-blog-pullman-wall-1981.jpg": {
+   "bytes": 74036,
+   "sha256": "13495a09d73d3738f96fddeed04d0d425b729a03fdb0eba4e2b4bc97e45801f6"
   },
   "a16-industrial-chicago-1867-review-1600-block-thumb.jpg": {
    "bytes": 18221,
@@ -157,6 +469,14 @@
    "bytes": 94616,
    "sha256": "1aa54de59becb05493a532cb5235a2fe2ecb66aaf205cea7d6a091d8810b4364"
   },
+  "a16-newberry-conzen-prairie-elite-1886-map-thumb.jpg": {
+   "bytes": 17110,
+   "sha256": "697aa636a2b7d330ecdfcf3345a63f699ba525dea9d8474693f24ea4d4dc3ee2"
+  },
+  "a16-newberry-conzen-prairie-elite-1886-map.jpg": {
+   "bytes": 277516,
+   "sha256": "cf62932caab4ea79ce09fd060e541c62c353cc7562928e4a9d7af90d6cfce0af"
+  },
   "a16-pullman-det-4a08065-thumb.jpg": {
    "bytes": 39833,
    "sha256": "6f1999ffadb83393017651c2bb6dc995ab44958744a17957df4f4e2060964499"
@@ -181,6 +501,46 @@
    "bytes": 184593,
    "sha256": "9dd69212d1ef57160240c8b0aecedbd213293198d35a8f059ba8d8c40ce19648"
   },
+  "a18-cgy-1800-glessner-2135-thumb.jpg": {
+   "bytes": 28309,
+   "sha256": "7771b755d92e43e0adefd852a08254e506ef851bee680dd610bc6dd2cc613027"
+  },
+  "a18-cgy-1800-glessner-2135.jpg": {
+   "bytes": 370726,
+   "sha256": "d44c572b738f9683052e4ca8c105a70c21ce0770e607458540f01bc8fdf21f30"
+  },
+  "a18-cgy-1801-1811-modern-thumb.jpg": {
+   "bytes": 28830,
+   "sha256": "65cad25c73ad9620fa60b832a56b4f4b01e463cf88c7a3879d5c5886c43c78b9"
+  },
+  "a18-cgy-1801-1811-modern.jpg": {
+   "bytes": 512705,
+   "sha256": "91994501dc1c8c7c0ef54e210f509adac37be57f18e330112805e045df34c1db"
+  },
+  "a18-cgy-1801-kimball-1945-thumb.jpg": {
+   "bytes": 20092,
+   "sha256": "b10f83e01573e5d5daf4660960172d0f7a5775180c2dadabeb4b6da43fa8488e"
+  },
+  "a18-cgy-1801-kimball-1945.jpg": {
+   "bytes": 201782,
+   "sha256": "990f291b36f4da765655cfcfe9e66dc730e9b1a020fecde7c229dc7c56a06057"
+  },
+  "a18-cgy-1801-kimball-early-thumb.jpg": {
+   "bytes": 24832,
+   "sha256": "f413090963b8171d814eae59258ca0473e83ab67c2e2c394a04491bc66e686e0"
+  },
+  "a18-cgy-1801-kimball-early.jpg": {
+   "bytes": 171184,
+   "sha256": "3c1527ffd2214bac18095b8efa0883dad21862383650e2c3fd94f8a140ee7e1c"
+  },
+  "a18-cgy-1812-wheeler-c1955-thumb.jpg": {
+   "bytes": 20404,
+   "sha256": "1c4df77c17b0a0e71a4dda518e54a69911565bf824060cb495fe8f8429fc38af"
+  },
+  "a18-cgy-1812-wheeler-c1955.jpg": {
+   "bytes": 72769,
+   "sha256": "9d42de21b9c83ceaf17f58f197b844535a60d81461385b70dab989455a40bad8"
+  },
   "a18-cgy-1815-meeker-sold-1915-thumb.jpg": {
    "bytes": 24716,
    "sha256": "f5b5d68e00be97b3c3267abb2e6924e322e23605e5ab8233ee84b7693b2571ef"
@@ -189,6 +549,30 @@
    "bytes": 101851,
    "sha256": "75e421f9aa591cd6047a654d209e99dd34381eafab9d70883f648ea3d6f7fec6"
   },
+  "a18-cgy-1815-sears-two-views-thumb.jpg": {
+   "bytes": 32301,
+   "sha256": "6feceffd935fcbc46bdba51a87b9b5a5a1cdc1750c25ecba051702f96e4f1790"
+  },
+  "a18-cgy-1815-sears-two-views.jpg": {
+   "bytes": 489313,
+   "sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929"
+  },
+  "a18-cgy-1816-henderson-photo-thumb.jpg": {
+   "bytes": 42859,
+   "sha256": "920e5f3c3f77ce2b42d7206107cf3b24b26756b3608fcb5de88d67d4e6d38173"
+  },
+  "a18-cgy-1816-henderson-photo.jpg": {
+   "bytes": 458088,
+   "sha256": "6cf57cac7e3076af06121b104b57a02b9a25ac3830f01ddafe9ac2f27eb96ca8"
+  },
+  "a18-cgy-1823-dent-engraving-thumb.jpg": {
+   "bytes": 31565,
+   "sha256": "6a5fa332be7b31e9f36b381a05449e946ea511b4747b5d98548663e172ecb353"
+  },
+  "a18-cgy-1823-dent-engraving.jpg": {
+   "bytes": 686527,
+   "sha256": "ef58522d4ac8f90422e4ebf253aec05a27bc06f7b47a255829684a2a2bc5bd0e"
+  },
   "a18-cgy-1827-fire-1927-thumb.jpg": {
    "bytes": 36066,
    "sha256": "e5ca3b98c3b1ea3c236e61d47e07cf00c917e274bbb924d46df6883034c9c6aa"
@@ -196,6 +580,22 @@
   "a18-cgy-1827-fire-1927.jpg": {
    "bytes": 323081,
    "sha256": "b6c408eb91f0dfdb60fa7fc2d30c50975cc4352606fe5f36a4e90ab5d4ad0181"
+  },
+  "a18-cgy-1827-hall-interior-thumb.jpg": {
+   "bytes": 31146,
+   "sha256": "1618af651a4cd4db50f0b70751c26b28ba84b19bae6082e2ac18f66a20ec12e9"
+  },
+  "a18-cgy-1827-hall-interior.jpg": {
+   "bytes": 368601,
+   "sha256": "d4cf7c734dd2323662a9faa71c24b8f2d7866fdb3fa166968ef58ea3dc8e1e23"
+  },
+  "a18-cgy-elevation-strip-1800-1900-blocks-thumb.jpg": {
+   "bytes": 12753,
+   "sha256": "41f87849161565be6a3add27e3df4ddf1867ab3196718feaf0db5ff78d199a76"
+  },
+  "a18-cgy-elevation-strip-1800-1900-blocks.jpg": {
+   "bytes": 126446,
+   "sha256": "aa60763b7d852e9419e0515f3f63801542fe91bdce5192a300cb6018cde27ef8"
   },
   "a18-chicago-and-its-makers-1929-kimball-thumb.jpg": {
    "bytes": 13258,
@@ -213,6 +613,30 @@
    "bytes": 96863,
    "sha256": "be1c39794fe71d84dff1e465215fc1a1cc0e730f1367ece701db20665a4cb6a7"
   },
+  "a18-cornell-adw-glessner-thumb.jpg": {
+   "bytes": 21277,
+   "sha256": "73c1c9f8a9d450883f6204c8989edeff8ecb45bb801ed50a2291859bc7b6296d"
+  },
+  "a18-cornell-adw-glessner.jpg": {
+   "bytes": 500564,
+   "sha256": "df12eb4b380da6888e5c5943c28652dafaf3d42a4e90c21f37be270f784d8c77"
+  },
+  "a18-gh-1800-block-looking-sw-c1888-thumb.jpg": {
+   "bytes": 23311,
+   "sha256": "3cb85f19490fb235b974922c32df80eb77047ac14df577a32c62509eed76b69f"
+  },
+  "a18-gh-1800-block-looking-sw-c1888.jpg": {
+   "bytes": 224688,
+   "sha256": "3bc229a77fe705ac47ae9393f744b219bd11424c45da947bd532ab5e348271e6"
+  },
+  "a18-gh-1800-block-south-1975-thumb.jpg": {
+   "bytes": 25760,
+   "sha256": "a443a39a5cf6b03dd6938c92f05566f63bfbdc59f867e8218d6c695193095823"
+  },
+  "a18-gh-1800-block-south-1975.jpg": {
+   "bytes": 105938,
+   "sha256": "c6859a7cfc2fdb09f62847fc4a266dbcaa13581442e0a458b28dbd782b55293f"
+  },
   "a18-gh-1800-block-sw-george-glessner-thumb.jpg": {
    "bytes": 19677,
    "sha256": "d6363b97bcd610c6345e5796d2159db9380ca42ebf3f3944b167ad1bf39637a7"
@@ -220,6 +644,30 @@
   "a18-gh-1800-block-sw-george-glessner.jpg": {
    "bytes": 84968,
    "sha256": "7bbe83f1475cad2414a156cafef0650122ee2ecff1f96e16e3fb4b6d98033aa6"
+  },
+  "a18-gh-1808-keith-field-front-thumb.jpg": {
+   "bytes": 30055,
+   "sha256": "1d7a111875c7e46f0d6378e7c76d66bbe15ba4ccc6a96acc2f4f10d211e9490d"
+  },
+  "a18-gh-1808-keith-field-front.jpg": {
+   "bytes": 127490,
+   "sha256": "1a48aa7d7a891a461fb9da76cf30a47cb8227340d5a5da345dd6dedd81c5895e"
+  },
+  "a18-gh-1808-porch-1965-thumb.jpg": {
+   "bytes": 25572,
+   "sha256": "8a453bb8badb36739f97dc65416b8e8f918ecce0effddd5780c5c254223a96a0"
+  },
+  "a18-gh-1808-porch-1965.jpg": {
+   "bytes": 63486,
+   "sha256": "557b51b98235a55124b5848dbe8abab35ddb80d0a2155013c1f945cc20423fbc"
+  },
+  "a18-gh-1811-ames-house-thumb.jpg": {
+   "bytes": 29299,
+   "sha256": "423d62d4ff7f5fc67349527fd3520e615bfbb44c9dcf28483d0c28ea179fdbdd"
+  },
+  "a18-gh-1811-ames-house.jpg": {
+   "bytes": 73568,
+   "sha256": "d70fdce0e5b41bee5a3cd5dbb7de247d594b701600534c4e646ae3d659e359aa"
   },
   "a18-gh-1811-for-sale-1894-thumb.jpg": {
    "bytes": 23023,
@@ -229,6 +677,14 @@
    "bytes": 45557,
    "sha256": "1151d032c972d2bfcb49bbbd157a48ecf4c015320eabf25f6acba337e95e03b9"
   },
+  "a18-gh-1812-1808-1800-mid1950s-thumb.jpg": {
+   "bytes": 17911,
+   "sha256": "7ec5909f4a7534a9d5d0217d26356319760d5203696d32234697f0750b2452fb"
+  },
+  "a18-gh-1812-1808-1800-mid1950s.jpg": {
+   "bytes": 46056,
+   "sha256": "9459062d4be05a24b28525ceda0558b66a811f160c22de933370e0754c4b181e"
+  },
   "a18-gh-1812-first-house-1874-thumb.jpg": {
    "bytes": 28230,
    "sha256": "29bdad8a77adbf947c8dbe10e29cd2292d731eee5d57f464f04a19523e1abb6d"
@@ -236,6 +692,38 @@
   "a18-gh-1812-first-house-1874.jpg": {
    "bytes": 97791,
    "sha256": "83bf81c51340e30a1e831aa7188067d267a9df5cef5b3184b927c10b109e6967"
+  },
+  "a18-gh-1815-office-building-1981-thumb.jpg": {
+   "bytes": 32111,
+   "sha256": "f647f46393420116a48e8ea86db426522cdd4e81404d802503c46864dbc9825e"
+  },
+  "a18-gh-1815-office-building-1981.jpg": {
+   "bytes": 81706,
+   "sha256": "6b7dea5749bf3e868738fcadaf2ede1641c149079bc6471af067e5067e606db1"
+  },
+  "a18-gh-1834-fernando-jones-thumb.jpg": {
+   "bytes": 28836,
+   "sha256": "32ec358b0894314f8589c01e2ecd3237478eff26e49571fa8297ec7b8b5fb089"
+  },
+  "a18-gh-1834-fernando-jones.jpg": {
+   "bytes": 77923,
+   "sha256": "4180b8c58b74f7611529056a55633e18f01a35f37ad769ebda8bfefeff219283"
+  },
+  "a18-gh-1911-map-west-1800-block-thumb.jpg": {
+   "bytes": 21553,
+   "sha256": "9148a072604f89f5a40da0df2616d86e252e68ee191cd5e94137a2c534ce9418"
+  },
+  "a18-gh-1911-map-west-1800-block.jpg": {
+   "bytes": 261609,
+   "sha256": "b4ef724512877b1a8751c3039c0d632669171272d5db6975db8e994ec8726398"
+  },
+  "a18-gh-1935-donnelley-aerial-thumb.jpg": {
+   "bytes": 17830,
+   "sha256": "3f364d0a2c40e4225d75f24806470995183413d1df91afe8043dd1162e2e0e30"
+  },
+  "a18-gh-1935-donnelley-aerial.jpg": {
+   "bytes": 64584,
+   "sha256": "2b7d044d462cf049a7afff1c56de87088586b65092494049e70406f405b32213"
   },
   "a18-gh-american-contractor-1921-sullivan-1808-thumb.jpg": {
    "bytes": 18984,
@@ -253,6 +741,110 @@
    "bytes": 185337,
    "sha256": "f9109f149fc55db5c49fdbda92ecd982747a7017452cf4e30f7f7140a594928e"
   },
+  "a18-gh-cornell-glessner-front-c1887-thumb.jpg": {
+   "bytes": 18647,
+   "sha256": "e01df1324dbed5e411759d6ca9342371a79d6c48d4ffa699169d50f51adbd240"
+  },
+  "a18-gh-cornell-glessner-front-c1887.jpg": {
+   "bytes": 272911,
+   "sha256": "43468084cf102ed30d37a73911e48b18d9cb511c223a73ea7c63eab1e8e7714b"
+  },
+  "a18-gh-cornell-glessner-rear-c1887-thumb.jpg": {
+   "bytes": 18973,
+   "sha256": "15d5ae6aabed6c256e78d763047304440914befb36b603a0f4bdcb2ae9b27a99"
+  },
+  "a18-gh-cornell-glessner-rear-c1887.jpg": {
+   "bytes": 294513,
+   "sha256": "5fe13212fd1a893382c2b02c5be1cd2c1feb5d17b1e32f13a1a734fc90dbbca5"
+  },
+  "a18-gh-courtyard-watercolor-thumb.jpg": {
+   "bytes": 17931,
+   "sha256": "259d4477aeb8b2a0bc4328d85410232752bb8943fc2a1d6dc09131dc85eb8285"
+  },
+  "a18-gh-courtyard-watercolor.jpg": {
+   "bytes": 304427,
+   "sha256": "f1602a4a81797d421e33d1e31bca16e3eee91b5f5344e3edfeb127cb50da6bb9"
+  },
+  "a18-gh-doane-exterior-thumb.jpg": {
+   "bytes": 39521,
+   "sha256": "64421f9578bcdd94a286b228a9494a54d527356895f9afa7dfbe7b6eeefd181b"
+  },
+  "a18-gh-doane-exterior.jpg": {
+   "bytes": 82289,
+   "sha256": "9c2686002d5fd54c90cc027c2a49a442050867e9f2d55617e437c8d7acf7d720"
+  },
+  "a18-gh-doane-stairhall-thumb.jpg": {
+   "bytes": 35609,
+   "sha256": "1f2b7cd5e3b61e22416ae5a9956c38985db1d89848a45323af1e5d7226f19436"
+  },
+  "a18-gh-doane-stairhall.jpg": {
+   "bytes": 78573,
+   "sha256": "2c2e5edd983d99e1304c13ef65baa6639a2cf052bbd8b87c6871321a92f988be"
+  },
+  "a18-gh-florian-1948-court-to-stable-thumb.jpg": {
+   "bytes": 36149,
+   "sha256": "87dd49d095dca23e47b9b4872e1024e9603f7720b003b29c27dc7b3fc450f54b"
+  },
+  "a18-gh-florian-1948-court-to-stable.jpg": {
+   "bytes": 460447,
+   "sha256": "8551b7fe40fb9a9c1fd9f81accb0822b54c74b7851d06f408464d3428472a74a"
+  },
+  "a18-gh-florian-1948-courtyard-bow-chimney-thumb.jpg": {
+   "bytes": 31957,
+   "sha256": "866ca2d9ac2b271d7dc7dbef5df9f88704141ce7b79dc7bc3c017ccd1a71c5b0"
+  },
+  "a18-gh-florian-1948-courtyard-bow-chimney.jpg": {
+   "bytes": 519630,
+   "sha256": "fef42fb3f4edac2c7510938adc35d46a0f64af38a52f7d6898df63d8074ad5b3"
+  },
+  "a18-gh-florian-1948-entry-curb-thumb.jpg": {
+   "bytes": 35854,
+   "sha256": "f0a20f6a116006268a7a39640e9de8b0465fe660d4559657e687f2ccde618962"
+  },
+  "a18-gh-florian-1948-entry-curb.jpg": {
+   "bytes": 530682,
+   "sha256": "9a7ff2f847a7a7111f8b0fef7cd25f44819372f485432d7d1df731cfce01d16f"
+  },
+  "a18-gh-florian-1948-ne-exterior-thumb.jpg": {
+   "bytes": 29393,
+   "sha256": "1eabeeac90982539490039448152e9d173f5316377ece73be136cf7709bc4c32"
+  },
+  "a18-gh-florian-1948-ne-exterior.jpg": {
+   "bytes": 438726,
+   "sha256": "1102928c3d4d11b798594e3e852004ed50b9289c027d80b7037c1e15433a4496"
+  },
+  "a18-gh-florian-1948-northeast-overall-thumb.jpg": {
+   "bytes": 21848,
+   "sha256": "dc42b6c06dae0b9c7996d1a209b972fe2b006657357d0791b4a04bd4b4db7dd0"
+  },
+  "a18-gh-florian-1948-northeast-overall.jpg": {
+   "bytes": 382511,
+   "sha256": "fbf6e2e9b6557000a59d425af1c4cb5dcd11083c6f86e86e2041fc5ab532e710"
+  },
+  "a18-gh-florian-1948-porte-cochere-doors-thumb.jpg": {
+   "bytes": 22178,
+   "sha256": "db22defc63b3e89d72600af2c9a93c38f4bd7a2a56e1bc64dc3b81bef03448c9"
+  },
+  "a18-gh-florian-1948-porte-cochere-doors.jpg": {
+   "bytes": 341663,
+   "sha256": "eaf59e0036be1781fce25d684964159bc17d30a395345fea023b72ce67444e51"
+  },
+  "a18-gh-florian-1948-roof-turret-thumb.jpg": {
+   "bytes": 20497,
+   "sha256": "a2726f50babbeb2710b34adbd666b3bc802fa5bd77129b6ee96d9690e1c520f6"
+  },
+  "a18-gh-florian-1948-roof-turret.jpg": {
+   "bytes": 251943,
+   "sha256": "fa75758b2677a2663155fe16c9ca92505b4de95f55ac935db5084c5b49fec0b9"
+  },
+  "a18-gh-glessner-exterior-historic-thumb.jpg": {
+   "bytes": 20339,
+   "sha256": "ef59be85bb6a1d7936825099fcca6ce59c2dff818536a013e1e860590fec6268"
+  },
+  "a18-gh-glessner-exterior-historic.jpg": {
+   "bytes": 147210,
+   "sha256": "98df110dc4b6597896ddf817b22871cab3e2b5bf51bafe116a52153865bc8342"
+  },
   "a18-gh-glessner-female-servants-entrance-thumb.jpg": {
    "bytes": 24647,
    "sha256": "e1900ee52adf2607c668532e9e0c7b3098eac8429148c0b500fd28e916759503"
@@ -261,6 +853,22 @@
    "bytes": 65322,
    "sha256": "37837f85d41c72651002cf4c08d94d2d225b3fbfdf5aa296e84a796912e7a85c"
   },
+  "a18-gh-glessner-front-with-keith-thumb.jpg": {
+   "bytes": 26691,
+   "sha256": "2be98d2b257d5f45e755b636b84efce45a760f506af12d19f027340590505b37"
+  },
+  "a18-gh-glessner-front-with-keith.jpg": {
+   "bytes": 488179,
+   "sha256": "a2205808fabe554cf7e975ce515fcf8e129a4e3b279b72916240222e96e08bbd"
+  },
+  "a18-gh-glessner-main-hall-1885-rendering-thumb.jpg": {
+   "bytes": 26772,
+   "sha256": "0fabc9da8d34f742e4b36138109ebaffa2d726d603730515e8cd65139dbc6576"
+  },
+  "a18-gh-glessner-main-hall-1885-rendering.jpg": {
+   "bytes": 122070,
+   "sha256": "bc57cbb7a3e17ea02dced02bf96d2fc7f43a5c5e54bd9dfca69964069ccff594"
+  },
   "a18-gh-glessner-main-hall-1888-thumb.jpg": {
    "bytes": 22933,
    "sha256": "b6b3bc5cf1c5982cc520ddccdb63c9f758529b9a3df84f1c4e829e22edd4fe4a"
@@ -268,6 +876,22 @@
   "a18-gh-glessner-main-hall-1888.jpg": {
    "bytes": 94458,
    "sha256": "d8046c4bd7a12e39349e1a53b831e0c57986ada658caa895f924533a95033558"
+  },
+  "a18-gh-glessner-wpa-model-east-thumb.jpg": {
+   "bytes": 30076,
+   "sha256": "7c5b1949a9bda7b8f613813bd370b1997a4258465ccd3825c4ee7bb56a0c201d"
+  },
+  "a18-gh-glessner-wpa-model-east.jpg": {
+   "bytes": 78090,
+   "sha256": "9664314aaaac1cb4b3cd5e0088909cda85a0eb349027cab7bf29ee92fbda5df5"
+  },
+  "a18-gh-glessner-wpa-model-north-thumb.jpg": {
+   "bytes": 17947,
+   "sha256": "8e50fee7e4af64bac709f53ea6b143f034fe003b252b055bfb345a2a1e61069f"
+  },
+  "a18-gh-glessner-wpa-model-north.jpg": {
+   "bytes": 44182,
+   "sha256": "60a8ea6795cc94213bd15253efb3e60a46ac1ecee023187ea3f5ffef92830a97"
   },
   "a18-gh-hitchcock-galloway-1874-sketch-thumb.jpg": {
    "bytes": 29580,
@@ -285,6 +909,14 @@
    "bytes": 63380,
    "sha256": "072bcb6524da437f6ad8da6914ce9bd69dc156f141faa1dfede66b621205e425"
   },
+  "a18-gh-kimball-exterior-2013-thumb.jpg": {
+   "bytes": 35481,
+   "sha256": "a9cf761d7774bd6eba4f54bdde47bbd56ea30cf88604963b08efde21a94b510d"
+  },
+  "a18-gh-kimball-exterior-2013.jpg": {
+   "bytes": 111466,
+   "sha256": "1e4d1b2053504ce5f02ac8767b34c769fe0a9668be3900312210044dbc817969"
+  },
   "a18-gh-kimball-lot-c1888-thumb.jpg": {
    "bytes": 29787,
    "sha256": "108c0c4077380df582ddd3404c1aa058fb78f5174e00559f69395164223e0e35"
@@ -292,6 +924,14 @@
   "a18-gh-kimball-lot-c1888.jpg": {
    "bytes": 85953,
    "sha256": "318b7214188812dc31c8e2b98efbdec536ac1c04ff7896c0d18ee27337626813"
+  },
+  "a18-gh-kimball-porch-north-2013-thumb.jpg": {
+   "bytes": 25949,
+   "sha256": "36082f2dbc098b69a18edf1ef73c12ebbf19a2ed9aad1c1d5c506b51cb360c5f"
+  },
+  "a18-gh-kimball-porch-north-2013.jpg": {
+   "bytes": 85719,
+   "sha256": "8edf4d4a13f073d4389ddb2ad201f98981d992c1c83cdf7616fa49434539c178"
   },
   "a18-gh-landowner-1874-glessner-site-thumb.jpg": {
    "bytes": 30646,
@@ -309,6 +949,102 @@
    "bytes": 91315,
    "sha256": "7dbbb465db50bac37a5c0cee11d472fcc3ed365f7a1d281b7a405b08b4d2d424"
   },
+  "a18-gh-nickel-1967-1812-1808-1800-thumb.jpg": {
+   "bytes": 23497,
+   "sha256": "41612c8aa97071403aad3c0b4a48e8bf2a8a8508541d1da7e2e99e3df096aecf"
+  },
+  "a18-gh-nickel-1967-1812-1808-1800.jpg": {
+   "bytes": 118078,
+   "sha256": "c0b546e4f0e4eb8908faf120ac256549275d2e757fa65df9aa0d030a79957e8f"
+  },
+  "a18-gh-nickel-aerial-ne-after-1968-thumb.jpg": {
+   "bytes": 19276,
+   "sha256": "0614c8f4889ab58177112e20146674034165249964f37a9effc8cfe655a95913"
+  },
+  "a18-gh-nickel-aerial-ne-after-1968.jpg": {
+   "bytes": 71278,
+   "sha256": "306a39dbfedf2b3aa149f5c89cb02e57e15e017578a8b0d43621dfb1f99428e2"
+  },
+  "a18-gh-nickel-coach-house-interior-thumb.jpg": {
+   "bytes": 24601,
+   "sha256": "16be4590c7aff6c0f173963ffcba610900212b394c0c524926c43b6eae78e681"
+  },
+  "a18-gh-nickel-coach-house-interior.jpg": {
+   "bytes": 126472,
+   "sha256": "42e9ec781cb7e150a34e38f465b499e12d2a4b91c1f766d2ca2a2608685d96c9"
+  },
+  "a18-gh-nickel-prairie-nw-after-1968-thumb.jpg": {
+   "bytes": 18718,
+   "sha256": "89b2b7d426c304b4a0537db68a3255f3982d448e460fde7aa946e4f9141258b8"
+  },
+  "a18-gh-nickel-prairie-nw-after-1968.jpg": {
+   "bytes": 42825,
+   "sha256": "6dcbd97210174c78caf2f10ed2858d1b195918d3cf8a6bdbcc9a07c784e39117"
+  },
+  "a18-gh-nickel-west-roof-dormer-thumb.jpg": {
+   "bytes": 22966,
+   "sha256": "23a711951d29804ec5ab72859b8d4164f3aa0c3e9e27639fa0f732975f9f9077"
+  },
+  "a18-gh-nickel-west-roof-dormer.jpg": {
+   "bytes": 129647,
+   "sha256": "4dbf7fd28eb782a3ea8566c1465b492e95287803b35eb74419cb4d6dae58f5f1"
+  },
+  "a18-gh-pomeroy-house-italianate-thumb.jpg": {
+   "bytes": 30442,
+   "sha256": "587b929637d190bc623986c7e7ff29b912aee16b1462d57605d8f5cbdbc8bb17"
+  },
+  "a18-gh-pomeroy-house-italianate.jpg": {
+   "bytes": 116578,
+   "sha256": "0a6122dee9f6819794bee44a913ed869876a67a4e8020b1c1de38e22cb31b8bc"
+  },
+  "a18-gh-sears-house-exterior-thumb.jpg": {
+   "bytes": 30948,
+   "sha256": "edce8b8b1fb8829fa101bd7511b035187791734bc1f44fa3c29612c39b8ec022"
+  },
+  "a18-gh-sears-house-exterior.jpg": {
+   "bytes": 84414,
+   "sha256": "0c4e6e8a85929612ffa1e918ee94e17b1c9b0cfc639bf2db67cd359d7d464126"
+  },
+  "a18-gh-sears-house-interior-thumb.jpg": {
+   "bytes": 26601,
+   "sha256": "8e7587323ea652d3a727a803f6d00f1e7810f665b9109a98f7eb4b3f4536d74b"
+  },
+  "a18-gh-sears-house-interior.jpg": {
+   "bytes": 84154,
+   "sha256": "77c455b15d80d4378c6f8d8d4643c0925b4925066e3cc06bbc1d9555fb3cd67b"
+  },
+  "a18-gh-sears-interpretive-panel-thumb.jpg": {
+   "bytes": 32837,
+   "sha256": "581144f4688003d34365675aefcd782e75c241b0d5068463d78490e2322a7174"
+  },
+  "a18-gh-sears-interpretive-panel.jpg": {
+   "bytes": 79958,
+   "sha256": "ecb61190e70b30717bd87749171e23dba69606584930165bc31987fc63887d36"
+  },
+  "a18-gh-shipman-1828-partial-thumb.jpg": {
+   "bytes": 18820,
+   "sha256": "025d4387514ea1051c07ab75933b76674ced2c92aaed3eaa4a3abd28a696349b"
+  },
+  "a18-gh-shipman-1828-partial.jpg": {
+   "bytes": 39304,
+   "sha256": "c2b23da61891304ec9e26a3793b1ee7875a59cd816b51873e5cb684a28333334"
+  },
+  "a18-gh-shipman-1828-with-automobile-thumb.jpg": {
+   "bytes": 28798,
+   "sha256": "c683055a8b30dd61c77da3bde8439572c572cb13476d65c5ea4cb69dc0fed842"
+  },
+  "a18-gh-shipman-1828-with-automobile.jpg": {
+   "bytes": 65613,
+   "sha256": "7fc488986ba392bab28bbd5a42a7d3837f56797d55060a4fd1a49fb33b83b259"
+  },
+  "a18-gho-house-under-construction-1887-thumb.jpg": {
+   "bytes": 18404,
+   "sha256": "b810fcd10cf06249c534372783df080481b33e27bdba594d932efbf41115430c"
+  },
+  "a18-gho-house-under-construction-1887.jpg": {
+   "bytes": 238988,
+   "sha256": "48c79bd2137cbdf170d15bf02dcdb9fb58009aed7a5c0f7355abb47b0e7bb064"
+  },
   "a18-gho-porte-cochere-doors-c1888-thumb.jpg": {
    "bytes": 20049,
    "sha256": "e29f66d3d46f4763d1f978d3b1e1ed21de69d41982f2ca94ebba67ec407da594"
@@ -316,6 +1052,22 @@
   "a18-gho-porte-cochere-doors-c1888.jpg": {
    "bytes": 208399,
    "sha256": "98691f114dfdbf05e7135bc8327b68c4c35c8623ec2376085b577f84d406cceb"
+  },
+  "a18-gho-simmerling-kimball-1994-thumb.jpg": {
+   "bytes": 27070,
+   "sha256": "03ac769f0eb9b148416b065ab8985bbdea549cfb29f1daa5c8fea25a13f6dac4"
+  },
+  "a18-gho-simmerling-kimball-1994.jpg": {
+   "bytes": 339671,
+   "sha256": "0ba4843c1072eb060f03c9e63a68ed17f887864fb39d12f0b98ce049acae48f0"
+  },
+  "a18-iit-glessner-prairie-facade-1945-thumb.jpg": {
+   "bytes": 29257,
+   "sha256": "b5e29b33be5e652338faa76ca0b9dcb37f3ce022bba9be1693328620f5d48214"
+  },
+  "a18-iit-glessner-prairie-facade-1945.jpg": {
+   "bytes": 369808,
+   "sha256": "4ff910a6725c97bed5dd5f59c622f72d1788dc4694c0f5a19a3d14a1aeac1233"
   },
   "a18-inland-architect-1886-09-keith-notice-thumb.jpg": {
    "bytes": 22962,
@@ -380,6 +1132,46 @@
   "a18-rba-casc-glessner-1920s.jpg": {
    "bytes": 105611,
    "sha256": "3400e62a72b93259a1e5b94f1083102fbf03c5e252b519fe9cf9c7176ecd0275"
+  },
+  "a18-rba-florian-1948-glessner-court-thumb.jpg": {
+   "bytes": 26482,
+   "sha256": "30acff36368d77f461a081933916fd89419f68514d55b36cdbe3d0b61d66c05f"
+  },
+  "a18-rba-florian-1948-glessner-court.jpg": {
+   "bytes": 153161,
+   "sha256": "f467610ab587650c7f98687a43a1638a40df4f01dabdd6f7e22f3980c18205be"
+  },
+  "a18-rba-florian-1948-glessner-interior-thumb.jpg": {
+   "bytes": 16955,
+   "sha256": "bd141a1a724c95f2cd75fb0006d8f62a9e711e01d1ebefb9a16fab1207ffc58a"
+  },
+  "a18-rba-florian-1948-glessner-interior.jpg": {
+   "bytes": 95172,
+   "sha256": "63f6e37fdb26ed2c42db7c563bd1a599d9d139c2041e7eded521a1543cdd3870"
+  },
+  "a18-rba-glessner-library-thumb.jpg": {
+   "bytes": 33480,
+   "sha256": "c5a9c40d0acb404c0bcd6e508317c19d967bbcf715818444aa6a5c2606402927"
+  },
+  "a18-rba-glessner-library.jpg": {
+   "bytes": 167840,
+   "sha256": "8e8c447b7b71c648e6d91abb5f7df64181191a3a8364ea933724b693336f6f0c"
+  },
+  "a18-rba-glessner-main-hall-thumb.jpg": {
+   "bytes": 34451,
+   "sha256": "0b6ea959b12c0dfeb6693ced9beb539c65d91f47388f7868ff152470ab145428"
+  },
+  "a18-rba-glessner-main-hall.jpg": {
+   "bytes": 177008,
+   "sha256": "6f963aa54c73e58b4a11dc18c335046f07611412d9f9a85693471d939286b351"
+  },
+  "a18-rba-glessner-prelim-elevation-slide-thumb.jpg": {
+   "bytes": 24038,
+   "sha256": "fd755447732066a011bf0c93403a3e2a5595a44db94f8eabc6d2f323af0ccb8a"
+  },
+  "a18-rba-glessner-prelim-elevation-slide.jpg": {
+   "bytes": 113503,
+   "sha256": "f69f24f53de12e45df4e8d41da2cc51547883a79b3b45009619d056206401a4c"
   },
   "a18-rba-ia-1888-glessner-thumb.jpg": {
    "bytes": 16416,
@@ -837,6 +1629,54 @@
    "bytes": 77882,
    "sha256": "c6d7a0a7c294a0121ebc43fd1d4b365f586d436b8fa38edd1f535a914879e590"
   },
+  "a18-rba-nickel-glessner-ne-1-thumb.jpg": {
+   "bytes": 25518,
+   "sha256": "02f19e50c690cf4bf5c9cc86dc26e8134a442bf00fe453260b38ea46c32338f9"
+  },
+  "a18-rba-nickel-glessner-ne-1.jpg": {
+   "bytes": 460663,
+   "sha256": "68bb10b89d96a738db18d1e4af6968641e2efd303a152087f2da8f7fe2bae200"
+  },
+  "a18-rba-nickel-glessner-ne-2-thumb.jpg": {
+   "bytes": 21367,
+   "sha256": "a3b164ddac4f96b757a43cc9b27e865eb2bd9f12c395ce288e70c8ecadc35f4a"
+  },
+  "a18-rba-nickel-glessner-ne-2.jpg": {
+   "bytes": 416354,
+   "sha256": "eb3b1a4696e27a35d3ad838b90be2fb57f5831dcfafbb9eb2c0a0a182c183d4b"
+  },
+  "a18-rba-nickel-glessner-sign-removal-thumb.jpg": {
+   "bytes": 36479,
+   "sha256": "57bb4276953cc0f95ad3f41953526f7a27b1c9e3353e8bf3b0a4a604a0b284bc"
+  },
+  "a18-rba-nickel-glessner-sign-removal.jpg": {
+   "bytes": 521822,
+   "sha256": "3e5a9283c961508af7e85170aad89cdc23cef9fb715f9cdfdf73823d0b7ff836"
+  },
+  "a18-rba-reed-1941-prairie-north-from-1820-thumb.jpg": {
+   "bytes": 17893,
+   "sha256": "961a289309a73383ec0464d41497d2c12b47e71568379fae12106f0c6ba52930"
+  },
+  "a18-rba-reed-1941-prairie-north-from-1820.jpg": {
+   "bytes": 98338,
+   "sha256": "4ca702d54dc451fbf0822eb259c2baa2ad64a9ed651d5ab1be06a6ad64f9b212"
+  },
+  "a18-rba-reed-1941-prairie-south-at-18th-thumb.jpg": {
+   "bytes": 16315,
+   "sha256": "76dca6b82cec07431294cfc19fd3e234c3ee057d53243ccefaba0bebc71cd6ee"
+  },
+  "a18-rba-reed-1941-prairie-south-at-18th.jpg": {
+   "bytes": 80363,
+   "sha256": "1a177448eddd34d7410c194b0c9f69fde93a3e6a5d0d92bc296ab8bcb24952e4"
+  },
+  "a18-rba-replinger-1951-glessner-service-entrance-thumb.jpg": {
+   "bytes": 36104,
+   "sha256": "5afc90b3f02d38f1c01f32d0d8da3bb1ab8d42cb50d4f0b501ec4fd8e7c740ef"
+  },
+  "a18-rba-replinger-1951-glessner-service-entrance.jpg": {
+   "bytes": 186543,
+   "sha256": "76c3dfe5311575ef8bcaf8e3d87b8e0a2bb8d2de6cee06765cb4ff0a9fba1a10"
+  },
   "a18-rba-taylor-1801-kimball-c1895-thumb.jpg": {
    "bytes": 34956,
    "sha256": "c20b5a672bddffd54b4613ba77f2ebe19732eb0ba0147af7c4a4a3227fb827a1"
@@ -941,6 +1781,118 @@
    "bytes": 408879,
    "sha256": "0d82a77e9db197b91d68e67cc3eb66520b9ec00b84890cd97447e0c5cd4c553f"
   },
+  "a19-cgy-1900-keith-2024-thumb.jpg": {
+   "bytes": 33997,
+   "sha256": "be4ff9ed6d95d968cce11b333b412a345a53d1572b86c6d5f67e547b65b9fd65"
+  },
+  "a19-cgy-1900-keith-2024.jpg": {
+   "bytes": 553432,
+   "sha256": "76be59a78312a35c470f101f49e8985e6b584c48a6db69db4f515707a096a985"
+  },
+  "a19-cgy-1900-keith-exterior-thumb.jpg": {
+   "bytes": 20051,
+   "sha256": "312646b78fa4f29cbc3d74b70b1481a65cb76989046d88ad0428fdd40f9279fa"
+  },
+  "a19-cgy-1900-keith-exterior.jpg": {
+   "bytes": 357278,
+   "sha256": "8fac945a5faddfe8444e4b05173feaac60bd1fa1f8fb5009172837c215569a42"
+  },
+  "a19-cgy-1901-exterior-thumb.jpg": {
+   "bytes": 26967,
+   "sha256": "a12128529612d57cbbac8fa54ac3db26c8ce616ee8d50c579f504ed36e8c02f9"
+  },
+  "a19-cgy-1901-exterior.jpg": {
+   "bytes": 291790,
+   "sha256": "f149c559704fa37545432dc354005d3d239d685dfc31089829769c9de3511db3"
+  },
+  "a19-cgy-1901-ream-1898-thumb.jpg": {
+   "bytes": 32537,
+   "sha256": "1c940b0f256f9b15942f401c1ee6b89a301fae02879e237ad5c59e69fdcaefb5"
+  },
+  "a19-cgy-1901-ream-1898.jpg": {
+   "bytes": 199537,
+   "sha256": "86070921794e13ab8816336bd7eec5a65774ed9d313efed15d76820110582892"
+  },
+  "a19-cgy-1905-field-1893-engraving-thumb.jpg": {
+   "bytes": 52186,
+   "sha256": "318be015a3c6a5f7b7bddd7cc2aff0bbc54a0ab29f1fb6fcbfb43bd064a64205"
+  },
+  "a19-cgy-1905-field-1893-engraving.jpg": {
+   "bytes": 682216,
+   "sha256": "fb24ea4c06c3265ac7bb9c2a6231a0b365f08d55e0131d0f410651fc0d01e03c"
+  },
+  "a19-cgy-1905-field-1955-thumb.jpg": {
+   "bytes": 13922,
+   "sha256": "74acb20e70f54f29682eadfea31e3ea3e9c109fdaca38009f97a7aee825bf77a"
+  },
+  "a19-cgy-1905-field-1955.jpg": {
+   "bytes": 298547,
+   "sha256": "f94049ace8415b5d4512e885d4e64981aaed082acec0393db96d8451cd4b5329"
+  },
+  "a19-cgy-1905-field-923-thumb.jpg": {
+   "bytes": 32804,
+   "sha256": "1eaa8f53b1539cff97f6d328da8ed53feb2b69463ac1528d5d2a903b52056ebd"
+  },
+  "a19-cgy-1905-field-923.jpg": {
+   "bytes": 469147,
+   "sha256": "de5ec221368f99f6ae1fb4918204849e199566266c2f8bdb158e35204d9a494d"
+  },
+  "a19-cgy-1905-field-school-thumb.jpg": {
+   "bytes": 44453,
+   "sha256": "18c7183f31834cbc5c1986444b32807c0824f85ff3a03424448a4feb52f9d7c4"
+  },
+  "a19-cgy-1905-field-school.jpg": {
+   "bytes": 148832,
+   "sha256": "3e4f2f373d6752a7dea6f21edcfcd2b597caeff3354a2e0a10acb93ef2e4de77"
+  },
+  "a19-cgy-1905-field-winter-thumb.jpg": {
+   "bytes": 23838,
+   "sha256": "1d134c4f8be91f979e3f77ffb6adc13e85dccaa610c76d43d6e80430956c0ffe"
+  },
+  "a19-cgy-1905-field-winter.jpg": {
+   "bytes": 55206,
+   "sha256": "695181ffa6d04097aaa2f1d0cc668901843b2f59636cd2baebc8cfac96a8148b"
+  },
+  "a19-cgy-1906-keith-engraving-thumb.jpg": {
+   "bytes": 43294,
+   "sha256": "36ca953bfcf98c75faf7938bf883f44667e170341c354b319e9d10a4358293eb"
+  },
+  "a19-cgy-1906-keith-engraving.jpg": {
+   "bytes": 317036,
+   "sha256": "e844dbb769c4fceaaac2dcd2d950f69cdbb813aee4fe25a653a39f17477da3e3"
+  },
+  "a19-cgy-1906-keith-photo-thumb.jpg": {
+   "bytes": 25386,
+   "sha256": "f9aafd31d03d2c7f097a65d596adce2da5270732b50455cd9e910cd43341cb11"
+  },
+  "a19-cgy-1906-keith-photo.jpg": {
+   "bytes": 113710,
+   "sha256": "7d053c5e4a01ac406e4152e83afd89e5798a923ca65c43ed954a05d236a1cc2e"
+  },
+  "a19-cgy-1912-exterior-thumb.jpg": {
+   "bytes": 25411,
+   "sha256": "cfe531da205ae2f740a26c6c1a8fb32691de0be14da735c3873133019557d485"
+  },
+  "a19-cgy-1912-exterior.jpg": {
+   "bytes": 336204,
+   "sha256": "edfbb93fb891e8f549e6aa782b2609f7a7b6fcde87847a46fbce72e00c350010"
+  },
+  "a19-cgy-1919-before-1902-thumb.jpg": {
+   "bytes": 31773,
+   "sha256": "a132daeec3945c6212653c2f244d53f0a3c36f1cf64b57e15cd09aec767e0133"
+  },
+  "a19-cgy-1919-before-1902.jpg": {
+   "bytes": 601622,
+   "sha256": "7cb27aec646971a10e2e99a4f4d62fe37878df9a32c54b1f1c96716c7b3d4a12"
+  },
+  "a19-cgy-1919-later-thumb.jpg": {
+   "bytes": 28263,
+   "sha256": "0aaeb76c4a97b3cf32999e693278b88637a815a5309993b399d64a7ad73ce85a"
+  },
+  "a19-cgy-1919-later.jpg": {
+   "bytes": 316941,
+   "sha256": "38fa4bf8be261a44805391e807ea752e9d23df0eb5517286d5832582da0e616d"
+  },
   "a19-cgy-1923-randmcnally-1893-thumb.jpg": {
    "bytes": 19906,
    "sha256": "4af2abafd8558e243dfbf1923a650eb740c3478fd44eb92dfe89609b6d7ad628"
@@ -949,6 +1901,22 @@
    "bytes": 370379,
    "sha256": "c5b45bb15d032a543d85a3a91254d9ac1c9e384e0cb9a054e71279ef3370565d"
   },
+  "a19-cgy-1936-thompson-etching-thumb.jpg": {
+   "bytes": 37003,
+   "sha256": "560090eebda5921c35efdd50f29ec76b7fa2ab34fb75ca2da13ccd501feddb9f"
+  },
+  "a19-cgy-1936-thompson-etching.jpg": {
+   "bytes": 508747,
+   "sha256": "65506a8e842b03b58315722f547794d753415482b15cb9b10a36e49f6c96aa76"
+  },
+  "a19-cgy-1936-thompson-photo-thumb.jpg": {
+   "bytes": 17961,
+   "sha256": "f54ee9ba2935943cdbeb06c3e8483cf26bca1f499b50315e70bad45b8df78ac9"
+  },
+  "a19-cgy-1936-thompson-photo.jpg": {
+   "bytes": 207957,
+   "sha256": "7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a"
+  },
   "a19-cgy-1936-tribune-1869-thumb.jpg": {
    "bytes": 11217,
    "sha256": "3c29316142f97ddc7481442a82df50cbc663b81f0e1cf1e0153de716873e1c85"
@@ -956,6 +1924,14 @@
   "a19-cgy-1936-tribune-1869.jpg": {
    "bytes": 37118,
    "sha256": "008be6059507e23049bb84e387c390024ca6b22e7ab28db88df1629cbc99e51e"
+  },
+  "a19-cgy-1945-armour-thumb.jpg": {
+   "bytes": 27966,
+   "sha256": "1d19fdf3b9e9773272a94063cad95eac504d44d42ac55b50b03efc08df26a9bb"
+  },
+  "a19-cgy-1945-armour.jpg": {
+   "bytes": 121221,
+   "sha256": "2697555429e52f08e1c19e909e2cc4485caf85b554c3e97f9584c7383dca708b"
   },
   "a19-cgy-robinson-1886-crops-1900-block-thumb.jpg": {
    "bytes": 15162,
@@ -1021,6 +1997,14 @@
    "bytes": 138529,
    "sha256": "7ddd83063dcf7d407367f5e31c04a91327834adcb71530cb6271e8d2b615d81b"
   },
+  "a19-commons-fieldjr-2004-thumb.jpg": {
+   "bytes": 27302,
+   "sha256": "c7431574cb54274954ecb615ab2038b72b82a495a3e77ec4e2e9a87751c2bef6"
+  },
+  "a19-commons-fieldjr-2004.jpg": {
+   "bytes": 570300,
+   "sha256": "a67e695d816df80ff6879cb19ba800d0314b0b1c93ac5a43b80bfa1afb50e361"
+  },
   "a19-field-cdn-dn0003324-thumb.jpg": {
    "bytes": 29980,
    "sha256": "185a1c12ed958c8806fde536ed1c94e76a1e031817a7d200150f410ccdb75adf"
@@ -1028,6 +2012,142 @@
   "a19-field-cdn-dn0003324.jpg": {
    "bytes": 54476,
    "sha256": "69af6f6f8fab65746096090d5f81ca7bc486515bf769ca00690bc01f3b292423"
+  },
+  "a19-gh-1955-field-demolition-thumb.jpg": {
+   "bytes": 23780,
+   "sha256": "9a9d19cf4d99582031b8765e0af997a736aeb8362e5be971c856a05672136d0e"
+  },
+  "a19-gh-1955-field-demolition.jpg": {
+   "bytes": 45009,
+   "sha256": "7e107967ab2fd9cabb5fb15bed39de6873e46a5cd06da40e8c2a9f4267c428f3"
+  },
+  "a19-gh-1981-donnelley-warehouse-1905-site-thumb.jpg": {
+   "bytes": 20641,
+   "sha256": "0d8deac88411cbd82372513403153baf4ab8ac12a556d005285f2d8d6d0220f7"
+  },
+  "a19-gh-1981-donnelley-warehouse-1905-site.jpg": {
+   "bytes": 57301,
+   "sha256": "42b6c9c413c58861c2e661df009496e4c48de9832105e17f332c8e1cfebb3b95"
+  },
+  "a19-gh-1981-fieldjr-1919-thumb.jpg": {
+   "bytes": 25235,
+   "sha256": "dcd3d3863a11ca89da5888d7fd3a0626db08c214682a953f78cefb7a1b5c688e"
+  },
+  "a19-gh-1981-fieldjr-1919.jpg": {
+   "bytes": 68581,
+   "sha256": "8c3c9ffbc944b6b31f3e1313d120c7ff0e8c4dc5cf03a2e26678576c674de314"
+  },
+  "a19-gh-1981-gaylord-factory-1936-site-thumb.jpg": {
+   "bytes": 21387,
+   "sha256": "1103d14e147e879e86326566a655cfb0f5c9329e6edd8066e9bc2cf4a1dc6c50"
+  },
+  "a19-gh-1981-gaylord-factory-1936-site.jpg": {
+   "bytes": 50485,
+   "sha256": "47c8719c2cb49f5313e849732679668eb84b0aa7266906dea22ce1615b44ac8c"
+  },
+  "a19-gh-2ndpres-sanctuary-thumb.jpg": {
+   "bytes": 37037,
+   "sha256": "6dae94ff78e12da7520c0b5cb1013d8cef3b8dfd38b2fbf154e7b5cd6a2a5751"
+  },
+  "a19-gh-2ndpres-sanctuary.jpg": {
+   "bytes": 506087,
+   "sha256": "6c899582a36c42b402852ec9a9d0fae7b6c8dc9f4c87be1829bfa42803bdab56"
+  },
+  "a19-gh-2ndpres-tree-of-life-thumb.jpg": {
+   "bytes": 23880,
+   "sha256": "b298377a5aa196e96dbaf336fd45539142394eb1429406c2489cf377ae310247"
+  },
+  "a19-gh-2ndpres-tree-of-life.jpg": {
+   "bytes": 50085,
+   "sha256": "63c0d85bfa4ca8c69a1a815eefb5429f8ec3612ae09843341ce44d2b47d0bf13"
+  },
+  "a19-gh-clarke-1977-cupola-thumb.jpg": {
+   "bytes": 22589,
+   "sha256": "3fe123d76e10a58c179dc5a7f73b52512207079eb659cecb9a382bb4b30e0b2d"
+  },
+  "a19-gh-clarke-1977-cupola.jpg": {
+   "bytes": 65098,
+   "sha256": "b7df0d7755dab440c9652062529ee797e5adda213ed8188c5df68f86f6a62436"
+  },
+  "a19-gh-clarke-1977-tracks-thumb.jpg": {
+   "bytes": 26811,
+   "sha256": "dac70be427b71834e0cb9b02e8aa5b15a380d387b55f6848251e97ac2c38d308"
+  },
+  "a19-gh-clarke-1977-tracks.jpg": {
+   "bytes": 76448,
+   "sha256": "6145f1403538ab71abaf98bd7b66a966fe8ac64b6c7bf1ec24513aceba7e9668"
+  },
+  "a19-gh-clarke-before-1872-thumb.jpg": {
+   "bytes": 34101,
+   "sha256": "9584750061258f011df40d5abacf0772b68506a65a54a43554fd6eed580246fa"
+  },
+  "a19-gh-clarke-before-1872.jpg": {
+   "bytes": 307442,
+   "sha256": "5f9731224e229f7fdde8d79d1ed6ebace992bdbde8813b0e59a90048ab122b1c"
+  },
+  "a19-gh-clarke-restored-modern-thumb.jpg": {
+   "bytes": 24254,
+   "sha256": "89384c01d1f3877f3413910f5385cb93ebeb96e03535fb55e677ef39ab2a1153"
+  },
+  "a19-gh-clarke-restored-modern.jpg": {
+   "bytes": 74313,
+   "sha256": "7f46f4516ee0fc080e3b6465041aac261baa1518cbd47403acfb0196dce58b68"
+  },
+  "a19-gh-clarke-wabash-chrimes-thumb.jpg": {
+   "bytes": 29341,
+   "sha256": "8bd1c38077babe2fea6ed8ffacdf82862bdb2a49242d9b97f8d1a2656754d250"
+  },
+  "a19-gh-clarke-wabash-chrimes.jpg": {
+   "bytes": 261213,
+   "sha256": "60a076b41e50a8fb5b7b542457fae3a20c402d6f9f600989cdf48f9ae504b943"
+  },
+  "a19-gh-field-g85-1-15-38-thumb.jpg": {
+   "bytes": 34367,
+   "sha256": "ccb7b98185a7fd7c85c8a1b009b6470017e1a16a12c7b10b62a69190f3ff8cf1"
+  },
+  "a19-gh-field-g85-1-15-38.jpg": {
+   "bytes": 87759,
+   "sha256": "a572afefdeab395f3a9e15b3f4744e42607e8d9ba827c49f78936875258db88f"
+  },
+  "a19-gh-keith-1900-exterior-modern-thumb.jpg": {
+   "bytes": 30041,
+   "sha256": "0d5c119c07dbe33a51d2ff78cda1c73229f2bd2dd5702c8d94bb7fcb0371cbfd"
+  },
+  "a19-gh-keith-1900-exterior-modern.jpg": {
+   "bytes": 68532,
+   "sha256": "448b24969e936ad4aec1a3acdf8907ce81036609bab4a335a523669aeea34869"
+  },
+  "a19-gh-keith-1900-historic-thumb.jpg": {
+   "bytes": 25538,
+   "sha256": "4da42d0e3d7180f93673faed12d2b14cff2c67078661cfb9c96f5ac4602e88c5"
+  },
+  "a19-gh-keith-1900-historic.jpg": {
+   "bytes": 188636,
+   "sha256": "2bf412a3d0369c7619b25c5da579805f71d07fdf90ea1442b8013627be8df755"
+  },
+  "a19-gh-keith-dining-room-thumb.jpg": {
+   "bytes": 28565,
+   "sha256": "0445be43ed74c1c4192b169749fae48084a36b28c0c358497a572edbfccaf838"
+  },
+  "a19-gh-keith-dining-room.jpg": {
+   "bytes": 75369,
+   "sha256": "af84924e29a8dc9da45fc8f159daf5c6f83234f434d13ebf485417d5594162d5"
+  },
+  "a19-gh-keith-publishing-office-thumb.jpg": {
+   "bytes": 28524,
+   "sha256": "53e9a147f5bb4cfbc697a3a70ed0f10ce42701cdedaa75f58157ee15c9a65dd8"
+  },
+  "a19-gh-keith-publishing-office.jpg": {
+   "bytes": 64913,
+   "sha256": "8a5f1c5a4fadf17247e6ae1670a343db93b4827b7229160ea8aa6a65fc7cbc66"
+  },
+  "a19-gh-prairie-1800-1900-elevations-thumb.jpg": {
+   "bytes": 11799,
+   "sha256": "97f28e492d809a1489f08303bcf2589a4451953f042bc184707dfd02bcb4c7f5"
+  },
+  "a19-gh-prairie-1800-1900-elevations.jpg": {
+   "bytes": 120972,
+   "sha256": "8392d418e65d1c9a0bd957c1ed711a7ba2773753ee1f6dca004f759e9801bbbe"
   },
   "a19-hb-1904-2ndpres-article-thumb.jpg": {
    "bytes": 24822,
@@ -1068,6 +2188,54 @@
   "a19-hb-1904-2ndpres-windows.jpg": {
    "bytes": 222527,
    "sha256": "e96770171c173d4a4713fd71c1671e6ff7e3268c2a18c93aa64f646f5bfa07a0"
+  },
+  "a19-jyoti-cullerton-106-thumb.jpg": {
+   "bytes": 26211,
+   "sha256": "cd7323700ceea151af9a48c85b62fd5ddbf41723a7fba68ff8770910500431d0"
+  },
+  "a19-jyoti-cullerton-106.jpg": {
+   "bytes": 26211,
+   "sha256": "cd7323700ceea151af9a48c85b62fd5ddbf41723a7fba68ff8770910500431d0"
+  },
+  "a19-jyoti-cullerton-220-thumb.jpg": {
+   "bytes": 31174,
+   "sha256": "4569021f0831576e55873f2a96690a7fa7c48b41db1641322207fc4ba2a044bd"
+  },
+  "a19-jyoti-cullerton-220.jpg": {
+   "bytes": 31174,
+   "sha256": "4569021f0831576e55873f2a96690a7fa7c48b41db1641322207fc4ba2a044bd"
+  },
+  "a19-jyoti-cullerton-222-thumb.jpg": {
+   "bytes": 20784,
+   "sha256": "d718714055d6557c209859ff62d41374e0a51d04695fd352378023e79c34e449"
+  },
+  "a19-jyoti-cullerton-222.jpg": {
+   "bytes": 20784,
+   "sha256": "d718714055d6557c209859ff62d41374e0a51d04695fd352378023e79c34e449"
+  },
+  "a19-jyoti-cullerton-223-thumb.jpg": {
+   "bytes": 23821,
+   "sha256": "06c71f3316d1539634c24bd72809c5a5ffcd4f12e6f58e9eacbf114cac47e986"
+  },
+  "a19-jyoti-cullerton-223.jpg": {
+   "bytes": 23821,
+   "sha256": "06c71f3316d1539634c24bd72809c5a5ffcd4f12e6f58e9eacbf114cac47e986"
+  },
+  "a19-jyoti-cullerton-224-thumb.jpg": {
+   "bytes": 31848,
+   "sha256": "229980f12ff97abde0ba424dbb1fc7b1e5af956bdb33f85ba85aa56c3d68f2c5"
+  },
+  "a19-jyoti-cullerton-224.jpg": {
+   "bytes": 31848,
+   "sha256": "229980f12ff97abde0ba424dbb1fc7b1e5af956bdb33f85ba85aa56c3d68f2c5"
+  },
+  "a19-jyoti-cullerton-225-thumb.jpg": {
+   "bytes": 27147,
+   "sha256": "bb3f438d16e4ad01a1c909677921d8dff3c0d84a762aed1642677169620f7bfd"
+  },
+  "a19-jyoti-cullerton-225.jpg": {
+   "bytes": 27147,
+   "sha256": "bb3f438d16e4ad01a1c909677921d8dff3c0d84a762aed1642677169620f7bfd"
   },
   "a19-nby-newchicagoalbum-1883-residences-thumb.jpg": {
    "bytes": 32058,
@@ -1133,6 +2301,14 @@
    "bytes": 1051004,
    "sha256": "eff053507d639d618308832fff83e88e57182d66d176ebe2334444a44f47d70b"
   },
+  "a19-uic-daley-clarke-1963-thumb.jpg": {
+   "bytes": 20385,
+   "sha256": "c36a1679c05405f8133cd46b7314f9a7c1c87ec7422ce2e14cfa4b2d2a7e6804"
+  },
+  "a19-uic-daley-clarke-1963.jpg": {
+   "bytes": 49745,
+   "sha256": "4a613513973bcfc8d445c94005f1f241dc4c7f9dd6413b0388ea5d54af979a99"
+  },
   "a20-aic-ia-dewey-residence-drawing-1887-thumb.jpg": {
    "bytes": 17989,
    "sha256": "991376a63e936053afa0101678de5cb140987bd408ecf0ed75ca0265d33d2622"
@@ -1165,6 +2341,46 @@
    "bytes": 133916,
    "sha256": "28e0229cae9352ee7e23f516e06c9e5c3328860341e878faa67c3d5c4f142d6a"
   },
+  "a20-aic-reed-1941-2021-2033-prairie-thumb.jpg": {
+   "bytes": 19718,
+   "sha256": "bc181805d0084d92fe04a841b74f1d3907edd5ed9481e592d845961dc392e165"
+  },
+  "a20-aic-reed-1941-2021-2033-prairie.jpg": {
+   "bytes": 51238,
+   "sha256": "23ba91835f3bef4ff8b4e03344fd3085813cf86e6bb47e847dbb7ad4593256be"
+  },
+  "a20-aic-rees-c1980s-photo-thumb.jpg": {
+   "bytes": 18589,
+   "sha256": "e04c4820396c89f1df71f2a4ea92887c08de25e2dd586de3584978194b0690be"
+  },
+  "a20-aic-rees-c1980s-photo.jpg": {
+   "bytes": 80629,
+   "sha256": "8aa834cdbb27f0d892d7b66c688ed3ca379fc038ce5786cab5a24e8fa3de1a1a"
+  },
+  "a20-aic-taylor-sherman-residence-thumb.jpg": {
+   "bytes": 31617,
+   "sha256": "e1cb29df1e45caddac471089526d73743abab370306add68ed707037c6984f51"
+  },
+  "a20-aic-taylor-sherman-residence.jpg": {
+   "bytes": 91227,
+   "sha256": "51369548aef7d28531e295ff52d88b49fd0745184b3f4fbccabdf55e27830eef"
+  },
+  "a20-chicagology-2001-street-1915-thumb.jpg": {
+   "bytes": 20951,
+   "sha256": "e950d3d67e6bf136cbb33b6e789b6f689f22a94cb8ef70b076924cf521961e5c"
+  },
+  "a20-chicagology-2001-street-1915.jpg": {
+   "bytes": 139152,
+   "sha256": "8695f2924fd10b20cacd60759d3d8ae73464aad946591512a543affde534452c"
+  },
+  "a20-chicagology-2009-2011-photo-thumb.jpg": {
+   "bytes": 33237,
+   "sha256": "6a5d3abd63bf7ff0af1018156e2d2844b35a018563c1ccef1581e72d94290202"
+  },
+  "a20-chicagology-2009-2011-photo.jpg": {
+   "bytes": 410810,
+   "sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2"
+  },
   "a20-chicagology-2013-reid-ia1895-thumb.jpg": {
    "bytes": 29160,
    "sha256": "75b2d836e4343010a570de7fe73b009d5f7303ed6422796297d8d69b1d83d6be"
@@ -1172,6 +2388,22 @@
   "a20-chicagology-2013-reid-ia1895.jpg": {
    "bytes": 147523,
    "sha256": "34ec48ebc4e327be4531026a2b0401d51a29255cdd1ba38d990c33151abc670f"
+  },
+  "a20-chicagology-2017-armour-photo-thumb.jpg": {
+   "bytes": 27590,
+   "sha256": "f32cc0091fa5bff5d7c7ee01ac687e2738e5bf8160a2e41dd248bb3ce2c1361a"
+  },
+  "a20-chicagology-2017-armour-photo.jpg": {
+   "bytes": 133322,
+   "sha256": "0586ba59683607672112e12b5c3429e8a139820061ffc9189c90826302e2b226"
+  },
+  "a20-chicagology-2021-high-photo-thumb.jpg": {
+   "bytes": 36814,
+   "sha256": "0754e1d588580a6445395915a6d98c9aa79fbf882550acedb164369c0bd5106f"
+  },
+  "a20-chicagology-2021-high-photo.jpg": {
+   "bytes": 494665,
+   "sha256": "0b34cbeac19178d9f667bca892a9bf5cc692d534ee917d89a3a18e67e3fa05be"
   },
   "a20-chicagology-2026-wahl-landowner-1874-thumb.jpg": {
    "bytes": 33559,
@@ -1181,6 +2413,86 @@
    "bytes": 253030,
    "sha256": "f09857bdce3dcfe247a804f71d873471ae1ecf2699c66a2be5a02092d09dcd48"
   },
+  "a20-chicagology-2031-2035-engraving-thumb.jpg": {
+   "bytes": 42707,
+   "sha256": "c5b905bfc9565b273355da229588f507867f190b8b3dbf592b5346b30991a22c"
+  },
+  "a20-chicagology-2031-2035-engraving.jpg": {
+   "bytes": 346696,
+   "sha256": "e7e930bdd6d8931340f02bd5b8544ed68ab0860c892a2a75cc2bb37fadd118b7"
+  },
+  "a20-chicagology-2033-walker-evans-thumb.jpg": {
+   "bytes": 31140,
+   "sha256": "44a9cf548ee0d46bacfe8c0a3534f395733f9e7993aaf4d67485afac890f1211"
+  },
+  "a20-chicagology-2033-walker-evans.jpg": {
+   "bytes": 103368,
+   "sha256": "c964ed0da9b23428147b33bc81fa077b9feb5bac531b5941d17ee35632893346"
+  },
+  "a20-chicagology-2036-street-engraving-1880-thumb.jpg": {
+   "bytes": 37966,
+   "sha256": "4fc581075b4eba03b3f731a6d677374754c3bde6787be2e1d0999f28195c1bf0"
+  },
+  "a20-chicagology-2036-street-engraving-1880.jpg": {
+   "bytes": 533401,
+   "sha256": "9247cf9c0e5a7a890e21fe96b256f9067b45256822aebef55e376de67e1d036a"
+  },
+  "a20-chicagology-2100-sherman-photo-thumb.jpg": {
+   "bytes": 32631,
+   "sha256": "fa5b41184b91c69c7cdca17803b739a595171aeab53f80a28c5aed048954ca69"
+  },
+  "a20-chicagology-2100-sherman-photo.jpg": {
+   "bytes": 380449,
+   "sha256": "2a55ae43e36b6db91dccb451cc478d04f1ef272e04ffa0255ca5e4874f38a563"
+  },
+  "a20-chicagology-2110-rees-street-c1895-thumb.jpg": {
+   "bytes": 20581,
+   "sha256": "2b8aef58f256121533a72c763d75e920d2008b066f4ec26559e5cef397fa631a"
+  },
+  "a20-chicagology-2110-rees-street-c1895.jpg": {
+   "bytes": 218461,
+   "sha256": "4cf30871e0f734aabf855b19de6e8ff061e85744880db68b58563ed28c3f998c"
+  },
+  "a20-chicagology-2115-armour-photo-thumb.jpg": {
+   "bytes": 31563,
+   "sha256": "b2cbd97c5139e7b646704f97a627de970104d9189da877cc3fa232cc53ffb76f"
+  },
+  "a20-chicagology-2115-armour-photo.jpg": {
+   "bytes": 486009,
+   "sha256": "e2ca5b9e18c332a9ceaeab71caa4c605ccefb41f1abce49d1029a644812a7c3b"
+  },
+  "a20-chicagology-2120-gorton-photo-thumb.jpg": {
+   "bytes": 26675,
+   "sha256": "039416f14abe6c84a88de2eef0e202f60cf6017815cfa35620824447bea4e99e"
+  },
+  "a20-chicagology-2120-gorton-photo.jpg": {
+   "bytes": 259767,
+   "sha256": "c8b66b83044b21dec7a9e6092bb5b5fe0b0742fc44a2ed0b4042771351802005"
+  },
+  "a20-chicagology-2140-photo-a-thumb.jpg": {
+   "bytes": 23434,
+   "sha256": "462e6ecd4e7e3eb15a7da8281f9c184d38c34e727a9bbb5d35ed45280bdd9568"
+  },
+  "a20-chicagology-2140-photo-a.jpg": {
+   "bytes": 441384,
+   "sha256": "acefafb387ad9aab41983d131a1e9aa598082c73b86ba154bd4462bccb365c27"
+  },
+  "a20-chicagology-2140-photo-b-thumb.jpg": {
+   "bytes": 35220,
+   "sha256": "19969f42416a61e5db339c84a8fa903fa99f87fd82cf0277b4b2b67a08c04f78"
+  },
+  "a20-chicagology-2140-photo-b.jpg": {
+   "bytes": 310450,
+   "sha256": "82a1c262be3efdd70d62b4a0cd66d346946ac964e989964063e29f355febd249"
+  },
+  "a20-chicagology-2140-smith-dining-room-thumb.jpg": {
+   "bytes": 28109,
+   "sha256": "da816587300ce6adc4c6048dc9d68f85ef8d8a0392d30cae09f4fb56d91bf389"
+  },
+  "a20-chicagology-2140-smith-dining-room.jpg": {
+   "bytes": 460721,
+   "sha256": "e92ec98d8e2110a3e32ba75ab1aa857f9cae7c324ad55fea60130fa26f602b49"
+  },
   "a20-chicagology-robinson-1886-crops-thumb.jpg": {
    "bytes": 14370,
    "sha256": "5cefbb2ffc698700767b75dd4391f7bc907039b81f7e90cb054474c3aa6ccb72"
@@ -1188,6 +2500,38 @@
   "a20-chicagology-robinson-1886-crops.jpg": {
    "bytes": 272629,
    "sha256": "0a717744fcabeabca82002708c37106282a0a6e70d730122d87a7f83c42f228c"
+  },
+  "a20-ghm-simmerling-hanford-demolition-1953-thumb.jpg": {
+   "bytes": 27732,
+   "sha256": "4cbfaeb3c0626ed1db62e33490fbe1d0b4e5511ae6a44bcde86a0e5ea2c6bb1d"
+  },
+  "a20-ghm-simmerling-hanford-demolition-1953.jpg": {
+   "bytes": 698995,
+   "sha256": "729c130a205a9be67a4f3b9ab769b5a0fcab2551e79a2d1af3050f1a80e98f32"
+  },
+  "a20-glessner-2100-block-east-side-1890s-thumb.jpg": {
+   "bytes": 35741,
+   "sha256": "37482f083e310399d8ae7b2e6a74287729ee0e9c41be708bfaa4f2498e99a258"
+  },
+  "a20-glessner-2100-block-east-side-1890s.jpg": {
+   "bytes": 85878,
+   "sha256": "082eef839e7dc828e19418366d0397fedc512374222c26066875b8f4aeb4603e"
+  },
+  "a20-glessner-2100-block-west-side-1890s-thumb.jpg": {
+   "bytes": 17032,
+   "sha256": "c3d5996f9d69335e168963ab20e5b51955e0cb5f4e38b6a8c8309b711d9e4870"
+  },
+  "a20-glessner-2100-block-west-side-1890s.jpg": {
+   "bytes": 76667,
+   "sha256": "9d936e3e201541032818196815fd833a033d11f65b4de87758a7a71315789908"
+  },
+  "a20-glessner-2100-block-west-side-2014-thumb.jpg": {
+   "bytes": 20852,
+   "sha256": "cfe039b25e3da83ca2caa1006a8c376807b5bd058809a2b56e3012ca5579ad06"
+  },
+  "a20-glessner-2100-block-west-side-2014.jpg": {
+   "bytes": 42724,
+   "sha256": "6c98ef195cfe18ed18b401968f24328aa7ddb699a456fd4f43678dfc79a42ec9"
   },
   "a20-glessner-hanford-engraving-thumb.jpg": {
    "bytes": 36311,
@@ -1197,6 +2541,46 @@
    "bytes": 105084,
    "sha256": "75b8447705aa933e0618b56eeb8e0e67176e4c227d7c49e8ac8b09a83bac1d76"
   },
+  "a20-glessner-hanford-excavation-2001-thumb.jpg": {
+   "bytes": 34084,
+   "sha256": "109c312ad1247d9a4f7fd8757aac1085cc7e3f82261a363b5c3b93c67260ed9d"
+  },
+  "a20-glessner-hanford-excavation-2001.jpg": {
+   "bytes": 88440,
+   "sha256": "d98e1e4561410d342a61a9073c23b3a4c2f80005aff12c37ee69e2b51c6b6220"
+  },
+  "a20-glessner-prairie-house-cafe-postcard-thumb.jpg": {
+   "bytes": 31868,
+   "sha256": "11a48f8f2c8b8fd9b7c462374907ebe5fd7e384bde8f01cc27a03609a22d97c7"
+  },
+  "a20-glessner-prairie-house-cafe-postcard.jpg": {
+   "bytes": 64592,
+   "sha256": "cf357cbcd0db676a39508e297feb14d7724dc444a0b810d7169b7963f15f1997"
+  },
+  "a20-glessner-rees-coach-house-2014-thumb.jpg": {
+   "bytes": 30037,
+   "sha256": "577e1c5669bf89061d0889396c389cec3c24a140e46f682511ead496d67f8c21"
+  },
+  "a20-glessner-rees-coach-house-2014.jpg": {
+   "bytes": 67730,
+   "sha256": "6e0525cdda430bf50d38a8352efebf38123f0871db4f1a513fb67af1b6ee97cf"
+  },
+  "a20-glessner-rees-exterior-2012-thumb.jpg": {
+   "bytes": 15129,
+   "sha256": "f91a21384f16b1238e79002a114b9d554db3b35f0a4e7348feedda139b90ae68"
+  },
+  "a20-glessner-rees-exterior-2012.jpg": {
+   "bytes": 43367,
+   "sha256": "fc56395ba8560455e5aede68133af32a7c16dc2866ac56f0d744331899654237"
+  },
+  "a20-glessner-rees-house-move-2014-thumb.jpg": {
+   "bytes": 19878,
+   "sha256": "6e8bd78d1f998999865d54031b38095555f7e29b36ffcf34ed0480cd806e6d97"
+  },
+  "a20-glessner-rees-house-move-2014.jpg": {
+   "bytes": 19878,
+   "sha256": "6e8bd78d1f998999865d54031b38095555f7e29b36ffcf34ed0480cd806e6d97"
+  },
   "a20-glessner-tribune-1891-house-move-sketch-thumb.jpg": {
    "bytes": 45199,
    "sha256": "e055e11af8e0754d17e30b93373a91194ab9bd6ea96da1df018f36793c048530"
@@ -1204,6 +2588,22 @@
   "a20-glessner-tribune-1891-house-move-sketch.jpg": {
    "bytes": 104586,
    "sha256": "0a251cda1c73e99187a412c98fd1e0e4403eead335fb61f8c5888c757020751a"
+  },
+  "a20-glessner-vanosdel-2140-photo-thumb.jpg": {
+   "bytes": 28959,
+   "sha256": "18454de196f7fcf0cdb4e3e34d93994af5b7d6f4fbe0c58e0404220a9ac362e9"
+  },
+  "a20-glessner-vanosdel-2140-photo.jpg": {
+   "bytes": 75823,
+   "sha256": "51d5e6b7c5501d56698d35581dab5edebebf4890f5fa75abb3d7b1989fd91e22"
+  },
+  "a20-glessner-wheeler-entry-2012-thumb.jpg": {
+   "bytes": 31937,
+   "sha256": "e91d604ae1e2ecdc3173e6fbb14d390eb6be77d01fd87f5e1ce9579678119efa"
+  },
+  "a20-glessner-wheeler-entry-2012.jpg": {
+   "bytes": 140422,
+   "sha256": "332d714893d3f064a500146fdc554abe14e92ae8cfd28af1bd6b4f3bcceb483c"
   },
   "a20-ia-1883-10-hanford-notice-thumb.jpg": {
    "bytes": 26731,
@@ -1501,6 +2901,22 @@
    "bytes": 58304,
    "sha256": "be2945966b2f373bc4f446309723d37c3ae283a59a3bbfd5e1d0fbf880b821f1"
   },
+  "cgn-1701-hibbard-photo-wide-thumb.jpg": {
+   "bytes": 26915,
+   "sha256": "5d9d2c82f496e88b7b4702500c7516606c3d79c83b5f4bbe41852eb446112cfb"
+  },
+  "cgn-1701-hibbard-photo-wide.jpg": {
+   "bytes": 286058,
+   "sha256": "9906bb5ba57ac1a698bcf9686d7be726c469e33561ecccf2c72874cbb95a6fa6"
+  },
+  "cgn-1701-hibbard-portrait-thumb.jpg": {
+   "bytes": 17864,
+   "sha256": "5f7b1ff6aafb69b07a85f6d42f2386084ac484bfa7020947b19baf82eae78f9f"
+  },
+  "cgn-1701-hibbard-portrait.jpg": {
+   "bytes": 53713,
+   "sha256": "c62615c5aabee2b7dcabbfbe9fc77e45a0e0dd7f2e4a25999813806a750b6244"
+  },
   "cgn-1701-hibbard-spencer-bartlett-store-1899-thumb.jpg": {
    "bytes": 30644,
    "sha256": "62121a2bceb613bc9ad4052d1ce22aa94611a2fa43cb2ceb18248c62c245a674"
@@ -1541,6 +2957,14 @@
    "bytes": 90186,
    "sha256": "b1bd84f5e4b698965eb7dc62dab93d6c8714779fddf4dc272cb8a3f619fece8c"
   },
+  "cgn-1702-harvey-remodelled-photo-thumb.jpg": {
+   "bytes": 33664,
+   "sha256": "1986a988d343b302503fb89b8d329b6003bcaf7acea23e09b7a72ce1b50adde4"
+  },
+  "cgn-1702-harvey-remodelled-photo.jpg": {
+   "bytes": 274390,
+   "sha256": "e059574d0bb6708153430a48bc8098a4ae5b64951ba4334442a5d4895499c05c"
+  },
   "cgn-1702-robinson-1886-thumb.jpg": {
    "bytes": 15194,
    "sha256": "7ac05b01aa6806801202c82806755ab0ecb5da60b048ed8dfdc6ec7d251b388c"
@@ -1548,6 +2972,14 @@
   "cgn-1702-robinson-1886.jpg": {
    "bytes": 254283,
    "sha256": "070f7d21333a372a8976cbbd042bdd2e1fbc29a9e0f4c90634549a8b7e1dbf78"
+  },
+  "cgn-1702-staples-photo-copy-thumb.jpg": {
+   "bytes": 53492,
+   "sha256": "1a85f47e1ab4de1d395b8f532078853839b7e85b38eda21c55b3f59f8d9ce7e6"
+  },
+  "cgn-1702-staples-photo-copy.jpg": {
+   "bytes": 403836,
+   "sha256": "ba6d49c45d7b972c54b5847a57542c9dbbfc728d9db7832ab5f914be104e3ed2"
   },
   "cgn-1706-us-census-1910-glessner-thumb.jpg": {
    "bytes": 21820,
@@ -1669,6 +3101,14 @@
    "bytes": 402254,
    "sha256": "0a20e48e13ebb6eab283507cb731ce6a8dbb58612b666b3522b287803bf8f004"
   },
+  "cgn-1729-drawing-room-thumb.jpg": {
+   "bytes": 27108,
+   "sha256": "fc09294339053014df65f1f9b1d4b329d79551c34d90f545d1d68080c6415f73"
+  },
+  "cgn-1729-drawing-room.jpg": {
+   "bytes": 335196,
+   "sha256": "8393a60c556bec6a62b2ac72a5343d503d55cb38cf922379381b647d2d9d289a"
+  },
   "cgn-1729-inter-ocean-1892-history-in-bronze-headline-thumb.jpg": {
    "bytes": 19337,
    "sha256": "376124afd75d4840450d6fb0d7151e23a0f47b2aa52d4b9b5983b9fdf1e9ec67"
@@ -1700,6 +3140,14 @@
   "cgn-1729-pullman-1901-detroit-copy.jpg": {
    "bytes": 175783,
    "sha256": "19a9915106eeb64dff259c3bdff54aa35df5f0786dd8beb9cbf3496e6901e240"
+  },
+  "cgn-1729-pullman-1902-thumb.jpg": {
+   "bytes": 26684,
+   "sha256": "c351e6023c87d4b4f03b7844bdedf6b232684480743ff7d025fcc34eff73b9ac"
+  },
+  "cgn-1729-pullman-1902.jpg": {
+   "bytes": 125581,
+   "sha256": "dc311cdb13650b09219c93aacb7abf3ba2c8f6544d8cbe3ff15503b3024a26b5"
   },
   "cgn-1729-robinson-1886-thumb.jpg": {
    "bytes": 15100,
@@ -1789,6 +3237,14 @@
    "bytes": 253582,
    "sha256": "6734e64c6a80a50a6875972a1e3f4e468c3205c05c2bb2be326d1aa2488a8f27"
   },
+  "cgn-1800-glessner-1887-construction-copy-thumb.jpg": {
+   "bytes": 22693,
+   "sha256": "470f8aa7ef78a8d0d407fc22fce21a3115b1c3b491a5bd5a883d591080f3cf67"
+  },
+  "cgn-1800-glessner-1887-construction-copy.jpg": {
+   "bytes": 217014,
+   "sha256": "7ddd7aec8872531898ef11690c0268952bf42670dfe0b20fd30a135b9356191b"
+  },
   "cgn-1800-robinson-1886-thumb.jpg": {
    "bytes": 15156,
    "sha256": "f568368d3c1736d1314528ef7de4ba9a199501fbc08cd5cf763022a8b0654bfa"
@@ -1821,6 +3277,14 @@
    "bytes": 109862,
    "sha256": "ab30d7bce6f1697cce59da4df0e2db05bc9637d67762daef0070f5fb74354643"
   },
+  "cgn-1804-1853-map-prairie-old-to-cross-thumb.jpg": {
+   "bytes": 31441,
+   "sha256": "1795b8a1beea7897bbdf1fba42b946660252029b81648d8e3dcfbe64afa52b87"
+  },
+  "cgn-1804-1853-map-prairie-old-to-cross.jpg": {
+   "bytes": 454292,
+   "sha256": "d1f5405767f0b66d541feeccb25ef26ee7040aa7540fbdac4d34a9ed6c2452b9"
+  },
   "cgn-1804-landowner-1874-double-house-thumb.jpg": {
    "bytes": 29861,
    "sha256": "f1369bd7d194327c3e1b329c5a180b11194a002041843e4d7fe215cd1a71063d"
@@ -1844,6 +3308,14 @@
   "cgn-1808-robinson-1886.jpg": {
    "bytes": 254265,
    "sha256": "a78b5501871b6655588bf07c33696931742522c31729614f16d4b364b1b0c074"
+  },
+  "cgn-1811-coleman-ames-photo-thumb.jpg": {
+   "bytes": 33406,
+   "sha256": "4af45170f0c91bbcfd851dd7ce9d5a802cda598859c38e4e2b03b8b29c4cf32d"
+  },
+  "cgn-1811-coleman-ames-photo.jpg": {
+   "bytes": 375336,
+   "sha256": "6f5d94e0a9794ccf9f84d0f5cd0cf00c6bd09caa8e57be79d83958572bbc9b0c"
   },
   "cgn-1811-robinson-1886-thumb.jpg": {
    "bytes": 14428,
@@ -1877,6 +3349,14 @@
    "bytes": 113718,
    "sha256": "dbc6dda39f50b777330a1cc37697bea2a9bb9595531072712af79d94a7d76b11"
   },
+  "cgn-1815-meeker-prairie-avenue-jacket-1949-thumb.jpg": {
+   "bytes": 30144,
+   "sha256": "50609019f2e69d386697d0425114110cb85dbd5acafa15e14bc55433b67de712"
+  },
+  "cgn-1815-meeker-prairie-avenue-jacket-1949.jpg": {
+   "bytes": 488530,
+   "sha256": "720d0c05517a459039e686dfd4c26dd3ce30809aab4e51be8d69546728d89cc1"
+  },
   "cgn-1815-robinson-1886-thumb.jpg": {
    "bytes": 15092,
    "sha256": "a1c3cc69141a9fbe5d88a73eea564050989916e8eccb2b74e354ddfd8cad66e8"
@@ -1884,6 +3364,22 @@
   "cgn-1815-robinson-1886.jpg": {
    "bytes": 253778,
    "sha256": "6a60aacda11a4655001ea219ce14fc90f58f7d3fcc54bbfff84cef60578c10af"
+  },
+  "cgn-1815-sears-dining-room-thumb.jpg": {
+   "bytes": 25128,
+   "sha256": "1cf7c20d34ff3c1e948e35e337e4cc5d696c0e0518484ab23f51cd4ca409966b"
+  },
+  "cgn-1815-sears-dining-room.jpg": {
+   "bytes": 365601,
+   "sha256": "606bdec2ce5a6855fa8d810044e66d796624f6d27cc148828ffb2315d9c581d7"
+  },
+  "cgn-1815-sears-log-cabin-playhouse-thumb.jpg": {
+   "bytes": 31622,
+   "sha256": "ecb77b576f9a5367c173b2eff54331f80fa9b212c401f5010619d2d5541c67d0"
+  },
+  "cgn-1815-sears-log-cabin-playhouse.jpg": {
+   "bytes": 185331,
+   "sha256": "20fbae020759f56db97b890e7d5b2ebad377d61f0e38c5aec5523196f81973e6"
   },
   "cgn-1816-landowner-1874-henderson-thumb.jpg": {
    "bytes": 40912,
@@ -1909,6 +3405,14 @@
    "bytes": 254126,
    "sha256": "e8b800f7b39cb26e931014183c540d6bfd812f89a5c5670f5ae7bb7d5fe5f9cb"
   },
+  "cgn-1824-pomeroy-italianate-copy-thumb.jpg": {
+   "bytes": 31524,
+   "sha256": "4dc31bd1ca4bc75dd3640cf712f473f2442bb15f460ac1e49738b500e4cd1e37"
+  },
+  "cgn-1824-pomeroy-italianate-copy.jpg": {
+   "bytes": 203738,
+   "sha256": "097a56371def139180db93bcb92a78e83f3cac5b2140ed363bd293289c56098f"
+  },
   "cgn-1824-robinson-1886-thumb.jpg": {
    "bytes": 15105,
    "sha256": "8f451d650481c8fae68737bbf6ccf6e8e54a21de62bb9b068896eb9e8b8c5df2"
@@ -1916,6 +3420,22 @@
   "cgn-1824-robinson-1886.jpg": {
    "bytes": 253855,
    "sha256": "75e85821a6743035e8170dd4967f89b0f071c23b94cf4aa934907de1bc9a60a9"
+  },
+  "cgn-1827-doane-exterior-thumb.jpg": {
+   "bytes": 34995,
+   "sha256": "5cbfce1928cd9faab41519ae5747fe969f739fab14fdbf1ada1d51a1eb8e4e28"
+  },
+  "cgn-1827-doane-exterior.jpg": {
+   "bytes": 356278,
+   "sha256": "64e06383a60fdcc6a68ad1aa32db91dde8d1678f0a671ea1447768f487f5ac13"
+  },
+  "cgn-1827-doane-main-hall-thumb.jpg": {
+   "bytes": 37408,
+   "sha256": "53554a0a770369eba34e832f59439912aeab4dd7b80920f6282ee25012e1ed1e"
+  },
+  "cgn-1827-doane-main-hall.jpg": {
+   "bytes": 138220,
+   "sha256": "34fad9b098ad9ad8e1b40e72449d15d19f2fb67e8716ad0c624ae0da157d646a"
   },
   "cgn-1827-robinson-1886-thumb.jpg": {
    "bytes": 15168,
@@ -1941,6 +3461,14 @@
    "bytes": 253537,
    "sha256": "546eb07e339cff76a2a39accb862257c1bbd4b90e08ea3f83f980d173c4e1b68"
   },
+  "cgn-1828-shipman-automobile-copy-thumb.jpg": {
+   "bytes": 29967,
+   "sha256": "b4591c672787ec897cb6f4d45a6178c1fe1e6bf11805fcc3ee17a59a15e115d4"
+  },
+  "cgn-1828-shipman-automobile-copy.jpg": {
+   "bytes": 147161,
+   "sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957"
+  },
   "cgs-1834-inter-ocean-1911-jones-portraits-thumb.jpg": {
    "bytes": 31155,
    "sha256": "8df975ceb3042dc5950be319f375a32d9753fff8449a0d87c1276460da59db4f"
@@ -1948,6 +3476,14 @@
   "cgs-1834-inter-ocean-1911-jones-portraits.jpg": {
    "bytes": 267766,
    "sha256": "c569e4a99249f8930371611bc021d3d85d4b78ebdb4d011ce11b8d3f0b088d44"
+  },
+  "cgs-1834-jones-photo-thumb.jpg": {
+   "bytes": 26279,
+   "sha256": "14b3a6372c1a782a293aaac3eca630b93575f7ed162551ed2fc784928816f028"
+  },
+  "cgs-1834-jones-photo.jpg": {
+   "bytes": 146541,
+   "sha256": "b56b80160679f820ed88e84b46eaf9a96c838b317fe1791ebf78d2773156fe52"
   },
   "cgs-1834-robinson-1886-thumb.jpg": {
    "bytes": 15095,
@@ -3261,6 +4797,46 @@
    "bytes": 613042,
    "sha256": "21b6c988d3b9dcf165db1169cb2de67cd7788908f74d7eddd27aff4def130224"
   },
+  "st-chicagology-1935-aerial-donnelley-northwest-thumb.jpg": {
+   "bytes": 33956,
+   "sha256": "87850e4a7325fd13a8e6089f2b857b8603bd81285fff7a5d9737e0115c15943e"
+  },
+  "st-chicagology-1935-aerial-donnelley-northwest.jpg": {
+   "bytes": 465004,
+   "sha256": "7b8947f283468c38346f8a3f764fb1f723fce940ef4e71d8d97f1c910b9f6728"
+  },
+  "st-chicagology-1941-prairie-at-18th-thumb.jpg": {
+   "bytes": 18095,
+   "sha256": "bec19a69d34e2029d1f9c030981a84963a1ca4c4422b1ae25dac6212e48ca371"
+  },
+  "st-chicagology-1941-prairie-at-18th.jpg": {
+   "bytes": 89018,
+   "sha256": "2a587530e53d9653583663e0945910f988cf8688f0fc692313f04d727763051f"
+  },
+  "st-chicagology-prairie-avenue-1887-pullman-north-thumb.jpg": {
+   "bytes": 22050,
+   "sha256": "35cd569f422e02a6c8cd552afdf611dc6f522a6f761703bbd574692fa5cc89d3"
+  },
+  "st-chicagology-prairie-avenue-1887-pullman-north.jpg": {
+   "bytes": 42232,
+   "sha256": "a5f48e239e42e3d153e06d3d9cc7436b470e1378a90e964f25cc85442f27ed7e"
+  },
+  "st-chicagology-prairie-avenue-about-1890-photo-thumb.jpg": {
+   "bytes": 20653,
+   "sha256": "52a236cc3f7f2c372a54499719e490899f0fbfc26c0402bf93dd8238e9f49928"
+  },
+  "st-chicagology-prairie-avenue-about-1890-photo.jpg": {
+   "bytes": 67780,
+   "sha256": "6449403f566a62bab0aa180a1e7e760f405ed87f0fe53d95989a93c8a1fbcdc4"
+  },
+  "st-chicagology-prairie-elevation-strips-thumb.jpg": {
+   "bytes": 12753,
+   "sha256": "41f87849161565be6a3add27e3df4ddf1867ab3196718feaf0db5ff78d199a76"
+  },
+  "st-chicagology-prairie-elevation-strips.jpg": {
+   "bytes": 126446,
+   "sha256": "aa60763b7d852e9419e0515f3f63801542fe91bdce5192a300cb6018cde27ef8"
+  },
   "st-currier-ives-1892-city-of-chicago-south-detail-thumb.jpg": {
    "bytes": 47836,
    "sha256": "2432d60f5255681eb705ac7f75f706053e70e6f952da5509ed2491ff91bf318c"
@@ -3301,6 +4877,22 @@
    "bytes": 62869,
    "sha256": "1ff92f1791176a4903d03470860b37f47871e6cca149297be8248f40c98f081b"
   },
+  "st-ghm-1800-block-restored-streetscape-1981-thumb.jpg": {
+   "bytes": 24784,
+   "sha256": "8c95e1bb87c9b61d13ea71fee90abc8e74cb40b82c3a90376df46680e45e7278"
+  },
+  "st-ghm-1800-block-restored-streetscape-1981.jpg": {
+   "bytes": 64711,
+   "sha256": "70b5bebb2a2f473033366ea0942aea103ba6ab198bd2f4c96d296446c27d4b4b"
+  },
+  "st-ghm-18th-street-bridge-over-ic-pre2004-thumb.jpg": {
+   "bytes": 29304,
+   "sha256": "9355a585102c2e2fd312b977a43525b4ee3861abe26f92578e287e7b532f21e1"
+  },
+  "st-ghm-18th-street-bridge-over-ic-pre2004.jpg": {
+   "bytes": 71393,
+   "sha256": "8d1e3f208e7c8ac742ae1ab8eac2e3a49d2ef97f1767899d18dafb689ff81dd3"
+  },
   "st-ghm-george-glessner-ic-train-18th-thumb.jpg": {
    "bytes": 16246,
    "sha256": "c727ab216cf002dc555487300ec825dc6f5662ef019810a0869d65d002484e38"
@@ -3324,6 +4916,14 @@
   "st-ghm-postcard-1908-prairie-south-at-18th.jpg": {
    "bytes": 343316,
    "sha256": "12c38381e0b0df31a3370f23f1ca0452c04519c1a7e082528ed80c3b5ef8c8d7"
+  },
+  "st-ghm-pullman-garden-wall-remnant-thumb.jpg": {
+   "bytes": 30188,
+   "sha256": "ce1103d01b2558065a28c01c7829c52011b23eaecac7c6c621fbdd6fb6cc2fdd"
+  },
+  "st-ghm-pullman-garden-wall-remnant.jpg": {
+   "bytes": 74036,
+   "sha256": "13495a09d73d3738f96fddeed04d0d425b729a03fdb0eba4e2b4bc97e45801f6"
   },
   "st-ghm-ward-1887-prairie-north-from-20th-thumb.jpg": {
    "bytes": 32898,
@@ -3452,6 +5052,14 @@
   "st-sanborn-vol3-1911-corrected-1950-sheet-35.jpg": {
    "bytes": 427105,
    "sha256": "98546e78779c7a54da24605588accc792bc16c8342d800cfdfa4e9a11a41bbe0"
+  },
+  "st-uic-caps-1938-lakeshore-mosaic-image6-thumb.jpg": {
+   "bytes": 13696,
+   "sha256": "3b97538eb218fb17e086610072c36af0f0713b18ae93f3f860b35d54ce6896ee"
+  },
+  "st-uic-caps-1938-lakeshore-mosaic-image6.jpg": {
+   "bytes": 304821,
+   "sha256": "e687d6a229adf83884bf322492d50c35ce36bb287bb03ad322bc0172aeff322b"
   },
   "st-views-of-chicago-1905-fort-dearborn-memorials-thumb.jpg": {
    "bytes": 36076,
