@@ -89,7 +89,8 @@ PURE_PYTHON = {"k01_frontage": "k01_emit.py", "k13_conservatories": "k13_emit.py
 #: beside the archetype: K03 brick's bond, heads and string course move vertices too.
 #: T-2302: and K05 builds its roof, from the kit's own parts (k05_roofs.json, hashed below).
 PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_frontage.py", "k09_trim.py",
-                                       "k10_frontage.py", "k10_cornices.py"),
+                                       "k10_frontage.py", "k10_cornices.py",
+                                       "k11_frontage.py", "k11_ironwork.py"),
                        # T-2306: the conservatory is cut with K01's Prim and K06's polygon helpers
                        "k13_conservatories": ("k01_frontage.py", "k06_windows.py"),
                        # T-2323: the timber front is cut with K01's Prim and K06's sash and polygon helpers
@@ -234,6 +235,9 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
         # T-2317: and the K10 kit's, which the brackets, bed moulding and cresting are built from
         k10 = ROOT / "data" / "components" / "prairie_1904" / "k10_cornices.json"
         doc["component_data"][k10.relative_to(ROOT).as_posix()] = _sha_file(k10)
+        # T-2319: and the K11 kit's, which the fence, gates, piers and wall are built from
+        k11 = ROOT / "data" / "components" / "prairie_1904" / "k11_ironwork.json"
+        doc["component_data"][k11.relative_to(ROOT).as_posix()] = _sha_file(k11)
         # T-2308: and the bay kit's — its parts, curves and roofs size every bay a record names
         bays = ROOT / "data" / "components" / "prairie_1904" / "k08_bays.json"
         doc["bay_kit"] = {bays.relative_to(ROOT).as_posix(): _sha_file(bays)}
