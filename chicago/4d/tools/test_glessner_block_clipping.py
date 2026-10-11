@@ -303,9 +303,36 @@ def check_turret_louvres():
     print('PASS turret: four false glass panels removed; real blades/gaps; exact inherited envelope')
 
 
+def check_turret_dovecote():
+    """T-2207: the record's vent turns the band into arched holes on perches."""
+    turret={'x0':0,'x1':1.8288,'y0':0,'y1':1.8288,'z0':10.9728,'top_z':11.8567,
+            'louvre':[11.2166,11.7348],'apex_z':13.1978,'finial_m':.1676,'conf':1.0,
+            'vent':{'tiers':2,'per_face':3,'opening_width_m':.2286,'perch_projection_m':.0914},
+            'eave':{'overhang_m':.381,'drop_m':.0305,'flare_run_m':.2286,'flare_pitch':.55}}
+    b=PhysicalRecorder();detail.louvred_turret(b,turret)
+    assert not any(mat==detail.GLASS for _,_,mat in b.faces), 'the cote carries glass'
+    assert sum(mat==detail.DARK_GLASS for _,_,mat in b.faces)==4, 'a face lost its dark cote'
+    lo,hi=turret['louvre'];step=(hi-lo)/2;ua,uc=.12,1.8288-.12
+    near=[face for face,_,mat in b.faces if mat==detail.WOOD and min(p[0] for p in face)>turret['x1']-.09]
+    for tier in range(2):
+        hole=lo+tier*step+step*.45
+        for k in range(3):
+            y=ua+(uc-ua)*(k+.5)/3
+            assert not any(physical_ray_hits(face,y,hole) for face in near), 'a pigeon hole is filled'
+        between=ua+(uc-ua)/3
+        assert any(physical_ray_hits(face,between,hole) for face in near), 'the pier between holes is gone'
+    perches=[face for face,_,mat in b.faces if mat==detail.WOOD and max(p[0] for p in face)>turret['x1']+.05]
+    assert perches, 'no landing board projects from the face'
+    points=[p for face,_,_ in b.faces for p in face]
+    assert abs(max(p[2] for p in points)-(turret['apex_z']+turret['finial_m']))<.05, 'the apex moved'
+    assert abs(min(p[0] for p in points)-(-.381))<1e-6, 'the eave does not overhang as recorded'
+    print('PASS turret dovecote: two tiers of open arched holes, piers and perches, apex kept')
+
+
 check_closed_glass()
 check_prairie_door_cutout()
 check_turret_louvres()
+check_turret_dovecote()
 
 
 # The engine-neutral light writer must preserve concave roof/ground/aperture
