@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 484,
+  "count": 485,
   "liberties": [
     {
       "id": "L1",
@@ -30024,18 +30024,6 @@
         },
         {
           "domain": "structure",
-          "structure": "goodman_house_1612_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "goodman_house_1612_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "goodman_house_1612_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -30382,7 +30370,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1600_prairie.draft_1904.form.draft_elevation`, `house_1600_prairie.draft_1904.form.draft`, `house_1604_prairie.draft_1904.form.draft_elevation`, `house_1604_prairie.draft_1904.form.draft`, `house_1608_prairie.draft_1904.form.draft_elevation`, `house_1608_prairie.draft_1904.form.draft`, `house_1616_prairie.draft_1904.form.draft_elevation`, `house_1616_prairie.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie.draft_1904.form.draft_elevation`, `house_1626_prairie.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie.draft_1904.form.draft_elevation`, `house_1628_prairie.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie.draft_1904.form.draft_elevation`, `house_1630_prairie.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1634_prairie.draft_1904.form.draft_elevation`, `house_1634_prairie.draft_1904.form.draft`, `house_1636_prairie.draft_1904.form.draft_elevation`, `house_1636_prairie.draft_1904.form.draft`, `house_1708_prairie.draft_1904.form.draft_elevation`, `house_1708_prairie.draft_1904.form.draft`, `house_1712_prairie.draft_1904.form.draft_elevation`, `house_1712_prairie.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie.draft_1904.form.draft_elevation`, `house_1726_prairie.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie.draft_1904.form.draft_elevation`, `house_1730_prairie.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `house_1736_prairie.draft_1904.form.draft_elevation`, `house_1736_prairie.draft_1904.form.draft`, `house_1736_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1736_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie.draft_1904.form.stories`, `law_house_1620_prairie.draft_1904.form.draft_elevation`, `law_house_1620_prairie.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie.draft_1904.form.draft_elevation`, `walker_house_1720_prairie.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1600_prairie.draft_1904.form.draft_elevation`, `house_1600_prairie.draft_1904.form.draft`, `house_1604_prairie.draft_1904.form.draft_elevation`, `house_1604_prairie.draft_1904.form.draft`, `house_1608_prairie.draft_1904.form.draft_elevation`, `house_1608_prairie.draft_1904.form.draft`, `house_1616_prairie.draft_1904.form.draft_elevation`, `house_1616_prairie.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie.draft_1904.form.draft_elevation`, `house_1626_prairie.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie.draft_1904.form.draft_elevation`, `house_1628_prairie.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie.draft_1904.form.draft_elevation`, `house_1630_prairie.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1634_prairie.draft_1904.form.draft_elevation`, `house_1634_prairie.draft_1904.form.draft`, `house_1636_prairie.draft_1904.form.draft_elevation`, `house_1636_prairie.draft_1904.form.draft`, `house_1708_prairie.draft_1904.form.draft_elevation`, `house_1708_prairie.draft_1904.form.draft`, `house_1712_prairie.draft_1904.form.draft_elevation`, `house_1712_prairie.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie.draft_1904.form.draft_elevation`, `house_1726_prairie.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie.draft_1904.form.draft_elevation`, `house_1730_prairie.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `house_1736_prairie.draft_1904.form.draft_elevation`, `house_1736_prairie.draft_1904.form.draft`, `house_1736_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1736_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie.draft_1904.form.stories`, `law_house_1620_prairie.draft_1904.form.draft_elevation`, `law_house_1620_prairie.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie.draft_1904.form.draft_elevation`, `walker_house_1720_prairie.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -30391,6 +30379,10 @@
         {
           "label": "How to resolve",
           "text": "each house's per-building ticket (T-1859 to T-1874, named on its card and in its record's `draft.replaceable_by`) replaces its attributes in place, under the same id; the alley buildings are T-1932's."
+        },
+        {
+          "label": "Retired in part",
+          "text": "1612 Goodman's front house by T-2344 (piece 1 of T-1860), which refined it in place on the K01 frontage kit under `L-k01-1612-goodman-2344`; its stable is still this draft's."
         },
         {
           "label": "Ticket",
@@ -31180,6 +31172,200 @@
         {
           "label": "Recorded",
           "text": "2026-10-10 (T-2323)."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-1612-goodman-2344",
+      "title": "1612 Prairie, the Goodman house, refined from the district draft on the K01 kit: an Italianate stone front whose every proportion, opening and fabric is reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "goodman_house_1612_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.dormer"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.entrance_bay"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.entrance_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.front_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.principal_floor_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.roof_form"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.stone_front"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.storey_heights_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.wall_head"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "goodman_house_1612_prairie",
+          "phase": "as_built_1869",
+          "aspect": "form.window_kit"
+        }
+      ],
+      "recorded": "2026-10-11",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Replace the district draft of 1612 Prairie, in place and under its id, with a K01 frontage assembly: a smooth ashlar street front of Lemont limestone on common-brick side and rear walls, two storeys over a raised basement, two pairs of tall sash and a north entrance under the K09 arched ring on colonnettes, a high stoop of eight risers, K09 hoods over the windows, the K10 bracketed cornice, a 32-degree hip of painted standing-seam tin with one street dormer for the attic, two chimneys and tin rainwater goods. 19.8 m deep by 11.25 m across, on the lot frame and bearing the draft used. **What is read, not invented.** From sheet 20 of the 1911 Sanborn (trace s20fp-1612-b1, census s20-1612-f and s20-1612-a1): the building's outline, which the rectangle is fitted round (the front house with its north wing, and the two-storey rear wing behind it); the stone (blue) Prairie front on a brick house; two storeys and a basement and the half storey the census re-reads off the glyph ('2½B'); the 8.6 m front yard. From the T-1837 register (frontage-20-004, pa-1612-1), which is not a source record here and so stands behind reconstructed attributes only: the Italianate stone-front reading and its list (smooth ashlar face, common-brick returns, paired windows, arched columned entrance, high stoop, bracketed cornice, basement lights), and the 1869 and circa-1960 dates. **What is invented.** Every height (the 1.40 m principal floor, the 4.0 and 3.6 m storeys), every opening's place, count and size, the north side of the entrance, the roof's form, pitch and tin, the dormer, the chimneys' places, the rainwater goods, the wall thicknesses, the stone's kind and the brick's colour, and all the carved and bracketed trim, which is the kits' generic work and not 1612's. The rectangle closes a 7.0 x 2.25 m court the trace leaves at the north-west corner. **What is not built.** The register's SEGMENTAL window heads (a K01 wall cuts a rectangular hole, so the heads are flat under hoods); the 'small frame porch on the south wall' and the one-storey brick piece behind the wing's north half that the census reads (K01 builds one rectangle, and an attached range is T-2343's to teach it); the north corner's quoins (the K02 corner bond on a K01 front returns at the south corner only)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of 1612 whose rights allow it, ingested as a source, gives the front's real bays, heads and trim; K01 learning segmental heads and an attached range lets this record take the heads, the porch and the rear piece in place. The detached stable stays the draft's (`L-draft-prairie-16-18-west-2334`) until T-1932."
+        },
+        {
+          "label": "Covers",
+          "text": "`goodman_house_1612_prairie.as_built_1869.form.principal_floor_m`, `goodman_house_1612_prairie.as_built_1869.form.storey_heights_m`, `goodman_house_1612_prairie.as_built_1869.form.wall_thickness_front_m`, `goodman_house_1612_prairie.as_built_1869.form.wall_thickness_side_m`, `goodman_house_1612_prairie.as_built_1869.form.service_wall_brick`, `goodman_house_1612_prairie.as_built_1869.form.street_front_trim`, `goodman_house_1612_prairie.as_built_1869.form.wall_head`, `goodman_house_1612_prairie.as_built_1869.form.roof_form`, `goodman_house_1612_prairie.as_built_1869.form.roof_pitch_deg`, `goodman_house_1612_prairie.as_built_1869.form.eave_overhang_m`, `goodman_house_1612_prairie.as_built_1869.form.stair_tread_m`, `goodman_house_1612_prairie.as_built_1869.form.stair_landing_depth_m`, `goodman_house_1612_prairie.as_built_1869.form.stoop_width_m`, `goodman_house_1612_prairie.as_built_1869.form.entrance_bay`, `goodman_house_1612_prairie.as_built_1869.form.front_bays`, `goodman_house_1612_prairie.as_built_1869.form.side_bays`, `goodman_house_1612_prairie.as_built_1869.form.rear_bays`, `goodman_house_1612_prairie.as_built_1869.form.sash_by_storey`, `goodman_house_1612_prairie.as_built_1869.form.basement_lights`, `goodman_house_1612_prairie.as_built_1869.form.roof_covering`, `goodman_house_1612_prairie.as_built_1869.form.dormer`, `goodman_house_1612_prairie.as_built_1869.form.chimneys`, `goodman_house_1612_prairie.as_built_1869.form.rainwater`, `goodman_house_1612_prairie.as_built_1869.form.window_kit`, `goodman_house_1612_prairie.as_built_1869.form.entrance_kit`, `goodman_house_1612_prairie.as_built_1869.form.stone_front`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2344 (piece 1 of T-1860)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k01-1612-goodman-2344/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-11 (T-2344)."
         }
       ]
     },
