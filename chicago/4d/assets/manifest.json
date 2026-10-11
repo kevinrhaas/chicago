@@ -180,6 +180,46 @@
       "phase_id": "frame_1832",
       "structure_id": "dole_warehouse_south"
     },
+    "edson_keith_house_1906_prairie__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 326900,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "726a6fd24097b4a69650077553a20721b65dd3ae7fbfc18ca5ce55d16ecd69f5",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "edson_keith_house_1906_prairie"
+    },
+    "edson_keith_house_1906_prairie_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 160988,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "aa277b020c9d4d631b2c92648f68215f7183af137f1e95603bbd255934c80076",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "edson_keith_house_1906_prairie_coach_house"
+    },
+    "elbridge_keith_house_1900_prairie__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 260308,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "91086d48acbdbfec880faad8f46743695e22021cded941831809e5ffc2c0e50a",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "elbridge_keith_house_1900_prairie"
+    },
+    "elbridge_keith_house_1900_prairie_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 43940,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "42e2edb0844542fd5d31bcb4e54511e485a02f51ea6d1c0f48e7d90ca5880a4c",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "elbridge_keith_house_1900_prairie_coach_house"
+    },
     "elston_ash_house__works_1833.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -694,6 +734,26 @@
       "phase_id": "documented_1835",
       "structure_id": "heacock_house_monroe"
     },
+    "henderson_house_1816_prairie__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 407316,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "0e3d61ab6e11ad662cf269213c0217bea6682df910faa1d51157ae4b1a7246e1",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "henderson_house_1816_prairie"
+    },
+    "henderson_house_1816_prairie_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 116940,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "76559da56226bdc3bc0dd5e3cbb343985503ec96ec32a14d636a617acdfad831",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "henderson_house_1816_prairie_coach_house"
+    },
     "hogan_store__log_1831.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
@@ -702,6 +762,46 @@
       "kind": "generated",
       "phase_id": "log_1831",
       "structure_id": "hogan_store"
+    },
+    "house_1828_prairie__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 363348,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "29da8aa1c11e93db7713d6a2cc5c757ab24d7cc6887c35aa1f40d7165dbfb2ee",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1828_prairie"
+    },
+    "house_1828_prairie_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 93536,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "f1913015972853a37b2253343aabdead9c65dca6a5d38862c299aec1ea034e7c",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1828_prairie_coach_house"
+    },
+    "house_1918_prairie__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 276528,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "7d9d330152115f6e2002ef1e5b4ca9983a60c5e24e47d3214d0e9fba294f0644",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1918_prairie"
+    },
+    "house_1918_prairie_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 168444,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "d2db2e5248289df4065d041511f0f95f75cf1af1bd82e6cf4ff95a61feaeed5a",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1918_prairie_coach_house"
     },
     "inf_artisan_dwelling_west_a__inferred_1835.glb": {
       "archetype": "frame_dwelling",
@@ -1009,6 +1109,26 @@
       "phase_id": "frame_1835",
       "structure_id": "john_holbrook_store"
     },
+    "jones_house_1834_prairie__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 259824,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "33296b1c4118dcd6cf5c36830396eeaa91e0552363b2a7ad601ee20f4d5fdbf6",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "jones_house_1834_prairie"
+    },
+    "jones_house_1834_prairie_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 126288,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "244088eb68e11650e462fd437d78cffbe3f6102d67676ceeb6e1d34ac756d01a",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "jones_house_1834_prairie_coach_house"
+    },
     "keith_house_1808_prairie__as_built_1886.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
@@ -1127,6 +1247,26 @@
       "phase_id": "stable_1833",
       "structure_id": "mansion_house_stable"
     },
+    "marsh_house_1824_prairie__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 177596,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "37a2e5337ce0aa7c0c748fceb67711a16a3ff2a79934168f7ac4528951ce66c5",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "marsh_house_1824_prairie"
+    },
+    "marsh_house_1824_prairie_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 111332,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "e7d9f8bce6fed129a2cadc07351ce6e4457034421b9230bdca0b6044867fba4f",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "marsh_house_1824_prairie_coach_house"
+    },
     "mason_blacksmith_shop__documented_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -1180,6 +1320,26 @@
       "kind": "generated",
       "phase_id": "yard_1831",
       "structure_id": "miller_tanyard_drying_shed"
+    },
+    "moulton_lowden_house_1912_prairie__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 342856,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "126bf49bc52ef586703e0cf05f09ffd0b310c5c590e06b4c9665bb2701e504b6",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "moulton_lowden_house_1912_prairie"
+    },
+    "moulton_lowden_house_1912_prairie_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 78604,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "e492f802c69c836c2d8a56d6c1924b8316a90d07b3c603cef0da77b0c6f87df5",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "moulton_lowden_house_1912_prairie_coach_house"
     },
     "new_york_house__frame_1834.glb": {
       "archetype": "frame_tavern",
@@ -6177,6 +6337,16 @@
       "phase_id": "stable_1831",
       "structure_id": "sauganash_hotel_stable"
     },
+    "shed_1834_1900_prairie__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 25140,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "bedc1bcffdceed50386bf68e663bd6589f9d06451ce1a61b1855c437eb54bb17",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "shed_1834_1900_prairie"
+    },
     "shortall_gregory_house_1638_prairie_front__as_standing_1904.glb": {
       "archetype": "k16_timber",
       "baked_ao": false,
@@ -6435,6 +6605,16 @@
       "kind": "generated",
       "phase_id": "stable_1834",
       "structure_id": "western_hotel_stable"
+    },
+    "wheeler_house_1812_prairie__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 89760,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "4741f13b87a6e7026d262f3127898fd9254ad3a4fbc0024f7b9dfa7d152d90bf",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "wheeler_house_1812_prairie"
     },
     "wolf_point_tavern__log_frame_1828.glb": {
       "archetype": "log_dwelling",
