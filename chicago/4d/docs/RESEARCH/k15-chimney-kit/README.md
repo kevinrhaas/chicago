@@ -114,6 +114,5 @@ times are headless SwiftShader: a relative figure, not a device's.
 
 ## What it does not do yet
 
-- Nothing in the walkthrough changes: no scene loads the kit.
-- T-2313 builds a named house's chimneys from it, at their source-bounded number, height and position.
+- T-2313 builds a named house's chimneys from it: 1808 Prairie's two stacks, placed over the fireplaces of the house's 1888 published plan (`docs/RESEARCH/k15-1808-chimneys-2313/README.md`).
 - K04's slate and K03's brick are not bound here. The specimen's colours are placeholders, as K05's are.

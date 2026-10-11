@@ -367,7 +367,8 @@
     "s20-1608-f": "1608 Prairie is refined in place by T-2341 (piece 1 of T-1859) as the K01 brick frontage house_1608_prairie, under the draft's own id; the draft does not stand a second building on it.",
     "s20-1607-f": "1607-1611's four-storey loft is the 1911 replacement of the lot-6 frame pair (T-1840 census, backcast_1886): the draft stands 1609 and 1611 from Robinson 1886 instead (block 20's `plates`), and the loft not at all.",
     "s20-1612-f": "1612 Prairie now stands as the K01 frontage assembly goodman_house_1612_prairie (T-2344, piece 1 of T-1860), which refines this draft in place under the draft's own id; the draft stands no second building beside it.",
-    "s20-1616-f": "1616 Prairie's main body now stands as the K01 brick frontage house_1616_prairie (T-2353, piece 1 of T-2345), which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's one-storey rear range is T-2354's."
+    "s20-1616-f": "1616 Prairie's main body now stands as the K01 brick frontage house_1616_prairie (T-2353, piece 1 of T-2345), which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's one-storey rear range is T-2354's.",
+    "s20-1628-f": "1628 Prairie's main body now stands as the K01 brick frontage house_1628_prairie (T-2355, piece 1 of T-1862), the south half of the pair with 1626, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's three-storey rear wing waits for T-2347."
   },
   "frontages": {
     "frontage-28-038": {
@@ -588,7 +589,9 @@
     "frontage-20-008": {
       "slug": "house",
       "entrance": "south",
-      "why": "3B brick, the south half of the pair with 1626: the same family, its entrance mirrored to the south end."
+      "why": "3B brick, the south half of the pair with 1626: the same family, its entrance mirrored to the south end.",
+      "house_id": "house_1628_prairie",
+      "house_address": "1628"
     },
     "frontage-20-009": {
       "slug": "house",

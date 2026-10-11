@@ -253,9 +253,9 @@
     },
     {
       "id": "house_1628_prairie",
-      "name": "1628 Prairie Avenue — Brick masonry (district draft; refined by T-1862)",
+      "name": "1628 Prairie Avenue — brick house, the south half of the pair with 1626, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1628_prairie.json",
-      "asset": "gltf/house_1628_prairie__draft_1904.glb"
+      "asset": "gltf/house_1628_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1628_prairie_coach_house",
