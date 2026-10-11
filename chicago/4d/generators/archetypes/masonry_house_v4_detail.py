@@ -422,7 +422,11 @@ class DetailBuilder(MeshBuilder):
             if s1-s0<.03:
                 continue
             centre = (s0+s1)/2
-            if any(bounds(h)[1]<mid<bounds(h)[3] and _inside(centre,mid,h) for h in holes):
+            # Only a run lying wholly across one aperture is empty. A long run
+            # whose middle merely falls in another, shorter opening is still
+            # laid; that opening clips its stones as before.
+            if any(bounds(h)[0]-1e-6<=s0 and s1<=bounds(h)[2]+1e-6 and
+                   _inside(centre,mid,h) for h in holes):
                 continue
             s0_jamb = s0 in cuts
             s1_jamb = s1 in cuts

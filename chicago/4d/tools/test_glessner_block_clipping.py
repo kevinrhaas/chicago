@@ -440,8 +440,12 @@ def check_coursing():
     class Coursing(Recorder):
         def __init__(self):
             super().__init__()
+            # A second, shorter window lands in the middle of the run beside the
+            # first: that run must still be laid (it once came out bare bed).
             self.openings=[{'kind':'window','axis':'y','sign':1,'at':0,'face':'north',
-                            'u0':2.3,'u1':3.5,'z0':.9,'z1':2.6}]
+                            'u0':2.3,'u1':3.5,'z0':.9,'z1':2.6},
+                           {'kind':'window','axis':'y','sign':1,'at':0,'face':'north',
+                            'u0':4.55,'u1':4.95,'z0':1.1,'z1':1.5}]
             self.course_schedule=[.4572,.2413,.3429,.1905]
             self.stones=[]
         def block(self, polygon, point, normal, confidence, mat, rng, holes=None):
@@ -450,6 +454,10 @@ def check_coursing():
     rows={}
     # This wall's local u runs west (-x); read the spans in metres along x.
     for x0,z0,x1,z1 in w.stones:rows.setdefault(round(z0,4),[]).append((-x1,-x0))
+    for z in rows:
+        if .9<=z<=2.3:
+            laid=sum(min(b,6)-max(a,3.5) for a,b in rows[z] if b>3.5)
+            assert laid>2.3, f'the run beside the window at {z} is bare bed ({laid:.2f} m laid)'
     jambed=0
     for z,spans in rows.items():
         spans.sort()
