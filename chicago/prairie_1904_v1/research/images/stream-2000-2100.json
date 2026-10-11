@@ -25,11 +25,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/2100prairie.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Website reproduction without credited source or rights statement; original holder and rights unresolved",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-chicagology-2100-sherman-photo.jpg",
+   "display_bytes": 380449,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages8/2100prairie.jpg",
+   "original_bytes": 1227230,
+   "original_px": [
+    1428,
+    1741
+   ],
+   "original_sha256": "57d766a8d33310c18f366d12bb8b0a77588b659c2cd97092d3a8fa1a58d5c2af",
+   "thumb": "research/images/files/a20-chicagology-2100-sherman-photo-thumb.jpg",
+   "thumb_bytes": 32631
+  },
   "verified": "viewed",
   "found_via": "Chicagology Prairie Avenue index page (chicagology.com/prairie/)",
   "notes": "High-quality albumen-era photograph of the Burnham & Root Sherman house (completed 1876): two-and-a-half storeys of dark brick banded with light stone over a high rusticated stone basement, steep slate roofs with Gothic gabled dormers and iron cresting, a tall corner pavilion with conical/hipped slate roof and finial, carved chimney stacks, a front porch carried on clustered colonnettes reached by a curved stone stair with pierced balustrade, a side bay/oriel on the 21st Street flank, low stone-post-and-iron front fence, parkway trees, plank-guard tree boxes and stone sidewalk. A woman stands on the porch; two children sit at the curb. A numeral '4' is printed lower right (plate/series number). Chicagology gives no source; the CHM holds ICHi-001299 'Sherman house, 2100 Prairie, circa 1890' (marker credit) which may be this or a related view — unverified. Key reference for the 1904 massing; the house stood until 1936 so 1904 appearance should match unless altered after the photo. The same photograph is reproduced on the Glessner House blog ('Prairie Avenue and Louis Sullivan – Part I', 2020-06-02), which quotes Sullivan's Autobiography of an Idea describing the house 'nearing completion' on the SW corner of Prairie and 21st. ORIGINAL identified: J. W. Taylor albumen print at the Art Institute of Chicago (a20-aic-taylor-sherman-residence).",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2100prairie/",
+    "collection": "Chicagology: Prairie Avenue address pages",
+    "creator": "unknown photographer",
+    "date": "undated (19th century; costume suggests c. 1885–1895)",
+    "repository": "Chicagology (chicagology.com) — website compilation; original holder not credited on page",
+    "rights": "unknown — link only",
+    "title": "2100 S. Prairie Avenue"
+   }
+  }
  },
  {
   "id": "a20-chicagology-2009-2011-photo",
@@ -58,7 +83,20 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2009sprairie.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Website reproduction without credited source or rights statement; original holder and rights unresolved",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-chicagology-2009-2011-photo.jpg",
+   "display_bytes": 410810,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2009sprairie.jpg",
+   "original_bytes": 1326467,
+   "original_px": [
+    1671,
+    2000
+   ],
+   "original_sha256": "898d947a3c6e112a60018132f37b95435277b2be58bc491d7bea60ede6bfa068",
+   "thumb": "research/images/files/a20-chicagology-2009-2011-photo-thumb.jpg",
+   "thumb_bytes": 33237
+  },
   "verified": "viewed",
   "found_via": "Chicagology 2009 and 2011 Prairie pages (same image used on both)",
   "notes": "Front elevation of the Burnham & Root house at 2009 Prairie (permit Aug 1888, 'three-story dwelling, 27×82' for James S. Price per Inter Ocean 17 Aug 1888, quoted on page; occupied by Max A. Meyer/Mayer, d. 1889): narrow three-storey rough-faced (clinker/tapestry) brick front under a tall ogee/curvilinear gable with finial, rock-faced stone basement, carved stone frieze over a projecting first-floor oriel, Gothic-arched entrance with carved panels, tall chimney stacks. At right, part of 2011 Prairie: rock-faced ashlar Richardsonian front with round-arched entry and corner turret with conical roof. Low stone coping at the lot line, stone sidewalk, granite-sett or macadam street. Appears to be a publication halftone (framed plate). 1904 appearance likely identical. Measurement from quoted permit: 27×82 ft, 3 storeys, $25,000.",
@@ -68,7 +106,19 @@
     "value": "27 × 82 ft, three storeys",
     "locator": "Chicagology 2009 page text"
    }
-  ]
+  ],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2009prairie/",
+    "collection": "Chicagology: Prairie Avenue address pages",
+    "creator": "unknown",
+    "date": "undated (c. 1890s; reproduced as a halftone publication plate)",
+    "repository": "Chicagology (chicagology.com) — website compilation; original holder not credited on page",
+    "rights": "unknown — link only",
+    "title": "2009 S. Prairie Avenue (left) / 2011 S. Prairie Avenue (right)"
+   }
+  }
  },
  {
   "id": "a20-chicagology-2013-reid-ia1895",
@@ -149,11 +199,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2021prairie1930.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Website reproduction without credited source or rights statement; original holder and rights unresolved",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-chicagology-2021-high-photo.jpg",
+   "display_bytes": 494665,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2021prairie1930.jpg",
+   "original_bytes": 1101035,
+   "original_px": [
+    1826,
+    1738
+   ],
+   "original_sha256": "8f3d9dba813cb18e3854cdac83073fa3f0d182b7fe3616b52f6482793f63a182",
+   "thumb": "research/images/files/a20-chicagology-2021-high-photo-thumb.jpg",
+   "thumb_bytes": 36814
+  },
   "verified": "viewed",
   "found_via": "Chicagology 2021 Prairie page",
   "notes": "Coarse-screen halftone captioned 'Shirley T. High Residence'. Shows a three-storey dark brick house with a steep front gable, a round corner tower with conical roof at left, arched entrance up a stone stoop, tall chimney, and a broad north side wing with a second gable; picket fence at right. This form is Queen Anne/Richardsonian of the 1880s — consistent with J. L. High's 1886 purchase and 1887 rear addition (Inter Ocean 20 Aug 1887 permit, quoted) or a rebuild; it is not obviously the late-1870s Adams house. Date unknown (Chicagology file name '1930' is not a holder date; Shirley T. High was James L. High's son) — period left unset. Needs source identification before use for 1904. Lead: the 1973 Commission report bibliography cites John Drury, 'Old Chicago Houses: Prairie Avenue Survivor,' Chicago Daily News, 19 Jan 1940 (Adams/High House); its text says the house was then still occupied by Maj. Shirley T. High (65) and was a '2½-story, 16-room residence … built in the late 1870s by Benjamin Adams … sold in 1886 to Major High's father … for $40,000'. The halftone with the 'Shirley T. High Residence' caption is plausibly from that 1940 article — unverified.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2021prairie/",
+    "collection": "Chicagology: Prairie Avenue address pages",
+    "creator": "unknown",
+    "date": "undated (file name suggests 1930; halftone with snow)",
+    "repository": "Chicagology (chicagology.com) — website compilation; original holder not credited on page",
+    "rights": "unknown — link only",
+    "title": "Shirley T. High Residence 2021 Prairie Avenue"
+   }
+  }
  },
  {
   "id": "a20-chicagology-2031-2035-engraving",
@@ -185,11 +260,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2031and2035prairie.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Website reproduction without credited source or rights statement; original holder and rights unresolved",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-chicagology-2031-2035-engraving.jpg",
+   "display_bytes": 346696,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2031and2035prairie.jpg",
+   "original_bytes": 850640,
+   "original_px": [
+    859,
+    1162
+   ],
+   "original_sha256": "1d4620a43d2a62275fe2b8c0eedb2258f3d9428bd420d99b75107fabbfbf3571",
+   "thumb": "research/images/files/a20-chicagology-2031-2035-engraving-thumb.jpg",
+   "thumb_bytes": 42707
+  },
   "verified": "viewed",
   "found_via": "Chicagology 2031 and 2035 Prairie pages",
   "notes": "Wood engraving of a sidewalk-level view along a row of tall Italianate stone-fronted houses: high stoops with heavy newels and iron handrails, ornate cast-iron area railings, three-storey bays rising to bracketed cornices with iron roof cresting, arched windows, mature street trees and wide stone sidewalk. Chicagology uses it to illustrate the 1869 marble/limestone trio 2031–2035 (Chicago Evening Post 3 Mar 1869: 'elegant new marble-front house on northeast corner of Prairie-av. and Twenty-first-st., $27,500', quoted on the 2033 page). Identification of exactly which houses are shown is Chicagology's, unverified. An Inter Ocean notice (1 Oct 1887, quoted on the 2031 page) places a W. W. Clay house for A. B. Dewey ('Bedford stone, 72×32 feet, three stories') at 2031, but Tolman occupied 2031 1873–1919 and AIC places the Dewey drawing at 2631 — see a20-aic-ia-dewey-residence-drawing-1887; treat 2031's 1904 front as unresolved.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2031prairie/",
+    "collection": "Chicagology: Prairie Avenue address pages",
+    "creator": "unknown engraver",
+    "date": "undated (1870s–1880s engraving)",
+    "repository": "Chicagology (chicagology.com) — website compilation; original holder not credited on page",
+    "rights": "unknown — link only",
+    "title": "[Prairie Avenue sidewalk view, 2031–2035 S. Prairie] (untitled engraving reproduced on Chicagology 2031 and 2035 pages)"
+   }
+  }
  },
  {
   "id": "a20-chicagology-2033-walker-evans",
@@ -217,11 +317,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2033sprairiewalkerevans1946.jpg",
   "rights": "copyright — link only",
   "rights_basis": "Walker Evans photograph, 1946; AIC lists it as not public domain",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-chicagology-2033-walker-evans.jpg",
+   "display_bytes": 103368,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2033sprairiewalkerevans1946.jpg",
+   "original_bytes": 217578,
+   "original_px": [
+    696,
+    913
+   ],
+   "original_sha256": "4235f0383daeeb940d321f72d70de390e69f6d3619218e0a92d93051c38cf47e",
+   "thumb": "research/images/files/a20-chicagology-2033-walker-evans-thumb.jpg",
+   "thumb_bytes": 31140
+  },
   "verified": "viewed",
   "found_via": "Chicagology 2033 page",
   "notes": "Walker Evans' 1946 frontal portrait of 2033: narrow three-storey stone (marble/limestone) Italianate front with a full-height three-sided bay at right, segmental-arched windows with carved hoods, bracketed cornice, pedimented door hood on brackets over double doors, high stone stoop, iron fence. Neighbours already demolished: vacant lot and a modern concrete-frame loft at left, a tall Gothic tower block behind at right. Front itself probably little changed since 1904 (the Otis family lived here 1869–1934). Duplicate reproduction of AIC 1991.1475.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2033prairie/",
+    "collection": "Chicagology: Prairie Avenue address pages",
+    "creator": "Walker Evans",
+    "date": "1946",
+    "repository": "Chicagology (reproduction); original print at Art Institute of Chicago (see a20-aic-walker-evans-2033)",
+    "rights": "copyright — link only",
+    "title": "2033 S. Prairie (Walker Evans, 1946) — Chicagology reproduction"
+   }
+  }
  },
  {
   "id": "a20-chicagology-2036-street-engraving-1880",
@@ -249,11 +374,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2000blockprairieave1880.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Website reproduction without credited source or rights statement; original holder and rights unresolved",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-chicagology-2036-street-engraving-1880.jpg",
+   "display_bytes": 533401,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2000blockprairieave1880.jpg",
+   "original_bytes": 1081060,
+   "original_px": [
+    2001,
+    1199
+   ],
+   "original_sha256": "c3ed3390f842b9fd44e4e790f78fa40f357e8fb13822110d1b93d697a81d7a1e",
+   "thumb": "research/images/files/a20-chicagology-2036-street-engraving-1880-thumb.jpg",
+   "thumb_bytes": 37966
+  },
   "verified": "viewed",
   "found_via": "Chicagology 2036 Prairie page",
   "notes": "Pen/wood engraving looking up a sidewalk: at far left a brick house with carved window heads and corner bay (identified by Chicagology as Buckingham, 2036), beyond it a French Second Empire stone house with mansard tower, then a row of mansarded houses receding; ornate iron fences on stone curbs, balustraded stoops with urns, gas lamp-post, wooden carriage blocks/benches, tall parkway trees and roadway at right. Excellent for street furniture (iron fences, gas lamps) of the 1870s–80s on this block. Original publication not credited; reconstruct identification before relying on it. Also reproduced on the Glessner House blog ('Clarence Buckingham', 2013-08-27) captioned '2000 block of Prairie Avenue looking north, Buckingham house at far left'.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2036prairie/",
+    "collection": "Chicagology: Prairie Avenue address pages",
+    "creator": "unknown engraver",
+    "date": "1880 (Chicagology caption)",
+    "repository": "Chicagology (chicagology.com) — website compilation; original holder not credited on page",
+    "rights": "unknown — link only",
+    "title": "Buckingham house at far left in 1880 (Prairie Avenue 2000 block, engraved street view)"
+   }
+  }
  },
  {
   "id": "a20-chicagology-2110-rees-street-c1895",
@@ -285,11 +435,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/reeshouse1895.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Website reproduction without credited source or rights statement; original holder and rights unresolved",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-chicagology-2110-rees-street-c1895.jpg",
+   "display_bytes": 218461,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/reeshouse1895.jpg",
+   "original_bytes": 639419,
+   "original_px": [
+    2000,
+    693
+   ],
+   "original_sha256": "feefe53840d97ac021e49570620bc95796e2bfcaf6df832ce84096c8929d8522",
+   "thumb": "research/images/files/a20-chicagology-2110-rees-street-c1895-thumb.jpg",
+   "thumb_bytes": 20581
+  },
   "verified": "viewed",
   "found_via": "Chicagology 2110 Prairie page",
   "notes": "Cropped panoramic street view: row of high-stooped stone-fronted houses on the west side of the 2100 block with the narrow Rees house (Cobb & Frost, 1888) marked by an arrow — its curved carved band over a bay and arched entrance — with neighbours on either side (2112 Rothschild at left, 2108 Kimball and 2100 Sherman beyond to the right, per the Glessner House caption of the uncropped image a20-glessner-2100-block-west-side-1890s), all with steep stone stoops and carved newels, iron fences, parkway trees with young foliage. Roadway is smooth pavement with a covered carriage and horse; stone bollards/carriage posts line the east curb at right; street lamps. One of the best street-level views of the 2100 block in period. Same image is also likely held by CHM or the Glessner House; holder unresolved. Crop of the same negative as a20-glessner-2100-block-west-side-1890s.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2110prairie/",
+    "collection": "Chicagology: Prairie Avenue address pages",
+    "creator": "unknown (cropped detail; arrow added by Chicagology)",
+    "date": "about 1895 (Chicagology caption)",
+    "repository": "Chicagology (chicagology.com) — website compilation; original holder not credited on page",
+    "rights": "unknown — link only",
+    "title": "Rees House (arrow), about 1895."
+   }
+  }
  },
  {
   "id": "a20-chicagology-2115-armour-photo",
@@ -320,11 +495,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2115prairiearmourmansion.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Website reproduction without credited source or rights statement; original holder and rights unresolved",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-chicagology-2115-armour-photo.jpg",
+   "display_bytes": 486009,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2115prairiearmourmansion.jpg",
+   "original_bytes": 3098618,
+   "original_px": [
+    3387,
+    2583
+   ],
+   "original_sha256": "9c5dfacabfebff32a2f370f00fae0220bbe8d0400ecf7c41648da5d917e0bcec",
+   "thumb": "research/images/files/a20-chicagology-2115-armour-photo-thumb.jpg",
+   "thumb_bytes": 31563
+  },
   "verified": "viewed",
   "found_via": "Chicagology 2115 Prairie page",
   "notes": "Front elevation of the Kelley/Armour house: three storeys of pale (stuccoed or painted) stone-trimmed masonry in Second Empire style, quoined and banded, round-arched windows with keystones, central arched entrance under a carved pediment with a high stone stair with stepped stone cheek walls, patterned slate mansard with arched pedimented dormers and iron cresting, tall chimney. At left (north, since the camera faces east) the neighbour — by position 2109 Roloson (tagged, unconfirmed) — shows a two-storey columned veranda and a mansard tower; at right a dark brick Second Empire house with ornate arched windows and mansard (2123?). Snow on parkways; no fences visible in front of 2115 (low coping only). Date unknown; Chicagology gives none. Useful for 1904 massing (Armour widow lived here to 1921).",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2115prairie/",
+    "collection": "Chicagology: Prairie Avenue address pages",
+    "creator": "unknown",
+    "date": "undated (winter; c. 1890s–1930s)",
+    "repository": "Chicagology (chicagology.com) — website compilation; original holder not credited on page",
+    "rights": "unknown — link only",
+    "title": "2115 S. Prairie (Armour mansion)"
+   }
+  }
  },
  {
   "id": "a20-chicagology-2140-photo-a",
@@ -354,11 +554,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2140prairie1880.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Website reproduction without credited source or rights statement; original holder and rights unresolved",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-chicagology-2140-photo-a.jpg",
+   "display_bytes": 441384,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2140prairie1880.jpg",
+   "original_bytes": 2243770,
+   "original_px": [
+    3018,
+    2213
+   ],
+   "original_sha256": "cb28d4b719a8c94bf78005e54419bbc0ae9162c4b73258a0a7e94d2a2d085173",
+   "thumb": "research/images/files/a20-chicagology-2140-photo-a-thumb.jpg",
+   "thumb_bytes": 23434
+  },
   "verified": "viewed",
   "found_via": "Chicagology 2140 Prairie page",
   "notes": "Large clear photograph of the Van Osdel–designed Tucker/Byron L. Smith house on the NW corner of 22nd: dark brick with stone bands, three tall conical-roofed round/polygonal corner towers with cresting and finials, Gothic gabled dormers, clustered chimneys; tall iron picket fence on brick piers with ball finials; an iron-and-glass arched porte-cochère/entrance canopy on the 22nd Street (south) side. At right (north) a rough-faced stone house with a conical-roofed rounded bay — very probably 2130 Murdoch (H. I. Cobb, 1890) — and beyond it a long three-storey brick row. Overhead trolley wires and rails in 22nd Street, a cast-iron street lamp at right, a man with a bicycle. Strong 1904 evidence: shows the corner, the fence, the canopy and the trolley wires; date window inferred c. 1890–1911. Compared with the pre-1881 Greene stereograph, the towers here carry tall conical slate roofs — a later remodelling, after 1890 (the cresting-crowned towers still stood next to the 1890 Murdoch house in a20-glessner-vanosdel-2140-photo); whether 1904 had spires or cresting is unresolved — date this photo before choosing. The 1898 Van Osdel book plate (a20-aic-quarter-century-tucker-residence) still shows the cresting state, which (if the photo was current in 1898) would put the spires after 1898.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2140prairie/",
+    "collection": "Chicagology: Prairie Avenue address pages",
+    "creator": "unknown",
+    "date": "undated; file name says 1880 but the Romanesque house with round tower at right (consistent with Cobb's 1890 Murdoch house at 2130) indicates after 1890",
+    "repository": "Chicagology (chicagology.com) — website compilation; original holder not credited on page",
+    "rights": "unknown — link only",
+    "title": "2140 Prairie Ave. (first photograph on Chicagology page, file name \"2140prairie1880\")"
+   }
+  }
  },
  {
   "id": "a20-chicagology-2140-photo-b",
@@ -386,11 +611,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/postfire2/2140prairie.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Website reproduction without credited source or rights statement; original holder and rights unresolved",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-chicagology-2140-photo-b.jpg",
+   "display_bytes": 310450,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/postfire2/2140prairie.jpg",
+   "original_bytes": 814053,
+   "original_px": [
+    1462,
+    1606
+   ],
+   "original_sha256": "b5857dae1806fa47bc5cd3f0ac07f324ce5ae934e31dfe2c9440fbb7ed512455",
+   "thumb": "research/images/files/a20-chicagology-2140-photo-b-thumb.jpg",
+   "thumb_bytes": 35220
+  },
   "verified": "viewed",
   "found_via": "Chicagology 2140 Prairie page",
   "notes": "Closer oblique of the same house showing richer original roof ornament: iron cresting crowns on the flat-topped towers, a tall spire/flèche, polychrome brick with stone string-courses, round tower with bracketed cornice, columned entrance porch on Prairie Avenue with stone stair, low iron fence on stone curb, gas lamp, hydrant and wooden tree guards. Comparison with a20-chicagology-2140-photo-a shows the tower tops changed (cresting crowns vs. tall conical roofs) — the conical roofs in photo A appear to be later; establish sequence before fixing 1904 roofline. The NYPL/P. B. Greene stereograph (pre-1881) shows the same cresting-crowned towers; the uncropped version (a20-glessner-vanosdel-2140-photo) shows the 1890 Murdoch house beside it, so this state lasted past 1890.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2140prairie/",
+    "collection": "Chicagology: Prairie Avenue address pages",
+    "creator": "unknown",
+    "date": "undated (after 1890 — the uncropped version on the Glessner blog shows the 1890 Murdoch house next door)",
+    "repository": "Chicagology (chicagology.com) — website compilation; original holder not credited on page",
+    "rights": "unknown — link only",
+    "title": "2140 Prairie Ave. (second photograph on Chicagology page)"
+   }
+  }
  },
  {
   "id": "a20-chicagology-2140-smith-dining-room",
@@ -418,11 +668,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/byronlsmithdiningroom.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Website reproduction without credited source or rights statement; original holder and rights unresolved",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-chicagology-2140-smith-dining-room.jpg",
+   "display_bytes": 460721,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/byronlsmithdiningroom.jpg",
+   "original_bytes": 1110275,
+   "original_px": [
+    1549,
+    950
+   ],
+   "original_sha256": "dc42eb7067a871c473cd6924f11196597c5264245643746a16a795ea613445e5",
+   "thumb": "research/images/files/a20-chicagology-2140-smith-dining-room-thumb.jpg",
+   "thumb_bytes": 28109
+  },
   "verified": "viewed",
   "found_via": "Chicagology 2140 Prairie page",
   "notes": "Paneled dining room salvaged from 2140 Prairie before demolition (1936) and reassembled at the Northern Trust Company as the Byron Laflin Smith Guest Dining Room (per page text). Shows dark wood paneling, plaster ceiling, fireplace with white surround, wall sconces, chandelier, Chippendale-style chairs (some made by Marshall Field & Co. to match). Interior evidence only; reassembly may alter proportions.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2140prairie/",
+    "collection": "Chicagology: Prairie Avenue address pages",
+    "creator": "unknown",
+    "date": "undated (after 1936 reinstallation)",
+    "repository": "Chicagology (chicagology.com) — website compilation; original holder not credited on page",
+    "rights": "unknown — link only",
+    "title": "Byron Laflin Smith dining room (reassembled at Northern Trust)"
+   }
+  }
  },
  {
   "id": "a20-chicagology-2001-street-1915",
@@ -449,11 +724,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2001prairie1915.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Website reproduction without credited source or rights statement; original holder and rights unresolved",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-chicagology-2001-street-1915.jpg",
+   "display_bytes": 139152,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2001prairie1915.jpg",
+   "original_bytes": 283067,
+   "original_px": [
+    1194,
+    796
+   ],
+   "original_sha256": "e68fbda85b8bad92e9b7643c321e597e05c8bd59458f0bc1a1070d551967fad1",
+   "thumb": "research/images/files/a20-chicagology-2001-street-1915-thumb.jpg",
+   "thumb_bytes": 20951
+  },
   "verified": "viewed",
   "found_via": "Chicagology 2001 Prairie page",
   "notes": "Street-level view down Prairie Avenue across the 20th Street intersection, numbered '47' (probably a municipal/streetcar-era survey series). Paved roadway with crown, curbs with granite corners, cast-iron lamp-posts with globe lamps, parkway trees (leafless), large Romanesque/Queen Anne corner house at right marked by arrow (2001), stone mansions at left, street receding to a vanishing point. Useful for 1904 street surface and lighting (with care for 1904–1915 changes: electric lamps). Orientation and the identity of houses other than 2001 not verified.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2001prairie/",
+    "collection": "Chicagology: Prairie Avenue address pages",
+    "creator": "unknown; plate number \"47\" on print",
+    "date": "1915 (Chicagology caption)",
+    "repository": "Chicagology (chicagology.com) — website compilation; original holder not credited on page",
+    "rights": "unknown — link only",
+    "title": "2001 Prairie Ave 1915"
+   }
+  }
  },
  {
   "id": "a20-chicagology-2017-armour-photo",
@@ -479,11 +779,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2017prairiearmour.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Website reproduction without credited source or rights statement; original holder and rights unresolved",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-chicagology-2017-armour-photo.jpg",
+   "display_bytes": 133322,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2017prairiearmour.jpg",
+   "original_bytes": 286804,
+   "original_px": [
+    932,
+    1200
+   ],
+   "original_sha256": "351ab1e60c625a003af3b2d6695fc8e36601845600b93b2ee87df882ae8cf2ad",
+   "thumb": "research/images/files/a20-chicagology-2017-armour-photo-thumb.jpg",
+   "thumb_bytes": 27590
+  },
   "verified": "viewed",
   "found_via": "Chicagology 2017 Prairie page",
   "notes": "Front of the William Armour house (between Reid 2013 and Adams/High 2021): smooth brick/stone front with crenellated cornice, steep front gable with paired windows, gabled dormers, entrance porch with colonnettes and balustraded deck, high stoop with iron railing. Not in the buildings index but stands between two indexed houses; the same house appears at the right edge of the Reid plate (a20-chicagology-2013-reid-ia1895).",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2017prairie/",
+    "collection": "Chicagology: Prairie Avenue address pages",
+    "creator": "unknown",
+    "date": "undated (19th century)",
+    "repository": "Chicagology (chicagology.com) — website compilation; original holder not credited on page",
+    "rights": "unknown — link only",
+    "title": "2017 S. Prairie (William Armour residence)"
+   }
+  }
  },
  {
   "id": "a20-chicagology-2026-wahl-landowner-1874",
@@ -913,11 +1238,36 @@
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3dAJ-v9IDp_TkoY0P54C_R68hCAAzHhyphenhyphensUmGR1jyxAlPOt9-9h4eMEx8K_pzN_78S72v5Vi2JT17xeyR8BztNq0wTgGz3XQYIk77qjriBQYcuBpKHq8pJLMn78CCUfzPA96AVDxGkGhE/s1600/14-08-04+2100+block+NW.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Historic image reproduced on museum blog without holder credit or rights statement",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-glessner-2100-block-west-side-1890s.jpg",
+   "display_bytes": 76667,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3dAJ-v9IDp_TkoY0P54C_R68hCAAzHhyphenhyphensUmGR1jyxAlPOt9-9h4eMEx8K_pzN_78S72v5Vi2JT17xeyR8BztNq0wTgGz3XQYIk77qjriBQYcuBpKHq8pJLMn78CCUfzPA96AVDxGkGhE/s1600/14-08-04+2100+block+NW.jpg",
+   "original_bytes": 95231,
+   "original_px": [
+    900,
+    318
+   ],
+   "original_sha256": "f24e9a3de9d1bb1c418ddb4923044ab11b4ef98483a9f60cd5d7d98a47176b0a",
+   "thumb": "research/images/files/a20-glessner-2100-block-west-side-1890s-thumb.jpg",
+   "thumb_bytes": 17032
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog feed search 'Rees' / '2100 block'",
   "notes": "Sepia street photograph; the blog identifies, left to right, Max Rothschild (2112), Harriet Rees (2110), Mark Kimball (2108), John B. Sherman (2100) and Ebenezer Buckingham (2036, across 21st St). Shows the continuous run of tall stone row-house fronts with high stone stoops, heavy carved newels and cheek walls, arched entrances, the Rees bay with carved band, a deep iron balustraded porch/veranda on the Kimball house, then Sherman's corner and mansarded houses beyond; elm parkway trees (blog suggests damaged in the 1891 house move), smooth pavement, curb-side stone bollards along the east (right) side, a covered carriage. Also published 2014-04-21 ('The Rees House and the Changing Face…', file '14-04-21 2100 block looking NW.jpg') with a matching April 2014 view; Chicagology's 'Rees House (arrow), about 1895' (a20-chicagology-2110-rees-street-c1895) is a crop of the same negative. One of the most important in-period streetscapes for the 2100 block; holder of the original unknown (likely CHM or Glessner House collection).",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://glessnerhouse.blogspot.com/2014/08/moving-house-on-prairie-avenue-1891.html",
+    "collection": "glessnerhouse.blogspot.com",
+    "creator": "unknown",
+    "date": "1890s (blog caption: \"early 1890s\")",
+    "repository": "Glessner House Museum (blog \"The Story of a House\"); original holder of historic images not credited",
+    "rights": "unknown — link only",
+    "title": "The 2100 block of Prairie Avenue looking northwest, 1890s"
+   }
+  }
  },
  {
   "id": "a20-glessner-2100-block-west-side-2014",
@@ -945,11 +1295,36 @@
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyBbJHAxLO0rAlHmINcoFYnArqbpNfZVx8Cm5JNu5Mqau1LgNwO6WsiAolLIGLDLaIWUDIGjROp4y2AhOYUaeqriVasllCAuUSOKoV8YdnSK-Z8XuYPNooAjiDWvxtLc3GcoGarHbrmSo/s1600/14-04-21+2100+block+NW+now.JPG",
   "rights": "copyright — link only",
   "rights_basis": "Museum staff photograph on blog",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-glessner-2100-block-west-side-2014.jpg",
+   "display_bytes": 42724,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyBbJHAxLO0rAlHmINcoFYnArqbpNfZVx8Cm5JNu5Mqau1LgNwO6WsiAolLIGLDLaIWUDIGjROp4y2AhOYUaeqriVasllCAuUSOKoV8YdnSK-Z8XuYPNooAjiDWvxtLc3GcoGarHbrmSo/s1600/14-04-21+2100+block+NW+now.JPG",
+   "original_bytes": 52091,
+   "original_px": [
+    600,
+    295
+   ],
+   "original_sha256": "e13256ea2f0703664dbbecab185e244fee2036d7541788ccf06da61be9c75d18",
+   "thumb": "research/images/files/a20-glessner-2100-block-west-side-2014-thumb.jpg",
+   "thumb_bytes": 20852
+  },
   "verified": "catalog-only",
   "found_via": "Glessner House blog post 2014-04-21",
   "notes": "Re-photograph of the 1890s view, made before the Rees house was moved (Nov 2014). Only the Rees house survived; useful for registering the 1890s photo to modern geometry (setback, street width). Image listed with caption on the post; not opened at full size.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://glessnerhouse.blogspot.com/2014/04/the-rees-house-and-changing-face-of.html",
+    "collection": "glessnerhouse.blogspot.com",
+    "creator": "Glessner House Museum (William Tyre?)",
+    "date": "April 2014",
+    "repository": "Glessner House Museum (blog)",
+    "rights": "copyright — link only",
+    "title": "The same view, April 2014"
+   }
+  }
  },
  {
   "id": "a20-glessner-tribune-1891-house-move-sketch",
@@ -1026,11 +1401,36 @@
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigBkILKURKPtzrKunI0XQyumIjeKgBzkAEpBcu12ItC0xDujiC8YMU_E-dr0pfsELPQwlCi5Zlwx4JyKF9iX5n_6y2WM0x7eNy9KV1zhBOUD7qZxoLl3E-dW5DxwU2QolJwCipo08nWh4/s1600/12-01-09+Rees+exterior.JPG",
   "rights": "copyright — link only",
   "rights_basis": "Museum photograph on blog",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-glessner-rees-exterior-2012.jpg",
+   "display_bytes": 43367,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigBkILKURKPtzrKunI0XQyumIjeKgBzkAEpBcu12ItC0xDujiC8YMU_E-dr0pfsELPQwlCi5Zlwx4JyKF9iX5n_6y2WM0x7eNy9KV1zhBOUD7qZxoLl3E-dW5DxwU2QolJwCipo08nWh4/s1600/12-01-09+Rees+exterior.JPG",
+   "original_bytes": 59367,
+   "original_px": [
+    563,
+    750
+   ],
+   "original_sha256": "b8bb6d0fa9337d2ac40f2b86c7f13f8bd51de06c8d4a783bc62db6e92bc04921",
+   "thumb": "research/images/files/a20-glessner-rees-exterior-2012-thumb.jpg",
+   "thumb_bytes": 15129
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog feed search Rees",
   "notes": "Smooth limestone upper front of the Rees house on its ORIGINAL site: steep front gable with Sullivanesque carved tympanum and finial, five-bay arcaded third-storey loggia with foliate capitals and carved archivolt, and the copper-capped curved oriel below. Fabric is 1888 original (restored after 2001) — reliable for 1904 detail of the upper façade. Blog text: smooth limestone façade, 'manually operated elevator', designated Chicago Landmark 5 Jan 2012.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://glessnerhouse.blogspot.com/2012/01/prairie-avenue-mansion-designated.html",
+    "collection": "glessnerhouse.blogspot.com",
+    "creator": "Glessner House Museum",
+    "date": "January 2012 (post date)",
+    "repository": "Glessner House Museum (blog)",
+    "rights": "copyright — link only",
+    "title": "Rees exterior (gable detail), 2012"
+   }
+  }
  },
  {
   "id": "a20-glessner-rees-coach-house-2014",
@@ -1059,7 +1459,20 @@
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6_ZCAPUwJTtx65XqgyBQ_Wfd89TYzz_Y2VUf7wgwReqgmZk_vRZT3WrqqIL5IelTYyvoMdhMqTaWqD3upy2FLKbO5yIK12HbPU4L6xXEmNHi4698vyElknCt7iRKnd0qMblIQXDzoA-M/s1600/DSCN1289.JPG",
   "rights": "copyright — link only",
   "rights_basis": "Museum photograph on blog",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-glessner-rees-coach-house-2014.jpg",
+   "display_bytes": 67730,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6_ZCAPUwJTtx65XqgyBQ_Wfd89TYzz_Y2VUf7wgwReqgmZk_vRZT3WrqqIL5IelTYyvoMdhMqTaWqD3upy2FLKbO5yIK12HbPU4L6xXEmNHi4698vyElknCt7iRKnd0qMblIQXDzoA-M/s1600/DSCN1289.JPG",
+   "original_bytes": 86614,
+   "original_px": [
+    600,
+    450
+   ],
+   "original_sha256": "3b59cef5a9e99c72094e5b26261b32d1ab73add20eab820142b45226b4a2341c",
+   "thumb": "research/images/files/a20-glessner-rees-coach-house-2014-thumb.jpg",
+   "thumb_bytes": 30037
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog feed search Rees",
   "notes": "Two-storey flat-roofed common-brick coach house with segmental-arched openings. Blog text: when Rees bought her lot from Mark Kimball (2108) in 1888, Kimball's coach house extended across the back of BOTH lots (possibly pre-1871); Rees took the south half and a party wall was built; the Kimball half was demolished in the 1930s. Carriages on the ground floor, horses in a full basement reached by a ramp, coachman upstairs. So in 1904 a single double coach house spanned the rear of 2108–2110. Post also has c. 20 photos of the 1 Oct 2014 move.",
@@ -1069,7 +1482,19 @@
     "value": "25 ft wide × 35 ft deep × 23 ft high; 187 tons",
     "locator": "blog text 2014-10-01"
    }
-  ]
+  ],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://glessnerhouse.blogspot.com/2014/10/rees-coach-house-relocated.html",
+    "collection": "glessnerhouse.blogspot.com",
+    "creator": "Glessner House Museum",
+    "date": "2014",
+    "repository": "Glessner House Museum (blog)",
+    "rights": "copyright — link only",
+    "title": "Rees coach house before relocation (2014)"
+   }
+  }
  },
  {
   "id": "a20-glessner-rees-house-move-2014",
@@ -1097,7 +1522,20 @@
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg81fjedaT00TXWnf3tZX1l6rq1xiiKvjiht7kTBvNYduxw6YPnXt-ODHHtro6ZODp1GQX56NwpKZhRsHg0Gh1lj8Te8HDeoQ6pE3ICHtQd0HXGUWzV9VacBIV1ZdqhHi9Jh_o3NqvWYxw/s320/DSCN3264.JPG",
   "rights": "copyright — link only",
   "rights_basis": "Museum photographs on blog",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-glessner-rees-house-move-2014.jpg",
+   "display_bytes": 19878,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg81fjedaT00TXWnf3tZX1l6rq1xiiKvjiht7kTBvNYduxw6YPnXt-ODHHtro6ZODp1GQX56NwpKZhRsHg0Gh1lj8Te8HDeoQ6pE3ICHtQd0HXGUWzV9VacBIV1ZdqhHi9Jh_o3NqvWYxw/s320/DSCN3264.JPG",
+   "original_bytes": 35208,
+   "original_px": [
+    240,
+    320
+   ],
+   "original_sha256": "8b27775fe16c439bb0810383b768439903893dcee7e49ecc512767337950e43d",
+   "thumb": "research/images/files/a20-glessner-rees-house-move-2014-thumb.jpg",
+   "thumb_bytes": 19878
+  },
   "verified": "catalog-only",
   "found_via": "Glessner House blog feed search Rees",
   "notes": "~20 photos of the house in its steel cage on dollies — the only time the side and rear walls were fully exposed. Text gives overall dimensions. The house now faces WEST at 2017 S. Prairie; do not use its present site for 1904.",
@@ -1107,7 +1545,19 @@
     "value": "25 ft wide, 72 ft high, 95 ft long; 762–763 tons",
     "locator": "blog text 2014-11-12 and 2014-10-01"
    }
-  ]
+  ],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://glessnerhouse.blogspot.com/2014/11/harriet-rees-house-moved.html",
+    "collection": "glessnerhouse.blogspot.com",
+    "creator": "Glessner House Museum",
+    "date": "November 11–12, 2014",
+    "repository": "Glessner House Museum (blog)",
+    "rights": "copyright — link only",
+    "title": "Harriet Rees House Moved (photo series, 11–12 Nov 2014)"
+   }
+  }
  },
  {
   "id": "a20-glessner-prairie-house-cafe-postcard",
@@ -1135,11 +1585,36 @@
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiGIXvg13W9G3y3ODK7r6Xx4xi7Zgk5aL2242dAREdvEahqECOHgbcjoP0ZAc5qrcrfzoQYEuTtxlXwe65epRy2ahkYcAJmcHKgiqJX0MN9ZxG26M-nwhBen8M2YfhEw0pMG-UGFc-Hf4E/s1600/14-04-21+Rees+house+as+cafe.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Historic image reproduced on museum blog without holder credit or rights statement",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-glessner-prairie-house-cafe-postcard.jpg",
+   "display_bytes": 64592,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiGIXvg13W9G3y3ODK7r6Xx4xi7Zgk5aL2242dAREdvEahqECOHgbcjoP0ZAc5qrcrfzoQYEuTtxlXwe65epRy2ahkYcAJmcHKgiqJX0MN9ZxG26M-nwhBen8M2YfhEw0pMG-UGFc-Hf4E/s1600/14-04-21+Rees+house+as+cafe.jpg",
+   "original_bytes": 75882,
+   "original_px": [
+    600,
+    467
+   ],
+   "original_sha256": "6179ac112d415a6c387b6a078d8eeb32bcfd296284e6c6b2effda0825de2b33a",
+   "thumb": "research/images/files/a20-glessner-prairie-house-cafe-postcard-thumb.jpg",
+   "thumb_bytes": 31868
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog 2014-04-21",
   "notes": "Multi-view advertising card: oval exterior of the Rees gable/oriel front (with awning) plus four interiors (entry hall with original woodwork and stained-glass door, dining rooms with fireplaces). Exterior shows the 1888 front intact in the 1970s; interiors show surviving original trim.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://glessnerhouse.blogspot.com/2014/04/the-rees-house-and-changing-face-of.html",
+    "collection": "glessnerhouse.blogspot.com",
+    "creator": "unknown",
+    "date": "1970s (blog: café operated in the 1970s)",
+    "repository": "Glessner House Museum (blog \"The Story of a House\"); original holder of historic images not credited",
+    "rights": "unknown — link only",
+    "title": "Rees house as the Prairie House Café (1970s postcard)"
+   }
+  }
  },
  {
   "id": "a20-glessner-hanford-engraving",
@@ -1212,11 +1687,36 @@
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcUFhzhge-1_Lvqhv0BA6nKwDtpdz6tVa_8u7QjkZriZ4wpjDBjhtiHpXCRMMSF51bQpWuwIwqzdWjnm_dMmhQDILbKxZHiAK238BFZuVN8uGcPs-FC9YSJH6bGxj0ezWO5RBKW96j3Xw/s1600/Excavation+foundation.jpg",
   "rights": "copyright — link only",
   "rights_basis": "Simmerling photographs reproduced by Glessner House Museum",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-glessner-hanford-excavation-2001.jpg",
+   "display_bytes": 88440,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcUFhzhge-1_Lvqhv0BA6nKwDtpdz6tVa_8u7QjkZriZ4wpjDBjhtiHpXCRMMSF51bQpWuwIwqzdWjnm_dMmhQDILbKxZHiAK238BFZuVN8uGcPs-FC9YSJH6bGxj0ezWO5RBKW96j3Xw/s1600/Excavation+foundation.jpg",
+   "original_bytes": 103035,
+   "original_px": [
+    675,
+    452
+   ],
+   "original_sha256": "e4df0676120125887bd13f898aeb3b749572f04de0c47eccf25112d91e2d407e",
+   "thumb": "research/images/files/a20-glessner-hanford-excavation-2001-thumb.jpg",
+   "thumb_bytes": 34084
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog 'Unearthing Hanford' (2015-03-30)",
   "notes": "Colour photos of the thick limestone foundation walls exposed when the 1953 parking lot was removed (2001): basement walls with openings, brownstone blocks, a carved window hood, chimney remnants. Blog: 'the huge footprint of the house was fully revealed' — potential footprint evidence if Simmerling's full set (Glessner House Museum) can be measured. Several images in post (foundation, stone blocks, decorative hood, fragments).",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://glessnerhouse.blogspot.com/2015/03/unearthing-hanford.html",
+    "collection": "glessnerhouse.blogspot.com",
+    "creator": "Jack Simmerling",
+    "date": "2001",
+    "repository": "Glessner House Museum (blog \"The Story of a House\"); original holder of historic images not credited",
+    "rights": "copyright — link only",
+    "title": "Hanford house foundation excavation, 2001 (Jack Simmerling photographs)"
+   }
+  }
  },
  {
   "id": "a20-glessner-wheeler-entry-2012",
@@ -1244,11 +1744,36 @@
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGAHhC-6Aa6YIYArxh0CvgLpbGlS2L05U4aNbzl0xUgC9EYW1p7D_zwcmR1aAp7DPNQRc9sldUAj-fgVgnMGgz4AwtDvWk3ug6wOWkyT8EMyS7ADKrBdcxvTf70DX8QnegfQnVD2rKD3w/s1600/12-06-04+Wheeler+exterior.JPG",
   "rights": "copyright — link only",
   "rights_basis": "Museum photograph on blog",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-glessner-wheeler-entry-2012.jpg",
+   "display_bytes": 140422,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGAHhC-6Aa6YIYArxh0CvgLpbGlS2L05U4aNbzl0xUgC9EYW1p7D_zwcmR1aAp7DPNQRc9sldUAj-fgVgnMGgz4AwtDvWk3ug6wOWkyT8EMyS7ADKrBdcxvTf70DX8QnegfQnVD2rKD3w/s1600/12-06-04+Wheeler+exterior.JPG",
+   "original_bytes": 197420,
+   "original_px": [
+    675,
+    900
+   ],
+   "original_sha256": "02df07b10f0648e1fea7cfb8be657d7a2285a7d52c42369d51c8d91c7f20a8ea",
+   "thumb": "research/images/files/a20-glessner-wheeler-entry-2012-thumb.jpg",
+   "thumb_bytes": 31937
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog feed search 'Wheeler'",
   "notes": "Entrance of the Calvin T. Wheeler house (Otis L. Wheelock, 1870; Kohn family from 1874): red brick with stone-trimmed round-arched windows with keyed hoods, gabled wooden/stone entry porch with pierced brackets and colonnettes, stone stair with pierced (circle-pattern) balustrade and urn. Blog gives address as 2020 S. Calumet, Second Empire style, Kohn family sold early 1900s → publishing company offices → Murphy Butter & Egg warehouse (loading dock around dining room) → restored 1997–99 as Wheeler Mansion hotel. Also interior photos (vestibule mosaic, Lincrusta ceilings, hall, dining room) in the same post. Note: the house was MOVED — verify (the City landmark report should say) whether 2020 is its original 1904 site.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://glessnerhouse.blogspot.com/2012/06/wheeler-mansion-featured-on-annual-tour.html",
+    "collection": "glessnerhouse.blogspot.com",
+    "creator": "Glessner House Museum",
+    "date": "June 2012 (post date)",
+    "repository": "Glessner House Museum (blog)",
+    "rights": "copyright — link only",
+    "title": "Wheeler exterior (entry porch), 2012"
+   }
+  }
  },
  {
   "id": "a20-monroe-1896-meyer-house-p155",
@@ -1984,11 +2509,36 @@
   "image_url": "https://artic.contentdm.oclc.org/digital/api/singleitem/image/mqc/29581/default.jpg",
   "rights": "unknown — link only",
   "rights_basis": "AIC CONTENTdm record: 'For publication/rights information please contact the Ryerson and Burnham Archives' — kept link-only",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-aic-taylor-sherman-residence.jpg",
+   "display_bytes": 91227,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://artic.contentdm.oclc.org/digital/api/singleitem/image/mqc/29581/default.jpg",
+   "original_bytes": 92679,
+   "original_px": [
+    759,
+    792
+   ],
+   "original_sha256": "1d8cc377ff117bacce8ac238a2e4a161f77139f369fd987f03b354955019250f",
+   "thumb": "research/images/files/a20-aic-taylor-sherman-residence-thumb.jpg",
+   "thumb_bytes": 31617
+  },
   "verified": "viewed",
   "found_via": "AIC CONTENTdm API search (artic.contentdm.oclc.org, collection mqc) 'prairie avenue' / 'Prairie Ave'",
   "notes": "The ORIGINAL HOLDER of the Sherman photograph reproduced by Chicagology (a20-chicagology-2100-sherman-photo) and the Glessner House blog: an albumen print by Chicago architectural photographer J. W. Taylor, scanned with a Kodak grey scale; same plate numeral '4' at lower right. Full description of the house is in the Chicagology record. Cited in Hines, Burnham of Chicago (p.372) and Lowe (p.30). Best-quality source for the 1904 Sherman house.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/29581",
+    "collection": "Historic Architecture and Landscape Image Collection, c.1865–1973",
+    "creator": "J. W. Taylor, photographer, Chicago",
+    "date": "c.1890s (view date)",
+    "repository": "Art Institute of Chicago, Ryerson & Burnham Archives",
+    "rights": "unknown — link only",
+    "title": "Sherman, John B., Residence"
+   }
+  }
  },
  {
   "id": "a20-aic-ia-robbins-plate",
@@ -2155,11 +2705,36 @@
   "image_url": "https://artic.contentdm.oclc.org/digital/api/singleitem/image/mqc/65500/default.jpg",
   "rights": "unknown — link only",
   "rights_basis": "AIC CONTENTdm record: 'For publication/rights information please contact the Ryerson and Burnham Archives' — kept link-only",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-aic-reed-1941-2021-2033-prairie.jpg",
+   "display_bytes": 51238,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://artic.contentdm.oclc.org/digital/api/singleitem/image/mqc/65500/default.jpg",
+   "original_bytes": 53425,
+   "original_px": [
+    792,
+    594
+   ],
+   "original_sha256": "737d3693e8ece0c02fbd95f5f6db750618ea63a6b06f8605eab4589ab0dff412",
+   "thumb": "research/images/files/a20-aic-reed-1941-2021-2033-prairie-thumb.jpg",
+   "thumb_bytes": 19718
+  },
   "verified": "viewed",
   "found_via": "AIC CONTENTdm API search (artic.contentdm.oclc.org, collection mqc) 'prairie avenue' / 'Prairie Ave'",
   "notes": "Chicago Plan Commission survey photograph. The view at the 21st St corner shows a 1930s commercial building ('…Products' sign) at left, globe-topped street lamps, bare parkway trees, a large multi-storey stone-trimmed industrial/office block with a flagpole (probably part of the R. R. Donnelley complex) at right, cars of c.1940 — i.e. the corner end of the 2000 block was already commercial; the 2021–2035 houses themselves are not clearly visible in this frame despite the catalogue's address. Documents the 1941 street surface, curb line and lighting. Same survey has other Prairie Ave frames (65592, 65624, 65672 — 1700/1800 blocks; other streams).",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/65500",
+    "collection": "Historic Architecture and Landscape Image Collection, c.1865–1973 (00.20)",
+    "creator": "Earl H. Reed (for Chicago Plan Commission)",
+    "date": "1941–1942",
+    "repository": "Art Institute of Chicago, Ryerson & Burnham Archives",
+    "rights": "unknown — link only",
+    "title": "Prairie Avenue [approximately 2021–2033 S. Prairie Ave. at 21st St., looking northeast]"
+   }
+  }
  },
  {
   "id": "a20-aic-rees-c1980s-photo",
@@ -2187,11 +2762,36 @@
   "image_url": "https://artic.contentdm.oclc.org/digital/api/singleitem/image/mqc/5235/default.jpg",
   "rights": "unknown — link only",
   "rights_basis": "AIC CONTENTdm record: 'For publication/rights information please contact the Ryerson and Burnham Archives' — kept link-only",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-aic-rees-c1980s-photo.jpg",
+   "display_bytes": 80629,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://artic.contentdm.oclc.org/digital/api/singleitem/image/mqc/5235/default.jpg",
+   "original_bytes": 82988,
+   "original_px": [
+    724,
+    1056
+   ],
+   "original_sha256": "8fee501b9b461f26a86a2c4f17bac08f7bfe786c4fdd33d9bbee2e46833ed69c",
+   "thumb": "research/images/files/a20-aic-rees-c1980s-photo-thumb.jpg",
+   "thumb_bytes": 18589
+  },
   "verified": "viewed",
   "found_via": "AIC CONTENTdm API search (artic.contentdm.oclc.org, collection mqc) 'prairie avenue' / 'Prairie Ave'",
   "notes": "Black-and-white frontal view: limestone front with carved gable tympanum and finial, arcaded loggia, copper-capped bowed oriel with carved frieze, arched doorway with leaded transom, high stone stoop. The ground-floor bay windows have iron grilles (later). The front is otherwise as built (1888).",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/5235",
+    "collection": "Other collections",
+    "creator": "unknown",
+    "date": "c.1980s (view date)",
+    "repository": "Art Institute of Chicago, Ryerson & Burnham Archives",
+    "rights": "unknown — link only",
+    "title": "Rees, Harriet, Residence (c.1980s)"
+   }
+  }
  },
  {
   "id": "a20-aic-rees-2009-parks-photos",
@@ -2492,11 +3092,36 @@
   "image_url": "https://images.squarespace-cdn.com/content/v1/55ef0304e4b03f4c029572a4/48ca7377-81d6-415d-955a-85c1df2f2f64/115+-+Hanford+house+demolition.jpg",
   "rights": "copyright — link only",
   "rights_basis": "Simmerling painting; Glessner House Museum copyright 2016–2026",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-ghm-simmerling-hanford-demolition-1953.jpg",
+   "display_bytes": 698995,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://images.squarespace-cdn.com/content/v1/55ef0304e4b03f4c029572a4/48ca7377-81d6-415d-955a-85c1df2f2f64/115+-+Hanford+house+demolition.jpg",
+   "original_bytes": 1325803,
+   "original_px": [
+    2500,
+    1943
+   ],
+   "original_sha256": "d103bd263ae48742d58b9f360a1407796c64a056bc6306c241a4cda3ee64b3e4",
+   "thumb": "research/images/files/a20-ghm-simmerling-hanford-demolition-1953-thumb.jpg",
+   "thumb_bytes": 27732
+  },
   "verified": "viewed",
   "found_via": "WebSearch 'Philander C. Hanford house … Jaffray Isaac Scott' → glessnerhouse.org",
   "notes": "Kind recorded as 'engraving' only for want of a 'painting' kind — it is an OIL PAINTING made on the spot during demolition after the Feb. 1953 fire. Shows the brownstone front pavilion with hipped slate roof (burnt to its rafters), a large round-arched stair window with tracery, arched entrance at the left corner, a tall chimney, and the long common-brick side/rear walls being wrecked; ornamental cast-iron fence on a red curb along the sidewalk; sign 'Future site of … parking lot'. Signed 'J. Simmerling III … 2008 Calumet Avenue, Chicago, Philander Hanford'. Page text: house vacant after Hanford's 1894 suicide (1904: unoccupied, caretaker), fire 12 Feb 1953, demolished, paved for parking. Useful for brownstone/brick material split and the front fence.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://www.glessnerhouse.org/hanford-house-demolition",
+    "collection": "Glessner House Museum online collection highlights / puzzles, no. 115",
+    "creator": "Jack Simmerling (1935–2013), age 17",
+    "date": "1953",
+    "repository": "Glessner House Museum (Simmerling collection), shown on glessnerhouse.org",
+    "rights": "copyright — link only",
+    "title": "Hanford house demolition (oil painting by Jack Simmerling, 1953)"
+   }
+  }
  },
  {
   "id": "a20-glessner-vanosdel-2140-photo",
@@ -2526,11 +3151,36 @@
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGIVLNt9WrG1NxNI553hEwzgEG7KRLze5ScvVgjIIuSInGbTocy8lNzgxAhmrCM1YWAKFWpAwy9lS1NYUmFcWJexNeoBT_Pcz_DnrGxGC9z_Zqu-ZGjLs4NQr7hC6d9HwHuxTqtE37JVw/s1600/2140+S+Prairie+Ave.JPG",
   "rights": "unknown — link only",
   "rights_basis": "Historic photograph on museum blog without holder credit",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-glessner-vanosdel-2140-photo.jpg",
+   "display_bytes": 75823,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGIVLNt9WrG1NxNI553hEwzgEG7KRLze5ScvVgjIIuSInGbTocy8lNzgxAhmrCM1YWAKFWpAwy9lS1NYUmFcWJexNeoBT_Pcz_DnrGxGC9z_Zqu-ZGjLs4NQr7hC6d9HwHuxTqtE37JVw/s1600/2140+S+Prairie+Ave.JPG",
+   "original_bytes": 100901,
+   "original_px": [
+    675,
+    526
+   ],
+   "original_sha256": "5e814cbccf7579fcf76e307bdad809334c341cfce4e812619516faec7b67ee8a",
+   "thumb": "research/images/files/a20-glessner-vanosdel-2140-photo-thumb.jpg",
+   "thumb_bytes": 28959
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog feed search 'Byron Smith'",
   "notes": "Sepia photograph, a wider version of the image cropped on Chicagology (a20-chicagology-2140-photo-b): the Tucker/Smith house with flat-topped towers crowned by iron cresting, polychrome brick, columned Prairie Ave porch; AND at right the pale smooth-ashlar Murdoch house (H. I. Cobb, 1890) with its round bay/tower under a conical roof, plus a third house beyond — so this cresting-crowned state still existed after 1890. Blog text: built 1876 for W. F. Tucker by Van Osdel at the NW corner of 22nd St.; sold 1881 to Byron L. Smith (Northern Trust); razed 1936. The tall conical spires in a20-chicagology-2140-photo-a therefore date from a remodelling after 1890 — whether before or after 1904 is unresolved.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://glessnerhouse.blogspot.com/2015/08/john-m-van-osdel-chicagos-first.html",
+    "collection": "glessnerhouse.blogspot.com, 2015-08-31",
+    "creator": "unknown",
+    "date": "undated (after 1890: the Murdoch house of 1890 is visible at right)",
+    "repository": "Glessner House Museum (blog); original holder not credited",
+    "rights": "unknown — link only",
+    "title": "2140 S. Prairie Avenue (illustration in \"John M. Van Osdel, Chicago's First Architect\")"
+   }
+  }
  },
  {
   "id": "a20-wheeler-kohn-landmark-report-1997",
@@ -2588,11 +3238,36 @@
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdRPP9djIU_2aOh1EvemiTcdIlMEcRu71cb2lNhpLLv9KGAjgLaNaD5kOnC9_xygS_21T-q-_dUtY4t69iXxTHcGi_QLLR9rRg-mItu1_biHxHWmaUvu0kFX8r8ycKQGRRseKOhprKh5Q/s1600/Historic+view.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Historic photograph on museum blog without holder credit",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-glessner-2100-block-east-side-1890s.jpg",
+   "display_bytes": 85878,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdRPP9djIU_2aOh1EvemiTcdIlMEcRu71cb2lNhpLLv9KGAjgLaNaD5kOnC9_xygS_21T-q-_dUtY4t69iXxTHcGi_QLLR9rRg-mItu1_biHxHWmaUvu0kFX8r8ycKQGRRseKOhprKh5Q/s1600/Historic+view.jpg",
+   "original_bytes": 401238,
+   "original_px": [
+    604,
+    675
+   ],
+   "original_sha256": "b0305b8cf5b4595ca75e4968cd435e893412362d61a065900bd245ab2d44679c",
+   "thumb": "research/images/files/a20-glessner-2100-block-east-side-1890s-thumb.jpg",
+   "thumb_bytes": 35741
+  },
   "verified": "viewed",
   "found_via": "Glessner House blog feed search '2100 Prairie'",
   "notes": "Sepia crop: at left a tall Second Empire house with a concave mansard, bracketed cornice, two-storey bay with round-arched windows fitted with striped canvas awnings, stone stoop with urns; next a lower Italianate house with a columned porch/veranda and iron-railed stoop; mature elms, wide parkway, stone curb and a white bollard; a covered carriage and horse in the roadway; further houses beyond. The caption places it on the EAST side of the 2100 block (Marriott site, NE corner of Prairie and Cermak) — candidate identities (2101 Pike, 2109 Roloson, 2115 Armour, 2123 Greene/Papin, 2125 C. H. Wheeler) not established, so building_ids left empty. Tone, carriage and season match the west-side view a20-glessner-2100-block-west-side-1890s — possibly the same photographer's series. Summer awnings are useful for 1904 dressing.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://glessnerhouse.blogspot.com/2015/08/marriott-marquis-breaks-ground.html",
+    "collection": "glessnerhouse.blogspot.com, 2015-08-03 \"Marriott Marquis breaks ground\"",
+    "creator": "unknown",
+    "date": "1890s (blog caption)",
+    "repository": "Glessner House Museum (blog); original holder not credited",
+    "rights": "unknown — link only",
+    "title": "The 2100 block of Prairie Avenue in the 1890s; site of the new Marriott Marquis Chicago Hotel."
+   }
+  }
  },
  {
   "id": "a20-chicagology-2120-gorton-photo",
@@ -2618,11 +3293,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2120sprairie.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Website reproduction without credited source or rights statement",
-  "local": null,
+  "local": {
+   "display": "research/images/files/a20-chicagology-2120-gorton-photo.jpg",
+   "display_bytes": 259767,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/2120sprairie.jpg",
+   "original_bytes": 834993,
+   "original_px": [
+    1398,
+    1110
+   ],
+   "original_sha256": "63ac1fd8ffa29c8fa4e169eb25ed2979c1d357d41f2020905703332f0d35afae",
+   "thumb": "research/images/files/a20-chicagology-2120-gorton-photo-thumb.jpg",
+   "thumb_bytes": 26675
+  },
   "verified": "viewed",
   "found_via": "Chicagology 2120 Prairie page",
   "notes": "The O. W. Clapp / Frank S. Gorton house (Burnham & Root 1877 per the AIC Cobb catalogue; Cobb added a music room for Gorton c.1891–96, demolished 1950) — between the indexed Rothschild (2112) and Robbins (2126) lots; not in the buildings index but part of the 1904 west-side frontage. Shows a two-storey-plus-attic red-brick Italianate block with paired-bracket cornice, hipped roof, quoined stone window heads, a Doric-columned entrance portico on a stone stoop, iron fence on a stone curb, gas lamp-post; at left a domed/conservatory bay (possibly the music-room wing) and at right the corner of a taller mansarded brick house (2112?).",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/2120prairie/",
+    "collection": "Chicagology: Prairie Avenue address pages",
+    "creator": "unknown",
+    "date": "undated (c. 1880s–1900s)",
+    "repository": "Chicagology (chicagology.com) — website compilation; original holder not credited on page",
+    "rights": "unknown — link only",
+    "title": "2120 S. Prairie Ave."
+   }
+  }
  },
  {
   "id": "a20-chicagology-2027-text",

@@ -133,6 +133,11 @@ def _blocked(params, run, y_low, bays, half):
     for wall, s0, s1, top in bays:
         if wall == run.name and top > y_low:
             out.append((s0, s1))
+    # T-2366: a frieze's lights (k01_arched_front) on the street front, where they reach
+    # the brackets' feet: the brackets stand on the piers between them, as in 1612's photograph
+    fr = (getattr(params, "arched_front", None) or {}).get("frieze") or {}
+    if fr and run.name == "k01.wall.street_front" and fr["sill_m"] + fr["height_m"] > y_low:
+        out += [(s - fr["width_m"] / 2, s + fr["width_m"] / 2) for s in fr["s_m"]]
     # a neighbour's mass the record says stands within the brackets' reach (a party wall)
     out += [tuple(c["s_m"]) for c in spec(params).get("clear_of", []) if c["wall"] == run.name]
     return sorted((a - half - CLEAR_M, b + half + CLEAR_M) for a, b in out)
