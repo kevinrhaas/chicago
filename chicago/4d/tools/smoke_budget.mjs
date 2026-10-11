@@ -351,7 +351,7 @@ const COVERAGE = [
   ['renderers/web/js/popup.js', [3], 'the card a visitor opens'],
   ['renderers/web/js/census.js', [13], 'the town census in Evidence → City'],
   ['data/terrain/', [3], 'the heightfield'],
-  ['data/liberties.json', [3, 14], 'what we made up about THAT building'],
+  ['data/liberties.json', [3, 14], 'the liberties taken on THAT building'],
   ['docs/LIBERTIES.md', [3, 14], 'the source the liberties are compiled from'],
   ['data/residents/', [3, 13, 14], 'the resident cards and Evidence → City count'],
   ['data/sources/', [3], 'the citation -> its document'],

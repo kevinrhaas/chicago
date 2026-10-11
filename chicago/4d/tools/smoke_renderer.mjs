@@ -73,7 +73,7 @@
  *   pick -> citation ............ the visual claim and the citable claim connect
  *   citation -> its document .... why a modern page is on the rung it is on, and
  *                                 what the source itself says it cannot supply
- *   pick -> liberties ........... and what we made up about THAT building
+ *   pick -> liberties ........... and the liberties taken on THAT building
  *   the bridge floats ........... a water-anchored structure is placed on the
  *                                 water plane, not on the river bed under it
  *   walk moves the camera ....... input intent reaches the walker
@@ -104,7 +104,7 @@
  *   complete jump search ........ every viewpoint, verified junction and loaded
  *                                 structure, in one Go to tab, each structure
  *                                 graded with its own record's position grade
- *   liberties are readable ...... what we made up is in the panel, not only in the repo
+ *   liberties are readable ...... the liberties are in the panel, not only in the repo
  *   a structure version ......... ?structure=&version= swaps ONE building's record and
  *                                 mesh, names it in the HUD and on the card, and moves
  *                                 nothing else in the town (T-1727, part 3)
@@ -8862,7 +8862,7 @@ for (const [label, viewport, touch] of [
         return { missing, ordered };
       };
       // A heading's OWN words: the liberties h3 carries a `.pop-count` badge
-      // ("What we made up here 6"), which is not part of its name.
+      // ("Liberties taken here 6"), which is not part of its name.
       const ownText = (h) => [...h.childNodes].filter((n) => n.nodeType === Node.TEXT_NODE)
         .map((n) => n.textContent).join('').trim();
       const paneOf = (h3text) => {
@@ -8879,7 +8879,7 @@ for (const [label, viewport, touch] of [
           return !!p && !p.hasAttribute('hidden') && p.checkVisibility(); })(),
         hiddenPanes: [...document.querySelectorAll('#popup .pop-pane[hidden]')].map((p) => p.dataset.popPane).sort(),
         tabs: [...document.querySelectorAll('#popup .pop-tab')].map((t) => t.dataset.popTab),
-        homes: { where: paneOf('Where did it stand?'), liberties: paneOf('What we made up here'),
+        homes: { where: paneOf('Where did it stand?'), liberties: paneOf('Liberties taken here'),
           record: paneOf("The record's own account") },
       };
       // THE CARD WITH NOBODY ON IT, which was the Sauganash until T-1406 and is the
@@ -14458,7 +14458,7 @@ for (const [label, viewport, touch] of [
       JSON.stringify({ fits: hub.city.fits, scrollsInSheet: hub.city.scrollsInSheet }));
     check(`${label}: a topic opens with the hub gone, and its search narrows the list and says so`,
       hub.topic.hubHidden && hub.topic.libShown && hub.topic.topic === 'liberties'
-      && hub.topic.title === 'What we made up' && hub.topic.backShown
+      && hub.topic.title === 'Liberties' && hub.topic.backShown
       && hub.topic.total > 17 && hub.topic.shown > 0 && hub.topic.shown < hub.topic.total
       && hub.topic.statusN === hub.topic.shown && hub.topic.statusM === hub.topic.total
       && hub.cleared === hub.topic.total,
