@@ -304,14 +304,15 @@
     "35": {
       "where": "Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35)",
       "sides": [
-        "west"
+        "west",
+        "east"
       ],
       "source": "sanborn_1911_chicago_v3_sheet_35",
       "census_ticket": "T-1842",
       "pass": "T-2351",
       "liberty": "L-draft-prairie-20-22-west-2351",
       "by_side": {
-        "_doc": "As blocks 20 and 28: the east side is the second piece of T-2161 (T-2352), under its own pass and liberty, and joins `sides` when it is drafted.",
+        "_doc": "As blocks 20 and 28: the east side is the second piece of T-2161 (T-2352), drafted under its own pass and liberty.",
         "east": {
           "pass": "T-2352",
           "liberty": "L-draft-prairie-20-22-east-2352"
@@ -888,6 +889,162 @@
         }
       },
       "why": "The Tucker/Smith house (Van Osdel, 1876), Byron L. Smith's in 1904: the register's 'mansard/dormers, tall stacks' over the 3S.B. brick body and the sheet's round bay at the 22nd Street corner as a round tower. ONE ROOF STATE, as the register requires: its towers are drawn FLAT-TOPPED AND CRESTED, the house's first state (the pre-1881 stereo, under Tucker's name), because the conical spires are dated only by a 1928 photograph and nothing puts them on the house by 1904; a dated view showing spires by July 1904 replaces this state (T-1928, T-1929). The three-storey building at the alley corner is no one's stable: its 1911 use (CATERER) is not carried back, and it stands as an outbuilding."
+    },
+    "frontage-35-072": {
+      "slug": "house",
+      "roof": "hip",
+      "pitch_deg": 38,
+      "entrance": "north",
+      "why": "2½B brick with a stone front on the 20th Street corner (W. C. Free's in the 1904 Blue Book, a lead and not an identity): the register's stone-front family is a flat roof, but the sheet's half storey is a roof storey, so the draft takes the default hip with dormers over the stone street face and its traced bay; the door is toward the corner, beside the frame porch the sheet draws on the 20th Street side."
+    },
+    "frontage-35-073": {
+      "slug": "house",
+      "roof": "flat",
+      "brackets": true,
+      "entrance": "north",
+      "why": "3B brick, one of an attached pair with 2005 on a party wall (the census: 'on a party wall with 2005'), with the sheet's curved front bay: three storeys flat behind a bracketed cornice, the rowhouse roof the pair shares; its door at the pair's outer (north) end, mirrored by 2005."
+    },
+    "frontage-35-074": {
+      "slug": "house",
+      "roof": "flat",
+      "brackets": true,
+      "entrance": "south",
+      "why": "3B brick, the second house of the attached pair with 2003: the same bracketed flat roof, its door mirrored to the pair's south end, so the attested pair reads as two houses of one row. Its 16 ft brick wall on the south line is a boundary wall the draft archetype does not draw (T-1912)."
+    },
+    "frontage-35-075": {
+      "slug": "mayer_house",
+      "roof": "shaped_gable",
+      "pitch_deg": 55,
+      "chimneys": 2,
+      "front_bays": 2,
+      "entrance": "north",
+      "why": "The Max A. Mayer house (Burnham & Root, 1888): the register's 'ogee gable with finial, two attic lights, tall chimneys' on a narrow party-wall front, drawn as the kit's shaped street gable over the 2½B brick body, two bays wide. Its ogee curve, carved frieze and bowed window group are T-1913's and T-1914's; the draft keeps only the silhouette."
+    },
+    "frontage-35-076": {
+      "slug": "house",
+      "entrance": "north",
+      "features": [
+        {
+          "kind": "corner_tower",
+          "corner": "front_v1",
+          "radius_m": 1.8,
+          "above_eave_m": 2.4,
+          "cap_m": 4.8
+        }
+      ],
+      "why": "The Romanesque neighbour of Mayer (the Lambs' in the 1904 Blue Book): the register's 'rough ashlar front, round-arched entrance, rounded corner turret/conical cap' as the Romanesque family's steep hip with dormers over the 2½B body, and a turret under a cone on the south front corner, where the sheet draws its stone rounded bay. Seen in the 1890s Mayer photograph; T-1915 reads it."
+    },
+    "frontage-35-077": {
+      "slug": "reid_house",
+      "roof": "flat",
+      "brackets": false,
+      "chimneys": 2,
+      "front_bays": 3,
+      "entrance": "centre",
+      "why": "The William H. Reid house (Beers, Clay & Dutton, 1894): the register's 'heavy cornice, roof balustrade' as a flat roof behind a plain heavy cornice over three storeys, the classical portico as a central entrance. The sheet's 'Fire Proof Construction' is a construction class, not a facade material (census note), and its colour reads as frame on the coarse copy; the record keeps the register's construction. Rustication, surrounds and urns are T-1916's."
+    },
+    "frontage-35-078": {
+      "slug": "house",
+      "brackets": true,
+      "entrance": "south",
+      "why": "3B brick with a stone front (the McBeans' in the 1904 Blue Book): the stone-front family's flat roof, bracketed so it does not repeat Reid's plain cornice next door, with the sheet's stone piece as its front bay; the door to the south."
+    },
+    "frontage-35-079": {
+      "slug": "high_house",
+      "roof": "gable",
+      "pitch_deg": 50,
+      "chimneys": 1,
+      "entrance": "south",
+      "features": [
+        {
+          "kind": "corner_tower",
+          "corner": "front_v0",
+          "radius_m": 2.0,
+          "above_eave_m": 2.8,
+          "cap_m": 5.2
+        }
+      ],
+      "why": "The James L. High house (built for Benjamin Adams in the late 1870s; High's from 1886, with his 1887 rear range): the register's 'steep main gable, conical rounded corner tower, arched entry' as a steep gable to the avenue over the 2½B body and a round tower under a cone on the north front corner, where the sheet draws its front projection. Its broad side wing's secondary gable is T-1917's."
+    },
+    "frontage-35-080": {
+      "slug": "house",
+      "entrance": "north",
+      "why": "2½B brick on a wide lot, the house the register associates with Silas B. Cobb (an open association, so the id names no one): the villa family's low hip with dormers over the traced body, its frame porch as the sheet draws it, restrained as the register asks ('no borrowed named mansion facade'). T-1917 reads it."
+    },
+    "frontage-35-081": {
+      "slug": "tolman_house",
+      "entrance": "north",
+      "why": "2031, the north house of the 1869 Lemont-limestone row (census ruling r35-2031-2035-row; Samuel A. Tolman's in the 1904 Blue Book): the Italianate family's flat roof behind a bracketed cornice over three storeys, its stone street face. The row shares a cornice line and is not three copies, so its doors differ: 2031's north, 2033's south, 2035's toward the corner (T-1918)."
+    },
+    "frontage-35-082": {
+      "slug": "otis_house",
+      "entrance": "south",
+      "why": "2033, the Otis homestead in the middle of the 1869 limestone row (Tribune, February 1904): the row's bracketed flat cornice over three storeys and the sheet's full-height canted stone bay, which the fit carries as a bay; the pedimented double-door hood the Walker Evans photograph shows is T-1918's."
+    },
+    "frontage-35-083": {
+      "slug": "stone_house",
+      "roof": "flat",
+      "brackets": true,
+      "chimneys": 2,
+      "entrance": "south",
+      "why": "2035, the 21st Street corner of the 1869 limestone row, Mrs. H. O. Stone's in February 1904: the register's family ('corner of limestone row') matches no draft family, so the row's bracketed flat cornice is set here to keep the shared line; its door toward the corner. Its mixed brick-and-frame rear building stands as the sheet traces it. The census does not read that building's use, so it stands as an outbuilding, not a stable.",
+      "services": {
+        "s35-2035-rear": {
+          "suffix": "rear_building",
+          "use": {
+            "function": "outbuilding",
+            "name": "the brick-and-frame rear building behind 2035"
+          }
+        }
+      }
+    },
+    "frontage-35-084": {
+      "slug": "house",
+      "entrance": "south",
+      "why": "2½B brick on the 21st Street corner (the Pikes' in the 1904 Blue Book): the brick family's hip with dormers for the half storey over its long rear range, its frame porches as the sheet traces them; its door toward the corner."
+    },
+    "frontage-35-085": {
+      "slug": "roloson_house",
+      "entrance": "north",
+      "why": "The Robert Roloson house: the register keeps its veranda and mansard tower inferred only once the Armour photograph's orientation agrees, so the draft is the 'constrained plain masonry envelope' it names, a hip over three storeys with the stone front and the one-storey frame veranda the sheet draws on the north and west. T-1924 decides the tower."
+    },
+    "frontage-35-086": {
+      "slug": "armour_house",
+      "chimneys": 3,
+      "entrance": "centre",
+      "why": "The David Kelley house of 1871, Mrs. Philip D. Armour's in 1904: the register's Second Empire 'patterned slate mansard and cresting' as the family's mansard with dormers over three storeys and a stone street face, the 'central arched doorway and pediment' as a central entrance. Its quoins, paired arches and stepped stair are T-1925's."
+    },
+    "frontage-35-087": {
+      "slug": "house",
+      "entrance": "south",
+      "why": "3B brick with a stone front (Thomas H. Hubbart's in the 1904 Blue Book): the stone-front family's plain flat roof over three storeys and its rear range, the sheet's stone piece as its bay."
+    },
+    "frontage-35-088": {
+      "slug": "house",
+      "roof": "gable",
+      "pitch_deg": 42,
+      "chimneys": 1,
+      "entrance": "north",
+      "why": "2BB, a small frame house among brick ones (no household at 2125 in the 1904 Blue Book): two storeys of clapboard under a gable to the avenue, so it reads as the frame dwelling it is, with its one-storey frame range and porches as the sheet traces them, and its crossed frame stable on the alley."
+    },
+    "frontage-35-089": {
+      "slug": "flats",
+      "roof": "flat",
+      "brackets": true,
+      "front_bays": 6,
+      "entrance": "centre",
+      "aka": [
+        "2129 S. Prairie Avenue (the flats' second number)"
+      ],
+      "why": "A three-storey brick building of flats, one front under one roof numbered 2127 and 2129 (the sheet's F; census: two flats, not a house): flat behind a bracketed cornice, six bays across its wide front with one central entrance standing for the two numbers; its three-storey frame porch range at the rear as the sheet traces it. T-1931 reads its two doors."
+    },
+    "frontage-35-090": {
+      "skip": true,
+      "why": "2129 is the second number of the 2127 flats (census alias), not a building; the flats carry it."
+    },
+    "frontage-35-091": {
+      "skip": true,
+      "why": "2141 is open ground on the 22nd Street corner (census ruling r35-2141-open-corner): a non-building frontage, so the draft stands nothing on it."
     }
   }
 }

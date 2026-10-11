@@ -563,8 +563,12 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 16th Street station and four buildings by the tracks, emitted the same way and restaling on none
 # of the rows below either.
 #
+# 803 -> 862 on 2026-10-11 (T-2352): the 20th-22nd block, emitted the same way and restaling on
+# none of the rows below either - its east side's seventeen houses and sixteen rear buildings, and
+# the twenty-six of its west side (T-2351) that this branch stands on.
+#
 STATED = {
-    "assets": 803,
+    "assets": 862,
     "restales": {
         "generators/common/*.py": 713,
         "generators/common/__init__.py": 0,
