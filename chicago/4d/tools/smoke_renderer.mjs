@@ -16345,6 +16345,7 @@ for (const [label, viewport, touch] of [
         // prairie_draft records, held by name with the rest.
         // T-2330 added its east side: seventeen more, the same way.
         // T-2334 added the 16th-18th block's west side: thirty-two more.
+        // T-2335 added its east side: nineteen more, the station at 1605 among them.
         const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
           'shortall_gregory_house_1638_prairie_front',
           'edson_keith_house_1906_prairie',
@@ -16414,7 +16415,26 @@ for (const [label, viewport, touch] of [
           'shortall_gregory_house_1638_prairie_coach_house',
           'walker_house_1720_prairie',
           'walker_house_1720_prairie_coach_house',
-          'wheeler_house_1812_prairie_coach_house'].sort();
+          'wheeler_house_1812_prairie_coach_house',
+          'dexter_house_1721_prairie',
+          'dexter_house_1721_prairie_coach_house',
+          'hibbard_house_1701_prairie',
+          'hibbard_house_1701_prairie_coach_house',
+          'house_1601_prairie',
+          'house_1609_prairie',
+          'house_1611_prairie',
+          'house_1613_prairie',
+          'house_1615_prairie',
+          'house_1619_prairie',
+          'house_1621_prairie',
+          'house_1623_prairie',
+          'house_1625_prairie',
+          'ic_16th_street_station_1605_prairie',
+          'kellogg_house_1709_prairie',
+          'kellogg_house_1709_prairie_coach_house',
+          'pullman_house_1729_prairie',
+          'spalding_house_1637_prairie',
+          'spalding_house_1637_prairie_coach_house'].sort();
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),
