@@ -1,0 +1,350 @@
+{
+  "method": "Actual published /1904/ app, normal boot (TAG after); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 12 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "load_ms_to_ready": 35686,
+      "js_heap_used_bytes": 28863808,
+      "js_heap_total_bytes": 29716480,
+      "draft_records_in_registry": 144,
+      "placed": [
+        "mayer_house_2009_prairie",
+        "reid_house_2013_prairie",
+        "otis_house_2033_prairie",
+        "armour_house_2115_prairie",
+        "flats_2127_prairie",
+        "house_2125_prairie_coach_house"
+      ],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 146,
+        "bytes": 0
+      },
+      "stands": [
+        {
+          "name": "north-walk",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 55,
+            "triangles": 1644940,
+            "programs": 35,
+            "geometries": 62,
+            "textures": 167,
+            "batches": 32,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 58533032,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 3198.8,
+          "camera": [
+            1412.5,
+            -3470,
+            6.23
+          ],
+          "target": [
+            1440,
+            -3530,
+            11.57
+          ]
+        },
+        {
+          "name": "across-2009",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 56,
+            "triangles": 1578033,
+            "programs": 35,
+            "geometries": 64,
+            "textures": 171,
+            "batches": 32,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 58533032,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 2634.3,
+          "camera": [
+            1398,
+            -3510,
+            6.28
+          ],
+          "target": [
+            1432,
+            -3512,
+            12.58
+          ]
+        },
+        {
+          "name": "across-2115",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 26,
+            "triangles": 230924,
+            "programs": 35,
+            "geometries": 64,
+            "textures": 171,
+            "batches": 32,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 58533032,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 2080.3,
+          "camera": [
+            1398.5,
+            -3664,
+            6.17
+          ],
+          "target": [
+            1432,
+            -3664,
+            12.48
+          ]
+        },
+        {
+          "name": "south-walk",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 61,
+            "triangles": 1754745,
+            "programs": 35,
+            "geometries": 68,
+            "textures": 179,
+            "batches": 32,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 58533032,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 5615.1,
+          "camera": [
+            1413.5,
+            -3760,
+            6.11
+          ],
+          "target": [
+            1440,
+            -3700,
+            12.45
+          ]
+        },
+        {
+          "name": "alley",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 55,
+            "triangles": 1628092,
+            "programs": 35,
+            "geometries": 69,
+            "textures": 181,
+            "batches": 32,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 58533032,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 2744.3,
+          "camera": [
+            1475,
+            -3478,
+            6.19
+          ],
+          "target": [
+            1473,
+            -3600,
+            8.99
+          ]
+        },
+        {
+          "name": "air",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 55,
+            "triangles": 1631963,
+            "programs": 35,
+            "geometries": 69,
+            "textures": 181,
+            "batches": 32,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 58533032,
+            "fps": 0,
+            "cameraNear": 3,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 3385.2,
+          "camera": [
+            1525,
+            -3470,
+            79.45
+          ],
+          "target": [
+            1440,
+            -3615,
+            4.49
+          ]
+        }
+      ]
+    }
+  ]
+}
