@@ -85,6 +85,7 @@ import random
 import struct
 from pathlib import Path
 
+from . import k01_arched_front
 from . import k03_brick
 from . import k09_frontage
 from . import k10_frontage
@@ -187,6 +188,10 @@ MATERIALS = {
     "k04_zinc_sheet": {"fabric": "zinc_sheet", "color": (1.0, 1.0, 1.0), "roughness": 0.6, "metallic": 0.3},
     "k04_painted_tin_sheet": {"fabric": "painted_tin_sheet", "color": (1.0, 1.0, 1.0), "roughness": 0.6},
     "iron": {"color": (0.055, 0.055, 0.06), "roughness": 0.55},
+    # T-2366: what stands proud of a stone front (keystones, pilasters, a hood, a portico):
+    # the dressed stone, under a name outside the envelope materials, since the contract's
+    # envelope is the wall and a portico stands metres before it (the stoop's reasoning)
+    "dress_stone": {"fabric": "limestone", "color": (0.98, 0.95, 0.88), "roughness": 0.86},
 }
 # T-2291: the side and rear walls are K03 common brick, not Glessner's courtyard
 # brick_buff, and the brick heads, string course and units add their own slots.
@@ -385,7 +390,9 @@ class Assembly:
         if params.stone:
             st = params.stone
             for slot, fab, rough in (("rough_stone_trim", st["fabric"], st["fabric_roughness"]),
-                                     ("limestone_trim", st["trim"], st["trim_roughness"])):
+                                     ("limestone_trim", st["trim"], st["trim_roughness"]),
+                                     # T-2366: the dressings proud of the front, the trim's stone
+                                     ("dress_stone", st["trim"], round(st["trim_roughness"] + 0.02, 3))):
                 self.fabric[slot] = fab
                 self.spec[slot] |= {"color": (1.0, 1.0, 1.0), "roughness": rough}
         # T-2289: what each kit seats on a wall, as (s0, s1, y0, y1, kind) in that wall's
@@ -1036,22 +1043,33 @@ class Assembly:
                                     "construction": "masonry", "openings": len(openings),
                                     "fabric": k["fabric"], "dressing": k["dressing"]},
                       {"base": O, "top": _add(O, _mul(Y, E))})
-        holes = [(o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m) for o in openings]
+        # T-2366: a round-arched group is laid by k01_arched_front, round its own hole and
+        # voussoir block; every other opening is a rectangle with its flat arch
+        af = p.arched_front
+        grouped = {id(p.openings[i]) for i in k01_arched_front.grouped_ops(p)}
+        square = [o for o in openings if id(o) not in grouped]
+        holes = [(o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m) for o in square]
         # a flat arch where K09 leaves a flat head: the area lights and the third floor
-        arches = [(s0, s1, y1, round(y1 + 0.30, 4)) for o, (s0, s1, _, y1) in zip(openings, holes)
+        arches = [(s0, s1, y1, round(y1 + 0.30, 4)) for o, (s0, s1, _, y1) in zip(square, holes)
                   if k09_frontage.head(p, o) == k09_frontage.FLAT]
+        if af:
+            holes += k01_arched_front.plan(self, frame)
         # what the kits seat on this face, widened by a joint and an arris so a piece's
         # edge never stands over a bevel; K06's sill beds are course lines
         m = wk["joint_m"] / 2 + wk["bevel_m"] + 0.01
         seats = [(a0 - m, a1 + m, b0 - m, b1 + m, kind) for a0, a1, b0, b1, kind in self.footprints.get(tuple(O), [])]
         sill_beds = {round(b0 + m, 4) for _, _, b0, _, kind in seats if kind == "K06.sill"}
         belts = [(floors[1] - 0.20, floors[1])] + ([(floors[2] - 0.15, floors[2])] if len(floors) > 2 else [])
-        lines = {0.0, cop_top, yf, *[bc * i for i in range(1, k["base_courses"] + 1)]}
+        if af:
+            belts = list(af["belts"])
+        # T-2366: a frieze stands between the stone's top and the soffit
+        ytop = af["stone_top_m"] if af else yf
+        lines = {0.0, cop_top, ytop, *[bc * i for i in range(1, k["base_courses"] + 1)]}
         lines |= {y for y in sill_beds if y > cop_top + 1e-6}
         lines |= {y for (_, _, _, y) in holes + arches if y > cop_top + 1e-6}
         lines |= {y for band in belts for y in band}
         merged = []
-        for y in sorted(round(y, 4) for y in lines if y <= yf + 1e-6):
+        for y in sorted(round(y, 4) for y in lines if y <= ytop + 1e-6):
             if not merged or y - merged[-1] >= 0.02:
                 merged.append(y)
         courses = []
@@ -1077,6 +1095,8 @@ class Assembly:
             r = r_base if kind == "base" else r_wall
             jh = (k["channel_m"] if kind == "base" else spec["joint_m"]) / 2
             jv = spec["joint_m"] / 2
+            if af and af["banded"] and kind in ("base", "walling"):
+                jv = af["banded"]["vertical_joint_m"] / 2   # T-2366: banded, its rising joints hairlines
             ccid = {"base": "k01.wall.rusticated_base", "coping": "k01.wall.coping"}.get(kind, "k01.wall.stone_course")
             cparams = {"bed_m": ya, "height_m": yb - ya, "kind": kind,
                        "fabric": k["trim"] if trim else k["fabric"]}
@@ -1133,7 +1153,7 @@ class Assembly:
                     skip = frozenset()
                     for s0, s1 in pieces:
                         joints = [0.0 if fy0 <= 1e-9 else jh, 0.0 if s1 >= length - 1e-9 else jv,
-                                  0.0 if fy1 >= yf - 1e-9 else jh, 0.0 if s0 <= 1e-9 else jv]
+                                  0.0 if fy1 >= ytop - 1e-9 else jh, 0.0 if s0 <= 1e-9 else jv]
                         bseed = self._stone_seed(ccid, inst, j)
                         j += 1
                         # a kit seated on this stone: dressed smooth and flush, of the trim
@@ -1160,6 +1180,8 @@ class Assembly:
             prev_joints = joints_here
         for s0, s1, y1, y2 in arches:
             self.flat_arch(frame, s0, s1, y1, y2 - y1, conf, r_wall)
+        if af:
+            k01_arched_front.lay(self, frame, yf, length, conf, r_wall)
         # the wall behind the soffit, up to the eave: inside the roof, one plain face
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
         if E - yf > 1e-6:

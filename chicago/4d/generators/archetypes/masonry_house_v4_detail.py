@@ -126,6 +126,18 @@ def aperture(o):
     return [(a,z0),(b,z0),(b,z1),(a,z1)]
 
 
+PITCH_LINE, PITCH_MARGIN = .016, .085
+
+
+def _inside(x, y, poly):
+    """Even-odd point in polygon, for whether a course run lies in an aperture."""
+    inside=False
+    for (ax,ay),(bx,by) in zip(poly,poly[1:]+poly[:1]):
+        if (ay>y)!=(by>y) and x<ax+(y-ay)*(bx-ax)/(by-ay):
+            inside=not inside
+    return inside
+
+
 def fractured_stone(polygon, depth, rng, spacing=.075):
     """Reconstructed split-face stone, bounded to the existing block envelope.
 
@@ -153,7 +165,16 @@ def fractured_stone(polygon, depth, rng, spacing=.075):
             i,j=math.floor(u),math.floor(v);a,b=u-i,v-j
             value+=amplitude*((1-a)*(1-b)*values[i,j]+a*(1-b)*values[i+1,j]+
                               (1-a)*b*values[i,j+1]+a*b*values[i+1,j+1])
-        return min(.070,max(.006,value+rng.uniform(-.014,.014)))
+        value=min(.070,max(.006,value+rng.uniform(-.014,.014)))
+        # T-2208 (reconstructed): a rock-faced stone is pitched to a straight
+        # arris before it is set, so its face falls to a pitch line at every
+        # edge and the joint reads as a line at street distance. The arris sits
+        # 16 mm proud, the front of an opening's reveal, so a jamb stone meets
+        # its return flush. Interior relief is unchanged.
+        edge=min(x-x0,x1-x,y-y0,y1-y)
+        t=min(1.0,max(0.0,edge/PITCH_MARGIN))
+        t=t*t*(3-2*t)
+        return PITCH_LINE+(value-PITCH_LINE)*t
     rectangular=(len(polygon)==4 and len({round(q[0],6) for q in polygon})==2 and
                  len({round(q[1],6) for q in polygon})==2)
     grid={};anchors={}
@@ -357,17 +378,78 @@ class DetailBuilder(MeshBuilder):
             if zb-za<.004:
                 continue
             rng = random.Random(87013+row*719+int(d*997)+mat*821)
-            width = .2159 if mat == BRICK else .85+min(.45,(zb-za)*.4)
+            if mat != BRICK:
+                self.ashlar_course(polygon,holes,row,za,zb,point,n,confidence,mat,rng)
+                continue
+            width = .2159
             start = math.floor(x0/width)*width-(width/2 if row%2 else 0)
             a = start
             while a < x1-1e-6:
-                w = width if mat==BRICK else width*rng.uniform(.65,1.4)
-                c = a+w
-                gap = .009 if mat==BRICK else .014
+                c = a+width
+                gap = .009
                 tile = rect_clip(polygon,a+gap/2,za+gap/2,c-gap/2,zb-gap/2)
                 if tile:
                     # A clipped fragment is not another physical stone. Build
                     # this stone once, then clip its already-finished surfaces.
+                    self.block(tile,point,n,confidence,mat,rng,holes=holes)
+                a = c
+
+    def ashlar_course(self, polygon, holes, row, za, zb, point, n, confidence, mat, rng):
+        """One rock-faced course, laid from its ends and its opening jambs inward.
+
+        T-2208 (reconstructed): the course is cut wherever a straight aperture jamb
+        crosses it, so a jamb is the end face of a whole stone rather than a sliver
+        the aperture happened to leave; the stone runs to the reveal with no joint.
+        Every run then alternates a long and a short stone at each end by course
+        (a bonded corner/jamb, never joints stacked over each other), and fills its
+        middle with whole stones scaled to the run, so no run ends in a sliver.
+        """
+        x0,_,x1,_ = bounds(polygon)
+        strip = rect_clip(polygon,x0-1,za,x1+1,zb)
+        if not strip:
+            return
+        lo,_,hi,_ = bounds(strip)
+        mid = (za+zb)/2
+        jambs = []
+        for hole in holes:
+            for (ua,va),(ub,vb) in zip(hole,hole[1:]+hole[:1]):
+                if abs(ua-ub)<1e-6 and min(va,vb)-.02<=za and zb<=max(va,vb)+.02:
+                    jambs.append(ua)
+        cuts = sorted({round(u,6) for u in jambs if lo+.05<u<hi-.05})
+        width = .85+min(.45,(zb-za)*.4)
+        gap = .014
+        for s0,s1 in zip([lo]+cuts,cuts+[hi]):
+            if s1-s0<.03:
+                continue
+            centre = (s0+s1)/2
+            # Only a run lying wholly across one aperture is empty. A long run
+            # whose middle merely falls in another, shorter opening is still
+            # laid; that opening clips its stones as before.
+            if any(bounds(h)[0]-1e-6<=s0 and s1<=bounds(h)[2]+1e-6 and
+                   _inside(centre,mid,h) for h in holes):
+                continue
+            s0_jamb = s0 in cuts
+            s1_jamb = s1 in cuts
+            length = s1-s0
+            count = max(1,round(length/width))
+            if count == 1:
+                sizes = [length]
+            else:
+                # Long/short at the two ends by course parity, then whole stones.
+                head = width*(1.3 if row%2==0 else .62)
+                tail = width*(.62 if row%2==0 else 1.3)
+                middle = [rng.uniform(.7,1.35)*width for _ in range(max(0,count-2))]
+                sizes = [head]+middle+[tail]
+                scale = length/sum(sizes)
+                sizes = [w*scale for w in sizes]
+            a = s0
+            for i,w in enumerate(sizes):
+                c = a+w
+                # A jamb stone runs to the reveal: its end face IS the return.
+                left = a+(0 if (i==0 and s0_jamb) else gap/2)
+                right = c-(0 if (i==len(sizes)-1 and s1_jamb) else gap/2)
+                tile = rect_clip(polygon,left,za+gap/2,right,zb-gap/2)
+                if tile:
                     self.block(tile,point,n,confidence,mat,rng,holes=holes)
                 a = c
 
