@@ -689,6 +689,72 @@ class Assembly:
                 self.proud_box("limestone_trim", (O, R, N), s0, s1, y0, y1, proud, seed, conf)
         return (O, R, N), thickness
 
+    # -- k01.wall.wing.* (T-2343) ------------------------------------------------------
+    def wing(self, w, sc_conf):
+        """One rear wing: its south, north and rear walls in the K03 brick with their K06
+        windows cut, the second-floor string course carried round from the main walls, and
+        a flat deck. Its front stands on its host wall, which is not drawn behind it, so it
+        has no front wall of its own; a later wing standing on its rear is cut out the same
+        way. Its brick heads and its soot band take their datum from its own wall top."""
+        from .k01_frontage_params import wing_walls
+        p = self.p
+        keep, self.soffit_m = self.soffit_m, w["top_m"]
+        on_rear = [(*x["host_span_m"], 0.0, x["deck_m"]) for x in p.rear_wings
+                   if x["host_wall"] == f"k01.wall.wing.{w['id']}.rear"]
+        for side, (O, R, length) in wing_walls(w).items():
+            cid = f"k01.wall.wing.{w['id']}.{side}"
+            ops = [o for o in w["openings"] if o.wall == cid]
+            cover = on_rear if side == "rear" else []
+            hs = [(o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m) for o in ops] + cover
+            breaks = (w["top_m"], *k03_brick.condition_breaks(w["top_m"]))
+            frame, t = self.wall(cid, "brick", O, R, length, w["top_m"], p.side_thickness_m, hs, breaks)
+            for o in ops:
+                self.opening(o, frame, t, "brick", "limestone_trim")
+            # the string course at its second floor, on the south and rear walls as the main
+            # body's: the south one stops short of the front by the course's own projection,
+            # so it never doubles a course the main south wall runs out past its quoin
+            if side != "north" and len(w["floors_m"]) > 1:
+                s_from, s_to = (-k03_brick.STRING_PROUD, length - k03_brick.STRING_PROUD) if side == "south" \
+                    else (0.0, length)
+                for s0, s1 in _pieces(s_from, s_to, [c[:2] for c in cover]):
+                    k03_brick.string_course(self, seed_of(self.sid, cid, 0), frame, s0, s1, w["floors_m"][1], sc_conf)
+        self.soffit_m = keep
+        self.wing_deck(w)
+
+    def wing_deck(self, w):
+        """The wing's flat deck: a slab from its wall top to the fascia's top, run out over
+        the south, north and rear walls by its overhang — painted tin on top, a painted
+        soffit under, a fascia round the edge — and closed at the front end wherever the
+        deck runs past the ends of the wall it stands on."""
+        p = self.p
+        u0, u1, v0, v1 = w["rect"]
+        ov, yt, yd = w["overhang_m"], w["top_m"], w["deck_m"]
+        hv0, hv1 = w["host_v_m"]
+        conf = p.worst_conf("rear_wings", "footprint")
+        seed = self.instance(f"k01.roof.wing.{w['id']}", "roof",
+                             {"kind": "flat", "overhang_m": ov, "fascia_m": w["fascia_m"],
+                              "covering": "painted_tin_sheet", "deck_datum_m": yd},
+                             {"base": (u0, yt, -v1), "top": (u0, yd, -v1)})
+        a0, a1, b0, b1 = u0 - ov, u1, v0 - ov, v1 + ov
+        X = lambda u, y, v: (u, y, -v)
+        tin, fas = "k04_painted_tin_sheet", "fascia"
+        E, NZ = (1.0, 0.0, 0.0), (0.0, 0.0, -1.0)
+        self.prim(tin).face([X(a0, yd, b0), X(a1, yd, b0), X(a1, yd, b1), X(a0, yd, b1)], Y,
+                            self.basis(tin, X(a0, yd, b0), E, NZ, seed), conf)
+        under = self.basis(fas, X(a0, yt, b0), E, NZ, seed)
+        self.prim(fas).face([X(a0, yt, b0), X(a1, yt, b0), X(a1, yt, b1), X(a0, yt, b1)], (0.0, -1.0, 0.0), under, conf)
+        edge = lambda O, R: self.basis(fas, O, R, Y, seed)
+        self.prim(fas).face([X(a0, yt, b0), X(a1, yt, b0), X(a1, yd, b0), X(a0, yd, b0)], (0.0, 0.0, 1.0),
+                            edge(X(a0, yt, b0), E), conf)
+        self.prim(fas).face([X(a0, yt, b1), X(a1, yt, b1), X(a1, yd, b1), X(a0, yd, b1)], NZ,
+                            edge(X(a1, yt, b1), (-1.0, 0.0, 0.0)), conf)
+        self.prim(fas).face([X(a0, yt, b0), X(a0, yt, b1), X(a0, yd, b1), X(a0, yd, b0)], (-1.0, 0.0, 0.0),
+                            edge(X(a0, yt, b1), (0.0, 0.0, 1.0)), conf)
+        for c0, c1 in ((b0, min(hv0, b1)), (max(hv1, b0), b1)):
+            if c1 - c0 > 1e-6:
+                self.prim(fas).face([X(a1, yt, c0), X(a1, yt, c1), X(a1, yd, c1), X(a1, yd, c0)], E,
+                                    edge(X(a1, yt, c1), (0.0, 0.0, 1.0)), conf)
+
     # -- k01.opening.* ---------------------------------------------------------------
     def opening(self, op, frame, thickness, body_mat, stone_trim, cut=False, coursed=False):
         """`cut`: the reveal is already a solid's (a recess the K05 union cut, T-2302, to
@@ -703,6 +769,8 @@ class Assembly:
         conf = p.worst_conf("footprint", "sash_by_storey", "front_bays", "side_bays", "rear_bays")
         if op.wall == "k01.wall.side.north":
             conf = max(conf, p.conf("north_bays"))
+        elif op.wall.startswith("k01.wall.wing."):   # T-2343: a rear wing's own windows
+            conf = max(conf, p.conf("rear_wings"))
         door = op.component == "k01.opening.door_leaf"
         if MATERIALS[body_mat].get("courses"):
             conf = max(conf, p.conf("service_wall_brick"))
@@ -1887,8 +1955,10 @@ def build(params, structure_id: str):
     belts = [(floors[1] - 0.20, floors[1], 0.05)] + ([(floors[2] - 0.15, floors[2], 0.05)] if len(floors) > 2 else [])
 
     def holes(wall_id):
+        # T-2343: where a rear wing stands on this wall, the wall is behind it and not drawn
         return [(o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m)
-                for o in p.openings if o.wall == wall_id]
+                for o in p.openings if o.wall == wall_id] + \
+               [(*w["host_span_m"], 0.0, w["deck_m"]) for w in p.rear_wings if w["host_wall"] == wall_id]
 
     # The four walls, each about its base socket: outer face, left end (seen from
     # outside), at grade. +X is east (footprint u), -Z is north (footprint v).
@@ -1900,7 +1970,8 @@ def build(params, structure_id: str):
         "k01.wall.rear_service": ("brick", (0.0, 0.0, -W), (0.0, 0.0, 1.0), W, p.side_thickness_m, ()),
         "k01.wall.side.south": ("brick", (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), D, p.side_thickness_m, ()),
     }
-    gaps = {cid: [bay["span_m"] for bay in p.bays if bay["wall"] == cid] for cid in walls}
+    gaps = {cid: [bay["span_m"] for bay in p.bays if bay["wall"] == cid]
+                 + [w["host_span_m"] for w in p.rear_wings if w["host_wall"] == cid] for cid in walls}
     if a.k14 is not None:   # T-2358: each wall's frame, for its trails and its damp line
         a.k14_walls = {cid: (O, R, _cross(R, Y), length) for cid, (mat, O, R, length, t, bands) in walls.items()}
 
@@ -1955,6 +2026,9 @@ def build(params, structure_id: str):
         frame = frames[cid][0][0]
         for s0, s1 in _pieces(s_from, s_to, gaps[cid]):   # T-2308: stopped against a bay
             k03_brick.string_course(a, seed_of(structure_id, cid, 0), frame, s0, s1, floors[1], sc_conf)
+    # T-2343: the rear wings, each a brick box on its host wall under its own flat deck
+    for w in p.rear_wings:
+        a.wing(w, sc_conf)
     a.roof()
     # T-2308: the K08 bays, each on its wall. Its roof leans on that wall, so an opening
     # left above it must clear the roof — the K06 sill (0.10 m) and 0.05 m of flashing.
