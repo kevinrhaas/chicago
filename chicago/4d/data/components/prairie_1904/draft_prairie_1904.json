@@ -839,6 +839,7 @@
     },
     "frontage-35-069": {
       "slug": "robbins_house",
+      "front_body_from_u_m": 34.0,
       "front_bays": 5,
       "entrance": "centre",
       "works": {
@@ -846,8 +847,7 @@
         "course_m": 1.6,
         "note": "On the target date the house is not finished (census ruling r35-robbins-2126): Robbins bought the Hamill house in 1901 and razed it in 1904, and the May 1905 plate shows the new house complete. The draft therefore stands the working phase the ruling declares, the new house's brick shell partly raised and unroofed on the 1911 footprint, with the alley stable standing. How high the walls stood is RECONSTRUCTED: two of its three storeys and part of the third along the street."
       },
-      "why": "The Robbins house (Mann, MacNeille & Lindeberg) RISING on 1 July 1904, in the one working phase census ruling r35-robbins-2126 declares: the brick shell two storeys up over its stone basement, the street wall and its returns 1.6 m into the third, openings empty, no roof, a deck at the principal floor and a pole scaffold along the street and the open side. The five-bay front and central entrance are the register's for the finished house (its 'five-bay red-brick front ... fanlit central entry'), laid out as openings only. The May 1905 plate is the finished design and is not read as July 1904 evidence; a 1904 permit or a dated progress photograph replaces this phase (T-1926).",
-      "close_cells": 3
+      "why": "The Robbins house (Mann, MacNeille & Lindeberg) RISING on 1 July 1904, in the one working phase census ruling r35-robbins-2126 declares: the brick shell two storeys up over its stone basement, the street wall and its returns 1.6 m into the third, openings empty, no roof, a deck at the principal floor and a pole scaffold along the street and the open side. The five-bay front and central entrance are the register's for the finished house (its 'five-bay red-brick front ... fanlit central entry'), laid out as openings only. The May 1905 plate is the finished design and is not read as July 1904 evidence; a 1904 permit or a dated progress photograph replaces this phase (T-1926)."
     },
     "frontage-35-070": {
       "slug": "murdoch_house",

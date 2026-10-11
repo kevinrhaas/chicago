@@ -1944,7 +1944,7 @@
       "baked_ao": false,
       "bytes": 6791952,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "e51d50445ee43c2f5436f808fe440d074295b7314a201f87c6d857df332d2e48",
+      "inputs_sha256": "a90d601cb979a14ec9f06d376ed6ef4a55b4bd936887e147cba3809d90616724",
       "kind": "generated",
       "phase_id": "as_built_1886",
       "structure_id": "keith_house_1808_prairie"
@@ -7354,9 +7354,9 @@
     "robbins_house_2126_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
-      "bytes": 159228,
+      "bytes": 140520,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "4a59673083e9f5ffcbc76c3cddc514b06a19da49dc59a1cf11d976ceea87741b",
+      "inputs_sha256": "34ac915ed675924e863a8182d3ad2c0e7cd84b5238c9645604e62856eabc3b5b",
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "robbins_house_2126_prairie"

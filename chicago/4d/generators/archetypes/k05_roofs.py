@@ -607,6 +607,31 @@ def variant_solids(v: dict, data: dict):
         meta.update(m)
         meta["ridge_m"] = round(ry, 4)
         meta["parapet_line"] = [[round(a, 4), round(b, 4)] for a, b in line]
+    elif kind == "flat":
+        # T-2349: a stone-front rowhouse's flat roof. A tin deck falls from the street to
+        # the rear wall, where its fascia is the eave; a coped parapet stands on each side
+        # wall and a blocking course over the front, all three level, so each clears the
+        # deck by the upstand where the deck is highest, behind the front. The deck is built
+        # into the parapets, so the union cuts it at their inner faces.
+        t = math.tan(math.radians(v["pitch_deg"]))
+        pp, cp = p["parapet"], p["coping"]
+        tw = pp["thickness_m"]
+        hs = E - f
+        zf = D - tw / 2
+        top = E + (D - tw) * t + v["upstand_m"]
+        # the outline runs counter-clockwise from the rear foot: soffit, the end buried in
+        # the blocking course, the covering, and the fascia over the rear wall
+        deck = extrude([(0.0, hs), (zf, hs), (zf, E + zf * t), (0.0, E)], tw / 2, W - tw / 2, frame("x"),
+                       lambda i, p_, q_: ("soffit", "hidden", "covering", "fascia")[i], "hidden", "hidden")
+        solids += [deck, body_box(0.0, W, 0.0, D, 0.0, hs)]
+        for ends in ((0.0, tw), (W - tw, W)):
+            solids += parapet_element(v, [(0.0, top), (D, top)], ends, "x", tw, 0.0,
+                                      cp["thickness_m"], cp["drip_m"], 0.0, 0.0)
+        solids += parapet_element(v, [(0.0, top), (W, top)], (D - tw, D), "z", tw, 0.0,
+                                  cp["thickness_m"], cp["drip_m"], 0.0, 0.0)
+        meta["ridge_m"] = round(E + (D - tw) * t, 4)   # the deck's high line, at the blocking course
+        meta["fall_m"] = round((D - tw) * t, 4)
+        meta["parapet_top_m"] = round(top, 4)
     elif kind == "mansard":
         lt = math.tan(math.radians(v["lower_pitch_deg"]))
         ut = math.tan(math.radians(v["upper_pitch_deg"]))
