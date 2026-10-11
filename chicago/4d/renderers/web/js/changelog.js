@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1680, ts: '2026-10-11T05:40:47.802Z', date: 'Oct 11, 2026, 12:40 AM CT', title: 'Prairie Avenue\'s 16th–18th block fills in on the east side', kind: 'feature',
+    items: [
+      'Thirteen houses, the Illinois Central\'s 16th Street station and four buildings by the tracks now stand on the east side of Prairie Avenue between 16th and 18th Streets, from 1601 to the Pullman house at 1729.',
+      '1609 and 1611 are back for 1904. The 1911 map shows a four-storey loft in their place, so the frame pair is read from Robinson\'s 1886 atlas.',
+      '1721 stands as one Dexter house, with 1719 as its other number, and Forsyth\'s 1635 is left empty until its own ticket decides whether it stood.',
+      'The Pullman house keeps its conservatory bay, and the draft builds around it instead of over it.',
+      'Each house\'s card says it is a draft and names the ticket that will refine it.',
+    ] },
   { v: 1679, ts: '2026-10-11T05:13:34.862Z', date: 'Oct 11, 2026, 12:13 AM CT', title: 'The flora checks run in half the time', kind: 'chore',
     items: [
       'The automated walk-through that checks the plants now counts them without drawing the town on every step, so the check finishes inside its time limit again. Nothing you see in the town changed.',
