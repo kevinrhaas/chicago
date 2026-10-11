@@ -16224,6 +16224,7 @@ for (const [label, viewport, touch] of [
         const stray = Object.entries(at.drawn).filter(([name, n]) => n > 0 && name !== 'structures');
         // T-2329 added the district draft's west side of the 18th-20th block: eighteen
         // prairie_draft records, held by name with the rest.
+        // T-2330 added its east side: seventeen more, the same way.
         const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
           'shortall_gregory_house_1638_prairie_front',
           'edson_keith_house_1906_prairie',
@@ -16243,8 +16244,25 @@ for (const [label, viewport, touch] of [
           'moulton_lowden_house_1912_prairie',
           'moulton_lowden_house_1912_prairie_coach_house',
           'shed_1834_1900_prairie',
-          'wheeler_house_1812_prairie'].sort();
-        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329)`,
+          'wheeler_house_1812_prairie',
+          'armour_corwith_house_1945_prairie',
+          'armour_corwith_house_1945_prairie_coach_house',
+          'coleman_ames_house_1811_prairie',
+          'coleman_ames_house_1811_prairie_coach_house',
+          'dent_house_1823_prairie',
+          'doane_house_1827_prairie',
+          'doane_house_1827_prairie_coach_house',
+          'kellogg_house_1923_prairie',
+          'kellogg_house_1923_prairie_coach_house',
+          'kimball_house_1801_prairie',
+          'marshall_field_house_1905_prairie',
+          'marshall_field_house_1905_prairie_coach_house',
+          'marshall_field_jr_house_1919_prairie',
+          'ream_house_1901_prairie',
+          'ream_house_1901_prairie_coach_house',
+          'sears_meeker_house_1815_prairie',
+          'sears_meeker_house_1815_prairie_coach_house'].sort();
+        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),
           `meshes: ${JSON.stringify(at.drawn)}; structures placed ${JSON.stringify(at.placed)}`);

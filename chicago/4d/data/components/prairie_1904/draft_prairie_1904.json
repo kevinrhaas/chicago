@@ -2,7 +2,7 @@
   "_doc": "The rules of the Prairie Avenue DISTRICT DRAFT (owner, 2026-10-08; T-2159, split to T-2329 and T-2330). tools/draft_prairie_1904.py reads this file, the traced Sanborn footprints (data/traces/prairie_1904_footprints_s<sheet>.json), the sheet census and the T-1837 frontage register, and writes one prairie_draft structure record per building. A later block is drafted by ADDING rows here (a sheet under `blocks`, its frontages under `frontages`), never by editing the tool. Every number below is a RECONSTRUCTION bounded by the study's starting ranges (RECONSTRUCTION-RULES.md) and recorded as one liberty per block in docs/LIBERTIES.md.",
   "ticket": "T-2329",
   "fit": {
-    "_doc": "How a traced part becomes rectangles: the part is scan-filled on a grid in its lot's own frame, and the largest rectangle inside the fill is taken, then the largest in what is left, until the rectangles cover `coverage` of the fill or `max_rects` are taken. A rectangle smaller than `min_rect_m2` or thinner than `min_side_m` is not taken; one lying `swallowed` or more inside an earlier rectangle of the building is dropped.",
+    "_doc": "How a traced part becomes rectangles: the part is scan-filled on a grid in its lot's own frame, and the largest rectangle inside the fill is taken, then the largest in what is left, until the rectangles cover `coverage` of the fill or `max_rects` are taken. A rectangle smaller than `min_rect_m2` or thinner than `min_side_m` is not taken; one lying `swallowed` or more inside an earlier rectangle of the building is dropped. A frontage row's `front_body_from_u_m` makes a house's first rectangle the largest in front of that lot-frame u (T-2330), for a house the sheet traces in one part with its rear range.",
     "cell_m": 0.25,
     "max_rects": 3,
     "coverage": 0.9,
@@ -34,8 +34,12 @@
   "blocks": {
     "28": {
       "where": "Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28)",
-      "sides": ["west"],
+      "sides": ["west", "east"],
       "liberty": "L-draft-prairie-18-20-west-2329",
+      "by_side": {
+        "_doc": "A side drafted by a later ticket than the block's first names its own pass and its own liberty here; a side absent from this map takes the rules' `ticket` and the block's `liberty`.",
+        "east": {"pass": "T-2330", "liberty": "L-draft-prairie-18-20-east-2330"}
+      },
       "rear_ticket": {"west": "T-1935", "east": "T-1936"}
     }
   },
@@ -66,6 +70,29 @@
     "frontage-28-047": {"slug": "house", "attic_dormers": true, "entrance": "north",
       "features": [{"kind": "corner_tower", "corner": "front_v1", "radius_m": 1.8, "above_eave_m": 3.4, "cap_m": 4.5}],
       "why": "2½S.B. with a 'bay4B': a bay carried a storey above the house, drawn as a corner tower; its corner is not read off the sheet and is reconstructed."},
-    "frontage-28-048": {"skip": "The census rules 1936 an alias of 1918 with no footprint of its own (no dwelling drawn on the lot)."}
+    "frontage-28-048": {"skip": "The census rules 1936 an alias of 1918 with no footprint of its own (no dwelling drawn on the lot)."},
+    "frontage-28-049": {"slug": "kimball_house", "stone": "stone", "front_bays": 4, "attic_dormers": true, "entrance": "centre",
+      "features": [{"kind": "corner_tower", "corner": "front_v0", "radius_m": 2.4, "above_eave_m": 3.6, "cap_m": 6.5}],
+      "why": "Chateauesque in Bedford stone, not brownstone: the register's 'tall hip/slate roofs, corner tower and conical cap, elaborate gabled dormers' and 'broad curved entry stair'. The tower is drawn at the 18th Street corner, where the corner lot shows it to the intersection; the sheet does not place it, so its corner is reconstructed."},
+    "frontage-28-050": {"slug": "coleman_ames_house", "stone": "brownstone", "front_bays": 3, "entrance": "north",
+      "why": "Romanesque: the register's 'rock-faced brown sandstone front' over 'brick side and rear', so the stone front is brownstone and the walls behind it brick; the steep Romanesque hip stands for the upper gable, whose arched lights are T-1891's."},
+    "frontage-28-051": {"slug": "sears_meeker_house", "roof": "mansard", "entrance": "south",
+      "why": "The register's 'stone facade, mansard with gabled dormers' and 'projecting bay'; the 1902 Heun alterations are T-1893's to compare."},
+    "frontage-28-052": {"slug": "dent_house", "roof": "mansard", "chimneys": 3, "entrance": "north",
+      "why": "The register's 'three-storey wall, high attic/mansard profile, tall chimneys' on a brick body (the map's colour, not the engraving's ashlar); rear2B is the two-storey range."},
+    "frontage-28-053": {"slug": "doane_house", "roof": "mansard", "entrance": "south",
+      "features": [{"kind": "corner_tower", "corner": "front_v0", "sides": 4, "radius_m": 2.2, "above_eave_m": 4.0, "cap_m": 4.2},
+                   {"kind": "corner_tower", "corner": "front_v1", "radius_m": 1.6, "above_eave_m": 0.8, "cap_m": 3.6}],
+      "why": "The register's 'mansard and dormers, square/pyramidal tower and separate conical bay' and its rule 'preserve both different tower geometries': a square tower under a pyramid at one front corner and a lower round bay under a cone at the other. Which corner carries which is not read off the sheet and is reconstructed."},
+    "frontage-28-054": {"slug": "ream_house", "roof": "mansard", "entrance": "centre",
+      "why": "The register's post-1887 phase: 'stone-faced Second Empire facade, post-fire upper floor, mansard/dormers, deep cornice, classical portico', the portico drawn as a central entrance."},
+    "frontage-28-055": {"slug": "marshall_field_house", "entrance": "centre",
+      "why": "Second Empire: the register's 'broad brick/stone mansion, mansard and angular corner bay, dormers' and 'central portico'; the conservatory bay and the 1904 fence are T-1904's and T-1905's."},
+    "frontage-28-056": {"slug": "marshall_field_jr_house", "entrance": "north", "front_body_from_u_m": 21.3,
+      "why": "2½S.B.: two full storeys and a half in the roof, read as gabled dormers in a hip over the post-1902 enlargement; the projecting tower/bay is T-1906's. The 1911 sheet's Gatlin Institute is a 1911 use and is not carried back. The sheet traces the house and its rear range as one part, whose largest rectangle is a 47 m strip down the lot; the main body is fitted in front of the part's own break at 21.3 m from the rear lot line, where it narrows to the street front, and the rear range behind it."},
+    "frontage-28-057": {"slug": "kellogg_house", "roof": "hip", "pitch_deg": 35, "entrance": "south",
+      "why": "The register's 'restrained masonry villa vocabulary' and its rule 'do not invent a landmark tower': a low hip over the mapped three storeys, no tower."},
+    "frontage-28-058": {"slug": "armour_corwith_house", "attic_dormers": true, "entrance": "north",
+      "why": "The register's 'corner mansion with substantial roof/attic, deep Prairie facade and long 20th Street elevation': a hip with attic dormers over the mapped house, its rear2B range behind."}
   }
 }
