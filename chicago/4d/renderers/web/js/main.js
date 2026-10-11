@@ -722,7 +722,29 @@ const DETAIL_DECLARED = {
   // balanced: 2,270,978 (desktop West prairie) + 16,806 = 2,287,784 -> 2,290,000
   // These are T-0672's original absolute margins, rounded up to 5,000; no
   // room is priced for a future parcel. Light remains 1,005,000 and 90 calls.
-  full:     { triangles: 3160000, shadowReachM: 240, furnitureCastsShadow: true,
+  //
+  // T-2338, 2026-10-11: a conscious re-budget under the same 2026-08-21 ruling,
+  // NOT a weakened assertion. Four owner-requested parcels since the last
+  // passing tree (d3aa85ea5) put desktop parts 3-6 red: T-2278's openings kit
+  // (windows, doors and trim on every 1835 building, +134,752 GLB triangles
+  // town-wide, +104,996 of it trim) and T-2281/T-2282/T-2287's chained and
+  // lettered signs. At West prairie, `light`, each group hidden in turn:
+  // structures 419,859 -> 534,635, signage 5,952 -> 39,408, the sun's pass
+  // 44,090 -> 65,362. Published mirror of dev 0a2491b51, six stands, both
+  // release viewports, `--stepped`; docs/measurements/t-2338-detail-ceilings.json:
+  //
+  //   tier      desktop 1280x800 worst       390x780 worst
+  //   full      3,379,890 West prairie       2,917,682 West prairie
+  //   balanced  2,515,971 West prairie       2,217,707 West prairie
+  //   light     1,173,622 West prairie         997,804 West prairie
+  //
+  // full:     3,379,890 + 18,059 = 3,397,949 -> 3,400,000
+  // balanced: 2,515,971 + 16,806 = 2,532,777 -> 2,535,000
+  // T-0672's absolute margins again, rounded up to 5,000; nothing priced for
+  // the next parcel. `light` is NOT moved here: it is the floor, its raises
+  // have only ever been the owner's (T-2015, T-2035), and T-2339 puts that
+  // question to the owner. Draw calls are unchanged (worst 317, mobile prairie).
+  full:     { triangles: 3400000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
@@ -731,7 +753,11 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '3,160,000 set 2026-10-07 (PR #498 integration): published Wells '
+              measured: '3,400,000 set 2026-10-11 (T-2338): published dev 0a2491b51 after '
+                + 'the owner-requested openings kit (T-2278) and chained signs (T-2281), '
+                + 'six stands at both viewports: worst 3,379,890 at desktop West prairie; '
+                + '+18,059 rounded up to 5,000. docs/measurements/t-2338-detail-ceilings.json. '
+                + 'Previously 3,160,000 set 2026-10-07 (PR #498 integration): published Wells '
                 + 'f899a73d plus exact ground batching, six stands at both viewports: '
                 + 'worst 3,139,013 at desktop West prairie; +18,059 rounded up to '
                 + '5,000. docs/measurements/pr498-ground-batching.json. Previously '
@@ -854,11 +880,16 @@ const DETAIL_DECLARED = {
   // same rule — the reading is in the block above `full`.
   // T-0672, 2026-10-04: 2,145,000 -> 2,090,000, the return — the reading and
   // the rule are in the block above `full`.
-  balanced: { triangles: 2290000, shadowReachM: 240, furnitureCastsShadow: true,
+  // T-2338, 2026-10-11: 2,290,000 -> 2,535,000 with `full` — the reading and
+  // the rule are in the block above `full`.
+  balanced: { triangles: 2535000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '2,290,000 set 2026-10-07 (PR #498 integration): same published '
+              measured: '2,535,000 set 2026-10-11 (T-2338): same published six-stand, '
+                + 'two-viewport sweep of dev 0a2491b51, worst 2,515,971 at desktop West '
+                + 'prairie; +16,806 rounded up to 5,000. Previously '
+                + '2,290,000 set 2026-10-07 (PR #498 integration): same published '
                 + 'six-stand, two-viewport sweep, worst 2,270,978 at desktop West '
                 + 'prairie; +16,806 rounded up to 5,000. Previously '
                 + '2,090,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
