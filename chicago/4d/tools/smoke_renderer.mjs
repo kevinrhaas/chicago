@@ -8914,9 +8914,9 @@ for (const [label, viewport, touch] of [
       `sauganash (lodgers seated) missing [${cardShape.saug.order.missing.join(', ')}] ordered ${cardShape.saug.order.ordered} residents ${cardShape.saug.residents}; `
       + `log jail (nobody) missing [${cardShape.jail.order.missing.join(', ')}] ordered ${cardShape.jail.order.ordered} residents ${cardShape.jail.residents}; `
       + `hogan (with households) missing [${cardShape.hogan.order.missing.join(', ')}] ordered ${cardShape.hogan.order.ordered}`);
-    check(`${label}: the card opens on its Evidence pane with the other two folded`,
-      cardShape.saug.evidenceShown && cardShape.saug.hiddenPanes.join(',') === 'liberties,record'
-      && cardShape.saug.tabs.join(',') === 'evidence,liberties,record',
+    check(`${label}: the card opens on its Evidence pane with the other three folded`,
+      cardShape.saug.evidenceShown && cardShape.saug.hiddenPanes.join(',') === 'images,liberties,record'
+      && cardShape.saug.tabs.join(',') === 'evidence,images,liberties,record',
       JSON.stringify({ evidenceShown: cardShape.saug.evidenceShown, hidden: cardShape.saug.hiddenPanes, tabs: cardShape.saug.tabs }));
     check(`${label}: each moved section lives in the pane named for it`,
       cardShape.saug.homes.where === 'evidence' && cardShape.saug.homes.liberties === 'liberties'
@@ -8926,6 +8926,41 @@ for (const [label, viewport, touch] of [
       cardShape.hogan.year === '1831' && /^Standing: 1831\b/.test(cardShape.hogan.standing)
       && cardShape.hogan.facts.length >= 3,
       `"${cardShape.hogan.standing}" from ${cardShape.hogan.year}; ${cardShape.hogan.facts.join(' | ').slice(0, 200)}`);
+
+    // T-2389 — THE IMAGES TAB. The card lists the building's photographs and drawings,
+    // each with its credit, from data/pictures/<scene>.json (written at publish by
+    // tools/compile_pictures.py). Phone memory is the constraint: nothing in the pane may
+    // carry a `src` until the tab is opened. The Sauganash cites two pictures held only as
+    // links (Trowbridge's drawing and Kurz & Allison), so it is the 1835 witness.
+    const images = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.pick('sauganash_hotel');
+      document.querySelector('#popup [data-pop-tab="evidence"]')?.click();
+      const pane = () => document.querySelector('#popup [data-pop-pane="images"]');
+      const deadline = Date.now() + 20_000;
+      while (/LOADING IMAGE INDEX/.test(pane()?.textContent ?? 'LOADING IMAGE INDEX') && Date.now() < deadline) {
+        await new Promise((r) => setTimeout(r, 100));
+      }
+      const srcBefore = pane()?.querySelectorAll('img[src]').length ?? -1;
+      document.querySelector('#popup [data-pop-tab="images"]')?.click();
+      const p = pane();
+      const items = [...(p?.querySelectorAll('.pop-pic-list li, .pop-pic-tile') ?? [])];
+      const out = {
+        shown: !!p && !p.hasAttribute('hidden'),
+        srcBefore,
+        status: p?.querySelector('.pop-pic-status')?.textContent.trim() ?? p?.textContent.trim().slice(0, 80),
+        items: items.length,
+        uncredited: items.filter((li) => !(li.querySelector('.pop-pic-meta, .pop-pic-tile-credit')?.textContent.trim())).length,
+        tabCount: document.querySelector('#popup [data-pop-tab="images"] .pop-count')?.textContent.trim() ?? '',
+      };
+      document.querySelector('#popup [data-pop-tab="evidence"]')?.click();
+      api.popup.close();
+      return out;
+    });
+    check(`${label}: the Images tab lists the building's pictures, each credited, and loads none until opened (T-2389)`,
+      images.shown && images.srcBefore === 0 && images.items >= 2 && images.uncredited === 0
+      && images.tabCount === String(images.items),
+      JSON.stringify(images));
 
     // --- T-1727: one structure swapped by URL, and nothing else ----------------------
     //
