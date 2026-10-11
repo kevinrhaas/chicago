@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 1676, ts: '2026-10-11T04:08:13.534Z', date: 'Oct 10, 2026, 11:08 PM CT', title: 'Prairie Avenue\'s 16th–18th block fills in on the west side', kind: 'feature',
+    items: [
+      'Nineteen houses and thirteen stables now stand on the west side of Prairie Avenue between 16th and 18th Streets, all built from the Sanborn map\'s own footprints.',
+      '1700 and 1706 stand as the two Glessner-family townhouses, mirrored, with no third house at 1702.',
+      'The Robert Law house at 1620 is back for 1904. The 1911 map shows the lot empty, so its outline is read from Robinson\'s 1886 atlas.',
+      'Each house\'s card says it is a draft and names the ticket that will refine it.',
+    ] },
+  { v: 1675, ts: '2026-10-11T04:08:13.534Z', date: 'Oct 10, 2026, 11:08 PM CT', title: 'The Light detail budget makes room for the town\'s windows', kind: 'chore',
+    items: [
+      'Nothing you can see changes in the town. Light is the setting weaker machines start on, and on a desktop screen it had gone over its triangle budget once every 1835 building got windows, doors and trim and the signs got chains.',
+      'With the owner\'s go-ahead, Light\'s budget now matches what the town draws from the busiest view on the West prairie, plus the same small margin it had before.',
+      'On a phone the town still fits inside the old Light budget. The draw-call limit has not moved.',
+    ] },
   { v: 1674, ts: '2026-10-11T03:32:26.976Z', date: 'Oct 10, 2026, 10:32 PM CT', title: 'The Full and Balanced detail budgets make room for the town\'s windows', kind: 'chore',
     items: [
       'Every 1835 building now has windows, doors and trim, and the hanging signs hang on chains. Seen from the West prairie, that pushed the Full and Balanced settings past their triangle budgets.',
