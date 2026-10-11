@@ -29,7 +29,16 @@ All of it is data in `data/components/prairie_1904/draft_prairie_1904.json`: blo
 
 Captured with `node tools/qa_draft_t2352.mjs` on the published `/1904/` app. *Before* is the tree of T-2351's head as this branch took it (its west-side records committed but not yet compiled into the scene, so the before shots show the block empty on both sides). *After* is this branch. Desktop is 1280×800 at full detail, and phone is 390×780 at light. There are six stands: the east walk south from 20th Street, across the avenue at 2009 and at 2115, the east walk north from 22nd Street, the east alley, and the air.
 
-MEASUREMENTS
+All four runs had **0 page errors and 0 failed requests**, and every stand was within the detail budget. All six named records (`mayer_house_2009_prairie`, `reid_house_2013_prairie`, `otis_house_2033_prairie`, `armour_house_2115_prairie`, `flats_2127_prairie`, `house_2125_prairie_coach_house`) are placed in the after runs.
+
+Because *before* had neither side of the block compiled, the delta below is the **whole block, both sides**: 59 structures (91 → 150 in the scene), 26 of them T-2351's and 33 this branch's.
+
+| | load to ready | JS heap (after GC) | draw calls at the stands | triangles at the stands |
+|---|---|---|---|---|
+| desktop before → after | 25.7 → 35.7 s | 24.7 → 28.9 MB | 24-61 → 26-61 | 0.10-1.56 M → 0.23-1.75 M |
+| phone before → after | 12.7 → 13.2 s | 24.6 → 28.8 MB | 17-51 → 21-53 | 46-478 k → 155-592 k |
+
+This side's 33 GLBs add 881 KB of web derivatives (4.62 MB of masters). The renderer batches by material key, so draw calls rise by at most four. The phone, the release gate, loads within half a second of before and gains 4.2 MB of heap. The desktop's longer load is on this runner's software GL at full detail, where every one of the block's 59 new GLBs is fetched and decoded before ready; it is a relative reading, not a device claim, and the same holds for `frame_ms_median` in the JSON (up roughly 10-60 % at the stands that face the block).
 
 ## Not drafted here
 
