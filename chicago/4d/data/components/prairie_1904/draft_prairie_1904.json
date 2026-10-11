@@ -311,7 +311,8 @@
     "s20-1608-f": "1608 Prairie is refined in place by T-2341 (piece 1 of T-1859) as the K01 brick frontage house_1608_prairie, under the draft's own id; the draft does not stand a second building on it.",
     "s20-1607-f": "1607-1611's four-storey loft is the 1911 replacement of the lot-6 frame pair (T-1840 census, backcast_1886): the draft stands 1609 and 1611 from Robinson 1886 instead (block 20's `plates`), and the loft not at all.",
     "s20-1612-f": "1612 Prairie now stands as the K01 frontage assembly goodman_house_1612_prairie (T-2344, piece 1 of T-1860), which refines this draft in place under the draft's own id; the draft stands no second building beside it.",
-    "s20-1604-f": "1604 Prairie is refined in place by T-2343 (piece 3 of T-1859) as the K01 brick frontage house_1604_prairie, under the draft's own id: the '3B' block on K01 and the '2B' range and '2' block behind it on K01's rear wings; the draft does not stand a second building on it."
+    "s20-1604-f": "1604 Prairie is refined in place by T-2343 (piece 3 of T-1859) as the K01 brick frontage house_1604_prairie, under the draft's own id: the '3B' block on K01 and the '2B' range and '2' block behind it on K01's rear wings; the draft does not stand a second building on it.",
+    "s20-1616-f": "1616 Prairie's main body now stands as the K01 brick frontage house_1616_prairie (T-2353, piece 1 of T-2345), which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's one-storey rear range is T-2354's."
   },
   "frontages": {
     "frontage-28-038": {
@@ -511,7 +512,9 @@
     "frontage-20-005": {
       "slug": "house",
       "entrance": "north",
-      "why": "2½B brick: two full storeys and a half in the roof, read as dormers in the brick family's hip; the sheet's frame bay at its north-east corner stands as a projection."
+      "why": "2½B brick: two full storeys and a half in the roof, read as dormers in the brick family's hip; the sheet's frame bay at its north-east corner stands as a projection.",
+      "house_id": "house_1616_prairie",
+      "house_address": "1616"
     },
     "frontage-20-006": {
       "slug": "law_house",

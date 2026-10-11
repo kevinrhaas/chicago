@@ -1,23 +1,23 @@
 {
   "id": "house_1616_prairie",
-  "name": "1616 Prairie Avenue — Brick masonry (district draft; refined by T-1860)",
+  "name": "1616 Prairie Avenue — brick house, K01 frontage assembly",
   "aka": [
     "1616 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k01_frontage",
   "function": {
     "value": "residence",
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The 1911 sheet marks the building 'D' (dwelling): '2½B brick dwelling (D); frame (yellow) bay at its north-east corner'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
+    "note": "The 1911 sheet marks the building 'D' (dwelling): '2½B brick dwelling (D); frame (yellow) bay at its north-east corner', with a one-storey brick range behind it. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2334, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1860 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1616-b1), the T-1840 census (s20-1616-f, s20-1616-a1) and the T-1837 register row frontage-20-005 (Brick masonry); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-west-2334).",
+  "research_note": "T-2353 (piece 1 of T-2345, itself piece 2 of T-1860) refines the district draft (T-2334) in place under the same id: the main body is rebuilt from the K01 frontage assembly and its kits — K03 brick on all four walls, K06 sash, K07 door and stoop, K09 window heads, K10 bracketed cornice, a K04/K05 hip with a street dormer for the half storey — instead of the draft builder, as T-2341 built 1608. What is read: the 1911 Sanborn sheet 20 (storeys '2½B', brick, the traced main body) through the T-1840 census. Everything else is reconstructed and recorded as L-k01-1616-brick-front-2353. The sheet's one-storey brick range behind the body is T-2354's, and its frame bay at the north-east corner is not built. No photograph, plate or description of 1616 has been read; a later reading that finds one replaces the kit's choices here.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_mapped_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
@@ -65,7 +65,7 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The main body: the largest rectangle inside the traced main part of s20fp-1616-b1 (data/traces/prairie_1904_footprints_s20.json, T-2328), kept from the draft (23.5 m deep, 6.5 m along the front; the rectangle covers 85% of the part's fill). The trace also draws a one-storey brick range behind the north end of the rear wall (about 2.5 m out and 1.5 m along it, the draft's r2), which K01's single rectangle cannot carry: T-2354 stands it."
       },
       "form": {
         "stories": {
@@ -74,7 +74,7 @@
           "sources": [
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "'2½B' printed on the 1911 sheet: 2 full storeys and a half storey in the roof."
+          "note": "'2½B' printed on the 1911 sheet: two full storeys over a basement and a half storey in the roof. The half storey is not built as a floor: it is the roof space, lit by the street dormer, as 1612's next door."
         },
         "construction": {
           "value": "brick",
@@ -82,100 +82,237 @@
           "sources": [
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "The register reads the map's colours as 'brick'."
+          "note": "The register reads the map's colours as 'brick'. T-2353: built as a brick house, front and all — K01's `brick` construction (T-2341), the K03 common brick on every wall, with stone dressings on the street front."
         },
-        "draft_plan": {
+        "principal_floor_m": {
+          "value": 1.4,
+          "confidence": "reconstructed",
+          "note": "The draft's raised principal floor over the basement the sheet's 'B' prints, inside the K01 contract's principal_floor range [0.8, 1.8]; it solves to whole risers of the K07 stoop."
+        },
+        "storey_heights_m": {
+          "value": [
+            4.0,
+            3.6
+          ],
+          "confidence": "reconstructed",
+          "note": "Floor to floor, the principal storey tallest, as 1612 next door has them; raised from the draft's 3.9 and 3.5 so the chamber sashes and the bracketed eave both fit under a low hip. No source reads this house's heights."
+        },
+        "wall_thickness_front_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "note": "A 13-inch brick wall, inside the contract's masonry range [0.23, 0.45]; the sheet prints no wall thickness for this lot."
+        },
+        "wall_thickness_side_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "note": "Common brick, a 13-inch wall, as the front."
+        },
+        "service_wall_brick": {
+          "value": "common_buff_common_6",
+          "confidence": "reconstructed",
+          "note": "The sheet colours the house brick; the fabric, bond, heads, string course and grime are the K03 library's common buff brick in common bond (the one panel k03_brick lays), on all four walls since the street front is brick too. No photograph of 1616 has been read, so the brick's colour and bond are the kit's, not the house's."
+        },
+        "street_front_trim": {
           "value": {
-            "parts": [
+            "by_storey": [
+              "k09.trim.lintel_cornice_hood",
+              "k09.trim.lintel_cornice_hood"
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "The street front's window heads from the K09 kit (data/components/prairie_1904/k09_trim.json): a stone lintel under a cornice hood on both storeys, the plainest head the kit carries and the commonest on a brick front of the 1870s on Prairie Avenue; the door keeps K01's flat stone lintel, since K09's one entrance is 1808's Romanesque ring. No source shows 1616's heads."
+        },
+        "wall_head": {
+          "value": {
+            "cornice": "k10.cornice.bracketed_timber"
+          },
+          "confidence": "reconstructed",
+          "note": "A K10 bracketed timber cornice (data/components/prairie_1904/k10_cornices.json): scrolled brackets and bed moulding under the K05 soffit, round all four walls, as on 1608 and 1612 beside it. The draft drew 1616 unbracketed; no source reads its eave either way. No cresting: none is read."
+        },
+        "roof_form": {
+          "value": "hip",
+          "confidence": "reconstructed",
+          "note": "A hip roof, the one K01 builds (k01.roof.hip), low-pitched behind the bracketed eave. The draft drew the brick family's hip with attic dormers; no source reads this roof, and a low hip over a deep plan is the commonest cover on this street's brick houses of the period."
+        },
+        "roof_pitch_deg": {
+          "value": 34,
+          "confidence": "reconstructed",
+          "note": "Low, inside the contract's ordinary range [25, 45]: an Italianate hip just high enough to hold the attic the sheet's '½' records, lit by the street dormer. 34 because, on this 23.5 x 6.5 m plan with the dormer, the K05 roof union this kit dresses its caps on parts the hips cleanly only at 34 degrees with a 0.5 or 0.6 m eave (swept 28-40 degrees, 0.30-0.60 m; see docs/RESEARCH/k01-1616-brick-2353). Tinned rather than slated, because K04's Pennsylvania slate is cut for a 45 degree roof."
+        },
+        "eave_overhang_m": {
+          "value": 0.5,
+          "confidence": "reconstructed",
+          "note": "A deep Italianate eave over the brackets, about twenty inches; the fascia and soffit close it. 0.5 m is one of the two eaves the K05 union builds at this roof's 34 degrees (see roof_pitch_deg)."
+        },
+        "stair_tread_m": {
+          "value": 0.3,
+          "confidence": "reconstructed",
+          "note": "Inside the contract's tread range [0.25, 0.34]."
+        },
+        "stair_landing_depth_m": {
+          "value": 1.2,
+          "confidence": "reconstructed",
+          "note": "A landing one door-swing deep before the threshold."
+        },
+        "stoop_width_m": {
+          "value": 1.8,
+          "confidence": "reconstructed",
+          "note": "The stoop half again the door's width."
+        },
+        "entrance_bay": {
+          "value": "north",
+          "confidence": "reconstructed",
+          "note": "The door on the north half of the 6.5 m front, as the draft rules' row has it (frontage-20-005, entrance north). No source reads which half."
+        },
+        "front_bays": {
+          "value": [
+            1.75,
+            4.75
+          ],
+          "confidence": "reconstructed",
+          "note": "Two bays across the 6.5 m front, south to north: a window a storey on the south, the door and the chamber window over it on the north. The draft drew two."
+        },
+        "side_bays": {
+          "value": [
+            3.2,
+            7.4,
+            13.2,
+            17.4,
+            21.0
+          ],
+          "confidence": "reconstructed",
+          "note": "Five windows a storey along the south wall, rear to front, in two groups either side of the downpipe at u 10.3 m: a 23.5 m wall at the draft's 2.6 m side spacing would carry more, but a deep row house lights its middle rooms from the side it has. The north wall is blank, as K01 builds it."
+        },
+        "rear_bays": {
+          "value": [
+            1.75,
+            4.75
+          ],
+          "confidence": "reconstructed",
+          "note": "Two windows a storey in the rear wall, over the front's."
+        },
+        "sash_by_storey": {
+          "value": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 1.0,
+              "height_m": 2.3
+            },
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 1.0,
+              "height_m": 1.9
+            }
+          ],
+          "confidence": "reconstructed",
+          "note": "Double-hung sash, diminishing upward, inside the contract's sash ranges."
+        },
+        "basement_lights": {
+          "value": {
+            "sill_m": 0.35,
+            "width_m": 0.9,
+            "height_m": 0.7
+          },
+          "confidence": "reconstructed",
+          "note": "Area lights in the front wall, the basement the sheet's 'B' records."
+        },
+        "roof_covering": {
+          "value": {
+            "fabric": "tin_standing_seam_painted",
+            "flashing": "copper_sheet",
+            "caps": "copper_ridge_roll"
+          },
+          "confidence": "reconstructed",
+          "note": "Painted tin in standing seams, K04's cover for a roof too low for its slate, with copper ridge and hip rolls and copper flashings. No source reads 1616's roof."
+        },
+        "chimneys": {
+          "value": {
+            "plan_m": [
+              0.9,
+              0.75
+            ],
+            "top_above_ridge_m": 0.9,
+            "cap_proud_m": 0.05,
+            "cap_depth_m": 0.15,
+            "stacks": [
               {
-                "id": "r1",
-                "role": "main",
-                "storeys": 2,
-                "roof": "hip",
-                "rect": [
-                  0.0,
-                  0.0,
-                  23.5,
-                  6.5
-                ],
-                "from": "s20fp-1616-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill"
+                "u_m": 7.0,
+                "v_m": 3.25
               },
               {
-                "id": "r2",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  -2.75,
-                  5.0,
-                  -0.25,
-                  6.5
-                ],
-                "from": "s20fp-1616-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 72% of its fill"
+                "u_m": 15.5,
+                "v_m": 3.25
               }
-            ],
-            "lot_v": [
-              -2.69,
-              7.69
-            ],
-            "street_u": 32.455
+            ]
           },
-          "confidence": "inferred",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_20"
-          ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1616-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s20fp-1616-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 72% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "confidence": "reconstructed",
+          "note": "Two brick stacks on the ridge over spine walls between the front, middle and back rooms, as 1608's and 1612's; the draft drew two. No source reads this house's chimneys."
         },
-        "draft_elevation": {
+        "rainwater": {
           "value": {
-            "kind": "house",
-            "seed": 469454722,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 38,
-            "mansard_lower_m": 3.0,
-            "front_bays": 2,
-            "entrance": "north",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": false,
-            "attic_dormers": true,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2334",
-              "refined_by": [
-                "T-1860"
-              ]
+            "gutter": "half_round",
+            "fabric": "copper_sheet",
+            "downpipe": "round",
+            "ends_at": "grade_with_splash_stone",
+            "downpipes": [
+              {
+                "wall": "k01.wall.street_front",
+                "s_m": 0.35
+              },
+              {
+                "wall": "k01.wall.side.south",
+                "s_m": 10.3
+              },
+              {
+                "wall": "k01.wall.rear_service",
+                "s_m": 0.35
+              },
+              {
+                "wall": "k01.wall.rear_service",
+                "s_m": 6.15
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "K04's half-round copper gutter round the eave and round copper downpipes to splash stones: one at the front's south corner (the north half carries the stoop), one in the middle of the south wall between its window groups, two at the rear corners. All reconstructed."
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
             }
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: 2½B brick: two full storeys and a half in the roof, read as dormers in the brick family's hip; the sheet's frame bay at its north-east corner stands as a projection. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 469454722 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-west-2334."
+          "note": "Every window from the K06 kit: two-over-two double-hung sash, the kit's commonest form, not a reading of this house; the basement lights the kit's area light."
         },
-        "draft": {
+        "entrance_kit": {
           "value": {
-            "pass": "T-2334",
-            "liberty": "L-draft-prairie-16-18-west-2334",
-            "register_row": "frontage-20-005",
-            "census_ids": [
-              "s20-1616-f",
-              "s20-1616-a1"
-            ],
-            "trace_building": "s20fp-1616-b1",
-            "seed": 469454722,
-            "replaceable_by": [
-              "T-1860"
-            ],
-            "card": "District draft — refined by T-1860."
+            "k01.opening.door_leaf": {
+              "variant": "k07.entrance.panel_door_stoop",
+              "front_yard_m": 9.26
+            }
           },
           "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "note": "The K07 kit's four-panel door under a two-light transom at the head of a straight stone stoop solved from the principal floor. front_yard_m is the street grid's own distance: the draft's front stands 8.96 m behind the Prairie Avenue street line (street_u 32.455 less the 23.5 m body) and the walk begins 1 ft further out (row_66 margin band), 9.26 m."
+        },
+        "dormer": {
+          "value": {
+            "width_m": 1.5,
+            "face_setback_m": 0.3,
+            "face_height_m": 2.1,
+            "face_thickness_m": 0.2,
+            "pitch_deg": 45,
+            "verge_m": 0.15,
+            "sash": {
+              "sill_m": 0.25,
+              "width_m": 0.85,
+              "height_m": 1.5
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "One gabled dormer on the street hip, centred over the front: the light for the attic the sheet's '½' records, so the half storey is in the roof and is seen from the street. The draft drew attic dormers; its size and sash are the K01 proof's, as 1612's."
         }
       }
     }
