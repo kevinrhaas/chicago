@@ -24354,7 +24354,7 @@ front returns at the south corner only).
 front's real bays, heads and trim; K01 learning segmental heads and an attached range lets this
 record take the heads, the porch and the rear piece in place. The detached stable stays the
 draft's (`L-draft-prairie-16-18-west-2334`) until T-1932.
-**Covers:** `goodman_house_1612_prairie.as_built_1869.form.principal_floor_m`, `goodman_house_1612_prairie.as_built_1869.form.storey_heights_m`, `goodman_house_1612_prairie.as_built_1869.form.wall_thickness_front_m`, `goodman_house_1612_prairie.as_built_1869.form.wall_thickness_side_m`, `goodman_house_1612_prairie.as_built_1869.form.service_wall_brick`, `goodman_house_1612_prairie.as_built_1869.form.street_front_trim`, `goodman_house_1612_prairie.as_built_1869.form.wall_head`, `goodman_house_1612_prairie.as_built_1869.form.roof_form`, `goodman_house_1612_prairie.as_built_1869.form.roof_pitch_deg`, `goodman_house_1612_prairie.as_built_1869.form.eave_overhang_m`, `goodman_house_1612_prairie.as_built_1869.form.stair_tread_m`, `goodman_house_1612_prairie.as_built_1869.form.stair_landing_depth_m`, `goodman_house_1612_prairie.as_built_1869.form.stoop_width_m`, `goodman_house_1612_prairie.as_built_1869.form.entrance_bay`, `goodman_house_1612_prairie.as_built_1869.form.front_bays`, `goodman_house_1612_prairie.as_built_1869.form.side_bays`, `goodman_house_1612_prairie.as_built_1869.form.rear_bays`, `goodman_house_1612_prairie.as_built_1869.form.sash_by_storey`, `goodman_house_1612_prairie.as_built_1869.form.basement_lights`, `goodman_house_1612_prairie.as_built_1869.form.roof_covering`, `goodman_house_1612_prairie.as_built_1869.form.dormer`, `goodman_house_1612_prairie.as_built_1869.form.chimneys`, `goodman_house_1612_prairie.as_built_1869.form.rainwater`, `goodman_house_1612_prairie.as_built_1869.form.window_kit`, `goodman_house_1612_prairie.as_built_1869.form.entrance_kit`, `goodman_house_1612_prairie.as_built_1869.form.stone_front`.
+**Retired:** by T-2366, which rebuilt 1612's front from the house's own photograph under `L-k01-1612-goodman-2366`; every attribute this entry covered is that entry's now, read or still reconstructed, and this one claims none.
 **Ticket:** T-2344 (piece 1 of T-1860).
 **Review:** `docs/RESEARCH/k01-1612-goodman-2344/README.md`.
 **Recorded:** 2026-10-11 (T-2344).
@@ -24540,17 +24540,28 @@ the cornice and its brackets; the roof's form (a hip, the only roof K01 builds),
 0.5 m eave and tin covering, the pitch and eave being the one pair the K05 union builds on this plan
 with the dormer; the dormer's size and sash (the K01 proof's); the two chimney stacks; the gutters
 and downpipes. The north wall is blank, as K01 builds it.
-**What is not built.** The sheet's one-storey brick range behind the north end of the rear wall
-(about 2.5 m by 1.5 m, the draft's r2): K01 builds one rectangle, and T-2354 stands the range once
-T-2347 teaches K01 a traced rear wing. The 1911 sheet's frame bay at the north-east corner: the
+**The rear range (T-2354, 2026-10-11).** The piece the sheet draws behind the north end of the
+rear wall now stands on K01's rear wings (T-2343) as wing `rear_range`. Read: its place and size off
+the raster through the T-1250 fit (2.6 m out from the rear wall, 2.2 m along it, its north wall flush
+with the main body's), brick, and the '2' the sheet letters in it with no 'B' (T-1840 census
+s20-1616-a1, '2-storey brick rear piece') — two storeys, no basement. The draft had stood it as
+ONE storey, its rules' default for a range, and fitted it 1.5 m along because the lettering inside
+the small outline broke the trace's south line; the sheet's outline is a clean rectangle. Invented:
+its floors (0.3 m and 3.5 m, so its upper floor is not on the house's), its walls' brick, its one
+window a storey in the south and rear walls, its blank north wall, and its flat painted-tin deck,
+fascia and overhang, with no gutter. The small circle the sheet prints in it is not modelled. To
+give the range its junction, the main rear wall's two windows a storey move from 1.75 and 4.75 m to
+3.4 and 5.3 m (centred on the wall the range leaves free) and its north downpipe from the corner to
+2.45 m, just south of the range.
+**What is not built.** The 1911 sheet's frame bay at the north-east corner: the
 trace fits no part to it, the draft did not stand it, and a frame bay on a brick front of the period
 is as likely a later addition as an original one.
 **How to resolve:** a photograph, plate or description of 1616, ingested as a source, replaces the
-kits' choices in place; T-2354 stands the range.
+kits' choices in place.
 **Covers:** `house_1616_prairie.as_mapped_1904.form.principal_floor_m`, `house_1616_prairie.as_mapped_1904.form.storey_heights_m`, `house_1616_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1616_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1616_prairie.as_mapped_1904.form.service_wall_brick`, `house_1616_prairie.as_mapped_1904.form.street_front_trim`, `house_1616_prairie.as_mapped_1904.form.wall_head`, `house_1616_prairie.as_mapped_1904.form.roof_form`, `house_1616_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1616_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1616_prairie.as_mapped_1904.form.stair_tread_m`, `house_1616_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1616_prairie.as_mapped_1904.form.stoop_width_m`, `house_1616_prairie.as_mapped_1904.form.entrance_bay`, `house_1616_prairie.as_mapped_1904.form.front_bays`, `house_1616_prairie.as_mapped_1904.form.side_bays`, `house_1616_prairie.as_mapped_1904.form.rear_bays`, `house_1616_prairie.as_mapped_1904.form.sash_by_storey`, `house_1616_prairie.as_mapped_1904.form.basement_lights`, `house_1616_prairie.as_mapped_1904.form.roof_covering`, `house_1616_prairie.as_mapped_1904.form.dormer`, `house_1616_prairie.as_mapped_1904.form.chimneys`, `house_1616_prairie.as_mapped_1904.form.rainwater`, `house_1616_prairie.as_mapped_1904.form.window_kit`, `house_1616_prairie.as_mapped_1904.form.entrance_kit`
-**Ticket:** T-2353 (piece 1 of T-2345).
-**Review:** `docs/RESEARCH/k01-1616-brick-2353/README.md`.
-**Recorded:** 2026-10-11 (T-2353).
+**Ticket:** T-2353 (piece 1 of T-2345); T-2354 (piece 2, the rear range).
+**Review:** `docs/RESEARCH/k01-1616-brick-2353/README.md`, `docs/RESEARCH/k01-1616-rear-range-2354/README.md`.
+**Recorded:** 2026-10-11 (T-2353; T-2354).
 ### L-k01-1620-law-1861 — 1620 Prairie, the Robert Law house, refined from the district draft to a K01 brick house: the plate's L under one rectangle, a canted bay, brick-arched windows and a scroll-band fence, everything but plan, place and brick the kits'
 
 **Decision:** the Robert Law house at 1620 Prairie Avenue (T-1861, package N03 of T-1837) is no
@@ -24779,6 +24790,33 @@ the cupola would replace every number above.
 **Ticket:** T-2207 (Glessner exterior audit GA-08).
 **Recorded:** 2026-10-11 (T-2207).
 
+### L-glessner-coursing-2208 — The Glessner granite laid from its corners and jambs, with pitched arrises, by a rule of ours
+
+**Decision:** the rock-faced granite on every Glessner wall is re-laid (T-2208, Glessner exterior
+audit GA-09A). Course heights are unchanged — they are still the 24 HABS-measured courses in
+`v4_detail.ashlar_courses_in`. What changed is how each course is cut into stones. A course that
+passes wholly beside a straight opening jamb is cut AT that jamb, so the jamb is the end of a whole
+stone that runs to the reveal with no joint, instead of a sliver the opening happened to leave.
+Each run between corners and jambs starts and ends with one long and one short stone, swapped
+course by course, so vertical joints never stack up a corner or a jamb, and the stones between are
+whole, scaled to fill the run, so no run ends in a sliver. Every rock face now falls over its outer
+85 mm to a straight arris 16 mm proud of the bed — the front of an opening's reveal — so joints read
+as lines at street distance and a jamb stone meets its return flush; the stone's interior relief is
+unchanged.
+**What is invented.** The rule itself: the long end stone at 1.3 and the short at 0.62 of the
+course's mean stone, the middle stones between 0.7 and 1.35 of it, the 85 mm margin and the 16 mm
+arris. No measured elevation of the stone joints was read, and no photograph was re-read stone by
+stone for this ticket: the rule is the ordinary practice of rock-faced coursed ashlar (bonded
+corners, whole jamb stones, edges pitched to a line), applied as a reconstruction, not a reading.
+**What is not changed.** Course heights, the wall plane, every opening, sill, lintel and arch, the
+brick, and the plan envelope (K01 scale-drift and origin checks unchanged; the furthest west
+projection falls 1 cm because edge relief no longer reaches 70 mm).
+**How to resolve:** a rectified photograph or measured elevation of one street front with its joints
+legible would replace the rule with the stones; GA-09B (T-2209) calibrates the texture and shadow.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2208 (Glessner exterior audit GA-09A).
+**Recorded:** 2026-10-11 (T-2208).
+
 ### L-k14-1808-roof-2359 — 1808 Prairie's slate carries the K14 chimney plume at 18 years, on plan rows this ticket chose
 
 **Decision:** 1808 Prairie's slate takes the K14 kit's chimney plume (`chimney_soot`, T-2324)
@@ -24803,3 +24841,15 @@ and a slate entry in the kit's fabric responses from a study of weathered Pennsy
 **Ticket:** T-2359 (piece 2 of T-2325, K14).
 **Review:** `docs/RESEARCH/k14-1808-roof-2359/README.md`.
 **Recorded:** 2026-10-11 (T-2359).
+
+### L-k01-1612-goodman-2366 — 1612 Prairie rebuilt from its own photograph: the stone front read through a camera solve, the rest of the house still reconstructed
+
+**Decision:** T-2344 built 1612's front from the Prairie library's one-line summary of the house and never opened the photograph the library linked beside it (`chicagology_1612_prairie_photo`, the library's a16-cgy-1612-studebaker-photo, supplied by the owner on 2026-10-11). T-2366 rebuilds the street front from that photograph, in place and under the same id, and replaces `L-k01-1612-goodman-2344`. The camera is solved from the print alone (a level camera, verticals vertical, the front's courses converging), scaled by the 1911 Sanborn's 11.25 m front (`data/reference_views/goodman_house_1612_prairie/front_from_southeast.json`), and `tools/photo_match.mjs` renders the built house from that camera beside the print.
+**What is read, not invented.** Through that solve, as `inferred` attributes citing the photograph: three bays entered in the middle; every street window round-headed (paired lights upstairs, one tall window in each outer bay of the principal storey, paired basement lights), each group under radiating voussoir joints and a long keystone; the 2.85 m principal floor (outside the contract's reconstructed starting range, which binds guesses and no longer a read value), the 7.0 m second floor and the 10.64 m stone top; the belt at the principal floor and no other; banded stone; the dark frieze with its lights under a bracketed cornice; the frontispiece's pilasters and hood; the arched portico on columns; the iron guards, grilles and front fence on iron posts; no dormer and no downpipe on the front.
+**What is invented.** Inside those readings: every moulding's section; the pilasters' 0.1 m and the hood's 0.32 m projections; the portico's rear columns (0.35 m from the wall), its pedestals, capitals and cornice slab; the keystones' 0.06 m projection; how far each voussoir block runs past its lights (0.3-0.4 m); the guards' and grilles' bars; the frieze lights' 0.12 m recess; the iron posts' size; the base's top, taken at the basement sills because the fence hides it; the north bay, taken as the south's mirror. Outside them, everything the photograph does not show: the roof's form, 26-degree pitch and tin; the 0.75 m eave; the chimneys' places in plan; the wall thicknesses; the stone's kind and every colour (the print is monochrome); the side and rear windows; the stair's tread and landing; the brick panel; the rainwater goods.
+**What is not built.** The canted bay the photograph shows on the south wall's front, and the south frame porch and the rear one-storey piece the Sanborn census reads (K01 builds one rectangle; an attached range is T-2343's). The cornice's brackets are the K10 kit's single scrolls, evenly spaced on the piers between the frieze lights, where the photograph's are paired and larger.
+**How to resolve:** a second view of the house (its north bay, its south wall), or a dated print with its rights stated, would replace the north bay's mirror, the south bay and the colours; K10 laying paired brackets would replace the cornice's rhythm.
+**Covers:** `goodman_house_1612_prairie.as_built_1869.form.wall_thickness_front_m`, `goodman_house_1612_prairie.as_built_1869.form.wall_thickness_side_m`, `goodman_house_1612_prairie.as_built_1869.form.service_wall_brick`, `goodman_house_1612_prairie.as_built_1869.form.roof_form`, `goodman_house_1612_prairie.as_built_1869.form.roof_pitch_deg`, `goodman_house_1612_prairie.as_built_1869.form.eave_overhang_m`, `goodman_house_1612_prairie.as_built_1869.form.stair_tread_m`, `goodman_house_1612_prairie.as_built_1869.form.stair_landing_depth_m`, `goodman_house_1612_prairie.as_built_1869.form.stoop_width_m`, `goodman_house_1612_prairie.as_built_1869.form.side_bays`, `goodman_house_1612_prairie.as_built_1869.form.rear_bays`, `goodman_house_1612_prairie.as_built_1869.form.sash_by_storey`, `goodman_house_1612_prairie.as_built_1869.form.roof_covering`, `goodman_house_1612_prairie.as_built_1869.form.chimneys`, `goodman_house_1612_prairie.as_built_1869.form.rainwater`, `goodman_house_1612_prairie.as_built_1869.form.entrance_kit`, `goodman_house_1612_prairie.as_built_1869.form.stone_front`.
+**Ticket:** T-2366.
+**Review:** `docs/RESEARCH/k01-1612-goodman-2366/README.md`.
+**Recorded:** 2026-10-11 (T-2366).

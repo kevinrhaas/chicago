@@ -78,6 +78,20 @@ disposable. The first rendered scene is `1835` (target date 1835-07-01).
    **Do not "fix" the disagreement by moving the lot grid** — that was priced at 32 lots
    re-cut, 53 committed roofs and a whole documented block into the river, and refused.
 
+11. **A building with a picture of it is built to match the picture, and its ticket does not
+   close until it does** (the image gate, T-2368). The owner, 2026-10-11, finding 1612 Prairie
+   built from a Sanborn outline while the library linked its photograph: *"if you have an image
+   you should work towards it until it's a photographic representation of any images, even
+   drawings are ok, but it should look exactly perfectly like the image or drawing"*, and *"you
+   don't wrap the case until it matches the photo, not that you can't change one without a
+   photo"*. So before drafting, refining or rebuilding any building, find every photograph,
+   print and drawing of it (the Prairie library, `data/sources/`); solve each one's camera into
+   `data/reference_views/<structure_id>/`; build; render with `node tools/photo_match.mjs`; and
+   work the differences down until the side-by-side shows none in what the picture shows. A
+   building ticket carries an `## Image gate` section naming its structure ids, and
+   `ticket.mjs done` refuses it while any view is not `matches`. A summary of a picture is not
+   the picture: read the image itself. `data/reference_views/README.md` is the page.
+
 ## Standing constraint — 1835 and Indigenous history
 
 The final removal of the Potawatomi from Chicago occurred in **August 1835** — inside the
