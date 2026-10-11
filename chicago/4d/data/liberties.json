@@ -31987,6 +31987,12 @@
           "domain": "structure",
           "structure": "house_1630_prairie",
           "phase": "as_mapped_1904",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1630_prairie",
+          "phase": "as_mapped_1904",
           "aspect": "form.frame_house"
         },
         {
@@ -31994,6 +32000,12 @@
           "structure": "house_1630_prairie",
           "phase": "as_mapped_1904",
           "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1630_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stories"
         }
       ],
       "recorded": "2026-10-11",
@@ -32009,7 +32021,7 @@
         },
         {
           "label": "Covers",
-          "text": "`house_1630_prairie.as_mapped_1904.form.frame_house`, `house_1630_prairie.as_mapped_1904.form.roof_covering`"
+          "text": "`house_1630_prairie.as_mapped_1904.form.stories`, `house_1630_prairie.as_mapped_1904.form.construction`, `house_1630_prairie.as_mapped_1904.form.frame_house`, `house_1630_prairie.as_mapped_1904.form.roof_covering`"
         },
         {
           "label": "Ticket",

@@ -24562,7 +24562,7 @@ rear door; a cellar and its lights ('BB' is not read as two basements, the regis
 the stair or any room behind the sash beyond the kit's blinds and curtains.
 **How to resolve:** a photograph, plate or description of 1630, ingested as a source, replaces the
 kit's choices in place; a roof covering read from a Sanborn key or a photograph replaces the shingle.
-**Covers:** `house_1630_prairie.as_mapped_1904.form.frame_house`, `house_1630_prairie.as_mapped_1904.form.roof_covering`
+**Covers:** `house_1630_prairie.as_mapped_1904.form.stories`, `house_1630_prairie.as_mapped_1904.form.construction`, `house_1630_prairie.as_mapped_1904.form.frame_house`, `house_1630_prairie.as_mapped_1904.form.roof_covering`
 **Ticket:** T-2357 (piece 3 of T-1862).
 **Review:** `docs/RESEARCH/k16-1630-frame-house-2357/README.md`.
 **Recorded:** 2026-10-11 (T-2357).
