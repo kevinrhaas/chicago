@@ -478,6 +478,37 @@
           },
           "confidence": "reconstructed",
           "note": "The stone street wall laid as K02 coursed ashlar (T-2289): rock-faced Lemont limestone in courses, a rusticated base of two channel-jointed courses under a weathered coping whose top is the area lights' head line, quoins returning long and short on the south corner, two belts, and a flat arch of voussoirs over each opening the street_front_trim leaves a flat head (the area lights and the third floor). The kits keep what they build — the K06 sills, the K09 heads, aprons and entrance, the K07 stoop and the K08 bow — and wherever one of them is seated on the front the course under it is dressed smooth and laid flush, so no piece stands on a rock face. RECONSTRUCTED throughout: the T-1837 register reads a 'rock-faced' stone front from the Inland Architect plate of February 1888 and names no stone, so Lemont — the local quarry's limestone, the K02 library's pale coursed walling — is a working interpretation that a reading of the plate or of a specification replaces; the colour and course pattern are the library's, never the house's. The north corner is not bonded: it stands 0.02 m from Glessner's south face, closer than any rock face projects. Every course height, block length, joint, recess, arris, chip, projection, return, channel and fall is data/components/prairie_1904/k02_stone_profiles.json's, resolved by k01_frontage_params._k02 and refused outside it (docs/LIBERTIES.md L-k02-1808-stone-2289)."
+        },
+        "boundary": {
+          "value": {
+            "street_line_m": 4.44,
+            "lot_s_m": [
+              -1.386,
+              10.225
+            ],
+            "fence": "k11.fence.spear_on_curb",
+            "entrance_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "leaves": 2,
+              "clear_m": 1.3,
+              "drawn_deg": 0
+            },
+            "side_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "pier_s_m": 0.0,
+              "drawn_deg": 0
+            },
+            "wall": {
+              "variant": "k11.wall.brick_with_piers",
+              "from_u_m": 15.2,
+              "height_m": 1.5
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_28"
+          ],
+          "note": "The front yard's boundary, from the K11 ironwork kit (T-2318, data/components/prairie_1904/k11_ironwork.json). THE LINE is the sheet's: the street line stands 4.44 m in front of the front face (data/street_grid/1904.json face prairie__indiana_prairie_18_20, the same reading entrance_kit's front_yard_m makes), and the lot lines of parcel prairie_1808 cross it at s -1.386 (the 1808/1812 line) and s 10.225 (the 1800/1808 line) along the street front, measured from the house's south-west corner in its own frame; the fence's curb has its street face on the street line, so the iron stands on the lot and nothing reaches the walk (1 ft further out). THE FENCE is the kit's spear fence on a stone curb, from a pier in line with the south wall to an end post whose curb stops on the north lot line. THE ENTRANCE is a pair of leaves on two stone piers square to the door, 1.30 m clear: the stoop's foot stands 0.69 m behind the fence's line, so a single leaf the kit's 0.90 m minimum would strike it, and each leaf is kept to 0.61 m, which the generator holds against the stoop's built mesh through the whole swing. THE SIDE GATE is the kit's single walk gate across the 0.94 m mouth of the side passage, hung on the wall's street pier: the passage is the only way round to the rear (the carriage house is on the alley, T-1935's), so it is gated and never fenced, and there is no carriage drive on this front to keep clear. THE WALL is the kit's brick wall with piers on the south lot line, its south face on the line, 1.50 m high (the kit's height, under the 6 ft the register reads for the one mapped brick boundary wall, frontage-35-064), from the fence's line back to u 15.2 m, 0.2 m short of 1812's draft front, which stands on the lot line behind it. The north side, against Glessner, is left open: Glessner's boundary is documented and the yard transition there is T-1944's. RECONSTRUCTED: no source read here shows 1808's fence, gates, piers or wall, their pattern or their height; every size is the kit's generic one (liberty L-k11-1808-boundary-2319, T-2319)."
         }
       }
     }
