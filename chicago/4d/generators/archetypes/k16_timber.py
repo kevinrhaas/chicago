@@ -726,7 +726,7 @@ class Sample:
                       [(pa, ya, zb), (pb, ya, zb), (pb, ya, -rev), (pa, ya, -rev)],
                       [(pa, yb, zb), (pa, yb, -rev), (pb, yb, -rev), (pb, yb, zb)]):
                 cx, cy = (pa + pb) / 2, (ya + yb) / 2
-                mx, my = sum(p[0] for p in q) / 4, sum(p[1] for p in q) / 4
+                mx, my = math.fsum(p[0] for p in q) / 4, math.fsum(p[1] for p in q) / 4
                 self.poly(F, "door", q, (cx - mx, cy - my, 0), td)
         # the casing: its feet on the drip cap's slope, the head, the head's drip cap
         sl = wt["cap"]["fall_m"] / (wt["thickness_m"] + wt["cap"]["projection_m"])
