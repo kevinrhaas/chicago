@@ -988,7 +988,25 @@ const DETAIL_DECLARED = {
   // it does not establish consumer FPS. The separate 90-call cap is unchanged.
   // T-0672, 2026-10-04: 1,040,000 -> 1,005,000, the return — the reading and
   // the rule are in the block above `full`; why not 785,000 is said there too.
-  light:    { triangles: 1005000, shadowReachM: 120, furnitureCastsShadow: false,
+  // T-2339, 2026-10-11: 1,005,000 -> 1,190,000, the THIRD owner-authorized
+  // exception for this rung (after T-2015 and T-2035), answered (a) on
+  // Manager's 4D Board on 2026-10-10. It is a conscious re-budget and NOT a
+  // weakened assertion. The owner-requested openings kit (T-2278: windows,
+  // doors and trim on every 1835 building, +104,996 trim triangles town-wide)
+  // and chained signs (T-2281/T-2282/T-2287) put this rung over at desktop
+  // 1280x800. At West prairie, with each group hidden in turn, structures
+  // went 419,859 -> 534,635, signage 5,952 -> 39,408 and the sun's pass
+  // 44,090 -> 65,362. Published dev 0a2491b51, six stands, `--stepped`, in
+  // docs/measurements/t-2338-detail-ceilings.json (PR #679, T-2338):
+  //   desktop worst 1,173,622 West prairie (Lake at Canal 1,030,925)
+  //   390x780 worst   997,804 West prairie -- still under the OLD floor
+  // 1,173,622 + 15,791 (T-0672's recorded headroom for this rung) = 1,189,413,
+  // rounded up to 5,000 = 1,190,000. No trim was available: the town draws as
+  // three merged batches with no level of detail, so the openings cannot drop
+  // at distance without a GLB-contract change (the declined option b). The
+  // 90-call cap, the reaches and the shadow tier are unchanged; nothing in
+  // the scene moves. A later trim can still bring this back down, as T-0672 did.
+  light:    { triangles: 1190000, shadowReachM: 120, furnitureCastsShadow: false,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
               groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
               // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
@@ -1008,7 +1026,14 @@ const DETAIL_DECLARED = {
               protects: 'the weak-machine floor \u2014 the tier a touch device and a '
                 + 'machine without a GPU boot into, and the only rung that is a '
                 + 'promise to a person rather than a budget for a parcel',
-              measured: '1,005,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
+              measured: '1,190,000 set 2026-10-11 (T-2339), the third exception, '
+                + 'explicitly authorized by the owner on 2026-10-10 after the '
+                + 'owner-requested openings kit (T-2278) and chained signs (T-2281): '
+                + 'published dev 0a2491b51, six stands, worst 1,173,622 at desktop '
+                + 'West prairie, 1280x800 (390x780 read 997,804); +15,791, T-0672’s '
+                + 'recorded headroom for this rung, rounded up to 5,000; 90 calls unchanged. '
+                + 'docs/measurements/t-2338-detail-ceilings.json. '
+                + 'Previously 1,005,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
                 + 'six published stands, worst 988,055 and 62 calls at west prairie, '
                 + '1280x800 (390x780 read 893,194); +15,791, T-0672’s recorded '
                 + 'headroom for this rung, rounded up to 5,000. '
