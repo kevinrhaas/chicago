@@ -24267,6 +24267,6 @@ courtyard-wall page, cited by the T-2201 audit, is not a source record here and 
 **How to resolve:** a photograph or drawing that shows the free-standing run in elevation gives its
 height and coping profile; a reading of the museum's courtyard-wall history as a source record
 dates the wall to 1887 directly.
-**Covers:** `glessner_house.as_built_1887.form.courtyard_wall`, `glessner_house.as_built_1887.form.courtyard_wall_heights`.
+**Covers:** `glessner_house.as_built_1887.form.courtyard_wall_heights`.
 **Ticket:** T-2201 (Glessner exterior audit GA-03).
 **Recorded:** 2026-10-11 (T-2201).

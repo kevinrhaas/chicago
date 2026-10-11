@@ -30851,12 +30851,6 @@
           "domain": "structure",
           "structure": "glessner_house",
           "phase": "as_built_1887",
-          "aspect": "form.courtyard_wall"
-        },
-        {
-          "domain": "structure",
-          "structure": "glessner_house",
-          "phase": "as_built_1887",
           "aspect": "form.courtyard_wall_heights"
         }
       ],
@@ -30873,7 +30867,7 @@
         },
         {
           "label": "Covers",
-          "text": "`glessner_house.as_built_1887.form.courtyard_wall`, `glessner_house.as_built_1887.form.courtyard_wall_heights`."
+          "text": "`glessner_house.as_built_1887.form.courtyard_wall_heights`."
         },
         {
           "label": "Ticket",
