@@ -24222,6 +24222,31 @@ keeping this record's id.
 **Review:** `docs/RESEARCH/k16-1638-front-2323/README.md`.
 **Recorded:** 2026-10-10 (T-2323).
 
+### L-k05-flat-roof-2349 — The Prairie roof kit's flat roof: the deck's fall, the parapets and the blocking course reconstructed
+
+**Decision:** the K05 roof kit (T-2301) gains an eleventh variant, `k05.roof.flat_parapet`, the
+stone-front rowhouse's flat roof (T-2349, piece 1 of T-2346): a deck falling from behind the
+street front to the rear wall, whose fascia is its only eave, behind a coped parapet on each side
+wall and a blocking course over the front, all built by `generators/archetypes/k05_roofs.py` from
+`data/components/prairie_1904/k05_roofs.json` and joined by the kit's boolean union.
+**What is invented.** The fall's working band, 1 to 5 degrees (`ranges.pitch_deg.flat`), which
+RECONSTRUCTION-RULES.md does not give: its Main roof range is for hips and gables, and the T-1837
+catalog says only "bounded low-slope service roof" (K04). The specimen's 2 degree fall, its 0.45 m
+upstand over the deck's high line, its three level parapets, and its 6.75 m by 13.75 m plan (1634
+Prairie's traced main body, which the plan alone is read from); that the rear wall carries no
+parapet and the deck drains to a gutter there; and the parapet and coping sizes, which are the
+kit's existing working parts (L-k05-roof-kit-2301).
+**What is not.** That the stone-front houses of the 16th-18th Prairie block are roofed flat behind
+a cornice is the district draft's reading for the family (L-draft-prairie-16-18-west-2334), not a
+source record; this kit adds no claim about any house. No house is roofed from the variant yet.
+**How to resolve:** a photograph, drawing or specification of a Prairie Avenue rowhouse's roof
+gives its fall, its parapet heights and where it drains, and that house takes them in place of the
+kit's working numbers; a period roofing specification for flat-seam terne replaces the band for
+every house at once.
+**Ticket:** T-2349 (piece 1 of T-2346, from T-1863).
+**Review:** `docs/RESEARCH/k05-roof-kit/README.md`.
+**Recorded:** 2026-10-11 (T-2349).
+
 ### L-k01-1608-brick-front-2341 — 1608 Prairie refined from the district draft to a K01 brick house: front bay and south projection where the sheet draws them, everything else the kits'
 
 **Decision:** the brick house at 1608 Prairie Avenue (T-2341, piece 1 of T-1859) is no longer a

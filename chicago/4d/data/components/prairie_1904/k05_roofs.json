@@ -12,10 +12,11 @@
   "rule": "A roof is a SOLID, never a set of loose planes. Each element (a hipped or ring-stacked roof, a gable body with its verges and returns, a parapet, a coping, a dormer) is built as a closed polyhedron from the numbers below, and the elements are joined by a boolean union, so every valley, every abutment and every place a plane meets a gable or a cheek is cut where the two surfaces actually meet, by construction, not by hand. The joined surface is then made T-junction free and must be WATERTIGHT (every edge shared by exactly two faces, wound oppositely), ONE shell (so no cornice, return or coping floats), free of doubled faces and of any face passing through another (so no roof plane crosses a gable, a parapet or a dormer cheek). The ROOF GRAPH (ridges, hips, valleys, curbs, eaves, verges and abutments) is read off the built surface, not authored, and is exported for K04 to lay caps, valley flashing and aprons on. The check (tools/check_roof_kit.py) rebuilds every variant and holds the built geometry to this file.",
   "ranges": {
     "_doc": "RECONSTRUCTION-RULES.md section Starting ranges, for an undocumented roof. A house's street silhouette outranks the range (the same rule's words), so a variant outside it would have to say why; none does.",
-    "pitch_deg": {"ordinary": [25, 45], "steep": [45, 65]},
+    "pitch_deg": {"ordinary": [25, 45], "steep": [45, 65], "flat": [1, 5]},
     "mansard_lower_deg": [65, 80],
     "mansard_upper_deg": [10, 30],
-    "rule_source": "RECONSTRUCTION-RULES.md section Starting ranges: Main roof, Mansard"
+    "rule_source": "RECONSTRUCTION-RULES.md section Starting ranges: Main roof, Mansard",
+    "flat_doc": "T-2349: the fall of a flat roof's tin deck toward its eave. RECONSTRUCTION-RULES.md gives no number for it; the T-1837 ASSET-CATALOG names a 'bounded low-slope service roof' (K04), and K04's tin_flat_seam_painted is that roof's covering. 1 to 5 degrees (about 1:57 to 1:11) is this kit's own working band: enough fall to carry water off soldered flat-seam terne to the rear gutter, too little to be seen from the street behind the blocking course. It is reconstructed (docs/LIBERTIES.md, L-k05-flat-roof-2349), and a house's own evidence replaces it."
   },
   "parts": {
     "_doc": "Working sizes, every one reconstructed. An eave's overhang is horizontal from the wall line to the fascia's face; the fascia is the vertical board closing it; the soffit is the flat underside back to the wall. A verge is a gable's overhang: the covering carried past the gable face, closed by a rake board and a sloping rake soffit. A return is the eave's box turned a short way onto the gable face under the rake. A parapet gable rises clear of its roof by at least its upstand, and its coping overhangs both faces by its drip.",
@@ -71,6 +72,9 @@
      "expect": {"ridge": 2, "hip": 4, "valley": 2, "eave": 7, "verge": 2}},
     {"id": "k05.roof.dormer", "kind": "dormer", "budget": "compound", "width_m": 8.0, "depth_m": 7.0, "eave_m": 3.0, "pitch_deg": 40, "pitch_range": "ordinary", "dormer_width_m": 2.0, "dormer_setback_m": 0.6, "dormer_eave_above_m": 1.6, "dormer_pitch_deg": 45, "confidence": "reconstructed",
      "note": "A hipped roof with a gabled dormer on its front plane: the dormer's face and cheeks rise from the main covering, its roof runs back into the main plane on two valleys. The face is blank here; K06's attic light fills it on a house. Its seven abutments are the apron under the face, the two cheeks' feet, and the two ends of each eave box (fascia and soffit) where they die into the main slope.",
-     "expect": {"ridge": 2, "hip": 4, "valley": 2, "eave": 6, "verge": 2, "abutment": 7}}
+     "expect": {"ridge": 2, "hip": 4, "valley": 2, "eave": 6, "verge": 2, "abutment": 7}},
+    {"id": "k05.roof.flat_parapet", "kind": "flat", "style": "rowhouse", "budget": "simple", "width_m": 6.75, "depth_m": 13.75, "eave_m": 3.0, "pitch_deg": 2.0, "pitch_range": "flat", "upstand_m": 0.45, "confidence": "reconstructed",
+     "note": "A stone-front rowhouse's flat roof (T-2349), sized to 1634 Prairie's traced main body, which T-2350 roofs from it. The deck falls 2 degrees from behind the street front to the rear wall, whose fascia is its only eave; a coped parapet stands on each side wall (a party wall, in a row) and a blocking course over the front, under which K10's cornice hangs. All three are level and clear the deck by the 0.45 m upstand at its high line, more toward the rear. The deck dies into the three parapets' inner faces.",
+     "expect": {"abutment": 3, "eave": 1}}
   ]
 }

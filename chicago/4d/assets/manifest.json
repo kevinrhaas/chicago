@@ -958,7 +958,7 @@
       "baked_ao": false,
       "bytes": 2685080,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "34e11fdd2eed997e5c325ce806bbb07ac4db220a5b830fc504793d398eee05f4",
+      "inputs_sha256": "264971a0d1b15d60e34597368658d37420520e04a0e1bb39180a4908355b7626",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1608_prairie"
@@ -1614,7 +1614,7 @@
       "baked_ao": false,
       "bytes": 6791952,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "cd34968377b365a23b2d1f6334db7537aa91f99dfba6acffd55b7da8d09d278b",
+      "inputs_sha256": "bfba559b2dba04d003344dcde0d70833b69e187382ed64d9e565afcb18d551d6",
       "kind": "generated",
       "phase_id": "as_built_1886",
       "structure_id": "keith_house_1808_prairie"

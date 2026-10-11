@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1681, ts: '2026-10-11T05:56:20.200Z', date: 'Oct 11, 2026, 12:56 AM CT', title: 'The roof kit learns the rowhouse\'s flat roof behind its parapets', kind: 'add',
+    items: [
+      'A new roof in the Prairie kit: a tin deck falling gently to the rear wall, behind coped party-wall parapets and a blocking course over the front.',
+      'It is built and checked like the other ten: watertight, one piece, nothing passing through anything, and every flashing line read off the built roof.',
+      'It is sized to 1634 Prairie\'s traced main body, which is roofed from it next; its 2-degree fall and parapet heights are reconstructed and say so.',
+    ] },
   { v: 1680, ts: '2026-10-11T05:40:47.802Z', date: 'Oct 11, 2026, 12:40 AM CT', title: 'Prairie Avenue\'s 16th–18th block fills in on the east side', kind: 'feature',
     items: [
       'Thirteen houses, the Illinois Central\'s 16th Street station and four buildings by the tracks now stand on the east side of Prairie Avenue between 16th and 18th Streets, from 1601 to the Pullman house at 1729.',
