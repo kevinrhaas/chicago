@@ -76,7 +76,7 @@ ROLE_MATERIAL = {
     "stand_in": "stand_in", "stand_in_roof": "roof", "skirt": "trim",
     # T-2357: a whole frame house — its door, steps, roof covering and brick stack
     "door": "stained", "door_panel": "stained", "step_tread": "stained", "step_riser": "trim",
-    "roof_covering": "roof", "chimney": "chimney",
+    "roof_covering": "roof", "chimney": "foundation",   # the stack is the foundation's brick
 }
 BOARD_ROLES = ("foundation", "roof", "backdrop", "interior", "cut")
 # Roles that are not timber: K06's glass and room, and the board.
@@ -1469,7 +1469,6 @@ def frame_house_materials(house: Sample, data: dict, form: dict) -> dict:
     cov = form.get("roof_covering")
     if cov and cov["value"].get("color"):
         mats["roof"] = dict(mats["roof"], color=tuple(cov["value"]["color"]), roughness=0.9)
-    mats["chimney"] = dict(mats["foundation"])
     used = {ROLE_MATERIAL[r] for r, pr in house.prims.items() if pr.idx}
     return {k: m for k, m in mats.items() if k in used}
 
