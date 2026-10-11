@@ -16,7 +16,10 @@ module and its parameter module, and nothing else, for this archetype.
 
 THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
 
-  k01.wall.street_front     the stone front, its openings cut through it
+  k01.wall.street_front     the stone front, its openings cut through it; or, for a
+                            record with no `stone_front` (T-2341), a front of the
+                            side walls' K03 brick whose openings keep their stone
+                            sills, K09 heads or flat lintels, under stone belts
   k01.wall.side.north       the party side against the Glessner court: blank brick
   k01.wall.side.south       common brick, four bays a storey
   k01.wall.rear_service     common brick, two bays a storey
@@ -467,10 +470,11 @@ class Assembly:
         else:
             # T-2304: the door is a K07 entrance and its stoop, built about the threshold
             self.enter(op, frame, body_mat, seed, conf)
-        if MATERIALS[body_mat].get("courses") and not door:
+        if MATERIALS[body_mat].get("courses") and not door and op.wall != "k01.wall.street_front":
             # T-2291: a brick wall's opening takes a brick head, not the front's stone
             # lintel — two rowlock rings on a segmental arch, or a soldier flat head
-            # where the eave leaves no room for the rings and their rise
+            # where the eave leaves no room for the rings and their rise. A brick STREET
+            # front (T-2341) keeps the front's stone dressings: its K09 head or the lintel
             crown = y1 + k03_brick.RISE_TO_SPAN * op.width_m + k03_brick.RINGS * (k03_brick.BED + k03_brick.JOINT)
             if crown < self.soffit_m - k03_brick.COURSE:
                 k03_brick.segmental_head(self, seed, frame, s0, s1, y1, conf)
@@ -1550,7 +1554,9 @@ def build(params, structure_id: str):
     # The four walls, each about its base socket: outer face, left end (seen from
     # outside), at grade. +X is east (footprint u), -Z is north (footprint v).
     walls = {
-        "k01.wall.street_front": ("rough_stone_trim", (D, 0.0, 0.0), (0.0, 0.0, -1.0), W, p.front_thickness_m, belts),
+        # T-2341: a record with no K02 stone front is a brick house, its front in the K03 brick
+        "k01.wall.street_front": ("rough_stone_trim" if p.stone else "brick", (D, 0.0, 0.0), (0.0, 0.0, -1.0),
+                                  W, p.front_thickness_m, belts),
         "k01.wall.side.north": ("brick", (D, 0.0, -W), (-1.0, 0.0, 0.0), D, p.side_thickness_m, ()),
         "k01.wall.rear_service": ("brick", (0.0, 0.0, -W), (0.0, 0.0, 1.0), W, p.side_thickness_m, ()),
         "k01.wall.side.south": ("brick", (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), D, p.side_thickness_m, ()),
