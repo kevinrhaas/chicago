@@ -16346,6 +16346,7 @@ for (const [label, viewport, touch] of [
         // T-2330 added its east side: seventeen more, the same way.
         // T-2334 added the 16th-18th block's west side: thirty-two more.
         // T-2335 added its east side: nineteen more, the station at 1605 among them.
+        // T-2351 added the 20th-22nd block's west side: twenty-six more, 2126's building site among them.
         const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
           'shortall_gregory_house_1638_prairie_front',
           'edson_keith_house_1906_prairie',
@@ -16434,7 +16435,33 @@ for (const [label, viewport, touch] of [
           'kellogg_house_1709_prairie_coach_house',
           'pullman_house_1729_prairie',
           'spalding_house_1637_prairie',
-          'spalding_house_1637_prairie_coach_house'].sort();
+          'spalding_house_1637_prairie_coach_house',
+          'buckingham_house_2036_prairie',
+          'buckingham_house_2036_prairie_coach_house',
+          'house_2000_prairie',
+          'house_2000_prairie_coach_house',
+          'house_2010_prairie',
+          'house_2010_prairie_coach_house',
+          'house_2018_prairie',
+          'house_2018_prairie_coach_house',
+          'house_2026_prairie',
+          'house_2026_prairie_coach_house',
+          'house_2120_prairie',
+          'house_2120_prairie_coach_house',
+          'mark_kimball_house_2108_prairie',
+          'mark_kimball_house_2108_prairie_coach_house',
+          'murdoch_house_2130_prairie',
+          'murdoch_house_2130_prairie_coach_house',
+          'rees_house_2110_prairie',
+          'robbins_house_2126_prairie',
+          'robbins_house_2126_prairie_coach_house',
+          'rothschild_house_2112_prairie',
+          'rothschild_house_2112_prairie_coach_house',
+          'sherman_house_2100_prairie',
+          'sherman_house_2100_prairie_coach_house',
+          'tucker_smith_house_2140_prairie',
+          'tucker_smith_house_2140_prairie_alley_building',
+          'tucker_smith_house_2140_prairie_coach_house'].sort();
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),
