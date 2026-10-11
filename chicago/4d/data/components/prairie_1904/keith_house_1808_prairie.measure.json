@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 7142380,
-      "sha256": "30f4719918ee5fbf7c908487e7cb55efbcfdabc94a353c760805252b66725187",
+      "bytes": 7147776,
+      "sha256": "8fe0f9b35d36a1e07393ff8cb66b3540fe595a408fbdfe3765baeece867b1bc2",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -19,8 +19,8 @@
       "mesh": {
         "draw_primitives": 28,
         "materials": 28,
-        "triangles": 60872,
-        "vertices": 128763
+        "triangles": 60944,
+        "vertices": 128893
       },
       "texture": {
         "images": 13,
@@ -280,8 +280,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 2133112,
-      "sha256": "75c202daa82fca28188eef547185a1f992c058795f15536612f034794b03fa13",
+      "bytes": 2133848,
+      "sha256": "e83b661a9d200db201811bb3cf2e23cdb6bfd3b62053e68c76a60f41ea45fa79",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -299,8 +299,8 @@
       "mesh": {
         "draw_primitives": 28,
         "materials": 28,
-        "triangles": 60872,
-        "vertices": 107496
+        "triangles": 60944,
+        "vertices": 107609
       },
       "texture": {
         "images": 13,
@@ -432,13 +432,13 @@
           "uv_per_m_times_tile_m": 1.0016
         },
         "dormer_stone": {
-          "median_uv_per_m": 0.8326,
+          "median_uv_per_m": 0.8328,
           "fabric": "limestone",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 0.9991
+          "uv_per_m_times_tile_m": 0.9994
         },
         "k04_copper_sheet": {
           "median_uv_per_m": 0.83,
@@ -492,7 +492,7 @@
             2.032,
             1.7272
           ],
-          "uv_per_m_times_tile_m": 0.9999
+          "uv_per_m_times_tile_m": 0.9998
         },
         "stoop_stone": {
           "median_uv_per_m": 0.8334,

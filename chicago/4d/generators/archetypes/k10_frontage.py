@@ -19,6 +19,12 @@ What the record's `wall_head` names, and what is built for it:
   cresting  `k10.cresting.iron_ridge` on the main ridge: the kit's posts, bars, scrolls
             and spears, the base bar let into K04's copper ridge roll, on every stretch of
             ridge between the hips' ends and the chimney stacks long enough to carry it.
+  dormer    `k10.dormer.pedimented_on_bracketed_eave`'s face on the K05 street dormer
+            (T-2326): the kit's dormer cornice swept across the face at the foot of the
+            pediment and returned on both cheeks under their soffits, capped; and the
+            kit's raking cornice, its two stepped bands, on the tympanum under K05's verge.
+            The window takes no lintel: the cornice is its head, the kit's
+            `window_top_gap_m` above it, as on the kit's own dormer.
 
 A WALL HEAD WITH NO ROOM FOR A FRIEZE. The kit's frieze is 0.55 m deep; under 1808's
 soffit the third storey's heads stop 0.07 m short of it, so a frieze could only run by
@@ -41,6 +47,7 @@ import random
 
 CORNICE = "k10.cornice.bracketed_timber"
 CRESTING = "k10.cresting.iron_ridge"
+DORMER = "k10.dormer.pedimented_on_bracketed_eave"
 ROLE_MATERIAL = {"timber": "fascia", "iron": "iron"}   # the eave's painted timber; the house's iron
 HEAD_HORN_M = 0.12      # K01's flat lintel runs this far past each jamb; K03's soldier head less
 HEAD_RISE_M = 0.30      # K01's lintel, the deepest head a K01 opening takes
@@ -65,6 +72,10 @@ def spec(params) -> dict | None:
         raise ValueError(f"wall_head.cornice builds {CORNICE!r} alone")
     if t.get("cresting") not in (None, CRESTING):
         raise ValueError(f"wall_head.cresting builds {CRESTING!r} alone")
+    if t.get("dormer") not in (None, DORMER):
+        raise ValueError(f"wall_head.dormer builds {DORMER!r} alone")
+    if t.get("dormer") and not getattr(params, "dormer", None):
+        raise ValueError("wall_head.dormer names a dormer face, and the record has no dormer")
     walls = {r.name: r.L for r in runs(params)}
     for c in t.get("clear_of", []):
         s0, s1 = c["s_m"]
@@ -171,6 +182,102 @@ def dress(a, bays):
         _cornice(a, K, data, bays, conf)
     if t.get("cresting"):
         _cresting(a, K, data, conf)
+    if t.get("dormer"):
+        _dormer(a, K, data, max(conf, p.conf("dormer")))
+
+
+def dresses_dormer(params) -> bool:
+    """Whether the record dresses its dormer's face from the kit (K01 then draws no
+    lintel over the dormer's sash: the kit's cornice is its head)."""
+    return bool((getattr(params, "wall_head", None) or {}).get("dormer"))
+
+
+def dormer_fit(params, data) -> dict:
+    """The K05 dormer's face heights against the kit's pediment cornice. The cornice's
+    top is the cheeks' soffit (where it is returned), so the sash's head has to stand
+    the cornice's depth and the kit's window gap under that soffit. Raises if not."""
+    from . import k05_roofs as k5
+    d, Dm = params.dormer, data["parts"]["dormer"]
+    dp = k5.load()["parts"]["dormer"]
+    dt = math.tan(math.radians(d["pitch_deg"]))
+    hc = max(u for _, u in data["parts"]["profiles"]["dormer_cornice"]["points"])
+    soffit = d["face_height_m"] - dp["overhang_m"] * dt - dp["fascia_depth_m"]   # above the face's foot
+    head = d["sash"]["sill_m"] + d["sash"]["height_m"]
+    room = soffit - hc - head
+    if room < Dm["window_top_gap_m"] - 1e-9:
+        raise ValueError(f"the dormer's sash head stands {soffit - head:.3f} m under its cheek soffit; the kit's "
+                         f"pediment cornice ({hc} m) and window gap ({Dm['window_top_gap_m']} m) need "
+                         f"{hc + Dm['window_top_gap_m']:.3f} m")
+    return {"soffit_m": soffit, "cornice_m": hc, "head_gap_m": room}
+
+
+def _dormer(a, K, data, conf):
+    """The kit's pedimented dormer face on the K05 dormer, built as the kit builds its
+    specimen's (`Variant._dormer`) in the face's own frame — x across the face, y up, z
+    out of it, the face at z = 0 — and turned onto the house: z is the assembly's +x."""
+    p, g = a.p, a.dormer_geom
+    d, Dm = p.dormer, data["parts"]["dormer"]
+    fit = dormer_fit(p, data)
+    corn = [tuple(q) for q in data["parts"]["profiles"]["dormer_cornice"]["points"]]
+    hc, pj = fit["cornice_m"], max(n for n, _ in corn)
+    wd, dt, o, v = d["width_m"], g["dt"], g["overhang"], d["verge_m"]
+    hs, rt = g["dhs"], Dm["return_m"]
+    if pj > o - 0.01:
+        raise ValueError("the dormer cornice's return would reach past its cheek's soffit")
+    if rt > g["xf"] - g["back"]:
+        raise ValueError("the dormer cornice's return is longer than its cheek")
+    if Dm["rake_bands"][0]["proud_m"] > v - 0.01:
+        raise ValueError("the raking cornice would stand proud of K05's verge")
+    seed = a.instance(DORMER, "cornice", {"face_width_m": wd, "cornice_m": hc, "projection_m": pj,
+                                          "return_m": rt, "pitch_deg": d["pitch_deg"],
+                                          "rake_bands": len(Dm["rake_bands"]),
+                                          "head_gap_m": fit["head_gap_m"]},
+                      {"eave": (g["xf"], hs, (g["zs"] + g["zn"]) / 2)})
+    var = K.Variant({"id": DORMER, "kind": "dormer", "material": "timber"}, data)
+    var.seed, var.rng = seed, random.Random(seed)
+    # the horizontal cornice: across the face at the pediment's foot, returned along both
+    # cheeks and capped. Under the cheeks' soffit its top is open (it lies on the soffit);
+    # in front of the face, where only the verge's raking soffit is above it, it is closed
+    druns = [K.Run("dormer left", (-wd / 2, -rt), (-wd / 2, 0.0), (False, True)),
+             K.Run("dormer front", (-wd / 2, 0.0), (wd / 2, 0.0), (True, True)),
+             K.Run("dormer right", (wd / 2, 0.0), (wd / 2, -rt), (True, False))]
+    path = [druns[0].at(0.0, hs - hc)] + [r.at(r.L, hs - hc) for r in druns]
+    c = var.piece("dormer cornice", "timber", "open", run_names=[r.name for r in druns])
+    K.sweep(c.mesh, path, K.Y, corn[:-1], side=1.0, caps=(True, True), cap_close=[corn[-1]])
+    top = var.piece("dormer cornice top", "timber", "open")
+    top.mesh.poly([(-wd / 2 - pj, hs, 0.0), (-wd / 2 - pj, hs, pj), (wd / 2 + pj, hs, pj), (wd / 2 + pj, hs, 0.0)], K.Y)
+    # the raking cornice: the kit's stepped bands on the tympanum, the first under K05's
+    # raking soffit (whose line runs from the cheeks' soffit at the overhang to the apex),
+    # each standing on the cornice's top and stopped square where that top ends
+    cq = math.sqrt(1 + dt * dt)
+    apex = hs + (wd / 2 + o) * dt
+    xe = wd / 2 + pj
+    off = 0.0
+    for i, band in enumerate(Dm["rake_bands"]):
+        yo, yi = apex - off * cq, apex - (off + band["width_m"]) * cq
+        xo, xi = (yo - hs) / dt, (yi - hs) / dt
+        if xi <= 0.0:
+            raise ValueError("the raking cornice's bands meet below the pediment's apex")
+        if xo > xe:      # stopped square over the cornice's end, its end face closed
+            ye = hs + (xo - xe) * dt
+            poly = [(-xe, hs), (-xe, ye), (0.0, yo), (xe, ye), (xe, hs), (xi, hs), (0.0, yi), (-xi, hs)]
+            opened = {1, 2, 4, 7}
+        else:
+            poly = [(-xo, hs), (0.0, yo), (xo, hs), (xi, hs), (0.0, yi), (-xi, hs)]
+            opened = {0, 1, 2, 5}
+        pc = var.piece(f"rake {'crown' if i == 0 else 'fascia'}", "timber", "open")
+        K.prism(pc.mesh, poly, 0.0, band["proud_m"], open_edges=opened)
+        off += band["width_m"]
+    # onto the house: the face's x runs north (-z), its z out along the assembly's +x
+    xf, zc = g["xf"], (g["zs"] + g["zn"]) / 2
+    for pc in var.pieces:
+        m = pc.mesh
+        m.pos = [(xf + q[2], q[1], zc - q[0]) for q in m.pos]
+        m.nrm = [(n[2], n[1], -n[0]) for n in m.nrm]
+    a.dormer_face = {"cornice_m": [round(hs - hc, 4), round(hs, 4)], "projection_m": pj, "return_m": rt,
+                     "head_gap_m": round(fit["head_gap_m"], 4),
+                     "rake_bands": [b["width_m"] for b in Dm["rake_bands"]]}
+    _lay(a, var.pieces, conf, DORMER)
 
 
 def _cornice(a, K, data, bays, conf):
