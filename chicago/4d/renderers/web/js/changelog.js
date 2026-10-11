@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1689, ts: '2026-10-11T12:13:19.634Z', date: 'Oct 11, 2026, 7:13 AM CT', title: 'The Glessner courtyard is closed on the south', kind: 'feature',
+    items: [
+      '1904: a common-brick wall under a stone coping now closes the courtyard between 1808 Prairie\'s rear and the alley gate, on the line the 1963 HABS plan draws.',
+      'It ends flush with the granite gate pier at the alley, and meets 1808\'s wall with no gap or doubled coping.',
+      'The line is from the survey; the 9-ft height and the coping are reconstructed to match the gate\'s own wall, and are listed among the liberties.',
+    ] },
   { v: 1688, ts: '2026-10-11T11:41:18.892Z', date: 'Oct 11, 2026, 6:41 AM CT', title: '1628 Prairie stands as a detailed three-storey brick house', kind: 'feature',
     items: [
       '1628 Prairie Avenue, the south half of a brick pair with 1626, is no longer a plain draft box: it is built from the brick frontage kit, with common-brick walls, stone-headed two-over-two sash and a high stone stoop and door at its south end.',

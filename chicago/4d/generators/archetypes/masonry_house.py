@@ -661,7 +661,35 @@ def _band(b, n) -> None:
     _poly_facing(b, bot, n["conf"], mat, (0.0, 0.0, -1.0))
 
 
+def _boundary_run(b, w) -> None:
+    """A free-standing brick run under a stone coping (T-2201). `ends` says what each end
+    of [u0, u1] meets (see masonry_house_params): a `wall` end drops the faces the wall
+    hides and stops the coping flush; the coping overhangs only a `free` end."""
+    t, s = w["thick_m"], 0.06
+    a, c = w["at"] - t / 2.0, w["at"] + t / 2.0
+    e0, e1 = w["ends"]
+    u0, u1, z1 = w["u0"], w["u1"], w["z1"]
+    along_x = w["axis"] == "y"          # a north/south face runs along x
+    lo_face, hi_face = ("left", "right") if along_x else ("front", "back")
+
+    def box(ua, ub, ca, cb, za, zb, mat, skip):
+        if along_x:
+            b.add_box(ua, ca, za, ub, cb, zb, w["conf"], mat, skip=skip)
+        else:
+            b.add_box(ca, ua, za, cb, ub, zb, w["conf"], mat, skip=skip)
+
+    body_skip = ("bottom",) + tuple(f for e, f in ((e0, lo_face), (e1, hi_face)) if e != "free")
+    box(u0, u1, a, c, 0.0, z1, BRICK, body_skip)
+    cu0 = u0 - s if e0 == "free" else u0
+    cu1 = u1 + s if e1 == "free" else u1
+    cap_skip = tuple(f for e, f in ((e0, lo_face), (e1, hi_face)) if e != "free")
+    box(cu0, cu1, a - s, c + s, z1, z1 + COPING_H, TRIM, cap_skip)
+
+
 def _gate_piece(b, w) -> None:
+    if "ends" in w:
+        _boundary_run(b, w)
+        return
     t = w["thick_m"]
     kind = w["kind"]
     if kind == "gate":
