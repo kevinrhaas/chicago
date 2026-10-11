@@ -12,9 +12,10 @@
  * strictly from record fields when none was written), and a facts grid —
  * standing, use, fabric, roof, address, ground, who was here, keepers — each
  * with a quiet dot for its grade. Then the households the residents layer
- * places here. Then, behind three tabs: EVIDENCE (what we included and where
+ * places here. Then, behind four tabs: EVIDENCE (what we included and where
  * it came from, where it stood, whether it was here, whether it was this shape,
- * every attribute with its chip and reasoning, the citations), LIBERTIES TAKEN
+ * every attribute with its chip and reasoning, the citations), IMAGES (the
+ * photographs and drawings of the building, each with its credit), LIBERTIES TAKEN
  * (the liberties taken with THIS building and any tracked open question) and
  * RECORD (the record's own account, the production reference, the dossier
  * link). The dots and the chips grade the same claims: the dot is the label's
@@ -101,6 +102,9 @@ import { displayName } from './display-name.js';
 // The agency relation, rendered by the module that owns it so this card and the
 // household browser cannot describe one holding two ways (T-1041).
 import { agencySectionHtml } from './agencies.js';
+// The building's photographs and drawings, credited (T-2389). Its own module because the
+// pane owns its lazy loading — no image is requested until the tab is open.
+import { picturesFor, picturesPaneHtml, hydratePictures, openPictureViewer, closePictureViewer } from './pictures.js';
 
 const CONF_ORDER = { attested: 0, inferred: 1, reconstructed: 2 };
 
@@ -1183,14 +1187,15 @@ function ordinanceSection(limits, p) {
   </section>`;
 }
 
-/** The three panes under the facts, and the strip that switches them. The last
+/** The four panes under the facts, and the strip that switches them. The last
  *  tab a visitor chose is remembered for the session — module scope, not
  *  storage — so walking from one building to the next keeps the reader where
- *  they were reading. All three panes stay in the DOM: a pane hidden by
+ *  they were reading. All four panes stay in the DOM: a pane hidden by
  *  `[hidden]` is still the record, and the smoke reads it after activating its
  *  tab rather than trusting a collapsed read. */
 const TABS = [
   { id: 'evidence', label: 'Evidence' },
+  { id: 'images', label: 'Images' },
   { id: 'liberties', label: 'Liberties' },
   { id: 'record', label: 'Record' },
 ];
@@ -1227,6 +1232,7 @@ function selectPopTab(root, id) {
   for (const pane of root.querySelectorAll('.pop-pane[data-pop-pane]')) {
     pane.toggleAttribute('hidden', pane.dataset.popPane !== id);
   }
+  if (id === 'images') hydratePictures(root);
 }
 
 /**
@@ -1271,6 +1277,10 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
   /** Null until the business index loads, and the same rule again: null is not
    *  the claim that no firm traded here. */
   let businessesByStructure = null;
+  /** Null until the scene's pictures file loads (T-2389); `picturesFailed` once it
+   *  could not be fetched, so the pane says so rather than "loading" forever. */
+  let pictures = null;
+  let picturesFailed = false;
   let currentRecord = null;
   /** Households fetched whole for a card (T-2151), by record id. */
   const householdsById = new Map();
@@ -1279,6 +1289,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
   let currentFromSign = false;
 
   function close() {
+    closePictureViewer();
     currentId = null;
     currentRecord = null;
     currentFromSign = false;
@@ -1294,6 +1305,8 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     if (firm) { onBusiness?.(firm.dataset.business); return; }
     const tab = e.target.closest('[data-pop-tab]');
     if (tab) { selectPopTab(root, tab.dataset.popTab); return; }
+    const pic = e.target.closest('[data-pic]');
+    if (pic && currentId) { openPictureViewer(pictures, currentId, Number(pic.dataset.pic) || 0); return; }
     const toggle = e.target.closest('[data-toggle-note]');
     if (toggle) {
       const note = toggle.parentElement.querySelector('[data-note]');
@@ -1372,6 +1385,18 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     },
 
     /**
+     * Hand the popup the scene's pictures file (T-2389), on the same terms as the
+     * handles above: a card already on screen is redrawn with its Images tab filled.
+     *
+     * @param {object|null} doc  `data/pictures/<scene>.json`, or null when it failed
+     */
+    setPictures(doc) {
+      pictures = doc && typeof doc === 'object' ? doc : null;
+      picturesFailed = !pictures;
+      if (currentRecord) this.show(currentRecord, { fromSign: currentFromSign });
+    },
+
+    /**
      * Hand the popup one record's households whole, once the card that asked for
      * them has fetched them (T-2151): the boot sidecar carries them slim, with the
      * reasoning behind each `why` toggle in `sidecars/<scene>/households/<id>.json`.
@@ -1444,6 +1469,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
         ? libertiesFor(liberties, record.id).length : 0;
       const questionCount = Array.isArray(openQuestions)
         ? openQuestionsFor(openQuestions, record.id).length : 0;
+      const pictureCount = picturesFor(pictures, record.id)?.length ?? 0;
 
       const evidencePane = `
         ${basisSection(s, place)}
@@ -1479,8 +1505,10 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
         ${lodgingSection(s)}
         ${residentsSection(householdsById.has(record.id) ? { residents: householdsById.get(record.id) } : s)}
         ${agencySectionHtml(agencies, 'structure_id', record.id, escapeHtml)}
-        ${tabsHtml({ liberties: libertyCount + questionCount })}
+        ${tabsHtml({ liberties: libertyCount + questionCount, images: pictureCount })}
         ${paneHtml('evidence', evidencePane)}
+        ${paneHtml('images', picturesPaneHtml(pictures, record.id,
+          { open: lastTab === 'images', failed: picturesFailed }))}
         ${paneHtml('liberties', libertiesPane)}
         ${paneHtml('record', recordPane)}
       `;
