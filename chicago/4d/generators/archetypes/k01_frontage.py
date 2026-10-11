@@ -81,6 +81,7 @@ from pathlib import Path
 from . import k03_brick
 from . import k09_frontage
 from . import k10_frontage
+from . import k11_frontage
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
@@ -177,6 +178,11 @@ MATERIALS.update({
     "bay_copper": {"color": (0.37, 0.52, 0.45), "roughness": 0.45, "metallic": 0.35},
     "bay_tin": {"color": (0.30, 0.22, 0.18), "roughness": 0.7},
 })
+# T-2319: the K11 boundary wall's brick. Its own slot for the bays' reason: "brick" is an
+# envelope material, and the contract reads grade off its lowest vertex, so a boundary wall
+# sunk 0.10 m in it would move the house's origin and stretch its envelope to the street.
+MATERIALS["k11_wall_brick"] = dict(k03_brick.MATERIALS["brick"],
+                                   roughness=round(k03_brick.MATERIALS["brick"]["roughness"] + 0.04, 2))
 # K08 role -> slot; `body` is the bay's fabric (bay_stone or bay_brick), `cover` its
 # roof's K04 covering. A came is a leaded light's, which no K01 bay glazes.
 K08_ROLES = {"wall": "body", "reveal": "body", "mullion": "body", "roof_back": "body",
@@ -1613,6 +1619,9 @@ def build(params, structure_id: str):
     # T-2317: the K10 wall head — brackets and a bed moulding under the soffit, every
     # corner turned and every head, pipe and bay stood clear of; cresting on the ridge
     k10_frontage.dress(a, reach)
+    # T-2319: the K11 boundary — the front fence on the street line, a pair of gates on the
+    # walk to the stoop, a gate across the side passage, the south boundary wall
+    k11_frontage.dress(a)
     return a
 
 

@@ -23880,6 +23880,46 @@ profile.
 **Review:** `docs/RESEARCH/k10-1808-wall-head-2317/README.md`.
 **Recorded:** 2026-10-10 (T-2317).
 
+### L-k11-1808-boundary-2319 — 1808 Prairie's front fence, gates, piers and south boundary wall from the K11 kit, all reconstructed
+
+**Decision:** the 1808 Prairie K01 frontage (T-2266) carries the K11 ironwork kit's own pieces
+(T-2318) round its front yard. The kit's spear fence on a stone curb stands on the street line,
+the curb's street face on the line, from a stone pier in line with the house's south wall to an
+end post whose curb stops on the north lot line. The walk to the stoop passes between two stone
+piers with caps and urns, 1.30 m clear, closed by a PAIR of 0.61 m leaves, one hung on each pier.
+The kit's single leaf would not do here: the stoop's foot stands 0.69 m behind the fence's line,
+and a leaf longer than that would strike it as it opened, so the generator holds each leaf's
+whole swing against the stoop's built mesh. The side passage's 0.94 m mouth takes the kit's single
+walk gate, hung on the boundary wall's street pier and shut on the stone pier. The kit's brick
+wall with piers, 1.50 m high under a saddleback coping, runs on the south lot line, its south face
+on the line, from the fence back to u 15.2 m. That is 0.2 m short of 1812's draft front, which
+stands on the lot line behind it. The pieces are drawn shut.
+
+**What is attested.** The line only. The street line (4.44 m in front of the front face) and the
+two lot lines are the 1911 Sanborn sheet 28's, as `data/street_grid/1904.json` reads them for
+parcel `prairie_1808`. The parcel's north line falls 0.17 m inside the house's own north wall; the
+fence ends on the parcel's line.
+
+**What is invented.** All the rest. That 1808 had a front fence at all, its pattern (spear, not
+scroll), its height, the curb, the piers and their urns, the pair of leaves, the side gate, the
+wall's existence, brick, height and length. The sizes are the kit's generic ones
+(L-k11-ironwork-kit-2318). The wall's 1.50 m is the kit's height, under the 6 ft the register
+reads for the one mapped brick boundary wall (frontage-35-064).
+
+**What it does not do.** It builds nothing on the north side, against Glessner. Glessner's
+boundary is documented, the kit's `restrictions` let a generic part stand only where a property's
+own is unknown, and the register gives that yard transition to T-1944. It crosses no entrance:
+no curb, rail or picket stands in either opening, and the generator refuses one that does. There
+is no carriage drive on this front to keep clear (the carriage house is on the alley, T-1935's).
+Nothing reaches the public walk.
+
+**What would replace it.** A photograph of 1808's front yard, or the 1888 *Inland Architect* plate
+read as a source. Either would replace the generic fence and wall with the house's own.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.boundary`
+**Ticket:** T-2319 (piece 2 of T-1853, K11).
+**Review:** `docs/RESEARCH/k11-1808-boundary-2319/README.md`.
+**Recorded:** 2026-10-11 (T-2319).
+
 ### L-k02-1808-stone-2289 — The 1808 Prairie stone front: Lemont limestone in rock-faced courses round the kits, its base, coping, quoins and flat arches, all reconstructed
 
 **Decision:** Lay the street front of the 1808 Prairie K01 frontage (L-k01-1808-frontage-2266) as K02

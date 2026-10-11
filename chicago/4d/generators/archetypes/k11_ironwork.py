@@ -264,6 +264,54 @@ class Variant:
                         role="stone")
         return p
 
+    def hinges(self, pier_name, face, side=1):
+        """Two pintles let 60 mm into the hinge pier's face at x = `face`, a barrel on each.
+        `side` is the way the leaf runs from them: +1 toward +x (the pier on its left), -1
+        toward -x (T-2319: a pair of leaves, the second hung on the right-hand pier).
+        Returns the hinge axis and the first barrel's name."""
+        G = self.P["gate"]
+        hx = face + G["hinge_offset_m"] * side
+        hr, hh, pm = G["hinge_radius_m"], G["hinge_height_m"], G["pintle_m"] / 2
+        x0, x1 = (face - 0.06, hx) if side > 0 else (hx, face + 0.06)
+        first = None
+        for y in G["hinges"]:
+            pin = self.member(self.name("pintle"), "iron", pier_name, x0, x1, y - pm, y + pm, -pm, pm, gate=True)
+            b = self.piece(self.name("hinge"), "iron", "rooted", pin.name, gate=True, hinge=True)
+            lathe(b.mesh, (hx, 0.0), [(0.0, y - hh / 2), (hr, y - hh / 2), (hr, y + hh / 2), (0.0, y + hh / 2)], 12)
+            first = first or b.name
+        return hx, first
+
+    def leaf(self, hinge, hx, Lw, drawn_deg, side=1, tag=""):
+        """A gate leaf `Lw` long from its hinge axis `hx`: a hinge stile in the barrels,
+        three rails mortised through it and the latch stile, pickets and spears like the
+        fence's. Built shut in the fence line running toward +x, then turned on the hinge
+        axis `drawn_deg` into the yard (-z); with `side` -1 it is turned half round first,
+        so it runs toward -x and still opens into the yard. Returns its pieces."""
+        G = self.P["gate"]
+        before = len(self.pieces)
+        sm, sd, rt = G["stile_m"] / 2, G["stile_depth_m"] / 2, G["rail_thickness_m"] / 2
+        Hg = G["height_m"]
+        self.member("hinge stile" + tag, "iron", hinge, hx - sm, hx + sm, 0.06, Hg, -sd, sd, gate=True, leaf=True)
+        x_l = hx + Lw
+        rails = []
+        for y in (0.1, 0.5, Hg - 0.08):
+            rails.append(self.member(self.name("leaf rail"), "iron", "hinge stile" + tag, hx, x_l - sm, y, y + 0.04,
+                                     -rt, rt, gate=True, leaf=True))
+        self.member("latch stile" + tag, "iron", rails[-1].name, x_l - 2 * sm, x_l, 0.06, Hg, -sd, sd, gate=True,
+                    leaf=True)
+        s, S = self.P["picket"]["section_m"], self.P["spear"]
+        top = Hg + S["rise_m"]
+        group = "leaf" + tag
+        for x in even(hx + sm, x_l - 2 * sm, self.P["picket"]["pitch_m"]):
+            p = self.member(self.name("picket"), "iron", rails[0].name, x - s / 2, x + s / 2, 0.11, top, -s / 2, s / 2,
+                            gate=True, leaf=True, rhythm=group)
+            self.spear(p.name, x, top, gate=True, leaf=True)
+        self.meta["rhythm"][group] = {"axis": 0, "member": s}
+        th = math.radians(drawn_deg)
+        for p in self.pieces[before:]:
+            turn(p.mesh, hx, 0.0, th if side > 0 else math.pi - th)
+        return self.pieces[before:]
+
     # variants --------------------------------------------------------------------------
     def build(self):
         getattr(self, "_" + self.v["kind"])()
@@ -284,50 +332,34 @@ class Variant:
         p2 = self.pier(xb + ps / 2)
         self.fence_run(xa - ps - stub, xa - ps, "spear", "pickets left", host_b=p1.name)
         self.fence_run(xb + ps, xb + ps + stub, "spear", "pickets right", host_a=p2.name)
-        # hinges: a pintle let into pier 1, a barrel on it, the leaf's hinge stile in both barrels
-        hx = xa + G["hinge_offset_m"]
-        hr, hh, pm = G["hinge_radius_m"], G["hinge_height_m"], G["pintle_m"] / 2
-        for y in G["hinges"]:
-            pin = self.member(self.name("pintle"), "iron", p1.name, xa - 0.06, hx, y - pm, y + pm, -pm, pm, gate=True)
-            b = self.piece(self.name("hinge"), "iron", "rooted", pin.name, gate=True, hinge=True)
-            lathe(b.mesh, (hx, 0.0), [(0.0, y - hh / 2), (hr, y - hh / 2), (hr, y + hh / 2), (0.0, y + hh / 2)], 12)
+        hx, hinge = self.hinges(p1.name, xa)
         k = G["keeper_proud_m"]
         self.member("latch keeper", "iron", p2.name, xb - k, xb + 0.06, 0.88, 0.92, -0.015, 0.015, gate=True)
-        # the leaf, built shut in the fence line, then turned on its hinge axis
-        before = len(self.pieces)
-        sm, sd, rt = G["stile_m"] / 2, G["stile_depth_m"] / 2, G["rail_thickness_m"] / 2
-        Lw = (xb - k - G["keeper_gap_m"]) - hx
-        Hg = G["height_m"]
-        self.member("hinge stile", "iron", "hinge 1", hx - sm, hx + sm, 0.06, Hg, -sd, sd, gate=True, leaf=True)
-        x_l = hx + Lw
-        rails = []
-        for y in (0.1, 0.5, Hg - 0.08):
-            rails.append(self.member(self.name("leaf rail"), "iron", "hinge stile", hx, x_l - sm, y, y + 0.04, -rt, rt,
-                                     gate=True, leaf=True))
-        self.member("latch stile", "iron", rails[-1].name, x_l - 2 * sm, x_l, 0.06, Hg, -sd, sd, gate=True, leaf=True)
-        s, S = self.P["picket"]["section_m"], self.P["spear"]
-        top = Hg + S["rise_m"]
-        for x in even(hx + sm, x_l - 2 * sm, self.P["picket"]["pitch_m"]):
-            p = self.member(self.name("picket"), "iron", rails[0].name, x - s / 2, x + s / 2, 0.11, top, -s / 2, s / 2,
-                            gate=True, leaf=True, rhythm="leaf")
-            self.spear(p.name, x, top, gate=True, leaf=True)
-        self.meta["rhythm"]["leaf"] = {"axis": 0, "member": s}
-        th = math.radians(G["drawn_deg"])
-        for p in self.pieces[before:]:
-            turn(p.mesh, hx, 0.0, th)
+        self.leaf(hinge, hx, (xb - k - G["keeper_gap_m"]) - hx, G["drawn_deg"])
         self.meta["gate"] = {"opening": [xa, xb], "hinge": [hx, 0.0], "drawn_deg": G["drawn_deg"],
                              "pier": [xa - ps, xa, -ps / 2, ps / 2]}
         self.meta["focus"] = [0.0, 0.85, 0.0]
 
     def _wall(self):
-        L, Wd = self.v["length_m"], self.P["wall"]
-        t, H, ph = Wd["thickness_m"], Wd["height_m"], Wd["pier_m"] / 2
+        L = self.v["length_m"]
         self.ground(-L / 2 - 0.6, L / 2 + 0.6)
-        w = self.member("wall", "brick", "ground", -L / 2, L / 2, -Wd["sink_m"], H, -t / 2, t / 2)
+        self.wall_run(-L / 2, L / 2)
+        self.meta["focus"] = [0.0, 1.2, 0.0]
+
+    def wall_run(self, x0, x1, H=None, urns=None):
+        """A brick boundary wall from x0 to x1 on z = 0: piers at both ends and between at no
+        more than the data's spacing, a saddleback coping between them dying into each, caps
+        on the piers and urns on the end piers (or on the piers `urns` indexes). `H` is the
+        wall's height; the piers rise the data's pier_rise_m above it. Returns the piers."""
+        Wd = self.P["wall"]
+        t, ph = Wd["thickness_m"], Wd["pier_m"] / 2
+        H = Wd["height_m"] if H is None else H
+        L = x1 - x0
+        w = self.member("wall", "brick", "ground", x0, x1, -Wd["sink_m"], H, -t / 2, t / 2)
         n = math.ceil(L / Wd["pier_spacing_max_m"])
-        xs = [-L / 2 + L * i / n for i in range(n + 1)]
-        for i, x in enumerate(xs):
-            self.pier(x, urn=i in (0, len(xs) - 1), half=ph, h=H + Wd["pier_rise_m"], role="brick")
+        xs = [x0 + L * i / n for i in range(n + 1)]
+        urns = (0, len(xs) - 1) if urns is None else urns
+        piers = [self.pier(x, urn=i in urns, half=ph, h=H + Wd["pier_rise_m"], role="brick") for i, x in enumerate(xs)]
         c = t / 2 + Wd["coping_overhang_m"]
         y0 = H - Wd["coping_sink_m"]
         prof = [(-c, y0), (c, y0), (c, H + Wd["coping_rise_m"] - 0.02), (0.0, H + Wd["coping_rise_m"] + Wd["coping_ridge_m"]),
@@ -337,7 +369,7 @@ class Variant:
             slab_x(p.mesh, prof, a + ph - 0.06, b - ph + 0.06)
         self.meta["piers"] = xs
         self.meta["wall"] = {"t": t}
-        self.meta["focus"] = [0.0, 1.2, 0.0]
+        return piers
 
     def _grille(self):
         v, G = self.v, self.P["grille"]
