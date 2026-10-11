@@ -6616,6 +6616,16 @@
       "phase_id": "draft_1904",
       "structure_id": "wheeler_house_1812_prairie"
     },
+    "wheeler_house_1812_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
+      "baked_ao": false,
+      "bytes": 98532,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "56b448ca7e4d4ce8a513a0c58338887e2272543c1f05375bbdf0d9f898f7261c",
+      "kind": "generated",
+      "phase_id": "as_standing_1904",
+      "structure_id": "wheeler_house_1812_prairie_coach_house"
+    },
     "wolf_point_tavern__log_frame_1828.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,

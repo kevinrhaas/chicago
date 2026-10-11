@@ -141,6 +141,13 @@
       "evidence": null,
       "confidence": "reconstructed",
       "note": "No ridge ventilator. The asset catalog allows one only where a source shows it; this kit has no such source, so it builds none and the generator refuses a variant that asks for one without evidence."
+    },
+    "workyard": {
+      "paving_m": 0.04,
+      "walk_m": 1.2,
+      "clear_of_walls_m": 0.25,
+      "confidence": "reconstructed",
+      "note": "T-2321: the paved workyard a named lot lays behind its coach house, when the variant asks for one: brick paving 40 mm proud of the ground (under the 50 mm sill of a yard door, so its edge meets wall and not an opening), an apron along the yard wall kept 0.25 m clear of the party walls so it never lies on their faces, and a 1.2 m walk from the apron to the house's rear wall line. A horse-and-carriage yard kept its ground hard between the stable and the kitchen door; the sizes are a working interpretation, not a reading."
     }
   },
   "costs": {
