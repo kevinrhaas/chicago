@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1668, ts: '2026-10-11T00:32:33.826Z', date: 'Oct 10, 2026, 7:32 PM CT', title: 'Fort Dearborn\'s flags: post-sized, wool bunting, on a halyard', kind: 'feature',
+    items: [
+      'Both forts now fly a frontier post\'s everyday flag, 6 ft 6 in by 12 ft, down from 15 ft and 22 ft. The size is checked against the period\'s surviving flags and the Army\'s later regulation sizes.',
+      'The cloth reads as wool bunting: a visible weave, stripes sewn as separate strips, hand-sewn stars, a canvas heading, a soft sheen, and heavier folds that sag at the fly.',
+      'A hemp halyard runs from the top of each staff to the flag and down to a cleat, about 200 triangles a flag.',
+    ] },
   { v: 1667, ts: '2026-10-11T00:08:07.857Z', date: 'Oct 10, 2026, 7:08 PM CT', title: 'Prairie Avenue\'s west side, 18th to 20th, stands as a first draft', kind: 'feature',
     items: [
       'Nine houses and nine coach houses and sheds now stand south of Glessner, from 1812 to 1916, on the outlines traced off the 1911 map.',
