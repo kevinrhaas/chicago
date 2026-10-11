@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1678, ts: '2026-10-11T05:05:03.577Z', date: 'Oct 11, 2026, 12:05 AM CT', title: 'Every building on Prairie Avenue\'s 20th–22nd block, traced off the 1911 map', kind: 'chore',
+    items: [
+      'Nothing you can see changed yet. 60 buildings on the 20th–22nd block now have real outlines, read off the fire-insurance map\'s drawn walls.',
+      'That includes the Sherman house at 2100, the Robbins house at 2126 and the Tucker–Smith corner mansion at 2140.',
+      'This block\'s map copy is much coarser than the other two, so its outlines are a little looser, and they say so.',
+      'These outlines are the ground the block\'s first draft of houses will stand on.',
+    ] },
   { v: 1677, ts: '2026-10-11T05:00:16.518Z', date: 'Oct 11, 2026, 12:00 AM CT', title: '1808 Prairie gets an iron front fence, gates and a garden wall', kind: 'feature',
     items: [
       'A spear-topped iron fence on a stone curb now runs along 1808 Prairie\'s street line, ending where the lot does.',
