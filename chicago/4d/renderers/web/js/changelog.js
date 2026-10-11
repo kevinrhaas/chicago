@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1672, ts: '2026-10-11T02:02:05.680Z', date: 'Oct 10, 2026, 9:02 PM CT', title: 'Prairie Avenue 1904: a coach house on the alley behind 1812', kind: 'feature',
+    items: [
+      'Walk round to the alley behind the houses beside the Glessner House: the lot south of 1808 Prairie now has its two-storey brick coach house, the first built from the new coach-house kit.',
+      'It stands where the 1911 fire-insurance map draws it, the full width of the lot, with a party wall rising above the roof at each end where the neighbours\' buildings meet it.',
+      'On the alley: a carriage bay with strap-hinged doors under a brick arch, a loft hatch with its hoist beam, a side door and stable windows. On the yard side, a door and windows look onto a brick-paved yard, and a walk runs to the back of the house.',
+      'The 1911 map labels it a garage; in 1904 it was a stable, so nothing of a motor garage is built. Its doors, windows, roof and yard are reconstructions, and the house in front of it is not built yet.',
+    ] },
   { v: 1671, ts: '2026-10-11T01:18:10.556Z', date: 'Oct 10, 2026, 8:18 PM CT', title: '1808 Prairie gets its eave brackets and roof cresting', kind: 'feature',
     items: [
       'Scrolled brackets now carry 1808 Prairie\'s eave on all four sides, standing on the stonework between the top-floor windows, with a moulding along the wall head that turns every corner.',
