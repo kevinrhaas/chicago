@@ -1,8 +1,0 @@
-{
-  "title": "District draft houses build the same on every Python",
-  "kind": "chore",
-  "items": [
-    "The Prairie Avenue draft houses now add their storey heights and centroids one term at a time, so a build on Python 3.12 writes the same bytes as the gate's 3.11 — the 2011 Prairie turret no longer comes out different on the build machine.",
-    "The exact-sum check now counts the sums in every pure-Python building kit, so the problem cannot creep back in."
-  ]
-}

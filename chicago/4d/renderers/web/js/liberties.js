@@ -1,5 +1,5 @@
 /**
- * liberties.js — "what we made up", in the walkthrough.
+ * liberties.js — the liberties list, in the walkthrough.
  *
  * The project's standard is that a visitor should be able to tell you which
  * parts we made up. The confidence view and the provenance popup answer that
@@ -190,7 +190,7 @@ export async function mountLiberties({ mount, noteMount = null, dataBase,
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
     doc = await res.json();
   } catch (err) {
-    problems.push(`liberties: ${err.message} — the "what we made up" list is not shown`);
+    problems.push(`liberties: ${err.message} — the liberties list is not shown`);
     if (mount) {
       mount.innerHTML = '<p class="legend-note">The liberties list could not be loaded. '
         + 'It is committed at <code>docs/LIBERTIES.md</code>.</p>';

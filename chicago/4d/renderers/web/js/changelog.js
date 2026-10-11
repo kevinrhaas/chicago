@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 1699, ts: '2026-10-11T20:23:59.471Z', date: 'Oct 11, 2026, 3:23 PM CT', title: 'Liberties, by name, everywhere', kind: 'change',
+    items: [
+      'The Evidence tile, the building card\'s tab and its section now read Liberties, in every year.',
+      'Business cards and the panel notes use the same word.',
+    ] },
+  { v: 1698, ts: '2026-10-11T20:23:59.471Z', date: 'Oct 11, 2026, 3:23 PM CT', title: '1604 Prairie stands in three pieces, as the 1911 atlas draws it', kind: 'feature',
+    items: [
+      'The brick house at 1604 Prairie is no longer a draft: a three-storey front block, built from the Prairie Avenue kit, with its door on the north bay.',
+      'Behind it, the two-storey brick range the atlas draws, and a smaller two-storey block at the far west end, each with its own windows and flat tin roof.',
+      'The draft had stood the whole lot as one tall house twenty metres deep; the front block is now twelve.',
+      'Heights, windows and trim are reconstructed, and its card says so.',
+    ] },
+  { v: 1697, ts: '2026-10-11T19:10:02.010Z', date: 'Oct 11, 2026, 2:10 PM CT', title: 'District draft houses build the same on every Python', kind: 'chore',
+    items: [
+      'The Prairie Avenue draft houses now add their storey heights and centroids one term at a time, so a build on Python 3.12 writes the same bytes as the gate\'s 3.11 — the 2011 Prairie turret no longer comes out different on the build machine.',
+      'The exact-sum check now counts the sums in every pure-Python building kit, so the problem cannot creep back in.',
+    ] },
   { v: 1696, ts: '2026-10-11T19:00:53.994Z', date: 'Oct 11, 2026, 2:00 PM CT', title: '1808 Prairie\'s chimneys begin to stain the slate downwind', kind: 'feature',
     items: [
       'The slate beside 1808 Prairie\'s two chimneys now carries a smoke stain. It lies east-north-east of each stack, downwind of Chicago\'s westerlies.',

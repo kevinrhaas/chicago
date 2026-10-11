@@ -14,7 +14,7 @@
  * with a quiet dot for its grade. Then the households the residents layer
  * places here. Then, behind three tabs: EVIDENCE (what we included and where
  * it came from, where it stood, whether it was here, whether it was this shape,
- * every attribute with its chip and reasoning, the citations), WHAT WE MADE UP
+ * every attribute with its chip and reasoning, the citations), LIBERTIES TAKEN
  * (the liberties taken with THIS building and any tracked open question) and
  * RECORD (the record's own account, the production reference, the dossier
  * link). The dots and the chips grade the same claims: the dot is the label's
@@ -463,7 +463,7 @@ function basisSection(s, place) {
     <p class="basis-lead">${claims.length} claims stand behind this building, and every one of
       them is in exactly one row here. The tables further down carry them one at a time, with
       the reasoning behind <em>why</em>; the decisions that belong to no single claim are under
-      “What we made up here”.</p>
+      “Liberties taken here”.</p>
     ${rows}${odd}
   </section>`;
 }
@@ -597,7 +597,7 @@ function libertySection(liberties, structureId) {
          which means none were written down, not that none were taken.</p>`;
 
   return `<section class="pop-sec pop-liberties">
-    <h3>What we made up here${mine.length ? ` <span class="pop-count">${mine.length}</span>` : ''}</h3>
+    <h3>Liberties taken here${mine.length ? ` <span class="pop-count">${mine.length}</span>` : ''}</h3>
     ${body}
   </section>`;
 }
@@ -1191,7 +1191,7 @@ function ordinanceSection(limits, p) {
  *  tab rather than trusting a collapsed read. */
 const TABS = [
   { id: 'evidence', label: 'Evidence' },
-  { id: 'liberties', label: 'What we made up' },
+  { id: 'liberties', label: 'Liberties' },
   { id: 'record', label: 'Record' },
 ];
 let lastTab = 'evidence';

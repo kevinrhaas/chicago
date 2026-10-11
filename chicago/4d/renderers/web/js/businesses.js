@@ -771,7 +771,7 @@ export async function mountBusinesses({
   (rec.claim_ids || []).length ? ` · ${n(rec.claim_ids.length)} claim${rec.claim_ids.length === 1 ? '' : 's'}` : ''}.</p>
        ${(rec.claim_ids || []).length ? `<ul class="biz-claims">${rec.claim_ids.map((c) => `<li><code>${escapeHtml(c)}</code></li>`).join('')}</ul>` : ''}`,
       liberties.length
-        ? `<h4 class="people-card-h">What we made up</h4><ul class="biz-liberties">${
+        ? `<h4 class="people-card-h">Liberties</h4><ul class="biz-liberties">${
           liberties.map(([k]) => `<li>${escapeHtml(LIBERTY[k] || words(k))}</li>`).join('')}</ul>`
         : '',
       rec.replaceable_by
