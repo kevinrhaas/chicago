@@ -16253,6 +16253,7 @@ for (const [label, viewport, touch] of [
         // on the Pullman house's east wing at 1729 Prairie. T-2323 added the fourth, the K16
         // timber front of the Shortall-Gregory house at 1638 Prairie (#668) — merged while
         // every bake leg died ENOENT above this line, so nothing read the list (T-2331).
+        // T-2321 added the fifth, the K12 coach house on the alley behind 1812 Prairie.
         const stray = Object.entries(at.drawn).filter(([name, n]) => n > 0 && name !== 'structures');
         // T-2329 added the district draft's west side of the 18th-20th block: eighteen
         // prairie_draft records, held by name with the rest.
@@ -16275,8 +16276,9 @@ for (const [label, viewport, touch] of [
           'moulton_lowden_house_1912_prairie',
           'moulton_lowden_house_1912_prairie_coach_house',
           'shed_1834_1900_prairie',
-          'wheeler_house_1812_prairie'].sort();
-        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329)`,
+          'wheeler_house_1812_prairie',
+          'wheeler_house_1812_prairie_coach_house'].sort();
+        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2321)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),
           `meshes: ${JSON.stringify(at.drawn)}; structures placed ${JSON.stringify(at.placed)}`);
