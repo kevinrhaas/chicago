@@ -1,0 +1,352 @@
+{
+  "method": "Actual published /1904/ app, normal boot; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 5 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "load_ms_to_ready": 12295,
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "data/gltf/keith_house_1808_prairie__as_built_1886.glb",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "url": "data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "url": "data/gltf/glessner_house__as_built_1887.light.glb",
+          "status": 200,
+          "bytes": 0
+        }
+      ],
+      "stands": [
+        {
+          "name": "front",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 86,
+            "triangles": 710265,
+            "programs": 22,
+            "geometries": 95,
+            "textures": 290,
+            "batches": 67,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 91,
+            "structuresExpected": 91,
+            "structuresStanding": 91,
+            "bytes": 39147464,
+            "fps": 1,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1382.8,
+          "camera": [
+            1403.9,
+            -3245.48,
+            6.05
+          ],
+          "target": [
+            1389.9,
+            -3245.64,
+            4.95
+          ]
+        },
+        {
+          "name": "oblique",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 84,
+            "triangles": 728455,
+            "programs": 22,
+            "geometries": 96,
+            "textures": 292,
+            "batches": 67,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 91,
+            "structuresExpected": 91,
+            "structuresStanding": 91,
+            "bytes": 39147464,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1725,
+          "camera": [
+            1400.05,
+            -3258.13,
+            6.05
+          ],
+          "target": [
+            1389.91,
+            -3246.24,
+            4.65
+          ]
+        },
+        {
+          "name": "front-walk",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 85,
+            "triangles": 704931,
+            "programs": 22,
+            "geometries": 96,
+            "textures": 292,
+            "batches": 67,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 91,
+            "structuresExpected": 91,
+            "structuresStanding": 91,
+            "bytes": 39147464,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1336.5,
+          "camera": [
+            1395.06,
+            -3241.78,
+            6.05
+          ],
+          "target": [
+            1391.26,
+            -3241.83,
+            4.35
+          ]
+        },
+        {
+          "name": "bay-edge",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 85,
+            "triangles": 699746,
+            "programs": 22,
+            "geometries": 96,
+            "textures": 292,
+            "batches": 67,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 91,
+            "structuresExpected": 91,
+            "structuresStanding": 91,
+            "bytes": 39147464,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 1053.3,
+          "camera": [
+            1391.53,
+            -3247.72,
+            5.95
+          ],
+          "target": [
+            1388.23,
+            -3247.76,
+            4.35
+          ]
+        },
+        {
+          "name": "passage",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 85,
+            "triangles": 696441,
+            "programs": 22,
+            "geometries": 96,
+            "textures": 292,
+            "batches": 67,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 91,
+            "structuresExpected": 91,
+            "structuresStanding": 91,
+            "bytes": 39147464,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 931.7,
+          "camera": [
+            1389.46,
+            -3250.75,
+            5.95
+          ],
+          "target": [
+            1375.96,
+            -3250.91,
+            4.35
+          ]
+        },
+        {
+          "name": "passage-end",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 83,
+            "triangles": 727166,
+            "programs": 22,
+            "geometries": 97,
+            "textures": 294,
+            "batches": 67,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 91,
+            "structuresExpected": 91,
+            "structuresStanding": 91,
+            "bytes": 39147464,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 807.7,
+          "camera": [
+            1364.97,
+            -3251.13,
+            6.05
+          ],
+          "target": [
+            1373.96,
+            -3250.93,
+            4.35
+          ]
+        }
+      ]
+    }
+  ]
+}

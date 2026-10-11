@@ -8,7 +8,7 @@
         "height": 800
       },
       "detail": "full",
-      "load_ms_to_ready": 21585,
+      "load_ms_to_ready": 20161,
       "boot": {
         "ready": true,
         "error": null,
@@ -74,7 +74,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 6461.2,
+          "frame_ms_median": 6486.3,
           "camera": [
             1403.9,
             -3245.48,
@@ -126,7 +126,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 7554.3,
+          "frame_ms_median": 7517.5,
           "camera": [
             1400.05,
             -3258.13,
@@ -178,7 +178,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 4980.8,
+          "frame_ms_median": 4816.2,
           "camera": [
             1395.06,
             -3241.78,
@@ -230,7 +230,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 3884.4,
+          "frame_ms_median": 3755.2,
           "camera": [
             1391.53,
             -3247.72,
@@ -282,7 +282,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 4357.4,
+          "frame_ms_median": 4300.5,
           "camera": [
             1389.46,
             -3250.75,
@@ -334,7 +334,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 3766.9,
+          "frame_ms_median": 3755.9,
           "camera": [
             1364.97,
             -3251.13,
