@@ -133,9 +133,9 @@
     },
     {
       "id": "house_1608_prairie",
-      "name": "1608 Prairie Avenue — Brick masonry (district draft; refined by T-1859)",
+      "name": "1608 Prairie Avenue — brick house, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1608_prairie.json",
-      "asset": "gltf/house_1608_prairie__draft_1904.glb"
+      "asset": "gltf/house_1608_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1616_prairie",
