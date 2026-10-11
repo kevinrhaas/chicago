@@ -923,14 +923,14 @@
       "phase_id": "log_1831",
       "structure_id": "hogan_store"
     },
-    "house_1600_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "house_1600_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 114148,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "648cd9a0072a3c47c0c967c2ef3c730403d19cc1e46028352f5a1ff34463d3e2",
+      "bytes": 3940468,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "df028ef730fa2cc7c2035963ec1ab2ee42abb8659795f20a7b042e1b26334405",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "house_1600_prairie"
     },
     "house_1601_prairie__draft_1904.glb": {
