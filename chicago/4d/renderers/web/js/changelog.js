@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1703, ts: '2026-10-11T22:44:58.236Z', date: 'Oct 11, 2026, 5:44 PM CT', title: 'Building cards get an Images tab', kind: 'feature',
+    items: [
+      'Tap a building: the new Images tab shows the photographs, plates and drawings of it on file, its own front first.',
+      'Every picture carries its credit: title, date, maker, holder and rights, with links to the holder and the full-size copy.',
+      '66 Prairie Avenue houses have pictures today; the Glessner house has 161. Pictures held only elsewhere are listed as links.',
+      'Light on phones: nothing loads until the tab opens, and only small copies.',
+    ] },
   { v: 1702, ts: '2026-10-11T22:18:56.194Z', date: 'Oct 11, 2026, 5:18 PM CT', title: '1612 Prairie rebuilt from its own photograph', kind: 'fix',
     items: [
       'The Goodman house front now matches the period photograph of it, not a one-line summary: three bays, the entrance in the middle.',
