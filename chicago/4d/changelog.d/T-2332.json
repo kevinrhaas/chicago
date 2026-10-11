@@ -1,0 +1,9 @@
+{
+  "title": "Behind the scenes: the plant checks stand where the plants are again",
+  "kind": "fix",
+  "items": [
+    "Nothing you can see changed. Two of the walkthrough's own plant checks had gone red on a phone, and the plants were never the problem.",
+    "The check that walks you into the grass looked for its starting point only due north, south, east and west of the Sauganash. The town has grown across all four of those lines, so it stood on lawn and watched nothing arrive. It now looks in every direction and takes the nearest real grass.",
+    "The check that every species is drawn somewhere stood on a thin strip of sand prairie between two lots, where butterfly weed was owed barely one plant. It now stands inside each community, where butterfly weed is owed about fifteen and draws more than fifty."
+  ]
+}
