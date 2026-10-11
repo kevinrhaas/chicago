@@ -2594,19 +2594,27 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_bay_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_chimney_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_coach_house_kit.py": {
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/check_cornice_kit.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/check_ironwork_kit.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/check_condition_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_conservatory_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_cornice_kit.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -2662,6 +2670,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_ironwork_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_loading_content.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2698,6 +2710,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_roof_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_roof_library.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2726,22 +2742,6 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/check_roof_library.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/check_window_kit.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/check_roof_kit.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/check_chimney_kit.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/check_structure_corridors.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2754,7 +2754,15 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_timber_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_tool_browser.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_trim_kit.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -2767,22 +2775,6 @@
       "wrote_ignored": []
     },
     "tools/check_window_kit.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/check_conservatory_kit.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/check_timber_kit.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/check_bay_kit.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/check_trim_kit.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -2922,7 +2914,7 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/pack_boot_sidecars.mjs": {
+    "tools/draft_prairie_1904.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -3591,6 +3583,10 @@
       "wrote_ignored": []
     },
     "tools/old_settlers.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/pack_boot_sidecars.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -4774,6 +4770,10 @@
       "wrote_ignored": []
     },
     "tools/test_program_cache_key.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_repo_file.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

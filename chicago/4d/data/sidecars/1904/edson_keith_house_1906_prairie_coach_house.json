@@ -1,0 +1,192 @@
+{
+  "id": "edson_keith_house_1906_prairie_coach_house",
+  "phase": "draft_1904",
+  "name": "1906 S. Prairie Avenue — the alley building of the house at 1906 (district draft; refined by T-1935)",
+  "aka": [
+    "1906 S. Prairie Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "asset": "gltf/edson_keith_house_1906_prairie_coach_house__draft_1904.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1340.851,
+    "local_n": -3385.943,
+    "rotation_deg": -0.617,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 1.000, v -14.000 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.617 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "symbolic_location": "1906 S. Prairie Avenue, parcel prairie_1906 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        8.0,
+        0.0
+      ],
+      [
+        8.0,
+        29.0
+      ],
+      [
+        0.0,
+        29.0
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The census reading '2-storey brick BARN on the alley': 2 storeys."
+    },
+    "construction": {
+      "value": "brick",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The trace's fabric colour on the main part: brick."
+    },
+    "draft_plan": {
+      "value": {
+        "parts": [
+          {
+            "id": "r1",
+            "role": "main",
+            "storeys": 2,
+            "roof": "gable",
+            "rect": [
+              0.0,
+              0.0,
+              8.0,
+              29.0
+            ],
+            "from": "s28fp-1906-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill"
+          }
+        ],
+        "lot_v": [
+          -1.266,
+          29.266
+        ],
+        "street_u": 52.917
+      },
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1906-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+    },
+    "draft_elevation": {
+      "value": {
+        "kind": "service",
+        "seed": 3847718684,
+        "principal_floor_m": 0.0,
+        "storey_heights_m": [
+          3.4,
+          2.8,
+          2.6
+        ],
+        "roof_pitch_deg": 40,
+        "mansard_lower_m": 3.0,
+        "front_bays": 6,
+        "entrance": "north",
+        "side_spacing_m": 2.6,
+        "chimneys": 0,
+        "brackets": false,
+        "attic_dormers": false,
+        "stone": "stone",
+        "features": [],
+        "draft_label": {
+          "pass": "T-2329",
+          "refined_by": [
+            "T-1935"
+          ]
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: Italianate stone front with the register's 'deep bracketed cornice'; 1908 is attached and the census rules the two one building, so one record carries both fronts. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3847718684 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-west-2329."
+    },
+    "draft": {
+      "value": {
+        "pass": "T-2329",
+        "liberty": "L-draft-prairie-18-20-west-2329",
+        "register_row": "frontage-28-044",
+        "census_ids": [
+          "s28-1906-rear"
+        ],
+        "trace_building": "s28fp-1906-b2",
+        "seed": 3847718684,
+        "replaceable_by": [
+          "T-1935"
+        ],
+        "card": "District draft — refined by T-1935."
+      },
+      "confidence": "reconstructed",
+      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+      "geometry": "record_only"
+    },
+    "function": {
+      "value": "barn_or_carriage_shed",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The 1911 sheet reads '2-storey brick BARN on the alley'. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house. The Tribune's 1918 letting of \"1904-1906 Prairie-av.\" offers a \"large 2 story brick garage\" with the pair, which is this building."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "sanborn_1911_chicago_v3_sheet_28",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "The water's edge beside the Illinois Central from about 40 m north of 18th Street to about 80 m south of it, and the easternmost track on to the paper's edge, as of 1911",
+        "The 1800 Prairie lot and the Glessner House footprint (stone, courtyard plan) as of 1911, and every Prairie- and Calumet-facing footprint from 18th to 20th Street",
+        "Its own printed Scale of Feet"
+      ],
+      "what_it_does_not_supply": [
+        "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+        "A construction date for any building it draws",
+        "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+        "Architecture above the footprint beyond its story count, material colour and roof symbol",
+        "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+      ]
+    }
+  ],
+  "research_note": "A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1935 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1906-b2), the T-1841 census (s28-1906-rear) and the T-1837 register row frontage-28-044; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-west-2329).",
+  "research_doc": "",
+  "review_required": false
+}

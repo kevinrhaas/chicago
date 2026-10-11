@@ -84,6 +84,8 @@ step "The welcome draws the town only when the town changed (T-2113)" \
   node tools/test_gate_frame.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
+step "A smoke oracle a sparse bake leg lacks is read from the commit under test (T-2331)" \
+  node tools/test_repo_file.mjs
 step "Drawn placement rejects shifted, mirrored and rotated camps (T-1805)" \
   node tools/test_drawn_placement_census.mjs
 step "Jaunt session history, cancellation and replacement (T-1279)" \
@@ -173,6 +175,12 @@ step "the K13 conservatories in the scene are the bytes their records build (T-2
   python3 generators/k13_emit.py --check
 step "the K16 timber fronts in the scene are the bytes their records build (T-2323)" \
   python3 generators/k16_emit.py --check
+step "the Prairie district draft's records are what its rules build from the traced sheets (T-2329)" \
+  python3 tools/draft_prairie_1904.py --check
+selftest "…and the draft builder still fits rectangles inside a part, reads the notation and refuses a hand edit" \
+  python3 tools/draft_prairie_1904.py --self-test
+step "the Prairie district draft's houses are the bytes their records build (T-2329)" \
+  python3 generators/draft_emit.py --check
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
