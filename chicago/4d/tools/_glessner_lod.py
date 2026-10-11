@@ -162,7 +162,12 @@ def _construct(root, *, roof_details_reduced=True):
         legacy._band(b,n)
         d.slab(b,n,n['u0'],n['u1'],n['z0']-.055,n['z0']+.025,.07,n['proj_m']+.025,n['conf'],d.TRIM)
     b.decorate=True
-    for w in params.walls:legacy._gate_piece(b,w)
+    for w in params.walls:
+        # T-2201: the courtyard's boundary runs are 30 m of brick; per-course relief on
+        # them would spend the reduced tier's triangle cap, so they stay flat here.
+        b.decorate='ends' not in w
+        legacy._gate_piece(b,w)
+    b.decorate=True
     b.decorate=False
     for g in params.ground:legacy._ground(b,g)
     from archetypes.masonry_house_v4_frontage import add_frontage
