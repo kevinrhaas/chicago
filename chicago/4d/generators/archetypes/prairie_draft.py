@@ -75,6 +75,21 @@ def seed_rng(seed: int):
 
 # ---------------------------------------------------------------- mesh accumulation
 
+def _seqsum(xs):
+    """Add left to right, one term at a time — the same last bit on every CPython (T-2363).
+
+    3.12 made the built-in `sum()` compensate floats (Neumaier) and 3.11 does not, so one
+    record built different bytes on the steward runner's 3.12 than on the gate's pinned
+    3.11 (house_2011_prairie's turret, #689). This is 3.11's `sum()` spelled out, so every
+    committed draft keeps its bytes; `math.fsum` would have moved all of them. Never call
+    the built-in `sum()` in this module: `tools/check_exact_sums.py` counts them.
+    """
+    total = 0
+    for x in xs:
+        total += x
+    return total
+
+
 def _sub(a, b):
     return (a[0] - b[0], a[1] - b[1], a[2] - b[2])
 
@@ -110,7 +125,7 @@ class Mesh:
             return
         n = _unit(n)
         if centre is not None:
-            c = tuple(sum(p[k] for p in pts) / len(pts) for k in range(3))
+            c = tuple(_seqsum(p[k] for p in pts) / len(pts) for k in range(3))
             if _dot(n, _sub(c, centre)) < 0:
                 pts = list(reversed(pts))
                 n = (-n[0], -n[1], -n[2])
@@ -129,7 +144,7 @@ class Mesh:
     def solid(self, faces, mat_of=None, mat="brick"):
         """A closed solid: every face wound away from the solid's vertex centre."""
         allp = [p for f in faces for p in f]
-        c = tuple(sum(p[k] for p in allp) / len(allp) for k in range(3))
+        c = tuple(_seqsum(p[k] for p in allp) / len(allp) for k in range(3))
         for i, f in enumerate(faces):
             self.face(mat_of(i) if mat_of else mat, f, c)
 
@@ -151,7 +166,7 @@ class Mesh:
             self.face((side_mats or {}).get(k, mat), f, c)
 
     def triangles(self) -> int:
-        return sum(len(p["idx"]) // 3 for p in self.prims.values())
+        return _seqsum(len(p["idx"]) // 3 for p in self.prims.values())
 
 
 # ---------------------------------------------------------------- roofs
@@ -251,7 +266,7 @@ def dormer_on_face(m: Mesh, side, s, y_sill, w, h, face_coord, slope_out, pitch_
 
 
 def prism(m: Mesh, mat, ring, y0, y1):
-    cen = (sum(p[0] for p in ring) / len(ring), sum(p[1] for p in ring) / len(ring), (y0 + y1) / 2)
+    cen = (_seqsum(p[0] for p in ring) / len(ring), _seqsum(p[1] for p in ring) / len(ring), (y0 + y1) / 2)
     n = len(ring)
     for i in range(n):
         a, b = ring[i], ring[(i + 1) % n]
@@ -261,8 +276,8 @@ def prism(m: Mesh, mat, ring, y0, y1):
 
 
 def cone(m: Mesh, mat, ring, y0, apex_y):
-    cu = sum(p[0] for p in ring) / len(ring)
-    cv = sum(p[1] for p in ring) / len(ring)
+    cu = _seqsum(p[0] for p in ring) / len(ring)
+    cv = _seqsum(p[1] for p in ring) / len(ring)
     cen = (cu, cv, y0 + (apex_y - y0) / 4)
     n = len(ring)
     for i in range(n):
@@ -347,7 +362,7 @@ def build(params, structure_id: str):
 
     def eave_of(p):
         n = int(p.get("storeys", params.stories))
-        return pf + sum(hs[:n]) if n <= len(hs) else pf + sum(hs) + (n - len(hs)) * hs[-1]
+        return pf + _seqsum(hs[:n]) if n <= len(hs) else pf + _seqsum(hs) + (n - len(hs)) * hs[-1]
 
     main = parts[0]
     mu0, mv0, mu1, mv1 = main["rect"]
@@ -491,7 +506,7 @@ def build(params, structure_id: str):
                 doors += 1
                 centres = [c for c in centres if abs(c - cs) > cw / 2 + 0.8]
             for k in range(n_st):
-                base = (pf if is_house else 0.0) + sum(hs[:k])
+                base = (pf if is_house else 0.0) + _seqsum(hs[:k])
                 hk = hs[min(k, len(hs) - 1)]
                 wh = min(2.2, hk - 1.3) if is_house else min(1.4, hk - 1.4)
                 ww = float(e.get("sash_width_m", 1.0)) if is_house else 0.8
@@ -565,7 +580,7 @@ def build(params, structure_id: str):
                 tower_top = y1 + float(feat.get("cap_m", 5.5))
             # sash on the three faces that look out over the street and the side
             for k in range(int(params.stories) + 1):
-                base = pf + sum(hs[:k]) if k < len(hs) else main_eave + 0.4
+                base = pf + _seqsum(hs[:k]) if k < len(hs) else main_eave + 0.4
                 for j in (0, 1, 7):
                     ang = math.radians(step * (j if j < 2 else ns - 1))
                     nu, nv = math.cos(ang), math.sin(ang)
@@ -649,7 +664,7 @@ def works_shell(m: Mesh, e, parts, pf, hs, stone, lot_v0, lot_v1, party, facts, 
     n_up = int(w.get("raised_storeys", 1))
     course = float(w.get("course_m", 0.0))
     t = float(w.get("wall_m", 0.45))
-    top = pf + sum(hs[:n_up])
+    top = pf + _seqsum(hs[:n_up])
     rects = [tuple(p["rect"]) for p in parts]
     openings = 0
     for i, p in enumerate(parts):
@@ -679,7 +694,7 @@ def works_shell(m: Mesh, e, parts, pf, hs, stone, lot_v0, lot_v1, party, facts, 
             sign = 1 if side in ("u1", "v1") else -1
             x0, x1 = sorted((at, at + sign * 0.02))
             for k in range(n_up):
-                sill = pf + sum(hs[:k]) + 0.75
+                sill = pf + _seqsum(hs[:k]) + 0.75
                 hk = min(2.2, hs[min(k, len(hs) - 1)] - 1.3)
                 for s in _spread(a, b, n, 0.7):
                     # an empty opening reads dark: the glass colour, with no sash, rail or sill
@@ -698,7 +713,7 @@ def works_shell(m: Mesh, e, parts, pf, hs, stone, lot_v0, lot_v1, party, facts, 
         lines.append(("v0", mv0 - 1.2, mu0, mu1 + 1.2))
     if lot_v1 - mv1 >= party + 1.5:
         lines.append(("v1", mv1 + 1.2, mu0, mu1 + 1.2))
-    levels = [pf + sum(hs[:k]) for k in range(1, n_up + 1)] + [top + course]
+    levels = [pf + _seqsum(hs[:k]) for k in range(1, n_up + 1)] + [top + course]
     poles = 0
     for side, at, a, b in lines:
         for s in _spread(a, b, max(2, round((b - a) / 2.4) + 1), 0.0):
