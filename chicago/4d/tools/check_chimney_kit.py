@@ -38,6 +38,7 @@ tools/check_roof_kit.py):
 from __future__ import annotations
 
 import copy
+import math
 import json
 import sys
 from pathlib import Path
@@ -115,6 +116,95 @@ def _stack_tris(r, F, O, roles, pad=0.6):
     return out
 
 
+def stack_verdicts(full, light, s, F, O, data, tag):
+    """One stack's rules on a built surface: its flues, its draught, its cricket and
+    flashing, and (where a light tier is built beside it) that tier's centre and top.
+    `full` is anything with pts and tris: a kit variant, or a house's joined roof
+    (T-2313), whose stacks are built by the same code in the house's own roof."""
+    q = data["measure"]["quantum_m"]
+    caps = data["costs"]["max_triangles"]
+    lum = sum(K.materials()["flue"]["color"]) / 3
+    res = []
+    # flues
+    pf = data["pot"]
+    flue_tris = _stack_tris(full, F, O, ("flue",), pad=0.0)
+    bad = []
+    for off, pot in K.flues(s):
+        half = pf["bore_m"] if pot else data["parts"]["flue"]["opening_m"] / 2
+        mine = [tt for tt in flue_tris
+                if abs(_local(F, O, _tri_centroid(full, tt))[2] - off) <= half + q]
+        ys = [full.pts[i][1] for tt in mine for i in tt[:3]]
+        top = s["top_m"] + (max(h for h, _ in pf["profiles"][pot]) if pot else 0.0)
+        need = s["top_m"] - data["parts"]["flue"]["depth_m"]
+        if not mine or min(ys) > need + q or max(ys) < top - q:
+            bad.append(f"flue at {off:+.3f}: " + (f"{len(mine)} faces, {min(ys):.3f}..{max(ys):.3f} m, "
+                                                  f"wants {need:.3f}..{top:.3f}" if mine else "no recess"))
+    if lum > FLUE_MAX_LUMINANCE:
+        bad.append(f"flue material luminance {lum:.3f} > {FLUE_MAX_LUMINANCE}")
+    res.append((not bad, f"{tag}: flue", "; ".join(bad) or "ok"))
+    # draught
+    dr = data["draught"]
+    cap_top = max((full.pts[i][1] for tt in _stack_tris(full, F, O, K.STACK_ROLES, pad=0.3)
+                   if tt[3] in ("cap_stone", "cap_cement") for i in tt[:3]), default=None)
+    cmax = covering_max(full, F.cx + O[0], F.cz, dr["radius_m"])
+    own = max(F.cov(a, c) for a in (-F.d / 2, F.d / 2) for c in (-F.w / 2, F.w / 2))
+    ok = (cap_top is not None and abs(cap_top - s["top_m"]) <= q and cmax is not None
+          and cap_top >= cmax + dr["clear_m"] - q and cap_top >= own + dr["min_above_own_m"] - q)
+    res.append((ok, f"{tag}: draught",
+                f"cap top {cap_top} (declared {s['top_m']}), covering within {dr['radius_m']} m "
+                f"{cmax and round(cmax, 3)} + {dr['clear_m']}, covering at the stack {own:.3f} + "
+                f"{dr['min_above_own_m']}"))
+    # cricket and flashing, by which side of the shaft they lie on
+    wants = (not F.ridge) and F.w > data["parts"]["cricket"]["min_width_m"]
+    ck = _stack_tris(full, F, O, ("cricket",))
+    ck_hi = [tt for tt in ck if _local(F, O, _tri_centroid(full, tt))[0] > F.d / 2 - q * 20]
+    fl = _stack_tris(full, F, O, ("flashing",), pad=0.3)
+    sides = {"low": 0, "high": 0, "-c": 0, "+c": 0}
+    steps = {"-c": set(), "+c": set()}
+    for tt in fl:
+        a, y, c = _local(F, O, _tri_centroid(full, tt))
+        if c < -F.w / 2:
+            sides["-c"] += 1
+        elif c > F.w / 2:
+            sides["+c"] += 1
+        if a < -F.d / 2:
+            sides["low"] += 1
+        elif a > F.d / 2:
+            sides["high"] += 1
+        n = K5._tri_normal(full.pts, tt[:3])
+        if n[1] > 0.999 and abs(c) > F.w / 2 and abs(a) < F.d / 2:
+            steps["-c" if c < 0 else "+c"].add(round(y / q))
+    res.append(((len(ck_hi) > 0) == wants and (wants or sides["high"] > 0),
+                f"{tag}: cricket",
+                f"{'wants' if wants else 'wants no'} cricket (width {F.w} m, "
+                f"{'astride a ridge' if F.ridge else 'on a slope'}); built {len(ck_hi)} cricket face(s) "
+                f"behind, {sides['high']} flashing face(s) behind"))
+    need_steps = 1 if F.ridge else 2
+    okf = sides["-c"] > 0 and sides["+c"] > 0 and sides["low"] > 0 and (sides["high"] > 0 or ck_hi) \
+        and len(steps["-c"]) >= need_steps and len(steps["+c"]) >= need_steps
+    res.append((okf, f"{tag}: flashing",
+                f"faces by side {sides}, step levels -c {len(steps['-c'])} +c {len(steps['+c'])}"))
+    # light: same plan centre, same top
+    lt = _stack_tris(light, F, O, ("light_brick", "light_stone"), pad=0.0) if light is not None else []
+    lp = [light.pts[i] for tt in lt for i in tt[:3]]
+    fp = [full.pts[i] for tt in _stack_tris(full, F, O, K.STACK_ROLES, pad=0.3) for i in tt[:3]]
+    if light is None:
+        pass
+    elif lp and fp:
+        lc = ((min(p[0] for p in lp) + max(p[0] for p in lp)) / 2, (min(p[2] for p in lp) + max(p[2] for p in lp)) / 2)
+        fc = (F.cx + O[0], F.cz)
+        ltop, ftop = max(p[1] for p in lp), max(p[1] for p in fp)
+        okl = abs(lc[0] - fc[0]) <= q and abs(lc[1] - fc[1]) <= q and abs(ltop - ftop) <= q \
+            and len(lt) <= caps["light"]
+        det = (f"light centre ({lc[0]:.3f}, {lc[1]:.3f}) top {ltop:.3f} m, {len(lt)} triangles; full centre "
+               f"({fc[0]:.3f}, {fc[1]:.3f}) top {ftop:.3f} m")
+    else:
+        okl, det = False, "no light stack built"
+    if light is not None:
+        res.append((okl, f"{tag}: light", det))
+    return res
+
+
 def verdicts(kit, data, specimen_ok=True):
     q = data["measure"]["quantum_m"]
     res = []
@@ -146,87 +236,56 @@ def verdicts(kit, data, specimen_ok=True):
                         break
         res.append((low == 0, f"{vid}: seated", f"{low} stack triangle(s) below the covering"))
         for si, (s, F) in enumerate(zip(full.v["stacks"], frames)):
-            tag = f"{vid} stack {si}"
-            # flues
-            pf = data["pot"]
-            flue_tris = _stack_tris(full, F, O, ("flue",), pad=0.0)
-            bad = []
-            for off, pot in K.flues(s):
-                half = pf["bore_m"] if pot else data["parts"]["flue"]["opening_m"] / 2
-                mine = [tt for tt in flue_tris
-                        if abs(_local(F, O, _tri_centroid(full, tt))[2] - off) <= half + q]
-                ys = [full.pts[i][1] for tt in mine for i in tt[:3]]
-                top = s["top_m"] + (max(h for h, _ in pf["profiles"][pot]) if pot else 0.0)
-                need = s["top_m"] - data["parts"]["flue"]["depth_m"]
-                if not mine or min(ys) > need + q or max(ys) < top - q:
-                    bad.append(f"flue at {off:+.3f}: " + (f"{len(mine)} faces, {min(ys):.3f}..{max(ys):.3f} m, "
-                                                          f"wants {need:.3f}..{top:.3f}" if mine else "no recess"))
-            if lum > FLUE_MAX_LUMINANCE:
-                bad.append(f"flue material luminance {lum:.3f} > {FLUE_MAX_LUMINANCE}")
-            res.append((not bad, f"{tag}: flue", "; ".join(bad) or "ok"))
-            # draught
-            dr = data["draught"]
-            cap_top = max((full.pts[i][1] for tt in _stack_tris(full, F, O, K.STACK_ROLES, pad=0.3)
-                           if tt[3] in ("cap_stone", "cap_cement") for i in tt[:3]), default=None)
-            cmax = covering_max(full, F.cx + O[0], F.cz, dr["radius_m"])
-            own = max(F.cov(a, c) for a in (-F.d / 2, F.d / 2) for c in (-F.w / 2, F.w / 2))
-            ok = (cap_top is not None and abs(cap_top - s["top_m"]) <= q and cmax is not None
-                  and cap_top >= cmax + dr["clear_m"] - q and cap_top >= own + dr["min_above_own_m"] - q)
-            res.append((ok, f"{tag}: draught",
-                        f"cap top {cap_top} (declared {s['top_m']}), covering within {dr['radius_m']} m "
-                        f"{cmax and round(cmax, 3)} + {dr['clear_m']}, covering at the stack {own:.3f} + "
-                        f"{dr['min_above_own_m']}"))
-            # cricket and flashing, by which side of the shaft they lie on
-            wants = (not F.ridge) and F.w > data["parts"]["cricket"]["min_width_m"]
-            ck = _stack_tris(full, F, O, ("cricket",))
-            ck_hi = [tt for tt in ck if _local(F, O, _tri_centroid(full, tt))[0] > F.d / 2 - q * 20]
-            fl = _stack_tris(full, F, O, ("flashing",), pad=0.3)
-            sides = {"low": 0, "high": 0, "-c": 0, "+c": 0}
-            steps = {"-c": set(), "+c": set()}
-            for tt in fl:
-                a, y, c = _local(F, O, _tri_centroid(full, tt))
-                if c < -F.w / 2:
-                    sides["-c"] += 1
-                elif c > F.w / 2:
-                    sides["+c"] += 1
-                if a < -F.d / 2:
-                    sides["low"] += 1
-                elif a > F.d / 2:
-                    sides["high"] += 1
-                n = K5._tri_normal(full.pts, tt[:3])
-                if n[1] > 0.999 and abs(c) > F.w / 2 and abs(a) < F.d / 2:
-                    steps["-c" if c < 0 else "+c"].add(round(y / q))
-            res.append(((len(ck_hi) > 0) == wants and (wants or sides["high"] > 0),
-                        f"{tag}: cricket",
-                        f"{'wants' if wants else 'wants no'} cricket (width {F.w} m, "
-                        f"{'astride a ridge' if F.ridge else 'on a slope'}); built {len(ck_hi)} cricket face(s) "
-                        f"behind, {sides['high']} flashing face(s) behind"))
-            need_steps = 1 if F.ridge else 2
-            okf = sides["-c"] > 0 and sides["+c"] > 0 and sides["low"] > 0 and (sides["high"] > 0 or ck_hi) \
-                and len(steps["-c"]) >= need_steps and len(steps["+c"]) >= need_steps
-            res.append((okf, f"{tag}: flashing",
-                        f"faces by side {sides}, step levels -c {len(steps['-c'])} +c {len(steps['+c'])}"))
-            # light: same plan centre, same top
-            lt = _stack_tris(light, F, O, ("light_brick", "light_stone"), pad=0.0)
-            lp = [light.pts[i] for tt in lt for i in tt[:3]]
-            fp = [full.pts[i] for tt in _stack_tris(full, F, O, K.STACK_ROLES, pad=0.3) for i in tt[:3]]
-            if lp and fp:
-                lc = ((min(p[0] for p in lp) + max(p[0] for p in lp)) / 2, (min(p[2] for p in lp) + max(p[2] for p in lp)) / 2)
-                fc = (F.cx + O[0], F.cz)
-                ltop, ftop = max(p[1] for p in lp), max(p[1] for p in fp)
-                okl = abs(lc[0] - fc[0]) <= q and abs(lc[1] - fc[1]) <= q and abs(ltop - ftop) <= q \
-                    and len(lt) <= caps["light"]
-                det = (f"light centre ({lc[0]:.3f}, {lc[1]:.3f}) top {ltop:.3f} m, {len(lt)} triangles; full centre "
-                       f"({fc[0]:.3f}, {fc[1]:.3f}) top {ftop:.3f} m")
-            else:
-                okl, det = False, "no light stack built"
-            res.append((okl, f"{tag}: light", det))
+            res += stack_verdicts(full, light, s, F, O, data, f"{vid} stack {si}")
         n = K.triangles(full)
         cap = caps[full.v["budget"]]
         res.append((n <= cap, f"{vid}: budget", f"{n} stack triangles, budget {cap}"))
     res.append((specimen_ok, "specimen", "the committed GLB is not the generator's bytes: "
                 "run python3 generators/archetypes/k15_chimneys.py"))
     return res
+
+
+def house_verdicts(name, asm, data):
+    """T-2313: the kit's stack rules on a HOUSE's chimneys, each built by k15_chimneys in
+    the house's own K05 roof (k01_frontage.Assembly.roof). The roof's closure, one
+    shell, doubling, crossing and interior faces are check_roof_kit's (it builds the
+    same joined solid); here, every stack is seated, its flues are dark recesses, its
+    top clears the draught rule on the BUILT covering, a wide slope stack has its
+    cricket and every stack its flashing, inside its variant's budget. A house ships
+    one mesh at every detail tier, so there is no separate light stack to hold."""
+    p = asm.p
+    pts, tris = asm.roof_shell
+
+    class R:
+        pass
+    r = R()
+    r.pts, r.tris = pts, tris
+    q = data["measure"]["quantum_m"]
+    E, t, D, W = p.eave_m, math.tan(math.radians(p.roof_pitch_deg)), p.depth_m, p.width_m
+
+    def cover(x, z):
+        return E + t * max(0.0, min(x, D - x, -z, W + z))
+    O = (0.0, 0.0, 0.0)
+    res = []
+    low = sum(1 for tri in tris if tri[3] in K.STACK_ROLES
+              and any(pts[i][1] < cover(pts[i][0], pts[i][2]) - q for i in tri[:3]))
+    res.append((low == 0, f"{name}: seated", f"{low} stack triangle(s) below the covering"))
+    budgets = {v["id"]: v["budget"] for v in data["variants"]}
+    for c in p.chimneys:
+        st = dict(c["k15"], x=c["u_m"], z=-c["v_m"])
+        F = K.Frame(st, cover)
+        tag = f"{name} stack {c['id']}"
+        res += stack_verdicts(r, None, st, F, O, data, tag)
+        mine = _stack_tris(r, F, O, K.STACK_ROLES, pad=0.6)
+        cap = data["costs"]["max_triangles"][budgets[c["from"]]]
+        res.append((len(mine) <= cap, f"{tag}: budget", f"{len(mine)} stack triangles, budget {cap}"))
+    return res
+
+
+def houses():
+    """Every k01_frontage house that builds chimneys, built as the bake builds it."""
+    from check_roof_kit import houses as roof_houses
+    return [(n, a) for n, a in roof_houses() if a.p.chimneys and all("k15" in c for c in a.p.chimneys)]
 
 
 def specimen_ok(kit, data) -> bool:
@@ -238,11 +297,17 @@ def run_check() -> int:
     data = K.load()
     kit = K.build_kit(data)
     res = verdicts(kit, data, specimen_ok(kit, data))
+    built = houses()
+    for name, asm in built:
+        hr = house_verdicts(name, asm, data)
+        print(f"{'ok  ' if all(x[0] for x in hr) else 'FAIL'} {name}: {len(asm.p.chimneys)} stack(s) from the K15 kit, "
+              + "; ".join(f"{s['id']} top {s['top_m']} m, {s['flues']} flues, {s['behind']} behind" for s in asm.stacks))
+        res += hr
     bad = [x for x in res if not x[0]]
     for ok, label, detail in res:
         if not ok:
             print(f"FAIL {label}: {detail}")
-    print(f"{'ok  ' if not bad else 'FAIL'} K15 chimney kit: {len(kit)} variants, {len(res) - len(bad)}/{len(res)} rules hold")
+    print(f"{'ok  ' if not bad else 'FAIL'} K15 chimney kit: {len(kit)} variants and {len(built)} house(s), {len(res) - len(bad)}/{len(res)} rules hold")
     return 1 if bad else 0
 
 
