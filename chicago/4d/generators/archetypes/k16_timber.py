@@ -74,10 +74,15 @@ ROLE_MATERIAL = {
     "interior": "plaster", "cut": "cut",
     # T-2323: a house in the scene — the plain body standing in for its envelope
     "stand_in": "stand_in", "stand_in_roof": "roof", "skirt": "trim",
+    # T-2357: a whole frame house — its door, steps, roof covering and brick stack
+    "door": "stained", "door_panel": "stained", "step_tread": "stained", "step_riser": "trim",
+    "roof_covering": "roof", "chimney": "chimney",
 }
 BOARD_ROLES = ("foundation", "roof", "backdrop", "interior", "cut")
 # Roles that are not timber: K06's glass and room, and the board.
 NOT_TIMBER = ("glass_outer", "glass_inner", "came", "blind", "curtain", "backing", "crawl") + BOARD_ROLES
+# T-2357: what a whole house adds that is not timber, its roof covering and its brick stack
+NOT_TIMBER += ("roof_covering", "chimney")
 
 
 def materials(data: dict) -> dict:
@@ -544,49 +549,71 @@ class Sample:
         E = cl["exposure_m"]
         W, D, y_fd, y_s = v["width_m"], v["return_m"], v["foundation_m"], v["wall_top_m"]
         F = self.F
-        R = Frame("return", F.P(W, 0, 0), (0.0, 0.0, -1.0), (1.0, 0.0, 0.0))
-        y_start = self._base(F, 0.0, W, y_fd, T, ("cut", "cut"), R, W, D)
+        # T-2357: a wall with no return (`return_m` 0) runs straight and ends cut, where a
+        # house's wall dies into another wall instead of turning an outside corner
+        corner = D > 0
+        R = Frame("return", F.P(W, 0, 0), (0.0, 0.0, -1.0), (1.0, 0.0, 0.0)) if corner else None
+        if corner:
+            y_start = self._base(F, 0.0, W, y_fd, T, ("cut", "cut"), R, W, D)
+        else:
+            y_start = self._base(F, 0.0, W, y_fd, T)
         fr = tr["frieze"]
         y_fr0 = y_s - fr["height_m"]
         cb, ct = tr["corner_board"]["width_m"], tr["corner_board"]["thickness_m"]
 
         # the cased windows: K06's sash in a K16 casing (one on the specimen; T-2323 a list)
         holes, cuts = [], []
-        for win in v.get("windows") or [v["window"]]:
+        for win in (v["windows"] if "windows" in v else [v["window"]]):
             hole, cut = self._cased_window(F, win, y_start)
+            holes.append(hole)
+            cuts.append(cut)
+        for door in v.get("doors") or []:   # T-2357: a panelled door in a K16 casing
+            hole, cut = self._cased_door(F, door, y_start)
             holes.append(hole)
             cuts.append(cut)
 
         # walls: sheathing, interior, the specimen's two cuts
         self.sheathing(F, (0.0, W, y_fd, y_s), holes)
-        self.sheathing(R, (0.0, D, y_fd, y_s))
-        self.sheathing(F, (0.0, W - T, y_fd, y_s), holes, role="interior", z=-T, hint_z=-1)
-        self.sheathing(R, (T, D, y_fd, y_s), role="interior", z=-T, hint_z=-1)
+        if corner:
+            self.sheathing(R, (0.0, D, y_fd, y_s))
+        self.sheathing(F, (0.0, W - T if corner else W, y_fd, y_s), holes, role="interior", z=-T, hint_z=-1)
+        if corner:
+            self.sheathing(R, (T, D, y_fd, y_s), role="interior", z=-T, hint_z=-1)
         self.poly(F, "cut", [(0, y_fd, -T), (0, y_fd, 0), (0, y_s, 0), (0, y_s, -T)], (-1, 0, 0))
-        self.poly(R, "cut", [(D, y_fd, -T), (D, y_s, -T), (D, y_s, 0), (D, y_fd, 0)], (1, 0, 0))
+        if corner:
+            self.poly(R, "cut", [(D, y_fd, -T), (D, y_s, -T), (D, y_s, 0), (D, y_fd, 0)], (1, 0, 0))
+        else:
+            self.poly(F, "cut", [(W, y_fd, -T), (W, y_s, -T), (W, y_s, 0), (W, y_fd, 0)], (1, 0, 0))
 
         # clapboard, front and return, and the corner boards between them
-        self.clapboards(F, 0.0, W - cb + ct, y_start, y_fr0, ("cut", "trim"), cuts)
-        self.clapboards(R, cb - ct, D, y_start, y_fr0, ("trim", "cut"))
-        tc = self.tone("corner")
-        self.box(F, "corner_board", W - cb + ct, W + ct, y_start, y_fr0, 0, ct, skip=("back", "top"), tone=tc)
-        self.box(R, "corner_board", 0.0, cb - ct, y_start, y_fr0, 0, ct, skip=("back", "top", "s0"), tone=tc)
+        if corner:
+            self.clapboards(F, 0.0, W - cb + ct, y_start, y_fr0, ("cut", "trim"), cuts)
+            self.clapboards(R, cb - ct, D, y_start, y_fr0, ("trim", "cut"))
+            tc = self.tone("corner")
+            self.box(F, "corner_board", W - cb + ct, W + ct, y_start, y_fr0, 0, ct, skip=("back", "top"), tone=tc)
+            self.box(R, "corner_board", 0.0, cb - ct, y_start, y_fr0, 0, ct, skip=("back", "top", "s0"), tone=tc)
+        else:
+            self.clapboards(F, 0.0, W, y_start, y_fr0, ("cut", "cut"), cuts)
 
         # frieze, boxed eave, brackets
         ft = fr["thickness_m"]
         ev = tr["eave"]
         P_, fh = ev["projection_m"], ev["fascia_m"]
-        self.mitred_run(F, R, [(0.0, y_fr0), (ft, y_fr0), (ft, y_s), (0.0, y_s)], ["frieze", "frieze", None, None],
-                        0.0, W, D, ("end_grain", "end_grain"), self.tone("frieze"))
-        self.mitred_run(F, R, [(0.0, y_s), (P_, y_s), (P_, y_s + fh), (0.0, y_s + fh)], ["soffit", "fascia", "roof", None],
-                        0.0, W, D, ("cut", "cut"), self.tone("eave"))
+        frieze = ([(0.0, y_fr0), (ft, y_fr0), (ft, y_s), (0.0, y_s)], ["frieze", "frieze", None, None])
+        eave = ([(0.0, y_s), (P_, y_s), (P_, y_s + fh), (0.0, y_s + fh)], ["soffit", "fascia", "roof", None])
+        for (prof, roles), caps, key in ((frieze, ("end_grain", "end_grain"), "frieze"), (eave, ("cut", "cut"), "eave")):
+            if corner:
+                self.mitred_run(F, R, prof, roles, 0.0, W, D, caps, self.tone(key))
+            else:
+                self.profile_run(F, prof, roles, 0.0, W, caps, self.tone(key))
         br = dict(tr["bracket"])
         sp = br["spacing_m"]
         nb = int((W - 0.8) / sp) + 1
         first = (W - (nb - 1) * sp) / 2
         for kb in range(nb):
             self.bracket(F, first + kb * sp, ft, y_s, br, br["thickness_m"], tone=self.tone("bracket", kb))
-        self.bracket(R, (cb - ct + D) / 2, ft, y_s, br, br["thickness_m"], tone=self.tone("bracket", "r"))
+        if corner:
+            self.bracket(R, (cb - ct + D) / 2, ft, y_s, br, br["thickness_m"], tone=self.tone("bracket", "r"))
         self.meta["eave"] = {"y_top": y_s + fh, "projection_m": P_}   # T-2323
         self.meta.update({"wall_thickness_m": T, "focus": [W * 0.62, 2.1, 0.0], "span_m": 3.2})
 
@@ -652,6 +679,75 @@ class Sample:
                                "head_m": round(yHc - yH, 6), "on_course_lines": True}
         self.meta.setdefault("casings", []).append(self.meta["casing"])
         return hole, cut
+
+    def _cased_door(self, F, door, y_start):
+        """T-2357: a panelled door in a K16 casing on frame F, centred at door's centre_m,
+        its threshold on the water table's drip cap (where the cladding starts). The leaf
+        stands at the casing's reveal, stiles and rails flush and the panels sunk behind
+        them; the jambs and head are lined in painted trim; the side casings stand on the
+        drip cap's slope and the head carries a drip cap ended on a clapboard butt line.
+        Returns the hole it leaves in the sheathing and the rectangle it cuts from the
+        clapboard."""
+        tr = self.data["trim"]
+        E = self.data["cladding"]["clapboard"]["exposure_m"]
+        cs, wt = tr["casing"], tr["water_table"]
+        c, w, H = door["centre_m"], door["clear_width_m"], door["clear_height_m"]
+        hw = w / 2
+        rev = cs["reveal_depth_m"]
+        cw, cth = cs["width_m"], cs["thickness_m"]
+        sa, sb = c - hw - cw, c + hw + cw
+        y0, yH = y_start, y_start + H
+        tw = self.tone("door_casing", c)
+        # the jamb lining, the head soffit and the threshold, the wall's depth to the leaf
+        for s_e, hs in ((c - hw, 1), (c + hw, -1)):
+            self.poly(F, "reveal", [(s_e, y0, 0), (s_e, y0, -rev), (s_e, yH, -rev), (s_e, yH, 0)], (hs, 0, 0), tw)
+        self.poly(F, "reveal", [(c - hw, yH, 0), (c - hw, yH, -rev), (c + hw, yH, -rev), (c + hw, yH, 0)], (0, -1, 0), tw)
+        self.poly(F, "sill", [(c - hw, y0, -rev), (c + hw, y0, -rev), (c + hw, y0, 0), (c - hw, y0, 0)], (0, 1, 0), tw)
+        # the leaf: stiles and rails a frame round sunk panels, `panels` [columns, rows]
+        st, rt, rb, rl = door["stile_m"], door["top_rail_m"], door["bottom_rail_m"], door["lock_rail_m"]
+        ncol, nrow = door["panels"]
+        sink = door["panel_sink_m"]
+        x0, x1 = c - hw + st, c + hw - st
+        pw = (x1 - x0 - (ncol - 1) * st) / ncol
+        rows = []
+        y_lo = y0 + rb
+        y_hi = yH - rt
+        ph = (y_hi - y_lo - (nrow - 1) * rl) / nrow
+        for j in range(nrow):
+            rows.append((y_lo + j * (ph + rl), y_lo + j * (ph + rl) + ph))
+        panels = [(x0 + i * (pw + st), x0 + i * (pw + st) + pw, ya, yb) for i in range(ncol) for (ya, yb) in rows]
+        td = self.tone("door", c)
+        self.sheathing(F, (c - hw, c + hw, y0, yH), panels, role="door", z=-rev)
+        for (pa, pb, ya, yb) in panels:
+            zb = -rev - sink
+            self.poly(F, "door_panel", [(pa, ya, zb), (pb, ya, zb), (pb, yb, zb), (pa, yb, zb)], (0, 0, 1), td)
+            for q in ([(pa, ya, zb), (pa, ya, -rev), (pa, yb, -rev), (pa, yb, zb)],
+                      [(pb, ya, zb), (pb, yb, zb), (pb, yb, -rev), (pb, ya, -rev)],
+                      [(pa, ya, zb), (pb, ya, zb), (pb, ya, -rev), (pa, ya, -rev)],
+                      [(pa, yb, zb), (pa, yb, -rev), (pb, yb, -rev), (pb, yb, zb)]):
+                cx, cy = (pa + pb) / 2, (ya + yb) / 2
+                mx, my = sum(p[0] for p in q) / 4, sum(p[1] for p in q) / 4
+                self.poly(F, "door", q, (cx - mx, cy - my, 0), td)
+        # the casing: its feet on the drip cap's slope, the head, the head's drip cap
+        sl = wt["cap"]["fall_m"] / (wt["thickness_m"] + wt["cap"]["projection_m"])
+        dc = cs["drip_cap"]
+        y_top = y_start + E * math.ceil((yH + cs["head_m"] + dc["height_m"] - y_start) / E - 1e-6)
+        yHc = y_top - dc["height_m"]
+        yb_ = y0 - cth * sl
+        for (a, b) in ((sa, c - hw), (c + hw, sb)):
+            self.poly(F, "casing", [(a, yb_, cth), (b, yb_, cth), (b, yH, cth), (a, yH, cth)], (0, 0, 1), tw)
+            self.poly(F, "casing", [(a, y0, 0), (a, yb_, cth), (a, yH, cth), (a, yH, 0)], (-1, 0, 0), tw)
+            self.poly(F, "casing", [(b, y0, 0), (b, yb_, cth), (b, yH, cth), (b, yH, 0)], (1, 0, 0), tw)
+        self.box(F, "casing", sa, sb, yH, yHc, 0, cth, skip=("back", "top", "bottom"), tone=tw,
+                 roles={"s0": "end_grain", "s1": "end_grain"})
+        self.poly(F, "casing", [(c - hw, yH, 0), (c + hw, yH, 0), (c + hw, yH, cth), (c - hw, yH, cth)], (0, -1, 0), tw)
+        zc = cth + dc["projection_m"]
+        cap = [(0.0, yHc), (zc, yHc), (zc, yHc + dc["front_m"]), (0.0, y_top)]
+        self.poly(F, "drip_cap", [(sa, yHc, cth), (sb, yHc, cth), (sb, yHc, zc), (sa, yHc, zc)], (0, -1, 0), tw)
+        self.profile_run(F, cap, [None, "drip_cap", "drip_cap", None], sa, sb, ("end_grain", "end_grain"), tw)
+        self.meta.setdefault("doors", []).append({"s": [round(sa, 6), round(sb, 6)], "y": [round(y0, 6), round(y_top, 6)],
+                                                  "panels": len(panels), "on_course_lines": True})
+        return (c - hw, c + hw, y0, yH), (sa, sb, y0, y_top)
 
     def _batten_wall(self):
         v, d = self.v, self.data
@@ -1186,6 +1282,204 @@ def structure_glb(house: Sample, data: dict, form: dict, structure_id: str, phas
         "structure_id": structure_id, "phase_id": phase_id, "scene_ids": list(scene_ids),
         "parts_triangles": house.meta["parts"]},
         extras={"ticket": "T-2323", "structure": f"data/structures/{structure_id}.json"})
+
+
+# -- T-2357: a whole small frame house, closed on every face from the kit ------------------------
+#
+# The record's `frame_house` names blocks in the LOT PLAN frame the district draft used — u
+# from the rear toward the street, v along the street front, glTF (u, y, -v) — so the record
+# keeps the draft's position and rotation. Every wall is a kit `clapboard_wall` built in its
+# own frame and set down on its side of its block; the walls run counter-clockwise from above
+# (east, north, west, south), each turning its outside corner with a short return that the
+# next wall's cladding takes up from, so the block closes with every corner a K16 corner.
+
+SIDE_RUN = {   # side -> (start corner of rect_uv as (u index, v index), direction in glTF)
+    "east": ((2, 1), (0.0, 0.0, -1.0)), "north": ((2, 3), (-1.0, 0.0, 0.0)),
+    "west": ((0, 3), (0.0, 0.0, 1.0)), "south": ((0, 1), (1.0, 0.0, 0.0)),
+}
+
+
+def side_frame(rect, side):
+    """The start corner (glTF), the run direction and the length of one side of a block."""
+    (iu, iv), U = SIDE_RUN[side]
+    O = (rect[iu], 0.0, -rect[iv])
+    L = rect[3] - rect[1] if side in ("east", "west") else rect[2] - rect[0]
+    return O, U, L
+
+
+def place(sm: Sample, O, U) -> None:
+    """Set a sample built in the default frame (s along x, z out) down at O with its s along
+    U: a turn about y and a move, so its UVs (surface metres) are untouched."""
+    N = _cross(U, Y)
+    for pr in sm.prims.values():
+        pr.pos = [_add(O, _add(_add(_mul(U, p[0]), _mul(Y, p[1])), _mul(N, p[2]))) for p in pr.pos]
+        pr.nrm = [_add(_add(_mul(U, n[0]), _mul(Y, n[1])), _mul(N, n[2])) for n in pr.nrm]
+    at = lambda p: _add(O, _add(_add(_mul(U, p[0]), _mul(Y, p[1])), _mul(N, p[2])))
+    turn = lambda d: _add(_add(_mul(U, d[0]), _mul(Y, d[1])), _mul(N, d[2]))
+    for fr in sm.meta["frames"]:     # the gate reads each run in its own frame: move those too
+        fr["origin"] = [round(c, 6) for c in at(fr["origin"])]
+        fr["u"], fr["n"] = [round(c, 6) for c in turn(fr["u"])], [round(c, 6) for c in turn(fr["n"])]
+    sm.O = at(sm.O)
+
+
+def frame_house_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
+    """Every wall and porch half of a whole frame house, built and set in place, keyed
+    `<block>.<side>` and `porch_right` / `porch_left`: what the gate measures, each held to
+    the kit's rules the way its specimen sample is."""
+    data = data or load()
+    fh = phase["form"]["frame_house"]["value"]
+    sid = st["id"]
+    D = fh["return_m"]
+    out = {}
+    for b in fh["blocks"]:
+        walls = b["walls"]
+        free = not b.get("against")
+        for i, w in enumerate(walls):
+            O, U, L = side_frame(b["rect_uv"], w["side"])
+            last = i == len(walls) - 1
+            start = D if (free or i > 0) else 0.0     # the previous wall's return covers this much
+            ret = 0.0 if (last and not free) else D
+            v = {"id": f"k16.wall.{sid}.{b['id']}_{w['side']}", "kind": "clapboard_wall", "use": "wall",
+                 "width_m": round(L - start, 6), "return_m": ret, "foundation_m": fh["foundation_m"],
+                 "wall_top_m": b["wall_top_m"],
+                 "windows": [dict(x, centre_m=round(x["centre_m"] - start, 6)) for x in w.get("windows", [])],
+                 "doors": [dict(x, centre_m=round(x["centre_m"] - start, 6)) for x in w.get("doors", [])]}
+            sm = Sample(v, data, index=0).build()
+            place(sm, _add(O, _mul(U, start)), U)
+            out[f"{b['id']}.{w['side']}"] = sm
+    po = fh.get("porch")
+    if po:
+        main = fh["blocks"][0]
+        O, U, _ = side_frame(main["rect_uv"], po.get("side", "east"))
+        half = dict(po, width_m=po["half_width_m"])
+        probe = Sample(half, data).build()
+        reach = max(p[0] for pr in probe.prims.values() for p in pr.pos)
+        c = po["centre_m"]
+        right = Sample(half, data, (c, 0.0, 0.0)).build()
+        left = Sample(half, data, (c, 0.0, 0.0)).build()
+        mirror_s(left, c)
+        steps = po.get("steps")
+        if steps:
+            _porch_steps(right, data, po, steps)
+        for k, sm in (("porch_right", right), ("porch_left", left)):
+            place(sm, O, U)
+            out[k] = sm
+        out["_porch_reach_m"] = reach
+    return out
+
+
+def _porch_steps(sm: Sample, data: dict, po: dict, steps: dict) -> None:
+    """Timber steps from grade to the porch floor in front of `steps.centre_m` (in the
+    porch's own frame, before it is set down): risers equal and solved from the floor
+    height, each step a block with an oiled tread and painted riser and strings."""
+    fl = data["porch"]["floor"]
+    yf, Dp = fl["height_m"], po.get("depth_m", fl["depth_m"])
+    n = max(2, math.ceil(yf / steps["max_riser_m"] - 1e-9))
+    r, g = yf / n, steps["going_m"]
+    c, hw = steps["centre_m"] - po["centre_m"], steps["width_m"] / 2   # in the half's own frame
+    z_edge = Dp + fl["nosing_m"]
+    for k in range(1, n):             # the floor is the top tread
+        z0 = z_edge + (n - 1 - k) * g
+        sm.box(sm.F, "step_riser", c - hw, c + hw, 0.0, k * r, z0, z0 + g, skip=("back", "bottom"),
+               tone=sm.tone("step", k), roles={"top": "step_tread"})
+    sm.meta["steps"] = {"risers": n, "riser_m": round(r, 6), "going_m": g, "width_m": steps["width_m"]}
+
+
+def _hip(house: Sample, x0, x1, z0, z1, ye, pitch_deg):
+    """A hip over the eave rectangle: the ridge along the longer side, four planes."""
+    t = math.tan(math.radians(pitch_deg))
+    F = house.F
+    if (x1 - x0) >= (z1 - z0):
+        h = (z1 - z0) / 2
+        zm, xa, xb, yr = (z0 + z1) / 2, x0 + h, x1 - h, ye + h * t
+        house.poly(F, "roof_covering", [(x0, ye, z1), (x1, ye, z1), (xb, yr, zm), (xa, yr, zm)], (0, 1, 1))
+        house.poly(F, "roof_covering", [(x1, ye, z0), (x0, ye, z0), (xa, yr, zm), (xb, yr, zm)], (0, 1, -1))
+        house.poly(F, "roof_covering", [(x0, ye, z0), (x0, ye, z1), (xa, yr, zm)], (-1, 1, 0))
+        house.poly(F, "roof_covering", [(x1, ye, z1), (x1, ye, z0), (xb, yr, zm)], (1, 1, 0))
+        return yr, ("x", xa, xb, zm)
+    h = (x1 - x0) / 2
+    xm, za, zb, yr = (x0 + x1) / 2, z0 + h, z1 - h, ye + h * t
+    house.poly(F, "roof_covering", [(x1, ye, z0), (x1, ye, z1), (xm, yr, zb), (xm, yr, za)], (1, 1, 0))
+    house.poly(F, "roof_covering", [(x0, ye, z1), (x0, ye, z0), (xm, yr, za), (xm, yr, zb)], (-1, 1, 0))
+    house.poly(F, "roof_covering", [(x0, ye, z0), (x1, ye, z0), (xm, yr, za)], (0, 1, -1))
+    house.poly(F, "roof_covering", [(x1, ye, z1), (x0, ye, z1), (xm, yr, zb)], (0, 1, 1))
+    return yr, ("z", za, zb, xm)
+
+
+def frame_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
+    """The whole house merged into one sample in the lot plan frame (T-2357)."""
+    data = data or load()
+    fh = phase["form"]["frame_house"]["value"]
+    parts = frame_house_parts(st, phase, data)
+    ev = data["trim"]["eave"]
+    P_, fh_m = ev["projection_m"], ev["fascia_m"]
+    house = Sample({"id": st["id"], "kind": "structure", "use": "structure"}, data)
+    ridge = {}
+    for i, b in enumerate(fh["blocks"]):
+        u0, v0, u1, v1 = b["rect_uv"]
+        x0, x1, z0, z1 = u0 - P_, u1 + P_, -v1 - P_, -v0 + P_
+        if b.get("against"):     # the eave stops on the wall the block stands against
+            a = b["against"]
+            x0, x1, z0, z1 = (u0 if a == "west" else x0, u1 if a == "east" else x1,
+                              -v1 if a == "north" else z0, -v0 if a == "south" else z1)
+        ye = b["wall_top_m"] + fh_m
+        roof = b["roof"]
+        if roof["kind"] == "hip":
+            ridge[b["id"]] = _hip(house, x0, x1, z0, z1, ye, roof["pitch_deg"])
+        else:                   # a flat deck just over the eave's top, its edges closed
+            yd = ye + roof.get("deck_m", 0.03)
+            house.poly(house.F, "roof_covering", [(x0, yd, z1), (x1, yd, z1), (x1, yd, z0), (x0, yd, z0)], (0, 1, 0))
+            for q, hnt in (([(x0, ye, z1), (x1, ye, z1), (x1, yd, z1), (x0, yd, z1)], (0, 0, 1)),
+                           ([(x1, ye, z0), (x0, ye, z0), (x0, yd, z0), (x1, yd, z0)], (0, 0, -1)),
+                           ([(x0, ye, z0), (x0, ye, z1), (x0, yd, z1), (x0, yd, z0)], (-1, 0, 0)),
+                           ([(x1, ye, z1), (x1, ye, z0), (x1, yd, z0), (x1, yd, z1)], (1, 0, 0))):
+                house.poly(house.F, "roof_covering", q, hnt)
+            ridge[b["id"]] = (yd, None)
+    ch = fh.get("chimney")
+    if ch:
+        yr = ridge[fh["blocks"][0]["id"]][0]
+        xc, zc = ch["u_m"], -ch["v_m"]
+        hx, hz = ch["width_m"] / 2, ch["depth_m"] / 2
+        y_top = yr + ch["above_ridge_m"]
+        y_foot = fh["blocks"][0]["wall_top_m"]
+        cap, ch_h = ch.get("cap_m", 0.05), ch.get("cap_height_m", 0.15)
+        house.box(house.F, "chimney", xc - hx, xc + hx, y_foot, y_top - ch_h, zc - hz, zc + hz, skip=("bottom",),
+                  roles={"top": "chimney"})
+        house.box(house.F, "chimney", xc - hx - cap, xc + hx + cap, y_top - ch_h, y_top, zc - hz - cap, zc + hz + cap)
+    for k, sm in parts.items():
+        if k.startswith("_"):
+            continue
+        for role, pr in sm.prims.items():
+            if role in ("backdrop", "interior", "cut"):
+                continue
+            absorb(house.prims.setdefault(role, Prim(role)), pr)
+    main = fh["blocks"][0]["rect_uv"]
+    house.meta.update({"parts": {k: triangles(sm) for k, sm in parts.items() if not k.startswith("_")},
+                       "focus": [main[2], 3.0, -(main[1] + main[3]) / 2], "span_m": 12.0})
+    return house
+
+
+def frame_house_materials(house: Sample, data: dict, form: dict) -> dict:
+    """The materials a whole frame house draws: the kit's, its own body paint where the
+    record names one, its roof's covering and its stack's brick."""
+    mats = materials(data)
+    paint = form["frame_house"]["value"].get("paint") or {}
+    for k, col in paint.items():
+        mats[k] = dict(mats[k], color=tuple(col))
+    cov = form.get("roof_covering")
+    if cov and cov["value"].get("color"):
+        mats["roof"] = dict(mats["roof"], color=tuple(cov["value"]["color"]), roughness=0.9)
+    mats["chimney"] = dict(mats["foundation"])
+    used = {ROLE_MATERIAL[r] for r, pr in house.prims.items() if pr.idx}
+    return {k: m for k, m in mats.items() if k in used}
+
+
+def frame_house_glb(house: Sample, data: dict, form: dict, structure_id: str, phase_id: str, scene_ids) -> bytes:
+    name = f"{structure_id}__{phase_id}"
+    return to_glb([house], data, node_name=name, mats=frame_house_materials(house, data, form), node_extras={
+        "structure_id": structure_id, "phase_id": phase_id, "scene_ids": list(scene_ids),
+        "parts_triangles": house.meta["parts"]},
+        extras={"ticket": "T-2357", "structure": f"data/structures/{structure_id}.json"})
 
 
 # -- the kit -------------------------------------------------------------------------------------

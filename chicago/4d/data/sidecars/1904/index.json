@@ -253,9 +253,9 @@
     },
     {
       "id": "house_1630_prairie",
-      "name": "1630 Prairie Avenue — Small earlier frame house (district draft; refined by T-1862)",
+      "name": "1630 Prairie Avenue — small earlier frame house, K16 clapboard",
       "sidecar": "sidecars/1904/house_1630_prairie.json",
-      "asset": "gltf/house_1630_prairie__draft_1904.glb"
+      "asset": "gltf/house_1630_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1630_prairie_coach_house",

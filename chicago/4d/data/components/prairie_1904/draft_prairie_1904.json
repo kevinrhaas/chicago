@@ -313,7 +313,8 @@
     "s20-1607-f": "1607-1611's four-storey loft is the 1911 replacement of the lot-6 frame pair (T-1840 census, backcast_1886): the draft stands 1609 and 1611 from Robinson 1886 instead (block 20's `plates`), and the loft not at all.",
     "s20-1612-f": "1612 Prairie now stands as the K01 frontage assembly goodman_house_1612_prairie (T-2344, piece 1 of T-1860), which refines this draft in place under the draft's own id; the draft stands no second building beside it.",
     "s20-1616-f": "1616 Prairie's main body now stands as the K01 brick frontage house_1616_prairie (T-2353, piece 1 of T-2345), which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's one-storey rear range is T-2354's.",
-    "s20-1628-f": "1628 Prairie's main body now stands as the K01 brick frontage house_1628_prairie (T-2355, piece 1 of T-1862), the south half of the pair with 1626, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's three-storey rear wing waits for T-2347."
+    "s20-1628-f": "1628 Prairie's main body now stands as the K01 brick frontage house_1628_prairie (T-2355, piece 1 of T-1862), the south half of the pair with 1626, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's three-storey rear wing waits for T-2347.",
+    "s20-1630-f": "1630 Prairie, the small earlier frame house, now stands whole as the K16 timber record house_1630_prairie (T-2357, piece 3 of T-1862) — its main block, the two-storey wing on its south side and the porch across its front — which refines this draft in place under the draft's own id; the draft stands no second building beside it."
   },
   "frontages": {
     "frontage-28-038": {
@@ -544,7 +545,9 @@
       "pitch_deg": 40,
       "chimneys": 1,
       "entrance": "north",
-      "why": "The register's 'small earlier frame house': 2BB frame read as two storeys under a simple gable with one stack, keeping its small scale between the masonry houses."
+      "why": "The register's 'small earlier frame house': 2BB frame read as two storeys under a simple gable with one stack, keeping its small scale between the masonry houses.",
+      "house_id": "house_1630_prairie",
+      "house_address": "1630"
     },
     "frontage-20-010": {
       "slug": "house",
