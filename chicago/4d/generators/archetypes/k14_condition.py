@@ -244,15 +244,20 @@ class Condition:
         return max(1.0 - (1.0 - L["tone"]["full"]) * frac, self.floor)
 
     # -- ground -----------------------------------------------------------------------------
+    def bare_width(self, along, *, built: float, seed: int) -> np.ndarray:
+        """How far out from a wall foot the bare strip reaches, `along` metres along it
+        (T-2360: a yard cuts its lawn on this line)."""
+        L = self.layers["grass_edge"]
+        a = self.factor(built)
+        width = _lerp(L["width_m"], a) + L["wobble_m"] * a * noise(
+            seed ^ _salt("grass_edge"), along, L["wobble_wavelength_m"])
+        return np.maximum(width, 1e-6)
+
     def grass_bare(self, d, along, *, built: float, seed: int):
         """Weight of bare earth d metres out from a wall foot, `along` metres along it."""
         scalar = np.ndim(d) == 0 and np.ndim(along) == 0
-        L = self.layers["grass_edge"]
-        a = self.factor(built)
         d = np.asarray(d, dtype=np.float64)
-        width = _lerp(L["width_m"], a) + L["wobble_m"] * a * noise(
-            seed ^ _salt("grass_edge"), along, L["wobble_wavelength_m"])
-        width = np.maximum(width, 1e-6)
+        width = self.bare_width(along, built=built, seed=seed)
         return _out(np.clip(1.0 - d / width, 0.0, 1.0) * (d >= 0.0), scalar)
 
     def path_wear(self, offset, along, *, use: str, built: float, seed: int):

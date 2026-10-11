@@ -525,6 +525,31 @@
       ],
       "note": "The front yard's boundary, from the K11 ironwork kit (T-2318, data/components/prairie_1904/k11_ironwork.json). THE LINE is the sheet's: the street line stands 4.44 m in front of the front face (data/street_grid/1904.json face prairie__indiana_prairie_18_20, the same reading entrance_kit's front_yard_m makes), and the lot lines of parcel prairie_1808 cross it at s -1.386 (the 1808/1812 line) and s 10.225 (the 1800/1808 line) along the street front, measured from the house's south-west corner in its own frame; the fence's curb has its street face on the street line, so the iron stands on the lot and nothing reaches the walk (1 ft further out). THE FENCE is the kit's spear fence on a stone curb, from a pier in line with the south wall to an end post whose curb stops on the north lot line. THE ENTRANCE is a pair of leaves on two stone piers square to the door, 1.30 m clear: the stoop's foot stands 0.69 m behind the fence's line, so a single leaf the kit's 0.90 m minimum would strike it, and each leaf is kept to 0.61 m, which the generator holds against the stoop's built mesh through the whole swing. THE SIDE GATE is the kit's single walk gate across the 0.94 m mouth of the side passage, hung on the wall's street pier: the passage is the only way round to the rear (the carriage house is on the alley, T-1935's), so it is gated and never fenced, and there is no carriage drive on this front to keep clear. THE WALL is the kit's brick wall with piers on the south lot line, its south face on the line, 1.50 m high (the kit's height, under the 6 ft the register reads for the one mapped brick boundary wall, frontage-35-064), from the fence's line back to u 15.2 m, 0.2 m short of 1812's draft front, which stands on the lot line behind it. The north side, against Glessner, is left open: Glessner's boundary is documented and the yard transition there is T-1944's. RECONSTRUCTED: no source read here shows 1808's fence, gates, piers or wall, their pattern or their height; every size is the kit's generic one (liberty L-k11-1808-boundary-2319, T-2319)."
     },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1886,
+        "lawn": "turf",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.6,
+          "top_m": 0.06,
+          "wear_tone": 0.9
+        },
+        "service_walk": {
+          "surface": "cinder",
+          "to_u_m": 0.0,
+          "wear_tone": 0.78
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The ground inside the K11 boundary, from the K14 condition kit (T-2324, data/components/prairie_1904/k14_condition.json) at the house's own age: built 1886 (this phase's documented year), so 18 years standing on 1904-07-01 and the kit's age factor 0.45. THE LINES are the boundary's and the house's: the front yard runs from the street front (and the foot of its stone bay) to the fence curb's house face, between the house's south wall line and the north lot line (s 10.225), which is all the sheet's parcel gives. THE LAWN is turf over that yard, Glessner's courtyard turf map, its surface 0.035 m over grade (the terrain under this yard rises up to 0.018 m above the lowest point the renderer beds the house on). Along the street front's wall foot and round the bay a bare strip is cut, the kit's grass_edge at 0.45: 0.14 m wide, its line wobbling 0.02 m by the property's seed. Under the stoop, an open stair whose foot alone touches grade, the ground is bare earth: no lawn is kept in its shade. THE FRONT WALK runs from the stoop's foot through the entrance pair to the public walk, 1.28 m wide between the gate piers, in flags of the stoop's own stone 0.025 m proud of the lawn, worn along its centre by the kit's front_walk path_wear (a polished line, to 0.9 at full wear). THE SERVICE WALK is cinder down the side passage, from the side gate to the house's rear corner (u 0), between the boundary wall's north face and the house's south wall, beaten along its centre by the kit's service_walk path_wear (to 0.78 at full wear, the K14 study's cinder). RECONSTRUCTED: no source read here shows 1808's yard, its lawn, its walks or their surfaces; the sheet bounds where they can be and nothing more. Every surface and number is the kit's generic one or chosen here (liberty L-k14-1808-yard-2360, T-2360)."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",

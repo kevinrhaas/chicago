@@ -91,6 +91,8 @@ PURE_PYTHON = {"k01_frontage": "k01_emit.py", "k13_conservatories": "k13_emit.py
 PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_frontage.py", "k09_trim.py",
                                        "k10_frontage.py", "k10_cornices.py",
                                        "k11_frontage.py", "k11_ironwork.py",
+                                       # T-2360: K14 lays the yard, from the condition kit's ground layers
+                                       "k14_yard.py", "k14_condition.py",
                                        # T-2313: K15 builds the chimney stacks in the roof
                                        "k15_chimneys.py"),
                        # T-2306: the conservatory is cut with K01's Prim and K06's polygon helpers
@@ -244,6 +246,9 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
         # and shape every stack a record names
         k15 = ROOT / "data" / "components" / "prairie_1904" / "k15_chimneys.json"
         doc["component_data"][k15.relative_to(ROOT).as_posix()] = _sha_file(k15)
+        # T-2360: and the K14 kit's, whose ground layers wear the yard's walks and cut its lawn
+        k14 = ROOT / "data" / "components" / "prairie_1904" / "k14_condition.json"
+        doc["component_data"][k14.relative_to(ROOT).as_posix()] = _sha_file(k14)
         # T-2308: and the bay kit's — its parts, curves and roofs size every bay a record names
         bays = ROOT / "data" / "components" / "prairie_1904" / "k08_bays.json"
         doc["bay_kit"] = {bays.relative_to(ROOT).as_posix(): _sha_file(bays)}

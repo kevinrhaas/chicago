@@ -123,6 +123,7 @@ class K01FrontageParams:
     street_front_trim: dict = field(default_factory=dict)   # K09 heads, entrance, aprons (T-2310)
     wall_head: dict = field(default_factory=dict)   # K10 cornice and cresting (T-2317)
     boundary: dict = field(default_factory=dict)    # K11 fence, gates, piers, wall (T-2319)
+    yard: dict = field(default_factory=dict)        # K14 lawn, front walk, service walk (T-2360)
     stone: dict = field(default_factory=dict)      # T-2289: the coursed stone front (K02)
     confidence: dict = field(default_factory=dict)
 
@@ -158,7 +159,7 @@ CONSUMED = frozenset({
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
     "basement_lights", "roof_covering", "dormer", "rainwater", "window_kit", "service_wall_brick",
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
-    "stone_front", "boundary", "north_bays",
+    "stone_front", "boundary", "north_bays", "yard",
 })
 
 WALLS = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south")
@@ -657,6 +658,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError("street_front_trim.brick_heads arches the brick; a stone front is laid "
                          "by its K02 stone_front")
 
+    # T-2360: the K14 yard's age is the house's own: the year its phase was built in
+    yard = dict(val("yard", {}) or {})
+    if yard:
+        built_from = ((phase.get("documented_range") or {}).get("from") or "")[:4]
+        if str(yard.get("built")) != built_from:
+            raise ParamError(f"yard.built {yard.get('built')} is not the phase's own year ({built_from or 'none'}): "
+                             f"the kit ages a yard from when its house was built")
+
     names = sorted(CONSUMED)
     params = K01FrontageParams(
         depth_m=depth, width_m=width, stories=stories, principal_floor_m=pf,
@@ -675,6 +684,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         street_front_trim=trim,
         wall_head=dict(val("wall_head", {}) or {}),
         boundary=dict(val("boundary", {}) or {}),
+        yard=yard,
         stone=stone,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
