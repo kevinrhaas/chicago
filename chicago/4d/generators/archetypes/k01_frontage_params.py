@@ -124,6 +124,9 @@ class K01FrontageParams:
     wall_head: dict = field(default_factory=dict)   # K10 cornice and cresting (T-2317)
     boundary: dict = field(default_factory=dict)    # K11 fence, gates, piers, wall (T-2319)
     stone: dict = field(default_factory=dict)      # T-2289: the coursed stone front (K02)
+    # T-2358: the K14 condition kit, opted into per record — {"kit", "built"} — so the walls
+    # weather to the house's own age in 1904; empty keeps K03's fixed soot and damp mask
+    condition: dict = field(default_factory=dict)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -158,8 +161,11 @@ CONSUMED = frozenset({
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
     "basement_lights", "roof_covering", "dormer", "rainwater", "window_kit", "service_wall_brick",
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
-    "stone_front", "boundary", "north_bays",
+    "stone_front", "boundary", "north_bays", "condition",
 })
+
+#: T-2358: the one condition kit a record may name (K14, T-2324)
+CONDITION_KIT = "data/components/prairie_1904/k14_condition.json"
 
 WALLS = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south")
 
@@ -657,6 +663,22 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError("street_front_trim.brick_heads arches the brick; a stone front is laid "
                          "by its K02 stone_front")
 
+    # T-2358: the K14 condition kit. Its water trails hang from the K06 sills, so it needs
+    # the sills seated before the walls are cut: a stone front lays its openings first, a
+    # brick K01 house its walls, and that order is not this ticket's to change (T-2361)
+    condition = {}
+    cond = val("condition")
+    if cond:
+        if cond.get("kit") != CONDITION_KIT:
+            raise ParamError(f"condition.kit names {cond.get('kit')!r}; the K14 kit is {CONDITION_KIT}")
+        built = cond.get("built")
+        if not isinstance(built, int) or not 1830 <= built <= 1904:
+            raise ParamError(f"condition.built {built!r} is not a completion year standing by 1904")
+        if not stone:
+            raise ParamError("condition needs a K02 stone front: a brick K01 house cuts its walls "
+                             "before its sills are seated, so no wall could carry a sill's trail")
+        condition = {"kit": CONDITION_KIT, "built": built}
+
     names = sorted(CONSUMED)
     params = K01FrontageParams(
         depth_m=depth, width_m=width, stories=stories, principal_floor_m=pf,
@@ -675,7 +697,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         street_front_trim=trim,
         wall_head=dict(val("wall_head", {}) or {}),
         boundary=dict(val("boundary", {}) or {}),
-        stone=stone,
+        stone=stone, condition=condition,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

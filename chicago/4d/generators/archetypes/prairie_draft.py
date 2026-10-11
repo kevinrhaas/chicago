@@ -353,6 +353,8 @@ def build(params, structure_id: str):
     mu0, mv0, mu1, mv1 = main["rect"]
     main_eave = eave_of(main)
     is_house = params.kind == "house"
+    if is_house and e.get("works"):
+        return works_shell(m, e, parts, pf, hs, stone, lot_v0, lot_v1, party, facts, rnd)
 
     for i, p in enumerate(parts):
         u0, v0, u1, v1 = p["rect"]
@@ -553,9 +555,14 @@ def build(params, structure_id: str):
                           cv + (r + 0.3) * math.sin(math.radians(11.25 + 22.5 * k))) for k in range(16)] if ns == 8 else
                         [(cu + (r + 0.3) * math.cos(math.radians(half + step * k)),
                           cv + (r + 0.3) * math.sin(math.radians(half + step * k))) for k in range(ns)])
-            cone(m, "roof", cap_ring, y1, y1 + float(feat.get("cap_m", 5.5)))
-            m.box("cornice", cu - 0.06, cu + 0.06, cv - 0.06, cv + 0.06, y1 + float(feat.get("cap_m", 5.5)) - 0.2,
-                  y1 + float(feat.get("cap_m", 5.5)) + 0.9)
+            if feat.get("cap", "cone") == "flat_crested":
+                # a flat lead top inside a low iron cresting, the towers' other roof state (T-2351)
+                tower_top = crested_cap(m, cap_ring, cu, cv, y1)
+            else:
+                cone(m, "roof", cap_ring, y1, y1 + float(feat.get("cap_m", 5.5)))
+                m.box("cornice", cu - 0.06, cu + 0.06, cv - 0.06, cv + 0.06, y1 + float(feat.get("cap_m", 5.5)) - 0.2,
+                      y1 + float(feat.get("cap_m", 5.5)) + 0.9)
+                tower_top = y1 + float(feat.get("cap_m", 5.5))
             # sash on the three faces that look out over the street and the side
             for k in range(int(params.stories) + 1):
                 base = pf + sum(hs[:k]) if k < len(hs) else main_eave + 0.4
@@ -571,11 +578,147 @@ def build(params, structure_id: str):
                            (gu + tu * w2, gv + tv * w2, base + 0.75 + hgt), (gu - tu * w2, gv - tv * w2, base + 0.75 + hgt)]
                     m.face("glass", pts, (cu, cv, base + 1.5))
                     windows += 1
-            facts["tower_top_m"] = round(y1 + float(feat.get("cap_m", 5.5)), 3)
+            facts["tower_top_m"] = round(tower_top, 3)
+        elif kind == "party_wall":
+            facts["party_wall_top_m"] = party_wall(m, parts, float(feat["v"]), eave_of, e)
     facts["windows"] = windows
     facts["doors"] = doors
     facts["triangles"] = m.triangles()
     facts["roll"] = round(rnd(), 6)   # the stream's first draw, so a seed change is visible
+    return m, facts
+
+
+def crested_cap(m: Mesh, ring, cu, cv, y):
+    """A tower's flat top: a lead deck on the cornice and a ring of iron cresting round its
+    rim, posts and a top rail. Returns the cresting's top."""
+    prism(m, "roof", ring, y, y + 0.12)
+    crest = y + 0.12 + 0.75
+    n = len(ring)
+    for k in range(n):
+        a, b = ring[k], ring[(k + 1) % n]
+        pu, pv = a[0] + (cu - a[0]) * 0.06, a[1] + (cv - a[1]) * 0.06
+        m.box("cornice", pu - 0.04, pu + 0.04, pv - 0.04, pv + 0.04, y + 0.12, crest)
+        qu, qv = b[0] + (cu - b[0]) * 0.06, b[1] + (cv - b[1]) * 0.06
+        rail = [(pu, pv, crest - 0.1), (qu, qv, crest - 0.1), (qu, qv, crest), (pu, pv, crest)]
+        m.face("cornice", rail, (cu, cv, crest))                                   # outward
+        m.face("cornice", rail, (2 * pu - cu, 2 * pv - cv, crest))                 # and inward
+    return crest
+
+
+def party_wall(m: Mesh, parts, v, eave_of, e, t=0.18, lift=0.45):
+    """A party wall standing through one envelope at plan v (T-2351: the line Rees and
+    Kimball divided their coach house on): brick, coped in stone, carried `lift` above the
+    roof of every piece it crosses, gable-shaped where it crosses a ridge. Returns its top."""
+    top = 0.0
+    for p in parts:
+        u0, v0, u1, v1 = p["rect"]
+        if p.get("role") == "porch" or not (v0 < v < v1):
+            continue
+        eave = eave_of(p)
+        roof = p.get("roof", "flat")
+        tn = math.tan(math.radians(float(p.get("pitch_deg", e.get("roof_pitch_deg", 40)))))
+        um = (u0 + u1) / 2
+        if roof == "gable" and (u1 - u0) < (v1 - v0):      # the ridge runs along v: cross it
+            ye, yp = eave + lift, eave + (u1 - u0) / 2 * tn + lift
+        elif roof == "gable":                              # the ridge runs along u: cut the slope
+            vm = (v0 + v1) / 2
+            ye = yp = eave + ((v1 - v0) / 2 - abs(v - vm)) * tn + lift
+        else:
+            ye = yp = eave + lift
+        a0, a1 = u0 - 0.05, u1 + 0.05
+        faces = []
+        for vs in (v - t, v + t):
+            faces.append([(a0, vs, 0.0), (a1, vs, 0.0), (a1, vs, ye), (um, vs, yp), (a0, vs, ye)])
+        faces.append([(a0, v - t, 0.0), (a0, v + t, 0.0), (a0, v + t, ye), (a0, v - t, ye)])
+        faces.append([(a1, v - t, 0.0), (a1, v + t, 0.0), (a1, v + t, ye), (a1, v - t, ye)])
+        faces.append([(a0, v - t, ye), (a0, v + t, ye), (um, v + t, yp), (um, v - t, yp)])
+        faces.append([(um, v - t, yp), (um, v + t, yp), (a1, v + t, ye), (a1, v - t, ye)])
+        m.solid(faces, mat_of=lambda i: "cornice" if i >= 4 else "brick")
+        top = max(top, yp)
+    return round(top, 3)
+
+
+def works_shell(m: Mesh, e, parts, pf, hs, stone, lot_v0, lot_v1, party, facts, rnd):
+    """A house still rising on the target date (T-2351: the Robbins house at 2126 on 1 July
+    1904, the Hamill house razed and the new one building). Its walls stand as a hollow shell
+    `raised_storeys` floors over the stone basement, the street wall and the front of its
+    returns a part-storey (`course_m`) higher where the masons are; the openings are empty;
+    there is no roof, sash, door or stoop; a deck is laid at the principal floor; and a pole
+    scaffold with ledgers at every floor stands along the street and the open sides."""
+    w = e["works"]
+    n_up = int(w.get("raised_storeys", 1))
+    course = float(w.get("course_m", 0.0))
+    t = float(w.get("wall_m", 0.45))
+    top = pf + sum(hs[:n_up])
+    rects = [tuple(p["rect"]) for p in parts]
+    openings = 0
+    for i, p in enumerate(parts):
+        if p["role"] == "porch":
+            continue                       # a porch is built after the walls
+        u0, v0, u1, v1 = p["rect"]
+        lead = course if p["role"] == "main" else 0.0
+        um = (u0 + u1) / 2
+        for (a0, a1, b0, b1, ytop) in ((u1 - t, u1, v0, v1, top + lead),        # street wall
+                                       (um, u1 - t, v0, v0 + t, top + lead),     # returns, front half
+                                       (um, u1 - t, v1 - t, v1, top + lead),
+                                       (u0, um, v0, v0 + t, top),                # returns, rear half
+                                       (u0, um, v1 - t, v1, top),
+                                       (u0, u0 + t, v0 + t, v1 - t, top)):       # rear wall
+            m.box(stone, a0, a1, b0, b1, 0.0, pf)
+            m.box("brick", a0, a1, b0, b1, pf, ytop)
+        m.box("trim", u0 + t, u1 - t, v0 + t, v1 - t, pf - 0.3, pf)
+        for side, (at, a, b) in _wall_faces(p["rect"]).items():
+            if b - a < 1.6 or _covered(side, at, a, b, rects, i):
+                continue
+            if (side == "v0" and at - lot_v0 < party) or (side == "v1" and lot_v1 - at < party):
+                continue
+            if side == "u1" and p["role"] == "main":
+                n = int(e.get("front_bays", 3))
+            else:
+                n = int(max(0, (b - a - 0.8) // float(e.get("side_spacing_m", 3.0))))
+            sign = 1 if side in ("u1", "v1") else -1
+            x0, x1 = sorted((at, at + sign * 0.02))
+            for k in range(n_up):
+                sill = pf + sum(hs[:k]) + 0.75
+                hk = min(2.2, hs[min(k, len(hs) - 1)] - 1.3)
+                for s in _spread(a, b, n, 0.7):
+                    # an empty opening reads dark: the glass colour, with no sash, rail or sill
+                    if side in ("u0", "u1"):
+                        m.box("glass", x0, x1, s - 0.5, s + 0.5, sill, sill + hk)
+                    else:
+                        m.box("glass", s - 0.5, s + 0.5, x0, x1, sill, sill + hk)
+                    m.box(stone, *((x0 - 0.06, x1 + 0.06, s - 0.6, s + 0.6) if side in ("u0", "u1") else
+                                   (s - 0.6, s + 0.6, x0 - 0.06, x1 + 0.06)), sill + hk, sill + hk + 0.2)
+                    openings += 1
+    # the scaffold: poles 1.2 m off the main body's street wall and its open returns
+    mu0, mv0, mu1, mv1 = parts[0]["rect"]
+    pole_top = top + course + 1.8
+    lines = [("u1", mu1 + 1.2, mv0 - 1.2, mv1 + 1.2)]
+    if mv0 - lot_v0 >= party + 1.5:
+        lines.append(("v0", mv0 - 1.2, mu0, mu1 + 1.2))
+    if lot_v1 - mv1 >= party + 1.5:
+        lines.append(("v1", mv1 + 1.2, mu0, mu1 + 1.2))
+    levels = [pf + sum(hs[:k]) for k in range(1, n_up + 1)] + [top + course]
+    poles = 0
+    for side, at, a, b in lines:
+        for s in _spread(a, b, max(2, round((b - a) / 2.4) + 1), 0.0):
+            uu, vv = (at, s) if side == "u1" else (s, at)
+            m.box("trim", uu - 0.06, uu + 0.06, vv - 0.06, vv + 0.06, 0.0, pole_top)
+            poles += 1
+        for y in levels:
+            if side == "u1":
+                m.box("trim", at - 0.05, at + 0.05, a, b, y - 0.08, y)
+                m.box("trim", at - 1.0, at + 0.1, a, b, y, y + 0.05)       # the planks
+            else:
+                m.box("trim", a, b, at - 0.05, at + 0.05, y - 0.08, y)
+    facts["works"] = {"raised_storeys": n_up, "course_m": course, "poles": poles}
+    facts["eave_m"] = round(top, 3)
+    facts["top_m"] = round(top + course, 3)
+    facts["windows"] = 0
+    facts["openings"] = openings
+    facts["doors"] = 0
+    facts["triangles"] = m.triangles()
+    facts["roll"] = round(rnd(), 6)
     return m, facts
 
 
