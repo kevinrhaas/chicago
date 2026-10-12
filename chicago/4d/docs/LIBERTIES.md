@@ -24907,24 +24907,68 @@ about 10 %; the second storey's 3.9 m, taken so the bow clears the K10 cornice's
 window's kind and size, and every window in the side and rear walls (no picture shows them); the
 north side wall windowed toward the gap to 1613-1615 and the south side wall blank, as the drawing
 draws it; the stoop's straight run; the cornice's brackets; the roof's hip form and 45-degree pitch
-(the contract's steepest, the drawing's being steeper); the dormer standing for the wall gable; the
-stacks' places; the gutters and pipes; the rear range's windows, heights and flat tin deck.
+(the contract's steepest, the drawing's being steeper); the dormer standing for the wall gable (until
+T-2428 built the gable itself, under L-k01-1619-hamline-wall-gable-2428); the stacks' places; the gutters and pipes; the rear range's windows, heights and flat tin deck.
 **What disagrees, and how it is built.** The drawing's north strip is about 1.4 m wide, the sheet's
 3.79 m; its pier south of the bow is not drawn, the sheet's is 0.91 m: the sheet controls the plan.
 The sheet prints '4' storeys; the drawing shows two over a raised basement and a third in the roof:
 built to the drawing, the disagreement stated on the record and in the research note.
-**What is not built.** The drawing's wall gable with its three lights, finial and pinnacles, the
-crow-stepped south parapet and the stone cornice at the bow's top (T-2421); the round-arched recessed
+**What is not built.** The drawing's wall gable with its three lights, finial and pinnacles (built
+since by T-2428, L-k01-1619-hamline-wall-gable-2428), the crow-stepped south parapet and the stone
+cornice at the bow's top (T-2421, now T-2429); the round-arched recessed
 entrance, the carved panel over it, the side stoop, the balcony rail and the grilled basement arches
 (T-2422) — each listed `open` in the match record. The sheet's half-round frame porch behind the rear
 range (K01 builds no porch), and the 0.6 m jog in the north wall's rear half.
 **How to resolve:** T-2421 and T-2422 build what the drawing shows and bring its match record to
 `matches`; a photograph of the house after 1886 settles the storey count, the strip's width and the
 stone.
-**Covers:** `house_1619_prairie.as_mapped_1904.form.principal_floor_m`, `house_1619_prairie.as_mapped_1904.form.storey_heights_m`, `house_1619_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1619_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1619_prairie.as_mapped_1904.form.service_wall_brick`, `house_1619_prairie.as_mapped_1904.form.stone_front`, `house_1619_prairie.as_mapped_1904.form.street_front_trim`, `house_1619_prairie.as_mapped_1904.form.wall_head`, `house_1619_prairie.as_mapped_1904.form.roof_form`, `house_1619_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1619_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1619_prairie.as_mapped_1904.form.stair_tread_m`, `house_1619_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1619_prairie.as_mapped_1904.form.stoop_width_m`, `house_1619_prairie.as_mapped_1904.form.front_bays`, `house_1619_prairie.as_mapped_1904.form.side_bays`, `house_1619_prairie.as_mapped_1904.form.north_bays`, `house_1619_prairie.as_mapped_1904.form.rear_bays`, `house_1619_prairie.as_mapped_1904.form.sash_by_storey`, `house_1619_prairie.as_mapped_1904.form.basement_lights`, `house_1619_prairie.as_mapped_1904.form.roof_covering`, `house_1619_prairie.as_mapped_1904.form.dormer`, `house_1619_prairie.as_mapped_1904.form.chimneys`, `house_1619_prairie.as_mapped_1904.form.rainwater`, `house_1619_prairie.as_mapped_1904.form.window_kit`, `house_1619_prairie.as_mapped_1904.form.entrance_kit`
+**Covers:** `house_1619_prairie.as_mapped_1904.form.principal_floor_m`, `house_1619_prairie.as_mapped_1904.form.storey_heights_m`, `house_1619_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1619_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1619_prairie.as_mapped_1904.form.service_wall_brick`, `house_1619_prairie.as_mapped_1904.form.stone_front`, `house_1619_prairie.as_mapped_1904.form.street_front_trim`, `house_1619_prairie.as_mapped_1904.form.wall_head`, `house_1619_prairie.as_mapped_1904.form.roof_form`, `house_1619_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1619_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1619_prairie.as_mapped_1904.form.stair_tread_m`, `house_1619_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1619_prairie.as_mapped_1904.form.stoop_width_m`, `house_1619_prairie.as_mapped_1904.form.front_bays`, `house_1619_prairie.as_mapped_1904.form.side_bays`, `house_1619_prairie.as_mapped_1904.form.north_bays`, `house_1619_prairie.as_mapped_1904.form.rear_bays`, `house_1619_prairie.as_mapped_1904.form.sash_by_storey`, `house_1619_prairie.as_mapped_1904.form.basement_lights`, `house_1619_prairie.as_mapped_1904.form.roof_covering`, `house_1619_prairie.as_mapped_1904.form.chimneys`, `house_1619_prairie.as_mapped_1904.form.rainwater`, `house_1619_prairie.as_mapped_1904.form.window_kit`, `house_1619_prairie.as_mapped_1904.form.entrance_kit`
 **Ticket:** T-2420 (piece 1 of T-2419, of T-1868).
 **Review:** `docs/RESEARCH/k01-1619-hamline-2420/README.md`.
 **Recorded:** 2026-10-12 (T-2420).
+
+### L-k01-1619-hamline-wall-gable-2428 — 1619 Prairie's roof storey built as its drawing's wall gable, with three segment-headed lights, radiating voussoirs, a pedimented panel, a finial and two pinnacles; their sizes read through a camera good to about 10 %, their plans and carving the kits'
+
+**Decision:** the pedimented dormer that stood on 1619 Prairie's hip since T-2420 as a marker for
+the drawing's roof storey is now that roof storey (T-2428, piece 1 of T-2421, of T-2419). K01 learns
+a WALL GABLE as data on its dormer (`dormer.wall_gable`, built by
+`generators/archetypes/k01_wall_gable.py`): the K05 dormer with its face on the street wall's plane,
+so the wall is carried up over the bow, centred where the drawing centres it (0.47 m north of the
+bow's centre line), 3.3 m across, 2.0 m to its eave and pitched 50 degrees; three K06 one-over-one
+segmental sash in recesses the roof's union cuts to K06's own head; over each a block of seven
+stones whose joints radiate from the head's centre; K10's horizontal and raking cornices; a
+triangular panel recessed 0.08 m in the pediment, 0.2 m inside its cornices; a turned finial on the
+ridge at the apex; and a square pinnacle shaft either side of the face, 0.28 m on plan, from under
+the wall head to a moulded cap and a pyramid.
+**What is read, not invented.** From the Building Budget drawing
+(`building_budget_1886_06_hamline_farwell_houses`) through its solved camera
+(`data/reference_views/house_1619_prairie/building_budget_front.json`): that the roof storey is a
+gable rising from the wall over the bow and not a dormer on the roof; its place across the front;
+its three lights, their short proportion and segmental heads; the radiating voussoirs over them;
+the horizontal cornice at the pediment's foot and the raking cornice; the recessed pediment; the
+finial; and the two pinnacles flanking the face. Through the camera the pediment's foot lands within
+about 5 px of the drawing's, its apex within about 10 px, the lights' heads within about 10 px and
+the pinnacles within about 10 px across.
+**Where the confidence sits.** The gable is read off the drawing, so the record's `dormer` is
+`inferred` from it, as the bow's `bays` are; what the drawing does not give is listed below and
+stated in that attribute's note. The cornices are the K10 kit's, standing for the drawing's stone,
+which is why `wall_head` stays `reconstructed` and is the attribute this entry covers.
+**What is invented.** Every size, to the camera's 10 %; the lights' sills, hidden in the drawing by
+the balcony rail; the sash (K06's one-over-one segmental: the drawing hatches the glass); the
+voussoirs' count, ring and projection; the panel's margin and depth; the finial's turning; the
+pinnacles' square plan, their level tops (the drawing draws the south one higher) and their plain
+pyramids where the drawing carves them; the cornices in K10's painted timber profile where the drawing
+draws stone; the stone of the face (the dormer face's dressed stone).
+**What is not built.** The roof behind the gable as the drawing slates it, the crow-stepped south
+parapet with its stack and the stone cornice at the bow's top (T-2429); the balcony rail in front of
+the lights (T-2422).
+**How to resolve:** a photograph of the house after 1886, or the architects' drawings, sets the
+gable's sizes, the pinnacles' carving and the lights' sash; T-2429 and T-2422 build what the drawing
+shows round it.
+**Covers:** `house_1619_prairie.as_mapped_1904.form.wall_head`
+**Ticket:** T-2428 (piece 1 of T-2421, of T-2419).
+**Review:** `docs/RESEARCH/k01-1619-hamline-2420/README.md` § The wall gable (T-2428).
+**Recorded:** 2026-10-12 (T-2428).
 
 ### L-k01-1634-stone-front-flat-2350 — 1634 Prairie's main body refined from the district draft to a three-storey K01 stone-front house under a flat roof, the north half of the pair with 1636, everything but the plan the kits'
 

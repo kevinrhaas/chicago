@@ -2,7 +2,7 @@
  "structure_id": "house_1619_prairie",
  "view": "building_budget_front",
  "glb": "assets/gltf/house_1619_prairie__as_mapped_1904.glb",
- "glb_sha256": "cc6b6344549f26beb6ebf6a7e4a8e69a3ad454c87a19a955ccd1765c1beb37f7",
+ "glb_sha256": "621e53026d372234988a524d83b95762ff0634fba7d2668f6a379881d5e418dd",
  "camera_sha256": "f7c68b8bf0e98f2463db3ecba16a06619421258fd49bf6b960c54f9f0e1fb122",
  "side_by_side": "docs/RESEARCH/photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg",
  "verdict": "differs",
@@ -23,19 +23,19 @@
    "how": "T-2420: a 1.4 m principal floor and 3.9 m storeys; through the camera they fall within about 15 px of the drawing's bands"
   },
   {
-   "what": "the roof storey: the drawing lights it with a steep pedimented WALL GABLE rising from the wall over the bow, about 3.9 m across, with three short segment-headed lights under radiating voussoirs, a recessed pediment panel, a finial at the apex and two pinnacle shafts at its foot; the build has a single-light pedimented dormer set on the hip, its sash about 0.6 m higher than the gable's lights and its apex about 30 px higher",
-   "status": "open",
-   "how": "T-2421"
+   "what": "the roof storey: the drawing lights it with a steep pedimented WALL GABLE rising from the wall over the bow, about 3.4 m across, with three short segment-headed lights under radiating voussoirs, a horizontal cornice, a raking cornice round a recessed pediment panel, a finial at the apex and two pinnacle shafts at its foot; T-2420 built a single-light pedimented dormer set on the hip in its place",
+   "status": "fixed",
+   "how": "T-2428: the K05 dormer as a wall gable (dormer.wall_gable), its face on the wall's plane at the drawing's place across the front: three K06 segmental lights under seven-stone radiating voussoir blocks, K10's cornices, a recessed pediment panel, a turned finial and two square pinnacles with caps and pyramids. Through the camera the pediment's foot lands within about 5 px of the drawing's, its apex within about 10 px, the lights' heads and voussoirs within about 10 px and the pinnacles within about 10 px across; the lights' sills are hidden in the drawing behind the balcony rail (T-2422). The pinnacles' carved tops are built as plain pyramids and their unequal heights level (L-k01-1619-hamline-wall-gable-2428)"
   },
   {
    "what": "the roof behind: the drawing slates a steep roof whose south parapet steps up from the front in crow steps to a tall stack; the build has a 45-degree slate hip (the K01 contract's steepest) with plain eaves and two stacks against the south wall",
    "status": "open",
-   "how": "T-2421"
+   "how": "T-2429"
   },
   {
    "what": "the cornice: the drawing runs a moulded stone cornice at the bow's top that carries the balcony; the build hangs K10's bracketed timber cornice at 9.2 m, above the bow's deck",
    "status": "open",
-   "how": "T-2421"
+   "how": "T-2429"
   },
   {
    "what": "the balcony: an iron (or turned) rail round the top of the bow; the build's bow ends in a plain deck",
@@ -79,5 +79,5 @@
   }
  ],
  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
- "reviewed": "T-2420, 2026-10-12, side by side at docs/RESEARCH/photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg, element by element against the drawing and its enlarged inset plan; re-reviewed after the bow's basement lights came out for the K08 kit's rules"
+ "reviewed": "T-2428, 2026-10-12, side by side at docs/RESEARCH/photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg, element by element against the drawing and its 3x enlargement of the gable; the wall gable's row fixed, the roof's and cornice's open for T-2429, the balcony's, entrance's, stoop's and basement's for T-2422"
 }
