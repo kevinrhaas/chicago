@@ -824,9 +824,9 @@
         "light": {
           "asset": "glessner_house__as_built_1887.light.glb",
           "master_sha256": "303b5cb63b5ea2f4a9741bf86250500dbb6318274112a678372e6c3b05c6199a",
-          "output_sha256": "bce4f38421998128895a2988687f297d8ebf3976dddeb4a67aff32358daffb0f",
-          "recipe_sha256": "0c4feac182f700c7dfffdf4e4ee1d22c5e5d6c6e544e9e3f230017a5081e0025",
-          "triangles": 199126
+          "output_sha256": "0c2240d6ddbf6c1c7afb8341637a6c725b4582b971e2b828884d42e2f476ec4e",
+          "recipe_sha256": "14c670a859b5ccfb461bb0dc8bea008970bf54b9f37147fe2a239ae158da58bf",
+          "triangles": 199035
         }
       },
       "web_master_sha256": "303b5cb63b5ea2f4a9741bf86250500dbb6318274112a678372e6c3b05c6199a"
