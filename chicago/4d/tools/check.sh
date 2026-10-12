@@ -3207,6 +3207,11 @@ selftest "…and each refusal still fires when broken (T-2040)" \
 step "Source-use backlinks match authored claims (T-1248)" \
   python3 tools/compile_source_use.py --check
 
+# The Glessner street/stable opening schedule is generated from the record, so a
+# record change that is not re-scheduled is caught here (T-2211).
+step "Glessner street and stable opening schedule matches its record (T-2211)" \
+  python3 tools/glessner_opening_schedule.py --check
+
 step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
   python3 tools/test_compile_source_use.py
 
