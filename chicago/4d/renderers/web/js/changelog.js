@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1715, ts: '2026-10-12T05:48:38.878Z', date: 'Oct 12, 2026, 12:48 AM CT', title: 'The 16th Street station gets its platform, canopy and nameboards', kind: 'feature',
+    items: [
+      'The Illinois Central\'s 16th Street station at 1605 Prairie Avenue now looks like a station rather than a plain frame box.',
+      'A timber platform runs along its track side. It narrows to the north, because the 1911 Sanborn map draws the nearest track bearing in toward the building\'s north corner.',
+      'A canopy on braced brackets covers the wider part of the platform, and a pair of passenger doors under a hood opens onto Prairie Avenue.',
+      'Lettered boards read ILLINOIS CENTRAL R.R. / 16TH ST. STATION across the street front, 16TH STREET over the canopy, and 16TH ST. on a board on posts at the platform\'s end.',
+      'Only the platform\'s edge comes from the map. The platform, canopy, doors and boards are reconstructed, because no picture of this station is known, and liberty L-ic-16th-street-station-2399 says so.',
+    ] },
   { v: 1714, ts: '2026-10-12T04:43:33.838Z', date: 'Oct 11, 2026, 11:43 PM CT', title: 'Glessner\'s courtyard in its own materials', kind: 'change',
     items: [
       'The courtyard walls of the Glessner house are now light pink common brick, as the 1963 survey and Glessner\'s own 1923 account describe them, instead of a dark brown.',

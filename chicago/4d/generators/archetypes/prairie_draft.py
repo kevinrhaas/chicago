@@ -494,14 +494,19 @@ def build(params, structure_id: str):
                 lo = {"north": "south", "south": "north"}[hi]
                 door_s = centres[-1] if e.get("entrance", "north") == hi else (
                     centres[0] if e.get("entrance") == lo else centres[len(centres) // 2])
+            stn = e.get("station") if role == "main" else None
+            if stn and side == "u1":
+                # a station's street front: the passenger door at the end nearer the cross street
+                # (high v faces `v_toward`, so a door at that end takes the last centre)
+                door_s = centres[-1] if stn.get("door_end", "north") == e.get("v_toward", "north") else centres[0]
             if not is_house and side == "u0":
                 # the alley face: a carriage door in the middle, a loft door above it
                 cs = (a + b) / 2
-                cw = min(3.0, length - 1.2)
+                cw = min(3.0, length - 1.2) if not stn else float(stn.get("baggage_door_m", 2.4))
                 sign = -1
                 m.box("door", at - 0.05, at, cs - cw / 2, cs + cw / 2, 0.0, 3.0)
                 m.box("trim", at - 0.12, at, cs - cw / 2 - 0.15, cs + cw / 2 + 0.15, 3.0, 3.25)
-                if n_st >= 2:
+                if n_st >= 2 and not stn:   # a station's upper floor is no hay loft
                     m.box("door", at - 0.05, at, cs - 0.6, cs + 0.6, hs[0] + 0.3, hs[0] + 2.1)
                 doors += 1
                 centres = [c for c in centres if abs(c - cs) > cw / 2 + 0.8]
@@ -516,6 +521,8 @@ def build(params, structure_id: str):
                         continue
                     window(m, side, at, s, sill, ww, wh)
                     windows += 1
+            if stn and side == "u1" and door_s is not None:
+                doors += station_door(m, stn, u1, door_s)
             if front and role == "main" and door_s is not None:
                 # door, transom and stoop
                 m.box("door", u1, u1 + 0.04, door_s - 0.6, door_s + 0.6, pf, pf + 2.7)
@@ -596,11 +603,253 @@ def build(params, structure_id: str):
             facts["tower_top_m"] = round(tower_top, 3)
         elif kind == "party_wall":
             facts["party_wall_top_m"] = party_wall(m, parts, float(feat["v"]), eave_of, e)
+    if e.get("station"):
+        facts["station"] = station(m, e["station"], main["rect"], main_eave, hs)
     facts["windows"] = windows
     facts["doors"] = doors
     facts["triangles"] = m.triangles()
     facts["roll"] = round(rnd(), 6)   # the stream's first draw, so a seed change is visible
     return m, facts
+
+
+# ---------------------------------------------------------------- a station's dressing (T-2399)
+
+#: Block capitals on a 4 x 6 grid, each a list of strokes (x0, y0, x1, y1), and the
+#: advance to the next letter in grid units. The letters the station's boards need and
+#: the rest of the capitals and figures, so a board's wording is data, not code.
+GLYPHS = {
+    "A": ([(0, 0, 0, 6), (0, 6, 4, 6), (4, 6, 4, 0), (0, 3, 4, 3)], 5.6),
+    "B": ([(0, 0, 0, 6), (0, 6, 3, 6), (3, 6, 3, 3), (0, 3, 4, 3), (4, 3, 4, 0), (4, 0, 0, 0)], 5.6),
+    "C": ([(4, 6, 0, 6), (0, 6, 0, 0), (0, 0, 4, 0)], 5.6),
+    "D": ([(0, 0, 0, 6), (0, 6, 3, 6), (3, 6, 4, 5), (4, 5, 4, 1), (4, 1, 3, 0), (3, 0, 0, 0)], 5.6),
+    "E": ([(4, 6, 0, 6), (0, 6, 0, 0), (0, 0, 4, 0), (0, 3, 3, 3)], 5.6),
+    "F": ([(4, 6, 0, 6), (0, 6, 0, 0), (0, 3, 3, 3)], 5.2),
+    "G": ([(4, 6, 0, 6), (0, 6, 0, 0), (0, 0, 4, 0), (4, 0, 4, 3), (4, 3, 2, 3)], 5.6),
+    "H": ([(0, 0, 0, 6), (4, 0, 4, 6), (0, 3, 4, 3)], 5.6),
+    "I": ([(0, 0, 0, 6)], 1.6),
+    "J": ([(4, 6, 4, 0), (4, 0, 0, 0), (0, 0, 0, 2)], 5.6),
+    "K": ([(0, 0, 0, 6), (0, 3, 4, 6), (1, 3.75, 4, 0)], 5.6),
+    "L": ([(0, 0, 0, 6), (0, 0, 4, 0)], 5.2),
+    "M": ([(0, 0, 0, 6), (0, 6, 2.5, 3), (2.5, 3, 5, 6), (5, 6, 5, 0)], 6.6),
+    "N": ([(0, 0, 0, 6), (0, 6, 4, 0), (4, 0, 4, 6)], 5.6),
+    "O": ([(0, 0, 4, 0), (4, 0, 4, 6), (4, 6, 0, 6), (0, 6, 0, 0)], 5.6),
+    "P": ([(0, 0, 0, 6), (0, 6, 4, 6), (4, 6, 4, 3), (4, 3, 0, 3)], 5.6),
+    "Q": ([(0, 0, 4, 0), (4, 0, 4, 6), (4, 6, 0, 6), (0, 6, 0, 0), (2.5, 1.5, 4.5, -0.5)], 5.6),
+    "R": ([(0, 0, 0, 6), (0, 6, 4, 6), (4, 6, 4, 3), (4, 3, 0, 3), (1.5, 3, 4, 0)], 5.6),
+    "S": ([(4, 6, 0, 6), (0, 6, 0, 3), (0, 3, 4, 3), (4, 3, 4, 0), (4, 0, 0, 0)], 5.6),
+    "T": ([(0, 6, 4, 6), (2, 6, 2, 0)], 5.6),
+    "U": ([(0, 6, 0, 0), (0, 0, 4, 0), (4, 0, 4, 6)], 5.6),
+    "V": ([(0, 6, 2, 0), (2, 0, 4, 6)], 5.6),
+    "W": ([(0, 6, 1.25, 0), (1.25, 0, 2.5, 4), (2.5, 4, 3.75, 0), (3.75, 0, 5, 6)], 6.6),
+    "X": ([(0, 0, 4, 6), (0, 6, 4, 0)], 5.6),
+    "Y": ([(0, 6, 2, 3), (4, 6, 2, 3), (2, 3, 2, 0)], 5.6),
+    "Z": ([(0, 6, 4, 6), (4, 6, 0, 0), (0, 0, 4, 0)], 5.6),
+    "0": ([(0, 0, 4, 0), (4, 0, 4, 6), (4, 6, 0, 6), (0, 6, 0, 0)], 5.6),
+    "1": ([(2, 0, 2, 6), (2, 6, 0.8, 4.8), (0.8, 0, 3.2, 0)], 5.2),
+    "2": ([(0, 6, 4, 6), (4, 6, 4, 3), (4, 3, 0, 3), (0, 3, 0, 0), (0, 0, 4, 0)], 5.6),
+    "3": ([(0, 6, 4, 6), (4, 6, 4, 0), (4, 0, 0, 0), (1, 3, 4, 3)], 5.6),
+    "4": ([(0, 6, 0, 3), (0, 3, 4, 3), (3, 6, 3, 0)], 5.6),
+    "5": ([(4, 6, 0, 6), (0, 6, 0, 3), (0, 3, 4, 3), (4, 3, 4, 0), (4, 0, 0, 0)], 5.6),
+    "6": ([(4, 6, 0, 6), (0, 6, 0, 0), (0, 0, 4, 0), (4, 0, 4, 3), (4, 3, 0, 3)], 5.6),
+    "7": ([(0, 6, 4, 6), (4, 6, 1.5, 0)], 5.6),
+    "8": ([(0, 0, 4, 0), (4, 0, 4, 6), (4, 6, 0, 6), (0, 6, 0, 0), (0, 3, 4, 3)], 5.6),
+    "9": ([(4, 3, 0, 3), (0, 3, 0, 6), (0, 6, 4, 6), (4, 6, 4, 0), (4, 0, 0, 0)], 5.6),
+    ".": ([(0, 0, 0, 0.01)], 1.8),
+    "&": ([(4, 0, 0, 6), (0, 6, 2.5, 6), (2.5, 6, 2.5, 4), (2.5, 4, 0, 2), (0, 2, 0, 0), (0, 0, 3, 0)], 5.6),
+    " ": ([], 2.8),
+}
+
+
+def _onto(o, t, n):
+    """Board coordinates (x along `t`, y up, z out along `n`) onto plan (u, v, y)."""
+    return lambda x, y, z: (o[0] + t[0] * x + n[0] * z, o[1] + t[1] * x + n[1] * z, y)
+
+
+def _quad_solid(m: Mesh, mat, P, corners, z0, z1):
+    """A flat convex outline in board (x, y), extruded from z0 to z1 out of the board."""
+    back = [P(x, y, z0) for x, y in corners]
+    front = [P(x, y, z1) for x, y in corners]
+    faces = [back, front] + [[back[i], back[(i + 1) % 4], front[(i + 1) % 4], front[i]] for i in range(4)]
+    m.solid(faces, mat=mat)
+
+
+def obox(m: Mesh, mat, P, x0, x1, y0, y1, z0, z1):
+    """A box in a board's own frame (a board standing at any bearing)."""
+    _quad_solid(m, mat, P, [(x0, y0), (x1, y0), (x1, y1), (x0, y1)], z0, z1)
+
+
+def beam(m: Mesh, mat, p0, p1, w):
+    """A square timber of side `w` from p0 to p1, (u, v, y) points at any slope."""
+    ax = _sub(p1, p0)
+    a = _cross(ax, (0.0, 0.0, 1.0))
+    if _dot(a, a) < 1e-12:
+        a = (1.0, 0.0, 0.0)
+    a = _unit(a)
+    b = _unit(_cross(ax, a))
+    h = w / 2
+    ring = [(-h, -h), (h, -h), (h, h), (-h, h)]
+    lo = [(p0[0] + a[0] * x + b[0] * y, p0[1] + a[1] * x + b[1] * y, p0[2] + a[2] * x + b[2] * y) for x, y in ring]
+    hi = [(p1[0] + a[0] * x + b[0] * y, p1[1] + a[1] * x + b[1] * y, p1[2] + a[2] * x + b[2] * y) for x, y in ring]
+    m.solid([lo, hi] + [[lo[i], lo[(i + 1) % 4], hi[(i + 1) % 4], hi[i]] for i in range(4)], mat=mat)
+
+
+def text_width(line: str, h: float) -> float:
+    unit = h / 6.9
+    return _seqsum(GLYPHS[c][1] for c in line) * unit - 1.6 * unit
+
+
+def letter(m: Mesh, mat, P, line: str, x, y, h, z0, z1) -> int:
+    """`line` in raised block capitals `h` tall, its baseline at y, starting at x. Returns
+    the strokes cut."""
+    unit = h / 6.9
+    w = 0.9 * unit
+    n = 0
+    for c in line:
+        strokes, adv = GLYPHS[c]
+        for (a0, b0, a1, b1) in strokes:
+            ax, ay = x + (a0 + 0.45) * unit, y + (b0 + 0.45) * unit
+            bx, by = x + (a1 + 0.45) * unit, y + (b1 + 0.45) * unit
+            dx, dy = bx - ax, by - ay
+            ln = math.sqrt(dx * dx + dy * dy)
+            dx, dy = dx / ln, dy / ln
+            ax, ay, bx, by = ax - dx * w / 2, ay - dy * w / 2, bx + dx * w / 2, by + dy * w / 2
+            px, py = -dy * w / 2, dx * w / 2
+            _quad_solid(m, mat, P, [(ax - px, ay - py), (bx - px, by - py), (bx + px, by + py), (ax + px, ay + py)],
+                        z0, z1)
+            n += 1
+        x += adv * unit
+    return n
+
+
+def nameboard(m: Mesh, P, length, y0, y1, lines, h, depth=0.05, two_faced=False, Pback=None) -> int:
+    """A dark board with a light moulded edge and its wording raised on it, centred,
+    lines stacked from the top. `P` is the board's frame, its face at z = 0 out to
+    z = depth. A two-faced board (on posts) letters its back as well, through `Pback`."""
+    obox(m, "cornice", P, 0.0, length, y0, y1, 0.0, depth)
+    edge = 0.05
+    strokes = 0
+    gap = (y1 - y0 - len(lines) * h) / (len(lines) + 1)
+    for Q in (P, Pback) if two_faced else (P,):
+        for (xa, xb, ya, yb) in ((0, length, y1 - edge, y1), (0, length, y0, y0 + edge),
+                                 (0, edge, y0, y1), (length - edge, length, y0, y1)):
+            obox(m, "trim", Q, xa, xb, ya, yb, depth, depth + 0.02)
+        base = y1 - gap - h
+        for line in lines:
+            strokes += letter(m, "trim", Q, line, (length - text_width(line, h)) / 2, base, h, depth, depth + 0.025)
+            base -= gap + h
+    return strokes
+
+
+def station_door(m: Mesh, st: dict, u1: float, s: float) -> int:
+    """The passenger door on a station's street front: a pair of leaves under a transom,
+    and a bracketed hood over them."""
+    w = float(st.get("door_width_m", 1.6))
+    m.box("door", u1, u1 + 0.05, s - w / 2, s + w / 2, 0.0, 2.55)
+    m.box("trim", u1, u1 + 0.07, s - 0.03, s + 0.03, 0.0, 2.55)          # the meeting stile
+    m.box("glass", u1, u1 + 0.05, s - w / 2, s + w / 2, 2.65, 3.0)
+    m.box("trim", u1, u1 + 0.1, s - w / 2 - 0.12, s - w / 2, 0.0, 3.1)
+    m.box("trim", u1, u1 + 0.1, s + w / 2, s + w / 2 + 0.12, 0.0, 3.1)
+    m.box("trim", u1, u1 + 0.12, s - w / 2 - 0.18, s + w / 2 + 0.18, 3.0, 3.12)
+    hood = st.get("hood")
+    if hood:
+        y, d, hw = float(hood["y_m"]), float(hood["depth_m"]), float(hood["width_m"]) / 2
+        # a lean-to hood falling 0.2 m to its fascia, on a bracket at each end
+        top = [(u1, s - hw, y + 0.32), (u1 + d, s - hw, y + 0.12), (u1 + d, s + hw, y + 0.12), (u1, s + hw, y + 0.32)]
+        bot = [(p[0], p[1], p[2] - 0.08) for p in top]
+        m.solid([top, bot] + [[top[i], top[(i + 1) % 4], bot[(i + 1) % 4], bot[i]] for i in range(4)], mat="roof")
+        m.box("cornice", u1 + d - 0.04, u1 + d + 0.02, s - hw, s + hw, y - 0.12, y + 0.14)
+        for sv in (s - hw + 0.1, s + hw - 0.1):
+            beam(m, "trim", (u1, sv, y - 0.75), (u1 + d * 0.8, sv, y + 0.02), 0.09)
+            beam(m, "trim", (u1, sv, y + 0.02), (u1 + d - 0.05, sv, y + 0.02), 0.09)
+    return 1
+
+
+def station(m: Mesh, st: dict, rect, eave: float, hs) -> dict:
+    """A railway station's platform, canopy and nameboards (T-2399).
+
+    The platform lies against the track face (u0) out to an edge line the record gives
+    as two (v, u) points; the canopy is a lean-to on brackets from that wall, over the
+    stretch where the platform is deeper than it; boards on a face carry their wording in
+    raised capitals, and a board `on_posts` stands on the platform, lettered both sides."""
+    u0, v0, u1, v1 = rect
+    facts = {}
+    pf = st.get("platform")
+    if pf:
+        (va, ua), (vb, ub) = pf["edge_u"]
+        edge = lambda v: ua + (ub - ua) * (v - va) / (vb - va)  # noqa: E731
+        lo, hi = pf["v"]
+        y = float(pf.get("deck_m", 0.3))
+        ring = [(u0, lo), (edge(lo), lo), (edge(hi), hi), (u0, hi)]
+        prism(m, "frame", ring, 0.0, y)
+        # the planks' seams, running with the track, each from where the edge line crosses it
+        k = 1
+        while u0 - k * 0.16 > edge(hi) + 0.08:
+            uu = u0 - k * 0.16
+            vs = max(lo, va + (uu - ua) * (vb - va) / (ub - ua)) if uu < edge(lo) else lo
+            m.face("roof", [(uu - 0.006, vs, y + 0.003), (uu + 0.006, vs, y + 0.003),
+                            (uu + 0.006, hi, y + 0.003), (uu - 0.006, hi, y + 0.003)], (uu, (vs + hi) / 2, y - 1.0))
+            k += 1
+        # the edge timber the planks are spiked to, and a step at each end
+        beam(m, "cornice", (edge(lo) + 0.08, lo, y - 0.12), (edge(hi) + 0.08, hi, y - 0.12), 0.2)
+        for vv, dv in ((lo, -0.35), (hi, 0.35)):
+            if u0 - 0.4 > edge(vv) + 0.4:
+                m.box("frame", edge(vv) + 0.4, u0 - 0.4, min(vv, vv + dv), max(vv, vv + dv), 0.0, y / 2)
+        facts["platform_m2"] = round(((u0 - edge(lo)) + (u0 - edge(hi))) / 2 * (hi - lo), 2)
+        facts["platform_width_m"] = [round(u0 - edge(lo), 2), round(u0 - edge(hi), 2)]
+    cn = st.get("canopy")
+    if cn:
+        ca, cb = cn["v"]
+        d, yw, drop = float(cn["depth_m"]), float(cn["wall_y_m"]), float(cn["drop_m"])
+        top = [(u0, ca, yw), (u0 - d, ca, yw - drop), (u0 - d, cb, yw - drop), (u0, cb, yw)]
+        bot = [(p[0], p[1], p[2] - 0.08) for p in top]
+        m.solid([top, bot] + [[top[i], top[(i + 1) % 4], bot[(i + 1) % 4], bot[i]] for i in range(4)], mat="roof")
+        m.box("cornice", u0 - d - 0.05, u0 - d + 0.01, ca - 0.02, cb + 0.02, yw - drop - 0.3, yw - drop + 0.03)
+        m.box("trim", u0 - 0.06, u0, ca, cb, yw - 0.18, yw - 0.02)                 # the wall plate
+        n = max(2, round((cb - ca) / float(cn.get("bracket_every_m", 1.6))) + 1)
+        for k in range(n):
+            sv = ca + 0.1 + (cb - ca - 0.2) * k / (n - 1)
+            under = yw - drop * 0.75 - 0.1
+            beam(m, "trim", (u0, sv, yw - 1.15), (u0 - d * 0.72, sv, under), 0.1)       # the brace
+            beam(m, "trim", (u0, sv, yw - 0.12), (u0 - d + 0.08, sv, yw - drop - 0.06), 0.1)  # the arm
+        facts["canopy_m"] = [round(cb - ca, 2), round(d, 2)]
+    strokes = boards = 0
+    for bd in st.get("boards", []):
+        h = float(bd["letter_m"])
+        ya, yb = bd["y"]
+        if bd.get("on_posts"):
+            (va, ua), (vb, ub) = pf["edge_u"]
+            t = _unit((ub - ua, vb - va, 0.0))
+            n = (t[1], -t[0])           # the board faces the track, away from the wall
+            if n[0] > 0:
+                n = (-n[0], -n[1])
+            t = (-n[1], n[0])           # the wording reads left to right from the track
+            L = float(bd["length_m"])
+            cv = float(bd["at_v"])
+            cu = ua + (ub - ua) * (cv - va) / (vb - va) + float(bd.get("back_from_edge_m", 0.7))
+            o = (cu - t[0] * L / 2, cv - t[1] * L / 2)
+            P = _onto(o, t, n)
+            # the back face's frame: from the board's far end, reading the other way, its
+            # z = depth plane on the front frame's z = 0 (the board's back)
+            ob = (o[0] + t[0] * L + n[0] * 0.03, o[1] + t[1] * L + n[1] * 0.03)
+            Pb = _onto(ob, (-t[0], -t[1]), (-n[0], -n[1]))
+            deck = float(pf.get("deck_m", 0.3))
+            for x in (0.25, L - 0.25):
+                q = P(x, 0, -0.06)
+                m.box("trim", q[0] - 0.06, q[0] + 0.06, q[1] - 0.06, q[1] + 0.06, deck, yb + 0.12)
+            strokes += nameboard(m, P, L, ya, yb, bd["lines"], h, depth=0.03, two_faced=True, Pback=Pb)
+        else:
+            face = bd["face"]
+            n = {"u1": (1.0, 0.0), "u0": (-1.0, 0.0)}[face]
+            t = (-n[1], n[0])
+            at = u1 if face == "u1" else u0
+            a, b = bd["v"]
+            start = a if t[1] > 0 else b
+            P = _onto((at, start), t, n)
+            strokes += nameboard(m, P, b - a, ya, yb, bd["lines"], h)
+        boards += 1
+    facts["boards"] = boards
+    facts["letter_strokes"] = strokes
+    return facts
 
 
 def crested_cap(m: Mesh, ring, cu, cv, y):
