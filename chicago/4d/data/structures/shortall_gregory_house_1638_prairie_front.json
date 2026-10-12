@@ -1,6 +1,6 @@
 {
   "id": "shortall_gregory_house_1638_prairie_front",
-  "name": "Shortall-Gregory house (1638 Prairie Avenue): the timber street front, K16",
+  "name": "Shortall-Gregory house (1638 Prairie Avenue): the K16 timber house",
   "aka": [
     "1638 Prairie Avenue",
     "1638 S. Prairie Avenue",
@@ -17,7 +17,7 @@
     "note": "Sheet 20 prints the 1911 use 'D' (dwelling) on the 1638 lot."
   },
   "review_required": false,
-  "research_note": "T-2323 — the first house built in the scene from the K16 timber kit (data/components/prairie_1904/k16_timber.json, T-2322): piece 2 of T-1858. It is the street front's timber fabric — the Gothic gable with its pierced bargeboards and shingle bands, the clapboard wall beside it with its corner, and the porch — standing against a plain body read off sheet 20's plan. The envelope (T-1864) and the finished architecture (T-1865: the pointed twin windows, oculus, hood moulds, corner tower and the canted bay itself) replace the body and the bay here when they land; T-2160's district draft keeps this record's id.",
+  "research_note": "T-2323 — the first house built in the scene from the K16 timber kit (data/components/prairie_1904/k16_timber.json, T-2322): piece 2 of T-1858. It is the street front's timber fabric — the Gothic gable with its pierced bargeboards and shingle bands, the clapboard wall beside it with its corner, and the porch — closed behind it since T-2395 (a piece of T-1864's envelope) in the kit's timber: both ranges' clapboard flanks, a rear gable, the main roof carried back on the front gable's rake and a lean-to over the north range. The corner tower (T-2396), the sheet's rear pieces (T-2397) and the finished architecture (T-1865: the pointed twin windows, oculus, hood moulds and the canted bay itself) finish the house and replace the stand-in bay when they land; T-2160's district draft keeps this record's id.",
   "phases": [
     {
       "id": "as_standing_1904",
@@ -215,13 +215,192 @@
               0.8,
               0.75,
               0.62
-            ]
+            ],
+            "timber_walls": {
+              "south": {
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 2.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 7.0
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 11.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 16.2
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 20.8
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 2.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 7.0
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 11.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 16.2
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 20.8
+                  }
+                ],
+                "split_m": 13.8
+              },
+              "north": {
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 2.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 7.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 2.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 7.4
+                  }
+                ]
+              },
+              "rear": {
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 1.45
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 3.76
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 1.45
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 3.76
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 0.95,
+                    "sill_m": 7.05,
+                    "centre_m": 2.605
+                  }
+                ],
+                "bands": [
+                  {
+                    "pattern": "square",
+                    "courses": 99
+                  }
+                ]
+              },
+              "wing_north": {
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 4.5
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 9.0
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 4.5
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 9.0
+                  }
+                ]
+              },
+              "wing_rear": {
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 1.46
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 1.46
+                  }
+                ]
+              }
+            }
           },
           "confidence": "reconstructed",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "A plain closed body in the place of the envelope, so the front stands against a house and not in the air: its plan is the sheet's (above), its two roofs RECONSTRUCTED — the gable's range under the front gable's own pitch carried back, the north range under a low side-gabled roof whose eave is the wing wall's. Painted a pale body colour after the register's 'pale Gothic exterior'; no opening or trim is modelled on it. T-1864's envelope replaces it."
+          "note": "T-2395: the body behind the front, closed in the K16 kit's timber and roofed; its plan is the sheet's (above): the gable's range 23.4 m deep, the north range 12.9 m. RECONSTRUCTED from the kit, recorded as L-k16-1638-body-2395: both ranges' flanks are clapboard walls on the front's 0.75 m foundation with corner boards, a frieze and a boxed eave on scroll brackets; the gable's range ends at the back in a second kit gable (plain square shingle, pierced bargeboards and finial, the front's 52-degree pitch and 6.4 m belt) and is roofed by the front gable's own rake carried back to it, so its flanks' eave sits where that roof comes down to the fascia (6.03 m wall top); the narrow north range is roofed by a 22-degree lean-to from its north eave (the wing wall's, 6.4 m) up to the main roof. Openings are the kit's two-over-two sash in flat casings, a ground and an upper storey: five bays on the south flank, two on the north flank behind the wing, two on the wing's north side, one on its back wall, two a storey and an attic light in the rear gable. No source shows a side or rear elevation: the bays are spaced to the plan, not read. The colour is kept for the canted bay, which is still a plain stand-in (T-1865)."
         },
         "canted_bay": {
           "value": {
