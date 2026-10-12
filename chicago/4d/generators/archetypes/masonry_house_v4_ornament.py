@@ -18,15 +18,18 @@ from __future__ import annotations
 import math
 
 TRIM = 2
+CARVED_GRANITE = 0
 
 
 class Relief:
     """A sculptor's (horizontal, vertical, outward-depth) work plane."""
 
-    def __init__(self, builder, plane, confidence):
+    def __init__(self, builder, plane, confidence, mat=TRIM):
         self.b = builder
         self.p = plane
         self.conf = confidence
+        # The stone the carving is cut in; faces asking for no slot take it.
+        self.mat = mat
 
     def point(self, u, z, d):
         at = self.p['at'] + self.p['sign'] * d
@@ -35,16 +38,17 @@ class Relief:
     def vector(self, u, z, d):
         return (self.p['sign'] * d, u, z) if self.p['axis'] == 'x' else (u, self.p['sign'] * d, z)
 
-    def face(self, pts, mat=TRIM, normal=(0, 0, 1)):
+    def face(self, pts, mat=None, normal=(0, 0, 1)):
+        mat = self.mat if mat is None else mat
         self.b.raw([self.point(*p) for p in pts], self.conf, mat,
                    self.vector(*normal) if normal else None)
 
-    def solid(self, poly, back, front, mat=TRIM):
+    def solid(self, poly, back, front, mat=None):
         self.face([(*p, front) for p in poly], mat)
         for p, q in zip(poly, poly[1:] + poly[:1]):
             self.face([(*p, back), (*q, back), (*q, front), (*p, front)], mat, None)
 
-    def box(self, x0, x1, z0, z1, back, front, mat=TRIM):
+    def box(self, x0, x1, z0, z1, back, front, mat=None):
         self.solid([(x0,z0),(x1,z0),(x1,z1),(x0,z1)],back,front,mat)
 
     def tube(self, path, radius, sides=10):
@@ -177,81 +181,123 @@ def _scroll(r, x, z, radius, depth, mirror=1, turn=0):
                curl=mirror*.24,phase=j*.6,steps=14)
 
 
+def _boss(r, poly, back, front, inset):
+    """A small square billet: a raised block with a chamfered top, not a tile."""
+    cx=sum(p[0] for p in poly)/len(poly);cz=sum(p[1] for p in poly)/len(poly)
+    top=[(cx+(p[0]-cx)*(1-inset),cz+(p[1]-cz)*(1-inset)) for p in poly]
+    r.face([(*p,front) for p in top])
+    for (p,q),(tp,tq) in zip(zip(poly,poly[1:]+poly[:1]),zip(top,top[1:]+top[:1])):
+        r.face([(*p,back),(*q,back),(*tq,front),(*tp,front)],normal=None)
+
+
+def _annulus(r, cx, cz, r0, r1, back, front, n=48, mat=None):
+    """A half-annulus moulding floor between two radii, in convex sectors."""
+    for i in range(n):
+        a,c=math.pi*i/n,math.pi*(i+1)/n
+        r.face([(cx+r0*math.cos(c),cz+r0*math.sin(c),front),(cx+r1*math.cos(c),cz+r1*math.sin(c),front),
+                (cx+r1*math.cos(a),cz+r1*math.sin(a),front),(cx+r0*math.cos(a),cz+r0*math.sin(a),front)][::-1],mat)
+    for rr,sign in ((r0,-1),(r1,1)):
+        for i in range(n):
+            a,c=math.pi*i/n,math.pi*(i+1)/n
+            r.face([(cx+rr*math.cos(a),cz+rr*math.sin(a),back),(cx+rr*math.cos(c),cz+rr*math.sin(c),back),
+                    (cx+rr*math.cos(c),cz+rr*math.sin(c),front),(cx+rr*math.cos(a),cz+rr*math.sin(a),front)][::sign],
+                   mat,None)
+
+
+def _roundel(r, x, z, radius, depth, seed):
+    """A stem bent into a ring round a six-leaf rosette with a drilled boss."""
+    r.arc(x,z,radius,depth,radius*.075,0,2*math.pi,40)
+    for j in range(6):
+        th=math.pi/2+2*math.pi*j/6+seed*.21
+        r.leaf(x+radius*.10*math.cos(th),z+radius*.10*math.sin(th),th,radius*.86,radius*.62,
+               depth-.006,radius*.16,(.18 if j%2 else -.18),True,seed+j*.7,10)
+    r.bead(x,z,depth+.012,radius*.16)
+
+
 def fan(b, o):
-    """The complete entry fan: voussoirs, carved archivolts and foliate field."""
+    """The Prairie Avenue door's fan: rock-faced voussoirs round a carved tympanum.
+
+    T-2215, rebuilt to the owner's photographs of 2026-10-12 and the HABS
+    "Detail of Entrance Doorway" drawing he sent with them. Read off the
+    pictures, outside in: fifteen radiating voussoirs, keyed at the crown; a
+    fillet; a channel of square billets; a fillet; a broad archivolt of drilled
+    foliage; a torus roll; and a semicircular field of pierced foliage grown as
+    a tree, a central stem branching into stems bent round leafy roundels, the
+    whole standing well in front of a deep dark bed so the piercing reads.
+    The arrangement is the pictures'; every leaf, lobe and drill hole is
+    reconstructed carving, not traced or projected (LIBERTIES).
+    """
     conf=b.params.detail.get('conf',o['conf'])
-    r=Relief(b,o,conf)
+    # The colour photographs show the tympanum cut in the wall's own pink granite,
+    # a shade lighter where it is dressed, not in the grey limestone of the trim.
+    r=Relief(b,o,conf,CARVED_GRANITE)
     cx=(o['u0']+o['u1'])/2;cz=o['spring_z'];rad=o['r_in']
-    # The broad structural arch remains the opening record's measured outline.
-    from archetypes.masonry_house_v4_detail import fractured_stone, stone_corner_normals
-    import random
-    count=o.get('voussoirs') or 11
-    for i in range(count):
-        a=math.pi*i/count+.004;c=math.pi*(i+1)/count-.004
-        lo,hi=rad+.04,o['r_out']
-        poly=[(cx+lo*math.cos(a),cz+lo*math.sin(a)),
-              (cx+hi*math.cos(a),cz+hi*math.sin(a)),
-              (cx+hi*math.cos(c),cz+hi*math.sin(c)),
-              (cx+lo*math.cos(c),cz+lo*math.sin(c))]
-        for facet,is_front in stone_corner_normals(fractured_stone(poly,.05,random.Random(90211+i*173))):
-            if is_front:
-                b.raw_with_normals([r.point(*p[:3]) for p in facet],
-                                   [r.vector(*p[3:]) for p in facet],
-                                   conf,12+i%4,r.vector(0,0,1))
-            else:r.face(facet,12+i%4,None)
+    from archetypes.masonry_house_v4_detail import rock_voussoirs
+    # The structural arch keeps the opening record's measured outline.
+    rock_voussoirs(b,o,cx,cz,rad+.04,o['r_out'],o.get('voussoirs') or 15,conf,90211)
     # Bed lies behind all carving, letting the drilled pockets remain dark.
     # The wall builder removes the entire arch; overlap the voussoirs' inner
     # radius by 1 mm so their recessed carving bed cannot reveal the sky.
     bed_radius=o['r_out']
     r.solid([(cx+bed_radius*math.cos(math.pi*i/80),cz+bed_radius*math.sin(math.pi*i/80))
              for i in range(81)],-.065,-.045)
-    field=rad*.65
-    # Several mouldings, with actual convex and recessed cross sections.
-    for rr,dd,t in ((.666,.020,.013),(.702,.040,.014),(.745,.030,.012),
-                    (.943,.045,.014),(.986,.028,.010)):
-        r.arc(cx,cz,rad*rr,dd,t)
-    # Inner cove masonry divisions, set well behind the continuous rolls.
-    for i in range(21):
-        th=math.pi*(i+.5)/21
-        r.tube([(cx+rad*.707*math.cos(th),cz+rad*.707*math.sin(th),.025),
-                (cx+rad*.739*math.cos(th),cz+rad*.739*math.sin(th),.023)],.006,8)
-    # Broad leaf arch: upright palmette stems with opposed lobed leaves.
-    for i in range(19):
-        th=math.pi*(i+.5)/19
-        base=(cx+rad*.774*math.cos(th),cz+rad*.774*math.sin(th))
-        r.leaf(*base,th,rad*.146,rad*.118,.051,.020,.04,True,i*.31,12)
-        for side in (-1,1):
-            # Fine flanking leaflets stay within their individual arch block.
-            px=base[0]+side*rad*.028*(-math.sin(th))
-            pz=base[1]+side*rad*.028*math.cos(th)
-            r.leaf(px,pz,th+side*.35,rad*.108,rad*.050,.045,.014,
-                   side*.08,False,steps=10)
-    # The small, deep dentils have real recesses between them.
-    for i in range(35):
-        th=math.pi*(i+.5)/35;da=.018
+    R=rad+.04
+    # Outer frame: a fillet, the billet channel, a fillet.
+    r.arc(cx,cz,R-.012,.034,.012)
+    _annulus(r,cx,cz,R*.885,R-.02,-.045,.004)
+    count=33
+    for i in range(count):
+        th=math.pi*(i+.5)/count;da=math.pi/count*.30
         poly=[(cx+rr*math.cos(aa),cz+rr*math.sin(aa))
-              for rr,aa in [(rad*.951,th-da),(rad*.981,th-da),
-                            (rad*.981,th+da),(rad*.951,th+da)]]
-        r.solid(poly,.010,.046)
-    # Bilateral vine: the macro arrangement follows the photograph; the tiny
-    # curls/leaf serrations are intentionally reconstructed rather than traced.
-    def B(points,depth=.057,width=.010):
-        path=_bezier([(cx+x*field,cz+z*field) for x,z in points],depth)
-        r.tube(path,width,10)
-    B([(0,.02),(-.04,.22),(.01,.48),(0,.85)],.060,.014)
+              for rr,aa in [(R*.902,th-da*1.08),(R-.032,th-da),(R-.032,th+da),(R*.902,th+da*1.08)]]
+        _boss(r,poly,.004,.040,.16)
+    r.arc(cx,cz,R*.878,.030,.010)
+    # The archivolt: a carved band of radiating palmettes, drilled between.
+    _annulus(r,cx,cz,R*.705,R*.868,-.045,-.004)
+    band=R*.786;size=R*.150
+    for i in range(23):
+        th=math.pi*(i+.5)/23
+        base=(cx+(band-size*.5)*math.cos(th),cz+(band-size*.5)*math.sin(th))
+        r.leaf(*base,th,size,size*.62,.004,.022,.06,True,i*.37,11)
+        for side in (-1,1):
+            r.leaf(*base,th+side*.62,size*.74,size*.42,.000,.018,side*.20,True,i*.29+side,9)
+    for i in range(24):
+        th=math.pi*i/23
+        r.bead(cx+band*math.cos(th),cz+band*math.sin(th),.012,.0085)
+    # Torus roll and fillet framing the field.
+    r.arc(cx,cz,R*.690,.026,.018)
+    r.arc(cx,cz,R*.655,.010,.008)
+    F=R*.640
+    # The tree: a trunk, its two pairs of branches and a crowning roundel.
+    def stem(points,depth=.020,width=.011):
+        r.tube(_bezier([(cx+x*F,cz+z*F) for x,z in points],depth,20),width,8)
+    stem([(0,.0),(0,.25),(0,.55),(0,.80)],.022,.016)
     for mirror in (-1,1):
-        B([(0,.09),(mirror*.13,.25),(mirror*.61,.17),(mirror*.69,.39)],.060,.011)
-        B([(0,.34),(mirror*.05,.60),(mirror*.52,.56),(mirror*.41,.74)],.063,.010)
-        _scroll(r,cx+mirror*field*.43,cz+field*.34,field*.34,.062,
-                mirror,math.pi if mirror<0 else 0)
-        _scroll(r,cx+mirror*field*.24,cz+field*.70,field*.205,.063,
-                -mirror,math.pi*.55 if mirror<0 else math.pi*.45)
-        r.leaf(cx+mirror*field*.06,cz+field*.02,
-               math.pi*.5+mirror*.28,field*.36,field*.19,.070,.026,
-               -mirror*.20,True,mirror*.4)
-        r.leaf(cx+mirror*field*.07,cz+field*.45,
-               math.pi*.5+mirror*.40,field*.32,field*.16,.074,.022,
-               mirror*.12,False)
+        stem([(0,.10),(mirror*.18,.12),(mirror*.30,.18),(mirror*.36,.28)])
+        stem([(0,.46),(mirror*.08,.50),(mirror*.16,.56),(mirror*.21,.62)])
+        _roundel(r,cx+mirror*F*.53,cz+F*.33,F*.235,.024,1+mirror)
+        _roundel(r,cx+mirror*F*.27,cz+F*.70,F*.165,.026,4+mirror)
+        # Leaves fill the field between the roundels, as the drilled foliage does.
+        for j,(x,z,ang,ln) in enumerate(((.20,.06,.30,.24),(.80,.10,1.75,.20),(.10,.36,.95,.22),
+                                          (.48,.62,1.25,.22),(.70,.52,2.10,.18),(.42,.86,1.95,.15),
+                                          (.86,.30,1.45,.15),(.08,.66,1.15,.18))):
+            angle=ang if mirror>0 else math.pi-ang
+            r.leaf(cx+mirror*F*x,cz+F*z,angle,F*ln,F*ln*.55,.016,.016,mirror*.16,True,j*.5+mirror,10)
+        # A second, smaller growth of leaves laps the first, so the field reads
+        # as the photographs' close foliage with only drilled gaps between.
+        for j,(x,z,ang,ln) in enumerate(((.30,.04,.10,.20),(.62,.06,1.00,.16),(.92,.18,1.60,.12),
+                                          (.30,.52,1.40,.15),(.58,.84,2.40,.12),(.20,.92,1.80,.10),
+                                          (.06,.20,1.30,.16),(.40,.16,.60,.14),(.76,.68,2.60,.12))):
+            angle=ang if mirror>0 else math.pi-ang
+            r.leaf(cx+mirror*F*x,cz+F*z,angle,F*ln,F*ln*.60,.010,.014,-mirror*.14,True,j*.3+mirror*2,9)
+    _roundel(r,cx,cz+F*.83,F*.120,.028,7)
+    # The small half-boss the drawing shows at the foot of the trunk.
+    r.solid([(cx+F*.14*math.cos(math.pi*i/16),cz+F*.14*math.sin(math.pi*i/16)) for i in range(17)],-.045,.012)
+    # Each blade roots a little out from the boss's centre: five blades from one
+    # point crowd their first row into sub-millimetre slivers (T-2267).
+    for j in range(5):
+        th=math.pi*(j+.5)/5
+        r.leaf(cx+F*.03*math.cos(th),cz+.004+F*.03*math.sin(th),th,F*.13,F*.075,.012,.010,0,False,steps=6)
 
 
 def sill(b, o):
