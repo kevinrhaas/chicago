@@ -66,6 +66,13 @@ restaled and rebuilt the whole town.
     left out of assertions 2-3 and held instead to its committed file: not uniform, and
     the exported mean within 2 % of the committed PNG's. Every other occlusion image is
     still a bake and still answers to the manifest.
+5.  **An occlusion map's UV set is on the mesh that wears it** (T-2400). Glessner v4's
+    granite bakes its stone-scale occlusion onto its own TEXCOORD_1, and the light LOD is
+    a different mesh with TEXCOORD_0 alone, built by copying the master's materials. A
+    material whose `occlusionTexture.texCoord` names a set some primitive wearing it does
+    not carry samples nothing — WebGL reads the missing attribute as (0, 0), one texel
+    everywhere, so a face lit by the sky goes as dark as that texel says. Read on every
+    master AND every web derivative, from the glTF JSON alone.
 """
 from __future__ import annotations
 
@@ -418,6 +425,36 @@ def check_material_maps(name: str, data: bytes, material_maps=None) -> tuple[dic
     return shipped, findings
 
 
+def missing_texcoords(js: dict) -> list[str]:
+    """Assertion 5: each occlusionTexture's texCoord set, on every primitive wearing it."""
+    found: list[str] = []
+    materials = js.get("materials", [])
+    for mesh in js.get("meshes", []):
+        for prim in mesh.get("primitives", []):
+            index = prim.get("material")
+            if index is None or index >= len(materials):
+                continue
+            occ = materials[index].get("occlusionTexture")
+            if not occ:
+                continue
+            attr = f"TEXCOORD_{occ.get('texCoord', 0)}"
+            if attr not in prim.get("attributes", {}):
+                found.append(f"material {materials[index].get('name', index)!r} reads its "
+                             f"occlusion on {attr}, which a primitive of mesh "
+                             f"{mesh.get('name', '?')!r} wearing it does not carry")
+    return sorted(set(found))
+
+
+def read_glb_json(path) -> dict:
+    """The JSON chunk alone — assertion 5 needs no texels, and the derivatives are large."""
+    with open(path, "rb") as fh:
+        head = fh.read(20)
+        if len(head) < 20 or head[:4] != b"glTF":
+            raise AoExportError(f"{pathlib.Path(path).name}: not a GLB")
+        (length,) = struct.unpack("<I", head[12:16])
+        return json.loads(fh.read(length))
+
+
 def check_asset(name: str, claims_ao: bool, data: bytes,
                 material_maps=None) -> tuple[dict | None, list[str]]:
     """One committed asset against what the manifest says about it.
@@ -428,6 +465,7 @@ def check_asset(name: str, claims_ao: bool, data: bytes,
     findings: list[str] = []
     try:
         stats = occlusion_stats(data, material_maps)
+        findings.extend(f"{name}: {f} (T-2400)" for f in missing_texcoords(read_glb(data)[0]))
     except AoExportError as e:
         return None, [f"{name}: {e}"]
     shipped, map_findings = check_material_maps(name, data, material_maps)
@@ -488,9 +526,20 @@ def census(rep: list, quiet: bool = False) -> int:
         if not findings and not quiet:
             print(f"  ok    {name}  occlusion min {stats['min']:.4f} max {stats['max']:.4f} "
                   f"mean {stats['mean']:.4f} over {stats['texels']:,} texels")
+    web = ROOT / "assets" / "web"
+    derived = 0
+    for path in sorted(web.rglob("*.glb")) if web.exists() else []:
+        derived += 1
+        try:
+            for f in missing_texcoords(read_glb_json(path)):
+                rep.append(f"{path.relative_to(web)} (web derivative): {f} (T-2400)")
+        except (AoExportError, ValueError) as e:
+            rep.append(f"{path.relative_to(web)} (web derivative): {e}")
     if not quiet:
         print(f"  note  {checked} committed GLB(s) read; {with_ao} carry a baked occlusion "
               f"texture, {with_maps} a material occlusion map")
+        print(f"  note  {derived} web derivative(s) read for assertion 5: every occlusion map's "
+              f"UV set is on the primitives that wear it")
     return checked
 
 
@@ -502,7 +551,8 @@ def _solid_glb(value: int, w: int = 8, h: int = 8, occlusion: bool = True,
 
 
 def _glb(pixels: bytes, w: int, h: int, occlusion: bool = True, filter_type: int = 0,
-         image_name: str | None = None) -> bytes:
+         image_name: str | None = None, tex_coord: int | None = None,
+         prim_sets: tuple[int, ...] | None = None) -> bytes:
     png = encode_png(w, h, 3, pixels, filter_type)
     pad = (-len(png)) % 4
     binary = png + b"\x00" * pad
@@ -515,6 +565,12 @@ def _glb(pixels: bytes, w: int, h: int, occlusion: bool = True, filter_type: int
           "materials": [material]}
     if occlusion:
         material["occlusionTexture"] = {"index": 0}
+        if tex_coord is not None:
+            material["occlusionTexture"]["texCoord"] = tex_coord
+    if prim_sets is not None:
+        js["meshes"] = [{"name": "probe", "primitives": [
+            {"attributes": {"POSITION": 0, **{f"TEXCOORD_{k}": 1 + k for k in prim_sets}},
+             "material": 0}]}]
     if image_name:
         js["images"][0]["name"] = image_name
     jsb = json.dumps(js, separators=(",", ":")).encode()
@@ -645,6 +701,25 @@ def self_test() -> int:
                              f"got {findings or 'clean'}")
             else:
                 print(f"  ok    {label} -> {'refused' if findings else 'clean'}")
+        print("\n  -- assertion 5: an occlusion map's UV set is on the mesh (T-2400)")
+        cases = [
+            ("a bake on TEXCOORD_1, the mesh carrying 0 and 1 — the Glessner master",
+             _glb(_ramp(16, 6), 16, 6, tex_coord=1, prim_sets=(0, 1)), False),
+            ("a bake on TEXCOORD_1, the mesh carrying 0 alone — a light LOD that copied it",
+             _glb(_ramp(16, 6), 16, 6, tex_coord=1, prim_sets=(0,)), True),
+            ("a map on the default set, the mesh carrying TEXCOORD_0",
+             _glb(_ramp(16, 6), 16, 6, prim_sets=(0,)), False),
+            ("a map on the default set, the mesh carrying no UVs at all",
+             _glb(_ramp(16, 6), 16, 6, prim_sets=()), True),
+        ]
+        for label, data, want_refused in cases:
+            _stats, findings = check_asset("probe.glb", True, data)
+            hit = any("T-2400" in f for f in findings)
+            if hit != want_refused:
+                fails.append(f"{label}: expected {'a refusal' if want_refused else 'a clean read'}, "
+                             f"got {findings or 'clean'}")
+            else:
+                print(f"  ok    {label} -> {'refused' if hit else 'clean'}")
         if material_occlusion_maps().get("granite_occlusion") is None:
             fails.append("assets/textures/glessner-v4/material-library.json declares no "
                          "granite occlusion map — generate.py and this guard disagree")

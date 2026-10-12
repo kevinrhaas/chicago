@@ -67,7 +67,17 @@ def plan(a, frame):
         h = fp["hood"]
         a.seat(frame, [(h["s_m"][0], h["bed_m"], 0.0), (h["s_m"][1], h["top_m"], 0.0)], "K01.hood")
     po = af["portico"]
-    if po:
+    if po and po.get("archivolt_m"):
+        # T-2369: the imposts and the ring are all that meet the wall
+        c, (i0, i1) = po["centre_s_m"], po["impost_m"]
+        hw, ro = po["half_width_m"], po["arch_radius_m"] + po["archivolt_m"]
+        if po.get("impost_from_m", 0.0) < 1e-6:
+            a.seat(frame, [(c - hw, i0, 0.0), (c + hw, i1, 0.0)], "K01.portico")
+        if "archivolt_depth_m" not in po:
+            sp = po.get("spring_m", i1)
+            a.seat(frame, [(c - ro, sp, 0.0), (c + ro, sp + po.get("arch_rise_m", po["arch_radius_m"]) + po["archivolt_m"], 0.0)],
+                   "K01.portico")
+    elif po:
         c, hw = po["centre_s_m"], po["half_width_m"] + po["cornice_overhang_m"]
         a.seat(frame, [(c - hw, po["impost_m"][0], 0.0), (c + hw, po["cornice_m"][1], 0.0)], "K01.portico")
     return rects
@@ -255,7 +265,10 @@ def _frieze(a, frame, af, yf, length, conf):
                           ([(h0, ly0, 0.0), (h0, ly1, 0.0), (h0, ly1, -D), (h0, ly0, -D)], (1, 0, 0)),
                           ([(h1, ly0, 0.0), (h1, ly1, 0.0), (h1, ly1, -D), (h1, ly0, -D)], (-1, 0, 0))):
             _face(a, "fascia", frame, pts, hint, seed, conf)
-        _face(a, "backing", frame, [(h0, ly0, -D), (h1, ly0, -D), (h1, ly1, -D), (h0, ly1, -D)], (0, 0, 1), seed, conf)
+        # T-2369: 1612's frieze lights read white in its photograph, so a white-painted
+        # panel stands behind each light's glass where another front shows the dark room
+        _face(a, "frieze_panel" if fr.get("panel") else "backing", frame,
+              [(h0, ly0, -D), (h1, ly0, -D), (h1, ly1, -D), (h0, ly1, -D)], (0, 0, 1), seed, conf)
         _face(a, "glass", frame, [(h0, ly0, -D + 0.03), (h1, ly0, -D + 0.03), (h1, ly1, -D + 0.03), (h0, ly1, -D + 0.03)],
               (0, 0, 1), seed, conf)
 
@@ -285,15 +298,21 @@ def _frontispiece(a, frame, fp, conf):
 
 
 def _portico(a, frame, po, conf):
-    """Four columns on pedestals, a beam over each side pair, an arch block over the door
-    turned as a barrel from the wall to the front, and a cornice slab over all."""
+    """Columns on pedestals, an impost block over each side's columns, and over the door
+    either an arch block turned as a barrel from the wall to the front under a cornice slab
+    or (T-2369, `archivolt_m`) a round archivolt alone on the imposts, as 1612's photograph
+    shows its shallow portico: a curved ring with the wall seen over it."""
     c, hw, r = po["centre_s_m"], po["half_width_m"], po["arch_radius_m"]
     F = po["front_m"]
     i0, i1 = po["impost_m"]
-    top, (c0, c1) = po["top_m"], po["cornice_m"]
+    ring = po.get("archivolt_m")
+    rise = po.get("arch_rise_m", r)      # T-2369: a rise under the radius turns an elliptical arch
+    sp = po.get("spring_m", i1)          # T-2369: an archivolt may spring below its imposts' top
+    top = sp + rise + ring if ring else po["cornice_m"][1]
     cid = "k01.wall.portico"
-    seed = a.instance(cid, "wall", {"columns": 2 * len(po["columns_d_m"]), "front_m": F, "arch_radius_m": r,
-                                    "impost_m": [i0, i1], "top_m": c1},
+    seed = a.instance(cid, "wall", {"columns": len(po["columns_s_m"]) * len(po["columns_d_m"]), "front_m": F,
+                                    "arch_radius_m": r, "impost_m": [i0, i1], "top_m": top,
+                                    **({"archivolt_m": ring} if ring else {})},
                       {"crown": _P(frame, c, i1 + r, F)})
     mat = "dress_stone"
     ped, base_h = po["pedestal_m"], 0.08
@@ -309,11 +328,39 @@ def _portico(a, frame, po, conf):
             cap = ped * 0.85
             _box(a, mat, frame, sc - cap / 2, sc + cap / 2, po["capital_bed_m"], i0, d - cap / 2, d + cap / 2,
                  seed, conf, skip=("top",))
+    if ring:
+        # the imposts: a block over each side's columns from the frontispiece's face
+        # (`impost_from_m`) to the front and a little over it, and the archivolt springing
+        # from their inner ends, its intrados `arch_radius_m` across and `arch_rise_m` high
+        o, d0 = po.get("impost_overhang_m", 0.0), po.get("impost_from_m", 0.0)
+        cap = po.get("impost_cap_m", 0.0)   # a cap this deep over the block, `o` over it all round
+        back = ("back",) if d0 < 1e-6 else ()
+        for s0, s1, out in ((c - hw, c - r - ring, -1), (c + r + ring, c + hw, 1)):
+            if cap:
+                _box(a, mat, frame, s0, s1, i0, i1 - cap, d0, F, seed, conf, skip=back + ("top",))
+                e0, e1 = (s0 - o, s1) if out < 0 else (s0, s1 + o)
+                _box(a, mat, frame, e0, e1, i1 - cap, i1, d0, F + o, seed, conf, skip=back)
+            else:
+                _box(a, mat, frame, s0, s1, i0, i1, d0, F + o, seed, conf, skip=back)
+        # the ring: `archivolt_depth_m` deep at the front, or turned back to the wall
+        b0 = F - po["archivolt_depth_m"] if "archivolt_depth_m" in po else 0.0
+        n = ROUND_SEGMENTS
+        E = lambda t, k: (c + (r + k) * math.cos(t), sp + (rise + k) * math.sin(t))
+        for k in range(n):
+            t0, t1 = math.pi * k / n, math.pi * (k + 1) / n
+            p0, q0 = [E(t0, 0.0), E(t1, 0.0)], [E(t1, ring), E(t0, ring)]
+            for dd, hz in ((F, 1), (b0, -1)) if b0 > 1e-6 else ((F, 1),):
+                _face(a, mat, frame, [(x, y, dd) for x, y in p0 + q0], (0, 0, hz), seed, conf)
+            tm = (t0 + t1) / 2
+            for (x0, y0), (x1, y1), h in ((p0[0], p0[1], (-math.cos(tm), -math.sin(tm), 0)),
+                                          (q0[1], q0[0], (math.cos(tm), math.sin(tm), 0))):
+                _face(a, mat, frame, [(x0, y0, b0), (x1, y1, b0), (x1, y1, F), (x0, y0, F)], h, seed, conf)
+        return
     # the side beams: the impost, wall to front
     for s0, s1, inner in ((c - hw, c - r, "right"), (c + r, c + hw, "left")):
         _box(a, mat, frame, s0, s1, i0, i1, 0.0, F, seed, conf, skip=("back", "top"))
     # the arch block: wedges about the springing centre, extruded wall to front
-    for pts, kinds, mid in wedges(c, i1, r, c - hw, c + hw, top, merge_crown=True):
+    for pts, kinds, mid in wedges(c, i1, r, c - hw, c + hw, po["top_m"], merge_crown=True):
         _face(a, mat, frame, [(q[0], q[1], F) for q in pts], (0, 0, 1), seed, conf)
         for i, kind in enumerate(kinds):
             q, n = pts[i], pts[(i + 1) % len(pts)]
@@ -325,6 +372,7 @@ def _portico(a, frame, po, conf):
                 continue
             _face(a, mat, frame, [(q[0], q[1], 0.0), (n[0], n[1], 0.0), (n[0], n[1], F), (q[0], q[1], F)], h, seed, conf)
     o = po["cornice_overhang_m"]
+    c0, c1 = po["cornice_m"]
     _box(a, mat, frame, c - hw - o, c + hw + o, c0, c1, 0.0, F + o, seed, conf, skip=("back",))
 
 
@@ -366,6 +414,74 @@ def _guards(a, frame, af, conf):
                     _bar(a, frame, s0 + 0.02, s1 - 0.02, yy, yy + b, d - 2 * b, d - b, seed, conf)
 
 
+def _beam(a, mat, frame, s, w, p0, p1, h, seed, conf):
+    """A bar of section w (along the wall) by h, from (y, d) p0 to p1 in the plane at s."""
+    dy, dd = p1[0] - p0[0], p1[1] - p0[1]
+    L = math.hypot(dy, dd)
+    ny, nd = -dd / L * h / 2, dy / L * h / 2           # half the section, square to the bar
+    if ny < 0:
+        ny, nd = -ny, -nd
+    lo = [(p0[0] - ny, p0[1] - nd), (p1[0] - ny, p1[1] - nd)]
+    hi = [(p0[0] + ny, p0[1] + nd), (p1[0] + ny, p1[1] + nd)]
+    s0, s1 = s - w / 2, s + w / 2
+    up = (0, ny, nd)
+    for (a0, a1), hint in ((hi, up), (lo, (0, -ny, -nd))):
+        _face(a, mat, frame, [(s0, a0[0], a0[1]), (s1, a0[0], a0[1]), (s1, a1[0], a1[1]), (s0, a1[0], a1[1])], hint, seed, conf)
+    for x, hx in ((s0, -1), (s1, 1)):
+        _face(a, mat, frame, [(x, lo[0][0], lo[0][1]), (x, lo[1][0], lo[1][1]), (x, hi[1][0], hi[1][1]),
+                              (x, hi[0][0], hi[0][1])], (hx, 0, 0), seed, conf)
+    for (e, f), hint in (((lo[0], hi[0]), (0, -dy, -dd)), ((lo[1], hi[1]), (0, dy, dd))):
+        _face(a, mat, frame, [(s0, e[0], e[1]), (s1, e[0], e[1]), (s1, f[0], f[1]), (s0, f[0], f[1])], hint, seed, conf)
+
+
+def _rails(a, frame, sr, conf):
+    """T-2369: the stoop's iron rails, as 1612's photograph shows them on its cheekless
+    stoop: on each side the K11 kit's stoop rail (k11_ironwork.json `stair_rail`) — a newel
+    on the landing and one on the bottom tread, a handrail raked between them its height
+    over the nosing line, two balusters on every tread at its quarter points — and at the
+    foot the handrail turned down over the newel in a scroll `scroll_m` across."""
+    import json
+    from . import k01_frontage as K
+    p = a.p
+    R = json.loads((K.ROOT / "data" / "components" / "prairie_1904" / "k11_ironwork.json").read_text())["parts"]["stair_rail"]
+    door = next(o for o in p.openings if o.component == "k01.opening.door_leaf")
+    st = a.door_variant()["stair"]
+    if st.get("cheeks"):
+        raise ValueError("stoop_rails stand on a stoop's open ends; this stoop has stone cheeks")
+    y0, n, r, g, L = p.door_floor_m, p.risers, p.riser_m, p.tread_m, p.landing_depth_m
+    F = L + (n - 1) * g                                  # the last riser, at the foot
+    nose = lambda d: y0 - (d - L) * r / g                # the nosing line
+    tread = lambda d: y0 - min(n, max(0, math.floor((d - L) / g) + 1)) * r if d > L else y0
+    H, nm, bm, rm, rw = R["height_m"], R["newel_m"], R["baluster_m"], R["rail_m"], R["rail_width_m"]
+    seed = a.instance("k11.rail.stoop_rail", "stair", {"risers": n, "rail_height_m": H, "sides": 2,
+                                                       "balusters_per_tread": R["per_tread"],
+                                                       "scroll_m": sr["scroll_m"]},
+                      {"top": _P(frame, door.s_m, y0 + H, L), "foot": _P(frame, door.s_m, r + H, F)})
+    d_top, d_foot = L - 0.12, F - g / 2
+    sc = sr["scroll_m"]
+    for sg in (-1, 1):
+        x = door.s_m + sg * (p.stoop_width_m / 2 - R["inset_m"])
+        rail_top = lambda d: nose(min(max(d, L), F)) + H
+        for d in (d_top, d_foot):
+            yt = rail_top(d) + 0.1
+            _box(a, "iron", frame, x - nm / 2, x + nm / 2, tread(d), yt, d - nm / 2, d + nm / 2, seed, conf,
+                 skip=("bottom",))
+        _beam(a, "iron", frame, x, rw, (rail_top(d_top), d_top), (rail_top(d_foot), d_foot), rm, seed, conf)
+        for k in range(1, n):
+            for q in [(j + 0.5) / R["per_tread"] for j in range(R["per_tread"])]:
+                d = L + (k - 1) * g + q * g
+                if d >= d_foot - nm:
+                    continue
+                _box(a, "iron", frame, x - bm / 2, x + bm / 2, tread(d), rail_top(d), d - bm / 2, d + bm / 2,
+                     seed, conf, skip=("bottom",))
+        # the scroll: the handrail carried past the foot newel and turned down in a half turn
+        cy, cd = rail_top(d_foot) - sc / 2, d_foot
+        pts = [(cy + sc / 2 * math.cos(t), cd + sc / 2 * math.sin(t))
+               for t in (math.pi * j / 6 for j in range(7))]
+        for p0, p1 in zip(pts, pts[1:]):
+            _beam(a, "iron", frame, x, rw, p0, p1, rm * 0.8, seed, conf)
+
+
 def lay(a, frame, yf, length, conf, recess):
     af = a.p.arched_front
     for g in af["groups"]:
@@ -376,4 +492,6 @@ def lay(a, frame, yf, length, conf, recess):
         _frontispiece(a, frame, af["frontispiece"], conf)
     if af["portico"]:
         _portico(a, frame, af["portico"], conf)
+    if af.get("stoop_rails"):
+        _rails(a, frame, af["stoop_rails"], conf)
     _guards(a, frame, af, conf)

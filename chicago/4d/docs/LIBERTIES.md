@@ -25078,6 +25078,28 @@ relief in shade, is a per-asset bake owned by T-2394.
 **Ticket:** T-2393 (split from T-2390).
 **Recorded:** 2026-10-12 (T-2393).
 
+### L-glessner-stone-occlusion-2400 — Glessner's granite is shaded by the occlusion of its own reconstructed stones
+
+**Decision:** the granite slots of Glessner v4 (granite, granite_1 to 4 and rough_stone_trim)
+carry an occlusion map baked from the building's own modelled stones, in the master and the
+full web model (T-2400, split from T-2394). Cycles ambient occlusion out to 0.30 m, 64
+samples, onto a 2048-square atlas of its own (TEXCOORD_1, about 2.3 cm a texel). So the
+recessed joints, the pitched arrises and the reveals darken the sky light on the stone around
+them. It replaces T-2393's tiling map on those slots; the light model keeps the tiling map.
+The viewer applies it to the sky fill only. The sun is unchanged.
+**What is invented.** The 0.30 m reach, chosen to see a stone's own relief and its reveal and
+not the building's masses (a long reach put the Sauganash out, T-0227). The stones it reads
+are the reconstructed courses, joints and pitched faces of the v4 model, so the shading is
+only as true as they are. No photograph was read for it.
+**What is not changed.** Every vertex, the albedo, tints, roughness, the normal maps and the
+scene light. On the shaded stands the faces read 0.5-1.9 % darker and their pixel-scale
+relief rises 15-21 %.
+**How to resolve:** a measured survey of the street granite would replace the reconstructed
+stones the bake reads. The light model's own bake is T-2401.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2400 (split from T-2394).
+**Recorded:** 2026-10-12 (T-2400).
+
 ### L-k14-1808-roof-2359 — 1808 Prairie's slate carries the K14 chimney plume at 18 years, on plan rows this ticket chose
 
 **Decision:** 1808 Prairie's slate takes the K14 kit's chimney plume (`chimney_soot`, T-2324)
@@ -25135,7 +25157,7 @@ its walls.
 **What is invented.** Inside those readings: every moulding's section; the pilasters' 0.1 m and the hood's 0.32 m projections; the portico's rear columns (0.35 m from the wall), its pedestals, capitals and cornice slab; the keystones' 0.06 m projection; how far each voussoir block runs past its lights (0.3-0.4 m); the guards' and grilles' bars; the frieze lights' 0.12 m recess; the iron posts' size; the base's top, taken at the basement sills because the fence hides it; the north bay, taken as the south's mirror. Outside them, everything the photograph does not show: the roof's form, 26-degree pitch and tin; the 0.75 m eave; the chimneys' places in plan; the wall thicknesses; the stone's kind and every colour (the print is monochrome); the side and rear windows; the stair's tread and landing; the brick panel; the rainwater goods.
 **What is not built.** The canted bay the photograph shows on the south wall's front, and the south frame porch and the rear one-storey piece the Sanborn census reads (K01 builds one rectangle; an attached range is T-2343's). The cornice's brackets are the K10 kit's single scrolls, evenly spaced on the piers between the frieze lights, where the photograph's are paired and larger.
 **How to resolve:** a second view of the house (its north bay, its south wall), or a dated print with its rights stated, would replace the north bay's mirror, the south bay and the colours; K10 laying paired brackets would replace the cornice's rhythm.
-**Covers:** `goodman_house_1612_prairie.as_built_1869.form.wall_thickness_front_m`, `goodman_house_1612_prairie.as_built_1869.form.wall_thickness_side_m`, `goodman_house_1612_prairie.as_built_1869.form.service_wall_brick`, `goodman_house_1612_prairie.as_built_1869.form.roof_form`, `goodman_house_1612_prairie.as_built_1869.form.roof_pitch_deg`, `goodman_house_1612_prairie.as_built_1869.form.eave_overhang_m`, `goodman_house_1612_prairie.as_built_1869.form.stair_tread_m`, `goodman_house_1612_prairie.as_built_1869.form.stair_landing_depth_m`, `goodman_house_1612_prairie.as_built_1869.form.stoop_width_m`, `goodman_house_1612_prairie.as_built_1869.form.side_bays`, `goodman_house_1612_prairie.as_built_1869.form.rear_bays`, `goodman_house_1612_prairie.as_built_1869.form.sash_by_storey`, `goodman_house_1612_prairie.as_built_1869.form.roof_covering`, `goodman_house_1612_prairie.as_built_1869.form.chimneys`, `goodman_house_1612_prairie.as_built_1869.form.rainwater`, `goodman_house_1612_prairie.as_built_1869.form.entrance_kit`, `goodman_house_1612_prairie.as_built_1869.form.stone_front`.
+**Retired:** by T-2369, which finished 1612 against the same photograph under `L-k01-1612-goodman-2369`; the stoop's landing and width, the south wall and the entrance's door are read from the print now, every attribute still reconstructed is that entry's, and this one claims none.
 **Ticket:** T-2366.
 **Review:** `docs/RESEARCH/k01-1612-goodman-2366/README.md`.
 **Recorded:** 2026-10-11 (T-2366).
@@ -25189,3 +25211,15 @@ doors and boards; a reading of the right-of-way's own plan replaces the traced r
 **Ticket:** T-2399 (piece 2 of T-1866).
 **Review:** `docs/RESEARCH/prairie-1605-station-2399/README.md`.
 **Recorded:** 2026-10-12 (T-2399).
+
+### L-k01-1612-goodman-2369 — 1612 Prairie finished against its photograph: paired cornice brackets, the south oriel, the stoop between iron rails and the portico's depth, with what the print does not show still reconstructed
+
+**Decision:** T-2366 left four differences open between 1612 and its photograph (`chicagology_1612_prairie_photo`, through the camera at `data/reference_views/goodman_house_1612_prairie/front_from_southeast.json`). T-2369 closes them in place and replaces `L-k01-1612-goodman-2366`. The cornice's brackets are laid in pairs on the piers between the frieze lights, and the whole cornice is painted dark, as the print shows it (K10 learns `pairs` and `paint`). The south wall carries the canted oriel the print shows on its upper storey, as the K08 kit's corbelled oriel on eight corbel courses, in stone under a deep hood (K01 learns oriels on a side wall and a hood's size). The door is at the stoop's head, 1.7 m above the walk, not on the 2.85 m principal floor (K01 learns `entrance_floor_m`), and the stoop climbs to it between the K11 kit's iron stair rails, with no stone cheeks. The portico is a barrel from the wall to 1.4 m out under an elliptical ring, on impost blocks and columns 0.9 m before the wall. The fence line moves to 4.7 m from the front, where the print's posts stand. `tools/photo_match.mjs` can now light the review render from the photograph's own sun (`sun_uvy`), so the portico's shade is compared too.
+**What is read, not invented.** As `inferred` attributes citing the photograph: the brackets' pairing and the stations' 1.6 m rhythm; the cornice's dark tone (its tone, not its hue); the oriel's place on the south wall, its sill at the second floor, its hood under the cornice, its depth and its cheek-front-cheek plan; the door's 1.7 m floor and the stoop's ten risers to it; the stoop's 1.7 m width and 1.1 m landing; the iron rails and their scroll at the foot; the portico's ring, springing, imposts and columns; the fence line; no window or bay elsewhere on the south wall.
+**What is invented.** Inside those readings: the vestibule and its inner flight behind the door (not built: the print shows darkness in the arch); the oriel's corbel courses' depth (the print shows them only in shadow), its walls' stone, its sash and hip roof; the paired brackets' profile (the kit's generic scroll); the paint's hue, and that the dark is paint at all (the print's frieze and cornice have a mottled texture that may be partly a vine, which also hides the centre bay's two frieze lights); the rails' section and baluster count; the fence's curb, kept at the kit's 0.25 m where the print's fence foot reads about 0.5 m above the walk, because the walk, the yard's grade and a coping cannot be told apart in it. Outside them, unchanged from `L-k01-1612-goodman-2366`: the roof's form, pitch and tin; the eave; the chimneys' places; the wall thicknesses; the stone's kind and every colour; the side and rear windows; the stair's tread; the brick panel; the rainwater goods; the north bay, taken as the south's mirror.
+**What is not built.** The south frame porch and the rear one-storey piece the Sanborn census reads (an attached range is T-2343's).
+**How to resolve:** a second view of the house (its north bay, its south wall's rear, the yard at the fence) or a dated print with its rights stated would replace the north bay's mirror, the oriel's construction, the fence foot and the colours.
+**Covers:** `goodman_house_1612_prairie.as_built_1869.form.wall_thickness_front_m`, `goodman_house_1612_prairie.as_built_1869.form.wall_thickness_side_m`, `goodman_house_1612_prairie.as_built_1869.form.service_wall_brick`, `goodman_house_1612_prairie.as_built_1869.form.roof_form`, `goodman_house_1612_prairie.as_built_1869.form.roof_pitch_deg`, `goodman_house_1612_prairie.as_built_1869.form.eave_overhang_m`, `goodman_house_1612_prairie.as_built_1869.form.stair_tread_m`, `goodman_house_1612_prairie.as_built_1869.form.rear_bays`, `goodman_house_1612_prairie.as_built_1869.form.sash_by_storey`, `goodman_house_1612_prairie.as_built_1869.form.roof_covering`, `goodman_house_1612_prairie.as_built_1869.form.chimneys`, `goodman_house_1612_prairie.as_built_1869.form.rainwater`, `goodman_house_1612_prairie.as_built_1869.form.stone_front`.
+**Ticket:** T-2369.
+**Review:** `docs/RESEARCH/k01-1612-goodman-2369/README.md`.
+**Recorded:** 2026-10-12 (T-2369).
