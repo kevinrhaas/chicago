@@ -28,7 +28,7 @@ not the same quantity.* Neither bounds the other.
 | cap | what it bounds | where it is written |
 |---|---|---|
 | **600 s** | ONE foreground command in a steward run | the harness; ROADMAP § THE RUN BUDGET |
-| **30 min** | ONE LEG of the nightly gate — one viewport over one range of parts, eight legs in parallel | `.github/workflows/chicago-4d-bake.yml` § `smoke`, `timeout-minutes` |
+| **40 min** | ONE LEG of the nightly gate — one viewport over one range of parts, all legs in parallel | `.github/workflows/chicago-4d-bake.yml` § `smoke`, `timeout-minutes` |
 | **90 min** | the WHOLE body in one process, both viewports, no per-leg cap at all | `.github/workflows/chicago-4d-smoke.yml` § `smoke`, `timeout-minutes` |
 
 **So T-0170, T-0173 and T-0181 were reasoning about the leg cap correctly**, and
@@ -68,8 +68,9 @@ re-read.
 ## The nightly gate's legs, and why they are not in this file
 
 The gate is cut into legs by `chicago-4d-bake.yml` § `smoke` — two viewports over
-four stage ranges, **eight legs, all in parallel**, each under the 30-minute cap.
-Those ranges have been re-spelled four times in 2026 as the body was re-cut, and
+one list of stage ranges, **every leg in parallel**, each under the leg cap.
+Those ranges have been re-spelled five times in 2026 as the body was re-cut (T-2362
+last, when desktop parts 5, 8, 13 and 14 each grew to a leg's worth on CI), and
 every prose copy of them has gone stale in turn. So **`--legs` reads them from
 the workflow and prices them from `tools/dev-smoke-state.json`**, and
 `--self-test` (which `check.sh` runs) fails if the ranges ever stop tiling parts
