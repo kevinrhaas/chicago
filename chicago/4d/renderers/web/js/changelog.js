@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1722, ts: '2026-10-12T12:36:50.598Z', date: 'Oct 12, 2026, 7:36 AM CT', title: '1620 Prairie\'s north pavilion and its crown, from the 1874 engraving', kind: 'fix',
+    items: [
+      'The north end of the Robert Law house\'s front now stands forward as the pavilion both of its pictures draw, with two round-headed windows on each floor.',
+      'Over it rises a taller, bell-sided mansard crown with one round-headed dormer, as the 1874 engraving shows.',
+      'The two-storey canted bay that stood there before is gone: neither picture shows one on that part of the front.',
+      'How far the pavilion stands out, its floor heights, the crown\'s depth and the window and dormer sizes are liberties.',
+    ] },
   { v: 1721, ts: '2026-10-12T11:18:50.997Z', date: 'Oct 12, 2026, 6:18 AM CT', title: 'Glessner\'s granite joints now read as shadowed recesses', kind: 'improvement',
     items: [
       'On the Glessner House\'s rock-faced granite, the sky light now falls off into every mortar joint, along each stone\'s pitched edge and into the window reveals, so a wall in shade reads stone by stone instead of as flat bands with bright seams.',

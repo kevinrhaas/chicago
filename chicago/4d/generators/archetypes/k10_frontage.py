@@ -172,7 +172,14 @@ def bracket_positions(params, run, B, y_low, bays):
     if pairs:
         c = max(c, half + 0.02)
     blocked = _blocked(params, run, y_low, bays, half)
+    # T-2404: a pavilion standing flush with the corner takes the corner itself, so that
+    # corner has no bracket on this face (the pavilion's own eaves turn it)
+    held = [s for s in (c, run.L - c)
+            if any(w == run.name and top > y_low and s0 < s < s1 and (s0 <= 1e-6 or s1 >= run.L - 1e-6)
+                   for w, s0, s1, top in bays)]
     for s in (c, run.L - c):
+        if s in held:
+            continue
         if any(a < s < b for a, b in blocked):
             raise ValueError(f"{run.name}: no room for the corner bracket at s {s:.3f}")
     free, at = [], c
