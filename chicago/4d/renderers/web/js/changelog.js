@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1723, ts: '2026-10-12T13:32:05.592Z', date: 'Oct 12, 2026, 8:32 AM CT', title: '1609 and 1611 Prairie: the lost frame pair, built in clapboard', kind: 'feature',
+    items: [
+      'The two frame houses that stood at 1609 and 1611 Prairie in 1904, gone by 1911, now stand whole: clapboard laid board by board, two-over-two sash and panelled doors, under one bracketed timber cornice.',
+      'They share a party wall, so they read as one frame block, with each house\'s door and small porch at its own outer end.',
+      '1611 is the wider half, its front three windows across to 1609\'s two, so the two halves do not repeat.',
+      'Only the plans are read, off the 1886 atlas; no picture of the pair survives, so the storeys, cornice, flat roof and colours are reconstructed and say so on their cards.',
+    ] },
   { v: 1722, ts: '2026-10-12T12:36:50.598Z', date: 'Oct 12, 2026, 7:36 AM CT', title: '1620 Prairie\'s north pavilion and its crown, from the 1874 engraving', kind: 'fix',
     items: [
       'The north end of the Robert Law house\'s front now stands forward as the pavilion both of its pictures draw, with two round-headed windows on each floor.',
