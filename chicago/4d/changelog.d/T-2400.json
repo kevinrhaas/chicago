@@ -1,0 +1,9 @@
+{
+  "title": "Glessner's granite joints now read as shadowed recesses",
+  "kind": "improvement",
+  "items": [
+    "On the Glessner House's rock-faced granite, the sky light now falls off into every mortar joint, along each stone's pitched edge and into the window reveals, so a wall in shade reads stone by stone instead of as flat bands with bright seams.",
+    "The shading is computed from the house's own modelled stones and touches only the sky's light; the sunlit faces are unchanged.",
+    "On desktop. Phones keep the lighter model and its finer stone texture for now."
+  ]
+}
