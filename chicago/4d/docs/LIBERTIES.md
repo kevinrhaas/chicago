@@ -24159,8 +24159,8 @@ bracketed cornice, a mansard for 1625's half storey). The 1613/1615 pair, which 
 mirrors its doors to its outer ends, as 1609/1611 do. Four storeys on 1613-1619 are read flat
 behind a cornice. 1701's Italianate body is a low bracketed hip with its half storey as dormers.
 1605's station stands as the draft's plain two-storey gabled outbuilding with the use
-`railway_station` (a term added to the function vocabulary for it); its platforms and canopies are
-T-1866's.
+`railway_station` (a term added to the function vocabulary for it); its platform, canopy, street
+door and nameboards are no longer this entry's but `L-ic-16th-street-station-2399`'s (T-2399).
 **1609 and 1611, the pair the 1911 sheet does not draw.** The census rules the 1911 loft at
 1607-1611 a later replacement and stands, on the supplied expert guidance, the frame pair Robinson
 1886 draws on lot 6 (backcast_1886; pa-1609- and pa-1611-1904-correction). Each half is read off
@@ -25105,6 +25105,45 @@ its walls.
 **Ticket:** T-2210 (Glessner exterior audit GA-10).
 **Review:** `docs/RESEARCH/glessner-court-materials-2210/README.md`.
 **Recorded:** 2026-10-12 (T-2210).
+
+### L-ic-16th-street-station-2399 — The 16th Street station at 1605 Prairie dressed as a station: a platform tapering to the traced rail, a canopy, a street door and lettered boards, all reconstructed but the platform's edge
+
+**Decision:** the Illinois Central's 16th Street station (T-2399, piece 2 of T-1866) keeps the
+district draft's two-storey gabled frame body and its id `ic_16th_street_station_1605_prairie`, and
+the draft rules' frontage row for it (frontage-20-023) now dresses it as a station, built by the
+draft's own builder (`generators/archetypes/prairie_draft.py`, `station`): a timber platform along
+the track face, a lean-to canopy on braced brackets over it, a pair of passenger doors under a
+bracketed hood at the north end of the Prairie Avenue front, a narrower baggage door on the track
+side with no loft door over it, and three nameboards — 'ILLINOIS CENTRAL R.R. / 16TH ST. STATION'
+across the street front between the storeys, '16TH STREET' on the track wall over the canopy, and
+'16TH ST.' on a two-faced board on posts at the platform's wide south end.
+**What is read, not invented.** The platform's EDGE. Sheet 20 of the 1911 Sanborn draws the
+right-of-way line touching the station's north-east corner and the nearest track's two rails 1.35 m
+apart beyond it, bearing away south-east; the nearest (west) rail, read at sheet rows 1270, 1380
+and 1485 and carried through the T-1250 fit (2.46 m RMS), lies 2.05 m off the track wall at the
+north end and 5.49 m at the south. The platform stops 1.0 m short of that rail, so it tapers from
+1.05 m to 4.5 m deep along the building, and the canopy stands only where the platform is deeper
+than its 2.0 m. The boards' wording is the sheet's own lettering of the building.
+**What is invented.** That there was a platform on this face at all, its 0.3 m timber deck, its
+length (the station lot's width, 12.2 m) and its end steps; the canopy, its 2.0 m depth, its fall
+and its brackets; the doors, their sizes and the north end for the passengers' door (taken as the
+end nearer 16th Street); the hood; the boards, their places, sizes and colours, and the block
+capitals of the lettering. Neither sheet 20 nor Robinson 1886 draws a platform, canopy, door or
+sign, and no picture of this building is known. The Chicago Tribune's 'Sixteenth Street Station'
+sketch of 8 August 1886 (library image cgn-16th-station-tribune-1886-sketch) shows a ONE-storey
+frame depot with a wide platform; the library reads it, on the article's own text, as the
+C. B. & Q. depot moved from Sixteenth Street to Meagher Street, and the 1911 sheet prints this
+building as two storeys, so it is not built toward and is not this building's image gate.
+**What is not built.** The tracks themselves (the 1904 scene draws no rails), a stair or crossing
+to further platforms, lamps, benches, a telegraph or train-order signal, fences along the
+right-of-way, and any person.
+**How to resolve:** a photograph, view or plan of the 16th Street station, or an Illinois Central
+station plan or annual report describing it, ingested as a source, replaces the platform, canopy,
+doors and boards; a reading of the right-of-way's own plan replaces the traced rail.
+**Covers:** `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`
+**Ticket:** T-2399 (piece 2 of T-1866).
+**Review:** `docs/RESEARCH/prairie-1605-station-2399/README.md`.
+**Recorded:** 2026-10-12 (T-2399).
 
 ### L-k01-1612-goodman-2369 — 1612 Prairie finished against its photograph: paired cornice brackets, the south oriel, the stoop between iron rails and the portico's depth, with what the print does not show still reconstructed
 

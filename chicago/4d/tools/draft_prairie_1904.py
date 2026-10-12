@@ -572,6 +572,9 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     if kind == "house" and frow.get("works"):
         # a house still building on the target date (2126's Robbins house): its shell, not its roof
         elev["works"] = {k: v for k, v in frow["works"].items() if k != "note"}
+    if kind == "service" and frow.get("station"):
+        # a railway station's platform, canopy, door and nameboards (1605, T-2399)
+        elev["station"] = {k: v for k, v in frow["station"].items() if k != "note"}
     if frame[2][1] < 0:
         # the plan's v axis runs along the front; on the east side of the avenue it points
         # south, so the archetype is told which way high v faces before it reads `entrance`
@@ -696,7 +699,8 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
                                          f"{' overlaid with the frontage row: ' + frow['why'] if frow.get('why') else ''} "
                                          f"Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; "
                                          f"bays, entrance side, chimneys and dormers are counts the family rules choose, "
-                                         f"and the seed {seed} only tints the fabric inside +-6 %. Liberty {liberty}."),
+                                         f"and the seed {seed} only tints the fabric inside +-6 %. Liberty {liberty}."
+                                         f"{' ' + frow['station']['note'] if kind == 'service' and frow.get('station') else ''}"),
                 "draft": _attr({"pass": pass_, "liberty": liberty, "register_row": fid, "census_ids": census_ids,
                                 "trace_building": b["id"] if not join else f"{b['id']}+{join['with']}", "seed": seed, "replaceable_by": refined_by,
                                 "card": f"District draft — refined by {', '.join(refined_by)}."},
