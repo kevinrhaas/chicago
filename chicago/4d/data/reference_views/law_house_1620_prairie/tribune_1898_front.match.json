@@ -1,0 +1,41 @@
+{
+  "structure_id": "law_house_1620_prairie",
+  "view": "tribune_1898_front",
+  "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
+  "glb_sha256": "506b511907f0b94f34d830836b9040ff8116fc902a525f1685fb0a1b08ff7fed",
+  "camera_sha256": "fc8035327dd5820503597ea8d52120b7a83da91067ee536623af793f81317b5b",
+  "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "wall head: the heavy bracketed cornice over the front at about 7.9 m (the camera's own height reading); the build's walls stood 0.7 m higher",
+      "status": "fixed"
+    },
+    {
+      "what": "north pavilion: the north part of the front proud, its south side face shaded, round-headed windows in both storeys under moulded hoods, rising past the main cornice; the build's front is flat there and carries a two-storey canted bay",
+      "status": "open"
+    },
+    {
+      "what": "bay window: a one-storey bay on the south part with pilaster strips and its own cornice; the build has none there",
+      "status": "open"
+    },
+    {
+      "what": "entrance: the stoop rising straight from the gate to a door beside the pavilion's south face; the build's door is at the south end",
+      "status": "open"
+    },
+    {
+      "what": "fence: a lattice of interlaced arches between square piers with capped tops, on a base, gate piers at the walk; the build's is iron rails on a stone curb with urned piers",
+      "status": "open"
+    },
+    {
+      "what": "the roof: the panel cuts the house at the cornice",
+      "status": "not shown"
+    },
+    {
+      "what": "colour and walling: a pen sketch",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "T-2370, 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg"
+}
