@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 1725, ts: '2026-10-12T15:10:31.680Z', date: 'Oct 12, 2026, 10:10 AM CT', title: '1620 Prairie\'s entrance, porch and door hood, from its two pictures', kind: 'fix',
+    items: [
+      'The Robert Law house\'s door has moved north to stand beside the pavilion, where both the 1874 engraving and the 1898 sketch put it, its stoop rising straight from the gate.',
+      'At the head of the stoop a porch now runs north across the pavilion\'s front to the corner, behind a turned balustrade that carries on down both sides of the stoop.',
+      'Over the door stands a hood on two scrolled brackets.',
+      'The porch\'s depth, the balustrade\'s height and spacing, the stone they are built in and the hood\'s form are liberties.',
+    ] },
+  { v: 1724, ts: '2026-10-12T14:30:15.709Z', date: 'Oct 12, 2026, 9:30 AM CT', title: 'The Gothic house at 1638 Prairie is timber all the way round', kind: 'improvement',
+    items: [
+      'Behind its pointed front gable, the Shortall-Gregory house no longer stands on a plain grey block: both sides and the back are clapboard with corner boards, bracketed eaves and two storeys of sash.',
+      'Its steep roof now runs from the front gable to a matching gable at the back, and the narrow north side wing has its own lower lean-to roof.',
+      'No picture shows the sides or the back, so the windows are spaced to the plan and marked as a liberty.',
+    ] },
   { v: 1723, ts: '2026-10-12T13:32:05.592Z', date: 'Oct 12, 2026, 8:32 AM CT', title: '1609 and 1611 Prairie: the lost frame pair, built in clapboard', kind: 'feature',
     items: [
       'The two frame houses that stood at 1609 and 1611 Prairie in 1904, gone by 1911, now stand whole: clapboard laid board by board, two-over-two sash and panelled doors, under one bracketed timber cornice.',

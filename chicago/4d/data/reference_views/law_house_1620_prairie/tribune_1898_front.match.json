@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "tribune_1898_front",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "21656b6e40f7f6c16d2cfabe334467e03fe3c01c03582aecd7883e42647b22a6",
+  "glb_sha256": "275687d6c10654c84bf6e36f50dbbccf12db2c467e516145fad51c5a9de44477",
   "camera_sha256": "fc8035327dd5820503597ea8d52120b7a83da91067ee536623af793f81317b5b",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg",
   "verdict": "differs",
@@ -24,8 +24,8 @@
       "status": "fixed"
     },
     {
-      "what": "entrance: the stoop rising straight from the gate to a door beside the pavilion's south face; T-2408 moved the build's door north to v 5.8, beside the bay; it still stands at the head of the kit's straight stoop square to the front (T-2409)",
-      "status": "open"
+      "what": "entrance: the stoop rising straight from the gate (x 93-140 px, about v 6.3-7.5 at the street line) to a door beside the pavilion's south face. Built (T-2409): the door moved to v 6.6, its 1.8 m stoop rising straight to it and its landing ending at the pavilion's south face; the porch before the pavilion stands behind the sketch's lattice fence and its '1620' cartouche hides the door's hood",
+      "status": "fixed"
     },
     {
       "what": "fence: a lattice of interlaced arches between square piers with capped tops, on a base, gate piers at the walk; the build's is iron rails on a stone curb with urned piers",
@@ -41,5 +41,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2410, 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg"
+  "reviewed": "T-2410 (lapped onto T-2409), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg"
 }
