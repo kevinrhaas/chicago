@@ -1,0 +1,295 @@
+{
+  "method": "Actual published /1904/ app, normal boot (TAG after); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 12 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "load_ms_to_ready": 30850,
+      "js_heap_used_bytes": 31188260,
+      "js_heap_total_bytes": 31813632,
+      "draft_records_in_registry": 144,
+      "placed": [
+        "house_1634_prairie",
+        "house_1636_prairie",
+        "house_1630_prairie"
+      ],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 1,
+        "bytes": 0
+      },
+      "stands": [
+        {
+          "name": "front",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 117,
+            "triangles": 1815558,
+            "programs": 35,
+            "geometries": 105,
+            "textures": 283,
+            "batches": 81,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 68668692,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 3563.6,
+          "camera": [
+            1405.2,
+            -3059.3,
+            5.56
+          ],
+          "target": [
+            1369.7,
+            -3059.3,
+            9.91
+          ]
+        },
+        {
+          "name": "oblique-south",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 147,
+            "triangles": 1973291,
+            "programs": 35,
+            "geometries": 105,
+            "textures": 333,
+            "batches": 81,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 68668692,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 3772,
+          "camera": [
+            1401,
+            -3081,
+            5.56
+          ],
+          "target": [
+            1370,
+            -3059.3,
+            9.9
+          ]
+        },
+        {
+          "name": "oblique-north",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 139,
+            "triangles": 3093815,
+            "programs": 35,
+            "geometries": 109,
+            "textures": 339,
+            "batches": 81,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 68668692,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 5515.3,
+          "camera": [
+            1401,
+            -3037,
+            5.59
+          ],
+          "target": [
+            1370,
+            -3059.3,
+            9.9
+          ]
+        },
+        {
+          "name": "rear",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 123,
+            "triangles": 1895891,
+            "programs": 35,
+            "geometries": 118,
+            "textures": 357,
+            "batches": 81,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 68668692,
+            "fps": 0,
+            "cameraNear": 0.30000000000000004,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 3937.3,
+          "camera": [
+            1338,
+            -3047,
+            10.97
+          ],
+          "target": [
+            1360,
+            -3059,
+            11.93
+          ]
+        },
+        {
+          "name": "roof",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 149,
+            "triangles": 3211890,
+            "programs": 35,
+            "geometries": 118,
+            "textures": 357,
+            "batches": 81,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 68668692,
+            "fps": 0,
+            "cameraNear": 1.2000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 7868.7,
+          "camera": [
+            1396,
+            -3029,
+            33.89
+          ],
+          "target": [
+            1366,
+            -3059.3,
+            14.92
+          ]
+        }
+      ]
+    }
+  ]
+}

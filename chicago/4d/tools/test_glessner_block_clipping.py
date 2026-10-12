@@ -142,7 +142,7 @@ print(f'PASS wall: {len(wall.stones)} complete stones forwarded with aperture ma
 # steep chips and side/reveal faces retain their original hard normals.
 front=[(0,0,0),(1,0,0),(0,1,0)]
 side=[(0,0,0),(0,0,-.03),(1,0,-.03),(1,0,0)]
-for degrees in (20,60):
+for degrees in (20,75):
     tilted=[(1,0,0),(0,0,0),(0,-2,2*math.tan(math.radians(degrees)))]
     softened=list(detail.stone_corner_normals([(front,True),(tilted,True),(side,False)]))
     assert softened[2]==(side,False), 'smoothing altered a stone side/reveal'
@@ -155,7 +155,7 @@ for degrees in (20,60):
             'shallow fracture normals were not area weighted'
     else:
         assert math.dist(a,(0,0,1))<1e-10
-        assert detail.dot(a,b)<math.cos(math.radians(35)), \
+        assert detail.dot(a,b)<math.cos(math.radians(detail.ROCK_SMOOTH_DEGREES)), \
             'a steep fracture was rounded across its hard ridge'
 separate=list(detail.stone_corner_normals([(front,True)]))
 assert all(math.dist(p[3:],(0,0,1))<1e-10 for p in separate[0][0]), \
@@ -484,3 +484,64 @@ def check_coursing():
 
 
 check_coursing()
+
+
+def check_rock_shading():
+    """T-2209: the lattice's random diagonals do not shade as hard creases.
+
+    A corner shared by several finished facets of one stone carries one normal
+    unless a real steep chip meets it. At the old 35 degree limit 21 % of those
+    corners lit with a jump of more than 5 degrees, the triangle mosaic seen in
+    sun; the gate holds the share under 1 % on forty seeded ashlar stones.
+    """
+    jumps=[]
+    for seed in range(40):
+        stone=[(0,0),(1.0,0),(1.0,.39),(0,.39)]
+        at={}
+        for poly,front in detail.stone_corner_normals(detail.fractured_stone(stone,.03,random.Random(seed))):
+            if not front:continue
+            for q in poly:at.setdefault(tuple(round(c,9) for c in q[:3]),[]).append(q[3:])
+        for normals in at.values():
+            if len(normals)>1:
+                jumps.append(max(math.degrees(math.acos(max(-1.0,min(1.0,detail.dot(a,b)))))
+                                 for a in normals for b in normals))
+    share=sum(j>5 for j in jumps)/len(jumps)
+    assert share<.01, f'{100*share:.1f}% of shared rock-face corners shade as a hard crease'
+    print(f'PASS rock shading: {100*share:.2f}% of {len(jumps)} shared facet corners crease (>5 degrees); limit 1%')
+
+
+check_rock_shading()
+
+
+def check_rock_uv_frame():
+    """T-2209: every facet of one rock face reads its grain in the wall's plane.
+
+    A face projected on its OWN normal shifts the albedo by |position| x the tilt,
+    which, 30 m from the origin, is metres per lattice triangle: the triangle
+    mosaic of the GA-09 audit. Shared corners must carry one UV, and that UV is
+    the corner's projection on the wall frame.
+    """
+    class UVProbe(detail.DetailBuilder):
+        def __init__(self):
+            self.params=SimpleNamespace(detail={'ashlar_relief_m':[.025,.070]})
+            self.masonry_blocks=0;self.verts=[];self.roof_uvs={};self.rock_normals={}
+            self.smooth_rock_faces=True;self.fronts=[]
+        def raw(self, pts, confidence, mat, want=None):
+            base=len(self.verts);self.verts.extend(tuple(p) for p in pts)
+            return list(range(base,len(self.verts)))
+    probe=UVProbe()
+    wall=(0.0,-1.0,0.0)
+    point=lambda q,off=0:(31.0+q[0],-22.5-off,q[1]+4.0)
+    probe.block([(0,0),(1.1,0),(1.1,.39),(0,.39)],point,wall,1.0,detail.GRANITE,random.Random(11))
+    assert probe.roof_uvs, 'no rock facet received a wall-frame UV'
+    at={}
+    for index,uv in probe.roof_uvs.items():
+        x,y,z=probe.verts[index]
+        assert abs(uv[0]-x)<1e-9 and abs(uv[1]-z)<1e-9, 'a rock facet UV left the wall frame'
+        at.setdefault(tuple(round(c,9) for c in probe.verts[index]),set()).add(tuple(round(c,9) for c in uv))
+    shared=[k for k,v in at.items() if len(v)>1]
+    assert not shared, f'{len(shared)} shared rock corners carry two UVs'
+    print(f'PASS rock UV frame: {len(probe.roof_uvs)} facet corners on the wall plane, 0 seams')
+
+
+check_rock_uv_frame()
