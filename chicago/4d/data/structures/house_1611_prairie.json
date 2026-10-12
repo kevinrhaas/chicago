@@ -1,10 +1,10 @@
 {
   "id": "house_1611_prairie",
-  "name": "1611 Prairie Avenue — Pre-1911 paired frame house (district draft; refined by T-1867)",
+  "name": "1611 Prairie Avenue — the lost frame pair with 1609, K16 clapboard",
   "aka": [
     "1611 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k16_timber",
   "function": {
     "value": "residence",
     "confidence": "inferred",
@@ -14,10 +14,10 @@
     "note": "The 1911 sheet draws a 1911 loft at 1607-1611, not a 1904 building. The T-1840 census (frontage-20-024, backcast_1886) stands the lot-6 frame pair for 1904 on the supplied expert guidance (named record pa-1611-1904-correction) because Robinson 1886 plate 10 prints 1611 against the south half of it. There is no 1904 directory listing at the address; residence is inferred from the register's 'pre-1911 paired frame house'."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1867 refines in place under this same id. Written by tools/draft_prairie_1904.py from the Robinson 1886 plate 10 reading (r1886-1611-f: the south half of the lot-6 frame pair in the plate's pixels, carried by its T-1250 fit) (r1886-1611-f), the T-1840 census (r1886-1611-f) and the T-1837 register row frontage-20-024 (Pre-1911 paired frame house); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335).",
+  "research_note": "T-1867 refines the district draft (T-2335) in place under the same id: 1611 is the south half of the lot-6 frame pair Robinson 1886 plate 10 draws, rebuilt whole from the K16 timber kit as one of two two-storey frame houses on a shared party wall with 1609 — clapboard built board by board on a water table, cased two-over-two sash and a panelled door, a deep frieze under a bracketed boxed eave carried across both fronts as one timber cornice, a flat roof behind it, a brick stack at the party wall, and a small kit porch with timber steps at the south end of the front, so the pair's doors stand at its outer ends. What is read: the plan of each half and the line between them off Robinson 1886 plate 10 (r1886-1609-f, r1886-1611-f, carried by the plate's T-1250 fit), frame construction from the plate's yellow, and the pair's survival to 1904 from the T-1840 census (backcast_1886, the supplied expert guidance). Everything else is reconstructed and recorded as L-k16-1609-1611-frame-pair-1867. 1607 is not a house: '1607-1611' is the address range of the four-storey loft the 1911 sheet draws over lots 5-6, which replaced the pair after 1904, so no 1904 building stands under 1607 and the loft is not back-projected. No photograph, print or description of either house has been found (the Prairie library searched by address, 2026-10-12); one that turns up replaces the kit's choices here.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_mapped_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1904-07-01",
@@ -25,7 +25,7 @@
         "sources": [
           "robinson_1886_chicago_plate_10"
         ],
-        "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the pair and the T-1840 census carries it to 1904 on the expert guidance. The 1911 sheet draws the loft in its place, so the pair was gone by then; when 1611 was built and when it went are T-1867's to read."
+        "note": "The house claims the 1904 target and no more: Robinson 1886 plate 10 draws the pair and the T-1840 census carries it to 1904 on the supplied expert guidance (backcast_1886). The 1911 sheet draws the 1607-1611 loft in its place, so the pair was gone by then; when it was built and when it came down are not read, and no building date is claimed."
       },
       "position": {
         "utm_e": 448495.309,
@@ -71,7 +71,8 @@
         "stories": {
           "value": 2,
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, draws the four-storey loft that replaced the pair. Two storeys is the draft's reading of the register's 'modest frame facade, timber cornice, sash windows and bounded roof/stoop'; T-1867 reads the pair's height."
+          "note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, draws the loft that replaced the pair. Two storeys is the register's 'modest frame facade, timber cornice, sash windows' read as a two-storey house; built as the kit's two storeys of sash under the cornice.",
+          "geometry": "simplified"
         },
         "construction": {
           "value": "frame",
@@ -79,87 +80,208 @@
           "sources": [
             "robinson_1886_chicago_plate_10"
           ],
-          "note": "Robinson 1886 colours the pair yellow, the plate's frame (its brick buildings are pink, as the pair on lot 7 next south is); the register's 'pre-1911 paired frame house' agrees."
+          "note": "Robinson 1886 colours the pair yellow, the plate's frame (its brick buildings are pink, as the pair on lot 7 next south is); the register's 'pre-1911 paired frame house' agrees. Built board by board from the K16 timber kit at a frame wall's 0.15 m, never with a masonry wall's thickness.",
+          "geometry": "simplified"
         },
-        "draft_plan": {
+        "frame_house": {
           "value": {
-            "parts": [
+            "foundation_m": 0.45,
+            "return_m": 0.3,
+            "party_wall": {
+              "side": "south",
+              "with": "house_1609_prairie"
+            },
+            "blocks": [
               {
-                "id": "r1",
-                "role": "main",
-                "storeys": 2,
-                "roof": "gable",
-                "rect": [
+                "id": "main",
+                "rect_uv": [
                   0.0,
                   0.0,
                   10.5,
                   5.25
                 ],
-                "from": "r1886-1611-f p1 (main, frame), rectangle 1 of that part; the part's rectangles cover 97% of its fill"
+                "wall_top_m": 6.4,
+                "roof": {
+                  "kind": "flat",
+                  "deck_m": 0.03
+                },
+                "against": "south",
+                "walls": [
+                  {
+                    "side": "east",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 1.75,
+                        "sill_m": 1.35,
+                        "centre_m": 1.05
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 1.75,
+                        "sill_m": 1.35,
+                        "centre_m": 2.55
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 1.45,
+                        "sill_m": 4.25,
+                        "centre_m": 1.05
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 1.45,
+                        "sill_m": 4.25,
+                        "centre_m": 2.55
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 1.45,
+                        "sill_m": 4.25,
+                        "centre_m": 4.25
+                      }
+                    ],
+                    "doors": [
+                      {
+                        "clear_width_m": 0.95,
+                        "clear_height_m": 2.35,
+                        "panels": [
+                          2,
+                          2
+                        ],
+                        "stile_m": 0.12,
+                        "top_rail_m": 0.12,
+                        "lock_rail_m": 0.2,
+                        "bottom_rail_m": 0.24,
+                        "panel_sink_m": 0.015,
+                        "centre_m": 4.25
+                      }
+                    ]
+                  },
+                  {
+                    "side": "north",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 1.75,
+                        "sill_m": 1.35,
+                        "centre_m": 2.3
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 1.75,
+                        "sill_m": 1.35,
+                        "centre_m": 5.25
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 1.75,
+                        "sill_m": 1.35,
+                        "centre_m": 8.2
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 1.45,
+                        "sill_m": 4.25,
+                        "centre_m": 2.3
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 1.45,
+                        "sill_m": 4.25,
+                        "centre_m": 5.25
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 1.45,
+                        "sill_m": 4.25,
+                        "centre_m": 8.2
+                      }
+                    ]
+                  },
+                  {
+                    "side": "west",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 1.75,
+                        "sill_m": 1.35,
+                        "centre_m": 1.8
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 1.75,
+                        "sill_m": 1.35,
+                        "centre_m": 3.6
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 1.45,
+                        "sill_m": 4.25,
+                        "centre_m": 1.8
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 1.45,
+                        "sill_m": 4.25,
+                        "centre_m": 3.6
+                      }
+                    ]
+                  }
+                ]
               }
             ],
-            "lot_v": [
-              -10.311,
-              4.811
-            ],
-            "street_u": 14.549
+            "porch": {
+              "id": "k16.porch.1611_front",
+              "kind": "porch",
+              "use": "porch",
+              "side": "east",
+              "half_width_m": 0.85,
+              "depth_m": 1.4,
+              "centre_m": 4.25,
+              "steps": {
+                "centre_m": 4.25,
+                "width_m": 1.1,
+                "going_m": 0.28,
+                "max_riser_m": 0.2
+              }
+            },
+            "chimney": {
+              "u_m": 6.2,
+              "v_m": 0.3,
+              "width_m": 0.5,
+              "depth_m": 0.6,
+              "above_ridge_m": 0.9
+            },
+            "paint": {
+              "body": [
+                0.62,
+                0.6,
+                0.53
+              ]
+            }
           },
-          "confidence": "inferred",
+          "confidence": "reconstructed",
           "sources": [
             "robinson_1886_chicago_plate_10"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): r1886-1611-f p1 (main, frame), rectangle 1 of that part; the part's rectangles cover 97% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "note": "The whole house from the K16 kit (T-1867), one half of a pair. READ off Robinson 1886 plate 10 through the draft's fit of the trace r1886-1611-f: the main body's rectangle (10.5 m deep, 5.25 m along Prairie, the footprint below) and the line the plate draws between 1611 and 1609, here the party wall (`party_wall`): neither half builds it, so the pair stands as one frame block with one continuous front, rear and cornice, and each record closes its own outer side. Everything else is RECONSTRUCTED from the kit and recorded as L-k16-1609-1611-frame-pair-1867: clapboard on a water table over a 0.45 m foundation, corner boards at the outer corners, two-over-two sash in flat timber casings (a door and two windows below, three windows above on the front, three a storey on the outer side, the rear's own pattern), a four-panel door at the outer end of the front (the draft's entrance side, the pair's doors at its ends), the deep frieze under a boxed eave with scroll brackets as the register's 'timber cornice', a flat roof behind it, one brick stack at the party wall, and a small kit porch over the door with its timber steps as the register's 'bounded stoop'.",
+          "geometry": "simplified"
         },
-        "draft_elevation": {
+        "roof_covering": {
           "value": {
-            "kind": "house",
-            "seed": 2948420885,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 40,
-            "mansard_lower_m": 3.0,
-            "front_bays": 2,
-            "entrance": "south",
-            "side_spacing_m": 2.6,
-            "chimneys": 1,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2335",
-              "refined_by": [
-                "T-1867"
-              ]
-            },
-            "v_toward": "south"
+            "material": "tar and gravel",
+            "color": [
+              0.17,
+              0.16,
+              0.15
+            ]
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The register's 'pre-1911 paired frame house' (1611, the second member of the lot-6 pair): two frame storeys under a simple gable with one stack, the pair's doors at its outer ends so the two read as two houses with 1609 across the party wall. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2948420885 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-east-2335."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2335",
-            "liberty": "L-draft-prairie-16-18-east-2335",
-            "register_row": "frontage-20-024",
-            "census_ids": [
-              "r1886-1611-f"
-            ],
-            "trace_building": "r1886-1611-f",
-            "seed": 2948420885,
-            "replaceable_by": [
-              "T-1867"
-            ],
-            "card": "District draft — refined by T-1867."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "sources": [
+            "robinson_1886_chicago_plate_10"
+          ],
+          "note": "No roof covering has been read for the pair. A flat roof behind a timber cornice on a Chicago frame house of the period was commonly laid in tar and gravel; the covering and its dark grey are RECONSTRUCTED and not modelled beyond the deck's colour."
         }
       }
     }
