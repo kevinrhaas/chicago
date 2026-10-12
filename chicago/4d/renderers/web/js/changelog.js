@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 1708, ts: '2026-10-12T01:43:17.162Z', date: 'Oct 11, 2026, 8:43 PM CT', title: '1636 Prairie completes the brownstone pair with 1634', kind: 'feature',
+    items: [
+      '1636 Prairie Avenue, the south half of the stone-front pair with 1634, is no longer a plain draft box: a coursed brownstone front, two-over-two sash under stone heads, and a stone stoop and door beside the party wall.',
+      'The map\'s canted stone bay rises three storeys across the south half of the front, in the same brownstone.',
+      'Like 1634 it stands under a flat tin roof behind coped parapets, with a bracketed cornice along the street at the same height as its partner\'s.',
+      'The narrow three-storey back building the map draws behind it now stands as a brick rear wing under its own flat deck.',
+      'Its plan, storeys, stone front and bay are read from the 1911 Sanborn map; everything else is reconstructed, and the house\'s card says so.',
+    ] },
+  { v: 1707, ts: '2026-10-12T01:03:39.826Z', date: 'Oct 11, 2026, 8:03 PM CT', title: 'Automated checks split into shorter runs so finished work lands', kind: 'chore',
+    items: [
+      'The automated walk-through that checks every change is now split into smaller pieces, so none of them runs out of time before it finishes. Changes that were finished but stuck waiting on it can now go live. Nothing you see in the town changed.',
+    ] },
+  { v: 1706, ts: '2026-10-12T00:47:38.288Z', date: 'Oct 11, 2026, 7:47 PM CT', title: '1634 Prairie stands as a brownstone rowhouse under a flat roof', kind: 'feature',
+    items: [
+      '1634 Prairie Avenue, the north half of a stone-front pair with 1636, is no longer a plain draft box: it has a coursed brownstone front, two-over-two sash under stone heads, and a stone stoop and door at its north end.',
+      'The map\'s stone bay rises three storeys at the south end of the front, laid in the same brownstone.',
+      'It is the first detailed house in the town with a flat roof: a tin deck falling to the rear, coped parapets on both side walls, and a stone blocking course over a bracketed cornice along the street.',
+      'Its south wall, which it shares with 1636, is blank, and its north wall has windows over 1630\'s side yard.',
+      'Its plan, three storeys, stone front and bay are read from the 1911 Sanborn map. The brown stone comes from an 1890 newspaper\'s \'brown stone mansion\'. Everything else is reconstructed, and the house\'s card says so.',
+      'The three-storey wing behind it is gone for now. It comes back when the kit can stand that wing.',
+    ] },
   { v: 1705, ts: '2026-10-12T00:41:10.125Z', date: 'Oct 11, 2026, 7:41 PM CT', title: 'Glessner House granite reads as whole stones, not triangles', kind: 'improvement',
     items: [
       'Up close, each rock-faced stone on the Glessner House used to break into a mosaic of small light and dark triangles. Each stone now shows one continuous granite grain across its face, and its pitched relief shades smoothly.',

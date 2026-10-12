@@ -53,7 +53,7 @@ shows a slot between two blank party walls as a result. The wing is built flush 
 body's south wall (v 0), not on the line. K01's wing rule refuses a wing past its host wall, and
 house and wing should keep one south wall. Moving the main body onto the line moves its origin,
 which `tools/draft_prairie_1904.py --check` re-derives from the trace. That is the pair's question
-(with the front line at u 15.3 against 13.75), and it is filed as its own ticket. When it moves,
+(with the front line at u 15.3 against 13.75), and it is filed as T-2392. When it moves,
 the wing moves with it, since its rect is in the record's frame.
 
 ## After, the same stands (`tools/qa_k01_t2347.mjs`)
@@ -76,4 +76,4 @@ times and load come from software GL on the runner, so they are a relative readi
 - No photograph, print or drawing of 1634 or the pair is known (T-2350's search of the Prairie
   library), so there is no image gate. Every form but the wing's place, size, storeys and brick is
   the kit's.
-- 1628's wing, which T-2355 left waiting on this ticket, is not built here. It is its own ticket.
+- 1628's wing, which T-2355 left waiting on this ticket, is not built here. It is T-2391.
