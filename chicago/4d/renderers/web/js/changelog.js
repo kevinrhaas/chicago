@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 1731, ts: '2026-10-12T18:28:52.239Z', date: 'Oct 12, 2026, 1:28 PM CT', title: '1620 Prairie\'s lattice fence, side boards, chimney and slates, from its pictures', kind: 'fix',
+    items: [
+      '1620 Prairie\'s street fence is now the lattice of interlaced arches that both its 1874 engraving and the 1898 Tribune sketch draw, running unbroken from post to post on its stone base, in place of the generic scroll-band railing.',
+      'Where the engraving\'s lattice stops, a close-boarded fence takes over, turns at the north lot line and runs back along the side yard.',
+      'The tall chimney the engraving draws at the front of the north wall now rises from the cornice beside the crown; the ridge stack that stood where the engraving shows open sky is gone.',
+      'The mansard\'s steep faces and the crown\'s are slated, as the engraving hatches them. The lattice\'s bay, the boards\' height and run behind the house, the stack\'s height and the slate\'s quarry are liberties.',
+    ] },
+  { v: 1730, ts: '2026-10-12T18:25:47.401Z', date: 'Oct 12, 2026, 1:25 PM CT', title: 'Glessner\'s street windows, sash by sash', kind: 'change',
+    items: [
+      'The Glessner house\'s street and stable windows are now real double-hung sash: the upper sash sits outside the lower, each with its own frame and glass, over sills that slope to shed water.',
+      'The high window in the 18th Street gable is no longer a black slot. As the 1965 survey photograph shows it, it is a glazed round head over a stone transom, with a sash below.',
+    ] },
+  { v: 1729, ts: '2026-10-12T18:08:48.122Z', date: 'Oct 12, 2026, 1:08 PM CT', title: 'The first-entry smoke check stops waiting on frames it does not need', kind: 'fix',
+    items: [
+      'The automated check of the door, the navigation guide and the evidence menu no longer times out on a slow machine. The town now draws at about 8-10 seconds a frame on the build machines, and each of those clicks used to wait on about ten frames.',
+      'It still checks that the guide dismisses and remembers the choice, and that the evidence menu takes a real mouse click. It also logs how long each click took.',
+    ] },
+  { v: 1728, ts: '2026-10-12T18:08:48.122Z', date: 'Oct 12, 2026, 1:08 PM CT', title: 'A smoke check now reads a drawn frame, not a timer', kind: 'fix',
+    items: [
+      'Nothing you can see changed in the town.',
+      'The test that checks the Sauganash\'s walks show from Lake Street used to wait a fixed 300 ms between its two screenshots. On a slow machine both shots caught the same frame, so it failed pull requests that never touched 1835. It now waits for a frame drawn with the walks shown, then hidden, and its pass mark is unchanged.',
+    ] },
   { v: 1727, ts: '2026-10-12T17:13:21.084Z', date: 'Oct 12, 2026, 12:13 PM CT', title: '1626 Prairie built as a brick house with its two-storey frame bay', kind: 'feature',
     items: [
       '1626 Prairie Avenue, the north half of the brick pair with 1628, is now a full three-storey brick house in place of its draft: brick on every wall, stone-headed sash, a bracketed cornice, a low tin hip with two chimneys, and the door and stoop at its north end.',

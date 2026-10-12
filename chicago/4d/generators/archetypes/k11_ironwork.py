@@ -196,6 +196,8 @@ class Variant:
             ym = yt - self.P["scroll"]["band_m"]
             self.member(self.name("band rail"), "iron", host, fa - let, fb + let, ym, ym + rh, -rt / 2, rt / 2,
                         gate=gate)
+        if style == "lattice":
+            return self.lattice(fa, fb, yb + rh, yt, bottom.name, gate)
         s = K["section_m"]
         xs = even(fa, fb, K["pitch_m"])
         top = yt + rh + S["rise_m"] if style == "spear" else yt + rh - 0.01
@@ -225,12 +227,49 @@ class Variant:
                 prism(p.mesh, ribbon(line, C["ribbon_m"]), -C["iron_m"] / 2, C["iron_m"] / 2, back=True)
         return top
 
+    def lattice(self, fa, fb, y0, y1, host, gate=False):
+        """T-2406: a property's own lattice of interlaced pointed arches between the rails
+        (1620 Prairie's 1874 engraving and 1898 Tribune sketch): round arches of the scroll
+        bar, each `span_bays` bays wide and rising from the bottom rail into the top one,
+        sprung at every bay, so each crosses its neighbours and their crossings make the
+        pointed arches. The bay is the record's (`pitch_m` on the variant), fitted to the panel."""
+        C = self.P["scroll"]
+        span = self.v.get("span_bays", 2)
+        n = max(span, round((fb - fa) / self.v["pitch_m"]))
+        p = (fb - fa) / n
+        r = span * p / 2
+        ya, h = y0 - 0.01, (y1 + 0.005) - (y0 - 0.01)
+        # the arches run on through the panel's ends, cut where they meet a post or pier,
+        # so the lattice reads as one net from post to post
+        lo, hi = fa - 0.01, fb + 0.01
+        for k in range(1 - span, n):
+            xc = fa + k * p + r
+            full = [(xc - r * math.cos(math.pi * j / 40), ya + h * math.sin(math.pi * j / 40)) for j in range(41)]
+            line = []
+            for a_, b_ in zip(full, full[1:]):
+                for q in (a_, b_):
+                    if lo <= q[0] <= hi and q not in line:
+                        line.append(q)
+                for edge in (lo, hi):
+                    if (a_[0] - edge) * (b_[0] - edge) < 0:
+                        t_ = (edge - a_[0]) / (b_[0] - a_[0])
+                        line.append((edge, a_[1] + t_ * (b_[1] - a_[1])))
+            line.sort(key=lambda q: math.atan2(q[1] - ya, xc - q[0]))
+            if len(line) < 3:
+                continue
+            arc = self.piece(self.name("lattice arch"), "iron", "rooted", host, gate=gate)
+            prism(arc.mesh, ribbon(line, C["ribbon_m"]), -C["iron_m"] / 2, C["iron_m"] / 2, back=True)
+        self.meta["rhythm"].setdefault("lattice", {"axis": 0, "member": C["ribbon_m"]})
+        return y1 + self.P["rail"]["height_m"]
+
     def fence_run(self, x0, x1, style, group, host_a=None, host_b=None):
         """A run of fence on a curb from x0 to x1: a post at each end not let into a pier
         (`host_a` / `host_b`), posts between at no more than the data's panel length."""
         Q, R, S = self.P["post"], self.P["rail"], self.P["spear"]
         h = Q["section_m"] / 2
-        y_post = self.P["curb"]["height_m"] + R["top_m"] + R["height_m"] + S["rise_m"] + S["height_m"] + 0.02
+        # a lattice has no pickets over its top rail: its posts stand a finial's foot over it
+        y_post = self.P["curb"]["height_m"] + R["top_m"] + R["height_m"] + (
+            0.06 if style == "lattice" else S["rise_m"] + S["height_m"] + 0.02)
         ca = x0 - (0.05 if host_a else 0.12)
         cb = x1 + (0.05 if host_b else 0.12)
         curb = self.curb(ca, cb)
