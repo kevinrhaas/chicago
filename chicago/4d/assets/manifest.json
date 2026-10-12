@@ -2074,9 +2074,9 @@
     "law_house_1620_prairie__restored_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 4913412,
+      "bytes": 4980472,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "b75d89a74250a5fae635002a5fa12ed2389567d462ae1265fe29535a05c2a03d",
+      "inputs_sha256": "fbfcac022d8d3127547919ef6ff90d6314d96d2e56ab0b74085cfbcc2dd288f2",
       "kind": "generated",
       "phase_id": "restored_1904",
       "structure_id": "law_house_1620_prairie"
