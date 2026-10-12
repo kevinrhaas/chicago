@@ -795,6 +795,7 @@ The following 43 files are original project material assets: eleven deterministi
 - `textures/glessner-v4/brick_basecolor.jpg`
 - `textures/glessner-v4/brick_normal.png`
 - `textures/glessner-v4/brick_roughness.png`
+- `textures/glessner-v4/court_brick_basecolor.jpg`
 - `textures/glessner-v4/copper_basecolor.jpg`
 - `textures/glessner-v4/copper_normal.png`
 - `textures/glessner-v4/copper_roughness.png`
