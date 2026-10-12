@@ -159,6 +159,14 @@ function normalizeGeometry(src, matrix, material, confidence, label, tone) {
   geo.setAttribute('uv', src.getAttribute('uv')
     ? toFloatAttribute(src.getAttribute('uv'), 2)
     : new THREE.BufferAttribute(new Float32Array(position.count * 2), 2));
+  // T-2400: a baked occlusion map on its own UV set (TEXCOORD_1 -> `uv1`, which
+  // GLTFLoader names in `aoMap.channel`). The aoMap is in the material key, so
+  // every geometry in this batch carries it and the attribute set stays uniform.
+  if (material.aoMap && material.aoMap.channel === 1) {
+    const uv1 = src.getAttribute('uv1');
+    if (!uv1) throw new Error(`${label}: aoMap reads TEXCOORD_1, which the mesh does not carry`);
+    geo.setAttribute('uv1', toFloatAttribute(uv1, 2));
+  }
   if (material.userData.roofFilter) {
     geo.setAttribute('_roof_detail', toFloatAttribute(src.getAttribute('_roof_detail'), 1));
   }

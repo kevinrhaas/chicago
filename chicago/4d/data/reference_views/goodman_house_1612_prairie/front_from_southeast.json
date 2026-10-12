@@ -18,5 +18,10 @@
     1.58
   ],
   "yaw_deg": -65.8,
+  "sun_uvy": [
+    0.6,
+    -1.0,
+    1.4
+  ],
   "solve": "Fitted by T-2366 from the photograph alone, with the stone front's 11.25 m width (Sanborn 1911 sheet 20) as the one length. Verticals in the print are vertical, so the camera is level and the principal point sits on the horizon: the front's horizontal courses converge on a vanishing point near x 5900 px, and the horizon (y 1550 px) runs at about the porch floor, 1.58 m over the front's grade. The principal point's x is taken as the print's centre (1000 px). Least squares over the two front corners (x 605 and 1750 px) and the course spacing measured at x 640, 890, 1250 and 1720 px (52.5, 50.3, 47.5 and 42.0 px a course) for a 0.406 m (16 in) course gives f = 2293 px, a heading 24.2 degrees off square, the eye 17.24 m in front of the stone face and 4.43 m south of its south corner. Residuals: 0 px at the corners, under 2 px/m in the course scale."
 }
