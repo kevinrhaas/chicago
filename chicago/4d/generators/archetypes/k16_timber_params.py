@@ -105,6 +105,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
         errs = annex_errors(body, form["gable"]["value"]["width_m"])
         if errs:
             raise ParamError(f"{rid}: body: " + "; ".join(errs))
+    bad = gable_errors(form["gable"]["value"])
+    if bad:
+        raise ParamError(f"{rid}: gable: {'; '.join(bad)}")
     if "tower" in form:     # T-2396: the corner tower over the porch
         bad = tower_errors(form["tower"]["value"])
         if bad:
@@ -219,6 +222,38 @@ def frame_house_errors(fh: dict) -> list[str]:
     ch = fh.get("chimney")
     if ch is not None and not all(_num(ch.get(k)) for k in ("u_m", "v_m", "width_m", "depth_m", "above_ridge_m")):
         out.append("chimney needs u_m, v_m, width_m, depth_m and above_ridge_m")
+    return out
+
+
+def gable_errors(gv: dict) -> list[str]:
+    """What a gable front's T-2423 parts need: a field the builder knows, a pointed surround
+    only on a pointed sash, a hood's four control points and sizes, an oval's middle and sizes
+    with its ring standing proud of its field."""
+    out = []
+    if gv.get("field", "shingle") not in ("shingle", "clapboard"):
+        out.append("field must be shingle or clapboard")
+    for w in gv.get("windows", []):
+        if w.get("surround", "flat") not in ("flat", "pointed"):
+            out.append("a window's surround must be flat or pointed")
+        elif w.get("surround") == "pointed" and w.get("k06_variant") != "k06.opening.sash_pointed":
+            out.append("a pointed surround needs the k06.opening.sash_pointed sash")
+    hv = gv.get("hood")
+    if hv is not None:
+        c = hv.get("curve")
+        if not (isinstance(c, list) and len(c) == 4 and all(isinstance(q, list) and len(q) == 2 and all(_num(x) for x in q) for q in c)):
+            out.append("hood.curve must be four [s, y] control points")
+        if not all(_num(hv.get(k)) and hv[k] > 0 for k in ("centre_m", "width_m", "projection_m", "finial_m")):
+            out.append("hood needs positive centre_m, width_m, projection_m and finial_m")
+        st = hv.get("stop") or {}
+        if not all(_num(st.get(k)) and st[k] > 0 for k in ("width_m", "height_m")):
+            out.append("hood.stop needs positive width_m and height_m")
+    ov = gv.get("oculus")
+    if ov is not None:
+        if not all(_num(ov.get(k)) and ov[k] > 0 for k in ("centre_m", "centre_y_m", "width_m", "height_m", "ring_m",
+                                                         "field_z_m", "ring_z_m")):
+            out.append("oculus needs positive centre_m, centre_y_m, width_m, height_m, ring_m, field_z_m and ring_z_m")
+        elif ov["ring_z_m"] <= ov["field_z_m"] or 2 * ov["ring_m"] >= min(ov["width_m"], ov["height_m"]):
+            out.append("oculus: the ring must stand proud of its field and leave a field inside it")
     return out
 
 
