@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "422c2fd121d27fa519f54b064a51ac4c26c340f19d07a564615a136661d2c84d",
+  "glb_sha256": "20caaa946d2b134c4edc7248fd4a4c150b8d673e8c7e939e95d41fecacbfa866",
   "camera_sha256": "4cbf3a651e1ee5dc689b00afeae61cf325bc7d6f1e36cb4d32e8c03ffdfa0f7e",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg",
   "verdict": "differs",
@@ -77,5 +77,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2409, 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg"
+  "reviewed": "T-2409 (lapped onto T-2404 and T-2408), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg"
 }
