@@ -514,7 +514,7 @@ def check_houses(data, mats=None, role_material=None, records=None):
             continue
         # a porch's left half is the right half mirrored, so it is measured once
         keys = [k for k in parts if not k.startswith("_") and k != "porch_left"] if whole \
-            else ("gable", "wing_wall", "porch_right") + tuple(k for k in K.BODY_KEYS + K.TOWER_KEYS if k in parts)
+            else ("gable", "wing_wall", "porch_right") + K.body_part_keys(parts)
         for k in keys:
             sm = parts[k]
             for f in (rule_thickness(sm, data) + rule_lapped(sm, data) + rule_stagger(sm, data)

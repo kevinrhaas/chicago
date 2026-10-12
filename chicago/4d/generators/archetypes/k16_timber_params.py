@@ -102,6 +102,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
             for w in tw[k].get("windows", []):
                 if not all(_num(w.get(x)) for x in ("clear_height_m", "sill_m", "centre_m")):
                     raise ParamError(f"{rid}: body.timber_walls.{k}: a window needs clear_height_m, sill_m, centre_m")
+        errs = annex_errors(body, form["gable"]["value"]["width_m"])
+        if errs:
+            raise ParamError(f"{rid}: body: " + "; ".join(errs))
     if "tower" in form:     # T-2396: the corner tower over the porch
         bad = tower_errors(form["tower"]["value"])
         if bad:
@@ -113,6 +116,55 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
         **{k: dict(form[k]["value"]) for k in OPTIONAL if k in form},
         confidence={k: form[k]["confidence"] for k in REQUIRED + OPTIONAL if k in form},
     )
+
+
+#: T-2397: the roofs an annex may take — a deck, or a lean-to up into the main roof
+ANNEX_ROOFS = ("flat", "lean_to")
+
+
+def annex_errors(body: dict, gable_width: float) -> list[str]:
+    """What the timber body's widened rear range and its annexes need (T-2397). An annex is a
+    block in the lot plan (u east, v north), standing `against` one side of the body and
+    walled on the others it names, in the walls' counter-clockwise order; a side it joins to
+    another annex is `open`, walled by neither."""
+    out = []
+    wr = body.get("rear_width_m")
+    if wr is not None and (not _num(wr) or wr < gable_width):
+        out.append("rear_width_m must be a number no narrower than the gable's range")
+    annexes = body.get("annexes")
+    if annexes is None:
+        return out
+    if not _num(body.get("annex_return_m")) or not 0.2 <= body["annex_return_m"] <= 1.0:
+        out.append("annex_return_m (each annex corner's return) must lie in 0.2-1.0 m")
+    ids = [b.get("id") for b in annexes]
+    if len(set(ids)) != len(ids) or not all(isinstance(i, str) and i for i in ids):
+        out.append("every annex needs its own id")
+    for b in annexes:
+        bid = b.get("id", "?")
+        r = b.get("rect_uv")
+        if not (isinstance(r, list) and len(r) == 4 and all(_num(x) for x in r) and r[0] < r[2] and r[1] < r[3]):
+            out.append(f"{bid}: rect_uv must be [u0, v0, u1, v1] with u0 < u1 and v0 < v1")
+        if not (b.get("wall_top_m") == "flank" or (_num(b.get("wall_top_m")) and b["wall_top_m"] > 2.0)):
+            out.append(f"{bid}: wall_top_m is the flanks' ('flank') or a height above a storey")
+        kind = (b.get("roof") or {}).get("kind")
+        if kind not in ANNEX_ROOFS:
+            out.append(f"{bid}: roof.kind must be one of {', '.join(ANNEX_ROOFS)}")
+        if kind == "lean_to" and b.get("against") != "north":
+            out.append(f"{bid}: a lean-to rises against the body's south flank, so stands against north")
+        against = b.get("against")
+        if against not in SIDES:
+            out.append(f"{bid}: an annex names the side it stands against")
+            continue
+        sides = [w.get("side") for w in b.get("walls") or []]
+        order = [SIDES[(SIDES.index(against) + k) % 4] for k in (1, 2, 3)]
+        want = [x for x in order if x not in (b.get("open") or [])]
+        if sides != want:
+            out.append(f"{bid}: walls must run {', '.join(want)} in that order, not {', '.join(map(str, sides))}")
+        for w in b.get("walls") or []:
+            for x in w.get("windows", []):
+                if not all(_num(x.get(k)) for k in ("clear_height_m", "sill_m", "centre_m")):
+                    out.append(f"{bid}.{w.get('side')}: a window needs clear_height_m, sill_m, centre_m")
+    return out
 
 
 def _num(x) -> bool:

@@ -19,10 +19,16 @@ import math
 from pathlib import Path
 import random
 import struct
+import subprocess
 import sys
+import tempfile
+import zlib
 from types import ModuleType
 
 MAX_TRIANGLES=200_000
+# T-2401: the light tier's own stone-scale occlusion atlas. Half the master's edge (T-2400,
+# 2048, about 2.3 cm a texel), so mobile pays a quarter of its bytes for it.
+OCCLUSION_SIZE=1024
 # How far a light-tier stone's corner normals lean from its face (tan of about 24
 # degrees along each axis): the full tier's bowed crown, carried by shading alone.
 PILLOW_LEAN=.45
@@ -354,35 +360,81 @@ def _apertures(params):
             'terrace':params.detail.get('bow_terrace',{}).get('window_count',0)}
 
 
-def _tiling_occlusion(root,materials,textures,images,append):
-    """T-2400: the reduced mesh carries TEXCOORD_0 alone, so a stone-scale occlusion
-    baked on the master's TEXCOORD_1 cannot ride it. Each such material takes back the
-    tiling map its extras name (`occlusion_tiling_map`, T-2393's granite_occlusion.png),
-    on TEXCOORD_0 with its normal map's texture sampler, so it repeats with the relief
-    it was drawn from. The baked image's slot is refilled with that map's bytes; a
-    material whose bake names no tiling map loses its occlusion rather than sample a
-    coordinate set the mesh does not have. The light's own bake is T-2401.
+def _blender(root):
+    """The pinned Blender bake.sh fetched (generators/blender.pin), or $BLENDER."""
+    import os
+    if os.environ.get('BLENDER'):return os.environ['BLENDER']
+    pin=dict(line.split('=',1) for line in (Path(root)/'generators/blender.pin').read_text().splitlines()
+             if '=' in line and not line.lstrip().startswith('#'))
+    binary=Path(os.environ.get('BLENDER_CACHE','/opt/blender-dl'))/pin['BLENDER_DIR']/'blender'
+    if not binary.is_file():
+        raise RuntimeError(f'The light LOD bakes its own occlusion and needs the pinned Blender at {binary}; '
+                           'run tools/bake.sh once to fetch it, or set BLENDER')
+    return str(binary)
+
+
+def _png_grey(rows):
+    """An 8-bit greyscale PNG of `rows` (top row first), Up-filtered, written the same way every time."""
+    height,width=len(rows),len(rows[0]);raw=bytearray();previous=bytes(width)
+    for row in rows:
+        row=bytes(row);raw.append(2);raw.extend((a-b)&255 for a,b in zip(row,previous));previous=row
+    def chunk(tag,data):return struct.pack('>I',len(data))+tag+data+struct.pack('>I',zlib.crc32(tag+data))
+    return (b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',width,height,8,0,0,0,0))+
+            chunk(b'IDAT',zlib.compress(bytes(raw),9))+chunk(b'IEND',b''))
+
+
+def _stone_occlusion(root,groups):
+    """T-2401: bake the reduced mesh's own stone-scale occlusion, as T-2400 baked the master's.
+
+    The light tier is a different mesh from the master, so the master's TEXCOORD_1 bake
+    cannot ride it. Every face goes to Blender as an occluder; the granite slots are
+    unwrapped onto their own OcclusionUV and baked by the master's own baker
+    (tools/_glessner_light_occlusion.py), at OCCLUSION_SIZE. Returns each group's
+    TEXCOORD_1 values, the atlas as PNG bytes, and the baker's record.
     """
-    replaced={}
+    import numpy as np
+    order=sorted(groups)
+    co=np.concatenate([np.asarray(groups[m]['p'],np.float64).reshape(-1,3) for m in order])
+    co=np.stack([co[:,0],-co[:,2],co[:,1]],1)   # back to the builder's z-up
+    uv0=np.concatenate([np.asarray(groups[m]['uv'],np.float32).reshape(-1,2) for m in order])
+    corners=np.concatenate([np.asarray(groups[m]['k'],np.int32) for m in order])
+    slot=np.concatenate([np.full(len(groups[m]['k']),m,np.int32) for m in order])
+    with tempfile.TemporaryDirectory(prefix='glessner-light-ao-') as tmp:
+        source,target=Path(tmp)/'in.npz',Path(tmp)/'out.npz'
+        np.savez(source,co=co,uv0=uv0,corners=corners,slot=slot,slots=np.array(MATERIAL_NAMES),
+                 size=np.int32(OCCLUSION_SIZE))
+        run=subprocess.run([_blender(root),'-b','-noaudio','--factory-startup','--python',
+                            str(Path(root)/'tools/_glessner_light_occlusion.py'),'--',str(source),str(target)],
+                           capture_output=True,text=True)
+        if run.returncode or not target.is_file():
+            raise RuntimeError('Light LOD occlusion bake failed:\n'+(run.stdout+run.stderr)[-3000:])
+        out=np.load(target)
+        uv1,ao,record=out['uv1'],out['ao'],json.loads(str(out['record']))
+    if len(uv1)!=len(co):raise RuntimeError('Light LOD occlusion bake returned the wrong corner count')
+    per={};start=0
+    for m in order:
+        n=len(groups[m]['p'])//3
+        # glTF's v runs down the image, Blender's up.
+        per[m]=[float(x) for uv in uv1[start:start+n] for x in (uv[0],1-uv[1])];start+=n
+    return per,_png_grey(ao.tolist()),record
+
+
+def _baked_occlusion(materials,textures,images,append,png):
+    """T-2401: each material whose master occlusion is the TEXCOORD_1 stone bake (T-2400)
+    takes the light mesh's own bake in that image's slot, on the light's own TEXCOORD_1.
+    The material, texture and sampler are the master's; only the image bytes are the
+    light's. T-2393's tiling map (`occlusion_tiling_map`) is no longer put back.
+    """
+    from archetypes.masonry_house_v4_occlusion import GRANITE_SLOTS
+    granite={MATERIAL_NAMES[i] for i in GRANITE_SLOTS};sources=set()
     for material in materials:
         occlusion=material.get('occlusionTexture')
         if not occlusion or occlusion.get('texCoord',0)==0:continue
-        path=(material.get('extras') or {}).get('occlusion_tiling_map')
-        if not path:
-            material.pop('occlusionTexture');continue
-        source=textures[occlusion['index']]['source']
-        if source not in replaced:
-            data=(Path(root)/path).read_bytes()
-            images[source]={'name':Path(path).stem,'mimeType':'image/png','bufferView':append(data)}
-            replaced[source]={}
-        normal=material.get('normalTexture')
-        sampler=textures[normal['index']].get('sampler') if normal else None
-        key=sampler if sampler is not None else -1
-        if key not in replaced[source]:
-            texture={'source':source}
-            if sampler is not None:texture['sampler']=sampler
-            textures.append(texture);replaced[source][key]=len(textures)-1
-        material['occlusionTexture']={'index':replaced[source][key]}
+        if material.get('name') not in granite:
+            raise ValueError(f"{material.get('name')} reads a TEXCOORD_1 occlusion the light LOD does not bake")
+        sources.add(textures[occlusion['index']]['source'])
+    for source in sources:
+        images[source]={'name':'granite_stone_occlusion_light','mimeType':'image/png','bufferView':append(png)}
     return materials,textures
 
 
@@ -436,7 +488,7 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
         points=[b.verts[i] for i in face];normal=_normal(points)
         triangles=_triangles(points,normal)
         if not triangles:continue
-        group=groups.setdefault(material,{'p':[],'n':[],'uv':[],'c':[],'rd':[],'i':[]})
+        group=groups.setdefault(material,{'p':[],'n':[],'uv':[],'c':[],'rd':[],'i':[],'k':[]})
         start=len(group['p'])//3
         horizontal=(-normal[1],normal[0],0);length=math.hypot(horizontal[0],horizontal[1])
         if length<1e-6:horizontal=(1,0,0);uphill=(0,1,0)
@@ -454,24 +506,29 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
             group['uv'].extend((uv[0]/tu,1-uv[1]/tv))
             group['c'].append(b.conf[index])
             group['rd'].append(b.roof_detail.get(index,0))
+        group['k'].append(len(face))
         for triangle in triangles:group['i'].extend(start+i for i in triangle)
         triangle_count+=len(triangles)
     if triangle_count>MAX_TRIANGLES:raise ValueError(f'Reduced Glessner has {triangle_count:,} triangles; limit {MAX_TRIANGLES:,}')
+    uv1,occlusion_png,occlusion_record=_stone_occlusion(root,groups)
+    from archetypes.masonry_house_v4_occlusion import GRANITE_SLOTS
     primitives=[]
     for material,g in sorted(groups.items()):
         attributes={'POSITION':accessor(g['p'],3,bounds=True),'NORMAL':accessor(g['n'],3),
                     'TEXCOORD_0':accessor(g['uv'],2),'_CONFIDENCE':accessor(g['c'],1,bounds=True),
                     '_ROOF_DETAIL':accessor(g['rd'],1,bounds=True)}
+        if material in GRANITE_SLOTS:attributes['TEXCOORD_1']=accessor(uv1[material],2)
         primitives.append({'attributes':attributes,'indices':accessor(g['i'],1,'I'),
                            'material':names[MATERIAL_NAMES[material]],'mode':4})
     extras=copy.deepcopy(owner.get('extras',{}))
     extras.update({'lod':'light','grass_blades':0,'roof_tiles':0,'masonry_blocks':b.masonry_blocks,
-                   'openings_recessed':sum(counts.values()),'aperture_counts':counts})
+                   'openings_recessed':sum(counts.values()),'aperture_counts':counts,
+                   'stone_occlusion':occlusion_record})
     bounds=[[min(p[k] for p in b.verts),max(p[k] for p in b.verts)] for k in range(3)]
     receipt={'master_sha256':master_sha,'recipe_sha256':recipe_sha256,'triangles':triangle_count,
              'openings_recessed':sum(counts.values()),'bounds_zup_m':bounds,
              'profile':'same_v4_reduced_surface_sampling'}
-    materials,textures=_tiling_occlusion(root,copy.deepcopy(materials),copy.deepcopy(full.get('textures',[])),images,append)
+    materials,textures=_baked_occlusion(copy.deepcopy(materials),copy.deepcopy(full.get('textures',[])),images,append,occlusion_png)
     doc={'asset':copy.deepcopy(full['asset']),'scene':0,'scenes':[{'nodes':[0]}],
          'nodes':[{'name':b.name+'.light','mesh':0,'extras':extras}],
          'meshes':[{'name':b.name+'.light','primitives':primitives}],

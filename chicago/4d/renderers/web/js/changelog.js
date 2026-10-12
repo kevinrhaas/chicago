@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 1736, ts: '2026-10-12T21:24:48.629Z', date: 'Oct 12, 2026, 4:24 PM CT', title: 'Glessner\'s granite shows its stones on phones too', kind: 'improvement',
+    items: [
+      'On a phone, the Glessner House\'s granite walls in shade now show their courses and joints, as they already did on a desktop. The lighter model phones load now has its own shading baked from its own stones, in place of the faint repeating texture it had before.',
+      'The phone model grew by about a tenth of a megabyte.',
+    ] },
+  { v: 1735, ts: '2026-10-12T21:15:58.043Z', date: 'Oct 12, 2026, 4:15 PM CT', title: '1638 Prairie gets the back of the house its map draws', kind: 'improvement',
+    items: [
+      'The Gothic house at 1638 Prairie now has the shape the 1911 fire-insurance map gives it: the back of the house widens toward the north, and a two-storey wing juts out of the south side halfway back.',
+      'Small one-storey rooms with flat tin-style roofs wrap the back corner and sit along the north side, where the map draws them.',
+      'No picture shows these sides, so their windows, roofs and heights are a marked liberty.',
+    ] },
+  { v: 1734, ts: '2026-10-12T21:15:58.043Z', date: 'Oct 12, 2026, 4:15 PM CT', title: '1619 Prairie rises with the swell-fronted stone front of its 1886 drawing', kind: 'feature',
+    items: [
+      'The grey district-draft box at 1619 Prairie is now John H. Hamline\'s stone town house, built against the one picture of it: Treat & Foltz\'s drawing in The Building Budget.',
+      'Its full-height swell bay rises from the raised basement to the wall head, with two tall lights a storey, beside the narrow entrance strip.',
+      'A steep slate roof and a pedimented dormer stand where the drawing\'s gable storey is; the wall gable, balcony rail and arched entrance come next.',
+      'The drawing is on the house\'s card, beside a side-by-side render from its own camera. Where it disagrees with the 1911 map, the card\'s liberties say which was built.',
+    ] },
   { v: 1733, ts: '2026-10-12T20:25:36.544Z', date: 'Oct 12, 2026, 3:25 PM CT', title: 'Glessner\'s granite bows forward and warms; the Prairie door redrawn', kind: 'improvement',
     items: [
       'Every rock-faced granite stone on the Glessner house now bows forward from its edges to a crown, so the walls read as sculpted stones rather than a flat face.',
