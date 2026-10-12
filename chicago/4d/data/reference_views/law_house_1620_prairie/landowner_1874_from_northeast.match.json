@@ -1,0 +1,11 @@
+{
+  "structure_id": "law_house_1620_prairie",
+  "view": "landowner_1874_from_northeast",
+  "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
+  "glb_sha256": "80a0b9a0e5ecbd15e0d302c06b46d1986f8fbe746f65b3f4661d409b828e9ebc",
+  "camera_sha256": "4cbf3a651e1ee5dc689b00afeae61cf325bc7d6f1e36cb4d32e8c03ffdfa0f7e",
+  "side_by_side": "../../../../../../../../tmp/work/before/landowner_1874_from_northeast-side-by-side.jpg",
+  "verdict": "unreviewed",
+  "differences": [],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
