@@ -738,6 +738,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     front_bays = tuple(float(s) for s in val("front_bays"))
     entrance = val("entrance_bay")
     door_s = front_bays[-1] if entrance == "north" else front_bays[0]
+    # T-2408: a three-bay front entered in its middle bay, the door between the bays either
+    # side (1620's, beside the bay window its pictures put on the south part)
+    if entrance == "middle":
+        if len(front_bays) != 3:
+            raise ParamError("entrance_bay 'middle' needs a three-bay front")
+        door_s = front_bays[1]
     # T-2366: a street front read off a photograph names its own openings, row by row
     sfo = val("street_front_openings")
     if sfo:
