@@ -24908,8 +24908,9 @@ lights; anything behind the sash beyond the kit's blinds and curtains. **1607 is
 pair after 1904; it is not back-projected, and no 1904 building stands under 1607.
 **How to resolve:** a photograph, print or description of either house, ingested as a source,
 replaces the kit's choices in place (a later reading of the pair's heights, roof or fronts first);
-none was found in the Prairie library by address on 2026-10-12.
-**Covers:** `house_1609_prairie.as_mapped_1904.form.stories`, `house_1609_prairie.as_mapped_1904.form.frame_house`, `house_1609_prairie.as_mapped_1904.form.roof_covering`, `house_1611_prairie.as_mapped_1904.form.stories`, `house_1611_prairie.as_mapped_1904.form.frame_house`, `house_1611_prairie.as_mapped_1904.form.roof_covering`
+none was found in the Prairie library on 2026-10-12: its one 1609 picture (a16-cgy-1609-loft-1910) shows the
+1910 E. T. Cade loft that replaced the pair, not the pair.
+**Covers:** `house_1609_prairie.as_mapped_1904.form.stories`, `house_1609_prairie.as_mapped_1904.form.construction`, `house_1609_prairie.as_mapped_1904.form.frame_house`, `house_1609_prairie.as_mapped_1904.form.roof_covering`, `house_1611_prairie.as_mapped_1904.form.stories`, `house_1611_prairie.as_mapped_1904.form.construction`, `house_1611_prairie.as_mapped_1904.form.frame_house`, `house_1611_prairie.as_mapped_1904.form.roof_covering`
 **Ticket:** T-1867 (package N08 of T-1837).
 **Review:** `docs/RESEARCH/k16-1609-1611-frame-pair-1867/README.md`.
 **Recorded:** 2026-10-12 (T-1867).
