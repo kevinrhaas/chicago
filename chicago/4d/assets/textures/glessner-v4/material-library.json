@@ -72,6 +72,21 @@
       "source_pixels": "none"
     },
     {
+      "name": "court_brick",
+      "albedo_size_px": 2048,
+      "tile_m": [
+        1.7272,
+        2.1336
+      ],
+      "seed": 190402,
+      "confidence": "reconstructed",
+      "albedo_colour_space": "sRGB",
+      "albedo_only": true,
+      "normal_and_roughness_from": "brick",
+      "source_pixels": "none",
+      "description": "Reconstructed light pink common-brick body (HABS 1963 'light pink brick'; Glessner 1923 'slightly pinkish'), on brick's clay grain. Hue and value are bounded reconstruction, not a measured sample."
+    },
+    {
       "name": "terracotta",
       "albedo_size_px": 2048,
       "detail_size_px": 1024,
@@ -209,6 +224,10 @@
     "copper_roughness.png": {
       "sha256": "7d84c8c84af6aae8b112013032d9cce98bdd2b7cf18de23306e13bb7fc37903a",
       "bytes": 73123
+    },
+    "court_brick_basecolor.jpg": {
+      "sha256": "a0fdd0e549f811db072e1d9c06c624b9a5fc6230b73184c66293137583a059c8",
+      "bytes": 756531
     },
     "granite_basecolor.jpg": {
       "sha256": "602b0acdad4bbcdf75872c9ae6d86b0f218ef1e3ed163040b44bbd9ad3eaf816",
