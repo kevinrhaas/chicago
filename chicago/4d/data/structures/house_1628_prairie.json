@@ -14,7 +14,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling (D), the south half of the pair with 1626'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "T-2355 (piece 1 of T-1862) refines the district draft (T-2334) in place under the same id: the main body is rebuilt from the K01 frontage assembly and its kits — K03 brick on all four walls, K06 sash, K07 door and stoop, K09 window heads, K10 bracketed cornice, a K04/K05 hip — instead of the draft builder, as T-2353 built 1616. What is read: the 1911 Sanborn sheet 20 (storeys '3B', brick, the south half of a pair attached to 1626, the traced main body) through the T-1840 census. Its north wall is the party wall it shares with 1626 and is built blank. Everything else is reconstructed and recorded as L-k01-1628-brick-front-2355. The sheet's three-storey rear wing behind the north part of the rear wall waits for T-2347 (K01's traced rear wing). No photograph, plate or description of 1628 has been read; a later reading that finds one replaces the kit's choices here.",
+  "research_note": "T-2355 (piece 1 of T-1862) refines the district draft (T-2334) in place under the same id: the main body is rebuilt from the K01 frontage assembly and its kits — K03 brick on all four walls, K06 sash, K07 door and stoop, K09 window heads, K10 bracketed cornice, a K04/K05 hip — instead of the draft builder, as T-2353 built 1616. What is read: the 1911 Sanborn sheet 20 (storeys '3B', brick, the south half of a pair attached to 1626, the traced main body) through the T-1840 census. Its north wall is the party wall it shares with 1626 and is built blank. Everything else is reconstructed and recorded as L-k01-1628-brick-front-2355. T-2391 stands the piece the sheet draws behind the north part of the rear wall on K01's rear wings (T-2343): the census row s20-1628-a1 reads it '1B brick rear piece', one storey over a basement, where the draft had drawn it three storeys by its own rule. No photograph, plate or description of 1628 has been read; a later reading that finds one replaces the kit's choices here.",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -65,7 +65,7 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The main body: the largest rectangle inside the traced main part of s20fp-1628-b1 (data/traces/prairie_1904_footprints_s20.json, T-2328), kept from the draft (12.25 m deep, 6.0 m along the front; the part's two rectangles cover 90% of its fill). The trace also draws a three-storey wing behind the north part of the rear wall (4.5 m out, v 2.0-6.25 m: the draft's r2), which K01's single rectangle cannot carry: it waits for T-2347, which teaches K01 a traced rear wing."
+        "note": "The main body: the largest rectangle inside the traced main part of s20fp-1628-b1 (data/traces/prairie_1904_footprints_s20.json, T-2328), kept from the draft (12.25 m deep, 6.0 m along the front; the part's two rectangles cover 90% of its fill). The trace also draws the rear piece behind the north part of the rear wall (the draft's r2, which it drew three storeys and 4.5 m out), which is rear_wings (T-2391)."
       },
       "form": {
         "stories": {
@@ -74,7 +74,7 @@
           "sources": [
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "'3B; rear 1B' printed on the 1911 sheet: three full storeys over a basement. The rear 1B is the frame porch the trace draws at the front's south end, which the K07 stoop stands in."
+          "note": "'3B; rear 1B' printed on the 1911 sheet: three full storeys over a basement. The rear 1B is the frame porch the trace draws at the front's south end, which the K07 stoop stands in. The '1B' behind it is the rear piece's (rear_wings)."
         },
         "construction": {
           "value": "brick",
@@ -186,10 +186,54 @@
         "rear_bays": {
           "value": [
             1.0,
-            4.1
+            5.1
           ],
           "confidence": "reconstructed",
-          "note": "Two windows a storey in the rear wall. The one at 4.1 m stands where the sheet's rear wing joins the house (v 2.0-6.25): when T-2347 stands that wing it becomes the opening into it."
+          "note": "Two windows a storey in the rear wall, north to south. The northern one (s 1.0 m) stands where the rear piece joins (rear_wings, T-2391): on the principal storey it is behind the piece and is not cut, the opening into it; on the two upper storeys, above the piece's deck, it is a window. The southern one moved from s 4.1 to s 5.1 with T-2391: at 4.1 its head straddled the piece's south wall (s 4.05), which K01 refuses, so it now stands in the middle of the 1.95 m of rear wall south of the piece and pairs with the northern one, 1.0 m in from each corner."
+        },
+        "rear_wings": {
+          "value": [
+            {
+              "id": "rear_piece",
+              "rect": [
+                -4.75,
+                0.0,
+                1.95,
+                6.0
+              ],
+              "floor_m": 1.4,
+              "storey_heights_m": [
+                4.0
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.75,
+                  "width_m": 1.0,
+                  "height_m": 2.3
+                }
+              ],
+              "windows": {
+                "south": [
+                  1.35,
+                  3.4
+                ],
+                "rear": [
+                  2.0
+                ]
+              },
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.15,
+                "fascia_m": 0.3,
+                "covering": "painted_tin_sheet"
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-2391: the piece the 1911 sheet draws behind the north part of the rear wall, whose PLACE and storey count are read from the map and whose form is K01's reconstruction. Read on sheet 20 (T-1840 census s20-1628-a1, '1B brick rear piece'; trace s20fp-1628-b1 p2, the draft's r2) and measured off the raster through the T-1250 fit, in this frame: u -4.75 to 0 (the trace's outer wall at u -4.75 to -4.81 against the main rear wall's line at u 0) and v 1.95 to 6.0 (the trace's south wall at v 1.93-1.94; its north wall on the party line with 1626 at v 6.2, built flush with the main body's north wall at 6.0, since K01's wing stands inside its host wall). The sheet colours it brick and letters it '1B': one storey over a basement. The draft (T-2334) drew it three storeys, its rules' count for a wing inside the main part; the sheet's letter is followed. Its floor is the main body's principal floor (1.4 m) and its storey the main body's first (4.0 m), so its deck, at 5.7 m, stands under the main body's second-storey sills. K06 sash, two in its south wall over 1630's side yard and one in its rear wall, and the flat painted-tin deck on a 0.3 m fascia with a 0.15 m overhang: all reconstructed, as 1604's, 1616's and 1634's wings. The north wall is blank: it is the party wall with 1626's own rear piece, which the sheet draws against it and lettered the same '1B'. The dot the sheet prints in the piece's south-west corner is not modelled."
         },
         "sash_by_storey": {
           "value": [
@@ -270,7 +314,7 @@
               },
               {
                 "wall": "k01.wall.rear_service",
-                "s_m": 0.35
+                "s_m": 4.25
               },
               {
                 "wall": "k01.wall.rear_service",
@@ -279,7 +323,7 @@
             ]
           },
           "confidence": "reconstructed",
-          "note": "K04's half-round copper gutter round the eave and round copper downpipes to splash stones: one at the front's north corner by the party wall (the south half carries the stoop), one on the south wall between its windows, two at the rear corners. K01 stands no pipe on its north wall. All reconstructed."
+          "note": "K04's half-round copper gutter round the eave and round copper downpipes to splash stones: one at the front's north corner by the party wall (the south half carries the stoop), one on the south wall between its windows, two on the rear wall: one at its south corner and one just south of the rear piece (T-2391 moved it off the north corner the piece now stands against). The piece's deck has no gutter, as 1604's, 1616's and 1634's wings'. K01 stands no pipe on its north wall. All reconstructed."
         },
         "window_kit": {
           "value": {
