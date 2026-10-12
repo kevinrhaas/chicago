@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 153212576,
-      "sha256": "7ea09f2bdbcd8915d7a908e75a4700e53798ad673b5e598ceb5b15d7eb3fc62b",
+      "bytes": 154899436,
+      "sha256": "5d86abc5fc60453b15b675831ceb5861a151b655ad37d17aaf1279061fb6dceb",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -25,11 +25,11 @@
         "vertices": 2883137
       },
       "texture": {
-        "images": 33,
+        "images": 34,
         "textures": 63,
-        "encoded_bytes": 23686906,
-        "pixels": 52952392,
-        "gpu_rgba8_mip_bytes": 282412757,
+        "encoded_bytes": 25373000,
+        "pixels": 54000968,
+        "gpu_rgba8_mip_bytes": 288005163,
         "largest_px": 2048
       },
       "bbox_m": {
@@ -324,8 +324,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 45846872,
-      "sha256": "39eb0d7f2e50345fd57ba7f780b46627853e2115dac3461f3a0bf6a55544d7a5",
+      "bytes": 48135204,
+      "sha256": "1868d367b345f28ec5d36bec8838611077b055eaad8d8dd6ee80282452276538",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -348,11 +348,11 @@
         "vertices": 2298208
       },
       "texture": {
-        "images": 32,
-        "textures": 32,
-        "encoded_bytes": 23760059,
-        "pixels": 51903816,
-        "gpu_rgba8_mip_bytes": 276820352,
+        "images": 33,
+        "textures": 33,
+        "encoded_bytes": 26047599,
+        "pixels": 52952392,
+        "gpu_rgba8_mip_bytes": 282412757,
         "largest_px": 2048
       },
       "bbox_m": {
@@ -637,8 +637,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 26979424,
-      "sha256": "1ab418dc190ad2c0c38908b17f767eb4ee4ba472369af4b14146ccb285d34482",
+      "bytes": 29267756,
+      "sha256": "e718c8d4a67692cb1f5f65629c7f4f519da83ac5d826038a6921a7b0c1bbc7ce",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -661,11 +661,11 @@
         "vertices": 385411
       },
       "texture": {
-        "images": 32,
-        "textures": 32,
-        "encoded_bytes": 23760059,
-        "pixels": 51903816,
-        "gpu_rgba8_mip_bytes": 276820352,
+        "images": 33,
+        "textures": 33,
+        "encoded_bytes": 26047599,
+        "pixels": 52952392,
+        "gpu_rgba8_mip_bytes": 282412757,
         "largest_px": 2048
       },
       "bbox_m": {

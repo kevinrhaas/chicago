@@ -25,8 +25,10 @@ photographic pixels were sampled, traced or embedded. These are generic material
 studies, not photographs or measured reflectance scans of Glessner House.
 
 `material-library.json` records seeds, metric scales, channel conventions and the
-SHA256 of all 33 source maps, totalling 25,155,223 bytes. The folder contains 40
-licensed files. Numeric granite and turf albedos and the earlier generated turf
+SHA256 of all 37 source maps, totalling 27,204,919 bytes. The folder contains 45
+licensed files. The split-face granite also ships `granite_occlusion.png` (T-2393): ambient
+occlusion computed from the same height field as its normal map, non-colour, read as the
+glTF occlusion texture. Numeric granite and turf albedos and the earlier generated turf
 remain source studies even though the active building uses their replacements.
 Building numeric albedo is 2048² sRGB JPEG; normal is 1024² OpenGL tangent-space
 PNG; roughness is 1024² linear PNG. Ground and mortar use 1024² albedo with 512²

@@ -80,7 +80,49 @@ def normals(height, tile_m):
     return np.clip((n * .5 + .5) * 255 + .5, 0, 255).astype(np.uint8)
 
 
-def save(name, rgb, height, rough, description, seed):
+# T-2390. How far a texel looks for the stone that hides its sky. The fracture
+# planes are 1.6 m / 13 = 12 cm cells, so 8 cm reaches across a facet into its
+# neighbour; past that the next course's joint is geometry, not this map.
+OCCLUSION_RADIUS_M = 0.08
+OCCLUSION_DIRECTIONS = 16
+OCCLUSION_STEPS = 24
+
+
+def occlusion(height, tile_m, radius_m=OCCLUSION_RADIUS_M):
+    """Horizon-based ambient occlusion of the same height field the normal map draws.
+
+    For each texel and each of 16 directions, march out to `radius_m` and keep the
+    steepest rise; what that horizon stands above the texel's own tangent plane is
+    the sky it loses (HBAO's tangent-biased sine). A tilted facet is therefore not
+    occluded by its own tilt, only a crease is. The field is periodic, so the map
+    tiles. glTF reads it as occlusionTexture R, which three.js applies to the
+    indirect (sky) light and never to the sun: it adds relief in shade and changes
+    nothing in direct light.
+    """
+    size = height.shape[0]
+    texel = (tile_m[0] / size, tile_m[1] / size)
+    gx = (np.roll(height, -1, 1) - np.roll(height, 1, 1)) / (2 * texel[0])
+    gy = (np.roll(height, -1, 0) - np.roll(height, 1, 0)) / (2 * texel[1])
+    lost = np.zeros_like(height)
+    for k in range(OCCLUSION_DIRECTIONS):
+        a = 2 * np.pi * k / OCCLUSION_DIRECTIONS
+        dx, dy = np.cos(a), np.sin(a)
+        tangent = np.arctan(gx * dx + gy * dy)
+        steepest = np.tan(tangent)
+        for s in range(1, OCCLUSION_STEPS + 1):
+            t = radius_m * s / OCCLUSION_STEPS
+            sx, sy = dx * t / texel[0], dy * t / texel[1]
+            ix, iy = int(np.floor(sx)), int(np.floor(sy))
+            fx, fy = sx - ix, sy - iy
+            at = lambda ox, oy: np.roll(height, (-oy, -ox), (0, 1))
+            h = (at(ix, iy) * (1 - fx) * (1 - fy) + at(ix + 1, iy) * fx * (1 - fy)
+                 + at(ix, iy + 1) * (1 - fx) * fy + at(ix + 1, iy + 1) * fx * fy)
+            steepest = np.maximum(steepest, (h - height) / t)
+        lost += np.clip(np.sin(np.arctan(steepest)) - np.sin(tangent), 0, 1)
+    return 1 - lost / OCCLUSION_DIRECTIONS
+
+
+def save(name, rgb, height, rough, description, seed, occluded=False):
     rgb = np.clip(rgb, 0.02, .94)
     # The stronger granite mineral contrast compresses less readily. Q89 keeps
     # its original 2K detail within the same shipped texture payload budget.
@@ -95,11 +137,23 @@ def save(name, rgb, height, rough, description, seed):
     quantised = np.clip(np.round(np.clip(rough, .05, 1) * 127) * 2, 0, 255)
     Image.fromarray(np.uint8(quantised)).save(
         OUT / f"{name}_roughness.png", optimize=True)
+    extra = {}
+    if occluded:
+        # The same low-passed field as the normal map, so a crease the normal map
+        # draws is the crease this map darkens.
+        ao = occlusion(detail, TILE_M[name])
+        Image.fromarray(np.uint8(np.clip(ao, 0, 1) * 255 + .5)).save(
+            OUT / f"{name}_occlusion.png", optimize=True)
+        extra = {"occlusion_colour_space": "non-colour",
+                 "occlusion": (f"horizon-based ambient occlusion of the normal map's own height field, "
+                               f"{OCCLUSION_DIRECTIONS} directions out to {OCCLUSION_RADIUS_M} m, tangent-plane "
+                               f"biased; mean {float(ao.mean()):.4f}, min {float(ao.min()):.4f}. Sky light only."),
+                 "occlusion_radius_m": OCCLUSION_RADIUS_M}
     return {"name": name, "albedo_size_px": int(rgb.shape[0]), "detail_size_px": int(detail.shape[0]),
             "tile_m": TILE_M[name], "seed": seed,
             "confidence": "reconstructed", "description": description,
             "albedo_colour_space": "sRGB", "normal_convention": "OpenGL +Y",
-            "roughness_colour_space": "non-colour", "source_pixels": "none"}
+            "roughness_colour_space": "non-colour", "source_pixels": "none", **extra}
 
 
 def stone(name, seed, smooth=False):
@@ -135,7 +189,9 @@ def stone(name, seed, smooth=False):
             "Original mineral grain over domain-warped angular split-face fracture planes at about "
             "4-14 cm scale, 5.5 mm large-plane variation and 1.5 mm smaller splinters. Physical courses, "
             "block silhouettes, bevels and chipped edges are geometry.")
-    return save(name, rgb, h, rough, note + " No mortar lines are baked into the stone.", seed)
+    # T-2390: only the split face has relief deep enough to hide its own sky.
+    return save(name, rgb, h, rough, note + " No mortar lines are baked into the stone.", seed,
+                occluded=not smooth)
 
 
 def brick():
