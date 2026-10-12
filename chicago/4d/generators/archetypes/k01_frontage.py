@@ -1384,8 +1384,12 @@ class Assembly:
                  "tread": "stoop_stone", "riser": "stoop_stone", "stair_end": "stoop_stone",
                  "cheek": "stoop_stone", "frame": "door_leaf", "leaf": "door_leaf",
                  "sash_outer": "door_leaf", "glass_outer": "glass", "glass_leaf": "glass",
-                 "hardware": "door_iron", "backing": "backing"}
-    STAIR_ROLES = frozenset({"landing", "tread", "riser", "stair_end", "cheek"})
+                 "hardware": "door_iron", "backing": "backing",
+                 # T-2409: a terrace beside the landing and turned balustrades, in the stoop's stone
+                 "terrace": "stoop_stone", "terrace_face": "stoop_stone", "baluster": "stoop_stone",
+                 "newel": "stoop_stone", "rail": "stoop_stone"}
+    STAIR_ROLES = frozenset({"landing", "tread", "riser", "stair_end", "cheek",
+                             "terrace", "terrace_face", "baluster", "newel", "rail"})
 
     def door_variant(self) -> dict:
         """The record's K07 variant at this house's own door and stoop: the K01 hole's clear
@@ -1399,6 +1403,15 @@ class Assembly:
         v["clear_width_m"], v["clear_height_m"] = door.width_m, door.height_m
         v["stair"] = dict(v["stair"], floor_m=p.principal_floor_m, going_m=p.tread_m,
                           landing_m=p.landing_depth_m, width_m=p.stoop_width_m)
+        # T-2409: the terrace's reach and steps, from the front's s into the door's own frame
+        t = p.entrance_kit.get("terrace")
+        if t:
+            v["stair"]["porch"] = {"side": t["side"], "to_s_m": t["to_v_m"] - door.s_m,
+                                   "back": [[s - door.s_m, o] for s, o in t["back"]],
+                                   **({"balustrade": p.entrance_kit["balustrade"]}
+                                      if p.entrance_kit.get("balustrade") else {})}
+        if p.entrance_kit.get("balustrade"):
+            v["stair"]["balustrade"] = p.entrance_kit["balustrade"]
         v["front_yard_m"] = p.entrance_kit["front_yard_m"]
         return v
 
@@ -1427,7 +1440,12 @@ class Assembly:
                                    {"riser_m": st["riser_m"], "tread_m": st["going_m"], "risers": st["risers"],
                                     "landing_depth_m": p.landing_depth_m, "width_m": p.stoop_width_m,
                                     "k07_variant": p.entrance_kit["variant"], "cheeks": True,
-                                    "front_yard_m": p.entrance_kit["front_yard_m"]},
+                                    "front_yard_m": p.entrance_kit["front_yard_m"],
+                                    **({"terrace_to_v_m": p.entrance_kit["terrace"]["to_v_m"]}
+                                       if p.entrance_kit.get("terrace") else {}),
+                                    **({"balusters": sum(b["balusters"] for b in o.meta.get("balustrade", [])),
+                                        "balustrade_height_m": p.entrance_kit["balustrade"]["height_m"]}
+                                       if p.entrance_kit.get("balustrade") else {})},
                                    {"foot": P(op.s_m, 0.0, st["foot_out_m"]), "landing": P(op.s_m, op.sill_m, 0.0),
                                     **{f"{k}_{end}": P(op.s_m + q[0], op.sill_m + q[1], q[2])
                                        for k, ends in sorted(o.sockets.items())

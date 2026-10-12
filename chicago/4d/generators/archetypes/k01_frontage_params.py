@@ -975,7 +975,24 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if k07_risers != risers:
         raise ParamError(f"entrance_kit: K07 solves {pf} m in {k07_risers} risers and the K01 stair in "
                          f"{risers}; one stoop cannot be both")
+    terrace, balustrade = door_kit.get("terrace"), door_kit.get("balustrade")
     door_kit = {"variant": ev["id"], "front_yard_m": yard}
+    # T-2409: a terrace at the landing's height running from the stoop along the front to
+    # `to_v_m` (the front's own s), its back stepped out where the front stands proud, and
+    # a turned balustrade on it and on the stoop's cheeks
+    if terrace is not None:
+        if set(terrace) - {"side", "to_v_m", "back"} or terrace.get("side", "right") != "right":
+            raise ParamError("entrance_kit.terrace takes side 'right', to_v_m and back [[v, out], ...] alone")
+        door_kit["terrace"] = {"side": "right", "to_v_m": float(terrace["to_v_m"]),
+                               "back": [[float(v), float(o)] for v, o in terrace.get("back", [])]}
+    if balustrade is not None:
+        need = {"height_m", "pitch_m", "newel_m", "newel_cap_m", "rail_m", "segments", "profile"}
+        if set(balustrade) != need:
+            raise ParamError(f"entrance_kit.balustrade takes {sorted(need)}")
+        prof = balustrade["profile"]
+        if prof[0][1] != 0.0 or prof[-1][1] != 1.0 or any(b[1] <= a[1] for a, b in zip(prof, prof[1:])):
+            raise ParamError("entrance_kit.balustrade.profile runs [r, fraction of height] from 0 to 1")
+        door_kit["balustrade"] = dict(balustrade)
     # T-2313: chimney stacks from the K15 kit (data/components/prairie_1904/k15_chimneys.json),
     # each built by k15_chimneys.stack_solids in the house's own roof and joined into the K05
     # roof solid. The FORM (kit variant, flues, top) is `chimneys`; WHERE each stands is

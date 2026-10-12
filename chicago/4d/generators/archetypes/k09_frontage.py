@@ -37,6 +37,7 @@ BOARD_ROLES = ("wall", "backing", "ground")
 FLAT = "k01.flat_lintel"
 HEADS = ("k09.surround.rowhouse_restrained", "k09.trim.lintel_cornice_hood", FLAT)
 ENTRANCE = "k09.entrance.ring_on_colonnettes"
+DOOR_HOOD = "k09.trim.lintel_cornice_hood"   # T-2409: the kit's cornice hood over a flat-headed door
 APRON = "k09.trim.foliate_panel"
 SILL_REACH_M = 0.08          # K01's sill runs this far past each jamb
 SEAT_GAP_M = 0.004           # a capital stops this short of what it carries (no face on a face)
@@ -61,8 +62,8 @@ def spec(params) -> dict | None:
     by = t.get("by_storey", [])
     if len(by) != params.stories or any(h not in HEADS for h in by):
         raise ValueError(f"street_front_trim.by_storey needs one of {HEADS} per storey")
-    if t.get("entrance") not in (None, ENTRANCE):
-        raise ValueError(f"street_front_trim.entrance builds {ENTRANCE!r} alone")
+    if t.get("entrance") not in (None, ENTRANCE, DOOR_HOOD):
+        raise ValueError(f"street_front_trim.entrance builds {ENTRANCE!r} or {DOOR_HOOD!r} alone")
     if t.get("apron") not in (None, APRON):
         raise ValueError(f"street_front_trim.apron builds {APRON!r} alone")
     return t
@@ -79,7 +80,7 @@ def head(params, op) -> str:
     if not t or op.wall != "k01.wall.street_front":
         return FLAT
     if op.component == "k01.opening.door_leaf":
-        return ENTRANCE if t.get("entrance") else FLAT
+        return t.get("entrance") or FLAT
     if op.component != "k01.opening.sash_flat":
         return FLAT
     return t["by_storey"][_storey(params, op)]
