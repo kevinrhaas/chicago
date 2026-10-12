@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1710, ts: '2026-10-12T02:49:37.862Z', date: 'Oct 11, 2026, 9:49 PM CT', title: '1630 Prairie stands as a small clapboard frame house', kind: 'feature',
+    items: [
+      '1630 Prairie Avenue, the small frame house between its brick neighbours, is no longer a plain draft box: its walls are clapboard laid board by board, with corner boards, a water table and two-over-two sash in timber casings.',
+      'A porch runs across its front, on a lattice skirt with timber steps up to a four-panel door at its north end.',
+      'A bracketed boxed eave runs round the house under a low shingled hip with one brick chimney; the lower two-storey wing on its south side gets the same eave under a flat roof.',
+      'Its plan, wing, porch, two storeys and frame construction are read from the 1911 Sanborn map; every height, window, the roof and the paint are reconstructed, and the house\'s card says so.',
+    ] },
   { v: 1709, ts: '2026-10-12T02:37:02.585Z', date: 'Oct 11, 2026, 9:37 PM CT', title: '1634 Prairie gets back its rear wing', kind: 'feature',
     items: [
       'Behind the brownstone house at 1634 Prairie, the brick wing the 1911 atlas draws stands again: two storeys over a basement, with a one-storey end at the back.',
