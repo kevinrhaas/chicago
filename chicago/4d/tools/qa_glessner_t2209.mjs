@@ -19,7 +19,7 @@ const LIGHTS=process.env.QA_LIGHTS?process.env.QA_LIGHTS.split(','):['scene','ne
 const types={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.glb':'model/gltf-binary','.svg':'image/svg+xml'};
 const server=http.createServer((req,res)=>{let p=path.join(site,decodeURIComponent(req.url.split('?')[0]));try{if(fs.statSync(p).isDirectory())p=path.join(p,'index.html');res.writeHead(200,{'Content-Type':types[path.extname(p)]||'application/octet-stream'});fs.createReadStream(p).pipe(res)}catch{res.writeHead(404);res.end('missing')}});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
-const browser=await chromium.launch({args:['--no-sandbox','--enable-unsafe-swiftshader']});
+const browser=await chromium.launch({executablePath:process.env.PW_EXECUTABLE || undefined,args:['--no-sandbox','--enable-unsafe-swiftshader']});
 const STANDS=[['prairie-street',[72,11,1.7],[49,11,6.5]],['prairie-jambs',[54.5,5.5,2.2],[49.15,3.6,3.2]],['corner-ne',[53.2,26.6,2.4],[49.15,22.55,3.2]],
  ['north-shaded',[30,37,1.7],[30,22.55,5.5]],['north-mid',[34,30,1.8],[28,22.55,4]],['north-close',[33,26.5,2.2],[30,22.55,3]],['west-alley',[-9,9,1.7],[0,9,5.5]]];
 const results=[];
