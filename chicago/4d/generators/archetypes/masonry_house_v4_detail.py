@@ -118,6 +118,13 @@ def subtract(poly, holes):
     return fragments
 
 
+def ringed(o):
+    """Openings whose voussoir ring() lays radiating stones in the wall."""
+    if o.get('r_out',0)<=(o['u1']-o['u0'])/2+.05:
+        return False
+    return o.get('style')=='north_entry_alcove' or (o['kind']=='arch' and o.get('style')!='pigeon_vent')
+
+
 def aperture(o):
     a,b,z0,z1 = o['u0'],o['u1'],o['z0'],o['z1']
     if o['kind'] == 'arch':
@@ -133,6 +140,39 @@ PITCH_LINE, PITCH_MARGIN = .016, .085
 # lit as its own flat chip: the "triangulated sparkle" of the GA-09 audit. Only a
 # chip steeper than this still keeps a hard ridge; the face's relief is unmoved.
 ROCK_SMOOTH_DEGREES = 60
+# T-2208 follow-up (owner, 2026-10-12, with six photographs of the Prairie Avenue
+# front and its entrance): "they are more like shaped almost with a bow in the
+# front, not a ton, but your stone facing I think is too flat". A quarry-faced
+# stone is not a plateau with a chamfer: from its pitched arris the face rises
+# steeply and then rounds over a crown, so each stone throws its own shadow on
+# the joint below it. BOW_* set that crown above the pitch line, scaled to the
+# stone's short side (a 7.5 in course bows less than an 18 in one) and capped.
+# Reconstructed from the owner's photographs; no projection was measured.
+BOW_PER_SHORT_SIDE, BOW_BASE, BOW_MIN, BOW_MAX = .12, .018, .030, .060
+# The crown sits a little below the middle of the course, so the lower face is
+# the steeper one, as the photographs' dark lower lips show.
+BOW_PEAK = .44
+# Highest point any rock face reaches in front of its wall plane. Lintels and
+# voussoirs laid over the field (masonry_house_v4_north.rough_stone) sit in
+# front of it.
+ROCK_FACE_MAX = .104
+
+
+def _segment_distance(x, y, a, b):
+    ex,ey=b[0]-a[0],b[1]-a[1]
+    length=ex*ex+ey*ey
+    t=0.0 if length<1e-18 else max(0.0,min(1.0,((x-a[0])*ex+(y-a[1])*ey)/length))
+    return math.hypot(x-a[0]-t*ex,y-a[1]-t*ey)
+
+
+def _edge_distance(x, y, polygon):
+    return min(_segment_distance(x,y,a,b) for a,b in zip(polygon,polygon[1:]+polygon[:1]))
+
+
+def _rise(t):
+    """Steep off the arris, round over the crown: 0 at the edge, 1 at the top."""
+    t=min(1.0,max(0.0,t))
+    return 1-(1-t)**2.2
 
 
 def _inside(x, y, poly):
@@ -144,45 +184,74 @@ def _inside(x, y, poly):
     return inside
 
 
-def fractured_stone(polygon, depth, rng, spacing=.075):
+def fractured_stone(polygon, depth, rng, spacing=.075, crown=None):
     """Reconstructed split-face stone, bounded to the existing block envelope.
 
     The measured facade owns courses and openings; these 7.5 cm fracture facets
-    describe surface finish only. Correlated relief prevents independent spikes,
-    while smaller angular chips break up the broad, clean planes of a 5x3 grid.
-    The perimeter stays inside the original stone and has irregular relief rather
-    than a ruler-straight bevel. No new joints appear where an aperture cuts it.
+    describe surface finish only. The face is pitched to a straight arris at
+    every edge and bowed over a crown between them (BOW_*); correlated relief
+    breaks the bow into split planes without independent spikes. The perimeter
+    stays inside the original stone. No new joints appear where an aperture
+    cuts it. ``crown`` overrides the bow height for a stone of known shape.
     """
     x0,y0,x1,y1=bounds(polygon)
     nx=max(2,math.ceil((x1-x0)/spacing));ny=max(2,math.ceil((y1-y0)/spacing))
     dx,dy=(x1-x0)/nx,(y1-y0)/ny
+    rectangular=(len(polygon)==4 and len({round(q[0],6) for q in polygon})==2 and
+                 len({round(q[1],6) for q in polygon})==2)
     # Random lattice values at two physical scales. Interpolation correlates
     # neighbours; the small independent term gives the exposed split planes.
     fields=[]
-    for scale,amplitude in ((.27,.014),(.115,.020)):
+    for scale,amplitude in ((.27,.011),(.115,.013)):
         values={(ix,iy):rng.uniform(-1,1)
                 for ix in range(-1,math.ceil((x1-x0)/scale)+3)
                 for iy in range(-1,math.ceil((y1-y0)/scale)+3)}
         fields.append((scale,amplitude,values))
-    def relief(x,y):
-        value=min(.048,max(.031,depth*.64+.011))
-        for scale,amplitude,values in fields:
-            u,v=(x-x0)/scale,(y-y0)/scale
-            i,j=math.floor(u),math.floor(v);a,b=u-i,v-j
-            value+=amplitude*((1-a)*(1-b)*values[i,j]+a*(1-b)*values[i+1,j]+
-                              (1-a)*b*values[i,j+1]+a*b*values[i+1,j+1])
-        value=min(.070,max(.006,value+rng.uniform(-.014,.014)))
+    # The bow: rectangular stones crown along both axes; a wedge (a voussoir)
+    # crowns on its distance from its own sides, out to its inscribed radius.
+    if rectangular:
+        short=min(x1-x0,y1-y0)
+        reach_x=min(.5*(x1-x0),.42)
+        reach=None
+    else:
+        reach=max(_edge_distance(x0+(ix+.5)*(x1-x0)/12,y0+(iy+.5)*(y1-y0)/12,polygon)
+                  for ix in range(12) for iy in range(12)
+                  if _inside(x0+(ix+.5)*(x1-x0)/12,y0+(iy+.5)*(y1-y0)/12,polygon))
+        reach=max(.02,reach)
+        short=2*reach
+    height=crown if crown is not None else min(BOW_MAX,max(BOW_MIN,BOW_PER_SHORT_SIDE*short+BOW_BASE))
+    height*=.86+.28*min(1.0,max(0.0,(depth-.008)/.038))
+    def bow(x,y):
+        if rectangular:
+            low,high=BOW_PEAK*(y1-y0),(1-BOW_PEAK)*(y1-y0)
+            across=_rise(min(x-x0,x1-x)/reach_x)
+            up=min(_rise((y-y0)/low),_rise((y1-y)/high))
+            return (across*up)**.85
+        return _rise(_edge_distance(x,y,polygon)/reach)
+    def relief(x,y,boundary=False):
         # T-2208 (reconstructed): a rock-faced stone is pitched to a straight
         # arris before it is set, so its face falls to a pitch line at every
         # edge and the joint reads as a line at street distance. The arris sits
         # 16 mm proud, the front of an opening's reveal, so a jamb stone meets
-        # its return flush. Interior relief is unchanged.
-        edge=min(x-x0,x1-x,y-y0,y1-y)
+        # its return flush.
+        if boundary:
+            return PITCH_LINE
+        if not rectangular and not _inside(x,y,polygon):
+            # A lattice point beyond a wedge's side continues the bow's slope
+            # below the arris, so the clipped edge lands on the pitch line.
+            return PITCH_LINE-2.2*height*_edge_distance(x,y,polygon)/reach
+        rough=0.0
+        for scale,amplitude,values in fields:
+            u,v=(x-x0)/scale,(y-y0)/scale
+            i,j=math.floor(u),math.floor(v);a,b=u-i,v-j
+            rough+=amplitude*((1-a)*(1-b)*values[i,j]+a*(1-b)*values[i+1,j]+
+                              (1-a)*b*values[i,j+1]+a*b*values[i+1,j+1])
+        rough+=rng.uniform(-.006,.006)
+        edge=(min(x-x0,x1-x,y-y0,y1-y) if rectangular else _edge_distance(x,y,polygon))
         t=min(1.0,max(0.0,edge/PITCH_MARGIN))
         t=t*t*(3-2*t)
-        return PITCH_LINE+(value-PITCH_LINE)*t
-    rectangular=(len(polygon)==4 and len({round(q[0],6) for q in polygon})==2 and
-                 len({round(q[1],6) for q in polygon})==2)
+        value=PITCH_LINE+height*bow(x,y)+rough*t
+        return min(ROCK_FACE_MAX,max(.006,value))
     grid={};anchors={}
     for ix in range(nx+1):
         for iy in range(ny+1):
@@ -194,12 +263,13 @@ def fractured_stone(polygon, depth, rng, spacing=.075):
             anchors[ix,iy]=(x,y,-.009)
             # Small local chips eat into the face, never expand the course or
             # narrow its nominal 14 mm joint. Keep corners within the same bounds.
+            edge=ix in (0,nx) or iy in (0,ny)
             if rectangular:
                 if ix==0:x+=rng.uniform(.001,.011)
                 elif ix==nx:x-=rng.uniform(.001,.011)
                 if iy==0:y+=rng.uniform(.001,.009)
                 elif iy==ny:y-=rng.uniform(.001,.009)
-            grid[ix,iy]=(x,y,relief(x,y))
+            grid[ix,iy]=(x,y,relief(x,y,boundary=edge and rectangular))
     for ix in range(nx):
         for iy in range(ny):
             a,b,c,d=grid[ix,iy],grid[ix+1,iy],grid[ix+1,iy+1],grid[ix,iy+1]
@@ -377,10 +447,21 @@ class DetailBuilder(MeshBuilder):
                 cut=[(centre+radius*math.cos(math.pi*i/80),
                       o['spring_z']+radius*math.sin(math.pi*i/80)) for i in range(81)]
             elif o['kind']=='band':
-                if not (o.get('face')=='east' and o['z0']>5 and o['u1']-o['u0']>3):
+                if o.get('style')=='rock_faced_lintel':
+                    cut=aperture(o)
+                elif not (o.get('face')=='east' and o['z0']>5 and o['u1']-o['u0']>3):
                     continue
-                cut=[(o['u0']-.435,o['z0']-.025),(o['u1']+.435,o['z0']-.025),
-                     (o['u1']+.435,o['z1']+.045),(o['u0']-.435,o['z1']+.045)]
+                else:
+                    cut=[(o['u0']-.435,o['z0']-.025),(o['u1']+.435,o['z0']-.025),
+                         (o['u1']+.435,o['z1']+.045),(o['u0']-.435,o['z1']+.045)]
+            elif ringed(o):
+                # The voussoir ring is cut from the courses like the fan, so its
+                # rock faces stand on their own bed, not on the field's crowns.
+                # Two convex holes: the opening itself and the ring's half disc.
+                centre=(o['u0']+o['u1'])/2;radius=o['r_out'];zs=o['spring_z']
+                holes.append([(dot(legacy._plane_point(o,s,z),u),z) for s,z in aperture(o)])
+                cut=[(centre+radius*math.cos(math.pi*i/48),zs+radius*math.sin(math.pi*i/48))
+                     for i in range(49)]
             else:
                 cut=aperture(o)
             holes.append([(dot(legacy._plane_point(o,s,z),u),z) for s,z in cut])
@@ -723,7 +804,9 @@ def opening(b,o,courtyard=False):
         stable_window(b,o)
         return
     if kind=='band':
-        if o.get('face')=='east' and c-a>3 and z0>5:
+        if o.get('style')=='rock_faced_lintel':
+            rock_lintel(b,o)
+        elif o.get('face')=='east' and c-a>3 and z0>5:
             ornament.sill(b,o)
         else:
             slab(b,o,a,c,z0,z1,0,.095,conf,TRIM)
@@ -874,11 +957,76 @@ def detailed_door(b,o,style):
 def ring(b,pl,uc,zs,rin,rout,count,conf):
     if rout<=rin:
         return
+    rock_voussoirs(b,pl,uc,zs,rin,rout,count,conf,int((uc*31+zs*17+rout*7)*1000))
+
+
+VOUSSOIR_JOINT = .014
+
+
+def voussoir_outline(uc,zs,rin,rout,a,c):
+    """One radiating voussoir between angles a and c, its joints 14 mm wide.
+
+    The extrados and intrados are arcs, so the wall's circular cut and the
+    tympanum's outer roll meet a stone and not a chord's open wedge.
+    """
+    half=VOUSSOIR_JOINT/2
+    lo,hi=a+half/max(rin,.05),c-half/max(rin,.05)
+    so,eo=a+half/rout,c-half/rout
+    steps=max(2,math.ceil((eo-so)*rout/.06))
+    inner_steps=max(1,math.ceil((hi-lo)*max(rin,.05)/.06))
+    outline=[(uc+rout*math.cos(so+(eo-so)*k/steps),zs+rout*math.sin(so+(eo-so)*k/steps))
+             for k in range(steps+1)]
+    if rin<=1e-6:
+        return outline+[(uc,zs)]
+    return outline+[(uc+rin*math.cos(hi+(lo-hi)*k/inner_steps),zs+rin*math.sin(hi+(lo-hi)*k/inner_steps))
+                    for k in range(inner_steps+1)]
+
+
+def rock_voussoirs(b,pl,uc,zs,rin,rout,count,conf,seed):
+    """Radiating granite voussoirs, each pitched and bowed like the wall's ashlar.
+
+    Owner, 2026-10-12, with photographs of the Prairie Avenue door: "the front
+    door arch on the east also has the same stone treatment and should stand out
+    more". The voussoirs were flat slabs (the north alcove and gable rings) or
+    lower-relief faces than the wall (the door's fan). Each now carries its own
+    arris and crown, a little fuller than a wall stone of the same breadth,
+    which is how the long radiating stones read in the photographs. The reduced
+    tier, which cannot afford the lattice, keeps one flat proud face per stone.
+    """
+    rel=ornament.Relief(b,pl,conf)
     for i in range(count):
-        a=math.pi*i/count+.005;c=math.pi*(i+1)/count-.005
-        poly=[(uc+rin*math.cos(a),zs+rin*math.sin(a)),(uc+rout*math.cos(a),zs+rout*math.sin(a)),
-              (uc+rout*math.cos(c),zs+rout*math.sin(c)),(uc+rin*math.cos(c),zs+rin*math.sin(c))]
-        solid_polygon(b,pl,poly,-.02,.065,conf,12+i%4)
+        a,c=math.pi*i/count,math.pi*(i+1)/count
+        # The joints' mortar bed, one sector per stone, where the wall's was cut.
+        bed=[(uc+rout*math.cos(a+(c-a)*k/4),zs+rout*math.sin(a+(c-a)*k/4)) for k in range(5)]
+        bed+=[(uc+rin*math.cos(c-(c-a)*k/2),zs+rin*math.sin(c-(c-a)*k/2)) for k in range(3)] if rin>1e-6 else [(uc,zs)]
+        rel.face([(*q,-.012) for q in bed],MORTAR)
+        poly=voussoir_outline(uc,zs,rin,rout,a,c)
+        mat=12+i%4
+        if not getattr(b,'smooth_rock_faces',True):
+            solid_polygon(b,pl,poly,-.02,.065,conf,mat)
+            continue
+        rng=random.Random(seed+173*i)
+        for facet,is_front in stone_corner_normals(fractured_stone(poly,rng.uniform(.030,.046),rng)):
+            if is_front:
+                b.raw_with_normals([rel.point(*p[:3]) for p in facet],
+                                   [rel.vector(*p[3:]) for p in facet],conf,mat,rel.vector(0,0,1))
+            else:
+                rel.face(facet,mat,None)
+
+
+def rock_lintel(b,o):
+    """A granite lintel, rock-faced like the courses either side of it.
+
+    The owner's photographs of the Prairie Avenue door (2026-10-12) show one
+    long quarry-faced stone under the fan, about three quarters of the fan's
+    width, not a dressed slab the width of the tympanum.
+    """
+    a,c,z0,z1=o['u0'],o['u1'],o['z0'],o['z1']
+    half=VOUSSOIR_JOINT/2
+    def point(q,off=0):return legacy._plane_point(o,q[0],q[1],off)
+    b.raw([point(q,-.012) for q in [(a,z0),(c,z0),(c,z1),(a,z1)]],o['conf'],MORTAR,legacy._plane_dir(o))
+    b.block([(a+half,z0+half),(c-half,z0+half),(c-half,z1-half),(a+half,z1-half)],point,
+            legacy._plane_dir(o),o['conf'],GRANITE,random.Random(int((o['at']*977+a*7919+z0*104729)*1000)))
 
 
 def roof_ridges(b,params):
