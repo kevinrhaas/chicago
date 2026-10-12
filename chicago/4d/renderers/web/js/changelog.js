@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1708, ts: '2026-10-12T01:43:17.162Z', date: 'Oct 11, 2026, 8:43 PM CT', title: '1636 Prairie completes the brownstone pair with 1634', kind: 'feature',
+    items: [
+      '1636 Prairie Avenue, the south half of the stone-front pair with 1634, is no longer a plain draft box: a coursed brownstone front, two-over-two sash under stone heads, and a stone stoop and door beside the party wall.',
+      'The map\'s canted stone bay rises three storeys across the south half of the front, in the same brownstone.',
+      'Like 1634 it stands under a flat tin roof behind coped parapets, with a bracketed cornice along the street at the same height as its partner\'s.',
+      'The narrow three-storey back building the map draws behind it now stands as a brick rear wing under its own flat deck.',
+      'Its plan, storeys, stone front and bay are read from the 1911 Sanborn map; everything else is reconstructed, and the house\'s card says so.',
+    ] },
   { v: 1707, ts: '2026-10-12T01:03:39.826Z', date: 'Oct 11, 2026, 8:03 PM CT', title: 'Automated checks split into shorter runs so finished work lands', kind: 'chore',
     items: [
       'The automated walk-through that checks every change is now split into smaller pieces, so none of them runs out of time before it finishes. Changes that were finished but stuck waiting on it can now go live. Nothing you see in the town changed.',
