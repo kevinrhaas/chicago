@@ -40,7 +40,7 @@ HOUSE_REQUIRED = ("frame_house",)
 HOUSE_OPTIONAL = ("roof_covering",)
 CONSUMED = frozenset(REQUIRED + OPTIONAL + HOUSE_REQUIRED)
 SIDES = ("east", "north", "west", "south")   # counter-clockwise from above, the walls' order
-ROOFS = ("hip", "flat")
+ROOFS = ("hip", "flat", "gable")   # T-2398: a gable, its ridge along u or v
 KINDS = {"gable": "gable", "wing_wall": "clapboard_wall", "porch": "porch"}
 BODY_KEYS = ("gable_depth_m", "wing_depth_m", "wing_roof_pitch_deg", "roof_under_m")
 #: T-2395: the faces of a timber body — the gable range's flanks and rear gable, the wing's
@@ -136,6 +136,9 @@ def frame_house_errors(fh: dict) -> list[str]:
             out.append(f"{bid}: wall_top_m must stand a storey above the foundation")
         if (b.get("roof") or {}).get("kind") not in ROOFS:
             out.append(f"{bid}: roof.kind must be one of {', '.join(ROOFS)}")
+        if (b.get("roof") or {}).get("kind") == "gable" and (b["roof"].get("ridge", "u") not in ("u", "v")
+                                                           or not _num(b["roof"].get("pitch_deg"))):
+            out.append(f"{bid}: a gable roof needs pitch_deg and a ridge along u or v")
         against = b.get("against")
         if i == 0 and against:
             out.append(f"{bid}: the first block stands free")
