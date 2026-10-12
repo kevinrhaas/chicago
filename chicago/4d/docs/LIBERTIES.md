@@ -24383,6 +24383,50 @@ this body and T-1865 finishes the architecture, keeping this record's id.
 **Review:** `docs/RESEARCH/k16-1638-body-2395/README.md`.
 **Recorded:** 2026-10-12 (T-2395).
 
+### L-k16-1638-tower-2396 — 1638 Prairie's corner tower read off its photograph over the kit's porch: an octagonal stage under an octagonal spire, its unseen faces, cladding and colour from the K16 kit
+
+**Decision:** the north end of the Shortall-Gregory house's front (T-2396, a piece of T-1864's
+envelope) is no longer a plain two-storey wing wall behind a one-storey porch. Over the porch stands
+the corner tower the house's photograph shows: a regular octagon 2.5 m across its flats, standing on
+the porch's roof (3.57 m) with its front face on the porch plate's front, so the porch is its ground
+storey; an upper stage to a 7.0 m cornice, each of its eight faces a kit `clapboard_wall` with a
+corner board at each angle and the kit's water table as the band it stands on; a pointed two-over-two
+sash (the kit's K06 equilateral head, 0.6 m wide, sill 4.35 m, point 6.2 m) in each of the three
+street faces; a soffit and fascia mitred round the octagon at a 0.3 m eave, and an octagonal spire
+kicked out over it to its point at 9.9 m, a little over the gable's apex, with the kit's chamfered
+finial through it. The porch moves to stand under it, its middle 6.55 m from the front's south end
+(it stood at 6.86 m, its roof's south edge at the gable's). The wing wall loses its upper sash, which
+is inside the tower now.
+**What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`, the Prairie
+library's `a16-cgy-1638-gothic-photo`, undated): that the tower exists and stands over the porch at
+the north end of the front; its octagonal plan (the 0.41 : 0.29 : 0.29 of its front and diagonal
+faces); its width against the front, whose 8.13 m is the 1911 Sanborn sheet's; where it stands along
+the front; the heights of its stage's foot, its lights' sills and points, its cornice and its
+spire's point, all read at 73-77 px a metre with no camera solved; a pointed light in each street
+face; the cornice and the octagonal spire to a finial.
+**What is invented.** The camera: no solve is committed, and the reading assumes the print close to
+an elevation, which the faces' asymmetry (the camera about 6 degrees off the tower's axis, some 30 m
+off) supports and does not prove. The five faces the print does not show — the north and south faces
+and the three back into the house — are plain; the stage is clapboarded, where the print shows it
+smooth with incised ornament over each light; the lights take the kit's equilateral head on a sash
+narrower than the print's and less acute; the spire's covering is the house's wood shingle and every
+colour is the house's, the print being monochrome; the porch under it is still the kit's porch with
+its posts, brackets and lattice, where the print shows an arch with pierced spandrels, double doors
+behind it and a stoop before it (T-1865); the stage has no floor or framing inside, and its back
+faces run into the north range, showing only above its roof. The tower itself (`form.tower`) is
+`inferred`, read off the photograph with its reasoning in the record's note, so this entry covers
+the porch it stands on, whose kit fabric stands where the photograph shows an arch, and is where the
+tower's own inventions above are admitted.
+
+**How to resolve:** a camera solved from the photograph (T-1865's image gate) corrects every reading
+above, and a second picture of the house, or one whose rights allow it, shows the faces this one
+cannot; T-1865 finishes the stage's ornament, the arched porch, the doors and the stoop, keeping this
+record's id.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.porch`.
+**Ticket:** T-2396 (a piece of T-1864, the 1638 envelope).
+**Review:** `docs/RESEARCH/k16-1638-tower-2396/README.md`.
+**Recorded:** 2026-10-12 (T-2396).
+
 ### L-k01-1612-goodman-2344 — 1612 Prairie, the Goodman house, refined from the district draft on the K01 kit: an Italianate stone front whose every proportion, opening and fabric is reconstructed
 
 **Decision:** Replace the district draft of 1612 Prairie, in place and under its id, with a K01
@@ -25391,3 +25435,43 @@ a surviving sash measured on site, replaces the sizes with readings.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Ticket:** T-2211 (Glessner exterior audit GA-11A).
 **Recorded:** 2026-10-12 (T-2211).
+
+### L-glessner-stone-faces-2416 — Glessner's granite faces bowed and warmed to the owner's photographs, and the Prairie door's fan, lintel and tympanum redrawn from them
+
+**Decision:** every rock-faced granite stone on the Glessner house now bows forward from its
+pitched arris to a crown, where it was a flat field of fractures a few centimetres proud of the
+wall (T-2416 with T-2215). The owner, 2026-10-12, with six photographs of the north wall and the
+Prairie Avenue door: "the stones … are more like shaped almost with a bow in the front, not a ton
+… the sculpted faces stand out from the face a bit", and "the color of the granite stone facing is
+not as grey as you have it". The arris is unchanged (16 mm proud, over the outer 85 mm); inside
+it the face rises to a crown 30-60 mm above the arris line, higher on a larger stone, a little
+past the stone's middle and below its top, and the existing fracture relief rides on that bow,
+capped at 104 mm. Every granite slot is re-tinted from cool grey to the photographs' light pink
+buff, and the granite normal map is softened to 0.6 so the bow, not the crystal grain, carries
+the shading. At the Prairie door the fan's voussoirs are 15 rock-faced stones bowed like the
+wall's, the dressed lintel under the fan is a rock-faced granite lintel about 10 ft long, and
+the tympanum is carved in the street granite, not grey trim stone: from outside in a fillet, a
+square billet channel, a fillet, a drilled foliate archivolt, a torus roll, and a pierced field of
+a trunk and branches carrying leafy roundels, with a half boss at the trunk's foot. The north
+alcove's and the gables' voussoir rings take the same bowed faces.
+**What is read.** The owner's photographs (2026-10-12; his own references, not published here):
+the bow and its rough proportion to a stone, the colour (lit stone r/g 1.05-1.13, b/g 0.90-0.94),
+the 15 voussoirs keyed at the crown, the lintel's length (0.77 of the fan's 12.8 ft diameter),
+and the tympanum's bands and motifs in order. HABS sheet 5's entrance doorway detail agrees on the
+bands and shows the half boss.
+**What is invented.** The bow's shape and every number in it (crown per short side 0.12 plus
+18 mm, clamped 30-60 mm, peak at 0.44 of the height, the 104 mm cap); the tints; the 0.6 normal
+strength; every carved member's size, count and depth (33 billets, 23 palmettes, 24 beads,
+the roundels' radii and places, the filler leaves); the lintel's height and the voussoir joint
+of 14 mm. They are read by eye from photographs, not measured. The light (mobile) tier keeps one
+flat face per stone with normals leaned toward the crown, and plain chord voussoirs, because it
+is at its 200,000-triangle cap.
+**What is not changed.** Course heights, joints, every opening's position and size, the sash,
+the brick, the courtyard's limestone trim, and the plan envelope.
+**How to resolve:** a measured or rectified photograph of one street stone in raking light would
+replace the bow's numbers; a colour-calibrated photograph of the granite would set the tint; a
+measured drawing of the tympanum would replace the carving's sizes and counts. The previous
+record's 11 voussoirs and 5.6 ft dressed lintel had no source.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2416, T-2215 (Glessner exterior audit).
+**Recorded:** 2026-10-12 (T-2416).

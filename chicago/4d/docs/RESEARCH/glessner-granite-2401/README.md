@@ -39,7 +39,10 @@ tiling map's place. Triangles unchanged (197,304); vertices 385,411 → 385,839 
 UV set). The full web model is byte-identical. Lapped onto dev after T-2211 (#737) re-baked the
 master with its two-plane sash, the light was rebuilt from that master: **27,615,932 →
 27,734,032 bytes**, 197,582 triangles, bake figures the same (granite mean 0.6696, 74 % of the
-atlas). The frames below were taken before that lap; T-2211 moved the sash, not the granite.
+atlas). The frames below were taken before that lap; T-2211 moved the sash, not the granite. Lapped again onto dev after T-2416 (#741) re-baked the master with bowed granite and gave the
+light tier its corner-normal lean (`PILLOW_LEAN`): both changes kept, the light rebuilt from that
+master, **27,664,128 → 27,801,700 bytes**, 199,126 triangles (T-2416's, unchanged), vertices
+387,541 → 388,131; the web model reproduced dev's bytes exactly. The frames below predate both laps.
 
 Mobile, 390×780, the published `/1904/`, the T-2209 stands under scene light
 (`QA_TAG=before-|after- QA_VIEWPORT=mobile QA_OUT=docs/RESEARCH/glessner-granite-2401 node

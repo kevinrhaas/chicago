@@ -1043,17 +1043,17 @@
             "style": "prairie_front_door"
           },
           {
-            "what": "stone lintel over the door",
+            "what": "rock-faced granite lintel over the door, about 10 ft long under the fan (owner photographs, 2026-10-12)",
             "kind": "band",
             "at": [
-              30.1,
-              35.7
+              27.9,
+              37.9
             ],
             "z": [
               7.75,
               9.3
             ],
-            "style": "prairie_sash"
+            "style": "rock_faced_lintel"
           },
           {
             "what": "carved tympanum in a fan of radiating voussoirs",
@@ -1069,7 +1069,7 @@
             "spring": 9.3,
             "inner_ft": 2.6,
             "ring_ft": 6.4,
-            "voussoirs": 11,
+            "voussoirs": 15,
             "style": "prairie_sash"
           },
           {
@@ -1175,7 +1175,7 @@
         "inland_architect_1888_02_glessner_exterior",
         "glessner_porte_cochere_doors_c1888"
       ],
-      "note": "The Prairie Avenue front, opening for opening: sheet 6 (1965), confirmed by the 1888 photograph. Positions here are S (= 74 - d, the spec's feet north of the south end); heights above the door datum. The second-floor heads are the printed 24.30; the rest measured, +/- 0.3 ft horizontally and 0.5 ft vertically. The door's fan: tympanum radius 2.6 ft inside radiating voussoirs to 6.4 ft, springing at 9.3 ft (sheet 5). The porte-cochere is drawn closed by its oak leaves (the c. 1888 photograph; HABS data p. 21), their panels and straps not modelled — see porte_cochere_doors."
+      "note": "The Prairie Avenue front, opening for opening: sheet 6 (1965), confirmed by the 1888 photograph. Positions here are S (= 74 - d, the spec's feet north of the south end); heights above the door datum. The second-floor heads are the printed 24.30; the rest measured, +/- 0.3 ft horizontally and 0.5 ft vertically. The door's fan: tympanum radius 2.6 ft inside radiating voussoirs to 6.4 ft, springing at 9.3 ft (sheet 5). Fifteen voussoirs, keyed at the crown, and a rock-faced lintel about 10 ft long (three quarters of the fan's span), counted and scaled off the owner's photographs of the door (2026-10-12); the previous 11 voussoirs and 5.6 ft dressed lintel had no source. The porte-cochere is drawn closed by its oak leaves (the c. 1888 photograph; HABS data p. 21), their panels and straps not modelled — see porte_cochere_doors."
     },
     "openings_18th": {
       "value": {
