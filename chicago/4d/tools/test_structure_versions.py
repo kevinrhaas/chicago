@@ -208,6 +208,7 @@ def test_light_derivative_freshness() -> None:
                               ("assets/web/" + light, b"reduced same version"),
                               ("tools/structure_versions.py", b"recipe fixture"),
                               ("tools/_glessner_lod.py", b"geometry recipe fixture"),
+                              ("tools/_glessner_light_occlusion.py", b"occlusion recipe fixture"),
                               ("data/structures/versions/glessner_house/v4.json", b"source record"),
                               ("generators/archetypes/masonry_house_v4_detail.py", b"detail source")):
             path = root / name; path.parent.mkdir(parents=True, exist_ok=True)
@@ -222,6 +223,7 @@ def test_light_derivative_freshness() -> None:
                            ("assets/web/" + light, "light output"),
                            ("tools/structure_versions.py", "light producer recipe"),
                            ("tools/_glessner_lod.py", "light geometry recipe"),
+                           ("tools/_glessner_light_occlusion.py", "light occlusion recipe"),
                            ("data/structures/versions/glessner_house/v4.json", "light source record"),
                            ("generators/archetypes/masonry_house_v4_detail.py", "light detail geometry")):
             path = root / rel; original = path.read_bytes(); path.write_bytes(original + b" changed")
@@ -278,6 +280,7 @@ def sandbox() -> Path:
     # sandbox. A fixture with only assets is intentionally an incomplete checkout,
     # not a clean control; copy the exact recipe inputs without running any writer.
     recipe_files = [REAL / "tools/structure_versions.py", REAL / "tools/_glessner_lod.py",
+                    REAL / "tools/_glessner_light_occlusion.py",
                     REAL / "generators/archetypes/masonry_house.py"]
     recipe_files.extend((REAL / "generators/archetypes").glob("masonry_house_v4*.py"))
     for source in recipe_files:
