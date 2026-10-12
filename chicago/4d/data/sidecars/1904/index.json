@@ -211,15 +211,15 @@
     },
     {
       "id": "house_1609_prairie",
-      "name": "1609 Prairie Avenue — Pre-1911 paired frame house (district draft; refined by T-1867)",
+      "name": "1609 Prairie Avenue — the lost frame pair with 1611, K16 clapboard",
       "sidecar": "sidecars/1904/house_1609_prairie.json",
-      "asset": "gltf/house_1609_prairie__draft_1904.glb"
+      "asset": "gltf/house_1609_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1611_prairie",
-      "name": "1611 Prairie Avenue — Pre-1911 paired frame house (district draft; refined by T-1867)",
+      "name": "1611 Prairie Avenue — the lost frame pair with 1609, K16 clapboard",
       "sidecar": "sidecars/1904/house_1611_prairie.json",
-      "asset": "gltf/house_1611_prairie__draft_1904.glb"
+      "asset": "gltf/house_1611_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1613_prairie",
