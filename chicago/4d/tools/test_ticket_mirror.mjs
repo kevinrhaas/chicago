@@ -26,7 +26,7 @@
  * working tree nobody can explain, which is not a thing to build a gate on.
  */
 import { mkdtempSync, mkdirSync, cpSync, rmSync, readFileSync, writeFileSync,
-  existsSync, lstatSync, realpathSync } from 'node:fs';
+  existsSync, lstatSync, realpathSync, readdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -132,9 +132,26 @@ try {
   check('a freshly published sandbox passes the mirror gate', published().ok);
 
   // The ticket to close. Any workable one; the queue's own order picks it, so
-  // this test does not care which tickets exist.
-  const workable = ticket('list', '--workable').trim().split('\n').filter(Boolean);
-  const victim = workable[0]?.split(/\s+/)[0];
+  // this test does not care which tickets exist — EXCEPT that it skips one carrying
+  // an `## Image gate` (T-2402). `done` refuses such a ticket until its building
+  // matches its pictures (T-2368), and this sandbox holds no image_gate.mjs and no
+  // reference views, so with an image-gated ticket at the top of the live queue
+  // (the owner put T-2369 there on 2026-10-12) this step went red on every PR for
+  // a refusal it does not measure. If every workable ticket is image-gated, the
+  // close passes the gate with --anyway, which is that refusal's own way past.
+  const workable = ticket('list', '--workable').trim().split('\n').filter(Boolean)
+    .map((line) => line.split(/\s+/)[0]);
+  const ticketFiles = new Map();
+  const walk = (dir) => {
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      if (e.isDirectory()) walk(path.join(dir, e.name));
+      else if (/^T-\d{4}-.*\.md$/.test(e.name)) ticketFiles.set(e.name.slice(0, 6), path.join(dir, e.name));
+    }
+  };
+  walk(path.join(APP, 'tickets'));
+  const imageGated = (id) => ticketFiles.has(id)
+    && /^## Image gate/m.test(readFileSync(ticketFiles.get(id), 'utf8'));
+  const victim = workable.find((id) => !imageGated(id)) ?? workable[0];
   check('the sandbox queue offers a ticket to close', /^T-\d{4}$/.test(victim ?? ''), victim);
 
   /* --- half one: the documented order ends green ------------------------- */
@@ -142,7 +159,8 @@ try {
   // Exactly the sequence in AGENTS.md, from the point publish.sh has run: push,
   // open the PR, close the ticket with the number the PR just got. No second
   // publish, because a run following the documented steps does not do one.
-  ticket('done', victim, '--pr', '9999');
+  ticket('done', victim, '--pr', '9999', ...(imageGated(victim)
+    ? ['--anyway', '--why', 'sandbox: the image gate is not what this test measures'] : []));
   const afterClose = published();
   check('closing a ticket leaves the published mirror fresh', afterClose.ok,
     afterClose.ok ? 'no remembered publish.sh needed' : afterClose.out.trim().split('\n').pop());

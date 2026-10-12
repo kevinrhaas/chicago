@@ -30556,7 +30556,7 @@
         },
         {
           "label": "Decision",
-          "text": "the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose \"What is invented\" and \"What is not\" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840 census. Block 20's east side stands thirteen houses, the station and four alley buildings: 1601, 1609 and 1611 (the lost frame pair), the 1613/1615 pair, 1619, the 1621-1625 group of three, 1637 Spalding, 1701 Hibbard, 1709 Kellogg, 1721 Dexter and 1729 Pullman, the Illinois Central's 16th Street station at 1605, and the buildings the sheet draws by the tracks behind 1637, 1701, 1709 and 1721. That is every east-side row of the census (frontage-20-022 to -035). Nothing on the west side or on sheet 28 moves. **What is invented on this side, beyond the 18th-20th list.** The group of three at 1621-1625 is attested as attached, not as one design, so its three fronts are drawn three ways (a hip, a flat bracketed cornice, a mansard for 1625's half storey). The 1613/1615 pair, which the sheet attests, mirrors its doors to its outer ends, as 1609/1611 do. Four storeys on 1613-1619 are read flat behind a cornice. 1701's Italianate body is a low bracketed hip with its half storey as dormers. 1605's station stands as the draft's plain two-storey gabled outbuilding with the use `railway_station` (a term added to the function vocabulary for it); its platforms and canopies are T-1866's. **1609 and 1611, the pair the 1911 sheet does not draw.** The census rules the 1911 loft at 1607-1611 a later replacement and stands, on the supplied expert guidance, the frame pair Robinson 1886 draws on lot 6 (backcast_1886; pa-1609- and pa-1611-1904-correction). Each half is read off Robinson 1886 plate 10 in the plate's own pixels, split at the line the plate draws across it, and carried by the plate's T-1250 fit (4.54 m RMS, the weakest of the four), so their plans are inferred from that plate. Their two storeys are RECONSTRUCTED: the atlas prints none. Their documented ranges claim 1904-07-01 and nothing either side. The loft is not drawn. **1721, one Dexter house.** The register read the sheet's 1721 as 1719; the census rules the two one property (study ruling 3), so one house stands under 1721 and carries 1719 as its alias. **1635, nothing.** Forsyth's 1635 is `phase_unresolved` in the census, on the strip next north of 1637; the draft builds nothing there and does not put the house on 1637 or 1625. T-1870 rules. **1729 and its conservatory.** The east wing's south bay is the K13 record already standing (`pullman_house_1729_prairie_conservatory`, T-2306) on a plain block in the wing's place. The draft keeps that record's footprint out of the traced fabric (`keep_out`), so the wing is drawn once, and stands the sheet's two-storey building at the wing's east end at two storeys (`wing_storeys`). **What is not drafted here.** Pullman's two glasshouse ranges and the lodge between them stand on sheet 28's ground across 18th Street, allocated to the Pullman estate (T-1934) but never traced, so no polygon exists for the builder to read; and the draft archetype has no glass roof. They are left to T-1934, whose ticket says so."
+          "text": "the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose \"What is invented\" and \"What is not\" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840 census. Block 20's east side stands thirteen houses, the station and four alley buildings: 1601, 1609 and 1611 (the lost frame pair), the 1613/1615 pair, 1619, the 1621-1625 group of three, 1637 Spalding, 1701 Hibbard, 1709 Kellogg, 1721 Dexter and 1729 Pullman, the Illinois Central's 16th Street station at 1605, and the buildings the sheet draws by the tracks behind 1637, 1701, 1709 and 1721. That is every east-side row of the census (frontage-20-022 to -035). Nothing on the west side or on sheet 28 moves. **What is invented on this side, beyond the 18th-20th list.** The group of three at 1621-1625 is attested as attached, not as one design, so its three fronts are drawn three ways (a hip, a flat bracketed cornice, a mansard for 1625's half storey). The 1613/1615 pair, which the sheet attests, mirrors its doors to its outer ends, as 1609/1611 do. Four storeys on 1613-1619 are read flat behind a cornice. 1701's Italianate body is a low bracketed hip with its half storey as dormers. 1605's station stands as the draft's plain two-storey gabled outbuilding with the use `railway_station` (a term added to the function vocabulary for it); its platform, canopy, street door and nameboards are no longer this entry's but `L-ic-16th-street-station-2399`'s (T-2399). **1609 and 1611, the pair the 1911 sheet does not draw.** The census rules the 1911 loft at 1607-1611 a later replacement and stands, on the supplied expert guidance, the frame pair Robinson 1886 draws on lot 6 (backcast_1886; pa-1609- and pa-1611-1904-correction). Each half is read off Robinson 1886 plate 10 in the plate's own pixels, split at the line the plate draws across it, and carried by the plate's T-1250 fit (4.54 m RMS, the weakest of the four), so their plans are inferred from that plate. Their two storeys are RECONSTRUCTED: the atlas prints none. Their documented ranges claim 1904-07-01 and nothing either side. The loft is not drawn. **1721, one Dexter house.** The register read the sheet's 1721 as 1719; the census rules the two one property (study ruling 3), so one house stands under 1721 and carries 1719 as its alias. **1635, nothing.** Forsyth's 1635 is `phase_unresolved` in the census, on the strip next north of 1637; the draft builds nothing there and does not put the house on 1637 or 1625. T-1870 rules. **1729 and its conservatory.** The east wing's south bay is the K13 record already standing (`pullman_house_1729_prairie_conservatory`, T-2306) on a plain block in the wing's place. The draft keeps that record's footprint out of the traced fabric (`keep_out`), so the wing is drawn once, and stands the sheet's two-storey building at the wing's east end at two storeys (`wing_storeys`). **What is not drafted here.** Pullman's two glasshouse ranges and the lodge between them stand on sheet 28's ground across 18th Street, allocated to the Pullman estate (T-1934) but never traced, so no polygon exists for the builder to read; and the draft archetype has no glass roof. They are left to T-1934, whose ticket says so."
         },
         {
           "label": "How to resolve",
@@ -33845,6 +33845,50 @@
         {
           "label": "Recorded",
           "text": "2026-10-12 (T-2210)."
+        }
+      ]
+    },
+    {
+      "id": "L-ic-16th-street-station-2399",
+      "title": "The 16th Street station at 1605 Prairie dressed as a station: a platform tapering to the traced rail, a canopy, a street door and lettered boards, all reconstructed but the platform's edge",
+      "section": "per_subject",
+      "subjects": [
+        "ic_16th_street_station_1605_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "ic_16th_street_station_1605_prairie",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        }
+      ],
+      "recorded": "2026-10-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Illinois Central's 16th Street station (T-2399, piece 2 of T-1866) keeps the district draft's two-storey gabled frame body and its id `ic_16th_street_station_1605_prairie`, and the draft rules' frontage row for it (frontage-20-023) now dresses it as a station, built by the draft's own builder (`generators/archetypes/prairie_draft.py`, `station`): a timber platform along the track face, a lean-to canopy on braced brackets over it, a pair of passenger doors under a bracketed hood at the north end of the Prairie Avenue front, a narrower baggage door on the track side with no loft door over it, and three nameboards — 'ILLINOIS CENTRAL R.R. / 16TH ST. STATION' across the street front between the storeys, '16TH STREET' on the track wall over the canopy, and '16TH ST.' on a two-faced board on posts at the platform's wide south end. **What is read, not invented.** The platform's EDGE. Sheet 20 of the 1911 Sanborn draws the right-of-way line touching the station's north-east corner and the nearest track's two rails 1.35 m apart beyond it, bearing away south-east; the nearest (west) rail, read at sheet rows 1270, 1380 and 1485 and carried through the T-1250 fit (2.46 m RMS), lies 2.05 m off the track wall at the north end and 5.49 m at the south. The platform stops 1.0 m short of that rail, so it tapers from 1.05 m to 4.5 m deep along the building, and the canopy stands only where the platform is deeper than its 2.0 m. The boards' wording is the sheet's own lettering of the building. **What is invented.** That there was a platform on this face at all, its 0.3 m timber deck, its length (the station lot's width, 12.2 m) and its end steps; the canopy, its 2.0 m depth, its fall and its brackets; the doors, their sizes and the north end for the passengers' door (taken as the end nearer 16th Street); the hood; the boards, their places, sizes and colours, and the block capitals of the lettering. Neither sheet 20 nor Robinson 1886 draws a platform, canopy, door or sign, and no picture of this building is known. The Chicago Tribune's 'Sixteenth Street Station' sketch of 8 August 1886 (library image cgn-16th-station-tribune-1886-sketch) shows a ONE-storey frame depot with a wide platform; the library reads it, on the article's own text, as the C. B. & Q. depot moved from Sixteenth Street to Meagher Street, and the 1911 sheet prints this building as two storeys, so it is not built toward and is not this building's image gate. **What is not built.** The tracks themselves (the 1904 scene draws no rails), a stair or crossing to further platforms, lamps, benches, a telegraph or train-order signal, fences along the right-of-way, and any person."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph, view or plan of the 16th Street station, or an Illinois Central station plan or annual report describing it, ingested as a source, replaces the platform, canopy, doors and boards; a reading of the right-of-way's own plan replaces the traced rail."
+        },
+        {
+          "label": "Covers",
+          "text": "`ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2399 (piece 2 of T-1866)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/prairie-1605-station-2399/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-12 (T-2399)."
         }
       ]
     },

@@ -700,7 +700,21 @@
         "function": "railway_station",
         "name": "the Illinois Central's 16th Street station"
       },
-      "why": "Not a house: the sheet letters the two-storey frame building 'ILLINOIS CENTRAL R.R. 16TH ST. STATION' and Robinson 1886 shows a station on the same ground, so the census carries the use to 1904. It stands as the draft's plain two-storey gabled outbuilding with its own name and use; its platforms, canopies and signs are T-1866's. (The register's '1603' row is this frontage; the sheet prints 1605.)"
+      "station": {
+        "door_end": "north",
+        "door_width_m": 1.6,
+        "baggage_door_m": 2.4,
+        "hood": {"y_m": 3.05, "depth_m": 1.0, "width_m": 2.4},
+        "platform": {"v": [0.0, 12.19], "edge_u": [[0.0, -1.05], [11.0, -4.49]], "deck_m": 0.3},
+        "canopy": {"v": [3.2, 11.0], "depth_m": 2.0, "wall_y_m": 3.3, "drop_m": 0.35, "bracket_every_m": 1.6},
+        "boards": [
+          {"face": "u1", "v": [2.3, 8.7], "y": [3.48, 4.38], "letter_m": 0.32, "lines": ["ILLINOIS CENTRAL R.R.", "16TH ST. STATION"]},
+          {"face": "u0", "v": [3.6, 7.4], "y": [3.5, 4.3], "letter_m": 0.4, "lines": ["16TH STREET"]},
+          {"on_posts": true, "at_v": 10.6, "length_m": 2.2, "y": [1.7, 2.25], "letter_m": 0.3, "back_from_edge_m": 0.7, "lines": ["16TH ST."]}
+        ],
+        "note": "The station's dressing is RECONSTRUCTED (T-2399, liberty L-ic-16th-street-station-2399): neither sheet 20 nor Robinson 1886 draws a platform, a canopy, a door or a board, and no picture of this building is known (the Tribune's 1886 'Sixteenth Street Station' sketch is a one-storey depot that the library reads as the C. B. & Q. depot moved away, so it is not built toward). Only the platform's EDGE is read off the sheet: the nearest track's west rail, traced on sheet 20 through the T-1250 fit at 2.05 m off the track wall at the north end and 5.49 m at the south, less 1.0 m of clearance, so the platform tapers from 1.05 m to 4.5 m as the tracks bear away; the canopy stands only where the platform is deeper than it. The wording is the sheet's own lettering of the building, set as a railway's boards."
+      },
+      "why": "Not a house: the sheet letters the two-storey frame building 'ILLINOIS CENTRAL R.R. 16TH ST. STATION' and Robinson 1886 shows a station on the same ground, so the census carries the use to 1904. It stands as the draft's two-storey gabled frame building with its own name and use, dressed as a station by T-2399: a timber platform on the track side, a canopy over it, a passenger door under a hood on the street and lettered nameboards. (The register's '1603' row is this frontage; the sheet prints 1605.)"
     },
     "frontage-20-024": {
       "slug": "house",
