@@ -57,6 +57,15 @@ restaled and rebuilt the whole town.
     the moment the GLB is written). The mean the exported bytes carry must agree with
     the mean measured in Blender's own buffer to within 2 %. Measured drift on the fix:
     0.0 %. This is the assertion the shipped bug would have failed at 100 %.
+4.  **A material occlusion map is not a bake, and it too must arrive** (T-2390). Glessner
+    v4's split-face granite ships `granite_occlusion.png`, a committed tiling map drawn
+    from the same height field as its normal map (`assets/textures/glessner-v4/
+    generate.py`). It rides the normal map's metric UV, so it says nothing about the
+    asset's own geometry and `baked_ao` stays false. An occlusion image is a material
+    map exactly when its glTF image `name` is one the material library declares; it is
+    left out of assertions 2-3 and held instead to its committed file: not uniform, and
+    the exported mean within 2 % of the committed PNG's. Every other occlusion image is
+    still a bake and still answers to the manifest.
 """
 from __future__ import annotations
 
@@ -78,6 +87,11 @@ PNG_CHANNELS = {0: 1, 2: 3, 4: 2, 6: 4}
 # round-trip. They may not differ by a gamma curve (30 %) or by an extinguished texture
 # (100 %). Measured drift on the fixed path is 0.0 %.
 MEAN_TOLERANCE = 0.02
+
+
+# T-2390: the material libraries whose fabrics may ship an occlusion map. A material
+# entry with an `occlusion` field names `<name>_occlusion.png` beside the library.
+MATERIAL_LIBRARIES = (ROOT / "assets" / "textures" / "glessner-v4" / "material-library.json",)
 
 
 class AoExportError(Exception):
@@ -217,33 +231,95 @@ def read_glb(data: bytes) -> tuple[dict, bytes]:
     return js, binary
 
 
-def occlusion_stats(data: bytes) -> dict | None:
-    """The R channel of every image an `occlusionTexture` points at.
+def material_occlusion_maps(libraries=MATERIAL_LIBRARIES) -> dict[str, pathlib.Path]:
+    """glTF image name -> committed PNG, for every library fabric that ships occlusion."""
+    maps: dict[str, pathlib.Path] = {}
+    for lib in libraries:
+        lib = pathlib.Path(lib)
+        if not lib.exists():
+            continue
+        for mat in json.loads(lib.read_text()).get("materials", []):
+            if mat.get("occlusion"):
+                maps[f"{mat['name']}_occlusion"] = lib.parent / f"{mat['name']}_occlusion.png"
+    return maps
 
-    None when no material declares occlusion at all — which is the correct, honest
-    state of all 348 committed assets today, because `--ao` is opt-in and nothing
-    passes it (T-0015). It is a fault only against a manifest that claims otherwise.
+
+def _material_map(image_name, material_maps) -> str | None:
+    """The library map an exported image carries, or None for a bake.
+
+    Blender's exporter packs an occlusion map with the roughness map it sits beside into
+    one ORM image and names it `<occlusion>-<roughness>` — measured on Glessner v4:
+    `granite_occlusion-granite_roughness`, R the occlusion, G the roughness. So the map is
+    the image's own name or that name's first dash-separated part; nothing looser.
     """
-    js, binary = read_glb(data)
-    materials = js.get("materials", [])
-    sources: list[int] = []
-    with_occ = 0
-    for mat in materials:
+    if not image_name:
+        return None
+    for candidate in (image_name, image_name.split("-", 1)[0]):
+        if candidate in material_maps:
+            return candidate
+    return None
+
+
+def _occlusion_sources(js: dict, material_maps) -> tuple[int, list[int], dict[str, int], int]:
+    """(materials with a BAKED occlusion, their image sources, material-map name -> source,
+    materials with a material map). Assertion 4 decides which is which, by image name."""
+    with_baked, with_map = 0, 0
+    baked: list[int] = []
+    maps: dict[str, int] = {}
+    for mat in js.get("materials", []):
         occ = mat.get("occlusionTexture")
         if occ is None:
             continue
-        with_occ += 1
         tex = js.get("textures", [])[occ["index"]]
         src = tex.get("source")
-        if src is not None and src not in sources:
-            sources.append(src)
+        if src is None:
+            raise AoExportError("an occlusionTexture points at a texture with no image source")
+        name = _material_map(js.get("images", [])[src].get("name"), material_maps)
+        if name is not None:
+            with_map += 1
+            maps[name] = src
+            continue
+        with_baked += 1
+        if src not in baked:
+            baked.append(src)
+    return with_baked, baked, maps, with_map
+
+
+def occlusion_stats(data: bytes, material_maps=None) -> dict | None:
+    """The R channel of every BAKED image an `occlusionTexture` points at.
+
+    None when no material declares a baked occlusion — which is the correct, honest
+    state of every committed asset today, because `--ao` is opt-in and nothing
+    passes it (T-0015). It is a fault only against a manifest that claims otherwise.
+    A material occlusion map (assertion 4) is not counted here: see
+    `material_occlusion_stats`.
+    """
+    js, binary = read_glb(data)
+    maps = material_occlusion_maps() if material_maps is None else material_maps
+    with_occ, sources, _maps, _with_map = _occlusion_sources(js, maps)
     if with_occ == 0:
         return None
-    if not sources:
-        raise AoExportError("an occlusionTexture points at a texture with no image source")
+    stats = _red_stats(js, binary, sources)
+    stats.update(materials_with_occlusion=with_occ, materials=len(js.get("materials", [])))
+    return stats
 
-    hist = [0] * 256
-    texels = 0
+
+def material_occlusion_stats(data: bytes, material_maps=None) -> dict[str, dict]:
+    """Image name -> R-channel stats, for each material occlusion map the GLB carries."""
+    js, binary = read_glb(data)
+    maps = material_occlusion_maps() if material_maps is None else material_maps
+    _with, _baked, found, _with_map = _occlusion_sources(js, maps)
+    return {name: _red_stats(js, binary, [src]) for name, src in sorted(found.items())}
+
+
+def png_red_stats(path) -> dict:
+    """The same statistics for a committed PNG on disk."""
+    w, h, nch, pixels = decode_png(pathlib.Path(path).read_bytes())
+    return _hist_stats(bytes(pixels[0::nch]), w * h, 1)
+
+
+def _red_stats(js: dict, binary: bytes, sources: list[int]) -> dict:
+    reds, texels = [], 0
     for src in sources:
         img = js["images"][src]
         if "bufferView" not in img:
@@ -255,18 +331,18 @@ def occlusion_stats(data: bytes) -> dict | None:
         if img.get("mimeType") not in (None, "image/png"):
             raise AoExportError(f"occlusion image is {img.get('mimeType')}, not PNG")
         w, h, nch, pixels = decode_png(payload)
-        red = bytes(pixels[0::nch])
-        for value in range(256):
-            hist[value] += red.count(value)
+        reds.append(bytes(pixels[0::nch]))
         texels += w * h
+    return _hist_stats(b"".join(reds), texels, len(sources))
 
+
+def _hist_stats(red: bytes, texels: int, images: int) -> dict:
+    hist = [red.count(value) for value in range(256)]
     lo = next(v for v in range(256) if hist[v])
     hi = next(v for v in range(255, -1, -1) if hist[v])
     total = sum(v * n for v, n in enumerate(hist))
     return {
-        "materials_with_occlusion": with_occ,
-        "materials": len(materials),
-        "images": len(sources),
+        "images": images,
         "texels": texels,
         "min": lo / 255.0,
         "max": hi / 255.0,
@@ -318,17 +394,49 @@ def assert_ao_survived_export(glb_path, baked_mean: float,
 # --------------------------------------------------------------------------- the gate
 
 
-def check_asset(name: str, claims_ao: bool, data: bytes) -> tuple[dict | None, list[str]]:
+def check_material_maps(name: str, data: bytes, material_maps=None) -> tuple[dict, list[str]]:
+    """Assertion 4: each material occlusion map in the file is its committed map."""
+    maps = material_occlusion_maps() if material_maps is None else material_maps
+    findings: list[str] = []
+    try:
+        shipped = material_occlusion_stats(data, maps)
+    except AoExportError as e:
+        return {}, [f"{name}: {e}"]
+    for image, stats in shipped.items():
+        if stats["uniform"]:
+            findings.append(f"{name}: the material occlusion map {image} arrived UNIFORMLY "
+                            f"{stats['max']:.4f} over {stats['texels']:,} texels — the relief it "
+                            f"carries did not survive the export (T-2390)")
+            continue
+        committed = png_red_stats(maps[image])
+        drift = abs(stats["mean"] - committed["mean"]) / max(committed["mean"], 1e-9)
+        if drift > MEAN_TOLERANCE:
+            findings.append(f"{name}: the material occlusion map {image} reads mean "
+                            f"{stats['mean']:.4f} in the GLB but {committed['mean']:.4f} in "
+                            f"{maps[image].name} — {drift * 100:.1f} % apart, over a "
+                            f"{MEAN_TOLERANCE * 100:.0f} % tolerance (T-2390)")
+    return shipped, findings
+
+
+def check_asset(name: str, claims_ao: bool, data: bytes,
+                material_maps=None) -> tuple[dict | None, list[str]]:
     """One committed asset against what the manifest says about it.
 
-    The whole of assertions 1 and 2, in one place, so `--gate` and `--self-test` are
+    The whole of assertions 1, 2 and 4, in one place, so `--gate` and `--self-test` are
     running the same code rather than two descriptions of it.
     """
     findings: list[str] = []
     try:
-        stats = occlusion_stats(data)
+        stats = occlusion_stats(data, material_maps)
     except AoExportError as e:
         return None, [f"{name}: {e}"]
+    shipped, map_findings = check_material_maps(name, data, material_maps)
+    findings.extend(map_findings)
+    if shipped:
+        # Reported beside the baked figures, never folded into them (assertion 4).
+        stats = dict(stats or {}, material_maps=shipped)
+        if "mean" not in stats:
+            return stats, findings
     if stats is None:
         if claims_ao:
             findings.append(f"{name}: assets/manifest.json records baked_ao: true, but the GLB "
@@ -356,33 +464,45 @@ def census(rep: list, quiet: bool = False) -> int:
             print("  note  no baked assets yet, so nothing to read")
         return 0
     assets = json.loads(manifest_path.read_text()).get("assets", {})
-    checked = with_ao = 0
+    maps = material_occlusion_maps()
+    checked = with_ao = with_maps = 0
     for name in sorted(assets):
         path = gltf / name
         if not path.exists():
             continue                     # validate.py --stale already reports this
         checked += 1
         stats, findings = check_asset(name, bool(assets[name].get("baked_ao")),
-                                      path.read_bytes())
+                                      path.read_bytes(), maps)
         rep.extend(findings)
         if stats is None:
+            continue
+        shipped = stats.get("material_maps", {})
+        with_maps += bool(shipped)
+        if not findings and not quiet:
+            for image, m in shipped.items():
+                print(f"  ok    {name}  material map {image} min {m['min']:.4f} max "
+                      f"{m['max']:.4f} mean {m['mean']:.4f} over {m['texels']:,} texels")
+        if "mean" not in stats:
             continue
         with_ao += 1
         if not findings and not quiet:
             print(f"  ok    {name}  occlusion min {stats['min']:.4f} max {stats['max']:.4f} "
                   f"mean {stats['mean']:.4f} over {stats['texels']:,} texels")
     if not quiet:
-        print(f"  note  {checked} committed GLB(s) read; {with_ao} carry an occlusion texture")
+        print(f"  note  {checked} committed GLB(s) read; {with_ao} carry a baked occlusion "
+              f"texture, {with_maps} a material occlusion map")
     return checked
 
 
 # ----------------------------------------------------------------------- self-test
 
-def _solid_glb(value: int, w: int = 8, h: int = 8, occlusion: bool = True) -> bytes:
-    return _glb(bytes([value]) * (w * h * 3), w, h, occlusion=occlusion)
+def _solid_glb(value: int, w: int = 8, h: int = 8, occlusion: bool = True,
+               image_name: str | None = None) -> bytes:
+    return _glb(bytes([value]) * (w * h * 3), w, h, occlusion=occlusion, image_name=image_name)
 
 
-def _glb(pixels: bytes, w: int, h: int, occlusion: bool = True, filter_type: int = 0) -> bytes:
+def _glb(pixels: bytes, w: int, h: int, occlusion: bool = True, filter_type: int = 0,
+         image_name: str | None = None) -> bytes:
     png = encode_png(w, h, 3, pixels, filter_type)
     pad = (-len(png)) % 4
     binary = png + b"\x00" * pad
@@ -395,6 +515,8 @@ def _glb(pixels: bytes, w: int, h: int, occlusion: bool = True, filter_type: int
           "materials": [material]}
     if occlusion:
         material["occlusionTexture"] = {"index": 0}
+    if image_name:
+        js["images"][0]["name"] = image_name
     jsb = json.dumps(js, separators=(",", ":")).encode()
     jsb += b" " * ((-len(jsb)) % 4)
     total = 12 + 8 + len(jsb) + 8 + len(binary)
@@ -487,6 +609,45 @@ def self_test() -> int:
                          f"got {findings or 'clean'}")
         else:
             print(f"  ok    {label} -> {'refused' if findings else 'clean'}")
+
+    print("\n  -- assertion 4: a material occlusion map is not a bake (T-2390)")
+    with tempfile.TemporaryDirectory() as td:
+        tmp = pathlib.Path(td)
+        # A committed 16x6 ramp stands in for granite_occlusion.png.
+        (tmp / "probe_occlusion.png").write_bytes(encode_png(16, 6, 1, _ramp(16, 6)[0::3]))
+        lib = tmp / "material-library.json"
+        lib.write_text(json.dumps({"materials": [{"name": "probe", "occlusion": "a test map"},
+                                                 {"name": "plain"}]}))
+        maps = material_occlusion_maps([lib])
+        if set(maps) != {"probe_occlusion"}:
+            fails.append(f"the library declares one occlusion map, read {sorted(maps)}")
+        dimmer = bytes(bytearray(max(0, v - 2) for v in _ramp(16, 6)))
+        cases = [
+            ("the committed map, named, under baked_ao: false — Glessner's granite",
+             False, _glb(_ramp(16, 6), 16, 6, image_name="probe_occlusion"), False),
+            ("the same map but UNNAMED — still a bake the manifest denies",
+             False, ramp, True),
+            ("a named map that arrived uniformly white",
+             False, _solid_glb(255, image_name="probe_occlusion"), True),
+            ("a named map whose mean drifted off the committed file's",
+             False, _glb(dimmer, 16, 6, image_name="probe_occlusion"), True),
+            ("an image named for a fabric that ships no map — a bake",
+             False, _glb(_ramp(16, 6), 16, 6, image_name="plain_occlusion"), True),
+            ("the exporter's packed ORM name, <occlusion>-<roughness>",
+             False, _glb(_ramp(16, 6), 16, 6, image_name="probe_occlusion-probe_roughness"), False),
+            ("a name that only CONTAINS the map's name — a bake",
+             False, _glb(_ramp(16, 6), 16, 6, image_name="baked-probe_occlusion"), True),
+        ]
+        for label, claims, data, want_refused in cases:
+            _stats, findings = check_asset("probe.glb", claims, data, maps)
+            if bool(findings) != want_refused:
+                fails.append(f"{label}: expected {'a refusal' if want_refused else 'a clean read'}, "
+                             f"got {findings or 'clean'}")
+            else:
+                print(f"  ok    {label} -> {'refused' if findings else 'clean'}")
+        if material_occlusion_maps().get("granite_occlusion") is None:
+            fails.append("assets/textures/glessner-v4/material-library.json declares no "
+                         "granite occlusion map — generate.py and this guard disagree")
 
     print()
     for f in fails:

@@ -25024,6 +25024,27 @@ faint relief in shade needs an occlusion channel, which is a separate ticket.
 **Ticket:** T-2209 (Glessner exterior audit GA-09B).
 **Recorded:** 2026-10-11 (T-2209).
 
+### L-glessner-granite-occlusion-2393 — Glessner's split-face granite carries an occlusion map computed from its own reconstructed relief
+
+**Decision:** the granite slots of Glessner v4 (granite, granite_1 to 4 and rough_stone_trim)
+now carry a glTF occlusion texture, `assets/textures/glessner-v4/granite_occlusion.png`
+(T-2393, split from T-2390). It is computed by `generate.py` from the same height field the
+granite normal map is drawn from: horizon-based, 16 directions out to 8 cm, measured against
+each texel's own tangent plane, so only a crease is darkened and a tilted facet is not. The
+viewer applies it to the sky fill only. The sun is unchanged.
+**What is invented.** The 8 cm reach (about two-thirds of the 12 cm fracture cell) and the
+height field itself, which is the generated split-face study, not a reading of the house's
+stone. The occlusion is only as true as that relief. No photograph was read.
+**What is not changed.** Albedo, tints, roughness, the normal map, every vertex and the scene
+light. Shaded faces read 1.7-5.4 % darker because the sky they lose is now accounted for. They
+are not re-tinted, and nothing is brightened to compensate.
+**How to resolve:** a measured relief of the street granite would replace the height field.
+The stone-scale occlusion (joints, drafted margins, pitched faces), which is what reads as
+relief in shade, is a per-asset bake owned by T-2394.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2393 (split from T-2390).
+**Recorded:** 2026-10-12 (T-2393).
+
 ### L-k14-1808-roof-2359 — 1808 Prairie's slate carries the K14 chimney plume at 18 years, on plan rows this ticket chose
 
 **Decision:** 1808 Prairie's slate takes the K14 kit's chimney plume (`chimney_soot`, T-2324)
