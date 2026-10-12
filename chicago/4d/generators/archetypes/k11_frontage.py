@@ -44,14 +44,16 @@ import math
 FENCE = "k11.fence.spear_on_curb"
 # T-1861: the fences a record may name, and the run style each is built in (k11_ironwork
 # fence_run); the scroll band is the register's "lattice/iron boundary" at 1620
-FENCES = {FENCE: "spear", "k11.fence.scroll_band": "scroll"}
+FENCES = {FENCE: "spear", "k11.fence.scroll_band": "scroll", "k11.fence.lattice_arcade": "lattice"}
+# T-2406: a timber board fence closing a side yard (1620's north side, its 1874 engraving)
+BOARDS = "k11.fence.side_boards"
 GATE = "k11.gate.walk_gate_on_piers"
 WALL = "k11.wall.brick_with_piers"
 STREET_FRONT = "k01.wall.street_front"
 # the kit's roles, worn in the house's own slots; the wall's brick has its own slot,
 # because "brick" is an envelope material and the contract reads grade off its lowest
 # vertex (k01_contract.json measures): a wall sunk 0.10 m would move the house's origin
-ROLE_MATERIAL = {"iron": "iron", "stone": "stoop_stone", "brick": "k11_wall_brick"}
+ROLE_MATERIAL = {"iron": "iron", "stone": "stoop_stone", "brick": "k11_wall_brick", "timber": "fence_boards"}
 CLEAR_M = 0.05          # a swinging leaf keeps this far from the stoop; nothing comes nearer the walk
 
 
@@ -80,6 +82,20 @@ def spec(params) -> dict | None:
         raise ValueError(f"boundary.lot_s_m {t['lot_s_m']} does not hold the street front 0..{params.width_m}")
     if t["entrance_gate"].get("leaves") != 2:
         raise ValueError("boundary.entrance_gate is built as a pair of leaves")
+    if FENCES[t["fence"]] == "lattice" and not 0.2 <= t.get("lattice_pitch_m", 0) <= 0.6:
+        raise ValueError("a lattice fence names its bay, boundary.lattice_pitch_m, 0.2-0.6 m")
+    if t.get("lattice_span_bays", 2) not in (2, 3, 4):
+        raise ValueError("boundary.lattice_span_bays: an arch spans 2, 3 or 4 bays")
+    b = t.get("side_fence")
+    if b:
+        if b.get("variant") != BOARDS:
+            raise ValueError(f"boundary.side_fence builds {BOARDS!r} alone")
+        if not params.width_m + 0.5 <= b["from_s_m"] <= s1 - 1.0:
+            raise ValueError(f"boundary.side_fence.from_s_m {b['from_s_m']}: north of the front, a metre short of the lot line")
+        if not 1.2 <= b["height_m"] <= 2.2:
+            raise ValueError(f"boundary.side_fence.height_m {b['height_m']}: a yard fence stands 1.2-2.2 m")
+        if b["to_u_m"] >= 0.0:
+            raise ValueError("boundary.side_fence.to_u_m: the boards run back past the house's rear wall")
     return t
 
 
@@ -159,7 +175,10 @@ def dress(a):
     foot = max(q[0] for q in stoop)
 
     fence, style = t["fence"], FENCES[t["fence"]]
-    var = K.Variant({"id": fence, "kind": "fence"}, data)
+    var = K.Variant({"id": fence, "kind": "fence", "pitch_m": t.get("lattice_pitch_m"),
+                     "span_bays": t.get("lattice_span_bays", 2)}, data)
+    B = t.get("side_fence")
+    n_end = B["from_s_m"] - 0.06 if B else s_north - 0.12     # T-2406: the boards take the north end
     # the entrance: a pair of leaves square to the door, each hung on its own pier
     E = t["entrance_gate"]
     c = E["clear_m"]
@@ -193,7 +212,7 @@ def dress(a):
     # the fence: from the side gate's pier to the entrance's, and from the entrance's to an
     # end post whose curb stops on the north lot line
     south = var.fence_run(sb + ps, ea - ps, style, "south run", host_a=ps1.name, host_b=pe1.name)
-    north = var.fence_run(eb + ps, s_north - 0.12, style, "north run", host_a=pe2.name)
+    north = var.fence_run(eb + ps, n_end, style, "north run", host_a=pe2.name)
     # the rule the kit's restriction states, on the built geometry: no curb, rail or picket
     # of a run inside an opening (the pier caps' 50 mm overhang stands above the gate)
     for lo, hi, what in ((ea, eb, "entrance"), (sa, sb, "side passage")):
@@ -218,9 +237,11 @@ def dress(a):
         for pc in wv.pieces:
             _to_wall(pc.mesh, -(s_south + wp / 2))
 
-    a.instance(fence, "fence", {"length_m": round((ea - ps) - (sb + ps) + (s_north - 0.12) - (eb + ps), 4),
+    a.instance(fence, "fence", {"length_m": round((ea - ps) - (sb + ps) + n_end - (eb + ps), 4),
                                         "runs": 2, "posts": len(south) + len(north) - 3},
-                      {"line_south": (line, 0.0, -(sb + ps)), "line_north": (line, 0.0, -(s_north - 0.12))})
+                      {"line_south": (line, 0.0, -(sb + ps)), "line_north": (line, 0.0, -n_end)})
+    if B:
+        boards(a, K, data, B, line, s_north, conf)
     a.instance(GATE, "gate", {"leaves": 2, "clear_m": c, "leaf_m": round(Lw, 4), "swing_reach_m": round(R, 4),
                               "stoop_foot_m": round(foot - D, 4)},
                {"opening": (line, 0.0, -door.s_m)})
@@ -236,3 +257,46 @@ def dress(a):
                   "entrance_s_m": [round(ea, 4), round(eb, 4)], "side_gate_s_m": [round(sa, 4), round(sb, 4)],
                   "fence_posts_s_m": [round(x, 3) for x in south + north],
                   "wall_piers_x_m": [round(x, 3) for x in wv.meta["piers"]] if W else []}
+
+
+def _board_run(var, x0, x1, H, tag):
+    """A close-boarded run from x0 to x1 in the kit's frame (x along the run, z out of the
+    yard): square posts let into the ground at no more than 2.4 m, two arris rails on the
+    yard side let into them, and upright boards nailed to the rails' outer face from just
+    over grade to the top."""
+    post, rail, bw, bt, gap = 0.1, (0.05, 0.1), 0.14, 0.022, 0.012
+    n = max(1, math.ceil((x1 - x0 - post) / 2.4))
+    xs = [x0 + post / 2 + (x1 - x0 - post) * i / n for i in range(n + 1)]
+    names = [var.member(f"{tag} post {i + 1}", "timber", "ground", x - post / 2, x + post / 2, -0.15, H, -post / 2,
+                        post / 2).name for i, x in enumerate(xs)]
+    z_face = post / 2 - 0.02                       # the rails' outer face, just inside the posts'
+    rails = [var.member(f"{tag} rail {k + 1}", "timber", names[0], x0, x1, y, y + rail[1], z_face - rail[0], z_face)
+             for k, y in enumerate((0.3, H - 0.4))]
+    m = max(1, round((x1 - x0) / (bw + gap)))
+    w = (x1 - x0) / m
+    for j in range(m):
+        var.member(f"{tag} board {j + 1}", "timber", rails[0].name, x0 + j * w + gap / 2, x0 + (j + 1) * w - gap / 2,
+                   0.03, H, z_face, z_face + bt)
+    return len(xs)
+
+
+def boards(a, K, data, B, line, s_north, conf):
+    """T-2406: the board fence on 1620's north side, as its 1874 engraving draws it: taking
+    over from the lattice on the street line at `from_s_m`, turning at the north lot line and
+    running back along it to `to_u_m`."""
+    H = B["height_m"]
+    front = K.Variant({"id": BOARDS, "kind": "fence"}, data)
+    n1 = _board_run(front, B["from_s_m"], s_north, H, "street")
+    for pc in front.pieces:
+        _to_fence(pc.mesh, line)
+    side = K.Variant({"id": BOARDS, "kind": "fence"}, data)
+    # the side run's posts stand inside the lot line, its boards on the line's yard side
+    n2 = _board_run(side, B["to_u_m"], line - 0.06, H, "side")
+    for pc in side.pieces:
+        pc.mesh.pos = [(x, y, -(s_north - 0.06) - z) for x, y, z in pc.mesh.pos]
+        pc.mesh.nrm = [(x, y, -z) for x, y, z in pc.mesh.nrm]
+        pc.mesh.idx = [i for t in zip(pc.mesh.idx[0::3], pc.mesh.idx[2::3], pc.mesh.idx[1::3]) for i in t]
+    a.instance(BOARDS, "fence", {"length_m": round((s_north - B["from_s_m"]) + (line - B["to_u_m"]), 4),
+                                 "height_m": H, "posts": n1 + n2},
+               {"street_end": (line, 0.0, -B["from_s_m"]), "rear_end": (B["to_u_m"], 0.0, -(s_north - 0.06))})
+    _lay(a, front.pieces + side.pieces, conf, BOARDS)

@@ -1,0 +1,623 @@
+{
+  "method": "Actual published /1904/ app, normal boot, full desktop and light mobile; animation paused after readiness. T-2211: street and stable window stands under the actual scene light.",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:35133/data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:35133/data/gltf/glessner_house__as_built_1887.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "gable-street",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 151,
+            "triangles": 3443515,
+            "programs": 37,
+            "geometries": 122,
+            "textures": 291,
+            "batches": 91,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 71473056,
+            "fps": 0,
+            "cameraNear": 0.2,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1383.366590137619,
+            8.840440280685424,
+            3203.895866968877
+          ]
+        },
+        {
+          "name": "gable-close",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 151,
+            "triangles": 3447178,
+            "programs": 37,
+            "geometries": 122,
+            "textures": 291,
+            "batches": 91,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 71473056,
+            "fps": 0,
+            "cameraNear": 0.4,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1383.4693388266003,
+            13.940440280685426,
+            3212.695267102233
+          ]
+        },
+        {
+          "name": "prairie-first",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 143,
+            "triangles": 3226079,
+            "programs": 37,
+            "geometries": 122,
+            "textures": 291,
+            "batches": 91,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 71473056,
+            "fps": 0,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1393.63254129151,
+            7.940440280685426,
+            3235.1781342605213
+          ]
+        },
+        {
+          "name": "prairie-group",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 142,
+            "triangles": 3225121,
+            "programs": 37,
+            "geometries": 122,
+            "textures": 291,
+            "batches": 91,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 71473056,
+            "fps": 0,
+            "cameraNear": 0.25,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1395.5670194288302,
+            10.740440280685426,
+            3229.5551640190715
+          ]
+        },
+        {
+          "name": "north-pair",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 151,
+            "triangles": 3450636,
+            "programs": 37,
+            "geometries": 122,
+            "textures": 291,
+            "batches": 91,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 71473056,
+            "fps": 0,
+            "cameraNear": 0.25,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1383.9541259596688,
+            10.540440280685425,
+            3211.389517725204
+          ]
+        },
+        {
+          "name": "stable-north",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 146,
+            "triangles": 3407799,
+            "programs": 37,
+            "geometries": 122,
+            "textures": 291,
+            "batches": 91,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 71473056,
+            "fps": 0,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1344.304283416336,
+            7.840440280685425,
+            3207.352193575608
+          ]
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:35133/data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:35133/data/gltf/glessner_house__as_built_1887.light.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "gable-street",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 106,
+            "triangles": 983367,
+            "programs": 23,
+            "geometries": 125,
+            "textures": 389,
+            "batches": 91,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 46676520,
+            "fps": 2,
+            "cameraNear": 0.2,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1383.366590137619,
+            8.840440280685424,
+            3203.895866968877
+          ]
+        },
+        {
+          "name": "gable-close",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 104,
+            "triangles": 990118,
+            "programs": 23,
+            "geometries": 125,
+            "textures": 389,
+            "batches": 91,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 46676520,
+            "fps": 0,
+            "cameraNear": 0.4,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1383.4693388266003,
+            13.940440280685426,
+            3212.695267102233
+          ]
+        },
+        {
+          "name": "prairie-first",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 95,
+            "triangles": 761436,
+            "programs": 23,
+            "geometries": 125,
+            "textures": 389,
+            "batches": 91,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 46676520,
+            "fps": 0,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1393.63254129151,
+            7.940440280685426,
+            3235.1781342605213
+          ]
+        },
+        {
+          "name": "prairie-group",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 93,
+            "triangles": 752726,
+            "programs": 23,
+            "geometries": 125,
+            "textures": 389,
+            "batches": 91,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 46676520,
+            "fps": 0,
+            "cameraNear": 0.25,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1395.5670194288302,
+            10.740440280685426,
+            3229.5551640190715
+          ]
+        },
+        {
+          "name": "north-pair",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 104,
+            "triangles": 991084,
+            "programs": 23,
+            "geometries": 125,
+            "textures": 389,
+            "batches": 91,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 46676520,
+            "fps": 0,
+            "cameraNear": 0.25,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1383.9541259596688,
+            10.540440280685425,
+            3211.389517725204
+          ]
+        },
+        {
+          "name": "stable-north",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 84,
+            "triangles": 874967,
+            "programs": 23,
+            "geometries": 125,
+            "textures": 389,
+            "batches": 91,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 46676520,
+            "fps": 0,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1344.304283416336,
+            7.840440280685425,
+            3207.352193575608
+          ]
+        }
+      ]
+    }
+  ]
+}
