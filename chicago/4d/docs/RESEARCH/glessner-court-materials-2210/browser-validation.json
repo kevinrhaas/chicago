@@ -1,0 +1,764 @@
+{
+  "method": "Actual published /1904/ app, normal boot, full desktop and light mobile; animation paused after readiness. T-2210: each desktop courtyard stand under the actual scene light and under a neutral diagnostic light (sky fill swapped for a white hemisphere, sun whitened, capture only).",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:33305/data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:33305/data/gltf/glessner_house__as_built_1887.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "courtyard",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 187,
+            "triangles": 3397047,
+            "programs": 35,
+            "geometries": 114,
+            "textures": 364,
+            "batches": 89,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 63934540,
+            "fps": 0,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1358.641932717182,
+            7.940440280685426,
+            3236.1867529189717
+          ]
+        },
+        {
+          "name": "courtyard",
+          "light": "neutral",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 187,
+            "triangles": 3397047,
+            "programs": 48,
+            "geometries": 114,
+            "textures": 364,
+            "batches": 89,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 63934540,
+            "fps": 0,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1358.641932717182,
+            7.940440280685426,
+            3236.1867529189717
+          ]
+        },
+        {
+          "name": "court-east",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 145,
+            "triangles": 3203006,
+            "programs": 52,
+            "geometries": 120,
+            "textures": 376,
+            "batches": 89,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 63934540,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1354.6188534090697,
+            6.540440280685425,
+            3234.2335932018364
+          ]
+        },
+        {
+          "name": "court-east",
+          "light": "neutral",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 145,
+            "triangles": 3203006,
+            "programs": 52,
+            "geometries": 120,
+            "textures": 376,
+            "batches": 89,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 63934540,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1354.6188534090697,
+            6.540440280685425,
+            3234.2335932018364
+          ]
+        },
+        {
+          "name": "court-west",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 129,
+            "triangles": 3090593,
+            "programs": 52,
+            "geometries": 120,
+            "textures": 376,
+            "batches": 89,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 63934540,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1372.5942744343486,
+            6.540440280685425,
+            3232.0235617622484
+          ]
+        },
+        {
+          "name": "court-west",
+          "light": "neutral",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 129,
+            "triangles": 3090593,
+            "programs": 52,
+            "geometries": 120,
+            "textures": 376,
+            "batches": 89,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 63934540,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1372.5942744343486,
+            6.540440280685425,
+            3232.0235617622484
+          ]
+        },
+        {
+          "name": "court-sill",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 187,
+            "triangles": 3395037,
+            "programs": 52,
+            "geometries": 120,
+            "textures": 376,
+            "batches": 89,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 63934540,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1356.5778511198969,
+            6.240440280685425,
+            3230.7104798103924
+          ]
+        },
+        {
+          "name": "court-sill",
+          "light": "neutral",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 187,
+            "triangles": 3395037,
+            "programs": 52,
+            "geometries": 120,
+            "textures": 376,
+            "batches": 89,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 63934540,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1356.5778511198969,
+            6.240440280685425,
+            3230.7104798103924
+          ]
+        },
+        {
+          "name": "court-corner",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 189,
+            "triangles": 3405595,
+            "programs": 52,
+            "geometries": 120,
+            "textures": 376,
+            "batches": 89,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 63934540,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1374.6408420505575,
+            6.140440280685425,
+            3235.9999371208237
+          ]
+        },
+        {
+          "name": "court-corner",
+          "light": "neutral",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 189,
+            "triangles": 3405595,
+            "programs": 52,
+            "geometries": 120,
+            "textures": 376,
+            "batches": 89,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 63934540,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1374.6408420505575,
+            6.140440280685425,
+            3235.9999371208237
+          ]
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:33305/data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:33305/data/gltf/glessner_house__as_built_1887.light.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "courtyard",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 128,
+            "triangles": 932538,
+            "programs": 22,
+            "geometries": 117,
+            "textures": 372,
+            "batches": 89,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 45067092,
+            "fps": 1,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1358.641932717182,
+            7.940440280685426,
+            3236.1867529189717
+          ]
+        },
+        {
+          "name": "court-east",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 84,
+            "triangles": 724269,
+            "programs": 22,
+            "geometries": 119,
+            "textures": 374,
+            "batches": 89,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 45067092,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1354.6188534090697,
+            6.540440280685425,
+            3234.2335932018364
+          ]
+        },
+        {
+          "name": "court-west",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 75,
+            "triangles": 665100,
+            "programs": 22,
+            "geometries": 119,
+            "textures": 374,
+            "batches": 89,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 45067092,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1372.5942744343486,
+            6.540440280685425,
+            3232.0235617622484
+          ]
+        },
+        {
+          "name": "court-sill",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 129,
+            "triangles": 931435,
+            "programs": 22,
+            "geometries": 119,
+            "textures": 374,
+            "batches": 89,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 45067092,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1356.5778511198969,
+            6.240440280685425,
+            3230.7104798103924
+          ]
+        },
+        {
+          "name": "court-corner",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 78,
+            "triangles": 707812,
+            "programs": 22,
+            "geometries": 119,
+            "textures": 374,
+            "batches": 89,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 45067092,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1374.6408420505575,
+            6.140440280685425,
+            3235.9999371208237
+          ]
+        }
+      ]
+    }
+  ]
+}
