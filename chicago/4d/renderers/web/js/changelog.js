@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 1729, ts: '2026-10-12T18:08:48.122Z', date: 'Oct 12, 2026, 1:08 PM CT', title: 'The first-entry smoke check stops waiting on frames it does not need', kind: 'fix',
+    items: [
+      'The automated check of the door, the navigation guide and the evidence menu no longer times out on a slow machine. The town now draws at about 8-10 seconds a frame on the build machines, and each of those clicks used to wait on about ten frames.',
+      'It still checks that the guide dismisses and remembers the choice, and that the evidence menu takes a real mouse click. It also logs how long each click took.',
+    ] },
+  { v: 1728, ts: '2026-10-12T18:08:48.122Z', date: 'Oct 12, 2026, 1:08 PM CT', title: 'A smoke check now reads a drawn frame, not a timer', kind: 'fix',
+    items: [
+      'Nothing you can see changed in the town.',
+      'The test that checks the Sauganash\'s walks show from Lake Street used to wait a fixed 300 ms between its two screenshots. On a slow machine both shots caught the same frame, so it failed pull requests that never touched 1835. It now waits for a frame drawn with the walks shown, then hidden, and its pass mark is unchanged.',
+    ] },
   { v: 1727, ts: '2026-10-12T17:13:21.084Z', date: 'Oct 12, 2026, 12:13 PM CT', title: '1626 Prairie built as a brick house with its two-storey frame bay', kind: 'feature',
     items: [
       '1626 Prairie Avenue, the north half of the brick pair with 1628, is now a full three-storey brick house in place of its draft: brick on every wall, stone-headed sash, a bracketed cornice, a low tin hip with two chimneys, and the door and stoop at its north end.',

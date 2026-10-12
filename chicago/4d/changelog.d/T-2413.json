@@ -1,8 +1,0 @@
-{
-  "title": "A smoke check now reads a drawn frame, not a timer",
-  "kind": "fix",
-  "items": [
-    "Nothing you can see changed in the town.",
-    "The test that checks the Sauganash's walks show from Lake Street used to wait a fixed 300 ms between its two screenshots. On a slow machine both shots caught the same frame, so it failed pull requests that never touched 1835. It now waits for a frame drawn with the walks shown, then hidden, and its pass mark is unchanged."
-  ]
-}
