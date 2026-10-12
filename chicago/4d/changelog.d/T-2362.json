@@ -1,7 +1,0 @@
-{
-  "title": "Automated checks split into shorter runs so finished work lands",
-  "kind": "chore",
-  "items": [
-    "The automated walk-through that checks every change is now split into smaller pieces, so none of them runs out of time before it finishes. Changes that were finished but stuck waiting on it can now go live. Nothing you see in the town changed."
-  ]
-}
