@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 1721, ts: '2026-10-12T11:18:50.997Z', date: 'Oct 12, 2026, 6:18 AM CT', title: 'Glessner\'s granite joints now read as shadowed recesses', kind: 'improvement',
+    items: [
+      'On the Glessner House\'s rock-faced granite, the sky light now falls off into every mortar joint, along each stone\'s pitched edge and into the window reveals, so a wall in shade reads stone by stone instead of as flat bands with bright seams.',
+      'The shading is computed from the house\'s own modelled stones and touches only the sky\'s light; the sunlit faces are unchanged.',
+      'On desktop. Phones keep the lighter model and its finer stone texture for now.',
+    ] },
+  { v: 1720, ts: '2026-10-12T11:18:50.997Z', date: 'Oct 12, 2026, 6:18 AM CT', title: '1612 Prairie now matches its photograph', kind: 'change',
+    items: [
+      'The cornice brackets stand in pairs over a dark frieze, as the photograph shows them.',
+      'The south wall has its canted oriel window on the upper floor, in stone under a deep hood.',
+      'The front door sits at the top of a shorter stoop, which climbs between iron hand-rails.',
+      'The arched porch is shallower and closer to the wall, on columns where the photograph\'s stand.',
+      'The front fence now stands where the photograph\'s posts are, with its gate at the foot of the stoop.',
+    ] },
   { v: 1719, ts: '2026-10-12T10:08:46.242Z', date: 'Oct 12, 2026, 5:08 AM CT', title: '1620 Prairie\'s bay window, under its flared hood, from its 1874 engraving', kind: 'feature',
     items: [
       '1620 Prairie now has the one-storey bay window its 1874 engraving shows on the south part of the front, measured off the picture.',

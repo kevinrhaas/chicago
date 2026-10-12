@@ -25,7 +25,9 @@ docs/RESEARCH/photo-match/<structure_id>/<view>-side-by-side.jpg   picture | ren
 to the camera); `image_px`, `principal_px`, `focal_px`; `eye` `[u, v, y]` in the structure's
 footprint frame (u east toward the street, v north, metres over its grade); `yaw_deg` (clockwise
 from north); `solve` (how the camera was fitted, in words and numbers: which lengths scaled it,
-which lines and points it was fitted to, the residuals). A drawing is an elevation or a
+which lines and points it was fitted to, the residuals); optionally `sun_uvy`, the direction
+the picture's sunlight comes from in the same frame, so the render lights the walls the picture
+lights and casts its shadows the same way (T-2369). A drawing is an elevation or a
 perspective: an elevation is an orthographic camera far off on the face's normal, and is solved
 the same way with one length.
 

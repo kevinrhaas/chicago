@@ -28,7 +28,9 @@ studies, not photographs or measured reflectance scans of Glessner House.
 SHA256 of all 37 source maps, totalling 27,204,919 bytes. The folder contains 45
 licensed files. The split-face granite also ships `granite_occlusion.png` (T-2393): ambient
 occlusion computed from the same height field as its normal map, non-colour, read as the
-glTF occlusion texture. Numeric granite and turf albedos and the earlier generated turf
+glTF occlusion texture by the light model. The master and full web model read a bake of
+the stones themselves instead (T-2400, `generators/archetypes/masonry_house_v4_occlusion.py`),
+which is embedded in the GLB and is not a file here. Numeric granite and turf albedos and the earlier generated turf
 remain source studies even though the active building uses their replacements.
 Building numeric albedo is 2048² sRGB JPEG; normal is 1024² OpenGL tangent-space
 PNG; roughness is 1024² linear PNG. Ground and mortar use 1024² albedo with 512²
