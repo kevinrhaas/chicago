@@ -1,4 +1,31 @@
 export const CHANGELOG = [ // newest first
+  { v: 1722, ts: '2026-10-12T12:36:50.598Z', date: 'Oct 12, 2026, 7:36 AM CT', title: '1620 Prairie\'s north pavilion and its crown, from the 1874 engraving', kind: 'fix',
+    items: [
+      'The north end of the Robert Law house\'s front now stands forward as the pavilion both of its pictures draw, with two round-headed windows on each floor.',
+      'Over it rises a taller, bell-sided mansard crown with one round-headed dormer, as the 1874 engraving shows.',
+      'The two-storey canted bay that stood there before is gone: neither picture shows one on that part of the front.',
+      'How far the pavilion stands out, its floor heights, the crown\'s depth and the window and dormer sizes are liberties.',
+    ] },
+  { v: 1721, ts: '2026-10-12T11:18:50.997Z', date: 'Oct 12, 2026, 6:18 AM CT', title: 'Glessner\'s granite joints now read as shadowed recesses', kind: 'improvement',
+    items: [
+      'On the Glessner House\'s rock-faced granite, the sky light now falls off into every mortar joint, along each stone\'s pitched edge and into the window reveals, so a wall in shade reads stone by stone instead of as flat bands with bright seams.',
+      'The shading is computed from the house\'s own modelled stones and touches only the sky\'s light; the sunlit faces are unchanged.',
+      'On desktop. Phones keep the lighter model and its finer stone texture for now.',
+    ] },
+  { v: 1720, ts: '2026-10-12T11:18:50.997Z', date: 'Oct 12, 2026, 6:18 AM CT', title: '1612 Prairie now matches its photograph', kind: 'change',
+    items: [
+      'The cornice brackets stand in pairs over a dark frieze, as the photograph shows them.',
+      'The south wall has its canted oriel window on the upper floor, in stone under a deep hood.',
+      'The front door sits at the top of a shorter stoop, which climbs between iron hand-rails.',
+      'The arched porch is shallower and closer to the wall, on columns where the photograph\'s stand.',
+      'The front fence now stands where the photograph\'s posts are, with its gate at the foot of the stoop.',
+    ] },
+  { v: 1719, ts: '2026-10-12T10:08:46.242Z', date: 'Oct 12, 2026, 5:08 AM CT', title: '1620 Prairie\'s bay window, under its flared hood, from its 1874 engraving', kind: 'feature',
+    items: [
+      '1620 Prairie now has the one-storey bay window its 1874 engraving shows on the south part of the front, measured off the picture.',
+      'It has two round-headed windows under a slate hood that is almost flat at the eaves and steepens toward the wall, with a scrolled bracket at each front corner and small blocks under the eaves.',
+      'The front door has moved north, next to the bay, where the engraving puts it.',
+    ] },
   { v: 1718, ts: '2026-10-12T09:02:12.342Z', date: 'Oct 12, 2026, 4:02 AM CT', title: '1601 Prairie stands as a gabled clapboard frame house', kind: 'feature',
     items: [
       '1601 Prairie Avenue, the frame house on the 16th Street corner, is no longer a plain draft box: its walls are clapboard laid board by board, with corner boards, a water table and two-over-two sash in timber casings.',

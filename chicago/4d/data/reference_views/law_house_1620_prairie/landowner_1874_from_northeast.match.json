@@ -32,8 +32,8 @@
       "status": "open"
     },
     {
-      "what": "bay window: a one-storey bay on the SOUTH part of the front (about v 0.5-4.4) under a flared, bracketed hood with a finial; the build's bay is two storeys on the north part",
-      "status": "open"
+      "what": "bay window: a one-storey canted bay on the SOUTH part of the front, its front's edges at x 437 and 488 px and its north cheek's foot at 512 px (v 1.54-4.64, 0.58 m out), two round-headed lights in its front, under a flared hood on a console at each corner of its front with a row of modillions; built so by T-2408 (k08.bay.canted_hooded), its edges landing at x 440 and 492 px. The picture's finial is the foot of the upper window that stands on the hood's top, and is not a finial",
+      "status": "fixed"
     },
     {
       "what": "windows: round-headed sash under moulded hoods on the street front; an upper window over the bay with an ornate head; the north wall's windows flat-headed, two a storey toward the front; the build's are flat-headed two-over-two under segmental brick arches, three on the north wall",
@@ -53,6 +53,18 @@
     },
     {
       "what": "roof covering: the lower faces read as slate in courses; the build's is painted standing-seam tin (K04 slates nothing under 25 degrees, and the upper hip is 18)",
+      "status": "open"
+    },
+    {
+      "what": "bay window's heights: the engraving draws the bay's sills about 0.4 m over grade and its eaves level with the pavilion's lower window heads, about 0.75 m lower than the build's, on the low principal floor it draws everywhere; the build stands the bay on the house's reconstructed 1.4 m principal floor",
+      "status": "open"
+    },
+    {
+      "what": "bay window's tone: the engraving draws the bay dark against the light front (the hood's shadow, or a painted timber bay); built in the house's brick",
+      "status": "open"
+    },
+    {
+      "what": "bay window's terrace: a low balustrade runs before the bay at its foot; the build has none (T-2409's porch)",
       "status": "open"
     },
     {

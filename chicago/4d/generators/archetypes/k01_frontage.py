@@ -212,6 +212,8 @@ MATERIALS.update({
     "bay_brick": dict(k03_brick.MATERIALS["brick"], roughness=round(k03_brick.MATERIALS["brick"]["roughness"] + 0.02, 2)),
     "bay_copper": {"color": (0.37, 0.52, 0.45), "roughness": 0.45, "metallic": 0.35},
     "bay_tin": {"color": (0.30, 0.22, 0.18), "roughness": 0.7},
+    # T-2408: a bay's slated hood, the K08 kit's own slate colour (k08_bays.json `roofs`)
+    "bay_slate": {"color": (0.16, 0.17, 0.19), "roughness": 0.75},
 })
 # T-2313: a K15 stack's soot band (k15_chimneys.json `soot`): the K03 brick darkened, so
 # its courses and texture run on through the band; and the clay pot, should a source show one
@@ -228,6 +230,8 @@ MATERIALS["k11_wall_brick"] = dict(k03_brick.MATERIALS["brick"],
 MATERIALS["yard_turf"] = {"fabric": "turf", "color": (1.0, 1.0, 1.0), "roughness": 0.96}
 MATERIALS["yard_earth"] = {"color": (0.139, 0.102, 0.061), "roughness": 1.0}
 MATERIALS["yard_cinder"] = {"fabric": "gravel", "color": (0.52, 0.50, 0.47), "roughness": 0.93}
+# T-2369: the white-painted panel behind a frieze light that reads white in its photograph
+MATERIALS["frieze_panel"] = {"color": (0.74, 0.73, 0.70), "roughness": 0.6}
 # K08 role -> slot; `body` is the bay's fabric (bay_stone or bay_brick), `cover` its
 # roof's K04 covering. A came is a leaded light's, which no K01 bay glazes.
 K08_ROLES = {"wall": "body", "reveal": "body", "mullion": "body", "roof_back": "body",
@@ -235,10 +239,11 @@ K08_ROLES = {"wall": "body", "reveal": "body", "mullion": "body", "roof_back": "
              "sill": "bay_stone", "head": "bay_stone", "soffit": "fascia", "fascia": "fascia",
              "frame": "sash", "sash_outer": "sash", "sash_inner": "sash",
              "glass_outer": "glass", "glass_inner": "glass", "blind": "blind",
-             "curtain": "curtain", "backing": "backing", "roof": "cover", "finial": "cover"}
+             "curtain": "curtain", "backing": "backing", "roof": "cover", "finial": "cover",
+             "bracket": "fascia"}   # T-2408: a hood's consoles and modillions, the eaves' joinery
 SLIVER_M = 0.0025   # T-2308: a bay triangle with an edge shorter than this is a sliver
 K08_COVERS = {"copper_standing_seam": "bay_copper", "copper_sheet": "bay_copper",
-              "tin_flat_seam_painted": "bay_tin"}
+              "tin_flat_seam_painted": "bay_tin", "slate_pennsylvania": "bay_slate"}
 
 
 def _tiles() -> dict:
@@ -391,6 +396,11 @@ class Assembly:
         # T-2289: a coursed stone front lays its walling and its trim in K02 fabrics,
         # whose maps carry their own colour, so the factors go to white
         self.spec = {k: dict(v) for k, v in MATERIALS.items()}
+        # T-2369: a record that reads its cornice's paint off a source (1612's dark cornice)
+        # paints the eave's timber — fascia, soffit, brackets, bed moulding, frieze — in it
+        paint = (params.wall_head or {}).get("paint")
+        if paint:
+            self.spec["fascia"]["color"] = tuple(float(x) for x in paint["color"])
         if params.stone:
             st = params.stone
             for slot, fab, rough in (("rough_stone_trim", st["fabric"], st["fabric_roughness"]),
@@ -1401,7 +1411,7 @@ class Assembly:
         v = dict(next(x for x in self._entrances["variants"] if x["id"] == p.entrance_kit["variant"]))
         door = next(o for o in p.openings if o.component == "k01.opening.door_leaf")
         v["clear_width_m"], v["clear_height_m"] = door.width_m, door.height_m
-        v["stair"] = dict(v["stair"], floor_m=p.principal_floor_m, going_m=p.tread_m,
+        v["stair"] = dict(v["stair"], floor_m=p.door_floor_m, going_m=p.tread_m,
                           landing_m=p.landing_depth_m, width_m=p.stoop_width_m)
         # T-2409: the terrace's reach and steps, from the front's s into the door's own frame
         t = p.entrance_kit.get("terrace")
@@ -1413,6 +1423,11 @@ class Assembly:
         if p.entrance_kit.get("balustrade"):
             v["stair"]["balustrade"] = p.entrance_kit["balustrade"]
         v["front_yard_m"] = p.entrance_kit["front_yard_m"]
+        # T-2369: the record's own stoop ends (iron rails, no cheeks) and the door's depth
+        if "cheeks" in p.entrance_kit:
+            v["stair"]["cheeks"] = p.entrance_kit["cheeks"]
+        if "reveal_depth_m" in p.entrance_kit:
+            v["reveal_depth_m"] = p.entrance_kit["reveal_depth_m"]
         return v
 
     def door_reveal(self) -> float:
@@ -1434,12 +1449,13 @@ class Assembly:
         if reach >= p.entrance_kit["front_yard_m"]:
             raise ValueError(f"the entrance reaches {reach:.3f} m from the front, onto the walk at "
                              f"{p.entrance_kit['front_yard_m']} m")
-        stair_conf = p.worst_conf("principal_floor_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m")
+        stair_conf = p.worst_conf("principal_floor_m", "stair_tread_m", "stair_landing_depth_m", "stoop_width_m",
+                                  *(("entrance_floor_m",) if p.entrance_floor_m else ()))
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
         stair_seed = self.instance("k01.stair.straight_stoop", "stair",
                                    {"riser_m": st["riser_m"], "tread_m": st["going_m"], "risers": st["risers"],
                                     "landing_depth_m": p.landing_depth_m, "width_m": p.stoop_width_m,
-                                    "k07_variant": p.entrance_kit["variant"], "cheeks": True,
+                                    "k07_variant": p.entrance_kit["variant"], "cheeks": o.v["stair"].get("cheeks", False),
                                     "front_yard_m": p.entrance_kit["front_yard_m"],
                                     **({"terrace_to_v_m": p.entrance_kit["terrace"]["to_v_m"]}
                                        if p.entrance_kit.get("terrace") else {}),

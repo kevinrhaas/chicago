@@ -13,11 +13,15 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
   plinth       on grade: a stone plinth, proud, mitred round every corner
   corbel       an oriel: stone courses each stepped out over the one below
   floor bands  a string course at every floor line between storeys
-  eaves        a soffit out to a fascia
+  eaves        a soffit out to a fascia; on a variant naming `brackets` (T-2408), a
+               console under the soffit at every corner of the plan and a row of
+               modillions along each run
   roof         the plan's own lines offset to the eaves and lifted at one pitch: a
                hipped roof over a polygon (trimmed at its hips), a cone over a curve;
                a tower's cap is the whole ring's, closed at the back where the wall
-               plane cuts it, with a finial at the apex
+               plane cuts it, with a finial at the apex; a bay's hip may FLARE (T-2408):
+               flat at the eaves and steepening inward, cut into bands at one
+               distance in from the eaves on every plane, so the hips stay shared
 
 Everything a run carries is built FLAT, in the run's own (s, y, z) frame (s along the
 run's outer face, y up, z out of it: K06's frame), then mapped onto the run: rigidly
@@ -61,7 +65,7 @@ ROLE_MATERIAL = {
     "wall": "masonry", "reveal": "masonry", "mullion": "masonry", "roof_back": "masonry",
     "plinth": "dressed_stone", "band": "dressed_stone", "corbel": "dressed_stone",
     "sill": "sill_stone", "head": "head_stone",
-    "soffit": "trim", "fascia": "trim",
+    "soffit": "trim", "fascia": "trim", "bracket": "trim",
     "frame": "joinery", "sash_outer": "joinery", "sash_inner": "joinery",
     "glass_outer": "glass", "glass_inner": "glass", "came": "lead_came",
     "blind": "blind", "curtain": "curtain", "backing": "backing",
@@ -528,6 +532,8 @@ class Bay:
             # the eaves: a soffit out to the fascia, the fascia's top the roof's eaves line
             ledge(flat, "soffit", run, y_top, 0.0, ov, (0.0, -1.0, 0.0))
             flat.plane("fascia", K6.box(run.s_start(ov), run.s_end(ov), y_top, y_e), -ov)
+            if v.get("brackets"):
+                self._modillions(flat, run, y_top, ov)
             if not grade:
                 self._corbel_courses(flat, run, y0)
             bend(run, flat.prims, self.prims, run.seg_step(cv["max_seg_deg"]))
@@ -535,6 +541,8 @@ class Bay:
         if not grade:
             self._corbel_bottom(world, y0, cv)
         self._roof(world, y_e, ov, cv)
+        if v.get("brackets"):
+            self._consoles(world, y_top, ov)
         merge(self.prims, world.prims)
         self._sockets(y0, y_e)
         if board:
@@ -600,6 +608,69 @@ class Bay:
                                "reach_m": round(reach, 4), "bearing_m": round(reach - K * step, 4),
                                "bottom_m": round(y, 4)}
 
+    # brackets (T-2408) -----------------------------------------------------------------------
+    def _modillions(self, flat, run, y_top, ov):
+        """A row of plain blocks under the soffit along one run, each standing out from the
+        run's face toward the fascia, kept `margin_m` clear of the run's ends where the
+        corner consoles stand."""
+        if self.tier == "light":
+            return    # a far view's copy: the consoles carry the eaves' outline, the row is detail
+        m = self.v["brackets"]["modillions"]
+        w, drop, out = m["width_m"], m["drop_m"], m["out_m"]
+        if out > ov:
+            raise ValueError(f"{self.v['id']}: a modillion {out} m out reaches past the fascia at {ov} m")
+        a, b = run.s_start(0.0) + m["margin_m"], run.s_end(0.0) - m["margin_m"]
+        n = math.floor((b - a - w) / m["spacing_m"] + 1e-9) + 1 if b - a >= w else 0
+        if n <= 0:
+            return
+        gap = (b - a - n * w) / max(n - 1, 1) if n > 1 else 0.0
+        x0 = a if n > 1 else (a + b - w) / 2
+        y0 = y_top - drop
+        for k in range(n):
+            s0 = x0 + k * (w + gap)
+            s1 = s0 + w
+            flat.plane("bracket", K6.box(s0, s1, y0, y_top), -out)
+            for s_, hx in ((s0, -1.0), (s1, 1.0)):
+                flat.face("bracket", [flat.P(s_, y0, 0.0), flat.P(s_, y_top, 0.0), flat.P(s_, y_top, -out),
+                                      flat.P(s_, y0, -out)], (hx, 0.0, 0.0))
+            flat.face("bracket", [flat.P(s0, y0, 0.0), flat.P(s1, y0, 0.0), flat.P(s1, y0, -out),
+                                  flat.P(s0, y0, -out)], (0.0, -1.0, 0.0))
+        self.meta.setdefault("brackets", {})["modillions"] = self.meta.get("brackets", {}).get("modillions", 0) + n
+
+    def _consoles(self, world, y_top, ov):
+        """A console under the soffit at every corner of the plan, on the corner's bisector:
+        its top on the soffit from the corner out `reach_m`, its underside a quarter ellipse
+        sweeping in and down to the corner `drop_m` under the soffit, `thickness_m` across.
+        Its top and its back stand against the soffit and the corner and are not drawn."""
+        c = self.v["brackets"]["consoles"]
+        R, D, t = c["reach_m"], c["drop_m"], c["thickness_m"] / 2
+        if self.plan["kind"] != "polyline":
+            raise ValueError(f"{self.v['id']}: consoles stand at a polyline's corners")
+        lines = self.plan["lines"]
+        k = c["segments"] if self.tier == "full" else max(2, c["segments"] // 2)
+        arc = [(R - R * math.sin(math.pi / 2 * j / k), -D + D * math.cos(math.pi / 2 * j / k)) for j in range(k + 1)]
+        n_c = 0
+        for (a1, e1, n1), (a2, e2, n2) in zip(lines, lines[1:]):
+            bx, bz = n1[0] + n2[0], n1[1] + n2[1]
+            L = math.hypot(bx, bz)
+            bx, bz = bx / L, bz / L
+            if R > ov / max(n1[0] * bx + n1[1] * bz, 1e-9) + 1e-9:
+                raise ValueError(f"{self.v['id']}: a console {R} m out reaches past the eaves' corner")
+            C = self._offset_corner((a1, n1), (a2, n2), 0.0)
+            tx, tz = -bz, bx
+            P = lambda r, y, side: (C[0] + r * bx + side * t * tx, y_top + y, C[1] + r * bz + side * t * tz)
+            for side in (-1.0, 1.0):
+                for j in range(k):
+                    world.face("bracket", [P(0.0, 0.0, side), P(*arc[j], side), P(*arc[j + 1], side)],
+                               (side * tx, 0.0, side * tz))
+            for j in range(k):
+                (r0, y0), (r1, y1) = arc[j], arc[j + 1]
+                hr, hy = R - (r0 + r1) / 2, -D - (y0 + y1) / 2   # the underside faces the ellipse's centre
+                world.face("bracket", [P(r0, y0, -1.0), P(r1, y1, -1.0), P(r1, y1, 1.0), P(r0, y0, 1.0)],
+                           (hr * bx, hy, hr * bz))
+            n_c += 1
+        self.meta.setdefault("brackets", {})["consoles"] = n_c
+
     # roof -----------------------------------------------------------------------------------
     def _roof(self, world, y_e, ov, cv):
         rf = self.v["roof"]
@@ -615,6 +686,9 @@ class Bay:
         """The plan's lines offset to the eaves and lifted at one pitch; each plane keeps the
         part of the plan where it is the lowest, so the planes meet on their hips."""
         lines = [((a[0] + ov * n[0], a[1] + ov * n[1]), (-n[0], -n[1])) for a, e, n in self.plan["lines"]]
+        flare = self.v["roof"].get("flare")
+        if flare and (tower or pitch == 0):
+            raise ValueError(f"{self.v['id']}: only a bay's pitched hip flares")
         if tower:
             ring = self.plan["ring"]
             k = len(ring)
@@ -641,7 +715,10 @@ class Bay:
                     if j != i and reg:
                         reg = clip_half(reg, lambda p, Lj=Lj: d(Lj, p) - d(Li, p))
                 if len(reg) >= 3 and abs(area(reg)) > 1e-8:
-                    faces.append((reg, lambda p, Li=Li: y_e + pitch * d(Li, p)))
+                    if flare:
+                        faces += self._flare_bands(reg, Li, d, y_e, pitch, flare)
+                    else:
+                        faces.append((reg, lambda p, Li=Li: y_e + pitch * d(Li, p)))
         apex = (0.0, y_e, 0.0)
         for reg, hgt in faces:
             pts = [(p[0], hgt(p), p[1]) for p in reg]
@@ -656,6 +733,30 @@ class Bay:
                                                  (a[0], hgt(a), 0.0)], (0.0, 0.0, -1.0))
         self.meta["roof"] = {"kind": "flat" if pitch == 0 else "hip", "pitch": pitch, "planes": len(faces),
                              "apex": [round(c, 4) for c in apex]}
+        if flare:
+            self.meta["roof"]["flare"] = dict(flare)
+
+    def _flare_bands(self, reg, Li, d, y_e, pitch, flare):
+        """T-2408: one plane of a flared hip. Its slope runs from `eave_pitch` at the eaves up
+        to the roof's `pitch` at `over_m` in from them, and on at that pitch beyond, so the
+        profile is a parabola then a line; the plane is cut into `bands` strips at fixed
+        distances in from the eaves, each strip flat between the profile's heights at its
+        edges. Every plane is cut at the same distances, so each cut meets its neighbour's on
+        the hip between them and the planes still share their hips vertex for vertex."""
+        a, b, L = flare["eave_pitch"], pitch, flare["over_m"]
+        n = flare["bands"] if self.tier == "full" else max(2, flare["bands"] // 2)
+        g = lambda t: (a * t + (b - a) * t * t / (2 * L)) if t <= L else (a * L + (b - a) * L / 2 + b * (t - L))
+        top = max(d(Li, p) for p in reg)
+        cuts = [L * k / n for k in range(n + 1)]
+        cuts = [c for c in cuts if c < top - 1e-6] + [max(top, L)]
+        out = []
+        for lo, hi in zip(cuts, cuts[1:]):
+            piece = clip_half(clip_half(reg, lambda p: d(Li, p) - lo), lambda p: hi - d(Li, p))
+            if len(piece) < 3 or abs(area(piece)) < 1e-8:
+                continue
+            g0, g1 = g(lo), g(hi)
+            out.append((piece, lambda p, lo=lo, hi=hi, g0=g0, g1=g1: y_e + g0 + (g1 - g0) * (d(Li, p) - lo) / (hi - lo)))
+        return out
 
     @staticmethod
     def _offset_corner(L1, L2, ov):

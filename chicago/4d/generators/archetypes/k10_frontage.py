@@ -81,6 +81,12 @@ def spec(params) -> dict | None:
         s0, s1 = c["s_m"]
         if c["wall"] not in walls or not 0.0 <= s0 < s1 <= walls[c["wall"]]:
             raise ValueError(f"wall_head.clear_of names {c['wall']} s {s0}..{s1}, not a stretch of a K01 wall")
+    pr = t.get("pairs")
+    if pr is not None and not (isinstance(pr, dict) and 0.6 <= float(pr.get("spacing_m", 0)) <= 2.4):
+        raise ValueError("wall_head.pairs names the pairs' spacing_m, 0.6-2.4 m between stations")
+    paint = t.get("paint")
+    if paint is not None and not (len(paint.get("color", ())) == 3 and all(0.0 <= x <= 1.0 for x in paint["color"])):
+        raise ValueError("wall_head.paint names the cornice timber's linear colour, three values 0-1")
     return t
 
 
@@ -143,12 +149,28 @@ def _blocked(params, run, y_low, bays, half):
     return sorted((a - half - CLEAR_M, b + half + CLEAR_M) for a, b in out)
 
 
+def pair_offsets(B) -> list:
+    """T-2369: a pair's two brackets about its station, the kit's `pair_gap_m` apart."""
+    d = B["pair_gap_m"] / 2 + B["width_m"] / 2
+    return [-d, d]
+
+
 def bracket_positions(params, run, B, y_low, bays):
     """The kit's rule where the wall allows it: one bracket `corner_m` from every corner on
     both faces, then evenly at no more than `spacing_m` along every pier the heads, pipes
     and bays leave. A stretch too short for two takes one, at its corner end if it has
-    one. Raises if a corner bracket has nowhere to stand."""
-    c, half = B["corner_m"], B["width_m"] / 2
+    one. Raises if a corner bracket has nowhere to stand.
+
+    T-2369: a record whose `wall_head.pairs` names its brackets paired (1612's photograph)
+    stands a pair, the kit's `pair_gap_m` apart, at each station, the stations evenly at no
+    more than `pairs.spacing_m` along a stretch, and a stretch shorter than that takes one
+    pair, at its corner end if it has one."""
+    pairs = (spec(params) or {}).get("pairs")
+    c = B["corner_m"]
+    half = B["pair_gap_m"] / 2 + B["width_m"] if pairs else B["width_m"] / 2
+    spacing, short = (pairs["spacing_m"], pairs["spacing_m"]) if pairs else (B["spacing_m"], B["range_spacing_m"][0])
+    if pairs:
+        c = max(c, half + 0.02)
     blocked = _blocked(params, run, y_low, bays, half)
     # T-2404: a pavilion standing flush with the corner takes the corner itself, so that
     # corner has no bracket on this face (the pavilion's own eaves turn it)
@@ -172,10 +194,10 @@ def bracket_positions(params, run, B, y_low, bays):
         free.append((at, run.L - c))
     out = []
     for a, b in free:
-        if b - a < B["range_spacing_m"][0]:
+        if b - a < short:
             out.append(a if abs(a - c) < 1e-9 else (b if abs(b - (run.L - c)) < 1e-9 else (a + b) / 2))
             continue
-        n = math.ceil((b - a) / B["spacing_m"])
+        n = math.ceil((b - a) / spacing)
         out += [a + (b - a) * i / n for i in range(n + 1)]
     return out
 
@@ -322,14 +344,23 @@ def _cornice(a, K, data, bays, conf):
         start += r.L
     perim = start
     seed = a.instance(CORNICE, "cornice",
-                      {"brackets": len(stations), "bracket_height_m": h, "bracket_projection_m": B["projection_m"],
+                      {"brackets": len(stations) * (2 if spec(p).get("pairs") else 1),
+                       **({"paired": True} if spec(p).get("pairs") else {}),
+                       "bracket_height_m": h, "bracket_projection_m": B["projection_m"],
                        "bed_mould": "bed_mould", "soffit_m": y_s},
                       {"soffit": (p.depth_m, y_s, 0.0)})
     var = K.Variant({"id": CORNICE, "kind": "bracketed", "material": "timber"}, data)
     var.seed, var.rng = seed, random.Random(seed)
-    for k, (_, i, s) in enumerate(stations):
-        pc = var.piece(f"bracket {k + 1}", "timber", "open", bracket={"run": rr[i].name, "s": s})
-        K.console(pc.mesh, rr[i], s, y_s, 0.0, w, h, B["projection_m"], B["curl"])
+    paired = bool(spec(p).get("pairs"))
+    offs = pair_offsets(B) if paired else [0.0]
+    k = 0
+    for _, i, s in stations:
+        for d in offs:
+            k += 1
+            pc = var.piece(f"bracket {k}", "timber", "open", bracket={"run": rr[i].name, "s": s + d})
+            K.console(pc.mesh, rr[i], s + d, y_s, 0.0, w, h, B["projection_m"], B["curl"])
+    # the bed moulding runs between the stations' outer brackets
+    w = 2 * (offs[-1] + w / 2)
     # the bed moulding: from each bracket's side to the next one's, round every corner
     # between them; open on the wall, on the soffit and at both ends (on the brackets)
     cum = [0.0]
@@ -354,7 +385,7 @@ def _cornice(a, K, data, bays, conf):
         path = [point(s0)] + [point(c) for c in sorted(corners)] + [point(s1)]
         pc = var.piece(f"bed moulding {k + 1}", "timber", "open")
         K.sweep(pc.mesh, path, K.Y, bed, side=1.0, sgn=1.0)
-    a.wall_head = {"brackets": [round(s, 3) for s in (st[2] for st in stations)],
+    a.wall_head = {"brackets": [round(s, 3) for s in (st[2] for st in stations)], "paired": paired,
                    "bracket_runs": {r.name: [round(st[2], 3) for st in stations if st[1] == i] for i, r in enumerate(rr)},
                    "bed_mould_m": [round(y_bed, 4), round(y_s, 4)]}
     _lay(a, var.pieces, conf, CORNICE)
