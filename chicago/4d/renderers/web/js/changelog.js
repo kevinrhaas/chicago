@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1707, ts: '2026-10-12T01:03:39.826Z', date: 'Oct 11, 2026, 8:03 PM CT', title: 'Automated checks split into shorter runs so finished work lands', kind: 'chore',
+    items: [
+      'The automated walk-through that checks every change is now split into smaller pieces, so none of them runs out of time before it finishes. Changes that were finished but stuck waiting on it can now go live. Nothing you see in the town changed.',
+    ] },
   { v: 1706, ts: '2026-10-12T00:47:38.288Z', date: 'Oct 11, 2026, 7:47 PM CT', title: '1634 Prairie stands as a brownstone rowhouse under a flat roof', kind: 'feature',
     items: [
       '1634 Prairie Avenue, the north half of a stone-front pair with 1636, is no longer a plain draft box: it has a coursed brownstone front, two-over-two sash under stone heads, and a stone stoop and door at its north end.',
