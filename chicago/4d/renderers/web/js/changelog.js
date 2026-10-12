@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 1738, ts: '2026-10-12T22:25:05.223Z', date: 'Oct 12, 2026, 5:25 PM CT', title: '1638 Prairie\'s gable, built to its photograph', kind: 'improvement',
+    items: [
+      'The Gothic house at 1638 Prairie Avenue now has the pointed twin windows, ogee hood and finial, and oval of its only photograph, and its siding runs up into the gable as the picture shows.',
+      'The house is now checked against that photograph from a camera solved for it, so the bay, the entrance and the fence are next.',
+    ] },
+  { v: 1737, ts: '2026-10-12T22:19:39.465Z', date: 'Oct 12, 2026, 5:19 PM CT', title: 'The Glessner House is rebuilt the way the nightly build makes it', kind: 'fix',
+    items: [
+      'The Glessner House model now comes from the same build machine that checks it every night. The two versions of its shaded granite differed in a few thousand of its four million shading texels, and that small difference failed the nightly check for every Prairie Avenue change.',
+      'Nothing you can see has changed. The building\'s shape, stones and colours are byte for byte what they were.',
+    ] },
   { v: 1736, ts: '2026-10-12T21:24:48.629Z', date: 'Oct 12, 2026, 4:24 PM CT', title: 'Glessner\'s granite shows its stones on phones too', kind: 'improvement',
     items: [
       'On a phone, the Glessner House\'s granite walls in shade now show their courses and joints, as they already did on a desktop. The lighter model phones load now has its own shading baked from its own stones, in place of the faint repeating texture it had before.',

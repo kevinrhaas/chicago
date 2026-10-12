@@ -31436,6 +31436,10 @@
           "text": "the plain body and its two roofs are retired from this liberty; the body is now closed in the kit's timber under L-k16-1638-body-2395, which covers `form.body`."
         },
         {
+          "label": "Superseded in part (T-2423)",
+          "text": "the gable's flat-headed pair, its shingle bands and the missing oculus and hood moulds are retired from this liberty; the gable's openings, hood, oval and clapboard field are read off the photograph under L-k16-1638-gable-2423, which covers `form.gable`."
+        },
+        {
           "label": "Ticket",
           "text": "T-2323 (piece 2 of T-1858, K16)."
         },
@@ -34590,6 +34594,50 @@
         {
           "label": "Recorded",
           "text": "2026-10-12 (T-2416)."
+        }
+      ]
+    },
+    {
+      "id": "L-k16-1638-gable-2423",
+      "title": "1638 Prairie's gable read off its photograph through a solved camera: pointed twin lights under an ogee hood, a blind oval, clapboard to the rake; sections, finial and verge still the kit's",
+      "section": "per_subject",
+      "subjects": [
+        "shortall_gregory_house_1638_prairie_front"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "shortall_gregory_house_1638_prairie_front",
+          "phase": "as_standing_1904",
+          "aspect": "form.gable"
+        }
+      ],
+      "recorded": "2026-10-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the front gable of the Shortall-Gregory house (T-2423, a piece of T-1865) carries what the house's photograph shows on it, read through the first camera solved for that print (`data/reference_views/shortall_gregory_house_1638_prairie_front/chicagology_front.json`). The kit's flat-headed paired sash gives way to two pointed lights, each the K06 equilateral head on a 0.63 m sash, sills at 4.0 m and points at 5.87 m, their casings carried round the heads as arched bands and meeting in one mullion; over them a moulded hood rises from a label stop each side at 5.45 m along an ogee to a point at 6.5 m, with a finial and cross-piece to 7.2 m; high in the gable an oval 0.89 by 0.74 m, a moulded ring round a blind field; and the wall's clapboard runs up into the gable to the rake boards, with no belt and no shingle band. The stand-in bay below is lowered to the print's 3.67 m top so it no longer buries the new sills. **What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`), at 73 px a metre at the front's plane with grade at 825 px: that the lights are pointed and paired, their widths, sills and points; that one hood spans both, where its stops and point stand and how high its finial rises; the oval's place and size; that the siding is continuous into the gable with no belt; the bay's top. The camera's depth is read from the front fence's base on the sheet's street line and is good to a few metres; its `solve` field says how far. **What is invented.** The sash and its two-over-two glazing (the print's lower sashes are dark, the upper pale, as blinds or curtains would make them); the casing's and the hood's sections and the hood's curve between the points read (a cubic ogee); the label stops as plain blocks where the print's curl as volutes, and no cusped tracery under the hood where the print shows some; the finial's form (the print's is a cluster of three points); the oval built blind, because its field reads as pale as the wall, where it may be glazed; the clapboard's exposure, which the halftone cannot resolve; the bargeboard's piercings, still the kit's working design where the print shows a broad plain verge board; every colour, the print being monochrome."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a sharper or second picture of the house resolves the hood's tracery and stops, the finial, the verge board and whether the oval is glazed; T-2426 builds the fence the camera's depth rests on and brings the match record to `matches`, keeping this record's id."
+        },
+        {
+          "label": "Covers",
+          "text": "`shortall_gregory_house_1638_prairie_front.as_standing_1904.form.gable`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2423 (a piece of T-1865, the 1638 architecture)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k16-1638-gable-2423/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-12 (T-2423)."
         }
       ]
     },
