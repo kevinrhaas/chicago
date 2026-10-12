@@ -600,7 +600,17 @@ class Sample:
             self.box(F, "corner_board", W - cb + ct, W + ct, y_start, y_fr0, 0, ct, skip=("back", "top"), tone=tc)
             self.box(R, "corner_board", 0.0, cb - ct, y_start, y_fr0, 0, ct, skip=("back", "top", "s0"), tone=tc)
         else:
-            self.clapboards(F, 0.0, W, y_start, y_fr0, ("cut", "cut"), cuts)
+            # T-2395: a wall with no return may still end on an outside corner, where its own
+            # corner board stands (`boards`: [at its start, at its end]) and the neighbouring
+            # face's cladding or board dies against it
+            b0, b1 = (v.get("boards") or (False, False))
+            a, b = (cb - ct if b0 else 0.0), (W - cb + ct if b1 else W)
+            self.clapboards(F, a, b, y_start, y_fr0, ("trim" if b0 else "cut", "trim" if b1 else "cut"), cuts)
+            tc = self.tone("corner")
+            if b0:
+                self.box(F, "corner_board", -ct, cb - ct, y_start, y_fr0, 0, ct, skip=("back", "top"), tone=tc)
+            if b1:
+                self.box(F, "corner_board", W - cb + ct, W + ct, y_start, y_fr0, 0, ct, skip=("back", "top"), tone=tc)
 
         # frieze, boxed eave, brackets
         ft = fr["thickness_m"]
@@ -1234,6 +1244,11 @@ def canted_bay_body(sm: Sample, plan, height, roof_m=0.12):
     sm.poly(F, "stand_in_roof", [(s, height + roof_m, z) for s, z in plan], (0, 1, 0))
 
 
+#: T-2395: a timber body's parts, in the order they are merged and measured
+BODY_KEYS = tuple(f"body.{k}{n}" for k in ("south", "north", "wing_north", "wing_rear") for n in ("", ".2")) \
+    + ("body.rear",)
+
+
 def structure_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
     """The front's parts as built samples, each in place along the front, before merging:
     what the gate measures (tools/check_timber_kit.py holds each to the kit's rules)."""
@@ -1256,7 +1271,112 @@ def structure_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
     out["_porch_mirror_s"] = c
     for k in ("gable", "wing_wall", "porch_right", "porch_left"):
         out[k].seed = seed_of(out[k].v["id"], 0, sid)
+    if form["body"]["value"].get("timber_walls"):
+        out.update(timber_body_parts(st, form, data, out))
     return out
+
+
+# -- T-2395: the body behind a front closed in K16 timber ----------------------------------------
+#
+# The front's frame: s along the front from its left (south) end, z out toward the street, y up.
+# The gable's range runs back `gable_depth_m` behind the gable; the wing's range `wing_depth_m`
+# behind the wing wall. Each flank is a kit `clapboard_wall` set down on its side; the gable's
+# range ends at the back in a second kit gable, the front's own pitch, belt and foundation. The
+# flanks' eave is set where the main roof, carried back on the front gable's own rake, comes
+# down to their fascia, so the roof meets the gable's verge with no step.
+
+def body_flank_top(gable: Sample, data: dict, under: float) -> float:
+    """The wall top of a flank under a roof that runs back on the front gable's rake line."""
+    g = gable.meta["gable"]
+    ev = data["trim"]["eave"]
+    t = math.tan(math.radians(data["gothic"]["pitch_deg"]))
+    return g["y_g"] + g["h_roof"] - under - ev["projection_m"] * t - ev["fascia_m"]
+
+
+def timber_body_parts(st: dict, form: dict, data: dict, front: dict) -> dict:
+    sid = st["id"]
+    body = form["body"]["value"]
+    tw = body["timber_walls"]
+    gv, wv = form["gable"]["value"], form["wing_wall"]["value"]
+    Wg, Ww, join = gv["width_m"], wv["width_m"], form["layout"]["value"]["join_gap_m"]
+    Lg, Dw = body["gable_depth_m"], body["wing_depth_m"]
+    s1 = Wg + join + Ww
+    y_flank = round(body_flank_top(front["gable"], data, body["roof_under_m"]), 6)
+
+    out = {}
+
+    def wall(key, O, U, L, top, boards):
+        """One face, as one kit wall or, past `split_m`, two meeting end to end (a long flank
+        would outrun one wall's triangle budget): `body.<key>` and `body.<key>.2`."""
+        w = tw[key]
+        cut = w.get("split_m")
+        runs = [(0.0, cut, (boards[0], False)), (cut, L, (False, boards[1]))] if cut else [(0.0, L, boards)]
+        for i, (a, b, bd) in enumerate(runs):
+            v = {"id": f"k16.wall.{sid}.body_{key}" + (f"_{i + 1}" if i else ""), "kind": "clapboard_wall",
+                 "use": "wall", "width_m": round(b - a, 6), "return_m": 0.0, "boards": list(bd),
+                 "foundation_m": gv["foundation_m"], "wall_top_m": top,
+                 "windows": [dict(x, centre_m=round(x["centre_m"] - a, 6)) for x in w.get("windows", [])
+                             if a <= x["centre_m"] < b],
+                 "doors": [dict(x, centre_m=round(x["centre_m"] - a, 6)) for x in w.get("doors", [])
+                           if a <= x["centre_m"] < b]}
+            sm = Sample(v, data).build()
+            place(sm, _add(O, _mul(U, a)), U)
+            sm.seed = seed_of(v["id"], 0, sid)
+            out[f"body.{key}" + (f".{i + 1}" if i else "")] = sm
+
+    D = wv["return_m"]
+    # the gable range's south flank, from the back corner to the front's
+    wall("south", (0.0, 0.0, -Lg), (0.0, 0.0, 1.0), Lg, y_flank, (True, True))
+    # its north flank behind the wing, from the wing's back wall to the back corner
+    wall("north", (Wg, 0.0, -Dw), (0.0, 0.0, -1.0), Lg - Dw, y_flank, (False, True))
+    # the wing's north side, on from the wing wall's return, and its back wall
+    wall("wing_north", (s1, 0.0, -D), (0.0, 0.0, -1.0), Dw - D, wv["wall_top_m"], (False, True))
+    wall("wing_rear", (s1, 0.0, -Dw), (-1.0, 0.0, 0.0), s1 - Wg, wv["wall_top_m"], (True, False))
+    # the rear gable, measured in its own frame as the front's is and turned into place when
+    # the house is merged (`_rear_at`)
+    rv = dict(gv, id=f"k16.gable.{sid}.body_rear", windows=list(tw["rear"].get("windows", [])),
+              bands=tw["rear"].get("bands", gv["bands"]))
+    out["body.rear"] = Sample(rv, data).build()
+    out["body.rear"].seed = seed_of(rv["id"], 0, sid)
+    out["_rear_at"] = ((Wg, 0.0, -Lg), (-1.0, 0.0, 0.0))
+    out["_flank_top_m"] = y_flank
+    return out
+
+
+def timber_body_roofs(house: Sample, parts: dict, form: dict, data: dict) -> dict:
+    """The main roof carried back on the front gable's rake to the rear gable, over both
+    flanks' eaves, and a lean-to over the wing from its north eave up to the main roof."""
+    body = form["body"]["value"]
+    gv, wv = form["gable"]["value"], form["wing_wall"]["value"]
+    Wg, Ww, join = gv["width_m"], wv["width_m"], form["layout"]["value"]["join_gap_m"]
+    Lg, Dw = body["gable_depth_m"], body["wing_depth_m"]
+    s1 = Wg + join + Ww
+    ev = data["trim"]["eave"]
+    P_, fh = ev["projection_m"], ev["fascia_m"]
+    g = parts["gable"].meta["gable"]
+    t = math.tan(math.radians(data["gothic"]["pitch_deg"]))
+    y0 = g["y_g"] + g["h_roof"] - body["roof_under_m"]       # the roof at the range's two walls
+    ye = parts["_flank_top_m"] + fh                           # ... and at the flanks' fascia
+    yr = y0 + (Wg / 2) * t
+    xm = Wg / 2
+    F = house.F
+    house.poly(F, "roof_covering", [(-P_, ye, 0.0), (xm, yr, 0.0), (xm, yr, -Lg), (-P_, ye, -Lg)], (-1, 1, 0))
+    house.poly(F, "roof_covering", [(Wg + P_, ye, -Lg), (xm, yr, -Lg), (xm, yr, 0.0), (Wg + P_, ye, 0.0)], (1, 1, 0))
+    for z, hz in ((0.0, 1), (-Lg, -1)):        # the eave's ends: the wedge under the roof's overhang
+        for x0, x1 in ((-P_, 0.0), (Wg + P_, Wg)):
+            house.poly(F, "fascia", [(x0, ye, z), (x1, ye, z), (x1, y0, z)], (0, 0, hz))
+    # the wing's lean-to, from its eave (the wing wall's) to where it meets the main roof
+    tl = math.tan(math.radians(body["wing_roof_pitch_deg"]))
+    ywe = wv["wall_top_m"] + fh
+    xo = s1 + P_
+    xi = (y0 + Wg * t - ywe - xo * tl) / (t - tl)
+    yi = ywe + (xo - xi) * tl
+    house.poly(F, "roof_covering", [(xo, ywe, 0.0), (xi, yi, 0.0), (xi, yi, -Dw), (xo, ywe, -Dw)], (1, 1, 0))
+    for z, hz in ((0.0, 1), (-Dw, -1)):
+        house.poly(F, "fascia", [(xi, yi, z), (Wg, y0, z), (xo, ywe, z)], (0, 0, hz))
+        house.poly(F, "fascia", [(Wg, y0, z), (Wg, ywe, z), (xo, ywe, z)], (0, 0, hz))
+    return {"flank_top_m": round(parts["_flank_top_m"], 4), "eave_m": round(ye, 4), "ridge_m": round(yr, 4),
+            "lean_to_top_m": round(yi, 4), "lean_to_meets_x_m": round(xi, 4)}
 
 
 def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
@@ -1269,18 +1389,22 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
     gv, wv = form["gable"]["value"], form["wing_wall"]["value"]
     Wg, Ww, join = gv["width_m"], wv["width_m"], form["layout"]["value"]["join_gap_m"]
     house = Sample({"id": st["id"], "kind": "structure", "use": "structure"}, data)
-    # the stand-in body: the gable's range behind its front, the wing's behind its wall
-    g = parts["gable"].meta["gable"]
-    lift = g["h_roof"] - body["roof_under_m"]
-    gabled_body(house, 0.0, Wg, -body["gable_depth_m"], -T, g["y_g"], g["y_ap"], "z", lift=lift)
-    e = parts["wing_wall"].meta["eave"]
-    s1 = Wg + join + Ww
-    zm = body["wing_depth_m"] / 2
-    yr = e["y_top"] + zm * math.tan(math.radians(body["wing_roof_pitch_deg"]))
-    eave_lift = e["y_top"] - wv["wall_top_m"]
-    # its roof runs out to the wall's face (z = 0), where the boxed eave's top takes over
-    gabled_body(house, Wg + join, s1, -body["wing_depth_m"], 0.0, wv["wall_top_m"], yr - eave_lift, "s",
-                lift=eave_lift, skip=("s0",), s1_wall_to=-wv["return_m"])
+    timber = bool(body.get("timber_walls"))
+    if timber:     # T-2395: the body closed in kit timber under its own roofs
+        house.meta["body"] = timber_body_roofs(house, parts, form, data)
+    else:
+        # the stand-in body: the gable's range behind its front, the wing's behind its wall
+        g = parts["gable"].meta["gable"]
+        lift = g["h_roof"] - body["roof_under_m"]
+        gabled_body(house, 0.0, Wg, -body["gable_depth_m"], -T, g["y_g"], g["y_ap"], "z", lift=lift)
+        e = parts["wing_wall"].meta["eave"]
+        s1 = Wg + join + Ww
+        zm = body["wing_depth_m"] / 2
+        yr = e["y_top"] + zm * math.tan(math.radians(body["wing_roof_pitch_deg"]))
+        eave_lift = e["y_top"] - wv["wall_top_m"]
+        # its roof runs out to the wall's face (z = 0), where the boxed eave's top takes over
+        gabled_body(house, Wg + join, s1, -body["wing_depth_m"], 0.0, wv["wall_top_m"], yr - eave_lift, "s",
+                    lift=eave_lift, skip=("s0",), s1_wall_to=-wv["return_m"])
     bay = form.get("canted_bay")
     if bay:
         b = bay["value"]
@@ -1298,20 +1422,24 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
         house.box(house.F, "skirt", a, b, 0.0, y_rim0, 0.0, zl, skip=("back", "bottom"), tone=house.tone("skirt", a))
     # merge: the porch's left half mirrored, the board roles dropped
     mirror_s(parts["porch_left"], c)
-    for k in ("gable", "wing_wall", "porch_right", "porch_left"):
+    keys = ("gable", "wing_wall", "porch_right", "porch_left") + tuple(k for k in BODY_KEYS if k in parts)
+    if timber:
+        place(parts["body.rear"], *parts["_rear_at"])
+    for k in keys:
         sm = parts[k]
         porch = k.startswith("porch")
         for role, pr in sm.prims.items():
             if role in ("backdrop", "interior") or (porch and role == "cut"):
                 continue
-            dst = "stand_in" if role == "cut" else role
+            # a timber body's cut ends are painted board ends; the front's die into the stand-in
+            dst = ("fascia" if timber else "stand_in") if role == "cut" else role
             absorb(house.prims.setdefault(dst, Prim(dst)), pr)
     # turn it to face its street; the origin (the front's left end, at grade) stays put
     k = {"east": 1, "south": 0}[form["layout"]["value"]["faces"]]
     for pr in house.prims.values():
         pr.pos = [_rot_y(q, k) for q in pr.pos]
         pr.nrm = [_rot_y(q, k) for q in pr.nrm]
-    house.meta.update({"parts": {kk: triangles(parts[kk]) for kk in ("gable", "wing_wall", "porch_right", "porch_left")},
+    house.meta.update({"parts": {kk: triangles(parts[kk]) for kk in keys},
                        "focus": [0.0, 3.0, 0.0], "span_m": 9.0})
     return house
 

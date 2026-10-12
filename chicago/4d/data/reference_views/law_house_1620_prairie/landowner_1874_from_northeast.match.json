@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "4277ba409d34b7f6b32c0e648c816627c2c7fe9469ab9fd29a393e9f15cc7e56",
+  "glb_sha256": "52145b5bec7f0326f5d5dcc93ab3bcdff59db89e36e51d981843bd3980c90093",
   "camera_sha256": "4cbf3a651e1ee5dc689b00afeae61cf325bc7d6f1e36cb4d32e8c03ffdfa0f7e",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg",
   "verdict": "differs",
@@ -28,8 +28,8 @@
       "status": "open"
     },
     {
-      "what": "dormers: round-headed dormers in the mansard's lower face, two seen on the north face; the build's mansard has none",
-      "status": "open"
+      "what": "dormers: round-headed dormers in the mansard's lower face, two seen on the north face, their arch heads at x 746 and 805 px (51 and 110 px behind the crown's front-north corner) reaching about 10.5 m, just under the curb; built so by T-2411, two K06 round-arched sash in stone faces at u 12.6 and 6.1 m, landing at x 756 and 813 px, 47 and 106 px behind the build's crown corner (which itself stands about 10 px right of the engraving's). The engraver draws both wider and more frontal than the camera allows; the front's lower slope is behind the trees",
+      "status": "fixed"
     },
     {
       "what": "bay window: a one-storey canted bay on the SOUTH part of the front, its front's edges at x 437 and 488 px and its north cheek's foot at 512 px (v 1.54-4.64, 0.58 m out), two round-headed lights in its front, under a flared hood on a console at each corner of its front with a row of modillions; built so by T-2408 (k08.bay.canted_hooded), its edges landing at x 440 and 492 px. The picture's finial is the foot of the upper window that stands on the hood's top, and is not a finial",
@@ -40,8 +40,8 @@
       "status": "open"
     },
     {
-      "what": "entrance: the door at about v 5-6.6 under a hood, reached by a stoop rising north along the front to a porch with a turned balustrade before the pavilion; T-2408 moved the build's door to v 5.8, beside the bay; its hood, the stoop's turn and the porch are still a straight stoop with no hood (T-2409)",
-      "status": "open"
+      "what": "entrance: the door beside the pavilion's south face under a hood, reached by a straight stoop whose north string is the rail rising to the right from x 540 to 582 px (on this camera a line running back toward the wall draws so; one running north along the front would rise over about 80 px, not 42), at its head a porch at the principal floor running north before the pavilion to the north corner behind a turned balustrade that carries on down the stoop. Built (T-2409): the door at v 6.6 under a K09 cornice hood on consoles, the straight stoop's north string at v 7.65 (drawn at x 572 to 541 px), a stone terrace 1.2 m deep before the pavilion to the corner (its north end at x 685.6 px against the engraving's 690) behind a turned balustrade carried down both cheeks. The engraving draws this front's floor, porch and fence about 1.5-2 m lower against the house than this camera's grade puts them (the porch's rail top at about 0.25 m, the bay's sills at about 0.4 m); the same offset stands under the bay, so it is the camera's height datum, filed on T-2406, not the entrance",
+      "status": "fixed"
     },
     {
       "what": "fence: a lattice of interlaced pointed arches on a solid base along the street line, a board fence on the north side; the build's is the K11 scroll-band iron fence on a stone curb with stone gate piers and urns",
@@ -77,5 +77,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2404 (lapped onto T-2408), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg"
+  "reviewed": "T-2411 (lapped onto T-2409, T-2404 and T-2408), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg"
 }
