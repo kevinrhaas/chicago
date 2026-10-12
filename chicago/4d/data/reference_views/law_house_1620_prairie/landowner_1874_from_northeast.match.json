@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "c90e61d560a2181a48dff6f06ce14c175c9c33799fa7bef7b91912bec630bfc9",
+  "glb_sha256": "52145b5bec7f0326f5d5dcc93ab3bcdff59db89e36e51d981843bd3980c90093",
   "camera_sha256": "4cbf3a651e1ee5dc689b00afeae61cf325bc7d6f1e36cb4d32e8c03ffdfa0f7e",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg",
   "verdict": "differs",
@@ -40,8 +40,8 @@
       "status": "open"
     },
     {
-      "what": "entrance: the door at about v 5-6.6 under a hood, reached by a stoop rising north along the front to a porch with a turned balustrade before the pavilion; T-2408 moved the build's door to v 5.8, beside the bay; its hood, the stoop's turn and the porch are still a straight stoop with no hood (T-2409)",
-      "status": "open"
+      "what": "entrance: the door beside the pavilion's south face under a hood, reached by a straight stoop whose north string is the rail rising to the right from x 540 to 582 px (on this camera a line running back toward the wall draws so; one running north along the front would rise over about 80 px, not 42), at its head a porch at the principal floor running north before the pavilion to the north corner behind a turned balustrade that carries on down the stoop. Built (T-2409): the door at v 6.6 under a K09 cornice hood on consoles, the straight stoop's north string at v 7.65 (drawn at x 572 to 541 px), a stone terrace 1.2 m deep before the pavilion to the corner (its north end at x 685.6 px against the engraving's 690) behind a turned balustrade carried down both cheeks. The engraving draws this front's floor, porch and fence about 1.5-2 m lower against the house than this camera's grade puts them (the porch's rail top at about 0.25 m, the bay's sills at about 0.4 m); the same offset stands under the bay, so it is the camera's height datum, filed on T-2406, not the entrance",
+      "status": "fixed"
     },
     {
       "what": "fence: a lattice of interlaced pointed arches on a solid base along the street line, a board fence on the north side; the build's is the K11 scroll-band iron fence on a stone curb with stone gate piers and urns",
@@ -77,5 +77,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2411 (on T-2404 and T-2408), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg"
+  "reviewed": "T-2411 (lapped onto T-2409, T-2404 and T-2408), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg"
 }
