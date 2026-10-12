@@ -127,6 +127,12 @@ def aperture(o):
 
 
 PITCH_LINE, PITCH_MARGIN = .016, .085
+# T-2209 (reconstructed): the 7.5 cm lattice and its random diagonal are a
+# computational mesh of one continuous rock face, not fractures. At 35 degrees a
+# fifth of the shared facet corners kept a hard crease, so every lattice triangle
+# lit as its own flat chip: the "triangulated sparkle" of the GA-09 audit. Only a
+# chip steeper than this still keeps a hard ridge; the face's relief is unmoved.
+ROCK_SMOOTH_DEGREES = 60
 
 
 def _inside(x, y, poly):
@@ -220,7 +226,7 @@ def fractured_stone(polygon, depth, rng, spacing=.075):
             yield [anchors[a],anchors[b],grid[b],grid[a]],False
 
 
-def stone_corner_normals(facets, angle_degrees=35):
+def stone_corner_normals(facets, angle_degrees=ROCK_SMOOTH_DEGREES):
     """Area-weighted shallow-fracture normals, confined to one physical stone.
 
     Side faces never participate. The finished facet positions are untouched;
@@ -298,6 +304,24 @@ class DetailBuilder(MeshBuilder):
         if want is not None and dot(legacy._normal(pts),want)<0:
             pts=list(reversed(pts));normals=list(reversed(normals))
         indices=self.raw(pts,confidence,mat)
+        if want is not None:
+            # T-2209: a rock facet takes its metric UV in its WALL's plane, not its
+            # own. assign_metric_uvs projects each face on its own normal, and a
+            # facet tilted 10 degrees, metres from the origin, then shifted its
+            # crystal albedo by metres: every lattice triangle showed an unrelated
+            # patch with a hard seam. One frame per stone keeps the stone's grain
+            # continuous. roof_uvs is the existing per-vertex override (metres).
+            horizontal=(-want[1],want[0],0.0)
+            length=math.hypot(horizontal[0],horizontal[1])
+            if length<1e-6:
+                horizontal,uphill=(1.0,0.0,0.0),(0.0,1.0,0.0)
+            else:
+                horizontal=(horizontal[0]/length,horizontal[1]/length,0.0)
+                uphill=norm(cross(norm(want),horizontal))
+                if uphill[2]<0:
+                    uphill=tuple(-v for v in uphill);horizontal=tuple(-v for v in horizontal)
+            for index in indices:
+                self.roof_uvs[index]=(dot(self.verts[index],horizontal),dot(self.verts[index],uphill))
         if self.smooth_rock_faces:
             for index,normal in zip(indices,normals):
                 self.rock_normals[index]=norm(normal)
