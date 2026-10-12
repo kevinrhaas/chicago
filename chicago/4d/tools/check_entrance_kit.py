@@ -300,8 +300,34 @@ def rule_data(data):
     return out
 
 
+def house_entrances(data):
+    """T-2409: every K01 house whose door carries a terrace or a balustrade, built as the house
+    builds it (its own floor, tread, landing, width and the terrace's reach), so the kit's rules
+    measure what the kit's variants alone never build."""
+    import json
+    from archetypes import k01_frontage, k01_frontage_params
+    out = []
+    for path in sorted((ROOT / "data" / "structures").glob("*.json")):
+        st = json.loads(path.read_text())
+        if not isinstance(st, dict) or st.get("archetype") != "k01_frontage":
+            continue
+        for ph in st.get("phases", []):
+            ek = ((((ph.get("form") or {}).get("entrance_kit") or {}).get("value") or {})
+                  .get("k01.opening.door_leaf") or {})
+            if ek.get("terrace") or ek.get("balustrade"):
+                a = k01_frontage.Assembly(st["id"], k01_frontage_params.from_phase(ph, st))
+                v = a.door_variant()
+                out.append((f"{st['id']}.{ph['id']}", v, K.Entrance(v, data).build()))
+    return out
+
+
 def check(data, glb_check=True):
     fails = list(rule_data(data))
+    mats = K.materials(data)
+    for name, v, o in house_entrances(data):
+        rules = (rule_floor_and_grade(o, v, data) + rule_risers(o, v, data) + rule_closed(o, v, data)
+                 + rule_walk(o, v, data) + rule_one_layer(o, v, mats) + W.rule_doubled(o, data))
+        fails += [f"{name} (its house's entrance): {f}" for f in rules]
     mats = K.materials(data)
     for v in data["variants"]:
         try:
@@ -465,9 +491,13 @@ def main(argv) -> int:
         return 1
     n = len(data["variants"])
     tris = [K.triangles(K.build_variant(v, data, board=False)) for v in data["variants"]]
+    houses = house_entrances(data)
     print(f"ok   the K07 entrance kit: {n} variants, each landing on its threshold and standing on grade with equal "
           f"risers, every step closed, the walk clear, a recess with a closed reveal, its leaves clear of the floor; "
-          f"{min(tris)}-{max(tris)} triangles an entrance; the specimen GLB is the generator's bytes")
+          f"{min(tris)}-{max(tris)} triangles an entrance; the specimen GLB is the generator's bytes; "
+          f"{len(houses)} house entrance(s) with a terrace or balustrade held to the same rules"
+          + "".join(f" ({nm}: {sum(b['balusters'] for b in o.meta.get('balustrade', []))} balusters, "
+                    f"{K.triangles(o)} triangles)" for nm, _, o in houses))
     return 0
 
 

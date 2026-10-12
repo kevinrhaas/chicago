@@ -354,7 +354,8 @@ class Entrance(Opening):
                 self.quad("cheek", [(si, hc, L), (so, hc, L), (so, yF, F), (si, yF, F)], (0.0, g, r))
                 self.quad("cheek", [(si, -R, F), (so, -R, F), (so, yF, F), (si, yF, F)], OUT)
                 mid = sgn * (half + t / 2)
-                top = (mid, hc, L - 0.15)
+                # on the terrace's side the cheek starts at L, so its top socket stands on the rake
+                top = (mid, hc, L - 0.15) if o0 == 0.0 else (mid, hc - 0.15 * r / g, L + 0.15)
                 foot = (mid, hc - (F - 0.15 - L) * r / g, F - 0.15)
                 self.sockets[f"handrail_{'left' if sgn < 0 else 'right'}"] = [top, foot]
                 for pt in (top, foot):
@@ -365,6 +366,7 @@ class Entrance(Opening):
             self._stoop_balustrade(st["balustrade"], pside, half, L, F, n, r, g, R)
 
     # T-2409: the terrace and the turned balustrades ------------------------------------
+    TERRACE_REVEAL_M = 0.02
     def _terrace(self, porch, side, s_face, s_deck, L, R):
         """A stone terrace at the landing's height from the landing's `side` edge to
         `to_s_m` along the front, `L` deep, its back stepped out where `back` says the
@@ -384,9 +386,11 @@ class Entrance(Opening):
         self.probe((s_deck + S) / 2, 0.0, (last + L) / 2, ("terrace",), "the terrace")
         B = porch.get("balustrade")
         if B:
-            nm = B["newel_m"] / 2
-            corner = ((s_face + s_deck) / 2 if s_face > s_deck else s_deck + nm, 0.0, L - nm)
-            far = (S - nm, 0.0, L - nm)
+            # the newels stand REVEAL back from the terrace's edge, so the corner newel's face is
+            # never on the plane of the cheek's end beside it (one face drawn twice)
+            nm, o_n = B["newel_m"] / 2, L - B["newel_m"] / 2 - self.TERRACE_REVEAL_M
+            corner = ((s_face + s_deck) / 2 if s_face > s_deck else s_deck + nm, 0.0, o_n)
+            far = (S - nm, 0.0, o_n)
             self._baluster_run(B, corner, far, B["height_m"])
             self._baluster_run(B, far, (S - nm, 0.0, last + nm), B["height_m"], skip_first=True)
         self.meta["terrace"] = {"s": [s_deck, S], "out_m": L, "back": [list(q) for q in steps]}
@@ -405,8 +409,9 @@ class Entrance(Opening):
         y_foot = hc + (yF - hc) * (foot - L) / (F - L)
         for sgn in (-1.0, 1.0):
             sc = sgn * (half + t / 2)
-            if sgn == pside:
-                self._baluster_run(B, (sc, hc, L - nm), (sc, y_foot, foot), H, skip_first=True)
+            if sgn == pside:   # from the terrace's corner newel (_terrace), down the rake
+                self._baluster_run(B, (sc, hc, L - nm - self.TERRACE_REVEAL_M), (sc, y_foot, foot), H,
+                                   skip_first=True)
             else:
                 self._baluster_run(B, (sc, hc, nm), (sc, hc, L), H)
                 self._baluster_run(B, (sc, hc, L), (sc, y_foot, foot), H, skip_first=True)
