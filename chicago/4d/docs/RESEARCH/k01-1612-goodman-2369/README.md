@@ -44,3 +44,20 @@ seen only in shadow; the centre bay's frieze lights and the frieze's surface, hi
 may be a vine; the fence's foot, which reads about 0.5 m above the walk where the walk, the
 yard's grade and a coping cannot be told apart (the kit's 0.25 m curb is kept); the south
 wall behind the oriel and the north bay.
+
+## In the app
+
+`node tools/qa_k01_t2369.mjs` in the published /1904/ app, T-2366's stands plus one on the
+stoop's line and one under the oriel: desktop 1280x800 at full detail and phone 390x780 at
+light, no page errors, no failed requests, every stand within budget
+(`browser-validation-after-desktop.json`, `browser-validation-after-mobile.json`).
+
+![oblique, desktop](after-desktop-oblique.jpg)
+![stoop, phone](after-mobile-stoop-oblique.jpg)
+![oriel, phone](after-mobile-south-oriel.jpg)
+
+The card's Images tab at 390x780 (`tools/qa_images_tab_t2389.mjs` narrowed to this house, the
+store's two files served from the owner-supplied copy because this container cannot reach the
+store): one picture, credited, a thumbnail until tapped, no page errors.
+
+![Images tab, phone](images-tab-phone.jpg)
