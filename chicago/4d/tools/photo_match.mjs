@@ -16,6 +16,10 @@
 //   eye            [u, v, y] in the structure's footprint frame (u east toward the street,
 //                  v north, y metres above its grade)
 //   yaw_deg        the heading, degrees clockwise from north (90 looks due east)
+//   sun_uvy        optional: the direction the photograph's sunlight comes from, [u, v, y]
+//                  in the same frame (T-2369: which walls are lit and where shadows fall is
+//                  part of what is compared); the review render's default east-north-east sun
+//                  otherwise
 //   solve          how the camera was fitted, in words and numbers (never read here)
 // Writes <out>/<name>-side-by-side.jpg (photograph | render, the render the GLB alone at the
 // photograph's size and framing; the bare render goes to a temp file), <out> defaulting to
@@ -57,13 +61,14 @@ const page_html = `<!doctype html><meta charset=utf-8><style>html,body{margin:0;
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
-const c=${JSON.stringify({W, H, cx, cy, f, eye: cam.eye, yaw: cam.yaw_deg, glb: '/' + glb.replace(/\\/g, '/')})};
+const c=${JSON.stringify({W, H, cx, cy, f, eye: cam.eye, yaw: cam.yaw_deg, sun: cam.sun_uvy || null, glb: '/' + glb.replace(/\\/g, '/')})};
 const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.setPixelRatio(1);r.setSize(c.W,c.H);
 r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;r.shadowMap.enabled=true;
 document.body.appendChild(r.domElement);
 const s=new THREE.Scene();s.background=new THREE.Color(0xe8ecef);
 s.add(new THREE.HemisphereLight(0xdfe8f0,0x8a8070,1.1));
-const sun=new THREE.DirectionalLight(0xfff4e0,2.4);sun.position.set(60,45,-20);sun.castShadow=true;
+const sun=new THREE.DirectionalLight(0xfff4e0,2.4);sun.castShadow=true;
+if(c.sun){const k=75/Math.hypot(...c.sun);sun.position.set(c.sun[0]*k,c.sun[2]*k,-c.sun[1]*k);}else sun.position.set(60,45,-20);
 Object.assign(sun.shadow.camera,{left:-40,right:40,top:40,bottom:-40,near:1,far:200});sun.shadow.mapSize.set(4096,4096);sun.shadow.bias=-0.0004;
 s.add(sun);
 const g=new THREE.Mesh(new THREE.PlaneGeometry(400,400),new THREE.MeshStandardMaterial({color:0x9a9686,roughness:1}));
