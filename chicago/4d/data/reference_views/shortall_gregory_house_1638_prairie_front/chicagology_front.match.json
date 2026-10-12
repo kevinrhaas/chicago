@@ -1,0 +1,80 @@
+{
+  "structure_id": "shortall_gregory_house_1638_prairie_front",
+  "view": "chicagology_front",
+  "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
+  "glb_sha256": "66d6ad87744a764fcb5f67fe8aef098d72141cf81464773cdc2d554d0f368e69",
+  "camera_sha256": "c1c16c717eda63839555e726bc9ca222e4cf819084c6a63406e51eda341c874d",
+  "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Gable: the twin windows' heads are pointed, two lights 0.63 m wide with their points at 5.87 m, not the kit's flat-headed pair (T-2423)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: each light's casing follows its pointed head, the pair sharing one mullion, with no flat head board or drip cap (T-2423)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the hood mould over the pair, from a label stop each side at 5.45 m along an ogee to its point at 6.5 m under a finial with a cross-piece to 7.2 m (T-2423)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the oval high in the gable, 0.89 by 0.74 m at 8.04 m, a moulded ring round a blind field (T-2423)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the siding runs up into the gable to the rake, with no belt and no band of fish-scale shingle (T-2423)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the sills sit just over the bay's roof, the bay's top lowered to the print's 3.67 m so it no longer buries them (T-2423)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the verge is a broad plain bargeboard with a moulded edge; the model's is pierced with the kit's roundels and vesicas",
+      "status": "open"
+    },
+    {
+      "what": "Gable: the apex finial is a cluster of three pointed pinnacles; the model's is the kit's single chamfered post",
+      "status": "open"
+    },
+    {
+      "what": "Gable: under the hood, between the two lights' heads, the print shows cusped tracery and the hood's ends curl as volutes; the model has plain blocks for stops and no tracery",
+      "status": "open"
+    },
+    {
+      "what": "Gable: the apex stands about 12 px (0.16 m) over the print's",
+      "status": "open"
+    },
+    {
+      "what": "Bay (T-2424): three pointed lights between posts, a moulded cornice and a panelled base; the model's bay is a plain block",
+      "status": "open"
+    },
+    {
+      "what": "Bay (T-2424): the print's bay is narrower than the sheet's plan, its face about 1.47 m against 1.95 m and its cants about 1.0 m deep across",
+      "status": "open"
+    },
+    {
+      "what": "Entrance (T-2425): a pointed arch on posts with pierced quatrefoil spandrels, double doors with glazed upper panels and a stoop between cheek walls; the model has the kit's porch posts, brackets and lattice",
+      "status": "open"
+    },
+    {
+      "what": "Tower: the upper stage is smooth with incised ornament over each light; the model's is clapboarded",
+      "status": "open"
+    },
+    {
+      "what": "Fence (T-2426): two gate piers with pierced, pointed caps and finials, and a low picket fence on a base along the street line; not built",
+      "status": "open"
+    },
+    {
+      "what": "South of the gable the print shows a two-storey block with a hipped roof, a pale stack and a two-light window over a door: the register's 'separate lower wing' or the neighbour, not yet identified; the model shows the gable range's south flank and projection there",
+      "status": "open"
+    },
+    {
+      "what": "Colour of every surface: the print is a monochrome halftone",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
