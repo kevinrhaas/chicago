@@ -644,6 +644,8 @@ class Sample:
         k6 = K06.load()
         kv = copy.deepcopy(next(x for x in k6["variants"] if x["id"] == win["k06_variant"]))
         kv["clear_height_m"] = win["clear_height_m"]
+        if "clear_width_m" in win:     # T-2396: a narrow face's sash
+            kv["clear_width_m"] = win["clear_width_m"]
         kv.setdefault("overrides", {})["reveal_depth_m"] = cs["reveal_depth_m"]
         c, ys = win["centre_m"], win["sill_m"]
         op = CasedOpening(kv, k6, origin=F.P(c, ys, 0.0)).build()
@@ -1251,8 +1253,8 @@ BODY_KEYS = tuple(f"body.{k}{n}" for k in ("south", "north", "wing_north", "wing
 
 def body_part_keys(parts: dict) -> tuple:
     """A front record's body parts in merge order: the timber body's faces, then any annex's
-    walls (T-2397), each held to the kit's rules by the gate."""
-    return tuple(k for k in BODY_KEYS if k in parts) + tuple(k for k in parts if k.startswith("annex."))
+    walls (T-2397) and the corner tower's faces (T-2396), each held to the kit's rules by the gate."""
+    return tuple(k for k in BODY_KEYS + TOWER_KEYS if k in parts) + tuple(k for k in parts if k.startswith("annex."))
 
 
 def structure_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
@@ -1271,7 +1273,9 @@ def structure_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
     half = dict(pv, width_m=pv["half_width_m"])
     probe = Sample(half, data).build()
     reach = max(p[0] for pr in probe.prims.values() for p in pr.pos)    # the half's roof edge
-    c = Wg + join + reach
+    # the porch stands with its roof's south edge at the gable's, unless the record places its
+    # middle (T-2396: 1638's photograph puts its porch, and the tower on it, there)
+    c = pv["centre_m"] if "centre_m" in pv else Wg + join + reach
     out["porch_right"] = Sample(half, data, (c, 0.0, 0.0)).build()
     out["porch_left"] = Sample(half, data, (c, 0.0, 0.0)).build()      # mirrored when merged
     out["_porch_mirror_s"] = c
@@ -1279,6 +1283,8 @@ def structure_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
         out[k].seed = seed_of(out[k].v["id"], 0, sid)
     if form["body"]["value"].get("timber_walls"):
         out.update(timber_body_parts(st, form, data, out))
+    if form.get("tower"):
+        out.update(tower_parts(st, form, data, out))
     return out
 
 
@@ -1474,6 +1480,108 @@ def timber_body_roofs(house: Sample, parts: dict, form: dict, data: dict) -> dic
     return out
 
 
+# -- T-2396: a corner tower standing on the porch -------------------------------------------------
+#
+# 1638's photograph shows, at the north end of the front, a regular octagon standing on the porch's
+# roof: an upper stage lit by a pointed sash in each street face, a cornice, and an octagonal spire
+# to a finial. Each of the eight faces is a kit `clapboard_wall` with no return and a corner board
+# at each angle, its water table the band the stage stands on; the wall's own straight eave and
+# brackets are left off, because eight straight eaves cannot meet at an octagon's angles, and the
+# cornice and the spire are built round the octagon instead so every angle mitres. The tower is
+# centred on the porch and its front face stands on the porch plate's front, so it is the porch's
+# second storey and not a separate thing beside it; its back faces run into the house and show only
+# where they rise above the north range's roof.
+
+#: the faces, by their outward normal turning from the street front (+z) toward the north (+s)
+TOWER_FACES = ("e", "ne", "n", "nw", "w", "sw", "s", "se")
+TOWER_KEYS = tuple(f"tower.{f}" for f in TOWER_FACES)
+#: what a tower face does not keep of its kit wall: the straight eave and its brackets (the
+#: octagon's own cornice replaces them), and the foundation a stage on a porch roof has none of
+TOWER_DROP = ("foundation", "soffit", "fascia", "roof", "bracket")
+
+
+def tower_ring(c, zc, r, y):
+    """The octagon of apothem r about (c, zc) at height y, its vertices between the faces in
+    TOWER_FACES order (the first between the front and the north-east face)."""
+    rho = r / math.cos(math.pi / 8)
+    return [(c + rho * math.sin(math.pi / 8 + j * math.pi / 4), y, zc + rho * math.cos(math.pi / 8 + j * math.pi / 4))
+            for j in range(8)]
+
+
+def tower_parts(st: dict, form: dict, data: dict, front: dict) -> dict:
+    sid = st["id"]
+    tv = form["tower"]["value"]
+    porch = front["porch_right"]
+    c = front["_porch_mirror_s"]
+    z_front = max(p[2] for p in porch.prims["plate"].pos)     # the porch plate's front
+    y0 = max(p[1] for p in porch.prims["roof"].pos)            # the porch roof the stage stands on
+    A = tv["across_flats_m"]
+    R, w = A / 2, A * math.tan(math.pi / 8)
+    zc = z_front - R
+    lit = {f: wv for wv in tv.get("windows", []) for f in wv["faces"]}
+    out = {}
+    for i, f in enumerate(TOWER_FACES):
+        th = i * math.pi / 4
+        n, U = (math.sin(th), 0.0, math.cos(th)), (math.cos(th), 0.0, -math.sin(th))
+        O = _add((c + R * n[0], y0, zc + R * n[2]), _mul(U, -w / 2))
+        win = lit.get(f)
+        v = {"id": f"k16.wall.{sid}.tower_{f}", "kind": "clapboard_wall", "use": "wall", "width_m": round(w, 6),
+             "return_m": 0.0, "boards": [True, True], "foundation_m": 0.0,
+             "wall_top_m": round(tv["wall_top_m"] - y0, 6),
+             "windows": [{"k06_variant": win["k06_variant"], "clear_width_m": win["clear_width_m"],
+                          "clear_height_m": win["clear_height_m"], "sill_m": round(win["sill_m"] - y0, 6),
+                          "centre_m": round(w / 2, 6)}] if win else []}
+        sm = Sample(v, data).build()
+        for role in TOWER_DROP:
+            sm.prims.pop(role, None)
+        place(sm, O, U)
+        sm.seed = seed_of(v["id"], 0, sid)
+        out[f"tower.{f}"] = sm
+    out["_tower"] = {"c": c, "zc": zc, "R": R, "y0": y0}
+    return out
+
+
+def tower_roof(house: Sample, parts: dict, form: dict, data: dict) -> dict:
+    """The tower's cornice and spire round its octagon: a soffit and fascia out at the eave's
+    projection, the spire's covering kicked out over them and then up at its own pitch to the
+    apex, and a chamfered finial through the apex."""
+    tv = form["tower"]["value"]
+    t = parts["_tower"]
+    c, zc, R = t["c"], t["zc"], t["R"]
+    ev = data["trim"]["eave"]
+    fr = data["trim"]["frieze"]
+    P_, fh = tv["eave_projection_m"], ev["fascia_m"]
+    y_s, y_ap = tv["wall_top_m"], tv["spire_apex_m"]
+    F = house.F
+    face = R + fr["thickness_m"]
+    inner, outer = tower_ring(c, zc, face, y_s), tower_ring(c, zc, R + P_, y_s)
+    top = tower_ring(c, zc, R + P_, y_s + fh)
+    kick = tower_ring(c, zc, face, y_s + fh + tv["kick_m"])
+    apex = (c, y_ap, zc)
+    for j in range(8):
+        k = (j + 1) % 8
+        mid = ((outer[j][0] + outer[k][0]) / 2 - c, 0.0, (outer[j][2] + outer[k][2]) / 2 - zc)
+        house.poly(F, "soffit", [inner[j], outer[j], outer[k], inner[k]], (0, -1, 0))
+        house.poly(F, "fascia", [outer[j], top[j], top[k], outer[k]], mid)
+        house.poly(F, "roof_covering", [top[j], kick[j], kick[k], top[k]], _add(mid, (0.0, 1.0, 0.0)))
+        house.poly(F, "roof_covering", [kick[j], apex, kick[k]], _add(mid, (0.0, 0.6, 0.0)))
+    # the finial: a chamfered octagonal post from inside the spire to above its apex, to a point
+    fi = data["gothic"]["finial"]
+    a = fi["section_m"] / 2
+    ring = [(c + ds, 0.0, zc + dz) for ds, dz in octagon(a, fi["chamfer_m"])]
+    y_lo = y_ap - fi["drop_m"]
+    y_hi = y_ap + tv["finial_m"]
+    for j in range(8):
+        p, q = ring[j], ring[(j + 1) % 8]
+        mid = ((p[0] + q[0]) / 2 - c, 0.0, (p[2] + q[2]) / 2 - zc)
+        house.poly(F, "finial", [(p[0], y_lo, p[2]), (q[0], y_lo, q[2]), (q[0], y_hi, q[2]), (p[0], y_hi, p[2])], mid)
+        house.poly(F, "finial", [(p[0], y_hi, p[2]), (q[0], y_hi, q[2]), (c, y_hi + fi["point_m"], zc)],
+                   _add(mid, (0.0, 0.5, 0.0)))
+    return {"stage_base_m": round(t["y0"], 4), "wall_top_m": y_s, "eave_m": round(y_s + fh, 4),
+            "spire_apex_m": y_ap, "finial_top_m": round(y_hi + fi["point_m"], 4),
+            "across_flats_m": tv["across_flats_m"], "front_z_m": round(zc + R, 4)}
+
+
 def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
     """The whole front, merged into one sample and turned to face its street."""
     data = data or load()
@@ -1487,6 +1595,8 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
     timber = bool(body.get("timber_walls"))
     if timber:     # T-2395: the body closed in kit timber under its own roofs
         house.meta["body"] = timber_body_roofs(house, parts, form, data)
+    if form.get("tower"):     # T-2396: the corner tower's cornice, spire and finial
+        house.meta["tower"] = tower_roof(house, parts, form, data)
     else:
         # the stand-in body: the gable's range behind its front, the wing's behind its wall
         g = parts["gable"].meta["gable"]

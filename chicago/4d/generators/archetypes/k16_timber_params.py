@@ -32,7 +32,7 @@ from dataclasses import dataclass, field
 from archetypes.k01_frontage_params import CONFIDENCE_VALUE
 
 REQUIRED = ("layout", "gable", "wing_wall", "porch", "body")
-OPTIONAL = ("canted_bay", "roof_covering")
+OPTIONAL = ("canted_bay", "roof_covering", "tower")
 #: The form attributes that reach the mesh. `stories` and `construction` are stated on a
 #: record for the card and declare `geometry: simplified`.
 # T-2357: the whole-house layout, read instead of the front's five
@@ -61,6 +61,7 @@ class K16TimberParams:
     body: dict | None = None
     canted_bay: dict | None = None
     roof_covering: dict | None = None
+    tower: dict | None = None
     frame_house: dict | None = None
     confidence: dict = field(default_factory=dict)
 
@@ -104,6 +105,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
         errs = annex_errors(body, form["gable"]["value"]["width_m"])
         if errs:
             raise ParamError(f"{rid}: body: " + "; ".join(errs))
+    if "tower" in form:     # T-2396: the corner tower over the porch
+        bad = tower_errors(form["tower"]["value"])
+        if bad:
+            raise ParamError(f"{rid}: tower: {'; '.join(bad)}")
     if not isinstance(form["porch"]["value"].get("half_width_m"), (int, float)):
         raise ParamError(f"{rid}: porch needs half_width_m")
     return K16TimberParams(
@@ -214,4 +219,28 @@ def frame_house_errors(fh: dict) -> list[str]:
     ch = fh.get("chimney")
     if ch is not None and not all(_num(ch.get(k)) for k in ("u_m", "v_m", "width_m", "depth_m", "above_ridge_m")):
         out.append("chimney needs u_m, v_m, width_m, depth_m and above_ridge_m")
+    return out
+
+
+TOWER_FACES = ("e", "ne", "n", "nw", "w", "sw", "s", "se")
+
+
+def tower_errors(tv: dict) -> list[str]:
+    """What the corner-tower builder cannot read (T-2396): an octagon's size, its stage's wall
+    top and spire apex in metres over grade (the stage's foot is the porch roof it stands on),
+    the cornice's projection and kick, the finial's height, and each sash's faces."""
+    out = []
+    for k in ("across_flats_m", "wall_top_m", "spire_apex_m", "eave_projection_m", "kick_m", "finial_m"):
+        if not _num(tv.get(k)) or tv[k] <= 0:
+            out.append(f"{k} must be a positive number")
+    if not out and tv["spire_apex_m"] <= tv["wall_top_m"] + 1.0:
+        out.append("spire_apex_m must stand at least 1 m over wall_top_m")
+    seen = set()
+    for w in tv.get("windows", []):
+        faces = w.get("faces") or []
+        if not faces or any(f not in TOWER_FACES or f in seen for f in faces):
+            out.append(f"a window's faces must be distinct, from {', '.join(TOWER_FACES)}")
+        seen.update(faces)
+        if not all(_num(w.get(x)) for x in ("clear_width_m", "clear_height_m", "sill_m")) or not w.get("k06_variant"):
+            out.append("a window needs k06_variant, clear_width_m, clear_height_m and sill_m")
     return out

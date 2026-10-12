@@ -24430,6 +24430,50 @@ this record's id.
 **Review:** `docs/RESEARCH/k16-1638-rear-2397/README.md`.
 **Recorded:** 2026-10-12 (T-2397).
 
+### L-k16-1638-tower-2396 — 1638 Prairie's corner tower read off its photograph over the kit's porch: an octagonal stage under an octagonal spire, its unseen faces, cladding and colour from the K16 kit
+
+**Decision:** the north end of the Shortall-Gregory house's front (T-2396, a piece of T-1864's
+envelope) is no longer a plain two-storey wing wall behind a one-storey porch. Over the porch stands
+the corner tower the house's photograph shows: a regular octagon 2.5 m across its flats, standing on
+the porch's roof (3.57 m) with its front face on the porch plate's front, so the porch is its ground
+storey; an upper stage to a 7.0 m cornice, each of its eight faces a kit `clapboard_wall` with a
+corner board at each angle and the kit's water table as the band it stands on; a pointed two-over-two
+sash (the kit's K06 equilateral head, 0.6 m wide, sill 4.35 m, point 6.2 m) in each of the three
+street faces; a soffit and fascia mitred round the octagon at a 0.3 m eave, and an octagonal spire
+kicked out over it to its point at 9.9 m, a little over the gable's apex, with the kit's chamfered
+finial through it. The porch moves to stand under it, its middle 6.55 m from the front's south end
+(it stood at 6.86 m, its roof's south edge at the gable's). The wing wall loses its upper sash, which
+is inside the tower now.
+**What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`, the Prairie
+library's `a16-cgy-1638-gothic-photo`, undated): that the tower exists and stands over the porch at
+the north end of the front; its octagonal plan (the 0.41 : 0.29 : 0.29 of its front and diagonal
+faces); its width against the front, whose 8.13 m is the 1911 Sanborn sheet's; where it stands along
+the front; the heights of its stage's foot, its lights' sills and points, its cornice and its
+spire's point, all read at 73-77 px a metre with no camera solved; a pointed light in each street
+face; the cornice and the octagonal spire to a finial.
+**What is invented.** The camera: no solve is committed, and the reading assumes the print close to
+an elevation, which the faces' asymmetry (the camera about 6 degrees off the tower's axis, some 30 m
+off) supports and does not prove. The five faces the print does not show — the north and south faces
+and the three back into the house — are plain; the stage is clapboarded, where the print shows it
+smooth with incised ornament over each light; the lights take the kit's equilateral head on a sash
+narrower than the print's and less acute; the spire's covering is the house's wood shingle and every
+colour is the house's, the print being monochrome; the porch under it is still the kit's porch with
+its posts, brackets and lattice, where the print shows an arch with pierced spandrels, double doors
+behind it and a stoop before it (T-1865); the stage has no floor or framing inside, and its back
+faces run into the north range, showing only above its roof. The tower itself (`form.tower`) is
+`inferred`, read off the photograph with its reasoning in the record's note, so this entry covers
+the porch it stands on, whose kit fabric stands where the photograph shows an arch, and is where the
+tower's own inventions above are admitted.
+
+**How to resolve:** a camera solved from the photograph (T-1865's image gate) corrects every reading
+above, and a second picture of the house, or one whose rights allow it, shows the faces this one
+cannot; T-1865 finishes the stage's ornament, the arched porch, the doors and the stoop, keeping this
+record's id.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.porch`.
+**Ticket:** T-2396 (a piece of T-1864, the 1638 envelope).
+**Review:** `docs/RESEARCH/k16-1638-tower-2396/README.md`.
+**Recorded:** 2026-10-12 (T-2396).
+
 ### L-k01-1612-goodman-2344 — 1612 Prairie, the Goodman house, refined from the district draft on the K01 kit: an Italianate stone front whose every proportion, opening and fabric is reconstructed
 
 **Decision:** Replace the district draft of 1612 Prairie, in place and under its id, with a K01
