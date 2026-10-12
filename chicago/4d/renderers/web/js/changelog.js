@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1724, ts: '2026-10-12T14:30:15.709Z', date: 'Oct 12, 2026, 9:30 AM CT', title: 'The Gothic house at 1638 Prairie is timber all the way round', kind: 'improvement',
+    items: [
+      'Behind its pointed front gable, the Shortall-Gregory house no longer stands on a plain grey block: both sides and the back are clapboard with corner boards, bracketed eaves and two storeys of sash.',
+      'Its steep roof now runs from the front gable to a matching gable at the back, and the narrow north side wing has its own lower lean-to roof.',
+      'No picture shows the sides or the back, so the windows are spaced to the plan and marked as a liberty.',
+    ] },
   { v: 1723, ts: '2026-10-12T13:32:05.592Z', date: 'Oct 12, 2026, 8:32 AM CT', title: '1609 and 1611 Prairie: the lost frame pair, built in clapboard', kind: 'feature',
     items: [
       'The two frame houses that stood at 1609 and 1611 Prairie in 1904, gone by 1911, now stand whole: clapboard laid board by board, two-over-two sash and panelled doors, under one bracketed timber cornice.',
