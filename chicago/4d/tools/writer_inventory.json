@@ -11,8 +11,8 @@
       "placement": "pending",
       "write_mode": "(bare)",
       "measured": "2026-10-12",
-      "finding": "Reproduces: run bare on a clean tree it rewrote its own two outputs, docs/RESEARCH/glessner-windows-2211/opening-schedule.{md,json}, byte for byte and moved nothing else.",
-      "placed": "not yet — measured to reproduce. It reads only data/structures/glessner_house.json, which no reconstruction stage writes, and nothing reads its two outputs, so it has no ordering hazard on either side; the manifest's order is its own measured pass, so it is not appended blind (T-2211)."
+      "finding": "Reproduces: run bare on a clean tree it rewrote its own four outputs, docs/RESEARCH/glessner-windows-2211/opening-schedule.{md,json} and (since T-2212) docs/RESEARCH/glessner-windows-2212/opening-schedule.{md,json}, byte for byte and moved nothing else.",
+      "placed": "not yet — measured to reproduce. It reads only data/structures/glessner_house.json, which no reconstruction stage writes, and nothing reads its four outputs, so it has no ordering hazard on either side; the manifest's order is its own measured pass, so it is not appended blind (T-2211; T-2212)."
     },
     "count_held_head_dwellings_1835.py": {
       "placement": "manifest",

@@ -788,19 +788,26 @@ def opening(b,o,courtyard=False):
         return
     # Small basement grid apertures have stone mullions and only recessed glass.
     small=min(c-a,z1-z0)<.45
-    if kind=='window' and not courtyard and not getattr(b,'reduced_sash',False):
-        # T-2211: street and stable sash in their own planes (the light tier keeps
-        # the single pane below; courtyard sash is T-2212's).
+    if kind=='window' and not getattr(b,'reduced_sash',False):
+        # T-2211: street and stable sash in their own planes; T-2212 the courtyard's,
+        # on rock-faced limestone sills under rough lintels (the light tier keeps
+        # the single pane below).
         from archetypes import masonry_house_v4_sash as sash
+        sill_mat=ROUGH_TRIM if courtyard else None
         if small and max(c-a,z1-z0)>=.45:
-            sash.slit_sash(b,o,a,c,z0,z1,conf)
+            sash.slit_sash(b,o,a,c,z0,z1,conf,sill_mat=sill_mat)
             return
         if not small:
-            sash.double_hung(b,o,a,c,z0,z1,conf)
+            sash.double_hung(b,o,a,c,z0,z1,conf,divided=o.get('sash')=='two_over_two',sill_mat=sill_mat)
+            if courtyard and z1<1.8:
+                # HABS photograph 05: the court's garden-level lights are barred.
+                sash.garden_bars(b,o,a,c,z0,z1,conf)
             if z0>2:
                 linen_shade(b,a,c,z0,z1,lambda u,z,off:legacy._plane_point(o,u,z,off),
                             legacy._plane_dir(o),conf,int((a*17+c*31+o['at']*7+z0)*10003),
-                            prairie_colonnade=(o.get('face')=='east' and z0>5))
+                            prairie_colonnade=(not courtyard and o.get('face')=='east' and z0>5))
+            if courtyard:
+                rough_lintel(b,o,a-.24,c+.24,z1+.006,z1+.21,conf)
             return
     frame=.025 if small else .062
     glazing_mat=DARK_GLASS if small or kind=='dark' else GLASS
@@ -984,7 +991,7 @@ def bow(b,w):
     for op in windows:
         a,c=op['a0'],op['a1'];mid=(a+c)/2
         p=(cx+r*math.cos(a),cy+r*math.sin(a));q=(cx+r*math.cos(c),cy+r*math.sin(c))
-        facet_window(b,p,q,op['z0'],op['z1'],(math.cos(mid),math.sin(mid),0),conf,stone_jambs=False,door=op['door'])
+        facet_window(b,p,q,op['z0'],op['z1'],(math.cos(mid),math.sin(mid),0),conf,stone_jambs=False,door=op['door'],sash=True)
     if b.params.detail.get('continuous_copper_corner'):
         return  # One joined fan and return are emitted in supplemental().
     z=w['wall_top_z'];zr=z+w['roof_rise_m'];ro=r+.20
@@ -998,20 +1005,28 @@ def bow(b,w):
 
 
 
-def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False,panes=None,surrounds=True):
-    """Recessed sash on an arbitrarily oriented planar bay facet."""
+def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False,panes=None,surrounds=True,
+                 sash=False):
+    """Recessed sash on an arbitrarily oriented planar bay facet.
+
+    `sash` draws T-2212's one-over-one double-hung in two planes in place of the
+    single pane and flat frame (the light tier keeps the single pane)."""
     tangent=norm(sub((*q,0),(*p,0)));width=math.dist(p,q)
+    sash=sash and not small and not door and not getattr(b,'reduced_sash',False)
     def P(u,z,off):
         return (p[0]+tangent[0]*u+normal[0]*off,p[1]+tangent[1]*u+normal[1]*off,z)
     outline=[(0,z0),(width,z0),(width,z1),(0,z1)]
     for i in range(4):
         a,c=outline[i],outline[(i+1)%4]
         b.raw([P(*a,.02),P(*a,-.29),P(*c,-.29),P(*c,.02)],conf,TRIM if stone_jambs else BRICK)
-    if small:
+    if sash:
+        from archetypes.masonry_house_v4_sash import on_facet
+        on_facet(b,p,tangent,normal,width,z0,z1,conf)
+    elif small:
         b.raw([P(u,z,-.60) for u,z in outline],conf,DARK_GLASS,normal)
     else:
         interior_recess(b,outline,P,normal,front=-.291)
-    if not door:
+    if not door and not sash:
         if small:
             b.raw([P(u,z,-.285) for u,z in outline],conf,DARK_GLASS,normal)
         else:
@@ -1095,7 +1110,7 @@ def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False
                 pts=[knob(aa,a),knob(cc,a),knob(cc,c)]
                 if k:pts.append(knob(aa,c))
                 b.raw(pts,conf,IRON,normal)
-    if not small and not door:
+    if not small and not door and not sash:
         frames=[(0,.06,z0,z1),(width-.06,width,z0,z1),(0,width,z0,z0+.06),(0,width,z1-.06,z1)]
         cols,rows=panes or [1,2]
         for col in range(1,cols):
@@ -1137,7 +1152,7 @@ def bay(b,y,params):
                 b.raw([(*pa,lo),(*qa,lo),(*qa,hi),(*pa,hi)],conf,ROUGH_TRIM,want)
         for a,c,lo,hi in windows:
             basal=lo<2
-            facet_window(b,a,c,lo,hi,want,conf,small=basal,stone_jambs=not basal)
+            facet_window(b,a,c,lo,hi,want,conf,small=basal,stone_jambs=not basal,sash=True)
             if basal:
                 count=max(3,round(math.dist(a,c)/.115))
                 for i in range(count+1):

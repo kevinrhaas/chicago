@@ -25390,3 +25390,34 @@ a surviving sash measured on site, replaces the sizes with readings.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Ticket:** T-2211 (Glessner exterior audit GA-11A).
 **Recorded:** 2026-10-12 (T-2211).
+
+### L-glessner-sash-2212 — The Glessner courtyard, hall-bow and dining-bay sash, drawn in two planes
+
+**Decision:** the Glessner house's courtyard windows, the hall bow's lights and the dining bay's
+first-floor lights are drawn as the same two-plane double-hung sash T-2211 gave the street (T-2212,
+Glessner exterior audit GA-11B), where each was one pane behind one flat frame. On the courtyard
+faces the sill under the sash is rock-faced limestone, not granite, under the rough lintel the
+court already had; the east wing's four lights over the underpass are two-over-two (a vertical
+bar in each sash); and the court's garden-level lights stand behind vertical iron bars about
+115 mm apart. The bow's and the bay's lights are the same sash carried onto their curved and
+canted facets; their stone jambs, sills and lintels are unchanged.
+**What is read.** The sash TYPES, from HABS photograph 05 (c. 1923, the court; nineteen years
+after the scene date, and its rights are unknown, so it is read and nothing is traced or derived
+from its pixels): one-over-one double-hung in the north range, the hall bow (both storeys) and the
+dining bay's first floor; two-over-two in three of the four lights over the underpass (the fourth
+has its blind drawn and is given its neighbours' pattern); vertical iron bars across the north
+range's garden-level lights; one undivided light in each dormer and two-by-three fixed lights in
+the stair tower's lantern, both already built that way and unchanged.
+**What is invented.** Every member size, as L-glessner-sash-2211 (the same module draws them);
+the bar spacing and the bars' 11 mm radius; the bars on the stable's and the east wing's garden
+lights, which photograph 05 does not show (the north range's do); the one-over-one sash in the
+stable's courtyard and south windows, which no picture read shows; and carrying the c. 1923 sash
+back to 1904, which nothing records changing (the first recorded exterior work is 1946).
+**What is not changed.** Every opening's position and size, reveals, lintels and coursing, the
+dining bay's glazed band, the stair tower's slits and lantern, the dormers, and the light
+(mobile) tier, which keeps the single pane: it has under 3,000 triangles of its 200,000 left.
+**How to resolve:** a 1904-or-earlier view of the court, or a surviving sash measured on site,
+replaces the readings and sizes; a clearer print of photograph 05 settles the shaded light.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.bay_dining_elevation`, `glessner_house.as_built_1887.form.openings_court_north`.
+**Ticket:** T-2212 (Glessner exterior audit GA-11B).
+**Recorded:** 2026-10-12 (T-2212).

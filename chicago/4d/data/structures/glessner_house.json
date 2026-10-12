@@ -1566,7 +1566,8 @@
                   12.3,
                   16.9
                 ],
-                "style": "courtyard_sash"
+                "style": "courtyard_sash",
+                "sash": "two_over_two"
               },
               {
                 "what": "windows under the eave over the underpass",
@@ -1584,7 +1585,8 @@
                   21.0,
                   24.8
                 ],
-                "style": "courtyard_sash"
+                "style": "courtyard_sash",
+                "sash": "two_over_two"
               }
             ]
           },
@@ -1593,7 +1595,7 @@
             "habs_glessner_house_il_1015_drawings",
             "habs_glessner_photo_05_court_c1923"
           ],
-          "note": "The east wing's courtyard face, read off sheet 4's elevation beyond the section plane (99 px/ft at full scale, read at 19.5 px/ft, +/- 1 ft; the sheet's horizontal origin is about 2.8 ft off the plan's, and positions are aligned to the stair tower the plan fixes) and checked against HABS photograph 5 (c. 1923). The underpass exit is 9.6 ft wide and 8.1 ft clear (sheet 4)."
+          "note": "The east wing's courtyard face, read off sheet 4's elevation beyond the section plane (99 px/ft at full scale, read at 19.5 px/ft, +/- 1 ft; the sheet's horizontal origin is about 2.8 ft off the plan's, and positions are aligned to the stair tower the plan fixes) and checked against HABS photograph 5 (c. 1923). The underpass exit is 9.6 ft wide and 8.1 ft clear (sheet 4). T-2212: the four lights over the underpass are two-over-two (\"sash\": \"two_over_two\"), as HABS photograph 5 shows three of them plainly (both under the eave and the south one below); the fourth, the north one of the lower pair, has its blind drawn and is given its neighbours' pattern."
         },
         "openings_court_north": {
           "value": {
