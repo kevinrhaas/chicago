@@ -148,26 +148,26 @@
           "fabric": "stone",
           "base_m": 7.0,
           "corbel": {
-            "courses": 12
+            "courses": 8
           },
           "plan": {
             "kind": "polyline",
             "points": [
               [
                 -1.6,
-                0.0
+                0
               ],
               [
                 -0.7,
-                1.2
+                1.1
               ],
               [
                 0.7,
-                1.2
+                1.1
               ],
               [
                 1.6,
-                0.0
+                0
               ]
             ]
           },
@@ -214,7 +214,7 @@
       "sources": [
         "chicagology_1612_prairie_photo"
       ],
-      "note": "T-2369: the photograph shows a canted oriel on the south wall's upper storey, through the camera (data/reference_views/goodman_house_1612_prairie/front_from_southeast.json): its east cheek meets the wall about 11.6 m back from the front, its sill ledge at about the second floor (7.0 m) and its hood's top against the wall at about 10.5 m, under the cornice, the hood a low hip seen dark from below; its front stands about a metre out, its west cheek hidden behind its own front. The K08 kit's canted corbelled oriel is sized to it: 3.2 m at the wall, 1.4 m of front 1.2 m out, on twelve of the kit's corbel courses stepped back to the wall at 4.6 m (the print's dark wedge under it, its corbelling and its shadow, runs down to about 4.4 m), its storey 3.1 m under a 0.25 pitch hip in painted tin. Its faces read light against the brick, framed by light pilasters, so its walls are laid in stone, not the side wall's brick; its hood is a deep dark slab, 0.4 m of fascia oversailing 0.35 m, whose top meets the print's at 10.1 m (the 1:1 crop, the render's edges laid over it). The cheek and front lights are the kit's sash sized to the storey; the print shows dark glass between the pilasters, not glazing bars, and its corbelling only in shadow, so the courses' depth and the lights' sash are reconstructed (L-k01-1612-goodman-2369)."
+      "note": "T-2369: the photograph shows a canted oriel on the south wall's upper storey, through the camera (data/reference_views/goodman_house_1612_prairie/front_from_southeast.json): its east cheek meets the wall about 11.6 m back from the front, its sill ledge at about the second floor (7.0 m) and its hood's top against the wall at about 10.5 m, under the cornice, the hood a low hip seen dark from below; its front stands about a metre out, its west cheek hidden behind its own front. The K08 kit's canted corbelled oriel is sized to it: 3.2 m at the wall, 1.4 m of front 1.1 m out, on eight of the kit's corbel courses stepped back to the wall at 5.4 m (the fewest the kit's oversail rule allows at that depth, and the most its light tier's cost allows; the print's dark wedge under it, its corbelling and its shadow together, runs down to about 4.4 m), its storey 3.1 m under a 0.25 pitch hip in painted tin. Its faces read light against the brick, framed by light pilasters, so its walls are laid in stone, not the side wall's brick; its hood is a deep dark slab, 0.4 m of fascia oversailing 0.35 m, whose top meets the print's at 10.1 m (the 1:1 crop, the render's edges laid over it). The cheek and front lights are the kit's sash sized to the storey; the print shows dark glass between the pilasters, not glazing bars, and its corbelling only in shadow, so the courses' depth and the lights' sash are reconstructed (L-k01-1612-goodman-2369)."
     },
     "roof_form": {
       "value": "hip",

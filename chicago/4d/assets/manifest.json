@@ -853,9 +853,9 @@
     "goodman_house_1612_prairie__as_built_1869.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 4626348,
+      "bytes": 4620872,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "1c9dd78d4080387e49aafe2e84e4e1cc3917a0165a9a685017dc5842a0373ccb",
+      "inputs_sha256": "c827533f81666f2ecbc5264a7e1e3d31fc44524000aa1b19cdbdc22110d77fc2",
       "kind": "generated",
       "phase_id": "as_built_1869",
       "structure_id": "goodman_house_1612_prairie"

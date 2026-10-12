@@ -2,7 +2,7 @@
   "structure_id": "goodman_house_1612_prairie",
   "view": "front_from_southeast",
   "glb": "assets/gltf/goodman_house_1612_prairie__as_built_1869.glb",
-  "glb_sha256": "4b3069657f7002f13a269c6532dbf7ac07d04cbb105228d6082f95cd7a7fac81",
+  "glb_sha256": "d6904c23d074e8fd2d085a9ad433dfbbd0d2357fdae5664079fed609f8f459a1",
   "camera_sha256": "f8cd5114ceb8c081dee53fc3ba91a93a06a6a7925fabbd5e050a5756dacafe8e",
   "side_by_side": "docs/RESEARCH/photo-match/goodman_house_1612_prairie/front_from_southeast-side-by-side.jpg",
   "verdict": "matches",
@@ -15,7 +15,7 @@
     {
       "what": "south wall: the print shows a canted bay on the brick side wall behind the front; the build's side is flat",
       "status": "fixed",
-      "how": "T-2369: a K08 canted oriel on the south wall's upper storey, sill at the second floor, hood top at about 10.1 m, light stone faces under a deep dark hood, on corbelling, where the print shows it"
+      "how": "T-2369: a K08 canted oriel on the south wall's upper storey, 1.1 m out, sill at the second floor, hood top at about 10.1 m, light stone faces under a deep dark hood, on eight corbel courses, where the print shows it"
     },
     {
       "what": "stoop: the print's steps are fewer and narrower between iron hand-rails; the build's are a long stone flight with stone cheeks",
