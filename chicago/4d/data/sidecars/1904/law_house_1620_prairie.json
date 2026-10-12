@@ -231,10 +231,14 @@
       "value": {
         "fabric": "tin_standing_seam_painted",
         "flashing": "copper_sheet",
-        "caps": "copper_ridge_roll"
+        "caps": "copper_ridge_roll",
+        "lower_faces": "slate_pennsylvania"
       },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: painted standing-seam tin with copper flashing and ridge roll, the K04 covering 1608 and 1600 wear."
+      "confidence": "inferred",
+      "note": "The mansard's lower faces SLATED (T-2406): the 1874 engraving hatches the north face and the crown in close level courses, the slate of a mansard, where the cornice and walls are drawn in vertical strokes; K04's slate takes a face of 45 degrees and up at its 3 in. headlap, and the faces stand on 72- and 80-degree chords. Which quarry is RECONSTRUCTED: Pennsylvania's dark slate, the engraving's dark tone and K04's commonest slate. The low upper hip (18 degrees, which K04 does not slate) neither picture sees, from the street below the raised yard; it stays RECONSTRUCTED painted standing-seam tin with copper flashing and ridge roll, the K04 covering 1608 and 1600 wear.",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law"
+      ]
     },
     "chimneys": {
       "value": {
@@ -251,13 +255,22 @@
             "v_m": 5.625
           },
           {
-            "u_m": 12.4,
-            "v_m": 5.625
+            "u_m": 15.935,
+            "v_m": 11.5,
+            "plan_m": [
+              0.75,
+              0.6
+            ],
+            "on_cornice": true,
+            "top_m": 12.5
           }
         ]
       },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: two brick stacks on the ridge line, one over each half of the house, 1608's stack and cap; nothing read places them."
+      "confidence": "inferred",
+      "note": "The FRONT stack read off the 1874 engraving through its camera (T-2406): a tall stack standing at the front of the north wall, close behind the crown, its lit east face between x 703 and 722 px and its north face on to 730 px. The camera's plan readings are exact (x does not depend on height), and a 0.9 by 0.75 m stack whose east face stands at u 14.0 and north face at v 10.95 projects to 700.6, 721.9 and 731.1 px: so its centre is u 13.55, v 10.575, the nearest the plain-stack rule (0.3 m inside the wall line) lets it to the north wall. Its cap at y 175 px is 12.5 m over grade through the same camera, about 0.7 m over the crown's curb; that height carries the camera's vertical datum, which T-2409 found doubtful by up to 2 m low down on the front, and is taken as the engraving's own proportion to the crown. The REAR stack stays where the draft put it, on the ridge over the rear half, RECONSTRUCTED: through the engraving's camera it stands behind the crown (x 679 px, y 217 px), where the picture cannot show it. Both are 1608's stack and cap, RECONSTRUCTED; the 1874 build's second ridge stack over the front half is gone, because the engraving draws open sky where it would stand over the crown.",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law"
+      ]
     },
     "rainwater": {
       "value": {
@@ -382,7 +395,7 @@
           -7.711,
           15.951
         ],
-        "fence": "k11.fence.scroll_band",
+        "fence": "k11.fence.lattice_arcade",
         "entrance_gate": {
           "variant": "k11.gate.walk_gate_on_piers",
           "leaves": 2,
@@ -398,10 +411,22 @@
           "variant": "k11.wall.brick_with_piers",
           "from_u_m": 12.0,
           "height_m": 1.2
-        }
+        },
+        "lattice_pitch_m": 0.3,
+        "side_fence": {
+          "variant": "k11.fence.side_boards",
+          "from_s_m": 12.6,
+          "height_m": 1.5,
+          "to_u_m": -25.5
+        },
+        "lattice_span_bays": 3
       },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: the register's 'lattice/iron boundary' built from the K11 ironwork kit as its scroll-band fence (a band of C-scrolls under the top rail, the kit's nearest to a lattice) on a stone curb along the street line, 5.93 m in front of the front face (the draft's street_u 22.679 less the 16.75 m body), from the north lot line to the gate of the carriage passage on the south; a pair of walk-gate leaves between stone piers on the walk to the stoop; a single walk gate 1.06 m clear across the south side yard's mouth beside the lot line (the yard is 7.7 m wide here, so the gate does not reach the house's south wall as 1808's does); and the kit's brick wall with piers, 1.2 m high, on the south lot line from the street back to u 12.0. The lot lines (s -7.711 and 15.951 along the front from the south corner) are the draft's lot_v for parcel prairie_1620 in this frame. The register names the boundary's kind and nothing else; its pattern, heights, gates and wall are the kit's."
+      "confidence": "inferred",
+      "note": "The FENCE from both pictures (T-2406). The 1874 engraving draws a lattice of interlaced round arches, their crossings pointed, on a solid base along the street line, and the 1898 Tribune sketch the same lattice between square piers with capped tops, on a base, with gate piers at the walk; the register's 'lattice/iron boundary' names it. Built as the K11 kit's curb, posts and rails with a lattice between them (k11.fence.lattice_arcade): arches of the kit's 14 mm scroll bar, each two bays wide, sprung at every bay so each crosses its neighbours. The bay, 0.35 m, is read off the Tribune (a pointed crossing about every 9 px where the panel's fence scale is about 32 px/m, 0.29 m) and the engraving (its crossings waist about every 20 px at 28 px/m, two bays of 0.35 m); the lattice's iron, its bar and the posts' acorn finials are the kit's, RECONSTRUCTED. The BOARD FENCE: the engraving draws a close-boarded fence from about x 670 px, where the lattice stops, to x 990 px. Through its camera the street line at x 670 is v 12.6 and the north lot line (v 15.95) runs from x 786 px at the street to 964 px at the house's rear line, so the boards take over from the lattice on the street line at v 12.6, turn at the lot line and run back along it; their height (1.5 m, the lattice's top and a little more, as drawn) and their boarding are RECONSTRUCTED, and so is their run behind the house's rear (to the coach house's front at u -25.5), which the engraving's frame cuts off at about u -4. The rest is the kit's, RECONSTRUCTED as before: the stone curb on the street line 5.93 m in front of the front face (the draft's street_u 22.679 less the 16.75 m body); a pair of walk-gate leaves between stone piers on the walk to the stoop; a single walk gate 1.06 m clear across the south side yard's mouth; and the kit's brick wall with piers, 1.2 m high, on the south lot line from the street back to u 12.0. The lot lines (s -7.711 and 15.951 along the front from the south corner) are the draft's lot_v for parcel prairie_1620 in this frame.",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law",
+        "chicago_tribune_1898_01_09_prairie_widows"
+      ]
     },
     "bays": {
       "value": [
