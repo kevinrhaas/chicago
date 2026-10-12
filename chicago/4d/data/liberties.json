@@ -34468,6 +34468,46 @@
       ]
     },
     {
+      "id": "L-glessner-stone-faces-2416",
+      "title": "Glessner's granite faces bowed and warmed to the owner's photographs, and the Prairie door's fan, lintel and tympanum redrawn from them",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.v4_detail"
+        }
+      ],
+      "recorded": "2026-10-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "every rock-faced granite stone on the Glessner house now bows forward from its pitched arris to a crown, where it was a flat field of fractures a few centimetres proud of the wall (T-2416 with T-2215). The owner, 2026-10-12, with six photographs of the north wall and the Prairie Avenue door: \"the stones … are more like shaped almost with a bow in the front, not a ton … the sculpted faces stand out from the face a bit\", and \"the color of the granite stone facing is not as grey as you have it\". The arris is unchanged (16 mm proud, over the outer 85 mm); inside it the face rises to a crown 30-60 mm above the arris line, higher on a larger stone, a little past the stone's middle and below its top, and the existing fracture relief rides on that bow, capped at 104 mm. Every granite slot is re-tinted from cool grey to the photographs' light pink buff, and the granite normal map is softened to 0.6 so the bow, not the crystal grain, carries the shading. At the Prairie door the fan's voussoirs are 15 rock-faced stones bowed like the wall's, the dressed lintel under the fan is a rock-faced granite lintel about 10 ft long, and the tympanum is carved in the street granite, not grey trim stone: from outside in a fillet, a square billet channel, a fillet, a drilled foliate archivolt, a torus roll, and a pierced field of a trunk and branches carrying leafy roundels, with a half boss at the trunk's foot. The north alcove's and the gables' voussoir rings take the same bowed faces. **What is read.** The owner's photographs (2026-10-12; his own references, not published here): the bow and its rough proportion to a stone, the colour (lit stone r/g 1.05-1.13, b/g 0.90-0.94), the 15 voussoirs keyed at the crown, the lintel's length (0.77 of the fan's 12.8 ft diameter), and the tympanum's bands and motifs in order. HABS sheet 5's entrance doorway detail agrees on the bands and shows the half boss. **What is invented.** The bow's shape and every number in it (crown per short side 0.12 plus 18 mm, clamped 30-60 mm, peak at 0.44 of the height, the 104 mm cap); the tints; the 0.6 normal strength; every carved member's size, count and depth (33 billets, 23 palmettes, 24 beads, the roundels' radii and places, the filler leaves); the lintel's height and the voussoir joint of 14 mm. They are read by eye from photographs, not measured. The light (mobile) tier keeps one flat face per stone with normals leaned toward the crown, and plain chord voussoirs, because it is at its 200,000-triangle cap. **What is not changed.** Course heights, joints, every opening's position and size, the sash, the brick, the courtyard's limestone trim, and the plan envelope."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured or rectified photograph of one street stone in raking light would replace the bow's numbers; a colour-calibrated photograph of the granite would set the tint; a measured drawing of the tympanum would replace the carving's sizes and counts. The previous record's 11 voussoirs and 5.6 ft dressed lintel had no source."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.v4_detail`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2416, T-2215 (Glessner exterior audit)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-12 (T-2416)."
+        }
+      ]
+    },
+    {
       "id": "L46",
       "title": "The fort stands on a bank the model has no cut or fill for",
       "section": "resolved",

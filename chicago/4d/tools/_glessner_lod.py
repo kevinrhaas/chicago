@@ -23,6 +23,9 @@ import sys
 from types import ModuleType
 
 MAX_TRIANGLES=200_000
+# How far a light-tier stone's corner normals lean from its face (tan of about 24
+# degrees along each axis): the full tier's bowed crown, carried by shading alone.
+PILLOW_LEAN=.45
 MATERIAL_NAMES=('granite','brick','limestone_trim','roof_plane','copper','glass','oak',
  'lawn','drive','mortar','iron','glass_dark','granite_1','granite_2','granite_3','granite_4',
  'brick_dark_red','brick_buff','brick_smoky','roof_plane_1','roof_plane_2','roof_plane_3',
@@ -97,6 +100,7 @@ def _construct(root, *, roof_details_reduced=True):
         def __init__(self,name,params):
             super().__init__(name,params)
             self.smooth_rock_faces=False
+            self.pillow_normals={}
             self.reduced_roof_details=roof_details_reduced
             # T-2211's two-plane street sash costs more triangles than this tier has left.
             self.reduced_sash=True
@@ -121,8 +125,28 @@ def _construct(root, *, roof_details_reduced=True):
                 for _ in range(consumed):rng.random()
                 depth=min(.070,depth+.012)
             emitted=False
+            pillow=None
+            if mat!=d.BRICK:
+                # The owner's bowed rock faces (2026-10-12) at no triangle cost: the
+                # stone's one face keeps its plane, and its corners carry normals
+                # leaning out from the stone's centre, so light rounds over it.
+                cx,cz=(x0+x1)/2,(y0+y1)/2
+                origin=point((0,0),0);along=d.norm(d.sub(point((1,0),0),origin))
+                up=d.norm(d.sub(point((0,1),0),origin))
+                def pillow(q):
+                    tu=max(-1.0,min(1.0,(q[0]-cx)/max(.01,(x1-x0)/2)))
+                    tz=max(-1.0,min(1.0,(q[1]-cz)/max(.01,(y1-y0)/2)))
+                    return d.norm(tuple(normal[k]+PILLOW_LEAN*(tu*along[k]+tz*up[k]) for k in range(3)))
             for fragment in d.subtract(polygon,holes or []):
-                self.raw([point(q,depth) for q in fragment],confidence,variant,normal)
+                pts=[point(q,depth) for q in fragment]
+                if pillow is None:
+                    self.raw(pts,confidence,variant,normal)
+                else:
+                    normals=[pillow(q) for q in fragment]
+                    if d.dot(d.legacy._normal(pts),normal)<0:
+                        pts.reverse();normals.reverse()
+                    for index,n in zip(self.raw(pts,confidence,variant),normals):
+                        self.pillow_normals[index]=n
                 emitted=True
             if emitted:self.masonry_blocks+=1
 
@@ -153,7 +177,8 @@ def _construct(root, *, roof_details_reduced=True):
         courtyard=(o['face']=='south' and o['at']>1) or (o['face']=='west' and o['at']>1) or (o['face']=='east' and o['at']<params.width_m-1)
         if o['kind']=='fan':_fan(b,o,d)
         elif o['kind']=='band':
-            if o.get('face')=='east' and o['u1']-o['u0']>3 and o['z0']>5:
+            if o.get('style')=='rock_faced_lintel':d.rock_lintel(b,o)
+            elif o.get('face')=='east' and o['u1']-o['u0']>3 and o['z0']>5:
                 # The full wall's carved-sill recess includes both foliate ends.
                 # Its reduced stone back must close that whole same aperture.
                 d.slab(b,o,o['u0']-.435,o['u1']+.435,o['z0']-.025,o['z1']+.045,-.02,.095,o['conf'],d.TRIM)
@@ -202,8 +227,8 @@ def _construct(root, *, roof_details_reduced=True):
 
 
 def _fan(b,o,d):
-    r=d.ornament.Relief(b,o,b.params.detail.get('conf',o['conf']))
-    cx=(o['u0']+o['u1'])/2;cz=o['spring_z'];rad=o['r_in'];count=o.get('voussoirs') or 11
+    r=d.ornament.Relief(b,o,b.params.detail.get('conf',o['conf']),d.ornament.CARVED_GRANITE)
+    cx=(o['u0']+o['u1'])/2;cz=o['spring_z'];rad=o['r_in'];count=o.get('voussoirs') or 15
     for i in range(count):
         a=math.pi*i/count+.004;c=math.pi*(i+1)/count-.004;lo,hi=rad+.04,o['r_out']
         r.solid([(cx+lo*math.cos(a),cz+lo*math.sin(a)),(cx+hi*math.cos(a),cz+hi*math.sin(a)),
@@ -423,7 +448,8 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
         tu,tv=uv_module.TILE_M.get(uv_module.SLOT_FABRIC.get(material),(1,1))
         for index,point in zip(face,points):
             group['p'].extend((point[0],point[2],-point[1]))
-            group['n'].extend((normal[0],normal[2],-normal[1]))
+            vertex_normal=b.pillow_normals.get(index,normal)
+            group['n'].extend((vertex_normal[0],vertex_normal[2],-vertex_normal[1]))
             uv=b.roof_uvs.get(index,(sum(p*v for p,v in zip(point,horizontal)),sum(p*v for p,v in zip(point,uphill))))
             group['uv'].extend((uv[0]/tu,1-uv[1]/tv))
             group['c'].append(b.conf[index])
