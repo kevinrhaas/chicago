@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 516,
+  "count": 517,
   "liberties": [
     {
       "id": "L1",
@@ -31503,6 +31503,50 @@
         {
           "label": "Recorded",
           "text": "2026-10-12 (T-2395)."
+        }
+      ]
+    },
+    {
+      "id": "L-k16-1638-tower-2396",
+      "title": "1638 Prairie's corner tower read off its photograph over the kit's porch: an octagonal stage under an octagonal spire, its unseen faces, cladding and colour from the K16 kit",
+      "section": "per_subject",
+      "subjects": [
+        "shortall_gregory_house_1638_prairie_front"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "shortall_gregory_house_1638_prairie_front",
+          "phase": "as_standing_1904",
+          "aspect": "form.porch"
+        }
+      ],
+      "recorded": "2026-10-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the north end of the Shortall-Gregory house's front (T-2396, a piece of T-1864's envelope) is no longer a plain two-storey wing wall behind a one-storey porch. Over the porch stands the corner tower the house's photograph shows: a regular octagon 2.5 m across its flats, standing on the porch's roof (3.57 m) with its front face on the porch plate's front, so the porch is its ground storey; an upper stage to a 7.0 m cornice, each of its eight faces a kit `clapboard_wall` with a corner board at each angle and the kit's water table as the band it stands on; a pointed two-over-two sash (the kit's K06 equilateral head, 0.6 m wide, sill 4.35 m, point 6.2 m) in each of the three street faces; a soffit and fascia mitred round the octagon at a 0.3 m eave, and an octagonal spire kicked out over it to its point at 9.9 m, a little over the gable's apex, with the kit's chamfered finial through it. The porch moves to stand under it, its middle 6.55 m from the front's south end (it stood at 6.86 m, its roof's south edge at the gable's). The wing wall loses its upper sash, which is inside the tower now. **What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`, the Prairie library's `a16-cgy-1638-gothic-photo`, undated): that the tower exists and stands over the porch at the north end of the front; its octagonal plan (the 0.41 : 0.29 : 0.29 of its front and diagonal faces); its width against the front, whose 8.13 m is the 1911 Sanborn sheet's; where it stands along the front; the heights of its stage's foot, its lights' sills and points, its cornice and its spire's point, all read at 73-77 px a metre with no camera solved; a pointed light in each street face; the cornice and the octagonal spire to a finial. **What is invented.** The camera: no solve is committed, and the reading assumes the print close to an elevation, which the faces' asymmetry (the camera about 6 degrees off the tower's axis, some 30 m off) supports and does not prove. The five faces the print does not show — the north and south faces and the three back into the house — are plain; the stage is clapboarded, where the print shows it smooth with incised ornament over each light; the lights take the kit's equilateral head on a sash narrower than the print's and less acute; the spire's covering is the house's wood shingle and every colour is the house's, the print being monochrome; the porch under it is still the kit's porch with its posts, brackets and lattice, where the print shows an arch with pierced spandrels, double doors behind it and a stoop before it (T-1865); the stage has no floor or framing inside, and its back faces run into the north range, showing only above its roof. The tower itself (`form.tower`) is `inferred`, read off the photograph with its reasoning in the record's note, so this entry covers the porch it stands on, whose kit fabric stands where the photograph shows an arch, and is where the tower's own inventions above are admitted."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a camera solved from the photograph (T-1865's image gate) corrects every reading above, and a second picture of the house, or one whose rights allow it, shows the faces this one cannot; T-1865 finishes the stage's ornament, the arched porch, the doors and the stoop, keeping this record's id."
+        },
+        {
+          "label": "Covers",
+          "text": "`shortall_gregory_house_1638_prairie_front.as_standing_1904.form.porch`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2396 (a piece of T-1864, the 1638 envelope)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k16-1638-tower-2396/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-12 (T-2396)."
         }
       ]
     },
