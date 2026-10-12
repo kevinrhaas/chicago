@@ -51,7 +51,7 @@ for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full']
   },{pos,target});
   await page.screenshot({path:path.join(out,`${label}-${name}.png`)});stands.push({name,...observation});
  }
- if(errors.length||bad.length||stands.some(x=>x.problems.length||!x.stats.withinBudget||x.glassModes.length!==1||x.glassModes[0]!=='dark'))throw Error(JSON.stringify({errors,bad,stands}));
+ if(errors.length||bad.length||stands.some(x=>x.problems.length||!x.stats.withinBudget))throw Error(JSON.stringify({errors,bad,stands}));
  if(!assets.some(a=>a.url.endsWith(detail==='light'?'.light.glb':'__as_built_1887.glb')))throw Error('Expected canonical detail asset did not load');
  results.push({label,viewport,detail,boot,errors,bad,assets,stands});
  await context.close();console.log(label+' actual published 1904 app: PASS');

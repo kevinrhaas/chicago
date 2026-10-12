@@ -983,7 +983,7 @@ def ring(b,pl,uc,zs,rin,rout,count,conf):
 VOUSSOIR_JOINT = .014
 
 
-def voussoir_outline(uc,zs,rin,rout,a,c):
+def voussoir_outline(uc,zs,rin,rout,a,c,chord=False):
     """One radiating voussoir between angles a and c, its joints 14 mm wide.
 
     The extrados and intrados are arcs, so the wall's circular cut and the
@@ -992,8 +992,9 @@ def voussoir_outline(uc,zs,rin,rout,a,c):
     half=VOUSSOIR_JOINT/2
     lo,hi=a+half/max(rin,.05),c-half/max(rin,.05)
     so,eo=a+half/rout,c-half/rout
-    steps=max(2,math.ceil((eo-so)*rout/.06))
-    inner_steps=max(1,math.ceil((hi-lo)*max(rin,.05)/.06))
+    # The reduced tier, at its triangle cap, keeps the plain chord of each arc.
+    steps=1 if chord else max(2,math.ceil((eo-so)*rout/.06))
+    inner_steps=1 if chord else max(1,math.ceil((hi-lo)*max(rin,.05)/.06))
     outline=[(uc+rout*math.cos(so+(eo-so)*k/steps),zs+rout*math.sin(so+(eo-so)*k/steps))
              for k in range(steps+1)]
     if rin<=1e-6:
@@ -1014,15 +1015,18 @@ def rock_voussoirs(b,pl,uc,zs,rin,rout,count,conf,seed):
     tier, which cannot afford the lattice, keeps one flat proud face per stone.
     """
     rel=ornament.Relief(b,pl,conf)
+    reduced=not getattr(b,'smooth_rock_faces',True)
+    outer,inner=(1,1) if reduced else (4,2)
     for i in range(count):
         a,c=math.pi*i/count,math.pi*(i+1)/count
         # The joints' mortar bed, one sector per stone, where the wall's was cut.
-        bed=[(uc+rout*math.cos(a+(c-a)*k/4),zs+rout*math.sin(a+(c-a)*k/4)) for k in range(5)]
-        bed+=[(uc+rin*math.cos(c-(c-a)*k/2),zs+rin*math.sin(c-(c-a)*k/2)) for k in range(3)] if rin>1e-6 else [(uc,zs)]
+        bed=[(uc+rout*math.cos(a+(c-a)*k/outer),zs+rout*math.sin(a+(c-a)*k/outer)) for k in range(outer+1)]
+        bed+=([(uc+rin*math.cos(c-(c-a)*k/inner),zs+rin*math.sin(c-(c-a)*k/inner)) for k in range(inner+1)]
+              if rin>1e-6 else [(uc,zs)])
         rel.face([(*q,-.012) for q in bed],MORTAR)
-        poly=voussoir_outline(uc,zs,rin,rout,a,c)
+        poly=voussoir_outline(uc,zs,rin,rout,a,c,chord=reduced)
         mat=12+i%4
-        if not getattr(b,'smooth_rock_faces',True):
+        if reduced:
             solid_polygon(b,pl,poly,-.02,.065,conf,mat)
             continue
         rng=random.Random(seed+173*i)

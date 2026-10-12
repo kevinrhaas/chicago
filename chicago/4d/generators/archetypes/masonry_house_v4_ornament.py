@@ -293,9 +293,11 @@ def fan(b, o):
     _roundel(r,cx,cz+F*.83,F*.120,.028,7)
     # The small half-boss the drawing shows at the foot of the trunk.
     r.solid([(cx+F*.14*math.cos(math.pi*i/16),cz+F*.14*math.sin(math.pi*i/16)) for i in range(17)],-.045,.012)
+    # Each blade roots a little out from the boss's centre: five blades from one
+    # point crowd their first row into sub-millimetre slivers (T-2267).
     for j in range(5):
         th=math.pi*(j+.5)/5
-        r.leaf(cx,cz+.004,th,F*.13,F*.07,.012,.010,0,False,steps=8)
+        r.leaf(cx+F*.03*math.cos(th),cz+.004+F*.03*math.sin(th),th,F*.13,F*.075,.012,.010,0,False,steps=6)
 
 
 def sill(b, o):
