@@ -32392,12 +32392,6 @@
           "domain": "structure",
           "structure": "law_house_1620_prairie",
           "phase": "restored_1904",
-          "aspect": "form.bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "law_house_1620_prairie",
-          "phase": "restored_1904",
           "aspect": "form.boundary"
         },
         {
@@ -32549,8 +32543,12 @@
           "text": "the house's two pictures were read (the May 1874 Land Owner engraving and the 1898 Tribune sketch, `data/reference_views/law_house_1620_prairie/`), and three of the inventions above are now read from them, not made up: the two storeys under a mansard (`stories`), the roof's form, now a mansard and no longer a hip (`roof_form`), and the storeys' heights to the engraving's cornice, 3.6 and 3.2 m (`storey_heights_m`, the split between them still the kits'). They leave this entry's Covers. The mansard's upper pitch, its profile's numbers and everything else listed here stay invented, and the pictures show much of it otherwise (the match records' open differences, T-2404 to T-2406)."
         },
         {
+          "label": "Retired in part (T-2404, piece 2 of T-2370)",
+          "text": "the canted bay this entry invented on the north half of the front is gone; in its place stands the north pavilion both pictures draw, its place, width, flush north corner and two round-headed windows a storey read from them, so `bays` leaves this entry's Covers. What stays invented about it is said in the record's own note: how far it stands proud (0.4 m, inside the Tribune camera's fit, which the sketch draws and does not measure), its storey heights and its sash sizes; and of the crown over it, its depth, the chord and bow of its faces, its cornice's projection and the dormer's sizes."
+        },
+        {
           "label": "Covers",
-          "text": "`law_house_1620_prairie.restored_1904.form.principal_floor_m`, `law_house_1620_prairie.restored_1904.form.wall_thickness_front_m`, `law_house_1620_prairie.restored_1904.form.wall_thickness_side_m`, `law_house_1620_prairie.restored_1904.form.service_wall_brick`, `law_house_1620_prairie.restored_1904.form.street_front_trim`, `law_house_1620_prairie.restored_1904.form.wall_head`, `law_house_1620_prairie.restored_1904.form.roof_pitch_deg`, `law_house_1620_prairie.restored_1904.form.eave_overhang_m`, `law_house_1620_prairie.restored_1904.form.stair_tread_m`, `law_house_1620_prairie.restored_1904.form.stair_landing_depth_m`, `law_house_1620_prairie.restored_1904.form.stoop_width_m`, `law_house_1620_prairie.restored_1904.form.entrance_bay`, `law_house_1620_prairie.restored_1904.form.front_bays`, `law_house_1620_prairie.restored_1904.form.side_bays`, `law_house_1620_prairie.restored_1904.form.rear_bays`, `law_house_1620_prairie.restored_1904.form.north_bays`, `law_house_1620_prairie.restored_1904.form.sash_by_storey`, `law_house_1620_prairie.restored_1904.form.basement_lights`, `law_house_1620_prairie.restored_1904.form.roof_covering`, `law_house_1620_prairie.restored_1904.form.chimneys`, `law_house_1620_prairie.restored_1904.form.rainwater`, `law_house_1620_prairie.restored_1904.form.window_kit`, `law_house_1620_prairie.restored_1904.form.entrance_kit`, `law_house_1620_prairie.restored_1904.form.boundary`, `law_house_1620_prairie.restored_1904.form.bays`."
+          "text": "`law_house_1620_prairie.restored_1904.form.principal_floor_m`, `law_house_1620_prairie.restored_1904.form.wall_thickness_front_m`, `law_house_1620_prairie.restored_1904.form.wall_thickness_side_m`, `law_house_1620_prairie.restored_1904.form.service_wall_brick`, `law_house_1620_prairie.restored_1904.form.street_front_trim`, `law_house_1620_prairie.restored_1904.form.wall_head`, `law_house_1620_prairie.restored_1904.form.roof_pitch_deg`, `law_house_1620_prairie.restored_1904.form.eave_overhang_m`, `law_house_1620_prairie.restored_1904.form.stair_tread_m`, `law_house_1620_prairie.restored_1904.form.stair_landing_depth_m`, `law_house_1620_prairie.restored_1904.form.stoop_width_m`, `law_house_1620_prairie.restored_1904.form.entrance_bay`, `law_house_1620_prairie.restored_1904.form.front_bays`, `law_house_1620_prairie.restored_1904.form.side_bays`, `law_house_1620_prairie.restored_1904.form.rear_bays`, `law_house_1620_prairie.restored_1904.form.north_bays`, `law_house_1620_prairie.restored_1904.form.sash_by_storey`, `law_house_1620_prairie.restored_1904.form.basement_lights`, `law_house_1620_prairie.restored_1904.form.roof_covering`, `law_house_1620_prairie.restored_1904.form.chimneys`, `law_house_1620_prairie.restored_1904.form.rainwater`, `law_house_1620_prairie.restored_1904.form.window_kit`, `law_house_1620_prairie.restored_1904.form.entrance_kit`, `law_house_1620_prairie.restored_1904.form.boundary`."
         },
         {
           "label": "Ticket",
