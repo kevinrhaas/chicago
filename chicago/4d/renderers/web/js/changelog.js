@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1732, ts: '2026-10-12T19:43:36.551Z', date: 'Oct 12, 2026, 2:43 PM CT', title: '1638 Prairie\'s corner tower and spire', kind: 'improvement',
+    items: [
+      'The Gothic house at 1638 Prairie now has the tower its old photograph shows: an eight-sided upper storey over the entrance porch, a pointed window in each street face, and a tall spire with a finial rising just past the front gable.',
+      'Its sizes are read from that photograph. The faces it does not show, the cladding and the colours are reconstructed and marked as a liberty.',
+    ] },
   { v: 1731, ts: '2026-10-12T18:28:52.239Z', date: 'Oct 12, 2026, 1:28 PM CT', title: '1620 Prairie\'s lattice fence, side boards, chimney and slates, from its pictures', kind: 'fix',
     items: [
       '1620 Prairie\'s street fence is now the lattice of interlaced arches that both its 1874 engraving and the 1898 Tribune sketch draw, running unbroken from post to post on its stone base, in place of the generic scroll-band railing.',
