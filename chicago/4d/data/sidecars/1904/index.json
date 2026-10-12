@@ -271,9 +271,9 @@
     },
     {
       "id": "house_1626_prairie",
-      "name": "1626 Prairie Avenue — Brick masonry (district draft; refined by T-1862)",
+      "name": "1626 Prairie Avenue — brick house with a frame front bay, the north half of the pair with 1628, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1626_prairie.json",
-      "asset": "gltf/house_1626_prairie__draft_1904.glb"
+      "asset": "gltf/house_1626_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1626_prairie_coach_house",
