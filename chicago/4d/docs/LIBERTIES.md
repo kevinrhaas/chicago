@@ -24703,17 +24703,30 @@ rules' row, mirroring 1636's south door), the stoop and its width; the bay's siz
 1.2 m plan, 0.4 m narrower than the sheet's and centred 0.25 m north of it), its storeys and windows;
 the cornice and its brackets; the flat roof's form, 2-degree fall, parapets, blocking course and tin;
 the two chimney stacks against the party wall.
-**What is not built.** The sheet's three-storey wing behind the rear wall (6.5 m out, v -0.5 to 4.25
-m: the draft's r2). The draft builder can only skip a whole traced building, so the wing is gone from
-the scene until T-2347 stands it on K01's rear wings, and the finding is written into T-2347. No
+**The rear wing (T-2347, 2026-10-12).** The wing the sheet draws behind the rear wall now stands on
+K01's rear wings (T-2343) as two pieces. Read: their places and sizes off the raster through the
+T-1250 fit, brick, and the census's reading (s20-1634-a1, '2B brick rear wing with a 1-storey end'):
+`rear_wing`, 6.7 m out from the rear wall and 4.25 m along it, lettered '2B', two storeys over a
+basement; and `one_storey_end`, the 1.5 m strip behind a drawn cross wall at its west end, lettered
+'1', one storey from near grade. The draft had drawn the whole wing THREE storeys, its rules' count
+for a wing inside the main part, and 6.5 m out; the sheet's lettering and cross wall are followed
+here. The sheet stands the wing on the party line with 1636, 0.7 m south of where K01 fitted the main
+body's south wall; the wing is built flush with that wall instead, so house and wing keep one blank
+south wall, and moves with it if the pair's party line is ever re-read. Invented: the wing's floors
+(on the main body's first two, 1.4 m and 5.4 m; the end's at 0.3 m), its storey heights, its brick,
+its windows (two a storey in the wing's north wall, one in each rear wall), its blank south walls,
+and the flat painted-tin decks, fascias and 0.15 m overhangs, with no gutter. The two dots the sheet
+prints in the end are not modelled. The main rear wall's southern window (s 4.6 m) is behind the wing
+on the two lower storeys and is not cut there.
+**What is not built.** No
 gutter or downpipe: K01 hangs its half-round gutter round a hip's eaves, and the flat deck's one
 eave, the rear fascia, waits for its own.
 **How to resolve:** a photograph, plate or description of 1634 (or of the pair), ingested as a
-source, replaces the kits' choices in place; T-2347 stands the wing.
+source, replaces the kits' choices in place.
 **Covers:** `house_1634_prairie.as_mapped_1904.form.principal_floor_m`, `house_1634_prairie.as_mapped_1904.form.storey_heights_m`, `house_1634_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1634_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1634_prairie.as_mapped_1904.form.service_wall_brick`, `house_1634_prairie.as_mapped_1904.form.stone_front`, `house_1634_prairie.as_mapped_1904.form.street_front_trim`, `house_1634_prairie.as_mapped_1904.form.wall_head`, `house_1634_prairie.as_mapped_1904.form.roof_form`, `house_1634_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1634_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1634_prairie.as_mapped_1904.form.stair_tread_m`, `house_1634_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1634_prairie.as_mapped_1904.form.stoop_width_m`, `house_1634_prairie.as_mapped_1904.form.entrance_bay`, `house_1634_prairie.as_mapped_1904.form.front_bays`, `house_1634_prairie.as_mapped_1904.form.bays`, `house_1634_prairie.as_mapped_1904.form.side_bays`, `house_1634_prairie.as_mapped_1904.form.north_bays`, `house_1634_prairie.as_mapped_1904.form.rear_bays`, `house_1634_prairie.as_mapped_1904.form.sash_by_storey`, `house_1634_prairie.as_mapped_1904.form.basement_lights`, `house_1634_prairie.as_mapped_1904.form.roof_covering`, `house_1634_prairie.as_mapped_1904.form.chimneys`, `house_1634_prairie.as_mapped_1904.form.window_kit`, `house_1634_prairie.as_mapped_1904.form.entrance_kit`
-**Ticket:** T-2350 (piece 2 of T-2346).
-**Review:** `docs/RESEARCH/k01-1634-stone-front-flat-2350/README.md`.
-**Recorded:** 2026-10-11 (T-2350).
+**Ticket:** T-2350 (piece 2 of T-2346); T-2347 (the rear wing).
+**Review:** `docs/RESEARCH/k01-1634-stone-front-flat-2350/README.md`, `docs/RESEARCH/k01-1634-rear-wing-2347/README.md`.
+**Recorded:** 2026-10-11 (T-2350); 2026-10-12 (T-2347).
 
 ### L-k01-1636-stone-front-flat-2348 — 1636 Prairie refined from the district draft to a three-storey K01 stone-front house under a flat roof with its rear wing, the south half of the pair with 1634, everything but the plan the kits'
 
