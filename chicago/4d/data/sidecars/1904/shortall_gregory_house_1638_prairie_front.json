@@ -188,18 +188,67 @@
         ],
         "windows": [
           {
-            "k06_variant": "k06.opening.sash_paired_flat",
-            "clear_height_m": 1.45,
-            "sill_m": 4.45,
-            "centre_m": 2.605
+            "k06_variant": "k06.opening.sash_pointed",
+            "surround": "pointed",
+            "clear_width_m": 0.63,
+            "clear_height_m": 1.87,
+            "sill_m": 4.0,
+            "centre_m": 2.178
+          },
+          {
+            "k06_variant": "k06.opening.sash_pointed",
+            "surround": "pointed",
+            "clear_width_m": 0.63,
+            "clear_height_m": 1.87,
+            "sill_m": 4.0,
+            "centre_m": 3.032
           }
-        ]
+        ],
+        "field": "clapboard",
+        "hood": {
+          "centre_m": 2.605,
+          "curve": [
+            [
+              -1.07,
+              5.45
+            ],
+            [
+              -1.07,
+              6.1
+            ],
+            [
+              -0.15,
+              6.0
+            ],
+            [
+              0.0,
+              6.5
+            ]
+          ],
+          "width_m": 0.07,
+          "projection_m": 0.07,
+          "stop": {
+            "width_m": 0.1,
+            "height_m": 0.14
+          },
+          "finial_m": 0.7
+        },
+        "oculus": {
+          "centre_m": 2.605,
+          "centre_y_m": 8.04,
+          "width_m": 0.89,
+          "height_m": 0.74,
+          "ring_m": 0.08,
+          "field_z_m": 0.035,
+          "ring_z_m": 0.06
+        }
       },
       "confidence": "reconstructed",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
+        "sanborn_1911_chicago_v3_sheet_20",
+        "chicagology_1638_prairie_photo"
       ],
-      "note": "The width is the sheet's (inferred, above); everything else is RECONSTRUCTED from the K16 kit and recorded as L-k16-1638-front-2323. The register describes 'a steep front gable with oculus, pointed twin windows and hood moulds' and a pierced timber porch on a Gothic Revival frame house; the kit's 52-degree gable, shingle bands inside rake boards and pierced bargeboards meeting at a finial build the gable, at two storeys over a raised basement (0.75 m). The twin windows are the kit's paired two-light sash in a timber casing with FLAT heads: a pointed head and its hood mould are T-1865's, and the oculus is not cut. The bargeboard's piercings are the kit's working design (roundels and vesicas), not 1638's own, which no source record yet shows."
+      "note": "The width is the sheet's (inferred, above). Since T-2423 the gable's openings are read off the photograph (chicagology_1638_prairie_photo) through the camera solved for it, data/reference_views/shortall_gregory_house_1638_prairie_front/chicagology_front.json (73 px a metre at the front's plane, grade at about 825 px): the twin windows are two pointed lights, each the kit's K06 equilateral head on a 0.63 m sash (the print's 46 px), their sills at 4.0 m (the print's sill board at 537-542 px reads 3.9-4.0 m) and their points at 5.87 m (396 px), 0.854 m apart centre to centre so their two casings meet in one 0.22 m mullion (the print's 15 px between the lights); each light's casing is carried round its head as an arched band (field 'surround: pointed'), as the print's pair shows, with no head board or drip cap. Over them a moulded hood rises from a label stop at each side (1.07 m either side of the gable's middle at 5.45 m: 380 and 537 px, 427 px) along an ogee to a point at 6.5 m (350 px) under a finial with a cross-piece to 7.2 m (300 px). The oval in the gable is 0.89 by 0.74 m (65 by 54 px), its middle at 8.04 m (238 px): a moulded ring round a field the print shows as pale as the wall, with no glass or bar in it, so it is built blind. The print shows the wall's siding running up into the gable with no belt and no band of shaped shingle, so the gable is clapboarded to its rake boards (field 'field: clapboard'); the rake still springs at the 6.4 m belt height the body's roof is built to. Those readings are INFERRED; the rest stays RECONSTRUCTED from the K16 kit (L-k16-1638-front-2323, L-k16-1638-gable-2423): the sash and its two-over-two glazing, the casing's and hood's sections, the hood's curve between the points read, the finial's form (the print's is a three-pointed cluster), the shingle bands the record still carries and the field no longer draws, the bargeboard's piercings (the print shows a broad plain verge board, open in the match record), and every colour."
     },
     "wing_wall": {
       "value": {
@@ -639,14 +688,15 @@
             0.0
           ]
         ],
-        "height_m": 3.9,
+        "height_m": 3.55,
         "roof_m": 0.12
       },
       "confidence": "inferred",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
+        "sanborn_1911_chicago_v3_sheet_20",
+        "chicagology_1638_prairie_photo"
       ],
-      "note": "The canted bay the sheet draws on the front (plan above, inferred) and the register's 'canted ground bay', one storey: a plain block of that plan to 3.9 m (RECONSTRUCTED height) under a flat roof slab. It stands for the bay; its sash and timber are K08's and T-1865's."
+      "note": "The canted bay the sheet draws on the front (plan above, inferred) and the register's 'canted ground bay', one storey: a plain block of that plan under a flat roof slab. Its top is read off the photograph since T-2423: the bay's cornice top at about 552 px, at 77 px a metre at the bay's face (1.1 m nearer the camera than the wall, grade there at 835 px), is 3.67 m, so the block stands 3.55 m under its 0.12 m slab, clear of the gable's sills at 4.0 m (it stood 3.9 m, RECONSTRUCTED, and buried them). It stands for the bay; its pointed lights, cornice and base are T-2424's, and the print's bay is narrower than the sheet's plan (its face 1.47 m against 1.95 m), which T-2424 argues."
     },
     "roof_covering": {
       "value": {
@@ -713,7 +763,7 @@
       ]
     }
   ],
-  "research_note": "T-2323 — the first house built in the scene from the K16 timber kit (data/components/prairie_1904/k16_timber.json, T-2322): piece 2 of T-1858. It is the street front's timber fabric — the Gothic gable with its pierced bargeboards and shingle bands, the clapboard wall beside it with its corner, and the porch — closed behind it since T-2395 (a piece of T-1864's envelope) in the kit's timber: both ranges' clapboard flanks, a rear gable, the main roof carried back on the front gable's rake and a lean-to over the north range. The sheet's rear pieces stand against it since T-2397: the rear range widened to 6.49 m, a two-storey projection on the south flank and three one-storey pieces on decks. The corner tower (T-2396) and the finished architecture (T-1865: the pointed twin windows, oculus, hood moulds and the canted bay itself) finish the house and replace the stand-in bay when they land; T-2160's district draft keeps this record's id.",
+  "research_note": "T-2323 — the first house built in the scene from the K16 timber kit (data/components/prairie_1904/k16_timber.json, T-2322): piece 2 of T-1858. It is the street front's timber fabric — the Gothic gable with its pierced bargeboards and shingle bands, the clapboard wall beside it with its corner, and the porch — closed behind it since T-2395 (a piece of T-1864's envelope) in the kit's timber: both ranges' clapboard flanks, a rear gable, the main roof carried back on the front gable's rake and a lean-to over the north range. The sheet's rear pieces stand against it since T-2397: the rear range widened to 6.49 m, a two-storey projection on the south flank and three one-storey pieces on decks. The corner tower stands since T-2396. Since T-2423 (a piece of T-1865) the gable carries what the photograph shows on it — two pointed lights under an ogee hood and finial, the blind oval, and clapboard to the rake — read through the camera solved for it in data/reference_views/; T-1865's other pieces finish the bay (T-2424), the entrance under the tower (T-2425) and the fence (T-2426); T-2160's district draft keeps this record's id.",
   "research_doc": "",
   "review_required": false
 }
