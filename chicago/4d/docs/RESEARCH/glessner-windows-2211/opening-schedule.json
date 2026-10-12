@@ -177,10 +177,10 @@
  {
   "face": "east",
   "record": "openings_prairie",
-  "what": "stone lintel over the door",
+  "what": "rock-faced granite lintel over the door, about 10 ft long under the fan (owner photographs, 2026-10-12)",
   "at_ft": [
-   30.1,
-   35.7
+   27.9,
+   37.9
   ],
   "z_ft": [
    7.75,
@@ -189,7 +189,7 @@
   "z_from": "item",
   "lights": 1,
   "kind": "band",
-  "style": "prairie_sash",
+  "style": "rock_faced_lintel",
   "transom_ft": null,
   "built_as": "carved stone (band)",
   "confidence": "attested",
