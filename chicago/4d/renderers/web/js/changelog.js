@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1718, ts: '2026-10-12T09:02:12.342Z', date: 'Oct 12, 2026, 4:02 AM CT', title: '1601 Prairie stands as a gabled clapboard frame house', kind: 'feature',
+    items: [
+      '1601 Prairie Avenue, the frame house on the 16th Street corner, is no longer a plain draft box: its walls are clapboard laid board by board, with corner boards, a water table and two-over-two sash in timber casings.',
+      'Its steep gable faces the avenue, closed as a pediment over a bracketed boxed eave, with a small window in the gable; the rear gable matches.',
+      'A small porch with timber steps stands at its four-panel door, and the two-storey wing along 16th Street gets the same eave under a flat roof.',
+      'Its plan, wing, two storeys and frame construction are read from the 1911 Sanborn map; every height, window, the porch, the roof covering and the paint are reconstructed, and the house\'s card says so.',
+    ] },
   { v: 1717, ts: '2026-10-12T06:16:23.561Z', date: 'Oct 12, 2026, 1:16 AM CT', title: '1620 Prairie raised under the mansard roof its 1874 engraving shows', kind: 'fix',
     items: [
       'The Robert Law house at 1620 Prairie now wears the steep, slightly bowed mansard roof drawn in an 1874 engraving of it, in place of a low hipped roof.',
