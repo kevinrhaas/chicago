@@ -1,0 +1,30 @@
+{
+ "id": "land_owner_1874_05_homes_of_chicago_1620_law",
+ "type": "illustration",
+ "citation": "'Robert Law.' Wood engraving of the Robert Law residence, 838 (later 1620) Prairie Avenue, Chicago, from the oblique front, in 'The Homes of Chicago', The Land Owner (Chicago: J. M. Wing), May 1874; unknown engraver. Reproduced on chicagology.com, Prairie Avenue, 1620 S. Prairie.",
+ "author": "unknown engraver for The Land Owner (J. M. Wing, publisher)",
+ "date": "1874-05",
+ "describes_date": "1874-05",
+ "repository": "chicagology.com (secondary reproduction of the plate; the issue is held by the Chicago History Museum). Prairie library image a16-cgy-landowner-1874-1620-law (chicago/prairie_1904_v1/research/images/stream-1600-1700.json), its file in the image store (STORE.json); the same file is committed at data/sources/assets/law_1620_pictures_t2370/law_1620_landowner_1874.jpg.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1620prairie/",
+ "locator": "The whole vignette: the house's street front from its south corner to its north corner, the north side wall to its rear corner, the mansard roof with its dormers and the taller crown over the north part, the hooded front bay, the stoop and porch, and the lattice front fence. The camera solve (data/reference_views/law_house_1620_prairie/landowner_1874_from_northeast.json) locates every feature read off it.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A US periodical illustration published in 1874, in the public domain; the web reproduction is a faithful copy of a two-dimensional work and adds no right of its own. Read for forms, counts and proportions; no texture or other asset is derived from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-12 (T-2370) from the image store's copy, 1136 x 756 px RGB, sha256 ece6ea5d877f60e649e7e2cdbac51101ec8a9d29db76f38d410d97ad573ede19 (the library's fetch of 2026-10-02 from chicagology). chicagology.com is not reachable from the build containers, so this copy is the one read.",
+ "note": "The only located view of 1620 in its own time, engraved two years after it was built (c. 1872). From across Prairie Avenue to the north-east it shows a Second Empire house of two storeys over a raised basement under a slated mansard with round-headed dormers. The street front is light-toned (an engraving's light face, not a colour); its north 3.75 m (the part of Robinson 1886's L that runs the full depth) rises into a taller curved crown with one round-headed dormer and carries two round-headed windows a storey; the south part carries a one-storey bay window under a bracketed, flared hood, an upper window over it, and the entrance, reached by a stoop rising north to a balustraded porch. A bracketed cornice runs round the front and the north wall; the north wall shows two storeys of flat-headed windows and two mansard dormers and a tall stack at the front. A lattice fence of interlaced arches on a base stands on the street line, and a board fence on the north side. The camera is solved from the plan's corners with the K01 rectangle's lengths, so each height read off it is a measurement through that solve.",
+ "what_it_supplies": [
+  "the mansard roof, its dormers and the taller curved crown over the north part",
+  "the bay window, its hood and its storey",
+  "round-headed windows in the north part, by storey",
+  "the cornice's height, through the camera solve",
+  "the stoop, the porch's balustrade and the lattice front fence"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the engraving is monochrome (the Inter Ocean of 1887 called the house olive green, a text this record does not hold)",
+  "the south side wall and the rear",
+  "whether anything changed between 1874 and 1904"
+ ]
+}

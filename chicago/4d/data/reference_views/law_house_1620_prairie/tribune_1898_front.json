@@ -1,0 +1,22 @@
+{
+  "structure_id": "law_house_1620_prairie",
+  "source_id": "chicago_tribune_1898_01_09_prairie_widows",
+  "library_image": "a16-cgy-tribune-1898-prairie-widows",
+  "photo": "../../sources/assets/law_1620_pictures_t2370/tribune_1898_1620_panel.jpg",
+  "image_px": [
+    250,
+    306
+  ],
+  "principal_px": [
+    125,
+    204
+  ],
+  "focal_px": 381,
+  "eye": [
+    32.69,
+    7.11,
+    0.9
+  ],
+  "yaw_deg": -90.0,
+  "solve": "Fitted by T-2370 to the 1620 panel of the Tribune strip (the strip's pixels x 300-550, y 12-318, cropped unscaled into tribune_1898_1620_panel.jpg). A freehand pen sketch, not a true perspective, so this camera is approximate and says how far. The drawing's storey lines and cornice are level and its verticals vertical, so the camera is level and square to the front (heading -90, due west); the principal point's x is the panel's centre. The eye is put 0.9 m over the house's grade (a standing eye on the street, 0.7 m below the raised yard, the 1874 engraving's reading). Least squares over five readings: the north pavilion's front from its south edge (x 150 px in the panel) to its north edge (x 225 px) taken as the 3.75 m north part of the front (v 7.5-11.25, Robinson 1886's split, which the 1874 crown confirms), the edge where the pavilion's south side meets the main front (x 120 px), the main cornice's soffit at 7.9 m (y 36 px, the 1874 solve's height) and the stoop's head at the 1.4 m principal floor (y 193 px). It gives f = 381 px, the eye 15.9 m in front of the front on the walk axis's line (v 7.1 m) and a pavilion standing 0.4 m proud of the front. Residuals: 1.5 px at the pavilion's north edge and under 1 px in the two heights, but 15 px at both ends of the pavilion's side face: the sketch draws that face about twice as deep as any camera consistent with its front and its heights allows, the artist's emphasis. So the projection is NOT read from this drawing; it is drawn, and drawn proud, and that is all."
+}
