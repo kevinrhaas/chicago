@@ -102,6 +102,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
             for w in tw[k].get("windows", []):
                 if not all(_num(w.get(x)) for x in ("clear_height_m", "sill_m", "centre_m")):
                     raise ParamError(f"{rid}: body.timber_walls.{k}: a window needs clear_height_m, sill_m, centre_m")
+        errs = annex_errors(body, form["gable"]["value"]["width_m"])
+        if errs:
+            raise ParamError(f"{rid}: body: " + "; ".join(errs))
+    bad = gable_errors(form["gable"]["value"])
+    if bad:
+        raise ParamError(f"{rid}: gable: {'; '.join(bad)}")
     if "tower" in form:     # T-2396: the corner tower over the porch
         bad = tower_errors(form["tower"]["value"])
         if bad:
@@ -113,6 +119,55 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
         **{k: dict(form[k]["value"]) for k in OPTIONAL if k in form},
         confidence={k: form[k]["confidence"] for k in REQUIRED + OPTIONAL if k in form},
     )
+
+
+#: T-2397: the roofs an annex may take — a deck, or a lean-to up into the main roof
+ANNEX_ROOFS = ("flat", "lean_to")
+
+
+def annex_errors(body: dict, gable_width: float) -> list[str]:
+    """What the timber body's widened rear range and its annexes need (T-2397). An annex is a
+    block in the lot plan (u east, v north), standing `against` one side of the body and
+    walled on the others it names, in the walls' counter-clockwise order; a side it joins to
+    another annex is `open`, walled by neither."""
+    out = []
+    wr = body.get("rear_width_m")
+    if wr is not None and (not _num(wr) or wr < gable_width):
+        out.append("rear_width_m must be a number no narrower than the gable's range")
+    annexes = body.get("annexes")
+    if annexes is None:
+        return out
+    if not _num(body.get("annex_return_m")) or not 0.2 <= body["annex_return_m"] <= 1.0:
+        out.append("annex_return_m (each annex corner's return) must lie in 0.2-1.0 m")
+    ids = [b.get("id") for b in annexes]
+    if len(set(ids)) != len(ids) or not all(isinstance(i, str) and i for i in ids):
+        out.append("every annex needs its own id")
+    for b in annexes:
+        bid = b.get("id", "?")
+        r = b.get("rect_uv")
+        if not (isinstance(r, list) and len(r) == 4 and all(_num(x) for x in r) and r[0] < r[2] and r[1] < r[3]):
+            out.append(f"{bid}: rect_uv must be [u0, v0, u1, v1] with u0 < u1 and v0 < v1")
+        if not (b.get("wall_top_m") == "flank" or (_num(b.get("wall_top_m")) and b["wall_top_m"] > 2.0)):
+            out.append(f"{bid}: wall_top_m is the flanks' ('flank') or a height above a storey")
+        kind = (b.get("roof") or {}).get("kind")
+        if kind not in ANNEX_ROOFS:
+            out.append(f"{bid}: roof.kind must be one of {', '.join(ANNEX_ROOFS)}")
+        if kind == "lean_to" and b.get("against") != "north":
+            out.append(f"{bid}: a lean-to rises against the body's south flank, so stands against north")
+        against = b.get("against")
+        if against not in SIDES:
+            out.append(f"{bid}: an annex names the side it stands against")
+            continue
+        sides = [w.get("side") for w in b.get("walls") or []]
+        order = [SIDES[(SIDES.index(against) + k) % 4] for k in (1, 2, 3)]
+        want = [x for x in order if x not in (b.get("open") or [])]
+        if sides != want:
+            out.append(f"{bid}: walls must run {', '.join(want)} in that order, not {', '.join(map(str, sides))}")
+        for w in b.get("walls") or []:
+            for x in w.get("windows", []):
+                if not all(_num(x.get(k)) for k in ("clear_height_m", "sill_m", "centre_m")):
+                    out.append(f"{bid}.{w.get('side')}: a window needs clear_height_m, sill_m, centre_m")
+    return out
 
 
 def _num(x) -> bool:
@@ -167,6 +222,38 @@ def frame_house_errors(fh: dict) -> list[str]:
     ch = fh.get("chimney")
     if ch is not None and not all(_num(ch.get(k)) for k in ("u_m", "v_m", "width_m", "depth_m", "above_ridge_m")):
         out.append("chimney needs u_m, v_m, width_m, depth_m and above_ridge_m")
+    return out
+
+
+def gable_errors(gv: dict) -> list[str]:
+    """What a gable front's T-2423 parts need: a field the builder knows, a pointed surround
+    only on a pointed sash, a hood's four control points and sizes, an oval's middle and sizes
+    with its ring standing proud of its field."""
+    out = []
+    if gv.get("field", "shingle") not in ("shingle", "clapboard"):
+        out.append("field must be shingle or clapboard")
+    for w in gv.get("windows", []):
+        if w.get("surround", "flat") not in ("flat", "pointed"):
+            out.append("a window's surround must be flat or pointed")
+        elif w.get("surround") == "pointed" and w.get("k06_variant") != "k06.opening.sash_pointed":
+            out.append("a pointed surround needs the k06.opening.sash_pointed sash")
+    hv = gv.get("hood")
+    if hv is not None:
+        c = hv.get("curve")
+        if not (isinstance(c, list) and len(c) == 4 and all(isinstance(q, list) and len(q) == 2 and all(_num(x) for x in q) for q in c)):
+            out.append("hood.curve must be four [s, y] control points")
+        if not all(_num(hv.get(k)) and hv[k] > 0 for k in ("centre_m", "width_m", "projection_m", "finial_m")):
+            out.append("hood needs positive centre_m, width_m, projection_m and finial_m")
+        st = hv.get("stop") or {}
+        if not all(_num(st.get(k)) and st[k] > 0 for k in ("width_m", "height_m")):
+            out.append("hood.stop needs positive width_m and height_m")
+    ov = gv.get("oculus")
+    if ov is not None:
+        if not all(_num(ov.get(k)) and ov[k] > 0 for k in ("centre_m", "centre_y_m", "width_m", "height_m", "ring_m",
+                                                         "field_z_m", "ring_z_m")):
+            out.append("oculus needs positive centre_m, centre_y_m, width_m, height_m, ring_m, field_z_m and ring_z_m")
+        elif ov["ring_z_m"] <= ov["field_z_m"] or 2 * ov["ring_m"] >= min(ov["width_m"], ov["height_m"]):
+            out.append("oculus: the ring must stand proud of its field and leave a field inside it")
     return out
 
 

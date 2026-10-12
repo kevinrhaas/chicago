@@ -69,14 +69,62 @@
       ],
       [
         -12.9,
-        5.21
+        6.49
+      ],
+      [
+        -17.84,
+        6.49
+      ],
+      [
+        -17.84,
+        7.75
+      ],
+      [
+        -19.97,
+        7.75
+      ],
+      [
+        -19.97,
+        6.49
+      ],
+      [
+        -22.0,
+        6.49
+      ],
+      [
+        -22.0,
+        7.75
+      ],
+      [
+        -24.64,
+        7.75
+      ],
+      [
+        -24.64,
+        4.96
       ],
       [
         -23.4,
-        5.21
+        4.96
       ],
       [
         -23.4,
+        0.0
+      ],
+      [
+        -12.9,
+        0.0
+      ],
+      [
+        -12.9,
+        -2.4
+      ],
+      [
+        -6.67,
+        -2.4
+      ],
+      [
+        -6.67,
         0.0
       ]
     ],
@@ -84,7 +132,7 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "About the front's south end, u east and v north, between line centres on the committed sheet 20 raster at 0.050779 m a pixel (the fit's printed scale). The front wall runs 8.13 m (rows 3722.7 to 3562.7); the canted bay stands on it from 0.73 to 5.01 m north, 1.10 m out, its face 1.83 to 3.78 m; the house runs back 23.4 m (to column 2643) on its southern range and 12.9 m (to column 2850) on its northern. Where the two ranges part (5.21 m north, the porch's south end) is RECONSTRUCTED: the sheet draws one front line. Not built: the rear range's widening to 6.49 m, the south projection at the house's middle, the three one-storey rear pieces and the open porch, which the sheet draws dotted at the north end of the front (2.91 m wide, 2.0 m out) and which stands outside this polygon."
+    "note": "About the front's south end, u east and v north, between line centres on the committed sheet 20 raster at 0.050779 m a pixel (the fit's printed scale). The front wall runs 8.13 m (rows 3722.7 to 3562.7); the canted bay stands on it from 0.73 to 5.01 m north, 1.10 m out, its face 1.83 to 3.78 m; the house runs back 23.4 m (to column 2643) on its southern range and 12.9 m (to column 2850) on its northern. Where the two ranges part (5.21 m north, the porch's south end) is RECONSTRUCTED: the sheet draws one front line. Since T-2397 the polygon is the sheet's whole outline: behind the north range the house is 6.49 m wide (row 3594.9) to the back; a projection stands 2.40 m out of the south wall (row 3770) between 6.67 and 12.9 m behind the front (columns 2972 and 2850); the one-storey pieces are an ell round the back's north corner (columns 2618 to 2670, rows 3570 to 3625: 24.64 to 22.00 m behind, 4.96 to 7.75 m north) and a shed on the north side (columns 2710 to 2752: 19.97 to 17.84 m behind, out to 7.75 m), each line picked as a darkness peak. The open porch, which the sheet draws dotted at the north end of the front (2.91 m wide, 2.0 m out), stands outside this polygon."
   },
   "attributes": {
     "stories": {
@@ -140,18 +188,67 @@
         ],
         "windows": [
           {
-            "k06_variant": "k06.opening.sash_paired_flat",
-            "clear_height_m": 1.45,
-            "sill_m": 4.45,
-            "centre_m": 2.605
+            "k06_variant": "k06.opening.sash_pointed",
+            "surround": "pointed",
+            "clear_width_m": 0.63,
+            "clear_height_m": 1.87,
+            "sill_m": 4.0,
+            "centre_m": 2.178
+          },
+          {
+            "k06_variant": "k06.opening.sash_pointed",
+            "surround": "pointed",
+            "clear_width_m": 0.63,
+            "clear_height_m": 1.87,
+            "sill_m": 4.0,
+            "centre_m": 3.032
           }
-        ]
+        ],
+        "field": "clapboard",
+        "hood": {
+          "centre_m": 2.605,
+          "curve": [
+            [
+              -1.07,
+              5.45
+            ],
+            [
+              -1.07,
+              6.1
+            ],
+            [
+              -0.15,
+              6.0
+            ],
+            [
+              0.0,
+              6.5
+            ]
+          ],
+          "width_m": 0.07,
+          "projection_m": 0.07,
+          "stop": {
+            "width_m": 0.1,
+            "height_m": 0.14
+          },
+          "finial_m": 0.7
+        },
+        "oculus": {
+          "centre_m": 2.605,
+          "centre_y_m": 8.04,
+          "width_m": 0.89,
+          "height_m": 0.74,
+          "ring_m": 0.08,
+          "field_z_m": 0.035,
+          "ring_z_m": 0.06
+        }
       },
       "confidence": "reconstructed",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
+        "sanborn_1911_chicago_v3_sheet_20",
+        "chicagology_1638_prairie_photo"
       ],
-      "note": "The width is the sheet's (inferred, above); everything else is RECONSTRUCTED from the K16 kit and recorded as L-k16-1638-front-2323. The register describes 'a steep front gable with oculus, pointed twin windows and hood moulds' and a pierced timber porch on a Gothic Revival frame house; the kit's 52-degree gable, shingle bands inside rake boards and pierced bargeboards meeting at a finial build the gable, at two storeys over a raised basement (0.75 m). The twin windows are the kit's paired two-light sash in a timber casing with FLAT heads: a pointed head and its hood mould are T-1865's, and the oculus is not cut. The bargeboard's piercings are the kit's working design (roundels and vesicas), not 1638's own, which no source record yet shows."
+      "note": "The width is the sheet's (inferred, above). Since T-2423 the gable's openings are read off the photograph (chicagology_1638_prairie_photo) through the camera solved for it, data/reference_views/shortall_gregory_house_1638_prairie_front/chicagology_front.json (73 px a metre at the front's plane, grade at about 825 px): the twin windows are two pointed lights, each the kit's K06 equilateral head on a 0.63 m sash (the print's 46 px), their sills at 4.0 m (the print's sill board at 537-542 px reads 3.9-4.0 m) and their points at 5.87 m (396 px), 0.854 m apart centre to centre so their two casings meet in one 0.22 m mullion (the print's 15 px between the lights); each light's casing is carried round its head as an arched band (field 'surround: pointed'), as the print's pair shows, with no head board or drip cap. Over them a moulded hood rises from a label stop at each side (1.07 m either side of the gable's middle at 5.45 m: 380 and 537 px, 427 px) along an ogee to a point at 6.5 m (350 px) under a finial with a cross-piece to 7.2 m (300 px). The oval in the gable is 0.89 by 0.74 m (65 by 54 px), its middle at 8.04 m (238 px): a moulded ring round a field the print shows as pale as the wall, with no glass or bar in it, so it is built blind. The print shows the wall's siding running up into the gable with no belt and no band of shaped shingle, so the gable is clapboarded to its rake boards (field 'field: clapboard'); the rake still springs at the 6.4 m belt height the body's roof is built to. Those readings are INFERRED; the rest stays RECONSTRUCTED from the K16 kit (L-k16-1638-front-2323, L-k16-1638-gable-2423): the sash and its two-over-two glazing, the casing's and hood's sections, the hood's curve between the points read, the finial's form (the print's is a three-pointed cluster), the shingle bands the record still carries and the field no longer draws, the bargeboard's piercings (the print shows a broad plain verge board, open in the match record), and every colour."
     },
     "wing_wall": {
       "value": {
@@ -254,18 +351,6 @@
                 "k06_variant": "k06.opening.sash_2over2_flat",
                 "clear_height_m": 1.75,
                 "sill_m": 1.3,
-                "centre_m": 11.4
-              },
-              {
-                "k06_variant": "k06.opening.sash_2over2_flat",
-                "clear_height_m": 1.75,
-                "sill_m": 1.3,
-                "centre_m": 16.2
-              },
-              {
-                "k06_variant": "k06.opening.sash_2over2_flat",
-                "clear_height_m": 1.75,
-                "sill_m": 1.3,
                 "centre_m": 20.8
               },
               {
@@ -279,18 +364,6 @@
                 "clear_height_m": 1.2,
                 "sill_m": 4.2,
                 "centre_m": 7.0
-              },
-              {
-                "k06_variant": "k06.opening.sash_2over2_flat",
-                "clear_height_m": 1.2,
-                "sill_m": 4.2,
-                "centre_m": 11.4
-              },
-              {
-                "k06_variant": "k06.opening.sash_2over2_flat",
-                "clear_height_m": 1.2,
-                "sill_m": 4.2,
-                "centre_m": 16.2
               },
               {
                 "k06_variant": "k06.opening.sash_2over2_flat",
@@ -313,7 +386,7 @@
                 "k06_variant": "k06.opening.sash_2over2_flat",
                 "clear_height_m": 1.75,
                 "sill_m": 1.3,
-                "centre_m": 7.4
+                "centre_m": 8.1
               },
               {
                 "k06_variant": "k06.opening.sash_2over2_flat",
@@ -325,7 +398,7 @@
                 "k06_variant": "k06.opening.sash_2over2_flat",
                 "clear_height_m": 1.2,
                 "sill_m": 4.2,
-                "centre_m": 7.4
+                "centre_m": 8.1
               }
             ]
           },
@@ -403,23 +476,197 @@
                 "k06_variant": "k06.opening.sash_2over2_flat",
                 "clear_height_m": 1.75,
                 "sill_m": 1.3,
-                "centre_m": 1.46
+                "centre_m": 0.86
               },
               {
                 "k06_variant": "k06.opening.sash_2over2_flat",
                 "clear_height_m": 1.2,
                 "sill_m": 4.2,
-                "centre_m": 1.46
+                "centre_m": 0.86
               }
             ]
           }
-        }
+        },
+        "rear_width_m": 6.49,
+        "annex_return_m": 0.3,
+        "annexes": [
+          {
+            "id": "south_projection",
+            "rect_uv": [
+              -12.9,
+              -2.4,
+              -6.67,
+              0.0
+            ],
+            "against": "north",
+            "wall_top_m": "flank",
+            "roof": {
+              "kind": "lean_to"
+            },
+            "walls": [
+              {
+                "side": "west",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 1.2
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 1.2
+                  }
+                ]
+              },
+              {
+                "side": "south",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 1.75
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 4.45
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 1.75
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 4.45
+                  }
+                ]
+              },
+              {
+                "side": "east",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 1.2
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.2,
+                    "sill_m": 4.2,
+                    "centre_m": 1.2
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "rear_ell",
+            "rect_uv": [
+              -24.64,
+              4.96,
+              -23.4,
+              7.75
+            ],
+            "against": "east",
+            "wall_top_m": 3.65,
+            "roof": {
+              "kind": "flat"
+            },
+            "walls": [
+              {
+                "side": "north"
+              },
+              {
+                "side": "west",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 1.4
+                  }
+                ]
+              },
+              {
+                "side": "south"
+              }
+            ]
+          },
+          {
+            "id": "rear_ell_north",
+            "rect_uv": [
+              -23.4,
+              6.49,
+              -22.0,
+              7.75
+            ],
+            "against": "south",
+            "open": [
+              "west"
+            ],
+            "wall_top_m": 3.65,
+            "roof": {
+              "kind": "flat"
+            },
+            "walls": [
+              {
+                "side": "east"
+              },
+              {
+                "side": "north"
+              }
+            ]
+          },
+          {
+            "id": "north_shed",
+            "rect_uv": [
+              -19.97,
+              6.49,
+              -17.84,
+              7.75
+            ],
+            "against": "south",
+            "wall_top_m": 3.65,
+            "roof": {
+              "kind": "flat"
+            },
+            "walls": [
+              {
+                "side": "east"
+              },
+              {
+                "side": "north",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.3,
+                    "centre_m": 1.05
+                  }
+                ]
+              },
+              {
+                "side": "west"
+              }
+            ]
+          }
+        ]
       },
       "confidence": "reconstructed",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "T-2395: the body behind the front, closed in the K16 kit's timber and roofed; its plan is the sheet's (above): the gable's range 23.4 m deep, the north range 12.9 m. RECONSTRUCTED from the kit, recorded as L-k16-1638-body-2395: both ranges' flanks are clapboard walls on the front's 0.75 m foundation with corner boards, a frieze and a boxed eave on scroll brackets; the gable's range ends at the back in a second kit gable (plain square shingle, pierced bargeboards and finial, the front's 52-degree pitch and 6.4 m belt) and is roofed by the front gable's own rake carried back to it, so its flanks' eave sits where that roof comes down to the fascia (6.03 m wall top); the narrow north range is roofed by a 22-degree lean-to from its north eave (the wing wall's, 6.4 m) up to the main roof. Openings are the kit's two-over-two sash in flat casings, a ground and an upper storey: five bays on the south flank, two on the north flank behind the wing, two on the wing's north side, one on its back wall, two a storey and an attic light in the rear gable. No source shows a side or rear elevation: the bays are spaced to the plan, not read. The colour is kept for the canted bay, which is still a plain stand-in (T-1865)."
+      "note": "T-2395: the body behind the front, closed in the K16 kit's timber and roofed; its plan is the sheet's (above): the gable's range 23.4 m deep, the north range 12.9 m. RECONSTRUCTED from the kit, recorded as L-k16-1638-body-2395: both ranges' flanks are clapboard walls on the front's 0.75 m foundation with corner boards, a frieze and a boxed eave on scroll brackets; the gable's range ends at the back in a second kit gable (plain square shingle, pierced bargeboards and finial, the front's 52-degree pitch and 6.4 m belt) and is roofed by the front gable's own rake carried back to it, so its flanks' eave sits where that roof comes down to the fascia (6.03 m wall top); the narrow north range is roofed by a 22-degree lean-to from its north eave (the wing wall's, 6.4 m) up to the main roof. Openings are the kit's two-over-two sash in flat casings, a ground and an upper storey: five bays on the south flank, two on the north flank behind the wing, two on the wing's north side, one on its back wall, two a storey and an attic light in the rear gable. No source shows a side or rear elevation: the bays are spaced to the plan, not read. The colour is kept for the canted bay, which is still a plain stand-in (T-1865). T-2397 (piece 3 of T-1864), recorded as L-k16-1638-rear-2397: the plan's rear pieces stand against this body, their outlines the sheet's (footprint, above). The range behind the north range is widened to 6.49 m (`rear_width_m`), its north flank on the new line under a 22-degree lean-to from the flanks' eave up into the main roof, and the north range's back wall shortens to 1.64 m. `annexes` are blocks in the footprint's frame: a two-storey projection on the south flank (the sheet prints no storey number in it, so the house's '2BB' is carried to it), walled in the kit's clapboard to the flanks' wall top under a lean-to up into the main roof's south slope, the south flank's two bays it covers taken out; and three one-storey pieces (an L-shaped ell as two blocks, and a shed) at a 3.65 m wall top on flat decks, the sheet's '1' and small circle in each read as one storey under a slate or tin roof. Every opening on them, the lean-tos and the pieces' height are RECONSTRUCTED; the decks take the house's roof covering."
     },
     "canted_bay": {
       "value": {
@@ -441,14 +688,15 @@
             0.0
           ]
         ],
-        "height_m": 3.9,
+        "height_m": 3.55,
         "roof_m": 0.12
       },
       "confidence": "inferred",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
+        "sanborn_1911_chicago_v3_sheet_20",
+        "chicagology_1638_prairie_photo"
       ],
-      "note": "The canted bay the sheet draws on the front (plan above, inferred) and the register's 'canted ground bay', one storey: a plain block of that plan to 3.9 m (RECONSTRUCTED height) under a flat roof slab. It stands for the bay; its sash and timber are K08's and T-1865's."
+      "note": "The canted bay the sheet draws on the front (plan above, inferred) and the register's 'canted ground bay', one storey: a plain block of that plan under a flat roof slab. Its top is read off the photograph since T-2423: the bay's cornice top at about 552 px, at 77 px a metre at the bay's face (1.1 m nearer the camera than the wall, grade there at 835 px), is 3.67 m, so the block stands 3.55 m under its 0.12 m slab, clear of the gable's sills at 4.0 m (it stood 3.9 m, RECONSTRUCTED, and buried them). It stands for the bay; its pointed lights, cornice and base are T-2424's, and the print's bay is narrower than the sheet's plan (its face 1.47 m against 1.95 m), which T-2424 argues."
     },
     "roof_covering": {
       "value": {
@@ -515,7 +763,7 @@
       ]
     }
   ],
-  "research_note": "T-2323 — the first house built in the scene from the K16 timber kit (data/components/prairie_1904/k16_timber.json, T-2322): piece 2 of T-1858. It is the street front's timber fabric — the Gothic gable with its pierced bargeboards and shingle bands, the clapboard wall beside it with its corner, and the porch — closed behind it since T-2395 (a piece of T-1864's envelope) in the kit's timber: both ranges' clapboard flanks, a rear gable, the main roof carried back on the front gable's rake and a lean-to over the north range. The corner tower (T-2396), the sheet's rear pieces (T-2397) and the finished architecture (T-1865: the pointed twin windows, oculus, hood moulds and the canted bay itself) finish the house and replace the stand-in bay when they land; T-2160's district draft keeps this record's id.",
+  "research_note": "T-2323 — the first house built in the scene from the K16 timber kit (data/components/prairie_1904/k16_timber.json, T-2322): piece 2 of T-1858. It is the street front's timber fabric — the Gothic gable with its pierced bargeboards and shingle bands, the clapboard wall beside it with its corner, and the porch — closed behind it since T-2395 (a piece of T-1864's envelope) in the kit's timber: both ranges' clapboard flanks, a rear gable, the main roof carried back on the front gable's rake and a lean-to over the north range. The sheet's rear pieces stand against it since T-2397: the rear range widened to 6.49 m, a two-storey projection on the south flank and three one-storey pieces on decks. The corner tower stands since T-2396. Since T-2423 (a piece of T-1865) the gable carries what the photograph shows on it — two pointed lights under an ogee hood and finial, the blind oval, and clapboard to the rake — read through the camera solved for it in data/reference_views/; T-1865's other pieces finish the bay (T-2424), the entrance under the tower (T-2425) and the fence (T-2426); T-2160's district draft keeps this record's id.",
   "research_doc": "",
   "review_required": false
 }

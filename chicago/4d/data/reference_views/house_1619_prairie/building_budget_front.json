@@ -1,0 +1,22 @@
+{
+  "structure_id": "house_1619_prairie",
+  "source_id": "building_budget_1886_06_hamline_farwell_houses",
+  "library_image": "cgn-1619-1625-building-budget-hamline-farwell",
+  "photo": "../../sources/assets/hamline_1619_drawing_t2420/building_budget_1619_panel.jpg",
+  "image_px": [
+    580,
+    846
+  ],
+  "principal_px": [
+    649,
+    600
+  ],
+  "focal_px": 920,
+  "eye": [
+    33.3,
+    12.0,
+    1.6
+  ],
+  "yaw_deg": -90.0,
+  "solve": "Fitted by T-2420 to the Hamline house in the plate (the display copy's pixels x 20-600, y 100-946, cropped unscaled into building_budget_1619_panel.jpg). An architect's pen perspective, not a photograph, and its front does not agree with the 1911 sheet's plan in one width (below), so this camera is approximate and says how far. The drawing's verticals are vertical and the bow's string courses level, so the camera is level and square to the front (yaw -90 in the footprint frame, whose u runs toward the street and whose v runs SOUTH on this side of the avenue: the eye looks east). Scale: the bow's two junctions with the front (x 273 and 443 px) are its 3.76 m chord on the sheet, 46 px/m at the front's plane; with the eye 20 m in front of the stone face (across the roadway, as a street view of a plate is drawn), f = 920 px. Heights at that scale: grade at y 680, the principal floor (1.4 m) at 607, the second floor (5.3 m) at about 443 and the bow's top at the third floor (8.9 m) at about 270 — the drawing's own spacings run 52, 42 and 48 px/m, so a storey height read from it is good to about 10 %. The eye is put at 1.6 m, a standing eye on the walk, which sets the horizon (principal y) at 600 px, at the principal floor. Across: the bow's two edges fix cx - 46 v_eye = 97 px and leave the eye's place along the street free; the plate's inset plan (top left) draws a 'Driveway' between Hamline's house and Farwell's, and the elevation shows Hamline's SOUTH side wall in shade receding along it from the bow's edge to past x 563 px, where Farwell's stoop covers it. A wall 19.3 m deep (the main body and the rear range flush on the south) seen that far needs the eye 3.5 m or more south of it: v 12.0 m, in front of the driveway, which puts the principal point at x 649 px, past the panel's edge but inside the plate (x 669 of 900) — the plate's station point between its two houses. Residuals: 0-3 px at the bow's edges; 36 px at the south corner, where the sheet puts a 0.91 m pier south of the bow that the drawing does not draw; and about 90 px at the north strip's outer edge (drawn at x 210, built at about 0): the drawing's north strip is about 1.4 m against the sheet's 3.79 m, and the plate's inset plan draws it about a third of the front where the sheet has nearly half. The sheet controls the plan (the 1911 survey of what stood, against the 1886 design), so those two widths are argued in the match record, not built to the drawing."
+}

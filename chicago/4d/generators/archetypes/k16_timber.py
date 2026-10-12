@@ -680,6 +680,8 @@ class Sample:
             self.poly(F, "end_grain", [(s_e, ysb, 0), (s_e, ysb, zf), (s_e, yf_top, zf), (s_e, ys, 0)], (hs, 0, 0), tw)
         self.box(F, "apron", sa, sb, y_ap, ysb, 0, cth, skip=("back", "top"), tone=tw,
                  roles={"s0": "end_grain", "s1": "end_grain"})
+        if win.get("surround") == "pointed":     # T-2423: the casing carried round the head
+            return self._pointed_surround(F, c, hw, H, ys, sl, sa, sb, y_ap, y_start, tw)
         for (a, b) in ((sa, c - hw), (c + hw, sb)):
             yb = ys - cth * sl
             self.poly(F, "casing", [(a, yb, cth), (b, yb, cth), (b, yH, cth), (a, yH, cth)], (0, 0, 1), tw)
@@ -698,6 +700,125 @@ class Sample:
                                "head_m": round(yHc - yH, 6), "on_course_lines": True}
         self.meta.setdefault("casings", []).append(self.meta["casing"])
         return hole, cut
+
+    def _pointed_surround(self, F, c, hw, H, ys, sl, sa, sb, y_ap, y_start, tw):
+        """T-2423: a pointed sash's casing carried round its head instead of squared off: the
+        two jamb casings rise to the spring and an arched band of the casing's width follows
+        the K06 equilateral head to its point, with no head board or drip cap (a hood mould
+        over the opening sheds its water). The clapboard is cut course by course: the whole
+        casing's width up to the spring, then each course to the clear arch at its foot, so
+        every board end stands under the band. Returns the sheathing hole and the cuts."""
+        cs = self.data["trim"]["casing"]
+        cw, cth = cs["width_m"], cs["thickness_m"]
+        E = self.data["cladding"]["clapboard"]["exposure_m"]
+        span = 2 * hw
+        rise = math.sqrt(span * span - hw * hw)
+        spring, top = ys + H - rise, ys + H
+        yb = ys - cth * sl
+        for (a, b) in ((sa, c - hw), (c + hw, sb)):
+            self.poly(F, "casing", [(a, yb, cth), (b, yb, cth), (b, spring, cth), (a, spring, cth)], (0, 0, 1), tw)
+            self.poly(F, "casing", [(a, ys, 0), (a, yb, cth), (a, spring, cth), (a, spring, 0)], (-1, 0, 0), tw)
+            self.poly(F, "casing", [(b, ys, 0), (b, yb, cth), (b, spring, cth), (b, spring, 0)], (1, 0, 0), tw)
+        hd = K06.Head("pointed", c - hw, c + hw, spring)
+        inner = hd.curve(0.0, c + hw, c - hw)
+        outer = hd.curve(-cw, c + hw + cw, c - hw - cw)
+        for (p0, p1), (q0, q1) in zip(zip(inner, inner[1:]), zip(outer, outer[1:])):
+            mx, my = (p0[0] + p1[0]) / 2 - c, (p0[1] + p1[1]) / 2 - spring
+            self.poly(F, "casing", [(p0[0], p0[1], cth), (q0[0], q0[1], cth), (q1[0], q1[1], cth), (p1[0], p1[1], cth)],
+                      (0, 0, 1), tw)
+            self.poly(F, "casing", [(q0[0], q0[1], 0), (q1[0], q1[1], 0), (q1[0], q1[1], cth), (q0[0], q0[1], cth)],
+                      (mx, my, 0), tw)
+            self.poly(F, "casing", [(p0[0], p0[1], 0), (p1[0], p1[1], 0), (p1[0], p1[1], cth), (p0[0], p0[1], cth)],
+                      (-mx, -my, 0), tw)
+        cuts, k = [], round((y_ap - y_start) / E)
+        while y_start + k * E < top - 1e-6:
+            y0 = y_start + k * E
+            off = hw + cw if y0 < spring - 1e-9 else math.sqrt(max(0.0, span * span - (y0 - spring) ** 2)) - hw
+            cuts.append((c - off, c + off, y0, y0 + E))
+            k += 1
+        apex_out = max(q[1] for q in outer)
+        self.meta["casing"] = {"s": [sa, sb], "y": [y_ap, round(apex_out, 6)], "head": "pointed",
+                               "spring_m": round(spring, 6), "on_course_lines": False}
+        self.meta.setdefault("casings", []).append(self.meta["casing"])
+        return (c - hw, c + hw, ys, top), cuts
+
+    def _hood(self, F, hv):
+        """T-2423: a moulded hood over a gable's windows, read off 1638's photograph: a band
+        rising from a label stop at each end along a cubic ogee to a point under a finial,
+        mirrored about its centre. `curve` is the left half's four control points, s from the
+        centre and y over grade; the band is `width_m` across and stands `projection_m` out."""
+        hc, w, zp = hv["centre_m"], hv["width_m"], hv["projection_m"]
+        P = hv["curve"]
+        butts = [c["y0"] for c in self.meta["courses"] if c["family"] == "clapboard"]
+
+        def clear(y):     # a level face applied to the cladding never lies on a course's butt
+            return y + 0.006 if any(abs(y - b) < 0.003 for b in butts) else y
+        n = 16
+        pts, tans = [], []
+        for i in range(n + 1):
+            t = i / n
+            b = ((1 - t) ** 3, 3 * (1 - t) ** 2 * t, 3 * (1 - t) * t * t, t ** 3)
+            d = (-3 * (1 - t) ** 2, 3 * (1 - t) ** 2 - 6 * (1 - t) * t, 6 * (1 - t) * t - 3 * t * t, 3 * t * t)
+            pts.append((math.fsum(b[j] * P[j][0] for j in range(4)), math.fsum(b[j] * P[j][1] for j in range(4))))
+            tx, ty = math.fsum(d[j] * P[j][0] for j in range(4)), math.fsum(d[j] * P[j][1] for j in range(4))
+            L = math.hypot(tx, ty) or 1.0
+            tans.append((tx / L, ty / L))
+        up = [(x - ty * w / 2, y + tx * w / 2) for (x, y), (tx, ty) in zip(pts, tans)]   # outer (upper) edge
+        lo = [(x + ty * w / 2, y - tx * w / 2) for (x, y), (tx, ty) in zip(pts, tans)]
+        th = self.tone("hood")
+        for side in (-1, 1):       # the left half (control points as given), then mirrored
+            def m(q):
+                return (hc + (q[0] if side == -1 else -q[0]), q[1])
+            half = [(hc, -1.0), (hc, 99.0), (hc + side * 9.0, 99.0), (hc + side * 9.0, -1.0)]
+            for i in range(n):
+                a0, a1, b0, b1 = m(up[i]), m(up[i + 1]), m(lo[i]), m(lo[i + 1])
+                # each half's face stops at the centre line, so the two never overlap at the point
+                fr = K06.clip(ccw([b0, b1, a1, a0]), ccw(half))
+                if len(fr) >= 3 and abs(area2(fr)) > 1e-9:
+                    self.poly(F, "casing", [(q[0], q[1], zp) for q in fr], (0, 0, 1), th)
+                tx, ty = tans[i]
+                nx = -ty if side == -1 else ty
+                self.poly(F, "casing", [(a0[0], a0[1], 0), (a1[0], a1[1], 0), (a1[0], a1[1], zp), (a0[0], a0[1], zp)],
+                          (nx, tx, 0), th)
+                self.poly(F, "casing", [(b0[0], b0[1], 0), (b1[0], b1[1], 0), (b1[0], b1[1], zp), (b0[0], b0[1], zp)],
+                          (-nx, -tx, 0), th)
+            st = hv["stop"]
+            s0 = m(pts[0])[0]
+            y0 = P[0][1]
+            self.box(F, "casing", s0 - st["width_m"] / 2, s0 + st["width_m"] / 2, clear(y0 - st["height_m"]),
+                     clear(y0 + w / 2), 0.0, zp + 0.01, skip=("back",), tone=th)
+        # the finial on the point: a square post, a cross-piece and a pyramid cap
+        fh, a = hv["finial_m"], 0.035
+        ya = P[3][1]
+        tf = self.tone("hood_finial")
+        self.box(F, "finial", hc - a, hc + a, clear(ya - w), ya + fh - 0.14, 0.0, zp + 0.01, skip=("back", "top"), tone=tf)
+        yx = ya + 0.55 * fh
+        self.box(F, "finial", hc - 0.1, hc + 0.1, clear(yx - 0.025), clear(yx + 0.025), 0.0, zp + 0.005, skip=("back",),
+                 tone=tf)
+        yt, zc = ya + fh - 0.14, (zp + 0.01) / 2
+        apex = (hc, ya + fh, zc)
+        for (p, q, hint) in (((hc - a, 0.0), (hc + a, 0.0), (0, 0.4, -1)), ((hc + a, zp + 0.01), (hc - a, zp + 0.01), (0, 0.4, 1)),
+                             ((hc - a, zp + 0.01), (hc - a, 0.0), (-1, 0.4, 0)), ((hc + a, 0.0), (hc + a, zp + 0.01), (1, 0.4, 0))):
+            self.poly(F, "finial", [(p[0], yt, p[1]), (q[0], yt, q[1]), apex], hint, tf)
+        self.meta["hood"] = {"centre_m": hc, "apex_m": ya, "finial_top_m": round(ya + fh, 6),
+                             "stops_m": [round(hc + P[0][0], 6), round(hc - P[0][0], 6)]}
+
+    def _oculus(self, F, ov):
+        """T-2423: the oval in 1638's gable: a moulded ring round a sunk field, applied to the
+        cladding. The photograph shows its field as pale as the wall, with no glass or bar in
+        it, so it is built blind; `field_m` and `ring_m` are its two faces' stand-off."""
+        sc, yc, ax, ay, rw = ov["centre_m"], ov["centre_y_m"], ov["width_m"] / 2, ov["height_m"] / 2, ov["ring_m"]
+        zf, zr, n = ov["field_z_m"], ov["ring_z_m"], 32
+        el = lambda k, d: (sc + (ax - d) * math.cos(2 * math.pi * k / n), yc + (ay - d) * math.sin(2 * math.pi * k / n))
+        to = self.tone("oculus")
+        self.poly(F, "casing", [(*el(k, rw), zf) for k in range(n)], (0, 0, 1), to)
+        for k in range(n):
+            o0, o1, i0, i1 = el(k, 0.0), el(k + 1, 0.0), el(k, rw), el(k + 1, rw)
+            mx, my = (o0[0] + o1[0]) / 2 - sc, (o0[1] + o1[1]) / 2 - yc
+            self.poly(F, "casing", [(i0[0], i0[1], zr), (o0[0], o0[1], zr), (o1[0], o1[1], zr), (i1[0], i1[1], zr)], (0, 0, 1), to)
+            self.poly(F, "casing", [(o0[0], o0[1], 0), (o1[0], o1[1], 0), (o1[0], o1[1], zr), (o0[0], o0[1], zr)], (mx, my, 0), to)
+            self.poly(F, "casing", [(i0[0], i0[1], zf), (i1[0], i1[1], zf), (i1[0], i1[1], zr), (i0[0], i0[1], zr)], (-mx, -my, 0), to)
+        self.meta["oculus"] = {"centre": [sc, yc], "size_m": [ov["width_m"], ov["height_m"]]}
 
     def _cased_door(self, F, door, y_start):
         """T-2357: a panelled door in a K16 casing on frame F, centred at door's centre_m,
@@ -819,24 +940,51 @@ class Sample:
         for win in v.get("windows", []):    # T-2323: a house's gable front has its sash
             hole, cut = self._cased_window(F, win, y_start)
             holes.append(hole)
-            cuts.append(cut)
+            cuts.extend(cut if isinstance(cut, list) else [cut])    # T-2423: a pointed head's courses
         cb, ct = tr["corner_board"]["width_m"], tr["corner_board"]["thickness_m"]
-        self.clapboards(F, cb, W - cb, y_start, y_belt, ("trim", "trim"), cuts)
-        tc = self.tone("corner")
-        self.box(F, "corner_board", 0.0, cb, y_start, y_belt, 0, ct, skip=("back", "top"), tone=tc)
-        self.box(F, "corner_board", W - cb, W, y_start, y_belt, 0, ct, skip=("back", "top"), tone=tc)
         be = tr["belt"]
         cap = tr["water_table"]["cap"]
         y_b1 = y_belt + be["height_m"]
         y_g = y_b1 + cap["height_m"]
         zc = be["thickness_m"] + cap["projection_m"]
-        self.profile_run(F, [(0.0, y_belt), (be["thickness_m"], y_belt), (be["thickness_m"], y_b1), (0.0, y_b1)],
-                         ["belt", "belt", None, None], 0.0, W, ("end_grain", "end_grain"), self.tone("belt"))
-        self.profile_run(F, [(0.0, y_b1), (zc, y_b1), (zc, y_g - cap["fall_m"]), (0.0, y_g)],
-                         ["drip_cap", "drip_cap", "drip_cap", None], 0.0, W, ("end_grain", "end_grain"), self.tone("belt"))
         p = math.radians(go["pitch_deg"])
         tp, cp_, sp_ = math.tan(p), math.cos(p), math.sin(p)
         y_ap = y_g + (W / 2) * tp
+        rw = tr["rake_board"]["width_m"]
+        # T-2423: `field: clapboard` carries the wall's clapboard up into the gable to the rake
+        # board, with no belt and no shingle, as 1638's photograph shows; the rake still springs
+        # at the belt's height, so the roof and the body behind it do not move
+        clap_field = v.get("field") == "clapboard"
+        tc = self.tone("corner")
+        if clap_field:
+            E = d["cladding"]["clapboard"]["exposure_m"]
+            # the first course whose foot the rake board's lower edge cuts inside the corner
+            # boards; every course below it runs from corner board to corner board
+            y_lo = y_start + E * (math.floor((y_g - rw / cp_ + cb * tp - y_start) / E + 1e-9) + 1)
+            self.clapboards(F, cb, W - cb, y_start, y_lo, ("trim", "trim"), cuts)
+
+            def span(y0):
+                a = max(cb, (y0 - y_g + rw / cp_) / tp)
+                return (a, W - a) if W - 2 * a > 1e-6 else None
+
+            n_lo = round((y_lo - y_start) / E)
+            n_hi = int(math.ceil((y_ap - rw / cp_ - y_lo) / E - 1e-9))
+            self.clapboards(F, cb, W - cb, y_lo, y_lo + n_hi * E, cuts=cuts, course0=n_lo, span=span)
+            for s0_, s1_ in ((0.0, cb), (W - cb, W)):
+                self.box(F, "corner_board", s0_, s1_, y_start, y_g, 0, ct, skip=("back", "top"), tone=tc)
+        else:
+            self.clapboards(F, cb, W - cb, y_start, y_belt, ("trim", "trim"), cuts)
+            self.box(F, "corner_board", 0.0, cb, y_start, y_belt, 0, ct, skip=("back", "top"), tone=tc)
+            self.box(F, "corner_board", W - cb, W, y_start, y_belt, 0, ct, skip=("back", "top"), tone=tc)
+            self.profile_run(F, [(0.0, y_belt), (be["thickness_m"], y_belt), (be["thickness_m"], y_b1), (0.0, y_b1)],
+                             ["belt", "belt", None, None], 0.0, W, ("end_grain", "end_grain"), self.tone("belt"))
+            self.profile_run(F, [(0.0, y_b1), (zc, y_b1), (zc, y_g - cap["fall_m"]), (0.0, y_g)],
+                             ["drip_cap", "drip_cap", "drip_cap", None], 0.0, W, ("end_grain", "end_grain"),
+                             self.tone("belt"))
+        if v.get("hood"):
+            self._hood(F, v["hood"])
+        if v.get("oculus"):
+            self._oculus(F, v["oculus"])
         # the wall: sheathing and interior up to the rake, its two lower cuts
         tri = [(0.0, y_g), (W, y_g), (W / 2, y_ap)]
         self.sheathing(F, (0.0, W, y_fd, y_g), holes)
@@ -939,7 +1087,8 @@ class Sample:
 
         # shingles inside the rake boards
         inner = [(rw / sp_, y_g), (W - rw / sp_, y_g), (W / 2, y_ap - rw / cp_)]
-        self.shingles(F, inner, y_g, v["bands"], W / 2)
+        if not clap_field:
+            self.shingles(F, inner, y_g, v["bands"], W / 2)
 
         # the finial through the apex
         fi = go["finial"]
@@ -1248,7 +1397,13 @@ def canted_bay_body(sm: Sample, plan, height, roof_m=0.12):
 
 #: T-2395: a timber body's parts, in the order they are merged and measured
 BODY_KEYS = tuple(f"body.{k}{n}" for k in ("south", "north", "wing_north", "wing_rear") for n in ("", ".2")) \
-    + ("body.rear",)
+    + ("body.rear", "body.rear_north")
+
+
+def body_part_keys(parts: dict) -> tuple:
+    """A front record's body parts in merge order: the timber body's faces, then any annex's
+    walls (T-2397) and the corner tower's faces (T-2396), each held to the kit's rules by the gate."""
+    return tuple(k for k in BODY_KEYS + TOWER_KEYS if k in parts) + tuple(k for k in parts if k.startswith("annex."))
 
 
 def structure_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
@@ -1306,6 +1461,7 @@ def timber_body_parts(st: dict, form: dict, data: dict, front: dict) -> dict:
     gv, wv = form["gable"]["value"], form["wing_wall"]["value"]
     Wg, Ww, join = gv["width_m"], wv["width_m"], form["layout"]["value"]["join_gap_m"]
     Lg, Dw = body["gable_depth_m"], body["wing_depth_m"]
+    Wr = body.get("rear_width_m", Wg)      # T-2397: the range behind the wing, widened past the gable's
     s1 = Wg + join + Ww
     y_flank = round(body_flank_top(front["gable"], data, body["roof_under_m"]), 6)
 
@@ -1314,7 +1470,7 @@ def timber_body_parts(st: dict, form: dict, data: dict, front: dict) -> dict:
     def wall(key, O, U, L, top, boards):
         """One face, as one kit wall or, past `split_m`, two meeting end to end (a long flank
         would outrun one wall's triangle budget): `body.<key>` and `body.<key>.2`."""
-        w = tw[key]
+        w = tw.get(key, {})       # T-2397: the widened range's short back wall may name nothing
         cut = w.get("split_m")
         runs = [(0.0, cut, (boards[0], False)), (cut, L, (False, boards[1]))] if cut else [(0.0, L, boards)]
         for i, (a, b, bd) in enumerate(runs):
@@ -1334,18 +1490,92 @@ def timber_body_parts(st: dict, form: dict, data: dict, front: dict) -> dict:
     # the gable range's south flank, from the back corner to the front's
     wall("south", (0.0, 0.0, -Lg), (0.0, 0.0, 1.0), Lg, y_flank, (True, True))
     # its north flank behind the wing, from the wing's back wall to the back corner
-    wall("north", (Wg, 0.0, -Dw), (0.0, 0.0, -1.0), Lg - Dw, y_flank, (False, True))
+    wall("north", (Wr, 0.0, -Dw), (0.0, 0.0, -1.0), Lg - Dw, y_flank, (False, True))
     # the wing's north side, on from the wing wall's return, and its back wall
     wall("wing_north", (s1, 0.0, -D), (0.0, 0.0, -1.0), Dw - D, wv["wall_top_m"], (False, True))
-    wall("wing_rear", (s1, 0.0, -Dw), (-1.0, 0.0, 0.0), s1 - Wg, wv["wall_top_m"], (True, False))
+    wall("wing_rear", (s1, 0.0, -Dw), (-1.0, 0.0, 0.0), s1 - Wr, wv["wall_top_m"], (True, False))
+    if Wr > Wg:     # T-2397: the widened range's back, from its north corner to the rear gable
+        wall("rear_north", (Wr, 0.0, -Lg), (-1.0, 0.0, 0.0), Wr - Wg, y_flank, (False, False))
     # the rear gable, measured in its own frame as the front's is and turned into place when
     # the house is merged (`_rear_at`)
-    rv = dict(gv, id=f"k16.gable.{sid}.body_rear", windows=list(tw["rear"].get("windows", [])),
+    # T-2423: the front's own hood, oval and clapboard field are the street front's, not the back's
+    rv = dict({k: x for k, x in gv.items() if k not in ("field", "hood", "oculus")}, id=f"k16.gable.{sid}.body_rear", windows=list(tw["rear"].get("windows", [])),
               bands=tw["rear"].get("bands", gv["bands"]))
     out["body.rear"] = Sample(rv, data).build()
     out["body.rear"].seed = seed_of(rv["id"], 0, sid)
     out["_rear_at"] = ((Wg, 0.0, -Lg), (-1.0, 0.0, 0.0))
     out["_flank_top_m"] = y_flank
+    if body.get("annexes"):
+        out.update(annex_parts(st, body, gv["foundation_m"], y_flank, data))
+    return out
+
+
+# -- T-2397: the pieces the plan draws against the body ------------------------------------------
+#
+# Each annex is a block in the lot plan's frame (u east, v north, about the front's south end,
+# as the record's footprint is), standing `against` one side of the body, walled by the kit as a
+# whole frame house's later block is (`frame_house_parts`), and turned with nothing: the house
+# is merged in the front's frame and turned to its street, then the annexes are merged into it
+# where they already stand. `open` names a side that joins another annex: no wall, no eave.
+
+def _annex_blocks(body: dict, y_flank: float) -> list[dict]:
+    return [dict(b, wall_top_m=y_flank if b["wall_top_m"] == "flank" else b["wall_top_m"])
+            for b in body["annexes"]]
+
+
+def annex_parts(st: dict, body: dict, foundation_m: float, y_flank: float, data: dict) -> dict:
+    fh = {"foundation_m": foundation_m, "return_m": body["annex_return_m"],
+          "blocks": _annex_blocks(body, y_flank)}
+    parts = frame_house_parts(st, {"form": {"frame_house": {"value": fh}}}, data)
+    out = {}
+    for k, sm in parts.items():
+        sm.seed = seed_of(sm.v["id"], 0, st["id"])
+        out[f"annex.{k}"] = sm
+    return out
+
+
+def annex_roofs(house: Sample, parts: dict, form: dict, data: dict) -> dict:
+    """Each annex's roof, in the plan frame: a flat deck just over its eave, overhanging only
+    where it has a wall, or a lean-to from its outer eave up into the main roof at the wing's
+    pitch, its two ends closed in painted board as the wing's are."""
+    body = form["body"]["value"]
+    ev = data["trim"]["eave"]
+    P_, fh = ev["projection_m"], ev["fascia_m"]
+    t = math.tan(math.radians(data["gothic"]["pitch_deg"]))
+    tl = math.tan(math.radians(body["wing_roof_pitch_deg"]))
+    ye = parts["_flank_top_m"] + fh                 # the main roof's eave line, P_ out of a flank
+    F = house.F
+    out = {}
+    for b in _annex_blocks(body, parts["_flank_top_m"]):
+        u0, v0, u1, v1 = b["rect_uv"]
+        walled = {w["side"] for w in b["walls"]}
+        x0 = u0 - P_ if "west" in walled else u0
+        x1 = u1 + P_ if "east" in walled else u1
+        z0 = -v1 - P_ if "north" in walled else -v1
+        z1 = -v0 + P_ if "south" in walled else -v0
+        yb = b["wall_top_m"] + fh
+        if b["roof"]["kind"] == "lean_to":
+            if b["against"] != "north":
+                raise ValueError(f"{b['id']}: a lean-to rises against the body's south flank only")
+            # the main roof's south slope: y = ye + (v + P_) t; the lean-to's: yb + (v - v0 + P_) tl
+            vi = (yb - ye + (P_ - v0) * tl - P_ * t) / (t - tl)
+            yi = yb + (vi - v0 + P_) * tl
+            y0 = ye + P_ * t                            # the main roof over the flank's face
+            house.poly(F, "roof_covering", [(u0, yb, z1), (u1, yb, z1), (u1, yi, -vi), (u0, yi, -vi)], (0, 1, 1))
+            for u, hu in ((u0, -1), (u1, 1)):
+                house.poly(F, "fascia", [(u, yi, -vi), (u, y0, 0.0), (u, yb, z1)], (hu, 0, 0))
+                house.poly(F, "fascia", [(u, y0, 0.0), (u, yb, 0.0), (u, yb, z1)], (hu, 0, 0))
+            out[b["id"]] = {"eave_m": round(yb, 4), "meets_main_m": round(yi, 4), "meets_v_m": round(vi, 4)}
+        else:
+            yd = yb + b["roof"].get("deck_m", 0.03)
+            house.poly(F, "roof_covering", [(x0, yd, z1), (x1, yd, z1), (x1, yd, z0), (x0, yd, z0)], (0, 1, 0))
+            for side, q, hnt in (("south", [(x0, yb, z1), (x1, yb, z1), (x1, yd, z1), (x0, yd, z1)], (0, 0, 1)),
+                                 ("north", [(x1, yb, z0), (x0, yb, z0), (x0, yd, z0), (x1, yd, z0)], (0, 0, -1)),
+                                 ("west", [(x0, yb, z0), (x0, yb, z1), (x0, yd, z1), (x0, yd, z0)], (-1, 0, 0)),
+                                 ("east", [(x1, yb, z1), (x1, yb, z0), (x1, yd, z0), (x1, yd, z1)], (1, 0, 0))):
+                if side in walled:
+                    house.poly(F, "roof_covering", q, hnt)
+            out[b["id"]] = {"deck_m": round(yd, 4)}
     return out
 
 
@@ -1368,8 +1598,11 @@ def timber_body_roofs(house: Sample, parts: dict, form: dict, data: dict) -> dic
     F = house.F
     house.poly(F, "roof_covering", [(-P_, ye, 0.0), (xm, yr, 0.0), (xm, yr, -Lg), (-P_, ye, -Lg)], (-1, 1, 0))
     house.poly(F, "roof_covering", [(Wg + P_, ye, -Lg), (xm, yr, -Lg), (xm, yr, 0.0), (Wg + P_, ye, 0.0)], (1, 1, 0))
+    Wr = body.get("rear_width_m", Wg)
     for z, hz in ((0.0, 1), (-Lg, -1)):        # the eave's ends: the wedge under the roof's overhang
         for x0, x1 in ((-P_, 0.0), (Wg + P_, Wg)):
+            if z == -Lg and x1 == Wg and Wr > Wg:   # T-2397: under the widened range's lean-to
+                continue
             house.poly(F, "fascia", [(x0, ye, z), (x1, ye, z), (x1, y0, z)], (0, 0, hz))
     # the wing's lean-to, from its eave (the wing wall's) to where it meets the main roof
     tl = math.tan(math.radians(body["wing_roof_pitch_deg"]))
@@ -1381,8 +1614,20 @@ def timber_body_roofs(house: Sample, parts: dict, form: dict, data: dict) -> dic
     for z, hz in ((0.0, 1), (-Dw, -1)):
         house.poly(F, "fascia", [(xi, yi, z), (Wg, y0, z), (xo, ywe, z)], (0, 0, hz))
         house.poly(F, "fascia", [(Wg, y0, z), (Wg, ywe, z), (xo, ywe, z)], (0, 0, hz))
-    return {"flank_top_m": round(parts["_flank_top_m"], 4), "eave_m": round(ye, 4), "ridge_m": round(yr, 4),
-            "lean_to_top_m": round(yi, 4), "lean_to_meets_x_m": round(xi, 4)}
+    out = {"flank_top_m": round(parts["_flank_top_m"], 4), "eave_m": round(ye, 4), "ridge_m": round(yr, 4),
+           "lean_to_top_m": round(yi, 4), "lean_to_meets_x_m": round(xi, 4)}
+    if Wr > Wg:
+        # T-2397: the range behind the wing widened to Wr, under its own lean-to at the wing's
+        # pitch from its north eave (the flanks', so the eave line runs on) up into the main
+        # roof; its back end closed in board as the wing's are, its front end inside the wing
+        xo = Wr + P_
+        xr = (y0 + Wg * t - ye - xo * tl) / (t - tl)
+        yri = ye + (xo - xr) * tl
+        house.poly(F, "roof_covering", [(xo, ye, -Dw), (xr, yri, -Dw), (xr, yri, -Lg), (xo, ye, -Lg)], (1, 1, 0))
+        house.poly(F, "fascia", [(xr, yri, -Lg), (Wg, y0, -Lg), (xo, ye, -Lg)], (0, 0, -1))
+        house.poly(F, "fascia", [(Wg, y0, -Lg), (Wg, ye, -Lg), (xo, ye, -Lg)], (0, 0, -1))
+        out.update({"rear_lean_to_top_m": round(yri, 4), "rear_lean_to_meets_x_m": round(xr, 4)})
+    return out
 
 
 # -- T-2396: a corner tower standing on the porch -------------------------------------------------
@@ -1532,10 +1777,13 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
         house.box(house.F, "skirt", a, b, 0.0, y_rim0, 0.0, zl, skip=("back", "bottom"), tone=house.tone("skirt", a))
     # merge: the porch's left half mirrored, the board roles dropped
     mirror_s(parts["porch_left"], c)
-    keys = ("gable", "wing_wall", "porch_right", "porch_left") + tuple(k for k in BODY_KEYS + TOWER_KEYS if k in parts)
+    keys = ("gable", "wing_wall", "porch_right", "porch_left") + body_part_keys(parts)
+    annex = tuple(k for k in keys if k.startswith("annex."))
     if timber:
         place(parts["body.rear"], *parts["_rear_at"])
     for k in keys:
+        if k in annex:
+            continue
         sm = parts[k]
         porch = k.startswith("porch")
         for role, pr in sm.prims.items():
@@ -1549,6 +1797,14 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
     for pr in house.prims.values():
         pr.pos = [_rot_y(q, k) for q in pr.pos]
         pr.nrm = [_rot_y(q, k) for q in pr.nrm]
+    if annex:   # T-2397: built where they stand in the plan, merged after the turn
+        if k != 1:
+            raise ValueError(f"{st['id']}: annexes are planned about a front facing east")
+        house.meta["annexes"] = annex_roofs(house, parts, form, data)
+        for kk in annex:
+            for role, pr in parts[kk].prims.items():
+                if role not in ("backdrop", "interior", "cut"):
+                    absorb(house.prims.setdefault(role, Prim(role)), pr)
     house.meta.update({"parts": {kk: triangles(parts[kk]) for kk in keys},
                        "focus": [0.0, 3.0, 0.0], "span_m": 9.0})
     return house

@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 183766028,
-      "sha256": "303b5cb63b5ea2f4a9741bf86250500dbb6318274112a678372e6c3b05c6199a",
+      "bytes": 183766100,
+      "sha256": "c95d93560e3499a96994a4909ffcdc67c2d83958ff1592eb1eed74103dc160fe",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -27,7 +27,7 @@
       "texture": {
         "images": 34,
         "textures": 69,
-        "encoded_bytes": 27210917,
+        "encoded_bytes": 27210989,
         "pixels": 57146696,
         "gpu_rgba8_mip_bytes": 304782379,
         "largest_px": 2048
@@ -324,8 +324,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 53076988,
-      "sha256": "92315d701c2ad2ead25685daeaa57ded77d2153ae13fd7af57a98b2bcc7ee012",
+      "bytes": 53077108,
+      "sha256": "2bfe5e7e3939bc2c3894d11953fbbe5ca8c0b867db0ecf09d235d945d9eb36e6",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -350,7 +350,7 @@
       "texture": {
         "images": 33,
         "textures": 33,
-        "encoded_bytes": 27726775,
+        "encoded_bytes": 27726892,
         "pixels": 56098120,
         "gpu_rgba8_mip_bytes": 299189973,
         "largest_px": 2048
@@ -637,8 +637,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 27664128,
-      "sha256": "da3094c1ed17ad51c4d790939455cd419c4897948d7d148850ec6417765aebd1",
+      "bytes": 27801700,
+      "sha256": "761ddcb9609e3c08b559d9edad1a6cfe76ef66d9680ea520712b7b978dc8ff83",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -658,12 +658,12 @@
         "draw_primitives": 25,
         "materials": 25,
         "triangles": 199126,
-        "vertices": 387541
+        "vertices": 388131
       },
       "texture": {
         "images": 33,
         "textures": 33,
-        "encoded_bytes": 24391038,
+        "encoded_bytes": 24412073,
         "pixels": 52952392,
         "gpu_rgba8_mip_bytes": 282412757,
         "largest_px": 2048

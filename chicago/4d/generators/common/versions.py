@@ -145,7 +145,8 @@ def lod_recipe_sha(root: Path = ROOT) -> str:
     recipe = dict(GLESSNER_LIGHT_RECIPE)
     recipe["producer_sha256"] = {
         name: sha256_file(root / name) for name in
-        ("tools/structure_versions.py", "tools/_glessner_lod.py")}
+        ("tools/structure_versions.py", "tools/_glessner_lod.py",
+         "tools/_glessner_light_occlusion.py")}
     # The current geometry source is part of the light recipe, not merely a
     # manifest claim. build-light also refuses a stale full master before it runs.
     inputs = [glessner_detail_record(root),
