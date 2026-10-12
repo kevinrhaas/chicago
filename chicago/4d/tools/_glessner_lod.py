@@ -232,19 +232,100 @@ def _construct(root, *, roof_details_reduced=True):
     return b,params,materials
 
 
+def _low_relief(d):
+    """The full fan's carving, drawn at this tier's triangle budget.
+
+    Owner, 2026-10-12, on the phone's Prairie door: "what about on top of the door".
+    The reduced fan was a sunburst of seven leaves and three rolls. This keeps the
+    full model's layout, band for band and motif for motif (ornament.fan), and
+    spends a few triangles on each: rolls and stems as four-sided tubes on a few
+    points of their path, beads as low pyramids, and every leaf as a raised
+    lozenge with a ridge, its edges skirted so it still casts a shadow line.
+    """
+    class LowRelief(d.ornament.Relief):
+        def tube(self,path,radius,sides=10):
+            if len(path)<2:return
+            keep=max(5,min(len(path),math.ceil(len(path)/6)))
+            picks=sorted({round(i*(len(path)-1)/(keep-1)) for i in range(keep)})
+            sub=[path[i] for i in picks]
+            span=len(path)-1
+            r=(lambda t:radius(picks[min(len(picks)-1,round(t*(len(picks)-1)))]/span)) if callable(radius) else radius
+            super().tube(sub,r,4)
+
+        def bead(self,x,z,d0,radius,squash=1):
+            ring=[(x+radius*math.cos(a),z+radius*squash*math.sin(a),d0) for a in (math.pi*k/2+math.pi/4 for k in range(4))]
+            top=(x,z,d0+radius)
+            for p,q in zip(ring,ring[1:]+ring[:1]):self.face([p,q,top])
+
+        def leaf(self,x,z,angle,length,width,depth,lift=.024,curl=.18,holes=True,phase=0,steps=16):
+            tx,tz=math.cos(angle),math.sin(angle);nx,nz=-tz,tx
+            bend=curl*length*.5
+            def at(t,v,up):
+                return (x+tx*length*t+nx*(bend*math.sin(math.pi*t)+width*.5*v),
+                        z+tz*length*t+nz*(bend*math.sin(math.pi*t)+width*.5*v),depth+up)
+            root,tip=at(0,0,0),at(1,0,lift*.2)
+            left,right=at(.42,-1,lift*.25),at(.42,1,lift*.25)
+            ridge=at(.45,0,lift)
+            for p,q in ((root,left),(left,tip),(tip,right),(right,root)):
+                self.face([p,q,ridge])
+                self.face([p,q,(q[0],q[1],q[2]-.010),(p[0],p[1],p[2]-.010)],normal=None)
+    return LowRelief
+
+
 def _fan(b,o,d):
-    r=d.ornament.Relief(b,o,b.params.detail.get('conf',o['conf']),d.ornament.CARVED_GRANITE)
-    cx=(o['u0']+o['u1'])/2;cz=o['spring_z'];rad=o['r_in'];count=o.get('voussoirs') or 15
-    for i in range(count):
-        a=math.pi*i/count+.004;c=math.pi*(i+1)/count-.004;lo,hi=rad+.04,o['r_out']
-        r.solid([(cx+lo*math.cos(a),cz+lo*math.sin(a)),(cx+hi*math.cos(a),cz+hi*math.sin(a)),
-                 (cx+hi*math.cos(c),cz+hi*math.sin(c)),(cx+lo*math.cos(c),cz+lo*math.sin(c))],-.02,.065,12+i%4)
-    r.solid([(cx+o['r_out']*math.cos(math.pi*i/40),cz+o['r_out']*math.sin(math.pi*i/40)) for i in range(41)],-.065,-.045)
-    for rr,dd,t in ((.666,.020,.013),(.745,.030,.012),(.943,.045,.014)):
-        r.tube([(cx+rad*rr*math.cos(math.pi*i/32),cz+rad*rr*math.sin(math.pi*i/32),dd) for i in range(33)],t,6)
-    for i in range(7):
-        th=math.pi*(i+.5)/7
-        r.leaf(cx+rad*.32*math.cos(th),cz+rad*.32*math.sin(th),th,rad*.28,rad*.12,.01,.035,0,False,steps=5)
+    orn=d.ornament
+    r=_low_relief(d)(b,o,b.params.detail.get('conf',o['conf']),orn.CARVED_GRANITE)
+    cx=(o['u0']+o['u1'])/2;cz=o['spring_z'];rad=o['r_in']
+    d.rock_voussoirs(b,o,cx,cz,rad+.04,o['r_out'],o.get('voussoirs') or 15,b.params.detail.get('conf',o['conf']),90211)
+    r.solid([(cx+o['r_out']*math.cos(math.pi*i/20),cz+o['r_out']*math.sin(math.pi*i/20)) for i in range(21)],-.065,-.045)
+    R=rad+.04
+    # The bands of ornament.fan, outside in, at the same radii and depths.
+    r.arc(cx,cz,R-.012,.034,.012)
+    orn._annulus(r,cx,cz,R*.885,R-.02,-.045,.004,12)
+    for i in range(33):
+        th=math.pi*(i+.5)/33;da=math.pi/33*.30
+        orn._boss(r,[(cx+rr*math.cos(aa),cz+rr*math.sin(aa))
+                     for rr,aa in [(R*.902,th-da*1.08),(R-.032,th-da),(R-.032,th+da),(R*.902,th+da*1.08)]],.004,.040,.16)
+    r.arc(cx,cz,R*.878,.030,.010)
+    orn._annulus(r,cx,cz,R*.705,R*.868,-.045,-.004,12)
+    band=R*.786;size=R*.150
+    for i in range(23):
+        th=math.pi*(i+.5)/23
+        base=(cx+(band-size*.5)*math.cos(th),cz+(band-size*.5)*math.sin(th))
+        r.leaf(*base,th,size,size*.62,.004,.022,.06)
+        for side in (-1,1):
+            r.leaf(*base,th+side*.62,size*.74,size*.42,.000,.018,side*.20)
+    for i in range(24):
+        th=math.pi*i/23
+        r.bead(cx+band*math.cos(th),cz+band*math.sin(th),.012,.0085)
+    r.arc(cx,cz,R*.690,.026,.018)
+    r.arc(cx,cz,R*.655,.010,.008)
+    F=R*.640
+    def stem(points,depth=.020,width=.011):
+        r.tube(orn._bezier([(cx+x*F,cz+z*F) for x,z in points],depth,20),width)
+    def roundel(x,z,radius,depth):
+        r.arc(x,z,radius,depth,radius*.075,0,2*math.pi,40)
+        for j in range(6):
+            th=math.pi/2+2*math.pi*j/6
+            r.leaf(x+radius*.10*math.cos(th),z+radius*.10*math.sin(th),th,radius*.86,radius*.62,depth-.006,radius*.16,(.18 if j%2 else -.18))
+        r.bead(x,z,depth+.012,radius*.16)
+    stem([(0,.0),(0,.25),(0,.55),(0,.80)],.022,.016)
+    for mirror in (-1,1):
+        stem([(0,.10),(mirror*.18,.12),(mirror*.30,.18),(mirror*.36,.28)])
+        stem([(0,.46),(mirror*.08,.50),(mirror*.16,.56),(mirror*.21,.62)])
+        roundel(cx+mirror*F*.53,cz+F*.33,F*.235,.024)
+        roundel(cx+mirror*F*.27,cz+F*.70,F*.165,.026)
+        for x,z,ang,ln in ((.20,.06,.30,.24),(.80,.10,1.75,.20),(.10,.36,.95,.22),(.48,.62,1.25,.22),
+                           (.70,.52,2.10,.18),(.42,.86,1.95,.15),(.86,.30,1.45,.15),(.08,.66,1.15,.18)):
+            r.leaf(cx+mirror*F*x,cz+F*z,ang if mirror>0 else math.pi-ang,F*ln,F*ln*.55,.016,.016,mirror*.16)
+        for x,z,ang,ln in ((.30,.04,.10,.20),(.62,.06,1.00,.16),(.92,.18,1.60,.12),(.30,.52,1.40,.15),
+                           (.58,.84,2.40,.12),(.20,.92,1.80,.10),(.06,.20,1.30,.16),(.40,.16,.60,.14),(.76,.68,2.60,.12)):
+            r.leaf(cx+mirror*F*x,cz+F*z,ang if mirror>0 else math.pi-ang,F*ln,F*ln*.60,.010,.014,-mirror*.14)
+    roundel(cx,cz+F*.83,F*.120,.028)
+    r.solid([(cx+F*.14*math.cos(math.pi*i/8),cz+F*.14*math.sin(math.pi*i/8)) for i in range(9)],-.045,.012)
+    for j in range(5):
+        th=math.pi*(j+.5)/5
+        r.leaf(cx+F*.03*math.cos(th),cz+.004+F*.03*math.sin(th),th,F*.13,F*.075,.012,.010,0)
 
 
 def _columns(b,params,d):
