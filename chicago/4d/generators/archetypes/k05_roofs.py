@@ -454,6 +454,38 @@ def hip_element(x0, x1, z0, z1, eave_y, t, o, f):
     return ring_stack(rings, ["fascia", "covering"], "soffit"), hs
 
 
+def mansard_element(x0, x1, z0, z1, E, lower_deg, upper_deg, rise, bulge, n, profile, o, f):
+    """A mansard over the wall rectangle x0..x1 by z0..z1 as one ring stack (T-2304's
+    variant, factored out by T-2370 so a K01 house is roofed by the same code): the fascia
+    out `o` past the wall line with its top at E (a mansard's eave is its cornice), the
+    lower faces on a quadratic curve through their `lower_deg` chord to the curb `rise`
+    above E, bowed out (convex) or in (concave) by `bulge` of the chord, in `n` rings, then
+    a low hip at `upper_deg` to the ridge. Returns the solid, the soffit's height and the
+    curb and ridge heights."""
+    lt = math.tan(math.radians(lower_deg))
+    ut = math.tan(math.radians(upper_deg))
+    run = rise / lt
+    hs, he = E - f, E
+    X0, X1, Z0, Z1 = x0 - o, x1 + o, z0 - o, z1 + o
+    # the lower face: a quadratic curve from the fascia's top (inset 0) to the curb
+    L = math.hypot(run, rise)
+    P0, P2 = (0.0, he), (run, E + rise)
+    nrm = (-(P2[1] - P0[1]) / L, (P2[0] - P0[0]) / L)   # outward: less inset, more height
+    sgn = 1.0 if profile == "convex" else -1.0
+    mid = ((P0[0] + P2[0]) / 2, (P0[1] + P2[1]) / 2)
+    P1 = (mid[0] + sgn * bulge * L * nrm[0], mid[1] + sgn * bulge * L * nrm[1])
+    rings = [(hs, inset_rect(X0, X1, Z0, Z1, 0.0)), (he, inset_rect(X0, X1, Z0, Z1, 0.0))]
+    for k in range(1, n + 1):
+        u = k / n
+        ins = (1 - u) ** 2 * P0[0] + 2 * (1 - u) * u * P1[0] + u * u * P2[0]
+        y = (1 - u) ** 2 * P0[1] + 2 * (1 - u) * u * P1[1] + u * u * P2[1]
+        rings.append((y, inset_rect(X0, X1, Z0, Z1, ins)))
+    d = min(X1 - X0, Z1 - Z0) / 2
+    rings.append((E + rise + (d - run) * ut, inset_rect(X0, X1, Z0, Z1, d)))
+    roof = ring_stack(rings, ["fascia"] + ["covering"] * (len(rings) - 2), "soffit")
+    return roof, hs, {"curb_m": round(E + rise, 4), "ridge_m": round(rings[-1][0], 4)}
+
+
 def gable_element(u0, u1, w0, w1, eave_y, t, o, v, f, base_y, axis, verge_ends=("lo", "hi"),
                   return_len=0.0, wall_role="wall", end_role="gable", body_end_role="wall",
                   du=0.0, dw=0.0):
@@ -633,32 +665,10 @@ def variant_solids(v: dict, data: dict):
         meta["fall_m"] = round((D - tw) * t, 4)
         meta["parapet_top_m"] = round(top, 4)
     elif kind == "mansard":
-        lt = math.tan(math.radians(v["lower_pitch_deg"]))
-        ut = math.tan(math.radians(v["upper_pitch_deg"]))
-        rise = v["lower_rise_m"]
-        run = rise / lt
-        hs, he = E - f, E   # a mansard's eave is its cornice: eave_m is the fascia's top
-        X0, X1, Z0, Z1 = -o, W + o, -o, D + o
-        # the lower face: a quadratic curve from the fascia's top (inset 0) to the curb
-        L = math.hypot(run, rise)
-        P0, P2 = (0.0, he), (run, E + rise)
-        nrm = (-(P2[1] - P0[1]) / L, (P2[0] - P0[0]) / L)   # outward: less inset, more height
-        sgn = 1.0 if v["profile"] == "convex" else -1.0
-        mid = ((P0[0] + P2[0]) / 2, (P0[1] + P2[1]) / 2)
-        P1 = (mid[0] + sgn * v["bulge"] * L * nrm[0], mid[1] + sgn * v["bulge"] * L * nrm[1])
-        rings = [(hs, inset_rect(X0, X1, Z0, Z1, 0.0)), (he, inset_rect(X0, X1, Z0, Z1, 0.0))]
-        n = v["segments"]
-        for k in range(1, n + 1):
-            u = k / n
-            ins = (1 - u) ** 2 * P0[0] + 2 * (1 - u) * u * P1[0] + u * u * P2[0]
-            y = (1 - u) ** 2 * P0[1] + 2 * (1 - u) * u * P1[1] + u * u * P2[1]
-            rings.append((y, inset_rect(X0, X1, Z0, Z1, ins)))
-        d = min(X1 - X0, Z1 - Z0) / 2
-        rings.append((E + rise + (d - run) * ut, inset_rect(X0, X1, Z0, Z1, d)))
-        roof = ring_stack(rings, ["fascia"] + ["covering"] * (len(rings) - 2), "soffit")
+        roof, hs, m = mansard_element(0.0, W, 0.0, D, E, v["lower_pitch_deg"], v["upper_pitch_deg"],
+                                      v["lower_rise_m"], v["bulge"], v["segments"], v["profile"], o, f)
         solids += [roof, body_box(0.0, W, 0.0, D, 0.0, hs)]
-        meta["curb_m"] = round(E + rise, 4)
-        meta["ridge_m"] = round(rings[-1][0], 4)
+        meta.update(m)
     elif kind == "tower":
         n, R = v["sides"], v["radius_m"]
         t = math.tan(math.radians(v["pitch_deg"]))
