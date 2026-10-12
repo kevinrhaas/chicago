@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1714, ts: '2026-10-12T04:43:33.838Z', date: 'Oct 11, 2026, 11:43 PM CT', title: 'Glessner\'s courtyard in its own materials', kind: 'change',
+    items: [
+      'The courtyard walls of the Glessner house are now light pink common brick, as the 1963 survey and Glessner\'s own 1923 account describe them, instead of a dark brown.',
+      'The rough-cut window heads and sills around the courtyard are grey limestone, set apart from the granite of the street fronts.',
+    ] },
   { v: 1713, ts: '2026-10-12T03:49:50.804Z', date: 'Oct 11, 2026, 10:49 PM CT', title: '1634 and 1636 Prairie meet at one wall, fronts brought forward', kind: 'fix',
     items: [
       'The brownstone pair at 1634 and 1636 Prairie now shares one party wall. The 0.7 m gap between two blank walls is closed.',

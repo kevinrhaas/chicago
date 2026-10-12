@@ -33813,6 +33813,50 @@
       ]
     },
     {
+      "id": "L-glessner-court-materials-2210",
+      "title": "Glessner's courtyard brick is a reconstructed light pink, and its rock-faced trim is grey limestone, not the street granite",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.v4_detail"
+        }
+      ],
+      "recorded": "2026-10-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the courtyard's brick and stone now carry the identities the written sources give them (T-2210, Glessner exterior audit GA-10). HABS ILL-1015's data pages (1963, p. 21) say the walls toward the courtyard are \"of light pink brick with Joliet limestone lintels and sills\"; Glessner's *The Story of a House* (1923) says \"common brick of slightly pinkish color, with gray limestone trimmings\". So every brick slot of the v4 model now draws a new albedo-only study, `court_brick_basecolor.jpg`, over the existing brick relief, and its four kiln steps (60/20/14/6, unchanged) all stay in the pink family: the grey \"smoky\" unit, which read as a second material, is now an over-fired darker pink. The courtyard's rock-faced heads, sills, surrounds and tower belts (slot `rough_stone_trim`) stop wearing the street granite's crystal albedo and take the limestone study instead, at limestone's 1.2 m repeat, keeping the granite's split-face normal. Every limestone slot, dressed or rock-faced, is multiplied from the old cream to a grey (linear 0.83, 0.88, 1.0). **What is invented.** The hue and value of both. The brick body (sRGB 0.680, 0.515, 0.460 before grain; linear mean 0.415, 0.227, 0.178) and the grey multiplier are chosen to fit \"light pink\" and \"gray\", and no colour photograph, sample or measurement was read; the HABS court photograph (photo 05, c. 1923) is monochrome and on orthochromatic film, which darkens red, so its tones were not sampled. The kiln steps' tints, the split-face normal at a 3-10 cm scale, and that one limestone grey serves dressed and rock-faced work alike. **What is not changed.** Geometry: the courses, the 9 mm joints, the stretcher bond and where it turns corners and openings, the mortar, and the scene light. The grey-tan `brick_basecolor.jpg` and the cream `limestone_basecolor.jpg` are untouched, because the K01 kit's Prairie houses wear them. The adjoining house's courtyard wall, which Glessner says was laid in the same brick \"by special arrangement\", is not touched here."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a colour record of the courtyard brick or the Joliet trim (a dated colour photograph with its rights stated, or a measured sample of the surviving fabric) would set the albedo and tints. A rectified court elevation with its joints legible would settle the bond, which photo 05 at its scanned resolution does not."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.v4_detail`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2210 (Glessner exterior audit GA-10)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/glessner-court-materials-2210/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-12 (T-2210)."
+        }
+      ]
+    },
+    {
       "id": "L46",
       "title": "The fort stands on a bank the model has no cut or fill for",
       "section": "resolved",
