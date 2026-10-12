@@ -1,0 +1,22 @@
+{
+  "structure_id": "shortall_gregory_house_1638_prairie_front",
+  "source_id": "chicagology_1638_prairie_photo",
+  "library_image": "a16-cgy-1638-gothic-photo",
+  "photo": "../../sources/assets/shortall_1638_photo_t2423/1638_prairie_front.jpg",
+  "image_px": [
+    900,
+    1077
+  ],
+  "principal_px": [
+    459,
+    657
+  ],
+  "focal_px": 1460,
+  "eye": [
+    20.0,
+    2.7,
+    2.3
+  ],
+  "yaw_deg": 270.0,
+  "solve": "Fitted by T-2423 to the halftone (900 x 1077 px, the image store's copy, committed at data/sources/assets/shortall_1638_photo_t2423/). Its verticals are vertical and the front's horizontals level, so the camera is level and square to the front: yaw 270 in the footprint frame (u east toward Prairie Avenue, v north), looking west. Scale: the front from the gable's south corner (262 px) to the north end (855 px, where the neighbour's wall cuts the print off) is the 1911 sheet's 8.13 m: 73 px a metre at the front's plane, so f = 73 E for an eye E metres in front of it. Height: grade at the front's plane at 825 px, the datum T-2396 read the tower's heights against (porch roof 3.57 m at 555 px, cornice 7.0 m at 290 px), which the gable's apex agrees with to 0.17 m. Depth, the one thing a near-elevation hides, comes from the front fence: its base, on the lot's street line 10.8 m in front of the house (the sheet), stands at 1022 px. Grade at the house (825 px) and at the fence (1022 px) fix E and the eye's height together for a level camera: E = 20 m puts the eye 2.3 m over grade (f = 1460 px, the horizon at 657 px), a standing eye on the far walk raised a little, as a photographer on the curb or a carriage step would be; E = 30 m would need the eye at 4.75 m, and E = 18 m at 1.8 m. Across: the bay's two cants show 78 and 73 px either side of its middle (458 px), so the eye stands about opposite the bay, v 2.7 m (principal x 459 px); the tower's diagonal faces (55 and 45 px) put the eye some 6 degrees south of its axis, which v 2.7 at E 20 gives within a degree. Residuals, rendered (docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg): 0-3 px at the front's two ends, the tower's sides and the oval; 4 px at the lights' points; 12 px at the gable's apex, which the record builds 0.16 m over the print's. The fence and its piers are not built yet (T-2426), so the depth rests on one reading of the fence's base and is good to a few metres; a second picture, or the fence built and rendered, tightens it."
+}

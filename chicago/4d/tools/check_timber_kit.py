@@ -641,6 +641,7 @@ def self_test(data) -> int:
                     check_houses(data, records=[(st, ph)]), "must be a kit 'clapboard_wall' variant"))
         st, ph = copy.deepcopy(fronts[0])
         ph["form"]["gable"]["value"]["width_m"] = 7.6
+        ph["form"]["gable"]["value"].pop("field", None)   # T-2423: the case is about its shingle
         geo.append(("a house gable so wide its shingles break the gable budget",
                     rule_costs(K.structure_parts(st, ph, data)["gable"], data), "over its gable budget"))
     wholes = [h for h in houses() if "frame_house" in h[1]["form"]]   # T-2357

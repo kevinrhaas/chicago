@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 183766028,
-      "sha256": "303b5cb63b5ea2f4a9741bf86250500dbb6318274112a678372e6c3b05c6199a",
+      "bytes": 183766100,
+      "sha256": "c95d93560e3499a96994a4909ffcdc67c2d83958ff1592eb1eed74103dc160fe",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -27,7 +27,7 @@
       "texture": {
         "images": 34,
         "textures": 69,
-        "encoded_bytes": 27210917,
+        "encoded_bytes": 27210989,
         "pixels": 57146696,
         "gpu_rgba8_mip_bytes": 304782379,
         "largest_px": 2048
@@ -324,8 +324,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 53076988,
-      "sha256": "92315d701c2ad2ead25685daeaa57ded77d2153ae13fd7af57a98b2bcc7ee012",
+      "bytes": 53077108,
+      "sha256": "2bfe5e7e3939bc2c3894d11953fbbe5ca8c0b867db0ecf09d235d945d9eb36e6",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -350,7 +350,7 @@
       "texture": {
         "images": 33,
         "textures": 33,
-        "encoded_bytes": 27726775,
+        "encoded_bytes": 27726892,
         "pixels": 56098120,
         "gpu_rgba8_mip_bytes": 299189973,
         "largest_px": 2048
@@ -638,7 +638,7 @@
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
       "bytes": 27818116,
-      "sha256": "0c2240d6ddbf6c1c7afb8341637a6c725b4582b971e2b828884d42e2f476ec4e",
+      "sha256": "6e1e60bb41403251e2668bb2b6221580194e2e87cca751370423d675b0b9af32",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
