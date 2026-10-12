@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 1740, ts: '2026-10-12T23:51:40.162Z', date: 'Oct 12, 2026, 6:51 PM CT', title: '1613 Prairie built as a four-storey brick house with a frame porch', kind: 'feature',
+    items: [
+      '1613 Prairie Avenue, the north half of the brick pair with 1615, is now a full four-storey brick house in place of its draft: brick on every wall, stone-headed sash, a bracketed cornice under a flat roof behind parapets, two chimneys against the party wall, and the door and stoop at the north end beside the side passage.',
+      'Behind it stands the one-storey frame porch the 1911 fire-insurance map draws across the whole rear, built in painted timber. It is the kit\'s first timber wing, and 1613 is the first brick house built from the kit on the east side of the avenue.',
+      'The house is drawn to the map\'s full width, 6.55 m, where the draft had stopped at 5.25 m on the map\'s printed figures. Every height, the roof, the front and the porch\'s closed-in form are reconstructions, recorded as liberty L-k01-1613-brick-flat-2417.',
+    ] },
+  { v: 1739, ts: '2026-10-12T23:51:40.162Z', date: 'Oct 12, 2026, 6:51 PM CT', title: 'Glessner\'s carved door tympanum now shows on phones', kind: 'improvement',
+    items: [
+      'On phones, the carving over the Glessner house\'s Prairie Avenue door now has the same layout as the full model: billet band, leafy archivolt, roll moulding and the pierced tree of leafy roundels.',
+      'It replaces the old seven-leaf sunburst, and the phone model stays within its triangle budget.',
+    ] },
   { v: 1738, ts: '2026-10-12T22:25:05.223Z', date: 'Oct 12, 2026, 5:25 PM CT', title: '1638 Prairie\'s gable, built to its photograph', kind: 'improvement',
     items: [
       'The Gothic house at 1638 Prairie Avenue now has the pointed twin windows, ogee hood and finial, and oval of its only photograph, and its siding runs up into the gable as the picture shows.',
