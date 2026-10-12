@@ -66,6 +66,9 @@ def records(only=None):
 def glb_for(st: dict, phase: dict, scenes) -> bytes:
     k16_timber_params.from_phase(phase, st)      # refuse a record the builder cannot read
     data = k16_timber.load()
+    if "frame_house" in phase["form"]:     # T-2357: a whole frame house
+        h = k16_timber.frame_house(st, phase, data)
+        return k16_timber.frame_house_glb(h, data, phase["form"], st["id"], phase["id"], scenes)
     h = k16_timber.structure_house(st, phase, data)
     return k16_timber.structure_glb(h, data, phase["form"], st["id"], phase["id"], scenes)
 

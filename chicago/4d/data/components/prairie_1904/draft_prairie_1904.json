@@ -372,6 +372,7 @@
     "s20-1616-f": "1616 Prairie's main body now stands as the K01 brick frontage house_1616_prairie (T-2353, piece 1 of T-2345), which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's two-storey brick rear range stands on K01's rear wings (T-2354).",
     "s20-1628-f": "1628 Prairie's main body now stands as the K01 brick frontage house_1628_prairie (T-2355, piece 1 of T-1862), the south half of the pair with 1626, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's rear wing waits for T-2391.",
     "s20-1626-f": "1626 Prairie's main body now stands as the K01 brick frontage house_1626_prairie with its frame front bay (T-2356, piece 2 of T-1862), the north half of the pair with 1628, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's rear 1B piece and 2B wing wait for T-2347.",
+    "s20-1630-f": "1630 Prairie, the small earlier frame house, now stands whole as the K16 timber record house_1630_prairie (T-2357, piece 3 of T-1862) — its main block, the two-storey wing on its south side and the porch across its front — which refines this draft in place under the draft's own id; the draft stands no second building beside it.",
     "s20-1634-f": "1634 Prairie's main body now stands as the K01 stone-front house house_1634_prairie under the flat roof K01 learned from K05 (T-2350, piece 2 of T-2346), the north half of the pair with 1636, which refines this draft in place under the draft's own id with the sheet's stone front bay on K08; the draft stands no second building beside it, and the sheet's '2B' rear wing and its one-storey end stand on K01's rear wings (T-2347).",
     "s20-1636-f": "1636 Prairie now stands as the K01 stone-front house house_1636_prairie under K01's flat roof (T-2348, piece 3 of T-1863), the south half of the pair with 1634, which refines this draft in place under the draft's own id: the wide front body on K01 with the sheet's canted stone bay on K08, and the narrow three-storey rear part on K01's rear wings; the draft stands no second building beside it."
   },
@@ -606,7 +607,9 @@
       "pitch_deg": 40,
       "chimneys": 1,
       "entrance": "north",
-      "why": "The register's 'small earlier frame house': 2BB frame read as two storeys under a simple gable with one stack, keeping its small scale between the masonry houses."
+      "why": "The register's 'small earlier frame house': 2BB frame read as two storeys under a simple gable with one stack, keeping its small scale between the masonry houses.",
+      "house_id": "house_1630_prairie",
+      "house_address": "1630"
     },
     "frontage-20-010": {
       "slug": "house",
