@@ -744,6 +744,12 @@ def opening(b,o,courtyard=False):
         j=(i+1)%len(poly)
         b.raw([front[i],back[i],back[j],front[j]],conf,ROUGH_TRIM if courtyard else GRANITE)
     if kind=='arch':
+        if o.get('style')=='gable_slit' and o.get('transom_z'):
+            # T-2211: a glazed round head, a stone transom and a sash, not a black slot.
+            from archetypes.masonry_house_v4_sash import gable_light
+            gable_light(b,o,conf)
+            ring(b,o,(a+c)/2,o['spring_z'],(c-a)/2,o['r_out'],o.get('voussoirs') or 11,conf)
+            return
         b.raw(back,conf,DARK_GLASS,legacy._plane_dir(o))
         if o.get('style') in ('gable_slit','pigeon_vent'):
             if o.get('style')=='gable_slit':
@@ -782,6 +788,20 @@ def opening(b,o,courtyard=False):
         return
     # Small basement grid apertures have stone mullions and only recessed glass.
     small=min(c-a,z1-z0)<.45
+    if kind=='window' and not courtyard and not getattr(b,'reduced_sash',False):
+        # T-2211: street and stable sash in their own planes (the light tier keeps
+        # the single pane below; courtyard sash is T-2212's).
+        from archetypes import masonry_house_v4_sash as sash
+        if small and max(c-a,z1-z0)>=.45:
+            sash.slit_sash(b,o,a,c,z0,z1,conf)
+            return
+        if not small:
+            sash.double_hung(b,o,a,c,z0,z1,conf)
+            if z0>2:
+                linen_shade(b,a,c,z0,z1,lambda u,z,off:legacy._plane_point(o,u,z,off),
+                            legacy._plane_dir(o),conf,int((a*17+c*31+o['at']*7+z0)*10003),
+                            prairie_colonnade=(o.get('face')=='east' and z0>5))
+            return
     frame=.025 if small else .062
     glazing_mat=DARK_GLASS if small or kind=='dark' else GLASS
     if glazing_mat==GLASS:

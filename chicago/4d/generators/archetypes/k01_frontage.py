@@ -190,6 +190,8 @@ MATERIALS = {
     # T-2293: the K04 roof. The covering's fabric is the record's (roof_covering), so
     # this entry's is only a default; flashing and rainwater are named by fabric.
     "slate_covering": {"fabric": "slate_pennsylvania", "color": (1.0, 1.0, 1.0), "roughness": 0.62},
+    # T-2406: a mansard's lower faces when they are slated over a metal upper hip (1620)
+    "mansard_slate": {"fabric": "slate_pennsylvania", "color": (1.0, 1.0, 1.0), "roughness": 0.62},
     # the dormer face: dressed stone a shade off the trim, and a name outside the
     # envelope materials, since the envelope is the walls and not what stands on the roof
     "dormer_stone": {"fabric": "limestone", "color": (0.96, 0.93, 0.86), "roughness": 0.8},
@@ -198,6 +200,8 @@ MATERIALS = {
     "k04_zinc_sheet": {"fabric": "zinc_sheet", "color": (1.0, 1.0, 1.0), "roughness": 0.6, "metallic": 0.3},
     "k04_painted_tin_sheet": {"fabric": "painted_tin_sheet", "color": (1.0, 1.0, 1.0), "roughness": 0.6},
     "iron": {"color": (0.055, 0.055, 0.06), "roughness": 0.55},
+    # T-2406: a yard's close-boarded fence, weathered timber (k11_frontage `side_fence`)
+    "fence_boards": {"color": (0.40, 0.36, 0.30), "roughness": 0.92},
     # T-2366: what stands proud of a stone front (keystones, pilasters, a hood, a portico):
     # the dressed stone, under a name outside the envelope materials, since the contract's
     # envelope is the wall and a portico stands metres before it (the stoop's reasoning)
@@ -397,6 +401,8 @@ class Assembly:
         self.fabric = {k: v.get("fabric") for k, v in MATERIALS.items()}
         if params.roof:
             self.fabric["slate_covering"] = params.roof["covering"]
+            if params.roof.get("lower_covering"):
+                self.fabric["mansard_slate"] = params.roof["lower_covering"]
         self.soffit_m = None   # set by build(); the soot band hangs from it
         # T-2358: a record that names the K14 condition kit weathers to its own age in 1904
         # instead of wearing K03's fixed full-age mask; its walls are registered by build()
@@ -1606,8 +1612,10 @@ class Assembly:
             top = c["top_m"]
             P = k5.frame("z")
             cp, cd = c["cap_proud_m"], c["cap_depth_m"]
-            # the stack stops inside its cap, so the two never share a face
-            solids.append(k5.extrude([(u - sx / 2, hs - 0.5), (u + sx / 2, hs - 0.5), (u + sx / 2, top - cd / 2),
+            # the stack stops inside its cap, so the two never share a face; one on a
+            # mansard's cornice (T-2406) rises from the cornice's top, not under the soffit
+            y0 = hs - 0.5 if c.get("base_m") is None else c["base_m"]
+            solids.append(k5.extrude([(u - sx / 2, y0), (u + sx / 2, y0), (u + sx / 2, top - cd / 2),
                                       (u - sx / 2, top - cd / 2)], z - sz / 2, z + sz / 2, P,
                                      lambda i, p_, q_: "chimney" if i != 2 else "hidden", "chimney", "chimney"))
             solids.append(k5.extrude([(u - sx / 2 - cp, top - cd), (u + sx / 2 + cp, top - cd),
@@ -1740,6 +1748,10 @@ class Assembly:
         at the eave and every fragment the union left of one plane registers."""
         k = self.p.roof or {}
         phase = (_k04_fabric(k["covering"]) or {}).get("course_phase_m", [0.0, 0.0])[1] if k else None
+        # T-2406: a mansard whose lower faces are slated: every covering face steeper than
+        # 45 degrees is a lower face (the crown's too); the upper hip keeps the covering
+        lower = k.get("lower_covering")
+        lower_phase = (_k04_fabric(lower) or {}).get("course_phase_m", [0.0, 0.0])[1] if lower else None
         planes = {}
         for a, b, c, role, n in tris:
             if role == "covering":
@@ -1760,11 +1772,14 @@ class Assembly:
             else:
                 mat = self.SHELL[role]
             tri = [pts[a], pts[b], pts[c]]
+            steep = role == "covering" and lower and n[1] < math.cos(math.radians(45))
+            if steep:
+                mat = "mansard_slate"
             if role == "covering":
                 key = tuple(round(x, 5) for x in n) + (round(_dot(n, pts[a]), 4),)
                 up = _unit(_sub(Y, _mul(n, n[1])))
                 contour = _unit(_cross(up, n))
-                b_ = self.basis(mat, planes[key], contour, up, seed, course_v=phase)
+                b_ = self.basis(mat, planes[key], contour, up, seed, course_v=lower_phase if steep else phase)
             elif abs(n[1]) > 0.999:
                 b_ = self.basis(mat, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed)
             else:

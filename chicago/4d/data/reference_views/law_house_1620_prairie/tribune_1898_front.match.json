@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "tribune_1898_front",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "053e64fddb639788ff9aeaff59d8096917e9f4d42388814334ea95505e733d9d",
+  "glb_sha256": "2012ed842706ffc749bbb618b27400e32d420b0c6aed307f3348199529f7bc4f",
   "camera_sha256": "fc8035327dd5820503597ea8d52120b7a83da91067ee536623af793f81317b5b",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg",
   "verdict": "differs",
@@ -28,8 +28,8 @@
       "status": "fixed"
     },
     {
-      "what": "fence: a lattice of interlaced arches between square piers with capped tops, on a base, gate piers at the walk; the build's is iron rails on a stone curb with urned piers",
-      "status": "open"
+      "what": "fence: a lattice of interlaced arches between square piers with capped tops, on a base, gate piers at the walk; built so by T-2414 (k11.fence.lattice_arcade between the kit's posts on its stone curb, the arches running on from post to post); the sketch's lattice stands taller over its base than the kit's 0.95 m rails, within what this approximate camera can say (its solve: a freehand sketch)",
+      "status": "fixed"
     },
     {
       "what": "the roof: the panel cuts the house at the cornice",
@@ -41,5 +41,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2410 (lapped onto T-2411 and T-2409), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg"
+  "reviewed": "T-2410 (lapped onto T-2414, T-2411 and T-2409), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg"
 }
