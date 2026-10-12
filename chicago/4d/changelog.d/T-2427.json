@@ -1,0 +1,8 @@
+{
+  "title": "The Glessner House is rebuilt the way the nightly build makes it",
+  "kind": "fix",
+  "items": [
+    "The Glessner House model now comes from the same build machine that checks it every night. The two versions of its shaded granite differed in a few thousand of its four million shading texels, and that small difference failed the nightly check for every Prairie Avenue change.",
+    "Nothing you can see has changed. The building's shape, stones and colours are byte for byte what they were."
+  ]
+}
