@@ -1551,8 +1551,10 @@ class Assembly:
             top = c["top_m"]
             P = k5.frame("z")
             cp, cd = c["cap_proud_m"], c["cap_depth_m"]
-            # the stack stops inside its cap, so the two never share a face
-            solids.append(k5.extrude([(u - sx / 2, hs - 0.5), (u + sx / 2, hs - 0.5), (u + sx / 2, top - cd / 2),
+            # the stack stops inside its cap, so the two never share a face; one on a
+            # mansard's cornice (T-2406) rises from the cornice's top, not under the soffit
+            y0 = hs - 0.5 if c.get("base_m") is None else c["base_m"]
+            solids.append(k5.extrude([(u - sx / 2, y0), (u + sx / 2, y0), (u + sx / 2, top - cd / 2),
                                       (u - sx / 2, top - cd / 2)], z - sz / 2, z + sz / 2, P,
                                      lambda i, p_, q_: "chimney" if i != 2 else "hidden", "chimney", "chimney"))
             solids.append(k5.extrude([(u - sx / 2 - cp, top - cd), (u + sx / 2 + cp, top - cd),

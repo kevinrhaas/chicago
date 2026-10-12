@@ -262,8 +262,13 @@
                 "v_m": 5.625
               },
               {
-                "u_m": 13.55,
-                "v_m": 10.575,
+                "u_m": 15.935,
+                "v_m": 11.5,
+                "plan_m": [
+                  0.75,
+                  0.6
+                ],
+                "on_cornice": true,
                 "top_m": 12.5
               }
             ]
@@ -347,13 +352,14 @@
               "from_u_m": 12.0,
               "height_m": 1.2
             },
-            "lattice_pitch_m": 0.35,
+            "lattice_pitch_m": 0.3,
             "side_fence": {
               "variant": "k11.fence.side_boards",
               "from_s_m": 12.6,
               "height_m": 1.5,
               "to_u_m": -25.5
-            }
+            },
+            "lattice_span_bays": 3
           },
           "confidence": "inferred",
           "note": "The FENCE from both pictures (T-2406). The 1874 engraving draws a lattice of interlaced round arches, their crossings pointed, on a solid base along the street line, and the 1898 Tribune sketch the same lattice between square piers with capped tops, on a base, with gate piers at the walk; the register's 'lattice/iron boundary' names it. Built as the K11 kit's curb, posts and rails with a lattice between them (k11.fence.lattice_arcade): arches of the kit's 14 mm scroll bar, each two bays wide, sprung at every bay so each crosses its neighbours. The bay, 0.35 m, is read off the Tribune (a pointed crossing about every 9 px where the panel's fence scale is about 32 px/m, 0.29 m) and the engraving (its crossings waist about every 20 px at 28 px/m, two bays of 0.35 m); the lattice's iron, its bar and the posts' acorn finials are the kit's, RECONSTRUCTED. The BOARD FENCE: the engraving draws a close-boarded fence from about x 670 px, where the lattice stops, to x 990 px. Through its camera the street line at x 670 is v 12.6 and the north lot line (v 15.95) runs from x 786 px at the street to 964 px at the house's rear line, so the boards take over from the lattice on the street line at v 12.6, turn at the lot line and run back along it; their height (1.5 m, the lattice's top and a little more, as drawn) and their boarding are RECONSTRUCTED, and so is their run behind the house's rear (to the coach house's front at u -25.5), which the engraving's frame cuts off at about u -4. The rest is the kit's, RECONSTRUCTED as before: the stone curb on the street line 5.93 m in front of the front face (the draft's street_u 22.679 less the 16.75 m body); a pair of walk-gate leaves between stone piers on the walk to the stoop; a single walk gate 1.06 m clear across the south side yard's mouth; and the kit's brick wall with piers, 1.2 m high, on the south lot line from the street back to u 12.0. The lot lines (s -7.711 and 15.951 along the front from the south corner) are the draft's lot_v for parcel prairie_1620 in this frame.",

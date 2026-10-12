@@ -1089,7 +1089,22 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                  else (round(pf + sum(heights), 4) + width / 2 * tp))
         for st_ in ch["stacks"]:
             u, v = float(st_["u_m"]), float(st_["v_m"])
-            if not (sx / 2 + 0.3 <= u <= depth - sx / 2 - 0.3 and sz / 2 + 0.3 <= v <= width - sz / 2 - 0.3):
+            sx, sz = (float(x) for x in st_.get("plan_m", ch["plan_m"]))
+            base = None
+            if st_.get("on_cornice"):
+                # T-2406: a stack standing on a mansard's cornice over a side wall (1620's
+                # front stack, its 1874 engraving): it straddles the wall line, its outer
+                # face no further out than the cornice's edge, and rises from the wall head
+                o = float(val("eave_overhang_m"))
+                if not mansard:
+                    raise ParamError(f"chimney at ({u}, {v}): only a mansard's cornice carries a stack")
+                if not (sx / 2 + 0.3 <= u <= depth - sx / 2 - 0.3):
+                    raise ParamError(f"chimney at ({u}, {v}) does not stand along the side wall")
+                if not (min(v - sz / 2, width - v - sz / 2) < 0.0
+                        and max(sz / 2 - v, v + sz / 2 - width) <= o + 1e-9):
+                    raise ParamError(f"chimney at ({u}, {v}) does not straddle a side wall inside its {o} m cornice")
+                base = round(pf + sum(heights), 4)
+            elif not (sx / 2 + 0.3 <= u <= depth - sx / 2 - 0.3 and sz / 2 + 0.3 <= v <= width - sz / 2 - 0.3):
                 raise ParamError(f"chimney at ({u}, {v}) does not stand inside the footprint")
             if above < 0.6:
                 raise ParamError("a chimney stops less than 0.6 m above the ridge")
@@ -1106,7 +1121,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 curb = mansard_roof["curb_m"] + float(crown.get("rise_above_curb_m", 0.0))
                 if top < curb + 0.6 - 1e-9:
                     raise ParamError(f"chimney at ({u}, {v}) tops at {top} m, under the curb's {curb} m + 0.6")
-            chimneys.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": top,
+            chimneys.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": top, "base_m": base,
                              "cap_proud_m": cap_p, "cap_depth_m": cap_d})
     elif ch and (flat or mansard):
         raise ParamError(f"a {roof_form} K01 roof takes T-2302's plain stacks: K15's draught rule "

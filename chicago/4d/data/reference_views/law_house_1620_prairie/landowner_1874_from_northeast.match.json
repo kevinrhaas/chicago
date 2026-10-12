@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "4277ba409d34b7f6b32c0e648c816627c2c7fe9469ab9fd29a393e9f15cc7e56",
+  "glb_sha256": "7a4282771ddd286332487d1a205234b7c45de60a39e4fc806060906e5eea8c4c",
   "camera_sha256": "4cbf3a651e1ee5dc689b00afeae61cf325bc7d6f1e36cb4d32e8c03ffdfa0f7e",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg",
   "verdict": "differs",
@@ -44,16 +44,16 @@
       "status": "open"
     },
     {
-      "what": "fence: a lattice of interlaced pointed arches on a solid base along the street line, a board fence on the north side; the build's is the K11 scroll-band iron fence on a stone curb with stone gate piers and urns",
-      "status": "open"
+      "what": "fence: a lattice of interlaced pointed arches on a solid base along the street line, and from about x 670 px (v 12.6 on the street line) a close-boarded fence that turns at the north lot line and runs back along it; built so by T-2414 (k11.fence.lattice_arcade, arches three bays of 0.3 m wide, on the kit's curb, then k11.fence.side_boards 1.5 m high), the boards taking over at x 668 px",
+      "status": "fixed"
     },
     {
-      "what": "chimney: a tall stack at the front of the north wall, rising from the cornice beside the crown; the build's two stacks stand on the ridge",
-      "status": "open"
+      "what": "chimney: a tall stack at the front of the north wall, rising from the cornice beside the crown, its lit east face at x 703-722 px and its north face to 730 px; built so by T-2414, a 0.75 by 0.6 m stack standing on the cornice astride the north wall line (centre u 15.935, v 11.5), projecting to 703.5, 721.6 and 730.0 px, its cap at 12.5 m (y 175 px); the build's second ridge stack over the front half, where the engraving draws sky over the crown, is gone",
+      "status": "fixed"
     },
     {
-      "what": "roof covering: the lower faces read as slate in courses; the build's is painted standing-seam tin (K04 slates nothing under 25 degrees, and the upper hip is 18)",
-      "status": "open"
+      "what": "roof covering: the lower faces and the crown's read as slate in courses; built so by T-2414 (K04 Pennsylvania slate on every face steeper than 45 degrees, the low upper hip, which the picture cannot see, staying tin)",
+      "status": "fixed"
     },
     {
       "what": "bay window's heights: the engraving draws the bay's sills about 0.4 m over grade and its eaves level with the pavilion's lower window heads, about 0.75 m lower than the build's, on the low principal floor it draws everywhere; the build stands the bay on the house's reconstructed 1.4 m principal floor",
@@ -68,6 +68,10 @@
       "status": "open"
     },
     {
+      "what": "board fence's line: the engraving draws the boards' top and foot almost level from x 670 to 990 px, where through its camera a fence running back along the lot line falls toward the horizon; the build's falls as the camera says (the engraving's vertical datum, T-2415)",
+      "status": "open"
+    },
+    {
       "what": "walls' tone: the engraving draws the front light and the north wall and the pavilion's north half dark, its light from the south-east; the house's colour (the Inter Ocean's 'olive green' of 1887) and its walling are not shown in a monochrome print",
       "status": "not shown"
     },
@@ -77,5 +81,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2404 (lapped onto T-2408), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg"
+  "reviewed": "T-2414 (piece 1 of T-2406), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg"
 }

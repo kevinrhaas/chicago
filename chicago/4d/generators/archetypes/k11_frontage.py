@@ -84,6 +84,8 @@ def spec(params) -> dict | None:
         raise ValueError("boundary.entrance_gate is built as a pair of leaves")
     if FENCES[t["fence"]] == "lattice" and not 0.2 <= t.get("lattice_pitch_m", 0) <= 0.6:
         raise ValueError("a lattice fence names its bay, boundary.lattice_pitch_m, 0.2-0.6 m")
+    if t.get("lattice_span_bays", 2) not in (2, 3, 4):
+        raise ValueError("boundary.lattice_span_bays: an arch spans 2, 3 or 4 bays")
     b = t.get("side_fence")
     if b:
         if b.get("variant") != BOARDS:
@@ -173,7 +175,8 @@ def dress(a):
     foot = max(q[0] for q in stoop)
 
     fence, style = t["fence"], FENCES[t["fence"]]
-    var = K.Variant({"id": fence, "kind": "fence", "pitch_m": t.get("lattice_pitch_m")}, data)
+    var = K.Variant({"id": fence, "kind": "fence", "pitch_m": t.get("lattice_pitch_m"),
+                     "span_bays": t.get("lattice_span_bays", 2)}, data)
     B = t.get("side_fence")
     n_end = B["from_s_m"] - 0.06 if B else s_north - 0.12     # T-2406: the boards take the north end
     # the entrance: a pair of leaves square to the door, each hung on its own pier
@@ -264,7 +267,7 @@ def _board_run(var, x0, x1, H, tag):
     post, rail, bw, bt, gap = 0.1, (0.05, 0.1), 0.14, 0.022, 0.012
     n = max(1, math.ceil((x1 - x0 - post) / 2.4))
     xs = [x0 + post / 2 + (x1 - x0 - post) * i / n for i in range(n + 1)]
-    names = [var.member(f"{tag} post {i + 1}", "timber", "ground", x - post / 2, x + post / 2, -0.5, H, -post / 2,
+    names = [var.member(f"{tag} post {i + 1}", "timber", "ground", x - post / 2, x + post / 2, -0.15, H, -post / 2,
                         post / 2).name for i, x in enumerate(xs)]
     z_face = post / 2 - 0.02                       # the rails' outer face, just inside the posts'
     rails = [var.member(f"{tag} rail {k + 1}", "timber", names[0], x0, x1, y, y + rail[1], z_face - rail[0], z_face)
