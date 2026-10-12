@@ -1443,7 +1443,7 @@ class Assembly:
                                     "front_yard_m": p.entrance_kit["front_yard_m"],
                                     **({"terrace_to_v_m": p.entrance_kit["terrace"]["to_v_m"]}
                                        if p.entrance_kit.get("terrace") else {}),
-                                    **({"balusters": sum(b["balusters"] for b in o.meta.get("balustrade", [])),
+                                    **({"balusters": o.meta.get("balusters", 0),
                                         "balustrade_height_m": p.entrance_kit["balustrade"]["height_m"]}
                                        if p.entrance_kit.get("balustrade") else {})},
                                    {"foot": P(op.s_m, 0.0, st["foot_out_m"]), "landing": P(op.s_m, op.sill_m, 0.0),

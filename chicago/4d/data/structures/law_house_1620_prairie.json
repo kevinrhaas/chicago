@@ -122,10 +122,11 @@
               "k01.flat_lintel",
               "k01.flat_lintel"
             ],
-            "brick_heads": "segmental"
+            "brick_heads": "segmental",
+            "entrance": "k09.trim.lintel_cornice_hood"
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: the register's 'arched windows' (its 1898 numbered drawing 'supports bay/arches'; the drawing is not read here) built as two rowlock rings on a segmental arch over every street window, the head this house's own side and rear walls already wear (T-2291), taught to the brick street front by T-1861 (`brick_heads`). The K01 wall cuts a rectangular hole, so the sash under each arch stays flat-headed and the arch springs from its jambs; an arched sash is a different hole and is not built. by_storey names K01's flat lintel only because brick_heads replaces it."
+          "note": "RECONSTRUCTED: the register's 'arched windows' (its 1898 numbered drawing 'supports bay/arches'; the drawing is not read here) built as two rowlock rings on a segmental arch over every street window, the head this house's own side and rear walls already wear (T-2291), taught to the brick street front by T-1861 (`brick_heads`). The K01 wall cuts a rectangular hole, so the sash under each arch stays flat-headed and the arch springs from its jambs; an arched sash is a different hole and is not built. by_storey names K01's flat lintel only because brick_heads replaces it. T-2409: the door's hood, which the 1874 engraving draws over it (a projecting hood on brackets, its profile not read through the tree in front of it; the 1898 sketch's '1620' cartouche covers that part of the front), built as the K09 kit's cornice hood: a frieze block over the door's flat head, its cornice returned to the wall, on a scrolled console each side. RECONSTRUCTED in its form and every size, the kit's."
         },
         "wall_head": {
           "value": {
@@ -168,18 +169,18 @@
           "note": "RECONSTRUCTED: a 1.8 m stoop, as 1608's."
         },
         "entrance_bay": {
-          "value": "south",
+          "value": "middle",
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: the door on the south bay of the front, where the plate's L carries its shallower south part; the north 3.75 m is the pictures' pavilion (T-2404)."
+          "note": "RECONSTRUCTED: the door on the south bay of the front, where the plate's L carries its shallower south part; the north 3.75 m is the pictures' pavilion (T-2404). T-2409 moved the door to the middle of the three front bays, at 6.6 m, beside the north pavilion's south face, where both pictures draw it (see front_bays); the south bay keeps a window until the pictures' one-storey bay stands there (T-2408)."
         },
         "front_bays": {
           "value": [
             1.9,
-            5.4,
+            6.6,
             8.6
           ],
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: three bays across the 11.25 m front: the door at 1.9 m from the south corner, a window at 5.4 m and the bay at 8.6 m, its eaves clear of the K10 corner bracket. The plate draws no openings. T-2404's north pavilion covers v 7.5-11.25, so the 8.6 m bay's window and basement light are behind it and are not cut; its own windows are the pavilion's."
+          "note": "RECONSTRUCTED: three bays across the 11.25 m front: the door at 1.9 m from the south corner, a window at 5.4 m and the bay at 8.6 m, its eaves clear of the K10 corner bracket. The plate draws no openings. T-2404's north pavilion covers v 7.5-11.25, so the 8.6 m bay's window and basement light are behind it and are not cut; its own windows are the pavilion's. T-2409 moved the door from 1.9 to 6.6 m, the north end of the pictures' 'about v 5-6.6': the 1898 Tribune sketch's stoop rises straight from its gate (x 93-140 px in its panel, about v 6.3-7.5 at the street line) to a door beside the pavilion's south face, and the 1874 engraving's stoop rail runs from x 540 to 582 px, which a straight stoop on this camera draws only with its north string near v 7.5; 6.6 is the furthest north the 1.8 m landing stands clear of the pavilion's south face at 7.5. The window over the door moves with it."
         },
         "side_bays": {
           "value": [
@@ -309,11 +310,78 @@
           "value": {
             "k01.opening.door_leaf": {
               "variant": "k07.entrance.panel_door_stoop",
-              "front_yard_m": 6.24
+              "front_yard_m": 6.24,
+              "terrace": {
+                "side": "right",
+                "to_v_m": 11.25,
+                "back": [
+                  [
+                    7.5,
+                    0.4
+                  ]
+                ]
+              },
+              "balustrade": {
+                "height_m": 0.9,
+                "pitch_m": 0.2,
+                "newel_m": 0.2,
+                "newel_cap_m": 0.1,
+                "rail_m": [
+                  0.12,
+                  0.08
+                ],
+                "segments": 8,
+                "profile": [
+                  [
+                    0.06,
+                    0.0
+                  ],
+                  [
+                    0.06,
+                    0.06
+                  ],
+                  [
+                    0.045,
+                    0.1
+                  ],
+                  [
+                    0.04,
+                    0.18
+                  ],
+                  [
+                    0.06,
+                    0.35
+                  ],
+                  [
+                    0.065,
+                    0.45
+                  ],
+                  [
+                    0.045,
+                    0.65
+                  ],
+                  [
+                    0.032,
+                    0.78
+                  ],
+                  [
+                    0.045,
+                    0.86
+                  ],
+                  [
+                    0.055,
+                    0.94
+                  ],
+                  [
+                    0.055,
+                    1.0
+                  ]
+                ]
+              }
             }
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: the K07 four-panel door under a two-light transom at the head of a straight stone stoop solved from the principal floor. front_yard_m is the street grid's own distance: the front stands 5.93 m behind the Prairie Avenue street line (the draft's street_u 22.679 less the 16.75 m body) and the walk begins 1 ft further out, 6.24 m."
+          "note": "RECONSTRUCTED: the K07 four-panel door under a two-light transom at the head of a straight stone stoop solved from the principal floor. front_yard_m is the street grid's own distance: the front stands 5.93 m behind the Prairie Avenue street line (the draft's street_u 22.679 less the 16.75 m body) and the walk begins 1 ft further out, 6.24 m. T-2409 built the entrance the two pictures draw (land_owner_1874_05_homes_of_chicago_1620_law, chicago_tribune_1898_01_09_prairie_widows): the straight stoop rising from the gate to the door beside the pavilion, and at its head a porch at the principal floor running north before the pavilion to the north corner behind a turned balustrade, the balustrade carried down the stoop. What the pictures give is the arrangement: the stoop's line, a porch level with its head across the pavilion's front, and turned balusters on both. RECONSTRUCTED: the porch as a stone terrace in the stoop's stone, faced to grade, as deep as the 1.2 m landing (the engraving's balustrade ends at x 690 px, where a 1.2 m deep porch's north corner falls, 685.6 px), its back stepped to the pavilion's 0.4 m (T-2404); the balustrade 0.9 m over the terrace, square 0.2 m newels with a 0.1 m cap, a 0.12 x 0.08 m rail and turned vase balusters at no more than 0.2 m, the same height over the stoop's landing, its balusters standing on the cheeks' tops; turned stone and not timber, which neither picture can say."
         },
         "boundary": {
           "value": {

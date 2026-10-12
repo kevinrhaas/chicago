@@ -496,7 +496,7 @@ def main(argv) -> int:
           f"risers, every step closed, the walk clear, a recess with a closed reveal, its leaves clear of the floor; "
           f"{min(tris)}-{max(tris)} triangles an entrance; the specimen GLB is the generator's bytes; "
           f"{len(houses)} house entrance(s) with a terrace or balustrade held to the same rules"
-          + "".join(f" ({nm}: {sum(b['balusters'] for b in o.meta.get('balustrade', []))} balusters, "
+          + "".join(f" ({nm}: {o.meta.get('balusters', 0)} balusters, "
                     f"{K.triangles(o)} triangles)" for nm, _, o in houses))
     return 0
 

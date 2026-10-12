@@ -448,6 +448,7 @@ class Entrance(Opening):
             s, y, o = at(c0 + (c1 - c0) * (i + 0.5) / k)
             yb = y - rmax * slope                     # seated into a raked base, never over it
             self._turn((s, o), [(rr, yb + (y0 - (yb - y)) * yy) for rr, yy in prof], B["segments"])
+        self.meta["balusters"] = self.meta.get("balusters", 0) + k
         self.meta.setdefault("balustrade", []).append({"from": [round(x, 4) for x in a], "to": [round(x, 4) for x in b],
                                                        "balusters": k, "slope": round(dy / run, 4)})
 
