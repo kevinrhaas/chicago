@@ -24379,9 +24379,56 @@ are not yet built (T-2397), so the south flank runs straight and the rear gable 
 spacing, the rear gable and the lean-to with what it shows; T-2397 builds the rear pieces against
 this body and T-1865 finishes the architecture, keeping this record's id.
 **Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.body`.
+**Superseded in part (T-2397):** the straight north flank behind the north range, the north range's
+full-width back wall and the south flank's two middle bays are retired from this liberty: the rear
+range is widened and the sheet's south projection and one-storey pieces stand against the body under
+L-k16-1638-rear-2397, which also covers `form.body`.
 **Ticket:** T-2395 (a piece of T-1864, the 1638 envelope).
 **Review:** `docs/RESEARCH/k16-1638-body-2395/README.md`.
 **Recorded:** 2026-10-12 (T-2395).
+
+### L-k16-1638-rear-2397 — 1638 Prairie's rear pieces from sheet 20: the widened rear range, the south projection and the one-storey pieces, built to the plan with every elevation reconstructed
+
+**Decision:** the Shortall-Gregory house's T-2395 body takes the pieces sheet 20 draws against it
+(T-2397, the last piece of T-1864's envelope). Built by `generators/k16_emit.py` from the K16 kit:
+the range behind the north range is widened from the gable's 5.21 m to 6.49 m, its north flank moved
+out to the new line with a short back wall beside the rear gable, under a 22-degree lean-to (the
+north range's pitch) from its north eave (the flanks' 6.03 m wall top, so the eave line runs on) up
+into the main roof, which it meets 6.95 m up; the north range's back wall shortens to the 1.64 m the
+widening leaves it. A two-storey projection stands on the south flank between 6.67 and 12.9 m behind
+the front, 2.40 m out, walled in the kit's clapboard to the flanks' wall top, with two bays a storey
+on its south face and one on each end, under a lean-to at the same 22 degrees from its south eave up
+into the main roof's south slope, which it meets 7.61 m up, its ends closed in painted board as the
+north range's are; the south flank's two bays it now covers are taken out. Three one-storey pieces
+(wall top 3.65 m) stand on painted decks: an L-shaped ell wrapping the back's north corner, built as
+two blocks (2.79 by 1.24 m behind the rear wall, and 1.26 by 1.40 m along the north flank), and a
+shed on the north flank 2.13 m long and 1.26 m out, each walled by the kit as a whole frame house's
+later block is, with one sash in the ell's west wall and one in the shed's north wall.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn, picked off the committed raster
+at its 0.050779 m pixel as darkness peaks: the widened range's north line (6.43 m by this pick, 6.49 m
+as T-2323 read it; the record keeps 6.49 m, one pixel apart); the projection's south line (2.40 m out)
+and its two ends (6.67 m and 12.86 m behind the front, the second on the north range's own back line,
+so taken as 12.9 m); the ell's outline (24.64 to 22.00 m behind the front, 4.96 to 7.75 m north) and
+the shed's (17.84 to 19.97 m behind, to 7.75 m north); the '1' printed in each one-storey piece and
+the small circle beside it, the Sanborn key's slate or tin roof against the 'x' (shingle) on the house.
+**What is invented.** The projection's storeys (the sheet prints no number in it, so the house's
+'2BB' is carried to it), its lean-to and pitch, and every opening on it; the widened range's lean-to;
+the one-storey pieces' wall height and their decks' finish, which take the house's roof covering
+rather than a painted-tin material of their own; every opening on the pieces; no door, step, chimney,
+gutter or downpipe on any of them. No picture shows a side or rear of the house.
+**What the record states and the model simplifies.** The ell is two blocks meeting on the rear wall's
+line, its corner returns the kit's 0.3 m; the projection's end walls stop at the flank, inside which
+the flank's frieze and eave run on unseen; the projection's lean-to stops at its end walls' planes, so
+their boxed eaves stand out past its verges as the north range's back wall's does.
+
+**How to resolve:** a photograph, view or description of the south side or the rear replaces the
+projection's roof and storeys, the lean-tos and the openings with what it shows; a reading of the
+sheet's key in a source record replaces the deck's finish; T-1865 finishes the architecture, keeping
+this record's id.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.body`.
+**Ticket:** T-2397 (piece 3 of T-1864, the 1638 envelope).
+**Review:** `docs/RESEARCH/k16-1638-rear-2397/README.md`.
+**Recorded:** 2026-10-12 (T-2397).
 
 ### L-k01-1612-goodman-2344 — 1612 Prairie, the Goodman house, refined from the district draft on the K01 kit: an Italianate stone front whose every proportion, opening and fabric is reconstructed
 

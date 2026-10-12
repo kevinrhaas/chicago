@@ -1246,7 +1246,13 @@ def canted_bay_body(sm: Sample, plan, height, roof_m=0.12):
 
 #: T-2395: a timber body's parts, in the order they are merged and measured
 BODY_KEYS = tuple(f"body.{k}{n}" for k in ("south", "north", "wing_north", "wing_rear") for n in ("", ".2")) \
-    + ("body.rear",)
+    + ("body.rear", "body.rear_north")
+
+
+def body_part_keys(parts: dict) -> tuple:
+    """A front record's body parts in merge order: the timber body's faces, then any annex's
+    walls (T-2397), each held to the kit's rules by the gate."""
+    return tuple(k for k in BODY_KEYS if k in parts) + tuple(k for k in parts if k.startswith("annex."))
 
 
 def structure_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
@@ -1300,6 +1306,7 @@ def timber_body_parts(st: dict, form: dict, data: dict, front: dict) -> dict:
     gv, wv = form["gable"]["value"], form["wing_wall"]["value"]
     Wg, Ww, join = gv["width_m"], wv["width_m"], form["layout"]["value"]["join_gap_m"]
     Lg, Dw = body["gable_depth_m"], body["wing_depth_m"]
+    Wr = body.get("rear_width_m", Wg)      # T-2397: the range behind the wing, widened past the gable's
     s1 = Wg + join + Ww
     y_flank = round(body_flank_top(front["gable"], data, body["roof_under_m"]), 6)
 
@@ -1308,7 +1315,7 @@ def timber_body_parts(st: dict, form: dict, data: dict, front: dict) -> dict:
     def wall(key, O, U, L, top, boards):
         """One face, as one kit wall or, past `split_m`, two meeting end to end (a long flank
         would outrun one wall's triangle budget): `body.<key>` and `body.<key>.2`."""
-        w = tw[key]
+        w = tw.get(key, {})       # T-2397: the widened range's short back wall may name nothing
         cut = w.get("split_m")
         runs = [(0.0, cut, (boards[0], False)), (cut, L, (False, boards[1]))] if cut else [(0.0, L, boards)]
         for i, (a, b, bd) in enumerate(runs):
@@ -1328,10 +1335,12 @@ def timber_body_parts(st: dict, form: dict, data: dict, front: dict) -> dict:
     # the gable range's south flank, from the back corner to the front's
     wall("south", (0.0, 0.0, -Lg), (0.0, 0.0, 1.0), Lg, y_flank, (True, True))
     # its north flank behind the wing, from the wing's back wall to the back corner
-    wall("north", (Wg, 0.0, -Dw), (0.0, 0.0, -1.0), Lg - Dw, y_flank, (False, True))
+    wall("north", (Wr, 0.0, -Dw), (0.0, 0.0, -1.0), Lg - Dw, y_flank, (False, True))
     # the wing's north side, on from the wing wall's return, and its back wall
     wall("wing_north", (s1, 0.0, -D), (0.0, 0.0, -1.0), Dw - D, wv["wall_top_m"], (False, True))
-    wall("wing_rear", (s1, 0.0, -Dw), (-1.0, 0.0, 0.0), s1 - Wg, wv["wall_top_m"], (True, False))
+    wall("wing_rear", (s1, 0.0, -Dw), (-1.0, 0.0, 0.0), s1 - Wr, wv["wall_top_m"], (True, False))
+    if Wr > Wg:     # T-2397: the widened range's back, from its north corner to the rear gable
+        wall("rear_north", (Wr, 0.0, -Lg), (-1.0, 0.0, 0.0), Wr - Wg, y_flank, (False, False))
     # the rear gable, measured in its own frame as the front's is and turned into place when
     # the house is merged (`_rear_at`)
     rv = dict(gv, id=f"k16.gable.{sid}.body_rear", windows=list(tw["rear"].get("windows", [])),
@@ -1340,6 +1349,77 @@ def timber_body_parts(st: dict, form: dict, data: dict, front: dict) -> dict:
     out["body.rear"].seed = seed_of(rv["id"], 0, sid)
     out["_rear_at"] = ((Wg, 0.0, -Lg), (-1.0, 0.0, 0.0))
     out["_flank_top_m"] = y_flank
+    if body.get("annexes"):
+        out.update(annex_parts(st, body, gv["foundation_m"], y_flank, data))
+    return out
+
+
+# -- T-2397: the pieces the plan draws against the body ------------------------------------------
+#
+# Each annex is a block in the lot plan's frame (u east, v north, about the front's south end,
+# as the record's footprint is), standing `against` one side of the body, walled by the kit as a
+# whole frame house's later block is (`frame_house_parts`), and turned with nothing: the house
+# is merged in the front's frame and turned to its street, then the annexes are merged into it
+# where they already stand. `open` names a side that joins another annex: no wall, no eave.
+
+def _annex_blocks(body: dict, y_flank: float) -> list[dict]:
+    return [dict(b, wall_top_m=y_flank if b["wall_top_m"] == "flank" else b["wall_top_m"])
+            for b in body["annexes"]]
+
+
+def annex_parts(st: dict, body: dict, foundation_m: float, y_flank: float, data: dict) -> dict:
+    fh = {"foundation_m": foundation_m, "return_m": body["annex_return_m"],
+          "blocks": _annex_blocks(body, y_flank)}
+    parts = frame_house_parts(st, {"form": {"frame_house": {"value": fh}}}, data)
+    out = {}
+    for k, sm in parts.items():
+        sm.seed = seed_of(sm.v["id"], 0, st["id"])
+        out[f"annex.{k}"] = sm
+    return out
+
+
+def annex_roofs(house: Sample, parts: dict, form: dict, data: dict) -> dict:
+    """Each annex's roof, in the plan frame: a flat deck just over its eave, overhanging only
+    where it has a wall, or a lean-to from its outer eave up into the main roof at the wing's
+    pitch, its two ends closed in painted board as the wing's are."""
+    body = form["body"]["value"]
+    ev = data["trim"]["eave"]
+    P_, fh = ev["projection_m"], ev["fascia_m"]
+    t = math.tan(math.radians(data["gothic"]["pitch_deg"]))
+    tl = math.tan(math.radians(body["wing_roof_pitch_deg"]))
+    ye = parts["_flank_top_m"] + fh                 # the main roof's eave line, P_ out of a flank
+    F = house.F
+    out = {}
+    for b in _annex_blocks(body, parts["_flank_top_m"]):
+        u0, v0, u1, v1 = b["rect_uv"]
+        walled = {w["side"] for w in b["walls"]}
+        x0 = u0 - P_ if "west" in walled else u0
+        x1 = u1 + P_ if "east" in walled else u1
+        z0 = -v1 - P_ if "north" in walled else -v1
+        z1 = -v0 + P_ if "south" in walled else -v0
+        yb = b["wall_top_m"] + fh
+        if b["roof"]["kind"] == "lean_to":
+            if b["against"] != "north":
+                raise ValueError(f"{b['id']}: a lean-to rises against the body's south flank only")
+            # the main roof's south slope: y = ye + (v + P_) t; the lean-to's: yb + (v - v0 + P_) tl
+            vi = (yb - ye + (P_ - v0) * tl - P_ * t) / (t - tl)
+            yi = yb + (vi - v0 + P_) * tl
+            y0 = ye + P_ * t                            # the main roof over the flank's face
+            house.poly(F, "roof_covering", [(u0, yb, z1), (u1, yb, z1), (u1, yi, -vi), (u0, yi, -vi)], (0, 1, 1))
+            for u, hu in ((u0, -1), (u1, 1)):
+                house.poly(F, "fascia", [(u, yi, -vi), (u, y0, 0.0), (u, yb, z1)], (hu, 0, 0))
+                house.poly(F, "fascia", [(u, y0, 0.0), (u, yb, 0.0), (u, yb, z1)], (hu, 0, 0))
+            out[b["id"]] = {"eave_m": round(yb, 4), "meets_main_m": round(yi, 4), "meets_v_m": round(vi, 4)}
+        else:
+            yd = yb + b["roof"].get("deck_m", 0.03)
+            house.poly(F, "roof_covering", [(x0, yd, z1), (x1, yd, z1), (x1, yd, z0), (x0, yd, z0)], (0, 1, 0))
+            for side, q, hnt in (("south", [(x0, yb, z1), (x1, yb, z1), (x1, yd, z1), (x0, yd, z1)], (0, 0, 1)),
+                                 ("north", [(x1, yb, z0), (x0, yb, z0), (x0, yd, z0), (x1, yd, z0)], (0, 0, -1)),
+                                 ("west", [(x0, yb, z0), (x0, yb, z1), (x0, yd, z1), (x0, yd, z0)], (-1, 0, 0)),
+                                 ("east", [(x1, yb, z1), (x1, yb, z0), (x1, yd, z0), (x1, yd, z1)], (1, 0, 0))):
+                if side in walled:
+                    house.poly(F, "roof_covering", q, hnt)
+            out[b["id"]] = {"deck_m": round(yd, 4)}
     return out
 
 
@@ -1362,8 +1442,11 @@ def timber_body_roofs(house: Sample, parts: dict, form: dict, data: dict) -> dic
     F = house.F
     house.poly(F, "roof_covering", [(-P_, ye, 0.0), (xm, yr, 0.0), (xm, yr, -Lg), (-P_, ye, -Lg)], (-1, 1, 0))
     house.poly(F, "roof_covering", [(Wg + P_, ye, -Lg), (xm, yr, -Lg), (xm, yr, 0.0), (Wg + P_, ye, 0.0)], (1, 1, 0))
+    Wr = body.get("rear_width_m", Wg)
     for z, hz in ((0.0, 1), (-Lg, -1)):        # the eave's ends: the wedge under the roof's overhang
         for x0, x1 in ((-P_, 0.0), (Wg + P_, Wg)):
+            if z == -Lg and x1 == Wg and Wr > Wg:   # T-2397: under the widened range's lean-to
+                continue
             house.poly(F, "fascia", [(x0, ye, z), (x1, ye, z), (x1, y0, z)], (0, 0, hz))
     # the wing's lean-to, from its eave (the wing wall's) to where it meets the main roof
     tl = math.tan(math.radians(body["wing_roof_pitch_deg"]))
@@ -1375,8 +1458,20 @@ def timber_body_roofs(house: Sample, parts: dict, form: dict, data: dict) -> dic
     for z, hz in ((0.0, 1), (-Dw, -1)):
         house.poly(F, "fascia", [(xi, yi, z), (Wg, y0, z), (xo, ywe, z)], (0, 0, hz))
         house.poly(F, "fascia", [(Wg, y0, z), (Wg, ywe, z), (xo, ywe, z)], (0, 0, hz))
-    return {"flank_top_m": round(parts["_flank_top_m"], 4), "eave_m": round(ye, 4), "ridge_m": round(yr, 4),
-            "lean_to_top_m": round(yi, 4), "lean_to_meets_x_m": round(xi, 4)}
+    out = {"flank_top_m": round(parts["_flank_top_m"], 4), "eave_m": round(ye, 4), "ridge_m": round(yr, 4),
+           "lean_to_top_m": round(yi, 4), "lean_to_meets_x_m": round(xi, 4)}
+    if Wr > Wg:
+        # T-2397: the range behind the wing widened to Wr, under its own lean-to at the wing's
+        # pitch from its north eave (the flanks', so the eave line runs on) up into the main
+        # roof; its back end closed in board as the wing's are, its front end inside the wing
+        xo = Wr + P_
+        xr = (y0 + Wg * t - ye - xo * tl) / (t - tl)
+        yri = ye + (xo - xr) * tl
+        house.poly(F, "roof_covering", [(xo, ye, -Dw), (xr, yri, -Dw), (xr, yri, -Lg), (xo, ye, -Lg)], (1, 1, 0))
+        house.poly(F, "fascia", [(xr, yri, -Lg), (Wg, y0, -Lg), (xo, ye, -Lg)], (0, 0, -1))
+        house.poly(F, "fascia", [(Wg, y0, -Lg), (Wg, ye, -Lg), (xo, ye, -Lg)], (0, 0, -1))
+        out.update({"rear_lean_to_top_m": round(yri, 4), "rear_lean_to_meets_x_m": round(xr, 4)})
+    return out
 
 
 def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
@@ -1422,10 +1517,13 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
         house.box(house.F, "skirt", a, b, 0.0, y_rim0, 0.0, zl, skip=("back", "bottom"), tone=house.tone("skirt", a))
     # merge: the porch's left half mirrored, the board roles dropped
     mirror_s(parts["porch_left"], c)
-    keys = ("gable", "wing_wall", "porch_right", "porch_left") + tuple(k for k in BODY_KEYS if k in parts)
+    keys = ("gable", "wing_wall", "porch_right", "porch_left") + body_part_keys(parts)
+    annex = tuple(k for k in keys if k.startswith("annex."))
     if timber:
         place(parts["body.rear"], *parts["_rear_at"])
     for k in keys:
+        if k in annex:
+            continue
         sm = parts[k]
         porch = k.startswith("porch")
         for role, pr in sm.prims.items():
@@ -1439,6 +1537,14 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
     for pr in house.prims.values():
         pr.pos = [_rot_y(q, k) for q in pr.pos]
         pr.nrm = [_rot_y(q, k) for q in pr.nrm]
+    if annex:   # T-2397: built where they stand in the plan, merged after the turn
+        if k != 1:
+            raise ValueError(f"{st['id']}: annexes are planned about a front facing east")
+        house.meta["annexes"] = annex_roofs(house, parts, form, data)
+        for kk in annex:
+            for role, pr in parts[kk].prims.items():
+                if role not in ("backdrop", "interior", "cut"):
+                    absorb(house.prims.setdefault(role, Prim(role)), pr)
     house.meta.update({"parts": {kk: triangles(parts[kk]) for kk in keys},
                        "focus": [0.0, 3.0, 0.0], "span_m": 9.0})
     return house
