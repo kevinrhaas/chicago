@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1731, ts: '2026-10-12T18:28:52.239Z', date: 'Oct 12, 2026, 1:28 PM CT', title: '1620 Prairie\'s lattice fence, side boards, chimney and slates, from its pictures', kind: 'fix',
+    items: [
+      '1620 Prairie\'s street fence is now the lattice of interlaced arches that both its 1874 engraving and the 1898 Tribune sketch draw, running unbroken from post to post on its stone base, in place of the generic scroll-band railing.',
+      'Where the engraving\'s lattice stops, a close-boarded fence takes over, turns at the north lot line and runs back along the side yard.',
+      'The tall chimney the engraving draws at the front of the north wall now rises from the cornice beside the crown; the ridge stack that stood where the engraving shows open sky is gone.',
+      'The mansard\'s steep faces and the crown\'s are slated, as the engraving hatches them. The lattice\'s bay, the boards\' height and run behind the house, the stack\'s height and the slate\'s quarry are liberties.',
+    ] },
   { v: 1730, ts: '2026-10-12T18:25:47.401Z', date: 'Oct 12, 2026, 1:25 PM CT', title: 'Glessner\'s street windows, sash by sash', kind: 'change',
     items: [
       'The Glessner house\'s street and stable windows are now real double-hung sash: the upper sash sits outside the lower, each with its own frame and glass, over sills that slope to shed water.',

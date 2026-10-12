@@ -24383,6 +24383,50 @@ this body and T-1865 finishes the architecture, keeping this record's id.
 **Review:** `docs/RESEARCH/k16-1638-body-2395/README.md`.
 **Recorded:** 2026-10-12 (T-2395).
 
+### L-k16-1638-tower-2396 — 1638 Prairie's corner tower read off its photograph over the kit's porch: an octagonal stage under an octagonal spire, its unseen faces, cladding and colour from the K16 kit
+
+**Decision:** the north end of the Shortall-Gregory house's front (T-2396, a piece of T-1864's
+envelope) is no longer a plain two-storey wing wall behind a one-storey porch. Over the porch stands
+the corner tower the house's photograph shows: a regular octagon 2.5 m across its flats, standing on
+the porch's roof (3.57 m) with its front face on the porch plate's front, so the porch is its ground
+storey; an upper stage to a 7.0 m cornice, each of its eight faces a kit `clapboard_wall` with a
+corner board at each angle and the kit's water table as the band it stands on; a pointed two-over-two
+sash (the kit's K06 equilateral head, 0.6 m wide, sill 4.35 m, point 6.2 m) in each of the three
+street faces; a soffit and fascia mitred round the octagon at a 0.3 m eave, and an octagonal spire
+kicked out over it to its point at 9.9 m, a little over the gable's apex, with the kit's chamfered
+finial through it. The porch moves to stand under it, its middle 6.55 m from the front's south end
+(it stood at 6.86 m, its roof's south edge at the gable's). The wing wall loses its upper sash, which
+is inside the tower now.
+**What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`, the Prairie
+library's `a16-cgy-1638-gothic-photo`, undated): that the tower exists and stands over the porch at
+the north end of the front; its octagonal plan (the 0.41 : 0.29 : 0.29 of its front and diagonal
+faces); its width against the front, whose 8.13 m is the 1911 Sanborn sheet's; where it stands along
+the front; the heights of its stage's foot, its lights' sills and points, its cornice and its
+spire's point, all read at 73-77 px a metre with no camera solved; a pointed light in each street
+face; the cornice and the octagonal spire to a finial.
+**What is invented.** The camera: no solve is committed, and the reading assumes the print close to
+an elevation, which the faces' asymmetry (the camera about 6 degrees off the tower's axis, some 30 m
+off) supports and does not prove. The five faces the print does not show — the north and south faces
+and the three back into the house — are plain; the stage is clapboarded, where the print shows it
+smooth with incised ornament over each light; the lights take the kit's equilateral head on a sash
+narrower than the print's and less acute; the spire's covering is the house's wood shingle and every
+colour is the house's, the print being monochrome; the porch under it is still the kit's porch with
+its posts, brackets and lattice, where the print shows an arch with pierced spandrels, double doors
+behind it and a stoop before it (T-1865); the stage has no floor or framing inside, and its back
+faces run into the north range, showing only above its roof. The tower itself (`form.tower`) is
+`inferred`, read off the photograph with its reasoning in the record's note, so this entry covers
+the porch it stands on, whose kit fabric stands where the photograph shows an arch, and is where the
+tower's own inventions above are admitted.
+
+**How to resolve:** a camera solved from the photograph (T-1865's image gate) corrects every reading
+above, and a second picture of the house, or one whose rights allow it, shows the faces this one
+cannot; T-1865 finishes the stage's ornament, the arched porch, the doors and the stoop, keeping this
+record's id.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.porch`.
+**Ticket:** T-2396 (a piece of T-1864, the 1638 envelope).
+**Review:** `docs/RESEARCH/k16-1638-tower-2396/README.md`.
+**Recorded:** 2026-10-12 (T-2396).
+
 ### L-k01-1612-goodman-2344 — 1612 Prairie, the Goodman house, refined from the district draft on the K01 kit: an Italianate stone front whose every proportion, opening and fabric is reconstructed
 
 **Decision:** Replace the district draft of 1612 Prairie, in place and under its id, with a K01
@@ -24656,7 +24700,8 @@ source, replaces the kits' choices in place; K01's traced rear wing reopens the 
 **Revised in part (T-2408, piece 1 of T-2405):** the 1874 engraving's one-storey bay window now stands on the south part of the front (`bays` entry `south_hood`, the K08 kit's new `k08.bay.canted_hooded`), and the door has moved north of it to the middle of three front bays (`entrance_bay` 'middle', `front_bays` 3.09 / 5.8 / 8.6 m). What is read: the bay's place, its 45-degree canted plan (a 1.94 m front 0.58 m out, fitted through the engraving's camera to its front's edges and its cheek's foot), one storey, two round-headed lights in its front, a console at each corner of its front, a row of blocks under its eaves, and a hood flat at the eaves that steepens to the wall; and the door's place between the bay and the pavilion, about v 5-6.6. What is invented: every height of the bay (its 1.9 m sill, 1.44 x 1.85 m lights, 4.0 m wall top), because the engraving draws it on a lower principal floor than this house's reconstructed 1.4 m; the hood's 0.6 m eaves, its flare's two pitches and where it turns; the consoles' and modillions' sizes; blank cheeks (a 0.82 m cheek on a 0.58 m projection leaves no room for a recessed light, where the engraving may draw a narrow one); the bay's brick, where the engraving draws it dark; the slate hood's colour; and the door's exact 5.8 m. The canted bay T-1861 stood on the north part is still an invention until the north pavilion replaces it (T-2404).
 **Retired in part (T-2404, piece 2 of T-2370):** the canted bay this entry invented on the north half of the front is gone; in its place stands the north pavilion both pictures draw, its place, width, flush north corner and two round-headed windows a storey read from them, so `bays` leaves this entry's Covers. The south part's hooded bay (T-2408) is read from the engraving too; its inventions are the ones listed just above and in the record's note. What stays invented about the pavilion is said in the record's own note: how far it stands proud (0.4 m, inside the Tribune camera's fit, which the sketch draws and does not measure), its storey heights and its sash sizes; and of the crown over it, its depth, the chord and bow of its faces, its cornice's projection and the dormer's sizes.
 **Revised in part (T-2409, piece 2 of T-2405):** the entrance is now the one both pictures draw: the door beside the pavilion's south face at 6.6 m (`front_bays`), the straight stoop rising to it from the gate, at its head a porch running north before the pavilion to the north corner behind a turned balustrade that is carried down both sides of the stoop (`entrance_kit`, its `terrace` and `balustrade`), and a hood over the door (`street_front_trim` `entrance`, the K09 kit's cornice hood on two scrolled consoles). What is read: the arrangement — the stoop's line, the door beside the pavilion, a porch level with the stoop's head across the pavilion's front, turned balusters on porch and stoop, a hood over the door. What stays invented: the door's exact place inside the pictures' reach (6.6 m, the furthest north the 1.8 m landing clears the pavilion), the porch built as a stone terrace faced to grade and its 1.2 m depth, the balustrade's 0.9 m height, its newels, rail, baluster profile and 0.2 m pitch, the stone all of it is built in (neither picture can say stone or timber), and the hood's form and sizes; so they stay in this entry's Covers.
-**Covers:** `law_house_1620_prairie.restored_1904.form.principal_floor_m`, `law_house_1620_prairie.restored_1904.form.wall_thickness_front_m`, `law_house_1620_prairie.restored_1904.form.wall_thickness_side_m`, `law_house_1620_prairie.restored_1904.form.service_wall_brick`, `law_house_1620_prairie.restored_1904.form.street_front_trim`, `law_house_1620_prairie.restored_1904.form.wall_head`, `law_house_1620_prairie.restored_1904.form.roof_pitch_deg`, `law_house_1620_prairie.restored_1904.form.eave_overhang_m`, `law_house_1620_prairie.restored_1904.form.stair_tread_m`, `law_house_1620_prairie.restored_1904.form.stair_landing_depth_m`, `law_house_1620_prairie.restored_1904.form.stoop_width_m`, `law_house_1620_prairie.restored_1904.form.entrance_bay`, `law_house_1620_prairie.restored_1904.form.front_bays`, `law_house_1620_prairie.restored_1904.form.side_bays`, `law_house_1620_prairie.restored_1904.form.rear_bays`, `law_house_1620_prairie.restored_1904.form.north_bays`, `law_house_1620_prairie.restored_1904.form.sash_by_storey`, `law_house_1620_prairie.restored_1904.form.basement_lights`, `law_house_1620_prairie.restored_1904.form.roof_covering`, `law_house_1620_prairie.restored_1904.form.chimneys`, `law_house_1620_prairie.restored_1904.form.rainwater`, `law_house_1620_prairie.restored_1904.form.window_kit`, `law_house_1620_prairie.restored_1904.form.entrance_kit`, `law_house_1620_prairie.restored_1904.form.boundary`.
+**Retired in part (T-2414, piece 1 of T-2406):** three more of this entry's inventions are now read from the pictures, and leave its Covers (`boundary`, `chimneys` and `roof_covering`, each now inferred, its record's note saying what is read and what is still made up). `boundary`: the 1874 engraving's and the 1898 sketch's lattice of interlaced arches on a base along the street line, and the engraving's close-boarded fence taking over at about v 12.6 on the street line and turning back along the north lot line, replace the K11 scroll-band fence; still invented are the lattice's iron and bar (the kit's 14 mm scroll bar), its 0.3 m bay and three-bay arches (fitted to both drawings, which disagree), its posts' acorn finials, the boards' 1.5 m height and boarding, and their run behind the house's rear to the coach house's front (the engraving's frame cuts them off at about u -4). `chimneys`: the front stack is read off the engraving through its camera, a stack on the cornice astride the north wall at its front, 0.75 by 0.6 m in plan, its top 12.5 m (a height that carries the camera's doubtful vertical datum, T-2415); the ridge stack over the front half, where the engraving shows sky, is gone, and the rear ridge stack, which neither picture can see, stays invented with both stacks' caps. `roof_covering`: the mansard's lower faces and the crown's are slated, as the engraving hatches them; the quarry (Pennsylvania) is invented, and so is the tin of the low upper hip, which neither picture sees.
+**Covers:** `law_house_1620_prairie.restored_1904.form.principal_floor_m`, `law_house_1620_prairie.restored_1904.form.wall_thickness_front_m`, `law_house_1620_prairie.restored_1904.form.wall_thickness_side_m`, `law_house_1620_prairie.restored_1904.form.service_wall_brick`, `law_house_1620_prairie.restored_1904.form.street_front_trim`, `law_house_1620_prairie.restored_1904.form.wall_head`, `law_house_1620_prairie.restored_1904.form.roof_pitch_deg`, `law_house_1620_prairie.restored_1904.form.eave_overhang_m`, `law_house_1620_prairie.restored_1904.form.stair_tread_m`, `law_house_1620_prairie.restored_1904.form.stair_landing_depth_m`, `law_house_1620_prairie.restored_1904.form.stoop_width_m`, `law_house_1620_prairie.restored_1904.form.entrance_bay`, `law_house_1620_prairie.restored_1904.form.front_bays`, `law_house_1620_prairie.restored_1904.form.side_bays`, `law_house_1620_prairie.restored_1904.form.rear_bays`, `law_house_1620_prairie.restored_1904.form.north_bays`, `law_house_1620_prairie.restored_1904.form.sash_by_storey`, `law_house_1620_prairie.restored_1904.form.basement_lights`, `law_house_1620_prairie.restored_1904.form.rainwater`, `law_house_1620_prairie.restored_1904.form.window_kit`, `law_house_1620_prairie.restored_1904.form.entrance_kit`.
 **Ticket:** T-1861 (package N03 of T-1837).
 **Review:** `docs/RESEARCH/k01-1620-law-1861/README.md`.
 **Recorded:** 2026-10-11 (T-1861).
