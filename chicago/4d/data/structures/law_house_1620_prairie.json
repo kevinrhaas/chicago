@@ -383,8 +383,8 @@
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 0.75,
-                      "clear_height_m": 1.35,
-                      "sill_m": 0.5,
+                      "clear_height_m": 1.5,
+                      "sill_m": 0.4,
                       "at": [
                         0.18,
                         0.82
@@ -394,8 +394,8 @@
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 0.95,
-                      "clear_height_m": 1.35,
-                      "sill_m": 0.5,
+                      "clear_height_m": 1.5,
+                      "sill_m": 0.4,
                       "at": [
                         0.5
                       ]
@@ -411,7 +411,7 @@
             }
           ],
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: the register's 'projecting bay' (its 1898 numbered drawing 'supports bay/arches', not read here) as the K08 canted bay 1608 wears, two storeys under a low tin hip on the north half of the front, centred 8.6 m from the south corner so its eaves clear the K10 corner bracket. Robinson's plate draws no bay at this scale, so neither its place nor its plan is read. T-2370 lowered its two storeys to 4.9 and 2.2 m (upper lights 1.35 m on a 0.5 m sill) to stand under the cornice at the 1874 engraving's lower wall head. Both pictures show something else here: a one-storey bay window under a flared bracketed hood on the SOUTH part of the front, and the north part a pavilion with round-headed windows; that is the next piece, open in the match records."
+          "note": "RECONSTRUCTED: the register's 'projecting bay' (its 1898 numbered drawing 'supports bay/arches', not read here) as the K08 canted bay 1608 wears, two storeys under a low tin hip on the north half of the front, centred 8.6 m from the south corner so its eaves clear the K10 corner bracket. Robinson's plate draws no bay at this scale, so neither its place nor its plan is read. T-2370 lowered its two storeys to 4.9 and 2.2 m (its upper lights 1.5 m on a 0.4 m sill) to stand under the cornice at the 1874 engraving's lower wall head. Both pictures show something else here: a one-storey bay window under a flared bracketed hood on the SOUTH part of the front, and the north part a pavilion with round-headed windows; that is the next piece, open in the match records."
         },
         "mansard": {
           "value": {
