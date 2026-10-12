@@ -374,7 +374,9 @@ class Sample:
         return round(hi - (hi - lo) * unit01(self.seed, *salt), 4)
 
     # cladding -----------------------------------------------------------------------
-    def clapboards(self, F, s0, s1, y_start, y_end, ends=("trim", "trim"), cuts=(), course0=0):
+    def clapboards(self, F, s0, s1, y_start, y_end, ends=("trim", "trim"), cuts=(), course0=0, span=None):
+        """Courses from y_start to y_end across s0-s1. T-2398: `span(y0)` may narrow a course
+        to (a, b), both ends cut, or drop it (None): a gable's courses shortening to its rake."""
         cl = self.data["cladding"]["clapboard"]
         E, butt, L = cl["exposure_m"], cl["butt_m"], cl["board_length_m"]
         step, minp, gap = cl["stagger_step_m"], cl["min_piece_m"], cl["joint_gap_m"]
@@ -387,6 +389,11 @@ class Sample:
             y0 = y_start + i * E
             y1 = min(y0 + E, y_end)
             ivs = [(s0, s1, ends[0], ends[1])]
+            if span is not None:
+                ab = span(y0)
+                if ab is None:
+                    continue
+                ivs = [(ab[0], ab[1], "cut", "cut")]
             for (sa, sb, ya, yb) in cuts:
                 if y0 >= ya - 1e-6 and y0 + E <= yb + 1e-6:
                     nxt = []
@@ -943,6 +950,50 @@ class Sample:
         self.meta.update({"wall_thickness_m": T, "pitch_deg": go["pitch_deg"],
                           "focus": [W * 0.3, y_ap - 0.9, 0.15], "span_m": 3.4})
 
+    def _gable_end(self):
+        """T-2398: the gable over a frame house's end wall, standing on the boxed eave that runs
+        across the wall below it (a closed, pedimented gable). Clapboard is laid up from the
+        eave in courses each cut short where it meets the rake board's lower edge, round any
+        attic sash the record names; a rake board runs under each verge to the apex. The verge
+        box over it (soffit and fascia) is the roof's, built with it in `frame_house`."""
+        v, d = self.v, self.data
+        rk = d["trim"]["rake_board"]
+        rw, rkt = rk["width_m"], rk["thickness_m"]
+        W, y_b = v["width_m"], v["base_m"]
+        p = math.radians(v["pitch_deg"])
+        t, cp_, sp_ = math.tan(p), math.cos(p), math.sin(p)
+        F = self.F
+        # the verge box's underside where it meets the wall, at the wall's two ends and apex
+        y_e = y_b + v["projection_m"] * t - v["fascia_m"]
+        y_ap = y_e + (W / 2) * t
+        drop = rw / cp_                  # the rake board's depth, measured plumb
+        holes, cuts = [], []
+        for win in v.get("windows") or []:
+            hole, cut = self._cased_window(F, win, y_b)
+            holes.append(hole)
+            cuts.append(cut)
+
+        def span(y0):
+            # a course reaches as far as the rake board's lower edge stands above its foot
+            a = max(0.0, (y0 - y_e + drop) / t)
+            return (a, W - a) if W - 2 * a > 1e-6 else None
+
+        cl = d["cladding"]["clapboard"]
+        n = int(math.ceil((y_ap - y_b) / cl["exposure_m"]))
+        self.clapboards(F, 0.0, W, y_b, y_b + n * cl["exposure_m"], cuts=cuts, span=span)
+        tr_ = self.tone("rake")
+        for side in (1, -1):             # the left rake, then the right mirrored
+            def m(s):
+                return s if side == 1 else W - s
+            lo = [(m(0.0), y_e - drop), (m(W / 2), y_ap - drop)]
+            hi = [(m(0.0), y_e), (m(W / 2), y_ap)]
+            # its foot is under the verge box at the wall's corner, so it has no end face
+            self.poly(F, "rake_board", [(s, y, rkt) for s, y in (lo[0], lo[1], hi[1], hi[0])], (0, 0, 1), tr_)
+            self.poly(F, "rake_board", [(lo[0][0], lo[0][1], 0), (lo[1][0], lo[1][1], 0), (lo[1][0], lo[1][1], rkt),
+                                        (lo[0][0], lo[0][1], rkt)], (side * sp_, -cp_, 0), tr_)
+        self.meta["gable"] = {"y_e": y_e, "y_ap": y_ap}
+        self.meta.update({"focus": [W / 2, y_ap - 1.0, 0.0], "span_m": W})
+
     def _porch(self):
         v, d = self.v, self.data
         po, tr = d["porch"], d["trim"]
@@ -1347,6 +1398,15 @@ def frame_house_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
             sm = Sample(v, data, index=0).build()
             place(sm, _add(O, _mul(U, start)), U)
             out[f"{b['id']}.{w['side']}"] = sm
+            if b["roof"]["kind"] == "gable" and w["side"] in GABLE_SIDES[b["roof"].get("ridge", "u")]:
+                ev = data["trim"]["eave"]       # T-2398: the gable over this end wall
+                g = {"id": f"k16.gable.{sid}.{b['id']}_{w['side']}", "kind": "gable_end", "use": "wall",
+                     "width_m": L, "base_m": b["wall_top_m"] + ev["fascia_m"], "pitch_deg": b["roof"]["pitch_deg"],
+                     "projection_m": ev["projection_m"], "fascia_m": ev["fascia_m"],
+                     "windows": w.get("gable_windows", [])}
+                sm = Sample(g, data, index=0).build()
+                place(sm, O, U)
+                out[f"{b['id']}.{w['side']}_gable"] = sm
     po = fh.get("porch")
     if po:
         main = fh["blocks"][0]
@@ -1383,6 +1443,39 @@ def _porch_steps(sm: Sample, data: dict, po: dict, steps: dict) -> None:
         sm.box(sm.F, "step_riser", c - hw, c + hw, 0.0, k * r, z0, z0 + g, skip=("back", "bottom"),
                tone=sm.tone("step", k), roles={"top": "step_tread"})
     sm.meta["steps"] = {"risers": n, "riser_m": round(r, 6), "going_m": g, "width_m": steps["width_m"]}
+
+
+#: T-2398: the end walls a gable roof stands its gables on, by the plan axis its ridge runs along
+GABLE_SIDES = {"u": ("east", "west"), "v": ("north", "south")}
+
+
+def _gable(house: Sample, x0, x1, z0, z1, ye, pitch_deg, ridge, walls, fh):
+    """T-2398: a gable over the eave rectangle, its ridge along the plan's u (x) or v (z). Each
+    gable end is closed under its verge by a box the eave's depth: a soffit under the slope from
+    the wall out, and a fascia at its outer edge. `walls` gives each end's wall plane."""
+    t = math.tan(math.radians(pitch_deg))
+    F = house.F
+    if ridge == "u":
+        zm, yr = (z0 + z1) / 2, ye + (z1 - z0) / 2 * t
+        house.poly(F, "roof_covering", [(x0, ye, z1), (x1, ye, z1), (x1, yr, zm), (x0, yr, zm)], (0, 1, 1))
+        house.poly(F, "roof_covering", [(x1, ye, z0), (x0, ye, z0), (x0, yr, zm), (x1, yr, zm)], (0, 1, -1))
+        for xo, xw, hs in ((x1, walls[0], 1), (x0, walls[1], -1)):
+            for ze in (z0, z1):
+                hz = 1 if ze > zm else -1
+                house.poly(F, "fascia", [(xo, ye - fh, ze), (xo, yr - fh, zm), (xo, yr, zm), (xo, ye, ze)], (hs, 0, 0))
+                house.poly(F, "soffit", [(xw, ye - fh, ze), (xo, ye - fh, ze), (xo, yr - fh, zm), (xw, yr - fh, zm)],
+                           (0, -1, -hz * t))
+        return yr, ("x", x0, x1, zm)
+    xm, yr = (x0 + x1) / 2, ye + (x1 - x0) / 2 * t
+    house.poly(F, "roof_covering", [(x1, ye, z0), (x1, ye, z1), (xm, yr, z1), (xm, yr, z0)], (1, 1, 0))
+    house.poly(F, "roof_covering", [(x0, ye, z1), (x0, ye, z0), (xm, yr, z0), (xm, yr, z1)], (-1, 1, 0))
+    for zo, zw, hs in ((z0, walls[0], -1), (z1, walls[1], 1)):
+        for xe in (x0, x1):
+            hx = 1 if xe > xm else -1
+            house.poly(F, "fascia", [(xe, ye - fh, zo), (xm, yr - fh, zo), (xm, yr, zo), (xe, ye, zo)], (0, 0, hs))
+            house.poly(F, "soffit", [(xe, ye - fh, zw), (xe, ye - fh, zo), (xm, yr - fh, zo), (xm, yr - fh, zw)],
+                       (-hx * t, -1, 0))
+    return yr, ("z", z0, z1, xm)
 
 
 def _hip(house: Sample, x0, x1, z0, z1, ye, pitch_deg):
@@ -1426,6 +1519,10 @@ def frame_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
         roof = b["roof"]
         if roof["kind"] == "hip":
             ridge[b["id"]] = _hip(house, x0, x1, z0, z1, ye, roof["pitch_deg"])
+        elif roof["kind"] == "gable":
+            along = roof.get("ridge", "u")
+            walls = (u1, u0) if along == "u" else (-v1, -v0)
+            ridge[b["id"]] = _gable(house, x0, x1, z0, z1, ye, roof["pitch_deg"], along, walls, fh_m)
         else:                   # a flat deck just over the eave's top, its edges closed
             yd = ye + roof.get("deck_m", 0.03)
             house.poly(house.F, "roof_covering", [(x0, yd, z1), (x1, yd, z1), (x1, yd, z0), (x0, yd, z0)], (0, 1, 0))
