@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "506b511907f0b94f34d830836b9040ff8116fc902a525f1685fb0a1b08ff7fed",
+  "glb_sha256": "eb37e3f42f7b696a6f439225e444944a4eb473caedd7d566b1c498722daa0bc8",
   "camera_sha256": "4cbf3a651e1ee5dc689b00afeae61cf325bc7d6f1e36cb4d32e8c03ffdfa0f7e",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg",
   "verdict": "differs",
@@ -28,15 +28,15 @@
       "status": "open"
     },
     {
-      "what": "bay window: a one-storey bay on the SOUTH part of the front (about v 0.5-4.4) under a flared, bracketed hood with a finial; the build's bay is two storeys on the north part",
-      "status": "open"
+      "what": "bay window: a one-storey canted bay on the SOUTH part of the front, its front's edges at x 437 and 488 px and its north cheek's foot at 512 px (v 1.54-4.64, 0.58 m out), two round-headed lights in its front, under a flared hood on a console at each corner of its front with a row of modillions; built so by T-2408 (k08.bay.canted_hooded), its edges landing at x 440 and 492 px. The picture's finial is the foot of the upper window that stands on the hood's top, and is not a finial",
+      "status": "fixed"
     },
     {
       "what": "windows: round-headed sash under moulded hoods on the street front; an upper window over the bay with an ornate head; the north wall's windows flat-headed, two a storey toward the front; the build's are flat-headed two-over-two under segmental brick arches, three on the north wall",
       "status": "open"
     },
     {
-      "what": "entrance: the door at about v 5-6.6 under a hood, reached by a stoop rising north along the front to a porch with a turned balustrade before the pavilion; the build's door is at v 1.9 at the head of a straight stoop",
+      "what": "entrance: the door at about v 5-6.6 under a hood, reached by a stoop rising north along the front to a porch with a turned balustrade before the pavilion; T-2408 moved the build's door to v 5.8, beside the bay; its hood, the stoop's turn and the porch are still a straight stoop with no hood (T-2409)",
       "status": "open"
     },
     {
@@ -52,6 +52,18 @@
       "status": "open"
     },
     {
+      "what": "bay window's heights: the engraving draws the bay's sills about 0.4 m over grade and its eaves level with the pavilion's lower window heads, about 0.75 m lower than the build's, on the low principal floor it draws everywhere; the build stands the bay on the house's reconstructed 1.4 m principal floor",
+      "status": "open"
+    },
+    {
+      "what": "bay window's tone: the engraving draws the bay dark against the light front (the hood's shadow, or a painted timber bay); built in the house's brick",
+      "status": "open"
+    },
+    {
+      "what": "bay window's terrace: a low balustrade runs before the bay at its foot; the build has none (T-2409's porch)",
+      "status": "open"
+    },
+    {
       "what": "walls' tone: the engraving draws the front light and the north wall and the pavilion's north half dark, its light from the south-east; the house's colour (the Inter Ocean's 'olive green' of 1887) and its walling are not shown in a monochrome print",
       "status": "not shown"
     },
@@ -60,6 +72,5 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2370, 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg"
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

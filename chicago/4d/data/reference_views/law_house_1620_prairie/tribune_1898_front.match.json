@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "tribune_1898_front",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "506b511907f0b94f34d830836b9040ff8116fc902a525f1685fb0a1b08ff7fed",
+  "glb_sha256": "eb37e3f42f7b696a6f439225e444944a4eb473caedd7d566b1c498722daa0bc8",
   "camera_sha256": "fc8035327dd5820503597ea8d52120b7a83da91067ee536623af793f81317b5b",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg",
   "verdict": "differs",
@@ -16,11 +16,11 @@
       "status": "open"
     },
     {
-      "what": "bay window: a one-storey bay on the south part with pilaster strips and its own cornice; the build has none there",
-      "status": "open"
+      "what": "bay window: a one-storey bay on the south part with pilaster strips and its own cornice; built by T-2408 as the 1874 engraving's hooded canted bay, its cornice under the hood",
+      "status": "fixed"
     },
     {
-      "what": "entrance: the stoop rising straight from the gate to a door beside the pavilion's south face; the build's door is at the south end",
+      "what": "entrance: the stoop rising straight from the gate to a door beside the pavilion's south face; T-2408 moved the build's door north to v 5.8, beside the bay; it still stands at the head of the kit's straight stoop square to the front (T-2409)",
       "status": "open"
     },
     {
@@ -36,6 +36,5 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2370, 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg"
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
