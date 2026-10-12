@@ -34052,18 +34052,6 @@
           "domain": "structure",
           "structure": "glessner_house",
           "phase": "as_built_1887",
-          "aspect": "form.openings_18th"
-        },
-        {
-          "domain": "structure",
-          "structure": "glessner_house",
-          "phase": "as_built_1887",
-          "aspect": "form.openings_prairie"
-        },
-        {
-          "domain": "structure",
-          "structure": "glessner_house",
-          "phase": "as_built_1887",
           "aspect": "form.v4_detail"
         }
       ],
@@ -34080,7 +34068,7 @@
         },
         {
           "label": "Covers",
-          "text": "`glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.openings_prairie`, `glessner_house.as_built_1887.form.openings_18th`."
+          "text": "`glessner_house.as_built_1887.form.v4_detail`."
         },
         {
           "label": "Ticket",

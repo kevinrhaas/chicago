@@ -25341,6 +25341,6 @@ audit, T-2212). The light (mobile) tier keeps the single pane for every window b
 because it has under 3,000 triangles of its 200,000 left.
 **How to resolve:** a rectified photograph of one street window close enough to read its rails, or
 a surviving sash measured on site, replaces the sizes with readings.
-**Covers:** `glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.openings_prairie`, `glessner_house.as_built_1887.form.openings_18th`.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Ticket:** T-2211 (Glessner exterior audit GA-11A).
 **Recorded:** 2026-10-12 (T-2211).
