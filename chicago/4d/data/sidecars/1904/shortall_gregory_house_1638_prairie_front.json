@@ -168,12 +168,6 @@
             "clear_height_m": 1.85,
             "sill_m": 1.2,
             "centre_m": 1.35
-          },
-          {
-            "k06_variant": "k06.opening.sash_2over2_flat",
-            "clear_height_m": 1.2,
-            "sill_m": 4.45,
-            "centre_m": 1.35
           }
         ]
       },
@@ -181,7 +175,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "The north 2.92 m of the front and its corner onto the north side, behind the porch. The width is the sheet's (inferred); the rest is RECONSTRUCTED from the kit: clapboard on a water table, corner boards, a frieze and boxed eave on scroll brackets, a long two-over-two sash opening onto the porch and a shorter one above it. Its eave is the gable's belt line, two storeys as the sheet's '2BB' says."
+      "note": "The north 2.92 m of the front and its corner onto the north side, behind the porch. The width is the sheet's (inferred); the rest is RECONSTRUCTED from the kit: clapboard on a water table, corner boards, a frieze and boxed eave on scroll brackets, and a long two-over-two sash opening onto the porch. Its eave is the gable's belt line, two storeys as the sheet's '2BB' says. Above the porch it stands behind the corner tower (form.tower), which the photograph shows filling this end of the front, so it has no upper sash of its own (T-2396)."
     },
     "porch": {
       "value": {
@@ -189,13 +183,46 @@
         "kind": "porch",
         "use": "porch",
         "half_width_m": 1.3,
-        "depth_m": 1.75
+        "depth_m": 1.75,
+        "centre_m": 6.55
       },
       "confidence": "reconstructed",
       "sources": [
+        "sanborn_1911_chicago_v3_sheet_20",
+        "chicagology_1638_prairie_photo"
+      ],
+      "note": "The sheet draws a one-storey open porch (dotted) across the north end of the front, 2.91 m wide and 2.0 m out: its place and size are inferred from it. Its fabric is the kit's porch, RECONSTRUCTED — an oiled board floor on a lattice skirt, chamfered posts with scroll brackets, a beaded ceiling — built as two mirrored halves so it has a post at each end, its open ends closed under the floor by a painted skirt board. The register calls 1638's porch 'pierced'; that pierced woodwork is T-1865's. Its middle is 6.55 m from the front's south end (T-2396): the sheet's dotted porch runs to the front's north end, which puts it at 6.67 m, and the photograph's posts (665 and 850 px, at 73 px a metre on the front and a little more at the porch's face) put it at 6.5-6.65 m, where before it stood 6.86 m, with its roof's south edge at the gable's. In the photograph it is the ground storey of the corner tower (form.tower)."
+    },
+    "tower": {
+      "value": {
+        "id": "k16.tower.1638_north",
+        "kind": "octagon_tower",
+        "across_flats_m": 2.5,
+        "wall_top_m": 7.0,
+        "eave_projection_m": 0.3,
+        "kick_m": 0.12,
+        "spire_apex_m": 9.9,
+        "finial_m": 0.3,
+        "windows": [
+          {
+            "faces": [
+              "se",
+              "e",
+              "ne"
+            ],
+            "k06_variant": "k06.opening.sash_pointed",
+            "clear_width_m": 0.6,
+            "clear_height_m": 1.85,
+            "sill_m": 4.35
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1638_prairie_photo",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "The sheet draws a one-storey open porch (dotted) across the north end of the front, 2.91 m wide and 2.0 m out: its place and size are inferred from it. Its fabric is the kit's porch, RECONSTRUCTED — an oiled board floor on a lattice skirt, chamfered posts with scroll brackets, a beaded ceiling — built as two mirrored halves so it has a post at each end, its open ends closed under the floor by a painted skirt board. The register calls 1638's porch 'pierced'; that pierced woodwork is T-1865's."
+      "note": "The photograph (chicagology_1638_prairie_photo) shows a polygonal tower at the north end of the front, standing on the arched entrance porch the sheet draws dotted there. Its upper stage is a regular octagon: its front face and the diagonal faces either side show 90, 55 and 45 px of its 190 px width, the 0.41 : 0.29 : 0.29 of an octagon seen nearly square-on, the south face wider because the camera stands to the south; that asymmetry puts the camera about 6 degrees off the tower's axis, some 30 m off across the street, so the print is close to an elevation. The print's front runs from 260 px (the gable's south corner) to 855 px (where the north neighbour's wall cuts it off), 595 px for the sheet's 8.13 m: 73 px a metre at the wall, and about 77 px at the tower's face 1.7 m nearer the camera. So the octagon is 2.5 m across its flats (190 px), its middle 6.4 m from the front's south end (745 px), taken at the porch's 6.55 m (form.porch), whose roof it stands on and whose plate's front its front face stands on: the porch is its ground storey. A strip of the north range's front shows beyond it, dark, as in the print. Heights are read at the tower's face at 77 px a metre from the porch roof the stage stands on (3.57 m, the kit's porch; the print's band under the stage, 555 px): a pointed sash in each of the three street faces, its sill 4.35 m (495 px) and its point 6.2 m (350 px) (1.85 m, the kit's equilateral head on a 0.6 m sash, as wide as the 1.04 m face allows inside its corner boards and casing; the print's lights are a little wider and their heads more acute); the cornice at 7.0 m (290 px) under a 0.3 m eave, kicked out at its foot; the spire's point 9.9 m (80 px, at the tower's middle 1.25 m further back), a little over the gable's apex as the print shows it, and a finial over it. The side faces, the three faces back into the house and every colour are RECONSTRUCTED: the print is monochrome and shows only the street faces. The upper stage is clad in the kit's clapboard; the print shows it smooth, with incised ornament over each light, which is T-1865's."
     },
     "body": {
       "value": {
@@ -449,6 +476,24 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "chicagology_1638_prairie_photo",
+      "citation": "[1638 S. Prairie Avenue — Shortall / Gregory house.] Halftone photograph of the street front of the Shortall (later Gregory) house, 1638 South Prairie Avenue, Chicago, from the Prairie Avenue walk; unknown photographer, undated. Reproduced on chicagology.com, Prairie Avenue, 1638 S. Prairie.",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1638prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the corner tower: its octagonal plan, its width against the front, its stage's height over the porch, its pointed lights in the three street faces, its cornice and its spire to a finial",
+        "the porch under it as the tower's ground storey, entered through an arch",
+        "the front gable's pitch, oculus and hooded twin pointed windows, and the canted bay's pointed lights"
+      ],
+      "what_it_does_not_supply": [
+        "colour: the print is monochrome, so every paint colour stays reconstructed",
+        "the side, rear and north walls, and the roofs behind the gable",
+        "a date: undated, and its 1904 reading rests on nothing recorded as changing"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_20",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 20.",
