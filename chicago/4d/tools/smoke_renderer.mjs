@@ -6035,10 +6035,18 @@ for (const [label, viewport, touch] of [
       document.head.appendChild(st);
       return st.id;
     });
-    await page.waitForTimeout(300);
+    // T-2413 — each screenshot waits for a frame DRAWN in the state it reads.
+    // A fixed 300 ms sleep stood here, and on a runner where one frame costs
+    // seconds both screenshots were the same frame: delta exactly 0.00 on #696
+    // and #721, neither of which touched 1835. `capture()` resolves from inside
+    // the render loop at the end of a frame that includes the change just made,
+    // so the screenshot that follows is of that frame (or of a later one in the
+    // same held state — the clock is held, so nothing else moves).
+    const drawnFrame = () => page.evaluate(() => window.__chicago4d.capture(1));
+    await drawnFrame();
     const saugRgbWith = await colourCells();
     await page.evaluate(() => { window.__chicago4d.frontage.group.visible = false; });
-    await page.waitForTimeout(300);
+    await drawnFrame();
     const saugRgbWithout = await colourCells();
     await page.evaluate((id) => {
       window.__chicago4d.frontage.group.visible = true;
