@@ -141,6 +141,10 @@ class K01FrontageParams:
     # resolved numbers — fascia, parapet thickness, coping, upstand, high line, parapet top
     roof_form: str = "hip"
     flat: dict = field(default_factory=dict)
+    # T-2369: the floor the door opens on, when it is not the principal floor (1612's door
+    # stands at the head of a short stoop under its portico, a vestibule's height below the
+    # hall); 0.0 is the principal floor, every other house's
+    entrance_floor_m: float = 0.0
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -158,6 +162,11 @@ class K01FrontageParams:
             out.append(round(y, 4))
             y += h
         return tuple(out)
+
+    @property
+    def door_floor_m(self) -> float:
+        """The floor the door opens on and the stoop climbs to."""
+        return self.entrance_floor_m or self.principal_floor_m
 
     @property
     def eave_m(self) -> float:
@@ -178,7 +187,7 @@ CONSUMED = frozenset({
     "basement_lights", "roof_covering", "dormer", "rainwater", "window_kit", "service_wall_brick",
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
     "stone_front", "boundary", "north_bays", "rear_wings", "yard", "condition",
-    "street_front_openings", "street_front_dress",
+    "street_front_openings", "street_front_dress", "entrance_floor_m",
 })
 
 #: T-2358: the one condition kit a record may name (K14, T-2324)
@@ -270,9 +279,11 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False) -> tuple[
     return roof, rainwater
 
 # T-2308: the K08 kinds a K01 frontage can carry. A bay or a full-height projection
-# stands on grade against one wall under its own roof; an oriel's corbels and a
-# tower's cap meet the main eave and roof, which this assembly does not cut.
-BAY_KINDS = ("bay", "projection")
+# stands on grade against one wall under its own roof; a tower's cap meets the main
+# eave and roof, which this assembly does not cut. T-2369: an oriel stands on its corbel
+# courses and stops under the main eave, its own roof leaning on the wall below the
+# cornice (1612's south wall), so it is carried too.
+BAY_KINDS = ("bay", "projection", "oriel")
 
 #: T-2350: the K05 variant a flat K01 roof is built from (k05_roofs.json)
 FLAT_ROOF = "k05.roof.flat_parapet"
@@ -378,12 +389,16 @@ def _bay_span(plan: dict) -> tuple:
     raise ParamError(f"a K01 bay's plan is a polyline or a bow, not a {plan['kind']}")
 
 
-def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_stone: bool = False):
+def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_stone: bool = False,
+          floors: tuple = (), eave: float = 0.0):
     """Resolve the record's `bays` against the K08 kit; drop the host openings each covers.
 
     A bay stands in front of its wall from grade to its own wall top, so every host
     opening in that span below the top is behind it and is not cut; one that straddles a
     junction is refused, since half a window behind a bay's cheek is no window at all.
+    An oriel (T-2369) stands from its lowest corbel course to its wall top: its floor is
+    one of the house's floors (`base_m`), the record may set its corbel courses and size
+    its canted plan, and its wall top stays a metre under the main eave.
     """
     import copy as _copy
     kit = {v["id"]: v for v in json.loads(BAY_KIT.read_text())["variants"]}
@@ -392,15 +407,32 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         if e["variant"] not in kit:
             raise ParamError(f"bays: {e['variant']} is not a K08 variant (k08_bays.json)")
         v = _copy.deepcopy(kit[e["variant"]])
-        if v["kind"] not in BAY_KINDS or v["base"] != "grade":
+        oriel = v["kind"] == "oriel"
+        if v["kind"] not in BAY_KINDS or (v["base"] != "grade") != oriel:
             raise ParamError(f"bays: {v['id']} is a {v['kind']} off {v['base']}; a K01 frontage carries "
-                             f"{' and '.join(BAY_KINDS)} on grade only")
+                             f"a bay or a projection on grade, or an oriel on its corbels")
+        if oriel:
+            base = float(e.get("base_m", -1.0))
+            if not any(abs(base - y) < 1e-6 for y in floors[1:]):
+                raise ParamError(f"bays: {e['id']} is an oriel; its base_m stands on one of the upper floors {floors[1:]}")
+            v["base"] = base
+            if "corbel" in e:
+                v["corbel"] = {"courses": int(e["corbel"]["courses"])}
+            q = e.get("plan")
+            if q is not None:
+                pts = [[float(x), float(z)] for x, z in q.get("points", ())]
+                if q.get("kind") != "polyline" or len(pts) != len(v["plan"]["points"]) \
+                        or any(abs(a[0] + b[0]) > 1e-9 or abs(a[1] - b[1]) > 1e-9 for a, b in zip(pts, pts[::-1])) \
+                        or abs(pts[0][1]) > 1e-9 or not all(0.0 < z <= 1.2 for _, z in pts[1:-1]):
+                    raise ParamError(f"bays: {e['id']} sizes its oriel's plan as the kit's canted polyline, "
+                                     f"symmetric, its ends on the wall and its front at most 1.2 m out")
+                v["plan"] = {"kind": "polyline", "points": pts}
         if e["wall"] not in wall_len:
             raise ParamError(f"bays: {e['wall']} is not one of this assembly's walls")
         if e.get("fabric", "stone") not in BAY_FABRICS:
             raise ParamError(f"bays: fabric {e.get('fabric')!r} is not one of {BAY_FABRICS}")
         v["id"] = f"{structure_id}|{e['id']}"
-        if "plan" in e:
+        if "plan" in e and not oriel:
             # T-2342: a bow drawn on its sheet keeps the sheet's chord and rise; the kit's
             # bow is the shape, never the size. Only a bow, and never past its semicircle:
             # a deeper arc would swing back behind its own junctions
@@ -415,6 +447,14 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         for k in ("storeys", "roof"):
             if k in e:
                 v[k] = _copy.deepcopy(e[k])
+        if "eaves" in e:
+            # T-2369: a hood read off a picture sizes the kit's soffit and fascia, never its shape
+            ev = e["eaves"]
+            for k, (lo, hi) in (("overhang_m", (0.1, 0.6)), ("fascia_m", (0.1, 0.6))):
+                if not lo <= float(ev.get(k, lo)) <= hi:
+                    raise ParamError(f"bays: {e['id']}'s eaves {k} {ev.get(k)} is outside [{lo}, {hi}]")
+            v.setdefault("overrides", {}).setdefault("eaves", {}).update(
+                {k: float(ev[k]) for k in ("overhang_m", "fascia_m") if k in ev})
         s = float(e["s_m"])
         lo, hi = _bay_span(v["plan"])
         a, b = s + lo, s + hi
@@ -422,11 +462,18 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             raise ParamError(f"bays: {e['id']} meets {e['wall']} at s {a:.3f}..{b:.3f}, closer than "
                              f"{BAY_PIER_M} m to a corner of its {wall_len[e['wall']]} m wall")
         top = sum(float(st["height_m"]) for st in v["storeys"])
+        bottom = 0.0
+        if oriel:
+            kit_all = json.loads(BAY_KIT.read_text())
+            bottom = v["base"] - v["corbel"]["courses"] * float(kit_all["parts"]["corbel"]["course_height_m"])
+            top += v["base"]
+            if top > eave - 1.0:
+                raise ParamError(f"bays: {e['id']}'s wall top {top:.2f} m is not a metre under the eave ({eave:.2f} m)")
         for o in list(openings):
             if o.wall != e["wall"]:
                 continue
             o0, o1 = o.s_m - o.width_m / 2 - 0.12, o.s_m + o.width_m / 2 + 0.12   # the lintel's horns
-            if o1 <= a or o0 >= b or o.sill_m >= top:
+            if o1 <= a or o0 >= b or o.sill_m >= top or o.head_m + 0.30 <= bottom:
                 continue
             if o.component == "k01.opening.door_leaf":
                 raise ParamError(f"bays: {e['id']} stands in front of the entrance")
@@ -504,9 +551,15 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
     po = dress.get("portico")
     if po and abs(po["centre_s_m"] - door_s) > 1e-6:
         raise ParamError("the portico stands on the door's axis")
+    if po and po.get("archivolt_m") and any(k in po for k in ("top_m", "cornice_m")):
+        raise ParamError("a portico's archivolt stands alone on its imposts: it takes no arch block or cornice")
+    rails = dress.get("stoop_rails") or {}
+    if rails and rails.get("kit") != "k11.rail.stoop_rail":
+        raise ParamError("street_front_dress.stoop_rails are the K11 kit's k11.rail.stoop_rail")
     return {"groups": tuple(out), "belts": tuple(belts), "stone_top_m": stone_top, "frieze": fr or {},
             "frontispiece": dress.get("frontispiece") or {}, "portico": po or {},
             "balconettes": dress.get("balconettes") or {}, "grilles": dress.get("grilles") or {},
+            "stoop_rails": rails,
             "banded": dress.get("banded") or {}}
 
 
@@ -672,13 +725,24 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError("a hip roof over this plan needs the side walls longer than the "
                          "front, or its ridge has no length")
 
-    # The stair solves to the principal floor in WHOLE risers (datums: principal_floor).
+    # T-2369: a door below the principal floor opens on a vestibule whose own flight climbs
+    # the rest indoors: the record reads that floor off a source, between grade and the hall
+    ef = float(val("entrance_floor_m", 0.0) or 0.0)
+    if ef:
+        efa = form["entrance_floor_m"]
+        if not 1.0 <= ef <= pf - 0.5:
+            raise ParamError(f"entrance_floor_m {ef} is not a vestibule's floor: at least 1.0 m up and "
+                             f"0.5 m under the principal floor ({pf} m)")
+        if efa.get("confidence", "reconstructed") == "reconstructed" or not efa.get("sources"):
+            raise ParamError("entrance_floor_m puts the door below the principal floor; only a source can")
+    door_floor = ef or pf
+    # The stair solves to the door's floor in WHOLE risers (datums: principal_floor).
     tread = float(val("stair_tread_m"))
     _within(tread, stair["parameters"]["tread_m"]["range"], "stair_tread_m")
     rng = stair["parameters"]["riser_m"]["range"]
-    risers = max(1, round(pf / ((rng[0] + rng[1]) / 2)))
-    riser = pf / risers
-    _within(riser, rng, "riser_m (principal floor / whole risers)")
+    risers = max(1, round(door_floor / ((rng[0] + rng[1]) / 2)))
+    riser = door_floor / risers
+    _within(riser, rng, "riser_m (the door's floor / whole risers)")
 
     floors, y = [], pf
     for h in heights:
@@ -720,7 +784,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.rear_service", float(s), round(sill, 4), w, h))
         for s in val("north_bays") or ():
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.north", float(s), round(sill, 4), w, h))
-    openings.append(Opening("k01.opening.door_leaf", "k01.wall.street_front", door_s, round(pf, 4), 1.20, 2.70, False))
+    openings.append(Opening("k01.opening.door_leaf", "k01.wall.street_front", door_s, round(door_floor, 4), 1.20, 2.70, False))
     # T-2366: a front that names its own openings names its basement lights among them
     bl = val("basement_lights") or {}
     if bool(bl) == bool(sfo):
@@ -821,6 +885,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # width, and it must agree with the K01 stair's whole risers and stay in the front yard.
     ek = val("entrance_kit") or {}
     door_kit = dict(ek.get("k01.opening.door_leaf") or {})
+    door_kit_in = dict(door_kit)
     ekit = json.loads(ENTRANCE_KIT.read_text())
     evs = {v["id"]: v for v in ekit["variants"]}
     ev = evs.get(door_kit.get("variant"))
@@ -835,11 +900,22 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if not reach < yard:
         raise ParamError(f"entrance_kit: the stoop reaches {reach:.2f} m from the front, and the public "
                          f"walk's inner edge is {yard:.2f} m (front_yard_m)")
-    k07_risers = max(1, round(pf / ekit["parts"]["stair"]["riser_target_m"]))
+    k07_risers = max(1, round(door_floor / ekit["parts"]["stair"]["riser_target_m"]))
     if k07_risers != risers:
-        raise ParamError(f"entrance_kit: K07 solves {pf} m in {k07_risers} risers and the K01 stair in "
+        raise ParamError(f"entrance_kit: K07 solves {door_floor} m in {k07_risers} risers and the K01 stair in "
                          f"{risers}; one stoop cannot be both")
     door_kit = {"variant": ev["id"], "front_yard_m": yard}
+    # T-2369: a stoop between iron rails has no stone cheeks, and a door in a vestibule's
+    # mouth stands deeper in its wall than the kit's outer leaf
+    if "cheeks" in door_kit_in:
+        door_kit["cheeks"] = bool(door_kit_in["cheeks"])
+    if "reveal_depth_m" in door_kit_in:
+        rev = float(door_kit_in["reveal_depth_m"])
+        fd = ekit["parts"]["frame"]["depth_m"]
+        if not ekit["parts"]["reveal_depth_m"]["range"][0] <= rev <= ft - fd:
+            raise ParamError(f"entrance_kit: the door's reveal {rev} m and its {fd} m frame do not fit "
+                             f"the {ft} m front wall")
+        door_kit["reveal_depth_m"] = rev
     # T-2313: chimney stacks from the K15 kit (data/components/prairie_1904/k15_chimneys.json),
     # each built by k15_chimneys.stack_solids in the house's own roof and joined into the K05
     # roof solid. The FORM (kit variant, flues, top) is `chimneys`; WHERE each stands is
@@ -924,7 +1000,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
 
     bays = _bays(val("bays"), {"k01.wall.street_front": width, "k01.wall.rear_service": width,
                                "k01.wall.side.south": depth, "k01.wall.side.north": depth},
-                 openings, (record or {}).get("id", ""), bool(val("stone_front")))
+                 openings, (record or {}).get("id", ""), bool(val("stone_front")), tuple(floors), eave)
 
     wings = _rear_wings(val("rear_wings"), depth, width, openings, cw,
                         opening["parameters"]["clear_height_m"]["range"], (record or {}).get("id", ""))
@@ -994,7 +1070,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         boundary=dict(val("boundary", {}) or {}),
         yard=yard,
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
-        roof_form=roof_form, flat=flat_roof,
+        roof_form=roof_form, flat=flat_roof, entrance_floor_m=ef,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

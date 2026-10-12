@@ -2,29 +2,54 @@
   "structure_id": "goodman_house_1612_prairie",
   "view": "front_from_southeast",
   "glb": "assets/gltf/goodman_house_1612_prairie__as_built_1869.glb",
-  "glb_sha256": "65c6b4a1b94313617a78d7a782964fb5d631fabef3a73dda315f8c240bda933b",
-  "camera_sha256": "0ee30d4fc48f700e1fa4928ab91a6405c5309befb8ba8ea5cd76dd6ce9fc7e4b",
+  "glb_sha256": "4b3069657f7002f13a269c6532dbf7ac07d04cbb105228d6082f95cd7a7fac81",
+  "camera_sha256": "f8cd5114ceb8c081dee53fc3ba91a93a06a6a7925fabbd5e050a5756dacafe8e",
   "side_by_side": "docs/RESEARCH/photo-match/goodman_house_1612_prairie/front_from_southeast-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "cornice: the print's brackets are paired, deeper and closer, over a frieze that reads dark from end to end; the build's are single, evenly spaced, over a light band",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-2369: K10 lays the brackets in pairs on the piers between the frieze lights, stations 1.6 m apart, and the whole cornice from frieze to crown is painted dark"
     },
     {
       "what": "south wall: the print shows a canted bay on the brick side wall behind the front; the build's side is flat",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-2369: a K08 canted oriel on the south wall's upper storey, sill at the second floor, hood top at about 10.1 m, light stone faces under a deep dark hood, on corbelling, where the print shows it"
     },
     {
       "what": "stoop: the print's steps are fewer and narrower between iron hand-rails; the build's are a long stone flight with stone cheeks",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-2369: the door is at the stoop's head, 1.7 m (ten risers), the stoop 1.7 m wide with no stone cheeks, between the K11 kit's iron stair rails scrolled at the foot"
     },
     {
       "what": "portico: the print's porch stands closer to the wall and reads flatter; the build's projects further, with deep open sides",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-2369: a barrel from the wall to 1.4 m out under an elliptical ring springing at 4.8 m, on impost blocks and columns 0.9 m before the wall, the shafts where the print's stand (X 1177 and 1412); the review render is lit from the print's own sun so the portico's shade is compared too"
     },
     {
-      "what": "colour of the stone, the brick, the iron and the sash: the print is monochrome",
+      "what": "fence line: the build's fence stood 6.9 m before the front, well short of the print's posts",
+      "status": "fixed",
+      "how": "T-2369: the line is 4.7 m from the front; the lot's south corner post and the gate posts fall where the print's stand"
+    },
+    {
+      "what": "colour of the stone, the brick, the iron, the sash, the door and the cornice's paint: the print is monochrome (the door reads black in the portico's shade; the render's shows brown)",
+      "status": "not shown"
+    },
+    {
+      "what": "the oriel's corbelling: the print shows it only as a dark wedge in shadow under the oriel, so the courses' depth and whether it is stone corbelling or brackets are not seen",
+      "status": "not shown"
+    },
+    {
+      "what": "the centre bay's two frieze lights and the frieze's own surface: hidden in the print by what may be a vine over the cornice",
+      "status": "not shown"
+    },
+    {
+      "what": "the fence's foot: the print's reads about 0.5 m above the walk near the stoop; the walk, the yard's grade and a coping cannot be told apart, so the kit's 0.25 m curb is kept",
+      "status": "not shown"
+    },
+    {
+      "what": "the south wall behind the oriel and the north bay: out of the picture or hidden by the neighbour",
       "status": "not shown"
     },
     {
@@ -33,5 +58,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2366, 2026-10-11, side by side at docs/RESEARCH/photo-match/goodman_house_1612_prairie/front_from_southeast-side-by-side.jpg"
+  "reviewed": "T-2369, 2026-10-12, side by side at docs/RESEARCH/photo-match/goodman_house_1612_prairie/front_from_southeast-side-by-side.jpg, and on 1:1 crops of the portico, the stoop, the oriel and the frieze with the render's edges laid over the print"
 }
