@@ -567,7 +567,7 @@ def _k02(front: dict) -> dict:
     }
 
 
-BAY_FABRICS = ("stone", "brick", "front_stone")   # T-2350: front_stone, the K02 front's own fabric
+BAY_FABRICS = ("stone", "brick", "front_stone", "frame")   # T-2350: front_stone, the K02 front's own fabric; T-2356: frame, a painted timber bay
 BAY_PIER_M = 0.30          # masonry left between a bay's junction and its wall's corner
 
 
