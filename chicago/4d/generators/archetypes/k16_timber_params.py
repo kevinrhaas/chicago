@@ -8,7 +8,8 @@ Its phase's `form` carries each as an attested-shaped entry:
     gable        a kit `gable` variant in full: the front gable, its shingle bands, its sash
     wing_wall    a kit `clapboard_wall` variant in full: the wall beside it, with its corner
     porch        a kit `porch` variant in full, built as two halves mirrored about its middle
-    body         the stand-in envelope behind the front: depths, roof pitch, colour
+    body         the envelope behind the front: depths, roof pitch, colour; with
+                 `timber_walls` (T-2395) closed in kit clapboard and roofed, else a stand-in
     canted_bay   optional: a plain bay standing on the gable front's ground storey
     roof_covering optional: the roof's colour
 
@@ -42,6 +43,9 @@ SIDES = ("east", "north", "west", "south")   # counter-clockwise from above, the
 ROOFS = ("hip", "flat")
 KINDS = {"gable": "gable", "wing_wall": "clapboard_wall", "porch": "porch"}
 BODY_KEYS = ("gable_depth_m", "wing_depth_m", "wing_roof_pitch_deg", "roof_under_m")
+#: T-2395: the faces of a timber body — the gable range's flanks and rear gable, the wing's
+#: north side and back wall
+TIMBER_WALLS = ("south", "north", "rear", "wing_north", "wing_rear")
 
 
 class ParamError(ValueError):
@@ -88,6 +92,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
     bad = [k for k in BODY_KEYS if not isinstance(body.get(k), (int, float)) or body[k] < 0]
     if bad:
         raise ParamError(f"{rid}: body needs non-negative {', '.join(bad)}")
+    tw = body.get("timber_walls")
+    if tw is not None:     # T-2395: the body closed in kit timber instead of a stand-in
+        missing = [k for k in TIMBER_WALLS if not isinstance(tw.get(k), dict)]
+        if missing:
+            raise ParamError(f"{rid}: body.timber_walls lacks {', '.join(missing)}")
+        for k in TIMBER_WALLS:
+            for w in tw[k].get("windows", []):
+                if not all(_num(w.get(x)) for x in ("clear_height_m", "sill_m", "centre_m")):
+                    raise ParamError(f"{rid}: body.timber_walls.{k}: a window needs clear_height_m, sill_m, centre_m")
     if not isinstance(form["porch"]["value"].get("half_width_m"), (int, float)):
         raise ParamError(f"{rid}: porch needs half_width_m")
     return K16TimberParams(
