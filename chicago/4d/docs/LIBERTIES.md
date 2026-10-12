@@ -25356,3 +25356,37 @@ doors and boards; a reading of the right-of-way's own plan replaces the traced r
 **Ticket:** T-2369.
 **Review:** `docs/RESEARCH/k01-1612-goodman-2369/README.md`.
 **Recorded:** 2026-10-12 (T-2369).
+
+### L-glessner-sash-2211 — The Glessner street and stable sash, drawn in two planes at ordinary 1880s joinery sizes
+
+**Decision:** every street-face and stable-face window on the Glessner house is drawn as what a
+window is made of, not one pane behind one flat frame (T-2211, Glessner exterior audit GA-11A).
+A window is a one-over-one double-hung: the upper sash outside the lower, each with its own stiles,
+rails and glass; the blind stop and head proud of both; an oak sub-sill weathered outward; and the
+granite sill weathered toward the street with a drip nib under its nose. Openings wider than 1.7 m
+carry two such units on a mullion, as before. The narrow north lights (under 0.45 m wide) are one
+sash divided by horizontal bars, about one light per 0.55 m of height. The 18th Street gable's
+high light is a glazed round head in its own arched frame, a stone transom, and a one-over-one sash
+below it, where it used to be a black arched slot.
+**What is read.** The sash TYPE: one-over-one double-hung in HABS sheet 5's window beside the
+Prairie entrance and in HABS photograph 14's north pairs; the corridor slits' horizontal bars on
+sheet 5's 18th Street entrance elevation; the gable light's round head, transom and two-light sash
+in photograph 14 (1965), with the c. 1923 HABS photograph 4 agreeing (cited as a cross-check only:
+its rights are unknown, so nothing is derived from it). The transom's place, z 33.14-33.88 ft ng,
+divides the record's height below the spring in the two photographs' mean proportions (straight
+0.10, transom 0.14, sash 0.76): a photographic proportion, +/- 0.3 ft. Both plates foreshorten
+upward, so the record's outer bounds are kept rather than re-scaled.
+**What is invented.** Every member size: stiles 48 mm (36 mm in a slit), top rail 52 mm, meeting
+rails 38 mm, bottom rail 85 mm, sashes 40 mm thick in planes 205-245 and 250-290 mm behind the
+wall face, the 62 mm frame, the sub-sill's slope, the sill's 24 mm weathering and its 19 mm drip
+nib, the slits' bar count and the meeting rail's height (the middle; 0.55 from the top in the
+gable, as photograph 14 shows it). They are ordinary period joinery, not measurements.
+**What is not changed.** Every opening's position and size, the reveals, lintels, arches and
+coursing, the basement grilles, the stable's leaded lights, and the courtyard sash (part B of the
+audit, T-2212). The light (mobile) tier keeps the single pane for every window but the gable light,
+because it has under 3,000 triangles of its 200,000 left.
+**How to resolve:** a rectified photograph of one street window close enough to read its rails, or
+a surviving sash measured on site, replaces the sizes with readings.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2211 (Glessner exterior audit GA-11A).
+**Recorded:** 2026-10-12 (T-2211).
