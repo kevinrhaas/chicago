@@ -136,6 +136,11 @@ class K01FrontageParams:
     # T-2358: the K14 condition kit, opted into per record — {"kit", "built"} — so the walls
     # weather to the house's own age in 1904; empty keeps K03's fixed soot and damp mask
     condition: dict = field(default_factory=dict)
+    # T-2350: "hip" (k01.roof.hip) or "flat" (k01.roof.flat, K05's stone-front rowhouse deck
+    # behind coped party-wall parapets and a blocking course); `flat` holds the deck's
+    # resolved numbers — fascia, parapet thickness, coping, upstand, high line, parapet top
+    roof_form: str = "hip"
+    flat: dict = field(default_factory=dict)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -160,6 +165,8 @@ class K01FrontageParams:
 
     @property
     def ridge_m(self) -> float:
+        if self.roof_form == "flat":     # T-2350: the deck's high line, behind the blocking course
+            return self.flat["deck_high_m"]
         return round(self.eave_m + self.width_m / 2 * math.tan(math.radians(self.roof_pitch_deg)), 4)
 
 
@@ -180,9 +187,10 @@ CONDITION_KIT = "data/components/prairie_1904/k14_condition.json"
 WALLS = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service", "k01.wall.side.south")
 
 
-def _k04(covering: dict, rain: dict, pitch: float) -> tuple[dict, dict]:
+def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False) -> tuple[dict, dict]:
     """The K04 roof and rainwater parameters (T-2293): the record names fabrics and
-    kinds; k04_roofs.json says what each is and what it may cover."""
+    kinds; k04_roofs.json says what each is and what it may cover. A flat deck (T-2350)
+    has no hip or ridge to cap, and its one eave, the rear fascia, hangs no gutter yet."""
     lib = json.loads(K04.read_text())
     fabrics = {f["id"]: f for f in lib["fabrics"]}
     prof = lib["profiles"]
@@ -204,10 +212,17 @@ def _k04(covering: dict, rain: dict, pitch: float) -> tuple[dict, dict]:
             raise ParamError(f"{cov} is cut for a {module['headlap_m']} m headlap and a {pitch} deg "
                              f"roof needs {want} m (k04 slate_exposure.headlap_m); steepen the roof "
                              f"or choose a slate cut for it — never stretch the courses to fit")
-    if covering.get("caps") != "copper_ridge_roll":
+    if flat and covering.get("caps") is not None:
+        raise ParamError("a flat K01 roof has no hip or ridge: roof_covering names no caps")
+    if flat and fabrics[cov]["kind"] == "slate":
+        raise ParamError(f"a {pitch} deg deck is not slated: a flat K01 roof is covered in sheet metal")
+    if flat and rain:
+        raise ParamError("a flat K01 roof hangs no gutter yet: its one eave is the rear fascia, and "
+                         "k01_frontage runs its half-round gutter round a hip's eaves (rainwater is empty)")
+    if not flat and covering.get("caps") != "copper_ridge_roll":
         raise ParamError("k01_frontage caps its hips and ridge with k04 hip_ridge_caps.copper_ridge_roll; "
                          "a slate saddle is another cap")
-    caps = prof["hip_ridge_caps"]["copper_ridge_roll"]
+    caps = prof["hip_ridge_caps"]["copper_ridge_roll"]   # the hip's; a flat deck lays none
     roof = {
         "covering": cov, "flashing": flash,
         "tile_m": list(fabrics[cov]["tile_m"]),
@@ -223,6 +238,8 @@ def _k04(covering: dict, rain: dict, pitch: float) -> tuple[dict, dict]:
         "step_leg_m": prof["dormer_apron"]["step_flashing_m"]["leg"],
         "step_upstand_m": prof["dormer_apron"]["step_flashing_m"]["upstand"],
     }
+    if flat:
+        return roof, {}
     gk, pk = rain.get("gutter"), rain.get("downpipe")
     g, d = prof["gutter"], prof["downpipe"]
     if gk != "half_round":
@@ -256,6 +273,31 @@ def _k04(covering: dict, rain: dict, pitch: float) -> tuple[dict, dict]:
 # stands on grade against one wall under its own roof; an oriel's corbels and a
 # tower's cap meet the main eave and roof, which this assembly does not cut.
 BAY_KINDS = ("bay", "projection")
+
+#: T-2350: the K05 variant a flat K01 roof is built from (k05_roofs.json)
+FLAT_ROOF = "k05.roof.flat_parapet"
+
+
+def _flat_roof(depth: float, eave: float, pitch: float, overhang: float) -> dict:
+    """The numbers a flat K01 roof is built to (T-2350), from K05's stone-front rowhouse deck:
+    the deck's rear fascia stands on the walls' top (the eave datum), so the deck's soffit IS
+    the wall head; it falls `pitch` from behind the blocking course to that fascia, and the
+    side parapets and the blocking course stand level, clearing the deck's high line by the
+    variant's upstand. The street cornice projects `overhang` (eave_overhang_m) under them."""
+    k5 = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())
+    v = next(x for x in k5["variants"] if x["id"] == FLAT_ROOF)
+    lo, hi = k5["ranges"]["pitch_deg"][v["pitch_range"]]
+    _within(pitch, (lo, hi), f"roof_pitch_deg ({FLAT_ROOF}'s fall)")
+    p = k5["parts"]
+    f, tw = p["eave"]["fascia_depth_m"], p["parapet"]["thickness_m"]
+    if not 0.3 <= overhang <= 1.0:
+        raise ParamError(f"eave_overhang_m {overhang}: a flat roof's street cornice projects 0.3-1.0 m")
+    t = math.tan(math.radians(pitch))
+    er = eave + f
+    high = er + (depth - tw) * t
+    return {"variant": FLAT_ROOF, "fascia_m": f, "parapet_m": tw, "coping_m": p["coping"]["thickness_m"],
+            "drip_m": p["coping"]["drip_m"], "upstand_m": float(v["upstand_m"]), "deck_eave_m": round(er, 4),
+            "deck_high_m": round(high, 4), "parapet_top_m": round(high + float(v["upstand_m"]), 4)}
 def _k02(front: dict) -> dict:
     """The K02 masonry parameters (T-2289): the record names the walling fabric, its
     dressing, the trim fabric, how many courses the rusticated base runs and which
@@ -323,7 +365,7 @@ def _k02(front: dict) -> dict:
     }
 
 
-BAY_FABRICS = ("stone", "brick", "frame")   # T-2356: frame, a painted timber bay
+BAY_FABRICS = ("stone", "brick", "front_stone", "frame")   # T-2350: front_stone, the K02 front's own fabric; T-2356: frame, a painted timber bay
 BAY_PIER_M = 0.30          # masonry left between a bay's junction and its wall's corner
 
 
@@ -336,7 +378,7 @@ def _bay_span(plan: dict) -> tuple:
     raise ParamError(f"a K01 bay's plan is a polyline or a bow, not a {plan['kind']}")
 
 
-def _bays(entries, wall_len: dict, openings: list, structure_id: str):
+def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_stone: bool = False):
     """Resolve the record's `bays` against the K08 kit; drop the host openings each covers.
 
     A bay stands in front of its wall from grade to its own wall top, so every host
@@ -392,6 +434,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str):
                 raise ParamError(f"bays: {e['id']}'s junction at s {a:.3f}..{b:.3f} cuts the opening at "
                                  f"s {o.s_m} on {o.wall}")
             openings.remove(o)
+        if e.get("fabric") == "front_stone" and not front_stone:
+            raise ParamError(f"bays: {e['id']} is laid in the front's stone, and the record names no K02 stone_front")
         out.append({"id": e["id"], "wall": e["wall"], "s_m": s, "span_m": (round(a, 4), round(b, 4)),
                     "fabric": e.get("fabric", "stone"), "variant": v})
     return tuple(out)
@@ -591,8 +635,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     wall, opening, roof, stair = (_family(c, n) for n in ("wall", "opening", "roof", "stair"))
     datum = {d["id"]: d for d in c["datums"]}
 
-    if val("roof_form") != "hip":
-        raise ParamError("k01_frontage builds the contract's k01.roof.hip only")
+    roof_form = val("roof_form")
+    if roof_form not in ("hip", "flat"):
+        raise ParamError("k01_frontage builds the contract's k01.roof.hip and k01.roof.flat only")
+    flat = roof_form == "flat"
     # T-2341: a plain brick house is the same assembly with its street front laid in the
     # K03 brick too, its openings dressed in stone; which front it is, the record's
     # `stone_front` says — named for a stone front, absent for a brick one
@@ -621,8 +667,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     for t, what in ((ft, "wall_thickness_front_m"), (st, "wall_thickness_side_m")):
         _within(t, wall["parameters"]["thickness_m"]["ranges"]["masonry"], what)
     pitch = float(val("roof_pitch_deg"))
-    _within(pitch, roof["parameters"]["pitch_deg"]["ranges"]["ordinary"], "roof_pitch_deg")
-    if depth <= width:
+    _within(pitch, roof["parameters"]["pitch_deg"]["ranges"]["flat" if flat else "ordinary"], "roof_pitch_deg")
+    if not flat and depth <= width:
         raise ParamError("a hip roof over this plan needs the side walls longer than the "
                          "front, or its ridge has no length")
 
@@ -716,9 +762,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 arched_groups.append(group)
             arched_rows.append(comp)
 
-    k04, rainwater = _k04(val("roof_covering") or {}, val("rainwater") or {}, pitch)
+    k04, rainwater = _k04(val("roof_covering") or {}, val("rainwater") or {}, pitch, flat)
+    flat_roof = _flat_roof(depth, eave, pitch, float(val("eave_overhang_m"))) if flat else {}
     dormer = {}
     d = val("dormer")
+    if d and flat:
+        raise ParamError("a flat K01 roof carries no dormer: the K05 dormer is cut into a hip's street plane")
     if d:
         dw, dh = float(d["sash"]["width_m"]), float(d["sash"]["height_m"])
         _within(dw, cw, "dormer.sash.width_m")
@@ -805,7 +854,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         # through the covering is cut where the two really meet
         sx, sz = (float(v) for v in ch["plan_m"])
         above, cap_p, cap_d = float(ch["top_above_ridge_m"]), float(ch["cap_proud_m"]), float(ch["cap_depth_m"])
-        ridge = (round(pf + sum(heights), 4) + width / 2 * tp)
+        ridge = flat_roof["deck_high_m"] if flat else (round(pf + sum(heights), 4) + width / 2 * tp)
         for st_ in ch["stacks"]:
             u, v = float(st_["u_m"]), float(st_["v_m"])
             if not (sx / 2 + 0.3 <= u <= depth - sx / 2 - 0.3 and sz / 2 + 0.3 <= v <= width - sz / 2 - 0.3):
@@ -814,6 +863,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 raise ParamError("a chimney stops less than 0.6 m above the ridge")
             chimneys.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": round(ridge + above, 4),
                              "cap_proud_m": cap_p, "cap_depth_m": cap_d})
+    elif ch and flat:
+        raise ParamError("a flat K01 roof takes T-2302's plain stacks: K15's draught rule reads a hip's covering")
     elif ch:
         from . import k15_chimneys as k15
         k15kit = k15.load()
@@ -873,7 +924,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
 
     bays = _bays(val("bays"), {"k01.wall.street_front": width, "k01.wall.rear_service": width,
                                "k01.wall.side.south": depth, "k01.wall.side.north": depth},
-                 openings, (record or {}).get("id", ""))
+                 openings, (record or {}).get("id", ""), bool(val("stone_front")))
 
     wings = _rear_wings(val("rear_wings"), depth, width, openings, cw,
                         opening["parameters"]["clear_height_m"]["range"], (record or {}).get("id", ""))
@@ -943,6 +994,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         boundary=dict(val("boundary", {}) or {}),
         yard=yard,
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
+        roof_form=roof_form, flat=flat_roof,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

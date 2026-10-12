@@ -405,6 +405,11 @@ class Assembly:
                                      ("dress_stone", st["trim"], round(st["trim_roughness"] + 0.02, 3))):
                 self.fabric[slot] = fab
                 self.spec[slot] |= {"color": (1.0, 1.0, 1.0), "roughness": rough}
+            # T-2350: a bay laid in the front's own stone (`front_stone`) wears its K02 fabric
+            # too, a shade rougher so the web derivative keeps the bay's slot its own
+            if any(b["fabric"] == "front_stone" for b in params.bays):
+                self.fabric["bay_stone"] = st["fabric"]
+                self.spec["bay_stone"] |= {"color": (1.0, 1.0, 1.0), "roughness": round(st["fabric_roughness"] + 0.02, 3)}
         # T-2289: what each kit seats on a wall, as (s0, s1, y0, y1, kind) in that wall's
         # frame, keyed by the frame's origin: the coursed front dresses the stone under it
         self.footprints: dict[tuple, list] = {}
@@ -1447,6 +1452,8 @@ class Assembly:
         crosses another, nothing floats and no face is drawn twice. The K04 dressing
         (caps, valley flashing, apron, step flashing) is then laid on the ROOF GRAPH read
         off that surface, not on numbers of its own."""
+        if self.p.roof_form == "flat":
+            return self.flat_roof()
         from . import k05_roofs as k5
         p, k = self.p, self.p.roof or {}
         kit = k5.load()
@@ -1552,10 +1559,77 @@ class Assembly:
             self.rainwater(ye, yf, seed)
         return yf
 
+    def flat_roof(self):
+        """The stone-front rowhouse's flat roof as ONE closed solid (T-2350), from K05's
+        `k05.roof.flat_parapet` (T-2349) laid on this house: the tin deck falling from behind
+        the street front to the rear wall, its rear fascia standing on the wall head; a coped
+        parapet on each side wall and a blocking course over the street front, level, built
+        into the deck so the union cuts it at their inner faces; under the blocking course the
+        street cornice's box (soffit, fascia and top) projecting `eave_overhang_m`, which K10's
+        brackets carry; and the plain stacks. One union, as the hip is: nothing floats and no
+        face is drawn twice. There is no hip or ridge to cap and no gutter (k01_frontage_params)."""
+        from . import k05_roofs as k5
+        p, fl = self.p, self.p.flat
+        kit = k5.load()
+        D, W, E, o = p.depth_m, p.width_m, p.eave_m, p.eave_overhang_m
+        t = math.tan(math.radians(p.roof_pitch_deg))
+        f, tw, er = fl["fascia_m"], fl["parapet_m"], fl["deck_eave_m"]
+        top, high = fl["parapet_top_m"], fl["deck_high_m"]
+        yf = self.soffit_m                            # the cornice's soffit (build: the wall head)
+        conf = p.worst_conf("footprint", "roof_form", "roof_pitch_deg", "eave_overhang_m", "roof_covering")
+        k = p.roof or {}
+        seed = self.instance("k01.roof.flat", "roof",
+                             {"pitch_deg": p.roof_pitch_deg, "eave_overhang_m": o, "eave_datum_m": E,
+                              "ridge_datum_m": high, "construction": "k05", "variant": fl["variant"],
+                              "fascia_depth_m": f, "parapet_thickness_m": tw, "parapet_top_m": top,
+                              "upstand_m": fl["upstand_m"], "chimneys": len(p.chimneys),
+                              **({"covering": k["covering"], "flashing": k["flashing"]} if k else {})},
+                             {"eave": (0.0, E, 0.0), "ridge": (D - tw, high, -W / 2)})
+        # the K01 frame: x is u (rear wall 0, street front D), z is -v (south 0, north -W).
+        # The deck's outline runs counter-clockwise in (u, y) from the rear foot: soffit (on
+        # the wall head, under which the body stands), the end buried in the blocking course,
+        # the covering, and the fascia over the rear wall
+        P = k5.frame("z")
+        zf = D - tw / 2
+        deck = k5.extrude([(0.0, E), (zf, E), (zf, er + zf * t), (0.0, er)], -W + tw / 2, -tw / 2, P,
+                          lambda i, p_, q_: ("soffit", "hidden", "covering", "fascia")[i], "hidden", "hidden")
+        solids = [deck, k5.body_box(0.0, D, -W, 0.0, E - 1.0, E)]
+        cp, dr = fl["coping_m"], fl["drip_m"]
+        for ends in ((-tw, 0.0), (-W, -W + tw)):      # the south and north parapets, on the side walls
+            solids += k5.parapet_element({}, [(0.0, top), (D, top)], ends, "z", tw, E, cp, dr, 0.0, 0.0)
+        # the blocking course over the street front
+        solids += k5.parapet_element({}, [(-W, top), (0.0, top)], (D - tw, D), "x", tw, E, cp, dr, 0.0, 0.0)
+        # the cornice box: from the front wall's face out `o`, its soffit at the wall head's
+        # line and its top at the deck's rear eave, ended flush with the side walls' planes
+        box = k5.extrude([(D, yf), (D + o, yf), (D + o, er), (D, er)], -W, 0.0, P,
+                         lambda i, p_, q_: ("soffit", "fascia", "fascia", "hidden")[i], "fascia", "fascia")
+        solids.append(box)
+        for c in p.chimneys:
+            sx, sz = c["plan_m"]
+            u, z = c["u_m"], -c["v_m"]
+            ctop = c["top_m"]
+            cpp, cd = c["cap_proud_m"], c["cap_depth_m"]
+            solids.append(k5.extrude([(u - sx / 2, E - 0.5), (u + sx / 2, E - 0.5), (u + sx / 2, ctop - cd / 2),
+                                      (u - sx / 2, ctop - cd / 2)], z - sz / 2, z + sz / 2, P,
+                                     lambda i, p_, q_: "chimney" if i != 2 else "hidden", "chimney", "chimney"))
+            solids.append(k5.extrude([(u - sx / 2 - cpp, ctop - cd), (u + sx / 2 + cpp, ctop - cd),
+                                      (u + sx / 2 + cpp, ctop), (u - sx / 2 - cpp, ctop)],
+                                     z - sz / 2 - cpp, z + sz / 2 + cpp, P, "coping", "coping", "coping"))
+        polys = k5.union_all(k5._snap(solids))
+        pts, tris = _weld_shell(*k5.close(polys))
+        self.stacks = []
+        self.roof_shell = (pts, tris)
+        self.roof_graph = k5.graph(pts, tris, kit)
+        self.dressed = {"ridge": 0, "hip": 0, "valley": 0}   # a deck has no line for K04 to cap
+        self.front_parapet_u = D - tw - 1e-6          # _emit_shell: the blocking course is the front's
+        self._emit_shell(*self.k14_roof_rows(pts, tris), seed, conf)
+        return yf
+
     # role -> material: what the union named each face, and what a renderer binds to it
     SHELL = {"covering": "slate_covering", "cheek": "slate_covering", "fascia": "fascia",
              "soffit": "fascia", "verge": "fascia", "return": "fascia", "dormer_face": "dormer_stone",
-             "reveal": "dormer_stone", "backing": "backing", "chimney": "brick", "coping": "limestone_trim"}
+             "reveal": "dormer_stone", "backing": "backing", "chimney": "brick", "coping": "limestone_trim",
+             "parapet": "brick"}   # T-2350: a flat roof's side parapets; its blocking course is the front's
     # T-2313: the K15 stack's roles. Shaft and courses wear the side walls' K03 brick, the
     # cap the front's limestone trim, the flues the dark of a window's backing, the
     # flashing and cricket the roof's own K04 flashing (`_flashing`); soot is its own slot
@@ -1585,6 +1659,9 @@ class Assembly:
                 continue
             if role in self.STACK:
                 mat = self.STACK[role] or self._flashing()
+            elif role == "parapet" and self.p.stone and min(q[0] for q in (pts[a], pts[b], pts[c])) \
+                    >= getattr(self, "front_parapet_u", math.inf):
+                mat = "rough_stone_trim"                  # T-2350: the blocking course, in the front's stone
             elif role not in self.SHELL:
                 raise ValueError(f"the K05 union left a {role!r} face on the roof")
             else:
@@ -2068,7 +2145,9 @@ def build(params, structure_id: str):
     # north wall (T-2342, a street side) takes one, run out past the north-west corner
     # to meet the rear's as the south one meets it at the south-west
     sc_conf = p.worst_conf("storey_heights_m", "construction", "service_wall_brick")
-    courses = [("k01.wall.side.south", -k03_brick.STRING_PROUD, D), ("k01.wall.rear_service", 0.0, W)]
+    # A blank south wall (T-2350: 1634's party wall with 1636) carries none, as the north one
+    courses = ([("k01.wall.side.south", -k03_brick.STRING_PROUD, D)] if p.side_bays else []) \
+        + [("k01.wall.rear_service", 0.0, W)]
     if p.north_bays:
         courses.append(("k01.wall.side.north", 0.0, D + k03_brick.STRING_PROUD))
     for cid, s_from, s_to in courses:

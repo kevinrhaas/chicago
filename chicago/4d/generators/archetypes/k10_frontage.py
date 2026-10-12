@@ -302,7 +302,11 @@ def _cornice(a, K, data, bays, conf):
             raise ValueError(f"the bay on {wall} reaches the bed moulding at {y_bed:.3f} m")
     w, h = B["width_m"], B["height_m"]
     y_low = y_s - h
-    rr = runs(p)
+    # T-2350: under a flat roof the cornice is the street front's alone — its box ends flush
+    # with the side walls, which rise into coped parapets (party walls, in a row) — so the
+    # brackets and the bed moulding run along that one wall, corner to corner, and stop
+    flat = getattr(p, "roof_form", "hip") == "flat"
+    rr = runs(p)[:1] if flat else runs(p)
     stations = []                                     # (perimeter s, run index, s)
     start = 0.0
     for i, r in enumerate(rr):
@@ -326,14 +330,20 @@ def _cornice(a, K, data, bays, conf):
         cum.append(cum[-1] + r.L)
 
     def point(ps):
-        ps %= perim
-        i = max(j for j in range(4) if cum[j] <= ps + 1e-9)
+        ps = min(ps, perim) if flat else ps % perim
+        i = max(j for j in range(len(rr)) if cum[j] <= ps + 1e-9)
         return rr[i].at(ps - cum[i], y_bed)
 
+    spans = []
     for k, (ps, _, _) in enumerate(stations):
+        if flat and k + 1 == len(stations):
+            break
         nxt = stations[(k + 1) % len(stations)][0] + (perim if k + 1 == len(stations) else 0.0)
-        s0, s1 = ps + w / 2, nxt - w / 2
-        corners = [c + m * perim for m in (0, 1) for c in cum[:4] if s0 + 1e-6 < c + m * perim < s1 - 1e-6]
+        spans.append((ps + w / 2, nxt - w / 2))
+    if flat:
+        spans = [(0.0, stations[0][0] - w / 2)] + spans + [(stations[-1][0] + w / 2, perim)]
+    for k, (s0, s1) in enumerate(spans):
+        corners = [c + m * perim for m in (0, 1) for c in cum[:len(rr)] if s0 + 1e-6 < c + m * perim < s1 - 1e-6]
         path = [point(s0)] + [point(c) for c in sorted(corners)] + [point(s1)]
         pc = var.piece(f"bed moulding {k + 1}", "timber", "open")
         K.sweep(pc.mesh, path, K.Y, bed, side=1.0, sgn=1.0)
