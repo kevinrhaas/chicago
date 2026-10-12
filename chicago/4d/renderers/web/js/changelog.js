@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 1710, ts: '2026-10-12T02:49:37.862Z', date: 'Oct 11, 2026, 9:49 PM CT', title: '1630 Prairie stands as a small clapboard frame house', kind: 'feature',
+    items: [
+      '1630 Prairie Avenue, the small frame house between its brick neighbours, is no longer a plain draft box: its walls are clapboard laid board by board, with corner boards, a water table and two-over-two sash in timber casings.',
+      'A porch runs across its front, on a lattice skirt with timber steps up to a four-panel door at its north end.',
+      'A bracketed boxed eave runs round the house under a low shingled hip with one brick chimney; the lower two-storey wing on its south side gets the same eave under a flat roof.',
+      'Its plan, wing, porch, two storeys and frame construction are read from the 1911 Sanborn map; every height, window, the roof and the paint are reconstructed, and the house\'s card says so.',
+    ] },
+  { v: 1709, ts: '2026-10-12T02:37:02.585Z', date: 'Oct 11, 2026, 9:37 PM CT', title: '1634 Prairie gets back its rear wing', kind: 'feature',
+    items: [
+      'Behind the brownstone house at 1634 Prairie, the brick wing the 1911 atlas draws stands again: two storeys over a basement, with a one-storey end at the back.',
+      'The draft had shown it as one three-storey block; the atlas letters it \'2B\' with a \'1\' behind a cross wall, and both are now followed.',
+      'The house\'s southern back window opens into the wing below its deck. Heights, windows and the flat tin decks are reconstructed, and the card says so.',
+    ] },
   { v: 1708, ts: '2026-10-12T01:43:17.162Z', date: 'Oct 11, 2026, 8:43 PM CT', title: '1636 Prairie completes the brownstone pair with 1634', kind: 'feature',
     items: [
       '1636 Prairie Avenue, the south half of the stone-front pair with 1634, is no longer a plain draft box: a coursed brownstone front, two-over-two sash under stone heads, and a stone stoop and door beside the party wall.',

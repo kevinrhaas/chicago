@@ -120,10 +120,15 @@ def rule_scale(data):
 
 def rule_thickness(sm, data):
     """The wall's interior face, measured: as far behind the sheathing as the frame range allows."""
-    zs = [p[2] for _, tri, n in tris(sm, {"interior"}) for p in tri if n[2] < -0.9]
+    # T-2357: measured in the wall's own front frame, so a wall a house has turned onto
+    # another side is held to the same rule (a sample standing where it was built reads
+    # exactly as before: its front frame is the world's, at its origin)
+    fr = next((f for f in sm.meta.get("frames", []) if f["name"] == "front"), None)
+    O, nz = (fr["origin"], fr["n"]) if fr else (sm.O, (0.0, 0.0, 1.0))
+    zs = [_dot3(K._sub(p, O), nz) for _, tri, n in tris(sm, {"interior"}) for p in tri if _dot3(n, nz) < -0.9]
     if not zs:
         return []
-    T = -min(zs) + sm.O[2]
+    T = -min(zs)
     flo, fhi = k01_frame_range()["frame"]
     if not flo - EPS <= T <= fhi + EPS:
         return [f"scale: the built wall stands {T:.3f} m thick, outside the K01 frame range [{flo}, {fhi}] — "
@@ -495,14 +500,22 @@ def check_houses(data, mats=None, role_material=None, records=None):
     mats = mats or K.materials(data)
     for st, ph in (houses() if records is None else records):
         rid = f"{st['id']}/{ph['id']}"
+        whole = "frame_house" in ph["form"]     # T-2357: a whole house, every wall a part
         try:
             KP.from_phase(ph, st)
-            parts = K.structure_parts(st, ph, data)
-            K.structure_house(st, ph, data)
+            if whole:
+                parts = K.frame_house_parts(st, ph, data)
+                K.frame_house(st, ph, data)
+            else:
+                parts = K.structure_parts(st, ph, data)
+                K.structure_house(st, ph, data)
         except Exception as e:  # a record the builder cannot build is a failure, not a crash
             fails.append(f"house: {rid} does not build ({type(e).__name__}: {e})")
             continue
-        for k in ("gable", "wing_wall", "porch_right"):
+        # a porch's left half is the right half mirrored, so it is measured once
+        keys = [k for k in parts if not k.startswith("_") and k != "porch_left"] if whole \
+            else ("gable", "wing_wall", "porch_right")
+        for k in keys:
             sm = parts[k]
             for f in (rule_thickness(sm, data) + rule_lapped(sm, data) + rule_stagger(sm, data)
                       + rule_proud(sm, data) + rule_pierced(sm, data) + rule_end_grain(sm, data)
@@ -620,15 +633,27 @@ def self_test(data) -> int:
     mats["stained"] = dict(mats["stained"], color=mats["body"]["color"])
     geo.append(("stained joinery painted the body colour", rule_classes(data, mats), "must read apart"))
     # T-2323: a house front, broken in its record and in its built parts
-    if houses():
-        st, ph = copy.deepcopy(houses()[0])
+    fronts = [h for h in houses() if "gable" in h[1]["form"]]   # T-2357: a whole house has none
+    if fronts:
+        st, ph = copy.deepcopy(fronts[0])
         ph["form"]["wing_wall"]["value"]["kind"] = "batten_wall"
         geo.append(("a house whose wall beside the gable is not a clapboard wall",
                     check_houses(data, records=[(st, ph)]), "must be a kit 'clapboard_wall' variant"))
-        st, ph = copy.deepcopy(houses()[0])
+        st, ph = copy.deepcopy(fronts[0])
         ph["form"]["gable"]["value"]["width_m"] = 7.6
         geo.append(("a house gable so wide its shingles break the gable budget",
                     rule_costs(K.structure_parts(st, ph, data)["gable"], data), "over its gable budget"))
+    wholes = [h for h in houses() if "frame_house" in h[1]["form"]]   # T-2357
+    if wholes:
+        st, ph = copy.deepcopy(wholes[0])
+        blocks = ph["form"]["frame_house"]["value"]["blocks"]
+        blocks[-1]["walls"] = blocks[-1]["walls"][::-1]
+        geo.append(("a whole house whose block's walls do not run round it in order",
+                    check_houses(data, records=[(st, ph)]), "walls must run"))
+        st, ph = copy.deepcopy(wholes[0])
+        ph["form"]["frame_house"]["value"]["return_m"] = 0.0
+        geo.append(("a whole house whose corners take no return",
+                    check_houses(data, records=[(st, ph)]), "return_m"))
     for name, got, want in geo:
         hit = any(want in f for f in got)
         print(f"self-test | {'ok  ' if hit else 'FAIL'} {name} -> {'refused: ' + next((f for f in got if want in f), '') if hit else 'NOT refused'}")
