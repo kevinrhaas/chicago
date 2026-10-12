@@ -1,0 +1,83 @@
+{
+ "structure_id": "house_1619_prairie",
+ "view": "building_budget_front",
+ "glb": "assets/gltf/house_1619_prairie__as_mapped_1904.glb",
+ "glb_sha256": "d4669235102557ede714edd6921db8880390786998cb7878af15f4ab3fe4d61d",
+ "camera_sha256": "f7c68b8bf0e98f2463db3ecba16a06619421258fd49bf6b960c54f9f0e1fb122",
+ "side_by_side": "docs/RESEARCH/photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg",
+ "verdict": "differs",
+ "differences": [
+  {
+   "what": "massing: a stone town house with a full-height swell bay rising from the raised basement to the wall head, a narrow entrance strip north of it, and its south side wall in shade along the driveway; the draft stood a grey flat-roofed box",
+   "status": "fixed",
+   "how": "T-2420: K01 frontage on the 1911 sheet's plan, a K02 smooth limestone front, the K08 bow on the sheet's own 3.76 m chord and 1.02 m rise rising from grade to 8.2 m; the bow's two edges land within 3 px of the drawing's and its top within 5 px"
+  },
+  {
+   "what": "bow lights: two a storey either side of a central pier in the principal and second storeys, tall, under flat heads",
+   "status": "fixed",
+   "how": "T-2420: two K06 two-over-two sash a storey at -25 and +25 degrees on the bow, 1.1 x 2.4 m and 1.05 x 1.95 m; their heads and sills sit within about 15 px of the drawing's"
+  },
+  {
+   "what": "storey lines: the principal floor at the stoop's head, the second floor at the bow's string course, the wall head at the bow's top",
+   "status": "fixed",
+   "how": "T-2420: a 1.4 m principal floor and 3.9 m storeys; through the camera they fall within about 15 px of the drawing's bands"
+  },
+  {
+   "what": "the roof storey: the drawing lights it with a steep pedimented WALL GABLE rising from the wall over the bow, about 3.9 m across, with three short segment-headed lights under radiating voussoirs, a recessed pediment panel, a finial at the apex and two pinnacle shafts at its foot; the build has a single-light pedimented dormer set on the hip, its sash about 0.6 m higher than the gable's lights and its apex about 30 px higher",
+   "status": "open",
+   "how": "T-2421"
+  },
+  {
+   "what": "the roof behind: the drawing slates a steep roof whose south parapet steps up from the front in crow steps to a tall stack; the build has a 45-degree slate hip (the K01 contract's steepest) with plain eaves and two stacks against the south wall",
+   "status": "open",
+   "how": "T-2421"
+  },
+  {
+   "what": "the cornice: the drawing runs a moulded stone cornice at the bow's top that carries the balcony; the build hangs K10's bracketed timber cornice at 9.2 m, above the bow's deck",
+   "status": "open",
+   "how": "T-2421"
+  },
+  {
+   "what": "the balcony: an iron (or turned) rail round the top of the bow; the build's bow ends in a plain deck",
+   "status": "open",
+   "how": "T-2422"
+  },
+  {
+   "what": "the entrance: a recessed round-arched doorway with voussoirs in the north strip, and over it at the second floor a small ornate light above a carved panel; the build has a flat-headed panelled door under a K09 hood and a plain sash over it",
+   "status": "open",
+   "how": "T-2422"
+  },
+  {
+   "what": "the stoop: the drawing's climbs beside the strip, parallel to the front, behind a stone cheek; the build's is a straight stoop toward the street",
+   "status": "open",
+   "how": "T-2422"
+  },
+  {
+   "what": "the basement: two segmental-headed lights under the bow with iron grilles, about 0.9 m high; the build has two small flat area lights",
+   "status": "open",
+   "how": "T-2422"
+  },
+  {
+   "what": "the north strip's width: the drawing draws it about 1.4 m beside a 3.8 m bow, and its own inset plan about a third of the front; the 1911 sheet traces 3.79 m of front north of the bow, so the build's strip is about 90 px wider than the drawing's at its outer edge. The sheet controls the plan (the survey of what stood, 25 years after the design was published)",
+   "status": "not shown",
+   "how": "argued in docs/RESEARCH/k01-1619-hamline-2420/README.md: the drawing is the design; the plan of 1911 is what stood, and the strip is built to it"
+  },
+  {
+   "what": "the pier south of the bow: the sheet leaves 0.91 m of front between the bow and the south corner, which the drawing does not draw (36 px at the corner)",
+   "status": "not shown",
+   "how": "the sheet's, as the strip above"
+  },
+  {
+   "what": "storey count: the 1911 sheet prints '4'; the drawing shows two full storeys over a raised basement and a third in the roof under its gable, which is what is built",
+   "status": "not shown",
+   "how": "argued in the structure record's stories note and the research note; a photograph after 1886 decides it"
+  },
+  {
+   "what": "colour and tone: the drawing is a monochrome pen plate",
+   "status": "not shown",
+   "how": "the stone (Bedford limestone), brick and paint are reconstructed, L-k01-1619-hamline-swell-front-2420"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+ "reviewed": "T-2420, 2026-10-12, side by side at docs/RESEARCH/photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg, element by element against the drawing and its enlarged inset plan"
+}
