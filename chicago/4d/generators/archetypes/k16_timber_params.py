@@ -114,11 +114,39 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
             raise ParamError(f"{rid}: tower: {'; '.join(bad)}")
     if not isinstance(form["porch"]["value"].get("half_width_m"), (int, float)):
         raise ParamError(f"{rid}: porch needs half_width_m")
+    bad = porch_errors(form["porch"]["value"])
+    if bad:
+        raise ParamError(f"{rid}: porch: {'; '.join(bad)}")
     return K16TimberParams(
         **{k: dict(form[k]["value"]) for k in REQUIRED},
         **{k: dict(form[k]["value"]) for k in OPTIONAL if k in form},
         confidence={k: form[k]["confidence"] for k in REQUIRED + OPTIONAL if k in form},
     )
+
+
+#: T-2425: what a porch's arched head, broader post and stoop need
+PORCH_ARCH = ("spring_below_plate_m", "rise_m", "lower_radius_ratio", "lower_sweep_deg", "lobe_m")
+PORCH_STOOP = ("max_riser_m", "going_m", "cheek_above_m")
+
+
+def porch_errors(pv: dict) -> list[str]:
+    out = []
+    if "post_m" in pv and not (_num(pv["post_m"]) and 0.08 <= pv["post_m"] <= 0.4):
+        out.append("post_m must be a post section of 0.08-0.4 m")
+    ar = pv.get("arch")
+    if ar is not None:
+        out += [f"arch needs a positive {k}" for k in PORCH_ARCH if not (_num(ar.get(k)) and ar[k] > 0)]
+        qi = ar.get("quatrefoil_inset_m")
+        if not (isinstance(qi, list) and len(qi) == 2 and all(_num(x) and x > 0 for x in qi)):
+            out.append("arch needs quatrefoil_inset_m [in from the post, down from the plate]")
+        if _num(ar.get("lower_radius_ratio")) and not 0 < ar["lower_radius_ratio"] < 1:
+            out.append("arch.lower_radius_ratio must lie between 0 and 1")
+        if _num(ar.get("lower_sweep_deg")) and not 0 < ar["lower_sweep_deg"] < 90:
+            out.append("arch.lower_sweep_deg must lie between 0 and 90")
+    so = pv.get("stoop")
+    if so is not None:
+        out += [f"stoop needs a positive {k}" for k in PORCH_STOOP if not (_num(so.get(k)) and so[k] > 0)]
+    return out
 
 
 #: T-2397: the roofs an annex may take — a deck, or a lean-to up into the main roof
