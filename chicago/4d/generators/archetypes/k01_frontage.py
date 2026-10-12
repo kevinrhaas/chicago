@@ -214,6 +214,11 @@ MATERIALS.update({
     "bay_tin": {"color": (0.30, 0.22, 0.18), "roughness": 0.7},
     # T-2408: a bay's slated hood, the K08 kit's own slate colour (k08_bays.json `roofs`)
     "bay_slate": {"color": (0.16, 0.17, 0.19), "roughness": 0.75},
+    # T-2356: a frame bay's body is painted timber — the library's painted joinery, the
+    # sash's dark green paint on boards — over a brick plinth, its bands, sills and heads
+    # the fascia's painted trim. No lap is modelled: a bay of the period was boarded and
+    # panelled, and its boards are the texture's, not geometry (liberty L-k01-1626-*).
+    "bay_frame": {"fabric": "painted_wood", "color": (1.0, 1.0, 1.0), "roughness": 0.78},
 })
 # T-2313: a K15 stack's soot band (k15_chimneys.json `soot`): the K03 brick darkened, so
 # its courses and texture run on through the band; and the clay pot, should a source show one
@@ -232,8 +237,8 @@ MATERIALS["yard_earth"] = {"color": (0.139, 0.102, 0.061), "roughness": 1.0}
 MATERIALS["yard_cinder"] = {"fabric": "gravel", "color": (0.52, 0.50, 0.47), "roughness": 0.93}
 # T-2369: the white-painted panel behind a frieze light that reads white in its photograph
 MATERIALS["frieze_panel"] = {"color": (0.74, 0.73, 0.70), "roughness": 0.6}
-# K08 role -> slot; `body` is the bay's fabric (bay_stone or bay_brick), `cover` its
-# roof's K04 covering. A came is a leaded light's, which no K01 bay glazes.
+# K08 role -> slot; `body` is the bay's fabric (bay_stone, bay_brick or bay_frame), `cover`
+# its roof's K04 covering. A came is a leaded light's, which no K01 bay glazes.
 K08_ROLES = {"wall": "body", "reveal": "body", "mullion": "body", "roof_back": "body",
              "plinth": "bay_stone", "band": "bay_stone", "corbel": "bay_stone",
              "sill": "bay_stone", "head": "bay_stone", "soffit": "fascia", "fascia": "fascia",
@@ -242,6 +247,11 @@ K08_ROLES = {"wall": "body", "reveal": "body", "mullion": "body", "roof_back": "
              "curtain": "curtain", "backing": "backing", "roof": "cover", "finial": "cover",
              "bracket": "fascia"}   # T-2408: a hood's consoles and modillions, the eaves' joinery
 SLIVER_M = 0.0025   # T-2308: a bay triangle with an edge shorter than this is a sliver
+# T-2356: a frame bay has no stone in it. Its dressings are painted timber (the fascia's
+# slot) and its plinth the house's brick carried out under it, as a timber bay on a
+# masonry basement stands.
+K08_FRAME_ROLES = {"plinth": "bay_brick", "band": "fascia", "corbel": "fascia",
+                   "sill": "fascia", "head": "fascia"}
 K08_COVERS = {"copper_standing_seam": "bay_copper", "copper_sheet": "bay_copper",
               "tin_flat_seam_painted": "bay_tin", "slate_pennsylvania": "bay_slate"}
 
@@ -1342,12 +1352,13 @@ class Assembly:
                               "junction_right": _add(O, _mul(R, b["span_m"][1]))})
         base = _add(O, _mul(R, b["s_m"]))
         W = lambda q: _add(base, _add(_add(_mul(R, q[0]), _mul(Y, q[1])), _mul(N, q[2])))
-        body = "bay_brick" if b["fabric"] == "brick" else "bay_stone"
+        body = {"brick": "bay_brick", "frame": "bay_frame"}.get(b["fabric"], "bay_stone")
+        roles = K08_ROLES | (K08_FRAME_ROLES if b["fabric"] == "frame" else {})
         cover = K08_COVERS[v["roof"]["covering"]]
         for role, src in built.prims.items():
-            if role not in K08_ROLES:
+            if role not in roles:
                 raise ValueError(f"K08 role {role!r} has no material on a K01 frontage")
-            mat = {"body": body, "cover": cover}.get(K08_ROLES[role], K08_ROLES[role])
+            mat = {"body": body, "cover": cover}.get(roles[role], roles[role])
             spec = MATERIALS[mat]
             fab = self.fabric[mat]
             tu, tv = self.tiles[fab] if fab else (1.0, 1.0)

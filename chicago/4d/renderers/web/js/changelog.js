@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1727, ts: '2026-10-12T17:13:21.084Z', date: 'Oct 12, 2026, 12:13 PM CT', title: '1626 Prairie built as a brick house with its two-storey frame bay', kind: 'feature',
+    items: [
+      '1626 Prairie Avenue, the north half of the brick pair with 1628, is now a full three-storey brick house in place of its draft: brick on every wall, stone-headed sash, a bracketed cornice, a low tin hip with two chimneys, and the door and stoop at its north end.',
+      'In front of the south part of its face stands the two-storey frame bay the 1911 fire-insurance map draws there, built in painted timber over a brick base — the first timber bay on a brick house in the kit.',
+      'The house now meets 1628 on one shared party wall. Its rear pieces wait for the kit\'s rear wing, and the bay\'s form, paint and every height are reconstructions, recorded as liberty L-k01-1626-brick-frame-bay-2356.',
+    ] },
   { v: 1726, ts: '2026-10-12T15:46:06.812Z', date: 'Oct 12, 2026, 10:46 AM CT', title: '1620 Prairie\'s mansard dormers, from the 1874 engraving', kind: 'fix',
     items: [
       'The Robert Law house\'s mansard now carries the two round-headed dormers the 1874 engraving draws on its north side, behind the crown.',
