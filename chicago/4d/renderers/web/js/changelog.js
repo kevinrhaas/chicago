@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1705, ts: '2026-10-12T00:41:10.125Z', date: 'Oct 11, 2026, 7:41 PM CT', title: 'Glessner House granite reads as whole stones, not triangles', kind: 'improvement',
+    items: [
+      'Up close, each rock-faced stone on the Glessner House used to break into a mosaic of small light and dark triangles. Each stone now shows one continuous granite grain across its face, and its pitched relief shades smoothly.',
+      'The stone colour, the courses and the light are unchanged. The shaded north and west faces still show their relief only faintly, and that is the next piece of work.',
+    ] },
   { v: 1704, ts: '2026-10-11T23:14:44.092Z', date: 'Oct 11, 2026, 6:14 PM CT', title: '1608 Prairie, a brick house, weathers by its own age', kind: 'feature',
     items: [
       '1608 Prairie is the first all-brick house to weather by its own age. An 1886 atlas already shows it standing, so it is at least eighteen years old by July 1904.',
