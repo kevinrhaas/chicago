@@ -98,6 +98,8 @@ def _construct(root, *, roof_details_reduced=True):
             super().__init__(name,params)
             self.smooth_rock_faces=False
             self.reduced_roof_details=roof_details_reduced
+            # T-2211's two-plane street sash costs more triangles than this tier has left.
+            self.reduced_sash=True
             self.components=Counter()
 
         def block(self,polygon,point,normal,confidence,mat,rng,holes=None):
