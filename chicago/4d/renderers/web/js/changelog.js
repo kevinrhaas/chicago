@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1733, ts: '2026-10-12T20:25:36.544Z', date: 'Oct 12, 2026, 3:25 PM CT', title: 'Glessner\'s granite bows forward and warms; the Prairie door redrawn', kind: 'improvement',
+    items: [
+      'Every rock-faced granite stone on the Glessner house now bows forward from its edges to a crown, so the walls read as sculpted stones rather than a flat face.',
+      'The granite is warmed from cool grey to the light pink buff of the house in colour photographs.',
+      'The Prairie Avenue door\'s fan is 15 rock-faced voussoirs over a long rock-faced lintel, standing out from the wall as the photographs show.',
+      'The carving over the door is redrawn in the street granite: billet, foliate archivolt, roll moulding and a pierced field of leafy roundels.',
+      'The bow, the colour and the carving\'s sizes are read by eye from photographs, recorded as liberty L-glessner-stone-faces-2416.',
+    ] },
   { v: 1732, ts: '2026-10-12T19:43:36.551Z', date: 'Oct 12, 2026, 2:43 PM CT', title: '1638 Prairie\'s corner tower and spire', kind: 'improvement',
     items: [
       'The Gothic house at 1638 Prairie now has the tower its old photograph shows: an eight-sided upper storey over the entrance porch, a pointed window in each street face, and a tall spire with a finial rising just past the front gable.',
