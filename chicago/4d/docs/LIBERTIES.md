@@ -24671,15 +24671,25 @@ door), the stoop and its width; the cornice and its brackets; the roof's form (a
 K01 builds, where a flat roof behind the cornice is as likely for a three-storey pair), its 30-degree
 pitch, 0.6 m eave and tin covering, the pitch being the only one the K05 union builds on this plan;
 the two chimney stacks on the ridge; the gutters and downpipes.
-**What is not built.** The sheet's three-storey wing behind the north part of the rear wall (4.5 m
-out, the draft's r2): K01 builds one rectangle, and the wing returns once T-2347 teaches K01 a
-traced rear wing. The draft stood it; it is gone from the scene until then.
+**The rear piece (T-2391).** The piece the sheet draws behind the north part of the rear wall stands
+on K01's rear wings (T-2343) as `rear_piece`: u -4.75 to 0 and v 1.95 to 6.0 in the record's frame,
+read off the trace (s20fp-1628-b1 p2, the draft's r2) through the T-1250 fit, its north wall flush
+with the main body's on the party line with 1626. The census row s20-1628-a1 and the sheet letter it
+'1B brick': ONE storey over a basement, where the draft had drawn it three storeys by its own rule
+for a wing inside the main part. Read: its place, its storey count, its brick. Invented: its floor
+(the main body's 1.4 m principal floor) and its 4.0 m storey, its K06 sash (two in the south wall,
+one in the rear) and the flat painted-tin deck at 5.7 m on a 0.3 m fascia. Its north wall is blank,
+the party wall with 1626's own '1B' piece. The dot the sheet prints in its south-west corner is not
+modelled. To make room for it, the main rear wall's southern window moves from s 4.1 to s 5.1 (its
+head straddled the piece's south wall) and the north rear downpipe from the corner it now stands
+against to s 4.25, just south of it; the northern rear window is the opening into the piece on the
+principal storey and a window above the deck.
 **How to resolve:** a photograph, plate or description of 1628 (or of the pair), ingested as a
-source, replaces the kits' choices in place; T-2347's rear wing stands the wing.
+source, replaces the kits' choices in place.
 **Covers:** `house_1628_prairie.as_mapped_1904.form.principal_floor_m`, `house_1628_prairie.as_mapped_1904.form.storey_heights_m`, `house_1628_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1628_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1628_prairie.as_mapped_1904.form.service_wall_brick`, `house_1628_prairie.as_mapped_1904.form.street_front_trim`, `house_1628_prairie.as_mapped_1904.form.wall_head`, `house_1628_prairie.as_mapped_1904.form.roof_form`, `house_1628_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1628_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1628_prairie.as_mapped_1904.form.stair_tread_m`, `house_1628_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1628_prairie.as_mapped_1904.form.stoop_width_m`, `house_1628_prairie.as_mapped_1904.form.entrance_bay`, `house_1628_prairie.as_mapped_1904.form.front_bays`, `house_1628_prairie.as_mapped_1904.form.side_bays`, `house_1628_prairie.as_mapped_1904.form.rear_bays`, `house_1628_prairie.as_mapped_1904.form.sash_by_storey`, `house_1628_prairie.as_mapped_1904.form.basement_lights`, `house_1628_prairie.as_mapped_1904.form.roof_covering`, `house_1628_prairie.as_mapped_1904.form.chimneys`, `house_1628_prairie.as_mapped_1904.form.rainwater`, `house_1628_prairie.as_mapped_1904.form.window_kit`, `house_1628_prairie.as_mapped_1904.form.entrance_kit`
-**Ticket:** T-2355 (piece 1 of T-1862).
-**Review:** `docs/RESEARCH/k01-1628-brick-2355/README.md`.
-**Recorded:** 2026-10-11 (T-2355).
+**Ticket:** T-2355 (piece 1 of T-1862); T-2391 (the rear piece).
+**Review:** `docs/RESEARCH/k01-1628-brick-2355/README.md`, `docs/RESEARCH/k01-1628-rear-piece-2391/README.md`.
+**Recorded:** 2026-10-11 (T-2355); 2026-10-12 (T-2391).
 
 ### L-k01-1634-stone-front-flat-2350 — 1634 Prairie's main body refined from the district draft to a three-storey K01 stone-front house under a flat roof, the north half of the pair with 1636, everything but the plan the kits'
 
@@ -24722,15 +24732,29 @@ its windows (two a storey in the wing's north wall, one in each rear wall), its 
 and the flat painted-tin decks, fascias and 0.15 m overhangs, with no gutter. The two dots the sheet
 prints in the end are not modelled. The main rear wall's southern window (s 4.6 m) is behind the wing
 on the two lower storeys and is not cut there.
+**The pair's lines (T-2392, 2026-10-12).** T-2392 re-read the party line and the front line once for
+the pair, off the T-2328 trace and the raster, and moved the main body onto both. Read: the party
+line, the traced shared edge of the two outlines (median 0.695 m south of the old south wall), so
+the origin moved 0.70 m south and the body is 7.45 m wide, its wing with it (4.95 m); the front, the
+traced outline's front edge, the outer side of the blue stone band (u 15.32-15.41), so the body is
+15.4 m deep, not 13.75: the band is the sheet's colour for a stone front, laid inside the outline,
+and the bays stand 0.8 m beyond its outer side as a bay does from its wall; and the bay itself,
+which the sheet draws CANTED and at the NORTH end of the front, mirroring 1636's at its south end,
+so the pair's doors stand together at the party line. The "stone bay at the south end of the front
+(3.0 m along it, 1.25 m out)" read above was the band, not a bay, and the rectangular K08 bay built
+on it is retired. Invented: the canted bay's size (K08's canted plan, 1636's) and its centre 2.2 m
+from the north corner (the sheet's is about 2.0 m), the door 1.85 m from the party line (1636's,
+mirrored), the north-wall windows and the chimneys re-spaced to the deeper body. Which side of the
+printed line the wall face takes is not resolvable at this scale; the trace's polygon edge is used.
 **What is not built.** No
 gutter or downpipe: K01 hangs its half-round gutter round a hip's eaves, and the flat deck's one
 eave, the rear fascia, waits for its own.
 **How to resolve:** a photograph, plate or description of 1634 (or of the pair), ingested as a
 source, replaces the kits' choices in place.
 **Covers:** `house_1634_prairie.as_mapped_1904.form.principal_floor_m`, `house_1634_prairie.as_mapped_1904.form.storey_heights_m`, `house_1634_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1634_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1634_prairie.as_mapped_1904.form.service_wall_brick`, `house_1634_prairie.as_mapped_1904.form.stone_front`, `house_1634_prairie.as_mapped_1904.form.street_front_trim`, `house_1634_prairie.as_mapped_1904.form.wall_head`, `house_1634_prairie.as_mapped_1904.form.roof_form`, `house_1634_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1634_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1634_prairie.as_mapped_1904.form.stair_tread_m`, `house_1634_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1634_prairie.as_mapped_1904.form.stoop_width_m`, `house_1634_prairie.as_mapped_1904.form.entrance_bay`, `house_1634_prairie.as_mapped_1904.form.front_bays`, `house_1634_prairie.as_mapped_1904.form.bays`, `house_1634_prairie.as_mapped_1904.form.side_bays`, `house_1634_prairie.as_mapped_1904.form.north_bays`, `house_1634_prairie.as_mapped_1904.form.rear_bays`, `house_1634_prairie.as_mapped_1904.form.sash_by_storey`, `house_1634_prairie.as_mapped_1904.form.basement_lights`, `house_1634_prairie.as_mapped_1904.form.roof_covering`, `house_1634_prairie.as_mapped_1904.form.chimneys`, `house_1634_prairie.as_mapped_1904.form.window_kit`, `house_1634_prairie.as_mapped_1904.form.entrance_kit`
-**Ticket:** T-2350 (piece 2 of T-2346); T-2347 (the rear wing).
-**Review:** `docs/RESEARCH/k01-1634-stone-front-flat-2350/README.md`, `docs/RESEARCH/k01-1634-rear-wing-2347/README.md`.
-**Recorded:** 2026-10-11 (T-2350); 2026-10-12 (T-2347).
+**Ticket:** T-2350 (piece 2 of T-2346); T-2347 (the rear wing); T-2392 (the pair's party and front lines).
+**Review:** `docs/RESEARCH/k01-1634-stone-front-flat-2350/README.md`, `docs/RESEARCH/k01-1634-rear-wing-2347/README.md`, `docs/RESEARCH/k01-prairie-1634-1636-pair-lines-2392/README.md`.
+**Recorded:** 2026-10-11 (T-2350); 2026-10-12 (T-2347); 2026-10-12 (T-2392).
 
 ### L-k01-1636-stone-front-flat-2348 — 1636 Prairie refined from the district draft to a three-storey K01 stone-front house under a flat roof with its rear wing, the south half of the pair with 1634, everything but the plan the kits'
 
@@ -24761,6 +24785,16 @@ size (K08's canted plan, 3.7 m by 1.1 m, against the sheet's 3.76 m by 0.8 m, ce
 of the sheet's), its storeys and windows; the cornice and its brackets; the flat roof's form, fall,
 parapets, blocking course and tin; the two chimney stacks against the party wall; the wing's floors,
 windows and flat tin deck.
+**The pair's lines (T-2392, 2026-10-12).** The front line and the party line left to the pair above
+are resolved. The front is the traced outline's front edge, the outer side of the blue band (u
+15.3-15.4), so the main body is 15.383 m deep, flush with 1634's: the band is the sheet's colour for
+the stone front inside the outline, and the canted bay stands 0.8 m beyond it as a bay does from its
+wall. The north wall moved 0.185 m onto the traced party line (7.685 m wide), where 1634's south
+wall now stands, so the slot between the two blank party walls is closed; the wing's north wall
+moved with it. "The pair repeats rather than mirrors" above rested on 1634's bay read at its south
+end; the sheet draws 1634's bay at the north end, so the pair mirrors, doors together at the party
+line. Invented: the door 1.85 m from the party line, the south-wall windows and the chimneys
+re-spaced to the deeper body.
 **What is not built.** No gutter or downpipe: K01 hangs its half-round gutter round a hip's eaves,
 and a flat deck's one eave, the rear fascia, waits for its own (1634's limit). The front stands flush
 with 1634's at the draft's line, 1.6 m behind the outer edge of the blue band the sheet draws along
@@ -24768,9 +24802,9 @@ both fronts; which is the wall face is left to the pair together, in T-2347.
 **How to resolve:** a photograph, plate or description of 1636 (or of the pair), ingested as a
 source, replaces the kits' choices in place.
 **Covers:** `house_1636_prairie.as_mapped_1904.form.principal_floor_m`, `house_1636_prairie.as_mapped_1904.form.storey_heights_m`, `house_1636_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1636_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1636_prairie.as_mapped_1904.form.service_wall_brick`, `house_1636_prairie.as_mapped_1904.form.stone_front`, `house_1636_prairie.as_mapped_1904.form.street_front_trim`, `house_1636_prairie.as_mapped_1904.form.wall_head`, `house_1636_prairie.as_mapped_1904.form.roof_form`, `house_1636_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1636_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1636_prairie.as_mapped_1904.form.stair_tread_m`, `house_1636_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1636_prairie.as_mapped_1904.form.stoop_width_m`, `house_1636_prairie.as_mapped_1904.form.entrance_bay`, `house_1636_prairie.as_mapped_1904.form.front_bays`, `house_1636_prairie.as_mapped_1904.form.bays`, `house_1636_prairie.as_mapped_1904.form.side_bays`, `house_1636_prairie.as_mapped_1904.form.rear_bays`, `house_1636_prairie.as_mapped_1904.form.sash_by_storey`, `house_1636_prairie.as_mapped_1904.form.basement_lights`, `house_1636_prairie.as_mapped_1904.form.roof_covering`, `house_1636_prairie.as_mapped_1904.form.chimneys`, `house_1636_prairie.as_mapped_1904.form.window_kit`, `house_1636_prairie.as_mapped_1904.form.entrance_kit`
-**Ticket:** T-2348 (piece 3 of T-1863).
-**Review:** `docs/RESEARCH/k01-1636-stone-front-flat-2348/README.md`.
-**Recorded:** 2026-10-11 (T-2348).
+**Ticket:** T-2348 (piece 3 of T-1863); T-2392 (the pair's party and front lines).
+**Review:** `docs/RESEARCH/k01-1636-stone-front-flat-2348/README.md`, `docs/RESEARCH/k01-prairie-1634-1636-pair-lines-2392/README.md`.
+**Recorded:** 2026-10-11 (T-2348); 2026-10-12 (T-2392).
 
 ### L-k10-1808-dormer-face-2326 — 1808 Prairie's street dormer raised 0.20 m and its face dressed as the K10 kit's pediment, all reconstructed
 
