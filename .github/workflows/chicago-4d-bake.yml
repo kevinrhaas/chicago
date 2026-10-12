@@ -646,8 +646,8 @@ jobs:
   # inside the fourth leg, so no leg gained or lost a check.
   #
   # THE RANGES MUST COVER 1..15 EXACTLY ONCE. Each leg prints "NOT THE FULL GATE"
-  # because on its own it is not one; the UNION of the ten legs is, and that
-  # holds only while these four ranges tile the parts with no gap and no overlap.
+  # because on its own it is not one; the UNION of the legs is, and that
+  # holds only while these ranges tile the parts with no gap and no overlap.
   # smoke_renderer.mjs's own arithmetic — the parts' staged counts sum to an
   # unfiltered run's — is what makes the union checkable rather than asserted.
   # If a part is ever added or renumbered (T-0346 renumbered everything after 4;
@@ -683,6 +683,36 @@ jobs:
   # fourth leg got CHEAPER, not dearer: the same ticket stopped the sward census
   # and the flower-head census drawing the town in software while they read
   # numbers (held draws), and the second part's boot is a no-op inside a range.
+  #
+  # T-2362 RE-TILED THE LEGS BY PART, because two desktop legs had stopped
+  # fitting the 40-minute cap and a cancelled leg is a red check: no PR that
+  # bakes could reach `clean`, so merge-ready never merged one and every run
+  # merged by hand or handed its PR on. Read from this workflow's own job
+  # history, the 30 runs up to 2026-10-11 23:00Z: desktop 10-14 was cancelled
+  # at 40m in 12 of 14 full-length runs (the two passes took 33m and 36m),
+  # desktop 3-6 in 6 of 14 (passes 24-38m), desktop 7-9 passed at 16-34m. No
+  # mobile leg passed 18m, so mobile was never the problem.
+  # The per-part figures below are the SMOKE_TIMING stamps in those legs' logs,
+  # each check name mapped to the `stageOn(n)` block that holds it, as
+  # desktop part cost on the slowest and fastest passing job of each leg:
+  #   1-2  16m 17s / 9m (both parts ~8m)     3  ~4m30s / 3m
+  #   4    ~3m20s / 2m                       5  ~22m20s / ~13m45s
+  #   6    ~8m10s / ~5m                      7  ~5m / ~2m30s
+  #   8    ~22m25s / ~10m45s                 9  ~6m05s / ~2m55s
+  #   10   ~3m15s   11 ~3m   12 ~4m05s       13 ~13m05s   14 ~12m50s
+  # So parts 5 and 8 are each a leg's worth alone, and 13 and 14 together
+  # are 26m of a 40m cap before contention. The new ranges put each heavy
+  # part in a leg of its own and pair the cheap ones:
+  #   1-2 ~16m, 3-4 ~8m, 5 ~23m, 6-7 ~13m, 8 ~23m, 9-12 ~16m, 13 ~14m,
+  #   14 ~14m, 15 ~8m — slowest-observed desktop body plus a ~1m boot.
+  # The worst leg keeps ~17m of margin under 40 on the SLOWEST reading, where
+  # the old 3-6 and 10-14 kept ~1m and none. Nine stages make eighteen legs, not
+  # ten; the extra legs each pay a ~20 s checkout and a ~20 s Playwright
+  # install (T-0437 measured the checkout at p90 4 s), so total runner time
+  # grows by minutes while the slowest leg — what a PR waits for — roughly
+  # halves. Mobile shares the list (gateShape() in smoke_budget.mjs reads one
+  # `stage:` row for both viewports); its legs only get shorter. The cap is
+  # unchanged; content is unchanged; no check moved between parts.
   smoke:
     needs: bake
     runs-on: ubuntu-latest
@@ -691,7 +721,7 @@ jobs:
       fail-fast: false
       matrix:
         viewport: [mobile, desktop]
-        stage: ['1-2', '3-6', '7-9', '10-14', '15']
+        stage: ['1-2', '3-4', '5', '6-7', '8', '9-12', '13', '14', '15']
     steps:
       # T-0437: smoke imports tools and reads its two baseline JSON files;
       # the boot check also reads docs/SITE-BUDGET.md. All browser inputs come
