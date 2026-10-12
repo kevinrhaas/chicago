@@ -1520,11 +1520,16 @@ class Assembly:
                                              p.roof_pitch_deg, cr["lower_rise_m"], cr["bulge"], m["segments"],
                                              m["profile"], cr["overhang_m"], f)
             solids.append(crown)
-        recess = None
+        recess, recesses = None, []
+        self.round_dormers = []
         if cr and cr.get("dormer"):
             g = self.crown_dormer_body(cr, E, f)
             solids.append(g["body"])
-            recess = g["recess"]
+            recesses.append(g["recess"])
+        if m and m.get("dormers"):   # T-2411: the main mansard's lower-face dormers
+            for g in self.mansard_dormer_bodies(m, E):
+                solids.append(g["body"])
+                recesses.append(g["recess"])
         d = p.dormer
         if d:
             dp = kit["parts"]["dormer"]
@@ -1588,8 +1593,8 @@ class Assembly:
                 parts = {key: (k5._snap(x) if isinstance(x, list) else x) for key, x in parts.items()}
                 polys = k5.union(polys, k15.join_stack(parts))
                 self.stacks.append(dict(meta, id=c["id"], centre=[c["u_m"], c["v_m"]]))
-        if recess is not None:
-            polys = k5.subtract(polys, k5._snap([recess])[0])
+        for rc in ([recess] if recess is not None else []) + recesses:
+            polys = k5.subtract(polys, k5._snap([rc])[0])
         pts, tris = _weld_shell(*k5.close(polys))
         self.roof_shell = (pts, tris)
         # the graph reads a stack's every part as `chimney`, which K05 already classes as
@@ -1600,8 +1605,8 @@ class Assembly:
         self._emit_shell(*self.k14_roof_rows(pts, tris), seed, conf)   # T-2359: the plume's rows
         if d:
             self.dormer_sash(seed)
-        if cr and cr.get("dormer"):
-            self.crown_dormer_sash(conf)
+        for g in self.round_dormers:
+            self.round_dormer_sash(g, conf)
         if k:
             self.dress(pts, tris, seed, conf)
         if p.rainwater:
@@ -1728,31 +1733,27 @@ class Assembly:
                 b_ = self.basis(mat, (0.0, 0.0, 0.0), au, _cross(n, au), seed)
             self.prim(mat).face(tri, n, b_, conf)
 
-    def crown_dormer_body(self, cr, E, f):
-        """T-2404: the crown's round-headed dormer as a closed solid for the roof's union —
-        a stone face on the crown's street face, its head the sash's own arch carried out by
-        the surround, run back through the crown's lower face — and the recess its K06 sash
-        stands in, cut to K06's own outline so the opening's reveal is the solid's."""
+    # T-2411: a lower face's frame — the axis its dormers run back along ("x" or "z", the
+    # K05 frame), its outward sign on that axis, and R, the wall direction a viewer facing
+    # the face reads to the right (the K01 walls' own: k01_frontage.walls)
+    DORMER_FACES = {"street": ("x", 1.0, (0.0, 0.0, -1.0)), "rear": ("x", -1.0, (0.0, 0.0, 1.0)),
+                    "north": ("z", -1.0, (-1.0, 0.0, 0.0)), "south": ("z", 1.0, (1.0, 0.0, 0.0))}
+
+    def round_dormer_body(self, d, face, fascia, centre, rise, lower_pitch_deg, bulge, E):
+        """A round-headed dormer as a closed solid for the roof's union (T-2404's crown
+        dormer; T-2411 on the main mansard's lower faces) — a stone face on the lower face,
+        `face_setback_m` in from the fascia's face (`fascia`, on the face's axis), its head
+        the sash's own arch carried out by the surround, run back through the lower face —
+        and the recess its K06 sash stands in, cut to K06's own outline so the opening's
+        reveal is the solid's. `centre` is its centre along the face, in the K01 frame."""
         from . import k05_roofs as k5
         from . import k06_windows
-        d = cr["dormer"]
-        # the crown's lower face (K05's quadratic, k05_roofs.mansard_element): its height at
-        # the dormer face's setback in from the fascia
-        lt = math.tan(math.radians(cr["lower_pitch_deg"]))
-        rise, he = cr["lower_rise_m"], E
-        run = rise / lt
-        L = math.hypot(run, rise)
-        nrm = (-rise / L, run / L)
-        sgn = 1.0 if self.p.mansard["profile"] == "convex" else -1.0
-        P1 = (run / 2 + sgn * cr["bulge"] * L * nrm[0], he + rise / 2 + sgn * cr["bulge"] * L * nrm[1])
-        bez = lambda u, i: (1 - u) ** 2 * (0.0, he)[i] + 2 * (1 - u) * u * P1[i] + u * u * (run, he + rise)[i]
-        lo, hi = 0.0, 1.0
-        for _ in range(60):
-            mid = (lo + hi) / 2
-            lo, hi = (mid, hi) if bez(mid, 0) < d["face_setback_m"] else (lo, mid)
-        ys = bez(lo, 1)
-        xf = cr["x1"] + cr["overhang_m"] - d["face_setback_m"]
-        zc = (cr["z0"] + cr["z1"]) / 2
+        from archetypes.k01_frontage_params import mansard_face_height
+        axis, sg, R = self.DORMER_FACES[face]
+        ra = R[2] if axis == "x" else R[0]           # R along the face's own coordinate
+        run = rise / math.tan(math.radians(lower_pitch_deg))
+        ys = E + mansard_face_height(d["face_setback_m"], rise, lower_pitch_deg, bulge, self.p.mansard["profile"])
+        nf = fascia - sg * d["face_setback_m"]       # the face's plane
         # K06's own hole: the sash's outline at the outer face, about its sill socket
         v = dict(next(x for x in k06_windows.load()["variants"] if x["id"] == d["variant"]))
         v["clear_width_m"], v["clear_height_m"] = d["sash_width_m"], d["sash_height_m"]
@@ -1762,38 +1763,62 @@ class Assembly:
         sill = ys + d["sill_m"]
         r = d["width_m"] / 2
         spring = sill + d["sash_height_m"] - d["sash_width_m"] / 2
-        # the face's outline in (z, y): jambs to the sash's spring, then a half circle
+        # the face's outline across the face: jambs to the sash's spring, then a half circle
         # struck from the sash's own centre, `surround_m` outside its arch
-        arc = [(zc + r * math.cos(math.pi * i / 12), spring + r * math.sin(math.pi * i / 12)) for i in range(13)]
-        outline = [(zc - r, ys - 0.4), (zc + r, ys - 0.4)] + arc
-        back = cr["x1"] + cr["overhang_m"] - run - 0.3
-        P = k5.frame("x")
-        body = k5.extrude(outline, back, xf, P, "cheek", "hidden", "dormer_face")
+        arc = [(centre + r * math.cos(math.pi * i / 12), spring + r * math.sin(math.pi * i / 12))
+               for i in range(13)]
+        outline = [(centre - r, ys - 0.4), (centre + r, ys - 0.4)] + arc
+        back = fascia - sg * (run + 0.3)
+        P = k5.frame(axis)
+        ends = ("hidden", "dormer_face") if sg > 0 else ("dormer_face", "hidden")
+        body = k5.extrude(outline, min(back, nf), max(back, nf), P, "cheek", *ends)
         rev = v.get("overrides", {}).get("reveal_depth_m", k06_windows.load()["parts"]["reveal_depth_m"]["value"])
-        # the hole in the kit's frame is (+X along the wall, +Y up); the face's R is -z
-        rec = [(zc - q[0], sill + q[1]) for q in hole]
-        recess = k5.extrude(rec, xf - rev, xf + 0.05, P, "reveal", "window", "reveal")
-        self.crown_dormer_geom = {"xf": xf, "ys": ys, "sill": sill, "zs": zc + r, "zc": zc, "width": 2 * r,
-                                  "top": spring + r, "variant": v}
-        return {"body": body, "recess": recess}
+        # the hole in the kit's frame is (+X along the wall, +Y up), +X being the face's R
+        rec = [(centre + ra * q[0], sill + q[1]) for q in hole]
+        inner, outer = nf - sg * rev, nf + sg * 0.05
+        recess = k5.extrude(rec, min(inner, outer), max(inner, outer), P, "reveal",
+                            *(("window", "reveal") if sg > 0 else ("reveal", "window")))
+        at = lambda along, y, n: (n, y, along) if axis == "x" else (along, y, n)
+        return {"body": body, "recess": recess,
+                "geom": {"O": at(centre - ra * r, ys, nf), "R": R, "ys": ys, "sill": sill,
+                         "sill_pt": at(centre, sill, nf), "top_pt": at(centre, spring + r, nf),
+                         "width": 2 * r, "top": spring + r, "variant": v, "d": d}}
 
-    def crown_dormer_sash(self, conf):
-        """T-2404: the crown dormer's K06 sash in the recess the union cut (its reveal is the
-        solid's), the face registered as the K01 dormer face it is."""
+    def crown_dormer_body(self, cr, E, f):
+        """T-2404: the crown's round-headed dormer, on the crown's street face, centred on it."""
+        g = self.round_dormer_body(cr["dormer"], "street", cr["x1"] + cr["overhang_m"], (cr["z0"] + cr["z1"]) / 2,
+                                   cr["lower_rise_m"], cr["lower_pitch_deg"], cr["bulge"], E)
+        self.round_dormers.append(g["geom"])
+        return g
+
+    def mansard_dormer_bodies(self, m, E):
+        """T-2411: the main mansard's lower-face dormers, each on the face the record names."""
+        D, W, o = self.p.depth_m, self.p.width_m, self.p.eave_overhang_m
+        fascia = {"street": D + o, "rear": -o, "north": -W - o, "south": o}
+        out = []
+        for d in m.get("dormers", ()):
+            centre = d["along_m"] if self.DORMER_FACES[d["face"]][0] == "z" else -d["along_m"]
+            g = self.round_dormer_body(d, d["face"], fascia[d["face"]], centre, m["lower_rise_m"],
+                                       m["lower_pitch_deg"], m["bulge"], E)
+            self.round_dormers.append(g["geom"])
+            out.append(g)
+        return out
+
+    def round_dormer_sash(self, g, conf):
+        """A round-headed dormer's K06 sash in the recess the union cut (its reveal is the
+        solid's), the face registered as the K01 dormer face it is (T-2404, T-2411)."""
         from . import k06_windows
         from archetypes.k01_frontage_params import Opening
-        g, d = self.crown_dormer_geom, self.p.mansard["crown"]["dormer"]
-        O = (g["xf"], g["ys"], g["zs"])
-        R = (0.0, 0.0, -1.0)
+        d, O, R = g["d"], g["O"], g["R"]
         self.instance("k01.wall.dormer_face", "wall", {"length_m": g["width"], "height_m": round(g["top"] - g["ys"], 4),
                                                        "construction": "masonry", "openings": 1, "head": "round"},
-                      {"base": O, "top": (g["xf"], g["top"], g["zc"])})
+                      {"base": O, "top": g["top_pt"]})
         op = Opening("k01.opening.sash_round", "k01.wall.dormer_face", g["width"] / 2, g["sill"] - g["ys"],
                      d["sash_width_m"], d["sash_height_m"])
         frame = (O, R, _cross(R, Y))
         seed = self.instance(op.component, "opening", {"clear_width_m": op.width_m, "clear_height_m": op.height_m,
                                                        "k06_variant": d["variant"], "wall": op.wall},
-                             {"sill": (g["xf"], g["sill"], g["zc"])})
+                             {"sill": g["sill_pt"]})
         if not hasattr(self, "_kit"):
             self._kit = k06_windows.load()
         o = k06_windows.Opening(g["variant"], self._kit)
