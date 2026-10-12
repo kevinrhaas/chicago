@@ -1,0 +1,8 @@
+{
+  "title": "The first-entry smoke check stops waiting on frames it does not need",
+  "kind": "fix",
+  "items": [
+    "The automated check of the door, the navigation guide and the evidence menu no longer times out on a slow machine. The town now draws at about 8-10 seconds a frame on the build machines, and each of those clicks used to wait on about ten frames.",
+    "It still checks that the guide dismisses and remembers the choice, and that the evidence menu takes a real mouse click. It also logs how long each click took."
+  ]
+}
