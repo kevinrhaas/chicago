@@ -368,7 +368,8 @@
                       "at": [
                         0.294,
                         0.706
-                      ]
+                      ],
+                      "recess_m": 0.35
                     }
                   ]
                 },
@@ -378,12 +379,13 @@
                     {
                       "opening": "k06.opening.sash_round_fanlight",
                       "clear_width_m": 1.0,
-                      "clear_height_m": 1.75,
+                      "clear_height_m": 1.6,
                       "sill_m": 0.6,
                       "at": [
                         0.294,
                         0.706
-                      ]
+                      ],
+                      "recess_m": 0.35
                     }
                   ]
                 }
@@ -396,7 +398,7 @@
             }
           ],
           "confidence": "inferred",
-          "note": "The north pavilion of both pictures (T-2404, piece 2 of T-2370), built as the K08 full-height projection: the north 3.75 m of the front (v 7.5-11.25), the width the 1874 engraving's crown begins at through its camera (v 7.5 projects to x 590.6 px, where the crown starts) and the 1898 Tribune sketch's pavilion fits as, standing flush with the north corner so its north cheek runs on in the north wall's plane, as the engraving draws that corner. It stands 0.4 m proud, the Tribune camera's least-squares figure, which its own solve says the sketch draws but does not measure (the side face is drawn about twice as deep as any consistent camera allows), so the 0.4 m is RECONSTRUCTED inside that fit. Two round-headed windows a storey (K06's round-arched fanlight sash, centred on the pavilion's halves) are read off both pictures; their heads are the kit's stone ring, which stands for the engraving's moulded hoods. Its two storeys, 5.0 m to the upper floor and 2.4 m to stand under the K10 bed moulding, and every sash size (1608's 1.0 m sash, 2.3 and 1.75 m high) are RECONSTRUCTED. The canted bay T-1861 stood here is gone: neither picture draws one on the north part; the one-storey bay the pictures show on the south part is T-2405's.",
+          "note": "The north pavilion of both pictures (T-2404, piece 2 of T-2370), built as the K08 full-height projection: the north 3.75 m of the front (v 7.5-11.25), the width the 1874 engraving's crown begins at through its camera (v 7.5 projects to x 590.6 px, where the crown starts) and the 1898 Tribune sketch's pavilion fits as, standing flush with the north corner so its north cheek runs on in the north wall's plane, as the engraving draws that corner. It stands 0.4 m proud, the Tribune camera's least-squares figure, which its own solve says the sketch draws but does not measure (the side face is drawn about twice as deep as any consistent camera allows), so the 0.4 m is RECONSTRUCTED inside that fit. Two round-headed windows a storey (K06's round-arched fanlight sash, centred on the pavilion's halves) are read off both pictures; their heads are the kit's stone ring, which stands for the engraving's moulded hoods. Its two storeys, 5.0 m to the upper floor and 2.4 m to stand under the K10 bed moulding, and every sash size (1608's 1.0 m sash, 2.3 and 1.6 m high, in recesses 0.35 m deep inside the 0.4 m pavilion) are RECONSTRUCTED. The canted bay T-1861 stood here is gone: neither picture draws one on the north part; the one-storey bay the pictures show on the south part is T-2405's.",
           "sources": [
             "land_owner_1874_05_homes_of_chicago_1620_law",
             "chicago_tribune_1898_01_09_prairie_widows"
@@ -421,7 +423,7 @@
                   "sill_m": 0.25
                 },
                 "surround_m": 0.15,
-                "face_setback_m": 0.1
+                "face_setback_m": 0.09
               }
             }
           },
