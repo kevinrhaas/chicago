@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "tribune_1898_front",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "7a4282771ddd286332487d1a205234b7c45de60a39e4fc806060906e5eea8c4c",
+  "glb_sha256": "f791751bfbcfaca6ab662561bedfdf82e7d95e531fe6827b8304b0f9a78dd370",
   "camera_sha256": "fc8035327dd5820503597ea8d52120b7a83da91067ee536623af793f81317b5b",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg",
   "verdict": "differs",
@@ -20,8 +20,8 @@
       "status": "fixed"
     },
     {
-      "what": "entrance: the stoop rising straight from the gate to a door beside the pavilion's south face; T-2408 moved the build's door north to v 5.8, beside the bay; it still stands at the head of the kit's straight stoop square to the front (T-2409)",
-      "status": "open"
+      "what": "entrance: the stoop rising straight from the gate (x 93-140 px, about v 6.3-7.5 at the street line) to a door beside the pavilion's south face. Built (T-2409): the door moved to v 6.6, its 1.8 m stoop rising straight to it and its landing ending at the pavilion's south face; the porch before the pavilion stands behind the sketch's lattice fence and its '1620' cartouche hides the door's hood",
+      "status": "fixed"
     },
     {
       "what": "fence: a lattice of interlaced arches between square piers with capped tops, on a base, gate piers at the walk; built so by T-2414 (k11.fence.lattice_arcade between the kit's posts on its stone curb, the arches running on from post to post); the sketch's lattice stands taller over its base than the kit's 0.95 m rails, within what this approximate camera can say (its solve: a freehand sketch)",
@@ -37,5 +37,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2414 (piece 1 of T-2406), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg"
+  "reviewed": "T-2414 (piece 1 of T-2406; lapped onto T-2411, T-2409, T-2404 and T-2408), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg"
 }
