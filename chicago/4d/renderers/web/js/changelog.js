@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1730, ts: '2026-10-12T18:25:47.401Z', date: 'Oct 12, 2026, 1:25 PM CT', title: 'Glessner\'s street windows, sash by sash', kind: 'change',
+    items: [
+      'The Glessner house\'s street and stable windows are now real double-hung sash: the upper sash sits outside the lower, each with its own frame and glass, over sills that slope to shed water.',
+      'The high window in the 18th Street gable is no longer a black slot. As the 1965 survey photograph shows it, it is a glazed round head over a stone transom, with a sash below.',
+    ] },
   { v: 1729, ts: '2026-10-12T18:08:48.122Z', date: 'Oct 12, 2026, 1:08 PM CT', title: 'The first-entry smoke check stops waiting on frames it does not need', kind: 'fix',
     items: [
       'The automated check of the door, the navigation guide and the evidence menu no longer times out on a slow machine. The town now draws at about 8-10 seconds a frame on the build machines, and each of those clicks used to wait on about ten frames.',
