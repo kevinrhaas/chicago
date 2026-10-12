@@ -23,7 +23,7 @@ from scipy.interpolate import LinearNDInterpolator
 OUT = Path(__file__).resolve().parent
 SIZE = 2048
 DETAIL_SIZE = 1024
-TILE_M = {"granite": (1.6, 1.6), "brick": (1.7272, 2.1336),
+TILE_M = {"granite": (1.6, 1.6), "brick": (1.7272, 2.1336), "court_brick": (1.7272, 2.1336),
           "limestone": (1.2, 1.2), "mortar": (1.2, 1.2), "terracotta": (2.4384, 1.95072),
           "copper": (2.4, 2.4), "oak": (0.8, 2.4), "painted_wood": (0.8, 2.4),
           "turf": (2.4, 2.4), "gravel": (2.0, 2.0)}
@@ -158,6 +158,36 @@ def brick():
     rough = np.clip(.825 + .028 * roughclay + .042 * clay, .71, .94)
     return save("brick", bodycolour, height, rough, "Reconstructed grey-tan common-brick clay grain. "
                 "Courses, bevelled arrises and mortar joints are geometry, not repeated in this map.", seed)
+
+
+def court_brick():
+    """T-2210: Glessner's courtyard brick, an albedo-only fabric over brick's own relief.
+
+    HABS ILL-1015 data p. 21 (1963): "light pink brick"; Glessner, The Story of a House
+    (1923): "common brick of slightly pinkish color". The clay grain is brick()'s, from the
+    same seed, so its normal and roughness maps serve unchanged and only the body colour
+    moves. The hue and value are reconstructed: no colour photograph or sample is read.
+    The grey-tan brick() image stays, because the K01 kit's Prairie houses wear it.
+    """
+    seed = 190402
+    rng = np.random.default_rng(seed)
+    grit = field(rng, .8)
+    soft = field(rng, 7)
+    roughclay = field(rng, 2.1)
+    shifts = .018 * field(rng, 35)
+    bodycolour = np.array([.680, .515, .460]) + shifts[..., None]
+    bodycolour += (.012 * grit + .021 * soft + .012 * roughclay)[..., None]
+    fired = smoothstep(.8, 2.0, field(rng, 20))
+    bodycolour -= fired[..., None] * np.array([.040, .030, .024])
+    rgb = np.clip(bodycolour, 0.02, .94)
+    Image.fromarray(np.uint8(rgb * 255 + .5)).save(OUT / "court_brick_basecolor.jpg", quality=92,
+                                                   subsampling=0, optimize=True)
+    return {"name": "court_brick", "albedo_size_px": int(rgb.shape[0]), "tile_m": TILE_M["court_brick"],
+            "seed": seed, "confidence": "reconstructed", "albedo_colour_space": "sRGB",
+            "albedo_only": True, "normal_and_roughness_from": "brick", "source_pixels": "none",
+            "description": "Reconstructed light pink common-brick body (HABS 1963 'light pink brick'; "
+                           "Glessner 1923 'slightly pinkish'), on brick's clay grain. Hue and value are "
+                           "bounded reconstruction, not a measured sample."}
 
 
 def mortar():
@@ -329,7 +359,7 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     recipes = {"granite": lambda: stone("granite", 190400),
                "limestone": lambda: stone("limestone", 190401, True), "mortar": mortar,
-               "brick": brick, "terracotta": terracotta, "roof_tiles": roof_tiles, "copper": copper,
+               "brick": brick, "court_brick": court_brick, "terracotta": terracotta, "roof_tiles": roof_tiles, "copper": copper,
                "oak": oak, "painted_wood": lambda: oak(True), "turf": turf, "gravel": gravel}
     existing = OUT / "material-library.json"
     old = {m["name"]: m for m in json.loads(existing.read_text())["materials"]} if existing.exists() else {}

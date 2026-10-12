@@ -39,6 +39,14 @@ TILE_M = {
 # The generated albedo depicts a smaller crystal field than the procedural
 # normal/roughness repeat. UV0 stays metric; glTF carries this texture's scale.
 ALBEDO_TILE_M = {"granite": (0.22, 0.22), "turf": (4.0, 4.0)}
+# T-2210: Glessner's courtyard is light pink common brick with grey Joliet limestone
+# lintels and sills (HABS ILL-1015 data p. 21; Glessner 1923). The K01 kit's Prairie
+# houses wear this library's brick and limestone images too, so the courtyard's
+# identity is carried here, in Glessner's own slots, and never by repainting them:
+# brick slots draw the albedo-only court_brick image over brick's relief, and every
+# limestone slot multiplies the cream study down to a grey. Linear, reconstructed hue.
+COURT_BRICK = "court_brick"
+LIMESTONE_GREY = (0.83, 0.88, 1.0)
 
 # Geometry and material module share these slots. New materials are appended so
 # that the existing nine-part composition can be reused without reinterpretation.
@@ -59,7 +67,9 @@ SLOT_FABRIC = {
     16: "brick", 17: "brick", 18: "brick",
     19: "terracotta", 20: "terracotta", 21: "terracotta",
     23: "painted_wood",
-    24: "granite",
+    # T-2210: the courtyard's rock-faced trim is Joliet limestone, so its UVs are
+    # divided by the limestone repeat its albedo is drawn at (K01 contract metric_uv).
+    24: "limestone",
 }
 
 
@@ -156,8 +166,10 @@ def build_materials(colours=None):
     colours = colours or {}
     mats = [
         _pbr(bpy, "granite", "granite", tint=(0.78, 0.95, 1.0), normal_strength=1.0),
-        _pbr(bpy, "brick", "brick", tint=(0.88, 0.88, 0.88), normal_strength=0.85),
-        _pbr(bpy, "limestone_trim", "limestone", normal_strength=0.65),
+        _pbr(bpy, "brick", "brick", tint=(0.94, 0.94, 0.94), normal_strength=0.85,
+             albedo_fabric=COURT_BRICK),
+        # Dressed Joliet limestone: grey, and a little more tooth than the old cream.
+        _pbr(bpy, "limestone_trim", "limestone", tint=LIMESTONE_GREY, normal_strength=0.85),
         _pbr(bpy, "roof_plane", "roof_tiles", normal_strength=0.70),
         _pbr(bpy, "copper", "copper", normal_strength=0.18, metallic=0.78),
         _plain(bpy, "glass", (0.945, 0.97, 0.953, 1), roughness=0.065),
@@ -185,20 +197,28 @@ def build_materials(colours=None):
     for i, tint in enumerate(((0.68, 0.85, 0.97), (0.78, 0.96, 1.0),
                               (0.85, 0.94, 0.95), (0.82, 0.98, 1.0))):
         mats.append(_pbr(bpy, f"granite_{i + 1}", "granite", tint=tint, normal_strength=1.0))
-    # Restrained kiln variation shares the same clay fabric in every slot.
-    # Narrowing hue/value steps removes the random grey/red mosaic while
-    # preserving the existing geometry's60/20/14/6 unit distribution.
-    mats.append(_pbr(bpy, "brick_dark_red", "brick", tint=(0.92, 0.72, 0.64), normal_strength=0.85))
-    mats.append(_pbr(bpy, "brick_buff", "brick", tint=(1.0, 0.985, 0.94), normal_strength=0.85))
-    mats.append(_pbr(bpy, "brick_smoky", "brick", tint=(0.43, 0.47, 0.48), normal_strength=0.85))
+    # Restrained kiln variation shares the same clay fabric in every slot, and
+    # the geometry's 60/20/14/6 unit distribution is unchanged. T-2210: every step
+    # stays in the pink family, because Glessner names one brick for the whole
+    # court ("the same texture and color"); the grey smoky unit read as a second
+    # material. Slot names stay, as the LOD derivative lists them.
+    mats.append(_pbr(bpy, "brick_dark_red", "brick", tint=(0.86, 0.76, 0.74), normal_strength=0.85,
+                     albedo_fabric=COURT_BRICK))
+    mats.append(_pbr(bpy, "brick_buff", "brick", tint=(1.0, 0.99, 0.97), normal_strength=0.85,
+                     albedo_fabric=COURT_BRICK))
+    mats.append(_pbr(bpy, "brick_smoky", "brick", tint=(0.66, 0.58, 0.56), normal_strength=0.85,
+                     albedo_fabric=COURT_BRICK))
     for i, tint in enumerate(((0.92, 0.90, 0.88), (1.0, 0.99, 0.976), (0.97, 0.93, 0.91))):
         mats.append(_pbr(bpy, f"roof_plane_{i + 1}", "terracotta", tint=tint, normal_strength=0.70))
     mats.append(_plain(bpy, "linen_blind", (0.74, 0.73, 0.68, 1), roughness=0.98))
     mats.append(_pbr(bpy, "painted_wood", "painted_wood", normal_strength=0.30))
-    # Rock-faced window heads/sills share the visible grey mineral fabric of the
-    # street stone. Dressed cornices and carved mouldings retain smoother slot2.
-    # This is reconstructed appearance, not a petrographic identification.
-    mats.append(_pbr(bpy, "rough_stone_trim", "granite", tint=(0.78, 0.95, 1.0), normal_strength=0.80))
+    # Rock-faced courtyard heads, sills, surrounds and tower belts: Joliet limestone
+    # (HABS p. 21), no longer the street granite's crystal albedo. The fine grey
+    # limestone study carries albedo and roughness; the split-face normal stays the
+    # granite study's, drawn at limestone's 1.2 m repeat (its fracture planes about
+    # 3-10 cm, not 4-14), while the geometry carries the large pitched faces.
+    mats.append(_pbr(bpy, "rough_stone_trim", "limestone", tint=LIMESTONE_GREY, normal_strength=0.80,
+                     normal_fabric="granite"))
     # Thin geometry blades sit over the independently textured lawn. These
     # muted linear colours sit below its average reflectance, avoiding lime tips.
     for name, colour in (("dark", (.045, .080, .017)),

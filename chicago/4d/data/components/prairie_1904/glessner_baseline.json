@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 153218624,
-      "sha256": "781f6c217c8f543503f79bc80caf1a09d44ac78221a7841c853936c56b2b140e",
+      "bytes": 153212576,
+      "sha256": "7ea09f2bdbcd8915d7a908e75a4700e53798ad673b5e598ceb5b15d7eb3fc62b",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -27,7 +27,7 @@
       "texture": {
         "images": 33,
         "textures": 63,
-        "encoded_bytes": 23692784,
+        "encoded_bytes": 23686906,
         "pixels": 52952392,
         "gpu_rgba8_mip_bytes": 282412757,
         "largest_px": 2048
@@ -77,7 +77,7 @@
       "metric_uv": {
         "brick": {
           "median_uv_per_m": 0.5209,
-          "fabric": "brick",
+          "fabric": "court_brick",
           "tile_m": [
             1.7272,
             2.1336
@@ -86,7 +86,7 @@
         },
         "brick_buff": {
           "median_uv_per_m": 0.5209,
-          "fabric": "brick",
+          "fabric": "court_brick",
           "tile_m": [
             1.7272,
             2.1336
@@ -95,7 +95,7 @@
         },
         "brick_dark_red": {
           "median_uv_per_m": 0.5209,
-          "fabric": "brick",
+          "fabric": "court_brick",
           "tile_m": [
             1.7272,
             2.1336
@@ -104,7 +104,7 @@
         },
         "brick_smoky": {
           "median_uv_per_m": 0.5209,
-          "fabric": "brick",
+          "fabric": "court_brick",
           "tile_m": [
             1.7272,
             2.1336
@@ -292,17 +292,13 @@
           "uv_per_m_times_tile_m": 0.9994
         },
         "rough_stone_trim": {
-          "median_uv_per_m": 0.6234,
-          "fabric": "granite",
+          "median_uv_per_m": 0.8312,
+          "fabric": "limestone",
           "tile_m": [
-            1.6,
-            1.6
+            1.2,
+            1.2
           ],
-          "uv_per_m_times_tile_m": 0.9974,
-          "texture_transform_scale": [
-            7.2727,
-            7.2727
-          ]
+          "uv_per_m_times_tile_m": 0.9974
         }
       },
       "origin": {
@@ -328,8 +324,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 45847408,
-      "sha256": "fa02684b1cbbe3cc036d073a8707146d9402d5322111d99657bfa6ec8605e9ee",
+      "bytes": 45846872,
+      "sha256": "39eb0d7f2e50345fd57ba7f780b46627853e2115dac3461f3a0bf6a55544d7a5",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -354,7 +350,7 @@
       "texture": {
         "images": 32,
         "textures": 32,
-        "encoded_bytes": 23760328,
+        "encoded_bytes": 23760059,
         "pixels": 51903816,
         "gpu_rgba8_mip_bytes": 276820352,
         "largest_px": 2048
@@ -406,7 +402,7 @@
       "metric_uv": {
         "brick": {
           "median_uv_per_m": 0.521,
-          "fabric": "brick",
+          "fabric": "court_brick",
           "tile_m": [
             1.7272,
             2.1336
@@ -415,7 +411,7 @@
         },
         "brick_buff": {
           "median_uv_per_m": 0.5211,
-          "fabric": "brick",
+          "fabric": "court_brick",
           "tile_m": [
             1.7272,
             2.1336
@@ -424,7 +420,7 @@
         },
         "brick_dark_red": {
           "median_uv_per_m": 0.521,
-          "fabric": "brick",
+          "fabric": "court_brick",
           "tile_m": [
             1.7272,
             2.1336
@@ -433,7 +429,7 @@
         },
         "brick_smoky": {
           "median_uv_per_m": 0.5207,
-          "fabric": "brick",
+          "fabric": "court_brick",
           "tile_m": [
             1.7272,
             2.1336
@@ -609,17 +605,13 @@
           "uv_per_m_times_tile_m": 0.9994
         },
         "rough_stone_trim": {
-          "median_uv_per_m": 0.622,
-          "fabric": "granite",
+          "median_uv_per_m": 0.8293,
+          "fabric": "limestone",
           "tile_m": [
-            1.6,
-            1.6
+            1.2,
+            1.2
           ],
-          "uv_per_m_times_tile_m": 0.9952,
-          "texture_transform_scale": [
-            7.2727,
-            7.2727
-          ]
+          "uv_per_m_times_tile_m": 0.9952
         }
       },
       "origin": {
@@ -645,8 +637,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 26979680,
-      "sha256": "b2b65cb6bd2afb28bd89a68e64ac607dd7164062683e38d53028d94636108595",
+      "bytes": 26979424,
+      "sha256": "1ab418dc190ad2c0c38908b17f767eb4ee4ba472369af4b14146ccb285d34482",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -671,7 +663,7 @@
       "texture": {
         "images": 32,
         "textures": 32,
-        "encoded_bytes": 23760328,
+        "encoded_bytes": 23760059,
         "pixels": 51903816,
         "gpu_rgba8_mip_bytes": 276820352,
         "largest_px": 2048
@@ -721,7 +713,7 @@
       "metric_uv": {
         "brick": {
           "median_uv_per_m": 0.5208,
-          "fabric": "brick",
+          "fabric": "court_brick",
           "tile_m": [
             1.7272,
             2.1336
@@ -730,7 +722,7 @@
         },
         "brick_buff": {
           "median_uv_per_m": 0.5208,
-          "fabric": "brick",
+          "fabric": "court_brick",
           "tile_m": [
             1.7272,
             2.1336
@@ -739,7 +731,7 @@
         },
         "brick_dark_red": {
           "median_uv_per_m": 0.5208,
-          "fabric": "brick",
+          "fabric": "court_brick",
           "tile_m": [
             1.7272,
             2.1336
@@ -748,7 +740,7 @@
         },
         "brick_smoky": {
           "median_uv_per_m": 0.5208,
-          "fabric": "brick",
+          "fabric": "court_brick",
           "tile_m": [
             1.7272,
             2.1336
@@ -924,17 +916,13 @@
           "uv_per_m_times_tile_m": 0.9961
         },
         "rough_stone_trim": {
-          "median_uv_per_m": 0.6248,
-          "fabric": "granite",
+          "median_uv_per_m": 0.8331,
+          "fabric": "limestone",
           "tile_m": [
-            1.6,
-            1.6
+            1.2,
+            1.2
           ],
-          "uv_per_m_times_tile_m": 0.9997,
-          "texture_transform_scale": [
-            7.2727,
-            7.2727
-          ]
+          "uv_per_m_times_tile_m": 0.9997
         }
       },
       "origin": {
