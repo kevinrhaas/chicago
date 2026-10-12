@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1726, ts: '2026-10-12T15:46:06.812Z', date: 'Oct 12, 2026, 10:46 AM CT', title: '1620 Prairie\'s mansard dormers, from the 1874 engraving', kind: 'fix',
+    items: [
+      'The Robert Law house\'s mansard now carries the two round-headed dormers the 1874 engraving draws on its north side, behind the crown.',
+      'Their places along the roof are read from the engraving; the window and dormer sizes are liberties, matched to the crown\'s dormer.',
+    ] },
   { v: 1725, ts: '2026-10-12T15:10:31.680Z', date: 'Oct 12, 2026, 10:10 AM CT', title: '1620 Prairie\'s entrance, porch and door hood, from its two pictures', kind: 'fix',
     items: [
       'The Robert Law house\'s door has moved north to stand beside the pavilion, where both the 1874 engraving and the 1898 sketch put it, its stoop rising straight from the gate.',

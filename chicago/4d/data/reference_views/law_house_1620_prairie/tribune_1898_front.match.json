@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "tribune_1898_front",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "275687d6c10654c84bf6e36f50dbbccf12db2c467e516145fad51c5a9de44477",
+  "glb_sha256": "053e64fddb639788ff9aeaff59d8096917e9f4d42388814334ea95505e733d9d",
   "camera_sha256": "fc8035327dd5820503597ea8d52120b7a83da91067ee536623af793f81317b5b",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg",
   "verdict": "differs",
@@ -41,5 +41,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2410 (lapped onto T-2409), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg"
+  "reviewed": "T-2410 (lapped onto T-2411 and T-2409), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg"
 }

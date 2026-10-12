@@ -398,21 +398,100 @@ def _mansard_crown(c: dict, m: dict, bays: tuple, depth: float, width: float, ea
     if d:
         # one round-headed dormer on the crown's street face, centred on it: a K06 opening
         # in a stone face whose head follows the sash's own arch
-        kit = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
-        sh = d["sash"]
-        if kit.get(sh.get("variant"), {}).get("head") != "round":
-            raise ParamError("mansard.crown.dormer.sash.variant: a round-headed K06 variant")
-        sw, sht, sill = float(sh["width_m"]), float(sh["height_m"]), float(sh["sill_m"])
-        ring, sb = float(d["surround_m"]), float(d["face_setback_m"])
-        wd = sw + 2 * ring
-        if not 0.1 <= ring <= 0.4 or not 0.0 < sb < run + co:
-            raise ParamError("mansard.crown.dormer: a 0.1-0.4 m surround, its face on the crown's lower face")
-        if not 0.5 <= sw <= 1.2 or not 1.0 <= sht <= 2.4 or not 0.1 <= sill <= 0.6:
-            raise ParamError("mansard.crown.dormer.sash: 0.5-1.2 m wide, 1.0-2.4 m high, on a 0.1-0.6 m sill")
-        if wd > (b - a) - 0.6:
-            raise ParamError(f"mansard.crown.dormer: {wd:.2f} m wide on a {b - a} m crown")
-        out["dormer"] = {"variant": sh["variant"], "sash_width_m": sw, "sash_height_m": sht, "sill_m": sill,
-                         "surround_m": ring, "face_setback_m": sb, "width_m": round(wd, 4)}
+        out["dormer"] = _round_dormer(d, "mansard.crown.dormer", run + co)
+        if out["dormer"]["width_m"] > (b - a) - 0.6:
+            raise ParamError(f"mansard.crown.dormer: {out['dormer']['width_m']:.2f} m wide on a {b - a} m crown")
+    return out
+
+
+def mansard_face_height(setback: float, rise: float, lower_pitch_deg: float, bulge: float, profile: str) -> float:
+    """How high a mansard's lower face stands over its eave `setback` in from the fascia's
+    face: K05's quadratic (k05_roofs.mansard_element), the chord from the fascia's top to
+    the curb bowed `bulge` of its length along the chord's normal."""
+    run = rise / math.tan(math.radians(lower_pitch_deg))
+    sgn = 1.0 if profile == "convex" else -1.0
+    P1 = (run / 2 - sgn * bulge * rise, rise / 2 + sgn * bulge * run)
+    bez = lambda u, i: 2 * (1 - u) * u * P1[i] + u * u * (run, rise)[i]
+    lo, hi = 0.0, 1.0
+    for _ in range(60):
+        mid = (lo + hi) / 2
+        lo, hi = (mid, hi) if bez(mid, 0) < setback else (lo, mid)
+    return bez(lo, 1)
+
+
+# T-2411: the main mansard's four lower faces. `along` is the face's own coordinate for a
+# dormer's centre — u (rear wall 0, street front D) on the side faces, v (south wall 0) on
+# the street and rear — and `out` the face's outward direction in the K01 frame (x = u, z = -v)
+MANSARD_FACES = {"street": "v", "rear": "v", "north": "u", "south": "u"}
+
+
+def _round_dormer(d: dict, what: str, room: float) -> dict:
+    """A round-headed dormer's numbers (T-2404's crown dormer, T-2411's lower-face ones):
+    a K06 round-headed sash in a stone face `surround_m` round it, its face `face_setback_m`
+    in from the fascia's face. `room` is how far the lower face runs in to its curb."""
+    kit = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
+    sh = d["sash"]
+    if kit.get(sh.get("variant"), {}).get("head") != "round":
+        raise ParamError(f"{what}.sash.variant: a round-headed K06 variant")
+    sw, sht, sill = float(sh["width_m"]), float(sh["height_m"]), float(sh["sill_m"])
+    ring, sb = float(d["surround_m"]), float(d["face_setback_m"])
+    if not 0.1 <= ring <= 0.4 or not 0.0 < sb < room:
+        raise ParamError(f"{what}: a 0.1-0.4 m surround, its face on the lower face")
+    if not 0.5 <= sw <= 1.2 or not 1.0 <= sht <= 2.4 or not 0.1 <= sill <= 0.6:
+        raise ParamError(f"{what}.sash: 0.5-1.2 m wide, 1.0-2.4 m high, on a 0.1-0.6 m sill")
+    return {"variant": sh["variant"], "sash_width_m": sw, "sash_height_m": sht, "sill_m": sill,
+            "surround_m": ring, "face_setback_m": sb, "width_m": round(sw + 2 * ring, 4)}
+
+
+def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, overhang: float,
+                     chimneys) -> list:
+    """T-2411: round-headed dormers in the main mansard's lower faces — the 1874 engraving's
+    two on 1620's north face — each the crown dormer's construction (`_round_dormer`) on a
+    face the record names, at a centre along it. Each stands clear of the face's hips, of
+    the crown and its cornice, of the stacks and of its neighbours, and its head stays under
+    the curb so the body it runs back into the roof is swallowed by the upper hip."""
+    run = m["lower_rise_m"] / math.tan(math.radians(m["lower_pitch_deg"]))
+    lengths = {"u": depth, "v": width}
+    out, rects = [], []
+    for i, e in enumerate(entries):
+        what = f"mansard.dormers[{i}]"
+        face = e.get("face")
+        if face not in MANSARD_FACES:
+            raise ParamError(f"{what}.face {face!r}: one of {', '.join(MANSARD_FACES)}")
+        d = _round_dormer(e, what, run)
+        ax = MANSARD_FACES[face]
+        c, r = float(e["along_m"]), d["width_m"] / 2
+        lo, hi = -overhang + run + 0.3 + r, lengths[ax] + overhang - run - 0.3 - r
+        if not lo <= c <= hi:
+            raise ParamError(f"{what}.along_m {c}: its face stands clear of the hips only for {lo:.2f}-{hi:.2f} m")
+        foot = mansard_face_height(d["face_setback_m"], m["lower_rise_m"], m["lower_pitch_deg"], m["bulge"],
+                                   m["profile"])
+        top = foot + d["sill_m"] + d["sash_height_m"] + d["surround_m"]
+        if top > m["lower_rise_m"] - 0.1:
+            raise ParamError(f"{what}: its head at {top:.2f} m over the eave meets the curb at {m['lower_rise_m']} m")
+        # its plan, face to back, in (u, v): the body runs `run + 0.3` in from the fascia
+        fa, ba = {"street": (depth + overhang, depth + overhang - run - 0.3),
+                  "rear": (-overhang, -overhang + run + 0.3),
+                  "north": (width + overhang, width + overhang - run - 0.3),
+                  "south": (-overhang, -overhang + run + 0.3)}[face]
+        n0, n1 = sorted((fa, ba))
+        rect = ((c - r, c + r, n0, n1) if ax == "u" else (n0, n1, c - r, c + r))   # (u0, u1, v0, v1)
+        cr = m.get("crown")
+        if cr:   # the crown's plan with its cornice, in (u, v)
+            co = cr["overhang_m"]
+            keep = (cr["x0"] - co - 0.1, cr["x1"] + co + 0.1, -cr["z1"] - co - 0.1, -cr["z0"] + co + 0.1)
+            if rect[0] < keep[1] and keep[0] < rect[1] and rect[2] < keep[3] and keep[2] < rect[3]:
+                raise ParamError(f"{what}: it stands in the crown or under its cornice")
+        for ch in chimneys:
+            sx, sz = ch["plan_m"]
+            if rect[0] < ch["u_m"] + sx / 2 and ch["u_m"] - sx / 2 < rect[1] and \
+                    rect[2] < ch["v_m"] + sz / 2 and ch["v_m"] - sz / 2 < rect[3]:
+                raise ParamError(f"{what}: a chimney stands in its body")
+        for j, q in enumerate(rects):
+            if rect[0] < q[1] + 0.3 and q[0] - 0.3 < rect[1] and rect[2] < q[3] + 0.3 and q[2] - 0.3 < rect[3]:
+                raise ParamError(f"{what}: within 0.3 m of mansard.dormers[{j}]")
+        rects.append(rect)
+        out.append(dict(d, face=face, along_m=c, foot_m=round(eave + foot, 4)))
     return out
 
 
@@ -1198,6 +1277,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if (val("mansard") or {}).get("crown"):
         mansard_roof["crown"] = _mansard_crown(val("mansard")["crown"], mansard_roof, bays, depth, width, eave,
                                                pitch, float(val("eave_overhang_m")))
+    if (val("mansard") or {}).get("dormers"):
+        mansard_roof["dormers"] = _mansard_dormers(val("mansard")["dormers"], mansard_roof, depth, width, eave,
+                                                   float(val("eave_overhang_m")), chimneys)
 
     wings = _rear_wings(val("rear_wings"), depth, width, openings, cw,
                         opening["parameters"]["clear_height_m"]["range"], (record or {}).get("id", ""))
