@@ -208,6 +208,8 @@ MATERIALS.update({
     "bay_brick": dict(k03_brick.MATERIALS["brick"], roughness=round(k03_brick.MATERIALS["brick"]["roughness"] + 0.02, 2)),
     "bay_copper": {"color": (0.37, 0.52, 0.45), "roughness": 0.45, "metallic": 0.35},
     "bay_tin": {"color": (0.30, 0.22, 0.18), "roughness": 0.7},
+    # T-2408: a bay's slated hood, the K08 kit's own slate colour (k08_bays.json `roofs`)
+    "bay_slate": {"color": (0.16, 0.17, 0.19), "roughness": 0.75},
     # T-2356: a frame bay's body is painted timber — the library's painted joinery, the
     # sash's dark green paint on boards — over a brick plinth, its bands, sills and heads
     # the fascia's painted trim. No lap is modelled: a bay of the period was boarded and
@@ -236,7 +238,8 @@ K08_ROLES = {"wall": "body", "reveal": "body", "mullion": "body", "roof_back": "
              "sill": "bay_stone", "head": "bay_stone", "soffit": "fascia", "fascia": "fascia",
              "frame": "sash", "sash_outer": "sash", "sash_inner": "sash",
              "glass_outer": "glass", "glass_inner": "glass", "blind": "blind",
-             "curtain": "curtain", "backing": "backing", "roof": "cover", "finial": "cover"}
+             "curtain": "curtain", "backing": "backing", "roof": "cover", "finial": "cover",
+             "bracket": "fascia"}   # T-2408: a hood's consoles and modillions, the eaves' joinery
 SLIVER_M = 0.0025   # T-2308: a bay triangle with an edge shorter than this is a sliver
 # T-2356: a frame bay has no stone in it. Its dressings are painted timber (the fascia's
 # slot) and its plinth the house's brick carried out under it, as a timber bay on a
@@ -244,7 +247,7 @@ SLIVER_M = 0.0025   # T-2308: a bay triangle with an edge shorter than this is a
 K08_FRAME_ROLES = {"plinth": "bay_brick", "band": "fascia", "corbel": "fascia",
                    "sill": "fascia", "head": "fascia"}
 K08_COVERS = {"copper_standing_seam": "bay_copper", "copper_sheet": "bay_copper",
-              "tin_flat_seam_painted": "bay_tin"}
+              "tin_flat_seam_painted": "bay_tin", "slate_pennsylvania": "bay_slate"}
 
 
 def _tiles() -> dict:
