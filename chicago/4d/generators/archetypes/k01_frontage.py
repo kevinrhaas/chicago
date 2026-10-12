@@ -1460,12 +1460,18 @@ class Assembly:
         D, W, E, o = p.depth_m, p.width_m, p.eave_m, p.eave_overhang_m
         tp = math.tan(math.radians(p.roof_pitch_deg))
         f = kit["parts"]["eave"]["fascia_depth_m"]
-        ye = E - o * tp
+        m = p.mansard
+        # T-2370: a mansard's eave is its cornice, the fascia's top on the wall head; a
+        # hip's eave drops by the overhang's run down the slope
+        ye = E if m else E - o * tp
         yf = ye - f
         yr = p.ridge_m
-        conf = p.worst_conf("footprint", "roof_form", "roof_pitch_deg", "eave_overhang_m", "roof_covering")
-        seed = self.instance("k01.roof.hip", "roof",
+        conf = p.worst_conf("footprint", "roof_form", "roof_pitch_deg", "eave_overhang_m", "roof_covering",
+                            *(("mansard",) if m else ()))
+        seed = self.instance("k01.roof.mansard" if m else "k01.roof.hip", "roof",
                              {"pitch_deg": p.roof_pitch_deg, "eave_overhang_m": o,
+                              **({"variant": m["variant"], "lower_pitch_deg": m["lower_pitch_deg"],
+                                  "lower_rise_m": m["lower_rise_m"], "curb_datum_m": m["curb_m"]} if m else {}),
                               "eave_datum_m": E, "ridge_datum_m": yr, "construction": "k05",
                               "fascia_depth_m": f, "chimneys": len(p.chimneys),
                               **({"covering": k["covering"], "flashing": k["flashing"]} if k else {}),
@@ -1475,7 +1481,11 @@ class Assembly:
                              {"eave": (0.0, E, 0.0), "ridge": (W / 2, yr, -W / 2)})
         # the elements: the hip over the wall line, a body under it (the walls' tops,
         # so the soffit is a ring and not a lid; never emitted), the dormer, the stacks
-        hip, hs = k5.hip_element(0.0, D, -W, 0.0, E, tp, o, f)
+        if m:   # T-2370: K05's mansard ring stack, the lower faces curved to the curb
+            hip, hs, _ = k5.mansard_element(0.0, D, -W, 0.0, E, m["lower_pitch_deg"], p.roof_pitch_deg,
+                                            m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f)
+        else:
+            hip, hs = k5.hip_element(0.0, D, -W, 0.0, E, tp, o, f)
         solids = [hip, k5.body_box(0.0, D, -W, 0.0, hs - 1.0, hs)]
         recess = None
         d = p.dormer
@@ -1724,20 +1734,46 @@ class Assembly:
             A, B = tuple(line["from"]), tuple(line["to"])
             if A[1] > B[1]:
                 A, B = B, A                       # A is the low end: the eave's, on a hip
-            ns = self._line_planes(pts, tris, A, B)
-            if len(ns) != 2:
-                raise ValueError(f"the {kind} {A}-{B} does not part two covering planes ({len(ns)})")
-            n1, n2 = ns
-            if kind == "valley":
-                self.valley(A, B, n1, n2, lift, seed, conf)
-            elif kind == "hip":
-                eaves = tuple(_unit((n[2], 0.0, -n[0])) for n in ns)
-                self.cap(A, B, n1, n2, lift, seed, conf, eave=eaves)
-            else:
-                self.cap(A, B, n1, n2, lift + 0.002, seed, conf)
+            # T-2370: a mansard's lower hip bends with the face's curve, and K05's graph keeps
+            # only its ends, so it is capped a segment at a time, ring corner to ring corner
+            spans = self._bent_hip(pts, tris, A, B) if kind == "hip" and self.p.mansard else [(A, B)]
+            for A, B in spans:
+                ns = self._line_planes(pts, tris, A, B)
+                if len(ns) != 2:
+                    raise ValueError(f"the {kind} {A}-{B} does not part two covering planes ({len(ns)})")
+                n1, n2 = ns
+                if kind == "valley":
+                    self.valley(A, B, n1, n2, lift, seed, conf)
+                elif kind == "hip":
+                    eaves = tuple(_unit((n[2], 0.0, -n[0])) for n in ns)
+                    self.cap(A, B, n1, n2, lift, seed, conf, eave=eaves)
+                else:
+                    self.cap(A, B, n1, n2, lift + 0.002, seed, conf)
             self.dressed[kind] += 1
         if self.p.dormer:
             self.dormer_flashing(seed, lift)
+
+    @staticmethod
+    def _bent_hip(pts, tris, A, B):
+        """The segments of a hip from A up to B through the covering's vertices on its
+        vertical plane: one span on a straight hip, a span per ring on a mansard's curved
+        lower hip."""
+        dx, dz = B[0] - A[0], B[2] - A[2]
+        L = math.hypot(dx, dz)
+        if L < 1e-9:
+            return [(A, B)]
+        # the shell's own vertices, unrounded (the graph's ends are rounded to 0.1 mm, too
+        # coarse for a span this short to find its planes)
+        used = [tuple(pts[i]) for i in sorted({i for t in tris if t[3] == "covering" for i in t[:3]})]
+        snap = lambda e: min(used, key=lambda q: math.dist(q, e))
+        on = {snap(A), snap(B)}
+        for q in used:
+            if not A[1] + 1e-4 < q[1] < B[1] - 1e-4:
+                continue
+            if abs((q[0] - A[0]) * dz - (q[2] - A[2]) * dx) / L < 1e-3:
+                on.add(q)
+        chain = sorted(on, key=lambda q: q[1])
+        return list(zip(chain, chain[1:]))
 
     def valley(self, V0, V1, nA, nB, lift, seed, conf):
         """An open valley: a sheet on each plane widening downhill, a crimped rib up the middle."""

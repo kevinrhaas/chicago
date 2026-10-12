@@ -1,0 +1,29 @@
+{
+ "id": "chicago_tribune_1898_01_09_prairie_widows",
+ "type": "newspaper",
+ "citation": "'Four blocks on Prairie Avenue peopled by widows and widowers whom fortune has favored.' Chicago Tribune, 9 January 1898: a strip of five pen-and-ink vignettes of house fronts, numbered 1600, 1620, 1720, 1726 and 1812. Staff artist. Reproduced on chicagology.com, Prairie Avenue, 1620 and 1720 S. Prairie.",
+ "author": "Chicago Tribune staff artist",
+ "date": "1898-01-09",
+ "describes_date": "1898-01-09",
+ "repository": "Chicago Tribune; reproduced on chicagology.com. Prairie library image a16-cgy-tribune-1898-prairie-widows (stream-1600-1700.json), its 1400 px display file in the image store; that file and an unscaled crop of its 1620 panel are committed at data/sources/assets/law_1620_pictures_t2370/.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1720prairie/",
+ "locator": "The second vignette, labelled 1620: the strip's pixels x 300-550, y 12-318 in the 1400 px display copy (tribune_1898_1620_panel.jpg). The camera (data/reference_views/law_house_1620_prairie/tribune_1898_front.json) says how far a freehand sketch can be measured.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A US newspaper illustration published in 1898, in the public domain. Read for forms and counts; no asset is derived from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-12 (T-2370) from the image store's 1400 x 374 px display copy, sha256 0d68b58289d04804679cd9f53b83d964da19caa9a80f7e1c1dd5a5e5b995819f; the library records a 3500 px original (sha256 1ccee6ac...) that is not in the store. The ProQuest page would give a cleaner copy.",
+ "note": "Drawn the month Robert Law died at 1620, so the house as it stood six years before the 1904 scene. A freehand sketch from the street, square to the front: a heavy bracketed cornice over the south part of the front, which carries a projecting bay window of one storey with pilaster strips and its own cornice; the north part standing proud of the front, its south side face shaded, with round-headed windows in both storeys under moulded hoods, rising past the main cornice into a capped crown; the stoop rising through gate piers beside the north part's south face; and a lattice fence of interlaced arches, between square piers, on a base along the street line. It agrees with the 1874 engraving in every element both show.",
+ "what_it_supplies": [
+  "the north part's projection and its round-headed windows",
+  "the one-storey bay window on the south part",
+  "the stoop's place beside the north part, and the gate piers",
+  "the lattice fence, so it stood in 1898 as in 1874"
+ ],
+ "what_it_does_not_supply": [
+  "measurement: the sketch's side faces are drawn deeper than any perspective allows (the camera's solve)",
+  "the roof above the cornice, which the panel cuts",
+  "colour, the side walls and the rear"
+ ]
+}

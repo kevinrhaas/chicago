@@ -141,6 +141,9 @@ class K01FrontageParams:
     # resolved numbers — fascia, parapet thickness, coping, upstand, high line, parapet top
     roof_form: str = "hip"
     flat: dict = field(default_factory=dict)
+    # T-2370: "mansard" (k01.roof.mansard, K05's mansard ring stack laid on this house);
+    # `mansard` holds its resolved numbers — variant, profile, pitches, rise, curb, ridge
+    mansard: dict = field(default_factory=dict)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -167,6 +170,8 @@ class K01FrontageParams:
     def ridge_m(self) -> float:
         if self.roof_form == "flat":     # T-2350: the deck's high line, behind the blocking course
             return self.flat["deck_high_m"]
+        if self.roof_form == "mansard":  # T-2370: the upper hip's ridge, over the curb
+            return self.mansard["ridge_m"]
         return round(self.eave_m + self.width_m / 2 * math.tan(math.radians(self.roof_pitch_deg)), 4)
 
 
@@ -177,7 +182,7 @@ CONSUMED = frozenset({
     "entrance_bay", "front_bays", "side_bays", "rear_bays", "sash_by_storey",
     "basement_lights", "roof_covering", "dormer", "rainwater", "window_kit", "service_wall_brick",
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
-    "stone_front", "boundary", "north_bays", "rear_wings", "yard", "condition",
+    "stone_front", "boundary", "north_bays", "mansard", "rear_wings", "yard", "condition",
     "street_front_openings", "street_front_dress",
 })
 
@@ -298,6 +303,42 @@ def _flat_roof(depth: float, eave: float, pitch: float, overhang: float) -> dict
     return {"variant": FLAT_ROOF, "fascia_m": f, "parapet_m": tw, "coping_m": p["coping"]["thickness_m"],
             "drip_m": p["coping"]["drip_m"], "upstand_m": float(v["upstand_m"]), "deck_eave_m": round(er, 4),
             "deck_high_m": round(high, 4), "parapet_top_m": round(high + float(v["upstand_m"]), 4)}
+#: T-2370: the K05 mansard variants a K01 roof may be built from (k05_roofs.json)
+MANSARD_ROOFS = ("k05.roof.mansard_convex", "k05.roof.mansard_concave")
+
+
+def _mansard_roof(m: dict, depth: float, width: float, eave: float, pitch: float, overhang: float) -> dict:
+    """The numbers a K01 mansard is built to (T-2370), from K05's mansard (T-2304): the
+    record names the variant, which gives the lower face's profile, curve and chord pitch,
+    and the lower face's rise to the curb, the attic storey's height; the upper hip is the
+    record's roof_pitch_deg. The fascia's top stands on the walls' top (the eave datum), so
+    the soffit is the cornice's, and the curb and ridge follow."""
+    if not m:
+        raise ParamError("a mansard K01 roof names its K05 variant and lower_rise_m (`mansard`)")
+    k5 = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())
+    vid = m.get("variant")
+    if vid not in MANSARD_ROOFS:
+        raise ParamError(f"mansard.variant {vid!r}: one of {', '.join(MANSARD_ROOFS)}")
+    v = next(x for x in k5["variants"] if x["id"] == vid)
+    lower = float(m.get("lower_pitch_deg", v["lower_pitch_deg"]))
+    _within(lower, k5["ranges"]["mansard_lower_deg"], "mansard.lower_pitch_deg")
+    _within(pitch, k5["ranges"]["mansard_upper_deg"], "roof_pitch_deg (a mansard's upper hip)")
+    rise = float(m["lower_rise_m"])
+    if not 2.0 <= rise <= 4.5:
+        raise ParamError(f"mansard.lower_rise_m {rise}: an attic storey's face rises 2.0-4.5 m")
+    if not 0.3 <= overhang <= 1.0:
+        raise ParamError(f"eave_overhang_m {overhang}: a mansard's cornice projects 0.3-1.0 m")
+    f = k5["parts"]["eave"]["fascia_depth_m"]
+    run = rise / math.tan(math.radians(lower))
+    half = min(depth, width) / 2 + overhang
+    if run >= half - 0.5:
+        raise ParamError(f"mansard.lower_rise_m {rise}: the curb leaves no upper roof")
+    ridge = eave + rise + (half - run) * math.tan(math.radians(pitch))
+    return {"variant": vid, "profile": v["profile"], "lower_pitch_deg": lower, "bulge": float(v["bulge"]),
+            "segments": int(v["segments"]), "lower_rise_m": rise, "fascia_m": f,
+            "curb_m": round(eave + rise, 4), "ridge_m": round(ridge, 4)}
+
+
 def _k02(front: dict) -> dict:
     """The K02 masonry parameters (T-2289): the record names the walling fabric, its
     dressing, the trim fabric, how many courses the rusticated base runs and which
@@ -636,9 +677,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     datum = {d["id"]: d for d in c["datums"]}
 
     roof_form = val("roof_form")
-    if roof_form not in ("hip", "flat"):
-        raise ParamError("k01_frontage builds the contract's k01.roof.hip and k01.roof.flat only")
+    if roof_form not in ("hip", "flat", "mansard"):
+        raise ParamError("k01_frontage builds the contract's k01.roof.hip, k01.roof.flat and "
+                         "k01.roof.mansard only")
     flat = roof_form == "flat"
+    mansard = roof_form == "mansard"
     # T-2341: a plain brick house is the same assembly with its street front laid in the
     # K03 brick too, its openings dressed in stone; which front it is, the record's
     # `stone_front` says — named for a stone front, absent for a brick one
@@ -667,8 +710,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     for t, what in ((ft, "wall_thickness_front_m"), (st, "wall_thickness_side_m")):
         _within(t, wall["parameters"]["thickness_m"]["ranges"]["masonry"], what)
     pitch = float(val("roof_pitch_deg"))
-    _within(pitch, roof["parameters"]["pitch_deg"]["ranges"]["flat" if flat else "ordinary"], "roof_pitch_deg")
-    if not flat and depth <= width:
+    band = "flat" if flat else "mansard_upper" if mansard else "ordinary"
+    _within(pitch, roof["parameters"]["pitch_deg"]["ranges"][band], "roof_pitch_deg")
+    if not flat and not mansard and depth <= width:
         raise ParamError("a hip roof over this plan needs the side walls longer than the "
                          "front, or its ridge has no length")
 
@@ -708,7 +752,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         head = sill + h
         if k + 1 < stories and head + 0.30 > floors[k + 1] + float(sash[k + 1]["sill_above_floor_m"]) - 0.10:
             raise ParamError(f"storey {k}'s heads run into storey {k + 1}'s sills")
-        if k + 1 == stories and head + 0.30 > eave - float(val("eave_overhang_m")) * math.tan(math.radians(pitch)) - 0.25:
+        # a hip's soffit drops by the overhang's run down its slope; a mansard's stands on
+        # the wall head (T-2370)
+        drop = 0.0 if mansard else float(val("eave_overhang_m")) * math.tan(math.radians(pitch))
+        if k + 1 == stories and head + 0.30 > eave - drop - 0.25:
             raise ParamError("the top storey's lintels run into the soffit")
         for s in (() if sfo else front_bays):
             if k == 0 and s == door_s:
@@ -764,10 +811,17 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
 
     k04, rainwater = _k04(val("roof_covering") or {}, val("rainwater") or {}, pitch, flat)
     flat_roof = _flat_roof(depth, eave, pitch, float(val("eave_overhang_m"))) if flat else {}
+    mansard_roof = _mansard_roof(val("mansard"), depth, width, eave, pitch,
+                                 float(val("eave_overhang_m"))) if mansard else {}
+    if val("mansard") and not mansard:
+        raise ParamError(f"a {roof_form} roof names no mansard")
     dormer = {}
     d = val("dormer")
     if d and flat:
         raise ParamError("a flat K01 roof carries no dormer: the K05 dormer is cut into a hip's street plane")
+    if d and mansard:
+        raise ParamError("a K01 mansard carries no dormer yet: the K05 dormer is cut into a hip's "
+                         "street plane, and a mansard's lower face is another surface (T-2370)")
     if d:
         dw, dh = float(d["sash"]["width_m"]), float(d["sash"]["height_m"])
         _within(dw, cw, "dormer.sash.width_m")
@@ -854,7 +908,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         # through the covering is cut where the two really meet
         sx, sz = (float(v) for v in ch["plan_m"])
         above, cap_p, cap_d = float(ch["top_above_ridge_m"]), float(ch["cap_proud_m"]), float(ch["cap_depth_m"])
-        ridge = flat_roof["deck_high_m"] if flat else (round(pf + sum(heights), 4) + width / 2 * tp)
+        ridge = (flat_roof["deck_high_m"] if flat else mansard_roof["ridge_m"] if mansard
+                 else (round(pf + sum(heights), 4) + width / 2 * tp))
         for st_ in ch["stacks"]:
             u, v = float(st_["u_m"]), float(st_["v_m"])
             if not (sx / 2 + 0.3 <= u <= depth - sx / 2 - 0.3 and sz / 2 + 0.3 <= v <= width - sz / 2 - 0.3):
@@ -863,8 +918,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 raise ParamError("a chimney stops less than 0.6 m above the ridge")
             chimneys.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": round(ridge + above, 4),
                              "cap_proud_m": cap_p, "cap_depth_m": cap_d})
-    elif ch and flat:
-        raise ParamError("a flat K01 roof takes T-2302's plain stacks: K15's draught rule reads a hip's covering")
+    elif ch and (flat or mansard):
+        raise ParamError(f"a {roof_form} K01 roof takes T-2302's plain stacks: K15's draught rule "
+                         "reads a hip's covering")
     elif ch:
         from . import k15_chimneys as k15
         k15kit = k15.load()
@@ -994,7 +1050,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         boundary=dict(val("boundary", {}) or {}),
         yard=yard,
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
-        roof_form=roof_form, flat=flat_roof,
+        roof_form=roof_form, flat=flat_roof, mansard=mansard_roof,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )
