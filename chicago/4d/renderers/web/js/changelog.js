@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 1706, ts: '2026-10-12T00:47:38.288Z', date: 'Oct 11, 2026, 7:47 PM CT', title: '1634 Prairie stands as a brownstone rowhouse under a flat roof', kind: 'feature',
+    items: [
+      '1634 Prairie Avenue, the north half of a stone-front pair with 1636, is no longer a plain draft box: it has a coursed brownstone front, two-over-two sash under stone heads, and a stone stoop and door at its north end.',
+      'The map\'s stone bay rises three storeys at the south end of the front, laid in the same brownstone.',
+      'It is the first detailed house in the town with a flat roof: a tin deck falling to the rear, coped parapets on both side walls, and a stone blocking course over a bracketed cornice along the street.',
+      'Its south wall, which it shares with 1636, is blank, and its north wall has windows over 1630\'s side yard.',
+      'Its plan, three storeys, stone front and bay are read from the 1911 Sanborn map. The brown stone comes from an 1890 newspaper\'s \'brown stone mansion\'. Everything else is reconstructed, and the house\'s card says so.',
+      'The three-storey wing behind it is gone for now. It comes back when the kit can stand that wing.',
+    ] },
   { v: 1705, ts: '2026-10-12T00:41:10.125Z', date: 'Oct 11, 2026, 7:41 PM CT', title: 'Glessner House granite reads as whole stones, not triangles', kind: 'improvement',
     items: [
       'Up close, each rock-faced stone on the Glessner House used to break into a mosaic of small light and dark triangles. Each stone now shows one continuous granite grain across its face, and its pitched relief shades smoothly.',
