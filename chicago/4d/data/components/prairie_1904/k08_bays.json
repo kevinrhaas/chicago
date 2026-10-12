@@ -44,7 +44,7 @@
     "_doc": "Triangle budget per variant, as built, the board excluded. A variant over its budget is refused, so a kit change that bloats every bay in the town is caught here, before any house is built from it.",
     "max_triangles": {"full": 20000, "light": 7000}
   },
-  "_variants_doc": "plan: polyline (points [x, z] from the left junction to the right, both on z = 0), bow (a segmental arc on its chord), circle (radius, centre proud of the wall) or polygon (sides, circumradius, centre proud, a face square to the front). base: 'grade' stands on a plinth; a number is the height its corbel courses carry it at. storeys: heights from the base up, each with its windows: a K06 opening id, its clear size, its sill above the storey's floor, and where it sits (at: fractions of the plan's length, or at_deg: bearings about the plan's centre). roof: hip (or flat, pitch 0) or cone; covering is a K04 fabric.",
+  "_variants_doc": "plan: polyline (points [x, z] from the left junction to the right, both on z = 0), bow (a segmental arc on its chord), circle (radius, centre proud of the wall) or polygon (sides, circumradius, centre proud, a face square to the front). base: 'grade' stands on a plinth; a number is the height its corbel courses carry it at. storeys: heights from the base up, each with its windows: a K06 opening id, its clear size, its sill above the storey's floor, and where it sits (at: fractions of the plan's length, or at_deg: bearings about the plan's centre). roof: hip (or flat, pitch 0) or cone; covering is a K04 fabric; a hip may carry flare (T-2408: its slope runs from eave_pitch at the eaves up to pitch at over_m in from them, cut into bands). brackets (T-2408): consoles at the plan's corners (reach_m along the corner's bisector, drop_m under the soffit, thickness_m) and modillions along each run (width_m, drop_m, out_m from the face, spacing_m, margin_m clear of the run's ends).",
   "variants": [
     {"id": "k08.bay.rectangular", "kind": "bay", "plan": {"kind": "polyline", "points": [[-1.3, 0.0], [-1.3, 1.2], [1.3, 1.2], [1.3, 0.0]]}, "base": "grade",
      "storeys": [
@@ -66,6 +66,15 @@
          {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.95, "clear_height_m": 1.9, "sill_m": 0.75, "at": [0.5]}]}],
      "roof": {"kind": "hip", "pitch": 0.6, "covering": "slate_pennsylvania"},
      "confidence": "reconstructed", "note": "The commonest Prairie Avenue bay: canted at 45 degrees, 1.5 m of front and 1.1 m out, two storeys, a window in every face, the hips of its slate roof falling on its angles."},
+    {"id": "k08.bay.canted_hooded", "kind": "bay", "plan": {"kind": "polyline", "points": [[-1.55, 0.0], [-0.97, 0.58], [0.97, 0.58], [1.55, 0.0]]}, "base": "grade",
+     "storeys": [
+       {"height_m": 4.0, "windows": [
+         {"opening": "k06.opening.sash_paired_round", "clear_width_m": 1.44, "clear_height_m": 1.85, "sill_m": 1.9, "at": [0.5], "recess_m": 0.4, "why_not_ordinary": "a grouped window: two narrow round-headed lights either side of a stone mullion, the pair 1620 Prairie's 1874 engraving draws in its bay's front"}]}],
+     "roof": {"kind": "hip", "pitch": 1.5, "flare": {"eave_pitch": 0.15, "over_m": 0.9, "bands": 6}, "covering": "slate_pennsylvania"},
+     "overrides": {"eaves": {"overhang_m": 0.6, "fascia_m": 0.25}},
+     "brackets": {"consoles": {"reach_m": 0.6, "drop_m": 1.0, "thickness_m": 0.2, "segments": 8},
+                  "modillions": {"width_m": 0.08, "drop_m": 0.12, "out_m": 0.25, "spacing_m": 0.3, "margin_m": 0.15}},
+     "confidence": "reconstructed", "note": "A one-storey canted bay window under a flared, bracketed hood (T-2408), sized to 1620 Prairie's 1874 engraving through its solved camera: 1.94 m of front 0.58 m out on 45-degree cheeks, two round-headed lights in the front and blank cheeks (0.82 m of cheek on a 0.58 m projection leaves no room for a recessed light), a deep eaves on a console at each corner of the front over a row of modillions, and a slated hood that leaves the eaves nearly flat and steepens to the wall, as the engraving draws it. The flare's numbers and the brackets' sizes are the kit's, RECONSTRUCTED."},
     {"id": "k08.bay.bowed", "kind": "bay", "plan": {"kind": "bow", "chord_m": 3.2, "rise_m": 0.9}, "base": "grade",
      "storeys": [
        {"height_m": 3.6, "windows": [

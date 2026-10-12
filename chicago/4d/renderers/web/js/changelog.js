@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1719, ts: '2026-10-12T10:08:46.242Z', date: 'Oct 12, 2026, 5:08 AM CT', title: '1620 Prairie\'s bay window, under its flared hood, from its 1874 engraving', kind: 'feature',
+    items: [
+      '1620 Prairie now has the one-storey bay window its 1874 engraving shows on the south part of the front, measured off the picture.',
+      'It has two round-headed windows under a slate hood that is almost flat at the eaves and steepens toward the wall, with a scrolled bracket at each front corner and small blocks under the eaves.',
+      'The front door has moved north, next to the bay, where the engraving puts it.',
+    ] },
   { v: 1718, ts: '2026-10-12T09:02:12.342Z', date: 'Oct 12, 2026, 4:02 AM CT', title: '1601 Prairie stands as a gabled clapboard frame house', kind: 'feature',
     items: [
       '1601 Prairie Avenue, the frame house on the 16th Street corner, is no longer a plain draft box: its walls are clapboard laid board by board, with corner boards, a water table and two-over-two sash in timber casings.',
