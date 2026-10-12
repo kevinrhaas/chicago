@@ -404,6 +404,14 @@
       ],
       "note": "Two K08 bays where the 1911 sheet draws them (T-1840 census s20-1608-f: 'a bay on the Prairie face and a small projection on its south wall'), so their PLACES are inferred from the map; their form is the kit's. FRONT: the kit's canted bay (3.7 m at the wall, 1.1 m out, a 1.5 m face) against a traced bay 3.67 m at the wall and 1.07 m out on the south half of the front, centred 2.6 m from the south corner: 0.76 m north of the traced bay, so that its eaves (2.27 m either side) clear the K10 cornice's corner bracket, which the kit stands 0.20 m from every corner; two storeys under a low tin hip. SOUTH: the kit's full-height projection (4.0 m long, 0.6 m out) against a traced one about 4.2 m long and 0.7 m out, centred 11.4 m from the rear. Their storeys, windows, brick and roofs are reconstructed (liberty L-k01-1608-brick-front-2341)."
     },
+    "condition": {
+      "value": {
+        "kit": "data/components/prairie_1904/k14_condition.json",
+        "built": 1886
+      },
+      "confidence": "reconstructed",
+      "note": "T-2364: the house weathers to its own age on 1904-07-01 from the K14 condition kit (T-2324) rather than wearing K03's fixed full-age soot and damp, on all four of its brick walls and on its stone dressings. BUILT 1886 is a bound, not a date: Robinson's 1886 atlas, plate 10 (robinson_1886_chicago_plate_10), draws a house on lot 5 where this record's main body stands, its outline within the two maps' fits (4.54 m and 2.46 m RMS) of the 1911 sheet's, so the house stood by 1886 and no reading yet says how long before. The kit is evaluated at that bound, the youngest the evidence allows: 18 years standing, age factor 0.45, the same as 1808 Prairie's, so the weathering shown is a floor and an earlier completion year would only darken it. Damp at the wall foot, soot under the soffit, and a trail below every K06 sill and down the wall behind each downpipe, scaled by the fabric (the common buff brick 1.0, the limestone dressings as the kit's dressed trim 1.2). Every layer's value is the kit's reconstruction (L-k14-condition-kit-2324); using the plate's bound as the completion year is this ticket's (L-k14-1608-brick-2364). A building permit, a dated photograph or a directory reading of the house replaces it."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",
