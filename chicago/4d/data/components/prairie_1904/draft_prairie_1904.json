@@ -370,7 +370,8 @@
     "s20-1612-f": "1612 Prairie now stands as the K01 frontage assembly goodman_house_1612_prairie (T-2344, piece 1 of T-1860), which refines this draft in place under the draft's own id; the draft stands no second building beside it.",
     "s20-1604-f": "1604 Prairie is refined in place by T-2343 (piece 3 of T-1859) as the K01 brick frontage house_1604_prairie, under the draft's own id: the '3B' block on K01 and the '2B' range and '2' block behind it on K01's rear wings; the draft does not stand a second building on it.",
     "s20-1616-f": "1616 Prairie's main body now stands as the K01 brick frontage house_1616_prairie (T-2353, piece 1 of T-2345), which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's two-storey brick rear range stands on K01's rear wings (T-2354).",
-    "s20-1628-f": "1628 Prairie's main body now stands as the K01 brick frontage house_1628_prairie (T-2355, piece 1 of T-1862), the south half of the pair with 1626, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's three-storey rear wing waits for T-2347."
+    "s20-1628-f": "1628 Prairie's main body now stands as the K01 brick frontage house_1628_prairie (T-2355, piece 1 of T-1862), the south half of the pair with 1626, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's three-storey rear wing waits for T-2347.",
+    "s20-1634-f": "1634 Prairie's main body now stands as the K01 stone-front house house_1634_prairie under the flat roof K01 learned from K05 (T-2350, piece 2 of T-2346), the north half of the pair with 1636, which refines this draft in place under the draft's own id with the sheet's stone front bay on K08; the draft stands no second building beside it, and the sheet's three-storey rear wing waits for T-2347."
   },
   "frontages": {
     "frontage-28-038": {
@@ -606,7 +607,9 @@
     "frontage-20-010": {
       "slug": "house",
       "entrance": "north",
-      "why": "3B stone-front, attached to 1636 as a pair: the stone-front family's flat roof behind a cornice, the entrance at the pair's north end."
+      "why": "3B stone-front, attached to 1636 as a pair: the stone-front family's flat roof behind a cornice, the entrance at the pair's north end.",
+      "house_id": "house_1634_prairie",
+      "house_address": "1634"
     },
     "frontage-20-011": {
       "slug": "house",
