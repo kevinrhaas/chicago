@@ -24146,7 +24146,7 @@ buildings are T-1932's.
 
 ### L-draft-prairie-16-18-east-2335 — The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate
 
-**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1609_prairie.draft_1904.form.stories`, `house_1609_prairie.draft_1904.form.draft_elevation`, `house_1609_prairie.draft_1904.form.draft`, `house_1611_prairie.draft_1904.form.stories`, `house_1611_prairie.draft_1904.form.draft_elevation`, `house_1611_prairie.draft_1904.form.draft`, `house_1613_prairie.draft_1904.form.draft_elevation`, `house_1613_prairie.draft_1904.form.draft`, `house_1615_prairie.draft_1904.form.draft_elevation`, `house_1615_prairie.draft_1904.form.draft`, `house_1619_prairie.draft_1904.form.draft_elevation`, `house_1619_prairie.draft_1904.form.draft`, `house_1621_prairie.draft_1904.form.draft_elevation`, `house_1621_prairie.draft_1904.form.draft`, `house_1623_prairie.draft_1904.form.draft_elevation`, `house_1623_prairie.draft_1904.form.draft`, `house_1625_prairie.draft_1904.form.draft_elevation`, `house_1625_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1613_prairie.draft_1904.form.draft_elevation`, `house_1613_prairie.draft_1904.form.draft`, `house_1615_prairie.draft_1904.form.draft_elevation`, `house_1615_prairie.draft_1904.form.draft`, `house_1619_prairie.draft_1904.form.draft_elevation`, `house_1619_prairie.draft_1904.form.draft`, `house_1621_prairie.draft_1904.form.draft_elevation`, `house_1621_prairie.draft_1904.form.draft`, `house_1623_prairie.draft_1904.form.draft_elevation`, `house_1623_prairie.draft_1904.form.draft`, `house_1625_prairie.draft_1904.form.draft_elevation`, `house_1625_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840
@@ -24189,6 +24189,7 @@ buildings are T-1933's.
 **1601 retired from this liberty by T-2398 (2026-10-12):** the frame dwelling at the 16th Street
 corner now stands whole as the K16 timber record `house_1601_prairie`, recorded as
 `L-k16-1601-frame-house-2398`, under the same id; its draft attributes are gone.
+**Retired in part:** 1609 and 1611, the lost lot-6 frame pair, by T-1867, which refined both in place on the K16 timber kit as two clapboard houses on one party wall under `L-k16-1609-1611-frame-pair-1867`, under the same ids; their draft attributes are gone.
 **Ticket:** T-2335 (piece 2 of T-2160, the district draft's 16th-18th block).
 **Review:** `docs/RESEARCH/prairie-draft-16-18-east-2335/README.md`.
 **Recorded:** 2026-10-11 (T-2335).
@@ -24960,6 +24961,50 @@ kit's choices in place; a roof covering read from a Sanborn key or a photograph 
 **Ticket:** T-2398 (piece 1 of T-1866).
 **Review:** `docs/RESEARCH/k16-1601-frame-house-2398/README.md`.
 **Recorded:** 2026-10-12 (T-2398).
+
+### L-k16-1609-1611-frame-pair-1867 — 1609 and 1611 Prairie, the lost lot-6 frame pair, refined from the district draft to two K16 clapboard houses on one party wall, everything but the plans the kit's
+
+**Decision:** the pre-1911 frame pair at 1609 and 1611 Prairie Avenue (T-1867, package N08 of T-1837)
+is no longer a district draft. Each half stands, under the draft's own id (`house_1609_prairie`,
+`house_1611_prairie`), as a `k16_timber` record built by `generators/k16_emit.py` from the K16 timber
+kit: every wall a kit clapboard wall built board by board on a water table, the outer corners turned
+with corner boards, every window a K06 two-over-two sash in the kit's flat timber casing, a
+four-panel door in the same casing, the deep frieze under a boxed eave with scroll brackets, a flat
+roof, one brick stack, and a small kit porch with timber steps at the door. The pair shares one
+party wall, which T-1867 taught the kit (`frame_house.party_wall`): each record's block stands
+against it, so neither half builds it, and the two fronts, rears and cornices run on into each other
+as one frame block.
+**What is read, not invented.** Off Robinson 1886 plate 10 through the draft's fit of the traces
+r1886-1609-f and r1886-1611-f (the plate's T-1250 fit, 4.54 m RMS): each half's rectangle and place
+(10.5 m deep; 4.75 m along Prairie for 1609, 5.25 m for 1611), the line the plate draws between them,
+read as the party wall, and frame construction from the plate's yellow. The pair's standing on
+1904-07-01 is the T-1840 census's (backcast_1886, on the supplied expert guidance), as before.
+**What is invented.** Two storeys (the atlas prints no storey count; the register's 'modest frame
+facade, timber cornice, sash windows'); the 0.45 m foundation and every height (the 6.4 m eave, the
+sills and heads); the clapboard, its exposure and the kit's trim; every window's size and place
+(1609: a door and one window below and two windows above on the front, three a storey on its north
+side, one a storey at the rear; 1611: a door and two windows below and three above on the front,
+three a storey on its south side, two a storey at the rear, so the two halves do not repeat); the
+doors at the pair's outer ends (the draft's entrance sides); the register's 'timber cornice' built as
+the kit's bracketed boxed eave, carried across both fronts; the flat roof behind it, where the draft
+drew a 40-degree gable, chosen because a flat deck is what such a cornice crowns on a two-storey
+Chicago frame house of the period and it lets the pair read as one block; the tar-and-gravel covering
+and its dark grey; the two stacks side by side at the party wall; the small porch over each door with
+its steps (the register's 'bounded stoop'); and the one pale stone-grey paint both halves wear, with
+the kit's cream trim and dark green sash.
+**What is not built.** The party wall itself, which no visitor can see; gutters and downpipes (a box
+gutter is taken to lie in the boxed eave); rear doors and any rear porch or shed; a cellar and its
+lights; anything behind the sash beyond the kit's blinds and curtains. **1607 is not a house:**
+'1607-1611' is the address range of the four-storey loft the 1911 sheet draws, which replaced the
+pair after 1904; it is not back-projected, and no 1904 building stands under 1607.
+**How to resolve:** a photograph, print or description of either house, ingested as a source,
+replaces the kit's choices in place (a later reading of the pair's heights, roof or fronts first);
+none was found in the Prairie library on 2026-10-12: its one 1609 picture (a16-cgy-1609-loft-1910) shows the
+1910 E. T. Cade loft that replaced the pair, not the pair.
+**Covers:** `house_1609_prairie.as_mapped_1904.form.stories`, `house_1609_prairie.as_mapped_1904.form.construction`, `house_1609_prairie.as_mapped_1904.form.frame_house`, `house_1609_prairie.as_mapped_1904.form.roof_covering`, `house_1611_prairie.as_mapped_1904.form.stories`, `house_1611_prairie.as_mapped_1904.form.construction`, `house_1611_prairie.as_mapped_1904.form.frame_house`, `house_1611_prairie.as_mapped_1904.form.roof_covering`
+**Ticket:** T-1867 (package N08 of T-1837).
+**Review:** `docs/RESEARCH/k16-1609-1611-frame-pair-1867/README.md`.
+**Recorded:** 2026-10-12 (T-1867).
 
 ### L-k14-1808-walls-2358 — 1808 Prairie's walls weathered by the K14 kit at 18 years, with its outlet trails and its wall reach reconstructed
 
