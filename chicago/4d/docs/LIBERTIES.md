@@ -24671,15 +24671,25 @@ door), the stoop and its width; the cornice and its brackets; the roof's form (a
 K01 builds, where a flat roof behind the cornice is as likely for a three-storey pair), its 30-degree
 pitch, 0.6 m eave and tin covering, the pitch being the only one the K05 union builds on this plan;
 the two chimney stacks on the ridge; the gutters and downpipes.
-**What is not built.** The sheet's three-storey wing behind the north part of the rear wall (4.5 m
-out, the draft's r2): K01 builds one rectangle, and the wing returns once T-2347 teaches K01 a
-traced rear wing. The draft stood it; it is gone from the scene until then.
+**The rear piece (T-2391).** The piece the sheet draws behind the north part of the rear wall stands
+on K01's rear wings (T-2343) as `rear_piece`: u -4.75 to 0 and v 1.95 to 6.0 in the record's frame,
+read off the trace (s20fp-1628-b1 p2, the draft's r2) through the T-1250 fit, its north wall flush
+with the main body's on the party line with 1626. The census row s20-1628-a1 and the sheet letter it
+'1B brick': ONE storey over a basement, where the draft had drawn it three storeys by its own rule
+for a wing inside the main part. Read: its place, its storey count, its brick. Invented: its floor
+(the main body's 1.4 m principal floor) and its 4.0 m storey, its K06 sash (two in the south wall,
+one in the rear) and the flat painted-tin deck at 5.7 m on a 0.3 m fascia. Its north wall is blank,
+the party wall with 1626's own '1B' piece. The dot the sheet prints in its south-west corner is not
+modelled. To make room for it, the main rear wall's southern window moves from s 4.1 to s 5.1 (its
+head straddled the piece's south wall) and the north rear downpipe from the corner it now stands
+against to s 4.25, just south of it; the northern rear window is the opening into the piece on the
+principal storey and a window above the deck.
 **How to resolve:** a photograph, plate or description of 1628 (or of the pair), ingested as a
-source, replaces the kits' choices in place; T-2347's rear wing stands the wing.
+source, replaces the kits' choices in place.
 **Covers:** `house_1628_prairie.as_mapped_1904.form.principal_floor_m`, `house_1628_prairie.as_mapped_1904.form.storey_heights_m`, `house_1628_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1628_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1628_prairie.as_mapped_1904.form.service_wall_brick`, `house_1628_prairie.as_mapped_1904.form.street_front_trim`, `house_1628_prairie.as_mapped_1904.form.wall_head`, `house_1628_prairie.as_mapped_1904.form.roof_form`, `house_1628_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1628_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1628_prairie.as_mapped_1904.form.stair_tread_m`, `house_1628_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1628_prairie.as_mapped_1904.form.stoop_width_m`, `house_1628_prairie.as_mapped_1904.form.entrance_bay`, `house_1628_prairie.as_mapped_1904.form.front_bays`, `house_1628_prairie.as_mapped_1904.form.side_bays`, `house_1628_prairie.as_mapped_1904.form.rear_bays`, `house_1628_prairie.as_mapped_1904.form.sash_by_storey`, `house_1628_prairie.as_mapped_1904.form.basement_lights`, `house_1628_prairie.as_mapped_1904.form.roof_covering`, `house_1628_prairie.as_mapped_1904.form.chimneys`, `house_1628_prairie.as_mapped_1904.form.rainwater`, `house_1628_prairie.as_mapped_1904.form.window_kit`, `house_1628_prairie.as_mapped_1904.form.entrance_kit`
-**Ticket:** T-2355 (piece 1 of T-1862).
-**Review:** `docs/RESEARCH/k01-1628-brick-2355/README.md`.
-**Recorded:** 2026-10-11 (T-2355).
+**Ticket:** T-2355 (piece 1 of T-1862); T-2391 (the rear piece).
+**Review:** `docs/RESEARCH/k01-1628-brick-2355/README.md`, `docs/RESEARCH/k01-1628-rear-piece-2391/README.md`.
+**Recorded:** 2026-10-11 (T-2355); 2026-10-12 (T-2391).
 
 ### L-k01-1634-stone-front-flat-2350 — 1634 Prairie's main body refined from the district draft to a three-storey K01 stone-front house under a flat roof, the north half of the pair with 1636, everything but the plan the kits'
 
