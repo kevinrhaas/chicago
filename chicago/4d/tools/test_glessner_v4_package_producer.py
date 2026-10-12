@@ -55,6 +55,7 @@ def fixture(directory):
         target = root / name; target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT / name, target)
     (root / "tools/_glessner_lod.py").write_text("# isolated geometry recipe fixture\n")
+    (root / "tools/_glessner_light_occlusion.py").write_text("# isolated occlusion recipe fixture\n")
     binary = root / "bin/npx"; binary.parent.mkdir()
     binary.write_text(STUB); binary.chmod(0o755)
     write_member(root, TARGETS[0], b"old master" * 200)
