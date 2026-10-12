@@ -461,7 +461,7 @@ def main() -> int:
     p.add_argument("id")
     p.add_argument("label")
     p.set_defaults(fn=cmd_adopt)
-    p = sub.add_parser("build-light", help="reduced same-version geometry; no Blender")
+    p = sub.add_parser("build-light", help="reduced same-version geometry; Blender only for its occlusion bake")
     p.add_argument("key")
     p.add_argument("output")
     p.set_defaults(fn=cmd_build_light)
