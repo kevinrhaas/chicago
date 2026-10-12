@@ -62,6 +62,6 @@ for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full']
  if(!assets.some(a=>a.url.endsWith(detail==='light'?'.light.glb':'__as_built_1887.glb')))throw Error('The '+detail+' canonical asset must load');
  results.push({label,viewport,detail,boot,errors,bad,assets,stands});
  if(errors.length||bad.length||stands.some(x=>x.problems.length||!x.stats.withinBudget))throw Error(JSON.stringify(results.at(-1)));
- await context.close();console.log(label+' actual published 1904 app: PASS · granite '+JSON.stringify(granite[0]));
+ await context.close();console.log(label+' actual published 1904 app: PASS');
 }
 }finally{fs.writeFileSync(path.join(out,tag+(process.env.QA_VIEWPORT ? 'browser-validation-'+process.env.QA_VIEWPORT+'.json' : 'browser-validation.json')),JSON.stringify({method:'Actual published /1904/ app, normal boot, full desktop and light mobile; animation paused after readiness. T-2209: each desktop stand under the actual scene light and under a neutral diagnostic light (sky fill swapped for a white hemisphere, sun whitened, capture only).',results},null,2)+'\n');await browser.close();server.close();}

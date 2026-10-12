@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 153218624,
-      "sha256": "781f6c217c8f543503f79bc80caf1a09d44ac78221a7841c853936c56b2b140e",
+      "bytes": 153674008,
+      "sha256": "b425b3953b83e1a788d40dc5f6b9532b5b38806759de86b2c9869792229929e6",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -27,7 +27,7 @@
       "texture": {
         "images": 33,
         "textures": 63,
-        "encoded_bytes": 23692784,
+        "encoded_bytes": 24147549,
         "pixels": 52952392,
         "gpu_rgba8_mip_bytes": 282412757,
         "largest_px": 2048
@@ -328,8 +328,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 45847408,
-      "sha256": "fa02684b1cbbe3cc036d073a8707146d9402d5322111d99657bfa6ec8605e9ee",
+      "bytes": 46649904,
+      "sha256": "1a01f498c0f064d7c0ef69a8bc18b01b26c7eca969c0eb89055609f9b7c19d1b",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -354,7 +354,7 @@
       "texture": {
         "images": 32,
         "textures": 32,
-        "encoded_bytes": 23760328,
+        "encoded_bytes": 24562204,
         "pixels": 51903816,
         "gpu_rgba8_mip_bytes": 276820352,
         "largest_px": 2048
@@ -645,8 +645,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 26979680,
-      "sha256": "b2b65cb6bd2afb28bd89a68e64ac607dd7164062683e38d53028d94636108595",
+      "bytes": 27782176,
+      "sha256": "7424d5387fcc7a56d07278698d0ad5d26dd1717181bff7187a2d25e66623f6c6",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -671,7 +671,7 @@
       "texture": {
         "images": 32,
         "textures": 32,
-        "encoded_bytes": 23760328,
+        "encoded_bytes": 24562204,
         "pixels": 51903816,
         "gpu_rgba8_mip_bytes": 276820352,
         "largest_px": 2048

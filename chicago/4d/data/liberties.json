@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 505,
+  "count": 506,
   "liberties": [
     {
       "id": "L1",
@@ -33449,6 +33449,46 @@
         {
           "label": "Recorded",
           "text": "2026-10-11 (T-2209)."
+        }
+      ]
+    },
+    {
+      "id": "L-glessner-granite-occlusion-2393",
+      "title": "Glessner's split-face granite carries an occlusion map computed from its own reconstructed relief",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.v4_detail"
+        }
+      ],
+      "recorded": "2026-10-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the granite slots of Glessner v4 (granite, granite_1 to 4 and rough_stone_trim) now carry a glTF occlusion texture, `assets/textures/glessner-v4/granite_occlusion.png` (T-2393, split from T-2390). It is computed by `generate.py` from the same height field the granite normal map is drawn from: horizon-based, 16 directions out to 8 cm, measured against each texel's own tangent plane, so only a crease is darkened and a tilted facet is not. The viewer applies it to the sky fill only. The sun is unchanged. **What is invented.** The 8 cm reach (about two-thirds of the 12 cm fracture cell) and the height field itself, which is the generated split-face study, not a reading of the house's stone. The occlusion is only as true as that relief. No photograph was read. **What is not changed.** Albedo, tints, roughness, the normal map, every vertex and the scene light. Shaded faces read 1.7-5.4 % darker because the sky they lose is now accounted for. They are not re-tinted, and nothing is brightened to compensate."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured relief of the street granite would replace the height field. The stone-scale occlusion (joints, drafted margins, pitched faces), which is what reads as relief in shade, is a per-asset bake owned by T-2394."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.v4_detail`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2393 (split from T-2390)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-12 (T-2393)."
         }
       ]
     },

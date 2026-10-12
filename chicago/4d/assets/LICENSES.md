@@ -801,6 +801,7 @@ The following 43 files are original project material assets: eleven deterministi
 - `textures/glessner-v4/generate.py`
 - `textures/glessner-v4/granite_basecolor.jpg`
 - `textures/glessner-v4/granite_normal.png`
+- `textures/glessner-v4/granite_occlusion.png`
 - `textures/glessner-v4/granite_photographic_basecolor.png`
 - `textures/glessner-v4/granite_photographic_provenance.json`
 - `textures/glessner-v4/granite_roughness.png`

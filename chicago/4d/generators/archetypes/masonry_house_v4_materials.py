@@ -39,6 +39,10 @@ TILE_M = {
 # The generated albedo depicts a smaller crystal field than the procedural
 # normal/roughness repeat. UV0 stays metric; glTF carries this texture's scale.
 ALBEDO_TILE_M = {"granite": (0.22, 0.22), "turf": (4.0, 4.0)}
+# T-2390: the fabrics whose normal map's height field also ships as an occlusion
+# map (generate.py `occluded`). It rides the normal map's UV and repeat, so a
+# material carries it exactly when it carries that fabric's normal map.
+OCCLUSION_FABRICS = frozenset({"granite"})
 
 # Geometry and material module share these slots. New materials are appended so
 # that the existing nine-part composition can be reused without reinterpretation.
@@ -135,6 +139,10 @@ def _pbr(bpy, name, fabric, tint=(1, 1, 1), normal_strength=1.0, metallic=0.0,
             nt.links.new(mix.outputs[2], bsdf.inputs[input_name])
         else:
             nt.links.new(tex.outputs["Color"], bsdf.inputs[input_name])
+    occlusion_fabric = normal_fabric or fabric
+    if occlusion_fabric in OCCLUSION_FABRICS:
+        _occlusion(bpy, nt, uv, occlusion_fabric)
+        material["occlusion_map"] = f"assets/textures/glessner-v4/{occlusion_fabric}_occlusion.png"
     material["surface_tier"] = "reconstructed"
     material["texture_generator"] = "assets/textures/glessner-v4/generate.py"
     material["tile_m"] = list(TILE_M[fabric])
@@ -144,6 +152,33 @@ def _pbr(bpy, name, fabric, tint=(1, 1, 1), normal_strength=1.0, metallic=0.0,
                                          else f"assets/textures/glessner-v4/{albedo_source}_photographic_provenance.json")
         material["albedo_tile_m"] = list(ALBEDO_TILE_M[albedo_source])
     return material
+
+
+def _occlusion(bpy, nt, uv, fabric):
+    """Wire `<fabric>_occlusion.png` as the glTF occlusionTexture (T-2390).
+
+    The exporter recognises only a node group literally named "glTF Material Output"
+    with an "Occlusion" input (generators/emit.py bake_ao uses the same group). The
+    map shares the normal map's SurfaceUV with no mapping node, so it tiles with the
+    relief it was computed from.
+    """
+    tex = nt.nodes.new("ShaderNodeTexImage")
+    tex.label = f"Original {fabric} occlusion"
+    tex.image = _image(bpy, fabric, "occlusion")
+    tex.interpolation = "Linear"
+    tex.extension = "REPEAT"
+    nt.links.new(uv.outputs["UV"], tex.inputs["Vector"])
+    group = bpy.data.node_groups.get("glTF Material Output")
+    if group is None:
+        group = bpy.data.node_groups.new("glTF Material Output", "ShaderNodeTree")
+        group.interface.new_socket("Occlusion", in_out="INPUT", socket_type="NodeSocketFloat")
+        group.nodes.new("NodeGroupInput")
+    node = nt.nodes.new("ShaderNodeGroup")
+    node.node_tree = group
+    node.name = "glTF Material Output"
+    split = nt.nodes.new("ShaderNodeSeparateColor")
+    nt.links.new(tex.outputs["Color"], split.inputs["Color"])
+    nt.links.new(split.outputs["Red"], node.inputs["Occlusion"])
 
 
 def build_materials(colours=None):
