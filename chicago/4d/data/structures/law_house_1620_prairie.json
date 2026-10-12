@@ -14,7 +14,7 @@
     "note": "The 1911 sheet draws no front building at 1620. The T-1840 census (frontage-20-006, backcast_1886) stands the Robert Law house for 1904 because Robinson 1886 plate 10 prints 1620 against a brick house on lots 13-14 and the 1904 Blue Book lists the F. VanS. Hibbard household at the address (named record pa-1620-1904-correction); residence is inferred from that listing."
   },
   "review_required": false,
-  "research_note": "Refined from the district draft (T-2334) in place by T-1861, under the draft's own id, as a K01 brick frontage: the plate's L under one rectangle, a canted bay on the north half of the front, segmental brick arches over the street windows, a high stoop, a bracketed cornice and a tin hip. Plan, place and brick are read off Robinson 1886 plate 10 (r1886-1620-f, through its T-1250 fit); the brief is the T-1837 register row frontage-20-006, which is not a source record; every height, opening, the roof and the trim are the kits' reconstruction (liberty L-k01-1620-law-1861). The rear stable is a separate record, still the draft's. T-2370 read both of its pictures (the May 1874 Land Owner engraving and the 1898 Tribune sketch, cameras in data/reference_views/law_house_1620_prairie/) and raised the house under the engraving's mansard, its walls lowered to the engraving's cornice; T-2408 stood the pictures' one-storey bay under its flared, bracketed hood on the south part and moved the door north of it; T-2404 stood the pictures' north pavilion under its crown and round-headed dormer, in place of the canted bay; the round-headed windows, the dormers, the stoop and porch and the lattice fence are their next pieces, listed open in the match records.",
+  "research_note": "Refined from the district draft (T-2334) in place by T-1861, under the draft's own id, as a K01 brick frontage: the plate's L under one rectangle, a canted bay on the north half of the front, segmental brick arches over the street windows, a high stoop, a bracketed cornice and a tin hip. Plan, place and brick are read off Robinson 1886 plate 10 (r1886-1620-f, through its T-1250 fit); the brief is the T-1837 register row frontage-20-006, which is not a source record; every height, opening, the roof and the trim are the kits' reconstruction (liberty L-k01-1620-law-1861). The rear stable is a separate record, still the draft's. T-2370 read both of its pictures (the May 1874 Land Owner engraving and the 1898 Tribune sketch, cameras in data/reference_views/law_house_1620_prairie/) and raised the house under the engraving's mansard, its walls lowered to the engraving's cornice; T-2408 stood the pictures' one-storey bay under its flared, bracketed hood on the south part and moved the door north of it; T-2404 stood the pictures' north pavilion under its crown and round-headed dormer, in place of the canted bay; T-2410 made the main wall's two upper street windows round-headed under hoods with a key on each crown, and the north wall's windows the engraving's two a storey; the dormers, the stoop and porch and the lattice fence are their next pieces, listed open in the match records.",
   "phases": [
     {
       "id": "restored_1904",
@@ -125,7 +125,24 @@
             "brick_heads": "segmental"
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: the register's 'arched windows' (its 1898 numbered drawing 'supports bay/arches'; the drawing is not read here) built as two rowlock rings on a segmental arch over every street window, the head this house's own side and rear walls already wear (T-2291), taught to the brick street front by T-1861 (`brick_heads`). The K01 wall cuts a rectangular hole, so the sash under each arch stays flat-headed and the arch springs from its jambs; an arched sash is a different hole and is not built. by_storey names K01's flat lintel only because brick_heads replaces it."
+          "note": "RECONSTRUCTED: the register's 'arched windows' (its 1898 numbered drawing 'supports bay/arches'; the drawing is not read here) built as two rowlock rings on a segmental arch over every street window, the head this house's own side and rear walls already wear (T-2291), taught to the brick street front by T-1861 (`brick_heads`). The K01 wall cuts a rectangular hole, so the sash under each arch stays flat-headed and the arch springs from its jambs; an arched sash is a different hole and is not built. by_storey names K01's flat lintel only because brick_heads replaces it. Since T-2410 every window the brick street front cuts is round-headed under its hood (`street_front_round_heads`), so these segmental arches stand over none of them; they remain the head of any flat-headed street window the record cuts."
+        },
+        "street_front_round_heads": {
+          "value": {
+            "storeys": [
+              1
+            ],
+            "key": {
+              "width_m": 0.24,
+              "height_m": 0.28,
+              "proud_m": 0.07
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_1620_law"
+          ],
+          "note": "The street front's windows round-headed under moulded hoods (T-2410), read off the 1874 engraving through its camera (data/reference_views/law_house_1620_prairie/landowner_1874_from_northeast.json): the upper window over the bay window (x 434-470 px, centred over the bay's hood, whose top its foot stands on) and the upper window over the door (x 530-550 px, v about 5.6-6.1) are both drawn round-headed, each under a heavy round hood that springs at the sash's shoulders, and over each hood's crown a raised ornament, the 'ornate head'. Those two are the only street windows the main wall carries: the principal-storey window behind the bay and the north bay's two behind the pavilion are not cut, and the door is the middle bay's principal opening. Built as K06's round-headed fanlight sash cut as a round hole through the K03 brick, under the kit's own stone arch band as its hood (the same head the pavilion's round-headed windows wear), with a key block standing on the crown for the ornament. The engraving draws the ornament but cannot resolve it (a crested or scrolled key is what woodcuts of the 1870s draw so): the key's 0.24 x 0.28 m and its 0.07 m projection, the band's 0.18 m and the sash's sizes (sash_by_storey) are RECONSTRUCTED. The 1898 Tribune sketch's 1620 cartouche covers the south part, so it is not read for these."
         },
         "wall_head": {
           "value": {
@@ -179,7 +196,7 @@
             8.6
           ],
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: three bays across the 11.25 m front, south to north: the bay window's centre at 3.09 m (its upper window stands over the hood, as the 1874 engraving draws one there; the principal-storey window and basement light behind the bay are not cut), the door at 5.8 m and the north bay at 8.6 m, behind T-2404's north pavilion (v 7.5-11.25), so its window and basement light are not cut; its own windows are the pavilion's. The plate draws no openings; the first two are placed as the engraving's camera reads them (T-2408), the third is the kits'."
+          "note": "RECONSTRUCTED: three bays across the 11.25 m front, south to north: the bay window's centre at 3.09 m (its upper window stands over the hood, round-headed under its own (T-2410), as the 1874 engraving draws one there; the principal-storey window and basement light behind the bay are not cut), the door at 5.8 m and the north bay at 8.6 m, behind T-2404's north pavilion (v 7.5-11.25), so its window and basement light are not cut; its own windows are the pavilion's. The plate draws no openings; the first two are placed as the engraving's camera reads them (T-2408), the third is the kits'."
         },
         "side_bays": {
           "value": [
@@ -202,12 +219,14 @@
         },
         "north_bays": {
           "value": [
-            3.0,
-            8.0,
-            13.0
+            3.35,
+            11.55
           ],
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: three windows a storey on the north wall, front to rear. It faces 1616 across a 4.7 m side yard (the lot runs to v 15.95 in this frame), not a party wall, so it is not left blank; nothing draws them."
+          "confidence": "inferred",
+          "sources": [
+            "land_owner_1874_05_homes_of_chicago_1620_law"
+          ],
+          "note": "Two windows a storey on the north wall, measured from the front corner (T-2410). The 1874 engraving draws the north wall whole, from the front corner (x 700 px) to the rear (x 848 px), with two flat-headed windows in the upper storey, at x 734-741 and 801-820 px, and one below the second; ivy on an arched trellis stands in front of the principal storey under the first, so that window is not seen and is taken to stand under the one above it. Through the engraving's camera the window centres (x 737 and 810 px) fall 3.35 m and 11.55 m back from the front corner (on the wall's face; the second is drawn wider than a sash because its rear jamb's reveal is seen at a grazing angle). It faces 1616 across a 4.7 m side yard (the lot runs to v 15.95 in this frame), not a party wall. Their sash sizes are sash_by_storey's, RECONSTRUCTED; T-1861's three windows a storey at 3.0, 8.0 and 13.0 m were the kits' and nothing drew them."
         },
         "sash_by_storey": {
           "value": [
@@ -223,7 +242,7 @@
             }
           ],
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: 1608's two-over-two sash, 1.0 m wide, 2.3 m in the principal storey and 1.75 m above on a 0.6 m sill, each under its brick arch; the upper sash is 0.15 m shorter and sits 0.1 m lower than 1608's because T-2370 lowered the wall head to the 1874 engraving's cornice and the arch must clear the K10 bed moulding. The engraving's round-headed windows in the north part are the pavilion's (T-2404, `bays`); the rest of its windows (round-headed on the south part, flat-headed on the north wall) are not yet built as it shows them."
+          "note": "RECONSTRUCTED: 1608's two-over-two sash, 1.0 m wide, 2.3 m in the principal storey and 1.75 m above on a 0.6 m sill, each under its brick arch; the upper sash is 0.15 m shorter and sits 0.1 m lower than 1608's because T-2370 lowered the wall head to the 1874 engraving's cornice and the arch must clear the K10 bed moulding. The engraving's round-headed windows in the north part are the pavilion's (T-2404, `bays`); the two upper street windows of the main wall are round-headed under hoods (T-2410, `street_front_round_heads`), the same sizes with a round head inside them, and the north wall's flat-headed (`north_bays`)."
         },
         "basement_lights": {
           "value": {
@@ -297,13 +316,14 @@
         "window_kit": {
           "value": {
             "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight",
             "k01.opening.area_light": {
               "variant": "k06.opening.area_light",
               "well": false
             }
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: the K06 two-over-two flat sash and area lights 1608 wears."
+          "note": "RECONSTRUCTED: the K06 two-over-two flat sash and area lights 1608 wears; the street front's round-headed windows (T-2410, `street_front_round_heads`) take K06's round-arched fanlight sash, the variant the pavilion's round-headed windows wear."
         },
         "entrance_kit": {
           "value": {

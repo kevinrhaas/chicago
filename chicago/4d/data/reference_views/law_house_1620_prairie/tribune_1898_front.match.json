@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "tribune_1898_front",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "4277ba409d34b7f6b32c0e648c816627c2c7fe9469ab9fd29a393e9f15cc7e56",
+  "glb_sha256": "21656b6e40f7f6c16d2cfabe334467e03fe3c01c03582aecd7883e42647b22a6",
   "camera_sha256": "fc8035327dd5820503597ea8d52120b7a83da91067ee536623af793f81317b5b",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg",
   "verdict": "differs",
@@ -17,6 +17,10 @@
     },
     {
       "what": "bay window: a one-storey bay on the south part with pilaster strips and its own cornice; built by T-2408 as the 1874 engraving's hooded canted bay, its cornice under the hood",
+      "status": "fixed"
+    },
+    {
+      "what": "windows: the south part's upper window, beside the cartouche at the sketch's left edge, round-headed under a hood; built so by T-2410 (the cartouche covers the rest of the south part)",
       "status": "fixed"
     },
     {
@@ -37,5 +41,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2404 (lapped onto T-2408), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg"
+  "reviewed": "T-2410, 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg"
 }
