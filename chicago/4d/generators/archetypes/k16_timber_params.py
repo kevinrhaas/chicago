@@ -117,7 +117,10 @@ def _num(x) -> bool:
 def frame_house_errors(fh: dict) -> list[str]:
     """What the whole-house builder cannot read (T-2357). The first block stands free and
     is walled on all four sides; every later block stands `against` one side of it and is
-    walled on its other three, the last of them ending on that wall without a corner."""
+    walled on its other three, the last of them ending on that wall without a corner. A
+    house of a pair (T-1867) names its `party_wall` (the side, and the house `with` it): its
+    first block stands `against` that side, so the pair's shared wall is built by neither half
+    and the eave, the deck and the front and rear walls run on to the partner's."""
     out = []
     if not _num(fh.get("foundation_m")) or fh["foundation_m"] <= 0:
         out.append("foundation_m must be a positive number")
@@ -126,6 +129,10 @@ def frame_house_errors(fh: dict) -> list[str]:
     blocks = fh.get("blocks") or []
     if not blocks:
         out.append("no blocks")
+    pw = fh.get("party_wall")
+    if pw is not None and (pw.get("side") not in SIDES or not isinstance(pw.get("with"), str) or not pw["with"]
+                           or not blocks or blocks[0].get("against") != pw.get("side")):
+        out.append("party_wall names a side and the house `with` it, and the first block stands against that side")
     for i, b in enumerate(blocks):
         bid = b.get("id", f"#{i}")
         r = b.get("rect_uv")
@@ -140,8 +147,8 @@ def frame_house_errors(fh: dict) -> list[str]:
                                                            or not _num(b["roof"].get("pitch_deg"))):
             out.append(f"{bid}: a gable roof needs pitch_deg and a ridge along u or v")
         against = b.get("against")
-        if i == 0 and against:
-            out.append(f"{bid}: the first block stands free")
+        if i == 0 and against and against != (pw or {}).get("side"):
+            out.append(f"{bid}: the first block stands free, or against the party wall the record names")
         if i > 0 and against not in SIDES:
             out.append(f"{bid}: a later block names the side it stands against")
         sides = [w.get("side") for w in b.get("walls") or []]
