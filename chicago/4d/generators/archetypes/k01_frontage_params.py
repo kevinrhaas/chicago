@@ -350,6 +350,65 @@ def _mansard_roof(m: dict, depth: float, width: float, eave: float, pitch: float
             "curb_m": round(eave + rise, 4), "ridge_m": round(ridge, 4)}
 
 
+def _mansard_crown(c: dict, m: dict, bays: tuple, depth: float, width: float, eave: float, pitch: float,
+                   overhang: float) -> dict:
+    """T-2404: a taller mansard over a street-front pavilion — the 1874 engraving's crown
+    on 1620 — as the main mansard's own profile with a higher curb and a fuller bow. It
+    stands on the K08 projection it names, its front on that pavilion's face and its sides
+    on the pavilion's junctions, and runs `depth_m` back into the main roof, which the
+    union swallows it into. Its cornice projects `overhang_m` past the pavilion's face."""
+    bay = next((b for b in bays if b["id"] == c.get("over_bay")), None)
+    if bay is None or bay["variant"]["kind"] != "projection" or bay["wall"] != "k01.wall.street_front":
+        raise ParamError(f"mansard.crown.over_bay {c.get('over_bay')!r}: a K08 projection on the street front")
+    pts = bay["variant"]["plan"]["points"]
+    proud = max(float(q[1]) for q in pts)
+    a, b = bay["span_m"]
+    cd, up = float(c["depth_m"]), float(c["rise_above_curb_m"])
+    if not 1.5 <= cd <= depth / 2:
+        raise ParamError(f"mansard.crown.depth_m {cd}: 1.5 m to half the house's depth")
+    if not 0.3 <= up <= 2.0:
+        raise ParamError(f"mansard.crown.rise_above_curb_m {up}: a crown stands 0.3-2.0 m over the main curb")
+    co = float(c.get("overhang_m", overhang))
+    if not overhang < co <= overhang + 0.5:
+        raise ParamError(f"mansard.crown.overhang_m {co}: past the main cornice's {overhang} m, by at most 0.5 m "
+                         f"(an equal one would lay the two fascias in one plane on the corner)")
+    bulge = float(c.get("bulge", m["bulge"]))
+    if not 0.0 <= bulge <= 0.2:
+        raise ParamError(f"mansard.crown.bulge {bulge}: 0-0.2 of the chord")
+    k5 = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())
+    lower = float(c.get("lower_pitch_deg", m["lower_pitch_deg"]))
+    _within(lower, k5["ranges"]["mansard_lower_deg"], "mansard.crown.lower_pitch_deg")
+    rise = m["lower_rise_m"] + up
+    run = rise / math.tan(math.radians(lower))
+    half = min(cd, b - a) / 2 + co
+    if run >= half - 0.3:
+        raise ParamError(f"mansard.crown: its curb at {rise} m leaves no upper roof over {b - a} m")
+    out = {"over_bay": bay["id"], "x0": round(depth + proud - cd, 4), "x1": round(depth + proud, 4),
+           "z0": round(-b, 4), "z1": round(-a, 4), "lower_pitch_deg": lower, "lower_rise_m": round(rise, 4),
+           "bulge": bulge, "overhang_m": co, "curb_m": round(eave + rise, 4),
+           "ridge_m": round(eave + rise + (half - run) * math.tan(math.radians(pitch)), 4)}
+    d = c.get("dormer")
+    if d:
+        # one round-headed dormer on the crown's street face, centred on it: a K06 opening
+        # in a stone face whose head follows the sash's own arch
+        kit = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
+        sh = d["sash"]
+        if kit.get(sh.get("variant"), {}).get("head") != "round":
+            raise ParamError("mansard.crown.dormer.sash.variant: a round-headed K06 variant")
+        sw, sht, sill = float(sh["width_m"]), float(sh["height_m"]), float(sh["sill_m"])
+        ring, sb = float(d["surround_m"]), float(d["face_setback_m"])
+        wd = sw + 2 * ring
+        if not 0.1 <= ring <= 0.4 or not 0.0 < sb < run + co:
+            raise ParamError("mansard.crown.dormer: a 0.1-0.4 m surround, its face on the crown's lower face")
+        if not 0.5 <= sw <= 1.2 or not 1.0 <= sht <= 2.4 or not 0.1 <= sill <= 0.6:
+            raise ParamError("mansard.crown.dormer.sash: 0.5-1.2 m wide, 1.0-2.4 m high, on a 0.1-0.6 m sill")
+        if wd > (b - a) - 0.6:
+            raise ParamError(f"mansard.crown.dormer: {wd:.2f} m wide on a {b - a} m crown")
+        out["dormer"] = {"variant": sh["variant"], "sash_width_m": sw, "sash_height_m": sht, "sill_m": sill,
+                         "surround_m": ring, "face_setback_m": sb, "width_m": round(wd, 4)}
+    return out
+
+
 def _k02(front: dict) -> dict:
     """The K02 masonry parameters (T-2289): the record names the walling fabric, its
     dressing, the trim fabric, how many courses the rusticated base runs and which
@@ -473,7 +532,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         if e.get("fabric", "stone") not in BAY_FABRICS:
             raise ParamError(f"bays: fabric {e.get('fabric')!r} is not one of {BAY_FABRICS}")
         v["id"] = f"{structure_id}|{e['id']}"
-        if "plan" in e and not oriel:
+        if "plan" in e and v["kind"] == "projection":
+            # T-2404: a full-height projection read off a picture keeps the picture's width
+            # and how far it stands proud; the kit's projection is the shape (a square-cornered
+            # pavilion), never the size
+            q = e["plan"]
+            w, d = float(q["width_m"]), float(q["proud_m"])
+            if not (1.5 <= w <= 6.0 and 0.1 <= d <= 1.2):
+                raise ParamError(f"bays: {e['id']}'s projection is {w} m wide and {d} m proud; a pavilion "
+                                 f"is 1.5-6.0 m wide and stands 0.1-1.2 m proud")
+            v["plan"] = {"kind": "polyline", "points": [[-w / 2, 0.0], [-w / 2, d], [w / 2, d], [w / 2, 0.0]]}
+        elif "plan" in e and not oriel:
             # T-2342: a bow drawn on its sheet keeps the sheet's chord and rise; the kit's
             # bow is the shape, never the size. Only a bow, and never past its semicircle:
             # a deeper arc would swing back behind its own junctions
@@ -499,7 +568,19 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         s = float(e["s_m"])
         lo, hi = _bay_span(v["plan"])
         a, b = s + lo, s + hi
-        if a < BAY_PIER_M - 1e-9 or b > wall_len[e["wall"]] - BAY_PIER_M + 1e-9:
+        # T-2404: a pavilion may stand flush with its wall's corner — its cheek then runs on in
+        # the side wall's own plane, as 1620's north pavilion does in its 1874 engraving. Only
+        # a projection, only at the corner it names, and then exactly at it
+        flush = e.get("flush_corner")
+        if flush is not None:
+            if v["kind"] != "projection" or flush not in ("left", "right"):
+                raise ParamError(f"bays: {e['id']}: flush_corner is 'left' or 'right', on a projection only")
+            at = a if flush == "left" else wall_len[e["wall"]] - b
+            if abs(at) > 1e-6:
+                raise ParamError(f"bays: {e['id']} is flush with its {flush} corner, and its junction stands "
+                                 f"{at:.3f} m from it")
+        if (a < BAY_PIER_M - 1e-9 and flush != "left") or \
+                (b > wall_len[e["wall"]] - BAY_PIER_M + 1e-9 and flush != "right"):
             raise ParamError(f"bays: {e['id']} meets {e['wall']} at s {a:.3f}..{b:.3f}, closer than "
                              f"{BAY_PIER_M} m to a corner of its {wall_len[e['wall']]} m wall")
         top = sum(float(st["height_m"]) for st in v["storeys"])
@@ -525,7 +606,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         if e.get("fabric") == "front_stone" and not front_stone:
             raise ParamError(f"bays: {e['id']} is laid in the front's stone, and the record names no K02 stone_front")
         out.append({"id": e["id"], "wall": e["wall"], "s_m": s, "span_m": (round(a, 4), round(b, 4)),
-                    "fabric": e.get("fabric", "stone"), "variant": v})
+                    "fabric": e.get("fabric", "stone"), "variant": v,
+                    **({"flush_corner": flush} if flush else {})})
     return tuple(out)
 
 
@@ -1063,6 +1145,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     bays = _bays(val("bays"), {"k01.wall.street_front": width, "k01.wall.rear_service": width,
                                "k01.wall.side.south": depth, "k01.wall.side.north": depth},
                  openings, (record or {}).get("id", ""), bool(val("stone_front")), tuple(floors), eave)
+    if (val("mansard") or {}).get("crown"):
+        mansard_roof["crown"] = _mansard_crown(val("mansard")["crown"], mansard_roof, bays, depth, width, eave,
+                                               pitch, float(val("eave_overhang_m")))
 
     wings = _rear_wings(val("rear_wings"), depth, width, openings, cw,
                         opening["parameters"]["clear_height_m"]["range"], (record or {}).get("id", ""))

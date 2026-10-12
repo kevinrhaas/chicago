@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "tribune_1898_front",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "eb37e3f42f7b696a6f439225e444944a4eb473caedd7d566b1c498722daa0bc8",
+  "glb_sha256": "4277ba409d34b7f6b32c0e648c816627c2c7fe9469ab9fd29a393e9f15cc7e56",
   "camera_sha256": "fc8035327dd5820503597ea8d52120b7a83da91067ee536623af793f81317b5b",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg",
   "verdict": "differs",
@@ -13,7 +13,7 @@
     },
     {
       "what": "north pavilion: the north part of the front proud, its south side face shaded, round-headed windows in both storeys under moulded hoods, rising past the main cornice; the build's front is flat there and carries a two-storey canted bay",
-      "status": "open"
+      "status": "fixed"
     },
     {
       "what": "bay window: a one-storey bay on the south part with pilaster strips and its own cornice; built by T-2408 as the 1874 engraving's hooded canted bay, its cornice under the hood",
@@ -36,5 +36,6 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "T-2404 (lapped onto T-2408), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg"
 }

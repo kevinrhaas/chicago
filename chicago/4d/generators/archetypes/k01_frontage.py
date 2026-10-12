@@ -44,9 +44,13 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
                             with its sash, bargeboards and verge soffits, copper
                             ridge roll, open valleys, apron and step flashing
   k01.wall.dormer_face      the dormer's face, its sash cut through it
+  k01.opening.sash_round    a mansard crown's round-headed dormer sash (T-2404): K06's
+                            round-arched variant in the recess the roof's union cut
   k08.*                     a K08 bay (T-2308): `generators/archetypes/k08_bays.py`
                             builds it in its own wall frame and `bay` lays it on
-                            its host wall, which carries no opening behind it
+                            its host wall, which carries no opening behind it; a
+                            projection may stand flush with a corner and carry a
+                            mansard `crown` over it (T-2404)
 
   and, since T-2289, the stone street front laid from the K02 stone library
   (`data/components/prairie_1904/k02_stone_profiles.json`, read through the record's
@@ -1504,7 +1508,17 @@ class Assembly:
         else:
             hip, hs = k5.hip_element(0.0, D, -W, 0.0, E, tp, o, f)
         solids = [hip, k5.body_box(0.0, D, -W, 0.0, hs - 1.0, hs)]
+        cr = (m or {}).get("crown")
+        if cr:  # T-2404: the pavilion's crown, a taller mansard joined into the main one
+            crown, _, _ = k5.mansard_element(cr["x0"], cr["x1"], cr["z0"], cr["z1"], E, cr["lower_pitch_deg"],
+                                             p.roof_pitch_deg, cr["lower_rise_m"], cr["bulge"], m["segments"],
+                                             m["profile"], cr["overhang_m"], f)
+            solids.append(crown)
         recess = None
+        if cr and cr.get("dormer"):
+            g = self.crown_dormer_body(cr, E, f)
+            solids.append(g["body"])
+            recess = g["recess"]
         d = p.dormer
         if d:
             dp = kit["parts"]["dormer"]
@@ -1580,6 +1594,8 @@ class Assembly:
         self._emit_shell(*self.k14_roof_rows(pts, tris), seed, conf)   # T-2359: the plume's rows
         if d:
             self.dormer_sash(seed)
+        if cr and cr.get("dormer"):
+            self.crown_dormer_sash(conf)
         if k:
             self.dress(pts, tris, seed, conf)
         if p.rainwater:
@@ -1706,6 +1722,80 @@ class Assembly:
                 b_ = self.basis(mat, (0.0, 0.0, 0.0), au, _cross(n, au), seed)
             self.prim(mat).face(tri, n, b_, conf)
 
+    def crown_dormer_body(self, cr, E, f):
+        """T-2404: the crown's round-headed dormer as a closed solid for the roof's union —
+        a stone face on the crown's street face, its head the sash's own arch carried out by
+        the surround, run back through the crown's lower face — and the recess its K06 sash
+        stands in, cut to K06's own outline so the opening's reveal is the solid's."""
+        from . import k05_roofs as k5
+        from . import k06_windows
+        d = cr["dormer"]
+        # the crown's lower face (K05's quadratic, k05_roofs.mansard_element): its height at
+        # the dormer face's setback in from the fascia
+        lt = math.tan(math.radians(cr["lower_pitch_deg"]))
+        rise, he = cr["lower_rise_m"], E
+        run = rise / lt
+        L = math.hypot(run, rise)
+        nrm = (-rise / L, run / L)
+        sgn = 1.0 if self.p.mansard["profile"] == "convex" else -1.0
+        P1 = (run / 2 + sgn * cr["bulge"] * L * nrm[0], he + rise / 2 + sgn * cr["bulge"] * L * nrm[1])
+        bez = lambda u, i: (1 - u) ** 2 * (0.0, he)[i] + 2 * (1 - u) * u * P1[i] + u * u * (run, he + rise)[i]
+        lo, hi = 0.0, 1.0
+        for _ in range(60):
+            mid = (lo + hi) / 2
+            lo, hi = (mid, hi) if bez(mid, 0) < d["face_setback_m"] else (lo, mid)
+        ys = bez(lo, 1)
+        xf = cr["x1"] + cr["overhang_m"] - d["face_setback_m"]
+        zc = (cr["z0"] + cr["z1"]) / 2
+        # K06's own hole: the sash's outline at the outer face, about its sill socket
+        v = dict(next(x for x in k06_windows.load()["variants"] if x["id"] == d["variant"]))
+        v["clear_width_m"], v["clear_height_m"] = d["sash_width_m"], d["sash_height_m"]
+        o = k06_windows.Opening(v, k06_windows.load())
+        o.build()
+        hole = o.holes[0]
+        sill = ys + d["sill_m"]
+        r = d["width_m"] / 2
+        spring = sill + d["sash_height_m"] - d["sash_width_m"] / 2
+        # the face's outline in (z, y): jambs to the sash's spring, then a half circle
+        # struck from the sash's own centre, `surround_m` outside its arch
+        arc = [(zc + r * math.cos(math.pi * i / 12), spring + r * math.sin(math.pi * i / 12)) for i in range(13)]
+        outline = [(zc - r, ys - 0.4), (zc + r, ys - 0.4)] + arc
+        back = cr["x1"] + cr["overhang_m"] - run - 0.3
+        P = k5.frame("x")
+        body = k5.extrude(outline, back, xf, P, "cheek", "hidden", "dormer_face")
+        rev = v.get("overrides", {}).get("reveal_depth_m", k06_windows.load()["parts"]["reveal_depth_m"]["value"])
+        # the hole in the kit's frame is (+X along the wall, +Y up); the face's R is -z
+        rec = [(zc - q[0], sill + q[1]) for q in hole]
+        recess = k5.extrude(rec, xf - rev, xf + 0.05, P, "reveal", "window", "reveal")
+        self.crown_dormer_geom = {"xf": xf, "ys": ys, "sill": sill, "zs": zc + r, "zc": zc, "width": 2 * r,
+                                  "top": spring + r, "variant": v}
+        return {"body": body, "recess": recess}
+
+    def crown_dormer_sash(self, conf):
+        """T-2404: the crown dormer's K06 sash in the recess the union cut (its reveal is the
+        solid's), the face registered as the K01 dormer face it is."""
+        from . import k06_windows
+        from archetypes.k01_frontage_params import Opening
+        g, d = self.crown_dormer_geom, self.p.mansard["crown"]["dormer"]
+        O = (g["xf"], g["ys"], g["zs"])
+        R = (0.0, 0.0, -1.0)
+        self.instance("k01.wall.dormer_face", "wall", {"length_m": g["width"], "height_m": round(g["top"] - g["ys"], 4),
+                                                       "construction": "masonry", "openings": 1, "head": "round"},
+                      {"base": O, "top": (g["xf"], g["top"], g["zc"])})
+        op = Opening("k01.opening.sash_round", "k01.wall.dormer_face", g["width"] / 2, g["sill"] - g["ys"],
+                     d["sash_width_m"], d["sash_height_m"])
+        frame = (O, R, _cross(R, Y))
+        seed = self.instance(op.component, "opening", {"clear_width_m": op.width_m, "clear_height_m": op.height_m,
+                                                       "k06_variant": d["variant"], "wall": op.wall},
+                             {"sill": (g["xf"], g["sill"], g["zc"])})
+        if not hasattr(self, "_kit"):
+            self._kit = k06_windows.load()
+        o = k06_windows.Opening(g["variant"], self._kit)
+        o.seed = seed
+        o.build()
+        roles = {r: ("limestone_trim" if m == "stone" else (m or "dormer_stone")) for r, m in self.K06_ROLES.items()}
+        self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf), ("reveal",))
+
     def dormer_sash(self, roof_seed):
         """The dormer's face: a K01 wall component whose surface is the union's, and its
         sash set in the recess the union cut (the reveal is the solid's, K06 the rest)."""
@@ -1731,12 +1821,16 @@ class Assembly:
         for a, b, c, role, n in tris:
             if role != "covering":
                 continue
-            on = 0
+            # a triangle whose edge on the line overlaps A-B: T-2404's crown is cut by the main
+            # roof's union mid-hip, so a hip's short piece can lie inside a longer edge
+            on = []
             for q in (pts[a], pts[b], pts[c]):
                 s = _dot(_sub(q, A), L) / LL
                 e = _sub(_sub(q, A), _mul(L, s))
-                on += -1e-6 <= s <= 1 + 1e-6 and _dot(e, e) < 1e-8
-            if on >= 2 and not any(_dot(n, m) > 0.9999 for m in out):
+                if _dot(e, e) < 1e-8:
+                    on.append(s)
+            if len(on) >= 2 and min(on) < 1 - 1e-6 and max(on) > 1e-6 \
+                    and not any(_dot(n, m) > 0.9999 for m in out):
                 out.append(n)
         return out
 
@@ -1753,7 +1847,9 @@ class Assembly:
                 A, B = B, A                       # A is the low end: the eave's, on a hip
             # T-2370: a mansard's lower hip bends with the face's curve, and K05's graph keeps
             # only its ends, so it is capped a segment at a time, ring corner to ring corner
-            spans = self._bent_hip(pts, tris, A, B) if kind == "hip" and self.p.mansard else [(A, B)]
+            # T-2404: a crown's faces meet the main roof's curved faces in a bent valley too
+            spans = (self._bent_hip(pts, tris, A, B) if kind == "hip" else self._bent_valley(pts, tris, A, B)) \
+                if self.p.mansard and kind in ("hip", "valley") else [(A, B)]
             for A, B in spans:
                 ns = self._line_planes(pts, tris, A, B)
                 if len(ns) != 2:
@@ -1781,15 +1877,64 @@ class Assembly:
             return [(A, B)]
         # the shell's own vertices, unrounded (the graph's ends are rounded to 0.1 mm, too
         # coarse for a span this short to find its planes)
-        used = [tuple(pts[i]) for i in sorted({i for t in tris if t[3] == "covering" for i in t[:3]})]
-        snap = lambda e: min(used, key=lambda q: math.dist(q, e))
-        on = {snap(A), snap(B)}
-        for q in used:
-            if not A[1] + 1e-4 < q[1] < B[1] - 1e-4:
-                continue
-            if abs((q[0] - A[0]) * dz - (q[2] - A[2]) * dx) / L < 1e-3:
-                on.add(q)
-        chain = sorted(on, key=lambda q: q[1])
+        used = sorted({i for t in tris if t[3] == "covering" for i in t[:3]})
+        snap = lambda e: min(used, key=lambda i: math.dist(pts[i], e))
+        plane = lambda q: abs((q[0] - A[0]) * dz - (q[2] - A[2]) * dx) / L < 1e-3
+        # T-2404: walk the covering's own edges up the hip's vertical plane. Every vertex on
+        # that plane used to be chained by height, which held while the hip was the only
+        # thing there; a crown joined into the roof leaves intersection vertices on the same
+        # plane that are not on the hip, and a chain through them is no line of the roof
+        adj = {}
+        for t in tris:
+            if t[3] == "covering":
+                for a, b in ((t[0], t[1]), (t[1], t[2]), (t[2], t[0])):
+                    adj.setdefault(a, set()).add(b)
+                    adj.setdefault(b, set()).add(a)
+        cur, end = snap(A), snap(B)
+        chain = [cur]
+        while cur != end:
+            nxt = [j for j in adj.get(cur, ()) if plane(pts[j]) and pts[cur][1] + 1e-6 < pts[j][1] <= pts[end][1] + 1e-4]
+            if not nxt:
+                break
+            cur = min(nxt, key=lambda j: pts[j][1])
+            chain.append(cur)
+        if chain[-1] != end:   # no edge path: the old reading, every vertex on the plane
+            on = {snap(A), end} | {i for i in used if A[1] + 1e-4 < pts[i][1] < B[1] - 1e-4 and plane(pts[i])}
+            chain = sorted(on, key=lambda i: pts[i][1])
+        chain = [tuple(pts[i]) for i in chain]
+        return list(zip(chain, chain[1:]))
+
+    @staticmethod
+    def _bent_valley(pts, tris, A, B):
+        """T-2404: the segments of a valley from A up to B along the covering's own creases.
+        Where a crown's curved face meets the main mansard's curved face the valley bends at
+        every ring of either, and K05's graph keeps only its ends; each step takes the crease
+        edge that climbs and comes nearer B."""
+        cov = [t for t in tris if t[3] == "covering"]
+        faces = {}
+        for t in cov:
+            n = t[4]
+            for a, b in ((t[0], t[1]), (t[1], t[2]), (t[2], t[0])):
+                faces.setdefault((min(a, b), max(a, b)), []).append(n)
+        adj = {}
+        for (a, b), ns in faces.items():
+            if len(ns) == 2 and _dot(ns[0], ns[1]) < 0.9999:
+                adj.setdefault(a, set()).add(b)
+                adj.setdefault(b, set()).add(a)
+        if not adj:
+            return [(A, B)]
+        ends = sorted(adj)
+        cur = min(ends, key=lambda i: math.dist(pts[i], A))
+        end = min(ends, key=lambda i: math.dist(pts[i], B))
+        chain = [cur]
+        while cur != end:
+            nxt = [j for j in adj[cur] if pts[cur][1] + 1e-6 < pts[j][1] <= pts[end][1] + 1e-4
+                   and math.dist(pts[j], pts[end]) < math.dist(pts[cur], pts[end])]
+            if not nxt:
+                return [(A, B)]
+            cur = min(nxt, key=lambda j: math.dist(pts[j], pts[end]))
+            chain.append(cur)
+        chain = [tuple(pts[i]) for i in chain]
         return list(zip(chain, chain[1:]))
 
     def valley(self, V0, V1, nA, nB, lift, seed, conf):

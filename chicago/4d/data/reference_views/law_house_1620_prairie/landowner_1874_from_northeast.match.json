@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "eb37e3f42f7b696a6f439225e444944a4eb473caedd7d566b1c498722daa0bc8",
+  "glb_sha256": "4277ba409d34b7f6b32c0e648c816627c2c7fe9469ab9fd29a393e9f15cc7e56",
   "camera_sha256": "4cbf3a651e1ee5dc689b00afeae61cf325bc7d6f1e36cb4d32e8c03ffdfa0f7e",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg",
   "verdict": "differs",
@@ -17,10 +17,14 @@
     },
     {
       "what": "north pavilion: the north 3.75 m of the front (v 7.5-11.25) is a pavilion standing a little proud, with two round-headed windows a storey under moulded hoods and a light corner strip at its north corner; the build's front is flat there and carries the canted bay",
-      "status": "open"
+      "status": "fixed"
     },
     {
       "what": "crown: over the pavilion a taller bell-curved mansard with one round-headed dormer, rising about 0.7 m over the main curb; the build has none",
+      "status": "fixed"
+    },
+    {
+      "what": "corner strip: the engraving draws a light strip down the pavilion's north corner, a stone or painted quoin; T-2404's pavilion turns that corner in its own brick",
       "status": "open"
     },
     {
@@ -72,5 +76,6 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "T-2404 (lapped onto T-2408), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg"
 }
