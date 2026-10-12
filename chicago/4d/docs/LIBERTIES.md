@@ -25033,6 +25033,28 @@ relief in shade, is a per-asset bake owned by T-2394.
 **Ticket:** T-2393 (split from T-2390).
 **Recorded:** 2026-10-12 (T-2393).
 
+### L-glessner-stone-occlusion-2400 — Glessner's granite is shaded by the occlusion of its own reconstructed stones
+
+**Decision:** the granite slots of Glessner v4 (granite, granite_1 to 4 and rough_stone_trim)
+carry an occlusion map baked from the building's own modelled stones, in the master and the
+full web model (T-2400, split from T-2394). Cycles ambient occlusion out to 0.30 m, 64
+samples, onto a 2048-square atlas of its own (TEXCOORD_1, about 2.3 cm a texel). So the
+recessed joints, the pitched arrises and the reveals darken the sky light on the stone around
+them. It replaces T-2393's tiling map on those slots; the light model keeps the tiling map.
+The viewer applies it to the sky fill only. The sun is unchanged.
+**What is invented.** The 0.30 m reach, chosen to see a stone's own relief and its reveal and
+not the building's masses (a long reach put the Sauganash out, T-0227). The stones it reads
+are the reconstructed courses, joints and pitched faces of the v4 model, so the shading is
+only as true as they are. No photograph was read for it.
+**What is not changed.** Every vertex, the albedo, tints, roughness, the normal maps and the
+scene light. On the shaded stands the faces read 0.5-1.9 % darker and their pixel-scale
+relief rises 15-21 %.
+**How to resolve:** a measured survey of the street granite would replace the reconstructed
+stones the bake reads. The light model's own bake is T-2401.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2400 (split from T-2394).
+**Recorded:** 2026-10-12 (T-2400).
+
 ### L-k14-1808-roof-2359 — 1808 Prairie's slate carries the K14 chimney plume at 18 years, on plan rows this ticket chose
 
 **Decision:** 1808 Prairie's slate takes the K14 kit's chimney plume (`chimney_soot`, T-2324)

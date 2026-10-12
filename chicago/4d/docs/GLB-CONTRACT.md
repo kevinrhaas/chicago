@@ -182,11 +182,24 @@ whose height is a guess is a guessed wall, even if we know it was white.
   the exported bytes on every commit and refuses a texture that carries no occlusion or a
   manifest that disagrees with the file; `generators/build.py` runs the same assertion the
   moment each GLB is written, so `baked_ao: true` cannot be recorded for a bake that did not
-  arrive. **No committed master carries one today** — `--ao` is opt-in and nothing passes it
-  (T-0015), and whether it *should* be is open: every figure that said the bake is too dark was
+  arrive. **Only Glessner v4 carries one, from its own builder (T-2400, below)** — `--ao` is opt-in and
+  nothing passes it (T-0015), and whether it *should* be is open: every figure that said the bake is too dark was
   read off an sRGB-tagged buffer AND over an atlas that is 68.9 % empty UV space, so it is void
   (T-0158). The corrected reading on `sauganash_hotel` is mean **0.5358** over the 81,458 texels
   the unwrap writes, 58.7 % of them below half. T-0227 settles it from a rendered frame.
+- **A baked occlusion map may ride its own UV set, `TEXCOORD_1`** (PROPOSED 2026-10-12,
+  T-2400; additive). One master carries one: Glessner v4's granite, baked at stone scale by its
+  own builder (`generators/archetypes/masonry_house_v4_occlusion.py`) onto an atlas of its own,
+  because `TEXCOORD_0` is the metric tiling set the material maps repeat on and cannot hold a
+  bake. Its `occlusionTexture.texCoord` is `1`; GLTFLoader names the attribute `uv1` and sets
+  `aoMap.channel = 1`, and `normalizeGeometry()` in `renderers/web/js/buildings.js` carries
+  `uv1` into the batch exactly when the material's aoMap reads it (the aoMap is in
+  `materialKey()`, so a batch's attribute set stays uniform), and refuses the mesh if it does
+  not carry it. Every other asset is unchanged and pays nothing. A derivative built on a
+  different mesh must not copy a `texCoord` it does not carry — WebGL reads a missing
+  attribute as (0, 0), one texel everywhere — and `ao_export.py --gate` assertion 5 reads
+  every master and web derivative for exactly that. The Glessner light model puts the tiling
+  map back on `TEXCOORD_0` (`tools/_glessner_lod.py`).
 - No emissive, no transparency in the base asset. The confidence view's translucency is a
   *renderer* effect (screen-door dither in the opaque pass), never baked geometry.
 
