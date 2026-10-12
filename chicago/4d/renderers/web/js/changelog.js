@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 1717, ts: '2026-10-12T06:16:23.561Z', date: 'Oct 12, 2026, 1:16 AM CT', title: '1620 Prairie raised under the mansard roof its 1874 engraving shows', kind: 'fix',
+    items: [
+      'The Robert Law house at 1620 Prairie now wears the steep, slightly bowed mansard roof drawn in an 1874 engraving of it, in place of a low hipped roof.',
+      'Its walls stand at the engraving\'s cornice height, about 70 cm lower than before.',
+      'Two pictures of the house, the 1874 engraving and an 1898 Tribune sketch, are now part of the project\'s sources, and the build is checked against both.',
+      'Still to come from those pictures: the north tower-like pavilion and its taller crown, dormers, the hooded bay window, round-headed windows, the porch and the lattice fence.',
+    ] },
+  { v: 1716, ts: '2026-10-12T06:16:23.561Z', date: 'Oct 12, 2026, 1:16 AM CT', title: 'The 1812 Prairie coach house checked against the 18th Street photographs', kind: 'chore',
+    items: [
+      'Nothing you can see changes in the town. Four old pictures looking south down Prairie Avenue from 18th Street were listed as pictures of the coach house behind 1812 Prairie.',
+      'They are one photograph, and the coach house is not in it. It stands on the alley, past the right edge of the picture and behind the Glessner house.',
+      'Those pictures now count toward the 1812 house itself, whose front is in them, far down the row.',
+    ] },
   { v: 1715, ts: '2026-10-12T05:48:38.878Z', date: 'Oct 12, 2026, 12:48 AM CT', title: 'The 16th Street station gets its platform, canopy and nameboards', kind: 'feature',
     items: [
       'The Illinois Central\'s 16th Street station at 1605 Prairie Avenue now looks like a station rather than a plain frame box.',

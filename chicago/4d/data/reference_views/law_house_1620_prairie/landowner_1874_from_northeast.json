@@ -1,0 +1,22 @@
+{
+  "structure_id": "law_house_1620_prairie",
+  "source_id": "land_owner_1874_05_homes_of_chicago_1620_law",
+  "library_image": "a16-cgy-landowner-1874-1620-law",
+  "photo": "../../sources/assets/law_1620_pictures_t2370/law_1620_landowner_1874.jpg",
+  "image_px": [
+    1136,
+    756
+  ],
+  "principal_px": [
+    568,
+    578
+  ],
+  "focal_px": 1498,
+  "eye": [
+    60.19,
+    28.07,
+    -0.7
+  ],
+  "yaw_deg": -116.2,
+  "solve": "Fitted by T-2370 from the engraving alone, with the K01 rectangle's 11.25 m front and 16.75 m north wall (Robinson 1886 plate 10, trace r1886-1620-f) as the lengths. The engraving's verticals are vertical, so the camera is level; the principal point's x is the plate's centre (568 px). Four readings fix the plan: the front's south corner at x 393 px, its north corner (the light corner strip's outer edge) at x 700 px, the north wall's rear corner at x 848 px, and the vanishing point of the north wall's cornice (y 300 px at x 700, 368 px at x 848) and base (about 560 and 555 px) at x 1305 px. Least squares gives f = 1498 px, a heading of -116.2 degrees (looking west-south-west), the eye 43.4 m in front of the front and 16.8 m north of the north wall, across Prairie Avenue; residual 0 px (exactly determined). The horizon (y 578 px) is the meeting of the north wall's cornice and base lines; the cornice soffit read at the three corners (328, 300 and 368 px) then agrees to 0.7 px with one height, 8.59 m over the eye, and the wall's foot at the two north corners puts the eye 0.5-0.9 m under the house's grade, taken as -0.7 m (the street below the raised yard). Check, not used in the fit: v 7.5 m along the front projects to x 590.6 px, where the engraving's taller curved crown begins over the north part."
+}

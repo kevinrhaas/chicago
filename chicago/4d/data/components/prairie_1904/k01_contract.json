@@ -286,10 +286,14 @@
             "flat": [
               1,
               5
+            ],
+            "mansard_upper": [
+              10,
+              30
             ]
           },
           "confidence": "reconstructed",
-          "rule_source": "RECONSTRUCTION-RULES.md § Starting ranges: Main roof; the flat band is K05's own (k05_roofs.json ranges.flat_doc, T-2349), which k01.roof.flat is built from (T-2350)"
+          "rule_source": "RECONSTRUCTION-RULES.md § Starting ranges: Main roof; the flat band is K05's own (k05_roofs.json ranges.flat_doc, T-2349), which k01.roof.flat is built from (T-2350); the mansard_upper band is K05's mansard_upper_deg (RECONSTRUCTION-RULES.md § Starting ranges: Main roof, Mansard), the upper hip of k01.roof.mansard (T-2370), whose lower face K05's mansard_lower_deg binds"
         },
         "eave_datum": {
           "unit": "datum",
@@ -325,7 +329,8 @@
       "example_ids": [
         "k01.roof.gable",
         "k01.roof.hip",
-        "k01.roof.flat"
+        "k01.roof.flat",
+        "k01.roof.mansard"
       ]
     },
     {

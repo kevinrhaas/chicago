@@ -62,8 +62,12 @@
   "attributes": {
     "stories": {
       "value": 2,
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: Robinson's 1886 atlas prints no storey count and the 1911 sheet, which would, no longer draws the house. Two storeys over a raised basement is the register's 'irregular earlier brick envelope' under a 'bounded roof' read at the height of its brick neighbours 1608 and 1612 (two storeys each on sheet 20); the 1898 Tribune drawing the register names would settle it and has not been read."
+      "confidence": "inferred",
+      "note": "Two storeys over a raised basement, under a mansard (an attic storey in the roof, not a third storey of wall): the May 1874 Land Owner engraving shows two rows of windows on the north wall and the front under one cornice, the mansard and its dormers above it, and the 1898 Tribune sketch two storeys of windows under its cornice. Carried to 1904 because nothing read records a change; the 1911 sheet no longer draws the house.",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law",
+        "chicago_tribune_1898_01_09_prairie_widows"
+      ]
     },
     "construction": {
       "value": "brick",
@@ -80,11 +84,14 @@
     },
     "storey_heights_m": {
       "value": [
-        3.9,
-        3.6
+        3.6,
+        3.2
       ],
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: 3.9 m and 3.6 m, 1608's, inside RECONSTRUCTION-RULES' ranges; the draft's 3.5 m upper storey left no room for the brick arch under the K10 cornice's bed moulding. Nothing read states them."
+      "confidence": "inferred",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law"
+      ],
+      "note": "The walls' top read off the 1874 engraving through its camera (data/reference_views/law_house_1620_prairie/landowner_1874_from_northeast.json): the cornice's soffit at the front's north corner (y 300 px) stands 7.91 m over grade and the cornice's top (y 290 px) 8.22 m, so the wall head is taken at 8.2 m, 0.7 m under the 8.9 m T-1861 had reconstructed. Over the 1.4 m principal floor that leaves 6.8 m for the two storeys, divided 3.6 and 3.2 m as the engraving's taller principal-storey windows divide them (the split itself is not measured: RECONSTRUCTED)."
     },
     "wall_thickness_front_m": {
       "value": 0.33,
@@ -117,22 +124,25 @@
         "cornice": "k10.cornice.bracketed_timber"
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: a K10 bracketed timber cornice round all four walls, the earlier Italianate brick house's usual eave; the register states only a 'bounded roof'."
+      "note": "RECONSTRUCTED in its parts: a K10 bracketed timber cornice round all four walls under the mansard's fascia. The 1874 engraving shows a bracketed cornice on the front and the north wall at this height (its brackets' spacing and profile are not read); the 1898 sketch a heavy bracketed cornice over the front."
     },
     "roof_form": {
-      "value": "hip",
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: the register's 'bounded roof' read as a low hip, the only roof K01 builds; the draft's hip kept."
+      "value": "mansard",
+      "confidence": "inferred",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law"
+      ],
+      "note": "A mansard: the 1874 engraving shows the house's roof as one, its steep slated lower faces bowed out a little under a curb, with round-headed dormers on the north face, and over the north 3.75 m of the front a taller bell-curved crown (not yet built: it belongs to the north pavilion, T-2370's next piece). Built from K05's convex mansard (k01.roof.mansard, T-2370). Carried to 1904 as the stories are."
     },
     "roof_pitch_deg": {
-      "value": 30,
+      "value": 18,
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: a 30-degree hip, 1608's, inside the contract's ordinary range."
+      "note": "RECONSTRUCTED: the mansard's upper hip, K05's 18 degrees, inside its mansard_upper range; no picture sees over the curb."
     },
     "eave_overhang_m": {
       "value": 0.6,
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: 0.6 m, 1608's."
+      "note": "RECONSTRUCTED: 0.6 m, 1608's; the engraving's cornice projects about so far at the north corner and is not measured."
     },
     "stair_tread_m": {
       "value": 0.3,
@@ -199,13 +209,13 @@
           "height_m": 2.3
         },
         {
-          "sill_above_floor_m": 0.7,
+          "sill_above_floor_m": 0.6,
           "width_m": 1.0,
-          "height_m": 1.9
+          "height_m": 1.75
         }
       ],
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: 1608's two-over-two sash, 1.0 m wide, 2.3 m in the principal storey and 1.9 m above, each under its brick arch."
+      "note": "RECONSTRUCTED: 1608's two-over-two sash, 1.0 m wide, 2.3 m in the principal storey and 1.75 m above on a 0.6 m sill, each under its brick arch; the upper sash is 0.15 m shorter and sits 0.1 m lower than 1608's because T-2370 lowered the wall head to the 1874 engraving's cornice and the arch must clear the K10 bed moulding. The engraving's own windows (round-headed in the north part, flat-headed on the north wall) are not yet built as it shows them."
     },
     "basement_lights": {
       "value": {
@@ -335,7 +345,7 @@
           "fabric": "brick",
           "storeys": [
             {
-              "height_m": 5.3,
+              "height_m": 4.9,
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -360,13 +370,13 @@
               ]
             },
             {
-              "height_m": 2.4,
+              "height_m": 2.2,
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
                   "clear_width_m": 0.75,
                   "clear_height_m": 1.5,
-                  "sill_m": 0.6,
+                  "sill_m": 0.4,
                   "at": [
                     0.18,
                     0.82
@@ -377,7 +387,7 @@
                   "opening": "k06.opening.sash_2over2_flat",
                   "clear_width_m": 0.95,
                   "clear_height_m": 1.5,
-                  "sill_m": 0.6,
+                  "sill_m": 0.4,
                   "at": [
                     0.5
                   ]
@@ -393,7 +403,18 @@
         }
       ],
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: the register's 'projecting bay' (its 1898 numbered drawing 'supports bay/arches', not read here) as the K08 canted bay 1608 wears, two storeys under a low tin hip on the north half of the front, centred 8.6 m from the south corner so its eaves clear the K10 corner bracket. Robinson's plate draws no bay at this scale, so neither its place nor its plan is read."
+      "note": "RECONSTRUCTED: the register's 'projecting bay' (its 1898 numbered drawing 'supports bay/arches', not read here) as the K08 canted bay 1608 wears, two storeys under a low tin hip on the north half of the front, centred 8.6 m from the south corner so its eaves clear the K10 corner bracket. Robinson's plate draws no bay at this scale, so neither its place nor its plan is read. T-2370 lowered its two storeys to 4.9 and 2.2 m (its upper lights 1.5 m on a 0.4 m sill) to stand under the cornice at the 1874 engraving's lower wall head. Both pictures show something else here: a one-storey bay window under a flared bracketed hood on the SOUTH part of the front, and the north part a pavilion with round-headed windows; that is the next piece, open in the match records."
+    },
+    "mansard": {
+      "value": {
+        "variant": "k05.roof.mansard_convex",
+        "lower_rise_m": 2.9
+      },
+      "confidence": "inferred",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law"
+      ],
+      "note": "The lower faces' rise read off the 1874 engraving through its camera: the curb of the north face, followed from x 735 px (y 228) to x 800 px (y 263) and taken 0.4-0.65 m in from the wall line, stands 11.0-11.3 m over grade, 2.8-3.1 m over the 8.2 m wall head; 2.9 m. The face's slight outward bow is the engraving's and K05's convex profile (72-degree chord, 0.07 bulge) is the kit's nearest; the profile's numbers are K05's, RECONSTRUCTED."
     },
     "function": {
       "value": "residence",
@@ -406,6 +427,45 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "chicago_tribune_1898_01_09_prairie_widows",
+      "citation": "'Four blocks on Prairie Avenue peopled by widows and widowers whom fortune has favored.' Chicago Tribune, 9 January 1898: a strip of five pen-and-ink vignettes of house fronts, numbered 1600, 1620, 1720, 1726 and 1812. Staff artist. Reproduced on chicagology.com, Prairie Avenue, 1620 and 1720 S. Prairie.",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1720prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the north part's projection and its round-headed windows",
+        "the one-storey bay window on the south part",
+        "the stoop's place beside the north part, and the gate piers",
+        "the lattice fence, so it stood in 1898 as in 1874"
+      ],
+      "what_it_does_not_supply": [
+        "measurement: the sketch's side faces are drawn deeper than any perspective allows (the camera's solve)",
+        "the roof above the cornice, which the panel cuts",
+        "colour, the side walls and the rear"
+      ]
+    },
+    {
+      "source_id": "land_owner_1874_05_homes_of_chicago_1620_law",
+      "citation": "'Robert Law.' Wood engraving of the Robert Law residence, 838 (later 1620) Prairie Avenue, Chicago, from the oblique front, in 'The Homes of Chicago', The Land Owner (Chicago: J. M. Wing), May 1874; unknown engraver. Reproduced on chicagology.com, Prairie Avenue, 1620 S. Prairie.",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1620prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the mansard roof, its dormers and the taller curved crown over the north part",
+        "the bay window, its hood and its storey",
+        "round-headed windows in the north part, by storey",
+        "the cornice's height, through the camera solve",
+        "the stoop, the porch's balustrade and the lattice front fence"
+      ],
+      "what_it_does_not_supply": [
+        "colour: the engraving is monochrome (the Inter Ocean of 1887 called the house olive green, a text this record does not hold)",
+        "the south side wall and the rear",
+        "whether anything changed between 1874 and 1904"
+      ]
+    },
     {
       "source_id": "robinson_1886_chicago_plate_10",
       "citation": "Robinson, E. Robinson's Atlas of the City of Chicago. New York: E. Robinson, 1886. Plate 10, \"Part of 2.39.14 Assessors Div.\"",
@@ -424,7 +484,7 @@
       ]
     }
   ],
-  "research_note": "Refined from the district draft (T-2334) in place by T-1861, under the draft's own id, as a K01 brick frontage: the plate's L under one rectangle, a canted bay on the north half of the front, segmental brick arches over the street windows, a high stoop, a bracketed cornice and a tin hip. Plan, place and brick are read off Robinson 1886 plate 10 (r1886-1620-f, through its T-1250 fit); the brief is the T-1837 register row frontage-20-006, which is not a source record; every height, opening, the roof and the trim are the kits' reconstruction (liberty L-k01-1620-law-1861). The rear stable is a separate record, still the draft's. The 1898 Tribune drawing the register names has not been read.",
+  "research_note": "Refined from the district draft (T-2334) in place by T-1861, under the draft's own id, as a K01 brick frontage: the plate's L under one rectangle, a canted bay on the north half of the front, segmental brick arches over the street windows, a high stoop, a bracketed cornice and a tin hip. Plan, place and brick are read off Robinson 1886 plate 10 (r1886-1620-f, through its T-1250 fit); the brief is the T-1837 register row frontage-20-006, which is not a source record; every height, opening, the roof and the trim are the kits' reconstruction (liberty L-k01-1620-law-1861). The rear stable is a separate record, still the draft's. T-2370 read both of its pictures (the May 1874 Land Owner engraving and the 1898 Tribune sketch, cameras in data/reference_views/law_house_1620_prairie/) and raised the house under the engraving's mansard, its walls lowered to the engraving's cornice; the pictures' north pavilion and crown, the one-storey hooded bay, the round-headed windows, the dormers, the stoop and porch and the lattice fence are their next pieces, listed open in the match records.",
   "research_doc": "",
   "review_required": false
 }
