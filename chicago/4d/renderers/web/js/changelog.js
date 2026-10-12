@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 1730, ts: '2026-10-12T18:25:47.401Z', date: 'Oct 12, 2026, 1:25 PM CT', title: 'Glessner\'s street windows, sash by sash', kind: 'change',
+    items: [
+      'The Glessner house\'s street and stable windows are now real double-hung sash: the upper sash sits outside the lower, each with its own frame and glass, over sills that slope to shed water.',
+      'The high window in the 18th Street gable is no longer a black slot. As the 1965 survey photograph shows it, it is a glazed round head over a stone transom, with a sash below.',
+    ] },
+  { v: 1729, ts: '2026-10-12T18:08:48.122Z', date: 'Oct 12, 2026, 1:08 PM CT', title: 'The first-entry smoke check stops waiting on frames it does not need', kind: 'fix',
+    items: [
+      'The automated check of the door, the navigation guide and the evidence menu no longer times out on a slow machine. The town now draws at about 8-10 seconds a frame on the build machines, and each of those clicks used to wait on about ten frames.',
+      'It still checks that the guide dismisses and remembers the choice, and that the evidence menu takes a real mouse click. It also logs how long each click took.',
+    ] },
+  { v: 1728, ts: '2026-10-12T18:08:48.122Z', date: 'Oct 12, 2026, 1:08 PM CT', title: 'A smoke check now reads a drawn frame, not a timer', kind: 'fix',
+    items: [
+      'Nothing you can see changed in the town.',
+      'The test that checks the Sauganash\'s walks show from Lake Street used to wait a fixed 300 ms between its two screenshots. On a slow machine both shots caught the same frame, so it failed pull requests that never touched 1835. It now waits for a frame drawn with the walks shown, then hidden, and its pass mark is unchanged.',
+    ] },
+  { v: 1727, ts: '2026-10-12T17:13:21.084Z', date: 'Oct 12, 2026, 12:13 PM CT', title: '1626 Prairie built as a brick house with its two-storey frame bay', kind: 'feature',
+    items: [
+      '1626 Prairie Avenue, the north half of the brick pair with 1628, is now a full three-storey brick house in place of its draft: brick on every wall, stone-headed sash, a bracketed cornice, a low tin hip with two chimneys, and the door and stoop at its north end.',
+      'In front of the south part of its face stands the two-storey frame bay the 1911 fire-insurance map draws there, built in painted timber over a brick base — the first timber bay on a brick house in the kit.',
+      'The house now meets 1628 on one shared party wall. Its rear pieces wait for the kit\'s rear wing, and the bay\'s form, paint and every height are reconstructions, recorded as liberty L-k01-1626-brick-frame-bay-2356.',
+    ] },
   { v: 1726, ts: '2026-10-12T15:46:06.812Z', date: 'Oct 12, 2026, 10:46 AM CT', title: '1620 Prairie\'s mansard dormers, from the 1874 engraving', kind: 'fix',
     items: [
       'The Robert Law house\'s mansard now carries the two round-headed dormers the 1874 engraving draws on its north side, behind the crown.',
