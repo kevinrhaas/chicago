@@ -372,7 +372,8 @@
     "s20-1616-f": "1616 Prairie's main body now stands as the K01 brick frontage house_1616_prairie (T-2353, piece 1 of T-2345), which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's two-storey brick rear range stands on K01's rear wings (T-2354).",
     "s20-1628-f": "1628 Prairie's main body now stands as the K01 brick frontage house_1628_prairie (T-2355, piece 1 of T-1862), the south half of the pair with 1626, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's three-storey rear wing waits for T-2347.",
     "s20-1626-f": "1626 Prairie's main body now stands as the K01 brick frontage house_1626_prairie with its frame front bay (T-2356, piece 2 of T-1862), the north half of the pair with 1628, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's rear 1B piece and 2B wing wait for T-2347.",
-    "s20-1634-f": "1634 Prairie's main body now stands as the K01 stone-front house house_1634_prairie under the flat roof K01 learned from K05 (T-2350, piece 2 of T-2346), the north half of the pair with 1636, which refines this draft in place under the draft's own id with the sheet's stone front bay on K08; the draft stands no second building beside it, and the sheet's three-storey rear wing waits for T-2347."
+    "s20-1634-f": "1634 Prairie's main body now stands as the K01 stone-front house house_1634_prairie under the flat roof K01 learned from K05 (T-2350, piece 2 of T-2346), the north half of the pair with 1636, which refines this draft in place under the draft's own id with the sheet's stone front bay on K08; the draft stands no second building beside it, and the sheet's three-storey rear wing waits for T-2347.",
+    "s20-1636-f": "1636 Prairie now stands as the K01 stone-front house house_1636_prairie under K01's flat roof (T-2348, piece 3 of T-1863), the south half of the pair with 1634, which refines this draft in place under the draft's own id: the wide front body on K01 with the sheet's canted stone bay on K08, and the narrow three-storey rear part on K01's rear wings; the draft stands no second building beside it."
   },
   "frontages": {
     "frontage-28-038": {
@@ -616,8 +617,10 @@
     },
     "frontage-20-011": {
       "slug": "house",
-      "entrance": "south",
-      "why": "3B stone-front, the south half of the pair with 1634: the same family mirrored, the one repeated front on the block, which the sheet's attached pair attests."
+      "entrance": "north",
+      "why": "3B stone-front, the south half of the pair with 1634: the same family, the one repeated front on the block, which the sheet's attached pair attests. The entrance is at the north end, beside the party wall: the sheet stands the canted stone bay across the south half of the front (T-2348), as 1634's bay stands at its own south end, so the pair repeats rather than mirrors.",
+      "house_id": "house_1636_prairie",
+      "house_address": "1636"
     },
     "frontage-20-012": {
       "slug": "shortall_gregory_house",
