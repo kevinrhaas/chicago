@@ -1178,7 +1178,7 @@
       "baked_ao": false,
       "bytes": 1669612,
       "generator": "generators/k16_emit.py",
-      "inputs_sha256": "a5c089a26a6a0a1970b93cd8f78449436d28f422e623f0f37a42fa50180e8f3b",
+      "inputs_sha256": "6675fcfc69b74ac9a21843e7be1c331936cf3c55004424a6d71f3516fd860d43",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1630_prairie"
@@ -7512,7 +7512,7 @@
       "baked_ao": false,
       "bytes": 997096,
       "generator": "generators/k16_emit.py",
-      "inputs_sha256": "14124f7cf8d49a4485555fd8e831f45168af795728a1a9363420d82a3de26dc9",
+      "inputs_sha256": "af8d040e75b0ba72fc49fd76caa93ea7dd05543bf921f7df300106ae0f76b425",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "shortall_gregory_house_1638_prairie_front"
