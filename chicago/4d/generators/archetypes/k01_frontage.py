@@ -46,6 +46,11 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
   k01.wall.dormer_face      the dormer's face, its sash cut through it
   k01.opening.sash_round    a mansard crown's round-headed dormer sash (T-2404): K06's
                             round-arched variant in the recess the roof's union cut
+  k01.opening.sash_round_hooded
+                            a brick street front's round-headed window (T-2410): K06's
+                            round sash in a round hole the wall cuts (a rectangle to the
+                            spring, strips from the head's curve over it), under the kit's
+                            arch band as its hood, with a key block on the crown
   k08.*                     a K08 bay (T-2308): `generators/archetypes/k08_bays.py`
                             builds it in its own wall frame and `bay` lays it on
                             its host wall, which carries no opening behind it; a
