@@ -92,6 +92,24 @@ def inputs_hash(structure: dict, phase: dict, archetype: str) -> str:
     return mesh_inputs.structure_inputs_sha(structure, phase, archetype)
 
 
+def archetype_baked_mean(path: Path) -> float | None:
+    """The occlusion mean an ARCHETYPE baked for itself, read off the exported node extras.
+
+    T-2400: Glessner v4 bakes its granite's stone-scale occlusion inside its own builder
+    (generators/archetypes/masonry_house_v4_occlusion.py), whatever `--ao` says, because
+    that builder is what the asset's inputs hash covers. It writes what it baked as
+    `stone_occlusion` on the object, which the exporter carries into node extras; this
+    reads it back so the manifest says `baked_ao: true` and the export is held to the bake
+    exactly as an `--ao` bake is. None when no node carries one.
+    """
+    js, _binary = ao_export.read_glb(path.read_bytes())
+    for node in js.get("nodes", []):
+        record = (node.get("extras") or {}).get("stone_occlusion")
+        if isinstance(record, dict) and isinstance(record.get("mean"), (int, float)):
+            return float(record["mean"])
+    return None
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--all", action="store_true")
@@ -194,6 +212,8 @@ def main() -> int:
         made = emit.emit_structure(st, phase, arch, outdir / f"{name}.glb",
                                    bake=not args.no_bake, ao=args.ao)
         out, baked_mean = made.path, made.baked_mean
+        if baked_mean is None:
+            baked_mean = archetype_baked_mean(out)
 
         entry = {
             "kind": "generated",
@@ -202,7 +222,7 @@ def main() -> int:
             "archetype": arch,
             "inputs_sha256": inputs_hash(st, phase, arch),
             "bytes": out.stat().st_size,
-            "baked_ao": bool(args.ao and not args.no_bake),
+            "baked_ao": bool(args.ao and not args.no_bake) or baked_mean is not None,
         }
         # Read the exported BYTES back and refuse a file whose occlusion texture is
         # not the occlusion that was baked. On the bytes rather than on the in-memory
@@ -264,6 +284,8 @@ def main() -> int:
         target_path.parent.mkdir(parents=True, exist_ok=True)
         made = emit.emit_structure(st, phase, arch, target_path, bake=not args.no_bake,
                                    ao=args.ao)
+        if made.baked_mean is None and (own := archetype_baked_mean(made.path)) is not None:
+            made = emit.Emitted(path=made.path, tris=made.tris, baked_mean=own)
         entry = {
             "kind": "generated",
             "structure_id": sid,
@@ -272,7 +294,7 @@ def main() -> int:
             "archetype": arch,
             "inputs_sha256": inputs_hash(st, phase, arch),
             "bytes": made.path.stat().st_size,
-            "baked_ao": bool(args.ao and not args.no_bake),
+            "baked_ao": bool(args.ao and not args.no_bake) or made.baked_mean is not None,
         }
         if made.baked_mean is not None:
             try:

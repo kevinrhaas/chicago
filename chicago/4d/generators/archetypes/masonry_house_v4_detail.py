@@ -1765,6 +1765,9 @@ def build(params,name):
     obj=b.to_object(build_materials(params.colours))
     assign_metric_uvs(obj,b.roof_uvs)
     _discard_export_scratch_uv(obj)
+    # T-2400: the granite's stone-scale occlusion, on its own TEXCOORD_1.
+    from archetypes.masonry_house_v4_occlusion import bake_stone_occlusion
+    bake_stone_occlusion(obj)
     obj['detail_profile']='glessner_v4'
     obj['masonry_blocks']=b.masonry_blocks
     obj['roof_tiles']=b.roof_tiles

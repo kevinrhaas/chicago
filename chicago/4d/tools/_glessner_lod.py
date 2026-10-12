@@ -327,6 +327,38 @@ def _apertures(params):
             'terrace':params.detail.get('bow_terrace',{}).get('window_count',0)}
 
 
+def _tiling_occlusion(root,materials,textures,images,append):
+    """T-2400: the reduced mesh carries TEXCOORD_0 alone, so a stone-scale occlusion
+    baked on the master's TEXCOORD_1 cannot ride it. Each such material takes back the
+    tiling map its extras name (`occlusion_tiling_map`, T-2393's granite_occlusion.png),
+    on TEXCOORD_0 with its normal map's texture sampler, so it repeats with the relief
+    it was drawn from. The baked image's slot is refilled with that map's bytes; a
+    material whose bake names no tiling map loses its occlusion rather than sample a
+    coordinate set the mesh does not have. The light's own bake is T-2401.
+    """
+    replaced={}
+    for material in materials:
+        occlusion=material.get('occlusionTexture')
+        if not occlusion or occlusion.get('texCoord',0)==0:continue
+        path=(material.get('extras') or {}).get('occlusion_tiling_map')
+        if not path:
+            material.pop('occlusionTexture');continue
+        source=textures[occlusion['index']]['source']
+        if source not in replaced:
+            data=(Path(root)/path).read_bytes()
+            images[source]={'name':Path(path).stem,'mimeType':'image/png','bufferView':append(data)}
+            replaced[source]={}
+        normal=material.get('normalTexture')
+        sampler=textures[normal['index']].get('sampler') if normal else None
+        key=sampler if sampler is not None else -1
+        if key not in replaced[source]:
+            texture={'source':source}
+            if sampler is not None:texture['sampler']=sampler
+            textures.append(texture);replaced[source][key]=len(textures)-1
+        material['occlusionTexture']={'index':replaced[source][key]}
+    return materials,textures
+
+
 @_blender_arithmetic
 def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
     """Write a temporary, uncompressed same-v4 LOD with exact master fabrics.
@@ -411,10 +443,11 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
     receipt={'master_sha256':master_sha,'recipe_sha256':recipe_sha256,'triangles':triangle_count,
              'openings_recessed':sum(counts.values()),'bounds_zup_m':bounds,
              'profile':'same_v4_reduced_surface_sampling'}
+    materials,textures=_tiling_occlusion(root,copy.deepcopy(materials),copy.deepcopy(full.get('textures',[])),images,append)
     doc={'asset':copy.deepcopy(full['asset']),'scene':0,'scenes':[{'nodes':[0]}],
          'nodes':[{'name':b.name+'.light','mesh':0,'extras':extras}],
          'meshes':[{'name':b.name+'.light','primitives':primitives}],
-         'materials':copy.deepcopy(materials),'images':images,'textures':copy.deepcopy(full.get('textures',[])),
+         'materials':materials,'images':images,'textures':textures,
          'samplers':copy.deepcopy(full.get('samplers',[])),'accessors':accessors,'bufferViews':views,
          'buffers':[{'byteLength':len(payload)}],'extras':{'glessner_light':receipt}}
     for key in ('extensionsUsed','extensionsRequired'):
