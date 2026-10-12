@@ -18,7 +18,10 @@
       "albedo_colour_space": "sRGB",
       "normal_convention": "OpenGL +Y",
       "roughness_colour_space": "non-colour",
-      "source_pixels": "none"
+      "source_pixels": "none",
+      "occlusion_colour_space": "non-colour",
+      "occlusion": "horizon-based ambient occlusion of the normal map's own height field, 16 directions out to 0.08 m, tangent-plane biased; mean 0.9316, min 0.6779. Sky light only.",
+      "occlusion_radius_m": 0.08
     },
     {
       "name": "limestone",
@@ -214,6 +217,10 @@
     "granite_normal.png": {
       "sha256": "3c2e98f56a24d2d0cf26f255aab4bc735a39b837c78470c388e852d15d6ce9e8",
       "bytes": 1299277
+    },
+    "granite_occlusion.png": {
+      "sha256": "a3d8fbae0d83531d1baa477673e4d0e9f32e06aef6598c0b7fedba4ec3d160fd",
+      "bytes": 381693
     },
     "granite_photographic_basecolor.png": {
       "sha256": "91e89304d28e8313236437f20ee63407fcaebebdbca3816f334662815893dc67",
