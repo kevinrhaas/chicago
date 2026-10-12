@@ -33,10 +33,13 @@ the shade relief rises while luminance does not fall.
 
 ## Measured
 
-`build-light` 7 s → 31 s (the bake about 24 s). Two builds wrote byte-identical source GLBs
-(`6264e437361d…`). Light model **27,611,912 → 27,727,064 bytes (+0.4 %)**: the 1024² bake
-(428 kB) takes the tiling map's place. Triangles unchanged (197,304); vertices 385,411 → 385,839
-(seams of the new UV set). The full web model is byte-identical.
+`build-light` 7 s → 31 s (the bake about 24 s). Two builds wrote byte-identical source GLBs.
+Light model **27,611,912 → 27,727,064 bytes (+0.4 %)**: the 1024² bake (428 kB) takes the
+tiling map's place. Triangles unchanged (197,304); vertices 385,411 → 385,839 (seams of the new
+UV set). The full web model is byte-identical. Lapped onto dev after T-2211 (#737) re-baked the
+master with its two-plane sash, the light was rebuilt from that master: **27,615,932 →
+27,734,032 bytes**, 197,582 triangles, bake figures the same (granite mean 0.6696, 74 % of the
+atlas). The frames below were taken before that lap; T-2211 moved the sash, not the granite.
 
 Mobile, 390×780, the published `/1904/`, the T-2209 stands under scene light
 (`QA_TAG=before-|after- QA_VIEWPORT=mobile QA_OUT=docs/RESEARCH/glessner-granite-2401 node
