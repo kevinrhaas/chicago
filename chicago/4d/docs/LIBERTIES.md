@@ -24863,6 +24863,28 @@ legible would replace the rule with the stones; GA-09B (T-2209) calibrates the t
 **Ticket:** T-2208 (Glessner exterior audit GA-09A).
 **Recorded:** 2026-10-11 (T-2208).
 
+### L-glessner-granite-2209 — Each Glessner rock face takes its grain in its wall's plane, with its lattice creases smoothed
+
+**Decision:** every facet of a Glessner rock-faced stone now reads the granite textures in
+its wall's plane, not its own (T-2209, Glessner exterior audit GA-09B). Before, each 7.5 cm
+facet was projected on its own tilt, so every lattice triangle showed an unrelated patch of
+the crystal albedo with a seam on its edges. Shading normals are also shared across facet
+corners up to 60°, where the limit was 35°: the lattice's diagonals are a computational mesh
+of one face, and only a steeper chip keeps a hard ridge.
+**What is invented.** The 60° limit, and the choice that one stone carries one continuous
+grain. No photograph was read for either. The albedo, its 0.22 m repeat, the tints,
+roughness and normal strength are unchanged, and so is every vertex position. The albedo is
+still the generated study in `assets/textures/glessner-v4/`, not a reading of the house's
+stone. Its tinted mean is a warm neutral grey (linear luminance 0.24–0.28). It is left
+there, and the Wellesley/Braggville colour disagreement stays open.
+**What is not changed.** Course heights, joints, arrises, openings, colour and the scene
+light. The navy of the shaded faces is the sky fill, and it is not cancelled in the material.
+**How to resolve:** a colour record of the street granite would set the albedo and tint. The
+faint relief in shade needs an occlusion channel, which is a separate ticket.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2209 (Glessner exterior audit GA-09B).
+**Recorded:** 2026-10-11 (T-2209).
+
 ### L-k14-1808-roof-2359 — 1808 Prairie's slate carries the K14 chimney plume at 18 years, on plan rows this ticket chose
 
 **Decision:** 1808 Prairie's slate takes the K14 kit's chimney plume (`chimney_soot`, T-2324)
