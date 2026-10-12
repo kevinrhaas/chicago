@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1704, ts: '2026-10-11T23:14:44.092Z', date: 'Oct 11, 2026, 6:14 PM CT', title: '1608 Prairie, a brick house, weathers by its own age', kind: 'feature',
+    items: [
+      '1608 Prairie is the first all-brick house to weather by its own age. An 1886 atlas already shows it standing, so it is at least eighteen years old by July 1904.',
+      'Its brick reads lighter at the foot and under the eaves than the forty-year grime it wore before. Its stone sills and window heads now darken slightly too.',
+      'Faint streaks run down the brick from each window sill and behind each downpipe.',
+      'The build year is the youngest the atlas allows, so this is the least weathering it could show. Every other house is unchanged.',
+    ] },
   { v: 1703, ts: '2026-10-11T22:44:58.236Z', date: 'Oct 11, 2026, 5:44 PM CT', title: 'Building cards get an Images tab', kind: 'feature',
     items: [
       'Tap a building: the new Images tab shows the photographs, plates and drawings of it on file, its own front first.',
