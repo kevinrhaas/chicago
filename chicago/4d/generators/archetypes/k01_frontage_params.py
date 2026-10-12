@@ -778,6 +778,10 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
 
 
 WING_SIDES = ("south", "north", "rear")
+#: T-2417: what a wing's walls are made of — the K03 brick, or a frame wall in painted timber
+WING_FABRICS = ("brick", "frame")
+#: T-2417: a frame wing's wall, studs and boards, for its windows' reveals (a brick wing takes the side walls')
+FRAME_WALL_M = 0.15
 
 
 def wing_walls(w: dict) -> dict:
@@ -804,8 +808,13 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
         u0, u1, v0, v1 = (float(x) for x in e["rect"])
         if not (u0 < u1 <= 0.0 and v0 < v1):
             raise ParamError(f"rear_wings: {wid}'s rect {e['rect']} is not a rectangle behind the main body")
-        if e.get("fabric", "brick") != "brick":
-            raise ParamError(f"rear_wings: {wid} is {e.get('fabric')!r}; a K01 wing is laid in the K03 brick")
+        # T-2417: a wing is laid in the K03 brick, or framed in painted timber (`frame`) as a
+        # K08 frame bay is (T-2356) — the one-storey frame porch a sheet draws in yellow
+        # behind a brick house (1613's)
+        fabric = e.get("fabric", "brick")
+        if fabric not in WING_FABRICS:
+            raise ParamError(f"rear_wings: {wid} is {fabric!r}; a K01 wing is laid in the K03 brick "
+                             f"or framed in painted timber ({', '.join(WING_FABRICS)})")
         if abs(u1) < 1e-9:
             host, hv0, hv1, hwall = None, 0.0, width, "k01.wall.rear_service"
         else:
@@ -873,7 +882,7 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
             pool.remove(o)
         if host is not None:
             host["openings"] = tuple(pool)
-        out.append({"id": wid, "rect": (u0, u1, v0, v1), "host_wall": hwall, "host_span_m": (round(a, 4), round(b, 4)),
+        out.append({"id": wid, "fabric": fabric, "rect": (u0, u1, v0, v1), "host_wall": hwall, "host_span_m": (round(a, 4), round(b, 4)),
                     "floors_m": tuple(floors), "top_m": top, "deck_m": deck, "overhang_m": ov, "fascia_m": fas,
                     "host_v_m": (hv0, hv1), "openings": tuple(ops)})
     return tuple(out)
