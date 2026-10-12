@@ -1,0 +1,14 @@
+== web derivatives
+
+   built same-version light geometry: {"aperture_counts": {"axial": 144, "dining_bay": 8, "dormers": 4, "hall_bow": 6, "stair_tower": 7, "terrace": 2}, "bounds_zup_m": [[-0.442, 53.9405], [-0.13697365632607844, 23.586039999999997], [-0.061, 15.0449]], "bytes": 41904276, "components": {"axial_opening_records": 147, "bays": 1, "bows": 1, "chimneys": 7, "dormers": 3, "ground": 2, "ranges": 3, "service_stairs": 1, "supplemental_dormer": 1, "towers": 2, "turrets": 1, "underpass": 1}, "master_sha256": "e32e94ff9907050de2205a8b20b26ddac98cdfa3bcecffc447415f7f0df3fb49", "material_images_copied": 33, "openings_recessed": 171, "profile": "same_v4_reduced_surface_sampling", "recipe_sha256": "cc51638424331000d2a218580c84d64f307ae9e6d651236fff9fe25d3839e5a7", "sha256": "af2b56134d0a8b2ed617652ef789c3f52cb250938ce4f045df00afab9c0ab428", "triangles": 198064}
+
+   glessner_house__as_built_1887.light.glb  27001116 bytes (same-version reduced geometry)
+Packed three exact v4 GLBs; commit archive parts and manifest with the bake.
+   glessner_house__as_built_1887.glb  149859424 -> 51933560 bytes
+
+   versions/glessner_house/pre-v4/glessner_house__as_built_1887.glb  77392 -> 25228 bytes
+
+   versions/glessner_house/v2/glessner_house__as_built_1887.glb  79248 -> 26152 bytes
+
+   versions/glessner_house/v3/glessner_house__as_built_1887.glb  76784 -> 25864 bytes
+   recorded 1 master hash(es) in assets/manifest.web.json

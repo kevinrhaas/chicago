@@ -1,0 +1,91 @@
+{
+  "_doc": "Measured by tools/study_k10_cornices.mjs on the specimen GLB. Triangles and draw calls are exact; frame_ms is headless Chromium on a software rasteriser (SwiftShader), a relative figure for comparing kit revisions, not a device frame time.",
+  "specimen_bytes": 922984,
+  "variants": [
+    {
+      "id": "k10.cornice.bracketed_timber",
+      "triangles_trim": 744,
+      "pieces": 13,
+      "head_m": 3.2,
+      "triangles_with_board": 756,
+      "vertices_with_board": 1192,
+      "draw_calls": 3
+    },
+    {
+      "id": "k10.cornice.pressed_metal",
+      "triangles_trim": 1472,
+      "pieces": 32,
+      "head_m": 3.2,
+      "triangles_with_board": 1484,
+      "vertices_with_board": 2340,
+      "draw_calls": 3
+    },
+    {
+      "id": "k10.entablature.classical_dentil",
+      "triangles_trim": 496,
+      "pieces": 47,
+      "head_m": 3.4,
+      "triangles_with_board": 508,
+      "vertices_with_board": 990,
+      "draw_calls": 3
+    },
+    {
+      "id": "k10.dormer.pedimented_on_bracketed_eave",
+      "triangles_trim": 751,
+      "pieces": 17,
+      "head_m": 3,
+      "triangles_with_board": 773,
+      "vertices_with_board": 1231,
+      "draw_calls": 5
+    },
+    {
+      "id": "k10.parapet.balustrade_urns",
+      "triangles_trim": 6306,
+      "pieces": 26,
+      "head_m": 3,
+      "triangles_with_board": 6318,
+      "vertices_with_board": 12640,
+      "draw_calls": 3
+    },
+    {
+      "id": "k10.gable.shaped_coping",
+      "triangles_trim": 624,
+      "pieces": 4,
+      "head_m": 2.6,
+      "triangles_with_board": 784,
+      "vertices_with_board": 1350,
+      "draw_calls": 3
+    },
+    {
+      "id": "k10.cresting.iron_ridge",
+      "triangles_trim": 1848,
+      "pieces": 20,
+      "head_m": 2,
+      "triangles_with_board": 1864,
+      "vertices_with_board": 3102,
+      "draw_calls": 5
+    }
+  ],
+  "board": {
+    "desktop": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "draw_calls": 35,
+      "triangles": 21451,
+      "frame_ms_median": 0.5,
+      "geometries": 38
+    },
+    "mobile": {
+      "viewport": [
+        390,
+        780
+      ],
+      "draw_calls": 31,
+      "triangles": 19597,
+      "frame_ms_median": 0.3,
+      "geometries": 38
+    }
+  }
+}

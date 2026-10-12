@@ -261,6 +261,21 @@ function claimRow(label, value, block, citationsById) {
 }
 
 /**
+ * T-2258: A PLACE IS PRINTED ONLY FROM THE ROWS. A home or a workplace is one of
+ * the dated `associated_with` rows below — since T-2284 the singular `lives_at` /
+ * `works_at` is retired and refused — because printing both named the same roof
+ * twice, once with its dates and once as an undated claim on the scene day, which
+ * is exactly what the source may refuse to say. An absence is different: rows are
+ * defined over claims and an absent relationship is an absent row, so the note
+ * saying WHY no place is recorded (`no_home` / `no_workplace`, T-2295) has nowhere
+ * else to stand. That row stays.
+ */
+function absenceRow(label, block, citationsById) {
+  if (!block || block.value) return '';
+  return claimRow(label, null, block, citationsById);
+}
+
+/**
  * The household's kin rows — a relationship that crosses to ANOTHER household
  * record (T-0597).
  *
@@ -706,6 +721,59 @@ function evidenceLadderHtml(person, citationsById, ladderRules) {
         not an 1835 fact: a directory line of 1844 says the person was in Chicago in 1844,
         and the rung above says what this project was willing to conclude from the set of
         them together.</span></dd>` : ''}`;
+}
+
+/**
+ * WHERE AND WHEN the record puts this person, as dated bounds (T-1552).
+ *
+ * Two blocks carry the same shape on a person. `dated_bounds[]` is the town's poll and
+ * tax rolls (`tools/spend_civic_roll_bounds.py`, T-1326) and its press
+ * (`tools/spend_press_bounds.py`), and
+ * `tools/spend_appearance_bounds.py` (T-1337) writes `appearance_bounds[]` off the 1830
+ * schedule and St Mary's register — a sponsor or godparent standing at the font. The
+ * evidence list above shows a reading as a name on a page; this is what each reading
+ * does to the question a visitor asks of the card, whether the person was here by the
+ * scene date. Only `here_by` answers it: a dated day in the town puts them in Chicago by
+ * then, a later day bounds nothing at 1 July 1835, an 1830 line bounds a district and not
+ * the town, and a name in print or on a deed is shown as the appearance it is and no
+ * more. Every bound is inferred, because the identity is a crosswalk's or a mint's and
+ * never a source's; the swatch says so.
+ */
+function datedBoundsHtml(person, citationsById) {
+  const list = [...(person.dated_bounds || []), ...(person.appearance_bounds || [])]
+    .filter(Boolean)
+    .sort((a, b) => String(a.describes_date ?? '').localeCompare(String(b.describes_date ?? '')));
+  if (!list.length) return '';
+  const what = (b) => {
+    if (b.bound_kind === 'district_presence') {
+      return 'in the 1830 district, which is not the town';
+    }
+    if (b.here_by) return `in Chicago by ${printedOn(b.here_by)}`;
+    return b.side_of_scene_date === 'later'
+      ? 'after 1 July 1835, so it says nothing about that day' : '';
+  };
+  const role = (b) => {
+    const text = words(String(b.role || 'named'));
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  };
+  const when = (d) => (/^\d{4}-\d{2}-\d{2}$/.test(String(d ?? ''))
+    ? `on ${printedOn(d)}` : `in ${String(d ?? '')}`);
+  const title = (b) => b.source_title || b.list_title || b.publication || '';
+  const cites = [...new Set(list.flatMap((b) => b.sources || []))]
+    .map((id) => citationsById.get(id)).filter(Boolean);
+  return `<dt>Seen in the record, by date</dt>
+    <dd>${swatch(list[0].confidence)}<span class="res-chip res-research">${list.length} ${
+      list.length === 1 ? 'dated line' : 'dated lines'}</span>
+      <ul class="res-candidates">${list.map((b) => `<li>${
+      escapeHtml(role(b))} ${escapeHtml(when(b.describes_date))}, as
+      <q>${escapeHtml(String(b.as_read ?? b.as_printed ?? ''))}</q>${
+        what(b) ? ` \u2014 <b>${escapeHtml(what(b))}</b>` : ''}
+      <br><span class="res-why">${escapeHtml(String(title(b)))}${
+        b.locator ? `, ${escapeHtml(String(b.locator))}` : ''}.</span></li>`).join('')}</ul>
+      <span class="res-why">Each page is read as written; that the name on it is this person
+        is a match this project made, so every line is inferred and none of them alone
+        proves the person was here on 1 July 1835.</span>
+      ${cites.length ? `<ol class="cites">${citationItems(cites)}</ol>` : ''}</dd>`;
 }
 
 /**
@@ -1248,9 +1316,10 @@ export function associationsHtml(links, citationsById, label) {
         church, a civic seat, a school or land bought — each with how far the evidence
         reached and the years it permits. An open end means no source closes the
         relationship, so this list does not say whether such a row held on 1 July 1835;
-        where a source DOES close one before that day, the row says so. The single
-        <q>Lived at</q> and <q>Worked at</q> claims above are the older shape of the same
-        facts, and the build refuses to let the two disagree.</span>
+        where a source DOES close one before that day, the row says so. A known home or
+        workplace is named here and only here, with its dates; the build refuses a record
+        whose older, undated <q>Lived at</q> or <q>Worked at</q> names a place this list
+        does not carry.</span>
       <ol class="res-roles">${order.map((l) => associationRowHtml(l, citationsById)).join('')}</ol></dd>`;
 }
 
@@ -1367,6 +1436,36 @@ export function rolesHtml(roles, citationsById) {
         or the body it was worked for, the row says so. The houses a source names this
         person IN are the row below.</span>
       <ol class="res-roles">${ordered.map((r) => roleRowHtml(r, citationsById)).join('')}</ol></dd>`;
+}
+
+/**
+ * ELECTED TO AN OFFICE, ON THE DATES A BOOK GIVES (T-1543).
+ *
+ * `persons[].office_elections` is a later volume's dates of ELECTION to an office the
+ * card's dated roles already hold — Silas W Sherman's sheriffdom, elected 1834 and again
+ * 1836 on Fergus's annotation, beside a press run that bounds the office 1833 to 1835. An
+ * election is an event, not a term of service, so the years print as their own row and
+ * never widen the role's bound; the chip says the block corroborates and promotes
+ * nothing, because the 1835 town and the 1835 occupation were already the press's to set.
+ */
+function electionsHtml(block, citationsById) {
+  if (!block || !Array.isArray(block.elections) || !block.elections.length) return '';
+  const cites = (block.sources || []).map((id) => citationsById.get(id)).filter(Boolean);
+  const office = escapeHtml(words(block.office || 'an office'));
+  const years = block.elections.map((e, i) => `<li class="res-role-row">
+    <span class="res-role-when">${escapeHtml(String(e.year ?? 'not dated'))}</span>
+    ${i ? `elected ${office} again` : `elected ${office}`}${e.as_printed && String(e.as_printed) !== String(e.year)
+      ? ` · printed <q>${escapeHtml(String(e.as_printed))}</q>` : ''}${
+      e.read_as ? `<span class="res-why">${escapeHtml(e.read_as)}</span>` : ''}</li>`).join('');
+  return `<dt>Elected to office</dt>
+    <dd>${swatch(block.confidence)}<span class="res-chip res-research">${
+      block.elections.length} ${block.elections.length === 1 ? 'election' : 'elections'}</span><span
+      class="res-chip res-role-off">an election, not a term</span>${block.promotes === false
+      ? '<span class="res-chip res-role-off">corroborates, does not promote</span>' : ''}${
+      block.as_printed ? `<br><q>${escapeHtml(String(block.as_printed))}</q>` : ''}
+      <ol class="res-roles">${years}</ol>${
+      block.note ? `<span class="res-why">${escapeHtml(block.note)}</span>` : ''}${
+      cites.length ? `<ol class="cites">${citationItems(cites)}</ol>` : ''}</dd>`;
 }
 
 /**
@@ -1696,6 +1795,7 @@ export function personHtml(person, citationsById, researchByPerson, directoryByP
         laterOccupationHtml(occ.later_occupation, citationsById)}${
         occCites.length ? `<ol class="cites">${citationItems(occCites)}</ol>` : ''}</dd>` : ''}
       ${rolesHtml(roles, citationsById)}
+      ${electionsHtml(person.office_elections, citationsById)}
       ${workplacesHtml(person.workplaces, citationsById)}
       ${employmentHtml(seatingByPerson, person.id)}
       ${employmentCoverageHtml(coverage, person.id)}
@@ -1720,6 +1820,7 @@ export function personHtml(person, citationsById, researchByPerson, directoryByP
       ${profileFactsHtml(person.profile_facts, citationsById)}
       ${withheldFactsHtml(withheldByPerson.get(person.id), citationsById)}
       ${evidenceLadderHtml(person, citationsById, ladderRules)}
+      ${datedBoundsHtml(person, citationsById)}
       ${researchHtml(researchByPerson.get(person.id), citationsById)}
       ${recordResearchHtml(person.resident_research, citationsById,
         Boolean(researchByPerson.get(person.id)))}
@@ -1889,8 +1990,8 @@ export function householdHtml(hh, citationsById, researchByPerson, directoryByPe
       ${claimRow('Came from', (hh.origin || {}).value, hh.origin, citationsById)}
       ${claimRow('Why they came', (hh.reason_for_coming || {}).value,
         hh.reason_for_coming, citationsById)}
-      ${claimRow('Lived at', (hh.lives_at || {}).value, hh.lives_at, citationsById)}
-      ${claimRow('Worked at', (hh.works_at || {}).value, hh.works_at, citationsById)}
+      ${absenceRow('Lived at', hh.no_home, citationsById)}
+      ${absenceRow('Worked at', hh.no_workplace, citationsById)}
       ${claimRow('Here on 1 July 1835', (hh.present_on_scene_date || {}).value,
         hh.present_on_scene_date, citationsById)}
       ${presenceLegRow(hh, citationsById)}

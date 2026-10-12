@@ -1,0 +1,61 @@
+{
+  "id": "terracotta_flat_tile",
+  "library": "prairie_1904_roofs",
+  "version": "1.0.0",
+  "ticket": "T-2292",
+  "slot": "covering",
+  "kind": "tile",
+  "tile_m": [
+    2.4384,
+    2.032
+  ],
+  "module": {
+    "butt": "square",
+    "bond": "broken_half",
+    "slate_width_m": 0.1524,
+    "slate_length_m": 0.3302,
+    "headlap_m": 0.0762,
+    "exposure_m": 0.127,
+    "thickness_m": 0.013,
+    "joint_m": 0.002,
+    "columns": 16,
+    "courses": 16
+  },
+  "module_source": "data/components/prairie_1904/k04_roofs.json",
+  "course_phase_m": [
+    0.0381,
+    0.0635
+  ],
+  "course_phase_rule": "the first vertical joint lies course_phase_m[0] along u and the first butt course_phase_m[1] up v from the tile's origin; offset the roof's UV by them to put a butt on the eave",
+  "resolution_px": 512,
+  "px_per_m": [
+    209.97,
+    251.97
+  ],
+  "mean_basecolor": [
+    151,
+    72,
+    50
+  ],
+  "mean_roughness": 0.779,
+  "mean_metallic": 0.0,
+  "orientation": "image x = along the eave (u); image y = up the slope with the top row uphill (v grows upward); each course's butt is its low edge",
+  "uv_rule": "TEXCOORD_0 = surface metres / tile_m (k01_contract.json scale_uv)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y",
+    "roughness": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "terracotta_flat_tile_basecolor_web.jpg",
+    "normal_gl": "terracotta_flat_tile_normal_gl_web.jpg",
+    "orm": "terracotta_flat_tile_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 3082736383,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_roofs.py); no photograph sampled",
+  "confidence": "inferred",
+  "appearance": "reconstructed (docs/LIBERTIES.md L-k04-roof-library-2292)",
+  "note": "INFERRED module, RECONSTRUCTED appearance. The 6 in width and 5 in exposure are HABS's (data p. 21, 1963) for Glessner, carried to 1904; the tile's length and lap follow from the exposure on the double-lap rule. The red of unglazed fired clay, its grain and the per-tile variation are ours. documented_only (restrictions)."
+}

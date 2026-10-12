@@ -17,7 +17,9 @@ Each material folder contains:
 
 - `*_basecolor.png` — 8-bit RGB, sRGB; no directional lighting or cast shadows
 - `*_normal_gl.png` — 8-bit RGB, linear; OpenGL/Blender (+Y)
-- `*_normal_dx.png` — 8-bit RGB, linear; DirectX/Unreal (-Y)
+- `*_normal_dx.png` — 8-bit RGB, linear; DirectX/Unreal (-Y). +Y is UP the image, so the
+  OpenGL green rises where height rises toward the bottom row. Until T-2299 the two were
+  swapped; `tools/check_1835_normals.py` holds each file's sign against its `height16`
 - `*_roughness.png` — 8-bit grayscale, linear
 - `*_height16.png` — 16-bit grayscale, linear
 - `*_ao.png` — 8-bit grayscale, linear

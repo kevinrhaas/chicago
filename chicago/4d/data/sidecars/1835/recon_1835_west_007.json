@@ -178,7 +178,41 @@
       "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on Canal Street AND NOTHING NARROWER — 5 printings, 1834-06-25 to 1834-12-17, claims chicago_democrat_1834_06_25#c005, chicago_democrat_1834_07_02#c051, chicago_democrat_1834_09_10#c017, chicago_democrat_1834_11_19#c007, chicago_democrat_1834_12_17#c008 — so it takes the STREET FACE and not a lot. THE ROOF'S PLATTED LOT FACES Canal Street, which is the plat's own answer to which street it fronts. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
     }
   },
-  "residents": [],
+  "residents": [
+    {
+      "household": "hh_pierce_asahel",
+      "name": "The Pierce household",
+      "division": "south",
+      "relation": "kept the store and lived here",
+      "why": "keeping Pierce & French, over the store roof the business register or the street-face adoption stands that house of trade on",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Asahel Pierce",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "blacksmith",
+          "note": "ARRIVING FROM VERMONT ON 8 OCTOBER 1833 - a day-precise arrival WITH an origin, which is a combination no other household in this parcel has. Andreas gives his later Chicago career - alderman in 1837, 1838, 1843, 1844 and 1845 and two streets named after him - which corroborates the man's long residence and says nothing at all about who was at the anvil in July 1835. HE IS IN THE DATASET BECAUSE THE 1835 TOWN CANNOT BE BUILT WITHOUT HIS TRADE. Andreas's roster is the only list this project holds that names artisans at all, and every name on it is a documented alternative to an inferred one. OLD SETTLERS, 1879 — A DATE THIS MAN GAVE FOR HIMSELF, AND STILL NOT A FACT ABOUT 1835. The Calumet Club's FIRST reception to the settlers of Chicago prior to 1840, 27 May 1879, printed its register in the proceedings (Early Chicago, Chicago, 1879, pages 84-90), and this man's entry reads “Pierce, Asahel, | 1833, Oct. 8, | East Calais, Wash. Co., Vt. | 66 | Chicago.” — name, his own date of arrival, his birthplace, his age and his 1879 post-office address, in the register's five columns. The date of arrival is HIS RECOLLECTION, set down forty to sixty years after the event; the address is where he lived in 1879 and is never read as an 1835 residence. Under the ratified ladder (T-0513) a later recollection corroborates, enriches and dates and cannot lift a rung by itself, so this record's GRADE IS UNCHANGED by it: T-0513 consolidates the identity and T-0515 regrades. Identity by rule OS1 — surname and spelled-out forename agree, one bearer (data/research/old_settlers/crosswalk.json). FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the city register of 1839 — “Asahel Pierce” as alderman (f1839_r0018, printed page 38). What a match may carry, and it depends on WHICH TABLE it landed in. A match on printed page 38, or on any row of the mayors' table, is 1839-or-later evidence: it says the man held that office in that year and was therefore in Chicago in that year, it is written with the row's own describes_date and never as an 1835 fact, and the person's grade does not move on it alone — a later appearance is corroboration of CONTINUED RESIDENCE, not of July 1835. A match on the sheriffs' rows of 1831, 1832, 1834 or 1836 is different in kind: the office is contemporary with the town, the 1834 row's term covers the scene date outright, and such a match carries reaches_scene. Even there the SOURCE is a retrospect — a table running to 1874, set in 1876 out of Old Settlers' recollections per the compiler's warning on printed page 3 — so it may be cited as a contemporary office and may not be graded `documented` without a second, nearer record. The ward on printed page 38 is a ward of the CITY of 1839 and places no house in the town of 1835. Identity by the crosswalk's own rule: Surname 'Pierce' folds to the same string as the register entry's, and the given name of both begins A. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
+        },
+        {
+          "name": "Emily Pierce",
+          "relationship": "wife",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Lemuel Pierce",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "ONE OF TWO BLACKSMITHS THIS DATASET CAN NAME AND PLACE, the other being David McKee at the agency. A third, Matthias Mason & Co., is documented by advertisement with no building, and Lemuel Brown is documented by roster with neither. FOUR NAMED SMITHS FOR A TOWN OF 3,265 IS PROBABLY CLOSE TO RIGHT for the documented layer and certainly short for the real one; the inferred phase should treat that ratio as its starting point rather than inventing from scratch."
+    }
+  ],
   "citations": [
     {
       "source_id": "chicago_democrat_1833_1835",

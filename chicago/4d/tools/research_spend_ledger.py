@@ -605,6 +605,18 @@ def prose_target_index(paths, root: Path, keys: set[str], kind: str,
         if isinstance(node, dict):
             confidence = node.get("confidence")
             sources_here = cited_sources(node) if confidence in STRUCTURED_CONFIDENCE else set()
+            # T-2284: the singular `lives_at`/`works_at` block was a `confidence`/`sources`
+            # claim this walk read; it is retired, and its words, grade and sources live on
+            # in the `associated_with` row T-1273 copied from it (marked so in its note),
+            # which grades itself `tier` and cites `source_id` + `also_sources`. Only those
+            # rows: a row a reading wrote in its own hand was never a target here, and
+            # reading it now would close units the ruling registers already close.
+            if not sources_here and "place_or_structure_id" in node \
+                    and str(node.get("note") or "").endswith("(T-1273)") \
+                    and node.get("tier") in STRUCTURED_CONFIDENCE:
+                sources_here = {v for v in [node.get("source_id"),
+                                            *(node.get("also_sources") or [])]
+                                if isinstance(v, str) and v}
             if sources_here:
                 tokens = set()
                 for value in naming_strings(
@@ -744,6 +756,17 @@ EPIC_PIECES = {
     # A closed ticket cannot own an unresolved unit, so the pointer moves to live work
     # rather than going quiet with the ticket — the rule this table has already applied
     # twice to `civic`.
+    # T-1551 FOUND ITS CORPUS ALREADY SPENT, and closes on the measurement rather than a
+    # ruling. Rebuilt from the tree on 2026-10-09, NO unit of either domain is unresolved:
+    # the 1830 schedule's 204 units are 16 asserted and 188 refused under six named rules
+    # (115 `the_1830_surname_stands_in_no_town_household`, 67 `..._surname_only_match_was_
+    # refused_in_the_crosswalk`, six under the other four), and the directories' 8,258 are 8,246
+    # later_only, 8 aggregate_only and 4 refused. The one unit that arrived,
+    # `census1830_n580_030`, is asserted on hh_laframboise_claude (T-1525's mint).
+    # SO THE POINTER STAYS AND NAMES SPENT WORK, the T-1509 rule below for the place half:
+    # a census or directory unit that turns unresolved tomorrow fails the gate on the unit
+    # ("missing or not open"), and the next reading that lands here is a ticket of its
+    # own, not a rename. Nothing reaches it today, so nothing is stranded.
     "census_1830": ("T-1551", "The 1830 census and directory residue T-1297 left behind."),
     "directories": ("T-1551", "The 1830 census and directory residue T-1297 left behind."),
 }

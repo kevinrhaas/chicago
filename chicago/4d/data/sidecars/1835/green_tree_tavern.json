@@ -216,7 +216,7 @@
       "name": "The Ingersoll household",
       "division": "west",
       "relation": "lived and worked here",
-      "why": "The building record has his tenancy running 1834-1837, which covers the scene date, and a landlord of this period lived in his house. Inferred rather than documented because the tenancy dates are the building record's reading of two sources that do not agree about who opened the house.",
+      "why": "The building record has his tenancy running 1834-1837, which covers the scene date, and a landlord of this period lived in his house. Inferred rather than documented because the tenancy dates are the building record's reading of two sources that do not agree about who opened the house. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_ingersoll_chester#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "andreas_1884_v1",
         "drloih_hotels"

@@ -1,0 +1,43 @@
+[
+  {
+    "path": "assets/gltf/glessner_house__as_built_1887.glb",
+    "bytes": 139755976,
+    "sha256": "652992c7af08effdb3f916d8ca9ffd176fbd550542b3702eb0cb64457755482f",
+    "roof_tiles": 63518,
+    "light_receipt": null
+  },
+  {
+    "path": "assets/web/glessner_house__as_built_1887.glb",
+    "bytes": 52032976,
+    "sha256": "70ffbaba3c10e78e1e053975d6b099c2ae0d5c167befd6c60bfdd4dd211e9868",
+    "roof_tiles": 63518,
+    "light_receipt": null
+  },
+  {
+    "path": "assets/web/glessner_house__as_built_1887.light.glb",
+    "bytes": 27009372,
+    "sha256": "6297cbb13d47895eb53225fe78f69721cc4022b94ced64a3a568735f418862a5",
+    "roof_tiles": 0,
+    "light_receipt": {
+      "master_sha256": "652992c7af08effdb3f916d8ca9ffd176fbd550542b3702eb0cb64457755482f",
+      "recipe_sha256": "4980e31e9e57029a9abd3b211ae98e2e583461e005393f13e76e63d2150bebd2",
+      "triangles": 199656,
+      "openings_recessed": 171,
+      "bounds_zup_m": [
+        [
+          -0.442,
+          53.9405
+        ],
+        [
+          -0.13697365632607844,
+          23.586039999999997
+        ],
+        [
+          -0.061,
+          15.0449
+        ]
+      ],
+      "profile": "same_v4_reduced_surface_sampling"
+    }
+  }
+]

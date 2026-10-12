@@ -1,0 +1,118 @@
+{
+  "library": "Prairie Avenue 1904 roof coverings and flashings (K04)",
+  "version": "1.0.0",
+  "ticket": "T-2292",
+  "profiles": "data/components/prairie_1904/k04_roofs.json",
+  "materials": [
+    {
+      "id": "slate_pennsylvania",
+      "slot": "covering",
+      "kind": "slate",
+      "tile_m": [
+        2.032,
+        1.7272
+      ],
+      "material": "slate_pennsylvania/material.json"
+    },
+    {
+      "id": "slate_vermont",
+      "slot": "covering",
+      "kind": "slate",
+      "tile_m": [
+        2.0574,
+        1.905
+      ],
+      "material": "slate_vermont/material.json"
+    },
+    {
+      "id": "slate_fishscale",
+      "slot": "covering",
+      "kind": "slate",
+      "tile_m": [
+        2.032,
+        1.651
+      ],
+      "material": "slate_fishscale/material.json"
+    },
+    {
+      "id": "terracotta_flat_tile",
+      "slot": "covering",
+      "kind": "tile",
+      "tile_m": [
+        2.4384,
+        2.032
+      ],
+      "material": "terracotta_flat_tile/material.json"
+    },
+    {
+      "id": "copper_standing_seam",
+      "slot": "covering",
+      "kind": "standing_seam",
+      "tile_m": [
+        2.032,
+        2.4384
+      ],
+      "material": "copper_standing_seam/material.json"
+    },
+    {
+      "id": "tin_standing_seam_painted",
+      "slot": "covering",
+      "kind": "standing_seam",
+      "tile_m": [
+        2.032,
+        2.1336
+      ],
+      "material": "tin_standing_seam_painted/material.json"
+    },
+    {
+      "id": "tin_flat_seam_painted",
+      "slot": "covering",
+      "kind": "flat_seam",
+      "tile_m": [
+        2.032,
+        2.1336
+      ],
+      "material": "tin_flat_seam_painted/material.json"
+    },
+    {
+      "id": "copper_sheet",
+      "slot": "flashing",
+      "kind": "sheet",
+      "tile_m": [
+        1.2,
+        1.2
+      ],
+      "material": "copper_sheet/material.json"
+    },
+    {
+      "id": "lead_sheet",
+      "slot": "flashing",
+      "kind": "sheet",
+      "tile_m": [
+        1.2,
+        1.2
+      ],
+      "material": "lead_sheet/material.json"
+    },
+    {
+      "id": "zinc_sheet",
+      "slot": "flashing",
+      "kind": "sheet",
+      "tile_m": [
+        1.2,
+        1.2
+      ],
+      "material": "zinc_sheet/material.json"
+    },
+    {
+      "id": "painted_tin_sheet",
+      "slot": "flashing",
+      "kind": "sheet",
+      "tile_m": [
+        1.2,
+        1.2
+      ],
+      "material": "painted_tin_sheet/material.json"
+    }
+  ]
+}

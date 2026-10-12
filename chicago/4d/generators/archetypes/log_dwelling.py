@@ -66,6 +66,7 @@ from common.logwork import (  # noqa: E402
     CHINK_RGBA, HEWN_RGBA, RELIEF_M, hewn_log_wall, log_prism,
 )
 from common import materials  # noqa: E402
+from common import openings  # noqa: E402
 from common.mesh import MeshBuilder, simple_material  # noqa: E402
 from archetypes.log_dwelling_params import (  # noqa: E402
     ADDITION_WIN_HALF_M, DOOR_HALF_M, WIN_AT_FRAC, WIN_HALF_M, LogDwellingParams,
@@ -293,29 +294,64 @@ def _panel(b: MeshBuilder, axis: str, plane: float, u0: float, u1: float,
     b.add_poly(pts, conf, mat)
 
 
+def _kit(b: MeshBuilder) -> openings.Mats:
+    """The openings kit's materials (T-2278): the sawn surround's own colour for casing
+    and sash, the town's glass (Glessner's dark pane), a weathered board leaf with iron
+    strap hinges, and the shared dark for a board joint's shadow."""
+    rgba, rough = openings.WEATHERED_BOARD
+    door = b.named_mat("door", rgba, rough)
+    return openings.Mats(
+        casing=door, sash=M_FRAME, dark=M_DARK,
+        glass=b.named_mat("glass", *openings.glass_material_spec()),
+        door=door,
+        panel=b.named_mat("door_panel", openings.shade(rgba, 0.70), rough),
+        iron=b.named_mat("iron", *openings.STRAP_IRON))
+
+
 def _opening(b: MeshBuilder, axis: str, plane: float, u0: float, u1: float,
-             z0: float, z1: float, outward: int, conf: float,
-             surround: int = M_FRAME, relief: float = RELIEF_M) -> None:
-    """A door or window: a dark opening inside a sawn surround.
+             z0: float, z1: float, outward: int, conf: float, kind: str = "window",
+             relief: float = RELIEF_M, frame_wall: bool = False,
+             shutters: bool = True) -> None:
+    """A door or window in a log wall (or the frame addition's), built by the shared
+    openings kit (T-2278).
 
-    The surround is not decoration. An opening drawn as a bare dark rectangle has to
-    sit proud of the log faces to be visible at all, which makes it read as a plaque
-    glued to the wall — the first version of this looked exactly like that. A log wall
-    cannot have a hole in it without sawn jambs and a head to carry the cut courses,
-    so the surround is both the honest detail and the thing that makes the opening
-    read as a hole. Two quads, four triangles.
+    Before this both were a dark panel inside a sawn surround — four triangles, and a
+    plaque. Now the surround is a sawn casing standing off the chinking with its
+    returns, so it reads as the jamb and head that a cut log wall has to have; the
+    window is a small sash glazed in the attested 6 x 8 in lights — three by three in
+    a log opening — set back in it over the town's dark glass, with a board shutter
+    hung open beside some of them; the door is a CLOSED board-and-batten leaf on iron
+    strap hinges. Glass was on sale by the box in Chicago in 1833-35 (see
+    `common/openings.py`), so a cabin in this town could be glazed, and is.
 
-    Both are flat, so the dark panel has to sit very slightly IN FRONT of the surround
-    rather than recessed into it — it is entirely inside the surround's outline and
-    would otherwise be hidden by it. Six millimetres: enough to order the two reliably,
-    little enough that the glass does not visibly bulge out of its own frame.
+    The frame addition's own openings are a frame wall's: a capped casing, a
+    six-over-six sash, a panelled door.
     """
-    off = relief + 0.010
-    m = 0.085
-    _panel(b, axis, plane + outward * off, u0 - m, u1 + m, z0 - m, z1 + m,
-           outward, conf, surround)
-    _panel(b, axis, plane + outward * (off + 0.006), u0, u1, z0, z1,
-           outward, conf, M_DARK)
+    k = _kit(b)
+    w = openings.Wall(axis, plane, outward, relief)
+    if kind == "door":
+        if frame_wall:
+            openings.panelled_door(b, w, u0, u1, z0, z1, conf, k)
+        else:
+            openings.batten_door(b, w, u0, u1, z0, z1, conf, k, seed=b.name,
+                                 casing_w=0.11, proud=0.045)
+        return
+    if frame_wall:
+        openings.window(b, w, u0, u1, z0, z1, conf, k, 3, (2, 2))
+        return
+    openings.window(b, w, u0, u1, z0, z1, conf, k, 3, (3,), cap=False,
+                    casing_w=0.10, head_w=0.12, proud=0.045)
+    # A pair of board shutters, swung open, on about half the windows in the town — a
+    # cabin's winter and night closure. Which half is the window's identity. A pair of
+    # half-width leaves rather than one full leaf, because the facade's set-out leaves
+    # about a third of a metre between a window's casing and the door's or a corner's
+    # notching, and a full leaf would lie across one of them.
+    seed = f"{b.name}|{axis}|{plane:.2f}|{u0:.2f}|{z0:.2f}"
+    if shutters and openings.deal("shutter|" + seed, 2) == 0:
+        half = (u1 - u0) / 2.0
+        for edge, side in ((u0 - 0.11, -1), (u1 + 0.11, 1)):
+            openings.open_shutter(b, w, edge, half, z0 - 0.02, z1 + 0.02, conf,
+                                  k.door, side)
 
 
 def _plate(b: MeshBuilder, x: float, half: float, pts_yz, conf: float,
@@ -392,12 +428,18 @@ def _loft_opening(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
         return
     zc = wall_z + (ridge_z - wall_z) * 0.42
     hw, hh, out = 0.34, 0.30, 0.07
+    # A closed board hatch in a sawn frame (T-2278): a loft was reached for hay,
+    # seed and bedding, not lit, and an open black square read as a hole in the roof.
+    k = _kit(b)
     if _ridge_along_x(x0, y0, x1, y1):
         yc = (y0 + y1) / 2.0
-        _panel(b, "x", x1 + out, yc - hw, yc + hw, zc - hh, zc + hh, 1, conf, M_DARK)
+        w, uc = openings.Wall("x", x1, 1, out - 0.02), yc
     else:
         xc = (x0 + x1) / 2.0
-        _panel(b, "y", y1 + out, xc - hw, xc + hw, zc - hh, zc + hh, 1, conf, M_DARK)
+        w, uc = openings.Wall("y", y1, 1, out - 0.02), xc
+    openings.surround(b, w, uc - hw, uc + hw, zc - hh, zc + hh, conf, k, sill=False,
+                      cap=False, casing_w=0.07, head_w=0.08, proud=0.03)
+    openings.board_shutter(b, w, uc - hw, uc + hw, zc - hh, zc + hh, conf, k)
 
 
 def _core_openings(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
@@ -429,15 +471,16 @@ def _core_openings(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
     rects = core_front_rects(p)
     i = 0
     if not front_taken:
-        _kind, u0, u1, z0, z1 = rects[i]
+        kind, u0, u1, z0, z1 = rects[i]
         i += 1
-        _opening(b, "y", y1, u0, u1, z0, z1, 1, conf)
+        _opening(b, "y", y1, u0, u1, z0, z1, 1, conf, kind=kind)
 
     for story in range(p.stories):
         band = rects[i:i + (3 if front_taken and story == 0 else 2)]
         i += len(band)
-        for _kind, u0, u1, z0, z1 in band:
-            _opening(b, "y", y1, u0, u1, z0, z1, 1, conf)
+        for kind, u0, u1, z0, z1 in band:
+            _opening(b, "y", y1, u0, u1, z0, z1, 1, conf, kind=kind,
+                     shutters=(x1 - x0) >= 5.2)
         z0, z1 = band[0][3], band[0][4]
         # ONE WINDOW BEHIND, AND NEVER IN A GABLE. The rule this line has always stated
         # is "none on the gable ends: the gables carry the chimney at one end and the
@@ -487,8 +530,9 @@ def _frame_addition(b: MeshBuilder, p: LogDwellingParams) -> float:
     # windows both, in the order they are drawn in — and it is the same list the
     # signage layer reads when a front addition is the wall a visitor faces.
     front_rects = addition_front_rects(p)
-    for _kind, u0, u1, z0, z1 in front_rects:
-        _opening(b, "y", ay1, u0, u1, z0, z1, 1, c_fen, relief=rel)
+    for kind, u0, u1, z0, z1 in front_rects:
+        _opening(b, "y", ay1, u0, u1, z0, z1, 1, c_fen, kind=kind, relief=rel,
+                 frame_wall=True)
     # The gable end that is not buried in the log core gets one window per storey.
     # An END addition's front wall carries exactly two windows a storey and no door
     # (the core keeps that), so the storey's band is the pair at 2*story — read from
@@ -498,7 +542,7 @@ def _frame_addition(b: MeshBuilder, p: LogDwellingParams) -> float:
         for story in range(p.frame_addition_stories):
             z0, z1 = front_rects[2 * story][3:]
             _opening(b, "x", ax1, yc - ADDITION_WIN_HALF_M, yc + ADDITION_WIN_HALF_M,
-                     z0, z1, 1, c_fen, relief=rel)
+                     z0, z1, 1, c_fen, relief=rel, frame_wall=True)
     return add_ridge_z
 
 

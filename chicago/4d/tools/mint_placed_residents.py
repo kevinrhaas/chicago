@@ -507,13 +507,13 @@ def record(cand: dict, gaz: dict, inside, addressed, issues, neighbours,
         "reason_for_coming": {
             "value": None, "confidence": "reconstructed", "note": "Not attested.",
         },
-        "lives_at": {
+        "no_home": {
             "value": None, "confidence": "reconstructed",
             "note": ("Not attested. NOTHING IS BEING WITHHELD HERE: no source reached "
                      "says where this person lived, and 52 households in this dataset "
                      "were already in that position before this one was written."),
         },
-        "works_at": {
+        "no_workplace": {
             "value": None, "confidence": "reconstructed",
             "note": ("Not attested, and no trade is recorded either — the papers name "
                      "this person without saying what they did."),

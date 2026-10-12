@@ -65,12 +65,12 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "note": "NO ROOF AND NO LOT. This stage seats nobody: the ground the north and west divisions still want is T-1191–T-1194's and T-1199 seats every reconstructed household on it. A coordinate invented here would be a fabricated location, which docs/LIBERTIES.md refuses outright."
  },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "note": "No workplace is assigned from a reconstructed household; T-1189 staffs the businesses and T-1199 seats the premises."

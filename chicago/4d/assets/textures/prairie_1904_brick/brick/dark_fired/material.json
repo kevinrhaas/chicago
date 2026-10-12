@@ -1,0 +1,43 @@
+{
+  "id": "dark_fired",
+  "group": "brick",
+  "role": "fabric",
+  "kind": "clinker",
+  "tile_m": [
+    1.0,
+    1.0
+  ],
+  "resolution_px": 1024,
+  "px_per_m": 1024.0,
+  "uv_rule": "K01 scale_uv: TEXCOORD_0 = surface metres / tile_m (data/components/prairie_1904/k01_contract.json)",
+  "joints_in_map": false,
+  "orientation": "image x = along the course (u); image y = up the wall (v), image top = up",
+  "height_range_m": [
+    -0.0004,
+    0.001081
+  ],
+  "mean_srgb": [
+    71,
+    41,
+    42
+  ],
+  "mean_roughness": 0.615,
+  "note": "Overburnt, kiln-end brick: purple-brown to near-black, partly vitrified with glassy specks and small bloats. Offered as the header of a Flemish bond and nowhere else until a house's evidence asks for it.",
+  "confidence": "reconstructed appearance; which house wears it is the T-1837 register's to say",
+  "liberty": "L-k03-brick-library-2290",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y (up the wall)",
+    "roughness": "linear",
+    "height16": "linear 16-bit; 0 = height_range_m[0], 65535 = height_range_m[1]",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "dark_fired_basecolor_web.jpg",
+    "normal_gl": "dark_fired_normal_gl_web.jpg",
+    "orm": "dark_fired_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19043294,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_brick.py); no photograph sampled"
+}

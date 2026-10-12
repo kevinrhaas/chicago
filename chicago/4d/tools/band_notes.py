@@ -133,6 +133,10 @@ PROSE_KEYWORDS = {
     "door_bays": ("door",),
     "paint": ("paint", "whitewash", "unpainted"),
     "board_gap_m": ("gap", "batten", "chink"),
+    # T-2269. An open side is answered by the family's own word for it — F4's "1/open",
+    # "open posts" and "part-open sides" — the same phrases roof_form.OPEN_SIDE_PHRASES
+    # reads to put a family in OPEN_SIDED_FAMILIES.
+    "open_sides": ("open",),
 }
 
 # How each field is named in the sentence a visitor reads. A field with no entry here is
@@ -163,6 +167,7 @@ FIELD_LABEL = {
     "door_bays": "a count of doorways",
     "paint": "paint or finish",
     "board_gap_m": "a board gap",
+    "open_sides": "an open side",
 }
 
 CLASSIFIED = frozenset(BANDED_FIELDS) | frozenset(PROSE_KEYWORDS)

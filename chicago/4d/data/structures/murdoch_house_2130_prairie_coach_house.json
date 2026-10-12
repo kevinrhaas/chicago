@@ -1,0 +1,168 @@
+{
+  "id": "murdoch_house_2130_prairie_coach_house",
+  "name": "2130 S. Prairie Avenue — the alley building of the house at 2130 (district draft; refined by T-1937)",
+  "aka": [
+    "2130 S. Prairie Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "function": {
+    "value": "barn_or_carriage_shed",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "note": "The 1911 sheet reads '2-storey brick stable (crossed) on the alley, stone on its alley face'. Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+  },
+  "review_required": false,
+  "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1937 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2130-b2), the T-1842 census (s35-2130-rear) and the T-1837 register row frontage-35-070; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
+  "phases": [
+    {
+      "id": "draft_1904",
+      "documented_range": {
+        "from": "1904-07-01",
+        "to": "1911-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35"
+        ],
+        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+      },
+      "position": {
+        "utm_e": 448415.235,
+        "utm_n": 4633679.309,
+        "rotation_deg": -0.679,
+        "symbolic_location": "2130 S. Prairie Avenue, parcel prairie_2130 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35"
+        ],
+        "note": "The rear corner of the main body's rectangle (lot frame u 0.750, v -5.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.679 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            8.5,
+            0.0
+          ],
+          [
+            8.5,
+            11.0
+          ],
+          [
+            0.0,
+            11.0
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35"
+        ],
+        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+      },
+      "form": {
+        "stories": {
+          "value": 2,
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The census reading '2-storey brick stable (crossed) on the alley, stone on its alley face': 2 storeys."
+        },
+        "construction": {
+          "value": "stone",
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The trace's fabric colour on the main part: stone."
+        },
+        "draft_plan": {
+          "value": {
+            "parts": [
+              {
+                "id": "r1",
+                "role": "main",
+                "storeys": 2,
+                "roof": "gable",
+                "rect": [
+                  0.0,
+                  0.0,
+                  8.5,
+                  11.0
+                ],
+                "from": "s35fp-2130-b2 outline (main, stone), rectangle 1 of that part; the part's rectangles cover 81% of its fill"
+              }
+            ],
+            "lot_v": [
+              -1.33,
+              12.33
+            ],
+            "street_u": 54.135
+          },
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2130-b2 outline (main, stone), rectangle 1 of that part; the part's rectangles cover 81% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+        },
+        "draft_elevation": {
+          "value": {
+            "kind": "service",
+            "seed": 3365544304,
+            "principal_floor_m": 0.0,
+            "storey_heights_m": [
+              3.4,
+              2.8,
+              2.6
+            ],
+            "roof_pitch_deg": 40,
+            "mansard_lower_m": 3.0,
+            "front_bays": 4,
+            "entrance": "south",
+            "side_spacing_m": 2.6,
+            "chimneys": 0,
+            "brackets": false,
+            "attic_dormers": false,
+            "stone": "stone",
+            "features": [],
+            "draft_label": {
+              "pass": "T-2351",
+              "refined_by": [
+                "T-1937"
+              ]
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: The Thomas Murdoch house (Cobb, 1890): the register's 'stone-front block with brick rear, prominent rounded street bay/turret with conical cap, 2.5/3-storey transitions': the sheet's 2½ read as dormers in a hip, and a turret under a cone stood on the round bay the sheet draws at the front's north end (its rectangle, fitted from the stone part, is where the turret stands). T-1927 reads its height and cap. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3365544304 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-west-2351."
+        },
+        "draft": {
+          "value": {
+            "pass": "T-2351",
+            "liberty": "L-draft-prairie-20-22-west-2351",
+            "register_row": "frontage-35-070",
+            "census_ids": [
+              "s35-2130-rear"
+            ],
+            "trace_building": "s35fp-2130-b2",
+            "seed": 3365544304,
+            "replaceable_by": [
+              "T-1937"
+            ],
+            "card": "District draft — refined by T-1937."
+          },
+          "confidence": "reconstructed",
+          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+          "geometry": "record_only"
+        }
+      }
+    }
+  ]
+}

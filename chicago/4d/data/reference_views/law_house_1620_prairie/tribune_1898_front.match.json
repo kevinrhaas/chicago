@@ -1,0 +1,41 @@
+{
+  "structure_id": "law_house_1620_prairie",
+  "view": "tribune_1898_front",
+  "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
+  "glb_sha256": "52145b5bec7f0326f5d5dcc93ab3bcdff59db89e36e51d981843bd3980c90093",
+  "camera_sha256": "fc8035327dd5820503597ea8d52120b7a83da91067ee536623af793f81317b5b",
+  "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "wall head: the heavy bracketed cornice over the front at about 7.9 m (the camera's own height reading); the build's walls stood 0.7 m higher",
+      "status": "fixed"
+    },
+    {
+      "what": "north pavilion: the north part of the front proud, its south side face shaded, round-headed windows in both storeys under moulded hoods, rising past the main cornice; the build's front is flat there and carries a two-storey canted bay",
+      "status": "fixed"
+    },
+    {
+      "what": "bay window: a one-storey bay on the south part with pilaster strips and its own cornice; built by T-2408 as the 1874 engraving's hooded canted bay, its cornice under the hood",
+      "status": "fixed"
+    },
+    {
+      "what": "entrance: the stoop rising straight from the gate (x 93-140 px, about v 6.3-7.5 at the street line) to a door beside the pavilion's south face. Built (T-2409): the door moved to v 6.6, its 1.8 m stoop rising straight to it and its landing ending at the pavilion's south face; the porch before the pavilion stands behind the sketch's lattice fence and its '1620' cartouche hides the door's hood",
+      "status": "fixed"
+    },
+    {
+      "what": "fence: a lattice of interlaced arches between square piers with capped tops, on a base, gate piers at the walk; the build's is iron rails on a stone curb with urned piers",
+      "status": "open"
+    },
+    {
+      "what": "the roof: the panel cuts the house at the cornice",
+      "status": "not shown"
+    },
+    {
+      "what": "colour and walling: a pen sketch",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "T-2409 (lapped onto T-2404 and T-2408), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg"
+}

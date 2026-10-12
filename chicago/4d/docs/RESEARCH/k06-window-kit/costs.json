@@ -1,0 +1,91 @@
+{
+  "_doc": "Measured by tools/study_k06_windows.mjs on the specimen GLB. Triangles and draw calls are exact; frame_ms is headless Chromium on a software rasteriser (SwiftShader), a relative figure for comparing kit revisions, not a device frame time.",
+  "specimen_bytes": 294052,
+  "openings": [
+    {
+      "id": "k06.opening.sash_2over2_flat",
+      "triangles_opening": 160,
+      "triangles_with_board": 186,
+      "vertices_with_board": 372,
+      "draw_calls": 9
+    },
+    {
+      "id": "k06.opening.sash_1over1_segmental",
+      "triangles_opening": 285,
+      "triangles_with_board": 325,
+      "vertices_with_board": 635,
+      "draw_calls": 9
+    },
+    {
+      "id": "k06.opening.sash_round_fanlight",
+      "triangles_opening": 424,
+      "triangles_with_board": 472,
+      "vertices_with_board": 896,
+      "draw_calls": 9
+    },
+    {
+      "id": "k06.opening.sash_pointed",
+      "triangles_opening": 382,
+      "triangles_with_board": 430,
+      "vertices_with_board": 836,
+      "draw_calls": 9
+    },
+    {
+      "id": "k06.opening.sash_paired_flat",
+      "triangles_opening": 252,
+      "triangles_with_board": 288,
+      "vertices_with_board": 576,
+      "draw_calls": 9
+    },
+    {
+      "id": "k06.opening.sash_transom_flat",
+      "triangles_opening": 182,
+      "triangles_with_board": 208,
+      "vertices_with_board": 416,
+      "draw_calls": 9
+    },
+    {
+      "id": "k06.opening.area_light",
+      "triangles_opening": 130,
+      "triangles_with_board": 172,
+      "vertices_with_board": 344,
+      "draw_calls": 9
+    },
+    {
+      "id": "k06.opening.attic_group_3",
+      "triangles_opening": 282,
+      "triangles_with_board": 328,
+      "vertices_with_board": 656,
+      "draw_calls": 8
+    },
+    {
+      "id": "k06.opening.leaded_stair",
+      "triangles_opening": 364,
+      "triangles_with_board": 412,
+      "vertices_with_board": 796,
+      "draw_calls": 9
+    }
+  ],
+  "board": {
+    "desktop": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "draw_calls": 104,
+      "triangles": 3699,
+      "frame_ms_median": 1.2,
+      "geometries": 93
+    },
+    "mobile": {
+      "viewport": [
+        390,
+        780
+      ],
+      "draw_calls": 86,
+      "triangles": 3101,
+      "frame_ms_median": 0.6,
+      "geometries": 93
+    }
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "_doc": "Measured by tools/study_k08_bays.mjs on the specimen GLB; board = the full tier only, the light tier hidden. Triangles and draw calls are exact; frame_ms is headless Chromium on a software rasteriser (SwiftShader), a relative figure for comparing kit revisions, not a device frame time.",
+  "specimen_bytes": 2219268,
+  "variants": [
+    {
+      "id": "k08.bay.rectangular",
+      "tier": "full",
+      "triangles": 1243,
+      "triangles_with_board": 1255,
+      "vertices_with_board": 2492,
+      "draw_calls": 13,
+      "windows": 6
+    },
+    {
+      "id": "k08.bay.canted",
+      "tier": "full",
+      "triangles": 1243,
+      "triangles_with_board": 1255,
+      "vertices_with_board": 2492,
+      "draw_calls": 13,
+      "windows": 6
+    },
+    {
+      "id": "k08.bay.bowed",
+      "tier": "full",
+      "triangles": 8434,
+      "triangles_with_board": 8446,
+      "vertices_with_board": 7677,
+      "draw_calls": 13,
+      "windows": 6
+    },
+    {
+      "id": "k08.projection.full_height",
+      "tier": "full",
+      "triangles": 1388,
+      "triangles_with_board": 1400,
+      "vertices_with_board": 2772,
+      "draw_calls": 13,
+      "windows": 6
+    },
+    {
+      "id": "k08.oriel.canted_corbelled",
+      "tier": "full",
+      "triangles": 609,
+      "triangles_with_board": 621,
+      "vertices_with_board": 1238,
+      "draw_calls": 13,
+      "windows": 3
+    },
+    {
+      "id": "k08.tower.round",
+      "tier": "full",
+      "triangles": 17720,
+      "triangles_with_board": 17732,
+      "vertices_with_board": 15534,
+      "draw_calls": 13,
+      "windows": 9
+    },
+    {
+      "id": "k08.tower.octagonal",
+      "tier": "full",
+      "triangles": 1757,
+      "triangles_with_board": 1769,
+      "vertices_with_board": 3500,
+      "draw_calls": 13,
+      "windows": 9
+    },
+    {
+      "id": "k08.bay.rectangular",
+      "tier": "light",
+      "triangles": 611,
+      "triangles_with_board": 623,
+      "vertices_with_board": 1228,
+      "draw_calls": 10,
+      "windows": 6
+    },
+    {
+      "id": "k08.bay.canted",
+      "tier": "light",
+      "triangles": 611,
+      "triangles_with_board": 623,
+      "vertices_with_board": 1228,
+      "draw_calls": 10,
+      "windows": 6
+    },
+    {
+      "id": "k08.bay.bowed",
+      "tier": "light",
+      "triangles": 2456,
+      "triangles_with_board": 2468,
+      "vertices_with_board": 2434,
+      "draw_calls": 10,
+      "windows": 6
+    },
+    {
+      "id": "k08.projection.full_height",
+      "tier": "light",
+      "triangles": 712,
+      "triangles_with_board": 724,
+      "vertices_with_board": 1420,
+      "draw_calls": 10,
+      "windows": 6
+    },
+    {
+      "id": "k08.oriel.canted_corbelled",
+      "tier": "light",
+      "triangles": 315,
+      "triangles_with_board": 327,
+      "vertices_with_board": 650,
+      "draw_calls": 10,
+      "windows": 3
+    },
+    {
+      "id": "k08.tower.round",
+      "tier": "light",
+      "triangles": 6092,
+      "triangles_with_board": 6104,
+      "vertices_with_board": 5531,
+      "draw_calls": 10,
+      "windows": 9
+    },
+    {
+      "id": "k08.tower.octagonal",
+      "tier": "light",
+      "triangles": 875,
+      "triangles_with_board": 887,
+      "vertices_with_board": 1736,
+      "draw_calls": 10,
+      "windows": 9
+    }
+  ],
+  "board": {
+    "desktop": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "draw_calls": 140,
+      "triangles": 53984,
+      "frame_ms_median": 0.8,
+      "geometries": 174
+    },
+    "mobile": {
+      "viewport": [
+        390,
+        780
+      ],
+      "draw_calls": 114,
+      "triangles": 50960,
+      "frame_ms_median": 0.5,
+      "geometries": 174
+    }
+  }
+}

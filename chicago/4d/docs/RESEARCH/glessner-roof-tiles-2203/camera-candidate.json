@@ -1,0 +1,2378 @@
+{
+  "ticket": "T-2200",
+  "candidate_sha256": "652992c7af08effdb3f916d8ca9ffd176fbd550542b3702eb0cb64457755482f",
+  "camera_refitted": false,
+  "method": "Frozen baseline cameras and width denominators. Re-associated candidate vertices remain reviewable; no camera or geometry optimization. Limited views still have no acceptance verdict.",
+  "views": [
+    {
+      "id": "prairie-front",
+      "camera": {
+        "position_m": [
+          80.84418464,
+          -0.1905029,
+          2.5
+        ],
+        "basis_right_up_forward": [
+          [
+            0.0452469668,
+            0.998968053,
+            -0.0039422072
+          ],
+          [
+            -0.0002701994,
+            0.0039584868,
+            0.9999921287
+          ],
+          [
+            -0.998975795,
+            0.0452455455,
+            -0.0004490301
+          ]
+        ],
+        "focal_px": 1851.38888889,
+        "principal_px": [
+          895.0,
+          670.0
+        ],
+        "image_size": [
+          1800,
+          1297
+        ],
+        "near": 0.05,
+        "far": 2000
+      },
+      "limited": false,
+      "landmarks": [
+        {
+          "id": "south-upper-left-head",
+          "role": "fit",
+          "observed_px": [
+            933,
+            376
+          ],
+          "predicted_px": [
+            930.3328,
+            376.1465
+          ],
+          "mesh_vertex_m": [
+            48.853001,
+            1.8908,
+            7.5702
+          ],
+          "association_distance_m": 0.088116,
+          "residual_px": 2.6712,
+          "baseline_residual_px": 2.6712,
+          "fraction_baseline_projected_width": 0.0020898,
+          "fraction_observed_span": 0.0036492,
+          "target_met": true
+        },
+        {
+          "id": "south-upper-right-sill",
+          "role": "fit",
+          "observed_px": [
+            984,
+            450
+          ],
+          "predicted_px": [
+            983.1465,
+            448.2945
+          ],
+          "mesh_vertex_m": [
+            48.853001,
+            2.8031,
+            6.3226
+          ],
+          "association_distance_m": 0.088141,
+          "residual_px": 1.9071,
+          "baseline_residual_px": 1.9071,
+          "fraction_baseline_projected_width": 0.001492,
+          "fraction_observed_span": 0.0026054,
+          "target_met": true
+        },
+        {
+          "id": "middle-upper-left-head",
+          "role": "fit",
+          "observed_px": [
+            1121,
+            374
+          ],
+          "predicted_px": [
+            1126.2134,
+            376.7791
+          ],
+          "mesh_vertex_m": [
+            48.853001,
+            5.3046,
+            7.5702
+          ],
+          "association_distance_m": 0.088144,
+          "residual_px": 5.9079,
+          "baseline_residual_px": 5.9079,
+          "fraction_baseline_projected_width": 0.0046219,
+          "fraction_observed_span": 0.0080709,
+          "target_met": true
+        },
+        {
+          "id": "middle-upper-right-sill",
+          "role": "fit",
+          "observed_px": [
+            1294,
+            452
+          ],
+          "predicted_px": [
+            1294.4984,
+            448.7504
+          ],
+          "mesh_vertex_m": [
+            48.853001,
+            8.259,
+            6.3226
+          ],
+          "association_distance_m": 0.088156,
+          "residual_px": 3.2876,
+          "baseline_residual_px": 3.2876,
+          "fraction_baseline_projected_width": 0.002572,
+          "fraction_observed_span": 0.0044912,
+          "target_met": true
+        },
+        {
+          "id": "north-upper-left-head",
+          "role": "fit",
+          "observed_px": [
+            1420,
+            375
+          ],
+          "predicted_px": [
+            1416.531,
+            377.7165
+          ],
+          "mesh_vertex_m": [
+            48.853001,
+            10.4252,
+            7.5702
+          ],
+          "association_distance_m": 0.088117,
+          "residual_px": 4.4061,
+          "baseline_residual_px": 4.4061,
+          "fraction_baseline_projected_width": 0.003447,
+          "fraction_observed_span": 0.0060192,
+          "target_met": true
+        },
+        {
+          "id": "north-upper-right-sill",
+          "role": "fit",
+          "observed_px": [
+            1644,
+            450
+          ],
+          "predicted_px": [
+            1645.2873,
+            449.2641
+          ],
+          "mesh_vertex_m": [
+            48.853001,
+            14.5074,
+            6.3226
+          ],
+          "association_distance_m": 0.088156,
+          "residual_px": 1.4828,
+          "baseline_residual_px": 1.4828,
+          "fraction_baseline_projected_width": 0.00116,
+          "fraction_observed_span": 0.0020257,
+          "target_met": true
+        },
+        {
+          "id": "south-first-left-head",
+          "role": "check",
+          "observed_px": [
+            912,
+            519
+          ],
+          "predicted_px": [
+            908.0389,
+            518.7729
+          ],
+          "mesh_vertex_m": [
+            48.853001,
+            1.4946,
+            5.1013
+          ],
+          "association_distance_m": 0.088159,
+          "residual_px": 3.9676,
+          "baseline_residual_px": 3.9676,
+          "fraction_baseline_projected_width": 0.003104,
+          "fraction_observed_span": 0.0054202,
+          "target_met": true
+        },
+        {
+          "id": "south-first-left-sill",
+          "role": "check",
+          "observed_px": [
+            912,
+            576
+          ],
+          "predicted_px": [
+            908.316,
+            589.1165
+          ],
+          "mesh_vertex_m": [
+            48.853001,
+            1.4946,
+            3.8842
+          ],
+          "association_distance_m": 0.088156,
+          "residual_px": 13.624,
+          "baseline_residual_px": 13.624,
+          "fraction_baseline_projected_width": 0.0106586,
+          "fraction_observed_span": 0.0186121,
+          "target_met": false
+        },
+        {
+          "id": "south-first-right-head",
+          "role": "check",
+          "observed_px": [
+            1007,
+            519
+          ],
+          "predicted_px": [
+            1002.695,
+            518.748
+          ],
+          "mesh_vertex_m": [
+            48.853001,
+            3.1384,
+            5.1013
+          ],
+          "association_distance_m": 0.08813,
+          "residual_px": 4.3124,
+          "baseline_residual_px": 4.3124,
+          "fraction_baseline_projected_width": 0.0033738,
+          "fraction_observed_span": 0.0058913,
+          "target_met": true
+        },
+        {
+          "id": "middle-first-head",
+          "role": "check",
+          "observed_px": [
+            1105,
+            546
+          ],
+          "predicted_px": [
+            1100.7576,
+            548.5255
+          ],
+          "mesh_vertex_m": [
+            48.853001,
+            4.8474,
+            4.5832
+          ],
+          "association_distance_m": 0.088116,
+          "residual_px": 4.9372,
+          "baseline_residual_px": 4.9372,
+          "fraction_baseline_projected_width": 0.0038626,
+          "fraction_observed_span": 0.0067449,
+          "target_met": true
+        }
+      ]
+    },
+    {
+      "id": "taylor-ne",
+      "camera": {
+        "position_m": [
+          66.34150391,
+          32.68728024,
+          2.5
+        ],
+        "basis_right_up_forward": [
+          [
+            -0.568105494,
+            0.8228685892,
+            0.0119763346
+          ],
+          [
+            0.0948055808,
+            0.0509836284,
+            0.9941894042
+          ],
+          [
+            -0.8174766354,
+            -0.565939886,
+            0.1069766139
+          ]
+        ],
+        "focal_px": 897.77777778,
+        "principal_px": [
+          528.0,
+          424.5
+        ],
+        "image_size": [
+          1056,
+          991
+        ],
+        "near": 0.05,
+        "far": 2000
+      },
+      "limited": false,
+      "landmarks": [
+        {
+          "id": "ne-base",
+          "role": "fit",
+          "observed_px": [
+            599,
+            610
+          ],
+          "predicted_px": [
+            592.0229,
+            637.1623
+          ],
+          "mesh_vertex_m": [
+            49.148998,
+            22.5462,
+            0.007
+          ],
+          "association_distance_m": 0.011402,
+          "residual_px": 28.0441,
+          "baseline_residual_px": 28.0441,
+          "fraction_baseline_projected_width": 0.0517848,
+          "fraction_observed_span": 0.0298977,
+          "target_met": false
+        },
+        {
+          "id": "se-base",
+          "role": "fit",
+          "observed_px": [
+            40,
+            574
+          ],
+          "predicted_px": [
+            50.9731,
+            585.0935
+          ],
+          "mesh_vertex_m": [
+            49.148998,
+            0.009,
+            0.007
+          ],
+          "association_distance_m": 0.011402,
+          "residual_px": 15.6036,
+          "baseline_residual_px": 15.6036,
+          "fraction_baseline_projected_width": 0.0288129,
+          "fraction_observed_span": 0.016635,
+          "target_met": false
+        },
+        {
+          "id": "ne-eave",
+          "role": "fit",
+          "observed_px": [
+            599,
+            307
+          ],
+          "predicted_px": [
+            593.8167,
+            257.2414
+          ],
+          "mesh_vertex_m": [
+            49.156502,
+            22.555201,
+            8.485408
+          ],
+          "association_distance_m": 0.007505,
+          "residual_px": 50.0279,
+          "baseline_residual_px": 51.0949,
+          "fraction_baseline_projected_width": 0.0923791,
+          "fraction_observed_span": 0.0533346,
+          "target_met": false
+        },
+        {
+          "id": "se-eave",
+          "role": "fit",
+          "observed_px": [
+            40,
+            351
+          ],
+          "predicted_px": [
+            66.426,
+            352.6814
+          ],
+          "mesh_vertex_m": [
+            49.156502,
+            0.0,
+            8.485408
+          ],
+          "association_distance_m": 0.007505,
+          "residual_px": 26.4795,
+          "baseline_residual_px": 26.8586,
+          "fraction_baseline_projected_width": 0.0488957,
+          "fraction_observed_span": 0.0282297,
+          "target_met": false
+        },
+        {
+          "id": "nw-base",
+          "role": "fit",
+          "observed_px": [
+            978,
+            573
+          ],
+          "predicted_px": [
+            968.9217,
+            564.1279
+          ],
+          "mesh_vertex_m": [
+            0.009,
+            22.555201,
+            0.007
+          ],
+          "association_distance_m": 0.011402,
+          "residual_px": 12.6937,
+          "baseline_residual_px": 12.6937,
+          "fraction_baseline_projected_width": 0.0234396,
+          "fraction_observed_span": 0.0135327,
+          "target_met": false
+        },
+        {
+          "id": "north-eave-west",
+          "role": "fit",
+          "observed_px": [
+            953,
+            425
+          ],
+          "predicted_px": [
+            932.6202,
+            446.5198
+          ],
+          "mesh_vertex_m": [
+            10.8204,
+            22.555201,
+            7.0409
+          ],
+          "association_distance_m": 2e-05,
+          "residual_px": 29.6384,
+          "baseline_residual_px": 29.6384,
+          "fraction_baseline_projected_width": 0.0547289,
+          "fraction_observed_span": 0.0315975,
+          "target_met": false
+        },
+        {
+          "id": "north-chimney-top",
+          "role": "check",
+          "observed_px": [
+            678,
+            119
+          ],
+          "predicted_px": [
+            643.3179,
+            63.7449
+          ],
+          "mesh_vertex_m": [
+            45.348999,
+            21.85655,
+            15.011752
+          ],
+          "association_distance_m": 0.283783,
+          "residual_px": 65.2378,
+          "baseline_residual_px": 65.2378,
+          "fraction_baseline_projected_width": 0.120465,
+          "fraction_observed_span": 0.0695499,
+          "target_met": false
+        },
+        {
+          "id": "front-door-south-head",
+          "role": "check",
+          "observed_px": [
+            302,
+            511
+          ],
+          "predicted_px": [
+            269.4327,
+            514.9255
+          ],
+          "mesh_vertex_m": [
+            49.165001,
+            11.7653,
+            2.5878
+          ],
+          "association_distance_m": 0.016001,
+          "residual_px": 32.803,
+          "baseline_residual_px": 32.803,
+          "fraction_baseline_projected_width": 0.0605725,
+          "fraction_observed_span": 0.0349712,
+          "target_met": false
+        },
+        {
+          "id": "front-upper-north",
+          "role": "check",
+          "observed_px": [
+            526,
+            335
+          ],
+          "predicted_px": [
+            498.7028,
+            314.6242
+          ],
+          "mesh_vertex_m": [
+            48.853001,
+            19.6586,
+            7.5702
+          ],
+          "association_distance_m": 0.088088,
+          "residual_px": 34.0634,
+          "baseline_residual_px": 34.0634,
+          "fraction_baseline_projected_width": 0.0628998,
+          "fraction_observed_span": 0.0363149,
+          "target_met": false
+        },
+        {
+          "id": "north-upper-east",
+          "role": "check",
+          "observed_px": [
+            650,
+            353
+          ],
+          "predicted_px": [
+            629.6197,
+            351.082
+          ],
+          "mesh_vertex_m": [
+            46.892399,
+            22.259199,
+            6.7198
+          ],
+          "association_distance_m": 0.088151,
+          "residual_px": 20.4704,
+          "baseline_residual_px": 20.4704,
+          "fraction_baseline_projected_width": 0.0377996,
+          "fraction_observed_span": 0.0218234,
+          "target_met": false
+        }
+      ]
+    },
+    {
+      "id": "habs-ne",
+      "camera": {
+        "position_m": [
+          93.20202773,
+          40.70686731,
+          1.37976532
+        ],
+        "basis_right_up_forward": [
+          [
+            -0.5470596775,
+            0.8370713528,
+            -0.0061040621
+          ],
+          [
+            -0.0001236529,
+            0.0072111628,
+            0.9999739916
+          ],
+          [
+            -0.8370935993,
+            -0.5470462041,
+            0.0038414301
+          ]
+        ],
+        "focal_px": 1602.33333333,
+        "principal_px": [
+          892.0,
+          670.0
+        ],
+        "image_size": [
+          1800,
+          1279
+        ],
+        "near": 0.05,
+        "far": 2000
+      },
+      "limited": false,
+      "landmarks": [
+        {
+          "id": "ne-base",
+          "role": "fit",
+          "observed_px": [
+            1200,
+            721
+          ],
+          "predicted_px": [
+            1196.8921,
+            721.2901
+          ],
+          "mesh_vertex_m": [
+            49.148998,
+            22.5462,
+            0.007
+          ],
+          "association_distance_m": 0.011402,
+          "residual_px": 3.1214,
+          "baseline_residual_px": 3.1214,
+          "fraction_baseline_projected_width": 0.0054265,
+          "fraction_observed_span": 0.0034151,
+          "target_met": true
+        },
+        {
+          "id": "se-base",
+          "role": "fit",
+          "observed_px": [
+            620,
+            708
+          ],
+          "predicted_px": [
+            622.1482,
+            715.0004
+          ],
+          "mesh_vertex_m": [
+            49.148998,
+            0.009,
+            0.007
+          ],
+          "association_distance_m": 0.011402,
+          "residual_px": 7.3226,
+          "baseline_residual_px": 7.3226,
+          "fraction_baseline_projected_width": 0.0127302,
+          "fraction_observed_span": 0.0080116,
+          "target_met": false
+        },
+        {
+          "id": "ne-eave",
+          "role": "fit",
+          "observed_px": [
+            1192,
+            430
+          ],
+          "predicted_px": [
+            1195.0995,
+            431.1586
+          ],
+          "mesh_vertex_m": [
+            49.156502,
+            22.555201,
+            8.485408
+          ],
+          "association_distance_m": 0.007505,
+          "residual_px": 3.3089,
+          "baseline_residual_px": 3.2802,
+          "fraction_baseline_projected_width": 0.0057525,
+          "fraction_observed_span": 0.0036203,
+          "target_met": true
+        },
+        {
+          "id": "se-eave",
+          "role": "fit",
+          "observed_px": [
+            621,
+            493
+          ],
+          "predicted_px": [
+            620.5738,
+            485.3725
+          ],
+          "mesh_vertex_m": [
+            49.156502,
+            0.0,
+            8.485408
+          ],
+          "association_distance_m": 0.007505,
+          "residual_px": 7.6394,
+          "baseline_residual_px": 8.3847,
+          "fraction_baseline_projected_width": 0.013281,
+          "fraction_observed_span": 0.0083582,
+          "target_met": false
+        },
+        {
+          "id": "nw-base",
+          "role": "fit",
+          "observed_px": [
+            1534,
+            700
+          ],
+          "predicted_px": [
+            1544.2665,
+            697.1885
+          ],
+          "mesh_vertex_m": [
+            0.009,
+            22.555201,
+            0.007
+          ],
+          "association_distance_m": 0.011402,
+          "residual_px": 10.6445,
+          "baseline_residual_px": 10.6445,
+          "fraction_baseline_projected_width": 0.0185052,
+          "fraction_observed_span": 0.011646,
+          "target_met": false
+        },
+        {
+          "id": "north-eave-west",
+          "role": "fit",
+          "observed_px": [
+            1510,
+            554
+          ],
+          "predicted_px": [
+            1497.8826,
+            557.5038
+          ],
+          "mesh_vertex_m": [
+            10.8204,
+            22.555201,
+            7.0409
+          ],
+          "association_distance_m": 2e-05,
+          "residual_px": 12.6138,
+          "baseline_residual_px": 12.6138,
+          "fraction_baseline_projected_width": 0.0219289,
+          "fraction_observed_span": 0.0138007,
+          "target_met": false
+        },
+        {
+          "id": "north-chimney-top",
+          "role": "check",
+          "observed_px": [
+            1251,
+            229
+          ],
+          "predicted_px": [
+            1219.8338,
+            240.938
+          ],
+          "mesh_vertex_m": [
+            45.348999,
+            21.85655,
+            15.011752
+          ],
+          "association_distance_m": 0.283783,
+          "residual_px": 33.3744,
+          "baseline_residual_px": 33.3744,
+          "fraction_baseline_projected_width": 0.0580206,
+          "fraction_observed_span": 0.0365146,
+          "target_met": false
+        },
+        {
+          "id": "front-door-south-head",
+          "role": "check",
+          "observed_px": [
+            879,
+            639
+          ],
+          "predicted_px": [
+            887.6628,
+            639.451
+          ],
+          "mesh_vertex_m": [
+            49.165001,
+            11.7653,
+            2.5878
+          ],
+          "association_distance_m": 0.016001,
+          "residual_px": 8.6745,
+          "baseline_residual_px": 8.6745,
+          "fraction_baseline_projected_width": 0.0150804,
+          "fraction_observed_span": 0.0094907,
+          "target_met": false
+        },
+        {
+          "id": "front-upper-north",
+          "role": "check",
+          "observed_px": [
+            1108,
+            460
+          ],
+          "predicted_px": [
+            1109.4822,
+            470.9869
+          ],
+          "mesh_vertex_m": [
+            48.853001,
+            19.6586,
+            7.5702
+          ],
+          "association_distance_m": 0.088088,
+          "residual_px": 11.0864,
+          "baseline_residual_px": 11.0864,
+          "fraction_baseline_projected_width": 0.0192735,
+          "fraction_observed_span": 0.0121296,
+          "target_met": false
+        },
+        {
+          "id": "north-upper-east",
+          "role": "check",
+          "observed_px": [
+            1272,
+            496
+          ],
+          "predicted_px": [
+            1215.2195,
+            499.1183
+          ],
+          "mesh_vertex_m": [
+            46.892399,
+            22.259199,
+            6.7198
+          ],
+          "association_distance_m": 0.088151,
+          "residual_px": 56.866,
+          "baseline_residual_px": 56.866,
+          "fraction_baseline_projected_width": 0.0988603,
+          "fraction_observed_span": 0.0622167,
+          "target_met": false
+        }
+      ]
+    },
+    {
+      "id": "northwest-stable",
+      "camera": {
+        "position_m": [
+          -11.33753536,
+          58.62667042,
+          1.0
+        ],
+        "basis_right_up_forward": [
+          [
+            -0.7963321908,
+            -0.6041468136,
+            0.029354208
+          ],
+          [
+            -0.0460503241,
+            0.1089462154,
+            0.9929804076
+          ],
+          [
+            0.6031039791,
+            -0.7893904926,
+            0.1145785349
+          ]
+        ],
+        "focal_px": 1789.16666667,
+        "principal_px": [
+          904.5,
+          639.0
+        ],
+        "image_size": [
+          1800,
+          1289
+        ],
+        "near": 0.05,
+        "far": 2000
+      },
+      "limited": false,
+      "landmarks": [
+        {
+          "id": "ne-base",
+          "role": "fit",
+          "observed_px": [
+            164,
+            873
+          ],
+          "predicted_px": [
+            176.1519,
+            851.509
+          ],
+          "mesh_vertex_m": [
+            49.148998,
+            22.5462,
+            0.007
+          ],
+          "association_distance_m": 0.011402,
+          "residual_px": 24.6887,
+          "baseline_residual_px": 24.6887,
+          "fraction_baseline_projected_width": 0.0179434,
+          "fraction_observed_span": 0.0178129,
+          "target_met": false
+        },
+        {
+          "id": "nw-base",
+          "role": "fit",
+          "observed_px": [
+            1550,
+            922
+          ],
+          "predicted_px": [
+            1551.3608,
+            915.3957
+          ],
+          "mesh_vertex_m": [
+            0.009,
+            22.555201,
+            0.007
+          ],
+          "association_distance_m": 0.011402,
+          "residual_px": 6.7431,
+          "baseline_residual_px": 6.7431,
+          "fraction_baseline_projected_width": 0.0049008,
+          "fraction_observed_span": 0.0048651,
+          "target_met": true
+        },
+        {
+          "id": "east-eave",
+          "role": "fit",
+          "observed_px": [
+            169,
+            608
+          ],
+          "predicted_px": [
+            193.329,
+            619.5023
+          ],
+          "mesh_vertex_m": [
+            49.156502,
+            22.555201,
+            8.485408
+          ],
+          "association_distance_m": 0.007505,
+          "residual_px": 26.911,
+          "baseline_residual_px": 26.8186,
+          "fraction_baseline_projected_width": 0.0195585,
+          "fraction_observed_span": 0.0194163,
+          "target_met": false
+        },
+        {
+          "id": "west-eave",
+          "role": "fit",
+          "observed_px": [
+            1548,
+            532
+          ],
+          "predicted_px": [
+            1549.2032,
+            526.646
+          ],
+          "mesh_vertex_m": [
+            -0.002,
+            22.432552,
+            7.785164
+          ],
+          "association_distance_m": 0.261615,
+          "residual_px": 5.4875,
+          "baseline_residual_px": 5.7203,
+          "fraction_baseline_projected_width": 0.0039882,
+          "fraction_observed_span": 0.0039592,
+          "target_met": true
+        },
+        {
+          "id": "stable-east-eave",
+          "role": "fit",
+          "observed_px": [
+            1080,
+            575
+          ],
+          "predicted_px": [
+            1086.4327,
+            594.9014
+          ],
+          "mesh_vertex_m": [
+            10.8204,
+            22.555201,
+            7.0409
+          ],
+          "association_distance_m": 2e-05,
+          "residual_px": 20.9152,
+          "baseline_residual_px": 20.9152,
+          "fraction_baseline_projected_width": 0.0152009,
+          "fraction_observed_span": 0.0150903,
+          "target_met": false
+        },
+        {
+          "id": "north-range-east-eave",
+          "role": "fit",
+          "observed_px": [
+            371,
+            645
+          ],
+          "predicted_px": [
+            322.2144,
+            649.2513
+          ],
+          "mesh_vertex_m": [
+            41.069801,
+            22.572195,
+            7.035608
+          ],
+          "association_distance_m": 0.017906,
+          "residual_px": 48.9704,
+          "baseline_residual_px": 48.0798,
+          "fraction_baseline_projected_width": 0.035591,
+          "fraction_observed_span": 0.0353322,
+          "target_met": false
+        },
+        {
+          "id": "stable-ridge",
+          "role": "check",
+          "observed_px": [
+            1240,
+            356
+          ],
+          "predicted_px": [
+            1267.8607,
+            361.6152
+          ],
+          "mesh_vertex_m": [
+            6.164234,
+            22.5462,
+            12.0631
+          ],
+          "association_distance_m": 0.013899,
+          "residual_px": 28.4209,
+          "baseline_residual_px": 28.4209,
+          "fraction_baseline_projected_width": 0.0206559,
+          "fraction_observed_span": 0.0205057,
+          "target_met": false
+        },
+        {
+          "id": "great-arch-apex",
+          "role": "check",
+          "observed_px": [
+            821,
+            737
+          ],
+          "predicted_px": [
+            848.7396,
+            754.6799
+          ],
+          "mesh_vertex_m": [
+            17.935843,
+            22.5462,
+            3.295
+          ],
+          "association_distance_m": 0.030379,
+          "residual_px": 32.8948,
+          "baseline_residual_px": 32.8948,
+          "fraction_baseline_projected_width": 0.0239074,
+          "fraction_observed_span": 0.0237336,
+          "target_met": false
+        },
+        {
+          "id": "stable-loft-head",
+          "role": "check",
+          "observed_px": [
+            1186,
+            567
+          ],
+          "predicted_px": [
+            1231.2924,
+            572.3844
+          ],
+          "mesh_vertex_m": [
+            7.171944,
+            22.2652,
+            7.370044
+          ],
+          "association_distance_m": 0.095993,
+          "residual_px": 45.6113,
+          "baseline_residual_px": 45.6113,
+          "fraction_baseline_projected_width": 0.0331497,
+          "fraction_observed_span": 0.0329086,
+          "target_met": false
+        },
+        {
+          "id": "stable-loft-sill",
+          "role": "check",
+          "observed_px": [
+            1290,
+            660
+          ],
+          "predicted_px": [
+            1315.9368,
+            656.3339
+          ],
+          "mesh_vertex_m": [
+            5.111456,
+            22.2652,
+            5.370556
+          ],
+          "association_distance_m": 0.095937,
+          "residual_px": 26.1946,
+          "baseline_residual_px": 26.1946,
+          "fraction_baseline_projected_width": 0.0190379,
+          "fraction_observed_span": 0.0188994,
+          "target_met": false
+        }
+      ]
+    },
+    {
+      "id": "north-level",
+      "camera": {
+        "position_m": [
+          51.02181996,
+          43.176735,
+          2.5
+        ],
+        "basis_right_up_forward": [
+          [
+            -0.971589903,
+            0.2328895214,
+            -0.0421370514
+          ],
+          [
+            -0.0527199656,
+            -0.0394028131,
+            0.9978316609
+          ],
+          [
+            -0.2307242196,
+            -0.9717046306,
+            -0.0505613029
+          ]
+        ],
+        "focal_px": 1600.22222222,
+        "principal_px": [
+          901.0,
+          607.5
+        ],
+        "image_size": [
+          1800,
+          1268
+        ],
+        "near": 0.05,
+        "far": 2000
+      },
+      "limited": false,
+      "landmarks": [
+        {
+          "id": "corner-base",
+          "role": "fit",
+          "observed_px": [
+            669,
+            726
+          ],
+          "predicted_px": [
+            677.3353,
+            729.8922
+          ],
+          "mesh_vertex_m": [
+            49.148998,
+            22.5462,
+            0.007
+          ],
+          "association_distance_m": 0.011402,
+          "residual_px": 9.1993,
+          "baseline_residual_px": 9.1993,
+          "fraction_baseline_projected_width": 0.0037212,
+          "fraction_observed_span": 0.0145099,
+          "target_met": false
+        },
+        {
+          "id": "first-narrow-head",
+          "role": "fit",
+          "observed_px": [
+            750,
+            402
+          ],
+          "predicted_px": [
+            757.1027,
+            391.3344
+          ],
+          "mesh_vertex_m": [
+            47.867802,
+            22.259199,
+            4.3449
+          ],
+          "association_distance_m": 0.088113,
+          "residual_px": 12.8142,
+          "baseline_residual_px": 12.8142,
+          "fraction_baseline_projected_width": 0.0051835,
+          "fraction_observed_span": 0.0202117,
+          "target_met": false
+        },
+        {
+          "id": "first-narrow-sill",
+          "role": "check",
+          "observed_px": [
+            797,
+            519
+          ],
+          "predicted_px": [
+            789.6281,
+            502.1544
+          ],
+          "mesh_vertex_m": [
+            47.504101,
+            22.259199,
+            2.8814
+          ],
+          "association_distance_m": 0.088108,
+          "residual_px": 18.388,
+          "baseline_residual_px": 18.388,
+          "fraction_baseline_projected_width": 0.0074382,
+          "fraction_observed_span": 0.0290031,
+          "target_met": false
+        },
+        {
+          "id": "upper-left-head",
+          "role": "fit",
+          "observed_px": [
+            833,
+            198
+          ],
+          "predicted_px": [
+            822.2098,
+            208.4854
+          ],
+          "mesh_vertex_m": [
+            46.892399,
+            22.259199,
+            6.7198
+          ],
+          "association_distance_m": 0.088151,
+          "residual_px": 15.0457,
+          "baseline_residual_px": 15.0457,
+          "fraction_baseline_projected_width": 0.0060862,
+          "fraction_observed_span": 0.0237313,
+          "target_met": false
+        },
+        {
+          "id": "upper-left-sill",
+          "role": "fit",
+          "observed_px": [
+            897,
+            295
+          ],
+          "predicted_px": [
+            881.0302,
+            268.8166
+          ],
+          "mesh_vertex_m": [
+            46.1325,
+            22.259199,
+            5.9294
+          ],
+          "association_distance_m": 0.088107,
+          "residual_px": 30.6692,
+          "baseline_residual_px": 30.6692,
+          "fraction_baseline_projected_width": 0.0124061,
+          "fraction_observed_span": 0.0483742,
+          "target_met": false
+        },
+        {
+          "id": "upper-right-head",
+          "role": "fit",
+          "observed_px": [
+            928,
+            199
+          ],
+          "predicted_px": [
+            929.7296,
+            209.0117
+          ],
+          "mesh_vertex_m": [
+            45.429401,
+            22.259199,
+            6.7198
+          ],
+          "association_distance_m": 0.088121,
+          "residual_px": 10.16,
+          "baseline_residual_px": 10.16,
+          "fraction_baseline_projected_width": 0.0041099,
+          "fraction_observed_span": 0.0160252,
+          "target_met": false
+        },
+        {
+          "id": "upper-right-sill",
+          "role": "check",
+          "observed_px": [
+            984,
+            295
+          ],
+          "predicted_px": [
+            982.2338,
+            268.4129
+          ],
+          "mesh_vertex_m": [
+            44.7304,
+            22.259199,
+            5.9294
+          ],
+          "association_distance_m": 0.088094,
+          "residual_px": 26.6457,
+          "baseline_residual_px": 26.6457,
+          "fraction_baseline_projected_width": 0.0107786,
+          "fraction_observed_span": 0.0420279,
+          "target_met": false
+        },
+        {
+          "id": "west-upper-head",
+          "role": "fit",
+          "observed_px": [
+            1211,
+            198
+          ],
+          "predicted_px": [
+            1220.7824,
+            210.4362
+          ],
+          "mesh_vertex_m": [
+            41.223202,
+            22.259199,
+            6.7198
+          ],
+          "association_distance_m": 0.088092,
+          "residual_px": 15.8226,
+          "baseline_residual_px": 15.8226,
+          "fraction_baseline_projected_width": 0.0064005,
+          "fraction_observed_span": 0.0249568,
+          "target_met": false
+        },
+        {
+          "id": "west-upper-sill",
+          "role": "check",
+          "observed_px": [
+            1264,
+            294
+          ],
+          "predicted_px": [
+            1260.4872,
+            267.3028
+          ],
+          "mesh_vertex_m": [
+            40.646099,
+            22.259199,
+            5.9294
+          ],
+          "association_distance_m": 0.088107,
+          "residual_px": 26.9273,
+          "baseline_residual_px": 26.9273,
+          "fraction_baseline_projected_width": 0.0108925,
+          "fraction_observed_span": 0.0424721,
+          "target_met": false
+        },
+        {
+          "id": "far-upper-head",
+          "role": "check",
+          "observed_px": [
+            1303,
+            201
+          ],
+          "predicted_px": [
+            1304.4206,
+            210.8456
+          ],
+          "mesh_vertex_m": [
+            39.943001,
+            22.259199,
+            6.7198
+          ],
+          "association_distance_m": 0.088121,
+          "residual_px": 9.9476,
+          "baseline_residual_px": 9.9476,
+          "fraction_baseline_projected_width": 0.0040239,
+          "fraction_observed_span": 0.0156902,
+          "target_met": false
+        }
+      ]
+    },
+    {
+      "id": "north-inclined",
+      "camera": {
+        "position_m": [
+          37.13921838,
+          40.95636828,
+          1.0
+        ],
+        "basis_right_up_forward": [
+          [
+            -0.9232502382,
+            -0.3841950946,
+            -0.0017683428
+          ],
+          [
+            -0.1050847278,
+            0.2480941397,
+            0.9630194691
+          ],
+          [
+            0.3695486405,
+            -0.88929378,
+            0.2694260105
+          ]
+        ],
+        "focal_px": 1599.16666667,
+        "principal_px": [
+          893.5,
+          665.0
+        ],
+        "image_size": [
+          1800,
+          1269
+        ],
+        "near": 0.05,
+        "far": 2000
+      },
+      "limited": false,
+      "landmarks": [
+        {
+          "id": "corner-base",
+          "role": "fit",
+          "observed_px": [
+            575,
+            1190
+          ],
+          "predicted_px": [
+            581.0902,
+            1193.2454
+          ],
+          "mesh_vertex_m": [
+            49.148998,
+            22.5462,
+            0.007
+          ],
+          "association_distance_m": 0.011402,
+          "residual_px": 6.9009,
+          "baseline_residual_px": 6.9009,
+          "fraction_baseline_projected_width": 0.0002445,
+          "fraction_observed_span": 0.0094663,
+          "target_met": true
+        },
+        {
+          "id": "east-eave",
+          "role": "fit",
+          "observed_px": [
+            606,
+            592
+          ],
+          "predicted_px": [
+            610.5103,
+            568.263
+          ],
+          "mesh_vertex_m": [
+            49.156502,
+            22.555201,
+            8.485408
+          ],
+          "association_distance_m": 0.007505,
+          "residual_px": 24.1618,
+          "baseline_residual_px": 26.359,
+          "fraction_baseline_projected_width": 0.0008561,
+          "fraction_observed_span": 0.0331437,
+          "target_met": false
+        },
+        {
+          "id": "first-narrow-head",
+          "role": "fit",
+          "observed_px": [
+            681,
+            853
+          ],
+          "predicted_px": [
+            690.5484,
+            854.3464
+          ],
+          "mesh_vertex_m": [
+            47.867802,
+            22.259199,
+            4.3449
+          ],
+          "association_distance_m": 0.088113,
+          "residual_px": 9.6429,
+          "baseline_residual_px": 9.6429,
+          "fraction_baseline_projected_width": 0.0003417,
+          "fraction_observed_span": 0.0132276,
+          "target_met": false
+        },
+        {
+          "id": "first-narrow-sill",
+          "role": "check",
+          "observed_px": [
+            722,
+            960
+          ],
+          "predicted_px": [
+            711.2413,
+            963.7133
+          ],
+          "mesh_vertex_m": [
+            47.504101,
+            22.259199,
+            2.8814
+          ],
+          "association_distance_m": 0.088108,
+          "residual_px": 11.3815,
+          "baseline_residual_px": 11.3815,
+          "fraction_baseline_projected_width": 0.0004033,
+          "fraction_observed_span": 0.0156125,
+          "target_met": false
+        },
+        {
+          "id": "upper-left-head",
+          "role": "fit",
+          "observed_px": [
+            768,
+            652
+          ],
+          "predicted_px": [
+            758.9878,
+            676.4058
+          ],
+          "mesh_vertex_m": [
+            46.892399,
+            22.259199,
+            6.7198
+          ],
+          "association_distance_m": 0.088151,
+          "residual_px": 26.0166,
+          "baseline_residual_px": 26.0166,
+          "fraction_baseline_projected_width": 0.0009218,
+          "fraction_observed_span": 0.035688,
+          "target_met": false
+        },
+        {
+          "id": "upper-left-sill",
+          "role": "fit",
+          "observed_px": [
+            822,
+            743
+          ],
+          "predicted_px": [
+            808.6971,
+            727.8734
+          ],
+          "mesh_vertex_m": [
+            46.1325,
+            22.259199,
+            5.9294
+          ],
+          "association_distance_m": 0.088107,
+          "residual_px": 20.144,
+          "baseline_residual_px": 20.144,
+          "fraction_baseline_projected_width": 0.0007138,
+          "fraction_observed_span": 0.0276324,
+          "target_met": false
+        },
+        {
+          "id": "upper-right-head",
+          "role": "fit",
+          "observed_px": [
+            856,
+            653
+          ],
+          "predicted_px": [
+            857.2967,
+            665.1168
+          ],
+          "mesh_vertex_m": [
+            45.429401,
+            22.259199,
+            6.7198
+          ],
+          "association_distance_m": 0.088121,
+          "residual_px": 12.186,
+          "baseline_residual_px": 12.186,
+          "fraction_baseline_projected_width": 0.0004318,
+          "fraction_observed_span": 0.0167161,
+          "target_met": false
+        },
+        {
+          "id": "upper-right-sill",
+          "role": "check",
+          "observed_px": [
+            911,
+            744
+          ],
+          "predicted_px": [
+            906.2932,
+            718.0933
+          ],
+          "mesh_vertex_m": [
+            44.7304,
+            22.259199,
+            5.9294
+          ],
+          "association_distance_m": 0.088094,
+          "residual_px": 26.3308,
+          "baseline_residual_px": 26.3308,
+          "fraction_baseline_projected_width": 0.000933,
+          "fraction_observed_span": 0.0361191,
+          "target_met": false
+        },
+        {
+          "id": "chimney-top",
+          "role": "check",
+          "observed_px": [
+            975,
+            232
+          ],
+          "predicted_px": [
+            875.5957,
+            134.5756
+          ],
+          "mesh_vertex_m": [
+            45.348999,
+            21.85655,
+            15.011752
+          ],
+          "association_distance_m": 0.283783,
+          "residual_px": 139.186,
+          "baseline_residual_px": 139.186,
+          "fraction_baseline_projected_width": 0.0049318,
+          "fraction_observed_span": 0.1909273,
+          "target_met": false
+        },
+        {
+          "id": "north-tower-apex",
+          "role": "check",
+          "observed_px": [
+            1304,
+            355
+          ],
+          "predicted_px": [
+            1373.7913,
+            160.8595
+          ],
+          "mesh_vertex_m": [
+            38.480999,
+            19.933901,
+            13.9903
+          ],
+          "association_distance_m": 2.8e-05,
+          "residual_px": 206.304,
+          "baseline_residual_px": 206.304,
+          "fraction_baseline_projected_width": 0.00731,
+          "fraction_observed_span": 0.2829959,
+          "target_met": false
+        }
+      ]
+    },
+    {
+      "id": "stable-detail",
+      "camera": {
+        "position_m": [
+          14.79591352,
+          47.53954371,
+          2.5
+        ],
+        "basis_right_up_forward": [
+          [
+            -0.9862459817,
+            0.1636606029,
+            0.0231099687
+          ],
+          [
+            0.0202996664,
+            -0.0188233869,
+            0.9996167284
+          ],
+          [
+            -0.1640328843,
+            -0.9863371063,
+            -0.0152422341
+          ]
+        ],
+        "focal_px": 1598.11111111,
+        "principal_px": [
+          900.0,
+          603.0
+        ],
+        "image_size": [
+          1800,
+          1275
+        ],
+        "near": 0.05,
+        "far": 2000
+      },
+      "limited": false,
+      "landmarks": [
+        {
+          "id": "northwest-eave",
+          "role": "fit",
+          "observed_px": [
+            1530,
+            281
+          ],
+          "predicted_px": [
+            1525.2857,
+            281.421
+          ],
+          "mesh_vertex_m": [
+            -0.002,
+            22.432552,
+            7.785164
+          ],
+          "association_distance_m": 0.261615,
+          "residual_px": 4.7331,
+          "baseline_residual_px": 5.6226,
+          "fraction_baseline_projected_width": 0.0012434,
+          "fraction_observed_span": 0.0039741,
+          "target_met": true
+        },
+        {
+          "id": "stable-east-eave",
+          "role": "fit",
+          "observed_px": [
+            918,
+            279
+          ],
+          "predicted_px": [
+            895.9975,
+            290.7538
+          ],
+          "mesh_vertex_m": [
+            10.8204,
+            22.555201,
+            7.0409
+          ],
+          "association_distance_m": 2e-05,
+          "residual_px": 24.9452,
+          "baseline_residual_px": 24.9452,
+          "fraction_baseline_projected_width": 0.0065531,
+          "fraction_observed_span": 0.0209447,
+          "target_met": false
+        },
+        {
+          "id": "loft-east-head",
+          "role": "fit",
+          "observed_px": [
+            1103,
+            294
+          ],
+          "predicted_px": [
+            1113.9707,
+            285.3314
+          ],
+          "mesh_vertex_m": [
+            7.171944,
+            22.2652,
+            7.370044
+          ],
+          "association_distance_m": 0.095993,
+          "residual_px": 13.9821,
+          "baseline_residual_px": 13.9821,
+          "fraction_baseline_projected_width": 0.0036731,
+          "fraction_observed_span": 0.0117398,
+          "target_met": false
+        },
+        {
+          "id": "loft-west-sill",
+          "role": "fit",
+          "observed_px": [
+            1222,
+            412
+          ],
+          "predicted_px": [
+            1230.8752,
+            412.9318
+          ],
+          "mesh_vertex_m": [
+            5.111456,
+            22.2652,
+            5.370556
+          ],
+          "association_distance_m": 0.095937,
+          "residual_px": 8.924,
+          "baseline_residual_px": 8.924,
+          "fraction_baseline_projected_width": 0.0023444,
+          "fraction_observed_span": 0.0074929,
+          "target_met": true
+        },
+        {
+          "id": "great-window-east-head",
+          "role": "fit",
+          "observed_px": [
+            339,
+            293
+          ],
+          "predicted_px": [
+            337.7317,
+            286.0574
+          ],
+          "mesh_vertex_m": [
+            19.308001,
+            22.259199,
+            6.7198
+          ],
+          "association_distance_m": 0.088149,
+          "residual_px": 7.0575,
+          "baseline_residual_px": 7.0575,
+          "fraction_baseline_projected_width": 0.001854,
+          "fraction_observed_span": 0.0059257,
+          "target_met": true
+        },
+        {
+          "id": "great-window-west-sill",
+          "role": "fit",
+          "observed_px": [
+            574,
+            347
+          ],
+          "predicted_px": [
+            583.3156,
+            349.7186
+          ],
+          "mesh_vertex_m": [
+            15.6525,
+            22.259199,
+            5.9294
+          ],
+          "association_distance_m": 0.088108,
+          "residual_px": 9.7042,
+          "baseline_residual_px": 9.7042,
+          "fraction_baseline_projected_width": 0.0025493,
+          "fraction_observed_span": 0.0081479,
+          "target_met": true
+        },
+        {
+          "id": "wide-window-head",
+          "role": "check",
+          "observed_px": [
+            697,
+            445
+          ],
+          "predicted_px": [
+            708.021,
+            456.6216
+          ],
+          "mesh_vertex_m": [
+            13.6997,
+            22.259199,
+            4.3449
+          ],
+          "association_distance_m": 0.088128,
+          "residual_px": 16.0163,
+          "baseline_residual_px": 16.0163,
+          "fraction_baseline_projected_width": 0.0042075,
+          "fraction_observed_span": 0.0134478,
+          "target_met": false
+        },
+        {
+          "id": "wide-window-sill",
+          "role": "check",
+          "observed_px": [
+            760,
+            542
+          ],
+          "predicted_px": [
+            775.676,
+            551.6459
+          ],
+          "mesh_vertex_m": [
+            12.6045,
+            22.259199,
+            2.8814
+          ],
+          "association_distance_m": 0.088108,
+          "residual_px": 18.406,
+          "baseline_residual_px": 18.406,
+          "fraction_baseline_projected_width": 0.0048353,
+          "fraction_observed_span": 0.0154542,
+          "target_met": false
+        },
+        {
+          "id": "loft-flank-east-head",
+          "role": "check",
+          "observed_px": [
+            1007,
+            291
+          ],
+          "predicted_px": [
+            1018.0005,
+            305.9445
+          ],
+          "mesh_vertex_m": [
+            8.7685,
+            22.255199,
+            6.9549
+          ],
+          "association_distance_m": 0.03568,
+          "residual_px": 18.5566,
+          "baseline_residual_px": 18.5566,
+          "fraction_baseline_projected_width": 0.0048749,
+          "fraction_observed_span": 0.0155807,
+          "target_met": false
+        },
+        {
+          "id": "loft-flank-west-head",
+          "role": "check",
+          "observed_px": [
+            1282,
+            292
+          ],
+          "predicted_px": [
+            1314.8502,
+            321.4218
+          ],
+          "mesh_vertex_m": [
+            3.6783,
+            22.255199,
+            6.9549
+          ],
+          "association_distance_m": 0.035708,
+          "residual_px": 44.0996,
+          "baseline_residual_px": 44.0996,
+          "fraction_baseline_projected_width": 0.0115851,
+          "fraction_observed_span": 0.0370274,
+          "target_met": false
+        }
+      ]
+    },
+    {
+      "id": "courtyard-east",
+      "camera": {
+        "position_m": [
+          17.09389883,
+          2.58348505,
+          2.37956322
+        ],
+        "basis_right_up_forward": [
+          [
+            0.4449393896,
+            -0.8941097409,
+            0.0509579324
+          ],
+          [
+            -0.1921840937,
+            -0.0397527252,
+            0.9805534126
+          ],
+          [
+            0.874696641,
+            0.4460801409,
+            0.1895212235
+          ]
+        ],
+        "focal_px": 1260.0,
+        "principal_px": [
+          897.0,
+          725.0
+        ],
+        "image_size": [
+          1800,
+          1440
+        ],
+        "near": 0.05,
+        "far": 2000
+      },
+      "limited": false,
+      "landmarks": [
+        {
+          "id": "underpass-north-head",
+          "role": "fit",
+          "observed_px": [
+            1514.66,
+            986.93
+          ],
+          "predicted_px": [
+            1492.7353,
+            994.4878
+          ],
+          "mesh_vertex_m": [
+            41.069889,
+            3.2614,
+            2.462475
+          ],
+          "association_distance_m": 0.006684,
+          "residual_px": 23.1908,
+          "baseline_residual_px": 23.1908,
+          "fraction_baseline_projected_width": 0.0141433,
+          "fraction_observed_span": 0.0203732,
+          "target_met": false
+        },
+        {
+          "id": "underpass-south-head",
+          "role": "fit",
+          "observed_px": [
+            1652.73,
+            976.7
+          ],
+          "predicted_px": [
+            1697.0723,
+            1004.201
+          ],
+          "mesh_vertex_m": [
+            41.070011,
+            0.32835,
+            2.471475
+          ],
+          "association_distance_m": 0.007613,
+          "residual_px": 52.178,
+          "baseline_residual_px": 52.178,
+          "fraction_baseline_projected_width": 0.0318215,
+          "fraction_observed_span": 0.0458385,
+          "target_met": false
+        },
+        {
+          "id": "upper-underpass-north-head",
+          "role": "check",
+          "observed_px": [
+            1496.25,
+            699.55
+          ],
+          "predicted_px": [
+            1461.8923,
+            707.6116
+          ],
+          "mesh_vertex_m": [
+            41.367802,
+            3.5956,
+            7.497
+          ],
+          "association_distance_m": 0.08815,
+          "residual_px": 35.2908,
+          "baseline_residual_px": 35.2908,
+          "fraction_baseline_projected_width": 0.0215226,
+          "fraction_observed_span": 0.0310031,
+          "target_met": false
+        },
+        {
+          "id": "upper-underpass-south-head",
+          "role": "check",
+          "observed_px": [
+            1649.66,
+            686.25
+          ],
+          "predicted_px": [
+            1609.4579,
+            701.4197
+          ],
+          "mesh_vertex_m": [
+            41.367802,
+            1.2812,
+            7.497
+          ],
+          "association_distance_m": 0.08815,
+          "residual_px": 42.9689,
+          "baseline_residual_px": 42.9689,
+          "fraction_baseline_projected_width": 0.0262052,
+          "fraction_observed_span": 0.0377483,
+          "target_met": false
+        },
+        {
+          "id": "mid-window-head",
+          "role": "check",
+          "observed_px": [
+            1190.45,
+            898.98
+          ],
+          "predicted_px": [
+            1143.3921,
+            876.6241
+          ],
+          "mesh_vertex_m": [
+            41.367802,
+            9.3868,
+            4.3881
+          ],
+          "association_distance_m": 0.088108,
+          "residual_px": 52.0983,
+          "baseline_residual_px": 52.0983,
+          "fraction_baseline_projected_width": 0.031773,
+          "fraction_observed_span": 0.0457685,
+          "target_met": false
+        },
+        {
+          "id": "narrow-upper-head",
+          "role": "fit",
+          "observed_px": [
+            1190.45,
+            735.34
+          ],
+          "predicted_px": [
+            1174.3516,
+            707.65
+          ],
+          "mesh_vertex_m": [
+            41.367802,
+            8.8077,
+            7.7409
+          ],
+          "association_distance_m": 0.088093,
+          "residual_px": 32.0296,
+          "baseline_residual_px": 32.0296,
+          "fraction_baseline_projected_width": 0.0195338,
+          "fraction_observed_span": 0.0281381,
+          "target_met": false
+        },
+        {
+          "id": "stair-tower-apex",
+          "role": "check",
+          "observed_px": [
+            1396.02,
+            429.55
+          ],
+          "predicted_px": [
+            1325.2602,
+            402.5783
+          ],
+          "mesh_vertex_m": [
+            40.827999,
+            5.7912,
+            13.5026
+          ],
+          "association_distance_m": 5.6e-05,
+          "residual_px": 75.726,
+          "baseline_residual_px": 75.726,
+          "fraction_baseline_projected_width": 0.0461827,
+          "fraction_observed_span": 0.0665255,
+          "target_met": false
+        },
+        {
+          "id": "hall-bow-top",
+          "role": "fit",
+          "observed_px": [
+            876.48,
+            689.32
+          ],
+          "predicted_px": [
+            831.2605,
+            660.8613
+          ],
+          "mesh_vertex_m": [
+            37.348022,
+            14.391525,
+            8.0772
+          ],
+          "association_distance_m": 0.201023,
+          "residual_px": 53.4294,
+          "baseline_residual_px": 53.4294,
+          "fraction_baseline_projected_width": 0.0325847,
+          "fraction_observed_span": 0.0469379,
+          "target_met": false
+        },
+        {
+          "id": "dining-roof-apex",
+          "role": "fit",
+          "observed_px": [
+            514.43,
+            257.73
+          ],
+          "predicted_px": [
+            510.7151,
+            291.4833
+          ],
+          "mesh_vertex_m": [
+            27.6301,
+            13.6581,
+            10.3937
+          ],
+          "association_distance_m": 3e-05,
+          "residual_px": 33.9571,
+          "baseline_residual_px": 33.9571,
+          "fraction_baseline_projected_width": 0.0207093,
+          "fraction_observed_span": 0.0298314,
+          "target_met": false
+        },
+        {
+          "id": "dining-bay-sill",
+          "role": "fit",
+          "observed_px": [
+            524.66,
+            925.57
+          ],
+          "predicted_px": [
+            544.9418,
+            904.9648
+          ],
+          "mesh_vertex_m": [
+            27.140041,
+            11.6449,
+            2.8346
+          ],
+          "association_distance_m": 0.433608,
+          "residual_px": 28.9124,
+          "baseline_residual_px": 28.9124,
+          "fraction_baseline_projected_width": 0.0176327,
+          "fraction_observed_span": 0.0253996,
+          "target_met": false
+        }
+      ]
+    },
+    {
+      "id": "courtyard-west",
+      "camera": {
+        "position_m": [
+          22.75594507,
+          3.46072682,
+          8.0
+        ],
+        "basis_right_up_forward": [
+          [
+            0.1533809331,
+            0.9868768944,
+            0.0504805365
+          ],
+          [
+            -0.1237291228,
+            -0.0315031262,
+            0.9918158383
+          ],
+          [
+            -0.9803904291,
+            0.1583715513,
+            -0.1172734336
+          ]
+        ],
+        "focal_px": 1085.33333333,
+        "principal_px": [
+          610.5,
+          900.0
+        ],
+        "image_size": [
+          1221,
+          1800
+        ],
+        "near": 0.05,
+        "far": 2000
+      },
+      "limited": true,
+      "landmarks": [
+        {
+          "id": "south-eave",
+          "role": "fit",
+          "observed_px": [
+            462,
+            861
+          ],
+          "predicted_px": [
+            523.7636,
+            810.9343
+          ],
+          "mesh_vertex_m": [
+            11.27439,
+            4.3414,
+            7.542979
+          ],
+          "association_distance_m": 0.676916,
+          "residual_px": 79.5067,
+          "baseline_residual_px": 80.1757,
+          "fraction_baseline_projected_width": 0.1045066,
+          "fraction_observed_span": 0.1048901,
+          "target_met": false
+        },
+        {
+          "id": "south-base",
+          "role": "fit",
+          "observed_px": [
+            474,
+            1378
+          ],
+          "predicted_px": [
+            494.5354,
+            1450.4574
+          ],
+          "mesh_vertex_m": [
+            10.8204,
+            4.341229,
+            0.0045
+          ],
+          "association_distance_m": 0.004996,
+          "residual_px": 75.3112,
+          "baseline_residual_px": 75.3112,
+          "fraction_baseline_projected_width": 0.0989919,
+          "fraction_observed_span": 0.0993552,
+          "target_met": false
+        },
+        {
+          "id": "south-ridge",
+          "role": "fit",
+          "observed_px": [
+            451,
+            488
+          ],
+          "predicted_px": [
+            509.5201,
+            508.015
+          ],
+          "mesh_vertex_m": [
+            6.166223,
+            4.3414,
+            11.770777
+          ],
+          "association_distance_m": 0.008363,
+          "residual_px": 61.8483,
+          "baseline_residual_px": 63.5128,
+          "fraction_baseline_projected_width": 0.0812957,
+          "fraction_observed_span": 0.081594,
+          "target_met": false
+        },
+        {
+          "id": "upper-window-south",
+          "role": "fit",
+          "observed_px": [
+            837,
+            928
+          ],
+          "predicted_px": [
+            739.2694,
+            882.0857
+          ],
+          "mesh_vertex_m": [
+            10.5244,
+            6.9484,
+            6.796
+          ],
+          "association_distance_m": 0.779299,
+          "residual_px": 107.9787,
+          "baseline_residual_px": 107.9787,
+          "fraction_baseline_projected_width": 0.1419312,
+          "fraction_observed_span": 0.1424521,
+          "target_met": false
+        },
+        {
+          "id": "upper-window-north",
+          "role": "fit",
+          "observed_px": [
+            906,
+            926
+          ],
+          "predicted_px": [
+            889.9445,
+            887.3958
+          ],
+          "mesh_vertex_m": [
+            10.5244,
+            8.8098,
+            6.796
+          ],
+          "association_distance_m": 0.39639,
+          "residual_px": 41.8098,
+          "baseline_residual_px": 41.8098,
+          "fraction_baseline_projected_width": 0.0549564,
+          "fraction_observed_span": 0.0551581,
+          "target_met": false
+        },
+        {
+          "id": "upper-window-sill",
+          "role": "fit",
+          "observed_px": [
+            907,
+            972
+          ],
+          "predicted_px": [
+            881.6224,
+            989.8482
+          ],
+          "mesh_vertex_m": [
+            10.5244,
+            8.8098,
+            5.5484
+          ],
+          "association_distance_m": 0.069179,
+          "residual_px": 31.0255,
+          "baseline_residual_px": 31.0255,
+          "fraction_baseline_projected_width": 0.0407811,
+          "fraction_observed_span": 0.0409307,
+          "target_met": false
+        },
+        {
+          "id": "north-roof-intersection",
+          "role": "check",
+          "observed_px": [
+            1209,
+            856
+          ],
+          "predicted_px": [
+            1331.9693,
+            812.591
+          ],
+          "mesh_vertex_m": [
+            10.785549,
+            14.3998,
+            7.948267
+          ],
+          "association_distance_m": 0.054656,
+          "residual_px": 130.4062,
+          "baseline_residual_px": 133.4357,
+          "fraction_baseline_projected_width": 0.1714108,
+          "fraction_observed_span": 0.1720399,
+          "target_met": false
+        }
+      ]
+    }
+  ]
+}

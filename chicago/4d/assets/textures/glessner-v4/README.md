@@ -25,8 +25,12 @@ photographic pixels were sampled, traced or embedded. These are generic material
 studies, not photographs or measured reflectance scans of Glessner House.
 
 `material-library.json` records seeds, metric scales, channel conventions and the
-SHA256 of all 33 source maps, totalling 25,155,223 bytes. The folder contains 40
-licensed files. Numeric granite and turf albedos and the earlier generated turf
+SHA256 of all 37 source maps, totalling 27,204,919 bytes. The folder contains 45
+licensed files. The split-face granite also ships `granite_occlusion.png` (T-2393): ambient
+occlusion computed from the same height field as its normal map, non-colour, read as the
+glTF occlusion texture by the light model. The master and full web model read a bake of
+the stones themselves instead (T-2400, `generators/archetypes/masonry_house_v4_occlusion.py`),
+which is embedded in the GLB and is not a file here. Numeric granite and turf albedos and the earlier generated turf
 remain source studies even though the active building uses their replacements.
 Building numeric albedo is 2048² sRGB JPEG; normal is 1024² OpenGL tangent-space
 PNG; roughness is 1024² linear PNG. Ground and mortar use 1024² albedo with 512²
@@ -57,16 +61,27 @@ cool tint factors address overly large pink-looking crystals. Numeric normal
 maps and physical fracture geometry carry relief. Rough courtyard surrounds
 use the granite fabric; smooth carved mouldings retain limestone. These choices
 are reconstructed appearance, not petrographic identification.
+T-2210: the rough courtyard surrounds (slot 24) are Joliet limestone after HABS
+ILL-1015 p. 21, so they now take the limestone albedo at its 1.2 m repeat with the
+granite split-face normal, and every limestone slot is multiplied to a grey
+(linear 0.83, 0.88, 1.0) after Glessner's "gray limestone trimmings" (1923).
 
 Brick uses one shared clay fabric across all four kiln variants. The existing
-60/20/14/6 unit distribution is unchanged. Linear tint factors are:
+60/20/14/6 unit distribution is unchanged. Since T-2210 the Glessner slots draw the
+albedo-only `court_brick_basecolor.jpg` (light pink common brick, after HABS p. 21
+and Glessner 1923; `generate.py --only court_brick`) over brick's own normal and
+roughness. `brick_basecolor.jpg` keeps its grey-tan body, which the K01 kit's
+Prairie houses wear. Linear tint factors are:
 
 | Slot | Variant | RGB multiplier |
 | --- | --- | --- |
-| 1 | Main common brick | 0.88, 0.88, 0.88 |
-| 16 | Warm red-fired | 0.92, 0.72, 0.64 |
-| 17 | Buff | 1.00, 0.985, 0.94 |
-| 18 | Smoky | 0.43, 0.47, 0.48 |
+| 1 | Main common brick | 0.94, 0.94, 0.94 |
+| 16 | Deeper-fired rose | 0.86, 0.76, 0.74 |
+| 17 | Pale salmon (`brick_buff`) | 1.00, 0.99, 0.97 |
+| 18 | Over-fired (`brick_smoky`) | 0.66, 0.58, 0.56 |
+
+Before T-2210 these were 0.88 grey, 0.92/0.72/0.64, 1.00/0.985/0.94 and a grey
+0.43/0.47/0.48 over the grey-tan image; the grey unit read as a second material.
 
 The earlier red/grey mosaic was excessive. A controlled material-only trial
 compressed the spacing too far into a uniform tan field; the final factors above
@@ -91,3 +106,11 @@ Copper retains subdued brown/green variation so standing seams carry the form.
 Exact oxidation after 17 years is reconstructed. Oak is warm brown with varnish
 roughness bounded 0.40–0.61. Linen blinds and muted green joinery remain separate
 from real transmissive glass; no scene reflections are painted into windows.
+
+T-2203 adds `roof_tiles`, an original numeric 16-by-16 tile field at the HABS
+6-inch width and 5-inch exposure (2.4384 × 2.032 m per repeat). It supplies the
+continuous roof bed and Light's complete joint/course pattern. `terracotta`
+remains grain-only for individual Full tiles and ridge ornament. The new recipe
+reads `v4_detail.roof_tiles`; its scale is checked against geometry and UVs by
+`tools/test_glessner_roof_tiles.py`. Later tar is excluded. Exact colour, side
+joints, stagger and lap relief are reconstructed; no historical pixels are used.

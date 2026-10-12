@@ -135,7 +135,7 @@
       "name": "The Harmon brothers' household",
       "division": "south",
       "relation": "worked here",
-      "why": "A DISCREPANCY CARRIED RATHER THAN SMOOTHED, and it is already on the building record: Andreas names the concern 'Harmon's and Loomis's' while the 1833 advertisement is headed 'C. & I. HARMON' and names no Loomis. Those are compatible - and note that Loomis is the brothers' own middle name and their mother's maiden name, Welthyan Loomis - but they are not the same statement.",
+      "why": "A DISCREPANCY CARRIED RATHER THAN SMOOTHED, and it is already on the building record: Andreas names the concern 'Harmon's and Loomis's' while the 1833 advertisement is headed 'C. & I. HARMON' and names no Loomis. Those are compatible - and note that Loomis is the brothers' own middle name and their mother's maiden name, Welthyan Loomis - but they are not the same statement. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_harmon_brothers#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "andreas_1884_v1",
         "chicago_democrat_1833_11_26"

@@ -41,12 +41,12 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested in anything this project holds."
  },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "note": "NOT MODELLED. A surveyor's work is the ground, not a building; the assessor's office was wherever he kept his book."
@@ -417,6 +417,26 @@
      "employer_or_body": "not_stated",
      "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
      "premises": "no_fixed_premises"
+    },
+    {
+     "role": null,
+     "kind": "office",
+     "as_printed": "assessor and surveyor",
+     "from": "1833-12",
+     "to": "1833-12",
+     "precision": "month",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "chm_george_snow_assessor"
+     ],
+     "claim": "data/research/residents/pass_02_findings.json#snow_george_w",
+     "place": "not_stated",
+     "employer_or_body": "town_of_chicago",
+     "note": "A POST NAMED IN RETROSPECTIVE PROSE, carried here by its reading in data/research/residents/prose_role_readings.json (T-1507, by tools/derive_resident_roles.py). The grade is `inferred`: the volume states the post in words, and the resident programme's identity rule tied the passage to this card, so the post is inferred FOR this person rather than stated OF him. The bound is 1833-12 to 1833-12. It does not stand in the 1835-07-01 view, and the reason is the evidence ladder ratified 2026-09-03 (T-0513) and not the bound: a volume set down after the scene may date and corroborate and may never promote. The volume is deliberately absent from the person's own `sources[]`, which lists what the 1835 RESIDENCY grade stands on (T-1254). The reading's own reason is in the readings file, beside the pass that made it.",
+     "premises": null
     },
     {
      "role": "public_administrator",

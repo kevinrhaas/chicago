@@ -113,6 +113,7 @@ from block_faces import project as face_project  # noqa: E402
 # here rather than retyped, so the ceiling the schedule deals against and the ceiling
 # the generator enforces cannot become two numbers.
 from reconcile_665 import ROW_UNITS_PER_LOT  # noqa: E402
+from reconcile_665 import ROW_LOT_GRANTS  # noqa: E402  (T-2196)
 # T-1610. The inventory class and the adoption test are one derivation, in the module
 # that owns the family-to-group mapping, so this generator and the redeal executor
 # cannot come to two opinions about what standing in a yard means.
@@ -126,7 +127,7 @@ from family_bands import (cargo_door_bays, dimensions_m, eave_floor,  # noqa: E4
                           eave_for_ridge, eave_limits, families, pitch_deg,
                           stable_fraction, storeys, wall_height_m)
 from ridge_model import ridge_run_m  # noqa: E402
-from roof_form import fronts_gable, note_refusal, roof_kind  # noqa: E402
+from roof_form import fronts_gable, note_refusal, open_sides_for, roof_kind  # noqa: E402
 from house_front import bays_for, mapping_note, plan_for  # noqa: E402
 import fabric_rule_1835  # noqa: E402  (T-1816: the finish says whose house it is)
 
@@ -345,7 +346,7 @@ FUNCTIONS = {
     "W1": "blacksmith_shop", "W2": "carpenter_or_joiner_shop",
     "W3": "cooper_wagon_or_wheelwright_shop", "W4": "small_artisan_shop",
     "F1": "freight_or_storage_shed", "F2": "narrow_two_story_warehouse",
-    "F3": "large_river_warehouse",
+    "F3": "large_river_warehouse", "F4": "lumber_shed",
     "A1": "stable", "A2": "barn_or_carriage_shed", "A3": "privy",
     "A4": "woodshed_or_storage_shed", "A5": "small_utility_building",
 }
@@ -376,6 +377,7 @@ LABELS = {
     "W4": "small artisan shop",
     "F1": "freight or storage shed",
     "F2": "narrow two-story warehouse",
+    "F4": "lumber shed",
     "A1": "stable",
     "A2": "barn or carriage shed",
     "A3": "privy",
@@ -409,6 +411,11 @@ def door_kind(family: str) -> str:
     # of its own band. `cargo` is 2.20 x 2.35 m and takes the floor to 2.43 m.
     if family == "F1":
         return "cargo"
+    # F4 IS POSTS AND A ROOF ON ITS OPEN SIDE (T-2269): the crosswalk's construction is
+    # "open posts with slab boards", and boards go in and out where there is no wall.
+    # A door cut into one of the boarded sides would be a second way in nobody asked for.
+    if family == "F4":
+        return "none"
     if family in ("W1", "W3", "A2"):
         return "wagon"
     if family in ("W2", "A1"):
@@ -759,7 +766,7 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
             result["porch"] = invented("stoop", why)
         return result
 
-    if family.startswith(("C", "F")) and family != "F1":
+    if family.startswith(("C", "F")) and family not in ("F1", "F4"):
         cargo_bays = cargo_door_bays(family, spec["band_ft"])
         result = {
             "stories": invented(levels, why), "wall_height_m": invented(wall, why),
@@ -829,7 +836,7 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
                 bays, shop_bays_note(family, spec, width, bays))
         return result
 
-    if not family.startswith(("A", "W")) and family != "D2" and family != "F1":
+    if not family.startswith(("A", "W")) and family not in ("D2", "F1", "F4"):
         raise SystemExit(f"{family} has no form rule in this generator; add one before "
                          f"a recipe uses it")
 
@@ -847,6 +854,11 @@ def _form_body(family: str, spec: dict, key: str, width: float, depth: float,
         **({"chimneys": invented(chimneys_for(family), why)}
            if chimneys_for(family) else {}),
         "board_gap_m": invented(.012, why), "paint": invented(paint, why),
+        # T-2269. The open side is the family's own (`roof_form.open_sides_for`, read
+        # off the crosswalk's "1/open" and "open posts"), so the shed falls the way the
+        # ridge sweep already priced it. Only F4 has one; nothing else is rewritten.
+        **({"open_sides": invented(list(open_sides_for(family)), why)}
+           if open_sides_for(family) else {}),
     }
 
 
@@ -905,6 +917,36 @@ def lot_frame(lot: dict, alley: list[tuple[float, float]]) -> dict:
         "inward": inward, "polygon": poly,
     }
 
+
+
+def block_frames(grid: dict, alley: list[tuple[float, float]]) -> list[dict]:
+    """Every lot's frame, in grid order — and on the Market wedge, a lot the cut leaves
+    without one.
+
+    T-2182. `lot_frame`'s squareness test refuses a lot whose front and rear edges
+    differ by more than a fifth, because on a rectangular block that only happens when
+    a side lot line was taken for the rear. T-2195's wedge (L409) is the first block
+    where it happens for a true lot: plat lot 6 keeps its 24.4 m Lake frontage, but the
+    river's bend cuts its back down to the 12.0 m of alley the wedge carries west. Every
+    lot of a block is framed before any slot is placed, so that lot refused the whole
+    block, and the lot the seating asks for (lot 7, square) could not be built either.
+
+    So on a block the grid marks `wedge`, and only there, a lot that cannot be framed is
+    carried as its polygon with the refusal written on it. Nothing is relaxed for a roof:
+    `slot_frame` refuses any slot dealt onto such a lot with the same words, and the
+    accounting below still has to name it built, taken or open. A rectangular block
+    raises exactly as before.
+    """
+    frames = []
+    for lot in grid["lots"]:
+        try:
+            frames.append(lot_frame(lot, alley))
+        except SystemExit as refused:
+            if not grid.get("wedge"):
+                raise
+            frames.append({"polygon": [tuple(p) for p in lot["polygon"]],
+                           "unframed": str(refused)})
+    return frames
 
 # --------------------------------------------------------------------------
 # the cross-street term (T-2133, of T-1684)
@@ -1025,6 +1067,9 @@ def slot_frame(block: dict, grid: dict, frames: list[dict], slot: dict,
     """
     frame = frames[lot_index]
     where = f"{block['block_id']}: slot {family} on lot {lot_index}"
+    if "unframed" in frame:
+        raise SystemExit(f"{where}: the wedge's cut leaves this lot no frame to stand a "
+                         f"roof on — {frame['unframed']} (T-2182)")
     face = face_frame(grid, face_compass(grid, slot["fronts"], where))
     poly = frame["polygon"]
     own = edge_on_face(poly, face)
@@ -1305,7 +1350,7 @@ def build_block(block: dict, table: dict[str, dict], lots_by_id: dict[str, dict]
         raise SystemExit(f"{block['block_id']} is not a block of the committed plat grid")
     streets = street_traffic()
     alley = [tuple(p) for p in grid["alley_local_enu_m"]]
-    frames = [lot_frame(lot, alley) for lot in grid["lots"]]
+    frames = block_frames(grid, alley)
 
     frontage = block.get("frontage")
     face = face_frame(grid, frontage["face"]) if frontage else None
@@ -1607,6 +1652,26 @@ def frontage_strip(block: dict, grid: dict, face: dict) -> dict:
             "lots": [s[2] for s in spans]}
 
 
+def row_lot_grant(block: dict) -> dict | None:
+    """The owner's row-lot grant a recipe claims, held to `reconcile_665.ROW_LOT_GRANTS`
+    (T-2196). A recipe cannot grant itself a row: it names the ticket and the lot, and
+    both have to be the schedule's own, or the parcel is refused."""
+    claim = block.get("row_lot_grant")
+    if not claim:
+        return None
+    ruled = ROW_LOT_GRANTS.get(block["block_id"])
+    if (not ruled or claim.get("ticket") != ruled["ticket"]
+            or claim.get("lot") != ruled["lot_index"]):
+        raise SystemExit(f"{block['block_id']}: the recipe claims a row-lot grant "
+                         f"{claim} the schedule does not hold (reconcile_665."
+                         f"ROW_LOT_GRANTS)")
+    families = set(block.get("families") or {})
+    if not families <= set(ruled["families"]):
+        raise SystemExit(f"{block['block_id']}: a row-lot grant deals only "
+                         f"{ruled['families']}, and this parcel deals {sorted(families)}")
+    return ruled
+
+
 def place_frontage(block: dict, face: dict, strip: dict, records: list[dict],
                    datum: dict) -> None:
     """Stand every slot that declared the frontage on it, in run order.
@@ -1896,9 +1961,16 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
     # schedule did not size in lots yet — so there is nothing to hold them to and they
     # are passed. That is a gap in the OLD recipes, not a relaxation of the rule.
     free_lots = claimed.get("free_lots")
+    grant = row_lot_grant(block)
     if free_lots is not None:
         ceiling = max(0, free_lots - 1)
-        row_lots = len((block.get("frontage") or {}).get("lots") or ())
+        # T-2196. A lot the owner ruled may carry a short row is not one of the block's
+        # free lots — it already carries a roof — so it is not counted against them, and
+        # the room the schedule granted on it is added to what the parcel can stand.
+        row_lots = len([lot for lot in (block.get("frontage") or {}).get("lots") or ()
+                        if not grant or lot != grant["lot_index"]])
+        if grant:
+            ceiling += int(claimed.get("row_lot_grant_room", 0))
         if row_lots > ceiling:
             raise SystemExit(f"{block['block_id']}: the frontage run is dealt {row_lots} "
                              f"of the block's {free_lots} free lot(s), which leaves it no "
@@ -2184,6 +2256,10 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
             # counted: Frederick Thomas's shop stands in this row whoever built it.
             already = sum(1 for sid in standing.get(index, ())
                           if not is_ancillary_record(sid))
+            # T-2196: a lot the owner ruled a short row holds that row's units, no more.
+            grant = row_lot_grant(block)
+            units = (grant["row_units"] if grant and grant["lot_index"] == index
+                     else ROW_UNITS_PER_LOT)
             # Where a row unit STANDS, not which lots its run was dealt. A run is one
             # stretch of frontage across several lots and its units fall where the
             # chain of party walls puts them — the first deal on this block declared
@@ -2195,10 +2271,10 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
                 1 for r in records
                 if r["reconstruction"]["inventory_class"] == "principal_functional"
                 and any(point_in_polygon(pt, lot) for pt in placed[r["id"]]))
-            if already + adding > ROW_UNITS_PER_LOT:
+            if already + adding > units:
                 raise SystemExit(
                     f"{block['block_id']}: lot {index} already carries {already} roof(s) "
-                    f"and this deal adds {adding}, past the {ROW_UNITS_PER_LOT} units a "
+                    f"and this deal adds {adding}, past the {units} units a "
                     f"lot of this grid holds at the row's own measured spacing. A second "
                     f"deal on a lot is denser than the first, not unbounded by it")
     classes = {"built on by this parcel": set(used),
@@ -2272,6 +2348,19 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
         if target:
             abutted.add((record["id"], target))
             abutted.add((target, record["id"]))
+    # …and the same wall read from the other side (T-2196). A sibling deal on this block
+    # may party-wall onto one of THIS entry's roofs — the Market wedge's boarding house
+    # onto T-2238's D5 — and the claim lives on the sibling's record, which
+    # `check_frontage` gated to the millimetre when that deal was placed.
+    for other_id in sorted(parcel - mine_ids):
+        path = STRUCTURES / f"{other_id}.json"
+        if not path.exists():
+            continue
+        other_rec = json.loads(path.read_text(encoding="utf-8"))
+        target = ((other_rec.get("reconstruction") or {}).get("frontage") or {}).get("abuts")
+        if target in mine_ids:
+            abutted.add((other_id, target))
+            abutted.add((target, other_id))
 
     for sid, poly in mine:
         for other_id, other in others + [(s, p) for s, p in mine if s != sid]:
@@ -2471,7 +2560,7 @@ def self_test() -> int:
         alley = [tuple(p) for p in grid["alley_local_enu_m"]]
         block = {"block_id": block_id, "district": "south",
                  "programme_phase": "self_test_t2133", "bounded_by": grid["bounded_by"]}
-        return block, grid, [lot_frame(lot, alley) for lot in grid["lots"]]
+        return block, grid, block_frames(grid, alley)
 
     def corner(grid: dict, street: str) -> int:
         """The first lot, in grid order, with an edge on the street's face."""
@@ -2692,7 +2781,8 @@ def main() -> int:
         if free is None:
             unsized += 1
             continue
-        short = claimed.get("dealt_principal", claimed["principal"]) - max(0, free - 1)
+        short = (claimed.get("dealt_principal", claimed["principal"]) - max(0, free - 1)
+                 - int(claimed.get("row_lot_grant_room", 0)))  # T-2196
         if short > 0:
             need = -(-short // (ROW_UNITS_PER_LOT - 1))
             got = len((block.get("frontage") or {}).get("lots") or ())

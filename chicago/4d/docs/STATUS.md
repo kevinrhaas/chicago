@@ -1,3 +1,992 @@
+## T-2321 — K12 on a named lot: the coach house behind 1812 Prairie (2026-10-10)
+
+**Visible.** In the 1904 scene the alley behind the houses beside the Glessner House has its first
+building: the two-storey brick coach house of 1812 Prairie, the lot south of 1808, at the outline
+sheet 28 of the 1911 Sanborn draws — 14.56 m deep by 8.54 m, the lot's whole width — with a party
+wall rising over the roof at each end, a carriage bay, loft hatch and hoist on the alley, a door and
+sash onto a brick-paved workyard, and a walk to the line of the house's rear wall.
+
+- **The 1911 GARAGE is a 1904 stable.** Built as the census backcasts it, with nothing of a motor
+  garage (restriction `no_1911_use_labels`).
+- **The kit learned four things, additively** — a second party wall in place of the gable, a
+  per-lot pitch (30 degrees on a 14.6 m depth), optional ramp/stair/lean-to/wing, and a workyard —
+  and the specimen asks for none of them: its GLB is byte-identical.
+- **Held by the kit's own gate.** `check_coach_house_kit.py` builds every `k12_coach_house` record
+  and holds it to the kit's rules plus the workyard's (17 self-test cases); `k12_emit.py --check`
+  holds the committed GLB to its record.
+- **Measured.** 1,270 triangles, 9 materials, 98.5 kB master / 26.4 kB web; zero page errors at
+  1280x800 full and 390x780 light, every stand inside budget.
+- **Not done, said.** Flat colours (no K03/K04 texture); the house is not built, so the walk stops
+  at its line; the basement is reached by nothing; openings, roof and yard are reconstructed
+  (`L-k12-1812-coach-house-2321`). `docs/RESEARCH/k12-1812-coach-house-2321/README.md`.
+## T-2306 — a K13 conservatory bay on the Pullman house's east wing (2026-10-10)
+
+**Visible.** The 1904 scene has its first glasshouse. A five-faceted glass bay stands on the south
+face of the Pullman house's east wing at 1729 Prairie, looking onto the court between the house
+and the garage. It is built from the K13 conservatory kit (T-2305), against a plain brownstone
+block that stands in for the wing.
+
+- **What it is.** `pullman_house_1729_prairie_conservatory`, a new pure-Python archetype
+  `k13_conservatories` written by `generators/k13_emit.py`. The kit gains the `segmental_bay` form.
+  Its place and plan are read off Sanborn 1911 sheet 20: a semicircle 3.45 m across on the
+  one-storey stone wing.
+- **Honest limits.** That the projection is glazed is reconstructed (L-k13-pullman-bay-2306): the
+  sheet prints no use for it. The wing is a block with no openings, its height reconstructed. The
+  house, the garage and the estate's greenhouse complex south of 18th Street are not built
+  (T-1880/T-1881, T-1934).
+- **Verified.** Front, oblique, rear, roof and a 2.5 m raking view at both viewports in the
+  published app, with zero errors. The kit gate now holds every scene conservatory to its rules.
+  Costs are in `docs/RESEARCH/k13-pullman-bay-2306/README.md`.
+## T-2323 — K16 on 1638 Prairie: the Shortall-Gregory house's Gothic timber front (2026-10-10)
+
+The first house built from the K16 timber kit, and the first frame house on Prairie Avenue in the
+1904 scene: `shortall_gregory_house_1638_prairie_front`, placed from sheet 20's plan (front 10.8 m
+behind the street line, 8.13 m wide, canted bay and open porch where the sheet draws them). The kit's
+Gothic gable with pierced bargeboards and shingle bands, a clapboard wall with its corner and bracketed
+eave, and a two-post porch stand along the front. Behind them is a plain stand-in body, and a plain
+block stands in the bay's place.
+
+- **What is honest about it.** Plan and position are inferred from the sheet. Every height, every
+  sash and the bargeboard's pattern are the kit's (L-k16-1638-front-2323). The oculus, pointed heads,
+  hood moulds and corner tower the register describes are not built (T-1865). The body and bay are
+  stand-ins (T-1864).
+- **The kit changed in one place.** A clapboard course whose only joint fell within `min_piece_m` of
+  an end used to run longer than its board. The builder now puts that joint back, and the specimen is
+  byte-identical. The self-test that relied on the fault now breaks the rule on a built wall instead.
+- **Gate.** `check_timber_kit.py` holds each house's parts to the kit's rules, and `k16_emit.py
+  --check` holds the GLB to its record. Views and costs:
+  `docs/RESEARCH/k16-1638-front-2323/README.md`.
+
+## T-2289 — K02 stone at 1808 Prairie: a rock-faced front laid round the kits (2026-10-10)
+
+**Visible.** In the 1904 scene the street front of the 1808 Prairie house beside Glessner's is no
+longer one flat face. It is rock-faced Lemont limestone laid in courses, every stone its own size
+and its own window of the fabric, with recessed joints, bevelled arrises and the odd chipped corner.
+A rusticated base of two channel-jointed courses runs under a weathered coping, two dressed belts
+cross the front, the area light and the third-floor windows carry flat arches of radiating
+voussoirs, and on the south corner the quoins return into the brick, long and short in turn.
+
+- **Laid round the kits, not over them.** This was first built (#636) on a front that had no K06,
+  K07, K08 or K09 work yet, and it laid its own slip sills and flat arches over every opening. It
+  has been rebuilt on the front as it now stands: K06 keeps every sill, K09 every head it names
+  (the principal floor's surround and apron, the second floor's hoods, the ringed entrance), K07
+  the stoop and K08 the bow. Each kit notes the extent of what it seats on the wall, and the course
+  under it is dressed smooth and flush, so nothing stands on a rock face; K02 builds only the
+  walling, base, coping, belts, quoins and the flat arches K09 leaves to it.
+- **Data, not pixels.** The record names the fabric, dressing, trim, base courses and bonded corner
+  (`form.stone_front`). `k01_frontage_params._k02` resolves every course height, block length,
+  joint, recess, bevel, chip, projection, return, channel and fall from `k02_stone_profiles.json`
+  into the mesh's input hash, and refuses a fabric that is not coursed ashlar, a base outside the
+  profile's course count, a bonded north corner and a base that does not finish on the area
+  lights' heads.
+- **Measured.** `keith_house_1808_prairie.measure.json`: every verdict ok on both tiers, **0
+  coincident and 0 degenerate faces**, metric UV x tile 1.000 full for Lemont, dressed trim and
+  mortar (0.998 / 0.997 / 1.000 web). `k01_contract.mjs` now reads the K02 tiles. 30,828 → 40,418
+  triangles, 25 → 26 primitives (the mortar), web tier 1,223 → 1,941 KB.
+- **Not done, said.** Chips are kept only where they stay in front of the joint's floor (47 on 214
+  rock-faced stones, at corners only); trim's 1-3 mm chips are not built; a dressed seat runs a
+  whole course high; the K08 bow keeps Glessner's limestone rather than Lemont. The stone is a
+  working interpretation: the register reads "rock-faced" and names no stone. The real Keith/Field
+  front (bay, loggia, parapet) is T-1882's (`docs/LIBERTIES.md` L-k02-1808-stone-2289).
+
+## T-2302 — the 1808 Prairie roof rebuilt from the K05 kit, with two chimneys (2026-10-10)
+
+**Visible.** In the 1904 scene, 1808 Prairie's roof is one closed solid built by the K05 kit
+(T-2301), not four planes with a dormer laid over them. The dormer now has its own eave box and
+verge, and its cheeks and valleys are cut where the roofs actually meet. Two reconstructed brick
+chimneys with stone caps rise through the ridge, and the union cuts their penetrations closed.
+
+- **Gate.** `tools/check_roof_kit.py --check` now builds the house as well as the kit. The roof is
+  closed, one shell, with 0 doubled faces, 0 crossings and 0 hidden faces. K04 caps every ridge and
+  hip and flashes both valleys from the graph. A self-test lays the roof without the union, and the
+  crossing rule refuses it.
+- **Costs.** 11,351 → 11,658 triangles, still 17 primitives, web tier 923 → 925 KB, every K01
+  verdict ok. In the published app, 0 page errors at 1280×800 full and 390×780 light, and every
+  stand is within budget (`docs/RESEARCH/k05-1808-roof-2302/README.md`).
+- **Not done, said.** K04's 50 mm slate lip past the fascia is gone on the closed solid. The
+  stacks have no flues, pots or flashing (K10, T-1857). Liberty: L-k05-1808-roof-2302.
+- **Stacked on #631 (T-2293).** This branch carries K04's roof, so it lands after #631, and #631
+  waits on T-2311 (the Glessner light-tier bake check).
+
+## T-2308 — a curved front bay and a canted rear bay on 1808 Prairie (2026-10-10)
+
+**Visible.** In the 1904 scene, the house at 1808 Prairie has two bays built from the K08 kit
+(T-2307). On the south bay of its stone front is a two-storey segmental bow, with three bent sashes
+a storey under a copper cone. On its brick rear is a two-storey canted bay, with a window in every
+face under a tin hip. These are the kit's first bays on a house.
+
+- **What it is.** The record's `form.bays` names each bay's kit variant, wall, centre, storeys,
+  windows and roof. `k01_frontage_params` resolves it and drops the host openings behind it, and
+  `Assembly.bay` lays the built bay on its wall. `check_bay_kit.py` now holds each house bay to
+  every kit rule at both tiers. `mesh_inputs` hashes `k08_bays.py` and `k08_bays.json` for every
+  `k01_frontage`.
+- **Honest limits.** Both bays are reconstructed (L-k08-1808-bays-2308). The bow stands for the
+  register's "south curved bay", whose 1888 plate is not a source here; nothing shows the rear. The
+  house ships one mesh, so the kit's light tier is gated but not shipped. The bow stands 0.5 m off
+  the south window axis, so its eaves clear T-2293's corner downpipe; the build now refuses a bay
+  that reaches a downpipe. 627 sliver triangles under
+  2.5 mm were dropped from the kit's slab cuts to keep both tiers free of degenerate faces.
+- **Verified.** Front, oblique, rear and roof, and each bay raked at 3-4 m, at both viewports in
+  the published app, with zero errors. The K01 measure is ok at full and web. Costs are in
+  `docs/RESEARCH/k08-1808-bays-2308/README.md`.
+
+## T-2293 — the first K04 roof: slate, copper and rainwater goods at 1808 Prairie (2026-10-10)
+
+**Visible.** In the 1904 scene the 1808 Prairie house beside Glessner's is now roofed from the K04
+library (T-2292) rather than in a flat grey. Its four hip planes are dark Pennsylvania slate in
+true-size courses, with copper rolls on the hips and ridge. A gabled dormer stands on the street
+hip with open copper valleys, an apron and step flashing. A half-round copper gutter on iron
+brackets runs round the eave to five downpipes, and each pipe ends in a shoe over a splash stone
+at grade. The library's `status` now says it is built to.
+
+- **Data, not pixels.** The record names fabrics and kinds (`form.roof_covering`, `form.dormer`,
+  `form.rainwater`). `k01_frontage_params._k04` reads every dimension from
+  `k04_roofs.json` profiles into the resolved parameters, so they are in the mesh's input hash.
+  It refuses a slate cut for less headlap than the pitch needs, a restricted fabric as a main
+  covering, a pipe on the north wall and an empty pipe list. The covering's UVs are metres over
+  the tile with the first butt put on the eave by the map's own course phase, so no course is
+  cut at the eave and none is scaled.
+- **The record moved to take the library honestly.** The pitch is 45°, not 40°: the library's
+  slate is cut for a 3 in headlap, which the profile allows only from 45°. The eave is 0.38 m so
+  the soffit clears the top lintels at that pitch.
+- **Measured.** `keith_house_1808_prairie.measure.json`: every verdict ok on both tiers, **0
+  coincident faces**, metric UV × tile 1.000 for slate, 1.000/0.993 for copper.
+  `k01_contract.mjs` now reads the K04 tiles beside Glessner's. 2,218 → 5,305 triangles, 10 → 13
+  primitives, web tier 893 → 1,031 KB.
+- **In the app.** At 1280×800 full and 390×780 light, in the published `/1904/` app: zero page
+  errors, every stand within budget, and four more draw calls at every stand. The full table is in
+  `docs/RESEARCH/k04-1808-roof-2293/README.md` (`QA_K04=1 node tools/qa_k01_t2266.mjs`).
+- **Not done, said.** The north gutter runs 20.5 m between corner outlets, over the profile's
+  12 m, because no pipe can stand in the 0.02 m beside Glessner. Step flashing is one strip a
+  cheek, not one piece a course. The pierced parapet the 1888 plate shows is T-1882's to build
+  (`docs/LIBERTIES.md` L-k04-1808-roof-2293).
+- **Landed beside T-2291.** K03's brick walls reached dev while this was open; the generator now
+  carries both (the K04 textures go through the same `_images` path as K03's), and the house was
+  rebuilt and re-measured with both: 11,351 triangles, 17 primitives, web tier 923 KB, every
+  verdict ok, 0 coincident faces. The triangle counts above are this ticket's own, before K03.
+- **Landed beside T-2298.** K06's windows reached dev while this was open; the generator and the
+  record now carry both (`form.window_kit` beside `form.roof_covering`, `form.dormer` and
+  `form.rainwater`), and the house was rebuilt and re-measured with all three: 14,445 triangles,
+  19 primitives, web tier 964 KB, every verdict ok, 0 coincident faces.
+
+## T-2304 — K07 entrance and stoop on the 1808 exemplar (2026-10-10)
+
+**Visible.** In the 1904 scene, the house at 1808 Prairie now has a real front door, built from
+the K07 kit (T-2303). It replaces the K01 proof's flat leaf and its stoop of solid columns. The door
+is a four-panel leaf in a reveal, with a frame, a knob, a threshold, a two-light transom and a dark
+hall behind the glass. The stoop below it has nine equal risers between cheek walls, with a landing
+level with the threshold and its foot on grade. It stops 1.15 m short of Prairie Avenue's walk.
+
+- **What it is.** `form.entrance_kit` on the record names the variant and the front yard, 4.75 m,
+  measured on the 1904 street grid. `Assembly.enter` builds the K07 `Entrance` about the door's
+  threshold, solving the stair from the record's floor, tread, landing and width. It merges the
+  parts into the house's materials through the same graft the K06 windows use. Params refuse a
+  stoop that reaches the walk, and the generator re-measures the built mesh against it. One new
+  material, `door_iron`, makes the house 17 draw primitives where it was 16. `mesh_inputs` now
+  hashes `k07_entrances.py` and `k07_entrances.json` for every `k01_frontage`.
+- **Honest limits.** No source shows this entrance. The register's Ionic loggia is T-1882's, built
+  from the 1888 plate (L-k07-1808-entrance-2304). There is no carriage opening: the lot's carriage
+  house is the detached rear building, which is T-1935's. The walker still treats the stoop as
+  open ground, as it did the K01 stoop: only the footprint blocks.
+- **Verified.** `tools/qa_k07_t2304.mjs` checks front, oblique, rear and roof, plus the door at
+  2.5 m and the stoop from the walk, at both viewports. Costs are in
+  `docs/RESEARCH/k07-1808-entrance-2304/README.md`.
+
+## T-2298 — K06 windows on the 1808 exemplar (2026-10-10)
+
+**Visible.** In the 1904 scene, every window of the house at 1808 Prairie is now a real opening
+built from the K06 kit (T-2297), replacing the K01 proof's single-plane sash. Each has a reveal,
+a frame, two sashes at two depths, glass, a blind and curtain edges behind it, and a dark room
+behind those. The stone sill has a drip.
+That is 26 two-over-two sashes and two three-light basement lights, at the record's own sizes.
+
+- **What it is.** `form.window_kit` on the record names the variant for each K01 opening kind.
+  `Assembly.glaze` builds the K06 `Opening` about each hole's sill socket and merges its parts into
+  the house's materials. Only two are new, `blind` and `curtain`, so the house is 12 draw primitives
+  where it was 10. `mesh_inputs` now hashes `k06_windows.py` and `k06_windows.json` for every
+  `k01_frontage`, so a kit change stales the house.
+- **Honest limits.** The two-over-two pattern is the kit's commonest form, not a reading of this
+  house (L-k06-1808-windows-2298). Heads are still the K01 flat lintel until K02/K03 dress them,
+  and the glass is a blended layer, not transmission. Frame times come from software GL.
+- **Verified.** `tools/qa_k06_t2298.mjs` checks front, oblique, rear and roof, plus two windows at
+  2.5-3 m, at both viewports, with zero errors. Costs are in
+  `docs/RESEARCH/k06-1808-windows-2298/README.md`.
+
+## T-2270 — a cabin and a merchant's house on the east corners of block 82 (2026-10-10)
+
+**Visible.** The School Section tier's block 82 (Market, Monroe to Adams) gets its last two houses:
+a D1 log cabin on lot 6, the east Monroe corner, and an H1 merchant's house on lot 7, the east
+Adams corner.
+
+- **Why the ticket's title no longer fits.** It names a D1 and an H3 that "no banded South row is
+  admitted by a clause that takes". On the tree merged with T-2268 that had already changed: the
+  re-apportionment re-dealt the block's balance as a D1 and an H1, and the seating held two `slot`
+  requests on them (hh_vieaux_susanne, labourer_dwellings; hh_church_thomas,
+  merchant_and_professional_dwellings). So both roofs are asked for, and an H1 is a house, not a
+  boarding house: the frozen lodging model does not move.
+- **A second recipe entry** in `1835_platted_block_parcels.json`
+  (`phase3_platted_block_school_section_tier_82_lots_6_7`, `seq_start` 5), built by
+  `generate_block_infill.py`: D1 4.5 m back fronting Monroe, H1 6 m back fronting Adams. The first
+  entry no longer names lots 6 and 7 open; lots 0 and 1 stay open. **L-block82-east-corners-2270**
+  records the invention.
+- **Seating at its fixpoint**: both households adopt the roof they asked for. **221 seated, all
+  adopted, no `slot` left on the plat.** No other seat moved. Keepers 208 → 210 (both named).
+- **Restated:** L263 671 → 673, L266 93 → 94 (the cabin is log), L276 208 → 210;
+  `measure_generator_half.py` 712 → 714 assets. The order book's South dwellings, boarding houses,
+  barns and outbuildings rows all read 0 owed and keep naming T-2270.
+- **Baked** with `bake.sh --only` (pinned Blender 4.5.3): the two new meshes. 714 assets.
+- **Re-derived:** `rederive.mjs --tail` from `adopt_street_faces` and from `compile_liberties`
+  (settled, the last lap moving nothing), then the keepers, the four infill generators, the
+  reconstructed trades seating, placeholders, entrances, alley lanes, woodpiles, the anonymous-roof
+  redeal, land tracts, register, population profile, hay limits, roof-id surface, block redeal
+  remedies and the Newberry leads (four volumes re-parsed).
+## T-2291 — K03 common brick on 1808 Prairie's return and rear (2026-10-10)
+
+**Visible.** 1808 Prairie's south side, rear and north party walls now wear the K03 common buff
+brick in common bond (T-2290's `common_buff_common_6` panel, with its normal map), in place of
+Glessner's courtyard `brick_buff`. Every window on those walls has a brick head: two rowlock rings
+on a segmental arch, or soldier flat heads on the third storey, where the eave leaves no room for
+the rings. A projecting stretcher string course runs at the second floor and turns the south-west
+quoin. A soot and damp mask (`_TONE`) darkens the foot of the wall and the band under the eave.
+Courses stay level round both quoins, and the north-west quoin carries the bond round unbroken.
+
+**Measured.** The K01 contract measure is green, and its metric-UV check now reads the K03 tiles
+(1.0000 full, 1.0001 web). The asset goes from 2,218 to 8,264 triangles and its web GLB from
+893 KB to 783 KB. In the published app every stand is within budget: desktop 65-68 draws and
+2.50 M triangles, mobile 62-63 draws and 0.46 M triangles, zero page errors
+(`docs/RESEARCH/k03-1808-service-brick-2291/`).
+
+**Unverified or not done.** The bond, heads, string course and grime are all reconstructed
+(L-k03-1808-service-brick-2291); no photograph of 1808's side or rear was read. Every brick is
+not a solid: the library's full form, about 52,000 bricks here, was refused on the triangle
+budget, so the panel serves every tier. No pressed front is bound, because none stands in the
+scene; it binds with 2100 Sherman (T-1919).
+
+## T-2254 — four houses on the School Section tier's block 82 (2026-10-10)
+
+Piece 3 of 3 of T-2247 (owner ruling b: cross Monroe). T-2253 dealt the block two D2, two D4, a
+D5 and an H3 and left four `slot` requests on it; this raises those four.
+
+- **One recipe entry** in `1835_platted_block_parcels.json` (`phase3_platted_block_school_section_tier_82`),
+  built by `generate_block_infill.py`: D2 on lot 2 and D4 on lot 4 facing Monroe, D5 on lot 3 and
+  D4 on lot 5 facing Adams, set out as block 81's houses across Monroe. Lot 0 stays the reserved
+  open lot; lots 1, 6 and 7 stay free. **L415** records the invention.
+- **Not built: the second D2 (now dealt as a D1) and the H3.** Both are `plan_left_unclaimed` — no
+  banded South row is admitted by a clause that takes them — and the H3's beds move the lodging
+  model `seat_lodgers_1835.py` freezes, the reason blocks 95 and 81 left theirs to T-1957.
+- **Seating at its fixpoint in two laps** (adopt → reconcile_665 → keepers → the four infill
+  generators → reconcile_665 → the seating chain): **219 seated, all adopted, 0 slots left.**
+  hh_merrill_george_w, hh_merill_isaac and hh_meleney_patrick adopt the houses they asked for;
+  hh_rc_wilcox_martha adopts the D2, and hh_vieaux_susanne, who asked for it, is seated on the
+  standing D1 `recon_1835_south_d1_018` on Lake–Dearborn (adoption runs first). Keepers 205 → 209;
+  the D2's keeper is refused on the card (no source carries hh_rc_wilcox_martha's name).
+- **Baked** with `bake.sh --only` (pinned Blender 4.5.3): the four new meshes and the D1, whose
+  finish and age state moved with its occupant. 708 assets fresh.
+- **Re-derived:** `rederive.mjs --tail` from compile_liberties (settled in one lap), the completion
+  audit, entrances, alley lanes, woodpiles, hay limits and the land-tract join.
+- **Restated:** L263 664 → 668, L276 205 → 209.
+- **Finished from a cancelled run** (salvage draft #612): merged with dev after T-2269's lumber
+  shed and T-2271, the seating re-walked to a byte-stable fixpoint. On the merged tree the deal
+  reads **220 seated (219 adopted, 1 slot)**: the four houses go to hh_rc_shea_margaret (D2),
+  hh_merrill_george_w (D5), hh_merill_isaac and hh_meleney_patrick (D4s); hh_miller_samuel adopts
+  the D5 `recon_1835_south_d5_016` Meleney leaves (rebaked: its finish moved with its occupant);
+  hh_rc_woodruff_ruth holds a D1 slot on lot 7, which T-2270 owns. Keepers 209. L263 restated
+  to 669 (with the lumber shed), L270 to 220, L276 to 209; 709 assets fresh. The changelog moved
+  to `changelog.d/T-2254.json`.
+- **Lapped onto dev after T-2278, T-2255, T-2281..T-2294 and T-2268** (resume PR #627). The
+  frontage census now reads both School Section tiers (`tier_frontage_streets` read only the
+  Madison–Monroe file, so Adams was no frontage corridor and the two Adams-face houses fronted no
+  street). Seating at its fixpoint (two laps, the second moving nothing): **221 seated, 219
+  adopted, 2 slots** — the four houses go to hh_rc_shea_margaret (D2), hh_merrill_george_w (D5),
+  hh_merill_isaac and hh_meleney_patrick (D4s); hh_vieaux_susanne (D1, lot 6) and hh_church_thomas
+  (H1, lot 7) hold the block's last two requests, T-2270's. Keepers 208. `BUSINESS_DEAL_COSTS`
+  10 → 8. The liberty is **L416** (T-2281 and T-2268 took L412 and L415 while this was open);
+  L263 671, L270 221, L276 208. Six meshes rebaked onto T-2278's doors and windows (the four
+  houses, `recon_1835_south_d1_018`, `recon_1835_south_d5_016`); 712 assets. The South's barn and
+  outbuilding order-book rows follow the dwellings to T-2270.
+
+## T-2266 — the first K01 assembly: a frontage at 1808 Prairie (2026-10-10)
+
+**Visible.** In the 1904 scene a three-storey-and-basement house now stands on the 1808 Prairie
+lot, directly south of the Glessner House. Its north wall closes the Glessner courtyard as the
+1911 Sanborn sheet 28 draws it. It is the first thing built to the K01 metric component contract
+(T-2265), and the contract's `status` now says it is built to rather than only declared.
+
+- **What it is.** `data/structures/keith_house_1808_prairie.json`, archetype `k01_frontage`, is
+  built by `generators/archetypes/k01_frontage.py`. It is made of nine K01 components with stable
+  ids and seeds per instance: `k01.wall.street_front`, `.side.north`, `.side.south`,
+  `.rear_service`, `k01.opening.sash_flat` / `.area_light` / `.door_leaf`,
+  `k01.stair.straight_stoop` and `k01.roof.hip`. They are listed in the node's `extras.k01`, each
+  instance with its parameters and sockets in the structure frame. Every value is checked against
+  the contract's declared ranges in `k01_frontage_params.py`, and a value outside its range is
+  refused, not clamped. The stair solves the 1.50 m principal floor in nine whole risers of 0.167 m.
+- **Why pure Python, not Blender.** Registering an archetype in `generators/emit.py` changes bytes
+  that are in all 704 meshes' input hashes. The whole town would read stale for a change that
+  moves none of its vertices (T-1654's false positive). `generators/k01_emit.py` writes the glTF
+  itself. `mesh_inputs.PURE_PYTHON` hashes only the archetype module and that command for it, with
+  no Blender pin, and the recipe for every other archetype is byte-for-byte unchanged, so there
+  is no scheme bump and nothing is restamped. `k01_emit.py --check` rebuilds in memory and confirms
+  the committed GLB is the same bytes. `tools/bake.sh` now runs it beside the Blender bake.
+- **Measured against the contract.** `node tools/k01_contract.mjs --measure-asset
+  keith_house_1808_prairie` writes `data/components/prairie_1904/keith_house_1808_prairie.measure.json`.
+  `--check` now also holds every assembly measure's verdicts to ok (no finding allowed:
+  `coincident_faces_allowed_new` is 0) and its hashes to the files on disk. Readings:
+  **0 coincident and 0 degenerate faces** at full and web. Origin ok: the envelope is on the
+  footprint, sills and belts stand 0.06 m proud, and the wall base is at y = 0. Web-tier scale drift
+  is at most 1.06e-4 of an axis, inside the 5e-4 bound. Metric UV density × tile is 1.000 (brick),
+  1.000 (front stone) and 0.995–1.001 at web.
+- **Cost.** 2,218 triangles in 10 primitives. The master is 1.86 MB and the web tier 0.89 MB
+  (meshopt plus quantisation). It carries two 2048² library fabrics (limestone, brick), whose
+  decoded RGBA8 with mips is 44.7 MB of GPU memory, the asset's largest cost. Glessner's light tier
+  alone is 198,064 triangles (after T-2267's rebake). In the published `/1904/` app (`tools/qa_k01_t2266.mjs`, five fixed
+  stands per viewport: street-eye, oblique, rear, roof and courtyard join) the scene reads 62–69
+  draws and 2.50–2.53 M triangles at desktop full detail, and 60–61 draws and 0.45 M triangles at
+  mobile light. Every stand is within budget (330 draws; 3.8 M and 1.005 M triangles) with zero page
+  errors. The time to ready was 17.6 s desktop and 9.6 s mobile on this runner's software GL. Frame
+  timings are in `docs/RESEARCH/k01-1808-frontage-2266/browser-validation.json`, but they are
+  software-GL readings, relative only.
+- **What it is not.** It is not the Keith/Field house. Most of it is reconstructed inside the
+  contract's ranges (`docs/LIBERTIES.md` L-k01-1808-frontage-2266): attested are only the three
+  storeys and basement, and inferred only the brick. The rock-faced Romanesque-classical front,
+  south curved bay, north Ionic loggia and pierced parapet belong to T-1882 and T-1883, and the
+  rear garage to T-1935. The brick is the library's grain with no coursing (T-1845). The whole
+  house therefore reads as reconstructed in the confidence view, which is the honest reading.
+- **Residual.** There is no light tier: `tools/web_derivatives.sh` reduces Glessner alone, and at
+  2,218 triangles this asset needs none. The 0.02 m gap between the two houses' faces is a liberty,
+  because the sheet draws them touching.
+
+## T-2267 — Glessner v4 regenerated without coincident faces (2026-10-10)
+
+The K01 measure (T-2265) found 15 coincident triangles in Glessner's full master, 40 in
+web and 8 in light. All three generator causes are fixed and Glessner is rebaked: full
+**0**, light **0**, web **5**. The web five are sub-2 mm leaf-root slivers that the
+0.83 mm encoding rounds together. The causes: acanthus leaf roots and tips with
+sub-millimetre rows (they now close on the midrib); collinear ridge barrels capped back
+to back at x = 11.54 m (now continuous); chimney flashing pieces capped where they meet
+at the main ridge (now continuous). The K01 verdict now *states* when a derived tier's
+remainder is quantization: the master has none, the tier is position-quantized, and it
+carries the master's triangles one for one. Light, a separate build, may keep none. A
+2-step sliver threshold fitted only 3 of the 5 and was dropped, not widened. Fixed
+cameras (fan, capital, ridge joint, flashing, two silhouettes, 1280×800 Full and
+390×780 Light) change only at leaf tips, ≤0.043 % of pixels.
+`docs/RESEARCH/glessner-coincident-faces-2267/README.md`.
+
+## T-2278 — doors, windows and their trim on every 1835 building (2026-10-10)
+
+Owner's ask: give every structure correct door and window openings and their trim, and use
+Glessner's dark glass where a building could have had glass. Recorded as **L413**.
+
+- **One kit, `generators/common/openings.py`,** builds every opening the frame dwellings, log
+  dwellings, stores, taverns and fort buildings draw: a board casing standing 5 cm off the wall
+  with its returns, the pane set 13 mm back so the jambs read as a reveal, a sloped sill with
+  horns, a drip cap, flat sash bars, and a closed door in every doorway (panelled; half-glazed with
+  a transom on a shop; board-and-batten on iron strap hinges for a cabin, a freight door or a
+  magazine). About half the cabins get a pair of open board shutters. Outbuildings keep their board
+  doors and gain strap hinges; barns, sheds and stables stay unglazed.
+- **History.** Window glass by the box and ready-made sash were advertised in the Chicago Democrat
+  1833-35 by five merchants already on their business records, so a log house in this town is
+  glazed too.
+- **Glass.** `materials.GLASS` is now Glessner's drawn dark pane (the GLB colour at 12 per cent,
+  roughness 0.065). Opaque, so it costs no extra pass. The door paints and the glass are named
+  materials (`MeshBuilder.named_mat`), so they join the town batch at no extra draw call.
+- **Rebake.** Every structure was rebaked (common/ changed); 674 masters moved, plus the four
+  Glessner and Bates structure versions. The three ground epochs' input hashes moved too, but
+  their meshes do not depend on the change: a clean-dev bake and this branch's bake are byte-
+  identical for e1830 and e1871 (e1834 reproduces the committed bytes), so the committed ground
+  bytes are kept and only the hash is re-stamped.
+- **Cost, desktop 1280x800, six stands, stepped, against dev before the change:** full +65k to
+  +151k (worst West prairie 3,210,825 -> 3,362,063), balanced +59k to +139k (2,334,552 ->
+  2,473,184), light +29k to +117k (1,021,552 -> 1,138,298). Draw calls +0 to +3. JS heap after gc
+  1131.7 -> 1180.1 MiB. Dev was already over all three desktop ceilings before this change.
+- **Cost, phone 390x780, same sweep:** full +48k to +124k (worst 2,766,354 -> 2,890,515), balanced
+  +46k to +122k (2,047,667 -> 2,169,656), light +18k to +101k (868,283 -> 968,880); every tier
+  stays inside its ceiling (light by 36,120). JS heap after gc 1124.9 -> 1175.7 MiB. The ceilings
+  are not moved here.
+
+## T-1787 — the portable human export path, Blender -> GLB -> browser (2026-10-10)
+
+Second ticket of the portable-humans programme. **Nothing in the scene changes, and L1 stands.**
+What it built is the road a real body (T-1789) will travel, proved on a test figure that is nobody
+(`c4d_fixture`, L417):
+
+- **`tools/human_export.sh`** is the whole path in one command. The pinned Blender
+  (sha256-checked, as in `bake.sh`) runs **`tools/human_export.py`**, which holds every exporter
+  setting with its reason, so nothing hangs on a dialog. It writes four LOD GLBs to
+  `assets/humans/`, makes Meshopt derivatives in `assets/humans/web/` with `web_derivatives.sh`'s
+  own gltf-transform pin, and gates all eight with `human_contract.py --glb`. `--verify` rebuilds
+  into a scratch tree and requires the committed bytes. They reproduce, file for file.
+- **`tools/human_fixture_blend.py`** builds the fixture's master from primitives. The skeleton is
+  the contract's 56 bones, with five material slots, three face morphs on lod0-1, an `idle` and a
+  `walk` (1.3 m/s) and the three sockets. It is also the layout an authored master copies.
+- **`tools/human_fixture.mjs`** opens all eight in Chromium at 1280×800 and 390×780 through the
+  renderer's own GLTFLoader and Meshopt decoder. Raising the left upper arm 45° moves the hand
+  0.54 m. The walk turns the calf 17°. Each blink closes its eye 12.9 mm and `jawOpen` drops the jaw
+  27 mm. The 64 px texture decodes. The rest height is 1.703 m, with the soles at 0.002 m and the
+  toes to +Z. There are no page or console errors. `--check` (in check.sh) holds every GLB's sha256
+  to `data/humans/fixture.measure.json`.
+- **The gate learned to read a derivative** (`human_contract.py`). Quantisation folds the
+  position scale into compressed inverse bind matrices, so a `web/` file's frame is read beside
+  its master (`frame.master`, `derivative.drift`, `frame.no_master`, `frame.quantised`). There are
+  5 new self-test assertions. In the browser, the decoded derivative is within 0.1 mm of its
+  master.
+- **CI**: `.github/workflows/chicago-4d-humans.yml` runs `--verify` and the browser proof on any
+  change to the path, in about the time of one Blender start-up.
+- **Measured, contract § 8.** Shipped, lod0 is 108 KB, 3,668 triangles and 5 draws; lod3 is 72 KB,
+  316 triangles and still 5 draws. Draws follow material slots, not LOD. The clips are the bytes
+  floor: every bone is keyed so cross-fades stay clean, and that is about half of lod3.
+- **Not done, on purpose.** KTX2 stays refused. A 64 px texture gains nothing from it, and lifting
+  the refusal needs `KTX2Loader` wired and proved on a textured asset (contract § 9). The fixture's
+  triangle counts are not a real body's budget; T-1789's first body is measured by the same
+  command and replaces them. Weights are held to four influences but not checked for
+  normalisation.
+
+## T-1786 — the portable human contract (2026-10-10)
+
+First ticket of the owner's portable-humans programme (T-1786 to T-1792). **Nothing in the scene
+changes, and L1 stands**: no human figure is drawn, for anyone. This fixes the decisions the
+later tickets would otherwise each make for themselves.
+
+- **`docs/HUMAN-ASSET-CONTRACT.md`** is the contract in prose.
+  **`data/humans/contract.json`** is its machine-readable half:
+  - one 56-bone skeleton, `c4d_humanoid_v1`, with `ext_` extension bones
+  - three required sockets
+  - five required and five optional material slots, using `<slot>__<variant>` names
+  - the face on ARKit morph names, required on lod0 and lod1 only
+  - a clip grammar of `<verb>[_<variant>]` with seven verbs, in place
+  - four LODs mapped to the full, balanced and light tiers
+  - provenance fields for the DEPICTION's own grade
+  - the delivery limits
+  - Unreal as an export, never a master
+- **`data/humans/human_instance.schema.json`** is the instance record. It binds an asset to an
+  existing person id in one scene. Appearance, animation and behaviour are separate blocks.
+  `display` is refused `shown` while `l1.in_force` is true, and `review_required` is carried
+  from the person's record and cannot be dropped.
+- **`tools/human_contract.py`** has three modes:
+  - `--check` (in check.sh) holds the contract to itself and to the schema, then checks every
+    GLB under `assets/humans/` and every instance under `data/humans/instances/`. There are
+    none of either yet, so it reports 0 and 0.
+  - `--glb` is for T-1787's exporter.
+  - `--self-test` has 49 assertions. It builds a conforming synthetic body from the contract
+    and breaks it one way at a time, then does the same for instances. Every refusal the
+    ticket names fires by code: an incompatible skeleton, a missing material slot or morph,
+    duplicate clip names, non-metric scale (in positions or hidden in a 0.01 transform), and
+    missing provenance or licence. So do refusals for KTX2 and Draco, which the renderer
+    cannot load.
+- **What is not proved.** The fixtures are JSON-only GLBs: names, hierarchy, accessor bounds
+  and extras, with no vertex data. No real Blender export has been through the gate yet; that
+  is T-1787's tiny rigged CI fixture. The per-LOD triangle, texture and draw budgets are left
+  for T-1787 to measure rather than guessed here. No review record exists yet, so a
+  review_required person cannot be shown even after L1 lifts.
+
+## T-2286 — what the waiting families leave, ruled against the full person side (2026-10-10)
+
+T-2285 left the North owing 1 family_dwelling household and the West 9, with no held head,
+waiting family or household beyond the index to fill them. Measured: every family person cell
+of both divisions reads 0 left (the 13 people still owed are all lodging, T-2023), so a house
+ordered there has nobody the book may draw into it without overfilling a person cell.
+`full_family_persons_ruling` in `tools/build_order_book_1835.py` discharges each family row's
+order past what its division's open family cells could people at two a house (the book's
+own family test), never below the fill and never under the model's households range: the book
+now orders 575 households against 473-816, the family rows read 0 left, and households still
+owed fall 44 → 34. It seats, mints and moves nobody, counts no bed or boarders' roof as a
+house, and re-admits no letter-list household. Not put to the owner: it moves no person and
+no building and keeps the model's range, so it is book arithmetic rather than what the
+project IS. The self-test breaks it both ways (open family people keep houses owed; a lodging
+cell's open people do not) and holds the fill and range floors.
+
+## T-2285 — the waiting families' share goes on to the cells still short (2026-10-10)
+
+T-2256 spread the 23 families waiting on a roof over the three family_dwelling rows pro rata
+and capped each share at its row's shortfall, so the South's 12 discharged its 10 and two
+families discharged nothing while the North and West stood short. `waiting_families_ruling`
+now spreads a share past its row's shortfall on over the rows still short (pro rata on
+their targets, until it is spent): all 23 discharge, North 7 / South 10 / West 6, and the
+North owes 1 and the West 9. T-2279 was split: **T-2286** owns those ten, measured: no held
+head, waiting family or household beyond the index is left to fill them.
+
+## T-2255 — the off-plat deal reads the letter-list ruling (2026-10-09)
+
+T-1645 made the platted deal owe the letter-list cohort (T-0379) and hand it on;
+`tools/seat_off_plat_ground_1835.py` never read the ruling, so 69 of its 99 seats were that
+cohort. It now owes them with the platted deal's own `refused_by` and reason, using the platted
+deal's `refused_a_roof()` (773 rows owed so). 95 seated: 65 households newly housed (47 North,
+18 West), all 30 non-letter-list households still seated, 28 of them under another roof. The
+ruling exposed two things that had never come up before, both fixed in the tool and stated in L271:
+the farmstead rule's passed-over labourers take a cabin left free after the deal, and a West
+farm household takes a farmstead or nothing. An honesty assertion and a self-test fire when the
+ruling is dropped from the deal.
+
+- **Merged over T-2253** (2026-10-10): the platted deal's four block-82 slots and this deal's
+  re-deal do not touch: 219 platted + 95 off-plat = **314 seated**, off-plat seats identical to
+  the branch before the merge; order-book tripwire 310 -> 314.
+- **Merged over T-1550** (2026-10-10): 220 platted + 95 off-plat = **315 seated**; off-plat
+  still 95, order-book tripwire 319 -> 315.
+- **Not done:** off-plat roofs carry no household back (T-1638 is platted-only), so a re-deal
+  still moves seated households between roofs. Four West cabins stand unspent, each stating why.
+
+## T-2206 — Glessner roof and courtyard proportions audited
+
+The comparison page now measures the current assets through all nine frozen T-2200
+cameras, preserves historical measurements as a separate selection, checks loaded
+asset hashes, and presents 15 dimension/evidence/decision rows. No geometry changes.
+Fifteen mesh controls associate within 0.023 m. The audit retains the corrected west
+roof, flared dormers, dining bay and continuous courtyard eave; sheet 4/6 roof-rise
+and photo-camera disagreements remain explicit. The dining outline projects 9.90 ft,
+not the older prose's 10.3 ft. T-2220 retains the confirmed northeast copper fold;
+no other manual ticket is released. No photographic acceptance is claimed.
+
+See `docs/RESEARCH/glessner-proportions-2206/README.md` and the current
+`data/comparisons/glessner/audit-report.json`. Validation receipts are recorded there.
+
+## T-2253 — the Monroe-Adams tier joins the grid and the roof schedule (2026-10-09)
+
+Piece 2 of 3 of T-2247, on the owner's ruling (b): cross Monroe. T-2252 cut the tier into lots;
+this joins it, exactly as T-2144 joined Madison to Monroe; T-2254 raises the six roofs.
+
+- **`generate_plat_lots.py` quotes both tier files** into the one `school_section_tier` grid, by
+  T-2144's own test (east of the forks, lots on dry ground): **82, 93, 96, 117, 120, 141**, 48 lots.
+  The grid is now 11 blocks and 88 lots; 94 platted blocks, 480 lots in all. West blocks 2-71 and
+  the wet block 79 are not joined.
+- **The schedule deals the six to block 82**: D2, D2, D4, D4, D5 and the H3, one roof to a lot
+  with a lot kept open. Block 117 holds Heacock's documented house and now carries its lot fence,
+  privy and kept ground.
+- **The warehouses stay owed.** The balance also held two F3 and an F4, the street line's freight
+  cell (T-2175). With 48 lots of room the deal reached them, handing an F3 to block 82. That is a
+  kilometre from the river it needs, and the waterside term refused it. Tier blocks now pass the
+  freight group on (`SCHOOL_SECTION_PASSES`). The South balance holds the 3 warehouses, `gated`.
+  Before, a balance with surplus headroom read `complete` and "holds nothing" even while it held
+  roofs; now a balance that takes any roof is gated, with its own sentence.
+- **Seating at a fixpoint** on the tree merged with T-1645 (chain, keeper pass, three infill
+  generators, chain again; the last lap moved nothing): **219 platted seats** (215 on dev), 99
+  off-plat. The four new seats are slot requests on block 82 — hh_meleney_patrick,
+  hh_merill_isaac, hh_merrill_george_w, hh_vieaux_susanne — the ones T-2254 raises. The block's
+  second D2 and its H3 are left unclaimed: no South row is admitted by a clause that takes them.
+  No seat already dealt moved (L270). The keeper ledger's ten refusals now read "no household
+  left" (10 → 0 with one left for them): the four slotted were the last ones.
+- Order book tripwire 314 → 318; corridor-strip baseline `blocks_after` 87 → 93 and `lots_after`
+  425 → 473, which is the tier's 6 blocks and 48 lots and nothing else.
+- **The street line's order moves to T-2268.** T-2175, which owned the band, was split on
+  2026-10-09 (T-2268, the two F3; T-2269, the F4 shed's clause), so the inventory band and the
+  order book's fallback row now name T-2268 rather than a ticket nobody can claim.
+
+## T-2205 — Glessner ridge stock and roof edges (2026-10-09)
+
+Closed overlapping ridge caps, raised collars, seated finials and dormer hip covers
+replace open or simplified stock. Mitred 60 mm eaves, clipped valley flanges and
+chimney aprons follow existing roof planes. Taylor 2135 and HABS north/stable views
+bound the profiles; exact sections remain declared reconstructions. All 222 real
+Full roof hosts match the baseline, with only duplicate hidden rolls and old
+finial tile hosts removed. Light is 199,744 triangles under its 200,000 ceiling;
+its coarser cone sampling has a maximum 12.3 mm radial chord departure.
+
+Sixteen after captures in the actual published app pass at Full desktop and Light
+mobile, with dark glass retained. Physical module and roof-connectivity checks
+pass, as do all 806 repository-preflight steps. [Evidence and scope limits](RESEARCH/glessner-roof-details-2205/README.md).
+The independent folded courtyard copper connector remains held under T-2220.
+
+
+
+## T-2250 — a platted keeper's cardless house keeps its firm (2026-10-09)
+
+T-2196 moved Mark Beaubien's household onto the Market wedge's new H3
+(`recon_1835_blk_south_water_market_h3_02`). The lodgers stage filled its beds from five people the
+layer already held and minted nobody, so it wrote the house **no lodging card**, and
+`reconstruct_businesses_1835.roof_keepers` read keepers off cards alone: the roof read "no firm",
+`rcb_beaubien_boarding_house` retired, and his unplaced in-window `biz_beaubien_mark_tavern_keeper`
+came back.
+
+- **The fix is a pointer, not a person.** Where no card speaks for a house, `roof_keepers` reads the
+  lodgers ledger's own `houses[].keeper_head` (the same pointer, from the same stage, that a card's
+  `kept_by` carries), only for a `platted_seat`, and still adopts the keeper off his own household
+  card. A card that names no keeper still stands. Self-test 11b holds all three; it fails with the
+  fallback removed. Only this house is affected today (the one platted-seat house with no card).
+- **What moved.** `rcb_beaubien_boarding_house` stands on the wedge's H3 (`tavern`, his own trade's
+  class, as T-1808 rules); the in-window tavern-keeper firm retires; reconstructed houses of trade
+  53 → 54 (L254, L257–L260, L262, L360, L367 restated), the register's scene-date taverns 10 → 9
+  (census 8, still met), businesses known 129 → 128.
+- **Six boards re-styled, by rule.** The South boarding-house bucket's seeds are ordinals in the
+  lodging model's order, so restoring a roof re-deals the styles after it: Sweet, Stebbins, Trottier,
+  Robillard, Laframboise and McCarthy go back to exactly the styles they carried before T-2196
+  retired the firm (e.g. *Sweet's boarding house*). Seeds keyed on the roof rather than the ordinal
+  would stop this churn; not done here.
+
+## T-2204 — Glessner roof relief filtered at screen scale (2026-10-09)
+
+The fine physical tile noses formed broad moving interference bands in street and
+aerial views. Full and Light now carry an additive `_ROOF_DETAIL` sampling hint;
+the renderer blends unresolved relief over the existing mipmapped tile bed across
+6–24 projected course pixels. Crests and beds are untagged and remain solid.
+Clay maps use trilinear mipmaps and anisotropy eight. Close tiles retain the
+6-inch width / 5-inch exposure established by T-2203.
+
+All 28 original master primitive streams (positions, normals, UVs, confidence and
+indices) and node transforms compare byte-for-byte equal. No roof envelope,
+copper, opening, material provenance or source camera changes. The downloadable
+Full asset grows by 36,908 bytes and Light by 4,648 bytes; the texture payload is
+unchanged. The sampling attribute uses 2,137,844 GPU bytes in Full and 89,196 in Light.
+
+Evidence, moving-view comparisons, rendering costs and validation receipts are in
+[the T-2204 dossier](RESEARCH/glessner-roof-filtering-2204/README.md). The separate
+folded copper corner remains held under T-2220. This is not a claim that the whole
+house has met the photographic-quality programme's target.
+
+## T-2252 — the School Section's Monroe-Adams tier cut into lots (2026-10-09)
+
+The owner ruled (b) on T-2247: cross Monroe and build the South's six gated roofs (D2, D2, D4,
+D4, D5, H3) on the School Section's second row. T-2247 is split in three; this is the cut.
+
+- **The cut is T-1477's**: `tools/cut_school_section_second_tier.py` calls
+  `cut_school_section_tier.derive()` on the grid's row 1 and writes
+  `data/traces/vectors/school_section_second_tier_lots.json`. Same register, same refusals,
+  same module and grades.
+- **The register names all 13 blocks**: eleven of eight lots, 71 and 79 of four, directly under
+  the first tier's four-lot pair at the South Branch; 79 is the row's one wet block. 96 lots.
+- **East of the river** by T-2144's own test: 82, 93, 96, 117, 120, 141, which is 48 lots.
+- **Not done:** nothing is seated. Joining the tier to the grid and the roof schedule is T-2253;
+  raising the six is T-2254. Block 2 is half off the modelled field and is cut but not built on.
+
+## T-2196 — a boarding house in a two-unit row on the Market wedge's lot 7 (2026-10-09)
+
+The owner answered T-2196 with **(a)**: lot 7 of `blk_south_water_market` becomes a two-unit
+party-line row on the Lake Street face, for this block only, and one of the South's two owed H3s
+stands in it; the other waits in the gated balance for S9. He answered T-2242 the same morning with
+**(a)** too: the five gated South dwellings stay owed, and T-2242 is withdrawn.
+
+- **`recon_1835_blk_south_water_market_h3_02`** (L411), 10.02 × 13.74 m, party-walled to the east
+  side of T-2238's D5. The D5 is now the row's west unit, anchored at the plat's 1.5 m margin off lot
+  6's side line; both stand 5 m back on one measured street line. Lot 8 stays the open lot.
+- **The schedule holds the grant by name.** `reconcile_665.ROW_LOT_GRANTS` is a table of one: the
+  lot keeps two row units, its room (units less the principal roofs standing on it) is dealt only to
+  an H3, and with the house standing the room is spent. The gated South balance reads 9 (H3 2 → 1).
+  `generate_block_infill.py` accepts the run only against that table (`row_lot_grant` in the recipe),
+  caps the lot at the grant's two units, and reads a party wall a sibling deal declared onto this
+  entry's roof as the same wall from the other side.
+- **Who moved.** The keeper chain (two laps) seats Mark Beaubien's household on the new house under
+  `lodging_near_the_landings`, Alanson Sweet's on the Clark block house Beaubien left, and the second
+  Clark house draws a keeper, Alvah Stebbins, with three children. Lodgers: 157 in 22 cards (L252).
+  One working-lodger cell was re-frozen at the live order (`persons/male/10_19/south/lodging/trade`,
+  4 → 3), because the re-dealt houses drew one more there and `seat_lodgers_1835` refuses a draw past
+  the book. The new house was appended to `houses_the_deal_was_dealt_to`.
+- **One loss, filed.** The new house is filled from the layer alone, so the lodgers stage writes it no
+  card, and the business layer, which reads keepers off cards, retires `rcb_beaubien_boarding_house`
+  (the record was retired by hand in the same pass, as the tool asks). **T-2250** owns giving him his firm back.
+- **Order book.** The South's ordinary-dwelling, boarding-house, barn and outbuilding rows name
+  **T-2247** (the S9 street work and the gated roofs behind it), since T-2242 is withdrawn and T-2196 closes.
+- Baked: the H3, the D5 and the Clark house whose keeper moved. Generator half 704/698; corridor-strip
+  baseline `roofs_on_moved_blocks` 67 → 68 (the build itself, as on T-2238).
+
+## T-2246 — the store roofs still owed: four ruled empty, one kept (2026-10-09)
+
+T-2245 left the order book owing 5 store households (south 4, west 1): store roofs standing
+with nobody over them. Each was ruled, not filled by invention.
+
+- **The four South Water Street firm roofs** (`house_the_present_1835.py`,
+  `the_keepers.keeper_not_held`): H. Doty & Co., Rockwell's cabinet furniture warehouse, the
+  Chicago Bakery (D. Graves) and Harmon, Loomis & Co., each on the roof the street-face
+  adoption gave the firm. None of their keepers resolves to a town card, and T-2245's
+  `partner_links.json` (`not_linked`) already says why for each. Forming the keeper's household
+  was weighed and refused: the register's mint refuses all three printed keepers a card
+  ("a firm, not a person" for H. Doty & Co.; "a surname, a trade, and nothing else" for
+  Rockwell; "the town already names a Graves" for D. Graves, the Dexter Graves question), and
+  the Harmon brothers' own card places them at the firm's documented store. So each is a store
+  nobody is seated over and the book's store ruling discharges the order (`keeper_not_held`),
+  never below what a cell has filled.
+- **The firmless West store recon_1835_west_020**: its stated use (T-1826, L310) named no trade
+  and said it "retires the moment a deal or a source seats a storekeeper here". T-2236's keeper
+  rung can, so the row is retired, and the rung seats L. Chevalier (watches, jewelry and fancy
+  goods, a Canal Street house of trade on no roof) over it, out of a boarder's seat at
+  recon_1835_west_045. Shea's and Chapin's millineries, also Canal Street and roofless, still
+  board: the West's order is full.
+- **Measured:** store households owed 5 -> 0; keepers 20 -> 21; the census ceiling counts one
+  more standing dwelling (408 -> 409), so two waiting ruled-in households take a roof
+  (hh_vale_john, five people, and hh_wright_j): waiting 28 -> 26 households, 85 -> 79 people.
+  The deal is a least-crowded greedy, so 389 boarders re-deal onto other roofs, as on every
+  keeper change.
+- **Not settled:** the four firms stand on adopted roofs beside no keeper; whether D. Graves the
+  baker is Dexter Graves the tavern keeper is the mint's identity question, not this ruling's.
+  And `seated` in the housing deal counts a household with only a workplace row as housed, so
+  the Harmon brothers sleep nowhere in the scene (31 present households in all): T-2249.
+- L354 amended. Two new guards in the deal's self-test (fourteen); the book's self-test covers
+  the discharge.
+
+## T-2202 — Glessner Prairie frontage and ground contact (2026-10-09)
+
+House-side stone edging, rounded returns, entry paving/risers and the porte
+threshold/passage now come from the sourced `prairie_frontage` form record.
+The existing public street and sidewalk layout stays with T-1728. Taylor
+2135 and HABS sheets 2/6 bound the reconstruction; profile/joint/material
+uncertainties are recorded in L-glessner-frontage-2202. Roof, windows and dark
+glass stay unchanged. Full and light share access geometry; only new curb
+microdetail is reduced to retain the existing light triangle ceiling.
+
+Numerical tests cover 1,108 access points in both detail levels. Dedicated
+published desktop/full and mobile/light reviews pass. Published smoke parts
+12–13 pass 216 checks per viewport; final preflight passes all 802 checks.
+`docs/RESEARCH/glessner-frontage-2202/README.md` records actual scope, slow
+software-rendered timings and the desktop run's integration overlap. CI
+and post-merge deployment receipts are tracked on T-2202. T-2200's
+frozen cameras are not refitted; this is not whole-house photographic sign-off.
+
+## T-2245 — the firm partners the town holds a card for, linked (2026-10-09)
+
+T-2236's keeper rung seats the household of a proprietor or partner of a house of trade over the
+store its firm stands on, and it finds the keeper through `person_id` on the business record.
+The register links a printed partner to a card only where its own person list carries that
+exact spelling with action `enrich`, so a partner named only inside a firm's style stayed a
+name and seven of the store roofs T-2240 was left owing stood empty beside a firm whose
+partner the town in fact holds.
+
+- **The rule** (`data/businesses/rulings/partner_links.json`, laid over the record by
+  `compile_businesses.apply_partner_links`): a link names a partner the firm's style prints and
+  a card the town holds, and states its reasoning. It fills a null and never moves a link the
+  register made; the compiler refuses a name the style does not print, a card the town does
+  not hold, and a moved link (three self-test cases). The link is `inferred`, carried as
+  `link` on the row (a new optional schema field), while the printed name keeps its tier.
+- **Linked (3):** J. L. Wilson → `wilson_john` (the register's own match of this house's
+  1834-09-17 notice, `person_wilson_j_l_co`); Botsford of Fullerton & Botsford → `botsford_j_k`
+  (the same corner of Dearborn and Lake, and no second Botsford in the corpus); Filer of Clark,
+  Filer & Co. → `filer_a` (same trade, same street, the style's printing opening the week A.
+  Filer & Co.'s closes).
+- **Measured** (over dev with T-2244 and T-2189): keepers south 13 → 15 (Wilson over
+  `recon_1835_blk_randolph_clark_c2_01`, Botsford's household of six over
+  `recon_1835_south_c3_040`). Filer already keeps A. Filer & Co., so the Clark, Filer & Co.
+  roof (`recon_1835_blk_south_water_dearborn_c1_08`) now reads as T-2244's
+  `kept_from_elsewhere`: south 4 → 5 stores ruled kept from elsewhere. Store households still
+  owed: south 11 → 4, west 2 → 1 (T-2244's Pierce & French). Two more inhabited stores raise
+  the census ceiling, so households waiting on a roof fall 34 → 28 (100 → 85 people, over
+  dev with T-2189).
+- **Not linked, and said so in the same file's `not_linked`:** Fullerton (the town's one
+  Fullerton is an attorney), Clark (a dozen cards, no initial), Harmon (the brothers' card
+  already works in the firm's documented `harmon_loomis_store`, and a link names one man),
+  H. Doty (only J. D. Doty is held), Rockwell and D. Graves (no card).
+- **Routed:** the 5 still owed (Harmon, Loomis & Co.'s adopted roof, H. Doty & Co.,
+  Rockwell, the Chicago Bakery, and the firmless `recon_1835_west_020`) are **T-2246**, which
+  the order book's store rows now name.
+- **Liberty:** none new. The bed over the store is L354's, as for every keeper.
+## T-2189 — the dead ruled not present: thirteen people the town's own burials and death notices bury before 1 July 1835 (2026-10-09)
+
+Opened as PR #543 and handed on with `resume`; lapped over T-2190 (#547), T-2229 (#550),
+T-2176 (#545), T-2195 (#551), T-1273 (#541), T-2199 (#556), T-2197 (#552), T-2232 (#554) and
+T-2237 (#560), then T-2191 (#548), T-2185 (#563), T-2238 (#559), T-0909 (#564), T-1281 (#567),
+T-1315 (#568), T-2236 (#565) and T-2244 (#571), and re-derived to the fixpoint.
+
+- **`tools/death_readings.py`** reads deaths from the readers' own structure: St Cyr rows whose
+  `cells.role` is `decedent`, and Democrat entities whose role is `decedent` or begins
+  `deceased`/`died`, dated by the issue. `--check` is the class gate, run by `check.sh`: no card
+  citing its own burial or death notice before the scene date reads other than `absent`.
+- **Thirteen cards read `absent`**: the ticket's five (W. Brannen, John Hogan, William Bourque,
+  Charles Rollins, Sarah Hoit) and eight more of the same class, each checked against its notice
+  (William H. Bradford, Daniel Outhet, David Laughton, Samuel Calhoun, John B. Chevallier, Pitman
+  Fisher, Mary Baxley, Diana Hamilton). The presence guard reads 934 (947 after T-2232, less 13).
+- **Withdrawn, never re-dealt.** The three houses T-2021's ruling admitted around Hamilton, Outhet
+  and Rollins go by name with their 12 drawn people (`family_ruling.withdrawn`); the folds onto
+  Bourque's and Fisher's houses are dropped, so two women head their own houses again. The
+  women-and-children deal and T-2020's fold pairing are frozen as drawn, so one withdrawal no
+  longer re-deals or re-pairs every house after it. L244: 796 in 238 → 784 in 235 (over T-2232).
+- **A dropped fold pair is remembered** (`released` in `1835_folded_houses.json`). Over T-2232,
+  which reads Alson Woodruff male and so refuses his drawn house a wife, the frozen pairing gave
+  him Madeleine Bourassa, freed from Fisher's house a lap earlier, because the fold file had
+  forgotten she was ever named. `keep_pairs` now offers a released woman to nobody. Seeded once
+  with this branch's two dropped pairs (Bourassa from Fisher, Connor from Bourque).
+- **Measured on the lap, not fixed here:** re-deriving from the civic mint down, the
+  women-and-children and trade-household stages' own order-book rebuilds stop on the live-owner
+  gate (`households/family_dwelling/south has 1 left and is ordered by T-2193, which is done`)
+  before T-2193's count step, far below, refills the cell. The finished book passes the gate.
+  A chain that crosses that cell mid-way needs the gate deferred the way the modelled-families
+  stage defers it.
+- **Two burial-row readmissions are no longer minted** (L246: 118 → 116 over T-2197); lodgers 23 → 22 houses.
+- **The family pass keeps its two death-notice rulings** (Rollins, Hoit): since T-2190 the
+  press-bounds route asks the pass about a kin unit before any card asserts it, so both units
+  still reach it. `spend_remainder_rulings.py --self-test` now counts a family-pass rule that fires
+  on that route as firing.
+- **Unverified here**: nothing beyond the gate. The withdrawn houses' roofs re-seat through the
+  derived chain; no geometry moved.
+
+## T-2244 — the stores whose keeper lives elsewhere (2026-10-09)
+
+T-2236 left the order book owing 13 store households: store roofs that stand a named firm with
+nobody living over them. T-2240 split them in two. Five of the thirteen (this ticket) stand a
+house of trade whose keeper the town already holds AND already places on another roof; the
+other eight (T-2245) stand firms whose named partners the town holds no card for, plus one
+firmless West store.
+
+- **The rule** (`house_the_present_1835.py`, `the_keepers.kept_from_elsewhere`): a generated
+  store roof nobody sleeps or works in, standing a house of trade whose proprietor or partner
+  the town already places on another roof, is a store with nobody living over it. The keeper
+  is not moved. `build_order_book_1835.py`'s store ruling discharges the order for those
+  stores, never below what a cell has filled.
+- **Measured:** five stores. G. Blanshard (dealt a house of his own on South Water at Wells),
+  Dr W. G. Austin (dealt a house on Washington at La Salle) and W. Montgomery (lodging in a
+  Washington Street boarding house) are now listed on their store's card as having worked
+  there. John Calhoun's and Asahel Pierce's own cards put their work at the documented
+  Democrat office and Pierce's smithy, so the adopted roofs for the Democrat and for Pierce &
+  French are ruled empty and list nobody. Store households owed: 13 -> 8 (south 11 -> 7, west
+  2 -> 1), now T-2245's.
+- **Not settled:** the Democrat and Pierce & French each stand on two roofs, the documented
+  premises their keeper's card names and the roof the street-face adoption (L212) gave the
+  register's firm. That is the adoption's question, not this ruling's.
+- L354 amended.
+
+## T-2236 — the keepers over their own stores (2026-10-09)
+
+T-2194's ruling left the order book owing 31 store households: one keeper's household for each
+civil store roof that stood with nobody living in it (2 north, 24 south, 5 west). The ticket
+asked for them to be formed from the store-trade heads the town already holds rather than
+minted. Read against the ledgers, most of those heads could not take a store. The State census
+of December 1835 printed 44 stores and the town already holds 65 (T-1996), so a grocer the
+town holds only as a person, given a store of their own, would be one store too many. And 26
+of the 38 empty store roofs were not empty in the way that mattered: the street-face adoption
+(L212) had already put a named firm on each (Peter Cohen, L. W. Montgomery, Jones, King & Co.,
+J. L. Wilson & Co. and the like), and the firm's keeper was boarding in somebody else's
+dwelling.
+
+- **The rule** (`house_the_present_1835.py`, a new `keeper` rung right after `dealt`): the
+  household of a proprietor or partner of a house of trade the business register holds present
+  takes the store roof its own firm stands on, from the register or the street-face adoption,
+  if nobody sleeps there. A keeper whose firm stands on no roof, in a street-of-stores trade,
+  takes an empty generated store of their own division that no household, worker, firm or
+  stated occupant holds. A division takes keepers only while the book still orders a store
+  household there. No firm is raised or moved, so T-1996's store count does not change.
+- **Measured:** 18 keepers, 13 of them over their own firm's roof: 11 street-face adoptions
+  (Cohen, Pearsons, Clay, L. W. Montgomery, Filer, Garrett, Mulford, Howe, Lewis, Blanchard,
+  and Jones of Jones, King & Co.), plus Mahoney and Pratt on the Canal roofs T-1766 gave their
+  firms. The other 5 are keepers
+  of firms on no roof, put over empty stores: Sullivan, Metcalf, Walsh, Tuttle and Wellmaker.
+  Store households filled: north 2 of 2, south 13 of 24, west 3 of 5.
+  `count_held_head_dwellings_1835.py` fills `households/store_residence/*` from the keeper
+  seats under T-2236.
+- **What it moved downstream.** An inhabited store is a dwelling for the census's ceiling (the
+  deal already counted documented store-residences so). The 18 roofs therefore let 76 more
+  ruled-in households in: 41 wait on a roof (125 people), down from 117 (272) on dev @ 48b2c2c15. Ruled-in keepers
+  take their store before the line is drawn, because each brings its own roof. The boarders
+  re-deal around the moved keepers, which is why about 230 building cards' resident lists
+  change. `seat_trade_roofs_1835.py` now answers the three roofs in its scope that a keeper
+  lives over (`kept_by_a_keeper`) instead of calling them unseatable.
+- **Routed:** the 13 still owed (south 11, west 2) are **T-2240**. Those are the store roofs
+  whose firm names no keeper the town holds as a household (J. L. Wilson & Co.; Harmon, Loomis
+  & Co.; H. Doty & Co.; the Chicago Bakery; …), or whose keeper's own card houses them
+  elsewhere. The book's still-owed store rows name T-2240.
+- **Liberty:** L354, amended. The invention is the keeper's bed over the store, as with every
+  seat in that deal.
+
+## T-1281 — the Sweet cluster read on the page: Alonson stays a card of its own (2026-10-09)
+
+- **The question.** T-1155 left `sweet_a` and `sweet_alanson` undecided (U1): the Democrat's 'A. Sweet' could be Alanson, or the 'Alon[s]on Sweet' of the 16 July 1834 notice, and whether Alonson was a second man or a compositor's Alanson was a reading of the page.
+- **The page.** Read on the Internet Archive scan (item `chicago1835-newspaper-chicago-democrat-1834`, `Jun1834-Jul1834.pdf` leaf 26 = 16 July 1834, p. 3 col. 2): the notice is signed **ALONSON SWEET.** The deposit's `ALONBON` is the OCR's; the bracketed supply was right. Its second insertion (23 July) prints ALONSON again. Alanson's signed caution of December 1834 (issues of 10, 17 and 24 December) prints ALANSON every time. The 1833 tax list, the 1834 poll and the 1835 poll each carry one A-forenamed Sweet, printed Alanson.
+- **The ruling.** No single printing sets both spellings for one man, so C10's demonstration is missing and C12 cannot fire (a poll list bounds voters, not residents). Ruled **distinct under D8**, with `for_merge` kept verbatim; T-1155's U1 moves to `withdrawn` with `superseded_by`. This is not a claim that the town held two men of the name; it is the ruling that nothing reached folds them.
+- **What moved.** The two cards' `merge_ruling` blocks and the candidate ledger. No card folds, no household moves, nothing is re-seated; L220 stays at 509 and says why.
+- **Unverified.** The scan was read at one resolution on one leaf. The December caution was not re-read on its scan.
+## T-2241 — Wells' narrow business-front lot refused in the schedule's sizing (piece 1 of T-2239, 2026-10-09)
+
+T-2239 was split: **T-2241** (this) makes `tools/reconcile_665.py` refuse a lot the business-front
+clause frees when the documented store on it leaves less than one party-line unit of face, and
+**T-2242** owns re-budgeting the South's five owed ordinary dwellings by name.
+
+- **The rule.** `narrow_business_fronts` reads every lot `exclusive_lots` frees under the owner's
+  2026-08-27 clause and measures the widest stretch of the lot's face not under a footprint standing
+  on it, with no margin taken. Under one unit (24.384 m / `ROW_UNITS_PER_LOT` = 8.128 m) the lot is
+  not free for the sizing; the block lists it as `narrow_front_lots` and the programme's method as
+  `narrow_business_front`. One lot in the town is freed by the clause today, and it is refused:
+  `blk_south_water_wells` lot 0, where H. Jones's store leaves 5.31 m west and 7.46 m east (T-1623's
+  4.46 m is the east stretch with the 1.5 m lot margin off both sides).
+- **What moved.** Wells reads 1 free lot, `lot_ceiling_principal` 0 and `at_capacity`; its D2, D4 and
+  F4 go back to `south_plat_beyond_committed_control`, which now holds all 10 of the programme's
+  remaining roofs (D2 2, D4 2, D5 1, F3 2, F4 1, H3 2). No household seat moves: the platted seats and
+  the lot ledger change only in their refusal prose and `block_state`. The order book's South
+  dwelling, barn and outbuilding rows now name **T-2242**.
+- **Why the re-budget is its own piece.** `build_order_book_1835.division_shares` reads the
+  inventory's district targets to split the household targets between divisions, so taking five
+  roofs off the South's 365 moves its share from 0.5598 to 0.5564 and family-dwelling households
+  between divisions. That needs the household layer walked to its fixpoint in the same PR.
+
+## T-2238 — a house on the Market wedge's lot 7 (piece 1 of T-2182, 2026-10-09)
+
+T-2182 was split: **T-2238** builds the one dwelling the seating asked for on the wedge T-2195 cut,
+and **T-2239** owns the South's five ordinary dwellings still owed after it (with the barn and
+outbuilding rows, both at 0 owed).
+
+- **`recon_1835_blk_south_water_market_d5_01`**: a D5 on the wedge's lot 7, the middle of the Lake
+  Street face, fronting Lake 5 m back, dealt against hh_dixon_robert's `slot`
+  (`phase3_platted_block_south_water_market_lot_7`). Lot 8, the Franklin corner, is the reserved open
+  lot. **L410** records the invention.
+- **`generate_block_infill.py` frames a wedge block.** Every lot is framed before a slot is placed,
+  and lot 6's back is cut to 12.0 m against its 24.4 m front, so `lot_frame`'s squareness test
+  refused the whole block. On a block the grid marks `wedge` (only there), a lot that cannot be
+  framed is now carried unframed and any slot dealt onto it is refused with the same words. Every
+  committed record re-derives unchanged; `--self-test` passes.
+- **Seating at its fixpoint.** The walk ran from hh_boucher_joseph (who adopts the new house) down
+  the household order to hh_dixon_robert (seated on the standing recon_1835_south_d5_016): 65 seated
+  households change roof, **215 seated, all adopted, no `slot` left on the plat**. It advanced one to
+  four households a lap; what drives it each lap is `generate_inferred_infill.py` re-writing the
+  phase-one South roofs the seating reads. Eleven full laps, then keepers + the four infill generators
+  + the seating chain until the seats stood still (thirteen more), then two full laps, the second
+  moving nothing. L263 662 → 663, L270 215 held, L276 97 → 98.
+- **What the schedule reads now.** The wedge is `at_capacity`, so its F4 moves to
+  `blk_south_water_wells` and its H3 to the gated balance (noted on T-2196). The South's
+  ordinary-dwelling row reads 176 / 171 / **5 owed**: a D2 and a D4 on Wells, and a D2, D4 and D5
+  gated.
+- **Baked** with `bake.sh --only` (pinned Blender 4.5.3): the new house and the 37 roofs the walk
+  re-dealt (their fabric follows the keeper). `validate.py --stale`: 703 match, 0 stale.
+
+## T-2200 — dated Glessner camera and residual baseline (2026-10-09)
+
+Eight core views × ten landmarks and one explicitly limited courtyard-west view
+(seven) now have fixed comparison cameras and 87 measured residuals. Open Glessner's
+house card → **Photographic comparison baseline** for source/model pairs and the
+withheld checks. Model geometry and dark glass are unchanged; the freeze includes
+T-2235. A candidate command evaluates future geometry through the frozen cameras.
+
+All eight core views retain exceptions to the proposed 1% target. Whole west remains
+unmatched; courtyard west is insufficient for acceptance. Most fitted poses touch the
+assumed camera-height bound. Errors may reflect camera/pick/vertex ambiguity as well
+as geometry. Later sources are not silently dated to 1904, and restricted courtyard
+pixels are not republished. [Method, measurements and reproduction](RESEARCH/glessner-camera-baseline/README.md).
+
+Owner-authorized dev→main promotion completed first: main `31768a18`, promotion
+37888023430, production deployment 37888103984 and live build verified. T-2200 ships
+to dev only; T-2201–T-2228 remain held for manual selection. Five numerical tests,
+report reproduction and the dedicated desktop/mobile page plus 1904 card-link checks
+pass. Published walk stages 3 and 12 pass on both viewports (103 and 101 checks
+per viewport, zero failures); these are the affected stages, not all 14. Desktop
+stage 12 took 19m45s under software graphics, recorded in the smoke ledger.
+The PR records the final repository preflight receipt;
+no whole-house photographic sign-off is claimed.
+
+## T-2237 — the households outside the index, counted against the household quota (2026-10-09)
+
+T-2194 found the order book's household quota reads houses off `data/residents/index.json`
+alone, and asked that the cards written beside it be counted as households the town holds.
+`count_held_head_dwellings_1835.py` (T-2193's stage) now reads every one of those 547 cards
+and sorts it by what the housing seats make of it (`beyond_the_index` in
+`data/reconstruction/1835_held_head_dwellings.json`):
+
+| class | households | people |
+|---|---:|---:|
+| a bed in a dwelling (the `boarder` rung) | 476 | 476 |
+| a bed in a lodging house (`lodger` rung, or T-1371's lodging seats) | 15 | 15 |
+| a lodging or institutional household its own stage already files (T-1371, T-1531) | 24 | 156 |
+| a household of its own under a dwelling (`dealt` / `family` rung) | 4 | 12 |
+| not present on 1 July | 28 | 28 |
+
+- **They are beds, not houses.** All 309 trade heads T-1347 drew are single cards: 297 board
+  in a dwelling and 12 have a lodging house's bed. T-2194's split (244 in dwellings, 58 in
+  boarding houses, 7 in inns) does not reproduce on today's seats. The building inventory
+  files H1/H2 roofs as larger boarding houses, but the seats treat them as dwellings, and
+  all 16 H1/H2 roofs with a boarder in them also hold a dealt or family household. A
+  boarder is a bed in that household, the rule T-2193 already applies to held heads, and
+  the book already credits each one as a person.
+- **Four are households**: the underdocumented families `hh_fb_anderson_benjamin`,
+  `hh_fb_williams_samuel`, `hh_fb_anderson_henry` (north) and `hh_fb_askie_george` (south),
+  three people each. They join the same walk as the held heads, after them, and the
+  `family_dwelling` order was full before either division reached them. They are listed
+  under `not_counted` with that reason.
+- **So no household row moves.** The household quota does not over-order on account of the
+  cards outside the index. The 64 households still owed are the 29 boarding-house and 4 inn
+  households waiting on a lodging roof (T-2023) and the 31 store keepers (T-2236).
+- **Not settled here:** the person count. The cards beside the index hold 659 people present,
+  and the town census keeps them out of its 2,912. That is a question about people, not
+  houses, and this count does not answer it.
+
 ## T-2194 — the store rows ruled against the store roofs, and the index found short (2026-10-09)
 
 T-2188's second piece asked whether the order book over-orders its 56 owed store
@@ -174,6 +1163,38 @@ roof checks and seven glass checks pass. Six published-app views on desktop
 Full and mobile Light pass with no page, resource or loader errors and within
 existing budgets; switching all three detail levels retains dark glass.
 Final preflight after integrating dev `2649aaf` passes all 790 repository checks; the combined tree is checked again after dev `525abde` lands and all 790 still pass. Mobile published stage 13–14 completes with zero page errors. Desktop passes every stage 13 assertion, including Glessner, before a workspace restart interrupts stage 14; the isolated desktop stage 14 rerun completes with zero page errors. The interrupted run is retained as incomplete, not counted as a pass. Focused desktop/mobile Glessner review is complete.
+
+## T-2268 — two river warehouses on the South Branch's east bank below Market Street (2026-10-10)
+
+**What changed in the scene.** Two F3 large river warehouses,
+`recon_1835_south_branch_freight_f3_001` and `_002`, stand off the plat on the dry strip between
+Market Street's corridor and the South Branch, between Madison and Washington. Each faces the
+branch with its back 3.0 m inside Market's west line; the first is 3.0 m north of Madison's north
+line, the second 6.0 m north of the first. 23.50 m and 21.43 m from the traced water, 0.12 m and
+0.18 m of relief, 26 m from T-2269's lumber shed, which landed beside them first. Written by the new
+`tools/generate_south_freight.py` from `data/reconstruction/1835_south_freight_bank.json` on the
+`bank_landing` clause (T-2022), baked (`tools/bake.sh --only`), L415 records them. Order book:
+South `warehouses_freight/street_line` 10/10 — the cell is closed.
+
+**What it found (T-2175, split into T-2268 and T-2269).** T-2175's premise had gone: the schedule
+no longer dealt the street line's three owed roofs (two F3s and an F4) to Wells or the Market
+wedge; all three sat on the gated balance south of Madison, which has no river. Measured: every
+South Water lot is held; no free South lot is within `bank_landing_reach_m` (27.09 m) of traced
+water, the nearest being blk_lake_market lot 1 at 35.0 m; `measure_south_bank_ground.py` reads
+the Dearborn reach as taking no more at 0.30 m relief. The Branch's east bank is the one river
+ground left, and Newberry & Dole's works already stand on it a block north, facing the branch.
+The F4 lumber shed was not built: `bank_landing` admits F1-F3 only, and the vocabulary cannot yet
+spell `lumber_shed`, so it is T-2269's. The inventory's `street_line` band, titled for platted
+ground, was widened in words to the Branch bank, with the reason; no number in it moved.
+
+**What else moved** (re-measured on dev after T-2269 and T-1550 landed, 2026-10-10). The
+schedule's gated South balance fell from 8 roofs to 6. With F3 at its target the family
+re-apportionment changes that balance's mix from D2 2, D4 2, D5 1 to D4 3, D5 2, and T-2253 had dealt
+it to block 82 of the Monroe-Adams tier, so block 82's slots move with it: hh_montgomery_l_w and
+hh_morrison_amanda are dealt D5 slots on lots 2 and 7, hh_miller_samuel's slot on lot 3 turns D4, and
+the D2 slots of hh_rc_woodruff_ruth and hh_vieaux_susanne go. The platted deal still seats 220 and the
+off-plat deal 99; a release of the business deal's 45 roofs would now cost ten households (L270).
+T-2254 raises block 82's roofs, so whichever of the two lands second re-derives the block's mix.
 
 ## T-2174 — a two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge (2026-10-08)
 
@@ -1115,6 +2136,20 @@ the household model drew for them (508 people), and 121 stand alone with a card 
   aged twenty and over, the cards name 1,190 and the stages drew 276, so the town holds 1,466,
   523 over. The 202 are discharged in the book (`adult_men_ruling`); it converges 3,135 → 2,933.
   The same credit holds the women's and children's orders down; that is not touched here.
+- **The family dwellings (T-2193, piece 1 of T-2188).** The 335 family dwellings the book still
+  ordered were already standing. Of the 1,239 present head records the book counts as awaiting a
+  household, the housing seats (T-1971/T-1972) put 250 under a dwelling dealt to them by the
+  platted and off-plat seating ("lived here") and 179 more under a dwelling as a family of two or
+  more ("shared this roof"). Both joins live beside the card, and the book counts houses off the
+  card, so it kept ordering them. `tools/count_held_head_dwellings_1835.py` counts them into
+  `households/family_dwelling/<division>`, dealt roofs first, then the larger family, then a seed,
+  up to each division's order: north 88, south 168, west 79. The 94 seated families past a full
+  order are listed in `data/reconstruction/1835_held_head_dwellings.json` with the reason. Houses
+  still owed fall 399 → 64 (424 → 89 before T-2194's store ruling landed under it) and the
+  population is unchanged (2,931): nobody is minted, moved or re-carded, and a boarder is never
+  counted as a household. The women-and-children stage adds these fills back to its house quota,
+  so it re-derives byte for byte. **Not done here:** the 31 store keepers T-2194's ruling leaves
+  owed are **T-2236**'s. The seats refuse every store roof, so no held head stands over a shop.
 - **What it moved downstream, measured on the rebuilt layer.** The ruling's first names stepped
   past full names only, so two invented children (Henry Stewart, Sarah Smith) turned the
   re-admission stage away from the roster's Hart L. Stewart and Siman Smith on surname and first

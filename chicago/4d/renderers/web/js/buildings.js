@@ -33,6 +33,7 @@ import * as THREE from 'three';
 import { enuToWorld, bearingToYaw, toFloatAttribute } from './terrain.js';
 import { dealTones, toneFor, toneFactors, NEUTRAL_TONE } from './facades.js';
 import { loadRoofRelief } from './roof-relief.js';
+import { filterGlessnerRoof } from './glessner-roof-filter.js';
 import { loadWallRelief } from './wall-relief.js';
 import { cheapenGlass, DEFAULT_GLASS } from './glass.js';
 
@@ -158,6 +159,17 @@ function normalizeGeometry(src, matrix, material, confidence, label, tone) {
   geo.setAttribute('uv', src.getAttribute('uv')
     ? toFloatAttribute(src.getAttribute('uv'), 2)
     : new THREE.BufferAttribute(new Float32Array(position.count * 2), 2));
+  // T-2400: a baked occlusion map on its own UV set (TEXCOORD_1 -> `uv1`, which
+  // GLTFLoader names in `aoMap.channel`). The aoMap is in the material key, so
+  // every geometry in this batch carries it and the attribute set stays uniform.
+  if (material.aoMap && material.aoMap.channel === 1) {
+    const uv1 = src.getAttribute('uv1');
+    if (!uv1) throw new Error(`${label}: aoMap reads TEXCOORD_1, which the mesh does not carry`);
+    geo.setAttribute('uv1', toFloatAttribute(uv1, 2));
+  }
+  if (material.userData.roofFilter) {
+    geo.setAttribute('_roof_detail', toFloatAttribute(src.getAttribute('_roof_detail'), 1));
+  }
 
   const conf = src.getAttribute('_confidence');
   if (conf) geo.setAttribute('_confidence', toFloatAttribute(conf, conf.itemSize));
@@ -342,6 +354,7 @@ function materialKey(m) {
     near(m.metalness),
     m.map?.uuid ?? '-', m.normalMap?.uuid ?? '-', m.aoMap?.uuid ?? '-',
     m.roughnessMap?.uuid ?? '-',
+    m.userData.roofFilter ?? '-',
     m.side, m.transparent ? 't' : 'o', m.alphaTest ?? 0, m.flatShading ? 'f' : 's',
   ].join('|');
 }
@@ -456,6 +469,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // A number when this is a bound wall: how much of the wood's figure its
       // finish lets through, written per vertex below (wall-grain.js).
       const grain = walls.apply(material, record.sidecar);
+      filterGlessnerRoof(material, record, mesh.geometry);
       let prepared;
       try {
         prepared = normalizeGeometry(mesh.geometry, matrix, material, confidence, label, tone);

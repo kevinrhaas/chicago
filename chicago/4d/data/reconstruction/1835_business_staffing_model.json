@@ -1609,7 +1609,7 @@
   ],
   "dry_run": {
     "businesses_staffed": 176,
-    "principals_already_in_the_layer": 163,
+    "principals_already_in_the_layer": 165,
     "staff_by_role": [
       {
         "occupation_term": "clerk",
@@ -2073,25 +2073,25 @@
       "high": 148.2
     },
     "working_persons_implied": {
-      "low": 228,
-      "typical": 362,
-      "high": 574
+      "low": 230,
+      "typical": 364,
+      "high": 576
     },
     "not_a_roster": "Counts of ROLES over establishments. No person is named, drawn or written; T-1189 does that and this is the quota it does it to."
   },
   "reconciliation": {
     "against_the_clerk_calibration": {
-      "layer_principals_in_clerk_employing_classes": 84,
+      "layer_principals_in_clerk_employing_classes": 85,
       "ratio_1839_like_for_like": 0.68778,
-      "clerks_the_1839_ratio_predicts": 57.8,
+      "clerks_the_1839_ratio_predicts": 58.5,
       "clerks_this_model_puts_in_those_classes": 56,
-      "delta": -1.8,
-      "tolerance": 14.4,
+      "delta": -2.5,
+      "tolerance": 14.6,
       "agrees": true,
       "on_the_wide_ratio_instead": {
         "ratio_1839_wide": 0.48718,
-        "clerks_predicted": 40.9,
-        "delta": 15.1,
+        "clerks_predicted": 41.4,
+        "delta": 14.6,
         "note": "The wide ratio divides the same clerks by tavern, livery and boarding-house keepers as well, and on it the model looks over-clerked. Printed rather than buried: it is the reading a sceptic would take."
       },
       "if_it_disagrees": "The per-house rules are period convention and the ratio is a 1839 measurement of a bigger town. A disagreement is STATED here and neither side is moved to close it; T-1189 spends against the rules and reports the residual."
@@ -2099,9 +2099,9 @@
     "against_the_town_model_employment": {
       "employed_persons_low": 427,
       "employed_persons_high": 588,
-      "working_persons_implied_typical": 362,
-      "working_persons_implied_low": 228,
-      "working_persons_implied_high": 574,
+      "working_persons_implied_typical": 364,
+      "working_persons_implied_low": 230,
+      "working_persons_implied_high": 576,
       "inside_the_bracket": false,
       "method": "The 1840 schedule returns 18% of persons in its seven industry columns, 0.902 per household. Applied to this model's July population range. The 1840 columns count persons in families and not occupations of named men, so this is a size and not a roster.",
       "what_it_does_not_mean": "The town model's employed persons counts EVERY working person — the labourers of the harbour works, the garrison, the farmers outside the limits, the domestic service the 1840 columns have no row for. The businesses of this layer are a PART of that figure, so falling below the low end is expected and falling above it is a refusal."

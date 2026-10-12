@@ -514,13 +514,68 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 81 (recon_1835_blk_school_section_tier_81_d5_07), a house on its block 95 (_95_d6_07) and a
 # barn on blk_south_water_wells (_a2_10), all through emit.py and the common modules.
 #
+# 702 -> 703 and 696 -> 697 on 2026-10-09 (T-2238): a D5 on the Market wedge's lot 7
+# (recon_1835_blk_south_water_market_d5_01), through emit.py and the common modules.
+#
+# 703 -> 704 and 697 -> 698 on 2026-10-09 (T-2196): a boarding house party-walled to that D5
+# (recon_1835_blk_south_water_market_h3_02), through emit.py and the common modules.
+#
+# 704 -> 705 and 698 -> 699 on 2026-10-10 (T-2269): the town's first lumber shed, on the
+# South Branch's east bank (recon_1835_south_branch_lumber_f4_001), through emit.py and the
+# common modules.
+#
+# 705 -> 706 on 2026-10-10 (T-2266): the first K01 assembly, keith_house_1808_prairie, which
+# writes its glTF in pure Python (generators/k01_emit.py) and so restales on none of the
+# rows below — emit.py, the common modules and build.py stay where they were.
+#
+# 706 -> 708, 705 -> 707 and 699 -> 701 on 2026-10-10 (T-2268, of T-2175): two F3 river
+# warehouses on the South Branch's east bank below Market Street
+# (recon_1835_south_branch_freight_f3_001/_002), through emit.py and the common modules.
+#
+# 708 -> 712, 707 -> 711 and 701 -> 705 on 2026-10-10 (T-2254): four houses on the School Section tier's
+# block 82 (recon_1835_blk_school_section_tier_82_d2_01, _d4_03, _d4_04 and _d5_02), through
+# emit.py and the common modules.
+# 712 -> 714, 711 -> 713 and 705 -> 707 on 2026-10-10 (T-2270): the block's last two houses,
+# recon_1835_blk_school_section_tier_82_d1_05 and _h1_06, through emit.py and the common modules.
+#
+# 714 -> 715 on 2026-10-10 (T-2306): the first K13 conservatory in the scene,
+# pullman_house_1729_prairie_conservatory, which writes its glTF in pure Python
+# (generators/k13_emit.py) and so restales on none of the rows below.
+#
+# 715 -> 716 on 2026-10-10 (T-2323): the first K16 timber front in the scene,
+# shortall_gregory_house_1638_prairie_front, which writes its glTF in pure Python
+# (generators/k16_emit.py) and so restales on none of the rows below.
+#
+# 716 -> 734 on 2026-10-10 (T-2329): the eighteen houses and alley buildings of the Prairie
+# district draft's west side (18th to 20th), which write their glTF in pure Python
+# (generators/draft_emit.py) and so restale on none of the rows below.
+# 734 -> 735 on 2026-10-10 (T-2321, landing after T-2329): the first K12 coach house on a
+# named lot, wheeler_house_1812_prairie_coach_house, which writes its glTF in pure Python
+# (generators/k12_emit.py) and so restales on none of the rows below.
+#
+# 735 -> 752 on 2026-10-11 (T-2330, landing after T-2321): the draft's east side of the same block, ten houses and
+# seven alley buildings, emitted the same way and restaling on none of the rows below either.
+#
+# 752 -> 784 on 2026-10-11 (T-2334): the draft's west side of the 16th-18th block, nineteen houses
+# and thirteen alley buildings, emitted the same way and restaling on none of the rows below either.
+#
+# 784 -> 803 on 2026-10-11 (T-2335): the draft's east side of the same block, thirteen houses, the
+# 16th Street station and four buildings by the tracks, emitted the same way and restaling on none
+# of the rows below either.
+#
+# 803 -> 829 on 2026-10-11 (T-2351): the draft's west side of the 20th-22nd block, thirteen houses
+# and thirteen alley buildings, emitted the same way and restaling on none of the rows below either.
+#
+# 829 -> 862 on 2026-10-11 (T-2352): the draft's east side of the same block, seventeen houses and
+# sixteen rear buildings, emitted the same way and restaling on none of the rows below either.
+#
 STATED = {
-    "assets": 702,
+    "assets": 862,
     "restales": {
-        "generators/common/*.py": 702,
+        "generators/common/*.py": 713,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 696,
+        "generators/emit.py": 707,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

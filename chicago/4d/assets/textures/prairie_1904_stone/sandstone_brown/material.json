@@ -1,0 +1,85 @@
+{
+  "id": "sandstone_brown",
+  "package": "K02",
+  "dressing": "tooled",
+  "tile_m": [
+    1.2,
+    1.2
+  ],
+  "resolution_px": {
+    "basecolor": 1024,
+    "normal_gl": 1024,
+    "orm": 512,
+    "height16": 512
+  },
+  "px_per_m": 853.33,
+  "height16_range_m": 0.0015,
+  "mean_roughness": 0.84,
+  "measured": {
+    "relief_m": 0.0015,
+    "mean_roughness_measured": 0.84,
+    "mean_basecolor_srgb": [
+      137,
+      96,
+      77
+    ],
+    "seam_to_interior_step": 1.015
+  },
+  "colors_srgb": [
+    [
+      156,
+      112,
+      90
+    ],
+    [
+      118,
+      80,
+      64
+    ]
+  ],
+  "note": "A warm red-brown sandstone of the Lake Superior or Connecticut kind the register's brownstone fronts name: fine sand grain, horizontal bedding laminae, sparse darker iron mottles, and a fine drove-tooled face.",
+  "confidence": "reconstructed appearance; which building wears this stone is its structure record's to say, at its own tier",
+  "orientation": "image x = along the stone's natural bed (the wall's horizontal for walling); image y = up the wall. TEXCOORD_0 = surface metres / tile_m (K01 uv rule)",
+  "joints": "geometry, from data/components/prairie_1904/k02_stone_profiles.json",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y",
+    "height16": "linear 16-bit, 0 = lowest point of height16_range_m",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "files": {
+    "basecolor.png": "sandstone_brown_basecolor.png",
+    "normal_gl.png": "sandstone_brown_normal_gl.png",
+    "orm.png": "sandstone_brown_orm.png",
+    "height16.png": "sandstone_brown_height16.png",
+    "basecolor_web.jpg": "sandstone_brown_basecolor_web.jpg",
+    "normal_gl_web.jpg": "sandstone_brown_normal_gl_web.jpg",
+    "orm_web.jpg": "sandstone_brown_orm_web.jpg"
+  },
+  "web": {
+    "basecolor": "sandstone_brown_basecolor_web.jpg",
+    "normal_gl": "sandstone_brown_normal_gl_web.jpg",
+    "orm": "sandstone_brown_orm_web.jpg"
+  },
+  "bytes": {
+    "basecolor.png": 1148747,
+    "normal_gl.png": 2007029,
+    "orm.png": 363982,
+    "height16.png": 497359,
+    "basecolor_web.jpg": 83551,
+    "normal_gl_web.jpg": 462955,
+    "orm_web.jpg": 68295
+  },
+  "sha256": {
+    "basecolor.png": "84a5920f99082d0abdae9a45124bfaf0aa1bde9078ee5738b4fa9a416bad44b7",
+    "normal_gl.png": "68dbc2431d1da39010eeac177b317d256a4ebf4ecb143fc71dc232cb4729512e",
+    "orm.png": "e963945d6f1295c2f25e59cce1a84d2458944be0120462a41f10486e5d869c97",
+    "height16.png": "72f8d6c5b396cffbba4723b12411a6298d22d37916b819fd49cfbca3d61d437e",
+    "basecolor_web.jpg": "58d3472b4455c8cbdd17de66722eb03b9f7bcaf063d551dcbbcbcbdcf18375b8",
+    "normal_gl_web.jpg": "0c4652e2c68880966d6483e9f9898ca14cc02e7bd6de83f141c3086b4aa0520a",
+    "orm_web.jpg": "b51e6f837314eb2df581a52de5b1d8d585dec6dd4c9ede7d87afae3530079375"
+  },
+  "seamless": true,
+  "generator_seed": 19040802,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_stone.py); no photograph sampled"
+}

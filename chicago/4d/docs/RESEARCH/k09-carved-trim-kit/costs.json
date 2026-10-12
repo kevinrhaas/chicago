@@ -1,0 +1,118 @@
+{
+  "_doc": "Measured by tools/study_k09_trim.mjs on the specimen GLB. Triangles and draw calls are exact; frame_ms is headless Chromium on a software rasteriser (SwiftShader), a relative figure for comparing kit revisions, not a device frame time.",
+  "specimen_bytes": 1771556,
+  "variants": [
+    {
+      "id": "k09.trim.arch_ring_round",
+      "triangles_trim": 505,
+      "pieces": 13,
+      "relief_depth_m": 0.065,
+      "triangles_with_board": 621,
+      "vertices_with_board": 1067,
+      "draw_calls": 4
+    },
+    {
+      "id": "k09.trim.arch_ring_segmental",
+      "triangles_trim": 345,
+      "pieces": 9,
+      "relief_depth_m": 0.065,
+      "triangles_with_board": 461,
+      "vertices_with_board": 787,
+      "draw_calls": 4
+    },
+    {
+      "id": "k09.trim.hood_pointed_crocketed",
+      "triangles_trim": 2020,
+      "pieces": 14,
+      "relief_depth_m": 0.0987,
+      "triangles_with_board": 2136,
+      "vertices_with_board": 4286,
+      "draw_calls": 5
+    },
+    {
+      "id": "k09.trim.lintel_cornice_hood",
+      "triangles_trim": 172,
+      "pieces": 4,
+      "relief_depth_m": 0.235,
+      "triangles_with_board": 196,
+      "vertices_with_board": 322,
+      "draw_calls": 4
+    },
+    {
+      "id": "k09.trim.colonnette_tuscan",
+      "triangles_trim": 862,
+      "pieces": 3,
+      "relief_depth_m": 0.29,
+      "triangles_with_board": 872,
+      "vertices_with_board": 1744,
+      "draw_calls": 3
+    },
+    {
+      "id": "k09.trim.colonnette_foliate",
+      "triangles_trim": 2678,
+      "pieces": 11,
+      "relief_depth_m": 0.3576,
+      "triangles_with_board": 2688,
+      "vertices_with_board": 5408,
+      "draw_calls": 4
+    },
+    {
+      "id": "k09.trim.tracery_two_light",
+      "triangles_trim": 342,
+      "pieces": 1,
+      "relief_depth_m": -0.04,
+      "triangles_with_board": 514,
+      "vertices_with_board": 764,
+      "draw_calls": 4
+    },
+    {
+      "id": "k09.trim.foliate_panel",
+      "triangles_trim": 1816,
+      "pieces": 14,
+      "relief_depth_m": 0.05,
+      "triangles_with_board": 1826,
+      "vertices_with_board": 3698,
+      "draw_calls": 4
+    },
+    {
+      "id": "k09.surround.hero_romanesque",
+      "triangles_trim": 12760,
+      "pieces": 84,
+      "relief_depth_m": 0.55,
+      "triangles_with_board": 13136,
+      "vertices_with_board": 25826,
+      "draw_calls": 5
+    },
+    {
+      "id": "k09.surround.rowhouse_restrained",
+      "triangles_trim": 220,
+      "pieces": 5,
+      "relief_depth_m": 0.235,
+      "triangles_with_board": 244,
+      "vertices_with_board": 410,
+      "draw_calls": 4
+    }
+  ],
+  "board": {
+    "desktop": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "draw_calls": 51,
+      "triangles": 36082,
+      "frame_ms_median": 0.4,
+      "geometries": 54
+    },
+    "mobile": {
+      "viewport": [
+        390,
+        780
+      ],
+      "draw_calls": 43,
+      "triangles": 35217,
+      "frame_ms_median": 0.2,
+      "geometries": 54
+    }
+  }
+}

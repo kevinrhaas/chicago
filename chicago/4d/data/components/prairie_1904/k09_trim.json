@@ -1,0 +1,291 @@
+{
+  "id": "prairie_1904_k09_trim",
+  "title": "Carved entrances and classical or Gothic trim for the Prairie Avenue 1904 programme (package K09, the kit)",
+  "ticket": "T-2309",
+  "parent": "T-1851",
+  "programme": "T-1837",
+  "contract": "data/components/prairie_1904/k01_contract.json",
+  "generator": "generators/archetypes/k09_trim.py",
+  "specimen": "docs/RESEARCH/k09-carved-trim-kit/k09_carved_trim_kit.glb",
+  "status": "Declared and generated, not yet built to. No house in the scene carries this trim today; T-2310 puts the first K09 surround on a named Prairie Avenue house from this file and this generator.",
+  "rule": "Trim is relief, never a picture of relief: every ring, moulding, hood, capital, tracery bar and leaf is real geometry standing proud of, or cut back into, the surface it belongs to, and it RESTS on that surface. An open edge of a piece lies on another surface (a wall face, a block, a floor, a sunk field), and a closed piece (a capital leaf, a crocket, a finial) passes through its host's surface: nothing floats, and no two faces lie on one another. The parts' sizes are data here and the generator reads them; the check (tools/check_trim_kit.py) rebuilds every variant and holds the built geometry to this file.",
+  "frame": "Each variant is authored about its own `base` socket (k01_contract.json component_frame): the centre of its opening (or of its panel or shaft) at grade on the wall's outer face, +X along the wall, +Y up, +Z out of the wall.",
+  "parts": {
+    "_doc": "The working sizes every variant starts from. A variant may override any of them under its own `overrides`, inside the same range.",
+    "voussoir": {
+      "ring_depth_m": 0.34,
+      "proud_m": 0.035,
+      "joint_m": 0.01,
+      "count_range": [7, 21],
+      "range_proud_m": [0.015, 0.06],
+      "confidence": "reconstructed",
+      "note": "An arch ring of dressed stones, the count always odd so one stone stands at the crown. Each stone is cut on joints radial to its own arc's centre and stands 35 mm proud of the wall, with a 10 mm joint between stones that reads as a shadow line in a raking light. Ring depth and projection are a dressed-stone ring's on a stone-front house; K02 (T-2289) owns the stone's face and colour."
+    },
+    "keystone": {
+      "proud_extra_m": 0.03,
+      "rise_above_m": 0.08,
+      "width_factor": 1.45,
+      "confidence": "reconstructed",
+      "note": "The crown stone wider than its neighbours, standing further out, and rising above the ring's extrados: the classical and Italianate keystone. A Romanesque ring takes none."
+    },
+    "profiles": {
+      "_doc": "Moulding sections as [n, u] metres: n across the run (away from what the moulding edges), u away from the surface it is set on. Each runs from the surface (u = 0) out and back, so the section is open on the seat side and never lies a face on the surface beneath it.",
+      "label": {
+        "points": [[0.0, 0.0], [0.0, 0.03], [0.025, 0.055], [0.06, 0.07], [0.09, 0.065], [0.1, 0.045], [0.085, 0.03], [0.095, 0.0]],
+        "confidence": "reconstructed",
+        "note": "A Gothic hood mould (label): a sloped weathering on top, a rounded nose and a throated drip under it, so rain leaves before it reaches the opening."
+      },
+      "cornice": {
+        "points": [[0.0, 0.0], [0.03, 0.012], [0.045, 0.03], [0.06, 0.042], [0.09, 0.05], [0.11, 0.07], [0.115, 0.09], [0.0, 0.09]],
+        "confidence": "reconstructed",
+        "note": "A window or door cornice hood's cap: a bed mould, a cavetto, a corona with a square face and a flat top falling back to the block. Here n is the projection from the block's faces and u the height."
+      },
+      "architrave": {
+        "points": [[0.0, 0.0], [0.0, 0.03], [0.012, 0.042], [0.03, 0.042], [0.035, 0.032], [0.09, 0.03], [0.1, 0.04], [0.14, 0.04], [0.15, 0.0]],
+        "confidence": "reconstructed",
+        "note": "A restrained two-fascia architrave with a bead on its inner arris and a raised outer band: the rowhouse door's frame."
+      }
+    },
+    "hood_block": {
+      "height_m": 0.26,
+      "proud_m": 0.12,
+      "overhang_m": 0.12,
+      "confidence": "reconstructed",
+      "note": "The frieze block a cornice hood sits on: 0.26 m high, 0.12 m proud of the wall so the consoles stand wholly under it, and 0.12 m past the opening each side, its cornice returned round both ends to the wall."
+    },
+    "console": {
+      "height_m": 0.42,
+      "projection_m": 0.11,
+      "width_m": 0.11,
+      "scroll_turns": 0.75,
+      "confidence": "reconstructed",
+      "note": "A scrolled console under each end of the hood: an S in side view, wide at the top where it carries the block and curled small at its foot, 0.42 m high. Its outline is data-driven (a large and a small scroll joined by a reverse curve)."
+    },
+    "colonnette": {
+      "shaft_diameter_m": 0.16,
+      "range_shaft_diameter_m": [0.1, 0.3],
+      "plinth_m": 0.22,
+      "plinth_height_m": 0.08,
+      "abacus_m": 0.26,
+      "abacus_height_m": 0.06,
+      "segments": 20,
+      "base_height_m": 0.12,
+      "capital_height_m": 0.24,
+      "entasis_m": 0.006,
+      "confidence": "reconstructed",
+      "note": "A detached shaft such as stands in the nook of a Romanesque or Gothic jamb: square plinth, an attic-type base (two tori and a scotia), a shaft with a slight entasis, a capital and a square abacus. Twenty facets round with smoothed normals, so a near view reads a round shaft."
+    },
+    "capital": {
+      "tuscan": {
+        "profile": [[1.0, 0.0], [1.12, 0.06], [1.12, 0.12], [1.0, 0.16], [1.42, 0.62], [1.42, 1.0]],
+        "confidence": "reconstructed",
+        "note": "A Tuscan cap as fractions of the shaft radius (r) and of the capital height (y): an astragal, a necking, and an echinus flaring to the abacus."
+      },
+      "foliate": {
+        "profile": [[1.0, 0.0], [1.1, 0.05], [1.1, 0.1], [1.0, 0.14], [1.08, 0.5], [1.35, 0.9], [1.45, 1.0]],
+        "leaves": 8,
+        "leaf_length_fraction": 0.85,
+        "leaf_width_m": 0.07,
+        "leaf_relief_m": 0.012,
+        "leaf_thickness_m": 0.006,
+        "leaf_curl": 0.55,
+        "confidence": "reconstructed",
+        "note": "A bell capital wrapped in eight newly designed leaves that rise with the bell and curl out under the abacus: the restrained foliate cap the Romanesque rule asks for where carving is illegible. It copies no named house's capital."
+      }
+    },
+    "leaf": {
+      "lobes": 3,
+      "lobe_depth": 0.28,
+      "midrib_groove": 0.35,
+      "steps_t": 8,
+      "steps_u": 6,
+      "min_relief_m": 0.008,
+      "confidence": "reconstructed",
+      "note": "The kit's one leaf, used for capitals, crockets and the foliate panel: a lobed blade with a sunk midrib, its relief rising from nothing at its edges to its crown. A leaf on a field is a shell whose every edge rests on the field; a leaf that curls free is a thin closed solid rooted in its host."
+    },
+    "crocket": {
+      "spacing_m": 0.2,
+      "length_m": 0.09,
+      "width_m": 0.045,
+      "curl": 0.9,
+      "thickness_m": 0.012,
+      "confidence": "reconstructed",
+      "note": "Curled leaves set along a Gothic hood's back at a working spacing, the hood's apex finished with a finial knop."
+    },
+    "tracery": {
+      "depth_m": 0.12,
+      "set_back_m": 0.04,
+      "margin_m": 0.065,
+      "mullion_m": 0.09,
+      "foils": 4,
+      "confidence": "reconstructed",
+      "note": "Plate tracery: a stone slab under a pointed head, pierced by two pointed lancets either side of a mullion and a quatrefoil above them, the slab set back 40 mm from the wall face and 0.12 m thick. Lights open onto a dark room behind (the glass is K06's)."
+    },
+    "panel": {
+      "tablet_proud_m": 0.05,
+      "frame_m": 0.07,
+      "field_sink_m": 0.022,
+      "stem_radius_m": 0.009,
+      "waves": 3,
+      "leaf_length_m": [0.085, 0.12],
+      "leaf_width_m": 0.055,
+      "leaf_relief_m": 0.016,
+      "margin_m": 0.02,
+      "confidence": "reconstructed",
+      "note": "A tablet proud of the wall with a sunk field carrying a scrolling stem and leaves in low relief, every leaf inside the field less its margin: a bounded foliate panel. The scroll is newly designed for this kit, seeded so two panels differ, and replaces nothing documented."
+    },
+    "opening": {
+      "recess_m": 0.3,
+      "confidence": "reconstructed",
+      "note": "The opening a piece of trim frames, carried back as a dark recess so the specimen shows trim round a hole. The door or window in it is K06's or K07's, not this kit's."
+    }
+  },
+  "relief": {
+    "_doc": "How far each kind of piece stands from the surface it rests on, measured on the built geometry. `min_relief_m` is the floor below which a piece would read as a painted panel, so the check refuses it.",
+    "min_relief_m": 0.008
+  },
+  "restrictions": [
+    {
+      "part": "generic_motif",
+      "rule": "never_replaces_landmark",
+      "why": "ASSET-CATALOG.md section K09: 'Generic carvings may support uncertain houses but cannot replace distinctive documented landmark carving.' The foliate panel, the foliate capital and the crockets are generic motifs (`motif: generic`): a house whose own carving is documented is authored from that evidence, and a generic motif may only stand where the house's carving is unknown."
+    },
+    {
+      "part": "comparison",
+      "rule": "hero_exceeds_rowhouse",
+      "why": "ASSET-CATALOG.md section K09 asks to compare a bespoke hero entrance with a restrained rowhouse surround. The check holds the hero to more relief depth, more orders and more pieces than the rowhouse, so the two never converge into one generic surround."
+    }
+  ],
+  "costs": {
+    "_doc": "Triangle budget per variant, as built, without its board. A variant over its budget is refused, so a kit change that bloats every surround in the town is caught here.",
+    "max_triangles": {
+      "trim": 4000,
+      "colonnette": 3500,
+      "panel": 6000,
+      "surround": 26000
+    }
+  },
+  "_variants_doc": "kind picks the builder; class picks the triangle budget; motif is generic (may stand on any uncertain house) or composed (a surround assembled from the kit's parts). Opening sizes are clear sizes of the hole the trim frames.",
+  "variants": [
+    {
+      "id": "k09.trim.arch_ring_round",
+      "kind": "arch_ring",
+      "class": "trim",
+      "motif": "generic",
+      "head": "round",
+      "clear_width_m": 1.1,
+      "spring_m": 2.1,
+      "voussoirs": 13,
+      "keystone": true,
+      "confidence": "reconstructed",
+      "note": "A semicircular ring of thirteen dressed voussoirs with a projecting keystone: the round-arched opening of the register's Italianate and classical houses."
+    },
+    {
+      "id": "k09.trim.arch_ring_segmental",
+      "kind": "arch_ring",
+      "class": "trim",
+      "motif": "generic",
+      "head": "segmental",
+      "rise_over_span": 0.18,
+      "clear_width_m": 1.0,
+      "spring_m": 1.95,
+      "voussoirs": 9,
+      "keystone": true,
+      "confidence": "reconstructed",
+      "note": "A segmental ring of nine voussoirs and a keystone over a window or service door: the register's 'segmental window hoods'."
+    },
+    {
+      "id": "k09.trim.hood_pointed_crocketed",
+      "kind": "pointed_hood",
+      "class": "trim",
+      "motif": "generic",
+      "head": "pointed",
+      "clear_width_m": 0.9,
+      "spring_m": 1.9,
+      "label_stop_m": 0.14,
+      "confidence": "reconstructed",
+      "note": "An equilateral pointed opening under a Gothic label mould with crockets along its back and a finial at the apex, the label returned level at each spring as a stop: Gothic trim for the register's pointed openings."
+    },
+    {
+      "id": "k09.trim.lintel_cornice_hood",
+      "kind": "cornice_hood",
+      "class": "trim",
+      "motif": "generic",
+      "head": "flat",
+      "clear_width_m": 1.0,
+      "clear_height_m": 2.0,
+      "confidence": "reconstructed",
+      "note": "A flat-headed opening under a frieze block and a returned cornice hood carried on two scrolled consoles: the Italianate and classical door and window hood."
+    },
+    {
+      "id": "k09.trim.colonnette_tuscan",
+      "kind": "colonnette",
+      "class": "colonnette",
+      "motif": "generic",
+      "order": "tuscan",
+      "height_m": 2.2,
+      "confidence": "reconstructed",
+      "note": "A Tuscan colonnette: plinth, attic base, shaft with entasis, a turned cap and a square abacus."
+    },
+    {
+      "id": "k09.trim.colonnette_foliate",
+      "kind": "colonnette",
+      "class": "colonnette",
+      "motif": "generic",
+      "order": "foliate",
+      "height_m": 2.2,
+      "confidence": "reconstructed",
+      "note": "A colonnette with a foliate bell capital: the nook shaft of a Romanesque or Gothic entrance, its leaves newly designed."
+    },
+    {
+      "id": "k09.trim.tracery_two_light",
+      "kind": "tracery",
+      "class": "trim",
+      "motif": "generic",
+      "head": "pointed",
+      "clear_width_m": 1.0,
+      "spring_m": 1.7,
+      "sill_m": 0.6,
+      "confidence": "reconstructed",
+      "note": "Two-light plate tracery under a pointed head, a quatrefoil pierced above the lancets: the Gothic window of the register's Victorian Gothic houses."
+    },
+    {
+      "id": "k09.trim.foliate_panel",
+      "kind": "panel",
+      "class": "panel",
+      "motif": "generic",
+      "width_m": 1.0,
+      "height_m": 0.45,
+      "base_m": 1.2,
+      "confidence": "reconstructed",
+      "note": "A bounded foliate relief panel for a frieze, a spandrel or a parapet: newly designed scrollwork on a sunk field."
+    },
+    {
+      "id": "k09.surround.hero_romanesque",
+      "kind": "hero",
+      "class": "surround",
+      "motif": "composed",
+      "head": "round",
+      "clear_width_m": 1.3,
+      "spring_m": 2.3,
+      "orders": 3,
+      "order_step_m": 0.24,
+      "order_depth_m": 0.24,
+      "voussoirs_outer": 17,
+      "voussoirs_order": 11,
+      "confidence": "reconstructed",
+      "note": "The hero entrance: a deep round-arched doorway stepped back in three orders, a foliate colonnette in each of the four nooks, a voussoir ring on every order and a label mould over the whole. A Romanesque entrance's anatomy in general, copied from no named house."
+    },
+    {
+      "id": "k09.surround.rowhouse_restrained",
+      "kind": "rowhouse",
+      "class": "surround",
+      "motif": "composed",
+      "head": "flat",
+      "clear_width_m": 1.0,
+      "clear_height_m": 2.3,
+      "confidence": "reconstructed",
+      "note": "The restrained rowhouse door: a two-fascia architrave round a flat-headed opening, a frieze block and a returned cornice hood on two consoles above it, and no carving."
+    }
+  ]
+}

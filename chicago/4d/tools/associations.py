@@ -41,12 +41,11 @@ TWO RULES THAT ARE NOT OBVIOUS, AND ARE THE POINT.
     somebody was. (The seating-class axis T-1237 counts is a different
     question: it is defined over the WHOLE household layer, so it needs a
     `none` class. This list is defined over CLAIMS.)
-  * THE SINGULAR LINK MAY NOT DRIFT FROM THE PLURAL ONE. While both shapes
-    exist, a record that carries `associated_with` rows and a non-null
-    `lives_at`/`works_at` must carry that structure among its rows. Otherwise
-    the migration's half-way point is a record that says two different things
-    about the same man and a reader picks whichever field they happened to
-    load. `validate.py` refuses it.
+  * THE ROWS ARE THE ONLY SHAPE. While the singular `lives_at`/`works_at` and
+    these rows both existed, a record had to carry its singular structure among
+    its rows (T-2258), or the half-way point said two different things about the
+    same man. T-2284 retired the singular pair, and `validate.py` now refuses it
+    on any household record: a home or a workplace is a row, and nothing else.
 
 `from` and `to` are nullable — the sources date a relationship's start far more
 often than its end, and some they do not date at all. A row that dates NEITHER
@@ -105,7 +104,15 @@ WORK_KINDS = ("agency_held", "business_premises", "church", "civic_seat",
 
 ASSOCIATION_ROW_KEYS = ("kind", "place_or_structure_id", "resolves_to", "from", "to",
                         "tier", "source_id", "note")
-ASSOCIATION_OPTIONAL_KEYS = ("undated", "also_sources")
+ASSOCIATION_OPTIONAL_KEYS = ("undated", "also_sources", "basis", "replaceable_by")
+
+# T-2261: the two optional objects the singular `lives_at`/`works_at` claims carried and a
+# row could not, so retiring the pair loses no words. `basis` is the claim's own reasoning
+# — a `note` always, and a rule's `kind` and `id` where a rule seated it — and is NOT the
+# row's `note`, which the retired copier (T-1273) composed from it and its limit clause.
+# `replaceable_by` is what would move the row up the ladder; the card prints its `match`.
+BASIS_KEYS = ("kind", "id", "note")
+REPLACEABLE_BY_KEYS = ("kind", "match")
 
 ASSOCIATION_TIERS = ("attested", "inferred", "reconstructed")
 
@@ -226,6 +233,23 @@ def check_association_rows(where: str, rows, *, error, structure_ids: set, sourc
         if not str(row.get("note") or "").strip():
             error(rwhere, "note is empty. A relationship carries the reasoning that dated it "
                           "and the clause that limited its place")
+        for key, keys, needs in (("basis", BASIS_KEYS, "note"),
+                                 ("replaceable_by", REPLACEABLE_BY_KEYS, "match")):
+            if key not in row:
+                continue
+            obj = row[key]
+            if not isinstance(obj, dict):
+                error(rwhere, f"{key} is present and is not an object; omit the key instead")
+                continue
+            extra = set(obj) - set(keys)
+            if extra:
+                error(rwhere, f"{key} carries unknown key(s) {sorted(extra)}; it holds "
+                              f"{list(keys)} and nothing else")
+            for k in keys:
+                if k in obj and (not isinstance(obj[k], str) or not obj[k].strip()):
+                    error(rwhere, f"{key}.{k} is present and empty. Omit it, or say it")
+            if not str(obj.get(needs) or "").strip():
+                error(rwhere, f"{key} states no {needs}. The words are what it is for")
 
         frm, to = row.get("from"), row.get("to")
         undated = bool(row.get("undated"))
@@ -254,23 +278,56 @@ def check_association_rows(where: str, rows, *, error, structure_ids: set, sourc
         seen.add(key)
 
 
-def singular_drift(record: dict, rows) -> list[str]:
-    """While both shapes exist, the singular link must appear among the plural rows."""
+# --------------------------------------------------------------------------
+# The reader (T-2260). Where a record lived and worked, from its rows alone.
+#
+# The seating, deal, audit and census tools used to read the singular pair and
+# now read these. The rule is compile_scene.py's (T-2259): only a row that reaches
+# a STRUCTURE puts a record under a roof — a street, a face or a division is where
+# the evidence stopped — and a row a source CLOSES before the scene date is a place
+# the household had left. Rows keep the record's own order, and the first is the
+# one the singular pair named on the day T-2284 retired it.
+
+SCENE_DATE = dt.date(1835, 7, 1)
+
+
+def roof_rows(record: dict, kinds, scene: dt.date = SCENE_DATE) -> list[dict]:
+    """The `kinds` rows that put `record` under a roof on `scene`, in the record's order."""
     out = []
-    if not isinstance(rows, list):
-        return out
-    for key, kinds in (("lives_at", HOME_KINDS), ("works_at", WORK_KINDS)):
-        node = record.get(key)
-        value = (node or {}).get("value") if isinstance(node, dict) else None
-        if not value:
+    for r in record.get("associated_with") or []:
+        if not isinstance(r, dict) or r.get("kind") not in kinds:
             continue
-        places = {r.get("place_or_structure_id") for r in rows
-                  if isinstance(r, dict) and r.get("kind") in kinds}
-        if value not in places:
-            out.append(f"{key} names '{value}' and no {'/'.join(kinds)} row in associated_with "
-                       f"reaches it. While both shapes exist they may not drift: a reader who "
-                       f"loads one field would be told a different thing about the same person")
+        if r.get("resolves_to") != "structure" or not r.get("place_or_structure_id"):
+            continue
+        ends = read_bounds(r.get("to")) if r.get("to") is not None else None
+        if ends and ends[1] < scene:
+            continue
+        out.append(r)
     return out
+
+
+def home_row(record: dict, scene: dt.date = SCENE_DATE) -> dict | None:
+    """The row naming where `record` lived on `scene`, or None."""
+    rows = roof_rows(record, HOME_KINDS, scene)
+    return rows[0] if rows else None
+
+
+def work_row(record: dict, scene: dt.date = SCENE_DATE) -> dict | None:
+    """The row naming where `record` worked on `scene`, or None."""
+    rows = roof_rows(record, WORK_KINDS, scene)
+    return rows[0] if rows else None
+
+
+def home_of(record: dict, scene: dt.date = SCENE_DATE) -> str | None:
+    """The structure `record` lived in on `scene` — what `lives_at.value` used to say."""
+    row = home_row(record, scene)
+    return row["place_or_structure_id"] if row else None
+
+
+def workplace_of(record: dict, scene: dt.date = SCENE_DATE) -> str | None:
+    """The structure `record` worked in on `scene` — what `works_at.value` used to say."""
+    row = work_row(record, scene)
+    return row["place_or_structure_id"] if row else None
 
 
 # --------------------------------------------------------------------------
@@ -424,6 +481,17 @@ def self_test() -> int:
         ("a second source on a reconstructed row",
          {**base, "tier": "reconstructed", "source_id": None,
           "also_sources": ["drloih_hotels"]}, True),
+        ("a basis with a rule and its words (T-2261)",
+         {**base, "basis": {"kind": "rule", "id": "r", "note": "why"}}, False),
+        ("a basis with no words", {**base, "basis": {"kind": "rule", "id": "r"}}, True),
+        ("a basis with a key it does not hold", {**base, "basis": {"note": "w", "x": "y"}}, True),
+        ("a basis that is not an object", {**base, "basis": "why"}, True),
+        ("a basis with an empty id", {**base, "basis": {"id": " ", "note": "w"}}, True),
+        ("a next rung with its words",
+         {**base, "replaceable_by": {"kind": "household", "match": "a plan"}}, False),
+        ("a next rung with no words", {**base, "replaceable_by": {"kind": "household"}}, True),
+        ("a next rung with a key it does not hold",
+         {**base, "replaceable_by": {"match": "m", "note": "n"}}, True),
     ]
     failed = 0
     for label, row, want_error in cases:
@@ -444,15 +512,25 @@ def self_test() -> int:
     print(("ok   " if ok else "FAIL ") + "an empty list")
     failed += 0 if ok else 1
 
-    drift = singular_drift({"lives_at": {"value": "other_house"}}, [base])
-    ok = bool(drift)
-    print(("ok   " if ok else "FAIL ") + "the singular link drifting from the plural one")
-    failed += 0 if ok else 1
-
-    kept = singular_drift({"lives_at": {"value": "peck_store"}}, [base])
-    ok = not kept
-    print(("ok   " if ok else "FAIL ") + "…and agreeing with it")
-    failed += 0 if ok else 1
+    # T-2260: the reader the seating, deal, audit and census tools use.
+    left = {**base, "place_or_structure_id": "kinzie_house", "to": "1834"}
+    street = {**base, "place_or_structure_id": "lake_street", "resolves_to": "street"}
+    work = {**base, "kind": "business_premises"}
+    for label, rec, want in [
+        ("the reader names the home row's roof", {"associated_with": [base]}, ("peck_store", None)),
+        ("the reader skips a home the source closes before the scene",
+         {"associated_with": [left, base]}, ("peck_store", None)),
+        ("the reader skips a home that reaches only a street",
+         {"associated_with": [street]}, (None, None)),
+        ("the reader names a workplace and no home from a premises row",
+         {"associated_with": [work]}, (None, "peck_store")),
+        ("the reader ignores the singular pair",
+         {"lives_at": {"value": "peck_store"}, "works_at": {"value": "peck_store"}}, (None, None)),
+    ]:
+        got = (home_of(rec), workplace_of(rec))
+        ok = got == want
+        print(("ok   " if ok else "FAIL ") + label + ("" if ok else f"  -> {got}"))
+        failed += 0 if ok else 1
 
     print(f"{failed} failure(s)")
     return 1 if failed else 0

@@ -58,6 +58,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from migrate_attribute_tiers import check_tier_block  # noqa: E402
+from death_readings import church_deaths, latest_day  # noqa: E402  (T-2189)
+from generated_card_kin import kin_rows, register_record_id, with_kin  # noqa: E402
 from reconstruct_residents_1835 import (  # noqa: E402
     READMISSION_PASS, RECONSTRUCTED, check_reconstructed_person, draw, load_programme,
     seed_for, stages)
@@ -431,10 +433,10 @@ def minted_card(row: dict, model: dict, hid: str, pid: str, sources: list,
             "value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
             "note": "Not attested. The reading dates an appearance and not an arrival.",
         },
-        "lives_at": {"value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
-                     "note": "Not attested: the reading gives a name and no address."},
-        "works_at": {"value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
-                     "note": "Not attested."},
+        "no_home": {"value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
+                    "note": "Not attested: the reading gives a name and no address."},
+        "no_workplace": {"value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
+                         "note": "Not attested."},
         "present_on_scene_date": presence,
         "persons": [{
             "id": pid,
@@ -526,6 +528,23 @@ def derive() -> tuple[dict, dict]:
         if cls not in SPENDS:
             continue
         rule_id = SPENDS[cls]
+
+        # A BURIAL IS A DEPARTURE, NOT A SIGHTING (T-2189). The register row's own role
+        # says this name is the DEAD one, and a death before the scene date is the one
+        # reading the persistence model may not price: it does not say how likely the
+        # person was still here, it says they were not. So it readmits nobody.
+        died = church_deaths().get(row.get("claim_or_record_id")) \
+            if row.get("domain") == "church" else None
+        if died is not None:
+            last = latest_day(row.get("describes_date"))
+            if last is not None and last < SCENE_DATE.isoformat():
+                withhold(row, "the_reading_is_a_death_before_the_day",
+                         f"The register's own entry makes this name the decedent — "
+                         f"\"{(died.get('cells') or {}).get('entry_as_printed')}\" — dated "
+                         f"{row.get('describes_date')}, before 1 July 1835. A death is not "
+                         f"an appearance a persistence draw can price: the person was not "
+                         f"in the town on the day, and no card is minted for them.")
+                continue
 
         if cls == "R1_in_window_uncertain":
             when, refusal = dated_evidence(row)
@@ -755,6 +774,14 @@ def derive() -> tuple[dict, dict]:
         "minted": minted,
         "withheld": sorted(withheld, key=lambda w: w["row_id"]),
     }
+    # T-2191. The parent ties St Mary's register states between a card written here and a
+    # card on households/, derived from the entry and resolved by back-link. They are
+    # written by this build because a kin row typed onto a readmitted card is gone on the
+    # next one; tools/generated_card_kin.py --land writes the mirror on the households/ end.
+    for hid, card in cards.items():
+        rid = register_record_id(card["readmission"]["row_id"])
+        if rid:
+            cards[hid] = with_kin(card, kin_rows(hid, card["head"], [rid]))
     return record, cards
 
 
@@ -849,7 +876,7 @@ def check() -> int:
     for hid, card in sorted(cards.items()):
         for person in card["persons"]:
             check_reconstructed_person(f"{hid}:{person['id']}", person, keys, error)
-        for key in ("arrival", "lives_at", "works_at", "present_on_scene_date"):
+        for key in ("arrival", "no_home", "no_workplace", "present_on_scene_date"):
             check_tier_block(hid, key, card.get(key) or {}, error)
         for person in card["persons"]:
             check_tier_block(f"{hid}:{person['id']}", "occupation",

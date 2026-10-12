@@ -97,7 +97,8 @@ CONSUMED = frozenset({
     "opening_heights",
     "eave_cornice",
     "courtyard_gate", "courtyard_gate_heights",
-    "courtyard_ground",
+    "courtyard_wall", "courtyard_wall_heights",
+    "courtyard_ground", "prairie_frontage",
 })
 
 # Where this archetype touches the ground: the whole footprint outline, at the base
@@ -106,6 +107,7 @@ GROUND_CONTACT = "perimeter"
 
 WALL_KINDS = ("granite", "brick", "trim", "wood", "none")
 FACES = ("north", "south", "east", "west")
+WALL_RUN_ENDS = ("free", "wall")
 OPENING_KINDS = ("window", "door", "doors", "arch", "dark", "fan", "band")
 
 
@@ -496,6 +498,17 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             "finial_m": round(float(t.get("finial_ft", 0.0)) * FT, 4),
             "conf": cf(attr),
         })
+        if "vent" in t and "eave" in t:
+            v, e = t["vent"], t["eave"]
+            p.turrets[-1]["vent"] = {
+                "tiers": int(v["tiers"]), "per_face": int(v["per_face"]),
+                "opening_width_m": float(v["opening_width_ft"]) * FT,
+                "perch_projection_m": float(v["perch_projection_ft"]) * FT}
+            p.turrets[-1]["eave"] = {
+                "overhang_m": float(e["overhang_ft"]) * FT,
+                "drop_m": float(e["drop_ft"]) * FT,
+                "flare_run_m": float(e["flare_run_ft"]) * FT,
+                "flare_pitch": float(e["flare_pitch"])}
 
     # --------------------------------------------------------------- chimneys
     def chimney(name, ws, ss, base, top, conf):
@@ -607,6 +620,33 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                             "z1": fr.zval(gh[kind]),
                             "conf": cf("courtyard_gate", "courtyard_gate_heights")})
 
+    # ------------------------------------------------------ courtyard wall
+    # Free-standing boundary runs (T-2201). Each run is a box on its face line like a
+    # gate piece, and says what each end of its span meets, so the coping stops where
+    # it meets a taller wall instead of burying itself in it:
+    #   free  the coping overhangs the end;
+    #   wall  the end butts a taller wall: body and coping stop flush, end faces dropped.
+    cw = val("courtyard_wall")
+    if cw:
+        wh = val("courtyard_wall_heights") or {}
+        for run in cw["runs"]:
+            kind = run["kind"]
+            if kind not in wh:
+                raise ParamError(f"courtyard_wall run '{run.get('name')}' kind '{kind}' "
+                                 f"has no height in courtyard_wall_heights")
+            ends = list(run.get("ends", ["free", "free"]))
+            if len(ends) != 2 or any(e not in WALL_RUN_ENDS for e in ends):
+                raise ParamError(f"courtyard_wall run '{run.get('name')}' ends {ends} "
+                                 f"must be two of {WALL_RUN_ENDS}")
+            ua, ub = (_u(fr, run["face"], v) for v in run["span"])
+            if ua > ub:
+                ua, ub, ends = ub, ua, ends[::-1]
+            p.walls.append({**_face(fr, run["face"], run["at"]), "kind": kind,
+                            "u0": ua, "u1": ub, "ends": ends,
+                            "thick_m": round(float(run["thick_ft"]) * FT, 4),
+                            "z1": fr.zval(wh[kind]),
+                            "conf": cf("courtyard_wall", "courtyard_wall_heights")})
+
     # ---------------------------------------------------------------- ground
     cg = val("courtyard_ground")
     if cg:
@@ -618,7 +658,25 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                              "conf": cf("courtyard_ground")})
 
     if p.detail_profile:
+        fg = val("prairie_frontage")
+        if fg:
+            p.detail["prairie_frontage"] = {
+                "outer_x": fr.x(fg["outer_W"]), "walk_x": fr.x(fg["walk_join_W"]),
+                "wall_x": fr.x(fg["wall_W"]),
+                "lawns": [sorted(fr.y(s) for s in span) for span in fg["lawn_spans_S"]],
+                "entry_y": sorted(fr.y(s) for s in fg["entry_S"]),
+                "door_y": sorted(fr.y(s) for s in fg["door_S"]),
+                "porte_y": sorted(fr.y(s) for s in fg["porte_S"]),
+                **{k: fr.zval(fg[k]) for k in ("walk_z", "lawn_z", "curb_base_z",
+                     "door_z", "passage_front_z", "passage_court_z")},
+                **{k.removesuffix("_ft") + "_m": float(fg[k]) * FT for k in
+                   ("curb_width_ft", "curb_height_ft", "corner_radius_ft", "joint_spacing_ft",
+                    "joint_width_ft", "step_run_ft", "paving_joint_spacing_ft", "porte_threshold_depth_ft")},
+                "conf": cf("prairie_frontage"),
+            }
         raw = val("v4_detail", {})
+        p.detail["roof_tiles"] = raw.get("roof_tiles")
+        p.detail["roof_edges"] = raw.get("roof_edges")
         p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254, 6)
                                           for h in raw.get("ashlar_courses_in", [])]
         p.detail["ashlar_relief_m"] = [float(v) * FT for v in
@@ -746,6 +804,14 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     "z": [fr.z(v) for v in hoist["z"]],
                     "projection": hoist["projection_ft"]*FT},
                 "loft_frame": stable_fabric["loft_frame_ft"]*FT}
+            if "hook_drop_ft" in hoist:
+                p.detail["north_stable_fabric"]["hoist_stone"]["hook_drop"] = \
+                    hoist["hook_drop_ft"]*FT
+            leaves = stable_fabric.get("loft_leaves")
+            if leaves:
+                p.detail["north_stable_fabric"]["loft_leaves"] = {
+                    "boards_per_leaf": int(leaves["boards_per_leaf"]),
+                    "thickness": leaves["thickness_ft"]*FT}
         cr = raw.get("copper_return")
         if cr:
             p.detail["copper_return"] = {"x0": min(fr.x(w) for w in cr["W"]),

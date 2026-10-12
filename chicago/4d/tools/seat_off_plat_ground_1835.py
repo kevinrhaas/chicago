@@ -94,6 +94,28 @@ tools/measure_west_farm_ground_1835.py sizes that ground. The North has one barn
 would pair the same way (recon_1835_north_a2_059 with recon_1835_north_d1_054, 28 m);
 the rule is held to the West because that is the ground T-1793 measured.
 
+## A HOUSEHOLD THE LETTER-LIST RULING REFUSES A ROOF IS NEVER DEALT ONE HERE EITHER (T-2255)
+
+The owner's ruling of 2026-08-30 (T-0379) is that a name minted from the post office's
+letter lists is *a name the town knows, not a man with an address*. T-1645 made the
+platted deal read it before it deals, and owe such a row with the ruling as its reason —
+but it still HANDS the row on, because this pass's scope is that deal's owed list by
+contract. This pass never read the ruling, so it seated the cohort on off-plat roofs
+instead: 69 of its 99 adopted seats were letter-list households on the day it was found.
+It now reads the ruling the same way and from the same place — the platted deal's
+`refused_a_roof()`, which is `tools/name_the_keepers_1835.py`'s own `is_letter_list` — so
+the three passes cannot disagree about who the cohort is. Such a row is owed with the
+platted deal's own `refused_by` and reason, and the roof it would have taken goes on to
+the next row of its clause order.
+
+It exposed one thing the farmstead rule had never met: a roof left FREE. A row the rule
+passes over is owed because seating it elsewhere would move a household already seated,
+and while the West's letter-list labourers filled every D2 cabin that was true. With them
+owed, three D2 cabins stood empty while two labourers were told none was free. So once
+every row is dealt, a passed-over row takes the best roof of its family still free in its
+division that is not itself a farmhouse — which moves nobody, so the rule's promise that
+every other seat stays where the deal put it still holds.
+
 ## WHICH WAY IT IS WRONG IF IT IS WRONG
 
 The same way its predecessor was: toward ground holding too FEW of the town's
@@ -226,7 +248,27 @@ def load() -> dict:
         "tracts": load_json(TRACTS), "camps": load_json(CAMPS),
         "address_book": load_json(ADDRESS_BOOK), "platted": load_json(PLATTED_SEATS),
         "occupancy": occupancy,
+        "refused_a_roof": refused_a_roof(),
     }
+
+
+def refused_a_roof() -> frozenset[str]:
+    """Every household the letter-list ruling (T-0379) refuses a roof, by id (T-2255).
+
+    The platted deal's own function, imported rather than restated: it is
+    `tools/name_the_keepers_1835.py`'s `is_letter_list`, and a third definition here is
+    how the passes would come to disagree about who the cohort is.
+    """
+    sys.path.insert(0, str(TOOLS))
+    from seat_platted_ground_1835 import refused_a_roof as ruling  # noqa: E402
+    return ruling()
+
+
+def letter_list_refusal() -> tuple[str, str]:
+    """The platted deal's `refused_by` and reason, so an owed row reads the same in both."""
+    sys.path.insert(0, str(TOOLS))
+    from seat_platted_ground_1835 import LETTER_LIST_REFUSAL, LETTER_LIST_RULING  # noqa: E402
+    return LETTER_LIST_RULING, LETTER_LIST_REFUSAL
 
 
 # ------------------------------------------------------------------------- geometry
@@ -759,6 +801,36 @@ def deal(data: dict, parcels: list[dict]) -> dict:
 
     seats: list[dict] = []
     owed: list[dict] = []
+    ruling, refusal = letter_list_refusal()
+    # T-2255. The rows the farmstead rule passed over, offered what the deal leaves free.
+    passed: list[tuple[dict, str]] = []
+
+    def seat_under(row: dict, clause_id: str, structure_id: str, parcel: dict | None) -> None:
+        clause = data["clauses"][clause_id]
+        taken[structure_id] = clause_id
+        letter = family_of(data["records"][structure_id], data["documented"])
+        seats.append({
+            "id": row["id"], "kind": row["kind"], "name": row["name"],
+            "clause": clause_id, "district": row["seat"].get("division"),
+            "band": row["seat"]["id"],
+            "parcel_id": parcel["parcel_id"] if parcel else None,
+            "parcel_kind": parcel["kind"] if parcel else "on_no_committed_parcel",
+            "granularity": parcel["granularity"] if parcel else "unplatted",
+            "block_id": parcel["block_id"] if parcel else None,
+            "fronts": parcel["fronts"] if parcel else None,
+            "street_class": parcel["street_class"] if parcel else "unplatted",
+            "ground_tokens": parcel["ground_tokens"] if parcel else
+                             ["outside_plat", "unplatted"],
+            "how": "adopted", "structure_id": structure_id, "family": letter,
+            "stands_on": parcel["granularity"] if parcel else "unplatted",
+            "setback_class": clause["setback_class"],
+            "policy_rule": clause_id,
+            "order_book_draw": None,
+            "seed": row.get("seed"),
+            "why": "a standing anonymous roof of a family this clause admits, off "
+                   "the plat and in this household's own division: the roof is "
+                   "already raised, so nothing is drawn off the order book",
+        })
 
     def clause_rank(row: dict) -> int:
         clause_id = (row.get("seat") or {}).get("clause")
@@ -780,6 +852,20 @@ def deal(data: dict, parcels: list[dict]) -> dict:
             })
             continue
 
+        # T-2255. THE RULING BEFORE THE ROOF, as the platted deal reads it (T-1645). A
+        # letter-list household is owed here with the ruling as its reason and offered
+        # nothing, and the roof it would have taken stays free for the next row of this
+        # clause's order.
+        if row["id"] in data["refused_a_roof"]:
+            owed.append({
+                "id": row["id"], "kind": row["kind"], "band": seat["id"],
+                "clause": clause_id, "district": district,
+                "why": refusal,
+                "refused_by": ruling,
+                "handed_to": SUCCESSOR,
+            })
+            continue
+
         clause = data["clauses"][clause_id]
         admitted = set(clause["applies_to"])
         candidates = [
@@ -791,8 +877,14 @@ def deal(data: dict, parcels: list[dict]) -> dict:
             and (structure_id not in passed_over or clause_id == FARM_CLAUSE)
         ]
         if clause_id == FARM_CLAUSE:
-            candidates = [pair for pair in candidates if pair[0] in farmhouse] or [
-                pair for pair in candidates if pair[0] not in farmhouse]
+            # T-2255. In a farmstead division the farm clause is a farmstead's: a cabin
+            # with a barn beside it. The bare cabins are labourers' (the reason below says
+            # so), and until the ruling the labourers filled every one, so the fallback
+            # never reached them there; with the letter-list labourers owed it did, and
+            # seated three West farm households in cabins with no barn.
+            candidates = [pair for pair in candidates if pair[0] in farmhouse] or (
+                [] if district in FARMSTEAD_DIVISIONS else
+                [pair for pair in candidates if pair[0] not in farmhouse])
         if candidates:
             structure_id, parcel = max(
                 candidates, key=lambda pair: (score(pair[1], clause), pair[0]))
@@ -815,30 +907,9 @@ def deal(data: dict, parcels: list[dict]) -> dict:
                            f"seated, {no_slot}",
                     "handed_to": SUCCESSOR,
                 })
+                passed.append((row, clause_id))
                 continue
-            taken[structure_id] = clause_id
-            letter = family_of(data["records"][structure_id], data["documented"])
-            seats.append({
-                "id": row["id"], "kind": row["kind"], "name": row["name"],
-                "clause": clause_id, "district": district, "band": seat["id"],
-                "parcel_id": parcel["parcel_id"] if parcel else None,
-                "parcel_kind": parcel["kind"] if parcel else "on_no_committed_parcel",
-                "granularity": parcel["granularity"] if parcel else "unplatted",
-                "block_id": parcel["block_id"] if parcel else None,
-                "fronts": parcel["fronts"] if parcel else None,
-                "street_class": parcel["street_class"] if parcel else "unplatted",
-                "ground_tokens": parcel["ground_tokens"] if parcel else
-                                 ["outside_plat", "unplatted"],
-                "how": "adopted", "structure_id": structure_id, "family": letter,
-                "stands_on": parcel["granularity"] if parcel else "unplatted",
-                "setback_class": clause["setback_class"],
-                "policy_rule": clause_id,
-                "order_book_draw": None,
-                "seed": row.get("seed"),
-                "why": "a standing anonymous roof of a family this clause admits, off "
-                       "the plat and in this household's own division: the roof is "
-                       "already raised, so nothing is drawn off the order book",
-            })
+            seat_under(row, clause_id, structure_id, parcel)
             if structure_id in farmhouse:
                 pairing = farmhouse[structure_id]
                 seats[-1]["farmstead_barn"] = pairing["barn"]
@@ -858,6 +929,73 @@ def deal(data: dict, parcels: list[dict]) -> dict:
             "handed_to": SUCCESSOR,
         })
 
+    # T-2255. WHAT THE DEAL LEFT FREE GOES TO THE HOUSEHOLDS THE FARMSTEAD RULE PASSED
+    # OVER. A passed-over row is owed because seating it elsewhere would move a household
+    # already seated — but once every row has been dealt, a roof of its family still
+    # standing free in its division moves nobody. The ruling made that real: the West's
+    # letter-list labourers had filled every D2 cabin, and with them owed three stood
+    # empty while two labourers were told none was free. So each passed-over row, in the
+    # order it was passed over, takes the best such roof that is not itself a farmhouse;
+    # every seat the main deal made stays where it is.
+    for row, clause_id in passed:
+        clause = data["clauses"][clause_id]
+        district = row["seat"].get("division")
+        free = [
+            (structure_id, parcel) for structure_id, parcel in offer.items()
+            if structure_id not in taken and structure_id not in farmhouse
+            and (data["records"][structure_id].get("reconstruction") or {}).get("district")
+            == district
+            and family_of(data["records"][structure_id], data["documented"])
+            in set(clause["applies_to"])
+        ]
+        if not free:
+            continue
+        structure_id, parcel = max(free, key=lambda pair: (score(pair[1], clause), pair[0]))
+        owed[:] = [o for o in owed if o["id"] != row["id"]]
+        seat_under(row, clause_id, structure_id, parcel)
+        seats[-1]["why"] = (
+            "a standing anonymous roof of a family this clause admits, off the plat and in "
+            "this household's own division, left free once every row was dealt: the roof "
+            "the deal first reached for was a farmhouse the farmstead rule "
+            f"({FARMSTEAD_TICKET}) keeps for {FARM_CLAUSE}, and this one moves no household "
+            "already seated (T-2255). The roof is already raised, so nothing is drawn off "
+            "the order book")
+
+    def why_unspent(structure_id: str) -> str:
+        """Why a roof offered for adoption is left free, from the rows that could take it.
+
+        T-2255. It used to be one sentence, "no clause admits this roof", which held while
+        every free dwelling went to somebody; once the letter-list ruling owes the cohort,
+        a cabin can stand free because the households its clauses admit are all seated
+        elsewhere or refused, and that is a different statement.
+        """
+        record = data["records"][structure_id]
+        letter = family_of(record, data["documented"])
+        district = (record.get("reconstruction") or {}).get("district")
+        admits = {clause_id for clause_id, clause in data["clauses"].items()
+                  if letter in set(clause["applies_to"])}
+        rows = [r for r in seats + owed if r["district"] == district and r["clause"] in admits]
+        if not rows:
+            return ("no clause of the placement policy that any handed-on band names "
+                    "admits this roof's family, so no household in scope could be "
+                    "seated under it")
+        refused = sum(1 for r in owed if r in rows and r.get("refused_by"))
+        held = sum(1 for r in owed if r in rows and not r.get("refused_by")
+                   and r["clause"] == FARM_CLAUSE and district in FARMSTEAD_DIVISIONS)
+        other = sum(1 for r in owed if r in rows) - refused - held
+        parts = [f"{sum(1 for r in seats if r in rows)} seated under another roof"]
+        if refused:
+            parts.append(f"{refused} refused a roof by the owner's letter-list ruling "
+                         f"({ruling})")
+        if held:
+            parts.append(f"{held} farm household(s) the farmstead rule "
+                         f"({FARMSTEAD_TICKET}) seats only in a cabin with a barn beside it")
+        if other:
+            parts.append(f"{other} owed for another reason")
+        return (f"every one of the {len(rows)} household(s) in scope whose clause admits a "
+                f"{letter} roof in this division is answered — {'; '.join(parts)} — so "
+                "nobody in scope is left to take it")
+
     return {
         "farmsteads": [
             {"cabin": cabin_id, **pairing,
@@ -873,9 +1011,7 @@ def deal(data: dict, parcels: list[dict]) -> dict:
              "district": (data["records"][structure_id].get("reconstruction")
                           or {}).get("district"),
              "parcel_id": data["parcel_of"].get(structure_id),
-             "why": "no clause of the placement policy that any handed-on band names "
-                    "admits this roof's family, so no household in scope could be "
-                    "seated under it"}
+             "why": why_unspent(structure_id)}
             for structure_id in sorted(set(offer) - set(taken))],
     }
 
@@ -893,7 +1029,13 @@ def assert_the_deal_is_honest(data: dict, parcels: list[dict], dealt: dict) -> N
 
     seen: set[str] = set()
     adopted: set[str] = set()
+    ruling, _ = letter_list_refusal()
     for seat in dealt["seats"]:
+        if seat["id"] in data["refused_a_roof"]:
+            raise Fault(f"{seat['id']} adopts {seat['structure_id']} and is a household "
+                        "minted from the post office's letter lists, which the owner's "
+                        f"ruling of 2026-08-30 ({ruling}) refuses a roof — the deal must "
+                        "owe it, not seat it (T-2255)")
         if seat["id"] in seen:
             raise Fault(f"{seat['id']} is seated twice")
         seen.add(seat["id"])
@@ -1099,6 +1241,8 @@ def seats_document(data: dict, parcels: list[dict], dealt: dict) -> dict:
             "owed_by_clause": dict(sorted(Counter(row["clause"] for row in owed).items())),
             "owed_by_district": dict(sorted(
                 Counter(row["district"] for row in owed).items())),
+            "owed_by_the_letter_list_ruling": sum(
+                1 for row in owed if row.get("refused_by")),
             "roofs_offered_for_adoption": dealt["adoptable_offered"],
             "roofs_held_back": len(dealt["held_back"]),
             "roofs_standing_on_no_committed_parcel": len(dealt["unparcelled"]),
@@ -1299,6 +1443,19 @@ def cmd_self_test() -> int:
         assert_the_deal_is_honest(data, parcels, bent)
     _fires("an owed row with a blank reason", a_blank_reason)
     print("   an owed row with no reason written                  refused")
+
+    def a_letter_list_household_seated():
+        # T-2255. Drop the ruling from the DEAL and keep it in the check: the re-deal
+        # seats the cohort again, and the guard has to say so by name.
+        blind = {**data, "refused_a_roof": frozenset()}
+        again = deal(blind, parcels)
+        if not any(s["id"] in data["refused_a_roof"] for s in again["seats"]):
+            raise Fault("fixture: with the ruling dropped the deal seats no letter-list "
+                        "household, so this guard has nothing to catch")
+        assert_the_deal_is_honest(data, parcels, again)
+    _fires("a deal that no longer reads the letter-list ruling",
+           a_letter_list_household_seated)
+    print("   a letter-list household dealt a roof (T-0379)       refused")
 
     def a_farmhouse_given_to_a_labourer():
         bent = json.loads(json.dumps(dealt))

@@ -42,6 +42,11 @@
         "palisade",
         "masonry_house",
         "camp",
+        "k01_frontage",
+        "k12_coach_house",
+        "k13_conservatories",
+        "k16_timber",
+        "prairie_draft",
         "authored"
       ],
       "description": "Generator module that builds this structure. 'authored' means a hand-built hero asset, exempt from regeneration but not from provenance."
@@ -802,6 +807,7 @@
             "livestock_pound",
             "log_cabin_former_store_and_school_use_unattested",
             "log_house_former_school_use_unattested",
+            "lumber_shed",
             "medium_boarding_house",
             "meeting_house_and_school",
             "meeting_house_school",
@@ -824,6 +830,7 @@
             "printing_office_and_store",
             "privy",
             "provision_store",
+            "railway_station",
             "residence",
             "river_crossing",
             "root_cellar",

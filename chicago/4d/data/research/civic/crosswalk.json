@@ -295,15 +295,15 @@
     {
       "pass": "T-0493",
       "a": "Mark Noble",
-      "b": "John Noble",
-      "rule": "The surname agrees and the forenames do not: 'Mark Noble' against 'John Noble'. A surname match is a clue, not an identity.",
+      "b": "Mary Noble",
+      "rule": "The surname agrees and the forenames do not: 'Mark Noble' against 'Mary Noble'. A surname match is a clue, not an identity.",
       "evidence": [
         {
           "source_id": "chicago_voter_lists_1833_1835_irad",
           "locator": "tax_1833 line 132"
         },
         {
-          "resident": "noble_john"
+          "resident": "noble_mary"
         }
       ]
     },

@@ -163,6 +163,45 @@ function publishChange(message, opts) {
   process.exitCode = 1;
   return false;
 }
+/**
+ * A COMMAND COMMITS ONLY WHAT IT WAS ASKED TO CHANGE (T-2280). `pushTickets` stages
+ * with `git add -A`, so whatever else sat edited in the clone rode along under the
+ * command's own message, and nothing said so. On 2026-10-03 the T-1205 run restored
+ * T-1171's pre-split file in its own clone to derive against — "in my local tickets
+ * copy only; nothing was pushed" — then ran `done T-1205`. The commit "T-1205: review —
+ * PR #336" (b679d90) carried T-1171 too and put a split parent back to `claimed`, where
+ * `list --workable` offered it as a TAKEABLE dead claim for seven days. The same dirty
+ * tree had also made that command's pull fail, so it read a stale clone.
+ *
+ * So a mutating command other than `sync` (publishing hand edits is sync's job) looks
+ * first, before it pulls, reads or writes: a local edit to a file it was not asked to
+ * change refuses it, naming each file and both ways out. Nothing is published that was
+ * not meant, and nothing is discarded — guessing which the author wanted is the one
+ * thing this may not do. An edit to a ticket the command NAMES (a finding added to
+ * T-NNNN, then `done T-NNNN`) still rides that command, as it always has.
+ */
+function refuseStrayEdits(cmd, named) {
+  const st = tgit(['status', '--porcelain', '-z', '--untracked-files=all']);
+  if (st.status !== 0) return;
+  const entries = st.stdout.split('\0');
+  const dirty = [];
+  for (let i = 0; i < entries.length; i += 1) {
+    const e = entries[i];
+    if (e.length < 4) continue;
+    dirty.push(e.slice(3));
+    if (/^[RC]/.test(e)) i += 1;   // a rename's second field is its old name
+  }
+  const own = (p) => named.some((id) => path.basename(p).startsWith(`${id}-`) && p.endsWith('.md'));
+  const stray = dirty.filter((p) => !own(p));
+  if (!stray.length) return;
+  console.error(`ticket.mjs ${cmd}: REFUSED — the tickets clone holds local edits this command was not asked to make:`);
+  for (const p of stray) console.error(`    ${p}`);
+  console.error(`  \`${cmd}\` would publish them under its own message (T-2280). Either publish them for what they are:\n`
+    + '    node tools/ticket.mjs sync -m "<what they are>"\n'
+    + '  or set them aside, and re-run:\n'
+    + `    git -C ${path.relative(process.cwd(), DIR) || '.'} stash --include-untracked   # or: checkout -- <file>`);
+  process.exit(1);
+}
 const QUEUE = path.join(DIR, 'QUEUE.md');
 const BOARD = path.join(DIR, 'BOARD.md');
 const JSON_OUT = path.join(DIR, 'tickets.json');
@@ -652,6 +691,31 @@ function tripwireSelfTest() {
 
   console.error(`  self-test | ${fired} assertion(s) fired`);
   return process.exitCode ? 1 : 0;
+}
+
+/**
+ * THE IMAGE GATE (T-2368). Owner, 2026-10-11: a building with a photograph or a drawing of
+ * it is built until it "look[s] exactly perfectly like the image or drawing", and "you don't
+ * wrap the case until it matches the photo". A ticket whose body has an `## Image gate`
+ * section naming structure ids does not close (`done`, which sets `review`) until each of
+ * them matches every reference view committed for it — see tools/image_gate.mjs and
+ * data/reference_views/README.md. Nothing else is refused: an edit never needs a photo.
+ */
+function refuseIfImageGateOpen(t) {
+  if (!/^## Image gate/m.test(t.body || '')) return;
+  // run, not imported: the self-tests copy this file alone into a sandbox
+  const gate = path.join(HERE, 'image_gate.mjs');
+  const r = existsSync(gate)
+    ? spawnSync(process.execPath, [gate, '--ticket', t.file], { encoding: 'utf8' })
+    : { status: 1, stdout: `${gate} is missing, so the image gate cannot be read\n` };
+  if (r.status === 0) return;
+  console.error(`\n${t.id} IS NOT FINISHED: ITS BUILDING DOES NOT YET MATCH ITS PICTURES (the image gate).\n`);
+  for (const w of String(r.stdout || r.stderr || '').trim().split('\n')) console.error(`  ${w}`);
+  console.error(`\nRender each view from its camera (node tools/photo_match.mjs data/reference_views/<id>/<view>.json),`);
+  console.error(`fix what differs, and set the match record's verdict to "matches" with nothing open.`);
+  console.error(`A picture that is wrong about the building is argued in the ticket and passed with:`);
+  console.error(`      node tools/ticket.mjs done ${t.id} --pr N --anyway --why "<reason>"\n`);
+  process.exit(1);
 }
 
 function refuseIfATripwireNamesIt(t, becoming) {
@@ -2365,6 +2429,32 @@ function queueWriteBlockedLine(t) {
   writeFileSync(QUEUE, `${lines.join('\n')}\n`);
 }
 
+/** A SUCCESSOR TAKES ITS PREDECESSOR'S PLACE (owner, 2026-10-10: "One at a time"). Five
+ *  kit tickets that all rebuild the same house, 1808 Prairie, were open as five PRs at
+ *  once; only one could land at a time and every merge sent the other four round again.
+ *  So such work is chained: each waits as `blocked-tech` with `blocked_on: T-NNNN` (or
+ *  `T-NNNN — why`), naming the one before it. When `settle` sees that ticket's PR merge,
+ *  this reopens every ticket waiting on it in the merged ticket's own queue line, so the
+ *  chain moves on its own and keeps the place the owner ranked. Anything longer than a
+ *  bare id, such as "T-0252 shared export decision, T-1357 bundle", is a person's call
+ *  and stays blocked. Call it before the merged ticket's line is removed. */
+const SUCCESSOR_OF = /^(T-\d{4})(?:\s+—\s|\s*$)/;
+function unblockSuccessors(done, tickets) {
+  const next = tickets.filter((s) => s.state === 'blocked-tech'
+    && SUCCESSOR_OF.exec(String(s.blocked_on ?? '').trim())?.[1] === done.id);
+  for (const s of [...next].reverse()) {
+    // The block's reason often carries findings (T-2317's held the plate it must
+    // follow), and `blocked_on` is cleared here, so the note keeps it word for word.
+    const why = String(s.blocked_on).trim();
+    s.state = 'open'; s.blocked_on = null;
+    s.body = `${String(s.body ?? '').replace(/\s*$/, '')}\n\n**Unblocked ${today()}:** ${done.id} merged (PR #${done.pr}); this took its place in the queue. The block read: ${why}\n`;
+    writeTicket(s); queueDropBlockedLines(s.id);
+    if (!queueInsertAfter(s, done.id)) queueAppend(s);
+    console.log(`  ${s.id} unblocked — ${done.id} merged; it takes ${done.id}'s queue line`);
+  }
+  return next.length;
+}
+
 const DECISION_BAND = '# --- 0. WAITING ON THE OWNER — answer on Manager\'s 4D Board; runs skip these until answered';
 /** A ticket with no place in the queue (it was blocked) goes into band 0, at the very
  *  top where the owner looks first. Its `decision: pending` keeps it out of the
@@ -2423,6 +2513,9 @@ let published = false;        // a case that pushed for itself (claim) sets this
 // Not before `sync`: its whole job is to publish edits already sitting in the clone, and
 // a pull over them either fails (dirty tree) or, with --autostash, would lay them on top
 // of someone else's change unseen. Its push rebases, and a conflict there is refused.
+if (inRepoMode() && MUTATING.has(cmd) && cmd !== 'sync') {
+  refuseStrayEdits(cmd, args.filter((a) => /^T-\d{4}$/i.test(a)).map((a) => a.toUpperCase()));
+}
 if (inRepoMode() && ((MUTATING.has(cmd) && cmd !== 'sync') || ['list', 'inflight'].includes(cmd))) pullTickets();
 const tickets = loadAll();
 
@@ -2778,7 +2871,7 @@ switch (cmd) {
       // T-1548. Checked HERE, while the PR is still open and the run is still present:
       // `review` is what settle turns into `done` on merge, and a tripwire this ticket
       // trips is fixable in this PR and nowhere cheaper.
-      if (!flag('anyway')) { refuseIfATripwireNamesIt(t, 'review'); refuseIfClosingStrandsAnAncestor(t); }
+      if (!flag('anyway')) { refuseIfImageGateOpen(t); refuseIfATripwireNamesIt(t, 'review'); refuseIfClosingStrandsAnAncestor(t); }
       t.state = 'review'; t.pr = String(pr).replace(/^#/, '');
       writeTicket(t); queueDropBlockedLines(t.id); generateBoard(loadAll());
       commitMessage = `${t.id}: review — PR #${t.pr}`;
@@ -2787,7 +2880,7 @@ switch (cmd) {
     }
     t.state = 'done'; t.closed = today(); t.closed_at = nowIso(); t.pr = flag('pr');
     if (!t.pr) { console.error('done needs --pr N — the closing PR is the receipt'); process.exit(1); }
-    if (!flag('anyway')) { refuseIfATripwireNamesIt(t, 'done'); refuseIfClosingStrandsAnAncestor(t); }  // T-1548 / T-1581
+    if (!flag('anyway')) { refuseIfImageGateOpen(t); refuseIfATripwireNamesIt(t, 'done'); refuseIfClosingStrandsAnAncestor(t); }  // T-1548 / T-1581 / T-2368
     writeTicket(t); queueRemove(t.id); queueDropBlockedLines(t.id); generateBoard(loadAll());
     // THE CLAIM IS KEPT, AND COLLECTED BY AGE (T-1351). This used to give the marker
     // back here. The reasoning left behind by T-1145 — which moved `split` off the
@@ -3868,7 +3961,9 @@ switch (cmd) {
       if (pr.merged_at) {
         t.state = 'done'; t.closed_at = pr.merged_at;
         t.closed = new Date(pr.merged_at).toLocaleDateString('en-CA', { timeZone: 'America/Chicago' });
-        writeTicket(t); queueRemove(t.id); n += 1;
+        writeTicket(t);
+        n += unblockSuccessors(t, tickets);
+        queueRemove(t.id); n += 1;
         console.log(`  ${t.id} done — PR #${t.pr} merged ${pr.merged_at}`);
         warnIfThisClosedASplit(t, loadAll());
       } else if (pr.state === 'closed') {

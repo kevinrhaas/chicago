@@ -27,7 +27,11 @@ Nothing here is a reading and nothing here is new invention. The invention — W
 household takes WHICH lot — was made by the deal and is recorded as **L270**; what this
 pass does is publish it where a visitor meets it, and **L276** carries that.
 
-## THE RULING THAT REFUSES ELEVEN OF THE TWENTY
+## THE RULING THAT REFUSED ELEVEN OF THE TWENTY — AND SINCE T-1645 THE DEAL READS IT FIRST
+
+Since T-1645 (2026-10-09) the platted deal reads this ruling before it deals, so it seats no
+letter-list household and the refusal below is empty by construction: it stays as a
+defence, as the name-disagrees refusal did after T-1689. What follows is how it stood.
 
 Eleven of the twenty South Water seats are households minted from the post office's letter
 lists, and the owner's ruling of 2026-08-30 (T-0379) is explicit about that cohort: a
@@ -741,10 +745,6 @@ def self_test(scopes: tuple[str, ...]) -> int:
         doc["counts"]["refused"] = 0
         return doc
 
-    def unrefuse_the_letter_lists(doc: dict) -> dict:
-        doc["refused"] = [r for r in doc["refused"] if r["why"] != LETTER_LIST_REFUSAL]
-        return doc
-
     def silence_a_refusal(doc: dict) -> dict:
         for row in doc["refused"]:
             if row.get("on_the_card"):
@@ -768,8 +768,11 @@ def self_test(scopes: tuple[str, ...]) -> int:
         return doc
 
     def fake_the_headroom(doc: dict) -> dict:
+        # One more than the count, not zero: since T-2253 seated the last households these
+        # rows could name, every committed row reads 0, and a zero written over a zero is
+        # the no-op mutation the loop below refuses to count as caught.
         for row in doc["households_left"]:
-            row["households_left"] = 0
+            row["households_left"] += 1
         return doc
 
     cases = [("a refusal stops saying so on the roof", silence_a_refusal),
@@ -779,8 +782,12 @@ def self_test(scopes: tuple[str, ...]) -> int:
              ("a named keeper goes missing", drop_a_keeper),
              ("a keeper's name is changed", rename_a_keeper),
              ("a keeper's household is changed", move_a_keeper),
-             ("the counts stop counting", miscount),
-             ("the letter-list refusals are quietly dropped", unrefuse_the_letter_lists)]
+             ("the counts stop counting", miscount)]
+    # T-1645. "The letter-list refusals are quietly dropped" went with the last row it could
+    # exercise: the platted deal now reads the ruling before it deals, so this ledger holds
+    # no letter-list refusal by construction. The guard moved to where the seat is made —
+    # tools/seat_platted_ground_1835.py --self-test re-deals with the ruling dropped and its
+    # honesty check refuses the result — and the refusal here stays as a defence.
     failures = 0
     for label, break_it in cases:
         broken = break_it(json.loads(json.dumps(ledger)))

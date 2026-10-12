@@ -1,0 +1,85 @@
+{
+  "id": "dressed_trim",
+  "package": "K02",
+  "dressing": "rubbed",
+  "tile_m": [
+    0.9,
+    0.9
+  ],
+  "resolution_px": {
+    "basecolor": 1024,
+    "normal_gl": 1024,
+    "orm": 512,
+    "height16": 512
+  },
+  "px_per_m": 1137.78,
+  "height16_range_m": 0.00036,
+  "mean_roughness": 0.66,
+  "measured": {
+    "relief_m": 0.00036,
+    "mean_roughness_measured": 0.66,
+    "mean_basecolor_srgb": [
+      204,
+      193,
+      174
+    ],
+    "seam_to_interior_step": 1.003
+  },
+  "colors_srgb": [
+    [
+      214,
+      206,
+      186
+    ],
+    [
+      190,
+      181,
+      160
+    ]
+  ],
+  "note": "Smooth dressed trim for sills, lintels, belts, copings, voussoirs and carving: a rubbed pale limestone face with a very fine grain and faint rubbing arcs. Carving is geometry; this is the skin it is cut in.",
+  "confidence": "reconstructed appearance; which building wears this stone is its structure record's to say, at its own tier",
+  "orientation": "image x = along the stone's natural bed (the wall's horizontal for walling); image y = up the wall. TEXCOORD_0 = surface metres / tile_m (K01 uv rule)",
+  "joints": "geometry, from data/components/prairie_1904/k02_stone_profiles.json",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y",
+    "height16": "linear 16-bit, 0 = lowest point of height16_range_m",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "files": {
+    "basecolor.png": "dressed_trim_basecolor.png",
+    "normal_gl.png": "dressed_trim_normal_gl.png",
+    "orm.png": "dressed_trim_orm.png",
+    "height16.png": "dressed_trim_height16.png",
+    "basecolor_web.jpg": "dressed_trim_basecolor_web.jpg",
+    "normal_gl_web.jpg": "dressed_trim_normal_gl_web.jpg",
+    "orm_web.jpg": "dressed_trim_orm_web.jpg"
+  },
+  "web": {
+    "basecolor": "dressed_trim_basecolor_web.jpg",
+    "normal_gl": "dressed_trim_normal_gl_web.jpg",
+    "orm": "dressed_trim_orm_web.jpg"
+  },
+  "bytes": {
+    "basecolor.png": 785396,
+    "normal_gl.png": 1416412,
+    "orm.png": 346374,
+    "height16.png": 501526,
+    "basecolor_web.jpg": 22357,
+    "normal_gl_web.jpg": 158124,
+    "orm_web.jpg": 81930
+  },
+  "sha256": {
+    "basecolor.png": "6bced867e14889c2903945d2db10df4a882630b0312e2975b5c042f9a64157e6",
+    "normal_gl.png": "8119155f5f7ad3fea276b87078811c2baae8b931c46d337ff61db66b9a60b522",
+    "orm.png": "d0e0091cf6a0c080efc1ed5e7683dde197a2a97acf5106cb8f271ba97c53fe85",
+    "height16.png": "ace52e31895425f72a9264abe6f9f723d3f9d19586c8e94ca54cfe41a8f07e6b",
+    "basecolor_web.jpg": "d80f5358826bed5b9806c76045b1863beb4902078a448756aeffc6d40a60af0d",
+    "normal_gl_web.jpg": "201d07b2118716d6280763f68ded13f2d8b148ac56b19006ad11e873621d89fc",
+    "orm_web.jpg": "1f8312d1f4a3c360de0ecb98c22a165c8472852e461941c2bfc9a075219f04b9"
+  },
+  "seamless": true,
+  "generator_seed": 19040805,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_stone.py); no photograph sampled"
+}

@@ -119,13 +119,18 @@ def add_dining_roof(b,params):
         legacy._two_sided_roof(b,poly,conf,roof)
     # Same cap radius, spacing and raised terracotta collars as the main ridge.
     end=north(params)['ridge_at'];start=ap[1]+.30;step=.36
-    for i in range(math.ceil((end-start)/step)):
-        lo=start+i*step;hi=min(end,lo+step-.012)
-        for j in range(12):
-            a,c=math.pi*j/12,math.pi*(j+1)/12
-            def P(angle,y):return (ap[0]+.14*math.cos(angle),y,ap[2]+.055+.14*math.sin(angle))
-            b.raw([P(a,lo),P(c,lo),P(c,hi),P(a,hi)],conf,19+i%3,(0,0,1))
-        add_ridge_crest(b,'y',ap[0],ap[2],lo,hi,conf,19+i%3)
+    if params.detail.get('roof_edges'):
+        from archetypes.masonry_house_v4_roof_edges import ridge_chain
+        ridge_chain(b,params,{'axis':'y','ridge_at':ap[0],'ridge_z':ap[2]},start,
+                    end-params.detail['roof_edges']['cap_radius_m'],join_end=True)
+    else:
+        for i in range(math.ceil((end-start)/step)):
+            lo=start+i*step;hi=min(end,lo+step-.012)
+            for j in range(12):
+                a,c=math.pi*j/12,math.pi*(j+1)/12
+                def P(angle,y):return (ap[0]+.14*math.cos(angle),y,ap[2]+.055+.14*math.sin(angle))
+                b.raw([P(a,lo),P(c,lo),P(c,hi),P(a,hi)],conf,19+i%3,(0,0,1))
+            add_ridge_crest(b,'y',ap[0],ap[2],lo,hi,conf,19+i%3)
     # Folded copper terminal over the hip apex, meeting the first tile cap.
     for j in range(12):
         a,c=math.pi*j/12,math.pi*(j+1)/12

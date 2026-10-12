@@ -132,6 +132,9 @@ REPLACEABLE_BY = {
     "party_size_on_arrival": ("household", "a source that counts the party this household arrived in"),
     "lives_at": ("household", "a source that places this household at a named Chicago address"),
     "works_at": ("household", "a source that places this household's work at a named premises"),
+    # T-2295: the same two claims where no address resolves — the null link, under its own key.
+    "no_home": ("household", "a source that places this household at a named Chicago address"),
+    "no_workplace": ("household", "a source that places this household's work at a named premises"),
     "present_on_scene_date": ("household",
                               "a source that puts this household at Chicago on 1 July 1835, "
                               "or takes it away"),

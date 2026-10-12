@@ -33,18 +33,10 @@
   ],
   "note": "The clearest 'why' in the dataset: he did not choose Chicago, the War Department sent him. Gholson Kercheval, the sub-agent, ran the office until he got there."
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "note": "NOT ATTESTED. The agency establishment at the foot of State Street held the agency house (cobweb_castle) and the government blacksmith shop, but Andreas has Colonel Hamilton living in the agency house in the autumn of 1832, and nothing places Owen under any particular roof. Left null rather than guessed; a later parcel that fixes the agent's residence closes it."
- },
- "works_at": {
-  "value": "cobweb_castle",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "The Indian agency house is where the Indian agent's business was done: Owen's staff - Kercheval and James Stuart as sub-agents, Billy Caldwell as interpreter, David McKee as blacksmith and Joseph Porthier as striker - are the agency establishment, and the blacksmith shop this dataset holds stands beside this building. INFERRED, NOT DOCUMENTED: no source says Owen kept his office in this house on any date, and the agency's own buildings had already been lent to other uses by 1832."
  },
  "associated_with": [
   {
@@ -56,7 +48,10 @@
    "undated": true,
    "tier": "inferred",
    "source_id": "andreas_1884_v1",
-   "note": "The Indian agency house is where the Indian agent's business was done: Owen's staff - Kercheval and James Stuart as sub-agents, Billy Caldwell as interpreter, David McKee as blacksmith and Joseph Porthier as striker - are the agency establishment, and the blacksmith shop this dataset holds stands beside this building. INFERRED, NOT DOCUMENTED: no source says Owen kept his office in this house on any date, and the agency's own buildings had already been lent to other uses by 1832. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_owen_thomas_jv#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+   "note": "The Indian agency house is where the Indian agent's business was done: Owen's staff - Kercheval and James Stuart as sub-agents, Billy Caldwell as interpreter, David McKee as blacksmith and Joseph Porthier as striker - are the agency establishment, and the blacksmith shop this dataset holds stands beside this building. INFERRED, NOT DOCUMENTED: no source says Owen kept his office in this house on any date, and the agency's own buildings had already been lent to other uses by 1832. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_owen_thomas_jv#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
+   "basis": {
+    "note": "The Indian agency house is where the Indian agent's business was done: Owen's staff - Kercheval and James Stuart as sub-agents, Billy Caldwell as interpreter, David McKee as blacksmith and Joseph Porthier as striker - are the agency establishment, and the blacksmith shop this dataset holds stands beside this building. INFERRED, NOT DOCUMENTED: no source says Owen kept his office in this house on any date, and the agency's own buildings had already been lent to other uses by 1832."
+   }
   }
  ],
  "present_on_scene_date": {

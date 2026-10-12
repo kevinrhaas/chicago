@@ -16,6 +16,9 @@
  */
 import { readFileSync } from 'node:fs';
 import { RETIRED, holdToBase } from './changelog-history.mjs';
+// The budget is shared with the pending entry files a PR writes (changelog.d/), so a
+// file the fold accepts is never one this check would then refuse.
+import { LIMITS, CEILING } from './changelog-entries.mjs';
 
 const FILE = new URL('../renderers/web/js/changelog.js', import.meta.url);
 const problems = [];
@@ -187,8 +190,8 @@ if (Array.isArray(CHANGELOG) && CHANGELOG.length !== shape.entries.length) {
 // and are not retro-failed; the budget binds what is being added now. Warn at the
 // budget, fail at the ceiling, so a genuinely large release can run long by a
 // margin and a 984-word entry cannot.
-const LIMITS = { titleWords: 12, items: 6, words: 450 };
-const CEILING = 1.5;
+// LIMITS and CEILING are imported from changelog-entries.mjs: { titleWords: 12,
+// items: 6, words: 450 } and 1.5.
 // The budget binds what is written FROM HERE, not the 138 entries already
 // shipped. Retro-failing history would force a rewrite of entries visitors have
 // already read, which is worse than the verbosity. Raise this only when the

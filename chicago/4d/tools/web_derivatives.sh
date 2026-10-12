@@ -271,6 +271,9 @@ names = [n for n in produced.read_text().split() if n]
 masters = {}
 if only and record.exists():
     masters = json.loads(record.read_text()).get("masters", {})
+    # T-2314: a whole-town bake now derives through --only, so the merge also does
+    # what the whole rewrite did for a deleted asset and lets its entry go.
+    masters = {n: h for n, h in masters.items() if (pathlib.Path("assets/gltf") / n).exists()}
 for name in names:
     src = pathlib.Path("assets/gltf") / name
     masters[name] = hashlib.sha256(src.read_bytes()).hexdigest()
@@ -353,6 +356,10 @@ if [ -n "$resolved_cli" ]; then
   # Turning this on is part of W2 (docs/RENDERING.md), and the order is: wire
   # KTX2Loader + a vendored transcoder into the renderer FIRST, prove it loads a
   # textured asset, and only then set BAKE_KTX2=1 here.
+  # The same constraint binds human assets (T-1786): data/humans/contract.json
+  # § delivery refuses KHR_texture_basisu (and Draco, which has no loader either),
+  # and tools/human_contract.py --glb refuses an export that uses it. Lift both in
+  # the change that wires the loader, not before.
   # POSITION PRECISION IS PER-MESH, AND ONE MESH IN THIS TOWN IS 5 KM WIDE.
   #
   # `gltf-transform` quantises POSITION to a bit depth under ONE UNIFORM node

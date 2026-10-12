@@ -110,7 +110,10 @@ def outstanding_moves(book: dict, rule: dict) -> list[dict]:
 
 def end_state(book: dict, rule: dict) -> dict:
     """What every refused bucket holds once the programme has been spent in full."""
-    refusals = {b["bucket"]: b for b in book["recut_refusals"]}
+    # The person family only, as tools/model_refamily_rule.person_refusals reads it: a
+    # refused household bucket holds houses, and a house is not a person to re-family.
+    refusals = {b["bucket"]: b for b in book["recut_refusals"]
+                if b["bucket"].startswith("persons/")}
     out = Counter(m["from_bucket"] for m in outstanding_moves(book, rule))
     into = Counter(m["to_bucket"] for m in outstanding_moves(book, rule))
     for bucket in out:

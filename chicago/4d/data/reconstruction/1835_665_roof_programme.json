@@ -44,19 +44,18 @@
      "share": 0.56
     }
    },
-   "moved": [
-    {
-     "district": "south",
-     "blocks": 2,
-     "trade_roofs": 2,
-     "blocks_redealt": 2,
-     "quota": {
-      "blk_south_water_wells": 1,
-      "blk_south_water_market": 1
-     }
-    }
-   ],
+   "moved": [],
    "ticket": "T-0213"
+  },
+  "narrow_business_front": {
+   "what": "A lot the business-front clause frees — a documented store stands at the street on it alone — is free for the sizing only if the store leaves at least one party-line unit of face beside it: the platted lot's 24.384 m front over ROW_UNITS_PER_LOT. The face left is the lot's own span along the face less every footprint standing on the lot, with no margin taken, so a lot is refused only when even the generous reading is narrower than a unit. A refused lot is listed on its block as `narrow_front_lots`; the roofs the block can no longer take go back to the district's balance.",
+   "unit_m": 8.128,
+   "refused": {
+    "blk_south_water_wells": [
+     0
+    ]
+   },
+   "ticket": "T-2241"
   },
   "waterside": {
    "what": "A family whose own crosswalk record makes water access a precondition of the FORM is never dealt to a platted block. tools/generate_block_infill.py authors no coordinates outside a committed lot polygon inside four platted streets, and the wharf and landing ground lies outside that grid, so the roof would be deferred wherever it landed. Like the business front it is a permutation — the roof is exchanged for a dry principal roof of the same trade-ness on the district's own unbounded balance — so no total moves and no unit's roof count or principal/ancillary split changes.",
@@ -65,46 +64,38 @@
     "F3": "Landing apron and cargo-door arrangement must follow site access and cannot extend into water or duplicate a counted pier.",
     "W5": "A crane/derrick is rare and must not become a default; river access requires validated dry-bank terrain contact."
    },
-   "swapped": [
-    {
-     "family": "F3",
-     "from": "blk_south_water_wells",
-     "to": "south_plat_beyond_committed_control",
-     "for": "D2",
-     "same_trade": false
-    }
-   ],
+   "swapped": [],
    "held": [],
    "ticket": "T-0316"
   },
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 676,
+  "structure_records": 687,
   "physical_roofs": {
-   "min": 657,
-   "max": 658,
+   "min": 668,
+   "max": 669,
    "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
   },
   "by_source": {
-   "generated": 518,
+   "generated": 529,
    "inferred_household_programme": 7,
    "pre_existing": 101,
    "retired_household_roofs": 31
   },
   "by_district": {
-   "south": 354,
+   "south": 365,
    "west": 135,
    "north": 152,
    "fort": 16
   },
   "by_group": {
-   "ordinary_dwellings": 329,
-   "larger_boarding_houses": 40,
+   "ordinary_dwellings": 335,
+   "larger_boarding_houses": 42,
    "stores_mixed_use": 53,
    "inns_taverns": 10,
    "workshops": 31,
-   "warehouses_freight": 17,
+   "warehouses_freight": 20,
    "institutional_public": 9,
    "fort_principal": 10,
    "barns_stables": 73,
@@ -120,20 +111,20 @@
    "C2": 14,
    "C3": 16,
    "C4": 4,
-   "D1": 56,
-   "D2": 37,
+   "D1": 57,
+   "D2": 38,
    "D3": 65,
-   "D4": 73,
-   "D5": 51,
+   "D4": 75,
+   "D5": 53,
    "D6": 29,
    "D7": 18,
    "F1": 8,
    "F2": 7,
-   "F3": 1,
-   "F4": 1,
-   "H1": 18,
+   "F3": 3,
+   "F4": 2,
+   "H1": 19,
    "H2": 14,
-   "H3": 8,
+   "H3": 9,
    "I1": 4,
    "I2": 2,
    "I3": 3,
@@ -172,20 +163,16 @@
   ]
  },
  "remaining": {
-  "roofs": 11,
+  "roofs": 0,
   "of_target": 668,
   "by_district": {
-   "south": 11,
+   "south": 0,
    "west": 0,
    "north": 0,
    "fort": 0
   },
   "by_district_group": {
-   "south": {
-    "larger_boarding_houses": 2,
-    "ordinary_dwellings": 6,
-    "warehouses_freight": 3
-   },
+   "south": {},
    "west": {},
    "north": {},
    "fort": {}
@@ -198,44 +185,37 @@
    "A5": 0,
    "C1": 0,
    "C2": 0,
-   "C3": 1,
-   "C4": 1,
+   "C3": 0,
+   "C4": 0,
    "D1": 0,
-   "D2": 1,
+   "D2": 0,
    "D3": 0,
-   "D4": 1,
-   "D5": 1,
+   "D4": 0,
+   "D5": 0,
    "D6": 0,
    "D7": 0,
    "F1": 0,
    "F2": 0,
-   "F3": 1,
-   "F4": 1,
+   "F3": 0,
+   "F4": 0,
    "H1": 0,
    "H2": 0,
-   "H3": 1,
+   "H3": 0,
    "I1": 0,
    "I2": 0,
    "I3": 0,
    "M1": 0,
-   "T1": 1,
+   "T1": 0,
    "T2": 0,
    "T3": 0,
    "W1": 0,
-   "W2": 1,
-   "W3": 1,
+   "W2": 0,
+   "W3": 0,
    "W4": 0,
    "W5": 0
   },
   "by_district_family": {
-   "south": {
-    "H3": 2,
-    "D2": 2,
-    "D4": 2,
-    "D5": 2,
-    "F3": 2,
-    "F4": 1
-   },
+   "south": {},
    "west": {},
    "north": {},
    "fort": {}
@@ -243,27 +223,29 @@
   "family_targets_already_exceeded": {
    "C1": 1,
    "C2": 1,
-   "D1": 4,
+   "D1": 5,
+   "H1": 1,
    "T2": 3,
    "W5": 3
   },
   "absorbed_from": {
-   "D5": 6,
-   "T1": 2,
-   "D4": 1,
-   "F3": 1,
+   "D5": 5,
+   "T1": 3,
+   "W2": 2,
+   "C3": 1,
+   "C4": 1,
    "H3": 1,
-   "W2": 1
+   "W3": 1
   },
   "district_group_rows_overshot": {},
   "district_group_slots_shed": {}
  },
  "coverage": {
-  "schedulable_on_committed_ground": 6,
-  "gated_on_coverage": 5,
-  "statement": "6 of the 11 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 5 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
-  "platted_lots": 432,
-  "blocks_named": 89,
+  "schedulable_on_committed_ground": 0,
+  "gated_on_coverage": 0,
+  "statement": "0 of the 0 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 0 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "platted_lots": 480,
+  "blocks_named": 95,
   "southern_ground": {
    "field_south_edge_n_m": -3800.0,
    "madison_line_n_m_at_state": -525.2,
@@ -274,7 +256,9 @@
    "last_tier_lots": 48,
    "last_tier_area_ha": 6.31,
    "last_tier_ring_points_on_field": 24,
-   "last_tier_ring_points": 24
+   "last_tier_ring_points": 24,
+   "columns_carried_to_madison": 7,
+   "columns": 7
   },
   "northern_ground": {
    "field_north_edge_n_m": 1120.0,
@@ -327,22 +311,27 @@
    "lots": 8,
    "capacity_roofs": 31,
    "standing_roofs": 14,
-   "free_lots": 2,
-   "principal_room": 3,
-   "ancillary_room": 1,
-   "headroom": 4,
-   "state": "open",
-   "roofs": 3,
-   "families": {
-    "D2": 2,
-    "D4": 1
-   },
-   "principal": 3,
+   "free_lots": 1,
+   "principal_room": 0,
+   "ancillary_room": 0,
+   "headroom": 0,
+   "state": "at_capacity",
+   "narrow_front_lots": [
+    {
+     "lot_index": 0,
+     "holder": "h_jones_store",
+     "face": "north",
+     "face_m": 25.03,
+     "face_left_m": 7.46,
+     "unit_m": 8.128
+    }
+   ],
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
    "ancillary": 0,
-   "frontage_weight": 0.4764,
-   "trade_roofs": 0,
-   "lot_ceiling_principal": 1,
-   "row_lots_required": 1
+   "lot_ceiling_principal": 0,
+   "row_lots_required": 0
   },
   {
    "id": "blk_south_water_lasalle",
@@ -1977,24 +1966,29 @@
    },
    "lots": 4,
    "capacity_roofs": 16,
-   "standing_roofs": 3,
-   "free_lots": 2,
-   "principal_room": 3,
-   "ancillary_room": 1,
-   "headroom": 4,
-   "state": "open",
-   "roofs": 3,
-   "families": {
-    "D5": 1,
-    "F4": 1,
-    "H3": 1
+   "standing_roofs": 5,
+   "free_lots": 1,
+   "principal_room": 0,
+   "ancillary_room": 0,
+   "headroom": 0,
+   "state": "at_capacity",
+   "row_lot_grant": {
+    "lot_index": 1,
+    "plat_lot": 7,
+    "row_units": 2,
+    "families": [
+     "H3"
+    ],
+    "ticket": "T-2196",
+    "ruled": "2026-10-09",
+    "room": 0
    },
-   "principal": 3,
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
    "ancillary": 0,
-   "frontage_weight": 0.5182,
-   "trade_roofs": 1,
-   "lot_ceiling_principal": 1,
-   "row_lots_required": 1
+   "lot_ceiling_principal": 0,
+   "row_lots_required": 0
   },
   {
    "id": "blk_michigan_st_tract_west_north",
@@ -2421,6 +2415,9 @@
    "headroom": 0,
    "state": "at_capacity",
    "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "passes_groups": [
+    "warehouses_freight"
+   ],
    "roofs": 0,
    "families": {},
    "principal": 0,
@@ -2447,6 +2444,9 @@
    "headroom": 0,
    "state": "at_capacity",
    "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "passes_groups": [
+    "warehouses_freight"
+   ],
    "roofs": 0,
    "families": {},
    "principal": 0,
@@ -2473,6 +2473,9 @@
    "headroom": 0,
    "state": "at_capacity",
    "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "passes_groups": [
+    "warehouses_freight"
+   ],
    "roofs": 0,
    "families": {},
    "principal": 0,
@@ -2499,6 +2502,9 @@
    "headroom": 0,
    "state": "at_capacity",
    "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "passes_groups": [
+    "warehouses_freight"
+   ],
    "roofs": 0,
    "families": {},
    "principal": 0,
@@ -2525,11 +2531,188 @@
    "headroom": 0,
    "state": "at_capacity",
    "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "passes_groups": [
+    "warehouses_freight"
+   ],
    "roofs": 0,
    "families": {},
    "principal": 0,
    "ancillary": 0,
    "lot_ceiling_principal": 0,
+   "row_lots_required": 0
+  },
+  {
+   "id": "blk_school_section_tier_82",
+   "kind": "platted_block",
+   "district": "south",
+   "bounded_by": {
+    "north": "monroe",
+    "south": "adams",
+    "west": "market_school_section",
+    "east": "school_section_line_8"
+   },
+   "lots": 8,
+   "capacity_roofs": 10,
+   "standing_roofs": 6,
+   "free_lots": 2,
+   "principal_room": 1,
+   "ancillary_room": 0,
+   "headroom": 1,
+   "state": "open",
+   "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "passes_groups": [
+    "warehouses_freight"
+   ],
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
+   "ancillary": 0,
+   "lot_ceiling_principal": 1,
+   "row_lots_required": 0
+  },
+  {
+   "id": "blk_school_section_tier_93",
+   "kind": "platted_block",
+   "district": "south",
+   "bounded_by": {
+    "north": "monroe",
+    "south": "adams",
+    "west": "school_section_line_8",
+    "east": "wells_school_section"
+   },
+   "lots": 8,
+   "capacity_roofs": 10,
+   "standing_roofs": 0,
+   "free_lots": 8,
+   "principal_room": 7,
+   "ancillary_room": 2,
+   "headroom": 9,
+   "state": "open",
+   "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "passes_groups": [
+    "warehouses_freight"
+   ],
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
+   "ancillary": 0,
+   "lot_ceiling_principal": 7,
+   "row_lots_required": 0
+  },
+  {
+   "id": "blk_school_section_tier_96",
+   "kind": "platted_block",
+   "district": "south",
+   "bounded_by": {
+    "north": "monroe",
+    "south": "adams",
+    "west": "wells_school_section",
+    "east": "school_section_line_10"
+   },
+   "lots": 8,
+   "capacity_roofs": 10,
+   "standing_roofs": 0,
+   "free_lots": 8,
+   "principal_room": 7,
+   "ancillary_room": 2,
+   "headroom": 9,
+   "state": "open",
+   "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "passes_groups": [
+    "warehouses_freight"
+   ],
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
+   "ancillary": 0,
+   "lot_ceiling_principal": 7,
+   "row_lots_required": 0
+  },
+  {
+   "id": "blk_school_section_tier_117",
+   "kind": "platted_block",
+   "district": "south",
+   "bounded_by": {
+    "north": "monroe",
+    "south": "adams",
+    "west": "school_section_line_10",
+    "east": "clark_school_section"
+   },
+   "lots": 8,
+   "capacity_roofs": 10,
+   "standing_roofs": 1,
+   "free_lots": 7,
+   "principal_room": 6,
+   "ancillary_room": 2,
+   "headroom": 8,
+   "state": "open",
+   "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "passes_groups": [
+    "warehouses_freight"
+   ],
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
+   "ancillary": 0,
+   "lot_ceiling_principal": 6,
+   "row_lots_required": 0
+  },
+  {
+   "id": "blk_school_section_tier_120",
+   "kind": "platted_block",
+   "district": "south",
+   "bounded_by": {
+    "north": "monroe",
+    "south": "adams",
+    "west": "clark_school_section",
+    "east": "school_section_line_12"
+   },
+   "lots": 8,
+   "capacity_roofs": 10,
+   "standing_roofs": 0,
+   "free_lots": 8,
+   "principal_room": 7,
+   "ancillary_room": 2,
+   "headroom": 9,
+   "state": "open",
+   "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "passes_groups": [
+    "warehouses_freight"
+   ],
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
+   "ancillary": 0,
+   "lot_ceiling_principal": 7,
+   "row_lots_required": 0
+  },
+  {
+   "id": "blk_school_section_tier_141",
+   "kind": "platted_block",
+   "district": "south",
+   "bounded_by": {
+    "north": "monroe",
+    "south": "adams",
+    "west": "school_section_line_12",
+    "east": "state_school_section"
+   },
+   "lots": 8,
+   "capacity_roofs": 10,
+   "standing_roofs": 0,
+   "free_lots": 8,
+   "principal_room": 7,
+   "ancillary_room": 2,
+   "headroom": 9,
+   "state": "open",
+   "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "passes_groups": [
+    "warehouses_freight"
+   ],
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
+   "ancillary": 0,
+   "lot_ceiling_principal": 7,
    "row_lots_required": 0
   },
   {
@@ -2577,19 +2760,15 @@
    "id": "south_plat_beyond_committed_control",
    "kind": "district_balance",
    "district": "south",
-   "capacity_roofs": 5,
+   "capacity_roofs": 0,
    "standing_roofs": 0,
-   "headroom": 5,
-   "state": "gated",
-   "waiting_on": "STREET CONTROL — the S9 line ROADMAP has recorded as owed since before this schedule was written — and, for the first time, nothing else. THE TERRAIN IS NO LONGER THE BLOCKER: T-0219 carried the heightfield south to local N -3800.0 m, 3274.8 m past Madison Street's line at State, and the plat's last tier — 6 blocks and 48 lots between Market and State, 6.31 ha — now stands on modelled ground at all 24 of its 24 block-boundary points. Washington Street's platted corridor is fully on the field (0.00 ha off it, against 0.33 ha before), and south of that corridor the field holds 697.3569 ha of land above the water surface, 438.1181 ha of it in the South Division — where the same measurement returned 0.0000 ha before. What is left is the control itself: the plat's north-south columns still end at local N -519, -519, -519, -519, -519, -519, -519, the OLD south edge of the field, because they were cut where the ground used to stop. Carrying them to Madison is street work on ground that is now under them, and tools/generate_block_infill.py will accept what it emits. Ground east of State is still not coming at any date — it is the United States Reservation (T-E2). Measured by tools/measure_southern_ground.py.",
-   "roofs": 5,
-   "families": {
-    "D4": 1,
-    "D5": 1,
-    "F3": 2,
-    "H3": 1
-   },
-   "principal": 5,
+   "headroom": 0,
+   "state": "complete",
+   "waiting_on": "NOTHING, AND THAT IS A CHANGE OF KIND RATHER THAN OF DEGREE. This unit held 0 roofs waiting on street control; the control is carried and the ground it opened is named block by block. The district's named ground now holds 45 roofs of headroom against 0 left to build — a surplus of 45 — so nothing in this district is beyond committed control any more and this unit holds nothing. What limits the district from here is its own remainder, not its ground: the named blocks are where the next parcel builds, and a block's `capacity_roofs` is a ceiling rather than a claim on the remainder.",
+   "surplus_headroom": 45,
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
    "ancillary": 0
   },
   {

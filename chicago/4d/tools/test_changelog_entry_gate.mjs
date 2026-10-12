@@ -31,6 +31,8 @@
  *   6. and the BASELINES beside the smoke register are NOT exempt — a moved
  *      baseline is a claim about the town, and only the record of having run a test
  *      is exempt. That is the widening this test exists to refuse.
+ *   8. a NEW file under changelog.d/ is the entry (2026-10-10), and editing some
+ *      other file there is not.
  *
  * Every case runs the real tool against a real git repository built in a sandbox,
  * because the tool's whole input is `git diff` and `git log` over a commit range —
@@ -165,6 +167,28 @@ const box = () => { const s = sandbox(); boxes.push(s.root); return s; };
   check('readings filed BESIDE a real change do not excuse the entry', r.code !== 0, `exit ${r.code}`);
   check('…and only the real file is named', /town\.json/.test(r.out)
     && !/dev-smoke-state/.test(r.out));
+}
+
+/* 8. THE ENTRY AS ITS OWN FILE (2026-10-10). A PR adds changelog.d/<name>.json and
+ *    never touches changelog.js, so siblings stop conflicting on its top line. */
+{
+  const r = ask(box(), {
+    'chicago/4d/data/town.json': '{"roofs": 2}\n',
+    'chicago/4d/changelog.d/T-0001-roof.json': '{"title": "A roof moves", "kind": "fix", "items": ["One."]}\n',
+  }, 'move a roof and add its entry file');
+  check('a real change WITH an entry file under changelog.d/ passes', r.code === 0,
+    r.out.trim().split('\n')[0]);
+  check('…and the gate names the file it took as the entry', /T-0001-roof\.json/.test(r.out));
+}
+{
+  const s = box();
+  ask(s, { 'chicago/4d/changelog.d/README.md': '# entries\n' }, 'the directory exists');
+  s.base = git(s.root, 'rev-parse', 'HEAD').stdout.trim();
+  const r = ask(s, {
+    'chicago/4d/data/town.json': '{"roofs": 2}\n',
+    'chicago/4d/changelog.d/README.md': '# entries, reworded\n',
+  }, 'move a roof and only reword the README');
+  check('editing a non-entry file under changelog.d/ is NOT an entry', r.code !== 0, `exit ${r.code}`);
 }
 
 for (const b of boxes) rmSync(b, { recursive: true, force: true });

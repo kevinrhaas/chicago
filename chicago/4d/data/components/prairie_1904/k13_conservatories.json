@@ -1,0 +1,98 @@
+{
+  "id": "prairie_1904_k13_conservatories",
+  "title": "Conservatory and greenhouse assemblies for the Prairie Avenue 1904 programme (package K13, the kit)",
+  "ticket": "T-2305",
+  "parent": "T-1855",
+  "programme": "T-1837",
+  "contract": "data/components/prairie_1904/k01_contract.json",
+  "k04": "data/components/prairie_1904/k04_roofs.json",
+  "generator": "generators/archetypes/k13_conservatories.py",
+  "specimen": "docs/RESEARCH/k13-conservatory-kit/k13_conservatory_kit.glb",
+  "status": "Declared and generated, not yet built to. No house in the scene has a conservatory from this kit today; T-2306 builds the first, a Pullman service-garden bay, from this file and this generator.",
+  "rule": "A glasshouse is a frame that carries glass, and the frame is what a visitor reads: three tiers of member, each wider and standing further proud of the glass than the one below it, so the posts and ribs read first, the plates that tie them second and the glazing bars last. The glass is ONE convex envelope per house, single-sided and facing out, so a line of sight from outside enters through one pane and every pane it would leave by faces away from it and is not drawn: there is never a second transparency to sort. Glazing that would break the envelope (a lantern stepped up off the roof) takes the opaque glass substitute instead. Inside stands a restrained, opaque planting on staging, never a plant scene. The glass never reaches the ground: it stands on a brick plinth, and every eave sheds into a K04 gutter whose outlet leads to a pipe that ends at grade. The sizes are data here and the generator reads them; tools/check_conservatory_kit.py rebuilds every variant and holds the built geometry to this file.",
+  "tiers": {
+    "_doc": "Member sections in metres. width_m is the face across the member; proud_m how far it stands out of the glass plane; inner_m how far it runs in behind it. A member BETWEEN two panels (a corner post, an eave plate, a ridge, a hip, a verge) is built once on the edge with faces parallel to both panels at half its width, edge_half_m. The check holds each tier wider and prouder than the next.",
+    "primary": {"members": ["post", "rafter", "rib", "corner", "hip", "jamb"], "width_m": 0.07, "proud_m": 0.05, "inner_m": 0.07, "edge_half_m": 0.04, "confidence": "reconstructed", "note": "Posts and rafters at every bay, the curved ribs of a curvilinear roof, corner posts, hips and the door's jambs: a 2 3/4 in timber or a rolled-iron tee cased to the same face. Where a post meets the rafter above it, or two rafters or two ribs meet across a ridge or a facet joint, the pair is mitred on the plane that bisects the two panels, as a joiner would cut it, so neither runs through the other."},
+    "secondary": {"members": ["sill_plate", "eave_plate", "ridge", "verge", "wall_plate", "transom", "door_head", "lock_rail"], "width_m": 0.055, "proud_m": 0.035, "inner_m": 0.038, "edge_half_m": 0.03, "verge_half_m": 0.026, "confidence": "reconstructed", "note": "The plates that tie the bays: the sill plate on the plinth's coping, the eave plate, the ridge, the verges, the wall plate against the house, the transom at a lantern's curb and the door's head and lock rail. A verge is cased a little slighter than the eave plate it meets (verge_half_m), so where the two cross at a corner their faces on the roof never share a plane. A plate runs in behind the glass no deeper than the corner post's half width, so two plates never cross inside a corner; two plates of a kind that meet (the verges at a gable's apex, a curvilinear verge's segments, a bay's eaves) are mitred."},
+    "tertiary": {"members": ["bar"], "width_m": 0.025, "proud_m": 0.02, "inner_m": 0.032, "confidence": "reconstructed", "note": "The glazing bar, a 1 in moulded bar rebated for the glass, running one way only (up the wall, down the roof) so no two bars of one tier cross in one plane. The laps between the panes along a bar are not drawn."}
+  },
+  "glass": {
+    "pane_width_m": {"max": 0.4, "min": 0.2},
+    "base_color": [0.06, 0.08, 0.085], "alpha": 0.22, "roughness": 0.04, "metallic": 0.0, "alpha_mode": "BLEND", "double_sided": false,
+    "confidence": "reconstructed",
+    "note": "Panes of 8 to 16 in between bars, the bars dividing each bay evenly. Drawn as one thin transparent layer, single-sided and facing out, its low alpha letting the frame and the planting read through it and its low roughness taking the sky. Horticultural glass's green tint and its lapped joints are not modelled."
+  },
+  "substitute": {
+    "base_color": [0.15, 0.19, 0.21], "roughness": 0.1, "metallic": 0.0,
+    "confidence": "reconstructed",
+    "note": "The low-detail glass substitute: an opaque dark glazing that takes the sky's reflection and lets nothing through. It glazes what would put a second transparent envelope on one line of sight (a lantern standing up off the main roof), and it is what a light tier swaps for every pane."
+  },
+  "plinth": {
+    "height_m": 0.6, "range_m": [0.45, 0.9], "out_m": 0.06, "in_m": 0.16,
+    "coping": {"thickness_m": 0.06, "out_m": 0.09, "in_m": 0.18},
+    "confidence": "reconstructed",
+    "rule_source": "RECONSTRUCTION-RULES.md section Starting ranges: Solid exterior wall / reveal (masonry 0.23-0.45 m)",
+    "note": "A 9 in brick dwarf wall, two feet high, under a stone coping that weathers out past both faces. The glass stands on its sill plate on the coping: no pane reaches the ground."
+  },
+  "door": {
+    "width_m": 0.8, "height_m": 2.05, "lock_rail_m": 0.9, "floor_m": 0.03,
+    "confidence": "reconstructed",
+    "note": "A half-glazed door between two jambs: a solid bottom panel to the lock rail, two lights over it divided by a bar, a head, and the bar carried up through the light over the head. The plinth stops at the jambs and the tiled floor runs to the sill."
+  },
+  "ridge_vent": {
+    "width_m": 0.24, "height_m": 0.16, "louvres": 3, "end_inset_m": 0.3, "cap_overhang_m": 0.03, "cap_rise_m": 0.05,
+    "confidence": "reconstructed",
+    "note": "A louvred ventilator along the ridge: three blades a side over a dark baffle, a pitched cap, closed ends. Top-hung vent lights in the glazing were as usual; the louvred ridge is chosen because it stays outside the glass envelope."
+  },
+  "lantern": {
+    "width_m": 1.1, "glazing": "substitute", "height_m": 0.5, "pitch_deg": 30,
+    "confidence": "reconstructed",
+    "note": "A raised clerestory on a span roof's ridge, its sides and roof glazed with the opaque substitute (it stands outside the main roof's convex envelope, so transparent glass there would put two layers on one line of sight). Its eaves shed onto the main roof; it has no gutter of its own."
+  },
+  "curve": {
+    "facets": 8, "max_sag_m": 0.02,
+    "confidence": "reconstructed",
+    "note": "A curvilinear roof is a quarter-ellipse from the eave, where it leaves the upright front tangent to it, to the wall plate. Its glass is planar facets between the curve's points, the ribs pass through every point, and the chord may not fall more than max_sag_m inside the true curve."
+  },
+  "staging": {
+    "bench": {"height_m": 0.8, "depth_m": 0.55, "clear_m": 0.14, "end_inset_m": 0.3},
+    "pot_plants": {"spacing_m": 0.42, "height_m": [0.18, 0.55], "radius_m": [0.13, 0.2]},
+    "border": {"spacing_m": 0.55, "height_m": [0.7, 1.5], "radius_m": [0.18, 0.28], "from_wall_m": 0.35},
+    "clear_of_glass_m": 0.08, "below_eave_m": 0.25, "max_triangles": 420,
+    "confidence": "reconstructed",
+    "note": "The restrained planting the K13 entry asks for: a staging bench along the glass with a row of low pot-plant masses on it, and in a lean-to a taller border against the house wall. Each mass is a six-sided frustum seeded per position, opaque and dark green; none reaches the glass or rises within a quarter metre of the eave. It is backing, not a plant scene."
+  },
+  "rainwater": {
+    "_doc": "K04's profiles (data/components/prairie_1904/k04_roofs.json `profiles.gutter` and `profiles.downpipe`), read by the generator: a half-round gutter on every eave, falling to an outlet, a round pipe from the outlet with a swan neck where the plinth's coping stands in its way, and a shoe kicked out over grade.",
+    "gutter_kind": "half_round", "pipe_kind": "round", "end_at": "grade_with_splash_stone",
+    "outlet_inset_m": 0.12, "end_trim_m": 0.06,
+    "confidence": "reconstructed"
+  },
+  "costs": {
+    "_doc": "Triangle budget per house, as built (the board's wall and ground excluded). A house over its budget is refused.",
+    "max_triangles": 3000
+  },
+  "_variants_doc": "form: lean_to, span, span_lantern, curvilinear_lean_to or canted_bay. Lengths in metres, x along the front, z out from the house wall (a lean-to or bay) or across the house (a span), y up. bays sets the posts and rafters (each a primary at an even fraction of its panel's base). door names the wall it stands in. gutters lists the eaves that shed, each with its outlet end.",
+  "variants": [
+    {"id": "k13.house.lean_to", "form": "lean_to", "length_m": 3.6, "depth_m": 2.2, "eave_m": 2.3, "pitch_deg": 30, "bays": 3,
+     "door": {"wall": "end_right", "at": 0.5}, "gutters": [{"eave": "front", "outlet": "left"}], "ridge_vent": false,
+     "planting": ["bench_front", "border_back"],
+     "confidence": "reconstructed", "note": "The commonest form: a single-pitch lean-to against the house's rear or side wall, three bays, a door in its end. The service-garden conservatory the building register gives several houses."},
+    {"id": "k13.house.span", "form": "span", "length_m": 4.8, "width_m": 3.6, "eave_m": 2.2, "pitch_deg": 35, "bays": 4,
+     "door": {"wall": "end_left", "at": 0.5}, "gutters": [{"eave": "front", "outlet": "right"}, {"eave": "back", "outlet": "right"}], "ridge_vent": true,
+     "planting": ["bench_front", "bench_back"],
+     "confidence": "reconstructed", "note": "A free-standing span-roofed glasshouse, four bays, a louvred ridge ventilator, a door in its gable end: the greenhouse of a garden or a service yard."},
+    {"id": "k13.house.span_lantern", "form": "span_lantern", "length_m": 4.8, "width_m": 4.2, "eave_m": 2.2, "pitch_deg": 30, "bays": 4,
+     "door": {"wall": "end_right", "at": 0.5}, "gutters": [{"eave": "front", "outlet": "left"}, {"eave": "back", "outlet": "left"}], "ridge_vent": true,
+     "planting": ["bench_front", "bench_back"],
+     "confidence": "reconstructed", "note": "A span house with a raised lantern on its ridge, the lantern glazed with the opaque substitute and ventilated at its own ridge: the larger conservatory's clerestory."},
+    {"id": "k13.house.curvilinear_lean_to", "form": "curvilinear_lean_to", "length_m": 3.6, "depth_m": 2.0, "eave_m": 2.0, "rise_m": 1.4, "bays": 3,
+     "door": {"wall": "end_left", "at": 0.5}, "gutters": [{"eave": "front", "outlet": "right"}], "ridge_vent": false,
+     "planting": ["bench_front", "border_back"],
+     "confidence": "reconstructed", "note": "A curvilinear lean-to: the roof a quarter-ellipse on curved ribs from the eave to the wall, glazed in planar facets. The curved roof of the K13 entry."},
+    {"id": "k13.bay.canted", "form": "canted_bay", "face_m": 2.4, "depth_m": 1.6, "eave_m": 2.4, "wall_top_m": 3.4, "bays": 2,
+     "door": null, "gutters": [{"eave": "front", "outlet": "both"}], "ridge_vent": false,
+     "planting": ["bench_front"],
+     "confidence": "reconstructed", "note": "A canted conservatory bay against the house: a glazed face and two canted sides at 45 degrees on a plinth, under a hipped glass roof rising to the wall. Entered from the house, so it has no door of its own: the 'conservatory bay' the building register gives the Field house."}
+  ]
+}

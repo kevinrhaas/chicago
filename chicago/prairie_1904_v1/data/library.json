@@ -9,7 +9,7 @@
     "endpoint_reason": "1911 is the supplied Sanborn survey endpoint; later demolition dates remain in histories. It is not asserted to be the first year of decline.",
     "month_day": null,
     "counts": {
-      "buildings": 62,
+      "buildings": 63,
       "sources": 110,
       "maps": 11,
       "measurements": 34,
@@ -3250,6 +3250,60 @@
       ],
       "excluded_1904": false,
       "measurements": []
+    },
+    {
+      "id": "pa-1945-armour-corwith",
+      "address": "1945 S. Prairie Avenue",
+      "name": "George Armour / Corwith residence",
+      "construction": "1872",
+      "demolition": "1931",
+      "architect": "Treat & Foltz",
+      "notes": "Built for George Armour, grain elevator owner; after a long Corwith ownership razed in 1931 (Glessner House, reading the 1887 Ward Bros. view, where it stands at far right). Minted by the sheet 28 census (T-1841). | 1904 Blue Book candidate: Mrs. Henry Corwith; Charles R. Corwith. OCR-derived, selected names only; page verification pending.",
+      "target1904": "inferred present",
+      "scope": "core",
+      "occupancy1904": null,
+      "geometry_status": "unmeasured; 1911 sheet 28 draws a three-storey brick house with a rear two-storey range and a detached two-storey stable",
+      "confidence": "source-backed identification; 1904 existence inferred from lifespan (1872-1931) and the 1911 map",
+      "source_ids": [
+        "G23",
+        "civic-bluebook-1904",
+        "MAP-1911-28"
+      ],
+      "built_year": 1872,
+      "demolished_year": 1931,
+      "status_1904": "inferred present",
+      "events": [
+        {
+          "type": "construction",
+          "date_text": "1872",
+          "source_ids": [
+            "G23"
+          ],
+          "confidence": "reported; preserve ranges/conflicts"
+        },
+        {
+          "type": "loss",
+          "date_text": "1931",
+          "source_ids": [
+            "G23"
+          ],
+          "confidence": "reported; preserve ranges/conflicts"
+        }
+      ],
+      "directory_candidates": [
+        {
+          "address": 1945,
+          "street": "Prairie Avenue",
+          "year_label": 1904,
+          "source_id": "civic-bluebook-1904",
+          "source_locator": "printed pp.186–187; PDF pp.188–189",
+          "listed_people": "Mrs. Henry Corwith; Charles R. Corwith",
+          "verification": "OCR-derived factual candidate; visual source-page check pending",
+          "limits": "Selected names only; does not establish complete household, ownership, vacancy or building geometry."
+        }
+      ],
+      "excluded_1904": false,
+      "measurements": []
     }
   ],
   "sources": [
@@ -6450,7 +6504,7 @@
         "source_id": "MAP-1911-20"
       },
       {
-        "address": "1603",
+        "address": "1605",
         "street": "South Prairie Avenue",
         "side": "east",
         "sheet": "20",
@@ -6460,7 +6514,7 @@
         "raw_story_basement_notation": "2",
         "map_material_interpretation": "frame",
         "map_use_label": "Illinois Central R.R. 16th St. Station",
-        "notes": "1911 station use.",
+        "notes": "1911 station use. The sheet prints 1605; transcribed 1603 until the sheet 20 census re-read it (T-1840).",
         "dimensions_ft": null,
         "footprint_digitized": false,
         "id": "frontage-20-023",
@@ -6637,7 +6691,7 @@
         "source_id": "MAP-1911-20"
       },
       {
-        "address": "1719",
+        "address": "1721",
         "street": "South Prairie Avenue",
         "side": "east",
         "sheet": "20",
@@ -6647,7 +6701,7 @@
         "raw_story_basement_notation": "3B; rear2B",
         "map_material_interpretation": "brick",
         "map_use_label": "D",
-        "notes": "Two curved Prairie-facing bays; rear garage2B.",
+        "notes": "Two curved Prairie-facing bays; rear garage2B. The sheet prints 1721; transcribed 1719 until the sheet 20 census re-read it (T-1840). The same property as the named Dexter record at 1721.",
         "dimensions_ft": null,
         "footprint_digitized": false,
         "id": "frontage-20-034",
@@ -6858,7 +6912,7 @@
         "source_id": "MAP-1911-28"
       },
       {
-        "address": "1916 (1930)",
+        "address": "1918 (1936)",
         "street": "South Prairie Avenue",
         "side": "west",
         "sheet": "28",
@@ -6868,7 +6922,7 @@
         "raw_story_basement_notation": "2½S.B.; bay4B; rear2B",
         "map_material_interpretation": "brick",
         "map_use_label": "D",
-        "notes": "Stacked address label appears1916 with parenthetical1930; requires directory resolution. Do not count as two proven separate houses.",
+        "notes": "Stacked address label reads 1918 over (1936) (re-read 2026-10-09, T-1841; first transcribed as 1916 (1930)). The drawn house carries the 1936 number: the Thompson/Allerton house, razed 1915 (sheet census ruling r28-allerton).",
         "dimensions_ft": null,
         "footprint_digitized": false,
         "id": "frontage-28-047",
@@ -7225,7 +7279,7 @@
         "raw_story_basement_notation": "2",
         "map_material_interpretation": "brick",
         "map_use_label": "Dress Making",
-        "notes": "1911 commercial use only; rear Electric Motor Repairing label.",
+        "notes": "1911 commercial use only; rear building lettered VACANT 1ST / DRESS MAKING 2ND (re-read 2026-10-09, T-1842; first transcribed as an Electric Motor Repairing label).",
         "dimensions_ft": null,
         "footprint_digitized": false,
         "id": "frontage-35-068",
@@ -8573,12 +8627,12 @@
     },
     {
       "frontage_id": "frontage-20-023",
-      "map_address": "1603",
+      "map_address": "1605",
       "map_source_id": "MAP-1911-20",
       "candidate_building_ids": [],
       "directory_candidate_addresses": [],
       "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "note": "The sheet prints 1605; transcribed 1603 until the sheet 20 census re-read it (T-1840). Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
     },
     {
       "frontage_id": "frontage-20-024",
@@ -8693,12 +8747,16 @@
     },
     {
       "frontage_id": "frontage-20-034",
-      "map_address": "1719",
+      "map_address": "1721",
       "map_source_id": "MAP-1911-20",
-      "candidate_building_ids": [],
-      "directory_candidate_addresses": [],
+      "candidate_building_ids": [
+        "pa-1721-4"
+      ],
+      "directory_candidate_addresses": [
+        1721
+      ],
       "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "note": "The sheet prints 1721; transcribed 1719 until the sheet 20 census re-read it (T-1840). The same property as the named Dexter record at 1721. Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
     },
     {
       "frontage_id": "frontage-20-035",
@@ -8723,8 +8781,8 @@
       "directory_candidate_addresses": [
         1800
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1800-front — front, standing (attested); s28-1800-wing — attached wing, standing (inferred)."
     },
     {
       "frontage_id": "frontage-28-037",
@@ -8736,8 +8794,8 @@
       "directory_candidate_addresses": [
         1808
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1808-front — front, standing (inferred); s28-1808-wing — attached wing, standing (inferred)."
     },
     {
       "frontage_id": "frontage-28-038",
@@ -8749,8 +8807,8 @@
       "directory_candidate_addresses": [
         1812
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1812-front — front, standing (inferred); s28-1812-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-28-039",
@@ -8762,8 +8820,8 @@
       "directory_candidate_addresses": [
         1816
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1816-front — front, standing (inferred); s28-1816-wing — attached wing, standing (inferred); s28-1816-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-28-040",
@@ -8775,8 +8833,8 @@
       "directory_candidate_addresses": [
         1824
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1824-front — front, standing (inferred); s28-1824-wing — attached wing, standing (inferred); s28-1824-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-28-041",
@@ -8786,8 +8844,8 @@
       "directory_candidate_addresses": [
         1828
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 28 census (T-1841): s28-1828-front — front, standing (reconstructed); s28-1828-wing — attached wing, standing (reconstructed); s28-1828-rear — detached service, standing as stable/coach house (reconstructed)."
     },
     {
       "frontage_id": "frontage-28-042",
@@ -8799,8 +8857,8 @@
       "directory_candidate_addresses": [
         1834
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1834-front — front, standing (inferred); s28-1834-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-28-043",
@@ -8812,8 +8870,8 @@
       "directory_candidate_addresses": [
         1900
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1900-front — front, standing (inferred); s28-1900-wing — attached wing, standing (inferred); s28-1900-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-28-044",
@@ -8825,17 +8883,19 @@
       "directory_candidate_addresses": [
         1906
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1906-front — front, standing (inferred); s28-1906-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-28-045",
       "map_address": "1908",
       "map_source_id": "MAP-1911-28",
-      "candidate_building_ids": [],
+      "candidate_building_ids": [
+        "pa-1906-34"
+      ],
       "directory_candidate_addresses": [],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1908-wing — attached wing, standing (inferred)."
     },
     {
       "frontage_id": "frontage-28-046",
@@ -8847,17 +8907,19 @@
       "directory_candidate_addresses": [
         1912
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1912-front — front, standing (inferred); s28-1912-wing — attached wing, standing (inferred); s28-1912-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-28-047",
-      "map_address": "1916 (1930)",
+      "map_address": "1918 (1936)",
       "map_source_id": "MAP-1911-28",
-      "candidate_building_ids": [],
+      "candidate_building_ids": [
+        "pa-1936-11"
+      ],
       "directory_candidate_addresses": [],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1918-front — front, standing (inferred); s28-1936-wing — attached wing, standing (inferred); s28-1936-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-28-048",
@@ -8869,8 +8931,8 @@
       "directory_candidate_addresses": [
         1936
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1936-grounds — grounds, open grounds of the Allerton house (inferred)."
     },
     {
       "frontage_id": "frontage-28-049",
@@ -8882,8 +8944,8 @@
       "directory_candidate_addresses": [
         1801
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1801-front — front, standing (inferred); s28-1801-wing — attached wing, standing (inferred)."
     },
     {
       "frontage_id": "frontage-28-050",
@@ -8893,8 +8955,8 @@
         "pa-1811-24"
       ],
       "directory_candidate_addresses": [],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1811-front — front, standing (inferred); s28-1811-wing — attached wing, standing (inferred); s28-1811-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-28-051",
@@ -8906,8 +8968,8 @@
       "directory_candidate_addresses": [
         1815
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1815-front — front, standing (inferred); s28-1815-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-28-052",
@@ -8919,8 +8981,8 @@
       "directory_candidate_addresses": [
         1823
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1823-front — front, standing (inferred); s28-1823-wing — attached wing, standing (inferred)."
     },
     {
       "frontage_id": "frontage-28-053",
@@ -8930,8 +8992,8 @@
         "pa-1827-14"
       ],
       "directory_candidate_addresses": [],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1827-front — front, standing (inferred); s28-1827-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-28-054",
@@ -8943,8 +9005,8 @@
       "directory_candidate_addresses": [
         1901
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1901-front — front, standing (inferred); s28-1901-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-28-055",
@@ -8956,8 +9018,8 @@
       "directory_candidate_addresses": [
         1905
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1905-front — front, standing (inferred); s28-1905-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-28-056",
@@ -8969,8 +9031,8 @@
       "directory_candidate_addresses": [
         1919
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1919-front — front, standing (inferred); s28-1919-wing — attached wing, standing (inferred)."
     },
     {
       "frontage_id": "frontage-28-057",
@@ -8982,19 +9044,21 @@
       "directory_candidate_addresses": [
         1923
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1923-front — front, standing (inferred); s28-1923-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-28-058",
       "map_address": "1945",
       "map_source_id": "MAP-1911-28",
-      "candidate_building_ids": [],
+      "candidate_building_ids": [
+        "pa-1945-armour-corwith"
+      ],
       "directory_candidate_addresses": [
         1945
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 28 census (T-1841): s28-1945-front — front, standing (inferred); s28-1945-wing — attached wing, standing (inferred); s28-1945-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-059",
@@ -9004,8 +9068,8 @@
       "directory_candidate_addresses": [
         2000
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): s35-2000-front — front, standing (inferred); s35-2000-wing — attached wing, standing (inferred); s35-2000-rear — detached service, standing (inferred)."
     },
     {
       "frontage_id": "frontage-35-060",
@@ -9015,8 +9079,8 @@
       "directory_candidate_addresses": [
         2010
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): s35-2010-front — front, standing (inferred); s35-2010-wing — attached wing, standing (inferred); s35-2010-rear — detached service, standing (inferred)."
     },
     {
       "frontage_id": "frontage-35-061",
@@ -9026,8 +9090,8 @@
       "directory_candidate_addresses": [
         2018
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): s35-2018-front — front, standing (inferred); s35-2018-wing — attached wing, standing (inferred); s35-2018-rear — detached service, standing (inferred)."
     },
     {
       "frontage_id": "frontage-35-062",
@@ -9037,8 +9101,8 @@
       "directory_candidate_addresses": [
         2026
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): s35-2026-front — front, standing (inferred); s35-2026-wing — attached wing, standing (inferred); s35-2026-rear — detached service, standing (inferred); s35-2026-ground — grounds, open ground (inferred)."
     },
     {
       "frontage_id": "frontage-35-063",
@@ -9050,8 +9114,8 @@
       "directory_candidate_addresses": [
         2036
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2036-front — front, standing (inferred); s35-2036-rear — detached service, standing (inferred); s35-2036-walls — grounds, boundary walls (inferred)."
     },
     {
       "frontage_id": "frontage-35-064",
@@ -9061,8 +9125,8 @@
         "pa-2100-18"
       ],
       "directory_candidate_addresses": [],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2100-front — front, standing (inferred); s35-2100-wing — attached wing, standing (inferred); s35-2100-rear — detached service, standing (inferred); s35-2100-walls — grounds, boundary walls (inferred)."
     },
     {
       "frontage_id": "frontage-35-065",
@@ -9072,8 +9136,8 @@
         "pa-2108-40"
       ],
       "directory_candidate_addresses": [],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2108-front — front, standing (attested); s35-2108-wing — attached wing, standing (inferred); s35-2108-rear — detached service, standing (inferred)."
     },
     {
       "frontage_id": "frontage-35-066",
@@ -9085,8 +9149,8 @@
       "directory_candidate_addresses": [
         2110
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2110-front — front, standing (inferred); s35-2110-wing — attached wing, standing (inferred); s35-2110-rear — detached service, standing (inferred)."
     },
     {
       "frontage_id": "frontage-35-067",
@@ -9098,8 +9162,8 @@
       "directory_candidate_addresses": [
         2112
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2112-front — front, standing (inferred); s35-2112-wing — attached wing, standing (inferred); s35-2112-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-068",
@@ -9109,8 +9173,8 @@
       "directory_candidate_addresses": [
         2120
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): s35-2120-front — front, standing (inferred); s35-2120-wing — attached wing, standing (inferred); s35-2120-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-069",
@@ -9122,8 +9186,8 @@
       "directory_candidate_addresses": [
         2126
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2126-front — front, under construction on the target date (unresolved); s35-2126-wing — attached wing, under construction on the target date (reconstructed); s35-2126-rear — detached service, standing (reconstructed)."
     },
     {
       "frontage_id": "frontage-35-070",
@@ -9133,8 +9197,8 @@
         "pa-2130-42"
       ],
       "directory_candidate_addresses": [],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2130-front — front, standing (inferred); s35-2130-wing — attached wing, standing (inferred); s35-2130-rear — detached service, standing (inferred)."
     },
     {
       "frontage_id": "frontage-35-071",
@@ -9146,8 +9210,8 @@
       "directory_candidate_addresses": [
         2140
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2140-front — front, standing (inferred); s35-2140-wing — attached wing, standing (inferred); s35-2140-rear — detached service, standing (inferred); s35-2140-alley — detached service, standing (inferred); s35-2140-walls — grounds, boundary walls (inferred)."
     },
     {
       "frontage_id": "frontage-35-072",
@@ -9157,8 +9221,8 @@
       "directory_candidate_addresses": [
         2001
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): s35-2001-front — front, standing (inferred); s35-2001-wing — attached wing, standing (inferred); s35-2001-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-073",
@@ -9168,8 +9232,8 @@
       "directory_candidate_addresses": [
         2003
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): s35-2003-front — front, standing (inferred); s35-2003-wing — attached wing, standing (inferred)."
     },
     {
       "frontage_id": "frontage-35-074",
@@ -9179,8 +9243,8 @@
       "directory_candidate_addresses": [
         2005
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): s35-2005-front — front, standing (inferred); s35-2005-wing — attached wing, standing (inferred); s35-2005-walls — grounds, boundary walls (inferred)."
     },
     {
       "frontage_id": "frontage-35-075",
@@ -9192,8 +9256,8 @@
       "directory_candidate_addresses": [
         2009
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2009-front — front, standing (inferred); s35-2009-wing — attached wing, standing (inferred); s35-2009-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-076",
@@ -9203,8 +9267,8 @@
       "directory_candidate_addresses": [
         2011
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): s35-2011-front — front, standing (inferred); s35-2011-wing — attached wing, standing (inferred); s35-2011-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-077",
@@ -9216,8 +9280,8 @@
       "directory_candidate_addresses": [
         2013
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2013-front — front, standing (inferred); s35-2013-wing — attached wing, standing (inferred); s35-2013-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-078",
@@ -9227,8 +9291,8 @@
       "directory_candidate_addresses": [
         2017
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): s35-2017-front — front, standing (inferred); s35-2017-wing — attached wing, standing (inferred); s35-2017-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-079",
@@ -9240,8 +9304,8 @@
       "directory_candidate_addresses": [
         2021
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2021-front — front, standing (inferred); s35-2021-wing — attached wing, standing (inferred); s35-2021-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-080",
@@ -9253,8 +9317,8 @@
       "directory_candidate_addresses": [
         2027
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2027-front — front, standing (inferred); s35-2027-wing — attached wing, standing (inferred); s35-2027-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-081",
@@ -9266,8 +9330,8 @@
       "directory_candidate_addresses": [
         2031
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2031-front — front, standing (inferred); s35-2031-wing — attached wing, standing (inferred); s35-2031-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-082",
@@ -9279,8 +9343,8 @@
       "directory_candidate_addresses": [
         2033
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2033-front — front, standing (attested); s35-2033-wing — attached wing, standing (inferred); s35-2033-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-083",
@@ -9292,8 +9356,8 @@
       "directory_candidate_addresses": [
         2035
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2035-front — front, standing (attested); s35-2035-rear — detached service, standing (inferred)."
     },
     {
       "frontage_id": "frontage-35-084",
@@ -9303,8 +9367,8 @@
       "directory_candidate_addresses": [
         2101
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): s35-2101-front — front, standing (inferred); s35-2101-wing — attached wing, standing (inferred); s35-2101-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-085",
@@ -9316,8 +9380,8 @@
       "directory_candidate_addresses": [
         2109
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2109-front — front, standing (inferred); s35-2109-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-086",
@@ -9329,8 +9393,8 @@
       "directory_candidate_addresses": [
         2115
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "resolved_by_sheet_census",
+      "note": "Sheet 35 census (T-1842): s35-2115-front — front, standing (inferred); s35-2115-wing — attached wing, standing (inferred); s35-2115-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-087",
@@ -9340,8 +9404,8 @@
       "directory_candidate_addresses": [
         2123
       ],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): s35-2123-front — front, standing (inferred); s35-2123-wing — attached wing, standing (inferred); s35-2123-rear — detached service, standing as stable/coach house (inferred)."
     },
     {
       "frontage_id": "frontage-35-088",
@@ -9349,8 +9413,8 @@
       "map_source_id": "MAP-1911-35",
       "candidate_building_ids": [],
       "directory_candidate_addresses": [],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): s35-2125-front — front, standing (inferred); s35-2125-wing — attached wing, standing (inferred); s35-2125-rear — detached service, standing (inferred)."
     },
     {
       "frontage_id": "frontage-35-089",
@@ -9358,8 +9422,8 @@
       "map_source_id": "MAP-1911-35",
       "candidate_building_ids": [],
       "directory_candidate_addresses": [],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): s35-2127-front — front, standing (inferred); s35-2127-wing — attached wing, standing (inferred)."
     },
     {
       "frontage_id": "frontage-35-090",
@@ -9367,8 +9431,8 @@
       "map_source_id": "MAP-1911-35",
       "candidate_building_ids": [],
       "directory_candidate_addresses": [],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): the second number of 2127 Prairie's building; its polygons are on that row."
     },
     {
       "frontage_id": "frontage-35-091",
@@ -9376,8 +9440,8 @@
       "map_source_id": "MAP-1911-35",
       "candidate_building_ids": [],
       "directory_candidate_addresses": [],
-      "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "match_status": "map_only_no_named_record",
+      "note": "Sheet 35 census (T-1842): s35-2141-ground — grounds, open ground (inferred)."
     }
   ]
 }

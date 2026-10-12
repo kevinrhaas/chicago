@@ -9,10 +9,10 @@
       "persons": 2667,
       "businesses": 193
     },
-    "structures": 676,
-    "structures_sharing_a_name": 82,
+    "structures": 687,
+    "structures_sharing_a_name": 86,
     "streets": 80,
-    "resident_persons": 1440
+    "resident_persons": 1438
   },
   "counts": {
     "businesses": {
@@ -59,11 +59,11 @@
         "boarding_house_keeper": 1,
         "hotel_keeper": 1,
         "merchant": 1,
-        "none_recorded": 1018,
+        "none_recorded": 1015,
         "printer": 1,
         "tavern_keeper": 2
       },
-      "households_total": 1024,
+      "households_total": 1021,
       "retirable_by_trade": {
         "merchant": 1,
         "tavern_keeper": 2
@@ -13170,7 +13170,7 @@
       "last_seen": "1833-12-03",
       "action": "enrich",
       "action_target": "wesencraft_charlotte",
-      "action_note": "data/residents/ already holds this person as wesencraft_charlotte (hh_wesencraft_charlotte, attested) — the civic pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as wesencraft_charlotte (hh_marknoble_jun, attested) — the civic pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_chas_babcock",
@@ -26524,7 +26524,7 @@
       "last_seen": "1833-12-03",
       "action": "enrich",
       "action_target": "noble_mary",
-      "action_note": "data/residents/ already holds this person as noble_mary (hh_noble_mary, attested) — the civic pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as noble_mary (hh_bickerdyke_george, attested) — the civic pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_mary_polk",

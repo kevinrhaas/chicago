@@ -1,0 +1,345 @@
+{
+  "id": "recon_1835_blk_school_section_tier_82_d5_02",
+  "phase": "inferred_1835",
+  "name": "Reconstructed D5 deep-plan frame cottage #02",
+  "aka": [],
+  "archetype": "frame_dwelling",
+  "asset": "gltf/recon_1835_blk_school_section_tier_82_d5_02__inferred_1835.glb",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "documented_range": {
+    "from": "1835-01-01",
+    "to": "1835-12-31",
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
+  },
+  "change_note": "Reconstructed anonymous July 1835 block infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total.",
+  "placement": {
+    "local_e": 130.085,
+    "local_n": -770.258,
+    "rotation_deg": 180.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 5.0 m back from its street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
+    "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by Monroe, School Section Line 8, Adams and Market School Section; standing back from the Adams Street frontage",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        6.679,
+        0
+      ],
+      [
+        6.679,
+        9.752
+      ],
+      [
+        0,
+        9.752
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "A 6.68 × 9.75 m rectangle sampled deterministically inside the D5 family's authored footprint band; no individual dimensions are documented."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1.0,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D5 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "wall_height_m": {
+      "value": 2.766,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D5 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D5 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "roof_pitch_deg": {
+      "value": 32.2,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D5 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "construction": {
+      "value": "braced_frame",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'established'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+    },
+    "plan": {
+      "value": "hall_parlour",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D5 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+    },
+    "bays": {
+      "value": 3,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D5 family's key geometry parameters do not speak to a bay count, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D5 family's key geometry parameters do not speak to chimneys, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+    },
+    "paint": {
+      "value": "unpainted",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D5 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+    },
+    "glazing": {
+      "value": "9_over_6_6x8",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — the attested Chicago pane, 6 x 8 in, mostly twelve-over-twelve (rule FORM-G)."
+    },
+    "trim": {
+      "value": "plain",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — the plain corner boards and frieze a sided frame needs to keep water out (rule FORM-T)."
+    },
+    "chimney_head": {
+      "value": "corbel",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — a brick stack finished in one corbelled course; the stack's brick is inferred and not dealt (rule FORM-H)."
+    },
+    "siding_exposure_m": {
+      "value": 0.152,
+      "confidence": "reconstructed",
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 6 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (5 in, 5.5 in or 6 in; T-1839, docs/LIBERTIES.md L352), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+    },
+    "function": {
+      "value": "deep_plan_frame_cottage",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D5 family to satisfy the block's scheduled mix; no occupant or individual use is known."
+    },
+    "occupants": {
+      "value": "The Merrill household — a name the town's own records carry",
+      "confidence": "reconstructed",
+      "sources": [
+        "census_1840_chicago_familysearch_images",
+        "chicago_voter_lists_1833_1835_irad",
+        "fergus_chicago_directory_1843",
+        "isa_public_domain_land_tract_sales",
+        "norris_directory_1844",
+        "second_presbyterian_chicago_1892"
+      ],
+      "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-2147; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_school_section_tier_82#03, fronting adams, a standing roof of family D5 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "census_1840_chicago_familysearch_images",
+      "citation": "1840 U.S. Census, population schedules, Chicago, Cook County, Illinois — FamilySearch digital images of the enumerator's sheets, division of S. W. Sherman.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the names of heads of families as written, in enumeration order",
+        "each household's line position on its printed page",
+        "the 13 free-white male and 13 free-white female age-band tallies",
+        "free coloured male and female counts",
+        "on the continuation sheets: the family total, the six industry columns, pensioners for revolutionary or military service, deaf/dumb/blind, and the schools and illiteracy columns"
+      ],
+      "what_it_does_not_supply": [
+        "any address, street or lot",
+        "any member of a household other than its head, by name",
+        "any statement about 1835 — it is later evidence and cannot on its own place a person in the scene"
+      ]
+    },
+    {
+      "source_id": "chicago_voter_lists_1833_1835_irad",
+      "citation": "\"Early Chicago Voter Lists\" — the poll list of the first election of the Board of Trustees of the Town of Chicago (10 August 1833), the tax list of the Town of Chicago, 1833, the election returns and poll list of 1834 filed 11 August 1834, and the 1835 poll list. Transcribed from the Illinois Regional Archives Depository originals by Ingrid Latimer Schulz, published in Chicago Genealogist XXV/4 (Summer 1993), and republished by the Genealogy Trails Transcription Team.",
+      "url": "https://genealogytrails.com/ill/cook/polllist.html",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "transcribes": [
+        {
+          "work": "Poll list for the first election of Board of Trustees of the Town of Chicago (10 August 1833)",
+          "date": "1833-08-10",
+          "tier": 1,
+          "note": "30 entries. Andreas says twenty-eight men voted at this election; the list prints thirty names. T-0542 searched for a count outside Andreas and found none — the Chicago Democrat did not exist until 26 November 1833 and its whole run to August 1835 carries no retrospective count of this poll — so the discrepancy STANDS, with the negative search recorded (claims/town_findings_voter_lists.json v004). On weight the thirty are the enrolments and Andreas's twenty-eight is an 1884 belief-statement ('It is believed') about the number of legal voters; neither count is repaired."
+        },
+        {
+          "work": "Tax List of the Town of Chicago - 1833",
+          "date": "1833",
+          "tier": 1,
+          "note": "115 entries. Names only — as published it carries no valuation, no lot and no figure, so it is not a ranked property roll (claims/town_findings_voter_lists.json v001)."
+        },
+        {
+          "work": "Election Returns - Poll List of 1834, filed 11 August 1834",
+          "date": "1834-08-11",
+          "tier": 1,
+          "note": "115 entries. Andreas independently dates the second town election to 11 August 1834, which corroborates the list's own heading."
+        },
+        {
+          "work": "1835 Poll List",
+          "date": "1835",
+          "tier": 1,
+          "note": "85 entries. THE LIST PRINTS NO DATE, AND IT IS NOT THE POLL BOOK OF THE THIRD TOWN ELECTION. That election is now dated from the town's own newspaper rather than from Andreas: the Chicago Democrat of 8 July 1835 announced the election of Trustees under the new charter for 'Friday of this week' and the issue of 15 July reported that it 'took place on Friday last' with the return — FRIDAY 10 JULY 1835, nine days after the 1835-07-01 scene date (claims/town_election_1835_democrat.json d001-d005). Andreas's town chapter, 'in July, 1835', is corroborated; his police chapter's 5 August 1835 is the day the newly elected board sat and passed the town's ordinance code over Hugunin's name as President. But that return gives single candidates 124 and 142 votes, which 85 men cannot cast, and six of the ten men who stood are absent from these 85 while the list runs unbroken from Adams to Wright — so this is a DIFFERENT poll, not a short printing of that one (claims/town_findings_voter_lists.json v003). Which poll is open; the county and state general election of Monday 3 August 1835 is the nearest candidate. Until it is settled, a name here evidences presence in Chicago in 1835 and not presence on any particular day."
+        }
+      ],
+      "what_it_supplies": [
+        "345 names of men who voted at, or were taxed by, the Town of Chicago in 1833, 1834 and 1835, as printed",
+        "which of the four lists each name stands on, and its position in that list",
+        "the courtesy and rank titles the lists print in front of a name (Col., Lt., Major, Dr.)",
+        "for the 1835 poll list: presence in Chicago during 1835, which is the strongest residence evidence this project holds short of a newspaper naming the man — but NOT presence on a stated day, because the list is undated and is shown not to be the poll book of the 10 July 1835 town election (T-0542)"
+      ],
+      "what_it_does_not_supply": [
+        "any address, street, lot or dwelling",
+        "any age, trade, household or family member",
+        "any date more precise than a list's own heading — and the 1835 list has no heading date at all",
+        "any woman, and any man who neither voted nor was taxed"
+      ]
+    },
+    {
+      "source_id": "fergus_chicago_directory_1843",
+      "citation": "Robert Fergus, Directory of the City of Chicago, Illinois, for 1843, Fergus Historical Series No. 28 (Chicago: Fergus Printing Company, 1896), compiled from the canvass made August-December 1843",
+      "url": "https://genealogytrails.com/ill/cook/1843directory_1.html",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
+    {
+      "source_id": "norris_directory_1844",
+      "citation": "J. W. Norris, General Directory and Business Advertiser of the City of Chicago, for the Year 1844: together with a Historical Sketch and Statistical Account, to the Present Time (Chicago: Ellis & Fergus, printers, 1844); read in the T. F. Bohan republication of 1903, University of Illinois copy",
+      "url": "https://archive.org/details/generaldirectory19norr",
+      "archived_url": "https://archive.org/details/generaldirectory19norr",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
+    {
+      "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+      "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",
+      "url": "",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "A 665-roof production target with independently reconcilable group, district, level, and construction totals.",
+        "Thirty-five architectural family definitions with dimensional and massing bands.",
+        "District character, spacing, variation, finish, and chronology constraints for a July 1835 reconstruction.",
+        "A required distinction between named documentary landmarks and anonymous inferred infill."
+      ],
+      "what_it_does_not_supply": [
+        "A surviving July 1835 building census or parcel-by-parcel roof register.",
+        "Exact locations, dimensions, appearance, occupants, or construction dates for anonymous roofs.",
+        "Authority to replace stronger building-specific evidence already represented in the dataset."
+      ]
+    },
+    {
+      "source_id": "second_presbyterian_chicago_1892",
+      "citation": "The Second Presbyterian Church of Chicago, June 1st, 1842, to June 1st, 1892 (Chicago: Knight, Leonard & Co., 1892), John C. Grant, editor — the semi-centennial volume of the congregation, read from the Princeton Theological Seminary copy digitised by the Internet Archive as item secondpresbyterian00chic",
+      "url": "https://archive.org/details/secondpresbyterian00chic",
+      "archived_url": "https://archive.org/details/secondpresbyterian00chic",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "2,255 lines of a Chicago church roll running from 1 June 1842 to 1892 — a name, how the member was admitted (profession or letter), the date, and for the closed roll a remark (dismissed, deceased, ordained).",
+        "962 distinct surnames, of which 938 lines carry a surname this project already holds from the town of 1835.",
+        "The founding cohort of 1 June 1842, which is where the overlap with the 1835 town is thickest: W. H. Brown, George W. Dole and Mrs A. N. Fullerton are all on the first day's roll.",
+        "A dated Chicago appearance for a surname, which is exactly the kind of second source the resident sweep files as a lead."
+      ],
+      "what_it_does_not_supply": [
+        "An 1835 residency, or any part of one. The earliest line on the roll is seven years after the scene date and the ratified ladder never makes an 1835 resident from a later appearance alone.",
+        "A woman's own name, much of the time. The roll sets a wife as `Mrs.` followed by her HUSBAND'S name — `Fullerton, Mrs. A. N.` — so a line that meets a man in the 1835 layer has met his name and not him, and the crosswalk flags every such line.",
+        "A death or a departure that can be dated. `Deceased` and `Dismissed` are the state of the roll at its closing on 1 June 1892, not events with dates of their own.",
+        "An address, a trade or a household. The roll carries none of the three."
+      ]
+    }
+  ],
+  "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
+  "research_doc": "docs/RESEARCH/inferred_infill_1835.md",
+  "review_required": false,
+  "reconstruction": {
+    "status": "inferred_anonymous",
+    "family": "D5",
+    "district": "south",
+    "inventory_class": "principal_functional",
+    "programme_phase": "phase3_platted_block_school_section_tier_82",
+    "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+    "block_id": "blk_school_section_tier_82",
+    "lot_index": 3,
+    "stands_on": "street",
+    "fronts": "adams",
+    "sequence": 2,
+    "finish_key": "weathered_timber",
+    "roof_condition": "darkened",
+    "age_state": "established",
+    "fabric_basis": {
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "keeper",
+      "household": "hh_merrill_george_w",
+      "words": "silvered clapboard on a braced frame, 9-over-6 sash of 6 × 8 in glass and plain corner boards, under a weather-darkened roof — The Merrill household's, in Chicago since 1833 (rule F-T)"
+    }
+  },
+  "fabric_tone": {
+    "rule": "FIN-W/FIN-L",
+    "class": "tradesman",
+    "age_state": "established",
+    "weather_years": 2.5,
+    "weather_rate": 1.0,
+    "lay_m": 0.006,
+    "confidence": "reconstructed"
+  }
+}

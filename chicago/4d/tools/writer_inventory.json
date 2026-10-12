@@ -7,6 +7,18 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "count_held_head_dwellings_1835.py": {
+      "placement": "manifest",
+      "write_mode": "--build",
+      "measured": "2026-10-08",
+      "finding": "In the manifest immediately after house_the_present_1835.py, whose seats it reads: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate. With --build it writes data/reconstruction/1835_held_head_dwellings.json and splices its fills into the order book; a second run changes no byte (T-2193)."
+    },
+    "death_readings.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-08",
+      "finding": "Run bare it prints its usage, exits 2 and writes nothing (git status --porcelain identical before and after); --report prints the deaths the registers and papers print, and --check reads every resident card and refuses one that cites its own burial or death notice dated before the scene date and does not read `absent`, writing nothing. It declares no write mode: the presence it gates is written by tools/mint_civic_residents.py and tools/readmit_borderline_roster.py, which import its readers (T-2189)."
+    },
     "derive_lot_remnant.py": {
       "placement": "manifest",
       "write_mode": "--write",
@@ -20,6 +32,13 @@
       "measured": "2026-10-04",
       "finding": "Reproduces: ran `--write` on a clean tree in 4s, wrote its outputs, changed no committed byte.",
       "placed": "after the structure and plat writers, before generate_dooryard_plantings.py, which reads its polygon (T-2084)"
+    },
+    "draft_prairie_1904.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-10",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote the 18 prairie_draft records in data/structures/ and data/components/prairie_1904/draft_prairie_1904_register.json byte for byte, changed no committed byte; --check and --self-test write nothing in-tree (tools/measure_step_isolation.mjs --tool).",
+      "placed": "by layer, 2026-10-10 — the district draft's records, written from the sheet-28 footprints tools/trace_prairie_1904_footprints.py writes, so it follows that step (T-2329); see the manifest step"
     },
     "settle_family_cycle.py": {
       "placement": "manifest",
@@ -50,6 +69,84 @@
       "write_mode": null,
       "measured": "2026-10-08",
       "finding": "Run bare it prints the family pass's ruling tally over the remainder registers (65 units under its rules), exits 0 and writes nothing (git status --porcelain identical before and after); --check rebuilds the registers in memory and compares the authored rulings to the units they reach, writing nothing. It declares no write mode: the rulings it reads are authored in data/research/family_pass_rulings.json and the registers that carry them are written by tools/spend_remainder_rulings.py (T-1335)."
+    },
+    "check_chimney_kit.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K15 variant and its light tier in memory from data/components/prairie_1904/k15_chimneys.json (on K05's roofs) and compares a rebuilt specimen to the committed GLB, --report prints the measures and --self-test breaks rules in memory; all write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k15_chimneys.py run bare, which no gate step runs (T-2312)."
+    },
+    "check_roof_kit.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K05 roof in memory from data/components/prairie_1904/k05_roofs.json and compares a rebuilt specimen to the committed GLB, --report prints the measures and --self-test breaks rules in memory; all write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k05_roofs.py run bare, which no gate step runs (T-2301)."
+    },
+    "check_coach_house_kit.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds the K12 coach house in memory from data/components/prairie_1904/k12_coach_house.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k12_coach_house.py run bare, which no gate step runs (T-2320)."
+    },
+    "check_cornice_kit.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K10 variant in memory from data/components/prairie_1904/k10_cornices.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k10_cornices.py run bare, which no gate step runs (T-2316)."
+    },
+    "check_ironwork_kit.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K11 variant in memory from data/components/prairie_1904/k11_ironwork.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k11_ironwork.py run bare, which no gate step runs (T-2318)."
+    },
+    "check_condition_kit.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check evaluates every K14 layer in memory from data/components/prairie_1904/k14_condition.json and re-derives the study's costs without writing them (k14_condition.study(write=False)), and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the study is written by generators/archetypes/k14_condition.py --study, which no gate step runs (T-2324)."
+    },
+    "check_bay_kit.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K08 variant at both tiers in memory from data/components/prairie_1904/k08_bays.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k08_bays.py run bare, which no gate step runs (T-2307)."
+    },
+    "check_entrance_kit.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K07 variant in memory from data/components/prairie_1904/k07_entrances.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k07_entrances.py run bare, which no gate step runs (T-2303)."
+    },
+    "check_trim_kit.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K09 variant in memory from data/components/prairie_1904/k09_trim.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k09_trim.py run bare, which no gate step runs (T-2309)."
+    },
+    "check_window_kit.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K06 variant in memory from data/components/prairie_1904/k06_windows.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k06_windows.py run bare, which no gate step runs (T-2297)."
+    },
+    "check_conservatory_kit.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K13 house in memory from data/components/prairie_1904/k13_conservatories.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k13_conservatories.py run bare, which no gate step runs (T-2305)."
+    },
+    "check_timber_kit.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check rebuilds every K16 sample in memory from data/components/prairie_1904/k16_timber.json and compares a rebuilt specimen to the committed GLB, and --self-test breaks rules in memory; both write nothing (git status --porcelain identical before and after). It declares no write mode: the specimen is written by generators/archetypes/k16_timber.py run bare, which no gate step runs (T-2322)."
+    },
+    "check_roof_library.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage and exits 2, writing nothing; --check and --self-test read the K04 data file, the library's material.json files, manifest and PNGs and data/sources/, and write nothing (git status --porcelain identical before and after). It declares no write mode: the maps are written by assets/textures/prairie_1904_roofs/tools/generate_prairie_1904_roofs.py, which no gate step runs (T-2292)."
     },
     "check_frontage_notes.py": {
       "placement": "not_a_writer",
@@ -88,6 +185,13 @@
       "measured": "2026-09-28",
       "finding": "Reproduces: ran `(bare)` on a clean tree, wrote its outputs, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its gated commands write nothing in-tree.",
       "placed": "by layer, 2026-09-28 — a reader of committed originals (T-1250); see the manifest step"
+    },
+    "trace_prairie_1904_footprints.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-10",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/traces/prairie_1904_footprints_s28.json, (since T-2328) prairie_1904_footprints_s20.json and (since T-2340) prairie_1904_footprints_s35.json byte for byte, changed no committed byte; --check and --self-test write nothing in-tree (tools/measure_step_isolation.mjs --tool).",
+      "placed": "by layer, 2026-10-10 — a reader of committed originals after tools/trace_prairie_1904_grid.py, whose parcel lots it clips to (T-2327); see the manifest step"
     },
     "trace_prairie_1904_grid.py": {
       "placement": "manifest",
@@ -249,6 +353,18 @@
       "measured": "2026-09-18",
       "finding": "Cannot rebuild: run bare it exits 2 (usage) — it is a checker, not a writer."
     },
+    "check_1835_normals.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare on the working tree it prints the --check verdict, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: it re-reads the 1835 library's normal maps against their height16 and writes nothing. A checker (T-2299)."
+    },
+    "check_relief_rows.mjs": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints usage and exits 2; --check prints its verdict, exits 0 and writes nothing (git status --porcelain identical before and after). It runs renderers/web/js/relief-pack.js under node on synthetic maps and reads wall-relief.js and frontage.js. A checker (T-2300)."
+    },
     "check_street_surfaces.py": {
       "placement": "not_a_writer",
       "write_mode": null,
@@ -312,6 +428,13 @@
       "write_mode": null,
       "measured": "continuously",
       "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
+    },
+    "compile_pictures.py": {
+      "placement": "pending",
+      "write_mode": null,
+      "measured": "2026-10-11",
+      "finding": "Reproduces: run bare after deleting data/pictures/, it wrote data/pictures/1812.json, 1835.json and 1904.json and git status did not move — its only output is git-ignored (T-2389).",
+      "placed": "not to be placed: its output is a build product, not a committed derivation. publish.sh writes it from the Prairie library and data/sources/ at the moment it ships, so it cannot go stale on dev, and no manifest step reads it. It joins the manifest only if data/pictures/ is ever committed."
     },
     "compile_register.py": {
       "placement": "manifest",
@@ -418,6 +541,13 @@
       "measured": "2026-09-20",
       "finding": "Reproduces, and the perturbation test tells idempotence from inertia. Run BARE on a clean tree it rewrote data/traces/vectors/north_division_tier_lots.json and `git status` came back empty; block 1's committed depth was then bent from 131.33 m to 999, `--check` went red (\"STALE ... not what tools/cut_north_division_tier.py re-derives\"), a bare run re-derived the file and `git status` came back empty again. Its only output is that one file; it reads data/traces/thompson_north_division_streets.json, data/streets/1835.json, data/traces/street_control.json and the committed heightfield, and writes none of them.",
       "placed": "not yet — measured to reproduce, and its inputs are all committed readings rather than anything a later stage writes, so it has no ordering hazard of its own; placing it is still the ordering pass's call and not this ticket's."
+    },
+    "cut_school_section_second_tier.py": {
+      "placement": "pending",
+      "write_mode": "bare",
+      "measured": "2026-10-09",
+      "finding": "Reproduces. Run BARE on a clean tree it rewrites data/traces/vectors/school_section_second_tier_lots.json byte for byte, and `--check` re-derives the file on every gate. Its arithmetic is cut_school_section_tier.py's derive() on the grid's row 1, so the perturbation that module's entry records covers this one too.",
+      "placed": "not yet — every input it reads is a committed reading (the block grid, the 1833 register, the heightfield) rather than anything a later stage writes, so it has no ordering hazard of its own; placing it is the ordering pass's call."
     },
     "cut_school_section_tier.py": {
       "placement": "pending",
@@ -530,6 +660,19 @@
       "measured": "2026-09-18",
       "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+    },
+    "human_contract.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-10",
+      "finding": "Run bare it prints its usage, exits 2 and writes nothing (git status --porcelain identical before and after); --check holds data/humans/contract.json to itself and to human_instance.schema.json and reads every GLB under assets/humans/ and every record under data/humans/instances/, writing nothing; --self-test writes its synthetic GLBs to a tempdir only (same porcelain before and after). It declares no write mode: the contract and schema are authored, and human assets will be written by T-1787's exporter (T-1786)."
+    },
+    "generated_card_kin.py": {
+      "placement": "pending",
+      "write_mode": "--land",
+      "measured": "2026-10-09",
+      "finding": "Reproduces: `--land` on a clean tree changed no committed byte; perturbed (the Malore row removed from data/residents/households/hh_mayo_joseph.json) it rewrote that card byte for byte in 0.4s and moved nothing else.",
+      "placed": "not yet — measured to reproduce. It writes the households/ mirror of the register's parent ties onto cards the mints re-derive (they carry `kin` through), and it reads data/residents/readmitted/ and underdocumented/, which tools/readmit_borderline_roster.py and tools/reconstruct_church_register.py write, so its slot sits after both builds and before rebuild_resident_index; the manifest's order is its own measured pass, so it is not appended blind."
     },
     "generate_block_infill.py": {
       "placement": "manifest",
@@ -683,12 +826,26 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 2s, wrote its one output, changed no committed byte.",
       "placed": "by layer, 2026-10-01 \u2014 reasoned, not derived; beside generate_west_infill.py in the manifest"
     },
+    "generate_south_lumber.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-10",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 2s, wrote its one output, changed no committed byte.",
+      "placed": "by layer, 2026-10-10 \u2014 reasoned, not derived; beside generate_west_freight.py in the manifest"
+    },
     "generate_north_freight.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
       "measured": "2026-10-06",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 2s, wrote its one output, changed no committed byte.",
       "placed": "by layer, 2026-10-06 \u2014 reasoned, not derived; beside generate_west_freight.py in the manifest"
+    },
+    "generate_south_freight.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-09",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 3s, wrote its two outputs, changed no committed byte.",
+      "placed": "by layer, 2026-10-09 \u2014 reasoned, not derived; beside generate_north_freight.py in the manifest"
     },
     "generate_woodpiles.py": {
       "placement": "pending",
@@ -925,13 +1082,6 @@
       "measured": "2026-09-18",
       "finding": "Reproduces: ran `--build` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
-    },
-    "household_associations.py": {
-      "placement": "pending",
-      "write_mode": "--write",
-      "measured": "2026-10-08",
-      "finding": "Reproduces: `--write` run a second time on the tree it wrote rewrote no household card and re-wrote data/research/residents/household_associations.json byte-identically (git reported 0 changed paths on the second pass).",
-      "placed": "not yet, for person_associations.py's reason: it writes INTO data/residents/households/*.json, whose lives_at/works_at several reconstruction stages own (reconstruct_garrison_1835.py among them), and it reads data/research/location_reconciliation.json.gz, so its slot is after location_reconciliation.py and after every stage that writes a household's lives_at/works_at - its own measured pass, not an append."
     },
     "person_associations.py": {
       "placement": "pending",

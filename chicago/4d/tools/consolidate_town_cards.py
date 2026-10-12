@@ -84,6 +84,7 @@ RULED_ON = "2026-09-05"
 sys.path.insert(0, str(ROOT / "tools"))
 from reconstructed_person import is_reconstructed  # noqa: E402
 from consolidate_resident_evidence import split_name_or_reason  # noqa: E402
+from associations import home_of, workplace_of  # noqa: E402
 
 # A rank is not a forename. `consolidate_resident_evidence.HONORIFICS` already drops the
 # short forms the sources print most; these are the long ones the town cards carry, and
@@ -223,8 +224,8 @@ def anchored(person: dict, doc: dict) -> bool:
     occupation = (person.get("occupation") or {}).get("value")
     return bool(person.get("resident_research")
                 or (occupation and occupation != "none_recorded")
-                or (doc.get("lives_at") or {}).get("value")
-                or (doc.get("works_at") or {}).get("value"))
+                or home_of(doc)
+                or workplace_of(doc))
 
 
 def pair_evidence(a: dict, b: dict) -> dict:

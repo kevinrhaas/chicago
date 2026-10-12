@@ -447,8 +447,307 @@ textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_orm_web
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_roughness.png
 ```
 
+### The Prairie Avenue 1904 K03 brick library — `textures/prairie_1904_brick/`
+
+T-2290 (piece 1 of T-1845, package K03 of T-1837). Four joint-free brick fabrics (pressed red,
+common buff, dark fired, rough red-brown), two mortars, `profiles.json` (joints, bonds, specials
+and firing spread as data) and four bonded LOD panels rendered from it, built by the generator
+that ships inside it (`tools/generate_prairie_1904_brick.py`, deterministic, seeded per fabric).
+Which house is built of which brick is the T-1837 register's and each house's own evidence to say;
+the look of every map is reconstructed (`docs/LIBERTIES.md` L-k03-brick-library-2290).
+
+| item | licence | cleared for | NOT cleared for |
+|---|---|---|---|
+| `textures/prairie_1904_brick/**`: *Prairie Avenue 1904 K03 brick library v1.0.0*, original procedural output generated for this project. Full text at `textures/prairie_1904_brick/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the street library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` and `profiles.json` says its appearance is reconstructed and that the register, not the map, carries the evidence |
+
+**Not published yet.** `tools/publish.sh` ships nothing from this library until a component binds it
+(T-2291).
+
+Every file, as the checker matches them one by one:
+
+```
+textures/prairie_1904_brick/LICENSE.txt
+textures/prairie_1904_brick/README.md
+textures/prairie_1904_brick/brick/common_buff/common_buff_basecolor.png
+textures/prairie_1904_brick/brick/common_buff/common_buff_basecolor_web.jpg
+textures/prairie_1904_brick/brick/common_buff/common_buff_height16.png
+textures/prairie_1904_brick/brick/common_buff/common_buff_normal_gl.png
+textures/prairie_1904_brick/brick/common_buff/common_buff_normal_gl_web.jpg
+textures/prairie_1904_brick/brick/common_buff/common_buff_orm.png
+textures/prairie_1904_brick/brick/common_buff/common_buff_orm_web.jpg
+textures/prairie_1904_brick/brick/common_buff/common_buff_roughness.png
+textures/prairie_1904_brick/brick/common_buff/material.json
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_basecolor.png
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_basecolor_web.jpg
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_height16.png
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_normal_gl.png
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_normal_gl_web.jpg
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_orm.png
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_orm_web.jpg
+textures/prairie_1904_brick/brick/dark_fired/dark_fired_roughness.png
+textures/prairie_1904_brick/brick/dark_fired/material.json
+textures/prairie_1904_brick/brick/pressed_red/material.json
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_basecolor.png
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_basecolor_web.jpg
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_height16.png
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_normal_gl.png
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_normal_gl_web.jpg
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_orm.png
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_orm_web.jpg
+textures/prairie_1904_brick/brick/pressed_red/pressed_red_roughness.png
+textures/prairie_1904_brick/brick/rough_red_brown/material.json
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_basecolor.png
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_basecolor_web.jpg
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_height16.png
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_normal_gl.png
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_normal_gl_web.jpg
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_orm.png
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_orm_web.jpg
+textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_roughness.png
+textures/prairie_1904_brick/mortar/mortar_dark/material.json
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_basecolor.png
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_basecolor_web.jpg
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_height16.png
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_normal_gl.png
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_normal_gl_web.jpg
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_orm.png
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_orm_web.jpg
+textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_roughness.png
+textures/prairie_1904_brick/mortar/mortar_lime/material.json
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_basecolor.png
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_basecolor_web.jpg
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_height16.png
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_normal_gl.png
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_normal_gl_web.jpg
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_orm.png
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_orm_web.jpg
+textures/prairie_1904_brick/mortar/mortar_lime/mortar_lime_roughness.png
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_basecolor.png
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_basecolor_web.jpg
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_height16.png
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_normal_gl.png
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_normal_gl_web.jpg
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_orm.png
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_orm_web.jpg
+textures/prairie_1904_brick/panel/common_buff_common_6/common_buff_common_6_roughness.png
+textures/prairie_1904_brick/panel/common_buff_common_6/material.json
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/material.json
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_basecolor.png
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_basecolor_web.jpg
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_height16.png
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_normal_gl.png
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_normal_gl_web.jpg
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_orm.png
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_orm_web.jpg
+textures/prairie_1904_brick/panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_roughness.png
+textures/prairie_1904_brick/panel/pressed_red_running/material.json
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_basecolor.png
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_basecolor_web.jpg
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_height16.png
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_normal_gl.png
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_normal_gl_web.jpg
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_orm.png
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_orm_web.jpg
+textures/prairie_1904_brick/panel/pressed_red_running/pressed_red_running_roughness.png
+textures/prairie_1904_brick/panel/rough_red_brown_running/material.json
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_basecolor.png
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_basecolor_web.jpg
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_height16.png
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_normal_gl.png
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_normal_gl_web.jpg
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_orm.png
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_orm_web.jpg
+textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_roughness.png
+textures/prairie_1904_brick/profiles.json
+textures/prairie_1904_brick/tools/generate_prairie_1904_brick.py
+```
+
+### The Prairie Avenue 1904 stone library (K02) — `textures/prairie_1904_stone/`
+
+T-2288, piece 1 of T-1844. Six procedural stone fabrics for the 1904 programme's walls, trim and
+foundations (rock-faced granite, brown sandstone, Lemont and Bedford limestone, dressed trim,
+foundation rubble), built by the generator that ships inside it
+(`tools/generate_prairie_1904_stone.py`, deterministic, seeded per fabric). Which building wears
+which stone is its structure record's to say; the look of every map is reconstructed
+(`docs/LIBERTIES.md` L-k02-stone-library-2288).
+
+| item | licence | cleared for | NOT cleared for |
+|---|---|---|---|
+| `textures/prairie_1904_stone/**` — *Prairie Avenue 1904 stone library (K02) v1.0.0*, original procedural output generated for this project. Full text at `textures/prairie_1904_stone/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1835 and 1904 street libraries' terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` says its appearance is reconstructed and that a structure record, not the map, carries the evidence |
+
+**Not published.** No scene binds these maps yet and `tools/publish.sh` ships none of them; T-2289
+lays them on the 1808 Prairie exemplar.
+
+Every file, as the checker matches them one by one:
+
+```
+textures/prairie_1904_stone/LICENSE.txt
+textures/prairie_1904_stone/README.md
+textures/prairie_1904_stone/contact_sheet.jpg
+textures/prairie_1904_stone/dressed_trim/dressed_trim_basecolor.png
+textures/prairie_1904_stone/dressed_trim/dressed_trim_basecolor_web.jpg
+textures/prairie_1904_stone/dressed_trim/dressed_trim_height16.png
+textures/prairie_1904_stone/dressed_trim/dressed_trim_normal_gl.png
+textures/prairie_1904_stone/dressed_trim/dressed_trim_normal_gl_web.jpg
+textures/prairie_1904_stone/dressed_trim/dressed_trim_orm.png
+textures/prairie_1904_stone/dressed_trim/dressed_trim_orm_web.jpg
+textures/prairie_1904_stone/dressed_trim/material.json
+textures/prairie_1904_stone/foundation_rubble/foundation_rubble_basecolor.png
+textures/prairie_1904_stone/foundation_rubble/foundation_rubble_basecolor_web.jpg
+textures/prairie_1904_stone/foundation_rubble/foundation_rubble_height16.png
+textures/prairie_1904_stone/foundation_rubble/foundation_rubble_normal_gl.png
+textures/prairie_1904_stone/foundation_rubble/foundation_rubble_normal_gl_web.jpg
+textures/prairie_1904_stone/foundation_rubble/foundation_rubble_orm.png
+textures/prairie_1904_stone/foundation_rubble/foundation_rubble_orm_web.jpg
+textures/prairie_1904_stone/foundation_rubble/material.json
+textures/prairie_1904_stone/granite_rock_faced/granite_rock_faced_basecolor.png
+textures/prairie_1904_stone/granite_rock_faced/granite_rock_faced_basecolor_web.jpg
+textures/prairie_1904_stone/granite_rock_faced/granite_rock_faced_height16.png
+textures/prairie_1904_stone/granite_rock_faced/granite_rock_faced_normal_gl.png
+textures/prairie_1904_stone/granite_rock_faced/granite_rock_faced_normal_gl_web.jpg
+textures/prairie_1904_stone/granite_rock_faced/granite_rock_faced_orm.png
+textures/prairie_1904_stone/granite_rock_faced/granite_rock_faced_orm_web.jpg
+textures/prairie_1904_stone/granite_rock_faced/material.json
+textures/prairie_1904_stone/limestone_bedford/limestone_bedford_basecolor.png
+textures/prairie_1904_stone/limestone_bedford/limestone_bedford_basecolor_web.jpg
+textures/prairie_1904_stone/limestone_bedford/limestone_bedford_height16.png
+textures/prairie_1904_stone/limestone_bedford/limestone_bedford_normal_gl.png
+textures/prairie_1904_stone/limestone_bedford/limestone_bedford_normal_gl_web.jpg
+textures/prairie_1904_stone/limestone_bedford/limestone_bedford_orm.png
+textures/prairie_1904_stone/limestone_bedford/limestone_bedford_orm_web.jpg
+textures/prairie_1904_stone/limestone_bedford/material.json
+textures/prairie_1904_stone/limestone_lemont/limestone_lemont_basecolor.png
+textures/prairie_1904_stone/limestone_lemont/limestone_lemont_basecolor_web.jpg
+textures/prairie_1904_stone/limestone_lemont/limestone_lemont_height16.png
+textures/prairie_1904_stone/limestone_lemont/limestone_lemont_normal_gl.png
+textures/prairie_1904_stone/limestone_lemont/limestone_lemont_normal_gl_web.jpg
+textures/prairie_1904_stone/limestone_lemont/limestone_lemont_orm.png
+textures/prairie_1904_stone/limestone_lemont/limestone_lemont_orm_web.jpg
+textures/prairie_1904_stone/limestone_lemont/material.json
+textures/prairie_1904_stone/sandstone_brown/material.json
+textures/prairie_1904_stone/sandstone_brown/sandstone_brown_basecolor.png
+textures/prairie_1904_stone/sandstone_brown/sandstone_brown_basecolor_web.jpg
+textures/prairie_1904_stone/sandstone_brown/sandstone_brown_height16.png
+textures/prairie_1904_stone/sandstone_brown/sandstone_brown_normal_gl.png
+textures/prairie_1904_stone/sandstone_brown/sandstone_brown_normal_gl_web.jpg
+textures/prairie_1904_stone/sandstone_brown/sandstone_brown_orm.png
+textures/prairie_1904_stone/sandstone_brown/sandstone_brown_orm_web.jpg
+textures/prairie_1904_stone/tools/generate_prairie_1904_stone.py
+```
+
 | path | source | license | notes |
 |---|---|---|---|
+
+### The Prairie Avenue 1904 roof library (K04) — `textures/prairie_1904_roofs/`
+
+T-2292. Eleven procedural fabrics for the 1904 programme's roof coverings, flashings and rainwater
+goods, built by the generator that ships inside it (`tools/generate_prairie_1904_roofs.py`,
+deterministic, seeded per fabric) from the modules in `data/components/prairie_1904/k04_roofs.json`,
+with the study renderer beside it. The look of every map is reconstructed (`docs/LIBERTIES.md`
+L-k04-roof-library-2292); the flat tile's module is HABS's for Glessner, and nothing else here is
+measured.
+
+| item | licence | cleared for | NOT cleared for |
+|---|---|---|---|
+| `textures/prairie_1904_roofs/**` — *Prairie Avenue 1904 roof-covering library (K04) v1.0.0*, original procedural output generated for this project. Full text at `textures/prairie_1904_roofs/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1904 street-surface library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` says its appearance is reconstructed and names the data file its module comes from |
+
+The files:
+
+```
+textures/prairie_1904_roofs/LICENSE.txt
+textures/prairie_1904_roofs/README.md
+textures/prairie_1904_roofs/copper_sheet/copper_sheet_basecolor.png
+textures/prairie_1904_roofs/copper_sheet/copper_sheet_basecolor_web.jpg
+textures/prairie_1904_roofs/copper_sheet/copper_sheet_normal_gl.png
+textures/prairie_1904_roofs/copper_sheet/copper_sheet_normal_gl_web.jpg
+textures/prairie_1904_roofs/copper_sheet/copper_sheet_orm.png
+textures/prairie_1904_roofs/copper_sheet/copper_sheet_orm_web.jpg
+textures/prairie_1904_roofs/copper_sheet/copper_sheet_roughness.png
+textures/prairie_1904_roofs/copper_sheet/material.json
+textures/prairie_1904_roofs/copper_standing_seam/copper_standing_seam_basecolor.png
+textures/prairie_1904_roofs/copper_standing_seam/copper_standing_seam_basecolor_web.jpg
+textures/prairie_1904_roofs/copper_standing_seam/copper_standing_seam_normal_gl.png
+textures/prairie_1904_roofs/copper_standing_seam/copper_standing_seam_normal_gl_web.jpg
+textures/prairie_1904_roofs/copper_standing_seam/copper_standing_seam_orm.png
+textures/prairie_1904_roofs/copper_standing_seam/copper_standing_seam_orm_web.jpg
+textures/prairie_1904_roofs/copper_standing_seam/copper_standing_seam_roughness.png
+textures/prairie_1904_roofs/copper_standing_seam/material.json
+textures/prairie_1904_roofs/lead_sheet/lead_sheet_basecolor.png
+textures/prairie_1904_roofs/lead_sheet/lead_sheet_basecolor_web.jpg
+textures/prairie_1904_roofs/lead_sheet/lead_sheet_normal_gl.png
+textures/prairie_1904_roofs/lead_sheet/lead_sheet_normal_gl_web.jpg
+textures/prairie_1904_roofs/lead_sheet/lead_sheet_orm.png
+textures/prairie_1904_roofs/lead_sheet/lead_sheet_orm_web.jpg
+textures/prairie_1904_roofs/lead_sheet/lead_sheet_roughness.png
+textures/prairie_1904_roofs/lead_sheet/material.json
+textures/prairie_1904_roofs/manifest.json
+textures/prairie_1904_roofs/painted_tin_sheet/material.json
+textures/prairie_1904_roofs/painted_tin_sheet/painted_tin_sheet_basecolor.png
+textures/prairie_1904_roofs/painted_tin_sheet/painted_tin_sheet_basecolor_web.jpg
+textures/prairie_1904_roofs/painted_tin_sheet/painted_tin_sheet_normal_gl.png
+textures/prairie_1904_roofs/painted_tin_sheet/painted_tin_sheet_normal_gl_web.jpg
+textures/prairie_1904_roofs/painted_tin_sheet/painted_tin_sheet_orm.png
+textures/prairie_1904_roofs/painted_tin_sheet/painted_tin_sheet_orm_web.jpg
+textures/prairie_1904_roofs/painted_tin_sheet/painted_tin_sheet_roughness.png
+textures/prairie_1904_roofs/slate_fishscale/material.json
+textures/prairie_1904_roofs/slate_fishscale/slate_fishscale_basecolor.png
+textures/prairie_1904_roofs/slate_fishscale/slate_fishscale_basecolor_web.jpg
+textures/prairie_1904_roofs/slate_fishscale/slate_fishscale_normal_gl.png
+textures/prairie_1904_roofs/slate_fishscale/slate_fishscale_normal_gl_web.jpg
+textures/prairie_1904_roofs/slate_fishscale/slate_fishscale_orm.png
+textures/prairie_1904_roofs/slate_fishscale/slate_fishscale_orm_web.jpg
+textures/prairie_1904_roofs/slate_fishscale/slate_fishscale_roughness.png
+textures/prairie_1904_roofs/slate_pennsylvania/material.json
+textures/prairie_1904_roofs/slate_pennsylvania/slate_pennsylvania_basecolor.png
+textures/prairie_1904_roofs/slate_pennsylvania/slate_pennsylvania_basecolor_web.jpg
+textures/prairie_1904_roofs/slate_pennsylvania/slate_pennsylvania_normal_gl.png
+textures/prairie_1904_roofs/slate_pennsylvania/slate_pennsylvania_normal_gl_web.jpg
+textures/prairie_1904_roofs/slate_pennsylvania/slate_pennsylvania_orm.png
+textures/prairie_1904_roofs/slate_pennsylvania/slate_pennsylvania_orm_web.jpg
+textures/prairie_1904_roofs/slate_pennsylvania/slate_pennsylvania_roughness.png
+textures/prairie_1904_roofs/slate_vermont/material.json
+textures/prairie_1904_roofs/slate_vermont/slate_vermont_basecolor.png
+textures/prairie_1904_roofs/slate_vermont/slate_vermont_basecolor_web.jpg
+textures/prairie_1904_roofs/slate_vermont/slate_vermont_normal_gl.png
+textures/prairie_1904_roofs/slate_vermont/slate_vermont_normal_gl_web.jpg
+textures/prairie_1904_roofs/slate_vermont/slate_vermont_orm.png
+textures/prairie_1904_roofs/slate_vermont/slate_vermont_orm_web.jpg
+textures/prairie_1904_roofs/slate_vermont/slate_vermont_roughness.png
+textures/prairie_1904_roofs/terracotta_flat_tile/material.json
+textures/prairie_1904_roofs/terracotta_flat_tile/terracotta_flat_tile_basecolor.png
+textures/prairie_1904_roofs/terracotta_flat_tile/terracotta_flat_tile_basecolor_web.jpg
+textures/prairie_1904_roofs/terracotta_flat_tile/terracotta_flat_tile_normal_gl.png
+textures/prairie_1904_roofs/terracotta_flat_tile/terracotta_flat_tile_normal_gl_web.jpg
+textures/prairie_1904_roofs/terracotta_flat_tile/terracotta_flat_tile_orm.png
+textures/prairie_1904_roofs/terracotta_flat_tile/terracotta_flat_tile_orm_web.jpg
+textures/prairie_1904_roofs/terracotta_flat_tile/terracotta_flat_tile_roughness.png
+textures/prairie_1904_roofs/tin_flat_seam_painted/material.json
+textures/prairie_1904_roofs/tin_flat_seam_painted/tin_flat_seam_painted_basecolor.png
+textures/prairie_1904_roofs/tin_flat_seam_painted/tin_flat_seam_painted_basecolor_web.jpg
+textures/prairie_1904_roofs/tin_flat_seam_painted/tin_flat_seam_painted_normal_gl.png
+textures/prairie_1904_roofs/tin_flat_seam_painted/tin_flat_seam_painted_normal_gl_web.jpg
+textures/prairie_1904_roofs/tin_flat_seam_painted/tin_flat_seam_painted_orm.png
+textures/prairie_1904_roofs/tin_flat_seam_painted/tin_flat_seam_painted_orm_web.jpg
+textures/prairie_1904_roofs/tin_flat_seam_painted/tin_flat_seam_painted_roughness.png
+textures/prairie_1904_roofs/tin_standing_seam_painted/material.json
+textures/prairie_1904_roofs/tin_standing_seam_painted/tin_standing_seam_painted_basecolor.png
+textures/prairie_1904_roofs/tin_standing_seam_painted/tin_standing_seam_painted_basecolor_web.jpg
+textures/prairie_1904_roofs/tin_standing_seam_painted/tin_standing_seam_painted_normal_gl.png
+textures/prairie_1904_roofs/tin_standing_seam_painted/tin_standing_seam_painted_normal_gl_web.jpg
+textures/prairie_1904_roofs/tin_standing_seam_painted/tin_standing_seam_painted_orm.png
+textures/prairie_1904_roofs/tin_standing_seam_painted/tin_standing_seam_painted_orm_web.jpg
+textures/prairie_1904_roofs/tin_standing_seam_painted/tin_standing_seam_painted_roughness.png
+textures/prairie_1904_roofs/tools/generate_prairie_1904_roofs.py
+textures/prairie_1904_roofs/tools/study_prairie_1904_roofs.py
+textures/prairie_1904_roofs/zinc_sheet/material.json
+textures/prairie_1904_roofs/zinc_sheet/zinc_sheet_basecolor.png
+textures/prairie_1904_roofs/zinc_sheet/zinc_sheet_basecolor_web.jpg
+textures/prairie_1904_roofs/zinc_sheet/zinc_sheet_normal_gl.png
+textures/prairie_1904_roofs/zinc_sheet/zinc_sheet_normal_gl_web.jpg
+textures/prairie_1904_roofs/zinc_sheet/zinc_sheet_orm.png
+textures/prairie_1904_roofs/zinc_sheet/zinc_sheet_orm_web.jpg
+textures/prairie_1904_roofs/zinc_sheet/zinc_sheet_roughness.png
+```
 
 ## Generated assets
 
@@ -464,26 +763,46 @@ failure.
 | path | origin | license | notes |
 |---|---|---|---|
 | `gltf/sauganash_hotel__frame_1831.glb` | `tools/bake.sh` (this repo, Blender 4.5.3) from `data/structures/sauganash_hotel.json` | project license | The Milestone 0 bake. Generated output; its provenance is the provenance of the record it was generated from, tracked in `assets/manifest.json`. |
+| `gltf/keith_house_1808_prairie__as_built_1886.glb` | `python3 generators/k01_emit.py` (this repo, pure Python, no Blender) from `data/structures/keith_house_1808_prairie.json` | project license | The first K01 component assembly (T-2266). Generated output; its provenance is its record's, tracked in `assets/manifest.json`. Embeds two images verbatim from `textures/glessner-v4/` (`limestone_basecolor.jpg`, `brick_basecolor.jpg`), original procedural pixels under that library's project-permissive terms (`textures/glessner-v4/LICENSE.txt`). |
+| `web/keith_house_1808_prairie__as_built_1886.glb` | `tools/web_derivatives.sh` from the master above | project license | The web derivative of the K01 assembly; same provenance and the same two library images. |
+| `gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb` | `python3 generators/k13_emit.py` (this repo, pure Python, no Blender) from `data/structures/pullman_house_1729_prairie_conservatory.json` and the K13 kit | project license | The first K13 conservatory in the scene (T-2306). Generated output; its provenance is its record's, tracked in `assets/manifest.json`. Flat colours only: no image is embedded. |
+| `web/pullman_house_1729_prairie_conservatory__as_standing_1904.glb` | `tools/web_derivatives.sh` from the master above | project license | The web derivative of the K13 conservatory; same provenance. |
+| `gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb` | `python3 generators/k16_emit.py` (this repo, pure Python, no Blender) from `data/structures/shortall_gregory_house_1638_prairie_front.json` and the K16 kit | project license | The first K16 timber front in the scene (T-2323). Generated output; its provenance is its record's, tracked in `assets/manifest.json`. Flat colours only: no image is embedded. |
+| `web/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb` | `tools/web_derivatives.sh` from the master above | project license | The web derivative of the K16 timber front; same provenance. |
+| `gltf/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb` | `python3 generators/k12_emit.py` (this repo, pure Python, no Blender) from `data/structures/wheeler_house_1812_prairie_coach_house.json` | project license | The first K12 coach house on a named lot (T-2321). Generated output; its provenance is its record's, tracked in `assets/manifest.json`. Flat colours only; embeds no image. |
+| `web/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb` | `tools/web_derivatives.sh` from the master above | project license | The web derivative of the 1812 coach house; same provenance, no image. |
+| `gltf/*__draft_1904.glb` (the one hundred and thirty-nine `prairie_draft` records) | `python3 generators/draft_emit.py` (this repo, pure Python, no Blender) from the matching `data/structures/*.json` record, written by `tools/draft_prairie_1904.py` | project license | The Prairie Avenue district draft (T-2329, T-2330, T-2334, T-2335, T-2351). Generated output; its provenance is its record's, tracked in `assets/manifest.json`. Flat colours only: no image is embedded. |
+| `web/*__draft_1904.glb` | `tools/web_derivatives.sh` from the masters above | project license | The web derivatives of the district draft; same provenance. |
 | `gltf/recon_1835_*__inferred_1835.glb` and matching `web/` derivatives | `generators/inferred_placeholder.py` from the matching `data/structures/recon_1835_*.json` record | project license | Pure-Python review massing for the 108 anonymous inferred roofs. Every file self-identifies as a placeholder and is replaced, not silently promoted, when the canonical family bake lands. |
+| `humans/c4d_fixture.lod0.glb` | `tools/human_export.sh` (this repo, Blender 4.5.3): `tools/human_fixture_blend.py` builds the master, `tools/human_export.py` exports it | project license | The portable-human pipeline's CI fixture (T-1787, liberty L417): a figure that is nobody, built from primitives. Its master is the script, so the `.blend` is rebuilt on every run and this file is never the only copy. Its one texture, a 64 px twill, is generated in the script; nothing third-party is sampled or embedded. |
+| `humans/web/c4d_fixture.lod0.glb` | `tools/human_export.sh` from the master above (gltf-transform `meshopt`, the `tools/web_derivatives.sh` pin) | project license | The Meshopt derivative of the fixture's LOD0; same provenance. |
+| `humans/c4d_fixture.lod1.glb` | `tools/human_export.sh` (this repo, Blender 4.5.3): `tools/human_fixture_blend.py` builds the master, `tools/human_export.py` exports it | project license | The portable-human pipeline's CI fixture (T-1787, liberty L417): a figure that is nobody, built from primitives. Its master is the script, so the `.blend` is rebuilt on every run and this file is never the only copy. Its one texture, a 64 px twill, is generated in the script; nothing third-party is sampled or embedded. |
+| `humans/web/c4d_fixture.lod1.glb` | `tools/human_export.sh` from the master above (gltf-transform `meshopt`, the `tools/web_derivatives.sh` pin) | project license | The Meshopt derivative of the fixture's LOD1; same provenance. |
+| `humans/c4d_fixture.lod2.glb` | `tools/human_export.sh` (this repo, Blender 4.5.3): `tools/human_fixture_blend.py` builds the master, `tools/human_export.py` exports it | project license | The portable-human pipeline's CI fixture (T-1787, liberty L417): a figure that is nobody, built from primitives. Its master is the script, so the `.blend` is rebuilt on every run and this file is never the only copy. Its one texture, a 64 px twill, is generated in the script; nothing third-party is sampled or embedded. |
+| `humans/web/c4d_fixture.lod2.glb` | `tools/human_export.sh` from the master above (gltf-transform `meshopt`, the `tools/web_derivatives.sh` pin) | project license | The Meshopt derivative of the fixture's LOD2; same provenance. |
+| `humans/c4d_fixture.lod3.glb` | `tools/human_export.sh` (this repo, Blender 4.5.3): `tools/human_fixture_blend.py` builds the master, `tools/human_export.py` exports it | project license | The portable-human pipeline's CI fixture (T-1787, liberty L417): a figure that is nobody, built from primitives. Its master is the script, so the `.blend` is rebuilt on every run and this file is never the only copy. Its one texture, a 64 px twill, is generated in the script; nothing third-party is sampled or embedded. |
+| `humans/web/c4d_fixture.lod3.glb` | `tools/human_export.sh` from the master above (gltf-transform `meshopt`, the `tools/web_derivatives.sh` pin) | project license | The Meshopt derivative of the fixture's LOD3; same provenance. |
 
 `authored/` holds hero assets that cannot come from a structure record (Fort Dearborn
 detailing, signboards). They are exempt from regeneration but **not** from provenance:
 each needs a row here and a source record explaining what the form is based on.
 ### Glessner House v4 original surface studies
 
-The following 40 files are original project material assets: ten deterministic numeric PBR fabrics, three unchanged original generated albedo studies, their executable recipe and provenance. No historical, owner, Google or other third-party image pixels are sampled or embedded. Numeric maps are reproduced by `generate.py`; generated image prompts, hashes, methods and reconstructed confidence are preserved in the three provenance JSON files. Exact appearance is reconstructed, not historical evidence. Use, modification and redistribution with this project are permitted under the accompanying `LICENSE.txt`; retain provenance and confidence.
+The following 43 files are original project material assets: eleven deterministic numeric PBR fabrics, three unchanged original generated albedo studies, their executable recipe and provenance. No historical, owner, Google or other third-party image pixels are sampled or embedded. Numeric maps are reproduced by `generate.py`; generated image prompts, hashes, methods and reconstructed confidence are preserved in the three provenance JSON files. Exact appearance is reconstructed, not historical evidence. Use, modification and redistribution with this project are permitted under the accompanying `LICENSE.txt`; retain provenance and confidence.
 
 - `textures/glessner-v4/LICENSE.txt`
 - `textures/glessner-v4/README.md`
 - `textures/glessner-v4/brick_basecolor.jpg`
 - `textures/glessner-v4/brick_normal.png`
 - `textures/glessner-v4/brick_roughness.png`
+- `textures/glessner-v4/court_brick_basecolor.jpg`
 - `textures/glessner-v4/copper_basecolor.jpg`
 - `textures/glessner-v4/copper_normal.png`
 - `textures/glessner-v4/copper_roughness.png`
 - `textures/glessner-v4/generate.py`
 - `textures/glessner-v4/granite_basecolor.jpg`
 - `textures/glessner-v4/granite_normal.png`
+- `textures/glessner-v4/granite_occlusion.png`
 - `textures/glessner-v4/granite_photographic_basecolor.png`
 - `textures/glessner-v4/granite_photographic_provenance.json`
 - `textures/glessner-v4/granite_roughness.png`
@@ -506,6 +825,9 @@ The following 40 files are original project material assets: ten deterministic n
 - `textures/glessner-v4/terracotta_basecolor.jpg`
 - `textures/glessner-v4/terracotta_normal.png`
 - `textures/glessner-v4/terracotta_roughness.png`
+- `textures/glessner-v4/roof_tiles_basecolor.jpg`
+- `textures/glessner-v4/roof_tiles_normal.png`
+- `textures/glessner-v4/roof_tiles_roughness.png`
 - `textures/glessner-v4/turf_basecolor.jpg`
 - `textures/glessner-v4/turf_normal.png`
 - `textures/glessner-v4/turf_patch_photographic_basecolor.png`

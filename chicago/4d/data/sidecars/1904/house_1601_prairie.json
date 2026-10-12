@@ -1,0 +1,419 @@
+{
+  "id": "house_1601_prairie",
+  "phase": "as_mapped_1904",
+  "name": "1601 Prairie Avenue — frame dwelling at the 16th Street corner, K16 clapboard",
+  "aka": [
+    "1601 S. Prairie Avenue"
+  ],
+  "archetype": "k16_timber",
+  "asset": "gltf/house_1601_prairie__as_mapped_1904.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "The house claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). No source here states when 1601 was built, so no building date is claimed."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1425.786,
+    "local_n": -2940.289,
+    "rotation_deg": 179.615,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 2.000, v -5.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.615 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "symbolic_location": "1601 S. Prairie Avenue, parcel prairie_1601 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        15.5,
+        0.0
+      ],
+      [
+        15.5,
+        5.5
+      ],
+      [
+        0.0,
+        5.5
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "The main body: the largest rectangle inside the traced main part of s20fp-1601-b1 (data/traces/prairie_1904_footprints_s20.json, T-2328), kept from the draft (15.5 m deep, 5.5 m along Prairie). The sheet's 'stepped outline' on the 16th Street side is the two-storey wing (form.frame_house, u 5.25-12.5, 1.5 m out), also kept from the draft's fit; the trace's narrower step at the front of that side (about 1 m, u 13-16) and its rear wall, which follows the slanted rear lot line up to 1.9 m behind the rectangle, are not built."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "'2' printed on the 1911 sheet: two full storeys, under a gable whose attic is not a storey.",
+      "geometry": "simplified"
+    },
+    "construction": {
+      "value": "frame",
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "Drawn yellow, the sheet's colour for frame. Built board by board from the K16 timber kit at a frame wall's 0.15 m, never with a masonry wall's thickness or a stone texture.",
+      "geometry": "simplified"
+    },
+    "frame_house": {
+      "value": {
+        "foundation_m": 0.45,
+        "return_m": 0.3,
+        "blocks": [
+          {
+            "id": "main",
+            "rect_uv": [
+              0.0,
+              0.0,
+              15.5,
+              5.5
+            ],
+            "wall_top_m": 6.4,
+            "roof": {
+              "kind": "gable",
+              "pitch_deg": 40,
+              "ridge": "u"
+            },
+            "walls": [
+              {
+                "side": "east",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.35,
+                    "centre_m": 1.5
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.45,
+                    "sill_m": 4.25,
+                    "centre_m": 1.5
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.45,
+                    "sill_m": 4.25,
+                    "centre_m": 4.0
+                  }
+                ],
+                "doors": [
+                  {
+                    "centre_m": 4.15,
+                    "clear_width_m": 0.95,
+                    "clear_height_m": 2.35,
+                    "panels": [
+                      2,
+                      2
+                    ],
+                    "stile_m": 0.12,
+                    "top_rail_m": 0.12,
+                    "lock_rail_m": 0.2,
+                    "bottom_rail_m": 0.24,
+                    "panel_sink_m": 0.015
+                  }
+                ],
+                "gable_windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.0,
+                    "sill_m": 6.95,
+                    "centre_m": 2.75
+                  }
+                ]
+              },
+              {
+                "side": "north",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.35,
+                    "centre_m": 2.0
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.35,
+                    "centre_m": 5.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.35,
+                    "centre_m": 9.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.35,
+                    "centre_m": 13.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.45,
+                    "sill_m": 4.25,
+                    "centre_m": 2.0
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.45,
+                    "sill_m": 4.25,
+                    "centre_m": 5.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.45,
+                    "sill_m": 4.25,
+                    "centre_m": 9.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.45,
+                    "sill_m": 4.25,
+                    "centre_m": 13.4
+                  }
+                ]
+              },
+              {
+                "side": "west",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.35,
+                    "centre_m": 1.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.35,
+                    "centre_m": 3.9
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.45,
+                    "sill_m": 4.25,
+                    "centre_m": 1.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.45,
+                    "sill_m": 4.25,
+                    "centre_m": 3.9
+                  }
+                ],
+                "gable_windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.0,
+                    "sill_m": 6.95,
+                    "centre_m": 2.75
+                  }
+                ]
+              },
+              {
+                "side": "south",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.35,
+                    "centre_m": 2.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.35,
+                    "centre_m": 14.1
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.45,
+                    "sill_m": 4.25,
+                    "centre_m": 2.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.45,
+                    "sill_m": 4.25,
+                    "centre_m": 14.1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "wing",
+            "rect_uv": [
+              5.25,
+              -1.5,
+              12.5,
+              0.0
+            ],
+            "wall_top_m": 5.8,
+            "roof": {
+              "kind": "flat"
+            },
+            "against": "north",
+            "walls": [
+              {
+                "side": "west"
+              },
+              {
+                "side": "south",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.35,
+                    "centre_m": 1.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.35,
+                    "centre_m": 3.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.75,
+                    "sill_m": 1.35,
+                    "centre_m": 5.65
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.0,
+                    "sill_m": 4.0,
+                    "centre_m": 1.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.0,
+                    "sill_m": 4.0,
+                    "centre_m": 3.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.0,
+                    "sill_m": 4.0,
+                    "centre_m": 5.65
+                  }
+                ]
+              },
+              {
+                "side": "east"
+              }
+            ]
+          }
+        ],
+        "porch": {
+          "id": "k16.porch.1601_entrance",
+          "kind": "porch",
+          "use": "porch",
+          "side": "east",
+          "half_width_m": 0.9,
+          "depth_m": 1.2,
+          "centre_m": 4.15,
+          "steps": {
+            "centre_m": 4.15,
+            "width_m": 1.2,
+            "going_m": 0.28,
+            "max_riser_m": 0.2
+          }
+        },
+        "chimney": {
+          "u_m": 8.0,
+          "v_m": 2.75,
+          "width_m": 0.5,
+          "depth_m": 0.6,
+          "above_ridge_m": 0.75
+        },
+        "paint": {
+          "body": [
+            0.6,
+            0.61,
+            0.52
+          ]
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The whole house from the K16 kit (T-2398). READ from the sheet through the T-2328 trace s20fp-1601-b1 and the draft's fit of it: the main block's rectangle (15.5 m deep, 5.5 m along Prairie, the footprint above), two storeys, frame, and the two-storey wing standing 1.5 m out on the 16th Street side (u 5.25-12.5, the draft's r2), which is the sheet's stepped outline. Everything else is RECONSTRUCTED from the kit and recorded as L-k16-1601-frame-house-2398: clapboard on a water table over a 0.45 m foundation, corner boards, two-over-two sash in flat timber casings (two bays on the front, four a storey down the south side, two on the rear, two on the 16th Street side beyond the wing and three a storey on the wing), a four-panel door at the south end of the front (the draft rules' entrance side, away from the corner), a deep frieze under a boxed eave with scroll brackets round both blocks, a 40-degree gable with its ridge running back from the street (the draft's roof) standing on the eave as a closed pediment at the front and the rear, an attic sash in each gable, a flat deck on the lower wing, one brick stack on the ridge, a small kit entrance porch with timber steps at the door (the sheet draws no porch), and a grey-green body paint."
+    },
+    "roof_covering": {
+      "value": {
+        "material": "wood shingle",
+        "color": [
+          0.13,
+          0.11,
+          0.095
+        ]
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "No roof covering has been read for 1601. A small frame house of its size was commonly shingled, and the weathered grey-brown of cedar is RECONSTRUCTED, the colour 1630's and 1638's K16 roofs use; the shingles themselves are not modelled. The wing's flat deck takes the same colour."
+    },
+    "function": {
+      "value": "residence",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The 1911 sheet marks the building 'D' (dwelling): '2-storey frame (yellow) dwelling (D), stepped outline; nothing behind it before the tracks'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "sanborn_1911_chicago_v3_sheet_20",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 20.",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "The Illinois Central / Michigan Central right-of-way and, from the 16th Street row south about 60 m, the water's edge beside it, as of 1911",
+        "Footprints, lot lines, street widths (66 ft; 16th Street 50 ft), addresses, material by colour and story counts for Indiana Av. to the tracks, 16th to 18th Street, as of 1911",
+        "Its own printed Scale of Feet, which the georeference uses as its scale"
+      ],
+      "what_it_does_not_supply": [
+        "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+        "A construction date for any building it draws",
+        "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+        "Architecture above the footprint beyond its story count, material colour and roof symbol",
+        "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+      ]
+    }
+  ],
+  "research_note": "T-2398 (piece 1 of T-1866) refines the district draft (T-2335) in place under the same id: the whole house is rebuilt from the K16 timber kit — clapboard walls built board by board on a water table, cased two-over-two sash and a panelled door, a bracketed boxed eave, a 40-degree gable standing on that eave as a closed pediment front and rear with an attic sash in each, one brick stack, a small kit entrance porch with its steps — instead of the draft builder. What is read: the 1911 Sanborn sheet 20 (storeys '2', frame, use 'D', the traced main body and the two-storey wing on its 16th Street side) through the T-1840 census and the T-2328 trace. Everything else is reconstructed and recorded as L-k16-1601-frame-house-2398. No photograph, plate or description of 1601 has been read; a later reading that finds one replaces the kit's choices here.",
+  "research_doc": "",
+  "review_required": false
+}

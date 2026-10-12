@@ -24,13 +24,13 @@
   "note": "THE BIOGRAPHY'S OWN DATE, NOT THIS PROJECT'S. The roll records this person's arrival at Chicago in 1832, and a later source may date what it remembers of an earlier year. Read at 1 January because the roll gives a year and no day.",
   "precision": "year"
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "tier": "unknown",
   "note": "Not attested: the reading gives a name and no address."
  },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "tier": "unknown",

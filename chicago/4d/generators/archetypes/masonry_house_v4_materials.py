@@ -21,13 +21,15 @@ SURFACE_UV = "SurfaceUV"
 BAKE_UV = "BakeUV"
 
 # One repeat in metres. The module sizes are reconstructed. The tall brick repeat
-# covers 32 small courses; the roof repeat covers 16 flat overlapping tile courses.
+# covers 32 small courses. Roof tiles use the HABS 6-inch width / 5-inch
+# exposure in a 16-by-16 repeat; terracotta is the separate grain-only fabric.
 TILE_M = {
     "granite": (1.6, 1.6),
     "brick": (1.7272, 2.1336),
     "limestone": (1.2, 1.2),
     "mortar": (1.2, 1.2),
     "terracotta": (2.4384, 1.95072),
+    "roof_tiles": (16 * 6 * .0254, 16 * 5 * .0254),
     "copper": (2.4, 2.4),
     "oak": (0.8, 2.4),
     "painted_wood": (0.8, 2.4),
@@ -37,6 +39,18 @@ TILE_M = {
 # The generated albedo depicts a smaller crystal field than the procedural
 # normal/roughness repeat. UV0 stays metric; glTF carries this texture's scale.
 ALBEDO_TILE_M = {"granite": (0.22, 0.22), "turf": (4.0, 4.0)}
+# T-2210: Glessner's courtyard is light pink common brick with grey Joliet limestone
+# lintels and sills (HABS ILL-1015 data p. 21; Glessner 1923). The K01 kit's Prairie
+# houses wear this library's brick and limestone images too, so the courtyard's
+# identity is carried here, in Glessner's own slots, and never by repainting them:
+# brick slots draw the albedo-only court_brick image over brick's relief, and every
+# limestone slot multiplies the cream study down to a grey. Linear, reconstructed hue.
+COURT_BRICK = "court_brick"
+LIMESTONE_GREY = (0.83, 0.88, 1.0)
+# T-2390: the fabrics whose normal map's height field also ships as an occlusion
+# map (generate.py `occluded`). It rides the normal map's UV and repeat, so a
+# material carries it exactly when it carries that fabric's normal map.
+OCCLUSION_FABRICS = frozenset({"granite"})
 
 # Geometry and material module share these slots. New materials are appended so
 # that the existing nine-part composition can be reused without reinterpretation.
@@ -51,13 +65,15 @@ ROUGH_TRIM = 24
 GRASS_BLADES = (25, 26, 27)
 
 SLOT_FABRIC = {
-    0: "granite", 1: "brick", 2: "limestone", 3: "terracotta",
+    0: "granite", 1: "brick", 2: "limestone", 3: "roof_tiles",
     4: "copper", 6: "oak", 7: "turf", 8: "gravel", 9: "mortar",
     12: "granite", 13: "granite", 14: "granite", 15: "granite",
     16: "brick", 17: "brick", 18: "brick",
     19: "terracotta", 20: "terracotta", 21: "terracotta",
     23: "painted_wood",
-    24: "granite",
+    # T-2210: the courtyard's rock-faced trim is Joliet limestone, so its UVs are
+    # divided by the limestone repeat its albedo is drawn at (K01 contract metric_uv).
+    24: "limestone",
 }
 
 
@@ -133,6 +149,10 @@ def _pbr(bpy, name, fabric, tint=(1, 1, 1), normal_strength=1.0, metallic=0.0,
             nt.links.new(mix.outputs[2], bsdf.inputs[input_name])
         else:
             nt.links.new(tex.outputs["Color"], bsdf.inputs[input_name])
+    occlusion_fabric = normal_fabric or fabric
+    if occlusion_fabric in OCCLUSION_FABRICS:
+        _occlusion(bpy, nt, uv, occlusion_fabric)
+        material["occlusion_map"] = f"assets/textures/glessner-v4/{occlusion_fabric}_occlusion.png"
     material["surface_tier"] = "reconstructed"
     material["texture_generator"] = "assets/textures/glessner-v4/generate.py"
     material["tile_m"] = list(TILE_M[fabric])
@@ -142,6 +162,33 @@ def _pbr(bpy, name, fabric, tint=(1, 1, 1), normal_strength=1.0, metallic=0.0,
                                          else f"assets/textures/glessner-v4/{albedo_source}_photographic_provenance.json")
         material["albedo_tile_m"] = list(ALBEDO_TILE_M[albedo_source])
     return material
+
+
+def _occlusion(bpy, nt, uv, fabric):
+    """Wire `<fabric>_occlusion.png` as the glTF occlusionTexture (T-2390).
+
+    The exporter recognises only a node group literally named "glTF Material Output"
+    with an "Occlusion" input (generators/emit.py bake_ao uses the same group). The
+    map shares the normal map's SurfaceUV with no mapping node, so it tiles with the
+    relief it was computed from.
+    """
+    tex = nt.nodes.new("ShaderNodeTexImage")
+    tex.label = f"Original {fabric} occlusion"
+    tex.image = _image(bpy, fabric, "occlusion")
+    tex.interpolation = "Linear"
+    tex.extension = "REPEAT"
+    nt.links.new(uv.outputs["UV"], tex.inputs["Vector"])
+    group = bpy.data.node_groups.get("glTF Material Output")
+    if group is None:
+        group = bpy.data.node_groups.new("glTF Material Output", "ShaderNodeTree")
+        group.interface.new_socket("Occlusion", in_out="INPUT", socket_type="NodeSocketFloat")
+        group.nodes.new("NodeGroupInput")
+    node = nt.nodes.new("ShaderNodeGroup")
+    node.node_tree = group
+    node.name = "glTF Material Output"
+    split = nt.nodes.new("ShaderNodeSeparateColor")
+    nt.links.new(tex.outputs["Color"], split.inputs["Color"])
+    nt.links.new(split.outputs["Red"], node.inputs["Occlusion"])
 
 
 def build_materials(colours=None):
@@ -154,9 +201,11 @@ def build_materials(colours=None):
     colours = colours or {}
     mats = [
         _pbr(bpy, "granite", "granite", tint=(0.78, 0.95, 1.0), normal_strength=1.0),
-        _pbr(bpy, "brick", "brick", tint=(0.88, 0.88, 0.88), normal_strength=0.85),
-        _pbr(bpy, "limestone_trim", "limestone", normal_strength=0.65),
-        _pbr(bpy, "roof_plane", "terracotta", normal_strength=0.70),
+        _pbr(bpy, "brick", "brick", tint=(0.94, 0.94, 0.94), normal_strength=0.85,
+             albedo_fabric=COURT_BRICK),
+        # Dressed Joliet limestone: grey, and a little more tooth than the old cream.
+        _pbr(bpy, "limestone_trim", "limestone", tint=LIMESTONE_GREY, normal_strength=0.85),
+        _pbr(bpy, "roof_plane", "roof_tiles", normal_strength=0.70),
         _pbr(bpy, "copper", "copper", normal_strength=0.18, metallic=0.78),
         _plain(bpy, "glass", (0.945, 0.97, 0.953, 1), roughness=0.065),
         _pbr(bpy, "oak", "oak", normal_strength=0.45),
@@ -183,20 +232,28 @@ def build_materials(colours=None):
     for i, tint in enumerate(((0.68, 0.85, 0.97), (0.78, 0.96, 1.0),
                               (0.85, 0.94, 0.95), (0.82, 0.98, 1.0))):
         mats.append(_pbr(bpy, f"granite_{i + 1}", "granite", tint=tint, normal_strength=1.0))
-    # Restrained kiln variation shares the same clay fabric in every slot.
-    # Narrowing hue/value steps removes the random grey/red mosaic while
-    # preserving the existing geometry's60/20/14/6 unit distribution.
-    mats.append(_pbr(bpy, "brick_dark_red", "brick", tint=(0.92, 0.72, 0.64), normal_strength=0.85))
-    mats.append(_pbr(bpy, "brick_buff", "brick", tint=(1.0, 0.985, 0.94), normal_strength=0.85))
-    mats.append(_pbr(bpy, "brick_smoky", "brick", tint=(0.43, 0.47, 0.48), normal_strength=0.85))
+    # Restrained kiln variation shares the same clay fabric in every slot, and
+    # the geometry's 60/20/14/6 unit distribution is unchanged. T-2210: every step
+    # stays in the pink family, because Glessner names one brick for the whole
+    # court ("the same texture and color"); the grey smoky unit read as a second
+    # material. Slot names stay, as the LOD derivative lists them.
+    mats.append(_pbr(bpy, "brick_dark_red", "brick", tint=(0.86, 0.76, 0.74), normal_strength=0.85,
+                     albedo_fabric=COURT_BRICK))
+    mats.append(_pbr(bpy, "brick_buff", "brick", tint=(1.0, 0.99, 0.97), normal_strength=0.85,
+                     albedo_fabric=COURT_BRICK))
+    mats.append(_pbr(bpy, "brick_smoky", "brick", tint=(0.66, 0.58, 0.56), normal_strength=0.85,
+                     albedo_fabric=COURT_BRICK))
     for i, tint in enumerate(((0.92, 0.90, 0.88), (1.0, 0.99, 0.976), (0.97, 0.93, 0.91))):
         mats.append(_pbr(bpy, f"roof_plane_{i + 1}", "terracotta", tint=tint, normal_strength=0.70))
     mats.append(_plain(bpy, "linen_blind", (0.74, 0.73, 0.68, 1), roughness=0.98))
     mats.append(_pbr(bpy, "painted_wood", "painted_wood", normal_strength=0.30))
-    # Rock-faced window heads/sills share the visible grey mineral fabric of the
-    # street stone. Dressed cornices and carved mouldings retain smoother slot2.
-    # This is reconstructed appearance, not a petrographic identification.
-    mats.append(_pbr(bpy, "rough_stone_trim", "granite", tint=(0.78, 0.95, 1.0), normal_strength=0.80))
+    # Rock-faced courtyard heads, sills, surrounds and tower belts: Joliet limestone
+    # (HABS p. 21), no longer the street granite's crystal albedo. The fine grey
+    # limestone study carries albedo and roughness; the split-face normal stays the
+    # granite study's, drawn at limestone's 1.2 m repeat (its fracture planes about
+    # 3-10 cm, not 4-14), while the geometry carries the large pitched faces.
+    mats.append(_pbr(bpy, "rough_stone_trim", "limestone", tint=LIMESTONE_GREY, normal_strength=0.80,
+                     normal_fabric="granite"))
     # Thin geometry blades sit over the independently textured lawn. These
     # muted linear colours sit below its average reflectance, avoiding lime tips.
     for name, colour in (("dark", (.045, .080, .017)),
@@ -206,7 +263,7 @@ def build_materials(colours=None):
     return mats
 
 
-def assign_metric_uvs(ob):
+def assign_metric_uvs(ob, roof_uvs=None):
     """Metric UVs for walls and pitched planes; preserve them through emit.unwrap.
 
     SurfaceUV is the first / render-active layer and every PBR node requests it
@@ -238,7 +295,8 @@ def assign_metric_uvs(ob):
         tu, tv = TILE_M.get(fabric, (1.0, 1.0))
         for li in poly.loop_indices:
             co = mesh.vertices[mesh.loops[li].vertex_index].co
-            surface.data[li].uv = (co.dot(horizontal) / tu, co.dot(uphill) / tv)
+            uv=(roof_uvs or {}).get(mesh.loops[li].vertex_index,(co.dot(horizontal),co.dot(uphill)))
+            surface.data[li].uv = (uv[0] / tu, uv[1] / tv)
     surface.active_render = True
     scratch = mesh.uv_layers.get(BAKE_UV) or mesh.uv_layers.new(name=BAKE_UV)
     mesh.uv_layers.active = scratch

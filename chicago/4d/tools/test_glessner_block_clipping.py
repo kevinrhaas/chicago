@@ -142,7 +142,7 @@ print(f'PASS wall: {len(wall.stones)} complete stones forwarded with aperture ma
 # steep chips and side/reveal faces retain their original hard normals.
 front=[(0,0,0),(1,0,0),(0,1,0)]
 side=[(0,0,0),(0,0,-.03),(1,0,-.03),(1,0,0)]
-for degrees in (20,60):
+for degrees in (20,75):
     tilted=[(1,0,0),(0,0,0),(0,-2,2*math.tan(math.radians(degrees)))]
     softened=list(detail.stone_corner_normals([(front,True),(tilted,True),(side,False)]))
     assert softened[2]==(side,False), 'smoothing altered a stone side/reveal'
@@ -155,7 +155,7 @@ for degrees in (20,60):
             'shallow fracture normals were not area weighted'
     else:
         assert math.dist(a,(0,0,1))<1e-10
-        assert detail.dot(a,b)<math.cos(math.radians(35)), \
+        assert detail.dot(a,b)<math.cos(math.radians(detail.ROCK_SMOOTH_DEGREES)), \
             'a steep fracture was rounded across its hard ridge'
 separate=list(detail.stone_corner_normals([(front,True)]))
 assert all(math.dist(p[3:],(0,0,1))<1e-10 for p in separate[0][0]), \
@@ -303,9 +303,36 @@ def check_turret_louvres():
     print('PASS turret: four false glass panels removed; real blades/gaps; exact inherited envelope')
 
 
+def check_turret_dovecote():
+    """T-2207: the record's vent turns the band into arched holes on perches."""
+    turret={'x0':0,'x1':1.8288,'y0':0,'y1':1.8288,'z0':10.9728,'top_z':11.8567,
+            'louvre':[11.2166,11.7348],'apex_z':13.1978,'finial_m':.1676,'conf':1.0,
+            'vent':{'tiers':2,'per_face':3,'opening_width_m':.2286,'perch_projection_m':.0914},
+            'eave':{'overhang_m':.381,'drop_m':.0305,'flare_run_m':.2286,'flare_pitch':.55}}
+    b=PhysicalRecorder();detail.louvred_turret(b,turret)
+    assert not any(mat==detail.GLASS for _,_,mat in b.faces), 'the cote carries glass'
+    assert sum(mat==detail.DARK_GLASS for _,_,mat in b.faces)==4, 'a face lost its dark cote'
+    lo,hi=turret['louvre'];step=(hi-lo)/2;ua,uc=.12,1.8288-.12
+    near=[face for face,_,mat in b.faces if mat==detail.WOOD and min(p[0] for p in face)>turret['x1']-.09]
+    for tier in range(2):
+        hole=lo+tier*step+step*.45
+        for k in range(3):
+            y=ua+(uc-ua)*(k+.5)/3
+            assert not any(physical_ray_hits(face,y,hole) for face in near), 'a pigeon hole is filled'
+        between=ua+(uc-ua)/3
+        assert any(physical_ray_hits(face,between,hole) for face in near), 'the pier between holes is gone'
+    perches=[face for face,_,mat in b.faces if mat==detail.WOOD and max(p[0] for p in face)>turret['x1']+.05]
+    assert perches, 'no landing board projects from the face'
+    points=[p for face,_,_ in b.faces for p in face]
+    assert abs(max(p[2] for p in points)-(turret['apex_z']+turret['finial_m']))<.05, 'the apex moved'
+    assert abs(min(p[0] for p in points)-(-.381))<1e-6, 'the eave does not overhang as recorded'
+    print('PASS turret dovecote: two tiers of open arched holes, piers and perches, apex kept')
+
+
 check_closed_glass()
 check_prairie_door_cutout()
 check_turret_louvres()
+check_turret_dovecote()
 
 
 # The engine-neutral light writer must preserve concave roof/ground/aperture
@@ -323,3 +350,198 @@ for polygon,expected in notches:
         measured=sum(abs(detail.area([points[i] for i in triangle])) for triangle in triangles)
         assert abs(measured-expected)<1e-10, 'light triangulation filled a concave notch'
 print('PASS light triangulation: diagonal-boundary notch, L/U outlines and collinear edges in both windings')
+
+
+# T-2311: the light tier is built with Python 3.11's sum() on every interpreter.
+# 1e16 + 1.0 rounds back to 1e16 in plain addition, so the 3.11 answer is 0.0; a
+# compensated 3.12 sum() says 1.0, which is the drift that redded every bake.
+import builtins
+from _glessner_lod import _blender_arithmetic, _left_to_right_sum
+assert _left_to_right_sum([1e16,1.0,-1e16])==0.0 and _left_to_right_sum([],5)==5
+native=builtins.sum
+seen=_blender_arithmetic(lambda:sum([1e16,1.0,-1e16]))()
+assert seen==0.0, 'the light build summed with the interpreter, not the 3.11 rule'
+assert builtins.sum is native, 'the pinned sum leaked out of the light build'
+def failing():raise RuntimeError('fixture')
+try:_blender_arithmetic(failing)()
+except RuntimeError:pass
+assert builtins.sum is native, 'a failed light build left the pinned sum installed'
+print('PASS light arithmetic: 3.11 left-to-right sum inside the build, the native one restored after, even on failure')
+
+
+# T-2202: test the generated surfaces, including their joints, rather than a
+# boolean saying a frontage was requested. Both detail levels must leave the
+# two access gaps traversable and cover the complete passage with mineral paving.
+def check_frontage_ground():
+    import json
+    from archetypes.masonry_house_params import from_phase
+    from archetypes.masonry_house_v4_frontage import add_frontage, passage_floor, LAWN
+    record=json.loads((ROOT/'data/structures/glessner_house.json').read_text())
+    params=from_phase(record['phases'][0],record)
+    f=params.detail['prairie_frontage']
+    class Surfaces:
+        def __init__(self): self.faces=[]
+        def raw(self,points,confidence,material,*_):
+            assert confidence==1.0, 'frontage reconstruction was promoted to attested'
+            self.faces.append((points,material))
+    def height(surfaces,x,y):
+        hits=[]
+        for points,material in surfaces.faces:
+            for i in range(1,len(points)-1):
+                a,b,c=points[0],points[i],points[i+1]
+                den=(b[1]-c[1])*(a[0]-c[0])+(c[0]-b[0])*(a[1]-c[1])
+                if abs(den)<1e-10:continue
+                u=((b[1]-c[1])*(x-c[0])+(c[0]-b[0])*(y-c[1]))/den
+                v=((c[1]-a[1])*(x-c[0])+(a[0]-c[0])*(y-c[1]))/den
+                if min(u,v,1-u-v)>=-1e-8:
+                    hits.append((u*a[2]+v*b[2]+(1-u-v)*c[2],material))
+        return max(hits,default=(-99,-1))
+    for reduced in (False,True):
+        surfaces=Surfaces();add_frontage(surfaces,params,reduced);assert passage_floor(surfaces,params)
+        # Door sill and both risers meet, without a curb across the approach.
+        y=sum(f['door_y'])/2
+        for i in range(101):
+            x=f['wall_x']+(f['walk_x']-f['wall_x'])*i/100
+            z,mat=height(surfaces,x,y)
+            assert f['walk_z']-.004<=z<=f['door_z']+1e-8 and mat!=LAWN,(reduced,x,z,mat)
+        assert abs(height(surfaces,params.width_m+.017,y)[0]-f['door_z'])<1e-8
+        # The existing opening owns the bottom reveal behind +16 mm. There
+        # must be no second coplanar sill face over it (the old cause of flicker).
+        assert height(surfaces,params.width_m,y)[0] < f['door_z']-.01
+        # Three longitudinal lanes through the approach and splayed passage.
+        p,q,r,s=params.detail['underpass']['pts']
+        for lane in (.1,.5,.9):
+            for i in range(151):
+                t=i/150;x=f['walk_x']+(s[0]-f['walk_x'])*t
+                if x>=p[0]:
+                    k=(f['walk_x']-x)/(f['walk_x']-p[0])
+                    low=f['porte_y'][0]+(q[1]-f['porte_y'][0])*k
+                    high=f['porte_y'][1]+(p[1]-f['porte_y'][1])*k
+                else:
+                    k=(p[0]-x)/(p[0]-s[0]);low=q[1]+(r[1]-q[1])*k;high=p[1]+(s[1]-p[1])*k
+                z,mat=height(surfaces,x,low+(high-low)*lane)
+                assert f['passage_court_z']-.004<=z<=f['passage_front_z']+1e-8 and mat!=LAWN,(reduced,x,z,mat)
+        z,_=height(surfaces,s[0],(s[1]+r[1])/2)
+        assert abs(z-f['passage_court_z'])<1e-8, 'passage does not meet courtyard drive datum'
+        for low,high in f['lawns']:
+            z=max(height(surfaces,f['outer_x']-f['curb_width_m']/2,(low+high)/2+offset)[0] for offset in (-.012,0,.012))
+            assert abs(z-f['walk_z']-f['curb_height_m'])<1e-8,'curb lost its upper silhouette'
+    print('PASS frontage: both LODs, 1,108 access samples; no lawn/curb obstruction; sill and drive datums meet')
+
+
+check_frontage_ground()
+
+
+# T-2208: a straight jamb ends whole stones (no sliver, no joint against the
+# reveal); each run alternates long/short end stones by course so joints never
+# stack at a corner or jamb; and every rock face falls to its 16 mm pitch line
+# at the stone's edge while the interior keeps its full relief.
+def check_coursing():
+    class Coursing(Recorder):
+        def __init__(self):
+            super().__init__()
+            # A second, shorter window lands in the middle of the run beside the
+            # first: that run must still be laid (it once came out bare bed).
+            self.openings=[{'kind':'window','axis':'y','sign':1,'at':0,'face':'north',
+                            'u0':2.3,'u1':3.5,'z0':.9,'z1':2.6},
+                           {'kind':'window','axis':'y','sign':1,'at':0,'face':'north',
+                            'u0':4.55,'u1':4.95,'z0':1.1,'z1':1.5}]
+            self.course_schedule=[.4572,.2413,.3429,.1905]
+            self.stones=[]
+        def block(self, polygon, point, normal, confidence, mat, rng, holes=None):
+            self.stones.append(detail.bounds(polygon))
+    w=Coursing();w.wall([(0,0,0),(0,0,3.2),(6,0,3.2),(6,0,0)],.75,detail.GRANITE)
+    rows={}
+    # This wall's local u runs west (-x); read the spans in metres along x.
+    for x0,z0,x1,z1 in w.stones:rows.setdefault(round(z0,4),[]).append((-x1,-x0))
+    for z in rows:
+        if .9<=z<=2.3:
+            laid=sum(min(b,6)-max(a,3.5) for a,b in rows[z] if b>3.5)
+            assert laid>2.3, f'the run beside the window at {z} is bare bed ({laid:.2f} m laid)'
+    jambed=0
+    for z,spans in rows.items():
+        spans.sort()
+        assert min(b-a for a,b in spans)>.25 or len(spans)<3, f'a sliver stone in the course at {z}'
+        if .9<=z<=2.3:
+            assert all(b<=2.3+1e-9 or a>=3.5-1e-9 for a,b in spans), \
+                'a stone face crosses the jamb of a whole course'
+        if any(abs(b-2.3)<1e-9 for a,b in spans) and any(abs(a-3.5)<1e-9 for a,b in spans):
+            jambed+=1
+    assert jambed>=3, f'only {jambed} courses end flush on both jambs'
+    order=sorted(rows)
+    firsts=[rows[z][0][1]-rows[z][0][0] for z in order]
+    assert all(abs(a-b)>.2 for a,b in zip(firsts,firsts[1:])), 'corner joints stack over each other'
+    stone=[(0,0),(1.2,0),(1.2,.4),(0,.4)]
+    facets=list(detail.fractured_stone(stone,.04,random.Random(7)))
+    edge=[q[2] for poly,front in facets if front for q in poly
+          if min(q[0],1.2-q[0],q[1],.4-q[1])<.012]
+    inner=[q[2] for poly,front in facets if front for q in poly
+           if min(q[0],1.2-q[0],q[1],.4-q[1])>detail.PITCH_MARGIN]
+    assert edge and max(abs(v-detail.PITCH_LINE) for v in edge)<.004, 'a rock face overruns its pitched arris'
+    assert inner and sum(inner)/len(inner)>detail.PITCH_LINE+.015, 'the rock face lost its projection'
+    print(f'PASS coursing: {jambed} courses end flush on both jambs; {len(order)} alternating corner stones; '
+          f'{len(edge)} arris samples on the pitch line, interior mean {1000*sum(inner)/len(inner):.0f} mm proud')
+
+
+check_coursing()
+
+
+def check_rock_shading():
+    """T-2209: the lattice's random diagonals do not shade as hard creases.
+
+    A corner shared by several finished facets of one stone carries one normal
+    unless a real steep chip meets it. At the old 35 degree limit 21 % of those
+    corners lit with a jump of more than 5 degrees, the triangle mosaic seen in
+    sun; the gate holds the share under 1 % on forty seeded ashlar stones.
+    """
+    jumps=[]
+    for seed in range(40):
+        stone=[(0,0),(1.0,0),(1.0,.39),(0,.39)]
+        at={}
+        for poly,front in detail.stone_corner_normals(detail.fractured_stone(stone,.03,random.Random(seed))):
+            if not front:continue
+            for q in poly:at.setdefault(tuple(round(c,9) for c in q[:3]),[]).append(q[3:])
+        for normals in at.values():
+            if len(normals)>1:
+                jumps.append(max(math.degrees(math.acos(max(-1.0,min(1.0,detail.dot(a,b)))))
+                                 for a in normals for b in normals))
+    share=sum(j>5 for j in jumps)/len(jumps)
+    assert share<.01, f'{100*share:.1f}% of shared rock-face corners shade as a hard crease'
+    print(f'PASS rock shading: {100*share:.2f}% of {len(jumps)} shared facet corners crease (>5 degrees); limit 1%')
+
+
+check_rock_shading()
+
+
+def check_rock_uv_frame():
+    """T-2209: every facet of one rock face reads its grain in the wall's plane.
+
+    A face projected on its OWN normal shifts the albedo by |position| x the tilt,
+    which, 30 m from the origin, is metres per lattice triangle: the triangle
+    mosaic of the GA-09 audit. Shared corners must carry one UV, and that UV is
+    the corner's projection on the wall frame.
+    """
+    class UVProbe(detail.DetailBuilder):
+        def __init__(self):
+            self.params=SimpleNamespace(detail={'ashlar_relief_m':[.025,.070]})
+            self.masonry_blocks=0;self.verts=[];self.roof_uvs={};self.rock_normals={}
+            self.smooth_rock_faces=True;self.fronts=[]
+        def raw(self, pts, confidence, mat, want=None):
+            base=len(self.verts);self.verts.extend(tuple(p) for p in pts)
+            return list(range(base,len(self.verts)))
+    probe=UVProbe()
+    wall=(0.0,-1.0,0.0)
+    point=lambda q,off=0:(31.0+q[0],-22.5-off,q[1]+4.0)
+    probe.block([(0,0),(1.1,0),(1.1,.39),(0,.39)],point,wall,1.0,detail.GRANITE,random.Random(11))
+    assert probe.roof_uvs, 'no rock facet received a wall-frame UV'
+    at={}
+    for index,uv in probe.roof_uvs.items():
+        x,y,z=probe.verts[index]
+        assert abs(uv[0]-x)<1e-9 and abs(uv[1]-z)<1e-9, 'a rock facet UV left the wall frame'
+        at.setdefault(tuple(round(c,9) for c in probe.verts[index]),set()).add(tuple(round(c,9) for c in uv))
+    shared=[k for k,v in at.items() if len(v)>1]
+    assert not shared, f'{len(shared)} shared rock corners carry two UVs'
+    print(f'PASS rock UV frame: {len(probe.roof_uvs)} facet corners on the wall plane, 0 seams')
+
+
+check_rock_uv_frame()

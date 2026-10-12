@@ -8,8 +8,8 @@
    "why": "Miles Holcombe of Kaskaskia is a card here (hh_holcombe_miles, which the press register links to this very issue), and the tie the column states is his daughter's marriage. Neither Miss Holcombe nor her groom — '[an officer] of the Indian Department', his name lost to the column's damage — is a person this town holds, so neither the father-daughter tie nor the marriage has a far end."
   },
   "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_03.json#claims/c007": {
-   "verdict": "a_family_whole",
-   "why": "The column states the Noble family whole: Mark Noble jun. (hh_marknoble_jun) 'second son of Mark Nobles, Esq.' (hh_noble_mark) married Charlotte, 'only daughter of Mr. Charles Wesencraft'; Mary, 'second daughter to Mark Noble, Esq.' (hh_noble_mary), married George Bickerdyke, both on 29 November 1833. The two parent ties are written, reciprocally, between cards minted from this notice (T-2229), beside Charlotte's tie to her father that T-1134 landed. Both brides married eighteen months before the scene and where they live in 1835 is a seating question, so the marriages go to T-2230."
+   "verdict": "same_household",
+   "why": "The column states the Noble family whole: Mark Noble jun. (hh_marknoble_jun) 'second son of Mark Nobles, Esq.' (hh_noble_mark) married Charlotte, 'only daughter of Mr. Charles Wesencraft'; Mary, 'second daughter to Mark Noble, Esq.' (her own card hh_noble_mary, folded since T-2233), married George Bickerdyke (hh_bickerdyke_george), both on 29 November 1833. The two parent ties are written, reciprocally, between cards minted from this notice (T-2229), beside Charlotte's tie to her father that T-1134 landed. Since T-2232 Charlotte is a member of Mark Noble jun.'s household record with relationship 'wife', and since T-2233 Mary is a member of George Bickerdyke's, each seated as the bride the column prints in place of a drawn wife, so both marriages ARE the cards' structure and a kin row inside one record would say it twice. Seating Mary took his house out of T-2020's wife match, which re-paired the refused houses after his in its own order."
   },
   "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_17.json#claims/c001": {
    "verdict": "same_household",
@@ -37,7 +37,7 @@
   },
   "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_17.json#claims/c002": {
    "verdict": "ended_before_the_scene",
-   "why": "Charles Rollins, 'only son of Mr. John [Rollins,] Jr., aged 2 years and 10 months', died 7 September 1834. Both are cards here (hh_rollins_charles, hh_rollins_john, each minted from this notice), but the son was buried ten months before the scene, so the father-son tie did not stand on 1 July 1835. That his card is still ruled present, heading a modelled household of six, is T-2189's."
+   "why": "Charles Rollins, 'only son of Mr. John [Rollins,] Jr., aged 2 years and 10 months', died 7 September 1834. Both are cards here (hh_rollins_charles, hh_rollins_john, each minted from this notice), but the son was buried ten months before the scene, so the father-son tie did not stand on 1 July 1835. T-2189 rules his card absent on this notice and withdraws the household modelled around him."
   },
   "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_24.json#claims/c001": {
    "verdict": "relative_not_held",
@@ -45,7 +45,7 @@
   },
   "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_24.json#claims/c002": {
    "verdict": "ended_before_the_scene",
-   "why": "Mrs. Sarah Hoit, 'wife of Mr. Thomas Hoit', died 16 September 1834 in her forty-third year. Both are cards here (hh_hoit_sarah, hh_hoit_thomas), but she was buried before the scene, so the husband/wife tie did not stand on 1 July 1835. That her card is still ruled present is T-2189's."
+   "why": "Mrs. Sarah Hoit, 'wife of Mr. Thomas Hoit', died 16 September 1834 in her forty-third year. Both are cards here (hh_hoit_sarah, hh_hoit_thomas), but she was buried before the scene, so the husband/wife tie did not stand on 1 July 1835. T-2189 rules her card absent on this notice."
   },
   "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_05_27.json#claims/c003": {
    "verdict": "relative_not_held",

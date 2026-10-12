@@ -458,24 +458,27 @@ DARK = Finish(
          "small; separating them would add a material to an asset, which T-0126's "
          "acceptance forbids and K36(a) is the reason for.")
 GLASS = Finish(
-    key="glass", rgba=(0.09, 0.11, 0.13, 1.0), roughness=0.25,
+    key="glass", rgba=(0.1134, 0.1164, 0.1144, 1.0), roughness=0.065,
     tier="reconstructed",
-    note="Small-paned sash, seen from the street: mostly the sky reflected in the "
-         "pane and a little of the dark room behind it. §2.3 calls it 'the only "
-         "sub-0.5 surface on a building'. Already consistent across its two "
-         "generators (frame_storefront, frame_tavern — 48 slots at one value), so "
-         "T-0126 brings it onto the sheet UNCHANGED rather than re-arguing it. WHAT "
-         "THE SOURCES CARRY, measured across data/sources/ on 2026-08-24: the word "
-         "'glass' appears in NO source this repository holds. Two records reach the "
-         "glazing at all — the Green Tree's `fenestration: small_paned_sash`, "
-         "`inferred` off Gale's guest chamber 'about 12x12, with two windows 6x8' "
-         "(chicagology_prefire127), which is the one attested pane size in the "
-         "dataset and the number frame_dwelling sizes every window from; and the "
-         "Sauganash's Trowbridge plate, which shows louvred shutters ON THE SASH "
-         "(trowbridge_sauganash_hotel). So THAT the town was glazed in small lights "
-         "is inferred and reasonably held; what colour a pane reads at fifty metres "
-         "is stated nowhere, and this value is RECONSTRUCTED. Muntins, sash and "
-         "reveal are geometry and belong to R-W3c, not here.")
+    note="GLESSNER'S DARK PANE, SINCE T-2278 (owner, 2026-10-10: reuse the dark glass "
+         "the 1904 house is drawn with wherever an 1835 building could reasonably have "
+         "had glass). T-2109/T-2183 draw Glessner's glass at every detail setting as an "
+         "opaque plate: the GLB's own glass colour (0.945, 0.970, 0.953) at 12 per "
+         "cent, at the GLB's roughness 0.065, metalness 0. These are exactly those "
+         "numbers, so a pane on South Water and a pane on Prairie Avenue are one glass: "
+         "a dark, glossy surface that carries the sky, which is how plate glass reads "
+         "from a street in daylight. Before T-2278 this row was 0.09/0.11/0.13 at 0.25 "
+         "and only the storefronts and taverns used it; the dwellings drew their panes "
+         "in the rough `DARK` row, so a house window read as a hole. THAT THE TOWN WAS "
+         "GLAZED IS NOW ATTESTED, NOT ONLY INFERRED: window glass by the box, in 8x10, "
+         "7x9 and 5x10 in panes, and ready-made window sash were advertised in the "
+         "Chicago Democrat 1833-35 by Philo Carpenter, John H. Kinzie, J. K. Botsford, "
+         "P. F. W. Peck and Jones & King (data/businesses/biz_*.json, each with its "
+         "issues), and the Green Tree's 6x8 lights are the one pane attested on a "
+         "building (chicagology_prefire127). What a pane looks like at fifty metres is "
+         "still stated nowhere, and the VALUE stays reconstructed: it is Glessner's "
+         "drawn glass, adopted, not measured. Sash, casing, sill and cap are geometry, "
+         "built by `common/openings.py`.")
 
 # -------------------------------------------------- heavy timber, split (T-0126)
 #

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portable human fixture · Blender → GLB → browser</title><link rel="icon" href="data:,">
+<!-- T-1787: a test page, served by tools/human_fixture.mjs from chicago/4d and never published.
+     It opens every human GLB through the renderer's own GLTFLoader and Meshopt decoder
+     (renderers/web/js/scene-loader.js) and proves what docs/HUMAN-ASSET-CONTRACT.md § 13 asks of the
+     export path: skinning deforms, the clips play, a morph moves, materials and textures load, and
+     every LOD opens. L1 stands: this page is a test instrument, not a scene, and draws nobody. -->
+<style>html,body{margin:0;height:100%;background:#1a1b19;overflow:hidden}canvas{display:block;width:100%;height:100%}</style>
+<script type="importmap">{"imports":{
+  "three":"../renderers/web/vendor/three-0.185.1/three.module.js",
+  "three/addons/":"../renderers/web/vendor/three-0.185.1/addons/"}}</script>
+</head><body>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { loadMeshoptDecoder } from '../renderers/web/js/scene-loader.js';
+
+const files = new URLSearchParams(location.search).get('files').split(',');
+const contract = await fetch('../data/humans/contract.json').then((r) => r.json());
+const BONES = contract.skeleton.bones.map(([b]) => b);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(1);
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+const camera = new THREE.PerspectiveCamera(30, innerWidth / innerHeight, 0.1, 50);
+camera.position.set(1.6, 1.25, 3.6);
+camera.lookAt(0, 0.9, 0);
+const loader = new GLTFLoader();
+
+// The same sniff scene-loader.js makes before it parses: the decoder is attached only
+// when the file needs it, so an uncompressed master never pays for the WASM module.
+function header(buf) {
+  const dv = new DataView(buf);
+  const len = dv.getUint32(12, true);
+  return JSON.parse(new TextDecoder().decode(new Uint8Array(buf, 20, len)));
+}
+
+// GLTFLoader turns a glTF mesh of N primitives into N SkinnedMeshes on one skeleton
+// (one per material), so "the body" is every skinned mesh together.
+function positions(body) {
+  const out = []; const v = new THREE.Vector3();
+  for (const mesh of body) {
+    const n = mesh.geometry.attributes.position.count;
+    for (let i = 0; i < n; i++) { mesh.getVertexPosition(i, v); v.applyMatrix4(mesh.matrixWorld); out.push(v.x, v.y, v.z); }
+  }
+  return out;
+}
+
+function boxOf(p) {
+  const box = new THREE.Box3(); const v = new THREE.Vector3();
+  for (let i = 0; i < p.length; i += 3) box.expandByPoint(v.set(p[i], p[i + 1], p[i + 2]));
+  return box;
+}
+
+function maxMove(a, b) {
+  let m = 0;
+  for (let i = 0; i < a.length; i += 3) m = Math.max(m, Math.hypot(a[i] - b[i], a[i + 1] - b[i + 1], a[i + 2] - b[i + 2]));
+  return m;
+}
+
+const angle = (a, b) => THREE.MathUtils.radToDeg(a.angleTo(b));
+
+const results = [];
+for (const file of files) {
+  const t0 = performance.now();
+  const buf = await fetch('../' + file).then((r) => r.arrayBuffer());
+  const head = header(buf);
+  const meshopt = !!head.extensionsRequired?.includes('EXT_meshopt_compression');
+  if (meshopt) loader.setMeshoptDecoder(await loadMeshoptDecoder());
+  const gltf = await new Promise((ok, no) => loader.parse(buf, '', ok, no));
+  const load_ms = performance.now() - t0;
+  const root = gltf.scene;
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x1a1b19);
+  scene.add(new THREE.HemisphereLight(0xdfe6ee, 0x3a3428, 1.4));
+  const sun = new THREE.DirectionalLight(0xffffff, 2.2); sun.position.set(2, 4, 3); scene.add(sun);
+  scene.add(root);
+  root.updateMatrixWorld(true);
+
+  const skinned = []; root.traverse((o) => { if (o.isSkinnedMesh) skinned.push(o); });
+  const mesh = skinned[0];
+  const r = { file, bytes: buf.byteLength, meshopt, load_ms: +load_ms.toFixed(1),
+    skinned_meshes: skinned.length, skeletons: new Set(skinned.map((m) => m.skeleton)).size };
+  const names = mesh.skeleton.bones.map((b) => b.name);
+  r.joints = names.length;
+  r.contract_bones_missing = BONES.filter((b) => !names.includes(b));
+  const bone = (n) => mesh.skeleton.getBoneByName(n);
+  r.sockets = ['socket_hand_l', 'socket_hand_r', 'socket_head'].filter((s) => root.getObjectByName(s)?.parent?.name === s.replace('socket_', ''));
+
+  const rest = positions(skinned);
+  const box = boxOf(rest);
+  r.rest_height_m = +(box.max.y - box.min.y).toFixed(4);
+  r.soles_y_m = +box.min.y.toFixed(4);
+  r.span_m = +(box.max.x - box.min.x).toFixed(4);
+  r.facing = box.max.z > -box.min.z ? '+Z (toes forward)' : '-Z';
+
+  // Skinning: raise the left upper arm 45 degrees and the hand must travel.
+  const ua = bone('upperarm_l'); const q0 = ua.quaternion.clone();
+  ua.rotateZ(Math.PI / 4); root.updateMatrixWorld(true);
+  r.skin_deform_m = +maxMove(rest, positions(skinned)).toFixed(4);
+  ua.quaternion.copy(q0); root.updateMatrixWorld(true);
+
+  // Morphs: each required one, at full weight, must move the surface.
+  r.morphs = Object.keys(mesh.morphTargetDictionary || {});
+  r.morph_max_mm = {};
+  const weigh = (m, w) => skinned.forEach((o) => { const k = o.morphTargetDictionary?.[m]; if (k !== undefined) o.morphTargetInfluences[k] = w; });
+  for (const m of r.morphs) {
+    weigh(m, 1);
+    r.morph_max_mm[m] = +(maxMove(rest, positions(skinned)) * 1000).toFixed(2);
+    weigh(m, 0);
+  }
+
+  // Clips: each one, played a quarter of its length, must turn the bones it drives.
+  r.clips = {};
+  const mixer = new THREE.AnimationMixer(root);
+  const restQ = new Map(mesh.skeleton.bones.map((b) => [b.name, b.quaternion.clone()]));
+  for (const clip of gltf.animations) {
+    mixer.stopAllAction();
+    mesh.skeleton.bones.forEach((b) => b.quaternion.copy(restQ.get(b.name)));
+    const action = mixer.clipAction(clip); action.reset().play();
+    mixer.update(clip.duration / 4);
+    root.updateMatrixWorld(true);
+    let most = 0; let by = null;
+    for (const b of mesh.skeleton.bones) { const a = angle(b.quaternion, restQ.get(b.name)); if (a > most) { most = a; by = b.name; } }
+    r.clips[clip.name] = { duration_s: +clip.duration.toFixed(3), tracks: clip.tracks.length, turns_deg: +most.toFixed(2), most: by,
+      surface_m: +maxMove(rest, positions(skinned)).toFixed(4), speed_m_s: clip.userData?.speed_m_s ?? null };
+    action.stop();
+  }
+  mesh.skeleton.bones.forEach((b) => b.quaternion.copy(restQ.get(b.name)));
+
+  // Materials and textures, as the loader built them.
+  const mats = new Map();
+  root.traverse((o) => { if (o.isMesh) [].concat(o.material).forEach((m) => mats.set(m.name, m)); });
+  r.materials = [...mats.keys()].sort();
+  r.textures = [...mats.values()].filter((m) => m.map).map((m) => ({ slot: m.name, w: m.map.image.width, h: m.map.image.height }));
+  r.vertices = skinned.reduce((a, o) => a + o.geometry.attributes.position.count, 0);
+  r.triangles = skinned.reduce((a, o) => a + (o.geometry.index ? o.geometry.index.count : o.geometry.attributes.position.count) / 3, 0);
+
+  // Draw: the walk at mid-stride, then a median over 30 frames of the walk playing.
+  const walk = gltf.animations.find((c) => c.name === 'walk');
+  const play = mixer.clipAction(walk); play.reset().play();
+  renderer.info.reset(); renderer.info.autoReset = false;
+  mixer.update(0.2); renderer.render(scene, camera);
+  r.draw_calls = renderer.info.render.calls; r.drawn_triangles = renderer.info.render.triangles;
+  renderer.info.autoReset = true;
+  const times = [];
+  for (let i = 0; i < 30; i++) {
+    const s = performance.now(); mixer.update(1 / 30); renderer.render(scene, camera); renderer.getContext().finish(); times.push(performance.now() - s);
+  }
+  times.sort((a, b) => a - b);
+  r.frame_ms_median = +times[15].toFixed(2);
+  r.gpu_textures = renderer.info.memory.textures; r.gpu_geometries = renderer.info.memory.geometries;
+  results.push(r);
+  mixer.stopAllAction();
+  scene.remove(root);
+  root.traverse((o) => { if (o.isMesh) { o.geometry.dispose(); [].concat(o.material).forEach((m) => { m.map?.dispose(); m.dispose(); }); } });
+}
+window.__fixture = { ready: true, results };
+</script>
+</body></html>

@@ -1,0 +1,248 @@
+{
+  "method": "Compare the native-resolution, matched moving roof samples from qa_glessner_t2204.mjs.\nThe red-clay mask excludes UI, sky, stone and moving roof boundaries. Differences\nare observations of these paths, not a general temporal-AA or hardware FPS claim.\n",
+  "cost_limit": "These frameMs values time submission and a WebGL finish call, which did not block for GPU completion on this runner. Use the separate readPixels benchmark for frame cost. Baseline also overlapped the bake. No speedup or hardware FPS claim.",
+  "paths": [
+    {
+      "viewport": "desktop",
+      "path": "near",
+      "stable_roof_pixels": 737462,
+      "before": {
+        "mean_luma_change_255": 2.8249225467346113,
+        "p95_luma_change_255": 8.850399999999993,
+        "changes_over_12_fraction": 0.037994906856217675,
+        "samples": 3687310
+      },
+      "after": {
+        "mean_luma_change_255": 2.934924704188148,
+        "p95_luma_change_255": 9.131199999999993,
+        "changes_over_12_fraction": 0.03862788862341382,
+        "samples": 3687310
+      }
+    },
+    {
+      "viewport": "desktop",
+      "path": "street",
+      "stable_roof_pixels": 17912,
+      "before": {
+        "mean_luma_change_255": 3.7783780571683785,
+        "p95_luma_change_255": 20.700800000000015,
+        "changes_over_12_fraction": 0.1720969182670835,
+        "samples": 89560
+      },
+      "after": {
+        "mean_luma_change_255": 0.177045511389013,
+        "p95_luma_change_255": 0.7874000000000052,
+        "changes_over_12_fraction": 0.0013957123715944617,
+        "samples": 89560
+      }
+    },
+    {
+      "viewport": "desktop",
+      "path": "overhead",
+      "stable_roof_pixels": 65479,
+      "before": {
+        "mean_luma_change_255": 1.218225416393042,
+        "p95_luma_change_255": 5.706000000000003,
+        "changes_over_12_fraction": 0.03009209059393088,
+        "samples": 327395
+      },
+      "after": {
+        "mean_luma_change_255": 0.3192706162281036,
+        "p95_luma_change_255": 1.0,
+        "changes_over_12_fraction": 0.0019395531391743917,
+        "samples": 327395
+      }
+    },
+    {
+      "viewport": "desktop",
+      "path": "northeast",
+      "stable_roof_pixels": 32389,
+      "before": {
+        "mean_luma_change_255": 1.6080975751026585,
+        "p95_luma_change_255": 17.8412,
+        "changes_over_12_fraction": 0.058013523109697734,
+        "samples": 161945
+      },
+      "after": {
+        "mean_luma_change_255": 0.18906416622927533,
+        "p95_luma_change_255": 0.9277999999999906,
+        "changes_over_12_fraction": 0.0011670628917224983,
+        "samples": 161945
+      }
+    },
+    {
+      "viewport": "mobile",
+      "path": "near",
+      "stable_roof_pixels": 206408,
+      "before": {
+        "mean_luma_change_255": 1.914036020890663,
+        "p95_luma_change_255": 5.994799999999999,
+        "changes_over_12_fraction": 0.00457540405410643,
+        "samples": 1032040
+      },
+      "after": {
+        "mean_luma_change_255": 2.0481382570443003,
+        "p95_luma_change_255": 6.1404,
+        "changes_over_12_fraction": 0.002130731367001279,
+        "samples": 1032040
+      }
+    },
+    {
+      "viewport": "mobile",
+      "path": "street",
+      "stable_roof_pixels": 3515,
+      "before": {
+        "mean_luma_change_255": 0.7569405633001426,
+        "p95_luma_change_255": 0.71520000000001,
+        "changes_over_12_fraction": 0.03943100995732575,
+        "samples": 17575
+      },
+      "after": {
+        "mean_luma_change_255": 0.07275159032716932,
+        "p95_luma_change_255": 0.7151999999999958,
+        "changes_over_12_fraction": 5.689900426742532e-05,
+        "samples": 17575
+      }
+    },
+    {
+      "viewport": "mobile",
+      "path": "overhead",
+      "stable_roof_pixels": 13434,
+      "before": {
+        "mean_luma_change_255": 0.31824866160488313,
+        "p95_luma_change_255": 1.2125999999999948,
+        "changes_over_12_fraction": 0.0018460622301622747,
+        "samples": 67170
+      },
+      "after": {
+        "mean_luma_change_255": 0.1873054577936579,
+        "p95_luma_change_255": 0.7874000000000052,
+        "changes_over_12_fraction": 0.0013845466726217061,
+        "samples": 67170
+      }
+    },
+    {
+      "viewport": "mobile",
+      "path": "northeast",
+      "stable_roof_pixels": 6269,
+      "before": {
+        "mean_luma_change_255": 0.17967612059339602,
+        "p95_luma_change_255": 0.71520000000001,
+        "changes_over_12_fraction": 0.0033179135428297976,
+        "samples": 31345
+      },
+      "after": {
+        "mean_luma_change_255": 0.10907637581751473,
+        "p95_luma_change_255": 0.71520000000001,
+        "changes_over_12_fraction": 0.0001595150741745095,
+        "samples": 31345
+      }
+    }
+  ],
+  "costs": [
+    {
+      "phase": "before",
+      "viewport": "desktop",
+      "detail": "full",
+      "median_render_submission_and_finish_call_ms": 2.5999999940395355,
+      "draw_calls": [
+        54,
+        60
+      ],
+      "triangles": [
+        2489631,
+        2505567,
+        2506665,
+        2507196
+      ],
+      "textures": [
+        112,
+        118,
+        120
+      ],
+      "filter_attribute_bytes": [
+        0
+      ]
+    },
+    {
+      "phase": "before",
+      "viewport": "mobile",
+      "detail": "light",
+      "median_render_submission_and_finish_call_ms": 2.1499999910593033,
+      "draw_calls": [
+        53,
+        54,
+        55
+      ],
+      "triangles": [
+        444684,
+        446282,
+        447370,
+        447383,
+        447512,
+        447545,
+        447684,
+        447699
+      ],
+      "textures": [
+        124,
+        128
+      ],
+      "filter_attribute_bytes": [
+        0
+      ]
+    },
+    {
+      "phase": "after",
+      "viewport": "desktop",
+      "detail": "full",
+      "median_render_submission_and_finish_call_ms": 3.1000000089406967,
+      "draw_calls": [
+        54,
+        60
+      ],
+      "triangles": [
+        2489631,
+        2505567,
+        2506665,
+        2507196
+      ],
+      "textures": [
+        112,
+        118,
+        120
+      ],
+      "filter_attribute_bytes": [
+        2137844
+      ]
+    },
+    {
+      "phase": "after",
+      "viewport": "mobile",
+      "detail": "light",
+      "median_render_submission_and_finish_call_ms": 3.8000000044703484,
+      "draw_calls": [
+        53,
+        54,
+        55
+      ],
+      "triangles": [
+        444684,
+        446282,
+        447370,
+        447383,
+        447512,
+        447545,
+        447684,
+        447699
+      ],
+      "textures": [
+        124,
+        128
+      ],
+      "filter_attribute_bytes": [
+        89196
+      ]
+    }
+  ]
+}

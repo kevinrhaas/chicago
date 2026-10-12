@@ -21,7 +21,7 @@ true now, and three programmes are why:
 
   * THE BUSINESS LAYER IS BUILT (T-1310) AND CONVERGED (T-1440..T-1442). A card's
     `persons[].workplaces[]` names the `biz_*` record, the role held in it and the printing
-    window that bounds the reading, and the household's `works_at` names the premises.
+    window that bounds the reading, and the household's work row names the premises.
   * THE SINGLE OCCUPATION FIELD BECAME DATED PLURAL ROLES (T-0837, T-0991, written by
     tools/derive_resident_roles.py). `persons[].roles[]` carries every trade a source
     prints for the man WITH the bound that source permits and a `covers_scene_date` flag,
@@ -40,7 +40,7 @@ the refusal is written with its reason instead.
 THE SIX OUTCOMES, and `--self-test` refuses a seventh.
 
   1. CARRIED AT THE SCENE DATE (21). The card's 1835 trade field holds the trade the
-     finding names, graded and cited, and the premises stands in `works_at` or in a
+     finding names, graded and cited, and the premises stands in its work row or in a
      `workplaces[]` row naming its `biz_*` record. Under the ladder ratified 2026-09-03
      corroboration corroborates; it does not promote. `refused`.
   2. CARRIED WITH THE CARD'S OWN BOUND OUTSIDE THE WINDOW (6). The trade is on the card
@@ -96,6 +96,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+from associations import work_row  # noqa: E402
+
 RESIDENTS = ROOT / "data" / "residents"
 RESEARCH = ROOT / "data" / "research" / "residents"
 REGISTER = RESEARCH / "trade_premises_spend.json"
@@ -141,7 +144,7 @@ RULES = {
             "tavern, a store or the premises one was kept at, and T-1469 read it against the "
             "finished business layer: the card's 1835 trade field ALREADY carries that trade, "
             "graded and citing a source of its own, and the premises stands beside it in the "
-            "household's `works_at` or in a `persons[].workplaces[]` row naming its `biz_*` "
+            "household's work row in `associated_with` or in a `persons[].workplaces[]` row naming its `biz_*` "
             "record. Under the evidence ladder ratified 2026-09-03 corroboration corroborates; "
             "it does not promote, and a second volume agreeing that a man the card already "
             "calls a saddler was a saddler names no field to fill. The fields it reaches are "
@@ -239,29 +242,30 @@ RULES = {
 #   roles             a persons[].roles[] row; the selector matches role or as_printed
 #   workplaces        a persons[].workplaces[] row; the selector is its business_id
 #   profile_facts     a persons[].profile_facts[] row; the selector matches value or as_read
-#   works_at          the household's own premises block; the selector is its value
+#   work_row          the household's associated_with work row (T-2276, associations.work_row);
+#                     the selector is its place_or_structure_id
 ADJUDICATION: dict[tuple[str, str], dict] = {
     ("02", "bates_john_jr"): {
         "outcome": CARRIED,
         "reading": "an auctioneer's trade, and a Lake Street address the 1843 directory prints",
-        "carrier": [("occupation", "auctioneer"), ("works_at", "bates_auction_room")],
+        "carrier": [("occupation", "auctioneer"), ("work_row", "bates_auction_room")],
     },
     ("02", "calhoun_john"): {
         "outcome": CARRIED,
         "reading": "the founding and operation of a printing office",
         "carrier": [("occupation", "editor"),
                     ("workplaces", "biz_chicago_democrat_printing_office"),
-                    ("works_at", "chicago_democrat_office")],
+                    ("work_row", "chicago_democrat_office")],
     },
     ("02", "clybourne_archibald"): {
         "outcome": CARRIED,
         "reading": "a slaughterhouse and a meat trade with their premises",
-        "carrier": [("occupation", "butcher"), ("works_at", "clybourn_slaughterhouse")],
+        "carrier": [("occupation", "butcher"), ("work_row", "clybourn_slaughterhouse")],
     },
     ("02", "couch_ira"): {
         "outcome": CARRIED,
         "reading": "the keeping of the Tremont House",
-        "carrier": [("occupation", "hotel_keeper"), ("works_at", "tremont_house_1")],
+        "carrier": [("occupation", "hotel_keeper"), ("work_row", "tremont_house_1")],
     },
     ("02", "pearsons_hiram"): {
         "outcome": CONTRADICTING,
@@ -276,24 +280,24 @@ ADJUDICATION: dict[tuple[str, str], dict] = {
     ("02", "taylor_augustine"): {
         "outcome": CARRIED,
         "reading": "a builder's trade and the building of St Mary's",
-        "carrier": [("occupation", "carpenter"), ("works_at", "st_marys_church")],
+        "carrier": [("occupation", "carpenter"), ("work_row", "st_marys_church")],
     },
     ("03", "blodgett_tyler_k"): {
         "outcome": CARRIED,
         "reading": "an 1833 north-bank brickyard and a brick house",
-        "carrier": [("occupation", "brickmaker"), ("works_at", "brickyard_north_side")],
+        "carrier": [("occupation", "brickmaker"), ("work_row", "brickyard_north_side")],
     },
     ("03", "brown_rufus"): {
         "outcome": CARRIED,
         "reading": "a log boarding house kept full",
-        "carrier": [("occupation", "boarding_house_keeper"), ("works_at", "brown_boarding_house")],
+        "carrier": [("occupation", "boarding_house_keeper"), ("work_row", "brown_boarding_house")],
     },
     ("03", "cobb_silas_b"): {
         "outcome": CARRIED,
         "reading": "saddlery and harness work, and a Lake Street address the 1843 directory prints",
         "carrier": [("occupation", "saddler"),
                     ("workplaces", "biz_s_b_cobb_saddle_harness_and_trunk_manufactory"),
-                    ("works_at", "goss_cobb_saddlery")],
+                    ("work_row", "goss_cobb_saddlery")],
     },
     ("03", "cohen_peter"): {
         "outcome": LATER,
@@ -304,7 +308,7 @@ ADJUDICATION: dict[tuple[str, str], dict] = {
     ("03", "davis_t_o"): {
         "outcome": CARRIED,
         "reading": "the establishing of the Whig newspaper in 1835",
-        "carrier": [("occupation", "editor"), ("works_at", "chicago_american_office")],
+        "carrier": [("occupation", "editor"), ("work_row", "chicago_american_office")],
     },
     ("03", "elston_daniel"): {
         "outcome": BOUNDED,
@@ -312,12 +316,12 @@ ADJUDICATION: dict[tuple[str, str], dict] = {
         "carrier": [("withdrawn", "soap_and_candle_maker"),
                     ("roles", "soap_and_candle_maker"),
                     ("workplaces", "biz_chicago_soap_and_candle_manufactory"),
-                    ("works_at", "elston_soap_candle_manufactory")],
+                    ("work_row", "elston_soap_candle_manufactory")],
     },
     ("03", "ingersoll_chester"): {
         "outcome": CARRIED,
         "reading": "the Green Tree house held as landlord 1834-37",
-        "carrier": [("occupation", "tavern_keeper"), ("works_at", "green_tree_tavern")],
+        "carrier": [("occupation", "tavern_keeper"), ("work_row", "green_tree_tavern")],
     },
     ("04", "handy_major"): {
         "outcome": UNREACHED,
@@ -327,7 +331,7 @@ ADJUDICATION: dict[tuple[str, str], dict] = {
     ("04", "kinzie_robert_a"): {
         "outcome": CARRIED,
         "reading": "a frame store and membership of Kinzie, Davis & Hyde",
-        "carrier": [("occupation", "merchant"), ("works_at", "robert_kinzie_store")],
+        "carrier": [("occupation", "merchant"), ("work_row", "robert_kinzie_store")],
     },
     ("04", "mason_matthias"): {
         "outcome": BOUNDED,
@@ -335,36 +339,36 @@ ADJUDICATION: dict[tuple[str, str], dict] = {
         "carrier": [("withdrawn", "blacksmith"),
                     ("roles", "blacksmith"),
                     ("workplaces", "biz_matthias_mason_co"),
-                    ("works_at", "mason_blacksmith_shop")],
+                    ("work_row", "mason_blacksmith_shop")],
     },
     ("04", "mckee_david"): {
         "outcome": CARRIED,
         "reading": "the agency blacksmith's shop at the foot of State Street",
-        "carrier": [("occupation", "blacksmith"), ("works_at", "blacksmith_shop_state_st")],
+        "carrier": [("occupation", "blacksmith"), ("work_row", "blacksmith_shop_state_st")],
     },
     ("04", "murphy_john"): {
         "outcome": CARRIED,
         "reading": "the keeping of the Exchange Coffee House from August 1834",
-        "carrier": [("occupation", "tavern_keeper"), ("works_at", "exchange_coffee_house")],
+        "carrier": [("occupation", "tavern_keeper"), ("work_row", "exchange_coffee_house")],
     },
     ("04", "pruyne_peter"): {
         "outcome": CARRIED,
         "reading": "a drug store kept in partnership from early 1833",
         "carrier": [("occupation", "druggist"),
                     ("workplaces", "biz_p_pruyne_co"),
-                    ("works_at", "pruyne_kimball_drugstore")],
+                    ("work_row", "pruyne_kimball_drugstore")],
     },
     ("04", "thomas_frederick"): {
         "outcome": CARRIED,
         "reading": "a barber-surgeon's and retail druggist's trade",
         "carrier": [("occupation", "barber_surgeon"),
                     ("workplaces", "biz_frederick_thomas_drugs_and_paints"),
-                    ("works_at", "frederick_thomas_shop")],
+                    ("work_row", "frederick_thomas_shop")],
     },
     ("04", "walters_william"): {
         "outcome": CARRIED,
         "reading": "the Wolf Point Tavern kept 1833-36",
-        "carrier": [("occupation", "tavern_keeper"), ("works_at", "wolf_point_tavern")],
+        "carrier": [("occupation", "tavern_keeper"), ("work_row", "wolf_point_tavern")],
     },
     ("05", "kimball_walter"): {
         "outcome": BOUNDED,
@@ -376,7 +380,7 @@ ADJUDICATION: dict[tuple[str, str], dict] = {
     ("05", "lampman_henry_s"): {
         "outcome": CARRIED,
         "reading": "a brickmaker's trade and the yard that engaged him",
-        "carrier": [("occupation", "brickmaker"), ("works_at", "brickyard_north_side")],
+        "carrier": [("occupation", "brickmaker"), ("work_row", "brickyard_north_side")],
     },
     ("06", "mitchell_henry"): {
         "outcome": PROFILE,
@@ -422,7 +426,7 @@ ADJUDICATION: dict[tuple[str, str], dict] = {
         "carrier": [("withdrawn", "soap_and_candle_maker"),
                     ("roles", "soap_and_candle_maker"),
                     ("workplaces", "biz_daniel_elston_co"),
-                    ("works_at", "elston_soap_candle_manufactory")],
+                    ("work_row", "elston_soap_candle_manufactory")],
     },
     ("14", "marshall_j_a"): {
         "outcome": LATER,
@@ -479,7 +483,7 @@ def cited(block) -> list[str]:
     if not isinstance(block, dict):
         return []
     out = []
-    for key in ("sources", "claim_ids"):
+    for key in ("sources", "claim_ids", "also_sources"):
         value = block.get(key)
         if isinstance(value, list):
             out.extend(str(item) for item in value if item)
@@ -515,10 +519,12 @@ def resolve(field: str, selector: str, path: Path, household: dict, person: dict
         if not isinstance(block, dict) or str(block.get("value") or "") != selector:
             return None, pointer
         return block, pointer
-    if field == "works_at":
-        block = household.get("works_at")
-        pointer = f"{rel}#works_at"
-        if not isinstance(block, dict) or str(block.get("value") or "") != selector:
+    if field == "work_row":
+        block = work_row(household)
+        rows = household.get("associated_with") or []
+        index = next((i for i, row in enumerate(rows) if row is block), None)
+        pointer = f"{rel}#associated_with" + (f"[{index}]" if index is not None else "")
+        if block is None or str(block.get("place_or_structure_id") or "") != selector:
             return None, pointer
         return block, pointer
     if field in ("roles", "workplaces", "profile_facts"):
@@ -813,7 +819,7 @@ def self_test() -> int:
     for mutation, why in (
             ({"carrier": [("occupation", "not_a_trade_anybody_carries")]}, "a selector nothing carries"),
             ({"carrier": [("workplaces", "biz_nothing_of_the_kind")]}, "a business id nothing names"),
-            ({"carrier": [("works_at", "not_the_premises")]}, "a premises the household does not hold")):
+            ({"carrier": [("work_row", "not_the_premises")]}, "a premises the household does not hold")):
         broken = dict(ADJUDICATION[probe]); broken.update(mutation)
         _, mutated_faults = carriers_for(probe, broken, index)
         if not mutated_faults:

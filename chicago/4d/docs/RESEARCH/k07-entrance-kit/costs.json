@@ -1,0 +1,70 @@
+{
+  "_doc": "Measured by tools/study_k07_entrances.mjs on the specimen GLB. Triangles and draw calls are exact; frame_ms is headless Chromium on a software rasteriser (SwiftShader), a relative figure for comparing kit revisions, not a device frame time.",
+  "specimen_bytes": 207484,
+  "entrances": [
+    {
+      "id": "k07.entrance.panel_door_stoop",
+      "triangles_entrance": 218,
+      "triangles_with_board": 246,
+      "vertices_with_board": 488,
+      "draw_calls": 8
+    },
+    {
+      "id": "k07.entrance.double_door_deep_arch",
+      "triangles_entrance": 504,
+      "triangles_with_board": 554,
+      "vertices_with_board": 1058,
+      "draw_calls": 8
+    },
+    {
+      "id": "k07.entrance.glazed_door_bowed_stoop",
+      "triangles_entrance": 474,
+      "triangles_with_board": 516,
+      "vertices_with_board": 1008,
+      "draw_calls": 8
+    },
+    {
+      "id": "k07.entrance.carriage_doors",
+      "triangles_entrance": 264,
+      "triangles_with_board": 286,
+      "vertices_with_board": 572,
+      "draw_calls": 6
+    },
+    {
+      "id": "k07.entrance.porch",
+      "triangles_entrance": 266,
+      "triangles_with_board": 294,
+      "vertices_with_board": 588,
+      "draw_calls": 9
+    },
+    {
+      "id": "k07.entrance.basement_area_stair",
+      "triangles_entrance": 178,
+      "triangles_with_board": 216,
+      "vertices_with_board": 432,
+      "draw_calls": 7
+    }
+  ],
+  "board": {
+    "desktop": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "draw_calls": 62,
+      "triangles": 2622,
+      "frame_ms_median": 1,
+      "geometries": 59
+    },
+    "mobile": {
+      "viewport": [
+        390,
+        780
+      ],
+      "draw_calls": 49,
+      "triangles": 2254,
+      "frame_ms_median": 0.4,
+      "geometries": 59
+    }
+  }
+}

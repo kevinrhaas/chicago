@@ -1,0 +1,14 @@
+== web derivatives
+
+info: glessner_house__as_built_1887.glb (139.76 MB) → gltfopt.mEXPcW.glb (138 MB)
+info: prune: Removed types... Accessor (28)
+info: gltfopt.mEXPcW.glb (138 MB) → glessner_house__as_built_1887.glb (52.03 MB)
+   built same-version light geometry: {"aperture_counts": {"axial": 144, "dining_bay": 8, "dormers": 4, "hall_bow": 6, "stair_tower": 7, "terrace": 2}, "bounds_zup_m": [[-0.442, 53.9405], [-0.13697365632607844, 23.586039999999997], [-0.061, 15.0449]], "bytes": 40502100, "components": {"axial_opening_records": 147, "bays": 1, "bows": 1, "chimneys": 7, "dormers": 3, "ground": 2, "ranges": 3, "service_stairs": 1, "supplemental_dormer": 1, "towers": 2, "turrets": 1, "underpass": 1}, "master_sha256": "652992c7af08effdb3f916d8ca9ffd176fbd550542b3702eb0cb64457755482f", "material_images_copied": 33, "openings_recessed": 171, "profile": "same_v4_reduced_surface_sampling", "recipe_sha256": "4980e31e9e57029a9abd3b211ae98e2e583461e005393f13e76e63d2150bebd2", "sha256": "9c111818fcf1bed3fbf6c91fa74f8241583b29f91f5536d9ddc3baf60e442643", "triangles": 199656}
+
+info: gltflight-source.ehQqZ4.glb (40.5 MB) → gltflight-opt.TG5SwN.glb (39.32 MB)
+info: prune: Removed types... Accessor (25)
+info: gltflight-opt.TG5SwN.glb (39.32 MB) → gltflight-web.0rVEZo.glb (27.01 MB)
+   glessner_house__as_built_1887.light.glb  27009372 bytes (same-version reduced geometry)
+Packed three exact v4 GLBs; commit archive parts and manifest with the bake.
+   glessner_house__as_built_1887.glb  139755976 -> 52032976 bytes
+   recorded 1 master hash(es) in assets/manifest.web.json

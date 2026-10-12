@@ -1,0 +1,326 @@
+{
+  "before": [
+    {
+      "viewport": "desktop",
+      "detail": "full",
+      "errors": [],
+      "failed_requests": [],
+      "stands": [
+        {
+          "view": "ridge-east",
+          "draw_calls": 57,
+          "triangles": 2494447,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "ridge-west",
+          "draw_calls": 55,
+          "triangles": 2489631,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "eave-street",
+          "draw_calls": 56,
+          "triangles": 2490508,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "eave-courtyard",
+          "draw_calls": 56,
+          "triangles": 2494392,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "dormer",
+          "draw_calls": 59,
+          "triangles": 2513140,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "tower-finial",
+          "draw_calls": 58,
+          "triangles": 2482398,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "northeast",
+          "draw_calls": 60,
+          "triangles": 2507196,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "courtyard",
+          "draw_calls": 58,
+          "triangles": 2496937,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        }
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "detail": "light",
+      "errors": [],
+      "failed_requests": [],
+      "stands": [
+        {
+          "view": "ridge-east",
+          "draw_calls": 54,
+          "triangles": 447378,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "ridge-west",
+          "draw_calls": 53,
+          "triangles": 444461,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "eave-street",
+          "draw_calls": 54,
+          "triangles": 444924,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "eave-courtyard",
+          "draw_calls": 54,
+          "triangles": 444592,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "dormer",
+          "draw_calls": 54,
+          "triangles": 448113,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "tower-finial",
+          "draw_calls": 55,
+          "triangles": 447114,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "northeast",
+          "draw_calls": 55,
+          "triangles": 447699,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "courtyard",
+          "draw_calls": 54,
+          "triangles": 446968,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        }
+      ]
+    }
+  ],
+  "after": [
+    {
+      "viewport": "desktop",
+      "detail": "full",
+      "errors": [],
+      "failed_requests": [],
+      "stands": [
+        {
+          "view": "ridge-east",
+          "draw_calls": 57,
+          "triangles": 2495839,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "ridge-west",
+          "draw_calls": 55,
+          "triangles": 2491023,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "eave-street",
+          "draw_calls": 56,
+          "triangles": 2491900,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "eave-courtyard",
+          "draw_calls": 56,
+          "triangles": 2495784,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "dormer",
+          "draw_calls": 59,
+          "triangles": 2514532,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "tower-finial",
+          "draw_calls": 58,
+          "triangles": 2483790,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "northeast",
+          "draw_calls": 60,
+          "triangles": 2508588,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "courtyard",
+          "draw_calls": 58,
+          "triangles": 2498329,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        }
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "detail": "light",
+      "errors": [],
+      "failed_requests": [],
+      "stands": [
+        {
+          "view": "ridge-east",
+          "draw_calls": 54,
+          "triangles": 447554,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "ridge-west",
+          "draw_calls": 53,
+          "triangles": 444637,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "eave-street",
+          "draw_calls": 54,
+          "triangles": 445100,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "eave-courtyard",
+          "draw_calls": 54,
+          "triangles": 444768,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "dormer",
+          "draw_calls": 54,
+          "triangles": 448289,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "tower-finial",
+          "draw_calls": 55,
+          "triangles": 447290,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "northeast",
+          "draw_calls": 55,
+          "triangles": 447875,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        },
+        {
+          "view": "courtyard",
+          "draw_calls": 54,
+          "triangles": 447144,
+          "within_budget": true,
+          "glass": [
+            "dark"
+          ]
+        }
+      ]
+    }
+  ]
+}

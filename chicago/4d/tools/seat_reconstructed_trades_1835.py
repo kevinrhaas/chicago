@@ -146,6 +146,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+from associations import home_of  # noqa: E402
+
 RESIDENTS = ROOT / "data" / "residents"
 BUSINESSES = ROOT / "data" / "businesses"
 STRUCTURES = ROOT / "data" / "structures"
@@ -343,8 +346,7 @@ def business_point(business: dict, points: dict):
 
 
 def household_point(record: dict, points: dict):
-    lives_at = record.get("lives_at")
-    value = lives_at.get("value") if isinstance(lives_at, dict) else lives_at
+    value = home_of(record)
     return points.get(value) if value else None
 
 

@@ -335,15 +335,15 @@
         {
           "by": "T-0489",
           "paths": [
-            "lives_at",
-            "works_at"
+            "no_home",
+            "no_workplace"
           ],
-          "why": "The ruling left the retained real people UNPLACED: no dwelling or workplace is assigned from a reconstructed household. This pass still deals each man the roof the register matched him to.",
+          "why": "The ruling left the retained real people UNPLACED: no dwelling or workplace is assigned from a reconstructed household. This pass still deals each man the roof the register matched him to. Since T-2295 the withdrawal is stated as the record's absence blocks, `no_home` and `no_workplace`, not as a null `lives_at` / `works_at`.",
           "assert_instead": {
-            "lives_at.value": null,
-            "works_at.value": null,
-            "lives_at.note~": "T-0489",
-            "works_at.note~": "T-0489"
+            "no_home.value": null,
+            "no_workplace.value": null,
+            "no_home.note~": "T-0489",
+            "no_workplace.note~": "T-0489"
           }
         }
       ],

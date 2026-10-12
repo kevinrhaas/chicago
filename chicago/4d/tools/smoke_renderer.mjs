@@ -10,8 +10,8 @@
  * `SMOKE_VIEWPORT=mobile` (or `desktop`) runs one of the two while iterating.
  * That is not the gate and the run says so on its first line.
  *
- * `SMOKE_STAGE=1` … `14` runs one part of each viewport's body (T-0060, re-cut
- * by T-0121, T-0167, T-0346, T-0173 and T-0170), and `SMOKE_STAGE=1-2` runs a
+ * `SMOKE_STAGE=1` … `15` runs one part of each viewport's body (T-0060, re-cut
+ * by T-0121, T-0167, T-0346, T-0173, T-0170 and T-2337), and `SMOKE_STAGE=1-2` runs a
  * contiguous run.
  * The cuts sit at section boundaries measured for zero crossing bindings. It
  * exists because a steward run's single foreground command is capped at ten
@@ -39,12 +39,15 @@
  * are thirteen.
  * T-2044 APPENDED PART 14: the arrival-to-jaunt path a visitor walks, on a fresh
  * context that does not wave the welcome through. An append renumbers nothing.
+ * T-2337 halved PART 10 again at the sward census in every community: on an
+ * idle runner at 1280x800 it was killed at 9 m 45 s inside that census, so old
+ * parts 11-14 became 12-15 and there are fifteen.
  *
  * A staged run is not the gate either, and says so; the gate is both viewports,
  * every part, e.g.:
  *
- *   for s in 1-2 3-6 7-9 10-13 14;            do SMOKE_VIEWPORT=mobile  SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
- *   for s in 1 2 3 4 5 6 7 8 9 10 11 12 13 14; do SMOKE_VIEWPORT=desktop SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
+ *   for s in 1-2 3-6 7-9 10-14 15;               do SMOKE_VIEWPORT=mobile  SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
+ *   for s in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15; do SMOKE_VIEWPORT=desktop SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
  *
  * `SMOKE_TIMING=1` stamps each check line with the elapsed clock. Off by
  * default; turn it on to profile a part, because a part that BREACHES the
@@ -70,7 +73,7 @@
  *   pick -> citation ............ the visual claim and the citable claim connect
  *   citation -> its document .... why a modern page is on the rung it is on, and
  *                                 what the source itself says it cannot supply
- *   pick -> liberties ........... and what we made up about THAT building
+ *   pick -> liberties ........... and the liberties taken on THAT building
  *   the bridge floats ........... a water-anchored structure is placed on the
  *                                 water plane, not on the river bed under it
  *   walk moves the camera ....... input intent reaches the walker
@@ -101,7 +104,7 @@
  *   complete jump search ........ every viewpoint, verified junction and loaded
  *                                 structure, in one Go to tab, each structure
  *                                 graded with its own record's position grade
- *   liberties are readable ...... what we made up is in the panel, not only in the repo
+ *   liberties are readable ...... the liberties are in the panel, not only in the repo
  *   a structure version ......... ?structure=&version= swaps ONE building's record and
  *                                 mesh, names it in the HUD and on the card, and moves
  *                                 nothing else in the town (T-1727, part 3)
@@ -125,6 +128,8 @@ import { decodePng, labL, relativeLuminance, weberContrast } from './critic_metr
 // ROADMAP K50. The gate and `tools/measure_drawn_placement.mjs` run ONE census
 // rather than two readings of it — see that module's header for why.
 import { CENSUS } from './drawn_placement_census.mjs';
+// T-2331. The 1904 front door's oracles are source files a sparse bake leg lacks.
+import { readRepoJson } from './repo_file.mjs';
 // T-0243. Same arrangement for the near-field timber, and for the same reason
 // twice over: the gate below and `tools/measure_drawn_timber.mjs` run ONE
 // census, and that census reads a `BatchedMesh` back through its own instance
@@ -1309,7 +1314,14 @@ if (ONLY) console.log(`NOT THE FULL GATE — viewports filtered to "${ONLY}"\n`)
 // append, so parts 1-13 keep their numbers and every banked reading stands; it
 // joins no existing leg either, because it boots the town a second time and a
 // leg already near its cap should not carry that. Its own nightly leg is `14`.
-const PARTS = 14;
+// T-2337 HALVED PART 10 again, because it had grown back past the ceiling: at
+// 1280x800 on an idle steward runner it was killed at 9 m 45 s, inside the
+// K49(f) sward census in every community that began at 7 m 27 s. The census and
+// the three sections after it (the marsh substrate, the pop-in, the flower
+// heads) become part 11, so old parts 11-14 are renumbered 12-15. The pairing
+// rule is unchanged in content — 1+2, 3+4+5+6, 7+8+9, 10+11+12+13+14, 15 — and
+// the nightly legs widen `10-13` to `10-14` and move `14` to `15`.
+const PARTS = 15;
 const STAGE = process.env.SMOKE_STAGE || '';
 // `3` is one part; `3-4` is a contiguous run of them; `1,5-6` is any set. The
 // range form exists so the cheap viewport does not pay eight boots to run a
@@ -1429,6 +1441,28 @@ for (const [label, viewport, touch] of [
   // re-boot's enterTown landed inside it, so the town was never entered and desktop
   // part 3's version chip read visible:false inside a hidden HUD. So wait for the
   // welcome (bounded), and retry the entry until the welcome says it took.
+  // T-2337 — HOLD THE DRAWS WHILE A READING THAT READS NO PIXEL RUNS. Inside the
+  // town every animation frame (and every `step()`) draws the whole scene in
+  // software, which is seconds a frame at 1280x800; a reading that only asks the
+  // flora what it dealt, or reads instance buffers back, pays for those draws
+  // and uses none of them. Measured on the steward runner on 2026-10-11, one
+  // `setDetail('balanced')` took 252.7 s in the town against 22.8 s behind the
+  // gate. `holdDraws(true)` swaps `renderer.render` for a no-op — what
+  // `tools/measure_walk_frames.mjs` does while it drives a walk — and leaves the
+  // tick running, so the flora, trees and walker still update; `holdDraws(false)`
+  // puts the draw back. Call the pair around a `try`/`finally`, and never around
+  // anything that photographs a frame or reads `renderer.info`.
+  const holdDraws = (on) => page.evaluate((hold) => {
+    const r = window.__chicago4d.renderer;
+    if (hold && !window.__smokeHeldDraw) {
+      window.__smokeHeldDraw = r.render;
+      r.render = () => {};
+    } else if (!hold && window.__smokeHeldDraw) {
+      r.render = window.__smokeHeldDraw;
+      delete window.__smokeHeldDraw;
+    }
+  }, on);
+
   const enterTown = () => page.evaluate(async () => {
     if (!document.getElementById('gate').hasAttribute('hidden')) {
       const welcome = window.__chicago4d.welcome;
@@ -1545,6 +1579,9 @@ for (const [label, viewport, touch] of [
   };
 
   const errors = [];
+  // T-1788: anything asked for under humans/ — a figure, its records or the contract.
+  const humanRequests = [];
+  page.on('request', (r) => { if (/\/humans\//.test(new URL(r.url()).pathname)) humanRequests.push(r.url()); });
   page.on('pageerror', (e) => errors.push(`pageerror: ${e.message || e}`));
   page.on('response', (r) => {
     if (r.status() >= 400) errors.push(`HTTP ${r.status()} ${r.url()}`);
@@ -1600,6 +1637,18 @@ for (const [label, viewport, touch] of [
 
     const structures = await page.evaluate(() => window.__chicago4d.registry.size);
     check(`${label}: scene has structures`, structures > 0, `${structures} loaded`);
+
+    // THE SCENE-YEAR GATE FOR FIGURES (T-1788). The human layer (humans.js) is mounted for
+    // every scene and fetches only for one that lists `humans`; none does, and L1 stands
+    // besides, so it must be in the scene, empty, and have asked for nothing at all.
+    const humans = await page.evaluate(() => {
+      const h = window.__chicago4d.humans;
+      return h ? { count: h.count, records: h.records.length, inScene: !!h.group.parent } : null;
+    });
+    check(`${label}: the human layer is mounted and draws nobody`,
+      !!humans && humans.count === 0 && humans.records === 0 && humans.inScene, JSON.stringify(humans));
+    check(`${label}: nothing under humans/ is requested for a scene that does not list it`,
+      humanRequests.length === 0, humanRequests.slice(0, 3).join(' | '));
 
     /**
      * DRAWN AGAINST INDEXED (T-1126). "The scene has structures" passes with one
@@ -1733,7 +1782,7 @@ for (const [label, viewport, touch] of [
     // times over the desktop pass instead of twice, on the very reading this
     // gate can least afford.
     let streetLayer = null;
-    if (anyStage(7, 10, 11)) {
+    if (anyStage(7, 10, 12)) {
       streetLayer = await page.evaluate(() => {
         const a = window.__chicago4d;
         // Sample the dynamic flora from a known dry South Division viewpoint.
@@ -3328,6 +3377,7 @@ for (const [label, viewport, touch] of [
       // anchor a vertex belongs to by proximity — which with a post standing two
       // metres out in the street would sometimes guess the neighbour.
       const uvRects = new Map();
+      const iron = s?.atlas?.iron ? s.atlas.iron.map(Math.fround) : null;
       const byId = new Map(signs.map((sg) => [sg.structure_id, sg]));
       if (g && spans.length) {
         const pos = g.getAttribute('position');
@@ -3349,7 +3399,10 @@ for (const [label, viewport, touch] of [
               worstOver = Math.max(worstOver, Math.hypot(de, dn) - reach);
               // Positive is out of the wall, along the facade's own normal.
               worstInside = Math.min(worstInside, de * Math.sin(b) + dn * Math.cos(b));
-              if (uv) {
+              // The chains (T-2281) all sample one point of the iron cell in
+              // the atlas's last row; counting it would stretch every hung
+              // sign's rectangle to that row and make neighbours look alike.
+              if (uv && !(iron && uv.getX(i) === iron[0] && uv.getY(i) === iron[1])) {
                 u0 = Math.min(u0, uv.getX(i)); u1 = Math.max(u1, uv.getX(i));
                 v0 = Math.min(v0, uv.getY(i)); v1 = Math.max(v1, uv.getY(i));
               }
@@ -3516,6 +3569,86 @@ for (const [label, viewport, touch] of [
     check(`${label}: every sign stands outside its own facade`,
       boards.worstInside >= -0.05,
       `deepest vertex ${boards.worstInside?.toFixed(3)} m behind the facade plane`);
+    // --- NO NAME HIDDEN BY ITS OWN WALL, AND EVERY ONE LEGIBLE (T-2282) ---------
+    //
+    // The owner's screenshot of Newberry & Dole's warehouse: the firm's name was
+    // gone and the trade line cut in half, because the painted band stood 0.03 m
+    // off a wall whose boards stand out 0.047 m. "Outside its own facade" above
+    // was green the whole time — it measures the footprint plane, not the boards
+    // drawn on it. So this casts rays at every flat sign's own rectangle against
+    // the town's buildings and fails on any point where the building's face
+    // stands in front of the lettering. And the layer reports how big every
+    // board's lettering came out, so a board lettered too small to read, or a
+    // line wider than its board, fails here rather than on the owner's phone.
+    const signFaces = await page.evaluate(async (mod) => {
+      const THREE = await import(mod);
+      const api = window.__chicago4d;
+      const s = api.signage;
+      const mesh = s?.group?.children?.[0];
+      if (!mesh) return null;
+      let scene = s.group;
+      while (scene.parent) scene = scene.parent;
+      const targets = [];
+      scene.traverse((o) => {
+        if (!o.isMesh) return;
+        for (let p = o; p; p = p.parent) if (p.name === 'structures') { targets.push(o); return; }
+      });
+      const pos = mesh.geometry.getAttribute('position');
+      const rc = new THREE.Raycaster();
+      const hidden = [];
+      let flat = 0;
+      let rays = 0;
+      for (const sp of s.spans) {
+        const sg = s.signs.find((x) => x.structure_id === sp.id);
+        if (!sg || !['facade_painted', 'wall_board'].includes(sg.mounting)) continue;
+        flat++;
+        let ymax = -Infinity;
+        for (let i = sp.from * 3; i < sp.to * 3; i++) ymax = Math.max(ymax, pos.getY(i));
+        const b = sg.facade_bearing_deg * Math.PI / 180;
+        const ox = Math.sin(b); const oz = -Math.cos(b);
+        const wx = Math.cos(b); const wz = Math.sin(b);
+        const ax = sg.anchor_local_enu_m[0]; const az = -sg.anchor_local_enu_m[1];
+        const proud = sg.geometry?.proud_m ?? 0.03;
+        // The lettered face: a band IS its quad; a wall board's face is its
+        // front, a board's thickness out, under the cap.
+        const face = sg.mounting === 'wall_board' ? proud + (sg.board_thickness_m ?? 0.05) : proud;
+        const top = sg.mounting === 'wall_board' && sg.geometry?.capped !== false ? ymax - 0.05 : ymax;
+        let worst = 0;
+        let over = 0;
+        let n = 0;
+        for (let i = 0; i < 7; i++) {
+          for (let j = 0; j < 5; j++) {
+            const u = (i / 6 - 0.5) * sg.board_w_m * 0.9;
+            const y = top - sg.board_h_m * (0.1 + 0.8 * j / 4);
+            rc.set(new THREE.Vector3(ax + wx * u + ox * (face + 1), y, az + wz * u + oz * (face + 1)),
+              new THREE.Vector3(-ox, 0, -oz));
+            rc.far = 2;
+            const hit = rc.intersectObjects(targets, false)[0];
+            n++;
+            rays++;
+            if (!hit) continue;
+            const stands = face + 1 - hit.distance;
+            if (stands > face - 0.004) { over++; worst = Math.max(worst, stands - face); }
+          }
+        }
+        if (over) hidden.push(`${sg.structure_id} ${over}/${n} (wall ${worst.toFixed(3)} m in front)`);
+      }
+      return { flat, rays, hidden, legibility: s.legibility ?? null, fonts: s.atlas?.fonts ?? null };
+    }, `${MODULE_BASE}../vendor/three-0.185.1/three.module.js`);
+    check(`${label}: no flat sign's lettering is hidden behind its own wall`,
+      signFaces && signFaces.flat >= 15 && signFaces.hidden.length === 0,
+      `${signFaces?.flat} flat sign(s), ${signFaces?.rays} rays at their faces; `
+      + `${signFaces?.hidden?.length ?? '?'} hidden`
+      + (signFaces?.hidden?.length ? `: ${signFaces.hidden.join('; ')}` : ''));
+    const leg = signFaces?.legibility ?? [];
+    const unread = leg.filter((l) => !l.lettered || !l.fits || l.name_cap_m < 0.05 || l.min_cap_m < 0.025);
+    check(`${label}: every board is lettered in the period faces, fitted and legible`,
+      signFaces?.fonts === true && leg.length === boards.signs && unread.length === 0,
+      `faces ${signFaces?.fonts ? 'loaded' : 'NOT loaded'}; ${leg.length} board(s) laid out, `
+      + `smallest name capital ${leg.length ? Math.min(...leg.map((l) => l.name_cap_m)).toFixed(3) : '?'} m, `
+      + `smallest line ${leg.length ? Math.min(...leg.map((l) => l.min_cap_m)).toFixed(3) : '?'} m`
+      + (unread.length ? `; unread: ${unread.map((l) => `${l.id} (name ${l.name_cap_m} m, `
+        + `line ${l.min_cap_m} m${l.fits ? '' : ', OVERFLOWS'})`).join(', ')}` : ''));
     // --- what the signs SAY, and that no two of them are alike (T-0066) ------
     //
     // The owner asked for three things in one sentence — the name on the board,
@@ -5383,7 +5516,11 @@ for (const [label, viewport, touch] of [
         // face's end of a lot row), T-2150 +2 (the warehouse's fence and post):
         // 172 to 176 in the record, 182 to 186 on the layer.
         // T-2195 — dev already read 187 (T-2174); the wedge's faces refuse four more walls: 191.
-        && frontage.census?.refused === 191
+        // T-2262 — T-2238 (#559) built on the wedge and retired one: the unimproved-lot
+        // refusal "blk_south_water_market south face, lot 1" (no fence on open prairie).
+        // Diffed 6e5a9ec2d -> facae8d01: -1, nothing added, walks/fences/posts/fittings
+        // unchanged; #586 moved no refusal. 5+2+2+1 records' rows + 180 = 190.
+        && frontage.census?.refused === 190
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -8725,7 +8862,7 @@ for (const [label, viewport, touch] of [
         return { missing, ordered };
       };
       // A heading's OWN words: the liberties h3 carries a `.pop-count` badge
-      // ("What we made up here 6"), which is not part of its name.
+      // ("Liberties taken here 6"), which is not part of its name.
       const ownText = (h) => [...h.childNodes].filter((n) => n.nodeType === Node.TEXT_NODE)
         .map((n) => n.textContent).join('').trim();
       const paneOf = (h3text) => {
@@ -8742,7 +8879,7 @@ for (const [label, viewport, touch] of [
           return !!p && !p.hasAttribute('hidden') && p.checkVisibility(); })(),
         hiddenPanes: [...document.querySelectorAll('#popup .pop-pane[hidden]')].map((p) => p.dataset.popPane).sort(),
         tabs: [...document.querySelectorAll('#popup .pop-tab')].map((t) => t.dataset.popTab),
-        homes: { where: paneOf('Where did it stand?'), liberties: paneOf('What we made up here'),
+        homes: { where: paneOf('Where did it stand?'), liberties: paneOf('Liberties taken here'),
           record: paneOf("The record's own account") },
       };
       // THE CARD WITH NOBODY ON IT, which was the Sauganash until T-1406 and is the
@@ -8777,9 +8914,9 @@ for (const [label, viewport, touch] of [
       `sauganash (lodgers seated) missing [${cardShape.saug.order.missing.join(', ')}] ordered ${cardShape.saug.order.ordered} residents ${cardShape.saug.residents}; `
       + `log jail (nobody) missing [${cardShape.jail.order.missing.join(', ')}] ordered ${cardShape.jail.order.ordered} residents ${cardShape.jail.residents}; `
       + `hogan (with households) missing [${cardShape.hogan.order.missing.join(', ')}] ordered ${cardShape.hogan.order.ordered}`);
-    check(`${label}: the card opens on its Evidence pane with the other two folded`,
-      cardShape.saug.evidenceShown && cardShape.saug.hiddenPanes.join(',') === 'liberties,record'
-      && cardShape.saug.tabs.join(',') === 'evidence,liberties,record',
+    check(`${label}: the card opens on its Evidence pane with the other three folded`,
+      cardShape.saug.evidenceShown && cardShape.saug.hiddenPanes.join(',') === 'images,liberties,record'
+      && cardShape.saug.tabs.join(',') === 'evidence,images,liberties,record',
       JSON.stringify({ evidenceShown: cardShape.saug.evidenceShown, hidden: cardShape.saug.hiddenPanes, tabs: cardShape.saug.tabs }));
     check(`${label}: each moved section lives in the pane named for it`,
       cardShape.saug.homes.where === 'evidence' && cardShape.saug.homes.liberties === 'liberties'
@@ -8789,6 +8926,41 @@ for (const [label, viewport, touch] of [
       cardShape.hogan.year === '1831' && /^Standing: 1831\b/.test(cardShape.hogan.standing)
       && cardShape.hogan.facts.length >= 3,
       `"${cardShape.hogan.standing}" from ${cardShape.hogan.year}; ${cardShape.hogan.facts.join(' | ').slice(0, 200)}`);
+
+    // T-2389 — THE IMAGES TAB. The card lists the building's photographs and drawings,
+    // each with its credit, from data/pictures/<scene>.json (written at publish by
+    // tools/compile_pictures.py). Phone memory is the constraint: nothing in the pane may
+    // carry a `src` until the tab is opened. The Sauganash cites two pictures held only as
+    // links (Trowbridge's drawing and Kurz & Allison), so it is the 1835 witness.
+    const images = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      api.pick('sauganash_hotel');
+      document.querySelector('#popup [data-pop-tab="evidence"]')?.click();
+      const pane = () => document.querySelector('#popup [data-pop-pane="images"]');
+      const deadline = Date.now() + 20_000;
+      while (/LOADING IMAGE INDEX/.test(pane()?.textContent ?? 'LOADING IMAGE INDEX') && Date.now() < deadline) {
+        await new Promise((r) => setTimeout(r, 100));
+      }
+      const srcBefore = pane()?.querySelectorAll('img[src]').length ?? -1;
+      document.querySelector('#popup [data-pop-tab="images"]')?.click();
+      const p = pane();
+      const items = [...(p?.querySelectorAll('.pop-pic-list li, .pop-pic-tile') ?? [])];
+      const out = {
+        shown: !!p && !p.hasAttribute('hidden'),
+        srcBefore,
+        status: p?.querySelector('.pop-pic-status')?.textContent.trim() ?? p?.textContent.trim().slice(0, 80),
+        items: items.length,
+        uncredited: items.filter((li) => !(li.querySelector('.pop-pic-meta, .pop-pic-tile-credit')?.textContent.trim())).length,
+        tabCount: document.querySelector('#popup [data-pop-tab="images"] .pop-count')?.textContent.trim() ?? '',
+      };
+      document.querySelector('#popup [data-pop-tab="evidence"]')?.click();
+      api.popup.close();
+      return out;
+    });
+    check(`${label}: the Images tab lists the building's pictures, each credited, and loads none until opened (T-2389)`,
+      images.shown && images.srcBefore === 0 && images.items >= 2 && images.uncredited === 0
+      && images.tabCount === String(images.items),
+      JSON.stringify(images));
 
     // --- T-1727: one structure swapped by URL, and nothing else ----------------------
     //
@@ -10907,13 +11079,15 @@ for (const [label, viewport, touch] of [
 
     inStageWork = false;
     } // end PART 9 (T-0060 stage 3b, cut by T-0121; renumbered by T-0346 and T-0173)
-    // PART 10 — the flora census through the flower heads: the drawn population,
-    // the horizon timber, the sward dealt in every community, the marsh's
-    // substrate, T-0035's pop-in and R-BUG7's head-attachment census. The head
-    // of T-0060's stage 4a; T-0170 cut the ragged boundary, the ground cover,
-    // the street readouts and the Settings units off its tail into part 11,
-    // because at 1280x800 the whole of it ran past the ten-minute foreground
-    // ceiling and was killed there with two sections still to run.
+    // PART 10 — the flora census through the sward at one station: the rooted
+    // plants, the trees at their stations, the buildings at their anchors, the
+    // horizon timber and the far treeline, the drawn population and the sward
+    // asked what the wood was asked. The head of T-0060's stage 4a; T-0170 cut
+    // the ragged boundary, the ground cover, the street readouts and the
+    // Settings units off its tail into what is now part 12, because at 1280x800
+    // the whole of it ran past the ten-minute foreground ceiling and was killed
+    // there with two sections still to run. T-2337 cut it AGAIN, at the census
+    // in every community, for the same reason — see part 11's header.
     //
     // Every binding it shares with earlier parts (`streetLayer`) is read above
     // the split; the teleport below re-establishes the camera pose it expects on
@@ -11451,6 +11625,40 @@ for (const [label, viewport, touch] of [
       + `${dealt.reduce((t, d) => t + d.drawn, 0)} slots in ${dealt.map((d) => (
         `${d.community}.${d.list}=${d.drawn}`)).join(' ')}`);
 
+    inStageWork = false;
+    } // end PART 10 (T-0060 stage 4a, cut by T-0121; renumbered by T-0346 and T-0173, halved by T-0170 and again by T-2337)
+    // PART 11 — the sward census in every community through the flower heads:
+    // K49(f)'s census at every detail level, the marsh's substrate, T-0035's
+    // pop-in and R-BUG7's head-attachment census. The tail of what T-0170 left
+    // as part 10.
+    //
+    // T-2337 CUT IT HERE, because part 10 had stopped fitting the ten minutes
+    // again. Profiled at 1280x800 with SMOKE_TIMING=1 on the steward runner on
+    // 2026-10-11, load average under 0.6 and no other Chromium on the box, it
+    // was killed at 9 m 45 s inside this census, which began at 7 m 27 s: the
+    // census stands in every community at four bearings (T-2146) and at every
+    // detail level, so it is the one section of the part that grows with the
+    // town's communities. The head keeps the boot (1 m 23 s) and everything up
+    // to the sward at one station; this part pays its own boot for the census
+    // and the three sections that follow it. Renumbered after it: old 11-14
+    // are 12-15.
+    //
+    // No binding crosses. The head declares twenty-two names at this indent
+    // (`swardAt`, `rootLayer`, `horizon`, `sward`, `band`, `planted`, `over`,
+    // …); every occurrence of any of them below is prose, a string, a property
+    // name or a different local inside a `page.evaluate`. Nothing here reads
+    // `streetLayer`, so it stays out of that guard. Every section below sets its
+    // own view — the census hands `flora.update` synthetic cameras and puts the
+    // walker's back, and the pop-in walk and the head census teleport — so this
+    // part takes no pose beyond putting the walker on the ground.
+    if (stageOn(11)) {
+    inStageWork = true;
+
+    // Same fresh-boot accommodation as the part above. In a full run both of
+    // these are no-ops.
+    await enterTown();
+    await page.evaluate(() => { window.__chicago4d.setFly(false); });
+
     // --- and the same sward census in every community (ROADMAP K49(f)) -----
 
     // ROADMAP K49(f) — AND NOW THE SAME CENSUS IN EVERY COMMUNITY, AS A GATE.
@@ -11478,61 +11686,87 @@ for (const [label, viewport, touch] of [
     // station missing a plant; it is a plant that is nowhere. `expected` is the
     // list's own recorded share of the slots dealt, so this asserts the deal
     // against the record rather than against a baseline.
-    const everywhere = await page.evaluate(async () => {
-      const a = window.__chicago4d;
-      const wanted = a.flora.substrates().map((z) => z.id);
-      const spots = {};
-      for (let e = -900; e <= 1200 && Object.keys(spots).length < wanted.length; e += 6) {
-        for (let n = -700; n <= 700; n += 6) {
-          const z = a.flora.zoneAt(e, n);
-          if (z && !spots[z] && a.flora.plantableAt(e, n)) spots[z] = [e, n];
-        }
-      }
-      // A scene-wide absence cannot be inferred from north-facing views alone.
-      // Keep every original plantable station and survey all four cardinal
-      // bearings there. Sampling is fixed independently of the species; the
-      // original north-facing samples and the owed/drawn bar stay in the census.
-      const stations = Object.entries(spots).flatMap(([zone, at]) =>
-        [0, 90, 180, 270].map((bearing) => ({ zone, at, bearing })));
-      const started = a.detail;
-      const levels = [];
-      for (const level of a.detailOrder) {
-        await a.setDetail(level);
-        const rows = [];
-        for (const { zone, at: [e, n], bearing } of stations) {
-          const camera = {
-            getWorldPosition: (v) => { v.set(e, 1.7, -n); return v; },
-            getWorldDirection: (v) => {
-              const angle = bearing * Math.PI / 180;
-              v.set(Math.sin(angle), 0, -Math.cos(angle)); return v;
-            },
-          };
-          a.flora.update(0.016, camera);
-          a.flora.update(0.016, camera);
-          for (const d of a.flora.stats.draws) {
-            if (d.drawn <= 0) continue;
-            rows.push({
-              at: zone,
-              community: d.community,
-              list: d.list,
-              drawn: d.drawn,
-              species: d.species.map((s) => ({
-                id: s.id, drawn: s.drawn, expected: s.expected,
-              })),
-            });
+    // T-2337: the census costs no frames, and is HELD to that — see `holdDraws`.
+    // Inside the town each `setDetail` below took 252.7 s of software draws.
+    let everywhere;
+    await holdDraws(true);
+    try {
+      everywhere = await page.evaluate(async () => {
+        const a = window.__chicago4d;
+        const wanted = a.flora.substrates().map((z) => z.id);
+        // T-2332: INSIDE each community, not on the first sliver of it the scan
+        // meets. The station used to be the first plantable point in scan order,
+        // and as the 1835 town grew that point became a strip of sand prairie
+        // between lots at 762,494, where the ring dealt the prairie 369 slots and
+        // its butterfly weed an expectation of 1.38 — one draw of a sample read
+        // as an exclusion. A station now stands where every point 12 m and 24 m
+        // out on eight bearings is the same community and plantable (there the
+        // prairie is dealt 4,195-5,019 slots and the butterfly weed ~15, drawn
+        // 52-59). That RAISES what each list is owed, so the bar is no looser.
+        // A community with no such interior keeps its first point and is named.
+        const own = (z, e, n) => a.flora.zoneAt(e, n) === z && a.flora.plantableAt(e, n);
+        const AROUND = [12, 24].flatMap((r) => [[1, 0], [0, 1], [-1, 0], [0, -1],
+          [0.7, 0.7], [-0.7, 0.7], [0.7, -0.7], [-0.7, -0.7]].map(([u, v]) => [u * r, v * r]));
+        const spots = {};
+        const edge = {};
+        for (let e = -900; e <= 1200 && Object.keys(spots).length < wanted.length; e += 6) {
+          for (let n = -700; n <= 700; n += 6) {
+            const z = a.flora.zoneAt(e, n);
+            if (!z || spots[z] || !a.flora.plantableAt(e, n)) continue;
+            if (!edge[z]) edge[z] = [e, n];
+            if (AROUND.every(([de, dn]) => own(z, e + de, n + dn))) spots[z] = [e, n];
           }
         }
-        levels.push({ level, rows });
-      }
-      // Put the visitor's own detail level and the walker's own camera back
-      // before anything else reads either.
-      await a.setDetail(started);
-      if (a.camera) {
-        a.flora.update(0.016, a.camera);
-        a.flora.update(0.016, a.camera);
-      }
-      return { spots: Object.keys(spots), stationCount: stations.length, levels };
-    });
+        const atEdge = Object.keys(edge).filter((z) => !spots[z]);
+        for (const z of atEdge) spots[z] = edge[z];
+        // A scene-wide absence cannot be inferred from north-facing views alone.
+        // Keep every original plantable station and survey all four cardinal
+        // bearings there. Sampling is fixed independently of the species; the
+        // original north-facing samples and the owed/drawn bar stay in the census.
+        const stations = Object.entries(spots).flatMap(([zone, at]) =>
+          [0, 90, 180, 270].map((bearing) => ({ zone, at, bearing })));
+        const started = a.detail;
+        const levels = [];
+        for (const level of a.detailOrder) {
+          await a.setDetail(level);
+          const rows = [];
+          for (const { zone, at: [e, n], bearing } of stations) {
+            const camera = {
+              getWorldPosition: (v) => { v.set(e, 1.7, -n); return v; },
+              getWorldDirection: (v) => {
+                const angle = bearing * Math.PI / 180;
+                v.set(Math.sin(angle), 0, -Math.cos(angle)); return v;
+              },
+            };
+            a.flora.update(0.016, camera);
+            a.flora.update(0.016, camera);
+            for (const d of a.flora.stats.draws) {
+              if (d.drawn <= 0) continue;
+              rows.push({
+                at: zone,
+                community: d.community,
+                list: d.list,
+                drawn: d.drawn,
+                species: d.species.map((s) => ({
+                  id: s.id, drawn: s.drawn, expected: s.expected,
+                })),
+              });
+            }
+          }
+          levels.push({ level, rows });
+        }
+        // Put the visitor's own detail level and the walker's own camera back
+        // before anything else reads either.
+        await a.setDetail(started);
+        if (a.camera) {
+          a.flora.update(0.016, a.camera);
+          a.flora.update(0.016, a.camera);
+        }
+        return { spots: Object.keys(spots), atEdge, stationCount: stations.length, levels };
+      });
+    } finally {
+      await holdDraws(false);
+    }
     // Summed over every station, per (community, list, species) — the scene's
     // answer, at one detail level.
     const swardCensus = (rows) => {
@@ -11563,6 +11797,7 @@ for (const [label, viewport, touch] of [
       `${everywhere.spots.length} communities stood in at ${everywhere.stationCount} cardinal views, ${richest.lists} populated list(s), `
       + `${richest.pairs} (list, species) pairs, ${richest.slots} slots dealt at detail `
       + `'${richest.level}'`
+      + `${everywhere.atEdge.length ? `; no interior, stood at the edge: ${everywhere.atEdge.join(', ')}` : ''}`
       + `${richest.nowhere.length ? `; DRAWN NOWHERE: ${richest.nowhere.join(', ')}` : ''}`);
     // Reported, not gated: the same census at the levels a visitor can turn the
     // scene down to. THE RESIDUAL IS REAL AND IS NAMED RATHER THAN GATED AWAY —
@@ -11650,15 +11885,26 @@ for (const [label, viewport, touch] of [
       // Sauganash stands in is short turf now: past its own near ring the ground
       // paints it, so a walk from the hotel door saw no plant arrive at all and
       // the bar below read a vacuous zero. It starts instead at the nearest
-      // dense, plantable ground with plantable ground ahead of it — part 11's own
+      // dense, plantable ground with plantable ground ahead of it — part 12's own
       // rule for a sward drawn as plants — searched outward from the hotel, so a
       // town that grows (T-2084) moves the walk rather than emptying it.
       const denseIds = new Set(a.flora.communities()
         .filter((c) => c.graminoids && c.matrixShare >= 0.7).map((c) => c.id));
       const sward = (e, n) => denseIds.has(a.flora.zoneAt(e, n)) && a.flora.plantableAt(e, n);
-      let start = { local_e: 107, local_n: -103 };
+      //
+      // T-2332: OUTWARD IN EVERY DIRECTION, ring by ring, not along four lines.
+      // The search used to walk only the four compass lines out of the hotel,
+      // and once the 1835 town had grown across all four of them (block 82,
+      // the Monroe-Adams tier, the South Branch sheds) no line crossed 12 m of
+      // sward inside 900 m, so the walk fell back to the hotel door's turf and
+      // read 0 arrivals and 0 plant-frames on a field that was drawing fine.
+      // Each ring is the square of points `d` metres out, read in a fixed order,
+      // so the nearest qualifying ground wins and the walk stays reproducible.
+      let start = null;
       found: for (let d = 0; d <= 900; d += 6) {
-        for (const [de, dn] of [[-d, 0], [0, -d], [d, 0], [0, d]]) {
+        const ring = d === 0 ? [[0, 0]] : [];
+        for (let t = -d; t < d; t += 6) ring.push([t, -d], [d, t], [-t, d], [-d, -t]);
+        for (const [de, dn] of ring) {
           const e = 107 + de;
           const n = -103 + dn;
           if ([0, 3, 6, 9, 12].every((k) => sward(e, n - k))) {
@@ -11667,7 +11913,7 @@ for (const [label, viewport, touch] of [
           }
         }
       }
-      a.walker.teleport({ ...start, yaw_deg: 180 });
+      a.walker.teleport({ ...(start ?? { local_e: 107, local_n: -103 }), yaw_deg: 180 });
       a.step();
       const snap = () => {
         const p = a.camera.position;
@@ -11772,7 +12018,7 @@ for (const [label, viewport, touch] of [
         prev = now;
       }
       return { inset, arrivals, worst, worstAt, shortest, shortestAt, grew, grewAt,
-        drawnPlants, pace: PACE, step: rings.step };
+        drawnPlants, pace: PACE, step: rings.step, start };
     });
     check(`${label}: every flora fade ring is inset inside its own lattice`,
       popIn.inset.length === 3
@@ -11786,7 +12032,9 @@ for (const [label, viewport, touch] of [
     // that one pace of overshoot let a tuft arrive at 100% (6.93 m, T-2085).
     check(`${label}: a plant in front of the walker never arrives already visible`,
       popIn.arrivals >= 20 && popIn.worst <= 0.10,
-      `${popIn.arrivals} arrivals over ${(20 * popIn.pace).toFixed(2)} m; worst coverage `
+      `${popIn.arrivals} arrivals over ${(20 * popIn.pace).toFixed(2)} m from `
+      + (popIn.start ? `${popIn.start.local_e},${popIn.start.local_n}` : 'NO SWARD START (the hotel door)')
+      + `; worst coverage `
       + `${(popIn.worst * 100).toFixed(1)}% of full`
       + (popIn.worstAt ? ` (${popIn.worstAt.set} at ${popIn.worstAt.d.toFixed(2)} m)` : ''));
 
@@ -11826,177 +12074,187 @@ for (const [label, viewport, touch] of [
     // top. The foot is taken from the archetype's own lowest vertex rather than
     // from a constant here, so the assertion survives a change of anchoring.
     // `tools/measure_head_support.mjs` is the same reading with the numbers.
-    const headSupport = await page.evaluate(() => {
-      const a = window.__chicago4d;
-      const clamp01 = (x) => (x < 0 ? 0 : x > 1 ? 1 : x);
-      const fadeOf = (r, i, d) => clamp01((r[i] - d) / Math.max(r[i + 1], 1e-4))
-        * (r[i + 3] > 0 ? clamp01((d - r[i + 2]) / r[i + 3]) : 1);
-      /** Sets a head is ever hung from. A MID clump card is a billboard standing
-       *  for a patch of matrix and carries no head, so counting one as support
-       *  is a free pass — it is what made a first cut of this read zero.
-       *
-       *  `flora-far` is not that card, and since T-0209 it is not excluded:
-       *  the far band deals the WHOLE community, and a flowering forb's far
-       *  card carries its flower — `rebuildFar` calls `maybeHead` on it. The
-       *  comment this replaces predates that and had gone false. Measured on
-       *  the published mirror 2026-09-01: 2693 of 2693 orphans stood on a far
-       *  card at 0.000 m whose top reached them. `flora-mid` stays out, and
-       *  that is measured too — its scatter deals graminoids and never calls
-       *  `maybeHead`, and no orphan stood on one. */
-      const ROOTED = new Set(['flora-near', 'flora-forb', 'flora-rosette', 'flora-shrub',
-        'flora-far']);
-      /** A card's `spread` is its billboard HALF-WIDTH — 1.5 m at the near far
-       *  band, not a stem's radius. Counting that as the support's reach would
-       *  pass any head within a card's width of one, which is the free pass the
-       *  note above refuses. A card carries only the head `maybeHead` puts at
-       *  its own `e,n`, so it supports at its foot and nowhere else. */
-      const CARD = new Set(['flora-far']);
-      /** Under a twentieth of coverage the screen-door dither is writing one
-       *  pixel in twenty of a head that is already only a few across at the
-       *  distances its own ring covers. */
-      const FADE_FLOOR = 0.05;
-      const SLACK = 0.02; // a stem is centimetres thick; float is not a fault
+    // T-2337: this reads instance buffers, never a pixel, and each of its
+    // seventy-odd `step()`s forced a full software draw of the town — so the
+    // draws are held while it walks the anchors (see `holdDraws`). `step()`
+    // still runs the tick, which is where the sward is rebuilt.
+    let headSupport;
+    await holdDraws(true);
+    try {
+      headSupport = await page.evaluate(() => {
+        const a = window.__chicago4d;
+        const clamp01 = (x) => (x < 0 ? 0 : x > 1 ? 1 : x);
+        const fadeOf = (r, i, d) => clamp01((r[i] - d) / Math.max(r[i + 1], 1e-4))
+          * (r[i + 3] > 0 ? clamp01((d - r[i + 2]) / r[i + 3]) : 1);
+        /** Sets a head is ever hung from. A MID clump card is a billboard standing
+         *  for a patch of matrix and carries no head, so counting one as support
+         *  is a free pass — it is what made a first cut of this read zero.
+         *
+         *  `flora-far` is not that card, and since T-0209 it is not excluded:
+         *  the far band deals the WHOLE community, and a flowering forb's far
+         *  card carries its flower — `rebuildFar` calls `maybeHead` on it. The
+         *  comment this replaces predates that and had gone false. Measured on
+         *  the published mirror 2026-09-01: 2693 of 2693 orphans stood on a far
+         *  card at 0.000 m whose top reached them. `flora-mid` stays out, and
+         *  that is measured too — its scatter deals graminoids and never calls
+         *  `maybeHead`, and no orphan stood on one. */
+        const ROOTED = new Set(['flora-near', 'flora-forb', 'flora-rosette', 'flora-shrub',
+          'flora-far']);
+        /** A card's `spread` is its billboard HALF-WIDTH — 1.5 m at the near far
+         *  band, not a stem's radius. Counting that as the support's reach would
+         *  pass any head within a card's width of one, which is the free pass the
+         *  note above refuses. A card carries only the head `maybeHead` puts at
+         *  its own `e,n`, so it supports at its foot and nowhere else. */
+        const CARD = new Set(['flora-far']);
+        /** Under a twentieth of coverage the screen-door dither is writing one
+         *  pixel in twenty of a head that is already only a few across at the
+         *  distances its own ring covers. */
+        const FADE_FLOOR = 0.05;
+        const SLACK = 0.02; // a stem is centimetres thick; float is not a fault
 
-      const meshes = [];
-      a.flora.group.traverse((o) => { if (o.isInstancedMesh) meshes.push(o); });
-      const footOf = (g) => {
-        const p = g.getAttribute('position').array;
-        let lo = Infinity;
-        for (let i = 1; i < p.length; i += 3) if (p[i] < lo) lo = p[i];
-        return lo;
-      };
-      const nominal = new Map(meshes.map((m) => [m.name, footOf(m.geometry)]));
+        const meshes = [];
+        a.flora.group.traverse((o) => { if (o.isInstancedMesh) meshes.push(o); });
+        const footOf = (g) => {
+          const p = g.getAttribute('position').array;
+          let lo = Infinity;
+          for (let i = 1; i < p.length; i += 3) if (p[i] < lo) lo = p[i];
+          return lo;
+        };
+        const nominal = new Map(meshes.map((m) => [m.name, footOf(m.geometry)]));
 
-      let drawn = 0; let unsupported = 0; let worst = null;
-      let onCard = 0; const bySet = new Map();
-      const anchors = a.scene?.anchors ?? [];
-      for (const anchor of anchors) {
-        for (const yaw of [0, 90, 180, 270]) {
-          a.walker.teleport({ local_e: anchor.local_e, local_n: anchor.local_n, yaw_deg: yaw });
-          // One frame is a rebuild — the sward is scattered from the camera on
-          // the step that carries it, which is what `popIn` above walks on.
-          a.step();
-          const cx = a.camera.position.x; const cz = a.camera.position.z;
-          // Every rooted plant, on a one-metre grid.
-          const grid = new Map();
-          for (const m of meshes) {
-            if (!ROOTED.has(m.name) || !m.count) continue;
-            const mm = m.instanceMatrix.array;
-            const fl = m.geometry.getAttribute('aFlora').array;
-            const rg = m.geometry.getAttribute('aChiRing').array;
-            for (let i = 0; i < m.count; i++) {
-              const o = i * 16;
-              const x = mm[o + 12]; const z = mm[o + 14];
-              const f = fadeOf(rg, i * 4, Math.hypot(x - cx, z - cz));
-              // T-0035: the ring ramp is coverage, not height. A plant is drawn
-              // whole or not at all, so the drawn top and the drawn reach are
-              // the record's own numbers and the ramp only says WHETHER.
-              if (f <= 0) continue;
-              // `heightAt` is null for a set with no ring of its own, which is
-              // what `flora-far` is — T-0035 draws every visible plant whole,
-              // so the fraction is 1 and the null is "no ramp", not "no height".
-              const h = a.flora.heightAt(m.name, Math.hypot(x - cx, z - cz), rg[i * 4]) ?? 1;
-              const key = `${Math.floor(x)},${Math.floor(z)}`;
-              let b = grid.get(key);
-              if (!b) { b = []; grid.set(key, b); }
-              b.push({ x, z, top: mm[o + 13] + fl[i * 4] * h, set: m.name,
-                r: CARD.has(m.name) ? 0 : fl[i * 4 + 1] * h });
-            }
-          }
-          // T-0448 diagnostic, second grid: the meshes ROOTED leaves out, built
-          // the same way and consulted only to explain an orphan. The support
-          // test above does not read it, so the count stays comparable.
-          const cardGrid = new Map();
-          for (const m of meshes) {
-            if (ROOTED.has(m.name) || m.name.startsWith('flora-head-') || !m.count) continue;
-            const mm = m.instanceMatrix.array;
-            const fl = m.geometry.getAttribute('aFlora').array;
-            const rg = m.geometry.getAttribute('aChiRing').array;
-            for (let i = 0; i < m.count; i++) {
-              const o = i * 16;
-              const x = mm[o + 12]; const z = mm[o + 14];
-              if (fadeOf(rg, i * 4, Math.hypot(x - cx, z - cz)) <= 0) continue;
-              const h = a.flora.heightAt(m.name, Math.hypot(x - cx, z - cz), rg[i * 4]) ?? 1;
-              const key = `${Math.floor(x)},${Math.floor(z)}`;
-              let b = cardGrid.get(key);
-              if (!b) { b = []; cardGrid.set(key, b); }
-              b.push({ x, z, top: mm[o + 13] + fl[i * 4] * h, r: fl[i * 4 + 1] * h, set: m.name });
-            }
-          }
-          for (const m of meshes) {
-            if (!m.name.startsWith('flora-head-') || !m.count) continue;
-            const lo = nominal.get(m.name);
-            const mm = m.instanceMatrix.array;
-            const fl = m.geometry.getAttribute('aFlora').array;
-            const rg = m.geometry.getAttribute('aChiRing').array;
-            const rise = m.geometry.getAttribute('aChiRise').array;
-            for (let i = 0; i < m.count; i++) {
-              const o = i * 16;
-              const x = mm[o + 12]; const y = mm[o + 13]; const z = mm[o + 14];
-              const f = fadeOf(rg, i * 4, Math.hypot(x - cx, z - cz));
-              if (f <= FADE_FLOOR) continue;
-              drawn++;
-              // `rise` is still read back — it is what puts this head over its
-              // plant's base — but the world-space descent that used to subtract
-              // `rise * (1 - fade)` from it is gone with the scale it chased.
-              const s = lo * fl[i * 4];
-              const fx = x + mm[o + 4] * s;
-              const fy = y + mm[o + 5] * s;
-              const fz = z + mm[o + 6] * s;
-              let best = -Infinity;
-              // T-0448 diagnostic: the nearest rooted plant IGNORING the radius
-              // test, so an orphan can be told from a stem the radius missed.
-              let nearest = null;
-              for (let kx = Math.floor(fx) - 1; kx <= Math.floor(fx) + 1; kx++) {
-                for (let kz = Math.floor(fz) - 1; kz <= Math.floor(fz) + 1; kz++) {
-                  const b = grid.get(`${kx},${kz}`);
-                  if (!b) continue;
-                  for (const p of b) {
-                    const d = Math.hypot(p.x - fx, p.z - fz);
-                    if (!nearest || d < nearest.d) nearest = { d, r: p.r, top: p.top, set: p.set };
-                    if (p.top > best
-                      && d <= Math.max(0.05, p.r) + SLACK) best = p.top;
-                  }
-                }
+        let drawn = 0; let unsupported = 0; let worst = null;
+        let onCard = 0; const bySet = new Map();
+        const anchors = a.scene?.anchors ?? [];
+        for (const anchor of anchors) {
+          for (const yaw of [0, 90, 180, 270]) {
+            a.walker.teleport({ local_e: anchor.local_e, local_n: anchor.local_n, yaw_deg: yaw });
+            // One frame is a rebuild — the sward is scattered from the camera on
+            // the step that carries it, which is what `popIn` above walks on.
+            a.step();
+            const cx = a.camera.position.x; const cz = a.camera.position.z;
+            // Every rooted plant, on a one-metre grid.
+            const grid = new Map();
+            for (const m of meshes) {
+              if (!ROOTED.has(m.name) || !m.count) continue;
+              const mm = m.instanceMatrix.array;
+              const fl = m.geometry.getAttribute('aFlora').array;
+              const rg = m.geometry.getAttribute('aChiRing').array;
+              for (let i = 0; i < m.count; i++) {
+                const o = i * 16;
+                const x = mm[o + 12]; const z = mm[o + 14];
+                const f = fadeOf(rg, i * 4, Math.hypot(x - cx, z - cz));
+                // T-0035: the ring ramp is coverage, not height. A plant is drawn
+                // whole or not at all, so the drawn top and the drawn reach are
+                // the record's own numbers and the ramp only says WHETHER.
+                if (f <= 0) continue;
+                // `heightAt` is null for a set with no ring of its own, which is
+                // what `flora-far` is — T-0035 draws every visible plant whole,
+                // so the fraction is 1 and the null is "no ramp", not "no height".
+                const h = a.flora.heightAt(m.name, Math.hypot(x - cx, z - cz), rg[i * 4]) ?? 1;
+                const key = `${Math.floor(x)},${Math.floor(z)}`;
+                let b = grid.get(key);
+                if (!b) { b = []; grid.set(key, b); }
+                b.push({ x, z, top: mm[o + 13] + fl[i * 4] * h, set: m.name,
+                  r: CARD.has(m.name) ? 0 : fl[i * 4 + 1] * h });
               }
-              if (best < fy - SLACK) {
-                unsupported++;
-                // T-0448: does a mesh ROOTED excludes stand where the stem is
-                // missing, and would it have counted? Answers whether these are
-                // far-card heads (T-0209) or geometry over nothing at all.
-                let card = null;
+            }
+            // T-0448 diagnostic, second grid: the meshes ROOTED leaves out, built
+            // the same way and consulted only to explain an orphan. The support
+            // test above does not read it, so the count stays comparable.
+            const cardGrid = new Map();
+            for (const m of meshes) {
+              if (ROOTED.has(m.name) || m.name.startsWith('flora-head-') || !m.count) continue;
+              const mm = m.instanceMatrix.array;
+              const fl = m.geometry.getAttribute('aFlora').array;
+              const rg = m.geometry.getAttribute('aChiRing').array;
+              for (let i = 0; i < m.count; i++) {
+                const o = i * 16;
+                const x = mm[o + 12]; const z = mm[o + 14];
+                if (fadeOf(rg, i * 4, Math.hypot(x - cx, z - cz)) <= 0) continue;
+                const h = a.flora.heightAt(m.name, Math.hypot(x - cx, z - cz), rg[i * 4]) ?? 1;
+                const key = `${Math.floor(x)},${Math.floor(z)}`;
+                let b = cardGrid.get(key);
+                if (!b) { b = []; cardGrid.set(key, b); }
+                b.push({ x, z, top: mm[o + 13] + fl[i * 4] * h, r: fl[i * 4 + 1] * h, set: m.name });
+              }
+            }
+            for (const m of meshes) {
+              if (!m.name.startsWith('flora-head-') || !m.count) continue;
+              const lo = nominal.get(m.name);
+              const mm = m.instanceMatrix.array;
+              const fl = m.geometry.getAttribute('aFlora').array;
+              const rg = m.geometry.getAttribute('aChiRing').array;
+              const rise = m.geometry.getAttribute('aChiRise').array;
+              for (let i = 0; i < m.count; i++) {
+                const o = i * 16;
+                const x = mm[o + 12]; const y = mm[o + 13]; const z = mm[o + 14];
+                const f = fadeOf(rg, i * 4, Math.hypot(x - cx, z - cz));
+                if (f <= FADE_FLOOR) continue;
+                drawn++;
+                // `rise` is still read back — it is what puts this head over its
+                // plant's base — but the world-space descent that used to subtract
+                // `rise * (1 - fade)` from it is gone with the scale it chased.
+                const s = lo * fl[i * 4];
+                const fx = x + mm[o + 4] * s;
+                const fy = y + mm[o + 5] * s;
+                const fz = z + mm[o + 6] * s;
+                let best = -Infinity;
+                // T-0448 diagnostic: the nearest rooted plant IGNORING the radius
+                // test, so an orphan can be told from a stem the radius missed.
+                let nearest = null;
                 for (let kx = Math.floor(fx) - 1; kx <= Math.floor(fx) + 1; kx++) {
                   for (let kz = Math.floor(fz) - 1; kz <= Math.floor(fz) + 1; kz++) {
-                    const b = cardGrid.get(`${kx},${kz}`);
+                    const b = grid.get(`${kx},${kz}`);
                     if (!b) continue;
                     for (const p of b) {
                       const d = Math.hypot(p.x - fx, p.z - fz);
-                      if (!card || d < card.d) card = { d, r: p.r, top: p.top, set: p.set };
+                      if (!nearest || d < nearest.d) nearest = { d, r: p.r, top: p.top, set: p.set };
+                      if (p.top > best
+                        && d <= Math.max(0.05, p.r) + SLACK) best = p.top;
                     }
                   }
                 }
-                if (card && card.d <= Math.max(0.05, card.r) + SLACK && card.top >= fy - SLACK) {
-                  onCard++;
-                  bySet.set(card.set, (bySet.get(card.set) ?? 0) + 1);
-                }
-                const gap = best === -Infinity ? null : fy - best;
-                if (!worst || (gap ?? 9) > (worst.gap ?? 9) || best === -Infinity) {
-                  worst = { set: m.name, at: anchor.id, yaw, y: fy, gap, rise: rise[i],
-                    orphan: best === -Infinity,
-                    // What was actually there, and why it did not count.
-                    nearest: nearest && { set: nearest.set, d: +nearest.d.toFixed(3),
-                      r: +nearest.r.toFixed(3), reach: +(nearest.top - fy).toFixed(3) },
-                    card: card && { set: card.set, d: +card.d.toFixed(3),
-                      r: +card.r.toFixed(3), reach: +(card.top - fy).toFixed(3) } };
+                if (best < fy - SLACK) {
+                  unsupported++;
+                  // T-0448: does a mesh ROOTED excludes stand where the stem is
+                  // missing, and would it have counted? Answers whether these are
+                  // far-card heads (T-0209) or geometry over nothing at all.
+                  let card = null;
+                  for (let kx = Math.floor(fx) - 1; kx <= Math.floor(fx) + 1; kx++) {
+                    for (let kz = Math.floor(fz) - 1; kz <= Math.floor(fz) + 1; kz++) {
+                      const b = cardGrid.get(`${kx},${kz}`);
+                      if (!b) continue;
+                      for (const p of b) {
+                        const d = Math.hypot(p.x - fx, p.z - fz);
+                        if (!card || d < card.d) card = { d, r: p.r, top: p.top, set: p.set };
+                      }
+                    }
+                  }
+                  if (card && card.d <= Math.max(0.05, card.r) + SLACK && card.top >= fy - SLACK) {
+                    onCard++;
+                    bySet.set(card.set, (bySet.get(card.set) ?? 0) + 1);
+                  }
+                  const gap = best === -Infinity ? null : fy - best;
+                  if (!worst || (gap ?? 9) > (worst.gap ?? 9) || best === -Infinity) {
+                    worst = { set: m.name, at: anchor.id, yaw, y: fy, gap, rise: rise[i],
+                      orphan: best === -Infinity,
+                      // What was actually there, and why it did not count.
+                      nearest: nearest && { set: nearest.set, d: +nearest.d.toFixed(3),
+                        r: +nearest.r.toFixed(3), reach: +(nearest.top - fy).toFixed(3) },
+                      card: card && { set: card.set, d: +card.d.toFixed(3),
+                        r: +card.r.toFixed(3), reach: +(card.top - fy).toFixed(3) } };
+                  }
                 }
               }
             }
           }
         }
-      }
-      return { drawn, unsupported, worst, poses: anchors.length * 4,
-        onCard, bySet: [...bySet].sort((p, q) => q[1] - p[1]) };
-    });
+        return { drawn, unsupported, worst, poses: anchors.length * 4,
+          onCard, bySet: [...bySet].sort((p, q) => q[1] - p[1]) };
+      });
+    } finally {
+      await holdDraws(false);
+    }
     check(`${label}: every drawn flower head has a plant under its own stalk`,
       headSupport.drawn > 500 && headSupport.unsupported === 0,
       `${headSupport.unsupported} of ${headSupport.drawn} drawn heads over `
@@ -12023,8 +12281,8 @@ for (const [label, viewport, touch] of [
         : ''));
 
     inStageWork = false;
-    } // end PART 10 (T-0060 stage 4a, cut by T-0121; renumbered by T-0346 and T-0173, halved by T-0170)
-    // PART 11 — the sward's ragged boundary through the units a visitor reads:
+    } // end PART 11 (the tail of T-0170's part 10, cut out of it by T-2337)
+    // PART 12 — the sward's ragged boundary through the units a visitor reads:
     // the boundary and its fringe, each community's own recorded ground cover,
     // the street readouts, the navigation guide and the Settings units. The
     // second half of T-0060's stage 4a.
@@ -12045,7 +12303,7 @@ for (const [label, viewport, touch] of [
     // scan turned up six other names below this line (`headSupport`, `horizon`,
     // `over`, `planted`, `popIn`, `sward`) and every occurrence is prose or a
     // string, not the binding.
-    if (stageOn(11)) {
+    if (stageOn(12)) {
     inStageWork = true;
 
     // Same fresh-boot accommodation as the part above: the tail of this one
@@ -12458,7 +12716,7 @@ for (const [label, viewport, touch] of [
 
     // T-2015: desktop 9-11 reached this chrome after every scene assertion
     // passed, then its native click timed out at 90 s (3.36/3.56 s frames).
-    // Use the same visibility, disabled, box and occlusion checks as part 12;
+    // Use the same visibility, disabled, box and occlusion checks as part 13;
     // these controls do not require a frame-bound trusted mouse event.
     // The guide and unit-system assertions below remain unchanged.
     // The menu is built from the two runtime collections, not from a sampled
@@ -12525,10 +12783,10 @@ for (const [label, viewport, touch] of [
       JSON.stringify(unitChoice));
 
     inStageWork = false;
-    } // end PART 11 (the tail of T-0060 stage 4a, cut out of part 10 by T-0170)
-    // PART 12 — eye height through What's-new: the settings, the Go-to tab and
+    } // end PART 12 (the tail of T-0060 stage 4a, cut out of part 10 by T-0170; renumbered by T-2337)
+    // PART 13 — eye height through What's-new: the settings, the Go-to tab and
     // the release notes. The head of T-0060's stage 4b; T-0167 cut the Evidence
-    // panel and free-fly off its tail into part 13.
+    // panel and free-fly off its tail into what is now part 14.
     //
     // It drives the panel chrome from its first line, so it enters the town on
     // its own account. It takes no pose of its own on purpose: the checks below
@@ -12544,10 +12802,10 @@ for (const [label, viewport, touch] of [
     // part down before one assertion had run. Not one assertion is dropped or
     // softened by the change: `clickChrome` hit-tests the control at its own
     // centre the way a real click does, and says what covered it when it fails.
-    if (stageOn(12)) {
+    if (stageOn(13)) {
     inStageWork = true;
     await enterTown();
-    // …and the PANEL, which part 11 leaves open at its last line and this part
+    // …and the PANEL, which part 12 leaves open at its last line and this part
     // reaches straight into: its first statement clicks a tab inside it, and a
     // click on a tab that has no layout waits ninety seconds and dies. Guarded
     // on the panel's own hidden state rather than toggling, for the same reason
@@ -12958,7 +13216,7 @@ for (const [label, viewport, touch] of [
 
     // T-0701: the drawer and the building card share the right-hand slot. With
     // a card open, opening the drawer TUCKS the card (a transform + visibility,
-    // never `hidden` — the card must not be collateral, see part 13) and
+    // never `hidden` — the card must not be collateral, see part 14) and
     // closing brings it back. The .24 s transition is polled to its end rather
     // than waited for: under load a fixed wait was not enough (REPORT-shell).
     // The drawer itself reaches the bottom of the viewport and starts under the
@@ -14235,7 +14493,7 @@ for (const [label, viewport, touch] of [
       JSON.stringify({ fits: hub.city.fits, scrollsInSheet: hub.city.scrollsInSheet }));
     check(`${label}: a topic opens with the hub gone, and its search narrows the list and says so`,
       hub.topic.hubHidden && hub.topic.libShown && hub.topic.topic === 'liberties'
-      && hub.topic.title === 'What we made up' && hub.topic.backShown
+      && hub.topic.title === 'Liberties' && hub.topic.backShown
       && hub.topic.total > 17 && hub.topic.shown > 0 && hub.topic.shown < hub.topic.total
       && hub.topic.statusN === hub.topic.shown && hub.topic.statusM === hub.topic.total
       && hub.cleared === hub.topic.total,
@@ -14356,8 +14614,8 @@ for (const [label, viewport, touch] of [
       `${ret.flagged.length} of ${ret.total} flagged: ${ret.flagged.join(' | ')}`);
 
     inStageWork = false;
-    } // end PART 12 (T-0060 stage 4b-i, cut by T-0121, halved by T-0167; renumbered by T-0346, T-0173 and T-0170)
-    // PART 13 — the Evidence panel through inspecting from the air: the
+    } // end PART 13 (T-0060 stage 4b-i, cut by T-0121, halved by T-0167; renumbered by T-0346, T-0173, T-0170 and T-2337)
+    // PART 14 — the Evidence panel through inspecting from the air: the
     // liberties, the people, the wildlife, what is not here, what the ground
     // claims, free-fly and the two inspect keys. The tail of T-0060's stage 4.
     //
@@ -14375,7 +14633,7 @@ for (const [label, viewport, touch] of [
     // carries its own guarded panel-open and clicks the Evidence tab itself, so
     // unlike part 12 this part needs no panel guard bolted on. It takes no pose
     // — free-fly is entered from wherever the visitor stands.
-    if (stageOn(13)) {
+    if (stageOn(14)) {
     inStageWork = true;
     await enterTown();
     // --- the liberties, in the Evidence panel ------------------------------
@@ -15960,8 +16218,20 @@ for (const [label, viewport, touch] of [
     // itself. Any 404 the second scene raises lands in this viewport's zero-page-errors
     // through the listeners the tab already carries.
     {
+      // These four are the test's ORACLE, not the page's inputs, so they come from
+      // the source tree and never from the mirror under test. The bake workflow's
+      // smoke legs check out tools/ alone, where every one of them ended the part
+      // ENOENT; repo_file.mjs reads the committed blob of the commit under test
+      // instead, and says so here when it does (T-2331).
       const here4d = path.resolve(HERE, '..');
-      const readRepo = (rel) => JSON.parse(fs.readFileSync(path.join(here4d, rel), 'utf8'));
+      const readRepo = (rel) => {
+        const { value, from } = readRepoJson(here4d, rel);
+        if (from === 'commit') {
+          console.log(`  note  ${label}: ${rel} is not in this checkout, so the 1904 front door `
+            + 'reads it from the commit under test');
+        }
+        return value;
+      };
       const gcp28 = readRepo('data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json');
       const lotFrame = readRepo('data/research/glessner_house_1904_spec.json').lot.corners_lot_m;
       const k = gcp28.fit.coefficients;
@@ -16098,11 +16368,172 @@ for (const [label, viewport, touch] of [
         // T-1732 moved one clause of this check, and only one: `structures` is the layer
         // the Glessner House is drawn in, so it is no longer asserted empty. What it held
         // — that nothing of the 1835 town is placed here — is now held by name: the
-        // scene places exactly one structure, and it is glessner_house.
+        // scene places exactly one structure, and it is glessner_house. T-2266 added the
+        // second 1904 record, the K01 frontage at 1808 Prairie, so the set is held by name
+        // still: these two and nothing else. T-2306 added the third, the K13 conservatory bay
+        // on the Pullman house's east wing at 1729 Prairie. T-2323 added the fourth, the K16
+        // timber front of the Shortall-Gregory house at 1638 Prairie (#668) — merged while
+        // every bake leg died ENOENT above this line, so nothing read the list (T-2331).
+        // T-2321 added the fifth, the K12 coach house on the alley behind 1812 Prairie.
         const stray = Object.entries(at.drawn).filter(([name, n]) => n > 0 && name !== 'structures');
-        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732)`,
-          stray.length === 0 && at.registry === 1 && at.placed.length === 1
-          && at.placed[0] === 'glessner_house',
+        // T-2329 added the district draft's west side of the 18th-20th block: eighteen
+        // prairie_draft records, held by name with the rest.
+        // T-2330 added its east side: seventeen more, the same way.
+        // T-2334 added the 16th-18th block's west side: thirty-two more.
+        // T-2335 added its east side: nineteen more, the station at 1605 among them.
+        // T-2351 added the 20th-22nd block's west side: twenty-six more, 2126's building site among them.
+        // T-2352 added its east side: thirty-three more.
+        const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
+          'shortall_gregory_house_1638_prairie_front',
+          'edson_keith_house_1906_prairie',
+          'edson_keith_house_1906_prairie_coach_house',
+          'elbridge_keith_house_1900_prairie',
+          'elbridge_keith_house_1900_prairie_coach_house',
+          'henderson_house_1816_prairie',
+          'henderson_house_1816_prairie_coach_house',
+          'house_1828_prairie',
+          'house_1828_prairie_coach_house',
+          'house_1918_prairie',
+          'house_1918_prairie_coach_house',
+          'jones_house_1834_prairie',
+          'jones_house_1834_prairie_coach_house',
+          'marsh_house_1824_prairie',
+          'marsh_house_1824_prairie_coach_house',
+          'moulton_lowden_house_1912_prairie',
+          'moulton_lowden_house_1912_prairie_coach_house',
+          'shed_1834_1900_prairie',
+          'wheeler_house_1812_prairie',
+          'armour_corwith_house_1945_prairie',
+          'armour_corwith_house_1945_prairie_coach_house',
+          'coleman_ames_house_1811_prairie',
+          'coleman_ames_house_1811_prairie_coach_house',
+          'dent_house_1823_prairie',
+          'doane_house_1827_prairie',
+          'doane_house_1827_prairie_coach_house',
+          'kellogg_house_1923_prairie',
+          'kellogg_house_1923_prairie_coach_house',
+          'kimball_house_1801_prairie',
+          'marshall_field_house_1905_prairie',
+          'marshall_field_house_1905_prairie_coach_house',
+          'marshall_field_jr_house_1919_prairie',
+          'ream_house_1901_prairie',
+          'ream_house_1901_prairie_coach_house',
+          'sears_meeker_house_1815_prairie',
+          'sears_meeker_house_1815_prairie_coach_house',
+          'george_glessner_house_1706_prairie',
+          'glessner_lee_house_1700_prairie',
+          'glessner_lee_house_1700_prairie_coach_house',
+          'goodman_house_1612_prairie',
+          'goodman_house_1612_prairie_coach_house',
+          'house_1600_prairie',
+          'house_1604_prairie',
+          'house_1608_prairie',
+          'house_1616_prairie',
+          'house_1616_prairie_coach_house',
+          'house_1626_prairie',
+          'house_1626_prairie_coach_house',
+          'house_1628_prairie',
+          'house_1628_prairie_coach_house',
+          'house_1630_prairie',
+          'house_1630_prairie_coach_house',
+          'house_1634_prairie',
+          'house_1636_prairie',
+          'house_1708_prairie',
+          'house_1712_prairie',
+          'house_1712_prairie_coach_house',
+          'house_1726_prairie',
+          'house_1726_prairie_coach_house',
+          'house_1730_prairie',
+          'house_1730_prairie_coach_house',
+          'house_1736_prairie',
+          'house_1736_prairie_coach_house',
+          'law_house_1620_prairie',
+          'law_house_1620_prairie_coach_house',
+          'shortall_gregory_house_1638_prairie_coach_house',
+          'walker_house_1720_prairie',
+          'walker_house_1720_prairie_coach_house',
+          'wheeler_house_1812_prairie_coach_house',
+          'dexter_house_1721_prairie',
+          'dexter_house_1721_prairie_coach_house',
+          'hibbard_house_1701_prairie',
+          'hibbard_house_1701_prairie_coach_house',
+          'house_1601_prairie',
+          'house_1609_prairie',
+          'house_1611_prairie',
+          'house_1613_prairie',
+          'house_1615_prairie',
+          'house_1619_prairie',
+          'house_1621_prairie',
+          'house_1623_prairie',
+          'house_1625_prairie',
+          'ic_16th_street_station_1605_prairie',
+          'kellogg_house_1709_prairie',
+          'kellogg_house_1709_prairie_coach_house',
+          'pullman_house_1729_prairie',
+          'spalding_house_1637_prairie',
+          'spalding_house_1637_prairie_coach_house',
+          'buckingham_house_2036_prairie',
+          'buckingham_house_2036_prairie_coach_house',
+          'house_2000_prairie',
+          'house_2000_prairie_coach_house',
+          'house_2010_prairie',
+          'house_2010_prairie_coach_house',
+          'house_2018_prairie',
+          'house_2018_prairie_coach_house',
+          'house_2026_prairie',
+          'house_2026_prairie_coach_house',
+          'house_2120_prairie',
+          'house_2120_prairie_coach_house',
+          'mark_kimball_house_2108_prairie',
+          'mark_kimball_house_2108_prairie_coach_house',
+          'murdoch_house_2130_prairie',
+          'murdoch_house_2130_prairie_coach_house',
+          'rees_house_2110_prairie',
+          'robbins_house_2126_prairie',
+          'robbins_house_2126_prairie_coach_house',
+          'rothschild_house_2112_prairie',
+          'rothschild_house_2112_prairie_coach_house',
+          'sherman_house_2100_prairie',
+          'sherman_house_2100_prairie_coach_house',
+          'tucker_smith_house_2140_prairie',
+          'tucker_smith_house_2140_prairie_alley_building',
+          'tucker_smith_house_2140_prairie_coach_house',
+          'armour_house_2115_prairie',
+          'armour_house_2115_prairie_coach_house',
+          'flats_2127_prairie',
+          'high_house_2021_prairie',
+          'high_house_2021_prairie_coach_house',
+          'house_2001_prairie',
+          'house_2001_prairie_coach_house',
+          'house_2003_prairie',
+          'house_2005_prairie',
+          'house_2011_prairie',
+          'house_2011_prairie_coach_house',
+          'house_2017_prairie',
+          'house_2017_prairie_coach_house',
+          'house_2027_prairie',
+          'house_2027_prairie_coach_house',
+          'house_2101_prairie',
+          'house_2101_prairie_coach_house',
+          'house_2123_prairie',
+          'house_2123_prairie_coach_house',
+          'house_2125_prairie',
+          'house_2125_prairie_coach_house',
+          'mayer_house_2009_prairie',
+          'mayer_house_2009_prairie_coach_house',
+          'otis_house_2033_prairie',
+          'otis_house_2033_prairie_coach_house',
+          'reid_house_2013_prairie',
+          'reid_house_2013_prairie_coach_house',
+          'roloson_house_2109_prairie',
+          'roloson_house_2109_prairie_coach_house',
+          'stone_house_2035_prairie',
+          'stone_house_2035_prairie_rear_building',
+          'tolman_house_2031_prairie',
+          'tolman_house_2031_prairie_coach_house'].sort();
+        check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
+          stray.length === 0 && at.registry === PLACED_1904.length
+          && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),
           `meshes: ${JSON.stringify(at.drawn)}; structures placed ${JSON.stringify(at.placed)}`);
         const houseHits = at.house?.hits ?? [];
         // Owner-reported date ambiguity: 1946 closes an exterior phase, not
@@ -16177,9 +16608,9 @@ for (const [label, viewport, touch] of [
     }
 
     inStageWork = false;
-    } // end PART 13 (T-0060 stage 4b-ii, cut by T-0167; renumbered by T-0346, T-0173 and T-0170)
+    } // end PART 14 (T-0060 stage 4b-ii, cut by T-0167; renumbered by T-0346, T-0173, T-0170 and T-2337)
 
-    // --- PART 14: the arrival-to-jaunt path, end to end (T-2044, from T-1272) --------
+    // --- PART 15: the arrival-to-jaunt path, end to end (T-2044, from T-1272) --------
     // Every part above boots with the welcome waved straight through (`enterTown`), so
     // the path a visitor actually walks — the arrival year counting down, the welcome,
     // the Starting At… picker, a jaunt, the cards and sources it links to, a change of
@@ -16188,11 +16619,11 @@ for (const [label, viewport, touch] of [
     // context, because the first thing it asserts is what the arrival shows before
     // `api.ready`, and the body's own page has long since passed that moment. The main
     // page is parked on about:blank first so two copies of the town do not split the
-    // machine's frames; part 14 is the last part, so nothing after it reads that page.
+    // machine's frames; part 15 is the last part, so nothing after it reads that page.
     // Rides are finished with `travel.simulate`, as the jaunt harnesses do: what is
     // asserted is the outing's state and its controls, not the speed of a horse drawn
     // in software at a few frames a second.
-    if (stageOn(14)) {
+    if (stageOn(15)) {
     inStageWork = true;
     await page.goto('about:blank');
     const ctx14 = await browser.newContext({
@@ -16227,11 +16658,11 @@ for (const [label, viewport, touch] of [
     // so the first desktop run spent a minute or more on each step and was killed at
     // the ceiling with the mode change still running.
     const until = (fn, arg = null) => p14.waitForFunction(fn, arg, { polling: 250 });
-    p14.on('pageerror', (e) => errors.push(`part 14 pageerror: ${e.message || e}`));
-    p14.on('response', (r) => { if (r.status() >= 400) errors.push(`part 14 HTTP ${r.status()} ${r.url()}`); });
+    p14.on('pageerror', (e) => errors.push(`part 15 pageerror: ${e.message || e}`));
+    p14.on('response', (r) => { if (r.status() >= 400) errors.push(`part 15 HTTP ${r.status()} ${r.url()}`); });
     p14.on('console', (m) => {
       const t = m.text();
-      if (m.type() === 'error' && !t.startsWith('Failed to load resource')) errors.push(`part 14 console.error: ${t}`);
+      if (m.type() === 'error' && !t.startsWith('Failed to load resource')) errors.push(`part 15 console.error: ${t}`);
     });
     const jaunt = () => p14.evaluate(() => {
       const s = window.__chicago4d.jaunts.state;
@@ -16261,7 +16692,7 @@ for (const [label, viewport, touch] of [
         }
         return { x, y };
       }, [sel, text]);
-      if (at.why) throw new Error(`part 14 tap: ${at.why}${text ? ` ("${text}")` : ''}`);
+      if (at.why) throw new Error(`part 15 tap: ${at.why}${text ? ` ("${text}")` : ''}`);
       await p14.mouse.click(at.x, at.y);
     };
 
@@ -16399,7 +16830,7 @@ for (const [label, viewport, touch] of [
     if (KEEP) await p14.screenshot({ path: path.join(KEEP, `part14-${viewport.width}x${viewport.height}.png`) });
     await ctx14.close();
     inStageWork = false;
-    } // end PART 14 (T-2044)
+    } // end PART 15 (T-2044; renumbered from 14 by T-2337)
     } catch (e) {
       inStageWork = false;
       thrown = e;

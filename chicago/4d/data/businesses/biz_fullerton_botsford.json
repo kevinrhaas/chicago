@@ -17,28 +17,31 @@
   "firm_styles": [
     "Fullerton & Botsford"
   ],
-  "notice": {
-    "reads": "Fullerton & Botsford",
-    "trade": "pork and provisions",
-    "goods": [
-      "Bacon",
-      "Hams",
-      "Lard",
-      "Pork"
-    ],
-    "names_a_keeper": false,
-    "from": "1834-06-04",
-    "to": "1834-07-09",
-    "tier": "attested",
-    "basis": "The advertisement is anonymous: the paper printed the trade and the goods and no proprietor, so no person of this record can carry the reading it was compiled from. What is attested here is what the notice itself set in type — “pork and provisions” — and nothing beyond it: no keeper is claimed, and the premises and dates of this record stay on their own blocks at the tier the placement policy left them. Bounded by the printing window (printed 1834-06-04 to 1834-07-09), which dates the notice and not the house.",
-    "source_id": "chicago_newspapers_1833_1835",
-    "claim_ids": [
-      "chicago_democrat_1834_06_04#c024",
-      "chicago_democrat_1834_07_09#c027"
-    ]
-  },
+  "notice": null,
   "proprietors": [],
-  "partners": [],
+  "partners": [
+    {
+      "name": "Botsford",
+      "person_id": "botsford_j_k",
+      "register_person_id": null,
+      "role": "partner",
+      "from": "1834-06-04",
+      "to": "1834-07-09",
+      "tier": "attested",
+      "basis": "The firm's own style prints this partner's surname (Fullerton & Botsford); no notice prints him apart from the house. Linked to the town card botsford_j_k at inferred (T-2245): The pork notice is signed 'FULLERTON & BOTSFORD, corner of Dearborn and Lake-sts.' (chicago_democrat_1834_06_04#c024, copy dated April 22, 1834), and the corner of Dearborn and Lake is the frontage J. K. Botsford's own grocery and tin shop advertises from in the same weeks (identity.json, refused_anchor_changes on business_j_k_botsford, T-0324). identity.json's proprietor merges on that house rule that nothing in the corpus names a second Botsford. One Botsford, one corner: the partner is J. K. Botsford. Dated by the printing window, which bounds the reading and does not date the partnership.",
+      "source_id": "chicago_newspapers_1833_1835",
+      "claim_ids": [
+        "chicago_democrat_1834_06_04#c024",
+        "chicago_democrat_1834_07_09#c027"
+      ],
+      "also_printed_as": [],
+      "link": {
+        "ticket": "T-2245",
+        "tier": "inferred",
+        "basis": "The pork notice is signed 'FULLERTON & BOTSFORD, corner of Dearborn and Lake-sts.' (chicago_democrat_1834_06_04#c024, copy dated April 22, 1834), and the corner of Dearborn and Lake is the frontage J. K. Botsford's own grocery and tin shop advertises from in the same weeks (identity.json, refused_anchor_changes on business_j_k_botsford, T-0324). identity.json's proprietor merges on that house rule that nothing in the corpus names a second Botsford. One Botsford, one corner: the partner is J. K. Botsford."
+      }
+    }
+  ],
   "staff": [],
   "staffing": null,
   "locations": [
@@ -73,11 +76,19 @@
   "exclusion": null,
   "exclusion_note": null,
   "proprietor_community": {
-    "value": "unknown",
-    "tier": null,
-    "rule": "no_person_linked",
-    "basis": "This record names nobody the resident layer holds a card for, so there is no person to read a community off. The silence is in the register.",
-    "from": []
+    "value": "yankee",
+    "tier": "inferred",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: Botsford (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
+    "from": [
+      {
+        "person_id": "botsford_j_k",
+        "name": "Botsford",
+        "role": "partner",
+        "community": "yankee",
+        "tier": "inferred"
+      }
+    ]
   },
   "customers": [],
   "sources": [

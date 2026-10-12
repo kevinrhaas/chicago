@@ -126,6 +126,24 @@ def aperture(o):
     return [(a,z0),(b,z0),(b,z1),(a,z1)]
 
 
+PITCH_LINE, PITCH_MARGIN = .016, .085
+# T-2209 (reconstructed): the 7.5 cm lattice and its random diagonal are a
+# computational mesh of one continuous rock face, not fractures. At 35 degrees a
+# fifth of the shared facet corners kept a hard crease, so every lattice triangle
+# lit as its own flat chip: the "triangulated sparkle" of the GA-09 audit. Only a
+# chip steeper than this still keeps a hard ridge; the face's relief is unmoved.
+ROCK_SMOOTH_DEGREES = 60
+
+
+def _inside(x, y, poly):
+    """Even-odd point in polygon, for whether a course run lies in an aperture."""
+    inside=False
+    for (ax,ay),(bx,by) in zip(poly,poly[1:]+poly[:1]):
+        if (ay>y)!=(by>y) and x<ax+(y-ay)*(bx-ax)/(by-ay):
+            inside=not inside
+    return inside
+
+
 def fractured_stone(polygon, depth, rng, spacing=.075):
     """Reconstructed split-face stone, bounded to the existing block envelope.
 
@@ -153,7 +171,16 @@ def fractured_stone(polygon, depth, rng, spacing=.075):
             i,j=math.floor(u),math.floor(v);a,b=u-i,v-j
             value+=amplitude*((1-a)*(1-b)*values[i,j]+a*(1-b)*values[i+1,j]+
                               (1-a)*b*values[i,j+1]+a*b*values[i+1,j+1])
-        return min(.070,max(.006,value+rng.uniform(-.014,.014)))
+        value=min(.070,max(.006,value+rng.uniform(-.014,.014)))
+        # T-2208 (reconstructed): a rock-faced stone is pitched to a straight
+        # arris before it is set, so its face falls to a pitch line at every
+        # edge and the joint reads as a line at street distance. The arris sits
+        # 16 mm proud, the front of an opening's reveal, so a jamb stone meets
+        # its return flush. Interior relief is unchanged.
+        edge=min(x-x0,x1-x,y-y0,y1-y)
+        t=min(1.0,max(0.0,edge/PITCH_MARGIN))
+        t=t*t*(3-2*t)
+        return PITCH_LINE+(value-PITCH_LINE)*t
     rectangular=(len(polygon)==4 and len({round(q[0],6) for q in polygon})==2 and
                  len({round(q[1],6) for q in polygon})==2)
     grid={};anchors={}
@@ -199,7 +226,7 @@ def fractured_stone(polygon, depth, rng, spacing=.075):
             yield [anchors[a],anchors[b],grid[b],grid[a]],False
 
 
-def stone_corner_normals(facets, angle_degrees=35):
+def stone_corner_normals(facets, angle_degrees=ROCK_SMOOTH_DEGREES):
     """Area-weighted shallow-fracture normals, confined to one physical stone.
 
     Side faces never participate. The finished facet positions are untouched;
@@ -247,6 +274,9 @@ class DetailBuilder(MeshBuilder):
                                       'z0':a['z0']+.05,'z1':a['z1']-.035})
         self.course_schedule = params.detail.get('ashlar_courses_m') or [0.4572,0.4572,0.3937,0.2413,0.3429,0.3683,0.1905,0.3683,0.1905,0.2921]
         self.masonry_blocks = self.roof_tiles = 0
+        self.roof_uvs = {}
+        self.roof_detail = {}
+        self.roof_surfaces = []
 
     def add_box(self,x0,y0,z0,x1,y1,z1,confidence,mat=0,skip=()):
         # Correct outward winding locally. The legacy helper's inward box faces
@@ -274,6 +304,24 @@ class DetailBuilder(MeshBuilder):
         if want is not None and dot(legacy._normal(pts),want)<0:
             pts=list(reversed(pts));normals=list(reversed(normals))
         indices=self.raw(pts,confidence,mat)
+        if want is not None:
+            # T-2209: a rock facet takes its metric UV in its WALL's plane, not its
+            # own. assign_metric_uvs projects each face on its own normal, and a
+            # facet tilted 10 degrees, metres from the origin, then shifted its
+            # crystal albedo by metres: every lattice triangle showed an unrelated
+            # patch with a hard seam. One frame per stone keeps the stone's grain
+            # continuous. roof_uvs is the existing per-vertex override (metres).
+            horizontal=(-want[1],want[0],0.0)
+            length=math.hypot(horizontal[0],horizontal[1])
+            if length<1e-6:
+                horizontal,uphill=(1.0,0.0,0.0),(0.0,1.0,0.0)
+            else:
+                horizontal=(horizontal[0]/length,horizontal[1]/length,0.0)
+                uphill=norm(cross(norm(want),horizontal))
+                if uphill[2]<0:
+                    uphill=tuple(-v for v in uphill);horizontal=tuple(-v for v in horizontal)
+            for index in indices:
+                self.roof_uvs[index]=(dot(self.verts[index],horizontal),dot(self.verts[index],uphill))
         if self.smooth_rock_faces:
             for index,normal in zip(indices,normals):
                 self.rock_normals[index]=norm(normal)
@@ -281,6 +329,9 @@ class DetailBuilder(MeshBuilder):
 
     def to_object(self, materials=None):
         ob=super().to_object(materials)
+        # Exposed course in metres on relief only; zero protects beds and crests.
+        attr=ob.data.attributes.new(name="_ROOF_DETAIL",type="FLOAT",domain="POINT")
+        for index,value in self.roof_detail.items():attr.data[index].value=value
         if self.rock_normals:
             # Vertices remain separate at material/UV/confidence seams. Explicit
             # corner normals survive glTF without welding geometry or attributes.
@@ -298,7 +349,7 @@ class DetailBuilder(MeshBuilder):
         if self.decorate and mat in (GRANITE,BRICK) and abs(n[2]) < .005:
             self.wall(pts,confidence,mat)
             return []
-        if self.decorate and mat == ROOF and n[2] > .12:
+        if mat == ROOF and 1e-6 < n[2] < .999999:
             self.tiles(pts,confidence)
             return []
         return self.raw(pts,confidence,mat)
@@ -351,17 +402,78 @@ class DetailBuilder(MeshBuilder):
             if zb-za<.004:
                 continue
             rng = random.Random(87013+row*719+int(d*997)+mat*821)
-            width = .2159 if mat == BRICK else .85+min(.45,(zb-za)*.4)
+            if mat != BRICK:
+                self.ashlar_course(polygon,holes,row,za,zb,point,n,confidence,mat,rng)
+                continue
+            width = .2159
             start = math.floor(x0/width)*width-(width/2 if row%2 else 0)
             a = start
             while a < x1-1e-6:
-                w = width if mat==BRICK else width*rng.uniform(.65,1.4)
-                c = a+w
-                gap = .009 if mat==BRICK else .014
+                c = a+width
+                gap = .009
                 tile = rect_clip(polygon,a+gap/2,za+gap/2,c-gap/2,zb-gap/2)
                 if tile:
                     # A clipped fragment is not another physical stone. Build
                     # this stone once, then clip its already-finished surfaces.
+                    self.block(tile,point,n,confidence,mat,rng,holes=holes)
+                a = c
+
+    def ashlar_course(self, polygon, holes, row, za, zb, point, n, confidence, mat, rng):
+        """One rock-faced course, laid from its ends and its opening jambs inward.
+
+        T-2208 (reconstructed): the course is cut wherever a straight aperture jamb
+        crosses it, so a jamb is the end face of a whole stone rather than a sliver
+        the aperture happened to leave; the stone runs to the reveal with no joint.
+        Every run then alternates a long and a short stone at each end by course
+        (a bonded corner/jamb, never joints stacked over each other), and fills its
+        middle with whole stones scaled to the run, so no run ends in a sliver.
+        """
+        x0,_,x1,_ = bounds(polygon)
+        strip = rect_clip(polygon,x0-1,za,x1+1,zb)
+        if not strip:
+            return
+        lo,_,hi,_ = bounds(strip)
+        mid = (za+zb)/2
+        jambs = []
+        for hole in holes:
+            for (ua,va),(ub,vb) in zip(hole,hole[1:]+hole[:1]):
+                if abs(ua-ub)<1e-6 and min(va,vb)-.02<=za and zb<=max(va,vb)+.02:
+                    jambs.append(ua)
+        cuts = sorted({round(u,6) for u in jambs if lo+.05<u<hi-.05})
+        width = .85+min(.45,(zb-za)*.4)
+        gap = .014
+        for s0,s1 in zip([lo]+cuts,cuts+[hi]):
+            if s1-s0<.03:
+                continue
+            centre = (s0+s1)/2
+            # Only a run lying wholly across one aperture is empty. A long run
+            # whose middle merely falls in another, shorter opening is still
+            # laid; that opening clips its stones as before.
+            if any(bounds(h)[0]-1e-6<=s0 and s1<=bounds(h)[2]+1e-6 and
+                   _inside(centre,mid,h) for h in holes):
+                continue
+            s0_jamb = s0 in cuts
+            s1_jamb = s1 in cuts
+            length = s1-s0
+            count = max(1,round(length/width))
+            if count == 1:
+                sizes = [length]
+            else:
+                # Long/short at the two ends by course parity, then whole stones.
+                head = width*(1.3 if row%2==0 else .62)
+                tail = width*(.62 if row%2==0 else 1.3)
+                middle = [rng.uniform(.7,1.35)*width for _ in range(max(0,count-2))]
+                sizes = [head]+middle+[tail]
+                scale = length/sum(sizes)
+                sizes = [w*scale for w in sizes]
+            a = s0
+            for i,w in enumerate(sizes):
+                c = a+w
+                # A jamb stone runs to the reveal: its end face IS the return.
+                left = a+(0 if (i==0 and s0_jamb) else gap/2)
+                right = c-(0 if (i==len(sizes)-1 and s1_jamb) else gap/2)
+                tile = rect_clip(polygon,left,za+gap/2,right,zb-gap/2)
+                if tile:
                     self.block(tile,point,n,confidence,mat,rng,holes=holes)
                 a = c
 
@@ -453,43 +565,58 @@ class DetailBuilder(MeshBuilder):
             for i in range(len(front)):
                 surface([front[i],front[(i+1)%len(front)],center])
 
-    def tiles(self, pts, confidence):
+    def roof_frame(self, pts):
+        """Metre coordinates on the HOST slope, shared across clipped fragments.
+
+        Global height fixes course phase on equal-pitch cone facets; using each
+        raised tile's normal would drift the UVs away from its host courses.
+        """
         normal=norm(legacy._normal(pts))
         uphill=norm((-normal[0]*normal[2],-normal[1]*normal[2],1-normal[2]*normal[2]))
-        if abs(uphill[2])<1e-5:
-            return self.raw(pts,confidence,ROOF)
-        u=norm(cross(uphill,normal))
-        d=dot(pts[0],normal)
-        poly=[(dot(p,u),dot(p,uphill)) for p in pts]
-        if area(poly)<0:
-            poly.reverse()
+        u=norm(cross(uphill,normal));distance=dot(pts[0],normal)
+        offset=normal[2]*distance/uphill[2]
+        def coords(p):return (dot(p,u),dot(p,uphill)+offset)
+        def point(q,off=0):
+            return tuple(u[k]*q[0]+uphill[k]*(q[1]-offset)+normal[k]*(distance+off) for k in range(3))
+        poly=[coords(p) for p in pts]
+        if area(poly)<0:poly.reverse()
+        self.roof_surfaces.append({'points':pts,'area_m2':abs(area(poly)),
+                                   'normal':normal,'phase_offset':offset})
+        return normal,poly,point,coords
+
+    def roof_raw(self, pts, confidence, mat, normal, coords, detail=False):
+        indices=self.raw(pts,confidence,mat,normal)
+        for index in indices:
+            self.roof_uvs[index]=coords(self.verts[index])
+            if detail:self.roof_detail[index]=self.params.detail['roof_tiles']['exposure_in']*.0254
+
+    def tiles(self, pts, confidence):
+        normal,poly,point,coords=self.roof_frame(pts)
+        self.roof_raw(pts,confidence,ROOF,normal,coords)
+        spec=self.params.detail['roof_tiles']
+        w,h=spec['width_in']*.0254,spec['exposure_in']*.0254
+        joint,relief=spec['joint_m'],spec['lap_relief_m']
         a,b,c,e=bounds(poly)
-        if abs(area(poly))<.08:
-            return self.raw(pts,confidence,ROOF)
-        self.raw(pts,confidence,ROOF)
-        def point(q,off):
-            return tuple(u[k]*q[0]+uphill[k]*q[1]+normal[k]*(d+off) for k in range(3))
-        w,h=.2032,.12192
+        # Clip every fragment, including narrow returns and cone tips. The
+        # continuous mapped bed closes the joints and all computational cuts.
         for row in range(math.floor(b/h),math.ceil(e/h)):
             y0,y1=row*h,(row+1)*h
             shift=.5*w if row%2 else 0
             for col in range(math.floor((a-shift)/w),math.ceil((c-shift)/w)):
                 x0=col*w+shift
-                tile=rect_clip(poly,x0+.002,y0+.002,x0+w-.002,y1+.005)
-                if not tile:
-                    continue
+                tile=rect_clip(poly,x0+joint/2,y0,x0+w-joint/2,y1)
+                if not tile:continue
                 rng=random.Random(row*10007+col*813+31)
                 mat=19+rng.randrange(3)
-                # Raised lower edge and slight lap cast an honest narrow shadow.
-                def raised(q):
-                    return .006+.006*(1-(q[1]-y0)/h)
+                def raised(q):return relief+relief*(1-(q[1]-y0)/h)
                 front=[point(q,raised(q)) for q in tile]
-                self.raw(front,confidence,mat,normal)
+                self.roof_raw(front,confidence,mat,normal,coords,detail=True)
+                # Individual noses close the lap instead of a broad stripe
+                # stretching through every tile joint across the whole course.
+                for q,r in zip(tile,tile[1:]+tile[:1]):
+                    if abs(q[1]-y0)<1e-7 and abs(r[1]-y0)<1e-7:
+                        self.roof_raw([point(q,relief),point(r,relief),point(r,raised(r)),point(q,raised(q))],confidence,mat,normal,coords,detail=True)
                 self.roof_tiles+=1
-
-            lip=rect_clip(poly,a,y0+.002,c,y0+.012)
-            if lip:
-                self.raw([point(q,.013 if q[1]<y0+.007 else .001) for q in lip],confidence,19+row%3,normal)
 
 
 def solid_polygon(b, pl, poly, depth0, depth1, confidence, mat):
@@ -755,6 +882,9 @@ def ring(b,pl,uc,zs,rin,rout,count,conf):
 
 
 def roof_ridges(b,params):
+    if params.detail.get("roof_edges"):
+        from archetypes.masonry_house_v4_roof_edges import add_ridges
+        return add_ridges(b,params)
     from archetypes.masonry_house_v4_roof_crests import add_ridge_crest
     from archetypes.masonry_house_v4_west_roof import ridge_ranges
     for r,a0,a1 in (segment for source in params.ranges for segment in ridge_ranges(source)):
@@ -1029,9 +1159,79 @@ def bay(b,y,params):
 
 
 
+def _arched_hole(l,r,sill,spring,segments):
+    """A round-headed opening in face (u, z) coordinates, sill to crown."""
+    c,rad=(l+r)/2,(r-l)/2
+    return [(l,sill),(r,sill)]+[(c+rad*math.cos(math.pi*i/segments),
+                                 spring+rad*math.sin(math.pi*i/segments))
+                                for i in range(segments+1)]
+
+
+def dovecote_band(b,t,x0,x1,y0,y1):
+    """The stable cupola's vent band as HABS photograph 1 shows it (T-2207).
+
+    Two tiers of round-headed pigeon holes, each tier standing on its own
+    projecting landing board, in place of the slatted louvres the band carried
+    before. The form is read from the photograph; counts and stock sizes are
+    bounded reconstruction (docs/LIBERTIES.md L-glessner-cupola-2207).
+    """
+    lo,hi=t['louvre'];conf=t['conf'];v=t['vent'];reconstructed=1.0
+    tiers,per_face=v['tiers'],v['per_face'];width=v['opening_width_m']
+    perch=v['perch_projection_m'];board=.025
+    segments=3 if getattr(b,'reduced_roof_details',False) else 6
+    step=(hi-lo)/tiers
+    for pl,(a,c) in (({'axis':'x','sign':1,'at':x1},(y0,y1)),
+                     ({'axis':'x','sign':-1,'at':x0},(y0,y1)),
+                     ({'axis':'y','sign':1,'at':y1},(x0,x1)),
+                     ({'axis':'y','sign':-1,'at':y0},(x0,x1))):
+        ua,uc=a+.12,c-.12;n=legacy._plane_dir(pl)
+        holes=[]
+        for tier in range(tiers):
+            base=lo+tier*step;sill=base+board+.012
+            crown=base+step-.03;spring=crown-width/2
+            for k in range(per_face):
+                mid=ua+(uc-ua)*(k+.5)/per_face
+                holes.append(_arched_hole(mid-width/2,mid+width/2,sill,spring,segments))
+            # The landing board the birds alight on, one per tier and face;
+            # it stops short of the corner so two faces' boards never meet.
+            slab(b,pl,ua,uc,base,base+board,-.04,perch,reconstructed,WOOD)
+        wall=[(a,t['z0']),(c,t['z0']),(c,t['top_z']),(a,t['top_z'])]
+        for fragment in subtract(wall,holes):
+            solid_polygon(b,pl,fragment,-.08,0,conf,WOOD)
+        # The dark cote behind the holes: one closing card per face.
+        b.raw([legacy._plane_point(pl,u,z,-.17) for u,z in
+               [(ua,lo),(uc,lo),(uc,hi),(ua,hi)]],reconstructed,DARK_GLASS,n)
+
+
+def flared_turret_roof(b,t,x0,x1,y0,y1):
+    """A pyramid that kicks out over a deep eave, as photographs 1 and 17 show.
+
+    The apex and body top are the record's own; only the eave ring moves, out
+    by `overhang` and down by `drop`, and the bottom `flare_run` of the slope
+    eases to `flare_pitch` (T-2207). The roof-edge pass dresses the eave's
+    fascia, as it does every other eave in the house.
+    """
+    e=t['eave'];conf=t['conf'];cx,cy=(x0+x1)/2,(y0+y1)/2
+    ov,ze=e['overhang_m'],t['top_z']-e['drop_m']
+    zk=ze+e['flare_run_m']*e['flare_pitch'];kv=ov-e['flare_run_m']
+    def ring(o,z):
+        return [(x0-o,y0-o,z),(x1+o,y0-o,z),(x1+o,y1+o,z),(x0-o,y1+o,z)]
+    eave,kink=ring(ov,ze),ring(kv,zk)
+    for i in range(4):
+        j=(i+1)%4
+        legacy._up(b,[eave[i],eave[j],kink[j],kink[i]],conf,ROOF)
+        legacy._up(b,[kink[i],kink[j],(cx,cy,t['apex_z'])],conf,ROOF)
+    legacy._poly_facing(b,eave,conf,ROOF,(0,0,-1))
+    legacy._finial(b,cx,cy,t['apex_z'],t['finial_m'],conf,COPPER)
+
+
 def louvred_turret(b,t):
     """Retain the stable turret envelope; its band is timber louvres, not glass."""
     x0,x1=sorted((t['x0'],t['x1']));y0,y1=sorted((t['y0'],t['y1']))
+    if t.get('vent') and t.get('eave'):
+        dovecote_band(b,t,x0,x1,y0,y1)
+        flared_turret_roof(b,t,x0,x1,y0,y1)
+        return
     lo,hi=t['louvre'];conf=t['conf'];reconstructed=1.0
     for pl,(a,c) in (({'axis':'x','sign':1,'at':x1},(y0,y1)),
                      ({'axis':'x','sign':-1,'at':x0},(y0,y1)),
@@ -1121,6 +1321,9 @@ def dormer(b,d):
     b.raw([(p[0],p[1],ze-.075) for p in ring],reconstructed,PAINTED_WOOD,(0,0,-1))
 
     def hip_cap(p,q):
+        if b.params.detail.get('roof_edges'):
+            from archetypes.masonry_house_v4_roof_edges import hip_caps
+            return hip_caps(b,p,q)
         # Small overlapping half-round clay covers make each actual hip
         # readable against the equally pitched red roof behind the dormer.
         tangent=norm(sub(q,p));across=norm(cross(tangent,(0,0,1)))
@@ -1286,6 +1489,7 @@ def service_stair(b,params):
 
 
 def underpass(b,params):
+    from archetypes.masonry_house_v4_frontage import passage_floor
     u=params.detail.get('underpass')
     if not u:return
     p,q,r,s=u['pts'];zp,zc,z0=u['ceiling_prairie_z'],u['ceiling_court_z'],u['floor_z']
@@ -1297,6 +1501,7 @@ def underpass(b,params):
         if dot(legacy._normal(pts),want)<0:pts.reverse()
         b.wall(pts,params.detail['conf'],BRICK)
     b.raw([(*p,zp),(*q,zp),(*r,zc),(*s,zc)],params.detail['conf'],TRIM,(0,0,-1))
+    if passage_floor(b,params):return
     b.raw([(*p,z0+.006),(*q,z0+.006),(*r,z0+.006),(*s,z0+.006)],params.detail['conf'],DRIVE,(0,0,1))
     for i in range(1,19):
         t=i/19;a=(p[0]+(s[0]-p[0])*t,p[1]+(s[1]-p[1])*t);c=(q[0]+(r[0]-q[0])*t,q[1]+(r[1]-q[1])*t)
@@ -1422,21 +1627,16 @@ def west_hood(b,p,d):
     slab(b,pl,o['u1'],c,o['z0'],o['z1'],-.03,.03,conf,23)
     for u in (a,c):
         zf=height(r,front,u);zb=height(r,back,u)
-        b.raw([(apron_front,u,apron_z),(front,u,zf),(front,u,o['z0'])],conf,19,
+        b.raw([(apron_front,u,apron_z),(front,u,zf),(front,u,o['z0'])],conf,ROOF,
               (0,-1 if u==a else 1,0))
         cheek_back=back
         if d.get('connected_ridge') and zb>d['eave_z']:
             cheek_back=front+(back-front)*(d['eave_z']-zf)/(zb-zf)
             zb=d['eave_z']
         cheek=[(front,u,zf),(cheek_back,u,zb),(cheek_back,u,d['eave_z']),(front,u,d['eave_z'])]
-        b.raw(cheek,conf,19,(0,-1 if u==a else 1,0))
-        # Restrained overlapping tile courses on the cheeks (not masonry).
-        low=min(zf,zb);step=.13
-        for i in range(max(0,int((d['eave_z']-low)/step))):
-            zl=low+i*step;zh=min(d['eave_z'],zl+step)
-            if zh<=max(zf,zb):continue
-            at=u+(-.014 if u==a else .014)
-            b.raw([(front,at,max(zl,zf)),(cheek_back,at,max(zl,zb)),(cheek_back,at,zh),(front,at,zh)],conf,19+i%3,(0,-1 if u==a else 1,0))
+        want=(0,-1 if u==a else 1,0)
+        if dot(legacy._normal(cheek),want)<0:cheek.reverse()
+        b.tiles(cheek,conf)
     opening(b,o)
     # Outward fascia, sill and small hood brackets are visible from below.
     slab(b,pl,a-overhang,c+overhang,d['eave_z']-.10,d['eave_z'],-.02,d['front']-d['hood_front'],conf,23)
@@ -1521,6 +1721,7 @@ def _discard_export_scratch_uv(ob):
 def build(params,name):
     from archetypes.masonry_house_v4_materials import build_materials, assign_metric_uvs
     from archetypes.masonry_house_v4_landscape import add_lawn_blades
+    from archetypes.masonry_house_v4_frontage import add_frontage
     from archetypes.masonry_house_v4_foundation import stair_tower_plinth
     from archetypes.masonry_house_v4_rainwater import add_courtyard_rainwater
     b=DetailBuilder(name,params)
@@ -1546,6 +1747,7 @@ def build(params,name):
     for w in params.walls:legacy._gate_piece(b,w)
     b.decorate=False
     for g in params.ground:legacy._ground(b,g)
+    add_frontage(b,params)
     grass_blades=add_lawn_blades(b,params)
     ornament.columns(b,params)
     roof_ridges(b,params)
@@ -1557,9 +1759,15 @@ def build(params,name):
     date_stones(b,params)
     stair_tower_plinth(b,params)
     add_courtyard_rainwater(b,params)
+    if params.detail.get("roof_edges"):
+        from archetypes.masonry_house_v4_roof_edges import add_edges
+        add_edges(b,params)
     obj=b.to_object(build_materials(params.colours))
-    assign_metric_uvs(obj)
+    assign_metric_uvs(obj,b.roof_uvs)
     _discard_export_scratch_uv(obj)
+    # T-2400: the granite's stone-scale occlusion, on its own TEXCOORD_1.
+    from archetypes.masonry_house_v4_occlusion import bake_stone_occlusion
+    bake_stone_occlusion(obj)
     obj['detail_profile']='glessner_v4'
     obj['masonry_blocks']=b.masonry_blocks
     obj['roof_tiles']=b.roof_tiles

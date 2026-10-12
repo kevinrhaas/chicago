@@ -1,0 +1,427 @@
+"""K10 cornice kit laid on a K01 frontage's wall head and ridge (T-2317).
+
+TICKET T-2317: piece 2 of T-1852 (package K10 of the T-1837 Prairie programme). Piece 1,
+T-2316, built the cornice kit (`k10_cornices.py` from `data/components/prairie_1904/
+k10_cornices.json`) on specimen boards. This module puts the kit's own pieces on a house:
+it calls the kit's builders (`console`, `sweep`, `Variant.cresting`) in the assembly's own
+frame, so every bracket, moulding and iron bar is the geometry the kit's gate measures,
+not a copy of it.
+
+What the record's `wall_head` names, and what is built for it:
+
+  cornice   `k10.cornice.bracketed_timber` under the K05 eave: the kit's scrolled brackets
+            at full size, their backs on the wall and their tops under the soffit, and
+            between them the kit's bed moulding swept along the wall head. The roof is
+            K05's, so its soffit and fascia are the cornice's soffit and crown; K10 adds
+            what stands under them. The bed moulding is one section per stretch between
+            two brackets, mitred round every corner it crosses and dying into a bracket's
+            side at both ends, so all four corners turn and nothing stops in the air.
+  cresting  `k10.cresting.iron_ridge` on the main ridge: the kit's posts, bars, scrolls
+            and spears, the base bar let into K04's copper ridge roll, on every stretch of
+            ridge between the hips' ends and the chimney stacks long enough to carry it.
+  dormer    `k10.dormer.pedimented_on_bracketed_eave`'s face on the K05 street dormer
+            (T-2326): the kit's dormer cornice swept across the face at the foot of the
+            pediment and returned on both cheeks under their soffits, capped; and the
+            kit's raking cornice, its two stepped bands, on the tympanum under K05's verge.
+            The window takes no lintel: the cornice is its head, the kit's
+            `window_top_gap_m` above it, as on the kit's own dormer.
+
+A WALL HEAD WITH NO ROOM FOR A FRIEZE. The kit's frieze is 0.55 m deep; under 1808's
+soffit the third storey's heads stop 0.07 m short of it, so a frieze could only run by
+cutting the heads. Brackets therefore stand on the piers between the heads, and the
+continuous line is the bed moulding, which clears every head (the generator refuses a
+head that would reach it). Where a head, a downpipe or a bay stands, no bracket does, nor
+along a stretch the record's `clear_of` names: on 1808 that is the north party wall where
+Glessner's south gable leans against it, higher than the brackets' feet.
+
+A generic kit section is allowed here because 1808's own wall head is not read in any
+source this project holds (k10_cornices.json `restrictions`: a generic section never
+stands in place of a documented one). Glessner's is its own and this module never touches
+it.
+"""
+
+from __future__ import annotations
+
+import math
+import random
+
+CORNICE = "k10.cornice.bracketed_timber"
+CRESTING = "k10.cresting.iron_ridge"
+DORMER = "k10.dormer.pedimented_on_bracketed_eave"
+ROLE_MATERIAL = {"timber": "fascia", "iron": "iron"}   # the eave's painted timber; the house's iron
+HEAD_HORN_M = 0.12      # K01's flat lintel runs this far past each jamb; K03's soldier head less
+HEAD_RISE_M = 0.30      # K01's lintel, the deepest head a K01 opening takes
+CLEAR_M = 0.03          # a bracket stands this far (along the wall) from a head, a pipe or a bay
+STACK_CLEAR_M = 0.25    # the cresting stops this far from a chimney's cap or a hip's end
+MIN_CRESTING_M = 1.0    # a stretch of ridge shorter than this carries none
+
+
+def _kit():
+    # imported late: k10_cornices imports k01_frontage's vector helpers, and k01_frontage
+    # imports this module, so a top-level import here would be circular
+    from . import k10_cornices
+    return k10_cornices
+
+
+def spec(params) -> dict | None:
+    """The record's `wall_head`, checked against what this module can build."""
+    t = getattr(params, "wall_head", None)
+    if not t:
+        return None
+    if t.get("cornice") not in (None, CORNICE):
+        raise ValueError(f"wall_head.cornice builds {CORNICE!r} alone")
+    if t.get("cresting") not in (None, CRESTING):
+        raise ValueError(f"wall_head.cresting builds {CRESTING!r} alone")
+    if t.get("dormer") not in (None, DORMER):
+        raise ValueError(f"wall_head.dormer builds {DORMER!r} alone")
+    if t.get("dormer") and not getattr(params, "dormer", None):
+        raise ValueError("wall_head.dormer names a dormer face, and the record has no dormer")
+    walls = {r.name: r.L for r in runs(params)}
+    for c in t.get("clear_of", []):
+        s0, s1 = c["s_m"]
+        if c["wall"] not in walls or not 0.0 <= s0 < s1 <= walls[c["wall"]]:
+            raise ValueError(f"wall_head.clear_of names {c['wall']} s {s0}..{s1}, not a stretch of a K01 wall")
+    pr = t.get("pairs")
+    if pr is not None and not (isinstance(pr, dict) and 0.6 <= float(pr.get("spacing_m", 0)) <= 2.4):
+        raise ValueError("wall_head.pairs names the pairs' spacing_m, 0.6-2.4 m between stations")
+    paint = t.get("paint")
+    if paint is not None and not (len(paint.get("color", ())) == 3 and all(0.0 <= x <= 1.0 for x in paint["color"])):
+        raise ValueError("wall_head.paint names the cornice timber's linear colour, three values 0-1")
+    return t
+
+
+def runs(params):
+    """The wall head as four kit runs, one per K01 wall, in the walls' own frames: each
+    starts at its wall's base socket and runs along its R, so s here is the wall's s."""
+    K = _kit()
+    D, W = params.depth_m, params.width_m
+    return [K.Run("k01.wall.street_front", (D, 0.0), (D, -W), (True, True)),
+            K.Run("k01.wall.side.north", (D, -W), (0.0, -W), (True, True)),
+            K.Run("k01.wall.rear_service", (0.0, -W), (0.0, 0.0), (True, True)),
+            K.Run("k01.wall.side.south", (0.0, 0.0), (D, 0.0), (True, True))]
+
+
+def _lay(a, pieces, conf, cid):
+    """Add kit pieces (already in the assembly's frame) to the assembly's primitives."""
+    from .k01_frontage import MATERIALS
+    tris = 0
+    for piece in pieces:
+        mat = ROLE_MATERIAL[piece.role]
+        fab = MATERIALS[mat].get("fabric")
+        tu, tv = a.tiles[fab] if fab else (1.0, 1.0)
+        pr = a.prim(mat)
+        base = len(pr.pos)
+        m = piece.mesh
+        for q, n, uv in zip(m.pos, m.nrm, m.uv):
+            pr.pos.append(q)
+            pr.nrm.append(n)
+            pr.uv.append((uv[0] / tu, uv[1] / tv))   # the kit's UVs are surface metres
+            pr.conf.append(conf)
+            pr.tone.append(pr.tone_of(q[1]) if pr.tone_of else 1.0)
+        pr.idx += [base + i for i in m.idx]
+        tris += m.triangles()
+    a.trim_triangles[cid] = a.trim_triangles.get(cid, 0) + tris
+    return tris
+
+
+def _blocked(params, run, y_low, bays, half):
+    """Where along a run no bracket centre may stand: over a head that reaches y_low, a
+    downpipe, or a bay whose roof does; each widened by the bracket's half width."""
+    out = []
+    for o in params.openings:
+        if o.wall == run.name and o.head_m + HEAD_RISE_M > y_low:
+            out.append((o.s_m - o.width_m / 2 - HEAD_HORN_M, o.s_m + o.width_m / 2 + HEAD_HORN_M))
+    r = params.rainwater or {}
+    rp = r.get("pipe_diameter_m", 0.0) / 2
+    for x in r.get("downpipes", []):
+        if x["wall"] == run.name:
+            out.append((x["s_m"] - rp, x["s_m"] + rp))
+    for wall, s0, s1, top in bays:
+        if wall == run.name and top > y_low:
+            out.append((s0, s1))
+    # T-2366: a frieze's lights (k01_arched_front) on the street front, where they reach
+    # the brackets' feet: the brackets stand on the piers between them, as in 1612's photograph
+    fr = (getattr(params, "arched_front", None) or {}).get("frieze") or {}
+    if fr and run.name == "k01.wall.street_front" and fr["sill_m"] + fr["height_m"] > y_low:
+        out += [(s - fr["width_m"] / 2, s + fr["width_m"] / 2) for s in fr["s_m"]]
+    # a neighbour's mass the record says stands within the brackets' reach (a party wall)
+    out += [tuple(c["s_m"]) for c in spec(params).get("clear_of", []) if c["wall"] == run.name]
+    return sorted((a - half - CLEAR_M, b + half + CLEAR_M) for a, b in out)
+
+
+def pair_offsets(B) -> list:
+    """T-2369: a pair's two brackets about its station, the kit's `pair_gap_m` apart."""
+    d = B["pair_gap_m"] / 2 + B["width_m"] / 2
+    return [-d, d]
+
+
+def bracket_positions(params, run, B, y_low, bays):
+    """The kit's rule where the wall allows it: one bracket `corner_m` from every corner on
+    both faces, then evenly at no more than `spacing_m` along every pier the heads, pipes
+    and bays leave. A stretch too short for two takes one, at its corner end if it has
+    one. Raises if a corner bracket has nowhere to stand.
+
+    T-2369: a record whose `wall_head.pairs` names its brackets paired (1612's photograph)
+    stands a pair, the kit's `pair_gap_m` apart, at each station, the stations evenly at no
+    more than `pairs.spacing_m` along a stretch, and a stretch shorter than that takes one
+    pair, at its corner end if it has one."""
+    pairs = (spec(params) or {}).get("pairs")
+    c = B["corner_m"]
+    half = B["pair_gap_m"] / 2 + B["width_m"] if pairs else B["width_m"] / 2
+    spacing, short = (pairs["spacing_m"], pairs["spacing_m"]) if pairs else (B["spacing_m"], B["range_spacing_m"][0])
+    if pairs:
+        c = max(c, half + 0.02)
+    blocked = _blocked(params, run, y_low, bays, half)
+    # T-2404: a pavilion standing flush with the corner takes the corner itself, so that
+    # corner has no bracket on this face (the pavilion's own eaves turn it)
+    held = [s for s in (c, run.L - c)
+            if any(w == run.name and top > y_low and s0 < s < s1 and (s0 <= 1e-6 or s1 >= run.L - 1e-6)
+                   for w, s0, s1, top in bays)]
+    for s in (c, run.L - c):
+        if s in held:
+            continue
+        if any(a < s < b for a, b in blocked):
+            raise ValueError(f"{run.name}: no room for the corner bracket at s {s:.3f}")
+    free, at = [], c
+    for a, b in blocked:
+        if b <= at or a >= run.L - c:
+            at = max(at, b)
+            continue
+        if a > at:
+            free.append((at, a))
+        at = max(at, b)
+    if at < run.L - c:
+        free.append((at, run.L - c))
+    out = []
+    for a, b in free:
+        if b - a < short:
+            out.append(a if abs(a - c) < 1e-9 else (b if abs(b - (run.L - c)) < 1e-9 else (a + b) / 2))
+            continue
+        n = math.ceil((b - a) / spacing)
+        out += [a + (b - a) * i / n for i in range(n + 1)]
+    return out
+
+
+def dress(a, bays):
+    """Lay the record's wall head on the assembly: brackets and bed moulding under the
+    K05 soffit, cresting on the ridge. `bays` is (wall, s0, s1, top) for every K08 bay."""
+    p = a.p
+    t = spec(p)
+    if not t:
+        return
+    K = _kit()
+    data = K.load()
+    conf = max(p.conf("wall_head"), p.conf("roof_form"), p.conf("eave_overhang_m"))
+    if t.get("cornice"):
+        _cornice(a, K, data, bays, conf)
+    if t.get("cresting"):
+        _cresting(a, K, data, conf)
+    if t.get("dormer"):
+        _dormer(a, K, data, max(conf, p.conf("dormer")))
+
+
+def dresses_dormer(params) -> bool:
+    """Whether the record dresses its dormer's face from the kit (K01 then draws no
+    lintel over the dormer's sash: the kit's cornice is its head)."""
+    return bool((getattr(params, "wall_head", None) or {}).get("dormer"))
+
+
+def dormer_fit(params, data) -> dict:
+    """The K05 dormer's face heights against the kit's pediment cornice. The cornice's
+    top is the cheeks' soffit (where it is returned), so the sash's head has to stand
+    the cornice's depth and the kit's window gap under that soffit. Raises if not."""
+    from . import k05_roofs as k5
+    d, Dm = params.dormer, data["parts"]["dormer"]
+    dp = k5.load()["parts"]["dormer"]
+    dt = math.tan(math.radians(d["pitch_deg"]))
+    hc = max(u for _, u in data["parts"]["profiles"]["dormer_cornice"]["points"])
+    soffit = d["face_height_m"] - dp["overhang_m"] * dt - dp["fascia_depth_m"]   # above the face's foot
+    head = d["sash"]["sill_m"] + d["sash"]["height_m"]
+    room = soffit - hc - head
+    if room < Dm["window_top_gap_m"] - 1e-9:
+        raise ValueError(f"the dormer's sash head stands {soffit - head:.3f} m under its cheek soffit; the kit's "
+                         f"pediment cornice ({hc} m) and window gap ({Dm['window_top_gap_m']} m) need "
+                         f"{hc + Dm['window_top_gap_m']:.3f} m")
+    return {"soffit_m": soffit, "cornice_m": hc, "head_gap_m": room}
+
+
+def _dormer(a, K, data, conf):
+    """The kit's pedimented dormer face on the K05 dormer, built as the kit builds its
+    specimen's (`Variant._dormer`) in the face's own frame — x across the face, y up, z
+    out of it, the face at z = 0 — and turned onto the house: z is the assembly's +x."""
+    p, g = a.p, a.dormer_geom
+    d, Dm = p.dormer, data["parts"]["dormer"]
+    fit = dormer_fit(p, data)
+    corn = [tuple(q) for q in data["parts"]["profiles"]["dormer_cornice"]["points"]]
+    hc, pj = fit["cornice_m"], max(n for n, _ in corn)
+    wd, dt, o, v = d["width_m"], g["dt"], g["overhang"], d["verge_m"]
+    hs, rt = g["dhs"], Dm["return_m"]
+    if pj > o - 0.01:
+        raise ValueError("the dormer cornice's return would reach past its cheek's soffit")
+    if rt > g["xf"] - g["back"]:
+        raise ValueError("the dormer cornice's return is longer than its cheek")
+    if Dm["rake_bands"][0]["proud_m"] > v - 0.01:
+        raise ValueError("the raking cornice would stand proud of K05's verge")
+    seed = a.instance(DORMER, "cornice", {"face_width_m": wd, "cornice_m": hc, "projection_m": pj,
+                                          "return_m": rt, "pitch_deg": d["pitch_deg"],
+                                          "rake_bands": len(Dm["rake_bands"]),
+                                          "head_gap_m": fit["head_gap_m"]},
+                      {"eave": (g["xf"], hs, (g["zs"] + g["zn"]) / 2)})
+    var = K.Variant({"id": DORMER, "kind": "dormer", "material": "timber"}, data)
+    var.seed, var.rng = seed, random.Random(seed)
+    # the horizontal cornice: across the face at the pediment's foot, returned along both
+    # cheeks and capped. Under the cheeks' soffit its top is open (it lies on the soffit);
+    # in front of the face, where only the verge's raking soffit is above it, it is closed
+    druns = [K.Run("dormer left", (-wd / 2, -rt), (-wd / 2, 0.0), (False, True)),
+             K.Run("dormer front", (-wd / 2, 0.0), (wd / 2, 0.0), (True, True)),
+             K.Run("dormer right", (wd / 2, 0.0), (wd / 2, -rt), (True, False))]
+    path = [druns[0].at(0.0, hs - hc)] + [r.at(r.L, hs - hc) for r in druns]
+    c = var.piece("dormer cornice", "timber", "open", run_names=[r.name for r in druns])
+    K.sweep(c.mesh, path, K.Y, corn[:-1], side=1.0, caps=(True, True), cap_close=[corn[-1]])
+    top = var.piece("dormer cornice top", "timber", "open")
+    top.mesh.poly([(-wd / 2 - pj, hs, 0.0), (-wd / 2 - pj, hs, pj), (wd / 2 + pj, hs, pj), (wd / 2 + pj, hs, 0.0)], K.Y)
+    # the raking cornice: the kit's stepped bands on the tympanum, the first under K05's
+    # raking soffit (whose line runs from the cheeks' soffit at the overhang to the apex),
+    # each standing on the cornice's top and stopped square where that top ends
+    cq = math.sqrt(1 + dt * dt)
+    apex = hs + (wd / 2 + o) * dt
+    xe = wd / 2 + pj
+    off = 0.0
+    for i, band in enumerate(Dm["rake_bands"]):
+        yo, yi = apex - off * cq, apex - (off + band["width_m"]) * cq
+        xo, xi = (yo - hs) / dt, (yi - hs) / dt
+        if xi <= 0.0:
+            raise ValueError("the raking cornice's bands meet below the pediment's apex")
+        if xo > xe:      # stopped square over the cornice's end, its end face closed
+            ye = hs + (xo - xe) * dt
+            poly = [(-xe, hs), (-xe, ye), (0.0, yo), (xe, ye), (xe, hs), (xi, hs), (0.0, yi), (-xi, hs)]
+            opened = {1, 2, 4, 7}
+        else:
+            poly = [(-xo, hs), (0.0, yo), (xo, hs), (xi, hs), (0.0, yi), (-xi, hs)]
+            opened = {0, 1, 2, 5}
+        pc = var.piece(f"rake {'crown' if i == 0 else 'fascia'}", "timber", "open")
+        K.prism(pc.mesh, poly, 0.0, band["proud_m"], open_edges=opened)
+        off += band["width_m"]
+    # onto the house: the face's x runs north (-z), its z out along the assembly's +x
+    xf, zc = g["xf"], (g["zs"] + g["zn"]) / 2
+    for pc in var.pieces:
+        m = pc.mesh
+        m.pos = [(xf + q[2], q[1], zc - q[0]) for q in m.pos]
+        m.nrm = [(n[2], n[1], -n[0]) for n in m.nrm]
+    a.dormer_face = {"cornice_m": [round(hs - hc, 4), round(hs, 4)], "projection_m": pj, "return_m": rt,
+                     "head_gap_m": round(fit["head_gap_m"], 4),
+                     "rake_bands": [b["width_m"] for b in Dm["rake_bands"]]}
+    _lay(a, var.pieces, conf, DORMER)
+
+
+def _cornice(a, K, data, bays, conf):
+    p = a.p
+    B = data["parts"]["bracket"]
+    bed = [tuple(q) for q in data["parts"]["profiles"]["bed_mould"]["points"]]
+    y_s = a.soffit_m                                  # K05's soffit, flat all round
+    hb = max(u for _, u in bed)
+    y_bed = y_s - hb
+    if B["projection_m"] > p.eave_overhang_m - 0.02:
+        raise ValueError("the brackets would reach the fascia")
+    for o in p.openings:
+        if o.head_m + HEAD_RISE_M > y_bed - 0.005:
+            raise ValueError(f"the head over {o.wall} s {o.s_m} reaches the bed moulding at {y_bed:.3f} m")
+    for wall, s0, s1, top in bays:
+        if top > y_bed - 0.005:
+            raise ValueError(f"the bay on {wall} reaches the bed moulding at {y_bed:.3f} m")
+    w, h = B["width_m"], B["height_m"]
+    y_low = y_s - h
+    # T-2350: under a flat roof the cornice is the street front's alone — its box ends flush
+    # with the side walls, which rise into coped parapets (party walls, in a row) — so the
+    # brackets and the bed moulding run along that one wall, corner to corner, and stop
+    flat = getattr(p, "roof_form", "hip") == "flat"
+    rr = runs(p)[:1] if flat else runs(p)
+    stations = []                                     # (perimeter s, run index, s)
+    start = 0.0
+    for i, r in enumerate(rr):
+        for s in bracket_positions(p, r, B, y_low, bays):
+            stations.append((start + s, i, s))
+        start += r.L
+    perim = start
+    seed = a.instance(CORNICE, "cornice",
+                      {"brackets": len(stations) * (2 if spec(p).get("pairs") else 1),
+                       **({"paired": True} if spec(p).get("pairs") else {}),
+                       "bracket_height_m": h, "bracket_projection_m": B["projection_m"],
+                       "bed_mould": "bed_mould", "soffit_m": y_s},
+                      {"soffit": (p.depth_m, y_s, 0.0)})
+    var = K.Variant({"id": CORNICE, "kind": "bracketed", "material": "timber"}, data)
+    var.seed, var.rng = seed, random.Random(seed)
+    paired = bool(spec(p).get("pairs"))
+    offs = pair_offsets(B) if paired else [0.0]
+    k = 0
+    for _, i, s in stations:
+        for d in offs:
+            k += 1
+            pc = var.piece(f"bracket {k}", "timber", "open", bracket={"run": rr[i].name, "s": s + d})
+            K.console(pc.mesh, rr[i], s + d, y_s, 0.0, w, h, B["projection_m"], B["curl"])
+    # the bed moulding runs between the stations' outer brackets
+    w = 2 * (offs[-1] + w / 2)
+    # the bed moulding: from each bracket's side to the next one's, round every corner
+    # between them; open on the wall, on the soffit and at both ends (on the brackets)
+    cum = [0.0]
+    for r in rr:
+        cum.append(cum[-1] + r.L)
+
+    def point(ps):
+        ps = min(ps, perim) if flat else ps % perim
+        i = max(j for j in range(len(rr)) if cum[j] <= ps + 1e-9)
+        return rr[i].at(ps - cum[i], y_bed)
+
+    spans = []
+    for k, (ps, _, _) in enumerate(stations):
+        if flat and k + 1 == len(stations):
+            break
+        nxt = stations[(k + 1) % len(stations)][0] + (perim if k + 1 == len(stations) else 0.0)
+        spans.append((ps + w / 2, nxt - w / 2))
+    if flat:
+        spans = [(0.0, stations[0][0] - w / 2)] + spans + [(stations[-1][0] + w / 2, perim)]
+    for k, (s0, s1) in enumerate(spans):
+        corners = [c + m * perim for m in (0, 1) for c in cum[:len(rr)] if s0 + 1e-6 < c + m * perim < s1 - 1e-6]
+        path = [point(s0)] + [point(c) for c in sorted(corners)] + [point(s1)]
+        pc = var.piece(f"bed moulding {k + 1}", "timber", "open")
+        K.sweep(pc.mesh, path, K.Y, bed, side=1.0, sgn=1.0)
+    a.wall_head = {"brackets": [round(s, 3) for s in (st[2] for st in stations)], "paired": paired,
+                   "bracket_runs": {r.name: [round(st[2], 3) for st in stations if st[1] == i] for i, r in enumerate(rr)},
+                   "bed_mould_m": [round(y_bed, 4), round(y_s, 4)]}
+    _lay(a, var.pieces, conf, CORNICE)
+
+
+def _cresting(a, K, data, conf):
+    """The kit's cresting on every stretch of the main ridge clear of the stacks."""
+    p = a.p
+    D, W = p.depth_m, p.width_m
+    zr, x0, x1 = -W / 2, W / 2, D - W / 2              # a 45-degree hip's ridge
+    stacks = sorted((c["u_m"] - c["plan_m"][0] / 2 - c["cap_proud_m"], c["u_m"] + c["plan_m"][0] / 2 + c["cap_proud_m"])
+                    for c in p.chimneys if abs(c["v_m"] - W / 2) < c["plan_m"][1] / 2)
+    stretches, at = [], x0
+    for s0, s1 in stacks:
+        stretches.append((at, s0))
+        at = s1
+    stretches.append((at, x1))
+    # K04's ridge roll, as built: its crown is what the base bar is let into
+    roll = [q for q in a.prim("k04_copper_sheet").pos if abs(q[2] - zr) < 0.1 and x0 < q[0] < x1
+            and q[1] > p.ridge_m - 0.2 and not any(s0 - 0.1 < q[0] < s1 + 0.1 for s0, s1 in stacks)]
+    if not roll:
+        raise ValueError("no K04 ridge roll to set the cresting in")
+    y_cap = max(q[1] for q in roll)
+    laid = []
+    for s0, s1 in stretches:
+        L = s1 - s0 - 2 * STACK_CLEAR_M
+        if L < MIN_CRESTING_M:
+            continue
+        xc = (s0 + s1) / 2
+        seed = a.instance(CRESTING, "cresting", {"length_m": L, "ridge_cap_top_m": y_cap},
+                          {"ridge": (xc, y_cap, zr)})
+        var = K.Variant(dict(next(v for v in data["variants"] if v["id"] == CRESTING)), data)
+        var.seed, var.rng = seed, random.Random(seed)
+        posts = var.cresting(xc, L, y_cap, zr, host="k04 ridge roll")
+        laid.append({"from_m": round(xc - L / 2, 3), "to_m": round(xc + L / 2, 3), "posts": len(posts)})
+        _lay(a, var.pieces, conf, CRESTING)
+    if not laid:
+        raise ValueError("no stretch of ridge is long enough for the cresting")
+    a.cresting = laid

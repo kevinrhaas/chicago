@@ -1095,15 +1095,12 @@ def library_numbers(address: str) -> set[str]:
 # Where this reading of the sheet and the Prairie library's (map_frontages.csv) print
 # a different number for the same frontage. The library calls its readings tentative
 # until this ticket checks them; each of these was re-read on an 8x enlargement of the
-# label on the full-resolution sheet.
+# label on the full-resolution sheet. (The third, frontage-28-047's '1918 (1936)', left this table when
+# the library took the same reading — T-1841's sheet 28 census.)
 READ_AGAINST_LIBRARY = {
     "1605": ("frontage-20-023", "The sheet prints 1605 beside the Illinois Central 16th St. station lot; the "
              "library reads 1603. The station is the same frontage."),
     "1721": ("frontage-20-034", "The sheet prints 1721; the library reads 1719 for the same two-bayed house."),
-    "1918": ("frontage-28-047", "The stacked label reads '1918' over '(1936)' (the parenthesised figure is "
-             "unambiguous); the library read '1916 (1930)' at medium confidence and asked for it to be resolved. "
-             "What the parenthesised number means -- the number before the 1909 renumbering, or a second "
-             "entrance -- is not settled here."),
 }
 
 

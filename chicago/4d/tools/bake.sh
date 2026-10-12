@@ -2,7 +2,9 @@
 # The content build. Minutes, not seconds — runs on demand and nightly, NOT on
 # every commit. tools/check.sh is the per-commit gate and needs no Blender.
 #
-#   tools/bake.sh                 build everything
+#   tools/bake.sh                 build everything (derives only the masters
+#                                 whose bytes moved — T-2314; BAKE_DERIVE_ALL=1
+#                                 derives every one)
 #   tools/bake.sh --only <id>     build one structure
 #   tools/bake.sh --only a,b,c    build several, in one Blender start-up
 #                                 (either form derives only the masters it built)
@@ -64,6 +66,17 @@ trap 'rm -f "$WROTE"' EXIT
 echo
 echo "== generate + bake"
 "$BIN" -b -noaudio --factory-startup --python generators/build.py -- "$@" --wrote "$WROTE"
+# T-2266: the K01 assemblies write their glTF in pure Python (no Blender, seconds), and
+# hand what they wrote to the same list, so a bake derives and publishes them too.
+python3 generators/k01_emit.py "$@" --wrote "$WROTE"
+# T-2306: and the K13 conservatories a structure record names, the same way.
+python3 generators/k13_emit.py "$@" --wrote "$WROTE"
+# T-2323: and the K16 timber fronts a structure record names, the same way.
+python3 generators/k16_emit.py "$@" --wrote "$WROTE"
+# T-2321: and the K12 coach houses a structure record names, the same way.
+python3 generators/k12_emit.py "$@" --wrote "$WROTE"
+# T-2329: and the Prairie district draft's houses, the same way.
+python3 generators/draft_emit.py "$@" --wrote "$WROTE"
 
 echo
 echo "== web derivatives"
@@ -79,8 +92,21 @@ if [ "$SELECTED" = "1" ]; then
   fi
   echo "   $(wc -l < "$WROTE" | tr -d ' ') master(s) built by this selection; deriving those alone (T-1653)"
   tools/web_derivatives.sh --only "$(paste -sd, "$WROTE")"
-else
+elif [ "${BAKE_DERIVE_ALL:-0}" = "1" ]; then
+  echo "   BAKE_DERIVE_ALL=1 — deriving every master"
   tools/web_derivatives.sh
+else
+  # T-2314. The whole town rebuilt, but a master whose bytes match the record of
+  # what its derivative was made from needs nothing: deriving all ~714 took about
+  # twenty minutes and pushed the content-build job past its thirty-minute ceiling.
+  # The rule and its self-test live in tools/stale_derivatives.py.
+  MOVED="$(python3 tools/stale_derivatives.py)"
+  if [ -z "$MOVED" ]; then
+    echo "   every master matches assets/manifest.web.json; nothing to derive (T-2314)"
+  else
+    echo "   $(printf '%s' "$MOVED" | tr ',' '\n' | wc -l | tr -d ' ') master(s) moved, unrecorded or underived; deriving those alone (T-2314)"
+    tools/web_derivatives.sh --only "$MOVED"
+  fi
 fi
 
 echo

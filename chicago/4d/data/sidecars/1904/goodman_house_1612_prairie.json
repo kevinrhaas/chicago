@@ -1,0 +1,663 @@
+{
+  "id": "goodman_house_1612_prairie",
+  "phase": "as_built_1869",
+  "name": "1612 Prairie Avenue — Joseph Goodman house, Italianate stone front",
+  "aka": [
+    "1612 S. Prairie Avenue"
+  ],
+  "archetype": "k01_frontage",
+  "asset": "gltf/goodman_house_1612_prairie__as_built_1869.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "documented_range": {
+    "from": "1869-01-01",
+    "to": "1960-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "STANDING IN 1904 is what the scene needs: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped; the 1904 Blue Book lists a household here). FROM and TO are the T-1837 register's reported chronology (built 1869, lost circa 1960); the register is not a source record here, so each is the year's first or last day and the confidence inferred. Bishop Anderson's ownership begins in 1905, after the target, and changes nothing drawn."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1359.607,
+    "local_n": -2994.447,
+    "rotation_deg": -0.578,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "position_note": "The traced rear wing's south-west corner (lot frame u 27.000, v -4.250 m from the middle of the rear lot line): 2.0 m behind and 0.5 m south of the draft's origin, because the K01 rectangle runs from the wing's rear wall to the stone front and from the stone front's south end to the north wing's wall (see footprint). Placed through the T-1250 fit of the sheet, whose own fit residual, 2.46 m RMS on its control crossings, is all that is claimed; rotation -0.578 degrees turns the plan's u axis onto the lot's own rear-to-street line, the draft's.",
+    "symbolic_location": "1612 S. Prairie Avenue, parcel prairie_1612 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "ground",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        19.8,
+        0.0
+      ],
+      [
+        19.8,
+        11.25
+      ],
+      [
+        0.0,
+        11.25
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "One rectangle round the traced building s20fp-1612-b1 (220.5 m2), 19.8 m from the rear wing's wall to the stone front by 11.25 m across the front (222.75 m2): the front house with its stone front and north wing, and the two-storey rear wing behind it ('2B brick rear wing', census s20-1612-a1). Read off the trace in the lot frame at 0.5 m cells. The K01 assembly builds one rectangle, so it CLOSES the 7.0 x 2.25 m court the trace leaves at the north-west corner between the wing and the north wall, and it DOES NOT BUILD the one-storey brick piece 2.0 x 4.5 m behind the wing's north half (one of the census's 'two 1B brick pieces') or the 'small frame porch on the south wall'; both stay on the record of T-2344 for the refinement that gives K01 an attached range (T-2343). Docs/LIBERTIES.md."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "'2½B' on the 1911 sheet as the T-1840 census re-reads its glyph (the register printed '2B'): two full storeys over a basement, the half an attic inside the roof. The half storey is not built as a floor: it is the roof space, lit by the street dormer (the register's phase guard: basement and attic reconciled, not counted as full additional floors). The rear wing reads '2B' and stands under the same eave."
+    },
+    "construction": {
+      "value": "brick_with_stone_front",
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The 1911 sheet colours the house brick with a stone (blue) Prairie Avenue front ('2½B brick dwelling (D), stone (blue) Prairie front'), and the T-1837 register reads 'brick with stone front'."
+    },
+    "principal_floor_m": {
+      "value": 2.85,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "note": "Read off the photograph through the photograph's camera solve (data/reference_views/goodman_house_1612_prairie/front_from_southeast.json: a level camera 17.2 m before the front, scaled by the Sanborn's 11.25 m front): the belt course that runs across the front under the principal windows stands at 2.65-2.85 m (2.83 m at its top, read at the south bay), and the arched basement lights rise to 2.24 m under it, so the floor they light the storey below is at the belt's top. Outside the contract's reconstructed starting range [0.8, 1.8]: that range binds a guessed floor, and this one is read. T-2369: the stoop does not climb to it; it stops at the door's 1.7 m floor (entrance_floor_m) and the rest is indoors."
+    },
+    "entrance_floor_m": {
+      "value": 1.7,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "note": "T-2369: the door does not open on the principal floor. Through the photograph's camera (data/reference_views/goodman_house_1612_prairie/front_from_southeast.json) the stoop's south ends step down from about 1.66 m at the portico's columns to grade about 3.5 m before the front, in nine or ten risers, and the columns' bases stand at about 1.6 m, so the stoop lands under the portico about 1.2 m below the 2.85 m floor. The door is put at the stoop's head, 1.7 m (ten risers of 0.17 m), opening on a vestibule whose inner flight climbs the rest indoors; the print shows only darkness inside the arch, so the vestibule and its flight are reconstructed and not built (L-k01-1612-goodman-2369)."
+    },
+    "storey_heights_m": {
+      "value": [
+        4.15,
+        5.38
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "note": "Floor to floor, read through the photograph's camera solve (data/reference_views/goodman_house_1612_prairie/front_from_southeast.json: a level camera 17.2 m before the front, scaled by the Sanborn's 11.25 m front): the upper storey's sills stand at 7.62 m and the stone's top at 10.64 m, the frieze over it to the cornice's soffit at about 11.7 m. The second floor is put 0.65 m under the upper sills (7.0 m); the upper storey runs from it to the eave line, frieze and attic together (the Prairie library calls the house three storeys, reading the frieze lights as an attic's)."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "The stone street wall at the top of the contract's masonry range [0.23, 0.45]: an ashlar face on a brick backing. It sets the reveal of every front opening."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "Common brick, a 13-inch wall, inside the masonry range; the sheet prints no wall thickness."
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "The register's 'common-brick returns': the side and rear walls in the K03 library's common buff panel, the one panel k03_brick lays. Its colour is the library's, not a reading of this house."
+    },
+    "wall_head": {
+      "value": {
+        "cornice": "k10.cornice.bracketed_timber",
+        "pairs": {
+          "spacing_m": 1.6
+        },
+        "paint": {
+          "color": [
+            0.045,
+            0.04,
+            0.035
+          ]
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "note": "The photograph's deep bracketed cornice over the frieze, as the K10 kit's scrolled timber brackets under the K05 soffit with the kit's bed moulding round all four walls. No cresting shows. T-2369: the print shows the brackets in pairs, standing on the piers between the frieze's lights, so they are laid paired (the kit's pair_gap_m apart), a pair at each station and the stations no more than 1.6 m apart, the frieze lights' own rhythm; and it shows the whole cornice, frieze to crown, dark against the stone, so the eave's timber is painted dark. The print is monochrome: the paint's tone is read, its hue is not (L-k01-1612-goodman-2369). The bracket's profile is the kit's generic one."
+    },
+    "bays": {
+      "value": [
+        {
+          "id": "south_oriel",
+          "variant": "k08.oriel.canted_corbelled",
+          "wall": "k01.wall.side.south",
+          "s_m": 10.0,
+          "fabric": "stone",
+          "base_m": 7.0,
+          "corbel": {
+            "courses": 8
+          },
+          "plan": {
+            "kind": "polyline",
+            "points": [
+              [
+                -1.6,
+                0
+              ],
+              [
+                -0.7,
+                1.1
+              ],
+              [
+                0.7,
+                1.1
+              ],
+              [
+                1.6,
+                0
+              ]
+            ]
+          },
+          "storeys": [
+            {
+              "height_m": 3.1,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.45,
+                  "clear_height_m": 1.9,
+                  "sill_m": 0.6,
+                  "at": [
+                    0.207,
+                    0.793
+                  ],
+                  "recess_m": 0.33,
+                  "why_not_ordinary": "an oriel's cheek light: narrower than an ordinary sash so it fits the canted cheek"
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.9,
+                  "clear_height_m": 2.1,
+                  "sill_m": 0.55,
+                  "at": [
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.25,
+            "covering": "tin_flat_seam_painted"
+          },
+          "eaves": {
+            "overhang_m": 0.35,
+            "fascia_m": 0.4
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "note": "T-2369: the photograph shows a canted oriel on the south wall's upper storey, through the camera (data/reference_views/goodman_house_1612_prairie/front_from_southeast.json): its east cheek meets the wall about 11.6 m back from the front, its sill ledge at about the second floor (7.0 m) and its hood's top against the wall at about 10.5 m, under the cornice, the hood a low hip seen dark from below; its front stands about a metre out, its west cheek hidden behind its own front. The K08 kit's canted corbelled oriel is sized to it: 3.2 m at the wall, 1.4 m of front 1.1 m out, on eight of the kit's corbel courses stepped back to the wall at 5.4 m (the fewest the kit's oversail rule allows at that depth, and the most its light tier's cost allows; the print's dark wedge under it, its corbelling and its shadow together, runs down to about 4.4 m), its storey 3.1 m under a 0.25 pitch hip in painted tin. Its faces read light against the brick, framed by light pilasters, so its walls are laid in stone, not the side wall's brick; its hood is a deep dark slab, 0.4 m of fascia oversailing 0.35 m, whose top meets the print's at 10.1 m (the 1:1 crop, the render's edges laid over it). The cheek and front lights are the kit's sash sized to the storey; the print shows dark glass between the pilasters, not glazing bars, and its corbelling only in shadow, so the courses' depth and the lights' sash are reconstructed (L-k01-1612-goodman-2369)."
+    },
+    "roof_form": {
+      "value": "hip",
+      "confidence": "reconstructed",
+      "note": "A low hip behind the bracketed cornice, the contract's k01.roof.hip. One roof covers the front house and its two-storey rear wing, which the sheet draws as one brick building under one eave height. The photograph shows no roof over the cornice and no dormer."
+    },
+    "roof_pitch_deg": {
+      "value": 26,
+      "confidence": "reconstructed",
+      "note": "Low, near the foot of the contract's ordinary range [25, 45]. The photograph shows nothing of the roof over the cornice from the walk, which any hip under about 37 degrees would give from that camera, and its two stack tops stand only about 0.6 m over the line the cornice hides, so a low hip is taken: 26 rather than 25 because the K05 roof union this kit dresses its caps on refuses the hips at 25 (and at 27 and 29) on this plan."
+    },
+    "eave_overhang_m": {
+      "value": 0.75,
+      "confidence": "reconstructed",
+      "note": "A deep Italianate eave: the photograph's cornice projects well past the frieze, about 0.75 m read at the south corner; recorded as reconstructed because the corner is too oblique to measure."
+    },
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "Inside the contract's tread range [0.25, 0.34]."
+    },
+    "stair_landing_depth_m": {
+      "value": 1.1,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "note": "T-2369: the stoop's top step stands just before the portico's columns (0.9 m out) in the photograph; the landing runs to 1.1 m, the columns' front, under the portico."
+    },
+    "stoop_width_m": {
+      "value": 1.7,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "note": "T-2369: the stoop runs between the portico's columns, its south ends stepping down beside the south column's pedestal in the photograph; 1.7 m clears both pedestals (2.2 m apart on centre, 0.4 m square)."
+    },
+    "entrance_bay": {
+      "value": "middle",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "note": "The photograph puts the entrance, its portico and its stoop in the middle bay, with the frontispiece's pilasters either side."
+    },
+    "front_bays": {
+      "value": [
+        2.4,
+        5.625,
+        8.85
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "note": "Three bays, read through the photograph's camera solve (data/reference_views/goodman_house_1612_prairie/front_from_southeast.json: a level camera 17.2 m before the front, scaled by the Sanborn's 11.25 m front): the south bay's windows centre at 2.43 m (the paired upper lights span 1.62-3.32 m, the principal window 1.52-3.31 m), the entrance and the window over it on the front's middle line, the north bay its mirror. The photograph shows the north bay foreshortened, and the symmetry is taken, not measured."
+    },
+    "side_bays": {
+      "value": [],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "note": "T-2369: the photograph shows the south wall from the front back to about 2 m from the rear, lit, and it is blank brick at both storeys but for the oriel: no window and no string course. The five windows T-2366 put along it (reconstructed) are taken out, and the wall's side of the house is lit by the oriel upstairs; whatever windows the wall's last 2 m or the frame porch the 1911 sheet draws hold are not shown, and none is put there."
+    },
+    "rear_bays": {
+      "value": [
+        2.4,
+        5.6,
+        8.8
+      ],
+      "confidence": "reconstructed",
+      "note": "Three windows a storey in the rear wall of the wing."
+    },
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.75,
+          "width_m": 1.0,
+          "height_m": 2.4
+        },
+        {
+          "sill_above_floor_m": 0.75,
+          "width_m": 1.0,
+          "height_m": 2.4
+        }
+      ],
+      "confidence": "reconstructed",
+      "note": "The side and rear walls' windows (the street front names its own): tall double-hung sash, every clear width and height inside the contract's sash ranges ([0.75, 1.15] and [1.5, 2.4]). The photograph shows the south wall's front only, foreshortened."
+    },
+    "roof_covering": {
+      "value": {
+        "fabric": "tin_standing_seam_painted",
+        "flashing": "painted_tin_sheet",
+        "caps": "copper_ridge_roll"
+      },
+      "confidence": "reconstructed",
+      "note": "Painted tin in standing seams: a 32 degree roof is below the pitch the K04 library's slates are cut for (each takes a 3 in headlap, which k04 allows at 45 degrees and up), and seamed tin is the K04 covering for a low pitch. Tin flashing to match; the K01 caps are the kit's copper roll. No source shows 1612's roof."
+    },
+    "chimneys": {
+      "value": {
+        "plan_m": [
+          0.9,
+          0.75
+        ],
+        "top_above_ridge_m": 0.6,
+        "cap_proud_m": 0.05,
+        "cap_depth_m": 0.15,
+        "stacks": [
+          {
+            "u_m": 15.6,
+            "v_m": 0.9
+          },
+          {
+            "u_m": 16.5,
+            "v_m": 10.35
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "Two brick stacks under stone caps, put where the photograph shows two stack tops over the cornice: one over the south wall about 4 m behind the front, one over the north wall about 3.3 m behind it, each about 15.4 m high along its line of sight. Reconstructed, not inferred: the print gives each stack's direction and not its depth, so where each stands in plan is taken. Put at the plain stacks' lowest top, 0.6 m over the ridge (15.72 m)."
+    },
+    "rainwater": {
+      "value": {
+        "gutter": "half_round",
+        "fabric": "painted_tin_sheet",
+        "downpipe": "round",
+        "ends_at": "grade_with_splash_stone",
+        "downpipes": [
+          {
+            "wall": "k01.wall.rear_service",
+            "s_m": 0.55
+          },
+          {
+            "wall": "k01.wall.rear_service",
+            "s_m": 10.7
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "A half-round tin gutter round the eave to two round downpipes on the rear wall, each ending on a splash stone at grade: the K04 rainwater goods in painted tin. The photograph shows no downpipe on the stone front, nor on the south wall back to about 2 m from the rear (T-2369 took the south wall's pipe off), so none is put there. They stand 0.55 m in from the rear corners, clear of the cornice's corner pairs of brackets."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.arched_upper": "k06.opening.sash_paired_round",
+        "k01.opening.arched_principal": "k06.opening.sash_round_fanlight_wide",
+        "k01.opening.arched_basement": {
+          "variant": "k06.opening.basement_round",
+          "well": false
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "note": "The K06 kit's sash for every window. The street front's are round-headed, as the photograph shows them: paired one-over-one lights under round heads upstairs, a wide round-headed window with a fanlight over its transom at the principal storey, a round-headed fixed light in the basement (the photograph shows no area well, and the lights' sills stand on the base). The side and rear walls keep the kit's two-over-two flat sash, which no source shows."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.panel_door_stoop",
+          "front_yard_m": 8.6,
+          "cheeks": false,
+          "reveal_depth_m": 0.3
+        }
+      },
+      "confidence": "inferred",
+      "note": "The door and its stoop are the K07 kit's stone-front entrance on a straight stoop; the front yard is the 8.6 m the sheet draws between the stone front and the Prairie Avenue lot line. T-2369: the photograph shows the stoop's open stepped ends between iron rails, not stone cheeks, so the stoop is built without them (its rails are street_front_dress.stoop_rails), and the door stands 0.3 m into the 0.45 m front, in the dark of the portico's arch.",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ]
+    },
+    "stone_front": {
+      "value": {
+        "fabric": "limestone_lemont",
+        "dressing": "smooth",
+        "trim_fabric": "dressed_trim",
+        "rusticated_base_courses": 1,
+        "coping_height_m": 0.23,
+        "corner_bond": [
+          "south"
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "The 1911 sheet's stone (blue) front, which the photograph shows laid smooth in banded courses (street_front_dress.banded): the front laid as K02 coursed ashlar dressed smooth, on a one-course base whose coping carries the basement lights' sills (the fence hides the base in the print, so its height is taken at those sills), with dressed trim and quoins returned onto the south side wall; the north corner's quoins are not returned, since the K02 corner bond on a K01 front returns at the south corner alone. Lemont limestone is the K02 library's Chicago building stone of the 1860s; the print is monochrome, so which stone 1612 wore is not read.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20",
+        "chicagology_1612_prairie_photo"
+      ]
+    },
+    "street_front_openings": {
+      "value": {
+        "rows": [
+          {
+            "component": "k01.opening.arched_basement",
+            "bays": [
+              0,
+              2
+            ],
+            "sill_m": 0.5,
+            "width_m": 0.72,
+            "height_m": 1.74,
+            "pair_pier_m": 0.34,
+            "arch_ring_m": 0.3,
+            "keystone_top_m": 2.6,
+            "keystone_m": [
+              0.22,
+              0.36
+            ]
+          },
+          {
+            "component": "k01.opening.arched_principal",
+            "bays": [
+              0,
+              2
+            ],
+            "storey": 0,
+            "sill_above_floor_m": 0.21,
+            "width_m": 1.7,
+            "height_m": 3.15,
+            "arch_ring_m": 0.4,
+            "keystone_top_m": 7.1,
+            "keystone_m": [
+              0.3,
+              0.52
+            ]
+          },
+          {
+            "component": "k01.opening.arched_upper",
+            "bays": [
+              0,
+              1,
+              2
+            ],
+            "storey": 1,
+            "sill_above_floor_m": 0.65,
+            "width_m": 1.66,
+            "height_m": 2.2,
+            "arch_ring_m": 0.4,
+            "keystone_top_m": 10.64,
+            "keystone_m": [
+              0.26,
+              0.5
+            ]
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "note": "Every window in the front is round-headed, read through the photograph's camera solve (data/reference_views/goodman_house_1612_prairie/front_from_southeast.json: a level camera 17.2 m before the front, scaled by the Sanborn's 11.25 m front). Upper storey: a pair of round-headed lights in each bay on one sill (7.62 m), 1.66 m across the pair on a 0.2 m mullion, crowns at 9.85 m. Principal storey: one tall round-headed window in each outer bay, 1.7 m wide, from 3.06 m to its crown at 6.2 m, a transom at about 5.3 m. Basement: a pair of round-headed lights under each outer bay, each 0.72 m by 1.74 m from 0.5 m, 0.34 m apart. Over each group its voussoirs' joints radiate into the coursing and a long keystone rises from the crown: to 10.64 m (the stone's top) upstairs, 7.1 m at the principal storey, 2.6 m in the basement; the keystones' widths, 0.2-0.3 m at the crown and about twice that at the top, are read at the south bay. The ring each block runs out past its lights (0.3-0.4 m) is where the radiating joints stop in the print, approximately."
+    },
+    "street_front_dress": {
+      "value": {
+        "belts": [
+          [
+            2.65,
+            2.85
+          ]
+        ],
+        "base_top_m": 0.5,
+        "stone_top_m": 10.64,
+        "banded": {
+          "vertical_joint_m": 0.003
+        },
+        "frieze": {
+          "s_m": [
+            1.65,
+            3.15,
+            4.875,
+            6.375,
+            8.1,
+            9.6
+          ],
+          "width_m": 0.62,
+          "sill_m": 11.27,
+          "height_m": 0.33,
+          "panel": true
+        },
+        "frontispiece": {
+          "pilaster_s_m": [
+            [
+              3.62,
+              4.22
+            ],
+            [
+              7.03,
+              7.63
+            ]
+          ],
+          "pilaster_proud_m": 0.1,
+          "hood": {
+            "s_m": [
+              3.45,
+              7.8
+            ],
+            "bed_m": 5.87,
+            "top_m": 6.2,
+            "proud_m": 0.32,
+            "fascia_m": 0.12
+          }
+        },
+        "portico": {
+          "centre_s_m": 5.625,
+          "half_width_m": 1.475,
+          "arch_radius_m": 0.85,
+          "arch_rise_m": 0.47,
+          "archivolt_m": 0.2,
+          "front_m": 1.4,
+          "columns_s_m": [
+            4.485,
+            6.765
+          ],
+          "columns_d_m": [
+            0.9
+          ],
+          "pedestal_m": 0.4,
+          "pedestal_top_m": 1.6,
+          "shaft_radius_m": [
+            0.14,
+            0.115
+          ],
+          "capital_bed_m": 4.0,
+          "impost_m": [
+            4.4,
+            5.05
+          ],
+          "spring_m": 4.8,
+          "impost_overhang_m": 0.15,
+          "impost_from_m": 0.55,
+          "impost_cap_m": 0.25
+        },
+        "balconettes": {
+          "component": "k01.opening.arched_principal",
+          "foot_m": 0.02,
+          "height_m": 0.62,
+          "proud_m": 0.1,
+          "pitch_m": 0.11
+        },
+        "grilles": {
+          "component": "k01.opening.arched_basement",
+          "bars": 4,
+          "set_back_m": 0.05
+        },
+        "stoop_rails": {
+          "kit": "k11.rail.stoop_rail",
+          "scroll_m": 0.22
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "note": "What dresses the front, read through the photograph's camera solve (data/reference_views/goodman_house_1612_prairie/front_from_southeast.json: a level camera 17.2 m before the front, scaled by the Sanborn's 11.25 m front). The belt at 2.65-2.85 m is the only one: no belt shows at the second floor, so K01's own pair is replaced. The stone is banded: its bed joints are channels and its rising joints are hairlines (3 mm here). The stone stops at 10.64 m under a dark frieze with small lights, two to a bay between the cornice's brackets (light centres at about 1.5-2.0 and 2.9-3.7 m in the south bay, 0.36 m high from about 11.15 m). The frontispiece: two pilasters from the belt to a hood at 5.87-6.2 m, which reads 3.9-7.8 m across. The portico (re-read for T-2369 on 1:1 crops with the render's edges laid over the print): a barrel from the wall to 1.4 m out, its front a ring 0.2 m deep round an arch 1.7 m across that rises 0.47 m from its springing at 4.8 m, its outer edges at the print's X 1222-1443 and its crown at Y 1070; under the springing on each side an impost block 4.4-5.05 m high with a 0.25 m cap that oversails it by 0.15 m, carried on columns standing on 0.4 m pedestals at the stoop's head (1.6 m), their shafts 0.28 m tapering to 0.23 m, 2.28 m apart across the door and 0.9 m before the wall, where the print's two shafts stand (X 1177 and 1412). The front's stoop rises between iron rails, as the K11 kit's stair rail: newels at its head and foot, a sloped rail, two balusters to a tread and a scroll at the foot. The iron: guards across the principal windows' feet, 0.6 m high, and grilles in the basement lights. Not read (reconstructed and recorded in L-k01-1612-goodman-2366): the base's top (the fence hides it; taken at the basement sills), the depth of the portico's rear columns (none is built: the barrel's sides rest on the impost blocks, d 0.55-1.55 m), every moulding's section, the pilasters' and hood's projections, the guards' and grilles' bars."
+    },
+    "boundary": {
+      "value": {
+        "street_line_m": 4.7,
+        "lot_s_m": [
+          -3.52,
+          12.02
+        ],
+        "fence": "k11.fence.spear_on_curb",
+        "entrance_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "leaves": 2,
+          "clear_m": 1.3,
+          "drawn_deg": 0
+        },
+        "side_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "pier_s_m": 0.0,
+          "drawn_deg": 0
+        },
+        "posts": {
+          "section_m": 0.12,
+          "height_m": 1.55
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo",
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The photograph's cast-iron fence across the yard with a gate at the stoop's foot and another across the south passage, as the K11 kit's spear fence on its curb. Its line is 4.7 m from the front (T-2369: 6.9 m put it a long way before the print's posts; at 4.7 m the lot's south corner post and the gate posts fall where the print shows them, X 350 and beside the stoop's foot at X 1400), the entrance gate opening onto the stoop's foot; the lot's sides are the 1904 parcel's (data/street_grid/1904.json prairie_1612, 15.5 m frontage). The gates hang on cast-iron posts, not the kit's stone piers: the print shows tall iron posts at the gates and no urns (their 0.12 m section and 1.55 m height are reconstructed). No side wall shows on the south lot line, so none is built. T-2369: the print's fence foot reads higher above the walk than the kit's 0.25 m curb, about 0.5 m near the stoop; the walk, the yard's grade and any coping cannot be told apart in it, so the kit's curb is kept (L-k01-1612-goodman-2369)."
+    },
+    "function": {
+      "value": "residence",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The 1911 sheet marks the building 'D' (dwelling): '2½B brick dwelling (D), stone (blue) Prairie front; small frame porch on the south wall'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "chicagology_1612_prairie_photo",
+      "citation": "'1612 S. Prairie Ave.' Photograph of the Joseph Goodman (later Studebaker, then Bishop Anderson) house, 1612 South Prairie Avenue, Chicago, from the south-east on the Prairie Avenue walk; unknown photographer, undated. Reproduced on chicagology.com, Prairie Avenue, 1612 S. Prairie.",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1612prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the bay count, the entrance's bay and the arrangement of every street-front window, by storey",
+        "the round heads, the radiating voussoir joints and the keystones",
+        "the principal floor's belt, the storey lines and the stone's top, as heights through the camera solve",
+        "the frieze with its lights, under a bracketed cornice",
+        "the frontispiece and the arched portico on columns",
+        "the iron guards, basement grilles and front fence"
+      ],
+      "what_it_does_not_supply": [
+        "colour: the print is monochrome, so the stone's kind and every paint colour stay reconstructed",
+        "the roof: nothing of it shows over the cornice from the walk",
+        "the side, rear and north walls beyond the front bay of the south wall",
+        "a date: undated, and its 1904 reading rests on nothing recorded as changing"
+      ]
+    },
+    {
+      "source_id": "sanborn_1911_chicago_v3_sheet_20",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 20.",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "The Illinois Central / Michigan Central right-of-way and, from the 16th Street row south about 60 m, the water's edge beside it, as of 1911",
+        "Footprints, lot lines, street widths (66 ft; 16th Street 50 ft), addresses, material by colour and story counts for Indiana Av. to the tracks, 16th to 18th Street, as of 1911",
+        "Its own printed Scale of Feet, which the georeference uses as its scale"
+      ],
+      "what_it_does_not_supply": [
+        "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+        "A construction date for any building it draws",
+        "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+        "Architecture above the footprint beyond its story count, material colour and roof symbol",
+        "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+      ]
+    }
+  ],
+  "research_note": "T-2366 rebuilds 1612 Prairie's street front from the house's own photograph (chicagology_1612_prairie_photo, the Prairie library's a16-cgy-1612-studebaker-photo), which T-2344 never opened: the library linked it and its summary ('paired segmental windows, arched columned entrance') was all the build read. Through a camera solve against the Sanborn's 11.25 m front, the photograph gives the three bays, the round-arched windows by storey with their radiating voussoirs and keystones, the floors' heights, the belt, the stone's top and the frieze, the frontispiece and portico, and the iron; tools/photo_match.mjs renders the built GLB from that camera beside the print (docs/RESEARCH/k01-1612-goodman-2366). The envelope, storeys and stone front still rest on the 1911 Sanborn sheet 20 (trace s20fp-1612-b1); what neither shows (the roof, the side and rear windows, the colours) is reconstructed (L-k01-1612-goodman-2366, which replaces L-k01-1612-goodman-2344). The detached rear building is the coach-house record's (T-1932). T-2369 finished the match (data/reference_views/goodman_house_1612_prairie/front_from_southeast.match.json, docs/RESEARCH/k01-1612-goodman-2369): paired brackets over a dark frieze, the south wall's canted oriel on its corbelling, the door at the stoop's head (1.7 m) with the stoop between iron rails, and the portico's depth; what it adds beyond the print is L-k01-1612-goodman-2369.",
+  "research_doc": "",
+  "review_required": false
+}

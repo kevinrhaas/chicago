@@ -1,0 +1,65 @@
+serving /workspace/chicago/site/4d on 4187 — PUBLISHED mirror (compressed assets, visitor layout)
+
+NOT THE FULL GATE — stages filtered to "8" of 14
+
+mobile 390x780:
+  pass  mobile 390x780: page serves
+  pass  mobile 390x780: scene reaches ready
+  pass  mobile 390x780: the scene declares its exact consultation blockers
+  pass  mobile 390x780: no unexpected loader problems
+  pass  mobile 390x780: scene has structures
+  pass  mobile 390x780: every structure that should draw, drew
+  pass  mobile 390x780: the liberties wait for their first reader, not for boot (T-2058)
+  pass  mobile 390x780: the roads reach the screen standing on the crossing itself
+        lake_market: 2-40 m: ΔL* 15.7 of 19.5 opaque, 100 % perceptible of 10 bare, weber 0.9315 (n 10) over ground L* 44.6, seen 10 of 10 projected (10 clear of flora) · 40-100 m: ΔL* 13.6 of 13.6 opaque, 100 % perceptible of 15 bare, weber 0.7705 (n 15) over ground L* 49.6, seen 15 of 15 projected (15 clear of flora) · 100-250 m: ΔL* 10.9 of 15.8 opaque, 87 % perceptible of 55 bare, weber 0.6859 (n 55) over ground L* 45.7, seen 55 of 102 projected (55 clear of flora) · 250-600 m: ΔL* 13.7 of 13.7 opaque, 93 % perceptible of 107 bare, weber 0.8136 (n 107) over ground L* 46.4, seen 107 of 507 projected (107 clear of flora) · 600-4000 m: ΔL* 12.1 of 12.1 opaque, 94 % perceptible of 67 bare, weber 0.6844 (n 67) over ground L* 46.4, seen 67 of 945 projected (67 clear of flora) (reported only)
+        road bands: 4 moved against the bank —
+          rose      mobile/lake_market/2-40  perceptible 60 % → 100 % (+40 points), ΔL* 2.5 → 15.7 (+13.2), weber 0.1116 → 0.9315, ground L* 48.6 → 44.6 (-4.0, exposure)
+          rose      mobile/lake_market/250-600  ΔL* 2.0 → 13.7 (+11.7), weber 0.0826 → 0.8136, ground L* 53.5 → 46.4 (-7.1, exposure)
+          rose      mobile/lake_market/40-100  ΔL* 2.9 → 13.6 (+10.6), weber 0.1269 → 0.7705
+          fell      mobile/lake_market/100-250  perceptible 100 % → 87 % (-13 points), ΔL* 2.7 → 10.9 (+8.2), weber 0.1158 → 0.6859, ground L* 51.4 → 45.7 (-5.7, exposure)
+  pass  mobile 390x780: the road-legibility aid is off unless a visitor moves it
+  pass  mobile 390x780: raising the road-legibility aid reaches the render
+  pass  mobile 390x780: dropping the road-legibility aid restores the default frame
+        road aid: full-on delta mean 7.03 / worst 17 at 96², 7.00 / 15 at 12²; restored residual mean 0.00 / worst 0
+  pass  mobile 390x780: the town is its one untextured batch, its two roof coverings and its two wall substrates
+  pass  mobile 390x780: the batch still carries the town's finishes
+  pass  mobile 390x780: the per-vertex roughness channel reaches the render
+  pass  mobile 390x780: restoring the roughness channel restores the frame
+        batches: 5 · roughness 17 values 0.25–0.9800000190734863 · flattening moves worst cell 6, mean 0.03; restored worst 0
+  pass  mobile 390x780: the suite body ran to completion
+  pass  mobile 390x780: zero page errors
+
+desktop 1280x800:
+  pass  desktop 1280x800: page serves
+  pass  desktop 1280x800: scene reaches ready
+  pass  desktop 1280x800: the scene declares its exact consultation blockers
+  pass  desktop 1280x800: no unexpected loader problems
+  pass  desktop 1280x800: scene has structures
+  pass  desktop 1280x800: every structure that should draw, drew
+  pass  desktop 1280x800: the liberties wait for their first reader, not for boot (T-2058)
+  pass  desktop 1280x800: the roads reach the screen standing on the crossing itself
+        lake_market: 2-40 m: ΔL* 15.7 of 17.1 opaque, 100 % perceptible of 10 bare, weber 0.9205 (n 10) over ground L* 47.4, seen 10 of 10 projected (10 clear of flora) · 40-100 m: ΔL* 14.0 of 14.0 opaque, 100 % perceptible of 15 bare, weber 0.8401 (n 15) over ground L* 46.2, seen 15 of 15 projected (15 clear of flora) · 100-250 m: ΔL* 7.3 of 11.0 opaque, 77 % perceptible of 53 bare, weber 0.4144 (n 53) over ground L* 51.5, seen 53 of 148 projected (53 clear of flora) · 250-600 m: ΔL* 6.8 of 20.4 opaque, 99 % perceptible of 101 bare, weber 0.3887 (n 101) over ground L* 42.8, seen 101 of 735 projected (101 clear of flora) · 600-4000 m: ΔL* 4.4 of 10.1 opaque, 97 % perceptible of 64 bare, weber 0.2312 (n 64) over ground L* 50.7, seen 64 of 1328 projected (64 clear of flora) (reported only)
+        road bands: 4 moved against the bank —
+          rose      desktop/lake_market/2-40  perceptible 70 % → 100 % (+30 points), ΔL* 2.4 → 15.7 (+13.3), weber 0.1151 → 0.9205
+          rose      desktop/lake_market/40-100  perceptible 87 % → 100 % (+13 points), ΔL* 2.4 → 14.0 (+11.6), weber 0.1047 → 0.8401, ground L* 50.6 → 46.2 (-4.4, exposure)
+          fell      desktop/lake_market/100-250  perceptible 100 % → 77 % (-23 points), ΔL* 2.5 → 7.3 (+4.8), weber 0.1057 → 0.4143
+          rose      desktop/lake_market/250-600  ΔL* 6.5 → 6.8 (+0.3), weber 0.2497 → 0.3887, ground L* 55.0 → 42.8 (-12.2, exposure)
+  pass  desktop 1280x800: the road-legibility aid is off unless a visitor moves it
+  pass  desktop 1280x800: raising the road-legibility aid reaches the render
+  pass  desktop 1280x800: dropping the road-legibility aid restores the default frame
+        road aid: full-on delta mean 6.33 / worst 28 at 96², 6.31 / 15 at 12²; restored residual mean 0.00 / worst 0
+  pass  desktop 1280x800: the town is its one untextured batch, its two roof coverings and its two wall substrates
+  pass  desktop 1280x800: the batch still carries the town's finishes
+  pass  desktop 1280x800: the per-vertex roughness channel reaches the render
+  pass  desktop 1280x800: restoring the roughness channel restores the frame
+        batches: 5 · roughness 17 values 0.25–0.9800000190734863 · flattening moves worst cell 5, mean 0.07; restored worst 0
+  pass  desktop 1280x800: the suite body ran to completion
+  pass  desktop 1280x800: zero page errors
+
+  pass  vendor: meshopt decoder loads and reports supported
+  pass  vendor: meshopt import raises no page error
+
+36 passed, 0 failed
+16 staged-section check(s) (stage 8 of 14), 20 always-on check(s)
+12 m 18 s for stage 8 — the ceiling on a steward run's single foreground command is 10 m 00 s
+SMOKE PASS

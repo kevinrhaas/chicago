@@ -1,0 +1,20 @@
+{
+  "pre-v4": {
+    "byte_identical": true,
+    "before_sha256": "466e13495df5c922410aba8e0bf742584d4889af92a8020dd88ee78ee2b3cf82",
+    "after_sha256": "466e13495df5c922410aba8e0bf742584d4889af92a8020dd88ee78ee2b3cf82",
+    "bytes": 96496
+  },
+  "v2": {
+    "byte_identical": true,
+    "before_sha256": "9b01466727c5bc6ad5c8bd4e28fc22f971475d76f36f5a6c5553425cde757310",
+    "after_sha256": "9b01466727c5bc6ad5c8bd4e28fc22f971475d76f36f5a6c5553425cde757310",
+    "bytes": 98832
+  },
+  "v3": {
+    "byte_identical": true,
+    "before_sha256": "c425308b910e3309465fdb339a842979cc72e3b1e8d7232ce7412c7ba4f7b718",
+    "after_sha256": "c425308b910e3309465fdb339a842979cc72e3b1e8d7232ce7412c7ba4f7b718",
+    "bytes": 95728
+  }
+}

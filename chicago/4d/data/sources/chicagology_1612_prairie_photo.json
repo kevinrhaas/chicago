@@ -1,0 +1,32 @@
+{
+ "id": "chicagology_1612_prairie_photo",
+ "type": "photograph",
+ "citation": "'1612 S. Prairie Ave.' Photograph of the Joseph Goodman (later Studebaker, then Bishop Anderson) house, 1612 South Prairie Avenue, Chicago, from the south-east on the Prairie Avenue walk; unknown photographer, undated. Reproduced on chicagology.com, Prairie Avenue, 1612 S. Prairie.",
+ "author": "unknown photographer",
+ "date": "undated (probably c. 1900-1930)",
+ "describes_date": "undated (probably c. 1900-1930)",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image a16-cgy-1612-studebaker-photo (chicago/prairie_1904_v1/research/images/stream-1600-1700.json), recorded there as 'link only'. A copy supplied by the project owner on 2026-10-11 is committed at data/sources/assets/goodman_1612_photo_owner_2026_10/.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1612prairie/",
+ "locator": "The whole print: the stone street front from its south corner to its north corner, the south side wall's front bay, the stoop, the portico and the front fence. The camera solve (data/sources/assets/goodman_1612_photo_owner_2026_10/front_from_southeast.json) locates every feature read off it.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts and proportions are read from it; nothing is derived from the image as an asset. The owner supplied the copy committed here, as he supplied the pre-fire reference views (data/sources/assets/prefire_views_kevin_2026_08).",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-11 (T-2366) from the owner's copy, 2000 x 2094 px greyscale, sha256 5e3e3d3c6360a045de4b7a1d7b897a9f463c3969a9ef716612ba77e89ed1eeb4. chicagology.com is not reachable from the build containers, so the copy is the one read.",
+ "note": "The only view of 1612's front this project reads, and an in-period one: the house stood from 1869 to about 1960 and the photograph's dress and the fence put it early in the century, so it is carried to 1904 for the stone front, whose recorded changes are none. It shows a three-bay stone front, entered in its middle bay, laid in banded courses whose rising joints barely show; every window round-headed: paired round-headed lights in each bay of the upper storey, a single tall round-headed window in each outer bay of the principal storey with an iron guard across its foot, and a pair of round-headed basement lights with grilles under each; every group under voussoirs whose joints radiate into the coursing, with a long tapered keystone; a belt course at the principal floor; an entrance frontispiece of two pilasters under a hood, before it an arched portico on columns at the head of a high stoop with iron rails; over the stone a dark frieze with small lights, under a deep bracketed cornice; no dormer seen; a cast-iron fence on the yard line. The camera is solved from the front's verticals and courses with the 1911 Sanborn sheet's 11.25 m front as the one length, so each height read off it is a measurement through that solve, recorded with its reading in the structure record's notes.",
+ "what_it_supplies": [
+  "the bay count, the entrance's bay and the arrangement of every street-front window, by storey",
+  "the round heads, the radiating voussoir joints and the keystones",
+  "the principal floor's belt, the storey lines and the stone's top, as heights through the camera solve",
+  "the frieze with its lights, under a bracketed cornice",
+  "the frontispiece and the arched portico on columns",
+  "the iron guards, basement grilles and front fence"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome, so the stone's kind and every paint colour stay reconstructed",
+  "the roof: nothing of it shows over the cornice from the walk",
+  "the side, rear and north walls beyond the front bay of the south wall",
+  "a date: undated, and its 1904 reading rests on nothing recorded as changing"
+ ]
+}

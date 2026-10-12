@@ -135,7 +135,8 @@
         "python3 tools/build_order_book_1835.py --build",
         "python3 tools/seat_known_1835.py --build",
         "python3 tools/compile_liberties.py",
-        "python3 tools/house_the_present_1835.py"
+        "python3 tools/house_the_present_1835.py",
+        "python3 tools/count_held_head_dwellings_1835.py --build"
       ],
       "declared_readers": {
         "python3 tools/build_order_book_1835.py --build": "Reads both seat files' slot and seat counts, which the two deals in the pass rewrite. What the pass carries back through them is display names (T-2081): two names changed in each seat file left its --check green, and so did T-2081's chain reproduction.",
@@ -320,6 +321,32 @@
       "verify": [
         "python3",
         "tools/trace_prairie_1904_grid.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "A SOURCE READ OUT OF ITS COMMITTED ORIGINAL (T-2327, T-2328, T-2340): sheets 28, 20 and 35's 1904 building footprints, read off the committed Sanborn rasters through the GCP files tools/georef_prairie_1904.py writes, clipped to the lots data/street_grid/1904.json carries and keyed to the authored T-1841, T-1840 and T-1842 sheet censuses. It reads the parcel grid the step above writes, so it follows that step.",
+      "command": [
+        "python3",
+        "tools/trace_prairie_1904_footprints.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/trace_prairie_1904_footprints.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "THE DISTRICT DRAFT'S RECORDS (T-2329): one prairie_draft structure record per building on every Prairie Avenue block side data/components/prairie_1904/draft_prairie_1904.json names, written from the sheet footprints the step above traces, the authored sheet census and the T-1837 register rows. It reads the footprints, so it follows that step.",
+      "command": [
+        "python3",
+        "tools/draft_prairie_1904.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/draft_prairie_1904.py",
         "--check"
       ]
     },
@@ -2085,6 +2112,22 @@
       ]
     },
     {
+      "why": "THE FAMILY DWELLINGS THE TOWN ALREADY FORMS (T-2193, of T-2188). Counts the held head records the order book reads as awaiting a household that the housing seats put under a standing dwelling (the dealt rung and the family rung), and writes them into the book as households/family_dwelling fills. BELOW house_the_present_1835.py, because it reads the seats that step writes, and BELOW build_order_book_1835.py, whose fills it splices and which it re-derives. Nothing above it reads its ledger: seat_known_1835.py reads only the household TARGETS, which a fill does not move, and reconstruct_women_children.py adds this stage's fills back to its house quota, so neither chases it. Measured 2026-10-08: a repeat --build on the built tree changed no committed byte. T-2237 (2026-10-09): it also reads every card beside the index (data/residents/ reconstructed_trades, lodgers, readmitted, underdocumented, institutional) and data/reconstruction/1835_lodgers_seated.json, all written above it, and counts a household of its own among them after the held heads.",
+      "command": [
+        "python3",
+        "tools/count_held_head_dwellings_1835.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/reconstruction/1835_held_head_dwellings.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/count_held_head_dwellings_1835.py",
+        "--check"
+      ]
+    },
+    {
       "why": "T-1989: the trade-roof deal offers the empty trade roofs to the keepers the employment ledger owes a house of their own, nearest to the roof the housing deal gave them. It reads the housing seats, so it runs after the housing deal; it reads the town through compile_residents with the housing overlays switched off, so it never reads itself back; and compile_scene reads its ledger, so it runs before the scene compiles.",
       "command": [
         "python3",
@@ -2712,6 +2755,19 @@
       ]
     },
     {
+      "why": "T-2269: the South street line's owed lumber shed, written from its own recipe on the South Branch's east bank south of Washington. PLACED BY LAYER beside generate_west_freight.py and generate_north_freight.py: it reads the committed corridors, lots, terrain and footprints and writes one structure record nothing else in this order reads back before the scene compiles.",
+      "command": [
+        "python3",
+        "tools/generate_south_lumber.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/generate_south_lumber.py",
+        "--check"
+      ]
+    },
+    {
       "why": "T-2022: the North Division's seventh freight roof, written from its own recipe on the North Water bank at LaSalle. PLACED BY LAYER beside generate_west_freight.py: it reads the committed North tier, terrain and footprints and writes one structure record nothing else in this order reads back before the scene compiles.",
       "command": [
         "python3",
@@ -2721,6 +2777,19 @@
       "verify": [
         "python3",
         "tools/generate_north_freight.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "T-2268: two of the South street line's owed freight roofs, written from their own recipe on the South Branch's east bank between Madison and Washington. PLACED BY LAYER beside generate_north_freight.py: it reads the committed corridors, lots, terrain and footprints and writes two structure records nothing else in this order reads back before the scene compiles.",
+      "command": [
+        "python3",
+        "tools/generate_south_freight.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/generate_south_freight.py",
         "--check"
       ]
     },

@@ -59,17 +59,10 @@
   ],
   "note": "The town's population roughly quadrupled between the Democrat's founding and his own; a second paper is the obvious commercial reading and is not stated."
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested."
- },
- "works_at": {
-  "value": "chicago_american_office",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ]
  },
  "associated_with": [
   {

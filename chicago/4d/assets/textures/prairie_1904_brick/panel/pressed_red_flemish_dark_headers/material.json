@@ -1,0 +1,67 @@
+{
+  "id": "pressed_red_flemish_dark_headers",
+  "group": "panel",
+  "role": "lod_panel",
+  "lod": [
+    "balanced",
+    "light"
+  ],
+  "fabric": "pressed_red",
+  "bond": "flemish",
+  "header_fabric": "dark_fired",
+  "mortar": "mortar_dark",
+  "joint": {
+    "width_m": 0.004,
+    "recess_m": 0.0006,
+    "profile": "flush",
+    "mortar": "mortar_dark"
+  },
+  "tile_m": [
+    0.6477,
+    0.8001
+  ],
+  "repeat": {
+    "modules": 3,
+    "courses": 12
+  },
+  "resolution_px": [
+    389,
+    480
+  ],
+  "px_per_m": [
+    600.587,
+    599.925
+  ],
+  "uv_rule": "K01 scale_uv: TEXCOORD_0 = surface metres / tile_m; u = 0 on a perpend, v = 0 on a bed joint's centre",
+  "joints_in_map": true,
+  "derived_from": "profiles.json + the fabric and mortar maps, by this generator; never hand-edited",
+  "for": "a Georgian Revival option (pa-2126-20, pa-1700-52) - Flemish bond with burnt headers; no register entry yet attests the bond",
+  "not_for": "the full export, where every brick is geometry and the joint-free fabric maps apply",
+  "orientation": "image x = along the course (u); image y = up the wall (v), image top = up",
+  "height_range_m": [
+    -0.0012,
+    0.001156
+  ],
+  "mean_srgb": [
+    98,
+    41,
+    35
+  ],
+  "mean_roughness": 0.615,
+  "confidence": "reconstructed appearance and bond; see the fabric's material.json and the liberty",
+  "liberty": "L-k03-brick-library-2290",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y (up the wall)",
+    "roughness": "linear",
+    "height16": "linear 16-bit; 0 = height_range_m[0], 65535 = height_range_m[1]",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "pressed_red_flemish_dark_headers_basecolor_web.jpg",
+    "normal_gl": "pressed_red_flemish_dark_headers_normal_gl_web.jpg",
+    "orm": "pressed_red_flemish_dark_headers_orm_web.jpg"
+  },
+  "seamless": true,
+  "generation_method": "deterministic: rasterised from profiles.json at 2x supersampling (tools/generate_prairie_1904_brick.py)"
+}

@@ -132,7 +132,7 @@
       "name": "The Jean Baptiste Beaubien household",
       "division": "south",
       "relation": "lived and worked here",
-      "why": "data/structures/jb_beaubien_homestead.json carries 'Col. Jean Baptiste Beaubien and his household' as occupants and grades it inferred, because Andreas says he built a NEW residence which is a different building and is not modelled. This household inherits that grade and that doubt exactly.",
+      "why": "data/structures/jb_beaubien_homestead.json carries 'Col. Jean Baptiste Beaubien and his household' as occupants and grades it inferred, because Andreas says he built a NEW residence which is a different building and is not modelled. This household inherits that grade and that doubt exactly. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_beaubien_jean_baptiste#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "andreas_1884_v1"
       ],

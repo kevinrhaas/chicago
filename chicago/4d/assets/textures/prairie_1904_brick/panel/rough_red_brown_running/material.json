@@ -1,0 +1,66 @@
+{
+  "id": "rough_red_brown_running",
+  "group": "panel",
+  "role": "lod_panel",
+  "lod": [
+    "balanced",
+    "light"
+  ],
+  "fabric": "rough_red_brown",
+  "bond": "running",
+  "mortar": "mortar_lime",
+  "joint": {
+    "width_m": 0.01,
+    "recess_m": 0.005,
+    "profile": "raked",
+    "mortar": "mortar_lime"
+  },
+  "tile_m": [
+    0.8636,
+    0.8001
+  ],
+  "repeat": {
+    "modules": 4,
+    "courses": 12
+  },
+  "resolution_px": [
+    518,
+    480
+  ],
+  "px_per_m": [
+    599.815,
+    599.925
+  ],
+  "uv_rule": "K01 scale_uv: TEXCOORD_0 = surface metres / tile_m; u = 0 on a perpend, v = 0 on a bed joint's centre",
+  "joints_in_map": true,
+  "derived_from": "profiles.json + the fabric and mortar maps, by this generator; never hand-edited",
+  "for": "the Mayer front (pa-2009-17)",
+  "not_for": "the full export, where every brick is geometry and the joint-free fabric maps apply",
+  "orientation": "image x = along the course (u); image y = up the wall (v), image top = up",
+  "height_range_m": [
+    -0.0056,
+    0.002324
+  ],
+  "mean_srgb": [
+    120,
+    76,
+    60
+  ],
+  "mean_roughness": 0.903,
+  "confidence": "reconstructed appearance and bond; see the fabric's material.json and the liberty",
+  "liberty": "L-k03-brick-library-2290",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y (up the wall)",
+    "roughness": "linear",
+    "height16": "linear 16-bit; 0 = height_range_m[0], 65535 = height_range_m[1]",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "rough_red_brown_running_basecolor_web.jpg",
+    "normal_gl": "rough_red_brown_running_normal_gl_web.jpg",
+    "orm": "rough_red_brown_running_orm_web.jpg"
+  },
+  "seamless": true,
+  "generation_method": "deterministic: rasterised from profiles.json at 2x supersampling (tools/generate_prairie_1904_brick.py)"
+}

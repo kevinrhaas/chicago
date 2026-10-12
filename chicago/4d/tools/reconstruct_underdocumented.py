@@ -312,14 +312,14 @@ def card_for(row: dict, record: dict, hid: str, pid: str, sources: list,
                      "a united band of them lived at the forks; choosing one for this man "
                      "would invent the single fact the record withholds."),
         },
-        "lives_at": {
+        "no_home": {
             "value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
             "note": ("Not attested: the roll gives a place of enrollment and no dwelling. "
                      "`CHICAGO` in that column is where the man was enrolled, which is not "
                      "an address and is not a residence."),
         },
-        "works_at": {"value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
-                     "note": "Not attested."},
+        "no_workplace": {"value": None, "confidence": RECONSTRUCTED, "tier": "unknown",
+                         "note": "Not attested."},
         "present_on_scene_date": presence,
         "persons": [{
             "id": pid,

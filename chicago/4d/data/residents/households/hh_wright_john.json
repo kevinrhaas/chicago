@@ -44,12 +44,12 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested."
  },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "note": "NOT MODELLED. Wright's store is documented by his own advertisement of November 1833 and has no record in data/structures/, so there is nothing to link to. A second gap from the same advertisement: the TWO BUILDINGS he had to let are two more documented structures with no records, and they are evidence about the town's rental housing stock, which is otherwise invisible."

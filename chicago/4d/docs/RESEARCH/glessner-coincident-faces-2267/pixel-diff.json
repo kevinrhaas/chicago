@@ -1,0 +1,143 @@
+[
+ {
+  "view": "desktop-capital",
+  "pixels": 1024000,
+  "changed_gt8": 214,
+  "changed_gt32": 23,
+  "pct_gt8": 0.021,
+  "bbox_gt8": [
+   386,
+   381,
+   1271,
+   470
+  ]
+ },
+ {
+  "view": "desktop-chimney-flashing",
+  "pixels": 1024000,
+  "changed_gt8": 0,
+  "changed_gt32": 0,
+  "pct_gt8": 0.0,
+  "bbox_gt8": null
+ },
+ {
+  "view": "desktop-courtyard",
+  "pixels": 1024000,
+  "changed_gt8": 2,
+  "changed_gt32": 0,
+  "pct_gt8": 0.0,
+  "bbox_gt8": [
+   227,
+   294,
+   228,
+   296
+  ]
+ },
+ {
+  "view": "desktop-entrance-fan",
+  "pixels": 1024000,
+  "changed_gt8": 445,
+  "changed_gt32": 30,
+  "pct_gt8": 0.043,
+  "bbox_gt8": [
+   550,
+   330,
+   879,
+   494
+  ]
+ },
+ {
+  "view": "desktop-northeast",
+  "pixels": 1024000,
+  "changed_gt8": 5,
+  "changed_gt32": 0,
+  "pct_gt8": 0.0,
+  "bbox_gt8": [
+   420,
+   399,
+   855,
+   534
+  ]
+ },
+ {
+  "view": "desktop-ridge-joint",
+  "pixels": 1024000,
+  "changed_gt8": 3,
+  "changed_gt32": 0,
+  "pct_gt8": 0.0,
+  "bbox_gt8": [
+   626,
+   396,
+   631,
+   421
+  ]
+ },
+ {
+  "view": "mobile-capital",
+  "pixels": 304200,
+  "changed_gt8": 42,
+  "changed_gt32": 0,
+  "pct_gt8": 0.014,
+  "bbox_gt8": [
+   81,
+   387,
+   314,
+   419
+  ]
+ },
+ {
+  "view": "mobile-chimney-flashing",
+  "pixels": 304200,
+  "changed_gt8": 0,
+  "changed_gt32": 0,
+  "pct_gt8": 0.0,
+  "bbox_gt8": null
+ },
+ {
+  "view": "mobile-courtyard",
+  "pixels": 304200,
+  "changed_gt8": 0,
+  "changed_gt32": 0,
+  "pct_gt8": 0.0,
+  "bbox_gt8": null
+ },
+ {
+  "view": "mobile-entrance-fan",
+  "pixels": 304200,
+  "changed_gt8": 66,
+  "changed_gt32": 5,
+  "pct_gt8": 0.022,
+  "bbox_gt8": [
+   180,
+   384,
+   279,
+   430
+  ]
+ },
+ {
+  "view": "mobile-northeast",
+  "pixels": 304200,
+  "changed_gt8": 2,
+  "changed_gt32": 0,
+  "pct_gt8": 0.001,
+  "bbox_gt8": [
+   98,
+   412,
+   100,
+   415
+  ]
+ },
+ {
+  "view": "mobile-ridge-joint",
+  "pixels": 304200,
+  "changed_gt8": 4,
+  "changed_gt32": 0,
+  "pct_gt8": 0.001,
+  "bbox_gt8": [
+   188,
+   394,
+   191,
+   400
+  ]
+ }
+]

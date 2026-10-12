@@ -99,6 +99,23 @@
   },
   {
    "outcome": "merged",
+   "person_id": "beaubien_charles_h",
+   "folded_person_id": "beaubien_charles",
+   "rule": "C18",
+   "cluster": "beaubien_charles",
+   "record_ids": [
+    "st_marys_bapt_1834_21_2_father"
+   ],
+   "domains": [
+    "church"
+   ],
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "evidence": "T-1550: 'beaubien_charles' and 'beaubien_charles_h' are one person under rule C18; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'beaubien_charles'."
+  },
+  {
+   "outcome": "merged",
    "person_id": "beaubien_jean_baptiste",
    "folded_person_id": "beaubien_j_b",
    "rule": "C2",
@@ -332,6 +349,23 @@
     "norris_directory_1844"
    ],
    "evidence": "T-1134: 'eldredge_john_w' and 'eldridge_john_w' are one person under rule C9; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'eldredge-eldridge'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "franchre_louis",
+   "folded_person_id": "franchere_l",
+   "rule": "C2",
+   "cluster": "franchere",
+   "record_ids": [
+    "st_cyr_marriage_001_3"
+   ],
+   "domains": [
+    "church"
+   ],
+   "sources": [
+    "st_cyr_register_ichr_v4"
+   ],
+   "evidence": "T-2251: 'franchere_l' and 'franchre_louis' are one person under rule C2; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'franchere'."
   },
   {
    "outcome": "merged",

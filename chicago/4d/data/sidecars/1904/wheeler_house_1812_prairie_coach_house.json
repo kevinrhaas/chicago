@@ -1,0 +1,248 @@
+{
+  "id": "wheeler_house_1812_prairie_coach_house",
+  "phase": "as_standing_1904",
+  "name": "Wheeler house (1812 Prairie Avenue): the coach house on the alley, K12",
+  "aka": [
+    "1812 Prairie Avenue, rear",
+    "1812 S. Prairie Avenue, alley building",
+    "Wheeler stable"
+  ],
+  "archetype": "k12_coach_house",
+  "asset": "gltf/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "documented_range": {
+    "from": "1884-01-01",
+    "to": "1911-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "STANDING IN 1904 is what the scene needs, and it rests on sheet 28 of the 1911 Sanborn carried back seven years, the reading the Glessner and 1808 records and the T-1841 sheet census make of this sheet. FROM: the T-1837 building register dates the Wheeler house 1884, and the stable is read as built with it; the register is not a source record here and nothing dates the stable itself, so the day is the 1st of January and the confidence inferred. TO: the last day of the year the sheet was published, the latest date anything here shows the building standing; it is not a demolition date."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1338.513,
+    "local_n": -3256.39,
+    "rotation_deg": -0.616,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "position_note": "The middle of the building's alley (west) wall at grade, read off the committed sheet 28 raster (chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_28.jpg) at pixel (581.5, 1951): the alley wall's line, read by median darkness profile at rows 1900, 1950 and 2000 (581-582), halfway between the building's north and south wall lines (1866.5 and 2035.5). Carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json): local E 1338.513, N -3256.390, 0.05 m from the middle of parcel prairie_1812's rear line. The bearing is the parcel's own (its north and south lines run at 0.616 degrees north of east), so the building stands square on its lot and with the 1808 house beside it; the sheet's own fit rotation (1.014 degrees) would turn it 0.4 degrees, about 0.1 m over its depth.",
+    "symbolic_location": "1812 S. Prairie Avenue: west side of Prairie between 18th and 20th Streets, the lot directly south of 1808, parcel prairie_1812 (data/street_grid/1904.json); on the rear lot line, its alley wall on the east line of the alley between Indiana and Prairie.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        -4.272
+      ],
+      [
+        14.561,
+        -4.272
+      ],
+      [
+        14.561,
+        4.272
+      ],
+      [
+        0.0,
+        4.272
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "About the middle of the alley wall, u east (into the lot) and v north. The sheet draws the building from the alley line (pixel column 581.5) to its east wall line (869.5) and from its north wall line (row 1866.5) to its south one (2035.5): 288 by 169 pixels at the sheet's 0.050558 m a pixel, 14.56 m deep by 8.54 m along the alley, the lot's whole width. Each neighbour's alley building is drawn with its own wall line about 0.4 m off (1808's at row 1858, 1816's at 2041), so both ends are built as party walls standing against a neighbour, and neither as an open gable. The party walls' returns stand 0.5 m past the eaves, which is the kit's and not the sheet's."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "'2' on the building: two storeys.",
+      "geometry": "simplified"
+    },
+    "construction": {
+      "value": "brick",
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "Drawn pink, the sheet's colour for brick, with wall thicknesses lettered 12 and 8 (inches) on its north and south walls.",
+      "geometry": "simplified"
+    },
+    "coach_house": {
+      "value": {
+        "id": "k12.coach_house.prairie_1812",
+        "kind": "coach_house",
+        "class": "coach_house",
+        "alley_side": "west",
+        "width_m": 8.544,
+        "depth_m": 14.561,
+        "east_end": "party",
+        "pitch_deg": 30,
+        "ventilator": false,
+        "openings": [
+          {
+            "id": "carriage",
+            "wall": "alley",
+            "kind": "carriage",
+            "s0": 0.6,
+            "s1": 3.6,
+            "sill": 0.0,
+            "head": 3.0
+          },
+          {
+            "id": "man_door",
+            "wall": "alley",
+            "kind": "door",
+            "s0": 4.35,
+            "s1": 5.3,
+            "sill": 0.0,
+            "head": 2.3
+          },
+          {
+            "id": "stable_sash",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 6.25,
+            "s1": 7.25,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "loft_hatch",
+            "wall": "alley",
+            "kind": "hatch",
+            "s0": 1.5,
+            "s1": 2.7,
+            "sill": 3.9,
+            "head": 5.3
+          },
+          {
+            "id": "loft_sash_1",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 4.375,
+            "s1": 5.275,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "loft_sash_2",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 6.3,
+            "s1": 7.2,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_sash_1",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 1.0,
+            "s1": 2.0,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "yard_door",
+            "wall": "yard",
+            "kind": "door",
+            "s0": 3.45,
+            "s1": 4.4,
+            "sill": 0.05,
+            "head": 2.3
+          },
+          {
+            "id": "yard_sash_2",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 5.85,
+            "s1": 6.85,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "yard_loft_sash_1",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 1.05,
+            "s1": 1.95,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_loft_sash_2",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 5.9,
+            "s1": 6.8,
+            "sill": 4.3,
+            "head": 5.6
+          }
+        ],
+        "ramp": null,
+        "stair": null,
+        "lean_to": null,
+        "wing": null,
+        "workyard": {
+          "apron_m": 2.4,
+          "to_house_m": 6.219,
+          "walk_x": 0.017
+        },
+        "confidence": "reconstructed",
+        "note": "Everything but the plan is RECONSTRUCTED from the K12 kit (L-k12-coach-house-kit-2320), recorded as L-k12-1812-coach-house-2321. The sheet gives the outline, the two storeys and the brick; it shows no opening, roof or yard surface. The alley wall carries the kit's carriage bay (3.0 m clear) with the loft hatch and hoist over it, a man door, a stable sash and two loft sash; the yard wall a door onto the workyard between two stable sash and two loft sash over them. A gable roof with its ridge along the alley, as the kit builds it, at 30 degrees rather than the kit's 40, because the building is 14.6 m deep and 40 degrees would stand the ridge 6.1 m over the eaves, as tall again as the walls. No external stair, ramp, lean-to or wing: the sheet draws none, and both ends stand against neighbours. No ventilator (restriction ventilator_needs_evidence). The workyard is paved from the yard door to the house's rear wall line, which the sheet draws 6.22 m east of the coach house (column 992.5)."
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The building's dimensions are the footprint's (inferred, above); its openings, roof and workyard are the kit's, laid out for this lot, and RECONSTRUCTED. See the value's own note for each choice and what bounds it."
+    },
+    "function": {
+      "value": "stable",
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "Sheet 28 of the 1911 Sanborn draws a two-storey brick building across the whole width of the 1812 lot on the alley and letters it GARAGE. GARAGE is a 1911 use and is not read as the 1904 one (the K12 kit's restriction no_1911_use_labels; T-1837 study ruling 11): the T-1841 sheet census backcasts the building to 1904 and reconstructs its use as the house's stable and coach house, and this record builds it as that — a carriage bay, a loft with its hatch and hoist, stable sash — with no motor-garage part. The use is RECONSTRUCTED; no source names a horse or a carriage on this lot."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "sanborn_1911_chicago_v3_sheet_28",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "The water's edge beside the Illinois Central from about 40 m north of 18th Street to about 80 m south of it, and the easternmost track on to the paper's edge, as of 1911",
+        "The 1800 Prairie lot and the Glessner House footprint (stone, courtyard plan) as of 1911, and every Prairie- and Calumet-facing footprint from 18th to 20th Street",
+        "Its own printed Scale of Feet"
+      ],
+      "what_it_does_not_supply": [
+        "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+        "A construction date for any building it draws",
+        "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+        "Architecture above the footprint beyond its story count, material colour and roof symbol",
+        "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+      ]
+    }
+  ],
+  "research_note": "T-2321 — the first coach house built in the scene from the K12 kit (data/components/prairie_1904/k12_coach_house.json, T-2320): piece 2 of T-1854. 1812 is the lot south of the 1808 Keith house already standing in the scene; the house itself (the Wheeler house, T-1884/T-1885) is not built yet, so the workyard walk stops at the line the sheet draws its rear wall on and joins it when it lands. The sheet census (chicago/prairie_1904_v1/data/sheet_census/sheet-28.json, polygon s28-1812-rear) carries the building into 1904; its package there is T-1935, whose 1812 rear this record now is.",
+  "research_doc": "",
+  "review_required": false
+}

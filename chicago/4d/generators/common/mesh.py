@@ -29,6 +29,9 @@ class MeshBuilder:
         self.faces: list[tuple[int, ...]] = []
         self.conf: list[float] = []
         self.mat_index: list[int] = []
+        # Materials a shared kit asks for by name (`named_mat`), appended after the
+        # archetype's own list when the object is emitted (T-2278).
+        self.named: dict[str, tuple] = {}
 
     def add_poly(self, points, confidence: float, mat: int = 0) -> list[int]:
         """Add one n-gon from a list of (x, y, z). Returns its vertex indices."""
@@ -40,6 +43,18 @@ class MeshBuilder:
         self.faces.append(tuple(idx))
         self.mat_index.append(mat)
         return idx
+
+    NAMED_BASE = 1000
+
+    def named_mat(self, name: str, rgba, roughness: float) -> int:
+        """An index for a material the archetype's own list does not carry — the
+        openings kit's glass, door leaf, panel and iron (T-2278). The first spec under
+        a name wins. `to_object` appends these after the archetype's materials, in
+        the order first asked for, and remaps the index, so no archetype's own slot
+        numbering moves."""
+        if name not in self.named:
+            self.named[name] = (len(self.named), tuple(rgba), float(roughness))
+        return self.NAMED_BASE + self.named[name][0]
 
     def add_box(self, x0, y0, z0, x1, y1, z1, confidence: float, mat: int = 0,
                 skip: tuple[str, ...] = ()) -> None:
@@ -110,6 +125,13 @@ class MeshBuilder:
         for i, c in enumerate(self.conf):
             attr.data[i].value = c
 
+        if self.named:
+            materials = list(materials or [])
+            base = len(materials)
+            for name, (_k, rgba, rough) in sorted(self.named.items(), key=lambda kv: kv[1][0]):
+                materials.append(simple_material(name, rgba, roughness=rough))
+            self.mat_index = [base + (mi - self.NAMED_BASE) if mi >= self.NAMED_BASE else mi
+                              for mi in self.mat_index]
         if materials:
             for m in materials:
                 me.materials.append(m)

@@ -11054,7 +11054,7 @@ lines drawn from no sheet) · tickets **T-0609** (this), **T-0557** (the reading
 
 ### L220 — 392 people join the town on the town's own lists, and a household is written round each of them
 
-**Scope:** `residents.persons[civic_mint]` — 509 people (511 before T-2179, 2026-10-08: two of the register's minted cards were duplicates. The infant Jean Baptiste Bourassa stood once as baptised at St Mary's on 29 June 1835 and once as 'John Baptist', buried by the same priest on 2 July aged 28 days, and his father Léon stood once for each entry. `baptist_john` folds onto `bourassa_jean_baptiste` and `bourassa_lon` onto `bourrassa_leon` (data/residents/card_merge_rulings.json, C15 and C16). Nobody is lost: both people are still here, once each.) **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. This is the entry the 120 arrive IN, which is why it is the one that rises: 392 to 511.
+**Scope:** `residents.persons[civic_mint]` — 507 people (508 before T-2251, 2026-10-10: `franchere_l`, the 'L. Franchere' who witnessed St Cyr's first Chicago marriage in 1834, folds onto `franchre_louis`, the 'Louis Franchère' who stood sponsor at St Mary's on 5 June 1833, under C2 (data/residents/card_merge_rulings.json): the initial has one full forename to go to, the surnames differ only by the grave accent the 1921 Review is shown dropping, and the 1833 petition of Chicago's Catholics carries the stem once, as Louis. The marriage leaf itself was not read; the ruling says what would reopen it. One man, one card; nobody is lost. 509 before T-1550, 2026-10-09: the St Mary's register's `beaubien_charles`, father of Susan at her baptism on 24 December 1834, folds onto `beaubien_charles_h` under C18 (data/residents/card_merge_rulings.json): Moses and Kirkland print Charles H. Beaubien, J. B.'s son, teaching at the fort in 1829, Fergus's obituary puts his birth in 1806 or 1807, and the corpus holds no second Charles Beaubien. One man, one card; nobody is lost. 511 before T-2179, 2026-10-08: two of the register's minted cards were duplicates. The infant Jean Baptiste Bourassa stood once as baptised at St Mary's on 29 June 1835 and once as 'John Baptist', buried by the same priest on 2 July aged 28 days, and his father Léon stood once for each entry. `baptist_john` folds onto `bourassa_jean_baptiste` and `bourassa_lon` onto `bourrassa_leon` (data/residents/card_merge_rulings.json, C15 and C16). Nobody is lost: both people are still here, once each. T-1281, 2026-10-09, held it at 509: `sweet_a`, the 'A. Sweet' card that also carries the 'ALONSON SWEET' of the Democrat's 16 July 1834 notice, was undecided against `sweet_alanson`; the page prints Alonson and nothing prints both spellings for one man, so it is ruled distinct under D8 and stays a card of its own.) **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. This is the entry the 120 arrive IN, which is why it is the one that rises: 392 to 511.
 **Decision:** on 2026-09-03 the owner ratified a grading ladder for resident evidence,
 quoted in full in T-0514 and in `docs/RESEARCH/resident-grading-policy.md`, and T-0513
 spent it: `tools/consolidate_resident_evidence.py --build` reads seven source domains,
@@ -12767,8 +12767,8 @@ instruction — and the size is seated as a wife and children: 84 wives and 212 
 the sources do not name. Thirty-five of the hundred and nineteen drew a house of one and hold no
 kin at all, so the drawn people stand on 84 cards.
 
-**Scope:** `residents.persons[modelled_families]` — 801 people in 240 households, every one of
-them re-derivable from `tools/reconstruct_modelled_families.py --check`. **T-2190 (2026-10-08) took it from 802 to 801, and the one person fewer is invention retired in favour of the record:** Chester Ingersoll's house carried a drawn wife, 'Martha Ingersoll', while the Chicago Democrat of 17 December 1833 prints his marriage on the 12th to Miss Betsy Weaver, whom the town already held on a card of her own (drawn male until the column's own 'Miss' was read). She is now seated as his wife in the drawn wife's place (`PRINTED_WIVES`, her card folded into his), counted in the same order-book cell, and the drawn wife is not seated; his six drawn children are unchanged, by the same seeds. She is a named person, not one of this stage's, so the count falls by one. **T-2140 (2026-10-05) took it from 803 to 802** without drawing anyone it had refused before: splitting the Pruyne-Kimberly partnership left Peter Pruyne alone on his card for the first time, and the new refusal 3b (below) keeps a wife off a man the record marries seven weeks after the scene date; Kimberly's own wife, whom the history of medicine names, is a stated-family write and not a draw. The one person fewer is a drawn daughter of 10-14 in the south (`rc_thomas_frederick_child_4`), refused by the order book's female 10-19 south cell when the book re-derived its quota over the moved population. **T-2021 GREW IT FROM
+**Scope:** `residents.persons[modelled_families]` — 762 people in 224 households, every one of
+them re-derivable from `tools/reconstruct_modelled_families.py --check`. **T-2189 (2026-10-09) took it from 774 in 227 to 762 in 224** by withdrawing, never re-dealing: the town's own burials and death notices bury Diana Hamilton, Daniel Outhet and Charles Rollins before the scene date, so the three houses the ruling had admitted around them are withdrawn by name with their 12 drawn people (`family_ruling.withdrawn`), and the order book nets their cells out of what the ruling orders. Two folds go the same way: William Bourque and Pitman Fisher are buried before the day, so the women folded into their houses (`hh_rc_connor_margaret`, `hh_rc_barnes_esther`) head their own houses again, and 91 marriages become 89. **The pairing is now frozen as the ruling is**: a pair already made stands, a pair whose head is gone is dropped, and nobody re-pairs — before this, one withdrawn head re-paired every head after him. **T-2185 (2026-10-09) took it from 796 in 238 to 774 in 227, and the twenty-two fewer are invention retired in favour of the record:** St Mary's baptismal register puts 28 people the model had drawn male in the place of the mother or the godmother (marraine) of a child, and the register's role is now read onto their cards as female. Eleven of them head a house THE RULING had admitted as a married man's (Monique Beaubien, Mary Brenin, Anne Françoise Apolline Bruno, Honora Casy, Catherine Chandler, Marie Louise Mallet, Marie Louise Ouilmette, Jacquette Peltier, Catherine Preman, Josette Vieau, Gwinthlean Whistler), and each loses exactly the drawn wife and children it was given — Catherine Chandler's house alone held a drawn wife and five children. Nine more head houses THE RULING had stood alone (`family_ruling.stood_alone_read_female`); they ordered no cell, so nothing is withdrawn with them. No house is admitted in their place, and the frozen ruling is not touched. **T-2232 (2026-10-09) took it from 801 in 240 to 796 in 238, and the five fewer are invention retired in favour of the record:** the Chicago Democrat of 3 December 1833 prints 'Mr. MARK NOBLE, jun.' marrying 'Miss CHARLOTTE, only daughter of Mr. Charles Wesencraft', and the column's titles are now read onto both cards. Charlotte Wesencraft had been drawn male and given a house under THE RULING (a drawn wife and two sons under ten); she is now seated as Mark Noble jun.'s printed wife, her card folded into his, and her drawn family goes with it. Anne Maria Barney, read female off the same rule, loses the drawn wife and son THE RULING gave a house it took for a man's. Neither house is replaced by anybody, and the frozen ruling is not touched: each one withdraws exactly its own frozen kin and cells (`family_ruling.withdrawn`), and the order book orders the ruling less those five cells. Charlotte is a named person, not one of this stage's draws, so she is not counted here. Her cell (`female/20_29/south`) was full, so she is seated without one, replacing no drawn wife. **T-2190 (2026-10-08) took it from 802 to 801, and the one person fewer is invention retired in favour of the record:** Chester Ingersoll's house carried a drawn wife, 'Martha Ingersoll', while the Chicago Democrat of 17 December 1833 prints his marriage on the 12th to Miss Betsy Weaver, whom the town already held on a card of her own (drawn male until the column's own 'Miss' was read). She is now seated as his wife in the drawn wife's place (`PRINTED_WIVES`, her card folded into his), counted in the same order-book cell, and the drawn wife is not seated; his six drawn children are unchanged, by the same seeds. She is a named person, not one of this stage's, so the count falls by one. **T-2140 (2026-10-05) took it from 803 to 802** without drawing anyone it had refused before: splitting the Pruyne-Kimberly partnership left Peter Pruyne alone on his card for the first time, and the new refusal 3b (below) keeps a wife off a man the record marries seven weeks after the scene date; Kimberly's own wife, whom the history of medicine names, is a stated-family write and not a draw. The one person fewer is a drawn daughter of 10-14 in the south (`rc_thomas_frederick_child_4`), refused by the order book's female 10-19 south cell when the book re-derived its quota over the moved population. **T-2021 GREW IT FROM
 295 IN 84 TO 803 IN 240 on 2026-10-03**, by ruling on the married houses the order book had
 refused a wife: 156 of them are given the whole family this stage drew for them, 508 people
 (below, THE RULING). **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. One drawn family member gives way to a head the register names.
@@ -12882,7 +12882,8 @@ are the two files it draws against. **Recorded:** 2026-09-18.
 **Restated:** 2026-09-21 (T-1369), when the evidence-only refusal was added and the counts,
 the refusal tallies and the sex-ratio reading were brought back to the ledger; 2026-10-03
 (T-2020), when the 91 marriages were made; 2026-10-03 (T-2021), when the ruling admitted 156
-houses and 121 were left standing alone.
+houses and 121 were left standing alone; 2026-10-08 (T-2189), when three admitted houses and two folds were
+withdrawn because the sources bury their heads before the scene date.
 
 ### L245 — "Some hundreds more" is read as a band of 200 to 900, and the transient crowd of 1 July 1835 is bounded by it
 
@@ -12950,7 +12951,7 @@ because the row carries no readable date at all, and 39 because T-1144's reading
 shows its evidence is a source SPAN that runs through 1 July 1835 and therefore pins no day
 before it. A lag nothing measures is not a lag a persistence rate may be applied to.
 
-**Scope:** `residents.persons[readmissions]` — 118 people, in 118 cards of their own in `data/residents/readmitted/`, re-derivable from `tools/readmit_borderline_roster.py --check`. **T-2197 shrank it from 121 to 118 on 2026-10-08, and the three were never anybody new.** The stage minted Joseph Létendre, his father Baptiste and Louis Franchère from St Mary's rows that a card of the layer already carries in its own evidence, spelt otherwise (`ltendre_joseph`, `ltendre_baptiste`, `franchre_louis`), so each person stood in the town twice — once `uncertain` on the research card, once drawn `present` and boarding on this stage's. The copies are folded onto the research cards under rule C17 (`data/residents/card_merge_rulings.json`), kept whole under `data/residents/merged/`, and the stage now withholds a row whose readmission a card merge retired. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Fifty-eight of the re-admitted turn out to be people the register NAMES, so they are minted on their own evidence instead of being re-admitted at the reconstructed tier — the strongest possible reason for this number to fall. The 904 of the title is what the stage RE-ADMITS and the 179 is what it MINTS: 725 of the 904 are a second presence written beside a reading on a card this layer already held, and only the rows carrying a read name no card of this layer holds get a card here. The stage's own ledger prints both figures; this one is the count of people who exist because this stage ran.
+**Scope:** `residents.persons[readmissions]` — 116 people, in 116 cards of their own in `data/residents/readmitted/`, re-derivable from `tools/readmit_borderline_roster.py --check`. **T-2197 shrank it from 121 to 118 on 2026-10-08, and the three were never anybody new.** The stage minted Joseph Létendre, his father Baptiste and Louis Franchère from St Mary's rows that a card of the layer already carries in its own evidence, spelt otherwise (`ltendre_joseph`, `ltendre_baptiste`, `franchre_louis`), so each person stood in the town twice — once `uncertain` on the research card, once drawn `present` and boarding on this stage's. The copies are folded onto the research cards under rule C17 (`data/residents/card_merge_rulings.json`), kept whole under `data/residents/merged/`, and the stage now withholds a row whose readmission a card merge retired. **T-2189 (2026-10-09) took it from 118 to 116:** a roster row that is a register decedent buried before the scene date is withheld (`the_reading_is_a_death_before_the_day`) rather than priced as a sighting, so `hh_one_of_daughters_of_m_colewell` and `hh_william_bourque_burke` are no longer minted. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Fifty-eight of the re-admitted turn out to be people the register NAMES, so they are minted on their own evidence instead of being re-admitted at the reconstructed tier — the strongest possible reason for this number to fall. The 904 of the title is what the stage RE-ADMITS and the 179 is what it MINTS: 725 of the 904 are a second presence written beside a reading on a card this layer already held, and only the rows carrying a read name no card of this layer holds get a card here. The stage's own ledger prints both figures; this one is the count of people who exist because this stage ran.
 
 **What is invented, exactly.** Two things and no more. First, **that these people were in
 Chicago on 1 July 1835**, which no source says of any of them — that is what "withheld"
@@ -13390,7 +13391,7 @@ programme itself raised as a lodging place, at the trade that roof's own `functi
 states. Nothing is hand-authored: every value comes from a seed a reader can retype, and
 `--check` re-derives all twelve cards and the ledger byte for byte.
 
-**Scope:** `residents.persons[lodgers]` — 155 people in 23 lodging-household cards, re-derivable from `tools/seat_lodgers_1835.py --check` (56 seats come from the layer; these 155 are the invention on top of them — 131 boarders, working lodgers and keepers, and the 24 keepers' children T-1533 draws). **T-2148 grew it from 147 in 22 to 155 in 23 on 2026-10-06.** Plat block 50's boarding house on Canal Street (`recon_1835_blk_washington_clinton_h3_02`, **L394**) is a 27th lodging place; it is dealt last, after every house the frozen room was dealt to, and takes seven boarders, and the bed model's re-apportionment moves one more onto the other houses (123 to 131 minted; 234 to 243 ordinary-night beds, 19 of them empty). It has no keeper: every adult `lodging/trade` cell of the West is already filled by the re-family ledger's heads, so the stage refuses the keeper and says so rather than mint a person the book does not order. One frozen cell was re-frozen by hand to make that deal possible, and nothing else: `persons/male/40_49/west/lodging/none` had been recorded in `re_cut_since` as cut from 2 to 1 under a deal that drew 1 there, and the new house would otherwise have drawn the slot the book no longer orders. **T-2021 shrank it from 150 in 23 to 147 in 22 on 2026-10-04, and invention gave way to the town's own households.** The family ruling (**L244**) gave 156 married houses the wife and children the household model drew for them, so seven more people already sleep in the lodging places before this stage deals (30 to 37). One of those houses is the Mansion House's keeper, Edward Haddock: his own household now fills the house's ordinary-night figure, so the stage seats nobody there and its lodging card retires with its four invented lodgers. The re-deal across the other houses mints two fewer boarders in all (125 to 123), and five more ordinary-night beds are slept in by somebody the town already counts (23 empty to 18). One keeper's child is no longer drawn: the ruling's wives and children took the last Yankee forenames free beside the surname Gilbert, so Benjamin Gilbert's child is refused for the pool, as `keeper_families` says (24 drawn of the 31 the model wants). Nobody is over-dealt and nobody already standing was moved by hand. **T-1532 grew it from 146 to 150, still in 23 cards, on 2026-10-03, and the four are the book's working lodgers.** The `lodging/trade` order — lodgers who worked at something — was the one third of the bed buckets this stage had always left open "for the stage that can price it". By the time it was dealt the re-family arrivals had filled every cell of it but one: `persons/male/10_19/south/lodging/trade`, four still owed. The stage now deals it LAST, after the top-up and the youths' top-up, in a fourth frozen room (`quota_basis.working_lodgers`) read the same way the top-up's is, so a later re-cut moves nobody it seats; three youths of 10-19 take empty beds in `recon_1835_blk_washington_market_h3_01` and one in `recon_1835_blk_washington_market_h3_04`, the beds the youths' top-up left. Each one's trade is a seeded pick over T-1347's own set off the Fergus 1839 table (L248), less the keepers' trades and the trades the December census counts by their keeper: two clerks, a carpenter and a tailor. No seniority rule is applied, for T-1347's reason, so the table's shares stand for an apprentice as for a journeyman. The trades are invented and say so on each card; no employer is drawn here, and the staffing join (T-1433) seats the two clerks at John Dean Caton's and at J. D. Caton's law office and the tailor at George Holsman's, in places those houses still had open, so nobody already seated there moves. **T-1536 grew it from 135 in 22 to 146 in 23 on 2026-10-03, and the eleven are youths the book still ordered.** The re-cut had grown the `10_19/*/lodging/none` cells while the frozen room stood still, so the book ordered eleven people of ten to nineteen into North and South lodging households with nobody drawn, beside thirty-eight empty ordinary-night beds in the same two divisions. Refusal 3 refuses a bed to a child under ten, not to this band, which the boarders stage has always dealt. So a third room, the youths' top-up, is dealt after the adults' top-up on the same terms, read live once and carried in `quota_basis.youth_top_up`: three youths take beds at the Steamboat Hotel (whose lodging card comes back), five at the Dearborn H3 house and three at the Market H3 house, and twenty-seven ordinary-night beds still stand empty with no order the book makes. Not one person already standing moved. They are boarders with no trade recorded, named from the pools like every other lodger, and claim no kinship with anybody under the roof. The nine under-tens the book still orders into South and West lodging stay undrawn, because a child is drawn as a keeper's kin or not at all: every keeper in those divisions has the under-ten children the 1840 histogram draws them, bar two at the McCarthy house, refused because the Irish name pool is spent beside that surname, as `keeper_families` says. They come with the keepers of lodging roofs not yet raised (T-2023). **T-1538 grew it from 134 to 135, still in 22 cards, on 2026-10-03, and the one is a bed the book still ordered.** The frozen room T-1503 deals against was spent to its last cell while the re-cut book still ordered eight adults into `lodging/none` cells nobody had drawn — one in the North, seven in the West. The stage now deals a TOP-UP after every other draw it makes, against the book's order less the re-family arrivals less what it had already drawn, read live once and carried in `quota_basis.top_up` so a later re-cut moves nobody it seats: one boarder, a man of 20-29, takes the last empty bed of `recon_1835_north_h2_045`, and not one person already standing moved. His surname is drawn clear of everyone already on the house's card, because unrelated boarders under one roof sharing a name read as kin. The other seven are carried in the top-up's room with no bed to go to — every West ordinary-night bed is slept in — so they wait on a roof (T-1209), and twenty-nine ordinary-night beds in the North and South stand empty with no order the book makes, so nobody is minted into them; `quota_basis.top_up.what_is_left` says both. **T-1951 grew it from 121 in 20 to 134 in 22 on 2026-10-02, and most of the new beds stand empty, said.** It raised the South's three boarding houses the plan still held (`recon_1835_blk_washington_market_h3_01` and `_h3_04`, `recon_1835_blk_washington_dearborn_h3_01`, **L349**), so the lodging model apportions the class over fifteen places. The stage draws a keeper for each — Louis Robillard, Michel Laframboise and Edward McCarthy, with five children between them — mints two boarders, and re-seats thirteen people already standing towards the new houses, which therefore sleep **4 of 10, 6 of 12 and 8 of 12**. The other sixteen ordinary-night beds stand empty under the stage's own refusal (`no order left, no mint`): every adult `lodging/none` cell of the South is filled to what the book orders, so a house raised on the plan's headroom gets a keeper and the people the town already counts, and nobody is invented to fill it. The houses the thirteen came from give up a bed or two each — the Clark block's second and third houses now sleep thirteen apiece, Chapin's house six of its twelve — and the Steamboat Hotel's one minted lodger is no longer minted, so its lodging card retires with three of its eleven beds empty, as Kelsey's did under T-1952. Thirty ordinary-night beds stand empty in all, every one with its reason, and nobody is over-dealt. **T-1950 grew it from 110 in 19 to 121 in 20 on 2026-10-02** by raising the third H3 boarding house on `blk_washington_clark` (`recon_1835_blk_washington_clark_h3_11`, **L345**): the house's drawn keeper, Baptiste Trottier, and his four children are minted with five boarders, and eight people already standing re-seat towards it, which fills its fourteen ordinary-night beds. The houses they came from give up a bed or two each, and two more of the North's beds go empty and said: Chapin's house on `blk_indiana_north_cass` now sleeps eight of its thirteen and the Steamboat Hotel nine of its eleven, both under the stage's own refusal (`no order left, no mint`), beside Kelsey's four. Eleven ordinary-night beds stand empty in all, and nobody is over-dealt. **T-1808 shrank it from 116 to 108 on 2026-10-02, and documented people displaced invented ones again.** The placement pass had seated Mark Beaubien's household on `recon_1835_blk_washington_clark_h3_05` and Alanson Sweet's on `_h3_06` under `lodging_near_the_landings`, while this stage, reading keepers off `works_at` alone, drew a keeper of its own for both roofs — so two households answered for each. The stage now reads an adoption under a keeper clause as the house's keeper (its refusal 6): each man takes the bed a drawn keeper took, as a seat that writes nothing into his card, and the two drawn keepers and their six children are retired. Not one boarder moved. **T-1952 grew it from 108 to 110, still in 19 cards, on 2026-10-02** by raising the North Division's H3 boarding house (`recon_1835_blk_indiana_north_cass_h3_09`, **L344**): the lodging model now apportions the boarding-house class over twelve places, the new house's keeper and her children are drawn, and the North's solitary people re-seat towards it — which empties Kelsey's boarding-house, whose card is withdrawn: its four ordinary-night beds stand empty under the stage's own refusal (`no order left, no mint`), because every adult `lodging/none` cell of the North is filled to what the book orders. Nobody is over-dealt and nobody is lost; the people Kelsey's held sleep in the new house. A minted keeper's surname is now drawn clear of every keeper minted before her, since a keeper's surname is her house's trade style (T-1952's change to the name draw; no standing keeper's name moved). **T-1809 grew it from 106 in 18 to 116 in 19 on 2026-10-01** by raising the second H3 boarding house (`recon_1835_blk_washington_clark_h3_06`, **L321**): the class is apportioned over eleven places, the new house takes 16 ordinary-night beds and its keeper's three children, and seven standing houses give up an ordinary-night bed. Two of Kelsey's beds now stand empty and said: the layer's solitary people re-seat towards the new house, and the South's adult lodging cells have no open order left for the last two. **T-1778 grew it from 94 in 17 to 106 in 18 on 2026-10-01** by raising the town's first H3 boarding house (`recon_1835_blk_washington_clark_h3_05`, **L318**): the lodging model apportions the boarding-house class over ten places instead of nine, the new house takes 12 ordinary-night beds, and the beds already standing are re-cut by a bed at most. **T-1717 grew it from 84 in 16 to 94 in 17 on 2026-09-28, and a roof is only half the reason.** That ticket raised `kelsey_boarding_house` — the house Eve Kelsey kept, which Bonnell's walk of an August morning in 1835 describes as full of boarders — so the stage gained an eighteenth lodging place and the five ordinary-night beds that came with it; the other five of the ten are beds that appeared in houses already standing, because the roof programme moved under the lodging model and re-sized them. TWO THINGS IN THE MACHINERY MOVED WITH IT, both of them the same fault caught from two sides. **The order a house is dealt in is part of the deal.** The loop spends the room house by house, so a house inserted ahead of another by nothing more than its own name takes the cells the second one was going to draw: `kelsey_boarding_house` sorts fourth of eighteen, and raising it re-dealt ten of the seventeen houses already standing for no reason a reader could give. T-1535 had already answered this for the two houses it added, by dealing them last; the answer is now carried for every house, as `quota_basis.houses_the_deal_was_dealt_to` beside the room the deal was dealt against, and a lodging place that is not on that list is dealt after every one that is. **And an order that is already slept in is not an open order.** The frozen room is a cell's `to_reconstruct` read gross, which is right for a quota and wrong for a ceiling: the re-family programme (T-1563) lands 129 heads of the town's own model into these same lodging cells, and four of the ten new people were minted into cells those heads had already filled — `build_order_book_1835.py` refused the book for it, correctly, because "a move needs an open order to fill". The deal now clamps on the book's OPEN orders — its order less those arrivals — as well as on the frozen room, and sheds what will not fit onto cells that still have one; where a whole division is closed it mints nobody and the beds stand empty and said, exactly as T-1535 wrote. THAT CEILING IS FROZEN TOO, in `quota_basis.open_orders_the_deal_was_capped_at`, for the same reason the room is: read live it would be a second live reading of the book, and a re-cut that removes one undrawn slot would change which cells enter the proportional split and move somebody already standing — this stage's own self-test demonstrates exactly that, and it now passes. Not one bed went empty here: all 162 are slept in, and the four shed people stand in north and west cells the book still orders. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Six invented boarders give way: the seats they filled are taken by people the register names, and the seat count from the layer rises 47 to 54 as they do. **T-1490 grew it from 77 in 15 to 87 in 16 on 2026-09-24, by the same mechanism as T-1480 below and for the same reason: a roof arrived.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2, and the lodging model apportions an H2 as a lodging house — so the stage gained a sixteenth house and the ordinary-night capacity that came with it, and ten more people are minted into beds that now exist. Nothing already dealt moved: the house is dealt after every house already dealt, as the New York House and the Sauganash were. THE COUNT IS NOT A CONSTANT AND MUST NOT BE READ AS ONE — it moves whenever the roof programme moves, which is precisely why it is re-derived from the cards and never typed. **T-1533 grew it from 67 to 77 on 2026-09-24, and the ten are not boarders at all: they are the CHILDREN of the six keepers this stage itself invented.** The stage had refused them — "a child does not take a bed at a tavern on their own account" — and left the book's `under_10/*/lodging/none` cells to T-1171 and T-1174, neither of which reaches a keeper minted here, because both draw families onto the cards in `data/residents/households/` and these six keepers are not there. So the children were ordered from nobody. They are drawn at the 1840 size histogram, through T-1171's own reader, so one town is not sized two ways: the keeper is one of the drawn size and the rest are their children, each carrying `kin_of` naming the keeper — never a free-standing person in a lodging cell. **No spouse is drawn, and that is the liberty's own limit**: the spouse rule this project holds is written for a male head and three of these six keepers are women, so the household stands at one parent and their children, which is a FLOOR and not a claim that a keeper kept no spouse. Fourteen children were wanted and ten drawn; the four refusals are written per house in `keeper_families` — one the model put in adolescence, where the book's `10_19` lodging cells are already discharged, and three for whom the invented-name pool holds no forename not already borne beside the keeper's surname. A child takes no ordinary-night bed, so not one of the 144 the boarders fill moves. **T-1535 grew it from 56 in 13 to 67 in 15 on 2026-09-24, and the eleven are beds this stage already held and would not fill.** The stage refused the New York House and the Sauganash Hotel for want of a division — seven empty beds and four — on the ground that `data/structures/*.json` carries no division field. `data/reconstruction/1835_existing_roof_reconciliation.json` settles both into the South Division by name and always did, so the refusal was a fact about where the tool looked rather than about the evidence, and lifting it invents eleven more people at exactly the tier the other fifty-six stand at. The two houses are dealt LAST, after every house already dealt, so no existing card moves: the diff that landed this is two new cards and not one changed one. Every one of the town's 144 ordinary-night beds is now slept in. The count has moved TWICE this week and in opposite directions, which is why it is re-derived and never stated. It read 75 in 12. **T-1171 shrank it to 47**: `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated, and once that stage reads the rulings the model draws 30 more of the town's own named men as living alone — so `seat_lodgers_1835.py` puts THEM in beds it would otherwise have invented somebody for. Twenty-eight invented people gone, twenty-eight real ones in their place, and that is the direction this question is supposed to travel. **T-1480 then grew it to 56 in 13**: the redeal made `recon_1835_north_h2_045` an H2 rather than an H3, and `recon_1835_north_h2_022` and `recon_1835_north_h2_028` boarding houses at all, so the lodging model apportioned one more house and the capacity that came with it. The seventeen of the title are not in it and must not be: they are people the town already counts, and this stage wrote them a `lives_at` rather than a life. **T-1525 MOVED IT A SECOND TIME, FROM 81 TO 84, AND THIS ONE IS A RE-DEAL AND NOT A ROOF.** The stage freezes the quota it deals against so that a later re-cut of the order book spends what the stage did not and moves nobody — and this branch re-cut the book so far that the frozen quota stood at 334 lodgers where the book now orders 273. The gap was being held shut by a live ceiling that read the book on every build, and that ceiling turned out to be deciding which cells entered the proportional split: a cell the book had emptied since the deal left the split and moved every other cell's share by rounding, with nobody ever over-dealt. So the owner ruled the quota re-frozen against the re-cut book and the ceiling now reads the frozen room alone. THE RE-DEAL IS THE COST OF THAT and it is stated rather than absorbed: 32 invented slots retired, 35 opened and 7 re-banded, for a net of three. Not one of them is a person any source names — every one is `reconstructed`, and a reader who met one of these names met it as an invention. What a re-cut may NOT do is still what it could not do before: take the order out from under somebody already standing. That now stops the build and asks for a deliberate re-freeze instead of being absorbed quietly, which is the whole of what changed.
+**Scope:** `residents.persons[lodgers]` — 157 people in 22 lodging-household cards (155 until T-2196 raised the boarding house on the Market wedge's lot 7, 2026-10-09, **L411**: Mark Beaubien's household moves into it under `lodging_near_the_landings` and five people already standing re-seat into it, Alanson Sweet's takes the Clark block house Beaubien left, and the second Clark house, keeperless, gets a drawn keeper, Alvah Stebbins, with three children; one working lodger is no longer drawn, because `quota_basis.working_lodgers`' `persons/male/10_19/south/lodging/trade` cell was re-frozen at the live order, 4 to 3, when the re-dealt houses drew one more there, and nobody else moved by hand: 13 keepers, 118 boarders and working lodgers, 26 keepers' children; 23 until T-2185 re-dealt the beds over a layer that lost 22 drawn family members on 2026-10-09: 155 are still seated, and the Steamboat Hotel's one drawn lodger is no longer among them, so its card is retired), re-derivable from `tools/seat_lodgers_1835.py --check` (56 seats come from the layer; these 155 are the invention on top of them — 131 boarders, working lodgers and keepers, and the 24 keepers' children T-1533 draws). **T-2148 grew it from 147 in 22 to 155 in 23 on 2026-10-06.** Plat block 50's boarding house on Canal Street (`recon_1835_blk_washington_clinton_h3_02`, **L394**) is a 27th lodging place; it is dealt last, after every house the frozen room was dealt to, and takes seven boarders, and the bed model's re-apportionment moves one more onto the other houses (123 to 131 minted; 234 to 243 ordinary-night beds, 19 of them empty). It has no keeper: every adult `lodging/trade` cell of the West is already filled by the re-family ledger's heads, so the stage refuses the keeper and says so rather than mint a person the book does not order. One frozen cell was re-frozen by hand to make that deal possible, and nothing else: `persons/male/40_49/west/lodging/none` had been recorded in `re_cut_since` as cut from 2 to 1 under a deal that drew 1 there, and the new house would otherwise have drawn the slot the book no longer orders. **T-2021 shrank it from 150 in 23 to 147 in 22 on 2026-10-04, and invention gave way to the town's own households.** The family ruling (**L244**) gave 156 married houses the wife and children the household model drew for them, so seven more people already sleep in the lodging places before this stage deals (30 to 37). One of those houses is the Mansion House's keeper, Edward Haddock: his own household now fills the house's ordinary-night figure, so the stage seats nobody there and its lodging card retires with its four invented lodgers. The re-deal across the other houses mints two fewer boarders in all (125 to 123), and five more ordinary-night beds are slept in by somebody the town already counts (23 empty to 18). One keeper's child is no longer drawn: the ruling's wives and children took the last Yankee forenames free beside the surname Gilbert, so Benjamin Gilbert's child is refused for the pool, as `keeper_families` says (24 drawn of the 31 the model wants). Nobody is over-dealt and nobody already standing was moved by hand. **T-1532 grew it from 146 to 150, still in 23 cards, on 2026-10-03, and the four are the book's working lodgers.** The `lodging/trade` order — lodgers who worked at something — was the one third of the bed buckets this stage had always left open "for the stage that can price it". By the time it was dealt the re-family arrivals had filled every cell of it but one: `persons/male/10_19/south/lodging/trade`, four still owed. The stage now deals it LAST, after the top-up and the youths' top-up, in a fourth frozen room (`quota_basis.working_lodgers`) read the same way the top-up's is, so a later re-cut moves nobody it seats; three youths of 10-19 take empty beds in `recon_1835_blk_washington_market_h3_01` and one in `recon_1835_blk_washington_market_h3_04`, the beds the youths' top-up left. Each one's trade is a seeded pick over T-1347's own set off the Fergus 1839 table (L248), less the keepers' trades and the trades the December census counts by their keeper: two clerks, a carpenter and a tailor. No seniority rule is applied, for T-1347's reason, so the table's shares stand for an apprentice as for a journeyman. The trades are invented and say so on each card; no employer is drawn here, and the staffing join (T-1433) seats the two clerks at John Dean Caton's and at J. D. Caton's law office and the tailor at George Holsman's, in places those houses still had open, so nobody already seated there moves. **T-1536 grew it from 135 in 22 to 146 in 23 on 2026-10-03, and the eleven are youths the book still ordered.** The re-cut had grown the `10_19/*/lodging/none` cells while the frozen room stood still, so the book ordered eleven people of ten to nineteen into North and South lodging households with nobody drawn, beside thirty-eight empty ordinary-night beds in the same two divisions. Refusal 3 refuses a bed to a child under ten, not to this band, which the boarders stage has always dealt. So a third room, the youths' top-up, is dealt after the adults' top-up on the same terms, read live once and carried in `quota_basis.youth_top_up`: three youths take beds at the Steamboat Hotel (whose lodging card comes back), five at the Dearborn H3 house and three at the Market H3 house, and twenty-seven ordinary-night beds still stand empty with no order the book makes. Not one person already standing moved. They are boarders with no trade recorded, named from the pools like every other lodger, and claim no kinship with anybody under the roof. The nine under-tens the book still orders into South and West lodging stay undrawn, because a child is drawn as a keeper's kin or not at all: every keeper in those divisions has the under-ten children the 1840 histogram draws them, bar two at the McCarthy house, refused because the Irish name pool is spent beside that surname, as `keeper_families` says. They come with the keepers of lodging roofs not yet raised (T-2023). **T-1538 grew it from 134 to 135, still in 22 cards, on 2026-10-03, and the one is a bed the book still ordered.** The frozen room T-1503 deals against was spent to its last cell while the re-cut book still ordered eight adults into `lodging/none` cells nobody had drawn — one in the North, seven in the West. The stage now deals a TOP-UP after every other draw it makes, against the book's order less the re-family arrivals less what it had already drawn, read live once and carried in `quota_basis.top_up` so a later re-cut moves nobody it seats: one boarder, a man of 20-29, takes the last empty bed of `recon_1835_north_h2_045`, and not one person already standing moved. His surname is drawn clear of everyone already on the house's card, because unrelated boarders under one roof sharing a name read as kin. The other seven are carried in the top-up's room with no bed to go to — every West ordinary-night bed is slept in — so they wait on a roof (T-1209), and twenty-nine ordinary-night beds in the North and South stand empty with no order the book makes, so nobody is minted into them; `quota_basis.top_up.what_is_left` says both. **T-1951 grew it from 121 in 20 to 134 in 22 on 2026-10-02, and most of the new beds stand empty, said.** It raised the South's three boarding houses the plan still held (`recon_1835_blk_washington_market_h3_01` and `_h3_04`, `recon_1835_blk_washington_dearborn_h3_01`, **L349**), so the lodging model apportions the class over fifteen places. The stage draws a keeper for each — Louis Robillard, Michel Laframboise and Edward McCarthy, with five children between them — mints two boarders, and re-seats thirteen people already standing towards the new houses, which therefore sleep **4 of 10, 6 of 12 and 8 of 12**. The other sixteen ordinary-night beds stand empty under the stage's own refusal (`no order left, no mint`): every adult `lodging/none` cell of the South is filled to what the book orders, so a house raised on the plan's headroom gets a keeper and the people the town already counts, and nobody is invented to fill it. The houses the thirteen came from give up a bed or two each — the Clark block's second and third houses now sleep thirteen apiece, Chapin's house six of its twelve — and the Steamboat Hotel's one minted lodger is no longer minted, so its lodging card retires with three of its eleven beds empty, as Kelsey's did under T-1952. Thirty ordinary-night beds stand empty in all, every one with its reason, and nobody is over-dealt. **T-1950 grew it from 110 in 19 to 121 in 20 on 2026-10-02** by raising the third H3 boarding house on `blk_washington_clark` (`recon_1835_blk_washington_clark_h3_11`, **L345**): the house's drawn keeper, Baptiste Trottier, and his four children are minted with five boarders, and eight people already standing re-seat towards it, which fills its fourteen ordinary-night beds. The houses they came from give up a bed or two each, and two more of the North's beds go empty and said: Chapin's house on `blk_indiana_north_cass` now sleeps eight of its thirteen and the Steamboat Hotel nine of its eleven, both under the stage's own refusal (`no order left, no mint`), beside Kelsey's four. Eleven ordinary-night beds stand empty in all, and nobody is over-dealt. **T-1808 shrank it from 116 to 108 on 2026-10-02, and documented people displaced invented ones again.** The placement pass had seated Mark Beaubien's household on `recon_1835_blk_washington_clark_h3_05` and Alanson Sweet's on `_h3_06` under `lodging_near_the_landings`, while this stage, reading keepers off `works_at` alone, drew a keeper of its own for both roofs — so two households answered for each. The stage now reads an adoption under a keeper clause as the house's keeper (its refusal 6): each man takes the bed a drawn keeper took, as a seat that writes nothing into his card, and the two drawn keepers and their six children are retired. Not one boarder moved. **T-1952 grew it from 108 to 110, still in 19 cards, on 2026-10-02** by raising the North Division's H3 boarding house (`recon_1835_blk_indiana_north_cass_h3_09`, **L344**): the lodging model now apportions the boarding-house class over twelve places, the new house's keeper and her children are drawn, and the North's solitary people re-seat towards it — which empties Kelsey's boarding-house, whose card is withdrawn: its four ordinary-night beds stand empty under the stage's own refusal (`no order left, no mint`), because every adult `lodging/none` cell of the North is filled to what the book orders. Nobody is over-dealt and nobody is lost; the people Kelsey's held sleep in the new house. A minted keeper's surname is now drawn clear of every keeper minted before her, since a keeper's surname is her house's trade style (T-1952's change to the name draw; no standing keeper's name moved). **T-1809 grew it from 106 in 18 to 116 in 19 on 2026-10-01** by raising the second H3 boarding house (`recon_1835_blk_washington_clark_h3_06`, **L321**): the class is apportioned over eleven places, the new house takes 16 ordinary-night beds and its keeper's three children, and seven standing houses give up an ordinary-night bed. Two of Kelsey's beds now stand empty and said: the layer's solitary people re-seat towards the new house, and the South's adult lodging cells have no open order left for the last two. **T-1778 grew it from 94 in 17 to 106 in 18 on 2026-10-01** by raising the town's first H3 boarding house (`recon_1835_blk_washington_clark_h3_05`, **L318**): the lodging model apportions the boarding-house class over ten places instead of nine, the new house takes 12 ordinary-night beds, and the beds already standing are re-cut by a bed at most. **T-1717 grew it from 84 in 16 to 94 in 17 on 2026-09-28, and a roof is only half the reason.** That ticket raised `kelsey_boarding_house` — the house Eve Kelsey kept, which Bonnell's walk of an August morning in 1835 describes as full of boarders — so the stage gained an eighteenth lodging place and the five ordinary-night beds that came with it; the other five of the ten are beds that appeared in houses already standing, because the roof programme moved under the lodging model and re-sized them. TWO THINGS IN THE MACHINERY MOVED WITH IT, both of them the same fault caught from two sides. **The order a house is dealt in is part of the deal.** The loop spends the room house by house, so a house inserted ahead of another by nothing more than its own name takes the cells the second one was going to draw: `kelsey_boarding_house` sorts fourth of eighteen, and raising it re-dealt ten of the seventeen houses already standing for no reason a reader could give. T-1535 had already answered this for the two houses it added, by dealing them last; the answer is now carried for every house, as `quota_basis.houses_the_deal_was_dealt_to` beside the room the deal was dealt against, and a lodging place that is not on that list is dealt after every one that is. **And an order that is already slept in is not an open order.** The frozen room is a cell's `to_reconstruct` read gross, which is right for a quota and wrong for a ceiling: the re-family programme (T-1563) lands 129 heads of the town's own model into these same lodging cells, and four of the ten new people were minted into cells those heads had already filled — `build_order_book_1835.py` refused the book for it, correctly, because "a move needs an open order to fill". The deal now clamps on the book's OPEN orders — its order less those arrivals — as well as on the frozen room, and sheds what will not fit onto cells that still have one; where a whole division is closed it mints nobody and the beds stand empty and said, exactly as T-1535 wrote. THAT CEILING IS FROZEN TOO, in `quota_basis.open_orders_the_deal_was_capped_at`, for the same reason the room is: read live it would be a second live reading of the book, and a re-cut that removes one undrawn slot would change which cells enter the proportional split and move somebody already standing — this stage's own self-test demonstrates exactly that, and it now passes. Not one bed went empty here: all 162 are slept in, and the four shed people stand in north and west cells the book still orders. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Six invented boarders give way: the seats they filled are taken by people the register names, and the seat count from the layer rises 47 to 54 as they do. **T-1490 grew it from 77 in 15 to 87 in 16 on 2026-09-24, by the same mechanism as T-1480 below and for the same reason: a roof arrived.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2, and the lodging model apportions an H2 as a lodging house — so the stage gained a sixteenth house and the ordinary-night capacity that came with it, and ten more people are minted into beds that now exist. Nothing already dealt moved: the house is dealt after every house already dealt, as the New York House and the Sauganash were. THE COUNT IS NOT A CONSTANT AND MUST NOT BE READ AS ONE — it moves whenever the roof programme moves, which is precisely why it is re-derived from the cards and never typed. **T-1533 grew it from 67 to 77 on 2026-09-24, and the ten are not boarders at all: they are the CHILDREN of the six keepers this stage itself invented.** The stage had refused them — "a child does not take a bed at a tavern on their own account" — and left the book's `under_10/*/lodging/none` cells to T-1171 and T-1174, neither of which reaches a keeper minted here, because both draw families onto the cards in `data/residents/households/` and these six keepers are not there. So the children were ordered from nobody. They are drawn at the 1840 size histogram, through T-1171's own reader, so one town is not sized two ways: the keeper is one of the drawn size and the rest are their children, each carrying `kin_of` naming the keeper — never a free-standing person in a lodging cell. **No spouse is drawn, and that is the liberty's own limit**: the spouse rule this project holds is written for a male head and three of these six keepers are women, so the household stands at one parent and their children, which is a FLOOR and not a claim that a keeper kept no spouse. Fourteen children were wanted and ten drawn; the four refusals are written per house in `keeper_families` — one the model put in adolescence, where the book's `10_19` lodging cells are already discharged, and three for whom the invented-name pool holds no forename not already borne beside the keeper's surname. A child takes no ordinary-night bed, so not one of the 144 the boarders fill moves. **T-1535 grew it from 56 in 13 to 67 in 15 on 2026-09-24, and the eleven are beds this stage already held and would not fill.** The stage refused the New York House and the Sauganash Hotel for want of a division — seven empty beds and four — on the ground that `data/structures/*.json` carries no division field. `data/reconstruction/1835_existing_roof_reconciliation.json` settles both into the South Division by name and always did, so the refusal was a fact about where the tool looked rather than about the evidence, and lifting it invents eleven more people at exactly the tier the other fifty-six stand at. The two houses are dealt LAST, after every house already dealt, so no existing card moves: the diff that landed this is two new cards and not one changed one. Every one of the town's 144 ordinary-night beds is now slept in. The count has moved TWICE this week and in opposite directions, which is why it is re-derived and never stated. It read 75 in 12. **T-1171 shrank it to 47**: `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated, and once that stage reads the rulings the model draws 30 more of the town's own named men as living alone — so `seat_lodgers_1835.py` puts THEM in beds it would otherwise have invented somebody for. Twenty-eight invented people gone, twenty-eight real ones in their place, and that is the direction this question is supposed to travel. **T-1480 then grew it to 56 in 13**: the redeal made `recon_1835_north_h2_045` an H2 rather than an H3, and `recon_1835_north_h2_022` and `recon_1835_north_h2_028` boarding houses at all, so the lodging model apportioned one more house and the capacity that came with it. The seventeen of the title are not in it and must not be: they are people the town already counts, and this stage wrote them a `lives_at` rather than a life. **T-1525 MOVED IT A SECOND TIME, FROM 81 TO 84, AND THIS ONE IS A RE-DEAL AND NOT A ROOF.** The stage freezes the quota it deals against so that a later re-cut of the order book spends what the stage did not and moves nobody — and this branch re-cut the book so far that the frozen quota stood at 334 lodgers where the book now orders 273. The gap was being held shut by a live ceiling that read the book on every build, and that ceiling turned out to be deciding which cells entered the proportional split: a cell the book had emptied since the deal left the split and moved every other cell's share by rounding, with nobody ever over-dealt. So the owner ruled the quota re-frozen against the re-cut book and the ceiling now reads the frozen room alone. THE RE-DEAL IS THE COST OF THAT and it is stated rather than absorbed: 32 invented slots retired, 35 opened and 7 re-banded, for a net of three. Not one of them is a person any source names — every one is `reconstructed`, and a reader who met one of these names met it as an invention. What a re-cut may NOT do is still what it could not do before: take the order out from under somebody already standing. That now stops the build and asks for a deliberate re-freeze instead of being absorbed quietly, which is the whole of what changed.
 
 **The liberty SHRANK on 2026-09-20, and the reason is worth keeping (T-1171).** It stood at
 75 minted against 17 seated. `reconstruct_modelled_families.py` had been refusing 822
@@ -13534,7 +13535,7 @@ letter-list name is worth), tickets **T-1386**, **T-1172**, **T-1144**, the re-c
 **Recorded:** 2026-09-19.
 
 ### L254 — Two apothecaries' shops stand in the town because a census counted four and the newspapers name two
-**Scope:** `businesses.records[reconstructed]` — 53 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, fourteen are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards, fifteen are **L262**'s services, and four are **L307**'s Canal approach firms, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total
+**Scope:** `businesses.records[reconstructed]` — 54 houses of trade. TWO are this entry's, each with an adopted keeper; two are **L255**'s Black-owned firms, fifteen are **L257**'s boarding houses, two are **L258**'s mechanics' houses, two are **L259**'s professions, four are **L260**'s liveries and lumber yards, fifteen are **L262**'s services, and four are **L307**'s Canal approach firms, all of which this selector counts because it reads the whole layer. The count is restated rather than the selector narrowed, so the register keeps saying how many reconstructed houses of trade the town carries in total
 
 **Scope revision, 2026-10-01 (T-1766):** The live whole-layer count rises from 34 to 38 with the four Canal approach firms in **L307**, to 39 with T-1809's second Washington-tier boarding house in **L257**, to 40 with T-1952's North Division boarding house in **L257**, to 41 with T-1950's third Washington-tier house in **L257**, and to 44 with T-1951's three South houses on the Market and Dearborn blocks in **L257**. The historical decisions below are retained; this entry does not claim those eight additions.
 
@@ -13812,8 +13813,8 @@ adoption there claims a STREET FACE, and a roof off the alley has none.
 
 ### L257 — Six boarding houses become houses of trade because the buildings were already standing and nothing in the business layer could see them
 
-**Scope:** `businesses.records[reconstructed]` — 53 houses of trade, of which FOURTEEN are this
-entry's. **T-1951 added the twelfth, thirteenth and fourteenth on 2026-10-02 the same way:** the South's three H3 boarding houses on `blk_washington_market` and `blk_washington_dearborn` (`recon_1835_blk_washington_market_h3_01`, `_h3_04`, `recon_1835_blk_washington_dearborn_h3_01`, **L349**) got beds and drawn keepers, and *Louis Robillard's*, *Laframboise's* and *Edward McCarthy's boarding house* follow the roofs. **T-1950 added the eleventh on 2026-10-02 the same way:** the third H3 boarding house on `blk_washington_clark` (`recon_1835_blk_washington_clark_h3_11`, **L345**) got beds and a drawn keeper, and *Trottier's boarding house* follows the roof. **T-1952 added the tenth on 2026-10-02 the same way:** the North Division's one H3 boarding house the plan offers (`recon_1835_blk_indiana_north_cass_h3_09`, **L344**) got beds and a drawn keeper, and *Chapin's boarding house* follows the roof. **T-1809 added the ninth on 2026-10-01 the same way:** the second H3 boarding house (`recon_1835_blk_washington_clark_h3_06`, **L321**) got beds and a drawn keeper, and *Stebbins's boarding house* follows the roof. **T-1778 added the eighth on 2026-10-01 the same way:** it raised the town's first H3 boarding house (`recon_1835_blk_washington_clark_h3_05`, **L318**), the lodging model gave it beds, the lodgers stage gave it a keeper, and *Lynch's boarding house* follows the roof. **T-1490 added the seventh on 2026-09-24, and it arrived because a ROOF did.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2; the lodging model apportions an H2 as a lodging house, the lodgers stage gave it beds and a keeper, and a house with beds and a keeper and no house of trade behind it is the gap this entry exists to close. So the firm follows the roof, and nothing here was chosen: the count moves whenever the roof programme moves, which is why it is re-counted off the layer and never typed. The other thirty are **L254**'s apothecaries, **L255**'s Black-owned firms,
+**Scope:** `businesses.records[reconstructed]` — 54 houses of trade, of which FIFTEEN are this
+entry's. **T-2250 gave back the fifteenth on 2026-10-09:** T-2196 moved Mark Beaubien's household onto the Market wedge's new H3 (`recon_1835_blk_south_water_market_h3_02`, **L411**), whose beds the lodgers stage filled from people the layer already held, so it wrote that house no lodging card and the business layer, which read keepers off cards alone, retired *Mark Beaubien's boarding house*. The lodgers stage's own ledger row names the same keeper, so the firm follows the roof again (the keeper still adopted off his own card), and his unplaced in-window tavern-keeper firm retires because he holds a workplace. **T-1951 added the twelfth, thirteenth and fourteenth on 2026-10-02 the same way:** the South's three H3 boarding houses on `blk_washington_market` and `blk_washington_dearborn` (`recon_1835_blk_washington_market_h3_01`, `_h3_04`, `recon_1835_blk_washington_dearborn_h3_01`, **L349**) got beds and drawn keepers, and *Louis Robillard's*, *Laframboise's* and *Edward McCarthy's boarding house* follow the roofs. **T-1950 added the eleventh on 2026-10-02 the same way:** the third H3 boarding house on `blk_washington_clark` (`recon_1835_blk_washington_clark_h3_11`, **L345**) got beds and a drawn keeper, and *Trottier's boarding house* follows the roof. **T-1952 added the tenth on 2026-10-02 the same way:** the North Division's one H3 boarding house the plan offers (`recon_1835_blk_indiana_north_cass_h3_09`, **L344**) got beds and a drawn keeper, and *Chapin's boarding house* follows the roof. **T-1809 added the ninth on 2026-10-01 the same way:** the second H3 boarding house (`recon_1835_blk_washington_clark_h3_06`, **L321**) got beds and a drawn keeper, and *Stebbins's boarding house* follows the roof. **T-1778 added the eighth on 2026-10-01 the same way:** it raised the town's first H3 boarding house (`recon_1835_blk_washington_clark_h3_05`, **L318**), the lodging model gave it beds, the lodgers stage gave it a keeper, and *Lynch's boarding house* follows the roof. **T-1490 added the seventh on 2026-09-24, and it arrived because a ROOF did.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2; the lodging model apportions an H2 as a lodging house, the lodgers stage gave it beds and a keeper, and a house with beds and a keeper and no house of trade behind it is the gap this entry exists to close. So the firm follows the roof, and nothing here was chosen: the count moves whenever the roof programme moves, which is why it is re-counted off the layer and never typed. The other thirty are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L258**'s brewery and jeweller's, **L259**'s professions, **L260**'s liveries and lumber
 yards, **L262**'s services and **L307**'s four Canal approach firms; the
 selector reads the whole reconstructed layer, so the count is restated here rather than
@@ -13901,8 +13902,8 @@ the seating tickets **T-1198** and **T-1199**.
 **Recorded:** 2026-09-19.
 
 ### L258 — A brewery and a jeweller's shop stand for a census count, and the brewery carries on its own card the newspaper that argues against it
-**Scope:** `businesses.records[reconstructed]` — 53 houses of trade. TWO are this entry's, the
-mechanics' group; two are **L254**'s apothecaries, two **L255**'s Black-owned firms, fourteen
+**Scope:** `businesses.records[reconstructed]` — 54 houses of trade. TWO are this entry's, the
+mechanics' group; two are **L254**'s apothecaries, two **L255**'s Black-owned firms, fifteen
 **L257**'s boarding houses, two **L259**'s professions, four **L260**'s liveries and
 lumber yards, fifteen **L262**'s services and four **L307**'s Canal approach firms. The
 selector reads the whole layer, so the count is restated here rather than narrowed, and the
@@ -13972,7 +13973,7 @@ same selector counts), **L248** (the trade heads these houses adopt), tickets **
 **Recorded:** 2026-09-19.
 
 ### L259 — A law office and a physician's room stand for a census line that counts men, read down to the population the scene date actually had
-**Scope:** `businesses.records[reconstructed]` — 53 houses of trade, of which ONE is this
+**Scope:** `businesses.records[reconstructed]` — 54 houses of trade, of which ONE is this
 entry's: a single law office. The physician's room went the same way as the second law
 office, and the block below says how. The other forty-three are **L254**'s
 apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and
@@ -14098,7 +14099,7 @@ nowhere), **T-1404** (a premises for every in-window trade) and **T-1189** (thei
 
 ### L260 — Two livery stables and two lumber yards stand because the men who kept them were already drawn, and nothing else in this town could buy them
 
-**Scope:** `businesses.records[reconstructed]` — 53 houses of trade, of which FOUR are this
+**Scope:** `businesses.records[reconstructed]` — 54 houses of trade, of which FOUR are this
 entry's. The other forty are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and
 **L262**'s services, which take this entry's own fourth form into four more trades, and
@@ -14263,7 +14264,7 @@ which takes the West Division streets off the old E −320 clip. **Recorded:** 2
 
 ### L262 — Fifteen service houses stand because the women and men who kept them were already drawn, and the December census has no line that could ever have counted them
 
-**Scope:** `businesses.records[reconstructed]` — 53 houses of trade, of which FIFTEEN are
+**Scope:** `businesses.records[reconstructed]` — 54 houses of trade, of which FIFTEEN are
 this entry's: nine millineries, four land offices, one dress making shop and one barber's
 shop. The other twenty-nine are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions and
@@ -14356,7 +14357,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 662 phases (659 until T-2176's three roofs — a larger frame house on the School Section tier's block 81, a larger tradesman's house on its block 95 and a barn on blk_south_water_wells, 2026-10-08, L408; 658 until T-2174's two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge on blk_south_water_dearborn, 2026-10-08, L406; 653 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, L407; 647 until T-2147's six houses on the School Section tier's Market block south of Madison, blk_school_section_tier_81, 2026-10-08, L397; 644 until T-2169's last three yard buildings on plat block 50, blk_washington_clinton, 2026-10-08, L404; 631 until T-2146's thirteen houses on the School Section tier's Wells blocks south of Madison, blk_school_section_tier_94 and _95, 2026-10-08, L405; 628 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08, L401; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 673 phases (671 until T-2270's two houses on the east corners of the School Section tier's block 82, blk_school_section_tier_82, 2026-10-10, L-block82-east-corners-2270; 667 until T-2254's four houses on the School Section tier's Market block south of Monroe, blk_school_section_tier_82, 2026-10-10, L416, on the tree merged with T-2268; 665 until T-2268's two river warehouses on the South Branch's east bank between Madison and Washington, 2026-10-10, L415; 664 until T-2269's lumber shed on the South Branch's east bank south of Washington Street, 2026-10-10, L-south-lumber-shed-2269; 663 until T-2196's boarding house party-walled to the D5 on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L411; 662 until T-2238's larger frame house on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L410; 659 until T-2176's three roofs — a larger frame house on the School Section tier's block 81, a larger tradesman's house on its block 95 and a barn on blk_south_water_wells, 2026-10-08, L408; 658 until T-2174's two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge on blk_south_water_dearborn, 2026-10-08, L406; 653 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, L407; 647 until T-2147's six houses on the School Section tier's Market block south of Madison, blk_school_section_tier_81, 2026-10-08, L397; 644 until T-2169's last three yard buildings on plat block 50, blk_washington_clinton, 2026-10-08, L404; 631 until T-2146's thirteen houses on the School Section tier's Wells blocks south of Madison, blk_school_section_tier_94 and _95, 2026-10-08, L405; 628 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08, L401; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14472,7 +14473,7 @@ than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
-**Scope:** `structures.records[brick_fabric]` — 5 structures (4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today). The `brick` substrate in
+**Scope:** `structures.records[brick_fabric]` — 107 structures (16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
 `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four
 are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
 `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says "two records are
@@ -14628,8 +14629,9 @@ for a West labourer household of five, and the housing deal (L354) seats them th
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 93 phases: 68 log dwellings and
-25 fort structures. It was 91 until T-2062, 2026-10-05, wrote the first fort's factory and
+**Scope:** `structures.phases[log_or_fort_archetype]` — 94 phases: 69 log dwellings and
+25 fort structures. It was 93 until T-2270, 2026-10-10, raised a D1 log cabin on the east Monroe
+corner of the School Section tier's block 82 (L-block82-east-corners-2270). It was 91 until T-2062, 2026-10-05, wrote the first fort's factory and
 agent's house outside its stockade, two log dwellings dated 1808-1812 (L391). It was 81 until T-2049, 2026-10-04, wrote the first Fort Dearborn's ten
 `fort_structure` records (1803-1812; no scene resolves them yet). For that fort's ranges the shingles
 are not this entry's extension at all: Whistler's own 1808 note says "shingled Roofs". It was 83 until T-1743, 2026-10-03, folded `beaubien_new_residence` into the
@@ -14948,7 +14950,7 @@ that put these rows in front of it), **T-1335** (the family pass that ruled the 
 
 ### L270 — The plat's 338 lots are enumerated from records this project already held, and then 183 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 215 households (214 until T-2195 cut the Market wedge's four lots on the owner's T-1957 ruling, 2026-10-08, L409, on the tree merged with T-2176: the 668-roof schedule opens the new block at a D5, an F4 and an H3, and the D5 is dealt as a slot on the wedge's Lake Street lot blk_south_water_market#01 to hh_dixon_robert, handed on until then; no adopted roof changes hands and no other seat moves against dev; 214 also before T-2176 built the D5 the schedule dealt block 81's lot 1 and the D6 it dealt block 95's lot 1, 2026-10-08, L408, and the count held: older households adopt both (hh_coslet_elisabeth the D5, hh_comstock_h_h the D6), hh_dewey_s and hh_dickson_david, the two who asked, are seated on standing South roofs (recon_1835_south_d3_017 and recon_1835_south_d4_014), 22 seated households change roof in the walk, and no `slot` request is left on the plat, read at the fixpoint of the seating chain and the keeper pass together (thirteen full laps on the tree merged with T-2179, the last moving nothing); 214 also before T-2179 folded `hh_baptist_john` onto `hh_bourassa_jean_baptiste`, 2026-10-08: the burial card of a 28-day-old infant had been dealt the D3 on the Randolph-and-Dearborn corner, lot `blk_randolph_dearborn#00`, as a household of its own. The fold retires that household and frees the roof, and the walk re-settles the seats around it: the corner goes to hh_barbour_timothy, a letter-list household; hh_dewey_s leaves his D5 slot on blk_school_section_tier_81#01 for the standing recon_1835_south_d5_016; hh_dickson_david's D5 slot moves to that lot; and hh_dird_john_david, handed on until then, is dealt the D6 slot on blk_school_section_tier_95#01, so the count holds; 81 seated households change roof or lot, read at the fixpoint of the seating chain and the keeper pass together on the tree merged with T-2174; 213 until T-2174 raised an F2 warehouse on lot 0 of blk_south_water_dearborn, 2026-10-08, L406, which took that block's last unreserved free lot, so the 668-roof schedule returned its D2 and D6 to the South's balance and re-apportioned it again over T-2170's: hh_dewey_s is dealt a D5 slot on blk_school_section_tier_81#01 and hh_dickson_david a D6 slot on blk_school_section_tier_95#01, while hh_laframboise_franois, dealt the D2 slot on blk_school_section_tier_95#01 until then, is handed on, owed to T-1614 in writing; 214 until T-2170 stood the North's five owed A2 barns behind five houses of the Wolcott-Kinzie core, 2026-10-08, L407: with the five built, the 668-roof schedule re-apportions the roofs it had held for them, and the South's still-owed family list moves from D2 1, D4 3, D5 3, D6 1 to D2 2, D4 2, D5 2, D6 2. The two slot requests T-2147 left standing go with it: hh_dewey_s's D4 slot on blk_school_section_tier_81#01 and hh_dickson_david's D5 slot on blk_school_section_tier_95#01 are no longer planned and both households are handed on, owed to T-1614 in writing, while hh_laframboise_franois, handed on until then, is dealt the D2 slot the new plan puts on blk_school_section_tier_95#01; no adopted roof changes hands, read at the fixpoint of the seating chain and the keeper pass together (two laps on the tree merged with T-2147; dev's own tree is its own fixpoint under the same walk); 212 until T-2147 raised the six dwellings of the School Section tier's block 81, 2026-10-08, L397: adoption runs before the slot step, so six older households take the six houses — hh_burke_james, hh_burk_james, hh_burbee_jonathan, hh_bryant_j_r_m, hh_gifford_hezekiah and hh_comstock_h_h — and the six whose slots stood on the block are seated or re-slotted down the household order, the walk settling two seats up with one slot request left on the block's lot 1 and one on block 95's; 212 also before T-2146 raised the thirteen roofs of the School Section tier's blocks 94 and 95, 2026-10-08, L405, dealt to the requests dev's fixpoint made of them after T-2148: adoption runs before the slot step, so older households take the thirteen dwellings — hh_benediet_loma, hh_bennet_lyman, hh_bradford_harriet, hh_bradley_joseph, hh_brink_john, hh_britain_hiram_z, hh_brookes_samuel, hh_brookins_david, hh_brown_jesse_b, hh_brown_lemuel, hh_clement_dorcinrk, hh_clevinger_d_p and hh_folliott_jonathan — and of the thirteen households whose slots stood on the two blocks, seven are seated on standing roofs (hh_bently_wm_t, hh_benton_datas_e, hh_cutler_morris, hh_dailey_thomas, hh_daniel_b_clevinger_4, hh_darling_daniel and hh_darling_enoch) and six re-slot on block 81 (hh_dave_john, hh_davis_george, hh_delano_loring, hh_dell_frank, hh_democrat_printers and hh_ira_paddock); the count holds, nobody is newly seated and nobody is handed on; 69 seated households change roof or lot, read at the fixpoint of the seating chain and the keeper pass together (twenty-one laps on the tree merged with T-2165 and T-2167); the schedule's H3 boarding house on block 95 is not raised (L405); T-2148 carried Clinton, Jefferson and Des Plaines to Madison and raised thirteen roofs on plat block 50, blk_washington_clinton, 2026-10-06, L394: the count rose by three: the four who asked of the block — hh_behan_thos, hh_beaubien_alexandre, hh_catran_o_p and hh_chark_john_a — are seated on standing West roofs (recon_1835_west_046, _019, _042 and _008), while hh_arrowsmith_sidney, hh_adams_james, hh_ballingale_p and hh_baldwin_eimer adopt the new H2, H1, D5 and D4; 42 households change roof or lot in all, the School Section tier's slot requests each shifting a lot behind them, and hh_democrat_printers, whose D5 slot stood on blk_school_section_tier_95#03, is handed on, owed to T-1614 in writing; 209 until then: T-1746 carried the 26 dwellings the schedule had dealt to blk_indiana_north_wolcott and blk_indiana_north_cass off them, 2026-10-05, L393, so the schedule plans no roof on either block and the deal requests no slot on either: the thirteen households whose slots stood there, hh_adams_elizabeth and hh_albee_clark_b on wolcott's merchant and professional lots, hh_bailly_joseph, hh_baily_john, hh_barber_beta_l, hh_barnard_j_h, hh_barnes_wheeler, hh_beach_william_h, hh_beadieston_ste, hh_beaubien_john_s, hh_beaubien_susan and hh_bennett_william on tradesmen's lots and hh_barre_john_s on cass's one labourer's lot, are handed to the off-plat deal and each is seated there under a standing North Division roof (L271); 222 until then: T-2143 carried Canal and West Water to Madison and raised the six roofs the deal asked of plat block 51, blk_west_washington_canal, 2026-10-05, and the count rose by the six who asked: hh_bailey_bennet, hh_bruen_hir, hh_brush_matthias, hh_butterfield_ben, hh_cappy_george and hh_cooley_edward_v are seated on standing West roofs (recon_1835_west_046, _031, _044, _042, _008 and _014), while six older West households adopt the new houses — hh_abbot_8_g, hh_abbott_constant, hh_abbott_titus_h, hh_allan_richard_b, hh_barrows_mary and hh_barry_j_r — and 32 households change roof in all, none handed on; the merge onto T-2144's tier moved none of those West seats. 216 until then: T-2144 joined the School Section's Madison–Monroe tier to the plat, 2026-10-05, on the owner's T-1755 ruling to cross Madison: its five South blocks — 81, 94, 95, 118 and 119, forty lots — are scheduled one house to a lot, keeping a lot open on each, and 34 households the deal had handed on to T-1614 are dealt a slot on them, the requests T-2145, T-2146 and T-2147 build; 182 until then: T-2132 cut plat block 44, blk_west_randolph_canal, on its own two printed depths and raised the four roofs the deal asked of it, 2026-10-05, and the count rose by the four who asked: hh_bronson_arthur, hh_bourassa_mark, hh_brown_hanna_e and hh_brownson_myron_k are seated on standing West roofs (recon_1835_west_044, _031, _042 and _008), while hh_abbott_constant, hh_abbott_titus_h, hh_ballingale_p and hh_barry_william take the four new houses from older roofs nearby, adoption running before the slot step as before; 21 seated households change roof behind them and none is handed on, read at the fixpoint of the seating chain and the keeper pass together; 178 until then: T-2130 raised the nine roofs the deal had asked for on blk_washington_dearborn and blk_washington_clark, 2026-10-05, on top of T-2129's Market block, and the count held while the deal turned over under it: `hh_chiney_ralph`, handed on by T-2129, is seated on the standing recon_1835_south_d5_016, and `hh_bennet_lyman`, whose slot stood at blk_washington_dearborn#04, is handed on, owed to T-1614 in writing. As with T-1751, none of the households that asked took a new roof, because adoption runs before the slot step: hh_ballard_thomas, hh_barrest_wilham, hh_beaubien_monique, hh_bertrand_b_h, hh_blakesley_harvey_a and hh_byam_seth move onto the Dearborn block's six, and hh_boilvin_nicholas and hh_bonn_augustin onto the Clark block's two houses, all from older roofs nearby. 53 seated households change roof or lot behind them, seven of them from a slot to a standing roof, read at the fixpoint of the seating chain and the keeper pass together; 178 until then: T-2129 raised the Market block's ten roofs, 2026-10-05, and the count held: the five slot requests that stood on blk_washington_market do not take the new roofs — the adoption pass gives them to standing households, hh_aspam_antoine, hh_aspam_jean_baptiste, hh_beaubien_charles, hh_beeson_william and hh_brookins_david — and four of the five who asked for them, hh_benediet_loma, hh_beech_reuben, hh_chattin_clark and hh_chevalier_joseph, re-slot on blk_washington_dearborn, while hh_chiney_ralph is handed on, owed to T-1614 in writing, the substitution L304 describes; the seating then walked a roof at a time down the household order behind them, hh_bousque_bernard to hh_chevalier_joseph, eighteen passes before it stopped moving; T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the count held: the block's three slot requests became adoptions, hh_borum_richard, hh_bourassa_jean_baptiste and hh_bruno_anne_franoise_apolline are seated on standing West roofs, and 22 more West households step a roof each in the pass's own order, hh_abbott_constant, hh_abbott_titus_h and hh_barry_j_r taking the three new roofs; T-2078 wrote 37 letter-list households, 2026-10-04, and the count held while the deal turned over under it: five of the new households are dealt a lot (hh_bacon_richani, hh_barnes_wheeler, hh_beadieston_ste, hh_crandall_beman, hh_dickinson_alexander), five that held one are handed on, owed to T-1614 in writing (hh_bennet_lyman, hh_bennett_william, hh_bigelow_david, hh_blaisdell_b, hh_guisin_byran), and 38 more step a roof each behind them, hh_austin_w_g among them, from recon_1835_blk_randolph_dearborn_d1_04 to recon_1835_blk_washington_franklin_d7_04; 178 before it, and 179 until T-1679 moved the Mansion House one lot east, 2026-10-04, and the D2 shanty it displaced took the Dearborn corner, where the deal seats no labourer's household: hh_clark_john_k moves from that shanty to recon_1835_blk_lake_market_d1_05, nine more households step down one roof each behind him, and hh_humphrey_fre_lemuel is handed on, owed to T-1614 in writing (L373); 182 until T-1951 raised the South's three remaining planned H3 boarding houses on blk_washington_market#04 and #05 and blk_washington_dearborn#02, 2026-10-02: the slot requests that stood on the market lots go, hh_bently_wm_t's H1, hh_benton_datas_e's H2 and hh_clarke_h_b's D4 are owed to T-1614 in writing, hh_benediet_loma's moves from blk_washington_dearborn#02 to blk_washington_market#06, four more on the Market block shift a lot and hh_beech_reuben's changes family, H1 to H2; 183 until T-1950 raised the third H3 boarding house on blk_washington_clark#00, 2026-10-02: hh_beaubien_monique's D7 request, which stood there, moves to blk_washington_dearborn#06, nine more requests on the Washington blocks shift a lot behind her, and hh_berger_f_c is handed on again, owed to T-1614 in writing; 184 until T-1952 raised the North's boarding house on blk_indiana_north_cass#01, 2026-10-02, and the slot request that stood there, hh_beaubien_john_s's D5, was re-dealt: he re-seats on blk_indiana_north_wolcott#07, the wolcott block's requests step down a lot each, and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's Washington-tier requests the same way, hh_berger_f_c seated and hh_cleaveland_wm_p handed on) given a lot of the committed plat
+**Scope:** `platted_seats.seats[dealt]` — 221 households (221 since T-2251 folded `hh_franchere_l` onto `hh_franchre_louis` under C2, 2026-10-10: the folded house leaves the queues, hh_rc_bardwell_phebe is newly seated on recon_1835_blk_randolph_market_d2_09, ten reconstructed South households — Cobb, Fairbanks, Fisk, Flynn, Hayes, Mahoney, Shea, the two Wilcoxes and Eliza Woodruff — each step one roof down the queue, and hh_rc_woodruff_ruth is handed on; one newly seated and one handed on, and a release of the street-face business deal's 45 roofs now costs nine households rather than eight, so `BUSINESS_DEAL_COSTS` is restated to 9; 221 since T-2254 raised four houses on the School Section tier's block 82, 2026-10-10, L416, on the tree merged with T-2268, read at the seating chain's fixpoint (two laps, the second moving nothing): hh_rc_shea_margaret adopts the D2 on lot 2, hh_merrill_george_w the D5 on lot 3, hh_merill_isaac the D4 on lot 4 and hh_meleney_patrick the D4 on lot 5, leaving recon_1835_south_d5_016 to hh_miller_samuel, whose D5 slot on lot 3 goes; the reconstructed Wilcox and Woodruff households step a roof behind hh_rc_shea_margaret, and hh_rc_woodruff_ruth is seated on recon_1835_south_d1_018; the block's last two requests are a D1 slot on lot 6 for hh_vieaux_susanne and an H1 slot on lot 7 for hh_church_thomas, which T-2270 owns, while hh_montgomery_l_w and hh_morrison_amanda, dealt D5 slots on lots 2 and 7 by T-2268's re-apportionment, are handed on; three households are newly seated and two handed on, and a release of the street-face business deal's 45 roofs now costs eight households rather than ten, so `BUSINESS_DEAL_COSTS` is restated to 8; 220 since T-2268 raised two F3 river warehouses on the South Branch bank, 2026-10-10, on the tree merged with T-1550, L415: with F3 at its target the 668-roof schedule's family re-apportionment re-deals the gated balance block 82 holds from D2 2, D4 2, D5 1 to D4 3, D5 2, so hh_montgomery_l_w and hh_morrison_amanda are dealt D5 slots on its lots 2 and 7, hh_miller_samuel's slot on lot 3 turns from D5 to D4, and the D2 slots of hh_rc_woodruff_ruth and hh_vieaux_susanne go, the block holding no D2 for their clause any more; no seat already adopted moves, and a release of the street-face business deal's 45 roofs would now cost ten households rather than eight, because block 82's slots come off the queues it draws on, so `BUSINESS_DEAL_COSTS` is restated to 10; 220 since T-1550 folded `hh_beaubien_charles` onto `hh_beaubien_charles_h`, 2026-10-09, on the tree merged with T-2253: the register's Charles Beaubien is Charles H., and his house, which held the adopted D3 recon_1835_blk_washington_wells_d3_05, retires with the fold; hh_blanchard_f_gantry adopts that roof and the walk turns over behind it down the household order to hh_dixon_robert; hh_meleney_patrick takes the standing recon_1835_south_d5_016 in the deal itself and leaves his slot on block 82, where hh_merill_isaac, hh_merrill_george_w and hh_vieaux_susanne re-slot and hh_miller_samuel and hh_rc_woodruff_ruth are dealt slots — five requests on the block, T-2254's to raise, where T-2253 left four; hh_rc_shea_margaret, handed on until then, is seated on recon_1835_blk_lake_market_d1_05 and the reconstructed Wilcox and Woodruff households step a roof behind her; 46 seated households change roof or lot against dev, two are newly seated and one retires, and a release of the street-face business deal's 45 roofs still costs eight households; 219 since T-2253 joined the School Section's Monroe–Adams tier to the plat, 2026-10-09, on the owner's T-2247 ruling to cross Monroe: its six South blocks — 82, 93, 96, 117, 120 and 141, forty-eight lots — are scheduled one house to a lot like the tier above them, the South's five gated dwellings and its boarding house are dealt to block 82, and four households the deal had handed on — hh_meleney_patrick, hh_merill_isaac, hh_merrill_george_w and hh_vieaux_susanne — are dealt a slot on its lots, the requests T-2254 raises; the block's second D2 and its H3 are left unclaimed, no South row being admitted by a clause that takes them; no seat already dealt moves, and a release of the street-face business deal's 45 roofs would now seat eight households rather than nine, because block 82's slots come off the queues it draws on; 215 held when T-1645 made the deal read the owner's letter-list ruling of 2026-08-30 (T-0379) before it deals, 2026-10-09: the 117 letter-list households it had seated — every one then refused on the card by tools/name_the_keepers_1835.py, its roof left standing empty — are owed with the ruling as their reason (659 rows owed so in all), and their 117 roofs go to the next rows of their clauses' order, 86 South, 24 West and 7 North households seated who were handed on until then; the 98 households whose keeper was already written keep their own roofs, because a household a roof is reserved for now takes that roof rather than a better-scored one the re-deal frees, and no other seat moves. The business deal's precedence, measured by re-dealing with its 45 roofs released, now costs 9 households where it cost none, because the rows queued behind those roofs are no longer households the ruling refuses; `BUSINESS_DEAL_COSTS` is restated to 9; 215 held when T-2238 built the D5 the schedule dealt the Market wedge's lot 7, 2026-10-09, L410: hh_boucher_joseph adopts the new house, hh_dixon_robert, who asked, is seated on the standing recon_1835_south_d5_016, 65 seated households change roof in the walk (hh_boucher_joseph down the household order to hh_dixon_robert), and no `slot` request is left on the plat, read at the fixpoint of the seating chain and the keeper pass together (eleven full laps, then the keeper pass, the four infill generators and the seating chain repeated until the seats stood still, then two full laps, the second moving nothing); 214 until T-2195 cut the Market wedge's four lots on the owner's T-1957 ruling, 2026-10-08, L409, on the tree merged with T-2176: the 668-roof schedule opens the new block at a D5, an F4 and an H3, and the D5 is dealt as a slot on the wedge's Lake Street lot blk_south_water_market#01 to hh_dixon_robert, handed on until then; no adopted roof changes hands and no other seat moves against dev; 214 also before T-2176 built the D5 the schedule dealt block 81's lot 1 and the D6 it dealt block 95's lot 1, 2026-10-08, L408, and the count held: older households adopt both (hh_coslet_elisabeth the D5, hh_comstock_h_h the D6), hh_dewey_s and hh_dickson_david, the two who asked, are seated on standing South roofs (recon_1835_south_d3_017 and recon_1835_south_d4_014), 22 seated households change roof in the walk, and no `slot` request is left on the plat, read at the fixpoint of the seating chain and the keeper pass together (thirteen full laps on the tree merged with T-2179, the last moving nothing); 214 also before T-2179 folded `hh_baptist_john` onto `hh_bourassa_jean_baptiste`, 2026-10-08: the burial card of a 28-day-old infant had been dealt the D3 on the Randolph-and-Dearborn corner, lot `blk_randolph_dearborn#00`, as a household of its own. The fold retires that household and frees the roof, and the walk re-settles the seats around it: the corner goes to hh_barbour_timothy, a letter-list household; hh_dewey_s leaves his D5 slot on blk_school_section_tier_81#01 for the standing recon_1835_south_d5_016; hh_dickson_david's D5 slot moves to that lot; and hh_dird_john_david, handed on until then, is dealt the D6 slot on blk_school_section_tier_95#01, so the count holds; 81 seated households change roof or lot, read at the fixpoint of the seating chain and the keeper pass together on the tree merged with T-2174; 213 until T-2174 raised an F2 warehouse on lot 0 of blk_south_water_dearborn, 2026-10-08, L406, which took that block's last unreserved free lot, so the 668-roof schedule returned its D2 and D6 to the South's balance and re-apportioned it again over T-2170's: hh_dewey_s is dealt a D5 slot on blk_school_section_tier_81#01 and hh_dickson_david a D6 slot on blk_school_section_tier_95#01, while hh_laframboise_franois, dealt the D2 slot on blk_school_section_tier_95#01 until then, is handed on, owed to T-1614 in writing; 214 until T-2170 stood the North's five owed A2 barns behind five houses of the Wolcott-Kinzie core, 2026-10-08, L407: with the five built, the 668-roof schedule re-apportions the roofs it had held for them, and the South's still-owed family list moves from D2 1, D4 3, D5 3, D6 1 to D2 2, D4 2, D5 2, D6 2. The two slot requests T-2147 left standing go with it: hh_dewey_s's D4 slot on blk_school_section_tier_81#01 and hh_dickson_david's D5 slot on blk_school_section_tier_95#01 are no longer planned and both households are handed on, owed to T-1614 in writing, while hh_laframboise_franois, handed on until then, is dealt the D2 slot the new plan puts on blk_school_section_tier_95#01; no adopted roof changes hands, read at the fixpoint of the seating chain and the keeper pass together (two laps on the tree merged with T-2147; dev's own tree is its own fixpoint under the same walk); 212 until T-2147 raised the six dwellings of the School Section tier's block 81, 2026-10-08, L397: adoption runs before the slot step, so six older households take the six houses — hh_burke_james, hh_burk_james, hh_burbee_jonathan, hh_bryant_j_r_m, hh_gifford_hezekiah and hh_comstock_h_h — and the six whose slots stood on the block are seated or re-slotted down the household order, the walk settling two seats up with one slot request left on the block's lot 1 and one on block 95's; 212 also before T-2146 raised the thirteen roofs of the School Section tier's blocks 94 and 95, 2026-10-08, L405, dealt to the requests dev's fixpoint made of them after T-2148: adoption runs before the slot step, so older households take the thirteen dwellings — hh_benediet_loma, hh_bennet_lyman, hh_bradford_harriet, hh_bradley_joseph, hh_brink_john, hh_britain_hiram_z, hh_brookes_samuel, hh_brookins_david, hh_brown_jesse_b, hh_brown_lemuel, hh_clement_dorcinrk, hh_clevinger_d_p and hh_folliott_jonathan — and of the thirteen households whose slots stood on the two blocks, seven are seated on standing roofs (hh_bently_wm_t, hh_benton_datas_e, hh_cutler_morris, hh_dailey_thomas, hh_daniel_b_clevinger_4, hh_darling_daniel and hh_darling_enoch) and six re-slot on block 81 (hh_dave_john, hh_davis_george, hh_delano_loring, hh_dell_frank, hh_democrat_printers and hh_ira_paddock); the count holds, nobody is newly seated and nobody is handed on; 69 seated households change roof or lot, read at the fixpoint of the seating chain and the keeper pass together (twenty-one laps on the tree merged with T-2165 and T-2167); the schedule's H3 boarding house on block 95 is not raised (L405); T-2148 carried Clinton, Jefferson and Des Plaines to Madison and raised thirteen roofs on plat block 50, blk_washington_clinton, 2026-10-06, L394: the count rose by three: the four who asked of the block — hh_behan_thos, hh_beaubien_alexandre, hh_catran_o_p and hh_chark_john_a — are seated on standing West roofs (recon_1835_west_046, _019, _042 and _008), while hh_arrowsmith_sidney, hh_adams_james, hh_ballingale_p and hh_baldwin_eimer adopt the new H2, H1, D5 and D4; 42 households change roof or lot in all, the School Section tier's slot requests each shifting a lot behind them, and hh_democrat_printers, whose D5 slot stood on blk_school_section_tier_95#03, is handed on, owed to T-1614 in writing; 209 until then: T-1746 carried the 26 dwellings the schedule had dealt to blk_indiana_north_wolcott and blk_indiana_north_cass off them, 2026-10-05, L393, so the schedule plans no roof on either block and the deal requests no slot on either: the thirteen households whose slots stood there, hh_adams_elizabeth and hh_albee_clark_b on wolcott's merchant and professional lots, hh_bailly_joseph, hh_baily_john, hh_barber_beta_l, hh_barnard_j_h, hh_barnes_wheeler, hh_beach_william_h, hh_beadieston_ste, hh_beaubien_john_s, hh_beaubien_susan and hh_bennett_william on tradesmen's lots and hh_barre_john_s on cass's one labourer's lot, are handed to the off-plat deal and each is seated there under a standing North Division roof (L271); 222 until then: T-2143 carried Canal and West Water to Madison and raised the six roofs the deal asked of plat block 51, blk_west_washington_canal, 2026-10-05, and the count rose by the six who asked: hh_bailey_bennet, hh_bruen_hir, hh_brush_matthias, hh_butterfield_ben, hh_cappy_george and hh_cooley_edward_v are seated on standing West roofs (recon_1835_west_046, _031, _044, _042, _008 and _014), while six older West households adopt the new houses — hh_abbot_8_g, hh_abbott_constant, hh_abbott_titus_h, hh_allan_richard_b, hh_barrows_mary and hh_barry_j_r — and 32 households change roof in all, none handed on; the merge onto T-2144's tier moved none of those West seats. 216 until then: T-2144 joined the School Section's Madison–Monroe tier to the plat, 2026-10-05, on the owner's T-1755 ruling to cross Madison: its five South blocks — 81, 94, 95, 118 and 119, forty lots — are scheduled one house to a lot, keeping a lot open on each, and 34 households the deal had handed on to T-1614 are dealt a slot on them, the requests T-2145, T-2146 and T-2147 build; 182 until then: T-2132 cut plat block 44, blk_west_randolph_canal, on its own two printed depths and raised the four roofs the deal asked of it, 2026-10-05, and the count rose by the four who asked: hh_bronson_arthur, hh_bourassa_mark, hh_brown_hanna_e and hh_brownson_myron_k are seated on standing West roofs (recon_1835_west_044, _031, _042 and _008), while hh_abbott_constant, hh_abbott_titus_h, hh_ballingale_p and hh_barry_william take the four new houses from older roofs nearby, adoption running before the slot step as before; 21 seated households change roof behind them and none is handed on, read at the fixpoint of the seating chain and the keeper pass together; 178 until then: T-2130 raised the nine roofs the deal had asked for on blk_washington_dearborn and blk_washington_clark, 2026-10-05, on top of T-2129's Market block, and the count held while the deal turned over under it: `hh_chiney_ralph`, handed on by T-2129, is seated on the standing recon_1835_south_d5_016, and `hh_bennet_lyman`, whose slot stood at blk_washington_dearborn#04, is handed on, owed to T-1614 in writing. As with T-1751, none of the households that asked took a new roof, because adoption runs before the slot step: hh_ballard_thomas, hh_barrest_wilham, hh_beaubien_monique, hh_bertrand_b_h, hh_blakesley_harvey_a and hh_byam_seth move onto the Dearborn block's six, and hh_boilvin_nicholas and hh_bonn_augustin onto the Clark block's two houses, all from older roofs nearby. 53 seated households change roof or lot behind them, seven of them from a slot to a standing roof, read at the fixpoint of the seating chain and the keeper pass together; 178 until then: T-2129 raised the Market block's ten roofs, 2026-10-05, and the count held: the five slot requests that stood on blk_washington_market do not take the new roofs — the adoption pass gives them to standing households, hh_aspam_antoine, hh_aspam_jean_baptiste, hh_beaubien_charles, hh_beeson_william and hh_brookins_david — and four of the five who asked for them, hh_benediet_loma, hh_beech_reuben, hh_chattin_clark and hh_chevalier_joseph, re-slot on blk_washington_dearborn, while hh_chiney_ralph is handed on, owed to T-1614 in writing, the substitution L304 describes; the seating then walked a roof at a time down the household order behind them, hh_bousque_bernard to hh_chevalier_joseph, eighteen passes before it stopped moving; T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the count held: the block's three slot requests became adoptions, hh_borum_richard, hh_bourassa_jean_baptiste and hh_bruno_anne_franoise_apolline are seated on standing West roofs, and 22 more West households step a roof each in the pass's own order, hh_abbott_constant, hh_abbott_titus_h and hh_barry_j_r taking the three new roofs; T-2078 wrote 37 letter-list households, 2026-10-04, and the count held while the deal turned over under it: five of the new households are dealt a lot (hh_bacon_richani, hh_barnes_wheeler, hh_beadieston_ste, hh_crandall_beman, hh_dickinson_alexander), five that held one are handed on, owed to T-1614 in writing (hh_bennet_lyman, hh_bennett_william, hh_bigelow_david, hh_blaisdell_b, hh_guisin_byran), and 38 more step a roof each behind them, hh_austin_w_g among them, from recon_1835_blk_randolph_dearborn_d1_04 to recon_1835_blk_washington_franklin_d7_04; 178 before it, and 179 until T-1679 moved the Mansion House one lot east, 2026-10-04, and the D2 shanty it displaced took the Dearborn corner, where the deal seats no labourer's household: hh_clark_john_k moves from that shanty to recon_1835_blk_lake_market_d1_05, nine more households step down one roof each behind him, and hh_humphrey_fre_lemuel is handed on, owed to T-1614 in writing (L373); 182 until T-1951 raised the South's three remaining planned H3 boarding houses on blk_washington_market#04 and #05 and blk_washington_dearborn#02, 2026-10-02: the slot requests that stood on the market lots go, hh_bently_wm_t's H1, hh_benton_datas_e's H2 and hh_clarke_h_b's D4 are owed to T-1614 in writing, hh_benediet_loma's moves from blk_washington_dearborn#02 to blk_washington_market#06, four more on the Market block shift a lot and hh_beech_reuben's changes family, H1 to H2; 183 until T-1950 raised the third H3 boarding house on blk_washington_clark#00, 2026-10-02: hh_beaubien_monique's D7 request, which stood there, moves to blk_washington_dearborn#06, nine more requests on the Washington blocks shift a lot behind her, and hh_berger_f_c is handed on again, owed to T-1614 in writing; 184 until T-1952 raised the North's boarding house on blk_indiana_north_cass#01, 2026-10-02, and the slot request that stood there, hh_beaubien_john_s's D5, was re-dealt: he re-seats on blk_indiana_north_wolcott#07, the wolcott block's requests step down a lot each, and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's Washington-tier requests the same way, hh_berger_f_c seated and hh_cleaveland_wm_p handed on) given a lot of the committed plat
 by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
@@ -15470,7 +15472,7 @@ is what a release could take back from a pass that has already published its kee
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
-**Scope:** `off_plat_seats.seats[dealt]` — 99 households (73 until T-1746 raised 26 North Division dwellings south of Michigan Street, 2026-10-05, L393: the thirteen households whose platted slots stood on Kinzie's Addition's two subdivided blocks are seated here under standing roofs, and thirteen more owed North tradesmen's and labourers' households with them, the deal stepping a roof at a time down its own order) given a parcel of the committed
+**Scope:** `off_plat_seats.seats[dealt]` — 95 households (99 until T-2255 made this deal read the owner's letter-list ruling of 2026-08-30 (T-0379) before it deals, as T-1645 made the platted deal read it, 2026-10-09: the 69 letter-list households it had seated are owed with the platted deal's own `refused_by` and reason (773 rows owed so in all), their roofs go to the next rows of their clauses' order, and 65 households handed on until then are seated, 47 North and 18 West; all 30 households seated before stay seated, 28 of them under another roof, because no off-plat roof carries its household back as a platted roof does (T-1638). Two rules the ruling exposed are stated in the tool: the two West labourers the farmstead rule passes over, hh_lloyd_alexander and hh_murray_alonzo, take the best cabin left free once every row is dealt (recon_1835_west_028 and recon_1835_west_027), which moves nobody; and in the West the farm clause takes a farmstead or nothing, because the bare cabins the letter-list labourers had filled are labourers' and a farm household under one is no farmstead (T-1794). So four West cabins — recon_1835_west_001, _011, _013 and _026 — stand unspent, each with the count of the households its clauses admit and why none of them is left to take it; 73 until T-1746 raised 26 North Division dwellings south of Michigan Street, 2026-10-05, L393: the thirteen households whose platted slots stood on Kinzie's Addition's two subdivided blocks are seated here under standing roofs, and thirteen more owed North tradesmen's and labourers' households with them, the deal stepping a roof at a time down its own order) given a parcel of the committed
 ground the plat's own lot ledger does not draw, in
 `data/reconstruction/1835_off_plat_seats.json` beside the 1,302 written refusals,
 re-derived by `tools/seat_off_plat_ground_1835.py --build` and gated by its `--check`.
@@ -15906,7 +15908,7 @@ disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
 ### L276 — Seventy-seven roofs across six districts now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 97 roofs (96 until T-2176 raised two houses on the School Section tier, 2026-10-08, L408, and the South seating turned over behind them: neither new house carries a written keeper, and the walk wrote keepers onto seven South roofs and took them off six; 96 also before T-2179 folded the burial card `hh_baptist_john` onto the infant's baptism card, 2026-10-08: the D3 on the Randolph-and-Dearborn corner, recon_1835_blk_randolph_dearborn_d3_01, had carried that card as its written keeper — 'a laundress, in Chicago since 1834', drawn for a child the register buried at 28 days old — and stands unassigned now, dealt to a letter-list household the ruling refuses a roof; the South seating turned over behind it and hh_dewey_s, seated on recon_1835_south_d5_016, carries a written keeper's place, so the count holds; 92 until T-2147 raised six houses on the School Section tier's Market block 81, 2026-10-08, and the South seating turned over behind them: one of the new houses carries a written keeper, hh_burke_james, the other five going to letter-list households the ruling refuses a roof, and the walk wrote keepers onto three more South roofs; 87 until T-2146 raised thirteen houses on the School Section tier's Wells blocks, 2026-10-06, and the South seating turned over behind them: four of the new houses carry a written keeper — hh_brown_lemuel, hh_brown_jesse_b, hh_bradley_joseph and hh_bradford_harriet — the other nine going to letter-list households the ruling refuses a roof; fifteen more roofs gain a written keeper, fourteen lose theirs and seven change keeper; 86 until T-2148 raised plat block 50's thirteen roofs, 2026-10-06, and the West seating turned over behind them, so one more West roof now carries a written keeper; 81 until T-2145 raised fourteen houses on the School Section tier's Clark blocks, 2026-10-06, and the South seating turned over behind them: six of the new houses carry a written keeper, the other eight going to letter-list households the ruling refuses a roof; nine more roofs north of Madison gain a written keeper, ten lose theirs and six change keeper; 80 until T-2143 raised plat block 51's six houses, 2026-10-05, and the West seating turned over behind them: 17 roofs change keeper and one more West roof now carries a written keeper; 77 until T-2132 raised plat block 44's four houses, 2026-10-05, and the West seating turned over behind them, so three more West roofs now carry a written keeper; 50 until T-2136 ran the pass over the last three districts the deal seats in, 2026-10-05, below; 51 until T-2129 raised the Market block's ten roofs, 2026-10-05, and the South's seating walked a roof at a time behind them: 26 roofs change keeper, recon_1835_south_d4_006 passing from hh_bourrassa_leon to hh_boyer_j_k among them, and one more is left without a named household than gained one; 49 until T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the West seating turned over behind them, so two more West roofs now carry a written keeper) given the name of the household the
+**Scope:** `roof_keepers.written[named]` — 210 roofs (208 until T-2270 raised the two houses the seating had slotted on the east corners of the School Section tier's block 82, 2026-10-10, L-block82-east-corners-2270: both carry a written keeper, hh_vieaux_susanne on the D1 on lot 6 and hh_church_thomas on the H1 on lot 7, and no other seat moved; 205 until T-2254 raised the four houses the seating had slotted on the School Section tier's block 82, 2026-10-10, L416, and the South seating turned over behind them: three of the new houses carry a written keeper — hh_merrill_george_w, hh_merill_isaac and hh_meleney_patrick — and the fourth, the D2 on lot 2, goes to the reconstructed hh_rc_shea_margaret, whose name carries no source and is refused on the card; recon_1835_south_d1_018 goes to the reconstructed hh_rc_woodruff_ruth and is refused on the card as it was under hh_rc_woodruff_eliza, and recon_1835_south_d5_016, which hh_meleney_patrick leaves, is written to hh_miller_samuel, who takes it in the deal (read on the tree merged with T-2268, where dev wrote 205); 98 until T-1645 made the platted deal read the owner's letter-list ruling of 2026-08-30 (T-0379) before it deals, 2026-10-09: the 117 roofs it had dealt to letter-list households, every one refused on the card here, go to the next rows of their clauses' order instead, and the 98 households already written keep their own roofs. 107 of the 117 now carry a written keeper; the other ten went to reconstructed `rc_` households of the South's labourer_dwellings clause whose names carry no source, which this pass refuses on its own no-source rule, so `refused_letter_list` is 0 by construction and `refused_no_source` is 10; 97 until T-2238 raised a house on the Market wedge's lot 7, 2026-10-09, L410, and the South seating turned over behind it: the new house carries no written keeper, and the walk wrote keepers onto seventeen roofs, took them off sixteen and changed the keeper on seventeen; 96 until T-2176 raised two houses on the School Section tier, 2026-10-08, L408, and the South seating turned over behind them: neither new house carries a written keeper, and the walk wrote keepers onto seven South roofs and took them off six; 96 also before T-2179 folded the burial card `hh_baptist_john` onto the infant's baptism card, 2026-10-08: the D3 on the Randolph-and-Dearborn corner, recon_1835_blk_randolph_dearborn_d3_01, had carried that card as its written keeper — 'a laundress, in Chicago since 1834', drawn for a child the register buried at 28 days old — and stands unassigned now, dealt to a letter-list household the ruling refuses a roof; the South seating turned over behind it and hh_dewey_s, seated on recon_1835_south_d5_016, carries a written keeper's place, so the count holds; 92 until T-2147 raised six houses on the School Section tier's Market block 81, 2026-10-08, and the South seating turned over behind them: one of the new houses carries a written keeper, hh_burke_james, the other five going to letter-list households the ruling refuses a roof, and the walk wrote keepers onto three more South roofs; 87 until T-2146 raised thirteen houses on the School Section tier's Wells blocks, 2026-10-06, and the South seating turned over behind them: four of the new houses carry a written keeper — hh_brown_lemuel, hh_brown_jesse_b, hh_bradley_joseph and hh_bradford_harriet — the other nine going to letter-list households the ruling refuses a roof; fifteen more roofs gain a written keeper, fourteen lose theirs and seven change keeper; 86 until T-2148 raised plat block 50's thirteen roofs, 2026-10-06, and the West seating turned over behind them, so one more West roof now carries a written keeper; 81 until T-2145 raised fourteen houses on the School Section tier's Clark blocks, 2026-10-06, and the South seating turned over behind them: six of the new houses carry a written keeper, the other eight going to letter-list households the ruling refuses a roof; nine more roofs north of Madison gain a written keeper, ten lose theirs and six change keeper; 80 until T-2143 raised plat block 51's six houses, 2026-10-05, and the West seating turned over behind them: 17 roofs change keeper and one more West roof now carries a written keeper; 77 until T-2132 raised plat block 44's four houses, 2026-10-05, and the West seating turned over behind them, so three more West roofs now carry a written keeper; 50 until T-2136 ran the pass over the last three districts the deal seats in, 2026-10-05, below; 51 until T-2129 raised the Market block's ten roofs, 2026-10-05, and the South's seating walked a roof at a time behind them: 26 roofs change keeper, recon_1835_south_d4_006 passing from hh_bourrassa_leon to hh_boyer_j_k among them, and one more is left without a named household than gained one; 49 until T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the West seating turned over behind them, so two more West roofs now carry a written keeper) given the name of the household the
 placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 80
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
 `tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
@@ -16215,14 +16217,16 @@ and **L277** on the store-residences.
 
 ### L280 — The warehouse's cargo-door rhythm: two openings on an F2, three on an F3, and no source counts them
 
-**Scope:** `structures.phases[cargo_rhythm]` — 6 phases built with a cargo-door
+**Scope:** `structures.phases[cargo_rhythm]` — 8 phases built with a cargo-door
 rhythm and a hoist over it: `recon_1835_blk_south_water_clark_f2_01`,
 `recon_1835_blk_south_water_lasalle_f2_10`, since T-1773
 `recon_1835_forks_freight_f2_001` at Lake and West Water, since T-2150 (L400)
 `recon_1835_branch_freight_f2_001` at Washington and West Water and, since T-2174 (L406),
 `recon_1835_blk_south_water_dearborn_f2_11` behind the stores at South Water and Dearborn — the
 town's five **F2** roofs — and, since T-2022 (L399), `recon_1835_bank_freight_f3_001` on the North Water bank at LaSalle,
-the town's first and only **F3**, built with three. The rhythm itself is `goods_door_bays` and
+the town's first **F3**, built with three, and since T-2268 (L415) the second and third,
+`recon_1835_south_branch_freight_f3_001` and `_002` on the South Branch's east bank below Market
+Street, built with three each. The rhythm itself is `goods_door_bays` and
 `goods_door_spans_m` in `generators/archetypes/frame_storefront_params.py`; the count is
 `tools/family_bands.cargo_door_bays`, which the block and inferred-infill parcels deal to
 families **F2** and **F3** — so every F2 or F3 roof dealt after this stands on it too. No
@@ -18268,7 +18272,7 @@ Division in July 1835 substitutes for this roof rather than standing beside it.
 **Applies to:** `data/reconstruction/1835_stated_uses.json`
 
 **Covers:** `recon_1835_west_036.occupants`, `recon_1835_west_037.occupants`,
-`recon_1835_west_047.occupants`, `recon_1835_west_020.occupants`
+`recon_1835_west_047.occupants`
 
 **What we invented:** The USE of three anonymous roofs in the Jefferson and Clinton clusters
 that no deal seats a household in and no deal ever could, because their families are not ones a
@@ -18311,6 +18315,10 @@ A storekeeper seated on the Canal Street approach by a deal or a source retires 
 **Recorded:** 2026-10-01 (T-1782).
 
 **Revised:** 2026-10-01 (T-1826) — `recon_1835_west_020` added.
+
+**Revised:** 2026-10-09 (T-2246) — `recon_1835_west_020`'s row retired, as its "Would replace"
+foresaw: the housing deal's keeper rung (L354) seats a storekeeper over it, L. Chevalier, whose
+Canal Street house of trade stood on no roof.
 
 ### L311 — Three invented roofs on the Canal and Lake approach, and the one lot beside them the schedule keeps empty
 
@@ -20119,6 +20127,47 @@ roomiest roof in its division and the off-plat deal hands it a household of five
 deal's room rule re-picks: 537 seats change roof. 32 of them change division, every one a
 household whose card has no division and is offered the whole town.
 **Recorded:** 2026-10-02.
+**Amended 2026-10-09 (T-2236):** a fourth rung, taken right after the dealt roof: the
+**keeper**. A household holding a house of trade the town already holds (the business
+register's proprietor or partner, present on the scene date) is put over a store roof
+(C1-C4): the roof the register or the street-face adoption (L212) already stands that firm
+on, if nobody sleeps there; otherwise, for a firm on no roof whose trade the premises
+rulings put on a street of stores, an empty generated store of the keeper's division that
+no household, worker, firm or stated occupant holds (a roof raised for one trade, a bakery or
+a grocery, takes only its keeper). A division takes keepers only while the order book still
+orders a store household there (T-2194's ruling: one a standing store roof, less the store
+households the index knows). 18 are seated, 13 of them over their own firm's roof; nobody is
+minted, no firm is raised or moved, and the store count T-1996 holds does not change. **What
+is invented** is the same as every seat here: that the keeper's household slept over the
+store, which no source says. The street-face adoption's roof was already the firm's; this
+adds the keeper's bed to it. An inhabited store is a dwelling for the census's ceiling, as
+the documented store-residences already were, so the 18 roofs admit 76 more ruled-in
+households: 41 wait on a roof (125 people) instead of 117 (272), measured over dev @ 48b2c2c15.
+**Recorded:** 2026-10-09.
+**Amended 2026-10-09 (T-2244):** a store roof nobody sleeps or works in, standing a house of
+trade whose keeper the town already places on ANOTHER roof (asleep there by the dealt roof or a
+lodging bed, or at work there by their own card), is ruled a store with nobody living over it.
+The keeper is not moved and the book's order for a household over the store is discharged.
+Five stores: G. Blanshard's, Dr W. G. Austin's and W. Montgomery's (their keepers slept in a
+house of their own, a house of their own and a boarding house), and the Chicago Democrat
+printing office and Pierce & French (whose keepers' own cards put their work at the
+documented Democrat office and Pierce's smithy). The first three keepers are listed on their
+store's card as having worked there; the other two are not, because their cards already say
+where they worked. **What is invented** is that nobody slept over those five stores, which no
+source says either way; it is the reading that leaves every keeper where the town already
+had them.
+**Amended 2026-10-09 (T-2246):** a store roof nobody sleeps or works in, standing a house of
+trade none of whose keepers the town holds a card for, is ruled a store nobody is seated over,
+and the book's order for a household over it is discharged. Four stores, each on the roof the
+street-face adoption gave the firm: H. Doty & Co., Rockwell's cabinet furniture warehouse, the
+Chicago Bakery (D. Graves) and Harmon, Loomis & Co. (whose Harmon brothers the town places at
+the firm's documented store). The register's mint refuses the first three keepers a card (a
+firm, not a person; a surname, a trade and nothing else; the town already names a Graves), and
+no keeper is minted here to fill the order. **What is invented** is that nobody slept over
+those four stores. And the West's empty C2 store recon_1835_west_020, whose stated use (L310)
+named no trade and retired when a keeper could take it, is now kept by L. Chevalier
+(watches, jewelry and fancy goods, a Canal Street house of trade on no roof), seated over it
+by the keeper rung: which store roof his house stands in is the invention, as for every keeper.
 
 ### L355 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
 
@@ -20359,7 +20408,7 @@ ground), **T-1984** (this entry).
 
 ### L360 — Seven houses of trade stand because their keepers were already drawn at trades no census line and no count of shops reaches
 
-**Scope:** `businesses.records[reconstructed]` — 53 houses of trade, of which SEVEN are this
+**Scope:** `businesses.records[reconstructed]` — 54 houses of trade, of which SEVEN are this
 entry's: three refectories, one auction room, one mill, one brickyard and one soap and candle
 manufactory. The other forty-four are **L254**'s apothecaries, **L255**'s Black-owned firms,
 **L257**'s boarding houses, **L258**'s brewery and jeweller's, **L259**'s professions,
@@ -20740,7 +20789,7 @@ boundary); the tickets **T-1637** (which left the gap open), **T-2012**.
 
 ### L367 — Two physicians' offices stand for the census line the re-cut ordered, and the second physician was drawn for the office
 
-**Scope:** `businesses.records[reconstructed]` — 53 houses of trade, of which TWO are this
+**Scope:** `businesses.records[reconstructed]` — 54 houses of trade, of which TWO are this
 entry's: *Dr. J. McGuire, physician* and *Dr. J. Tuttle*. The other fifty-one are **L254**'s
 apothecaries, **L255**'s Black-owned firms, **L257**'s boarding houses, **L258**'s brewery and
 jeweller's, **L259**'s law office, **L260**'s liveries and lumber yards, **L262**'s services,
@@ -21636,7 +21685,7 @@ houses retires the shops rather than moving them.
 **Recorded:** 2026-10-05 (T-2134).
 
 ### L390 — Fort Dearborn's roofs sit on their walls, its timber is piece by piece, and its staffs fly the flag in law
-**Merge identity:** this entry was L384, then L390, on the Fort Dearborn branch; dev assigned
+**Merge identity:** this entry was L384, then L389, on the Fort Dearborn branch; dev assigned
 both numbers first (the Market block, then the Dearborn Street workshops). It is L390 here.
 **Decision:** in both forts (`generators/archetypes/fort_structure.py`, `palisade.py`,
 `renderers/web/js/flags.js`):
@@ -21652,10 +21701,22 @@ both numbers first (the Market block, then the Dearborn Street workshops). It is
   piece and darker at the foot; two ribbands run along the inside of each run; the timber grain
   runs up the picket.
 - **Flags.** The 1835 staff flies the 24-star, 13-stripe flag (stars in four rows of six); the
-  1812 staff the 15-star, 15-stripe flag (five staggered rows of three). The fly is 0.30 of the
-  staff (about 15 ft and 22 ft), hoist to fly 1 : 1.6, worn (the 1835 flag fully, the 1812 by
-  half: bleached toward a frayed fly end), streaming north-east on a south-westerly breeze with
-  a gentle travelling ripple.
+  1812 staff the 15-star, 15-stripe flag (five staggered rows of three). Both are a post's
+  everyday flag, 6 ft 6 in x 12 ft (hoist to fly 1 : 1.85), of wool bunting: stripes sewn as
+  separate strips, hand-sewn cotton stars, a canvas heading, worn (the 1835 flag fully, the 1812
+  by half: bleached toward a frayed fly end), hanging out in soft folds and sagging at the fly on
+  a south-westerly breeze. A hemp halyard runs from a sheave in the truck to the heading and down
+  to a cleat at shoulder height.
+- **Revised 2026-10-10 (T-2333), at the owner's direction** (*"they seem a bit large ... they
+  look a bit crisp, can you make them look more like period appropriate fabric?"*). The flags
+  were 0.30 of the staff, about 15 ft and 22 ft on the fly: a fortress's flag on a one-company
+  post. The surviving sizes are the large ones: Fort McHenry's 1813 storm flag 17 x 25 ft and
+  garrison flag 30 x 42; the garrison flag taken at Fort Niagara in 1813 at least 22 x 28 (WCNY,
+  "The capture of Fort Niagara"). The Army first fixes sizes in the revised regulations of 1861
+  (para. 1464, as transcribed secondhand): garrison flag 20 x 36 ft for great days, storm flag
+  10 x 20 for the rest, recruiting flag 4 ft 4 in x 9 ft 9 in. A small frontier post's everyday
+  flag sits between the last two, so both forts now fly 6 ft 6 in x 12 ft; the first fort's
+  taller staff does not earn it a larger issue.
 **Why:** the owner, 2026-10-05 (T-2123, T-2124), at the fort in 1835: *"the roof is hovering, so
 that should be fixed, and be sure to apply those textures that we have to everything ... that
 wood looks pretty plain, and we have done better ... can we have a US flag or whatever the period
@@ -21674,7 +21735,8 @@ the record grades `flag_flying` reconstructed. Nothing says the 1812 flag was up
 1812. The arrangement of the stars, the size, the colours' wear and the wind are ours.
 **How to resolve:** a quartermaster's account, a post return or a period view of either fort
 replaces the roofs and timber; any record of the post's colours (a requisition for a garrison
-or storm flag, its size) replaces the cloth; a weather record for 1 July 1835 settles whether it
+or storm flag, its size and its cloth) replaces the cloth; the 1861 regulations' text read at
+first hand replaces their secondhand transcription; a weather record for 1 July 1835 settles whether it
 was up, and from where the wind blew.
 **Related:** L204 (the staff's position), L232 (the fort's well), T-0096 (the staff found, and
 the bare-staff reading this supersedes at the owner's direction).
@@ -22510,6 +22572,251 @@ or a survey of the 1834 bank at Market Street.
 **Related:** **L90**, **L405**.
 **Recorded:** 2026-10-08 (T-2195).
 
+### L410 — An invented house on the Market wedge's lot 7
+
+**Decision:** the one `slot` request the platted seating held after T-2195 is raised as an anonymous
+count-unit, from a second-deal entry in `data/reconstruction/1835_platted_block_parcels.json`
+(`phase3_platted_block_south_water_market_lot_7`), built by `tools/generate_block_infill.py`:
+`recon_1835_blk_south_water_market_d5_01`, a larger frame house (D5) on lot 7 of
+`blk_south_water_market`, the middle of the wedge's Lake Street face, fronting Lake 5 m back.
+**Everything about it is invented**: that a house stood on this lot in July 1835, where on the lot
+and how far back — and the lot itself is reconstructed (**L409**).
+
+**What chose it, and what did not.** Not a hand. On the tree T-2195 left, the 668-roof schedule
+deals the wedge a D5, an F4 and an H3, and the seating's fixpoint seats the Dixon household
+(south/tradesman_dwellings) on the D5 as a `slot` with no structure under it, on lot 7. With it built
+no request is left: an older household, hh_boucher_joseph, adopts the house, and hh_dixon_robert is
+seated on a standing South D5 (**L270**). The 5 m set-back copies the School Section tier's D5s
+(**L408**). Lot 8, the Lake-and-Franklin corner, is the wedge's reserved open lot. Lot 6 keeps its
+saw-pit shed and is not framed for a roof at all: the river's bend cuts its back to 12.0 m against a
+24.4 m front, and the generator now carries such a lot on a wedge block unframed, refusing any slot
+dealt onto it.
+
+**What it moves.** The house takes the wedge's one buildable free lot, so the schedule reads the block
+`at_capacity`: its F4 moves to `blk_south_water_wells` and its H3 to the gated balance beyond the
+committed street control. The South's ordinary-dwelling row reads 176 ordered, 171 standing, 5 owed.
+
+**How to resolve:** a dated record of an improvement on the Lake Street lots of plat block 21 (a lot
+sale with improvements, a tax or insurance record, a reminiscence) substitutes for the compatible
+anonymous roof and never increases the total.
+
+**Covers:** `recon_1835_blk_south_water_market_d5_01.inferred_1835.position`, `recon_1835_blk_south_water_market_d5_01.inferred_1835.footprint`.
+**Ticket:** T-2238 (piece 1 of T-2182).
+**Related:** **L409**, **L408**, **L270**, **L90**.
+**Recorded:** 2026-10-09 (T-2238).
+
+### L411 — An invented boarding house in a two-unit row on the Market wedge's lot 7
+
+**Decision:** on the owner's answer to T-2196 (2026-10-09, option a), lot 7 of
+`blk_south_water_market` carries a two-unit party-line row on its Lake Street face: T-2238's D5
+slides 7.26 m west to the plat's 1.5 m margin off lot 6's side line, and
+`recon_1835_blk_south_water_market_h3_02`, a large boarding house (H3), shares its east wall at the
+same 5 m set-back. Built by `tools/generate_block_infill.py` from a third deal on the block
+(`phase3_platted_block_south_water_market_lot_7_row`). **Everything about it is invented**: that a
+boarding house stood here in July 1835, that it shared a wall with its neighbour, its size, and that
+it was kept by Mark Beaubien's household. The lot itself is reconstructed (**L409**).
+
+**What chose it, and what did not.** The owner chose the lot and the row; the schedule
+(`reconcile_665.ROW_LOT_GRANTS`, a table of one) chose the family, dealing the lot's granted room only
+to an H3; the generator chose the width; the keeper chain chose the keeper. The South owed two
+boarding houses that no open block could hold, because each open South block keeps one free lot and
+holds one roof per lot otherwise. The second stays owed in the gated balance beyond committed street
+control until the S9 street work lands (T-2247). Lot 8, the Lake-and-Franklin corner, is still the
+wedge's reserved open lot.
+
+**What it moves.** The schedule's gated South balance falls from 10 roofs to 9 (H3 2 to 1). The
+keeper clause `lodging_near_the_landings` moves Mark Beaubien's household onto the new house, and Alanson Sweet's onto the Clark block house Beaubien left (**L270**).
+The lodgers are re-dealt over 28 places (**L252**).
+
+**How to resolve:** a dated record of a boarding house or tavern on the Lake Street lots of plat
+block 21 substitutes for the compatible anonymous roof and never increases the total; a record placing
+Mark Beaubien's house elsewhere in July 1835 retires the keeper seating, not the roof.
+
+**Covers:** `recon_1835_blk_south_water_market_h3_02.inferred_1835.position`, `recon_1835_blk_south_water_market_h3_02.inferred_1835.footprint`.
+**Ticket:** T-2196 (of T-1957).
+**Related:** **L410**, **L409**, **L270**, **L252**, **L90**.
+**Recorded:** 2026-10-09 (T-2196).
+
+### L412 — Hung signboards hang on forged chain, and a bracket board from two arms
+
+**Applies to:** every hung board drawn by `renderers/web/js/signage.js` — the `bracket_board`,
+`awning_board` and `post_board` mountings of `data/signage/town_business_signboards.json`.
+
+**What we invented:** how a hung board hangs. Each one hangs on two short runs of forged iron chain:
+an eye driven into the timber that carries it, links of 9 mm stock about 64 × 36 mm turning a
+quarter-turn each, and a staple driven into the board's top edge, in a weathered black iron. A
+bracket board now has two timber arms, one over each chain and each carried by a diagonal knee
+from the wall, where it had one arm at its middle and a level strut under it that touched the arm
+nowhere. The board keeps its facing (face-on to the street) and its height.
+
+**Why:** the owner reported on 2026-10-10, on a screenshot of the Sauganash's board, that the
+hanging signs float with nothing supporting them. The bracket board's two timber straps were hung
+a third of the board's width either side of its single arm, along the wall, so neither was under
+anything; the hood and post straps were under timber but drawn as flat slats. Short chain on iron
+eyes is the common way a swinging board was hung in the period, and the town had smiths (the
+fort's forged the Wolf Point sign's hinges, **L20**). No source records how any 1835 Chicago board
+was hung, so the hardware and its sizes are reconstructed.
+
+**Consequence:** every hung board in the town is visibly carried by iron chain from the member
+above it. That is a claim about how such boards were hung, not about any board. The Wolf Point
+sign is unchanged: its hinges are the source's own (**L20**).
+
+**How to resolve:** a description or image of how a particular 1830s Chicago board was hung
+(rings, rods, hinges, rope) replaces the chain on that board.
+
+**Related:** **L346**, **L158**, **L20**, **T-0039**, **T-1836**.
+**Recorded:** 2026-10-10 (T-2281).
+
+### L415 — Two invented river warehouses on the South Branch's east bank below Market Street
+
+**Decision:** two F3 large river warehouses, `recon_1835_south_branch_freight_f3_001` and
+`recon_1835_south_branch_freight_f3_002`, stand off the plat on the dry strip between Market
+Street's corridor and the South Branch, between Madison and Washington Streets. Each faces the
+branch with its back wall 3.0 m inside Market's west line; the first stands 3.0 m north of
+Madison's north line and the second 6.0 m north of the first, across a cart way. Built by
+`tools/generate_south_freight.py` from `data/reconstruction/1835_south_freight_bank.json`.
+**Everything about them is invented**: that any warehouse stood on this stretch of the bank in
+July 1835, their size, their face and their finish. No source seats a building here.
+
+**What chose it, and what did not.** The order book's South street-line freight band owed three
+roofs and the 668-roof schedule had parked all three on the gated balance south of Madison,
+which has no river. Measured for T-2175: every South Water lot is held, no free South lot stands
+inside `bank_landing_reach_m` (27.09 m) of traced water, and the Dearborn reach's bank takes no
+more sheds at the 0.30 m relief bound. The Branch bank is the one stretch of river ground left,
+and Newberry & Dole's packing house, slaughter-house, salt house and stock shed and a cooperage
+already stand on it between Randolph and Washington, facing the branch, which is where the face
+comes from. The clause is `bank_landing` (T-2022): the roofs stand 23.50 m and 21.43 m from the
+traced water, with nothing between them and the river. The third roof owed, an F4 lumber shed,
+is not built here, because the clause admits F1-F3 only (T-2269).
+
+**What it moves.** The order book's South street-line band reads 10 of 10 standing: T-2269's F4
+lumber shed (**L-south-lumber-shed-2269**) landed on the same bank first, 26 m north of the
+second warehouse, and the cell is closed. The schedule's gated South balance falls from 8 roofs
+to 6 (F3 2 to 0), and its mix on block 82 is re-dealt (**L270**). The cargo-door count (**L280**)
+and the stated-roof count (**L263**) are restated.
+
+**How to resolve:** a dated record of a forwarder's, merchant's or packer's warehouse on the
+South Branch's east bank below Washington Street in July 1835 substitutes for one of these roofs
+and never increases the total.
+
+**Covers:** `recon_1835_south_branch_freight_f3_001.inferred_1835.position`, `recon_1835_south_branch_freight_f3_001.inferred_1835.footprint`, `recon_1835_south_branch_freight_f3_002.inferred_1835.position`, `recon_1835_south_branch_freight_f3_002.inferred_1835.footprint`.
+**Ticket:** T-2268 (of T-2175).
+**Related:** **L399**, **L400**, **L406**, **L280**, **L263**.
+**Recorded:** 2026-10-09 (T-2268; restated 2026-10-10 over T-2269).
+
+### L414 — Signboards lettered in period faces, gilt in leaf, dark grounds sanded and bare boards carved
+
+**Applies to:** every board and painted name drawn by `renderers/web/js/signage.js` from
+`data/signage/town_business_signboards.json`.
+
+**What we invented:** the lettering's look. The four letterforms the record names (`style.face`)
+are now drawn in four self-hosted revivals of the period's own faces (renderers/web/fonts/LICENSE.md):
+the signwriter's roman in Old Standard TT bold, the fat face in Abril Fatface, the Egyptian in Alfa
+Slab One and the grotesque in Anton. Each board mixes faces as boards of the period did: the name in
+its display letter, largest and on one line; the trade under it in Old Standard's italic (roman and fat
+face boards) or its bold capitals (Egyptian and grotesque); the place in small, wide-spaced roman
+capitals; and, where the board has the room, a fine rule with a lozenge between name and trade. The two
+gold colourways are drawn as gold leaf: a burnished gradient, a fine dark outline and a dark shade, and
+the smoothest surface in the town in the roughness map. Every dark painted ground is drawn smalted
+(sanded while wet: a fine grit, matte). A hung or fixed board in the bare timber is CARVED: its letters
+are V-cut into the wood in the relief map and darkened, not painted. Painted letters stand a film's
+thickness in relief. Since T-2287, for a photographic finish: every painted board's lettering carries
+a block shade (lake-brown under gilt on a dark ground, a darker tone of the ground on a light one); a hung
+or fixed board is framed by a raised bead about 3.5 cm wide, picked out in leaf on a gilt board and a tone
+off the ground on any other; a dark ground shows its brushed grain and pale rain streaks from its top
+edge; and a name painted straight onto bare boards is chalked toward the wood and has lifted in small
+flakes. Gold leaf is NOT drawn as a metal: this scene's only environment is its sky, and leaf reflecting
+it turns mint green.
+
+**Why:** the owner, 2026-10-10, on Newberry & Dole's warehouse: make all signs "period correct and
+legible", lettered "in period fonts and colors correct for the sign", with "excellent texture for the
+sign if painted or on carved raw wood", laid out "so it fits and is readable and matches period signs of
+the era". The old faces were whatever a browser ships (Georgia, Courier New, Helvetica), all capitals in
+one fount. Gilding with a shade, smalted grounds and incised lettering on plain boards are all standard
+practice in American sign work of the 1830s, but no source records the lettering of any board in
+Chicago, so all of it is reconstructed.
+
+**Consequence:** the town's signs read as signwriters' work of the period, not screen type. None of it
+is evidence about any one board: which face, colours and mounting a board has is still the generator's
+rule (**L159**), and only the drawing of them changed.
+
+**How to resolve:** a description, drawing or photograph of a particular Chicago board of the 1830s
+replaces this treatment on that board: its letterform, its colours, whether it was gilt or carved.
+
+**Related:** **L159**, **L130**, **L169**.
+**Recorded:** 2026-10-10 (T-2282; extended by T-2287, after the owner's "photographic quality is a must").
+
+### L416 — Four invented houses on the School Section tier's Market block south of Monroe
+
+**Decision:** the four `slot` requests the platted seating holds on `blk_school_section_tier_82`
+are raised as anonymous count-units, from one recipe entry in
+`data/reconstruction/1835_platted_block_parcels.json` (`phase3_platted_block_school_section_tier_82`),
+built by `tools/generate_block_infill.py`: on the Monroe face a small cottage (D2) on lot 2, 4.5 m
+back (`recon_1835_blk_school_section_tier_82_d2_01`), and a tradesman's frame house (D4) on lot 4
+(`_d4_03`); on the Adams face a larger frame house (D5) on lot 3 (`_d5_02`) and a D4 on lot 5
+(`_d4_04`), each 5 m back. **Everything about them is invented**: that a house stood on any of these
+lots in July 1835 (the state sold the Monroe-Adams tier's lots in October 1833; no source shows them
+built), where on each lot it stands and how far back.
+
+**What chose them, and what did not.** Not a hand. On the owner's ruling (b) of T-2247 the South's
+gated balance crosses Monroe; T-2252 cut the tier into lots and T-2253 joined it to the grid and dealt
+the block two D2, two D4, a D5 and an H3. The seating's fixpoint on that tree slots four households
+there with no structure under them (hh_vieaux_susanne, south/labourer_dwellings, on the D2;
+hh_merrill_george_w, hh_merill_isaac and hh_meleney_patrick, south/tradesman_dwellings, on the D5 and
+the D4s), and those four are what is built. The family, the lot and the household are the seating's
+and the schedule's (**L270**). The set-backs and lateral offsets copy block 81's houses of the same
+families across Monroe (**L397**). **Not built:** the schedule's second D2 and its H3, which
+`1835_platted_seats.json` lists under `plan_left_unclaimed` because no banded South row is admitted
+by a clause that takes them; lot 0 stays the block's reserved open lot and lots 1, 6 and 7 stay free
+for them. **Re-read on the tree merged with T-2268 (2026-10-10):** T-2268's re-apportionment
+re-dealt the block's balance, and at the seating chain's fixpoint the four houses keep their families
+and are adopted by hh_rc_shea_margaret (the D2 on lot 2), hh_merrill_george_w (the D5 on lot 3),
+hh_merill_isaac (the D4 on lot 4) and hh_meleney_patrick (the D4 on lot 5); the block's two requests
+left are a D1 slot on lot 6 (hh_vieaux_susanne) and an H1 slot on lot 7 (hh_church_thomas), which
+T-2270 owns, and nothing is `plan_left_unclaimed`. The Adams-face houses front Adams in the frontage
+census (`tools/measure_frontage_fabric.py` reads both School Section tiers since this ticket).
+
+**How to resolve:** a dated record of an improvement on School Section block 82 (a lot sale with
+improvements, a tax or insurance record, a reminiscence) substitutes for the compatible anonymous
+roof and never increases the total.
+
+**Covers:** `recon_1835_blk_school_section_tier_82_d2_01.inferred_1835.position`, `recon_1835_blk_school_section_tier_82_d2_01.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_82_d5_02.inferred_1835.position`, `recon_1835_blk_school_section_tier_82_d5_02.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_82_d4_03.inferred_1835.position`, `recon_1835_blk_school_section_tier_82_d4_03.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_82_d4_04.inferred_1835.position`, `recon_1835_blk_school_section_tier_82_d4_04.inferred_1835.footprint`.
+**Ticket:** T-2254.
+**Related:** **L397**, **L408**, **L270**, **L263**.
+**Recorded:** 2026-10-10 (T-2254).
+
+### L-block82-east-corners-2270 — A cabin and a merchant's house invented on the east corners of the School Section tier's block 82
+
+**Decision:** the block's last two `slot` requests are raised as anonymous count-units, from a second
+recipe entry in `data/reconstruction/1835_platted_block_parcels.json`
+(`phase3_platted_block_school_section_tier_82_lots_6_7`, `seq_start` 5), built by
+`tools/generate_block_infill.py`: on the Monroe face a one-room log cabin (D1) on lot 6, the east
+corner, 4.5 m back like the block's D2 on lot 2 (`recon_1835_blk_school_section_tier_82_d1_05`);
+on the Adams face a merchant's frame house (H1) on lot 7, the other east corner, 6 m back as the
+South's other street-set H1s stand (`_h1_06`). **Everything about them is invented**: that a house
+stood on either lot in July 1835 (the state sold the Monroe-Adams tier's lots in October 1833; no
+source shows them built), where on each lot it stands and how far back.
+
+**What chose them, and what did not.** Not a hand. After T-2254 raised the block's four requested
+houses, the seating's fixpoint on the tree merged with T-2268 held two `slot` requests on the block
+with no structure under them — hh_vieaux_susanne (south/labourer_dwellings) on a D1 on lot 6 and
+hh_church_thomas (south/merchant_and_professional_dwellings) on an H1 on lot 7 — and those two are
+what is built. T-2268's re-apportionment had already turned the block's unclaimed second D2 and H3
+into this D1 and H1, so both roofs are asked for and neither stands empty, and an H1 is a house, not
+a boarding house, so the lodging model `seat_lodgers_1835.py` freezes does not move. At the seating
+chain's fixpoint both households adopt the roof they asked for: **221 seated, all adopted, no
+`slot` left on the plat**. The family, the lot and the household are the seating's and the
+schedule's (**L270**). Lots 0 and 1, the two Market corners, stay open.
+
+**How to resolve:** a dated record of an improvement on School Section block 82 (a lot sale with
+improvements, a tax or insurance record, a reminiscence) substitutes for the compatible anonymous
+roof and never increases the total.
+
+**Covers:** `recon_1835_blk_school_section_tier_82_d1_05.inferred_1835.position`, `recon_1835_blk_school_section_tier_82_d1_05.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_82_h1_06.inferred_1835.position`, `recon_1835_blk_school_section_tier_82_h1_06.inferred_1835.footprint`.
+**Ticket:** T-2270.
+**Related:** **L416**, **L270**, **L263**, **L266**.
+**Recorded:** 2026-10-10 (T-2270).
+
 ### L-glessner-west-profile-2231 — Front west gable and lower rear proportions
 
 **Decision:** The owner's 9 October 2026 west and northwest references supersede
@@ -22574,3 +22881,2432 @@ survey can replace these reconstructed height and projection controls.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Review:** `docs/RESEARCH/glessner-courtyard-roof-2235/README.md`.
 **Recorded:** 2026-10-09.
+
+### L-glessner-frontage-2202 — Prairie frontage access and stone lawn edging
+
+**What:** Reconstructed house-side stone curb, rounded plan corners and dressed
+upper edges, two access gaps, stone entry approach/low risers, and continuous
+mineral carriage paving from the public walk through the porte-cochere to the
+existing courtyard drive. The public carriageway, curb and sidewalk stay on
+T-1728's layout. Only the one-foot public margin at each access is crossed.
+
+**Basis:** `taylor_2135_glessner_exterior_1887_1889` shows the early low stone
+boundary and entry break; `habs_glessner_house_il_1015_drawings` sheets 2 and 6
+record their later plan/elevation and the door's 0.74-ft rise above its walk.
+Their continuity in 1904 is inferred. The existing Sanborn-aligned 14.7-ft
+setback bounds the strip. Neither source measures a 1904 pavement recipe.
+The 0.65-ft curb width, 1.05-ft height above paving, 0.8-ft rounded corner,
+4-ft stone-joint spacing, 3.5-ft paving divisions, two low door risers, a one-foot-deep carriage threshold and
+neutral mineral surface are reconstructions. Profile tolerance is about
+0.25 ft, setback about 1.5 ft; these are modelling bounds, not survey errors.
+Temporary rubble in Taylor and later paved street conditions are not copied.
+
+The 0.21-ft approach/passage lift is rendered ground clearance, tapering to
+the existing 0.12-ft courtyard drive. It compensates for the renderer's
+lowest-footprint terrain anchoring and joins the existing elevated sidewalk;
+it is not a measured historical grade. The door sill itself stays at the
+HABS datum. Joints are recessed and solid skirts extend below grade.
+No restricted photograph pixels or assets are used.
+
+**How to resolve:** A dated 1904 close view, paving specification or measured
+frontage survey can replace the materials, profiles, joints and grade bounds.
+**Covers:** `glessner_house.as_built_1887.form.prairie_frontage`.
+**Review:** `docs/RESEARCH/glessner-frontage-2202/README.md`.
+**Recorded:** 2026-10-09.
+
+### L-glessner-roof-tiles-2203 — Later measured tile module carried to 1904
+
+**Decision:** Use a 6-inch width and 5-inch exposed course on Glessner's clay
+roof planes and tiled west-dormer cheeks. Retain red baked, unglazed clay;
+exclude the tar coating reported by the later HABS survey.
+
+**Basis:** `habs_glessner_house_il_1015_data_pages`, printed p. 21 / PDF p. 22,
+records those dimensions and quotes Glessner's 1923 account on printed p. 13 /
+PDF p. 14 describing the original red baked unglazed tiles. The HABS quotation
+is the reviewed source; the separately catalogued original remains unresolved.
+`taylor_2135_glessner_exterior_1887_1889` shows fine continuous early courses.
+The photograph is a visual check, not a dimensional measurement. Survival of
+the later measured module in 1904 is inferred. The half-tile stagger, 4-mm side
+joints, 6-mm exposed lap relief, exact colour and weathering are reconstructed.
+No concealed headlap or total tile length is asserted. Faceted cone cuts and
+alternate-course geometry in Light are display approximations; every exposed
+course has the same physical texture scale. No source pixels are used.
+
+**How to resolve:** A dated roof specification, original tile or calibrated
+1904 roof close-up could establish the module, full length, laying pattern
+and surface condition directly.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Review:** `docs/RESEARCH/glessner-roof-tiles-2203/README.md`.
+**Recorded:** 2026-10-09.
+
+### L-glessner-roof-edges-2205 — Reconstructed roof stock and flashing
+
+**Decision:** Give Glessner's existing roof caps, finials and eaves closed stock,
+and dress shared valleys/chimney abutments without moving the roof planes.
+**Basis:** `taylor_2135_glessner_exterior_1887_1889` and
+`habs_glessner_house_il_1015_drawings` bound the early silhouette and existing
+approximately 1.16-ft cap cadence. `habs_glessner_photo_14_north_inclined_1965`
+and `habs_glessner_photo_15_north_stable_1965` corroborate repeated rounded
+collars and eave form, not a measured 1904 section. The later views do not
+establish every hidden end or the model's exact 233-collar count.
+
+The 80-mm collar rise, 50-mm width, 18-mm cap overlap, moulded finial seats,
+60-mm fascia, 24-mm lower step, 160-mm valley strip, 2.5-mm metal stock and
+90-by-120-mm chimney apron/upstand are reconstructions. Inherited radii,
+finial heights and Full roof slopes remain. No historic pixels are used.
+The cap underside follows the lower roll toward a truncated circular foot,
+66 mm below the ridge at the chosen radius and seat. This bedding is reconstructed.
+Light replaces circular arcs with fewer intervals (32 for the largest cones,
+maximum 12.3-mm chord departure); this is a display approximation, not an
+architectural change. Exact mouldings and concealed flashing remain unverified.
+
+**How to resolve:** Dated roof stock specifications, original cap/finial
+measurements or calibrated close photographs can replace these sections.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Review:** `docs/RESEARCH/glessner-roof-details-2205/README.md`.
+**Recorded:** 2026-10-09.
+
+### L-k01-1808-frontage-2266 — The 1808 Prairie K01 frontage: a reconstructed main range
+
+**Decision:** Stand a three-storey-and-basement house on the 1808 Prairie lot, built
+from K01 components (data/components/prairie_1904/k01_contract.json): a stone street
+front of three bays with a north entrance and stoop, common-brick side and rear
+walls with double-hung sash, a 40-degree hip roof. 18.0 m deep by 10.4 m across,
+its front on Glessner's building line and its north wall 0.02 m south of
+Glessner's south face.
+**Basis:** The 1911 Sanborn sheet 28 (`sanborn_1911_vol3_sheet_28`,
+`sanborn_1911_chicago_v3_sheet_28`) draws a brick house of three storeys and a
+basement ('3B') closing the Glessner courtyard on the south, carried back to 1904
+as the Glessner record carries the same sheet. That is attested for the storeys
+and inferred for the brick. Everything else is reconstructed inside the K01
+contract's declared ranges: the depth and side passage, the storey heights
+(4.0, 3.6, 3.3 m), the 1.50 m principal floor and its nine risers, the wall
+thicknesses, the bays and sash, the roof form and pitch, the stoop, the colours.
+The stone front and the north entrance are the T-1837 frontage register's reading
+of the Inland Architect plate of February 1888, which is not a source record
+here, so both are carried as reconstructed. The 0.02 m between the two houses is
+the clearance that keeps two assets' faces from coinciding; the sheet draws them
+touching. The brick is the Glessner library's common-brick grain with no
+coursing, a flat fabric until T-1845's brick materials land.
+**How to resolve:** T-1882 and T-1883 build the actual Keith/Field front (rock-faced
+Romanesque-classical stone, the south curved bay, the north loggia with Ionic
+columns, the pierced parapet) from the 1888 plate once it is a source record;
+T-1935 the detached rear garage. A measured reading of sheet 28 for this lot
+replaces the footprint.
+**Covers:** `keith_house_1808_prairie.as_built_1886.footprint`, `keith_house_1808_prairie.as_built_1886.form.principal_floor_m`, `keith_house_1808_prairie.as_built_1886.form.storey_heights_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_front_m`, `keith_house_1808_prairie.as_built_1886.form.wall_thickness_side_m`, `keith_house_1808_prairie.as_built_1886.form.roof_form`, `keith_house_1808_prairie.as_built_1886.form.roof_pitch_deg`, `keith_house_1808_prairie.as_built_1886.form.eave_overhang_m`, `keith_house_1808_prairie.as_built_1886.form.stair_tread_m`, `keith_house_1808_prairie.as_built_1886.form.stair_landing_depth_m`, `keith_house_1808_prairie.as_built_1886.form.stoop_width_m`, `keith_house_1808_prairie.as_built_1886.form.entrance_bay`, `keith_house_1808_prairie.as_built_1886.form.front_bays`, `keith_house_1808_prairie.as_built_1886.form.side_bays`, `keith_house_1808_prairie.as_built_1886.form.rear_bays`, `keith_house_1808_prairie.as_built_1886.form.sash_by_storey`, `keith_house_1808_prairie.as_built_1886.form.basement_lights`.
+**Review:** `docs/RESEARCH/k01-1808-frontage-2266/browser-validation.json`.
+**Recorded:** 2026-10-10.
+
+### L-south-lumber-shed-2269 — The South's lumber shed: an open-sided shed on the South Branch's east bank that no source seats
+
+**Applies to:** `recon_1835_south_branch_lumber_f4_001` (`data/structures/`), written by
+`tools/generate_south_lumber.py` from `data/reconstruction/1835_south_lumber_shed.json`.
+
+**What we invented:** The whole building. The order book's South `warehouses_freight/street_line`
+band sets ten freight roofs and found seven standing; of the three it owes, T-2175 gave the two
+F3 river warehouses to T-2268 and the **F4** lumber shed to T-2269. This is that roof: the
+town's first lumber shed, on the `outbuilding` archetype the crosswalk names for F4, built as
+plank walls with no door and one side left open as posts and a roof (`open_sides: left`, the
+family's own, read off the crosswalk's "1/open" and "open posts with slab boards"). It stands
+off the plat on the dry strip between Market Street's corridor and the South Branch, its back
+wall 3.0 m inside Market's west line and its north wall 40.0 m south of Washington's south line,
+facing the branch. Footprint, eave, pitch, finish and the shingle exposure (L263) are
+type-level values from the reconstruction specification, sampled deterministically from the F4
+band. No owner, lumber merchant, stock or occupant is claimed, and no board stack is drawn.
+
+**Why the water, and why here:** the roof stands on the placement policy's new `lumber_landing`
+clause (T-2269), which seats a record whose function is `lumber_shed` within
+`bank_landing_reach_m` (27.09 m) of traced water. It rests on the Chicago Democrat as this
+project's register reads it (`chicago_democrat_1833_1835`): the town's lumber was a lake trade,
+steam-sawn at St. Joseph and sold from South Water Street (David Carver's lumber yard, printed
+December 1833 to July 1835), and a lumber yard and warehouse was announced for the opening of
+navigation. No printing places a yard's shed, so the clause is inferred and this roof is
+reconstructed. T-2268 found no free South lot inside the reach and the Dearborn reach's bank
+full, which leaves the South Branch's east bank; T-2268's warehouses take its Madison end. The
+shed's station is where the bank's fall across its depth first comes inside the generators'
+0.30 m relief bound: 0.36 m at 3 m south of Washington, 0.30 m at 30 m, 0.27 m at 40 m. The
+brickyard filed under F4 is still seated by its clay: `lumber_landing` names its function and
+refuses it, and its outlier reason stands.
+
+**Bounds held by the generator:** off every platted lot; out of every drawn street corridor and
+refused region; 18.01 m from traced water, inside the clause's 27.09 m (read from the policy,
+not copied) and outside the 8 m anonymous setback; 41.25 m from the nearest footprint; dry
+modelled ground at every corner with 0.27 m of relief; front toward the branch. `--self-test`
+refuses a shed moved into Market or Washington Street, one moved down the bank into the branch,
+one turned to face Market Street, a brickyard seated by the lumber landing and a family the
+recipe did not order.
+
+**Would replace:** Any reading that seats a named lumber merchant's yard or shed on the South
+Branch's east bank in July 1835, or places David Carver's South Water Street yard on the water,
+substitutes for this roof rather than standing beside it.
+
+**Covers:** `recon_1835_south_branch_lumber_f4_001.inferred_1835.position`, `recon_1835_south_branch_lumber_f4_001.inferred_1835.footprint`.
+
+**Ticket:** T-2269 (the F4 T-2175 handed on).
+
+**Recorded:** 2026-10-10 (T-2269).
+
+### L413 — Doors, windows and their trim on every 1835 building, and the glass in them
+
+**Decision:** on the owner's ask of 2026-10-10 (T-2278: "give all structures correct door and window
+openings and any appropriate fascia"; reuse Glessner's dark glass where a building could reasonably
+have had glass), every opening the frame dwellings, log dwellings, stores, taverns and fort buildings
+draw is built by one kit, `generators/common/openings.py`: a board casing standing 5 cm off the
+wall's skin with its returns, the pane set back in it so the jambs and head read as a reveal, a sloped
+sill with horns and a drip cap; a closed door in every doorway (panelled on a frame house, a tavern,
+a store or a fort building, half-glazed on a shop, board-and-batten on iron strap hinges on a log
+house, a freight door or a magazine); open board shutters beside about half the log houses' windows;
+strap hinges on the outbuildings' existing board doors.
+
+**What is attested.** That the town was glazed: window glass by the box in 8x10, 7x9 and 5x10 in
+panes, and ready-made window sash, advertised in the Chicago Democrat 1833-35 by Philo Carpenter,
+John H. Kinzie, J. K. Botsford, P. F. W. Peck and Jones & King (each advertisement is on its
+`data/businesses/biz_*.json` record with its issue), and the Green Tree's 6x8 lights
+(`chicagology_prefire127`). So a log house in this town is glazed too; oiled paper belongs to the
+remote frontier of a decade earlier, and nothing put glass in a barn, a shed or a stable, which stay
+unglazed.
+
+**What is invented.** Every dimension of the casing, sill, cap, reveal and leaf; the door paints
+(dealt by the record's identity from bottle green, Spanish brown, black-green and red-brown, with
+weathered board on an unpainted house); which doors carry six panels and which four; which cabin
+windows carry shutters; the light counts of the stores' show windows and taverns' sash. The pane
+colour is Glessner's drawn glass (T-2109/T-2183: the GLB's glass at 12 per cent, roughness 0.065),
+adopted, not measured — `materials.GLASS`.
+
+**How to resolve:** a view or description of a particular 1835 Chicago building's doors or windows
+replaces the kit's choices for that building; a source on door colour in the town replaces the deal.
+**Ticket:** T-2278.
+**Recorded:** 2026-10-10 (T-2278).
+
+### L-k04-roof-library-2292 — The 1904 roof coverings and flashings: every slate, tile, seam and sheet, and how each looks
+
+**Decision:** the Prairie Avenue 1904 programme's roof library (package K04,
+`assets/textures/prairie_1904_roofs/`, modules in `data/components/prairie_1904/k04_roofs.json`)
+draws eleven fabrics: Pennsylvania slate (10 x 20 in), a Vermont colour mix (9 x 18 in), scalloped
+slate (8 x 16 in), flat terracotta tile, copper and painted-terne standing seam, painted-terne flat
+seam, and plain copper, lead, zinc and painted-terne sheet for flashing and rainwater goods. Its
+profiles give the working sizes of hips, ridge caps, open valleys, dormer aprons, chimney flashing,
+gutters, brackets, downpipes and shoes.
+**What is invented.** Every slate format, headlap, joint and thickness; the colour of every fabric
+and its per-slate variation, grain, streaking and chalking; the copper's brown (the study's register
+warns that today's green is not proof of the 1904 state); the red-oxide paint and its alternatives;
+every pan, seam, sheet and lock size; every profile dimension; and the defaults that put slate on a
+steep roof, a Vermont field with scalloped bands on a mansard, tin on a service roof and copper on
+an oriel cap. The defaults read the study's building register (pa-1912-10, pa-2100-18, pa-1801-23,
+pa-2115-19, pa-1900-25 for slate; pa-2110-30, pa-213-217, pa-2018 Calumet for copper), which is
+the study's reading of its images and not a source record here. The slate formats sit inside
+RECONSTRUCTION-RULES.md's starting range (0.20-0.30 m wide, 0.15-0.25 m to the weather).
+**What is not.** The flat tile's 6 in width and 5 in exposure are HABS's for Glessner
+(`habs_glessner_house_il_1015_data_pages`, p. 21), carried to 1904, and tile is restricted to roofs a
+source documents; its colour is ours.
+**How to resolve:** a house's own photograph, drawing or specification names its covering, format
+and colours, and that house takes them in place of the default; a dated trade catalogue or roofing
+specification of the period replaces a format or a profile.
+**Ticket:** T-2292 (piece 1 of T-1846, K04).
+**Review:** `docs/RESEARCH/k04-roof-library/README.md`.
+**Recorded:** 2026-10-10 (T-2292).
+
+### L-k03-brick-library-2290 — The Prairie brick library: four brick bodies, two mortars, their joints and bonds, all reconstructed
+
+**Decision:** the 1904 Prairie programme's brick (package K03, T-2290) is four procedural
+fabrics in `assets/textures/prairie_1904_brick/`: a **pressed red** face brick laid in 4 mm flush
+joints of a dark-tinted mortar, a **common buff** service brick in 9 mm weathered joints of sandy
+lime, a **dark fired** (overburnt) brick offered only as the header of a Flemish front, and a
+**rough red-brown** brick in 10 mm raked joints. With them come two mortars, `profiles.json` (joint
+widths, recesses and profiles; arris bevels and chip rates; the per-brick firing variants and their
+weights; running, common and Flemish bonds; header, soldier, rowlock, arch, string-course and
+corner-return rules) and four bonded panels rendered from that data for the balanced and light
+exports.
+
+**What is attested.** Only the asks. The T-1837 study's building register calls for "pressed
+dark-red brick with tight dark joints" at 2100 Prairie (`pa-2100-18`), "rough red-brown brick" at
+2009 Prairie (`pa-2009-17`), a "red-brick front" at 2126 Prairie (`pa-2126-20`) and common-brick
+returns, side and rear ranges and party walls behind many stone fronts (`pa-1612-1`, `pa-1808-6`,
+`pa-1912-10`, `pa-2130-42`, `pa-2031-nrhp`). Each fabric's `uses` quotes those entries. That quote
+is the register's request, not this library's ruling.
+
+**What is invented.** Every colour, grain, pit, tear and glaze in every map. Every joint width,
+recess and profile. The firing variants and their weights. The bond each fabric is offered in
+(no source read here gives a bond for any of these houses), so the Flemish bond with burnt headers
+is an option and no house's evidence asks for it yet. The brick module is Glessner v4's
+(0.2159 m x 0.066675 m, `generators/archetypes/masonry_house_v4_detail.py`), carried to every
+fabric so the street registers with the canonical asset. No 1904 brick size for these houses is a
+source here.
+
+**How to resolve:** a dated photograph, specification or surviving fabric of a particular house
+replaces that house's colour, joint and bond. A trade source on Chicago pressed or common brick
+dimensions c. 1870-1904 replaces the module. Neither changes the rule that joints are data and
+the fabric maps carry none.
+**Ticket:** T-2290 (piece 1 of T-1845).
+**Review:** `docs/RESEARCH/k03-brick-library-2290/README.md`.
+**Recorded:** 2026-10-10 (T-2290).
+
+### L-k04-1808-roof-2293 — The 1808 Prairie roof: slate, copper, a front dormer and the rainwater goods, all reconstructed
+
+**Decision:** Roof the 1808 Prairie K01 frontage (L-k01-1808-frontage-2266) from the K04 library
+(L-k04-roof-library-2292): dark Pennsylvania slate on all four hip planes, its courses registered at
+the eave and running 50 mm past the fascia on a doubled starter course; a copper roll on each hip and
+the ridge with its flanges dressed over the top courses; one gabled dormer centred on the street hip,
+its face of dressed stone 0.30 m behind the wall line with a 0.85 x 1.5 m sash, slated cheeks and
+roof, bargeboards, a copper ridge roll, an open copper valley at each cheek that widens downhill, a
+copper apron and step flashing; a 5 in half-round copper gutter on wrought-iron brackets at 30 in
+round the whole eave, falling 0.5% to five outlets, each with a swan neck under the soffit, a 3.5 in
+round copper downpipe strapped every 1.8 m and a shoe kicked out over a splash stone at grade. The
+roof is now 45 degrees, not 40, and the eave 0.38 m, not 0.45.
+**What is invented.** All of it. No source here reads this house's roof, dormer, gutters or pipes.
+The covering is the K04 default for a steep main roof, which reads the study's building register
+(slate on every steep main roof whose covering it names), not a source record. The dormer exists
+because the K04 package's apron, valleys and step flashing need one to dress and a front attic
+dormer is the commonest Prairie Avenue form; its size, setback, pitch and sash are ours. The pitch
+moved to 45 degrees so the library's slate, cut for a 3 in headlap, is laid where the K04 profile
+allows that lap (a 25-45 degree roof asks 4 in) rather than having its courses stretched; the eave
+came in so the soffit stays clear of the top storey's lintels at that pitch. The pipes stand by the
+corners of the front and rear and halfway along the south passage wall, clear of every opening.
+**Where it departs from its own profile.** None of the pipes stands on the north wall, which closes
+the Glessner court 0.02 m off its face, so the north gutter runs 20.5 m between its two corner
+outlets, over the profile's 12 m; it falls both ways from its middle, so no point of it is more than
+10.3 m from an outlet. The step flashing is drawn as one strip a cheek, not one piece a course.
+**How to resolve:** T-1882 and T-1883 build the actual Keith/Field front from the 1888 Inland
+Architect plate, whose pierced parapet replaces this dormer and may hide a different roof; a
+photograph of the house's roof or rainwater goods replaces the covering, the caps and the pipes.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.roof_covering`, `keith_house_1808_prairie.as_built_1886.form.dormer`, `keith_house_1808_prairie.as_built_1886.form.rainwater`.
+**Ticket:** T-2293 (piece 2 of T-1846, K04).
+**Review:** `docs/RESEARCH/k04-1808-roof-2293/README.md`.
+**Recorded:** 2026-10-10 (T-2293).
+
+### L-k02-stone-library-2288 — The 1904 stone library: how six building stones look, and the joints and edges they are laid with
+
+**Decision:** the Prairie Avenue programme's shared stone (package K02, T-1844) is six procedural
+fabrics in `assets/textures/prairie_1904_stone/` (rock-faced granite, warm brown sandstone, Lemont
+limestone, Bedford limestone, smooth dressed trim and foundation rubble) and one file of joint and
+edge numbers, `data/components/prairie_1904/k02_stone_profiles.json`, that a component lays them
+with: course heights, block lengths, joint width and recess, arris bevel, chip rate and size,
+rock-faced projection, corner-bond returns, rusticated-base channels, coping fall and the rule that
+turns a voussoir's bed perpendicular to the arch's thrust.
+
+**What is attested, and only as an analogue.** One Prairie Avenue wall's courses are transcribed:
+Glessner's street granite, 24 courses of 7.5-20 in, a 0.025 ft joint and 0.025-0.15 ft of
+rock-faced relief (`data/structures/glessner_house.json` v4_detail, from HABS sheet 5). The granite
+profile is bounded by it and the other stones' ranges are set beside it. That is an analogue for the
+other houses, not a reading of any of them. Which stone each register row names is the study's
+building register (T-1837), and the profiles cite those rows; they place no stone on any house.
+
+**What is invented.** Every colour, grain, mineral fleck, bedding lamina, iron stain, pit, tool mark
+and facet of every map, and every number in the profiles that Glessner does not bound. The granite is
+deliberately grey, not Glessner's pinkish stone: no register row names granite on another house, and
+the landmark keeps its own library.
+
+**How to resolve:** a photograph, drawing or specification of a named house's stonework replaces its
+fabric's numbers and look for that house, in that house's own record; a dated colour source for
+Chicago brownstone, Lemont or Bedford stone c. 1904 replaces the palette here.
+**Ticket:** T-2288 (piece 1 of T-1844).
+**Recorded:** 2026-10-10 (T-2288).
+
+### L-k06-window-kit-2297 — The Prairie window kit: every sash, bar, sill, blind and curtain, and the room behind the glass, all reconstructed
+
+**Decision:** the 1904 Prairie programme's windows (package K06, T-2297) are nine parametric
+openings built by `generators/archetypes/k06_windows.py` from `data/components/prairie_1904/k06_windows.json`:
+a two-over-two sash under a flat lintel, a one-over-one under a segmental arch, a round-arched sash
+with a radial-barred fanlight, an equilateral pointed two-over-two, a paired sash either side of a
+stone mullion, a sash under a three-light transom, a basement light in its area well, three grouped
+attic casements, and a round-headed leaded stair light. Each is a hole through its wall with a
+reveal, a frame, one or two sashes in their own planes, glass set into the sash, a holland blind and
+curtain edges behind the innermost glass, and a dark room carried back behind all of it.
+**What is invented.** Every dimension: the 0.115 m reveal, the box frame's face, the 1 3/4 in sash
+and its stiles, rails and meeting rails, the 7/8 in muntins and their pane patterns, the sill's
+fall, projection, horns and drip, the head band's width, the segmental rise of one eighth of the
+span, the area well, the quarry and came sizes; the joinery's dark green, the cream holland blind
+and the seeded height each one is drawn to, the dark red curtain and its folds, the dark finish of
+the room; the glass's tint, transparency and smoothness (crown and cylinder glass's waviness is not
+modelled); and the restriction that keeps leaded lights to stair, transom and attic positions. The
+choice of variants reads the study's building register ("regular sash", "sash grid", "paired
+segmental windows", "arched windows", "pointed twin windows", "attic grid window", "basement
+lights"), which is the study's reading of its images and not a source record here. Ordinary sashes
+sit inside RECONSTRUCTION-RULES.md's sash range (0.75-1.15 m by 1.5-2.4 m clear).
+**What is not.** Nothing in the kit is attested; no house is glazed from it yet (T-2298 builds the
+first openings on the 1808 exemplar).
+**How to resolve:** a house's own photograph or drawing shows its sash pattern, heads, sills and
+blinds, and that house takes them in place of the kit's working sizes; a period joinery
+specification or millwork catalogue replaces a part's dimensions for every house at once.
+**Ticket:** T-2297 (piece 1 of T-1848, K06).
+**Review:** `docs/RESEARCH/k06-window-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2297).
+
+### L-k13-conservatory-kit-2305 — The Prairie conservatory kit: every glasshouse, its frame, glass, plinth, rainwater and planting, all reconstructed
+
+**Decision:** the 1904 Prairie programme's conservatories and greenhouses (package K13, T-2305)
+are five parametric houses built by `generators/archetypes/k13_conservatories.py` from
+`data/components/prairie_1904/k13_conservatories.json`: a single-pitch lean-to, a free-standing
+span-roofed house with a louvred ridge ventilator, a span house with a raised lantern, a
+curvilinear lean-to on curved ribs, and a canted conservatory bay against a house wall. Each is a
+three-tier frame (posts, rafters, ribs, corner posts, hips and jambs; the sill, eave, ridge, verge
+and wall plates; glazing bars running one way) carrying one convex envelope of single-sided glass,
+on a brick plinth under a stone coping, with a half-glazed door, K04's half-round gutters,
+downpipes, shoes and splash stones, and a staging bench of low pot-plant masses inside.
+**What is invented.** Every dimension: the members' faces and how far each stands proud of and
+runs behind the glass, the 1 in glazing bar, the 8-16 in panes, the bay spacing, the eave heights,
+pitches, the lantern's size and the curvilinear roof's quarter-ellipse; the two-foot brick plinth
+and its coping; the door's width, height, panel and lock rail; the ridge ventilator's louvres; the
+staging's height and depth and every plant mass's seeded size; the white-painted frame, the
+glass's tint and transparency, the opaque glass substitute on the lantern, the brick, stone,
+tile floor and foliage colours. The rainwater sizes, fall, bracket spacing and shoe are K04's
+(L-k04-roof-library-2292), themselves reconstructed. Three choices are made for the renderer rather than
+from any source: the glass is drawn single-sided as one convex envelope so no line of sight
+crosses two transparent panes; a lantern is glazed with an opaque substitute because it stands
+outside that envelope; and the ridge is ventilated by louvres rather than by top-hung lights in
+the glazing. Glazing laps, horticultural glass's green tint, heating pipes, blinds and shading
+are not modelled. The choice of forms reads the study's building register ("dated
+conservatory/palm-house complex", "conservatory bay", "greenhouse complex behind adjacent lots"),
+which is the study's reading of its images and not a source record here.
+**What is not.** Nothing in the kit is attested; no house in the scene has a conservatory from
+it yet (T-2306 builds the first, a Pullman service-garden bay).
+**How to resolve:** a house's own photograph, drawing or insurance-map outline shows its
+conservatory's form, bays, roof and glazing, and that house takes them in place of the kit's
+working sizes; a period horticultural builder's catalogue (iron or timber glasshouse sections)
+replaces a member's dimensions for every house at once.
+**Ticket:** T-2305 (piece 1 of T-1855, K13).
+**Review:** `docs/RESEARCH/k13-conservatory-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2305).
+
+### L-k13-pullman-bay-2306 — A glazed conservatory bay on the Pullman house's east wing, read from a semicircle on the 1911 sheet
+
+**Decision:** the 1904 scene gains its first K13 conservatory (T-2306), `pullman_house_1729_prairie_conservatory`:
+a segmental glass bay on the south face of the stone wing that sheet 20 of the 1911 Sanborn draws running
+east from the George M. Pullman house (1729 Prairie Avenue) toward its garage, looking onto the court
+between the two. It is built by `generators/k13_emit.py` from the K13 kit
+(L-k13-conservatory-kit-2305) against a plain block standing for the wing. **What is read.** The
+wing's plan (one storey and a basement, stone, 4.42 m deep, its free south face 17.3 m long between the
+house's east wall line and its step back before the garage) and the projection's place and size (a
+semicircle 3.45 m across and 1.55 m out, centred 9.1 m east of the house's wall line), measured on the
+committed raster between line centres and carried by the sheet's fitted similarity; inferred for 1904 as
+every reading of these sheets is. **What is invented.** That the projection is GLAZED: the sheet prints no
+use and no glass mark for it. It is a conservatory because the T-1837 building register gives the Pullman
+estate a dated conservatory and palm-house complex and the conservatory bay is the form the kit's canted
+bay takes; the register's 1894 conservatory plate is not a source record here, and the register itself
+puts the estate's greenhouse complex on its own plot south of 18th Street, which this does not build.
+Then every size the kit does not take from the sheet: a 1.72 m radius in five planar facets (the sheet's
+curve, built in flat glass), the 2.6 m eave over the kit's two-foot plinth, the half-cone of glass rising
+to 3.7 m on the wall, one glazing bay a facet, the gutter falling from its middle to a pipe at each end,
+and a staging bench of pot plants across the chord. The wing is a closed plain block 5.4 m high, the
+height reconstructed for a basement about a metre out of the ground under one tall storey and a parapet,
+with a plain base course and coping band and a brownstone colour taken from the register's 'brownstone
+main block' (not a source record here): no opening, cornice or roof detail, and no door from the wing
+into the bay. The wing's step and its run west along the house's north side are not built, and the
+house and the garage are not built at all. **What is not.** The wing's place, plan, storeys and stone,
+and the bay's place and plan, are the sheet's. **How to resolve:** a photograph of the Pullman garden
+court or the 1894 conservatory plate, entered as a source, gives the bay its true form, glazing and roof
+(or shows it was not glass, and the bay becomes the wing's stone); T-1880/T-1881 (the house) and T-1934
+(the stable, additions and conservatory estate) replace the block with the wing itself, and the bay moves
+onto its wall.
+**Covers:** `pullman_house_1729_prairie_conservatory.as_standing_1904.form.conservatory`, `pullman_house_1729_prairie_conservatory.as_standing_1904.form.host_wall`, `pullman_house_1729_prairie_conservatory.as_standing_1904.form.stories`, `pullman_house_1729_prairie_conservatory.as_standing_1904.form.construction`.
+**Ticket:** T-2306 (piece 2 of T-1855, K13).
+**Review:** `docs/RESEARCH/k13-pullman-bay-2306/README.md`.
+**Recorded:** 2026-10-10 (T-2306).
+
+### L-k03-1808-service-brick-2291 — 1808 Prairie's return and rear in K03 common brick: bond, heads, string course and grime, all reconstructed
+
+**Decision:** the south side, rear and north party walls of the 1808 Prairie K01 frontage
+(T-2266) are laid in the K03 library's common buff brick (T-2290), not Glessner v4's courtyard
+`brick_buff`. The walls wear the `common_buff_common_6` panel, with its normal map: common bond,
+a header course every sixth, 9 mm weathered lime joints. Courses start on a bed joint at grade
+on every wall, and the perpends are phased so the bond turns the north-west quoin unbroken; the
+south-west quoin takes the cut the rear wall's 10.4 m leaves. Every principal- and second-floor
+window on those walls has two rowlock rings on a segmental arch (rise 0.12 of the span). The
+third storey, 0.37 m under the soffit, has soldier flat heads. A projecting stretcher string
+course runs at the second-floor line on the south wall and the rear and turns the south-west
+quoin. A soot and damp mask darkens the first 0.6 m above grade (to 0.74) and the 1.6 m under
+the soffit (to 0.80).
+
+**What is attested.** That the house is brick: the 1911 Sanborn sheet 28 colours it brick, and
+the record's `construction` carries that as inferred. The T-1837 building register asks for
+"Common-brick side and rear ranges" at `pa-1808-6`. The register is a request, not a source
+record here.
+
+**What is invented.** The fabric and its colour (the library's own liberty,
+L-k03-brick-library-2290). The bond, because no source read here gives one for this house. The
+head forms and where each is used. The string course and its height. The mask's heights and
+depths. Every unit's firing variant is drawn by the library's seeded rule. None of this was read
+off a photograph of 1808 Prairie.
+
+**Not done, and why.** The library's full form, every brick a solid, was priced at about 52,000
+bricks for these three walls and refused. The 1904 scene already spends 2.5 M of its 3.8 M
+triangle budget, mostly on Glessner. The panel is the library's balanced and light form, used
+here at every tier. The ticket's title also asks for a *pressed* front against the common
+return. The only register fronts in pressed brick are 2100, 2126 and 213-217 East Cullerton,
+none of which stands in the scene, and each has its own build ticket (2100 Sherman is T-1919).
+So the comparison shipped is this house's own: its stone street front against its common-brick
+return and rear. The pressed front is bound when T-1919 builds Sherman.
+
+**What would replace it.** A photograph or drawing of 1808's side or rear: bond, head form,
+string course. A dated soot reading for Prairie Avenue c. 1904.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.service_wall_brick`
+**Ticket:** T-2291 (piece 2 of T-1845).
+**Review:** `docs/RESEARCH/k03-1808-service-brick-2291/README.md`.
+**Recorded:** 2026-10-10 (T-2291).
+
+### L-k05-roof-kit-2301 — The Prairie roof kit: every pitch, overhang, verge, return, parapet and dormer reconstructed
+
+**Decision:** the 1904 Prairie programme's roof construction (package K05, T-2301) is ten
+parametric roofs built by `generators/archetypes/k05_roofs.py` from `data/components/prairie_1904/k05_roofs.json`:
+a hipped roof, an ordinary front gable with verges and returns, a stepped (crow-stepped) and an ogee
+(shaped) parapet gable, a convex and a concave mansard, an octagonal spire, a conical tower roof, a
+hipped roof with a front cross gable, and a hipped roof with a gabled dormer. Each is built as closed
+solids joined by a boolean union, so every valley and abutment is cut where the surfaces meet.
+**What is invented.** Every number: the pitches (each inside RECONSTRUCTION-RULES.md's working range
+for its kind), the 0.45 m eave overhang and 0.20 m fascia, the 0.30 m verge, the 0.50 m return, the
+0.36 m parapet, its 0.30 m least upstand and 0.75 m rise over the ridge, the 0.08 m coping and its
+0.04 m drip, the dormer's 0.15 m overhangs and 0.12 m fascia, the number of crow steps, the ogee's
+kneeler, curve and level top, the mansards' 2.4 m lower rise, their bulge and 18 degree upper roof, and
+the footprints, eave heights and the dormer's and wing's sizes; the slate grey, cream trim and red
+masonry the specimen is drawn in (K04 binds the real fabrics). The variants read the study's building
+register and RECONSTRUCTION-RULES.md's style rules (mansards in Second Empire work, shaped and stepped
+gables and towers in Gothic and Queen Anne work), which are the study's reading and not source records.
+**What is not.** Nothing in the kit is attested; no house is roofed from it yet (T-2302 rebuilds the
+1808 exemplar's roof from it).
+**How to resolve:** a house's own photograph or drawing gives its pitch, overhang, gable form and
+dormers, and that house takes them in place of the kit's working sizes; a period carpentry or
+roofing specification replaces a part's dimensions for every house at once.
+**Ticket:** T-2301 (piece 1 of T-1847, K05).
+**Review:** `docs/RESEARCH/k05-roof-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2301).
+
+### L-k08-bay-kit-2307 — The Prairie bay kit: every bay, oriel and tower, its supports, bands, eaves and caps, all reconstructed
+
+**Decision:** the 1904 Prairie programme's bays, oriels and towers (package K08, T-2307) are seven
+parametric projections built by `generators/archetypes/k08_bays.py` from
+`data/components/prairie_1904/k08_bays.json`: a two-storey rectangular bay, a two-storey bay canted
+at 45 degrees, a two-storey segmental bow, a three-storey full-height projection under a flat deck,
+a canted upper oriel on five stepped corbel courses, a three-storey round tower under a copper
+cone, and a three-storey octagonal tower under an eight-sided copper spire. Each is keyed to its
+host wall's face and closed by it, stands on a stone plinth or on corbels, is banded at each floor,
+and carries K06 windows as closed recesses; on the bow and the round tower the sashes and their
+glass are bent to the curve. **What is invented.** Every dimension and every proportion: the plans
+(the rectangular bay's 2.6 by 1.2 m, the canted bay's 1.5 m front and 1.1 m projection, the bow's
+3.2 m chord and 0.9 m rise, the projection's 4.0 by 0.6 m, the oriel's 1.3 m front and 0.75 m
+projection, the towers' 1.6 m radius and how far their centres stand proud of the wall); the
+storey heights, sill heights and window sizes and positions; the 0.36 m wall, the 0.6 m plinth and
+its 50 mm projection, the 160 mm floor band, the 0.3 m eaves and 0.2 m fascia; the oriel's corbel
+courses, their 0.2 m height and the 0.65 oversail ratio they are held to; the recess depths behind
+the glass; the roof pitches (0.6 on the slate hips, 0.45 on the bow's cone, 0.8 on the oriel, 1.9
+on the towers' caps) and which K04 covering each roof names; the finial; the flat colours of the
+masonry, stone, trim, slate and copper; and that the towers stand engaged in one wall with their
+caps closed by a flat back where the wall plane cuts them (on a house the main roof meets them
+there). Bent sashes with bent glass are a reconstruction of what a curved bay or tower could carry;
+a house whose photograph shows flat sashes in a curved wall takes those instead. The choice of
+variants reads ASSET-CATALOG.md section K08 ("rectangular, canted and bowed bays; full-height
+projections and corbelled upper oriels; circular/polygonal corner towers; copper caps") and the
+reconstruction rules' "bays have foundations or corbels", which are the study's reading of its
+images and not a source record here. **What is not.** Nothing in the kit is attested; no house in
+the scene carries a bay, oriel or tower from it yet (T-2308 builds the first on a Prairie Avenue 1904
+house).
+**How to resolve:** a house's own photograph, drawing or atlas footprint gives its bay's plan,
+projection, storeys, window rhythm, support and cap, and that house takes them in place of the
+kit's working sizes; a dated builder's guide or a Chicago stone or copper contractor's catalogue
+c. 1880-1904 replaces a part's dimensions or a cap's pitch for every house at once.
+**Ticket:** T-2307 (piece 1 of T-1850, K08).
+**Review:** `docs/RESEARCH/k08-bay-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2307).
+
+### L-k07-entrance-kit-2303 — The Prairie entrance kit: every door, stoop, porch, area stair and carriage opening, all reconstructed
+
+**Decision:** the 1904 Prairie programme's entrances (package K07, T-2303) are six parametric
+entrances built by `generators/archetypes/k07_entrances.py` from `data/components/prairie_1904/k07_entrances.json`:
+a four-panel door under a two-light transom at the head of a straight stone stoop between cheek
+walls; a pair of leaves under a radial fanlight, set deep in a round-arched opening through a
+0.6 m wall with a 0.4 m vestibule beyond it, up a broad stoop; a glazed door under a segmental
+transom reached by curved stone steps that spread as they descend; a coach house's two boarded
+carriage leaves on strap hinges, hung at the wall's inner face under a bearing stone lintel with a
+wheel-guard stone at each jamb; a timber porch (deck, set-back skirt, four posts, beam, flat roof
+deck and timber steps) before a four-panel door; and a basement door at the foot of an area stair
+between retaining walls. Each is a hole through its wall with a reveal and a threshold, a frame,
+panelled leaves standing 6 mm clear of the threshold, glass only in a transom, fanlight or glazed
+panel with a dark hall behind it, and a stair whose risers are solved as equal integers from the
+floor height, landing level with the threshold and standing on grade.
+**What is invented.** Every dimension and every choice: the reveal, the door frame's face and
+depth, the 2 1/8 in leaf, its stiles, rails, lock rail, panel layout and panel recess, the leaf's
+gap, the transom and fanlight sizes and their light counts, the hall's depth behind the glass, the
+knob, its height and the strap hinges; the floor heights (1.2, 1.5, 0.9 and 0.85 m above grade,
+each inside RECONSTRUCTION-RULES.md's raised-floor range of 0.8-1.8 m) and the 1.5 m area depth;
+the goings (0.28-0.32 m) and the risers they give (0.167-0.18 m, inside the rule's 0.14-0.19 m
+riser and 0.25-0.34 m tread ranges); the landings, stoop widths, cheek walls and their height
+above the nosing line, the curved steps' plan, the porch's deck, skirt, posts, beam and roof
+carcass, the area's walls and coping; the carriage opening's size, lintel and guard stones; each
+specimen's front yard (1.0-6.0 m to the public walk's inner edge); and the colours: dark varnished
+joinery, buff stone, a cream painted porch, dark iron hardware. No nosing projects past a riser,
+and no carving, moulding profile, ironwork rail or porch roof covering is modelled: the rail is
+K11's (T-1853), the porch roof's covering K04/K05's, the entrance carving K09's (T-1851). The
+choice of variants reads the study's catalogue entry and family rules ("high stoop", "thick
+round-arched reveals", "timber porch", "carriage aperture", "stone straight/curved stoops",
+"basement stairs"), which are the study's reading and not a source record here.
+**What is not.** Nothing in the kit is attested; no house is entered through it yet (T-2304 builds
+the first K07 entrance on the 1808 exemplar).
+**How to resolve:** a house's own photograph, drawing or survey shows its door, stoop, porch or
+carriage opening, and that house takes them in place of the kit's working sizes; its reconciled
+lot and floor datums replace the specimen's floor height and front yard; a period joinery or
+stair specification replaces a part's dimensions for every house at once.
+**Ticket:** T-2303 (piece 1 of T-1849, K07).
+**Review:** `docs/RESEARCH/k07-entrance-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2303).
+
+### L-k09-carved-trim-kit-2309 — The Prairie carved-trim kit: every ring, moulding, hood, capital, tracery bar and leaf reconstructed
+
+**Decision:** the 1904 Prairie programme's carved trim (package K09, T-2309) is ten parametric
+variants built by `generators/archetypes/k09_trim.py` from `data/components/prairie_1904/k09_trim.json`:
+a round and a segmental ring of radially jointed voussoirs with keystones, a Gothic label with
+crockets and a finial over a pointed head, a frieze block and returned cornice hood on two scrolled
+consoles, a Tuscan and a foliate colonnette, two-light plate tracery under a pointed head with a
+quatrefoil, a bounded foliate relief panel, and two composed surrounds: a hero Romanesque entrance
+(three stepped orders, a ring on each, four foliate nook colonnettes, a label) and a restrained
+rowhouse door (architrave, frieze, cornice, consoles, no carving). Every piece is relief geometry
+that rests on what carries it; none is a texture.
+**What is invented.** Every dimension and every shape: the voussoir ring's 0.34 m depth, 35 mm
+projection and 10 mm joints, the keystone's width, projection and rise; the label, cornice and
+architrave sections; the frieze block and the consoles' S outline; the colonnette's plinth,
+attic base, 0.16 m shaft, entasis, the Tuscan cap and the foliate bell's profile and its eight
+leaves; the crockets' spacing and curl; the tracery's margins, mullion and quatrefoil; the
+panel's tablet, sunk field, scrolling stem and its seeded leaves; the hero's three 0.24 m orders.
+The leaf, the foliate capital, the crockets and the panel's scroll are newly designed for this kit
+and copy no named house; the hero surround is a Romanesque entrance's anatomy in general, not any
+Prairie Avenue door. The variants follow the study's building register and its family rules
+(round-arched Romanesque reveals with "convincing voussoirs" and restrained foliate patterns
+"recorded as newly designed"; pointed Gothic openings; flat classical hoods), which are the study's
+reading of its images and not source records here.
+**What is not.** Nothing in the kit is attested, and no house carries it yet (T-2310 builds the
+first K09 trim on a named house). The data's restriction keeps every generic motif off a house
+whose own carving is documented: there the carving is authored from the evidence.
+**How to resolve:** a house's own photograph, drawing or surviving fabric shows its ring, hood,
+capital or carving, and that house takes it in place of the kit's working shapes; a period
+stone-carver's or builder's pattern book replaces a part's sections for every house at once.
+**Ticket:** T-2309 (piece 1 of T-1851, K09).
+**Review:** `docs/RESEARCH/k09-carved-trim-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2309).
+
+### L-k06-1808-windows-2298 — The 1808 exemplar's windows: every sash, sill, blind and room built from the reconstructed K06 kit
+
+**Decision:** every window of the 1808 Prairie house (`keith_house_1808_prairie`, as built 1886) is
+a K06 opening (T-2298), built by `generators/archetypes/k06_windows.py` inside the K01 assembly. The
+26 double-hung windows on the stone front, the south wall and the rear are the kit's
+`k06.opening.sash_2over2_flat`, each at its storey's clear size from `form.sash_by_storey`. The two
+basement lights under the front windows are `k06.opening.area_light`, without its area well. The
+stone sill with its drip replaces the K01 proof's plain block, and the K01 flat lintel (or a brick
+wall's own head) still dresses each head. The door keeps K01's recessed leaf.
+**What is invented.** The choice of two lights over two for every sash. No source shows this
+house's glazing, and plate-glass one-over-one is as likely for an 1886 stone front. Two-over-two is
+the kit's commonest form, not a reading of the house. Also invented: leaving the basement lights'
+well out, because this record's own datums set their sills 0.35 m above grade (`form.basement_lights`);
+each blind's seeded drop; and every dimension and colour the kit itself invents
+(L-k06-window-kit-2297). The glass is the kit's one thin blended layer, drawn as a blended pane by
+the walkthrough. It is not KHR transmission, so the dark-pane default of T-2183, which replaces
+transmissive glass only, leaves it alone.
+**What is not.** Nothing here is attested. The storeys and the brick come from the 1911 Sanborn sheet
+as the house's own record says, and the windows' positions and sizes are the K01 record's own
+reconstructed bays and sash.
+**How to resolve:** the 1888 Inland Architect plate, once it is a source record, shows the front's
+sash and heads, and T-1882/T-1883 build the actual Keith/Field front from it. That replaces this
+attribute's variant for the street front, and the plate's arched openings take a variant with a
+matching arched hole.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.window_kit`.
+**Ticket:** T-2298 (piece 2 of T-1848, K06).
+**Review:** `docs/RESEARCH/k06-1808-windows-2298/README.md`.
+**Recorded:** 2026-10-10 (T-2298).
+
+### L-k10-cornice-kit-2316 — The Prairie cornice kit: every cornice, parapet, gable coping, dormer face and cresting reconstructed
+
+**Decision:** the 1904 Prairie programme's wall heads (package K10, T-2316) are seven parametric
+variants built by `generators/archetypes/k10_cornices.py` from `data/components/prairie_1904/k10_cornices.json`:
+an Italianate timber eave cornice (frieze, single scrolled brackets, soffit, crown), a pressed-metal
+cornice (paired brackets, raised frieze panels, a thinner crown), a classical stone entablature
+(architrave, frieze, dentilled cornice), a pedimented dormer standing on a 45 degree roof over a
+bracketed eave returned on both gable ends, a stone balustraded parapet (crowning cornice, plinth,
+turned balusters, pedestals, rail, urns), a shaped (Dutch) gable with a coping swept along its whole
+outline between two kneelers and a finial, and cast-iron roof cresting (posts, bars, C-scrolls,
+spears and spike finials) on a rolled ridge cap. Every run is one section mitred round its corners
+and ending on a wall or a capped return; every piece rests on what carries it; none is a texture.
+**What is invented.** Every dimension and every shape: the frieze's 0.55 m height and 25 mm
+projection; the brackets' S outline, 0.48 m height, 0.34 m projection, 0.60 m spacing and their
+pairing; every crown, architrave, cornice, coping, rail and ridge-cap section; the dentils' size and
+pitch; the frieze panels; the balusters' and urns' turned profiles, the plinth, pedestal sizes and
+the 0.24 m baluster pitch; the gable's shoulder, neck and segmental cap and its kneelers and finial;
+the dormer's set-back, face, 35 degree pediment and its two rake bands; the cresting's bars, posts,
+scroll radius and turn, spear and finial. The scrolls and the gable outline are newly designed for
+this kit and copy no named house. The variants follow the study's asset catalog (K10: "bracketed
+timber/metal cornices, dentils, friezes, classical entablatures, carved stone parapets,
+balustrades, urns, pediments, shaped gable copings and roof cresting"), which is the study's
+reading of its images and not a source record here.
+**What is not.** Nothing in the kit is attested, and no house carries it yet (T-2317 builds the
+first K10 wall head on a named house). The data's restriction keeps every generic profile off a
+house whose own cornice, parapet or gable is documented: there it is authored from the evidence.
+
+**How to resolve:** a house's own photograph, drawing or surviving fabric shows its cornice,
+parapet, gable or cresting, and that house takes it in place of the kit's working sections; a
+period builder's, sheet-metal or iron-foundry catalogue replaces a part's sections for every house
+at once.
+**Ticket:** T-2316 (piece 1 of T-1852, K10).
+**Review:** `docs/RESEARCH/k10-cornice-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2316).
+
+### L-k15-chimney-kit-2312 — The Prairie chimney kit: every stack size, cap, pot, flashing step, cricket and soot band reconstructed
+
+**Decision:** the 1904 Prairie programme's chimneys (package K15, T-2312) are four parametric
+variants built by `generators/archetypes/k15_chimneys.py` from `data/components/prairie_1904/k15_chimneys.json`,
+each standing in one of the K05 kit's roofs: an ordinary two-flue brick service stack mid-slope with
+a cricket behind it, a grouped three-flue brick stack astride a ridge with clay pots, a two-flue
+dressed-stone stack on a hipped roof's rear plane, and a carved stack of the kind the study's register
+describes for the Sherman house (sunk panels, two sandstone string courses, a row of stone corbel
+blocks, a three-course corbelled head and a sandstone cap). Each is joined to its roof by a boolean
+union and its flues are cut out of it, so the roof junction, the cricket's valleys and every flue are
+real geometry. **What is invented.** Every number: the half-brick plan module, the 0.07 m course
+(RECONSTRUCTION-RULES.md's brickwork starting size), the 0.21 m flue opening and its 0.6 m recess, the
+stacks' widths, depths, heights and positions, their corbel courses, caps, bands, panels and blocks;
+the flashing's 6 mm thickness, 0.12 m upstand and 0.15 m lap; the cricket's 0.75 m threshold and 35
+degree pitch; the pots' profiles and square bore; the draught rule (0.6 m above the covering within
+3 m, 0.9 m above the covering where the stack emerges), which is a modelling prior and not a period
+code; the west-south-west wind and the 0.45 m soot band it darkens on a stack's leeward faces; and the
+colours the specimen is drawn in. The Sherman-type stack reads only the register's sentence ("carved
+chimney tops"); the 1876 American Architect plate it lists was not read for this kit, so the stack is
+a form for a carved top and not the Sherman house's own. Pots stand on the ridge stack to show the
+part; whether a house's flues are potted is that house's source's to say. **What is not.** Nothing
+in the kit is attested; no house's chimneys are built from it yet (T-2313 builds a named house's).
+**How to resolve:** a house's photograph or drawing gives its stacks' number, position, height,
+head and pots, and that house takes them in place of the kit's working sizes; a period builder's or
+manufacturer's catalogue replaces the pot profiles and the flue size for every house at once.
+**Ticket:** T-2312 (piece 1 of T-1857, K15).
+**Review:** `docs/RESEARCH/k15-chimney-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2312).
+
+### L-k09-1808-trim-2310 — 1808 Prairie's street front in K09 carved trim: entrance, window heads and apron panels, all reconstructed
+
+**Decision:** the street front of the 1808 Prairie K01 frontage (T-2266) wears the K09
+carved-trim kit's own pieces (T-2309). The door has a round ring of thirteen voussoirs with a
+label returned level at its springs. The ring springs from two engaged foliate colonnettes
+standing on the stoop's landing. The half-round over the flat door head is the wall's own face,
+a plain tympanum. The principal-floor windows wear the kit's restrained surround: an
+architrave whose feet stand on a sill lengthened to carry them, and a cornice hood on two
+scrolled consoles. Under each sits the kit's bounded foliate apron panel, centred between the
+basement light's lintel and the sill. The second-floor windows take the cornice hood alone. The
+third floor keeps K01's flat lintel, so the trim lightens as the front rises. The label's crown
+stops 4 cm under the second-floor belt course, and the generator refuses a front where it would
+not.
+
+**What is attested.** Very little: that the house stood in 1904 with a stone street front (the
+record's `construction`, inferred from the 1911 Sanborn sheet 28). The T-1837 building register
+reads a "Romanesque-classical stone front" and a "north entrance loggia with Ionic columns" at
+`pa-1808-6`. It reads them off the 1888 *Inland Architect* plate, which is not a source record
+here. The register is a request, not a source.
+
+**What is invented.** Every form, motif and placement. The round ring and its voussoir count,
+the foliate capitals (the register's Ionic order is not in the kit), the hood and architrave on
+the windows, the apron panels and which storeys take which head. The leaves are the kit's
+generic, newly designed motif (L-k09-carved-trim-kit-2309). They copy no carving of 1808
+Prairie, because none has been read.
+
+**What it does not do.** It does not touch Glessner. Glessner's carving is documented and
+authored from its own evidence, and the kit's `restrictions` forbid a generic motif from
+replacing a landmark's documented carving. It does not build the register's entrance loggia,
+balustraded balcony or pierced parapet, which belong to the entrance (K07, T-2304) and
+cornice/parapet (T-1852) packages. Each of those would replace part of this trim when it is
+built.
+
+**What would replace it.** The 1888 plate deposited and read as a source, or a photograph of
+1808's front. Either would replace the generic portal with the documented loggia and its order,
+and set the window heads from the photograph.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.street_front_trim`
+**Ticket:** T-2310 (piece 2 of T-1851, K09).
+**Review:** `docs/RESEARCH/k09-1808-trim-2310/README.md`.
+**Recorded:** 2026-10-10 (T-2310).
+
+### L-k07-1808-entrance-2304 — The 1808 exemplar's door and stoop: built from the reconstructed K07 kit, clear of the walk
+
+**Decision:** the street door of the 1808 Prairie house (`keith_house_1808_prairie`, as built 1886)
+and its stoop are the K07 kit's `k07.entrance.panel_door_stoop` (T-2304), built by
+`generators/archetypes/k07_entrances.py` inside the K01 assembly. That is a four-panel leaf under a
+two-light transom, with a dark hall behind the glass, a frame, a threshold and a reveal, set in the
+K01 proof's own 1.20 x 2.70 m hole at the north bay. It stands at the head of a straight stone stoop
+between cheek walls. The stair is solved from this record's own datums: a 1.5 m principal floor in
+nine equal risers of 0.167 m, 0.30 m goings, a 1.2 m landing and a 1.8 m width. It reaches 3.60 m
+from the front. The 1904 street grid puts the inner edge of Prairie Avenue's walk 4.75 m from the
+front at the door, so the stoop stops 1.15 m short of it, and the generator refuses a stoop that
+does not. The K01 flat lintel still dresses the head. This replaces the K01 proof's one-plane
+leaf, recessed 0.22 m, and its stoop of solid columns.
+**What is invented.** The choice of this variant, and everything the variant itself invents
+(L-k07-entrance-kit-2303). No source shows this house's door, transom, stoop or cheek walls. The
+register's reading of the 1888 plate is a north entrance loggia with Ionic columns, a balustraded
+balcony and a stair. This simple stone-front stoop does not depict it. The 4.75 m front yard rests
+on the placement's reconstructed building line (14.7 ft behind the street line) and on the street
+grid's inferred walk band (sec. 2062's one-foot margin from the lot line).
+**What is not.** There is no carriage opening. The 1911 Sanborn sheet draws this lot's carriage
+house as the detached two-storey rear building, and T-1935 owns it, so cutting a carriage door into
+the main range would contradict the sheet. When T-1935 builds that building, its carriage opening
+is the kit's `k07.entrance.carriage_doors`. Nothing here is attested.
+**How to resolve:** the 1888 Inland Architect plate, once it is a source record, shows the entrance,
+and T-1882/T-1883 build the actual loggia and stair from it in place of this attribute's variant.
+A reading of the sheet to the foot for this lot replaces the front yard's building line.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.entrance_kit`.
+**Ticket:** T-2304 (piece 2 of T-1849, K07).
+**Review:** `docs/RESEARCH/k07-1808-entrance-2304/README.md`.
+**Recorded:** 2026-10-10 (T-2304).
+
+### L-k08-1808-bays-2308 — 1808 Prairie's south front bow and rear canted bay, both reconstructed from the K08 kit
+
+**Decision:** the 1904 house at 1808 Prairie Avenue (`keith_house_1808_prairie`, the K01 exemplar)
+carries two K08 bays (T-2308), named in `form.bays` and built by `generators/archetypes/k08_bays.py`
+inside the K01 assembly: a two-storey segmental bow on the street front's south bay (3.2 m on its
+chord, 0.9 m out, centred 2.5 m from the south corner, 0.5 m off the south window axis so its eaves
+clear the T-2293 downpipe) in the front's stone, under a copper cone;
+and a two-storey canted bay on the rear's north window bay (1.5 m front, 1.1 m out, centred 3.0 m
+from the north corner) in K03 common brick with stone dressings, under a tin hip. **What is
+invented.** That the front bay is the kit's bow: the T-1837 frontage register (frontage-28-037)
+reads "the south curved bay" from the Inland Architect plate of February 1888, and that plate is not
+a source record here, so the bay's existence is the register's reading and its plan, size, height and
+windows are the kit's. Its two storeys (grade to 5.4 m, then to 9.0 m), its three bent two-over-two
+sashes a storey at the front's own sash heights, the 0.25 roof pitches, the copper and the tin; the
+rear canted bay as a whole, which no source shows, chosen as the commonest Prairie Avenue bay; that
+the host wall behind each bay is blank (the windows the K01 proof cut there are not cut); and that
+each bay's band sits on the front's second-floor belt. **What is not.** Nothing in either bay is
+attested. Both bays take the record's `reconstructed` tier on every vertex.
+**How to resolve:** T-1882/T-1883 build the 1888 plate's front, curved bay included, and replace the
+bow; a photograph or plan of 1808's rear replaces or removes the canted bay.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.bays`.
+**Ticket:** T-2308 (piece 2 of T-1850, K08).
+**Review:** `docs/RESEARCH/k08-1808-bays-2308/README.md`.
+**Recorded:** 2026-10-10 (T-2308).
+
+### L-k05-1808-roof-2302 — The 1808 Prairie roof rebuilt from the K05 kit, with two reconstructed chimney stacks
+
+**Decision:** the 1808 Prairie exemplar's roof (T-2302) is no longer a set of loose planes. The hip,
+the street dormer and two chimney stacks are each a closed element from
+`generators/archetypes/k05_roofs.py`, joined by the kit's boolean union, and the dormer's sash recess
+is cut out of the result, so every valley, cheek, stack and reveal is cut where the surfaces meet. The
+K04 caps and flashings are laid on the roof graph read off that surface.
+**What is invented.** The two stacks: their number, their place on the ridge (6.6 m and 11.4 m from
+the rear wall, on a reconstructed spine wall between the front and back rooms), their 0.90 × 0.75 m
+plan, their 0.9 m rise above the ridge and their stone caps oversailing 50 mm. The dormer's eave box
+(0.15 m overhang, 0.12 m fascia) is the kit's working size, and its eaves now oversail its cheeks, as
+the kit builds every dormer. Everything L-k04-1808-roof-2293 and L-k05-roof-kit-2301 record is
+unchanged.
+**What is not.** Nothing here is attested. No source reads this house's roof or its chimneys; a brick
+house of 1886 heated its principal rooms with fireplaces, which is why it has stacks at all.
+**Given up, said.** K04 carried the slates 50 mm past the fascia with a cut edge under them. On a
+closed solid the covering ends at the fascia's face, so that lip is gone until K04 lays it as a part
+on the eave line. The stacks have no flues, pots or flashing; those are K10's (T-1857).
+**How to resolve:** a photograph of the house gives its chimneys' number, place and height, and the
+record takes them. The pierced parapet the 1888 plate shows is still T-1882's to build.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.chimneys`.
+**Ticket:** T-2302 (piece 2 of T-1847, K05).
+**Review:** `docs/RESEARCH/k05-1808-roof-2302/README.md`.
+**Recorded:** 2026-10-10 (T-2302).
+
+### L-k11-ironwork-kit-2318 — The Prairie ironwork kit: every fence, gate, pier, boundary wall, grille, stoop rail and canopy reconstructed
+
+**Decision:** the 1904 Prairie programme's ironwork and boundaries (package K11, T-2318) are seven
+parametric variants built by `generators/archetypes/k11_ironwork.py` from
+`data/components/prairie_1904/k11_ironwork.json`: a spear fence and a scroll-band fence on stone
+curbs (square posts with acorn finials, flat rails, pickets through the rails), a walk gate hung on
+two pintle hinges between stone piers with caps and urns and a run of fence from each pier, a brick
+boundary wall with piers, a saddleback coping and pier caps, an area grille across a basement
+window, an iron rail on both sides of a six-riser stoop, and an iron-and-glass entrance canopy
+(rafters on quadrant brackets, a front beam, one sheet of glass under glazing bars, two tie rods).
+Every member is a closed solid let into the member that carries it, and the posts, piers, curbs
+and wall go down past grade; none is a texture.
+**What is invented.** Every dimension and every shape: the 19 mm pickets at 0.125 m, the 40 by
+14 mm rails at 0.10 and 0.95 m over a 0.25 m curb, the 60 mm posts at no more than 1.6 m and their
+finials, the spear head, the C-scrolls' radius and turn; the piers' 0.50 m section and 1.50 m
+height, their caps and urns; the gate's 1.00 m opening, its stiles, rails, hinges, keeper and its
+32 degree drawn angle; the wall's 0.33 m thickness, 1.50 m height, 3.0 m pier spacing and its
+coping; the grille's bars and flats; the stoop rail's 0.86 m height, newels and two balusters to
+a tread; the canopy's 1.2 m projection, 8 degree fall, rafters, brackets and bars. The scroll and
+the quadrant bracket are newly designed for this kit and copy no named property. The no-shimmer
+floor (no iron member under 10.8 mm) is derived from the walkthrough's lens and the mobile
+viewport, not from a source. The variants follow the study's asset catalog (K11: "cast/wrought
+iron fence panels, spear/scroll variants, posts/piers, entry gates and hardware, area grilles,
+balcony/stair rails, iron-and-glass canopy and brick/stone boundary walls"), which is the study's
+reading of its images and not a source record here.
+**What is not.** Nothing in the kit is attested, and no property carries it yet (T-2319 builds the
+first K11 fence, gate and wall on a named house). The data's restrictions keep every generic
+pattern off a property whose own fence, gate or wall is documented (the register separates, for
+one, 1905 S. Prairie's 1893 scroll fence from its c.1905 taller one), and keep every run off the
+walks and drives it would cross.
+
+**How to resolve:** a property's own photograph, drawing, map note or surviving fabric shows its
+fence, gate, piers or wall, and that property takes it in place of the kit's working parts; a
+period iron foundry's catalogue replaces a part's sections and patterns for every property at once.
+**Ticket:** T-2318 (piece 1 of T-1853, K11).
+**Review:** `docs/RESEARCH/k11-ironwork-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2318).
+
+### L-k12-coach-house-kit-2320 — The Prairie coach-house kit: every coach house, stable fitting and service wing reconstructed
+
+**Decision:** the 1904 Prairie programme's alley buildings (package K12, T-2320) are built by
+`generators/archetypes/k12_coach_house.py` from `data/components/prairie_1904/k12_coach_house.json`,
+whose one variant is a two-storey brick coach house on an alley: a carriage bay with a pair of
+boarded leaves on strap hinges under a boarded head panel and a segmental brick ring, a man door,
+four-light stable sash, a loft hatch under a hoist beam with its hook, a party wall on the lot line
+that rises above the gable roof and returns past both eaves under a stone coping, an external stair
+with a landing up to a loft door on the open gable, a cleated ramp between retaining walls down to
+a basement door, a one-storey lean-to with a two-leaf stable door, and a flat-roofed connecting wing
+from the coach house to the house's rear wall. Every wall is a solid with its openings cut through
+it; every piece stands on or passes through what carries it; none is a texture.
+**What is invented.** Every dimension and every arrangement: the 9.0 by 6.6 m plan, the 3.6 m
+carriage room and 2.7 m loft, the 40 degree roof and its eaves and verge, the 13- and 9-inch walls,
+the 1.8 m basement, the party wall's 0.45 m parapet and 0.5 m returns and its coping section, the
+carriage bay's 3.0 m clear width (range 2.7-3.6 m), its 0.35 m rise and two-rowlock ring, the
+leaves, straps and their heights, the hatch and the hoist beam's section and reach, the sash's bars
+and lights, every sill and lintel, the ramp's 1 in 4 grade, width, landing, curbs and cleats, the
+stair's 0.20 m risers, 0.24 m goings, stringers, landing, posts and rails, the lean-to's 20 degree
+pitch and the wing's plan and height, and where every opening sits on every wall. The parts follow
+the study's asset catalog (K12: "one/two-storey brick/frame/mixed service buildings, hay/loft doors,
+carriage bays, sash, roof ventilator only when supported, ramps, lean-tos and connecting wings"),
+which is the study's reading of its images and not a source record here; the forms are the ordinary
+ones of a horse-drawn coach house and copy no named building.
+**What is not.** Nothing in the kit is attested, and no lot carries it yet (T-2321 builds the first
+K12 coach house or wing behind a named house). It builds no roof ventilator, because no source here
+shows one (the data's `ventilator_needs_evidence` restriction, which the generator enforces), and it
+reads no 1911 garage or auto label as 1904 use (`no_1911_use_labels`). Glessner's stable is its own
+canonical asset and is not touched (`never_replaces_landmark`).
+
+**How to resolve:** a lot's own photograph, plan, fire-insurance sheet or building permit shows its
+coach house's size, storeys, openings, roof or wing, and that lot takes it in place of the kit's
+working arrangement; a period stable-builder's or architect's pattern book replaces a part's sizes
+for every lot at once.
+**Ticket:** T-2320 (piece 1 of T-1854, K12).
+**Review:** `docs/RESEARCH/k12-coach-house-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2320).
+
+### L-k12-1812-coach-house-2321 — The coach house on the alley behind 1812 Prairie, built from the K12 kit on the outline the 1911 sheet draws
+
+**Decision:** the 1904 scene gains its first K12 coach house (T-2321), `wheeler_house_1812_prairie_coach_house`:
+the two-storey brick building that sheet 28 of the 1911 Sanborn draws across the whole width of the 1812
+Prairie lot on the alley, the lot directly south of the 1808 Keith house already standing in the scene.
+It is built by `generators/k12_emit.py` from the K12 kit (L-k12-coach-house-kit-2320). **What is read.**
+Its outline — 14.56 m deep from the alley line by 8.54 m along it, the lot's full width, measured between
+line centres on the committed raster and carried by the sheet's fitted similarity — its two storeys and
+its brick; the neighbours' alley buildings drawn hard against both ends, each with its own wall line
+about 0.4 m off; and the house's rear wall line 6.22 m east of it. Inferred for 1904 as every reading of
+these sheets is. **What is invented.** Its USE: the sheet letters it GARAGE, which is a 1911 use and is
+not read as the 1904 one (restriction `no_1911_use_labels`); the T-1841 sheet census backcasts the
+building and reconstructs it as the house's stable and coach house, and so does this — a carriage bay
+3.0 m clear with a loft hatch and hoist over it, a man door, stable sash and loft sash on the alley; a
+door onto the yard between stable sash and loft sash on the yard side — and nothing of a motor garage.
+Every opening's place and size is the kit's laid out for this lot; the sheet shows none. Both ends are
+party walls rising 0.45 m over the roof and returning 0.5 m past the eaves, because both neighbours
+stand against them; the kit's open gable, external stair, ramp, lean-to and wing are not built, because
+the sheet draws none of them and leaves no room for them. The roof is the kit's gable with its ridge along
+the alley, at 30 degrees rather than the kit's 40: the building is 14.6 m deep, and at 40 degrees its
+ridge would stand 6.1 m over the eaves, as tall again as the walls; 30 degrees puts it 4.2 m over them.
+The basement goes down 1.8 m all round, as the kit builds it, and is reached by nothing. The workyard is
+paved in brick: an apron 2.4 m deep along the yard wall and a 1.2 m walk from the yard door to the
+house's rear wall line, which the house (not yet built) will meet. Flat colours, no brick or slate
+texture. **What is not.** The outline, its place on the lot, its two storeys and its brick, and the
+distance to the house, are the sheet's. **How to resolve:** a photograph of the alley behind the 1800
+block of Prairie, or a building permit for the 1812 stable, entered as a source, gives its openings,
+roof and yard their true form; the Wheeler house (T-1884/T-1885) puts the house on the end of the walk.
+**Covers:** `wheeler_house_1812_prairie_coach_house.function`, `wheeler_house_1812_prairie_coach_house.as_standing_1904.form.coach_house`, `wheeler_house_1812_prairie_coach_house.as_standing_1904.form.stories`, `wheeler_house_1812_prairie_coach_house.as_standing_1904.form.construction`.
+**Ticket:** T-2321 (piece 2 of T-1854, K12).
+**Review:** `docs/RESEARCH/k12-1812-coach-house-2321/README.md`.
+**Recorded:** 2026-10-10 (T-2321).
+
+### L-k14-condition-kit-2324 — The Prairie condition kit: every age, stain, trail, plume, worn path and lawn edge reconstructed
+
+**Decision:** the 1904 Prairie programme's condition (package K14, T-2324) is eight layers declared
+in `data/components/prairie_1904/k14_condition.json` and evaluated by one shared module,
+`generators/archetypes/k14_condition.py`: ground damp at a wall foot, soot under an eave, water
+trails below sills and outlets, a chimney plume on the roof leeward of a stack, mortar joints that
+darken and recess, painted timber that dulls since its last repaint, a bare strip where a lawn
+meets a wall, and wear across a walk or drive. Each is a function of the building's years standing
+on 1904-07-01, of the fabric it lies on and of the property's own seed, and returns a grey
+multiplier for the renderer's `_TONE` channel (or a baked mask) or a ground weight. Nothing in the
+kit removes, adds or moves fabric.
+**What is invented.** Every number and every shape: the 40 years at which a layer stops growing
+and its linear growth to them; the 0.62 floor; the damp band from 0.15 to 0.60 m and its 0.06 m
+wobble; the soot band from 0.40 to 1.60 m; the trails' 0.90 and 1.60 m lengths, tones, taper,
+rivulets and 20 per cent length jitter; the plume's 70 degree lee bearing (downwind of the
+westerlies, which is general knowledge of Chicago's climate and not a source record here), its 30
+degree spread and 3.0 m reach; the mortars' extra recess; the six-year repaint cycle; the lawn
+edge's 0.05 to 0.25 m strip; the walks' and drive's worn lines, including the 1.5 m carriage
+gauge; and each fabric's response, from 0.4 for dark fired brick to 1.25 for Bedford limestone.
+The full-age damp and soot are the K03 1808 service wall's (L-k03-1808-service-brick-2291), so the
+two masks agree; that is consistency, not evidence. The rule that a house is shown as maintained
+(condition of its own age, never neglect) follows T-1856's acceptance, not a photograph.
+**What is not.** Nothing in the kit is attested, and no property takes its condition from it yet
+(T-2325 applies it to a named house and its yard). The study renders the K02 and K03 fabrics
+under it in identical neutral light; it measures what the kit does, not what 1904 looked like.
+**How to resolve:** a dated photograph of a Prairie Avenue house shows its staining, sills,
+chimney plume, walk or lawn edge, and that property's values replace the kit's; a run of dated
+photographs of the district replaces the age curve and the full-age values for every property.
+**Ticket:** T-2324 (piece 1 of T-1856, K14).
+**Review:** `docs/RESEARCH/k14-condition-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2324).
+
+### L-k10-1808-wall-head-2317 — 1808 Prairie's wall head from the K10 kit: brackets on the piers, a bed moulding round every corner, iron cresting on the ridge, all reconstructed
+
+**Decision:** the 1808 Prairie K01 frontage (T-2266) carries the K10 cornice kit's own pieces
+(T-2316) at its wall head and on its ridge. The kit's scrolled timber brackets stand at full size
+(0.48 m high, 0.34 m projection) under the K05 soffit, painted with the eave's fascia. One stands
+0.20 m from every corner on both faces. The rest stand evenly, no more than 0.60 m apart, along
+every pier the third storey's heads, the downpipes and the bays leave. Between each pair of
+brackets runs the kit's bed moulding, a fillet, 44 mm cove and fillet 60 mm each way. It is swept
+round every corner it crosses and dies into a bracket's side at both ends. The kit's cast-iron
+cresting stands on the main ridge between the two chimney stacks, 0.25 m clear of each cap, its
+base bar let 7 mm into the K04 copper ridge roll. That makes 3.30 m, six posts and five panels.
+The kit's 0.55 m frieze is not used. The third storey's lintels stop 0.07 m under the soffit, so a
+frieze could only run by cutting them. The brackets therefore keep to the piers and the bed
+moulding is the cornice's continuous line, and the generator refuses a head that would reach it.
+Along the north party wall the brackets stop where Glessner's south gable leans on it, at s
+1.6-6.8 m from the street corner. The stretch was measured off `glessner_house__as_built_1887.glb`:
+within 0.40 m of the wall, Glessner's mass rises above the brackets' feet (11.34 m) from u 11.4 to
+u 16.2. The bed moulding runs on inside that gable, as the K05 eave above it already does.
+
+**What is attested.** Nothing about this wall head. The T-1837 building register reads a "pierced
+parapet" at `pa-1808-6` off the 1888 *Inland Architect* plate, which is not a source record here.
+The register is a request, not a source. The record's hipped roof with an open eave (K05,
+reconstructed) leaves no parapet wall to stand one on, so none is built.
+
+**What is invented.** All of it. The choice of a bracketed eave over any other cornice, the bracket
+and moulding profiles (the kit's generic ones, L-k10-cornice-kit-2316), the pier rhythm and the
+1.4 m gaps it leaves over each window, the bed moulding's line, the cresting and where it stops.
+None of it was read off a picture of 1808 Prairie.
+
+**What it does not do.** It does not touch Glessner: Glessner's wall head is documented and
+authored from its own evidence, and the kit's `restrictions` let a generic section stand only
+where a house's own is unknown. It does not dress the dormer's face. The dormer's sash head
+stands 0.13 m under its own soffit, too little for the kit's 0.20 m pediment cornice, so that
+needs the dormer re-proportioned first. It builds no parapet.
+
+**What would replace it.** The 1888 plate deposited and read as a source, or a photograph of
+1808's front. Either would replace the generic eave with the documented parapet and cornice
+profile.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.wall_head`
+**Ticket:** T-2317 (piece 2 of T-1852, K10).
+**Review:** `docs/RESEARCH/k10-1808-wall-head-2317/README.md`.
+**Recorded:** 2026-10-10 (T-2317).
+
+### L-k11-1808-boundary-2319 — 1808 Prairie's front fence, gates, piers and south boundary wall from the K11 kit, all reconstructed
+
+**Decision:** the 1808 Prairie K01 frontage (T-2266) carries the K11 ironwork kit's own pieces
+(T-2318) round its front yard. The kit's spear fence on a stone curb stands on the street line,
+the curb's street face on the line, from a stone pier in line with the house's south wall to an
+end post whose curb stops on the north lot line. The walk to the stoop passes between two stone
+piers with caps and urns, 1.30 m clear, closed by a PAIR of 0.61 m leaves, one hung on each pier.
+The kit's single leaf would not do here: the stoop's foot stands 0.69 m behind the fence's line,
+and a leaf longer than that would strike it as it opened, so the generator holds each leaf's
+whole swing against the stoop's built mesh. The side passage's 0.94 m mouth takes the kit's single
+walk gate, hung on the boundary wall's street pier and shut on the stone pier. The kit's brick
+wall with piers, 1.50 m high under a saddleback coping, runs on the south lot line, its south face
+on the line, from the fence back to u 15.2 m. That is 0.2 m short of 1812's draft front, which
+stands on the lot line behind it. The pieces are drawn shut.
+
+**What is attested.** The line only. The street line (4.44 m in front of the front face) and the
+two lot lines are the 1911 Sanborn sheet 28's, as `data/street_grid/1904.json` reads them for
+parcel `prairie_1808`. The parcel's north line falls 0.17 m inside the house's own north wall; the
+fence ends on the parcel's line.
+
+**What is invented.** All the rest. That 1808 had a front fence at all, its pattern (spear, not
+scroll), its height, the curb, the piers and their urns, the pair of leaves, the side gate, the
+wall's existence, brick, height and length. The sizes are the kit's generic ones
+(L-k11-ironwork-kit-2318). The wall's 1.50 m is the kit's height, under the 6 ft the register
+reads for the one mapped brick boundary wall (frontage-35-064).
+
+**What it does not do.** It builds nothing on the north side, against Glessner. Glessner's
+boundary is documented, the kit's `restrictions` let a generic part stand only where a property's
+own is unknown, and the register gives that yard transition to T-1944. It crosses no entrance:
+no curb, rail or picket stands in either opening, and the generator refuses one that does. There
+is no carriage drive on this front to keep clear (the carriage house is on the alley, T-1935's).
+Nothing reaches the public walk.
+
+**What would replace it.** A photograph of 1808's front yard, or the 1888 *Inland Architect* plate
+read as a source. Either would replace the generic fence and wall with the house's own.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.boundary`
+**Ticket:** T-2319 (piece 2 of T-1853, K11).
+**Review:** `docs/RESEARCH/k11-1808-boundary-2319/README.md`.
+**Recorded:** 2026-10-11 (T-2319).
+
+### L-k02-1808-stone-2289 — The 1808 Prairie stone front: Lemont limestone in rock-faced courses round the kits, its base, coping, quoins and flat arches, all reconstructed
+
+**Decision:** Lay the street front of the 1808 Prairie K01 frontage (L-k01-1808-frontage-2266) as K02
+coursed ashlar from the stone library (L-k02-stone-library-2288) instead of one flat face: rock-faced
+Lemont limestone in 35 courses (two of them a rusticated base of 0.41 m courses, channel-jointed
+18 x 12 mm, under a 0.23 m weathered coping whose top is the area lights' head line), cut into stones
+of 0.40-1.20 m with 10 mm joints recessed 5 mm, an 8 mm bevelled arris and a rock face standing
+0-25 mm proud; two belts of dressed trim 0.05 m proud; a flat arch of voussoirs over each opening the
+record's `street_front_trim` leaves a flat head (the area light and the three third-floor windows);
+and quoins returning on the south corner, alternately long (0.48-0.59 m) and short (0.25-0.30 m).
+The kits that had dressed this front before the stone was laid keep what they build: the K06 sills
+(L-k06-1808-windows-2298), the K09 surrounds, hoods, apron and ringed entrance (T-2310), the K07 stoop
+(T-2304) and the K08 bow (T-2308). Every piece one of them seats on the wall is noted with its
+extent, and the course under it is laid in dressed stone, smooth and flush, so no sill, console,
+colonnette or bay junction stands on a rock face. Every course height, length, joint, recess, bevel,
+chip, projection, return, channel and fall is the K02 profile's, resolved by
+`k01_frontage_params._k02` and refused outside it.
+**What is invented.** The stone. The T-1837 register reads a "rock-faced" stone front from the
+Inland Architect plate of February 1888 and names no stone, so Lemont limestone — Chicago's own
+quarry stone and the library's pale coursed walling — is a working interpretation, not a reading; a
+brownstone or Bedford front is as possible. The course lines are struck on this assembly's own base,
+sill beds, heads, flat-arch tops and belts, which are K01 reconstructions, so the coursing is too.
+What this assembly adds to the profiles is its own: the flat arch (a 0.12 m seat each side, 0.30 m
+deep, about 0.2 m voussoirs whose joints radiate from a point set by a 12 degree splay, carried over
+from the K01 lintel it replaces), the dressed seat under a kit piece (its extent widened by a joint
+and an arris, 0.023 m, and run out to the course lines), and the coping's height (0.23 m, chosen so
+two base courses at the profile's 0.41 m and the coping finish exactly on the area lights' heads).
+**Where it departs from its own profile.** Chips are drawn at the profile's rate (1.2 a metre of
+arris, 2-10 mm deep) but kept only where the chip's floor stays in front of the joint's 5 mm floor,
+so 47 survive on 214 rock-faced stones and they sit only at corners; the dressed trim's chips
+(1-3 mm) are not built, being at the depth of the 1 mm measure grid. Trim set in the walling takes
+the walling's 5 mm recess rather than its own 1 mm. A dressed seat runs a whole course high, so the
+smooth stone round a sill or an apron is a course deeper than the piece it carries. The K08 bow keeps
+its own stone (Glessner's limestone slot, not Lemont), and the walling behind it is laid in dressed
+stone that nothing sees. The north corner is not bonded: it stands 0.02 m from Glessner's south face,
+closer than a rock face projects.
+**How to resolve:** T-1882 and T-1883 build the actual Keith/Field front from the 1888 plate (its
+south curved bay, north loggia and pierced parapet), which replaces this coursing; a reading of the
+plate's stone, or a specification, replaces the fabric in the record's `stone_front`, and the
+profiles then lay it.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_front`.
+**Ticket:** T-2289 (piece 2 of T-1844, K02).
+**Review:** `docs/RESEARCH/k02-1808-stone-2289/README.md`.
+**Recorded:** 2026-10-10 (T-2289).
+
+### L-k16-timber-kit-2322 — The Prairie timber kit: every clapboard, batten, shingle, trim board, bargeboard and porch part reconstructed
+
+**Decision:** the 1904 Prairie programme's frame cladding and exterior timber (package K16,
+T-2322) are four parametric samples built by `generators/archetypes/k16_timber.py` from
+`data/components/prairie_1904/k16_timber.json`: a clapboard wall over a water table with an outside
+corner, its pair of corner boards and a short return, one cased window (the sash, glass, blind and
+room are K06's), a frieze, a boxed eave and scroll brackets; a board-and-batten panel; a steep
+Gothic gable with clapboard to a belt, square and fish-scale shingles inside rake boards, and
+pierced bargeboards meeting at a chamfered finial; and a porch bay with an oiled board floor nosing
+past its rim, a lattice skirt over a dark crawl space, a chamfered post with scroll brackets under
+the plate and a varnished beaded ceiling. Every clapboard course is its own lapped board resting on
+the course below with a shadow line at its butt; every batten covers a joint; every piercing is cut
+through the board. None is a texture.
+**What is invented.** Every dimension and every shape: the 0.15 m frame wall; the clapboard's 4 1/2
+in exposure, 5/8 in butt, 3/16 in tip, 1 in lap, 12 ft boards and 4 ft joint step; the 10 in boards,
+1/2 in gaps and 2 1/2 in battens; the 6 in shingles laid 5 in to the weather, their fish-scale butt
+and the order of the bands; the 5/4 corner boards, the 8 in water table and its drip cap, the
+casing's widths, sill, apron, head and drip cap, the 0.40 m frieze, the 0.42 m boxed eave, the
+bracket's sweep and spacing; the 52 degree gable, the 0.30 m verge, the rake board, the bargeboard's
+depth and its roundel and vesica piercings, the finial; the porch floor's height, depth, boards and
+nosing, the lattice's laths and pitch, the post's section, chamfer and stops, the plate, the
+ceiling boards and beads. The bracket, the piercing pattern and the finial are newly designed for
+this kit and copy no named property. The colours (a pale buff body, cream trim, red-brown
+shingles, the porch floor and ceiling oiled and varnished) are a restrained 1870s-80s frame
+palette chosen to keep painted softwood, stained joinery and end grain apart, and the per-board
+paint wear is a seeded tone inside a 10 % range. The samples follow the study's asset catalog (K16:
+"clapboard and board-and-batten families, supported decorative shingles, corner boards, water
+tables, timber fascia/brackets, porch lattice and pierced Gothic woodwork") and the reconstruction
+rules' clapboard exposure and frame-wall ranges, which are the study's priors and not source
+records here.
+**What is not.** Nothing in the kit is attested, and no house is clad from it yet (T-2323 builds the
+first, the timber fabric of 1638 Shortall-Gregory's Gothic front, from that house's own evidence).
+The data's restrictions keep decorative shingles to gables, towers and dormers and pierced
+bargeboards to a Gothic or picturesque house.
+
+**How to resolve:** a house's own photograph, drawing or surviving fabric shows its board count,
+trim, bargeboard pattern or porch, and that house takes it in place of the kit's working parts; a
+period millwork or builder's catalogue replaces a part's sections and profiles for every house at
+once.
+**Ticket:** T-2322 (piece 1 of T-1858, K16).
+**Review:** `docs/RESEARCH/k16-timber-kit/README.md`.
+**Recorded:** 2026-10-10 (T-2322).
+
+### L-draft-prairie-18-20-west-2329 — The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
+
+**Covers:** `edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie.draft_1904.form.draft_elevation`, `house_1828_prairie.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`, `wheeler_house_1812_prairie.draft_1904.form.draft_elevation`, `wheeler_house_1812_prairie.draft_1904.form.draft`.
+**Decision:** the owner's district pass (2026-10-08) drafts the whole of Prairie Avenue as a
+serviceable first model that the per-building tickets then refine in place. On the west side of
+the 18th-20th block (Sanborn 1911 sheet 28) it stands nine houses and nine alley buildings —
+1812, 1816, 1824, 1828, 1834, 1900, 1906 with its attached 1908, 1912 and 1916 (1930) with their
+coach houses, and the shed on the strip between 1834 and 1900 — written by
+`tools/draft_prairie_1904.py` from the traced footprints (T-2327), the T-1841 census and the
+T-1837 frontage register, under the rules in `data/components/prairie_1904/draft_prairie_1904.json`,
+and built by `generators/archetypes/prairie_draft.py`. Glessner (1800), the 1808 K01 assembly and
+1812's K12 coach house (T-2321) are not touched.
+**What is invented.** Everything above the plan and the storey count: the 1.4 m principal floor
+over a basement, the 3.9, 3.5, 3.3 and 3.1 m storeys, the service buildings' 3.4 and 2.8 m storeys;
+each house's roof family as the register's family names it (mansard for the Second Empire houses
+and 1834's recorded mansard storey, a steep hip for the Chateauesque 1912, a stepped street gable
+for 1812's shaped gable, a flat roof behind a cornice for the stone fronts and the bracketed
+Italianate 1906, a hip for the rest), with its pitch, eave and the mansard's 72 and 18 degree
+faces; the count of front bays (one per 2.6 m of front, or the frontage row's own), the entrance
+side, the 2.6 m spacing of side and rear sash, every sash's 1.0 m width, height, sill and lintel;
+the dormers in a half storey; the stoops, door and transom; the chimney stacks; the turrets
+given to 1912 (the register's "conical corner turret") and to 1916 (its map's 'bay4B'), whose
+corners are not read off the sheet; the coach houses' gable roofs, carriage and loft doors; and
+the flat fabric colours, each nudged inside +-6 % by the record's seed so that no two neighbours
+share one. A wall within 0.9 m of a lot line is left blind as a party wall.
+**What is not.** The plan: every rectangle is fitted INSIDE a traced Sanborn part (inferred, the
+1911 sheet carried to 1904 on T-1841's ruling), never the parcel; the full storeys are the sheet's
+printed notation (attested); the fabric is the sheet's colour as the register reads it. No source
+is claimed for any form, and no house's draft copies another's.
+**How to resolve:** each house's own per-building ticket (named on its card and in its record's
+`draft.replaceable_by`) replaces its attributes in place, under the same id, from a photograph,
+plate, plan or measured drawing; the alley buildings are T-1935's.
+**Ticket:** T-2329 (piece 1 of T-2159, the district draft's 18th-20th block).
+**Review:** `docs/RESEARCH/prairie-draft-west-2329/README.md`.
+**Recorded:** 2026-10-10 (T-2329).
+
+### L-draft-prairie-18-20-east-2330 — The east side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
+
+**Covers:** `armour_corwith_house_1945_prairie.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie.draft_1904.form.draft`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_corwith_house_1945_prairie_coach_house.draft_1904.form.draft`, `coleman_ames_house_1811_prairie.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie.draft_1904.form.draft`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft_elevation`, `coleman_ames_house_1811_prairie_coach_house.draft_1904.form.draft`, `dent_house_1823_prairie.draft_1904.form.draft_elevation`, `dent_house_1823_prairie.draft_1904.form.draft`, `doane_house_1827_prairie.draft_1904.form.draft_elevation`, `doane_house_1827_prairie.draft_1904.form.draft`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft_elevation`, `doane_house_1827_prairie_coach_house.draft_1904.form.draft`, `kellogg_house_1923_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie.draft_1904.form.draft`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1923_prairie_coach_house.draft_1904.form.draft`, `kimball_house_1801_prairie.draft_1904.form.draft_elevation`, `kimball_house_1801_prairie.draft_1904.form.draft`, `marshall_field_house_1905_prairie.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie.draft_1904.form.draft`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft_elevation`, `marshall_field_house_1905_prairie_coach_house.draft_1904.form.draft`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft_elevation`, `marshall_field_jr_house_1919_prairie.draft_1904.form.draft`, `ream_house_1901_prairie.draft_1904.form.draft_elevation`, `ream_house_1901_prairie.draft_1904.form.draft`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft_elevation`, `ream_house_1901_prairie_coach_house.draft_1904.form.draft`, `sears_meeker_house_1815_prairie.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie.draft_1904.form.draft`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft_elevation`, `sears_meeker_house_1815_prairie_coach_house.draft_1904.form.draft`.
+**Decision:** the second half of the 18th-20th block's draft (T-2330, piece 2 of T-2159), run by
+the same builder under the same rules as `L-draft-prairie-18-20-west-2329`, whose "What is
+invented" and "What is not" hold here word for word: the heights, roof families and pitches, bay
+counts, entrance sides, sash, dormers, stoops, chimneys and seeded fabric tints are the draft
+rules' reconstruction; the plan is fitted inside the traced Sanborn parts (inferred) and the full
+storeys are the sheet's printed notation (attested). Adding `"east"` to block 28's sides in
+`data/components/prairie_1904/draft_prairie_1904.json` stands ten houses and seven alley
+buildings — 1801 Kimball, 1811 Coleman/Ames, 1815 Sears/Meeker, 1823 Dent, 1827 Doane, 1901 Ream,
+1905 Field Sr., 1919 Field Jr., 1923 Kellogg and 1945 Armour/Corwith, with the barns, garages and
+stable the sheet draws behind 1811, 1815, 1827, 1901, 1905, 1923 and 1945. Nothing on the west
+side moves.
+**What is invented on this side, beyond the west side's list.** The register names the east
+side's landmarks, and the draft draws each one's silhouette, never its carving: 1801's conical
+corner tower is put at the 18th Street corner and 1827's square tower under a pyramid and its
+lower round bay under a cone at the two front corners, and the sheet places none of the three,
+so all three corners are invented. The roof is a mansard where the register says one, though the
+register's family name does not (1815's 'mansard with gabled dormers', 1823's 'high
+attic/mansard profile', 1827, and the 1901 post-fire Second Empire front), and 1923 gets a low
+hip, not a tower, because the register says not to invent one. 1801 is drawn in a pale stone
+(Bedford) and 1811's front in brownstone (the register's 'rock-faced brown sandstone') so the
+four houses at the landing do not share a fabric. Both colours are the draft palette's flat
+stand-ins, not a reading of either stone. 1919's 1911 label, the Gatlin Institute, is not carried
+back. Its record says the 1904 use is inferred from the register's family row.
+**How to resolve:** each house's per-building ticket (T-1889 to T-1908, named on its card and in
+its record's `draft.replaceable_by`) replaces its attributes in place, under the same id; the
+alley buildings are T-1936's.
+**Ticket:** T-2330 (piece 2 of T-2159, the district draft's 18th-20th block).
+**Review:** `docs/RESEARCH/prairie-draft-east-2330/README.md`.
+**Recorded:** 2026-10-11 (T-2330).
+
+### L-draft-prairie-16-18-west-2334 — The west side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and 1620 read off the 1886 plate
+
+**Covers:** `george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie.draft_1904.form.draft_elevation`, `house_1626_prairie.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1708_prairie.draft_1904.form.draft_elevation`, `house_1708_prairie.draft_1904.form.draft`, `house_1712_prairie.draft_1904.form.draft_elevation`, `house_1712_prairie.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie.draft_1904.form.draft_elevation`, `house_1726_prairie.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie.draft_1904.form.draft_elevation`, `house_1730_prairie.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `house_1736_prairie.draft_1904.form.draft_elevation`, `house_1736_prairie.draft_1904.form.draft`, `house_1736_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1736_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie.draft_1904.form.draft_elevation`, `walker_house_1720_prairie.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
+**Decision:** the district draft's 16th-18th block (T-2160, split to T-2334 for the west side
+and T-2335 for the east), run by the builder and under the rules of
+`L-draft-prairie-18-20-west-2329`, whose "What is invented" and "What is not" hold here word for
+word, reading sheet 20's trace (T-2328) and the T-1840 census instead of sheet 28's. Block 20's
+west side stands nineteen houses and thirteen alley buildings: 1600, 1604, 1608, 1612 Goodman,
+1616, 1620 Law, the 1626/1628 pair, 1630, the 1634/1636 stone-front pair, 1700 Glessner Lee and
+1706 George Glessner, 1708, 1712, 1720 Walker, 1726, 1730 and 1736, with the stables and garages
+the sheet draws behind 1612, 1616, 1620, 1626, 1628, 1630, 1638, 1700, 1712, 1720, 1726, 1730 and
+1736. 1638's street front is the K16 record already standing (T-2323) and is not touched; the
+draft adds only its stable. Nothing on sheet 28 moves.
+**What is invented on this side, beyond the 18th-20th list.** Where two neighbours of the same
+family would have shared a roof, one is drawn differently and its frontage row says so (1608 and
+1730 flat behind a bracketed cornice); which roof either had is its per-building ticket's.
+**1608 retired from this liberty by T-2341 (2026-10-11):** the house now stands as the K01 brick
+frontage under `L-k01-1608-brick-front-2341`, under the same id; its draft attributes are gone.
+**1600 retired from this liberty by T-2342 (2026-10-11):** the corner house now stands as the K01
+brick frontage under `L-k01-1600-corner-2342`, under the same id; its draft attributes are gone.
+**1616 retired from this liberty by T-2353 (2026-10-11):** its main body now stands as the K01
+brick frontage under `L-k01-1616-brick-front-2353`, under the same id; its draft attributes are
+gone, and its stable keeps `house_1616_prairie_coach_house` here.
+**1604 retired from this liberty by T-2343 (2026-10-11):** the house now stands as the K01 brick
+frontage with its traced rear range on K01's rear wings under `L-k01-1604-rear-range-2343`, under
+the same id; its draft attributes are gone.
+**1628 retired from this liberty by T-2355 (2026-10-11):** its main body now stands as the K01
+brick frontage under `L-k01-1628-brick-front-2355`, under the same id; its draft attributes are
+gone, and its stable keeps `house_1628_prairie_coach_house` here.
+**1630 retired from this liberty by T-2357 (2026-10-11):** the small earlier frame house now
+stands whole — main block, south wing and front porch — as the K16 clapboard house under
+`L-k16-1630-frame-house-2357`, under the same id; its draft attributes are gone, and its stable
+keeps `house_1630_prairie_coach_house` here.
+**1634 retired from this liberty by T-2350 (2026-10-11):** its main body now stands as the K01
+stone-front house under the flat roof K01 learned from K05, with the sheet's stone front bay on K08,
+under `L-k01-1634-stone-front-flat-2350`, under the same id; its draft attributes are gone.
+**1636 retired from this liberty by T-2348 (2026-10-11):** it now stands as the K01 stone-front
+house under K01's flat roof, the sheet's canted stone bay on K08 and its narrow rear part on K01's
+rear wings, under `L-k01-1636-stone-front-flat-2348`, under the same id; its draft attributes are
+gone. Its door moves from the south end to the north: the sheet's bay fills the south half of its
+front, so the 1634/1636 pair repeats rather than mirrors.
+1720 Walker's Italianate
+frame is a low bracketed hip, its central gable, canted bay and full-width porch left to T-1873.
+The pairs the sheet attests (1626/1628, 1634/1636, 1700/1706) mirror their entrances to their
+outer ends.
+**1620, the one house the 1911 sheet does not draw.** The T-1840 census stands the Robert Law house
+for 1904 on Robinson 1886 and the 1904 Blue Book (backcast_1886). Its outline is read off Robinson
+1886 plate 10 in the plate's own pixels and carried by the plate's T-1250 fit (4.54 m RMS, the
+weakest of the four), so its plan is inferred from that plate and not from the sheet. Its two
+storeys are RECONSTRUCTED: the atlas prints no storey count. Its documented range claims 1904-07-01
+and nothing either side of it.
+**1700 and 1706.** The sheet traces the U-shaped block as one building with two parts; the census
+rules them two townhouses (pa-1700-52, pa-1706-53) and 1702 an alias with no house of its own
+(study ruling 2). Each frontage row names its own traced part (`house_part`), so each house stands
+on its own half of the trace. The one stable on their shared lot is drawn once, under 1700's id;
+which household it served is not read.
+**How to resolve:** each house's per-building ticket (T-1859 to T-1874, named on its card and in
+its record's `draft.replaceable_by`) replaces its attributes in place, under the same id; the alley
+buildings are T-1932's.
+**Retired in part:** 1612 Goodman's front house by T-2344 (piece 1 of T-1860), which refined it in place on the K01 frontage kit under `L-k01-1612-goodman-2344`; its stable is still this draft's. 1620 Law's house by T-1861, which refined it in place on the K01 frontage kit under `L-k01-1620-law-1861`; its stable is still this draft's.
+**Ticket:** T-2334 (piece 1 of T-2160, the district draft's 16th-18th block).
+**Review:** `docs/RESEARCH/prairie-draft-16-18-west-2334/README.md`.
+**Recorded:** 2026-10-11 (T-2334).
+
+### L-draft-prairie-16-18-east-2335 — The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate
+
+**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1613_prairie.draft_1904.form.draft_elevation`, `house_1613_prairie.draft_1904.form.draft`, `house_1615_prairie.draft_1904.form.draft_elevation`, `house_1615_prairie.draft_1904.form.draft`, `house_1619_prairie.draft_1904.form.draft_elevation`, `house_1619_prairie.draft_1904.form.draft`, `house_1621_prairie.draft_1904.form.draft_elevation`, `house_1621_prairie.draft_1904.form.draft`, `house_1623_prairie.draft_1904.form.draft_elevation`, `house_1623_prairie.draft_1904.form.draft`, `house_1625_prairie.draft_1904.form.draft_elevation`, `house_1625_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
+**Decision:** the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run
+by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
+and "What is not" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840
+census. Block 20's east side stands thirteen houses, the station and four alley buildings: 1601,
+1609 and 1611 (the lost frame pair), the 1613/1615 pair, 1619, the 1621-1625 group of three, 1637
+Spalding, 1701 Hibbard, 1709 Kellogg, 1721 Dexter and 1729 Pullman, the Illinois Central's 16th
+Street station at 1605, and the buildings the sheet draws by the tracks behind 1637, 1701, 1709 and
+1721. That is every east-side row of the census (frontage-20-022 to -035). Nothing on the west side
+or on sheet 28 moves.
+**What is invented on this side, beyond the 18th-20th list.** The group of three at 1621-1625 is
+attested as attached, not as one design, so its three fronts are drawn three ways (a hip, a flat
+bracketed cornice, a mansard for 1625's half storey). The 1613/1615 pair, which the sheet attests,
+mirrors its doors to its outer ends, as 1609/1611 do. Four storeys on 1613-1619 are read flat
+behind a cornice. 1701's Italianate body is a low bracketed hip with its half storey as dormers.
+1605's station stands as the draft's plain two-storey gabled outbuilding with the use
+`railway_station` (a term added to the function vocabulary for it); its platform, canopy, street
+door and nameboards are no longer this entry's but `L-ic-16th-street-station-2399`'s (T-2399).
+**1609 and 1611, the pair the 1911 sheet does not draw.** The census rules the 1911 loft at
+1607-1611 a later replacement and stands, on the supplied expert guidance, the frame pair Robinson
+1886 draws on lot 6 (backcast_1886; pa-1609- and pa-1611-1904-correction). Each half is read off
+Robinson 1886 plate 10 in the plate's own pixels, split at the line the plate draws across it,
+and carried by the plate's T-1250 fit (4.54 m RMS, the weakest of the four), so their plans are
+inferred from that plate. Their two storeys are RECONSTRUCTED: the atlas prints none. Their
+documented ranges claim 1904-07-01 and nothing either side. The loft is not drawn.
+**1721, one Dexter house.** The register read the sheet's 1721 as 1719; the census rules the two
+one property (study ruling 3), so one house stands under 1721 and carries 1719 as its alias.
+**1635, nothing.** Forsyth's 1635 is `phase_unresolved` in the census, on the strip next north of
+1637; the draft builds nothing there and does not put the house on 1637 or 1625. T-1870 rules.
+**1729 and its conservatory.** The east wing's south bay is the K13 record already standing
+(`pullman_house_1729_prairie_conservatory`, T-2306) on a plain block in the wing's place. The draft
+keeps that record's footprint out of the traced fabric (`keep_out`), so the wing is drawn once, and
+stands the sheet's two-storey building at the wing's east end at two storeys (`wing_storeys`).
+**What is not drafted here.** Pullman's two glasshouse ranges and the lodge between them stand on
+sheet 28's ground across 18th Street, allocated to the Pullman estate (T-1934) but never traced, so
+no polygon exists for the builder to read; and the draft archetype has no glass roof. They are left
+to T-1934, whose ticket says so.
+**How to resolve:** each house's per-building ticket (T-1866 to T-1881, named on its card and in
+its record's `draft.replaceable_by`) replaces its attributes in place, under the same id; the alley
+buildings are T-1933's.
+**1601 retired from this liberty by T-2398 (2026-10-12):** the frame dwelling at the 16th Street
+corner now stands whole as the K16 timber record `house_1601_prairie`, recorded as
+`L-k16-1601-frame-house-2398`, under the same id; its draft attributes are gone.
+**Retired in part:** 1609 and 1611, the lost lot-6 frame pair, by T-1867, which refined both in place on the K16 timber kit as two clapboard houses on one party wall under `L-k16-1609-1611-frame-pair-1867`, under the same ids; their draft attributes are gone.
+**Ticket:** T-2335 (piece 2 of T-2160, the district draft's 16th-18th block).
+**Review:** `docs/RESEARCH/prairie-draft-16-18-east-2335/README.md`.
+**Recorded:** 2026-10-11 (T-2335).
+
+### L-draft-prairie-20-22-west-2351 — The west side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, the Robbins house rising, one coach house for 2108 and 2110, and 2140's towers in one roof state
+
+**Covers:** `buckingham_house_2036_prairie.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie.draft_1904.form.draft`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie.draft_1904.form.draft_elevation`, `house_2000_prairie.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie.draft_1904.form.draft_elevation`, `house_2010_prairie.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie.draft_1904.form.draft_elevation`, `house_2018_prairie.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie.draft_1904.form.draft_elevation`, `house_2026_prairie.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie.draft_1904.form.draft_elevation`, `house_2120_prairie.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `rees_house_2110_prairie.draft_1904.form.draft_elevation`, `rees_house_2110_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`
+**Decision:** the district draft's 20th-22nd block, west side (T-2351, piece 1 of T-2161), run
+by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
+and "What is not" hold here word for word, reading sheet 35's trace (T-2340) and the T-1842
+census. Block 35's west side stands thirteen houses and thirteen alley buildings: the frame pair
+2000 and 2010, 2018, 2026, 2036 Buckingham, 2100 Sherman, 2108 Mark Kimball, 2110 Rees at its
+historical site, 2112 Rothschild, 2120, 2126 Robbins, 2130 Murdoch and 2140 Tucker/Smith, with the
+stable or coach house the sheet draws behind each, one coach house shared by 2108 and 2110, and
+2140's three-storey building on the alley beside its stable. That is every west-side row of the
+census (frontage-35-059 to -071). Nothing on sheets 20 or 28 moves.
+**What is invented on this side, beyond the 18th-20th list.** 2000 and 2010, which the sheet
+draws as twins in plan, are one design with their doors mirrored. Roofs are varied where the
+register names no form so that neighbours do not share one face: 2018 plain and 2026 bracketed
+behind their stone fronts, 2108 flat, 2110 a steep street gable (the register's 'tall gable'),
+2112 bracketed. Each building's roof and storey heights are the draft rules'. The sheet's crossed
+stables are filled from their traced outlines (block 35's `service_outline`), so the one-storey
+pieces a few of them carry stand at the stable's own two storeys. 2130's turret stands on the
+round bay the sheet draws on its front, under a cone the register names.
+**2126, a building site.** The census rules 2126 a building site on 1 July 1904 (r35-robbins-2126):
+the Hamill house razed, the Robbins house rising, finished by the May 1905 plate. The draft stands
+that ONE working phase: a hollow brick shell two of its three storeys up over its stone basement,
+the street wall and its returns 1.6 m into the third, empty openings in the finished house's five
+bays, no roof, a deck at the principal floor and a pole scaffold. How far the walls had risen is
+the draft's reconstruction and nothing more: no permit or progress photograph dates the month. The
+May 1905 plate is not read as July 1904 evidence. The alley stable stands, as the ruling has it.
+**2108/2110, one coach house.** The sheet draws one two-storey brick stable across the alley end of
+both lots, divided on the lot line, and the census rules it one building (r35-2108-2110-coach-house).
+The T-2340 trace outlines it as two; the draft fills the two outlines as one envelope under one
+roof (block 35's `join`) and stands the lot line through it as a coped party wall. It is one record,
+`mark_kimball_house_2108_prairie_coach_house`, whose south half is Rees's.
+**2140, one roof state.** The register asks for ONE declared 1904 state of the towers, flat-topped
+and crested or the later conical spires, never both. The spires are dated only by a 1928 photograph,
+and nothing found puts them on the house by 1904, so the draft draws the house's first state: the
+round corner tower flat-topped inside an iron cresting. A dated view showing spires by July 1904
+replaces it (T-1928, T-1929). 2140's two rear buildings carry each other's census ids in the T-2340
+trace; read again on the raster (the yard building crossed and numbered 2, the alley building
+lettered CATERER and numbered 3), the draft swaps them back (block 35's `census_fix`). The
+three-storey alley building's 1911 use is not carried back: it stands as an `outbuilding`.
+**What is not drafted here.** The 6- and 8-ft brick walls the sheet draws along 21st Street and the
+alley (2036, 2100, 2140) and 2026's open ground: the draft archetype has no boundary walls, and the
+per-building tickets build them. 2100's oriel, 2110's tympanum and loggia, and 2140's porch, glass
+room and exterior stairs are the per-building tickets'.
+**How to resolve:** each house's per-building ticket (T-1909 to T-1929, named on its card and in
+its record's `draft.replaceable_by`) replaces its attributes in place, under the same id; the alley
+buildings are T-1937's.
+**Ticket:** T-2351 (piece 1 of T-2161, the district draft's 20th-22nd block).
+**Review:** `docs/RESEARCH/prairie-draft-20-22-west-2351/README.md`.
+**Recorded:** 2026-10-11 (T-2351).
+
+### L-draft-prairie-20-22-east-2352 — The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open
+
+**Covers:** `armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie.draft_1904.form.draft_elevation`, `high_house_2021_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie.draft_1904.form.draft_elevation`, `house_2001_prairie.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2003_prairie.draft_1904.form.draft_elevation`, `house_2003_prairie.draft_1904.form.draft`, `house_2005_prairie.draft_1904.form.draft_elevation`, `house_2005_prairie.draft_1904.form.draft`, `house_2011_prairie.draft_1904.form.draft_elevation`, `house_2011_prairie.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie.draft_1904.form.draft_elevation`, `house_2017_prairie.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie.draft_1904.form.draft_elevation`, `house_2027_prairie.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie.draft_1904.form.draft_elevation`, `house_2101_prairie.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie.draft_1904.form.draft_elevation`, `otis_house_2033_prairie.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie.draft_1904.form.draft_elevation`, `reid_house_2013_prairie.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie.draft_1904.form.draft_elevation`, `stone_house_2035_prairie.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`.
+**Decision:** the district draft's 20th-22nd block, east side (T-2352, piece 2 of T-2161), run
+by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
+and "What is not" hold here word for word, reading sheet 35's trace (T-2340) and the T-1842
+census. Block 35's east side stands seventeen buildings on the avenue and sixteen behind them:
+2001, the 2003/2005 pair, 2009 Mayer, 2011, 2013 Reid, 2017, 2021 High, 2027, the 2031-2035
+limestone row (Tolman, Otis, Stone), 2101, 2109 Roloson, 2115 Armour, 2123, 2125 and the
+2127-2129 flats, with every rear building the sheet traces behind them. That is every east-side
+row of the census (frontage-35-072 to -091). Nothing on the west side, or on sheets 20 and 28,
+moves.
+**What is invented on this side, beyond the 18th-20th list.** Fourteen of the seventeen are
+drawn from the register's family alone; three are given the silhouette the register names for a
+landmark: 2009's shaped street gable for Mayer's ogee gable, and a turret under a cone on 2011's
+south corner and on 2021 High's north corner, each standing where the sheet draws a rounded front
+projection. 2013 Reid's classical front is a flat roof behind a plain heavy cornice with a
+central entrance; 2115 Armour's Second Empire is the family's mansard with a central entrance.
+The attested 2003/2005 pair mirrors its doors to its outer ends. The 2031-2035 row shares one
+bracketed flat cornice line (census ruling r35-2031-2035-row) and is not three copies: its doors
+differ. 2125, the one frame house, stands under a gable. The 2127 flats stand as one building
+under one roof with one central entrance for its two numbers; T-1931 reads its two doors.
+**Construction read past the coarse copy.** The sheet letters 2013 'Fire Proof Construction',
+and on this copy its colour reads as frame; the census rules that label a construction class and
+not a facade, and the record keeps the register's masonry.
+**Uses not carried back.** Every 1911 GARAGE on the alley is backcast as the census reads it, a
+stable or coach house; 2035's brick-and-frame rear building, whose use the census does not read,
+stands as an outbuilding.
+**2129 and 2141, nothing.** 2129 is the flats' second number (census alias); 2141 is open ground
+on the 22nd Street corner (ruling r35-2141-open-corner), and the draft stands nothing on it. 2005's
+16 ft brick wall on its south line is a boundary wall the draft archetype does not draw (T-1912).
+**How to resolve:** each house's per-building ticket (T-1912 to T-1931, named on its card and in
+its record's `draft.replaceable_by`) replaces its attributes in place, under the same id; the rear
+buildings are T-1938's.
+**Ticket:** T-2352 (piece 2 of T-2161, the district draft's 20th-22nd block).
+**Review:** `docs/RESEARCH/prairie-draft-20-22-east-2352/README.md`.
+**Recorded:** 2026-10-11 (T-2352).
+
+### L417 — The portable-human pipeline's test figure, which is nobody
+
+**Decision:** `c4d_fixture`, the four-LOD body under `assets/humans/` (and its Meshopt derivatives in
+`assets/humans/web/`), is a deliberately plain figure built from primitives by
+`tools/human_fixture_blend.py`: tapered cylinders on the 56 contract bones, spheres for the head and
+eyes, boxes for the feet and the light LODs' mitten hands, a generated 64 px twill on `garment_upper`,
+1.70 m tall, with three face morphs and an `idle` and a `walk` that were keyed by hand. **Everything
+about it is invented**, and on purpose: it exists to prove the road Blender -> GLB -> the browser
+(T-1787) on every LOD, not to depict anyone. It is not a resident, carries no `person_id`, has no
+instance record, and no scene loads it, so L1 is untouched; it is drawn only by the test page
+`tools/human_fixture.html`, which is never published.
+**Applies to:** `assets/humans/c4d_fixture.lod0-3.glb` and `assets/humans/web/c4d_fixture.lod0-3.glb`. No
+structure, terrain or person carries it, so it discharges no `Covers` token.
+**Ticket:** T-1787.
+**Review:** `data/humans/fixture.measure.json` (the browser verdicts and costs).
+**Recorded:** 2026-10-10 (T-1787).
+### L-k16-1638-front-2323 — 1638 Prairie's timber street front: the kit's Gothic gable, wall and porch on the sheet's plan, before a photograph says otherwise
+
+**Decision:** the Shortall-Gregory house at 1638 Prairie Avenue (T-2323, piece 2 of T-1858) stands
+in the 1904 scene as its timber street front, `shortall_gregory_house_1638_prairie_front`, built by
+`generators/k16_emit.py` from the K16 kit (L-k16-timber-kit-2322): a 52-degree Gothic gable 5.21 m
+wide over the south part of the front, two storeys of clapboard on a raised basement to a belt at
+6.4 m, square and fish-scale shingles inside rake boards, pierced bargeboards meeting at a finial,
+and one paired two-light sash in a timber casing; beside it a 2.92 m clapboard wall with its corner
+onto the north side, a frieze, a boxed eave on scroll brackets and two two-over-two sash; across
+that wall a porch of the kit's parts built as two mirrored halves, a post at each end, its ends
+closed under the floor by a painted skirt board. Behind them a plain closed body, a pale paint
+colour with no opening or trim, and on the front a plain canted bay block.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn: where the front stands (10.8 m
+behind the Prairie line, its north wall 0.36 m inside the lot), its 8.13 m width, the canted bay's
+plan, the open porch's place and size at the north end, the house's two depths behind (23.4 m and
+12.9 m), two storeys and basement, frame construction, and a shingle roof (the key's 'x').
+**What is invented.** Where the gable's range ends and the wall beside it begins (the sheet draws one
+front line; the porch's south end is taken); every height (the 0.75 m basement, the 6.4 m belt and
+eave, the 3.9 m bay); every sash's kind, size and place, and their flat heads where the register
+reports pointed twin windows with hood moulds; the shingle bands' order; the bargeboard's piercings,
+which are the kit's working design and not 1638's; the porch's fabric, which is the kit's, where
+the register calls 1638's porch pierced; the body's two roofs (the gable's pitch carried back, a
+low side-gabled roof on the north range); the body, bay and roof colours. The oculus, the hood
+moulds and the polygonal corner tower with its pyramidal cap that the T-1837 register describes
+are not built at all.
+**What the record states and the model simplifies.** The record's two storeys and basement and
+its frame construction are the sheet's; the model shows them on the front only, and the body
+behind is a plain block with no floors, openings or framing.
+**What is not.** The register (1868 by the street marker, lost 1944) and the Chicagology page on the
+house (read 2026-10-10: "Hudson River Gothic", "the sweet little frame house", architect John W.
+Roberts, demolished 1944) are not source records here; the record's dates rest on the register as
+the Pullman and Glessner records' do, and neither is cited as evidence for any part's form.
+
+**How to resolve:** a photograph of the house whose rights allow it, ingested as a source, gives the
+gable's real width and pitch, the bargeboard's own pattern, the windows' pointed heads and hood
+moulds and the porch's pierced work, and the record's variants take them in place of the kit's;
+T-1864 replaces the body and bay with the house's envelope and T-1865 its finished architecture,
+keeping this record's id.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.stories`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.construction`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.gable`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.wing_wall`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.porch`.
+**Superseded in part (T-2395):** the plain body and its two roofs are retired from this liberty; the
+body is now closed in the kit's timber under L-k16-1638-body-2395, which covers `form.body`.
+**Ticket:** T-2323 (piece 2 of T-1858, K16).
+**Review:** `docs/RESEARCH/k16-1638-front-2323/README.md`.
+**Recorded:** 2026-10-10 (T-2323).
+
+### L-k16-1638-body-2395 — 1638 Prairie's body closed in the K16 kit's timber: flanks, rear gable, main roof and a lean-to, none of which any picture shows
+
+**Decision:** behind the T-2323 front, the Shortall-Gregory house's body (T-2395, a piece of T-1864's
+envelope) is no longer a plain stand-in block. Built by `generators/k16_emit.py` from the K16 kit
+(L-k16-timber-kit-2322), on the sheet's plan: the gable's range (5.21 m wide, 23.4 m deep) has a
+clapboard flank on each side — the south flank as two kit walls meeting end to end at 13.8 m, the
+north flank only behind the north range — on the front's 0.75 m foundation, with corner boards, a
+frieze and a boxed eave on scroll brackets, and ends at the back in a second kit gable at the
+front's own 52-degree pitch and 6.4 m belt, plain square shingle inside pierced bargeboards and a
+finial. Its roof is the front gable's rake carried back to the rear gable, so the flanks' wall top
+(6.03 m) is wherever that roof plane comes down to their fascia. The north range (2.92 m wide,
+12.9 m deep) has a clapboard north side and back wall under a 22-degree lean-to running from its
+north eave (the wing wall's 6.4 m) up into the main roof, which it meets 8.45 m above grade. Every
+face has the kit's two-over-two sash in flat casings, a ground (sill 1.3 m, 1.75 m clear) and an
+upper storey (sill 4.2 m, 1.2 m clear): five bays on the south flank, two on the north flank, two
+on the north range's north side, one on its back wall, two a storey and an attic light in the rear
+gable. The canted bay on the front stays a plain stand-in (T-1865).
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn, as T-2323 read it: the two
+ranges' widths and depths, two storeys and basement, frame, a shingle roof.
+**What is invented.** Every opening on the flanks, the rear and the north range — their number,
+size, spacing and kind — spaced to the plan, not read; the rear gable and its bargeboards; the main
+roof running back unbroken at the front gable's pitch; the north range's lean-to and its pitch; the
+flanks' eave height, which follows from that roof and not from any reading; no rear door, no
+chimney, no cellar lights, no gutters or downpipes. The photograph of the house in the Prairie
+library (`a16-cgy-1638-gothic-photo`, read 2026-10-12) shows the street front only, so it bounds
+none of this; what it shows of the front (the corner tower and spire, the pointed heads, the
+oculus) is T-2396's and T-1865's.
+**What the record states and the model simplifies.** The model has no floors or framing inside;
+the sheet's rear widening, the south projection at the middle and the three one-storey rear pieces
+are not yet built (T-2397), so the south flank runs straight and the rear gable stands clear.
+
+**How to resolve:** a photograph, view or description of any side or rear of the house replaces the
+spacing, the rear gable and the lean-to with what it shows; T-2397 builds the rear pieces against
+this body and T-1865 finishes the architecture, keeping this record's id.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.body`.
+**Ticket:** T-2395 (a piece of T-1864, the 1638 envelope).
+**Review:** `docs/RESEARCH/k16-1638-body-2395/README.md`.
+**Recorded:** 2026-10-12 (T-2395).
+
+### L-k01-1612-goodman-2344 — 1612 Prairie, the Goodman house, refined from the district draft on the K01 kit: an Italianate stone front whose every proportion, opening and fabric is reconstructed
+
+**Decision:** Replace the district draft of 1612 Prairie, in place and under its id, with a K01
+frontage assembly: a smooth ashlar street front of Lemont limestone on common-brick side and rear
+walls, two storeys over a raised basement, two pairs of tall sash and a north entrance under the
+K09 arched ring on colonnettes, a high stoop of eight risers, K09 hoods over the windows, the K10
+bracketed cornice, a 32-degree hip of painted standing-seam tin with one street dormer for the
+attic, two chimneys and tin rainwater goods. 19.8 m deep by 11.25 m across, on the lot frame and
+bearing the draft used.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn (trace s20fp-1612-b1, census
+s20-1612-f and s20-1612-a1): the building's outline, which the rectangle is fitted round (the front
+house with its north wing, and the two-storey rear wing behind it); the stone (blue) Prairie front
+on a brick house; two storeys and a basement and the half storey the census re-reads off the glyph
+('2½B'); the 8.6 m front yard. From the T-1837 register (frontage-20-004, pa-1612-1), which is not a
+source record here and so stands behind reconstructed attributes only: the Italianate stone-front
+reading and its list (smooth ashlar face, common-brick returns, paired windows, arched columned
+entrance, high stoop, bracketed cornice, basement lights), and the 1869 and circa-1960 dates.
+**What is invented.** Every height (the 1.40 m principal floor, the 4.0 and 3.6 m storeys), every
+opening's place, count and size, the north side of the entrance, the roof's form, pitch and tin,
+the dormer, the chimneys' places, the rainwater goods, the wall thicknesses, the stone's kind and
+the brick's colour, and all the carved and bracketed trim, which is the kits' generic work and not
+1612's. The rectangle closes a 7.0 x 2.25 m court the trace leaves at the north-west corner.
+**What is not built.** The register's SEGMENTAL window heads (a K01 wall cuts a rectangular hole,
+so the heads are flat under hoods); the 'small frame porch on the south wall' and the one-storey
+brick piece behind the wing's north half that the census reads (K01 builds one rectangle, and an
+attached range is T-2343's to teach it); the north corner's quoins (the K02 corner bond on a K01
+front returns at the south corner only).
+**How to resolve:** a photograph of 1612 whose rights allow it, ingested as a source, gives the
+front's real bays, heads and trim; K01 learning segmental heads and an attached range lets this
+record take the heads, the porch and the rear piece in place. The detached stable stays the
+draft's (`L-draft-prairie-16-18-west-2334`) until T-1932.
+**Retired:** by T-2366, which rebuilt 1612's front from the house's own photograph under `L-k01-1612-goodman-2366`; every attribute this entry covered is that entry's now, read or still reconstructed, and this one claims none.
+**Ticket:** T-2344 (piece 1 of T-1860).
+**Review:** `docs/RESEARCH/k01-1612-goodman-2344/README.md`.
+**Recorded:** 2026-10-11 (T-2344).
+
+### L-k05-flat-roof-2349 — The Prairie roof kit's flat roof: the deck's fall, the parapets and the blocking course reconstructed
+
+**Decision:** the K05 roof kit (T-2301) gains an eleventh variant, `k05.roof.flat_parapet`, the
+stone-front rowhouse's flat roof (T-2349, piece 1 of T-2346): a deck falling from behind the
+street front to the rear wall, whose fascia is its only eave, behind a coped parapet on each side
+wall and a blocking course over the front, all built by `generators/archetypes/k05_roofs.py` from
+`data/components/prairie_1904/k05_roofs.json` and joined by the kit's boolean union.
+**What is invented.** The fall's working band, 1 to 5 degrees (`ranges.pitch_deg.flat`), which
+RECONSTRUCTION-RULES.md does not give: its Main roof range is for hips and gables, and the T-1837
+catalog says only "bounded low-slope service roof" (K04). The specimen's 2 degree fall, its 0.45 m
+upstand over the deck's high line, its three level parapets, and its 6.75 m by 13.75 m plan (1634
+Prairie's traced main body, which the plan alone is read from); that the rear wall carries no
+parapet and the deck drains to a gutter there; and the parapet and coping sizes, which are the
+kit's existing working parts (L-k05-roof-kit-2301).
+**What is not.** That the stone-front houses of the 16th-18th Prairie block are roofed flat behind
+a cornice is the district draft's reading for the family (L-draft-prairie-16-18-west-2334), not a
+source record; this kit adds no claim about any house. No house is roofed from the variant yet.
+**How to resolve:** a photograph, drawing or specification of a Prairie Avenue rowhouse's roof
+gives its fall, its parapet heights and where it drains, and that house takes them in place of the
+kit's working numbers; a period roofing specification for flat-seam terne replaces the band for
+every house at once.
+**Ticket:** T-2349 (piece 1 of T-2346, from T-1863).
+**Review:** `docs/RESEARCH/k05-roof-kit/README.md`.
+**Recorded:** 2026-10-11 (T-2349).
+
+### L-k01-1608-brick-front-2341 — 1608 Prairie refined from the district draft to a K01 brick house: front bay and south projection where the sheet draws them, everything else the kits'
+
+**Decision:** the brick house at 1608 Prairie Avenue (T-2341, piece 1 of T-1859) is no longer a
+district draft. It stands, under the draft's own id `house_1608_prairie`, as a `k01_frontage`
+record built by `generators/k01_emit.py`, which T-2341 taught a plain brick street front
+(`construction: brick`, no `stone_front`): the front laid in the K03 common brick of the side and
+rear walls, its windows under K09 cornice-hood lintels on stone sills, stone belts at the floor
+lines, the door under K01's flat stone lintel at the head of a K07 stoop, a K10 bracketed timber
+cornice round all four walls and a low K04/K05 hip in painted standing-seam tin.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace and the
+T-1840 census (s20-1608-f, '2B brick dwelling (D) with a bay on the Prairie face and a small
+projection on its south wall'): the main body's rectangle and place (kept from the draft), two
+storeys and a basement, brick, a bay on the south half of the front and a projection on the south
+wall. Their PLACES are therefore inferred; the door stands on the north half because the bay takes
+the south.
+**What is invented.** Every height (a 1.4 m principal floor, 3.9 m and 3.6 m storeys); the walls'
+thickness; the brick's colour, bond and grime (the one K03 panel); every window's kind, size and
+place and every head; the door, stoop and its width; the cornice and its brackets; the roof's form
+(a hip, the only roof K01 builds), its 30-degree pitch, 0.6 m eave and tin covering; the two
+chimney stacks; the gutters and downpipes; the bays' storeys, windows, brick and tin roofs. The
+front bay is the kit's canted bay (3.7 m at the wall, 1.1 m out) centred 0.76 m north of the traced
+bay so its eaves clear the cornice's corner bracket; the south projection is the kit's full-height
+projection (4.0 m by 0.6 m) on the traced one (about 4.2 m by 0.7 m).
+**What is not built.** A strip about 0.85 m out along the north wall (u 6.2-13.0 m) that the trace
+draws and the census does not mention; the north wall stands on the main body's line.
+**How to resolve:** a photograph, plate or description of 1608, ingested as a source, replaces the
+kits' choices in place; a full-resolution reading of the sheet's bay and of the north strip
+replaces the bays' sizes and settles the strip.
+**Covers:** `house_1608_prairie.as_mapped_1904.form.principal_floor_m`, `house_1608_prairie.as_mapped_1904.form.storey_heights_m`, `house_1608_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1608_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1608_prairie.as_mapped_1904.form.service_wall_brick`, `house_1608_prairie.as_mapped_1904.form.street_front_trim`, `house_1608_prairie.as_mapped_1904.form.wall_head`, `house_1608_prairie.as_mapped_1904.form.roof_form`, `house_1608_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1608_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1608_prairie.as_mapped_1904.form.stair_tread_m`, `house_1608_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1608_prairie.as_mapped_1904.form.stoop_width_m`, `house_1608_prairie.as_mapped_1904.form.entrance_bay`, `house_1608_prairie.as_mapped_1904.form.front_bays`, `house_1608_prairie.as_mapped_1904.form.side_bays`, `house_1608_prairie.as_mapped_1904.form.rear_bays`, `house_1608_prairie.as_mapped_1904.form.sash_by_storey`, `house_1608_prairie.as_mapped_1904.form.basement_lights`, `house_1608_prairie.as_mapped_1904.form.roof_covering`, `house_1608_prairie.as_mapped_1904.form.chimneys`, `house_1608_prairie.as_mapped_1904.form.rainwater`, `house_1608_prairie.as_mapped_1904.form.window_kit`, `house_1608_prairie.as_mapped_1904.form.entrance_kit`.
+**Ticket:** T-2341 (piece 1 of T-1859).
+**Review:** `docs/RESEARCH/k01-1608-brick-2341/README.md`.
+**Recorded:** 2026-10-11 (T-2341).
+
+### L-k01-1600-corner-2342 — 1600 Prairie refined from the district draft to a K01 brick corner house: windows on its 16th Street side and a half-round bow where the sheet draws its curved bay, everything else the kits'
+
+**Decision:** the brick corner house at 1600 Prairie Avenue (T-2342, piece 2 of T-1859) is no
+longer a district draft. It stands, under the draft's own id `house_1600_prairie`, as a
+`k01_frontage` record built by `generators/k01_emit.py` on the plain brick street front T-2341
+taught K01, and T-2342 taught K01 two more things for it: windows on the north wall
+(`north_bays`), because this house's north wall is its 16th Street side and not the blank party
+wall K01 was cut for; and a bow bay sized to its sheet (`bays[].plan`, a K08 bow's chord and rise,
+never past a half-round). The front is K03 common brick, its one street window (over the door) under K01's
+flat stone lintel, since the door and the bow take both of the principal storey's bays; a K07
+stoop on the south half; a K10 bracketed timber cornice round all four walls; a low K04/K05 hip in painted
+standing-seam tin.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace and the
+T-1840 census (s20-1600-f, '2B brick dwelling (D); curved bay on the Prairie face; no rear building
+on the lot'): the main body's rectangle and place (kept from the draft), two storeys and a
+basement, brick, and a curved bay on the north half of the front, traced as a half-round about
+3.06 m at the wall and 1.6 m out with its north end on the corner. Its PLACE and plan are therefore
+inferred; the door stands on the south half because the bay takes the north.
+**What is invented.** Every height (a 1.4 m principal floor, 3.9 m and 3.6 m storeys); the walls'
+thickness; the brick's colour, bond and grime (the one K03 panel); every window's kind, size and
+place, and every head, on all four walls, including the five a storey on the 16th Street side,
+which the sheet does not draw; the door, stoop and its width; the cornice and its brackets; the
+roof's form (a hip, the only roof K01 builds), its 31-degree pitch, 0.6 m eave and tin covering; the
+two chimney stacks; the gutters and downpipes; the bow's storeys, windows, brick and copper cone.
+The bow is the kit's sized to the trace as a 3.1 m chord rising 1.55 m, and centred 4.7 m from the
+south corner: its north junction stands 0.75 m inside the corner where the trace has it flush, so
+that its eaves clear the cornice's corner bracket; its cone is laid at 0.3 (the kit's is 0.45) over
+a 2.2 m upper storey so it meets the wall below the cornice's bed moulding.
+**What is not built.** A shallow projection about 0.85 m out on the south wall (u 8.4-12.0 m) that
+the trace draws and the census does not mention; the south wall stands on the main body's line.
+The rectangle stands about 0.45 m inside the traced south wall (the draft's fit, kept).
+**How to resolve:** a photograph, plate or description of 1600, ingested as a source, replaces the
+kits' choices in place; a full-resolution reading of the sheet's bay and south projection replaces
+the bow's size and place and settles the projection.
+**Covers:** `house_1600_prairie.as_mapped_1904.form.principal_floor_m`, `house_1600_prairie.as_mapped_1904.form.storey_heights_m`, `house_1600_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1600_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1600_prairie.as_mapped_1904.form.service_wall_brick`, `house_1600_prairie.as_mapped_1904.form.street_front_trim`, `house_1600_prairie.as_mapped_1904.form.wall_head`, `house_1600_prairie.as_mapped_1904.form.roof_form`, `house_1600_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1600_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1600_prairie.as_mapped_1904.form.stair_tread_m`, `house_1600_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1600_prairie.as_mapped_1904.form.stoop_width_m`, `house_1600_prairie.as_mapped_1904.form.entrance_bay`, `house_1600_prairie.as_mapped_1904.form.front_bays`, `house_1600_prairie.as_mapped_1904.form.side_bays`, `house_1600_prairie.as_mapped_1904.form.rear_bays`, `house_1600_prairie.as_mapped_1904.form.sash_by_storey`, `house_1600_prairie.as_mapped_1904.form.basement_lights`, `house_1600_prairie.as_mapped_1904.form.roof_covering`, `house_1600_prairie.as_mapped_1904.form.chimneys`, `house_1600_prairie.as_mapped_1904.form.rainwater`, `house_1600_prairie.as_mapped_1904.form.window_kit`, `house_1600_prairie.as_mapped_1904.form.entrance_kit`, `house_1600_prairie.as_mapped_1904.form.north_bays`.
+**Ticket:** T-2342 (piece 2 of T-1859).
+**Review:** `docs/RESEARCH/k01-1600-corner-2342/README.md`.
+**Recorded:** 2026-10-11 (T-2342).
+
+### L-k01-1604-rear-range-2343 — 1604 Prairie refined from the district draft to a K01 brick house with its traced rear range: the three-storey block, the two-storey range and the west block behind it, everything else the kits'
+
+**Decision:** the brick house at 1604 Prairie Avenue (T-2343, piece 3 of T-1859) is no longer a
+district draft. It stands, under the draft's own id `house_1604_prairie`, as a `k01_frontage`
+record built by `generators/k01_emit.py` on the plain brick street front T-2341 taught K01, and
+T-2343 taught K01 its rear wings (`rear_wings`): rectangles behind the main body, each a K03 brick
+box with its own floors, K06 windows and a flat painted-tin deck, standing on the main rear wall or
+on the rear wall of a wing before it, which is not drawn behind it. The main body is the '3B'
+block; the range and the west block stand on two wings.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace, the
+T-1840 census (s20-1604-f '3B brick dwelling (D)', s20-1604-a1 '2B brick rear wing behind the
+front, joined by a narrow frame (yellow) entry strip', s20-1604-a2 '2-storey brick rear block, the
+westernmost piece') and the raster measured through the T-1250 fit: the front block's rectangle
+(12.2 m deep, 8.2 m wide) and its three storeys and basement; the range behind it, the house's full
+width and 8.3 m deep, two storeys and a basement; the west block, 3.7 m by 3.2 m on the north half
+of the range's rear, two storeys with no basement; all brick. The district draft had read the whole
+outline as one three-storey body 20.5 m deep; the main body's rear corner moves 8.40 m toward the
+street and 0.60 m south accordingly.
+**What is invented.** Every height (a 1.4 m principal floor and 3.9, 3.5 and 3.3 m storeys; the
+range's floors on the main body's first two, the west block's at 0.3 m and 3.5 m); the walls'
+thickness; the brick's colour, bond and grime (the one K03 panel); every window's kind, size and
+place on every wall of all three pieces, and every head (a K09 surround, a K09 cornice-hood lintel
+and a K01 flat lintel up the front); the door on the north bay, its stoop and width; the cornice and
+its brackets; the main roof's form (a hip, the only roof K01 builds), its 34-degree pitch, 0.6 m
+eave and tin covering; the two chimney stacks; the gutters and downpipes; the wings' flat
+painted-tin decks, their 0.15 m overhang and fascias, and their want of gutters.
+**What is folded or not built.** The yellow frame entry strip the sheet letters 'SLATED' between the
+front block and the range (about 0.95 m) is built as part of the brick range: its frame walls and
+slated roof are not modelled, because K01 lays brick only. The range's south wall, traced about
+0.2 m inside the front block's, is built flush with it; the trace's 0.4 m step south on the front
+block's rear half is not followed.
+**How to resolve:** a photograph, plate or description of 1604, ingested as a source, replaces the
+kits' choices in place; a frame-walled K01 wing (or a K16 timber piece) replaces the folded entry
+strip.
+**Covers:** `house_1604_prairie.as_mapped_1904.form.principal_floor_m`, `house_1604_prairie.as_mapped_1904.form.storey_heights_m`, `house_1604_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1604_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1604_prairie.as_mapped_1904.form.service_wall_brick`, `house_1604_prairie.as_mapped_1904.form.street_front_trim`, `house_1604_prairie.as_mapped_1904.form.wall_head`, `house_1604_prairie.as_mapped_1904.form.roof_form`, `house_1604_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1604_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1604_prairie.as_mapped_1904.form.stair_tread_m`, `house_1604_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1604_prairie.as_mapped_1904.form.stoop_width_m`, `house_1604_prairie.as_mapped_1904.form.entrance_bay`, `house_1604_prairie.as_mapped_1904.form.front_bays`, `house_1604_prairie.as_mapped_1904.form.side_bays`, `house_1604_prairie.as_mapped_1904.form.rear_bays`, `house_1604_prairie.as_mapped_1904.form.sash_by_storey`, `house_1604_prairie.as_mapped_1904.form.basement_lights`, `house_1604_prairie.as_mapped_1904.form.roof_covering`, `house_1604_prairie.as_mapped_1904.form.chimneys`, `house_1604_prairie.as_mapped_1904.form.rainwater`, `house_1604_prairie.as_mapped_1904.form.window_kit`, `house_1604_prairie.as_mapped_1904.form.entrance_kit`, `house_1604_prairie.as_mapped_1904.form.north_bays`.
+**Ticket:** T-2343 (piece 3 of T-1859).
+**Review:** `docs/RESEARCH/k01-1604-rear-range-2343/README.md`.
+**Recorded:** 2026-10-11 (T-2343).
+
+### L-glessner-court-wall-2201 — The Glessner courtyard's south wall: a 1963 line carried to 1904, at a height and coping of ours
+
+**Decision:** the courtyard is closed on the south (T-2201). Between the east wing and W 59.055 the
+court's south side is 1808 Prairie's own north wall, as Glessner 1923 says ("by special arrangement
+the same brick were used in the adjoining house, so that all walls of the courtyard are of the same
+texture and color"), and 1808's record leaves that side open for this one. From 1808's rear face to
+the alley a free-standing common-brick wall stands on the line HABS sheet 2 draws, its north face on
+S 74.0, about 1.1 ft thick, to the granite gate pier's outer face. Each end of the run says what
+it meets, so the coping stops flush at 1808's wall and wraps the free end at the alley. The sheet's
+8.3 ft return south along the alley stands on 1808's lot line and is left to T-1944.
+**What is invented.** The wall's height, 9.0 ft above north grade, and its stone coping (0.18 m,
+overhanging 0.06 m on each free side): no sheet draws the wall in elevation, and HABS photograph 5
+does not frame it. Both are the alley gate's own reconstructed wall stub (L295), so the enclosure
+meets its gate at one coping line under the 9.5 ft pier. The reduced (light) tier draws the runs as
+flat textured brick, without the full tier's coursed relief, to stay inside its 200,000-triangle cap.
+**What is inferred, not invented.** That the 1963 line and thickness stood in 1904: the
+drawing is a survey of 1963, carried back because Glessner 1923 describes the brick-walled court as
+built and nothing read records exterior work before the 1946 conversion. The house museum's
+courtyard-wall page, cited by the T-2201 audit, is not a source record here and was not read.
+**How to resolve:** a photograph or drawing that shows the free-standing run in elevation gives its
+height and coping profile; a reading of the museum's courtyard-wall history as a source record
+dates the wall to 1887 directly.
+**Covers:** `glessner_house.as_built_1887.form.courtyard_wall_heights`.
+**Ticket:** T-2201 (Glessner exterior audit GA-03).
+**Recorded:** 2026-10-11 (T-2201).
+### L-k01-1616-brick-front-2353 — 1616 Prairie's main body refined from the district draft to a K01 brick house with a street dormer for its half storey, everything but the plan the kits'
+
+**Decision:** the brick house at 1616 Prairie Avenue (T-2353, piece 1 of T-2345) is no longer a
+district draft. Its main body stands, under the draft's own id `house_1616_prairie`, as a
+`k01_frontage` record built by `generators/k01_emit.py` on the plain brick street front T-2341
+taught the kit: the front laid in the K03 common brick of the side and rear walls, its windows
+under K09 cornice-hood lintels on stone sills, the door under K01's flat stone lintel at the head of
+a K07 stoop, a K10 bracketed timber cornice round all four walls, and a low K04/K05 hip in painted
+standing-seam tin with one gabled dormer on the street hip.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace and the
+T-1840 census (s20-1616-f, '2½B brick dwelling'): the main body's rectangle and place (23.5 m by
+6.5 m, kept from the draft), two storeys and a half over a basement, brick. The half storey is
+therefore stood as an attic lit by a street dormer, as on 1612 next door.
+**What is invented.** Every height (a 1.4 m principal floor, 4.0 m and 3.6 m storeys); the walls'
+thickness; the brick's colour, bond and grime (the one K03 panel); every window's kind, size and
+place and every head; the door on the north half (the draft rules' row), the stoop and its width;
+the cornice and its brackets; the roof's form (a hip, the only roof K01 builds), its 34-degree pitch,
+0.5 m eave and tin covering, the pitch and eave being the one pair the K05 union builds on this plan
+with the dormer; the dormer's size and sash (the K01 proof's); the two chimney stacks; the gutters
+and downpipes. The north wall is blank, as K01 builds it.
+**The rear range (T-2354, 2026-10-11).** The piece the sheet draws behind the north end of the
+rear wall now stands on K01's rear wings (T-2343) as wing `rear_range`. Read: its place and size off
+the raster through the T-1250 fit (2.6 m out from the rear wall, 2.2 m along it, its north wall flush
+with the main body's), brick, and the '2' the sheet letters in it with no 'B' (T-1840 census
+s20-1616-a1, '2-storey brick rear piece') — two storeys, no basement. The draft had stood it as
+ONE storey, its rules' default for a range, and fitted it 1.5 m along because the lettering inside
+the small outline broke the trace's south line; the sheet's outline is a clean rectangle. Invented:
+its floors (0.3 m and 3.5 m, so its upper floor is not on the house's), its walls' brick, its one
+window a storey in the south and rear walls, its blank north wall, and its flat painted-tin deck,
+fascia and overhang, with no gutter. The small circle the sheet prints in it is not modelled. To
+give the range its junction, the main rear wall's two windows a storey move from 1.75 and 4.75 m to
+3.4 and 5.3 m (centred on the wall the range leaves free) and its north downpipe from the corner to
+2.45 m, just south of the range.
+**What is not built.** The 1911 sheet's frame bay at the north-east corner: the
+trace fits no part to it, the draft did not stand it, and a frame bay on a brick front of the period
+is as likely a later addition as an original one.
+**How to resolve:** a photograph, plate or description of 1616, ingested as a source, replaces the
+kits' choices in place.
+**Covers:** `house_1616_prairie.as_mapped_1904.form.principal_floor_m`, `house_1616_prairie.as_mapped_1904.form.storey_heights_m`, `house_1616_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1616_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1616_prairie.as_mapped_1904.form.service_wall_brick`, `house_1616_prairie.as_mapped_1904.form.street_front_trim`, `house_1616_prairie.as_mapped_1904.form.wall_head`, `house_1616_prairie.as_mapped_1904.form.roof_form`, `house_1616_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1616_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1616_prairie.as_mapped_1904.form.stair_tread_m`, `house_1616_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1616_prairie.as_mapped_1904.form.stoop_width_m`, `house_1616_prairie.as_mapped_1904.form.entrance_bay`, `house_1616_prairie.as_mapped_1904.form.front_bays`, `house_1616_prairie.as_mapped_1904.form.side_bays`, `house_1616_prairie.as_mapped_1904.form.rear_bays`, `house_1616_prairie.as_mapped_1904.form.sash_by_storey`, `house_1616_prairie.as_mapped_1904.form.basement_lights`, `house_1616_prairie.as_mapped_1904.form.roof_covering`, `house_1616_prairie.as_mapped_1904.form.dormer`, `house_1616_prairie.as_mapped_1904.form.chimneys`, `house_1616_prairie.as_mapped_1904.form.rainwater`, `house_1616_prairie.as_mapped_1904.form.window_kit`, `house_1616_prairie.as_mapped_1904.form.entrance_kit`
+**Ticket:** T-2353 (piece 1 of T-2345); T-2354 (piece 2, the rear range).
+**Review:** `docs/RESEARCH/k01-1616-brick-2353/README.md`, `docs/RESEARCH/k01-1616-rear-range-2354/README.md`.
+**Recorded:** 2026-10-11 (T-2353; T-2354).
+### L-k01-1620-law-1861 — 1620 Prairie, the Robert Law house, refined from the district draft to a K01 brick house: the plate's L under one rectangle, a canted bay, brick-arched windows and a scroll-band fence, everything but plan, place and brick the kits'
+
+**Decision:** the Robert Law house at 1620 Prairie Avenue (T-1861, package N03 of T-1837) is no
+longer a district draft. It stands, under the draft's own id `law_house_1620_prairie`, as a
+`k01_frontage` record built by `generators/k01_emit.py` on the plain brick street front T-2341
+taught K01, and T-1861 taught the kits two more things for it: a brick street front may arch its
+windows in the brick (`street_front_trim.brick_heads`: two rowlock rings on a segmental arch, the
+head its own side and rear walls already wear), and the K11 front-yard boundary may be the kit's
+scroll-band fence as well as its spear fence.
+**What is read, not invented.** From Robinson 1886 plate 10 through its T-1250 fit (4.54 m RMS)
+and the draft's reading of it (r1886-1620-f): the plan, an L of a 16.75 x 7.5 m main body and a
+shallower 10.75 x 3.75 m south part along the front; its place; and brick (the plate's pink). The
+1911 sheet does not draw the house; the T-1840 census stands it for 1904 on the 1904 Blue Book.
+The register row frontage-20-006 is the brief (irregular earlier brick envelope, projecting bay,
+arched windows, stoop, bounded roof, lattice/iron boundary) and is not a source record.
+**What is invented.** Two storeys over a raised basement and every height (a 1.4 m principal
+floor, 3.9 m and 3.6 m storeys); the walls' thickness; the brick's colour, bond and grime; every
+window's kind, size and place on all four walls, and the segmental brick arch over each, the
+street windows' sash flat under them because a K01 wall cuts a rectangular hole; the door, stoop
+and its width; the canted bay's kind, size and place on the north half of the front; the bracketed
+cornice; the roof's form (a hip, the only roof K01 builds), its 30-degree pitch, 0.6 m eave and tin
+covering; the two chimney stacks; the gutters and downpipes; the scroll-band fence, its gates and
+piers, and the 1.2 m brick wall on the south lot line.
+**What is not built.** The plate's notch: one rectangle closes the 6.0 x 3.75 m rear corner the L
+leaves at the south-west, 22.5 m2 over the traced 168 m2 (K01 learns a traced rear wing in
+T-2347). Arched sash: the arches stand over flat-headed sash. The 1898 Tribune drawing the
+register names, which 'supports bay/arches', has not been read, so no trim of the house's own is
+built.
+**How to resolve:** the 1898 drawing, or any photograph or description of 1620, ingested as a
+source, replaces the kits' choices in place; K01's traced rear wing reopens the notch.
+**Retired in part (T-2403, piece 1 of T-2370):** the house's two pictures were read (the May 1874 Land Owner engraving and the 1898 Tribune sketch, `data/reference_views/law_house_1620_prairie/`), and three of the inventions above are now read from them, not made up: the two storeys under a mansard (`stories`), the roof's form, now a mansard and no longer a hip (`roof_form`), and the storeys' heights to the engraving's cornice, 3.6 and 3.2 m (`storey_heights_m`, the split between them still the kits'). They leave this entry's Covers. The mansard's upper pitch, its profile's numbers and everything else listed here stay invented, and the pictures show much of it otherwise (the match records' open differences, T-2404 to T-2406).
+**Revised in part (T-2408, piece 1 of T-2405):** the 1874 engraving's one-storey bay window now stands on the south part of the front (`bays` entry `south_hood`, the K08 kit's new `k08.bay.canted_hooded`), and the door has moved north of it to the middle of three front bays (`entrance_bay` 'middle', `front_bays` 3.09 / 5.8 / 8.6 m). What is read: the bay's place, its 45-degree canted plan (a 1.94 m front 0.58 m out, fitted through the engraving's camera to its front's edges and its cheek's foot), one storey, two round-headed lights in its front, a console at each corner of its front, a row of blocks under its eaves, and a hood flat at the eaves that steepens to the wall; and the door's place between the bay and the pavilion, about v 5-6.6. What is invented: every height of the bay (its 1.9 m sill, 1.44 x 1.85 m lights, 4.0 m wall top), because the engraving draws it on a lower principal floor than this house's reconstructed 1.4 m; the hood's 0.6 m eaves, its flare's two pitches and where it turns; the consoles' and modillions' sizes; blank cheeks (a 0.82 m cheek on a 0.58 m projection leaves no room for a recessed light, where the engraving may draw a narrow one); the bay's brick, where the engraving draws it dark; the slate hood's colour; and the door's exact 5.8 m. The canted bay T-1861 stood on the north part is still an invention until the north pavilion replaces it (T-2404).
+**Retired in part (T-2404, piece 2 of T-2370):** the canted bay this entry invented on the north half of the front is gone; in its place stands the north pavilion both pictures draw, its place, width, flush north corner and two round-headed windows a storey read from them, so `bays` leaves this entry's Covers. The south part's hooded bay (T-2408) is read from the engraving too; its inventions are the ones listed just above and in the record's note. What stays invented about the pavilion is said in the record's own note: how far it stands proud (0.4 m, inside the Tribune camera's fit, which the sketch draws and does not measure), its storey heights and its sash sizes; and of the crown over it, its depth, the chord and bow of its faces, its cornice's projection and the dormer's sizes.
+**Revised in part (T-2409, piece 2 of T-2405):** the entrance is now the one both pictures draw: the door beside the pavilion's south face at 6.6 m (`front_bays`), the straight stoop rising to it from the gate, at its head a porch running north before the pavilion to the north corner behind a turned balustrade that is carried down both sides of the stoop (`entrance_kit`, its `terrace` and `balustrade`), and a hood over the door (`street_front_trim` `entrance`, the K09 kit's cornice hood on two scrolled consoles). What is read: the arrangement — the stoop's line, the door beside the pavilion, a porch level with the stoop's head across the pavilion's front, turned balusters on porch and stoop, a hood over the door. What stays invented: the door's exact place inside the pictures' reach (6.6 m, the furthest north the 1.8 m landing clears the pavilion), the porch built as a stone terrace faced to grade and its 1.2 m depth, the balustrade's 0.9 m height, its newels, rail, baluster profile and 0.2 m pitch, the stone all of it is built in (neither picture can say stone or timber), and the hood's form and sizes; so they stay in this entry's Covers.
+**Covers:** `law_house_1620_prairie.restored_1904.form.principal_floor_m`, `law_house_1620_prairie.restored_1904.form.wall_thickness_front_m`, `law_house_1620_prairie.restored_1904.form.wall_thickness_side_m`, `law_house_1620_prairie.restored_1904.form.service_wall_brick`, `law_house_1620_prairie.restored_1904.form.street_front_trim`, `law_house_1620_prairie.restored_1904.form.wall_head`, `law_house_1620_prairie.restored_1904.form.roof_pitch_deg`, `law_house_1620_prairie.restored_1904.form.eave_overhang_m`, `law_house_1620_prairie.restored_1904.form.stair_tread_m`, `law_house_1620_prairie.restored_1904.form.stair_landing_depth_m`, `law_house_1620_prairie.restored_1904.form.stoop_width_m`, `law_house_1620_prairie.restored_1904.form.entrance_bay`, `law_house_1620_prairie.restored_1904.form.front_bays`, `law_house_1620_prairie.restored_1904.form.side_bays`, `law_house_1620_prairie.restored_1904.form.rear_bays`, `law_house_1620_prairie.restored_1904.form.north_bays`, `law_house_1620_prairie.restored_1904.form.sash_by_storey`, `law_house_1620_prairie.restored_1904.form.basement_lights`, `law_house_1620_prairie.restored_1904.form.roof_covering`, `law_house_1620_prairie.restored_1904.form.chimneys`, `law_house_1620_prairie.restored_1904.form.rainwater`, `law_house_1620_prairie.restored_1904.form.window_kit`, `law_house_1620_prairie.restored_1904.form.entrance_kit`, `law_house_1620_prairie.restored_1904.form.boundary`.
+**Ticket:** T-1861 (package N03 of T-1837).
+**Review:** `docs/RESEARCH/k01-1620-law-1861/README.md`.
+**Recorded:** 2026-10-11 (T-1861).
+
+### L-k15-1808-chimneys-2313 — 1808 Prairie's two chimneys placed over the 1888 plan's fireplaces, and built from the K15 kit
+
+**Decision:** the 1808 Prairie exemplar (T-2313, piece 2 of T-1857) no longer carries the two
+plain boxes T-2302 stood on its ridge. It carries two stacks from the K15 chimney kit (T-2312),
+each built by `generators/archetypes/k15_chimneys.py` inside the house's own K05 roof and joined
+into it, so the shaft is cut where it passes through the slate, three flues are cut into each cap
+as dark recesses, and each stack has stepped side flashing, an apron below it and a cricket behind
+it. Both are the kit's grouped brick stack (1.155 × 0.525 m, two corbel courses, a stone cap)
+without its pots, turned along a side wall, and both stand 16.8 m above grade.
+**What is read, not invented.** WHERE they stand. The first-floor plan printed under the February
+1888 Inland Architect plate of the house (`inland_architect_1888_02_keith_plate`) draws two
+fireplaces in the main block, each set across a corner: the library's, where the round library
+meets the south wall and the music room's partition, and the hall's, against the north wall at the
+foot of the stair. The stacks stand over them: the library's 5.9 m behind the street front on the
+south wall, the hall's 4.4 m behind it on the north wall. A third fireplace, in the dining room,
+stands on the rear range, which this record does not build, so it has no stack here.
+**What is inferred.** That the flue rises in the wall behind each fireplace and that the rooms on
+the floors above have fireplaces over the one below, so one stack serves each corner. The plan is of
+one floor. It is read at the scale the house's 10.4 m width gives it, to about ±0.3 m.
+**What is invented.** Everything about the stacks above the roof: the plate's photograph is taken
+from the street and the parapet hides what stands behind it, so no source shows a chimney's size,
+height, cap or pots. The shaft, the three flues (one a storey), the corbels, the stone cap, the
+flashing and the cricket are the kit's (L-k15-chimney-kit-2312). The 16.8 m top is the kit's
+draught rule on this roof (the covering reaches 16.0 m within 3 m of each stack; the cap stands
+0.8 m above it), not a reading. No pot is set, because the kit sets one only where a source shows
+it. Each stack's plan centre is set 0.65 m in from its wall's face where the plan reads 0.54 and
+0.52 m: the footprint's margin asks at least 0.56 m, and a stack face within a centimetre of the
+K05 eave box's line left a sliver at the front hip.
+**Given up, said.** The roof is still the reconstructed hip of L-k05-1808-roof-2302, not the flat
+roof behind a pierced parapet the plate shows (T-1882's). On a hip the draught rule makes each
+stack rise 4 m above the eave side of the slope; behind a parapet it would be a short stack. The
+joined roof is welded at 2 mm before it is emitted (`k01_frontage.SHELL_WELD_M`): the apron's
+planes cross the hips a millimetre apart, and the contract's 1 mm grid would read the result as
+folded faces.
+**How to resolve:** a photograph of the house's roof or rear, or an upper-floor plan, gives the
+stacks' real height, size, flue count and caps, and the record takes them; T-1882's parapet and a
+flat roof would bring their tops down with it.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.chimneys`.
+**Ticket:** T-2313 (piece 2 of T-1857, K15).
+**Review:** `docs/RESEARCH/k15-1808-chimneys-2313/README.md`.
+**Recorded:** 2026-10-11 (T-2313).
+
+### L-k01-1628-brick-front-2355 — 1628 Prairie's main body refined from the district draft to a three-storey K01 brick house, the south half of the pair with 1626, everything but the plan the kits'
+
+**Decision:** the brick house at 1628 Prairie Avenue (T-2355, piece 1 of T-1862) is no longer a
+district draft. Its main body stands, under the draft's own id `house_1628_prairie`, as a
+`k01_frontage` record built by `generators/k01_emit.py` on the plain brick street front T-2341
+taught the kit: the front laid in the K03 common brick of the side and rear walls, its windows on
+stone sills under K09 cornice-hood lintels on the two lower storeys and K01's flat stone lintels on
+the third, the door under K01's flat stone lintel at the head of a K07 stoop, a K10 bracketed timber
+cornice round all four walls, and a low K04/K05 hip in painted standing-seam tin.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace and the
+T-1840 census (s20-1628-f, '3B brick dwelling, the south half of the pair with 1626'): the main
+body's rectangle and place (12.25 m by 6.0 m, kept from the draft), three storeys over a basement,
+brick, and the party wall on the north it shares with 1626, which is built blank.
+**What is invented.** Every height (a 1.4 m principal floor, 4.0 m, 3.6 m and 3.3 m storeys); the
+walls' thickness; the brick's colour, bond and grime (the one K03 panel); every window's kind, size
+and place and every head; the door on the south half (the draft rules' row, mirroring 1626's north
+door), the stoop and its width; the cornice and its brackets; the roof's form (a hip, the only roof
+K01 builds, where a flat roof behind the cornice is as likely for a three-storey pair), its 30-degree
+pitch, 0.6 m eave and tin covering, the pitch being the only one the K05 union builds on this plan;
+the two chimney stacks on the ridge; the gutters and downpipes.
+**The rear piece (T-2391).** The piece the sheet draws behind the north part of the rear wall stands
+on K01's rear wings (T-2343) as `rear_piece`: u -4.75 to 0 and v 1.95 to 6.0 in the record's frame,
+read off the trace (s20fp-1628-b1 p2, the draft's r2) through the T-1250 fit, its north wall flush
+with the main body's on the party line with 1626. The census row s20-1628-a1 and the sheet letter it
+'1B brick': ONE storey over a basement, where the draft had drawn it three storeys by its own rule
+for a wing inside the main part. Read: its place, its storey count, its brick. Invented: its floor
+(the main body's 1.4 m principal floor) and its 4.0 m storey, its K06 sash (two in the south wall,
+one in the rear) and the flat painted-tin deck at 5.7 m on a 0.3 m fascia. Its north wall is blank,
+the party wall with 1626's own '1B' piece. The dot the sheet prints in its south-west corner is not
+modelled. To make room for it, the main rear wall's southern window moves from s 4.1 to s 5.1 (its
+head straddled the piece's south wall) and the north rear downpipe from the corner it now stands
+against to s 4.25, just south of it; the northern rear window is the opening into the piece on the
+principal storey and a window above the deck.
+**How to resolve:** a photograph, plate or description of 1628 (or of the pair), ingested as a
+source, replaces the kits' choices in place.
+**Covers:** `house_1628_prairie.as_mapped_1904.form.principal_floor_m`, `house_1628_prairie.as_mapped_1904.form.storey_heights_m`, `house_1628_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1628_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1628_prairie.as_mapped_1904.form.service_wall_brick`, `house_1628_prairie.as_mapped_1904.form.street_front_trim`, `house_1628_prairie.as_mapped_1904.form.wall_head`, `house_1628_prairie.as_mapped_1904.form.roof_form`, `house_1628_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1628_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1628_prairie.as_mapped_1904.form.stair_tread_m`, `house_1628_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1628_prairie.as_mapped_1904.form.stoop_width_m`, `house_1628_prairie.as_mapped_1904.form.entrance_bay`, `house_1628_prairie.as_mapped_1904.form.front_bays`, `house_1628_prairie.as_mapped_1904.form.side_bays`, `house_1628_prairie.as_mapped_1904.form.rear_bays`, `house_1628_prairie.as_mapped_1904.form.sash_by_storey`, `house_1628_prairie.as_mapped_1904.form.basement_lights`, `house_1628_prairie.as_mapped_1904.form.roof_covering`, `house_1628_prairie.as_mapped_1904.form.chimneys`, `house_1628_prairie.as_mapped_1904.form.rainwater`, `house_1628_prairie.as_mapped_1904.form.window_kit`, `house_1628_prairie.as_mapped_1904.form.entrance_kit`
+**Ticket:** T-2355 (piece 1 of T-1862); T-2391 (the rear piece).
+**Review:** `docs/RESEARCH/k01-1628-brick-2355/README.md`, `docs/RESEARCH/k01-1628-rear-piece-2391/README.md`.
+**Recorded:** 2026-10-11 (T-2355); 2026-10-12 (T-2391).
+
+### L-k01-1634-stone-front-flat-2350 — 1634 Prairie's main body refined from the district draft to a three-storey K01 stone-front house under a flat roof, the north half of the pair with 1636, everything but the plan the kits'
+
+**Decision:** the stone-front house at 1634 Prairie Avenue (T-2350, piece 2 of T-2346) is no longer
+a district draft. Its main body stands, under the draft's own id `house_1634_prairie`, as a
+`k01_frontage` record built by `generators/k01_emit.py`: a K02 brown sandstone street front,
+smooth-dressed over two rusticated base courses, on K03 common-brick side and rear walls; K06 sash
+under K09 cornice-hood lintels on the two lower storeys and K01's flat stone lintels on the third;
+the door at the head of a K07 stoop; the sheet's stone front bay as K08's rectangular bay; and the
+flat roof K01 now builds from K05's `k05.roof.flat_parapet` (T-2349): a painted flat-seam tin deck
+falling 2 degrees to the rear wall, a coped parapet on each side wall and a stone blocking course
+over the front, under which a 0.6 m cornice box stands on K10's timber brackets along the street
+front alone.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace and the
+T-1840 census (s20-1634-f, '3B brick dwelling, stone front, attached to 1636'): the main body's
+rectangle and place (13.75 m by 6.75 m, kept from the draft), three storeys over a basement, brick
+with a stone front, a stone bay at the south end of the front (3.0 m along it, 1.25 m out), and the
+party wall on the south it shares with 1636, which is built blank.
+**What is invented.** Every height (a 1.4 m principal floor, 4.0 m, 3.6 m and 3.3 m storeys); the
+walls' thickness; which stone and how it is dressed (brownstone, chosen on the Prairie library's text
+record cgn-1634-text, which quotes the Inter Ocean of 1890 calling it 'the brown stone mansion', not
+a source record here); the brick's colour, bond and grime (the one K03
+panel); every window's kind, size and place and every head; the door on the north half (the draft
+rules' row, mirroring 1636's south door), the stoop and its width; the bay's size (K08's 2.6 m by
+1.2 m plan, 0.4 m narrower than the sheet's and centred 0.25 m north of it), its storeys and windows;
+the cornice and its brackets; the flat roof's form, 2-degree fall, parapets, blocking course and tin;
+the two chimney stacks against the party wall.
+**The rear wing (T-2347, 2026-10-12).** The wing the sheet draws behind the rear wall now stands on
+K01's rear wings (T-2343) as two pieces. Read: their places and sizes off the raster through the
+T-1250 fit, brick, and the census's reading (s20-1634-a1, '2B brick rear wing with a 1-storey end'):
+`rear_wing`, 6.7 m out from the rear wall and 4.25 m along it, lettered '2B', two storeys over a
+basement; and `one_storey_end`, the 1.5 m strip behind a drawn cross wall at its west end, lettered
+'1', one storey from near grade. The draft had drawn the whole wing THREE storeys, its rules' count
+for a wing inside the main part, and 6.5 m out; the sheet's lettering and cross wall are followed
+here. The sheet stands the wing on the party line with 1636, 0.7 m south of where K01 fitted the main
+body's south wall; the wing is built flush with that wall instead, so house and wing keep one blank
+south wall, and moves with it if the pair's party line is ever re-read. Invented: the wing's floors
+(on the main body's first two, 1.4 m and 5.4 m; the end's at 0.3 m), its storey heights, its brick,
+its windows (two a storey in the wing's north wall, one in each rear wall), its blank south walls,
+and the flat painted-tin decks, fascias and 0.15 m overhangs, with no gutter. The two dots the sheet
+prints in the end are not modelled. The main rear wall's southern window (s 4.6 m) is behind the wing
+on the two lower storeys and is not cut there.
+**The pair's lines (T-2392, 2026-10-12).** T-2392 re-read the party line and the front line once for
+the pair, off the T-2328 trace and the raster, and moved the main body onto both. Read: the party
+line, the traced shared edge of the two outlines (median 0.695 m south of the old south wall), so
+the origin moved 0.70 m south and the body is 7.45 m wide, its wing with it (4.95 m); the front, the
+traced outline's front edge, the outer side of the blue stone band (u 15.32-15.41), so the body is
+15.4 m deep, not 13.75: the band is the sheet's colour for a stone front, laid inside the outline,
+and the bays stand 0.8 m beyond its outer side as a bay does from its wall; and the bay itself,
+which the sheet draws CANTED and at the NORTH end of the front, mirroring 1636's at its south end,
+so the pair's doors stand together at the party line. The "stone bay at the south end of the front
+(3.0 m along it, 1.25 m out)" read above was the band, not a bay, and the rectangular K08 bay built
+on it is retired. Invented: the canted bay's size (K08's canted plan, 1636's) and its centre 2.2 m
+from the north corner (the sheet's is about 2.0 m), the door 1.85 m from the party line (1636's,
+mirrored), the north-wall windows and the chimneys re-spaced to the deeper body. Which side of the
+printed line the wall face takes is not resolvable at this scale; the trace's polygon edge is used.
+**What is not built.** No
+gutter or downpipe: K01 hangs its half-round gutter round a hip's eaves, and the flat deck's one
+eave, the rear fascia, waits for its own.
+**How to resolve:** a photograph, plate or description of 1634 (or of the pair), ingested as a
+source, replaces the kits' choices in place.
+**Covers:** `house_1634_prairie.as_mapped_1904.form.principal_floor_m`, `house_1634_prairie.as_mapped_1904.form.storey_heights_m`, `house_1634_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1634_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1634_prairie.as_mapped_1904.form.service_wall_brick`, `house_1634_prairie.as_mapped_1904.form.stone_front`, `house_1634_prairie.as_mapped_1904.form.street_front_trim`, `house_1634_prairie.as_mapped_1904.form.wall_head`, `house_1634_prairie.as_mapped_1904.form.roof_form`, `house_1634_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1634_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1634_prairie.as_mapped_1904.form.stair_tread_m`, `house_1634_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1634_prairie.as_mapped_1904.form.stoop_width_m`, `house_1634_prairie.as_mapped_1904.form.entrance_bay`, `house_1634_prairie.as_mapped_1904.form.front_bays`, `house_1634_prairie.as_mapped_1904.form.bays`, `house_1634_prairie.as_mapped_1904.form.side_bays`, `house_1634_prairie.as_mapped_1904.form.north_bays`, `house_1634_prairie.as_mapped_1904.form.rear_bays`, `house_1634_prairie.as_mapped_1904.form.sash_by_storey`, `house_1634_prairie.as_mapped_1904.form.basement_lights`, `house_1634_prairie.as_mapped_1904.form.roof_covering`, `house_1634_prairie.as_mapped_1904.form.chimneys`, `house_1634_prairie.as_mapped_1904.form.window_kit`, `house_1634_prairie.as_mapped_1904.form.entrance_kit`
+**Ticket:** T-2350 (piece 2 of T-2346); T-2347 (the rear wing); T-2392 (the pair's party and front lines).
+**Review:** `docs/RESEARCH/k01-1634-stone-front-flat-2350/README.md`, `docs/RESEARCH/k01-1634-rear-wing-2347/README.md`, `docs/RESEARCH/k01-prairie-1634-1636-pair-lines-2392/README.md`.
+**Recorded:** 2026-10-11 (T-2350); 2026-10-12 (T-2347); 2026-10-12 (T-2392).
+
+### L-k01-1636-stone-front-flat-2348 — 1636 Prairie refined from the district draft to a three-storey K01 stone-front house under a flat roof with its rear wing, the south half of the pair with 1634, everything but the plan the kits'
+
+**Decision:** the stone-front house at 1636 Prairie Avenue (T-2348, piece 3 of T-1863) is no longer
+a district draft. It stands, under the draft's own id `house_1636_prairie`, as a `k01_frontage`
+record built by `generators/k01_emit.py`, on the same kits as 1634, its partner (T-2350): a K02
+brown sandstone street front, smooth-dressed over two rusticated base courses, on K03 common-brick
+side and rear walls; K06 sash under K09 cornice-hood lintels on the two lower storeys and K01's flat
+stone lintels on the third; the door at the head of a K07 stoop; the sheet's canted stone bay as
+K08's canted bay; the flat roof K01 builds from K05 (`k01.roof.flat`), with its side parapets, stone
+blocking course and 0.6 m cornice box on K10's timber brackets along the street front; and the
+sheet's narrow rear part as a three-storey wing on K01's rear wings (T-2343).
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace and the
+T-1840 census (s20-1636-f, '3B brick dwelling, stone front, attached to 1634'): the plan — a front
+body 13.75 m deep and 7.5 m along the front, the draft's two rectangles re-cut so that the wide part
+is the main body and the narrow part (8.25 m out, 4.75 m wide, behind its north side) is the rear
+wing; three storeys over a basement; brick with a stone front; the canted stone bay across the south
+half of the front; and the party wall on the north it shares with 1634, built blank, its wing's north
+wall with it.
+**What is invented.** Every height (1634's: a 1.4 m principal floor, 4.0 m, 3.6 m and 3.3 m storeys,
+so the pair's floors, cornice and parapets run level; the wing's 3.6, 3.3 and 3.0 m storeys under a
+lower deck); the walls' thickness; which stone and how it is dressed (brownstone, 1634's, chosen on
+the Prairie library's text record cgn-1634-text for 1634 and carried to its partner, not a source
+record here); the brick's colour, bond and grime (the one K03 panel); every window's kind, size and
+place and every head; the door at the north end (the draft rules mirrored the pair's doors to their
+outer ends, and the sheet's bay takes the south half instead), the stoop and its width; the bay's
+size (K08's canted plan, 3.7 m by 1.1 m, against the sheet's 3.76 m by 0.8 m, centred 0.38 m north
+of the sheet's), its storeys and windows; the cornice and its brackets; the flat roof's form, fall,
+parapets, blocking course and tin; the two chimney stacks against the party wall; the wing's floors,
+windows and flat tin deck.
+**The pair's lines (T-2392, 2026-10-12).** The front line and the party line left to the pair above
+are resolved. The front is the traced outline's front edge, the outer side of the blue band (u
+15.3-15.4), so the main body is 15.383 m deep, flush with 1634's: the band is the sheet's colour for
+the stone front inside the outline, and the canted bay stands 0.8 m beyond it as a bay does from its
+wall. The north wall moved 0.185 m onto the traced party line (7.685 m wide), where 1634's south
+wall now stands, so the slot between the two blank party walls is closed; the wing's north wall
+moved with it. "The pair repeats rather than mirrors" above rested on 1634's bay read at its south
+end; the sheet draws 1634's bay at the north end, so the pair mirrors, doors together at the party
+line. Invented: the door 1.85 m from the party line, the south-wall windows and the chimneys
+re-spaced to the deeper body.
+**What is not built.** No gutter or downpipe: K01 hangs its half-round gutter round a hip's eaves,
+and a flat deck's one eave, the rear fascia, waits for its own (1634's limit). The front stands flush
+with 1634's at the draft's line, 1.6 m behind the outer edge of the blue band the sheet draws along
+both fronts; which is the wall face is left to the pair together, in T-2347.
+**How to resolve:** a photograph, plate or description of 1636 (or of the pair), ingested as a
+source, replaces the kits' choices in place.
+**Covers:** `house_1636_prairie.as_mapped_1904.form.principal_floor_m`, `house_1636_prairie.as_mapped_1904.form.storey_heights_m`, `house_1636_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1636_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1636_prairie.as_mapped_1904.form.service_wall_brick`, `house_1636_prairie.as_mapped_1904.form.stone_front`, `house_1636_prairie.as_mapped_1904.form.street_front_trim`, `house_1636_prairie.as_mapped_1904.form.wall_head`, `house_1636_prairie.as_mapped_1904.form.roof_form`, `house_1636_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1636_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1636_prairie.as_mapped_1904.form.stair_tread_m`, `house_1636_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1636_prairie.as_mapped_1904.form.stoop_width_m`, `house_1636_prairie.as_mapped_1904.form.entrance_bay`, `house_1636_prairie.as_mapped_1904.form.front_bays`, `house_1636_prairie.as_mapped_1904.form.bays`, `house_1636_prairie.as_mapped_1904.form.side_bays`, `house_1636_prairie.as_mapped_1904.form.rear_bays`, `house_1636_prairie.as_mapped_1904.form.sash_by_storey`, `house_1636_prairie.as_mapped_1904.form.basement_lights`, `house_1636_prairie.as_mapped_1904.form.roof_covering`, `house_1636_prairie.as_mapped_1904.form.chimneys`, `house_1636_prairie.as_mapped_1904.form.window_kit`, `house_1636_prairie.as_mapped_1904.form.entrance_kit`
+**Ticket:** T-2348 (piece 3 of T-1863); T-2392 (the pair's party and front lines).
+**Review:** `docs/RESEARCH/k01-1636-stone-front-flat-2348/README.md`, `docs/RESEARCH/k01-prairie-1634-1636-pair-lines-2392/README.md`.
+**Recorded:** 2026-10-11 (T-2348); 2026-10-12 (T-2392).
+
+### L-k10-1808-dormer-face-2326 — 1808 Prairie's street dormer raised 0.20 m and its face dressed as the K10 kit's pediment, all reconstructed
+
+**Decision:** the street dormer on 1808 Prairie's K05 hip (T-2302, reconstructed) has its face
+dressed with the K10 kit's own pedimented-dormer pieces (T-2316). To make room, its face is raised
+from 2.15 m to 2.35 m. At 2.15 m the sash's head stood 0.13 m under the cheeks' soffit. The kit's
+dormer cornice is 0.20 m deep and wants 0.10 m of face between it and the window, so it could not
+be laid without cutting the sash. The sash, its sill, the face's 0.30 m setback, its width and its
+45-degree roof are unchanged; only the face and everything above it rise. Across the face, at the
+foot of the pediment, runs the kit's dormer cornice, 0.13 m proud. It is returned 0.13 m along
+both cheeks under their soffits and capped at each end. On the tympanum, under K05's verge, stand
+the kit's two stepped raking bands, stopped square over the cornice's ends. The sash takes no
+lintel: the cornice is its head, 0.33 m above it, as on the kit's own dormer. `k10_frontage`
+refuses a dormer whose sash head would stand closer than the cornice's depth and the window gap
+under its cheeks' soffit.
+**What is attested.** Nothing about this dormer. The record's own note says so: the T-1837
+register reads a pierced parapet off the 1888 *Inland Architect* plate, which is not a source
+record here. The dormer is a reconstruction that parapet would replace.
+**What is invented.** All of it: the dormer, its new height, the choice of a pediment, and every
+profile and band (the kit's generic ones, L-k10-cornice-kit-2316). None of it was read off a
+picture of 1808 Prairie.
+**What would replace it.** The 1888 plate deposited and read as a source (T-1882's parapet), or
+a photograph of the roof.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.dormer`, `keith_house_1808_prairie.as_built_1886.form.wall_head`
+**Ticket:** T-2326.
+**Review:** `docs/RESEARCH/k10-1808-dormer-face-2326/README.md`.
+**Recorded:** 2026-10-11 (T-2326).
+
+### L-k16-1630-frame-house-2357 — 1630 Prairie refined from the district draft to a whole K16 clapboard frame house, everything but the plan the kit's
+
+**Decision:** the small earlier frame house at 1630 Prairie Avenue (T-2357, piece 3 of T-1862) is
+no longer a district draft. It stands, under the draft's own id `house_1630_prairie`, as a
+`k16_timber` record built by `generators/k16_emit.py` from the K16 timber kit, which T-2357
+taught to close a whole house: every wall a kit clapboard wall built board by board on a water
+table, each outside corner turned with its corner boards and a short return, every window a K06
+two-over-two sash in the kit's flat timber casing, a four-panel door in the same casing, a deep
+frieze under a boxed eave with scroll brackets round both blocks, a low hip over the main block, a
+flat deck over the wing, one brick stack, and the kit porch across the front with timber steps up
+to the door.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace
+(s20fp-1630-b1) and the T-1840 census (s20-1630-f, '2BB frame (yellow) dwelling (D) with a 1-storey frame
+piece at its Prairie face'), as the draft fitted them: the main block's rectangle and place (13.25
+m deep, 5.5 m along Prairie), the two-storey wing standing out 2.25 m on its south side at the rear
+(u 1.0-4.5), the one-storey frame piece across the front (built as the porch, 1.5 m deep), two
+storeys, and frame construction.
+**What is invented.** The 0.45 m foundation and every height (the 6.4 m eave of the main block, the
+wing's lower 5.8 m eave and low upper storey); the clapboard, its exposure and the kit's trim; every
+window's size and place (three bays on the front, three a storey on each long side, two on the rear,
+one a storey on each face of the wing); the door, its four panels and its place at the north end of
+the front (the draft rules' entrance side); the eave, frieze and brackets; the roof's form — a low
+22-degree hip, where the draft drew a 40-degree gable, chosen because the boxed bracketed eave the
+register gives the earlier frame houses runs round all four walls and a low hip is what sits on it —
+and the wing's flat deck; the wood-shingle covering and its colour (no roof covering is read for
+1630); the stack's place on the ridge; the porch's two end posts, its lattice and its steps; and the
+fawn body paint, the kit's cream trim and dark green sash.
+**What is not built.** Gutters and downpipes (a box gutter is taken to lie in the boxed eave); a
+rear door; a cellar and its lights ('BB' is not read as two basements, the register's own guard);
+the stair or any room behind the sash beyond the kit's blinds and curtains.
+**How to resolve:** a photograph, plate or description of 1630, ingested as a source, replaces the
+kit's choices in place; a roof covering read from a Sanborn key or a photograph replaces the shingle.
+**Covers:** `house_1630_prairie.as_mapped_1904.form.stories`, `house_1630_prairie.as_mapped_1904.form.construction`, `house_1630_prairie.as_mapped_1904.form.frame_house`, `house_1630_prairie.as_mapped_1904.form.roof_covering`
+**Ticket:** T-2357 (piece 3 of T-1862).
+**Review:** `docs/RESEARCH/k16-1630-frame-house-2357/README.md`.
+**Recorded:** 2026-10-11 (T-2357).
+
+### L-k16-1601-frame-house-2398 — 1601 Prairie refined from the district draft to a whole K16 clapboard frame house under a front gable, everything but the plan the kit's
+
+**Decision:** the frame dwelling at 1601 Prairie Avenue, on the 16th Street corner (T-2398, piece 1
+of T-1866), is no longer a district draft. It stands, under the draft's own id
+`house_1601_prairie`, as a `k16_timber` record built by `generators/k16_emit.py` from the K16
+timber kit, as 1630 does (`L-k16-1630-frame-house-2357`): every wall a kit clapboard wall built
+board by board on a water table, corner boards and short returns, K06 two-over-two sash in the
+kit's flat timber casing, a four-panel door, a deep frieze under a boxed eave with scroll brackets
+round both blocks, a flat deck over the wing, one brick stack. T-2398 taught the kit a gable roof:
+its two slopes over the eave rectangle, a verge box (soffit and fascia) under each rake, and the
+gable itself closed in clapboard on the eave that runs across the end wall, so the gable reads as
+a closed pediment, its courses cut short under a rake board.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace
+(s20fp-1601-b1) and the T-1840 census (s20-1601-f, '2-storey frame (yellow) dwelling (D), stepped
+outline'), as the draft fitted them: the main block's rectangle and place (15.5 m deep, 5.5 m
+along Prairie), the two-storey wing standing out 1.5 m on the 16th Street side (u 5.25-12.5, the
+stepped outline), two storeys, frame construction and the use.
+**What is invented.** The 0.45 m foundation and every height (the 6.4 m eave of the main block, the
+wing's lower 5.8 m eave and low upper storey); the clapboard, its exposure and the kit's trim; every
+window's size and place (two bays on the front, four a storey down the south side, two on the rear,
+two on the 16th Street side beyond the wing, three a storey on the wing) and an attic sash in each
+gable; the door and its place at the south end of the front (the draft rules' entrance side); the
+eave, frieze and brackets; the roof — the draft's 40-degree gable with its ridge running back from
+the street, kept, and closed as a pediment because the kit's boxed eave runs round all four walls;
+the wood-shingle covering and its colour (none is read for 1601); the stack's place on the ridge;
+the small entrance porch with its two posts and steps (the sheet draws no porch; a door 0.7 m over
+grade needs steps, and the kit's porch is the smallest it builds); and the grey-green body paint,
+the kit's cream trim and dark green sash.
+**What is not built.** The trace's narrower step at the front of the 16th Street side (about 1 m
+out, u 13-16) and the rear wall's slant along the rear lot line (up to 1.9 m behind the rectangle):
+the rectangles stand where the draft fitted them. Gutters and downpipes; a rear door; a cellar and
+its lights; any room behind the sash beyond the kit's blinds and curtains.
+**How to resolve:** a photograph, plate or description of 1601, ingested as a source, replaces the
+kit's choices in place; a roof covering read from a Sanborn key or a photograph replaces the shingle.
+**Covers:** `house_1601_prairie.as_mapped_1904.form.stories`, `house_1601_prairie.as_mapped_1904.form.construction`, `house_1601_prairie.as_mapped_1904.form.frame_house`, `house_1601_prairie.as_mapped_1904.form.roof_covering`
+**Ticket:** T-2398 (piece 1 of T-1866).
+**Review:** `docs/RESEARCH/k16-1601-frame-house-2398/README.md`.
+**Recorded:** 2026-10-12 (T-2398).
+
+### L-k16-1609-1611-frame-pair-1867 — 1609 and 1611 Prairie, the lost lot-6 frame pair, refined from the district draft to two K16 clapboard houses on one party wall, everything but the plans the kit's
+
+**Decision:** the pre-1911 frame pair at 1609 and 1611 Prairie Avenue (T-1867, package N08 of T-1837)
+is no longer a district draft. Each half stands, under the draft's own id (`house_1609_prairie`,
+`house_1611_prairie`), as a `k16_timber` record built by `generators/k16_emit.py` from the K16 timber
+kit: every wall a kit clapboard wall built board by board on a water table, the outer corners turned
+with corner boards, every window a K06 two-over-two sash in the kit's flat timber casing, a
+four-panel door in the same casing, the deep frieze under a boxed eave with scroll brackets, a flat
+roof, one brick stack, and a small kit porch with timber steps at the door. The pair shares one
+party wall, which T-1867 taught the kit (`frame_house.party_wall`): each record's block stands
+against it, so neither half builds it, and the two fronts, rears and cornices run on into each other
+as one frame block.
+**What is read, not invented.** Off Robinson 1886 plate 10 through the draft's fit of the traces
+r1886-1609-f and r1886-1611-f (the plate's T-1250 fit, 4.54 m RMS): each half's rectangle and place
+(10.5 m deep; 4.75 m along Prairie for 1609, 5.25 m for 1611), the line the plate draws between them,
+read as the party wall, and frame construction from the plate's yellow. The pair's standing on
+1904-07-01 is the T-1840 census's (backcast_1886, on the supplied expert guidance), as before.
+**What is invented.** Two storeys (the atlas prints no storey count; the register's 'modest frame
+facade, timber cornice, sash windows'); the 0.45 m foundation and every height (the 6.4 m eave, the
+sills and heads); the clapboard, its exposure and the kit's trim; every window's size and place
+(1609: a door and one window below and two windows above on the front, three a storey on its north
+side, one a storey at the rear; 1611: a door and two windows below and three above on the front,
+three a storey on its south side, two a storey at the rear, so the two halves do not repeat); the
+doors at the pair's outer ends (the draft's entrance sides); the register's 'timber cornice' built as
+the kit's bracketed boxed eave, carried across both fronts; the flat roof behind it, where the draft
+drew a 40-degree gable, chosen because a flat deck is what such a cornice crowns on a two-storey
+Chicago frame house of the period and it lets the pair read as one block; the tar-and-gravel covering
+and its dark grey; the two stacks side by side at the party wall; the small porch over each door with
+its steps (the register's 'bounded stoop'); and the one pale stone-grey paint both halves wear, with
+the kit's cream trim and dark green sash.
+**What is not built.** The party wall itself, which no visitor can see; gutters and downpipes (a box
+gutter is taken to lie in the boxed eave); rear doors and any rear porch or shed; a cellar and its
+lights; anything behind the sash beyond the kit's blinds and curtains. **1607 is not a house:**
+'1607-1611' is the address range of the four-storey loft the 1911 sheet draws, which replaced the
+pair after 1904; it is not back-projected, and no 1904 building stands under 1607.
+**How to resolve:** a photograph, print or description of either house, ingested as a source,
+replaces the kit's choices in place (a later reading of the pair's heights, roof or fronts first);
+none was found in the Prairie library on 2026-10-12: its one 1609 picture (a16-cgy-1609-loft-1910) shows the
+1910 E. T. Cade loft that replaced the pair, not the pair.
+**Covers:** `house_1609_prairie.as_mapped_1904.form.stories`, `house_1609_prairie.as_mapped_1904.form.construction`, `house_1609_prairie.as_mapped_1904.form.frame_house`, `house_1609_prairie.as_mapped_1904.form.roof_covering`, `house_1611_prairie.as_mapped_1904.form.stories`, `house_1611_prairie.as_mapped_1904.form.construction`, `house_1611_prairie.as_mapped_1904.form.frame_house`, `house_1611_prairie.as_mapped_1904.form.roof_covering`
+**Ticket:** T-1867 (package N08 of T-1837).
+**Review:** `docs/RESEARCH/k16-1609-1611-frame-pair-1867/README.md`.
+**Recorded:** 2026-10-12 (T-1867).
+
+### L-k14-1808-walls-2358 — 1808 Prairie's walls weathered by the K14 kit at 18 years, with its outlet trails and its wall reach reconstructed
+
+**Decision:** 1808 Prairie is the first house to take its condition from the K14 kit (T-2324). Its
+record names the kit and a completion year, 1886, so on 1904-07-01 it has stood 18 years and every
+wall layer is at 0.45 of its full-age strength. That replaces the fixed K03 soot and damp the
+house wore since T-2291, which were the kit's 40-year values: the common-brick returns and rear
+come out lighter, and the rock-faced Lemont front, its dressed trim and its stone bay, which wore
+no condition before, now carry the same damp at the plinth and soot under the soffit. A trail
+hangs below each K06 sill, from the sill's own underside and across its full width with the horns.
+The walls are cut with a vertex row at each trail's head and foot and a column at its edges, so
+`_TONE` can carry it. Six things are this ticket's own. A gutter outlet's trail starts 0.15 m under
+the soffit, where the swan neck meets the wall, and runs down behind the pipe 0.03 m either side
+of it. A vertex weathers as the wall whose plane it is nearest, if it lies within 1.2 m in front
+of that wall or 1.0 m behind it, so a reveal, a sill or a bay weathers with its wall. Anything
+further off (the boundary wall, a stack over the roof) takes the height layers alone. The
+mortar, paint, roof, chimney-plume and ground layers are not applied here (T-2359, T-2360).
+**What is attested.** Nothing. The 1886 date is the T-1837 register's Cobb & Frost reading, carried
+as inferred on the record's documented range, and every layer value is the kit's
+(L-k14-condition-kit-2324).
+**What is invented.** The outlet trail's start and width, the reach that ties a vertex to a wall,
+and the choice to weather the stone front and the brick by one rule at one age.
+**What would replace it.** A dated photograph of 1808 Prairie's front or south wall, whose
+staining replaces this property's values; the house's completion year from a permit or the
+1888 plate deposited as a source.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.condition`
+**Ticket:** T-2358 (piece 1 of T-2325, K14).
+**Review:** `docs/RESEARCH/k14-1808-walls-2358/README.md`.
+**Recorded:** 2026-10-11 (T-2358).
+
+### L-k14-1808-yard-2360 — 1808 Prairie's front yard laid as lawn, a stone front walk and a cinder side walk, aged by the K14 kit, all reconstructed
+
+**Decision:** the ground inside 1808 Prairie's K11 boundary (T-2319) is laid as surfaces of its
+own, aged by the K14 condition kit's two ground layers (T-2324) at the house's own age: built
+1886, so 18 years standing on 1904-07-01 and the kit's age factor 0.45. The front yard, from the
+street front (and the foot of its stone bay) to the fence curb's house face and from the house's
+south wall line to the north lot line, is turf (Glessner's courtyard turf map), its surface 0.035 m over grade so the drawn terrain, which
+rises up to 0.018 m above the point the house is bedded on, never covers it. Along the street
+front's wall foot and round the bay a bare strip is cut: the kit's `grass_edge` at that age,
+0.14 m wide, its line wobbling 0.02 m by the property's seed, measured square to the wall so it
+keeps its width round the bay's curve (0.12 to 0.25 m in plan where the curve turns steeply). The
+stoop is an open stair whose foot alone touches grade, so the ground under it shows: it is laid
+as bare earth, since no lawn is kept in its shade. The front walk runs from the stoop's foot
+through the entrance pair to the public walk, 1.28 m wide between the gate piers, in two flags of
+the stoop's own stone standing 0.025 m over the lawn with an open joint between them, its centre
+darkened by the kit's front-walk `path_wear` (a swept, polished line: 0.9 at full wear, 0.975 at
+this age). The service walk is cinder down the side passage, from the side gate to the house's
+rear corner (u 0), between the boundary wall's north face and the house's south wall, beaten
+along its centre by the kit's service-walk `path_wear` (0.78 at full wear, the K14 study's
+cinder; 0.91 at this age). Every tone is a grey multiplier on the vertices (`_TONE`), so each
+surface keeps its own colour; the bare strip is a surface, because earth beside turf is a change
+of material a grey multiplier cannot draw.
+**What is attested.** Where the yard can be: the 1911 Sanborn sheet 28's parcel lines and the
+house it draws, through the K11 boundary that reads them. Nothing about the yard itself.
+**What is invented.** All of it: that the front is a lawn, that the walk is stone flags and the
+passage cinder, the flags' size and height, the earth under the stoop, the cinder's and earth's
+colours, and the kit's widths and wear (themselves reconstructed, L-k14-condition-kit-2324). None
+of it was read off a picture of 1808 Prairie.
+**What would replace it.** A dated photograph of 1808's front, or of any Prairie Avenue front yard
+of the 1890s, replaces the surfaces it shows; the kit's own numbers are replaced where its
+liberty says.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.yard`
+**Ticket:** T-2360 (piece 3 of T-2325).
+**Review:** `docs/RESEARCH/k14-1808-yard-2360/README.md`.
+**Recorded:** 2026-10-11 (T-2360).
+
+### L-glessner-cupola-2207 — The Glessner stable cupola as a two-tier dovecote, and the loft door and hoist iron, at counts and sizes of ours
+
+**Decision:** the stable's ridge cupola is no longer a slatted louvre box (T-2207, Glessner exterior
+audit GA-08). HABS photograph 1 (1963), read at five times on the committed web copy, shows its vent
+band as two tiers of round-headed pigeon holes, each tier standing on a projecting landing board,
+under a pyramid whose foot kicks out over a deep eave; photograph 17 (1965) shows the same flared
+pyramid from the north-east. The cupola is built that way, inside the envelope T-1999/T-2231 set:
+its plan, centre, body top and apex do not move. On the north gable the loft door's two board
+leaves stand open inward against the reveals, and an iron eye and hook hang under the nose of the
+hoist stone.
+**What is invented.** Three holes a face a tier, each 0.75 ft wide with a round head; 0.3 ft landing
+boards; a 1.25 ft eave, dropped 0.1 ft below the body top, whose lowest 0.75 ft eases to a 0.55
+pitch. The loft leaves (six boards a leaf, 0.13 ft stock, two strap hinges each), that they open
+inward, that they stand open, and the eye and hook, 0.9 ft under the stone. The photograph gives the
+form and the proportions these were checked against; it gives none of them as a measurement.
+**What is inferred, not invented.** That the 1963 dovecote stood in 1904: nothing read records work
+on the cupola, and the 1946 alteration list (HABS data p. 2) does not name it. That a door hung in
+the loft opening: the same list records it "closed up" in 1946. The 1946 boarding with its vent,
+which photographs 1 and 15 show, is not carried back.
+**Ruled out, not built.** A hay hood and a timber hoist beam: no source shows either, and photograph
+1's long shadow across the gable is the hoist stone's own in a grazing evening sun.
+**How to resolve:** the c. 1887 Cornell (A. D. White) view of the stable end, cited by the audit as
+#104 and link-only here, would date the dovecote and may show the loft door; a measured drawing of
+the cupola would replace every number above.
+**Covers:** `glessner_house.as_built_1887.form.turret_stable`, `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2207 (Glessner exterior audit GA-08).
+**Recorded:** 2026-10-11 (T-2207).
+
+### L-glessner-coursing-2208 — The Glessner granite laid from its corners and jambs, with pitched arrises, by a rule of ours
+
+**Decision:** the rock-faced granite on every Glessner wall is re-laid (T-2208, Glessner exterior
+audit GA-09A). Course heights are unchanged — they are still the 24 HABS-measured courses in
+`v4_detail.ashlar_courses_in`. What changed is how each course is cut into stones. A course that
+passes wholly beside a straight opening jamb is cut AT that jamb, so the jamb is the end of a whole
+stone that runs to the reveal with no joint, instead of a sliver the opening happened to leave.
+Each run between corners and jambs starts and ends with one long and one short stone, swapped
+course by course, so vertical joints never stack up a corner or a jamb, and the stones between are
+whole, scaled to fill the run, so no run ends in a sliver. Every rock face now falls over its outer
+85 mm to a straight arris 16 mm proud of the bed — the front of an opening's reveal — so joints read
+as lines at street distance and a jamb stone meets its return flush; the stone's interior relief is
+unchanged.
+**What is invented.** The rule itself: the long end stone at 1.3 and the short at 0.62 of the
+course's mean stone, the middle stones between 0.7 and 1.35 of it, the 85 mm margin and the 16 mm
+arris. No measured elevation of the stone joints was read, and no photograph was re-read stone by
+stone for this ticket: the rule is the ordinary practice of rock-faced coursed ashlar (bonded
+corners, whole jamb stones, edges pitched to a line), applied as a reconstruction, not a reading.
+**What is not changed.** Course heights, the wall plane, every opening, sill, lintel and arch, the
+brick, and the plan envelope (K01 scale-drift and origin checks unchanged; the furthest west
+projection falls 1 cm because edge relief no longer reaches 70 mm).
+**How to resolve:** a rectified photograph or measured elevation of one street front with its joints
+legible would replace the rule with the stones; GA-09B (T-2209) calibrates the texture and shadow.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2208 (Glessner exterior audit GA-09A).
+**Recorded:** 2026-10-11 (T-2208).
+
+### L-glessner-granite-2209 — Each Glessner rock face takes its grain in its wall's plane, with its lattice creases smoothed
+
+**Decision:** every facet of a Glessner rock-faced stone now reads the granite textures in
+its wall's plane, not its own (T-2209, Glessner exterior audit GA-09B). Before, each 7.5 cm
+facet was projected on its own tilt, so every lattice triangle showed an unrelated patch of
+the crystal albedo with a seam on its edges. Shading normals are also shared across facet
+corners up to 60°, where the limit was 35°: the lattice's diagonals are a computational mesh
+of one face, and only a steeper chip keeps a hard ridge.
+**What is invented.** The 60° limit, and the choice that one stone carries one continuous
+grain. No photograph was read for either. The albedo, its 0.22 m repeat, the tints,
+roughness and normal strength are unchanged, and so is every vertex position. The albedo is
+still the generated study in `assets/textures/glessner-v4/`, not a reading of the house's
+stone. Its tinted mean is a warm neutral grey (linear luminance 0.24–0.28). It is left
+there, and the Wellesley/Braggville colour disagreement stays open.
+**What is not changed.** Course heights, joints, arrises, openings, colour and the scene
+light. The navy of the shaded faces is the sky fill, and it is not cancelled in the material.
+**How to resolve:** a colour record of the street granite would set the albedo and tint. The
+faint relief in shade needs an occlusion channel, which is a separate ticket.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2209 (Glessner exterior audit GA-09B).
+**Recorded:** 2026-10-11 (T-2209).
+
+### L-glessner-granite-occlusion-2393 — Glessner's split-face granite carries an occlusion map computed from its own reconstructed relief
+
+**Decision:** the granite slots of Glessner v4 (granite, granite_1 to 4 and rough_stone_trim)
+now carry a glTF occlusion texture, `assets/textures/glessner-v4/granite_occlusion.png`
+(T-2393, split from T-2390). It is computed by `generate.py` from the same height field the
+granite normal map is drawn from: horizon-based, 16 directions out to 8 cm, measured against
+each texel's own tangent plane, so only a crease is darkened and a tilted facet is not. The
+viewer applies it to the sky fill only. The sun is unchanged.
+**What is invented.** The 8 cm reach (about two-thirds of the 12 cm fracture cell) and the
+height field itself, which is the generated split-face study, not a reading of the house's
+stone. The occlusion is only as true as that relief. No photograph was read.
+**What is not changed.** Albedo, tints, roughness, the normal map, every vertex and the scene
+light. Shaded faces read 1.7-5.4 % darker because the sky they lose is now accounted for. They
+are not re-tinted, and nothing is brightened to compensate.
+**How to resolve:** a measured relief of the street granite would replace the height field.
+The stone-scale occlusion (joints, drafted margins, pitched faces), which is what reads as
+relief in shade, is a per-asset bake owned by T-2394.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2393 (split from T-2390).
+**Recorded:** 2026-10-12 (T-2393).
+
+### L-glessner-stone-occlusion-2400 — Glessner's granite is shaded by the occlusion of its own reconstructed stones
+
+**Decision:** the granite slots of Glessner v4 (granite, granite_1 to 4 and rough_stone_trim)
+carry an occlusion map baked from the building's own modelled stones, in the master and the
+full web model (T-2400, split from T-2394). Cycles ambient occlusion out to 0.30 m, 64
+samples, onto a 2048-square atlas of its own (TEXCOORD_1, about 2.3 cm a texel). So the
+recessed joints, the pitched arrises and the reveals darken the sky light on the stone around
+them. It replaces T-2393's tiling map on those slots; the light model keeps the tiling map.
+The viewer applies it to the sky fill only. The sun is unchanged.
+**What is invented.** The 0.30 m reach, chosen to see a stone's own relief and its reveal and
+not the building's masses (a long reach put the Sauganash out, T-0227). The stones it reads
+are the reconstructed courses, joints and pitched faces of the v4 model, so the shading is
+only as true as they are. No photograph was read for it.
+**What is not changed.** Every vertex, the albedo, tints, roughness, the normal maps and the
+scene light. On the shaded stands the faces read 0.5-1.9 % darker and their pixel-scale
+relief rises 15-21 %.
+**How to resolve:** a measured survey of the street granite would replace the reconstructed
+stones the bake reads. The light model's own bake is T-2401.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2400 (split from T-2394).
+**Recorded:** 2026-10-12 (T-2400).
+
+### L-k14-1808-roof-2359 — 1808 Prairie's slate carries the K14 chimney plume at 18 years, on plan rows this ticket chose
+
+**Decision:** 1808 Prairie's slate takes the K14 kit's chimney plume (`chimney_soot`, T-2324)
+leeward of each of its two K15 stacks, at the house's own age: 18 years on 1904-07-01, so the
+plume is at 0.45 of its full-age strength, 1.35 m long from the stack's centre, 30 degrees either
+side of bearing 70 and at most 0.90 at the centre. Under the stack itself the covering is gone, so
+the darkest slate reads 0.946, at the stack's lee face. The bearing is a compass bearing, so the
+house's frame is turned by its placement's -0.669 degrees before the kit is read. Three things are
+this ticket's own. The roof shell's covering is cut in plan into rows 0.225 m apart (six to the
+plume's length) inside a box round each plume, so `_TONE` has vertices to ride. The faces those cuts
+touch are fanned from their centroids, so the shell stays closed. And the slate takes the plume at
+the kit's full strength, because the kit's fabric responses name no slate: response 1.0, the kit's
+own default. Nothing else on the roof is toned: not the flashing, the caps or the stacks (K15 dresses
+its own sooted band).
+**What is attested.** Nothing. The stack positions are T-2313's inferred reading of the 1888 plate,
+the 1886 date the register's, and every plume value is the kit's (L-k14-condition-kit-2324).
+**What is invented.** The row spacing, the box round each plume, the measuring from the stack's
+centre rather than its face, and slate's response of 1.0.
+**What would replace it.** A dated photograph of 1808 Prairie's roof showing its stacks' staining,
+and a slate entry in the kit's fabric responses from a study of weathered Pennsylvania slate.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.condition`
+**Ticket:** T-2359 (piece 2 of T-2325, K14).
+**Review:** `docs/RESEARCH/k14-1808-roof-2359/README.md`.
+**Recorded:** 2026-10-11 (T-2359).
+
+### L-k14-1608-brick-2364 — 1608 Prairie, a brick-fronted house, weathered by the K14 kit at the 1886 plate's bound
+
+**Decision:** 1608 Prairie is the first brick-fronted house to take its condition from the K14 kit
+(T-2324). Until T-2364 the kit refused one: a brick K01 house cuts its walls before it seats its
+K06 sills, so no wall could be cut for a sill's trail. The builder now reads the sills off a build
+of the same record without the kit before it cuts the walls (the same seats, laid by the same
+calls), so all four brick walls carry a trail below each sill and behind each downpipe, damp at the
+foot and soot under the soffit. The house's stone dressings (sills, heads, belts, and the brick
+bay's plinth, bands, sills and heads) weather as the kit's dressed trim, the fabric 1808's stone
+front gives its trim; they wore no condition before. The record names the kit with a completion
+year of 1886, so on 1904-07-01 every wall layer is at 0.45 of its full-age strength, and the brick
+reads lighter than the fixed 40-year K03 mask it wore since T-2341. **What is attested.** Only the
+bound: Robinson's 1886 atlas, plate 10 (`robinson_1886_chicago_plate_10`), draws a house on lot 5
+where the record's main body stands, its outline within the two maps' fits (4.54 m and 2.46 m RMS)
+of the 1911 sheet's, so the house stood by 1886. **What is invented.** Taking that bound as the
+completion year. It is the youngest the evidence allows, so the weathering shown is a floor; any
+earlier year would darken it. That the 1886 house and the 1911 one are the same building is
+inferred from the matching outline, not read. **What would replace it.** A building permit, a
+directory or a dated photograph of 1608 Prairie, giving its completion year and the staining of
+its walls.
+**Covers:** `house_1608_prairie.as_mapped_1904.form.condition`
+**Ticket:** T-2364 (piece 1 of T-2361, K14).
+**Review:** `docs/RESEARCH/k14-1608-brick-2364/README.md`.
+**Recorded:** 2026-10-11 (T-2364).
+
+### L-k01-1612-goodman-2366 — 1612 Prairie rebuilt from its own photograph: the stone front read through a camera solve, the rest of the house still reconstructed
+
+**Decision:** T-2344 built 1612's front from the Prairie library's one-line summary of the house and never opened the photograph the library linked beside it (`chicagology_1612_prairie_photo`, the library's a16-cgy-1612-studebaker-photo, supplied by the owner on 2026-10-11). T-2366 rebuilds the street front from that photograph, in place and under the same id, and replaces `L-k01-1612-goodman-2344`. The camera is solved from the print alone (a level camera, verticals vertical, the front's courses converging), scaled by the 1911 Sanborn's 11.25 m front (`data/reference_views/goodman_house_1612_prairie/front_from_southeast.json`), and `tools/photo_match.mjs` renders the built house from that camera beside the print.
+**What is read, not invented.** Through that solve, as `inferred` attributes citing the photograph: three bays entered in the middle; every street window round-headed (paired lights upstairs, one tall window in each outer bay of the principal storey, paired basement lights), each group under radiating voussoir joints and a long keystone; the 2.85 m principal floor (outside the contract's reconstructed starting range, which binds guesses and no longer a read value), the 7.0 m second floor and the 10.64 m stone top; the belt at the principal floor and no other; banded stone; the dark frieze with its lights under a bracketed cornice; the frontispiece's pilasters and hood; the arched portico on columns; the iron guards, grilles and front fence on iron posts; no dormer and no downpipe on the front.
+**What is invented.** Inside those readings: every moulding's section; the pilasters' 0.1 m and the hood's 0.32 m projections; the portico's rear columns (0.35 m from the wall), its pedestals, capitals and cornice slab; the keystones' 0.06 m projection; how far each voussoir block runs past its lights (0.3-0.4 m); the guards' and grilles' bars; the frieze lights' 0.12 m recess; the iron posts' size; the base's top, taken at the basement sills because the fence hides it; the north bay, taken as the south's mirror. Outside them, everything the photograph does not show: the roof's form, 26-degree pitch and tin; the 0.75 m eave; the chimneys' places in plan; the wall thicknesses; the stone's kind and every colour (the print is monochrome); the side and rear windows; the stair's tread and landing; the brick panel; the rainwater goods.
+**What is not built.** The canted bay the photograph shows on the south wall's front, and the south frame porch and the rear one-storey piece the Sanborn census reads (K01 builds one rectangle; an attached range is T-2343's). The cornice's brackets are the K10 kit's single scrolls, evenly spaced on the piers between the frieze lights, where the photograph's are paired and larger.
+**How to resolve:** a second view of the house (its north bay, its south wall), or a dated print with its rights stated, would replace the north bay's mirror, the south bay and the colours; K10 laying paired brackets would replace the cornice's rhythm.
+**Retired:** by T-2369, which finished 1612 against the same photograph under `L-k01-1612-goodman-2369`; the stoop's landing and width, the south wall and the entrance's door are read from the print now, every attribute still reconstructed is that entry's, and this one claims none.
+**Ticket:** T-2366.
+**Review:** `docs/RESEARCH/k01-1612-goodman-2366/README.md`.
+**Recorded:** 2026-10-11 (T-2366).
+
+### L-glessner-court-materials-2210 — Glessner's courtyard brick is a reconstructed light pink, and its rock-faced trim is grey limestone, not the street granite
+
+**Decision:** the courtyard's brick and stone now carry the identities the written sources give them (T-2210, Glessner exterior audit GA-10). HABS ILL-1015's data pages (1963, p. 21) say the walls toward the courtyard are "of light pink brick with Joliet limestone lintels and sills"; Glessner's *The Story of a House* (1923) says "common brick of slightly pinkish color, with gray limestone trimmings". So every brick slot of the v4 model now draws a new albedo-only study, `court_brick_basecolor.jpg`, over the existing brick relief, and its four kiln steps (60/20/14/6, unchanged) all stay in the pink family: the grey "smoky" unit, which read as a second material, is now an over-fired darker pink. The courtyard's rock-faced heads, sills, surrounds and tower belts (slot `rough_stone_trim`) stop wearing the street granite's crystal albedo and take the limestone study instead, at limestone's 1.2 m repeat, keeping the granite's split-face normal. Every limestone slot, dressed or rock-faced, is multiplied from the old cream to a grey (linear 0.83, 0.88, 1.0).
+**What is invented.** The hue and value of both. The brick body (sRGB 0.680, 0.515, 0.460 before grain; linear mean 0.415, 0.227, 0.178) and the grey multiplier are chosen to fit "light pink" and "gray", and no colour photograph, sample or measurement was read; the HABS court photograph (photo 05, c. 1923) is monochrome and on orthochromatic film, which darkens red, so its tones were not sampled. The kiln steps' tints, the split-face normal at a 3-10 cm scale, and that one limestone grey serves dressed and rock-faced work alike.
+**What is not changed.** Geometry: the courses, the 9 mm joints, the stretcher bond and where it turns corners and openings, the mortar, and the scene light. The grey-tan `brick_basecolor.jpg` and the cream `limestone_basecolor.jpg` are untouched, because the K01 kit's Prairie houses wear them. The adjoining house's courtyard wall, which Glessner says was laid in the same brick "by special arrangement", is not touched here.
+**How to resolve:** a colour record of the courtyard brick or the Joliet trim (a dated colour photograph with its rights stated, or a measured sample of the surviving fabric) would set the albedo and tints. A rectified court elevation with its joints legible would settle the bond, which photo 05 at its scanned resolution does not.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2210 (Glessner exterior audit GA-10).
+**Review:** `docs/RESEARCH/glessner-court-materials-2210/README.md`.
+**Recorded:** 2026-10-12 (T-2210).
+
+### L-ic-16th-street-station-2399 — The 16th Street station at 1605 Prairie dressed as a station: a platform tapering to the traced rail, a canopy, a street door and lettered boards, all reconstructed but the platform's edge
+
+**Decision:** the Illinois Central's 16th Street station (T-2399, piece 2 of T-1866) keeps the
+district draft's two-storey gabled frame body and its id `ic_16th_street_station_1605_prairie`, and
+the draft rules' frontage row for it (frontage-20-023) now dresses it as a station, built by the
+draft's own builder (`generators/archetypes/prairie_draft.py`, `station`): a timber platform along
+the track face, a lean-to canopy on braced brackets over it, a pair of passenger doors under a
+bracketed hood at the north end of the Prairie Avenue front, a narrower baggage door on the track
+side with no loft door over it, and three nameboards — 'ILLINOIS CENTRAL R.R. / 16TH ST. STATION'
+across the street front between the storeys, '16TH STREET' on the track wall over the canopy, and
+'16TH ST.' on a two-faced board on posts at the platform's wide south end.
+**What is read, not invented.** The platform's EDGE. Sheet 20 of the 1911 Sanborn draws the
+right-of-way line touching the station's north-east corner and the nearest track's two rails 1.35 m
+apart beyond it, bearing away south-east; the nearest (west) rail, read at sheet rows 1270, 1380
+and 1485 and carried through the T-1250 fit (2.46 m RMS), lies 2.05 m off the track wall at the
+north end and 5.49 m at the south. The platform stops 1.0 m short of that rail, so it tapers from
+1.05 m to 4.5 m deep along the building, and the canopy stands only where the platform is deeper
+than its 2.0 m. The boards' wording is the sheet's own lettering of the building.
+**What is invented.** That there was a platform on this face at all, its 0.3 m timber deck, its
+length (the station lot's width, 12.2 m) and its end steps; the canopy, its 2.0 m depth, its fall
+and its brackets; the doors, their sizes and the north end for the passengers' door (taken as the
+end nearer 16th Street); the hood; the boards, their places, sizes and colours, and the block
+capitals of the lettering. Neither sheet 20 nor Robinson 1886 draws a platform, canopy, door or
+sign, and no picture of this building is known. The Chicago Tribune's 'Sixteenth Street Station'
+sketch of 8 August 1886 (library image cgn-16th-station-tribune-1886-sketch) shows a ONE-storey
+frame depot with a wide platform; the library reads it, on the article's own text, as the
+C. B. & Q. depot moved from Sixteenth Street to Meagher Street, and the 1911 sheet prints this
+building as two storeys, so it is not built toward and is not this building's image gate.
+**What is not built.** The tracks themselves (the 1904 scene draws no rails), a stair or crossing
+to further platforms, lamps, benches, a telegraph or train-order signal, fences along the
+right-of-way, and any person.
+**How to resolve:** a photograph, view or plan of the 16th Street station, or an Illinois Central
+station plan or annual report describing it, ingested as a source, replaces the platform, canopy,
+doors and boards; a reading of the right-of-way's own plan replaces the traced rail.
+**Covers:** `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`
+**Ticket:** T-2399 (piece 2 of T-1866).
+**Review:** `docs/RESEARCH/prairie-1605-station-2399/README.md`.
+**Recorded:** 2026-10-12 (T-2399).
+
+### L-k01-1612-goodman-2369 — 1612 Prairie finished against its photograph: paired cornice brackets, the south oriel, the stoop between iron rails and the portico's depth, with what the print does not show still reconstructed
+
+**Decision:** T-2366 left four differences open between 1612 and its photograph (`chicagology_1612_prairie_photo`, through the camera at `data/reference_views/goodman_house_1612_prairie/front_from_southeast.json`). T-2369 closes them in place and replaces `L-k01-1612-goodman-2366`. The cornice's brackets are laid in pairs on the piers between the frieze lights, and the whole cornice is painted dark, as the print shows it (K10 learns `pairs` and `paint`). The south wall carries the canted oriel the print shows on its upper storey, as the K08 kit's corbelled oriel on eight corbel courses, in stone under a deep hood (K01 learns oriels on a side wall and a hood's size). The door is at the stoop's head, 1.7 m above the walk, not on the 2.85 m principal floor (K01 learns `entrance_floor_m`), and the stoop climbs to it between the K11 kit's iron stair rails, with no stone cheeks. The portico is a barrel from the wall to 1.4 m out under an elliptical ring, on impost blocks and columns 0.9 m before the wall. The fence line moves to 4.7 m from the front, where the print's posts stand. `tools/photo_match.mjs` can now light the review render from the photograph's own sun (`sun_uvy`), so the portico's shade is compared too.
+**What is read, not invented.** As `inferred` attributes citing the photograph: the brackets' pairing and the stations' 1.6 m rhythm; the cornice's dark tone (its tone, not its hue); the oriel's place on the south wall, its sill at the second floor, its hood under the cornice, its depth and its cheek-front-cheek plan; the door's 1.7 m floor and the stoop's ten risers to it; the stoop's 1.7 m width and 1.1 m landing; the iron rails and their scroll at the foot; the portico's ring, springing, imposts and columns; the fence line; no window or bay elsewhere on the south wall.
+**What is invented.** Inside those readings: the vestibule and its inner flight behind the door (not built: the print shows darkness in the arch); the oriel's corbel courses' depth (the print shows them only in shadow), its walls' stone, its sash and hip roof; the paired brackets' profile (the kit's generic scroll); the paint's hue, and that the dark is paint at all (the print's frieze and cornice have a mottled texture that may be partly a vine, which also hides the centre bay's two frieze lights); the rails' section and baluster count; the fence's curb, kept at the kit's 0.25 m where the print's fence foot reads about 0.5 m above the walk, because the walk, the yard's grade and a coping cannot be told apart in it. Outside them, unchanged from `L-k01-1612-goodman-2366`: the roof's form, pitch and tin; the eave; the chimneys' places; the wall thicknesses; the stone's kind and every colour; the side and rear windows; the stair's tread; the brick panel; the rainwater goods; the north bay, taken as the south's mirror.
+**What is not built.** The south frame porch and the rear one-storey piece the Sanborn census reads (an attached range is T-2343's).
+**How to resolve:** a second view of the house (its north bay, its south wall's rear, the yard at the fence) or a dated print with its rights stated would replace the north bay's mirror, the oriel's construction, the fence foot and the colours.
+**Covers:** `goodman_house_1612_prairie.as_built_1869.form.wall_thickness_front_m`, `goodman_house_1612_prairie.as_built_1869.form.wall_thickness_side_m`, `goodman_house_1612_prairie.as_built_1869.form.service_wall_brick`, `goodman_house_1612_prairie.as_built_1869.form.roof_form`, `goodman_house_1612_prairie.as_built_1869.form.roof_pitch_deg`, `goodman_house_1612_prairie.as_built_1869.form.eave_overhang_m`, `goodman_house_1612_prairie.as_built_1869.form.stair_tread_m`, `goodman_house_1612_prairie.as_built_1869.form.rear_bays`, `goodman_house_1612_prairie.as_built_1869.form.sash_by_storey`, `goodman_house_1612_prairie.as_built_1869.form.roof_covering`, `goodman_house_1612_prairie.as_built_1869.form.chimneys`, `goodman_house_1612_prairie.as_built_1869.form.rainwater`, `goodman_house_1612_prairie.as_built_1869.form.stone_front`.
+**Ticket:** T-2369.
+**Review:** `docs/RESEARCH/k01-1612-goodman-2369/README.md`.
+**Recorded:** 2026-10-12 (T-2369).

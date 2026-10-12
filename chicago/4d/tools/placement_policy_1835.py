@@ -239,6 +239,39 @@ CLAUSES = [
              "after the target date. Scored on the one thing it claims - within "
              "bank_landing_reach_m of traced water - and on nothing about the street."},
 
+    # T-2269. THE LUMBER SHED'S OWN SEAT, beside the landing and not inside it. The
+    # comment above keeps F4 out of `bank_landing` because the brickyard filed under F4 is
+    # seated by its clay, and that stays true: so this clause names the FUNCTION it seats
+    # as well as the water, and the brickyard - a `brickyard`, not a `lumber_shed` - is
+    # refused by it and keeps the outlier reason it has always had. What seats a lumber
+    # shed by the water is where its stock came from. Scored on two measured facts, both
+    # read off the record: its function term, and the same reach of traced water the
+    # landing uses. No committed record is a lumber shed until T-2269's, which is a
+    # reconstruction, so the clause cites none and is inferred on the register's reading.
+    {"id": "lumber_landing",
+     "applies_to": ["F4"],
+     "function": "lumber_shed",
+     "prefers": ["ground:river_frontage", "ground:branch", "street:south_water",
+                 "division:south"],
+     "avoids": [],
+     "fronts": "water",
+     "multi_building_lot_rule": "principal_plus_ancillary",
+     "setback_class": "landing",
+     "tier": "inferred",
+     "evidence": [],
+     "note": "Chicago's boards came in by water. The town's own timber was already short "
+             "by 1833, and the Chicago Democrat as this project's register reads it "
+             "(chicago_democrat_1833_1835; data/research/newspapers/register_1835.json) "
+             "prints the trade as a lake trade: steam-sawn lumber from St. Joseph "
+             "advertised in Chicago in 1834, David Carver's lumber yard on South Water "
+             "Street from December 1833 to July 1835, J. Wright's leather, salt and lumber "
+             "on the same street, and a lumber yard and warehouse announced for the "
+             "opening of navigation. A yard stacked what a schooner landed, so its shed "
+             "stands where the boards come off the boat. Inferred, not documented: no "
+             "printing places a yard's shed, Carver's included, and no committed record "
+             "is one. Scored on what it claims - a lumber shed, within "
+             "bank_landing_reach_m of traced water - and on nothing about the street."},
+
     {"id": "professional_row",
      "applies_to": ["C1"],
      "prefers": ["class:principal", "street:lake", "street:clark", "street:dearborn",
@@ -769,6 +802,15 @@ def water_distance_m(record_id: str) -> float | None:
     return seen[record_id]
 
 
+def function_of(record_id: str) -> str | None:
+    """The record's own `function` term, or None where it carries none (T-2269)."""
+    path = DATA / "structures" / f"{record_id}.json"
+    if not path.exists():
+        return None
+    value = json.loads(path.read_text(encoding="utf-8")).get("function")
+    return value.get("value") if isinstance(value, dict) else value
+
+
 def _separation(a: list, b: list) -> float:
     """Least distance between two polygons' boundaries; 0 where a vertex of one is
     inside the other."""
@@ -819,6 +861,16 @@ def _breaches(row: dict, clause_row: dict, street_line_m: float) -> list[str]:
     with the clause and spent by the seating tickets, not here.
     """
     out = []
+    # T-2269. A clause that names the FUNCTION it seats refuses a record of any other,
+    # read off the record itself; a place with no record to read is refused, not passed.
+    wanted = clause_row.get("function")
+    if wanted:
+        have = row.get("function")
+        if have is None and row.get("id"):
+            have = function_of(row["id"])
+        if have != wanted:
+            out.append(f"is a {(have or 'building of no stated function').replace('_', ' ')}"
+                       f", and {clause_row['id']} seats a {wanted.replace('_', ' ')}")
     if row["class"] and f"class:{row['class']}" in clause_row["avoids"]:
         out.append(f"stands on a {row['class']} street, which {clause_row['id']} avoids")
 
@@ -1052,7 +1104,9 @@ def build() -> dict:
                 "ground:river_frontage|branch|outside_plat|wet|unplatted",
             ],
             "scored_here": [
-                "class:* in `avoids`", "setback_class `street_line`"],
+                "class:* in `avoids`", "setback_class `street_line`",
+                "`fronts: water` — within bank_landing_reach_m of traced water (T-2022)",
+                "`function` — the record's own function term (T-2269)"],
             "declarative": [
                 "division:*", "lot:*", "ground:*", "everything in `prefers`",
                 "— this project holds no committed lot-position field for a documented "
@@ -1208,6 +1262,17 @@ def self_test() -> int:
                    any("only source of" in m or "no longer defines" in m for m in out),
                    "; ".join(m for m in out if "street_line_m" in m) or "nothing"))
     CONSTANTS[0]["read_by"] = keep_readers
+
+    # T-2269 — the function a clause names is scored, both ways, at the same water.
+    lumber = clause("lumber_landing")
+    near = {"class": None, "street": None, "setback_m": None, "on_line": False,
+            "water_m": 10.0}
+    refused = _breaches({**near, "function": "brickyard"}, lumber, 2.71)
+    accepted = _breaches({**near, "function": "lumber_shed"}, lumber, 2.71)
+    checks.append(("a clause naming a function refuses a brickyard by the water and "
+                   "accepts a lumber shed there",
+                   any("is a brickyard" in m for m in refused) and not accepted,
+                   "; ".join(refused + accepted) or "nothing"))
 
     ok = True
     for label, passed, detail in checks:

@@ -22,6 +22,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from common import materials  # noqa: E402
+from common import openings  # noqa: E402
 from common.mesh import (  # noqa: E402
     SHUTTER_RGBA, MeshBuilder, simple_material,
 )
@@ -312,6 +313,55 @@ def _clapboard_eaves(b: MeshBuilder, w: float, d: float, lines: list,
                        conf, M_WALL)
 
 
+LIP_M = 0.018          # a clapboard course's lip: the skin the openings stand on
+
+
+def _kit(b: MeshBuilder, params: FrameTavernParams, board: bool = False) -> openings.Mats:
+    """The openings kit's materials (T-2278). This archetype carried no trim slot —
+    its windows were bare glass quads 6 cm proud of the wall — so the casing and sash
+    take a named `trim`, the wall's colour lifted the way the sheet lifts every
+    frame building's trim. The leaf is dealt a paint, or weathered board for a yard
+    or cabin door."""
+    finish = materials.wall_finish(params.paint, params.finish_key)
+    trim = b.named_mat("trim", materials.trim_rgba(finish), 0.85)
+    rgba, rough = openings.WEATHERED_BOARD if board else openings.door_paint(b.name, True)
+    key = "board_door" if board else "door"
+    return openings.Mats(
+        casing=trim, sash=trim, glass=M_GLASS,
+        door=b.named_mat(key, rgba, rough),
+        panel=b.named_mat(key + "_panel", openings.shade(rgba, 0.55 if board else 0.70),
+                          rough),
+        iron=b.named_mat("iron", *openings.STRAP_IRON))
+
+
+def _win(b: MeshBuilder, params: FrameTavernParams, axis: str, plane: float,
+         outward: int, u0: float, u1: float, z0: float, z1: float, conf: float,
+         skin: float = LIP_M, rows: tuple | None = None) -> None:
+    """A cased, silled and capped window with its sash set back over the town's glass.
+    A tavern's sash is the Green Tree's: small lights, three across."""
+    if rows is None:
+        n = max(2, round((z1 - z0 - 0.13) / 0.26))
+        rows = ((n + 1) // 2, n - (n + 1) // 2)
+    openings.window(b, openings.Wall(axis, plane, outward, skin), u0, u1, z0, z1, conf,
+                    _kit(b, params), 3, rows)
+
+
+def _door(b: MeshBuilder, params: FrameTavernParams, axis: str, plane: float,
+          outward: int, u0: float, u1: float, z0: float, z1: float, conf: float,
+          kind: str = "front", skin: float = LIP_M) -> None:
+    """A closed door: a panelled front door with its transom light, a board door for a
+    kitchen or a cabin, a pair of board leaves for a carriage way."""
+    w = openings.Wall(axis, plane, outward, skin)
+    if kind == "front":
+        openings.panelled_door(b, w, u0, u1, z0, z1, conf, _kit(b, params), panels=6)
+    elif kind == "carriage":
+        openings.batten_door(b, w, u0, u1, z0, z1, conf, _kit(b, params, board=True),
+                             leaves=2, cap=True, casing_w=0.11)
+    else:
+        openings.batten_door(b, w, u0, u1, z0, z1, conf, _kit(b, params, board=True),
+                             seed=f"{b.name}|{plane:.2f}|{u0:.2f}", cap=kind != "cabin")
+
+
 def _fenestration_gable_front(b: MeshBuilder, params: FrameTavernParams, w: float,
                               d: float, wall_z: float, ridge_z: float,
                               conf: float) -> None:
@@ -331,7 +381,6 @@ def _fenestration_gable_front(b: MeshBuilder, params: FrameTavernParams, w: floa
     # ---- even bays along the two eaves elevations (the x faces) ----------- #
     bays = max(3, min(7, round(d / 2.2)))
     for face, x_wall, sgn in (("x_min", 0.0, -1.0), ("x_max", w, 1.0)):
-        xx = x_wall + sgn * depth
         for story in range(params.stories):
             z0 = story * story_h + story_h * 0.30
             for i in range(bays):
@@ -339,27 +388,19 @@ def _fenestration_gable_front(b: MeshBuilder, params: FrameTavernParams, w: floa
                 # the attested second entrance, about the middle of the eaves
                 # elevation the record names — a door instead of that bay
                 if story == 0 and face == params.side_entrance_face and i == bays // 2:
-                    y0q, y1q = ((cy + 0.6, cy - 0.6) if sgn < 0
-                                else (cy - 0.6, cy + 0.6))
-                    b.add_poly([(xx, y0q, 0), (xx, y1q, 0),
-                                (xx, y1q, 2.1), (xx, y0q, 2.1)], conf, M_GLASS)
+                    _door(b, params, "x", x_wall, int(sgn), cy - 0.6, cy + 0.6, 0.0,
+                          2.1, conf)
                     continue
-                y0q, y1q = ((cy + win_w / 2, cy - win_w / 2) if sgn < 0
-                            else (cy - win_w / 2, cy + win_w / 2))
-                b.add_poly([(xx, y0q, z0), (xx, y1q, z0),
-                            (xx, y1q, z0 + win_h), (xx, y0q, z0 + win_h)],
-                           conf, M_GLASS)
+                _win(b, params, "x", x_wall, int(sgn), cy - win_w / 2, cy + win_w / 2,
+                     z0, z0 + win_h, conf)
 
     # ---- the front gable: centred door, flanking bays ---------------------- #
-    yy = d + depth
-    b.add_poly([(w / 2 + 0.6, yy, 0), (w / 2 - 0.6, yy, 0),
-                (w / 2 - 0.6, yy, 2.1), (w / 2 + 0.6, yy, 2.1)], conf, M_GLASS)
+    _door(b, params, "y", d, 1, w / 2 - 0.6, w / 2 + 0.6, 0.0, 2.1, conf)
     for story in range(params.stories):
         z0 = story * story_h + story_h * 0.30
         for cx in (w * 0.22, w * 0.78):
-            b.add_poly([(cx + win_w / 2, yy, z0), (cx - win_w / 2, yy, z0),
-                        (cx - win_w / 2, yy, z0 + win_h),
-                        (cx + win_w / 2, yy, z0 + win_h)], conf, M_GLASS)
+            _win(b, params, "y", d, 1, cx - win_w / 2, cx + win_w / 2, z0, z0 + win_h,
+                 conf)
 
     # ---- the rear gable ---------------------------------------------------- #
     # With a rear ell the storey windows would open into the ell's roof space;
@@ -369,9 +410,8 @@ def _fenestration_gable_front(b: MeshBuilder, params: FrameTavernParams, w: floa
         for story in range(params.stories):
             z0 = story * story_h + story_h * 0.30
             for cx in (w * 0.22, w * 0.78):
-                b.add_poly([(cx - win_w / 2, -depth, z0), (cx + win_w / 2, -depth, z0),
-                            (cx + win_w / 2, -depth, z0 + win_h),
-                            (cx - win_w / 2, -depth, z0 + win_h)], conf, M_GLASS)
+                _win(b, params, "y", 0.0, -1, cx - win_w / 2, cx + win_w / 2, z0,
+                     z0 + win_h, conf)
 
     # ---- an attic light in each gable peak --------------------------------- #
     # John Gray: "There should also be a small attic window in the gable end,
@@ -379,11 +419,9 @@ def _fenestration_gable_front(b: MeshBuilder, params: FrameTavernParams, w: floa
     # of the wall plane, so the lights sit just past them.
     aw, ah = 0.55, 0.65
     z0 = wall_z + 0.45
-    for yy2, order in ((d + ROOF_OVERHANG + 0.02, 1.0), (-ROOF_OVERHANG - 0.02, -1.0)):
-        b.add_poly([(w / 2 + order * aw / 2, yy2, z0),
-                    (w / 2 - order * aw / 2, yy2, z0),
-                    (w / 2 - order * aw / 2, yy2, z0 + ah),
-                    (w / 2 + order * aw / 2, yy2, z0 + ah)], conf, M_GLASS)
+    for yy2, order in ((d + ROOF_OVERHANG, 1), (-ROOF_OVERHANG, -1)):
+        _win(b, params, "y", yy2, order, w / 2 - aw / 2, w / 2 + aw / 2, z0, z0 + ah,
+             conf, skin=0.0, rows=(2,))
 
 
 def _cross_wing(b: MeshBuilder, params: FrameTavernParams, w: float, d: float,
@@ -441,15 +479,11 @@ def _cross_wing(b: MeshBuilder, params: FrameTavernParams, w: float, d: float,
 
     # the far gable: two lights at first-floor level and one in the attic above
     cx = (x0 + x1) / 2
-    yy = -p - 0.06
     for sgn in (-1.0, 1.0):
         gx = cx + sgn * d / 5.0
-        b.add_poly([(gx - 0.45, yy, 3.05), (gx + 0.45, yy, 3.05),
-                    (gx + 0.45, yy, 4.45), (gx - 0.45, yy, 4.45)], c, M_GLASS)
-    yg = -p - ROOF_OVERHANG - 0.06
-    b.add_poly([(cx - 0.40, yg, ridge_z - 2.05), (cx + 0.40, yg, ridge_z - 2.05),
-                (cx + 0.40, yg, ridge_z - 1.15), (cx - 0.40, yg, ridge_z - 1.15)],
-               c, M_GLASS)
+        _win(b, params, "y", -p, -1, gx - 0.45, gx + 0.45, 3.05, 4.45, c)
+    _win(b, params, "y", -p - ROOF_OVERHANG, -1, cx - 0.40, cx + 0.40, ridge_z - 2.05,
+         ridge_z - 1.15, c, skin=0.0, rows=(3,))
 
 
 def _rear_ell(b: MeshBuilder, params: FrameTavernParams, w: float) -> None:
@@ -488,19 +522,15 @@ def _rear_ell(b: MeshBuilder, params: FrameTavernParams, w: float) -> None:
 
     # the wide carriage door, centred in the far gable — or, on a kitchen wing, the
     # back door the cook and the wood came in by (T-1778)
-    yy = -ed - 0.06
     half = 1.2 if params.rear_ell_door == "carriage" else 0.45
     top = 2.2 if params.rear_ell_door == "carriage" else 2.0
-    b.add_poly([(cxe - half, yy, 0), (cxe + half, yy, 0),
-                (cxe + half, yy, top), (cxe - half, yy, top)], c, M_GLASS)
+    _door(b, params, "y", -ed, -1, cxe - half, cxe + half, 0.0, top, c,
+          kind="carriage" if params.rear_ell_door == "carriage" else "back")
 
     # one small light on each eaves wall
     cy = -ed / 2
-    for x_wall, sgn in ((x0e, -1.0), (x1e, 1.0)):
-        xx = x_wall + sgn * 0.06
-        y0q, y1q = (cy + 0.35, cy - 0.35) if sgn < 0 else (cy - 0.35, cy + 0.35)
-        b.add_poly([(xx, y0q, 0.9), (xx, y1q, 0.9),
-                    (xx, y1q, 1.9), (xx, y0q, 1.9)], c, M_GLASS)
+    for x_wall, sgn in ((x0e, -1), (x1e, 1)):
+        _win(b, params, "x", x_wall, sgn, cy - 0.35, cy + 0.35, 0.9, 1.9, c)
 
 
 def _fenestration(b: MeshBuilder, params: FrameTavernParams, w: float, d: float,
@@ -525,27 +555,17 @@ def _fenestration(b: MeshBuilder, params: FrameTavernParams, w: float, d: float,
             # entrance is on the FACADE, which is the +y face in Blender and
             # therefore faces north once exported — bearing 0 per the contract.
             if story == 0 and i == bays // 2:
-                yy = d + depth
-                b.add_poly([(cx + 0.6, yy, 0), (cx - 0.6, yy, 0),
-                            (cx - 0.6, yy, 2.1), (cx + 0.6, yy, 2.1)],
-                           conf, M_GLASS)
+                _door(b, params, "y", d, 1, cx - 0.6, cx + 0.6, 0.0, 2.1, conf)
                 if params.entrance_frontispiece:
                     _frontispiece(b, params, cx, d)
                 continue
             for y, sgn in ((0.0, -1.0), (d, 1.0)):
-                yy = y + sgn * depth
-                # Wind by the elevation's outward normal. Using one point order
-                # for both faces leaves the +y openings facing INTO the building;
-                # that was invisible only because the exporter writes
-                # doubleSided by default, which is not a guarantee to build on.
-                x0q, x1q = ((cx - win_w / 2, cx + win_w / 2) if sgn < 0
-                            else (cx + win_w / 2, cx - win_w / 2))
-                b.add_poly([(x0q, yy, z0), (x1q, yy, z0),
-                            (x1q, yy, z0 + win_h), (x0q, yy, z0 + win_h)],
-                           conf, M_GLASS)
+                _win(b, params, "y", y, int(sgn), cx - win_w / 2, cx + win_w / 2, z0,
+                     z0 + win_h, conf)
                 if params.shutters:
                     for side in (-1, 1):
-                        x0 = cx + side * (win_w / 2)
+                        # hung on the casing's outer edge (T-2278)
+                        x0 = cx + side * (win_w / 2 + openings.CASING_W_M + 0.01)
                         x1 = x0 + side * (win_w * 0.42)
                         yl = y + sgn * (depth * 0.4)
                         lo, hi = min(x0, x1), max(x0, x1)
@@ -662,9 +682,8 @@ def _log_wing(b: MeshBuilder, params: FrameTavernParams, main_d: float) -> None:
     if params.log_wing_door:
         c_d = params.conf("log_wing_door")
         cxw = ww / 2
-        yd = y0 + 0.02
-        b.add_poly([(cxw + 0.5, yd, 0), (cxw - 0.5, yd, 0),
-                    (cxw - 0.5, yd, 1.85), (cxw + 0.5, yd, 1.85)], c_d, M_GLASS)
+        _door(b, params, "y", y0, 1, cxw - 0.5, cxw + 0.5, 0.0, 1.85, c_d, kind="cabin",
+              skin=0.02)
 
     # The shed-roofed porch hood over that door, on two slim posts to grade —
     # only the Braunhold engraving (image 9) draws it, and the geometry carries

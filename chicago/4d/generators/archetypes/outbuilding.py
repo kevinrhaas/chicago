@@ -47,6 +47,7 @@ that ever enables culling would find holes rather than a bug report.
 
 from __future__ import annotations
 
+import hashlib
 import math
 import sys
 from pathlib import Path
@@ -929,13 +930,21 @@ def _doorway(b: MeshBuilder, p: OutbuildingParams, side: str, span: tuple,
     _prism(b, side, p, [(u0, dh), (u1, dh), (u1, dh + j), (u0, dh + j)],
            0.0, off["frame"], conf, M_TIMBER)
 
-    leaves = [(u0, u1)] if dw < 1.9 else [(u0, um - 0.012), (um + 0.012, u1)]
-    for la, lc in leaves:
-        _leaf(b, p, side, la, lc, 0.015, dh - 0.02, off, conf)
+    # hung on the outer jambs: a pair from both, a single leaf from the side its
+    # building's identity deals (T-2278)
+    if dw < 1.9:
+        left = int(hashlib.sha256(f"hinge|{b.name}|{side}|{u0:.2f}".encode())
+                   .hexdigest()[:8], 16) % 2 == 0
+        leaves = [(u0, u1, left)]
+    else:
+        leaves = [(u0, um - 0.012, True), (um + 0.012, u1, False)]
+    for la, lc, left in leaves:
+        _leaf(b, p, side, la, lc, 0.015, dh - 0.02, off, conf, hinge_left=left)
 
 
 def _leaf(b: MeshBuilder, p: OutbuildingParams, side: str, u0: float, u1: float,
-          z0: float, z1: float, off: dict, conf: float) -> None:
+          z0: float, z1: float, off: dict, conf: float,
+          hinge_left: bool | None = None) -> None:
     """One batten door: vertical boards with gaps, on two cross battens.
 
     The boards are plain faces rather than prisms — a door leaf is 25 mm of stock and
@@ -955,6 +964,16 @@ def _leaf(b: MeshBuilder, p: OutbuildingParams, side: str, u0: float, u1: float,
         _face(b, side, p, off["batten"],
               [(u0, zc - 0.055), (u1, zc - 0.055), (u1, zc + 0.055), (u0, zc + 0.055)],
               conf, M_TIMBER)
+        # T-2278: the leaf hangs on something. A blacksmith-made strap hinge runs
+        # along each batten from the hinge side, in the blacked iron the sheet's
+        # DARK row already carries — two quads, and the difference between a door
+        # and a board nailed over a hole.
+        if hinge_left is not None:
+            reach = (u1 - u0) * 0.6
+            a, c = (u0 - 0.02, u0 + reach) if hinge_left else (u1 - reach, u1 + 0.02)
+            _face(b, side, p, off["batten"] + 0.004,
+                  [(a, zc - 0.02), (c, zc - 0.02), (c, zc + 0.02), (a, zc + 0.02)],
+                  conf, M_DARK)
 
 
 def _loft_door(b: MeshBuilder, p: OutbuildingParams, conf: float) -> None:
@@ -979,7 +998,8 @@ def _loft_door(b: MeshBuilder, p: OutbuildingParams, conf: float) -> None:
     for a, c in ((z0 - j, z0), (z1, z1 + j)):
         _prism(b, side, p, [(u0, a), (u1, a), (u1, c), (u0, c)],
                0.0, off["frame"], conf, M_TIMBER)
-    _leaf(b, p, side, u0 + 0.01, u1 - 0.01, z0 + 0.01, z1 - 0.01, off, conf)
+    _leaf(b, p, side, u0 + 0.01, u1 - 0.01, z0 + 0.01, z1 - 0.01, off, conf,
+          hinge_left=True)
 
 
 def _vent(b: MeshBuilder, p: OutbuildingParams, vent: tuple, conf: float) -> None:

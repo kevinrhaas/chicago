@@ -40,6 +40,7 @@ const frontageSource=await readFile(path.join(sourceRoot,'renderers/web/js/front
 const frontage=await import(modURL(frontageSource.replace("from 'three'",`from '${threeURL}'`)
  .replace("import { resolveBases } from './scene-loader.js';","const resolveBases=()=>({assetBase:new URL('file:///tmp/t2037-no-assets/')});")
  .replace("from './gates.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/gates.js')).href}'`)
+ .replace("from './relief-pack.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/relief-pack.js')).href}'`)
  +'\nexport {timberBuf,plainTimber,buildWalk,buildCrossing};'));
 globalThis.fetch=async(url)=>{const file=fileURLToPath(url);if(!file.startsWith(path.join(sourceRoot,'data/')))return {ok:false,status:404};
  return {ok:true,json:async()=>JSON.parse(await readFile(file,'utf8'))};};

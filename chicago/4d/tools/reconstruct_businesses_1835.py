@@ -63,6 +63,7 @@ STREETS = DATA / "streets" / "1835.json"
 LEDGER = DATA / "reconstruction" / "1835_business_reconstruction.json"
 LODGING_MODEL = DATA / "reconstruction" / "1835_lodging_model.json"
 LODGERS = DATA / "residents" / "lodgers"
+LODGERS_SEATED = DATA / "reconstruction" / "1835_lodgers_seated.json"
 HOUSEHOLDS = DATA / "residents" / "households"
 VESSELS_IN_PORT = DATA / "reconstruction" / "1835_vessels_in_port.json"
 
@@ -1423,40 +1424,61 @@ def lodging_places(model=None):
     return list(model["places"])
 
 
-def roof_keepers(root=None):
+def adopt_platted_keeper(kept):
+    """The keeper a platted-seat house names, read off their OWN household card (T-1808).
+
+    The pointer names a household and a person; the person is adopted from that card,
+    which is where they stand, and never from whatever carried the pointer.
+    """
+    path = HOUSEHOLDS / ("%s.json" % kept["household"])
+    if not path.exists():
+        return None
+    card = load_json(path)
+    keeper = next((p for p in card.get("persons", [])
+                   if p.get("id") == kept["person"]), None)
+    if keeper is None:
+        return None
+    return {
+        "household_id": card["id"],
+        "person_id": keeper["id"],
+        "name": keeper["name"],
+        "sex": keeper.get("sex"),
+        "division": card["division"],
+        "community": (keeper.get("reconstruction") or {}).get("community"),
+        "by": kept.get("by"),
+        "occupation": (keeper.get("occupation") or {}).get("value")
+        if isinstance(keeper.get("occupation"), dict) else keeper.get("occupation"),
+    }
+
+
+def roof_keepers(root=None, seated=None):
     """`{place: keeper}` for the lodging households the lodgers stage wrote a head on.
 
     Read off the households rather than off that stage's ledger, for the reason the
     liberty counter reads the business records rather than the business index: the
     ledger is a derivation of these cards, and adopting a person out of a derivation
     would be adopting a summary of them.
+
+    The one thing taken off the ledger is a POINTER, and only where no card carries it
+    (T-2250): see the second loop.
     """
     root = Path(root or LODGERS)
     out = {}
+    carded = set()
     for path in sorted(root.glob("*.json")):
         doc = load_json(path)
         block = doc.get("lodging_household") or {}
         head = next((p for p in doc.get("persons", []) if p.get("id") == doc.get("head")), None)
         kept = block.get("kept_by")
+        if block.get("place"):
+            carded.add(block["place"])
         if block.get("place") and head is None and kept:
             # T-1808. A house the platted deal keeps names its keeper's OWN household
             # card, which is where that person stands; the lodging card holds only the
             # boarders. Adopted from that card, exactly as a drawn head is from this one.
-            card = load_json(HOUSEHOLDS / ("%s.json" % kept["household"]))
-            keeper = next((p for p in card.get("persons", [])
-                           if p.get("id") == kept["person"]), None)
+            keeper = adopt_platted_keeper(kept)
             if keeper is not None:
-                out[block["place"]] = {
-                    "household_id": card["id"],
-                    "person_id": keeper["id"],
-                    "name": keeper["name"],
-                    "sex": keeper.get("sex"),
-                    "division": card["division"],
-                    "community": (keeper.get("reconstruction") or {}).get("community"),
-                    "by": kept.get("by"),
-                    "occupation": (keeper.get("occupation") or {}).get("value")
-                    if isinstance(keeper.get("occupation"), dict) else keeper.get("occupation"),
-                }
+                out[block["place"]] = keeper
             continue
         if not block.get("place") or head is None:
             continue
@@ -1468,6 +1490,26 @@ def roof_keepers(root=None):
             "division": doc["division"],
             "community": (head.get("reconstruction") or {}).get("community"),
         }
+    # T-2250. A HOUSE ITS PLATTED KEEPER FILLS FROM THE LAYER ALONE HAS NO CARD. The
+    # lodgers stage writes a lodging card only when it mints somebody into the house, so
+    # a platted-seat house whose beds were all taken by people the layer already held
+    # (the Market wedge's H3, Mark Beaubien's, on 2026-10-09) carries its `kept_by` on no
+    # card, and this table lost its keeper — and the house its firm — for a reason that
+    # has nothing to do with who keeps it. The stage's ledger row for that house carries
+    # the SAME pointer, written by the same stage from the same `keeper_head`, so it is
+    # read there; the person is still adopted off their own household card, never off
+    # the ledger. Only a platted seat, and only where no card speaks for the house: a card
+    # that names no keeper is that stage's answer and stands.
+    ledger = Path(seated or LODGERS_SEATED)
+    if ledger.exists():
+        for house in load_json(ledger).get("houses", []):
+            kept = house.get("keeper_head") or {}
+            if (house.get("id") in carded or house.get("id") in out
+                    or kept.get("by") != "platted_seat"):
+                continue
+            keeper = adopt_platted_keeper(kept)
+            if keeper is not None:
+                out[house["id"]] = keeper
     return out
 
 
@@ -2553,6 +2595,37 @@ def self_test():
     #     own --build and there is nothing there to count.
     if fills_for({"lodging_river_and_transport": roofs}):
         failures.append("a house bought by a roof wrote a fill into the order book")
+
+    # 11b. A PLATTED KEEPER'S HOUSE FILLED FROM THE LAYER ALONE STILL HAS ITS KEEPER
+    #      (T-2250). The lodgers stage writes no card for a house it mints nobody into,
+    #      and the keeper used to vanish with the card. Its ledger row's pointer is read
+    #      instead — the person still off their own household card — and only for a
+    #      platted seat, and never over a card that answers for the house itself.
+    import tempfile
+    seat = next((h for h in load_json(LODGERS_SEATED).get("houses", [])
+                 if (h.get("keeper_head") or {}).get("by") == "platted_seat"), None)
+    if seat is None:
+        failures.append("no platted-seat house in the lodgers ledger to hold T-2250 against")
+    else:
+        kept = seat["keeper_head"]
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            cards, ledger_path = tmp / "lodgers", tmp / "seated.json"
+            cards.mkdir()
+            rows = [dict(seat, id="t2250_cardless"),
+                    dict(seat, id="t2250_drawn", keeper_head=dict(kept, by="works_at")),
+                    dict(seat, id="t2250_carded")]
+            write({"houses": rows}, ledger_path)
+            write({"id": "hh_lodging_t2250_carded", "division": "south", "head": None,
+                   "persons": [], "lodging_household": {"place": "t2250_carded"}},
+                  cards / "hh_lodging_t2250_carded.json")
+            got = roof_keepers(cards, ledger_path)
+            if (got.get("t2250_cardless") or {}).get("person_id") != kept["person"]:
+                failures.append("a platted keeper's cardless house lost its keeper (T-2250)")
+            if "t2250_drawn" in got:
+                failures.append("a ledger pointer that is not a platted seat was adopted")
+            if "t2250_carded" in got:
+                failures.append("the ledger overruled a card that names no keeper")
 
     # 10. A class that carries a caveat prints it on every record it writes, and a class
     #    that carries none is written exactly as it was before the key existed. The

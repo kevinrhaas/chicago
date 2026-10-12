@@ -461,11 +461,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/prairie1890.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Original holder not stated",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-chicagology-prairie-avenue-about-1890-photo.jpg",
+   "display_bytes": 67780,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/prairie1890.jpg",
+   "original_bytes": 83414,
+   "original_px": [
+    800,
+    277
+   ],
+   "original_sha256": "afee61e3e015e2059e5d778ccb77a92c2b217a24ce52868691d78bd2f81b3e53",
+   "thumb": "research/images/files/st-chicagology-prairie-avenue-about-1890-photo-thumb.jpg",
+   "thumb_bytes": 20653
+  },
   "verified": "viewed",
   "found_via": "WebSearch → chicagology.com/chicagostreets/prairieavenue/ (image list extracted from page HTML)",
   "notes": "Panoramic-format street photograph: brownstone/limestone houses with high stoops and stone balustrades, square stone carriage blocks or hitching posts at the curb, bare elms in the parkway, a closed carriage at the curb and others further along, a smooth roadway. Very useful for 1890s–1904 street furniture; block not identified (text beside it on the website discusses the 1600–1700 east side).",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/",
+    "collection": "Chicagology, \"Prairie Avenue\" street history page",
+    "creator": "unrecorded photographer",
+    "date": "about 1890 (website caption)",
+    "repository": "Chicagology (chicagology.com) — secondary website reproduction; original holder not stated",
+    "rights": "unknown — link only",
+    "title": "Prairie Avenue, about 1890 [chicagology caption]"
+   }
+  }
  },
  {
   "id": "st-chicagology-prairie-avenue-1887-pullman-north",
@@ -494,11 +519,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/postfire/prairie1887.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Original holder not stated",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-chicagology-prairie-avenue-1887-pullman-north.jpg",
+   "display_bytes": 42232,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/postfire/prairie1887.jpg",
+   "original_bytes": 106105,
+   "original_px": [
+    538,
+    230
+   ],
+   "original_sha256": "21af0a26cd6d92eb847915e5e1f30c2b189ca7717f53c018a87397dd0c464395",
+   "thumb": "research/images/files/st-chicagology-prairie-avenue-1887-pullman-north-thumb.jpg",
+   "thumb_bytes": 22050
+  },
   "verified": "viewed",
   "found_via": "WebSearch → chicagology.com/chicagostreets/prairieavenue/ (image list extracted from page HTML)",
   "notes": "Small reproduction: the Pullman mansard house with its iron-and-glass conservatory/bay along the front, ornamental iron fence on a stone coping, a row of houses beyond to the north, bare trees, and a roadway. The 1887 date is the website's; if the conservatory is the 1892 addition the photo is later. Identification of the Pullman house is mine from the image; the direction follows from it (east-side house on the right).",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/",
+    "collection": "Chicagology, \"Prairie Avenue\" street history page",
+    "creator": "unrecorded photographer",
+    "date": "1887 (website caption)",
+    "repository": "Chicagology (chicagology.com) — secondary website reproduction; original holder not stated",
+    "rights": "unknown — link only",
+    "title": "Prairie Avenue, 1887 [chicagology caption]"
+   }
+  }
  },
  {
   "id": "st-chicagology-prairie-elevation-strips",
@@ -524,11 +574,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/postfire/prairieavenue.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Origin and date not stated",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-chicagology-prairie-elevation-strips.jpg",
+   "display_bytes": 126446,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/postfire/prairieavenue.jpg",
+   "original_bytes": 311897,
+   "original_px": [
+    1600,
+    464
+   ],
+   "original_sha256": "13b387ce06898c5b5e96a10197d52d60a68d262521576179789e1bbb58aede05",
+   "thumb": "research/images/files/st-chicagology-prairie-elevation-strips-thumb.jpg",
+   "thumb_bytes": 12753
+  },
   "verified": "viewed",
   "found_via": "WebSearch → chicagology.com/chicagostreets/prairieavenue/ (image list extracted from page HTML)",
   "notes": "Two rows of measured-style front elevations (11 east-side, 12 west-side façades) in a uniform hand, lettered 'East Side of Prairie Ave.' and 'West Side of Prairie Ave.' The drafting style looks 20th-century and the source is not given, so treated as a later reconstruction pending identification (possibly from a 1970s district study). Potentially very useful for façade sequence once its author, block and basis are known — do not use until then.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/",
+    "collection": "Chicagology, \"Prairie Avenue\" street history page",
+    "creator": "unrecorded",
+    "date": "undated (appears to be a later reconstruction drawing)",
+    "repository": "Chicagology (chicagology.com) — secondary website reproduction; original holder not stated",
+    "rights": "unknown — link only",
+    "title": "East Side of Prairie Ave. / West Side of Prairie Ave. [elevation strips; chicagology \"Prairie Avenue\"]"
+   }
+  }
  },
  {
   "id": "st-greeley-carlson-1891-prairie-environs",
@@ -658,11 +733,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/postfire/calumetprairieaerial.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Original holder not stated",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-chicagology-1935-aerial-donnelley-northwest.jpg",
+   "display_bytes": 465004,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/postfire/calumetprairieaerial.jpg",
+   "original_bytes": 1284222,
+   "original_px": [
+    1965,
+    1194
+   ],
+   "original_sha256": "6e72c72303446ddf0cad4c4401a0c15d6990748c616c8dcc18d2f8080f0ec409",
+   "thumb": "research/images/files/st-chicagology-1935-aerial-donnelley-northwest-thumb.jpg",
+   "thumb_bytes": 33956
+  },
   "verified": "viewed",
   "found_via": "WebSearch → chicagology.com/chicagostreets/prairieavenue/ (image list extracted from page HTML)",
   "notes": "Oblique aerial: the Donnelley Lakeside Press (1912–29) filling the Calumet/22nd corner, IC electrified tracks and coach yard at right, Cermak Road curve at left; beyond, the surviving mansions and many vacant lots of the 2000–2100 blocks of Calumet and Prairie, with printing plants interspersed. Evidence of what survived to 1935 (and of lot lines/rear stables); everything here post-dates 1904 except the surviving houses.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/",
+    "collection": "Chicagology, \"Prairie Avenue\" street history page",
+    "creator": "unrecorded (aerial photographer)",
+    "date": "1935 (website caption)",
+    "repository": "Chicagology (chicagology.com) — secondary website reproduction; original holder not stated",
+    "rights": "unknown — link only",
+    "title": "An aerial view of what the neighborhood looked like in 1935 … looking northwest, R. R. Donnelley plant in the foreground [chicagology caption]"
+   }
+  }
  },
  {
   "id": "st-chicagology-1941-prairie-at-18th",
@@ -692,11 +792,36 @@
   "image_url": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/18thprairieavenue1942.jpg",
   "rights": "unknown — link only",
   "rights_basis": "Original holder not stated",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-chicagology-1941-prairie-at-18th.jpg",
+   "display_bytes": 89018,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://chicagology.com/wp-content/themes/revolution-20/goldenage2/18thprairieavenue1942.jpg",
+   "original_bytes": 91654,
+   "original_px": [
+    1056,
+    783
+   ],
+   "original_sha256": "b2665ecb9457fc74c459de7bc26350f09c9d106dce4cc18dc1d755bdd9df812e",
+   "thumb": "research/images/files/st-chicagology-1941-prairie-at-18th-thumb.jpg",
+   "thumb_bytes": 18095
+  },
   "verified": "viewed",
   "found_via": "WebSearch → chicagology.com/chicagostreets/prairieavenue/ (image list extracted from page HTML)",
   "notes": "Street-level wartime view with parked 1940s cars: roadway surface (asphalt), concrete sidewalks, grass parkway now patchy, a utility pole, ornamental iron fence still before the château house at right. Useful for the street's cross-section (curb lines, sidewalk width, parkway) which changed little after 1904; houses as of 1941. Which way the camera faces is not stated and I have not resolved it from the image.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://chicagology.com/chicagostreets/prairieavenue/",
+    "collection": "Chicagology, \"Prairie Avenue\" street history page",
+    "creator": "unrecorded photographer",
+    "date": "1941–1942 (website caption)",
+    "repository": "Chicagology (chicagology.com) — secondary website reproduction; original holder not stated",
+    "rights": "unknown — link only",
+    "title": "1801 S. Prairie Ave. (Kimball); 1808 S. Prairie Ave. (O. R. Keith); 1811 S. Prairie Ave. (Coleman) 1941-1942 [chicagology caption]"
+   }
+  }
  },
  {
   "id": "st-ghm-george-glessner-ic-train-18th",
@@ -817,7 +942,20 @@
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgi5BGL1pboUPuanfVG-rewrjoUODIe1pxnRZMH_fRHX0lh7IM0m6bL1ogx7gxSVMGVqDY1AOZ1F7Cg-nOha0za2DdwY2G-dsTHj6JULIYqw9ivZID8Pbg-_mOjXViiDjhq72AmnKRy4u8/s1600/Historic+District+sm.jpg",
   "rights": "copyright — link only",
   "rights_basis": "1981 photograph by William Tyre",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-ghm-1800-block-restored-streetscape-1981.jpg",
+   "display_bytes": 64711,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgi5BGL1pboUPuanfVG-rewrjoUODIe1pxnRZMH_fRHX0lh7IM0m6bL1ogx7gxSVMGVqDY1AOZ1F7Cg-nOha0za2DdwY2G-dsTHj6JULIYqw9ivZID8Pbg-_mOjXViiDjhq72AmnKRy4u8/s1600/Historic+District+sm.jpg",
+   "original_bytes": 76622,
+   "original_px": [
+    675,
+    440
+   ],
+   "original_sha256": "b5463227b597125d81656c730aff4e9a11ed44e4e6ce00034f874ee89ad915f0",
+   "thumb": "research/images/files/st-ghm-1800-block-restored-streetscape-1981-thumb.jpg",
+   "thumb_bytes": 24784
+  },
   "verified": "viewed",
   "found_via": "WebSearch site:glessnerhouse.blogspot.com → Flashback 1981 post",
   "notes": "Caption: 'restored in 1978, returning that block to its 1890s appearance. Sidewalks composed of huge limestone slabs, granite curbs, cobblestone gutters, and period lighting'. A 1978 REPRODUCTION streetscape, not original fabric, but designed from 1890s evidence: shows the cross-section to model (asphalt roadway, cobble gutter strip, granite curb, grass parkway with trees and a cast-iron gas-style lamp standard, broad slab sidewalk, iron fence at property line). Treat the lamp and gutter details as the restorers' interpretation until matched to period photographs.",
@@ -836,6 +974,18 @@
    "source_url": "http://glessnerhouse.blogspot.com/2016/06/flashback-1981-glessner-house-and.html",
    "family": null,
    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+  },
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "http://glessnerhouse.blogspot.com/2016/06/flashback-1981-glessner-house-and.html",
+    "collection": "blog post \"Flashback 1981 - Glessner House and Prairie Avenue\" (June 2016)",
+    "creator": "William Tyre",
+    "date": "June 7, 1981",
+    "repository": "Glessner House Museum (via its blog \"The Story of a House\")",
+    "rights": "copyright — link only",
+    "title": "The streetscape on the 1800 block of Prairie Avenue (restored 1978), June 7, 1981"
+   }
   }
  },
  {
@@ -862,11 +1012,36 @@
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaMSjncnqrdidwXguFpJbu2_ylz7PxIIZdiuqwkuVj87IBjF4Vt4VtdRrmKxdxz7kr9sQGQHdB2Oxyqf3cga_AWoet7I9doTdQ9_yBnZAdvK5dNlSOsa6i7xd-JRX4qnuZ8hR0o3jFvh0/s1600/Bridge+over+IC+tracks.jpg",
   "rights": "copyright — link only",
   "rights_basis": "Modern photograph",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-ghm-18th-street-bridge-over-ic-pre2004.jpg",
+   "display_bytes": 71393,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaMSjncnqrdidwXguFpJbu2_ylz7PxIIZdiuqwkuVj87IBjF4Vt4VtdRrmKxdxz7kr9sQGQHdB2Oxyqf3cga_AWoet7I9doTdQ9_yBnZAdvK5dNlSOsa6i7xd-JRX4qnuZ8hR0o3jFvh0/s1600/Bridge+over+IC+tracks.jpg",
+   "original_bytes": 87171,
+   "original_px": [
+    675,
+    428
+   ],
+   "original_sha256": "c37b36a2fb162d93435e3c0d37be1337d0429f61f7ba418db60b8244700b5739",
+   "thumb": "research/images/files/st-ghm-18th-street-bridge-over-ic-pre2004-thumb.jpg",
+   "thumb_bytes": 29304
+  },
   "verified": "viewed",
   "found_via": "as above",
   "notes": "Caption: 'A huge wooden bridge had been constructed for visitors to the 1933 Century of Progress World's Fair… the bridge provided access to the fairgrounds over the Illinois Central railroad tracks… The bridge and Pullman wall disappeared in 2004.' Post-1904 structure — evidence only of the 18th Street axis toward the lake and of the 1930s grade relationships; NOT part of the 1904 scene.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "http://glessnerhouse.blogspot.com/2016/06/flashback-1981-glessner-house-and.html",
+    "collection": "blog post \"Flashback 1981 - Glessner House and Prairie Avenue\" (June 2016)",
+    "creator": "unrecorded (blog image)",
+    "date": "before 2004 (cars in view look 1990s; shown in a post about a 1981 visit)",
+    "repository": "Glessner House Museum (via its blog \"The Story of a House\")",
+    "rights": "copyright — link only",
+    "title": "[Wooden footbridge over the Illinois Central tracks at the east end of 18th Street, built for the 1933 Century of Progress]"
+   }
+  }
  },
  {
   "id": "st-ghm-pullman-garden-wall-remnant",
@@ -894,11 +1069,36 @@
   "image_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitJYoNPYZPo1VzISlhS6BPwk9W7r7-BhYTbwLDl8UZ7eXNKOzUiSV2iHye1K4-fHXG5sa8X9dTTM5Pa1955NrE77tDXRX6hvUUk2y-6RA3KxsCxUObotDkmLa_rYI7JZwrsk9g8jBnDiQ/s1600/6-Pullman+wall.jpg",
   "rights": "copyright — link only",
   "rights_basis": "Modern photograph",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-ghm-pullman-garden-wall-remnant.jpg",
+   "display_bytes": 74036,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitJYoNPYZPo1VzISlhS6BPwk9W7r7-BhYTbwLDl8UZ7eXNKOzUiSV2iHye1K4-fHXG5sa8X9dTTM5Pa1955NrE77tDXRX6hvUUk2y-6RA3KxsCxUObotDkmLa_rYI7JZwrsk9g8jBnDiQ/s1600/6-Pullman+wall.jpg",
+   "original_bytes": 88411,
+   "original_px": [
+    460,
+    675
+   ],
+   "original_sha256": "27f83e5dc373f758d6501b588c2195cfc5e8a59afbb1cec3785bc10f73735122",
+   "thumb": "research/images/files/st-ghm-pullman-garden-wall-remnant-thumb.jpg",
+   "thumb_bytes": 30188
+  },
   "verified": "viewed",
   "found_via": "as above",
   "notes": "Caption: 'Just south of the bridge, a small section of George Pullman's brownstone garden wall was still in place. The bridge and Pullman wall disappeared in 2004.' Shows a brownstone pier with moulded cap on a rock-faced limestone base wall, with a plain iron picket railing between piers — surviving 1904-era boundary fabric of the Pullman grounds (the wall that bounded the lawn on the south side of 18th St toward Calumet, per Rand McNally 1893). Detailed evidence for modelling the Pullman enclosure.",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "http://glessnerhouse.blogspot.com/2016/06/flashback-1981-glessner-house-and.html",
+    "collection": "blog post \"Flashback 1981 - Glessner House and Prairie Avenue\" (June 2016)",
+    "creator": "unrecorded (blog image)",
+    "date": "before 2004 (shown in post about a 1981 visit)",
+    "repository": "Glessner House Museum (via its blog \"The Story of a House\")",
+    "rights": "copyright — link only",
+    "title": "[Remnant of George Pullman's brownstone garden wall, east side of Calumet Avenue at 18th Street]"
+   }
+  }
  },
  {
   "id": "st-det-lake-front-from-ic-station-12544",
@@ -2315,11 +2515,36 @@
   "image_url": "https://digital.library.uic.edu/iiif/2/4279927/full/full/0/default.jpg",
   "rights": "unknown — link only",
   "rights_basis": "UIC: 'Copyright not evaluated'; public access",
-  "local": null,
+  "local": {
+   "display": "research/images/files/st-uic-caps-1938-lakeshore-mosaic-image6.jpg",
+   "display_bytes": 304821,
+   "fetched": "2026-10-11",
+   "fetched_from": "https://digital.library.uic.edu/iiif/2/4279927/full/full/0/default.jpg",
+   "original_bytes": 1476422,
+   "original_px": [
+    2380,
+    5000
+   ],
+   "original_sha256": "a9b764c6cd0912b985bbd66c9c3f418000117b0a05726003f7ce187be59eca80",
+   "thumb": "research/images/files/st-uic-caps-1938-lakeshore-mosaic-image6-thumb.jpg",
+   "thumb_bytes": 13696
+  },
   "verified": "viewed",
   "found_via": "WebSearch → digital.library.uic.edu Chicago Aerial Photographic Services collection; IIIF manifest https://digital.library.uic.edu/iiif/manifest/ark:/81984/d3d50g77j (12 canvases) inspected; image 6 identified visually",
   "notes": "Mosaic (2380×5000 px max) of the near-south lakefront: Grant Park and the Field Museum at top, Soldier Field, the Century-of-Progress-era Northerly Island, the IC yards and main line with the 18th-Street footbridge, and the street grid of the Prairie Avenue district at lower left (approx. x 125–1000, y 2750–3750 of the full image). Independent of the ISGS USDA frame (st-ilhap-1938-cook-bwq-8-50-district-crop), privately flown at a similar date; resolution is lower than the ISGS frame. The companion 1937–38 flight 37100 (ark:/81984/d3c53fb98, 129 frames) covers the north and far-south lakeshore, not this district (checked frame thumbnails).",
-  "measurements": []
+  "measurements": [],
+  "reference_copy": {
+   "basis": "owner, 2026-10-11: reference copy with attribution (kevinrhaas/chicago T-2368)",
+   "credit": {
+    "catalog_url": "https://n2t.net/ark:/81984/d3d50g77j",
+    "collection": "Chicago Aerial Photographic Service collection, Series II: Aerial Reels",
+    "creator": "Chicago Aerial Photographic Service",
+    "date": "1938 (series date; item dated 1937 in the collection facet)",
+    "repository": "University of Illinois Chicago Library, Special Collections and University Archives",
+    "rights": "unknown — link only",
+    "title": "1938 Chicago Lakeshore Flight (18269 & 18270), Image 6"
+   }
+  }
  },
  {
   "id": "st-newberry-robinson-1886-atlas",

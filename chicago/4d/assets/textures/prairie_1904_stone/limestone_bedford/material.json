@@ -1,0 +1,85 @@
+{
+  "id": "limestone_bedford",
+  "package": "K02",
+  "dressing": "crandalled",
+  "tile_m": [
+    1.2,
+    1.2
+  ],
+  "resolution_px": {
+    "basecolor": 1024,
+    "normal_gl": 1024,
+    "orm": 512,
+    "height16": 512
+  },
+  "px_per_m": 853.33,
+  "height16_range_m": 0.00059,
+  "mean_roughness": 0.8,
+  "measured": {
+    "relief_m": 0.00059,
+    "mean_roughness_measured": 0.802,
+    "mean_basecolor_srgb": [
+      193,
+      183,
+      161
+    ],
+    "seam_to_interior_step": 1.007
+  },
+  "colors_srgb": [
+    [
+      208,
+      199,
+      176
+    ],
+    [
+      178,
+      168,
+      146
+    ]
+  ],
+  "note": "Bedford (Indiana oolitic) limestone: pale buff-grey, an even sugary grain with sparse shell fragments, and a crandalled face of fine pick marks.",
+  "confidence": "reconstructed appearance; which building wears this stone is its structure record's to say, at its own tier",
+  "orientation": "image x = along the stone's natural bed (the wall's horizontal for walling); image y = up the wall. TEXCOORD_0 = surface metres / tile_m (K01 uv rule)",
+  "joints": "geometry, from data/components/prairie_1904/k02_stone_profiles.json",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y",
+    "height16": "linear 16-bit, 0 = lowest point of height16_range_m",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "files": {
+    "basecolor.png": "limestone_bedford_basecolor.png",
+    "normal_gl.png": "limestone_bedford_normal_gl.png",
+    "orm.png": "limestone_bedford_orm.png",
+    "height16.png": "limestone_bedford_height16.png",
+    "basecolor_web.jpg": "limestone_bedford_basecolor_web.jpg",
+    "normal_gl_web.jpg": "limestone_bedford_normal_gl_web.jpg",
+    "orm_web.jpg": "limestone_bedford_orm_web.jpg"
+  },
+  "web": {
+    "basecolor": "limestone_bedford_basecolor_web.jpg",
+    "normal_gl": "limestone_bedford_normal_gl_web.jpg",
+    "orm": "limestone_bedford_orm_web.jpg"
+  },
+  "bytes": {
+    "basecolor.png": 862149,
+    "normal_gl.png": 1582894,
+    "orm.png": 396013,
+    "height16.png": 504431,
+    "basecolor_web.jpg": 93722,
+    "normal_gl_web.jpg": 229005,
+    "orm_web.jpg": 104282
+  },
+  "sha256": {
+    "basecolor.png": "76f79b911931f0bec5f6d8b62611dffd88243206dd1621ee3edd5cc15bc521d4",
+    "normal_gl.png": "8bfc28ba9f1e961d072ed34814116bf139d2831442ea573122a026d2d3833264",
+    "orm.png": "40c00de1adb85b8c6c11c36c62045876bc1d560fc1fbb5903235b2030c5558c0",
+    "height16.png": "96c3a37bf3b4ca13ed6ff5241f60529541e0dc079167d6dc0b18f889bec6484b",
+    "basecolor_web.jpg": "d78bb5ded0d95819f00e0746309ef269be0007aba88d8edd91f8e22055ac14e9",
+    "normal_gl_web.jpg": "0b29981352dd1ca1d780fddb0a7c9bdbe462024043148b27eb1388ebb6c46e6c",
+    "orm_web.jpg": "990a21c3f243608497b6e4d40caca25f5e8684bfa99ab29775add47e29a080c9"
+  },
+  "seamless": true,
+  "generator_seed": 19040804,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_stone.py); no photograph sampled"
+}

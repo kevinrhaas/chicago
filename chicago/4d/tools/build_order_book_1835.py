@@ -168,17 +168,52 @@ HOUSEHOLD_TYPES = (
 # several hundred over. The HOUSEHOLDS are real work: 392 family and store houses the model
 # wants, and 1,244 present head records with no reading about a dwelling to form them
 # around. That is T-2188's.
-# SWEPT AGAIN ON T-2188's SPLIT (2026-10-08, ported by T-2190 so its gate stops reading a
-# split owner): the family dwellings go to T-2193, which counts the ones the town already
-# forms around held heads, and the store residences to T-2194.
+# AND T-2188 SPLIT TOO (2026-10-08), because the two household rows are not one job either.
+# The FAMILY DWELLINGS are formed already: the address book's dealt roofs (T-1613/T-1614)
+# and the housing seats' family rung (T-1971/T-1972) put hundreds of those head records
+# under a standing dwelling as its household, and only this book had not counted them.
+# T-2193 counts them (`tools/count_held_head_dwellings_1835.py`). The STORE RESIDENCES
+# are not: the housing seats refuse every store roof, so no held head stands over a shop,
+# and what the 56 are is T-2194's ruling.
 # RULED ON T-2194 (2026-10-09, `store_residence_ruling` below): the store rows ordered more
 # households than the town has store roofs, and the order above one household a roof is
-# discharged. What is left is a keeper for each store roof that stands empty, and T-2236
-# seats one from the store-trade heads the town already holds.
+# discharged. What is left is a keeper for each store roof that stands empty. T-2236 seats
+# the keepers of the houses of trade the town holds over their stores (the housing seats'
+# `keeper` rung, filled by count_held_head_dwellings_1835.py). T-2244 discharges a store
+# whose keeper the town places on another roof (the deal's `kept_from_elsewhere`). T-2240,
+# split, owned what that could not form; T-2245 linked the firm partners the town does hold
+# a card for (data/businesses/rulings/partner_links.json), and T-2246 owns the store roofs
+# still owed: firms whose partner the town holds no card for, and the firmless west store.
 FAMILY_OWNER = "T-2187"
-FAMILY_HOUSEHOLD_OWNER = "T-2193"
+# T-2193 counted the held heads and is done. T-1645 (2026-10-09) took the letter-list
+# households off the platted deal's roofs, and the South's held heads fell ten short of its
+# family_dwelling order (157 against room for 167). T-2256 discharged those ten on the
+# book's own rule 2 (`waiting_families_ruling` below): the town holds families present on
+# the scene date with no division and no roof, so it may not order their replacement. The
+# rows read 0 left and keep T-2256's id as the ticket that settled them (T-1420); one that
+# owes again is a reopened order the work-order gate names.
+FAMILY_HOUSEHOLD_OWNER = "T-2256"
+# AND THE NORTH AND WEST OWE AGAIN (T-2255, 2026-10-10). The off-plat deal stopped seating
+# letter-list households on the ruling of 2026-08-30 (T-0379), so the held heads under North
+# and West dwellings fell 8 and 15 short of those orders; the waiting families discharge 6
+# and 5, and 2 and 10 are owed. T-2256 is done, so those two rows go to T-2279, filed for
+# them; the South's row still reads 0 left and keeps T-2256's id. T-2279 was split: T-2285
+# spread the South's unspent share of the waiting families on to them (North 1 and West 9
+# owed), and T-2286 owns what is left, which no waiting family or held head can fill.
+# RULED ON T-2286 (2026-10-10, `full_family_persons_ruling` below): every family person cell
+# of the North and the West reads 0 left, so a house still ordered there has nobody the book
+# may put in it, and the order past what the open family cells can people is discharged.
+# The rows read 0 left and keep T-2286's id as the ticket that settled them (T-1420).
+FAMILY_HOUSEHOLD_OWNER_BY_DIVISION = {"north": "T-2286", "west": "T-2286"}
+HELD_HEAD_TICKET = "T-2193"
+WAITING_FAMILIES_TICKET = "T-2256"
+FULL_PERSONS_TICKET = "T-2286"
+# A family is two people or more; a single person takes a bed or boards (`waiting_families`).
+FAMILY_MIN_PERSONS = 2
 STORE_RULING_TICKET = "T-2194"
-STORE_RESIDENCE_OWNER = "T-2236"
+STORE_RESIDENCE_FILLER = "T-2236"
+STORE_ELSEWHERE_TICKET = "T-2244"
+STORE_RESIDENCE_OWNER = "T-2246"
 ADULT_MEN_OWNER = FAMILY_OWNER
 # …and the ruling T-2021 made, whose fills are an order of their own (`family_ruling_orders`).
 FAMILY_RULING_TICKET = "T-2021"
@@ -453,10 +488,30 @@ STRUCTURE_TICKETS = {
     # deals the South six dwellings nobody asks for, on the South Water blocks (one of them
     # gated), and T-2182 owns them.
     #
-    # AND ON TO T-2239 WHEN T-2182 WAS SPLIT (2026-10-09). T-2238 builds the Market wedge's
-    # D5 against hh_dixon_robert's slot; T-2239 owns the five the row still owes once that
-    # stands, and the re-budget of the row by name, so the row names the piece that finishes it.
-    ("south", "ordinary_dwellings"): "T-2239",
+    # AND ON TO T-2239 WITH T-2238's OWN PR (2026-10-09). T-2182 was split: T-2238 built the
+    # wedge's D5 the seating asked for (blk_south_water_market's lot 7, after T-2195 cut the
+    # wedge), and no `slot` request is left on the plat; the five the schedule still deals
+    # (a D2 and a D4 on blk_south_water_wells, a D2, D4 and D5 gated) are T-2239's.
+    #
+    # AND ON TO T-2242 WITH T-2241's OWN PR (2026-10-09). T-2239 was split: T-2241 makes
+    # reconcile_665's sizing refuse Wells' lot 0, which H. Jones's store leaves 7.46 m of face
+    # against an 8.128 m party-line unit, so Wells' D2 and D4 join the gated South balance and
+    # all five owed dwellings stand there. T-2242 owns re-budgeting them by name.
+    #
+    # AND ON TO T-2247 (2026-10-09). T-2242 was WITHDRAWN on the owner's decision (a): the
+    # five are not cut from the South's target, they stay owed in the gated balance beyond
+    # committed street control until the S9 street work carries the plat's north-south
+    # columns to Madison. T-2247 owns that street work and then the five dwellings (D2, D2,
+    # D4, D4, D5) and the balance's one boarding house, so the row names it.
+    # T-2247 SPLIT on 2026-10-09 on the owner's ruling (b): T-2252 cuts the School Section's
+    # Monroe-to-Adams tier into lots, T-2253 joins it to the grid and deals it the six gated
+    # roofs, and T-2254 raises them, so the row names T-2254, the piece that builds them.
+    # T-2254 (2026-10-10) raised the four the seating asked for on block 82; the one left
+    # (the second D2, re-dealt as a D1) has no banded South row a clause admits, so the
+    # row names T-2270, which owns it with the block's H3.
+    # T-2270 (2026-10-10) raised the block's last two requests, a D1 and an H1, and the row
+    # reads 0 owed; like the full taverns' cell below it keeps the ticket that filled it.
+    ("south", "ordinary_dwellings"): "T-2270",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -524,7 +579,15 @@ STRUCTURE_TICKETS = {
     # T-1957 SPLIT on 2026-10-08 (ported by T-2190 so its gate stops reading a split
     # owner): T-2195 cuts the Market wedge into lots and T-2196 raises the South's two owed
     # boarding houses on them, so the cell moves to T-2196.
-    ("south", "larger_boarding_houses"): "T-2196",
+    # T-2196 built one of the two on the wedge's lot 7 as a two-unit row (owner ruling a,
+    # 2026-10-09); the other waits in the gated balance for S9, which is T-2247's.
+    # T-2247 was split (2026-10-09) and the H3 is one of the six T-2254 raises on the
+    # Monroe-to-Adams tier, so the cell moves to T-2254. T-2254 left it unbuilt (no clause
+    # admits a South row to it, and its beds would move the frozen lodging model), so the
+    # cell moves to T-2270 with the block's last D1.
+    # T-2268's re-apportionment had already re-dealt that H3 as the H1 T-2270 raised, so the
+    # cell reads 28 of 28 and keeps the ticket that closed it.
+    ("south", "larger_boarding_houses"): "T-2270",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
@@ -573,7 +636,12 @@ STRUCTURE_TICKETS = {
     # AND ON TO T-2175 WHEN T-1673 WAS SPLIT (2026-10-08, T-2174 + T-2175). T-2174 raises the
     # street line's F2 and goes `done` when it merges, so the order moves to the piece that
     # carries the rest of the line, as the band in the inventory does.
-    ("south", "warehouses_freight"): "T-2175",
+    #
+    # AND ON TO T-2268 WHEN T-2175 WAS SPLIT (2026-10-09, T-2268 + T-2269). T-2269 raised the
+    # F4 lumber shed on the South Branch's east bank, so the two F3s are what the line owes,
+    # and T-2268 is the piece that carries them, as the band in the inventory says. T-2268
+    # raises both on the bank-landing clause, which closes the street line's order.
+    ("south", "warehouses_freight"): "T-2268",
     # T-1202 WAS SPLIT on 2026-09-27 and closed with T-1688, the Randolph tier's books, so
     # this row named a ticket nobody can claim (T-1705). It orders nothing — the five
     # civic roofs the matrix sets all stand, and T-1202 raised none of them, so its id here
@@ -614,9 +682,15 @@ STRUCTURE_TICKETS = {
     # T-2176 built the South's last owed barn (an A2 behind the D3 on blk_south_water_wells'
     # lot 7) and the row reads 0 owed; the pair follows the dwellings to T-2182 so a row that
     # re-opens when the schedule re-apportions still names a live ticket. T-2182 was split
-    # (2026-10-09) and the pair follows the dwellings on to T-2239.
-    ("south", "barns_stables"): "T-2239",
-    ("south", "small_outbuildings"): "T-2239",
+    # (2026-10-09) and the pair follows the dwellings on to T-2239, and with T-2239's split
+    # on to T-2242, the piece that still owes them. T-2242 was withdrawn on the owner's
+    # decision (a) (2026-10-09) and the pair follows the dwellings on to T-2247, which owns
+    # the gated balance until the S9 street work lands.
+    # With T-2247's split (2026-10-09) the pair follows the dwellings on to T-2254.
+    # T-2254 raised block 82's houses and closes, and the dwellings it left went to T-2270
+    # (2026-10-10), so the pair follows them on to T-2270.
+    ("south", "barns_stables"): "T-2270",
+    ("south", "small_outbuildings"): "T-2270",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
@@ -1006,7 +1080,58 @@ def load(root: Path = ROOT) -> dict:
     # carries it; a fixture book has none, and orders as it always did.
     out["adult_men"] = adult_men_on_the_cards(out["residents"], out["presence_rulings"],
                                               root / "data" / "residents")
+    # T-2244: the store roofs the housing deal rules kept from elsewhere — the house of
+    # trade's keeper placed on another roof, nobody over the store — by division. A fixture
+    # tree has no deal, and discharges none.
+    seats = root / "data" / "reconstruction" / "1835_housing_seats.json"
+    keepers = ((json.loads(seats.read_text(encoding="utf-8")).get("the_keepers") or {})
+               if seats.exists() else {})
+    out["stores_kept_from_elsewhere"] = (keepers.get("kept_from_elsewhere") or {}).get(
+        "by_division") or {}
+    # T-2246: and those whose house of trade has no keeper the town holds a card for.
+    out["stores_keeper_not_held"] = (keepers.get("keeper_not_held") or {}).get(
+        "by_division") or {}
+    # T-2256: the held heads under a standing dwelling, by division (T-2193's ledger, the
+    # counted and the past alike), and the held families the census ceiling left waiting on
+    # a roof. A fixture tree has neither, and discharges none.
+    ledger = root / "data" / "reconstruction" / "1835_held_head_dwellings.json"
+    if ledger.exists() and seats.exists():
+        rows = json.loads(ledger.read_text(encoding="utf-8"))
+        out["family_held_by_division"] = dict(Counter(
+            r["division"] for r in (rows.get("counted") or []) + (rows.get("not_counted") or [])))
+        from name_the_keepers_1835 import is_letter_list  # T-1645's predicate, not a copy
+        awaiting = set(records_awaiting_a_household(out["residents"], out["presence_rulings"]))
+        apart = json.loads(seats.read_text(encoding="utf-8")).get("counted_apart") or []
+        division = {hh["id"]: hh.get("division") for hh in out["residents"]["households"]}
+        out["families_waiting_on_a_roof"] = waiting_families(
+            apart, awaiting, division,
+            lambda row: is_letter_list(json.loads(
+                (root / "data" / "residents" / row["file"]).read_text(encoding="utf-8"))))
     return out
+
+
+def waiting_families(counted_apart: list, awaiting: set, division: dict,
+                     letter_list) -> dict[str, int]:
+    """T-2256: the held families the housing deal stood in line behind the census ceiling.
+
+    A row of the housing seats' `counted_apart` counts when ALL of these hold: the deal
+    wrote it `waiting_on_a_roof` (present, owed a roof, stopped by the ceiling — not an
+    absence); the book reads the record as AWAITING A HOUSEHOLD (a record the book already
+    counts as a house is known, and counting it here would discharge its cell twice); it
+    is a FAMILY, two people or more, because a single person takes a bed or boards on the
+    deal's third rung and is never a household of their own there; and it is not a
+    household the owner's letter-list ruling of 2026-08-30 (T-0379) refuses a roof.
+
+    Counted by the division the index records, and `unplaced` where it records none — which
+    on 2026-10-09 is every one of them: the deal offers an unplaced household the whole
+    town, and the line stopped before it reached them."""
+    out = Counter()
+    for row in counted_apart:
+        if (row.get("why") == "waiting_on_a_roof" and row["household"] in awaiting
+                and int(row.get("persons") or 0) >= FAMILY_MIN_PERSONS and not letter_list(row)):
+            d = division.get(row["household"])
+            out[d if d in CIVIL_DIVISIONS else "unplaced"] += 1
+    return dict(sorted(out.items()))
 
 
 def adult_men_on_the_cards(residents: dict, rulings: dict, folder: Path) -> dict:
@@ -1119,7 +1244,9 @@ def adult_men_ruling(buckets: list, measure: dict) -> dict:
     }
 
 
-def store_residence_ruling(households: list, structures: list) -> dict | None:
+def store_residence_ruling(households: list, structures: list,
+                           kept_elsewhere: dict | None = None,
+                           keeper_not_held: dict | None = None) -> dict | None:
     """T-2194: the store households the book orders, set against the store roofs. In place.
 
     `household_buckets` weights each household type on the roofs of its group, and the
@@ -1134,7 +1261,20 @@ def store_residence_ruling(households: list, structures: list) -> dict | None:
     inventory's store roofs all stand (`structures/stores_mixed_use/*`), so the roofs read here
     are the town's and not a schedule's. Nobody is moved, minted or retired, and the
     discharged households are not re-apportioned to the dwelling rows: the model's
-    households are a midpoint, and the book says how far it moved from it."""
+    households are a midpoint, and the book says how far it moved from it.
+
+    T-2244: and a store whose house of trade's keeper the town already places on another
+    roof (`kept_elsewhere`, the housing deal's count by division) stands with nobody living
+    over it, so its keeper's household is not owed there either. That too is discharged,
+    never below what the cell has filled, and carried as `discharged_kept_from_elsewhere`.
+
+    T-2246: and a store whose house of trade has no keeper the town holds a card for
+    (`keeper_not_held`, the housing deal's count by division; T-2245's partner_links.json
+    says why for each firm) stands with nobody seated over it, because the register's mint
+    refuses those keepers a card and nobody is minted to fill the order. Discharged the same
+    way, carried as `discharged_keeper_not_held`."""
+    kept_elsewhere = kept_elsewhere or {}
+    keeper_not_held = keeper_not_held or {}
     roofs = {b["key"].rsplit("/", 1)[1]: int(b.get("standing") or 0) for b in structures
              if b["key"].startswith("structures/stores_mixed_use/")}
     cells = [b for b in sorted(households, key=lambda b: b["key"])
@@ -1151,13 +1291,27 @@ def store_residence_ruling(households: list, structures: list) -> dict | None:
         if take:
             b["discharged_by_the_store_ruling"] = take
             b["to_reconstruct"] -= take
+        away = min(max(0, (b["to_reconstruct"] or 0) - b["filled"]),
+                   int(kept_elsewhere.get(division) or 0))
+        if away:
+            b["discharged_kept_from_elsewhere"] = away
+            b["to_reconstruct"] -= away
+        unheld = min(max(0, (b["to_reconstruct"] or 0) - b["filled"]),
+                     int(keeper_not_held.get(division) or 0))
+        if unheld:
+            b["discharged_keeper_not_held"] = unheld
+            b["to_reconstruct"] -= unheld
         rows[division] = {"store_roofs_standing": standing,
                           "store_households_ordered": b["target"],
                           "discharged": take,
+                          "kept_from_elsewhere": away,
+                          "keeper_not_held": unheld,
                           "still_owed": max(0, (b["to_reconstruct"] or 0) - b["filled"])}
     ordered = sum(r["store_households_ordered"] for r in rows.values())
     standing = sum(r["store_roofs_standing"] for r in rows.values())
     discharged = sum(r["discharged"] for r in rows.values())
+    away = sum(r["kept_from_elsewhere"] for r in rows.values())
+    unheld = sum(r["keeper_not_held"] for r in rows.values())
     still = sum(r["still_owed"] for r in rows.values())
     return {
         "ticket": STORE_RULING_TICKET,
@@ -1167,26 +1321,247 @@ def store_residence_ruling(households: list, structures: list) -> dict | None:
         "store_roofs_standing": standing,
         "store_households_ordered": ordered,
         "discharged": discharged,
+        "kept_from_elsewhere": away,
+        "kept_from_elsewhere_by": STORE_ELSEWHERE_TICKET,
+        "keeper_not_held": unheld,
+        "keeper_not_held_by": STORE_RESIDENCE_OWNER,
         "still_owed": still,
         "still_owed_by": STORE_RESIDENCE_OWNER,
         "measured": (f"The book ordered {ordered:,} store households on the town's {standing:,} "
                      f"civil store roofs, {ordered / standing:.2f} a roof, because the "
                      f"households are apportioned on roof counts. A store residence is one "
-                     f"household, the keeper's, so {discharged:,} are discharged and "
-                     f"{still:,} are still owed: a keeper for a store roof that stands with "
-                     f"nobody in it."),
+                     f"household, the keeper's, so {discharged:,} are discharged; "
+                     f"{away:,} more stand a house of trade whose keeper the town places on "
+                     f"another roof, so nobody lived over them; {unheld:,} stand a house of "
+                     f"trade whose keeper the town holds no card for, so nobody is seated over "
+                     f"them; and {still:,} are still owed: a keeper for a store roof that "
+                     f"stands with nobody in it."),
         "ruling": "BOTH. The book over-orders the store rows, by what it ordered above one "
                   "household a store roof, and that is discharged here. And the index is "
                   "short: the household quota counts houses off the residents index alone, "
                   "so the trade households the reconstruction drew as heads of their own and "
                   "seated on a roof, the readmitted and the underdocumented are outside the "
                   "count. They are people the cards hold present, not an order to fill, and "
-                  f"{STORE_RESIDENCE_OWNER} forms the store households still owed from the "
-                  "store-trade heads among them rather than from anybody new.",
+                  f"{STORE_RESIDENCE_FILLER} forms the store households from the keepers of "
+                  "the houses of trade the town holds, over their own stores, rather than "
+                  f"from anybody new; what it could not form is {STORE_RESIDENCE_OWNER}'s.",
         "what_this_does_not_do": "It moves, mints and retires nobody, it does not re-apportion "
                                  "the discharged households to the dwelling rows, and it does "
-                                 "not count the households outside the index: that count "
-                                 "moves every household row and is T-2237's.",
+                                 "not count the households outside the index: T-2237 "
+                                 "counts those beside the held heads "
+                                 "(count_held_head_dwellings_1835.py, `beyond_the_index`).",
+    }
+
+
+def waiting_families_ruling(households: list, fills: list, held: dict | None,
+                            waiting: dict | None) -> dict | None:
+    """T-2256: the family_dwelling order the held heads cannot fill, set against the held
+    families waiting on a roof. In place.
+
+    The family cells are filled by houses the town already forms (T-2193's held heads under
+    a standing dwelling) and by the houses the women-and-children stage drew. Where a
+    division's held heads run out before its order does, what is left is not a household the
+    town lacks: the housing deal holds families present on the scene date that it could not
+    seat because the census's people per dwelling stopped its line (`waiting_on_a_roof`), and
+    the index records no division for them. The book's rule 2 already says what such people
+    are — somebody standing in the town whom the layer cannot place on an axis is spread PRO
+    RATA across that axis's cells (`subtract_pro_rata`), and the book never orders their
+    replacement. So each cell's shortfall is DISCHARGED by its share of those families, plus
+    any that wait with this division on their card, never past the shortfall and never below
+    what the cell has filled; `discharged_by_the_waiting_families` carries it. A share past
+    its cell's shortfall is not dropped (T-2285): the families in it stand in the town all the
+    same, so it is spread on over the cells still short, pro rata on their targets, until it
+    is spent or no cell is short (`re_spread_from_full_cells`).
+
+    The shortfall is read against the held heads themselves, not against the fill, so a held
+    head the seats put under a dwelling of this division later is counted in the cell and
+    the discharge shrinks by one on the next build. They are not FILLS: no roof stands over
+    them, and the roof they lack is the dwelling builds'. Nobody is moved, minted or seated,
+    no letter-list household is among them (`waiting_families`), and a cell whose share runs
+    out owes again under its owning ticket."""
+    if held is None or waiting is None:
+        return None
+    cells = [b for b in sorted(households, key=lambda b: b["key"])
+             if b["axes"].get("household_type") == "family_dwelling"
+             and b["axes"].get("division") in CIVIL_DIVISIONS]
+    if not cells:
+        return None
+    own = Counter()
+    for fill in fills:
+        if fill.get("ticket") == HELD_HEAD_TICKET:
+            own[fill["bucket"]] += int(fill.get("records") or 0)
+    targets = {b["key"]: b["target"] for b in cells}
+    share = subtract_pro_rata(targets, int(waiting.get("unplaced") or 0))
+    facts, need, took = {}, {}, Counter()
+    for b in cells:
+        division = b["axes"]["division"]
+        others = b["filled"] - own[b["key"]]
+        heads = int(held.get(division) or 0)
+        short = max(0, (b["to_reconstruct"] or 0) - others - heads)
+        facts[b["key"]] = (division, others, heads, short)
+        need[b["key"]] = min(short, max(0, (b["to_reconstruct"] or 0) - b["filled"]))
+        # A family with this division on its card waits on this division's roof alone.
+        took[b["key"]] = min(need[b["key"]], int(waiting.get(division) or 0))
+    # T-2285: the unplaced are spread pro rata, and a share past what its cell is short goes
+    # on to the cells still short, pro rata on their targets, until it is spent or no cell is
+    # short. Left with the cell that could not take it, it discharged nothing, and the book
+    # ordered a replacement elsewhere for a family standing in the town.
+    alloc, re_spread, first = dict(share), Counter(), True
+    while True:
+        pool = 0
+        for key, n in alloc.items():
+            use = min(n, need[key] - took[key])
+            took[key] += use
+            if not first:
+                re_spread[key] += use
+            pool += n - use
+        first = False
+        still_short = {k: targets[k] for k in need if need[k] > took[k] and targets[k] > 0}
+        if not pool or not still_short:
+            break
+        alloc = largest_remainder(pool, still_short)
+    rows = {}
+    for b in cells:
+        division, others, heads, short = facts[b["key"]]
+        take = took[b["key"]]
+        if take:
+            b["discharged_by_the_waiting_families"] = take
+            b["to_reconstruct"] -= take
+        rows[division] = {"held_heads_under_a_dwelling": heads,
+                          "houses_other_stages_drew": others,
+                          "short_of_the_order": short,
+                          "waiting_families_share": share[b["key"]] + int(waiting.get(division) or 0),
+                          "re_spread_from_full_cells": re_spread[b["key"]],
+                          "discharged": take,
+                          "still_owed": max(0, (b["to_reconstruct"] or 0) - b["filled"])}
+    total = sum(waiting.values())
+    discharged = sum(r["discharged"] for r in rows.values())
+    short = sum(r["short_of_the_order"] for r in rows.values())
+    still = sum(r["still_owed"] for r in rows.values())
+    moved = sum(re_spread.values())
+    unspent = total - discharged
+    return {
+        "ticket": WAITING_FAMILIES_TICKET,
+        "asks": "The family_dwelling order outruns the held heads the housing seats put under "
+                "a standing dwelling. Is that a household the town lacks?",
+        "families_waiting_on_a_roof": waiting,
+        "by_division": rows,
+        "short_of_the_order": short,
+        "discharged": discharged,
+        "re_spread_from_full_cells": moved,
+        "discharging_nothing": unspent,
+        "still_owed": still,
+        "measured": (f"The held heads fall {short:,} short of the family_dwelling order. The "
+                     f"housing deal holds {total:,} families present on the scene date and "
+                     f"waiting on a roof behind the census ceiling, none of them a letter-list "
+                     f"household, {int(waiting.get('unplaced') or 0):,} with no division on "
+                     f"the card; spread pro rata on the cells' targets, as rule 2 spreads "
+                     f"the unplaced known, with a share past its cell's shortfall spread on "
+                     f"over the cells still short ({moved:,} so), they discharge "
+                     f"{discharged:,}"
+                     + (f", {unspent:,} discharge nothing because no cell is short," if unspent
+                        else "")
+                     + f" and {still:,} are still owed."),
+        "ruling": "NOT A HOUSEHOLD THE TOWN LACKS. Rule 2 never orders a replacement for "
+                  "somebody standing in the town, and these families stand in it on their own "
+                  "cards: what they lack is a roof, which the remaining dwelling builds raise, "
+                  "and the deal seats them where the room is when they do.",
+        "what_this_does_not_do": "It seats, moves, mints and retires nobody, counts no waiting "
+                                 "family as a fill, and re-admits no household the letter-list "
+                                 "ruling (T-0379) refuses a roof.",
+        "what_would_reopen_it": "a waiting family seated in another division, or a held head "
+                                "of this one boarded instead: either takes one from the share "
+                                "or adds one to the shortfall, and the cell owes again under "
+                                "its owning ticket.",
+    }
+
+
+def full_family_persons_ruling(households: list, persons: list,
+                               floor: int | None = None) -> dict | None:
+    """T-2286: the family_dwelling order the waiting families leave owing, set against the
+    family PERSON cells of the same division. In place; run after `waiting_families_ruling`.
+
+    A family dwelling is a house of people, and the people it holds are counted in the
+    person family, in the cells whose `household_type` is `family`. Where every one of
+    those cells in a division already reads 0 left, the book has nobody to put in a house it
+    still orders there: drawing a family for it overfills a person cell, which
+    `no_bucket_overfilled` refuses, and no letter-list household is re-admitted and no bed
+    is counted as a house to make one. What is left is not a household the town lacks but
+    the households midpoint (`point_from_range`) asking more houses of a division whose
+    families stand in fewer of them, and larger. So each cell's order past what its
+    division's open family cells could still people, at FAMILY_MIN_PERSONS a house, is
+    DISCHARGED; `discharged_by_the_full_family_cells` carries it.
+
+    Never below what the cell has filled, and never past the model's own range: with
+    `floor`, the households the book orders after the discharge may not fall under the
+    range's low end, and a discharge that would is cut to it and the rest left owing."""
+    cells = [b for b in sorted(households, key=lambda b: b["key"])
+             if b["axes"].get("household_type") == "family_dwelling"
+             and b["axes"].get("division") in CIVIL_DIVISIONS]
+    if not cells:
+        return None
+    open_people = Counter()
+    for b in persons:
+        if b["axes"].get("household_type") == "family":
+            open_people[b["axes"].get("division")] += max(0, (b["to_reconstruct"] or 0) - b["filled"])
+    ordered = sum((b.get("known") or 0) + (b["to_reconstruct"] or 0) for b in households
+                  if b.get("target") is not None)
+    room = None if floor is None else max(0, ordered - floor)
+    rows = {}
+    for b in cells:
+        division = b["axes"]["division"]
+        owed = max(0, (b["to_reconstruct"] or 0) - b["filled"])
+        peopled = open_people[division] // FAMILY_MIN_PERSONS
+        take = max(0, owed - peopled)
+        if room is not None:
+            take = min(take, room)
+            room -= take
+        if take:
+            b["discharged_by_the_full_family_cells"] = take
+            b["to_reconstruct"] -= take
+        rows[division] = {"owed_after_the_waiting_families": owed,
+                          "family_persons_still_owed": open_people[division],
+                          "houses_those_persons_could_people": peopled,
+                          "discharged": take,
+                          "still_owed": max(0, (b["to_reconstruct"] or 0) - b["filled"])}
+    owed = sum(r["owed_after_the_waiting_families"] for r in rows.values())
+    if not owed:
+        return None
+    discharged = sum(r["discharged"] for r in rows.values())
+    still = sum(r["still_owed"] for r in rows.values())
+    full = sorted(d for d, r in rows.items()
+                  if r["owed_after_the_waiting_families"] and not r["family_persons_still_owed"])
+    return {
+        "ticket": FULL_PERSONS_TICKET,
+        "asks": "The family_dwelling order still owes houses once the waiting families are "
+                "spent. Is there anybody the book may put in them?",
+        "by_division": rows,
+        "owed_after_the_waiting_families": owed,
+        "discharged": discharged,
+        "still_owed": still,
+        "households_the_book_orders": ordered - discharged,
+        "households_range_floor": floor,
+        "measured": (f"The waiting families leave {owed:,} houses owed on the family_dwelling "
+                     f"rows. Every family person cell of "
+                     + (" and ".join(d.title() for d in full) if full else "no division")
+                     + f" reads 0 left, so {discharged:,} of those houses have nobody the "
+                     f"book may draw into them without overfilling a person cell; discharged, "
+                     f"the book orders {ordered - discharged:,} households"
+                     + (f", inside the model's range from {floor:,}," if floor is not None else ",")
+                     + f" and {still:,} are still owed."),
+        "ruling": "NOT A HOUSEHOLD THE TOWN LACKS. A house is the people in it, and the person "
+                  "side of the division is full: its families stand in the town in fewer "
+                  "houses than the households midpoint asks, and larger, which the model's "
+                  "range admits. The order past what the open family cells could people is "
+                  "discharged rather than met with a house nobody lives in.",
+        "what_this_does_not_do": "It seats, moves, mints and retires nobody, counts no single "
+                                 "person or boarders' roof as a household, and re-admits no "
+                                 "household the letter-list ruling (T-0379) refuses a roof.",
+        "what_would_reopen_it": "a family person cell of the division owing again (a re-cut "
+                                "that frees people for a house), or a held head of the division "
+                                "boarded instead: either adds to what the open cells can people "
+                                "or to the shortfall, and the cell owes again under its owning "
+                                "ticket.",
     }
 
 
@@ -1398,6 +1773,35 @@ def ruled_present(rulings: dict | None) -> dict:
     return out
 
 
+def household_standing(hh: dict, ruled) -> str:
+    """Where one manifest row stands in the book's count, as `known_layer` reads it.
+
+    `not_in_the_town` (absent, or `uncertain` with no ruling), `reconstructed` (a house
+    nobody in it is named in — the order being filled), `a_house` (present, with a clause
+    that makes the record a house) or `awaiting_a_household` (present, with none). One
+    function, because T-2193 counts houses for exactly the last set and a second copy of
+    this test would be free to drift from the one the quota is cut against.
+    """
+    presence = hh.get("present_on_scene_date")
+    if presence == "uncertain":
+        if hh.get("id") not in ruled:
+            return "not_in_the_town"
+    elif presence != "present":
+        return "not_in_the_town"
+    persons = int(hh.get("persons") or 0)
+    named = persons - int((hh.get("grades") or {}).get("reconstructed") or 0)
+    if persons and named == 0:
+        return "reconstructed"
+    return "a_house" if hh.get("dwelling_evidence") else "awaiting_a_household"
+
+
+def records_awaiting_a_household(residents: dict, rulings: dict | None) -> list[str]:
+    """The ids `known_layer` counts as `records_awaiting_a_household`, in manifest order."""
+    ruled = ruled_present(rulings)
+    return [hh["id"] for hh in residents.get("households", [])
+            if household_standing(hh, ruled) == "awaiting_a_household"]
+
+
 def known_layer(residents: dict, rulings: dict | None = None) -> dict:
     """The known people and households, read off the committed resident index AND
     off T-1386's presence rulings.
@@ -1458,12 +1862,12 @@ def known_layer(residents: dict, rulings: dict | None = None) -> dict:
         out["persons_total"] += persons
         presence = hh.get("present_on_scene_date")
         from_a_ruling = presence == "uncertain" and hh.get("id") in ruled
+        standing = household_standing(hh, ruled)
         if presence == "uncertain":
             out["households_uncertain"] += 1
-            if not from_a_ruling:
-                continue
-        elif presence != "present":
-            out["households_evidenced_absent"] += 1
+        if standing == "not_in_the_town":
+            if presence != "uncertain":
+                out["households_evidenced_absent"] += 1
             continue
         # EVERY PERSON PAST THIS LINE IS STANDING IN THE TOWN, named or drawn. It is the
         # figure the landing card prints and the one the remainder is measured against
@@ -1479,12 +1883,12 @@ def known_layer(residents: dict, rulings: dict | None = None) -> dict:
         # every house it made — so the second build of the same stage derived 65 houses
         # where the first derived 124, and `--check` could never have held it. A wholly
         # reconstructed house is the order being filled; `filled` is its counter.
-        if persons and named == 0:
+        if standing == "reconstructed":
             out["households_reconstructed"] += 1
             continue
         out["households_present"] += 1
         clause = hh.get("dwelling_evidence")
-        a_house = bool(clause)
+        a_house = standing == "a_house"
         if a_house:
             out["houses_present"] += 1
             out["houses_present_by_clause"][clause] = (
@@ -2034,7 +2438,8 @@ def household_buckets(model: dict, inventory: dict, known: dict) -> dict:
             "known": known_by_cell[key],
             "to_reconstruct": max(0, targets[key] - known_by_cell[key]),
             "filled": 0,
-            "owning_ticket": owners[htype],
+            "owning_ticket": (FAMILY_HOUSEHOLD_OWNER_BY_DIVISION.get(division, owners[htype])
+                              if htype == "family_dwelling" else owners[htype]),
             "basis": (
                 f"the model's {total:,} households apportioned on the "
                 f"{_apportioned_on(htype)} in the "
@@ -3456,7 +3861,16 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
                          data.get("family_ruling_withdrawn") or {})
     men_ruling = (adult_men_ruling(families[0]["buckets"], data["adult_men"])
                   if data.get("adult_men") else None)
-    store_ruling = store_residence_ruling(families[1]["buckets"], families[3]["buckets"])
+    store_ruling = store_residence_ruling(families[1]["buckets"], families[3]["buckets"],
+                                          data.get("stores_kept_from_elsewhere"),
+                                          data.get("stores_keeper_not_held"))
+    waiting_ruling = waiting_families_ruling(families[1]["buckets"], fills,
+                                             data.get("family_held_by_division"),
+                                             data.get("families_waiting_on_a_roof"))
+    # Only once the waiting families are spent, and only on a tree that ruled on them.
+    full_ruling = (full_family_persons_ruling(
+        families[1]["buckets"], families[0]["buckets"],
+        families[1]["summary"]["households_target_range"][0]) if waiting_ruling else None)
 
     spent = Counter()
     for fill in fills:
@@ -3626,6 +4040,10 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
         **({"adult_men_ruling": men_ruling} if men_ruling else {}),
         # THE STORE ROWS, RULED AGAINST THE STORE ROOFS (T-2194).
         **({"store_residence_ruling": store_ruling} if store_ruling else {}),
+        # THE FAMILY ROWS, RULED AGAINST THE FAMILIES WAITING ON A ROOF (T-2256).
+        **({"waiting_families_ruling": waiting_ruling} if waiting_ruling else {}),
+        # …AND WHAT THEY LEAVE, RULED AGAINST THE FULL PERSON SIDE (T-2286).
+        **({"full_family_persons_ruling": full_ruling} if full_ruling else {}),
         "bucket_families": families,
         "programme_deltas": programme_deltas(data["model"], data["inventory"],
                                              data["programme"], persons, households),
@@ -3636,8 +4054,12 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
         # between cells is neither retired nor drawn, and this is where each move is
         # recorded on both ends. Empty by design — T-1558 models WHICH heads move and
         # T-1559 spends them.
+        # The PERSON family's refusals only, beside the person family's buckets: a refused
+        # household bucket (the South's family dwellings, T-2191 + T-2232) holds a HOUSE,
+        # and a house is not a person for T-1558's rule to re-family. It stays named above.
         "re_family_ledger": refamily_ledger(
-            moves, families[0]["buckets"], recut_refusals,
+            moves, families[0]["buckets"],
+            [r for r in recut_refusals if r["bucket"].startswith("persons/")],
             sum(max(0, (b["to_reconstruct"] or 0) - b["filled"])
                 for b in families[0]["buckets"]), rule),
     }
@@ -3949,7 +4371,8 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
                    if ticket is None or b["owning_ticket"] == ticket)
     persons, households = families[0], families[1]
     p_1171 = owed(persons, FAMILY_OWNER)
-    h_1171 = owed(households, FAMILY_HOUSEHOLD_OWNER) + owed(households, STORE_RESIDENCE_OWNER)
+    h_1171 = (owed(households, FAMILY_HOUSEHOLD_OWNER) + owed(households, STORE_RESIDENCE_OWNER)
+              + sum(owed(households, t) for t in set(FAMILY_HOUSEHOLD_OWNER_BY_DIVISION.values())))
     held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
     target = persons["summary"]["town_target"]
     low, high = persons["summary"]["town_target_range"]
@@ -4287,6 +4710,14 @@ def report_text(doc: dict) -> str:
             ruling = doc["store_residence_ruling"]
             out += ["", f"**The store rows, ruled ({ruling['ticket']}).** {ruling['measured']} "
                         f"{ruling['ruling']}"]
+        if family["key"] == "households" and doc.get("waiting_families_ruling"):
+            ruling = doc["waiting_families_ruling"]
+            out += ["", f"**The family rows, ruled ({ruling['ticket']}).** {ruling['measured']} "
+                        f"{ruling['ruling']}"]
+        if family["key"] == "households" and doc.get("full_family_persons_ruling"):
+            ruling = doc["full_family_persons_ruling"]
+            out += ["", f"**What the waiting families leave, ruled ({ruling['ticket']}).** "
+                        f"{ruling['measured']} {ruling['ruling']}"]
 
     restatements = [d for d in doc["programme_deltas"] if d.get("restates_the_programme")]
     out += ["", "## Where the model and the roof programme disagree", "",
@@ -4589,9 +5020,12 @@ def cmd_self_test() -> int:
     assert ledger["moves"] == [] and ledger["counts"]["moves"] == 0, ledger["counts"]
     # …AND ITS ACCOUNT OF THE SURPLUS IS THE REFUSAL TABLE'S OWN ARITHMETIC, not a
     # number typed beside it.
+    # The person family's refusals, as the ledger is handed them (a held house is not a
+    # held person).
+    person_refused = [r for r in shipped["recut_refusals"] if r["bucket"].startswith("persons/")]
     assert ledger["the_held_surplus"]["people_held"] == sum(
-        r["surplus_still_held"] for r in shipped["recut_refusals"])
-    assert ledger["the_held_surplus"]["buckets_refused"] == len(shipped["recut_refusals"])
+        r["surplus_still_held"] for r in person_refused)
+    assert ledger["the_held_surplus"]["buckets_refused"] == len(person_refused)
     assert (ledger["what_it_would_converge_to"]["still_owed_now"]
             == shipped["totals"]["persons_still_owed"])
     # AN EMPTY LEDGER CHANGES NOTHING. The book with no moves in it is the book that
@@ -5091,7 +5525,8 @@ def cmd_self_test() -> int:
     prg = on_disk["re_family_ledger"]["the_programme"]
     assert prg["settled"] is True and prg["moves_the_rule_still_yields"] == 0, prg
     assert prg["people_still_held"] == sum(
-        r["surplus_still_held"] for r in on_disk["recut_refusals"]), prg
+        r["surplus_still_held"] for r in on_disk["recut_refusals"]
+        if r["bucket"].startswith("persons/")), prg
     assert sum(r["people"] for r in prg["and_what_holds_each_of_them"]) \
         == prg["people_still_held"], prg
     assert finish(on_disk).startswith("the re-family programme is settled at its rule's "
@@ -5119,8 +5554,11 @@ def cmd_self_test() -> int:
     assert bank["to_build"] == 0 and bank["target"] == bank["standing"], bank
     assert all(i.startswith("south_bank_shed_dearborn_") for i in bank["band_members"]), bank
     assert "structures/warehouses_freight/south" not in cells, "the cut cell still orders as one"
-    assert line["to_build"] == data["programme"]["remaining"]["by_district_group"]["south"][
-        "warehouses_freight"], line
+    # Since T-2268 raised the street line's last two F3s (2026-10-10) the cell owes nothing,
+    # and the programme drops a remainder that reaches zero rather than carrying a 0 — so a
+    # missing key is the closed cell, and the band must order exactly that: none.
+    assert line["to_build"] == data["programme"]["remaining"]["by_district_group"]["south"].get(
+        "warehouses_freight", 0), line
     fires("a cell cut into one band, which is not a cut",
           banded(lambda cut: cut.__setitem__("bands", cut["bands"][:1])))
     fires("a cell cut with two remainder bands, so its order would be ordered twice",
@@ -5393,8 +5831,29 @@ def cmd_self_test() -> int:
     # building block 81's D5 and block 95's D6): the Market wedge's four lots open a D5, an F4
     # and an H3 in the schedule, and the D5 is dealt as a slot on the wedge's lot 7 to one
     # household the deal had handed on (214 -> 215 platted, 99 off-plat, L270, L409).
+    # 314 -> 310 on 2026-10-09 (T-2255): the off-plat deal reads the letter-list ruling
+    # (T-0379) before it deals, as the platted deal has since T-1645, so the 69 letter-list
+    # households it had seated are owed; 65 handed-on households take their roofs, and in
+    # the West the farm clause takes a farmstead or nothing (215 platted, 99 -> 95 off-plat,
+    # L271).
+    # 310 -> 314 on 2026-10-09 (T-2253, merged over T-2255): the School Section's Monroe-Adams
+    # tier joins the plat on the owner's T-2247 ruling and the South's five gated dwellings and
+    # its H3 are dealt to block 82, so four households the deal had handed on are dealt a slot
+    # there; its second D2 and the H3 find no admitted row (215 -> 219 platted, 95 off-plat,
+    # L270) — requests T-2254 raises.
+    # 318 -> 319 on 2026-10-09 (T-1550, on top of T-2253): hh_beaubien_charles folds onto
+    # hh_beaubien_charles_h and his adopted D3 goes down the South walk; hh_meleney_patrick
+    # takes a standing roof, his block-82 slot is re-dealt and one more household is slotted
+    # there, and one reconstructed household is seated on a freed D1 on the Lake-Market block
+    # (219 -> 220 platted, 99 off-plat, L270).
+    # 319 -> 315 on 2026-10-10 (T-2255, on top of T-1550): the off-plat deal owes the
+    # letter-list cohort the ruling of 2026-08-30 refuses (T-0379), so 99 -> 95 off-plat on
+    # the same 220 platted (L271).
+    # 315 -> 316 on 2026-10-10 (T-2254, on top of T-2268): four of block 82's requests are
+    # raised and adopted, and the block keeps two slots (a D1 and an H1, T-2270's), so the
+    # platted deal seats one household more (220 -> 221 platted, 95 off-plat, L270).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 314
+        data["inventory"], data["programme"], occ))["seated"] == 316
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -5477,9 +5936,105 @@ def cmd_self_test() -> int:
     ruled = store_residence_ruling(cells, [roof_cell("south", 42), roof_cell("west", 6)])
     assert [b["to_reconstruct"] for b in cells] == [24, 7, 184], cells
     assert ruled["discharged"] == 21 and ruled["still_owed"] == 24, ruled
+    cells = [hh_cell("store_residence", "south", 62, 44, 13), hh_cell("store_residence", "west", 9, 8, 7)]
+    ruled = store_residence_ruling(cells, [roof_cell("south", 42), roof_cell("west", 6)],
+                                   {"south": 4, "west": 3})
+    assert [b["to_reconstruct"] for b in cells] == [20, 7], cells
+    assert ruled["kept_from_elsewhere"] == 4 and ruled["still_owed"] == 7, ruled
+    # T-2246: a store with no keeper the town holds is discharged after those, and never
+    # below what the cell has filled (the west's 9 asks for more than is left, and takes 0).
+    cells = [hh_cell("store_residence", "south", 62, 44, 13), hh_cell("store_residence", "west", 9, 8, 7)]
+    ruled = store_residence_ruling(cells, [roof_cell("south", 42), roof_cell("west", 6)],
+                                   {"south": 4, "west": 3}, {"south": 3, "west": 9})
+    assert [b["to_reconstruct"] for b in cells] == [17, 7], cells
+    assert ruled["keeper_not_held"] == 3 and ruled["still_owed"] == 4, ruled
     assert store_residence_ruling(cells[2:], [roof_cell("south", 42)]) is None, \
         "a book with no store rows carried a store ruling"
     assert "store_residence_ruling" in doc, "the committed book carries no ruling on the store rows"
+
+    # T-2256: only a present family, awaiting a household, stopped by the ceiling and not a
+    # letter-list household is a waiting family; each of the four tests is broken once.
+    apart = [{"household": h, "why": why, "persons": n, "file": h}
+             for h, why, n in (("fam", "waiting_on_a_roof", 3), ("one", "waiting_on_a_roof", 1),
+                               ("house", "waiting_on_a_roof", 4), ("gone", "absent_on_the_scene_date", 5),
+                               ("ll", "waiting_on_a_roof", 2), ("sth", "waiting_on_a_roof", 2))]
+    got = waiting_families(apart, {"fam", "one", "gone", "ll", "sth"},
+                           {"fam": "unplaced", "sth": "south"}, lambda row: row["household"] == "ll")
+    assert got == {"south": 1, "unplaced": 1}, got
+    # The shortfall is read off the held heads, never off the fill, so a South head seated
+    # later shrinks the discharge; and it is never past the shortfall, the share or the fill.
+    def fam_cells():
+        return [hh_cell("family_dwelling", "north", 123, 96, 96),
+                hh_cell("family_dwelling", "south", 258, 184, 174)]
+    fill_rows = [{"bucket": "households/family_dwelling/south", "ticket": HELD_HEAD_TICKET,
+                  "records": 157}]
+    cells = fam_cells()
+    ruled = waiting_families_ruling(cells, fill_rows, {"north": 115, "south": 157}, {"unplaced": 23})
+    assert [b["to_reconstruct"] for b in cells] == [96, 174] and ruled["still_owed"] == 0, ruled
+    cells = fam_cells()
+    ruled = waiting_families_ruling(cells, fill_rows, {"north": 115, "south": 160}, {"unplaced": 23})
+    assert ruled["discharged"] == 7 and ruled["still_owed"] == 3, ruled
+    cells = fam_cells()
+    ruled = waiting_families_ruling(cells, fill_rows, {"north": 115, "south": 157}, {"unplaced": 4})
+    # T-2285: the North is full, so its one family goes on to the South rather than nowhere.
+    assert ruled["discharged"] == 4 and ruled["still_owed"] == 6, ruled
+    assert ruled["by_division"]["south"]["re_spread_from_full_cells"] == 1, ruled
+    # And both short: the South's share past its 10 goes to the North, and no further.
+    cells = fam_cells()
+    cells[0]["filled"] = 86
+    ruled = waiting_families_ruling(
+        cells, fill_rows + [{"bucket": "households/family_dwelling/north",
+                             "ticket": HELD_HEAD_TICKET, "records": 80}],
+        {"north": 80, "south": 157}, {"unplaced": 17})
+    assert [b["to_reconstruct"] for b in cells] == [89, 174], cells
+    assert (ruled["discharged"], ruled["re_spread_from_full_cells"], ruled["still_owed"],
+            ruled["discharging_nothing"]) == (17, 2, 3, 0), ruled
+    cells = fam_cells()
+    ruled = waiting_families_ruling(cells, fill_rows, {"north": 115, "south": 157}, {"unplaced": 23})
+    assert ruled["discharging_nothing"] == 13, "a share no cell could take went uncounted"
+    cells = fam_cells()
+    cells[1]["filled"] = 184
+    ruled = waiting_families_ruling(cells, fill_rows, {"north": 115, "south": 100}, {"unplaced": 23})
+    assert cells[1]["to_reconstruct"] == 184, "the waiting families discharged below the fill"
+    assert waiting_families_ruling(fam_cells(), fill_rows, None, {"unplaced": 23}) is None, \
+        "a tree with no held-head ledger discharged a family row"
+    assert "waiting_families_ruling" in doc, "the committed book carries no ruling on the family rows"
+
+    # T-2286: a family row's order past what its division's open family person cells could
+    # people is discharged; broken both ways (open people keep houses owed, and a full side
+    # discharges all), never below the fill and never under the model's range.
+    def person_cell(division, order, filled, htype="family"):
+        return {"key": f"persons/female/20_29/{division}/{htype}/none", "to_reconstruct": order,
+                "filled": filled, "axes": {"household_type": htype, "division": division}}
+    def owed_cells():
+        return [hh_cell("family_dwelling", "north", 123, 89, 88),
+                hh_cell("family_dwelling", "west", 110, 83, 74)]
+    full_side = [person_cell("north", 54, 54), person_cell("west", 41, 41),
+                 person_cell("west", 9, 4, "lodging")]
+    cells = owed_cells()
+    ruled = full_family_persons_ruling(cells, full_side)
+    assert [b["to_reconstruct"] for b in cells] == [88, 74] and ruled["still_owed"] == 0, ruled
+    assert ruled["discharged"] == 10, "a lodging cell's open people kept a family house owed"
+    cells = owed_cells()
+    ruled = full_family_persons_ruling(cells, full_side + [person_cell("west", 10, 5)])
+    assert (ruled["by_division"]["west"]["discharged"], ruled["still_owed"]) == (7, 2), \
+        "open family people did not keep the houses they could people owed"
+    cells = owed_cells()
+    ruled = full_family_persons_ruling(cells, full_side, floor=172 - 4)  # 89 + 83 ordered
+    assert ruled["discharged"] == 4 and ruled["still_owed"] == 6, \
+        "the discharge took the book's households under the model's range"
+    cells = owed_cells()
+    cells[1]["filled"] = 83
+    full_family_persons_ruling(cells, full_side)
+    assert cells[1]["to_reconstruct"] == 83, "the full person side discharged below the fill"
+    cells = owed_cells()[:1]
+    cells[0]["filled"] = 89
+    assert full_family_persons_ruling(cells, full_side) is None, \
+        "a book whose family rows owe nothing carried a ruling on them"
+    assert "full_family_persons_ruling" in doc or not any(
+        max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in doc["bucket_families"][1]["buckets"]
+        if b["axes"].get("household_type") == "family_dwelling"), \
+        "the committed book owes family houses and carries no ruling on them"
 
     print(f"build_order_book_1835 self-tests pass ({fired} guards fired, "
           f"{sum(len(f['buckets']) for f in doc['bucket_families'])} buckets, "

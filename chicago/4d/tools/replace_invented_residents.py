@@ -194,6 +194,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 import fronting_street  # noqa: E402  (needs the path above)
 from town_year import touches_year  # noqa: E402  (T-1732)
+from associations import home_of  # noqa: E402
 
 DATA = ROOT / "data"
 HOUSEHOLDS = DATA / "residents" / "households"
@@ -308,8 +309,18 @@ def name_pool_sources() -> dict[str, list[pathlib.Path]]:
         # T-1732: the 1835 town's records only. A record of another year (the 1904
         # Glessner House) names nobody in the 1835 town, so its words guard nothing
         # here; tools/town_year.py says why the test is the year.
+        #
+        # NOR A ROOF WHOSE KEEPER IS ONE OF THOSE HOUSEHOLDS (T-1645). The keeper pass
+        # (tools/name_the_keepers_1835.py) writes the household the platted deal seated
+        # onto its roof's `occupants`, and when that household is one this pass named —
+        # hh_inf_tavern_keeper_north_01, J. Shrigley, seated on a School Section roof once
+        # the deal stopped dealing roofs to letter-list households — the roof hands this
+        # pass's own name back to it, and the next run refuses him as "already named in
+        # the town". The same self-poisoning as the households below, one hop further.
         "structures": sorted(p for p in STRUCTURES.glob("*.json")
-                             if touches_year(json.loads(p.read_text(encoding="utf-8")))),
+                             if touches_year(doc := json.loads(p.read_text(encoding="utf-8")))
+                             and not str(((doc.get("resident_assignment") or {})
+                                          .get("household_id") or "")).startswith(PREFIX)),
         # NOT the reconstructed households. Their names are this layer's own
         # inventions and guard nothing, and once this pass has written a documented
         # name into one of them, reading it back would refuse that man on the next
@@ -459,7 +470,7 @@ def trade_fronts(roof_list) -> str:
     seen: list[str] = []
     for _path, doc, _person in roof_list:
         for street_id, _how in fronting_street.fronting(
-                (doc.get("lives_at") or {}).get("value") or ""):
+                home_of(doc) or ""):
             name = fronting_street.street_name(street_id)
             if name not in seen:
                 seen.append(name)
@@ -600,7 +611,7 @@ def deal(docs: dict):
                  for roof in free
                  for street_id in want
                  for how in [fronting_street.fronts(
-                     (roof[1].get("lives_at") or {}).get("value") or "", street_id)]
+                     home_of(roof[1]) or "", street_id)]
                  if how), None)
             if seat is None:
                 reason = (
@@ -655,8 +666,8 @@ def rewrite(doc: dict, person: dict, cand: dict, gaz: dict, trade: str,
             f"HIS OWN RECORD NAMES THIS STREET. The corpus places him on "
             f"{street}, and the roof he takes is one the plat says stands there: "
             f"tools/fronting_street.py derives the frontage of "
-            f"{(doc.get('lives_at') or {}).get('value')} from the committed "
-            f"geometry as {fronting_street.describe((doc.get('lives_at') or {}).get('value'))}, "
+            f"{home_of(doc)} from the committed "
+            f"geometry as {fronting_street.describe(home_of(doc))}, "
             f"and this seat is its {how}. That is the whole of the claim — the "
             f"STREET is his and the roof on it is still the reconstruction's. He "
             f"was refused by this pass until T-0367 because a placement it could "

@@ -65,22 +65,7 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
-  "value": "fort_dearborn_barracks",
-  "confidence": "reconstructed",
-  "tier": "reconstructed",
-  "basis": {
-   "kind": "rule",
-   "id": "the_barracks_is_the_building_this_dataset_holds_for_them",
-   "note": "SEATED IN THE BUILDING THIS DATASET HOLDS FOR THEM. `fort_dearborn_barracks` carries an `attested` function of `enlisted_mens_barracks` and an occupants block reading 'enlisted men of the 5th Infantry garrison'. Which men is what this stage supplies; the building was already theirs. No coordinate is invented — the roof exists in the record."
-  },
-  "replaceable_by": {
-   "kind": "household",
-   "match": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters"
-  },
-  "note": "SEATED IN THE BUILDING THIS DATASET HOLDS FOR THEM. `fort_dearborn_barracks` carries an `attested` function of `enlisted_mens_barracks` and an occupants block reading 'enlisted men of the 5th Infantry garrison'. Which men is what this stage supplies; the building was already theirs. No coordinate is invented — the roof exists in the record."
- },
- "works_at": {
+ "no_workplace": {
   "value": null,
   "confidence": "reconstructed",
   "note": "THE POST IS THE WORKPLACE AND THE POST IS THE DWELLING. A separate `works_at` would assert a second building for the same duty; the fort's own structures carry the garrison on their occupants blocks."
@@ -95,7 +80,16 @@
    "undated": true,
    "tier": "reconstructed",
    "source_id": null,
-   "note": "SEATED IN THE BUILDING THIS DATASET HOLDS FOR THEM. `fort_dearborn_barracks` carries an `attested` function of `enlisted_mens_barracks` and an occupants block reading 'enlisted men of the 5th Infantry garrison'. Which men is what this stage supplies; the building was already theirs. No coordinate is invented — the roof exists in the record. Reconstructed on the rule `the_barracks_is_the_building_this_dataset_holds_for_them`; no source places this household. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_rc_garrison_company_1#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+   "note": "SEATED IN THE BUILDING THIS DATASET HOLDS FOR THEM. `fort_dearborn_barracks` carries an `attested` function of `enlisted_mens_barracks` and an occupants block reading 'enlisted men of the 5th Infantry garrison'. Which men is what this stage supplies; the building was already theirs. No coordinate is invented — the roof exists in the record. Reconstructed on the rule `the_barracks_is_the_building_this_dataset_holds_for_them`; no source places this household.",
+   "basis": {
+    "kind": "rule",
+    "id": "the_barracks_is_the_building_this_dataset_holds_for_them",
+    "note": "SEATED IN THE BUILDING THIS DATASET HOLDS FOR THEM. `fort_dearborn_barracks` carries an `attested` function of `enlisted_mens_barracks` and an occupants block reading 'enlisted men of the 5th Infantry garrison'. Which men is what this stage supplies; the building was already theirs. No coordinate is invented — the roof exists in the record."
+   },
+   "replaceable_by": {
+    "kind": "household",
+    "match": "a source placing these people at a named building of the post, or a plan of the post that assigns its quarters"
+   }
   }
  ],
  "present_on_scene_date": {
@@ -1109,8 +1103,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_parmelee_warren",
-   "name": "Warren Parmelee",
+   "id": "rc_newell_george",
+   "name": "George Newell",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -1148,7 +1142,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Warren Parmelee",
+    "value": "George Newell",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -1156,7 +1150,7 @@
      "id": "1835_invented_name_pools",
      "note": "Drawn from the New England and New York pool. The Army recruited this town's own communities and the pools carry two of the three the parent ticket names; no German pool exists, and the ledger states that gap rather than filling it from another."
     },
-    "seed": "garrison/company_1/private_8:given_name#3",
+    "seed": "garrison/company_1/private_8:given_name",
     "replaceable_by": {
      "kind": "person",
      "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"
@@ -3209,8 +3203,8 @@
    "note": "A SOLDIER OF THE GARRISON, DRAWN INTO A PLACE THE STATUTE FIXES. Nobody named him and nobody counted him: what is claimed is that the post was held on 1 July 1835 and that a held post of two companies had this many men in it at establishment. Frontier companies stood below establishment and this project has no return, so the number is a ceiling the ledger states rather than a strength anybody reported."
   },
   {
-   "id": "rc_thayer_alanson",
-   "name": "Alanson Thayer",
+   "id": "rc_parmelee_ezra",
+   "name": "Ezra Parmelee",
    "relationship": "household_member",
    "grade": "reconstructed",
    "sex": "male",
@@ -3248,7 +3242,7 @@
     "note": "THE TRADE IS THE ESTABLISHMENT'S, not a reading about a man. The Act of 2 March 1821 fixes what a company of infantry consisted of; this person is one of those places, filled."
    },
    "name_basis": {
-    "value": "Alanson Thayer",
+    "value": "Ezra Parmelee",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -3256,7 +3250,7 @@
      "id": "1835_invented_name_pools",
      "note": "Drawn from the New England and New York pool. The Army recruited this town's own communities and the pools carry two of the three the parent ticket names; no German pool exists, and the ledger states that gap rather than filling it from another."
     },
-    "seed": "garrison/company_1/private_36:given_name#2",
+    "seed": "garrison/company_1/private_36:given_name",
     "replaceable_by": {
      "kind": "person",
      "match": "a muster roll or post return of Fort Dearborn naming the men of its companies on or about 1 July 1835"

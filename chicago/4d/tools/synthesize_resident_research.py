@@ -36,6 +36,7 @@ ROOT = Path(os.environ["SYNTH_SCRATCH_ROOT"]) if os.environ.get("SYNTH_SCRATCH_R
 # copy carries data and no tools: measured, ModuleNotFoundError on rebuild_resident_index.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 from rebuild_resident_index import rebuild  # noqa: E402  (the manifest's one owner)
+from associations import home_of, workplace_of  # noqa: E402  (T-2284)
 from refuse_reconstructed_grade import refuse  # noqa: E402  (T-1144; the retirement above must actually have happened)
 
 CHICAGO = ROOT.parent
@@ -852,7 +853,7 @@ def check():
     if programme.get("resident_population_active") is not False:
         problems.append("retired reconstructed resident programme is not marked inactive")
     for d in docs:
-        if str(d.get("id") or "").startswith("hh_inf_") and (value(d.get("lives_at")) is not None or value(d.get("works_at")) is not None):
+        if str(d.get("id") or "").startswith("hh_inf_") and (home_of(d) is not None or workplace_of(d) is not None):
             problems.append(f"{d.get('id')} survived synthesis but is still placed")
     for path in sorted(STRUCTURES.glob("*.json")):
         d=load(path)
@@ -933,8 +934,8 @@ def main():
         if str(doc.get("id") or "").startswith("hh_inf_"):
             stats["retained_hh_inf"]+=1; unlink_people.update(p.get("id") for p in kept if p.get("id")); head=next((p for p in kept if p.get("id")==doc.get("head")),kept[0])
             doc["name"]=f"Evidence-only household — {head.get('name',doc.get('head'))}"; doc["division"]="unplaced"
-            doc["lives_at"]={"value":None,"confidence":"reconstructed","note":"T-0489: former dwelling assignment came from the retired reconstructed-household programme; real resident retained unplaced."}
-            doc["works_at"]={"value":None,"confidence":"reconstructed","note":"T-0489: no workplace is assigned from a reconstructed household; later placement requires evidence."}
+            doc.pop("lives_at", None); doc["no_home"]={"value":None,"confidence":"reconstructed","note":"T-0489: former dwelling assignment came from the retired reconstructed-household programme; real resident retained unplaced."}
+            doc.pop("works_at", None); doc["no_workplace"]={"value":None,"confidence":"reconstructed","note":"T-0489: no workplace is assigned from a reconstructed household; later placement requires evidence."}
             doc["research_note"]=note_once(doc.get("research_note"), RETIREMENT_NOTE)
     if prior_ledger and stats["removed_people"] == 0 and stats["removed_households"] == 0:
         prior_retirement=prior_ledger.get("retirement") or {}

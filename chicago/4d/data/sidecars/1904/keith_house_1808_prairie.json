@@ -1,0 +1,635 @@
+{
+  "id": "keith_house_1808_prairie",
+  "phase": "as_built_1886",
+  "name": "Osborn R. Keith house (1808 Prairie Avenue), K01 frontage assembly",
+  "aka": [
+    "1808 Prairie Avenue",
+    "1808 S. Prairie Avenue",
+    "Keith / Field residence"
+  ],
+  "archetype": "k01_frontage",
+  "asset": "gltf/keith_house_1808_prairie__as_built_1886.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "documented_range": {
+    "from": "1886-01-01",
+    "to": "1968-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_vol3_sheet_28",
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "STANDING IN 1904 is what the scene needs, and it rests on the 1911 Sanborn sheet 28 carried back seven years, the same reading the Glessner record and the 1904 parcels make of it (the Glessner House correspondent reads no change on this sheet between 1904 and 1911). FROM: the T-1837 building register reports 1886 (Cobb & Frost); it is not a source record here, so the day is the 1st of January and the confidence inferred. TO: the register reports the loss in 1968; same footing, the year's last day."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1369.959,
+    "local_n": -3250.476,
+    "rotation_deg": -0.669,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "sanborn_1911_vol3_sheet_28",
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "position_note": "Placed in the Glessner record's own frame, so the two share one bearing and one building line exactly. The footprint origin (its SW corner) is Glessner-frame u 31.149, v -10.42: the front wall on Glessner's east face line (u 49.149, 14.7 ft behind the Prairie Avenue line — RECONSTRUCTED: Sanborn 1911 draws 1808 set back on a common line with its neighbour, and the sheet is not read here to the foot for this lot), and the north wall 0.02 m south of Glessner's south face (v 0), closing its courtyard as the sheet draws. The south wall then stands 1.1 m inside the parcel's south line at the street. Rotation -0.669 degrees is Glessner's, the 18th Street line's bearing less 90.",
+    "symbolic_location": "1808 S. Prairie Avenue: west side of Prairie between 18th and 20th Streets, the lot directly south of the Glessner house, parcel prairie_1808 (data/street_grid/1904.json).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "ground",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        18.0,
+        0.0
+      ],
+      [
+        18.0,
+        10.4
+      ],
+      [
+        0.0,
+        10.4
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "sanborn_1911_vol3_sheet_28",
+      "sanborn_1911_chicago_v3_sheet_28"
+    ],
+    "note": "The main range only, 18.0 m deep by 10.4 m across the front. RECONSTRUCTED: the 1911 sheet draws a brick house the width of most of its 38.1 ft lot, but its depth and side passage are not read here to a figure; 10.4 m leaves a 1.1 m passage on the south and 18.0 m is a Prairie Avenue town house of three bays. The detached rear garage the sheet also draws is T-1935's."
+  },
+  "attributes": {
+    "stories": {
+      "value": 3,
+      "confidence": "attested",
+      "note": "'3B' on the 1911 Sanborn sheet 28: three storeys and a basement. Carried back to 1904 with the sheet.",
+      "sources": [
+        "sanborn_1911_vol3_sheet_28",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ]
+    },
+    "construction": {
+      "value": "brick_with_stone_front",
+      "confidence": "inferred",
+      "note": "The 1911 sheet colours the house brick, and the T-1837 frontage register reads it 'brick with stone front'. The stone front is the register's reading of the 1888 plate, so the pairing is carried here as the sheet's brick plus a reconstructed stone street wall.",
+      "sources": [
+        "sanborn_1911_vol3_sheet_28",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ]
+    },
+    "principal_floor_m": {
+      "value": 1.5,
+      "confidence": "reconstructed",
+      "note": "A raised principal floor over the basement, inside the contract's principal_floor range [0.8, 1.8] (RECONSTRUCTION-RULES.md § Starting ranges); 1.50 m solves to nine whole risers of 0.167 m."
+    },
+    "storey_heights_m": {
+      "value": [
+        4.0,
+        3.6,
+        3.3
+      ],
+      "confidence": "reconstructed",
+      "note": "Floor-to-floor, principal storey tallest: a reconstruction of the usual diminishing storeys of a three-storey Prairie Avenue house; no source reads these here."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "The stone street wall at the top of the contract's masonry range [0.23, 0.45]; it sets the reveal depth of every front opening."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "Common brick, a 13-inch wall, inside the masonry range; the Sanborn sheet prints no wall thickness for this lot."
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "The 1911 Sanborn sheet colours the house brick and the T-1837 register asks for 'Common-brick side and rear ranges'; the fabric, bond, heads, string course and grime are the K03 library's common buff brick in common bond (a header course every sixth, 9 mm weathered lime joints), laid with two rowlock rings on segmental heads (soldier flat heads under the eave), a projecting string course at the second floor and soot and damp masks, with no photograph of 1808's side or rear read (liberty L-k03-1808-service-brick-2291, T-2291)."
+    },
+    "street_front_trim": {
+      "value": {
+        "entrance": "k09.entrance.ring_on_colonnettes",
+        "by_storey": [
+          "k09.surround.rowhouse_restrained",
+          "k09.trim.lintel_cornice_hood",
+          "k01.flat_lintel"
+        ],
+        "apron": "k09.trim.foliate_panel",
+        "apron_storeys": [
+          0
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "The street front's carved trim, from the K09 carved-trim kit (T-2309, data/components/prairie_1904/k09_trim.json): a round ring of thirteen voussoirs and a label over the door, springing from two engaged foliate colonnettes on the stoop's landing; the principal-floor windows in the kit's restrained surround (an architrave, and a cornice hood on scrolled consoles) over a bounded foliate apron panel; the second floor's windows under the cornice hood alone; the third floor's keeping K01's flat lintel, so the trim lightens as the front rises. RECONSTRUCTED: the T-1837 register reads 'Romanesque-classical stone front' and an Ionic-columned entrance loggia off the 1888 Inland Architect plate, but that plate is not a source record here and no photograph of 1808's carving has been read, so every form, motif and placement is the kit's generic one (liberty L-k09-1808-trim-2310, T-2310). Glessner's documented carving is its own and is not drawn from this kit."
+    },
+    "wall_head": {
+      "value": {
+        "cornice": "k10.cornice.bracketed_timber",
+        "cresting": "k10.cresting.iron_ridge",
+        "clear_of": [
+          {
+            "wall": "k01.wall.side.north",
+            "s_m": [
+              1.6,
+              6.8
+            ],
+            "note": "Glessner's south gable stands against the party wall here: read off glessner_house__as_built_1887.glb in this frame, its mass within 0.40 m of the wall rises above the brackets' feet (11.34 m) from u 11.4 to u 16.2 (s 1.8 to 6.6), to 14.70 m at u 13.5. No bracket stands in it; the bed moulding, like the K05 eave above it, runs on inside the gable."
+          }
+        ],
+        "dormer": "k10.dormer.pedimented_on_bracketed_eave"
+      },
+      "confidence": "reconstructed",
+      "note": "The wall head, from the K10 cornice kit (T-2316, data/components/prairie_1904/k10_cornices.json): the kit's scrolled timber brackets at full size under the K05 soffit, standing on the piers between the third storey's heads and one 0.20 m from every corner on both faces, with the kit's bed moulding swept between them round all four corners; and the kit's cast-iron cresting let into the K04 copper ridge roll along the ridge (between the two T-2302 stacks until T-2313 moved the stacks onto the side walls, so the cresting now runs the ridge's length). The street dormer's face is the kit's pedimented dormer (T-2326): its 0.20 m dormer cornice across the face at the foot of the pediment, returned 0.13 m on both cheeks under their soffits and capped, the kit's two stepped raking bands on the tympanum under K05's verge, and no lintel over the sash, whose head the cornice is. the brackets stop where Glessner's south gable leans on it (s 1.6-6.8 m, measured off the Glessner asset), and the bed moulding runs on inside that gable as the K05 eave does. RECONSTRUCTED: no source read here shows 1808's wall head. The T-1837 register reads a 'pierced parapet' off the 1888 Inland Architect plate, which is not a source record here, and a parapet does not stand on a hipped roof with an open eave, so none is built. Every profile, size and spacing is the kit's generic one (liberties L-k10-1808-wall-head-2317, T-2317, and L-k10-1808-dormer-face-2326, T-2326). Glessner's documented wall head is its own and is not drawn from this kit."
+    },
+    "roof_form": {
+      "value": "hip",
+      "confidence": "reconstructed",
+      "note": "A hip roof, the contract's k01.roof.hip. The register's pierced stone parapet is T-1882's to build; behind it a pitched roof is the reconstruction's simplest honest cover. Since T-2302 it is built from the K05 roof kit (data/components/prairie_1904/k05_roofs.json): the hip, the dormer and the chimney stacks are closed solids joined by a boolean union, so no plane crosses another (docs/LIBERTIES.md L-k05-1808-roof-2302)."
+    },
+    "roof_pitch_deg": {
+      "value": 45,
+      "confidence": "reconstructed",
+      "note": "At the top of the contract's ordinary pitch range [25, 45]. Raised from 40 by T-2293 so the roof takes the K04 library's Pennsylvania slate as it is cut: a 10 x 20 in slate on a 3 in headlap, which k04_roofs.json slate_exposure allows from 45 degrees up (a 25-45 degree roof asks 4 in). Steepening the roof is the honest move; stretching the courses to a 4 in lap would not be."
+    },
+    "eave_overhang_m": {
+      "value": 0.38,
+      "confidence": "reconstructed",
+      "note": "A modest eave; the fascia and soffit close it. 0.38 m since T-2293: at 45 degrees a 0.45 m eave would bring the soffit down onto the top storey's lintels, which k01_frontage_params refuses."
+    },
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "Inside the contract's tread range [0.25, 0.34]."
+    },
+    "stair_landing_depth_m": {
+      "value": 1.2,
+      "confidence": "reconstructed",
+      "note": "A landing one door-swing deep before the threshold."
+    },
+    "stoop_width_m": {
+      "value": 1.8,
+      "confidence": "reconstructed",
+      "note": "The stoop half again the door's width."
+    },
+    "entrance_bay": {
+      "value": "north",
+      "confidence": "reconstructed",
+      "note": "The register reads a north entrance on the 1888 plate; the plate is not a source record here, so the side is carried as reconstructed."
+    },
+    "front_bays": {
+      "value": [
+        2.0,
+        5.0,
+        8.4
+      ],
+      "confidence": "reconstructed",
+      "note": "Three bays across the 10.4 m front, south to north, the north bay the entrance."
+    },
+    "side_bays": {
+      "value": [
+        3.0,
+        7.0,
+        11.0,
+        15.0
+      ],
+      "confidence": "reconstructed",
+      "note": "Four windows a storey along the south wall, west to east, the passage side."
+    },
+    "rear_bays": {
+      "value": [
+        3.0,
+        7.4
+      ],
+      "confidence": "reconstructed",
+      "note": "Two windows a storey in the rear wall."
+    },
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.75,
+          "width_m": 1.05,
+          "height_m": 2.3
+        },
+        {
+          "sill_above_floor_m": 0.75,
+          "width_m": 1.05,
+          "height_m": 2.2
+        },
+        {
+          "sill_above_floor_m": 0.65,
+          "width_m": 1.0,
+          "height_m": 1.7
+        }
+      ],
+      "confidence": "reconstructed",
+      "note": "Double-hung sash, diminishing upward, every clear width and height inside the contract's sash ranges ([0.75, 1.15] and [1.5, 2.4])."
+    },
+    "basement_lights": {
+      "value": {
+        "sill_m": 0.35,
+        "width_m": 0.9,
+        "height_m": 0.7
+      },
+      "confidence": "reconstructed",
+      "note": "Area lights under the two front windows; the basement the Sanborn 'B' records."
+    },
+    "roof_covering": {
+      "value": {
+        "fabric": "slate_pennsylvania",
+        "flashing": "copper_sheet",
+        "caps": "copper_ridge_roll"
+      },
+      "confidence": "reconstructed",
+      "note": "T-2293, the first roof built from the K04 library (data/components/prairie_1904/k04_roofs.json): the steep main roof's default, dark Pennsylvania slate, with copper ridge and hip rolls, an open copper valley at each dormer cheek, a copper apron and step flashings. The T-1837 register names slate on every steep main roof whose covering it describes; no source here reads this house's roof, so fabric, caps and flashing are reconstructed (docs/LIBERTIES.md, T-2293)."
+    },
+    "dormer": {
+      "value": {
+        "width_m": 1.5,
+        "face_setback_m": 0.3,
+        "face_height_m": 2.35,
+        "face_thickness_m": 0.2,
+        "pitch_deg": 45,
+        "verge_m": 0.15,
+        "sash": {
+          "sill_m": 0.25,
+          "width_m": 0.85,
+          "height_m": 1.5
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "One gabled dormer on the street hip, centred over the front, its face 0.30 m behind the wall line: the K04 package's dormer apron, valleys and step flashing need a dormer to dress, and a front dormer lighting the attic is the commonest Prairie Avenue form. The 1888 plate the register reads shows a pierced parapet, not this; the parapet is T-1882's, and this dormer is a reconstruction it replaces. Its sash is the contract's smallest opening (0.85 x 1.5 m). T-2326 raised its face from 2.15 m to 2.35 m so the K10 dormer face fits: at 2.15 m the sash head stood 0.13 m under the cheeks' soffit, too little for the kit's 0.20 m pediment cornice and its 0.10 m window gap; at 2.35 m it stands 0.33 m under it (the sash, its sill and the face's setback unchanged)."
+    },
+    "chimneys": {
+      "value": {
+        "kit": "data/components/prairie_1904/k15_chimneys.json",
+        "stacks": [
+          {
+            "id": "library",
+            "from": "k15.stack.ridge",
+            "pots": false,
+            "width_along": "u",
+            "top_m": 16.8,
+            "serves": "the library's corner fireplace on the principal floor, and the rooms over it"
+          },
+          {
+            "id": "hall",
+            "from": "k15.stack.ridge",
+            "pots": false,
+            "width_along": "u",
+            "top_m": 16.8,
+            "serves": "the hall's corner fireplace by the stair foot, and the rooms over it"
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "T-2313: the two stacks the plan's fireplaces stand under (where each stands is chimney_positions, inferred from the 1888 plate), each built from the K15 chimney kit (T-2312) as its grouped brick stack: a 1.155 x 0.525 m common-brick shaft turned along its side wall, three flues (one a storey), two corbel courses, a stone cap, stepped side flashing, an apron below and a cricket behind, joined into the K05 roof solid so the shaft is cut where it passes through the slate and the flues are cut as dark recesses. RECONSTRUCTED: the plate's photograph is taken from the street and the house's pierced parapet hides everything behind it, so no source shows a stack above the roof. Hence no pots (the kit puts one only where a source shows it), and every size, the three flues and the 16.8 m top are the kit's. The top is the K15 draught rule on this roof: the hip's covering reaches 16.0 m within 3 m of either stack, and the cap stands 0.8 m above that, below the 17.6 m ridge. docs/LIBERTIES.md L-k15-1808-chimneys-2313."
+    },
+    "chimney_positions": {
+      "value": [
+        {
+          "stack": "library",
+          "u_m": 12.1,
+          "v_m": 0.65,
+          "wall": "k01.wall.side.south"
+        },
+        {
+          "stack": "hall",
+          "u_m": 13.6,
+          "v_m": 9.75,
+          "wall": "k01.wall.side.north"
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1888_02_keith_plate"
+      ],
+      "note": "T-2313: where the stacks stand, read off the first-floor plan printed under the 1888 Inland Architect plate of the house. The plan draws two fireplaces in the main block, both set across a corner: the library's, in the corner where the round library meets the south wall and the music room's partition, and the hall's, against the north wall at the foot of the stair. A third, in the dining room on the rear range, stands on a range this K01 record does not build. A fireplace's flue rises in the wall behind it, and a principal room's fireplaces on the floors above stand over the one below, so each stack is placed over its fireplace's corner and set into its side wall (INFERRED, not shown: the plan is of one floor). The plan is read at its own scale, 0.0193 m to the pixel on a 3480 px scan, from the house's 10.4 m width; positions are measured from the street front, so u = 18.0 m minus the distance back from it: library 5.9 m back (u 12.1) and 0.54 m in from the south wall face; hall 4.4 m back (u 13.6) and 0.52 m in from the north wall face. Both are set 0.65 m in (v 0.65 and v 9.75): the footprint's 0.3 m margin asks at least 0.56 m, and with a stack's downhill face within a centimetre of the K05 eave box's line 0.35 m in from the wall the roof union leaves a sub-millimetre sliver at the front hip, which the K01 contract refuses. Read to about +/-0.3 m. The same plan's main block is 16.6 m deep at that scale where the record's footprint is 18.0 m; measuring from the front, which both share, keeps each fireplace's distance from the street."
+    },
+    "rainwater": {
+      "value": {
+        "gutter": "half_round",
+        "fabric": "copper_sheet",
+        "downpipe": "round",
+        "ends_at": "grade_with_splash_stone",
+        "downpipes": [
+          {
+            "wall": "k01.wall.street_front",
+            "s_m": 0.35
+          },
+          {
+            "wall": "k01.wall.street_front",
+            "s_m": 10.05
+          },
+          {
+            "wall": "k01.wall.side.south",
+            "s_m": 9.0
+          },
+          {
+            "wall": "k01.wall.rear_service",
+            "s_m": 0.35
+          },
+          {
+            "wall": "k01.wall.rear_service",
+            "s_m": 10.05
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "A 5 in half-round copper gutter hung on wrought-iron brackets at 30 in round the whole eave, falling 0.5% to five outlets, each over a 3.5 in round copper downpipe strapped to the wall that ends in a shoe over a splash stone at grade (k04_roofs.json gutter and downpipe). Pipes stand by the corners of the front and rear and halfway along the south passage wall, clear of every opening; none on the north wall, which closes the Glessner court 0.02 m off its face, so the north run is 20.5 m of gutter between its two corner outlets, over the profile's 12 m, and falls both ways from its middle (no point of it more than 10.3 m from an outlet). All reconstructed."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.area_light": {
+          "variant": "k06.opening.area_light",
+          "well": false
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "Every window is built from the K06 kit (T-2298): the double-hung sashes of every storey on all three glazed walls as the kit's working street sash, two lights over two, at this record's own clear sizes; the basement lights as the kit's three-light area light, without its area well, since this record sets their sills 0.35 m above grade. No source shows these sashes' glazing; two-over-two is the kit's commonest form, not a reading of this house."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.panel_door_stoop",
+          "front_yard_m": 4.75
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "The door and its stoop are built from the K07 kit (T-2304): the kit's stone-front entrance, a four-panel leaf under a two-light transom with the dark hall behind it, in the K01 proof's own 1.20 x 2.70 m hole, at the head of a straight stone stoop between cheek walls solved from this record's principal floor, tread, landing and width (nine equal risers of 0.167 m). front_yard_m is the 1904 street grid's own distance, measured at the door square to the front, from the front face to the inner edge of Prairie Avenue's walk band (data/street_grid/1904.json face prairie__indiana_prairie_18_20: the front stands 4.44 m behind the street line and the walk begins 1 ft further out, 4.75 m); the stoop reaches 3.60 m. No source shows this house's door, transom or stoop; the register's north entrance loggia with Ionic columns, balustraded balcony and stair is T-1882's to build from the 1888 plate. The main range has no carriage opening: the 1911 Sanborn sheet draws this lot's carriage house as the detached rear building, T-1935's."
+    },
+    "bays": {
+      "value": [
+        {
+          "id": "south_front_bow",
+          "variant": "k08.bay.bowed",
+          "wall": "k01.wall.street_front",
+          "s_m": 2.5,
+          "fabric": "stone",
+          "storeys": [
+            {
+              "height_m": 5.4,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.8,
+                  "clear_height_m": 2.3,
+                  "sill_m": 2.25,
+                  "at_deg": [
+                    -36,
+                    0,
+                    36
+                  ]
+                }
+              ]
+            },
+            {
+              "height_m": 3.6,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.8,
+                  "clear_height_m": 2.2,
+                  "sill_m": 0.85,
+                  "at_deg": [
+                    -36,
+                    0,
+                    36
+                  ]
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "cone",
+            "pitch": 0.25,
+            "covering": "copper_standing_seam"
+          }
+        },
+        {
+          "id": "rear_canted",
+          "variant": "k08.bay.canted",
+          "wall": "k01.wall.rear_service",
+          "s_m": 3.0,
+          "fabric": "brick",
+          "storeys": [
+            {
+              "height_m": 5.4,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.75,
+                  "clear_height_m": 2.3,
+                  "sill_m": 2.25,
+                  "at": [
+                    0.18,
+                    0.82
+                  ],
+                  "recess_m": 0.4
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.95,
+                  "clear_height_m": 2.3,
+                  "sill_m": 2.25,
+                  "at": [
+                    0.5
+                  ]
+                }
+              ]
+            },
+            {
+              "height_m": 3.6,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.75,
+                  "clear_height_m": 2.2,
+                  "sill_m": 0.85,
+                  "at": [
+                    0.18,
+                    0.82
+                  ],
+                  "recess_m": 0.4
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.95,
+                  "clear_height_m": 2.2,
+                  "sill_m": 0.85,
+                  "at": [
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.25,
+            "covering": "tin_flat_seam_painted"
+          }
+        }
+      ],
+      "confidence": "reconstructed",
+      "note": "Two K08 bays (T-2308), built by generators/archetypes/k08_bays.py from data/components/prairie_1904/k08_bays.json. SOUTH FRONT BOW: the T-1837 frontage register (frontage-28-037) reads 'the south curved bay' on the Inland Architect plate of February 1888; that plate is not a source record here, so its plan, size and windows are the kit's segmental bow (3.2 m on its chord, 0.9 m out) centred 2.5 m from the south corner (0.5 m north of the front's south window axis, so its eaves clear the T-2293 downpipe at 0.35 m), two storeys from grade to under the third-floor sill, three bent sashes a storey at the house's own front sash heights, under a low copper cone. T-1882/T-1883 own the plate's actual bay and replace this one. REAR CANTED BAY: no source shows 1808's rear; a two-storey canted bay is the commonest Prairie Avenue bay (k08_bays.json), set on the rear's north window bay in the house's common brick with stone dressings, under a low tin hip. Each bay's band sits on the front's second-floor belt (5.4 m), its wall top 9.0 m, so its roof (pitch 0.25) meets the wall clear of the third-floor sill above it; the host wall carries no opening behind either. Liberty L-k08-1808-bays-2308."
+    },
+    "stone_front": {
+      "value": {
+        "fabric": "limestone_lemont",
+        "dressing": "rock_faced",
+        "trim_fabric": "dressed_trim",
+        "rusticated_base_courses": 2,
+        "coping_height_m": 0.23,
+        "corner_bond": [
+          "south"
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "The stone street wall laid as K02 coursed ashlar (T-2289): rock-faced Lemont limestone in courses, a rusticated base of two channel-jointed courses under a weathered coping whose top is the area lights' head line, quoins returning long and short on the south corner, two belts, and a flat arch of voussoirs over each opening the street_front_trim leaves a flat head (the area lights and the third floor). The kits keep what they build — the K06 sills, the K09 heads, aprons and entrance, the K07 stoop and the K08 bow — and wherever one of them is seated on the front the course under it is dressed smooth and laid flush, so no piece stands on a rock face. RECONSTRUCTED throughout: the T-1837 register reads a 'rock-faced' stone front from the Inland Architect plate of February 1888 and names no stone, so Lemont — the local quarry's limestone, the K02 library's pale coursed walling — is a working interpretation that a reading of the plate or of a specification replaces; the colour and course pattern are the library's, never the house's. The north corner is not bonded: it stands 0.02 m from Glessner's south face, closer than any rock face projects. Every course height, block length, joint, recess, arris, chip, projection, return, channel and fall is data/components/prairie_1904/k02_stone_profiles.json's, resolved by k01_frontage_params._k02 and refused outside it (docs/LIBERTIES.md L-k02-1808-stone-2289)."
+    },
+    "boundary": {
+      "value": {
+        "street_line_m": 4.44,
+        "lot_s_m": [
+          -1.386,
+          10.225
+        ],
+        "fence": "k11.fence.spear_on_curb",
+        "entrance_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "leaves": 2,
+          "clear_m": 1.3,
+          "drawn_deg": 0
+        },
+        "side_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "pier_s_m": 0.0,
+          "drawn_deg": 0
+        },
+        "wall": {
+          "variant": "k11.wall.brick_with_piers",
+          "from_u_m": 15.2,
+          "height_m": 1.5
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The front yard's boundary, from the K11 ironwork kit (T-2318, data/components/prairie_1904/k11_ironwork.json). THE LINE is the sheet's: the street line stands 4.44 m in front of the front face (data/street_grid/1904.json face prairie__indiana_prairie_18_20, the same reading entrance_kit's front_yard_m makes), and the lot lines of parcel prairie_1808 cross it at s -1.386 (the 1808/1812 line) and s 10.225 (the 1800/1808 line) along the street front, measured from the house's south-west corner in its own frame; the fence's curb has its street face on the street line, so the iron stands on the lot and nothing reaches the walk (1 ft further out). THE FENCE is the kit's spear fence on a stone curb, from a pier in line with the south wall to an end post whose curb stops on the north lot line. THE ENTRANCE is a pair of leaves on two stone piers square to the door, 1.30 m clear: the stoop's foot stands 0.69 m behind the fence's line, so a single leaf the kit's 0.90 m minimum would strike it, and each leaf is kept to 0.61 m, which the generator holds against the stoop's built mesh through the whole swing. THE SIDE GATE is the kit's single walk gate across the 0.94 m mouth of the side passage, hung on the wall's street pier: the passage is the only way round to the rear (the carriage house is on the alley, T-1935's), so it is gated and never fenced, and there is no carriage drive on this front to keep clear. THE WALL is the kit's brick wall with piers on the south lot line, its south face on the line, 1.50 m high (the kit's height, under the 6 ft the register reads for the one mapped brick boundary wall, frontage-35-064), from the fence's line back to u 15.2 m, 0.2 m short of 1812's draft front, which stands on the lot line behind it. The north side, against Glessner, is left open: Glessner's boundary is documented and the yard transition there is T-1944's. RECONSTRUCTED: no source read here shows 1808's fence, gates, piers or wall, their pattern or their height; every size is the kit's generic one (liberty L-k11-1808-boundary-2319, T-2319)."
+    },
+    "condition": {
+      "value": {
+        "kit": "data/components/prairie_1904/k14_condition.json",
+        "built": 1886
+      },
+      "confidence": "reconstructed",
+      "note": "T-2358: the house weathers to its own age on 1904-07-01 from the K14 condition kit (T-2324) rather than wearing K03's fixed full-age soot and damp. Reconstructed because every layer value is the kit's reconstruction; BUILT 1886 alone is a reading, the T-1837 building register's Cobb & Frost date that documented_range carries as inferred, so on the target date the house has stood 18 years and the kit's age factor is 0.45: damp at the wall foot and the rusticated plinth, soot under the soffit and a trail below every K06 sill and down the wall behind each downpipe, each at under half its full-age strength and scaled by the fabric (the common buff brick 1.0, the rock-faced Lemont walling 1.1, the dressed trim 1.2). Every layer's value is the kit's reconstruction (L-k14-condition-kit-2324); where an outlet's trail starts and which wall a kit piece weathers with are this ticket's (L-k14-1808-walls-2358). A dated photograph of the house would replace them. T-2359: the slate takes the kit's chimney plume leeward of the two K15 stacks at the same age, 1.35 m long and at most 0.90 at a stack's centre, read on a compass bearing through the placement's rotation (rotation_deg, resolved by the generator); the roof's plan rows and slate's full-strength response are that ticket's (L-k14-1808-roof-2359)."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1886,
+        "lawn": "turf",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.6,
+          "top_m": 0.06,
+          "wear_tone": 0.9
+        },
+        "service_walk": {
+          "surface": "cinder",
+          "to_u_m": 0.0,
+          "wear_tone": 0.78
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The ground inside the K11 boundary, from the K14 condition kit (T-2324, data/components/prairie_1904/k14_condition.json) at the house's own age: built 1886 (this phase's documented year), so 18 years standing on 1904-07-01 and the kit's age factor 0.45. THE LINES are the boundary's and the house's: the front yard runs from the street front (and the foot of its stone bay) to the fence curb's house face, between the house's south wall line and the north lot line (s 10.225), which is all the sheet's parcel gives. THE LAWN is turf over that yard, Glessner's courtyard turf map, its surface 0.035 m over grade (the terrain under this yard rises up to 0.018 m above the lowest point the renderer beds the house on). Along the street front's wall foot and round the bay a bare strip is cut, the kit's grass_edge at 0.45: 0.14 m wide, its line wobbling 0.02 m by the property's seed. Under the stoop, an open stair whose foot alone touches grade, the ground is bare earth: no lawn is kept in its shade. THE FRONT WALK runs from the stoop's foot through the entrance pair to the public walk, 1.28 m wide between the gate piers, in flags of the stoop's own stone 0.025 m proud of the lawn, worn along its centre by the kit's front_walk path_wear (a polished line, to 0.9 at full wear). THE SERVICE WALK is cinder down the side passage, from the side gate to the house's rear corner (u 0), between the boundary wall's north face and the house's south wall, beaten along its centre by the kit's service_walk path_wear (to 0.78 at full wear, the K14 study's cinder). RECONSTRUCTED: no source read here shows 1808's yard, its lawn, its walks or their surfaces; the sheet bounds where they can be and nothing more. Every surface and number is the kit's generic one or chosen here (liberty L-k14-1808-yard-2360, T-2360)."
+    },
+    "function": {
+      "value": "residence",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_vol3_sheet_28",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The 1911 Sanborn sheet 28 draws a three-storey-and-basement brick house ('3B') with a rear two-storey garage on the lot; a house of that kind on Prairie Avenue in 1904 is a residence. The T-1837 building register names it the Osborn R. Keith (later Stanley Field) residence, reported 1886 by Cobb & Frost; that register's evidence handles are not yet source records here, so the names ride in the record's name and aka, not in a cited attribute."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "inland_architect_1888_02_keith_plate",
+      "citation": "\"Residence for O. R. Keith, Chicago. Cobb & Frost, Architects.\" Photographic plate with the first-floor plan printed beneath it. The Inland Architect and News Record, vol. XI, no. 1 (February 1888), plate section.",
+      "url": "https://archive.org/details/sim_inland-architect-and-news-record_1888-02_11_1/page/n14",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the first floor's room layout and the number and place of its fireplaces",
+        "the street front as photographed about 1887: the round south bay, the north entrance loggia with its columns and balustraded balcony, the pierced parapet"
+      ],
+      "what_it_does_not_supply": [
+        "the upper floors' plans: a fireplace above the first floor is inferred, not drawn",
+        "any chimney's height, size, cap or pots: none is visible above the parapet",
+        "dimensions: the plan carries no scale bar; it is read at the scale the house's recorded width gives it",
+        "colour"
+      ]
+    },
+    {
+      "source_id": "sanborn_1911_chicago_v3_sheet_28",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "The water's edge beside the Illinois Central from about 40 m north of 18th Street to about 80 m south of it, and the easternmost track on to the paper's edge, as of 1911",
+        "The 1800 Prairie lot and the Glessner House footprint (stone, courtyard plan) as of 1911, and every Prairie- and Calumet-facing footprint from 18th to 20th Street",
+        "Its own printed Scale of Feet"
+      ],
+      "what_it_does_not_supply": [
+        "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+        "A construction date for any building it draws",
+        "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+        "Architecture above the footprint beyond its story count, material colour and roof symbol",
+        "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+      ]
+    },
+    {
+      "source_id": "sanborn_1911_vol3_sheet_28",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Vol. 3 (1911), sheet 28: E. 18th St. to E. 20th St., Prairie Av. Blvd. and Calumet Av. to the Illinois Central / Michigan Central tracks and Lake Michigan. Scale 1\" = 50'. Stamped 'Fire Insurance Map Collection, Geography and Map Division, Library of Congress'; header 'Chicago Vol. 3', with 1891-edition cross-references (245-246) (252-253).",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the house's position on its lot: north face on the E. 18th Street line, west face on the alley line, east face about 14.7 ft (±1.5 ft) behind the Prairie Avenue street line",
+        "a check on the HABS envelope: about 161 x 75 ft overall and a 35 x 59 ft west wing at 1\" = 50'",
+        "materials by colour (stone street walls, brick courtyard walls) and storeys (2B main house, 1½ west wing) in 1911",
+        "the neighbour that closes the courtyard on the south in 1911 (1808 Prairie and its rear garage)"
+      ],
+      "what_it_does_not_supply": [
+        "anything about 1904 directly: a 1911 sheet shows only that a structure stood in 1911",
+        "the 1904 use of the west wing: '1911 GARAGE' cannot be backdated",
+        "architecture above the footprint - roof pitches, chimneys, openings",
+        "lot dimensions in figures for this lot: none are printed on it"
+      ]
+    }
+  ],
+  "research_note": "T-2266 — the first assembly built to the Prairie 1904 K01 metric component contract (data/components/prairie_1904/k01_contract.json, T-2265), beside the canonical Glessner asset. It is a SMALL PROOF, not the house: the street front, side and rear walls of the main range with their openings, the entry stoop and a hip roof, every part a K01 component with a stable id, a seed and metric UVs, and every dimension a reconstruction inside the contract's declared ranges. What the house actually looked like — the rock-faced Romanesque-classical front, the south curved bay, the north entrance loggia with Ionic columns, the pierced parapet (T-1837 FRONTAGE-REGISTER frontage-28-037, read from the Inland Architect plate of February 1888) — is owned by T-1882 and T-1883, the detached rear garage by T-1935; this assembly replaces none of that and is replaced by it. The north wall closes the Glessner courtyard 0.02 m south of Glessner's south face, the clearance the K01 measure needs to keep two assets' faces from coinciding (docs/LIBERTIES.md, T-2266).",
+  "research_doc": "",
+  "review_required": false
+}

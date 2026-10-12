@@ -1,0 +1,85 @@
+{
+  "id": "granite_rock_faced",
+  "package": "K02",
+  "dressing": "rock_faced",
+  "tile_m": [
+    1.6,
+    1.6
+  ],
+  "resolution_px": {
+    "basecolor": 1024,
+    "normal_gl": 1024,
+    "orm": 512,
+    "height16": 512
+  },
+  "px_per_m": 640.0,
+  "height16_range_m": 0.01226,
+  "mean_roughness": 0.8,
+  "measured": {
+    "relief_m": 0.01226,
+    "mean_roughness_measured": 0.788,
+    "mean_basecolor_srgb": [
+      124,
+      123,
+      120
+    ],
+    "seam_to_interior_step": 1.021
+  },
+  "colors_srgb": [
+    [
+      150,
+      150,
+      146
+    ],
+    [
+      92,
+      92,
+      90
+    ]
+  ],
+  "note": "A grey, medium-grained granite with dark mica flecks and a few warm feldspars, split into angular fracture planes 4-10 cm across. Grey, not Glessner's pinkish stone: the landmark keeps its own library (assets/textures/glessner-v4/), and no 1904 register row names granite on any other house.",
+  "confidence": "reconstructed appearance; which building wears this stone is its structure record's to say, at its own tier",
+  "orientation": "image x = along the stone's natural bed (the wall's horizontal for walling); image y = up the wall. TEXCOORD_0 = surface metres / tile_m (K01 uv rule)",
+  "joints": "geometry, from data/components/prairie_1904/k02_stone_profiles.json",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y",
+    "height16": "linear 16-bit, 0 = lowest point of height16_range_m",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "files": {
+    "basecolor.png": "granite_rock_faced_basecolor.png",
+    "normal_gl.png": "granite_rock_faced_normal_gl.png",
+    "orm.png": "granite_rock_faced_orm.png",
+    "height16.png": "granite_rock_faced_height16.png",
+    "basecolor_web.jpg": "granite_rock_faced_basecolor_web.jpg",
+    "normal_gl_web.jpg": "granite_rock_faced_normal_gl_web.jpg",
+    "orm_web.jpg": "granite_rock_faced_orm_web.jpg"
+  },
+  "web": {
+    "basecolor": "granite_rock_faced_basecolor_web.jpg",
+    "normal_gl": "granite_rock_faced_normal_gl_web.jpg",
+    "orm": "granite_rock_faced_orm_web.jpg"
+  },
+  "bytes": {
+    "basecolor.png": 1487367,
+    "normal_gl.png": 1032139,
+    "orm.png": 280588,
+    "height16.png": 435258,
+    "basecolor_web.jpg": 366273,
+    "normal_gl_web.jpg": 210827,
+    "orm_web.jpg": 62833
+  },
+  "sha256": {
+    "basecolor.png": "42d79fc028815b8fa8c60a4c36d0345c9920d92ff94be9ddca7aaa6c94df17fa",
+    "normal_gl.png": "09763888ab672b1cb9876ba896b7163b63ec11e2cfbdaeab8c251bd88a90e6b0",
+    "orm.png": "672bde836dc5cf33b7ac518340e7c5dd34ebe7c9a6e2548a625e26436c1fc637",
+    "height16.png": "37fe965e302959f05eed3abe9a16cf708f0ea6b68ed0f9255d373e4e9d8e4cf5",
+    "basecolor_web.jpg": "849be60b9a1d8dba8fcbaf0571d3031339658f42457a7560ca5d287d8d3e18ae",
+    "normal_gl_web.jpg": "0a1bac7fbd1b31383b2c09164fd3875230eb388112ea06c8a55507456d9ead21",
+    "orm_web.jpg": "7abb5a37e8631589474a2260a92a09c49d326c3905d895d42f9f33159ee78879"
+  },
+  "seamless": true,
+  "generator_seed": 19040801,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_stone.py); no photograph sampled"
+}

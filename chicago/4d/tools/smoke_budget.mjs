@@ -48,14 +48,15 @@
  * THE NUMBERING CHANGED THREE TIMES ON 2026-08-30, and this tool holds every
  * epoch. T-0346 made old part 4 into 4 + 5 + 6 and old 5-9 into 7-11; T-0173
  * halved part 7 (8-11 -> 9-12); T-0170 halved part 10 (11-12 -> 12-13).
- * T-2044 APPENDED part 14, which renumbers nothing.
+ * T-2044 APPENDED part 14, which renumbers nothing. T-2337 (2026-10-11) halved
+ * part 10 again, at the sward census in every community (11-14 -> 12-15).
  * Readings filed before any of those are labelled in the numbering of their day,
  * and this tool RENUMBERS them rather than discarding them, pushing each reading
  * through every cut it predates — the content of old part 5 is the content of
  * new parts 7+8, so the reading is a reading of that group. Three readings
  * cannot be renumbered to a single part and are reported as the group they are:
- * old part 4 is 4+5+6, a T-0346-era part 7 is 7+8, and a T-0173-era part 10 is
- * 10+11.
+ * old part 4 is 4+5+6, a T-0346-era part 7 is 7+8, and a part 10 filed before
+ * T-2337's cut is 10+11 (one filed before T-0170's as well is 10+11+12).
  */
 
 import fs from 'node:fs';
@@ -72,8 +73,9 @@ const SMOKE = path.join(HERE, 'smoke_renderer.mjs');
 /** Parts of the smoke body. Mirrors `PARTS` in tools/smoke_renderer.mjs, and
  *  `--self-test` fails if the two ever disagree. */
 // T-2044 APPENDED part 14 (the arrival-to-jaunt path). An append renumbers no
-// reading, so no epoch is added below.
-const PARTS = 14;
+// reading, so no epoch is added below. T-2337 halved part 10 and renumbered
+// 11-14 as 12-15, which is an epoch, and is added below.
+const PARTS = 15;
 
 /** A steward run's single foreground command is capped at 600 s (ROADMAP § THE
  *  RUN BUDGET). Recipes are packed to a lower figure so a part that has grown
@@ -89,6 +91,10 @@ const PACK_TO_S = 480;
 const RENUMBERED_AT = Date.parse('2026-08-30T03:35:16Z');          // T-0346
 const RENUMBERED_AGAIN_AT = Date.parse('2026-08-30T05:20:22Z');    // T-0173
 const HALVED_AT = Date.parse('2026-08-30T06:14:00Z');              // T-0170
+/** T-2337: old part 10 is new 10+11, and old 11-14 are new 12-15. Set at the
+ *  moment the cut was committed; a reading filed before it is in the old
+ *  numbering. */
+const HALVED_AGAIN_AT = Date.parse('2026-10-11T03:40:00Z');                // T-2337
 
 /** Which parts cover which change.
  *
@@ -167,6 +173,21 @@ function gateShape() {
  *  checks are taken in EVERY invocation whichever stage is asked for. */
 const NONE = [];
 const COVERAGE = [
+  // T-2200: the walk does not load this isolated comparison page. Its dedicated
+  // qa_glessner_t2200.mjs covers both viewports; popup.js still selects stage 3.
+  ['renderers/web/glessner-baseline.html', NONE, 'isolated page: qa_glessner_t2200.mjs'],
+  ['renderers/web/js/glessner-baseline.js', NONE, 'isolated page: qa_glessner_t2200.mjs'],
+  ['renderers/web/css/glessner-baseline.css', NONE, 'isolated page: qa_glessner_t2200.mjs'],
+  ['data/comparisons/glessner/', NONE, 'isolated comparison data: qa_glessner_t2200.mjs'],
+  // T-2265: the K01 component contract and the Glessner baseline measured against it.
+  // Read by tools/k01_contract.mjs in check.sh; neither published nor fetched.
+  ['data/components/', NONE, 'component contract + measured baseline: k01_contract.mjs --check'],
+  // T-2288: the K02 stone library. No scene binds it yet (T-2289 lays it on the 1808
+  // exemplar, and moves this row to the parts that draw it then); publish.sh ships none
+  // of it. tools/k02_stone_study.mjs captures it at both viewports on its own page.
+  ['assets/textures/prairie_1904_stone/', NONE, 'K02 stone library, bound by no scene yet: k02_stone_study.mjs'],
+  // The licence register is prose a gate reads (validate.py); no module fetches it.
+  ['assets/LICENSES.md', NONE, 'the licence register: validate.py, not the renderer'],
   // --- read by no part of the scene: the gate's own tooling, the backlog, the
   // --- prose. check.sh is what covers these, not the renderer.
   ['tools/', NONE, 'the gate\'s own tooling — not served to the browser'],
@@ -182,8 +203,20 @@ const COVERAGE = [
   // per viewport to cover a JSON file nothing reads.
   ['data/render/', NONE, 'committed instrument readings — neither published nor fetched'],
   ['docs/', NONE, 'prose — except docs/LIBERTIES.md, which compiles into the scene'],
+  // T-1786: the portable human contract. No scene reads it yet (L1 stands, nothing
+  // is drawn); tools/human_contract.py holds it in check.sh.
+  ['data/humans/', NONE, 'human contract + instance schema: human_contract.py --check'],
+  // T-1787: the portable-human export path's GLBs. publish.sh copies assets/web/ only, so
+  // these are never served, and no scene loads one (L1); human_contract.py --check and
+  // human_fixture.mjs --check hold them in check.sh, chicago-4d-humans.yml in the browser.
+  ['assets/humans/', NONE, 'portable-human GLBs — unpublished, drawn by no scene'],
   ['README.md', NONE, 'prose'],
   ['AGENTS.md', NONE, 'prose'],
+  // The changelog entry file a PR adds (owner, 2026-10-10). Nothing serves or imports
+  // it: the fold on dev turns it into renderers/web/js/changelog.js after the merge,
+  // and on the PR `changelog-entries.mjs --check` holds its shape and budget. Without
+  // this row every PR, which now always carries one, would price at the whole gate.
+  ['changelog.d/', NONE, 'changelog entry files — folded into changelog.js on dev, not served'],
   ['tools/smoke_renderer.mjs', ALL, 'the gate itself'],
 
   // --- the whole scene: geometry, the scene graph, the boot chain, the mirror
@@ -245,27 +278,27 @@ const COVERAGE = [
   // T-2089. The grass grain the prairie's fine relief is read from: the same
   // ground, so the same part.
   ['renderers/web/js/grass-grain.js', [3], 'the grass grain the prairie\'s relief is lit from'],
-  ['renderers/web/js/turf-tile.js', [3, 10, 11], 'the town turf: painted by the ground, thinned in the sward'],
+  ['renderers/web/js/turf-tile.js', [3, 10, 11, 12], 'the town turf: painted by the ground, thinned in the sward'],
   // T-1797. The ground-strip proof: imported only under `?proof=ground`, which
   // no part loads, so the boot chain never reaches it. Part 1 boots the scene
   // and holds it to zero pageerrors, which is the claim "not imported" rests on.
   ['renderers/web/js/ground-strip.js', [1], 'the ground-strip proof (T-1797), drawn only under ?proof=ground'],
   ['renderers/web/js/ground-strip-mask.js', [1], 'the ground-strip proof\'s layout and mask pixels (T-1797)'],
   ['renderers/web/js/citations.js', [3], 'pick -> provenance, and what kind of source'],
-  ['renderers/web/js/liberties.js', [3, 13], 'the liberties on the card, and in the panel'],
+  ['renderers/web/js/liberties.js', [3, 14], 'the liberties on the card, and in the panel'],
   // T-1519. The People directory's person card is `householdHtml` from this module, and
   // that card is opened and read in PART 12 — so 12 joins the building card (3) and the
-  // Evidence panel's household cards (13), which are this module's other two surfaces.
-  ['renderers/web/js/residents.js', [3, 12, 13], 'who was here, the person a directory opens, and the people in the panel'],
+  // Evidence panel's household cards (14), which are this module's other two surfaces.
+  ['renderers/web/js/residents.js', [3, 13, 14], 'who was here, the person a directory opens, and the people in the panel'],
   // T-1158. The per-attribute tier the household card draws its chip from. Same
   // surfaces as residents.js, which imports it — the building card's resident rows (3),
   // the People directory's person card and its tier filter (12, T-1519: this row said
   // 13 for the directory, which is where the directory is not), and the Evidence
-  // panel's household cards (13) — and mapped on arrival, because an unmapped module
+  // panel's household cards (14) — and mapped on arrival, because an unmapped module
   // prices every diff that touches it at the whole gate.
-  ['renderers/web/js/attribute-tiers.js', [3, 12, 13], 'which tier each attribute of a person stands on'],
+  ['renderers/web/js/attribute-tiers.js', [3, 13, 14], 'which tier each attribute of a person stands on'],
   // T-1041. The agency relation renders on the BUILDING card (part 3) and on the man's
-  // own household card in the Evidence panel (part 13) — one module, two surfaces, and
+  // own household card in the Evidence panel (part 14) — one module, two surfaces, and
   // both are pinned. `people.js` is the directory itself, mapped for the first time
   // here: it was unmapped, so every diff touching it priced the whole gate.
   //
@@ -274,14 +307,14 @@ const COVERAGE = [
   // card sits inside `stageOn(12)`. Part 13 touches the directory once, in a defensive
   // `api.people?.close?.()` that asserts nothing. A run that trusted the old row ran
   // part 13 and never opened the directory it had changed. ANCHORS below now holds it.
-  ['renderers/web/js/agencies.js', [3, 13], 'the agency on the card, and on the person'],
-  ['renderers/web/js/people.js', [12], 'the directory of everyone in the town'],
+  ['renderers/web/js/agencies.js', [3, 14], 'the agency on the card, and on the person'],
+  ['renderers/web/js/people.js', [13], 'the directory of everyone in the town'],
   // T-0438. The reader the cohort's rows go through once the mirror ships them packed:
-  // a letter-list person opened from the directory (12) and a row of the Evidence
-  // panel's letter-list group, whose body the smoke reads (13). No building card holds
+  // a letter-list person opened from the directory (13) and a row of the Evidence
+  // panel's letter-list group, whose body the smoke reads (14). No building card holds
   // a letter-list name, so part 3 never reaches it.
-  ['renderers/web/js/letter-list-roster.js', [12, 13], 'how a letter-list household is read from the published roster'],
-  ['data/reconstruction/1835_agencies.json', [3, 13], 'the compiled relation both cards read'],
+  ['renderers/web/js/letter-list-roster.js', [13, 14], 'how a letter-list household is read from the published roster'],
+  ['data/reconstruction/1835_agencies.json', [3, 14], 'the compiled relation both cards read'],
   // T-1959. The placement policy is the seating and yard generators' rule book: what
   // it decides reaches the scene only through the records those generators write (the
   // structures, data/yard/), which are priced by their own rows. No module under
@@ -291,42 +324,42 @@ const COVERAGE = [
   // T-1160. The Evidence hub is asserted in PART 12 (ten tiles since T-1292, each
   // counting its own mount) and its mounts are stress-measured for overflow in PART 13, so the
   // population profile and the hub itself are read by both and by nothing else.
-  ['renderers/web/js/evidence.js', [12, 13], 'the Evidence hub and its tiles'],
-  ['renderers/web/js/population.js', [12, 13], 'the town\u2019s people, profiled'],
-  ['data/reconstruction/1835_population_profile.json', [12, 13], 'the profile the panel renders'],
+  ['renderers/web/js/evidence.js', [13, 14], 'the Evidence hub and its tiles'],
+  ['renderers/web/js/population.js', [13, 14], 'the town\u2019s people, profiled'],
+  ['data/reconstruction/1835_population_profile.json', [13, 14], 'the profile the panel renders'],
   // T-1166. The order book's panel is the ninth tile, asserted in the same PART 12
   // hub check and overflow-measured in PART 13 alongside the profile it subtracts from.
-  ['renderers/web/js/orderbook.js', [12, 13], 'what the town still owes, bucket by bucket'],
-  ['data/reconstruction/1835_reconstruction_order_book.json', [12, 13], 'the quota the panel renders'],
+  ['renderers/web/js/orderbook.js', [13, 14], 'what the town still owes, bucket by bucket'],
+  ['data/reconstruction/1835_reconstruction_order_book.json', [13, 14], 'the quota the panel renders'],
   // T-1401. The business layer reaches a visitor on TWO surfaces and no others: the
   // building card's Use row, which names the firms in this roof and (since T-1401) the
-  // anchored ones sited against it, and the Businesses directory itself, which part 12
+  // anchored ones sited against it, and the Businesses directory itself, which part 13
   // searches, filters and opens a card from. Mapped on arrival — unmapped, every diff
   // touching a business record priced the whole gate, and the 196 records move together.
-  ['renderers/web/js/businesses.js', [3, 12], 'the firms directory, and the crosswalk the card reads'],
+  ['renderers/web/js/businesses.js', [3, 13], 'the firms directory, and the crosswalk the card reads'],
   // T-1493. The address book's seat block, shared by the business card (the firms
-  // directory) and the person card (the People directory) — and BOTH are part 12
+  // directory) and the person card (the People directory) — and BOTH are part 13
   // (T-1519: this row said the People directory was part 13, which is how part 13
   // came to be pinned here; no check there reads a seat). The BUILDING card never
   // renders it — a roof is the seat, not a reading about one — so part 3 is not
   // pinned here even though `businesses.js` is pinned to it.
-  ['renderers/web/js/seat.js', [12], 'the seat a card prints, and the way to it'],
-  ['data/reconstruction/1835_address_book.json', [12, 13], 'the rung each household and firm is seated at'],
-  ['data/businesses/', [3, 12], 'the compiled business records and their index'],
-  ['data/businesses.schema.json', [3, 12], 'the shape those records are refused against'],
+  ['renderers/web/js/seat.js', [13], 'the seat a card prints, and the way to it'],
+  ['data/reconstruction/1835_address_book.json', [13, 14], 'the rung each household and firm is seated at'],
+  ['data/businesses/', [3, 13], 'the compiled business records and their index'],
+  ['data/businesses.schema.json', [3, 13], 'the shape those records are refused against'],
   ['renderers/web/js/display-name.js', [3], 'the prose may not name a level the record is not'],
   ['renderers/web/js/popup.js', [3], 'the card a visitor opens'],
-  ['renderers/web/js/census.js', [12], 'the town census in Evidence → City'],
+  ['renderers/web/js/census.js', [13], 'the town census in Evidence → City'],
   ['data/terrain/', [3], 'the heightfield'],
-  ['data/liberties.json', [3, 13], 'what we made up about THAT building'],
-  ['docs/LIBERTIES.md', [3, 13], 'the source the liberties are compiled from'],
-  ['data/residents/', [3, 12, 13], 'the resident cards and Evidence → City count'],
+  ['data/liberties.json', [3, 14], 'the liberties taken on THAT building'],
+  ['docs/LIBERTIES.md', [3, 14], 'the source the liberties are compiled from'],
+  ['data/residents/', [3, 13, 14], 'the resident cards and Evidence → City count'],
   ['data/sources/', [3], 'the citation -> its document'],
   ['data/sidecars/', [3], 'the record\'s own account, on the card'],
 
   // --- PARTS 4-6: standing, walking, the detail ladder and the chrome
   ['renderers/web/js/walker.js', [4, 5, 6], 'walking, standing, and the ladder they are measured on'],
-  ['renderers/web/js/controls/', [4, 5, 6, 11, 12], 'the pick, the touch backend and the settings'],
+  ['renderers/web/js/controls/', [4, 5, 6, 12, 13], 'the pick, the touch backend and the settings'],
   ['renderers/web/js/far-merge.js', [5, 8], 'the detail ladder and the batch merge, which T-0173 moved into part 8'],
 
   // --- PARTS 7-8: navigation, the roads, the aid and the merge the reach
@@ -340,37 +373,140 @@ const COVERAGE = [
   ['renderers/web/js/buildings.js', [8, 9], 'the facades and the shadow reach they carry, and the merged batch part 8 reads the roughness channel out of'],
   ['renderers/web/js/roof-relief.js', [8, 9], 'T-1488, the roof coverings\' relief maps — it binds them inside buildings.js\'s own load loop and adds two batches to the merge part 8 counts'],
   ['renderers/web/js/wall-relief.js', [8, 9], 'T-1963, the walls\' relief maps — bound inside buildings.js\'s load loop like the roofs\', and two more batches for the merge part 8 counts'],
+  ['renderers/web/js/relief-pack.js', [2, 8, 9], 'T-2300, the orl and board grain both relief layers pack at load — the walls (8, 9) and the frontage walks (2)'],
   ['renderers/web/js/wall-grain.js', [8, 9], 'T-1963, which walls take the relief and how much grain their finish shows'],
 
-  // --- PARTS 10-11: what grows, what moves, and the streets a visitor reads
-  ['renderers/web/js/flora.js', [10, 11], 'the flora census, and the boundary it fades at'],
-  ['renderers/web/js/zone-blend.js', [10, 11], 'where the flora census asks a community, and its blended edge'],
-  ['renderers/web/js/plants.js', [10, 11], 'the sward, and its ragged edge'],
-  ['renderers/web/js/trees.js', [10], 'the horizon timber'],
-  ['renderers/web/js/tree-surface.js', [10], 'the trees\' leaf-and-bark atlas and their shader patch (T-2110), drawn in the part trees.js is'],
-  ['renderers/web/js/shrub-grain.js', [10, 11], 'the sward\'s grain'],
-  ['renderers/web/js/fauna.js', [10, 13], 'the wildlife, drawn and in the panel'],
-  ['renderers/web/js/streets.js', [2, 7, 8, 10, 11], 'the street edge, the roads read from two stations in part 7 and one in part 8 with the aid, and the street names'],
-  ['data/flora/', [10, 11, 13], 'what grows here'],
-  ['data/fauna/', [10, 13], 'the wildlife'],
-  ['data/streets/', [2, 7, 8, 10, 11], 'the street records'],
-  ['data/traces/', [2, 7, 8, 10, 11], 'the traced lines the streets and the bank are built from'],
-  ['data/town_census.json', [12], 'the two ladders in Evidence → City'],
-  ['data/render/town_completion_1835.json', [12], 'the completion row in Evidence → City'],
+  // --- PARTS 10-12: what grows, what moves, and the streets a visitor reads
+  // (T-2337 cut old part 10 into 10 + 11, so a row that named 10 names both)
+  ['renderers/web/js/flora.js', [10, 11, 12], 'the flora census, and the boundary it fades at'],
+  ['renderers/web/js/zone-blend.js', [10, 11, 12], 'where the flora census asks a community, and its blended edge'],
+  ['renderers/web/js/plants.js', [10, 11, 12], 'the sward, and its ragged edge'],
+  ['renderers/web/js/trees.js', [10, 11], 'the horizon timber'],
+  ['renderers/web/js/tree-surface.js', [10, 11], 'the trees\' leaf-and-bark atlas and their shader patch (T-2110), drawn in the part trees.js is'],
+  ['renderers/web/js/shrub-grain.js', [10, 11, 12], 'the sward\'s grain'],
+  ['renderers/web/js/fauna.js', [10, 11, 14], 'the wildlife, drawn and in the panel'],
+  ['renderers/web/js/streets.js', [2, 7, 8, 10, 11, 12], 'the street edge, the roads read from two stations in part 7 and one in part 8 with the aid, and the street names'],
+  ['data/flora/', [10, 11, 12, 14], 'what grows here'],
+  ['data/fauna/', [10, 11, 14], 'the wildlife'],
+  ['data/streets/', [2, 7, 8, 10, 11, 12], 'the street records'],
+  ['data/traces/', [2, 7, 8, 10, 11, 12], 'the traced lines the streets and the bank are built from'],
+  // T-2327. Sheet 28's 1904 building footprints are a reading no scene build takes yet (T-2159's
+  // draft builder will); tools/trace_prairie_1904_footprints.py --check gates them.
+  ['data/traces/prairie_1904_footprints_s28.json', NONE, 'sheet 28 1904 footprints — built into no scene yet: trace_prairie_1904_footprints.py --check'],
+  // T-2328. Sheet 20's are the same reading for T-2160's draft, built into no scene yet either.
+  ['data/traces/prairie_1904_footprints_s20.json', NONE, 'sheet 20 1904 footprints — built into no scene yet: trace_prairie_1904_footprints.py --check'],
+  // T-2340. Sheet 35's, for T-2161's draft of the 20th-22nd block, built into no scene yet.
+  ['data/traces/prairie_1904_footprints_s35.json', NONE, 'sheet 35 1904 footprints — built into no scene yet: trace_prairie_1904_footprints.py --check'],
+  ['tools/trace_prairie_1904_footprints.py', NONE, 'the sheet 28, 20 and 35 footprint tracer — read by no scene build yet: its own --check'],
+  ['data/traces/README.md', NONE, 'prose — the index of the traces; publish.sh mirrors nothing under data/traces/'],
+  ['data/town_census.json', [13], 'the two ladders in Evidence → City'],
+  ['data/render/town_completion_1835.json', [13], 'the completion row in Evidence → City'],
 
   // --- PART 12: the settings, the Go-to tab and What's-new
-  ['renderers/web/js/whatsnew.js', [12], "what's new"],
-  ['renderers/web/js/changelog.js', [12], "the entries What's-new reads"],
-  ['renderers/web/js/units.js', [11, 12], 'the settings that change what the readouts say'],
+  ['renderers/web/js/whatsnew.js', [13], "what's new"],
+  ['renderers/web/js/changelog.js', [13], "the entries What's-new reads"],
+  ['renderers/web/js/units.js', [12, 13], 'the settings that change what the readouts say'],
 
   // --- PART 13: the Evidence panel and the air above the town
-  ['data/research/', [13], 'researched, and still open — the third category'],
-  // T-0474. The 1904 street grid is drawn only at the /1904/ door, which part 13 boots.
-  ['renderers/web/js/street-grid.js', [13], 'the 1904 Prairie Avenue street grid (T-0474)'],
-  ['data/street_grid/', [13], 'the 1904 carriageways, block faces, alleys and parcels'],
+  ['data/research/', [14], 'researched, and still open — the third category'],
+  // T-0474. The 1904 street grid is drawn only at the /1904/ door, which part 14 boots.
+  ['renderers/web/js/street-grid.js', [14], 'the 1904 Prairie Avenue street grid (T-0474)'],
+  ['data/street_grid/', [14], 'the 1904 carriageways, block faces, alleys and parcels'],
   // T-1728. What that grid is paved with, and the maps it is paved in.
-  ['data/street_surfaces/', [13], 'the 1904 street surfaces: materials, tiers and sources'],
-  ['assets/textures/prairie_1904_pbr/', [13], 'the 1904 street-surface texture library'],
+  ['data/street_surfaces/', [14], 'the 1904 street surfaces: materials, tiers and sources'],
+  ['assets/textures/prairie_1904_pbr/', [14], 'the 1904 street-surface texture library'],
+  // T-2292. The K04 roof library is published by nothing and bound by no renderer until
+  // T-2293 builds a roof from it, so no part draws it; tools/check_roof_library.py gates it.
+  ['assets/textures/prairie_1904_roofs/', NONE, 'the K04 roof library — bound by no renderer yet: check_roof_library.py --check'],
+  // T-2297. The K06 window kit is built into a specimen GLB under docs/ that nothing
+  // publishes; tools/check_window_kit.py gates the data, the generator and the specimen.
+  // T-2298 glazes the 1808 exemplar from it, but no part loads the kit itself: what a
+  // part draws is the house's committed GLB, which mesh_inputs holds to the kit (so a
+  // kit change stales it) and which is mapped under assets/ like every other mesh.
+  ['data/components/prairie_1904/k06_windows.json', NONE, 'the K06 window kit data — reaches a scene only through a re-baked mesh under assets/: check_window_kit.py --check, validate.py --stale'],
+  ['generators/archetypes/k06_windows.py', NONE, 'the K06 window kit generator — reaches a scene only through a re-baked mesh under assets/: check_window_kit.py --check, k01_emit.py --check'],
+  ['docs/RESEARCH/k06-window-kit/', NONE, 'the K06 window kit specimen and study — unpublished: check_window_kit.py --check'],
+  ['tools/study_k06_windows.mjs', NONE, 'the K06 study renderer — run by hand, by no gate'],
+  // T-2301. The K05 roof kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2302 roofs a house from it, so no part draws
+  // it; tools/check_roof_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k05_roofs.json', NONE, 'the K05 roof kit data — built into no scene yet: check_roof_kit.py --check'],
+  ['generators/archetypes/k05_roofs.py', NONE, 'the K05 roof kit generator — imported by no scene build yet: check_roof_kit.py --check'],
+  ['docs/RESEARCH/k05-roof-kit/', NONE, 'the K05 roof kit specimen and study — unpublished: check_roof_kit.py --check'],
+  ['tools/study_k05_roofs.mjs', NONE, 'the K05 study renderer — run by hand, by no gate'],
+  // T-2305. The K13 conservatory kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2306 builds a Pullman bay from it, so no part
+  // draws it; tools/check_conservatory_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k13_conservatories.json', NONE, 'the K13 conservatory kit data — built into no scene yet: check_conservatory_kit.py --check'],
+  ['generators/archetypes/k13_conservatories.py', NONE, 'the K13 conservatory kit generator — imported by no scene build yet: check_conservatory_kit.py --check'],
+  ['docs/RESEARCH/k13-conservatory-kit/', NONE, 'the K13 conservatory kit specimen and study — unpublished: check_conservatory_kit.py --check'],
+  ['tools/study_k13_conservatories.mjs', NONE, 'the K13 study renderer — run by hand, by no gate'],
+  // T-2322. The K16 timber kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2323 clads 1638 Prairie from it, so no part draws
+  // it; tools/check_timber_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k16_timber.json', NONE, 'the K16 timber kit data — built into no scene yet: check_timber_kit.py --check'],
+  ['generators/archetypes/k16_timber.py', NONE, 'the K16 timber kit generator — imported by no scene build yet: check_timber_kit.py --check'],
+  ['docs/RESEARCH/k16-timber-kit/', NONE, 'the K16 timber kit specimen and study — unpublished: check_timber_kit.py --check'],
+  ['tools/study_k16_timber.mjs', NONE, 'the K16 study renderer — run by hand, by no gate'],
+  // T-2307. The K08 bay kit is built into a specimen GLB under docs/ that nothing publishes
+  // and no scene loads until T-2308 builds a bay on a house from it, so no part draws it;
+  // tools/check_bay_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k08_bays.json', NONE, 'the K08 bay kit data — built into no scene yet: check_bay_kit.py --check'],
+  ['generators/archetypes/k08_bays.py', NONE, 'the K08 bay kit generator — imported by no scene build yet: check_bay_kit.py --check'],
+  ['docs/RESEARCH/k08-bay-kit/', NONE, 'the K08 bay kit specimen and study — unpublished: check_bay_kit.py --check'],
+  ['tools/study_k08_bays.mjs', NONE, 'the K08 study renderer — run by hand, by no gate'],
+  // T-2303. The K07 entrance kit is built into a specimen GLB under docs/ that nothing
+  // publishes; tools/check_entrance_kit.py gates the data, the generator and the
+  // specimen. T-2304 builds the 1808 exemplar's door and stoop from it, but no part loads
+  // the kit itself: as with K06, what a part draws is the house's committed GLB, which
+  // mesh_inputs holds to the kit (so a kit change stales it).
+  ['data/components/prairie_1904/k07_entrances.json', NONE, 'the K07 entrance kit data — reaches a scene only through a re-baked mesh under assets/: check_entrance_kit.py --check, validate.py --stale'],
+  ['generators/archetypes/k07_entrances.py', NONE, 'the K07 entrance kit generator — reaches a scene only through a re-baked mesh under assets/: check_entrance_kit.py --check, k01_emit.py --check'],
+  ['docs/RESEARCH/k07-entrance-kit/', NONE, 'the K07 entrance kit specimen and study — unpublished: check_entrance_kit.py --check'],
+  ['tools/study_k07_entrances.mjs', NONE, 'the K07 study renderer — run by hand, by no gate'],
+  // T-2309. The K09 carved-trim kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2310 puts its trim on a house, so no part draws
+  // it; tools/check_trim_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k09_trim.json', NONE, 'the K09 carved-trim kit data — built into no scene yet: check_trim_kit.py --check'],
+  ['generators/archetypes/k09_trim.py', NONE, 'the K09 carved-trim kit generator — imported by no scene build yet: check_trim_kit.py --check'],
+  ['docs/RESEARCH/k09-carved-trim-kit/', NONE, 'the K09 carved-trim kit specimen and study — unpublished: check_trim_kit.py --check'],
+  ['tools/study_k09_trim.mjs', NONE, 'the K09 study renderer — run by hand, by no gate'],
+  // T-2316. The K10 cornice kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2317 puts it on a house, so no part draws it;
+  // tools/check_cornice_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k10_cornices.json', NONE, 'the K10 cornice kit data — built into no scene yet: check_cornice_kit.py --check'],
+  ['generators/archetypes/k10_cornices.py', NONE, 'the K10 cornice kit generator — imported by no scene build yet: check_cornice_kit.py --check'],
+  ['docs/RESEARCH/k10-cornice-kit/', NONE, 'the K10 cornice kit specimen and study — unpublished: check_cornice_kit.py --check'],
+  ['tools/study_k10_cornices.mjs', NONE, 'the K10 study renderer — run by hand, by no gate'],
+  // T-2318. The K11 ironwork kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2319 puts it on a property, so no part draws it;
+  // tools/check_ironwork_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k11_ironwork.json', NONE, 'the K11 ironwork kit data — built into no scene yet: check_ironwork_kit.py --check'],
+  ['generators/archetypes/k11_ironwork.py', NONE, 'the K11 ironwork kit generator — imported by no scene build yet: check_ironwork_kit.py --check'],
+  ['docs/RESEARCH/k11-ironwork-kit/', NONE, 'the K11 ironwork kit specimen and study — unpublished: check_ironwork_kit.py --check'],
+  ['tools/study_k11_ironwork.mjs', NONE, 'the K11 study renderer — run by hand, by no gate'],
+
+  // T-2320. The K12 coach-house kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2321 puts it on a lot, so no part draws it;
+  // tools/check_coach_house_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k12_coach_house.json', NONE, 'the K12 coach-house kit data — built into no scene yet: check_coach_house_kit.py --check'],
+  ['generators/archetypes/k12_coach_house.py', NONE, 'the K12 coach-house kit generator — imported by no scene build yet: check_coach_house_kit.py --check'],
+  ['docs/RESEARCH/k12-coach-house-kit/', NONE, 'the K12 coach-house kit specimen and study — unpublished: check_coach_house_kit.py --check'],
+  ['tools/study_k12_coach_house.mjs', NONE, 'the K12 study renderer — run by hand, by no gate'],
+
+  // T-2312. The K15 chimney kit is built into a specimen GLB under docs/ that nothing
+  // publishes and no scene loads until T-2313 builds a house's chimneys from it, so no
+  // part draws it; tools/check_chimney_kit.py gates the data, the generator and the specimen.
+  ['data/components/prairie_1904/k15_chimneys.json', NONE, 'the K15 chimney kit data — built into no scene yet: check_chimney_kit.py --check'],
+  ['generators/archetypes/k15_chimneys.py', NONE, 'the K15 chimney kit generator — imported by no scene build yet: check_chimney_kit.py --check'],
+  ['docs/RESEARCH/k15-chimney-kit/', NONE, 'the K15 chimney kit specimen and study — unpublished: check_chimney_kit.py --check'],
+  ['tools/study_k15_chimneys.mjs', NONE, 'the K15 study renderer — run by hand, by no gate'],
+  // T-2324. The K14 condition kit is data and an evaluator that no scene build calls yet (T-2325
+  // applies it to a named house); its study is a still image under docs/ that nothing publishes.
+  // tools/check_condition_kit.py gates the data, the evaluator and the study's costs.
+  ['data/components/prairie_1904/k14_condition.json', NONE, 'the K14 condition kit data — built into no scene yet: check_condition_kit.py --check'],
+  ['generators/archetypes/k14_condition.py', NONE, 'the K14 condition kit evaluator — imported by no scene build yet: check_condition_kit.py --check'],
+  ['docs/RESEARCH/k14-condition-kit/', NONE, 'the K14 condition kit study — unpublished: check_condition_kit.py --check'],
 
   // --- PART 14: the arrival-to-jaunt path, on a fresh context (T-2044)
   // The jaunt modules are imported lazily, the first time the Jaunts menu opens, and
@@ -378,16 +514,16 @@ const COVERAGE = [
   // change to a jaunt priced at the whole gate while no part of that gate read it.
   // The boot modules the path also crosses (arrival.js, welcome.js, main.js) stay
   // whole-gate, because every part boots through them.
-  ['renderers/web/js/jaunts.js', [14], 'the outing itself: its stops, its controls, End'],
-  ['renderers/web/js/jaunt-panel.js', [14], 'the panel an outing is driven from'],
-  ['renderers/web/js/jaunt-menu.js', [14], 'the Jaunts menu and its Start buttons'],
-  ['renderers/web/js/jaunt-preview.js', [14], 'the menu\u2019s previews, Resume and the daybook'],
-  ['renderers/web/js/jaunt-cards.js', [14], 'the card and the source a stop links to'],
-  ['renderers/web/js/jaunt-context.js', [14], 'the road notes a ride carries'],
-  ['renderers/web/js/jaunt-journal.js', [14], 'the outing\u2019s saved journal'],
-  ['renderers/web/js/travel-estimate.js', [14], 'the estimate a change of mode moves'],
-  ['data/jaunts/', [14], 'the authored jaunts'],
-  ['data/sidecars/1835/jaunts/', [14], 'the compiled jaunts and their catalog'],
+  ['renderers/web/js/jaunts.js', [15], 'the outing itself: its stops, its controls, End'],
+  ['renderers/web/js/jaunt-panel.js', [15], 'the panel an outing is driven from'],
+  ['renderers/web/js/jaunt-menu.js', [15], 'the Jaunts menu and its Start buttons'],
+  ['renderers/web/js/jaunt-preview.js', [15], 'the menu\u2019s previews, Resume and the daybook'],
+  ['renderers/web/js/jaunt-cards.js', [15], 'the card and the source a stop links to'],
+  ['renderers/web/js/jaunt-context.js', [15], 'the road notes a ride carries'],
+  ['renderers/web/js/jaunt-journal.js', [15], 'the outing\u2019s saved journal'],
+  ['renderers/web/js/travel-estimate.js', [15], 'the estimate a change of mode moves'],
+  ['data/jaunts/', [15], 'the authored jaunts'],
+  ['data/sidecars/1835/jaunts/', [15], 'the compiled jaunts and their catalog'],
 ];
 
 /** T-1519 — WHERE A MODULE'S CHECKS ACTUALLY ARE, read off the gate rather than
@@ -404,8 +540,8 @@ const ANCHORS = [
   ['renderers/web/js/people.js', ['data-tab="people"', 'people-filters', 'people-card']],
   ['renderers/web/js/businesses.js', ['data-tab="businesses"']],
   ['renderers/web/js/seat.js', ['people-seat']],
-  // householdHtml is the body of the People directory's person card (12) and of the
-  // Evidence panel's household cards, mounted at #residents (13).
+  // householdHtml is the body of the People directory's person card (13) and of the
+  // Evidence panel's household cards, mounted at #residents (14).
   ['renderers/web/js/residents.js', ['people-card', "getElementById('residents')"]],
   ['renderers/web/js/attribute-tiers.js', ['T-1158', 'people-card', "getElementById('residents')"]],
   ['renderers/web/js/agencies.js', ['.pop-agency']],
@@ -431,7 +567,7 @@ function partsHolding(smoke, needle) {
 const fmt = (s) => (s == null ? '     —' : `${Math.floor(s / 60)}m ${String(Math.round(s % 60)).padStart(2, '0')}s`);
 const key = (parts) => parts.join(',');
 
-/** The current parts a reading covers, renumbering it if it predates T-0346. */
+/** The current parts a reading covers, renumbering it through every cut it predates. */
 function currentParts(reading) {
   const taken = Date.parse(reading.takenAt);
   let parts = reading.parts || [];
@@ -452,6 +588,11 @@ function currentParts(reading) {
     return [p + 1];
   });
   if (stale(HALVED_AT)) parts = parts.flatMap((p) => {             // T-0170
+    if (p <= 9) return [p];
+    if (p === 10) return [10, 11];
+    return [p + 1];
+  });
+  if (stale(HALVED_AGAIN_AT)) parts = parts.flatMap((p) => {       // T-2337
     if (p <= 9) return [p];
     if (p === 10) return [10, 11];
     return [p + 1];
@@ -779,16 +920,24 @@ function selfTest() {
   if (!eq(old([3], before), [3])) fails.push('old part 3 must renumber to 3');
   if (!eq(old([4], before), [4, 5, 6])) fails.push('old part 4 must renumber to 4,5,6');
   if (!eq(old([5], before), [7, 8])) fails.push('old part 5 must renumber to 7,8 through both cuts');
-  if (!eq(old([7, 8, 9], before), [10, 11, 12, 13])) fails.push('old parts 7-9 must renumber to 10-13');
+  if (!eq(old([7, 8, 9], before), [10, 11, 12, 13, 14])) fails.push('old parts 7-9 must renumber to 10-14');
   if (!eq(old([7], between), [7, 8])) fails.push('T-0346-era part 7 must renumber to 7,8');
-  if (!eq(old([8, 11], between), [9, 13])) fails.push('T-0346-era parts 8 and 11 must renumber to 9 and 13');
+  if (!eq(old([8, 11], between), [9, 14])) fails.push('T-0346-era parts 8 and 11 must renumber to 9 and 14');
   // …and the epoch between T-0173 and T-0170, which is the one a renumbering
   // that composes only the first two cuts gets wrong.
   const between2 = '2026-08-30T05:40:00Z';
-  if (!eq(old([10], between2), [10, 11])) fails.push('a T-0173-era part 10 must renumber to 10,11');
-  if (!eq(old([11], between2), [12])) fails.push('a T-0173-era part 11 must renumber to 12');
+  if (!eq(old([10], between2), [10, 11, 12])) fails.push('a T-0173-era part 10 must renumber to 10,11,12');
+  if (!eq(old([11], between2), [13])) fails.push('a T-0173-era part 11 must renumber to 13');
   if (!eq(old([7], between2), [7])) fails.push('a T-0173-era part 7 must not be renumbered again');
-  if (!eq(old([4], after), [4])) fails.push('a reading filed after all three cuts must not be renumbered');
+  if (!eq(old([4], after), [4])) fails.push('a reading filed after the three cuts of 2026-08-30 keeps part 4');
+  // …and T-2337's epoch: part 10 halved again, 11-14 pushed to 12-15.
+  const between3 = '2026-10-10T12:00:00Z';
+  const after2 = '2026-10-12T12:00:00Z';
+  if (!eq(old([10], between3), [10, 11])) fails.push('a T-2044-era part 10 must renumber to 10,11');
+  if (!eq(old([10, 11, 12, 13], between3), [10, 11, 12, 13, 14])) fails.push('the T-2044-era tail leg 10-13 must renumber to 10-14');
+  if (!eq(old([14], between3), [15])) fails.push('a T-2044-era part 14 must renumber to 15');
+  if (!eq(old([9], between3), [9])) fails.push('a T-2044-era part 9 must not be renumbered');
+  if (!eq(old([10], after2), [10]) || !eq(old([15], after2), [15])) fails.push('a reading filed after T-2337 must not be renumbered');
 
   if (!eq(stageArg([1, 2, 3, 5, 7, 8]), '1-3,5,7-8')) fails.push('stageArg does not fold contiguous runs');
 

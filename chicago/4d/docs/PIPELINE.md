@@ -196,11 +196,19 @@ and the owner's call. Until he makes it, the table above is the behaviour.
 
 ---
 
-## The changelog, which the pipeline does not stamp for you
+## The changelog, folded in after the merge
 
-**Stamp before merging to `dev`. Nothing stamps later.** Prepend one entry to
-`renderers/web/js/changelog.js` with all three authored fields blank — `v: null, ts: '',
-date: ''` — then run `node tools/stamp-changelog.mjs`.
+**A PR adds one entry file, `changelog.d/<ticket>.json`, and leaves `changelog.js` alone**
+(owner, 2026-10-10). It holds `title`, `kind` and `items` only; `node
+tools/changelog-entries.mjs --check` holds it to the contract and the What's-New budget.
+When the file reaches `dev`, `.github/workflows/chicago-4d-changelog-fold.yml` prepends it
+to `renderers/web/js/changelog.js`, stamps it, deletes the file and pushes one commit,
+which starts the dev deploy. Two PRs never write the same entry file, so they stop
+conflicting on the changelog's top line, which used to cost every open PR a lap per landing.
+
+The older way still passes the gate, and the notes below are about it: prepend one entry
+to `renderers/web/js/changelog.js` with all three authored fields blank — `v: null, ts: '',
+date: ''` — then run `node tools/stamp-changelog.mjs` before merging.
 
 `date: ''` must be *present*: the stamper fills an empty `ts` but only *regenerates* a `date`
 that already exists. `v: null` because the number is not yours to guess — two branches that

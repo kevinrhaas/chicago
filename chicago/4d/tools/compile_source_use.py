@@ -12,7 +12,7 @@ from compile_scene import cite, resolve_phase
 ROOT = Path(__file__).resolve().parents[1]
 USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # The raw index.json ceiling (bytes). 120 000 from T-1248; 128 000 from T-1728 — see outputs().
-INDEX_BUDGET = 128_000
+INDEX_BUDGET = 136_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
@@ -305,6 +305,10 @@ class Compiler:
         # bytes with every citation kept whole. What a visitor actually pays is the gzipped first
         # open, which is ~28 KB and is still held at T-1276's 120 KB by measure_sources.mjs; the
         # raw figure moves 8 KB, room for about twenty more sources before this is asked again.
+        # 136 000 SINCE 2026-10-11 (T-2334), asked again without a single new source: the Prairie
+        # district drafts (T-2329, T-2330, T-2334) grew the use counts of the sheets they cite, and
+        # the 16th-18th west side's drafts put the index at 128 001 bytes. The gzipped first open
+        # is still held at 120 KB by measure_sources.mjs; this is the raw file only.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs

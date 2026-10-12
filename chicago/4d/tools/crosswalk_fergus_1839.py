@@ -54,6 +54,9 @@ from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from reconstructed_person import is_reconstructed  # noqa: E402
+# A household's home and workplace are read off its dated associated_with rows (T-2275):
+# the singular lives_at/works_at pair is being retired (T-2261), and these are its reader.
+from associations import home_of, workplace_of  # noqa: E402
 import trade_recorded     # "does the layer hold a trade?" (T-0867), imported not restated
 import tiebreak            # the tie discriminator (T-0696), likewise
 import name_agreement as na  # the forename rule (T-0670), likewise
@@ -145,7 +148,7 @@ def residents():
                 "grade": p.get("grade"),
                 "occupation": ((p.get("occupation") or {}).get("value")),
                 "occupation_confidence": ((p.get("occupation") or {}).get("confidence")),
-                "lives_at": ((doc.get("lives_at") or {}).get("value")),
+                "home": home_of(doc),
             })
     return out
 
@@ -353,7 +356,7 @@ def main():
         extra=lambda r: {"person_id": r["person_id"], "household_id": r["household_id"],
                          "grade_1835": r["grade"], "occupation_1835": r["occupation"],
                          "occupation_1835_confidence": r["occupation_confidence"],
-                         "lives_at_1835": r["lives_at"]})
+                         "lives_at_1835": r["home"]})
     # What a match COULD carry, if the pass that spends it decides to. The residents
     # layer writes `none_recorded` where it holds no trade, and 738 of its 849 people
     # carry that — an absent trade is the field's most common value, not a null.

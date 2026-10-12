@@ -655,8 +655,11 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "party_size_on_arrival.value": ("shown", "party && party.value"),
     "origin.value": ("shown", "(hh.origin || {}).value"),
     "reason_for_coming.value": ("shown", "(hh.reason_for_coming || {}).value"),
-    "lives_at.value": ("shown", "(hh.lives_at || {}).value"),
-    "works_at.value": ("shown", "(hh.works_at || {}).value"),
+    # T-2258. A named home or workplace is printed by its `associated_with` row
+    # (validate.py refuses a singular link no row carries), so the singular pair's
+    # VALUES are banked as unread until T-2284 retires them. T-2295: where no address
+    # resolves, the reason is its own `no_home` / `no_workplace` block — always
+    # valueless, so it has no figure here — and `absenceRow` prints its tier and note.
     "present_on_scene_date.value": ("shown", "(hh.present_on_scene_date || {}).value"),
     # T-1144 acceptance 9. The dated evidence leg under an `uncertain` presence — the
     # last day the corpus can still see this person — has its own row on the card,
@@ -686,8 +689,8 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "party_size_on_arrival.confidence": ("shown", "tierOf(block) || block.confidence"),
     "origin.confidence": ("shown", "tierOf(block) || block.confidence"),
     "reason_for_coming.confidence": ("shown", "tierOf(block) || block.confidence"),
-    "lives_at.confidence": ("shown", "tierOf(block) || block.confidence"),
-    "works_at.confidence": ("shown", "tierOf(block) || block.confidence"),
+    "no_home.confidence": ("shown", "tierOf(block) || block.confidence"),
+    "no_workplace.confidence": ("shown", "tierOf(block) || block.confidence"),
     "present_on_scene_date.confidence": ("shown", "tierOf(block) || block.confidence"),
     # The reasoning, and on this layer it is the point: a note here routinely
     # says the record is NOT attested and why the figure is carried anyway.
@@ -695,8 +698,8 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "party_size_on_arrival.note": ("shown", "escapeHtml(block.note)"),
     "origin.note": ("shown", "escapeHtml(block.note)"),
     "reason_for_coming.note": ("shown", "escapeHtml(block.note)"),
-    "lives_at.note": ("shown", "escapeHtml(block.note)"),
-    "works_at.note": ("shown", "escapeHtml(block.note)"),
+    "no_home.note": ("shown", "escapeHtml(block.note)"),
+    "no_workplace.note": ("shown", "escapeHtml(block.note)"),
     "present_on_scene_date.note": ("shown", "escapeHtml(block.note)"),
     # T-1158's own fields, on the three claims T-1169's stage fills. `tier` drives the
     # chip through the same `tierOf` line the confidences above name; the rest are read
@@ -1063,6 +1066,20 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
         "shown", "w.business_present_at_scene_date ?"),
     "persons[].roles[].sources": (
         "shown", "(role.sources || []).map((id) => citationsById.get(id))"),
+    # T-1543 — A LATER VOLUME'S DATES OF ELECTION to an office the roles above already
+    # hold, printed as their own row under them so an election never widens a role's
+    # bound. `claim` is the reading's id and is the one key the card does not print: it
+    # is what the research-spend ledger reads to close the unit, and it is banked.
+    "persons[].office_elections.office": ("shown", "escapeHtml(words(block.office || 'an office'))"),
+    "persons[].office_elections.as_printed": ("shown", "escapeHtml(String(block.as_printed))"),
+    "persons[].office_elections.confidence": ("shown", "swatch(block.confidence)"),
+    "persons[].office_elections.promotes": ("shown", "block.promotes === false"),
+    "persons[].office_elections.note": ("shown", "escapeHtml(block.note)"),
+    "persons[].office_elections.sources": (
+        "shown", "(block.sources || []).map((id) => citationsById.get(id))"),
+    "persons[].office_elections.elections[].year": ("shown", "escapeHtml(String(e.year ?? 'not dated'))"),
+    "persons[].office_elections.elections[].as_printed": ("shown", "escapeHtml(String(e.as_printed))"),
+    "persons[].office_elections.elections[].read_as": ("shown", "escapeHtml(e.read_as)"),
     # The derived view's own list of which roles reach the scene date. The card reads
     # its LENGTH — the summary line says how many dated roles a person has and whether
     # any of them lands on 1 July 1835, so a closed card no longer reads as trade-less
@@ -1381,6 +1398,26 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "old_settler_deaths.people[].as_read": ("shown", "The page reads <q>${escapeHtml(String(entry.as_read ?? ''))}</q>"),
     "old_settler_deaths.people[].record_id": ("shown", "record ${\n        escapeHtml(String(entry.record_id ?? ''))}"),
     "persons[].biographical_evidence.age_on_1835_07_01.value.max": ("shown", "and ${age.value.max}"),
+    # T-1552. The card's "Seen in the record, by date" row reads both bound blocks with
+    # one renderer, `datedBoundsHtml`, so the two share their expressions.
+    "persons[].appearance_bounds[].bound_kind": ("shown", "b.bound_kind === 'district_presence'"),
+    "persons[].appearance_bounds[].here_by": ("shown", "if (b.here_by) return"),
+    "persons[].appearance_bounds[].side_of_scene_date": ("shown", "b.side_of_scene_date === 'later'"),
+    "persons[].appearance_bounds[].role": ("shown", "String(b.role || 'named')"),
+    "persons[].appearance_bounds[].describes_date": ("shown", "when(b.describes_date)"),
+    "persons[].appearance_bounds[].locator": ("shown", "escapeHtml(String(b.locator))"),
+    "persons[].appearance_bounds[].as_read": ("shown", "b.as_read ?? b.as_printed"),
+    "persons[].appearance_bounds[].source_title": ("shown", "b.source_title || b.list_title || b.publication"),
+    "persons[].dated_bounds[].bound_kind": ("shown", "b.bound_kind === 'district_presence'"),
+    "persons[].dated_bounds[].here_by": ("shown", "if (b.here_by) return"),
+    "persons[].dated_bounds[].side_of_scene_date": ("shown", "b.side_of_scene_date === 'later'"),
+    "persons[].dated_bounds[].role": ("shown", "String(b.role || 'named')"),
+    "persons[].dated_bounds[].describes_date": ("shown", "when(b.describes_date)"),
+    "persons[].dated_bounds[].locator": ("shown", "escapeHtml(String(b.locator))"),
+    "persons[].dated_bounds[].as_read": ("shown", "b.as_read ?? b.as_printed"),
+    "persons[].dated_bounds[].as_printed": ("shown", "b.as_read ?? b.as_printed"),
+    "persons[].dated_bounds[].list_title": ("shown", "b.source_title || b.list_title || b.publication"),
+    "persons[].dated_bounds[].publication": ("shown", "b.source_title || b.list_title || b.publication"),
 }
 
 READS: dict[str, dict[str, tuple[str, str]]] = {

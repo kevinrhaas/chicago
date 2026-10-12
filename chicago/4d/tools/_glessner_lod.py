@@ -8,8 +8,10 @@ reduces surface sampling and carving only; it is never a different house/version
 from __future__ import annotations
 
 from array import array
+import builtins
 from collections import Counter
 import copy
+import functools
 import hashlib
 import importlib
 import json
@@ -25,6 +27,36 @@ MATERIAL_NAMES=('granite','brick','limestone_trim','roof_plane','copper','glass'
  'lawn','drive','mortar','iron','glass_dark','granite_1','granite_2','granite_3','granite_4',
  'brick_dark_red','brick_buff','brick_smoky','roof_plane_1','roof_plane_2','roof_plane_3',
  'linen_blind','painted_wood','rough_stone_trim','turf_blade_dark','turf_blade_middle','turf_blade_light')
+
+
+def _left_to_right_sum(iterable,start=0):
+    """sum() as Python 3.11 and earlier compute it: one plain addition per item, in order."""
+    total=start
+    for value in iterable:total=total+value
+    return total
+
+
+def _blender_arithmetic(build):
+    """Run a light-tier build with the summation the full master is built with (T-2311).
+
+    Python 3.12 made sum() over floats compensated (Neumaier), so the same record
+    built through the same construction functions gave a different light tier on
+    each interpreter: CI's bake (3.11, as is Blender 4.5.3's own 3.11, which builds
+    the full master) wrote bd1a614c67b3; a 3.12 runner wrote 8a51eea20569, and that
+    was committed, so every full bake redded k01_contract. About twenty sum() sites
+    in masonry_house_v4_* and here feed the mesh. Pinning the old arithmetic for
+    the duration of the build, rather than editing those generator lines, leaves the
+    full master and its inputs hash untouched and makes this tier one set of bytes
+    on every interpreter. builtins is swapped, not module globals, so a module
+    the construction imports lazily is covered too; the original is always restored.
+    """
+    @functools.wraps(build)
+    def pinned(*args,**kwargs):
+        previous=builtins.sum
+        builtins.sum=_left_to_right_sum
+        try:return build(*args,**kwargs)
+        finally:builtins.sum=previous
+    return pinned
 
 
 def _geometry_modules(root):
@@ -51,7 +83,8 @@ def _geometry_modules(root):
     return d,params,materials
 
 
-def _construct(root):
+@_blender_arithmetic
+def _construct(root, *, roof_details_reduced=True):
     d,param_module,materials=_geometry_modules(root)
     from common.versions import glessner_detail_record
     record=json.loads(glessner_detail_record(root).read_text())
@@ -64,6 +97,7 @@ def _construct(root):
         def __init__(self,name,params):
             super().__init__(name,params)
             self.smooth_rock_faces=False
+            self.reduced_roof_details=roof_details_reduced
             self.components=Counter()
 
         def block(self,polygon,point,normal,confidence,mat,rng,holes=None):
@@ -91,21 +125,18 @@ def _construct(root):
             if emitted:self.masonry_blocks+=1
 
         def tiles(self,pts,confidence):
-            # Continuous roof plane plus physical course noses every second tile
-            # row. Ridge, eaves, valleys, dormers and roof intersections stay exact.
-            normal=d.norm(d.legacy._normal(pts))
-            self.raw(pts,confidence,d.ROOF)
-            uphill=d.norm((-normal[0]*normal[2],-normal[1]*normal[2],1-normal[2]*normal[2]))
-            if abs(uphill[2])<1e-5:return
-            u=d.norm(d.cross(uphill,normal));distance=d.dot(pts[0],normal)
-            poly=[(d.dot(p,u),d.dot(p,uphill)) for p in pts]
-            if d.area(poly)<0:poly.reverse()
+            # Every course and joint is mapped at the full model's physical
+            # module. Keep the existing alternate-course geometric sampling.
+            normal,poly,point,coords=self.roof_frame(pts)
+            self.roof_raw(pts,confidence,d.ROOF,normal,coords)
+            spec=self.params.detail['roof_tiles']
+            step=2*spec['exposure_in']*.0254
+            relief=spec['lap_relief_m']
             a,z0,c,z1=d.bounds(poly)
-            def point(q,h):return tuple(u[k]*q[0]+uphill[k]*q[1]+normal[k]*(distance+h) for k in range(3))
-            for row in range(math.floor(z0/.24384),math.ceil(z1/.24384)):
-                y=row*.24384
-                lip=d.rect_clip(poly,a,y+.001,c,y+.017)
-                if lip:self.raw([point(q,.012 if q[1]<y+.009 else .001) for q in lip],confidence,19+row%3,normal)
+            for row in range(math.floor(z0/step),math.ceil(z1/step)):
+                y=row*step
+                lip=d.rect_clip(poly,a,y,c,y+relief)
+                if lip:self.roof_raw([point(q,relief*(1-(q[1]-y)/relief)) for q in lip],confidence,19+row%3,normal,coords,detail=True)
 
     b=ReducedBuilder('glessner_house__as_built_1887',params)
     legacy=d.legacy
@@ -131,9 +162,16 @@ def _construct(root):
         legacy._band(b,n)
         d.slab(b,n,n['u0'],n['u1'],n['z0']-.055,n['z0']+.025,.07,n['proj_m']+.025,n['conf'],d.TRIM)
     b.decorate=True
-    for w in params.walls:legacy._gate_piece(b,w)
+    for w in params.walls:
+        # T-2201: the courtyard's boundary runs are 30 m of brick; per-course relief on
+        # them would spend the reduced tier's triangle cap, so they stay flat here.
+        b.decorate='ends' not in w
+        legacy._gate_piece(b,w)
+    b.decorate=True
     b.decorate=False
     for g in params.ground:legacy._ground(b,g)
+    from archetypes.masonry_house_v4_frontage import add_frontage
+    add_frontage(b,params,reduced=True)
     _columns(b,params,d)
     _ridges(b,params,d)
     b.decorate=True
@@ -155,6 +193,9 @@ def _construct(root):
                          'service_stairs':int(bool(params.detail.get('north_court_service_stair'))),
                          'underpass':int(bool(params.detail.get('underpass'))),
                          'supplemental_dormer':int(bool(params.detail.get('west_dormer')))})
+    if params.detail.get("roof_edges"):
+        from archetypes.masonry_house_v4_roof_edges import add_edges
+        add_edges(b,params)
     return b,params,materials
 
 
@@ -189,6 +230,9 @@ def _columns(b,params,d):
 
 
 def _ridges(b,params,d):
+    if params.detail.get("roof_edges"):
+        from archetypes.masonry_house_v4_roof_edges import add_ridges
+        return add_ridges(b,params)
     # Same per-tile raised crest envelopes. Four angular intervals include the
     # exact crown and both shoulders while removing invisible sub-centimetre arcs.
     from archetypes.masonry_house_v4_west_roof import ridge_ranges
@@ -283,6 +327,39 @@ def _apertures(params):
             'terrace':params.detail.get('bow_terrace',{}).get('window_count',0)}
 
 
+def _tiling_occlusion(root,materials,textures,images,append):
+    """T-2400: the reduced mesh carries TEXCOORD_0 alone, so a stone-scale occlusion
+    baked on the master's TEXCOORD_1 cannot ride it. Each such material takes back the
+    tiling map its extras name (`occlusion_tiling_map`, T-2393's granite_occlusion.png),
+    on TEXCOORD_0 with its normal map's texture sampler, so it repeats with the relief
+    it was drawn from. The baked image's slot is refilled with that map's bytes; a
+    material whose bake names no tiling map loses its occlusion rather than sample a
+    coordinate set the mesh does not have. The light's own bake is T-2401.
+    """
+    replaced={}
+    for material in materials:
+        occlusion=material.get('occlusionTexture')
+        if not occlusion or occlusion.get('texCoord',0)==0:continue
+        path=(material.get('extras') or {}).get('occlusion_tiling_map')
+        if not path:
+            material.pop('occlusionTexture');continue
+        source=textures[occlusion['index']]['source']
+        if source not in replaced:
+            data=(Path(root)/path).read_bytes()
+            images[source]={'name':Path(path).stem,'mimeType':'image/png','bufferView':append(data)}
+            replaced[source]={}
+        normal=material.get('normalTexture')
+        sampler=textures[normal['index']].get('sampler') if normal else None
+        key=sampler if sampler is not None else -1
+        if key not in replaced[source]:
+            texture={'source':source}
+            if sampler is not None:texture['sampler']=sampler
+            textures.append(texture);replaced[source][key]=len(textures)-1
+        material['occlusionTexture']={'index':replaced[source][key]}
+    return materials,textures
+
+
+@_blender_arithmetic
 def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
     """Write a temporary, uncompressed same-v4 LOD with exact master fabrics.
 
@@ -332,7 +409,7 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
         points=[b.verts[i] for i in face];normal=_normal(points)
         triangles=_triangles(points,normal)
         if not triangles:continue
-        group=groups.setdefault(material,{'p':[],'n':[],'uv':[],'c':[],'i':[]})
+        group=groups.setdefault(material,{'p':[],'n':[],'uv':[],'c':[],'rd':[],'i':[]})
         start=len(group['p'])//3
         horizontal=(-normal[1],normal[0],0);length=math.hypot(horizontal[0],horizontal[1])
         if length<1e-6:horizontal=(1,0,0);uphill=(0,1,0)
@@ -345,15 +422,18 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
         for index,point in zip(face,points):
             group['p'].extend((point[0],point[2],-point[1]))
             group['n'].extend((normal[0],normal[2],-normal[1]))
-            group['uv'].extend((sum(p*v for p,v in zip(point,horizontal))/tu,1-sum(p*v for p,v in zip(point,uphill))/tv))
+            uv=b.roof_uvs.get(index,(sum(p*v for p,v in zip(point,horizontal)),sum(p*v for p,v in zip(point,uphill))))
+            group['uv'].extend((uv[0]/tu,1-uv[1]/tv))
             group['c'].append(b.conf[index])
+            group['rd'].append(b.roof_detail.get(index,0))
         for triangle in triangles:group['i'].extend(start+i for i in triangle)
         triangle_count+=len(triangles)
     if triangle_count>MAX_TRIANGLES:raise ValueError(f'Reduced Glessner has {triangle_count:,} triangles; limit {MAX_TRIANGLES:,}')
     primitives=[]
     for material,g in sorted(groups.items()):
         attributes={'POSITION':accessor(g['p'],3,bounds=True),'NORMAL':accessor(g['n'],3),
-                    'TEXCOORD_0':accessor(g['uv'],2),'_CONFIDENCE':accessor(g['c'],1,bounds=True)}
+                    'TEXCOORD_0':accessor(g['uv'],2),'_CONFIDENCE':accessor(g['c'],1,bounds=True),
+                    '_ROOF_DETAIL':accessor(g['rd'],1,bounds=True)}
         primitives.append({'attributes':attributes,'indices':accessor(g['i'],1,'I'),
                            'material':names[MATERIAL_NAMES[material]],'mode':4})
     extras=copy.deepcopy(owner.get('extras',{}))
@@ -363,10 +443,11 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
     receipt={'master_sha256':master_sha,'recipe_sha256':recipe_sha256,'triangles':triangle_count,
              'openings_recessed':sum(counts.values()),'bounds_zup_m':bounds,
              'profile':'same_v4_reduced_surface_sampling'}
+    materials,textures=_tiling_occlusion(root,copy.deepcopy(materials),copy.deepcopy(full.get('textures',[])),images,append)
     doc={'asset':copy.deepcopy(full['asset']),'scene':0,'scenes':[{'nodes':[0]}],
          'nodes':[{'name':b.name+'.light','mesh':0,'extras':extras}],
          'meshes':[{'name':b.name+'.light','primitives':primitives}],
-         'materials':copy.deepcopy(materials),'images':images,'textures':copy.deepcopy(full.get('textures',[])),
+         'materials':materials,'images':images,'textures':textures,
          'samplers':copy.deepcopy(full.get('samplers',[])),'accessors':accessors,'bufferViews':views,
          'buffers':[{'byteLength':len(payload)}],'extras':{'glessner_light':receipt}}
     for key in ('extensionsUsed','extensionsRequired'):

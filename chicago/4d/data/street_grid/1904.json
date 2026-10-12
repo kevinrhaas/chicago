@@ -13360,13 +13360,6 @@
    "read": "lot lines at sheet 28 rows [4885.7, 5880.9] (profile peaks at column 1628); front sheet 28 line prairie_w, rear sheet 28 line alley_w_e",
    "library_frontage_ids": [
     "frontage-28-047"
-   ],
-   "library_disagreements": [
-    {
-     "printed": "1918 (1936)",
-     "library_row": "frontage-28-047",
-     "reading": "The stacked label reads '1918' over '(1936)' (the parenthesised figure is unambiguous); the library read '1916 (1930)' at medium confidence and asked for it to be resolved. What the parenthesised number means -- the number before the 1909 renumbering, or a second entrance -- is not settled here."
-    }
    ]
   },
   {
@@ -13424,6 +13417,7 @@
    ],
    "read": "lot lines at sheet 28 rows [5880.9, None] (profile peaks at column 1628); front sheet 28 line prairie_w, rear sheet 28 line alley_w_e",
    "library_frontage_ids": [
+    "frontage-28-047",
     "frontage-28-048"
    ]
   },

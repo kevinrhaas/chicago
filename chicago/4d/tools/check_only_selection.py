@@ -175,7 +175,8 @@ Path(target).write_bytes(b"glTF-Transform v4.5.0 " + command.encode())
 """
 
 
-def run_step(script: str, names: list[str], *args: str, mode: str = "optimized"):
+def run_step(script: str, names: list[str], *args: str, mode: str = "optimized",
+             untouched_master: bool = False):
     """Run a copy of `script` (web_derivatives.sh's text) over fixture masters."""
     with tempfile.TemporaryDirectory() as directory:
         root = Path(directory)
@@ -191,6 +192,11 @@ def run_step(script: str, names: list[str], *args: str, mode: str = "optimized")
         (root / "assets" / "gltf").mkdir(parents=True)
         for name in names:
             (root / "assets" / "gltf" / name).write_bytes(name.encode() * 400)
+        # The record's other entry. With its master in the tree it is an untouched
+        # asset a selection must keep; without one it is a deleted asset, whose entry
+        # the merge drops as a whole rewrite would (T-2314).
+        if untouched_master:
+            (root / "assets" / "gltf" / "untouched.glb").write_bytes(b"untouched" * 400)
         (root / "assets" / "manifest.web.json").write_text(json.dumps(
             {"masters": {"untouched.glb": "kept"}}))
         env = {**os.environ, "PATH": f"{root / 'bin'}{os.pathsep}{os.environ['PATH']}",
@@ -207,13 +213,20 @@ def audit_step(script: str) -> list[str]:
     """What the derivative step does with a selection, run rather than read."""
     rep: list[str] = []
     town = ["a__p.glb", "b__p.glb", "c__p.glb", "terrain__e.glb"]
-    code, made, record = run_step(script, town, "--only", "a__p.glb,terrain__e.glb")
+    code, made, record = run_step(script, town, "--only", "a__p.glb,terrain__e.glb",
+                                  untouched_master=True)
     if code != 0 or made != ["a__p.glb", "terrain__e.glb"]:
         rep.append(f"`--only a,b` derived {made} (exit {code}), not exactly the two "
                    "masters it named.")
     elif record != ["a__p.glb", "terrain__e.glb", "untouched.glb"]:
         rep.append(f"`--only a,b` left the record reading {record}: a selection must "
                    "merge its masters in and keep every other entry.")
+    code, made, record = run_step(script, town, "--only", "a__p.glb")
+    if code != 0 or record != ["a__p.glb"]:
+        rep.append(f"`--only a` with the other entry's master deleted left the record "
+                   f"reading {record} (exit {code}): the merge must drop an entry whose "
+                   "master is gone, as the whole rewrite did, or assertion 9 refuses it "
+                   "after every whole-town bake (T-2314).")
     code, made, _ = run_step(script, town, "--only", "a__p.glb", mode="unavailable")
     if code != 0 or made != ["a__p.glb"]:
         rep.append(f"without the toolchain, `--only a` copied {made} (exit {code}) — the "

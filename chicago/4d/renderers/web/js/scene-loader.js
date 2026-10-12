@@ -132,6 +132,28 @@ async function getJSON(url) {
   return res.json();
 }
 
+/**
+ * Put a packed boot sidecar back together (T-2315). `tools/pack_boot_sidecars.mjs`
+ * ships each scene's records fifty to a file (`boot/part-<n>.json`, by index row), with
+ * every value three or more of them repeat replaced by `{ "$shared": n }`, and the
+ * values once, in `boot/shared.json`. This restores the
+ * record in place, key for key and in order, so the registry holds exactly what the
+ * record's own URL holds. Each object is a fresh copy: two records must never share one
+ * object, or a change to one card's data would quietly be a change to another's. The
+ * gate runs the tool's copy of this function over every shipped record.
+ */
+export function rehydrate(v, values) {
+  if (v === null || typeof v !== 'object') return v;
+  const keys = Object.keys(v);
+  if (keys.length === 1 && keys[0] === '$shared' && !Array.isArray(v)) {
+    const got = values[v.$shared];
+    if (got === undefined) throw new Error(`no shared value ${v.$shared}`);
+    return structuredClone(got);
+  }
+  for (const k of keys) v[k] = rehydrate(v[k], values);
+  return v;
+}
+
 /** Peek at a GLB's JSON chunk without decoding the whole asset. */
 function glbHeader(buffer) {
   const dv = new DataView(buffer);
@@ -254,6 +276,33 @@ export async function loadScene(year, bases = resolveBases(), {
     entries[at] = { ...entries[at], sidecar: versionState.active.sidecar, version: versionState.active };
   }
 
+  // T-2315. The published index names the packed boot copies; the source tree's does
+  // not, so the dev layout reads each record whole and never asks for a file that is
+  // not there. The shared values are one request, made once, before any record.
+  const boot = index.boot && typeof index.boot.dir === 'string' && typeof index.boot.shared === 'string'
+    && Number.isInteger(index.boot.per_part) && index.boot.per_part > 0 ? index.boot : null;
+  let shared = null;
+  if (boot) {
+    try {
+      shared = (await getJSON(new URL(boot.shared, dataBase))).values;
+      if (!Array.isArray(shared)) throw new Error('holds no `values`');
+    } catch (err) {
+      problems.push(`${boot.shared}: ${err.message} — every record loads whole instead`);
+      shared = null;
+    }
+  }
+
+  // Each part is asked for once, by whichever of its records gets there first.
+  const parts = new Map();
+  const bootRecord = (at, id) => {
+    const name = `part-${Math.floor(at / boot.per_part)}.json`;
+    if (!parts.has(name)) parts.set(name, getJSON(new URL(`${boot.dir}${name}`, dataBase)));
+    return parts.get(name).then((part) => {
+      if (!Object.hasOwn(part, id)) throw new Error(`not in ${boot.dir}${name}`);
+      return rehydrate(part[id], shared);
+    });
+  };
+
   const loader = new GLTFLoader();
   const registry = new Map();
   let bytes = 0;
@@ -290,11 +339,12 @@ export async function loadScene(year, bases = resolveBases(), {
 
   let completed = 0;
   onProgress(0, entries.length);
-  const loads = entries.map(async ({ id, sidecar: sidecarPath, version: chosen = null }) => {
+  const loads = entries.map(async ({ id, sidecar: sidecarPath, version: chosen = null }, at) => {
     const sidecarUrl = new URL(sidecarPath ?? `sidecars/${year}/${id}.json`, dataBase);
     let sidecar;
     try {
-      sidecar = await getJSON(sidecarUrl);
+      // A structure pointed at a version (`chosen`) reads its version file whole.
+      sidecar = shared && !chosen ? await bootRecord(at, id) : await getJSON(sidecarUrl);
     } catch (err) {
       problems.push(`sidecar ${id}: ${err.message}`);
       return;

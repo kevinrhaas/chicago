@@ -150,15 +150,15 @@
     "stands_on": "street",
     "fronts": "monroe",
     "sequence": 1,
-    "finish_key": "mixed_patch",
+    "finish_key": "ochre",
     "roof_condition": "weathered",
     "age_state": "recent",
     "fabric_basis": {
-      "rule": "F-L",
-      "class": "labourer",
+      "rule": "F-T",
+      "class": "tradesman",
       "by": "keeper_trade",
       "household": "hh_haighs_isaac",
-      "words": "patched boards under a weathered roof — The Haighs household's, a laundress, in Chicago since 1834 (rule F-L)"
+      "words": "ochre-washed boards under a weathered roof — The Haighs household's, a milliner, in Chicago since 1834 (rule F-T)"
     }
   },
   "resident_assignment": {

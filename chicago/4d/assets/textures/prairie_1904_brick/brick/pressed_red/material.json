@@ -1,0 +1,43 @@
+{
+  "id": "pressed_red",
+  "group": "brick",
+  "role": "fabric",
+  "kind": "pressed",
+  "tile_m": [
+    1.0,
+    1.0
+  ],
+  "resolution_px": 1024,
+  "px_per_m": 1024.0,
+  "uv_rule": "K01 scale_uv: TEXCOORD_0 = surface metres / tile_m (data/components/prairie_1904/k01_contract.json)",
+  "joints_in_map": false,
+  "orientation": "image x = along the course (u); image y = up the wall (v), image top = up",
+  "height_range_m": [
+    -0.000672,
+    9.9e-05
+  ],
+  "mean_srgb": [
+    123,
+    43,
+    32
+  ],
+  "mean_roughness": 0.581,
+  "note": "Dry-pressed face brick: a dense, smooth, even red face with crisp arrises, a faint press sheen and only fine pinholes; laid with thin dark joints so the wall reads as one colour field. Body colour and burn spread are reconstructed.",
+  "confidence": "reconstructed appearance; which house wears it is the T-1837 register's to say",
+  "liberty": "L-k03-brick-library-2290",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y (up the wall)",
+    "roughness": "linear",
+    "height16": "linear 16-bit; 0 = height_range_m[0], 65535 = height_range_m[1]",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "pressed_red_basecolor_web.jpg",
+    "normal_gl": "pressed_red_normal_gl_web.jpg",
+    "orm": "pressed_red_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19043092,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_brick.py); no photograph sampled"
+}

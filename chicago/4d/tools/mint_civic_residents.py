@@ -180,12 +180,14 @@ PROPOSAL = DATA / "research" / "residents" / "grading_proposal.json"
 MASTER = DATA / "research" / "residents" / "identity_master.json"
 
 sys.path.insert(0, str(ROOT / "tools"))
+from associations import home_of, workplace_of  # noqa: E402  (T-2284)
 from reconstructed_person import named_by_a_source  # noqa: E402
 from rebuild_resident_index import rebuild  # noqa: E402  (the manifest's one owner)
 from resident_mint_carry import carry_resident_mint  # noqa: E402  (T-1137)
 from carry_stage_blocks import carry  # noqa: E402  (T-1169; a mint owns its record, a reconstruction stage owns its blocks)
 from supersede_arrival import supersede, supersede_block  # noqa: E402  (T-1350; a ruled reading supersedes a derived bound and cannot be reverted)
 from supersede_arrival import LEDGER as _ARRIVAL_LEDGER, by_household as arrival_supersessions  # noqa: E402
+from death_readings import death_reading, printed_deaths  # noqa: E402  (T-2189; a burial is a departure, not a sighting)
 from mint_documented_residents import (  # noqa: E402  (shared, deliberately)
     FIRM, PAPERS, SCENE_DATE, UNCERTAIN, display, dumps, household_id, load,
     minted_by, plain_fragment, slug, surname, words,
@@ -194,6 +196,15 @@ from mint_documented_residents import (  # noqa: E402  (shared, deliberately)
 LEDGER_NAME = _ARRIVAL_LEDGER.name
 
 PASS_NAME = "civic"
+# THE PRINTED WIFE ON A CARD THIS PASS MINTED (T-2232). `reconstruct_modelled_families.py`
+# seats a wife a source prints out of her own card into her husband's, and marks her with
+# this key (its PRINTED_KEY). When the husband's card is one of this pass's — Mark Noble
+# jun.'s is, and Chester Ingersoll's (T-2190) is not — she stands on a card this pass
+# re-derives, but she is the stage's, not this pass's: she is not minted again on her own
+# card (refusal 2 says the town already carries her), she is carried through the re-mint
+# of his card where the stage put her, and the "households of one" gate does not count
+# her, exactly as it does not count a drawn wife.
+PRINTED_KEY = "seated_as_printed_wife"
 PREFIX = "hh_civic_"      # legacy shape only; T-0599 ids are plain and this never fires
 DIVISION = "unplaced"
 SCENE_YEAR = 1835
@@ -752,11 +763,17 @@ def bracket_legs(appearances: list) -> tuple[list, list, list]:
         if earliest >= SCENE_DATE:
             after.append(app)
         if latest <= SCENE_DATE:
-            (refused_before if cls in refused_classes else before).append(app)
+            # A BURIAL OR A DEATH NOTICE IS REFUSED ON THIS LEG TOO (T-2189), and for the
+            # plainest reason there is: the record puts the person at Chicago DEAD. It is
+            # the one appearance that cannot be followed across a later day, so it joins
+            # the refused rows, where `death_before_the_day` reads it as what it is.
+            refused = cls in refused_classes or death_reading(app) is not None
+            (refused_before if refused else before).append(app)
     return before, after, refused_before
 
 
-def death_before_the_day(refused_before: list, before: list) -> str | None:
+def death_before_the_day(refused_before: list, before: list,
+                         appearances: list = ()) -> str | None:
     """The day this person died, if the record says he was dead before the scene date.
 
     Narrow on purpose, and it says no three ways. It reads only `DEATH_CLASS` — another
@@ -770,12 +787,74 @@ def death_before_the_day(refused_before: list, before: list) -> str | None:
     days = {b for app in refused_before
             if app.get("evidence_class") == DEATH_CLASS
             and (b := bound_of(app.get("describes_date"))) and b < SCENE_DATE}
+    # A burial or a printed notice dates the death NO LATER THAN its own day (T-2189), so
+    # two notices of one death are two upper bounds on it and not a disagreement: the
+    # earliest is the death's bound. That is why they join as ONE day, where two
+    # obituaries that disagree are still the identity question the rule above refuses.
+    printed = [d["day"] for d in deaths_read(appearances) if d["day"] < SCENE_DATE]
+    if printed:
+        days.add(min(printed))
     if len(days) != 1:
         return None
     died = days.pop()
     if any((b := bound_of(app.get("describes_date"))) and b > died for app in before):
         return None
     return died
+
+
+def deaths_read(appearances) -> list[dict]:
+    """Every burial and printed death notice the card's appearances reach (T-2189).
+
+    A register burial is the appearance itself, dated by the entry. A paper's notice is
+    read across EVERY mention of the person the gazetteer holds, dated by its issue —
+    `death_readings.printed_deaths` says why. Each reading's `day` is the latest day the
+    person can have been alive on, which is all the presence rule asks of it.
+    """
+    out = {}
+    for app in appearances or ():
+        read = death_reading(app)
+        if read and read["kind"] == "burial":
+            day = bound_of(app.get("describes_date"))
+            if day:
+                out[read["record"]] = dict(read, day=day, as_read=app.get("describes_date"))
+        for printed in printed_deaths(app):
+            out.setdefault(printed["record"], dict(printed, as_read=printed["day"]))
+    return sorted(out.values(), key=lambda d: (d["day"], str(d["record"])))
+
+
+def died_note(appearances: list, died: str) -> str:
+    """Why `absent`, in the words of the record that says so.
+
+    The obituary keeps the sentence it has always had, so the cards T-1131 ruled do not
+    move. A burial or a notice quotes the entry as the page prints it.
+    """
+    readings = [d for d in deaths_read(appearances) if d["day"] == died]
+    if not readings:
+        return (f"THE RECORD PLACES THIS PERSON NOWHERE ON THE DAY, BECAUSE HE WAS "
+                f"DEAD. The old settlers' obituary dates the death "
+                f"{pretty(died)}, before the scene date of 1 July 1835, and no "
+                f"record that places a person at Chicago names this one after it. "
+                + DEATH_NOTICE_NOTE + " — so it cannot be the at-or-before leg of a "
+                "bracket, and a later source on the far side cannot close one over a "
+                "dead man. `absent` and not `uncertain`: a silence is somewhere the "
+                "sources have not looked, and a death is not a silence.")
+    read = readings[0]
+    # THE ENTRY IS CITED, NEVER QUOTED. An obituary names the dead woman's father and a
+    # notice the dead child's; quoted here, those words would be read back by the kin
+    # survey (`survey_stated_kin.read_cards`) as a NEW statement on this card —
+    # the layer reading its own note as evidence. The record id is one step from the page.
+    where = ("Father St Cyr's register records the death at Chicago in its entry"
+             if read["kind"] == "burial" else
+             "The Chicago Democrat prints the death in its claim")
+    return (f"DEAD BEFORE THE DAY (T-2189). {where} {read['record']}, dated "
+            f"{read['as_read']}, which names this person as the one who died — so they "
+            f"died no later than "
+            f"{pretty(died)}, before the scene date of 1 July 1835, and no record that "
+            f"places a person at Chicago names them after it. A BURIAL IS A DEPARTURE, NOT "
+            f"A SIGHTING: it puts the person at Chicago dead, so it cannot be the "
+            f"at-or-before leg of a bracket, and the persistence model cannot price it. "
+            f"`absent` and not `uncertain`: a silence is somewhere the sources have not "
+            f"looked, and a death is not a silence.")
 
 
 def born_after_the_day(appearances: list, before: list,
@@ -824,7 +903,7 @@ def presence_block(appearances: list, sources: list) -> dict:
                      "reach across the scene date rather than stopping at one side of it. "
                      "Inferred, not documented: no source says where they were on the day."),
         }
-    died = death_before_the_day(refused_before, before)
+    died = death_before_the_day(refused_before, before, appearances)
     if died:
         return {
             "value": "absent",
@@ -835,14 +914,7 @@ def presence_block(appearances: list, sources: list) -> dict:
             # looked. A death is not a silence: the record says the man stopped, and it
             # dates the stopping before the day this scene models. `absent` is therefore
             # the honest reading and `uncertain` would be the flattering one.
-            "note": (f"THE RECORD PLACES THIS PERSON NOWHERE ON THE DAY, BECAUSE HE WAS "
-                     f"DEAD. The old settlers' obituary dates the death "
-                     f"{pretty(died)}, before the scene date of 1 July 1835, and no "
-                     f"record that places a person at Chicago names this one after it. "
-                     + DEATH_NOTICE_NOTE + " — so it cannot be the at-or-before leg of a "
-                     "bracket, and a later source on the far side cannot close one over a "
-                     "dead man. `absent` and not `uncertain`: a silence is somewhere the "
-                     "sources have not looked, and a death is not a silence."),
+            "note": died_note(appearances, died),
         }
     unborn = born_after_the_day(appearances, before)
     if unborn:
@@ -867,7 +939,14 @@ def presence_block(appearances: list, sources: list) -> dict:
                  "no source places this person anywhere else on 1 July 1835 either, and a "
                  "man who was taxed for ground in the town may perfectly well have been "
                  "standing on it.")
-    if refused_before and not before:
+    if any(death_reading(a) for a in refused_before) and not before:
+        note += (" THE AT-OR-BEFORE LEG OFFERED HERE IS A DEATH (T-2189): a burial or a "
+                 "death notice puts the person at Chicago dead and cannot be followed "
+                 "across a later day. `uncertain` and not `absent` — the readings do not "
+                 "agree on one day of death before 1 July 1835, or another record names "
+                 "this person at Chicago after it, so what the sources leave is a gap "
+                 "rather than an end.")
+    elif refused_before and not before:
         note += (" THE AT-OR-BEFORE LEG OFFERED HERE IS ONE THIS PASS MAY NOT STAND ON: "
                  + DEATH_NOTICE_NOTE + ". `uncertain` and not `absent` — this card's "
                  "refused leg does not date a single death before the day, or another "
@@ -901,6 +980,20 @@ def carry_over(doc: dict, prior: dict | None, retracted: set | None = None) -> d
         owned_person_keys=BLOCK_KEYS + ("resident_subtype",),
         retracted_sources=retracted,
     )
+
+
+def carry_printed_wives(doc: dict, prior: dict | None) -> dict:
+    """`doc` with the printed wives the modelled-families stage seated on this card
+    carried back in, after this pass's own person and in the order the stage put them
+    (T-2232). Only this pass's own card is read, as in `carry_over`."""
+    if not prior or prior.get("source_pass") != PASS_NAME:
+        return doc
+    ids = {p.get("id") for p in doc.get("persons") or []}
+    wives = [p for p in prior.get("persons") or []
+             if PRINTED_KEY in p and p.get("id") not in ids]
+    if wives:
+        doc["persons"] = list(doc.get("persons") or []) + wives
+    return doc
 
 
 def record(row: dict, appearances: list, docs: dict, taken_ids: set,
@@ -961,11 +1054,11 @@ def record(row: dict, appearances: list, docs: dict, taken_ids: set,
         "party_size_on_arrival": unattested("Not attested."),
         "origin": unattested("Not attested."),
         "reason_for_coming": unattested("Not attested."),
-        "lives_at": unattested(
+        "no_home": unattested(
             "Not attested: the lists that name this person give no address. The placement "
             "sweep assigns homes once the resident list is complete (T-0514, the owner's "
             "own sequencing) and this pass will not guess one."),
-        "works_at": unattested(
+        "no_workplace": unattested(
             "Not attested. No trade is recorded here, so there is no premises to seek; "
             "T-0633 is where a later directory's address gets back-projected."),
         "present_on_scene_date": presence_block(appearances, sources),
@@ -1102,9 +1195,9 @@ def build(preload: dict | None = None):
     # every household the first one seated. See mint_documented_residents.MINTED_PREFIXES.
     others = {p: d for p, d in docs.items() if p not in mine_paths}
     own = {person.get("id") for path in mine_paths
-           for person in docs[path].get("persons") or []}
+           for person in docs[path].get("persons") or [] if PRINTED_KEY not in person}
     established = {person.get("id"): docs[path] for path in mine_paths
-                   for person in docs[path].get("persons") or []}
+                   for person in docs[path].get("persons") or [] if PRINTED_KEY not in person}
     accepted, refusals = pool(others, proposal, master, index, own)
 
     # What each identity's REFUSED readings were citing, so `carry_over` can tell this
@@ -1119,8 +1212,9 @@ def build(preload: dict | None = None):
     for row, appearances in accepted:
         doc = record(row, appearances, others, taken,
                      established.get(row.get("canonical_person_id")))
-        doc = carry_over(doc, docs.get(HOUSEHOLDS / f"{doc['id']}.json"),
-                         retracted.get(row["identity"], set()))
+        prior = docs.get(HOUSEHOLDS / f"{doc['id']}.json")
+        doc = carry_over(doc, prior, retracted.get(row["identity"], set()))
+        doc = carry_printed_wives(doc, prior)
         if doc["id"] in taken:
             raise SystemExit(f"two identities mint the same household id {doc['id']}")
         taken.add(doc["id"])
@@ -1551,7 +1645,8 @@ def gate_problems(docs: dict, index: dict) -> list:
         # refuse the card for something it did not do, and the sentence under it — "this
         # pass mints households of one and never invents a family" — stays exactly true:
         # it still mints one, and it still invents nobody.
-        people = named_by_a_source(doc.get("persons") or [])
+        people = [p for p in named_by_a_source(doc.get("persons") or [])
+                  if PRINTED_KEY not in p]
         if len(people) != 1:
             problems.append(f"{where}: {len(people)} member(s); this pass mints households "
                             f"of one and never invents a family")
@@ -1594,10 +1689,10 @@ def gate_problems(docs: dict, index: dict) -> list:
             if classes and classes <= {MUSTER_CLASS}:
                 problems.append(f"{where}/{p.get('id')}: rests on the 1832 muster alone, and "
                                 f"an 1832 enrollment dates a man rather than minting him")
-        for key in ("lives_at", "works_at"):
-            if (doc.get(key) or {}).get("value"):
-                problems.append(f"{where}: gained a {key}; the placement sweep does that, "
-                                f"once the resident list is complete")
+        for kind, place_of in (("home", home_of), ("workplace", workplace_of)):
+            if place_of(doc):
+                problems.append(f"{where}: gained a {kind} row; the placement sweep does "
+                                f"that, once the resident list is complete")
         arr = doc.get("arrival") or {}
         # T-1350. Every arrival this pass DERIVES is a bound, because its registers can
         # say nothing finer: a poll list prints a name and never a coming. But a card
@@ -1885,7 +1980,7 @@ def self_test() -> int:
              doc["arrival"]["value"] == "1835-12-31"),
             ("a bound after the scene date leaves presence uncertain",
              doc["present_on_scene_date"]["value"] == "uncertain"),
-            ("no dwelling is dealt", doc["lives_at"]["value"] is None),
+            ("no dwelling is dealt", "lives_at" not in doc and "no_home" in doc),
             ("no trade is read in", person["occupation"]["value"] == "none_recorded"),
             ("the source resolves to a file, not a domain label",
              person["sources"] == ["chicago_voter_lists_1833_1835_irad"]),
@@ -2152,6 +2247,25 @@ def self_test() -> int:
         failed += 1
         print("   FAIL a carried kin block does not land immediately before persons")
 
+    # T-2232: a printed wife the modelled-families stage seated on this pass's card is
+    # carried through the re-mint after the head, and nothing else of the stage's is
+    bride = {"id": "bride_x", "name": "Bride X", "grade": "attested",
+             PRINTED_KEY: {"ticket": "T-2190", "from_household": "hh_bride_x",
+                           "relationship_as_dealt": "head"}}
+    minted = record(_row(), [_app()], {}, set())
+    seated = dict(prior, persons=[minted["persons"][0], bride,
+                                  {"id": "drawn_child", "grade": "reconstructed"}])
+    carried = carry_printed_wives(carry_over(record(_row(), [_app()], {}, set()), seated),
+                                  seated)
+    if [p.get("id") for p in carried["persons"]] != [minted["persons"][0]["id"], "bride_x"]:
+        failed += 1
+        print("   FAIL a printed wife on this pass's card is not carried after its head, "
+              "alone of the stage's people")
+    if carry_printed_wives(record(_row(), [_app()], {}, set()),
+                           dict(seated, source_pass="letter_list"))["persons"][1:]:
+        failed += 1
+        print("   FAIL carry_printed_wives read a card that is not this pass's")
+
     # the two source labels the identity master hands over unresolved
     if source_of(_app(domain="newspapers", source_id="chicago_newspapers_1833_1835",
                       locator="chicago_democrat_1835_02_11#c003")) \
@@ -2187,7 +2301,9 @@ def self_test() -> int:
             ("a person loses the civic_mint flag",
              lambda d, i: d[victim]["persons"][0].pop("civic_mint"), "civic_mint"),
             ("a household gains a roof",
-             lambda d, i: d[victim]["lives_at"].update(value="sauganash_hotel"), "lives_at"),
+             lambda d, i: d[victim].setdefault("associated_with", []).append(
+                 {"kind": "home", "place_or_structure_id": "sauganash_hotel", "resolves_to": "structure", "from": None, "to": None, "tier": "reconstructed", "source_id": None, "note": "planted"}),
+             "gained a home row"),
             ("a person gains a trade",
              lambda d, i: d[victim]["persons"][0]["occupation"].update(value="carpenter"),
              "gained a trade"),

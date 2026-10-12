@@ -1,0 +1,2 @@
+PASS: deterministic three-file packing, selective restoration, and stale/corrupt refusal
+PASS: promoted canonical paths restore exactly and still refuse a divergent bake

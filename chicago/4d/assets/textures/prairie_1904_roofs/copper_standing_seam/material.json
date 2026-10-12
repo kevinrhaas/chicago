@@ -1,0 +1,58 @@
+{
+  "id": "copper_standing_seam",
+  "library": "prairie_1904_roofs",
+  "version": "1.0.0",
+  "ticket": "T-2292",
+  "slot": "covering",
+  "kind": "standing_seam",
+  "tile_m": [
+    2.032,
+    2.4384
+  ],
+  "module": {
+    "pan_width_m": 0.508,
+    "seam_height_m": 0.025,
+    "seam_width_m": 0.012,
+    "cross_seam_m": 2.4384,
+    "cross_seam_stagger": 0.5,
+    "columns": 4,
+    "courses": 1
+  },
+  "module_source": "data/components/prairie_1904/k04_roofs.json",
+  "course_phase_m": [
+    0.0,
+    0.0
+  ],
+  "course_phase_rule": "the first vertical joint lies course_phase_m[0] along u and the first butt course_phase_m[1] up v from the tile's origin; offset the roof's UV by them to put a butt on the eave",
+  "resolution_px": 512,
+  "px_per_m": [
+    251.97,
+    209.97
+  ],
+  "mean_basecolor": [
+    110,
+    67,
+    47
+  ],
+  "mean_roughness": 0.5,
+  "mean_metallic": 0.55,
+  "orientation": "image x = along the eave (u); image y = up the slope with the top row uphill (v grows upward); each course's butt is its low edge",
+  "uv_rule": "TEXCOORD_0 = surface metres / tile_m (k01_contract.json scale_uv)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y",
+    "roughness": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "copper_standing_seam_basecolor_web.jpg",
+    "normal_gl": "copper_standing_seam_normal_gl_web.jpg",
+    "orm": "copper_standing_seam_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 2507985039,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_roofs.py); no photograph sampled",
+  "confidence": "reconstructed",
+  "appearance": "reconstructed (docs/LIBERTIES.md L-k04-roof-library-2292)",
+  "note": "20 in pans between double-locked seams 1 in high, with a flat-locked cross seam every 8 ft staggered half a sheet from the next pan. Copper some years in the weather: brown to dark brown with faint downslope streaks, not the green the register warns is modern. Pan width, seam and colour are reconstructed."
+}

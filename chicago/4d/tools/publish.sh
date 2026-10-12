@@ -249,9 +249,19 @@ mkdir -p "$SITE/data/scenes"
 cp -f data/scenes/*.json "$SITE/data/scenes/" 2>/dev/null || true
 rm -f "$SITE"/data/[0-9]*.json
 cp -f data/datum.json "$SITE/data/"
+# T-2200 frozen metric/photo comparison, consumed by the isolated review page.
+mkdir -p "$SITE/data/comparisons/glessner"
+cp -f data/comparisons/glessner/*.json "$SITE/data/comparisons/glessner/"
 # The liberties list the Evidence panel reads. Derived from docs/LIBERTIES.md,
 # which itself stays out of the payload.
 cp -f data/liberties.json "$SITE/data/"
+# The pictures of each building, for the card's Images tab (T-2389). DERIVED HERE, not
+# committed: the Prairie library and data/sources/ change under other tickets, so the
+# file is made from what this tree holds at the moment it ships. Fetched by the card on
+# first need; a failure here would leave every card's tab saying its index is offline.
+python3 tools/compile_pictures.py >/dev/null
+mkdir -p "$SITE/data/pictures"
+cp -f data/pictures/*.json "$SITE/data/pictures/"
 # The town census the gate screen shows — buildings standing and people housed
 # (T-0036). Derived by tools/town_census.py and re-derived by tools/check.sh; the
 # gate fetches it, so leaving it out of the mirror is a 404 on the deployed site
@@ -322,6 +332,12 @@ if [ -d data/sidecars ]; then
   # households slim and their reasoning beside it in households/<id>.json, which a
   # card fetches when it opens. check.sh gates the shipped form against the source.
   node tools/defer_household_notes.mjs --site "$SITE/data/sidecars"
+  # Then the boot copies (T-2315): every scene's sidecars packed against each other,
+  # so a value hundreds of records repeat — a citation, a family's reasoning — loads
+  # once at boot instead of once per record. The records themselves stay whole at their
+  # URLs; scene-loader.js reads boot/ and rehydrates. check.sh gates each boot copy back
+  # to its record.
+  node tools/pack_boot_sidecars.mjs --site "$SITE/data/sidecars"
 fi
 
 # Vegetation: the flora manifest plus every zone and palette file it names. The

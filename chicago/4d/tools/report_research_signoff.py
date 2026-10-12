@@ -42,6 +42,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from associations import home_of, workplace_of  # noqa: E402
 from research_spend_ledger import (  # noqa: E402
     LEDGER,
     OPEN_TICKET_STATES,
@@ -253,9 +254,11 @@ def measure_axis3(cards: list[dict]) -> dict:
     linkage: Counter = Counter()
     unreasoned: list[str] = []
     for card in cards:
-        works = card.get("works_at") or {}
-        seat = works.get("value")
-        reason = works.get("note")
+        # T-2277: the seat is the record's own workplace row. The REASON is only ever
+        # read when there is no seat: it is why no premises resolves, and since T-2295
+        # it is the record's own `no_workplace` block rather than a null `works_at`.
+        seat = workplace_of(card)
+        reason = (card.get("no_workplace") or {}).get("note")
         for person in card.get("persons") or []:
             rows = [r for r in (person.get("roles") or [])
                     if isinstance(r, dict) and r.get("covers_scene_date")
@@ -308,9 +311,9 @@ def measure_axis4(cards: list[dict]) -> dict:
     with_lives_at = 0
     with_works_at = 0
     for card in cards:
-        if (card.get("lives_at") or {}).get("value"):
+        if home_of(card):
             with_lives_at += 1
-        if (card.get("works_at") or {}).get("value"):
+        if workplace_of(card):
             with_works_at += 1
         if card.get("associated_with"):
             associations += len(card["associated_with"])
@@ -547,17 +550,25 @@ def render(model: dict) -> str:
     # for. So Live stays and State goes. Which of them is being worked this minute is on the
     # board, which is regenerated and untracked, and can therefore change without failing
     # anything.
-    out.extend(table(["Owner", "Units", "Live"],
-                     [[r["ticket"], n(r["units"]), "yes" if r["live"] else "**NO**"]
-                      for r in a1["owners"]]))
-    out.append("")
-    heaviest = ", ".join(f"{r['ticket']} ({n(r['units'])})" for r in a1["owners"][:5])
-    out.append(f"Not one of those owners asks for another READING. The heaviest are {heaviest} — the "
-               f"arrival and origin fill, the authored business layer, the seating, the "
-               f"re-admissions, the named families — and the lighter ones are derivation fixes "
-               f"beside them. That is the shape of a finished research spend: what is still unspent "
-               f"is waiting on the bands this report opens, not on more of the corpus. "
-               f"**{n(a1['owners_not_live'])}** units defer to work that is no longer live (C3).")
+    if a1["owners"]:
+        out.extend(table(["Owner", "Units", "Live"],
+                         [[r["ticket"], n(r["units"]), "yes" if r["live"] else "**NO**"]
+                          for r in a1["owners"]]))
+        out.append("")
+        heaviest = ", ".join(f"{r['ticket']} ({n(r['units'])})" for r in a1["owners"][:5])
+        out.append(f"Not one of those owners asks for another READING. The heaviest are {heaviest} — the "
+                   f"arrival and origin fill, the authored business layer, the seating, the "
+                   f"re-admissions, the named families — and the lighter ones are derivation fixes "
+                   f"beside them. That is the shape of a finished research spend: what is still unspent "
+                   f"is waiting on the bands this report opens, not on more of the corpus. "
+                   f"**{n(a1['owners_not_live'])}** units defer to work that is no longer live (C3).")
+    else:
+        # T-1569 spent the last ticket-owned units; the table is empty and the "heaviest"
+        # sentence would name nobody, so the empty case is said in words.
+        out.append(f"There is no owners column left to read: no unresolved unit defers to a ticket, because "
+                   f"every reading a band owned has been spent. That is the shape of a finished "
+                   f"research spend. **{n(a1['owners_not_live'])}** units defer to work that is no "
+                   f"longer live (C3).")
     out.append("")
     # T-1423. The second legitimate shape, and the reason C3 is not simply "names a live
     # ticket": these units are not waiting on a band of this programme, they are waiting on
@@ -788,14 +799,13 @@ def render(model: dict) -> str:
                f"town's trades come from newspapers, directories and registers, and those name the "
                f"men who advertised. T-1173 reconstructs the trade households the occupation model "
                f"still wants.")
-    out.append(f"5. **{n(a4['association_rows'])} `associated_with` rows exist, and the singular "
-               f"pair still stands beside them.** The plural, dated location row is the agreed shape "
-               f"(T-1147) and the renderer reads it. T-1273 copied every home and workplace "
-               f"reconciliation row that reaches a roof onto its household "
-               f"(`tools/household_associations.py`); T-1274 moves the readers off "
-               f"`lives_at`/`works_at` and retires the pair. Until then both shapes are held to agree "
-               f"by `singular_drift`, and the reconciliation table above stays where a seating class "
-               f"short of a roof is legible — which is why C7 measures the table.")
+    out.append(f"5. **{n(a4['association_rows'])} `associated_with` rows exist, and they are the "
+               f"only shape.** The plural, dated location row is the agreed shape (T-1147) and "
+               f"the renderer reads it. T-1273 copied every home and workplace reconciliation "
+               f"row that reaches a roof onto its household; T-2277 moved the readers off "
+               f"`lives_at`/`works_at`, and T-2284 retired the pair and the copier with it. The "
+               f"reconciliation table above reads its claims off the rows, and stays where a "
+               f"seating class short of a roof is legible — which is why C7 measures the table.")
     out.append("6. **One resident derivation cannot be gated on byte identity.** "
                "`tools/mint_letter_list_residents.py` is not the last writer of the files it "
                "derives, so re-running it over the committed tree would revert the synthesis and "

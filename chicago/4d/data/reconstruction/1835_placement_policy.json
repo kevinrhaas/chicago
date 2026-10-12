@@ -22,7 +22,9 @@
     ],
     "scored_here": [
       "class:* in `avoids`",
-      "setback_class `street_line`"
+      "setback_class `street_line`",
+      "`fronts: water` — within bank_landing_reach_m of traced water (T-2022)",
+      "`function` — the record's own function term (T-2269)"
     ],
     "declarative": [
       "division:*",
@@ -983,6 +985,39 @@
       }
     },
     {
+      "id": "lumber_landing",
+      "applies_to": [
+        "F4"
+      ],
+      "function": "lumber_shed",
+      "prefers": [
+        "ground:river_frontage",
+        "ground:branch",
+        "street:south_water",
+        "division:south"
+      ],
+      "avoids": [],
+      "fronts": "water",
+      "multi_building_lot_rule": "principal_plus_ancillary",
+      "setback_class": "landing",
+      "tier": "inferred",
+      "evidence": [],
+      "note": "Chicago's boards came in by water. The town's own timber was already short by 1833, and the Chicago Democrat as this project's register reads it (chicago_democrat_1833_1835; data/research/newspapers/register_1835.json) prints the trade as a lake trade: steam-sawn lumber from St. Joseph advertised in Chicago in 1834, David Carver's lumber yard on South Water Street from December 1833 to July 1835, J. Wright's leather, salt and lumber on the same street, and a lumber yard and warehouse announced for the opening of navigation. A yard stacked what a schooner landed, so its shed stands where the boards come off the boat. Inferred, not documented: no printing places a yard's shed, Carver's included, and no committed record is one. Scored on what it claims - a lumber shed, within bank_landing_reach_m of traced water - and on nothing about the street.",
+      "witness": {
+        "evidence_records": 0,
+        "standing_with_a_street": 0,
+        "by_street_class": {
+          "principal": 0,
+          "ordinary": 0,
+          "light": 0
+        },
+        "fronting_no_street": 0,
+        "on_the_street_line": 0,
+        "setback_m_min": null,
+        "setback_m_max": null
+      }
+    },
+    {
       "id": "professional_row",
       "applies_to": [
         "C1"
@@ -1516,7 +1551,8 @@
         "commercial_front"
       ],
       "F4": [
-        "commercial_front"
+        "commercial_front",
+        "lumber_landing"
       ],
       "H1": [
         "merchant_and_professional_dwellings"
@@ -1588,6 +1624,7 @@
       "class": "light",
       "setback_m": 31.43,
       "measured": [
+        "is a brickyard, and lumber_landing seats a lumber shed",
         "stands 31.43 m off the street line (2.71 m), and commercial_front puts it on the line",
         "stands on a light street, which commercial_front avoids"
       ],

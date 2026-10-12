@@ -23,7 +23,7 @@ from scipy.interpolate import LinearNDInterpolator
 OUT = Path(__file__).resolve().parent
 SIZE = 2048
 DETAIL_SIZE = 1024
-TILE_M = {"granite": (1.6, 1.6), "brick": (1.7272, 2.1336),
+TILE_M = {"granite": (1.6, 1.6), "brick": (1.7272, 2.1336), "court_brick": (1.7272, 2.1336),
           "limestone": (1.2, 1.2), "mortar": (1.2, 1.2), "terracotta": (2.4384, 1.95072),
           "copper": (2.4, 2.4), "oak": (0.8, 2.4), "painted_wood": (0.8, 2.4),
           "turf": (2.4, 2.4), "gravel": (2.0, 2.0)}
@@ -80,7 +80,49 @@ def normals(height, tile_m):
     return np.clip((n * .5 + .5) * 255 + .5, 0, 255).astype(np.uint8)
 
 
-def save(name, rgb, height, rough, description, seed):
+# T-2390. How far a texel looks for the stone that hides its sky. The fracture
+# planes are 1.6 m / 13 = 12 cm cells, so 8 cm reaches across a facet into its
+# neighbour; past that the next course's joint is geometry, not this map.
+OCCLUSION_RADIUS_M = 0.08
+OCCLUSION_DIRECTIONS = 16
+OCCLUSION_STEPS = 24
+
+
+def occlusion(height, tile_m, radius_m=OCCLUSION_RADIUS_M):
+    """Horizon-based ambient occlusion of the same height field the normal map draws.
+
+    For each texel and each of 16 directions, march out to `radius_m` and keep the
+    steepest rise; what that horizon stands above the texel's own tangent plane is
+    the sky it loses (HBAO's tangent-biased sine). A tilted facet is therefore not
+    occluded by its own tilt, only a crease is. The field is periodic, so the map
+    tiles. glTF reads it as occlusionTexture R, which three.js applies to the
+    indirect (sky) light and never to the sun: it adds relief in shade and changes
+    nothing in direct light.
+    """
+    size = height.shape[0]
+    texel = (tile_m[0] / size, tile_m[1] / size)
+    gx = (np.roll(height, -1, 1) - np.roll(height, 1, 1)) / (2 * texel[0])
+    gy = (np.roll(height, -1, 0) - np.roll(height, 1, 0)) / (2 * texel[1])
+    lost = np.zeros_like(height)
+    for k in range(OCCLUSION_DIRECTIONS):
+        a = 2 * np.pi * k / OCCLUSION_DIRECTIONS
+        dx, dy = np.cos(a), np.sin(a)
+        tangent = np.arctan(gx * dx + gy * dy)
+        steepest = np.tan(tangent)
+        for s in range(1, OCCLUSION_STEPS + 1):
+            t = radius_m * s / OCCLUSION_STEPS
+            sx, sy = dx * t / texel[0], dy * t / texel[1]
+            ix, iy = int(np.floor(sx)), int(np.floor(sy))
+            fx, fy = sx - ix, sy - iy
+            at = lambda ox, oy: np.roll(height, (-oy, -ox), (0, 1))
+            h = (at(ix, iy) * (1 - fx) * (1 - fy) + at(ix + 1, iy) * fx * (1 - fy)
+                 + at(ix, iy + 1) * (1 - fx) * fy + at(ix + 1, iy + 1) * fx * fy)
+            steepest = np.maximum(steepest, (h - height) / t)
+        lost += np.clip(np.sin(np.arctan(steepest)) - np.sin(tangent), 0, 1)
+    return 1 - lost / OCCLUSION_DIRECTIONS
+
+
+def save(name, rgb, height, rough, description, seed, occluded=False):
     rgb = np.clip(rgb, 0.02, .94)
     # The stronger granite mineral contrast compresses less readily. Q89 keeps
     # its original 2K detail within the same shipped texture payload budget.
@@ -95,11 +137,23 @@ def save(name, rgb, height, rough, description, seed):
     quantised = np.clip(np.round(np.clip(rough, .05, 1) * 127) * 2, 0, 255)
     Image.fromarray(np.uint8(quantised)).save(
         OUT / f"{name}_roughness.png", optimize=True)
+    extra = {}
+    if occluded:
+        # The same low-passed field as the normal map, so a crease the normal map
+        # draws is the crease this map darkens.
+        ao = occlusion(detail, TILE_M[name])
+        Image.fromarray(np.uint8(np.clip(ao, 0, 1) * 255 + .5)).save(
+            OUT / f"{name}_occlusion.png", optimize=True)
+        extra = {"occlusion_colour_space": "non-colour",
+                 "occlusion": (f"horizon-based ambient occlusion of the normal map's own height field, "
+                               f"{OCCLUSION_DIRECTIONS} directions out to {OCCLUSION_RADIUS_M} m, tangent-plane "
+                               f"biased; mean {float(ao.mean()):.4f}, min {float(ao.min()):.4f}. Sky light only."),
+                 "occlusion_radius_m": OCCLUSION_RADIUS_M}
     return {"name": name, "albedo_size_px": int(rgb.shape[0]), "detail_size_px": int(detail.shape[0]),
             "tile_m": TILE_M[name], "seed": seed,
             "confidence": "reconstructed", "description": description,
             "albedo_colour_space": "sRGB", "normal_convention": "OpenGL +Y",
-            "roughness_colour_space": "non-colour", "source_pixels": "none"}
+            "roughness_colour_space": "non-colour", "source_pixels": "none", **extra}
 
 
 def stone(name, seed, smooth=False):
@@ -135,7 +189,9 @@ def stone(name, seed, smooth=False):
             "Original mineral grain over domain-warped angular split-face fracture planes at about "
             "4-14 cm scale, 5.5 mm large-plane variation and 1.5 mm smaller splinters. Physical courses, "
             "block silhouettes, bevels and chipped edges are geometry.")
-    return save(name, rgb, h, rough, note + " No mortar lines are baked into the stone.", seed)
+    # T-2390: only the split face has relief deep enough to hide its own sky.
+    return save(name, rgb, h, rough, note + " No mortar lines are baked into the stone.", seed,
+                occluded=not smooth)
 
 
 def brick():
@@ -158,6 +214,36 @@ def brick():
     rough = np.clip(.825 + .028 * roughclay + .042 * clay, .71, .94)
     return save("brick", bodycolour, height, rough, "Reconstructed grey-tan common-brick clay grain. "
                 "Courses, bevelled arrises and mortar joints are geometry, not repeated in this map.", seed)
+
+
+def court_brick():
+    """T-2210: Glessner's courtyard brick, an albedo-only fabric over brick's own relief.
+
+    HABS ILL-1015 data p. 21 (1963): "light pink brick"; Glessner, The Story of a House
+    (1923): "common brick of slightly pinkish color". The clay grain is brick()'s, from the
+    same seed, so its normal and roughness maps serve unchanged and only the body colour
+    moves. The hue and value are reconstructed: no colour photograph or sample is read.
+    The grey-tan brick() image stays, because the K01 kit's Prairie houses wear it.
+    """
+    seed = 190402
+    rng = np.random.default_rng(seed)
+    grit = field(rng, .8)
+    soft = field(rng, 7)
+    roughclay = field(rng, 2.1)
+    shifts = .018 * field(rng, 35)
+    bodycolour = np.array([.680, .515, .460]) + shifts[..., None]
+    bodycolour += (.012 * grit + .021 * soft + .012 * roughclay)[..., None]
+    fired = smoothstep(.8, 2.0, field(rng, 20))
+    bodycolour -= fired[..., None] * np.array([.040, .030, .024])
+    rgb = np.clip(bodycolour, 0.02, .94)
+    Image.fromarray(np.uint8(rgb * 255 + .5)).save(OUT / "court_brick_basecolor.jpg", quality=92,
+                                                   subsampling=0, optimize=True)
+    return {"name": "court_brick", "albedo_size_px": int(rgb.shape[0]), "tile_m": TILE_M["court_brick"],
+            "seed": seed, "confidence": "reconstructed", "albedo_colour_space": "sRGB",
+            "albedo_only": True, "normal_and_roughness_from": "brick", "source_pixels": "none",
+            "description": "Reconstructed light pink common-brick body (HABS 1963 'light pink brick'; "
+                           "Glessner 1923 'slightly pinkish'), on brick's clay grain. Hue and value are "
+                           "bounded reconstruction, not a measured sample."}
 
 
 def mortar():
@@ -187,8 +273,44 @@ def terracotta():
     h = .00004 * grit + .00015 * clay
     rough = .71 + .035 * clay + .025 * grit
     return save("terracotta", rgb, h, rough, "Fine fired clay grain. Individual flat overlapping "
-                "tiles, lapped noses and ridge caps are geometry; reconstructed exposure is "
-                "0.12192 m (4.8 in), not Spanish barrel tile.", seed)
+                "tiles, lapped noses and ridge caps are geometry. This grain-only fabric "
+                "contains no tile module; roof_tiles supplies the mapped joints.", seed)
+
+
+def roof_tiles():
+    """Original numeric tile surface; HABS module, inferred 1904 continuity.
+
+    This is the continuous roof bed / light mesh, not the separate grain-only
+    material on full-model tiles and ridge caps. No historic pixels are used.
+    """
+    record=json.loads((OUT.parents[2]/"data/structures/glessner_house.json").read_text())
+    spec=record['phases'][0]['form']['v4_detail']['value']['roof_tiles']
+    width,exposure=spec['width_in']*.0254,spec['exposure_in']*.0254
+    columns,rows=spec['texture_columns'],spec['texture_rows']
+    TILE_M['roof_tiles']=(columns*width,rows*exposure)
+    seed=190403
+    rng=np.random.default_rng(seed)
+    grit,clay=field(rng,.6),field(rng,7)
+    # Image top is v=1; Blender and the standalone glTF writer share this UV.
+    yy,xx=np.mgrid[:SIZE,:SIZE]
+    v=(1-(yy+.5)/SIZE)*rows
+    row=np.floor(v).astype(int);course=v-row
+    u=(xx+.5)/SIZE*columns-.5*(row%2)
+    col=np.floor(u).astype(int);across=u-col
+    variation=rng.uniform(-.012,.012,(rows,columns))[row%rows,col%columns]
+    edge=np.minimum(across,1-across)*width
+    joint=1-smoothstep(spec['joint_m']/2,spec['joint_m']/2+.001,edge)
+    nose=1-smoothstep(0,.003,course*exposure)
+    rgb=np.array([.493,.240,.166])+(.009*grit+.012*clay+variation)[...,None]
+    rgb*=1-(.12*joint+.045*nose)[...,None]
+    # Bounded lap and narrow open side joint; no baked directional lighting.
+    height=.00004*grit+.00015*clay+.0015*(1-course)-.001*joint
+    rough=.71+.035*clay+.025*grit+.035*joint
+    return save('roof_tiles',rgb,height,rough,
+        'HABS IL-1015 printed p.21: 6-inch tile width, 5-inch exposed course. '
+        'Inferred 1904 continuity, checked against Taylor 2135. Red baked unglazed '
+        'clay from Glessner 1923; later tar excluded. Stagger, joints, lap relief '
+        'and exact colour reconstructed. Sixteen columns by sixteen courses.',seed)
 
 
 def copper():
@@ -288,12 +410,12 @@ def gravel():
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--only", choices=list(TILE_M), help="regenerate one fabric and its hash record")
+    parser.add_argument("--only", choices=[*TILE_M,"roof_tiles"], help="regenerate one fabric and its hash record")
     args = parser.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     recipes = {"granite": lambda: stone("granite", 190400),
                "limestone": lambda: stone("limestone", 190401, True), "mortar": mortar,
-               "brick": brick, "terracotta": terracotta, "copper": copper,
+               "brick": brick, "court_brick": court_brick, "terracotta": terracotta, "roof_tiles": roof_tiles, "copper": copper,
                "oak": oak, "painted_wood": lambda: oak(True), "turf": turf, "gravel": gravel}
     existing = OUT / "material-library.json"
     old = {m["name"]: m for m in json.loads(existing.read_text())["materials"]} if existing.exists() else {}

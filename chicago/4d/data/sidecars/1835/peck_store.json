@@ -140,7 +140,7 @@
       "name": "The Peck household",
       "division": "south",
       "relation": "lived and worked here",
-      "why": "A merchant of this period lived over or behind his store, and this one demonstrably housed a lodger in its loft. Not stated of Peck himself.",
+      "why": "A merchant of this period lived over or behind his store, and this one demonstrably housed a lodger in its loft. Not stated of Peck himself. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_peck_philip#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "andreas_1884_v1"
       ],
@@ -168,7 +168,7 @@
       "name": "The Porter household",
       "division": "south",
       "relation": "lived here",
-      "why": "ONE OF ONLY TWO DOCUMENTED RESIDENCE LINKS IN THIS PARCEL, and it is a lodging rather than a home. Andreas: 'Among these was P. F. W. Peck, who invited Mr. Porter to make his temporary lodging place and study in the unfinished loft of his two-story store, standing on the southwest corner of South Water and LaSalle streets.' data/structures/peck_store.json independently records the unfinished loft used as lodging. THE WORD 'TEMPORARY' IS IN THE SOURCE and this link is dated 1833; whether he was still in the loft in 1835, and whether he took his wife there, is unknown.",
+      "why": "THE WORD 'TEMPORARY' IS THE SOURCE'S OWN, and this row exists to keep it. Andreas: Peck 'invited Mr. Porter to make his temporary lodging place and study in the unfinished loft of his two-story store'. The loft is dated 1833; no source reached says when he left it, so `to` is null rather than the scene date. The singular `lives_at` above cannot say either of those things - it reads as the household's residence on 1 July 1835, which is the one claim Andreas refuses to make, and T-1237's reconciliation row inherits that flattening by dating the same claim 1835-07-01.",
       "sources": [
         "andreas_1884_v1"
       ],

@@ -80,6 +80,10 @@
    "verdict": "already_held",
    "why": "The town holds her: `hh_wesencraft_charlotte`. The Democrat of 3 December 1833 prints the marriage of 'Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only daughter of Mr. Charles Wesencraft, late of Buffalo', and the card that sentence minted stands. A tie between two standing households is a kin row, which is kin_rulings.json's ruling to make and not this pass's."
   },
+  "kin:hh_marknoble_jun__son__mark_nobles": {
+   "verdict": "already_held",
+   "why": "The town holds him: `noble_mark`, 'Esq. Mark Noble' (`hh_noble_mark`). The sentence is the Democrat's of 3 December 1833, now quoted on this card by its printed-wife block (T-2230): 'Mr. MARK NOBLE, jun., second son of Mark Nobles, Esq. of this place'. It makes the head of this card the son, not Mark Nobles, and the tie between the two standing households is already a kin row (T-2229), which is kin_rulings.json's to make and not this pass's."
+  },
   "marriage:hh_pruyne_kimberly:rebecca": {
    "verdict": "later_only",
    "why": "Dated seven weeks AFTER the scene date: Andreas's footnote has Peter Pruyne marrying 'Rebecca, only daughter of Silas W. Sherman' on 20 August 1835. The card already says what follows - 'on July 1 Rebecca Sherman is not silently added to this business household' - and this pass does not add her either."

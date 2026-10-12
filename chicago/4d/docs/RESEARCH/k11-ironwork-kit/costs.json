@@ -1,0 +1,84 @@
+{
+  "_doc": "Measured by tools/study_k11_ironwork.mjs on the specimen GLB. Triangles and draw calls are exact; frame_ms is headless Chromium on a software rasteriser (SwiftShader), a relative figure for comparing kit revisions, not a device frame time.",
+  "specimen_bytes": 691808,
+  "variants": [
+    {
+      "id": "k11.fence.spear_on_curb",
+      "triangles_trim": 1568,
+      "pieces": 55,
+      "triangles_with_board": 1570,
+      "vertices_with_board": 2923,
+      "draw_calls": 3
+    },
+    {
+      "id": "k11.fence.scroll_band",
+      "triangles_trim": 3368,
+      "pieces": 55,
+      "triangles_with_board": 3370,
+      "vertices_with_board": 5623,
+      "draw_calls": 3
+    },
+    {
+      "id": "k11.gate.walk_gate_on_piers",
+      "triangles_trim": 2040,
+      "pieces": 62,
+      "triangles_with_board": 2042,
+      "vertices_with_board": 3864,
+      "draw_calls": 3
+    },
+    {
+      "id": "k11.wall.brick_with_piers",
+      "triangles_trim": 692,
+      "pieces": 11,
+      "triangles_with_board": 694,
+      "vertices_with_board": 1386,
+      "draw_calls": 3
+    },
+    {
+      "id": "k11.grille.basement_window",
+      "triangles_trim": 96,
+      "pieces": 8,
+      "triangles_with_board": 116,
+      "vertices_with_board": 224,
+      "draw_calls": 4
+    },
+    {
+      "id": "k11.rail.stoop_rail",
+      "triangles_trim": 960,
+      "pieces": 28,
+      "triangles_with_board": 1016,
+      "vertices_with_board": 2016,
+      "draw_calls": 4
+    },
+    {
+      "id": "k11.canopy.iron_glass",
+      "triangles_trim": 552,
+      "pieces": 16,
+      "triangles_with_board": 556,
+      "vertices_with_board": 932,
+      "draw_calls": 4
+    }
+  ],
+  "board": {
+    "desktop": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "draw_calls": 33,
+      "triangles": 10948,
+      "frame_ms_median": 0.2,
+      "geometries": 37
+    },
+    "mobile": {
+      "viewport": [
+        390,
+        780
+      ],
+      "draw_calls": 27,
+      "triangles": 8814,
+      "frame_ms_median": 0.1,
+      "geometries": 37
+    }
+  }
+}

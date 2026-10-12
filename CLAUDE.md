@@ -27,9 +27,13 @@ visible-progress rule, the What's-New length budget). `README.md` has the URL ma
 - **Pipeline**: branch from `dev`, PR into `dev`, merge on a green gate. Production
   (`main`) moves only when the owner dispatches `chicago-4d-promote-to-prod.yml`.
   `deploy.yml` is the single deploy authority (main at `/`, dev preview at `/4d/dev/`).
-- **Changelog contract**: `chicago/4d/renderers/web/js/changelog.js`, fleet format,
-  new entry on TOP with `v: null, ts: ''`; stamp with
-  `node chicago/4d/tools/stamp-changelog.mjs`, verify with `check-changelog.mjs`.
+- **Changelog contract**: `chicago/4d/renderers/web/js/changelog.js`, fleet format.
+  A PR adds its entry as `chicago/4d/changelog.d/<ticket>.json` (`title`, `kind`,
+  `items`; no number or time) and leaves changelog.js alone, so PRs stop conflicting on
+  its top line; `chicago-4d-changelog-fold.yml` folds and stamps the file into
+  changelog.js on `dev` after the merge. Check with `node tools/changelog-entries.mjs
+  --check`. Editing changelog.js directly (`v: null, ts: ''`, then
+  `stamp-changelog.mjs`) still passes.
   Published at `chicago.polecat.live/4d/js/changelog.js`, which Manager and the
   polecat.live launcher parse — never break it, never move it.
 - **Provenance is the product.** Never invent a source; `reconstructed` is a tier to

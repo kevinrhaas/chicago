@@ -64,8 +64,10 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 # Lot occupancy is derived in ONE place and imported by both halves of the T-A6 rule.
 # See tools/plat_occupancy.py for why it is a module rather than a copied loop.
-from plat_occupancy import (block_of_structure, exclusive_lots,  # noqa: E402
+from plat_occupancy import (block_of_structure, business_fronts,  # noqa: E402
+                            declared_front, exclusive_lots, footprints, lot_holders,
                             occupied_lots)
+from block_faces import face_frame, project  # noqa: E402  (T-2241)
 # The business-front term (T-0213). Both halves are measurements the census makes, not
 # constants authored here: `trade_share_by_class` is the DOCUMENTED trade share per class
 # of street, and `street_traffic` is the committed hierarchy those classes come from.
@@ -165,6 +167,16 @@ WEST_GRID = "west_division"
 # T-2144. The School Section's Madison-Monroe tier, joined to the grid on the owner's
 # T-1755 ruling — scheduled one roof to a lot, see `programme_document`.
 SCHOOL_SECTION_GRID = "school_section_tier"
+# T-2253. WHAT THE TIER TAKES, AND WHAT IT PASSES ON. The two rulings that opened the
+# School Section opened it to the South's HOUSES: T-1755 to its owed dwellings, and T-2247
+# to "the gated balance's five dwellings (D2, D2, D4, D4, D5) and its one boarding house
+# (H3)". The balance also holds the street line's warehouses — two F3 and an F4, the
+# freight cell of South Water and Lake Street that T-2175 owes — and until the Monroe-Adams
+# tier joined, no tier block had room left to be dealt one. With 48 lots of room the deal
+# reached them, and handed an F3 to block 82, a kilometre from the river it needs (the
+# waterside term below refuses it; L203). So a tier block passes a freight roof on, and the
+# warehouses stay on the balance, owed to the street line and not to the prairie.
+SCHOOL_SECTION_PASSES = ("warehouses_freight",)
 
 
 def west_lot_ceiling(grid: dict, rows: list[dict], recipe_id: str) -> dict:
@@ -242,6 +254,48 @@ def block_capacity(lots: int) -> int:
 # block with the four lots it has depth for — so it arrives above as an ordinary platted
 # block, and this set only takes it back if the grid ever stops emitting it.
 STREET_CONTROL_OMISSIONS = {"blk_south_water_market"}
+
+# A LOT THE OWNER RULED MAY CARRY A SHORT ROW, by name, block by block (T-2196). The sizing
+# below counts principal room over FREE lots less one, so a lot that already carries one
+# principal roof offers nothing, however much face it has left. On 2026-10-09 the owner
+# answered T-2196's question with option (a): the Market wedge's lot 7 — plat block 21's
+# middle Lake Street lot, 24.38 m of face, where T-2238 stood a D5 6.85 m wide — carries a
+# TWO-UNIT party-line row, so one of the South's two owed boarding houses (H3) stands beside
+# the D5, and the other waits in the gated balance for the S9 street work. In his words,
+# "this change is for this block only", so it is a table of one, not a rule: no other
+# occupied lot gains room from it. A grant holds the lot to `row_units` principal roofs,
+# deals its room ONLY to the families named (the deal would otherwise hand the wedge the
+# pool's next token, a D2), and reads its room off what stands on the lot, so once the
+# boarding house stands the room is spent and the block reads at capacity again.
+ROW_LOT_GRANTS = {
+    "blk_south_water_market": {
+        "lot_index": 1,
+        "plat_lot": 7,
+        "row_units": 2,
+        "families": ["H3"],
+        "ticket": "T-2196",
+        "ruled": "2026-10-09",
+        "why": "Owner ruling on T-2196, option (a): lot 7 as a short row, a two-unit "
+               "party-line row on the wedge's Lake Street face so one H3 stands beside "
+               "the D5. This change is for this block only; the second H3 waits in the "
+               "gated balance for the S9 street work.",
+    },
+}
+
+
+def granted_row_room(block_id: str, holders: dict) -> int:
+    """Principal room a ROW_LOT_GRANTS lot still offers: its row units less the principal
+    roofs standing on it (T-2196). Zero for every block the table does not name."""
+    grant = ROW_LOT_GRANTS.get(block_id)
+    if not grant:
+        return 0
+    standing = 0
+    for sid in holders.get(block_id, {}).get(grant["lot_index"], ()):
+        record = json.loads((DATA / "structures" / f"{sid}.json").read_text())
+        family = (record.get("reconstruction") or {}).get("family")
+        if family is None or group_of(family) not in ANCILLARY_GROUPS:
+            standing += 1
+    return max(0, grant["row_units"] - standing)
 
 # Refused because the two streets never met, not because a centreline is short. Kept in the
 # schedule rather than dropped, so the block is visibly answered instead of silently absent
@@ -523,7 +577,8 @@ def weight_the_business_front(units: list[dict], shares: dict,
     moved = []
     for district in DISTRICTS:
         blocks = [u for u in units
-                  if u["district"] == district and u.get("bounded_by") and u.get("roofs")]
+                  if u["district"] == district and u.get("bounded_by") and u.get("roofs")
+                  and not u.get("row_lot_grant")]
         if len(blocks) < 2:
             continue
         pool: dict[str, int] = {}
@@ -711,7 +766,8 @@ def keep_the_waterside_off_the_plat(units: list[dict], waterside: dict[str, str]
     swapped, held = [], []
     for district in DISTRICTS:
         blocks = [u for u in units
-                  if u["district"] == district and u.get("bounded_by") and u.get("roofs")]
+                  if u["district"] == district and u.get("bounded_by") and u.get("roofs")
+                  and not u.get("row_lot_grant")]
         balances = [u for u in units
                     if u["district"] == district and not u.get("bounded_by")
                     and u.get("roofs")]
@@ -837,6 +893,83 @@ def lot_ceiling_principal(free_lots: int) -> int:
     hold `free_lots - 1` principal roofs and not one more.
     """
     return max(0, free_lots - 1)
+
+
+# T-2241. ONE PARTY-LINE UNIT OF FACE: the platted lot's 80 ft front (24.384 m, the figure
+# tools/generate_plat_lots.py cuts every Original Town lot to) shared among the
+# `ROW_UNITS_PER_LOT` units the row density allows a lot. A frontage roof narrower than
+# this is a narrower roof than the schedule's own density ever deals.
+PLATTED_LOT_FRONT_M = 24.384
+ROW_UNIT_FACE_M = PLATTED_LOT_FRONT_M / ROW_UNITS_PER_LOT
+
+
+def narrow_business_fronts(grid: dict, datum: dict, taken: dict, available: dict
+                           ) -> dict[str, dict[int, dict]]:
+    """The business-front lots a documented store leaves too little face to build on.
+
+    {block_id: {lot_index: {holder, face_m, face_left_m, unit_m}}}, for every lot the
+    owner's 2026-08-27 clause frees — `taken` holds it and `available` does not, so a
+    documented store stands at the street on it alone — whose WIDEST stretch of face not
+    under that store is narrower than one party-line unit (`ROW_UNIT_FACE_M`).
+
+    WHY THE SCHEDULE HAS TO ASK THIS (T-2241, of T-2239 and T-2182). The clause says a
+    documented storefront does not exhaust a business-front lot, and `exclusive_lots` answers that
+    question exactly. It does not say the lot has room left, and the schedule read the one
+    answer as the other: `blk_south_water_wells` was counted two free lots — lot 1, its
+    reserved open corner, and lot 0, where H. Jones's store stands at the street — so its
+    `lot_ceiling_principal` read 1 and the deal gave it a D2, a D4 and an F4. T-1623
+    measured lot 0 on 2026-09-26: 4.46 m of face east of the store, once the 1.5 m lot
+    margin is off both sides of it. The owner ruled (a) on it — leave the households owed
+    and keep the open lot — and tools/seat_platted_ground_1835.py has refused a slot on a
+    lot carrying a standing roof ever since. So the schedule promised room that neither
+    the seating nor `tools/generate_block_infill.py` will use, and the roofs it dealt there
+    read as owed by a block that cannot take them.
+
+    THE MEASUREMENT, and it is deliberately the generous one: the lot's own span along
+    the face, less the along-face extent of every footprint standing on the lot, with no
+    margin taken anywhere. A lot is narrow only when even that reading is under one unit.
+    """
+    narrow: dict[str, dict[int, dict]] = {}
+    shared = {block_id: sorted(set(lots) - set(available.get(block_id, {})))
+              for block_id, lots in taken.items()}
+    shared = {block_id: lots for block_id, lots in shared.items() if lots}
+    if not shared:
+        return narrow
+    held = lot_holders(grid, datum)
+    fronts = business_fronts()
+    blocks = {block["id"]: block for block in grid["blocks"]}
+    placed: dict[str, list] = {}
+    for structure_id, world in footprints(datum):
+        placed.setdefault(structure_id, []).append(world)
+    for block_id, lots in sorted(shared.items()):
+        block = blocks[block_id]
+        for index in lots:
+            face = next((f["face"] for f in fronts.get(block_id, [])
+                         if index in declared_front(f)), None)
+            if face is None:
+                raise SystemExit(f"{block_id} lot {index} reads free under the business-"
+                                 "front clause and no frontage entry declares it")
+            frame = face_frame(block, face)
+            along = [project(frame, tuple(p))[0] for p in block["lots"][index]["polygon"]]
+            lo, hi = min(along), max(along)
+            covered = sorted(
+                (min(xs), max(xs))
+                for holder in held[block_id][index] for world in placed.get(holder, [])
+                for xs in [[project(frame, p)[0] for p in world]])
+            widest, cursor = 0.0, lo
+            for start, end in covered:
+                widest = max(widest, min(start, hi) - cursor)
+                cursor = max(cursor, end)
+            widest = max(widest, hi - cursor)
+            if widest < ROW_UNIT_FACE_M:
+                narrow.setdefault(block_id, {})[index] = {
+                    "holder": ", ".join(held[block_id][index]),
+                    "face": face,
+                    "face_m": round(hi - lo, 2),
+                    "face_left_m": round(max(0.0, widest), 2),
+                    "unit_m": round(ROW_UNIT_FACE_M, 3),
+                }
+    return narrow
 
 
 def row_lots_required(free_lots: int, principal: int) -> int:
@@ -1061,6 +1194,34 @@ def southern_ground() -> tuple[dict, str]:
         )
 
     ends = ", ".join(f"{v:.0f}" for v in m["columns_end_n_m"].values())
+    # T-2247. THE THIRD STATE, AND THE ONE THE GROUND HAS BEEN IN SINCE T-1707. The
+    # sentence below this branch went on naming street control for eleven days after
+    # T-1707 carried the seven columns to Madison, calling N -519 "the OLD south edge of
+    # the field" (the old edge was N -400), and on 2026-10-09 an owner's ruling (T-2242,
+    # answer a: "until the S9 street work lands") was asked and given on it. Whether the
+    # columns reach Madison is now MEASURED, column by column, so this branch is taken on
+    # the measurement and the sentence cannot outlive the street work again.
+    carried, columns = figures["columns_carried_to_madison"], figures["columns"]
+    if carried == columns:
+        return figures, (
+            f"GROUND, AND NOT STREET CONTROL ANY MORE. The S9 street work this balance used "
+            f"to name is done: T-1707 carried the plat's {columns} north-south columns, "
+            f"Market to State, to Madison Street, and each one's committed line now ends at "
+            f"local N {ends}, inside Madison's own corridor at every one of the {columns} "
+            f"(measured by tools/measure_southern_ground.py). Madison is the plat's south "
+            f"line, so there is no street left to carry inside the Original Town. The roofs "
+            f"here are the ones the deal found no room for on any named South block, the "
+            f"plat's last tier from Washington to Madison among them, nor on "
+            f"the School Section's Madison-Monroe tier, the one ground across Madison the "
+            f"owner's 2026-10-05 ruling opened (T-1755 option b, joined by T-2144: one roof to "
+            f"a lot, each block keeping a lot open), nor on the section's next tier, Monroe "
+            f"to Adams, cut into the October 1833 register's lots (T-2252) and joined on the "
+            f"same terms by the owner's 2026-10-09 ruling on T-2247 (option b, T-2253). "
+            f"Neither tier takes a warehouse: the rulings opened them to the South's houses, "
+            f"so a freight roof is passed on to this balance, owed to the South Water and "
+            f"Lake street line (T-2175) and not to the prairie. Ground east of State is "
+            f"not coming at any date — it is the United States Reservation (T-E2)."
+        )
     return figures, (
         f"STREET CONTROL — the S9 line ROADMAP has recorded as owed since before this "
         f"schedule was written — and, for the first time, nothing else. THE TERRAIN IS NO "
@@ -1076,9 +1237,9 @@ def southern_ground() -> tuple[dict, str]:
         f"{figures['land_south_of_committed_plat_ha']:.4f} ha of land above the water surface, "
         f"{figures['south_division_land_south_of_committed_plat_ha']:.4f} ha of it in the "
         f"South Division — where the same measurement returned 0.0000 ha before. What is left "
-        f"is the control itself: the plat's north-south columns still end at local N {ends}, "
-        f"the OLD south edge of the field, because they were cut where the ground used to "
-        f"stop. Carrying them to Madison is street work on ground that is now under them, and "
+        f"is the control itself: the plat's north-south columns end at local N {ends}, and "
+        f"only {carried} of the {columns} reach Madison Street's corridor. Carrying them to "
+        f"Madison is street work on ground that is now under them, and "
         f"tools/generate_block_infill.py will accept what it emits. Ground east of State is "
         f"still not coming at any date — it is the United States Reservation (T-E2). Measured "
         f"by tools/measure_southern_ground.py."
@@ -1160,6 +1321,11 @@ def programme_document():
     # block room its own generator will not build (T-A6, and the reason both halves
     # call one module).
     available = exclusive_lots(grid, datum)
+    # …and a FOURTH, which the third does not answer: whether a lot the clause frees has
+    # FACE left to build on (T-2241). A lot freed by a store that leaves under one
+    # party-line unit of face beside it is not free for the sizing below.
+    narrow = narrow_business_fronts(grid, datum, taken, available)
+    holders = lot_holders(grid, datum)
     west_density = west_lot_ceiling(grid, rows, west_recipe["id"])
 
     # ---- what stands ------------------------------------------------------------
@@ -1262,8 +1428,12 @@ def programme_document():
         lots = len(block["lots"])
         capacity = block_capacity(lots)
         stands = built_block.get(block["id"], 0)
-        free = lots - len(available.get(block["id"], ()))
+        refused = narrow.get(block["id"], {})
+        free = lots - len(available.get(block["id"], ())) - len(refused)
         rooms = block_rooms(free, max(0, capacity - stands))
+        granted = granted_row_room(block["id"], holders)
+        if granted:
+            rooms = (rooms[0] + granted, rooms[1])
         unit = {
             "id": block["id"], "kind": "platted_block",
             "district": district_of_block(block), "bounded_by": block["bounded_by"],
@@ -1273,6 +1443,14 @@ def programme_document():
             "headroom": rooms[0] + rooms[1],
             "state": "open" if rooms[0] + rooms[1] > 0 else "at_capacity",
         }
+        if block["id"] in ROW_LOT_GRANTS:
+            grant = ROW_LOT_GRANTS[block["id"]]
+            unit["row_lot_grant"] = {k: grant[k] for k in
+                                     ("lot_index", "plat_lot", "row_units", "families",
+                                      "ticket", "ruled")} | {"room": granted}
+        if refused:
+            unit["narrow_front_lots"] = [
+                {"lot_index": index, **row} for index, row in sorted(refused.items())]
         # A block the town held in common is not headroom. It reaches here with no lots
         # at all — the plat module withholds the subdivision (ROADMAP T-A16) — so the
         # arithmetic above already gives it nothing; what this does is stop it reading
@@ -1381,6 +1559,7 @@ def programme_document():
                 "density": ("one principal roof per lot and no party-line row, the "
                             "block keeping one lot open — the School Section tier "
                             "south of Madison (T-2144, on the T-1755 ruling)"),
+                "passes_groups": list(SCHOOL_SECTION_PASSES),
             })
         hold = block.get("reserved")
         if hold:
@@ -1582,12 +1761,36 @@ def programme_document():
                 # waiting on coverage, a statement the ledger can make where "nowhere" is not.
                 take, pool = pool, []
                 unit["capacity_roofs"] = unit["headroom"] = len(take)
+                # T-2253. A SURPLUS OF ROOM IS NOT ROOM FOR EVERY ROOF. The state above was
+                # read off headroom alone, and a School Section block's headroom passes
+                # freight on (`SCHOOL_SECTION_PASSES`), so a district can hold more room than
+                # roofs and still leave roofs here. A balance that takes any is waiting on
+                # ground, and says so in its own sentence rather than "nothing".
+                if take and unit["state"] == "complete":
+                    unit["state"] = "gated"
+                    unit["waiting_on"] = (BALANCE_UNITS[district][1]
+                                          or composed[district])
             else:
                 take, passed = [], []
                 principal_left = unit.get("principal_room", unit["headroom"])
                 ancillary_left = unit.get("ancillary_room", unit["headroom"])
+                # A granted row lot's room goes only to the families the grant names
+                # (T-2196); the block's ordinary room is dealt exactly as before.
+                grant = unit.get("row_lot_grant") or {}
+                grant_left = grant.get("room", 0)
+                principal_left -= grant_left
+                passes = unit.get("passes_groups") or ()
                 for family in pool:
+                    if group_of(family) in passes:
+                        passed.append(family)
+                        continue
                     is_ancillary = group_of(family) in ANCILLARY_GROUPS
+                    if (not is_ancillary and grant_left > 0
+                            and family in grant["families"]
+                            and len(take) < unit["headroom"]):
+                        take.append(family)
+                        grant_left -= 1
+                        continue
                     room = ancillary_left if is_ancillary else principal_left
                     if len(take) < unit["headroom"] and room > 0:
                         take.append(family)
@@ -1641,8 +1844,11 @@ def programme_document():
         if "free_lots" not in unit:
             continue
         unit["lot_ceiling_principal"] = lot_ceiling_principal(unit["free_lots"])
+        # A granted row lot's roofs stand on that lot's own row, not on free lots.
+        granted = min(unit.get("principal", 0),
+                      (unit.get("row_lot_grant") or {}).get("room", 0))
         unit["row_lots_required"] = row_lots_required(unit["free_lots"],
-                                                      unit.get("principal", 0))
+                                                      unit.get("principal", 0) - granted)
 
     schedulable = sum(u["roofs"] for u in units if u["state"] == "open")
     gated = sum(u["roofs"] for u in units if u["state"] == "gated")
@@ -1736,6 +1942,20 @@ def programme_document():
                                          for k, v in sorted(trade_shares.items())},
                 "moved": business_front,
                 "ticket": "T-0213",
+            },
+            "narrow_business_front": {
+                "what": "A lot the business-front clause frees — a documented store stands "
+                        "at the street on it alone — is free for the sizing only if the "
+                        "store leaves at least one party-line unit of face beside it: the "
+                        "platted lot's 24.384 m front over ROW_UNITS_PER_LOT. The face left "
+                        "is the lot's own span along the face less every footprint standing "
+                        "on the lot, with no margin taken, so a lot is refused only when "
+                        "even the generous reading is narrower than a unit. A refused lot "
+                        "is listed on its block as `narrow_front_lots`; the roofs the block "
+                        "can no longer take go back to the district's balance.",
+                "unit_m": round(ROW_UNIT_FACE_M, 3),
+                "refused": {block_id: sorted(lots) for block_id, lots in sorted(narrow.items())},
+                "ticket": "T-2241",
             },
             "waterside": {
                 "what": "A family whose own crosswalk record makes water access a "

@@ -147,6 +147,10 @@ def _box(b, x0, y0, z0, x1, y1, z1, conf, mat, bottom=False) -> None:
 def _cone(b, cx, cy, r, z_base, z_apex, conf, mat, seg=16, a0=0.0, a1=2 * math.pi,
           soffit=None) -> None:
     """A cone (or a sector of one) from a ring at z_base to an apex over its centre."""
+    if getattr(b,'reduced_roof_details',False) and b.params.detail.get('roof_edges'):
+        # Same analytic cone, coarser angular sampling in Light only. The largest
+        # 2.5451m radius departs from its circle by at most 12.3mm at 32 facets.
+        seg=min(seg,32)
     full = abs((a1 - a0) - 2 * math.pi) < 1e-6
     n = seg if full else max(3, int(seg * abs(a1 - a0) / (2 * math.pi)) + 1)
     angs = [a0 + (a1 - a0) * i / n for i in range(n + (0 if full else 1))]
@@ -181,6 +185,9 @@ def _drum(b, cx, cy, r, z0, z1, conf, mat, seg=16, a0=0.0, a1=2 * math.pi) -> li
 
 
 def _finial(b, x, y, z, h, conf, mat) -> None:
+    if getattr(b,"params",None) and b.params.detail.get("roof_edges"):
+        from archetypes.masonry_house_v4_roof_edges import finial
+        return finial(b,x,y,z,h,mat)
     if h <= 0:
         return
     s = 0.06
@@ -326,6 +333,8 @@ def _range(b, r) -> None:
             fragments=clip_host(pts,b.params)
         for fragment in fragments:
             _two_sided_roof(b,fragment,r['conf_roof'],ROOF)
+    if getattr(b,"params",None) and b.params.detail.get("roof_edges"):
+        return  # Closed caps own this ridge; do not tile a hidden duplicate roll.
     # the crested ridge: a low ridge roll the length of the roof
     cr = 0.12
     _up(b, [P(ra - cr, a0, rz + 0.02), P(ra, a0, rz + cr * 1.4),
@@ -652,7 +661,35 @@ def _band(b, n) -> None:
     _poly_facing(b, bot, n["conf"], mat, (0.0, 0.0, -1.0))
 
 
+def _boundary_run(b, w) -> None:
+    """A free-standing brick run under a stone coping (T-2201). `ends` says what each end
+    of [u0, u1] meets (see masonry_house_params): a `wall` end drops the faces the wall
+    hides and stops the coping flush; the coping overhangs only a `free` end."""
+    t, s = w["thick_m"], 0.06
+    a, c = w["at"] - t / 2.0, w["at"] + t / 2.0
+    e0, e1 = w["ends"]
+    u0, u1, z1 = w["u0"], w["u1"], w["z1"]
+    along_x = w["axis"] == "y"          # a north/south face runs along x
+    lo_face, hi_face = ("left", "right") if along_x else ("front", "back")
+
+    def box(ua, ub, ca, cb, za, zb, mat, skip):
+        if along_x:
+            b.add_box(ua, ca, za, ub, cb, zb, w["conf"], mat, skip=skip)
+        else:
+            b.add_box(ca, ua, za, cb, ub, zb, w["conf"], mat, skip=skip)
+
+    body_skip = ("bottom",) + tuple(f for e, f in ((e0, lo_face), (e1, hi_face)) if e != "free")
+    box(u0, u1, a, c, 0.0, z1, BRICK, body_skip)
+    cu0 = u0 - s if e0 == "free" else u0
+    cu1 = u1 + s if e1 == "free" else u1
+    cap_skip = tuple(f for e, f in ((e0, lo_face), (e1, hi_face)) if e != "free")
+    box(cu0, cu1, a - s, c + s, z1, z1 + COPING_H, TRIM, cap_skip)
+
+
 def _gate_piece(b, w) -> None:
+    if "ends" in w:
+        _boundary_run(b, w)
+        return
     t = w["thick_m"]
     kind = w["kind"]
     if kind == "gate":

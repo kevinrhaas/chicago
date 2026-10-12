@@ -18,7 +18,10 @@
       "albedo_colour_space": "sRGB",
       "normal_convention": "OpenGL +Y",
       "roughness_colour_space": "non-colour",
-      "source_pixels": "none"
+      "source_pixels": "none",
+      "occlusion_colour_space": "non-colour",
+      "occlusion": "horizon-based ambient occlusion of the normal map's own height field, 16 directions out to 0.08 m, tangent-plane biased; mean 0.9316, min 0.6779. Sky light only.",
+      "occlusion_radius_m": 0.08
     },
     {
       "name": "limestone",
@@ -69,6 +72,21 @@
       "source_pixels": "none"
     },
     {
+      "name": "court_brick",
+      "albedo_size_px": 2048,
+      "tile_m": [
+        1.7272,
+        2.1336
+      ],
+      "seed": 190402,
+      "confidence": "reconstructed",
+      "albedo_colour_space": "sRGB",
+      "albedo_only": true,
+      "normal_and_roughness_from": "brick",
+      "source_pixels": "none",
+      "description": "Reconstructed light pink common-brick body (HABS 1963 'light pink brick'; Glessner 1923 'slightly pinkish'), on brick's clay grain. Hue and value are bounded reconstruction, not a measured sample."
+    },
+    {
       "name": "terracotta",
       "albedo_size_px": 2048,
       "detail_size_px": 1024,
@@ -78,7 +96,23 @@
       ],
       "seed": 190403,
       "confidence": "reconstructed",
-      "description": "Fine fired clay grain. Individual flat overlapping tiles, lapped noses and ridge caps are geometry; reconstructed exposure is 0.12192 m (4.8 in), not Spanish barrel tile.",
+      "description": "Fine fired clay grain. Individual flat overlapping tiles, lapped noses and ridge caps are geometry. This grain-only fabric contains no tile module; roof_tiles supplies the mapped joints.",
+      "albedo_colour_space": "sRGB",
+      "normal_convention": "OpenGL +Y",
+      "roughness_colour_space": "non-colour",
+      "source_pixels": "none"
+    },
+    {
+      "name": "roof_tiles",
+      "albedo_size_px": 2048,
+      "detail_size_px": 1024,
+      "tile_m": [
+        2.4383999999999997,
+        2.032
+      ],
+      "seed": 190403,
+      "confidence": "reconstructed",
+      "description": "HABS IL-1015 printed p.21: 6-inch tile width, 5-inch exposed course. Inferred 1904 continuity, checked against Taylor 2135. Red baked unglazed clay from Glessner 1923; later tar excluded. Stagger, joints, lap relief and exact colour reconstructed. Sixteen columns by sixteen courses.",
       "albedo_colour_space": "sRGB",
       "normal_convention": "OpenGL +Y",
       "roughness_colour_space": "non-colour",
@@ -191,6 +225,10 @@
       "sha256": "7d84c8c84af6aae8b112013032d9cce98bdd2b7cf18de23306e13bb7fc37903a",
       "bytes": 73123
     },
+    "court_brick_basecolor.jpg": {
+      "sha256": "a0fdd0e549f811db072e1d9c06c624b9a5fc6230b73184c66293137583a059c8",
+      "bytes": 756531
+    },
     "granite_basecolor.jpg": {
       "sha256": "602b0acdad4bbcdf75872c9ae6d86b0f218ef1e3ed163040b44bbd9ad3eaf816",
       "bytes": 1057997
@@ -198,6 +236,10 @@
     "granite_normal.png": {
       "sha256": "3c2e98f56a24d2d0cf26f255aab4bc735a39b837c78470c388e852d15d6ce9e8",
       "bytes": 1299277
+    },
+    "granite_occlusion.png": {
+      "sha256": "a3d8fbae0d83531d1baa477673e4d0e9f32e06aef6598c0b7fedba4ec3d160fd",
+      "bytes": 381693
     },
     "granite_photographic_basecolor.png": {
       "sha256": "91e89304d28e8313236437f20ee63407fcaebebdbca3816f334662815893dc67",
@@ -266,6 +308,18 @@
     "painted_wood_roughness.png": {
       "sha256": "775efdb1e5e4197ab943db1bcc1e265c1c1b0f87bb14c11006a3a143587d74aa",
       "bytes": 56669
+    },
+    "roof_tiles_basecolor.jpg": {
+      "sha256": "6490ace0952f456391c1b04245ae3c231eefcf0c829cdf73b0c4f25cbcc86d7b",
+      "bytes": 668568
+    },
+    "roof_tiles_normal.png": {
+      "sha256": "7d686d50efbae1936dc574d5207617d68f3335c11240834fcf50186c7d5bc7af",
+      "bytes": 639034
+    },
+    "roof_tiles_roughness.png": {
+      "sha256": "09999c10a728ab2df984f25aaac28da955fa6569f0b0935e0e28c3f620235c45",
+      "bytes": 360401
     },
     "terracotta_basecolor.jpg": {
       "sha256": "60fd39a00dfbbfc673c269e01352b1b4e88d32ca94f64ff683f66c1a929cef70",

@@ -1,0 +1,288 @@
+{
+  "method": "Compare every original master primitive accessor byte-for-byte, including position, normal, UV, confidence and indices; also compare node transforms. New _ROOF_DETAIL alone is additive.",
+  "before_sha256": "652992c7af08effdb3f916d8ca9ffd176fbd550542b3702eb0cb64457755482f",
+  "after_sha256": "111fac1137ed4f9d35b58e259c8bcfb30541f3c9fa8ffca6675afec8e793693c",
+  "node_transforms_unchanged": true,
+  "primitives": [
+    {
+      "material": "granite",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "brick",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "limestone_trim",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "roof_plane",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "copper",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "glass",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "oak",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "lawn",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "drive",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "mortar",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "iron",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "glass_dark",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "granite_1",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "granite_2",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "granite_3",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "granite_4",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "brick_dark_red",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "brick_buff",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "brick_smoky",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "roof_plane_1",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "roof_plane_2",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "roof_plane_3",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "linen_blind",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "painted_wood",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "rough_stone_trim",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "turf_blade_dark",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "turf_blade_middle",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    },
+    {
+      "material": "turf_blade_light",
+      "unchanged_byte_for_byte": [
+        "_CONFIDENCE",
+        "POSITION",
+        "NORMAL",
+        "TEXCOORD_0",
+        "indices"
+      ]
+    }
+  ]
+}

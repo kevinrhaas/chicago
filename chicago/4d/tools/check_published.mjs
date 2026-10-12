@@ -49,7 +49,10 @@ const COPIES = [
   ['tickets.json', 'tickets/tickets.json'],
   ['data/scenes/', 'data/scenes/'],
   ['data/datum.json', 'data/datum.json'],
+  ['data/comparisons/glessner/', 'data/comparisons/glessner/'],
   ['data/liberties.json', 'data/liberties.json'],
+  // Written into the tree by tools/compile_pictures.py just before the copy (T-2389).
+  ['data/pictures/', 'data/pictures/'],
   ['data/town_census.json', 'data/town_census.json'],
   ['data/render/town_completion_1835.json', 'data/render/town_completion_1835.json'],
   ['data/reconstruction/1835_hay_limits.json', 'data/reconstruction/1835_hay_limits.json'],
@@ -162,6 +165,19 @@ const TRANSFORMED = [
     gate: 'defer_household_notes.mjs --check (check.sh) asserts each shipped record deep-equals its '
         + 'source with exactly those fields taken out, and that every source household carries the '
         + '`why` whose absence is how the card knows to fetch the rest.' },
+  { re: /^data\/sidecars\/[^/]+\/boot\/[^/]+\.json$/,
+    what: 'tools/pack_boot_sidecars.mjs (run by publish.sh) writes each scene\'s records packed against '
+        + 'each other — every value three or more repeat shipped once in boot/shared.json — because a '
+        + 'citation hundreds of records carry was paid for once per record on a first visit 1.51 MB over '
+        + 'its 13 MB budget. scene-loader.js reads these and rehydrates; the records at their own URLs '
+        + 'are untouched (T-2315)',
+    gate: 'pack_boot_sidecars.mjs --check (check.sh) rehydrates every boot copy with the loader\'s own '
+        + 'function and asserts it equals the shipped record key for key, with none missing and none extra.' },
+  { re: /^data\/sidecars\/[^/]+\/index\.json$/,
+    what: 'the same tool adds `boot: { shared, dir }` to each scene\'s sidecar index, which is how the '
+        + 'loader knows the packed copies exist without probing for them (T-2315)',
+    gate: 'pack_boot_sidecars.mjs --check (check.sh) asserts the shipped index is its source plus exactly '
+        + 'that key.' },
   { re: /^data\/gltf\/.*\.glb$/,
     what: 'gltf-transform meshopt derivative built by bake.sh from assets/gltf masters',
     gate: 'R-BUG3c-b: check.sh asserts the committed master against the heightfield and REPORTS the '

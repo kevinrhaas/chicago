@@ -28,7 +28,7 @@ not the same quantity.* Neither bounds the other.
 | cap | what it bounds | where it is written |
 |---|---|---|
 | **600 s** | ONE foreground command in a steward run | the harness; ROADMAP § THE RUN BUDGET |
-| **30 min** | ONE LEG of the nightly gate — one viewport over one range of parts, eight legs in parallel | `.github/workflows/chicago-4d-bake.yml` § `smoke`, `timeout-minutes` |
+| **40 min** | ONE LEG of the nightly gate — one viewport over one range of parts, all legs in parallel | `.github/workflows/chicago-4d-bake.yml` § `smoke`, `timeout-minutes` |
 | **90 min** | the WHOLE body in one process, both viewports, no per-leg cap at all | `.github/workflows/chicago-4d-smoke.yml` § `smoke`, `timeout-minutes` |
 
 **So T-0170, T-0173 and T-0181 were reasoning about the leg cap correctly**, and
@@ -68,8 +68,9 @@ re-read.
 ## The nightly gate's legs, and why they are not in this file
 
 The gate is cut into legs by `chicago-4d-bake.yml` § `smoke` — two viewports over
-four stage ranges, **eight legs, all in parallel**, each under the 30-minute cap.
-Those ranges have been re-spelled four times in 2026 as the body was re-cut, and
+one list of stage ranges, **every leg in parallel**, each under the leg cap.
+Those ranges have been re-spelled five times in 2026 as the body was re-cut (T-2362
+last, when desktop parts 5, 8, 13 and 14 each grew to a leg's worth on CI), and
 every prose copy of them has gone stale in turn. So **`--legs` reads them from
 the workflow and prices them from `tools/dev-smoke-state.json`**, and
 `--self-test` (which `check.sh` runs) fails if the ranges ever stop tiling parts
@@ -101,8 +102,21 @@ their day and the tool RENUMBERS them rather than discarding them, pushing each
 one through every cut it predates in order: a reading of old part 5 is a reading
 of what is now parts 7 + 8. Three cases cannot be renumbered to a single part —
 old part 4 is a reading of 4 + 5 + 6, a T-0346-era part 7 is a reading of 7 + 8,
-and a T-0173-era part 10 is a reading of 10 + 11 — and each is reported as the
-group it is.
+and a T-0173-era part 10 is a reading of 10 + 11 + 12 — and each is reported as
+the group it is.
+
+**And a fourth time on 2026-10-11 (T-2337)**: part 10 had grown back past the
+ceiling — killed at 9 m 45 s on an idle runner at 1280x800, inside the sward
+census in every community, which began at 7 m 27 s — so it was cut again at that
+census and old parts 11-14 became 12-15. A part 10 filed before that cut is a
+reading of 10 + 11. The cut alone did not fit the census: it was spending its
+time drawing the town in software between the detail levels it deals, and each
+`setDetail` measured 252.7 s in the town against 22.8 s behind the gate. The
+census and the flower-head census read numbers, never pixels, so both now hold
+the draw while they run (`holdDraws` in `smoke_renderer.mjs`). Measured after
+both, desktop: part 10 **7 m 53 s**, part 11 **8 m 03 s**, of which 5 m 28 s is the
+flower-head census's own reading of the instance buffers — the next thing to cut
+if part 11 moves.
 
 ## The recipe is conservative by construction
 
@@ -116,7 +130,7 @@ The map in `tools/smoke_budget.mjs` can only ever ADD parts:
   boot, the page-error check and the vendor checks are taken in **every**
   invocation whichever stage is asked for;
 - `--self-test` fails if a mapped path has vanished from the tree, if any part
-  1..14 is covered by no row, if `PARTS` in `smoke_renderer.mjs` has moved out
+  1..15 is covered by no row, if `PARTS` in `smoke_renderer.mjs` has moved out
   from under the map, if the renumbering arithmetic breaks, or if an unmapped
   path ever stops meaning the whole gate. `check.sh` runs it.
 
@@ -153,11 +167,12 @@ The map's rows are justified by the parts' own section headings in
 | 7 | navigation and its readouts, and two of the three road-legibility stations (T-0173 cut it here) |
 | 8 | the third road station, the road-legibility aid taken standing at it, and the batch merge |
 | 9 | the facade tones, the shadow reach, the shadow box, the brightness aid |
-| 10 | the drawn population, the horizon timber, the sward dealt in every community, the marsh substrate, the pop-in, the flower heads (T-0170 cut it here) |
-| 11 | the sward's ragged boundary and its fringe, each community's recorded ground cover, the street readouts, the navigation guide, the Settings units |
-| 12 | eye height, typing is not driving, the Go-to tab, What's-new |
-| 13 | the Evidence panel — liberties, people, wildlife, what grows, what is not here, researched-and-open, what the ground claims — free-fly, and inspecting from the air |
-| 14 | the arrival-to-jaunt path on a fresh context (T-2044) — the year before ready, the welcome, Starting At…, a jaunt with its card and source, a change of mode, Menu and Resume, End, a second jaunt, Explore on my own |
+| 10 | the rooted plants, the trees at their stations, the buildings at their anchors, the horizon timber and the far treeline, the drawn population, the sward at one station (T-0170 cut it here) |
+| 11 | the sward census in every community at every detail level, the marsh substrate, the pop-in, the flower heads (T-2337 cut it here) |
+| 12 | the sward's ragged boundary and its fringe, each community's recorded ground cover, the street readouts, the navigation guide, the Settings units |
+| 13 | eye height, typing is not driving, the Go-to tab, What's-new |
+| 14 | the Evidence panel — liberties, people, wildlife, what grows, what is not here, researched-and-open, what the ground claims — free-fly, and inspecting from the air |
+| 15 | the arrival-to-jaunt path on a fresh context (T-2044) — the year before ready, the welcome, Starting At…, a jaunt with its card and source, a change of mode, Menu and Resume, End, a second jaunt, Explore on my own |
 
 ## The zero-byte log, which is why a green run got killed
 

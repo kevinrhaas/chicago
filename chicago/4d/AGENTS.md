@@ -78,6 +78,20 @@ disposable. The first rendered scene is `1835` (target date 1835-07-01).
    **Do not "fix" the disagreement by moving the lot grid** — that was priced at 32 lots
    re-cut, 53 committed roofs and a whole documented block into the river, and refused.
 
+11. **A building with a picture of it is built to match the picture, and its ticket does not
+   close until it does** (the image gate, T-2368). The owner, 2026-10-11, finding 1612 Prairie
+   built from a Sanborn outline while the library linked its photograph: *"if you have an image
+   you should work towards it until it's a photographic representation of any images, even
+   drawings are ok, but it should look exactly perfectly like the image or drawing"*, and *"you
+   don't wrap the case until it matches the photo, not that you can't change one without a
+   photo"*. So before drafting, refining or rebuilding any building, find every photograph,
+   print and drawing of it (the Prairie library, `data/sources/`); solve each one's camera into
+   `data/reference_views/<structure_id>/`; build; render with `node tools/photo_match.mjs`; and
+   work the differences down until the side-by-side shows none in what the picture shows. A
+   building ticket carries an `## Image gate` section naming its structure ids, and
+   `ticket.mjs done` refuses it while any view is not `matches`. A summary of a picture is not
+   the picture: read the image itself. `data/reference_views/README.md` is the page.
+
 ## Standing constraint — 1835 and Indigenous history
 
 The final removal of the Potawatomi from Chicago occurred in **August 1835** — inside the
@@ -288,6 +302,11 @@ it to the attested instances.
 >   skip it until it is answered (on Manager's 4D Board, one click). Prefer this to
 >   `block --owner`, which took the ticket out of the queue where nobody saw it.
 > - Edited a ticket body by hand (a finding added)? `node tools/ticket.mjs sync -m "…"`.
+> - **A command commits only what it was asked to change** (T-2280). Every other mutating
+>   command refuses while the clone holds a local edit to a ticket it does not name, and
+>   lists the files: publish them with `sync -m`, or `git -C tickets stash` them. Before
+>   this, `pushTickets`' `git add -A` published them under the command's own message —
+>   `done T-1205` (b679d90) reverted a scratch copy of T-1171 to `claimed` for a week.
 
 **`tickets/` is the single operational answer to "what next".** The owner asked for it
 directly: his requests were getting lost inside an 11,000-line ROADMAP, and he could not
@@ -495,6 +514,15 @@ Work is parceled so parallel agents never collide. If you are a subagent:
   produced false alarms and lost work in this fleet before.
 - Your parcel is done when `tools/check.sh` passes and your outputs carry their provenance.
 - Do not run Blender unless your parcel changes geometry-affecting data. Bakes are batched.
+- **A building's pictures go on its card** (T-2389). The owner, 2026-10-11: *"As you build each
+  once can you include those photos images of the house on the card for the house on another
+  tab"*. The card's Images tab is generated at publish by `tools/compile_pictures.py` from the
+  Prairie library and `data/sources/`, so a draft, refine or rebuild that finds a photograph or
+  drawing of its building makes it reachable there: in the Prairie library, a record whose
+  `building_ids` names the building, with a credited copy in the image store whenever it can be
+  fetched (a link-only record shows as a link); for any other year, a `photograph` or
+  `illustration` record in `data/sources/` that the structure record names. Before closing, open
+  the card at 390x780 and see each picture on the Images tab with its credit.
 
 ## The two-speed build
 
@@ -674,10 +702,25 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
   serve); the gate runs it for you either way.
   `site/4d/` is a generated mirror and `deploy.yml` only fires on `site/**`, so
   skipping it ships nothing while looking merged.
-- **Changelog**: prepend one entry to `renderers/web/js/changelog.js` with all three
-  authored fields blank — `v: null, ts: '', date: ''` — then run
-  `node tools/stamp-changelog.mjs` and `node tools/check-changelog.mjs`. **Stamp BEFORE
-  merging to `dev`; nothing stamps later in the pipeline.**
+- **Changelog: add ONE entry FILE, `changelog.d/<ticket>.json`, and do not touch
+  `renderers/web/js/changelog.js` (owner, 2026-10-10).** The file holds
+  `{ "title": …, "kind": …, "items": [ … ] }` and nothing else — no `v`, `ts` or `date`.
+  Check it with `node tools/changelog-entries.mjs --check` (`check.sh` runs that too); the
+  What's-New budget below applies to it unchanged. After the PR merges,
+  `.github/workflows/chicago-4d-changelog-fold.yml` folds every pending file into
+  `changelog.js` on `dev` (newest landing on top), stamps it, deletes the file and pushes
+  one commit, so the published changelog keeps its exact format. `changelog.d/README.md`
+  shows an example.
+  - **Why a file:** every PR used to edit the top line of `changelog.js`, GitHub does not run
+    this repo's merge drivers, so every open PR conflicted with every landing. With ten lanes
+    and a twelve-minute gate a sibling always landed first; on 2026-10-09/10 #607, #608, #610
+    and #613 each lost three merges to that one line. Two PRs never write the same entry
+    file, so they never conflict on it.
+  - Name the file after the ticket (`T-2250.json`); two files with the same title are refused.
+  - **The old way still passes** (prepend to `changelog.js` with `v: null, ts: '', date: ''`,
+    then `node tools/stamp-changelog.mjs` and `node tools/check-changelog.mjs`), so a PR
+    opened before 2026-10-10 need not be redone. The notes below are about that file and
+    still hold for anyone who edits it.
   - `date: ''` must be *present*: the stamper fills an empty `ts` but only *regenerates* a
     `date` that already exists, so an entry authored without the key fails the contract check.
   - `v: null` because the number is not yours to guess. Two branches that each compute
@@ -695,8 +738,8 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
     are re-stamped. `check-changelog.mjs` holds the working tree to its merge base with `dev`
     and refuses an entry that was dropped, re-stamped or renumbered: measured over every dev
     merge since 2026-08, that happened 25 times and read "contract OK" every time.
-  - Nothing stamps after merge. The file is authored inside the app because the What's-new
-    tab imports it; `publish.sh` mirrors it to `site/4d/js/changelog.js`, the URL
+  - Only the fold stamps after merge, and only entry files. The file is authored inside
+    the app because the What's-new tab imports it; `publish.sh` mirrors it to `site/4d/js/changelog.js`, the URL
     Manager and the polecat.live launcher parse live, which must not move — and to
     `site/4d/walk/js/changelog.js` inside the copied renderer tree.
   - **Stamping after `publish.sh` is safe (T-0155).** Both mirrors are compared byte for
@@ -716,6 +759,9 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
 
 - `docs/LIBERTIES.md` is append-only. Every compression and invention gets recorded. The
   standard: *a visitor should be able to tell you which parts we made up.*
+- **In anything a visitor reads, those are called liberties** (owner, 2026-10-11): the
+  evidence tile, the popup tab and section, card headings, panel notes, in every year. Never
+  "what we made up" or a close variant on screen; the standard above is the internal rule.
 - `docs/STATUS.md` states what is unverified. Do not describe a gate as passed if it was skipped.
 - Where sources disagree, record the disagreement in `docs/RESEARCH/<id>.md` and pick the
   best-attested reading **with reasoning** — never silently choose.

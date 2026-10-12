@@ -50,19 +50,10 @@
   },
   "written_by_stage": "attribute_fill_arrival"
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested."
- },
- "works_at": {
-  "value": "hogan_store",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1",
-   "chicagology_first_post_office"
-  ],
-  "note": "The log building at the intersection of South Water and Lake, near the east end of the bridge, with Hogan's store in it and the post office in the store. Twenty by forty-five feet, which Andreas gives as an aside about how little room the town's mail needed."
  },
  "associated_with": [
   {
@@ -77,7 +68,10 @@
    "note": "The log building at the intersection of South Water and Lake, near the east end of the bridge, with Hogan's store in it and the post office in the store. Twenty by forty-five feet, which Andreas gives as an aside about how little room the town's mail needed. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_hogan_john_s_c#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
    "also_sources": [
     "chicagology_first_post_office"
-   ]
+   ],
+   "basis": {
+    "note": "The log building at the intersection of South Water and Lake, near the east end of the bridge, with Hogan's store in it and the post office in the store. Twenty by forty-five feet, which Andreas gives as an aside about how little room the town's mail needed."
+   }
   }
  ],
  "present_on_scene_date": {
@@ -560,6 +554,26 @@
      "place": "not_stated",
      "employer_or_body": "not_stated",
      "note": "A TRADE PRINTED IN THE 1844 DIRECTORY, 9 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
+     "premises": null
+    },
+    {
+     "role": null,
+     "kind": "office",
+     "as_printed": "trustee of the town of Chicago",
+     "from": null,
+     "to": null,
+     "precision": "unknown",
+     "dated_by": "undated",
+     "covers_scene_date": false,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "pal_chicago_incorporation_1835"
+     ],
+     "claim": "data/research/residents/pass_02_findings.json#hogan_john_s_c",
+     "place": "not_stated",
+     "employer_or_body": "town_of_chicago",
+     "note": "A POST NAMED IN RETROSPECTIVE PROSE, carried here by its reading in data/research/residents/prose_role_readings.json (T-1507, by tools/derive_resident_roles.py). The grade is `inferred`: the volume states the post in words, and the resident programme's identity rule tied the passage to this card, so the post is inferred FOR this person rather than stated OF him. The bound is UNSTATED — the volume names no year this can read. It does not stand in the 1835-07-01 view, and the reason is the evidence ladder ratified 2026-09-03 (T-0513) and not the bound: a volume set down after the scene may date and corroborate and may never promote. The volume is deliberately absent from the person's own `sources[]`, which lists what the 1835 RESIDENCY grade stands on (T-1254). The reading's own reason is in the readings file, beside the pass that made it.",
      "premises": null
     }
    ],

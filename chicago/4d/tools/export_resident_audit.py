@@ -48,6 +48,9 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from associations import home_of, home_row, work_row, workplace_of  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]                 # chicago/4d
 REFERENCE = ROOT.parent / "reference"                      # chicago/reference
 OUT = REFERENCE / "resident-research" / "final" / "audit"
@@ -303,6 +306,14 @@ def cited_sources(person: dict, household: dict) -> list[str]:
     if person.get("relationship") == "head":
         for key in ("arrival", "origin", "lives_at", "works_at",
                     "present_on_scene_date", "party_size_on_arrival", "reason_for_coming"):
+            # T-2277: the home and the workplace are cited off the record's own rows,
+            # the copier's `source_id` then `also_sources`, which is the claim's own
+            # `sources` in their own order — not off the singular pair.
+            if key in ("lives_at", "works_at"):
+                row = (home_row if key == "lives_at" else work_row)(household) or {}
+                ids += [row["source_id"]] if row.get("source_id") else []
+                ids += row.get("also_sources") or []
+                continue
             block = household.get(key)
             if isinstance(block, dict):
                 ids += block.get("sources") or []
@@ -401,8 +412,8 @@ def rows() -> tuple[list[dict], dict]:
                 "later_census_bridge_status": later.get("bridge_status", ""),
                 "present_on_scene_date": value_of(household.get("present_on_scene_date")),
                 "division": household.get("division") or "",
-                "lives_at": value_of(household.get("lives_at")),
-                "works_at": value_of(household.get("works_at")),
+                "lives_at": home_of(household) or "",
+                "works_at": workplace_of(household) or "",
                 "occupation": value_of(person.get("occupation")),
                 "occupation_confidence": (person.get("occupation") or {}).get(
                     "confidence", "") if isinstance(person.get("occupation"), dict) else "",
@@ -418,8 +429,8 @@ def rows() -> tuple[list[dict], dict]:
                 "flag_single_source": len(ids) == 1,
                 "flag_no_source": not ids,
                 "flag_unplaced": household.get("division") == "unplaced",
-                "flag_no_address": not value_of(household.get("lives_at"))
-                and not value_of(household.get("works_at")),
+                "flag_no_address": not home_of(household)
+                and not workplace_of(household),
                 "audit_result": result,
             }
             for category in CATEGORIES:

@@ -1,0 +1,520 @@
+{
+  "library": "Prairie Avenue 1904 stone library (K02)",
+  "version": "1.0.0",
+  "ticket": "T-2288",
+  "parent": "T-1844",
+  "contract": "data/components/prairie_1904/k01_contract.json",
+  "profiles": "data/components/prairie_1904/k02_stone_profiles.json",
+  "materials": [
+    {
+      "id": "granite_rock_faced",
+      "package": "K02",
+      "dressing": "rock_faced",
+      "tile_m": [
+        1.6,
+        1.6
+      ],
+      "resolution_px": {
+        "basecolor": 1024,
+        "normal_gl": 1024,
+        "orm": 512,
+        "height16": 512
+      },
+      "px_per_m": 640.0,
+      "height16_range_m": 0.01226,
+      "mean_roughness": 0.8,
+      "measured": {
+        "relief_m": 0.01226,
+        "mean_roughness_measured": 0.788,
+        "mean_basecolor_srgb": [
+          124,
+          123,
+          120
+        ],
+        "seam_to_interior_step": 1.021
+      },
+      "colors_srgb": [
+        [
+          150,
+          150,
+          146
+        ],
+        [
+          92,
+          92,
+          90
+        ]
+      ],
+      "note": "A grey, medium-grained granite with dark mica flecks and a few warm feldspars, split into angular fracture planes 4-10 cm across. Grey, not Glessner's pinkish stone: the landmark keeps its own library (assets/textures/glessner-v4/), and no 1904 register row names granite on any other house.",
+      "confidence": "reconstructed appearance; which building wears this stone is its structure record's to say, at its own tier",
+      "orientation": "image x = along the stone's natural bed (the wall's horizontal for walling); image y = up the wall. TEXCOORD_0 = surface metres / tile_m (K01 uv rule)",
+      "joints": "geometry, from data/components/prairie_1904/k02_stone_profiles.json",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear, OpenGL +Y",
+        "height16": "linear 16-bit, 0 = lowest point of height16_range_m",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "files": {
+        "basecolor.png": "granite_rock_faced_basecolor.png",
+        "normal_gl.png": "granite_rock_faced_normal_gl.png",
+        "orm.png": "granite_rock_faced_orm.png",
+        "height16.png": "granite_rock_faced_height16.png",
+        "basecolor_web.jpg": "granite_rock_faced_basecolor_web.jpg",
+        "normal_gl_web.jpg": "granite_rock_faced_normal_gl_web.jpg",
+        "orm_web.jpg": "granite_rock_faced_orm_web.jpg"
+      },
+      "web": {
+        "basecolor": "granite_rock_faced_basecolor_web.jpg",
+        "normal_gl": "granite_rock_faced_normal_gl_web.jpg",
+        "orm": "granite_rock_faced_orm_web.jpg"
+      },
+      "bytes": {
+        "basecolor.png": 1487367,
+        "normal_gl.png": 1032139,
+        "orm.png": 280588,
+        "height16.png": 435258,
+        "basecolor_web.jpg": 366273,
+        "normal_gl_web.jpg": 210827,
+        "orm_web.jpg": 62833
+      },
+      "sha256": {
+        "basecolor.png": "42d79fc028815b8fa8c60a4c36d0345c9920d92ff94be9ddca7aaa6c94df17fa",
+        "normal_gl.png": "09763888ab672b1cb9876ba896b7163b63ec11e2cfbdaeab8c251bd88a90e6b0",
+        "orm.png": "672bde836dc5cf33b7ac518340e7c5dd34ebe7c9a6e2548a625e26436c1fc637",
+        "height16.png": "37fe965e302959f05eed3abe9a16cf708f0ea6b68ed0f9255d373e4e9d8e4cf5",
+        "basecolor_web.jpg": "849be60b9a1d8dba8fcbaf0571d3031339658f42457a7560ca5d287d8d3e18ae",
+        "normal_gl_web.jpg": "0a1bac7fbd1b31383b2c09164fd3875230eb388112ea06c8a55507456d9ead21",
+        "orm_web.jpg": "7abb5a37e8631589474a2260a92a09c49d326c3905d895d42f9f33159ee78879"
+      },
+      "seamless": true,
+      "generator_seed": 19040801,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_stone.py); no photograph sampled"
+    },
+    {
+      "id": "sandstone_brown",
+      "package": "K02",
+      "dressing": "tooled",
+      "tile_m": [
+        1.2,
+        1.2
+      ],
+      "resolution_px": {
+        "basecolor": 1024,
+        "normal_gl": 1024,
+        "orm": 512,
+        "height16": 512
+      },
+      "px_per_m": 853.33,
+      "height16_range_m": 0.0015,
+      "mean_roughness": 0.84,
+      "measured": {
+        "relief_m": 0.0015,
+        "mean_roughness_measured": 0.84,
+        "mean_basecolor_srgb": [
+          137,
+          96,
+          77
+        ],
+        "seam_to_interior_step": 1.015
+      },
+      "colors_srgb": [
+        [
+          156,
+          112,
+          90
+        ],
+        [
+          118,
+          80,
+          64
+        ]
+      ],
+      "note": "A warm red-brown sandstone of the Lake Superior or Connecticut kind the register's brownstone fronts name: fine sand grain, horizontal bedding laminae, sparse darker iron mottles, and a fine drove-tooled face.",
+      "confidence": "reconstructed appearance; which building wears this stone is its structure record's to say, at its own tier",
+      "orientation": "image x = along the stone's natural bed (the wall's horizontal for walling); image y = up the wall. TEXCOORD_0 = surface metres / tile_m (K01 uv rule)",
+      "joints": "geometry, from data/components/prairie_1904/k02_stone_profiles.json",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear, OpenGL +Y",
+        "height16": "linear 16-bit, 0 = lowest point of height16_range_m",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "files": {
+        "basecolor.png": "sandstone_brown_basecolor.png",
+        "normal_gl.png": "sandstone_brown_normal_gl.png",
+        "orm.png": "sandstone_brown_orm.png",
+        "height16.png": "sandstone_brown_height16.png",
+        "basecolor_web.jpg": "sandstone_brown_basecolor_web.jpg",
+        "normal_gl_web.jpg": "sandstone_brown_normal_gl_web.jpg",
+        "orm_web.jpg": "sandstone_brown_orm_web.jpg"
+      },
+      "web": {
+        "basecolor": "sandstone_brown_basecolor_web.jpg",
+        "normal_gl": "sandstone_brown_normal_gl_web.jpg",
+        "orm": "sandstone_brown_orm_web.jpg"
+      },
+      "bytes": {
+        "basecolor.png": 1148747,
+        "normal_gl.png": 2007029,
+        "orm.png": 363982,
+        "height16.png": 497359,
+        "basecolor_web.jpg": 83551,
+        "normal_gl_web.jpg": 462955,
+        "orm_web.jpg": 68295
+      },
+      "sha256": {
+        "basecolor.png": "84a5920f99082d0abdae9a45124bfaf0aa1bde9078ee5738b4fa9a416bad44b7",
+        "normal_gl.png": "68dbc2431d1da39010eeac177b317d256a4ebf4ecb143fc71dc232cb4729512e",
+        "orm.png": "e963945d6f1295c2f25e59cce1a84d2458944be0120462a41f10486e5d869c97",
+        "height16.png": "72f8d6c5b396cffbba4723b12411a6298d22d37916b819fd49cfbca3d61d437e",
+        "basecolor_web.jpg": "58d3472b4455c8cbdd17de66722eb03b9f7bcaf063d551dcbbcbcbdcf18375b8",
+        "normal_gl_web.jpg": "0c4652e2c68880966d6483e9f9898ca14cc02e7bd6de83f141c3086b4aa0520a",
+        "orm_web.jpg": "b51e6f837314eb2df581a52de5b1d8d585dec6dd4c9ede7d87afae3530079375"
+      },
+      "seamless": true,
+      "generator_seed": 19040802,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_stone.py); no photograph sampled"
+    },
+    {
+      "id": "limestone_lemont",
+      "package": "K02",
+      "dressing": "pitched",
+      "tile_m": [
+        1.2,
+        1.2
+      ],
+      "resolution_px": {
+        "basecolor": 1024,
+        "normal_gl": 1024,
+        "orm": 512,
+        "height16": 512
+      },
+      "px_per_m": 853.33,
+      "height16_range_m": 0.00463,
+      "mean_roughness": 0.88,
+      "measured": {
+        "relief_m": 0.00463,
+        "mean_roughness_measured": 0.88,
+        "mean_basecolor_srgb": [
+          162,
+          153,
+          128
+        ],
+        "seam_to_interior_step": 1.055
+      },
+      "colors_srgb": [
+        [
+          184,
+          174,
+          148
+        ],
+        [
+          142,
+          132,
+          110
+        ]
+      ],
+      "note": "Lemont (Joliet) dolomitic limestone, the local building stone: buff-grey with yellow-ochre iron staining, small solution pits, the odd dark stylolite seam along the bed, and a hammer-dressed face.",
+      "confidence": "reconstructed appearance; which building wears this stone is its structure record's to say, at its own tier",
+      "orientation": "image x = along the stone's natural bed (the wall's horizontal for walling); image y = up the wall. TEXCOORD_0 = surface metres / tile_m (K01 uv rule)",
+      "joints": "geometry, from data/components/prairie_1904/k02_stone_profiles.json",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear, OpenGL +Y",
+        "height16": "linear 16-bit, 0 = lowest point of height16_range_m",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "files": {
+        "basecolor.png": "limestone_lemont_basecolor.png",
+        "normal_gl.png": "limestone_lemont_normal_gl.png",
+        "orm.png": "limestone_lemont_orm.png",
+        "height16.png": "limestone_lemont_height16.png",
+        "basecolor_web.jpg": "limestone_lemont_basecolor_web.jpg",
+        "normal_gl_web.jpg": "limestone_lemont_normal_gl_web.jpg",
+        "orm_web.jpg": "limestone_lemont_orm_web.jpg"
+      },
+      "web": {
+        "basecolor": "limestone_lemont_basecolor_web.jpg",
+        "normal_gl": "limestone_lemont_normal_gl_web.jpg",
+        "orm": "limestone_lemont_orm_web.jpg"
+      },
+      "bytes": {
+        "basecolor.png": 806113,
+        "normal_gl.png": 1686125,
+        "orm.png": 273036,
+        "height16.png": 457333,
+        "basecolor_web.jpg": 71483,
+        "normal_gl_web.jpg": 354160,
+        "orm_web.jpg": 44306
+      },
+      "sha256": {
+        "basecolor.png": "0b1313ba52d5d77d2502917bc2ca0d40c43dfa36507fcf88ed60917c285bf08c",
+        "normal_gl.png": "d20727c2af8a5c50b8383636312edbb868113771fe3e68216051b27c50bd1532",
+        "orm.png": "d0582f4c7f318a375e32f93c58bf4bfa2a57a8eb5e225837dabf79145576a44c",
+        "height16.png": "5c96d82ddf737fd79a9c5abea853941cddc86a93608cd2ddaa99f917399c5190",
+        "basecolor_web.jpg": "e6bfbdf6890411761532d634cb108505ff5b580ceabb1255bcdb020cc70b2a65",
+        "normal_gl_web.jpg": "8061d14f719f52f262bb12778387975a5026f88388113ccda341649b004982bf",
+        "orm_web.jpg": "7531af84c92c2522eccfa4e21ec19b7ab19d5635f77284f4d11800cafd590e1c"
+      },
+      "seamless": true,
+      "generator_seed": 19040803,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_stone.py); no photograph sampled"
+    },
+    {
+      "id": "limestone_bedford",
+      "package": "K02",
+      "dressing": "crandalled",
+      "tile_m": [
+        1.2,
+        1.2
+      ],
+      "resolution_px": {
+        "basecolor": 1024,
+        "normal_gl": 1024,
+        "orm": 512,
+        "height16": 512
+      },
+      "px_per_m": 853.33,
+      "height16_range_m": 0.00059,
+      "mean_roughness": 0.8,
+      "measured": {
+        "relief_m": 0.00059,
+        "mean_roughness_measured": 0.802,
+        "mean_basecolor_srgb": [
+          193,
+          183,
+          161
+        ],
+        "seam_to_interior_step": 1.007
+      },
+      "colors_srgb": [
+        [
+          208,
+          199,
+          176
+        ],
+        [
+          178,
+          168,
+          146
+        ]
+      ],
+      "note": "Bedford (Indiana oolitic) limestone: pale buff-grey, an even sugary grain with sparse shell fragments, and a crandalled face of fine pick marks.",
+      "confidence": "reconstructed appearance; which building wears this stone is its structure record's to say, at its own tier",
+      "orientation": "image x = along the stone's natural bed (the wall's horizontal for walling); image y = up the wall. TEXCOORD_0 = surface metres / tile_m (K01 uv rule)",
+      "joints": "geometry, from data/components/prairie_1904/k02_stone_profiles.json",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear, OpenGL +Y",
+        "height16": "linear 16-bit, 0 = lowest point of height16_range_m",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "files": {
+        "basecolor.png": "limestone_bedford_basecolor.png",
+        "normal_gl.png": "limestone_bedford_normal_gl.png",
+        "orm.png": "limestone_bedford_orm.png",
+        "height16.png": "limestone_bedford_height16.png",
+        "basecolor_web.jpg": "limestone_bedford_basecolor_web.jpg",
+        "normal_gl_web.jpg": "limestone_bedford_normal_gl_web.jpg",
+        "orm_web.jpg": "limestone_bedford_orm_web.jpg"
+      },
+      "web": {
+        "basecolor": "limestone_bedford_basecolor_web.jpg",
+        "normal_gl": "limestone_bedford_normal_gl_web.jpg",
+        "orm": "limestone_bedford_orm_web.jpg"
+      },
+      "bytes": {
+        "basecolor.png": 862149,
+        "normal_gl.png": 1582894,
+        "orm.png": 396013,
+        "height16.png": 504431,
+        "basecolor_web.jpg": 93722,
+        "normal_gl_web.jpg": 229005,
+        "orm_web.jpg": 104282
+      },
+      "sha256": {
+        "basecolor.png": "76f79b911931f0bec5f6d8b62611dffd88243206dd1621ee3edd5cc15bc521d4",
+        "normal_gl.png": "8bfc28ba9f1e961d072ed34814116bf139d2831442ea573122a026d2d3833264",
+        "orm.png": "40c00de1adb85b8c6c11c36c62045876bc1d560fc1fbb5903235b2030c5558c0",
+        "height16.png": "96c3a37bf3b4ca13ed6ff5241f60529541e0dc079167d6dc0b18f889bec6484b",
+        "basecolor_web.jpg": "d78bb5ded0d95819f00e0746309ef269be0007aba88d8edd91f8e22055ac14e9",
+        "normal_gl_web.jpg": "0b29981352dd1ca1d780fddb0a7c9bdbe462024043148b27eb1388ebb6c46e6c",
+        "orm_web.jpg": "990a21c3f243608497b6e4d40caca25f5e8684bfa99ab29775add47e29a080c9"
+      },
+      "seamless": true,
+      "generator_seed": 19040804,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_stone.py); no photograph sampled"
+    },
+    {
+      "id": "dressed_trim",
+      "package": "K02",
+      "dressing": "rubbed",
+      "tile_m": [
+        0.9,
+        0.9
+      ],
+      "resolution_px": {
+        "basecolor": 1024,
+        "normal_gl": 1024,
+        "orm": 512,
+        "height16": 512
+      },
+      "px_per_m": 1137.78,
+      "height16_range_m": 0.00036,
+      "mean_roughness": 0.66,
+      "measured": {
+        "relief_m": 0.00036,
+        "mean_roughness_measured": 0.66,
+        "mean_basecolor_srgb": [
+          204,
+          193,
+          174
+        ],
+        "seam_to_interior_step": 1.003
+      },
+      "colors_srgb": [
+        [
+          214,
+          206,
+          186
+        ],
+        [
+          190,
+          181,
+          160
+        ]
+      ],
+      "note": "Smooth dressed trim for sills, lintels, belts, copings, voussoirs and carving: a rubbed pale limestone face with a very fine grain and faint rubbing arcs. Carving is geometry; this is the skin it is cut in.",
+      "confidence": "reconstructed appearance; which building wears this stone is its structure record's to say, at its own tier",
+      "orientation": "image x = along the stone's natural bed (the wall's horizontal for walling); image y = up the wall. TEXCOORD_0 = surface metres / tile_m (K01 uv rule)",
+      "joints": "geometry, from data/components/prairie_1904/k02_stone_profiles.json",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear, OpenGL +Y",
+        "height16": "linear 16-bit, 0 = lowest point of height16_range_m",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "files": {
+        "basecolor.png": "dressed_trim_basecolor.png",
+        "normal_gl.png": "dressed_trim_normal_gl.png",
+        "orm.png": "dressed_trim_orm.png",
+        "height16.png": "dressed_trim_height16.png",
+        "basecolor_web.jpg": "dressed_trim_basecolor_web.jpg",
+        "normal_gl_web.jpg": "dressed_trim_normal_gl_web.jpg",
+        "orm_web.jpg": "dressed_trim_orm_web.jpg"
+      },
+      "web": {
+        "basecolor": "dressed_trim_basecolor_web.jpg",
+        "normal_gl": "dressed_trim_normal_gl_web.jpg",
+        "orm": "dressed_trim_orm_web.jpg"
+      },
+      "bytes": {
+        "basecolor.png": 785396,
+        "normal_gl.png": 1416412,
+        "orm.png": 346374,
+        "height16.png": 501526,
+        "basecolor_web.jpg": 22357,
+        "normal_gl_web.jpg": 158124,
+        "orm_web.jpg": 81930
+      },
+      "sha256": {
+        "basecolor.png": "6bced867e14889c2903945d2db10df4a882630b0312e2975b5c042f9a64157e6",
+        "normal_gl.png": "8119155f5f7ad3fea276b87078811c2baae8b931c46d337ff61db66b9a60b522",
+        "orm.png": "d0e0091cf6a0c080efc1ed5e7683dde197a2a97acf5106cb8f271ba97c53fe85",
+        "height16.png": "ace52e31895425f72a9264abe6f9f723d3f9d19586c8e94ca54cfe41a8f07e6b",
+        "basecolor_web.jpg": "d80f5358826bed5b9806c76045b1863beb4902078a448756aeffc6d40a60af0d",
+        "normal_gl_web.jpg": "201d07b2118716d6280763f68ded13f2d8b148ac56b19006ad11e873621d89fc",
+        "orm_web.jpg": "1f8312d1f4a3c360de0ecb98c22a165c8472852e461941c2bfc9a075219f04b9"
+      },
+      "seamless": true,
+      "generator_seed": 19040805,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_stone.py); no photograph sampled"
+    },
+    {
+      "id": "foundation_rubble",
+      "package": "K02",
+      "dressing": "random_rubble",
+      "tile_m": [
+        2.0,
+        2.0
+      ],
+      "resolution_px": {
+        "basecolor": 1024,
+        "normal_gl": 1024,
+        "orm": 512,
+        "height16": 512
+      },
+      "px_per_m": 512.0,
+      "height16_range_m": 0.03008,
+      "mean_roughness": 0.9,
+      "measured": {
+        "relief_m": 0.03008,
+        "mean_roughness_measured": 0.888,
+        "mean_basecolor_srgb": [
+          155,
+          146,
+          130
+        ],
+        "seam_to_interior_step": 1.005
+      },
+      "colors_srgb": [
+        [
+          158,
+          150,
+          134
+        ],
+        [
+          104,
+          98,
+          88
+        ]
+      ],
+      "note": "Random rubble for foundations and rear basement walls: irregular limestone and fieldstone pieces 0.15-0.45 m across in a sandy lime mortar recessed about 15 mm. The one fabric whose joints are in the map (random rubble has no courses).",
+      "confidence": "reconstructed appearance; which building wears this stone is its structure record's to say, at its own tier",
+      "orientation": "image x = along the stone's natural bed (the wall's horizontal for walling); image y = up the wall. TEXCOORD_0 = surface metres / tile_m (K01 uv rule)",
+      "joints": "geometry, from data/components/prairie_1904/k02_stone_profiles.json; EXCEPT this fabric, whose random-rubble joints are in the map",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear, OpenGL +Y",
+        "height16": "linear 16-bit, 0 = lowest point of height16_range_m",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "files": {
+        "basecolor.png": "foundation_rubble_basecolor.png",
+        "normal_gl.png": "foundation_rubble_normal_gl.png",
+        "orm.png": "foundation_rubble_orm.png",
+        "height16.png": "foundation_rubble_height16.png",
+        "basecolor_web.jpg": "foundation_rubble_basecolor_web.jpg",
+        "normal_gl_web.jpg": "foundation_rubble_normal_gl_web.jpg",
+        "orm_web.jpg": "foundation_rubble_orm_web.jpg"
+      },
+      "web": {
+        "basecolor": "foundation_rubble_basecolor_web.jpg",
+        "normal_gl": "foundation_rubble_normal_gl_web.jpg",
+        "orm": "foundation_rubble_orm_web.jpg"
+      },
+      "bytes": {
+        "basecolor.png": 1370281,
+        "normal_gl.png": 1516855,
+        "orm.png": 225007,
+        "height16.png": 444382,
+        "basecolor_web.jpg": 169370,
+        "normal_gl_web.jpg": 379650,
+        "orm_web.jpg": 39212
+      },
+      "sha256": {
+        "basecolor.png": "8729237a7907d0046d3e516c1c139d91f1b68d2eb276c4b6ae34a68057fc822a",
+        "normal_gl.png": "d66b42d91dfaf49a4514fac217baaf667f95c405feef4e275af2a5377dfc9b88",
+        "orm.png": "115d716d90a7c2af20e0214cdc50ce390f7e3387e6114e81bfc665a71980b734",
+        "height16.png": "49a8b157e63f0233fb60197bd69f4e9abcb596dca204a993589138fb1bc769d4",
+        "basecolor_web.jpg": "031f2cfc80f7b8bba212a7204af17e25a6f48c7b25fe293e43a79e8c9e9f07b3",
+        "normal_gl_web.jpg": "03048ecde2000b9fe0367702330ff5ab14ee7ee9133e4edd9d3c9e1c1b57203a",
+        "orm_web.jpg": "67b9bbbb1365b47d0afd57addb6c09253dd0f6c800f85c778b77b8a152f1506a"
+      },
+      "seamless": true,
+      "generator_seed": 19040806,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_stone.py); no photograph sampled"
+    }
+  ]
+}

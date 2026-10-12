@@ -78,6 +78,34 @@ class InputsError(ValueError):
     """The inputs to a mesh cannot be resolved, so no hash can be taken."""
 
 
+#: Archetypes whose GLB is written by a pure-Python command rather than by emit.py in
+#: Blender, and that command (T-2266). Their input document hashes the archetype module
+#: and the command alone, and carries no Blender pin.
+PURE_PYTHON = {"k01_frontage": "k01_emit.py", "k13_conservatories": "k13_emit.py",  # T-2306: K13
+               "k16_timber": "k16_emit.py",  # T-2323: K16
+               "k12_coach_house": "k12_emit.py",  # T-2321: K12
+               "prairie_draft": "draft_emit.py"}  # T-2329: the district draft
+#: The library modules a pure-Python archetype lays on its walls (T-2291), and so hashes
+#: beside the archetype: K03 brick's bond, heads and string course move vertices too.
+#: T-2302: and K05 builds its roof, from the kit's own parts (k05_roofs.json, hashed below).
+PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_frontage.py", "k09_trim.py",
+                                       "k10_frontage.py", "k10_cornices.py",
+                                       "k11_frontage.py", "k11_ironwork.py",
+                                       # T-2360: K14 lays the yard, from the condition kit's ground layers
+                                       "k14_yard.py", "k14_condition.py",
+                                       # T-2313: K15 builds the chimney stacks in the roof
+                                       "k15_chimneys.py",
+                                       # T-2358: K14 weathers a record that names it
+                                       "k14_condition.py"),
+                       # T-2306: the conservatory is cut with K01's Prim and K06's polygon helpers
+                       "k13_conservatories": ("k01_frontage.py", "k06_windows.py"),
+                       # T-2323: the timber front is cut with K01's Prim and K06's sash and polygon helpers
+                       "k16_timber": ("k01_frontage.py", "k06_windows.py"),
+                       # T-2321: the coach house is cut with K09's mesh primitives, K01's vector
+                       # helpers and K10's sweep (its party-wall coping)
+                       "k12_coach_house": ("k09_trim.py", "k01_frontage.py", "k10_cornices.py")}
+
+
 def _sha_file(p: Path) -> str:
     return hashlib.sha256(p.read_bytes()).hexdigest()
 
@@ -108,6 +136,16 @@ def _code_shas(archetype: str, params=None) -> dict[str, str]:
     gen = ROOT / "generators"
     wanted = [gen / "emit.py", gen / "archetypes" / f"{archetype}.py"]
     wanted += code_inputs.geometry_modules()
+    # T-2266: an archetype that writes its glTF in pure Python never runs emit.py, the
+    # shared Blender builders or the pinned Blender, so none of them is an input to its
+    # mesh — hashing them would stale it for edits that cannot move its vertices.
+    if archetype in PURE_PYTHON:
+        wanted = [gen / "archetypes" / f"{archetype}.py", gen / PURE_PYTHON[archetype]]
+        wanted += [gen / "archetypes" / h for h in PURE_PYTHON_HELPERS.get(archetype, ())]
+        if archetype == "k01_frontage":
+            wanted += [gen / "archetypes" / "k06_windows.py", gen / "archetypes" / "k07_entrances.py"]
+            # T-2308: a record's bays are built by the K08 kit, so its module moves vertices
+            wanted += [gen / "archetypes" / "k08_bays.py"]
     # T-1730: the high-detail Glessner build delegates to v4-only modules.
     # Hash every module in that family, including the material/texture recipe;
     # the legacy path never imports them. New helpers in the family therefore
@@ -185,6 +223,62 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
         "code": _code_shas(arch, params),
         "blender_pin": (ROOT / "generators" / "blender.pin").read_text().strip(),
     }
+    if arch in PURE_PYTHON:
+        del doc["blender_pin"]
+    if arch == "k01_frontage":
+        # T-2291: the K03 maps a K01 wall embeds are inputs, like Glessner v4's below
+        from archetypes import k03_brick
+        doc["textures"] = {p.relative_to(ROOT).as_posix(): _sha_file(p) for p in k03_brick.TEXTURE_FILES}
+        # T-2358: a record that names the K14 condition kit reads its layers as data
+        if getattr(params, "condition", None):
+            kit = ROOT / params.condition["kit"]
+            doc["condition_kit"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}
+        # T-2298: the window kit's sizes are data the builder reads, like a texture
+        kit = ROOT / "data" / "components" / "prairie_1904" / "k06_windows.json"
+        doc["window_kit"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}
+        # T-2304: and the entrance kit's, which the door and its stoop are built from
+        ent = ROOT / "data" / "components" / "prairie_1904" / "k07_entrances.json"
+        doc["entrance_kit"] = {ent.relative_to(ROOT).as_posix(): _sha_file(ent)}
+        # T-2310: the K09 kit's sizes are data, and its trim is laid from them
+        kit = ROOT / "data" / "components" / "prairie_1904" / "k09_trim.json"
+        doc["component_data"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}
+        # T-2317: and the K10 kit's, which the brackets, bed moulding and cresting are built from
+        k10 = ROOT / "data" / "components" / "prairie_1904" / "k10_cornices.json"
+        doc["component_data"][k10.relative_to(ROOT).as_posix()] = _sha_file(k10)
+        # T-2319: and the K11 kit's, which the fence, gates, piers and wall are built from
+        k11 = ROOT / "data" / "components" / "prairie_1904" / "k11_ironwork.json"
+        doc["component_data"][k11.relative_to(ROOT).as_posix()] = _sha_file(k11)
+        # T-2313: and the K15 kit's, whose variants, parts, draught rule and soot band size
+        # and shape every stack a record names
+        k15 = ROOT / "data" / "components" / "prairie_1904" / "k15_chimneys.json"
+        doc["component_data"][k15.relative_to(ROOT).as_posix()] = _sha_file(k15)
+        # T-2360: and the K14 kit's, whose ground layers wear the yard's walks and cut its lawn
+        k14 = ROOT / "data" / "components" / "prairie_1904" / "k14_condition.json"
+        doc["component_data"][k14.relative_to(ROOT).as_posix()] = _sha_file(k14)
+        # T-2308: and the bay kit's — its parts, curves and roofs size every bay a record names
+        bays = ROOT / "data" / "components" / "prairie_1904" / "k08_bays.json"
+        doc["bay_kit"] = {bays.relative_to(ROOT).as_posix(): _sha_file(bays)}
+        # T-2302: the K05 kit's part sizes (eave box, dormer eave and verge) shape the roof;
+        # its prose and variants do not, so only `parts` is hashed
+        k05 = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())
+        doc["k05_parts"] = hashlib.sha256(json.dumps(k05["parts"], sort_keys=True).encode()).hexdigest()
+    if arch == "k13_conservatories":
+        # T-2306: the kit's tiers, glass, plinth and staging are data the builder reads, and
+        # its rainwater is K04's profiles
+        for kit in ("k13_conservatories.json", "k04_roofs.json"):
+            f = ROOT / "data" / "components" / "prairie_1904" / kit
+            doc.setdefault("component_data", {})[f.relative_to(ROOT).as_posix()] = _sha_file(f)
+    if arch == "k16_timber":
+        # T-2323: the kit's boards, trim, porch and paint are data the builder reads, and the
+        # sash in its casings is K06's
+        for kit in ("k16_timber.json", "k06_windows.json"):
+            f = ROOT / "data" / "components" / "prairie_1904" / kit
+            doc.setdefault("component_data", {})[f.relative_to(ROOT).as_posix()] = _sha_file(f)
+    if arch == "k12_coach_house":
+        # T-2321: the kit's parts (wall, storeys, roof, party wall, openings, workyard) are
+        # data the builder reads
+        kit = ROOT / "data" / "components" / "prairie_1904" / "k12_coach_house.json"
+        doc["component_data"] = {kit.relative_to(ROOT).as_posix(): _sha_file(kit)}
     if arch == "masonry_house" and getattr(params, "detail_profile", "") == "glessner_v4":
         # The map bytes are inputs too: replacing a normal map must demand a
         # bake just as changing a stone's depth does. Only v4 reads this folder.

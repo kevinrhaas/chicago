@@ -1,0 +1,1027 @@
+{
+ "_doc": "AUTHORED reading of Sanborn 1911 vol. 3 sheet 28 for the 1904 target (T-1841), in the T-1840 sheet-census contract (tools/sheet_census.py). Every frontage row on the sheet and every named record on its ground is assigned here exactly once. Kinds and tiers as sheet-20.json. allocations[] gives service ground on this sheet to a named record placed on another sheet (the Pullman glasshouses) without moving that record; rulings[] settle the sheet's identity questions.",
+ "ticket": "T-1841",
+ "sheet": "28",
+ "target_date": "1904-07-01",
+ "source": {
+  "source_id": "MAP-1911-28",
+  "file": "maps/originals/sanborn-1911-sheet-28.jpg",
+  "sha256": "48c9db192ad96415754622df7c50dbee413ac971f8330493f913706538974ce9",
+  "observation_year": 1911
+ },
+ "reading": {
+  "by": "Read by eye from the deposited sheet image (1642 x 2048 px), overview and full-resolution crops, 2026-10-09; the 1918 (1936) label at 6x.",
+  "conventions": "Sanborn colour: pink brick, yellow frame, blue stone. A crossed square marks a stable. D = dwelling. Storey figures as printed (B = basement).",
+  "limits": "A 1911 label is a 1911 observation. Garages are backcast as stables; uses, colours and unseen elevations remain for the build packages. The Calumet side of the sheet is counted by T-1946, not here. Footprints are not digitized and no dimension is claimed. The supplied 1911 sheet is the footprint layer for 1904 except where the expert guidance or a dated source says otherwise (docs/map-guidance.md); nothing on this sheet is named as changed between 1904 and 1911."
+ },
+ "frontages": [
+  {
+   "frontage_id": "frontage-28-036",
+   "printed_number_1911": "1800",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1800"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1800-front",
+     "kind": "front",
+     "reading_1911": "2B stone dwelling (D)"
+    },
+    {
+     "id": "s28-1800-wing",
+     "kind": "attached",
+     "reading_1911": "The 18th Street wing labelled \"garage\" in 1911 is the house's own stable range of the E-shaped plan (G02), retained",
+     "note_1904": "Part of the house in 1904; the 1911 garage label is a 1911 use (study ruling 11)."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Glessner House: the existing canonical model is the benchmark; this census does not rebuild it.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "attested",
+    "envelope": "inferred",
+    "facade": "attested"
+   },
+   "named_record_ids": [
+    "pa-1800-22"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "",
+   "rear_package": "T-1935",
+   "phase_1904": "Standing in 1904 — the benchmark model. The 18th Street \"garage\" wing on the 1911 map is its own stable range."
+  },
+  {
+   "frontage_id": "frontage-28-037",
+   "printed_number_1911": "1808",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1808"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1808-front",
+     "kind": "front",
+     "reading_1911": "3B; rear2B brick with stone front dwelling (D)"
+    },
+    {
+     "id": "s28-1808-wing",
+     "kind": "attached",
+     "reading_1911": "The two-storey range and the alley \"garage\" run unbroken from the 3B front to the alley: one building, so its service range is an attached wing and R28W owns no separate 1808 roof",
+     "note_1904": "Part of the house in 1904; the 1911 garage label is a 1911 use (study ruling 11)."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Keith/Field house, built 1886, standing to 1968 (marker); in 1904 by its recorded lifespan.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1808-6"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1882, T-1883",
+   "rear_package": "T-1935",
+   "phase_1904": "Standing in 1904. One continuous building to the alley; the rear range is attached, not a separate coach house."
+  },
+  {
+   "frontage_id": "frontage-28-038",
+   "printed_number_1911": "1812",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1812"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1812-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D)"
+    },
+    {
+     "id": "s28-1812-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick GARAGE on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Wheeler house, built 1884, standing to 1968 (marker).",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1812-7"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1884, T-1885",
+   "rear_package": "T-1935",
+   "phase_1904": "Standing in 1904, with a two-storey stable on the alley (a garage by 1911)."
+  },
+  {
+   "frontage_id": "frontage-28-039",
+   "printed_number_1911": "1816",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1816"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1816-front",
+     "kind": "front",
+     "reading_1911": "3S.B.; rear2B brick dwelling (D)"
+    },
+    {
+     "id": "s28-1816-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"rear2B\")"
+    },
+    {
+     "id": "s28-1816-rear",
+     "kind": "detached_service",
+     "reading_1911": "2½-storey brick GARAGE on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Henderson house: no recorded dates, but the May 1874 Land Owner vignette shows a mansarded house with a corner bay and the 1911 sheet still draws rounded front bays on the same lot, so it stood in 1904.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1816-33"
+   ],
+   "image_ids": [
+    "a18-gh-landowner-1874-plate"
+   ],
+   "replaceable_by": "a dated demolition or rebuilding record for 1816",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1886",
+   "rear_package": "T-1935",
+   "phase_1904": "Standing in 1904 (1874 vignette and 1911 map agree on the corner bays), with a rear wing and a stable on the alley."
+  },
+  {
+   "frontage_id": "frontage-28-040",
+   "printed_number_1911": "1824",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1824"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1824-front",
+     "kind": "front",
+     "reading_1911": "2½B; rear2B brick with stone front dwelling (D)"
+    },
+    {
+     "id": "s28-1824-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"rear2B\")"
+    },
+    {
+     "id": "s28-1824-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick GARAGE on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Pomeroy/Marsh house, built 1857, refaced in stone after 1880; the 1904 front is the refaced one, not the earlier cupola photograph.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1824-8"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1887",
+   "rear_package": "T-1935",
+   "phase_1904": "Standing in 1904 in its post-1880 stone front, with a rear wing and a stable on the alley."
+  },
+  {
+   "frontage_id": "frontage-28-041",
+   "printed_number_1911": "1828",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1828"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1828-front",
+     "kind": "front",
+     "reading_1911": "3B; rear2B brick with stone front dwelling (D)"
+    },
+    {
+     "id": "s28-1828-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"rear2B\")"
+    },
+    {
+     "id": "s28-1828-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick BARN on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-only house: no named record. An undated elevation strip labels it \"1828 Shipman\" with a small mansard; that name is a lead, not an identity.",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "image_ids": [
+    "a18-cgy-elevation-strip-1800-1900-blocks"
+   ],
+   "replaceable_by": "a 1904 directory or Blue Book page naming 1828 Prairie, or a dated photograph",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1887",
+   "rear_package": "T-1935"
+  },
+  {
+   "frontage_id": "frontage-28-042",
+   "printed_number_1911": "1834",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1834"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1834-front",
+     "kind": "front",
+     "reading_1911": "3S.B. brick with stone front dwelling (D)"
+    },
+    {
+     "id": "s28-1834-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick BARN on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Fernando Jones house, standing to 1942; the 1886 mansard storey is part of the 1904 state.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1834-9"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1888",
+   "rear_package": "T-1935",
+   "phase_1904": "Standing in 1904 with its 1886 mansard storey and a two-storey barn on the alley."
+  },
+  {
+   "frontage_id": "frontage-28-043",
+   "printed_number_1911": "1900",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1900"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1900-front",
+     "kind": "front",
+     "reading_1911": "3B; rear1B brick with stone front dwelling (D)"
+    },
+    {
+     "id": "s28-1900-wing",
+     "kind": "attached",
+     "reading_1911": "Rear one-storey range (\"rear1B\")"
+    },
+    {
+     "id": "s28-1900-rear",
+     "kind": "detached_service",
+     "reading_1911": "1-storey brick GARAGE on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Elbridge G. Keith house, built 1870, survives. The photograph posted as \"1906 Prairie\" shows this facade (see ruling r28-1900-1906-photo).",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1900-25"
+   ],
+   "image_ids": [
+    "a19-gh-keith-1900-historic",
+    "a19-cgy-1906-keith-photo"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1897",
+   "rear_package": "T-1935",
+   "phase_1904": "Standing in 1904. The photograph also posted as \"1906 Prairie\" is this house."
+  },
+  {
+   "frontage_id": "frontage-28-044",
+   "printed_number_1911": "1906",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1906"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1906-front",
+     "kind": "front",
+     "reading_1911": "3B brick with stone front dwelling (D)"
+    },
+    {
+     "id": "s28-1906-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick BARN on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house. The Tribune's 1918 letting of \"1904-1906 Prairie-av.\" offers a \"large 2 story brick garage\" with the pair, which is this building."
+    },
+    {
+     "id": "s28-1908-wing",
+     "kind": "attached",
+     "reading_1911": "The 1908 front, attached to 1906 (2½B; rear 1B/2B)"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Edson Keith house, stone-fronted before 1873; one building with two dwellings in 1904 (see ruling r28-1906-1908).",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1906-34"
+   ],
+   "image_ids": [
+    "dw-indchi-1891-v1-edson-keith-stone",
+    "nps-1906-tribune-1918-12-18-1904-1906-two-residences-garage",
+    "nps-1906-tribune-1936-09-06-old-chicago-hearthstones"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1898",
+   "rear_package": "T-1935",
+   "phase_1904": "Standing in 1904 as one building with two dwellings — Mrs. Edson Keith and her son Walter W. Keith — which the 1911 map labels 1906 and 1908."
+  },
+  {
+   "frontage_id": "frontage-28-045",
+   "printed_number_1911": "1908",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1906"
+   ],
+   "polygons": [],
+   "decision_1904": "alias",
+   "alias_of": "frontage-28-044",
+   "why": "The second dwelling of the Edson Keith building, not a separate house (ruling r28-1906-1908). Its polygon is listed on the 1906 row.",
+   "tiers": {
+    "identity": "inferred",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "rear_package": "T-1935"
+  },
+  {
+   "frontage_id": "frontage-28-046",
+   "printed_number_1911": "1912",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1912"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1912-front",
+     "kind": "front",
+     "reading_1911": "2½B; rear3B stone with brick rear dwelling (D)"
+    },
+    {
+     "id": "s28-1912-wing",
+     "kind": "attached",
+     "reading_1911": "Rear three-storey range (\"rear3B\")"
+    },
+    {
+     "id": "s28-1912-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick BARN on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Moulton/Lowden house, built 1882, standing to 1939; the c.1905 Chicago History Museum negative shows it from the south.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1912-10"
+   ],
+   "image_ids": [
+    "a19-chm-ichi66015-west-side-north-from-allerton"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1899, T-1900",
+   "rear_package": "T-1935",
+   "phase_1904": "Standing in 1904 (Lowden owned it until 1908), with a three-storey rear range and a barn."
+  },
+  {
+   "frontage_id": "frontage-28-047",
+   "printed_number_1911": "1918 (1936)",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1918"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1918-front",
+     "kind": "front",
+     "reading_1911": "2½S.B.; bay4B; rear2B brick dwelling (D)"
+    },
+    {
+     "id": "s28-1936-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"rear2B\") and the four-storey tower bay (\"bay4B\") — the belvedere the 1874 and 1893 views show"
+    },
+    {
+     "id": "s28-1936-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick BARN on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Thompson/Allerton house. The sheet labels this house \"1918\" over \"(1936)\" (read 2026-10-09; the earlier transcription \"1916 (1930)\" was a misreading), so the drawn house carries the 1936 number. It was razed in 1915 (G23), after the 1911 survey, and the c.1905 negative shows its cornice beside 1912.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1936-11"
+   ],
+   "image_ids": [
+    "a19-chm-ichi66015-west-side-north-from-allerton",
+    "st-randmcnally-1893-p269-west-1800-1900"
+   ],
+   "front_package": "T-1901, T-1902",
+   "rear_package": "T-1935",
+   "phase_1904": "Standing in 1904. The 1911 map draws it, labelled \"1918 (1936)\", with its tower; the bare 1936 corner below is its lawn. Razed 1915."
+  },
+  {
+   "frontage_id": "frontage-28-048",
+   "printed_number_1911": "1936",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1936"
+   ],
+   "polygons": [],
+   "decision_1904": "alias",
+   "alias_of": "frontage-28-047",
+   "why": "The bare \"1936\" label at the 20th Street corner marks unbuilt frontage south of the drawn house, which carries the same number in parentheses. It is the Allerton lawn, not a second, vacant 1936 lot and not a site for another villa. (ruling r28-allerton)",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "rear_package": "T-1935"
+  },
+  {
+   "frontage_id": "frontage-28-049",
+   "printed_number_1911": "1801",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1801"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1801-front",
+     "kind": "front",
+     "reading_1911": "3B stone dwelling (D)"
+    },
+    {
+     "id": "s28-1801-wing",
+     "kind": "attached",
+     "reading_1911": "The two-storey garage on 18th Street joins the house in one blue (stone) outline",
+     "note_1904": "Part of the house in 1904; the 1911 garage label is a 1911 use (study ruling 11)."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Kimball house, built 1890-1892, survives.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1801-23"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1889, T-1890",
+   "rear_package": "T-1936",
+   "phase_1904": "Standing in 1904, with its attached two-storey stable on 18th Street."
+  },
+  {
+   "frontage_id": "frontage-28-050",
+   "printed_number_1911": "1811",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1811"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1811-front",
+     "kind": "front",
+     "reading_1911": "3B; section2B brick with stone front dwelling (D)"
+    },
+    {
+     "id": "s28-1811-wing",
+     "kind": "attached",
+     "reading_1911": "Two-storey section (\"section2B\")"
+    },
+    {
+     "id": "s28-1811-rear",
+     "kind": "detached_service",
+     "reading_1911": "1½-storey brick GARAGE on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Coleman/Ames house, built 1886, survives.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1811-24"
+   ],
+   "front_package": "T-1891, T-1892",
+   "rear_package": "T-1936",
+   "phase_1904": "Standing in 1904, with a stable on the alley."
+  },
+  {
+   "frontage_id": "frontage-28-051",
+   "printed_number_1911": "1815",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1815"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1815-front",
+     "kind": "front",
+     "reading_1911": "3B stone dwelling (D)"
+    },
+    {
+     "id": "s28-1815-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick GARAGE on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house. A small frame annex marked \"R.CL. 3B\" adjoins it; the notation is recorded unexpanded."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Sears/Meeker house, built 1882, standing to 1967; the 1902 alterations belong to the 1904 state where dated.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1815-12"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1893",
+   "rear_package": "T-1936",
+   "phase_1904": "Standing in 1904, with a two-storey stable on the alley."
+  },
+  {
+   "frontage_id": "frontage-28-052",
+   "printed_number_1911": "1823",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1823"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1823-front",
+     "kind": "front",
+     "reading_1911": "3B; rear2B brick dwelling (D)"
+    },
+    {
+     "id": "s28-1823-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"rear2B\")"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Dent house, built 1881, standing to 1945.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1823-13"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1894",
+   "rear_package": "T-1936",
+   "phase_1904": "Standing in 1904, with a rear wing and no separate stable on the 1911 map."
+  },
+  {
+   "frontage_id": "frontage-28-053",
+   "printed_number_1911": "1827",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1827"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1827-front",
+     "kind": "front",
+     "reading_1911": "3B stone with brick rear dwelling (D)"
+    },
+    {
+     "id": "s28-1827-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick BARN on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Doane house, built 1882, standing to 1936.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1827-14"
+   ],
+   "front_package": "T-1895, T-1896",
+   "rear_package": "T-1936",
+   "phase_1904": "Standing in 1904, with a two-storey barn on the alley."
+  },
+  {
+   "frontage_id": "frontage-28-054",
+   "printed_number_1911": "1901",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1901"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1901-front",
+     "kind": "front",
+     "reading_1911": "3B stone with brick rear dwelling (D)"
+    },
+    {
+     "id": "s28-1901-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick BARN on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Keith/Ream house, built 1882 and rebuilt after the 1887 fire; the post-1887 state is the 1904 one.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1901-15"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1903",
+   "rear_package": "T-1936",
+   "phase_1904": "Standing in 1904 in its post-1887 rebuilt state, with a two-storey barn."
+  },
+  {
+   "frontage_id": "frontage-28-055",
+   "printed_number_1911": "1905",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1905"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1905-front",
+     "kind": "front",
+     "reading_1911": "3S.B. brick dwelling (D)"
+    },
+    {
+     "id": "s28-1905-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick BARN on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house. The period description puts Field's \"stables and other out-buildings ... in the rear, on the side nearest the lake\"."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Marshall Field Sr. house, 1871-1873, Field living there until January 1906. The conservatory the 1911 sheet marks at the front bay is the \"fine large conservatory on the southern\" side of the period description.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1905-16"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1904, T-1905",
+   "rear_package": "T-1936",
+   "phase_1904": "Standing in 1904 with its south conservatory, and stables on the lake side of the lot."
+  },
+  {
+   "frontage_id": "frontage-28-056",
+   "printed_number_1911": "1919",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1919"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1919-front",
+     "kind": "front",
+     "reading_1911": "2½S.B. brick The Gatlin Institute"
+    },
+    {
+     "id": "s28-1919-wing",
+     "kind": "attached",
+     "reading_1911": "The two-and-a-half-storey rear range and the cement-floored garage are drawn contiguous with the house",
+     "note_1904": "Part of the house in 1904; the 1911 garage label is a 1911 use (study ruling 11)."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Marshall Field Jr. house after the 1902 enlargement. \"The Gatlin Institute\" is the 1911 use; in 1904 this is a residence.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1919-26"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1906, T-1907",
+   "rear_package": "T-1936",
+   "phase_1904": "Standing in 1904 as Marshall Field Jr.'s enlarged house; the 1911 institute use is later."
+  },
+  {
+   "frontage_id": "frontage-28-057",
+   "printed_number_1911": "1923",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1923"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1923-front",
+     "kind": "front",
+     "reading_1911": "3S.B. brick dwelling (D)"
+    },
+    {
+     "id": "s28-1923-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick GARAGE on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Charles P. Kellogg house, standing to 1933; no dedicated exterior photograph located.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1923-35"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1908",
+   "rear_package": "T-1936",
+   "phase_1904": "Standing in 1904, with a stable on the alley. No dedicated exterior photograph yet: its facade will be a declared reconstruction."
+  },
+  {
+   "frontage_id": "frontage-28-058",
+   "printed_number_1911": "1945",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1945"
+   ],
+   "polygons": [
+    {
+     "id": "s28-1945-front",
+     "kind": "front",
+     "reading_1911": "3S.B.; rear2B brick dwelling (D)"
+    },
+    {
+     "id": "s28-1945-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"rear2B\")"
+    },
+    {
+     "id": "s28-1945-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick STABLE on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house. The sheet draws it as a crossed square, the stable symbol, not a garage."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "George Armour house, designed by Treat & Foltz, completed 1872, held by the Corwith family and razed in 1931 (G23); the 1904 Blue Book lists Mrs. Henry Corwith and Charles R. Corwith at 1945. New named record, minted by this census.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1945-armour-corwith"
+   ],
+   "image_ids": [
+    "a19-cgy-robinson-1886-crops-1900-block"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1908",
+   "rear_package": "T-1936",
+   "phase_1904": "Standing in 1904 — the Corwith house (built for George Armour, 1872). New to this collection, from the 1887 street view and the 1911 map."
+  }
+ ],
+ "vacant_ground": [
+  {
+   "id": "s28-vacant-west-1834-1900",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1834_1900"
+   ],
+   "reading_1911": "A narrow unnumbered strip between 1834 and 1900 (the block number \"1\" printed on it), unbuilt at the street, with a one-storey frame shed (yellow) at its alley end",
+   "named_record_ids": [],
+   "decision_1904": "present_as_mapped",
+   "why": "Open frontage in 1911 and no record of a building on it; the shed is backcast as a yard outbuilding whose owner (1834 or 1900) the sheet does not show."
+  }
+ ],
+ "excluded_records": [
+  {
+   "building_id": "pa-1804–1808-s.-prairie-avenue-(predecessors)-44",
+   "ground": "frontage-28-037",
+   "why": "The Hitchcock/Galloway double houses, demolished in 1886 for the Keith/Field house. Excluded from 1904."
+  }
+ ],
+ "allocations": [
+  {
+   "id": "s28-pullman-service-garden",
+   "building_id": "pa-1729-5",
+   "package": "T-1934",
+   "why": "The two glasshouse ranges, the two-storey lodge between them and the open 18th Street ground east of the Kimball garage belong to the Pullman estate (pa-1729-5) and its package T-1934, not to the east-side service package T-1936. The basis is the placement of Beman's conservatory \"across 18th Street from the house (toward Calumet)\" in the image research, which this ground is; no deed has been read.",
+   "image_ids": [
+    "a16-inland-1894-pullman-conservatory",
+    "a16-aic-lowe-pullman-conservatory-c1897"
+   ],
+   "polygons": [
+    {
+     "id": "s28-pullman-greenhouse-north",
+     "kind": "detached_service",
+     "reading_1911": "GREEN HO. GLASS RF.",
+     "note_1904": "The north-south \"GREEN HO. GLASS RF.\" range east of the 20-foot alley behind 1811-1815. Assigned to the Pullman estate: the conservatory plates and photographs are placed in Pullman's private park across 18th Street from the house, toward Calumet, which is this ground; Pullman's house is on sheet 20. Glasshouses on the 1894 plate and still on the 1911 sheet, so standing in 1904.",
+     "tier": "inferred"
+    },
+    {
+     "id": "s28-pullman-greenhouse-east",
+     "kind": "detached_service",
+     "reading_1911": "GREEN HO. GLASS ROOF",
+     "note_1904": "The east-west \"GREEN HO. GLASS ROOF\" range with its rounded east end, joined to the north range. Same allocation as s28-pullman-greenhouse-north.",
+     "tier": "inferred"
+    },
+    {
+     "id": "s28-pullman-garden-lodge",
+     "kind": "detached_service",
+     "reading_1911": "D",
+     "note_1904": "The two-storey brick dwelling (\"D\") at the angle of the two glasshouse ranges. Read as the estate's gardener's lodge; nothing names its occupant or use beyond the 1911 \"D\".",
+     "tier": "reconstructed"
+    },
+    {
+     "id": "s28-pullman-park",
+     "kind": "non_building_use",
+     "reading_1911": "unbuilt ground",
+     "note_1904": "The unbuilt 18th Street ground east of the Kimball garage, bounded by the curve to Calumet: the \"park\" the conservatory stands in. No 1911 structure on it.",
+     "tier": "inferred"
+    }
+   ]
+  }
+ ],
+ "rulings": [
+  {
+   "id": "r28-identities-1800-1900",
+   "question": "1800-1900 identities",
+   "tier": "inferred",
+   "ruling": "Every Prairie frontage on sheet 28 is joined to one named record, except 1828 (map-only, reconstructed) and 1908 (the second dwelling of the Edson Keith building). Every crosswalk row on this sheet moves from a candidate by printed number to a resolved join; the join rests on the printed number, the record's recorded lifespan and, where named, the image that shows the house.",
+   "source_ids": [
+    "MAP-1911-28",
+    "B-marker_west",
+    "B-marker_east",
+    "B-marker_survivors",
+    "civic-bluebook-1904"
+   ]
+  },
+  {
+   "id": "r28-1900-1906-photo",
+   "question": "1900 versus 1906 photograph attribution",
+   "tier": "inferred",
+   "ruling": "The sepia photograph posted by Glessner House as \"1900 PA\" and by Chicagology as \"1906 Prairie\" is one image of 1900 Prairie (Elbridge G. Keith): its mansard, hooded segmental windows, corner bay and Corinthian porch match the surviving 1900 facade, while 1906 was a brownstone front. The image is attributed to pa-1900-25 only; it is not evidence for the 1906 elevation.",
+   "images": [
+    "a19-gh-keith-1900-historic",
+    "a19-cgy-1906-keith-photo",
+    "nps-1906-tribune-1918-05-03-brownstone-front-12-rooms"
+   ],
+   "source_ids": [
+    "MAP-1911-28"
+   ]
+  },
+  {
+   "id": "r28-1906-1908",
+   "question": "Is 1908 a separate house?",
+   "tier": "inferred",
+   "ruling": "No. The 1911 map draws 1906 and 1908 as one attached building; the Tribune (December 1918) lets \"1904-1906 Prairie-av.\" as two residences of 28 rooms with one two-storey garage, and (1936) says number 1904 \"adjoins the main building\" and was the home of the son, Walter W. Keith; the 1904 Blue Book lists Walter W. Keith at 1904 and Mrs. Edson Keith at 1906. So the pair is one building of two dwellings, owned by pa-1906-34. The house numbers disagree (map 1906/1908, press and Blue Book 1904/1906) and are recorded, not reconciled.",
+   "images": [
+    "nps-1906-tribune-1918-12-18-1904-1906-two-residences-garage",
+    "nps-1906-tribune-1936-09-06-old-chicago-hearthstones"
+   ],
+   "source_ids": [
+    "MAP-1911-28",
+    "civic-bluebook-1904"
+   ],
+   "replaceable_by": "a permit or 1904 directory page giving the two halves' numbers"
+  },
+  {
+   "id": "r28-allerton",
+   "question": "1916/1930 versus Allerton 1936",
+   "tier": "attested",
+   "ruling": "Resolved on the map itself. The stacked label beside the southernmost west-side house reads \"1918\" over \"(1936)\", not \"1916 (1930)\"; the house drawn there, with its four-storey tower bay, is the Thompson/Allerton house, razed in 1915 (G23) and so still standing at the 1911 survey. The bare \"1936\" at the 20th Street corner is the frontage label of its open south grounds. One villa, on the drawn footprint; no second house at 1916 or 1930 and no vacant Allerton lot.",
+   "source_ids": [
+    "MAP-1911-28",
+    "G23"
+   ],
+   "corrects": {
+    "frontage_id": "frontage-28-047",
+    "was": "1916 (1930)",
+    "now": "1918 (1936)"
+   }
+  },
+  {
+   "id": "r28-1945",
+   "question": "1945 missing named record",
+   "tier": "attested",
+   "ruling": "Minted as pa-1945-armour-corwith: built for George Armour, designed by Treat & Foltz, completed 1872, long held by the Corwiths and razed in 1931 (G23, the Glessner House reading of the 1887 Ward Bros. view); the 1904 Blue Book lists Mrs. Henry Corwith and Charles R. Corwith at 1945.",
+   "source_ids": [
+    "G23",
+    "civic-bluebook-1904",
+    "MAP-1911-28"
+   ]
+  },
+  {
+   "id": "r28-pullman-garden",
+   "question": "Pullman service-garden allocation",
+   "tier": "inferred",
+   "ruling": "The two glasshouse ranges, the two-storey lodge between them and the open 18th Street ground east of the Kimball garage belong to the Pullman estate (pa-1729-5) and its package T-1934, not to the east-side service package T-1936. The basis is the placement of Beman's conservatory \"across 18th Street from the house (toward Calumet)\" in the image research, which this ground is; no deed has been read.",
+   "images": [
+    "a16-inland-1894-pullman-conservatory",
+    "a16-aic-lowe-pullman-conservatory-c1897"
+   ],
+   "source_ids": [
+    "MAP-1911-28"
+   ],
+   "replaceable_by": "a deed or permit for the Calumet-side lots south of 18th Street"
+  }
+ ]
+}

@@ -36,22 +36,6 @@
   ],
   "note": "Andreas states the mechanism: the Catholics of Chicago were increasing and were desirous of a pastor, and the Bishop of St Louis supplied one."
  },
- "lives_at": {
-  "value": "st_marys_church",
-  "confidence": "inferred",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "The church at the south-west corner of Lake and State is his charge and this dataset holds no separate presbytery. A priest of a mission church of this period commonly lodged at or beside it; not stated."
- },
- "works_at": {
-  "value": "st_marys_church",
-  "confidence": "attested",
-  "sources": [
-   "andreas_1884_v1"
-  ],
-  "note": "data/structures/st_marys_church.json already carries him as pastor."
- },
  "associated_with": [
   {
    "kind": "home",

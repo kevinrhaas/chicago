@@ -506,6 +506,16 @@ of 1818) is `inferred`, and its being up on the scene's forenoon is `reconstruct
 Andreas's own condition, fair weather (`form.flag`, `form.flag_flying`; **L390**). The first
 fort's staff flies the 1794 Act's fifteen stars and fifteen stripes on the same terms.
 
+**The size, 2026-10-10 (T-2333).** No source gives either fort's flag a size. The flags were first
+drawn at 0.30 of the staff (15 ft and 22 ft on the fly), which is the scale of the surviving
+fortress flags: Fort McHenry's 1813 storm flag (17 x 25 ft) and garrison flag (30 x 42), and the
+Fort Niagara garrison flag taken in 1813 (at least 22 x 28). The Army's first fixed sizes, in the
+revised regulations of 1861 (para. 1464, read secondhand), are 20 x 36 ft for the garrison flag,
+10 x 20 for the storm flag flown on ordinary days and 4 ft 4 in x 9 ft 9 in for the recruiting
+flag. A one-company frontier post's everyday flag is placed between the last two, at
+6 ft 6 in x 12 ft, for both forts (L390). The 1841 General Regulations index a "description of"
+flags at para. 455; that paragraph has not been read and should be, first hand.
+
 ### What would still move it
 
 A garrison return, a quartermaster's account or a post repair estimate for 1816–1836 would give

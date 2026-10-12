@@ -3,10 +3,10 @@
   "_doc": "DERIVED, NEVER AUTHORED. Rebuilt from register_1835.json, gazetteer.json and data/residents/ by tools/compile_businesses.py; tools/check.sh refuses a committed copy a rebuild would not produce. Edit the gazetteer, the dataset or data/businesses/authored/, not this file.",
   "generated_by": "tools/compile_businesses.py",
   "counts": {
-    "records": 286,
+    "records": 287,
     "compiled_from_register": 193,
-    "authored": 93,
-    "present_at_scene_date": 269,
+    "authored": 94,
+    "present_at_scene_date": 270,
     "by_type": {
       "book_store": 2,
       "brewery": 2,
@@ -16,7 +16,7 @@
       "iron_foundry": 2,
       "lawyer": 19,
       "not_stated": 5,
-      "other": 132,
+      "other": 133,
       "physician": 10,
       "printing_office": 3,
       "school": 7,
@@ -29,22 +29,22 @@
     },
     "by_location_kind": {
       "anchored": 34,
-      "premises": 65,
+      "premises": 66,
       "street_only": 88,
       "unplaceable": 104
     },
-    "named_people": 421,
-    "named_people_linked_to_a_town_card": 367,
+    "named_people": 425,
+    "named_people_linked_to_a_town_card": 372,
     "works_at_households": 51,
     "works_at_households_resolving_to_a_business": 37,
     "by_grade": {
-      "attested": 163,
-      "inferred": 70,
-      "reconstructed": 53
+      "attested": 165,
+      "inferred": 68,
+      "reconstructed": 54
     },
     "by_where_kind": {
       "anchored": 34,
-      "premises": 64,
+      "premises": 65,
       "street_only": 88,
       "unplaceable": 100
     },
@@ -68,11 +68,11 @@
       "french_canadian": 6,
       "irish": 12,
       "metis": 1,
-      "new_york": 50,
+      "new_york": 51,
       "other": 11,
       "southern": 9,
-      "unknown": 104,
-      "yankee": 80
+      "unknown": 102,
+      "yankee": 82
     }
   },
   "_vocabulary_doc": "THE CLOSED VOCABULARY, and it is the resident layer's — data/residents/community_rules.json, one list for people and for the houses they kept. The rows with a zero count are the point and are shipped anyway: a term nobody carries is a measurement of this layer, not a gap in this file. The Businesses view offers a pill only where the count is above zero.",
@@ -116,12 +116,12 @@
       {
         "value": "yankee",
         "label": "New England",
-        "count": 80
+        "count": 82
       },
       {
         "value": "new_york",
         "label": "New York State",
-        "count": 50
+        "count": 51
       },
       {
         "value": "irish",
@@ -151,7 +151,7 @@
       {
         "value": "unknown",
         "label": "Unknown",
-        "count": 104
+        "count": 102
       }
     ]
   },
@@ -2172,7 +2172,7 @@
         "other"
       ],
       "present_at_scene_date": true,
-      "grade": "inferred",
+      "grade": "attested",
       "trade": "cabinet shop; chairs",
       "occupation": "joiner",
       "goods": [
@@ -2198,7 +2198,17 @@
       "firm_styles": [
         "Clark, Filer & Co."
       ],
-      "people": [],
+      "people": [
+        {
+          "name": "Filer",
+          "person_id": "filer_a",
+          "role": "partner",
+          "tier": "attested",
+          "from": "1834-05-28",
+          "to": "1834-12-10",
+          "also_printed_as": []
+        }
+      ],
       "where": {
         "kind": "street_only",
         "structure_id": null,
@@ -2220,8 +2230,8 @@
       "opened": "1834-05-28",
       "closed": null,
       "dates_tier": "inferred",
-      "proprietor_community": "unknown",
-      "proprietor_community_tier": null,
+      "proprietor_community": "yankee",
+      "proprietor_community_tier": "reconstructed",
       "review_required": false,
       "liberties": [
         "survival_required"
@@ -4418,7 +4428,7 @@
         "store"
       ],
       "present_at_scene_date": true,
-      "grade": "inferred",
+      "grade": "attested",
       "trade": "pork and provisions",
       "occupation": "provision_dealer",
       "goods": [
@@ -4430,7 +4440,17 @@
       "firm_styles": [
         "Fullerton & Botsford"
       ],
-      "people": [],
+      "people": [
+        {
+          "name": "Botsford",
+          "person_id": "botsford_j_k",
+          "role": "partner",
+          "tier": "attested",
+          "from": "1834-06-04",
+          "to": "1834-07-09",
+          "also_printed_as": []
+        }
+      ],
       "where": {
         "kind": "street_only",
         "structure_id": null,
@@ -4452,8 +4472,8 @@
       "opened": "1834-06-04",
       "closed": null,
       "dates_tier": "inferred",
-      "proprietor_community": "unknown",
-      "proprietor_community_tier": null,
+      "proprietor_community": "yankee",
+      "proprietor_community_tier": "inferred",
       "review_required": false,
       "liberties": [
         "survival_required"
@@ -4803,15 +4823,6 @@
         {
           "name": "Ruth Newell",
           "person_id": "rc_newell_ruth",
-          "role": "journeyman",
-          "tier": "reconstructed",
-          "from": null,
-          "to": null,
-          "also_printed_as": []
-        },
-        {
-          "name": "Alvah Nichols",
-          "person_id": "rc_nichols_alvah",
           "role": "journeyman",
           "tier": "reconstructed",
           "from": null,
@@ -6266,6 +6277,15 @@
           "from": "1833-12-17",
           "to": "1833-12-17",
           "also_printed_as": []
+        },
+        {
+          "name": "Jared Parmelee",
+          "person_id": "rc_parmelee_jared",
+          "role": "clerk",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
         }
       ],
       "where": {
@@ -6668,7 +6688,7 @@
       "people": [
         {
           "name": "J. L. Wilson",
-          "person_id": null,
+          "person_id": "wilson_john",
           "role": "partner",
           "tier": "attested",
           "from": "1834-09-17",
@@ -6697,8 +6717,8 @@
       "opened": "1834-09-17",
       "closed": null,
       "dates_tier": "inferred",
-      "proprietor_community": "unknown",
-      "proprietor_community_tier": null,
+      "proprietor_community": "new_york",
+      "proprietor_community_tier": "inferred",
       "review_required": false,
       "liberties": []
     },
@@ -7105,6 +7125,15 @@
           "tier": "attested",
           "from": "1835-07-22",
           "to": "1835-07-29",
+          "also_printed_as": []
+        },
+        {
+          "name": "John Barnes",
+          "person_id": "rc_barnes_john",
+          "role": "clerk",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
           "also_printed_as": []
         }
       ],
@@ -14341,7 +14370,7 @@
       ],
       "where": {
         "kind": "premises",
-        "structure_id": "recon_1835_blk_washington_clark_h3_05",
+        "structure_id": "recon_1835_blk_south_water_market_h3_02",
         "anchor": null,
         "street_id": null,
         "street": null,
@@ -16118,7 +16147,7 @@
     {
       "id": "rcb_robillard_boarding_house",
       "file": "rcb_robillard_boarding_house.json",
-      "name": "Louis Robillard's boarding house",
+      "name": "Robillard's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [
@@ -16306,6 +16335,52 @@
       "liberties": []
     },
     {
+      "id": "rcb_stebbins_boarding_house",
+      "file": "rcb_stebbins_boarding_house.json",
+      "name": "Stebbins's boarding house",
+      "register_id": null,
+      "provenance": "reconstructed",
+      "type": [
+        "other"
+      ],
+      "present_at_scene_date": true,
+      "grade": "reconstructed",
+      "trade": "boarding house",
+      "occupation": "boarding_house_keeper",
+      "goods": [],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Alvah Stebbins",
+          "person_id": "rc_stebbins_alvah",
+          "role": "proprietor",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "premises",
+        "structure_id": "recon_1835_blk_washington_clark_h3_06",
+        "anchor": null,
+        "street_id": null,
+        "street": null,
+        "tier": "reconstructed",
+        "from": null,
+        "to": null,
+        "limit_reason": null
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "reconstructed",
+      "proprietor_community": "unknown",
+      "proprietor_community_tier": null,
+      "review_required": false,
+      "liberties": []
+    },
+    {
       "id": "rcb_sullivan_millinery",
       "file": "rcb_sullivan_millinery.json",
       "name": "Mary Sullivan, millinery",
@@ -16381,7 +16456,7 @@
       ],
       "where": {
         "kind": "premises",
-        "structure_id": "recon_1835_blk_washington_clark_h3_06",
+        "structure_id": "recon_1835_blk_washington_clark_h3_05",
         "anchor": null,
         "street_id": null,
         "street": null,
@@ -16402,7 +16477,7 @@
     {
       "id": "rcb_trottier_boarding_house",
       "file": "rcb_trottier_boarding_house.json",
-      "name": "Trottier's boarding house",
+      "name": "Baptiste Trottier's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
       "type": [

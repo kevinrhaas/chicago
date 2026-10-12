@@ -43,18 +43,10 @@
   ],
   "note": "He arrived in November and printed the first issue on 26 November; a man does not carry a press across the country by accident. The MOTIVE is the inference, the sequence is not."
  },
- "lives_at": {
+ "no_home": {
   "value": null,
   "confidence": "reconstructed",
   "note": "Not attested."
- },
- "works_at": {
-  "value": "chicago_democrat_office",
-  "confidence": "attested",
-  "sources": [
-   "chicago_democrat_1833_11_26"
-  ],
-  "note": "The paper's own imprint. This is the strongest work link in the parcel because it is contemporary, self-reported and printed."
  },
  "associated_with": [
   {
@@ -66,7 +58,10 @@
    "undated": true,
    "tier": "attested",
    "source_id": "chicago_democrat_1833_11_26",
-   "note": "The paper's own imprint. This is the strongest work link in the parcel because it is contemporary, self-reported and printed. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_calhoun_john#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+   "note": "The paper's own imprint. This is the strongest work link in the parcel because it is contemporary, self-reported and printed. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_calhoun_john#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
+   "basis": {
+    "note": "The paper's own imprint. This is the strongest work link in the parcel because it is contemporary, self-reported and printed."
+   }
   }
  ],
  "present_on_scene_date": {

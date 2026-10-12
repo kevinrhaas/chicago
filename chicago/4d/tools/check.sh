@@ -46,6 +46,12 @@ STRICT=""
 # file so that tools/test_check_harness.sh can source and exercise it (T-0763).
 source "$_check_tools/check_harness.sh"
 
+step "Every building's reference views and match records read; where each stands against its pictures (T-2368)" \
+  node tools/image_gate.mjs --check
+
+step "The image gate refuses to close a building that does not match its pictures (T-2368)" \
+  node tools/image_gate.mjs --test
+
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
 
@@ -84,6 +90,8 @@ step "The welcome draws the town only when the town changed (T-2113)" \
   node tools/test_gate_frame.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
+step "A smoke oracle a sparse bake leg lacks is read from the commit under test (T-2331)" \
+  node tools/test_repo_file.mjs
 step "Drawn placement rejects shifted, mirrored and rotated camps (T-1805)" \
   node tools/test_drawn_placement_census.mjs
 step "Jaunt session history, cancellation and replacement (T-1279)" \
@@ -102,6 +110,12 @@ step "loading evidence refuses promoted or unrelated facts (T-1275)" \
   python3 tools/test_loading_content.py
 step "loading cards: seeded bags, dwell, stop and humor cap (T-1275)" \
   node tools/test_loading_content.mjs
+step "Portable human contract holds; every human GLB and instance is held to it (T-1786)" \
+  python3 tools/human_contract.py --check
+selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
+  python3 tools/human_contract.py --self-test
+step "Every human GLB is the one the browser measured: sha256 and verdicts in data/humans/fixture.measure.json (T-1787)" \
+  node tools/human_fixture.mjs --check
 
 # THE MIRROR IS BUILT FIRST, BECAUSE IT IS NOT IN THE REPOSITORY ANY MORE (T-0938).
 #
@@ -157,6 +171,24 @@ selftest "Scene bundle: one commit packed reproducibly; tampered, missing, extra
   python3 tools/scene_bundle.py --self-test
 step "Glessner's west roof has one continuous envelope and a lower rear eave (T-1830)" \
   python3 tools/test_glessner_roof_envelope.py
+step "Prairie 1904 K01 component contract holds, and the Glessner baseline is the package it measured (T-2265)" \
+  node tools/k01_contract.mjs --check
+selftest "…coincident faces, hidden origin offsets and tier scale drift are caught on synthetic GLBs" \
+  node tools/k01_contract.mjs --self-test
+step "the K01 assemblies are the bytes their records build (T-2266)" \
+  python3 generators/k01_emit.py --check
+step "the K13 conservatories in the scene are the bytes their records build (T-2306)" \
+  python3 generators/k13_emit.py --check
+step "the K16 timber fronts in the scene are the bytes their records build (T-2323)" \
+  python3 generators/k16_emit.py --check
+step "the K12 coach houses in the scene are the bytes their records build (T-2321)" \
+  python3 generators/k12_emit.py --check
+step "the Prairie district draft's records are what its rules build from the traced sheets (T-2329)" \
+  python3 tools/draft_prairie_1904.py --check
+selftest "…and the draft builder still fits rectangles inside a part, reads the notation and refuses a hand edit" \
+  python3 tools/draft_prairie_1904.py --self-test
+step "the Prairie district draft's houses are the bytes their records build (T-2329)" \
+  python3 generators/draft_emit.py --check
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
@@ -427,6 +459,33 @@ step "the 1904 Prairie Avenue street and parcel grid re-derives from its sheets 
 selftest "…and a misread lot line, a stray label or a broken section still fails it" \
   python3 tools/trace_prairie_1904_grid.py --self-test
 
+# T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
+# (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and
+# every named record on the sheet's ground exactly once, owns every traced parcel, keeps
+# the printed number the library and the trace carry in step, and never lets a 1911 GARAGE
+# stand for 1904 without a note (the study's ruling 11).
+step "the 1904 sheet census assigns every Prairie frontage and named record once (T-1840)" \
+  python3 ../prairie_1904_v1/tools/sheet_census.py --check
+
+selftest "…and a dropped row, a doubled record or a kept misreading still fails it" \
+  python3 ../prairie_1904_v1/tools/sheet_census.py --self-test
+
+# T-2327. ...and the ground each of those sheet 28 buildings stands on. The census names every
+# building and says of itself "Footprints are not digitized"; this reads them off the same
+# raster through the same fit, as outlines on the drawn walls (colour-classed fabric, joined
+# across its own lines, split into parts at solid walls) and gives every census polygon its
+# outline, data/traces/prairie_1904_footprints_s28.json. The contract holds every outline
+# inside its lot, counter-clockwise, assigned once and to a polygon the census names.
+# T-2328 adds sheet 20 (16th-18th, the T-1840 census, for T-2160) as one more SHEETS entry:
+# data/traces/prairie_1904_footprints_s20.json, the same reading, the same contract.
+# T-2340 adds sheet 35 (20th-22nd, the T-1842 census, for T-2161), read off a coarser copy
+# with the pixel rules scaled to it: data/traces/prairie_1904_footprints_s35.json.
+step "sheets 28, 20 and 35's 1904 building footprints re-derive from the raster and cover every census polygon (T-2327, T-2328, T-2340)" \
+  python3 tools/trace_prairie_1904_footprints.py --check
+
+selftest "…and a broken trace, a clockwise or out-of-lot outline, an unnamed or twice-named building still fails it" \
+  python3 tools/trace_prairie_1904_footprints.py --self-test
+
 # T-1728. ...and what that grid is paved with. data/street_surfaces/1904.json is AUTHORED:
 # every carriageway, alley and sidewalk band names a material, a tier, its sources and a
 # range that bounds 1 July 1904. The contract holds it to the grid (nothing drawn without
@@ -439,6 +498,196 @@ step "the 1904 street surfaces cover the grid, cite real sources and bound the s
 
 selftest "…and a bare surface, an invented source, a report made to attest or a range that misses still fails it" \
   python3 tools/check_street_surfaces.py --self-test
+
+# T-2296. ...and the relief those surfaces are lit with points the right way. The library's
+# generator wrote green as -dh/drow, the DirectX sign, into every `normal_gl` map, and
+# street-grid.js binds `normal_gl_web.jpg` into three.js, which reads OpenGL (+V up the
+# image): every pothole, rut and joint was lit as a bump across the street. This
+# correlates each map's red and green with its own height16's slopes, so a flipped
+# channel is red whatever its strength.
+step "the 1904 street normals are OpenGL-handed, as the renderer binds them (T-2296)" \
+  python3 tools/check_street_surfaces.py --handedness
+
+# T-2292. ...and what the 1904 roofs are covered in. The K04 library's slates, tiles, pans
+# and sheets are sized in data/components/prairie_1904/k04_roofs.json and drawn by the
+# generator in assets/textures/prairie_1904_roofs/; a K01 roof maps TEXCOORD_0 = metres /
+# tile_m, so a tile that is not a whole number of its own slates scales every slate on
+# every roof that wears it. This holds the maps to the data, the double-lap rule, the
+# reconstruction rules' slate range, a seamless wrap, and tile to the roofs a source shows.
+step "the K04 roof library registers to its data, wraps seamlessly and cites what it rests on (T-2292)" \
+  python3 tools/check_roof_library.py --check
+
+selftest "…and a scaled tile, a broken lap, an odd bond, an oversized slate or a tile built from a barred source still fails it" \
+  python3 tools/check_roof_library.py --self-test
+
+# T-2297. ...and what the 1904 windows are. The K06 kit's parts are sized in
+# data/components/prairie_1904/k06_windows.json and built by
+# generators/archetypes/k06_windows.py. This rebuilds every variant and measures the
+# geometry: each stage of the window strictly deeper than the last, every hole edge
+# closed by a reveal, a dark room behind every pane, glass the only transparency and one
+# layer of it per line of sight, no doubled face, even muntins, true arches, the
+# triangle budget, and the specimen GLB the generator's bytes.
+step "the K06 window kit builds every window as a closed recess over an enclosed room, one glass layer deep (T-2297)" \
+  python3 tools/check_window_kit.py --check
+
+selftest "…and a blind before the glass, a missing jamb, a holed backing, a doubled pane or a leaded street sash still fails it" \
+  python3 tools/check_window_kit.py --self-test
+
+# T-2301. ...and how the 1904 roofs are built. The K05 kit's parts are sized in
+# data/components/prairie_1904/k05_roofs.json and built by generators/archetypes/k05_roofs.py
+# as closed solids joined by a boolean union. This rebuilds every variant and measures the
+# built surface: watertight, one shell, no doubled face, no face through another (no
+# plane across a gable, parapet or cheek), parapets clear of their roofs, the roof graph
+# as declared, the budget, and the specimen GLB the generator's bytes.
+step "the K05 roof kit builds every roof as one closed, uncrossed solid with its declared ridges, hips and valleys (T-2301)" \
+  python3 tools/check_roof_kit.py --check
+
+selftest "…and a hole, an inward face, a doubled face, a roof through its gable, a floating return or a low parapet still fails it" \
+  python3 tools/check_roof_kit.py --self-test
+
+# T-2305. ...and what the 1904 conservatories are. The K13 kit's houses are sized in
+# data/components/prairie_1904/k13_conservatories.json and built by
+# generators/archetypes/k13_conservatories.py. This rebuilds every house and measures
+# the geometry: every primary prouder and wider than every plate and every plate than
+# every glazing bar, panes inside the glass range with the bars dividing each run evenly,
+# the glass one convex single-sided envelope (one transparency per line of sight), no
+# glass below the plinth's coping, every eave to a K04 gutter and every pipe to grade
+# clear of the coping, the planting opaque, clear of the glass and below the eave, the
+# curvilinear roof on its curve, no doubled face, the triangle budget, and the specimen
+# GLB the generator's bytes.
+step "the K13 conservatory kit builds every glasshouse as a three-tier frame over one convex single-sided envelope, every eave to grade (T-2305)" \
+  python3 tools/check_conservatory_kit.py --check
+
+selftest "…and bars as heavy as plates, a transparent lantern, an inward pane, a gutterless eave, a short pipe or a plant scene still fails it" \
+  python3 tools/check_conservatory_kit.py --self-test
+
+# T-2322. ...and what the 1904 frame houses' timber is. The K16 kit's cladding, trim,
+# Gothic woodwork and porch are sized in data/components/prairie_1904/k16_timber.json and
+# built by generators/archetypes/k16_timber.py, its cased window's sash from K06. This
+# rebuilds every sample and measures the geometry: clapboard and shingle exposure inside
+# the reconstruction rules' range and the wall inside the K01 frame range (never a
+# masonry wall's thickness), every course's butt one exposure above the last with a
+# shadow line and resting on the course below, joints staggered course to course, a
+# batten bearing on both boards over every gap, trim proud of the cladding it stops,
+# every bargeboard piercing open and cut through, an end-grain face at every joint,
+# every timber part on a painted, stained or end-grain material, restrained per-board
+# wear, no doubled face, the triangle budget, metric UVs, and the specimen GLB the
+# generator's bytes.
+step "the K16 timber kit builds every frame wall board by board: lapped courses, staggered joints, battens over joints, piercings cut through, a frame wall's thickness (T-2322)" \
+  python3 tools/check_timber_kit.py --check
+
+selftest "…and an 8 in exposure, a masonry-thick wall, sunken corner boards, lined-up joints, an open batten joint, a floating course or a covered piercing still fails it" \
+  python3 tools/check_timber_kit.py --self-test
+
+# T-2307. ...and what the 1904 bays, oriels and towers are. The K08 kit's plans, supports,
+# bands, eaves and roofs are sized in data/components/prairie_1904/k08_bays.json and built
+# by generators/archetypes/k08_bays.py, its windows from K06. This rebuilds every variant at
+# both tiers and measures the geometry: keyed to its wall and never behind it, closed (rays
+# from inside meet the bay), every pane over its own recess one glass layer deep, recesses
+# inside the bay and clear of each other, no doubled face, curves cut fine with true
+# normals, a plinth or corbels within their oversail, the light tier on the full tier's
+# silhouette, the triangle budgets, and the specimen GLB the generator's bytes.
+step "the K08 bay kit builds every bay, oriel and tower closed against its wall, its curves unfaceted (T-2307)" \
+  python3 tools/check_bay_kit.py --check
+
+selftest "…and a window off its run, a recess through the wall, a faceted curve, an oriel on one deep course or a roof with a hole still fails it" \
+  python3 tools/check_bay_kit.py --self-test
+
+# T-2303. ...and what the 1904 entrances are. The K07 kit's parts are sized in
+# data/components/prairie_1904/k07_entrances.json and built by
+# generators/archetypes/k07_entrances.py. This rebuilds every variant and measures the
+# geometry: the landing level with the threshold, the stair's foot on grade, equal
+# risers and goings inside the reconstruction rules' ranges, every step closed, the walk
+# clear, a carriage opening through its wall under a bearing lintel, a closed reveal,
+# leaves clear of the floor, a hall behind every light, no doubled face, the triangle
+# budget, and the specimen GLB the generator's bytes.
+step "the K07 entrance kit lands every stair on its threshold and on grade, risers equal, the walk clear (T-2303)" \
+  python3 tools/check_entrance_kit.py --check
+
+selftest "…and an unequal riser, an open step, a stoop on the walk, an unbearing lintel or a floating leaf still fails it" \
+  python3 tools/check_entrance_kit.py --self-test
+
+# T-2309. ...and what the 1904 trim is. The K09 kit's parts are sized in
+# data/components/prairie_1904/k09_trim.json and built by generators/archetypes/k09_trim.py.
+# This rebuilds every variant and measures the geometry: every open edge of a piece lying on
+# another surface (nothing floats, nothing hangs, nothing over a hole), every closed leaf,
+# crocket and finial passing through its host, no doubled face, each piece's relief as the
+# data says and never under the floor, radial joints and a centred crown stone, colonnettes in
+# order, the panel's leaves inside their field, the hero entrance beyond the rowhouse, the
+# triangle budgets, and the specimen GLB the generator's bytes.
+step "the K09 carved-trim kit builds every ring, hood, capital, tracery and leaf as seated relief (T-2309)" \
+  python3 tools/check_trim_kit.py --check
+
+selftest "…and an even ring, a painted-thin stone, a floating block, a loose leaf, a back face on the wall or a skewed joint still fails it" \
+  python3 tools/check_trim_kit.py --self-test
+
+# T-2316. ...and how the 1904 wall heads end. The K10 kit's parts are sized in
+# data/components/prairie_1904/k10_cornices.json and built by generators/archetypes/k10_cornices.py.
+# This rebuilds every variant and measures the geometry: every open edge of a piece lying on
+# another surface (no hanging end, no floating bracket), every closed kneeler, finial, ridge cap
+# and iron bar passing through its host, no doubled face, every run turning both corners of its
+# face by its own projection, brackets evenly spaced with one at every corner on both faces,
+# baluster gaps, no dormer below its roof, cresting posts, budgets, and the specimen GLB.
+step "the K10 cornice kit turns every corner and seats every bracket, rail, coping, dormer and bar (T-2316)" \
+  python3 tools/check_cornice_kit.py --check
+
+selftest "…and a dropped bracket, a lifted finial, a doubled dentil, a short crown, a sunk dormer or a missing post still fails it" \
+  python3 tools/check_cornice_kit.py --self-test
+
+# T-2312. ...and how a 1904 chimney meets its roof. The K15 kit's parts are sized in
+# data/components/prairie_1904/k15_chimneys.json and built by
+# generators/archetypes/k15_chimneys.py: each stack joined to a K05 roof by the boolean
+# union, its flues cut out by the difference. This rebuilds every variant and both tiers
+# and measures the built surface: watertight, one shell with its roof, no doubled face,
+# no face through another, nothing below the covering, every flue a dark recess of its
+# depth, the draught clearance, cricket or back flashing as the width asks, stepped
+# flashing on every side, a light tier on the same centre and top, the budget, and the
+# specimen GLB the generator's bytes.
+step "the K15 chimney kit seats every stack in its roof as one closed solid, flues recessed and flashed on every side (T-2312)" \
+  python3 tools/check_chimney_kit.py --check
+
+selftest "…and a hole, a floating or sunken shaft, an uncut or grey flue, a short stack, a missing cricket or flashing, or a light tier off its stack still fails it" \
+  python3 tools/check_chimney_kit.py --self-test
+
+# T-2318. ...and what bounds the 1904 lots. The K11 kit's parts are sized in
+# data/components/prairie_1904/k11_ironwork.json and built by generators/archetypes/k11_ironwork.py.
+# This rebuilds every variant and measures the geometry: every member a closed solid let into
+# what carries it (a picket through its rail, a rail into its post, a post, pier, curb or wall
+# past grade), no doubled face, no iron member under the walking-distance shimmer floor, even
+# panels inside the clear-gap range, a gate on two hinges that swings into the yard clear of its
+# pier with nothing else in its opening, wall piers and coping drip, canopy fall, budgets, the GLB.
+step "the K11 ironwork kit lets every member into its carrier, keeps runs out of entrances and nothing under the shimmer floor (T-2318)" \
+  python3 tools/check_ironwork_kit.py --check
+
+selftest "…and a lifted picket, a 6 mm rail, a curb across the gate, a one-hinge gate, a flat canopy or a missing pier still fails it" \
+  python3 tools/check_ironwork_kit.py --self-test
+
+# T-2320. ...and what stands at the back of the lot. The K12 kit's parts are sized in
+# data/components/prairie_1904/k12_coach_house.json and built by
+# generators/archetypes/k12_coach_house.py. This rebuilds the coach house and measures the
+# geometry: every open edge lying on another surface (a wall's foot on the ground, its end on
+# the wall it meets, a rake on the roof, a leaf on its reveal, the wing on the coach house and
+# the house), every strap, beam, coping and cleat passing through its host, no doubled face,
+# every elevation closed, every opening cut through its wall, the ramp and the stair at grade,
+# no ventilator without a source, budgets, and the specimen GLB.
+step "the K12 coach-house kit closes every elevation, cuts every opening through and sets its ramp and stair on grade (T-2320)" \
+  python3 tools/check_coach_house_kit.py --check
+
+selftest "…and a wing off its wall, a loose hoist beam, a doubled sill, an open elevation, a painted-on door or a sourceless ventilator still fails it" \
+  python3 tools/check_coach_house_kit.py --self-test
+
+# T-2324. ...and how old each of them looks. The K14 condition kit's layers (ground damp, eave
+# soot, water trails, chimney plume, mortar, paint, grass edge, path wear) are data in
+# data/components/prairie_1904/k14_condition.json, evaluated by generators/archetypes/k14_condition.py.
+# This evaluates every layer over every fabric, age and height and holds it to 1904: every tone in
+# [floor, 1], nothing cleaner with age but repainted wood, new work clean, a 38-year wall visibly
+# older and still its own material, the full-age damp and soot equal to K03's, and the study's
+# costs re-derived.
+step "the K14 condition kit weathers each building to its own age in 1904, new work clean and nothing a ruin (T-2324)" \
+  python3 tools/check_condition_kit.py --check
+
+selftest "…and a black facade, a moss layer, a plume into the wind, a widening trail or a 40-year repaint still fails it" \
+  python3 tools/check_condition_kit.py --self-test
 
 # T-1963. The walls' relief is bound by reading the RECORD (route 2 of the photographic
 # fabric preparation, docs/GLB-CONTRACT.md § Wall substrates, PROPOSED): which wall is
@@ -461,6 +710,29 @@ step "the WebP maps the renderer binds decode pixel-identical to their PNG maste
 
 selftest "…and a missing, lossy, resized, mislabelled or orphaned derivative still fails it" \
   python3 tools/web_textures.py --self-test
+
+# T-2299. ...and the relief in them points the way its name says. The 1835 library's
+# generator wrote green as -dh/drow, the DirectX sign, into every `normal_gl` and filed
+# the OpenGL map as `normal_dx`, as the 1904 street library did until T-2296. Every
+# board, log, shingle and signboard binds `normal_gl` through a flipY'd texture, so all
+# of it was lit upside down along +V. This correlates both files of all 27 materials,
+# and the WebPs the renderer binds, with their own height16's slopes.
+step "the 1835 library's normal maps are handed as named, OpenGL and DirectX (T-2299)" \
+  python3 tools/check_1835_normals.py --check
+
+selftest "…and a DirectX map filed as OpenGL, the reverse, or a mirrored red still fails it" \
+  python3 tools/check_1835_normals.py --self-test
+
+# T-2300. ...and the maps the page derives beside them lie the same way up.
+# wall-relief.js's `orl` and frontage.js's board grain are packed from canvas pixels
+# (top row first) into a DataTexture, which three uploads unflipped, and are sampled
+# on the uv of a normal_gl uploaded with flipY — so until T-2300 every wall's and
+# walk's AO, roughness and grain was its relief's mirror along v.
+step "the derived wall and board-face maps lie the way their normal_gl does (T-2300)" \
+  node tools/check_relief_rows.mjs --check
+
+selftest "…and a packer that writes them in canvas order still fails it" \
+  node tools/check_relief_rows.mjs --self-test
 
 # T-1251. The ground's zone table for the same scene. Its street crowns are READINGS
 # (data/terrain/e1871_grade_readings.json) put through the spec's own datum
@@ -842,6 +1114,22 @@ step "North freight roof on the North Water bank matches its recipe" \
 selftest "…and its validator refuses bad ground" \
   python3 tools/generate_north_freight.py --self-test
 
+# T-2269: the South street line's owed lumber shed, on the South Branch's east bank south of
+# Washington. Off the plat, on the placement policy's `lumber_landing` clause; the record
+# re-derives from the recipe, and the validator is proved by breaking it.
+step "South Branch lumber shed matches its recipe" \
+  python3 tools/generate_south_lumber.py --check
+selftest "…and its validator refuses bad ground" \
+  python3 tools/generate_south_lumber.py --self-test
+# T-2268: two of the South street line's owed freight roofs, on the South Branch's east bank
+# between Madison and Washington. Off the plat, because no South Water lot is free and the
+# Dearborn reach takes no more; they stand on `bank_landing`, the records re-derive from the
+# recipe, and the validator is proved by breaking it.
+step "South freight roofs on the South Branch bank match their recipe" \
+  python3 tools/generate_south_freight.py --check
+selftest "…and its validator refuses bad ground" \
+  python3 tools/generate_south_freight.py --self-test
+
 step "Canal approach trade roofs match their bounded recipe" \
   python3 tools/generate_canal_approach_trade.py --check
 selftest "Canal trade placement refuses collisions and missing ground" \
@@ -1186,6 +1474,16 @@ step "every stated kinship the corpus offers has been ruled on" \
 
 selftest "…and its own assertions still fire when broken" \
   python3 tools/survey_stated_kin.py --self-test
+
+# T-2191. The survey above reads households/ only, so the register's parent ties whose
+# other end is a card a BUILD writes whole (a readmission, the register's own
+# underdocumented cards) are derived here instead: the generator writes its own row, and
+# --land writes the mirror on households/. Both ends from one entry, or neither.
+step "the register's parent ties onto generated cards stand on both ends (T-2191)" \
+  python3 tools/generated_card_kin.py --check
+
+selftest "…and a duplicate, a two-card far end and a two-word entry still write no tie" \
+  python3 tools/generated_card_kin.py --self-test
 
 # The inferred-household layer (K1 phase two) is the same shape of thing: an
 # authored recipe — an occupation census, a roof-adoption table and a placement
@@ -2306,6 +2604,19 @@ step "the School Section tier's lots re-derive from the committed grid and the 1
 selftest "the School Section tier is still cut into the lots the sale witnesses, and no others" \
   python3 tools/cut_school_section_tier.py --self-test
 
+# T-2252, piece 1 of 3 of T-2247, on the owner's ruling of 2026-10-09: cross Monroe. The
+# School Section's SECOND tier — the thirteen blocks between Monroe and Adams — cut by the
+# first tier's own derive() on the grid's row 1, so the two tiers cannot be cut two ways.
+# The register names all thirteen: eleven sold eight lots, and the two that sold four (71,
+# 79) sit directly under the first tier's four-lot pair at the South Branch, with 79 the
+# row's one wet block. Six blocks stand east of the river by T-2144's own test — 82 to 141,
+# 48 lots — and those are where T-2253 and T-2254 deal and raise the South's six gated roofs.
+step "the School Section's Monroe-Adams tier re-derives from the committed grid and the 1833 register" \
+  python3 tools/cut_school_section_second_tier.py --check
+
+selftest "the Monroe-Adams tier is cut into the lots the sale witnesses, under the first tier's columns" \
+  python3 tools/cut_school_section_second_tier.py --self-test
+
 # T-0827, the ticket the reading above could only name. `market` is the one street on this
 # grid no sheet fixes directly — its west side is the river bank its whole length — and until
 # this it was ONE modern junction on N Wacker Drive, which is 1926 made ground, plus a
@@ -3065,6 +3376,18 @@ step "changelog contract" \
 selftest "…and a shipped release note cannot leave or change its number" \
   node tools/changelog-history.mjs --self-test
 
+# THE ENTRY AS A FILE OF ITS OWN (owner, 2026-10-10). A PR writes its What's-New
+# entry to changelog.d/<name>.json instead of the top line of changelog.js, because
+# that one line made every open PR conflict with every landing (#607, #608, #610 and
+# #613 each lost three merges to it). The fold on dev turns the file into an entry
+# after the merge. Hold the pending files to the contract and budget now, while the
+# PR is open, so the fold never meets a file it must refuse.
+step "pending changelog entry files are well formed and inside the What's-New budget" \
+  node tools/changelog-entries.mjs --check
+
+selftest "…and the fold numbers, orders and deletes them, and refuses a bad one" \
+  node tools/changelog-entries.mjs --self-test
+
 # The ticket queue: the operational "what next" the owner ordered on 2026-08-17
 # after his own requests went untraceable in the ROADMAP. Duplicate ids, queue
 # drift, a stale BOARD, a block with no stated question — all merge-refusing.
@@ -3195,6 +3518,12 @@ selftest "deferred household notes: the card's fields stay, the reasoning leaves
 step "the shipped sidecars carry their households, notes beside them (T-2151)" \
   node tools/defer_household_notes.mjs --check
 
+selftest "packed boot sidecars: repeated values ship once, every record comes back whole (T-2315)" \
+  node tools/pack_boot_sidecars.mjs --self-test
+
+step "the boot sidecars rehydrate to the records at their own URLs (T-2315)" \
+  node tools/pack_boot_sidecars.mjs --check
+
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs
 
@@ -3281,6 +3610,11 @@ selftest "the bake builds the ref it was given, and the nightly still builds dev
 # drift guards that the workflow still asks at all.
 selftest "the bake is skipped only when the freshness register says nothing staled" \
   python3 tools/bake_warranted.py --self-test
+
+# T-2314. A whole-town bake derives only the masters the record says moved; deriving
+# all ~714 pushed the content-build job past its thirty-minute ceiling.
+selftest "a whole-town bake derives exactly the masters whose bytes moved (T-2314)" \
+  python3 tools/stale_derivatives.py --self-test
 
 # The duplicate-id remedy, tested in the only state it ever runs in. `restamp`
 # used to find the ticket by FILE (its own comment explains that with two files
@@ -4698,6 +5032,17 @@ step "…and none of them claims more than a person and a reading" \
 
 selftest "…and that pass's own refusals still fire when broken" \
   python3 tools/mint_civic_residents.py --self-test
+
+# T-2189, the class gate. A burial or a death notice is a departure, not a sighting, and
+# the one departure no later source undoes — so no card anywhere in the residents layer
+# that cites its OWN burial or death notice dated before the scene date may read other
+# than `absent`. Five such cards stood present until T-1335's family pass noticed them;
+# this reads every card, whichever stage wrote it, rather than trusting each stage to.
+step "no card stands in the town after its own burial or death notice" \
+  python3 tools/death_readings.py --check
+
+selftest "…and that gate reads a death as the head's own, and a merge ruling's as not" \
+  python3 tools/death_readings.py --self-test
 
 # T-1117. The 1833 tax list is a PROPERTY ROLL: the town assessed ground, so its 115
 # names are owners and estates rather than people at the place, and it draws no line
@@ -6363,6 +6708,21 @@ step "every household present on the scene date sleeps under a standing roof" \
 selftest "…and its guards still fire when broken" \
   python3 tools/house_the_present_1835.py --self-test
 
+# T-2193, piece 1 of T-2188. THE FAMILY DWELLINGS THE TOWN ALREADY FORMS. The order book
+# still ordered 338 family dwellings beside 1,243 held head records it counts as awaiting a
+# household, while the seats above had already put hundreds of those very records under a
+# standing dwelling, either dealt to them or shared by their family. The book counts houses
+# off the card and the seats live beside it, so the houses stood uncounted.
+# `count_held_head_dwellings_1835.py` counts them into the book's family_dwelling cells,
+# dealt roofs first, up to each division's order. Refused: a boarder counted as a household,
+# a lodging-house roof, a record the book already counts as a house, a household seated
+# twice, and a count past the order. Nobody is minted and the town's population is unchanged.
+step "the held heads the seats put under a dwelling are the family dwellings the book counts" \
+  python3 tools/count_held_head_dwellings_1835.py --check
+
+selftest "…and a boarder, a lodging roof and a count past the order are refused" \
+  python3 tools/count_held_head_dwellings_1835.py --self-test
+
 # T-1989, piece 2 of T-1986. THE EMPTY TRADE ROOFS. Four anonymous trade roofs (a joiner's
 # shop, a warehouse, a riverside work shop, a store) stood empty while the employment
 # ledger owed 188 keepers a house of their own. `seat_trade_roofs_1835.py` offers each
@@ -6590,6 +6950,18 @@ step "the agency relation still re-derives from the committed register" \
 selftest "…and its own refusals still fire when broken" \
   python3 tools/compile_agencies.py --self-test
 
+# T-2389. The cards' Images tab: each building's photographs and drawings, credited, joined
+# from the Prairie library and data/sources/. GENERATED, not committed (data/pictures/ is
+# ignored): the library changes under other tickets, and a committed join would go stale on
+# dev the moment one merged. So publish.sh (above) writes it, this derives it again in memory
+# and writes nothing, and the self-test holds the joins: a neighbour's picture, a demolished
+# predecessor's, a map, a portrait or a cited book is not this building's.
+step "the cards' pictures join the library and the sources to their buildings" \
+  python3 tools/compile_pictures.py --check
+
+selftest "…and the joins still keep out what is not a picture of this building" \
+  python3 tools/compile_pictures.py --self-test
+
 # T-1238. `associated_with[]` is the plural, dated form of `lives_at`/`works_at`, and
 # its coverage file is how the migration's remaining distance stays a number rather than
 # an impression: both shapes stand until the last record moves, and a half-migrated layer
@@ -6616,18 +6988,10 @@ step "the person associations still re-derive, and are still on their cards" \
 selftest "…and its own refusals still fire when broken" \
   python3 tools/person_associations.py --self-test
 
-# T-1273. The home and workplace half of the same migration: every reconciliation row
-# that reaches a roof (`tools/location_reconciliation.py`) copied onto its household as an
-# `associated_with` row, with no value, confidence or source changed. The same two holds
-# as T-1405's: the report re-derives, and every copied row is still on its card byte for
-# byte — plus a third, because a household's `lives_at` CAN change under it: a copied
-# row that no longer derives is refused, so a moved home cannot leave its old roof
-# standing in the plural list where `singular_drift` would never look.
-step "the household home and workplace rows still re-derive, and are still on their cards" \
-  python3 tools/household_associations.py --check
-
-selftest "…and its own refusals still fire when broken" \
-  python3 tools/household_associations.py --self-test
+# T-1273 copied every home and workplace reconciliation row that reached a roof onto its
+# household as an `associated_with` row, and gated the copy here. T-2284 retired the
+# singular `lives_at`/`works_at` it copied FROM, so the copier went with it: the rows it
+# wrote are the record now, and validate.py refuses the pair on any household record.
 
 # T-1158. The per-attribute tier, and the three things that can go wrong with it.
 #

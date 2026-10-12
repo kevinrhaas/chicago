@@ -119,7 +119,7 @@
       "name": "The Kimberly household",
       "division": "north",
       "relation": "worked here",
-      "why": "Carried from the partnership household with its grade. The partnership is documented; that it was trading on 1 July 1835 specifically is the inference, since the retrospective sources do not supply a transaction on that exact day. He was a practising physician as well, and medicine kept no premises this project holds, so the drug store is the one workplace a source gives him.",
+      "why": "Carried from the partnership household with its grade. The partnership is documented; that it was trading on 1 July 1835 specifically is the inference, since the retrospective sources do not supply a transaction on that exact day. He was a practising physician as well, and medicine kept no premises this project holds, so the drug store is the one workplace a source gives him. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_kimberly_edmund_s#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "andreas_1884_v1",
         "history_medicine_chicago_kimberly_maxwell"
@@ -148,7 +148,7 @@
       "name": "The Pruyne household",
       "division": "south",
       "relation": "worked here",
-      "why": "The partnership is documented; that it was trading on 1 July 1835 specifically is the inference, since the retrospective sources do not supply a transaction on that exact day.",
+      "why": "The partnership is documented; that it was trading on 1 July 1835 specifically is the inference, since the retrospective sources do not supply a transaction on that exact day. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_pruyne_kimberly#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "andreas_1884_v1",
         "history_medicine_chicago_kimberly_maxwell"

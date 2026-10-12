@@ -168,7 +168,7 @@
       "name": "The Sproat household",
       "division": "south",
       "relation": "worked here",
-      "why": "The upper storey. data/structures/temple_building.json already carries 'Grenville T. Sproat's English and Classical School for Boys in the upper storey'.",
+      "why": "The upper storey. data/structures/temple_building.json already carries 'Grenville T. Sproat's English and Classical School for Boys in the upper storey'. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_sproat_grenville#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "andreas_1884_v1"
       ],
@@ -189,7 +189,7 @@
       "name": "The Temple household",
       "division": "south",
       "relation": "worked here",
-      "why": "He built it, headed its subscription with $100, and rented it out to whatever societies could pay. That is a proprietor's relation to a building rather than a workplace, and his medical practice and his stage line were carried on elsewhere. Linked because it is the building this town knew him by; graded derived because 'works at' overstates it.",
+      "why": "He built it, headed its subscription with $100, and rented it out to whatever societies could pay. That is a proprietor's relation to a building rather than a workplace, and his medical practice and his stage line were carried on elsewhere. Linked because it is the building this town knew him by; graded derived because 'works at' overstates it. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_temple_john_t#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "andreas_1884_v1",
         "baptisthistoryhomepage"

@@ -356,9 +356,15 @@ def render(model: dict) -> str:
     # at the same table in report_research_signoff.py: the queue is another repository, so a
     # claim there turns this committed, gated document stale with no commit here. `live` is
     # what this report asks of an owner, and it turns only on a real close.
-    out.extend(table(["Owner", "Units", "Live"],
-                     [[o["ticket"], n(o["units"]), "yes" if o["live"] else "**NO**"]
-                      for o in led["owners"]]))
+    if led["owners"]:
+        out.extend(table(["Owner", "Units", "Live"],
+                         [[o["ticket"], n(o["units"]), "yes" if o["live"] else "**NO**"]
+                          for o in led["owners"]]))
+    else:
+        # T-1569 spent the last ticket-owned units. An empty table under this heading would
+        # read as a rendering fault; say what the empty table means instead.
+        out.append("No unresolved unit defers to a ticket: every reading a band of this programme "
+                   "owned has been spent.")
     out.append("")
     out.append("The rest defer to no ticket, and that is the second legitimate shape rather than a gap "
                "(T-1423): a name the research READ and the town WITHHELD, since re-admitted at the "
@@ -450,18 +456,25 @@ def self_test() -> int:
         mutated[section][key] = value
         if render(mutated) == rendered:
             failures.append(f"{label}: the report did not move")
-    # A dead owner must be visible as a dead owner.
+    # A dead owner must be visible as a dead owner. Once every ticket-owned unit is spent
+    # (T-1569) live data has no owner row left, so the case brings its own rather than
+    # going blind on the day the table empties.
     mutated = json.loads(json.dumps(base))
-    if mutated["ledger"]["owners"]:
-        mutated["ledger"]["owners"][0]["live"] = False
-        if "**NO**" not in render(mutated):
-            failures.append("a closed owner: the report did not mark it")
-    else:
-        failures.append("a closed owner: no owner row to mutate")
+    if not mutated["ledger"]["owners"]:
+        mutated["ledger"]["owners"] = [{"ticket": "T-0000", "units": 1,
+                                        "state": "done", "live": True}]
+    mutated["ledger"]["owners"][0]["live"] = False
+    if "**NO**" not in render(mutated):
+        failures.append("a closed owner: the report did not mark it")
+    # …and an empty owner table must say so in words, not render as a bare header.
+    mutated = json.loads(json.dumps(base))
+    mutated["ledger"]["owners"] = []
+    if "| Owner |" in render(mutated):
+        failures.append("no owners: the report rendered an empty owner table")
     for line in failures:
         print(f"  MISS {line}")
     print(f"CLOSING AUDIT SELF-TEST {'FAIL' if failures else 'PASS'} — "
-          f"{len(failures)} failure(s), {len(cases) + 1} case(s)")
+          f"{len(failures)} failure(s), {len(cases) + 2} case(s)")
     return 1 if failures else 0
 
 

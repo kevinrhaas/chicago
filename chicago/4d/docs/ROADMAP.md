@@ -1,3 +1,61 @@
+## T-2278 — doors, windows and trim on every 1835 building
+
+Every 1835 opening comes from one kit (`generators/common/openings.py`): cased, sill-and-cap
+windows with sash set back and Glessner's dark glass, and a closed door in every doorway. L413
+records what is invented. Cost and the ceiling question are in STATUS.
+
+## T-2206 — Glessner roof and courtyard proportions audited
+
+The comparison page now measures the current assets through all nine frozen T-2200
+cameras, preserves historical measurements as a separate selection, checks loaded
+asset hashes, and presents 15 dimension/evidence/decision rows. No geometry changes.
+Fifteen mesh controls associate within 0.023 m. The audit retains the corrected west
+roof, flared dormers, dining bay and continuous courtyard eave; sheet 4/6 roof-rise
+and photo-camera disagreements remain explicit. The dining outline projects 9.90 ft,
+not the older prose's 10.3 ft. T-2220 retains the confirmed northeast copper fold;
+no other manual ticket is released. No photographic acceptance is claimed.
+
+See `docs/RESEARCH/glessner-proportions-2206/README.md` and the current
+`data/comparisons/glessner/audit-report.json`. Validation receipts are recorded there.
+
+## T-2205 — Glessner roof-edge refinement (2026-10-09)
+
+Owner-selected GA-06. Closed ridge stock and seated terminals refine the repeated
+silhouette without recutting the repaired Full roof planes. Real eave and flashing
+sections replace zero-thickness edges. Profiles are reconstructed within the
+Taylor/HABS evidence; later photographs only corroborate surviving form. Light
+retains the detail count with reduced angular sampling inside its existing budget.
+Method, exact geometry comparison and before/after views:
+`RESEARCH/glessner-roof-details-2205/README.md`. Other Glessner manual holds remain.
+
+## T-2204 — Glessner roof distance filtering (2026-10-09)
+
+Owner-selected GA-05B. Shadows, normal-map strength, anisotropy alone and extra
+depth precision did not remove the physical tile-course interference. A 2–8
+projected-pixel blend still banded at intermediate distances; 6–24 filters the
+subpixel noses while retaining close tiles and the existing mapped course scale.
+The additive sampling hint moves no original geometry. Crests keep opaque depth;
+fully filtered relief leaves the continuous bed. Measurements and comparison
+media: `RESEARCH/glessner-roof-filtering-2204/README.md`. Other Glessner tickets
+remain individually held for owner selection, including the T-2220 copper fold.
+
+## T-2202 - Glessner Prairie frontage implementation (2026-10-09)
+
+Owner-selected GA-04: generated house-side curb/rounded returns, entry steps,
+porte threshold and continuous passage paving. T-1728 public surfaces and
+T-1745 legal-lot evidence are reused without moving street/lot lines.
+Method and validation: docs/RESEARCH/glessner-frontage-2202/README.md.
+The remaining Glessner audit tickets keep their individual manual holds.
+
+## T-2200 — Glessner comparison baseline established (2026-10-09)
+
+Eight core matched views, 80 controls/checks, plus a seven-point limited courtyard-west
+reference now expose residuals against fixed cameras. No geometry was changed to fit
+photographs. Whole west and pre-1904 courtyard evidence remain missing; all core views
+retain exceptions. Method: `docs/RESEARCH/glessner-camera-baseline/README.md`.
+Future geometry candidates must retain these cameras or explicitly review a new
+calibration. T-2201–T-2228 stay commented for manual release; T-1843 remains open.
+
 ## T-2199 — bounded Glessner reference pass completed (2026-10-09)
 
 Ten of 17 records recovered; seven explicit unavailable outcomes retained.

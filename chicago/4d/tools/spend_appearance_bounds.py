@@ -249,13 +249,56 @@ def church_identities() -> dict:
     return {merge["from"]: merge for merge in load(CHURCH_CROSSWALK)["merges"]}
 
 
+def minted_cards() -> dict:
+    """Register record id -> [(household_id, person_id)] of every card citing it.
+
+    T-1552. The card a mint wrote FROM a reading names that reading's record id in its own
+    `church_evidence`, so the card is found by the id it carries and never by its name —
+    a name lookup would be this pass making an identification of its own.
+    """
+    found: dict = {}
+    for path in sorted(HOUSEHOLDS.glob("*.json")):
+        household = load(path)
+        for person in household.get("persons") or []:
+            for entry in person.get("church_evidence") or []:
+                record_id = (entry or {}).get("record_id")
+                if record_id:
+                    found.setdefault(record_id, []).append((household["id"], person.get("id")))
+    return found
+
+
+def one_card(record_id: str, minted: dict) -> tuple[str, str]:
+    """The single card citing that reading, or a refusal — the same rule as one_resident."""
+    cards = minted.get(record_id) or []
+    if len(cards) != 1:
+        raise ValueError(
+            "%s: ruled `minted_from_this_reading` and %d cards cite it in their "
+            "church_evidence; this pass makes no identification of its own"
+            % (record_id, len(cards)))
+    return cards[0]
+
+
+# T-1552. THE SECOND OUTCOME THIS PASS WRITES FROM. `minted_from_this_reading` is the
+# crosswalk saying the card exists BECAUSE tools/mint_civic_residents.py read this row and
+# wrote a person from it. Twenty-six register appearances stood there — every one a
+# sponsor or a godparent — and the research-spend ledger read all of them `unresolved`
+# and owned by T-1552: the kin roles of the same mint reached a card through its `kin`
+# block, and an attendance role has no such block, so the one structured home the town
+# gives an appearance is this one and nothing had written it. The identification is the
+# mint's rather than a merge's, and it is still not a source's: where one card carries two
+# appearances the mint grouped them on the name, so the bound stays `inferred` (A2).
+WRITTEN_OUTCOMES = ("merged", "minted_from_this_reading")
+
+
 def church_rows(by_name: dict) -> list:
     crosswalk = load(CHURCH_CROSSWALK)
     records = {row["id"]: row for row in load(CHURCH_RECORDS)["records"]}
     merges = church_identities()
+    minted = minted_cards()
     rows = []
     for ruling in crosswalk["rulings"]:
-        if ruling.get("outcome") != "merged":
+        outcome = ruling.get("outcome")
+        if outcome not in WRITTEN_OUTCOMES:
             continue
         record_id = ruling.get("record_id")
         record = records.get(record_id)
@@ -264,12 +307,46 @@ def church_rows(by_name: dict) -> list:
             # date of its own to bound with; the register entry it came from is ruled here
             # in its own right. Nothing to write.
             continue
-        merge = merges.get(ruling["name"])
-        if merge is None:
-            raise ValueError("%s: ruled `merged` and the crosswalk's merges[] does not "
-                             "carry %r" % (record_id, ruling["name"]))
-        household, person_id = one_resident(merge["into"], by_name)
         cells = record.get("cells") or {}
+        if outcome == "minted_from_this_reading":
+            if str(cells.get("role") or "") not in ATTENDANCE_ROLES:
+                # A kin role the mint wrote reaches its card through `kin` (A5).
+                continue
+            household, person_id = one_card(record_id, minted)
+            into = ruling["name"]
+            identity = (
+                "data/research/church/st_marys_baptisms_crosswalk.json rules this "
+                "appearance `minted_from_this_reading`: tools/mint_civic_residents.py read "
+                "this row and wrote this card from it, and the card cites the record id in "
+                "its own church_evidence.")
+            identity_source = ("data/research/church/st_marys_baptisms_crosswalk.json — "
+                               "rulings[] `minted_from_this_reading`")
+            subject = (
+                "What no source states is that the sponsor the register names is one person "
+                "with every other appearance this card carries: "
+                "data/research/church/st_marys_baptisms_crosswalk.json rules that this card "
+                "was minted from this very row, the mint grouped its readings on the name "
+                "%r, and a bound whose subject is inferred is an inferred bound." % into)
+        else:
+            merge = merges.get(ruling["name"])
+            if merge is None:
+                raise ValueError("%s: ruled `merged` and the crosswalk's merges[] does not "
+                                 "carry %r" % (record_id, ruling["name"]))
+            household, person_id = one_resident(merge["into"], by_name)
+            identity = (
+                "data/research/church/st_marys_baptisms_crosswalk.json merges the "
+                "register's %r into the residents layer's %r under a written rule "
+                "naming both spellings verbatim; the rule is read there and is not "
+                "copied here." % (ruling["name"], merge["into"]))
+            identity_source = (
+                "data/research/church/st_marys_baptisms_crosswalk.json — "
+                "merges[] into %r" % merge["into"])
+            subject = (
+                "What no source states is that the sponsor the register names is the person "
+                "on this card: data/research/church/st_marys_baptisms_crosswalk.json "
+                "merges the register's %r into the residents layer's %r under a written "
+                "rule, and a bound whose subject is inferred is an inferred bound."
+                % (ruling["name"], merge["into"]))
         if str(cells.get("role") or "") not in ATTENDANCE_ROLES:
             # A KIN role, and a tie rather than an appearance — T-1320's unit. See the
             # comment on ATTENDANCE_ROLES for why this pass may not touch it.
@@ -322,23 +399,13 @@ def church_rows(by_name: dict) -> list:
                 "covers_scene_date": False,
                 "confidence": CONFIDENCE,
                 "sources": [CHURCH_SOURCE],
-                "identity_rule": (
-                    "data/research/church/st_marys_baptisms_crosswalk.json merges the "
-                    "register's %r into the residents layer's %r under a written rule "
-                    "naming both spellings verbatim; the rule is read there and is not "
-                    "copied here." % (ruling["name"], merge["into"])),
-                "identity_rule_source": (
-                    "data/research/church/st_marys_baptisms_crosswalk.json — merges[] "
-                    "into %r" % merge["into"]),
+                "identity_rule": identity,
+                "identity_rule_source": identity_source,
                 "note": (
                     "%s THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The entry is read "
-                    "scan_verified off the page image at `documented` confidence. What no "
-                    "source states is that the sponsor the register names is the person on "
-                    "this card: data/research/church/st_marys_baptisms_crosswalk.json "
-                    "merges the register's %r into the residents layer's %r under a written "
-                    "rule, and a bound whose subject is inferred is an inferred bound. No "
+                    "scan_verified off the page image at `documented` confidence. %s No "
                     "grade moves here and the identity is neither reopened nor hardened."
-                    % (says, ruling["name"], merge["into"])),
+                    % (says, subject)),
             },
         })
     return rows
@@ -380,6 +447,8 @@ def ledger_doc() -> dict:
         per_side[b["side_of_scene_date"]] = per_side.get(b["side_of_scene_date"], 0) + 1
     census = load(CENSUS_CROSSWALK)
     church = load(CHURCH_CROSSWALK)
+    minted_written = sum(1 for b in bounds if b["corpus"] == "st_marys_baptisms"
+                         and "merges[]" not in b["identity_rule_source"])
     return {
         "schema": SCHEMA,
         "_doc": (
@@ -402,6 +471,9 @@ def ledger_doc() -> dict:
         "reads": [
             "data/research/census_1830/resident_crosswalk.json — matched[]",
             "data/research/church/st_marys_baptisms_crosswalk.json — rulings[] `merged`",
+            "data/research/church/st_marys_baptisms_crosswalk.json — rulings[] "
+            "`minted_from_this_reading`, attendance roles only, each found on the one card "
+            "whose church_evidence cites its record id (T-1552)",
         ],
         "writes": "data/residents/households/*.json — persons[].%s[]" % BLOCK,
         "counts": {
@@ -421,6 +493,7 @@ def ledger_doc() -> dict:
             "st_marys_rulings": len(church["rulings"]),
             "st_marys_merged_rulings": sum(
                 1 for r in church["rulings"] if r.get("outcome") == "merged"),
+            "st_marys_minted_attendance_written": minted_written,
         },
         "refusals": [
             {
@@ -460,7 +533,7 @@ def ledger_doc() -> dict:
                         "an entry the reading places outside Chicago, which the reading "
                         "closes itself"),
                 "rows": sum(1 for r in church["rulings"] if r.get("outcome") == "merged")
-                        - per_corpus.get("st_marys_baptisms", 0),
+                        - (per_corpus.get("st_marys_baptisms", 0) - minted_written),
             },
             {
                 "rule": "A6",
@@ -682,14 +755,34 @@ def self_test() -> int:
        all(len(str(b["identity_rule"] or "")) > 40 for b in bounds))
     ok("a register row cites its merge rule and does not transcribe the crosswalk's prose",
        all("crosswalk.json merges the register's" in b["identity_rule"]
-           for b in bounds if b["corpus"] == "st_marys_baptisms"))
+           for b in bounds if b["corpus"] == "st_marys_baptisms"
+           and "merges[]" in b["identity_rule_source"]))
+    ok("a minted row names the mint it came from and the record id its card cites",
+       all("minted_from_this_reading" in b["identity_rule"]
+           and "church_evidence" in b["identity_rule"]
+           for b in bounds if b["corpus"] == "st_marys_baptisms"
+           and "merges[]" not in b["identity_rule_source"]))
     ok("nothing is written off St Cyr's pages",
        not any("st_cyr" in str(b["record_id"]) for b in bounds))
     ok("every register row is an attendance role and no kin tie is taken from T-1320",
        all(b["role"] in ATTENDANCE_ROLES for b in bounds
            if b["corpus"] == "st_marys_baptisms"))
     ok("and the register rows are exactly the merged attendance entries at Chicago",
-       len([b for b in bounds if b["corpus"] == "st_marys_baptisms"]) == 13)
+       len([b for b in bounds if b["corpus"] == "st_marys_baptisms"
+            and "merges[]" in b["identity_rule_source"]]) == 13)
+    ok("and the 26 minted attendance entries at Chicago, each on the card that cites it",
+       len([b for b in bounds if b["corpus"] == "st_marys_baptisms"
+            and "merges[]" not in b["identity_rule_source"]]) == 26)
+    # T-1552: a card is found by the record id it cites and never by its name, so two
+    # cards citing one reading is a refusal rather than a choice.
+    for label, index in (("a reading no card cites", {}),
+                         ("a reading two cards cite",
+                          {"r1": [("hh_a", "a"), ("hh_b", "b")]})):
+        try:
+            one_card("r1", index)
+            ok("%s is refused rather than chosen between" % label, False)
+        except ValueError:
+            ok("%s is refused rather than chosen between" % label, True)
 
     # Rule: one key and no others. A pass that touched a grade, an identity or a note
     # while writing evidence would be marking its own work.

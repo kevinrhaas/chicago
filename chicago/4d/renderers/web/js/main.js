@@ -60,6 +60,7 @@ import { releaseAfterUpload, uploadLayerNow, uploadReleaseState } from './upload
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
+import { mountHumans } from './humans.js';
 import { createWells } from './wells.js';
 import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
@@ -721,7 +722,29 @@ const DETAIL_DECLARED = {
   // balanced: 2,270,978 (desktop West prairie) + 16,806 = 2,287,784 -> 2,290,000
   // These are T-0672's original absolute margins, rounded up to 5,000; no
   // room is priced for a future parcel. Light remains 1,005,000 and 90 calls.
-  full:     { triangles: 3160000, shadowReachM: 240, furnitureCastsShadow: true,
+  //
+  // T-2338, 2026-10-11: a conscious re-budget under the same 2026-08-21 ruling,
+  // NOT a weakened assertion. Four owner-requested parcels since the last
+  // passing tree (d3aa85ea5) put desktop parts 3-6 red: T-2278's openings kit
+  // (windows, doors and trim on every 1835 building, +134,752 GLB triangles
+  // town-wide, +104,996 of it trim) and T-2281/T-2282/T-2287's chained and
+  // lettered signs. At West prairie, `light`, each group hidden in turn:
+  // structures 419,859 -> 534,635, signage 5,952 -> 39,408, the sun's pass
+  // 44,090 -> 65,362. Published mirror of dev 0a2491b51, six stands, both
+  // release viewports, `--stepped`; docs/measurements/t-2338-detail-ceilings.json:
+  //
+  //   tier      desktop 1280x800 worst       390x780 worst
+  //   full      3,379,890 West prairie       2,917,682 West prairie
+  //   balanced  2,515,971 West prairie       2,217,707 West prairie
+  //   light     1,173,622 West prairie         997,804 West prairie
+  //
+  // full:     3,379,890 + 18,059 = 3,397,949 -> 3,400,000
+  // balanced: 2,515,971 + 16,806 = 2,532,777 -> 2,535,000
+  // T-0672's absolute margins again, rounded up to 5,000; nothing priced for
+  // the next parcel. `light` is NOT moved here: it is the floor, its raises
+  // have only ever been the owner's (T-2015, T-2035), and T-2339 puts that
+  // question to the owner. Draw calls are unchanged (worst 317, mobile prairie).
+  full:     { triangles: 3400000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
@@ -730,7 +753,11 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '3,160,000 set 2026-10-07 (PR #498 integration): published Wells '
+              measured: '3,400,000 set 2026-10-11 (T-2338): published dev 0a2491b51 after '
+                + 'the owner-requested openings kit (T-2278) and chained signs (T-2281), '
+                + 'six stands at both viewports: worst 3,379,890 at desktop West prairie; '
+                + '+18,059 rounded up to 5,000. docs/measurements/t-2338-detail-ceilings.json. '
+                + 'Previously 3,160,000 set 2026-10-07 (PR #498 integration): published Wells '
                 + 'f899a73d plus exact ground batching, six stands at both viewports: '
                 + 'worst 3,139,013 at desktop West prairie; +18,059 rounded up to '
                 + '5,000. docs/measurements/pr498-ground-batching.json. Previously '
@@ -853,11 +880,16 @@ const DETAIL_DECLARED = {
   // same rule — the reading is in the block above `full`.
   // T-0672, 2026-10-04: 2,145,000 -> 2,090,000, the return — the reading and
   // the rule are in the block above `full`.
-  balanced: { triangles: 2290000, shadowReachM: 240, furnitureCastsShadow: true,
+  // T-2338, 2026-10-11: 2,290,000 -> 2,535,000 with `full` — the reading and
+  // the rule are in the block above `full`.
+  balanced: { triangles: 2535000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '2,290,000 set 2026-10-07 (PR #498 integration): same published '
+              measured: '2,535,000 set 2026-10-11 (T-2338): same published six-stand, '
+                + 'two-viewport sweep of dev 0a2491b51, worst 2,515,971 at desktop West '
+                + 'prairie; +16,806 rounded up to 5,000. Previously '
+                + '2,290,000 set 2026-10-07 (PR #498 integration): same published '
                 + 'six-stand, two-viewport sweep, worst 2,270,978 at desktop West '
                 + 'prairie; +16,806 rounded up to 5,000. Previously '
                 + '2,090,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
@@ -956,7 +988,25 @@ const DETAIL_DECLARED = {
   // it does not establish consumer FPS. The separate 90-call cap is unchanged.
   // T-0672, 2026-10-04: 1,040,000 -> 1,005,000, the return — the reading and
   // the rule are in the block above `full`; why not 785,000 is said there too.
-  light:    { triangles: 1005000, shadowReachM: 120, furnitureCastsShadow: false,
+  // T-2339, 2026-10-11: 1,005,000 -> 1,190,000, the THIRD owner-authorized
+  // exception for this rung (after T-2015 and T-2035), answered (a) on
+  // Manager's 4D Board on 2026-10-10. It is a conscious re-budget and NOT a
+  // weakened assertion. The owner-requested openings kit (T-2278: windows,
+  // doors and trim on every 1835 building, +104,996 trim triangles town-wide)
+  // and chained signs (T-2281/T-2282/T-2287) put this rung over at desktop
+  // 1280x800. At West prairie, with each group hidden in turn, structures
+  // went 419,859 -> 534,635, signage 5,952 -> 39,408 and the sun's pass
+  // 44,090 -> 65,362. Published dev 0a2491b51, six stands, `--stepped`, in
+  // docs/measurements/t-2338-detail-ceilings.json (PR #679, T-2338):
+  //   desktop worst 1,173,622 West prairie (Lake at Canal 1,030,925)
+  //   390x780 worst   997,804 West prairie -- still under the OLD floor
+  // 1,173,622 + 15,791 (T-0672's recorded headroom for this rung) = 1,189,413,
+  // rounded up to 5,000 = 1,190,000. No trim was available: the town draws as
+  // three merged batches with no level of detail, so the openings cannot drop
+  // at distance without a GLB-contract change (the declined option b). The
+  // 90-call cap, the reaches and the shadow tier are unchanged; nothing in
+  // the scene moves. A later trim can still bring this back down, as T-0672 did.
+  light:    { triangles: 1190000, shadowReachM: 120, furnitureCastsShadow: false,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
               groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
               // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
@@ -976,7 +1026,14 @@ const DETAIL_DECLARED = {
               protects: 'the weak-machine floor \u2014 the tier a touch device and a '
                 + 'machine without a GPU boot into, and the only rung that is a '
                 + 'promise to a person rather than a budget for a parcel',
-              measured: '1,005,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
+              measured: '1,190,000 set 2026-10-11 (T-2339), the third exception, '
+                + 'explicitly authorized by the owner on 2026-10-10 after the '
+                + 'owner-requested openings kit (T-2278) and chained signs (T-2281): '
+                + 'published dev 0a2491b51, six stands, worst 1,173,622 at desktop '
+                + 'West prairie, 1280x800 (390x780 read 997,804); +15,791, T-0672’s '
+                + 'recorded headroom for this rung, rounded up to 5,000; 90 calls unchanged. '
+                + 'docs/measurements/t-2338-detail-ceilings.json. '
+                + 'Previously 1,005,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
                 + 'six published stands, worst 988,055 and 62 calls at west prairie, '
                 + '1280x800 (390x780 read 893,194); +15,791, T-0672’s recorded '
                 + 'headroom for this rung, rounded up to 5,000. '
@@ -2264,6 +2321,7 @@ async function boot() {
       BUDGET.triangles = detailLevels[level].triangles;
       enclosures.setDetail?.(level);
       streets.setDetail?.(level);
+      api.humans?.setTier(level);
       applyShadowTier(level);
       applyFurnitureReach(level);
       applyGroundDetailReach(level);
@@ -2302,6 +2360,8 @@ async function boot() {
     // The road's: `light` keeps the refined grids, the two tiers above it lay
     // the panels that sag on the ground's ridge (streets.js, THE RIDGE DRAPE).
     streets.setDetail?.(level);
+    // The figures' LOD ladder follows the tier (T-1788; docs/HUMAN-ASSET-CONTRACT.md § 8).
+    api.humans?.setTier(level);
     // The sun's half of the level takes effect on THIS frame rather than after
     // the replanting: it costs nothing to apply, and a visitor who turns the
     // setting down on a machine that is struggling should get the cheap half of
@@ -2354,8 +2414,30 @@ async function boot() {
   // runs on a tap.
   const popup = createPopup(popupRoot, {
     onBusiness: (id) => openBusiness(id),
-    onShow: (record) => { void ensureLiberties(); void ensureHouseholdNotes(record); },
+    onShow: (record) => { void ensureLiberties(); void ensureHouseholdNotes(record); void ensurePictures(); },
   });
+  // The pictures of each building, for the card's Images tab (T-2389). Off the boot path
+  // for the liberties' reason: only the card reads it, so it is fetched the first time a
+  // card is drawn. publish.sh writes it (tools/compile_pictures.py); a failure leaves the
+  // tab saying the index is offline and records a problem — never the walkthrough down.
+  let picturesPromise = null;
+  const ensurePictures = () => {
+    if (!picturesPromise) {
+      const url = new URL(`pictures/${loaded.scene.id ?? YEAR}.json`, bases.dataBase);
+      picturesPromise = fetch(url, { cache: 'no-cache' })
+        .then((res) => {
+          if (!res.ok) throw new Error(`${res.status}`);
+          return res.json();
+        })
+        .then((doc) => { popup.setPictures(doc); return doc; })
+        .catch((err) => {
+          problems.push(`pictures/${loaded.scene.id ?? YEAR}.json: ${err.message} — the cards' Images tab is empty`);
+          popup.setPictures(null);
+          return null;
+        });
+    }
+    return picturesPromise;
+  };
   // The households' reasoning, per record, on first need (T-2151). publish.sh ships a
   // seated record's households slim — names, roles, grades and basis, which the title,
   // the search and the card draw at once — and the paragraphs behind each `why` toggle
@@ -2431,6 +2513,21 @@ async function boot() {
   } catch (err) {
     bootController.fail('people', err);
   }
+
+  // T-1788. The human figures, as scene objects: humans.js's actor, mounted only for a
+  // scene that lists the `humans` layer. No scene does, and L1 stands besides
+  // (data/humans/contract.json § l1), so this mounts an empty layer, fetches nothing and
+  // draws nobody — the scene-year gate. A record that is drawn later is bound to a person
+  // in the directory above and opens that person's own card.
+  api.humans = await mountHumans({
+    dataBase: layerBase('humans'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
+    people, terrain, tier: detailLevel, problems: layerProblems('humans'),
+  });
+  api.humans.on('open', ({ personId }) => {
+    if (!api.people) return;
+    hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
+  });
+  scene3d.add(api.humans.group);
 
   /** A structure's ground position in local ENU metres — footprint centroid where
    *  one is drawn, the placement otherwise. Go to measures distance from it;
@@ -2994,6 +3091,14 @@ async function boot() {
     if (gridHit && gridHit.record && (!hit || gridHit.distance < hit.distance)) {
       hit = { ...gridHit };
     }
+    // A figure answers with its PERSON, not a card of its own (T-1788): the layer's
+    // `open` event takes the visitor to the resident card the directory already draws.
+    const figure = api.humans?.pickAt(ndc, camera);
+    if (figure && (!hit || figure.distance < hit.distance)) {
+      popup.close();
+      api.humans.select(figure);
+      return figure;
+    }
     if (!hit) {
       popup.close();
       hud.say('Nothing there — aim at a building');
@@ -3433,6 +3538,7 @@ async function boot() {
     flora.update(dt, camera, floraBudget);
     trees.update(dt, camera, scene3d.fog?.color);
     flags.update(dt);
+    api.humans?.update(dt, camera, walker.state);
 
     // T-2113. Under the gate, draw only a frame that differs from the last one
     // drawn: the first, one a capture or a test asked for, or one in which

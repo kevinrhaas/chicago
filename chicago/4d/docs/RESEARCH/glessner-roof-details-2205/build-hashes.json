@@ -1,0 +1,42 @@
+{
+  "data/structures/glessner_house.json": {
+    "bytes": 127255,
+    "sha256": "8f524efadf459d6b235945dd00ffc249b967d2d37665a2176b4550d76207f450"
+  },
+  "generators/archetypes/masonry_house_v4_roof_edges.py": {
+    "bytes": 13628,
+    "sha256": "cea6a9030870f4e8d45b8021ac685d5b5c2b3b6b4926a48ae055d244683878f3"
+  },
+  "generators/archetypes/masonry_house_v4_detail.py": {
+    "bytes": 82508,
+    "sha256": "e89bb4eb1ced9f0360739e0797403222578d894088f268a4e97a94027e92bfb0"
+  },
+  "generators/archetypes/masonry_house_v4_courtyard_roof.py": {
+    "bytes": 10990,
+    "sha256": "49c383c1ee3b798472692c4e17871fc160c5ea17666bd4cfdb21c0fae3b26111"
+  },
+  "generators/archetypes/masonry_house.py": {
+    "bytes": 34534,
+    "sha256": "fed19a11e5bfa2d3cff859e3c93890255f9260d612a517eed574ca18919b1d85"
+  },
+  "generators/archetypes/masonry_house_params.py": {
+    "bytes": 43985,
+    "sha256": "1dad90779c23a82ce9a7aaf593f63b965332d0389bab044b16ce38f297a2725e"
+  },
+  "tools/_glessner_lod.py": {
+    "bytes": 22095,
+    "sha256": "49d7278e9fef5c4bee9fc0a8371e58dac459340601e91c7a1d6db940e154da62"
+  },
+  "assets/gltf/glessner_house__as_built_1887.glb": {
+    "bytes": 150670168,
+    "sha256": "eb00c3fc1c45f4b02733d662cbe0c2ada80cf955a7b78d73e987f76f41bd9ef7"
+  },
+  "assets/web/glessner_house__as_built_1887.glb": {
+    "bytes": 52071720,
+    "sha256": "4fcdfbf3997590111dc7da421ae9f80f44d0525b999e573ec61744578ed8a09b"
+  },
+  "assets/web/glessner_house__as_built_1887.light.glb": {
+    "bytes": 27014548,
+    "sha256": "df70b42550f418da47666a0cd3ab1dd031e1015f0aaf471b28e90d912dce4035"
+  }
+}

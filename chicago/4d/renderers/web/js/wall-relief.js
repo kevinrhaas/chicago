@@ -64,6 +64,7 @@
 import * as THREE from 'three';
 import { resolveBases } from './scene-loader.js';
 import { wallRelief } from './wall-grain.js';
+import { packOrl } from './relief-pack.js';
 
 const LIBRARY = 'textures/chicago_1835_pbr/';
 
@@ -127,31 +128,9 @@ async function loadSubstrate(base, dir, lowSpec) {
   const aniso = lowSpec ? 4 : 8;
 
   // The albedo ratio: linear luminance over its own mean, halved so a texel
-  // can carry up to twice the mean (fabric_proof_1835_maps.py, verbatim).
-  const lut = new Float32Array(256);
-  for (let i = 0; i < 256; i += 1) {
-    const c = i / 255;
-    lut[i] = c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
-  }
-  const c = pixels(col, px).data;
-  const o = pixels(orm, px).data;
-  const n = px * px;
-  const lum = new Float32Array(n);
-  let sum = 0;
-  for (let i = 0, j = 0; i < n; i += 1, j += 4) {
-    lum[i] = 0.2126 * lut[c[j]] + 0.7152 * lut[c[j + 1]] + 0.0722 * lut[c[j + 2]];
-    sum += lum[i];
-  }
-  const mean = Math.max(sum / n, 1e-6);
-  const orl = new Uint8Array(n * 4);
-  let roughSum = 0;
-  for (let i = 0, j = 0; i < n; i += 1, j += 4) {
-    orl[j] = o[j];
-    orl[j + 1] = o[j + 1];
-    orl[j + 2] = Math.max(0, Math.min(255, Math.round(255 * Math.min(1, 0.5 * lum[i] / mean))));
-    orl[j + 3] = 255;
-    roughSum += o[j + 1];
-  }
+  // can carry up to twice the mean, packed bottom row first so it lies the
+  // way the flipY'd normal beside it does (relief-pack.js, T-2300).
+  const { data: orl, meanRough } = packOrl(pixels(orm, px).data, pixels(col, px).data, px);
   const orlTex = new THREE.DataTexture(orl, px, px, THREE.RGBAFormat);
   orlTex.generateMipmaps = true;
   orlTex.minFilter = THREE.LinearMipmapLinearFilter;
@@ -164,7 +143,7 @@ async function loadSubstrate(base, dir, lowSpec) {
     normal: tiled(normal, aniso),
     orl: tiled(orlTex, aniso),
     tileM,
-    meanRough: Math.max(roughSum / n / 255, 1e-3),
+    meanRough,
     px,
   };
 }

@@ -1,0 +1,343 @@
+{
+  "method": "Actual published /1904/ app, normal boot (TAG before); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 12 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "load_ms_to_ready": 24895,
+      "js_heap_used_bytes": 19500708,
+      "js_heap_total_bytes": 20279296,
+      "draft_records_in_registry": 18,
+      "placed": [],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 19,
+        "bytes": 0
+      },
+      "stands": [
+        {
+          "name": "landing",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 86,
+            "triangles": 2638728,
+            "programs": 35,
+            "geometries": 62,
+            "textures": 167,
+            "batches": 31,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 22,
+            "structuresExpected": 22,
+            "structuresStanding": 22,
+            "bytes": 54620956,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 3632.6,
+          "camera": [
+            1410.12,
+            -3218.01,
+            6.03
+          ],
+          "target": [
+            1401,
+            -3300,
+            10.51
+          ]
+        },
+        {
+          "name": "across",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 59,
+            "triangles": 1535836,
+            "programs": 35,
+            "geometries": 65,
+            "textures": 173,
+            "batches": 31,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 22,
+            "structuresExpected": 22,
+            "structuresStanding": 22,
+            "bytes": 54620956,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 2123.9,
+          "camera": [
+            1390.5,
+            -3218,
+            6.03
+          ],
+          "target": [
+            1428,
+            -3240,
+            12.32
+          ]
+        },
+        {
+          "name": "west-walk",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 54,
+            "triangles": 1381497,
+            "programs": 35,
+            "geometries": 65,
+            "textures": 173,
+            "batches": 31,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 22,
+            "structuresExpected": 22,
+            "structuresStanding": 22,
+            "bytes": 54620956,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 2112.4,
+          "camera": [
+            1393.3,
+            -3262,
+            6.07
+          ],
+          "target": [
+            1430,
+            -3292,
+            11.45
+          ]
+        },
+        {
+          "name": "east-walk",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 58,
+            "triangles": 1414655,
+            "programs": 35,
+            "geometries": 65,
+            "textures": 173,
+            "batches": 31,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 22,
+            "structuresExpected": 22,
+            "structuresStanding": 22,
+            "bytes": 54620956,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 2403.3,
+          "camera": [
+            1410.4,
+            -3262,
+            6.07
+          ],
+          "target": [
+            1411,
+            -3345,
+            10.09
+          ]
+        },
+        {
+          "name": "alley",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 59,
+            "triangles": 1409468,
+            "programs": 35,
+            "geometries": 65,
+            "textures": 173,
+            "batches": 31,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 22,
+            "structuresExpected": 22,
+            "structuresStanding": 22,
+            "bytes": 54620956,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 2011.2,
+          "camera": [
+            1472.5,
+            -3230,
+            6
+          ],
+          "target": [
+            1472,
+            -3330,
+            8.96
+          ]
+        },
+        {
+          "name": "air",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 87,
+            "triangles": 2671322,
+            "programs": 35,
+            "geometries": 65,
+            "textures": 173,
+            "batches": 31,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 22,
+            "structuresExpected": 22,
+            "structuresStanding": 22,
+            "bytes": 54620956,
+            "fps": 0,
+            "cameraNear": 3,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 5937.1,
+          "camera": [
+            1490,
+            -3190,
+            79.24
+          ],
+          "target": [
+            1420,
+            -3320,
+            4.56
+          ]
+        }
+      ]
+    }
+  ]
+}

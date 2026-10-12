@@ -149,7 +149,7 @@
       "name": "The Heacock household",
       "division": "south",
       "relation": "lived here",
-      "why": "The house he built in the spring of 1835 and moved on rollers. Linked by the inferred-household programme's building parcel (docs/ROADMAP.md K1, phase two); the building record carries the evidence.",
+      "why": "The house he built in the spring of 1835 and moved on rollers. Linked by the inferred-household programme's building parcel (docs/ROADMAP.md K1, phase two); the building record carries the evidence. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_heacock_russel_e#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "andreas_1884_v1"
       ],

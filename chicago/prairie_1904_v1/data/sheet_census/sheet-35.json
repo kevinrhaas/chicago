@@ -1,0 +1,1519 @@
+{
+ "_doc": "AUTHORED reading of Sanborn 1911 vol. 3 sheet 35 for the 1904 target (T-1842), in the T-1840 sheet-census contract (tools/sheet_census.py). Every frontage row on the sheet and every named record on its ground is assigned here exactly once. Kinds and tiers as sheet-20.json; rulings[] as sheet-28.json, settling the sheet's identity and phase questions.",
+ "ticket": "T-1842",
+ "sheet": "35",
+ "target_date": "1904-07-01",
+ "source": {
+  "source_id": "MAP-1911-35",
+  "file": "maps/originals/sanborn-1911-sheet-35.jpg",
+  "sha256": "753b3cf4f70b9f4d2d6d1b3fd0e638bdc22d0ed859b1cba17ce20dd13dfaaabf",
+  "observation_year": 1911
+ },
+ "reading": {
+  "by": "Read by eye from the deposited sheet image (1640 x 2048 px), a half-size overview and 2x crops of each Prairie block face, 2026-10-09; the 2120 rear building and the 2140 alley building at 3-4x.",
+  "conventions": "Sanborn colour: pink brick, yellow frame, blue stone, buff fireproof. A crossed square marks a stable. D = dwelling, F = flats. Storey figures as printed (B = basement).",
+  "limits": "A 1911 label is a 1911 observation (study ruling 11): garages and the auto house are backcast as stables, the medical college and the dressmakers as the houses the 1904 Blue Book lists. The Indiana and Calumet frontages of the sheet are not Prairie frontages and are not counted here. Footprints are not digitized and no dimension is claimed. The supplied 1911 sheet is the footprint layer for 1904 (docs/map-guidance.md names no change on this sheet), except 2126, which was being rebuilt in 1904. Blue Book names are OCR-derived and only say who lived at a number."
+ },
+ "frontages": [
+  {
+   "frontage_id": "frontage-35-059",
+   "printed_number_1911": "2000",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_2000"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2000-front",
+     "kind": "front",
+     "reading_1911": "3BB frame dwelling (D), set back on a deep lawn at the 20th Street corner"
+    },
+    {
+     "id": "s35-2000-wing",
+     "kind": "attached",
+     "reading_1911": "A 2BB frame wing at the south-west, one-storey frame porches and a small brick piece on the west end"
+    },
+    {
+     "id": "s35-2000-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (crossed) on the alley at the 20th Street end",
+     "note_1904": "Drawn as a stable in 1911, so its 1904 use needs no backcast; the envelope is the 1911 one."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-only house: no named record. The 1904 Blue Book (OCR, page check pending) lists the John M. Clark household at 2000; that names a household, not the building. It shares one traced parcel with 2010 and 2018.",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "placed_on": [
+    "prairie_2000"
+   ],
+   "replaceable_by": "a dated photograph or a permit naming 2000 Prairie",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1909",
+   "rear_package": "T-1937",
+   "phase_1904": "Standing in 1904: a large three-storey frame villa on the 20th Street corner, with a brick stable on the alley."
+  },
+  {
+   "frontage_id": "frontage-35-060",
+   "printed_number_1911": "2010",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_2000"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2010-front",
+     "kind": "front",
+     "reading_1911": "3BB frame dwelling (D), the twin in plan of 2000"
+    },
+    {
+     "id": "s35-2010-wing",
+     "kind": "attached",
+     "reading_1911": "One-storey frame porches and bays on the north, south and east"
+    },
+    {
+     "id": "s35-2010-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (crossed) on the alley, with a one-storey brick piece at its south end; an 8-ft brick wall runs south of it along the alley",
+     "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one. The wall is backcast with it."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-only house: no named record. The 1904 Blue Book (OCR, page check pending) lists the W. L. Grey household at 2010. The sheet draws it as the same plan as 2000: the two are a pair, which the build package may treat as one design handed once.",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "placed_on": [
+    "prairie_2000"
+   ],
+   "replaceable_by": "a dated photograph or a permit naming 2010 Prairie",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1909",
+   "rear_package": "T-1937",
+   "phase_1904": "Standing in 1904: the second of two matching three-storey frame villas north of the 20th Street block's brick houses."
+  },
+  {
+   "frontage_id": "frontage-35-061",
+   "printed_number_1911": "2018",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_2000"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2018-front",
+     "kind": "front",
+     "reading_1911": "3 brick dwelling (D), long and narrow, with a stone bay on its Prairie front"
+    },
+    {
+     "id": "s35-2018-wing",
+     "kind": "attached",
+     "reading_1911": "A small one-storey frame piece on the rear (west) end"
+    },
+    {
+     "id": "s35-2018-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (crossed) on the alley, with a one-storey brick strip at its south end",
+     "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-only house: no named record on Prairie. The 1904 Blue Book (OCR, page check pending) lists E. Walter Herrick, Mrs. L. A. Herrick and Mrs. Nicolas de Teresa at 2018. The study register filed the Wheeler-Kohn house under this frontage; that house is 2018 Calumet, on the other side of the alley (ruling r35-2018-calumet).",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "placed_on": [
+    "prairie_2000"
+   ],
+   "replaceable_by": "a dated photograph or a permit naming 2018 Prairie",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1910",
+   "rear_package": "T-1937",
+   "phase_1904": "Standing in 1904: a narrow three-storey brick house with a stone bay, and its stable on the alley."
+  },
+  {
+   "frontage_id": "frontage-35-062",
+   "printed_number_1911": "2026",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_2026"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2026-front",
+     "kind": "front",
+     "reading_1911": "3B dwelling (D), stone front and brick rear divided on the diagonal"
+    },
+    {
+     "id": "s35-2026-wing",
+     "kind": "attached",
+     "reading_1911": "A one-storey frame piece on the rear (west) wall"
+    },
+    {
+     "id": "s35-2026-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (crossed) on the alley",
+     "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+    },
+    {
+     "id": "s35-2026-ground",
+     "kind": "non_building_use",
+     "reading_1911": "The wide unbuilt ground south of the house, inside this lot's traced line, to the 2036 lot",
+     "note_1904": "Lawn in 1904 as in 1911: the traced lot is about twice a house front, and no source puts a building on its south half."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-only house: no named record. The 1904 Blue Book (OCR, page check pending) lists the Mrs. D. Stettauer household and Charles S. Stettauer at 2026.",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "replaceable_by": "a dated photograph or a permit naming 2026 Prairie",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1910",
+   "rear_package": "T-1937",
+   "phase_1904": "Standing in 1904: a three-storey stone-fronted house on a double lot, its south half a lawn."
+  },
+  {
+   "frontage_id": "frontage-35-063",
+   "printed_number_1911": "2036",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_2036"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2036-front",
+     "kind": "front",
+     "reading_1911": "3S.B. brick dwelling (D) on the 21st Street corner, with bays to Prairie and to 21st"
+    },
+    {
+     "id": "s35-2036-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (crossed) on the alley at the 21st Street end",
+     "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+    },
+    {
+     "id": "s35-2036-walls",
+     "kind": "non_building_use",
+     "reading_1911": "A brick wall 6 ft high along 21st Street, and an 8-ft brick wall on the alley line north of the stable",
+     "note_1904": "The walls are 1911 evidence, backcast to 1904 with the house; nothing dates them."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Ebenezer Buckingham house. The 1904 Blue Book (OCR, page check pending) lists the E. Buckingham household and Clarence Buckingham at 2036, and the early-1890s view of the block shows the house; no build date is held.",
+   "tiers": {
+    "identity": "inferred",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-2036-38"
+   ],
+   "image_ids": [
+    "a20-glessner-2100-block-west-side-1890s",
+    "dw-inland-1888-06-buckingham-portico"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1911",
+   "rear_package": "T-1937",
+   "phase_1904": "Standing in 1904 as the Buckingham house, walled along 21st Street, with its stable on the alley."
+  },
+  {
+   "frontage_id": "frontage-35-064",
+   "printed_number_1911": "2100",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_2100"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2100-front",
+     "kind": "front",
+     "reading_1911": "3S.B. brick building lettered McCORMICK MEDICAL COLLEGE, on the 21st Street corner",
+     "note_1904": "The Sherman house in 1904. The college is a later use: first found at 2100 in 1907 (Tribune advertisement); its lettering is not 1904 signage (map guidance)."
+    },
+    {
+     "id": "s35-2100-wing",
+     "kind": "attached",
+     "reading_1911": "A one-storey frame piece on the rear and a small frame porch on the Prairie front"
+    },
+    {
+     "id": "s35-2100-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building on the alley lettered PRIVATE WAGON HOUSE, its south part marked as a stable",
+     "note_1904": "The Sherman stable and wagon house; a private wagon house in 1911, so no 1904 backcast of use is needed."
+    },
+    {
+     "id": "s35-2100-walls",
+     "kind": "non_building_use",
+     "reading_1911": "A brick wall 6 ft high along 21st Street from the house to the alley",
+     "note_1904": "Backcast to 1904 with the house; nothing dates it."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "John B. Sherman house (Burnham & Root, 1874; razed 1936). Sherman died here in February 1902, and no household is listed at 2100 in the 1903, 1904 or 1905 Blue Books.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "inferred"
+   },
+   "named_record_ids": [
+    "pa-2100-18"
+   ],
+   "image_ids": [
+    "dw-aabn-1876-09-30-sherman-2100-plate",
+    "nps-2100-tribune-1907-09-04-mccormick-neurological-college"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1919",
+   "rear_package": "T-1937",
+   "phase_1904": "Standing in 1904 as the Sherman house, with no household listed after John B. Sherman's death in 1902. The medical college on the 1911 map came later."
+  },
+  {
+   "frontage_id": "frontage-35-065",
+   "printed_number_1911": "2108",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_2108"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2108-front",
+     "kind": "front",
+     "reading_1911": "2B brick dwelling (D)"
+    },
+    {
+     "id": "s35-2108-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"2B\") reaching back toward the alley"
+    },
+    {
+     "id": "s35-2108-rear",
+     "kind": "detached_service",
+     "reading_1911": "The north half of a 2-storey brick stable (crossed) on the alley, one building with 2110's half (ruling r35-2108-2110-coach-house)",
+     "note_1904": "A \"good brick barn\" in the to-let notices of February 1904, so its 1904 use is attested."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Mark Kimball house. The Tribune let it in February 1904 as an 11-room stone-front house in perfect repair, with a good brick barn; it stood empty that spring, so the 1904 Blue Book lists no household. The 1911 sheet colours its front brick, not stone: the notice and the map disagree on the front, and the build package must choose.",
+   "tiers": {
+    "identity": "inferred",
+    "presence_1904": "attested",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-2108-40"
+   ],
+   "image_ids": [
+    "nps-2108-tribune-1904-02-28-to-rent-11-room-stone-front",
+    "a20-glessner-rees-coach-house-2014"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1921",
+   "rear_package": "T-1937",
+   "phase_1904": "Standing in 1904, empty and to let in the spring, freshly refitted. The stable behind it is shared with 2110."
+  },
+  {
+   "frontage_id": "frontage-35-066",
+   "printed_number_1911": "2110",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_2110"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2110-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling with a stone front and a rounded bay (D)"
+    },
+    {
+     "id": "s35-2110-wing",
+     "kind": "attached",
+     "reading_1911": "A one-storey rear piece toward the alley"
+    },
+    {
+     "id": "s35-2110-rear",
+     "kind": "detached_service",
+     "reading_1911": "The south half of the 2-storey brick stable (crossed) on the alley, divided from 2108's half on the lot line (ruling r35-2108-2110-coach-house)",
+     "note_1904": "Drawn as a stable in 1911; standing in 1904 as Rees's half of Kimball's divided coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Harriet P. Rees house (Cobb & Frost; permit June 1888), at its historical site: the house moved in 2014 and the modern site is not the 1904 one. The 1904 Blue Book (OCR, page check pending) lists the Edson Keith Jr. household at 2110.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "inferred"
+   },
+   "named_record_ids": [
+    "pa-2110-30"
+   ],
+   "image_ids": [
+    "dw-permit-1888-rees-2110-ledger-e-257",
+    "a20-glessner-rees-coach-house-2014"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1922",
+   "rear_package": "T-1937",
+   "phase_1904": "Standing in 1904 at its original site, with the south half of the shared coach house."
+  },
+  {
+   "frontage_id": "frontage-35-067",
+   "printed_number_1911": "2112",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_2112"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2112-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling with a stone front and a canted bay (D)"
+    },
+    {
+     "id": "s35-2112-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"2B\") and a small one-storey frame porch on the south"
+    },
+    {
+     "id": "s35-2112-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building on the alley lettered AUTO",
+     "note_1904": "AUTO is a 1911 use (study ruling 11). The Tribune let a \"brick barn\" here in May 1910, so for 1904 it is the stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Max M. Rothschild house. The 1904 Blue Book (OCR, page check pending) lists the Mrs. M. M. Rothschild household and Jesse Rothschild at 2112.",
+   "tiers": {
+    "identity": "inferred",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-2112-39"
+   ],
+   "image_ids": [
+    "nps-2112-tribune-1910-05-31-brick-barn-to-rent"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1921",
+   "rear_package": "T-1937",
+   "phase_1904": "Standing in 1904 as the Rothschild house, with a brick stable on the alley (an auto house by 1911)."
+  },
+  {
+   "frontage_id": "frontage-35-068",
+   "printed_number_1911": "2120",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_2120"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2120-front",
+     "kind": "front",
+     "reading_1911": "2-storey brick building lettered DRESS MAKING, with frame porches front and rear",
+     "note_1904": "A dwelling in 1904: the 1904 Blue Book lists the Frank S. Gorton household here. Dressmaking is a 1911 use (map guidance)."
+    },
+    {
+     "id": "s35-2120-wing",
+     "kind": "attached",
+     "reading_1911": "A one-storey brick rear wing"
+    },
+    {
+     "id": "s35-2120-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building on the alley with a stone alley face, lettered VACANT 1ST / DRESS MAKING 2ND",
+     "note_1904": "Both uses are 1911 ones. For 1904 the envelope is backcast and its use reconstructed as a stable/coach house. (Re-read: the register's \"Electric Motor Repairing\" is not on this building; ruling r35-2120-rear-label.)"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-only house: no named record. The 1904 Blue Book (OCR, page check pending) lists the Frank S. Gorton household at 2120, so the 1911 dressmaker's was a house in 1904.",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "replaceable_by": "a dated photograph or a permit naming 2120 Prairie",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1926",
+   "rear_package": "T-1937",
+   "phase_1904": "A two-storey brick house in 1904, the Gorton household's. The dressmaking lettered on the 1911 map came later."
+  },
+  {
+   "frontage_id": "frontage-35-069",
+   "printed_number_1911": "2126",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_2126"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2126-front",
+     "kind": "front",
+     "reading_1911": "3 brick dwelling (D), the Robbins house",
+     "note_1904": "Under construction on 1 July 1904 (ruling r35-robbins-2126). The working state is the new house's brick shell partly raised and unroofed."
+    },
+    {
+     "id": "s35-2126-wing",
+     "kind": "attached",
+     "reading_1911": "A three-storey rear range (\"3\")"
+    },
+    {
+     "id": "s35-2126-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (crossed) on the alley",
+     "note_1904": "Drawn as a stable in 1911. Nothing says whether it is the Hamill stable kept through the rebuilding or new with the Robbins house; it stands in the working state."
+    }
+   ],
+   "decision_1904": "phase_unresolved",
+   "why": "Edward F. Robbins bought the existing three-storey brick Hamill house in November 1901 and razed it in 1904 (AIC building index); his new house (Mann, MacNeille & Lindeberg) was photographed complete, with bare trees, for the May 1905 Inland Architect. So on 1 July 1904 the lot was a building site (ruling r35-robbins-2126).",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "unresolved",
+    "envelope": "reconstructed",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-2126-20"
+   ],
+   "replaceable_by": "a 1904 building permit for 2126 Prairie or a dated progress photograph",
+   "image_ids": [
+    "nps-2126-tribune-1901-11-03-robbins-buys-hamill-residence",
+    "nps-2126-council-1904-01-11-robbins-water-tax-rebate",
+    "a20-aic-ia-robbins-plate"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1926",
+   "rear_package": "T-1937",
+   "phase_1904": "A building site on 1 July 1904: the Hamill house razed, the Robbins house rising. It was finished by the spring of 1905."
+  },
+  {
+   "frontage_id": "frontage-35-070",
+   "printed_number_1911": "2130",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_2130"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2130-front",
+     "kind": "front",
+     "reading_1911": "2½ and 3B dwelling (D), stone front and brick rear divided on the diagonal, with a round bay on its Prairie front"
+    },
+    {
+     "id": "s35-2130-wing",
+     "kind": "attached",
+     "reading_1911": "Rear one-storey range (\"1B\")"
+    },
+    {
+     "id": "s35-2130-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (crossed) on the alley, stone on its alley face",
+     "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Thomas Murdoch house (Cobb, 1890: the round-towered house beside 2140 in the post-1890 photographs). In 1904 the Murdochs were living at the Lexington hotel (1904 Blue Book), and the 1903-1905 street pages list no household at 2130.",
+   "tiers": {
+    "identity": "inferred",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-2130-42"
+   ],
+   "image_ids": [
+    "nps-2130-bluebook-1904-murdoch-lexington-hotel",
+    "a20-glessner-vanosdel-2140-photo"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1927",
+   "rear_package": "T-1937",
+   "phase_1904": "Standing in 1904, its owners living at the Lexington hotel that year."
+  },
+  {
+   "frontage_id": "frontage-35-071",
+   "printed_number_1911": "2140",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_2140"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2140-front",
+     "kind": "front",
+     "reading_1911": "3S.B. brick dwelling (D) on the 22nd Street corner, with a round corner bay, a front porch with exterior stair and a one-storey glass room lettered GLASS"
+    },
+    {
+     "id": "s35-2140-wing",
+     "kind": "attached",
+     "reading_1911": "A 3S.B. rear range on the west, with its own exterior stair"
+    },
+    {
+     "id": "s35-2140-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (crossed) standing free in the yard, north of the house",
+     "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+    },
+    {
+     "id": "s35-2140-alley",
+     "kind": "detached_service",
+     "reading_1911": "3-storey brick building at the alley corner, numbered 220 (old 76) East 22nd Street and lettered CATERER and PORTABLE STEEL OVENS 1ST, with an elevator",
+     "note_1904": "The caterer is a 1911 use (study ruling 11). For 1904 it stands as a three-storey brick building on the rear of the corner lot; its use, and whether it was let apart from the house, are not read."
+    },
+    {
+     "id": "s35-2140-walls",
+     "kind": "non_building_use",
+     "reading_1911": "An 8-ft brick wall closing the yard on the north, from the stable to the alley",
+     "note_1904": "Backcast to 1904 with the house; nothing dates it."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "William F. Tucker house (Van Osdel, 1876), Byron L. Smith's from 1881. The 1904 Blue Book (OCR, page check pending) lists the Byron L. Smith household at 2140.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-2140-21"
+   ],
+   "image_ids": [
+    "a20-glessner-vanosdel-2140-photo",
+    "nps-2140-tribune-1928-07-15-famous-homes-photo-spires"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1928",
+   "rear_package": "T-1937",
+   "phase_1904": "Standing in 1904 as the Byron L. Smith house. Whether its towers were flat-topped and crested or had their later conical spires that year is for the build package to date."
+  },
+  {
+   "frontage_id": "frontage-35-072",
+   "printed_number_1911": "2001",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2001"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2001-front",
+     "kind": "front",
+     "reading_1911": "2½B brick dwelling with a stone front (D) on the 20th Street corner"
+    },
+    {
+     "id": "s35-2001-wing",
+     "kind": "attached",
+     "reading_1911": "A small one-storey frame porch on the 20th Street side"
+    },
+    {
+     "id": "s35-2001-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building on the alley lettered GARAGE",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-only house: no named record. The 1904 Blue Book (OCR, page check pending) lists the W. C. Free household at 2001.",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "replaceable_by": "a dated photograph or a permit naming 2001 Prairie",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1912",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904, with a two-storey stable on the alley (a garage by 1911)."
+  },
+  {
+   "frontage_id": "frontage-35-073",
+   "printed_number_1911": "2003",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2003"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2003-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling with a curved front bay (D), on a party wall with 2005"
+    },
+    {
+     "id": "s35-2003-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"rear2B\")"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-only house: no named record. The 1904 Blue Book (OCR, page check pending) lists the Mrs. H. W. Hoyt household at 2003. No building stands behind it on the alley.",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "replaceable_by": "a dated photograph or a permit naming 2003 Prairie",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1912",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904 as one of an attached pair with 2005; no stable of its own."
+  },
+  {
+   "frontage_id": "frontage-35-074",
+   "printed_number_1911": "2005",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2005"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2005-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling with a curved front bay (D), on a party wall with 2003"
+    },
+    {
+     "id": "s35-2005-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"rear2B\")"
+    },
+    {
+     "id": "s35-2005-walls",
+     "kind": "non_building_use",
+     "reading_1911": "A 12-inch brick wall 16 ft high on the south line, from the rear range to the alley",
+     "note_1904": "Backcast to 1904 with the house; nothing dates it."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-only house: no named record. The 1904 Blue Book (OCR, page check pending) lists the Casey A. Wood household at 2005. No building stands behind it on the alley.",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "replaceable_by": "a dated photograph or a permit naming 2005 Prairie",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1912",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904 as the second of an attached pair with 2003; no stable of its own."
+  },
+  {
+   "frontage_id": "frontage-35-075",
+   "printed_number_1911": "2009",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2009"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2009-front",
+     "kind": "front",
+     "reading_1911": "2½B brick dwelling (D)"
+    },
+    {
+     "id": "s35-2009-wing",
+     "kind": "attached",
+     "reading_1911": "Rear one-storey range (\"1B\")"
+    },
+    {
+     "id": "s35-2009-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building on the alley lettered GARAGE",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Max A. Mayer house (Burnham & Root, 1888; razed 1955). The 1904 Blue Book (OCR, page check pending) lists the M. A. Meyer household at 2009.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "inferred"
+   },
+   "named_record_ids": [
+    "pa-2009-17"
+   ],
+   "image_ids": [
+    "dw-inland-1888-07-meyer-burnham-root-plans",
+    "a20-chicagology-2009-2011-photo"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1913",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904, with a two-storey stable on the alley (a garage by 1911)."
+  },
+  {
+   "frontage_id": "frontage-35-076",
+   "printed_number_1911": "2011",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2011"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2011-front",
+     "kind": "front",
+     "reading_1911": "2½B brick dwelling with a stone front and a rounded corner bay (D)"
+    },
+    {
+     "id": "s35-2011-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"rear2B\") and a small one-storey frame bay on the south"
+    },
+    {
+     "id": "s35-2011-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building on the alley lettered GARAGE, with a stable (crossed) in its north-east corner",
+     "note_1904": "The stable cross inside the 1911 garage keeps the building's earlier use; for 1904 the whole is backcast as the stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-only house: no named record. The 1904 Blue Book (OCR, page check pending) lists Augustus D. Lamb and Benjamin B. Lamb at 2011. It is the Romanesque neighbour seen beside Mayer in the 1890s photograph.",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "image_ids": [
+    "a20-chicagology-2009-2011-photo"
+   ],
+   "replaceable_by": "a dated photograph or a permit naming 2011 Prairie",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1915",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904, with its stable on the alley (part garage by 1911)."
+  },
+  {
+   "frontage_id": "frontage-35-077",
+   "printed_number_1911": "2013",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2013"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2013-front",
+     "kind": "front",
+     "reading_1911": "3B dwelling (D) lettered Fire Proof Construction",
+     "note_1904": "The fireproof label is a construction class, not a facade material: the 1895 Inland Architect plate gives the front."
+    },
+    {
+     "id": "s35-2013-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"rear2B\")"
+    },
+    {
+     "id": "s35-2013-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building on the alley lettered GARAGE",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "William H. Reid house (Beers, Clay & Dutton, 1894), which replaced an earlier house on the lot; it survives. The 1904 Blue Book (OCR, page check pending) lists the William H. Reid household at 2013.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "attested"
+   },
+   "named_record_ids": [
+    "pa-2013-29"
+   ],
+   "image_ids": [
+    "a20-ia-1895-02-reid-plate",
+    "a20-reid-nrhp-2003-floor-plans"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1916",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904 as built in 1894, with a two-storey stable on the alley (a garage by 1911)."
+  },
+  {
+   "frontage_id": "frontage-35-078",
+   "printed_number_1911": "2017",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2017"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2017-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling with a stone front (D)"
+    },
+    {
+     "id": "s35-2017-wing",
+     "kind": "attached",
+     "reading_1911": "Rear one- and two-storey ranges (\"rear1B/2B\") with a small frame porch"
+    },
+    {
+     "id": "s35-2017-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building on the alley lettered GARAGE",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-only house: no named record. The 1904 Blue Book (OCR, page check pending) lists the A. J. McBean household and George B. McBean at 2017.",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "replaceable_by": "a dated photograph or a permit naming 2017 Prairie",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1917",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904, with a two-storey stable on the alley (a garage by 1911)."
+  },
+  {
+   "frontage_id": "frontage-35-079",
+   "printed_number_1911": "2021",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2021"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2021-front",
+     "kind": "front",
+     "reading_1911": "2½B brick dwelling (D)"
+    },
+    {
+     "id": "s35-2021-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two- and one-storey ranges (\"rear2B/1B\") with a small frame piece"
+    },
+    {
+     "id": "s35-2021-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building on the alley lettered GARAGE, its upper storey tin-clad, with a one-storey south end",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Benjamin Adams house of the late 1870s, James L. High's from 1886, who added a rear range in 1887. The 1904 Blue Book (OCR, page check pending) lists the Mrs. James L. High household at 2021.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-2021-36"
+   ],
+   "image_ids": [
+    "dw-aabn-1887-high-2021-rear-addition"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1917",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904 as the High house, with its 1887 rear range and a stable on the alley (a garage by 1911)."
+  },
+  {
+   "frontage_id": "frontage-35-080",
+   "printed_number_1911": "2027",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2027"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2027-front",
+     "kind": "front",
+     "reading_1911": "2½B brick dwelling (D)"
+    },
+    {
+     "id": "s35-2027-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"rear2B\") and a one-storey frame shed"
+    },
+    {
+     "id": "s35-2027-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick BARN on the alley",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Silas B. Cobb-associated house. The 1904 Blue Book (OCR, page check pending) lists Mrs. J. J. Borland, Chauncey Blair Borland and Bruce Borland at 2027; whether the Borlands are Cobb's daughter's household is the record's open question, not this census's.",
+   "tiers": {
+    "identity": "inferred",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-2027-37"
+   ],
+   "image_ids": [
+    "nps-2027-tribune-1911-04-16-to-rent-15-room-residence"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1917",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904, with a two-storey brick barn on the alley."
+  },
+  {
+   "frontage_id": "frontage-35-081",
+   "printed_number_1911": "2031",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2031"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2031-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling with a stone front and a full-height bay (D), the north house of a row of three"
+    },
+    {
+     "id": "s35-2031-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"rear2B\") with a small frame porch"
+    },
+    {
+     "id": "s35-2031-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building on the alley lettered GARAGE, the north part of one rear block behind 2031-2035",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "One of the three 1869 houses at 2031-2035 (ruling r35-2031-2035-row). The 1904 Blue Book (OCR, page check pending) lists the Samuel A. Tolman household at 2031.",
+   "tiers": {
+    "identity": "inferred",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "inferred"
+   },
+   "named_record_ids": [
+    "pa-2031-nrhp"
+   ],
+   "image_ids": [
+    "a20-chicagology-2031-2035-engraving"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1918",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904, the north house of the limestone row, with a stable on the alley (a garage by 1911)."
+  },
+  {
+   "frontage_id": "frontage-35-082",
+   "printed_number_1911": "2033",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2033"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2033-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling with a stone front and a full-height bay (D), the middle house of the row"
+    },
+    {
+     "id": "s35-2033-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"rear2B\")"
+    },
+    {
+     "id": "s35-2033-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building on the alley lettered GARAGE, the middle part of the rear block",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "One of the three 1869 houses at 2031-2035 (ruling r35-2031-2035-row). The Otis homestead: the Tribune of February 1904 reports the will that keeps it, and the 1904 Blue Book lists the F. R. Otis household. Its facade survives in the 1946 Walker Evans photograph.",
+   "tiers": {
+    "identity": "inferred",
+    "presence_1904": "attested",
+    "envelope": "inferred",
+    "facade": "inferred"
+   },
+   "named_record_ids": [
+    "pa-2033-nrhp"
+   ],
+   "image_ids": [
+    "nps-2033-tribune-1904-02-27-otis-will-homestead",
+    "a20-aic-walker-evans-2033"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1918",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904 as the Otis homestead, the middle house of the limestone row."
+  },
+  {
+   "frontage_id": "frontage-35-083",
+   "printed_number_1911": "2035",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2035"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2035-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling with a stone front and a full-height bay (D), the 21st Street corner of the row"
+    },
+    {
+     "id": "s35-2035-rear",
+     "kind": "detached_service",
+     "reading_1911": "A rear building of brick first storey and frame above (lettered BRICK 1ST), two and three storeys, joined to a 2-storey brick building on the alley at the corner",
+     "note_1904": "Mixed fabric drawn in 1911, backcast to 1904; its use is not read."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "One of the three 1869 houses at 2031-2035 (ruling r35-2031-2035-row). The Tribune of 4 February 1904 has the Stone home occupied, and the 1904 Blue Book lists Mrs. H. O. Stone at 2035.",
+   "tiers": {
+    "identity": "inferred",
+    "presence_1904": "attested",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-2035-nrhp"
+   ],
+   "image_ids": [
+    "nps-2035-tribune-1904-02-04-stone-home-occupied"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1918",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904, the corner house of the limestone row, occupied that February by Mrs. H. O. Stone."
+  },
+  {
+   "frontage_id": "frontage-35-084",
+   "printed_number_1911": "2101",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2101"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2101-front",
+     "kind": "front",
+     "reading_1911": "2½B brick dwelling (D) on the 21st Street corner, with one-storey frame porches"
+    },
+    {
+     "id": "s35-2101-wing",
+     "kind": "attached",
+     "reading_1911": "A long rear range reaching back toward the alley"
+    },
+    {
+     "id": "s35-2101-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building on the alley lettered GARAGE, one storey at its south end",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-only house: no named record. The 1904 Blue Book (OCR, page check pending) lists the Eugene S. Pike household, the Eugene R. Pike household and William Wallace Pike at 2101.",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "replaceable_by": "a dated photograph or a permit naming 2101 Prairie",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1924",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904 on the 21st Street corner, with a two-storey stable on the alley (a garage by 1911)."
+  },
+  {
+   "frontage_id": "frontage-35-085",
+   "printed_number_1911": "2109",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2109"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2109-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling with a stone front, wrapped on the north and west by a one-storey frame veranda (D)"
+    },
+    {
+     "id": "s35-2109-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building on the alley lettered GARAGE",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Robert Roloson house (the Tribune of 1883 has Roloson taking the Dunham house). The 1904 Blue Book (OCR, page check pending) lists Robert W. Roloson at 2109.",
+   "tiers": {
+    "identity": "inferred",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-2109-41"
+   ],
+   "image_ids": [
+    "nps-2109-tribune-1883-02-11-roloson-dunham-house"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1924",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904, with a veranda and a stable on the alley (a garage by 1911)."
+  },
+  {
+   "frontage_id": "frontage-35-086",
+   "printed_number_1911": "2115",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2115"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2115-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling with a stone front (D)"
+    },
+    {
+     "id": "s35-2115-wing",
+     "kind": "attached",
+     "reading_1911": "A rear three-storey range (\"3B\") and a two-storey piece (\"2B\") on the south"
+    },
+    {
+     "id": "s35-2115-rear",
+     "kind": "detached_service",
+     "reading_1911": "A large 2-storey brick building on the alley lettered GARAGE",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "David Kelley house of 1871, Philip D. Armour's; Armour died in 1901 and his widow stayed until 1927. The 1904 Blue Book (OCR, page check pending) lists Mrs. Philip D. Armour at 2115.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-2115-19"
+   ],
+   "image_ids": [
+    "nps-2115-tribune-1901-01-07-armour-residence-described",
+    "a20-chicagology-2115-armour-photo"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1925",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904 as Mrs. Philip D. Armour's house, with a large stable on the alley (a garage by 1911)."
+  },
+  {
+   "frontage_id": "frontage-35-087",
+   "printed_number_1911": "2123",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2123"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2123-front",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling with a stone front (D)"
+    },
+    {
+     "id": "s35-2123-wing",
+     "kind": "attached",
+     "reading_1911": "Rear two-storey range (\"rear2B\")"
+    },
+    {
+     "id": "s35-2123-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building on the alley lettered GARAGE",
+     "note_1904": "1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-only house: no named record. The 1904 Blue Book (OCR, spelling unverified) lists Thomas H. Hubbart at 2123.",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "replaceable_by": "a dated photograph or a permit naming 2123 Prairie",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1930",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904, with a two-storey stable on the alley (a garage by 1911)."
+  },
+  {
+   "frontage_id": "frontage-35-088",
+   "printed_number_1911": "2125",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2125"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2125-front",
+     "kind": "front",
+     "reading_1911": "2BB frame dwelling (D)"
+    },
+    {
+     "id": "s35-2125-wing",
+     "kind": "attached",
+     "reading_1911": "Rear one-storey frame range (\"rear1BB\")"
+    },
+    {
+     "id": "s35-2125-rear",
+     "kind": "detached_service",
+     "reading_1911": "2-storey frame stable (crossed) on the alley",
+     "note_1904": "Drawn as a stable in 1911; the 1904 envelope is the 1911 one."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-only house: no named record, and the 1904 Blue Book lists no household at 2125. A small frame house among brick ones.",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "replaceable_by": "a 1904 directory page naming 2125 Prairie, or a dated photograph",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1930",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904: a two-storey frame house with a frame stable on the alley."
+  },
+  {
+   "frontage_id": "frontage-35-089",
+   "printed_number_1911": "2127",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2127"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2127-front",
+     "kind": "front",
+     "reading_1911": "3B brick building of flats (F), one front under one roof, numbered 2127 and 2129"
+    },
+    {
+     "id": "s35-2127-wing",
+     "kind": "attached",
+     "reading_1911": "A three-storey frame rear range (porches) behind the south half"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-only building: two flats, not a house, and no named record. The 1904 Blue Book lists nobody at 2127 or 2129. No build date is held; it stands in 1904 on the 1911 sheet, which the map guidance names no change on.",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "replaceable_by": "a building permit date for 2127-2129 Prairie",
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1931",
+   "rear_package": "T-1938",
+   "phase_1904": "Standing in 1904 as a three-storey brick building of flats with two street numbers."
+  },
+  {
+   "frontage_id": "frontage-35-090",
+   "printed_number_1911": "2129",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2127"
+   ],
+   "polygons": [],
+   "decision_1904": "alias",
+   "why": "The second number of the 2127-2129 flats, not a separate building. Its polygons are listed on the 2127 row.",
+   "tiers": {
+    "identity": "unresolved",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "alias_of": "frontage-35-089",
+   "rear_package": "T-1938"
+  },
+  {
+   "frontage_id": "frontage-35-091",
+   "printed_number_1911": "2141",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2141"
+   ],
+   "polygons": [
+    {
+     "id": "s35-2141-ground",
+     "kind": "non_building_use",
+     "reading_1911": "The 22nd Street corner lot: no building, street to alley",
+     "note_1904": "Open in 1904 too (backcast): no record, directory entry or image puts a building here (ruling r35-2141-open-corner)."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Vacant frontage on the 1911 sheet, and nothing found standing here in 1904. Not a site for a house.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1931",
+   "rear_package": "T-1938",
+   "phase_1904": "Open ground in 1904: the corner lot at 22nd Street, unbuilt."
+  }
+ ],
+ "vacant_ground": [
+  {
+   "id": "s35-vacant-east-2129-2141",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_2129_2141"
+   ],
+   "reading_1911": "An unnumbered lot between the 2127-2129 flats and the 2141 corner, unbuilt from street to alley",
+   "named_record_ids": [],
+   "decision_1904": "present_as_mapped",
+   "why": "Open ground in 1911 with no number printed, no record and no 1904 directory entry; kept open for 1904 with the 2141 corner (ruling r35-2141-open-corner)."
+  }
+ ],
+ "excluded_records": [],
+ "rulings": [
+  {
+   "id": "r35-identities-2000-2100",
+   "question": "2000-2100 identities",
+   "tier": "inferred",
+   "ruling": "Every Prairie frontage on sheet 35 is joined to one named record or declared map-only. Seventeen named records stand on the sheet's ground and each is joined to the frontage of its printed number. Fifteen frontages have no named record (2000, 2010, 2018, 2026, 2120, 2001, 2003, 2005, 2011, 2017, 2101, 2123, 2125 and the 2127-2129 flats); each is drawn from the 1911 sheet and carries the 1904 Blue Book household at its number as a lead, not an identity. 2129 is the flats' second number and 2141 is open ground. The joins rest on the printed number, the record's recorded lifespan or 1904 listing, and the images named on each row.",
+   "source_ids": [
+    "MAP-1911-35",
+    "B-marker_south",
+    "B-marker_survivors",
+    "civic-bluebook-1904"
+   ]
+  },
+  {
+   "id": "r35-robbins-2126",
+   "question": "Robbins target-date state",
+   "tier": "inferred",
+   "ruling": "On 1 July 1904, 2126 is a building site, not a finished house and not the Hamill house. Robbins bought the standing Hamill house in November 1901 (Tribune); claimed a water-tax rebate on 2126 in the winter of 1903-04 (Council, January 1904), consistent with the house being emptied; the AIC building index says he razed it in 1904; and the May 1905 Inland Architect plate shows the new house complete with bare trees. No permit or progress photograph dates the month, so the working state is a reconstructed construction stage: the new house's brick shell partly raised and unroofed, on the 1911 footprint, with the alley stable standing. The May 1905 plate is the finished design, not July 1904 evidence.",
+   "images": [
+    "nps-2126-tribune-1901-11-03-robbins-buys-hamill-residence",
+    "nps-2126-council-1904-01-11-robbins-water-tax-rebate",
+    "a20-aic-ia-robbins-plate"
+   ],
+   "source_ids": [
+    "MAP-1911-35",
+    "B-marker_south",
+    "civic-bluebook-1904"
+   ],
+   "replaceable_by": "a 1904 building permit for 2126 Prairie or a dated progress photograph"
+  },
+  {
+   "id": "r35-2031-2035-row",
+   "question": "The 2031-2035 row",
+   "tier": "inferred",
+   "ruling": "Three attached houses of 1869 on 25-foot lots with Lemont limestone fronts (Reid nomination p. 13), all standing in 1904: Samuel A. Tolman at 2031 (Blue Book), the Otis homestead at 2033 (Tribune, February 1904) and Mrs. H. O. Stone at 2035 (Tribune, 4 February 1904). The sheet draws three stone fronts with full-height bays and one continuous block of two-storey brick buildings on the alley behind them. 2035 is a corner house with its own mixed brick and frame rear building. The row is three houses with a shared cornice line, not three identical copies.",
+   "images": [
+    "a20-chicagology-2031-2035-engraving",
+    "nps-2033-tribune-1904-02-27-otis-will-homestead",
+    "nps-2035-tribune-1904-02-04-stone-home-occupied"
+   ],
+   "source_ids": [
+    "MAP-1911-35",
+    "B-reid_nom_acquired",
+    "civic-bluebook-1904"
+   ]
+  },
+  {
+   "id": "r35-2108-2110-coach-house",
+   "question": "The shared 2108/2110 coach house",
+   "tier": "inferred",
+   "ruling": "One building, not two. The sheet draws a single two-storey brick stable across the alley end of both lots, divided on the lot line. Glessner House has Mark Kimball's coach house spanning both lots when Rees bought 2110 from him in 1888, Rees taking the south half behind a new party wall. The February 1904 to-let notice for 2108 includes a good brick barn. Build it as one envelope with a party wall: the north half is 2108's (s35-2108-rear) and the south half is 2110's (s35-2110-rear).",
+   "images": [
+    "a20-glessner-rees-coach-house-2014",
+    "nps-2108-tribune-1904-02-28-to-rent-11-room-stone-front"
+   ],
+   "source_ids": [
+    "MAP-1911-35"
+   ]
+  },
+  {
+   "id": "r35-2120-rear-label",
+   "question": "The 2120 rear label",
+   "tier": "attested",
+   "ruling": "Read at 4x on the sheet: the two-storey brick building on the alley behind 2120 is lettered \"VACANT 1ST / DRESS MAKING 2ND\", with a stone alley face. The register's \"rear Electric Motor Repairing label\" is not on this building. Both readings are 1911 uses only, and for 1904 the building is backcast as a stable/coach house.",
+   "source_ids": [
+    "MAP-1911-35"
+   ],
+   "corrects": {
+    "frontage_id": "frontage-35-068",
+    "field": "notes",
+    "was": "1911 commercial use only; rear Electric Motor Repairing label.",
+    "now": "1911 commercial use only; rear building lettered VACANT 1ST / DRESS MAKING 2ND (re-read 2026-10-09, T-1842; first transcribed as an Electric Motor Repairing label)."
+   }
+  },
+  {
+   "id": "r35-2018-calumet",
+   "question": "Wheeler-Kohn and 2018 Prairie",
+   "tier": "attested",
+   "ruling": "The study register lists the Wheeler-Kohn house (pa-2018-s.-calumet-avenue-31) with frontage-35-061 as its map control. They share a number and nothing else: the Wheeler-Kohn house is 2018 Calumet, on the far side of the alley, and frontage-35-061 is 2018 Prairie, a narrow brick house with a stone bay where the 1904 Blue Book lists the Herricks. The Prairie frontage stays map-only, and the Calumet house is not placed by this census.",
+   "source_ids": [
+    "MAP-1911-35",
+    "pa-wheeler-kohn-nrhp-1999",
+    "civic-bluebook-1904"
+   ]
+  },
+  {
+   "id": "r35-2141-open-corner",
+   "question": "The 2141 frontage and the unnumbered lot north of it",
+   "tier": "inferred",
+   "ruling": "Both lots are open from street to alley on the 1911 sheet, with no record, image or 1904 directory entry for either. They stay open in 1904 as a backcast, not as a reading of 1904, and are not a site for a house. The build package gives them a ground surface and their boundary; anything more needs a dated source.",
+   "source_ids": [
+    "MAP-1911-35",
+    "civic-bluebook-1904"
+   ],
+   "replaceable_by": "a dated view of the 22nd Street corner east of Prairie"
+  }
+ ]
+}

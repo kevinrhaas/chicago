@@ -76,6 +76,7 @@
 import * as THREE from 'three';
 import { resolveBases } from './scene-loader.js';
 import { gateBoxes } from './gates.js';
+import { packGrain } from './relief-pack.js';
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -412,7 +413,9 @@ async function readTimberRelief(assetBase) {
       image(`${sheet.id}_basecolor.webp`)]);
 
     // The albedo modulation: each texel's linear luminance over the map's mean,
-    // pulled toward 1 by the grain strength, stored under the headroom.
+    // pulled toward 1 by the grain strength, stored under the headroom — packed
+    // bottom row first, so it lies the way the flipY'd normal and orm beside it
+    // do (relief-pack.js, T-2300).
     const w = base.naturalWidth;
     const hgt = base.naturalHeight;
     const cv = document.createElement('canvas');
@@ -420,26 +423,7 @@ async function readTimberRelief(assetBase) {
     cv.height = hgt;
     const ctx = cv.getContext('2d', { willReadFrequently: true });
     ctx.drawImage(base, 0, 0);
-    const px = ctx.getImageData(0, 0, w, hgt).data;
-    const lin = (v) => {
-      const c = v / 255;
-      return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
-    };
-    const lut = new Float32Array(256);
-    for (let i = 0; i < 256; i += 1) lut[i] = lin(i);
-    const lum = new Float32Array(w * hgt);
-    let sum = 0;
-    for (let i = 0, j = 0; i < lum.length; i += 1, j += 4) {
-      lum[i] = 0.2126 * lut[px[j]] + 0.7152 * lut[px[j + 1]] + 0.0722 * lut[px[j + 2]];
-      sum += lum[i];
-    }
-    const mean = sum / lum.length;
-    const mod = new Uint8Array(w * hgt * 4);
-    for (let i = 0, j = 0; i < lum.length; i += 1, j += 4) {
-      const m = 1 + GRAIN_STRENGTH * (lum[i] / mean - 1);
-      const v = Math.max(0, Math.min(255, Math.round((255 * m) / GRAIN_HEADROOM)));
-      mod[j] = v; mod[j + 1] = v; mod[j + 2] = v; mod[j + 3] = 255;
-    }
+    const mod = packGrain(ctx.getImageData(0, 0, w, hgt).data, w, hgt, GRAIN_STRENGTH, GRAIN_HEADROOM);
     const tiled = (tex) => {
       tex.wrapS = THREE.RepeatWrapping;
       tex.wrapT = THREE.RepeatWrapping;

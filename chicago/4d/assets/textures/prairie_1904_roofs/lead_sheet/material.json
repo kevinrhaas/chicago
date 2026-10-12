@@ -1,0 +1,55 @@
+{
+  "id": "lead_sheet",
+  "library": "prairie_1904_roofs",
+  "version": "1.0.0",
+  "ticket": "T-2292",
+  "slot": "flashing",
+  "kind": "sheet",
+  "tile_m": [
+    1.2,
+    1.2
+  ],
+  "module": {
+    "sheet_u_m": 1.2,
+    "sheet_v_m": 1.2,
+    "columns": 1,
+    "courses": 1
+  },
+  "module_source": "data/components/prairie_1904/k04_roofs.json",
+  "course_phase_m": [
+    0.0,
+    0.0
+  ],
+  "course_phase_rule": "the first vertical joint lies course_phase_m[0] along u and the first butt course_phase_m[1] up v from the tile's origin; offset the roof's UV by them to put a butt on the eave",
+  "resolution_px": 512,
+  "px_per_m": [
+    426.67,
+    426.67
+  ],
+  "mean_basecolor": [
+    109,
+    111,
+    114
+  ],
+  "mean_roughness": 0.646,
+  "mean_metallic": 0.35,
+  "orientation": "image x = along the eave (u); image y = up the slope with the top row uphill (v grows upward); each course's butt is its low edge",
+  "uv_rule": "TEXCOORD_0 = surface metres / tile_m (k01_contract.json scale_uv)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y",
+    "roughness": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "lead_sheet_basecolor_web.jpg",
+    "normal_gl": "lead_sheet_normal_gl_web.jpg",
+    "orm": "lead_sheet_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 4104064775,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_roofs.py); no photograph sampled",
+  "confidence": "reconstructed",
+  "appearance": "reconstructed (docs/LIBERTIES.md L-k04-roof-library-2292)",
+  "note": "Dull grey lead, the soft metal dressed over chimney steps and stone copings, with bossing marks. A plain fabric; folds are geometry."
+}

@@ -1,0 +1,76 @@
+WHAT YOU CHANGED, AND THE PARTS THAT COVER IT
+
+  generators/archetypes/masonry_house.py
+      NO PART — the bake's generators — their output is the data rows below
+  data/structures/glessner_house.json
+      parts 1-14 — the records the whole town is built from
+  assets/manifest.web.json
+      parts 1-14 — meshes and the material sheet — every part draws them
+
+  parts to run: 1-14
+
+  RUN, from chicago/4d/ (each command packed under the foreground ceiling):
+
+    SMOKE_VIEWPORT=mobile SMOKE_STAGE=1-2 node tools/smoke_renderer.mjs --published
+        ≈ 7m 14s measured, 2m 46s of margin
+    SMOKE_VIEWPORT=mobile SMOKE_STAGE=3 node tools/smoke_renderer.mjs --published
+        ≈ 4m 11s measured, 5m 49s of margin
+    SMOKE_VIEWPORT=mobile SMOKE_STAGE=4 node tools/smoke_renderer.mjs --published
+        ≈ 4m 54s measured, 5m 06s of margin
+    SMOKE_VIEWPORT=mobile SMOKE_STAGE=5 node tools/smoke_renderer.mjs --published
+        ≈ 4m 54s measured, 5m 06s of margin
+    SMOKE_VIEWPORT=mobile SMOKE_STAGE=6 node tools/smoke_renderer.mjs --published
+        ≈ 4m 54s measured, 5m 06s of margin
+    SMOKE_VIEWPORT=mobile SMOKE_STAGE=7 node tools/smoke_renderer.mjs --published
+        ≈ 4m 54s measured, 5m 06s of margin
+    SMOKE_VIEWPORT=mobile SMOKE_STAGE=8 node tools/smoke_renderer.mjs --published
+        ≈ 4m 24s measured, 5m 36s of margin
+    SMOKE_VIEWPORT=mobile SMOKE_STAGE=9 node tools/smoke_renderer.mjs --published
+        ≈ 4m 54s measured, 5m 06s of margin
+    SMOKE_VIEWPORT=mobile SMOKE_STAGE=10 node tools/smoke_renderer.mjs --published
+        ≈ 4m 54s measured, 5m 06s of margin
+    SMOKE_VIEWPORT=mobile SMOKE_STAGE=11 node tools/smoke_renderer.mjs --published
+        ≈ 4m 54s measured, 5m 06s of margin
+    SMOKE_VIEWPORT=mobile SMOKE_STAGE=12 node tools/smoke_renderer.mjs --published
+        ≈ 8m 42s measured, 1m 18s of margin
+    SMOKE_VIEWPORT=mobile SMOKE_STAGE=13 node tools/smoke_renderer.mjs --published
+        ≈ 4m 54s measured, 5m 06s of margin
+    SMOKE_VIEWPORT=mobile SMOKE_STAGE=14 node tools/smoke_renderer.mjs --published
+        ≈ 4m 54s measured, 5m 06s of margin
+    (part 2,4-7,9-11,13-14 has no reading of its own; priced at the mean of those that do)
+    SMOKE_VIEWPORT=desktop SMOKE_STAGE=1 node tools/smoke_renderer.mjs --published
+        ≈ 13m 35s measured, -4m -35s of margin
+    SMOKE_VIEWPORT=desktop SMOKE_STAGE=2 node tools/smoke_renderer.mjs --published
+        ≈ 11m 39s measured, -2m -39s of margin
+    SMOKE_VIEWPORT=desktop SMOKE_STAGE=3 node tools/smoke_renderer.mjs --published
+        ≈ 11m 39s measured, -2m -39s of margin
+    SMOKE_VIEWPORT=desktop SMOKE_STAGE=4 node tools/smoke_renderer.mjs --published
+        ≈ 11m 39s measured, -2m -39s of margin
+    SMOKE_VIEWPORT=desktop SMOKE_STAGE=5 node tools/smoke_renderer.mjs --published
+        ≈ 11m 39s measured, -2m -39s of margin
+    SMOKE_VIEWPORT=desktop SMOKE_STAGE=6 node tools/smoke_renderer.mjs --published
+        ≈ 11m 39s measured, -2m -39s of margin
+    SMOKE_VIEWPORT=desktop SMOKE_STAGE=7 node tools/smoke_renderer.mjs --published
+        ≈ 11m 39s measured, -2m -39s of margin
+    SMOKE_VIEWPORT=desktop SMOKE_STAGE=8 node tools/smoke_renderer.mjs --published
+        ≈ 11m 39s measured, -2m -39s of margin
+    SMOKE_VIEWPORT=desktop SMOKE_STAGE=9 node tools/smoke_renderer.mjs --published
+        ≈ 11m 39s measured, -2m -39s of margin
+    SMOKE_VIEWPORT=desktop SMOKE_STAGE=10 node tools/smoke_renderer.mjs --published
+        ≈ 11m 39s measured, -2m -39s of margin
+    SMOKE_VIEWPORT=desktop SMOKE_STAGE=11 node tools/smoke_renderer.mjs --published
+        ≈ 11m 39s measured, -2m -39s of margin
+    SMOKE_VIEWPORT=desktop SMOKE_STAGE=12 node tools/smoke_renderer.mjs --published
+        ≈ 11m 39s measured, -2m -39s of margin
+    SMOKE_VIEWPORT=desktop SMOKE_STAGE=13 node tools/smoke_renderer.mjs --published
+        ≈ 11m 39s measured, -2m -39s of margin
+    SMOKE_VIEWPORT=desktop SMOKE_STAGE=14 node tools/smoke_renderer.mjs --published
+        ≈ 9m 43s measured, 0m 17s of margin
+    (part 2-13 has no reading of its own; priced at the mean of those that do)
+
+  A staged run is NOT the gate and says so on its first line. The gate is
+  both viewports, every part — see the cost of that with no arguments.
+  File what you ran: node tools/dev-smoke-state.mjs record <log>
+  And redirect to a FILE, not a pipe: node block-buffers stdout to a pipe,
+  so a piped smoke log stays at zero bytes until the process exits — which
+  is how a run at 41 minutes was killed one minute from its finish (T-0235).

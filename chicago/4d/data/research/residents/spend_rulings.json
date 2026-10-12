@@ -11,9 +11,9 @@
     "the_contradicting_reading_is_carried_as_an_undated_role_the_scene_view_refuses": 1,
     "the_engagement_reaches_no_field_and_names_no_trade_the_1835_field_lacks": 2,
     "the_enrichment_dates_an_appearance_the_card_already_carries": 15,
+    "the_enrichment_disputes_a_birth_year_and_states_none": 1,
+    "the_enrichment_gives_a_birth_the_card_already_carries": 2,
     "the_enrichment_is_written_onto_the_card_it_names": 7,
-    "the_enrichment_names_a_birth_or_age_no_field_carries": 3,
-    "the_enrichment_names_a_civic_church_or_school_post_no_field_carries": 12,
     "the_enrichment_names_a_departure_from_chicago_no_field_carries": 6,
     "the_family_pass_finds_the_relative_is_nobody_this_town_holds": 2,
     "the_family_pass_finds_the_tie_begins_after_the_scene": 1,
@@ -22,6 +22,10 @@
     "the_later_volume_enriches_a_biography_and_names_no_1835_field": 7,
     "the_manifest_is_a_reservation_and_not_a_reading": 75,
     "the_pass_named_a_candidate_and_did_not_assert_it": 162,
+    "the_post_is_carried_as_a_dated_profile_fact_on_the_card": 3,
+    "the_post_is_carried_by_the_card_at_the_scene_date": 4,
+    "the_post_is_carried_with_the_card_s_own_bound_outside_the_window": 1,
+    "the_post_is_written_onto_the_card_as_a_role_the_1835_view_refuses": 2,
     "the_reading_is_carried_as_a_dated_profile_fact_on_the_card": 4,
     "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window": 6,
     "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date": 21,
@@ -44,19 +48,17 @@
       "disposition": "refused",
       "statement": "The completed pass returned `corroborated_enrichment` naming an arrival, an origin or a dated appearance, and T-1330 read it against the card it names: the card ALREADY carries that date or that place, from a source of its own, at equal or better precision. Under the evidence ladder ratified 2026-09-03 corroboration corroborates; it does not promote, and a second volume agreeing that a man Andreas puts at Chicago in 1833 was at Chicago in 1833 names no field to fill. This is a finished answer rather than a deferral, and the finer detail some of these carry -- a month inside a year the card states, a roster naming inside a residence the card states -- is recorded in this unit's own note rather than written over a reading that owns the field. The nine of the thirty that DID retire a drawn or guessed value are not here: they are asserted on their cards by tools/spend_enrichment_arrivals.py and the ledger closes them by reading the card, which is why a ruling on one of them would be a fault."
     },
+    "the_enrichment_disputes_a_birth_year_and_states_none": {
+      "disposition": "refused",
+      "statement": "The completed pass returned `corroborated_enrichment` saying that later scholarship CONFLICTS with the birth year the card carries -- and T-1315 read the sources the pass cited and found that neither of them states a birth year at all. A dispute that names no year has nothing to write into `birth_year`, and it may not lower the card's grade either: the year is already `inferred`, and its note already carries the source's own hedge in the source's own words. This is a finished answer on THESE sources, not on the question; a volume that prints a year is a new reading and would be ruled on its own."
+    },
+    "the_enrichment_gives_a_birth_the_card_already_carries": {
+      "disposition": "refused",
+      "statement": "The completed pass returned `corroborated_enrichment` naming a BIRTH DATE, and T-1315 read it against the card it names with the volume open beside it: the card ALREADY carries that birth, to the day, in `birth_year` and `age_on_scene_date`, either from this same volume or from a source of its own that gives the same date. Under the evidence ladder ratified 2026-09-03 corroboration corroborates; it does not promote, and a second biography agreeing on the day a man was born names no field to fill. This is a finished answer rather than a deferral, and the page the date was read off is recorded in this unit's own note."
+    },
     "the_enrichment_is_written_onto_the_card_it_names": {
       "disposition": "asserted",
       "statement": "The completed pass returned `corroborated_enrichment` naming an arrival year or an origin, and T-1330 WROTE IT ONTO THE CARD -- over a value the arrival stage had drawn from a distribution, or over a year this project's own note called a guess. tools/spend_enrichment_arrivals.py holds the adjudication, writes the block and re-derives it under --check; the block is `inferred`, cites the volume the finding names, says which person it is about, and carries no `written_by_stage` mark, which is how reconstruct_residents_1835.py's `writable()` yields the field to it. This ruling exists because the ledger's own assertion test cannot see a spend of this kind: it closes a unit only where the card cites a source the READING already carried, and the whole value of these nine is that they bring a volume it did not. The `wrote` list on each row names the file and the field, and tools/research_spend_ledger.py re-reads every one of them -- an assertion a register cannot show is a fault, not an assertion."
-    },
-    "the_enrichment_names_a_birth_or_age_no_field_carries": {
-      "disposition": "unresolved",
-      "ticket": "T-1315",
-      "statement": "The completed pass returned `corroborated_enrichment`: a real, sourced fact about a person this town holds -- a trade, an address, an origin, a kinship, a date -- that extends the card and that no exact source-bearing structured field on that card carries today. It is not refused, because it is true research; it is not written here, because writing one attribute at a time, out of one pass and without the other sources beside it, is how a layer acquires facts it cannot defend. T-1301 read all 98 of them one at a time and handed each to the OPEN ticket whose acceptance owns the kind of fact it names; this unit's own note says which field that is. This one names a BIRTH DATE, a birth year or an age. It was routed to T-1168, the pass that fills sex and age for every attested and inferred person with its tier and its reason; that ticket was split into T-1303 (the tiers the evidence pays for) and T-1304 (the tier the model draws), and both are done, so `birth_year` and `age_band` both exist on the card and there is at last a field for these three to go in. T-1315 owns spending them, and a hand-off must name LIVE work rather than a spent parent."
-    },
-    "the_enrichment_names_a_civic_church_or_school_post_no_field_carries": {
-      "disposition": "unresolved",
-      "ticket": "T-1569",
-      "statement": "The completed pass returned `corroborated_enrichment`: a real, sourced fact about a person this town holds -- a trade, an address, an origin, a kinship, a date -- that extends the card and that no exact source-bearing structured field on that card carries today. It is not refused, because it is true research; it is not written here, because writing one attribute at a time, out of one pass and without the other sources beside it, is how a layer acquires facts it cannot defend. T-1301 read all 98 of them one at a time and handed each to the OPEN ticket whose acceptance owns the kind of fact it names; this unit's own note says which field that is. This one names a CIVIC, CHURCH, SCHOOL or GARRISON POST -- a county office, a town trusteeship, a coronership, a ministry, a church membership, a school kept or an officer's clerkship. IT WAS ROUTED TO T-1188, which completes those establishments with their staff. That ticket split into T-1410 (the post office, the land office and the county rooms) and T-1411, which split again into T-1421 (the churches) and T-1422 (the schools and the press), and all four are now done -- so the establishments EXIST and a unit cannot defer to spent work. The hand-off is T-1189 since 2026-09-20: what these twelve findings name is a POST, a person at one of those establishments, and T-1189 is the open ticket that puts real persons into them -- every working person a workplace and every workplace its people. The three closed children raised the houses and named the officers their own sources printed; they did not walk the resident layer's enrichments against them, and that walk is what a post found in a volume still needs. AND THE HAND-OFF IS T-1569 SINCE 2026-09-25: T-1189's own chain is spent — T-1432 and T-1433 done, T-1434 split to T-1448 (done, #40) and T-1449, whose pieces T-1461 and T-1462 are done — so the ticket that was going to do the walk has stopped without doing it. T-1569 is that walk, and it is a SPEND rather than a routing: the join those pieces built is what gives these twelve a field to be written into."
     },
     "the_enrichment_names_a_departure_from_chicago_no_field_carries": {
       "disposition": "refused",
@@ -90,6 +92,22 @@
       "disposition": "refused",
       "statement": "The completed pass reviewed this reserved person and returned a CANDIDATE IDENTITY it explicitly did not assert -- the finding's own candidate rows carry `asserted: false` and name the conflict that stopped them. The research already refused the join; the ledger now carries that refusal instead of leaving the row open. Closing it by eye would be manufacturing the identity the pass declined to make, and this ruling does not touch the candidate, the card, or the grade either of them carries."
     },
+    "the_post_is_carried_as_a_dated_profile_fact_on_the_card": {
+      "disposition": "refused",
+      "statement": "The completed pass returned `corroborated_enrichment` naming a post or a membership, and T-1569 found it already on the card as a dated `profile_facts[]` row, with its source and the date it speaks about, written by tools/spend_person_facts.py. A membership or an assistant's place is not an employment and is not put on a business's staff; the profile fact is the field that carries it, and the note says so where an establishment exists."
+    },
+    "the_post_is_carried_by_the_card_at_the_scene_date": {
+      "disposition": "refused",
+      "statement": "The completed pass returned `corroborated_enrichment` naming a CIVIC, CHURCH or SCHOOL POST, and T-1569 found the card already carries it for the scene date: the 1835 occupation names the post, graded and cited, and where the business register holds the establishment its staff names this person in the same post or the card's `workplaces[]` or its work row in `associated_with` names it. Under the ladder ratified 2026-09-03 a corroboration corroborates and does not promote, so nothing moves. The note names every field that answers the finding."
+    },
+    "the_post_is_carried_with_the_card_s_own_bound_outside_the_window": {
+      "disposition": "refused",
+      "statement": "The completed pass returned `corroborated_enrichment` naming a post, and T-1569 found the card already carries the same post, dated OUT of the scene by a contemporary printing the card cites. The finding gives no date finer than the card's, so it names no field the card lacks and no bound the card has not already drawn; nothing moves."
+    },
+    "the_post_is_written_onto_the_card_as_a_role_the_1835_view_refuses": {
+      "disposition": "refused",
+      "statement": "The completed pass returned `corroborated_enrichment` naming a post no field on the card carried -- a town trusteeship, an election as assessor and surveyor. T-1569 WROTE IT: the reading stands in data/research/residents/prose_role_readings.json, and tools/derive_resident_roles.py carries it onto the card as a `roles[]` row of kind `office`, graded inferred, citing the volume the pass read, naming the body the post served where the fold names one. It does not stand in the 1 July 1835 view, because every volume these rest on was set down after the scene and may date and corroborate but never promote. `refused` here means the unit asks nothing further of the layer, not that the reading was declined; the note names the role row it became."
+    },
     "the_reading_is_carried_as_a_dated_profile_fact_on_the_card": {
       "disposition": "refused",
       "statement": "The completed pass returned `corroborated_enrichment` naming a trade or a life event, and T-1469 read it against the card: it is carried VERBATIM in `persons[].profile_facts[]`, the committed candidate-fact table's spend (T-1232), with the finding's own `as_read` wording, its source, the date it speaks about and the research record id it came from. The 1835 trade field reads `none_recorded` on these four and that is the answer their evidence supports -- a tavern remembered in a local history and a map drawn in 1834 are events this layer dates, not trades the scene-date field may assert. The reading has reached a structured field; it is not waiting on one."
@@ -100,7 +118,7 @@
     },
     "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date": {
       "disposition": "refused",
-      "statement": "The completed pass returned `corroborated_enrichment` naming a trade, a shop, a tavern, a store or the premises one was kept at, and T-1469 read it against the finished business layer: the card's 1835 trade field ALREADY carries that trade, graded and citing a source of its own, and the premises stands beside it in the household's `works_at` or in a `persons[].workplaces[]` row naming its `biz_*` record. Under the evidence ladder ratified 2026-09-03 corroboration corroborates; it does not promote, and a second volume agreeing that a man the card already calls a saddler was a saddler names no field to fill. The fields it reaches are named on this unit's own note, which prints the card's value beside the finding."
+      "statement": "The completed pass returned `corroborated_enrichment` naming a trade, a shop, a tavern, a store or the premises one was kept at, and T-1469 read it against the finished business layer: the card's 1835 trade field ALREADY carries that trade, graded and citing a source of its own, and the premises stands beside it in the household's work row in `associated_with` or in a `persons[].workplaces[]` row naming its `biz_*` record. Under the evidence ladder ratified 2026-09-03 corroboration corroborates; it does not promote, and a second volume agreeing that a man the card already calls a saddler was a saddler names no field to fill. The fields it reaches are named on this unit's own note, which prints the card's value beside the finding."
     },
     "the_trade_or_premises_is_printed_for_a_year_after_the_scene_date": {
       "disposition": "later_only",
@@ -121,7 +139,7 @@
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/bates_john_jr",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on bates_john_jr returned: “The 1843 Chicago directory identifies John Bates Jr. as an auctioneer at 174 Lake Street, independently extending the exact-name and trade match beyond Andreas.” Sources as recorded: norris_chicago_directory_1843. T-1469 reads that as an auctioneer's trade, and a Lake Street address the 1843 directory prints. The card carries it at data/residents/households/hh_bates_john_jr.json#persons[bates_john_jr].occupation = “auctioneer” (attested, in the 1 July 1835 view); data/residents/households/hh_bates_john_jr.json#works_at = “bates_auction_room” (attested, in the 1 July 1835 view)."
+      "note": "The pass on bates_john_jr returned: “The 1843 Chicago directory identifies John Bates Jr. as an auctioneer at 174 Lake Street, independently extending the exact-name and trade match beyond Andreas.” Sources as recorded: norris_chicago_directory_1843. T-1469 reads that as an auctioneer's trade, and a Lake Street address the 1843 directory prints. The card carries it at data/residents/households/hh_bates_john_jr.json#persons[bates_john_jr].occupation = “auctioneer” (attested, in the 1 July 1835 view); data/residents/households/hh_bates_john_jr.json#associated_with[0] = “bates_auction_room” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/beaubien_josette",
@@ -146,7 +164,7 @@
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/calhoun_john",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on calhoun_john returned: “The Encyclopedia of Chicago independently identifies John Calhoun as founder of the Chicago Weekly Democrat in 1833 and operator of the city's earliest press.” Sources as recorded: encyclopedia_chicago_newspapers. T-1469 reads that as the founding and operation of a printing office. The card carries it at data/residents/households/hh_calhoun_john.json#persons[calhoun_john].occupation = “editor” (attested, in the 1 July 1835 view); data/residents/households/hh_calhoun_john.json#persons[calhoun_john].workplaces[0] = “Chicago Democrat printing office” (attested, in the 1 July 1835 view); data/residents/households/hh_calhoun_john.json#works_at = “chicago_democrat_office” (attested, in the 1 July 1835 view)."
+      "note": "The pass on calhoun_john returned: “The Encyclopedia of Chicago independently identifies John Calhoun as founder of the Chicago Weekly Democrat in 1833 and operator of the city's earliest press.” Sources as recorded: encyclopedia_chicago_newspapers. T-1469 reads that as the founding and operation of a printing office. The card carries it at data/residents/households/hh_calhoun_john.json#persons[calhoun_john].occupation = “editor” (attested, in the 1 July 1835 view); data/residents/households/hh_calhoun_john.json#persons[calhoun_john].workplaces[0] = “Chicago Democrat printing office” (attested, in the 1 July 1835 view); data/residents/households/hh_calhoun_john.json#associated_with[0] = “chicago_democrat_office” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/case_nehemiah",
@@ -161,12 +179,12 @@
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/clybourne_archibald",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on clybourne_archibald returned: “The Encyclopedia of Chicago places Clybourn's slaughterhouse at the city limits from 1827 and describes his 1830s door-to-door meat trade, corroborating occupation while preserving its outside-town location.” Sources as recorded: encyclopedia_chicago_food_processing. T-1469 reads that as a slaughterhouse and a meat trade with their premises. The card carries it at data/residents/households/hh_clybourne_archibald.json#persons[clybourne_archibald].occupation = “butcher” (attested, in the 1 July 1835 view); data/residents/households/hh_clybourne_archibald.json#works_at = “clybourn_slaughterhouse” (attested, in the 1 July 1835 view)."
+      "note": "The pass on clybourne_archibald returned: “The Encyclopedia of Chicago places Clybourn's slaughterhouse at the city limits from 1827 and describes his 1830s door-to-door meat trade, corroborating occupation while preserving its outside-town location.” Sources as recorded: encyclopedia_chicago_food_processing. T-1469 reads that as a slaughterhouse and a meat trade with their premises. The card carries it at data/residents/households/hh_clybourne_archibald.json#persons[clybourne_archibald].occupation = “butcher” (attested, in the 1 July 1835 view); data/residents/households/hh_clybourne_archibald.json#associated_with[0] = “clybourn_slaughterhouse” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/couch_ira",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on couch_ira returned: “Chicago History Museum and WTTW independently connect Ira Couch to the Tremont House. Later summaries differ on when management began, so Andreas's earlier 1834 evidence remains qualified rather than replaced.” Sources as recorded: chm_ira_couch_portrait, wttw_ira_couch. T-1469 reads that as the keeping of the Tremont House. The card carries it at data/residents/households/hh_couch_ira.json#persons[couch_ira].occupation = “hotel_keeper” (attested, in the 1 July 1835 view); data/residents/households/hh_couch_ira.json#works_at = “tremont_house_1” (attested, in the 1 July 1835 view)."
+      "note": "The pass on couch_ira returned: “Chicago History Museum and WTTW independently connect Ira Couch to the Tremont House. Later summaries differ on when management began, so Andreas's earlier 1834 evidence remains qualified rather than replaced.” Sources as recorded: chm_ira_couch_portrait, wttw_ira_couch. T-1469 reads that as the keeping of the Tremont House. The card carries it at data/residents/households/hh_couch_ira.json#persons[couch_ira].occupation = “hotel_keeper” (attested, in the 1 July 1835 view); data/residents/households/hh_couch_ira.json#associated_with[1] = “tremont_house_1” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/covell_thomas_r",
@@ -215,13 +233,13 @@
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/hamilton_richard_j",
-      "rule": "the_enrichment_names_a_civic_church_or_school_post_no_field_carries",
-      "note": "The pass on hamilton_richard_j returned: “A digitized Cook County history identifies Richard Jones Hamilton as clerk and recorder from county organization in 1831 and later probate judge, treasurer and school commissioner.” Sources as recorded: goodman_history_cook_county_hamilton. T-1301 reads that as county clerk and recorder, and the later county offices."
+      "rule": "the_post_is_carried_by_the_card_at_the_scene_date",
+      "note": "The pass on hamilton_richard_j returned: “A digitized Cook County history identifies Richard Jones Hamilton as clerk and recorder from county organization in 1831 and later probate judge, treasurer and school commissioner.” Sources as recorded: goodman_history_cook_county_hamilton. T-1301 read that as county clerk and recorder, and the later county offices. The card carries it at data/residents/households/hh_hamilton_richard_j.json#persons[hamilton_richard_j].occupation = “county_clerk” (attested, in the 1 July 1835 view); data/residents/households/hh_hamilton_richard_j.json#persons[hamilton_richard_j].roles[1] = “clerk of the circuit court” (inferred, in the 1 July 1835 view); data/businesses/authored/biz_cook_county_offices.json#staff[hamilton_richard_j] = “county_clerk” (attested). The county offices' record names him its clerk, which is the card's 1835 office. The recordership and the later county offices are Andreas's, dated after the scene on the record's own reading, and are not seated."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/hogan_john_s_c",
-      "rule": "the_enrichment_names_a_civic_church_or_school_post_no_field_carries",
-      "note": "The pass on hogan_john_s_c returned: “The edited 1835 Illinois incorporation act names John S. C. Hogan as a Chicago corporate trustee. The exact unusual initials, office, place and date independently resolve the identity.” Sources as recorded: pal_chicago_incorporation_1835. T-1301 reads that as a corporate trustee named in the 1835 incorporation act."
+      "rule": "the_post_is_written_onto_the_card_as_a_role_the_1835_view_refuses",
+      "note": "The pass on hogan_john_s_c returned: “The edited 1835 Illinois incorporation act names John S. C. Hogan as a Chicago corporate trustee. The exact unusual initials, office, place and date independently resolve the identity.” Sources as recorded: pal_chicago_incorporation_1835. T-1301 read that as a corporate trustee named in the 1835 incorporation act. T-1569 wrote it as data/residents/households/hh_hogan_john_s_c.json#persons[hogan_john_s_c].roles[7] = “trustee of the town of Chicago” (inferred, outside the 1 July 1835 view). The town had no hall and keeps no record in the business register, so the post names its body and no house."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/house_chester",
@@ -296,8 +314,8 @@
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/robinson_alexander",
-      "rule": "the_enrichment_names_a_birth_or_age_no_field_carries",
-      "note": "The pass on robinson_alexander returned: “The 1833 treaty and Indigenous Chicago corroborate Alexander Robinson's treaty and trading roles and Des Plaines reserve. Current scholarship conflicts with the household's doubtful 1762 birth and by-1816 arrival; exact …” Sources as recorded: treaty_chicago_1833_statutes, indigenous_chicago_alexander_robinson. T-1301 reads that as a birth year current scholarship disputes."
+      "rule": "the_enrichment_disputes_a_birth_year_and_states_none",
+      "note": "The pass on robinson_alexander returned: “The 1833 treaty and Indigenous Chicago corroborate Alexander Robinson's treaty and trading roles and Des Plaines reserve. Current scholarship conflicts with the household's doubtful 1762 birth and by-1816 arrival; exact …” Sources as recorded: treaty_chicago_1833_statutes, indigenous_chicago_alexander_robinson. T-1301 read that as a birth year current scholarship disputes. The card carries `birth_year` 1762 at `inferred`, citing andreas_1884_v1 with Andreas's own hedge (“the years of his life are somewhat doubtful”) in its note. T-1315 read the Indigenous Chicago profile on 2026-10-09: it gives his birth at Fort Mackinac to an Odawa mother and a Scottish father, his move to Chicago after the War of 1812 and his death on 22 April 1872, and NO birth year. The 1833 treaty names him as a party and gives no age. Neither cited source supplies the year the pass said scholarship prefers, so the dispute has nothing to write; the doubtful year keeps its doubt and its grade."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/robinson_catherine",
@@ -311,8 +329,8 @@
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/snow_george_w",
-      "rule": "the_enrichment_names_a_civic_church_or_school_post_no_field_carries",
-      "note": "The pass on snow_george_w returned: “Chicago Historical Society records Snow's December 1833 election as assessor and surveyor. Its memorial attribution of balloon framing conflicts with the Encyclopedia of Chicago's description of that attribution as a …” Sources as recorded: chm_george_snow_assessor, encyclopedia_chicago_balloon_frame. T-1301 reads that as election as assessor and surveyor in December 1833."
+      "rule": "the_post_is_written_onto_the_card_as_a_role_the_1835_view_refuses",
+      "note": "The pass on snow_george_w returned: “Chicago Historical Society records Snow's December 1833 election as assessor and surveyor. Its memorial attribution of balloon framing conflicts with the Encyclopedia of Chicago's description of that attribution as a …” Sources as recorded: chm_george_snow_assessor, encyclopedia_chicago_balloon_frame. T-1301 read that as election as assessor and surveyor in December 1833. T-1569 wrote it as data/residents/households/hh_snow_george_w.json#persons[snow_george_w].roles[1] = “assessor and surveyor” (inferred, outside the 1 July 1835 view). Dated to the month of the election; the card's 1834 town clerkship and public administratorship follow it from the Democrat."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/spring_giles",
@@ -322,7 +340,7 @@
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/taylor_augustine",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on taylor_augustine returned: “Chicago History Museum identifies Augustine Deodat Taylor as designer and builder of St. Mary's in 1833 using balloon-frame construction, while keeping him distinct from brother Anson who hauled lumber.” Sources as recorded: encyclopedia_chicago_church_architecture. T-1469 reads that as a builder's trade and the building of St Mary's. The card carries it at data/residents/households/hh_taylor_augustine.json#persons[taylor_augustine].occupation = “carpenter” (attested, in the 1 July 1835 view); data/residents/households/hh_taylor_augustine.json#works_at = “st_marys_church” (inferred, in the 1 July 1835 view)."
+      "note": "The pass on taylor_augustine returned: “Chicago History Museum identifies Augustine Deodat Taylor as designer and builder of St. Mary's in 1833 using balloon-frame construction, while keeping him distinct from brother Anson who hauled lumber.” Sources as recorded: encyclopedia_chicago_church_architecture. T-1469 reads that as a builder's trade and the building of St Mary's. The card carries it at data/residents/households/hh_taylor_augustine.json#persons[taylor_augustine].occupation = “carpenter” (attested, in the 1 July 1835 view); data/residents/households/hh_taylor_augustine.json#associated_with[0] = “st_marys_church” (inferred, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/temple_john_t",
@@ -388,7 +406,7 @@
     {
       "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/blodgett_tyler_k",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on blodgett_tyler_k returned: “A contemporary-recollection compilation independently identifies Tyler K. Blodgett's 1833 north-bank brickyard and brick house. It supports the exact name and trade but does not establish his 1 July 1835 roof.” Sources as recorded: ingale_early_chicago_reminiscence. T-1469 reads that as an 1833 north-bank brickyard and a brick house. The card carries it at data/residents/households/hh_blodgett_tyler_k.json#persons[blodgett_tyler_k].occupation = “brickmaker” (attested, in the 1 July 1835 view); data/residents/households/hh_blodgett_tyler_k.json#works_at = “brickyard_north_side” (attested, in the 1 July 1835 view)."
+      "note": "The pass on blodgett_tyler_k returned: “A contemporary-recollection compilation independently identifies Tyler K. Blodgett's 1833 north-bank brickyard and brick house. It supports the exact name and trade but does not establish his 1 July 1835 roof.” Sources as recorded: ingale_early_chicago_reminiscence. T-1469 reads that as an 1833 north-bank brickyard and a brick house. The card carries it at data/residents/households/hh_blodgett_tyler_k.json#persons[blodgett_tyler_k].occupation = “brickmaker” (attested, in the 1 July 1835 view); data/residents/households/hh_blodgett_tyler_k.json#associated_with[0] = “brickyard_north_side” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/bly_rouse",
@@ -398,7 +416,7 @@
     {
       "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/brown_rufus",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on brown_rufus returned: “The First Presbyterian history describes Rufus Brown's log boarding house as full during the church's earliest period. It corroborates the exact-name lodging role; it does not name Mrs Brown or resolve a street address.” Sources as recorded: first_presbyterian_chicago_1833_1913. T-1469 reads that as a log boarding house kept full. The card carries it at data/residents/households/hh_brown_rufus.json#persons[brown_rufus].occupation = “boarding_house_keeper” (inferred, in the 1 July 1835 view); data/residents/households/hh_brown_rufus.json#works_at = “brown_boarding_house” (attested, in the 1 July 1835 view)."
+      "note": "The pass on brown_rufus returned: “The First Presbyterian history describes Rufus Brown's log boarding house as full during the church's earliest period. It corroborates the exact-name lodging role; it does not name Mrs Brown or resolve a street address.” Sources as recorded: first_presbyterian_chicago_1833_1913. T-1469 reads that as a log boarding house kept full. The card carries it at data/residents/households/hh_brown_rufus.json#persons[brown_rufus].occupation = “boarding_house_keeper” (inferred, in the 1 July 1835 view); data/residents/households/hh_brown_rufus.json#associated_with[1] = “brown_boarding_house” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/butterfield_ben",
@@ -439,7 +457,7 @@
     {
       "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/cobb_silas_b",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on cobb_silas_b returned: “Early reminiscence and the 1843 directory independently connect Silas B. Cobb with saddlery and harness work and later premises at 171 Lake Street. The later address extends the profile but is not back-projected to 1835.” Sources as recorded: ingale_early_chicago_reminiscence, norris_chicago_directory_1843. T-1469 reads that as saddlery and harness work, and a Lake Street address the 1843 directory prints. The card carries it at data/residents/households/hh_goss_cobb.json#persons[cobb_silas_b].occupation = “saddler” (inferred, in the 1 July 1835 view); data/residents/households/hh_goss_cobb.json#persons[cobb_silas_b].workplaces[0] = “S. B. Cobb, saddle, harness and trunk manufactory” (attested, in the 1 July 1835 view); data/residents/households/hh_goss_cobb.json#works_at = “goss_cobb_saddlery” (attested, in the 1 July 1835 view)."
+      "note": "The pass on cobb_silas_b returned: “Early reminiscence and the 1843 directory independently connect Silas B. Cobb with saddlery and harness work and later premises at 171 Lake Street. The later address extends the profile but is not back-projected to 1835.” Sources as recorded: ingale_early_chicago_reminiscence, norris_chicago_directory_1843. T-1469 reads that as saddlery and harness work, and a Lake Street address the 1843 directory prints. The card carries it at data/residents/households/hh_goss_cobb.json#persons[cobb_silas_b].occupation = “saddler” (inferred, in the 1 July 1835 view); data/residents/households/hh_goss_cobb.json#persons[cobb_silas_b].workplaces[0] = “S. B. Cobb, saddle, harness and trunk manufactory” (attested, in the 1 July 1835 view); data/residents/households/hh_goss_cobb.json#associated_with[0] = “goss_cobb_saddlery” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/cohen_peter",
@@ -459,7 +477,7 @@
     {
       "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/davis_t_o",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on davis_t_o returned: “Cook County history corroborates T. O. Davis's role in establishing Chicago's Whig newspaper in 1835. Initials, place, occupation and year resolve the identity; no full-name expansion was safely found.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as the establishing of the Whig newspaper in 1835. The card carries it at data/residents/households/hh_davis_t_o.json#persons[davis_t_o].occupation = “editor” (attested, in the 1 July 1835 view); data/residents/households/hh_davis_t_o.json#works_at = “chicago_american_office” (attested, in the 1 July 1835 view)."
+      "note": "The pass on davis_t_o returned: “Cook County history corroborates T. O. Davis's role in establishing Chicago's Whig newspaper in 1835. Initials, place, occupation and year resolve the identity; no full-name expansion was safely found.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as the establishing of the Whig newspaper in 1835. The card carries it at data/residents/households/hh_davis_t_o.json#persons[davis_t_o].occupation = “editor” (attested, in the 1 July 1835 view); data/residents/households/hh_davis_t_o.json#associated_with[0] = “chicago_american_office” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/dunlap_alva",
@@ -469,12 +487,12 @@
     {
       "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/elston_daniel",
       "rule": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
-      "note": "The pass on elston_daniel returned: “The University of Illinois finding aid identifies Daniel Elston as an English merchant arriving in Chicago in 1833 who manufactured soap and candles and later operated a distillery and brewery.” Sources as recorded: uiuc_daniel_elston_papers. T-1469 reads that as soap and candle manufacture, and a later distillery and brewery. The card carries it at data/residents/households/hh_elston_daniel.json#persons[elston_daniel].occupation.withdrawn_from_scene_date = “soap_and_candle_maker” (attested, outside the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#persons[elston_daniel].roles[0] = “soap_and_candle_maker” (attested, outside the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#persons[elston_daniel].workplaces[0] = “Chicago Soap and Candle Manufactory” (attested, in the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#works_at = “elston_soap_candle_manufactory” (attested, in the 1 July 1835 view)."
+      "note": "The pass on elston_daniel returned: “The University of Illinois finding aid identifies Daniel Elston as an English merchant arriving in Chicago in 1833 who manufactured soap and candles and later operated a distillery and brewery.” Sources as recorded: uiuc_daniel_elston_papers. T-1469 reads that as soap and candle manufacture, and a later distillery and brewery. The card carries it at data/residents/households/hh_elston_daniel.json#persons[elston_daniel].occupation.withdrawn_from_scene_date = “soap_and_candle_maker” (attested, outside the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#persons[elston_daniel].roles[0] = “soap_and_candle_maker” (attested, outside the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#persons[elston_daniel].workplaces[0] = “Chicago Soap and Candle Manufactory” (attested, in the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#associated_with[0] = “elston_soap_candle_manufactory” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/fullerton_alexander",
-      "rule": "the_enrichment_names_a_civic_church_or_school_post_no_field_carries",
-      "note": "The pass on fullerton_alexander returned: “Cook County history identifies Alexander N. Fullerton in Chicago's early legal and municipal record, including the 1835 town-clerk chronology. This supports the exact full name and profession without establishing his …” Sources as recorded: goodman_history_cook_county_early. T-1301 reads that as the 1835 town-clerk chronology."
+      "rule": "the_post_is_carried_with_the_card_s_own_bound_outside_the_window",
+      "note": "The pass on fullerton_alexander returned: “Cook County history identifies Alexander N. Fullerton in Chicago's early legal and municipal record, including the 1835 town-clerk chronology. This supports the exact full name and profession without establishing his …” Sources as recorded: goodman_history_cook_county_early. T-1301 read that as the 1835 town-clerk chronology. The card carries it at data/residents/households/hh_fullerton_alexander.json#persons[fullerton_alexander].roles[2] = “secretary to the town trustees” (inferred, outside the 1 July 1835 view). The Democrat prints him secretary to the town trustees on 19 August 1835, after the scene, and the chronology dates the clerkship to the same year and no finer."
     },
     {
       "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/gale_stephen_f",
@@ -489,7 +507,7 @@
     {
       "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/ingersoll_chester",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on ingersoll_chester returned: “Municipal preservation research dates Chester Ingersoll's Plainfield plat to 1834, while the Green Tree history names him as the Chicago house's 1834-37 landlord. The two places are retained as a mobility question rather than silently collapsed.” Sources as recorded: plainfield_john_temple_report, chicagology_prefire127. T-1469 reads that as the Green Tree house held as landlord 1834-37. The card carries it at data/residents/households/hh_ingersoll_chester.json#persons[ingersoll_chester].occupation = “tavern_keeper” (attested, in the 1 July 1835 view); data/residents/households/hh_ingersoll_chester.json#works_at = “green_tree_tavern” (attested, in the 1 July 1835 view)."
+      "note": "The pass on ingersoll_chester returned: “Municipal preservation research dates Chester Ingersoll's Plainfield plat to 1834, while the Green Tree history names him as the Chicago house's 1834-37 landlord. The two places are retained as a mobility question rather than silently collapsed.” Sources as recorded: plainfield_john_temple_report, chicagology_prefire127. T-1469 reads that as the Green Tree house held as landlord 1834-37. The card carries it at data/residents/households/hh_ingersoll_chester.json#persons[ingersoll_chester].occupation = “tavern_keeper” (attested, in the 1 July 1835 view); data/residents/households/hh_ingersoll_chester.json#associated_with[1] = “green_tree_tavern” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/jones_benjamin",
@@ -518,33 +536,28 @@
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/kimberly_edmund_s",
-      "rule": "the_enrichment_names_a_birth_or_age_no_field_carries",
-      "note": "The pass on kimberly_edmund_s returned: “Chicago medical history expands Edmund Stoughton Kimberly with an exact birth date of April 7, 1803, medical education, 1829 marriage, 1832 move to Chicago, 1833 town-trustee service and 1834 cholera-hospital …” Sources as recorded: history_medicine_chicago_kimberly_maxwell. T-1301 reads that as an exact birth date of 7 April 1803."
+      "rule": "the_enrichment_gives_a_birth_the_card_already_carries",
+      "note": "The pass on kimberly_edmund_s returned: “Chicago medical history expands Edmund Stoughton Kimberly with an exact birth date of April 7, 1803, medical education, 1829 marriage, 1832 move to Chicago, 1833 town-trustee service and 1834 cholera-hospital …” Sources as recorded: history_medicine_chicago_kimberly_maxwell. T-1301 read that as an exact birth date of 7 April 1803. The card already carries it: `birth_year` 1803 and `age_on_scene_date` 32, both `attested` and both citing history_medicine_chicago_kimberly_maxwell, the very volume this pass cited, written there by T-0478 (“born at Troy, New York, April 7, 1803”). T-1315 read the biography on 2026-10-09 (the Internet Archive text of the 1922 volume, the Kimberly biography headed “(1803-1874)”) and it says exactly that. Nothing to write."
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/kinzie_robert_a",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on kinzie_robert_a returned: “Published Cook County biography states Robert A. Kinzie remained mostly in Chicago from 1825 to 1840, built a frame store in 1832 and became a member of Kinzie, Davis & Hyde in 1835. Exact name, family context, business and year strongly corroborate the profile.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as a frame store and membership of Kinzie, Davis & Hyde. The card carries it at data/residents/households/hh_kinzie_robert_a.json#persons[kinzie_robert_a].occupation = “merchant” (attested, in the 1 July 1835 view); data/residents/households/hh_kinzie_robert_a.json#works_at = “robert_kinzie_store” (attested, in the 1 July 1835 view)."
+      "note": "The pass on kinzie_robert_a returned: “Published Cook County biography states Robert A. Kinzie remained mostly in Chicago from 1825 to 1840, built a frame store in 1832 and became a member of Kinzie, Davis & Hyde in 1835. Exact name, family context, business and year strongly corroborate the profile.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as a frame store and membership of Kinzie, Davis & Hyde. The card carries it at data/residents/households/hh_kinzie_robert_a.json#persons[kinzie_robert_a].occupation = “merchant” (attested, in the 1 July 1835 view); data/residents/households/hh_kinzie_robert_a.json#associated_with[0] = “robert_kinzie_store” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/mason_matthias",
       "rule": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
-      "note": "The pass on mason_matthias returned: “Early Cook County history identifies Matthias/Mathias Mason opening a Chicago blacksmith shop in fall 1833. The uncommon name, trade, place and date independently support the profile; spelling variants are retained as variants rather than separate people.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as a blacksmith shop opened in the fall of 1833. The card carries it at data/residents/households/hh_mason_matthias.json#persons[mason_matthias].occupation.withdrawn_from_scene_date = “blacksmith” (attested, outside the 1 July 1835 view); data/residents/households/hh_mason_matthias.json#persons[mason_matthias].roles[0] = “blacksmith” (attested, outside the 1 July 1835 view); data/residents/households/hh_mason_matthias.json#persons[mason_matthias].workplaces[0] = “Matthias Mason & Co.” (attested, in the 1 July 1835 view); data/residents/households/hh_mason_matthias.json#works_at = “mason_blacksmith_shop” (attested, in the 1 July 1835 view)."
+      "note": "The pass on mason_matthias returned: “Early Cook County history identifies Matthias/Mathias Mason opening a Chicago blacksmith shop in fall 1833. The uncommon name, trade, place and date independently support the profile; spelling variants are retained as variants rather than separate people.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as a blacksmith shop opened in the fall of 1833. The card carries it at data/residents/households/hh_mason_matthias.json#persons[mason_matthias].occupation.withdrawn_from_scene_date = “blacksmith” (attested, outside the 1 July 1835 view); data/residents/households/hh_mason_matthias.json#persons[mason_matthias].roles[0] = “blacksmith” (attested, outside the 1 July 1835 view); data/residents/households/hh_mason_matthias.json#persons[mason_matthias].workplaces[0] = “Matthias Mason & Co.” (attested, in the 1 July 1835 view); data/residents/households/hh_mason_matthias.json#associated_with[0] = “mason_blacksmith_shop” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/maxwell_philip",
-      "rule": "the_enrichment_names_a_birth_or_age_no_field_carries",
-      "note": "The pass on maxwell_philip returned: “Chicago medical history gives Philip Maxwell's full birth data and places him as Fort Dearborn's last surgeon from 1833 through the fort's final 1836 abandonment. This strongly corroborates his scene-period Chicago role.” Sources as recorded: history_medicine_chicago_kimberly_maxwell. T-1301 reads that as full birth data."
+      "rule": "the_enrichment_gives_a_birth_the_card_already_carries",
+      "note": "The pass on maxwell_philip returned: “Chicago medical history gives Philip Maxwell's full birth data and places him as Fort Dearborn's last surgeon from 1833 through the fort's final 1836 abandonment. This strongly corroborates his scene-period Chicago role.” Sources as recorded: history_medicine_chicago_kimberly_maxwell. T-1301 read that as full birth data. The card already carries it: `birth_year` 1799, `attested`, noted “3 April 1799” and citing andreas_1884_v1. T-1315 read the 1922 biography on 2026-10-09 (“Philip Maxwell, Eleventh Surgeon of Fort Dearborn (1799-1859)”, p. 21): “Born in Guilford, Windham County, Vt., April 3, 1799”. The same day as Andreas, so a second volume agrees and nothing moves."
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/mckee_david",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on mckee_david returned: “Early Chicago histories independently identify David McKee as the government/agency blacksmith near the foot of State Street. The occupation and institutional role are distinctive enough to corroborate the resident record, while the exact July 1835 workplace continuity is not extended beyond the sources.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as the agency blacksmith's shop at the foot of State Street. The card carries it at data/residents/households/hh_mckee_david.json#persons[mckee_david].occupation = “blacksmith” (attested, in the 1 July 1835 view); data/residents/households/hh_mckee_david.json#works_at = “blacksmith_shop_state_st” (attested, in the 1 July 1835 view)."
-    },
-    {
-      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/meeker_joseph",
-      "rule": "the_enrichment_names_a_civic_church_or_school_post_no_field_carries",
-      "note": "The pass on meeker_joseph returned: “The First Presbyterian history says Joseph Meeker came to Chicago early in 1833, joined the church September 8, 1833, served as Sunday-school librarian March 16, 1835, and built the congregation's first meeting house. …” Sources as recorded: first_presbyterian_chicago_1833_1913. T-1301 reads that as church membership, a Sunday-school office and the first meeting house."
+      "note": "The pass on mckee_david returned: “Early Chicago histories independently identify David McKee as the government/agency blacksmith near the foot of State Street. The occupation and institutional role are distinctive enough to corroborate the resident record, while the exact July 1835 workplace continuity is not extended beyond the sources.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as the agency blacksmith's shop at the foot of State Street. The card carries it at data/residents/households/hh_mckee_david.json#persons[mckee_david].occupation = “blacksmith” (attested, in the 1 July 1835 view); data/residents/households/hh_mckee_david.json#associated_with[1] = “blacksmith_shop_state_st” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/mulford_e_h",
@@ -554,7 +567,7 @@
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/murphy_john",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on murphy_john returned: “Cook County history reports John and Harriet Murphy taking charge of Mark Beaubien's new Exchange Coffee House in August 1834 and remaining until 1836. The named spouse, hotel and bounded chronology strongly corroborate the household across the scene date.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as the keeping of the Exchange Coffee House from August 1834. The card carries it at data/residents/households/hh_murphy_john.json#persons[murphy_john].occupation = “tavern_keeper” (attested, in the 1 July 1835 view); data/residents/households/hh_murphy_john.json#works_at = “exchange_coffee_house” (attested, in the 1 July 1835 view)."
+      "note": "The pass on murphy_john returned: “Cook County history reports John and Harriet Murphy taking charge of Mark Beaubien's new Exchange Coffee House in August 1834 and remaining until 1836. The named spouse, hotel and bounded chronology strongly corroborate the household across the scene date.” Sources as recorded: goodman_history_cook_county_early. T-1469 reads that as the keeping of the Exchange Coffee House from August 1834. The card carries it at data/residents/households/hh_murphy_john.json#persons[murphy_john].occupation = “tavern_keeper” (attested, in the 1 July 1835 view); data/residents/households/hh_murphy_john.json#associated_with[1] = “exchange_coffee_house” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/norton_nelson_r",
@@ -574,22 +587,17 @@
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/pruyne_peter",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on pruyne_peter returned: “Medical/pharmaceutical histories independently identify Peter Pruyne and Edmund Stoughton Kimberly as operators of Chicago's second drug store from early 1833. The business partnership strengthens Pruyne's profile but does not by itself establish a dwelling.” Sources as recorded: history_medicine_chicago_kimberly_maxwell. T-1469 reads that as a drug store kept in partnership from early 1833. The card carries it at data/residents/households/hh_pruyne_kimberly.json#persons[pruyne_peter].occupation = “druggist” (attested, in the 1 July 1835 view); data/residents/households/hh_pruyne_kimberly.json#persons[pruyne_peter].workplaces[0] = “P. Pruyne & Co.” (attested, in the 1 July 1835 view); data/residents/households/hh_pruyne_kimberly.json#works_at = “pruyne_kimball_drugstore” (inferred, in the 1 July 1835 view)."
+      "note": "The pass on pruyne_peter returned: “Medical/pharmaceutical histories independently identify Peter Pruyne and Edmund Stoughton Kimberly as operators of Chicago's second drug store from early 1833. The business partnership strengthens Pruyne's profile but does not by itself establish a dwelling.” Sources as recorded: history_medicine_chicago_kimberly_maxwell. T-1469 reads that as a drug store kept in partnership from early 1833. The card carries it at data/residents/households/hh_pruyne_kimberly.json#persons[pruyne_peter].occupation = “druggist” (attested, in the 1 July 1835 view); data/residents/households/hh_pruyne_kimberly.json#persons[pruyne_peter].workplaces[0] = “P. Pruyne & Co.” (attested, in the 1 July 1835 view); data/residents/households/hh_pruyne_kimberly.json#associated_with[0] = “pruyne_kimball_drugstore” (inferred, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/sproat_grenville",
-      "rule": "the_enrichment_names_a_civic_church_or_school_post_no_field_carries",
-      "note": "The pass on sproat_grenville returned: “Early education histories identify Granville T. Sproat opening an English and Classical School in Chicago in fall 1833 and Sarah L. Warren assisting him in March 1834. The source's Granville spelling is retained as a …” Sources as recorded: goodman_history_cook_county_early. T-1301 reads that as an English and Classical School opened in the fall of 1833."
+      "rule": "the_post_is_carried_by_the_card_at_the_scene_date",
+      "note": "The pass on sproat_grenville returned: “Early education histories identify Granville T. Sproat opening an English and Classical School in Chicago in fall 1833 and Sarah L. Warren assisting him in March 1834. The source's Granville spelling is retained as a …” Sources as recorded: goodman_history_cook_county_early. T-1301 read that as an English and Classical School opened in the fall of 1833. The card carries it at data/residents/households/hh_sproat_grenville.json#persons[sproat_grenville].occupation = “schoolteacher” (attested, in the 1 July 1835 view); data/residents/households/hh_sproat_grenville.json#persons[sproat_grenville].workplaces[0] = “proprietor” (attested, in the 1 July 1835 view); data/residents/households/hh_sproat_grenville.json#associated_with[0] = “temple_building” (attested, in the 1 July 1835 view); data/businesses/biz_the_chicago_academy.json#staff[sproat_grenville] = “proprietor” (attested). The academy's record and his card name each other."
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/st_cyr_john_mary",
-      "rule": "the_enrichment_names_a_civic_church_or_school_post_no_field_carries",
-      "note": "The pass on st_cyr_john_mary returned: “Catholic institutional history independently places John Mary Irenaeus St. Cyr's appointment to Chicago in 1833, first Mass and first church construction, with recall in 1837. The bounded ministry strongly corroborates …” Sources as recorded: catholic_chicago_st_cyr_1833. T-1301 reads that as an 1833 appointment, the first Mass and the first church."
-    },
-    {
-      "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/steele_ashbel",
-      "rule": "the_enrichment_names_a_civic_church_or_school_post_no_field_carries",
-      "note": "The pass on steele_ashbel returned: “Cook County histories place Ashbel Steele in the early Chicago/Cook County civic record and identify him as county coroner in the 1835 period. This supports continued local presence while stopping short of assigning an …” Sources as recorded: goodman_history_cook_county_early. T-1301 reads that as the county coroner's office in the 1835 period."
+      "rule": "the_post_is_carried_by_the_card_at_the_scene_date",
+      "note": "The pass on st_cyr_john_mary returned: “Catholic institutional history independently places John Mary Irenaeus St. Cyr's appointment to Chicago in 1833, first Mass and first church construction, with recall in 1837. The bounded ministry strongly corroborates …” Sources as recorded: catholic_chicago_st_cyr_1833. T-1301 read that as an 1833 appointment, the first Mass and the first church. The card carries it at data/residents/households/hh_st_cyr_john_mary.json#persons[st_cyr_john_mary].occupation = “priest” (attested, in the 1 July 1835 view); data/residents/households/hh_st_cyr_john_mary.json#associated_with[1] = “st_marys_church” (attested, in the 1 July 1835 view); data/businesses/authored/biz_st_marys_church.json#staff[st_cyr_john_mary] = “priest” (attested). St Mary's record names him its priest and his card works at the church."
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/sweet_alanson",
@@ -599,7 +607,7 @@
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/thomas_frederick",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on thomas_frederick returned: “The Encyclopedia of Chicago independently identifies Frederick Thomas as Chicago's first barber-surgeon and a retail druggist in the 1830s, corroborating the unusual combined occupation. The project newspaper corpus remains the stronger path for exact 1835 advertising/address detail.” Sources as recorded: encyclopedia_chicago_frederick_thomas. T-1469 reads that as a barber-surgeon's and retail druggist's trade. The card carries it at data/residents/households/hh_thomas_frederick.json#persons[thomas_frederick].occupation = “barber_surgeon” (attested, in the 1 July 1835 view); data/residents/households/hh_thomas_frederick.json#persons[thomas_frederick].workplaces[0] = “Frederick Thomas, drugs and paints” (attested, in the 1 July 1835 view); data/residents/households/hh_thomas_frederick.json#works_at = “frederick_thomas_shop” (attested, in the 1 July 1835 view)."
+      "note": "The pass on thomas_frederick returned: “The Encyclopedia of Chicago independently identifies Frederick Thomas as Chicago's first barber-surgeon and a retail druggist in the 1830s, corroborating the unusual combined occupation. The project newspaper corpus remains the stronger path for exact 1835 advertising/address detail.” Sources as recorded: encyclopedia_chicago_frederick_thomas. T-1469 reads that as a barber-surgeon's and retail druggist's trade. The card carries it at data/residents/households/hh_thomas_frederick.json#persons[thomas_frederick].occupation = “barber_surgeon” (attested, in the 1 July 1835 view); data/residents/households/hh_thomas_frederick.json#persons[thomas_frederick].workplaces[0] = “Frederick Thomas, drugs and paints” (attested, in the 1 July 1835 view); data/residents/households/hh_thomas_frederick.json#associated_with[0] = “frederick_thomas_shop” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/titcomb_timothy",
@@ -609,7 +617,7 @@
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/walters_william",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on walters_william returned: “Andreas-derived Wolf Point history gives William Walters as proprietor of the Wolf Point Tavern from 1833 through 1836. That strongly supports scene-period continuity, but because it is a retrospective year range rather than a July 1 instrument the household's cautious presence flag is not silently upgraded here.” Sources as recorded: chicagology_wolf_point_walters. T-1469 reads that as the Wolf Point Tavern kept 1833-36. The card carries it at data/residents/households/hh_walters_william.json#persons[walters_william].occupation = “tavern_keeper” (inferred, in the 1 July 1835 view); data/residents/households/hh_walters_william.json#works_at = “wolf_point_tavern” (inferred, in the 1 July 1835 view)."
+      "note": "The pass on walters_william returned: “Andreas-derived Wolf Point history gives William Walters as proprietor of the Wolf Point Tavern from 1833 through 1836. That strongly supports scene-period continuity, but because it is a retrospective year range rather than a July 1 instrument the household's cautious presence flag is not silently upgraded here.” Sources as recorded: chicagology_wolf_point_walters. T-1469 reads that as the Wolf Point Tavern kept 1833-36. The card carries it at data/residents/households/hh_walters_william.json#persons[walters_william].occupation = “tavern_keeper” (inferred, in the 1 July 1835 view); data/residents/households/hh_walters_william.json#associated_with[1] = “wolf_point_tavern” (inferred, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/ward_hanibal",
@@ -618,8 +626,8 @@
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/watkins_john",
-      "rule": "the_enrichment_names_a_civic_church_or_school_post_no_field_carries",
-      "note": "The pass on watkins_john returned: “Cook County education history specifically says John Watkins taught a successful school in Chicago in 1835; another early account says he was again on the North Side that year. This independently corroborates occupation …” Sources as recorded: goodman_history_cook_county_early. T-1301 reads that as a school taught in Chicago in 1835."
+      "rule": "the_post_is_carried_by_the_card_at_the_scene_date",
+      "note": "The pass on watkins_john returned: “Cook County education history specifically says John Watkins taught a successful school in Chicago in 1835; another early account says he was again on the North Side that year. This independently corroborates occupation …” Sources as recorded: goodman_history_cook_county_early. T-1301 read that as a school taught in Chicago in 1835. The card carries it at data/residents/households/hh_watkins_john.json#persons[watkins_john].occupation = “schoolteacher” (attested, in the 1 July 1835 view); data/residents/households/hh_watkins_john.json#persons[watkins_john].workplaces[0] = “proprietor” (attested, in the 1 July 1835 view); data/residents/households/hh_watkins_john.json#associated_with[0] = “north_side_school_1833” (attested, in the 1 July 1835 view); data/businesses/biz_john_watkins.json#staff[watkins_john] = “proprietor” (attested). His school's record and his card name each other."
     },
     {
       "unit": "residents:data/research/residents/pass_04_75_cohort.json#people/white_edson",
@@ -679,7 +687,7 @@
     {
       "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/lampman_henry_s",
       "rule": "the_trade_or_premises_is_carried_by_the_card_at_the_scene_date",
-      "note": "The pass on lampman_henry_s returned: “A historical compilation states that Tyler K. Blodgett's spring 1833 north-side brickyard engaged Henry S. Lampman, then of Ann Arbor, as a workman; it calls him Chicago's first brickmaker. This adds a trade and Michigan-origin lead while leaving household membership and 1 July 1835 address unresolved.” Sources as recorded: chicagology_chicago_brick. T-1469 reads that as a brickmaker's trade and the yard that engaged him. The card carries it at data/residents/households/hh_blodgett_tyler_k.json#persons[lampman_henry_s].occupation = “brickmaker” (attested, in the 1 July 1835 view); data/residents/households/hh_blodgett_tyler_k.json#works_at = “brickyard_north_side” (attested, in the 1 July 1835 view)."
+      "note": "The pass on lampman_henry_s returned: “A historical compilation states that Tyler K. Blodgett's spring 1833 north-side brickyard engaged Henry S. Lampman, then of Ann Arbor, as a workman; it calls him Chicago's first brickmaker. This adds a trade and Michigan-origin lead while leaving household membership and 1 July 1835 address unresolved.” Sources as recorded: chicagology_chicago_brick. T-1469 reads that as a brickmaker's trade and the yard that engaged him. The card carries it at data/residents/households/hh_blodgett_tyler_k.json#persons[lampman_henry_s].occupation = “brickmaker” (attested, in the 1 July 1835 view); data/residents/households/hh_blodgett_tyler_k.json#associated_with[0] = “brickyard_north_side” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_05_75_cohort.json#people/murphy_harriet",
@@ -921,8 +929,8 @@
     },
     {
       "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/myers_frederick",
-      "rule": "the_enrichment_names_a_civic_church_or_school_post_no_field_carries",
-      "note": "The pass on myers_frederick returned: “A 1928 Glen Ellyn local history identifies Frederick Myers as a War of 1812 veteran who served as quartermaster's clerk at Fort Dearborn in 1831-33, later traded in furs and owned substantial Chicago land. The unusually …” Sources as recorded: resident_research_myers_glen_ellyn. T-1301 reads that as a quartermaster's clerkship at Fort Dearborn, 1831-33."
+      "rule": "the_post_is_carried_as_a_dated_profile_fact_on_the_card",
+      "note": "The pass on myers_frederick returned: “A 1928 Glen Ellyn local history identifies Frederick Myers as a War of 1812 veteran who served as quartermaster's clerk at Fort Dearborn in 1831-33, later traded in furs and owned substantial Chicago land. The unusually …” Sources as recorded: resident_research_myers_glen_ellyn. T-1301 read that as a quartermaster's clerkship at Fort Dearborn, 1831-33. The card carries it at data/residents/households/hh_myers_frederick.json#persons[myers_frederick].profile_facts[0] = “Quartermaster's clerk at Fort Dearborn, 1831-1833” (inferred, outside the 1 July 1835 view). The garrison is not in the business register, and a clerkship ending in 1833 does not reach the scene."
     },
     {
       "unit": "residents:data/research/residents/pass_09_75_cohort.json#people/pugsley_john_k",
@@ -941,8 +949,8 @@
     },
     {
       "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/barrows_mary",
-      "rule": "the_enrichment_names_a_civic_church_or_school_post_no_field_carries",
-      "note": "The pass on barrows_mary returned: “Later early-Chicago education histories independently name Mary Barrows as Miss Chappel's associate/assistant and as a participant in the LaSalle Street boarding house for scholars. Combined with the exact postal-list …” Sources as recorded: chicago_democrat_1833_1835, early_illinois_barrows_school. T-1301 reads that as an assistant's post in Miss Chappel's school."
+      "rule": "the_post_is_carried_as_a_dated_profile_fact_on_the_card",
+      "note": "The pass on barrows_mary returned: “Later early-Chicago education histories independently name Mary Barrows as Miss Chappel's associate/assistant and as a participant in the LaSalle Street boarding house for scholars. Combined with the exact postal-list …” Sources as recorded: chicago_democrat_1833_1835, early_illinois_barrows_school. T-1301 read that as an assistant's post in Miss Chappel's school. The card carries it at data/residents/households/hh_barrows_mary.json#persons[barrows_mary].profile_facts[0] = “Associate and assistant of Miss Chappel in the town's first school” (inferred, outside the 1 July 1835 view). Miss Chappel's school has no record in the business register, so no staff row can be written and none is raised for it here."
     },
     {
       "unit": "residents:data/research/residents/pass_10_75_cohort.json#people/boilvin_nicholas",
@@ -1085,8 +1093,8 @@
     },
     {
       "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/lathrop_samuel_s",
-      "rule": "the_enrichment_names_a_civic_church_or_school_post_no_field_carries",
-      "note": "The pass on lathrop_samuel_s returned: “Andreas' history of Chicago's First Baptist Church names Samuel S. Lathrop as one of the church's early members after its October 1833 organization and records him building the fence around Rev. A. B. Freeman's Chicago …” Sources as recorded: rr_baptist_chicago_lathrop. T-1301 reads that as First Baptist membership from October 1833."
+      "rule": "the_post_is_carried_as_a_dated_profile_fact_on_the_card",
+      "note": "The pass on lathrop_samuel_s returned: “Andreas' history of Chicago's First Baptist Church names Samuel S. Lathrop as one of the church's early members after its October 1833 organization and records him building the fence around Rev. A. B. Freeman's Chicago …” Sources as recorded: rr_baptist_chicago_lathrop. T-1301 read that as First Baptist membership from October 1833. The card carries it at data/residents/households/hh_lathrop_samuel_s.json#persons[lathrop_samuel_s].profile_facts[0] = “An early member of Chicago's First Baptist Church after its organisation of October 1833” (inferred, outside the 1 July 1835 view). A membership is not a post on the First Baptist Church's staff, which names only its minister."
     },
     {
       "unit": "residents:data/research/residents/pass_11_75_cohort.json#people/luce_william",
@@ -1461,7 +1469,7 @@
     {
       "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/elston_daniel",
       "rule": "the_trade_is_carried_with_the_card_s_own_bound_outside_the_window",
-      "note": "The pass on elston_daniel returned: “The 1837 election return prints 'Daniel Elston' whole. The University of Illinois finding aid, read in pass 3 and never written to a ledger, identifies the English merchant who reached Chicago in 1833, made soap and candles and later ran a distillery and brewery — the same trade the paper prints for him in its first i…” Sources as recorded: chicago_democrat_1833_11_26, fergus_chicago_directory_1839, uiuc_daniel_elston_papers. T-1469 reads that as soap and candle manufacture read in pass 3 and never written. The card carries it at data/residents/households/hh_elston_daniel.json#persons[elston_daniel].occupation.withdrawn_from_scene_date = “soap_and_candle_maker” (attested, outside the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#persons[elston_daniel].roles[0] = “soap_and_candle_maker” (attested, outside the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#persons[elston_daniel].workplaces[1] = “Daniel Elston & [Co.]” (attested, in the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#works_at = “elston_soap_candle_manufactory” (attested, in the 1 July 1835 view)."
+      "note": "The pass on elston_daniel returned: “The 1837 election return prints 'Daniel Elston' whole. The University of Illinois finding aid, read in pass 3 and never written to a ledger, identifies the English merchant who reached Chicago in 1833, made soap and candles and later ran a distillery and brewery — the same trade the paper prints for him in its first i…” Sources as recorded: chicago_democrat_1833_11_26, fergus_chicago_directory_1839, uiuc_daniel_elston_papers. T-1469 reads that as soap and candle manufacture read in pass 3 and never written. The card carries it at data/residents/households/hh_elston_daniel.json#persons[elston_daniel].occupation.withdrawn_from_scene_date = “soap_and_candle_maker” (attested, outside the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#persons[elston_daniel].roles[0] = “soap_and_candle_maker” (attested, outside the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#persons[elston_daniel].workplaces[1] = “Daniel Elston & [Co.]” (attested, in the 1 July 1835 view); data/residents/households/hh_elston_daniel.json#associated_with[0] = “elston_soap_candle_manufactory” (attested, in the 1 July 1835 view)."
     },
     {
       "unit": "residents:data/research/residents/pass_14_76_cohort.json#people/filer_elihu_d",
