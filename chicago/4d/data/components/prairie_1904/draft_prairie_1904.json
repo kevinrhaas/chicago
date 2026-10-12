@@ -610,15 +610,15 @@
     },
     "frontage-20-010": {
       "slug": "house",
-      "entrance": "north",
-      "why": "3B stone-front, attached to 1636 as a pair: the stone-front family's flat roof behind a cornice, the entrance at the pair's north end.",
+      "entrance": "south",
+      "why": "3B stone-front, attached to 1636 as a pair: the stone-front family's flat roof behind a cornice, the entrance at the pair's middle, beside the party wall: the sheet draws 1634's canted stone bay at the north end of its front and 1636's at the south end of its own, so the pair mirrors (T-2392).",
       "house_id": "house_1634_prairie",
       "house_address": "1634"
     },
     "frontage-20-011": {
       "slug": "house",
       "entrance": "north",
-      "why": "3B stone-front, the south half of the pair with 1634: the same family, the one repeated front on the block, which the sheet's attached pair attests. The entrance is at the north end, beside the party wall: the sheet stands the canted stone bay across the south half of the front (T-2348), as 1634's bay stands at its own south end, so the pair repeats rather than mirrors.",
+      "why": "3B stone-front, the south half of the pair with 1634: the same family, the one repeated front on the block, which the sheet's attached pair attests. The entrance is at the north end, beside the party wall: the sheet stands the canted stone bay across the south half of the front (T-2348), and 1634's at the north end of its own (T-2392), so the pair mirrors, doors together at the party line.",
       "house_id": "house_1636_prairie",
       "house_address": "1636"
     },
