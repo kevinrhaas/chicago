@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 1713, ts: '2026-10-12T03:49:50.804Z', date: 'Oct 11, 2026, 10:49 PM CT', title: '1634 and 1636 Prairie meet at one wall, fronts brought forward', kind: 'fix',
+    items: [
+      'The brownstone pair at 1634 and 1636 Prairie now shares one party wall. The 0.7 m gap between two blank walls is closed.',
+      'Both fronts now stand 1.6 m nearer the street, on the line the 1911 atlas draws. The blue strip along them is the colour for a stone front, not a front yard.',
+      '1634\'s bay now stands at the north end of its front, where the atlas draws it, and is canted like its partner\'s. The pair mirrors, with the two doors side by side at the party wall.',
+    ] },
+  { v: 1712, ts: '2026-10-12T03:49:50.804Z', date: 'Oct 11, 2026, 10:49 PM CT', title: '1628 Prairie gets back its rear piece', kind: 'feature',
+    items: [
+      'Behind the brick house at 1628 Prairie, the small brick piece the 1911 atlas draws against the back wall stands again.',
+      'The draft had shown it three storeys tall; the atlas letters it \'1B\', one storey over a basement, and that is what now stands.',
+      'Its height, windows and flat tin deck are reconstructed, and the card says so.',
+    ] },
+  { v: 1711, ts: '2026-10-12T03:30:38.674Z', date: 'Oct 11, 2026, 10:30 PM CT', title: 'Glessner\'s granite creases darken a little in shade', kind: 'improvement',
+    items: [
+      'The rough granite on the Glessner House now carries an occlusion map made from the same relief as its surface texture, so the creases between the split facets lose some sky light.',
+      'The effect is faint and shows only out of the sun: shaded walls read 2-5 % darker and the crease lines a little sharper. In sun the change is about 1 %, because the sunlight itself is untouched.',
+      'The relief that would really show in shade, at the scale of whole stones and their joints, needs its own bake and is the next ticket.',
+    ] },
   { v: 1710, ts: '2026-10-12T02:49:37.862Z', date: 'Oct 11, 2026, 9:49 PM CT', title: '1630 Prairie stands as a small clapboard frame house', kind: 'feature',
     items: [
       '1630 Prairie Avenue, the small frame house between its brick neighbours, is no longer a plain draft box: its walls are clapboard laid board by board, with corner boards, a water table and two-over-two sash in timber casings.',
