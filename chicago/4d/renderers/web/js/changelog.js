@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1736, ts: '2026-10-12T21:24:48.629Z', date: 'Oct 12, 2026, 4:24 PM CT', title: 'Glessner\'s granite shows its stones on phones too', kind: 'improvement',
+    items: [
+      'On a phone, the Glessner House\'s granite walls in shade now show their courses and joints, as they already did on a desktop. The lighter model phones load now has its own shading baked from its own stones, in place of the faint repeating texture it had before.',
+      'The phone model grew by about a tenth of a megabyte.',
+    ] },
   { v: 1735, ts: '2026-10-12T21:15:58.043Z', date: 'Oct 12, 2026, 4:15 PM CT', title: '1638 Prairie gets the back of the house its map draws', kind: 'improvement',
     items: [
       'The Gothic house at 1638 Prairie now has the shape the 1911 fire-insurance map gives it: the back of the house widens toward the north, and a two-storey wing juts out of the south side halfway back.',

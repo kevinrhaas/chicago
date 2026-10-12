@@ -188,7 +188,7 @@ whose height is a guess is a guessed wall, even if we know it was white.
   (T-0158). The corrected reading on `sauganash_hotel` is mean **0.5358** over the 81,458 texels
   the unwrap writes, 58.7 % of them below half. T-0227 settles it from a rendered frame.
 - **A baked occlusion map may ride its own UV set, `TEXCOORD_1`** (PROPOSED 2026-10-12,
-  T-2400; additive). One master carries one: Glessner v4's granite, baked at stone scale by its
+  T-2400; additive). One building carries one: Glessner v4's granite, baked at stone scale by its
   own builder (`generators/archetypes/masonry_house_v4_occlusion.py`) onto an atlas of its own,
   because `TEXCOORD_0` is the metric tiling set the material maps repeat on and cannot hold a
   bake. Its `occlusionTexture.texCoord` is `1`; GLTFLoader names the attribute `uv1` and sets
@@ -198,8 +198,12 @@ whose height is a guess is a guessed wall, even if we know it was white.
   not carry it. Every other asset is unchanged and pays nothing. A derivative built on a
   different mesh must not copy a `texCoord` it does not carry — WebGL reads a missing
   attribute as (0, 0), one texel everywhere — and `ao_export.py --gate` assertion 5 reads
-  every master and web derivative for exactly that. The Glessner light model puts the tiling
-  map back on `TEXCOORD_0` (`tools/_glessner_lod.py`).
+  every master and web derivative for exactly that. The Glessner light model is such a
+  derivative, and since T-2401 it carries its OWN bake on its own `TEXCOORD_1` (granite slots
+  only): `tools/_glessner_lod.py` hands the reduced mesh to the same baker
+  (`tools/_glessner_light_occlusion.py`, at a 1024² atlas) and writes the result into the
+  master's occlusion image slot, so the material, texture and sampler are the master's and
+  only the image bytes and the UV set are the light's.
 - No emissive, no transparency in the base asset. The confidence view's translucency is a
   *renderer* effect (screen-door dither in the opaque pass), never baked geometry.
 
