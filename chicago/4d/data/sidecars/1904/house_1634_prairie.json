@@ -57,7 +57,7 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The main body: the largest rectangle inside the traced main part s20fp-1634-b1 p2 (data/traces/prairie_1904_footprints_s20.json, T-2328), kept from the draft (13.75 m deep, 6.75 m along the front; the part's rectangles cover 86% of its fill). The trace also draws the stone front bay (p1, rectangle u 14.25-15.5, v 0-3.0: the draft's r3), built here as a K08 bay, and a three-storey wing behind the rear wall (u -6.5-0, v -0.5-4.25: the draft's r2), which waits for T-2347."
+    "note": "The main body: the largest rectangle inside the traced main part s20fp-1634-b1 p2 (data/traces/prairie_1904_footprints_s20.json, T-2328), kept from the draft (13.75 m deep, 6.75 m along the front; the part's rectangles cover 86% of its fill). The trace also draws the stone front bay (p1, rectangle u 14.25-15.5, v 0-3.0: the draft's r3), built here as a K08 bay, and the wing behind the rear wall (the draft's r2 and the trace's p3), which is rear_wings (T-2347)."
   },
   "attributes": {
     "stories": {
@@ -66,7 +66,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "'3B' printed on the 1911 sheet: three full storeys over a basement."
+      "note": "'3B' printed on the 1911 sheet: three full storeys over a basement. The '2B' and the '1' behind it are the rear wing's and its end's (rear_wings)."
     },
     "construction": {
       "value": "brick_with_stone_front",
@@ -290,7 +290,88 @@
         4.6
       ],
       "confidence": "reconstructed",
-      "note": "Two windows a storey in the rear wall, north to south. The southern one stands where the sheet's rear wing joins and becomes the opening into it when T-2347 stands the wing."
+      "note": "Two windows a storey in the rear wall, north to south. The southern one (s 4.6 m) stands where the rear wing joins (rear_wings, T-2347): on the two lower storeys it is behind the wing and is not cut, the opening into it; on the third, above the wing's deck, it is a window."
+    },
+    "rear_wings": {
+      "value": [
+        {
+          "id": "rear_wing",
+          "rect": [
+            -6.7,
+            0.0,
+            0.0,
+            4.25
+          ],
+          "floor_m": 1.4,
+          "storey_heights_m": [
+            4.0,
+            3.6
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 1.0,
+              "height_m": 2.3
+            },
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 1.0,
+              "height_m": 1.9
+            }
+          ],
+          "windows": {
+            "north": [
+              1.9,
+              4.9
+            ],
+            "rear": [
+              2.1
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        },
+        {
+          "id": "one_storey_end",
+          "rect": [
+            -8.2,
+            -6.7,
+            0.0,
+            4.25
+          ],
+          "floor_m": 0.3,
+          "storey_heights_m": [
+            3.0
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.8,
+              "width_m": 0.9,
+              "height_m": 1.6
+            }
+          ],
+          "windows": {
+            "rear": [
+              2.1
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.25,
+            "covering": "painted_tin_sheet"
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-2347: the wing the 1911 sheet draws behind the rear wall, whose PLACE and storey counts are read from the map and whose form is K01's reconstruction. Read on sheet 20 (T-1840 census s20-1634-a1, '2B brick rear wing with a 1-storey end'; trace s20fp-1634-b1 p2 and p3) and measured off the raster through the T-1250 fit, in this frame: (1) REAR_WING, u -6.7 to 0, v 0 to 4.25: the piece lettered '2B', two storeys over a basement, its floors on the main body's first two (1.4 m and 5.4 m) so its string course runs on at the same course. (2) ONE_STOREY_END, u -8.2 to -6.7, v 0 to 4.25: the strip behind a drawn cross wall at the west end, lettered '1' with no 'B', one storey from near grade (floor 0.3 m). The trace's north edge stands at v 4.2-4.3; the draft fitted the wing at u -6.5 to 0 and drew it THREE storeys, its rules' storey count for a wing inside the main part, which the sheet's '2B' corrects. Both pieces stand on the party line with 1636 on the sheet (v -0.7); they are built flush with the main body's south wall at v 0 instead, which K01 fitted 0.7 m inside that line, so the house and its wing keep one south wall (liberty L-k01-1634-stone-front-flat-2350). The south walls are blank party walls, as the main body's. Heights, windows, the flat painted-tin decks, their fascias and 0.15 m overhang are reconstructed: the sheet prints storeys, not heights, and no opening. The two dots the sheet prints in the end are not modelled."
     },
     "sash_by_storey": {
       "value": [
@@ -406,7 +487,7 @@
       ]
     }
   ],
-  "research_note": "T-2350 (piece 2 of T-2346) refines the district draft (T-2334) in place under the same id: the main body is rebuilt from the K01 frontage assembly and its kits — a K02 stone street front, K03 brick side and rear walls, K06 sash, K07 door and stoop, K08 stone front bay, K10 bracketed street cornice — under the flat roof K05 learned for the stone-front rowhouse (T-2349), which K01 now builds as k01.roof.flat. What is read: the 1911 Sanborn sheet 20 (storeys '3B', brick with a stone front, attached to 1636, the traced main body and the stone bay before it) through the T-1840 census. Its south wall is the party wall it shares with 1636 and is built blank. Everything else is reconstructed and recorded as L-k01-1634-stone-front-flat-2350. The sheet's three-storey rear wing waits for T-2347. No photograph, plate or description of 1634 has been read; a later reading that finds one replaces the kit's choices here.",
+  "research_note": "T-2350 (piece 2 of T-2346) refines the district draft (T-2334) in place under the same id: the main body is rebuilt from the K01 frontage assembly and its kits — a K02 stone street front, K03 brick side and rear walls, K06 sash, K07 door and stoop, K08 stone front bay, K10 bracketed street cornice — under the flat roof K05 learned for the stone-front rowhouse (T-2349), which K01 now builds as k01.roof.flat. What is read: the 1911 Sanborn sheet 20 (storeys '3B', brick with a stone front, attached to 1636, the traced main body and the stone bay before it) through the T-1840 census. Its south wall is the party wall it shares with 1636 and is built blank. Everything else is reconstructed and recorded as L-k01-1634-stone-front-flat-2350. T-2347 stands the sheet's '2B' rear wing and its one-storey end behind the rear wall on K01's rear wings (the draft had drawn the wing three storeys by its own rule). No photograph, plate or description of 1634 has been read; a later reading that finds one replaces the kit's choices here.",
   "research_doc": "",
   "review_required": false
 }
