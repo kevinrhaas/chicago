@@ -129,11 +129,11 @@
           "value": {
             "by_storey": [
               "k09.trim.lintel_cornice_hood",
-              "k09.trim.lintel_cornice_hood"
+              "k01.flat_lintel"
             ]
           },
           "confidence": "reconstructed",
-          "note": "The north strip's door and the lights over it: K09 cornice-hood lintels on both storeys. The drawing's round-arched entrance and the carved panel over it are T-2422's to build."
+          "note": "The north strip's door and the lights over it: a K09 cornice-hood lintel over the door's storey and K01's flat stone lintel over the second storey's light. The drawing's round-arched entrance and the carved panel over it are T-2422's to build."
         },
         "wall_head": {
           "value": {
@@ -215,16 +215,6 @@
                         -25,
                         25
                       ]
-                    },
-                    {
-                      "opening": "k06.opening.sash_2over2_flat",
-                      "clear_width_m": 0.9,
-                      "clear_height_m": 0.8,
-                      "sill_m": 0.3,
-                      "at_deg": [
-                        -25,
-                        25
-                      ]
                     }
                   ]
                 },
@@ -256,7 +246,7 @@
             "sanborn_1911_chicago_v3_sheet_20",
             "building_budget_1886_06_hamline_farwell_houses"
           ],
-          "note": "The swell bay. Its PLACE and SIZE are the 1911 sheet's (s20fp-1619-b1's stone part bulges 1.02 m from the front over v 3.79-7.55, a 3.76 m chord); its HEIGHT and LIGHTS are the drawing's: it rises from grade through the principal and second storeys to just under the wall head (5.3 m and 2.9 m, 8.2 m, so its deck clears the bed moulding of the cornice the K01 hip hangs at 9.2 m; the drawing carries it to the cornice itself, T-2421's), two lights a storey either side of a central pier (at -25 and +25 degrees on the bow's arc), and two basement lights under them, and it is laid in the front's stone. Its top is a nearly flat painted-tin deck, where the drawing's balcony stands (the rail is T-2422's). The lights' sizes are the drawing's through its camera, rounded."
+          "note": "The swell bay. Its PLACE and SIZE are the 1911 sheet's (s20fp-1619-b1's stone part bulges 1.02 m from the front over v 3.79-7.55, a 3.76 m chord); its HEIGHT and LIGHTS are the drawing's: it rises from grade through the principal and second storeys to just under the wall head (5.3 m and 2.9 m, 8.2 m, so its deck clears the bed moulding of the cornice the K01 hip hangs at 9.2 m; the drawing carries it to the cornice itself, T-2421's), two lights a storey either side of a central pier (at -25 and +25 degrees on the bow's arc), and it is laid in the front's stone. Its top is a nearly flat painted-tin deck, where the drawing's balcony stands (the rail is T-2422's). The lights' sizes are the drawing's through its camera, rounded."
         },
         "side_bays": {
           "value": [

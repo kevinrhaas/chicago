@@ -2,7 +2,7 @@
  "structure_id": "house_1619_prairie",
  "view": "building_budget_front",
  "glb": "assets/gltf/house_1619_prairie__as_mapped_1904.glb",
- "glb_sha256": "d4669235102557ede714edd6921db8880390786998cb7878af15f4ab3fe4d61d",
+ "glb_sha256": "cc6b6344549f26beb6ebf6a7e4a8e69a3ad454c87a19a955ccd1765c1beb37f7",
  "camera_sha256": "f7c68b8bf0e98f2463db3ecba16a06619421258fd49bf6b960c54f9f0e1fb122",
  "side_by_side": "docs/RESEARCH/photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg",
  "verdict": "differs",
@@ -53,7 +53,7 @@
    "how": "T-2422"
   },
   {
-   "what": "the basement: two segmental-headed lights under the bow with iron grilles, about 0.9 m high; the build has two small flat area lights",
+   "what": "the basement: two segmental-headed lights under the bow with iron grilles, about 0.9 m high; the build's bow is blind in its basement (the K08 kit refuses a light under a bay's clear wall)",
    "status": "open",
    "how": "T-2422"
   },
@@ -79,5 +79,5 @@
   }
  ],
  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
- "reviewed": "T-2420, 2026-10-12, side by side at docs/RESEARCH/photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg, element by element against the drawing and its enlarged inset plan"
+ "reviewed": "T-2420, 2026-10-12, side by side at docs/RESEARCH/photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg, element by element against the drawing and its enlarged inset plan; re-reviewed after the bow's basement lights came out for the K08 kit's rules"
 }

@@ -69,3 +69,6 @@ above.
   moulding, which is why the second storey is 3.9 m and the bow stops at 8.2 m under a 9.2 m eave,
   where the drawing carries the bow to the cornice itself;
 - a **stepped parapet** on a side wall, and a balcony rail on a bow's deck.
+- **lights in a bay's basement**: the K08 kit's own gate (`tools/check_bay_kit.py`) refuses a
+  window below a bay's clear wall (its plinth), so the bow's basement is blind until T-2422 teaches
+  the kit the drawing's grilled segmental lights.

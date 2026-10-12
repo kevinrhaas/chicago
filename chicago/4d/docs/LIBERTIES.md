@@ -24841,8 +24841,8 @@ centre was; T-2347's rear wing stands the rear pieces.
 own id `house_1619_prairie`, as a `k01_frontage` record built by `generators/k01_emit.py`: a K02
 smooth Bedford limestone street front over two rusticated base courses on K03 brick side and rear
 walls, the drawing's swell bay on K08's bow rising from grade to 8.2 m, two K06 two-over-two lights
-a storey in it and two area lights under them, the door in the north strip under a K09 hood at the
-head of a K07 stoop, a K10 bracketed cornice, a 45-degree slate K04/K05 hip with copper flashing and
+a storey in it and its basement blind, the door in the north strip under a K09 hood at the head of a
+K07 stoop, a K10 bracketed cornice, a 45-degree slate K04/K05 hip with copper flashing and
 ridge roll, one wide K10 pedimented dormer on the front's centre line, two brick stacks against the
 south wall, copper gutters and pipes, and the sheet's rear range on K01's rear wings.
 **What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace and the
