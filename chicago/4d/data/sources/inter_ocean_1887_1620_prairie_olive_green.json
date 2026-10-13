@@ -1,0 +1,17 @@
+{
+  "id": "inter_ocean_1887_1620_prairie_olive_green",
+  "type": "newspaper",
+  "citation": "The Daily Inter Ocean (Chicago), 1887, a notice of the Robert Law house, 838 (later 1620) Prairie Avenue, calling it 'commodious, olive green in color'; quoted on chicagology.com's 1620 S. Prairie page.",
+  "author": "unsigned",
+  "date": "1887",
+  "describes_date": "1887",
+  "locator": "the phrase 'commodious, olive green in color', as the Prairie library records chicagology's quotation of it (image a16-cgy-landowner-1874-1620-law, its notes; chicago/prairie_1904_v1/research/images/stream-1600-1700.json); the issue's day and page are not known here",
+  "url": "https://chicagology.com/chicagostreets/prairieavenue/1620prairie/",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "The Inter Ocean, 1887: a United States imprint long out of copyright.",
+  "asset_use": "text_only",
+  "verified": false,
+  "access_notes": "READ THROUGH A QUOTATION, NOT AT THE PAGE. This project has not retrieved the Inter Ocean; the four words read are chicagology's quotation, as the Prairie library's research fetch of chicagology's 1620 page (2026-10-02) recorded them. chicagology.com is not reachable from the build containers, so the page has not been re-read here (T-2476). `verified` stays false until someone opens the newspaper.",
+  "note": "The only record of the house's colour: the 1874 Land Owner engraving (land_owner_1874_05_homes_of_chicago_1620_law) is monochrome and Robinson 1886 plate 10 colours it as brick. A brick house called olive green was painted over its brick, the 1870s fashion; the shade the words name is not measured."
+}
