@@ -25859,3 +25859,25 @@ record to `matches`; a later photograph of the house, ingested as a source, says
 **Ticket:** T-2432 (piece 1 of T-1869).
 **Review:** `docs/RESEARCH/k01-1625-mcbirney-2432/README.md`.
 **Recorded:** 2026-10-13 (T-2432).
+
+### L-1619-wears-hamline-front-2436 — 1619 Prairie stands, for now, in the front of John H. Hamline's house at 1621
+
+**Decision:** `house_1619_prairie` keeps the K01 stone front T-2420 built from Treat & Foltz's drawing
+of John H. Hamline's house, although T-2439 rules that the drawing's house stood at **1621**, the
+next lot south (`docs/RESEARCH/hamline-1621-2436/README.md`: the 1885 permit, the 1884-87
+directories, the 1886 occupant map, the 1886 Robinson plate's printed numbers and the 1904 Blue Book
+against one 1886 newspaper's "1619"). So the front a visitor sees at 1619 is not 1619's: it is the
+house next door's, standing on 1619's footprint, and the house 1619 actually had in 1904 — the 1911
+sheet's four-storey stone front with its broad curved bay, most likely built after J. Foster Rhodes
+bought the lot in 1891 — is not built. 1621 meanwhile stands as its district draft, its card naming
+Hamline's house.
+**Why it is left standing:** moving the build is a camera re-solve on 1621's own bay, a rebuild on
+another footprint and a bake of both houses, and T-2428's wall gable for the same front is still
+landing on 1619. Taking it down first would leave a grey box at 1619 for no gain in truth.
+**What is invented:** nothing new; the placement is the liberty. The front's own inventions are
+`L-k01-1619-hamline-swell-front-2420`'s.
+**How to resolve:** T-2440 moves the drawing's build to `house_1621_prairie` and hands 1619 back to a
+front of its own (T-2434); this entry is then resolved.
+**Ticket:** T-2439 (piece 1 of T-2436).
+**Review:** `docs/RESEARCH/hamline-1621-2436/README.md`.
+**Recorded:** 2026-10-13 (T-2439).
