@@ -342,16 +342,32 @@
         "k01.opening.door_leaf": {
           "variant": "k07.entrance.panel_door_stoop",
           "front_yard_m": 6.24,
-          "terrace": {
-            "side": "right",
-            "to_v_m": 11.25,
-            "back": [
-              [
-                7.5,
-                0.4
+          "terrace": [
+            {
+              "side": "right",
+              "to_v_m": 11.25,
+              "back": [
+                [
+                  7.5,
+                  0.4
+                ]
               ]
-            ]
-          },
+            },
+            {
+              "side": "left",
+              "to_v_m": -0.35,
+              "back": [
+                [
+                  4.06,
+                  0.58
+                ],
+                [
+                  2.12,
+                  0.0
+                ]
+              ]
+            }
+          ],
           "balustrade": {
             "height_m": 0.9,
             "pitch_m": 0.2,
@@ -412,7 +428,7 @@
         }
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: the K07 four-panel door under a two-light transom at the head of a straight stone stoop solved from the principal floor. front_yard_m is the street grid's own distance: the front stands 5.93 m behind the Prairie Avenue street line (the draft's street_u 22.679 less the 16.75 m body) and the walk begins 1 ft further out, 6.24 m. T-2409 built the entrance the two pictures draw (land_owner_1874_05_homes_of_chicago_1620_law, chicago_tribune_1898_01_09_prairie_widows): the straight stoop rising from the gate to the door beside the pavilion, and at its head a porch at the principal floor running north before the pavilion to the north corner behind a turned balustrade, the balustrade carried down the stoop. What the pictures give is the arrangement: the stoop's line, a porch level with its head across the pavilion's front, and turned balusters on both. RECONSTRUCTED: the porch as a stone terrace in the stoop's stone, faced to grade, as deep as the 1.2 m landing (the engraving's balustrade ends at x 690 px, where a 1.2 m deep porch's north corner falls, 685.6 px), its back stepped to the pavilion's 0.4 m (T-2404); the balustrade 0.9 m over the terrace, square 0.2 m newels with a 0.1 m cap, a 0.12 x 0.08 m rail and turned vase balusters at no more than 0.2 m, the same height over the stoop's landing, its balusters standing on the cheeks' tops; turned stone and not timber, which neither picture can say."
+      "note": "RECONSTRUCTED: the K07 four-panel door under a two-light transom at the head of a straight stone stoop solved from the principal floor. front_yard_m is the street grid's own distance: the front stands 5.93 m behind the Prairie Avenue street line (the draft's street_u 22.679 less the 16.75 m body) and the walk begins 1 ft further out, 6.24 m. T-2409 built the entrance the two pictures draw (land_owner_1874_05_homes_of_chicago_1620_law, chicago_tribune_1898_01_09_prairie_widows): the straight stoop rising from the gate to the door beside the pavilion, and at its head a porch at the principal floor running north before the pavilion to the north corner behind a turned balustrade, the balustrade carried down the stoop. What the pictures give is the arrangement: the stoop's line, a porch level with its head across the pavilion's front, and turned balusters on both. RECONSTRUCTED: the porch as a stone terrace in the stoop's stone, faced to grade, as deep as the 1.2 m landing (the engraving's balustrade ends at x 690 px, where a 1.2 m deep porch's north corner falls, 685.6 px), its back stepped to the pavilion's 0.4 m (T-2404); the balustrade 0.9 m over the terrace, square 0.2 m newels with a 0.1 m cap, a 0.12 x 0.08 m rail and turned vase balusters at no more than 0.2 m, the same height over the stoop's landing, its balusters standing on the cheeks' tops; turned stone and not timber, which neither picture can say. T-2450 carries the terrace SOUTH across the bay's front, the low turned balustrade the 1874 engraving draws before the bay at the principal floor (x 365-460 px, its rail's top at y 551 px, 2.89 m over grade on T-2437's camera: the porch's own level), as the stoop's terrace to its left (K07 learns a terrace to the stoop's left, the right one's mirror): from the landing's south edge (v 5.7) to v -0.35, 0.35 m past the front's south corner, where the drawn balustrade's south end stands (x 364 px, against the front's corner at about 392), its back stepped out to the bay's 0.58 m front between the bay's front corners (v 4.06 and 2.12) and faced where it runs on past the corner. RECONSTRUCTED as the north terrace is: its 1.2 m depth, its stone, its balusters (the north terrace's, which the engraving draws alike), and that it joins the landing, which the engraving's tree and the shrub before the bay hide (x 460-540 px)."
     },
     "boundary": {
       "value": {
@@ -448,7 +464,7 @@
         "lattice_span_bays": 3
       },
       "confidence": "inferred",
-      "note": "The FENCE from both pictures (T-2406). The 1874 engraving draws a lattice of interlaced round arches, their crossings pointed, on a solid base along the street line, and the 1898 Tribune sketch the same lattice between square piers with capped tops, on a base, with gate piers at the walk; the register's 'lattice/iron boundary' names it. Built as the K11 kit's curb, posts and rails with a lattice between them (k11.fence.lattice_arcade): arches of the kit's 14 mm scroll bar, each two bays wide, sprung at every bay so each crosses its neighbours. The bay, 0.35 m, is read off the Tribune (a pointed crossing about every 9 px where the panel's fence scale is about 32 px/m, 0.29 m) and the engraving (its crossings waist about every 20 px at 28 px/m, two bays of 0.35 m); the lattice's iron, its bar and the posts' acorn finials are the kit's, RECONSTRUCTED. The BOARD FENCE: the engraving draws a close-boarded fence from about x 670 px, where the lattice stops, to x 990 px. Through its camera the street line at x 670 is v 12.6 and the north lot line (v 15.95) runs from x 786 px at the street to 964 px at the house's rear line, so the boards take over from the lattice on the street line at v 12.6, turn at the lot line and run back along it; their height (1.5 m, the lattice's top and a little more, as drawn) and their boarding are RECONSTRUCTED, and so is their run behind the house's rear (to the coach house's front at u -25.5), which the engraving's frame cuts off at about u -4. The rest is the kit's, RECONSTRUCTED as before: the stone curb on the street line 5.93 m in front of the front face (the draft's street_u 22.679 less the 16.75 m body); a pair of walk-gate leaves between stone piers on the walk to the stoop; a single walk gate 1.06 m clear across the south side yard's mouth; and the kit's brick wall with piers, 1.2 m high, on the south lot line from the street back to u 12.0. The lot lines (s -7.711 and 15.951 along the front from the south corner) are the draft's lot_v for parcel prairie_1620 in this frame.",
+      "note": "The FENCE from both pictures (T-2406). The 1874 engraving draws a lattice of interlaced round arches, their crossings pointed, on a solid base along the street line, and the 1898 Tribune sketch the same lattice between square piers with capped tops, on a base, with gate piers at the walk; the register's 'lattice/iron boundary' names it. Built as the K11 kit's curb, posts and rails with a lattice between them (k11.fence.lattice_arcade): arches of the kit's 14 mm scroll bar, each two bays wide, sprung at every bay so each crosses its neighbours. The bay, 0.35 m, is read off the Tribune (a pointed crossing about every 9 px where the panel's fence scale is about 32 px/m, 0.29 m) and the engraving (its crossings waist about every 20 px at 28 px/m, two bays of 0.35 m); the lattice's iron, its bar and the posts' acorn finials are the kit's, RECONSTRUCTED. The BOARD FENCE: the engraving draws a close-boarded fence from about x 670 px, where the lattice stops, to x 990 px. Through its camera the street line at x 670 is v 12.6 and the north lot line (v 15.95) runs from x 786 px at the street to 964 px at the house's rear line, so the boards take over from the lattice on the street line at v 12.6, turn at the lot line and run back along it; their height (1.5 m, the lattice's top and a little more, as drawn) and their boarding are RECONSTRUCTED, and so is their run behind the house's rear (to the coach house's front at u -25.5), which the engraving's frame cuts off at about u -4. The rest is the kit's, RECONSTRUCTED as before: the stone curb on the street line 5.93 m in front of the front face (the draft's street_u 22.679 less the 16.75 m body); a pair of walk-gate leaves between stone piers on the walk to the stoop; a single walk gate 1.06 m clear across the south side yard's mouth; and the kit's brick wall with piers, 1.2 m high, on the south lot line from the street back to u 12.0. The lot lines (s -7.711 and 15.951 along the front from the south corner) are the draft's lot_v for parcel prairie_1620 in this frame. T-2450 re-read the boards past the lot's corner through T-2437's re-solved camera: from x 786 to 990 px their top (y 597-600) and foot (652-658) stay level, which a fence on the north lot line receding from the street cannot draw (its foot rises to y 625 by x 988) and a fence on the street line running on north past the corner draws exactly (top 597.7-598.6, foot 656.6-660.5 px). So those boards are the next lot's street fence, and this lot's north board fence stands behind them, its foot hidden; its turn at the corner and its run back are unchanged.",
       "sources": [
         "land_owner_1874_05_homes_of_chicago_1620_law",
         "chicago_tribune_1898_01_09_prairie_widows"
