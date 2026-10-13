@@ -396,6 +396,11 @@ class Prim:
             self.face(list(t), n if _dot(n, hint) >= 0 else _mul(n, -1), basis, conf)
 
 
+#: T-2476: the linear colour of each K04 tin paint other than the red oxide its maps are
+#: drawn in — weathered black and dark green paint on terne, as a dark roof reads
+TIN_PAINT = {"black": (0.030, 0.030, 0.026), "dark_green": (0.022, 0.040, 0.026)}
+
+
 class Assembly:
     def __init__(self, structure_id: str, params):
         self.sid = structure_id
@@ -428,6 +433,18 @@ class Assembly:
         paint = (params.wall_head or {}).get("paint")
         if paint:
             self.spec["fascia"]["color"] = tuple(float(x) for x in paint["color"])
+        # T-2476: a tin covering painted other than its map (K04's paint_alternatives): the
+        # map's own mean is taken to the paint's colour, so its seams and wear still read
+        if params.roof and params.roof.get("paint"):
+            meta = json.loads((_images(self.fabric["slate_covering"])["basecolor"].parent / "material.json").read_text())
+            mean = [((c / 255 + 0.055) / 1.055) ** 2.4 for c in meta["mean_basecolor"]]
+            self.spec["slate_covering"]["color"] = tuple(
+                round(min(1.0, t / m), 4) for t, m in zip(TIN_PAINT[params.roof["paint"]], mean))
+        # T-2476: a painted brick house (1620) wears its paint over every brick slot it lays —
+        # walls, the pavilion's brick, the stacks and K03's units, the soot left dark — the map still under it
+        if params.wall_paint:
+            for slot in ("brick", "bay_brick", *(k for k in MATERIALS if k.startswith("brick_unit_"))):
+                self.spec[slot]["color"] = tuple(round(c * f, 4) for c, f in zip(self.spec[slot]["color"], params.wall_paint))
         if params.stone:
             st = params.stone
             for slot, fab, rough in (("rough_stone_trim", st["fabric"], st["fabric_roughness"]),
