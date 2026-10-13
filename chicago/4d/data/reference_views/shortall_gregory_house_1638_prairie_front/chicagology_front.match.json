@@ -2,7 +2,7 @@
   "structure_id": "shortall_gregory_house_1638_prairie_front",
   "view": "chicagology_front",
   "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
-  "glb_sha256": "d2c741bf958be71b8eeb7bacda39cba22295218fde69cdda47cf33c812140019",
+  "glb_sha256": "59311af85712afb2dba03479112eb47b83239e673d44a60ef887a7f1fafb6cd1",
   "camera_sha256": "c1c16c717eda63839555e726bc9ca222e4cf819084c6a63406e51eda341c874d",
   "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
   "verdict": "differs",
@@ -48,11 +48,19 @@
       "status": "open"
     },
     {
-      "what": "Bay (T-2424): three pointed lights between posts, a moulded cornice and a panelled base; the model's bay is a plain block",
+      "what": "Bay: three pointed lights, one in the face and one in each cant, between broad posts, the glass from 0.63 m to its point at 2.83 m and 0.73 m across, each a one-over-one sash; a panelled base under a weathered sill course at 0.45 m; a moulded cornice from 3.13 m to its crown at 3.55 m (T-2424)",
+      "status": "fixed"
+    },
+    {
+      "what": "Bay: the plan read off the print, not the sheet's drawn bay: the face 1.42 m (s 2.03-3.45 m), the cants meeting the wall at s 1.16 and 4.32 m, the sheet's 1.1 m depth kept, so the three faces come to 1.40-1.42 m each (T-2424)",
+      "status": "fixed"
+    },
+    {
+      "what": "Bay: the print's pointed heads are a little blunter than the kit's equilateral arch, their stops at about 2.33 m where the model's arches spring at 2.20 m",
       "status": "open"
     },
     {
-      "what": "Bay (T-2424): the print's bay is narrower than the sheet's plan, its face about 1.47 m against 1.95 m and its cants about 1.0 m deep across",
+      "what": "Bay: the print's lights have a small dark stop at each spring of the casing; the model's casings run plain round the heads",
       "status": "open"
     },
     {

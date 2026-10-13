@@ -588,7 +588,7 @@ class Sample:
         for win in (v["windows"] if "windows" in v else [v["window"]]):
             hole, cut = self._cased_window(F, win, y_start)
             holes.append(hole)
-            cuts.append(cut)
+            cuts.extend(cut if isinstance(cut, list) else [cut])    # T-2424: a pointed head's courses
         for door in v.get("doors") or []:   # T-2357: a panelled door in a K16 casing
             hole, cut = self._cased_door(F, door, y_start)
             holes.append(hole)
@@ -661,6 +661,8 @@ class Sample:
         kv["clear_height_m"] = win["clear_height_m"]
         if "clear_width_m" in win:     # T-2396: a narrow face's sash
             kv["clear_width_m"] = win["clear_width_m"]
+        if "panes" in win:     # T-2424: a sash glazed otherwise than its K06 variant
+            kv["panes"] = list(win["panes"])
         kv.setdefault("overrides", {})["reveal_depth_m"] = cs["reveal_depth_m"]
         c, ys = win["centre_m"], win["sill_m"]
         op = CasedOpening(kv, k6, origin=F.P(c, ys, 0.0)).build()
@@ -1507,6 +1509,119 @@ def canted_bay_body(sm: Sample, plan, height, roof_m=0.12):
     sm.poly(F, "stand_in_roof", [(s, height + roof_m, z) for s, z in plan], (0, 1, 0))
 
 
+# -- T-2424: a canted bay built from its photograph --------------------------------------------
+#
+# A bay whose record names its `lights` is built like the tower: each of its faces a kit
+# `clapboard_wall` with no return, a post (the kit's corner board, widened to the record's
+# `post_m`) at each angle and a pointed light in a pointed casing between them. What runs round
+# the angles is built round the plan instead, so every angle mitres: a panelled base under a
+# weathered sill course, and a moulded cornice under a flat deck that falls from the wall.
+
+#: the bay's faces, from the wall on the front's left round to the wall on its right
+BAY_KEYS = tuple(f"bay.{i}" for i in range(3))
+#: what a bay face does not keep of its kit wall: the base and the straight eave, which the
+#: bay's own base and cornice replace round its angles
+BAY_DROP = ("foundation", "water_table", "drip_cap", "soffit", "fascia", "roof", "bracket")
+#: the least run of siding a face keeps between a post and its light's casing
+BAY_MIN_SIDING = 0.05
+#: the base, in (out from the face, up): plinth, chamfer, panelled field, sill course, its top
+BAY_BASE = ((0.0, 0.0), (0.05, 0.0), (0.05, 0.12), (0.035, 0.14), (0.035, None), (0.075, None),
+            (0.075, None), (0.03, None))
+#: the cornice over the wall top: soffit, fascia, bed and crown mouldings, the top fillet
+BAY_CORNICE = ((0.032, 0.0), (0.2, 0.0), (0.2, 0.2), (0.26, 0.27), (0.26, 0.32), (0.3, 0.36), (0.3, 0.42))
+
+
+def bay_offset(plan, d):
+    """The bay's plan (s, z) moved out by d, its angles mitred and its two ends kept on the wall."""
+    seg = [(_unit((b[0] - a[0], 0.0, b[1] - a[1])), a, b) for a, b in zip(plan, plan[1:])]
+    nrm = [(-u[2], u[0]) for u, _, _ in seg]
+    out = []
+    for j, p in enumerate(plan):
+        if j in (0, len(plan) - 1):
+            i = 0 if j == 0 else len(seg) - 1
+            u, n = seg[i][0], nrm[i]
+            t = -(p[1] + d * n[1]) / u[2]
+            out.append((p[0] + d * n[0] + t * u[0], 0.0))
+        else:
+            a, b = nrm[j - 1], nrm[j]
+            k = d / (1.0 + a[0] * b[0] + a[1] * b[1])
+            out.append((p[0] + k * (a[0] + b[0]), p[1] + k * (a[1] + b[1])))
+    return out, nrm
+
+
+def bay_ring(sm: Sample, plan, profile, roles, y0=0.0):
+    """A profile in (out, up) carried round the bay's plan from the wall to the wall, mitred
+    at every angle; roles[i] names the face on profile edge i (None: hidden, not built)."""
+    rings = [bay_offset(plan, o) for o, _ in profile]
+    for i, r in enumerate(roles):
+        if not r:
+            continue
+        (oa, ya), (ob, yb) = profile[i], profile[i + 1]
+        (pa, nrm), (pb, _) = rings[i], rings[i + 1]
+        for j, n in enumerate(nrm):
+            hint = (n[0] * (yb - ya), oa - ob, n[1] * (yb - ya))
+            sm.face(r, [(pa[j][0], y0 + ya, pa[j][1]), (pa[j + 1][0], y0 + ya, pa[j + 1][1]),
+                        (pb[j + 1][0], y0 + yb, pb[j + 1][1]), (pb[j][0], y0 + yb, pb[j][1])], hint)
+
+
+def bay_parts(st: dict, form: dict, data: dict) -> dict:
+    """The bay's faces, each a kit wall set down on its side of the plan."""
+    sid = st["id"]
+    bv = form["canted_bay"]["value"]
+    lt = bv["lights"]
+    plan = [tuple(q) for q in bv["plan"]]
+    ct = data["trim"]["corner_board"]["thickness_m"]
+    cw = data["trim"]["casing"]["width_m"]
+    out = {}
+    for i, (a, b) in enumerate(zip(plan, plan[1:])):
+        W = math.hypot(b[0] - a[0], b[1] - a[1])
+        # a post at each angle, and a run of siding between it and the light's casing
+        if W / 2 - lt["clear_width_m"] / 2 - cw - (bv["post_m"] - ct) < BAY_MIN_SIDING:
+            raise ValueError(f"{sid}: canted bay face {i} is {W:.3f} m, too narrow for its light and posts")
+        fd = copy.deepcopy(data)
+        fd["trim"]["corner_board"]["width_m"] = bv["post_m"]
+        fd["trim"]["frieze"]["height_m"] = bv["frieze_m"]
+        wt = fd["trim"]["water_table"]
+        v = {"id": f"k16.wall.{sid}.bay_{i}", "kind": "clapboard_wall", "use": "wall", "width_m": round(W, 6),
+             "return_m": 0.0, "boards": [True, True],
+             "foundation_m": round(bv["base_m"] - wt["height_m"] - wt["cap"]["height_m"], 6),
+             "wall_top_m": bv["wall_top_m"],
+             "windows": [dict(lt, centre_m=round(W / 2, 6))]}
+        sm = Sample(v, fd).build()
+        for role in BAY_DROP:
+            sm.prims.pop(role, None)
+        U = _unit((b[0] - a[0], 0.0, b[1] - a[1]))
+        place(sm, (a[0], 0.0, a[1]), U)
+        sm.seed = seed_of(v["id"], 0, sid)
+        out[f"bay.{i}"] = sm
+    return out
+
+
+def bay_trim(house: Sample, form: dict, data: dict) -> dict:
+    """The bay's base, sill course and cornice round its plan, the raised panel under each
+    light, and the deck over the cornice falling from the wall to the crown."""
+    bv = form["canted_bay"]["value"]
+    plan = [tuple(q) for q in bv["plan"]]
+    yb, ys = bv["base_m"], bv["wall_top_m"]
+    base = tuple((o, y if y is not None else yb - (0.09, 0.09, 0.04, 0.0)[k - 4])
+                 for k, (o, y) in enumerate(BAY_BASE))
+    bay_ring(house, plan, base, (None, "water_table", "water_table", "apron", "sill", "sill", "sill"))
+    bay_ring(house, plan, BAY_CORNICE, ("soffit", "fascia", "drip_cap", "drip_cap", "drip_cap", "drip_cap"), ys)
+    ct = data["trim"]["corner_board"]["thickness_m"]
+    for i, (a, b) in enumerate(zip(plan, plan[1:])):
+        F = Frame(f"bay_{i}", (a[0], 0.0, a[1]), (b[0] - a[0], 0.0, b[1] - a[1]), (-(b[1] - a[1]), 0.0, b[0] - a[0]))
+        W = math.hypot(b[0] - a[0], b[1] - a[1])
+        inset = bv["post_m"] - ct + 0.05
+        house.box(F, "casing", inset, W - inset, 0.17, yb - 0.12, 0.035, 0.035 + ct * 0.6, skip=("back",),
+                  tone=house.tone("bay_panel", i))
+    top = ys + BAY_CORNICE[-1][1]
+    edge, _ = bay_offset(plan, BAY_CORNICE[-1][0])
+    deck = [(s, top + bv["roof_m"] * (1.0 - z / max(q[1] for q in edge)), z) for s, z in edge]
+    house.face("roof_covering", deck, (0.0, 1.0, 0.0))
+    return {"plan": [list(q) for q in plan], "base_m": yb, "wall_top_m": ys, "cornice_top_m": round(top, 4),
+            "deck_at_wall_m": round(top + bv["roof_m"], 4)}
+
+
 #: T-2395: a timber body's parts, in the order they are merged and measured
 BODY_KEYS = tuple(f"body.{k}{n}" for k in ("south", "north", "wing_north", "wing_rear") for n in ("", ".2")) \
     + ("body.rear", "body.rear_north")
@@ -1514,8 +1629,10 @@ BODY_KEYS = tuple(f"body.{k}{n}" for k in ("south", "north", "wing_north", "wing
 
 def body_part_keys(parts: dict) -> tuple:
     """A front record's body parts in merge order: the timber body's faces, then any annex's
-    walls (T-2397) and the corner tower's faces (T-2396), each held to the kit's rules by the gate."""
-    return tuple(k for k in BODY_KEYS + TOWER_KEYS if k in parts) + tuple(k for k in parts if k.startswith("annex."))
+    walls (T-2397), the corner tower's faces (T-2396) and the canted bay's (T-2424), each held
+    to the kit's rules by the gate."""
+    return tuple(k for k in BODY_KEYS + TOWER_KEYS + BAY_KEYS if k in parts) \
+        + tuple(k for k in parts if k.startswith("annex."))
 
 
 def structure_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
@@ -1546,6 +1663,8 @@ def structure_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
         out.update(timber_body_parts(st, form, data, out))
     if form.get("tower"):
         out.update(tower_parts(st, form, data, out))
+    if form.get("canted_bay") and "lights" in form["canted_bay"]["value"]:     # T-2424
+        out.update(bay_parts(st, form, data))
     return out
 
 
@@ -1873,7 +1992,9 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
         gabled_body(house, Wg + join, s1, -body["wing_depth_m"], 0.0, wv["wall_top_m"], yr - eave_lift, "s",
                     lift=eave_lift, skip=("s0",), s1_wall_to=-wv["return_m"])
     bay = form.get("canted_bay")
-    if bay:
+    if bay and "lights" in bay["value"]:     # T-2424: its faces are parts, merged below
+        house.meta["bay"] = bay_trim(house, form, data)
+    elif bay:
         b = bay["value"]
         canted_bay_body(house, [tuple(q) for q in b["plan"]], b["height_m"], b.get("roof_m", 0.12))
     # the porch's two open ends: a painted skirt board under the floor from the wall to the
