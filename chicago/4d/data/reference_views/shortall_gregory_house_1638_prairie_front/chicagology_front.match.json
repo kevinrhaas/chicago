@@ -2,7 +2,7 @@
   "structure_id": "shortall_gregory_house_1638_prairie_front",
   "view": "chicagology_front",
   "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
-  "glb_sha256": "f52d309cc98def10674fe9d7b7bcef898abde2d73dfac6f5c9d7667e403a2f6d",
+  "glb_sha256": "ac623c71b2143a3e4f45d277d68136bd3ac12a33189f3a829a3c9c3bccd4452a",
   "camera_sha256": "c1c16c717eda63839555e726bc9ca222e4cf819084c6a63406e51eda341c874d",
   "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
   "verdict": "differs",
@@ -32,19 +32,19 @@
       "status": "fixed"
     },
     {
-      "what": "Gable: the verge is a broad plain bargeboard with a moulded edge; the model's is pierced with the kit's roundels and vesicas",
-      "status": "open"
+      "what": "Gable: the verge is a broad plain board, 0.23 m from the roof's top line to its foot (17 px across the rake), covering the roof's edge, with a bead along its lower edge, where the kit's was pierced with roundels and vesicas (T-2457)",
+      "status": "fixed"
     },
     {
-      "what": "Gable: the apex finial is a cluster of three pointed pinnacles; the model's is the kit's single chamfered post",
-      "status": "open"
+      "what": "Gable: the apex carries three pointed pinnacles, the middle one rising 0.48 m over the apex and one each side 0.30 m out on the verge rising to 0.08 m over it, with no drop under the apex, where the kit had a single chamfered post and pendant (T-2457)",
+      "status": "fixed"
     },
     {
-      "what": "Gable: under the hood, between the two lights' heads, the print shows cusped tracery and the hood's ends curl as volutes; the model has plain blocks for stops and no tracery",
-      "status": "open"
+      "what": "Gable: under the hood, between the two lights' heads, a cusped trefoil applied in the spandrel, and the hood's two ends curled as volutes in place of plain blocks (T-2457)",
+      "status": "fixed"
     },
     {
-      "what": "Gable: the apex stands about 12 px (0.16 m) over the print's",
+      "what": "Gable: re-measured by T-2457 on the verges' outer edges (rows 130-260 fitted, both slopes within 0.5 degree of the model's 52), the print's verges meet 9 px HIGHER than the model's and 9 px north of them (460 against 451 px), and its oval, its window pair and its hood stand on that same middle (459-460 px; T-2423's own hood readings, 380 and 537 px, put it at 458.5) while the south verge agrees within 3 px. So the earlier '12 px over' reading was the inner meeting of the boards under the pinnacles, and what the print shows is a gable about 0.24 m wider than the sheet's 5.21 m, its middle 0.12 m north, at the same pitch. Widening it moves the wing wall and the porch's south post, which is the entrance's narrower opening below (T-2458)",
       "status": "open"
     },
     {
@@ -56,12 +56,12 @@
       "status": "fixed"
     },
     {
-      "what": "Bay: the print's pointed heads are a little blunter than the kit's equilateral arch, their stops at about 2.33 m where the model's arches spring at 2.20 m",
-      "status": "open"
+      "what": "Bay: the lights' heads are drop arches, blunter than the kit's equilateral, springing at 2.33 m to their points at 2.83 m: each arc's radius 0.72 of the span (T-2457)",
+      "status": "fixed"
     },
     {
-      "what": "Bay: the print's lights have a small dark stop at each spring of the casing; the model's casings run plain round the heads",
-      "status": "open"
+      "what": "Bay: a small dark stop at each spring of every light's casing, on its outer edge (T-2457)",
+      "status": "fixed"
     },
     {
       "what": "Entrance: a pointed arch between the posts, springing 0.75 m under the plate and rising 0.65 m to its point, where the kit's porch had scroll brackets (T-2425)",

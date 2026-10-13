@@ -125,10 +125,15 @@ def box(s0, s1, y0, y1):
 class Head:
     """The top of a clear opening s0..s1 whose jambs rise to `spring`."""
 
-    def __init__(self, kind: str, s0: float, s1: float, spring: float, rise_over_span: float = 0.125):
+    def __init__(self, kind: str, s0: float, s1: float, spring: float, rise_over_span: float = 0.125,
+                 radius_ratio: float = 1.0):
         self.kind, self.s0, self.s1, self.spring = kind, s0, s1, spring
         span = s1 - s0
         self.cx, half = (s0 + s1) / 2, span / 2
+        # each half's arc is centred on the springing line: on the opposite jamb for the
+        # equilateral head, nearer the middle (T-2457: a blunter, drop head) for a radius
+        # under the span; 0.5 would be round
+        self.cl, self.cr = s0, s1
         if kind == "flat":
             self.rise = 0.0
         elif kind == "segmental":
@@ -137,6 +142,12 @@ class Head:
             self.cy = spring - (self.R - self.rise)
         elif kind == "round":
             self.rise, self.R, self.cy = half, half, spring
+        elif kind == "pointed" and radius_ratio != 1.0:
+            if not 0.5 < radius_ratio < 1.0:
+                raise ValueError(f"a drop head's radius_ratio must lie between 0.5 and 1, not {radius_ratio}")
+            self.R = span * radius_ratio
+            self.cl, self.cr = s1 - self.R, s0 + self.R
+            self.rise = math.sqrt(self.R * self.R - (self.R - half) ** 2)
         elif kind == "pointed":
             self.R = span
             self.rise = math.sqrt(span * span - half * half)
@@ -159,13 +170,14 @@ class Head:
                     for i in range(n + 1)]
         r, n = self.R - inset, 6
         out = []
-        # right half: the arc centred on the LEFT jamb's spring
+        # right half: the arc centred on the LEFT jamb's spring (the drop head's left centre)
         ac = lambda q: math.acos(max(-1.0, min(1.0, q)))
-        ta, tb = ac((xa - self.s0) / r), ac((self.cx - self.s0) / r)
-        out += [(self.s0 + r * math.cos(ta + (tb - ta) * i / n), self.spring + r * math.sin(ta + (tb - ta) * i / n))
+        cl, cr = self.cl, self.cr
+        ta, tb = ac((xa - cl) / r), ac((self.cx - cl) / r)
+        out += [(cl + r * math.cos(ta + (tb - ta) * i / n), self.spring + r * math.sin(ta + (tb - ta) * i / n))
                 for i in range(n + 1)]
-        ta, tb = ac((self.cx - self.s1) / r), ac((xb - self.s1) / r)
-        out += [(self.s1 + r * math.cos(ta + (tb - ta) * i / n), self.spring + r * math.sin(ta + (tb - ta) * i / n))
+        ta, tb = ac((self.cx - cr) / r), ac((xb - cr) / r)
+        out += [(cr + r * math.cos(ta + (tb - ta) * i / n), self.spring + r * math.sin(ta + (tb - ta) * i / n))
                 for i in range(1, n + 1)]
         return out
 
@@ -278,8 +290,9 @@ class Opening:
                 head = Head("flat", s0, s1, H)
             else:
                 ros = self.data["arch"]["segmental"]["working_rise_over_span"]
-                h0 = Head(kind, s0, s1, 0.0, ros)
-                head = Head(kind, s0, s1, H - h0.rise, ros)
+                rr = v.get("head_radius_ratio", 1.0)    # T-2457: a drop head, its radius under the span
+                h0 = Head(kind, s0, s1, 0.0, ros, rr)
+                head = Head(kind, s0, s1, H - h0.rise, ros, rr)
             holes.append((s0, s1, head))
         self.meta["heads"] = [{"kind": h.kind, "span_m": round(h.span, 4), "rise_m": round(h.rise, 4),
                                "spring_m": round(h.spring, 4)} for _, _, h in holes]
