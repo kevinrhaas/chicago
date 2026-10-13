@@ -425,7 +425,7 @@ def _stone_cornice(a, K, data, bays, conf):
             continue
         ev = b["variant"].get("overrides", {}).get("eaves", {})
         wall_top = b["variant"].get("base", 0.0) if b["variant"].get("base") != "grade" else 0.0
-        wall_top += sum(st["height_m"] for st in b["variant"]["storeys"])
+        wall_top += math.fsum(st["height_m"] for st in b["variant"]["storeys"])
         if [tuple(q) for q in ev.get("profile", ())] != prof or abs(wall_top - y_c) > 0.001:
             raise ValueError(f"the bay {b['id']} reaches the stone cornice at {y_c:.3f} m; it rises to it only "
                              f"carrying its section (eaves.cornice), its wall top at {y_c:.3f} m (has {wall_top:.3f})")
