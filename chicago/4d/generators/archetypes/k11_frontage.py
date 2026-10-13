@@ -196,7 +196,7 @@ def dress(a):
 
     # the stoop, as built: how far its foot reaches, read off K07's mesh in front of the door
     door = next(o for o in p.openings if o.component == "k01.opening.door_leaf" and o.wall == STREET_FRONT)
-    stoop = [q for q in a.prim("stoop_stone").pos if q[0] > D + 0.05 and abs(-q[2] - door.s_m) < 2.0]
+    stoop = [q for q in a.prim("stoop_stone").pos if q[0] > D + 0.05 and abs(-q[2] - p.stoop_s_m(door.s_m)) < 2.0]
     foot = max(q[0] for q in stoop)
 
     fence, style = t["fence"], FENCES[t["fence"]]
@@ -211,7 +211,7 @@ def dress(a):
     c = E["clear_m"]
     if c < G["clear_min_m"]:
         raise ValueError(f"the entrance gate's {c} m is under the kit's {G['clear_min_m']} m clear")
-    ea, eb = door.s_m - c / 2, door.s_m + c / 2
+    ea, eb = p.stoop_s_m(door.s_m) - c / 2, p.stoop_s_m(door.s_m) + c / 2
     pe1, pe2 = pier(ea - ps / 2), pier(eb + ps / 2)
     Lw = (c - 2 * G["hinge_offset_m"] - G["keeper_gap_m"]) / 2
     hxa, ha = var.hinges(pe1.name, ea)
@@ -282,7 +282,7 @@ def dress(a):
         boards(a, K, data, B, line, s_north, conf)
     a.instance(GATE, "gate", {"leaves": 2, "clear_m": c, "leaf_m": round(Lw, 4), "swing_reach_m": round(R, 4),
                               "stoop_foot_m": round(foot - D, 4)},
-               {"opening": (line, 0.0, -door.s_m)})
+               {"opening": (line, 0.0, -p.stoop_s_m(door.s_m))})
     if S:
         a.instance(GATE, "gate", {"leaves": 1, "clear_m": round(sb - sa, 4)}, {"opening": (line, 0.0, -(sa + sb) / 2)})
     if W:
@@ -392,7 +392,7 @@ def garden(a, t):
     D = p.depth_m
     line = D + t["line_m"]
     door = next(o for o in p.openings if o.component == "k01.opening.door_leaf" and o.wall == STREET_FRONT)
-    stoop = [q for q in a.prim("stoop_stone").pos if q[0] > D + 0.05 and abs(-q[2] - door.s_m) < 2.0]
+    stoop = [q for q in a.prim("stoop_stone").pos if q[0] > D + 0.05 and abs(-q[2] - p.stoop_s_m(door.s_m)) < 2.0]
     foot = max(q[0] for q in stoop)
     cheeks = (min(-q[2] for q in stoop), max(-q[2] for q in stoop))
     W, F = t["wall"], t["fence_run"]
