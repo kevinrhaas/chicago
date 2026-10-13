@@ -393,14 +393,71 @@
           "value": {
             "k01.opening.door_leaf": {
               "variant": "k07.entrance.panel_door_stoop",
-              "front_yard_m": 10.2
+              "front_yard_m": 10.2,
+              "balustrade": {
+                "height_m": 1.0,
+                "pitch_m": 0.2,
+                "newel_m": 0.2,
+                "newel_cap_m": 0.1,
+                "rail_m": [
+                  0.12,
+                  0.08
+                ],
+                "segments": 8,
+                "profile": [
+                  [
+                    0.06,
+                    0.0
+                  ],
+                  [
+                    0.06,
+                    0.06
+                  ],
+                  [
+                    0.045,
+                    0.1
+                  ],
+                  [
+                    0.04,
+                    0.18
+                  ],
+                  [
+                    0.06,
+                    0.35
+                  ],
+                  [
+                    0.065,
+                    0.45
+                  ],
+                  [
+                    0.045,
+                    0.65
+                  ],
+                  [
+                    0.032,
+                    0.78
+                  ],
+                  [
+                    0.045,
+                    0.86
+                  ],
+                  [
+                    0.055,
+                    0.94
+                  ],
+                  [
+                    0.055,
+                    1.0
+                  ]
+                ]
+              }
             }
           },
           "confidence": "inferred",
           "sources": [
             "glessner_blog_1637_spalding_remodel_engraving"
           ],
-          "note": "A panelled door up a stoop between rails, as the engraving draws it between the bay and the wing; the yard runs 10.2 m to the street line (the draft's street_u)."
+          "note": "A panelled door up a stoop between rails, as the engraving draws it between the bay and the wing; the yard runs 10.2 m to the street line (the draft's street_u). T-2447: the landing and the flight are railed with a turned balustrade on each cheek, 1.0 m over the landing, as the engraving draws the landing's rail (y 623-675 px over the stoop's head at 668 px); its balusters' profile is the K07 kit's and RECONSTRUCTED."
         },
         "bays": {
           "value": [
@@ -556,6 +613,34 @@
             "sanborn_1911_chicago_v3_sheet_20"
           ],
           "note": "The 1911 sheet's range behind the south part of the main body (s20fp-1637-b1, from 5.2 m to the south wall and 5.7 m back), two storeys under a flat tin deck; no picture shows it, so its storeys and windows are reconstructed."
+        },
+        "boundary": {
+          "value": {
+            "layout": "front_garden",
+            "line_m": 3.5,
+            "lot_s_m": [
+              -3.138,
+              14.218
+            ],
+            "wall": {
+              "variant": "k11.wall.brick_with_piers",
+              "from_s_m": -3.138,
+              "to_s_m": 0.87,
+              "height_m": 2.0
+            },
+            "fence": "k11.fence.spear_on_curb",
+            "fence_run": {
+              "from_s_m": 7.55,
+              "to_s_m": 14.1
+            },
+            "fence_rail_top_m": 1.65
+          },
+          "confidence": "inferred",
+          "sources": [
+            "glessner_blog_1637_spalding_remodel_engraving",
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "T-2447: the engraving's front garden. It draws a tall brick garden wall before the north flank, ending in a square pier before the swell bay (x 357 px), and an iron spear fence from the stoop's foot (a tall post at x 557 px) south before the wing to x 847 px; between them the stoop's own flight comes down to the walk. Both stand close before the house, not on the street line: their feet read on the camera's ground plane at u 13.8-15.6 (y 777-787 px), while the engraving's walk edge reads at u 19-23 (y 800-810 px), where the 1911 sheet puts the street line (u 21.2). So they are built on one line 3.5 m before the main front (u 14.5), on which the wall's end pier projects to x 357 px, exactly the drawn one. The wall is the K11 kit's brick wall with piers, 2.0 m high with piers 2.25 m, its pier at s 0.87 and its north end on the lot line (s -3.138, the 1911 parcel prairie_1637 in this frame): the drawn wall's top (y 680-685 px) reads 2.2 m over grade at the pier. The engraving draws the wall running on north past the frame, which this camera puts about 3.5 m beyond the lot line, onto the unbuilt strip prairie_1625_1637_c; T-2443 rules on that ground, so the wall stops at the lot line here. The fence is the kit's spear fence on its curb, from the stoop's south cheek (s 7.55) to the lot line (s 14.1), its top rail raised to 1.65 m over the curb, 1.9 m over grade, as drawn (y 690 px). Its pickets are the kit's 0.125 m pitch where the engraving draws one about every 0.22 m, an engraver's economy, not a measurement. Iron, brick, coping, curb, pier caps and the wall's end on the lot line are the kit's and RECONSTRUCTED (L-k01-1637-spalding-garden-2447)."
         }
       }
     }

@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "spalding_remodel_engraving",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "1b35f12b5706ad9bf486ffbdb7d26c123cf0387a17d684e8ca595e4e15afae27",
+  "glb_sha256": "9c8dd3cc6d770ca7b227cc65aab8aaf5f704e6d08e4fbb9894bb7379845106e0",
   "camera_sha256": "06623cf6f05d0dafcc01b75c32c2d59a8079f6b2df83342aa3e040e00f77e557",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg",
   "verdict": "differs",
@@ -35,7 +35,7 @@
     {
       "what": "the wing: the engraving draws it standing well forward of the front and rising under its own steep hipped roof, as high as the main roof, with a stack at its ridge; the build stands it on the 1911 sheet's 1.0 m step under the mansard's cornice, with a flat tin deck",
       "status": "open",
-      "how": "T-2442: the 1911 sheet controls the plan; the wing's own roof needs a K05 hip over the projection that K08's hood does not build"
+      "how": "T-2448: the 1911 sheet controls the plan; the wing's own roof needs a K05 hip over the projection that K08's hood does not build"
     },
     {
       "what": "the main roof: steep straight lower faces in slate under a level top line, hipped down at the wing; the build's K05 mansard has convex lower faces 2.6 m tall",
@@ -50,27 +50,47 @@
     {
       "what": "the windows: the principal storey's about 2.9 m tall, the wing's a French window to its floor over a balcony; the build's are 2.4 m sashes, the K01 contract's clear-height limit",
       "status": "open",
-      "how": "T-2442"
+      "how": "T-2449"
     },
     {
-      "what": "the stoop and its rails, the wing's balcony, and the basement's lights (round-headed under the wing, nearly a storey tall under the bay)",
+      "what": "the stoop's landing railed, its rail about 1.0 m over the landing (y 623-675 px)",
+      "status": "fixed",
+      "how": "T-2447: K07's turned balustrade on both cheeks, level beside the landing and raked down the flight, 1.0 m over the landing"
+    },
+    {
+      "what": "the stoop's flight: the engraving draws its foot at the fence's first post (x 557 px), well short of the walk; K07's straight flight reaches about 1.6 m past the garden's line, so the built fence starts at about x 640 px",
       "status": "open",
-      "how": "T-2442"
+      "how": "T-2449: the stoop's run against the engraving's foot; the draughtsman's depth is not the camera's, so it is argued, not copied"
+    },
+    {
+      "what": "the wing's balcony on its principal floor, bowed, about 0.9 m high under the French window",
+      "status": "open",
+      "how": "T-2449, with the French window"
+    },
+    {
+      "what": "the basement's lights: two round-headed under the wing, one nearly a storey tall under the bay",
+      "status": "open",
+      "how": "T-2449"
     },
     {
       "what": "the bay and the wing rise to the cornice itself in the engraving; the build stops both at 10.7 m, under K10's bed moulding",
       "status": "open",
-      "how": "T-2442"
+      "how": "T-2448"
     },
     {
       "what": "the stacks' panelled shafts and caps",
       "status": "open",
-      "how": "T-2442"
+      "how": "T-2448"
     },
     {
-      "what": "the brick garden wall before the north flank and the iron fence before the wing",
+      "what": "the brick garden wall before the north flank, ending in a square pier before the swell bay (x 357 px), and the iron spear fence before the wing, both close before the house, the fence's top rail about 1.9 m over grade",
+      "status": "fixed",
+      "how": "T-2447: K11's front-garden layout on one line 3.5 m before the main front (the runs' feet, y 777-787 px, read on the camera's ground there): the kit's brick wall, 2.0 m with 2.25 m piers, its end pier at x 357 px as drawn; the kit's spear fence from the stoop's south cheek to the lot line, its top rail 1.9 m over grade"
+    },
+    {
+      "what": "the garden wall runs on north past the frame's edge, about 3.5 m beyond the 1911 lot line through this camera, onto the unbuilt strip prairie_1625_1637_c",
       "status": "open",
-      "how": "T-2442"
+      "how": "T-2443 rules on 1635's ground; the wall stops at 1637's lot line until it does"
     },
     {
       "what": "colour: the engraving is monochrome",
