@@ -257,22 +257,33 @@
         "use": "wall",
         "width_m": 2.92,
         "return_m": 0.9,
-        "foundation_m": 0.75,
+        "foundation_m": 0.36,
         "wall_top_m": 6.4,
-        "windows": [
+        "windows": [],
+        "doors": [
           {
-            "k06_variant": "k06.opening.sash_2over2_flat",
-            "clear_height_m": 1.85,
-            "sill_m": 1.2,
-            "centre_m": 1.35
+            "centre_m": 1.29,
+            "clear_width_m": 1.2,
+            "clear_height_m": 1.72,
+            "panels": [
+              2,
+              1
+            ],
+            "stile_m": 0.13,
+            "top_rail_m": 0.23,
+            "lock_rail_m": 0.2,
+            "bottom_rail_m": 0.29,
+            "panel_sink_m": 0.015,
+            "glazed": true
           }
         ]
       },
       "confidence": "reconstructed",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
+        "sanborn_1911_chicago_v3_sheet_20",
+        "chicagology_1638_prairie_photo"
       ],
-      "note": "The north 2.92 m of the front and its corner onto the north side, behind the porch. The width is the sheet's (inferred); the rest is RECONSTRUCTED from the kit: clapboard on a water table, corner boards, a frieze and boxed eave on scroll brackets, and a long two-over-two sash opening onto the porch. Its eave is the gable's belt line, two storeys as the sheet's '2BB' says. Above the porch it stands behind the corner tower (form.tower), which the photograph shows filling this end of the front, so it has no upper sash of its own (T-2396)."
+      "note": "The north 2.92 m of the front and its corner onto the north side, behind the porch. The width is the sheet's (inferred); the rest is RECONSTRUCTED from the kit: clapboard on a water table, corner boards, a frieze and boxed eave on scroll brackets, and, since T-2425, the double door the photograph shows under the arch in place of the kit's two-over-two sash. Its eave is the gable's belt line, two storeys as the sheet's '2BB' says. Above the porch it stands behind the corner tower (form.tower), which the photograph shows filling this end of the front, so it has no upper sash of its own (T-2396). The door (T-2425) is read off the print at the wall's plane at 73 px a metre: two leaves together 1.2 m clear (the dark of the opening is 95 px, 1.3 m, with its frame), its middle 734 px, 6.47 m along the front; each leaf a stile round one tall light, the pale panels the print shows from 672 to 760 px, 0.29 to 1.49 m over the threshold, so a 0.29 m bottom rail and a 0.23 m top rail under the head at 655 px. That makes the leaves 1.72 m clear, short for a door of the 1870s, and that is the print's reading, kept as read. The threshold is the porch floor's (the door's foot at 785 px, the floor's 0.6 m through the camera), so the wall's water table is laid at the floor, 0.36 m foundation under it, where the kit's 0.75 m set it 0.4 m over the boards; what is under the porch floor is not seen. The pale gabled shape over the door's south leaf in the print is not identified and not built. The glass, the leaves' joinery and colours are RECONSTRUCTED."
     },
     "porch": {
       "value": {
@@ -281,14 +292,31 @@
         "use": "porch",
         "half_width_m": 1.3,
         "depth_m": 1.75,
-        "centre_m": 6.55
+        "centre_m": 6.55,
+        "post_m": 0.22,
+        "arch": {
+          "spring_below_plate_m": 0.75,
+          "rise_m": 0.65,
+          "lower_radius_ratio": 0.4,
+          "lower_sweep_deg": 60,
+          "lobe_m": 0.05,
+          "quatrefoil_inset_m": [
+            0.15,
+            0.16
+          ]
+        },
+        "stoop": {
+          "max_riser_m": 0.18,
+          "going_m": 0.28,
+          "cheek_above_m": 0.12
+        }
       },
       "confidence": "reconstructed",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20",
         "chicagology_1638_prairie_photo"
       ],
-      "note": "The sheet draws a one-storey open porch (dotted) across the north end of the front, 2.91 m wide and 2.0 m out: its place and size are inferred from it. Its fabric is the kit's porch, RECONSTRUCTED — an oiled board floor on a lattice skirt, chamfered posts with scroll brackets, a beaded ceiling — built as two mirrored halves so it has a post at each end, its open ends closed under the floor by a painted skirt board. The register calls 1638's porch 'pierced'; that pierced woodwork is T-1865's. Its middle is 6.55 m from the front's south end (T-2396): the sheet's dotted porch runs to the front's north end, which puts it at 6.67 m, and the photograph's posts (665 and 850 px, at 73 px a metre on the front and a little more at the porch's face) put it at 6.5-6.65 m, where before it stood 6.86 m, with its roof's south edge at the gable's. In the photograph it is the ground storey of the corner tower (form.tower)."
+      "note": "The sheet draws a one-storey open porch (dotted) across the north end of the front, 2.91 m wide and 2.0 m out: its place and size are inferred from it. Its fabric is the kit's porch, RECONSTRUCTED — an oiled board floor on a lattice skirt, chamfered posts with scroll brackets, a beaded ceiling — built as two mirrored halves so it has a post at each end, its open ends closed under the floor by a painted skirt board. The register calls 1638's porch 'pierced'; that pierced woodwork is T-1865's. Its middle is 6.55 m from the front's south end (T-2396): the sheet's dotted porch runs to the front's north end, which puts it at 6.67 m, and the photograph's posts (665 and 850 px, at 73 px a metre on the front and a little more at the porch's face) put it at 6.5-6.65 m, where before it stood 6.86 m, with its roof's south edge at the gable's. In the photograph it is the ground storey of the corner tower (form.tower). Since T-2425 its front is the entrance the photograph shows under the tower: read through the camera solved for the print (data/reference_views/, at 79.8 px a metre at the posts' face 18.3 m from the eye), the posts are broad plain piers, 18 px (0.22 m) across, and between them, in the posts' depth under the plate, a pointed arch springs 60 px (0.75 m) under the plate's foot (617 against 557 px) and rises 52 px (0.65 m) to a point 8 px under it: flatter than a semicircle, so it is built four-centred, a sweep of 60 degrees on a radius of 0.4 the half-span at each spring under a flatter arc that meets its fellow in the point. In each corner of the board over it the print shows a pierced quatrefoil, about 20 px (0.2 m) across, its middle 12-15 px (0.15 m) in from the post and 15 px (0.16 m) under the plate. The kit's scroll brackets are gone with it. In front, steps rise to the floor between two cheek walls in the posts' line, their tops sloping down with the steps: the kit's floor (0.6 m) in four equal risers of 0.15 m on 0.28 m goings, the print's nosings 14-15 px apart as the camera draws them. The arch's form, the quatrefoil's lobes, the steps' and cheeks' sizes and every colour are RECONSTRUCTED from a monochrome halftone; the posts and the opening stand where the sheet's porch width puts them, 2.11 m between the posts against the print's 1.72 m."
     },
     "tower": {
       "value": {
@@ -778,7 +806,7 @@
       ]
     }
   ],
-  "research_note": "T-2323 — the first house built in the scene from the K16 timber kit (data/components/prairie_1904/k16_timber.json, T-2322): piece 2 of T-1858. It is the street front's timber fabric — the Gothic gable with its pierced bargeboards and shingle bands, the clapboard wall beside it with its corner, and the porch — closed behind it since T-2395 (a piece of T-1864's envelope) in the kit's timber: both ranges' clapboard flanks, a rear gable, the main roof carried back on the front gable's rake and a lean-to over the north range. The sheet's rear pieces stand against it since T-2397: the rear range widened to 6.49 m, a two-storey projection on the south flank and three one-storey pieces on decks. The corner tower stands since T-2396. Since T-2423 (a piece of T-1865) the gable carries what the photograph shows on it — two pointed lights under an ogee hood and finial, the blind oval, and clapboard to the rake — read through the camera solved for it in data/reference_views/; T-1865's other pieces finish the bay (T-2424), the entrance under the tower (T-2425) and the fence (T-2426); T-2160's district draft keeps this record's id.",
+  "research_note": "T-2323 — the first house built in the scene from the K16 timber kit (data/components/prairie_1904/k16_timber.json, T-2322): piece 2 of T-1858. It is the street front's timber fabric — the Gothic gable with its pierced bargeboards and shingle bands, the clapboard wall beside it with its corner, and the porch — closed behind it since T-2395 (a piece of T-1864's envelope) in the kit's timber: both ranges' clapboard flanks, a rear gable, the main roof carried back on the front gable's rake and a lean-to over the north range. The sheet's rear pieces stand against it since T-2397: the rear range widened to 6.49 m, a two-storey projection on the south flank and three one-storey pieces on decks. The corner tower stands since T-2396. Since T-2423 (a piece of T-1865) the gable carries what the photograph shows on it — two pointed lights under an ogee hood and finial, the blind oval, and clapboard to the rake — read through the camera solved for it in data/reference_views/; since T-2425 its entrance under the tower is the print's — a pointed arch on broad posts with pierced quatrefoil spandrels, a glazed double door and a stoop between cheek walls; T-1865's other pieces finish the bay (T-2424) and the fence (T-2426); T-2160's district draft keeps this record's id.",
   "research_doc": "",
   "review_required": false
 }
