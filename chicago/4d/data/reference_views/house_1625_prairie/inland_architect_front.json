@@ -1,0 +1,12 @@
+{
+  "structure_id": "house_1625_prairie",
+  "source_id": "inland_architect_1890_01_mcbirney_residence",
+  "library_image": "cgn-1625-mcbirney-inland-1890-copy",
+  "photo": "../../sources/assets/mcbirney_1625_photo_t2432/inland_architect_1890_mcbirney_1625.jpg",
+  "image_px": [670, 900],
+  "principal_px": [611, 733],
+  "focal_px": 674,
+  "eye": [36.9, 12.2, 1.6],
+  "yaw_deg": -90.0,
+  "solve": "Fitted by T-2432 to the Inland Architect plate's photograph of 1625 (the image store's 670 x 900 display copy). A view camera's photograph: the verticals are vertical and the window heads level, so the camera is level and square to the front (yaw -90 in the footprint frame, whose u runs toward the street and whose v runs SOUTH on this side of the avenue: the eye looks east). Scale: the front's two edges, the downpipe at the party wall (x 140 px) and the south corner pier's outer face (x 433 px), are the 1911 sheet's 7.6 m front, 38.6 px/m at the front's plane. Grade at the front reads y 795 px; heights at that scale, from the north part's windows: ground-floor sills 1.1 m and heads 2.7 m, first-floor 4.15 and 6.4 m, second-floor 7.8 and 10.1 m, the gable's three lights 11.6-13.4 m, the south wall's eave about 13 m and the gable's apex 18.8 m. Across: the south side wall shows receding from the front corner (x 433) to the rear section's corner (about x 505), 11.85 m back on the sheet; with the eye 12.2 m along the front from the party wall (4.6 m south of the south wall, over the open ground the sheet leaves there) that depth needs the eye 17.45 m in front of the stone face, f = 38.6 x 17.45 = 674 px (a 53-degree view across the plate), which puts the principal point at x 611. The eye at 1.6 m, a standing eye in the roadway, sets the horizon at y 733. The rear corner's x is read off a soft edge (about +-10 px), so the eye's distance is good to about +-3 m and its place along the street to about +-1 m; heights at the front's plane do not depend on it."
+}
