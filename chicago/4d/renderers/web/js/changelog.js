@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1752, ts: '2026-10-13T07:25:07.298Z', date: 'Oct 13, 2026, 2:25 AM CT', title: '1638 Prairie\'s entrance, from its photograph', kind: 'feature',
+    items: [
+      'The Gothic house at 1638 Prairie now has the entrance its old photograph shows under the corner tower: a pointed arch on broad posts with a pierced quatrefoil in each corner, a glazed double door behind it, and steps up between two sloping cheek walls.',
+      'What the print could not settle — the opening\'s exact width and how many steps it really had — is written down as still open.',
+    ] },
   { v: 1751, ts: '2026-10-13T06:37:47.261Z', date: 'Oct 13, 2026, 1:37 AM CT', title: '1620 Prairie\'s bay window stands as tall as its 1874 engraving', kind: 'improvement',
     items: [
       'The bay window on 1620 Prairie\'s south front now rises to the engraving\'s heights: its two arched lights run up beside the principal-storey windows and its slated hood tucks under the window above.',
