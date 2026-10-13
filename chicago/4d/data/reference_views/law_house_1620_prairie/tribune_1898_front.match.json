@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "tribune_1898_front",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "bcac35ad0d59712b2853325d8bee0e50c0f62577e79d68664c5cd4992c2c54d3",
+  "glb_sha256": "0173feb16c66d0b5b126deab75926195e4ecd7004ee1e9f2f36d99f34e92cdd0",
   "camera_sha256": "dfa5031ea10d2db2d29acbe9a1192a9f021983a0d7e44dc675754544440b3299",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg",
   "verdict": "differs",
@@ -16,7 +16,7 @@
       "status": "fixed"
     },
     {
-      "what": "bay window: a one-storey bay on the south part with pilaster strips and its own cornice; built by T-2408 as the 1874 engraving's hooded canted bay, its cornice under the hood. On T-2437's re-fitted camera its south part lands at x 8 px against the drawn 5 (its north part is under the '1620' cartouche); the sketch's bay cornice stands at y 115 px, about 13 px (0.65 m) over the build's hood top, the bay's heights the 1874 engraving also draws higher (T-2438)",
+      "what": "bay window: a one-storey bay on the south part with pilaster strips and its own cornice; built by T-2408 as the 1874 engraving's hooded canted bay. On T-2437's re-fitted camera its south part lands at x 8 px against the drawn 5 (its north part is under the '1620' cartouche). Its height is now the sketch's: T-2444 raised the bay to the 1874 engraving's heights, and its hood's eaves land at about y 117 px against the sketch's bay cornice at y 115 px, where the build's hood top stood about 13 px (0.65 m) under it before. Still open: the pilaster strips the sketch draws on the bay's face, which the timber bay does not carry (T-2445)",
       "status": "open"
     },
     {
@@ -40,6 +40,5 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2437 (the camera re-fitted to the house's re-read heights), 2026-10-13, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg"
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
