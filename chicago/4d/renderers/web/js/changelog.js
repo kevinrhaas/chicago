@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1747, ts: '2026-10-13T04:58:03.643Z', date: 'Oct 12, 2026, 11:58 PM CT', title: 'Glessner\'s courtyard windows, sash by sash', kind: 'change',
+    items: [
+      'The Glessner courtyard\'s windows are now real double-hung sash on rock-faced stone sills, where each was one dark pane behind a flat frame. The hall bow and the dining bay have the same sash on their curved and angled faces.',
+      'The four windows over the courtyard underpass are two-over-two, and the courtyard\'s basement windows stand behind iron bars, as the c. 1923 photograph of the court shows.',
+    ] },
   { v: 1746, ts: '2026-10-13T04:51:23.947Z', date: 'Oct 12, 2026, 11:51 PM CT', title: '1625 Prairie built from its 1890 photograph', kind: 'feature',
     items: [
       '1625 Prairie Avenue, Hugh J. McBirney\'s Tudor house of 1889, now stands from its one photograph, the Inland Architect plate of January 1890, in place of its draft: a rock-faced brownstone front three storeys tall, the ground floor near the walk, two windows a storey in its north part and the door at its south end with a window over it on each floor.',
