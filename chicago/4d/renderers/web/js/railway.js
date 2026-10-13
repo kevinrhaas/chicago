@@ -169,7 +169,7 @@ function trackPath(line, terrain) {
  * UVs are world metres on the yard's own axes, so beds, cinders and verges share a
  * grain where they overlap.
  */
-function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = null, across = MAX_EDGE_M, drape = false }) {
+function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = null, across = MAX_EDGE_M, fineNear = 0, drape = false }) {
   const { pos, uv, col, conf } = out;
   for (let i = 0; i + 1 < stations.length; i += 1) {
     const [ae0, an0, be0, bn0] = stations[i];
@@ -178,9 +178,15 @@ function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = 
     const width = Math.max(Math.hypot(be0 - ae0, bn0 - an0), Math.hypot(be1 - ae1, bn1 - an1), 1e-3);
     const nu = Math.max(1, Math.ceil(along / MAX_EDGE_M));
     const f = Math.min(0.45, fade / width);
-    const inner = Math.max(1, Math.ceil((width * (1 - 2 * f)) / across));
+    // `fineNear`: only the last metres before the b edge are cut at `across`, the rest
+    // at the heightfield's own cell — a face bends over at its crest, nowhere else
     const vs = [0, f];
-    for (let j = 1; j < inner; j += 1) vs.push(f + ((1 - 2 * f) * j) / inner);
+    const fine = fineNear > 0 ? Math.min(1 - 2 * f, fineNear / width) : 1 - 2 * f;
+    const coarse = 1 - 2 * f - fine;
+    const nc = coarse > 1e-6 ? Math.max(1, Math.ceil((width * coarse) / MAX_EDGE_M)) : 0;
+    for (let j = 1; j <= nc; j += 1) vs.push(f + (coarse * j) / nc);
+    const nf = Math.max(1, Math.ceil((width * fine) / across));
+    for (let j = 1; j < nf; j += 1) vs.push(f + coarse + (fine * j) / nf);
     vs.push(1 - f, 1);
     const vertex = (u, v) => {
       const ea = ae0 + (ae1 - ae0) * u; const na = an0 + (an1 - an0) * u;
@@ -664,14 +670,14 @@ export async function createRailway({
       tint: (y) => wetTint(y, wetBelow).map((v) => v * 0.88),
       // the face bends over at its crest: a coarse ribbon's chord would pass under the
       // ground there and the grass would show through, so it is cut finely across
-      across: 0.5,
+      across: 0.5, fineNear: 1.2,
       drape: true,
     });
     const made = buffers();
     const madeLib = maps.get(edgeSpec.made_ground?.material ?? 'made_ground');
     ribbon(row.made_ground ?? [], {
       terrain, lift: GROUND.made.lift, fade: GROUND.made.fade, axis, span: madeLib?.along ?? 4,
-      level: tierLevel(edgeSpec.made_ground?.tier ?? 'reconstructed'), out: made, across: 0.6,
+      level: tierLevel(edgeSpec.made_ground?.tier ?? 'reconstructed'), out: made, across: 0.6, fineNear: 1.2,
     });
     edgeMeshes.push(
       groundMesh('railway-lake-face', face, 'face', faceLib, confidence),
@@ -941,6 +947,7 @@ export async function createRailway({
 
   /* ---- the cap timber and its piles ---- */
   let capPile = null;
+  let pileSpots = [];
   if (edgeSpec?.cap && lake && (lake.crest ?? []).length >= 2) {
     const capLib = maps.get(edgeSpec.cap.material ?? 'cap_timber');
     const { mesh, pts } = capMesh(lake.crest, lake.face, edgeSpec.cap, terrain, capLib, confidence);
@@ -979,6 +986,7 @@ export async function createRailway({
         m4.compose(v3.set(wx(sp.e), sp.top, wz(sp.n)), q, s3.set(1, len, 1));
         capPile.setMatrixAt(k, m4);
       });
+      pileSpots = spots.map((sp) => [wx(sp.e), wz(sp.n)]);
       capPile.computeBoundingSphere();
       capPile.name = 'railway-piles';
       capPile.castShadow = false; capPile.receiveShadow = true;
@@ -1034,6 +1042,13 @@ export async function createRailway({
         const dr = Math.hypot(dn, Math.max(0, Math.abs(cx - z.rockCentre) - 10), Math.max(0, cy - 20));
         for (const m of z.rockMeshes) m.visible = dr < r.rocks && m.count > 0;
       }
+    }
+    // the piles show only under the cap's lake side: from the yard's far side they are
+    // a few pixels each, so they draw within the near reach of the nearest one
+    if (capPile) {
+      let dp = Infinity;
+      for (const [px, pz] of pileSpots) dp = Math.min(dp, Math.hypot(cx - px, cz - pz));
+      capPile.visible = Math.hypot(dp, Math.max(0, cy - 20)) < r.near;
     }
   };
 
