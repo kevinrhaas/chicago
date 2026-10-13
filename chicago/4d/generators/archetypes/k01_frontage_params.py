@@ -256,6 +256,12 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
         if fabrics[lower]["module"]["headlap_m"] < prof["slate_exposure"]["headlap_m"][
                 "pitch_45_up" if lower_pitch >= 45 else "pitch_25_to_45"] - 1e-9 or lower_pitch < 25:
             raise ParamError(f"{lower} is not cut for a {lower_pitch} deg mansard face (k04 slate_exposure)")
+    # T-2476: the covering's paint, when a house's own evidence picks one of the fabric's
+    # paint_alternatives over the paint its map is drawn in (k04_roofs.json)
+    paint = covering.get("paint")
+    if paint is not None and paint not in fabrics[cov].get("paint_alternatives", ()):
+        raise ParamError(f"roof_covering.paint {paint!r}: {cov} is painted one of "
+                         f"{', '.join(fabrics[cov].get('paint_alternatives', ())) or 'nothing'}")
     if flat and covering.get("caps") is not None:
         raise ParamError("a flat K01 roof has no hip or ridge: roof_covering names no caps")
     if flat and fabrics[cov]["kind"] == "slate":
@@ -269,6 +275,7 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
     caps = prof["hip_ridge_caps"]["copper_ridge_roll"]   # the hip's; a flat deck lays none
     roof = {
         "covering": cov, "flashing": flash, **({"lower_covering": lower} if lower else {}),
+        **({"paint": paint} if paint and paint != fabrics[cov].get("paint") else {}),
         "tile_m": list(fabrics[cov]["tile_m"]),
         "slate_thickness_m": module.get("thickness_m", 0.0064),
         "eave_overhang_m": prof["cut_edges"]["eave"]["overhang_m"],

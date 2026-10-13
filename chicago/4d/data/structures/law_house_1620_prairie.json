@@ -282,10 +282,11 @@
             "fabric": "tin_standing_seam_painted",
             "flashing": "copper_sheet",
             "caps": "copper_ridge_roll",
-            "lower_faces": "slate_pennsylvania"
+            "lower_faces": "slate_pennsylvania",
+            "paint": "black"
           },
           "confidence": "inferred",
-          "note": "The mansard's lower faces SLATED (T-2406): the 1874 engraving hatches the north face and the crown in close level courses, the slate of a mansard, where the cornice and walls are drawn in vertical strokes; K04's slate takes a face of 45 degrees and up at its 3 in. headlap, and the faces stand on 72- and 80-degree chords. Which quarry is RECONSTRUCTED: Pennsylvania's dark slate, the engraving's dark tone and K04's commonest slate. The low upper hip (18 degrees, which K04 does not slate) neither picture sees, from the street below the raised yard; it stays RECONSTRUCTED painted standing-seam tin with copper flashing and ridge roll, the K04 covering 1608 and 1600 wear.",
+          "note": "The mansard's lower faces SLATED (T-2406): the 1874 engraving hatches the north face and the crown in close level courses, the slate of a mansard, where the cornice and walls are drawn in vertical strokes; K04's slate takes a face of 45 degrees and up at its 3 in. headlap, and the faces stand on 72- and 80-degree chords. Which quarry is RECONSTRUCTED: Pennsylvania's dark slate, the engraving's dark tone and K04's commonest slate. The low upper hip (18 degrees, which K04 does not slate) neither picture sees, from the street below the raised yard; it stays RECONSTRUCTED standing-seam tin with copper flashing and ridge roll, the K04 covering 1608 and 1600 wear, painted BLACK since T-2476 (one of K04's three tin paints; the owner found the red-oxide deck an odd orange over the slate from above, and a dark-painted deck is what reads as one roof with slated faces). Black rather than red oxide or dark green is RECONSTRUCTED; no picture sees the deck.",
           "sources": [
             "land_owner_1874_05_homes_of_chicago_1620_law"
           ]

@@ -8,7 +8,7 @@
         "height": 800
       },
       "detail": "full",
-      "load_ms_to_ready": 23579,
+      "load_ms_to_ready": 26854,
       "boot": {
         "ready": true,
         "error": null,
@@ -31,7 +31,7 @@
       "stands": [
         {
           "name": "front",
-          "heap_mb": 709.8,
+          "heap_mb": 712.1,
           "detail": "full",
           "problems": [],
           "stats": {
@@ -39,7 +39,7 @@
             "triangles": 2205657,
             "programs": 39,
             "geometries": 169,
-            "textures": 390,
+            "textures": 389,
             "batches": 145,
             "wallRelief": {
               "off": false,
@@ -61,7 +61,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 81027080,
+            "bytes": 81027120,
             "fps": 0,
             "cameraNear": 0.1,
             "budget": {
@@ -70,7 +70,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 2768.8,
+          "frame_ms_median": 2305.3,
           "camera": [
             1405.69,
             -3018.24,
@@ -84,7 +84,7 @@
         },
         {
           "name": "front-40ft",
-          "heap_mb": 710.6,
+          "heap_mb": 711.9,
           "detail": "full",
           "problems": [],
           "stats": {
@@ -92,7 +92,7 @@
             "triangles": 2212020,
             "programs": 39,
             "geometries": 169,
-            "textures": 390,
+            "textures": 389,
             "batches": 145,
             "wallRelief": {
               "off": false,
@@ -114,7 +114,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 81027080,
+            "bytes": 81027120,
             "fps": 0,
             "cameraNear": 0.5,
             "budget": {
@@ -123,7 +123,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 2992.3,
+          "frame_ms_median": 2546.6,
           "camera": [
             1405.71,
             -3020.33,
@@ -137,7 +137,7 @@
         },
         {
           "name": "north-face",
-          "heap_mb": 711.5,
+          "heap_mb": 712.6,
           "detail": "full",
           "problems": [],
           "stats": {
@@ -145,7 +145,7 @@
             "triangles": 2240870,
             "programs": 39,
             "geometries": 171,
-            "textures": 397,
+            "textures": 395,
             "batches": 145,
             "wallRelief": {
               "off": false,
@@ -167,7 +167,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 81027080,
+            "bytes": 81027120,
             "fps": 0,
             "cameraNear": 0.25,
             "budget": {
@@ -176,7 +176,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 3315.5,
+          "frame_ms_median": 2842.6,
           "camera": [
             1391.5,
             -2999.98,
@@ -190,7 +190,7 @@
         },
         {
           "name": "roof",
-          "heap_mb": 711.5,
+          "heap_mb": 712.7,
           "detail": "full",
           "problems": [],
           "stats": {
@@ -198,7 +198,7 @@
             "triangles": 2242050,
             "programs": 39,
             "geometries": 171,
-            "textures": 397,
+            "textures": 395,
             "batches": 145,
             "wallRelief": {
               "off": false,
@@ -220,7 +220,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 81027080,
+            "bytes": 81027120,
             "fps": 0,
             "cameraNear": 1.05,
             "budget": {
@@ -229,7 +229,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 3926.9,
+          "frame_ms_median": 2592,
           "camera": [
             1401.88,
             -3037.87,
@@ -250,7 +250,7 @@
         "height": 780
       },
       "detail": "light",
-      "load_ms_to_ready": 17479,
+      "load_ms_to_ready": 15372,
       "boot": {
         "ready": true,
         "error": null,
@@ -273,7 +273,7 @@
       "stands": [
         {
           "name": "front",
-          "heap_mb": 313.5,
+          "heap_mb": 312.6,
           "detail": "light",
           "problems": [],
           "stats": {
@@ -303,8 +303,8 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 56002372,
-            "fps": 0,
+            "bytes": 56002412,
+            "fps": 1,
             "cameraNear": 0.1,
             "budget": {
               "drawCalls": 330,
@@ -312,7 +312,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 1209,
+          "frame_ms_median": 854.1,
           "camera": [
             1405.69,
             -3018.24,
@@ -326,7 +326,7 @@
         },
         {
           "name": "front-40ft",
-          "heap_mb": 289.3,
+          "heap_mb": 321.1,
           "detail": "light",
           "problems": [],
           "stats": {
@@ -356,7 +356,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 56002372,
+            "bytes": 56002412,
             "fps": 0,
             "cameraNear": 0.5,
             "budget": {
@@ -365,7 +365,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 1228.1,
+          "frame_ms_median": 886.3,
           "camera": [
             1405.71,
             -3020.33,
@@ -379,7 +379,7 @@
         },
         {
           "name": "north-face",
-          "heap_mb": 289.3,
+          "heap_mb": 288.7,
           "detail": "light",
           "problems": [],
           "stats": {
@@ -409,7 +409,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 56002372,
+            "bytes": 56002412,
             "fps": 0,
             "cameraNear": 0.25,
             "budget": {
@@ -418,7 +418,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 1535,
+          "frame_ms_median": 985.7,
           "camera": [
             1391.5,
             -2999.98,
@@ -432,7 +432,7 @@
         },
         {
           "name": "roof",
-          "heap_mb": 289.3,
+          "heap_mb": 288.7,
           "detail": "light",
           "problems": [],
           "stats": {
@@ -462,7 +462,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 56002372,
+            "bytes": 56002412,
             "fps": 0,
             "cameraNear": 1.05,
             "budget": {
@@ -471,7 +471,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 1327,
+          "frame_ms_median": 1077.8,
           "camera": [
             1401.88,
             -3037.87,
