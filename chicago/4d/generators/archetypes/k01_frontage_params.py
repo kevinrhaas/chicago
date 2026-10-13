@@ -1414,6 +1414,31 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(f"entrance_kit: the door's reveal {rev} m and its {fd} m frame do not fit "
                              f"the {ft} m front wall")
         door_kit["reveal_depth_m"] = rev
+    # T-2480: a bracketed timber hood over the door, in a K08 bay hood's joinery (its consoles
+    # and modillions), its flat top railed as a small balcony; k01_frontage.door_hood builds it
+    if "hood" in door_kit_in:
+        hd = door_kit_in["hood"]
+        need = {"soffit_m", "width_m", "out_m", "fascia_m", "cornice", "brackets", "railing"}
+        if set(hd) != need or set(hd["cornice"]) != {"height_m", "proud_m"} or \
+                set(hd["railing"]) != {"height_m", "post_m", "baluster_m", "pitch_m", "rail_m"}:
+            raise ParamError(f"entrance_kit.hood takes {sorted(need)}, its cornice height_m and proud_m, "
+                             f"its railing height_m, post_m, baluster_m, pitch_m and rail_m [width, depth]")
+        bay = {v["id"]: v for v in json.loads(BAY_KIT.read_text())["variants"]}.get(hd["brackets"])
+        if not bay or not bay.get("brackets"):
+            raise ParamError(f"entrance_kit.hood.brackets: {hd['brackets']!r} is not a bracketed K08 variant")
+        con, mod = bay["brackets"]["consoles"], bay["brackets"]["modillions"]
+        if con["reach_m"] > hd["out_m"]:
+            raise ParamError(f"entrance_kit.hood: {hd['brackets']}'s consoles reach {con['reach_m']} m, "
+                             f"past the hood's {hd['out_m']} m")
+        if mod["drop_m"] >= hd["fascia_m"]:
+            raise ParamError("entrance_kit.hood: the modillions hang deeper than the fascia they stand on")
+        if (val("street_front_trim") or {}).get("entrance"):
+            raise ParamError("entrance_kit.hood: the door takes the hood or a K09 entrance, not both")
+        door_kit["hood"] = {**{k: float(hd[k]) for k in ("soffit_m", "width_m", "out_m", "fascia_m")},
+                            "cornice": {k: float(v) for k, v in hd["cornice"].items()},
+                            "railing": {k: ([float(x) for x in v] if isinstance(v, list) else float(v))
+                                        for k, v in hd["railing"].items()},
+                            "brackets": hd["brackets"], "consoles": dict(con), "modillions": dict(mod)}
     # T-2463: a stoop whose axis is not its door's (1620's, the door at the south end of a
     # landing that runs on north into the porch): the stoop's centre along the front, in the
     # front's own s. The door has to stand on the landing or on a terrace beside it

@@ -887,6 +887,8 @@ class Assembly:
         else:
             # T-2304: the door is a K07 entrance and its stoop, built about the threshold
             self.enter(op, frame, body_mat, seed, conf)
+            if p.entrance_kit.get("hood"):
+                self.door_hood(op, frame)   # T-2480
         brick_head = op.wall != "k01.wall.street_front" or p.street_front_trim.get("brick_heads") == "segmental"
         if MATERIALS[body_mat].get("courses") and not door and brick_head:
             # T-2291: a brick wall's opening takes a brick head, not the front's stone
@@ -1559,6 +1561,134 @@ class Assembly:
         roles = {r: (m or body_mat) for r, m in self.K07_ROLES.items()}
         self.graft(o, "K07", roles, frame, op,
                    lambda role: (stair_seed, stair_conf) if role in self.STAIR_ROLES else (seed, conf))
+
+    # -- the door's hood (T-2480) ---------------------------------------------------------
+    def door_hood(self, op, frame):
+        """A timber hood over the door in a K08 bay hood's joinery: a fascia box `out_m` from
+        the wall, a cornice slab over it standing `proud_m` past its front and ends, a row of
+        the bay's modillions under that overhang and one of the bay's consoles under the
+        soffit at each end, against the wall; on the slab's flat top a low railing on three
+        sides, posts at its corners, square balusters under a rail. All of it the eaves'
+        painted joinery (the `fascia` slot, as K08's hood is on a K01 front). A box's faces
+        against the wall, against the slab, or under the slab are not drawn."""
+        p = self.p
+        h = p.entrance_kit["hood"]
+        O, R, N = frame
+        P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
+        conf = p.conf("entrance_kit")
+        mat = "fascia"
+        pr = self.prim(mat)
+        tri0 = len(pr.idx) // 3
+        c, W, out = op.s_m, h["width_m"], h["out_m"]
+        y0 = h["soffit_m"]
+        y1 = y0 + h["fascia_m"]
+        cp = h["cornice"]["proud_m"]
+        y2 = y1 + h["cornice"]["height_m"]
+        rl = h["railing"]
+        y3 = y2 + rl["height_m"]
+        s0, s1 = c - W / 2, c + W / 2
+        S0, S1, D = s0 - cp, s1 + cp, out + cp          # the slab's plan
+        if y0 < op.head_m + 0.30 + 0.05:
+            raise ValueError(f"the door hood's soffit ({y0} m) is not clear of the door's lintel")
+        for o in p.openings:   # nothing on the front it stands before
+            if o.wall == op.wall and o is not op and o.s_m + o.width_m / 2 + 0.08 > S0 \
+                    and o.s_m - o.width_m / 2 - 0.08 < S1 and o.sill_m - 0.12 < y3 and o.head_m > y0 - 1.0:
+                raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m, {y0}-{y3:.2f} m) runs into "
+                                 f"the opening at s = {o.s_m}")
+        for b in p.bays:   # nor the pavilion's walls (a bay's hood it may run into, as drawn)
+            if b["wall"] == op.wall and b["variant"]["kind"] != "bay" and \
+                    b["span_m"][0] < S1 + 0.05 and b["span_m"][1] > S0:
+                raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m) runs into {b['id']}")
+        con, mod = h["consoles"], h["modillions"]
+        seed = self.instance("k01.hood.door_bracketed", "hood",
+                             {"width_m": W, "out_m": out, "soffit_m": y0, "top_m": y2, "railing_m": rl["height_m"],
+                              "k08_brackets": h["brackets"]},
+                             {"soffit": P(c, y0, 0.0), "deck": P(c, y2, 0.0)})
+        bf = self.basis(mat, O, R, Y, seed)          # faces along the wall
+        bh = self.basis(mat, O, R, N, seed)          # level faces
+        be = self.basis(mat, O, N, Y, seed)          # end faces
+        quad = lambda pts, n, b: pr.face(pts, n, b, conf)
+        down, up, left, right = _mul(Y, -1), Y, _mul(R, -1), R
+
+        def box(a0, a1, b0, b1, d0, d1, skip=()):
+            """A box s a0..a1, y b0..b1, d d0..d1, less the faces named in `skip`."""
+            f = {"front": ([P(a0, b0, d1), P(a1, b0, d1), P(a1, b1, d1), P(a0, b1, d1)], N, bf),
+                 "back": ([P(a0, b0, d0), P(a1, b0, d0), P(a1, b1, d0), P(a0, b1, d0)], _mul(N, -1), bf),
+                 "top": ([P(a0, b1, d0), P(a1, b1, d0), P(a1, b1, d1), P(a0, b1, d1)], up, bh),
+                 "bottom": ([P(a0, b0, d0), P(a1, b0, d0), P(a1, b0, d1), P(a0, b0, d1)], down, bh),
+                 "left": ([P(a0, b0, d0), P(a0, b0, d1), P(a0, b1, d1), P(a0, b1, d0)], left, be),
+                 "right": ([P(a1, b0, d0), P(a1, b0, d1), P(a1, b1, d1), P(a1, b1, d0)], right, be)}
+            for k, (pts, n, b) in f.items():
+                if k not in skip:
+                    quad(pts, n, b)
+
+        # the fascia box, its top under the slab and its back on the wall
+        box(s0, s1, y0, y1, 0.0, out, skip=("back", "top"))
+        # the cornice slab: its underside only where it stands past the box
+        box(S0, S1, y1, y2, 0.0, D, skip=("back", "bottom"))
+        quad([P(S0, y1, out), P(S1, y1, out), P(S1, y1, D), P(S0, y1, D)], down, bh)
+        quad([P(S0, y1, 0.0), P(s0, y1, 0.0), P(s0, y1, out), P(S0, y1, out)], down, bh)
+        quad([P(s1, y1, 0.0), P(S1, y1, 0.0), P(S1, y1, out), P(s1, y1, out)], down, bh)
+        # the modillions under the slab's overhang, along the front between the returns
+        mw, md = mod["width_m"], mod["drop_m"]
+        mo = min(mod["out_m"], cp)
+        n = max(1, math.floor((W - 2 * mod["margin_m"] - mw) / mod["spacing_m"] + 1e-9) + 1)
+        gap = (W - 2 * mod["margin_m"] - n * mw) / max(n - 1, 1)
+        for k in range(n):
+            a0 = s0 + mod["margin_m"] + k * (mw + gap) if n > 1 else c - mw / 2
+            box(a0, a0 + mw, y1 - md, y1, out, out + mo, skip=("back", "top"))
+        # a console under the soffit at each end: its top on the soffit, its back on the
+        # wall, its underside a quarter ellipse from the soffit's front in and down to the wall
+        Rr, Dd, t = con["reach_m"], con["drop_m"], con["thickness_m"]
+        kseg = con["segments"]
+        arc = [(Rr - Rr * math.sin(math.pi / 2 * j / kseg), -Dd + Dd * math.cos(math.pi / 2 * j / kseg))
+               for j in range(kseg + 1)]
+        inset = 0.05
+        for a0 in (s0 + inset, s1 - inset - t):
+            for s_, n_ in ((a0, left), (a0 + t, right)):
+                for j in range(kseg):
+                    quad([P(s_, y0, 0.0), P(s_, y0 + arc[j][1], arc[j][0]), P(s_, y0 + arc[j + 1][1], arc[j + 1][0])],
+                         n_, be)
+            for j in range(kseg):
+                (r0, q0), (r1, q1) = arc[j], arc[j + 1]
+                hr, hy = Rr - (r0 + r1) / 2, -Dd - (q0 + q1) / 2   # facing the ellipse's centre
+                nn = _unit(_add(_mul(N, hr), _mul(Y, hy)))
+                quad([P(a0, y0 + q0, r0), P(a0 + t, y0 + q0, r0), P(a0 + t, y0 + q1, r1), P(a0, y0 + q1, r1)],
+                     nn, bh)
+        # the railing on the slab: posts at the front corners and against the wall, a rail
+        # over square balusters along the front and both returns
+        pm, bm = rl["post_m"], rl["baluster_m"]
+        rw, rd = rl["rail_m"]
+        e = 0.04                                   # the railing's line in from the slab's edge
+        L, Rs, F = S0 + e, S1 - e, D - e           # its outer edges: left, right, front
+        posts = [(L, F - pm), (Rs - pm, F - pm), (L, 0.0), (Rs - pm, 0.0)]
+        for a0, d0 in posts:
+            box(a0, a0 + pm, y2, y3, d0, d0 + pm, skip=("bottom",) + (("back",) if d0 == 0.0 else ()))
+        yr = y3 - rd
+        mid = lambda a, b: (a + b) / 2
+        # the rail: front run between the front posts, each return from the wall post to the front post
+        fr = (F - pm / 2 - rw / 2, F - pm / 2 + rw / 2)
+        box(L + pm, Rs - pm, yr, y3 - 0.02, *fr, skip=("left", "right"))
+        for a in (L, Rs - pm):
+            ac = (mid(a, a + pm) - rw / 2, mid(a, a + pm) + rw / 2)
+            box(*ac, yr, y3 - 0.02, pm, F - pm, skip=("back", "front"))
+
+        def balusters(a, b, along_s, fixed):
+            n = max(1, math.floor((b - a) / rl["pitch_m"]))
+            step = (b - a) / (n + 1)
+            for i in range(1, n + 1):
+                m = a + i * step
+                if along_s:
+                    box(m - bm / 2, m + bm / 2, y2, yr, fixed - bm / 2, fixed + bm / 2, skip=("bottom", "top"))
+                else:
+                    box(fixed - bm / 2, fixed + bm / 2, y2, yr, m - bm / 2, m + bm / 2, skip=("bottom", "top"))
+            return n
+        nb = balusters(L + pm, Rs - pm, True, mid(*fr))
+        for a in (L, Rs - pm):
+            nb += balusters(pm, F - pm, False, mid(a, a + pm))
+        self.trim_triangles["k01.hood.door_bracketed"] = len(pr.idx) // 3 - tri0
+        self.seat(frame, [(s, y, 0.0) for s in (S0, S1) for y in (y0 - Dd, y3)], "k01.hood")
+        self.hood_meta = {"modillions": n, "consoles": 2, "balusters": nb, "top_m": round(y3, 4)}
 
     # -- k01.roof.hip, built from the K05 roof-construction kit (T-2302) -------------
     def roof(self):
