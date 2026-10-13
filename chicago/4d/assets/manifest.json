@@ -7554,14 +7554,14 @@
       "phase_id": "crib_1835",
       "structure_id": "south_pier"
     },
-    "spalding_house_1637_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "spalding_house_1637_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 144832,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "145b8dcdf636a8b80d2d4e5991e87ba75ca31ee070988bc95cc3fd76115f265e",
+      "bytes": 3326716,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "c2e0894b3461742ee8ec3e6ddb6afd055ad51a074d5d1a2c4fab51dcab6400c8",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "spalding_house_1637_prairie"
     },
     "spalding_house_1637_prairie_coach_house__draft_1904.glb": {
