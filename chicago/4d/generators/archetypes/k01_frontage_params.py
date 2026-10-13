@@ -148,6 +148,9 @@ class K01FrontageParams:
     # T-2370: "mansard" (k01.roof.mansard, K05's mansard ring stack laid on this house);
     # `mansard` holds its resolved numbers — variant, profile, pitches, rise, curb, ridge
     mansard: dict = field(default_factory=dict)
+    # T-2410: a brick street front's round-headed windows — {"storeys", "key"}: the storeys
+    # whose street windows are ROUND_HOODED, and the key block over each hood's crown
+    round_heads: dict = field(default_factory=dict)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -192,8 +195,12 @@ CONSUMED = frozenset({
     "basement_lights", "roof_covering", "dormer", "rainwater", "window_kit", "service_wall_brick",
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
     "stone_front", "boundary", "north_bays", "mansard", "rear_wings", "yard", "condition",
-    "street_front_openings", "street_front_dress", "entrance_floor_m",
+    "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
 })
+
+#: T-2410: the component a brick street front's round-headed window is cut as — K06's round
+#: sash in a round hole through the K03 wall, under the kit's own arch band as its hood
+ROUND_HOODED = "k01.opening.sash_round_hooded"
 
 #: T-2358: the one condition kit a record may name (K14, T-2324)
 CONDITION_KIT = "data/components/prairie_1904/k14_condition.json"
@@ -1043,6 +1050,18 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if entrance != "middle" or len(front_bays) != 3:
             raise ParamError("street_front_openings builds a three-bay front entered in its middle bay")
         door_s = front_bays[1]
+    # T-2410: a brick front's storeys whose street windows are round-headed under hoods
+    rh = val("street_front_round_heads") or {}
+    if rh:
+        if set(rh) != {"storeys", "key"} or set(rh["key"]) != {"width_m", "height_m", "proud_m"}:
+            raise ParamError("street_front_round_heads takes storeys [k, ...] and key {width_m, height_m, proud_m}")
+        if val("stone_front") or sfo:
+            raise ParamError("street_front_round_heads cuts round holes in a brick front; a stone front "
+                             "lays its arches with street_front_openings")
+        if any(not 0 <= int(k) < stories for k in rh["storeys"]):
+            raise ParamError(f"street_front_round_heads.storeys names a storey this {stories}-storey house has not")
+        rh = {"storeys": tuple(sorted({int(k) for k in rh["storeys"]})),
+              "key": {k: float(x) for k, x in rh["key"].items()}}
     for k, row in enumerate(sash):
         sill = floors[k] + float(row["sill_above_floor_m"])
         w, h = float(row["width_m"]), float(row["height_m"])
@@ -1059,7 +1078,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         for s in (() if sfo else front_bays):
             if k == 0 and s == door_s:
                 continue
-            openings.append(Opening("k01.opening.sash_flat", "k01.wall.street_front", s, round(sill, 4), w, h))
+            comp = ROUND_HOODED if rh and k in rh["storeys"] else "k01.opening.sash_flat"
+            openings.append(Opening(comp, "k01.wall.street_front", s, round(sill, 4), w, h))
         for s in val("side_bays"):
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.south", float(s), round(sill, 4), w, h))
         for s in val("rear_bays"):
@@ -1162,7 +1182,20 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if vid not in variants:
             raise ParamError(f"window_kit names no K06 variant for {comp} (k06_windows.json)")
         v = variants[vid]
-        if v["head"] != "flat" and not (comp in arched_rows and val("stone_front")):
+        if comp == ROUND_HOODED:
+            # T-2410: the K01 wall cuts this one's round hole (k01_frontage.wall), so its
+            # variant is a single round-headed sash, and its hood and key must clear K10's
+            # bed moulding as any K01 head does (HEAD_RISE_M, 0.30 m over the crown)
+            if v["head"] != "round" or v.get("bays", 1) != 1:
+                raise ParamError(f"window_kit: {comp} is cut as one round hole, and {vid} is not a single round-headed sash")
+            band = json.loads(WINDOW_KIT.read_text())["parts"]["head_band"]
+            key = rh["key"]
+            if not band["width_m"] < key["height_m"] <= 0.30 or key["proud_m"] <= band["proud_m"] or \
+                    key["width_m"] > min(o.width_m for o in openings if o.component == comp) / 2:
+                raise ParamError(f"street_front_round_heads.key: {key['width_m']} x {key['height_m']} m, "
+                                 f"{key['proud_m']} m proud, does not stand on the hood's crown (over its "
+                                 f"{band['width_m']} m band and {band['proud_m']} m proud, inside 0.30 m and half the sash)")
+        elif v["head"] != "flat" and not (comp in arched_rows and val("stone_front")):
             raise ParamError(f"window_kit: {vid} has a {v['head']} head, and a K01 wall cuts "
                              f"a rectangular hole")
         if comp in arched_rows and v["head"] != "round":
@@ -1423,7 +1456,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         boundary=dict(val("boundary", {}) or {}),
         yard=yard,
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
-        roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, entrance_floor_m=ef,
+        roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, entrance_floor_m=ef, round_heads=rh,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )
