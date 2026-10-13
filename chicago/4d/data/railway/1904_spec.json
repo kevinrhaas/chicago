@@ -1,0 +1,47 @@
+{
+ "_doc": "AUTHORED. What tools/trace_ic_tracks_1904.py carries into data/railway/1904.json beside the traced centrelines: the track's section, its ties, the ground under and around it, and the weeds along its edges, each with its tier and what bounds it (T-2478). The renderer, renderers/web/js/railway.js, reads these numbers and nothing else; the look of each surface is the procedural library assets/textures/prairie_1904_rail/, and those pictures are evidence of nothing. docs/RESEARCH/ic_lakefront_1904.md is the reading behind every block, and docs/LIBERTIES.md L-ic-tracks-2478 is the admission.",
+ "gauge_m": 1.435,
+ "gauge_note": "Standard gauge, 4 ft 8 1/2 in, between the rails' inner faces. The Illinois Central and the Michigan Central ran standard gauge by 1904 (the IC's southern lines were converted in 1881). Inferred: the gauge of the period's trunk lines, not read off this track.",
+ "rail": {
+  "section": "ASCE 85-lb tee rail",
+  "height_m": 0.1318,
+  "base_m": 0.1318,
+  "head_width_m": 0.0651,
+  "head_depth_m": 0.0389,
+  "web_m": 0.0143,
+  "base_depth_m": 0.0127,
+  "tier": "reconstructed",
+  "note": "The American Society of Civil Engineers' 1893 section at 85 lb per yard (5 3/16 in high and wide at the base, a 2 9/16 in head, a 9/16 in web): the common trunk-line rail of the years either side of 1904. Which weight these tracks carried is not read; a heavier section is about a centimetre taller. RECONSTRUCTED."
+ },
+ "ties": {
+  "length_m": 2.44,
+  "width_m": 0.229,
+  "depth_m": 0.178,
+  "spacing_m": 0.53,
+  "exposed_m": 0.025,
+  "sources": ["ghm_george_glessner_ic_train_18th"],
+  "jitter": {"along_m": 0.05, "skew_deg": 1.6, "length_m": 0.06},
+  "tier": "reconstructed",
+  "note": "Hewn or sawn crossties 8 ft long, 7 x 9 in, about eighteen to a 30-ft rail: the dimensions the period's railway engineering texts give for main track. George Glessner's photograph looking north from 18th Street (Prairie library st-ghm-george-glessner-ic-train-18th) shows the ties as a close ladder with the ballast filled nearly to their tops, so they stand only a few centimetres proud of it. Spacing, size and the irregularity of a hand-laid track are ours. RECONSTRUCTED."
+ },
+ "ballast": {
+  "material": "cinder_ballast",
+  "bed_half_width_m": 1.75,
+  "right_of_way_material": "trodden_cinders",
+  "west_margin_m": 4.0,
+  "east_margin_m": 3.0,
+  "sources": ["ghm_george_glessner_ic_train_18th", "ghm_george_glessner_ic_train_foot_18th_c1888"],
+  "tier": "inferred",
+  "note": "Both George Glessner photographs of the tracks at 18th Street (st-ghm-george-glessner-ic-train-18th, a18-gh-ic-train-foot-of-18th-c1888) show a dark, fine, earthy bed filled up round the ties and the same dark ground trodden flat between the tracks: locomotive cinders, the ballast every Chicago railway of the period had in quantity. No lawn and no pale broken stone shows in either. INFERRED for what the photographs show; the bed's width, the grain and colour of the maps are ours (RECONSTRUCTED)."
+ },
+ "verges": {
+  "material": "weedy_verge",
+  "width_m": 3.0,
+  "tufts_per_m2": {"full": 3.2, "balanced": 1.8, "light": 0.8},
+  "between_tracks_per_m2": {"full": 0.12, "balanced": 0.06, "light": 0.0},
+  "tier": "reconstructed",
+  "note": "Grass and weeds along the right-of-way's edges and a few in the cinders between the tracks: what grows on a railway's disturbed ground in a Chicago July. No photograph read shows the verge at this reach in summer (both Glessner views are winter or bare). The species mix, its height and density are ours. RECONSTRUCTED."
+ },
+ "liberty": "L-ic-tracks-2478",
+ "research": "docs/RESEARCH/ic_lakefront_1904.md"
+}

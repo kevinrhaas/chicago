@@ -26319,6 +26319,30 @@ rights) would give the members' depths, the scrolls' and figures' forms and the 
 **Review:** `docs/RESEARCH/glessner-front-door-2216/README.md`.
 **Recorded:** 2026-10-13 (T-2216).
 
+### L-ic-tracks-2478 — the 1904 lakefront tracks drawn on the 1911 layout, in a reconstructed section, on cinders, with reconstructed weeds
+
+**Decision:** the 1904 scene draws the Illinois Central tracks east of Prairie and Calumet Avenues
+as the Sanborn 1911 sheets 20 and 28 draw them (eleven to fifteen tracks, `data/railway/1904.json`,
+traced by `tools/trace_ic_tracks_1904.py`), each on a dark cinder bed with crossties standing a few
+centimetres proud of it, standard-gauge 85-lb rails, trodden cinders between and beside the tracks,
+and a 3 m verge of weeds on each side (`renderers/web/js/railway.js`).
+**What it stands on:** the two 1911 sheets for where the tracks lie; George Glessner's photographs
+at 18th Street (`ghm_george_glessner_ic_train_18th`, `ghm_george_glessner_ic_train_foot_18th_c1888`)
+for the cinders filled to the ties and for a yard already seven or more tracks wide before 1904;
+the 1891 atlas (`carlson_greeley_1891_prairie_environs`) as a bound from before at four or five.
+**What is inferred, not attested:** that 1911's layout stands for 1904's; the standard gauge.
+**What is invented:** stretches of track the sheets do not draw (joined across the gap between the
+sheets, carried past a sheet's slanted edge, or closed on a neighbour; each recorded in the track's
+`segments`); the rail section and weight; the ties' size, spacing and irregularity; the ballast
+bed's width and the cinder ground's margins; the colour, grain and wear of every map in
+`assets/textures/prairie_1904_rail/`; the weeds' species, height and density; the grade the rails
+follow (the heightfield, smoothed over 8 m).
+**How to resolve:** an Illinois Central track chart or valuation map of about 1904 for this reach;
+a dated summer photograph of the tracks between 16th and 22nd Street for the verges.
+**Ticket:** T-2478.
+**Review:** `docs/RESEARCH/ic_lakefront_1904.md`.
+**Recorded:** 2026-10-13 (T-2478).
+
 ### L-context-city-2477 — The 1904 context city: faded stand-ins on every part of the map not yet built, their heights, roofs, colours and trees ours, and past the sheets their streets and lots too
 
 **Decision:** T-2477 (owner, 2026-10-13: "very simple buildings in varied appropriate colors based on

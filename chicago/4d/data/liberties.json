@@ -35892,6 +35892,49 @@
       ]
     },
     {
+      "id": "L-ic-tracks-2478",
+      "title": "the 1904 lakefront tracks drawn on the 1911 layout, in a reconstructed section, on cinders, with reconstructed weeds",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 scene draws the Illinois Central tracks east of Prairie and Calumet Avenues as the Sanborn 1911 sheets 20 and 28 draw them (eleven to fifteen tracks, `data/railway/1904.json`, traced by `tools/trace_ic_tracks_1904.py`), each on a dark cinder bed with crossties standing a few centimetres proud of it, standard-gauge 85-lb rails, trodden cinders between and beside the tracks, and a 3 m verge of weeds on each side (`renderers/web/js/railway.js`)."
+        },
+        {
+          "label": "What it stands on",
+          "text": "the two 1911 sheets for where the tracks lie; George Glessner's photographs at 18th Street (`ghm_george_glessner_ic_train_18th`, `ghm_george_glessner_ic_train_foot_18th_c1888`) for the cinders filled to the ties and for a yard already seven or more tracks wide before 1904; the 1891 atlas (`carlson_greeley_1891_prairie_environs`) as a bound from before at four or five."
+        },
+        {
+          "label": "What is inferred, not attested",
+          "text": "that 1911's layout stands for 1904's; the standard gauge."
+        },
+        {
+          "label": "What is invented",
+          "text": "stretches of track the sheets do not draw (joined across the gap between the sheets, carried past a sheet's slanted edge, or closed on a neighbour; each recorded in the track's `segments`); the rail section and weight; the ties' size, spacing and irregularity; the ballast bed's width and the cinder ground's margins; the colour, grain and wear of every map in `assets/textures/prairie_1904_rail/`; the weeds' species, height and density; the grade the rails follow (the heightfield, smoothed over 8 m)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "an Illinois Central track chart or valuation map of about 1904 for this reach; a dated summer photograph of the tracks between 16th and 22nd Street for the verges."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2478."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/ic_lakefront_1904.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-13 (T-2478)."
+        }
+      ]
+    },
+    {
       "id": "L-context-city-2477",
       "title": "The 1904 context city: faded stand-ins on every part of the map not yet built, their heights, roofs, colours and trees ours, and past the sheets their streets and lots too",
       "section": "per_subject",

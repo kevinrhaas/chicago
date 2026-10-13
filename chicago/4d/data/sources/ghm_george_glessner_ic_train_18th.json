@@ -1,0 +1,27 @@
+{
+  "id": "ghm_george_glessner_ic_train_18th",
+  "type": "photograph",
+  "citation": "George Glessner, photograph of an Illinois Central train approaching 18th Street, looking north along the tracks, c. 1888-1895. Reproduced in \"George Glessner, photographer\", Glessner House blog, January 2015.",
+  "author": "George Glessner",
+  "date": "c. 1888-1895",
+  "describes_date": "c. 1888-1895",
+  "repository": "Glessner House (the museum's collection, as reproduced on its blog)",
+  "url": "http://glessnerhouse.blogspot.com/2015/01/george-glessner-photographer.html",
+  "locator": "The blog's 'IC train' image; the project's copy is kevinrhaas/chicago-images prairie-1904/files/st-ghm-george-glessner-ic-train-18th.jpg (record st-ghm-george-glessner-ic-train-18th).",
+  "tier": 2,
+  "rights_status": "check_required",
+  "rights_note": "Permission requested from Glessner House Museum, 2026-10-02 (chicago-images rights-requests/ghm-george-glessner-2026-10.md). Read for what it shows; not shipped in the scene.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read from the owner's image store copy; the museum's original was not seen. The date is the blog's attribution to George Glessner's years with a camera (he was born 1871), not a dated print.",
+  "note": "Spent by T-2478 for the 1904 lakefront: seven or more tracks side by side on a dark, fine ballast filled nearly to the ties' tops, the same dark ground trodden flat between the tracks, no lawn and no pale broken stone, a stone-curbed edge on the west side and the open lake to the east.",
+  "what_it_supplies": [
+    "The look of the ballast and the ground between the tracks: dark cinders filled up round the ties",
+    "That the yard was several tracks wide at 18th Street a decade and more before 1904"
+  ],
+  "what_it_does_not_supply": [
+    "Track positions or count as of 1904 (the 1911 Sanborn sheets supply those)",
+    "Summer vegetation: the view is bare or winter",
+    "Rail weight or tie dimensions"
+  ]
+}

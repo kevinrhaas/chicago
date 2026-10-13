@@ -491,6 +491,26 @@ for sheet in assets/textures/prairie_1904_pbr/*/*/material.json; do
         "$SITE/data/$rel/"
 done
 
+# The 1904 lakefront railway (T-2478): the traced tracks and the spec they carry,
+# drawn by renderers/web/js/railway.js, and its maps — the same three web files
+# per surface as the street library above, plus the grass tuft's one alpha card.
+if [ -d data/railway ]; then
+  rm -rf "$SITE/data/railway"
+  mkdir -p "$SITE/data/railway"
+  cp -f data/railway/*.json "$SITE/data/railway/"
+fi
+for sheet in assets/textures/prairie_1904_rail/*/*/material.json; do
+  [ -f "$sheet" ] || continue
+  src="$(dirname "$sheet")"
+  rel="${src#assets/}"
+  id="$(basename "$src")"
+  mkdir -p "$SITE/data/$rel"
+  cp -f "$sheet" "$SITE/data/$rel/"
+  for f in "$src/${id}_basecolor_web.jpg" "$src/${id}_normal_gl_web.jpg" "$src/${id}_orm_web.jpg" "$src/${id}_web.png"; do
+    if [ -f "$f" ]; then cp -f "$f" "$SITE/data/$rel/"; fi
+  done
+done
+
 # The frontage layer — the plank walks, the board crossing and the named board
 # on its post that stand between a building and the street it fronts on, drawn by
 # renderers/web/js/frontage.js straight from these numbers. Same argument as the

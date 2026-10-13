@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1776, ts: '2026-10-13T20:23:16.623Z', date: 'Oct 13, 2026, 3:23 PM CT', title: 'The Illinois Central tracks now run along the lake in 1904', kind: 'feature',
+    items: [
+      'East of Prairie Avenue, eleven to fifteen tracks now run along the lake, traced from the 1911 fire insurance maps. The open lawn that was there before is gone.',
+      'The tracks lie in dark locomotive cinders filled almost to the tops of the ties, as George Glessner\'s photographs from 18th Street show.',
+      'Each track has crossties and steel rails. Weeds grow along both edges of the railway\'s ground and a few grow between the tracks.',
+      'There was no beach here in 1904. The lake came right up to the railway\'s own edge. The sand beach and park east of here are 1920s landfill.',
+      'Tap the cinders for a card on the nearest track: what the map draws, what is filled in and why.',
+    ] },
   { v: 1775, ts: '2026-10-13T19:48:12.752Z', date: 'Oct 13, 2026, 2:48 PM CT', title: '1620 Prairie\'s door hood, from the 1874 engraving', kind: 'change',
     items: [
       '1620 Prairie\'s front door now stands under the hood the 1874 engraving draws: a painted timber hood on a carved bracket at each end, with a row of small brackets under its cornice, in the same joinery as the bay window\'s hood beside it.',
