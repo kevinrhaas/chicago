@@ -51,6 +51,11 @@
         "confidence": "reconstructed",
         "note": "A classical stone cornice: a bed mould, a plain band the dentils stand on (n = 0.10 m), a soffit over them, a corona and a cyma recta."
       },
+      "moulded_stone_eave": {
+        "points": [[0.0, 0.0], [0.03, 0.0], [0.03, 0.03], [0.05, 0.05], [0.07, 0.08], [0.07, 0.15], [0.24, 0.15], [0.24, 0.17], [0.25, 0.18], [0.25, 0.26], [0.27, 0.26], [0.27, 0.27], [0.285, 0.29], [0.3, 0.315], [0.315, 0.335], [0.32, 0.35], [0.32, 0.36], [0.0, 0.36]],
+        "confidence": "reconstructed",
+        "note": "T-2460: a moulded stone eave cornice, read off Treat & Foltz's drawing of 1619 Prairie (building_budget_1886_06_hamline_farwell_houses), where it runs round the swell bay's top and carries the balcony: through the plate's camera it stands about 0.35 m deep on the bow's face (8.2-8.55 m). From the seat up: a fillet and an ovolo bed mould, the plain band the drawing's dentil course stands on (built plain), a soffit out to a corona with its drip, and a cyma recta to a flat top. The depth is the drawing's; the projection (0.32 m) and each member's size are reconstructed, bounded by that depth and by the K05 eave it stands under (its overhang, less 20 mm)."
+      },
       "parapet_cornice": {
         "points": [[0.0, 0.0], [0.06, 0.0], [0.06, 0.03], [0.09, 0.06], [0.14, 0.1], [0.17, 0.14], [0.18, 0.16], [0.18, 0.2], [0.0, 0.2]],
         "confidence": "reconstructed",
@@ -236,6 +241,18 @@
       "frieze_height_m": 0.42,
       "confidence": "reconstructed",
       "note": "A classical stone entablature: architrave, plain frieze and a dentilled cornice, all three turned round both corners."
+    },
+    {
+      "id": "k10.cornice.moulded_stone",
+      "kind": "moulded",
+      "class": "cornice",
+      "material": "stone",
+      "profile": "moulded_stone_eave",
+      "width_m": 2.8,
+      "height_m": 3.2,
+      "depth_m": 1.4,
+      "confidence": "reconstructed",
+      "note": "T-2460: a moulded stone cornice at a wall head, with no brackets and no frieze of its own: one section swept round the block and turned at both corners. On a house it stands under the K05 eave's soffit, which is its top, and a K08 bay that rises to it carries the same section round its own plan (k08_bays eaves `profile`), so the bay's cornice continues the wall's. Read off 1619 Prairie's drawing, which documents it there; anywhere else it is generic and the restriction below holds."
     },
     {
       "id": "k10.dormer.pedimented_on_bracketed_eave",
