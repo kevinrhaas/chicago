@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "bcac35ad0d59712b2853325d8bee0e50c0f62577e79d68664c5cd4992c2c54d3",
+  "glb_sha256": "0173feb16c66d0b5b126deab75926195e4ecd7004ee1e9f2f36d99f34e92cdd0",
   "camera_sha256": "be6b75dc43bf93ba5dfa5b782fdf69d970e71e0e355eb4b5b5e9776a549220fb",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg",
   "verdict": "differs",
@@ -24,7 +24,7 @@
       "status": "fixed"
     },
     {
-      "what": "corner strip: the engraving draws a light strip down the pavilion's north corner, a stone or painted quoin; T-2404's pavilion turns that corner in its own brick (T-2438)",
+      "what": "corner strip: the engraving draws a light strip down the pavilion's north corner, a stone or painted quoin; T-2404's pavilion turns that corner in its own brick (T-2445)",
       "status": "open"
     },
     {
@@ -40,7 +40,7 @@
       "status": "fixed"
     },
     {
-      "what": "the upper window over the door: the engraving draws it at x 530-550 px, about v 5.6-6.1; the build stands it on the door's own centre, which T-2409 moved to v 6.6, so it stands about 0.5-1 m north of the drawn one (the K01 bay puts the door and the window over it on one centre) (T-2438)",
+      "what": "the upper window over the door: the engraving draws it at x 530-550 px, about v 5.6-6.1; the build stands it on the door's own centre, which T-2409 moved to v 6.6, so it stands about 0.5-1 m north of the drawn one (the K01 bay puts the door and the window over it on one centre) (T-2445)",
       "status": "open"
     },
     {
@@ -56,27 +56,27 @@
       "status": "fixed"
     },
     {
-      "what": "crown and front stack: re-read on the overlay of T-2437's render, the crown's top stands at y 171-175 px between x 640 and 680 where the engraving draws it at 189-190 px, about 0.5 m high, and the front stack's cap at y 154-157 px against the drawn 174-176 (14.55-14.65 m over grade), about 0.6 m high (T-2414's 12.5 m projected 18 px high on the old camera too). K01 keeps a stack 0.6 m over the crown's curb, so the two come down together (T-2438)",
-      "status": "open"
+      "what": "crown and front stack: re-read on the overlay of T-2437's render, the crown's top stood at y 171-175 px between x 640 and 680 where the engraving draws it at 189-190 px, about 0.5 m high, and the front stack's cap at y 154-157 px against the drawn 174-176 (14.55-14.65 m over grade). Built so by T-2444: the crown's curb 0.3 m over the main curb, the least K01 allows, its top now at y 183-190 px between x 620 and 680; the stack at K01's least 0.6 m over it, its cap at 14.7 m, y 169-170 px; and the crown's dormer, which the engraving draws low on the crown's face (its surround y 212-267 px) and the build had about 0.7 m higher, now at about y 210-263 px, its face 0.027 m in from the crown's fascia on a 0.1 m sill",
+      "status": "fixed"
     },
     {
       "what": "roof covering: the lower faces and the crown's read as slate in courses; built so by T-2414 (K04 Pennsylvania slate on every face steeper than 45 degrees, the low upper hip, which the picture cannot see, staying tin)",
       "status": "fixed"
     },
     {
-      "what": "bay window's heights: on T-2437's re-solved camera the engraving draws the bay's lights from 3.09 m (y 545 px, 1.1 m over the 2.0 m floor) to their arch tops at 5.71 m (y 466 px), the hood's eaves at 6.24 m (y 450 px), level with the pavilion's principal-storey heads (6.23-6.37 m), and the hood's top at 7.46 m (y 413 px), under the upper window's foot (7.54 m). The build's bay keeps T-2408's kit heights (lights 1.85 m on a 1.9 m sill, wall top 4.15 m), so it stands about 1.2-2 m under the drawn one on the raised floor (T-2438)",
+      "what": "bay window's heights: on T-2437's re-solved camera the engraving draws the bay's lights from 3.09 m (y 545 px, 1.1 m over the 2.0 m floor) to their arch tops at 5.71 m (y 466 px), the hood's eaves at 6.24 m (y 450 px), level with the pavilion's principal-storey heads (6.23-6.37 m), and the hood's top at 7.46 m (y 413 px), under the upper window's foot (7.54 m). Built so by T-2444: the bay's storey 5.93 m to its wall top, its lights 3.09-5.67 m, its eaves' fascia top at 6.18 m and the hood meeting the wall at 7.34 m, 0.15 m under the upper sash's sill as K01 requires; on the overlay the hood's eaves, the lights' arches and the hood's top land on the drawn ones",
+      "status": "fixed"
+    },
+    {
+      "what": "bay window's tone: the engraving draws the bay dark against the light front, its cheeks hatched as boards and its hood's slate in courses (the hood's shadow, or a painted timber bay). Built by T-2444 as painted timber (K08's frame fabric, the sash's dark green paint on boards over a brick plinth), so it reads dark against the front as drawn; timber rather than shaded brick is RECONSTRUCTED, which the monochrome print cannot decide",
+      "status": "fixed"
+    },
+    {
+      "what": "bay window's terrace: a low turned balustrade runs before the bay at its foot, from x 365 to 460 px, its rail's top at y 551 px, 2.89 m over grade on T-2437's camera: the principal floor's level, so it reads as the porch's terrace carried south across the bay's front (and on past the south corner); the build has none (T-2445)",
       "status": "open"
     },
     {
-      "what": "bay window's tone: the engraving draws the bay dark against the light front (the hood's shadow, or a painted timber bay); built in the house's brick (T-2438)",
-      "status": "open"
-    },
-    {
-      "what": "bay window's terrace: a low turned balustrade runs before the bay at its foot, from x 365 to 460 px, its rail's top at y 551 px, 2.89 m over grade on T-2437's camera: the principal floor's level, so it reads as the porch's terrace carried south across the bay's front (and on past the south corner); the build has none (T-2438)",
-      "status": "open"
-    },
-    {
-      "what": "board fence's line: the engraving draws the boards' top and foot almost level from x 670 to 990 px. On T-2437's re-solved camera the eye stands 0.5 m over the 1.5 m fence, so the north board fence's top runs back almost level as drawn, and the build's top lands at y 591-595 px against the drawn 597-600 the whole way. Its foot does not: the build's rises as the lot-line fence recedes (y 651 px at x 800, 639 at 880, 631 at 950, 623 at 990), where the engraving's stays at 652-658; past the lot's corner (x 786 px) the drawn boards may be a fence along the next lot's street line, or the receding foot drawn flat (T-2438)",
+      "what": "board fence's line: the engraving draws the boards' top and foot almost level from x 670 to 990 px. On T-2437's re-solved camera the eye stands 0.5 m over the 1.5 m fence, so the north board fence's top runs back almost level as drawn, and the build's top lands at y 591-595 px against the drawn 597-600 the whole way. Its foot does not: the build's rises as the lot-line fence recedes (y 651 px at x 800, 639 at 880, 631 at 950, 623 at 990), where the engraving's stays at 652-658; past the lot's corner (x 786 px) the drawn boards may be a fence along the next lot's street line, or the receding foot drawn flat (T-2445)",
       "status": "open"
     },
     {
@@ -88,6 +88,5 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2437 (the camera's eye height re-solved from the street fence's foot; the house's floor, storeys, windows, pavilion and front stack raised to it), 2026-10-13, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg and a 50% overlay of the render on the engraving"
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

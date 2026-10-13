@@ -1,12 +1,12 @@
 {
   "id": "spalding_house_1637_prairie",
-  "phase": "draft_1904",
-  "name": "1637 Prairie Avenue — Spalding remodel of Grosvenor (district draft; refined by T-1870)",
+  "phase": "as_mapped_1904",
+  "name": "1637 Prairie Avenue — Jesse Spalding's remodel of the Grosvenor house, K01 frontage assembly",
   "aka": [
     "1637 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/spalding_house_1637_prairie__draft_1904.glb",
+  "archetype": "k01_frontage",
+  "asset": "gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "documented_range": {
@@ -20,18 +20,18 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1430.245,
-    "local_n": -3055.539,
+    "local_e": 1430.252,
+    "local_n": -3054.499,
     "rotation_deg": 179.603,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 33.000, v -4.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.603 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the K01 main body at its north (low-v) side: the draft's origin moved 1.04 m north along its own frame, onto the north wall of the 1911 sheet's traced main part (s20fp-1637-b1), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.603 degrees turns the plan's u axis onto the lot's own rear-to-street line, so v runs south.",
     "symbolic_location": "1637 S. Prairie Avenue, parcel prairie_1637 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
-    "vertical_anchor": "terrain",
+    "vertical_anchor": "ground",
     "walk_surface_m": null
   },
   "footprint": {
@@ -41,134 +41,505 @@
         0.0
       ],
       [
-        10.75,
+        11.0,
         0.0
       ],
       [
-        10.75,
-        11.5
+        11.0,
+        13.1
       ],
       [
         0.0,
-        11.5
+        13.1
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "The main body read off the 1911 sheet's trace (s20fp-1637-b1) in the lot frame: the north part's brick front at 11.0 m from its rear wall, the north wall at v 0 and the south wall at 13.1, so 11.0 m deep and 13.1 m along the front, the trace's own width where the draft's 0.25 m cell fit stopped at 11.5 m. The sheet's south 4.8 m stands 1.0 m forward of the north part: the engraving's wing, built on it as a K08 projection (form.bays). The range behind the south part is a rear wing (form.rear_wings); the sheet's frame porch across the north part and its small canted bay on the wing are the 1911 state's and are not built (T-2442 weighs them)."
   },
   "attributes": {
     "stories": {
       "value": 2,
-      "confidence": "attested",
+      "confidence": "inferred",
       "sources": [
+        "glessner_blog_1637_spalding_remodel_engraving",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "'2½B' printed on the 1911 sheet: 2 full storeys and a half storey in the roof."
+      "note": "Two full storeys over a raised basement, with the roof storey lit by its dormers: the engraving's own count (the basement's lights at the walk, the principal storey's tall windows and the wing's French window, the second storey under the cornice). The 1911 sheet prints '2½B', the same count with the half storey in the roof."
     },
     "construction": {
       "value": "brick",
       "confidence": "attested",
       "sources": [
+        "sanborn_1911_chicago_v3_sheet_20",
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "note": "The 1911 sheet colours the house brick; the engraving draws every face it shows in coursed brick, the bay and the wing included."
+    },
+    "principal_floor_m": {
+      "value": 2.3,
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "note": "2.3 m over grade, read through the engraving's camera (data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.json) off the wing's balcony floor and the stoop's head (y 668 px): a raised basement whose lights stand a full storey at the walk. Above the K01 contract's 0.8-1.8 m starting range, so it stands on the engraving."
+    },
+    "storey_heights_m": {
+      "value": [
+        4.3,
+        4.9
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "note": "Floor to floor, principal storey first: 4.3 m and 4.9 m. Through the engraving's camera the second floor falls at about 6.6 m (between the principal windows' heads at 5.7-6.0 m and the second storey's sills at 7.2-7.4 m) and the cornice's soffit at about 11.5 m. No dimension is printed on the engraving."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "A brick-and-a-half wall, as every K01 brick house's."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "A brick-and-a-half wall, as every K01 brick house's."
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "The one K03 panel k03_brick lays; the engraving's brick is monochrome."
+    },
+    "street_front_trim": {
+      "value": {
+        "by_storey": [
+          "k01.flat_lintel",
+          "k01.flat_lintel"
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "Plain flat stone lintels on both storeys: the engraving draws the windows as plain square-headed holes in the brick with no hoods. The heavy surrounds and sills it hatches are listed open."
+    },
+    "wall_head": {
+      "value": {
+        "cornice": "k10.cornice.bracketed_timber"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "note": "A heavy cornice over a plain frieze runs round the front, the bay and the wing at one height in the engraving; drawn as K10's bracketed timber cornice, the kit's one heavy eave."
+    },
+    "roof_form": {
+      "value": "mansard",
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "note": "The engraving's main roof is steep and slated, with gabled dormers in its street and north faces and a level top line: a mansard's steep lower faces under a low upper hip. K01's hip runs its ridge from the front to the rear and needs side walls longer than the front, which this 13.1 m front on an 11.0 m depth does not have."
+    },
+    "roof_pitch_deg": {
+      "value": 18,
+      "confidence": "reconstructed",
+      "note": "The upper hip over the curb, which no picture shows: inside K05's mansard_upper starting range."
+    },
+    "eave_overhang_m": {
+      "value": 0.5,
+      "confidence": "reconstructed",
+      "note": "The cornice's projection, inside the draft rules' range; the engraving's cornice stands about half a metre proud."
+    },
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "Inside the K01 contract's tread range."
+    },
+    "stair_landing_depth_m": {
+      "value": 1.2,
+      "confidence": "reconstructed",
+      "note": "A landing at the door, as 1620's."
+    },
+    "stoop_width_m": {
+      "value": 1.8,
+      "confidence": "reconstructed",
+      "note": "The engraving's stoop between its rails, about the door's width and a jamb each side."
+    },
+    "entrance_bay": {
+      "value": "middle",
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "note": "The door stands between the swell bay and the wing, under one window of the second storey and a dormer, as the engraving draws it; the bay and the wing stand over the front's two outer bays."
+    },
+    "front_bays": {
+      "value": [
+        2.72,
+        6.25,
+        10.7
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1637_spalding_remodel_engraving",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "The register reads the map's colours as 'brick'."
+      "note": "Bay centres along the street front, north to south: the swell bay's centre (2.72 m), the door's (6.25 m, read through the engraving's camera at x 515 px), and the wing's (10.7 m, the middle of the sheet's 4.8 m step). The windows K01 would cut in the outer two bays stand behind the bay and the wing, which carry their own."
     },
-    "draft_plan": {
+    "side_bays": {
+      "value": [
+        1.6,
+        6.5
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "note": "Window centres along the north flank, rear to front: the two the engraving shows over the garden wall at about u 0.6-1.8 and 6.3-6.7 m, the rear one moved in to 1.6 m so its lintel clears the rear corner."
+    },
+    "north_bays": {
+      "value": [],
+      "confidence": "reconstructed",
+      "note": "The south wall, which no picture shows, stands near the lot line with 1639: left blind."
+    },
+    "rear_bays": {
+      "value": [
+        3.0,
+        6.5
+      ],
+      "confidence": "reconstructed",
+      "note": "Two windows a storey on the rear wall beside the rear range, which no picture shows."
+    },
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.7,
+          "width_m": 1.0,
+          "height_m": 2.4
+        },
+        {
+          "sill_above_floor_m": 0.6,
+          "width_m": 1.0,
+          "height_m": 2.3
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "note": "The engraving's windows read about 1 m wide; the principal storey's about 2.9 m tall over a 0.7 m sill, held to the K01 contract's 2.4 m clear height (listed open), the second storey's 2.3 m over a 0.6 m sill."
+    },
+    "basement_lights": {
       "value": {
-        "parts": [
+        "sill_m": 0.45,
+        "width_m": 0.9,
+        "height_m": 1.3
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "note": "The basement's lights stand nearly a storey at the walk in the engraving (about 0.5-1.9 m over grade under the bay); the round heads it draws under the wing are listed open."
+    },
+    "roof_covering": {
+      "value": {
+        "fabric": "tin_standing_seam_painted",
+        "flashing": "copper_sheet",
+        "caps": "copper_ridge_roll",
+        "lower_faces": "slate_pennsylvania"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "note": "The engraving's lower faces are laid in slate; the upper hip, which it does not show, is painted tin, as 1620's mansard."
+    },
+    "mansard": {
+      "value": {
+        "variant": "k05.roof.mansard_convex",
+        "lower_rise_m": 2.6,
+        "dormers": [
           {
-            "id": "r1",
-            "role": "main",
-            "storeys": 2,
-            "roof": "hip_steep",
-            "rect": [
-              0.0,
-              0.0,
-              10.75,
-              11.5
-            ],
-            "from": "s20fp-1637-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 83% of its fill"
+            "face": "street",
+            "along_m": 2.8,
+            "sash": {
+              "variant": "k06.opening.sash_round_fanlight",
+              "width_m": 0.6,
+              "height_m": 1.1,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.2,
+            "face_setback_m": 0.15
           },
           {
-            "id": "r2",
-            "role": "wing",
-            "storeys": 2,
-            "roof": "hip",
-            "rect": [
-              -5.5,
-              4.25,
-              0.0,
-              12.0
-            ],
-            "from": "s20fp-1637-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 83% of its fill"
+            "face": "street",
+            "along_m": 6.25,
+            "sash": {
+              "variant": "k06.opening.sash_round_fanlight",
+              "width_m": 0.6,
+              "height_m": 1.1,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.2,
+            "face_setback_m": 0.15
+          },
+          {
+            "face": "south",
+            "along_m": 6.3,
+            "sash": {
+              "variant": "k06.opening.sash_round_fanlight",
+              "width_m": 0.6,
+              "height_m": 1.1,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.2,
+            "face_setback_m": 0.15
           }
-        ],
-        "lot_v": [
-          -4.178,
-          13.178
-        ],
-        "street_u": 21.176
+        ]
       },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "note": "Steep lower faces 2.6 m tall from the cornice to the curb (the engraving's level top line at about 14.1 m over grade), with three dormers where the engraving draws them: two on the street face, over the swell bay (2.8 m) and over the door (6.25 m), and one on the north face 6.3 m from the rear. K01's mansard dormer is round-headed; the engraving's are gabled over square-headed sashes, listed open. The record's 'south' face is the K01 frame's v-0 side, which on this side of the avenue is the north wall."
+    },
+    "chimneys": {
+      "value": {
+        "plan_m": [
+          0.9,
+          0.75
+        ],
+        "top_above_ridge_m": 0.9,
+        "cap_proud_m": 0.05,
+        "cap_depth_m": 0.15,
+        "stacks": [
+          {
+            "u_m": 9.2,
+            "v_m": 0.0,
+            "on_cornice": true,
+            "top_m": 16.4
+          },
+          {
+            "u_m": 3.2,
+            "v_m": 0.0,
+            "on_cornice": true,
+            "top_m": 15.5
+          },
+          {
+            "u_m": 9.6,
+            "v_m": 11.2,
+            "top_m": 14.8
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "note": "Three stacks where the engraving draws them, each at the top it reads through the camera: two on the north wall's cornice, near its front (u 9.2 m, top 16.4 m over grade) and near its rear (3.2 m, 15.5 m), and one over the wing (14.8 m). The engraving's stacks are panelled and capped; K01's are plain, listed open."
+    },
+    "rainwater": {
+      "value": {
+        "gutter": "half_round",
+        "fabric": "copper_sheet",
+        "downpipe": "round",
+        "ends_at": "grade_with_splash_stone",
+        "downpipes": [
+          {
+            "wall": "k01.wall.side.south",
+            "s_m": 0.35
+          },
+          {
+            "wall": "k01.wall.side.south",
+            "s_m": 10.6
+          },
+          {
+            "wall": "k01.wall.rear_service",
+            "s_m": 0.35
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "No picture shows a pipe, and the engraving's street front has none between its bay and wing: two down the north flank, at its rear and front ends, and one at the rear wall's north corner."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.area_light": {
+          "variant": "k06.opening.area_light",
+          "well": false
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "Two-over-two sashes, the kit's sash for a brick front of the 1880s; the engraving's glazing bars are not legible."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.panel_door_stoop",
+          "front_yard_m": 10.2
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "note": "A panelled door up a stoop between rails, as the engraving draws it between the bay and the wing; the yard runs 10.2 m to the street line (the draft's street_u)."
+    },
+    "bays": {
+      "value": [
+        {
+          "id": "north_swell",
+          "variant": "k08.bay.bowed",
+          "wall": "k01.wall.street_front",
+          "s_m": 2.72,
+          "fabric": "brick",
+          "plan": {
+            "kind": "bow",
+            "chord_m": 4.8,
+            "rise_m": 1.3
+          },
+          "storeys": [
+            {
+              "height_m": 6.6,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 2.4,
+                  "sill_m": 3.0,
+                  "at_deg": [
+                    -36,
+                    2,
+                    40
+                  ]
+                }
+              ]
+            },
+            {
+              "height_m": 4.1,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 2.3,
+                  "sill_m": 0.6,
+                  "at_deg": [
+                    -36,
+                    2,
+                    40
+                  ]
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "cone",
+            "pitch": 0.05,
+            "covering": "tin_flat_seam_painted"
+          }
+        },
+        {
+          "id": "south_wing",
+          "variant": "k08.projection.full_height",
+          "wall": "k01.wall.street_front",
+          "s_m": 10.7,
+          "plan": {
+            "width_m": 4.8,
+            "proud_m": 1.0
+          },
+          "flush_corner": "right",
+          "fabric": "brick",
+          "storeys": [
+            {
+              "height_m": 6.6,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.15,
+                  "clear_height_m": 2.4,
+                  "sill_m": 3.0,
+                  "at": [
+                    0.5
+                  ]
+                }
+              ]
+            },
+            {
+              "height_m": 4.1,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.1,
+                  "clear_height_m": 2.1,
+                  "sill_m": 0.75,
+                  "at": [
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.0,
+            "covering": "tin_flat_seam_painted"
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1637_spalding_remodel_engraving",
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The engraving's two outer bays, on the 1911 sheet's plan. North: a swell bay from grade nearly to the cornice, 4.8 m on its chord from 0.3 m inside the north corner to the door's jamb, about 1.3 m out, three windows a storey (read at about -31, 20 and 48 degrees round it through the camera, set at -36, 2 and 40 so the outer two keep their recesses clear of the front wall where the bow runs back into it). South: the wing, on the sheet's 4.8 m by 1.0 m step flush with the south corner, one window a storey on its centre, the principal storey's a French window over a balcony in the engraving (a sash here; the balcony is T-2442's). Both stand from grade to 10.7 m, as high as K10's cornice lets a bay rise under its bed moulding (the engraving's run on to the cornice itself). The wing's own steep hipped roof, which the engraving raises as high as the main roof, is listed open: K08's projection roof is a hood on the projection's own 1 m plan, so the wing takes the flat tin deck 1620's pavilion has and the mansard runs over it."
+    },
+    "rear_wings": {
+      "value": [
+        {
+          "id": "rear_range",
+          "rect": [
+            -5.7,
+            0.0,
+            5.2,
+            13.1
+          ],
+          "floor_m": 2.3,
+          "storey_heights_m": [
+            4.0,
+            3.6
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 1.0,
+              "height_m": 2.3
+            },
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 1.0,
+              "height_m": 1.9
+            }
+          ],
+          "windows": {
+            "rear": [
+              2.5,
+              5.4
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        }
+      ],
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1637-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 83% of its fill; s20fp-1637-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 83% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-    },
-    "draft_elevation": {
-      "value": {
-        "kind": "house",
-        "seed": 3050685170,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
-        ],
-        "roof_pitch_deg": 50,
-        "mansard_lower_m": 3.0,
-        "front_bays": 4,
-        "entrance": "south",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": true,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2335",
-          "refined_by": [
-            "T-1870"
-          ]
-        },
-        "v_toward": "south"
-      },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The register's Spalding remodel of the Grosvenor house: 'brick block with steep hip/mansard roof, dormers, tall chimneys, full-height swell bay, projecting gabled wing', drawn as a steep hip with dormers over the 2½B body, the sheet's frame bay as a projection. The 1904 Blue Book lists W. G. Hibbard Jr. at 1637, so the Spalding name is the one provisional association the census keeps; T-1870 rules. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3050685170 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-east-2335."
-    },
-    "draft": {
-      "value": {
-        "pass": "T-2335",
-        "liberty": "L-draft-prairie-16-18-east-2335",
-        "register_row": "frontage-20-031",
-        "census_ids": [
-          "s20-1637-f",
-          "s20-1637-a1"
-        ],
-        "trace_building": "s20fp-1637-b1",
-        "seed": 3050685170,
-        "replaceable_by": [
-          "T-1870"
-        ],
-        "card": "District draft — refined by T-1870."
-      },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "note": "The 1911 sheet's range behind the south part of the main body (s20fp-1637-b1, from 5.2 m to the south wall and 5.7 m back), two storeys under a flat tin deck; no picture shows it, so its storeys and windows are reconstructed."
     },
     "function": {
       "value": "residence",
@@ -181,6 +552,25 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "glessner_blog_1637_spalding_remodel_engraving",
+      "citation": "[The Grosvenor house, 1637 S. Prairie Avenue, as remodeled by Jesse Spalding.] Line engraving of the house from the north-west across Prairie Avenue; unknown illustrator, source publication not named, undated (after the Spalding remodelling, probably 1880s-1890s). Reproduced by the Glessner House Museum, 'The Early History of Prairie Avenue - Part IV', The Story of a House (blog), 7 July 2020.",
+      "url": "https://glessnerhouse.blogspot.com/2020/07/the-early-history-of-prairie-avenue.html",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the front's composition: the swell bay at the north end, the forward wing at the south end, the entrance between them",
+        "the storey lines: a raised basement, a principal floor about 2.3 m over grade, a second floor about 6.6 m, the cornice about 11.5 m",
+        "the roof: steep and slated, two gabled dormers on the street face and one on the north face, two tall stacks on the north wall and one on the wing",
+        "the openings: three windows a storey in the bay, one a storey in the wing, one over the door"
+      ],
+      "what_it_does_not_supply": [
+        "colour: the print is monochrome, so the brick's and the trim's colours stay reconstructed",
+        "the south wall, the rear and the roof behind the street face",
+        "a date: undated, and its 1904 reading rests on Spalding's long ownership and nothing recorded as changing the front before the 1911 sheet"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_20",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 20.",
@@ -202,7 +592,7 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1870 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1637-b1), the T-1840 census (s20-1637-f, s20-1637-a1) and the T-1837 register row frontage-20-031 (Spalding remodel of Grosvenor); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335).",
+  "research_note": "T-2441 (piece 1 of T-1870) refines the district draft (T-2335) in place under the same id from the house's one picture of its remodelled front, a line engraving of the Grosvenor house as Jesse Spalding remodelled it (glessner_blog_1637_spalding_remodel_engraving), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly at the sheet's own width (13.1 m, where the draft's fit had stopped at 11.5 m) and depth: a K03 brick block of a raised basement and two tall storeys under a bracketed cornice; at the north end of the front a K08 swell bay of three windows a storey rising nearly to the cornice, at the south end the wing the engraving draws forward of the front as a K08 full-height projection on the sheet's 4.8 m by 1.0 m step, the entrance up its stoop between them under one window; a slated mansard whose steep lower faces carry two dormers on the street face and one on the north face, and the three stacks the engraving draws. The sheet's two-storey rear range behind the south part stands on K01's rear wings. What the engraving shows and K01 cannot yet build, or this piece has not yet built, is listed open in its match record (data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json) for T-2442. Everything not read is reconstructed and recorded as L-k01-1637-spalding-remodel-2441.",
   "research_doc": "",
   "review_required": false
 }

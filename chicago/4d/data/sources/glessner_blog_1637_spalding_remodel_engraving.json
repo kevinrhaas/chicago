@@ -1,0 +1,29 @@
+{
+ "id": "glessner_blog_1637_spalding_remodel_engraving",
+ "type": "illustration",
+ "citation": "[The Grosvenor house, 1637 S. Prairie Avenue, as remodeled by Jesse Spalding.] Line engraving of the house from the north-west across Prairie Avenue; unknown illustrator, source publication not named, undated (after the Spalding remodelling, probably 1880s-1890s). Reproduced by the Glessner House Museum, 'The Early History of Prairie Avenue - Part IV', The Story of a House (blog), 7 July 2020.",
+ "author": "unknown illustrator (published line engraving)",
+ "date": "undated (after the Spalding remodelling; the Prairie library brackets it 1875-1900)",
+ "describes_date": "undated (after the Spalding remodelling)",
+ "repository": "Glessner House Museum blog 'The Story of a House' (secondary reproduction; the publication the engraving was cut for is not named). Prairie library image a16-ghm-blog-1637-spalding-remodel, recorded there as 'link only'; the project's reference copy is in the image store (kevinrhaas/chicago-images, prairie-1904/files/a16-ghm-blog-1637-spalding-remodel.jpg), and since T-2441 committed at data/sources/assets/spalding_1637_engraving_t2441/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://glessnerhouse.blogspot.com/2020/07/the-early-history-of-prairie-avenue.html",
+ "locator": "The whole engraving: the street front from the north flank's rear corner to the south wing's corner, the brick garden wall before the north flank and the iron fence before the wing.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose source publication and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-2441) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-13 (T-2441) from the image store's reference copy, 900 x 817 px greyscale, sha256 623aefdf2d4fa77eba389efc6ab9970af93d7c20d0782a3d6994920ff82f89fa.",
+ "note": "The only view of 1637's remodelled front this project reads. It shows a severe brick block of a raised basement and two tall storeys under a heavy cornice: at the north end of the front a full-height swell bay of three windows a storey that rises to the cornice, at the south end a wing standing forward of the front with one window a storey (a French window over a balcony on the principal floor) under its own steep hipped roof and stack, and between them the entrance up a stoop under one window. The main roof is steep and slated, with two gabled dormers on the street face and one on the north face, and two tall stacks rise from the north wall. A tall brick garden wall stands before the north flank and an iron fence before the wing. Its perspective is a draughtsman's: the plan's four corners solve one camera exactly on the 1911 Sanborn sheet's plan, and its heights then agree to about 13 px; data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.json says how.",
+ "what_it_supplies": [
+  "the front's composition: the swell bay at the north end, the forward wing at the south end, the entrance between them",
+  "the storey lines: a raised basement, a principal floor about 2.3 m over grade, a second floor about 6.6 m, the cornice about 11.5 m",
+  "the roof: steep and slated, two gabled dormers on the street face and one on the north face, two tall stacks on the north wall and one on the wing",
+  "the openings: three windows a storey in the bay, one a storey in the wing, one over the door"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome, so the brick's and the trim's colours stay reconstructed",
+  "the south wall, the rear and the roof behind the street face",
+  "a date: undated, and its 1904 reading rests on Spalding's long ownership and nothing recorded as changing the front before the 1911 sheet"
+ ]
+}
