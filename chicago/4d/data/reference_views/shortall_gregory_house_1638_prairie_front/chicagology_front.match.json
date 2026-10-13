@@ -2,7 +2,7 @@
   "structure_id": "shortall_gregory_house_1638_prairie_front",
   "view": "chicagology_front",
   "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
-  "glb_sha256": "ee1f153f4fcba4af3fa56a79be8e9c942390f169b97e46611ccae2cc3b653b51",
+  "glb_sha256": "59311af85712afb2dba03479112eb47b83239e673d44a60ef887a7f1fafb6cd1",
   "camera_sha256": "c1c16c717eda63839555e726bc9ca222e4cf819084c6a63406e51eda341c874d",
   "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
   "verdict": "differs",
@@ -64,7 +64,35 @@
       "status": "open"
     },
     {
-      "what": "Entrance (T-2425): a pointed arch on posts with pierced quatrefoil spandrels, double doors with glazed upper panels and a stoop between cheek walls; the model has the kit's porch posts, brackets and lattice",
+      "what": "Entrance: a pointed arch between the posts, springing 0.75 m under the plate and rising 0.65 m to its point, where the kit's porch had scroll brackets (T-2425)",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: a pierced quatrefoil in each corner of the board over the arch (T-2425)",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: the posts broad plain piers, 0.22 m across (T-2425)",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: a double door, two leaves each round one tall light, its foot on the porch floor, in place of the kit's two-over-two sash (T-2425)",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: steps up to the floor between two cheek walls in the posts' line, their tops sloping with the steps, where the kit's porch had its lattice to grade (T-2425)",
+      "status": "fixed"
+    },
+    {
+      "what": "Entrance: the print's opening is narrower, its posts 1.72 m apart against the model's 2.11 m, which stand where the sheet's 2.91 m porch puts them, and its arch springs lower and stands more pointed for that",
+      "status": "open"
+    },
+    {
+      "what": "Entrance: the print's steps run on down past the model's foot, nosings to about 935 px where the fence cuts them off, some three risers more than a 0.6 m floor over grade at 825 px allows: the floor's height over grade, or the camera's grade datum, is not yet settled",
+      "status": "open"
+    },
+    {
+      "what": "Entrance: a pale gabled shape over the door's south leaf, not identified (a glazed transom, or light through the arch) and not built",
       "status": "open"
     },
     {

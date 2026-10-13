@@ -44,6 +44,7 @@ sys.path.insert(0, str(HERE.parent))
 
 from archetypes.k01_frontage import Prim, _add, _cross, _dot, _mul, _sub, _unit  # noqa: E402
 from archetypes import k06_windows as K06  # noqa: E402
+from archetypes import k09_trim as K09  # noqa: E402
 
 ROOT = HERE.parents[1]
 DATA = ROOT / "data" / "components" / "prairie_1904" / "k16_timber.json"
@@ -76,8 +77,12 @@ ROLE_MATERIAL = {
     "stand_in": "stand_in", "stand_in_roof": "roof", "skirt": "trim",
     # T-2357: a whole frame house — its door, steps, roof covering and brick stack
     "door": "stained", "door_panel": "stained", "step_tread": "stained", "step_riser": "trim",
+    # T-2425: 1638's arched entrance, its pierced spandrels painted with the porch's trim
+    "spandrel": "trim",
     "roof_covering": "roof", "chimney": "foundation",   # the stack is the foundation's brick
 }
+#: T-2425: how far behind a glazed door's glass the dark of the hall is laid
+GLAZED_HALL_M = 0.15
 BOARD_ROLES = ("foundation", "roof", "backdrop", "interior", "cut")
 # Roles that are not timber: K06's glass and room, and the board.
 NOT_TIMBER = ("glass_outer", "glass_inner", "came", "blind", "curtain", "backing", "crawl") + BOARD_ROLES
@@ -191,6 +196,16 @@ def ring_quads(outer, hole):
         h_pts.append(ray_hit(hole, c, d))
     n = len(angs)
     return [(o_pts[i], o_pts[(i + 1) % n], h_pts[(i + 1) % n], h_pts[i]) for i in range(n)]
+
+
+def inside(p, poly) -> bool:
+    """Whether point p lies inside the closed polygon (even-odd)."""
+    hit = False
+    for i, a in enumerate(poly):
+        b = poly[(i + 1) % len(poly)]
+        if (a[1] > p[1]) != (b[1] > p[1]) and p[0] < a[0] + (p[1] - a[1]) * (b[0] - a[0]) / (b[1] - a[1]):
+            hit = not hit
+    return hit
 
 
 def clip_segment(a, b, poly):
@@ -860,9 +875,15 @@ class Sample:
         panels = [(x0 + i * (pw + st), x0 + i * (pw + st) + pw, ya, yb) for i in range(ncol) for (ya, yb) in rows]
         td = self.tone("door", c)
         self.sheathing(F, (c - hw, c + hw, y0, yH), panels, role="door", z=-rev)
+        glazed = bool(door.get("glazed"))     # T-2425: each panel a light of glass, the hall dark behind
         for (pa, pb, ya, yb) in panels:
             zb = -rev - sink
-            self.poly(F, "door_panel", [(pa, ya, zb), (pb, ya, zb), (pb, yb, zb), (pa, yb, zb)], (0, 0, 1), td)
+            if glazed:
+                self.poly(F, "glass_outer", [(pa, ya, zb), (pb, ya, zb), (pb, yb, zb), (pa, yb, zb)], (0, 0, 1))
+                zh = zb - GLAZED_HALL_M
+                self.poly(F, "backing", [(pa, ya, zh), (pb, ya, zh), (pb, yb, zh), (pa, yb, zh)], (0, 0, 1))
+            else:
+                self.poly(F, "door_panel", [(pa, ya, zb), (pb, ya, zb), (pb, yb, zb), (pa, yb, zb)], (0, 0, 1), td)
             for q in ([(pa, ya, zb), (pa, ya, -rev), (pa, yb, -rev), (pa, yb, zb)],
                       [(pb, ya, zb), (pb, yb, zb), (pb, yb, -rev), (pb, ya, -rev)],
                       [(pa, ya, zb), (pb, ya, zb), (pb, ya, -rev), (pa, ya, -rev)],
@@ -888,7 +909,7 @@ class Sample:
         self.poly(F, "drip_cap", [(sa, yHc, cth), (sb, yHc, cth), (sb, yHc, zc), (sa, yHc, zc)], (0, -1, 0), tw)
         self.profile_run(F, cap, [None, "drip_cap", "drip_cap", None], sa, sb, ("end_grain", "end_grain"), tw)
         self.meta.setdefault("doors", []).append({"s": [round(sa, 6), round(sb, 6)], "y": [round(y0, 6), round(y_top, 6)],
-                                                  "panels": len(panels), "on_course_lines": True})
+                                                  "panels": len(panels), "glazed": glazed, "on_course_lines": True})
         return (c - hw, c + hw, y0, yH), (sa, sb, y0, y_top)
 
     def _batten_wall(self):
@@ -1162,6 +1183,8 @@ class Sample:
         po, tr = d["porch"], d["trim"]
         F = self.F
         fl, la, pt, pl, ce = po["floor"], po["lattice"], po["post"], po["plate"], po["ceiling"]
+        if "post_m" in v:      # T-2425: a house's own post, broader than the kit's
+            pt = dict(pt, section_m=v["post_m"])
         yf, Dp = fl["height_m"], v.get("depth_m", fl["depth_m"])   # T-2323: a house's own depth
         pitch = fl["board_width_m"] + fl["gap_m"]
         nb = int(round(v["width_m"] / pitch))
@@ -1269,9 +1292,14 @@ class Sample:
         # the plate, the brackets under it, the beaded ceiling, the roof over all
         self.box(F, "plate", 0.0, Wf + 0.05, yp, yc, zp - pd / 2, zp + pd / 2, skip=("top",), tone=self.tone("plate"),
                  roles={"s0": "cut", "s1": "end_grain"})
-        br = dict(tr["bracket"], drop_m=pt["head_m"], reach_m=0.28)
-        self.bracket(F, sp - a, zp, yp, br, br["thickness_m"], along_s=True, outward=-1.0, tone=tp_)
-        self.bracket(F, sp + a, zp, yp, br, br["thickness_m"], along_s=True, outward=1.0, tone=tp_)
+        if v.get("arch"):     # T-2425: an arched head between the posts takes the brackets' place
+            self._porch_arch(F, v["arch"], sp - a, zp - pd / 2, zp + pd / 2, yp)
+        else:
+            br = dict(tr["bracket"], drop_m=pt["head_m"], reach_m=0.28)
+            self.bracket(F, sp - a, zp, yp, br, br["thickness_m"], along_s=True, outward=-1.0, tone=tp_)
+            self.bracket(F, sp + a, zp, yp, br, br["thickness_m"], along_s=True, outward=1.0, tone=tp_)
+        if v.get("stoop"):    # T-2425: steps up between cheek walls in the posts' line
+            self._porch_stoop(F, v["stoop"], sp, a, zp + a, Dp + fl["nosing_m"], yf)
         z_in = zp - pd / 2
         bw_, bead, bdp = ce["board_width_m"], ce["bead_m"], ce["bead_depth_m"]
         nbc = int(z_in / bw_)
@@ -1298,6 +1326,90 @@ class Sample:
         self.poly(F, "soffit", [(Wf + 0.05, yc, 0), (sr, yc, 0), (sr, yc, zp + pd / 2), (Wf + 0.05, yc, zp + pd / 2)],
                   (0, -1, 0))
         self.meta.update({"floor_width_m": round(Wf, 6), "focus": [Wf * 0.62, 1.3, Dp * 0.8], "span_m": 3.0})
+
+    def _porch_arch(self, F, ar, w, z0, z1, yp):
+        """T-2425: the half of a four-centred pointed arch between the porch's middle (s 0) and
+        its post's inner face (s w), springing `spring_below_plate_m` under the plate and rising
+        `rise_m` to a point: a lower arc of `lower_radius_ratio` x w swept `lower_sweep_deg` from
+        the spring, then a flatter arc tangent to it whose centre lies past the middle, so the
+        two halves meet in a point. The spandrel over it is a solid board as deep as the plate,
+        pierced by a quatrefoil of four lobes `lobe_m` in radius, `quatrefoil_inset_m` [in from
+        the post, down from the plate] to its middle."""
+        y_sp = yp - ar["spring_below_plate_m"]
+        h = ar["rise_m"]
+        r1 = ar["lower_radius_ratio"] * w
+        al = math.radians(ar["lower_sweep_deg"])
+        k = (r1 * r1 - (w - r1) ** 2 - h * h) / (2 * ((w - r1) * math.cos(al) - h * math.sin(al) + r1))
+        r2 = r1 - k
+        c1 = (w - r1, y_sp)
+        c2 = (w - r1 + k * math.cos(al), y_sp + k * math.sin(al))
+        if not (r2 > r1 and c2[0] < 0):
+            raise ValueError(f"{self.v['id']}: the arch does not close in a point (r2 {r2:.3f}, centre {c2[0]:.3f})")
+        a_cr = math.atan2(y_sp + h - c2[1], -c2[0])
+        n1, n2 = 8, 10
+        curve = [((c1[0] + r1 * math.cos(al * i / n1), c1[1] + r1 * math.sin(al * i / n1)), c1) for i in range(n1)]
+        curve += [((c2[0] + r2 * math.cos(al + (a_cr - al) * i / n2), c2[1] + r2 * math.sin(al + (a_cr - al) * i / n2)), c2)
+                  for i in range(n2)]
+        curve.append(((0.0, y_sp + h), c2))
+        # the quatrefoil: the far side of four circles through its middle, on the axes
+        lr = ar["lobe_m"]
+        qc = (w - ar["quatrefoil_inset_m"][0], yp - ar["quatrefoil_inset_m"][1])
+        hole = []
+        for i in range(48):
+            t = 2 * math.pi * i / 48
+            r = max(lr * math.cos(t - f) + math.sqrt(max(0.0, lr * lr - (lr * math.sin(t - f)) ** 2))
+                    for f in (0.0, math.pi / 2, math.pi, 1.5 * math.pi))
+            hole.append((qc[0] + r * math.cos(t), qc[1] + r * math.sin(t)))
+        outer = [p for p, _ in reversed(curve)] + [(w, yp), (0.0, yp)]
+        for q in hole:     # the piercing stands clear of the arch and the board's edges
+            if not (q[0] < w - 0.02 and q[1] < yp - 0.02 and inside(q, outer)):
+                raise ValueError(f"{self.v['id']}: the quatrefoil breaks out of its spandrel")
+        pts = outer + hole
+        tsp = self.tone("spandrel")
+        for tri in K09.triangulate(outer, [hole]):
+            tq = [pts[i] for i in tri]
+            self.poly(F, "spandrel", [(x, y, z1) for x, y in tq], (0, 0, 1), tsp)
+            self.poly(F, "spandrel", [(x, y, z0) for x, y in tq], (0, 0, -1), tsp)
+        for i in range(len(curve) - 1):     # the arch's soffit, crown to spring
+            (p, c), (q, _) = curve[i + 1], curve[i]
+            m = ((p[0] + q[0]) / 2, (p[1] + q[1]) / 2)
+            self.poly(F, "spandrel", [(p[0], p[1], z0), (q[0], q[1], z0), (q[0], q[1], z1), (p[0], p[1], z1)],
+                      (c[0] - m[0], c[1] - m[1], 0), tsp)
+        for i in range(len(hole)):          # the piercing's cut edges
+            p, q = hole[i], hole[(i + 1) % len(hole)]
+            m = ((p[0] + q[0]) / 2, (p[1] + q[1]) / 2)
+            self.poly(F, "spandrel", [(p[0], p[1], z0), (q[0], q[1], z0), (q[0], q[1], z1), (p[0], p[1], z1)],
+                      (qc[0] - m[0], qc[1] - m[1], 0), tsp)
+        self.meta["arch"] = {"spring_m": round(y_sp, 6), "crown_m": round(y_sp + h, 6), "half_span_m": round(w, 6),
+                             "radii_m": [round(r1, 6), round(r2, 6)], "quatrefoil_m": [round(qc[0], 6), round(qc[1], 6)]}
+
+    def _porch_stoop(self, F, so, sp, a, z_back, z_edge, yf):
+        """T-2425: the half of a stoop from grade to the porch floor (the floor is its top tread),
+        every riser equal and solved from the floor height under `max_riser_m`, between the
+        middle and a cheek wall standing in the post's line, as broad as the post: the cheek
+        runs out from the post's face over the steps, its top `cheek_above_m` over the nosings'
+        line, and ends square at the foot."""
+        n = max(2, math.ceil(yf / so["max_riser_m"] - 1e-9))
+        r, g = yf / n, so["going_m"]
+        s_in = sp - a
+        ts = self.tone("stoop")
+        for k in range(1, n):
+            z0 = z_edge + (n - 1 - k) * g
+            self.box(F, "step_riser", 0.0, s_in, 0.0, k * r, z0, z0 + g, skip=("back", "bottom", "s0", "s1"),
+                     tone=self.tone("step", k), roles={"top": "step_tread"})
+        z_foot = z_edge + (n - 1) * g
+        ca = so["cheek_above_m"]
+        top = lambda z: ca + yf - (yf - r) * (z - z_edge) / (z_foot - z_edge)
+        side = [(z_back, 0.0), (z_foot, 0.0), (z_foot, top(z_foot)), (z_edge, top(z_edge)), (z_back, top(z_edge))]
+        for s_, hs in ((sp - a, -1), (sp + a, 1)):
+            self.poly(F, "skirt", [(s_, y, z) for z, y in side], (hs, 0, 0), ts)
+        self.poly(F, "skirt", [(sp - a, 0.0, z_foot), (sp + a, 0.0, z_foot), (sp + a, top(z_foot), z_foot),
+                               (sp - a, top(z_foot), z_foot)], (0, 0, 1), ts)
+        for (za, zb) in ((z_back, z_edge), (z_edge, z_foot)):
+            self.poly(F, "skirt", [(sp - a, top(max(za, z_edge)), za), (sp - a, top(zb), zb), (sp + a, top(zb), zb),
+                                   (sp + a, top(max(za, z_edge)), za)], (0, 1, 0), ts)
+        self.meta["stoop"] = {"risers": n, "riser_m": round(r, 6), "going_m": g, "foot_z_m": round(z_foot, 6),
+                              "width_m": round(2 * s_in, 6)}
 
 
 class CasedOpening(K06.Opening):

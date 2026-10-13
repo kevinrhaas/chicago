@@ -24372,6 +24372,10 @@ body is now closed in the kit's timber under L-k16-1638-body-2395, which covers 
 **Superseded in part (T-2423):** the gable's flat-headed pair, its shingle bands and the missing
 oculus and hood moulds are retired from this liberty; the gable's openings, hood, oval and clapboard
 field are read off the photograph under L-k16-1638-gable-2423, which covers `form.gable`.
+**Superseded in part (T-2425):** the porch's scroll brackets, its chamfered kit posts, its lattice
+to grade at the front and the wing wall's two-over-two sash are retired from this liberty; the
+entrance under the tower is read off the photograph under L-k16-1638-entrance-2425, which covers
+`form.porch` and `form.wing_wall`.
 **Ticket:** T-2323 (piece 2 of T-1858, K16).
 **Review:** `docs/RESEARCH/k16-1638-front-2323/README.md`.
 **Recorded:** 2026-10-10 (T-2323).
@@ -25752,6 +25756,48 @@ depth rests on and brings the match record to `matches`, keeping this record's i
 **Ticket:** T-2423 (a piece of T-1865, the 1638 architecture).
 **Review:** `docs/RESEARCH/k16-1638-gable-2423/README.md`.
 **Recorded:** 2026-10-12 (T-2423).
+
+### L-k16-1638-entrance-2425 — 1638 Prairie's entrance under the tower read off its photograph: a pointed arch with pierced quatrefoil spandrels on broad posts, a glazed double door, a stoop between cheek walls; the arch's curve, the joinery and the steps' sizes reconstructed
+
+**Decision:** the ground storey of the Shortall-Gregory house's corner tower (T-2425, a piece of
+T-1865) is the entrance the house's photograph shows there, read through the camera T-2423 solved
+for the print. The kit porch's chamfered posts and scroll brackets give way to broad plain posts
+(0.22 m) and, between them in the posts' depth under the plate, a board carrying a pointed arch:
+springing 0.75 m under the plate and rising 0.65 m to a point 0.1 m under it, built four-centred (a
+60-degree sweep on a radius of 0.4 the half-span at each spring, under a flatter arc that meets
+its fellow in the point), with a pierced quatrefoil in each corner of the board. Behind it the
+wing wall's two-over-two sash gives way to a double door, two leaves 1.2 m clear together and
+1.72 m high, each a stile round one tall light; its threshold is the porch floor, so the wing
+wall's water table is laid at the floor on a 0.36 m foundation. In front, four equal risers of
+0.15 m on 0.28 m goings climb from grade to the floor between two cheek walls in the posts' line,
+their tops sloping with the steps.
+**What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`), at 79.8 px
+a metre at the posts' face and 73 px at the wall's: that the posts are broad and plain and how
+broad; that the opening is arched and pointed, where it springs and how high it rises; that the
+spandrels are pierced with quatrefoils, their size and place; that the door is double, each leaf
+with one tall pale light, the lights' tops and feet, the door's width and its head; that the door
+stands at the floor; that steps rise between cheek walls in the posts' line, their nosings 14-15 px
+apart.
+**What is invented.** The arch's curve between the points read (four-centred, its radii and
+sweep); the board's depth (the plate's); the quatrefoil's lobes (four circles through its middle);
+the leaves' stiles and rails beyond what the lights fix, and glass in the lights, which the print
+shows pale; the risers' number and goings, solved from the kit's 0.6 m floor rather than read;
+the cheek walls' breadth (the posts') and their sloping tops; the 0.36 m foundation under the
+floor, which nothing shows; every colour, the print being monochrome.
+**What the record states and the model simplifies.** The posts stand where the sheet's 2.91 m
+porch puts them, 2.11 m apart, where the print's are 1.72 m apart; its steps run on down past the
+model's foot, which asks whether the floor stands higher over grade than the camera's datum gives,
+and is left open in the match record; the pale gabled shape over the door's south leaf is not
+built; the leaves are 1.72 m clear, short for a door of the period, and kept as the print reads.
+
+**How to resolve:** a sharper or second picture of the entrance fixes the arch's curve, the
+quatrefoils and the door's joinery; T-2426 builds the fence the camera's depth rests on, which
+settles the grade datum and with it the number of steps; a measured drawing of the house fixes
+the porch's width against the sheet's.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.porch`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.wing_wall`.
+**Ticket:** T-2425 (a piece of T-1865, the 1638 architecture).
+**Review:** `docs/RESEARCH/k16-1638-entrance-2425/README.md`.
+**Recorded:** 2026-10-12 (T-2425).
 
 ### L-k16-1638-bay-2424 — 1638 Prairie's canted bay read off its photograph: three pointed lights between posts, a panelled base and a moulded cornice; sections, depth and deck still the kit's or inferred
 
