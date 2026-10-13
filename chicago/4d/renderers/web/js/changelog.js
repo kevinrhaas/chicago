@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1743, ts: '2026-10-13T02:07:17.779Z', date: 'Oct 12, 2026, 9:07 PM CT', title: 'Granger Farwell\'s house at 1623 Prairie, from its 1886 drawing', kind: 'feature',
+    items: [
+      '1623 Prairie is no longer a grey draft box: Granger Farwell\'s stone house now stands there, built from its architects\' 1886 drawing — a round-arched window over a rusticated base, the door up its stoop, and a canted oriel of tall leaded lights across the second floor.',
+      'Why 1623: the 1890 photograph of the McBirney house at 1625 shows Farwell\'s oriel right next door to the north.',
+    ] },
   { v: 1742, ts: '2026-10-13T01:24:32.376Z', date: 'Oct 12, 2026, 8:24 PM CT', title: '1638 Prairie\'s bay window, built to its photograph', kind: 'improvement',
     items: [
       'The bay on the front of the Gothic house at 1638 Prairie Avenue is no longer a plain block: three tall pointed windows stand between its posts, on a panelled base and under a moulded cornice, as its photograph shows.',
