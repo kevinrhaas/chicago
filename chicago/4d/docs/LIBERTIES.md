@@ -26172,6 +26172,34 @@ whether a second gate stands before the stoop.
 **Review:** `docs/RESEARCH/k16-1638-fence-2456/README.md`.
 **Recorded:** 2026-10-13 (T-2456).
 
+### L-k01-1619-gable-roof-2459 — 1619 Prairie's roof behind its wall gable built as its drawing's: a steep street slope to a ridge along the front, the south side wall carried up in crow steps to a tall stack; the rear slope, the north wall's parapet and every size beyond the camera's reach reconstructed
+
+**Decision:** the 45-degree hip that roofed 1619 Prairie since T-2420 is now a gable roof whose
+ridge runs along the front (T-2459, piece 1 of T-2429, of T-2421). The Building Budget drawing
+slates a slope facing the street behind the wall gable and carries the house's south side wall up
+above it as a crow-stepped parapet rising from the front corner to a tall stack; the hip's south
+face fell away from that wall, so nothing on it could rise with it. K01 learns the roof as data
+(`roof_form: "gable"` and `gable_roof`, built by `generators/archetypes/k01_gable_roof.py`; every
+other K01 house builds byte-identical): the street slope at 45 degrees from the wall head to a ridge
+4.23 m behind the front, at 13.43 m, where the drawing's parapet meets its stack (about 13.5 m up
+and about 4 m back through the camera); the south wall's parapet in five coped steps up that slope,
+each clearing the slates by K05's 0.3 m upstand, to a level head at 13.73 m; and a 0.9 m brick
+stack in the wall's plane at the head, to 15.03 m, its top within about 5 px of the drawing's.
+**What is invented.** The rear slope (the drawing shows nothing behind the ridge: it falls to the
+rear wall's head at the 25 degrees that leaves) and the five crow steps down it; the north side
+wall's parapet, a plain coped one on both slopes (no picture shows that wall); the parapets'
+thickness (the side wall's 0.33 m) and K05's coping; the second stack, over the rear rooms, at the
+first one's height; the stacks' plain shafts and caps where the drawing panels and corbels the
+front one; the steps' going, equal up each slope. The house now hangs no gutter or downpipes: the
+drawing draws none on the front, K01's half-round gutter runs only round a hip's eaves, and a
+gable's side walls are parapets; how the roof drained is not read.
+**How to resolve:** a photograph of the house after 1886, or the architects' drawings, sets the
+rear slope, the north wall and the stacks; T-2460 builds the stone cornice at the bow's top.
+**Covers:** `house_1619_prairie.as_mapped_1904.form.roof_form`, `house_1619_prairie.as_mapped_1904.form.gable_roof`, `house_1619_prairie.as_mapped_1904.form.chimneys`, `house_1619_prairie.as_mapped_1904.form.rainwater`
+**Ticket:** T-2459 (piece 1 of T-2429, of T-2421).
+**Review:** `docs/RESEARCH/k01-1619-hamline-2420/README.md` § The roof behind the gable (T-2459).
+**Recorded:** 2026-10-13 (T-2459).
+
 ### L-glessner-datestone-2214 — Glessner's 18th Street datestone: generic letterforms, a cut drawn as its shadow, and proportions read off an upward photograph
 
 **Decision:** the `glessner_house` north stack carries an AD monogram over 1886, read left to right
