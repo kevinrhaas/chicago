@@ -2,8 +2,8 @@
   "structure_id": "law_house_1620_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "2012ed842706ffc749bbb618b27400e32d420b0c6aed307f3348199529f7bc4f",
-  "camera_sha256": "4cbf3a651e1ee5dc689b00afeae61cf325bc7d6f1e36cb4d32e8c03ffdfa0f7e",
+  "glb_sha256": "bcac35ad0d59712b2853325d8bee0e50c0f62577e79d68664c5cd4992c2c54d3",
+  "camera_sha256": "be6b75dc43bf93ba5dfa5b782fdf69d970e71e0e355eb4b5b5e9776a549220fb",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -12,7 +12,7 @@
       "status": "fixed"
     },
     {
-      "what": "wall head: the engraving's cornice stands about 8.2 m over grade (its soffit 7.9 m); the build's walls stood 0.7 m higher",
+      "what": "wall head: the engraving's cornice stands 10.9 m over grade (its soffit 10.61 m at both front corners, y 300 and 327 px) on T-2437's re-solved camera, 8.9 m over the 2.0 m principal floor; the build's walls stood at 8.2 m on a 1.4 m floor (T-2370 read the same pixels as 8.2 m on an eye 0.7 m under grade). Built so by T-2437: storeys 4.8 and 4.1 m on the 2.0 m floor, the cornice landing on the drawn one",
       "status": "fixed"
     },
     {
@@ -24,7 +24,7 @@
       "status": "fixed"
     },
     {
-      "what": "corner strip: the engraving draws a light strip down the pavilion's north corner, a stone or painted quoin; T-2404's pavilion turns that corner in its own brick",
+      "what": "corner strip: the engraving draws a light strip down the pavilion's north corner, a stone or painted quoin; T-2404's pavilion turns that corner in its own brick (T-2438)",
       "status": "open"
     },
     {
@@ -40,39 +40,43 @@
       "status": "fixed"
     },
     {
-      "what": "the upper window over the door: the engraving draws it at x 530-550 px, about v 5.6-6.1; the build stands it on the door's own centre, which T-2409 moved to v 6.6, so it stands about 0.5-1 m north of the drawn one (the K01 bay puts the door and the window over it on one centre)",
+      "what": "the upper window over the door: the engraving draws it at x 530-550 px, about v 5.6-6.1; the build stands it on the door's own centre, which T-2409 moved to v 6.6, so it stands about 0.5-1 m north of the drawn one (the K01 bay puts the door and the window over it on one centre) (T-2438)",
       "status": "open"
     },
     {
-      "what": "entrance: the door beside the pavilion's south face under a hood, reached by a straight stoop whose north string is the rail rising to the right from x 540 to 582 px (on this camera a line running back toward the wall draws so; one running north along the front would rise over about 80 px, not 42), at its head a porch at the principal floor running north before the pavilion to the north corner behind a turned balustrade that carries on down the stoop. Built (T-2409): the door at v 6.6 under a K09 cornice hood on consoles, the straight stoop's north string at v 7.65 (drawn at x 572 to 541 px), a stone terrace 1.2 m deep before the pavilion to the corner (its north end at x 685.6 px against the engraving's 690) behind a turned balustrade carried down both cheeks. The engraving draws this front's floor, porch and fence about 1.5-2 m lower against the house than this camera's grade puts them (the porch's rail top at about 0.25 m, the bay's sills at about 0.4 m); the same offset stands under the bay, so it is the camera's height datum, filed on T-2406, not the entrance",
+      "what": "entrance: the door beside the pavilion's south face under a hood, reached by a straight stoop whose north string is the rail rising to the right from x 540 to 582 px (on this camera a line running back toward the wall draws so; one running north along the front would rise over about 80 px, not 42), at its head a porch at the principal floor running north before the pavilion to the north corner behind a turned balustrade that carries on down the stoop. Built (T-2409): the door at v 6.6 under a K09 cornice hood on consoles, the straight stoop's north string at v 7.65 (drawn at x 572 to 541 px), a stone terrace 1.2 m deep before the pavilion to the corner (its north end at x 685.6 px against the engraving's 690) behind a turned balustrade carried down both cheeks. The engraving drew this front's floor, porch and fence about 1.5-2 m lower against the house than the old camera's grade put them; that was the camera's height datum (T-2406), re-solved by T-2437 from the street fence's foot on the walk: the porch's rail top now reads 2.91-2.93 m, the principal floor 2.0 m, and the build's floor, porch, stoop and balustrade, raised to it, land on the drawn ones",
       "status": "fixed"
     },
     {
-      "what": "fence: a lattice of interlaced pointed arches on a solid base along the street line, and from about x 670 px (v 12.6 on the street line) a close-boarded fence that turns at the north lot line and runs back along it; built so by T-2414 (k11.fence.lattice_arcade, arches three bays of 0.3 m wide, on the kit's curb, then k11.fence.side_boards 1.5 m high), the boards taking over at x 668 px",
+      "what": "fence: a lattice of interlaced pointed arches on a solid base along the street line, and from about x 670 px (v 12.6 on the street line) a close-boarded fence that turns at the north lot line and runs back along it; built so by T-2414 (k11.fence.lattice_arcade, arches three bays of 0.3 m wide, on the kit's curb, then k11.fence.side_boards 1.5 m high), the boards taking over at x 668 px. On T-2437's camera the lattice's foot (y 648-650 px) is the eye's height control and its top (y 596 px) reads 1.50 m; the build's lattice top lands within about 6 px of it",
       "status": "fixed"
     },
     {
-      "what": "chimney: a tall stack at the front of the north wall, rising from the cornice beside the crown, its lit east face at x 703-722 px and its north face to 730 px; built so by T-2414, a 0.75 by 0.6 m stack standing on the cornice astride the north wall line (centre u 15.935, v 11.5), projecting to 703.5, 721.6 and 730.0 px, its cap at 12.5 m (y 175 px); the build's second ridge stack over the front half, where the engraving draws sky over the crown, is gone",
+      "what": "chimney: a tall stack at the front of the north wall, rising from the cornice beside the crown, its lit east face at x 703-722 px and its north face to 730 px; built so by T-2414, a 0.75 by 0.6 m stack standing on the cornice astride the north wall line (centre u 15.935, v 11.5), projecting to 703.5, 721.6 and 730.0 px, its cap at 12.5 m (y 175 px); the build's second ridge stack over the front half, where the engraving draws sky over the crown, is gone. On T-2437's re-solved camera every height rises 2.7 m and the cap went up with the walls to 15.2 m; see 'crown and front stack' for what that leaves",
       "status": "fixed"
+    },
+    {
+      "what": "crown and front stack: re-read on the overlay of T-2437's render, the crown's top stands at y 171-175 px between x 640 and 680 where the engraving draws it at 189-190 px, about 0.5 m high, and the front stack's cap at y 154-157 px against the drawn 174-176 (14.55-14.65 m over grade), about 0.6 m high (T-2414's 12.5 m projected 18 px high on the old camera too). K01 keeps a stack 0.6 m over the crown's curb, so the two come down together (T-2438)",
+      "status": "open"
     },
     {
       "what": "roof covering: the lower faces and the crown's read as slate in courses; built so by T-2414 (K04 Pennsylvania slate on every face steeper than 45 degrees, the low upper hip, which the picture cannot see, staying tin)",
       "status": "fixed"
     },
     {
-      "what": "bay window's heights: the engraving draws the bay's sills about 0.4 m over grade and its eaves level with the pavilion's lower window heads, about 0.75 m lower than the build's, on the low principal floor it draws everywhere; the build stands the bay on the house's reconstructed 1.4 m principal floor",
+      "what": "bay window's heights: on T-2437's re-solved camera the engraving draws the bay's lights from 3.09 m (y 545 px, 1.1 m over the 2.0 m floor) to their arch tops at 5.71 m (y 466 px), the hood's eaves at 6.24 m (y 450 px), level with the pavilion's principal-storey heads (6.23-6.37 m), and the hood's top at 7.46 m (y 413 px), under the upper window's foot (7.54 m). The build's bay keeps T-2408's kit heights (lights 1.85 m on a 1.9 m sill, wall top 4.15 m), so it stands about 1.2-2 m under the drawn one on the raised floor (T-2438)",
       "status": "open"
     },
     {
-      "what": "bay window's tone: the engraving draws the bay dark against the light front (the hood's shadow, or a painted timber bay); built in the house's brick",
+      "what": "bay window's tone: the engraving draws the bay dark against the light front (the hood's shadow, or a painted timber bay); built in the house's brick (T-2438)",
       "status": "open"
     },
     {
-      "what": "bay window's terrace: a low balustrade runs before the bay at its foot; the build has none (T-2409's porch)",
+      "what": "bay window's terrace: a low turned balustrade runs before the bay at its foot, from x 365 to 460 px, its rail's top at y 551 px, 2.89 m over grade on T-2437's camera: the principal floor's level, so it reads as the porch's terrace carried south across the bay's front (and on past the south corner); the build has none (T-2438)",
       "status": "open"
     },
     {
-      "what": "board fence's line: the engraving draws the boards' top and foot almost level from x 670 to 990 px, where through its camera a fence running back along the lot line falls toward the horizon; the build's falls as the camera says (the engraving's vertical datum, T-2415)",
+      "what": "board fence's line: the engraving draws the boards' top and foot almost level from x 670 to 990 px. On T-2437's re-solved camera the eye stands 0.5 m over the 1.5 m fence, so the north board fence's top runs back almost level as drawn, and the build's top lands at y 591-595 px against the drawn 597-600 the whole way. Its foot does not: the build's rises as the lot-line fence recedes (y 651 px at x 800, 639 at 880, 631 at 950, 623 at 990), where the engraving's stays at 652-658; past the lot's corner (x 786 px) the drawn boards may be a fence along the next lot's street line, or the receding foot drawn flat (T-2438)",
       "status": "open"
     },
     {
@@ -85,5 +89,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2410 (lapped onto T-2414, T-2411 and T-2409), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg"
+  "reviewed": "T-2437 (the camera's eye height re-solved from the street fence's foot; the house's floor, storeys, windows, pavilion and front stack raised to it), 2026-10-13, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg and a 50% overlay of the render on the engraving"
 }
