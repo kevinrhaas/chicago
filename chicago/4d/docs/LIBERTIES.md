@@ -26158,3 +26158,24 @@ whether a second gate stands before the stoop.
 **Ticket:** T-2456 (piece 1 of T-2426, a piece of T-1865, the 1638 architecture).
 **Review:** `docs/RESEARCH/k16-1638-fence-2456/README.md`.
 **Recorded:** 2026-10-13 (T-2456).
+
+### L-glessner-datestone-2214 — Glessner's 18th Street datestone: generic letterforms, a cut drawn as its shadow, and proportions read off an upward photograph
+
+**Decision:** the `glessner_house` north stack carries an AD monogram over 1886, read left to right
+from 18th Street, each drawn as a near-black matte stroke on a dressed stone standing 0.06 m beyond
+the rock face's furthest reach, with two crosses flanking the date. The stack's face is flush with
+the gable (S 0, from S 0.5) and the gable's coping stops against its sides.
+**What it stands on:** HABS photograph 4 (`habs_glessner_photo_04_18th_street_gable_c1923`; rights
+unknown, cited, nothing derived) for the reading direction, the incised cut, the ligature of A and D,
+the crosses, and the stones' widths as shares of the stack's face; HABS sheet 6 for the stones'
+heights, their projection and the stack's flush face.
+**What is invented:** the letterforms (Blender's built-in face, not the carver's ligature, which
+interlaces the two letters); drawing an incision as a dark stroke on the face rather than cutting it;
+the crosses' size and heights (+/- 0.3 ft, read off an upward view); the joint lines where the gable
+meets the stack.
+**How to resolve:** trace the monogram's strokes from a photograph whose rights allow derivation (a
+1965 HABS plate shows the stack, but too small); a close photograph of today's stack would give the
+cut depth and letter heights.
+**Ticket:** T-2214 (GA-13A).
+**Review:** `docs/RESEARCH/glessner-datestone-2214/README.md`.
+**Recorded:** 2026-10-13 (T-2214).

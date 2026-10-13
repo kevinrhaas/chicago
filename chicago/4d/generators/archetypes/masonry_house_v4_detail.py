@@ -1104,7 +1104,10 @@ def chimney(b,c):
             b.raw([(a[0],a[1],z-slope-.08),(d[0],d[1],z-slope-.08),
                    (d[0],d[1],height(d[1])),(a[0],a[1],height(a[1]))],conf,GRANITE)
     old=b.decorate;b.decorate=False
-    legacy._box(b,x0-.06,y0-.06,c['z0'],x1+.06,y1+.06,c['z0']+.13,conf,COPPER)
+    # A stack rising flush out of a gable's face (T-2214) is flashed on the roof
+    # side only: no copper band stands proud of the wall it continues.
+    north=y1-.10 if detail.get('flush')=='north' else y1+.06
+    legacy._box(b,x0-.06,y0-.06,c['z0'],x1+.06,north,c['z0']+.13,conf,COPPER)
     b.decorate=old
 
 
@@ -1697,24 +1700,55 @@ def underpass(b,params):
 
 
 def date_stones(b,params):
-    """Evidence-backed north-gable datestones; original generic letter outlines."""
+    """The north-gable chimney's 1886 and AD stones, as HABS photograph 4 reads them.
+
+    The figures and the monogram are cut INTO the dressed stones, so they draw as
+    dark strokes on the face rather than raised letters, and two incised crosses
+    flank the date. A glyph's advance runs to the viewer's right as seen from
+    outside: on this north face that is -x, the handedness T-2214 found reversed.
+    Letterforms are Blender's built-in face, a bounded stand-in for the carver's.
+    """
     import bpy
+    conf=params.detail['conf']
     for stone in params.detail.get('date_stones',[]):
-        a,c,z0,z1=stone['u0'],stone['u1'],stone['z0'],stone['z1'];conf=params.detail['conf']
-        slab(b,stone,a,c,z0,z1,0,.06,conf,GRANITE)
+        a,c,z0,z1=stone['u0'],stone['u1'],stone['z0'],stone['z1']
+        # Sheet 6 draws both stones about 0.2 ft proud of the stack's line, which
+        # is its rock faces' furthest reach, not the plane they bow out from.
+        proud=ROCK_FACE_MAX+.06 if stone.get('incised') else .06
+        slab(b,stone,a,c,z0,z1,0,proud,conf,GRANITE)
+        incised=stone.get('incised')
+        right=-stone['sign'] if stone['axis']=='y' else stone['sign']
         curve=bpy.data.curves.new('glessner_datestone_lettering','FONT')
         curve.body=stone['text'];curve.align_x='CENTER';curve.align_y='CENTER'
-        curve.size=(z1-z0)*.82;curve.extrude=.0015;curve.bevel_depth=.001
+        curve.size=(z1-z0)*.82
+        curve.extrude=0 if incised else .0015;curve.bevel_depth=0 if incised else .001
         ob=bpy.data.objects.new('temporary_datestone_letters',curve)
         bpy.context.scene.collection.objects.link(ob)
         mesh=ob.to_mesh()
+        xs=[v.co.x for v in mesh.vertices];ys=[v.co.y for v in mesh.vertices]
+        scale,dx,dy=1.0,0.0,0.0
+        if stone.get('fill') and xs:
+            # The photograph's share of the stone's width the lettering spans,
+            # never taller than 0.6 of the stone.
+            w,h=max(xs)-min(xs),max(ys)-min(ys)
+            scale=min(stone['fill']*(c-a)/w,.6*(z1-z0)/h)
+            dx,dy=(max(xs)+min(xs))/2,(max(ys)+min(ys))/2
+        # A cut in sunlit granite reads as its shadow: the matte near-black lining.
+        mat,off=(DARK_GLASS,proud+.002) if incised else (TRIM,.064)
         for poly in mesh.polygons:
             pts=[]
             for i in poly.vertices:
                 v=mesh.vertices[i].co
-                pts.append(legacy._plane_point(stone,(a+c)/2+v.x,(z0+z1)/2+v.y,.064+v.z))
-            b.raw(pts,conf,TRIM,legacy._plane_dir(stone))
+                pts.append(legacy._plane_point(stone,(a+c)/2+right*(v.x-dx)*scale,
+                                               (z0+z1)/2+(v.y-dy)*scale,off+v.z))
+            b.raw(pts,conf,mat,legacy._plane_dir(stone))
         ob.to_mesh_clear();bpy.data.objects.remove(ob,do_unlink=True);bpy.data.curves.remove(curve)
+    for cross in params.detail.get('date_crosses',[]):
+        u,z,r,t=cross['u'],cross['z'],cross['size']/2,cross['stroke']/2
+        # Just proud of the rock face's furthest reach, as a cut line reads.
+        for u0,u1,v0,v1 in ((u-r,u+r,z-t,z+t),(u-t,u+t,z-r,z+r)):
+            b.raw([legacy._plane_point(cross,p,q,ROCK_FACE_MAX+.002) for p,q in ((u0,v0),(u1,v0),(u1,v1),(u0,v1))],
+                  conf,DARK_GLASS,legacy._plane_dir(cross))
     ledge=params.detail.get('pigeon_ledge')
     if ledge:
         slab(b,ledge,ledge['u0'],ledge['u1'],ledge['z0'],ledge['z1'],0,ledge['projection_m'],params.detail['conf'],GRANITE)
