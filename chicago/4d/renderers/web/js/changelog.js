@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1742, ts: '2026-10-13T01:24:32.376Z', date: 'Oct 12, 2026, 8:24 PM CT', title: '1638 Prairie\'s bay window, built to its photograph', kind: 'improvement',
+    items: [
+      'The bay on the front of the Gothic house at 1638 Prairie Avenue is no longer a plain block: three tall pointed windows stand between its posts, on a panelled base and under a moulded cornice, as its photograph shows.',
+      'Its width now follows the photograph rather than the fire-insurance map\'s sketch, so it sits under the gable\'s twin windows where the picture puts it.',
+    ] },
   { v: 1741, ts: '2026-10-13T01:14:11.616Z', date: 'Oct 12, 2026, 8:14 PM CT', title: 'The Glessner House builds the same on any machine', kind: 'fix',
     items: [
       'The shading baked into the Glessner House\'s granite now comes from a saved copy kept with the model, not from a fresh render each time. Fresh renders came out very slightly different on different computers, and that failed the nightly check for every Prairie Avenue change.',
