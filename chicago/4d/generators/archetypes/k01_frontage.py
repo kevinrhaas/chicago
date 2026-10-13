@@ -44,6 +44,11 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
                             with its sash, bargeboards and verge soffits, copper
                             ridge roll, open valleys, apron and step flashing
   k01.wall.dormer_face      the dormer's face, its sash cut through it
+  k01.opening.gable_light   a WALL GABLE's light (T-2428, `k01_wall_gable`): the dormer's
+                            face on the wall's plane, K06 lights cut to their own heads
+  k01.opening.segmental_arch  the radiating voussoirs over a wall gable's light
+  k01.roof.gable_pinnacle   a wall gable's pinnacle: square shaft, cap and pyramid
+  k01.roof.gable_finial     a wall gable's turned finial on the ridge at its apex
   k01.opening.sash_round    a mansard crown's round-headed dormer sash (T-2404): K06's
                             round-arched variant in the recess the roof's union cut
   k01.opening.sash_round_hooded
@@ -1593,26 +1598,31 @@ class Assembly:
             xf = D - sb                       # the face, on the street hip
             ys = E + sb * tp                  # its foot, where it leaves the covering
             yde = ys + hf                     # the dormer's eave, at its wall line
-            zc = -W / 2
+            zc = -d.get("v_m", W / 2)        # T-2428: a wall gable may stand off the front's centre
             back = D - (yde + wd / 2 * dt - E) / tp - 0.5   # behind where its ridge dies
             g, dhs, dhe, dry = k5.gable_element(back, xf, zc - wd / 2, zc + wd / 2, yde, dt, dp["overhang_m"],
                                                 d["verge_m"], dp["fascia_depth_m"], hs, "x", verge_ends=("hi",),
                                                 wall_role="cheek", end_role="dormer_face",
                                                 body_end_role="dormer_face")
             solids += g
-            sw, ss, sh = d["sash"]["width_m"], d["sash"]["sill_m"], d["sash"]["height_m"]
-            P = k5.frame("z")
-            # the recess is K06's reveal, cut to K06's depth: its back is where the K06
-            # frame, sashes and dark room stand (`window`, never emitted; dormer_sash)
-            from types import SimpleNamespace
-            rev = self.kit_reveal(SimpleNamespace(component="k01.opening.sash_flat", width_m=sw, height_m=sh))
-            recess = k5.extrude([(xf - rev, ys + ss), (xf + 0.05, ys + ss),
-                                 (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
-                                zc - sw / 2, zc + sw / 2, P,
-                                lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
             self.dormer_geom = {"xf": xf, "ys": ys, "yde": yde, "dhs": dhs, "dhe": dhe, "ridge": dry,
                                 "zs": zc + wd / 2, "zn": zc - wd / 2, "dt": dt, "overhang": dp["overhang_m"],
                                 "back": back}
+            if d.get("wall_gable"):
+                # T-2428: a wall gable's lights, cut to K06's own head, and its pediment panel
+                from . import k01_wall_gable
+                recesses += k01_wall_gable.cutters(self, k5, k5.frame("x"), xf, ys, zc)
+            else:
+                sw, ss, sh = d["sash"]["width_m"], d["sash"]["sill_m"], d["sash"]["height_m"]
+                P = k5.frame("z")
+                # the recess is K06's reveal, cut to K06's depth: its back is where the K06
+                # frame, sashes and dark room stand (`window`, never emitted; dormer_sash)
+                from types import SimpleNamespace
+                rev = self.kit_reveal(SimpleNamespace(component="k01.opening.sash_flat", width_m=sw, height_m=sh))
+                recess = k5.extrude([(xf - rev, ys + ss), (xf + 0.05, ys + ss),
+                                     (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
+                                    zc - sw / 2, zc + sw / 2, P,
+                                    lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
         # T-2302's plain stacks, for a record that names no K15 variant (1612 Goodman)
         for c in p.chimneys:
             if "k15" in c:
@@ -1895,6 +1905,9 @@ class Assembly:
         """The dormer's face: a K01 wall component whose surface is the union's, and its
         sash set in the recess the union cut (the reveal is the solid's, K06 the rest)."""
         p, d, g = self.p, self.p.dormer, self.dormer_geom
+        if d.get("wall_gable"):     # T-2428: its lights, voussoirs, pinnacles and finial
+            from . import k01_wall_gable
+            return k01_wall_gable.dress(self, roof_seed)
         from archetypes.k01_frontage_params import Opening
         wd, hf = d["width_m"], d["face_height_m"]
         O = (g["xf"], g["ys"], g["zs"])
