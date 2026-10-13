@@ -1,0 +1,623 @@
+{
+  "method": "Actual published /1904/ app, normal boot, full desktop and light mobile; animation paused after readiness. T-2213: dark glazing stands (Prairie front, 18th Street, courtyard) under the actual scene light.",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:44769/data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:44769/data/gltf/glessner_house__as_built_1887.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "prairie-front",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 199,
+            "triangles": 3443116,
+            "programs": 39,
+            "geometries": 166,
+            "textures": 382,
+            "batches": 144,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 81100120,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1404.580417113715,
+            6.040440280685425,
+            3230.6499983326166
+          ]
+        },
+        {
+          "name": "prairie-close",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 196,
+            "triangles": 3434772,
+            "programs": 39,
+            "geometries": 166,
+            "textures": 382,
+            "batches": 144,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 81100120,
+            "fps": 0,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1394.1278368132243,
+            7.740440280685425,
+            3234.7723235334947
+          ]
+        },
+        {
+          "name": "prairie-oblique",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 262,
+            "triangles": 3773685,
+            "programs": 39,
+            "geometries": 168,
+            "textures": 490,
+            "batches": 144,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 81100120,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1402.8023972073433,
+            6.040440280685425,
+            3249.6720551407684
+          ]
+        },
+        {
+          "name": "eighteenth",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 300,
+            "triangles": 3923326,
+            "programs": 39,
+            "geometries": 169,
+            "textures": 562,
+            "batches": 144,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 81100120,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": false
+          },
+          "camera": [
+            1366.8749071315547,
+            6.040440280685425,
+            3256.0919816866167
+          ]
+        },
+        {
+          "name": "courtyard",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 297,
+            "triangles": 3863831,
+            "programs": 39,
+            "geometries": 169,
+            "textures": 562,
+            "batches": 144,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 81100120,
+            "fps": 0,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": false
+          },
+          "camera": [
+            1358.641932717182,
+            7.940440280685426,
+            3236.1867529189717
+          ]
+        },
+        {
+          "name": "court-close",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 297,
+            "triangles": 3877937,
+            "programs": 39,
+            "geometries": 169,
+            "textures": 562,
+            "batches": 144,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 81100120,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": false
+          },
+          "camera": [
+            1366.248060630767,
+            6.740440280685425,
+            3234.097801468558
+          ]
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:44769/data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:44769/data/gltf/glessner_house__as_built_1887.light.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "prairie-front",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 101,
+            "triangles": 794330,
+            "programs": 24,
+            "geometries": 172,
+            "textures": 568,
+            "batches": 144,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 55752828,
+            "fps": 2,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1404.580417113715,
+            6.040440280685425,
+            3230.6499983326166
+          ]
+        },
+        {
+          "name": "prairie-close",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 98,
+            "triangles": 773685,
+            "programs": 24,
+            "geometries": 172,
+            "textures": 568,
+            "batches": 144,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 55752828,
+            "fps": 0,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1394.1278368132243,
+            7.740440280685425,
+            3234.7723235334947
+          ]
+        },
+        {
+          "name": "prairie-oblique",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 99,
+            "triangles": 876882,
+            "programs": 24,
+            "geometries": 173,
+            "textures": 570,
+            "batches": 144,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 55752828,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1402.8023972073433,
+            6.040440280685425,
+            3249.6720551407684
+          ]
+        },
+        {
+          "name": "eighteenth",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 191,
+            "triangles": 1218652,
+            "programs": 24,
+            "geometries": 173,
+            "textures": 570,
+            "batches": 144,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 55752828,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": false
+          },
+          "camera": [
+            1366.8749071315547,
+            6.040440280685425,
+            3256.0919816866167
+          ]
+        },
+        {
+          "name": "courtyard",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 184,
+            "triangles": 1170115,
+            "programs": 24,
+            "geometries": 173,
+            "textures": 570,
+            "batches": 144,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 55752828,
+            "fps": 0,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1358.641932717182,
+            7.940440280685426,
+            3236.1867529189717
+          ]
+        },
+        {
+          "name": "court-close",
+          "light": "scene",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 186,
+            "triangles": 1180651,
+            "programs": 24,
+            "geometries": 173,
+            "textures": 570,
+            "batches": 144,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 55752828,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1190000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1366.248060630767,
+            6.740440280685425,
+            3234.097801468558
+          ]
+        }
+      ]
+    }
+  ]
+}
