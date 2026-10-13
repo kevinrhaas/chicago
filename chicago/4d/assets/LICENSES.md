@@ -786,6 +786,14 @@ failure.
 `authored/` holds hero assets that cannot come from a structure record (Fort Dearborn
 detailing, signboards). They are exempt from regeneration but **not** from provenance:
 each needs a row here and a source record explaining what the form is based on.
+### Glessner House stone-occlusion atlases (T-2431)
+
+Generated output of this repository's own Cycles bake (`generators/archetypes/masonry_house_v4_occlusion.py`, Blender 4.5.3) of the Glessner House's own geometry: the quantised ambient-occlusion atlas of its granite, kept so a bake on any CPU reproduces the committed models. Nothing third-party is sampled or embedded; project license. Provenance is the model's, tracked in `assets/manifest.json`.
+
+- `bakes/stone-occlusion/README.md`
+- `bakes/stone-occlusion/granite_stone_occlusion_1024.npz`
+- `bakes/stone-occlusion/granite_stone_occlusion_2048.npz`
+
 ### Glessner House v4 original surface studies
 
 The following 43 files are original project material assets: eleven deterministic numeric PBR fabrics, three unchanged original generated albedo studies, their executable recipe and provenance. No historical, owner, Google or other third-party image pixels are sampled or embedded. Numeric maps are reproduced by `generate.py`; generated image prompts, hashes, methods and reconstructed confidence are preserved in the three provenance JSON files. Exact appearance is reconstructed, not historical evidence. Use, modification and redistribution with this project are permitted under the accompanying `LICENSE.txt`; retain provenance and confidence.

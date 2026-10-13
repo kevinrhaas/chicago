@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1741, ts: '2026-10-13T01:14:11.616Z', date: 'Oct 12, 2026, 8:14 PM CT', title: 'The Glessner House builds the same on any machine', kind: 'fix',
+    items: [
+      'The shading baked into the Glessner House\'s granite now comes from a saved copy kept with the model, not from a fresh render each time. Fresh renders came out very slightly different on different computers, and that failed the nightly check for every Prairie Avenue change.',
+      'Nothing you can see has changed. The stones and their shading look exactly as they did.',
+    ] },
   { v: 1740, ts: '2026-10-12T23:51:40.162Z', date: 'Oct 12, 2026, 6:51 PM CT', title: '1613 Prairie built as a four-storey brick house with a frame porch', kind: 'feature',
     items: [
       '1613 Prairie Avenue, the north half of the brick pair with 1615, is now a full four-storey brick house in place of its draft: brick on every wall, stone-headed sash, a bracketed cornice under a flat roof behind parapets, two chimneys against the party wall, and the door and stoop at the north end beside the side passage.',

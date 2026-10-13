@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 183766100,
-      "sha256": "c95d93560e3499a96994a4909ffcdc67c2d83958ff1592eb1eed74103dc160fe",
+      "bytes": 183766132,
+      "sha256": "4b6aa9f15742c9e8c506361f253571ebfa82ad0c7eb3b0f0ddf9a9a9bc3e1a43",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -324,8 +324,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 53077108,
-      "sha256": "2bfe5e7e3939bc2c3894d11953fbbe5ca8c0b867db0ecf09d235d945d9eb36e6",
+      "bytes": 53077140,
+      "sha256": "dadb3896a472410d94e76b861b6b17a62cd7d2777d16f04ad54b0cc071128461",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -637,8 +637,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 27818116,
-      "sha256": "6e1e60bb41403251e2668bb2b6221580194e2e87cca751370423d675b0b9af32",
+      "bytes": 27818148,
+      "sha256": "05f79920e5425ef84ae7c628f12a8154bdf2cbb7034bcff99d1abd031eeff479",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -663,7 +663,7 @@
       "texture": {
         "images": 33,
         "textures": 33,
-        "encoded_bytes": 24417958,
+        "encoded_bytes": 24417963,
         "pixels": 52952392,
         "gpu_rgba8_mip_bytes": 282412757,
         "largest_px": 2048
