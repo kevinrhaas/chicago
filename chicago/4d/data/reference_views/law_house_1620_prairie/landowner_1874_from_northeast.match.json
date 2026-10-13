@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "f791751bfbcfaca6ab662561bedfdf82e7d95e531fe6827b8304b0f9a78dd370",
+  "glb_sha256": "2012ed842706ffc749bbb618b27400e32d420b0c6aed307f3348199529f7bc4f",
   "camera_sha256": "4cbf3a651e1ee5dc689b00afeae61cf325bc7d6f1e36cb4d32e8c03ffdfa0f7e",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg",
   "verdict": "differs",
@@ -36,7 +36,11 @@
       "status": "fixed"
     },
     {
-      "what": "windows: round-headed sash under moulded hoods on the street front; an upper window over the bay with an ornate head; the north wall's windows flat-headed, two a storey toward the front; the build's are flat-headed two-over-two under segmental brick arches, three on the north wall",
+      "what": "windows: round-headed sash under moulded hoods on the street front, the upper window over the bay and the one over the door each with an ornate crown over its hood; the north wall's windows flat-headed, two a storey, at x 737 and 810 px (3.35 and 11.55 m back from the front corner). Built so by T-2410: both upper street windows K06's round-headed fanlight sash in a round hole through the brick under the kit's stone arch band, a key block on each crown for the ornament the engraving draws but does not resolve; the north wall's three windows a storey are now the engraving's two, flat-headed",
+      "status": "fixed"
+    },
+    {
+      "what": "the upper window over the door: the engraving draws it at x 530-550 px, about v 5.6-6.1; the build stands it on the door's own centre, which T-2409 moved to v 6.6, so it stands about 0.5-1 m north of the drawn one (the K01 bay puts the door and the window over it on one centre)",
       "status": "open"
     },
     {
@@ -81,5 +85,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-2414 (piece 1 of T-2406; lapped onto T-2411, T-2409, T-2404 and T-2408), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg"
+  "reviewed": "T-2410 (lapped onto T-2414, T-2411 and T-2409), 2026-10-12, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg"
 }
