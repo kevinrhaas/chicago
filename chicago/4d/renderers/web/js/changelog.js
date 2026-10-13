@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1755, ts: '2026-10-13T08:46:37.568Z', date: 'Oct 13, 2026, 3:46 AM CT', title: 'Glessner\'s windows: every pane its own, with blinds behind the glass', kind: 'feature',
+    items: [
+      'The Glessner house\'s dark windows no longer repeat one reflection across the front: each pane sits a hair out of plane with its own sheen, so the sky breaks differently in every light.',
+      'Pale roller blinds now hang behind the glass at different drops window by window — some up, many at the meeting rail, as an old photograph of the front shows — and they shift with your viewpoint because they sit behind the pane, not on it.',
+      'The glass stays dark by default, with no extra geometry. Which window has which blind is reconstructed.',
+    ] },
   { v: 1754, ts: '2026-10-13T08:30:22.092Z', date: 'Oct 13, 2026, 3:30 AM CT', title: 'Glessner\'s granite is a cooler greige, with colour options to compare', kind: 'improvement',
     items: [
       'The Glessner house\'s granite now reads greige leaning grey, matched to a photograph of the Eighteenth Street front, where it read a little brown.',

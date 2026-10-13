@@ -26044,3 +26044,31 @@ source publication, if found, dates the remodel.
 **Ticket:** T-2441 (piece 1 of T-1870).
 **Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
 **Recorded:** 2026-10-13 (T-2441).
+
+### L-glessner-glazing-blinds-2213 — Glessner's dark panes given each its own set and sheen, a shallow backing, and pale roller blinds at reconstructed drops
+
+**Decision:** the dark pane T-2109/T-2183 draw for `glessner_house` at every detail setting is no
+longer one plate repeated: the renderer (`renderers/web/js/glass.js`, `paneLayout`) reads each pane
+of the GLB's glass and the window it stacks into, and gives each pane a tilt of up to 0.03 rad out of
+plane with a faint low wave, a roughness between 0.6x and 1.8x the GLB's, a backing 8-10 cm behind
+the glass whose head, sill and jambs fall into shadow, and each window a pale holland shade (about
+0.5 linear albedo, warm) hanging 6 cm behind the glass at its own drop: up (three in ten), 16 %,
+27 %, 40 % or 68 % of the window's height, or to the meeting rail (three in ten). Nothing in the GLB
+changes and nothing is baked.
+**What it stands on:** the Glessner front photographed with the O. R. Keith house at 1808
+(`a18-gh-glessner-front-with-keith`, undated, probably 1890s-1920s; rights unknown, so it is cited
+and nothing is derived from it) shows pale roller shades behind the street windows: on three of the
+four principal-storey windows pulled to the meeting rail, on the upper storey at several drops,
+some up. The c. 1887 Cornell photographs (`a18-cornell-adw-glessner`) show the house newly finished
+and bare-paned, which is evidence of 1887 and not of 1904, when the family had lived there for
+seventeen years.
+**What is invented:** which window carries which drop (dealt from a seed of the window's position,
+so it is stable across loads and detail settings, and not read off any photograph); the blind's
+colour and depth behind the glass; the tilt and sheen of each pane; the backing's shadow. The same
+blinds are drawn on the courtyard and stable windows, which no photograph here shows with shades.
+No furnished interior is drawn.
+**How to resolve:** solve the front photograph's camera (T-2228's image gate) and set each street
+window's drop from it; a photograph of the courtyard of 1904 would do the same there.
+**Ticket:** T-2213 (GA-12).
+**Review:** `docs/RESEARCH/glessner-glazing-2213/README.md`.
+**Recorded:** 2026-10-13 (T-2213).
