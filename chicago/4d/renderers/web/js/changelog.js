@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 1781, ts: '2026-10-13T22:27:11.434Z', date: 'Oct 13, 2026, 5:27 PM CT', title: 'Where two 1904 streets cross, one paving wears into the next', kind: 'fix',
+    items: [
+      'Crossings no longer flicker between two pavings: at Indiana and 18th the brick and asphalt fought in blotches. Each spot now shows one roadway.',
+      'Where one paving meets another, it fades out over a few feet with a worn, ragged edge instead of a hard line.',
+      'Where each paving stops and how it wears are liberties.',
+    ] },
+  { v: 1780, ts: '2026-10-13T22:27:11.434Z', date: 'Oct 13, 2026, 5:27 PM CT', title: 'The 1904 curbs stand above the roadway, with carriage walks', kind: 'feature',
+    items: [
+      'Every 1904 roadway now lies a 7-inch stone curb below the sidewalk, and the walks and parkways fall gently toward the curb, as the 1905 street code sets them.',
+      'Paved carriage walks cross the parkway to the curb before the larger houses, each with a stone carriage block beside it. Click one for its card.',
+      'Walking off the curb steps you down into the street.',
+      'The curb\'s height and every carriage walk\'s place are liberties: the photographs show them, not their measurements.',
+    ] },
   { v: 1779, ts: '2026-10-13T21:59:02.956Z', date: 'Oct 13, 2026, 4:59 PM CT', title: 'Elms line the 1904 parkways, in summer, spring or winter', kind: 'feature',
     items: [
       '418 American elms stand in the parkways of the 1904 district, one file per block face, as the 1887-91 view south on Prairie Avenue from 18th Street shows them.',
