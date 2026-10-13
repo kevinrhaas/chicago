@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1765, ts: '2026-10-13T16:15:43.889Z', date: 'Oct 13, 2026, 11:15 AM CT', title: 'The 1904 check counts the Forsyth house at 1635 Prairie', kind: 'fix',
+    items: [
+      'The 1904 scene\'s automated check holds, by name, the list of every building it places. The Forsyth house at 1635 Prairie went into the scene on 13 October without joining that list, so the check failed on every change since, and finished work could not be merged.',
+      'The house is now on the list. The check still fails if the 1904 scene places anything from the 1835 town, or anything else that is not on the list.',
+    ] },
   { v: 1764, ts: '2026-10-13T15:29:50.397Z', date: 'Oct 13, 2026, 10:29 AM CT', title: 'Prairie Avenue opens on a phone again', kind: 'fix',
     items: [
       '1904 had stopped opening on an iPhone: the phone ran out of memory while the houses loaded.',
