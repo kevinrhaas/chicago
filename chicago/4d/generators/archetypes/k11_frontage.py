@@ -29,6 +29,12 @@ What the record's `boundary` names, and what is built for it:
             a pier of its own on the lot line.
   posts     (T-2366) where a record names `posts`, every gate hangs on a cast-iron post of
             that section and height, with no urn, instead of the kit's stone pier.
+  boards    (T-2455) a record whose `fence` is `k11.fence.side_boards` closes its street
+            line with timber boards `board_height_m` high instead of iron on a curb: the
+            same close-boarded run 1620's north side is built of, from the south lot line
+            (or the side gate's pier) to the entrance's pier and on to the north lot line.
+            Such a front may name no `side_gate` where its picture draws the boards
+            unbroken across the side yard's mouth (1616's, in the 1874 engraving of 1620).
 
 A generic kit part is allowed here because 1808's own boundary is not read in any source
 this project holds (k11_ironwork.json `restrictions`: a generic part never stands in place
@@ -42,11 +48,13 @@ from __future__ import annotations
 import math
 
 FENCE = "k11.fence.spear_on_curb"
-# T-1861: the fences a record may name, and the run style each is built in (k11_ironwork
-# fence_run); the scroll band is the register's "lattice/iron boundary" at 1620
-FENCES = {FENCE: "spear", "k11.fence.scroll_band": "scroll", "k11.fence.lattice_arcade": "lattice"}
 # T-2406: a timber board fence closing a side yard (1620's north side, its 1874 engraving)
 BOARDS = "k11.fence.side_boards"
+# T-1861: the fences a record may name, and the run style each is built in (k11_ironwork
+# fence_run); the scroll band is the register's "lattice/iron boundary" at 1620. T-2455:
+# the boards may close a street line too (1616's, drawn past 1620's corner in 1874)
+FENCES = {FENCE: "spear", "k11.fence.scroll_band": "scroll", "k11.fence.lattice_arcade": "lattice",
+          BOARDS: "boards"}
 GATE = "k11.gate.walk_gate_on_piers"
 WALL = "k11.wall.brick_with_piers"
 STREET_FRONT = "k01.wall.street_front"
@@ -76,8 +84,18 @@ def spec(params) -> dict | None:
     if t.get("fence") not in FENCES:
         raise ValueError(f"boundary.fence builds one of {sorted(FENCES)}")
     for g in ("entrance_gate", "side_gate"):
-        if t[g].get("variant") != GATE:
+        if g in t and t[g].get("variant") != GATE:
             raise ValueError(f"boundary.{g} builds {GATE!r} alone")
+    if "entrance_gate" not in t:
+        raise ValueError("boundary.entrance_gate: every front is gated on the walk to its door")
+    # T-2455: only a boarded street line may close the side yard's mouth without a gate
+    if "side_gate" not in t and FENCES[t["fence"]] != "boards":
+        raise ValueError(f"boundary.side_gate: an iron front gates its side passage; only {BOARDS!r} may close it")
+    if FENCES[t["fence"]] == "boards":
+        if not 1.2 <= t.get("board_height_m", 0) <= 2.2:
+            raise ValueError("a boarded street line names its height, boundary.board_height_m, 1.2-2.2 m")
+        if t.get("side_fence"):
+            raise ValueError("boundary.side_fence: a boarded street line has no iron for the boards to take over from")
     # T-2366: a lot whose side is not walled (1612's photograph shows its fence alone)
     # names no `wall`
     if t.get("wall") and t["wall"].get("variant") != WALL:
@@ -186,6 +204,8 @@ def dress(a):
                      "span_bays": t.get("lattice_span_bays", 2)}, data)
     B = t.get("side_fence")
     n_end = B["from_s_m"] - 0.06 if B else s_north - 0.12     # T-2406: the boards take the north end
+    if style == "boards":
+        n_end = s_north                                         # T-2455: boards run to the lot line, as 1620's do
     # the entrance: a pair of leaves square to the door, each hung on its own pier
     E = t["entrance_gate"]
     c = E["clear_m"]
@@ -204,25 +224,34 @@ def dress(a):
                          f"foot at {foot:.3f}: keep each leaf under {line - foot - CLEAR_M:.3f} m")
     # the side passage: the wall's street pier (its south face on the lot line) to a stone
     # pier in line with the house's south wall; hung on the wall pier, shut on the stone one
-    S = t["side_gate"]
-    sa, sb = s_south + (wp if t.get("wall") else ps), S["pier_s_m"]
-    if sb - sa < G["clear_min_m"]:
-        raise ValueError(f"the side passage's gate has {sb - sa:.3f} m clear, under the kit's {G['clear_min_m']} m")
-    ps1 = pier(sb + ps / 2)
-    # hung on the wall's street pier, or with no wall on a stone pier on the lot line
-    hxs, hs = var.hinges("wall pier" if t.get("wall") else pier(s_south + ps / 2).name, sa)
-    k = G["keeper_proud_m"]
-    var.member("latch keeper", "iron", ps1.name, sb - k, sb + 0.06, 0.88, 0.92, -0.015, 0.015, gate=True)
-    leaf_s = var.leaf(hs, hxs, (sb - k - G["keeper_gap_m"]) - hxs, S["drawn_deg"], tag=" side")
-    if line - _reach(leaf_s, hxs) < D + CLEAR_M:
-        raise ValueError("the side gate's leaf would sweep into the house's front")
-    # the fence: from the side gate's pier to the entrance's, and from the entrance's to an
-    # end post whose curb stops on the north lot line
-    south = var.fence_run(sb + ps, ea - ps, style, "south run", host_a=ps1.name, host_b=pe1.name)
-    north = var.fence_run(eb + ps, n_end, style, "north run", host_a=pe2.name)
+    S = t.get("side_gate")
+    sa = sb = None
+    if S:
+        sa, sb = s_south + (wp if t.get("wall") else ps), S["pier_s_m"]
+        if sb - sa < G["clear_min_m"]:
+            raise ValueError(f"the side passage's gate has {sb - sa:.3f} m clear, under the kit's {G['clear_min_m']} m")
+        ps1 = pier(sb + ps / 2)
+        # hung on the wall's street pier, or with no wall on a stone pier on the lot line
+        hxs, hs = var.hinges("wall pier" if t.get("wall") else pier(s_south + ps / 2).name, sa)
+        k = G["keeper_proud_m"]
+        var.member("latch keeper", "iron", ps1.name, sb - k, sb + 0.06, 0.88, 0.92, -0.015, 0.015, gate=True)
+        leaf_s = var.leaf(hs, hxs, (sb - k - G["keeper_gap_m"]) - hxs, S["drawn_deg"], tag=" side")
+        if line - _reach(leaf_s, hxs) < D + CLEAR_M:
+            raise ValueError("the side gate's leaf would sweep into the house's front")
+    # the fence: from the side gate's pier (T-2455: or a boarded front's south lot line) to
+    # the entrance's, and from the entrance's to an end post whose curb stops on the north
+    # lot line
+    s0 = sb + ps if S else s_south
+    if style == "boards":
+        H = t["board_height_m"]
+        south = _board_run(var, s0, ea - ps, H, "south run")
+        north = _board_run(var, eb + ps, n_end, H, "north run")
+    else:
+        south = var.fence_run(s0, ea - ps, style, "south run", host_a=ps1.name, host_b=pe1.name)
+        north = var.fence_run(eb + ps, n_end, style, "north run", host_a=pe2.name)
     # the rule the kit's restriction states, on the built geometry: no curb, rail or picket
     # of a run inside an opening (the pier caps' 50 mm overhang stands above the gate)
-    for lo, hi, what in ((ea, eb, "entrance"), (sa, sb, "side passage")):
+    for lo, hi, what in ((ea, eb, "entrance"),) + (((sa, sb, "side passage"),) if S else ()):
         for pc in var.pieces:
             if pc.meta.get("gate") or "cap" in pc.name:
                 continue
@@ -244,15 +273,18 @@ def dress(a):
         for pc in wv.pieces:
             _to_wall(pc.mesh, -(s_south + wp / 2))
 
-    a.instance(fence, "fence", {"length_m": round((ea - ps) - (sb + ps) + n_end - (eb + ps), 4),
-                                        "runs": 2, "posts": len(south) + len(north) - 3},
-                      {"line_south": (line, 0.0, -(sb + ps)), "line_north": (line, 0.0, -n_end)})
+    posts = len(south) + len(north) - (0 if style == "boards" else 3)
+    run = {"length_m": round((ea - ps) - s0 + n_end - (eb + ps), 4), "runs": 2, "posts": posts}
+    if style == "boards":
+        run["height_m"] = t["board_height_m"]
+    a.instance(fence, "fence", run, {"line_south": (line, 0.0, -s0), "line_north": (line, 0.0, -n_end)})
     if B:
         boards(a, K, data, B, line, s_north, conf)
     a.instance(GATE, "gate", {"leaves": 2, "clear_m": c, "leaf_m": round(Lw, 4), "swing_reach_m": round(R, 4),
                               "stoop_foot_m": round(foot - D, 4)},
                {"opening": (line, 0.0, -door.s_m)})
-    a.instance(GATE, "gate", {"leaves": 1, "clear_m": round(sb - sa, 4)}, {"opening": (line, 0.0, -(sa + sb) / 2)})
+    if S:
+        a.instance(GATE, "gate", {"leaves": 1, "clear_m": round(sb - sa, 4)}, {"opening": (line, 0.0, -(sa + sb) / 2)})
     if W:
         a.instance(WALL, "wall", {"length_m": round(line - x0, 4), "height_m": W["height_m"], "piers": len(piers)},
                    {"street_end": (line, 0.0, -(s_south + wp / 2)), "rear_end": (x0, 0.0, -(s_south + wp / 2))})
@@ -261,7 +293,7 @@ def dress(a):
     if W:
         _lay(a, wv.pieces, conf, WALL)
     a.boundary = {"line_x_m": round(line, 4), "stoop_foot_x_m": round(foot, 4), "leaf_reach_m": round(R, 4),
-                  "entrance_s_m": [round(ea, 4), round(eb, 4)], "side_gate_s_m": [round(sa, 4), round(sb, 4)],
+                  "entrance_s_m": [round(ea, 4), round(eb, 4)], "side_gate_s_m": [round(sa, 4), round(sb, 4)] if S else None,
                   "fence_posts_s_m": [round(x, 3) for x in south + north],
                   "wall_piers_x_m": [round(x, 3) for x in wv.meta["piers"]] if W else []}
 
@@ -270,7 +302,7 @@ def _board_run(var, x0, x1, H, tag):
     """A close-boarded run from x0 to x1 in the kit's frame (x along the run, z out of the
     yard): square posts let into the ground at no more than 2.4 m, two arris rails on the
     yard side let into them, and upright boards nailed to the rails' outer face from just
-    over grade to the top."""
+    over grade to the top. Returns the posts' centres along the run."""
     post, rail, bw, bt, gap = 0.1, (0.05, 0.1), 0.14, 0.022, 0.012
     n = max(1, math.ceil((x1 - x0 - post) / 2.4))
     xs = [x0 + post / 2 + (x1 - x0 - post) * i / n for i in range(n + 1)]
@@ -284,7 +316,7 @@ def _board_run(var, x0, x1, H, tag):
     for j in range(m):
         var.member(f"{tag} board {j + 1}", "timber", rails[0].name, x0 + j * w + gap / 2, x0 + (j + 1) * w - gap / 2,
                    0.03, H, z_face, z_face + bt)
-    return len(xs)
+    return xs
 
 
 def boards(a, K, data, B, line, s_north, conf):
@@ -293,12 +325,12 @@ def boards(a, K, data, B, line, s_north, conf):
     running back along it to `to_u_m`."""
     H = B["height_m"]
     front = K.Variant({"id": BOARDS, "kind": "fence"}, data)
-    n1 = _board_run(front, B["from_s_m"], s_north, H, "street")
+    n1 = len(_board_run(front, B["from_s_m"], s_north, H, "street"))
     for pc in front.pieces:
         _to_fence(pc.mesh, line)
     side = K.Variant({"id": BOARDS, "kind": "fence"}, data)
     # the side run's posts stand inside the lot line, its boards on the line's yard side
-    n2 = _board_run(side, B["to_u_m"], line - 0.06, H, "side")
+    n2 = len(_board_run(side, B["to_u_m"], line - 0.06, H, "side"))
     for pc in side.pieces:
         pc.mesh.pos = [(x, y, -(s_north - 0.06) - z) for x, y, z in pc.mesh.pos]
         pc.mesh.nrm = [(x, y, -z) for x, y, z in pc.mesh.nrm]
@@ -320,6 +352,8 @@ def garden_spec(params, t: dict) -> dict:
     crosses the line between them, and the walk comes up to its foot."""
     if t.get("fence") not in FENCES:
         raise ValueError(f"boundary.fence builds one of {sorted(FENCES)}")
+    if FENCES[t["fence"]] == "boards":   # T-2455: boards close a street line, never a garden's
+        raise ValueError(f"boundary.fence: a front garden's fence is iron, not {BOARDS!r}")
     if not 2.0 <= t.get("line_m", 0) <= 9.0:
         raise ValueError("boundary.line_m: a front garden's line stands 2-9 m before the street front, clear of its bays")
     s0, s1 = t["lot_s_m"]
