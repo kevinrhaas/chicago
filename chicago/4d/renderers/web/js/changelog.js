@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 1767, ts: '2026-10-13T16:30:00.391Z', date: 'Oct 13, 2026, 11:30 AM CT', title: '1637 Prairie\'s wing rises to the cornice under its own roof', kind: 'improvement',
+    items: [
+      'The forward wing on Jesse Spalding\'s house at 1637 Prairie now rises to the cornice and has its own steep slate roof, as the engraving shows. It used to stop below the cornice under a flat tin deck.',
+      'That roof\'s ridge runs back into the main roof at about the main roof\'s height, and the wing\'s chimney stands just beside it.',
+    ] },
+  { v: 1766, ts: '2026-10-13T16:21:37.088Z', date: 'Oct 13, 2026, 11:21 AM CT', title: 'Glessner\'s granite settles on grey-greige', kind: 'improvement',
+    items: [
+      'The Glessner house\'s granite is now grey-greige by default, the colour chosen from the comparison.',
+      'The ?stone= colour options are gone.',
+    ] },
+  { v: 1765, ts: '2026-10-13T16:15:43.889Z', date: 'Oct 13, 2026, 11:15 AM CT', title: 'The 1904 check counts the Forsyth house at 1635 Prairie', kind: 'fix',
+    items: [
+      'The 1904 scene\'s automated check holds, by name, the list of every building it places. The Forsyth house at 1635 Prairie went into the scene on 13 October without joining that list, so the check failed on every change since, and finished work could not be merged.',
+      'The house is now on the list. The check still fails if the 1904 scene places anything from the 1835 town, or anything else that is not on the list.',
+    ] },
   { v: 1764, ts: '2026-10-13T15:29:50.397Z', date: 'Oct 13, 2026, 10:29 AM CT', title: 'Prairie Avenue opens on a phone again', kind: 'fix',
     items: [
       '1904 had stopped opening on an iPhone: the phone ran out of memory while the houses loaded.',
