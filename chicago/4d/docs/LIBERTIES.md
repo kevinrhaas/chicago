@@ -24744,12 +24744,25 @@ give the range its junction, the main rear wall's two windows a storey move from
 **What is not built.** The 1911 sheet's frame bay at the north-east corner: the
 trace fits no part to it, the draft did not stand it, and a frame bay on a brick front of the period
 is as likely a later addition as an original one.
+**The street fence (T-2455, 2026-10-13).** The May 1874 Land Owner engraving of 1620 next door
+draws a close-boarded fence on the street line running on north past 1620's corner to the plate's
+vignette; through its camera (T-2437's) those boards are this lot's, s -2.69 to about 2.5 of its
+10.38 m front, and 1.5 m high (T-2450's reading). Read: their place on the street line and their
+height, for that south half. Invented: their run on across the north half to the north lot line,
+past the plate's edge; the posts, rails and boarding (the K11 kit's close-boarded run, 1620's own);
+the walk gate at the door (a pair of the kit's iron leaves between its stone piers, 1.3 m clear);
+and the boards' standing in 1904, carried thirty years from an 1874 plate on the footing 1620's own
+fence stands on. The plate draws unbroken boards across the south side yard's mouth, so that
+passage has no gate. It also draws no house behind the boards as far as its edge, where this
+house's front would begin to show: the lot was open in 1874 or the engraver left the house out,
+and the plate cannot say which. The 1616 view (data/reference_views/house_1616_prairie/) records it.
 **How to resolve:** a photograph, plate or description of 1616, ingested as a source, replaces the
-kits' choices in place.
-**Covers:** `house_1616_prairie.as_mapped_1904.form.principal_floor_m`, `house_1616_prairie.as_mapped_1904.form.storey_heights_m`, `house_1616_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1616_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1616_prairie.as_mapped_1904.form.service_wall_brick`, `house_1616_prairie.as_mapped_1904.form.street_front_trim`, `house_1616_prairie.as_mapped_1904.form.wall_head`, `house_1616_prairie.as_mapped_1904.form.roof_form`, `house_1616_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1616_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1616_prairie.as_mapped_1904.form.stair_tread_m`, `house_1616_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1616_prairie.as_mapped_1904.form.stoop_width_m`, `house_1616_prairie.as_mapped_1904.form.entrance_bay`, `house_1616_prairie.as_mapped_1904.form.front_bays`, `house_1616_prairie.as_mapped_1904.form.side_bays`, `house_1616_prairie.as_mapped_1904.form.rear_bays`, `house_1616_prairie.as_mapped_1904.form.sash_by_storey`, `house_1616_prairie.as_mapped_1904.form.basement_lights`, `house_1616_prairie.as_mapped_1904.form.roof_covering`, `house_1616_prairie.as_mapped_1904.form.dormer`, `house_1616_prairie.as_mapped_1904.form.chimneys`, `house_1616_prairie.as_mapped_1904.form.rainwater`, `house_1616_prairie.as_mapped_1904.form.window_kit`, `house_1616_prairie.as_mapped_1904.form.entrance_kit`
-**Ticket:** T-2353 (piece 1 of T-2345); T-2354 (piece 2, the rear range).
+kits' choices in place; for the fence, a picture of 1616 after 1874 says whether the boards still
+stood before the brick house.
+**Covers:** `house_1616_prairie.as_mapped_1904.form.principal_floor_m`, `house_1616_prairie.as_mapped_1904.form.storey_heights_m`, `house_1616_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1616_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1616_prairie.as_mapped_1904.form.service_wall_brick`, `house_1616_prairie.as_mapped_1904.form.street_front_trim`, `house_1616_prairie.as_mapped_1904.form.wall_head`, `house_1616_prairie.as_mapped_1904.form.roof_form`, `house_1616_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1616_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1616_prairie.as_mapped_1904.form.stair_tread_m`, `house_1616_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1616_prairie.as_mapped_1904.form.stoop_width_m`, `house_1616_prairie.as_mapped_1904.form.entrance_bay`, `house_1616_prairie.as_mapped_1904.form.front_bays`, `house_1616_prairie.as_mapped_1904.form.side_bays`, `house_1616_prairie.as_mapped_1904.form.rear_bays`, `house_1616_prairie.as_mapped_1904.form.sash_by_storey`, `house_1616_prairie.as_mapped_1904.form.basement_lights`, `house_1616_prairie.as_mapped_1904.form.roof_covering`, `house_1616_prairie.as_mapped_1904.form.dormer`, `house_1616_prairie.as_mapped_1904.form.chimneys`, `house_1616_prairie.as_mapped_1904.form.rainwater`, `house_1616_prairie.as_mapped_1904.form.window_kit`, `house_1616_prairie.as_mapped_1904.form.entrance_kit`, `house_1616_prairie.as_mapped_1904.form.boundary`
+**Ticket:** T-2353 (piece 1 of T-2345); T-2354 (piece 2, the rear range); T-2455 (the street fence).
 **Review:** `docs/RESEARCH/k01-1616-brick-2353/README.md`, `docs/RESEARCH/k01-1616-rear-range-2354/README.md`.
-**Recorded:** 2026-10-11 (T-2353; T-2354).
+**Recorded:** 2026-10-11 (T-2353; T-2354); 2026-10-13 (T-2455).
 
 ### L-k01-1620-law-1861 — 1620 Prairie, the Robert Law house, refined from the district draft to a K01 brick house: the plate's L under one rectangle, a canted bay, brick-arched windows and a scroll-band fence, everything but plan, place and brick the kits'
 
