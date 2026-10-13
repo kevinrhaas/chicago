@@ -349,9 +349,20 @@ def _range(b, r) -> None:
     for (ca, za), (cb, zb2) in zip(ov_prof, ov_prof[1:]):
         pts=[P(ca, a0, za), P(cb, a0, zb2), P(cb, a1, zb2), P(ca, a1, za)]
         fragments=[pts]
+        if r.get('north_roof_shoulder') and cb<=ra+1e-8:
+            # The photographed north gable spans the adjoining north range.
+            # Its wider western pitch returns to the courtyard pitch behind
+            # the tower, within the host range rather than over the courtyard.
+            g=r['north_roof_shoulder'];back=g['back_y']
+            front=(g['x'],a1,za);corner=P(ca,back,za);ridge=P(cb,a1,zb2)
+            fragments=[[P(ca,a0,za),P(cb,a0,zb2),P(cb,back,zb2),corner],
+                       [corner,P(cb,back,zb2),ridge],[corner,ridge,front]]
         if r['name']=='north_range' and getattr(b,'params',None) and b.params.detail.get('dining_roof_junction'):
             from archetypes.masonry_house_v4_courtyard_roof import clip_host
             fragments=clip_host(pts,b.params)
+        if r['name'] in ('north_range','east_wing') and getattr(b,'params',None) and (b.params.detail.get('north_tower_roof') or {}).get('integrated_north_facade'):
+            from archetypes.masonry_house_v4_north_tower import clip_host
+            fragments=[q for p in fragments for q in clip_host(p,b.params,r['name'])]
         for fragment in fragments:
             _two_sided_roof(b,fragment,r['conf_roof'],ROOF)
     if getattr(b,"params",None) and b.params.detail.get("roof_edges"):

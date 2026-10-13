@@ -1,0 +1,124 @@
+{
+  "check": "Courtyard/alley rainwater retains every run; the two east-wing courtyard gutters follow the revised host pitch.",
+  "passed": true,
+  "before_faces": 2958,
+  "after_faces": 2958,
+  "unchanged_runs": 7,
+  "changed_host_following_runs": [
+    {
+      "index": 7,
+      "before": {
+        "edge": [
+          [
+            40.8718,
+            0.0,
+            7.776219462189867
+          ],
+          [
+            40.8718,
+            4.166599549887535,
+            7.776219462189867
+          ]
+        ],
+        "normals": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ]
+      },
+      "after": {
+        "edge": [
+          [
+            40.8718,
+            0.0,
+            7.559287771623347
+          ],
+          [
+            40.8718,
+            4.166599549887535,
+            7.559287771623347
+          ]
+        ],
+        "normals": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "index": 8,
+      "before": {
+        "edge": [
+          [
+            40.8718,
+            7.415800450112465,
+            7.776219462189867
+          ],
+          [
+            40.8718,
+            10.843804306391283,
+            7.776219462189867
+          ]
+        ],
+        "normals": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ]
+      },
+      "after": {
+        "edge": [
+          [
+            40.8718,
+            7.415800450112465,
+            7.559287771623347
+          ],
+          [
+            40.8718,
+            10.843804306391283,
+            7.559287771623347
+          ]
+        ],
+        "normals": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ]
+      }
+    }
+  ],
+  "north_tower_pipe": "Separately checked by tools/test_glessner_north_tower.py at both sampling levels and perturbed eave heights.",
+  "baseline_commit": "52ea8a31287628bad3238d38d74a764dccfb0011",
+  "record_sha256": "7ded5db73325eaf00611729b02a5fd12bfe5e95f23e4753455c60245ce13455e",
+  "method": "Generate add_courtyard_rainwater with the baseline and current resolved parameters, intercept its gutter edge paths, compare all nine runs, and check changed east-wing endpoints against the analytical eave plane.",
+  "record_sha256_note": "Hash records the audited file before prose-only clarification of the north cornice and chimney notes; resolved rainwater parameters are unchanged."
+}

@@ -1,3 +1,10 @@
+## T-2470 — Glessner north-facade correction
+
+Implemented: integrated flat gable/tower, paired windows, staggered curved
+masonry and corrected gable/eave junction, with Full/Light assets and evidence.
+T-2228 retains whole-house photographic sign-off; T-2217 follows in the serial
+Glessner chain. See RESEARCH/glessner-north-tower-T-2470.md.
+
 ## T-2278 — doors, windows and trim on every 1835 building
 
 Every 1835 opening comes from one kit (`generators/common/openings.py`): cased, sill-and-cap
