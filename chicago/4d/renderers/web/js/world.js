@@ -614,7 +614,8 @@ export function createWorld({
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = lowSpec ? THREE.PCFShadowMap : THREE.PCFSoftShadowMap;
 
-  const sun = solarPosition({
+  let sunDate = sceneJson.target_date;
+  let sun = solarPosition({
     lat: datum.origin_lat,
     lon: datum.origin_lon,
     date: sceneJson.target_date,
@@ -785,24 +786,23 @@ export function createWorld({
   // here rather than rediscovered. The disc goes straight back on for the real
   // render, where the direct sun is the directional light above and tone mapping
   // handles the disc.
-  const sunHorizontal = new THREE.Color(light.color).multiplyScalar(
-    light.intensity * Math.max(0, Math.sin(sun.elevationDeg * DEG)));
   const reflectance = new THREE.Color(GROUND_REFLECTANCE);
   // L = reflectance * E_h / PI, with E_h the sun's horizontal term plus the
   // measured sky fill. Written straight into the working colour space: this is a
   // radiance, not a colour anyone authored, and pushing it through the sRGB
   // transfer would darken it by a factor of three for no reason.
-  const groundRadiance = new THREE.Color().setRGB(
-    reflectance.r * (sunHorizontal.r + FILL_UP[0]) / Math.PI,
-    reflectance.g * (sunHorizontal.g + FILL_UP[1]) / Math.PI,
-    reflectance.b * (sunHorizontal.b + FILL_UP[2]) / Math.PI,
-    THREE.LinearSRGBColorSpace,
-  );
+  const groundRadianceFor = (at) => {
+    const sunHorizontal = new THREE.Color(light.color).multiplyScalar(
+      light.intensity * Math.max(0, Math.sin(at.elevationDeg * DEG)));
+    return new THREE.Color().setRGB(
+      reflectance.r * (sunHorizontal.r + FILL_UP[0]) / Math.PI,
+      reflectance.g * (sunHorizontal.g + FILL_UP[1]) / Math.PI,
+      reflectance.b * (sunHorizontal.b + FILL_UP[2]) / Math.PI,
+      THREE.LinearSRGBColorSpace,
+    );
+  };
+  const groundRadiance = groundRadianceFor(sun);
 
-  const pmrem = new THREE.PMREMGenerator(renderer);
-  const envScene = new THREE.Scene();
-  const skyParent = sky.parent;
-  sky.material.uniforms.showSunDisc.value = false;
   // The lower hemisphere, seen from inside. `renderOrder` is load-bearing: the
   // Sky shader forces its own depth to the far plane and writes no depth, so the
   // dome has to be drawn FIRST for the depth test to keep the sky off the ground
@@ -815,12 +815,21 @@ export function createWorld({
   });
   const groundDome = new THREE.Mesh(groundGeo, groundMat);
   groundDome.renderOrder = -1;
-  envScene.add(groundDome);
-  envScene.add(sky);
-  const envRT = pmrem.fromScene(envScene);
-  skyParent.add(sky);
-  sky.material.uniforms.showSunDisc.value = true;
-  pmrem.dispose();
+  // T-2481: baked again whenever the Season setting moves the sun.
+  const bakeEnvironment = () => {
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    const envScene = new THREE.Scene();
+    const skyParent = sky.parent;
+    sky.material.uniforms.showSunDisc.value = false;
+    envScene.add(groundDome);
+    envScene.add(sky);
+    const rt = pmrem.fromScene(envScene);
+    skyParent.add(sky);
+    sky.material.uniforms.showSunDisc.value = true;
+    pmrem.dispose();
+    return rt;
+  };
+  let envRT = bakeEnvironment();
 
   scene.environment = envRT.texture;
   scene.environmentIntensity = ENV_INTENSITY;
@@ -865,9 +874,10 @@ export function createWorld({
   // is at the horizon the visitor is looking at. See HORIZON_RING. The constant
   // is what the fog is installed with, what it falls back to if the ring cannot
   // be sampled, and the solar-side reading the ring is checked against.
-  const ring = sampleHorizonRing(renderer, sky, problems);
+  let ring = sampleHorizonRing(renderer, sky, problems);
 
   const offset = new THREE.Vector3();
+  const lastFollow = new THREE.Vector3();
   const shadowRig = {
     reachM: half,
     mapSize: light.shadow.mapSize.x,
@@ -908,7 +918,7 @@ export function createWorld({
    */
   const snapRight = new THREE.Vector3();
   const snapUp = new THREE.Vector3();
-  {
+  const snapBasis = () => {
     // The basis three itself will use: the shadow camera is placed at the light
     // and aimed at the target, so its right and up axes are fixed as long as the
     // sun is (the sun here is one date and one time — see the module header).
@@ -917,7 +927,8 @@ export function createWorld({
     );
     snapRight.setFromMatrixColumn(basis, 0);
     snapUp.setFromMatrixColumn(basis, 1);
-  }
+  };
+  snapBasis();
   const snapCentre = new THREE.Vector3();
   function centreFor(position) {
     snapCentre.set(position.x, 0, position.z);
@@ -937,9 +948,11 @@ export function createWorld({
   const aimForward = new THREE.Vector3();
 
   return {
-    sky, light, sun, direction: dir.clone(),
+    sky, light,
+    get sun() { return sun; },
+    get direction() { return dir.clone(); },
     /** The sampled horizon sky, or null where the sampler could not read it. */
-    horizonRing: ring,
+    get horizonRing() { return ring; },
     /**
      * Point the haze at the sky the visitor is looking at — T-1631, and see
      * HORIZON_RING above for why the fog cannot be one colour.
@@ -968,7 +981,8 @@ export function createWorld({
       return true;
     },
     /** The environment map this rig installed, and the fill it delivers. */
-    environment: envRT.texture, skyFill: FILL_UP.slice(), envIntensity: ENV_INTENSITY,
+    get environment() { return envRT.texture; },
+    skyFill: FILL_UP.slice(), envIntensity: ENV_INTENSITY,
     /**
      * R-W3b(a). The shadow rig as a claim rather than as three internals: how
      * far from the visitor a shadow can be cast, and how coarsely it is
@@ -1059,6 +1073,7 @@ export function createWorld({
     /** Keep the shadow frustum on the walker, quantised onto its own texel grid
      *  (R-BUG6 — see `centreFor`). Cheap; call every frame. */
     follow(position) {
+      lastFollow.copy(position);
       light.target.position.copy(centreFor(position));
       light.target.updateMatrixWorld();
       offset.copy(dir).multiplyScalar(320);
@@ -1079,7 +1094,39 @@ export function createWorld({
     },
     describe() {
       return `sun ${sun.elevationDeg.toFixed(1)}° up, bearing ${sun.azimuthDeg.toFixed(1)}°`
-        + ` (${sceneJson.lighting?.local_time ?? '?'} local mean time, ${sceneJson.target_date})`;
+        + ` (${sceneJson.lighting?.local_time ?? '?'} local mean time, ${sunDate})`;
+    },
+    /** The date the sun is computed for: the scene's own, unless the Season setting moved it. */
+    get sunDate() { return sunDate; },
+    /**
+     * T-2481 — the Season setting moves the sun to its season's date at the
+     * scene's own hour: the sun's bearing and height, the sky, the fill baked
+     * from them, the horizon haze sampled off that sky and the shadow lattice.
+     * One PMREM bake and one horizon sample, on a change only.
+     * @param {string} [date] 'YYYY-MM-DD'; omitted or empty is the scene's own date
+     * @returns {boolean} whether anything moved
+     */
+    setSunDate(date) {
+      const want = date || sceneJson.target_date;
+      if (want === sunDate) return false;
+      sunDate = want;
+      sun = solarPosition({
+        lat: datum.origin_lat, lon: datum.origin_lon, date: want,
+        localMeanTime: sceneJson.lighting?.local_time ?? '12:00',
+      });
+      sunDirection(sun.azimuthDeg, sun.elevationDeg, dir);
+      sky.material.uniforms.sunPosition.value.copy(dir).multiplyScalar(45000 * 0.9);
+      groundMat.color.copy(groundRadianceFor(sun));
+      const old = envRT;
+      envRT = bakeEnvironment();
+      scene.environment = envRT.texture;
+      old.dispose();
+      ring = sampleHorizonRing(renderer, sky, []) ?? ring;
+      hazeSlot = -1;
+      snapBasis();
+      this.follow(lastFollow);
+      light.shadow.needsUpdate = true;
+      return true;
     },
     dispose() {
       envRT.dispose();

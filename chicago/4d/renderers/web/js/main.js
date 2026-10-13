@@ -64,7 +64,8 @@ import { mountHumans } from './humans.js';
 import { createWells } from './wells.js';
 import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
-import { createStreetTrees, STREET_TREE_MODES } from './street-trees.js';
+import { createStreetTrees } from './street-trees.js';
+import { SEASONS, SEASON_TREE_MODE, seasonDate, applySeasonLook, patchSeason } from './season.js';
 import { createContext } from './context.js';
 import { createRailway } from './railway.js';
 import { mountExclusions } from './exclusions.js';
@@ -1303,15 +1304,19 @@ const FURNITURE_LAYERS = ['enclosures', 'yard', 'frontage', 'wharves', 'boats', 
  */
 const NEAR = { min: 0.1, max: 8, divisor: 25, step: 0.05 };
 
-/** T-2473: the Trees setting ('summer' | 'spring' | 'winter' | 'hidden'), from the chicago4d.settings blob. */
-function readStreetTreesPreference() {
-  try {
-    const raw = window.localStorage.getItem('chicago4d.settings');
-    const mode = raw ? JSON.parse(raw).streetTrees : '';
-    return STREET_TREE_MODES.includes(mode) ? mode : 'summer';
-  } catch {
-    return 'summer';
-  }
+/** T-2481: the Season setting and whether the street trees show, from the
+ *  chicago4d.settings blob. T-2473 stored the season in `streetTrees` itself
+ *  ('summer' | 'spring' | 'winter' | 'hidden'); such a blob still reads right. */
+function readSeasonPreference() {
+  let saved = {};
+  try { saved = JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}') ?? {}; } catch { /* none */ }
+  const legacy = SEASONS.includes(saved.streetTrees) ? saved.streetTrees : null;
+  const season = SEASONS.includes(saved.season) ? saved.season : (legacy ?? 'summer');
+  return { season, treesShown: saved.streetTrees !== 'hidden' };
+}
+/** The street elms' mode for a season, or hidden. */
+function streetTreeMode(season, treesShown) {
+  return treesShown ? (SEASON_TREE_MODE[season] ?? 'summer') : 'hidden';
 }
 
 /** The visitor's stored choice, read straight from the HUD's own settings blob so
@@ -1756,11 +1761,13 @@ async function boot() {
 
   // T-2473 — the parkway elms of the 1904 district (data/street_trees/<scene>.json),
   // built with trees.js's own tree and drawn as one instanced batch. Only a scene
-  // listing `street_trees` is handed a data base. The Trees setting (summer, early
-  // spring, winter, hidden) is read here so the first frame already shows the visitor's pick.
+  // listing `street_trees` is handed a data base. The Season and Street trees
+  // settings (T-2481) are read here so the first frame already shows the visitor's pick.
+  const seasonPref = readSeasonPreference();
   const streetTrees = await createStreetTrees({
     dataBase: layerBase('street_trees'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
-    problems: layerProblems('street_trees'), lowSpec: coarse, mode: readStreetTreesPreference(),
+    problems: layerProblems('street_trees'), lowSpec: coarse,
+    mode: streetTreeMode(seasonPref.season, seasonPref.treesShown),
     checkpoint: bootCheckpoint, levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
   });
   scene3d.add(streetTrees.group);
@@ -1776,6 +1783,7 @@ async function boot() {
   });
   scene3d.add(contextCity.group);
   api.contextCity = contextCity;
+
   // T-2478 — the Illinois Central along the lake east of Prairie Avenue: the tracks
   // the 1911 sheets draw, on cinder ballast, with ties, rails and weedy verges
   // (data/railway/<scene>.json; maps from textures/prairie_1904_rail/). Only a scene
@@ -1786,6 +1794,41 @@ async function boot() {
   });
   scene3d.add(railway.group);
   api.railway = railway;
+
+  // T-2481 — the Season setting, offered where there are street trees (1904): the
+  // ground's snow, sward and leaves (season.js uniforms), the elms, the context
+  // city's crowns and the sun's date. A viewing choice; the scene stays 1 July.
+  const seasonal = streetTrees.records.length > 0;
+  const seasonState = { season: 'summer', treesShown: seasonPref.treesShown };
+  let structuresSeasoned = false;
+  const applySeason = (season) => {
+    const s = seasonal && SEASONS.includes(season) ? season : 'summer';
+    // The lawns, steps and roofs inside the building GLBs take the season too.
+    // Their materials learn it the first time a season other than summer is
+    // chosen, so a summer visit compiles nothing for it.
+    if (s !== 'summer' && !structuresSeasoned) {
+      structuresSeasoned = true;
+      scene3d.traverse((o) => {
+        if (!o.isMesh) return;
+        for (const m of [].concat(o.material)) if (m?.name === 'merged') patchSeason(m);
+      });
+      // The faded city's roofs and streets, and the railway's ballast, the same way.
+      for (const g of [contextCity.group, railway.group]) g.traverse((o) => {
+        if (!o.isMesh || /crowns/.test(o.name)) return;
+        for (const m of [].concat(o.material)) if (m && !m.transparent) patchSeason(m, /street/.test(o.name) ? 0.3 : 1);
+      });
+    }
+    seasonState.season = applySeasonLook(s);
+    world.setSunDate(seasonDate(s, loaded.scene.target_date));
+    contextCity.setSeason?.(s);
+    return streetTrees.setMode(streetTreeMode(s, seasonState.treesShown));
+  };
+  if (seasonal && seasonPref.season !== 'summer') await applySeason(seasonPref.season);
+  api.season = {
+    get current() { return seasonState.season; },
+    set: (s) => applySeason(s),
+    get sunDate() { return world.sunDate; },
+  };
 
   // WHICH DETAIL LEVEL, resolved here rather than beside the vegetation because
   // the fence layer is the first thing that needs it: a pale is 10 triangles at
@@ -2711,8 +2754,12 @@ async function boot() {
         navigation.setMapVisible(value);
       } else if (key === 'streetNames') {
         navigation.setStreetVisible(value);
+      } else if (key === 'season') {
+        void applySeason(value).then(() => gateFrame.invalidate());
       } else if (key === 'streetTrees') {
-        void streetTrees.setMode(value).then(() => gateFrame.invalidate());
+        seasonState.treesShown = value !== 'hidden';
+        void streetTrees.setMode(streetTreeMode(seasonState.season, seasonState.treesShown))
+          .then(() => gateFrame.invalidate());
       } else if (key === 'units') {
         navigation.setUnits(value);
       }
@@ -2735,6 +2782,7 @@ async function boot() {
   hud.omitTabs(api.drawerOmitted.tabs);
   // The Trees setting is offered only where there are parkway trees to set (T-2473).
   document.getElementById('row-street-trees')?.toggleAttribute('hidden', !streetTrees.records.length);
+  document.getElementById('row-season')?.toggleAttribute('hidden', !seasonal);
   api.evidenceHub = createEvidenceHub({
     root: hudRoot.querySelector('[data-panel="evidence"]'),
     omit: api.drawerOmitted.topics,
