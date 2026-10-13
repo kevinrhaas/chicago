@@ -15906,6 +15906,7 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
+
 ### L276 — Seventy-seven roofs across six districts now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
 **Scope:** `roof_keepers.written[named]` — 210 roofs (208 until T-2270 raised the two houses the seating had slotted on the east corners of the School Section tier's block 82, 2026-10-10, L-block82-east-corners-2270: both carry a written keeper, hh_vieaux_susanne on the D1 on lot 6 and hh_church_thomas on the H1 on lot 7, and no other seat moved; 205 until T-2254 raised the four houses the seating had slotted on the School Section tier's block 82, 2026-10-10, L416, and the South seating turned over behind them: three of the new houses carry a written keeper — hh_merrill_george_w, hh_merill_isaac and hh_meleney_patrick — and the fourth, the D2 on lot 2, goes to the reconstructed hh_rc_shea_margaret, whose name carries no source and is refused on the card; recon_1835_south_d1_018 goes to the reconstructed hh_rc_woodruff_ruth and is refused on the card as it was under hh_rc_woodruff_eliza, and recon_1835_south_d5_016, which hh_meleney_patrick leaves, is written to hh_miller_samuel, who takes it in the deal (read on the tree merged with T-2268, where dev wrote 205); 98 until T-1645 made the platted deal read the owner's letter-list ruling of 2026-08-30 (T-0379) before it deals, 2026-10-09: the 117 roofs it had dealt to letter-list households, every one refused on the card here, go to the next rows of their clauses' order instead, and the 98 households already written keep their own roofs. 107 of the 117 now carry a written keeper; the other ten went to reconstructed `rc_` households of the South's labourer_dwellings clause whose names carry no source, which this pass refuses on its own no-source rule, so `refused_letter_list` is 0 by construction and `refused_no_source` is 10; 97 until T-2238 raised a house on the Market wedge's lot 7, 2026-10-09, L410, and the South seating turned over behind it: the new house carries no written keeper, and the walk wrote keepers onto seventeen roofs, took them off sixteen and changed the keeper on seventeen; 96 until T-2176 raised two houses on the School Section tier, 2026-10-08, L408, and the South seating turned over behind them: neither new house carries a written keeper, and the walk wrote keepers onto seven South roofs and took them off six; 96 also before T-2179 folded the burial card `hh_baptist_john` onto the infant's baptism card, 2026-10-08: the D3 on the Randolph-and-Dearborn corner, recon_1835_blk_randolph_dearborn_d3_01, had carried that card as its written keeper — 'a laundress, in Chicago since 1834', drawn for a child the register buried at 28 days old — and stands unassigned now, dealt to a letter-list household the ruling refuses a roof; the South seating turned over behind it and hh_dewey_s, seated on recon_1835_south_d5_016, carries a written keeper's place, so the count holds; 92 until T-2147 raised six houses on the School Section tier's Market block 81, 2026-10-08, and the South seating turned over behind them: one of the new houses carries a written keeper, hh_burke_james, the other five going to letter-list households the ruling refuses a roof, and the walk wrote keepers onto three more South roofs; 87 until T-2146 raised thirteen houses on the School Section tier's Wells blocks, 2026-10-06, and the South seating turned over behind them: four of the new houses carry a written keeper — hh_brown_lemuel, hh_brown_jesse_b, hh_bradley_joseph and hh_bradford_harriet — the other nine going to letter-list households the ruling refuses a roof; fifteen more roofs gain a written keeper, fourteen lose theirs and seven change keeper; 86 until T-2148 raised plat block 50's thirteen roofs, 2026-10-06, and the West seating turned over behind them, so one more West roof now carries a written keeper; 81 until T-2145 raised fourteen houses on the School Section tier's Clark blocks, 2026-10-06, and the South seating turned over behind them: six of the new houses carry a written keeper, the other eight going to letter-list households the ruling refuses a roof; nine more roofs north of Madison gain a written keeper, ten lose theirs and six change keeper; 80 until T-2143 raised plat block 51's six houses, 2026-10-05, and the West seating turned over behind them: 17 roofs change keeper and one more West roof now carries a written keeper; 77 until T-2132 raised plat block 44's four houses, 2026-10-05, and the West seating turned over behind them, so three more West roofs now carry a written keeper; 50 until T-2136 ran the pass over the last three districts the deal seats in, 2026-10-05, below; 51 until T-2129 raised the Market block's ten roofs, 2026-10-05, and the South's seating walked a roof at a time behind them: 26 roofs change keeper, recon_1835_south_d4_006 passing from hh_bourrassa_leon to hh_boyer_j_k among them, and one more is left without a named household than gained one; 49 until T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the West seating turned over behind them, so two more West roofs now carry a written keeper) given the name of the household the
@@ -17392,6 +17393,7 @@ wholly unbuilt in July 1835 would retire all eleven of these rather than re-plac
 take), **L270** (the platted deal this block answers), **L292** (the Clark block, the first deal on
 this tier), **L294** (the Addition's first cottages, the deal between them), **T-1708**, **T-1751** (the Franklin block behind it).
 **Recorded:** 2026-09-29.
+
 ### L299 — The Glessner House, version v2: an independent build's own choices where the sources give no number
 **Decision:** `data/structures/versions/glessner_house/v2.json` (T-1730) is a second, independent
 build of 1800 Prairie Avenue for the owner's side-by-side comparison with the default (**L295**).
@@ -18267,6 +18269,7 @@ Division in July 1835 substitutes for this roof rather than standing beside it.
 **Ticket:** T-1773 (piece of T-1764, under T-1207).
 
 **Recorded:** 2026-10-01 (T-1773).
+
 ### L310 — Four West roofs nobody holds, given a stated use
 
 **Applies to:** `data/reconstruction/1835_stated_uses.json`
@@ -18708,6 +18711,7 @@ lot level for blocks 20, 17, 16 and 31 of the Original Town.
 (the Western's stable re-sized from its guests), **T-1209** (the boarding houses built to their
 beds, whose second piece this is).
 **Recorded:** 2026-10-01.
+
 ### L320 — The plank walks' weathered tones, and which stretch of walk wears which
 
 **Applies to:** `renderers/web/js/frontage.js` (`WALK_TONES`, `walkTone`, `boardTone`,
@@ -20946,6 +20950,7 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/boots-and-leather.json`.
 
 **Recorded:** 2026-10-03 (T-2027).
+
 ### L-jaunt-materials-for-a-roof — Materials for a Roof: an invented builder's list past four documented trades
 
 **Decision:** Materials for a Roof links four existing exterior destinations (Newberry & Dole's forwarding and commission warehouse, P. F. W. Peck's store at South Water and LaSalle, Tyler K. Blodgett's brickyard on the North Side, and the Lake House building site at Rush Street) in an invented errand: a builder putting up a small frame house sees what comes in by lake, chooses nails or nail rods for the roof, chooses brick for a chimney or none, and ends looking at the biggest building in hand. The builder, the house and its roof, the list, both choices, the route, the three endings and the A Builder's List keepsake are reconstructed, and so are the reading and action seconds. What each place did is sourced: Newberry & Dole's storage, forwarding and commission card from the Chicago Democrat of 1 July 1835; Peck's New York stock (2 July 1834) and his nails, nail rods, bar iron and steel (10 September 1834) from his own notices; the brickyard, its founder and its brickmaker from Andreas; the finished Lake House from Andreas and its 1835 groundbreaking from an uncredited modern paragraph, which the stop says. No order, price or sale is claimed at any of the four places; the stop does not say the Lake House's brick came from Blodgett's yard, because nothing does; the warehouse's bank and the Lake House's side of Rush Street are the scene's placements and the stops say so. No named person speaks or is met, no interior is opened and no front door is claimed.
@@ -20957,6 +20962,7 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 **Applies to:** `data/jaunts/materials-for-a-roof.json`.
 
 **Recorded:** 2026-10-03 (T-2026).
+
 ### L-jaunt-calling-on-neighbors — Calling on Neighbors: invented calls and a calling card past four documented houses
 
 **Decision:** Calling on Neighbors links four existing exterior destinations (Mrs Rufus Brown's log boarding house behind Peck's store, P. F. W. Peck's store at South Water and LaSalle, the Exchange Coffee House at Lake and Wells, and the Sauganash at Lake and Market) in an invented round of calls: a newcomer lodging at Brown's chooses which of two letters of introduction to present, reads the Peck household on its card rather than at its door, finds at the Exchange a public house where the Democrat reports meetings held and an 1834 notice asked addresses to be left, and leaves a calling card there or at the Sauganash. The newcomer, the room, both letters, the calls, the choice of where the card is left, the route, the three endings and the An Introduction Made keepsake are invented; no introduction, caller, reply or encounter with any named person is claimed.
@@ -22268,6 +22274,7 @@ address on a lot with two roofs names neither (`tools/lot_addresses.py`).
 **Ticket:** T-2165 (of T-2156, "build or re-budget the barns_stables and small_outbuildings roofs").
 
 **Recorded:** 2026-10-08 (T-2165).
+
 ### L402 — Four more yard buildings behind the Canal Street houses of plat block 50
 
 **Decision:** `blk_washington_clinton` — plat block 50, Washington to Madison between Clinton
@@ -24146,7 +24153,7 @@ buildings are T-1932's.
 
 ### L-draft-prairie-16-18-east-2335 — The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate
 
-**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1621_prairie.draft_1904.form.draft_elevation`, `house_1621_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1621_prairie.draft_1904.form.draft_elevation`, `house_1621_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840
@@ -24207,6 +24214,10 @@ house, under `L-k01-1623-farwell-oriel-front-2433`, under the same id; its draft
 stone-front frontage read off the 1890 Inland Architect photograph of Hugh J. McBirney's Tudor house,
 under `L-k01-1625-mcbirney-tudor-2432`, under the same id; its draft attributes are gone. The
 sheet's four-storey rear section beside it is not built until T-2435.
+**1637 retired from this liberty by T-2441 (2026-10-13):** its main body now stands as the K01
+brick frontage read off the engraving of Jesse Spalding's remodel of the Grosvenor house, under
+`L-k01-1637-spalding-remodel-2441`, under the same id; its draft attributes are gone. Its coach house
+stays a draft here.
 **Ticket:** T-2335 (piece 2 of T-2160, the district draft's 16th-18th block).
 **Review:** `docs/RESEARCH/prairie-draft-16-18-east-2335/README.md`.
 **Recorded:** 2026-10-11 (T-2335).
@@ -24316,6 +24327,7 @@ structure, terrain or person carries it, so it discharges no `Covers` token.
 **Ticket:** T-1787.
 **Review:** `data/humans/fixture.measure.json` (the browser verdicts and costs).
 **Recorded:** 2026-10-10 (T-1787).
+
 ### L-k16-1638-front-2323 — 1638 Prairie's timber street front: the kit's Gothic gable, wall and porch on the sheet's plan, before a photograph says otherwise
 
 **Decision:** the Shortall-Gregory house at 1638 Prairie Avenue (T-2323, piece 2 of T-1858) stands
@@ -24691,6 +24703,7 @@ dates the wall to 1887 directly.
 **Covers:** `glessner_house.as_built_1887.form.courtyard_wall_heights`.
 **Ticket:** T-2201 (Glessner exterior audit GA-03).
 **Recorded:** 2026-10-11 (T-2201).
+
 ### L-k01-1616-brick-front-2353 — 1616 Prairie's main body refined from the district draft to a K01 brick house with a street dormer for its half storey, everything but the plan the kits'
 
 **Decision:** the brick house at 1616 Prairie Avenue (T-2353, piece 1 of T-2345) is no longer a
@@ -24733,6 +24746,7 @@ kits' choices in place.
 **Ticket:** T-2353 (piece 1 of T-2345); T-2354 (piece 2, the rear range).
 **Review:** `docs/RESEARCH/k01-1616-brick-2353/README.md`, `docs/RESEARCH/k01-1616-rear-range-2354/README.md`.
 **Recorded:** 2026-10-11 (T-2353; T-2354).
+
 ### L-k01-1620-law-1861 — 1620 Prairie, the Robert Law house, refined from the district draft to a K01 brick house: the plate's L under one rectangle, a canted bay, brick-arched windows and a scroll-band fence, everything but plan, place and brick the kits'
 
 **Decision:** the Robert Law house at 1620 Prairie Avenue (T-1861, package N03 of T-1837) is no
@@ -25746,6 +25760,7 @@ projection's form.
 **Ticket:** T-2418 (piece 2 of T-1868).
 **Review:** `docs/RESEARCH/k01-1615-brick-flat-2418/README.md`.
 **Recorded:** 2026-10-13 (T-2418).
+
 ### L-k16-1638-gable-2423 — 1638 Prairie's gable read off its photograph through a solved camera: pointed twin lights under an ogee hood, a blind oval, clapboard to the rake; sections, finial and verge still the kit's
 
 **Decision:** the front gable of the Shortall-Gregory house (T-2423, a piece of T-1865) carries
@@ -25902,3 +25917,62 @@ record to `matches`; a later photograph of the house, ingested as a source, says
 **Ticket:** T-2432 (piece 1 of T-1869).
 **Review:** `docs/RESEARCH/k01-1625-mcbirney-2432/README.md`.
 **Recorded:** 2026-10-13 (T-2432).
+
+### L-1619-wears-hamline-front-2436 — 1619 Prairie stands, for now, in the front of John H. Hamline's house at 1621
+
+**Decision:** `house_1619_prairie` keeps the K01 stone front T-2420 built from Treat & Foltz's drawing
+of John H. Hamline's house, although T-2439 rules that the drawing's house stood at **1621**, the
+next lot south (`docs/RESEARCH/hamline-1621-2436/README.md`: the 1885 permit, the 1884-87
+directories, the 1886 occupant map, the 1886 Robinson plate's printed numbers and the 1904 Blue Book
+against one 1886 newspaper's "1619"). So the front a visitor sees at 1619 is not 1619's: it is the
+house next door's, standing on 1619's footprint, and the house 1619 actually had in 1904 — the 1911
+sheet's four-storey stone front with its broad curved bay, most likely built after J. Foster Rhodes
+bought the lot in 1891 — is not built. 1621 meanwhile stands as its district draft, its card naming
+Hamline's house.
+**Why it is left standing:** moving the build is a camera re-solve on 1621's own bay, a rebuild on
+another footprint and a bake of both houses, and T-2428's wall gable for the same front is still
+landing on 1619. Taking it down first would leave a grey box at 1619 for no gain in truth.
+**What is invented:** nothing new; the placement is the liberty. The front's own inventions are
+`L-k01-1619-hamline-swell-front-2420`'s.
+**How to resolve:** T-2440 moves the drawing's build to `house_1621_prairie` and hands 1619 back to a
+front of its own (T-2434); this entry is then resolved.
+**Ticket:** T-2439 (piece 1 of T-2436).
+**Review:** `docs/RESEARCH/hamline-1621-2436/README.md`.
+**Recorded:** 2026-10-13 (T-2439).
+
+### L-k01-1637-spalding-remodel-2441 — 1637 Prairie refined from the district draft to a K01 brick block read off the engraving of Jesse Spalding's remodel, on the 1911 sheet's plan, its wing's own roof and its gabled dormers stood in for until K01 can build them
+
+**Decision:** the house at 1637 Prairie Avenue (T-2441, piece 1 of T-1870) is no longer a district
+draft. It stands, under the draft's own id `spalding_house_1637_prairie`, as a `k01_frontage` record
+built by `generators/k01_emit.py`, against its one picture of the remodelled front: a line engraving
+of the Grosvenor house as Jesse Spalding remodelled it, reproduced by the Glessner House Museum
+(`glessner_blog_1637_spalding_remodel_engraving`). A K03 brick block of a raised basement and two tall
+storeys under K10's bracketed cornice; a K08 swell bay of three windows a storey at the north end of the
+front and the sheet's forward wing at the south end as a K08 full-height projection under a flat tin
+deck; the K07 door up its stoop between them; K06 two-over-two sash under flat lintels; a K05 mansard
+with slated lower faces, two round-headed dormers on the street face and one on the north face; three
+plain stacks; the sheet's two-storey rear range behind the south part, flat-roofed.
+**What is read, not invented.** From the 1911 Sanborn sheet 20 (trace s20fp-1637-b1, census
+s20-1637-f): the main body's place and plan (11.0 m deep by 13.1 m, the trace's own width where the
+draft's fit had stopped at 11.5 m), the south 4.8 m standing 1.0 m forward, the rear range behind it,
+brick, the storeys ('2½B'). From the engraving, through its solved camera
+(`data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.json`): the front's
+composition (bay, door, wing), the principal floor's 2.3 m over grade, the second floor's and the
+cornice's heights, the windows' places and storeys, three windows round the bay, the dormers' places,
+the stacks' places and tops, the steep slated roof, the windows in the north flank.
+**What is invented.** The walls' thickness; the brick's colour and the trim's; every window's kind and
+the glazing (the engraving's bars are not legible); the windows' heights past the K01 contract's 2.4 m;
+the cornice's kit; the upper hip over the curb, its pitch and its tin; the stoop's flight; the rear
+wall's and the rear range's windows; the south wall left blind; the downpipes.
+**What is not built.** The wing standing further forward under its own steep hipped roof as high as the
+main roof; the gabled dormers' heads and square-headed sashes; the French window and balcony on the
+wing's principal floor, the stoop's rails, the basement's round-headed lights; the bay and the wing
+rising to the cornice itself; the stacks' panelled shafts and caps; the garden wall and the iron fence.
+All are open in the match record for T-2442, which also weighs the c. 1870 photograph of the house as
+built and the 1911 sheet's frame porch across the north part, both evidence of their own dates.
+**How to resolve:** T-2442 builds what is open and brings the match record to `matches`; the engraving's
+source publication, if found, dates the remodel.
+**Covers:** `spalding_house_1637_prairie.as_mapped_1904.form.wall_thickness_front_m`, `spalding_house_1637_prairie.as_mapped_1904.form.wall_thickness_side_m`, `spalding_house_1637_prairie.as_mapped_1904.form.service_wall_brick`, `spalding_house_1637_prairie.as_mapped_1904.form.street_front_trim`, `spalding_house_1637_prairie.as_mapped_1904.form.roof_pitch_deg`, `spalding_house_1637_prairie.as_mapped_1904.form.eave_overhang_m`, `spalding_house_1637_prairie.as_mapped_1904.form.stair_tread_m`, `spalding_house_1637_prairie.as_mapped_1904.form.stair_landing_depth_m`, `spalding_house_1637_prairie.as_mapped_1904.form.stoop_width_m`, `spalding_house_1637_prairie.as_mapped_1904.form.north_bays`, `spalding_house_1637_prairie.as_mapped_1904.form.rear_bays`, `spalding_house_1637_prairie.as_mapped_1904.form.rainwater`, `spalding_house_1637_prairie.as_mapped_1904.form.window_kit`
+**Ticket:** T-2441 (piece 1 of T-1870).
+**Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
+**Recorded:** 2026-10-13 (T-2441).

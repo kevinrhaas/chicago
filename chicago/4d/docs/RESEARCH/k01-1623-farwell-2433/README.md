@@ -35,6 +35,11 @@ buying the 1619 lot to build; the sheet's '4' storeys at 1619 are the disagreeme
 T-2420 could not reconcile, while 1621 is '3B' with a curved bay on the plan. Nothing at 1619 or 1621 is
 changed here; the question is filed as its own ticket after this one.
 
+**Settled by T-2439 (piece 1 of T-2436): Hamline's house was 1621**, on the permit, the 1886 occupant
+map, the 1886 Robinson plate's printed '1621' on the first of the matched pair with 1623, and the 1904
+Blue Book; so the 1885 numbers do NOT run uniformly one lot behind 1904's, and Farwell's "1625" is the
+permit's own error for 1623 (`docs/RESEARCH/hamline-1621-2436/README.md`).
+
 ## What the drawing shows of Farwell's front
 
 Read off the plate (`data/sources/assets/farwell_1623_drawing_t2433/building_budget_1623_panel.jpg`,

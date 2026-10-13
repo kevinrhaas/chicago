@@ -247,13 +247,13 @@
     },
     {
       "id": "house_1619_prairie",
-      "name": "1619 Prairie Avenue — John H. Hamline's stone-front house with its swell bay, K01 frontage assembly",
+      "name": "1619 Prairie Avenue — stone-front house with its swell bay, for now wearing the front of Hamline's house next door at 1621 (T-2439), K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1619_prairie.json",
       "asset": "gltf/house_1619_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1621_prairie",
-      "name": "1621 Prairie Avenue — Brick masonry (district draft; refined by T-1869)",
+      "name": "1621 Prairie Avenue — John H. Hamline's house, Brick masonry (district draft; refined by T-1869)",
       "sidecar": "sidecars/1904/house_1621_prairie.json",
       "asset": "gltf/house_1621_prairie__draft_1904.glb"
     },
@@ -829,9 +829,9 @@
     },
     {
       "id": "spalding_house_1637_prairie",
-      "name": "1637 Prairie Avenue — Spalding remodel of Grosvenor (district draft; refined by T-1870)",
+      "name": "1637 Prairie Avenue — Jesse Spalding's remodel of the Grosvenor house, K01 frontage assembly",
       "sidecar": "sidecars/1904/spalding_house_1637_prairie.json",
-      "asset": "gltf/spalding_house_1637_prairie__draft_1904.glb"
+      "asset": "gltf/spalding_house_1637_prairie__as_mapped_1904.glb"
     },
     {
       "id": "spalding_house_1637_prairie_coach_house",

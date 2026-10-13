@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 1750, ts: '2026-10-13T06:24:58.318Z', date: 'Oct 13, 2026, 1:24 AM CT', title: '1637 Prairie built from its engraving', kind: 'feature',
+    items: [
+      '1637 Prairie Avenue, the Grosvenor house as Jesse Spalding remodelled it, now stands from its engraving in place of its draft: a broad brick house of two tall storeys over a raised basement, a curved bay rising the full height at the north end of the front, a wing at the south end, and the door up its steps between them.',
+      'Its steep slate roof carries dormers over the bay, over the door and on the north side, and three tall chimneys stand where the engraving draws them. The engraving\'s camera is solved, so the house is checked against the picture itself.',
+      'Still to come: the wing\'s own tall hipped roof, the gabled dormers, the French window and balcony on the wing, the stoop\'s rails, the garden wall and the iron fence. Liberty L-k01-1637-spalding-remodel-2441 records what is reconstructed.',
+    ] },
+  { v: 1749, ts: '2026-10-13T05:54:59.554Z', date: 'Oct 13, 2026, 12:54 AM CT', title: 'John H. Hamline\'s house was 1621 Prairie, not 1619', kind: 'fix',
+    items: [
+      '1621 Prairie\'s card now names it John H. Hamline\'s house. The 1885 building permit, the directories, the 1886 atlas and the 1904 Blue Book all put it there. Only one 1886 newspaper said 1619.',
+      '1619\'s card no longer calls the house Hamline\'s. The stone front with the swell bay standing there is his house\'s front, drawn in 1886, on the wrong lot for now. A new liberty on both cards says so.',
+      'The building itself has not moved yet. A later change rebuilds the drawing at 1621 and gives 1619 a front of its own.',
+    ] },
   { v: 1748, ts: '2026-10-13T05:19:41.971Z', date: 'Oct 13, 2026, 12:19 AM CT', title: '1620 Prairie stands as tall as its 1874 engraving', kind: 'fix',
     items: [
       'The Robert Law house is 2.7 m taller. The engraving had been read from an eye below the street; read again from the street fence\'s foot, it shows a principal floor 2 m up and a cornice at 10.9 m.',
