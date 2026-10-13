@@ -1,0 +1,22 @@
+{
+ "structure_id": "house_1616_prairie",
+ "source_id": "land_owner_1874_05_homes_of_chicago_1620_law",
+ "library_image": "a16-cgy-landowner-1874-1620-law",
+ "photo": "../../sources/assets/law_1620_pictures_t2370/law_1620_landowner_1874.jpg",
+ "image_px": [
+  1136,
+  756
+ ],
+ "principal_px": [
+  568,
+  578
+ ],
+ "focal_px": 1498,
+ "eye": [
+  69.966,
+  9.429,
+  2.0
+ ],
+ "yaw_deg": -116.2,
+ "solve": "Not solved again: the camera of the 1620 view (data/reference_views/law_house_1620_prairie/landowner_1874_from_northeast.json, T-2370 as T-2437 re-solved it) carried into this record's frame (T-2455). The plate is an engraving of 1620 next door, and of 1616 it shows only the street fence's south half, from 1620's north lot line (x 786 px) to the vignette's edge (about x 1030 px). The two records turn by the same -0.579 degrees, so the carry is a translation: 1620's north lot line at the street, (u 22.679, v 15.951) in its frame, is this lot's south corner at the street, (u 32.455, v -2.69) in this one (the draft's street_u and lot_v), and the two agree to 0.02 m in the world. The eye (60.19, 28.07) becomes (69.966, 9.429), the heading and lens are unchanged, and the eye's 2.0 m over grade is kept because both records stand on the one ground of Prairie Avenue. Checks on it, not used to set it: a 1.5 m fence on this street line draws its top at y 597.2-598.4 px and its foot at 654.8-659.9 px between x 786 and 990 px, against the drawn 597-600 and 652-658."
+}
