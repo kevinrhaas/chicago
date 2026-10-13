@@ -1,0 +1,24 @@
+{
+  "structure_id": "house_1616_prairie",
+  "view": "landowner_1874_from_northeast",
+  "glb": "assets/gltf/house_1616_prairie__as_mapped_1904.glb",
+  "glb_sha256": "6e7bc798d93986441e7691648a6f17272624c6048e98ef1a8cc86ee77aa7b5a2",
+  "camera_sha256": "5240253f87b7879c92dd5432858bd7a506e71ebd45b8d1a4442132f524c697d4",
+  "side_by_side": "docs/RESEARCH/photo-match/house_1616_prairie/landowner_1874_from_northeast-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "street fence: the engraving draws close-boarded fence on the street line running on north from 1620's corner (x 786 px) to the vignette's edge (about x 1030 px), its top at y 597-600 px and its foot at 652-658 px; the build had no fence on this lot. Built so by T-2455 as a 1.5 m close-boarded run on the street line from the south lot line: on the 50% overlay its south end lands at x 787 px, its top at y 597-598 px and its foot at y 655-660 px, on the drawn boards, and it runs unbroken to the walk gate's south pier at about x 1035 px, just past the drawn boards' ragged end",
+      "status": "fixed"
+    },
+    {
+      "what": "walk gate: the build's pair of iron leaves between stone piers on the door's centre stands at x 1035-1110 px, past the vignette's edge, where the plate draws nothing; the K11 kit's, reconstructed",
+      "status": "not shown"
+    },
+    {
+      "what": "the house: the build's front shows from x 961 px (its south wall) to the frame's edge, where the plate draws a tree's branches against the sky and, further off, the frame building beyond 1620's yard. The plate is of May 1874 and the record is of 1904, when the 1911 sheet's '2½B' brick house stands here; whether that house postdates the boards or the engraver left it out the plate cannot say, so the house is not taken down to the plate. A picture of 1616 after 1874 settles it",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

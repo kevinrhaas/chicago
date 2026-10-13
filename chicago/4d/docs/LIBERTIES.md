@@ -24744,12 +24744,25 @@ give the range its junction, the main rear wall's two windows a storey move from
 **What is not built.** The 1911 sheet's frame bay at the north-east corner: the
 trace fits no part to it, the draft did not stand it, and a frame bay on a brick front of the period
 is as likely a later addition as an original one.
+**The street fence (T-2455, 2026-10-13).** The May 1874 Land Owner engraving of 1620 next door
+draws a close-boarded fence on the street line running on north past 1620's corner to the plate's
+vignette; through its camera (T-2437's) those boards are this lot's, s -2.69 to about 2.5 of its
+10.38 m front, and 1.5 m high (T-2450's reading). Read: their place on the street line and their
+height, for that south half. Invented: their run on across the north half to the north lot line,
+past the plate's edge; the posts, rails and boarding (the K11 kit's close-boarded run, 1620's own);
+the walk gate at the door (a pair of the kit's iron leaves between its stone piers, 1.3 m clear);
+and the boards' standing in 1904, carried thirty years from an 1874 plate on the footing 1620's own
+fence stands on. The plate draws unbroken boards across the south side yard's mouth, so that
+passage has no gate. It also draws no house behind the boards as far as its edge, where this
+house's front would begin to show: the lot was open in 1874 or the engraver left the house out,
+and the plate cannot say which. The 1616 view (data/reference_views/house_1616_prairie/) records it.
 **How to resolve:** a photograph, plate or description of 1616, ingested as a source, replaces the
-kits' choices in place.
+kits' choices in place; for the fence, a picture of 1616 after 1874 says whether the boards still
+stood before the brick house.
 **Covers:** `house_1616_prairie.as_mapped_1904.form.principal_floor_m`, `house_1616_prairie.as_mapped_1904.form.storey_heights_m`, `house_1616_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1616_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1616_prairie.as_mapped_1904.form.service_wall_brick`, `house_1616_prairie.as_mapped_1904.form.street_front_trim`, `house_1616_prairie.as_mapped_1904.form.wall_head`, `house_1616_prairie.as_mapped_1904.form.roof_form`, `house_1616_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1616_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1616_prairie.as_mapped_1904.form.stair_tread_m`, `house_1616_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1616_prairie.as_mapped_1904.form.stoop_width_m`, `house_1616_prairie.as_mapped_1904.form.entrance_bay`, `house_1616_prairie.as_mapped_1904.form.front_bays`, `house_1616_prairie.as_mapped_1904.form.side_bays`, `house_1616_prairie.as_mapped_1904.form.rear_bays`, `house_1616_prairie.as_mapped_1904.form.sash_by_storey`, `house_1616_prairie.as_mapped_1904.form.basement_lights`, `house_1616_prairie.as_mapped_1904.form.roof_covering`, `house_1616_prairie.as_mapped_1904.form.dormer`, `house_1616_prairie.as_mapped_1904.form.chimneys`, `house_1616_prairie.as_mapped_1904.form.rainwater`, `house_1616_prairie.as_mapped_1904.form.window_kit`, `house_1616_prairie.as_mapped_1904.form.entrance_kit`
-**Ticket:** T-2353 (piece 1 of T-2345); T-2354 (piece 2, the rear range).
+**Ticket:** T-2353 (piece 1 of T-2345); T-2354 (piece 2, the rear range); T-2455 (the street fence).
 **Review:** `docs/RESEARCH/k01-1616-brick-2353/README.md`, `docs/RESEARCH/k01-1616-rear-range-2354/README.md`.
-**Recorded:** 2026-10-11 (T-2353; T-2354).
+**Recorded:** 2026-10-11 (T-2353; T-2354); 2026-10-13 (T-2455).
 
 ### L-k01-1620-law-1861 — 1620 Prairie, the Robert Law house, refined from the district draft to a K01 brick house: the plate's L under one rectangle, a canted bay, brick-arched windows and a scroll-band fence, everything but plan, place and brick the kits'
 
@@ -26031,6 +26044,39 @@ source publication, if found, dates the remodel.
 **Ticket:** T-2441 (piece 1 of T-1870).
 **Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
 **Recorded:** 2026-10-13 (T-2441).
+
+### L-k01-1637-spalding-garden-2447 — 1637 Prairie's front garden built on a line read off the engraving's ground, its wall stopped at the lot line and its iron the K11 kit's
+
+**Decision:** T-2447 (piece 1 of T-2442) builds the ground level of the engraving of Jesse Spalding's
+remodel (`glessner_blog_1637_spalding_remodel_engraving`) on `spalding_house_1637_prairie`: a brick
+garden wall before the north flank, ending in a pier before the swell bay; an iron spear fence from the
+stoop's south cheek south before the wing; and a turned balustrade on the stoop's cheeks, level beside
+the landing and raked down the flight. Both runs stand on one line 3.5 m before the main front, built
+by a new K11 layout (`boundary.layout: front_garden`, `generators/archetypes/k11_frontage.py`) that
+lays the kit's own wall and fence on a line parallel to the front and stops each clear of the stoop's
+built cheeks; the house has no gate in it, because the stoop's own flight crosses the line between the
+two runs.
+**What is read, not invented.** Through the engraving's solved camera: the line (the wall's and the
+fence's feet at y 777-787 px land on the ground plane 2.8-4.6 m before the front, while the drawn walk
+edge lands on the 1911 sheet's street line), the wall's end pier (x 357 px, drawn and built), the wall's
+height (2.0 m, the drawn top 2.2 m over grade at the pier), the fence's height (its top rail 1.9 m over
+grade), where each run stands relative to the stoop, and the landing's railing (about 1.0 m).
+**What is invented.** The kit's brick, coping, pier caps, curb, pickets and spear heads, and their
+pitch (the engraving draws a picket about every 0.22 m, the kit's is 0.125 m); the balustrade's turned
+profile; the wall's north end on the lot line, where the engraving draws it running on past the frame
+onto the unbuilt strip `prairie_1625_1637_c`, which is T-2443's to rule on; the fence's south end on the
+lot line, where the engraving's last post stands about 1.3 m short of it (x 847 px) with shrubs
+beyond; the yard behind the line left as ground.
+**What is not built.** The wing's balcony and the French window over it (T-2449); the stoop's flight
+is K07's straight run, which reaches about 1.6 m past the line, where the engraving draws the stoop's
+foot at the fence's first post (x 557 px), so the built fence starts about 80 px right of the drawn
+one: the draughtsman's depth is not the camera's (the camera's own solve says so) and the stoop's
+length is K07's, not read.
+**How to resolve:** T-2443's ruling on 1635 decides whether the wall runs on north; a photograph of the
+front at ground level would fix the line, the pickets and the stoop.
+**Ticket:** T-2447 (piece 1 of T-2442).
+**Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
+**Recorded:** 2026-10-13 (T-2447).
 
 ### L-glessner-glazing-blinds-2213 — Glessner's dark panes given each its own set and sheen, a shallow backing, and pale roller blinds at reconstructed drops
 
