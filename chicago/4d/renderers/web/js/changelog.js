@@ -1,4 +1,28 @@
 export const CHANGELOG = [ // newest first
+  { v: 1775, ts: '2026-10-13T19:48:12.752Z', date: 'Oct 13, 2026, 2:48 PM CT', title: '1620 Prairie\'s door hood, from the 1874 engraving', kind: 'change',
+    items: [
+      '1620 Prairie\'s front door now stands under the hood the 1874 engraving draws: a painted timber hood on a carved bracket at each end, with a row of small brackets under its cornice, in the same joinery as the bay window\'s hood beside it.',
+      'Its flat top is railed on three sides under the window above, so it doubles as a small balcony.',
+      'How far it projects and its bracket and railing sizes are a reconstruction; the engraving gives its height, width and the rail on top.',
+    ] },
+  { v: 1774, ts: '2026-10-13T19:48:12.752Z', date: 'Oct 13, 2026, 2:48 PM CT', title: '1620 Prairie\'s front door moves to where its engraving draws it', kind: 'improvement',
+    items: [
+      '1620 Prairie\'s front door now stands under the window above it, a little south of where it was, as the 1874 engraving draws it.',
+      'The stoop, its gate and the front walk stay where both old pictures put them, so the door opens at the south end of the landing, beside the terrace before the bay window.',
+    ] },
+  { v: 1773, ts: '2026-10-13T19:48:12.752Z', date: 'Oct 13, 2026, 2:48 PM CT', title: '1620 Prairie\'s upper windows and corner strips match its engraving', kind: 'improvement',
+    items: [
+      '1620 Prairie\'s two upper windows on the street now stand where the 1874 engraving draws them, each a little south of the bay window and the door below it.',
+      'A pale stone strip runs down the north corner of the house\'s projecting front, and pale pilaster strips frame the bay window\'s front, as both old pictures show.',
+    ] },
+  { v: 1772, ts: '2026-10-13T19:48:12.752Z', date: 'Oct 13, 2026, 2:48 PM CT', title: 'Faded sketch of the city around Prairie Avenue', kind: 'feature',
+    items: [
+      'The empty ground around Prairie Avenue in 1904 now has a simple, faded city on it, so the modelled houses stand out in full colour against it.',
+      'On Indiana and Calumet Avenues and the cross streets, each building is a plain box or gabled house with the footprint and material the 1911 Sanborn maps show: brick, stone or frame.',
+      'Farther out, where no Sanborn map is in hand yet, the streets, lots and houses are projected from the measured street spacing and lot widths. They are listed as liberties.',
+      'Faded trees line the Indiana and Calumet parkways and stand in back yards. Prairie Avenue\'s own trees come separately.',
+      'Click any of these buildings to see whether it came from a map or a projection. Turning off reconstructed work in the Confidence menu hides them all.',
+    ] },
   { v: 1771, ts: '2026-10-13T19:27:16.015Z', date: 'Oct 13, 2026, 2:27 PM CT', title: '1620 Prairie\'s mansard straightened, and the house painted olive green', kind: 'change',
     items: [
       '1620 Prairie\'s mansard now rises in straight, steep faces as the 1874 engraving draws it, instead of bowing out in a curve, and its upper deck sits lower, so the roof no longer swells over the walls.',

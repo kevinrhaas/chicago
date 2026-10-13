@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "967664315c811631f962b0c9c8ba7efd854c28e4dbe5d1709406856cd9bf7da3",
+  "glb_sha256": "8b057612b6cef86bcc64b12475489455e5aff3873a419279b78ceb3086c022da",
   "camera_sha256": "be6b75dc43bf93ba5dfa5b782fdf69d970e71e0e355eb4b5b5e9776a549220fb",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg",
   "verdict": "matches",
@@ -90,6 +90,10 @@
     {
       "what": "the south side wall and the rear: the engraving sees neither",
       "status": "not shown"
+    },
+    {
+      "what": "the hood over the door: the engraving draws an entablature over the door (soffit about 6.0 m, top about 6.9 m over grade on T-2437's camera, x 507-585 px, its south end meeting the bay window's hood) with a low rail on its flat top under the window over the door; the build's was the K09 kit's small stone cornice hood on two scrolled consoles just over the door's head. T-2480 builds the drawn hood, in the bay window's hood joinery (its consoles and modillions), railed on its top as a small balcony",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

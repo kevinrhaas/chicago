@@ -64,6 +64,7 @@ import { mountHumans } from './humans.js';
 import { createWells } from './wells.js';
 import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
+import { createContext } from './context.js';
 import { mountExclusions } from './exclusions.js';
 import { mountPopulation } from './population.js';
 import { mountOrderBook } from './orderbook.js';
@@ -1740,6 +1741,17 @@ async function boot() {
   scene3d.add(streetGrid.group);
   api.streetGrid = streetGrid;
 
+  // T-2477 — the context city: faded stand-ins on every part of the 1904 map not yet
+  // built (data/context/<scene>.json, read off the Sanborn sheets where they reach and
+  // projected past them), so Prairie Avenue reads in full colour against a sketch of the
+  // city around it. Each gives way to any placed structure whose footprint it touches.
+  const contextCity = await createContext({
+    dataBase: layerBase('context'), sceneId: loaded.scene.id ?? YEAR, terrain, footprints,
+    confidence, problems: layerProblems('context'), detail: detailLevel,
+  });
+  scene3d.add(contextCity.group);
+  api.contextCity = contextCity;
+
   // WHICH DETAIL LEVEL, resolved here rather than beside the vegetation because
   // the fence layer is the first thing that needs it: a pale is 10 triangles at
   // `full` and 4 at `light` (T-0067), so the level has to be known before the
@@ -3090,6 +3102,12 @@ async function boot() {
     const gridHit = streetGrid.pickAt(ndc, camera);
     if (gridHit && gridHit.record && (!hit || gridHit.distance < hit.distance)) {
       hit = { ...gridHit };
+    }
+    // ...and a stand-in of the context city (T-2477) answers with what it is and what it
+    // rests on: a sheet's outline or a projection, and the rule its height came from.
+    const contextHit = contextCity.pickAt(ndc, camera);
+    if (contextHit && contextHit.record && (!hit || contextHit.distance < hit.distance)) {
+      hit = { ...contextHit };
     }
     // A figure answers with its PERSON, not a card of its own (T-1788): the layer's
     // `open` event takes the visitor to the resident card the directory already draws.
