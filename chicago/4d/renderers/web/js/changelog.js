@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1768, ts: '2026-10-13T18:04:56.036Z', date: 'Oct 13, 2026, 1:04 PM CT', title: '1619 Prairie\'s moulded stone cornice, from its drawing', kind: 'improvement',
+    items: [
+      '1619 Prairie\'s bracketed timber cornice is gone: a moulded stone cornice now runs along the front and round the top of the swell bay, as its 1886 Building Budget drawing draws it.',
+      'The bay rises to meet the cornice, and the bay\'s cornice and the front\'s are one moulding.',
+      'The cornice\'s profile and the stone-painted eave above it are reconstructed and listed as liberties. The balcony on top comes next.',
+    ] },
   { v: 1767, ts: '2026-10-13T16:30:00.391Z', date: 'Oct 13, 2026, 11:30 AM CT', title: '1637 Prairie\'s wing rises to the cornice under its own roof', kind: 'improvement',
     items: [
       'The forward wing on Jesse Spalding\'s house at 1637 Prairie now rises to the cornice and has its own steep slate roof, as the engraving shows. It used to stop below the cornice under a flat tin deck.',
