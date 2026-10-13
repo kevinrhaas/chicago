@@ -26217,6 +26217,32 @@ rear slope, the north wall and the stacks; T-2460 builds the stone cornice at th
 **Review:** `docs/RESEARCH/k01-1619-hamline-2420/README.md` § The roof behind the gable (T-2459).
 **Recorded:** 2026-10-13 (T-2459).
 
+### L-k01-1619-stone-cornice-2460 — 1619 Prairie's moulded stone cornice built as its drawing's, round the bow's top and along the front; its section's members, its projection and the eave's paint reconstructed
+
+**Decision:** 1619 Prairie's K10 bracketed timber cornice (scrolled brackets and a bed moulding under
+the eave) is now the moulded stone cornice its Building Budget drawing draws at the swell bay's top,
+where it carries the balcony (T-2460, piece 2 of T-2429). K10 learns it as data
+(`k10.cornice.moulded_stone`, section `moulded_stone_eave`): one section 0.36 m deep, the drawing's
+depth on the bow's face through its camera (8.2-8.55 m), swept along the street front under the K05
+soffit (8.24-8.6 m) and capped at both corners, and carried round the bow by K08 as the bow's own
+eaves (`eaves.cornice`), the bow's second storey raised from 2.9 to 2.94 m so its wall top meets the
+cornice's foot. The two are one moulding: the front's stops at the bow's junctions. Every other K01
+house builds byte-identical.
+**What is invented:** the section's members and their sizes (a fillet and ovolo bed, a plain band,
+a corona with its drip and a cyma recta; the drawing shows a moulded cornice with a dentil course,
+not its profile), its 0.32 m projection (bounded by the eave's 0.4 m overhang, less 20 mm), the
+dentil course built as a plain band, and the colour of the K05 eave's timber over it, painted to
+read as the stone (linear 0.62, 0.57, 0.47; a cornice of the period was commonly painted so, and the
+drawing shows one stone cornice and no timber eave above it). The paint is the house's one eave
+colour, so the rear range's fascia takes it too.
+**How to resolve:** a photograph of the house after 1886, or the architects' drawings, sets the
+section and the eave; T-2422 builds the balcony rail on the cornice. The bow's `eaves.cornice` names the same section,
+and `form.bays` is inferred from the drawing, so the invention is the wall head's alone.
+**Covers:** `house_1619_prairie.as_mapped_1904.form.wall_head`.
+**Ticket:** T-2460 (piece 2 of T-2429, of T-2421).
+**Review:** `docs/RESEARCH/k01-1619-hamline-2420/README.md` § The stone cornice (T-2460).
+**Recorded:** 2026-10-13 (T-2460).
+
 ### L-glessner-datestone-2214 — Glessner's 18th Street datestone: generic letterforms, a cut drawn as its shadow, and proportions read off an upward photograph
 
 **Decision:** the `glessner_house` north stack carries an AD monogram over 1886, read left to right
