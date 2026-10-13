@@ -137,11 +137,18 @@
         },
         "wall_head": {
           "value": {
-            "cornice": "k10.cornice.bracketed_timber",
-            "dormer": "k10.dormer.pedimented_on_bracketed_eave"
+            "cornice": "k10.cornice.moulded_stone",
+            "dormer": "k10.dormer.pedimented_on_bracketed_eave",
+            "paint": {
+              "color": [
+                0.62,
+                0.57,
+                0.47
+              ]
+            }
           },
           "confidence": "reconstructed",
-          "note": "K10's bracketed cornice and its pedimented dormer face, the dormer now the drawing's wall gable (T-2428): the face's horizontal cornice and raking cornice are the kit's, the nearest it comes to the drawing's moulded stone cornices. The cornice at the bow's top that the drawing draws in stone, carrying the balcony, is T-2460's to build (piece 2 of T-2429); until then K10's bracketed timber cornice runs at 9.2 m. Under the gable roof (T-2459) the cornice is the street front's alone: the side walls rise into parapets, so it runs corner to corner and stops, as under a flat roof."
+          "note": "The drawing's moulded stone cornice (T-2460), K10's `k10.cornice.moulded_stone`: one section read off the plate, about 0.35 m deep where it runs round the bow's top and carries the balcony (8.2-8.55 m on the bow's face through its camera), swept along the street front under the K05 soffit (8.24-8.6 m), corner to corner between the side walls' parapets under the gable roof (T-2459) and capped at both corners, and stopped at the bow's junctions, where the bow carries the same section round its own plan (bays.eaves). It replaces K10's bracketed timber cornice (scrolled brackets and a bed moulding), which the drawing does not draw. The eave's timber over it (the K05 soffit and fascia) is painted to read as the stone, as a cornice of the period was (`paint`); the drawing shows one stone cornice and no eave above it, and the colour is reconstructed (L-k01-1619-stone-cornice-2460). The dormer face is K10's pedimented face, the drawing's wall gable (T-2428): its horizontal and raking cornices are the kit's, the nearest it comes to the drawing's moulded stone gable."
         },
         "roof_form": {
           "value": "gable",
@@ -219,7 +226,7 @@
                   ]
                 },
                 {
-                  "height_m": 2.9,
+                  "height_m": 2.94,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
@@ -238,6 +245,9 @@
                 "kind": "cone",
                 "pitch": 0.05,
                 "covering": "tin_flat_seam_painted"
+              },
+              "eaves": {
+                "cornice": "k10.cornice.moulded_stone"
               }
             }
           ],
@@ -246,7 +256,7 @@
             "sanborn_1911_chicago_v3_sheet_20",
             "building_budget_1886_06_hamline_farwell_houses"
           ],
-          "note": "The swell bay. Its PLACE and SIZE are the 1911 sheet's (s20fp-1619-b1's stone part bulges 1.02 m from the front over v 3.79-7.55, a 3.76 m chord); its HEIGHT and LIGHTS are the drawing's: it rises from grade through the principal and second storeys to just under the wall head (5.3 m and 2.9 m, 8.2 m, so its deck clears the bed moulding of the cornice the K01 hip hangs at 9.2 m; the drawing carries it to the cornice itself, T-2421's), two lights a storey either side of a central pier (at -25 and +25 degrees on the bow's arc), and it is laid in the front's stone. Its top is a nearly flat painted-tin deck, where the drawing's balcony stands (the rail is T-2422's). The lights' sizes are the drawing's through its camera, rounded."
+          "note": "The swell bay. Its PLACE and SIZE are the 1911 sheet's (s20fp-1619-b1's stone part bulges 1.02 m from the front over v 3.79-7.55, a 3.76 m chord); its HEIGHT and LIGHTS are the drawing's: it rises from grade through the principal and second storeys to the cornice, as the drawing carries it (5.3 m and 2.94 m: its wall top at 8.24 m, the foot of the street front's moulded stone cornice, T-2460), and its eaves ARE that cornice: the same K10 section swept round its plan (`eaves.cornice`), so the two read as one moulding; until T-2460 it stopped at 8.2 m under a plain timber eave, clear of a bracketed cornice's bed moulding, two lights a storey either side of a central pier (at -25 and +25 degrees on the bow's arc), and it is laid in the front's stone. Its top is a nearly flat painted-tin deck, where the drawing's balcony stands (the rail is T-2422's). The lights' sizes are the drawing's through its camera, rounded."
         },
         "side_bays": {
           "value": [
