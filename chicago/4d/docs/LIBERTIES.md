@@ -25933,3 +25933,36 @@ source publication, if found, dates the remodel.
 **Ticket:** T-2441 (piece 1 of T-1870).
 **Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
 **Recorded:** 2026-10-13 (T-2441).
+
+### L-k01-1637-spalding-garden-2447 — 1637 Prairie's front garden built on a line read off the engraving's ground, its wall stopped at the lot line and its iron the K11 kit's
+
+**Decision:** T-2447 (piece 1 of T-2442) builds the ground level of the engraving of Jesse Spalding's
+remodel (`glessner_blog_1637_spalding_remodel_engraving`) on `spalding_house_1637_prairie`: a brick
+garden wall before the north flank, ending in a pier before the swell bay; an iron spear fence from the
+stoop's south cheek south before the wing; and a turned balustrade on the stoop's cheeks, level beside
+the landing and raked down the flight. Both runs stand on one line 3.5 m before the main front, built
+by a new K11 layout (`boundary.layout: front_garden`, `generators/archetypes/k11_frontage.py`) that
+lays the kit's own wall and fence on a line parallel to the front and stops each clear of the stoop's
+built cheeks; the house has no gate in it, because the stoop's own flight crosses the line between the
+two runs.
+**What is read, not invented.** Through the engraving's solved camera: the line (the wall's and the
+fence's feet at y 777-787 px land on the ground plane 2.8-4.6 m before the front, while the drawn walk
+edge lands on the 1911 sheet's street line), the wall's end pier (x 357 px, drawn and built), the wall's
+height (2.0 m, the drawn top 2.2 m over grade at the pier), the fence's height (its top rail 1.9 m over
+grade), where each run stands relative to the stoop, and the landing's railing (about 1.0 m).
+**What is invented.** The kit's brick, coping, pier caps, curb, pickets and spear heads, and their
+pitch (the engraving draws a picket about every 0.22 m, the kit's is 0.125 m); the balustrade's turned
+profile; the wall's north end on the lot line, where the engraving draws it running on past the frame
+onto the unbuilt strip `prairie_1625_1637_c`, which is T-2443's to rule on; the fence's south end on the
+lot line, where the engraving's last post stands about 1.3 m short of it (x 847 px) with shrubs
+beyond; the yard behind the line left as ground.
+**What is not built.** The wing's balcony and the French window over it (T-2449); the stoop's flight
+is K07's straight run, which reaches about 1.6 m past the line, where the engraving draws the stoop's
+foot at the fence's first post (x 557 px), so the built fence starts about 80 px right of the drawn
+one: the draughtsman's depth is not the camera's (the camera's own solve says so) and the stoop's
+length is K07's, not read.
+**How to resolve:** T-2443's ruling on 1635 decides whether the wall runs on north; a photograph of the
+front at ground level would fix the line, the pickets and the stoop.
+**Ticket:** T-2447 (piece 1 of T-2442).
+**Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
+**Recorded:** 2026-10-13 (T-2447).
