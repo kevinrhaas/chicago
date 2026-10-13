@@ -17,7 +17,7 @@ class EvidenceReviewTests(unittest.TestCase):
     def test_complete_review(self):
         self.assertEqual(validate_reviews(self.records), [])
         records = [r for r in self.records if 'pa-1800-22' in r['building_ids']]
-        self.assertEqual(len(records), 172)
+        self.assertEqual(len(records), 173)
         self.assertEqual(sum(r['evidence_review']['review_state'].startswith('unavailable') for r in records), 7)
         recovered = [r for r in records if r.get('retrieval_review') and r['evidence_review'].get('audit_number')]
         self.assertEqual({r['evidence_review']['audit_number'] for r in recovered},

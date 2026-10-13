@@ -13,7 +13,8 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
   plinth       on grade: a stone plinth, proud, mitred round every corner
   corbel       an oriel: stone courses each stepped out over the one below
   floor bands  a string course at every floor line between storeys
-  eaves        a soffit out to a fascia; on a variant naming `brackets` (T-2408), a
+  eaves        a soffit out to a fascia, or (T-2460) a moulded section the variant's
+               eaves name as a `profile`, swept and mitred as the soffit is; on a variant naming `brackets` (T-2408), a
                console under the soffit at every corner of the plan and a row of
                modillions along each run
   roof         the plan's own lines offset to the eaves and lifted at one pitch: a
@@ -442,6 +443,19 @@ def ledge(o, role, run, y, z0, z1, hint):
                   o.P(run.s_end(z1), y, -z1), o.P(run.s_start(z1), y, -z1)], hint)
 
 
+def moulding(o, role, run, y0, profile):
+    """T-2460: a moulded section, [n out, u up] from its seat on the face at y0 to its top
+    back on the face, swept along the run and mitred at its ends as a ledge is. Its flat
+    top is left to the roof that starts on it, as the plain eaves' top is."""
+    top = max(u for _, u in profile)
+    for (n0, u0), (n1, u1) in zip(profile, profile[1:]):
+        if abs(u0 - top) < 1e-9 and abs(u1 - top) < 1e-9:
+            continue
+        o.face(role, [o.P(run.s_start(n0), y0 + u0, -n0), o.P(run.s_end(n0), y0 + u0, -n0),
+                      o.P(run.s_end(n1), y0 + u1, -n1), o.P(run.s_start(n1), y0 + u1, -n1)],
+               (0.0, n0 - n1, u1 - u0))
+
+
 def proud(o, role, run, y0, y1, out, top=True, bottom=True):
     """A slab standing `out` proud of the run's face from y0 to y1: front and ledges."""
     o.plane(role, K6.box(run.s_start(out), run.s_end(out), y0, y1), -out)
@@ -498,6 +512,11 @@ class Bay:
             levels.append(levels[-1] + st["height_m"])
         y_top = levels[-1]
         ov, fh = eaves["overhang_m"], eaves["fascia_m"]
+        # T-2460: eaves that name a moulded section are that section, in the bay's stone:
+        # it reaches out as far as the section does and its top is the roof's eaves line
+        prof = [tuple(q) for q in eaves.get("profile", ())]
+        if prof:
+            ov, fh = max(n for n, _ in prof), max(u for _, u in prof)
         y_e = y_top + fh
         self.meta.update({"base_m": y0, "levels_m": [round(y, 4) for y in levels], "wall_top_m": round(y_top, 4),
                           "eave_m": round(y_e, 4), "wall_thickness_m": wall_t, "recess_m": recess,
@@ -530,8 +549,11 @@ class Bay:
             if grade:
                 proud(flat, "plinth", run, 0.0, plinth["height_m"], plinth["proud_m"], bottom=False)
             # the eaves: a soffit out to the fascia, the fascia's top the roof's eaves line
-            ledge(flat, "soffit", run, y_top, 0.0, ov, (0.0, -1.0, 0.0))
-            flat.plane("fascia", K6.box(run.s_start(ov), run.s_end(ov), y_top, y_e), -ov)
+            if prof:
+                moulding(flat, "band", run, y_top, prof)
+            else:
+                ledge(flat, "soffit", run, y_top, 0.0, ov, (0.0, -1.0, 0.0))
+                flat.plane("fascia", K6.box(run.s_start(ov), run.s_end(ov), y_top, y_e), -ov)
             if v.get("brackets"):
                 self._modillions(flat, run, y_top, ov)
             if not grade:
