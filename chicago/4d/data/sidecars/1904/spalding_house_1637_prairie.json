@@ -141,9 +141,9 @@
       "note": "The engraving's main roof is steep and slated, with gabled dormers in its street and north faces and a level top line: a mansard's steep lower faces under a low upper hip. K01's hip runs its ridge from the front to the rear and needs side walls longer than the front, which this 13.1 m front on an 11.0 m depth does not have."
     },
     "roof_pitch_deg": {
-      "value": 18,
+      "value": 10,
       "confidence": "reconstructed",
-      "note": "The upper hip over the curb, which no picture shows: inside K05's mansard_upper starting range."
+      "note": "The upper hip over the curb, which no picture shows: the engraving draws a level top line with nothing over it, so the hip is laid at 10 degrees, the foot of K05's mansard_upper starting range, which from the camera's eye rises about as steeply as the sightline to the curb and so stays behind it (T-2452; it was 18 degrees)."
     },
     "eave_overhang_m": {
       "value": 0.5,
@@ -263,45 +263,53 @@
             "face": "street",
             "along_m": 2.8,
             "sash": {
-              "variant": "k06.opening.sash_round_fanlight",
-              "width_m": 0.6,
-              "height_m": 1.1,
-              "sill_m": 0.15
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.9,
+              "height_m": 1.2,
+              "sill_m": 0.1
             },
-            "surround_m": 0.2,
-            "face_setback_m": 0.15
+            "surround_m": 0.35,
+            "face_setback_m": 0.05,
+            "head": "gable",
+            "gable_pitch_deg": 40
           },
           {
             "face": "street",
             "along_m": 6.25,
             "sash": {
-              "variant": "k06.opening.sash_round_fanlight",
-              "width_m": 0.6,
-              "height_m": 1.1,
-              "sill_m": 0.15
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.9,
+              "height_m": 1.2,
+              "sill_m": 0.1
             },
-            "surround_m": 0.2,
-            "face_setback_m": 0.15
+            "surround_m": 0.35,
+            "face_setback_m": 0.05,
+            "head": "gable",
+            "gable_pitch_deg": 40
           },
           {
             "face": "south",
             "along_m": 6.3,
             "sash": {
-              "variant": "k06.opening.sash_round_fanlight",
-              "width_m": 0.6,
-              "height_m": 1.1,
-              "sill_m": 0.15
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.9,
+              "height_m": 1.2,
+              "sill_m": 0.1
             },
-            "surround_m": 0.2,
-            "face_setback_m": 0.15
+            "surround_m": 0.35,
+            "face_setback_m": 0.05,
+            "head": "gable",
+            "gable_pitch_deg": 40
           }
-        ]
+        ],
+        "bulge": 0.0,
+        "lower_pitch_deg": 65
       },
       "confidence": "inferred",
       "sources": [
         "glessner_blog_1637_spalding_remodel_engraving"
       ],
-      "note": "Steep lower faces 2.6 m tall from the cornice to the curb (the engraving's level top line at about 14.1 m over grade), with three dormers where the engraving draws them: two on the street face, over the swell bay (2.8 m) and over the door (6.25 m), and one on the north face 6.3 m from the rear. K01's mansard dormer is round-headed; the engraving's are gabled over square-headed sashes, listed open. The record's 'south' face is the K01 frame's v-0 side, which on this side of the avenue is the north wall."
+      "note": "Steep straight lower faces 2.6 m tall from the cornice to the curb (the engraving's level top line at about 14.1 m over grade): K05's convex variant laid with no bulge (T-2452), since the engraving draws each face as one plane from the cornice to the top line, hipped at the corners, at 65 degrees, the floor of K05's mansard starting range (the engraving's hip ends lean back further, by its draughtsman's perspective an amount not read). Three dormers where the engraving draws them: two on the street face, over the swell bay (2.8 m) and over the door (6.25 m), and one on the north face 6.3 m from the rear. Each is the engraving's gabled dormer (T-2452): a square-headed two-over-two sash 0.9 by 1.2 m in a stone face 1.6 m wide (the street ones about 70 px across at the front's 0.023 m/px), its face standing nearly on the fascia so its sill is about the cornice's height (11.7 m against the engraving's about 11.5 m), and a 40 degree pediment to an apex at about 13.9 m (the engraving's about 13.5 m, just under the top line), its cheeks and slopes slated as the lower faces are. The sash, the surround and the pitch are read off the plate at its scale, not measured. The record's 'south' face is the K01 frame's v-0 side, which on this side of the avenue is the north wall."
     },
     "chimneys": {
       "value": {
