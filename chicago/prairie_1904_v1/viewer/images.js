@@ -10,7 +10,7 @@ window.PrairieImages = (() => {
   const SVG = 'http://www.w3.org/2000/svg';
   const svg = (tag, attrs = {}) => { const el = document.createElementNS(SVG, tag); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); return el; };
   // A package path, unless the 4D mirror serves its directory from the site root (viewer/root-served.js, T-1828).
-  const packagePath = path => { const r = self.ROOT_SERVED; return r && r.dirs.some(d => path.startsWith(d)) ? r.base + path : '../' + path; };
+  const packagePath = path => { const r = self.ROOT_SERVED; return r && r.dirs.some(d => path.startsWith(d)) && !(r.keep || []).includes(path) ? r.base + path : '../' + path; };
   // The package's own copy of a file (research/public/ and other package paths).
   function packageURL(path) {
     if (!path || typeof path !== 'string' || /^[a-z]+:/i.test(path) || path.startsWith('/') || path.split('/').includes('..')) return null;
