@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 1783, ts: '2026-10-13T23:56:25.672Z', date: 'Oct 13, 2026, 6:56 PM CT', title: 'The 1904 lake edge is stone, timber and made ground', kind: 'feature',
+    items: [
+      'East of the tracks the bank down to the lake is now dumped limestone, darker and greener where the water keeps it wet, with single blocks you can walk up to.',
+      'A heavy timber cap runs along the top of the bank over a row of piles.',
+      'Between the last track and the stone is a strip of made ground: cinders, sand and fill, with weeds.',
+      'Tap the bank for a card on the lake edge. What it was made of is reconstructed, and the card says so.',
+    ] },
+  { v: 1782, ts: '2026-10-13T23:56:25.672Z', date: 'Oct 13, 2026, 6:56 PM CT', title: 'A Season setting for 1904: spring, fall and winter', kind: 'feature',
+    items: [
+      'Settings › Season shows the 1904 district in summer (1 July, the default), spring, fall or winter.',
+      'Winter lays snow on the lawns, parkways and roofs, tramples it on the roadways and sweeps it off the walks; the elms stand bare.',
+      'Fall turns the elms yellow, browns the grass and drops leaves on the parkways. Spring brings a fresher green and a first pale leaf.',
+      'The sun moves to each season\'s date at the same hour, so winter\'s shadows run long.',
+      'Settings › Street trees still shows or hides the elms. The seasons are a viewing choice and a liberty: the scene is dated 1 July 1904.',
+    ] },
   { v: 1781, ts: '2026-10-13T22:27:11.434Z', date: 'Oct 13, 2026, 5:27 PM CT', title: 'Where two 1904 streets cross, one paving wears into the next', kind: 'fix',
     items: [
       'Crossings no longer flicker between two pavings: at Indiana and 18th the brick and asphalt fought in blotches. Each spot now shows one roadway.',
