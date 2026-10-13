@@ -1563,12 +1563,16 @@ class Assembly:
         ye = E if m else E - o * tp
         yf = ye - f
         yr = p.ridge_m
+        gb = p.gable                          # T-2459: a ridge along the front, parapets each side
         conf = p.worst_conf("footprint", "roof_form", "roof_pitch_deg", "eave_overhang_m", "roof_covering",
-                            *(("mansard",) if m else ()))
-        seed = self.instance("k01.roof.mansard" if m else "k01.roof.hip", "roof",
+                            *(("mansard",) if m else ()), *(("gable_roof",) if gb else ()))
+        seed = self.instance("k01.roof.mansard" if m else "k01.roof.gable" if gb else "k01.roof.hip", "roof",
                              {"pitch_deg": p.roof_pitch_deg, "eave_overhang_m": o,
                               **({"variant": m["variant"], "lower_pitch_deg": m["lower_pitch_deg"],
                                   "lower_rise_m": m["lower_rise_m"], "curb_datum_m": m["curb_m"]} if m else {}),
+                              **({"ridge_back_m": gb["ridge_back_m"], "back_pitch_deg": gb["back_pitch_deg"],
+                                  "parapets": {k_: e["style"] for k_, e in gb["ends"].items()},
+                                  "parapet_top_m": round(yr + gb["top_above_ridge_m"], 4)} if gb else {}),
                               "eave_datum_m": E, "ridge_datum_m": yr, "construction": "k05",
                               "fascia_depth_m": f, "chimneys": len(p.chimneys),
                               **({"covering": k["covering"], "flashing": k["flashing"]} if k else {}),
@@ -1581,9 +1585,13 @@ class Assembly:
         if m:   # T-2370: K05's mansard ring stack, the lower faces curved to the curb
             hip, hs, _ = k5.mansard_element(0.0, D, -W, 0.0, E, m["lower_pitch_deg"], p.roof_pitch_deg,
                                             m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f)
+        elif gb:   # T-2459: the parapets first, so the union keeps their faces on the walls' planes
+            from . import k01_gable_roof
+            solids, hs, _, self.gable_roof = k01_gable_roof.elements(p, k5, E, o, f)
         else:
             hip, hs = k5.hip_element(0.0, D, -W, 0.0, E, tp, o, f)
-        solids = [hip, k5.body_box(0.0, D, -W, 0.0, hs - 1.0, hs)]
+        if not gb:
+            solids = [hip, k5.body_box(0.0, D, -W, 0.0, hs - 1.0, hs)]
         cr = (m or {}).get("crown")
         if cr:  # T-2404: the pavilion's crown, a taller mansard joined into the main one
             crown, _, _ = k5.mansard_element(cr["x0"], cr["x1"], cr["z0"], cr["z1"], E, cr["lower_pitch_deg"],

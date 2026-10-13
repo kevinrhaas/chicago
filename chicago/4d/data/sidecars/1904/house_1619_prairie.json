@@ -133,17 +133,17 @@
         "dormer": "k10.dormer.pedimented_on_bracketed_eave"
       },
       "confidence": "reconstructed",
-      "note": "K10's bracketed cornice and its pedimented dormer face, the dormer now the drawing's wall gable (T-2428): the face's horizontal cornice and raking cornice are the kit's, the nearest it comes to the drawing's moulded stone cornices. The cornice at the bow's top that the drawing draws in stone, carrying the balcony, is T-2429's to build; until then K10's bracketed timber cornice runs at 9.2 m."
+      "note": "K10's bracketed cornice and its pedimented dormer face, the dormer now the drawing's wall gable (T-2428): the face's horizontal cornice and raking cornice are the kit's, the nearest it comes to the drawing's moulded stone cornices. The cornice at the bow's top that the drawing draws in stone, carrying the balcony, is T-2460's to build (piece 2 of T-2429); until then K10's bracketed timber cornice runs at 9.2 m. Under the gable roof (T-2459) the cornice is the street front's alone: the side walls rise into parapets, so it runs corner to corner and stops, as under a flat roof."
     },
     "roof_form": {
-      "value": "hip",
+      "value": "gable",
       "confidence": "reconstructed",
-      "note": "A pitched roof: the drawing slates a steep roof behind the gable, its south parapet stepping up from the front to the stack. K01's hip is the honest stand-in until T-2421 builds the gable and the stepped parapet."
+      "note": "A gable roof whose ridge runs along the front (T-2459), reconstructed as a whole because half of it is unseen: the drawing slates a steep slope facing the street behind the wall gable and carries the house's SOUTH side wall up above it as a crow-stepped parapet rising from the front corner to a tall stack, so the slope meets that wall and rises with it, which K01's hip (whose south face falls away from the wall) cannot do. What lies behind the ridge the drawing does not show: the rear slope falls to the rear wall's head (gable_roof)."
     },
     "roof_pitch_deg": {
       "value": 45,
       "confidence": "reconstructed",
-      "note": "45 degrees, the K01 contract's steepest hip: the drawing's roof rises behind the gable about as steeply as the gable itself (about 50 degrees), and the third storey is in it."
+      "note": "45 degrees, the K01 contract's steepest ordinary pitch, for the street slope: the drawing's slates rise behind the gable about as steeply as the gable itself (about 50 degrees), and the third storey is in the roof. Through the drawing's camera the parapet's head, at the stack, stands about 13.5 m up and about 4 m behind the front, which a 45-degree slope from the 9.2 m wall head reaches 4.23 m back (gable_roof.ridge_back_m)."
     },
     "eave_overhang_m": {
       "value": 0.4,
@@ -396,49 +396,32 @@
     "chimneys": {
       "value": {
         "plan_m": [
-          0.9,
-          0.75
+          1.0,
+          0.9
         ],
-        "top_above_ridge_m": 0.9,
+        "top_above_ridge_m": 1.6,
         "cap_proud_m": 0.05,
         "cap_depth_m": 0.15,
         "stacks": [
           {
-            "u_m": 9.4,
-            "v_m": 7.75
+            "u_m": 9.07,
+            "v_m": 8.01,
+            "in_parapet": true
           },
           {
             "u_m": 3.6,
-            "v_m": 7.75
+            "v_m": 8.01,
+            "in_parapet": true
           }
         ]
       },
       "confidence": "reconstructed",
-      "note": "Two brick stacks against the south side wall, where the drawing's stack rises at the head of the stepped parapet; the second, over the rear rooms, is reconstructed."
+      "note": "Two brick stacks carried up in the south side wall's parapet (T-2459), 1.0 m along the wall and 0.9 m deep (so the first stack's sides stand clear of the parapet head's risers), their outer faces in the wall's plane: the first at the ridge, where the drawing's tall stack stands at the head of the crow steps, its top at 15.03 m (1.6 m over the ridge) as the drawing's reads through its camera (about y 80 px against the render's 80, its left edge at about x 478 against 477); the second, over the rear rooms, reconstructed at the same height. The drawing's panelled shafts and corbelled cap are built plain."
     },
     "rainwater": {
-      "value": {
-        "gutter": "half_round",
-        "fabric": "copper_sheet",
-        "downpipe": "round",
-        "ends_at": "grade_with_splash_stone",
-        "downpipes": [
-          {
-            "wall": "k01.wall.street_front",
-            "s_m": 0.35
-          },
-          {
-            "wall": "k01.wall.street_front",
-            "s_m": 8.11
-          },
-          {
-            "wall": "k01.wall.side.south",
-            "s_m": 1.0
-          }
-        ]
-      },
+      "value": null,
       "confidence": "reconstructed",
-      "note": "Copper half-round gutters on brackets and round downpipes at the front's two corners and the north wall's rear end, as 1808's; no picture shows them."
+      "note": "No gutter or downpipe is built (T-2459): the drawing draws none on the front, and K01's half-round gutter runs only round a hip's eaves, where this roof's side walls are parapets. How the roof drained is not read; T-2420's copper gutters and pipes, themselves reconstructed (no picture shows them), are withdrawn with the hip."
     },
     "window_kit": {
       "value": {
@@ -460,6 +443,23 @@
       },
       "confidence": "reconstructed",
       "note": "K07's panelled door at the head of a straight stoop; the front yard is 3.8 m, the sheet's front at 19.2 m against the street line at 23.0 m. The drawing's stoop climbs beside the strip; T-2422 builds it as drawn."
+    },
+    "gable_roof": {
+      "value": {
+        "ridge_back_m": 4.23,
+        "top_above_ridge_m": 0.3,
+        "ends": {
+          "north": {
+            "style": "stepped",
+            "steps": 5
+          },
+          "south": {
+            "style": "coped"
+          }
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "Read off the drawing where it shows the roof, reconstructed where it does not. The roof's ridge 4.23 m behind the front wall, at 13.43 m, where the drawing's parapet reaches its stack (about 13.5 m up and about 4 m back through its camera, building_budget_front.json); the rear slope falls from it to the rear wall's head, at about 25 degrees, which no picture shows. The house's SOUTH side wall (K01's 'north', high v) is carried up as the drawing's crow-stepped parapet: five steps up the street slope, as the drawing draws them (its kneeler blocks at about y 225, 205, 185, 165 and 145 px in the panel), each coped and clearing the slates by K05's 0.3 m upstand, to a level head 0.3 m (the upstand) over the ridge, at 13.73 m, where the stack stands; the same five steps down the rear slope are reconstructed. The NORTH side wall (K01's 'south'), which no picture shows, is carried up as a plain coped parapet on the slopes, reconstructed (L-k01-1619-gable-roof-2459)."
     },
     "function": {
       "value": "residence",
@@ -513,7 +513,7 @@
       ]
     }
   ],
-  "research_note": "T-2420 (piece 1 of T-2419, of T-1868) refines the district draft (T-2335) in place under the same id from the house's one picture, Treat & Foltz's drawing in The Building Budget (June 188-, probably 1886; building_budget_1886_06_hamline_farwell_houses), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly: a K02 smooth limestone street front on K03 brick sides and rear, the drawing's full-height swell bay on K08's bow at the sheet's own chord and rise, rising from grade to the third floor, the door in the north strip on a K07 stoop, a K10 bracketed cornice and a slated K04/K05 hip, and (T-2428) the drawing's wall gable over the bow: three segment-headed lights under radiating voussoirs, the pediment with its recessed panel and finial, and two pinnacles, and the sheet's rear range on K01's rear wings. What the drawing shows and is not yet built — the roof behind the gable, the crow-stepped south parapet and the stone cornice at the bow's top (T-2429); the round-arched entrance, the side stoop, the balcony rail and the grilled basement arches (T-2422) — is listed open in its match record (data/reference_views/house_1619_prairie/building_budget_front.match.json). Everything not read is reconstructed and recorded as L-k01-1619-hamline-swell-front-2420 and, for the wall gable, L-k01-1619-hamline-wall-gable-2428.",
+  "research_note": "T-2420 (piece 1 of T-2419, of T-1868) refines the district draft (T-2335) in place under the same id from the house's one picture, Treat & Foltz's drawing in The Building Budget (June 188-, probably 1886; building_budget_1886_06_hamline_farwell_houses), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly: a K02 smooth limestone street front on K03 brick sides and rear, the drawing's full-height swell bay on K08's bow at the sheet's own chord and rise, rising from grade to the third floor, the door in the north strip on a K07 stoop, a K10 bracketed cornice and a slated K04/K05 hip, and (T-2428) the drawing's wall gable over the bow: three segment-headed lights under radiating voussoirs, the pediment with its recessed panel and finial, and two pinnacles, and the sheet's rear range on K01's rear wings. (T-2459) the roof behind the gable as the drawing slates it: a street slope as steep as the gable to a ridge along the front, and the house's south side wall carried up above it as a crow-stepped parapet to the tall stack at the ridge (k01_gable_roof). What the drawing shows and is not yet built — the stone cornice at the bow's top (T-2460); the round-arched entrance, the side stoop, the balcony rail and the grilled basement arches (T-2422) — is listed open in its match record (data/reference_views/house_1619_prairie/building_budget_front.match.json). Everything not read is reconstructed and recorded as L-k01-1619-hamline-swell-front-2420 and, for the wall gable, L-k01-1619-hamline-wall-gable-2428 and, for the roof, L-k01-1619-gable-roof-2459.",
   "research_doc": "",
   "review_required": false
 }
