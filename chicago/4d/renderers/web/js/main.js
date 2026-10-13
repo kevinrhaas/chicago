@@ -64,6 +64,7 @@ import { mountHumans } from './humans.js';
 import { createWells } from './wells.js';
 import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
+import { createStreetTrees, STREET_TREE_MODES } from './street-trees.js';
 import { createContext } from './context.js';
 import { createRailway } from './railway.js';
 import { mountExclusions } from './exclusions.js';
@@ -1302,6 +1303,17 @@ const FURNITURE_LAYERS = ['enclosures', 'yard', 'frontage', 'wharves', 'boats', 
  */
 const NEAR = { min: 0.1, max: 8, divisor: 25, step: 0.05 };
 
+/** T-2473: the Trees setting ('summer' | 'spring' | 'winter' | 'hidden'), from the chicago4d.settings blob. */
+function readStreetTreesPreference() {
+  try {
+    const raw = window.localStorage.getItem('chicago4d.settings');
+    const mode = raw ? JSON.parse(raw).streetTrees : '';
+    return STREET_TREE_MODES.includes(mode) ? mode : 'summer';
+  } catch {
+    return 'summer';
+  }
+}
+
 /** The visitor's stored choice, read straight from the HUD's own settings blob so
  *  the two cannot disagree about which level is selected. Returns '' when they
  *  have never chosen, which is what lets the device guess stand. */
@@ -1741,6 +1753,18 @@ async function boot() {
   });
   scene3d.add(streetGrid.group);
   api.streetGrid = streetGrid;
+
+  // T-2473 — the parkway elms of the 1904 district (data/street_trees/<scene>.json),
+  // built with trees.js's own tree and drawn as one instanced batch. Only a scene
+  // listing `street_trees` is handed a data base. The Trees setting (summer, early
+  // spring, winter, hidden) is read here so the first frame already shows the visitor's pick.
+  const streetTrees = await createStreetTrees({
+    dataBase: layerBase('street_trees'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
+    problems: layerProblems('street_trees'), lowSpec: coarse, mode: readStreetTreesPreference(),
+    checkpoint: bootCheckpoint, ...detailOpts(),
+  });
+  scene3d.add(streetTrees.group);
+  api.streetTrees = streetTrees;
 
   // T-2477 — the context city: faded stand-ins on every part of the 1904 map not yet
   // built (data/context/<scene>.json, read off the Sanborn sheets where they reach and
@@ -2344,6 +2368,7 @@ async function boot() {
       BUDGET.triangles = detailLevels[level].triangles;
       enclosures.setDetail?.(level);
       streets.setDetail?.(level);
+      void streetTrees.setDetail(level);
       railway.setDetail(level);
       api.humans?.setTier(level);
       applyShadowTier(level);
@@ -2381,6 +2406,8 @@ async function boot() {
     // `applyShadowTier` below is what settles that, and settling it first would
     // settle it on meshes that are about to be thrown away.
     enclosures.setDetail?.(level);
+    // T-2473: the parkway elms rebuild their dozen crowns at the new spray count.
+    void streetTrees.setDetail(level);
     // The road's: `light` keeps the refined grids, the two tiers above it lay
     // the panels that sag on the ground's ridge (streets.js, THE RIDGE DRAPE).
     streets.setDetail?.(level);
@@ -2684,6 +2711,8 @@ async function boot() {
         navigation.setMapVisible(value);
       } else if (key === 'streetNames') {
         navigation.setStreetVisible(value);
+      } else if (key === 'streetTrees') {
+        void streetTrees.setMode(value).then(() => gateFrame.invalidate());
       } else if (key === 'units') {
         navigation.setUnits(value);
       }
@@ -2704,6 +2733,8 @@ async function boot() {
     void sourcesPromise.then(view => { if (api.evidenceHub.topic === 'sources') view?.show(); });
   };
   hud.omitTabs(api.drawerOmitted.tabs);
+  // The Trees setting is offered only where there are parkway trees to set (T-2473).
+  document.getElementById('row-street-trees')?.toggleAttribute('hidden', !streetTrees.records.length);
   api.evidenceHub = createEvidenceHub({
     root: hudRoot.querySelector('[data-panel="evidence"]'),
     omit: api.drawerOmitted.topics,
@@ -3116,6 +3147,11 @@ async function boot() {
     const gridHit = streetGrid.pickAt(ndc, camera);
     if (gridHit && gridHit.record && (!hit || gridHit.distance < hit.distance)) {
       hit = { ...gridHit };
+    }
+    // And a parkway elm's trunk (T-2473), with its own card.
+    const treeHit = streetTrees.pickAt(ndc, camera);
+    if (treeHit && treeHit.record && (!hit || treeHit.distance < hit.distance)) {
+      hit = { ...treeHit };
     }
     // ...and a stand-in of the context city (T-2477) answers with what it is and what it
     // rests on: a sheet's outline or a projection, and the rule its height came from.
@@ -3575,6 +3611,7 @@ async function boot() {
     terrain.updateGroundReach(camera.position);
     flora.update(dt, camera, floraBudget);
     trees.update(dt, camera, scene3d.fog?.color);
+    streetTrees.update(dt);
     railway.update(camera);
     flags.update(dt);
     api.humans?.update(dt, camera, walker.state);

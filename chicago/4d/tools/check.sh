@@ -471,6 +471,11 @@ step "the 1904 Prairie Avenue street and parcel grid re-derives from its sheets 
 selftest "…and a misread lot line, a stray label or a broken section still fails it" \
   python3 tools/trace_prairie_1904_grid.py --self-test
 
+# T-2473. ...and the parkway elms planted on that grid's parkway bands: generated, so the
+# committed file is what the tool writes from the committed grid, tree for tree.
+step "the 1904 parkway elms re-plant from the street grid (T-2473)" \
+  python3 tools/plant_prairie_1904_street_trees.py --check
+
 # T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
 # (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and
 # every named record on the sheet's ground exactly once, owns every traced parcel, keeps
