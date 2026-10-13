@@ -100,7 +100,8 @@ PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_fro
                        # T-2306: the conservatory is cut with K01's Prim and K06's polygon helpers
                        "k13_conservatories": ("k01_frontage.py", "k06_windows.py"),
                        # T-2323: the timber front is cut with K01's Prim and K06's sash and polygon helpers
-                       "k16_timber": ("k01_frontage.py", "k06_windows.py"),
+                       # T-2425: and K09's ear clipper for 1638's pierced spandrels
+                       "k16_timber": ("k01_frontage.py", "k06_windows.py", "k09_trim.py"),
                        # T-2321: the coach house is cut with K09's mesh primitives, K01's vector
                        # helpers and K10's sweep (its party-wall coping)
                        "k12_coach_house": ("k09_trim.py", "k01_frontage.py", "k10_cornices.py")}
