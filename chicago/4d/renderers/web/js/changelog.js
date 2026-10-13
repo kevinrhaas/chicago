@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1756, ts: '2026-10-13T09:28:50.733Z', date: 'Oct 13, 2026, 4:28 AM CT', title: '1637 Prairie gets its garden wall, iron fence and railed stoop', kind: 'feature',
+    items: [
+      'The Spalding house at 1637 Prairie now has the front garden its engraving draws: a tall brick wall before the north side, ending in a pier before the curved bay, and a tall iron spear fence before the south wing.',
+      'Both stand on a line about 3.5 m in front of the house, where the engraving\'s ground puts them, rather than out on the street line.',
+      'The front steps now have turned balustrades along both sides, level beside the landing and running down the flight.',
+    ] },
   { v: 1755, ts: '2026-10-13T08:46:37.568Z', date: 'Oct 13, 2026, 3:46 AM CT', title: 'Glessner\'s windows: every pane its own, with blinds behind the glass', kind: 'feature',
     items: [
       'The Glessner house\'s dark windows no longer repeat one reflection across the front: each pane sits a hair out of plane with its own sheen, so the sky breaks differently in every light.',
