@@ -105,3 +105,30 @@ Left for **T-2429**: the slates behind the gable as steep as it, the crow-steppe
 rising to its stack, and the moulded stone cornice at the bow's top (K10's bracketed timber cornice
 still runs at 9.2 m, under which the bow stops at 8.2 m). Left for **T-2422**: the balcony rail in
 front of the lights, the arched entrance, the side stoop and the basement arches.
+
+## The roof behind the gable (T-2459)
+
+Piece 1 of T-2429. K01's hip could not carry the drawing's roof: its south face falls away from the
+side wall, and the drawing's south wall rises with the roof in crow steps to a tall stack. So the roof
+is now a **gable whose ridge runs along the front** (`roof_form: "gable"`, built by
+`generators/archetypes/k01_gable_roof.py`): the hip's own street plane (45 degrees from the wall head)
+rising to a ridge 4.23 m back, both side walls carried up as parapets from the soffit, and the K05
+wall gable cut into the street slope as before. Read off the panel through the camera:
+
+| | drawing (px in the panel) | through the camera | built |
+|---|---|---|---|
+| parapet's head, where it meets the stack | x ≈ 470-488, y ≈ 138-147 | about 13.5 m up, about 4 m behind the front | 13.73 m (the ridge 13.43 m + K05's 0.3 m upstand), 4.23 m back |
+| crow steps up the street slope | five, kneeler blocks at y ≈ 225, 205, 185, 165, 145 | | five, coped, 0.76 m going |
+| stack's top | y ≈ 80 | about 15.0 m | 15.03 m |
+| stack's left edge | x ≈ 478 | | 477 |
+| ridge behind the gable | y ≈ 137 | | y ≈ 147 |
+
+The steps stand about 35 px right of the drawing's at the corner because the build's front carries
+the 1911 sheet's 0.91 m pier south of the bow, which the drawing does not draw (the match record's
+row on it). What the drawing cannot show is reconstructed under L-k01-1619-gable-roof-2459: the rear
+slope (25 degrees, to the rear wall's head) and its five steps, the north wall's plain coped parapet,
+the second stack, the stacks' plain shafts. The house hangs no gutter now; the drawing draws none.
+Under the gable K10's bracketed cornice runs along the street front alone, corner to corner, as under
+a flat roof, since the side walls rise into parapets.
+
+Left for **T-2460**: the moulded stone cornice at the bow's top, with the bow carried up to it.

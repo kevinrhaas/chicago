@@ -2,7 +2,7 @@
  "structure_id": "house_1619_prairie",
  "view": "building_budget_front",
  "glb": "assets/gltf/house_1619_prairie__as_mapped_1904.glb",
- "glb_sha256": "621e53026d372234988a524d83b95762ff0634fba7d2668f6a379881d5e418dd",
+ "glb_sha256": "a97b257ebb8f9e94f23946d20bf08ad90cd14905991de07d21fa2afc8347d409",
  "camera_sha256": "f7c68b8bf0e98f2463db3ecba16a06619421258fd49bf6b960c54f9f0e1fb122",
  "side_by_side": "docs/RESEARCH/photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg",
  "verdict": "differs",
@@ -29,13 +29,13 @@
   },
   {
    "what": "the roof behind: the drawing slates a steep roof whose south parapet steps up from the front in crow steps to a tall stack; the build has a 45-degree slate hip (the K01 contract's steepest) with plain eaves and two stacks against the south wall",
-   "status": "open",
-   "how": "T-2429"
+   "status": "fixed",
+   "how": "T-2459: K01's gable roof (roof_form gable, generators/archetypes/k01_gable_roof.py): the street slope at 45 degrees from the wall head to a ridge along the front 4.23 m back, at 13.43 m, and the house's south side wall carried up as a five-step crow-stepped parapet, each step coped, to a level head at 13.73 m where a 0.9 m stack rises in the wall's plane to 15.03 m. Through the camera the stack's top lands within about 5 px of the drawing's and its left edge within about 2 px; the ridge behind the gable within about 10 px; the steps rise from about the cornice to the stack as the drawing's do, about 35 px right of them at the corner because the build's front carries the sheet's 0.91 m pier south of the bow (the row below). The stack's panels and corbelled cap are built plain"
   },
   {
    "what": "the cornice: the drawing runs a moulded stone cornice at the bow's top that carries the balcony; the build hangs K10's bracketed timber cornice at 9.2 m, above the bow's deck",
    "status": "open",
-   "how": "T-2429"
+   "how": "T-2460 (piece 2 of T-2429)"
   },
   {
    "what": "the balcony: an iron (or turned) rail round the top of the bow; the build's bow ends in a plain deck",
@@ -79,5 +79,5 @@
   }
  ],
  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
- "reviewed": "T-2428, 2026-10-12, side by side at docs/RESEARCH/photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg, element by element against the drawing and its 3x enlargement of the gable; the wall gable's row fixed, the roof's and cornice's open for T-2429, the balcony's, entrance's, stoop's and basement's for T-2422"
+ "reviewed": "T-2459, 2026-10-13, side by side at docs/RESEARCH/photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg, element by element against the drawing and a 3x enlargement of its roof: the roof's row fixed (slope, ridge, crow-stepped south parapet and stack); the cornice's open for T-2460; the balcony's, entrance's, stoop's and basement's for T-2422"
 }
