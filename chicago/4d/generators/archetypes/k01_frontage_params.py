@@ -17,6 +17,7 @@ module to hash what the builder sees.
 
 from __future__ import annotations
 
+import copy
 import json
 import math
 from dataclasses import dataclass, field
@@ -532,6 +533,74 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
             "z0": round(-b, 4), "z1": round(-a, 4), "pitch_deg": side, "end_pitch_deg": end,
             "overhang_m": co, "ridge_m": round(eave + rise, 4),
             "ridge_x_m": (round(back, 4), round(apex, 4))}
+
+
+def mansard_cover(m: dict, depth: float, width: float, eave: float, pitch: float, overhang: float):
+    """T-2466: a K01 mansard's covering over a plan point (u, v), as K15 reads a roof: the
+    lower faces from the fascia's top up K05's profile to the curb, the upper hip on at
+    `pitch`, and a hipped crown (T-2465) over its pavilion, whichever stands higher."""
+    rise, lower = m["lower_rise_m"], m["lower_pitch_deg"]
+    run, tu = rise / math.tan(math.radians(lower)), math.tan(math.radians(pitch))
+    cr = m.get("crown") or {}
+    if cr and cr.get("form") != "hip":
+        raise ParamError("chimneys.k15 reads a mansard and a hipped crown; a mansard crown's covering is not read")
+
+    def cover(u: float, v: float) -> float:
+        s = min(u + overhang, depth + overhang - u, v + overhang, width + overhang - v)
+        y = eave + (mansard_face_height(max(s, 0.0), rise, lower, m["bulge"], m["profile"]) if s <= run
+                    else rise + (s - run) * tu)
+        if cr:
+            co, z = cr["overhang_m"], -v
+            X0, X1, Z0, Z1 = cr["x0"] - co, cr["x1"] + co, cr["z0"] - co, cr["z1"] + co
+            if X0 <= u <= X1 and Z0 <= z <= Z1:
+                ts, te = math.tan(math.radians(cr["pitch_deg"])), math.tan(math.radians(cr["end_pitch_deg"]))
+                y = max(y, eave + min((u - X0) * ts, (X1 - u) * te, (z - Z0) * ts, (Z1 - z) * ts))
+        return y
+    return cover
+
+
+def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
+    """T-2466: each plain stack's K15 spec (k15_chimneys.stack_solids, built with its flashing
+    off), from the kit variant `from` less the parts `omit` names: its corbel courses and cap
+    as the variant's, `flues` flues across it, and, unless the stack says `panelled: false`,
+    `panels` sunk panels on its street and rear faces, each run from `above_roof_m` over the
+    highest covering under the stack to `under_head_m` below its corbelled head. The stack
+    keeps its record's plan and top; it is turned so its panelled faces face the street."""
+    from . import k15_chimneys as k15
+    kit = k15.load()
+    var = next((x for x in kit["variants"] if x["id"] == k.get("from")), None)
+    if var is None or len(var["stacks"]) != 1:
+        raise ParamError(f"chimneys.k15.from {k.get('from')!r} is not a one-stack K15 variant")
+    omit = set(k.get("omit", []))
+    if omit - {"bands", "dentils", "panels"}:
+        raise ParamError(f"chimneys.k15.omit {sorted(omit)}: bands, dentils or panels")
+    base, so, fl = var["stacks"][0], kit["soot"], kit["parts"]["flashing"]
+    nfl, fo = int(k.get("flues", len(base["flues"]))), kit["parts"]["flue"]["opening_m"]
+    pn = k.get("panels")
+    for st_, c in zip(stacks, chimneys):
+        sx, sz = c["plan_m"]
+        u, v, top = c["u_m"], c["v_m"], c["top_m"]
+        if sz / max(nfl, 1) < fo + 0.1:
+            raise ParamError(f"chimney at ({u}, {v}): {nfl} flues of {fo} m do not fit its {sz} m face")
+        spec = {key: copy.deepcopy(x) for key, x in base.items()
+                if key not in ("x", "z", "width_m", "depth_m", "top_m", "flues", "panels") and key not in omit}
+        spec.update(width_m=sz, depth_m=sx, across="z", top_m=top,
+                    flues=[{"at": round((i + 0.5) * sz / nfl - sz / 2, 4)} for i in range(nfl)])
+        hi = max(cover(u + a * sx / 2, v + b * sz / 2) for a in (-1, 0, 1) for b in (-1, 0, 1))
+        y_head = top - spec["cap"]["thickness_m"] - sum(h for h, _ in spec["corbels"])
+        if max(y_head - so["band_m"], hi + fl["upstand_m"] + 0.2) > y_head - 0.05:
+            raise ParamError(f"chimney at ({u}, {v}): its shaft stands {y_head - hi:.2f} m over its roof under "
+                             f"K15's head, too little for the head's courses and its sooted band")
+        if pn and "panels" not in omit and st_.get("panelled", True):
+            ph = round(y_head - pn["under_head_m"] - hi - pn["above_roof_m"], 4)
+            if ph < pn["min_height_m"]:
+                raise ParamError(f"chimney at ({u}, {v}): room for a {ph} m panel, under the {pn['min_height_m']} m "
+                                 f"chimneys.k15.panels asks; mark the stack panelled: false")
+            if not 0.1 <= int(pn["count"]) * pn["width_m"] <= sz - 0.2:
+                raise ParamError(f"chimneys.k15.panels.width_m {pn['width_m']}: 0.1 m inside each edge of {sz} m")
+            spec["panels"] = [int(pn["count"]), pn["width_m"], ph, pn["depth_m"], pn["above_roof_m"]]
+        c["k15_head"] = spec
+        c["cover_high_m"] = round(hi, 4)
 
 
 def mansard_face_height(setback: float, rise: float, lower_pitch_deg: float, bulge: float, profile: str) -> float:
@@ -1568,6 +1637,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                         and c["top_m"] < cr["ridge_m"] + 0.6 - 1e-9:
                     raise ParamError(f"chimney at ({c['u_m']}, {c['v_m']}) tops at {c['top_m']} m, under the "
                                      f"hipped crown's ridge {cr['ridge_m']} m + 0.6")
+    if ch and ch.get("k15"):
+        # T-2466: the K15 kit's head (its sunk panels, corbelled courses and cap) on T-2302's
+        # plain stacks, read against the mansard's own covering
+        if not mansard or "plan_m" not in ch:
+            raise ParamError("chimneys.k15 dresses a mansard's plain stacks (plan_m); a hip's stacks "
+                             "name their K15 variant in chimney_positions")
+        _k15_heads(ch["k15"], ch["stacks"], chimneys,
+                   mansard_cover(mansard_roof, depth, width, eave, pitch, float(val("eave_overhang_m"))))
     if (val("mansard") or {}).get("dormers"):
         mansard_roof["dormers"] = _mansard_dormers(val("mansard")["dormers"], mansard_roof, depth, width, eave,
                                                    float(val("eave_overhang_m")), chimneys)

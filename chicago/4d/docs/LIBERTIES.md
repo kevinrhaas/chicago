@@ -26080,6 +26080,21 @@ before its back hip); the crown's cornice, K05's 0.2 m fascia and soffit without
 the engraving draws a band as deep as the main cornice's (T-2467). The crown's south fascia stands 0.05 m outside
 the main roof's along the 5.5 m it shares with the south wall, because a crown's cornice must project
 past the main one's (an equal one would lay the two fascias in one plane at the corner).
+**Revised:** 2026-10-13 (T-2471) — **the stacks are panelled and capped.** The engraving draws each of
+the three stacks with a projecting head and cap, and the tall front stack's lit face as a long light
+field in a dark border; the build dresses the three from the K15 chimney kit's carved form
+(`k15.stack.sherman`) less the stone bands and corbel blocks the engraving does not draw: three
+corbelled brick courses under a 0.14 m stone cap projecting 0.15 m, the stack turned so its panelled
+faces face the street and the rear. The two tall stacks on the north wall carry one sunk panel 0.45 m
+wide and 0.035 m deep on each of those faces, run from 0.5 m over the highest roof under the stack to
+0.3 m under its head (1.87 m on the front stack, 0.97 m on the rear one); the wing's stack stands too
+little over its crown for one. Invented: the courses and cap (the kit's), the panel's width, depth and
+margins (read off the plate at its scale, not measured), the panel on the rear stack and on each
+stack's rear face (no picture shows them), and the two flues a stack (the kit's 0.21 m liner). The
+kit's flashing is not laid, since it reads one slope and these stacks stand on the cornice and the
+crown's steep side; each joins its roof as the plain stack did. Not built: the dark hooded crown the
+engraving draws over each cap, about 0.4-0.5 m tall, a pot or a cowl that the engraving's scale does not
+settle; each stack's top was read at that crown's top, so each cap stands where the drawn crown ends.
 
 ### L-k01-1637-spalding-garden-2447 — 1637 Prairie's front garden built on a line read off the engraving's ground, its wall stopped at the lot line and its iron the K11 kit's
 
