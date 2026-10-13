@@ -334,7 +334,8 @@ def _cornice(a, K, data, bays, conf):
     # T-2350: under a flat roof the cornice is the street front's alone — its box ends flush
     # with the side walls, which rise into coped parapets (party walls, in a row) — so the
     # brackets and the bed moulding run along that one wall, corner to corner, and stop
-    flat = getattr(p, "roof_form", "hip") == "flat"
+    # T-2459: and so under a gable whose side walls are carried up as parapets (1619's)
+    flat = getattr(p, "roof_form", "hip") in ("flat", "gable")
     rr = runs(p)[:1] if flat else runs(p)
     stations = []                                     # (perimeter s, run index, s)
     start = 0.0

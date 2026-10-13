@@ -1,0 +1,1628 @@
+[
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "basement lights, 3 x 3",
+  "at_ft": [
+   8.1,
+   12.0
+  ],
+  "z_ft": [
+   0.8,
+   4.7
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "stone_grille",
+  "transom_ft": null,
+  "built_as": "3 x 3 basement grille light, recessed glass",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "first-floor windows",
+  "at_ft": [
+   8.1,
+   12.0
+  ],
+  "z_ft": [
+   9.2,
+   14.5
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "prairie_sash",
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "second-floor group of three",
+  "at_ft": [
+   9.3,
+   19.4
+  ],
+  "z_ft": [
+   19.8,
+   24.3
+  ],
+  "z_from": "item",
+  "lights": 3,
+  "kind": "window",
+  "style": "prairie_colonnade",
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "basement lights, 3 x 3",
+  "at_ft": [
+   16.9,
+   20.8
+  ],
+  "z_ft": [
+   0.8,
+   4.7
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "stone_grille",
+  "transom_ft": null,
+  "built_as": "3 x 3 basement grille light, recessed glass",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "first-floor windows",
+  "at_ft": [
+   16.9,
+   20.8
+  ],
+  "z_ft": [
+   9.2,
+   14.5
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "prairie_sash",
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "carved string course under the group of four",
+  "at_ft": [
+   26.2,
+   40.0
+  ],
+  "z_ft": [
+   19.2,
+   19.6
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "band",
+  "style": "prairie_sash",
+  "transom_ft": null,
+  "built_as": "carved stone (band)",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "second-floor group of four",
+  "at_ft": [
+   26.2,
+   40.0
+  ],
+  "z_ft": [
+   19.8,
+   24.3
+  ],
+  "z_from": "item",
+  "lights": 4,
+  "kind": "window",
+  "style": "prairie_colonnade",
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "rock-faced granite lintel over the door, about 10 ft long under the fan (owner photographs, 2026-10-12)",
+  "at_ft": [
+   27.9,
+   37.9
+  ],
+  "z_ft": [
+   7.75,
+   9.3
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "band",
+  "style": "rock_faced_lintel",
+  "transom_ft": null,
+  "built_as": "carved stone (band)",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "front door",
+  "at_ft": [
+   30.4,
+   35.4
+  ],
+  "z_ft": [
+   0.0,
+   7.75
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "door",
+  "style": "prairie_front_door",
+  "transom_ft": null,
+  "built_as": "oak door, glazed upper leaf",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "carved tympanum in a fan of radiating voussoirs",
+  "at_ft": [
+   30.4,
+   35.4
+  ],
+  "z_ft": [
+   9.3,
+   15.7
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "fan",
+  "style": "prairie_sash",
+  "transom_ft": null,
+  "built_as": "carved stone (fan)",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "basement lights, 3 x 3",
+  "at_ft": [
+   45.1,
+   49.0
+  ],
+  "z_ft": [
+   0.8,
+   4.7
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "stone_grille",
+  "transom_ft": null,
+  "built_as": "3 x 3 basement grille light, recessed glass",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "first-floor windows",
+  "at_ft": [
+   45.1,
+   49.0
+  ],
+  "z_ft": [
+   9.2,
+   14.5
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "prairie_sash",
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "second-floor group of three, colonnettes between",
+  "at_ft": [
+   46.7,
+   56.8
+  ],
+  "z_ft": [
+   19.8,
+   24.3
+  ],
+  "z_from": "item",
+  "lights": 3,
+  "kind": "window",
+  "style": "prairie_colonnade",
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "basement lights, 3 x 3",
+  "at_ft": [
+   54.4,
+   58.3
+  ],
+  "z_ft": [
+   0.8,
+   4.7
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "stone_grille",
+  "transom_ft": null,
+  "built_as": "3 x 3 basement grille light, recessed glass",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "first-floor windows",
+  "at_ft": [
+   54.4,
+   58.3
+  ],
+  "z_ft": [
+   9.2,
+   14.5
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "prairie_sash",
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "porte-cochere, closed by its two oak leaves",
+  "at_ft": [
+   62.38,
+   70.16
+  ],
+  "z_ft": [
+   -1.9,
+   7.0
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "doors",
+  "style": "porte_cochere",
+  "transom_ft": null,
+  "built_as": "two oak leaves",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "pair of small first-floor windows",
+  "at_ft": [
+   63.5,
+   66.2
+  ],
+  "z_ft": [
+   11.8,
+   16.2
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "prairie_sash",
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "second-floor single window",
+  "at_ft": [
+   64.6,
+   68.0
+  ],
+  "z_ft": [
+   19.8,
+   24.3
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "prairie_sash",
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
+  "what": "pair of small first-floor windows",
+  "at_ft": [
+   67.0,
+   69.3
+  ],
+  "z_ft": [
+   11.8,
+   16.2
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "prairie_sash",
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "narrow corridor windows, first floor",
+  "at_ft": [
+   4.0,
+   5.6
+  ],
+  "z_ft": [
+   9.25,
+   14.458
+  ],
+  "z_from": "opening_heights.first",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "paired second-floor windows, east wing gable",
+  "at_ft": [
+   7.2,
+   10.1
+  ],
+  "z_ft": [
+   19.25,
+   22.25
+  ],
+  "z_from": "opening_heights.second",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "paired second-floor windows, east wing gable",
+  "at_ft": [
+   12.0,
+   14.7
+  ],
+  "z_ft": [
+   19.25,
+   22.25
+  ],
+  "z_from": "opening_heights.second",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "v4_detail",
+  "what": "east-wing north-gable round-headed light over a stone transom and a one-over-one sash, HABS photo 14",
+  "at_ft": [
+   12.5,
+   14.0
+  ],
+  "z_ft": [
+   29.0,
+   35.2
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "arch",
+  "style": "gable_slit",
+  "transom_ft": [
+   33.14,
+   33.88
+  ],
+  "built_as": "round-headed fixed light, stone transom, one-over-one sash",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th_photo",
+  "what": "first-floor window in the east wing's north face",
+  "at_ft": [
+   17.6,
+   19.0
+  ],
+  "z_ft": [
+   9.25,
+   14.458
+  ],
+  "z_from": "opening_heights.first",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "single sash, 3 lights on horizontal bars",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_photo_13_north_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "second-floor windows",
+  "at_ft": [
+   25.8,
+   28.1
+  ],
+  "z_ft": [
+   19.25,
+   22.25
+  ],
+  "z_from": "opening_heights.second",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "narrow corridor windows, first floor",
+  "at_ft": [
+   28.7,
+   30.3
+  ],
+  "z_ft": [
+   9.25,
+   14.458
+  ],
+  "z_from": "opening_heights.first",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "second-floor windows",
+  "at_ft": [
+   30.0,
+   32.9
+  ],
+  "z_ft": [
+   19.25,
+   22.25
+  ],
+  "z_from": "opening_heights.second",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "second-floor windows",
+  "at_ft": [
+   47.7,
+   48.5
+  ],
+  "z_ft": [
+   19.25,
+   22.25
+  ],
+  "z_from": "opening_heights.second",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "single sash, 2 lights on horizontal bars",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "narrow corridor windows, first floor",
+  "at_ft": [
+   50.2,
+   51.5
+  ],
+  "z_ft": [
+   9.25,
+   14.458
+  ],
+  "z_from": "opening_heights.first",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "single sash, 3 lights on horizontal bars",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "narrow corridor windows, first floor",
+  "at_ft": [
+   59.5,
+   60.8
+  ],
+  "z_ft": [
+   9.25,
+   14.458
+  ],
+  "z_from": "opening_heights.first",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "single sash, 3 lights on horizontal bars",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "second-floor windows",
+  "at_ft": [
+   59.5,
+   60.8
+  ],
+  "z_ft": [
+   19.25,
+   22.25
+  ],
+  "z_from": "opening_heights.second",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "single sash, 2 lights on horizontal bars",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "narrow corridor windows, first floor",
+  "at_ft": [
+   71.7,
+   73.0
+  ],
+  "z_ft": [
+   9.25,
+   14.458
+  ],
+  "z_from": "opening_heights.first",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "single sash, 3 lights on horizontal bars",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "second-floor windows",
+  "at_ft": [
+   71.7,
+   73.1
+  ],
+  "z_ft": [
+   19.25,
+   22.25
+  ],
+  "z_from": "opening_heights.second",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "single sash, 2 lights on horizontal bars",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "second-floor windows",
+  "at_ft": [
+   83.8,
+   85.1
+  ],
+  "z_ft": [
+   19.25,
+   22.25
+  ],
+  "z_from": "opening_heights.second",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "single sash, 2 lights on horizontal bars",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "narrow corridor windows, first floor",
+  "at_ft": [
+   84.1,
+   85.3
+  ],
+  "z_ft": [
+   9.25,
+   14.458
+  ],
+  "z_from": "opening_heights.first",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "single sash, 3 lights on horizontal bars",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "the great arch, over a recessed porch",
+  "at_ft": [
+   96.5,
+   108.5
+  ],
+  "z_ft": [
+   0.0,
+   10.8
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "arch",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "open arch",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "wide window over the great arch",
+  "at_ft": [
+   97.7,
+   110.1
+  ],
+  "z_ft": [
+   19.25,
+   22.25
+  ],
+  "z_from": "item",
+  "lights": 3,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "wider first-floor window, 4 ft",
+  "at_ft": [
+   116.1,
+   120.1
+  ],
+  "z_ft": [
+   9.25,
+   14.458
+  ],
+  "z_from": "opening_heights.first",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "second-floor windows",
+  "at_ft": [
+   116.1,
+   120.2
+  ],
+  "z_ft": [
+   19.25,
+   22.25
+  ],
+  "z_from": "opening_heights.second",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "service door immediately east of the stable carriage block",
+  "at_ft": [
+   122.8,
+   125.2
+  ],
+  "z_ft": [
+   0.0,
+   10.4
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "door",
+  "style": "service_door",
+  "transom_ft": null,
+  "built_as": "boarded door",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th",
+  "what": "second-floor windows",
+  "at_ft": [
+   122.8,
+   125.2
+  ],
+  "z_ft": [
+   19.25,
+   22.25
+  ],
+  "z_from": "opening_heights.second",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_story_of_a_house_1923",
+   "habs_glessner_photo_01_nw_1963",
+   "habs_glessner_photo_15_north_stable_1965"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th_stable",
+  "what": "small windows flanking the loft opening",
+  "at_ft": [
+   132.4,
+   133.6
+  ],
+  "z_ft": [
+   17.8,
+   22.9
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "single sash, 3 lights on horizontal bars",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_house_il_1015_data_pages",
+   "habs_glessner_photo_01_nw_1963",
+   "inland_architect_1888_02_glessner_exterior"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_stable_doors",
+  "what": "the stable's carriage doorway, closed by two leaves",
+  "at_ft": [
+   134.9,
+   147.0
+  ],
+  "z_ft": [
+   0.0,
+   12.6
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "doors",
+  "style": "stable_carriage_doors",
+  "transom_ft": null,
+  "built_as": "two glazed-over-board leaves",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_house_il_1015_data_pages",
+   "owner_glessner_v4_reconstruction_brief_2026"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "v4_detail",
+  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+  "at_ft": [
+   136.75,
+   137.25
+  ],
+  "z_ft": [
+   31.0,
+   31.85
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "arch",
+  "style": "pigeon_vent",
+  "transom_ft": null,
+  "built_as": "open pigeon hole",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th_stable",
+  "what": "loft opening over the carriage doorway, open in 1904",
+  "at_ft": [
+   137.5,
+   144.7
+  ],
+  "z_ft": [
+   17.4,
+   24.4
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "dark",
+  "style": "stable_loft_opening",
+  "transom_ft": null,
+  "built_as": "open loft, leaves stood inward",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_house_il_1015_data_pages",
+   "habs_glessner_photo_01_nw_1963",
+   "inland_architect_1888_02_glessner_exterior"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "v4_detail",
+  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+  "at_ft": [
+   138.75,
+   139.25
+  ],
+  "z_ft": [
+   31.0,
+   31.85
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "arch",
+  "style": "pigeon_vent",
+  "transom_ft": null,
+  "built_as": "open pigeon hole",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "v4_detail",
+  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+  "at_ft": [
+   138.75,
+   139.25
+  ],
+  "z_ft": [
+   33.0,
+   34.2
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "arch",
+  "style": "pigeon_vent",
+  "transom_ft": null,
+  "built_as": "open pigeon hole",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "v4_detail",
+  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+  "at_ft": [
+   140.75,
+   141.25
+  ],
+  "z_ft": [
+   31.0,
+   31.85
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "arch",
+  "style": "pigeon_vent",
+  "transom_ft": null,
+  "built_as": "open pigeon hole",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "v4_detail",
+  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+  "at_ft": [
+   140.75,
+   141.25
+  ],
+  "z_ft": [
+   33.0,
+   34.2
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "arch",
+  "style": "pigeon_vent",
+  "transom_ft": null,
+  "built_as": "open pigeon hole",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "v4_detail",
+  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+  "at_ft": [
+   140.75,
+   141.25
+  ],
+  "z_ft": [
+   35.2,
+   36.4
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "arch",
+  "style": "pigeon_vent",
+  "transom_ft": null,
+  "built_as": "open pigeon hole",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "v4_detail",
+  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+  "at_ft": [
+   142.75,
+   143.25
+  ],
+  "z_ft": [
+   31.0,
+   31.85
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "arch",
+  "style": "pigeon_vent",
+  "transom_ft": null,
+  "built_as": "open pigeon hole",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "v4_detail",
+  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+  "at_ft": [
+   142.75,
+   143.25
+  ],
+  "z_ft": [
+   33.0,
+   34.2
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "arch",
+  "style": "pigeon_vent",
+  "transom_ft": null,
+  "built_as": "open pigeon hole",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "v4_detail",
+  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+  "at_ft": [
+   144.75,
+   145.25
+  ],
+  "z_ft": [
+   31.0,
+   31.85
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "arch",
+  "style": "pigeon_vent",
+  "transom_ft": null,
+  "built_as": "open pigeon hole",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "openings_18th_stable",
+  "what": "small windows flanking the loft opening",
+  "at_ft": [
+   149.1,
+   150.3
+  ],
+  "z_ft": [
+   17.8,
+   22.9
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": null,
+  "transom_ft": null,
+  "built_as": "single sash, 3 lights on horizontal bars",
+  "confidence": "inferred",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_house_il_1015_data_pages",
+   "habs_glessner_photo_01_nw_1963",
+   "inland_architect_1888_02_glessner_exterior"
+  ]
+ },
+ {
+  "face": "west",
+  "record": "openings_alley",
+  "what": "two broad front stable lights, owner west elevation",
+  "at_ft": [
+   8.1,
+   13.3
+  ],
+  "z_ft": [
+   8.75,
+   13.5
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "stable_leaded",
+  "transom_ft": null,
+  "built_as": "leaded stable light",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "owner_glessner_v4_reconstruction_brief_2026"
+  ]
+ },
+ {
+  "face": "west",
+  "record": "openings_alley",
+  "what": "two upper slits in high west gable, owner west elevation",
+  "at_ft": [
+   9.8,
+   11.6
+  ],
+  "z_ft": [
+   21.5,
+   25.5
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "stable_leaded",
+  "transom_ft": null,
+  "built_as": "leaded stable light",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "owner_glessner_v4_reconstruction_brief_2026"
+  ]
+ },
+ {
+  "face": "west",
+  "record": "openings_alley",
+  "what": "two upper slits in high west gable, owner west elevation",
+  "at_ft": [
+   20.9,
+   22.7
+  ],
+  "z_ft": [
+   21.5,
+   25.5
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "stable_leaded",
+  "transom_ft": null,
+  "built_as": "leaded stable light",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "owner_glessner_v4_reconstruction_brief_2026"
+  ]
+ },
+ {
+  "face": "west",
+  "record": "openings_alley",
+  "what": "two broad front stable lights, owner west elevation",
+  "at_ft": [
+   21.9,
+   27.1
+  ],
+  "z_ft": [
+   8.75,
+   13.5
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "stable_leaded",
+  "transom_ft": null,
+  "built_as": "leaded stable light",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "owner_glessner_v4_reconstruction_brief_2026"
+  ]
+ },
+ {
+  "face": "west",
+  "record": "openings_alley",
+  "what": "four evenly spaced rear stable lights, owner west elevation",
+  "at_ft": [
+   38.225,
+   40.025
+  ],
+  "z_ft": [
+   8.75,
+   12.75
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "stable_leaded",
+  "transom_ft": null,
+  "built_as": "leaded stable light",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "owner_glessner_v4_reconstruction_brief_2026"
+  ]
+ },
+ {
+  "face": "west",
+  "record": "openings_alley",
+  "what": "four evenly spaced rear stable lights, owner west elevation",
+  "at_ft": [
+   43.725,
+   45.525
+  ],
+  "z_ft": [
+   8.75,
+   12.75
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "stable_leaded",
+  "transom_ft": null,
+  "built_as": "leaded stable light",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "owner_glessner_v4_reconstruction_brief_2026"
+  ]
+ },
+ {
+  "face": "west",
+  "record": "openings_alley",
+  "what": "four evenly spaced rear stable lights, owner west elevation",
+  "at_ft": [
+   49.225,
+   51.025
+  ],
+  "z_ft": [
+   8.75,
+   12.75
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "stable_leaded",
+  "transom_ft": null,
+  "built_as": "leaded stable light",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "owner_glessner_v4_reconstruction_brief_2026"
+  ]
+ },
+ {
+  "face": "west",
+  "record": "openings_alley",
+  "what": "four evenly spaced rear stable lights, owner west elevation",
+  "at_ft": [
+   54.725,
+   56.525
+  ],
+  "z_ft": [
+   8.75,
+   12.75
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "stable_leaded",
+  "transom_ft": null,
+  "built_as": "leaded stable light",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "owner_glessner_v4_reconstruction_brief_2026"
+  ]
+ }
+]

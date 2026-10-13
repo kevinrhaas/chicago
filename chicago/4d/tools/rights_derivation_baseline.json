@@ -696,6 +696,54 @@
       "sole_support": true,
       "confidence": "attested"
     },
+    "shortall_gregory_house_1638_prairie_front/as_standing_1904/form.boundary": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1638_prairie_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "shortall_gregory_house_1638_prairie_front/as_standing_1904/form.canted_bay": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1638_prairie_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "shortall_gregory_house_1638_prairie_front/as_standing_1904/form.gable": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1638_prairie_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "shortall_gregory_house_1638_prairie_front/as_standing_1904/form.porch": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1638_prairie_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
+    "shortall_gregory_house_1638_prairie_front/as_standing_1904/form.tower": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1638_prairie_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "shortall_gregory_house_1638_prairie_front/as_standing_1904/form.wing_wall": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1638_prairie_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "slough_log_bridge/log_1833/form.construction": {
       "kind": "structure",
       "blocked_sources": [
@@ -703,6 +751,142 @@
       ],
       "sole_support": true,
       "confidence": "attested"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.basement_lights": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.boundary": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.chimneys": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.entrance_bay": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.entrance_kit": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.front_bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.mansard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.principal_floor_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.roof_covering": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.roof_form": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.sash_by_storey": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.side_bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.storey_heights_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.stories": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.wall_head": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_spalding_remodel_engraving"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
     },
     "st_marys_church/frame_1833/footprint": {
       "kind": "structure",

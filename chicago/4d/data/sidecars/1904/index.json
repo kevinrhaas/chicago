@@ -114,6 +114,12 @@
       "asset": "gltf/flats_2127_prairie__draft_1904.glb"
     },
     {
+      "id": "forsyth_house_1635_prairie",
+      "name": "1635 Prairie Avenue — Italianate villa of 1863 (the Forsyth house) (district draft; refined by T-2443)",
+      "sidecar": "sidecars/1904/forsyth_house_1635_prairie.json",
+      "asset": "gltf/forsyth_house_1635_prairie__draft_1904.glb"
+    },
+    {
       "id": "george_glessner_house_1706_prairie",
       "name": "1706 Prairie Avenue — George Glessner Georgian townhouse (district draft; refined by T-1871)",
       "sidecar": "sidecars/1904/george_glessner_house_1706_prairie.json",
@@ -223,15 +229,15 @@
     },
     {
       "id": "house_1613_prairie",
-      "name": "1613 Prairie Avenue — Brick masonry (district draft; refined by T-1868)",
+      "name": "1613 Prairie Avenue — four-storey brick house, the north half of the pair with 1615, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1613_prairie.json",
-      "asset": "gltf/house_1613_prairie__draft_1904.glb"
+      "asset": "gltf/house_1613_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1615_prairie",
-      "name": "1615 Prairie Avenue — Brick masonry (district draft; refined by T-1868)",
+      "name": "1615 Prairie Avenue — four-storey brick house, the south half of the pair with 1613, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1615_prairie.json",
-      "asset": "gltf/house_1615_prairie__draft_1904.glb"
+      "asset": "gltf/house_1615_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1616_prairie",
@@ -247,33 +253,33 @@
     },
     {
       "id": "house_1619_prairie",
-      "name": "1619 Prairie Avenue — Stone-front masonry (district draft; refined by T-1868)",
+      "name": "1619 Prairie Avenue — stone-front house with its swell bay, for now wearing the front of Hamline's house next door at 1621 (T-2439), K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1619_prairie.json",
-      "asset": "gltf/house_1619_prairie__draft_1904.glb"
+      "asset": "gltf/house_1619_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1621_prairie",
-      "name": "1621 Prairie Avenue — Brick masonry (district draft; refined by T-1869)",
+      "name": "1621 Prairie Avenue — John H. Hamline's house, Brick masonry (district draft; refined by T-1869)",
       "sidecar": "sidecars/1904/house_1621_prairie.json",
       "asset": "gltf/house_1621_prairie__draft_1904.glb"
     },
     {
       "id": "house_1623_prairie",
-      "name": "1623 Prairie Avenue — Brick masonry (district draft; refined by T-1869)",
+      "name": "1623 Prairie Avenue — Granger Farwell's stone-front house with its carved oriel, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1623_prairie.json",
-      "asset": "gltf/house_1623_prairie__draft_1904.glb"
+      "asset": "gltf/house_1623_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1625_prairie",
-      "name": "1625 Prairie Avenue — Brick masonry (district draft; refined by T-1869)",
+      "name": "1625 Prairie Avenue — Hugh J. McBirney's Tudor stone front, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1625_prairie.json",
-      "asset": "gltf/house_1625_prairie__draft_1904.glb"
+      "asset": "gltf/house_1625_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1626_prairie",
-      "name": "1626 Prairie Avenue — Brick masonry (district draft; refined by T-1862)",
+      "name": "1626 Prairie Avenue — brick house with a frame front bay, the north half of the pair with 1628, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1626_prairie.json",
-      "asset": "gltf/house_1626_prairie__draft_1904.glb"
+      "asset": "gltf/house_1626_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1626_prairie_coach_house",
@@ -829,9 +835,9 @@
     },
     {
       "id": "spalding_house_1637_prairie",
-      "name": "1637 Prairie Avenue — Spalding remodel of Grosvenor (district draft; refined by T-1870)",
+      "name": "1637 Prairie Avenue — Jesse Spalding's remodel of the Grosvenor house, K01 frontage assembly",
       "sidecar": "sidecars/1904/spalding_house_1637_prairie.json",
-      "asset": "gltf/spalding_house_1637_prairie__draft_1904.glb"
+      "asset": "gltf/spalding_house_1637_prairie__as_mapped_1904.glb"
     },
     {
       "id": "spalding_house_1637_prairie_coach_house",

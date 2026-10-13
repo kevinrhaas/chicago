@@ -1,0 +1,188 @@
+{
+  "id": "forsyth_house_1635_prairie",
+  "phase": "draft_1904",
+  "name": "1635 Prairie Avenue — Italianate villa of 1863 (the Forsyth house) (district draft; refined by T-2443)",
+  "aka": [
+    "1635 S. Prairie Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "asset": "gltf/forsyth_house_1635_prairie__draft_1904.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "documented_range": {
+    "from": "1904-07-01",
+    "to": "1904-07-01",
+    "confidence": "inferred",
+    "sources": [
+      "robinson_1886_chicago_plate_10"
+    ],
+    "note": "The draft claims the 1904 target and no more: Robinson 1886 draws the house, the Blue Book lists the Springer household at it to the 1902 edition, and T-2443 carries it to 1904 on the absence of any dated demolition. The 1911 sheet shows the strip open, so it was gone by then. Built 1863 for Col. Robert Forsyth (Glessner House Museum, 'Early History of Prairie Avenue, Part IV', 2020)."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1428.921,
+    "local_n": -3045.659,
+    "rotation_deg": 179.599,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "robinson_1886_chicago_plate_10"
+    ],
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 30.750, v -2.856 m from the middle of the rear lot line), through the T-1250 fit of the plate: the plate's fit is 4.54 m RMS, the weakest of the four T-1250 fits (a photographed atlas page, rotated and curved toward the binding), plus about a pixel (0.35 m) of reading. The plate draws the house filling lot 6 between its lot lines, and its fit carries that 6.7 m-wide lot about 2 m south of the 1911 sheet's 5.7 m strip (the two maps' lines disagree here, as the strip's legal_lots record says); so the house's depth and set-back are the fit's, and its width is the strip's own, wall to wall (fills_lot). Rotation 179.599 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "symbolic_location": "1635 S. Prairie Avenue, parcel prairie_1625_1637_c (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        15.0,
+        0.0
+      ],
+      [
+        15.0,
+        5.712
+      ],
+      [
+        0.0,
+        5.712
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "robinson_1886_chicago_plate_10"
+    ],
+    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+  },
+  "attributes": {
+    "stories": {
+      "value": 2,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED from one line: the Tribune's 1895 lease report calls the improvement 'a two-story frame building' (np-1635-tribune-1895-07-28-springer-lease-70x200), the only storey count any source gives. Robinson's atlas prints none, and the 1911 sheet no longer draws the house. Its 'frame' is not followed (see construction)."
+    },
+    "construction": {
+      "value": "brick",
+      "confidence": "inferred",
+      "sources": [
+        "robinson_1886_chicago_plate_10"
+      ],
+      "note": "Robinson 1886 colours the building pink, the plate's brick (its frame buildings are yellow), and two advertisements agree: '1635 Prairie-av., 10 rooms, brick' (Tribune, 20 Apr 1886) and '15-room brick house ... plate glass windows; with large barn' (Tribune, 19 Mar 1893). The 1895 lease report's 'frame' is the one dissent, and is outvoted by the map and the owner's own advertisement."
+    },
+    "draft_plan": {
+      "value": {
+        "parts": [
+          {
+            "id": "r1",
+            "role": "main",
+            "storeys": 2,
+            "roof": "hip",
+            "rect": [
+              0.0,
+              0.0,
+              15.0,
+              5.712
+            ],
+            "from": "r1886-1635-f p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 96% of its fill"
+          }
+        ],
+        "lot_v": [
+          0.0,
+          5.712
+        ],
+        "street_u": 19.951
+      },
+      "confidence": "inferred",
+      "sources": [
+        "robinson_1886_chicago_plate_10"
+      ],
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): r1886-1635-f p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 96% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+    },
+    "draft_elevation": {
+      "value": {
+        "kind": "house",
+        "seed": 2943950489,
+        "principal_floor_m": 1.4,
+        "storey_heights_m": [
+          3.9,
+          3.5,
+          3.3,
+          3.1
+        ],
+        "roof_pitch_deg": 25,
+        "mansard_lower_m": 3.0,
+        "front_bays": 2,
+        "entrance": "north",
+        "side_spacing_m": 2.6,
+        "chimneys": 2,
+        "brackets": true,
+        "attic_dormers": false,
+        "stone": "stone",
+        "features": [],
+        "draft_label": {
+          "pass": "T-2335",
+          "refined_by": [
+            "T-2443"
+          ]
+        },
+        "v_toward": "south"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED by the draft rules, family row 'Italianate' overlaid with the frontage row: T-1870's brief for a 1635 house: 'a compact earlier villa with simple bracketed cornice, high stoop and bounded rear service roof'. Built in 1863, the same years as 1637's 'typical two-story brick Italianate' next door, so the draft's Italianate brackets under a low hip; two bays on the plate's 6.7 m front; the door on the north flank toward the open lots 3-5 the plate draws beside it, the Forsyth grounds a neighbour remembered for their lawn and fountain. Every one of these is RECONSTRUCTED. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2943950489 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-east-2335."
+    },
+    "draft": {
+      "value": {
+        "pass": "T-2335",
+        "liberty": "L-draft-prairie-16-18-east-2335",
+        "register_row": null,
+        "census_ids": [
+          "r1886-1635-f"
+        ],
+        "trace_building": "r1886-1635-f",
+        "seed": 2943950489,
+        "replaceable_by": [
+          "T-2443"
+        ],
+        "card": "District draft — refined by T-2443."
+      },
+      "confidence": "reconstructed",
+      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+      "geometry": "record_only"
+    },
+    "function": {
+      "value": "residence",
+      "confidence": "inferred",
+      "sources": [
+        "robinson_1886_chicago_plate_10"
+      ],
+      "note": "The 1911 sheet draws no building on the strip. T-2443 rules the Forsyth house standing on 1 July 1904 (census row s20-vacant-east-1625-1637, backcast_1886; docs/RESEARCH/forsyth-1635-2443/README.md): it is documented occupied from 1874 to 1902, last as Warren Springer's home (the Chicago Blue Book, 1895-1902), and no source dates its demolition before the 1911 sheet. Nobody is listed at 1635 in the 1904 Blue Book, so the house stands EMPTY on the target date: residence is its use, inferred, not an occupant."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "robinson_1886_chicago_plate_10",
+      "citation": "Robinson, E. Robinson's Atlas of the City of Chicago. New York: E. Robinson, 1886. Plate 10, \"Part of 2.39.14 Assessors Div.\"",
+      "url": "",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "The water's edge beside the Illinois Central from above 16th Street to 18th, as of 1886 -- a bound, from before, on the 1904 edge",
+        "Lot and subdivision lines, and the outlines of the houses at 1609-1611 and 1620 Prairie that Glessner House names as standing in 1904 and gone by 1911"
+      ],
+      "what_it_does_not_supply": [
+        "Street widths: its bands are not drawn to the widths it prints (Prairie printed 66, drawn about 55 ft)",
+        "Anything as of 1904 on its own authority",
+        "Elevations or grades"
+      ]
+    }
+  ],
+  "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-2443 refines in place under this same id. Written by tools/draft_prairie_1904.py from the Robinson 1886 plate 10 reading (r1886-1635-f: the outline in the plate's pixels, carried by its T-1250 fit) (r1886-1635-f), the T-1840 census (r1886-1635-f) and the T-1837 register row none (Italianate villa of 1863 (the Forsyth house)); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335).",
+  "research_doc": "",
+  "review_required": false
+}

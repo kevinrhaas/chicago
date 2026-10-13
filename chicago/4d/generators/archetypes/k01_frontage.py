@@ -44,8 +44,18 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
                             with its sash, bargeboards and verge soffits, copper
                             ridge roll, open valleys, apron and step flashing
   k01.wall.dormer_face      the dormer's face, its sash cut through it
+  k01.opening.gable_light   a WALL GABLE's light (T-2428, `k01_wall_gable`): the dormer's
+                            face on the wall's plane, K06 lights cut to their own heads
+  k01.opening.segmental_arch  the radiating voussoirs over a wall gable's light
+  k01.roof.gable_pinnacle   a wall gable's pinnacle: square shaft, cap and pyramid
+  k01.roof.gable_finial     a wall gable's turned finial on the ridge at its apex
   k01.opening.sash_round    a mansard crown's round-headed dormer sash (T-2404): K06's
                             round-arched variant in the recess the roof's union cut
+  k01.opening.sash_round_hooded
+                            a brick street front's round-headed window (T-2410): K06's
+                            round sash in a round hole the wall cuts (a rectangle to the
+                            spring, strips from the head's curve over it), under the kit's
+                            arch band as its hood, with a key block on the crown
   k08.*                     a K08 bay (T-2308): `generators/archetypes/k08_bays.py`
                             builds it in its own wall frame and `bay` lays it on
                             its host wall, which carries no opening behind it; a
@@ -95,6 +105,7 @@ from . import k09_frontage
 from . import k10_frontage
 from . import k11_frontage
 from . import k14_yard
+from .k01_frontage_params import ROUND_HOODED
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
@@ -184,6 +195,8 @@ MATERIALS = {
     # T-2293: the K04 roof. The covering's fabric is the record's (roof_covering), so
     # this entry's is only a default; flashing and rainwater are named by fabric.
     "slate_covering": {"fabric": "slate_pennsylvania", "color": (1.0, 1.0, 1.0), "roughness": 0.62},
+    # T-2406: a mansard's lower faces when they are slated over a metal upper hip (1620)
+    "mansard_slate": {"fabric": "slate_pennsylvania", "color": (1.0, 1.0, 1.0), "roughness": 0.62},
     # the dormer face: dressed stone a shade off the trim, and a name outside the
     # envelope materials, since the envelope is the walls and not what stands on the roof
     "dormer_stone": {"fabric": "limestone", "color": (0.96, 0.93, 0.86), "roughness": 0.8},
@@ -192,6 +205,8 @@ MATERIALS = {
     "k04_zinc_sheet": {"fabric": "zinc_sheet", "color": (1.0, 1.0, 1.0), "roughness": 0.6, "metallic": 0.3},
     "k04_painted_tin_sheet": {"fabric": "painted_tin_sheet", "color": (1.0, 1.0, 1.0), "roughness": 0.6},
     "iron": {"color": (0.055, 0.055, 0.06), "roughness": 0.55},
+    # T-2406: a yard's close-boarded fence, weathered timber (k11_frontage `side_fence`)
+    "fence_boards": {"color": (0.40, 0.36, 0.30), "roughness": 0.92},
     # T-2366: what stands proud of a stone front (keystones, pilasters, a hood, a portico):
     # the dressed stone, under a name outside the envelope materials, since the contract's
     # envelope is the wall and a portico stands metres before it (the stoop's reasoning)
@@ -214,6 +229,11 @@ MATERIALS.update({
     "bay_tin": {"color": (0.30, 0.22, 0.18), "roughness": 0.7},
     # T-2408: a bay's slated hood, the K08 kit's own slate colour (k08_bays.json `roofs`)
     "bay_slate": {"color": (0.16, 0.17, 0.19), "roughness": 0.75},
+    # T-2356: a frame bay's body is painted timber — the library's painted joinery, the
+    # sash's dark green paint on boards — over a brick plinth, its bands, sills and heads
+    # the fascia's painted trim. No lap is modelled: a bay of the period was boarded and
+    # panelled, and its boards are the texture's, not geometry (liberty L-k01-1626-*).
+    "bay_frame": {"fabric": "painted_wood", "color": (1.0, 1.0, 1.0), "roughness": 0.78},
 })
 # T-2313: a K15 stack's soot band (k15_chimneys.json `soot`): the K03 brick darkened, so
 # its courses and texture run on through the band; and the clay pot, should a source show one
@@ -232,8 +252,8 @@ MATERIALS["yard_earth"] = {"color": (0.139, 0.102, 0.061), "roughness": 1.0}
 MATERIALS["yard_cinder"] = {"fabric": "gravel", "color": (0.52, 0.50, 0.47), "roughness": 0.93}
 # T-2369: the white-painted panel behind a frieze light that reads white in its photograph
 MATERIALS["frieze_panel"] = {"color": (0.74, 0.73, 0.70), "roughness": 0.6}
-# K08 role -> slot; `body` is the bay's fabric (bay_stone or bay_brick), `cover` its
-# roof's K04 covering. A came is a leaded light's, which no K01 bay glazes.
+# K08 role -> slot; `body` is the bay's fabric (bay_stone, bay_brick or bay_frame), `cover`
+# its roof's K04 covering. A came is a leaded light's, which no K01 bay glazes.
 K08_ROLES = {"wall": "body", "reveal": "body", "mullion": "body", "roof_back": "body",
              "plinth": "bay_stone", "band": "bay_stone", "corbel": "bay_stone",
              "sill": "bay_stone", "head": "bay_stone", "soffit": "fascia", "fascia": "fascia",
@@ -242,6 +262,11 @@ K08_ROLES = {"wall": "body", "reveal": "body", "mullion": "body", "roof_back": "
              "curtain": "curtain", "backing": "backing", "roof": "cover", "finial": "cover",
              "bracket": "fascia"}   # T-2408: a hood's consoles and modillions, the eaves' joinery
 SLIVER_M = 0.0025   # T-2308: a bay triangle with an edge shorter than this is a sliver
+# T-2356: a frame bay has no stone in it. Its dressings are painted timber (the fascia's
+# slot) and its plinth the house's brick carried out under it, as a timber bay on a
+# masonry basement stands.
+K08_FRAME_ROLES = {"plinth": "bay_brick", "band": "fascia", "corbel": "fascia",
+                   "sill": "fascia", "head": "fascia"}
 K08_COVERS = {"copper_standing_seam": "bay_copper", "copper_sheet": "bay_copper",
               "tin_flat_seam_painted": "bay_tin", "slate_pennsylvania": "bay_slate"}
 
@@ -381,6 +406,8 @@ class Assembly:
         self.fabric = {k: v.get("fabric") for k, v in MATERIALS.items()}
         if params.roof:
             self.fabric["slate_covering"] = params.roof["covering"]
+            if params.roof.get("lower_covering"):
+                self.fabric["mansard_slate"] = params.roof["lower_covering"]
         self.soffit_m = None   # set by build(); the soot band hangs from it
         # T-2358: a record that names the K14 condition kit weathers to its own age in 1904
         # instead of wearing K03's fixed full-age mask; its walls are registered by build()
@@ -697,17 +724,24 @@ class Assembly:
         pr.face([P(s1, y0, 0), P(s1, y0, d), P(s1, y1, d), P(s1, y1, 0)], R, be, conf)
 
     # -- k01.wall.* ----------------------------------------------------------------
-    def wall(self, cid, mat, O, R, length, height, thickness, holes, extra_breaks=(), bands=(), gaps=(), cols=()):
+    def wall(self, cid, mat, O, R, length, height, thickness, holes, extra_breaks=(), bands=(), gaps=(), cols=(),
+             construction="masonry"):
         p = self.p
         N = _cross(R, Y)
         conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction")
         seed = self.instance(cid, "wall", {"length_m": length, "height_m": height,
-                                           "thickness_m": thickness, "construction": "masonry",
+                                           "thickness_m": thickness, "construction": construction,
                                            "openings": len(holes)},
                              {"base": O, "top": _add(O, _mul(Y, height))})
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
         sb = sorted({0.0, length, *cols, *[e for h in holes for e in (h[0], h[1])]})
         yb = sorted({0.0, height, *extra_breaks, *[e for h in holes for e in (h[2], h[3])]})
+        # T-2410: a round-headed hole (s0, s1, sill, spring, its head right -> left) is cut as
+        # a rectangle to its spring; over it, up to the first row clear of its crown, the
+        # cells are left out and strips from the head's curve to that row fill them (K08's
+        # wall_cells), so the reveal K06 builds on the same curve meets the wall edge to edge
+        over = [(h[0], h[1], h[3], next(y for y in yb if y > max(q[1] for q in h[4]) + 0.01), h[4])
+                for h in holes if len(h) > 4]
         phase = None
         if MATERIALS[mat].get("courses"):  # T-2291: the bond turns the quoin
             phase = k03_brick.phase_u(cid, length, self.tiles[MATERIALS[mat]["fabric"]][0])
@@ -718,8 +752,13 @@ class Assembly:
                 sc, yc = (sb[i] + sb[i + 1]) / 2, (yb[j] + yb[j + 1]) / 2
                 if any(h[0] < sc < h[1] and h[2] < yc < h[3] for h in holes):
                     continue
+                if any(s0 < sc < s1 and sp < yc < top for s0, s1, sp, top, _c in over):
+                    continue
                 pr.face([P(sb[i], yb[j], 0), P(sb[i + 1], yb[j], 0),
                          P(sb[i + 1], yb[j + 1], 0), P(sb[i], yb[j + 1], 0)], N, b, conf)
+        for _s0, _s1, _sp, top, curve in over:
+            for q0, q1 in zip(curve, curve[1:]):    # q0 right of q1
+                pr.face([P(q1[0], q1[1], 0), P(q0[0], q0[1], 0), P(q0[0], top, 0), P(q1[0], top, 0)], N, b, conf)
         for (y0, y1, proud) in bands:  # belt courses, part of the wall component
             for s0, s1 in _pieces(0.0, length, gaps):   # T-2308: stopped against a bay
                 self.proud_box("limestone_trim", (O, R, N), s0, s1, y0, y1, proud, seed, conf)
@@ -731,9 +770,12 @@ class Assembly:
         windows cut, the second-floor string course carried round from the main walls, and
         a flat deck. Its front stands on its host wall, which is not drawn behind it, so it
         has no front wall of its own; a later wing standing on its rear is cut out the same
-        way. Its brick heads and its soot band take their datum from its own wall top."""
-        from .k01_frontage_params import wing_walls
+        way. Its brick heads and its soot band take their datum from its own wall top.
+        T-2417: a `frame` wing's walls are painted timber, the frame bay's (T-2356), its
+        windows cased in the painted trim, with no brick course carried round it."""
+        from .k01_frontage_params import wing_walls, FRAME_WALL_M
         p = self.p
+        frame_wing = w.get("fabric") == "frame"
         keep, self.soffit_m = self.soffit_m, w["top_m"]
         on_rear = [(*x["host_span_m"], 0.0, x["deck_m"]) for x in p.rear_wings
                    if x["host_wall"] == f"k01.wall.wing.{w['id']}.rear"]
@@ -742,6 +784,12 @@ class Assembly:
             ops = [o for o in w["openings"] if o.wall == cid]
             cover = on_rear if side == "rear" else []
             hs = [(o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m) for o in ops] + cover
+            if frame_wing:
+                frame, t = self.wall(cid, "bay_frame", O, R, length, w["top_m"], FRAME_WALL_M, hs,
+                                     (w["top_m"],), construction="frame")
+                for o in ops:
+                    self.opening(o, frame, t, "bay_frame", "fascia")
+                continue
             breaks = (w["top_m"], *k03_brick.condition_breaks(w["top_m"]))
             frame, t = self.wall(cid, "brick", O, R, length, w["top_m"], p.side_thickness_m, hs, breaks)
             for o in ops:
@@ -820,6 +868,15 @@ class Assembly:
         seed = self.instance(op.component, "opening", params,
                              {"sill": P(op.s_m, y0, 0), "head": P(op.s_m, y1, 0),
                               "sash_plane": P(op.s_m, y0, -(recess if door else recess + 0.012))})
+        if op.component == ROUND_HOODED:
+            # T-2410: a round-headed street window keeps K06's arch band as its moulded hood,
+            # spring to spring, and stands a key block on the hood's crown
+            conf = max(conf, p.conf("street_front_round_heads"))
+            self.glaze(op, frame, body_mat, stone_trim, seed, conf, head=True)
+            k = p.round_heads["key"]
+            self.proud_box(stone_trim, frame, op.s_m - k["width_m"] / 2, op.s_m + k["width_m"] / 2,
+                           y1, y1 + k["height_m"], k["proud_m"], seed, conf)
+            return
         if not door:
             # T-2298: a window is a K06 opening — reveal, sill, frame, sashes, glass,
             # blind, curtain and an enclosed room — built about this hole's sill socket
@@ -1272,7 +1329,7 @@ class Assembly:
         v = next(x for x in self._kit["variants"] if x["id"] == self.p.window_kit[op.component]["variant"])
         return v.get("overrides", {}).get("reveal_depth_m", self._kit["parts"]["reveal_depth_m"]["value"])
 
-    def glaze(self, op, frame, body_mat, stone_trim, seed, conf, skip=()):
+    def glaze(self, op, frame, body_mat, stone_trim, seed, conf, skip=(), head=False):
         from . import k06_windows
         O, R, N = frame
         # T-2310: under a K09 architrave the sill's horns run past its outer edge, so the
@@ -1284,19 +1341,21 @@ class Assembly:
         o.seed = seed                      # the blind's drop follows this instance, not the kit's
         o.build()
         roles = {r: (stone_trim if m == "stone" else (m or body_mat)) for r, m in self.K06_ROLES.items()}
-        self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf), skip)
+        if head:   # T-2410: the kit's arch band is this head's hood
+            roles["head"] = stone_trim
+        self.graft(o, "K06", roles, frame, op, lambda role: (seed, conf), skip, head)
 
-    def graft(self, o, kit, roles, frame, op, seed_conf, skip=()):
+    def graft(self, o, kit, roles, frame, op, seed_conf, skip=(), head=False):
         """Carry a kit's built opening into this assembly. A kit's frame is +X along the
         wall, +Y up, +Z out of it, its origin at the opening's socket on the outer face (a
         K06 sill, a K07 threshold); `roles` maps each kit role to this assembly's material.
         The head band is left out: the K01 flat lintel (or a brick wall's own head)
-        dresses every head."""
+        dresses every head — but a round-headed street window's (`head`, T-2410)."""
         O, R, N = frame
         base = _add(O, _add(_mul(R, op.s_m), _mul(Y, op.sill_m)))
         W = lambda q: _add(base, _add(_add(_mul(R, q[0]), _mul(Y, q[1])), _mul(N, q[2])))
         for role, src in o.prims.items():
-            if role == "head" or role in skip:   # `skip`: a role a solid already carries
+            if (role == "head" and not head) or role in skip:   # `skip`: a role a solid already carries
                 continue
             if role not in roles:
                 raise ValueError(f"{kit} role {role!r} has no material on a K01 frontage")
@@ -1342,12 +1401,13 @@ class Assembly:
                               "junction_right": _add(O, _mul(R, b["span_m"][1]))})
         base = _add(O, _mul(R, b["s_m"]))
         W = lambda q: _add(base, _add(_add(_mul(R, q[0]), _mul(Y, q[1])), _mul(N, q[2])))
-        body = "bay_brick" if b["fabric"] == "brick" else "bay_stone"
+        body = {"brick": "bay_brick", "frame": "bay_frame"}.get(b["fabric"], "bay_stone")
+        roles = K08_ROLES | (K08_FRAME_ROLES if b["fabric"] == "frame" else {})
         cover = K08_COVERS[v["roof"]["covering"]]
         for role, src in built.prims.items():
-            if role not in K08_ROLES:
+            if role not in roles:
                 raise ValueError(f"K08 role {role!r} has no material on a K01 frontage")
-            mat = {"body": body, "cover": cover}.get(K08_ROLES[role], K08_ROLES[role])
+            mat = {"body": body, "cover": cover}.get(roles[role], roles[role])
             spec = MATERIALS[mat]
             fab = self.fabric[mat]
             tu, tv = self.tiles[fab] if fab else (1.0, 1.0)
@@ -1414,12 +1474,20 @@ class Assembly:
         v["stair"] = dict(v["stair"], floor_m=p.door_floor_m, going_m=p.tread_m,
                           landing_m=p.landing_depth_m, width_m=p.stoop_width_m)
         # T-2409: the terrace's reach and steps, from the front's s into the door's own frame
+        # T-2450: a left terrace's s run from the door AWAY from the stoop (K07 mirrors it),
+        # and where it passes the front's end K07 faces its back
         t = p.entrance_kit.get("terrace")
-        if t:
-            v["stair"]["porch"] = {"side": t["side"], "to_s_m": t["to_v_m"] - door.s_m,
-                                   "back": [[s - door.s_m, o] for s, o in t["back"]],
-                                   **({"balustrade": p.entrance_kit["balustrade"]}
-                                      if p.entrance_kit.get("balustrade") else {})}
+        porches = []
+        for q in (t if isinstance(t, list) else [t] if t else []):
+            k = 1.0 if q["side"] == "right" else -1.0
+            end = p.width_m - door.s_m if k > 0 else door.s_m
+            porches.append({"side": q["side"], "to_s_m": k * (q["to_v_m"] - door.s_m),
+                            "back": [[k * (s - door.s_m), o] for s, o in q["back"]],
+                            **({"wall_to_s_m": end} if k * (q["to_v_m"] - door.s_m) > end else {}),
+                            **({"balustrade": p.entrance_kit["balustrade"]}
+                               if p.entrance_kit.get("balustrade") else {})})
+        if porches:
+            v["stair"]["porch"] = porches[0] if len(porches) == 1 else porches
         if p.entrance_kit.get("balustrade"):
             v["stair"]["balustrade"] = p.entrance_kit["balustrade"]
         v["front_yard_m"] = p.entrance_kit["front_yard_m"]
@@ -1457,7 +1525,9 @@ class Assembly:
                                     "landing_depth_m": p.landing_depth_m, "width_m": p.stoop_width_m,
                                     "k07_variant": p.entrance_kit["variant"], "cheeks": o.v["stair"].get("cheeks", False),
                                     "front_yard_m": p.entrance_kit["front_yard_m"],
-                                    **({"terrace_to_v_m": p.entrance_kit["terrace"]["to_v_m"]}
+                                    **({"terrace_to_v_m": (p.entrance_kit["terrace"]["to_v_m"]
+                                                           if isinstance(p.entrance_kit["terrace"], dict)
+                                                           else [q["to_v_m"] for q in p.entrance_kit["terrace"]])}
                                        if p.entrance_kit.get("terrace") else {}),
                                     **({"balusters": o.meta.get("balusters", 0),
                                         "balustrade_height_m": p.entrance_kit["balustrade"]["height_m"]}
@@ -1493,12 +1563,16 @@ class Assembly:
         ye = E if m else E - o * tp
         yf = ye - f
         yr = p.ridge_m
+        gb = p.gable                          # T-2459: a ridge along the front, parapets each side
         conf = p.worst_conf("footprint", "roof_form", "roof_pitch_deg", "eave_overhang_m", "roof_covering",
-                            *(("mansard",) if m else ()))
-        seed = self.instance("k01.roof.mansard" if m else "k01.roof.hip", "roof",
+                            *(("mansard",) if m else ()), *(("gable_roof",) if gb else ()))
+        seed = self.instance("k01.roof.mansard" if m else "k01.roof.gable" if gb else "k01.roof.hip", "roof",
                              {"pitch_deg": p.roof_pitch_deg, "eave_overhang_m": o,
                               **({"variant": m["variant"], "lower_pitch_deg": m["lower_pitch_deg"],
                                   "lower_rise_m": m["lower_rise_m"], "curb_datum_m": m["curb_m"]} if m else {}),
+                              **({"ridge_back_m": gb["ridge_back_m"], "back_pitch_deg": gb["back_pitch_deg"],
+                                  "parapets": {k_: e["style"] for k_, e in gb["ends"].items()},
+                                  "parapet_top_m": round(yr + gb["top_above_ridge_m"], 4)} if gb else {}),
                               "eave_datum_m": E, "ridge_datum_m": yr, "construction": "k05",
                               "fascia_depth_m": f, "chimneys": len(p.chimneys),
                               **({"covering": k["covering"], "flashing": k["flashing"]} if k else {}),
@@ -1511,9 +1585,13 @@ class Assembly:
         if m:   # T-2370: K05's mansard ring stack, the lower faces curved to the curb
             hip, hs, _ = k5.mansard_element(0.0, D, -W, 0.0, E, m["lower_pitch_deg"], p.roof_pitch_deg,
                                             m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f)
+        elif gb:   # T-2459: the parapets first, so the union keeps their faces on the walls' planes
+            from . import k01_gable_roof
+            solids, hs, _, self.gable_roof = k01_gable_roof.elements(p, k5, E, o, f)
         else:
             hip, hs = k5.hip_element(0.0, D, -W, 0.0, E, tp, o, f)
-        solids = [hip, k5.body_box(0.0, D, -W, 0.0, hs - 1.0, hs)]
+        if not gb:
+            solids = [hip, k5.body_box(0.0, D, -W, 0.0, hs - 1.0, hs)]
         cr = (m or {}).get("crown")
         if cr:  # T-2404: the pavilion's crown, a taller mansard joined into the main one
             crown, _, _ = k5.mansard_element(cr["x0"], cr["x1"], cr["z0"], cr["z1"], E, cr["lower_pitch_deg"],
@@ -1538,26 +1616,31 @@ class Assembly:
             xf = D - sb                       # the face, on the street hip
             ys = E + sb * tp                  # its foot, where it leaves the covering
             yde = ys + hf                     # the dormer's eave, at its wall line
-            zc = -W / 2
+            zc = -d.get("v_m", W / 2)        # T-2428: a wall gable may stand off the front's centre
             back = D - (yde + wd / 2 * dt - E) / tp - 0.5   # behind where its ridge dies
             g, dhs, dhe, dry = k5.gable_element(back, xf, zc - wd / 2, zc + wd / 2, yde, dt, dp["overhang_m"],
                                                 d["verge_m"], dp["fascia_depth_m"], hs, "x", verge_ends=("hi",),
                                                 wall_role="cheek", end_role="dormer_face",
                                                 body_end_role="dormer_face")
             solids += g
-            sw, ss, sh = d["sash"]["width_m"], d["sash"]["sill_m"], d["sash"]["height_m"]
-            P = k5.frame("z")
-            # the recess is K06's reveal, cut to K06's depth: its back is where the K06
-            # frame, sashes and dark room stand (`window`, never emitted; dormer_sash)
-            from types import SimpleNamespace
-            rev = self.kit_reveal(SimpleNamespace(component="k01.opening.sash_flat", width_m=sw, height_m=sh))
-            recess = k5.extrude([(xf - rev, ys + ss), (xf + 0.05, ys + ss),
-                                 (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
-                                zc - sw / 2, zc + sw / 2, P,
-                                lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
             self.dormer_geom = {"xf": xf, "ys": ys, "yde": yde, "dhs": dhs, "dhe": dhe, "ridge": dry,
                                 "zs": zc + wd / 2, "zn": zc - wd / 2, "dt": dt, "overhang": dp["overhang_m"],
                                 "back": back}
+            if d.get("wall_gable"):
+                # T-2428: a wall gable's lights, cut to K06's own head, and its pediment panel
+                from . import k01_wall_gable
+                recesses += k01_wall_gable.cutters(self, k5, k5.frame("x"), xf, ys, zc)
+            else:
+                sw, ss, sh = d["sash"]["width_m"], d["sash"]["sill_m"], d["sash"]["height_m"]
+                P = k5.frame("z")
+                # the recess is K06's reveal, cut to K06's depth: its back is where the K06
+                # frame, sashes and dark room stand (`window`, never emitted; dormer_sash)
+                from types import SimpleNamespace
+                rev = self.kit_reveal(SimpleNamespace(component="k01.opening.sash_flat", width_m=sw, height_m=sh))
+                recess = k5.extrude([(xf - rev, ys + ss), (xf + 0.05, ys + ss),
+                                     (xf + 0.05, ys + ss + sh), (xf - rev, ys + ss + sh)],
+                                    zc - sw / 2, zc + sw / 2, P,
+                                    lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
         # T-2302's plain stacks, for a record that names no K15 variant (1612 Goodman)
         for c in p.chimneys:
             if "k15" in c:
@@ -1567,8 +1650,10 @@ class Assembly:
             top = c["top_m"]
             P = k5.frame("z")
             cp, cd = c["cap_proud_m"], c["cap_depth_m"]
-            # the stack stops inside its cap, so the two never share a face
-            solids.append(k5.extrude([(u - sx / 2, hs - 0.5), (u + sx / 2, hs - 0.5), (u + sx / 2, top - cd / 2),
+            # the stack stops inside its cap, so the two never share a face; one on a
+            # mansard's cornice (T-2406) rises from the cornice's top, not under the soffit
+            y0 = hs - 0.5 if c.get("base_m") is None else c["base_m"]
+            solids.append(k5.extrude([(u - sx / 2, y0), (u + sx / 2, y0), (u + sx / 2, top - cd / 2),
                                       (u - sx / 2, top - cd / 2)], z - sz / 2, z + sz / 2, P,
                                      lambda i, p_, q_: "chimney" if i != 2 else "hidden", "chimney", "chimney"))
             solids.append(k5.extrude([(u - sx / 2 - cp, top - cd), (u + sx / 2 + cp, top - cd),
@@ -1695,12 +1780,22 @@ class Assembly:
     BOARD = ("wall", "base")   # the body under the roof: the walls' own business
     OPEN = ("window",)         # the sash recess's back: the K06 opening set in it closes it
 
+    def _in_gable_dormer(self, tri):
+        """T-2452: whether a face's centroid lies in a gabled lower-face dormer's plan box."""
+        cx, cz = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, (tri[0][2] + tri[1][2] + tri[2][2]) / 3
+        return any(b[0] - 1e-6 <= cx <= b[1] + 1e-6 and b[2] - 1e-6 <= cz <= b[3] + 1e-6
+                   for b in getattr(self, "gable_dormer_boxes", ()))
+
     def _emit_shell(self, pts, tris, seed, conf):
         """Each triangle into its material, with metric UVs: a covering's courses run up
         its own plane from that plane's lowest point (its eave), so a course is never cut
         at the eave and every fragment the union left of one plane registers."""
         k = self.p.roof or {}
         phase = (_k04_fabric(k["covering"]) or {}).get("course_phase_m", [0.0, 0.0])[1] if k else None
+        # T-2406: a mansard whose lower faces are slated: every covering face steeper than
+        # 45 degrees is a lower face (the crown's too); the upper hip keeps the covering
+        lower = k.get("lower_covering")
+        lower_phase = (_k04_fabric(lower) or {}).get("course_phase_m", [0.0, 0.0])[1] if lower else None
         planes = {}
         for a, b, c, role, n in tris:
             if role == "covering":
@@ -1720,12 +1815,17 @@ class Assembly:
                 raise ValueError(f"the K05 union left a {role!r} face on the roof")
             else:
                 mat = self.SHELL[role]
+            if role == "cheek" and lower and self._in_gable_dormer((pts[a], pts[b], pts[c])):
+                mat = "mansard_slate"
             tri = [pts[a], pts[b], pts[c]]
+            steep = role == "covering" and lower and n[1] < math.cos(math.radians(45))
+            if steep:
+                mat = "mansard_slate"
             if role == "covering":
                 key = tuple(round(x, 5) for x in n) + (round(_dot(n, pts[a]), 4),)
                 up = _unit(_sub(Y, _mul(n, n[1])))
                 contour = _unit(_cross(up, n))
-                b_ = self.basis(mat, planes[key], contour, up, seed, course_v=phase)
+                b_ = self.basis(mat, planes[key], contour, up, seed, course_v=lower_phase if steep else phase)
             elif abs(n[1]) > 0.999:
                 b_ = self.basis(mat, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed)
             else:
@@ -1762,16 +1862,29 @@ class Assembly:
         hole = o.holes[0]
         sill = ys + d["sill_m"]
         r = d["width_m"] / 2
-        spring = sill + d["sash_height_m"] - d["sash_width_m"] / 2
-        # the face's outline across the face: jambs to the sash's spring, then a half circle
-        # struck from the sash's own centre, `surround_m` outside its arch
-        arc = [(centre + r * math.cos(math.pi * i / 12), spring + r * math.sin(math.pi * i / 12))
-               for i in range(13)]
-        outline = [(centre - r, ys - 0.4), (centre + r, ys - 0.4)] + arc
+        top = sill + d["head_m"]
+        if d.get("head") == "gable":
+            # T-2452: jambs to the surround's head over the square-headed sash, then the
+            # pediment's two slopes to its apex, slated as the cheeks are
+            eaves = sill + d["sash_height_m"] + d["surround_m"]
+            head = [(centre + r, eaves), (centre, top), (centre - r, eaves)]
+        else:
+            # the face's outline across the face: jambs to the sash's spring, then a half
+            # circle struck from the sash's own centre, `surround_m` outside its arch
+            spring = sill + d["sash_height_m"] - d["sash_width_m"] / 2
+            head = [(centre + r * math.cos(math.pi * i / 12), spring + r * math.sin(math.pi * i / 12))
+                    for i in range(13)]
+        outline = [(centre - r, ys - 0.4), (centre + r, ys - 0.4)] + head
         back = fascia - sg * (run + 0.3)
         P = k5.frame(axis)
         ends = ("hidden", "dormer_face") if sg > 0 else ("dormer_face", "hidden")
         body = k5.extrude(outline, min(back, nf), max(back, nf), P, "cheek", *ends)
+        if d.get("head") == "gable":
+            # T-2452: its cheeks and pediment slopes are slated as the lower faces are (_emit_shell
+            # reads a cheek inside this box as one of them), its plan box in the K01 frame
+            a0, a1 = sorted((back, nf))
+            box = (a0, a1, centre - r, centre + r) if axis == "x" else (centre - r, centre + r, a0, a1)
+            self.gable_dormer_boxes = getattr(self, "gable_dormer_boxes", []) + [box]
         rev = v.get("overrides", {}).get("reveal_depth_m", k06_windows.load()["parts"]["reveal_depth_m"]["value"])
         # the hole in the kit's frame is (+X along the wall, +Y up), +X being the face's R
         rec = [(centre + ra * q[0], sill + q[1]) for q in hole]
@@ -1781,8 +1894,8 @@ class Assembly:
         at = lambda along, y, n: (n, y, along) if axis == "x" else (along, y, n)
         return {"body": body, "recess": recess,
                 "geom": {"O": at(centre - ra * r, ys, nf), "R": R, "ys": ys, "sill": sill,
-                         "sill_pt": at(centre, sill, nf), "top_pt": at(centre, spring + r, nf),
-                         "width": 2 * r, "top": spring + r, "variant": v, "d": d}}
+                         "sill_pt": at(centre, sill, nf), "top_pt": at(centre, top, nf),
+                         "width": 2 * r, "top": top, "variant": v, "d": d}}
 
     def crown_dormer_body(self, cr, E, f):
         """T-2404: the crown's round-headed dormer, on the crown's street face, centred on it."""
@@ -1805,15 +1918,18 @@ class Assembly:
         return out
 
     def round_dormer_sash(self, g, conf):
-        """A round-headed dormer's K06 sash in the recess the union cut (its reveal is the
-        solid's), the face registered as the K01 dormer face it is (T-2404, T-2411)."""
+        """A lower-face dormer's K06 sash in the recess the union cut (its reveal is the
+        solid's), the face registered as the K01 dormer face it is (T-2404, T-2411; a
+        gabled one's square-headed sash, T-2452)."""
         from . import k06_windows
         from archetypes.k01_frontage_params import Opening
         d, O, R = g["d"], g["O"], g["R"]
+        head = d.get("head", "round")
         self.instance("k01.wall.dormer_face", "wall", {"length_m": g["width"], "height_m": round(g["top"] - g["ys"], 4),
-                                                       "construction": "masonry", "openings": 1, "head": "round"},
+                                                       "construction": "masonry", "openings": 1, "head": head},
                       {"base": O, "top": g["top_pt"]})
-        op = Opening("k01.opening.sash_round", "k01.wall.dormer_face", g["width"] / 2, g["sill"] - g["ys"],
+        op = Opening("k01.opening.sash_round" if head == "round" else "k01.opening.sash_flat",
+                     "k01.wall.dormer_face", g["width"] / 2, g["sill"] - g["ys"],
                      d["sash_width_m"], d["sash_height_m"])
         frame = (O, R, _cross(R, Y))
         seed = self.instance(op.component, "opening", {"clear_width_m": op.width_m, "clear_height_m": op.height_m,
@@ -1831,6 +1947,9 @@ class Assembly:
         """The dormer's face: a K01 wall component whose surface is the union's, and its
         sash set in the recess the union cut (the reveal is the solid's, K06 the rest)."""
         p, d, g = self.p, self.p.dormer, self.dormer_geom
+        if d.get("wall_gable"):     # T-2428: its lights, voussoirs, pinnacles and finial
+            from . import k01_wall_gable
+            return k01_wall_gable.dress(self, roof_seed)
         from archetypes.k01_frontage_params import Opening
         wd, hf = d["width_m"], d["face_height_m"]
         O = (g["xf"], g["ys"], g["zs"])
@@ -2293,6 +2412,17 @@ def _pieces(s0, s1, gaps):
     return [(a, b) for a, b in out if b - a > 1e-6]
 
 
+def hole(o):
+    """An opening's hole in its wall: (s0, s1, sill, head), or for a round-headed one (T-2410)
+    (s0, s1, sill, spring, its head right -> left) on K06's own curve for that span."""
+    s0, s1 = o.s_m - o.width_m / 2, o.s_m + o.width_m / 2
+    if o.component != ROUND_HOODED:
+        return (s0, s1, o.sill_m, o.head_m)
+    from . import k06_windows
+    spring = o.head_m - o.width_m / 2
+    return (s0, s1, o.sill_m, spring, k06_windows.Head("round", s0, s1, spring).curve(0.0, s1, s0))
+
+
 def build(params, structure_id: str):
     """The assembly: walls with their openings cut, the entrance and its stoop, the roof."""
     p = params
@@ -2311,8 +2441,7 @@ def build(params, structure_id: str):
 
     def holes(wall_id):
         # T-2343: where a rear wing stands on this wall, the wall is behind it and not drawn
-        return [(o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m)
-                for o in p.openings if o.wall == wall_id] + \
+        return [hole(o) for o in p.openings if o.wall == wall_id] + \
                [(*w["host_span_m"], 0.0, w["deck_m"]) for w in p.rear_wings if w["host_wall"] == wall_id]
 
     # The four walls, each about its base socket: outer face, left end (seen from

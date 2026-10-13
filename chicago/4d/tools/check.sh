@@ -70,6 +70,9 @@ step "The working bank never hides the timber standing on it (T-2098)" \
 step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
   node tools/check_glass_modes.mjs
 
+step "Glessner's granite is retinted to grey-greige, and nothing else is (T-2446, T-2469)" \
+  node tools/check_glessner_stone.mjs
+
 step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choice wins (T-2110)" \
   node tools/check_sharpness_default.mjs
 
@@ -175,6 +178,10 @@ step "Prairie 1904 K01 component contract holds, and the Glessner baseline is th
   node tools/k01_contract.mjs --check
 selftest "…coincident faces, hidden origin offsets and tier scale drift are caught on synthetic GLBs" \
   node tools/k01_contract.mjs --self-test
+step "every Glessner tier's stone occlusion was baked from its committed atlas, so a bake on any CPU reproduces it (T-2431)" \
+  python3 tools/check_stone_occlusion_atlas.py --check
+selftest "…a model rebaked without its atlas, an atlas holding another key and an orphan atlas are refused" \
+  python3 tools/check_stone_occlusion_atlas.py --self-test
 step "the K01 assemblies are the bytes their records build (T-2266)" \
   python3 generators/k01_emit.py --check
 step "the K13 conservatories in the scene are the bytes their records build (T-2306)" \
@@ -289,6 +296,9 @@ selftest "structure versions: no mesh, a stale mesh and a refused label are each
 
 selftest "…the address bar swaps one committed version and falls back ALOUD on every miss (T-1727)" \
   node tools/test_structure_versions.mjs --self-test
+
+step "Buildings share an image they carry identically: one decode, closed by its last holder (T-2464)" \
+  node tools/test_shared_images.mjs
 
 selftest "…and promote_version.mjs makes a version the default in one diff, reversibly (T-1727)" \
   node tools/promote_version.mjs --self-test
@@ -3206,6 +3216,11 @@ selftest "…and each refusal still fires when broken (T-2040)" \
 
 step "Source-use backlinks match authored claims (T-1248)" \
   python3 tools/compile_source_use.py --check
+
+# The Glessner street/stable opening schedule is generated from the record, so a
+# record change that is not re-scheduled is caught here (T-2211).
+step "Glessner street and stable opening schedule matches its record (T-2211)" \
+  python3 tools/glessner_opening_schedule.py --check
 
 step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
   python3 tools/test_compile_source_use.py

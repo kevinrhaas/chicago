@@ -1,0 +1,30 @@
+{
+  "id": "building_budget_1886_06_hamline_farwell_houses",
+  "type": "illustration",
+  "citation": "'Houses, Prairie Ave. — Treat and Foltz, Archts. — J. H. Hamline Esq. / G. Farwell Esq.' The Building Budget (Chicago), June 188- (the year is cut off on the reproduced page). Pen perspective of two stone-fronted town houses, with a small plan inset. Reproduced on chicagology.com, Prairie Avenue, the 1811 S. Prairie page (captioned there '1811 S. Prairie Ave.', a mislabel).",
+  "author": "Treat & Foltz, architects; published by The Building Budget",
+  "date": "1886-06",
+  "describes_date": "1886-06",
+  "repository": "The Building Budget; reproduced on chicagology.com. Prairie library image cgn-1619-1625-building-budget-hamline-farwell (chicago/prairie_1904_v1/research/images/stream-chicagology-north.json), its 900 x 946 px display file in the image store; that file and an unscaled crop of the Hamline house are committed at data/sources/assets/hamline_1619_drawing_t2420/.",
+  "url": "https://chicagology.com/chicagostreets/prairieavenue/1811prairie/",
+  "locator": "The left-hand house, lettered 'J. H. Hamline Esq.' beneath it: the display copy's pixels x 20-600, y 100-946 (building_budget_1619_panel.jpg). The camera (data/reference_views/house_1619_prairie/building_budget_front.json) says how far the drawing can be measured. The right-hand house, lettered 'G. Farwell Esq.' beneath it, is read for 1623 Prairie (T-2433): the display copy's pixels x 540-900, y 90-946 (data/sources/assets/farwell_1623_drawing_t2433/building_budget_1623_panel.jpg), its camera data/reference_views/house_1623_prairie/building_budget_front.json.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "A US architectural periodical's plate published in the 1880s, in the public domain; chicagology's copy is a faithful reproduction. Read for forms, counts and proportions; no texture or mesh is derived from it.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-10-12 (T-2420) from the image store's 900 x 946 px display copy, sha256 1a7240d2b6c3a6c6247ef54d07c767840dd9faeef648ae29be808ef74753ba67; the library records the chicagology original (769,292 bytes, sha256 7cb3eaf2...) that the store downscaled. The month is legible ('June, 18'); the year is cut off. The library dates it probably 1886: Inland Architect reported the Farwell commission in November 1885, and the Inter Ocean of 18 April 1886 has the Hamlines 'removed to their new residence, No. 1619 Prairie avenue'. Neither notice is yet a source record here.",
+  "note": "The design of John H. Hamline's house at 1619 Prairie Avenue (the left house) beside Granger Farwell's (the right), drawn by their architects for publication, so the house as designed about the year it was built and eighteen years before the 1904 scene; what was built and what stood in 1904 is argued against the 1911 Sanborn sheet, which controls the plan. The Hamline front, read off the drawing itself: a narrow north strip holding a recessed round-arched entrance up a stoop, with a small ornate light over a carved panel at the second floor; a full-height swell bay rising from the raised basement, where two segmental lights carry iron grilles, through the principal and second storeys, two lights a storey under flat heads with voussoir blocks and moulded string courses, to a moulded cornice carrying a balcony rail; above it, set back on the main wall, a third storey of three segment-headed lights under a steep pedimented wall gable with a finial, between two pinnacle shafts; a slated roof behind; and on the south, a tall side wall in shade whose parapet steps up from the front to a chimney stack. The drawing is monochrome.",
+  "what_it_supplies": [
+    "the swell bay's height (grade to the third floor) and its two lights a storey",
+    "three storeys over a raised basement, the third in a wall gable over the bow",
+    "the entrance's place in the north strip, round-arched and recessed",
+    "the slated roof, the stepped south parapet and its stack",
+    "the stone front's smooth ashlar"
+  ],
+  "what_it_does_not_supply": [
+    "the plan: the 1911 Sanborn sheet's trace controls it, and the drawing's north strip is narrower than the sheet's",
+    "colour",
+    "the north side wall, the rear and anything the 1886 design lost or gained by 1904"
+  ]
+}

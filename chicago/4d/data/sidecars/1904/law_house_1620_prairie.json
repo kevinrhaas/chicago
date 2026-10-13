@@ -78,20 +78,23 @@
       "note": "Robinson 1886 plate 10 colours the building pink, the plate's brick (its frame buildings are yellow); the register's 'irregular earlier brick envelope' agrees. Built as a plain brick street front on common-brick side and rear walls (T-2341's K01 brick front); no stone front is read."
     },
     "principal_floor_m": {
-      "value": 1.4,
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: the register's 'stoop' read as the high stoop of its brick neighbours: a principal floor 1.4 m above grade, inside RECONSTRUCTION-RULES' range, the draft's own figure kept."
+      "value": 2.0,
+      "confidence": "inferred",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law"
+      ],
+      "note": "Read off the 1874 engraving through its camera as T-2437 re-solved it (data/reference_views/law_house_1620_prairie/landowner_1874_from_northeast.json, the eye 2.0 m over the walk): the porch's turned balustrade, which stands at the principal floor before the pavilion, has its rail's top at y 547-548 px, 2.91-2.93 m over grade, and the bay's terrace rail beside the bay at y 551 px reads 2.89 m; less the 0.9 m balustrade, the floor stands 2.0 m over grade. The stoop's head rail (y 543 px at v 8.0) reads 3.08 m, the same floor within the engraver's line. The draft's 1.4 m was the high stoop of the brick neighbours, RECONSTRUCTED; T-2409 found the engraving drawing this front's floor about 1.5-2 m under it on the old camera, which was the camera's datum and not the floor."
     },
     "storey_heights_m": {
       "value": [
-        3.6,
-        3.2
+        4.8,
+        4.1
       ],
       "confidence": "inferred",
       "sources": [
         "land_owner_1874_05_homes_of_chicago_1620_law"
       ],
-      "note": "The walls' top read off the 1874 engraving through its camera (data/reference_views/law_house_1620_prairie/landowner_1874_from_northeast.json): the cornice's soffit at the front's north corner (y 300 px) stands 7.91 m over grade and the cornice's top (y 290 px) 8.22 m, so the wall head is taken at 8.2 m, 0.7 m under the 8.9 m T-1861 had reconstructed. Over the 1.4 m principal floor that leaves 6.8 m for the two storeys, divided 3.6 and 3.2 m as the engraving's taller principal-storey windows divide them (the split itself is not measured: RECONSTRUCTED)."
+      "note": "The walls' top read off the 1874 engraving through its camera as T-2437 re-solved it (data/reference_views/law_house_1620_prairie/landowner_1874_from_northeast.json): the cornice's soffit at the front's north corner (y 300 px) and at its south corner (y 327 px) both stand 10.61 m over grade and the cornice's top (y 290 px) 10.92 m, so the wall head is taken at 10.9 m; over the 2.0 m principal floor that leaves 8.9 m for the two storeys. The upper floor is read off the upper street windows, whose feet stand at 7.50-7.72 m over grade on the main wall and the pavilion alike (y 394-413 px at v 2.5, 5.2, 8.2 and 10.1): under a 0.7 m sill the upper floor is at 6.8 m, so 4.8 and 4.1 m. The 0.7 m sill is RECONSTRUCTED, so the split is within about 0.2 m. T-2370 had read the cornice at 8.2 m over grade on a camera whose eye it put 0.7 m under grade from the north wall's 'foot', which the engraving does not draw (the porch's end and the north board fence cross both corners there); T-1861's reconstructed 8.9 m wall head was 2.0 m under the engraving's, and T-2370's 8.2 m 2.7 m."
     },
     "wall_thickness_front_m": {
       "value": 0.33,
@@ -118,7 +121,24 @@
         "entrance": "k09.trim.lintel_cornice_hood"
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: the register's 'arched windows' (its 1898 numbered drawing 'supports bay/arches'; the drawing is not read here) built as two rowlock rings on a segmental arch over every street window, the head this house's own side and rear walls already wear (T-2291), taught to the brick street front by T-1861 (`brick_heads`). The K01 wall cuts a rectangular hole, so the sash under each arch stays flat-headed and the arch springs from its jambs; an arched sash is a different hole and is not built. by_storey names K01's flat lintel only because brick_heads replaces it. T-2409: the door's hood, which the 1874 engraving draws over it (a projecting hood on brackets, its profile not read through the tree in front of it; the 1898 sketch's '1620' cartouche covers that part of the front), built as the K09 kit's cornice hood: a frieze block over the door's flat head, its cornice returned to the wall, on a scrolled console each side. RECONSTRUCTED in its form and every size, the kit's."
+      "note": "RECONSTRUCTED: the register's 'arched windows' (its 1898 numbered drawing 'supports bay/arches'; the drawing is not read here) built as two rowlock rings on a segmental arch over every street window, the head this house's own side and rear walls already wear (T-2291), taught to the brick street front by T-1861 (`brick_heads`). The K01 wall cuts a rectangular hole, so the sash under each arch stays flat-headed and the arch springs from its jambs; an arched sash is a different hole and is not built. by_storey names K01's flat lintel only because brick_heads replaces it. Since T-2410 every window the brick street front cuts is round-headed under its hood (`street_front_round_heads`), so these segmental arches stand over none of them; they remain the head of any flat-headed street window the record cuts. T-2409: the door's hood, which the 1874 engraving draws over it (a projecting hood on brackets, its profile not read through the tree in front of it; the 1898 sketch's '1620' cartouche covers that part of the front), built as the K09 kit's cornice hood: a frieze block over the door's flat head, its cornice returned to the wall, on a scrolled console each side. RECONSTRUCTED in its form and every size, the kit's."
+    },
+    "street_front_round_heads": {
+      "value": {
+        "storeys": [
+          1
+        ],
+        "key": {
+          "width_m": 0.24,
+          "height_m": 0.28,
+          "proud_m": 0.07
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law"
+      ],
+      "note": "The street front's windows round-headed under moulded hoods (T-2410), read off the 1874 engraving through its camera (data/reference_views/law_house_1620_prairie/landowner_1874_from_northeast.json): the upper window over the bay window (x 434-470 px, centred over the bay's hood, whose top its foot stands on) and the upper window over the door (x 530-550 px, v about 5.6-6.1) are both drawn round-headed, each under a heavy round hood that springs at the sash's shoulders, and over each hood's crown a raised ornament, the 'ornate head'. Those two are the only street windows the main wall carries: the principal-storey window behind the bay and the north bay's two behind the pavilion are not cut, and the door is the middle bay's principal opening. Built as K06's round-headed fanlight sash cut as a round hole through the K03 brick, under the kit's own stone arch band as its hood (the same head the pavilion's round-headed windows wear), with a key block standing on the crown for the ornament. The engraving draws the ornament but cannot resolve it (a crested or scrolled key is what woodcuts of the 1870s draw so): the key's 0.24 x 0.28 m and its 0.07 m projection, the band's 0.18 m and the sash's sizes (sash_by_storey) are RECONSTRUCTED. The 1898 Tribune sketch's 1620 cartouche covers the south part, so it is not read for these. Since T-2409 moved the door to v 6.6 the window over it stands there too, on the door's bay centre, about 0.5-1 m north of where the engraving draws it; that is an open difference in the engraving's match record."
     },
     "wall_head": {
       "value": {
@@ -172,7 +192,7 @@
         8.6
       ],
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: three bays across the 11.25 m front, south to north: the bay window's centre at 3.09 m (its upper window stands over the hood, as the 1874 engraving draws one there; the principal-storey window and basement light behind the bay are not cut), the door at 6.6 m and the north bay at 8.6 m, behind T-2404's north pavilion (v 7.5-11.25), so its window and basement light are not cut; its own windows are the pavilion's. The plate draws no openings; the bay is placed as the engraving's camera reads it (T-2408), the third bay is the kits'. T-2409 moved the door from T-2408's 5.8 m to 6.6 m, the north end of the engraving's 'about v 5-6.6': the 1898 Tribune sketch's stoop rises straight from its gate (x 93-140 px in its panel, about v 6.3-7.5 at the street line) to a door beside the pavilion's south face, and the 1874 engraving's stoop rail runs from x 540 to 582 px, which a straight stoop on this camera draws only with its north string near v 7.5; 6.6 is the furthest north the 1.8 m landing stands clear of the pavilion's south face at 7.5. The window over the door moves with it."
+      "note": "RECONSTRUCTED: three bays across the 11.25 m front, south to north: the bay window's centre at 3.09 m (its upper window stands over the hood, round-headed under its own (T-2410), as the 1874 engraving draws one there; the principal-storey window and basement light behind the bay are not cut), the door at 6.6 m and the north bay at 8.6 m, behind T-2404's north pavilion (v 7.5-11.25), so its window and basement light are not cut; its own windows are the pavilion's. The plate draws no openings; the bay is placed as the engraving's camera reads it (T-2408), the third bay is the kits'. T-2409 moved the door from T-2408's 5.8 m to 6.6 m, the north end of the engraving's 'about v 5-6.6': the 1898 Tribune sketch's stoop rises straight from its gate (x 93-140 px in its panel, about v 6.3-7.5 at the street line) to a door beside the pavilion's south face, and the 1874 engraving's stoop rail runs from x 540 to 582 px, which a straight stoop on this camera draws only with its north string near v 7.5; 6.6 is the furthest north the 1.8 m landing stands clear of the pavilion's south face at 7.5. The window over the door moves with it."
     },
     "side_bays": {
       "value": [
@@ -195,28 +215,33 @@
     },
     "north_bays": {
       "value": [
-        3.0,
-        8.0,
-        13.0
+        3.35,
+        11.55
       ],
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: three windows a storey on the north wall, front to rear. It faces 1616 across a 4.7 m side yard (the lot runs to v 15.95 in this frame), not a party wall, so it is not left blank; nothing draws them."
+      "confidence": "inferred",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law"
+      ],
+      "note": "Two windows a storey on the north wall, measured from the front corner (T-2410). The 1874 engraving draws the north wall whole, from the front corner (x 700 px) to the rear (x 848 px), with two flat-headed windows in the upper storey, at x 734-741 and 801-820 px, and one below the second; ivy on an arched trellis stands in front of the principal storey under the first, so that window is not seen and is taken to stand under the one above it. Through the engraving's camera the window centres (x 737 and 810 px) fall 3.35 m and 11.55 m back from the front corner (on the wall's face; the second is drawn wider than a sash because its rear jamb's reveal is seen at a grazing angle). It faces 1616 across a 4.7 m side yard (the lot runs to v 15.95 in this frame), not a party wall. Their sash sizes are sash_by_storey's, RECONSTRUCTED; T-1861's three windows a storey at 3.0, 8.0 and 13.0 m were the kits' and nothing drew them."
     },
     "sash_by_storey": {
       "value": [
         {
           "sill_above_floor_m": 0.75,
           "width_m": 1.0,
-          "height_m": 2.3
+          "height_m": 3.55
         },
         {
-          "sill_above_floor_m": 0.6,
+          "sill_above_floor_m": 0.7,
           "width_m": 1.0,
-          "height_m": 1.75
+          "height_m": 2.15
         }
       ],
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: 1608's two-over-two sash, 1.0 m wide, 2.3 m in the principal storey and 1.75 m above on a 0.6 m sill, each under its brick arch; the upper sash is 0.15 m shorter and sits 0.1 m lower than 1608's because T-2370 lowered the wall head to the 1874 engraving's cornice and the arch must clear the K10 bed moulding. The engraving's round-headed windows in the north part are the pavilion's (T-2404, `bays`); the rest of its windows (round-headed on the south part, flat-headed on the north wall) are not yet built as it shows them."
+      "confidence": "inferred",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law"
+      ],
+      "note": "The sash's HEIGHTS are read: they follow the 1874 engraving through T-2437's camera, where it draws them: the upper street windows' feet at 7.50-7.72 m over grade and their round heads' tops at 9.63-9.81 m (main wall and pavilion alike), so 2.15 m on a 0.7 m sill over the 6.8 m upper floor; the principal storey's heads at 6.23-6.37 m in the pavilion (y 440-442 px), where the porch's balustrade hides their feet, so 3.55 m on a 0.75 m sill over the 2.0 m floor, the long windows of the engraving. The sills themselves are not drawn, and 1608's two-over-two sash, 1.0 m wide, each under its brick arch, are RECONSTRUCTED; the principal storey's 3.55 m stands outside K01's 2.4 m starting range on the engraving, as T-2366 lets a read principal floor. The engraving's round-headed windows in the north part are the pavilion's (T-2404, `bays`); the two upper street windows of the main wall are round-headed under hoods (T-2410, `street_front_round_heads`), the same sizes with a round head inside them, and the north wall's flat-headed (`north_bays`)."
     },
     "basement_lights": {
       "value": {
@@ -231,10 +256,14 @@
       "value": {
         "fabric": "tin_standing_seam_painted",
         "flashing": "copper_sheet",
-        "caps": "copper_ridge_roll"
+        "caps": "copper_ridge_roll",
+        "lower_faces": "slate_pennsylvania"
       },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: painted standing-seam tin with copper flashing and ridge roll, the K04 covering 1608 and 1600 wear."
+      "confidence": "inferred",
+      "note": "The mansard's lower faces SLATED (T-2406): the 1874 engraving hatches the north face and the crown in close level courses, the slate of a mansard, where the cornice and walls are drawn in vertical strokes; K04's slate takes a face of 45 degrees and up at its 3 in. headlap, and the faces stand on 72- and 80-degree chords. Which quarry is RECONSTRUCTED: Pennsylvania's dark slate, the engraving's dark tone and K04's commonest slate. The low upper hip (18 degrees, which K04 does not slate) neither picture sees, from the street below the raised yard; it stays RECONSTRUCTED painted standing-seam tin with copper flashing and ridge roll, the K04 covering 1608 and 1600 wear.",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law"
+      ]
     },
     "chimneys": {
       "value": {
@@ -251,13 +280,22 @@
             "v_m": 5.625
           },
           {
-            "u_m": 12.4,
-            "v_m": 5.625
+            "u_m": 15.935,
+            "v_m": 11.5,
+            "plan_m": [
+              0.75,
+              0.6
+            ],
+            "on_cornice": true,
+            "top_m": 14.7
           }
         ]
       },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: two brick stacks on the ridge line, one over each half of the house, 1608's stack and cap; nothing read places them."
+      "confidence": "inferred",
+      "note": "The FRONT stack read off the 1874 engraving through its camera (T-2406): a tall stack standing at the front of the north wall, close behind the crown, its lit east face between x 703 and 722 px and its north face on to 730 px. The camera's plan readings are exact (x does not depend on height), and a 0.9 by 0.75 m stack whose east face stands at u 14.0 and north face at v 10.95 projects to 700.6, 721.9 and 731.1 px: so its centre is u 13.55, v 10.575, the nearest the plain-stack rule (0.3 m inside the wall line) lets it to the north wall. Its cap at y 175 px stood 12.5 m over grade through the same camera, about 0.7 m over the crown's curb; T-2437 re-solved that camera's vertical datum (the eye 2.0 m over the walk, where T-2370 had it 0.7 m under grade), which raises every height it reads by 2.7 m, so the cap is carried up with the walls to 15.2 m. Read again on that camera, the drawn cap's top (y 174-176 px at x 700-730) stands 14.55-14.65 m over grade: the 12.5 m T-2414 built projected on its own camera to y 157 px, 18 px over the drawn cap, and 15.2 m does the same on this one. T-2444 brought the two down together: with the crown's curb 0.3 m over the main curb (14.1 m), K01's least stack, 0.6 m over it, tops at 14.7 m, within 0.05-0.15 m of the drawn cap, and projects to y 169-170 px against the drawn 174-176. The REAR stack stays where the draft put it, on the ridge over the rear half, RECONSTRUCTED: through the engraving's camera it stands behind the crown (x 679 px, y 217 px), where the picture cannot show it. Both are 1608's stack and cap, RECONSTRUCTED; the 1874 build's second ridge stack over the front half is gone, because the engraving draws open sky where it would stand over the crown.",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law"
+      ]
     },
     "rainwater": {
       "value": {
@@ -290,29 +328,46 @@
     "window_kit": {
       "value": {
         "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight",
         "k01.opening.area_light": {
           "variant": "k06.opening.area_light",
           "well": false
         }
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: the K06 two-over-two flat sash and area lights 1608 wears."
+      "note": "RECONSTRUCTED: the K06 two-over-two flat sash and area lights 1608 wears; the street front's round-headed windows (T-2410, `street_front_round_heads`) take K06's round-arched fanlight sash, the variant the pavilion's round-headed windows wear."
     },
     "entrance_kit": {
       "value": {
         "k01.opening.door_leaf": {
           "variant": "k07.entrance.panel_door_stoop",
           "front_yard_m": 6.24,
-          "terrace": {
-            "side": "right",
-            "to_v_m": 11.25,
-            "back": [
-              [
-                7.5,
-                0.4
+          "terrace": [
+            {
+              "side": "right",
+              "to_v_m": 11.25,
+              "back": [
+                [
+                  7.5,
+                  0.4
+                ]
               ]
-            ]
-          },
+            },
+            {
+              "side": "left",
+              "to_v_m": -0.35,
+              "back": [
+                [
+                  4.06,
+                  0.58
+                ],
+                [
+                  2.12,
+                  0.0
+                ]
+              ]
+            }
+          ],
           "balustrade": {
             "height_m": 0.9,
             "pitch_m": 0.2,
@@ -373,7 +428,7 @@
         }
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: the K07 four-panel door under a two-light transom at the head of a straight stone stoop solved from the principal floor. front_yard_m is the street grid's own distance: the front stands 5.93 m behind the Prairie Avenue street line (the draft's street_u 22.679 less the 16.75 m body) and the walk begins 1 ft further out, 6.24 m. T-2409 built the entrance the two pictures draw (land_owner_1874_05_homes_of_chicago_1620_law, chicago_tribune_1898_01_09_prairie_widows): the straight stoop rising from the gate to the door beside the pavilion, and at its head a porch at the principal floor running north before the pavilion to the north corner behind a turned balustrade, the balustrade carried down the stoop. What the pictures give is the arrangement: the stoop's line, a porch level with its head across the pavilion's front, and turned balusters on both. RECONSTRUCTED: the porch as a stone terrace in the stoop's stone, faced to grade, as deep as the 1.2 m landing (the engraving's balustrade ends at x 690 px, where a 1.2 m deep porch's north corner falls, 685.6 px), its back stepped to the pavilion's 0.4 m (T-2404); the balustrade 0.9 m over the terrace, square 0.2 m newels with a 0.1 m cap, a 0.12 x 0.08 m rail and turned vase balusters at no more than 0.2 m, the same height over the stoop's landing, its balusters standing on the cheeks' tops; turned stone and not timber, which neither picture can say."
+      "note": "RECONSTRUCTED: the K07 four-panel door under a two-light transom at the head of a straight stone stoop solved from the principal floor. front_yard_m is the street grid's own distance: the front stands 5.93 m behind the Prairie Avenue street line (the draft's street_u 22.679 less the 16.75 m body) and the walk begins 1 ft further out, 6.24 m. T-2409 built the entrance the two pictures draw (land_owner_1874_05_homes_of_chicago_1620_law, chicago_tribune_1898_01_09_prairie_widows): the straight stoop rising from the gate to the door beside the pavilion, and at its head a porch at the principal floor running north before the pavilion to the north corner behind a turned balustrade, the balustrade carried down the stoop. What the pictures give is the arrangement: the stoop's line, a porch level with its head across the pavilion's front, and turned balusters on both. RECONSTRUCTED: the porch as a stone terrace in the stoop's stone, faced to grade, as deep as the 1.2 m landing (the engraving's balustrade ends at x 690 px, where a 1.2 m deep porch's north corner falls, 685.6 px), its back stepped to the pavilion's 0.4 m (T-2404); the balustrade 0.9 m over the terrace, square 0.2 m newels with a 0.1 m cap, a 0.12 x 0.08 m rail and turned vase balusters at no more than 0.2 m, the same height over the stoop's landing, its balusters standing on the cheeks' tops; turned stone and not timber, which neither picture can say. T-2450 carries the terrace SOUTH across the bay's front, the low turned balustrade the 1874 engraving draws before the bay at the principal floor (x 365-460 px, its rail's top at y 551 px, 2.89 m over grade on T-2437's camera: the porch's own level), as the stoop's terrace to its left (K07 learns a terrace to the stoop's left, the right one's mirror): from the landing's south edge (v 5.7) to v -0.35, 0.35 m past the front's south corner, where the drawn balustrade's south end stands (x 364 px, against the front's corner at about 392), its back stepped out to the bay's 0.58 m front between the bay's front corners (v 4.06 and 2.12) and faced where it runs on past the corner. RECONSTRUCTED as the north terrace is: its 1.2 m depth, its stone, its balusters (the north terrace's, which the engraving draws alike), and that it joins the landing, which the engraving's tree and the shrub before the bay hide (x 460-540 px)."
     },
     "boundary": {
       "value": {
@@ -382,7 +437,7 @@
           -7.711,
           15.951
         ],
-        "fence": "k11.fence.scroll_band",
+        "fence": "k11.fence.lattice_arcade",
         "entrance_gate": {
           "variant": "k11.gate.walk_gate_on_piers",
           "leaves": 2,
@@ -398,10 +453,22 @@
           "variant": "k11.wall.brick_with_piers",
           "from_u_m": 12.0,
           "height_m": 1.2
-        }
+        },
+        "lattice_pitch_m": 0.3,
+        "side_fence": {
+          "variant": "k11.fence.side_boards",
+          "from_s_m": 12.6,
+          "height_m": 1.5,
+          "to_u_m": -25.5
+        },
+        "lattice_span_bays": 3
       },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: the register's 'lattice/iron boundary' built from the K11 ironwork kit as its scroll-band fence (a band of C-scrolls under the top rail, the kit's nearest to a lattice) on a stone curb along the street line, 5.93 m in front of the front face (the draft's street_u 22.679 less the 16.75 m body), from the north lot line to the gate of the carriage passage on the south; a pair of walk-gate leaves between stone piers on the walk to the stoop; a single walk gate 1.06 m clear across the south side yard's mouth beside the lot line (the yard is 7.7 m wide here, so the gate does not reach the house's south wall as 1808's does); and the kit's brick wall with piers, 1.2 m high, on the south lot line from the street back to u 12.0. The lot lines (s -7.711 and 15.951 along the front from the south corner) are the draft's lot_v for parcel prairie_1620 in this frame. The register names the boundary's kind and nothing else; its pattern, heights, gates and wall are the kit's."
+      "confidence": "inferred",
+      "note": "The FENCE from both pictures (T-2406). The 1874 engraving draws a lattice of interlaced round arches, their crossings pointed, on a solid base along the street line, and the 1898 Tribune sketch the same lattice between square piers with capped tops, on a base, with gate piers at the walk; the register's 'lattice/iron boundary' names it. Built as the K11 kit's curb, posts and rails with a lattice between them (k11.fence.lattice_arcade): arches of the kit's 14 mm scroll bar, each two bays wide, sprung at every bay so each crosses its neighbours. The bay, 0.35 m, is read off the Tribune (a pointed crossing about every 9 px where the panel's fence scale is about 32 px/m, 0.29 m) and the engraving (its crossings waist about every 20 px at 28 px/m, two bays of 0.35 m); the lattice's iron, its bar and the posts' acorn finials are the kit's, RECONSTRUCTED. The BOARD FENCE: the engraving draws a close-boarded fence from about x 670 px, where the lattice stops, to x 990 px. Through its camera the street line at x 670 is v 12.6 and the north lot line (v 15.95) runs from x 786 px at the street to 964 px at the house's rear line, so the boards take over from the lattice on the street line at v 12.6, turn at the lot line and run back along it; their height (1.5 m, the lattice's top and a little more, as drawn) and their boarding are RECONSTRUCTED, and so is their run behind the house's rear (to the coach house's front at u -25.5), which the engraving's frame cuts off at about u -4. The rest is the kit's, RECONSTRUCTED as before: the stone curb on the street line 5.93 m in front of the front face (the draft's street_u 22.679 less the 16.75 m body); a pair of walk-gate leaves between stone piers on the walk to the stoop; a single walk gate 1.06 m clear across the south side yard's mouth; and the kit's brick wall with piers, 1.2 m high, on the south lot line from the street back to u 12.0. The lot lines (s -7.711 and 15.951 along the front from the south corner) are the draft's lot_v for parcel prairie_1620 in this frame. T-2450 re-read the boards past the lot's corner through T-2437's re-solved camera: from x 786 to 990 px their top (y 597-600) and foot (652-658) stay level, which a fence on the north lot line receding from the street cannot draw (its foot rises to y 625 by x 988) and a fence on the street line running on north past the corner draws exactly (top 597.7-598.6, foot 656.6-660.5 px). So those boards are the next lot's street fence, and this lot's north board fence stands behind them, its foot hidden; its turn at the corner and its run back are unchanged.",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law",
+        "chicago_tribune_1898_01_09_prairie_widows"
+      ]
     },
     "bays": {
       "value": [
@@ -418,29 +485,30 @@
           "fabric": "brick",
           "storeys": [
             {
-              "height_m": 5.0,
+              "height_m": 6.8,
               "windows": [
                 {
                   "opening": "k06.opening.sash_round_fanlight",
                   "clear_width_m": 1.0,
-                  "clear_height_m": 2.3,
-                  "sill_m": 2.15,
+                  "clear_height_m": 3.55,
+                  "sill_m": 2.75,
                   "at": [
                     0.294,
                     0.706
                   ],
-                  "recess_m": 0.35
+                  "recess_m": 0.35,
+                  "why_not_ordinary": "the 1874 engraving's long principal-storey window: its round head stands 6.3 m over grade on T-2437's camera, 4.3 m over the 2.0 m floor, and the porch's balustrade hides its foot, so it runs down to a 0.75 m sill as the main wall's do"
                 }
               ]
             },
             {
-              "height_m": 2.4,
+              "height_m": 3.3,
               "windows": [
                 {
                   "opening": "k06.opening.sash_round_fanlight",
                   "clear_width_m": 1.0,
-                  "clear_height_m": 1.6,
-                  "sill_m": 0.6,
+                  "clear_height_m": 2.15,
+                  "sill_m": 0.7,
                   "at": [
                     0.294,
                     0.706
@@ -461,11 +529,29 @@
           "variant": "k08.bay.canted_hooded",
           "wall": "k01.wall.street_front",
           "s_m": 3.09,
-          "fabric": "brick"
+          "fabric": "frame",
+          "storeys": [
+            {
+              "height_m": 5.93,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_paired_round",
+                  "clear_width_m": 1.44,
+                  "clear_height_m": 2.67,
+                  "sill_m": 3.04,
+                  "at": [
+                    0.5
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "a grouped window: two narrow round-headed lights either side of a mullion, the pair 1620 Prairie's 1874 engraving draws in its bay's front, sized to the engraving's heights on T-2437's camera (lights 3.09-5.71 m over grade)"
+                }
+              ]
+            }
+          ]
         }
       ],
       "confidence": "inferred",
-      "note": "The north pavilion of both pictures (T-2404, piece 2 of T-2370), built as the K08 full-height projection: the north 3.75 m of the front (v 7.5-11.25), the width the 1874 engraving's crown begins at through its camera (v 7.5 projects to x 590.6 px, where the crown starts) and the 1898 Tribune sketch's pavilion fits as, standing flush with the north corner so its north cheek runs on in the north wall's plane, as the engraving draws that corner. It stands 0.4 m proud, the Tribune camera's least-squares figure, which its own solve says the sketch draws but does not measure (the side face is drawn about twice as deep as any consistent camera allows), so the 0.4 m is RECONSTRUCTED inside that fit. Two round-headed windows a storey (K06's round-arched fanlight sash, centred on the pavilion's halves) are read off both pictures; their heads are the kit's stone ring, which stands for the engraving's moulded hoods. Its two storeys, 5.0 m to the upper floor and 2.4 m to stand under the K10 bed moulding, and every sash size (1608's 1.0 m sash, 2.3 and 1.6 m high, in recesses 0.35 m deep inside the 0.4 m pavilion) are RECONSTRUCTED. The canted bay T-1861 stood here is gone: neither picture draws one on the north part; the one-storey bay the pictures show on the south part is T-2408's: `south_hood`, the K08 canted bay under a flared, bracketed hood, read off the 1874 engraving through its solved camera (data/reference_views/law_house_1620_prairie/landowner_1874_from_northeast.json): its front's south and north edges at x 437 and 488 px and its north cheek's foot at 512 px, at 45 degrees, fit a 1.94 m front 0.58 m out, meeting the wall at v 1.54-4.64 (centre 3.09 m), residual under 0.2 px; one storey, its eaves level with the principal-storey window heads beside it and the hood's top under the upper-storey sill, as the engraving draws it; two round-headed lights in its front (K06's paired round sash), a console under the eaves at each corner of its front and a row of modillions, and a slated hood flat at the eaves and steepening to the wall. The engraving's heights do not sit on this house's reconstructed 1.4 m principal floor (it draws the bay's sills about 0.4 m over grade), so the bay's heights follow the house's storeys and the picture's proportions, not its pixels: the lights 1.44 x 1.85 m on a 1.9 m sill, the wall top 4.15 m, the hood's 0.6 m eaves and its flare, the consoles and modillions are the kit's, RECONSTRUCTED. The engraving draws the bay darker than the light front; that may be the hood's shadow or a painted timber bay, and it is built in the house's brick.",
+      "note": "The north pavilion of both pictures (T-2404, piece 2 of T-2370), built as the K08 full-height projection: the north 3.75 m of the front (v 7.5-11.25), the width the 1874 engraving's crown begins at through its camera (v 7.5 projects to x 590.6 px, where the crown starts) and the 1898 Tribune sketch's pavilion fits as, standing flush with the north corner so its north cheek runs on in the north wall's plane, as the engraving draws that corner. It stands 0.4 m proud, the Tribune camera's least-squares figure, which its own solve says the sketch draws but does not measure (the side face is drawn about twice as deep as any consistent camera allows), so the 0.4 m is RECONSTRUCTED inside that fit. Two round-headed windows a storey (K06's round-arched fanlight sash, centred on the pavilion's halves) are read off both pictures; their heads are the kit's stone ring, which stands for the engraving's moulded hoods. Its two storeys, 6.8 m to the upper floor and 3.3 m to stand under the K10 bed moulding, follow the house's storeys as T-2437 re-read them off the engraving, and its sash the street windows' heights read there (3.55 m on a 2.75 m sill, 2.15 m on a 0.7 m sill); the sills, which the porch hides below and the engraving does not draw above, the 1.0 m width and the recesses 0.35 m deep inside the 0.4 m pavilion are RECONSTRUCTED. The canted bay T-1861 stood here is gone: neither picture draws one on the north part; the one-storey bay the pictures show on the south part is T-2408's: `south_hood`, the K08 canted bay under a flared, bracketed hood, read off the 1874 engraving through its solved camera (data/reference_views/law_house_1620_prairie/landowner_1874_from_northeast.json): its front's south and north edges at x 437 and 488 px and its north cheek's foot at 512 px, at 45 degrees, fit a 1.94 m front 0.58 m out, meeting the wall at v 1.54-4.64 (centre 3.09 m), residual under 0.2 px; one storey, its eaves level with the principal-storey window heads beside it and the hood's top under the upper-storey sill, as the engraving draws it; two round-headed lights in its front (K06's paired round sash), a console under the eaves at each corner of its front and a row of modillions, and a slated hood flat at the eaves and steepening to the wall. T-2409 found the engraving's heights did not sit on the then 1.4 m principal floor; that was the camera's datum. T-2444 builds the bay on T-2437's re-solved camera: the engraving draws its lights from 3.09 m over grade (y 545 px) to their arch tops at 5.71 m (y 466 px), the hood's eaves at 6.24 m (y 450 px), level with the pavilion's principal-storey heads, and the hood's top at 7.46 m (y 413 px), under the upper window's foot; so the bay's one storey stands 5.93 m to its wall top and its eaves' fascia tops at 6.18 m, its two lights 1.44 m across from 3.09 m to 5.67 m on a 3.04 m sill, and the kit's hood, unchanged, meets the wall at 7.34 m, 0.15 m under the upper sash's 7.5 m sill as K01 requires (the drawn 7.46 m is 0.12 m higher, under the engraver's line). The engraving draws the bay dark against the light front, its cheeks hatched as boards are and its hood's slate in courses; it is built as painted timber (K08's frame fabric: painted boards over a brick plinth, its dressings the fascia's trim), which a bay window of the 1870s on a brick house often was; the shadow of the hood could also darken a brick bay, and the monochrome print cannot say which, so the timber is RECONSTRUCTED. The hood's 0.6 m eaves and its flare, the consoles and modillions, the mullion and the lights' width are the kit's, RECONSTRUCTED.",
       "sources": [
         "land_owner_1874_05_homes_of_chicago_1620_law",
         "chicago_tribune_1898_01_09_prairie_widows"
@@ -478,7 +564,7 @@
         "crown": {
           "over_bay": "north_pavilion",
           "depth_m": 3.0,
-          "rise_above_curb_m": 0.7,
+          "rise_above_curb_m": 0.3,
           "bulge": 0.1,
           "overhang_m": 0.65,
           "lower_pitch_deg": 80,
@@ -487,10 +573,10 @@
               "variant": "k06.opening.sash_round_fanlight",
               "width_m": 0.7,
               "height_m": 1.3,
-              "sill_m": 0.25
+              "sill_m": 0.1
             },
             "surround_m": 0.15,
-            "face_setback_m": 0.09
+            "face_setback_m": 0.027
           }
         },
         "dormers": [
@@ -525,7 +611,7 @@
         "land_owner_1874_05_homes_of_chicago_1620_law",
         "chicago_tribune_1898_01_09_prairie_widows"
       ],
-      "note": "The lower faces' rise read off the 1874 engraving through its camera: the curb of the north face, followed from x 735 px (y 228) to x 800 px (y 263) and taken 0.4-0.65 m in from the wall line, stands 11.0-11.3 m over grade, 2.8-3.1 m over the 8.2 m wall head; 2.9 m. The face's slight outward bow is the engraving's and K05's convex profile (72-degree chord, 0.07 bulge) is the kit's nearest; the profile's numbers are K05's, RECONSTRUCTED. The CROWN (T-2404): over the north pavilion a taller mansard, the engraving's bell-curved crown, its curb 0.7 m over the main curb (the match record's reading of the engraving) and its faces on a steeper 80-degree chord with a fuller 0.1 bow, so they stand near upright and round over at the top as the engraving draws them; one round-headed dormer, K06's round-arched sash 0.7 m wide in a stone face 0.15 m round it, centred on its street face, as the engraving shows. It runs 3.0 m back from the pavilion's face and its cornice projects 0.65 m; the depth, the chord, the bow, the cornice and the dormer's sizes are RECONSTRUCTED (no picture sees the crown's depth, and 3.0 m keeps its back hips clear of the main roof's upper hip). The DORMERS (T-2411): two round-headed dormers in the north face's lower slope, as the engraving draws them behind the crown (the front's and the south face's lower slopes are hidden by the trees or unseen, so they carry none). Their places are read through the 1874 camera against the crown's front-north corner, which this build draws about 10 px right of the engraving's: the engraving's two arch heads stand 51 and 110 px behind that corner (x 746 and 805 px), so u 12.6 and 6.1 m on a face 0.15 m in from the fascia, within about 0.4 m (the engraver draws both wider and more frontal than the camera allows, the far one most, so their centres are read and not their jambs; 6.1 rather than 6.0 because the K05 union degenerates on the rear hip at exactly 6.0). Their heads read 10.4-10.6 m over grade (y 242 and 273 px), under the 11.1 m curb, which a sash on the crown dormer's 0.15 m sill gives at 10.5 m. Each is the crown dormer's construction: K06's round-arched sash 0.7 by 1.3 m in a stone face 0.15 m round it, run back into the roof; those sizes are RECONSTRUCTED, the crown dormer's own."
+      "note": "The lower faces' rise read off the 1874 engraving through its camera: the curb of the north face, followed from x 735 px (y 228) to x 800 px (y 263) and taken 0.4-0.65 m in from the wall line, stands 11.0-11.3 m over grade, 2.8-3.1 m over the 8.2 m wall head; 2.9 m. The face's slight outward bow is the engraving's and K05's convex profile (72-degree chord, 0.07 bulge) is the kit's nearest; the profile's numbers are K05's, RECONSTRUCTED. The CROWN (T-2404): over the north pavilion a taller mansard, the engraving's bell-curved crown, its curb 0.3 m over the main curb (T-2404 read 0.7 m on the first camera; on T-2437's re-solved one the crown's top at its front stands at y 189-190 px, 14.1-14.3 m over grade, where 0.7 m drew it at y 171-175, about 0.5 m high, so T-2444 brought it down to the least rise K01 allows a crown, which draws its top at y 183-190 px between x 620 and 680) and its faces on a steeper 80-degree chord with a fuller 0.1 bow, so they stand near upright and round over at the top as the engraving draws them; one round-headed dormer, K06's round-arched sash 0.7 m wide in a stone face 0.15 m round it, centred on its street face, as the engraving shows; the engraving draws it low on the crown's face, its surround's foot just over the crown's cornice (y 267 px, about 11.7 m over grade) and its head at y 212 px (13.45 m), so T-2444 stood its face 0.027 m in from the crown's fascia on a 0.1 m sill, where the bell's foot is lowest, which lands it at about y 210-263 px (T-2404's 0.09 m in and 0.25 m sill drew it about 0.7 m high). It runs 3.0 m back from the pavilion's face and its cornice projects 0.65 m; the depth, the chord, the bow, the cornice and the dormer's sizes are RECONSTRUCTED (no picture sees the crown's depth, and 3.0 m keeps its back hips clear of the main roof's upper hip). The DORMERS (T-2411): two round-headed dormers in the north face's lower slope, as the engraving draws them behind the crown (the front's and the south face's lower slopes are hidden by the trees or unseen, so they carry none). Their places are read through the 1874 camera against the crown's front-north corner, which this build draws about 10 px right of the engraving's: the engraving's two arch heads stand 51 and 110 px behind that corner (x 746 and 805 px), so u 12.6 and 6.1 m on a face 0.15 m in from the fascia, within about 0.4 m (the engraver draws both wider and more frontal than the camera allows, the far one most, so their centres are read and not their jambs; 6.1 rather than 6.0 because the K05 union degenerates on the rear hip at exactly 6.0). Their heads read 10.4-10.6 m over grade (y 242 and 273 px), under the 11.1 m curb, which a sash on the crown dormer's 0.15 m sill gives at 10.5 m. Each is the crown dormer's construction: K06's round-arched sash 0.7 by 1.3 m in a stone face 0.15 m round it, run back into the roof; those sizes are RECONSTRUCTED, the crown dormer's own."
     },
     "function": {
       "value": "residence",
@@ -595,7 +681,7 @@
       ]
     }
   ],
-  "research_note": "Refined from the district draft (T-2334) in place by T-1861, under the draft's own id, as a K01 brick frontage: the plate's L under one rectangle, a canted bay on the north half of the front, segmental brick arches over the street windows, a high stoop, a bracketed cornice and a tin hip. Plan, place and brick are read off Robinson 1886 plate 10 (r1886-1620-f, through its T-1250 fit); the brief is the T-1837 register row frontage-20-006, which is not a source record; every height, opening, the roof and the trim are the kits' reconstruction (liberty L-k01-1620-law-1861). The rear stable is a separate record, still the draft's. T-2370 read both of its pictures (the May 1874 Land Owner engraving and the 1898 Tribune sketch, cameras in data/reference_views/law_house_1620_prairie/) and raised the house under the engraving's mansard, its walls lowered to the engraving's cornice; T-2408 stood the pictures' one-storey bay under its flared, bracketed hood on the south part and moved the door north of it; T-2404 stood the pictures' north pavilion under its crown and round-headed dormer, in place of the canted bay; T-2409 moved the door north beside the pavilion, where both pictures draw it, under a K09 cornice hood, its straight stoop rising from the gate to a terrace before the pavilion behind a turned balustrade; T-2411 set the engraving's two round-headed dormers in the mansard's north face; the round-headed windows and the lattice fence are their next pieces, listed open in the match records.",
+  "research_note": "Refined from the district draft (T-2334) in place by T-1861, under the draft's own id, as a K01 brick frontage: the plate's L under one rectangle, a canted bay on the north half of the front, segmental brick arches over the street windows, a high stoop, a bracketed cornice and a tin hip. Plan, place and brick are read off Robinson 1886 plate 10 (r1886-1620-f, through its T-1250 fit); the brief is the T-1837 register row frontage-20-006, which is not a source record; every height, opening, the roof and the trim are the kits' reconstruction (liberty L-k01-1620-law-1861). The rear stable is a separate record, still the draft's. T-2370 read both of its pictures (the May 1874 Land Owner engraving and the 1898 Tribune sketch, cameras in data/reference_views/law_house_1620_prairie/) and raised the house under the engraving's mansard, its walls lowered to the engraving's cornice; T-2408 stood the pictures' one-storey bay under its flared, bracketed hood on the south part and moved the door north of it; T-2404 stood the pictures' north pavilion under its crown and round-headed dormer, in place of the canted bay; T-2409 moved the door north beside the pavilion, where both pictures draw it, under a K09 cornice hood, its straight stoop rising from the gate to a terrace before the pavilion behind a turned balustrade; T-2410 made the main wall's two upper street windows round-headed under hoods with a key on each crown, and the north wall's windows the engraving's two a storey; T-2411 set the engraving's two round-headed dormers in the mansard's north face; the lattice fence is their next piece, listed open in the match records.",
   "research_doc": "",
   "review_required": false
 }

@@ -1,0 +1,107 @@
+{
+  "structure_id": "spalding_house_1637_prairie",
+  "view": "spalding_remodel_engraving",
+  "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
+  "glb_sha256": "9c8dd3cc6d770ca7b227cc65aab8aaf5f704e6d08e4fbb9894bb7379845106e0",
+  "camera_sha256": "06623cf6f05d0dafcc01b75c32c2d59a8079f6b2df83342aa3e040e00f77e557",
+  "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a broad brick block two tall storeys over a raised basement, its north flank receding to the rear, a swell bay at the north end of the front and a wing at the south end; the draft stood a 11.5 m hipped box with no bay, wing or flank windows",
+      "status": "fixed",
+      "how": "T-2441: K01 frontage on the 1911 sheet's plan at the trace's own 13.1 m width and 11.0 m depth; the four plan corners land on the engraving's (x 92, 255, 617 and 800 px) exactly, by the camera's solve"
+    },
+    {
+      "what": "storey lines: the principal floor about 2.3 m over grade, the second floor about 6.6 m, the cornice's soffit about 11.5 m; the principal windows 3.0-5.7/6.0 m, the second storey's 7.2-9.5 m",
+      "status": "fixed",
+      "how": "T-2441: a 2.3 m principal floor and 4.3 and 4.9 m storeys; the cornice and the second storey's sills and heads fall within about 15 px of the engraving's on the camera's own 4-13 px height residual"
+    },
+    {
+      "what": "the swell bay: from grade nearly to the cornice, about 4.8 m on its chord from the north corner to the door, three windows a storey round it",
+      "status": "fixed",
+      "how": "T-2441: a K08 bow, 4.8 m chord and 1.3 m rise at s 2.72 m, two storeys of three sashes at -36, 2 and 40 degrees, to 10.7 m; the three windows' columns land at x 320, 400 and 458 px against the engraving's 325, 412 and 458"
+    },
+    {
+      "what": "the entrance between the bay and the wing, up a stoop, under one window of the second storey and a dormer",
+      "status": "fixed",
+      "how": "T-2441: the K07 door on the middle front bay at 6.25 m (x 515 px), its window over it and the dormer over that"
+    },
+    {
+      "what": "the stacks: two tall stacks on the north wall near its front and its rear, one over the wing",
+      "status": "fixed",
+      "how": "T-2441: three K01 stacks at the engraving's columns (x 225, 135 and 690 px) and at the tops it reads (16.4, 15.5 and 14.8 m)"
+    },
+    {
+      "what": "the wing: the engraving draws it standing well forward of the front and rising under its own steep hipped roof, as high as the main roof, with a stack at its ridge; the build stands it on the 1911 sheet's 1.0 m step under the mansard's cornice, with a flat tin deck",
+      "status": "open",
+      "how": "T-2448: the 1911 sheet controls the plan; the wing's own roof needs a K05 hip over the projection that K08's hood does not build"
+    },
+    {
+      "what": "the main roof: steep straight lower faces in slate under a level top line, hipped down at the wing; the build's K05 mansard has convex lower faces 2.6 m tall",
+      "status": "fixed",
+      "how": "T-2452: K05's mansard laid with no bulge, so each lower face is one straight plane from the cornice to the curb at 14.1 m, the engraving's level top line, and the upper hip at 10 degrees stays behind that line from the camera. The faces stand at 65 degrees, the floor of K05's range; the engraving's hip ends lean back further than that, by a perspective that is not one camera's (L-k01-1637-spalding-remodel-2441)"
+    },
+    {
+      "what": "the dormers: two gabled dormers with square-headed sashes on the street face and one on the north face; the build's are K01's round-headed mansard dormers at the same places",
+      "status": "fixed",
+      "how": "T-2452: K01's gabled lower-face dormer: a square-headed two-over-two sash 0.9 by 1.2 m in a stone face 1.6 m wide under a 40 degree pediment, slated cheeks and slopes, on T-2441's centres over the bay and the door. The street pair's faces span about x 349-417 and 492-555 px against the engraving's about 323-413 and 469-553 with their rakes, each about 15 px right of the engraving's as the door under it is; their apexes about 10 px under the engraving's. The pediment's slight rake overhang is not built"
+    },
+    {
+      "what": "the windows: the principal storey's about 2.9 m tall, the wing's a French window to its floor over a balcony; the build's are 2.4 m sashes, the K01 contract's clear-height limit",
+      "status": "open",
+      "how": "T-2449"
+    },
+    {
+      "what": "the stoop's landing railed, its rail about 1.0 m over the landing (y 623-675 px)",
+      "status": "fixed",
+      "how": "T-2447: K07's turned balustrade on both cheeks, level beside the landing and raked down the flight, 1.0 m over the landing"
+    },
+    {
+      "what": "the stoop's flight: the engraving draws its foot at the fence's first post (x 557 px), well short of the walk; K07's straight flight reaches about 1.6 m past the garden's line, so the built fence starts at about x 640 px",
+      "status": "open",
+      "how": "T-2449: the stoop's run against the engraving's foot; the draughtsman's depth is not the camera's, so it is argued, not copied"
+    },
+    {
+      "what": "the wing's balcony on its principal floor, bowed, about 0.9 m high under the French window",
+      "status": "open",
+      "how": "T-2449, with the French window"
+    },
+    {
+      "what": "the basement's lights: two round-headed under the wing, one nearly a storey tall under the bay",
+      "status": "open",
+      "how": "T-2449"
+    },
+    {
+      "what": "the bay and the wing rise to the cornice itself in the engraving; the build stops both at 10.7 m, under K10's bed moulding",
+      "status": "open",
+      "how": "T-2448"
+    },
+    {
+      "what": "the stacks' panelled shafts and caps",
+      "status": "open",
+      "how": "T-2448"
+    },
+    {
+      "what": "the brick garden wall before the north flank, ending in a square pier before the swell bay (x 357 px), and the iron spear fence before the wing, both close before the house, the fence's top rail about 1.9 m over grade",
+      "status": "fixed",
+      "how": "T-2447: K11's front-garden layout on one line 3.5 m before the main front (the runs' feet, y 777-787 px, read on the camera's ground there): the kit's brick wall, 2.0 m with 2.25 m piers, its end pier at x 357 px as drawn; the kit's spear fence from the stoop's south cheek to the lot line, its top rail 1.9 m over grade"
+    },
+    {
+      "what": "the garden wall runs on north past the frame's edge, about 3.5 m beyond the 1911 lot line through this camera, onto the unbuilt strip prairie_1625_1637_c",
+      "status": "open",
+      "how": "T-2443 rules on 1635's ground; the wall stops at 1637's lot line until it does"
+    },
+    {
+      "what": "colour: the engraving is monochrome",
+      "status": "not shown",
+      "how": "the brick and trim colours stay reconstructed"
+    },
+    {
+      "what": "the south wall, the rear and the rear range",
+      "status": "not shown",
+      "how": "built on the 1911 sheet at the reconstructed tier (L-k01-1637-spalding-remodel-2441)"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

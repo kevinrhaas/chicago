@@ -51,6 +51,15 @@ LIMESTONE_GREY = (0.83, 0.88, 1.0)
 # map (generate.py `occluded`). It rides the normal map's UV and repeat, so a
 # material carries it exactly when it carries that fabric's normal map.
 OCCLUSION_FABRICS = frozenset({"granite"})
+# LINEAR multipliers on the granite albedo (see build_materials). Reconstructed
+# against the owner's colour photographs, 2026-10-12.
+GRANITE_TINT = (1.0, 0.97, 0.94)
+GRANITE_VARIANT_TINTS = ((0.97, 0.94, 0.92), (1.0, 0.98, 0.95), (0.95, 0.93, 0.92), (1.0, 0.96, 0.91))
+# The split-face normal map was calibrated at 1.0 on flat 5x3 facets (T-2209).
+# Since each stone is modelled bowed (masonry_house_v4_detail BOW_*), the map's
+# 1.6 m repeat of large diagonal facets fought the crown and repeated stone to
+# stone; at 0.6 it is grain and chip on the stone's own shape.
+GRANITE_NORMAL_STRENGTH = 0.6
 
 # Geometry and material module share these slots. New materials are appended so
 # that the existing nine-part composition can be reused without reinterpretation.
@@ -200,7 +209,12 @@ def build_materials(colours=None):
     import bpy
     colours = colours or {}
     mats = [
-        _pbr(bpy, "granite", "granite", tint=(0.78, 0.95, 1.0), normal_strength=1.0),
+        # Owner, 2026-10-12, against his colour photographs of the Prairie Avenue
+        # front: "the color of the granite stone facing is not as grey as you have
+        # it". The photographs read a light pink-buff (sRGB red/green 1.05-1.13,
+        # blue/green 0.90-0.94 on lit stone), so the multipliers that cooled the
+        # albedo's feldspar toward grey are gone; the variants stay close to it.
+        _pbr(bpy, "granite", "granite", tint=GRANITE_TINT, normal_strength=GRANITE_NORMAL_STRENGTH),
         _pbr(bpy, "brick", "brick", tint=(0.94, 0.94, 0.94), normal_strength=0.85,
              albedo_fabric=COURT_BRICK),
         # Dressed Joliet limestone: grey, and a little more tooth than the old cream.
@@ -229,9 +243,8 @@ def build_materials(colours=None):
         glass.inputs["Specular IOR Level"].default_value = 0.50
     # Neutralise the generated image's warm feldspar balance while retaining
     # restrained grey, cream and slightly pink variation between quarried units.
-    for i, tint in enumerate(((0.68, 0.85, 0.97), (0.78, 0.96, 1.0),
-                              (0.85, 0.94, 0.95), (0.82, 0.98, 1.0))):
-        mats.append(_pbr(bpy, f"granite_{i + 1}", "granite", tint=tint, normal_strength=1.0))
+    for i, tint in enumerate(GRANITE_VARIANT_TINTS):
+        mats.append(_pbr(bpy, f"granite_{i + 1}", "granite", tint=tint, normal_strength=GRANITE_NORMAL_STRENGTH))
     # Restrained kiln variation shares the same clay fabric in every slot, and
     # the geometry's 60/20/14/6 unit distribution is unchanged. T-2210: every step
     # stays in the pink family, because Glessner names one brick for the whole

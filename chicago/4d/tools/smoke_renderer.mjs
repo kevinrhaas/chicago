@@ -6035,10 +6035,18 @@ for (const [label, viewport, touch] of [
       document.head.appendChild(st);
       return st.id;
     });
-    await page.waitForTimeout(300);
+    // T-2413 — each screenshot waits for a frame DRAWN in the state it reads.
+    // A fixed 300 ms sleep stood here, and on a runner where one frame costs
+    // seconds both screenshots were the same frame: delta exactly 0.00 on #696
+    // and #721, neither of which touched 1835. `capture()` resolves from inside
+    // the render loop at the end of a frame that includes the change just made,
+    // so the screenshot that follows is of that frame (or of a later one in the
+    // same held state — the clock is held, so nothing else moves).
+    const drawnFrame = () => page.evaluate(() => window.__chicago4d.capture(1));
+    await drawnFrame();
     const saugRgbWith = await colourCells();
     await page.evaluate(() => { window.__chicago4d.frontage.group.visible = false; });
-    await page.waitForTimeout(300);
+    await drawnFrame();
     const saugRgbWithout = await colourCells();
     await page.evaluate((id) => {
       window.__chicago4d.frontage.group.visible = true;
@@ -10106,7 +10114,25 @@ for (const [label, viewport, touch] of [
       await page.reload({ waitUntil: 'domcontentloaded' });
       await page.waitForFunction(() => window.__chicago4d?.ready === true);
     }
-    await page.click('#gate-btn');
+    // T-2412 — THE FIRST-ENTRY CLICKS ARE `clickChrome`, NOT `page.click`. They
+    // are the means here and not the subject — what this block asserts is what
+    // the gate and the guide DO, read straight off the DOM below — and
+    // `page.click` priced each of them at about ten frames against its 90 s
+    // ceiling. On 2026-10-12 dev's own mirror drew the entered 1835 scene at
+    // about 8.0 s a frame at 1280x800 on the 4-cpu steward runner (boot to
+    // ready 55-61 s, this gate click 34.5 s), and on CI `#control-help-gotit`
+    // took 47, 48 and 74 s on green legs and blew 90 s twice on #721 — a
+    // tail across the budget, on dev's normal frame cost. `clickChrome` makes
+    // the same explicit reading (exists, enabled, has a box, topmost at its own
+    // centre) in one round trip, so a covered gate or guide still fails here,
+    // in a sentence naming what covered it. Each click logs its seconds, so the
+    // next reading of this part's cost is in its own transcript.
+    const timedChrome = async (sel) => {
+      const t0 = Date.now();
+      await clickChrome(sel);
+      console.log(`        part 6: ${sel} clicked in ${((Date.now() - t0) / 1000).toFixed(1)} s`);
+    };
+    await timedChrome('#gate-btn');
     await page.waitForTimeout(150);
     // Entry leaves the pointer free; release defensively for older builds.
     await page.evaluate(() => document.exitPointerLock?.());
@@ -10128,7 +10154,7 @@ for (const [label, viewport, touch] of [
         : chrome.desktopHelpShown && !chrome.touchHelpShown),
       JSON.stringify(chrome));
     check(`${label}: no horizontal overflow`, chrome.overflow);
-    await page.click('#control-help-gotit');
+    await timedChrome('#control-help-gotit');
     const controlHelpDismissed = await page.evaluate(() => ({
       hidden: document.getElementById('control-help').hasAttribute('hidden'),
       stored: localStorage.getItem('chicago4d.controlHelpDismissed'),
@@ -10149,12 +10175,37 @@ for (const [label, viewport, touch] of [
     // runs here because the HUD only exists past the gate, and the guide that
     // covers this corner of it was dismissed by the check above.
     //
-    // SO THESE FOUR STAY `page.click` (T-0215). Part 8's chrome clicks moved to
-    // `clickChrome`, which hit-tests at the element's own centre and would catch
-    // this same regression — but here the trusted event is not the means, it is
-    // the SUBJECT, and the instrument should be the visitor's own mouse.
-    await page.click('#btn-confidence-more');
-    await page.click('#cm-reconstructed');
+    // SO THESE FOUR STAY A TRUSTED MOUSE CLICK (T-0215), and since T-2412 that
+    // is `page.mouse.click` at the control's own centre rather than
+    // `page.click`. Part 8's chrome clicks moved to `clickChrome`, which
+    // hit-tests in the page and dispatches an untrusted `.click()` — but here
+    // the trusted event is not the means, it is the SUBJECT, and the instrument
+    // should be the visitor's own mouse. `page.mouse.click` IS that mouse: a real
+    // press and release that the BROWSER hit-tests, so a menu the HUD's
+    // `pointer-events: none` swallows sends it to the canvas and the readings
+    // below fail exactly as T-0108 did. What it drops is only `page.click`'s
+    // actionability polling — visible, stable over consecutive animation frames,
+    // receives-events — and that polling is what timed out: on 2026-10-12, with
+    // the first-entry clicks already moved off it, `#btn-confidence-more` blew
+    // 90 s on the steward runner at 9.7 s a frame. The box is read in the page in
+    // one round trip (the menu has no transition to settle), and each click logs
+    // its seconds.
+    const timedClick = async (sel) => {
+      const t0 = Date.now();
+      const at = await page.evaluate((s) => {
+        const el = document.querySelector(s);
+        if (!el) return `nothing matches ${s}`;
+        el.scrollIntoView({ block: 'center', inline: 'center' });
+        const b = el.getBoundingClientRect();
+        if (b.width < 1 || b.height < 1) return `${s} has no box (${Math.round(b.width)}x${Math.round(b.height)})`;
+        return { x: b.x + b.width / 2, y: b.y + b.height / 2 };
+      }, sel);
+      if (typeof at === 'string') throw new Error(`part 6 mouse click: ${at}`);
+      await page.mouse.click(at.x, at.y);
+      console.log(`        part 6: ${sel} clicked in ${((Date.now() - t0) / 1000).toFixed(1)} s (trusted mouse)`);
+    };
+    await timedClick('#btn-confidence-more');
+    await timedClick('#cm-reconstructed');
     await page.waitForTimeout(120);
     const cmClick = await page.evaluate(() => ({
       menuOpen: !document.getElementById('confidence-menu').hasAttribute('hidden'),
@@ -10165,8 +10216,8 @@ for (const [label, viewport, touch] of [
       cmClick.menuOpen && cmClick.unchecked && cmClick.marked,
       JSON.stringify(cmClick));
     // Put the town back the way it was, through the same real controls.
-    await page.click('#cm-reset');
-    await page.click('#btn-confidence-more');
+    await timedClick('#cm-reset');
+    await timedClick('#btn-confidence-more');
     await page.waitForTimeout(120);
     const cmRestored = await page.evaluate(() => ({
       menuShut: document.getElementById('confidence-menu').hasAttribute('hidden'),
@@ -16383,6 +16434,8 @@ for (const [label, viewport, touch] of [
         // T-2335 added its east side: nineteen more, the station at 1605 among them.
         // T-2351 added the 20th-22nd block's west side: twenty-six more, 2126's building site among them.
         // T-2352 added its east side: thirty-three more.
+        // T-2443 stood one more on the 16th-18th east side, the Forsyth house at 1635, and
+        // its PR (#771) left it off this list, so stage 14 was red on dev until T-2468.
         const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
           'shortall_gregory_house_1638_prairie_front',
           'edson_keith_house_1906_prairie',
@@ -16466,6 +16519,7 @@ for (const [label, viewport, touch] of [
           'house_1621_prairie',
           'house_1623_prairie',
           'house_1625_prairie',
+          'forsyth_house_1635_prairie',
           'ic_16th_street_station_1605_prairie',
           'kellogg_house_1709_prairie',
           'kellogg_house_1709_prairie_coach_house',
@@ -16842,7 +16896,8 @@ for (const [label, viewport, touch] of [
     // control that is visible, enabled and stable reads like a broken control,
     // and on 2026-08-13 and again on 2026-08-27 it was not one: Playwright's
     // click waits on animation frames, and this scene's frames cost 0.46-1.10 s
-    // on a quiet machine and 17-27 s on a loaded one. Three sampled frames turn a
+    // on a quiet machine and 17-27 s on a loaded one (2026-08; by 2026-10 the
+    // entered scene was 8-10 s a frame at desktop on a quiet 4-cpu runner, T-2412). Three sampled frames turn a
     // whole run of guessing into one line. It is a REPORT, never a bar — the
     // failure above still fails, and a slow frame is not an excuse for a control
     // that is genuinely gone.
@@ -16856,9 +16911,14 @@ for (const [label, viewport, touch] of [
           };
           requestAnimationFrame(step);
         }), { timeout: 120_000 });
+        // T-2412: the 0.46-1.10 s this used to quote was a quiet machine's
+        // reading from 2026-08. Dev's own mirror, entered, now draws at 8-10 s a
+        // frame at 1280x800 on the 4-cpu steward runner with software GL, so a
+        // reading in seconds is NOT by itself a loaded runner.
         console.log(`        one animation frame costs ${f.join(' / ')} ms here `
-          + `(0.46-1.10 s is this scene's cost on a quiet machine — a reading in `
-          + `seconds means the action starved on frames, not on a missing control)`);
+          + `(dev's entered scene costs 8-10 s a frame at desktop on a 4-cpu runner `
+          + `with software GL, T-2412 — so an action that waits on frames starves `
+          + `here; a reading in seconds is a frame budget, not a missing control)`);
       } catch { console.log('        the page would not report a frame at all'); }
     }
 

@@ -19,10 +19,19 @@ import math
 from pathlib import Path
 import random
 import struct
+import subprocess
 import sys
+import tempfile
+import zlib
 from types import ModuleType
 
 MAX_TRIANGLES=200_000
+# T-2401: the light tier's own stone-scale occlusion atlas. Half the master's edge (T-2400,
+# 2048, about 2.3 cm a texel), so mobile pays a quarter of its bytes for it.
+OCCLUSION_SIZE=1024
+# How far a light-tier stone's corner normals lean from its face (tan of about 24
+# degrees along each axis): the full tier's bowed crown, carried by shading alone.
+PILLOW_LEAN=.45
 MATERIAL_NAMES=('granite','brick','limestone_trim','roof_plane','copper','glass','oak',
  'lawn','drive','mortar','iron','glass_dark','granite_1','granite_2','granite_3','granite_4',
  'brick_dark_red','brick_buff','brick_smoky','roof_plane_1','roof_plane_2','roof_plane_3',
@@ -97,7 +106,10 @@ def _construct(root, *, roof_details_reduced=True):
         def __init__(self,name,params):
             super().__init__(name,params)
             self.smooth_rock_faces=False
+            self.pillow_normals={}
             self.reduced_roof_details=roof_details_reduced
+            # T-2211's two-plane street sash costs more triangles than this tier has left.
+            self.reduced_sash=True
             self.components=Counter()
 
         def block(self,polygon,point,normal,confidence,mat,rng,holes=None):
@@ -119,8 +131,28 @@ def _construct(root, *, roof_details_reduced=True):
                 for _ in range(consumed):rng.random()
                 depth=min(.070,depth+.012)
             emitted=False
+            pillow=None
+            if mat!=d.BRICK:
+                # The owner's bowed rock faces (2026-10-12) at no triangle cost: the
+                # stone's one face keeps its plane, and its corners carry normals
+                # leaning out from the stone's centre, so light rounds over it.
+                cx,cz=(x0+x1)/2,(y0+y1)/2
+                origin=point((0,0),0);along=d.norm(d.sub(point((1,0),0),origin))
+                up=d.norm(d.sub(point((0,1),0),origin))
+                def pillow(q):
+                    tu=max(-1.0,min(1.0,(q[0]-cx)/max(.01,(x1-x0)/2)))
+                    tz=max(-1.0,min(1.0,(q[1]-cz)/max(.01,(y1-y0)/2)))
+                    return d.norm(tuple(normal[k]+PILLOW_LEAN*(tu*along[k]+tz*up[k]) for k in range(3)))
             for fragment in d.subtract(polygon,holes or []):
-                self.raw([point(q,depth) for q in fragment],confidence,variant,normal)
+                pts=[point(q,depth) for q in fragment]
+                if pillow is None:
+                    self.raw(pts,confidence,variant,normal)
+                else:
+                    normals=[pillow(q) for q in fragment]
+                    if d.dot(d.legacy._normal(pts),normal)<0:
+                        pts.reverse();normals.reverse()
+                    for index,n in zip(self.raw(pts,confidence,variant),normals):
+                        self.pillow_normals[index]=n
                 emitted=True
             if emitted:self.masonry_blocks+=1
 
@@ -151,7 +183,8 @@ def _construct(root, *, roof_details_reduced=True):
         courtyard=(o['face']=='south' and o['at']>1) or (o['face']=='west' and o['at']>1) or (o['face']=='east' and o['at']<params.width_m-1)
         if o['kind']=='fan':_fan(b,o,d)
         elif o['kind']=='band':
-            if o.get('face')=='east' and o['u1']-o['u0']>3 and o['z0']>5:
+            if o.get('style')=='rock_faced_lintel':d.rock_lintel(b,o)
+            elif o.get('face')=='east' and o['u1']-o['u0']>3 and o['z0']>5:
                 # The full wall's carved-sill recess includes both foliate ends.
                 # Its reduced stone back must close that whole same aperture.
                 d.slab(b,o,o['u0']-.435,o['u1']+.435,o['z0']-.025,o['z1']+.045,-.02,.095,o['conf'],d.TRIM)
@@ -199,19 +232,100 @@ def _construct(root, *, roof_details_reduced=True):
     return b,params,materials
 
 
+def _low_relief(d):
+    """The full fan's carving, drawn at this tier's triangle budget.
+
+    Owner, 2026-10-12, on the phone's Prairie door: "what about on top of the door".
+    The reduced fan was a sunburst of seven leaves and three rolls. This keeps the
+    full model's layout, band for band and motif for motif (ornament.fan), and
+    spends a few triangles on each: rolls and stems as four-sided tubes on a few
+    points of their path, beads as low pyramids, and every leaf as a raised
+    lozenge with a ridge, its edges skirted so it still casts a shadow line.
+    """
+    class LowRelief(d.ornament.Relief):
+        def tube(self,path,radius,sides=10):
+            if len(path)<2:return
+            keep=max(5,min(len(path),math.ceil(len(path)/6)))
+            picks=sorted({round(i*(len(path)-1)/(keep-1)) for i in range(keep)})
+            sub=[path[i] for i in picks]
+            span=len(path)-1
+            r=(lambda t:radius(picks[min(len(picks)-1,round(t*(len(picks)-1)))]/span)) if callable(radius) else radius
+            super().tube(sub,r,4)
+
+        def bead(self,x,z,d0,radius,squash=1):
+            ring=[(x+radius*math.cos(a),z+radius*squash*math.sin(a),d0) for a in (math.pi*k/2+math.pi/4 for k in range(4))]
+            top=(x,z,d0+radius)
+            for p,q in zip(ring,ring[1:]+ring[:1]):self.face([p,q,top])
+
+        def leaf(self,x,z,angle,length,width,depth,lift=.024,curl=.18,holes=True,phase=0,steps=16):
+            tx,tz=math.cos(angle),math.sin(angle);nx,nz=-tz,tx
+            bend=curl*length*.5
+            def at(t,v,up):
+                return (x+tx*length*t+nx*(bend*math.sin(math.pi*t)+width*.5*v),
+                        z+tz*length*t+nz*(bend*math.sin(math.pi*t)+width*.5*v),depth+up)
+            root,tip=at(0,0,0),at(1,0,lift*.2)
+            left,right=at(.42,-1,lift*.25),at(.42,1,lift*.25)
+            ridge=at(.45,0,lift)
+            for p,q in ((root,left),(left,tip),(tip,right),(right,root)):
+                self.face([p,q,ridge])
+                self.face([p,q,(q[0],q[1],q[2]-.010),(p[0],p[1],p[2]-.010)],normal=None)
+    return LowRelief
+
+
 def _fan(b,o,d):
-    r=d.ornament.Relief(b,o,b.params.detail.get('conf',o['conf']))
-    cx=(o['u0']+o['u1'])/2;cz=o['spring_z'];rad=o['r_in'];count=o.get('voussoirs') or 11
-    for i in range(count):
-        a=math.pi*i/count+.004;c=math.pi*(i+1)/count-.004;lo,hi=rad+.04,o['r_out']
-        r.solid([(cx+lo*math.cos(a),cz+lo*math.sin(a)),(cx+hi*math.cos(a),cz+hi*math.sin(a)),
-                 (cx+hi*math.cos(c),cz+hi*math.sin(c)),(cx+lo*math.cos(c),cz+lo*math.sin(c))],-.02,.065,12+i%4)
-    r.solid([(cx+o['r_out']*math.cos(math.pi*i/40),cz+o['r_out']*math.sin(math.pi*i/40)) for i in range(41)],-.065,-.045)
-    for rr,dd,t in ((.666,.020,.013),(.745,.030,.012),(.943,.045,.014)):
-        r.tube([(cx+rad*rr*math.cos(math.pi*i/32),cz+rad*rr*math.sin(math.pi*i/32),dd) for i in range(33)],t,6)
-    for i in range(7):
-        th=math.pi*(i+.5)/7
-        r.leaf(cx+rad*.32*math.cos(th),cz+rad*.32*math.sin(th),th,rad*.28,rad*.12,.01,.035,0,False,steps=5)
+    orn=d.ornament
+    r=_low_relief(d)(b,o,b.params.detail.get('conf',o['conf']),orn.CARVED_GRANITE)
+    cx=(o['u0']+o['u1'])/2;cz=o['spring_z'];rad=o['r_in']
+    d.rock_voussoirs(b,o,cx,cz,rad+.04,o['r_out'],o.get('voussoirs') or 15,b.params.detail.get('conf',o['conf']),90211)
+    r.solid([(cx+o['r_out']*math.cos(math.pi*i/20),cz+o['r_out']*math.sin(math.pi*i/20)) for i in range(21)],-.065,-.045)
+    R=rad+.04
+    # The bands of ornament.fan, outside in, at the same radii and depths.
+    r.arc(cx,cz,R-.012,.034,.012)
+    orn._annulus(r,cx,cz,R*.885,R-.02,-.045,.004,12)
+    for i in range(33):
+        th=math.pi*(i+.5)/33;da=math.pi/33*.30
+        orn._boss(r,[(cx+rr*math.cos(aa),cz+rr*math.sin(aa))
+                     for rr,aa in [(R*.902,th-da*1.08),(R-.032,th-da),(R-.032,th+da),(R*.902,th+da*1.08)]],.004,.040,.16)
+    r.arc(cx,cz,R*.878,.030,.010)
+    orn._annulus(r,cx,cz,R*.705,R*.868,-.045,-.004,12)
+    band=R*.786;size=R*.150
+    for i in range(23):
+        th=math.pi*(i+.5)/23
+        base=(cx+(band-size*.5)*math.cos(th),cz+(band-size*.5)*math.sin(th))
+        r.leaf(*base,th,size,size*.62,.004,.022,.06)
+        for side in (-1,1):
+            r.leaf(*base,th+side*.62,size*.74,size*.42,.000,.018,side*.20)
+    for i in range(24):
+        th=math.pi*i/23
+        r.bead(cx+band*math.cos(th),cz+band*math.sin(th),.012,.0085)
+    r.arc(cx,cz,R*.690,.026,.018)
+    r.arc(cx,cz,R*.655,.010,.008)
+    F=R*.640
+    def stem(points,depth=.020,width=.011):
+        r.tube(orn._bezier([(cx+x*F,cz+z*F) for x,z in points],depth,20),width)
+    def roundel(x,z,radius,depth):
+        r.arc(x,z,radius,depth,radius*.075,0,2*math.pi,40)
+        for j in range(6):
+            th=math.pi/2+2*math.pi*j/6
+            r.leaf(x+radius*.10*math.cos(th),z+radius*.10*math.sin(th),th,radius*.86,radius*.62,depth-.006,radius*.16,(.18 if j%2 else -.18))
+        r.bead(x,z,depth+.012,radius*.16)
+    stem([(0,.0),(0,.25),(0,.55),(0,.80)],.022,.016)
+    for mirror in (-1,1):
+        stem([(0,.10),(mirror*.18,.12),(mirror*.30,.18),(mirror*.36,.28)])
+        stem([(0,.46),(mirror*.08,.50),(mirror*.16,.56),(mirror*.21,.62)])
+        roundel(cx+mirror*F*.53,cz+F*.33,F*.235,.024)
+        roundel(cx+mirror*F*.27,cz+F*.70,F*.165,.026)
+        for x,z,ang,ln in ((.20,.06,.30,.24),(.80,.10,1.75,.20),(.10,.36,.95,.22),(.48,.62,1.25,.22),
+                           (.70,.52,2.10,.18),(.42,.86,1.95,.15),(.86,.30,1.45,.15),(.08,.66,1.15,.18)):
+            r.leaf(cx+mirror*F*x,cz+F*z,ang if mirror>0 else math.pi-ang,F*ln,F*ln*.55,.016,.016,mirror*.16)
+        for x,z,ang,ln in ((.30,.04,.10,.20),(.62,.06,1.00,.16),(.92,.18,1.60,.12),(.30,.52,1.40,.15),
+                           (.58,.84,2.40,.12),(.20,.92,1.80,.10),(.06,.20,1.30,.16),(.40,.16,.60,.14),(.76,.68,2.60,.12)):
+            r.leaf(cx+mirror*F*x,cz+F*z,ang if mirror>0 else math.pi-ang,F*ln,F*ln*.60,.010,.014,-mirror*.14)
+    roundel(cx,cz+F*.83,F*.120,.028)
+    r.solid([(cx+F*.14*math.cos(math.pi*i/8),cz+F*.14*math.sin(math.pi*i/8)) for i in range(9)],-.045,.012)
+    for j in range(5):
+        th=math.pi*(j+.5)/5
+        r.leaf(cx+F*.03*math.cos(th),cz+.004+F*.03*math.sin(th),th,F*.13,F*.075,.012,.010,0)
 
 
 def _columns(b,params,d):
@@ -327,35 +441,81 @@ def _apertures(params):
             'terrace':params.detail.get('bow_terrace',{}).get('window_count',0)}
 
 
-def _tiling_occlusion(root,materials,textures,images,append):
-    """T-2400: the reduced mesh carries TEXCOORD_0 alone, so a stone-scale occlusion
-    baked on the master's TEXCOORD_1 cannot ride it. Each such material takes back the
-    tiling map its extras name (`occlusion_tiling_map`, T-2393's granite_occlusion.png),
-    on TEXCOORD_0 with its normal map's texture sampler, so it repeats with the relief
-    it was drawn from. The baked image's slot is refilled with that map's bytes; a
-    material whose bake names no tiling map loses its occlusion rather than sample a
-    coordinate set the mesh does not have. The light's own bake is T-2401.
+def _blender(root):
+    """The pinned Blender bake.sh fetched (generators/blender.pin), or $BLENDER."""
+    import os
+    if os.environ.get('BLENDER'):return os.environ['BLENDER']
+    pin=dict(line.split('=',1) for line in (Path(root)/'generators/blender.pin').read_text().splitlines()
+             if '=' in line and not line.lstrip().startswith('#'))
+    binary=Path(os.environ.get('BLENDER_CACHE','/opt/blender-dl'))/pin['BLENDER_DIR']/'blender'
+    if not binary.is_file():
+        raise RuntimeError(f'The light LOD bakes its own occlusion and needs the pinned Blender at {binary}; '
+                           'run tools/bake.sh once to fetch it, or set BLENDER')
+    return str(binary)
+
+
+def _png_grey(rows):
+    """An 8-bit greyscale PNG of `rows` (top row first), Up-filtered, written the same way every time."""
+    height,width=len(rows),len(rows[0]);raw=bytearray();previous=bytes(width)
+    for row in rows:
+        row=bytes(row);raw.append(2);raw.extend((a-b)&255 for a,b in zip(row,previous));previous=row
+    def chunk(tag,data):return struct.pack('>I',len(data))+tag+data+struct.pack('>I',zlib.crc32(tag+data))
+    return (b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',width,height,8,0,0,0,0))+
+            chunk(b'IDAT',zlib.compress(bytes(raw),9))+chunk(b'IEND',b''))
+
+
+def _stone_occlusion(root,groups):
+    """T-2401: bake the reduced mesh's own stone-scale occlusion, as T-2400 baked the master's.
+
+    The light tier is a different mesh from the master, so the master's TEXCOORD_1 bake
+    cannot ride it. Every face goes to Blender as an occluder; the granite slots are
+    unwrapped onto their own OcclusionUV and baked by the master's own baker
+    (tools/_glessner_light_occlusion.py), at OCCLUSION_SIZE. Returns each group's
+    TEXCOORD_1 values, the atlas as PNG bytes, and the baker's record.
     """
-    replaced={}
+    import numpy as np
+    order=sorted(groups)
+    co=np.concatenate([np.asarray(groups[m]['p'],np.float64).reshape(-1,3) for m in order])
+    co=np.stack([co[:,0],-co[:,2],co[:,1]],1)   # back to the builder's z-up
+    uv0=np.concatenate([np.asarray(groups[m]['uv'],np.float32).reshape(-1,2) for m in order])
+    corners=np.concatenate([np.asarray(groups[m]['k'],np.int32) for m in order])
+    slot=np.concatenate([np.full(len(groups[m]['k']),m,np.int32) for m in order])
+    with tempfile.TemporaryDirectory(prefix='glessner-light-ao-') as tmp:
+        source,target=Path(tmp)/'in.npz',Path(tmp)/'out.npz'
+        np.savez(source,co=co,uv0=uv0,corners=corners,slot=slot,slots=np.array(MATERIAL_NAMES),
+                 size=np.int32(OCCLUSION_SIZE))
+        run=subprocess.run([_blender(root),'-b','-noaudio','--factory-startup','--python',
+                            str(Path(root)/'tools/_glessner_light_occlusion.py'),'--',str(source),str(target)],
+                           capture_output=True,text=True)
+        if run.returncode or not target.is_file():
+            raise RuntimeError('Light LOD occlusion bake failed:\n'+(run.stdout+run.stderr)[-3000:])
+        out=np.load(target)
+        uv1,ao,record=out['uv1'],out['ao'],json.loads(str(out['record']))
+    if len(uv1)!=len(co):raise RuntimeError('Light LOD occlusion bake returned the wrong corner count')
+    per={};start=0
+    for m in order:
+        n=len(groups[m]['p'])//3
+        # glTF's v runs down the image, Blender's up.
+        per[m]=[float(x) for uv in uv1[start:start+n] for x in (uv[0],1-uv[1])];start+=n
+    return per,_png_grey(ao.tolist()),record
+
+
+def _baked_occlusion(materials,textures,images,append,png):
+    """T-2401: each material whose master occlusion is the TEXCOORD_1 stone bake (T-2400)
+    takes the light mesh's own bake in that image's slot, on the light's own TEXCOORD_1.
+    The material, texture and sampler are the master's; only the image bytes are the
+    light's. T-2393's tiling map (`occlusion_tiling_map`) is no longer put back.
+    """
+    from archetypes.masonry_house_v4_occlusion import GRANITE_SLOTS
+    granite={MATERIAL_NAMES[i] for i in GRANITE_SLOTS};sources=set()
     for material in materials:
         occlusion=material.get('occlusionTexture')
         if not occlusion or occlusion.get('texCoord',0)==0:continue
-        path=(material.get('extras') or {}).get('occlusion_tiling_map')
-        if not path:
-            material.pop('occlusionTexture');continue
-        source=textures[occlusion['index']]['source']
-        if source not in replaced:
-            data=(Path(root)/path).read_bytes()
-            images[source]={'name':Path(path).stem,'mimeType':'image/png','bufferView':append(data)}
-            replaced[source]={}
-        normal=material.get('normalTexture')
-        sampler=textures[normal['index']].get('sampler') if normal else None
-        key=sampler if sampler is not None else -1
-        if key not in replaced[source]:
-            texture={'source':source}
-            if sampler is not None:texture['sampler']=sampler
-            textures.append(texture);replaced[source][key]=len(textures)-1
-        material['occlusionTexture']={'index':replaced[source][key]}
+        if material.get('name') not in granite:
+            raise ValueError(f"{material.get('name')} reads a TEXCOORD_1 occlusion the light LOD does not bake")
+        sources.add(textures[occlusion['index']]['source'])
+    for source in sources:
+        images[source]={'name':'granite_stone_occlusion_light','mimeType':'image/png','bufferView':append(png)}
     return materials,textures
 
 
@@ -409,7 +569,7 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
         points=[b.verts[i] for i in face];normal=_normal(points)
         triangles=_triangles(points,normal)
         if not triangles:continue
-        group=groups.setdefault(material,{'p':[],'n':[],'uv':[],'c':[],'rd':[],'i':[]})
+        group=groups.setdefault(material,{'p':[],'n':[],'uv':[],'c':[],'rd':[],'i':[],'k':[]})
         start=len(group['p'])//3
         horizontal=(-normal[1],normal[0],0);length=math.hypot(horizontal[0],horizontal[1])
         if length<1e-6:horizontal=(1,0,0);uphill=(0,1,0)
@@ -421,29 +581,35 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
         tu,tv=uv_module.TILE_M.get(uv_module.SLOT_FABRIC.get(material),(1,1))
         for index,point in zip(face,points):
             group['p'].extend((point[0],point[2],-point[1]))
-            group['n'].extend((normal[0],normal[2],-normal[1]))
+            vertex_normal=b.pillow_normals.get(index,normal)
+            group['n'].extend((vertex_normal[0],vertex_normal[2],-vertex_normal[1]))
             uv=b.roof_uvs.get(index,(sum(p*v for p,v in zip(point,horizontal)),sum(p*v for p,v in zip(point,uphill))))
             group['uv'].extend((uv[0]/tu,1-uv[1]/tv))
             group['c'].append(b.conf[index])
             group['rd'].append(b.roof_detail.get(index,0))
+        group['k'].append(len(face))
         for triangle in triangles:group['i'].extend(start+i for i in triangle)
         triangle_count+=len(triangles)
     if triangle_count>MAX_TRIANGLES:raise ValueError(f'Reduced Glessner has {triangle_count:,} triangles; limit {MAX_TRIANGLES:,}')
+    uv1,occlusion_png,occlusion_record=_stone_occlusion(root,groups)
+    from archetypes.masonry_house_v4_occlusion import GRANITE_SLOTS
     primitives=[]
     for material,g in sorted(groups.items()):
         attributes={'POSITION':accessor(g['p'],3,bounds=True),'NORMAL':accessor(g['n'],3),
                     'TEXCOORD_0':accessor(g['uv'],2),'_CONFIDENCE':accessor(g['c'],1,bounds=True),
                     '_ROOF_DETAIL':accessor(g['rd'],1,bounds=True)}
+        if material in GRANITE_SLOTS:attributes['TEXCOORD_1']=accessor(uv1[material],2)
         primitives.append({'attributes':attributes,'indices':accessor(g['i'],1,'I'),
                            'material':names[MATERIAL_NAMES[material]],'mode':4})
     extras=copy.deepcopy(owner.get('extras',{}))
     extras.update({'lod':'light','grass_blades':0,'roof_tiles':0,'masonry_blocks':b.masonry_blocks,
-                   'openings_recessed':sum(counts.values()),'aperture_counts':counts})
+                   'openings_recessed':sum(counts.values()),'aperture_counts':counts,
+                   'stone_occlusion':occlusion_record})
     bounds=[[min(p[k] for p in b.verts),max(p[k] for p in b.verts)] for k in range(3)]
     receipt={'master_sha256':master_sha,'recipe_sha256':recipe_sha256,'triangles':triangle_count,
              'openings_recessed':sum(counts.values()),'bounds_zup_m':bounds,
              'profile':'same_v4_reduced_surface_sampling'}
-    materials,textures=_tiling_occlusion(root,copy.deepcopy(materials),copy.deepcopy(full.get('textures',[])),images,append)
+    materials,textures=_baked_occlusion(copy.deepcopy(materials),copy.deepcopy(full.get('textures',[])),images,append,occlusion_png)
     doc={'asset':copy.deepcopy(full['asset']),'scene':0,'scenes':[{'nodes':[0]}],
          'nodes':[{'name':b.name+'.light','mesh':0,'extras':extras}],
          'meshes':[{'name':b.name+'.light','primitives':primitives}],

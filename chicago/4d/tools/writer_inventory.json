@@ -7,6 +7,19 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "glessner_opening_schedule.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-12",
+      "finding": "Reproduces: run bare on a clean tree it rewrote its own four outputs, docs/RESEARCH/glessner-windows-2211/opening-schedule.{md,json} and (since T-2212) docs/RESEARCH/glessner-windows-2212/opening-schedule.{md,json}, byte for byte and moved nothing else.",
+      "placed": "not yet — measured to reproduce. It reads only data/structures/glessner_house.json, which no reconstruction stage writes, and nothing reads its four outputs, so it has no ordering hazard on either side; the manifest's order is its own measured pass, so it is not appended blind (T-2211; T-2212)."
+    },
+    "check_stone_occlusion_atlas.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-12",
+      "finding": "Run bare it is its --check: it reads the K01 baseline's three Glessner tiers' node extras and the committed atlases in assets/bakes/stone-occlusion/, and writes nothing (git status --porcelain identical before and after, bare and --self-test, whose fixtures live in a tempdir). It declares no write mode: the atlases it gates are written by the baker, generators/archetypes/masonry_house_v4_occlusion.py, inside a Blender bake (T-2431)."
+    },
     "count_held_head_dwellings_1835.py": {
       "placement": "manifest",
       "write_mode": "--build",
