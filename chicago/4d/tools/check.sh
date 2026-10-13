@@ -70,6 +70,9 @@ step "The working bank never hides the timber standing on it (T-2098)" \
 step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
   node tools/check_glass_modes.mjs
 
+step "?stone= retints only Glessner's granite, from the tint the generator bakes (T-2446)" \
+  node tools/check_glessner_stone.mjs
+
 step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choice wins (T-2110)" \
   node tools/check_sharpness_default.mjs
 

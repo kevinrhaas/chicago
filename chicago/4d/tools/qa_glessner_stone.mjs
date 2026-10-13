@@ -18,7 +18,7 @@ for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full']
  const page=await context.newPage();page.setDefaultTimeout(240000);
  const errors=[],bad=[],assets=[];
  page.on('pageerror',e=>errors.push(String(e)));page.on('requestfailed',r=>bad.push(r.url()+':'+r.failure()?.errorText));page.on('response',r=>{if(r.status()>=400)bad.push(r.url()+':'+r.status());if(r.url().includes('glessner_house')&&r.url().endsWith('.glb'))assets.push({url:r.url(),status:r.status()})});
- await page.goto(`${base}/1904/`,{waitUntil:'domcontentloaded'});
+ await page.goto(`${base}/1904/${process.env.QA_SEARCH||''}`,{waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>window.__chicago4d?.ready||window.__chicago4d?.error,null,{timeout:240000,polling:1000});
  const boot=await page.evaluate(()=>({ready:__chicago4d.ready,error:__chicago4d.error,scene:__chicago4d.scene?.id}));
  if(!boot.ready||boot.scene!=='1904')throw Error(JSON.stringify(boot));
