@@ -267,7 +267,9 @@ def physical_ray_hits(face,y,z):
 def check_prairie_door_cutout():
     opening={'axis':'x','sign':1,'at':0,'u0':0,'u1':1.5,'z0':0,'z1':2.5,'conf':.5}
     b=PhysicalRecorder();detail.detailed_door(b,opening,'prairie_front_door')
-    for y,z in ((.30,1.45),(.60,1.8),(.90,2.0),(1.2,2.2)):
+    # T-2216: the glazing is sheet No. 95's square grille, 0.23-0.78 of the leaf across
+    # and 0.13-0.49 of it down, so the rays stand inside that square.
+    for y,z in ((.45,1.35),(.70,1.75),(.95,2.0),(1.10,2.1)):
         assert not any(physical_ray_hits(face,y,z) for face,_,mat in b.faces if mat==detail.WOOD), \
             'opaque wood still backs the Prairie upper glazing'
         assert any(physical_ray_hits(face,y,z) for face,_,mat in b.faces if mat==detail.GLASS), \

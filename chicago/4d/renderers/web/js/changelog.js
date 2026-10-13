@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 1769, ts: '2026-10-13T18:14:18.523Z', date: 'Oct 13, 2026, 1:14 PM CT', title: 'Glessner\'s front door gets its iron grille, strap and studded oak', kind: 'feature',
+    items: [
+      'The Prairie Avenue door is now built from Richardson\'s own drawing of it: a studded oak border, a square iron grille with knobbed bars and the house number 1800 over curled scrolls, and two fielded panels below.',
+      'An iron strap crosses the middle rail with a boss and knob at its centre, a latch and drop ring at its left end, and iron corners at the leaf\'s four corners.',
+      'The oak\'s grain now follows each piece: upright on the stiles, across on the rails and panels.',
+      'On phones the door keeps its grille, strap and panels; the studs and scrolls are left out to fit the model\'s budget.',
+    ] },
+  { v: 1768, ts: '2026-10-13T18:04:56.036Z', date: 'Oct 13, 2026, 1:04 PM CT', title: '1619 Prairie\'s moulded stone cornice, from its drawing', kind: 'improvement',
+    items: [
+      '1619 Prairie\'s bracketed timber cornice is gone: a moulded stone cornice now runs along the front and round the top of the swell bay, as its 1886 Building Budget drawing draws it.',
+      'The bay rises to meet the cornice, and the bay\'s cornice and the front\'s are one moulding.',
+      'The cornice\'s profile and the stone-painted eave above it are reconstructed and listed as liberties. The balcony on top comes next.',
+    ] },
   { v: 1767, ts: '2026-10-13T16:30:00.391Z', date: 'Oct 13, 2026, 11:30 AM CT', title: '1637 Prairie\'s wing rises to the cornice under its own roof', kind: 'improvement',
     items: [
       'The forward wing on Jesse Spalding\'s house at 1637 Prairie now rises to the cornice and has its own steep slate roof, as the engraving shows. It used to stop below the cornice under a flat tin deck.',

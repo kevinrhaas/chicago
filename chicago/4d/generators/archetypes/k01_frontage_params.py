@@ -31,6 +31,7 @@ K04 = ROOT / "data" / "components" / "prairie_1904" / "k04_roofs.json"
 WINDOW_KIT = ROOT / "data" / "components" / "prairie_1904" / "k06_windows.json"
 BAY_KIT = ROOT / "data" / "components" / "prairie_1904" / "k08_bays.json"
 ENTRANCE_KIT = ROOT / "data" / "components" / "prairie_1904" / "k07_entrances.json"
+K10_KIT = ROOT / "data" / "components" / "prairie_1904" / "k10_cornices.json"
 # T-2289: the K02 stone library's joint and edge profiles — courses, joints, arrises,
 # chips, rock-faced projection, corner bonds, rustication and copings, in metres.
 # Read here for the same reason as K04: every number the masonry is laid to is a
@@ -851,6 +852,15 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     raise ParamError(f"bays: {e['id']}'s eaves {k} {ev.get(k)} is outside [{lo}, {hi}]")
             v.setdefault("overrides", {}).setdefault("eaves", {}).update(
                 {k: float(ev[k]) for k in ("overhang_m", "fascia_m") if k in ev})
+            # T-2460: a bay rising to the wall's moulded stone cornice carries that cornice's
+            # own section round its plan, read from the K10 kit, so the two are one moulding
+            if "cornice" in ev:
+                k10 = json.loads(K10_KIT.read_text())
+                cv = next((x for x in k10["variants"] if x["id"] == ev["cornice"]), None)
+                if cv is None or cv["kind"] != "moulded" or set(ev) - {"cornice"}:
+                    raise ParamError(f"bays: {e['id']}'s eaves name a K10 moulded cornice and nothing else, "
+                                     f"not {ev}")
+                v["overrides"]["eaves"]["profile"] = k10["parts"]["profiles"][cv["profile"]]["points"]
         s = float(e["s_m"])
         lo, hi = _bay_span(v["plan"])
         a, b = s + lo, s + hi

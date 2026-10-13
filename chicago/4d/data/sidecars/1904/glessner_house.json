@@ -1174,9 +1174,10 @@
       "sources": [
         "habs_glessner_house_il_1015_drawings",
         "inland_architect_1888_02_glessner_exterior",
-        "glessner_porte_cochere_doors_c1888"
+        "glessner_porte_cochere_doors_c1888",
+        "artic_glessner_sheet_95_main_entrance_door"
       ],
-      "note": "The Prairie Avenue front, opening for opening: sheet 6 (1965), confirmed by the 1888 photograph. Positions here are S (= 74 - d, the spec's feet north of the south end); heights above the door datum. The second-floor heads are the printed 24.30; the rest measured, +/- 0.3 ft horizontally and 0.5 ft vertically. The door's fan: tympanum radius 2.6 ft inside radiating voussoirs to 6.4 ft, springing at 9.3 ft (sheet 5). Fifteen voussoirs, keyed at the crown, and a rock-faced lintel about 10 ft long (three quarters of the fan's span), counted and scaled off the owner's photographs of the door (2026-10-12); the previous 11 voussoirs and 5.6 ft dressed lintel had no source. The porte-cochere is drawn closed by its oak leaves (the c. 1888 photograph; HABS data p. 21), their panels and straps not modelled — see porte_cochere_doors."
+      "note": "The Prairie Avenue front, opening for opening: sheet 6 (1965), confirmed by the 1888 photograph. Positions here are S (= 74 - d, the spec's feet north of the south end); heights above the door datum. The second-floor heads are the printed 24.30; the rest measured, +/- 0.3 ft horizontally and 0.5 ft vertically. The door's fan: tympanum radius 2.6 ft inside radiating voussoirs to 6.4 ft, springing at 9.3 ft (sheet 5). Fifteen voussoirs, keyed at the crown, and a rock-faced lintel about 10 ft long (three quarters of the fan's span), counted and scaled off the owner's photographs of the door (2026-10-12); the previous 11 voussoirs and 5.6 ft dressed lintel had no source. The porte-cochere is drawn closed by its oak leaves (the c. 1888 photograph; HABS data p. 21), their panels and straps not modelled — see porte_cochere_doors. T-2216: the front door's LEAF is drawn as Richardson's office drew it on sheet No. 95 (Art Institute of Chicago, mqc 69517; its 'Copy' No. 95A agrees): a studded oak border round two fields with cusped corners; a square iron grille of six bars each way, knobbed where they run past its frame, its centre three cells by four filled with the house number 1800 over three rows of scrolls; an iron strap on the middle rail with a central boss and knob, a ring-handled latch at its left end and iron corners; two fielded panels below. The other No. 95A, a floral grille endorsed 'Not Correct', is not drawn. An undated photograph of the front (Prairie library a18-gh-glessner-front-with-keith, cited only) shows 1800 and a knob on the leaf where sheet 95 puts them. Positions are the sheet's shares of sheet 5's leaf; every depth, the corner irons' and scrolls' forms and the numerals' letterforms are reconstructed (docs/LIBERTIES.md L-glessner-front-door-2216)."
     },
     "openings_18th": {
       "value": {
@@ -3133,6 +3134,26 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "artic_glessner_sheet_95_main_entrance_door",
+      "citation": "'Main Entrance Door. House for J. J. Glessner Esq. Chicago Ill.' Sheet No. 95, scale 3/4 in. = 1 ft, black ink on linen tracing cloth, 1885-1887; microfilmed March 1952 from originals lent by the Houghton Library (Burnham Library-University of Illinois microfilm project, roll 16, frame 68). Art Institute of Chicago, Ryerson & Burnham Archives, call number 1973 1, mqc 69517. The same sheet's 'Copy', No. 95A, is roll 16, frame 70 (mqc 69194).",
+      "url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/69517",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the leaf's arrangement: studded border, square iron grille over a strap rail, two fielded panels below",
+        "the grille's bar count, its knobbed bar ends and its filled centre with the house number and scrolls",
+        "the hardware: the strap, its central boss and knob, the latch plate and ring at the left, the corner irons",
+        "every part's position as a share of the leaf's width and height"
+      ],
+      "what_it_does_not_supply": [
+        "dimensions in feet: the leaf's 4.7 x 7.5 ft is HABS sheet 5's, and the sheet's shares are applied to it",
+        "the depth of any member, panel, bar or stud (reconstructed)",
+        "the scrolls' or figures' exact forms at a resolution that could be traced (nothing is traced)",
+        "colour or finish"
+      ]
+    },
     {
       "source_id": "glessner_house_current_status",
       "citation": "Glessner House, The House, section Preserving an Architectural Treasure. Read 30 September 2026.",
