@@ -1,0 +1,26 @@
+{
+  "id": "carlson_greeley_1891_prairie_environs",
+  "type": "map",
+  "citation": "Greeley-Carlson Company, Atlas of the City of Chicago (Chicago, 1891), the plate covering Prairie Avenue and its environs, as reproduced by Chicagology under the caption \"Prairie Avenue and Environs\".",
+  "author": "Greeley-Carlson Company",
+  "date": "1891",
+  "describes_date": "1891",
+  "repository": "Chicagology (chicagology.com), a secondary website reproduction; the original holder is not stated",
+  "url": "https://chicagology.com/chicagostreets/prairieavenue/",
+  "locator": "The page's 1891 map image; the project's copy is kevinrhaas/chicago-images prairie-1904/files/st-greeley-carlson-1891-prairie-environs.jpg (record st-greeley-carlson-1891-prairie-environs).",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "A United States publication of 1891; public domain.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read from the owner's image store copy of a web reproduction; not georeferenced.",
+  "note": "Spent by T-2478: four or five Illinois Central tracks along the lake east of Prairie Avenue, a wavy water's edge right against them, and the railway's breakwater drawn offshore. No beach, park or walk between the tracks and the lake.",
+  "what_it_supplies": [
+    "The 1891 track count beside Prairie Avenue (four or five), a bound from before on the 1911 sheets' eleven",
+    "The breakwater offshore and the water's edge against the railway"
+  ],
+  "what_it_does_not_supply": [
+    "Measured positions: the copy is not georeferenced",
+    "Anything as of 1904 on its own authority"
+  ]
+}

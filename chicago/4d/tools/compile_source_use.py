@@ -230,6 +230,13 @@ class Compiler:
                 row = read(data / folder / f'{s}.json')
                 if row is not None:
                     self.record(family, kind, f'{folder}/{s}', row, 'other_scene', elsewhere=(s,))
+        # The 1904 lakefront railway (T-2478), the same way.
+        for s, o in others.items():
+            if 'railway' not in o['layers']:
+                continue
+            row = read(data / 'railway' / f'{s}.json')
+            if row is not None:
+                self.record('railway', 'railway', f'railway/{s}', row, 'other_scene', elsewhere=(s,))
         for row in read(data / 'exclusions.json', {}).get('excluded', []):
             self.record('exclusions', 'exclusion', row['id'], row, 'exclusion')
         for row in read(data / 'liberties.json', {}).get('liberties', []):

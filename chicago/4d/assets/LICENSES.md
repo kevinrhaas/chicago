@@ -447,6 +447,67 @@ textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_orm_web
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_roughness.png
 ```
 
+### The Prairie Avenue 1904 lakefront railway library — `textures/prairie_1904_rail/`
+
+T-2478. Four procedural materials for the 1904 scene's Illinois Central right-of-way (cinder
+ballast, trodden cinders, a weedy verge, a crosstie's top) and one alpha card for the verges' grass
+tufts, built by the generator that ships inside it (`tools/generate_prairie_1904_rail.py`,
+deterministic, seeded per material, borrowing the street library's noise). Which ground wears which
+material is `data/railway/1904_spec.json`'s to say; the look of every map is reconstructed
+(`docs/LIBERTIES.md` L-ic-tracks-2478).
+
+| item | licence | cleared for | NOT cleared for |
+|---|---|---|---|
+| `textures/prairie_1904_rail/**` — *Prairie Avenue 1904 lakefront railway PBR library v1.0.0*, original procedural output generated for this project. Full text at `textures/prairie_1904_rail/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1835 library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` says its appearance is reconstructed and that the railway spec, not the map, carries the evidence |
+
+**Published in part.** `tools/publish.sh` ships each material's `material.json` and its three
+`*_web.jpg` maps (the tuft's one `grass_tuft_web.png`) to `data/textures/prairie_1904_rail/`; the PNG
+masters and the 16-bit height stay in the repository.
+
+Every file, as the checker matches them one by one:
+
+```
+textures/prairie_1904_rail/LICENSE.txt
+textures/prairie_1904_rail/README.md
+textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_basecolor.png
+textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_basecolor_web.jpg
+textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_height16.png
+textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_normal_gl.png
+textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_normal_gl_web.jpg
+textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_orm.png
+textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_orm_web.jpg
+textures/prairie_1904_rail/ballast/cinder_ballast/material.json
+textures/prairie_1904_rail/contact_sheet.jpg
+textures/prairie_1904_rail/foliage/grass_tuft/grass_tuft_web.png
+textures/prairie_1904_rail/foliage/grass_tuft/material.json
+textures/prairie_1904_rail/ground/trodden_cinders/material.json
+textures/prairie_1904_rail/ground/trodden_cinders/trodden_cinders_basecolor.png
+textures/prairie_1904_rail/ground/trodden_cinders/trodden_cinders_basecolor_web.jpg
+textures/prairie_1904_rail/ground/trodden_cinders/trodden_cinders_height16.png
+textures/prairie_1904_rail/ground/trodden_cinders/trodden_cinders_normal_gl.png
+textures/prairie_1904_rail/ground/trodden_cinders/trodden_cinders_normal_gl_web.jpg
+textures/prairie_1904_rail/ground/trodden_cinders/trodden_cinders_orm.png
+textures/prairie_1904_rail/ground/trodden_cinders/trodden_cinders_orm_web.jpg
+textures/prairie_1904_rail/manifest.json
+textures/prairie_1904_rail/timber/tie_timber/material.json
+textures/prairie_1904_rail/timber/tie_timber/tie_timber_basecolor.png
+textures/prairie_1904_rail/timber/tie_timber/tie_timber_basecolor_web.jpg
+textures/prairie_1904_rail/timber/tie_timber/tie_timber_height16.png
+textures/prairie_1904_rail/timber/tie_timber/tie_timber_normal_gl.png
+textures/prairie_1904_rail/timber/tie_timber/tie_timber_normal_gl_web.jpg
+textures/prairie_1904_rail/timber/tie_timber/tie_timber_orm.png
+textures/prairie_1904_rail/timber/tie_timber/tie_timber_orm_web.jpg
+textures/prairie_1904_rail/tools/generate_prairie_1904_rail.py
+textures/prairie_1904_rail/verge/weedy_verge/material.json
+textures/prairie_1904_rail/verge/weedy_verge/weedy_verge_basecolor.png
+textures/prairie_1904_rail/verge/weedy_verge/weedy_verge_basecolor_web.jpg
+textures/prairie_1904_rail/verge/weedy_verge/weedy_verge_height16.png
+textures/prairie_1904_rail/verge/weedy_verge/weedy_verge_normal_gl.png
+textures/prairie_1904_rail/verge/weedy_verge/weedy_verge_normal_gl_web.jpg
+textures/prairie_1904_rail/verge/weedy_verge/weedy_verge_orm.png
+textures/prairie_1904_rail/verge/weedy_verge/weedy_verge_orm_web.jpg
+```
+
 ### The Prairie Avenue 1904 K03 brick library — `textures/prairie_1904_brick/`
 
 T-2290 (piece 1 of T-1845, package K03 of T-1837). Four joint-free brick fabrics (pressed red,
