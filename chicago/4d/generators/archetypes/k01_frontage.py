@@ -1752,6 +1752,12 @@ class Assembly:
     BOARD = ("wall", "base")   # the body under the roof: the walls' own business
     OPEN = ("window",)         # the sash recess's back: the K06 opening set in it closes it
 
+    def _in_gable_dormer(self, tri):
+        """T-2452: whether a face's centroid lies in a gabled lower-face dormer's plan box."""
+        cx, cz = sum(q[0] for q in tri) / 3, sum(q[2] for q in tri) / 3
+        return any(b[0] - 1e-6 <= cx <= b[1] + 1e-6 and b[2] - 1e-6 <= cz <= b[3] + 1e-6
+                   for b in getattr(self, "gable_dormer_boxes", ()))
+
     def _emit_shell(self, pts, tris, seed, conf):
         """Each triangle into its material, with metric UVs: a covering's courses run up
         its own plane from that plane's lowest point (its eave), so a course is never cut
@@ -1781,6 +1787,8 @@ class Assembly:
                 raise ValueError(f"the K05 union left a {role!r} face on the roof")
             else:
                 mat = self.SHELL[role]
+            if role == "cheek" and lower and self._in_gable_dormer((pts[a], pts[b], pts[c])):
+                mat = "mansard_slate"
             tri = [pts[a], pts[b], pts[c]]
             steep = role == "covering" and lower and n[1] < math.cos(math.radians(45))
             if steep:
@@ -1826,16 +1834,29 @@ class Assembly:
         hole = o.holes[0]
         sill = ys + d["sill_m"]
         r = d["width_m"] / 2
-        spring = sill + d["sash_height_m"] - d["sash_width_m"] / 2
-        # the face's outline across the face: jambs to the sash's spring, then a half circle
-        # struck from the sash's own centre, `surround_m` outside its arch
-        arc = [(centre + r * math.cos(math.pi * i / 12), spring + r * math.sin(math.pi * i / 12))
-               for i in range(13)]
-        outline = [(centre - r, ys - 0.4), (centre + r, ys - 0.4)] + arc
+        top = sill + d["head_m"]
+        if d.get("head") == "gable":
+            # T-2452: jambs to the surround's head over the square-headed sash, then the
+            # pediment's two slopes to its apex, slated as the cheeks are
+            eaves = sill + d["sash_height_m"] + d["surround_m"]
+            head = [(centre + r, eaves), (centre, top), (centre - r, eaves)]
+        else:
+            # the face's outline across the face: jambs to the sash's spring, then a half
+            # circle struck from the sash's own centre, `surround_m` outside its arch
+            spring = sill + d["sash_height_m"] - d["sash_width_m"] / 2
+            head = [(centre + r * math.cos(math.pi * i / 12), spring + r * math.sin(math.pi * i / 12))
+                    for i in range(13)]
+        outline = [(centre - r, ys - 0.4), (centre + r, ys - 0.4)] + head
         back = fascia - sg * (run + 0.3)
         P = k5.frame(axis)
         ends = ("hidden", "dormer_face") if sg > 0 else ("dormer_face", "hidden")
         body = k5.extrude(outline, min(back, nf), max(back, nf), P, "cheek", *ends)
+        if d.get("head") == "gable":
+            # T-2452: its cheeks and pediment slopes are slated as the lower faces are (_emit_shell
+            # reads a cheek inside this box as one of them), its plan box in the K01 frame
+            a0, a1 = sorted((back, nf))
+            box = (a0, a1, centre - r, centre + r) if axis == "x" else (centre - r, centre + r, a0, a1)
+            self.gable_dormer_boxes = getattr(self, "gable_dormer_boxes", []) + [box]
         rev = v.get("overrides", {}).get("reveal_depth_m", k06_windows.load()["parts"]["reveal_depth_m"]["value"])
         # the hole in the kit's frame is (+X along the wall, +Y up), +X being the face's R
         rec = [(centre + ra * q[0], sill + q[1]) for q in hole]
@@ -1845,8 +1866,8 @@ class Assembly:
         at = lambda along, y, n: (n, y, along) if axis == "x" else (along, y, n)
         return {"body": body, "recess": recess,
                 "geom": {"O": at(centre - ra * r, ys, nf), "R": R, "ys": ys, "sill": sill,
-                         "sill_pt": at(centre, sill, nf), "top_pt": at(centre, spring + r, nf),
-                         "width": 2 * r, "top": spring + r, "variant": v, "d": d}}
+                         "sill_pt": at(centre, sill, nf), "top_pt": at(centre, top, nf),
+                         "width": 2 * r, "top": top, "variant": v, "d": d}}
 
     def crown_dormer_body(self, cr, E, f):
         """T-2404: the crown's round-headed dormer, on the crown's street face, centred on it."""
@@ -1869,15 +1890,18 @@ class Assembly:
         return out
 
     def round_dormer_sash(self, g, conf):
-        """A round-headed dormer's K06 sash in the recess the union cut (its reveal is the
-        solid's), the face registered as the K01 dormer face it is (T-2404, T-2411)."""
+        """A lower-face dormer's K06 sash in the recess the union cut (its reveal is the
+        solid's), the face registered as the K01 dormer face it is (T-2404, T-2411; a
+        gabled one's square-headed sash, T-2452)."""
         from . import k06_windows
         from archetypes.k01_frontage_params import Opening
         d, O, R = g["d"], g["O"], g["R"]
+        head = d.get("head", "round")
         self.instance("k01.wall.dormer_face", "wall", {"length_m": g["width"], "height_m": round(g["top"] - g["ys"], 4),
-                                                       "construction": "masonry", "openings": 1, "head": "round"},
+                                                       "construction": "masonry", "openings": 1, "head": head},
                       {"base": O, "top": g["top_pt"]})
-        op = Opening("k01.opening.sash_round", "k01.wall.dormer_face", g["width"] / 2, g["sill"] - g["ys"],
+        op = Opening("k01.opening.sash_round" if head == "round" else "k01.opening.sash_flat",
+                     "k01.wall.dormer_face", g["width"] / 2, g["sill"] - g["ys"],
                      d["sash_width_m"], d["sash_height_m"])
         frame = (O, R, _cross(R, Y))
         seed = self.instance(op.component, "opening", {"clear_width_m": op.width_m, "clear_height_m": op.height_m,

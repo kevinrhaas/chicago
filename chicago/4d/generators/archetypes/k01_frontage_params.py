@@ -364,8 +364,14 @@ def _mansard_roof(m: dict, depth: float, width: float, eave: float, pitch: float
     if run >= half - 0.5:
         raise ParamError(f"mansard.lower_rise_m {rise}: the curb leaves no upper roof")
     ridge = eave + rise + (half - run) * math.tan(math.radians(pitch))
-    return {"variant": vid, "profile": v["profile"], "lower_pitch_deg": lower, "bulge": float(v["bulge"]),
-            "segments": int(v["segments"]), "lower_rise_m": rise, "fascia_m": f,
+    # T-2452: a house's own lower faces may bow less than the variant's, down to none — the
+    # straight steep faces 1637's engraving draws — on the variant's ring stack, in one ring
+    # when the face is a plane (five coplanar rings would only part one face into five)
+    bulge = float(m.get("bulge", v["bulge"]))
+    if not 0.0 <= bulge <= 0.2:
+        raise ParamError(f"mansard.bulge {bulge}: 0 (a straight face) to 0.2 of the chord")
+    return {"variant": vid, "profile": v["profile"], "lower_pitch_deg": lower, "bulge": bulge,
+            "segments": int(v["segments"]) if bulge > 0 else 1, "lower_rise_m": rise, "fascia_m": f,
             "curb_m": round(eave + rise, 4), "ridge_m": round(ridge, 4)}
 
 
@@ -437,22 +443,42 @@ def mansard_face_height(setback: float, rise: float, lower_pitch_deg: float, bul
 MANSARD_FACES = {"street": "v", "rear": "v", "north": "u", "south": "u"}
 
 
+#: T-2452: a lower-face dormer's head — the sash's own arch carried out by the surround
+#: (T-2404, T-2411), or a pitched gable over a square-headed sash — and the K06 head each takes
+DORMER_HEADS = {"round": "round", "gable": "flat"}
+
+
 def _round_dormer(d: dict, what: str, room: float) -> dict:
-    """A round-headed dormer's numbers (T-2404's crown dormer, T-2411's lower-face ones):
-    a K06 round-headed sash in a stone face `surround_m` round it, its face `face_setback_m`
-    in from the fascia's face. `room` is how far the lower face runs in to its curb."""
+    """A lower-face dormer's numbers (T-2404's crown dormer, T-2411's lower-face ones,
+    T-2452's gabled ones): a K06 sash in a stone face `surround_m` round it, its face
+    `face_setback_m` in from the fascia's face. `head` is `round` (the default: the sash's
+    own arch, the surround carried round it) or `gable` (a square-headed sash under a
+    pediment pitched `gable_pitch_deg` from the surround's head, the face's two slopes
+    slated as its cheeks are). `room` is how far the lower face runs in to its curb.
+    `head_m` is how far the face's top stands over its sill."""
     kit = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
     sh = d["sash"]
-    if kit.get(sh.get("variant"), {}).get("head") != "round":
-        raise ParamError(f"{what}.sash.variant: a round-headed K06 variant")
+    head = d.get("head", "round")
+    if head not in DORMER_HEADS:
+        raise ParamError(f"{what}.head {head!r}: one of {', '.join(DORMER_HEADS)}")
+    if kit.get(sh.get("variant"), {}).get("head") != DORMER_HEADS[head]:
+        raise ParamError(f"{what}.sash.variant: a {DORMER_HEADS[head]}-headed K06 variant under a {head} head")
     sw, sht, sill = float(sh["width_m"]), float(sh["height_m"]), float(sh["sill_m"])
     ring, sb = float(d["surround_m"]), float(d["face_setback_m"])
     if not 0.1 <= ring <= 0.4 or not 0.0 < sb < room:
         raise ParamError(f"{what}: a 0.1-0.4 m surround, its face on the lower face")
     if not 0.5 <= sw <= 1.2 or not 1.0 <= sht <= 2.4 or not 0.1 <= sill <= 0.6:
         raise ParamError(f"{what}.sash: 0.5-1.2 m wide, 1.0-2.4 m high, on a 0.1-0.6 m sill")
-    return {"variant": sh["variant"], "sash_width_m": sw, "sash_height_m": sht, "sill_m": sill,
-            "surround_m": ring, "face_setback_m": sb, "width_m": round(sw + 2 * ring, 4)}
+    out = {"variant": sh["variant"], "head": head, "sash_width_m": sw, "sash_height_m": sht, "sill_m": sill,
+           "surround_m": ring, "face_setback_m": sb, "width_m": round(sw + 2 * ring, 4),
+           "head_m": round(sht + ring, 4)}
+    if head == "gable":
+        gp = float(d["gable_pitch_deg"])
+        if not 30.0 <= gp <= 60.0:
+            raise ParamError(f"{what}.gable_pitch_deg {gp}: a dormer's pediment is pitched 30-60 deg")
+        out["gable_pitch_deg"] = gp
+        out["head_m"] = round(sht + ring + (sw / 2 + ring) * math.tan(math.radians(gp)), 4)
+    return out
 
 
 def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, overhang: float,
@@ -478,7 +504,7 @@ def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, 
             raise ParamError(f"{what}.along_m {c}: its face stands clear of the hips only for {lo:.2f}-{hi:.2f} m")
         foot = mansard_face_height(d["face_setback_m"], m["lower_rise_m"], m["lower_pitch_deg"], m["bulge"],
                                    m["profile"])
-        top = foot + d["sill_m"] + d["sash_height_m"] + d["surround_m"]
+        top = foot + d["sill_m"] + d["head_m"]
         if top > m["lower_rise_m"] - 0.1:
             raise ParamError(f"{what}: its head at {top:.2f} m over the eave meets the curb at {m['lower_rise_m']} m")
         # its plan, face to back, in (u, v): the body runs `run + 0.3` in from the fascia
