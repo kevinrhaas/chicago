@@ -718,12 +718,13 @@ class Assembly:
         pr.face([P(s1, y0, 0), P(s1, y0, d), P(s1, y1, d), P(s1, y1, 0)], R, be, conf)
 
     # -- k01.wall.* ----------------------------------------------------------------
-    def wall(self, cid, mat, O, R, length, height, thickness, holes, extra_breaks=(), bands=(), gaps=(), cols=()):
+    def wall(self, cid, mat, O, R, length, height, thickness, holes, extra_breaks=(), bands=(), gaps=(), cols=(),
+             construction="masonry"):
         p = self.p
         N = _cross(R, Y)
         conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction")
         seed = self.instance(cid, "wall", {"length_m": length, "height_m": height,
-                                           "thickness_m": thickness, "construction": "masonry",
+                                           "thickness_m": thickness, "construction": construction,
                                            "openings": len(holes)},
                              {"base": O, "top": _add(O, _mul(Y, height))})
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
@@ -752,9 +753,12 @@ class Assembly:
         windows cut, the second-floor string course carried round from the main walls, and
         a flat deck. Its front stands on its host wall, which is not drawn behind it, so it
         has no front wall of its own; a later wing standing on its rear is cut out the same
-        way. Its brick heads and its soot band take their datum from its own wall top."""
-        from .k01_frontage_params import wing_walls
+        way. Its brick heads and its soot band take their datum from its own wall top.
+        T-2417: a `frame` wing's walls are painted timber, the frame bay's (T-2356), its
+        windows cased in the painted trim, with no brick course carried round it."""
+        from .k01_frontage_params import wing_walls, FRAME_WALL_M
         p = self.p
+        frame_wing = w.get("fabric") == "frame"
         keep, self.soffit_m = self.soffit_m, w["top_m"]
         on_rear = [(*x["host_span_m"], 0.0, x["deck_m"]) for x in p.rear_wings
                    if x["host_wall"] == f"k01.wall.wing.{w['id']}.rear"]
@@ -763,6 +767,12 @@ class Assembly:
             ops = [o for o in w["openings"] if o.wall == cid]
             cover = on_rear if side == "rear" else []
             hs = [(o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m) for o in ops] + cover
+            if frame_wing:
+                frame, t = self.wall(cid, "bay_frame", O, R, length, w["top_m"], FRAME_WALL_M, hs,
+                                     (w["top_m"],), construction="frame")
+                for o in ops:
+                    self.opening(o, frame, t, "bay_frame", "fascia")
+                continue
             breaks = (w["top_m"], *k03_brick.condition_breaks(w["top_m"]))
             frame, t = self.wall(cid, "brick", O, R, length, w["top_m"], p.side_thickness_m, hs, breaks)
             for o in ops:
