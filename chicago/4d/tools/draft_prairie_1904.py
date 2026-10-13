@@ -595,7 +595,9 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
     where = f"{addr.replace('_', '-')} S. Prairie Avenue"
     if kind == "house":
         label = (row.get("address") or where).replace(" S. Prairie Avenue", "")
-        name = f"{label} Prairie Avenue — {fam_name} (district draft; refined by {', '.join(refined_by)})"
+        # T-2439: a frontage whose household is ruled names it on the card; the draft stays the draft
+        who = f"{frow['household']['name']}, " if frow.get("household") else ""
+        name = f"{label} Prairie Avenue — {who}{fam_name} (district draft; refined by {', '.join(refined_by)})"
         reading = cp.get('reading_1911', '')
         ruling = (f or {}).get('decision_1904', 'present_as_mapped')
         function = _attr("residence", "inferred", plate["function_note"], [src]) if plate else _attr(
@@ -632,6 +634,8 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
         function["note"] += f" {b['census_fix']['note']}"
     if kind == "house" and frow.get("works"):
         function["note"] += f" {frow['works']['note']}"
+    if kind == "house" and frow.get("household"):
+        function["note"] += f" {frow['household']['note']}"
     drawn = "; ".join(p["from"] for p in parts)
     rec = {
         "id": sid,
