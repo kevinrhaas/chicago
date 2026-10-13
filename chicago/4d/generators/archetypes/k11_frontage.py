@@ -63,6 +63,9 @@ STREET_FRONT = "k01.wall.street_front"
 # vertex (k01_contract.json measures): a wall sunk 0.10 m would move the house's origin
 ROLE_MATERIAL = {"iron": "iron", "stone": "stoop_stone", "brick": "k11_wall_brick", "timber": "fence_boards"}
 CLEAR_M = 0.05          # a swinging leaf keeps this far from the stoop; nothing comes nearer the walk
+# T-2447: a front garden enclosed close before the house rather than on the street line
+# (1637's engraving): a brick wall north of the stoop, an iron fence south of it, no gates
+GARDEN = "front_garden"
 
 
 def _kit():
@@ -76,6 +79,8 @@ def spec(params) -> dict | None:
     t = getattr(params, "boundary", None)
     if not t:
         return None
+    if t.get("layout") == GARDEN:
+        return garden_spec(params, t)
     if t.get("fence") not in FENCES:
         raise ValueError(f"boundary.fence builds one of {sorted(FENCES)}")
     for g in ("entrance_gate", "side_gate"):
@@ -165,6 +170,8 @@ def dress(a):
     t = spec(p)
     if not t:
         return
+    if t.get("layout") == GARDEN:
+        return garden(a, t)
     K = _kit()
     data = K.load()
     P = data["parts"]
@@ -332,3 +339,86 @@ def boards(a, K, data, B, line, s_north, conf):
                                  "height_m": H, "posts": n1 + n2},
                {"street_end": (line, 0.0, -B["from_s_m"]), "rear_end": (B["to_u_m"], 0.0, -(s_north - 0.06))})
     _lay(a, front.pieces + side.pieces, conf, BOARDS)
+
+
+# -----------------------------------------------------------------------------------
+# T-2447: the front garden — 1637 Prairie's engraving
+# -----------------------------------------------------------------------------------
+
+def garden_spec(params, t: dict) -> dict:
+    """`layout: front_garden`: one line parallel to the street front, `line_m` before it,
+    carrying a brick `wall` from `from_s_m` to `to_s_m` on one side of the stoop and an
+    iron `fence` from the stoop's other cheek to `to_s_m`. No gate: the stoop's own flight
+    crosses the line between them, and the walk comes up to its foot."""
+    if t.get("fence") not in FENCES:
+        raise ValueError(f"boundary.fence builds one of {sorted(FENCES)}")
+    if FENCES[t["fence"]] == "boards":   # T-2455: boards close a street line, never a garden's
+        raise ValueError(f"boundary.fence: a front garden's fence is iron, not {BOARDS!r}")
+    if not 2.0 <= t.get("line_m", 0) <= 9.0:
+        raise ValueError("boundary.line_m: a front garden's line stands 2-9 m before the street front, clear of its bays")
+    s0, s1 = t["lot_s_m"]
+    if not s0 <= 0.0 < params.width_m <= s1 + 0.25:
+        raise ValueError(f"boundary.lot_s_m {t['lot_s_m']} does not hold the street front 0..{params.width_m}")
+    W, F = t["wall"], t["fence_run"]
+    if W.get("variant") != WALL:
+        raise ValueError(f"boundary.wall builds {WALL!r} alone")
+    if not 1.0 <= W["height_m"] <= 2.6:
+        raise ValueError(f"boundary.wall.height_m {W['height_m']}: a garden wall stands 1.0-2.6 m")
+    for what, run in (("wall", W), ("fence_run", F)):
+        a, b = sorted((run["from_s_m"], run["to_s_m"]))
+        if a < s0 - 1e-6 or b > s1 + 1e-6:
+            raise ValueError(f"boundary.{what} s {a}..{b} leaves the lot {s0}..{s1}")
+    top = t.get("fence_rail_top_m")
+    if top is not None and not 0.8 <= top <= 2.2:
+        raise ValueError(f"boundary.fence_rail_top_m {top}: a top rail stands 0.8-2.2 m over the curb")
+    if params.entrance_kit.get("front_yard_m", 0) <= t["line_m"] + 0.5:
+        raise ValueError("boundary.line_m: the garden's line stands inside the front yard, short of the walk")
+    return t
+
+
+def garden(a, t):
+    """Lay a front garden's wall and fence on the line `line_m` before the street front.
+    The wall runs between the kit's brick piers; the fence is the kit's run on its curb, its
+    rails raised to `fence_rail_top_m` where the record reads a taller one. Each stops clear
+    of the stoop's built cheeks, which the generator reads off K07's mesh."""
+    import copy
+    p = a.p
+    K = _kit()
+    data = copy.deepcopy(K.load())
+    if t.get("fence_rail_top_m") is not None:
+        data["parts"]["rail"]["top_m"] = t["fence_rail_top_m"]
+    P = data["parts"]
+    conf = p.conf("boundary")
+    D = p.depth_m
+    line = D + t["line_m"]
+    door = next(o for o in p.openings if o.component == "k01.opening.door_leaf" and o.wall == STREET_FRONT)
+    stoop = [q for q in a.prim("stoop_stone").pos if q[0] > D + 0.05 and abs(-q[2] - door.s_m) < 2.0]
+    foot = max(q[0] for q in stoop)
+    cheeks = (min(-q[2] for q in stoop), max(-q[2] for q in stoop))
+    W, F = t["wall"], t["fence_run"]
+    wa, wb = sorted((W["from_s_m"], W["to_s_m"]))
+    fa, fb = sorted((F["from_s_m"], F["to_s_m"]))
+    for lo, hi, what in ((wa, wb, "wall"), (fa, fb, "fence")):
+        if foot > line - 0.5 and lo < cheeks[1] + CLEAR_M and hi > cheeks[0] - CLEAR_M:
+            raise ValueError(f"the garden's {what} s {lo:.3f}..{hi:.3f} runs into the stoop, whose cheeks stand at "
+                             f"s {cheeks[0]:.3f}..{cheeks[1]:.3f} and whose foot reaches X {foot:.3f} over the line at {line:.3f}")
+    wv = K.Variant({"id": WALL, "kind": "wall"}, data)
+    piers = wv.wall_run(wa, wb, H=W["height_m"], urns=None if W.get("urns") else ())
+    var = K.Variant({"id": t["fence"], "kind": "fence"}, data)
+    posts = var.fence_run(fa, fb, FENCES[t["fence"]], "garden run")
+    for pc in wv.pieces + var.pieces:
+        _to_fence(pc.mesh, line)
+    reach = max(q[0] for pc in wv.pieces + var.pieces for q in pc.mesh.pos)
+    walk = D + p.entrance_kit["front_yard_m"]
+    if reach > walk - CLEAR_M:
+        raise ValueError(f"the garden reaches X {reach:.3f}, onto the walk at {walk:.3f}")
+    a.instance(WALL, "wall", {"length_m": round(wb - wa, 4), "height_m": W["height_m"], "piers": len(piers)},
+               {"end_a": (line, 0.0, -wa), "end_b": (line, 0.0, -wb)})
+    a.instance(t["fence"], "fence", {"length_m": round(fb - fa, 4), "runs": 1, "posts": len(posts)},
+               {"end_a": (line, 0.0, -fa), "end_b": (line, 0.0, -fb)})
+    _lay(a, wv.pieces, conf, WALL)
+    _lay(a, var.pieces, conf, t["fence"])
+    a.boundary = {"line_x_m": round(line, 4), "stoop_foot_x_m": round(foot, 4),
+                  "stoop_cheeks_s_m": [round(c, 4) for c in cheeks],
+                  "wall_s_m": [round(wa, 4), round(wb, 4)], "wall_piers_s_m": [round(x, 3) for x in wv.meta["piers"]],
+                  "fence_s_m": [round(fa, 4), round(fb, 4)], "fence_posts_s_m": [round(x, 3) for x in posts]}
