@@ -35,6 +35,12 @@ const DESATURATE = 0.3;               // how much of its own saturation it loses
 const TREE_FADE = 0.28;               // a tree keeps more of its green: faded, still a tree
 const ROOF_TOP_SHADE = 0.86;          // a flat roof a little darker than its walls
 const TRUNK = '#5b4b3c';
+// The faded streets (T-2491): a macadam-and-block grey-brown, faded like the buildings, the
+// carriageway the grid's row_66 gives (38 ft), laid a few centimetres over the ground in pieces
+// short enough to follow it.
+const STREET = '#8a8174';
+const STREET_LIFT_M = 0.05;
+const STREET_PIECE_M = 25;
 
 const wx = (e) => e;
 const wz = (n) => -n;
@@ -110,6 +116,45 @@ function pyramidGeometry() {
   const t = [0, 1, 0];
   return geometry([...a, ...b, ...t, ...b, ...c, ...t, ...c, ...d, ...t, ...d, ...a, ...t],
     new Array(12).fill(1));
+}
+
+/** A far crown (T-2491): an octahedron, 8 triangles, no trunk: past the near ring the haze
+ *  leaves a tree its shape and a little of its green, and nothing finer. */
+function farCrownGeometry() {
+  const g = new THREE.OctahedronGeometry(1, 0);
+  const n = g.getAttribute('position').count;
+  g.setAttribute('color', new THREE.Float32BufferAttribute(new Array(n * 3).fill(1), 3));
+  g.setAttribute('_confidence', new THREE.Float32BufferAttribute(new Array(n).fill(1), 1));
+  return g;
+}
+
+/** The faded streets as one ribbon mesh: each segment cut into pieces that each take the
+ *  ground's height at their ends, so a street follows the ground and the skirt beyond it. */
+function streetGeometry(streets, at, width, ground, colour) {
+  const p = []; const c = []; const conf = [];
+  const half = width / 2;
+  const push = (e, n) => { p.push(wx(e), ground(e, n) + STREET_LIFT_M, wz(n)); c.push(colour.r, colour.g, colour.b); conf.push(1); };
+  for (const st of streets) {
+    const e0 = st[at.e0]; const n0 = st[at.n0]; const e1 = st[at.e1]; const n1 = st[at.n1];
+    const L = Math.hypot(e1 - e0, n1 - n0);
+    if (!(L > 0)) continue;
+    const ue = (e1 - e0) / L; const un = (n1 - n0) / L;
+    const k = Math.max(1, Math.ceil(L / STREET_PIECE_M));
+    for (let i = 0; i < k; i++) {
+      const a = (L * i) / k; const b = (L * (i + 1)) / k;
+      const ea = e0 + ue * a; const na = n0 + un * a; const eb = e0 + ue * b; const nb = n0 + un * b;
+      // left and right of the line, looking along it (the right is east of a northward street)
+      const lA = [ea - un * half, na + ue * half]; const rA = [ea + un * half, na - ue * half];
+      const lB = [eb - un * half, nb + ue * half]; const rB = [eb + un * half, nb - ue * half];
+      for (const q of [lA, rA, rB, lA, rB, lB]) push(q[0], q[1]);
+    }
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(p, 3));
+  g.setAttribute('color', new THREE.Float32BufferAttribute(c, 3));
+  g.setAttribute('_confidence', new THREE.Float32BufferAttribute(conf, 1));
+  g.computeVertexNormals();
+  return g;
 }
 
 /** A crown: a once-subdivided icosahedron, smooth-shaded (20 triangles); and a three-sided trunk. */
@@ -240,7 +285,9 @@ export async function createContext({
     const e = b[at.e]; const n = b[at.n]; const w = b[at.width_m]; const d = b[at.depth_m];
     const bearing = b[at.bearing_deg];
     if (touchesStructure(fps, e, n, w, d, bearing)) { dropped++; continue; }
-    if (b[at.src] === projectSrc && far(e, n)) continue;
+    // On light detail the near ring's one-to-a-lot houses stop at `reach`; the rows of lots past
+    // the ring (lod 1, T-2491) stay, so a phone still sees the city run out to the haze.
+    if (b[at.src] === projectSrc && !b[at.lod] && far(e, n)) continue;
     const roof = enums.roof?.[b[at.roof]] ?? 'flat';
     const cs = corners(e, n, w, d, bearing);
     const y0 = Math.min(...cs.map(([x, y]) => ground(x, y)), ground(e, n)) - 0.15;
@@ -254,12 +301,12 @@ export async function createContext({
       if (roof === 'gable') { kinds.ends.push(rec); kinds.gable.push(rec); } else kinds.pyramid.push(rec);
     }
   }
-  const trees = [];
+  const trees = []; const farTrees = [];
   for (const t of doc.trees ?? []) {
     const e = t[T.e]; const n = t[T.n]; const r = t[T.crown_r_m];
-    if (light && (far(e, n) || t[T.src] === 1 && ((e * 7.3 + n * 3.1) % 3 + 3) % 3 < 1)) continue;
+    if (light && (far(e, n) || t[T.lod] || t[T.src] === 1 && ((e * 7.3 + n * 3.1) % 3 + 3) % 3 < 1)) continue;
     if (touchesStructure(fps, e, n, r, r, 0, 0)) { dropped++; continue; }
-    trees.push({ e, n, h: t[T.height_m], r, tone: t[T.tone] });
+    (t[T.lod] ? farTrees : trees).push({ e, n, h: t[T.height_m], r, tone: t[T.tone] });
   }
 
   const material = new THREE.MeshStandardMaterial({
@@ -321,34 +368,62 @@ export async function createContext({
     pos.set(wx(t.e), ground(t.e, t.n) + t.h - t.r * 0.95, wz(t.n));
     scl.set(t.r, t.r * 0.95, t.r);
   }, (t) => fadeHex(treeFam[t.tone % treeFam.length], jitter(t.e, t.n), TREE_FADE), 'crowns', leafMaterial);
+  add(farCrownGeometry(), farTrees, (t) => {
+    q.setFromAxisAngle(Y, t.e * 0.37 + t.n * 0.11);
+    // the crown's foot at about a third of the tree's height, where a trunk would have met it
+    pos.set(wx(t.e), ground(t.e, t.n) + t.h - t.r * 1.1, wz(t.n));
+    scl.set(t.r, t.h * 0.42, t.r);
+  }, (t) => fadeHex(treeFam[t.tone % treeFam.length], jitter(t.e, t.n), TREE_FADE), 'far-crowns', leafMaterial);
+
+  // The faded streets: one mesh, under any street the grid draws (the tool keeps them apart).
+  const S = Object.fromEntries((doc.fields?.streets ?? []).map((k, i) => [k, i]));
+  let streetMesh = null; let streetMaterial = null;
+  if ((doc.streets ?? []).length) {
+    const width = doc.projection?.network?.carriageway_m ?? 11.58;
+    const geo = streetGeometry(doc.streets, S, width, ground, fadeHex(STREET));
+    streetMaterial = new THREE.MeshStandardMaterial({
+      color: 0xffffff, vertexColors: true, roughness: 1, metalness: 0,
+      polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1,
+    });
+    confidence?.patch(streetMaterial);
+    streetMesh = new THREE.Mesh(geo, streetMaterial);
+    streetMesh.name = 'context:streets';
+    streetMesh.receiveShadow = true;
+    streetMesh.castShadow = false;
+    group.add(streetMesh);
+    out.census.triangles += geo.getAttribute('position').count / 3;
+    out.census.street_km = Math.round((doc.counts?.street_km ?? 0) * 10) / 10;
+  }
 
   out.census.buildings = rows.length;
-  out.census.trees = trees.length;
+  out.census.trees = trees.length + farTrees.length;
   out.census.dropped = dropped;
-  out.census.meshes = meshes.length;
+  out.census.meshes = meshes.length + (streetMesh ? 1 : 0);
 
   // A pick answers with what the stand-in is and what it rests on.
   const raycaster = new THREE.Raycaster();
   const rules = doc.rules ?? {};
+  const sheetName = (s) => doc.sheet_names?.[s] ?? `Sanborn 1911 vol. 3 sheet ${s}`;
   const srcWords = (s) => (s === 'project'
-    ? 'projected: no Sanborn sheet of this ground is in hand, so the street, the lot and the building are laid out on the pitch, frontages and materials the traced sheets measure'
-    : `read off Sanborn 1911 vol. 3 sheet ${s}, the smallest rectangle holding the part the sheet draws`);
+    ? 'projected: no map of this ground is in hand, so the street, the lot and the building are laid out on the grid the section corners and the traced maps measure, in the use the 1904 city gave the block'
+    : `read off ${sheetName(s)}, the smallest rectangle holding the part the map draws`);
   const cardFor = (r) => {
     const src = enums.src?.[r.row[at.src]] ?? 'project';
     const mat = enums.material?.[r.row[at.material]] ?? 'brick';
     const rule = enums.rule?.[r.row[at.rule]] ?? '';
-    const sourceId = src === 'project' ? null : (doc.sources ?? []).find((s) => s.endsWith(`sheet_${src}`));
+    const sourceId = src === 'project' ? null
+      : (doc.sheet_sources?.[src] ?? (doc.sources ?? []).find((s) => s.endsWith(`sheet_${src}`)));
     const why = rule === 'printed' ? 'the figure the sheet prints for it' : (rules[rule]?.why ?? '');
     return {
       id: `context:${r.e},${r.n}`,
       sidecar: {
-        name: src === 'project' ? 'A stand-in for the city around Prairie Avenue' : `A ${mat} building, as sheet ${src} draws it`,
+        name: src === 'project' ? 'A stand-in for the city around Prairie Avenue' : `A ${mat} building, as ${sheetName(src)} draws it`,
         phase: null,
         change_note: `A faded stand-in, not a model: ${srcWords(src)}. `
           + `${Math.round(r.w)} by ${Math.round(r.d)} m, ${Math.round(r.row[at.eave_m])} m to the eaves (${why}). `
           + `Prairie Avenue's buildings are the ones in full colour.`,
         placement: {
-          symbolic_location: src === 'project' ? 'Projected past the Sanborn sheets in hand' : `Sanborn 1911 sheet ${src}`,
+          symbolic_location: src === 'project' ? 'Projected past the maps in hand' : sheetName(src),
           position_confidence: src === 'project' ? 'reconstructed' : 'inferred',
           position_sources: sourceId ? [sourceId] : [],
           position_note: doc.tiers?.[src === 'project' ? 'projection' : 'sheet_outline'] ?? '',
@@ -365,7 +440,8 @@ export async function createContext({
           },
         },
         citations: [],
-        research_note: `Context city, ${doc.ticket} (data/context/${sceneId}.json); docs/LIBERTIES.md ${doc.liberty}.`,
+        research_note: `Context city, ${doc.ticket}${doc.extended_by ? ` and ${doc.extended_by}` : ''} (data/context/${sceneId}.json); `
+          + `docs/LIBERTIES.md ${doc.liberty}${doc.liberty_streets ? ` and ${doc.liberty_streets}` : ''}.`,
       },
     };
   };
@@ -382,6 +458,8 @@ export async function createContext({
   };
   out.dispose = () => {
     for (const m of meshes) { m.geometry.dispose(); m.dispose?.(); }
+    streetMesh?.geometry.dispose();
+    streetMaterial?.dispose();
     material.dispose();
     leafMaterial.dispose();
   };
