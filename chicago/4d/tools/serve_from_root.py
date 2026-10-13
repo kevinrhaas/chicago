@@ -13,24 +13,32 @@ budget, which turned dev's gate red and with it every PR waiting to merge.
 This is T-0722's rule ("the same bytes, shipped twice") carried across the one
 boundary `site_budget.py --dupes` cannot see, because it only walks site/4d/.
 
-THE RULE. For each asset directory below, if EVERY file the mirror holds under it
-is byte-identical to the file at the same path in the site root's production
-copy, the mirror's copy is removed and the viewer reads that directory from the
-root instead. One file that differs, or is missing at the root, keeps the whole
-directory in the mirror — so new work the production copy does not have yet
-still ships in the preview, and moves out by itself the day the production copy
-is refreshed to hold it. ALWAYS_ROOT names the exception: the Prairie image
+THE RULE, PER FILE (T-2483). For each asset directory below, every file the
+mirror holds that is byte-identical to the file at the same path in the site
+root's production copy is removed, and the viewer reads it from the root
+instead. A file that differs, or is missing at the root, STAYS in the mirror and
+is listed in `keep`, so new work the production copy does not have yet still
+ships in the preview, and moves out by itself the day the production copy is
+refreshed to hold it. ALWAYS_ROOT names the exception: the Prairie image
 collection never ships here (owner, 2026-10-02), whatever the root holds.
+
+Until T-2483 the rule was per DIRECTORY: one file the root lacked kept the whole
+directory. On 2026-10-13 #783 added one 65 KB photograph (and its thumbnail) to
+prairie-1904's research/public/, the root copy did not have it, and all 39.3 MB
+of that directory went back into the mirror — 279.2 MB of a 256 MB budget, and
+dev's gate red for every PR behind it. Per file, the same addition costs 90 KB.
 
 THE VIEWER SIDE. Each viewer loads viewer/root-served.js, which the source
 commits as `self.ROOT_SERVED = null` (everything package-relative). This tool
-overwrites the MIRROR's copy with the directories it removed and the root path
-they now live under, and the viewers' path resolvers read it.
+overwrites the MIRROR's copy with the directories it thinned, the root path they
+now live under, and the files under them it kept (`keep`, package-relative paths);
+the viewers' path resolvers send a path under a listed directory to the root
+unless `keep` names it.
 
 THE COST, stated rather than hidden: the root is deployed from main, so the
-/4d/dev/ preview shows main's bytes for a moved directory. A file changed on dev
-but not yet promoted is previewed at its production version (or 404s, if it is
-new and its directory was otherwise identical) until the next promotion.
+/4d/dev/ preview shows main's bytes for a file identical to main's — which is no
+cost at all, since they are the same bytes. A file changed or added on dev is
+kept and previewed from the mirror.
 
     python3 tools/serve_from_root.py <site/4d> <site>   # publish.sh runs this
     python3 tools/serve_from_root.py --self-test
@@ -62,38 +70,51 @@ ALWAYS_ROOT = {
 }
 
 
-def identical_at_root(mirror_dir: Path, root_dir: Path) -> bool:
-    files = [p for p in mirror_dir.rglob("*") if p.is_file()]
-    if not files:
-        return False
-    for p in files:
+def split_at_root(mirror_dir: Path, root_dir: Path) -> tuple[list[Path], list[Path]]:
+    """The mirror's files under mirror_dir: (identical at the root, not)."""
+    same, kept = [], []
+    for p in sorted(p for p in mirror_dir.rglob("*") if p.is_file()):
         twin = root_dir / p.relative_to(mirror_dir)
-        if not twin.is_file() or not filecmp.cmp(p, twin, shallow=False):
-            return False
-    return True
+        (same if twin.is_file() and filecmp.cmp(p, twin, shallow=False) else kept).append(p)
+    return same, kept
 
 
 def serve_from_root(mirror: Path, site: Path, out=sys.stdout) -> int:
-    """Prune the shared directories; return the bytes the mirror no longer ships."""
+    """Prune the shared files; return the bytes the mirror no longer ships."""
     saved = 0
     for app, dirs in ASSET_DIRS.items():
         viewer = mirror / app / "viewer"
         if not viewer.is_dir():
             continue
-        moved = []
+        moved, keep = [], []
         for d in dirs:
             mine, root = mirror / app / d, site / app / d
-            always = d in ALWAYS_ROOT.get(app, [])
-            if mine.is_dir() and (always or identical_at_root(mine, root)):
+            if not mine.is_dir():
+                continue
+            if d in ALWAYS_ROOT.get(app, []):
                 size = sum(p.stat().st_size for p in mine.rglob("*") if p.is_file())
                 shutil.rmtree(mine)
                 saved += size
                 moved.append(d + "/")
                 print(f"   {app}/{d}/  {size / 1048576:.2f} MB served from /{app}/{d}/"
-                      + (" (always: its home is the root)" if always else ""), file=out)
-            elif mine.is_dir():
-                print(f"   {app}/{d}/  kept — not all of it is at /{app}/{d}/ yet", file=out)
-        spec = {"base": f"/{app}/", "dirs": moved} if moved else None
+                      " (always: its home is the root)", file=out)
+                continue
+            same, kept = split_at_root(mine, root)
+            if not same:
+                print(f"   {app}/{d}/  kept — none of it is at /{app}/{d}/ yet", file=out)
+                continue
+            size = sum(p.stat().st_size for p in same)
+            for p in same:
+                p.unlink()
+            for sub in sorted((q for q in mine.rglob("*") if q.is_dir()), reverse=True):
+                if not any(sub.iterdir()):
+                    sub.rmdir()
+            saved += size
+            moved.append(d + "/")
+            keep += [f"{d}/{p.relative_to(mine).as_posix()}" for p in kept]
+            print(f"   {app}/{d}/  {size / 1048576:.2f} MB served from /{app}/{d}/"
+                  + (f", {len(kept)} file(s) not at the root kept here" if kept else ""), file=out)
+        spec = {"base": f"/{app}/", "dirs": moved, "keep": keep} if moved else None
         (viewer / "root-served.js").write_text(
             "// Written by chicago/4d/tools/serve_from_root.py (T-1828): asset directories this\n"
             "// copy reads from the site root's production copy instead of its own package.\n"
@@ -117,18 +138,23 @@ def self_test() -> int:
         put(mirror / "prairie-1904/research/images/files/new.jpg", "N")   # not at root, but ALWAYS_ROOT: leaves
         put(mirror / "pre-fire/maps/images/new.jpg", "N")                 # not at root: stays
         put(mirror / "pre-fire/viewer/root-served.js", "self.ROOT_SERVED = null;\n")
-        put(mirror / "pre-fire/media/x.jpg", "dev")                       # differs: stays
+        put(mirror / "pre-fire/media/x.jpg", "dev")                       # differs from the root: stays
         put(site / "pre-fire/media/x.jpg", "main")
+        put(mirror / "prairie-1904/research/public/new.jpg", "NEW")       # T-2483: one new file beside identical ones
         saved = serve_from_root(mirror, site, out=open("/dev/null", "w"))
         prairie = (mirror / "prairie-1904/viewer/root-served.js").read_text()
         checks = [
-            (saved == 3, "the two identical directories' bytes, and the always-root one's, are counted as saved"),
-            (not (mirror / "prairie-1904/research/public").exists(), "an identical directory leaves the mirror"),
-            ((mirror / "pre-fire/maps/images/new.jpg").exists(), "a directory the root lacks stays"),
+            (saved == 3, "the identical files' bytes, and the always-root directory's, are counted as saved"),
+            (not (mirror / "prairie-1904/research/public/a.jpg").exists(), "a file identical at the root leaves the mirror"),
+            ((mirror / "prairie-1904/research/public/new.jpg").read_text() == "NEW",
+             "a new file beside identical ones stays, and does not keep its directory's other files (T-2483)"),
+            ((mirror / "pre-fire/maps/images/new.jpg").exists(), "a directory the root lacks entirely stays"),
             (not (mirror / "prairie-1904/research/images/files").exists(), "an ALWAYS_ROOT directory leaves even when the root lacks it"),
-            ((mirror / "pre-fire/media/x.jpg").read_text() == "dev", "a directory with one differing file stays whole"),
+            (not (mirror / "prairie-1904/maps/originals").exists(), "a subdirectory the move empties is removed"),
+            ((mirror / "pre-fire/media/x.jpg").read_text() == "dev", "a file that differs from the root's stays"),
             ('"dirs": ["maps/", "research/public/", "research/images/files/"]' in prairie and '"base": "/prairie-1904/"' in prairie,
              "the viewer is told what moved and where"),
+            ('"keep": ["research/public/new.jpg"]' in prairie, "the viewer is told which files under a moved directory stayed"),
             ("self.ROOT_SERVED = null;" in (mirror / "pre-fire/viewer/root-served.js").read_text(),
              "a viewer with nothing moved stays package-relative"),
         ]
