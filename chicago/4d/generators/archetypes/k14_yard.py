@@ -60,6 +60,8 @@ def spec(params) -> dict | None:
         return None
     if not getattr(params, "boundary", None):
         raise ValueError("a yard is laid inside a K11 boundary, and this record names none")
+    if not params.boundary.get("side_gate"):
+        raise ValueError("a yard's service walk runs through the K11 side gate, and this boundary names none")
     if y.get("lawn") != "turf":
         raise ValueError("yard.lawn builds 'turf' alone")
     if y.get("grass_edge") != "street_front":
