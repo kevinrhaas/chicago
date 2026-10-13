@@ -24146,7 +24146,7 @@ buildings are T-1932's.
 
 ### L-draft-prairie-16-18-east-2335 — The east side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and the lost 1609-1611 pair read off the 1886 plate
 
-**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1615_prairie.draft_1904.form.draft_elevation`, `house_1615_prairie.draft_1904.form.draft`, `house_1621_prairie.draft_1904.form.draft_elevation`, `house_1621_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1621_prairie.draft_1904.form.draft_elevation`, `house_1621_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the district draft's 16th-18th block, east side (T-2335, piece 2 of T-2160), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 20's trace (T-2328) and the T-1840
@@ -24193,7 +24193,10 @@ corner now stands whole as the K16 timber record `house_1601_prairie`, recorded 
 **1613 retired from this liberty by T-2417 (2026-10-12):** the north half of the 1613/1615 pair
 now stands as the K01 brick frontage under K01's flat roof, with its frame rear porch on K01's rear
 wings, recorded as `L-k01-1613-brick-flat-2417`, under the same id; its draft attributes are gone.
-1615 is still the draft here until T-2418.
+**1615 retired from this liberty by T-2418 (2026-10-13):** the south half of the pair now
+stands as the K01 brick frontage under K01's flat roof, laid on 1613's south wall, with the sheet's
+frame projection on its south wall and its frame rear porch, recorded as `L-k01-1615-brick-flat-2418`,
+under the same id; its draft attributes are gone.
 **1619 retired from this liberty by T-2420 (2026-10-12):** its main body now stands as the K01
 stone-front frontage with its full-height swell bay, read off Treat & Foltz's drawing of the Hamline
 house, under `L-k01-1619-hamline-swell-front-2420`, under the same id; its draft attributes are gone.
@@ -25622,6 +25625,50 @@ source, replaces the kits' choices in place; one that shows the rear replaces th
 **Review:** `docs/RESEARCH/k01-1613-brick-flat-2417/README.md`.
 **Recorded:** 2026-10-12 (T-2417).
 
+
+### L-k01-1615-brick-flat-2418 — 1615 Prairie refined from the district draft to a four-storey K01 brick house under a flat roof, the south half of the pair with 1613, its side projection and rear porch in timber, everything but the plan the kits'
+
+**Decision:** the brick house at 1615 Prairie Avenue (T-2418, piece 2 of T-1868) is no longer a
+district draft. It stands, under the draft's own id `house_1615_prairie`, as a `k01_frontage`
+record built by `generators/k01_emit.py`, the other half of T-2417's 1613: its plan turned 180
+degrees (rotation 179.611, 1613's), so K01's local north wall and north end are the world's south.
+Its world-north wall is the party wall, laid on 1613's south wall (1615's corner is 1613's own
+local corner carried through 1613's placement) and built blank. The pair is built as one: the same
+heights, brick, sash, heads, cornice, flat roof and covering as 1613, mirrored about the party
+wall, so the front reads door, window, window | window, window, door, and the pair's two stoops
+stand at its outer ends. Its own: the door at the south end beside the passage to 1619, three
+windows a storey on that passage wall, two plain stacks against the party wall beside 1613's,
+its rear porch, and the small frame projection the sheet draws on its south wall.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace and the
+T-1840 census (s20-1615-f, '4-storey brick dwelling (D), the south half of the pair with 1613';
+s20-1615-a1, '1-storey frame (yellow) rear porch'): the main body's place and plan (12.5 m by 6.55 m,
+on 1613's front and rear lines, where the draft's fit had stopped at 5.25 m), four storeys, brick,
+the party wall on the world north, the rear porch's place, plan (2.45 m deep across the whole
+rear), one storey and frame construction. Read off the raster itself, which no census row names:
+the small yellow piece on the south wall, about 1.65 m long and 0.6 m out, 1.6-3.3 m from the rear
+wall; and the figures '12 12 12 8' printed against the south and party walls, Sanborn's wall
+thicknesses in inches by storey, so the walls are laid 12 inches (0.30 m) thick (`inferred`, the
+front taken at the side walls' figure; K01 lays one thickness, so the top storey's 8 inches is not
+built).
+**What is invented.** Every height (1613's: a 1.4 m principal floor over a basement the sheet does
+not print, and 3.9, 3.5, 3.3 and 3.1 m storeys); the brick's colour, bond and grime (the one K03
+panel); every window's kind, size and place and every head; the three-bay front and the door at its
+south end (the draft rules' row: the pair's doors at its outer ends); the stoop; the cornice and its
+brackets; the flat roof, its fall, covering and parapets; the two stacks and where they stand; the
+whole form of the rear porch, closed in and boarded as 1613's, with two sash in its rear wall and
+one over the passage, no door drawn; and the whole form of the side projection: built as a box bay
+window on the principal floor (K08's square-cornered projection in K01's `frame` fabric, one
+two-over-two sash in its face, a flat tin deck, its wall top 4.8 m above grade). It could as well be
+a side entry's vestibule, a closet or a stair hood; the sheet says only frame, one storey, and where.
+**What is not built.** The porch's door and yard steps, any rear stair, and a side door into the
+projection if it was one.
+**How to resolve:** a photograph, plate or description of 1615 (or of the pair), ingested as a
+source, replaces the kits' choices in place; one that shows the passage side replaces the
+projection's form.
+**Covers:** `house_1615_prairie.as_mapped_1904.form.principal_floor_m`, `house_1615_prairie.as_mapped_1904.form.storey_heights_m`, `house_1615_prairie.as_mapped_1904.form.service_wall_brick`, `house_1615_prairie.as_mapped_1904.form.street_front_trim`, `house_1615_prairie.as_mapped_1904.form.wall_head`, `house_1615_prairie.as_mapped_1904.form.roof_form`, `house_1615_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1615_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1615_prairie.as_mapped_1904.form.stair_tread_m`, `house_1615_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1615_prairie.as_mapped_1904.form.stoop_width_m`, `house_1615_prairie.as_mapped_1904.form.entrance_bay`, `house_1615_prairie.as_mapped_1904.form.front_bays`, `house_1615_prairie.as_mapped_1904.form.side_bays`, `house_1615_prairie.as_mapped_1904.form.north_bays`, `house_1615_prairie.as_mapped_1904.form.rear_bays`, `house_1615_prairie.as_mapped_1904.form.sash_by_storey`, `house_1615_prairie.as_mapped_1904.form.basement_lights`, `house_1615_prairie.as_mapped_1904.form.roof_covering`, `house_1615_prairie.as_mapped_1904.form.chimneys`, `house_1615_prairie.as_mapped_1904.form.window_kit`, `house_1615_prairie.as_mapped_1904.form.entrance_kit`
+**Ticket:** T-2418 (piece 2 of T-1868).
+**Review:** `docs/RESEARCH/k01-1615-brick-flat-2418/README.md`.
+**Recorded:** 2026-10-13 (T-2418).
 ### L-k16-1638-gable-2423 — 1638 Prairie's gable read off its photograph through a solved camera: pointed twin lights under an ogee hood, a blind oval, clapboard to the rake; sections, finial and verge still the kit's
 
 **Decision:** the front gable of the Shortall-Gregory house (T-2423, a piece of T-1865) carries
