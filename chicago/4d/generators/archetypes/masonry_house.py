@@ -277,9 +277,30 @@ def _range(b, r) -> None:
                 gprof = sorted(set(gprof))
             else:
                 gprof = [(c, z + lift) for c, z in prof]
-            _profile_wall(b, pl, gprof, spans, r["conf_ends"][face], mat)
+            stack = r.get("stacks", {}).get(face) if end == "parapet" else None
+            if stack:
+                # Convex pieces, never one notched polygon: the whole gable up to
+                # the stack's base (so its courses run full width over the fan),
+                # then the wall either side of the stack up to the coping.
+                copings = _stack_cut(b, pl, end_prof, lift, stack, r["conf_ends"][face], mat)
+                a, c, base = stack
+                low = _crossed(gprof, base)
+                _profile_wall(b, pl, [(u, min(z, base)) for u, z in low], spans,
+                              r["conf_ends"][face], mat)
+                for s0, s1 in spans:
+                    for k0, k1 in _kept(s0, s1, [(a, c)]):
+                        run = [(k0, _at(gprof, k0))] + [q for q in _crossed(gprof, base)
+                                                        if k0 < q[0] < k1] + [(k1, _at(gprof, k1))]
+                        top = [q for q in _crossed(run, base) if q[1] >= base - 1e-9]
+                        if len(top) > 1:
+                            foot = [(u, base) for u, z in (top[0], top[-1]) if z > base + 1e-9]
+                            pts = [_plane_point(pl, u, z) for u, z in foot + top[::-1]]
+                            _poly_facing(b, pts, r["conf_ends"][face], mat, _plane_dir(pl))
+            else:
+                _profile_wall(b, pl, gprof, spans, r["conf_ends"][face], mat)
             if end == "parapet":
-                _parapet(b, pl, end_prof, lift, r["conf_ends"][face], mat)
+                for piece in (copings if stack else [end_prof]):
+                    _parapet(b, pl, piece, lift, r["conf_ends"][face], mat)
         else:
             z = roof_z(c1) if (face in ("east", "north")) else roof_z(c0)
             wall_prof = [(u0, z), (u1, z)]
@@ -434,6 +455,40 @@ def _crossed_stable_roof(b, r, original_z):
             _two_sided_roof(b,[(a,y1,north_z(y1)),(c,y1,north_z(y1)),
                 (c,y1+EAVE_OVERHANG,north_z(y1+EAVE_OVERHANG)),
                 (a,y1+EAVE_OVERHANG,north_z(y1+EAVE_OVERHANG))],r["conf_roof"],ROOF)
+
+
+def _at(prof, u):
+    for (ua, za), (ub, zb) in zip(prof, prof[1:]):
+        if ua - 1e-9 <= u <= ub + 1e-9:
+            return za + (0.0 if ub == ua else (u - ua) / (ub - ua) * (zb - za))
+    return prof[0][1] if u < prof[0][0] else prof[-1][1]
+
+
+def _crossed(prof, level):
+    """`prof` with a breakpoint added wherever it crosses `level`."""
+    out = []
+    for (ua, za), (ub, zb) in zip(prof, prof[1:]):
+        out.append((ua, za))
+        if (za - level) * (zb - level) < 0:
+            out.append((ua + (level - za) / (zb - za) * (ub - ua), level))
+    return out + prof[-1:]
+
+
+def _stack_cut(b, pl, end_prof, lift, stack, conf, mat):
+    """A parapet gable whose coping dies into the sides of a stack rising flush out
+    of its apex (T-2214, the Glessner 18th Street gable): between the stack's sides
+    the wall stops at the stack's base, so the stack's own face stands in its place
+    and no parapet rises in front of it, and the coping is two runs that end
+    against the stack. Draws each run's end; returns the runs."""
+    a, c, _ = stack
+    left = [q for q in end_prof if q[0] < a] + [(a, _at(end_prof, a))]
+    right = [(c, _at(end_prof, c))] + [q for q in end_prof if q[0] > c]
+    for u, top, way in ((a, left[-1][1] + lift, 1.0), (c, right[0][1] + lift, -1.0)):
+        pts = [_plane_point(pl, u, top, 0.08), _plane_point(pl, u, top + COPING_H, 0.08),
+               _plane_point(pl, u, top + COPING_H, -WALL_T), _plane_point(pl, u, top, -WALL_T)]
+        want = (0.0, way, 0.0) if pl["axis"] == "x" else (way, 0.0, 0.0)
+        _poly_facing(b, pts, conf, mat, want)
+    return [q for q in (left, right) if len(q) > 1]
 
 
 def _parapet(b, pl, prof, lift, conf, mat) -> None:
