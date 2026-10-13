@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 540,
+  "count": 541,
   "liberties": [
     {
       "id": "L1",
@@ -32547,6 +32547,18 @@
           "text": "the stoop's terrace is now carried SOUTH across the bay's front, as the 1874 engraving draws a low turned balustrade before the bay at the principal floor (x 365-460 px, rail top 2.89 m on T-2437's camera), from the landing to 0.35 m past the front's south corner, where the drawn balustrade ends; K07 learns a terrace to the stoop's left, the right one's mirror. What is invented is what the north terrace already invents (its 1.2 m depth, stone, faced to grade, the turned balusters and newels), carried in `entrance_kit`'s note, plus one thing: that it joins the stoop's landing, which the engraving's tree and the shrub before the bay hide (x 460-540 px). What would replace it: any view of the house's front from the south, or one taken over the shrub."
         },
         {
+          "label": "Revised in part (T-2462, piece 1 of T-2451)",
+          "text": "the two upper street windows over the bay window and over the door now stand where the 1874 engraving draws them through its camera, at v 2.5 and v 5.5 (K01 had stood each on the centre of what is below it, v 3.09 and v 6.6), read from the picture and carried in `front_bays_by_storey`'s note; and the engraving's light strips are built: one down the pavilion's north corner (0.4 m wide), and the bay window's pilaster strips at its two front corners (0.2 m wide), which the 1898 Tribune sketch draws too. Two new inventions: the corner strip is dressed stone and the pilaster strips painted timber in a light stone colour, because both prints draw them light against a darker face and neither can say stone from paint or name a colour; and how far each stands proud (0.04 and 0.03 m), which neither print can measure."
+        },
+        {
+          "label": "Revised in part (T-2463, piece 2 of T-2451)",
+          "text": "the door now stands where the 1874 engraving draws it, under the window over it at v 5.925 (its leaves at x 532-562 px, v about 5.4-6.45 on the front's face through its camera), 0.675 m south of the stoop's axis; the stoop, its gate and its front walk stay on v 6.6, where both pictures put the stoop, so the door stands at the south end of the landing and its south 0.375 m opens onto the terrace before the bay (K07 learns a stoop off its door's axis). No new invention: the door's place is narrowed from the engraving's 'about v 5-6.6' to a reading, still RECONSTRUCTED because the engraver draws it behind the tree's trunk (read to within about 0.3 m); the hood over it stays K09's cornice hood, which the tree's foliage keeps the print from resolving. What would replace it: any view of the front taken clear of the tree."
+        },
+        {
+          "label": "Revised in part (T-2480)",
+          "text": "the hood over the door is now the one the 1874 engraving draws, read through T-2437's camera, and no longer the K09 kit's stone cornice hood (`street_front_trim` names no entrance): an entablature whose soffit stands about 6.0 m over grade and whose top about 6.9 m, from about v 4.9 to 7.0, its south end meeting the bay window's hood, carrying on its flat top a low rail with posts under the window over the door, so it is a small balcony (`entrance_kit` `hood`). What is read: the hood's height, width and the rail on it. New inventions, carried in `entrance_kit`'s note: that it is painted timber in the bay window's hood joinery (the owner's direction: the same style as that hood, its K08 consoles and modillions), how far it stands out (0.7 m, 0.9 m with its cornice), its fascia and cornice depths, the 0.52 m railing's posts and square balusters and that the rail runs on all three sides; and the dark mass north of it in the print is read as the tree's foliage, not as part of the hood."
+        },
+        {
           "label": "Covers",
           "text": "`law_house_1620_prairie.restored_1904.form.wall_thickness_front_m`, `law_house_1620_prairie.restored_1904.form.wall_thickness_side_m`, `law_house_1620_prairie.restored_1904.form.service_wall_brick`, `law_house_1620_prairie.restored_1904.form.street_front_trim`, `law_house_1620_prairie.restored_1904.form.wall_head`, `law_house_1620_prairie.restored_1904.form.roof_pitch_deg`, `law_house_1620_prairie.restored_1904.form.eave_overhang_m`, `law_house_1620_prairie.restored_1904.form.stair_tread_m`, `law_house_1620_prairie.restored_1904.form.stair_landing_depth_m`, `law_house_1620_prairie.restored_1904.form.stoop_width_m`, `law_house_1620_prairie.restored_1904.form.entrance_bay`, `law_house_1620_prairie.restored_1904.form.front_bays`, `law_house_1620_prairie.restored_1904.form.side_bays`, `law_house_1620_prairie.restored_1904.form.rear_bays`, `law_house_1620_prairie.restored_1904.form.basement_lights`, `law_house_1620_prairie.restored_1904.form.rainwater`, `law_house_1620_prairie.restored_1904.form.window_kit`, `law_house_1620_prairie.restored_1904.form.entrance_kit`."
         },
@@ -35919,6 +35931,33 @@
         {
           "label": "Recorded",
           "text": "2026-10-13 (T-2478)."
+        }
+      ]
+    },
+    {
+      "id": "L-context-city-2477",
+      "title": "The 1904 context city: faded stand-ins on every part of the map not yet built, their heights, roofs, colours and trees ours, and past the sheets their streets and lots too",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "T-2477 (owner, 2026-10-13: \"very simple buildings in varied appropriate colors based on Sanborn or other projections ... gently faded\") draws the city around Prairie Avenue as faded, opaque stand-ins, from `data/context/1904.json` (`tools/build_context_1904.py`). On the ground the Sanborn 1911 sheets 20, 28 and 35 draw off Prairie Avenue (the Indiana and Calumet faces, the cross-street lots, Calumet's east face at 20th) each drawn part is the smallest rectangle that holds it, in its sheet colour's material: pink brick, blue stone, yellow frame. Everywhere else in the e1871 box and in a 450 m ring past it on the west, north and south, the city is PROJECTED. **What is inferred, not attested.** The sheet outlines and materials, for 1904: a 1911 survey carried back on Glessner House's reading that these sheets changed only at 1609-1611 and 1620 Prairie. **What is invented.** Every height and roof: by size and colour class (a masonry house 10.5 m to the eaves, gabled or flat about half each; a frame house 6.5 m and gabled; a rear building under 110 m2 5.5 m; over 450 m2 a 13 m flat-roofed block, over 1,200 m2 16 m), except three buildings given the figure the sheet prints (1st Presbyterian Church, 48 ft to the eaves and its 90 ft spire; the Thompson-Reid ice cream works, four storeys). Each building's tone within its material's family, and the fade. Every tree. Past the sheets, everything: the avenues on Michigan to Indiana's 128 m pitch repeated west, cross streets at the 20th-21st-22nd pitch (130 m) past 16th and 22nd, lots on the frontages the grid's own Indiana and Calumet lots measure, one house per lot set back 4.5-7.5 m, a stable on some, and materials in the mix the traced sheets measure; kept 40 m off the water and west of the Illinois Central's line on sheets 20 and 28. The rectangles drop porches' and bays' shapes and the sheets' storey figures."
+        },
+        {
+          "label": "How to resolve",
+          "text": "read the storey figures each sheet prints into the rows; trace sheets 19, 27, 34 and 36 (Indiana's west face, Indiana 18th-20th, Calumet's east face) to replace the projection where they reach; each stand-in a drafted building lands on is dropped by the renderer already."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2477."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-13 (T-2477)."
         }
       ]
     },

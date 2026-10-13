@@ -496,6 +496,16 @@ step "sheets 28, 20 and 35's 1904 building footprints re-derive from the raster 
 selftest "…and a broken trace, a clockwise or out-of-lot outline, an unnamed or twice-named building still fails it" \
   python3 tools/trace_prairie_1904_footprints.py --self-test
 
+# T-2477. ...and the faded context city around them: every building those three sheets draw off
+# Prairie Avenue as a sheet-coloured rectangle, and a projected city past the sheets' edges, with
+# trees (data/context/1904.json). The contract keeps every stand-in off Prairie Avenue's lots and
+# roadway and out of the water, and every sheet it reads a resolving source.
+step "the 1904 context city re-derives from its sheets and keeps off Prairie Avenue and the lake (T-2477)" \
+  python3 tools/build_context_1904.py --check
+
+selftest "…and a stand-in put on a Prairie Avenue lot or in the lake still fails it" \
+  python3 tools/build_context_1904.py --self-test
+
 # T-1728. ...and what that grid is paved with. data/street_surfaces/1904.json is AUTHORED:
 # every carriageway, alley and sidewalk band names a material, a tier, its sources and a
 # range that bounds 1 July 1904. The contract holds it to the grid (nothing drawn without
