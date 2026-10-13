@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1764, ts: '2026-10-13T15:29:50.397Z', date: 'Oct 13, 2026, 10:29 AM CT', title: 'Prairie Avenue opens on a phone again', kind: 'fix',
+    items: [
+      '1904 had stopped opening on an iPhone: the phone ran out of memory while the houses loaded.',
+      'Most of the Prairie Avenue houses are built from the same kit of stone, brick, mortar and painted wood, and each one was loading its own copy of those pictures. Now each picture is loaded once and every house that uses it shares it.',
+      'On a phone-sized test, 1904 now peaks at about 1.3 GB instead of 2.3 GB, and its graphics memory drops from 1.5 GB to 0.6 GB.',
+      'Nothing looks different: Glessner House and the houses on the 1600 block render pixel for pixel the same as before, on a phone and on a computer.',
+    ] },
   { v: 1763, ts: '2026-10-13T14:21:14.232Z', date: 'Oct 13, 2026, 9:21 AM CT', title: '1619 Prairie\'s crow-stepped south wall and steep roof, from its drawing', kind: 'improvement',
     items: [
       '1619 Prairie\'s hipped roof is now the one its 1886 Building Budget drawing shows: a steep slated slope rising behind the wall gable to a ridge along the front.',

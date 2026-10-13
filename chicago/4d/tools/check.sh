@@ -297,6 +297,9 @@ selftest "structure versions: no mesh, a stale mesh and a refused label are each
 selftest "…the address bar swaps one committed version and falls back ALOUD on every miss (T-1727)" \
   node tools/test_structure_versions.mjs --self-test
 
+step "Buildings share an image they carry identically: one decode, closed by its last holder (T-2464)" \
+  node tools/test_shared_images.mjs
+
 selftest "…and promote_version.mjs makes a version the default in one diff, reversibly (T-1727)" \
   node tools/promote_version.mjs --self-test
 
