@@ -52,6 +52,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import inspect
 import json
 import math
 import sys
@@ -880,7 +881,7 @@ def build() -> dict:
     readings = [{k: v for k, v in rd.items()} for rd in READINGS]
     by_src = {s: sum(1 for b in brows if srcs[b[11]] == s) for s in srcs}
     projection["network"] = {
-        "_doc": network.__doc__.strip(),
+        "_doc": inspect.cleandoc(network.__doc__),
         "reach_m": r1(reach), "mile_m": r1(net["mile_m"]), "eighth_m": r1(net["eighth_m"]),
         "pitch_east_m": r1(net["pitch_east_m"]),
         "anchors_u_m": {k: r1(x) for k, x in net["u"].items()}, "anchors_v_m": {k: r1(x) for k, x in net["v"].items()},
