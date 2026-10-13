@@ -33,7 +33,7 @@ from dataclasses import dataclass, field
 from archetypes.k01_frontage_params import CONFIDENCE_VALUE
 
 REQUIRED = ("layout", "gable", "wing_wall", "porch", "body")
-OPTIONAL = ("canted_bay", "roof_covering", "tower")
+OPTIONAL = ("canted_bay", "roof_covering", "tower", "boundary")
 #: The form attributes that reach the mesh. `stories` and `construction` are stated on a
 #: record for the card and declare `geometry: simplified`.
 # T-2357: the whole-house layout, read instead of the front's five
@@ -63,6 +63,7 @@ class K16TimberParams:
     canted_bay: dict | None = None
     roof_covering: dict | None = None
     tower: dict | None = None
+    boundary: dict | None = None
     frame_house: dict | None = None
     confidence: dict = field(default_factory=dict)
 
@@ -113,6 +114,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
         bad = tower_errors(form["tower"]["value"])
         if bad:
             raise ParamError(f"{rid}: tower: {'; '.join(bad)}")
+    if "boundary" in form:     # T-2456: the street fence and its gate piers
+        bad = boundary_errors(form["boundary"]["value"])
+        if bad:
+            raise ParamError(f"{rid}: boundary: {'; '.join(bad)}")
     if "canted_bay" in form and "lights" in form["canted_bay"]["value"]:     # T-2424
         bad = bay_errors(form["canted_bay"]["value"])
         if bad:
@@ -127,6 +132,44 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
         **{k: dict(form[k]["value"]) for k in OPTIONAL if k in form},
         confidence={k: form[k]["confidence"] for k in REQUIRED + OPTIONAL if k in form},
     )
+
+
+#: T-2456: what a street fence and its gate piers need
+BOUNDARY_NUMS = ("street_line_m", "end_clear_m")
+PIER_NUMS = ("plinth_m", "plinth_top_m", "section_m", "shaft_top_m")
+
+
+def boundary_errors(bv: dict) -> list[str]:
+    out = [f"needs a positive {k}" for k in BOUNDARY_NUMS if not (_num(bv.get(k)) and bv[k] > 0)]
+    lot = bv.get("lot_s_m")
+    if not (isinstance(lot, list) and len(lot) == 2 and all(_num(x) for x in lot) and lot[0] < 0 < lot[1]):
+        return out + ["lot_s_m must be [south line, north line] about the front's south end"]
+    b, f, pv = bv.get("base") or {}, bv.get("bars") or {}, bv.get("pier") or {}
+    if not (_num(b.get("height_m")) and 0.05 <= b["height_m"] <= 0.6 and _num(b.get("width_m")) and b["width_m"] > 0):
+        out.append("base needs height_m (0.05-0.6) and width_m")
+    if not (_num(f.get("pitch_m")) and 0.08 <= f["pitch_m"] <= 0.4):
+        out.append("bars.pitch_m must be 0.08-0.4 m")
+    if not (_num(f.get("bar_m")) and 0.01 <= f["bar_m"] <= 0.05 and _num(f.get("rail_m")) and f["rail_m"] > 0):
+        out.append("bars need bar_m (0.01-0.05) and rail_m")
+    elif not (_num(f.get("height_m")) and _num(b.get("height_m")) and f["height_m"] - f["rail_m"] > b["height_m"]):
+        out.append("bars.height_m must stand a rail over the base")
+    out += [f"pier needs a positive {k}" for k in PIER_NUMS if not (_num(pv.get(k)) and pv[k] > 0)]
+    if out:
+        return out
+    if not pv["plinth_top_m"] < pv["shaft_top_m"] < pv["cap"]["top_m"] < pv["finial"]["top_m"]:
+        out.append("pier: plinth, shaft, cap and finial must rise in that order")
+    if pv["section_m"] > pv["plinth_m"] or pv["cap"]["half_m"] * 2 < pv["section_m"]:
+        out.append("pier: the plinth and the cap are at least as broad as the shaft")
+    hv = pv["cap"]["heart"]
+    if not (pv["shaft_top_m"] < hv["lobe_y_m"] - hv["lobe_r_m"] and hv["apex_y_m"] < pv["cap"]["top_m"]
+            and hv["lobe_off_m"] + hv["lobe_r_m"] < pv["cap"]["half_m"] - pv["cap"]["board_m"]):
+        out.append("pier: the cap's heart must stand inside its board")
+    ps = sorted(q.get("centre_m", 0) for q in bv.get("piers") or [])
+    if len(ps) != 2:
+        out.append("piers: a gateway stands between two piers")
+    elif not (lot[0] < ps[0] - pv["plinth_m"] and ps[1] + pv["plinth_m"] < lot[1] and ps[1] - ps[0] > pv["plinth_m"] + 0.6):
+        out.append("piers: both inside the lot, a gateway of at least 0.6 m between their plinths")
+    return out
 
 
 #: T-2425: what a porch's arched head, broader post and stoop need
