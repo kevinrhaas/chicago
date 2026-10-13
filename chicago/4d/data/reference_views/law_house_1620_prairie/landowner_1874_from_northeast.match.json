@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "0ea43f844b365a15c3cedb9db1a69c74d45dde02d5513a60c860e9ee5e9d9319",
+  "glb_sha256": "04d74eb7ad7ad8bb6fd412084afa6d3312ea3032042b51ffd7b80273acd6a55a",
   "camera_sha256": "be6b75dc43bf93ba5dfa5b782fdf69d970e71e0e355eb4b5b5e9776a549220fb",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg",
   "verdict": "differs",
@@ -24,8 +24,8 @@
       "status": "fixed"
     },
     {
-      "what": "corner strip: the engraving draws a light strip down the pavilion's north corner, a stone or painted quoin; T-2404's pavilion turns that corner in its own brick (T-2445)",
-      "status": "open"
+      "what": "corner strip: the engraving draws a light strip down the pavilion's north corner, a stone or painted quoin, from x 686-688 px to the corner (695-700 px); T-2404's pavilion turned that corner in its own brick. Built so by T-2462: a K08 strip of dressed stone 0.4 m wide and 0.04 m proud on the pavilion's front at its north corner, from its plinth to its wall head, landing at x 682-697 px (its stone is RECONSTRUCTED: the print cannot tell stone from paint)",
+      "status": "fixed"
     },
     {
       "what": "dormers: round-headed dormers in the mansard's lower face, two seen on the north face, their arch heads at x 746 and 805 px (51 and 110 px behind the crown's front-north corner) reaching about 10.5 m, just under the curb; built so by T-2411, two K06 round-arched sash in stone faces at u 12.6 and 6.1 m, landing at x 756 and 813 px, 47 and 106 px behind the build's crown corner (which itself stands about 10 px right of the engraving's). The engraver draws both wider and more frontal than the camera allows; the front's lower slope is behind the trees",
@@ -40,12 +40,16 @@
       "status": "fixed"
     },
     {
-      "what": "the upper window over the door: the engraving draws it at x 530-550 px, about v 5.6-6.1; the build stands it on the door's own centre, which T-2409 moved to v 6.6, so it stands about 0.5-1 m north of the drawn one (the K01 bay puts the door and the window over it on one centre) (T-2445)",
-      "status": "open"
+      "what": "the upper window over the door: the engraving draws it south of the door's centre, its frames at x 518-552 px; the build stood it on the door's v 6.6 (K01 put a storey's windows on the bays below). Built so by T-2462: K01 takes an upper storey's own window centres (front_bays_by_storey) and the window stands at v 5.5, landing at x 522-550 px. The window over the bay window likewise: drawn with its jambs at x 441-470 px where the build stood it on the bay's v 3.09 (x 459-484), now at v 2.5, landing at x 445-470",
+      "status": "fixed"
     },
     {
       "what": "entrance: the door beside the pavilion's south face under a hood, reached by a straight stoop whose north string is the rail rising to the right from x 540 to 582 px (on this camera a line running back toward the wall draws so; one running north along the front would rise over about 80 px, not 42), at its head a porch at the principal floor running north before the pavilion to the north corner behind a turned balustrade that carries on down the stoop. Built (T-2409): the door at v 6.6 under a K09 cornice hood on consoles, the straight stoop's north string at v 7.65 (drawn at x 572 to 541 px), a stone terrace 1.2 m deep before the pavilion to the corner (its north end at x 685.6 px against the engraving's 690) behind a turned balustrade carried down both cheeks. The engraving drew this front's floor, porch and fence about 1.5-2 m lower against the house than the old camera's grade put them; that was the camera's height datum (T-2406), re-solved by T-2437 from the street fence's foot on the walk: the porch's rail top now reads 2.91-2.93 m, the principal floor 2.0 m, and the build's floor, porch, stoop and balustrade, raised to it, land on the drawn ones",
       "status": "fixed"
+    },
+    {
+      "what": "the door: with the window over it moved (T-2462), the engraving draws the door under it, its panelled leaves at x 532-562 px (v about 5.4-6.45) under a hood at x 505-552 px, where the build stands it on v 6.6 (x 548-581 px). The stoop is where both pictures put it (the engraving's north string running back to v 7.65, the Tribune sketch's stoop straight from the gate at v 6.3-7.5 at the street line), so the door stands at the south end of a landing that runs on north into the porch; K07 centres its stoop on its door and has to learn one off the door's axis (T-2463)",
+      "status": "open"
     },
     {
       "what": "fence: a lattice of interlaced pointed arches on a solid base along the street line, and from about x 670 px (v 12.6 on the street line) a close-boarded fence that turns at the north lot line and runs back along it; built so by T-2414 (k11.fence.lattice_arcade, arches three bays of 0.3 m wide, on the kit's curb, then k11.fence.side_boards 1.5 m high), the boards taking over at x 668 px. On T-2437's camera the lattice's foot (y 648-650 px) is the eye's height control and its top (y 596 px) reads 1.50 m; the build's lattice top lands within about 6 px of it",

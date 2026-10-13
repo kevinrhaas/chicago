@@ -194,6 +194,20 @@
       "confidence": "reconstructed",
       "note": "RECONSTRUCTED: three bays across the 11.25 m front, south to north: the bay window's centre at 3.09 m (its upper window stands over the hood, round-headed under its own (T-2410), as the 1874 engraving draws one there; the principal-storey window and basement light behind the bay are not cut), the door at 6.6 m and the north bay at 8.6 m, behind T-2404's north pavilion (v 7.5-11.25), so its window and basement light are not cut; its own windows are the pavilion's. The plate draws no openings; the bay is placed as the engraving's camera reads it (T-2408), the third bay is the kits'. T-2409 moved the door from T-2408's 5.8 m to 6.6 m, the north end of the engraving's 'about v 5-6.6': the 1898 Tribune sketch's stoop rises straight from its gate (x 93-140 px in its panel, about v 6.3-7.5 at the street line) to a door beside the pavilion's south face, and the 1874 engraving's stoop rail runs from x 540 to 582 px, which a straight stoop on this camera draws only with its north string near v 7.5; 6.6 is the furthest north the 1.8 m landing stands clear of the pavilion's south face at 7.5. The window over the door moves with it."
     },
+    "front_bays_by_storey": {
+      "value": {
+        "1": [
+          2.5,
+          5.5,
+          8.6
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law"
+      ],
+      "note": "The upper storey's street windows (T-2451), read off the 1874 engraving through its camera (data/reference_views/law_house_1620_prairie/landowner_1874_from_northeast.json). The window over the door stands south of the door's own centre: its frames at x 518-552 px and its crowned hood centred at x 532-535 px, behind the tree, put its centre at v 5.5 on the front's face, where K01 had stood it on the door's v 6.6. The window over the bay window likewise: its jambs at x 441-470 px and its hood at 434-477 px put its centre at v 2.5, where K01 had stood it on the bay's own centre (v 3.09) and the render drew it at x 459-484 px. In the picture both stand over what is below them only as the engraving's perspective shows the bay's hood and the door's hood, which stand proud of the wall. The pavilion's bay (8.6) is covered by the pavilion and keeps front_bays' centre. The 1898 Tribune sketch, good to about 10 px, draws the window over the bay at x 37-60 px, where v 2.5 lands at 33-52 px; its cartouche covers the window over the door. The door stays at v 6.6, where T-2409 put it from the Tribune sketch's stoop."
+    },
     "side_bays": {
       "value": [
         2.4,
@@ -522,7 +536,19 @@
             "kind": "hip",
             "pitch": 0.0,
             "covering": "tin_flat_seam_painted"
-          }
+          },
+          "strips": [
+            {
+              "run": 1,
+              "at": "end",
+              "width_m": 0.4,
+              "proud_m": 0.04,
+              "from_m": 0.6,
+              "to_m": 10.1,
+              "fabric": "stone",
+              "why": "the 1874 engraving's light strip down the pavilion's north corner (T-2451), from x 686-688 px to the corner's 695-700 px: 0.4 m of the front's face through its camera, from the plinth to the pavilion's wall head; drawn light against the pavilion's hatched front, so dressed stone, which the monochrome print cannot confirm (RECONSTRUCTED fabric)"
+            }
+          ]
         },
         {
           "id": "south_hood",
@@ -546,6 +572,18 @@
                   "why_not_ordinary": "a grouped window: two narrow round-headed lights either side of a mullion, the pair 1620 Prairie's 1874 engraving draws in its bay's front, sized to the engraving's heights on T-2437's camera (lights 3.09-5.71 m over grade)"
                 }
               ]
+            }
+          ],
+          "strips": [
+            {
+              "run": 1,
+              "at": "both",
+              "width_m": 0.2,
+              "proud_m": 0.03,
+              "from_m": 0.6,
+              "to_m": 5.93,
+              "fabric": "painted_timber",
+              "why": "the pilaster strips both pictures draw at the bay's front corners (T-2451): the 1874 engraving's light strips at x 437-442 and 485-489 px, down from the consoles to the bay's foot, about 0.2 m wide through its camera; the 1898 Tribune sketch's white strips flanking the bay's hatched lights. Painted timber on a timber bay, light against its dark boards; the colour is RECONSTRUCTED"
             }
           ]
         }

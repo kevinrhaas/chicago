@@ -196,7 +196,11 @@ CONSUMED = frozenset({
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
     "stone_front", "boundary", "north_bays", "mansard", "rear_wings", "yard", "condition",
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
+    "front_bays_by_storey",
 })
+
+#: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
+STRIP_FABRICS = {"stone": "dress_stone", "painted_timber": "bay_strip_paint"}
 
 #: T-2410: the component a brick street front's round-headed window is cut as — K06's round
 #: sash in a round hole through the K03 wall, under the kit's own arch band as its hood
@@ -774,11 +778,34 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 raise ParamError(f"bays: {e['id']}'s junction at s {a:.3f}..{b:.3f} cuts the opening at "
                                  f"s {o.s_m} on {o.wall}")
             openings.remove(o)
+        # T-2451: light strips down a bay's corners — 1620's stone strip at its pavilion's north
+        # corner, the painted pilasters at its bay window's front corners. Each stands on one run
+        # of the plan (point i to i + 1), at its start, its end or both, from `from_m` to `to_m`
+        # over grade, inside the bay's own wall
+        strips = []
+        for j, q in enumerate(e.get("strips") or ()):
+            pts = v["plan"]["points"] if v["plan"]["kind"] == "polyline" else None
+            run, at = int(q["run"]), q["at"]
+            w, d = float(q["width_m"]), float(q["proud_m"])
+            y0, y1 = float(q["from_m"]), float(q["to_m"])
+            if pts is None or not 0 <= run < len(pts) - 1:
+                raise ParamError(f"bays: {e['id']}.strips[{j}] stands on run {run}, which its plan has not")
+            length = math.dist(pts[run], pts[run + 1])
+            if at not in ("start", "end", "both") or not 0.05 <= w <= (length / 2 if at == "both" else length):
+                raise ParamError(f"bays: {e['id']}.strips[{j}] is {w} m wide at {at!r} of a {length:.3f} m run")
+            if not 0.01 <= d <= 0.15 or not 0.0 <= y0 < y1 <= top + 1e-9:
+                raise ParamError(f"bays: {e['id']}.strips[{j}] stands {d} m proud from {y0} to {y1} m; a strip is "
+                                 f"0.01-0.15 m proud, inside the bay's wall (top {top:.2f} m)")
+            if q.get("fabric") not in STRIP_FABRICS:
+                raise ParamError(f"bays: {e['id']}.strips[{j}] fabric {q.get('fabric')!r} is not one of {tuple(STRIP_FABRICS)}")
+            strips.append({"run": run, "at": at, "width_m": w, "proud_m": d, "from_m": y0, "to_m": y1,
+                           "fabric": q["fabric"]})
         if e.get("fabric") == "front_stone" and not front_stone:
             raise ParamError(f"bays: {e['id']} is laid in the front's stone, and the record names no K02 stone_front")
         out.append({"id": e["id"], "wall": e["wall"], "s_m": s, "span_m": (round(a, 4), round(b, 4)),
                     "fabric": e.get("fabric", "stone"), "variant": v,
-                    **({"flush_corner": flush} if flush else {})})
+                    **({"flush_corner": flush} if flush else {}),
+                    **({"strips": tuple(strips)} if strips else {})})
     return tuple(out)
 
 
@@ -1095,6 +1122,19 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if sash_read and not sba.get("sources"):
         raise ParamError(f"sash_by_storey is {sba.get('confidence')} and names no source: "
                          "outside the contract's starting range only a source can place it")
+    # T-2451: an upper storey whose street windows its picture draws off the bays below (1620's
+    # window over the door, south of the door's own centre): that storey's own centres, one a
+    # bay, in order. Never the principal storey's, whose middle bay is the door
+    fbs = {}
+    for key, xs in (val("front_bays_by_storey") or {}).items():
+        k = int(key)
+        xs = tuple(float(x) for x in xs)
+        if sfo or not 1 <= k < stories:
+            raise ParamError(f"front_bays_by_storey names storey {key}: only an upper storey of a front "
+                             f"that does not name its own openings")
+        if len(xs) != len(front_bays) or list(xs) != sorted(xs) or xs[0] < 0.6 or xs[-1] > width - 0.6:
+            raise ParamError(f"front_bays_by_storey[{key}] is one centre a bay, south to north, inside the front")
+        fbs[k] = xs
     for k, row in enumerate(sash):
         sill = floors[k] + float(row["sill_above_floor_m"])
         w, h = float(row["width_m"]), float(row["height_m"])
@@ -1109,7 +1149,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         drop = 0.0 if mansard else float(val("eave_overhang_m")) * math.tan(math.radians(pitch))
         if k + 1 == stories and head + 0.30 > eave - drop - 0.25:
             raise ParamError("the top storey's lintels run into the soffit")
-        for s in (() if sfo else front_bays):
+        for s in (() if sfo else fbs.get(k, front_bays)):
             if k == 0 and s == door_s:
                 continue
             comp = ROUND_HOODED if rh and k in rh["storeys"] else "k01.opening.sash_flat"

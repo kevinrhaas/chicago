@@ -105,7 +105,7 @@ from . import k09_frontage
 from . import k10_frontage
 from . import k11_frontage
 from . import k14_yard
-from .k01_frontage_params import ROUND_HOODED
+from .k01_frontage_params import ROUND_HOODED, STRIP_FABRICS
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
@@ -234,6 +234,9 @@ MATERIALS.update({
     # the fascia's painted trim. No lap is modelled: a bay of the period was boarded and
     # panelled, and its boards are the texture's, not geometry (liberty L-k01-1626-*).
     "bay_frame": {"fabric": "painted_wood", "color": (1.0, 1.0, 1.0), "roughness": 0.78},
+    # T-2451: a frame bay's pilaster strips, painted light against its dark boards, as both of
+    # 1620's pictures draw them; the colour is the reconstruction's (the pictures are monochrome)
+    "bay_strip_paint": {"color": (0.74, 0.70, 0.60), "roughness": 0.74},
 })
 # T-2313: a K15 stack's soot band (k15_chimneys.json `soot`): the K03 brick darkened, so
 # its courses and texture run on through the band; and the clay pot, should a source show one
@@ -1436,6 +1439,20 @@ class Assembly:
                 if min(math.dist(world[i], world[j]), math.dist(world[j], world[k]),
                        math.dist(world[i], world[k])) >= SLIVER_M:
                     dst.idx += [off + i, off + j, off + k]
+        # T-2451: the strips down its corners, each a box proud of one run of the plan
+        if b.get("strips"):
+            pts = v["plan"]["points"]
+            for j, q in enumerate(b["strips"]):
+                (x0, z0), (x1, z1) = pts[q["run"]], pts[q["run"] + 1]
+                L = math.hypot(x1 - x0, z1 - z0)
+                tx, tz = (x1 - x0) / L, (z1 - z0) / L
+                Rw = _add(_mul(R, tx), _mul(N, tz))
+                Nw = _add(_mul(R, -tz), _mul(N, tx))     # the run's outward normal
+                w = q["width_m"]
+                spans = {"start": [(0.0, w)], "end": [(L - w, L)], "both": [(0.0, w), (L - w, L)]}[q["at"]]
+                for s0, s1 in spans:
+                    self.proud_box(STRIP_FABRICS[q["fabric"]], (W((x0, 0.0, z0)), Rw, Nw), s0, s1,
+                                   q["from_m"], q["to_m"], q["proud_m"], seed + j, conf)
         # T-2289: everything the bay stands against its wall with, junctions to roof
         self.seat(frame, [(b["s_m"] + q[0], q[1], 0.0 if q[2] < 0.02 else -1.0)
                           for pr in built.prims.values() for q in pr.pos], "k08")
