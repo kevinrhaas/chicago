@@ -1062,11 +1062,19 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(f"street_front_round_heads.storeys names a storey this {stories}-storey house has not")
         rh = {"storeys": tuple(sorted({int(k) for k in rh["storeys"]})),
               "key": {k: float(x) for k, x in rh["key"].items()}}
+    # T-2437: as T-2366 rules for the principal floor, the contract's starting range binds a
+    # sash height the record reconstructs; one read off a source stands on that source
+    sba = form.get("sash_by_storey") or {}
+    sash_read = sba.get("confidence", "reconstructed") != "reconstructed"
+    if sash_read and not sba.get("sources"):
+        raise ParamError(f"sash_by_storey is {sba.get('confidence')} and names no source: "
+                         "outside the contract's starting range only a source can place it")
     for k, row in enumerate(sash):
         sill = floors[k] + float(row["sill_above_floor_m"])
         w, h = float(row["width_m"]), float(row["height_m"])
         _within(w, cw, f"sash_by_storey[{k}].width_m")
-        _within(h, ch, f"sash_by_storey[{k}].height_m")
+        if not sash_read:
+            _within(h, ch, f"sash_by_storey[{k}].height_m")
         head = sill + h
         if k + 1 < stories and head + 0.30 > floors[k + 1] + float(sash[k + 1]["sill_above_floor_m"]) - 0.10:
             raise ParamError(f"storey {k}'s heads run into storey {k + 1}'s sills")
