@@ -10,7 +10,8 @@ Its phase's `form` carries each as an attested-shaped entry:
     porch        a kit `porch` variant in full, built as two halves mirrored about its middle
     body         the envelope behind the front: depths, roof pitch, colour; with
                  `timber_walls` (T-2395) closed in kit clapboard and roofed, else a stand-in
-    canted_bay   optional: a plain bay standing on the gable front's ground storey
+    canted_bay   optional: a plain bay standing on the gable front's ground storey; with
+                 `lights` (T-2424) built in kit timber, a pointed light in each face
     roof_covering optional: the roof's colour
 
 OR, since T-2357, a WHOLE small frame house closed on every face from the kit:
@@ -112,6 +113,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K16TimberParams:
         bad = tower_errors(form["tower"]["value"])
         if bad:
             raise ParamError(f"{rid}: tower: {'; '.join(bad)}")
+    if "canted_bay" in form and "lights" in form["canted_bay"]["value"]:     # T-2424
+        bad = bay_errors(form["canted_bay"]["value"])
+        if bad:
+            raise ParamError(f"{rid}: canted_bay: {'; '.join(bad)}")
     if not isinstance(form["porch"]["value"].get("half_width_m"), (int, float)):
         raise ParamError(f"{rid}: porch needs half_width_m")
     return K16TimberParams(
@@ -278,4 +283,25 @@ def tower_errors(tv: dict) -> list[str]:
         seen.update(faces)
         if not all(_num(w.get(x)) for x in ("clear_width_m", "clear_height_m", "sill_m")) or not w.get("k06_variant"):
             out.append("a window needs k06_variant, clear_width_m, clear_height_m and sill_m")
+    return out
+
+
+def bay_errors(bv: dict) -> list[str]:
+    """What the timber bay builder cannot read (T-2424): a plan of three faces from the wall
+    (z 0) out and back to it, its base, wall top and frieze under the cornice, the least post,
+    the deck's rise to the wall, and the one light every face carries."""
+    out = []
+    plan = bv.get("plan") or []
+    if len(plan) != 4 or not all(isinstance(q, list) and len(q) == 2 and all(_num(x) for x in q) for q in plan):
+        out.append("plan must be four (s, z) points: three faces")
+    elif plan[0][1] != 0 or plan[-1][1] != 0 or min(plan[1][1], plan[2][1]) <= 0:
+        out.append("plan must start and end on the wall (z 0) and stand out from it between")
+    for k in ("base_m", "wall_top_m", "frieze_m", "post_m", "roof_m"):
+        if not _num(bv.get(k)) or bv[k] <= 0:
+            out.append(f"{k} must be a positive number")
+    lt = bv.get("lights") or {}
+    if not all(_num(lt.get(x)) for x in ("clear_width_m", "clear_height_m", "sill_m")) or not lt.get("k06_variant"):
+        out.append("lights needs k06_variant, clear_width_m, clear_height_m and sill_m")
+    elif not out and lt["sill_m"] + lt["clear_height_m"] >= bv["wall_top_m"] - bv["frieze_m"]:
+        out.append("the lights must stand under the frieze")
     return out
