@@ -325,7 +325,20 @@
       ]
     },
     {
-      "why": "THE 1904 PARKWAY ELMS (T-2473): one file of trees per block face, planted by rule along the parkway bands data/street_grid/1904.json carries, one seed per face. It reads only the grid the step above writes, so it follows that step.",
+      "why": "THE 1904 STREET SECTION AND CARRIAGE WALKS (T-2474): the curb's reveal, the walk's fall and a carriage walk before every lot 40 ft wide or more, laid from the faces and parcels data/street_grid/1904.json carries. It reads only the grid, so it follows the grid trace; the parkway elms read it, so it comes before them.",
+      "command": [
+        "python3",
+        "tools/lay_prairie_1904_street_section.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/lay_prairie_1904_street_section.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "THE 1904 PARKWAY ELMS (T-2473): one file of trees per block face, planted by rule along the parkway bands data/street_grid/1904.json carries, one seed per face, clear of the carriage walks data/street_section/1904.json lays (T-2474). It reads the grid and the section, so it follows the step above.",
       "command": [
         "python3",
         "tools/plant_prairie_1904_street_trees.py"

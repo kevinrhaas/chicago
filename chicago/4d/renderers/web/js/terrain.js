@@ -429,6 +429,7 @@ export async function createTerrain({
   // when the sward hands over where it stopped drawing cards (`setTurf`).
   const turf = turfGround();
   const groundMat = groundMaterial(zones, lakeShore, { turf });
+  let walkOffset = null;
   /** The radius around the eye inside which the 15 m base is not drawn. See
    *  the base below, and `baseHoleM()` for how it follows the reach. */
   const baseHole = { value: baseHoleM(Infinity) };
@@ -824,7 +825,26 @@ export async function createTerrain({
      */
     walkHeight(e, n) {
       const h = heightfield.sample(e, n);
-      return h < SHORE_Y ? WATER_BARRIER_Y : h;
+      if (h < SHORE_Y) return WATER_BARRIER_Y;
+      return walkOffset ? h + walkOffset(e, n) : h;
+    },
+
+    /**
+     * T-2474: a layer that draws the ground lower than the field (the 1904
+     * roadway below its curbs) cuts the field's own mesh out there — `mask` is a
+     * coverage texture over the world box `x0, z0, width, depth` — and tells the
+     * walker how far down it put the surface: `offset(e, n)` in metres, 0 off it.
+     * `surfaceHeight()` keeps reporting the field; only the walk follows the cut.
+     */
+    setGroundCut({ mask, x0, z0, width, depth, offset = null } = {}) {
+      for (const m of [groundMat, groundBase?.material]) {
+        const cut = m?.userData?.cut;
+        if (!cut) continue;
+        cut.tex.value = mask ?? null;
+        cut.box.value.set(x0 ?? 0, z0 ?? 0, width ? 1 / width : 0, depth ? 1 / depth : 0);
+        cut.on.value = mask ? 1 : 0;
+      }
+      walkOffset = typeof offset === 'function' ? offset : null;
     },
 
     /** Backward-compatible names for older harnesses and external consumers. */
@@ -1924,11 +1944,20 @@ function groundMaterial(zones = [], lakeShore = null,
   const sward = swardTex ?? swardTexture();
   mat.userData.swardTex = sward;
   mat.userData.substrateZones = zones.map((z) => z.id);
+  // T-2474: a street layer may cut the ground out where it draws its own lower
+  // surfaces (the 1904 roadway below its curbs). A uniform switch, off until
+  // `setGroundCut` turns it on: the program key is fixed when confidence.js
+  // patches this material, so the cut cannot be a second program.
+  const cut = { on: { value: 0 }, tex: { value: null }, box: { value: new THREE.Vector4() } };
+  mat.userData.cut = cut;
 
   const prior = mat.onBeforeCompile;
   mat.onBeforeCompile = (shader, renderer) => {
     if (typeof prior === 'function') prior(shader, renderer);
     shader.uniforms.uGround = { value: tex };
+    shader.uniforms.uChiCutOn = cut.on;
+    shader.uniforms.uChiCut = cut.tex;
+    shader.uniforms.uChiCutBox = cut.box;
     shader.uniforms.uPrairieLuma = { value: tex.userData.meanLinearLuma };
     Object.assign(shader.uniforms, swardUniforms(sward));
     if (lakeShore) shader.uniforms.uChiShore = { value: shoreUniform(lakeShore, THREE) };
@@ -1943,10 +1972,14 @@ uniform sampler2D uGround;
 uniform float uPrairieLuma;
 ${SWARD_HEAD}
 ${nearHole ? 'uniform float uChiNearHole;' : ''}
+uniform float uChiCutOn;
+uniform sampler2D uChiCut;
+uniform vec4 uChiCutBox;
 ${zones.length ? shoreGlslHead(lakeShore) : ''}
 ${turf ? TURF_HEAD : ''}
 ` + shader.fragmentShader.replace('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>
-${nearHole ? '  if (distance(vChiWorld, cameraPosition) < uChiNearHole) discard;' : ''}`)
+${nearHole ? '  if (distance(vChiWorld, cameraPosition) < uChiNearHole) discard;' : ''}
+${GROUND_CUT_FRAGMENT}`)
       .replace('#include <map_fragment>', /* glsl */`${PRAIRIE_FRAGMENT}
 ${zoneGlsl(zones, lakeShore)}
 ${turf ? TURF_FRAGMENT : ''}
@@ -1961,6 +1994,16 @@ ${turf ? TURF_FRAGMENT : ''}
   mat.needsUpdate = true;
   return mat;
 }
+
+/** T-2474: drop the ground where the cut mask says a layer draws its own surface.
+ *  The mask is 0..1 coverage over a world box (x0, z0, 1/width, 1/depth). */
+const GROUND_CUT_FRAGMENT = /* glsl */`
+  if (uChiCutOn > 0.5) {
+    vec2 chiCutUv = (vChiWorld.xz - uChiCutBox.xy) * uChiCutBox.zw;
+    if (chiCutUv.x > 0.0 && chiCutUv.y > 0.0 && chiCutUv.x < 1.0 && chiCutUv.y < 1.0
+        && texture2D(uChiCut, chiCutUv).r > 0.5) discard;
+  }
+`;
 
 /**
  * Water: a silty prairie river, not a swimming pool.

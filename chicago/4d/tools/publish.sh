@@ -484,6 +484,10 @@ fi
 # DirectX normal, the 16-bit height and the loose AO/roughness/metallic stay in the
 # repository, as the roof relief's do. Same asset-base rename as that block:
 # textures/ resolves under data/ here and under assets/ in the dev tree.
+if [ -d data/street_section ]; then
+  rm -rf "$SITE/data/street_section"
+  cp -a data/street_section "$SITE/data/street_section"
+fi
 if [ -d data/street_surfaces ]; then
   rm -rf "$SITE/data/street_surfaces"
   cp -a data/street_surfaces "$SITE/data/street_surfaces"
