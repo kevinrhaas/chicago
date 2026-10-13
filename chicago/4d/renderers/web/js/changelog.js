@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1762, ts: '2026-10-13T13:49:52.011Z', date: 'Oct 13, 2026, 8:49 AM CT', title: '1635 Prairie\'s house stands again, empty, beside 1637', kind: 'feature',
+    items: [
+      'The strip between 1625 and 1637 Prairie was bare. A brick house now stands on it. Col. Robert Forsyth built it in 1863, and Warren Springer lived in it until 1902.',
+      'No source from 1904 names the house, standing or gone. It was lived in until 1902, and nothing dates its loss before the 1911 map. A move is not a demolition, so the house stays, with nobody in it.',
+      'Its shape comes from the 1886 atlas. Its two storeys, low bracketed roof and door are a first draft. A new liberty on its card says which parts are made up.',
+    ] },
   { v: 1761, ts: '2026-10-13T13:15:16.130Z', date: 'Oct 13, 2026, 8:15 AM CT', title: 'Glessner\'s 1886 datestone reads the right way round', kind: 'fix',
     items: [
       'The date on the Glessner house\'s 18th Street chimney showed mirrored from the street. It now reads 1886, left to right, with the AD monogram above it, as the HABS photograph of the gable shows.',
