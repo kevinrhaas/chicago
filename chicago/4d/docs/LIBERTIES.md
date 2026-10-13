@@ -26219,7 +26219,7 @@ drawing shows one stone cornice and no timber eave above it). The paint is the h
 colour, so the rear range's fascia takes it too.
 **How to resolve:** a photograph of the house after 1886, or the architects' drawings, sets the
 section and the eave; T-2422 builds the balcony rail on the cornice.
-**Covers:** `house_1619_prairie.as_mapped_1904.form.wall_head`, `house_1619_prairie.as_mapped_1904.form.bays`.
+**Covers:** `house_1619_prairie.as_mapped_1904.form.wall_head`.
 **Ticket:** T-2460 (piece 2 of T-2429, of T-2421).
 **Review:** `docs/RESEARCH/k01-1619-hamline-2420/README.md` § The stone cornice (T-2460).
 **Recorded:** 2026-10-13 (T-2460).

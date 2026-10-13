@@ -35697,12 +35697,6 @@
           "domain": "structure",
           "structure": "house_1619_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_1619_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.wall_head"
         }
       ],
@@ -35723,7 +35717,7 @@
         },
         {
           "label": "Covers",
-          "text": "`house_1619_prairie.as_mapped_1904.form.wall_head`, `house_1619_prairie.as_mapped_1904.form.bays`."
+          "text": "`house_1619_prairie.as_mapped_1904.form.wall_head`."
         },
         {
           "label": "Ticket",
