@@ -148,6 +148,10 @@ class K01FrontageParams:
     # T-2370: "mansard" (k01.roof.mansard, K05's mansard ring stack laid on this house);
     # `mansard` holds its resolved numbers — variant, profile, pitches, rise, curb, ridge
     mansard: dict = field(default_factory=dict)
+    # T-2459: "gable" (k01.roof.gable): a ridge parallel to the street front, a steep street
+    # slope and a rear slope down to the same wall head, each side wall carried up as a
+    # parapet (1619's crow-stepped south wall, its drawing); `gable` holds its resolved numbers
+    gable: dict = field(default_factory=dict)
     # T-2410: a brick street front's round-headed windows — {"storeys", "key"}: the storeys
     # whose street windows are ROUND_HOODED, and the key block over each hood's crown
     round_heads: dict = field(default_factory=dict)
@@ -184,6 +188,8 @@ class K01FrontageParams:
             return self.flat["deck_high_m"]
         if self.roof_form == "mansard":  # T-2370: the upper hip's ridge, over the curb
             return self.mansard["ridge_m"]
+        if self.roof_form == "gable":    # T-2459: the ridge parallel to the front
+            return self.gable["ridge_m"]
         return round(self.eave_m + self.width_m / 2 * math.tan(math.radians(self.roof_pitch_deg)), 4)
 
 
@@ -196,6 +202,7 @@ CONSUMED = frozenset({
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
     "stone_front", "boundary", "north_bays", "mansard", "rear_wings", "yard", "condition",
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
+    "gable_roof",
 })
 
 #: T-2410: the component a brick street front's round-headed window is cut as — K06's round
@@ -209,7 +216,7 @@ WALLS = ("k01.wall.street_front", "k01.wall.side.north", "k01.wall.rear_service"
 
 
 def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
-         lower_pitch: float | None = None) -> tuple[dict, dict]:
+         lower_pitch: float | None = None, gable: bool = False) -> tuple[dict, dict]:
     """The K04 roof and rainwater parameters (T-2293): the record names fabrics and
     kinds; k04_roofs.json says what each is and what it may cover. A flat deck (T-2350)
     has no hip or ridge to cap, and its one eave, the rear fascia, hangs no gutter yet."""
@@ -271,7 +278,7 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
         "step_leg_m": prof["dormer_apron"]["step_flashing_m"]["leg"],
         "step_upstand_m": prof["dormer_apron"]["step_flashing_m"]["upstand"],
     }
-    if flat:
+    if flat or gable:     # T-2459: a gable roof hangs no gutter yet (from_phase refuses one)
         return roof, {}
     gk, pk = rain.get("gutter"), rain.get("downpipe")
     g, d = prof["gutter"], prof["downpipe"]
@@ -333,6 +340,55 @@ def _flat_roof(depth: float, eave: float, pitch: float, overhang: float) -> dict
     return {"variant": FLAT_ROOF, "fascia_m": f, "parapet_m": tw, "coping_m": p["coping"]["thickness_m"],
             "drip_m": p["coping"]["drip_m"], "upstand_m": float(v["upstand_m"]), "deck_eave_m": round(er, 4),
             "deck_high_m": round(high, 4), "parapet_top_m": round(high + float(v["upstand_m"]), 4)}
+#: T-2459: the parapet lines a K01 gable roof's side walls are carried up in
+GABLE_PARAPETS = ("stepped", "coped")
+
+
+def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, side_wall: float) -> dict:
+    """The numbers a K01 gable roof is built to (T-2459): the ridge runs along the street
+    front `ridge_back_m` behind the front wall's plane, the street slope rises to it at
+    roof_pitch_deg from the front eave, and the rear slope falls from it to the rear wall's
+    head at whatever pitch that leaves, so both eaves stand on the one wall head. Each side
+    wall is carried up as a parapet the wall's own thickness (`ends`: K01's `north` is the
+    high-v wall, `south` the low-v one), either `stepped` (crow steps, `steps` a slope, each
+    clearing the covering behind it by K05's upstand and carrying its own coping) or `coped`
+    (one coping following the slopes at that clearance); both stand `top_above_ridge_m` over
+    the ridge at their head."""
+    if not g:
+        raise ParamError("a gable K01 roof names its gable_roof: ridge_back_m and the two ends")
+    k5 = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())
+    pp, cp = k5["parts"]["parapet"], k5["parts"]["coping"]
+    tf = math.tan(math.radians(pitch))
+    r = float(g["ridge_back_m"])
+    if not 1.0 <= r <= depth / 2:
+        raise ParamError(f"gable_roof.ridge_back_m {r}: the ridge stands 1 m to half the depth behind the front")
+    rise = r * tf
+    back_deg = math.degrees(math.atan(rise / (depth - r)))
+    if back_deg < 15.0:
+        raise ParamError(f"gable_roof: the rear slope falls at {back_deg:.1f} deg; under 15 a slate roof sheds no water")
+    ends = g.get("ends") or {}
+    if set(ends) != {"north", "south"}:
+        raise ParamError("gable_roof.ends names the parapet on both side walls, north and south")
+    out = {}
+    for side, e in sorted(ends.items()):
+        style = e.get("style")
+        if style not in GABLE_PARAPETS:
+            raise ParamError(f"gable_roof.ends.{side}.style is one of {GABLE_PARAPETS}")
+        row = {"style": style}
+        if style == "stepped":
+            n = int(e["steps"])
+            if not 2 <= n <= 8:
+                raise ParamError(f"gable_roof.ends.{side}.steps: 2-8 crow steps a slope")
+            row["steps"] = n
+        out[side] = row
+    top = float(g.get("top_above_ridge_m", pp["top_above_ridge_m"]))
+    if not pp["upstand_min_m"] <= top <= 1.5:
+        raise ParamError(f"gable_roof.top_above_ridge_m: {pp['upstand_min_m']}-1.5 m")
+    return {"ridge_back_m": r, "ridge_m": round(eave + rise, 4), "back_pitch_deg": round(back_deg, 4),
+            "ends": out, "parapet_m": side_wall, "upstand_m": float(pp["upstand_min_m"]),
+            "top_above_ridge_m": top, "coping_m": float(cp["thickness_m"]), "drip_m": float(cp["drip_m"])}
+
+
 #: T-2370: the K05 mansard variants a K01 roof may be built from (k05_roofs.json)
 MANSARD_ROOFS = ("k05.roof.mansard_convex", "k05.roof.mansard_concave")
 
@@ -992,11 +1048,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     datum = {d["id"]: d for d in c["datums"]}
 
     roof_form = val("roof_form")
-    if roof_form not in ("hip", "flat", "mansard"):
-        raise ParamError("k01_frontage builds the contract's k01.roof.hip, k01.roof.flat and "
-                         "k01.roof.mansard only")
+    if roof_form not in ("hip", "flat", "mansard", "gable"):
+        raise ParamError("k01_frontage builds the contract's k01.roof.hip, k01.roof.flat, "
+                         "k01.roof.mansard and k01.roof.gable only")
     flat = roof_form == "flat"
     mansard = roof_form == "mansard"
+    gable = roof_form == "gable"
     # T-2341: a plain brick house is the same assembly with its street front laid in the
     # K03 brick too, its openings dressed in stone; which front it is, the record's
     # `stone_front` says — named for a stone front, absent for a brick one
@@ -1165,8 +1222,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     flat_roof = _flat_roof(depth, eave, pitch, float(val("eave_overhang_m"))) if flat else {}
     mansard_roof = _mansard_roof(val("mansard"), depth, width, eave, pitch,
                                  float(val("eave_overhang_m"))) if mansard else {}
+    gable_roof = _gable_roof(val("gable_roof"), depth, width, eave, pitch, st) if gable else {}
+    if val("gable_roof") and not gable:
+        raise ParamError(f"a {roof_form} roof names no gable_roof")
+    if gable and val("rainwater"):
+        raise ParamError("a gable K01 roof hangs no gutter yet: k01_frontage runs its half-round gutter "
+                         "round a hip's eaves, and a gable's side walls are parapets (rainwater is empty)")
     k04, rainwater = _k04(val("roof_covering") or {}, val("rainwater") or {}, pitch, flat,
-                          mansard_roof.get("lower_pitch_deg"))
+                          mansard_roof.get("lower_pitch_deg"), gable)
     if val("mansard") and not mansard:
         raise ParamError(f"a {roof_form} roof names no mansard")
     dormer = {}
@@ -1322,6 +1385,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         sx, sz = (float(v) for v in ch["plan_m"])
         above, cap_p, cap_d = float(ch["top_above_ridge_m"]), float(ch["cap_proud_m"]), float(ch["cap_depth_m"])
         ridge = (flat_roof["deck_high_m"] if flat else mansard_roof["ridge_m"] if mansard
+                 else gable_roof["ridge_m"] if gable
                  else (round(pf + sum(heights), 4) + width / 2 * tp))
         for st_ in ch["stacks"]:
             u, v = float(st_["u_m"]), float(st_["v_m"])
@@ -1339,6 +1403,19 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 if not (min(v - sz / 2, width - v - sz / 2) < 0.0
                         and max(sz / 2 - v, v + sz / 2 - width) <= o + 1e-9):
                     raise ParamError(f"chimney at ({u}, {v}) does not straddle a side wall inside its {o} m cornice")
+                base = round(pf + sum(heights), 4)
+            elif st_.get("in_parapet"):
+                # T-2459: a stack carried up in a gable roof's side-wall parapet (1619's south
+                # stack at the head of its crow steps, its drawing): its outer face is the
+                # wall's, and it rises from the wall head as the parapet does
+                if not gable:
+                    raise ParamError(f"chimney at ({u}, {v}): only a gable roof's parapet carries a stack")
+                if not (sx / 2 + 0.3 <= u <= depth - sx / 2 - 0.3):
+                    raise ParamError(f"chimney at ({u}, {v}) does not stand along the side wall")
+                if not (abs(v - sz / 2) < 1e-6 or abs(v + sz / 2 - width) < 1e-6):
+                    raise ParamError(f"chimney at ({u}, {v}): a parapet stack's outer face is the side wall's")
+                if sz < st:
+                    raise ParamError(f"chimney at ({u}, {v}) is thinner than the parapet it stands in")
                 base = round(pf + sum(heights), 4)
             elif not (sx / 2 + 0.3 <= u <= depth - sx / 2 - 0.3 and sz / 2 + 0.3 <= v <= width - sz / 2 - 0.3):
                 raise ParamError(f"chimney at ({u}, {v}) does not stand inside the footprint")
@@ -1359,7 +1436,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                     raise ParamError(f"chimney at ({u}, {v}) tops at {top} m, under the curb's {curb} m + 0.6")
             chimneys.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": top, "base_m": base,
                              "cap_proud_m": cap_p, "cap_depth_m": cap_d})
-    elif ch and (flat or mansard):
+    elif ch and (flat or mansard or gable):
         raise ParamError(f"a {roof_form} K01 roof takes T-2302's plain stacks: K15's draught rule "
                          "reads a hip's covering")
     elif ch:
@@ -1498,7 +1575,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         boundary=dict(val("boundary", {}) or {}),
         yard=yard,
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
-        roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, entrance_floor_m=ef, round_heads=rh,
+        roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, entrance_floor_m=ef, round_heads=rh,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )
