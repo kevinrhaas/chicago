@@ -36,7 +36,7 @@ import { loadRoofRelief } from './roof-relief.js';
 import { filterGlessnerRoof } from './glessner-roof-filter.js';
 import { readGlessnerStone, tintGlessnerGranite } from './glessner-stone.js';
 import { loadWallRelief } from './wall-relief.js';
-import { cheapenGlass, DEFAULT_GLASS } from './glass.js';
+import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
 
 /** Walk up until something claims a structure_id. Returns null if nothing does. */
 export function structureIdOf(object) {
@@ -182,6 +182,8 @@ function normalizeGeometry(src, matrix, material, confidence, label, tone) {
 
   geo.applyMatrix4(matrix);
   if (!src.getAttribute('normal')) geo.computeVertexNormals();
+  // T-2213: the dark pane's panes and windows, read in the structure's own frame.
+  if (material.userData.glassPanes) writePaneAttributes(geo);
 
   const warning = confidence.ensureAttribute(geo, label);
   return { geo, warning, base, factors };
@@ -356,6 +358,7 @@ function materialKey(m) {
     m.map?.uuid ?? '-', m.normalMap?.uuid ?? '-', m.aoMap?.uuid ?? '-',
     m.roughnessMap?.uuid ?? '-',
     m.userData.roofFilter ?? '-',
+    m.userData.glassPanes ?? '-',
     m.side, m.transparent ? 't' : 'o', m.alphaTest ?? 0, m.flatShading ? 'f' : 's',
   ].join('|');
 }
