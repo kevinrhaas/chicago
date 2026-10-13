@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 1755, ts: '2026-10-13T08:46:37.568Z', date: 'Oct 13, 2026, 3:46 AM CT', title: 'Glessner\'s windows: every pane its own, with blinds behind the glass', kind: 'feature',
+    items: [
+      'The Glessner house\'s dark windows no longer repeat one reflection across the front: each pane sits a hair out of plane with its own sheen, so the sky breaks differently in every light.',
+      'Pale roller blinds now hang behind the glass at different drops window by window — some up, many at the meeting rail, as an old photograph of the front shows — and they shift with your viewpoint because they sit behind the pane, not on it.',
+      'The glass stays dark by default, with no extra geometry. Which window has which blind is reconstructed.',
+    ] },
+  { v: 1754, ts: '2026-10-13T08:30:22.092Z', date: 'Oct 13, 2026, 3:30 AM CT', title: 'Glessner\'s granite is a cooler greige, with colour options to compare', kind: 'improvement',
+    items: [
+      'The Glessner house\'s granite now reads greige leaning grey, matched to a photograph of the Eighteenth Street front, where it read a little brown.',
+      'Add ?stone=warm-greige, grey-greige, light-greige or baked to the address to compare other stone colours; greige is the default.',
+    ] },
+  { v: 1753, ts: '2026-10-13T08:30:22.092Z', date: 'Oct 13, 2026, 3:30 AM CT', title: '1619 Prairie\'s roof storey becomes the wall gable its drawing shows', kind: 'feature',
+    items: [
+      'The stand-in dormer on 1619 Prairie\'s roof is gone: the stone front now rises over the swell bay as a steep pedimented gable, as Treat & Foltz drew it in 1886.',
+      'Three short segment-headed windows sit in it, each under a fan of stone voussoirs, with a recessed panel in the pediment and a finial at its peak.',
+      'A slim stone pinnacle stands either side of the gable.',
+      'The side-by-side on the house\'s card now shows the gable over the drawing\'s own. The slate roof behind, the stepped south parapet and the balcony rail come next.',
+    ] },
   { v: 1752, ts: '2026-10-13T07:25:07.298Z', date: 'Oct 13, 2026, 2:25 AM CT', title: '1638 Prairie\'s entrance, from its photograph', kind: 'feature',
     items: [
       'The Gothic house at 1638 Prairie now has the entrance its old photograph shows under the corner tower: a pointed arch on broad posts with a pierced quatrefoil in each corner, a glazed double door behind it, and steps up between two sloping cheek walls.',
