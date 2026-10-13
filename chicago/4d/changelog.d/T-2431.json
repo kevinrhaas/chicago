@@ -1,0 +1,8 @@
+{
+  "title": "The Glessner House builds the same on any machine",
+  "kind": "fix",
+  "items": [
+    "The shading baked into the Glessner House's granite now comes from a saved copy kept with the model, not from a fresh render each time. Fresh renders came out very slightly different on different computers, and that failed the nightly check for every Prairie Avenue change.",
+    "Nothing you can see has changed. The stones and their shading look exactly as they did."
+  ]
+}
