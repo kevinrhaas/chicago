@@ -569,8 +569,11 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 829 -> 862 on 2026-10-11 (T-2352): the draft's east side of the same block, seventeen houses and
 # sixteen rear buildings, emitted the same way and restaling on none of the rows below either.
 #
+# 862 -> 863 on 2026-10-13 (T-2443): the 1635 Forsyth house, ruled standing in 1904 and drafted
+# from Robinson 1886's outline, emitted the same way and restaling on none of the rows below either.
+#
 STATED = {
-    "assets": 862,
+    "assets": 863,
     "restales": {
         "generators/common/*.py": 713,
         "generators/common/__init__.py": 0,

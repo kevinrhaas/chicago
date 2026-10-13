@@ -603,6 +603,16 @@
       "phase_id": "draft_1904",
       "structure_id": "flats_2127_prairie"
     },
+    "forsyth_house_1635_prairie__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 45844,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "6749358b2f154e1fa2c87d0afaa746b22d4dcd749c3e41c08b53097fad137f78",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "forsyth_house_1635_prairie"
+    },
     "fort_dearborn_artillery_house__log_1816.glb": {
       "archetype": "fort_structure",
       "baked_ao": false,
