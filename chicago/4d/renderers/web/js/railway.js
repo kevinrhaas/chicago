@@ -169,7 +169,7 @@ function trackPath(line, terrain) {
  * UVs are world metres on the yard's own axes, so beds, cinders and verges share a
  * grain where they overlap.
  */
-function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = null, across = MAX_EDGE_M }) {
+function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = null, across = MAX_EDGE_M, drape = false }) {
   const { pos, uv, col, conf } = out;
   for (let i = 0; i + 1 < stations.length; i += 1) {
     const [ae0, an0, be0, bn0] = stations[i];
@@ -189,18 +189,41 @@ function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = 
       const alpha = v <= 0 || v >= 1 ? 0 : 1;
       return [e, n, alpha];
     };
+    // `drape`: on a steep face the across coordinate is measured over the ground, not in
+    // plan, so a stone is as tall up the slope as it is wide along it
+    const slant = new Map();
+    const acrossAt = (u) => {
+      if (slant.has(u)) return slant.get(u);
+      const pts = vs.map((v) => vertex(u, v));
+      const x = (p) => -p[0] * axis[1] + p[1] * axis[0];
+      const dir = Math.sign(x(pts[pts.length - 1]) - x(pts[0])) || 1;
+      const out = [x(pts[0])];
+      let y0 = terrain.surfaceHeight(pts[0][0], pts[0][1]);
+      for (let k = 1; k < pts.length; k += 1) {
+        const y1 = terrain.surfaceHeight(pts[k][0], pts[k][1]);
+        const d = Math.hypot(pts[k][0] - pts[k - 1][0], pts[k][1] - pts[k - 1][1], y1 - y0);
+        out.push(out[k - 1] + dir * d);
+        y0 = y1;
+      }
+      slant.set(u, out);
+      return out;
+    };
     for (let a = 0; a < nu; a += 1) {
       for (let b = 0; b + 1 < vs.length; b += 1) {
         const q = [vertex(a / nu, vs[b]), vertex((a + 1) / nu, vs[b]), vertex((a + 1) / nu, vs[b + 1]), vertex(a / nu, vs[b + 1])];
+        if (drape) {
+          const s0 = acrossAt(a / nu); const s1 = acrossAt((a + 1) / nu);
+          q[0].push(s0[b]); q[1].push(s1[b]); q[2].push(s1[b + 1]); q[3].push(s0[b + 1]);
+        }
         // counter-clockwise in plan, so the faces look up
         const cross = (q[1][0] - q[0][0]) * (q[3][1] - q[0][1]) - (q[1][1] - q[0][1]) * (q[3][0] - q[0][0]);
         const tris = cross >= 0 ? [[0, 1, 2], [0, 2, 3]] : [[0, 2, 1], [0, 3, 2]];
         for (const t of tris) {
           for (const k of t) {
-            const [e, n, alpha] = q[k];
+            const [e, n, alpha, slope] = q[k];
             const y = terrain.surfaceHeight(e, n);
             pos.push(wx(e), y + lift, wz(n));
-            uv.push((e * axis[0] + n * axis[1]) / span, (-e * axis[1] + n * axis[0]) / span);
+            uv.push((e * axis[0] + n * axis[1]) / span, (slope ?? -e * axis[1] + n * axis[0]) / span);
             if (tint) { const [r, g, b] = tint(y); col.push(r, g, b, alpha); } else col.push(1, 1, 1, alpha);
             conf.push(level);
           }
@@ -638,10 +661,11 @@ export async function createRailway({
       terrain, lift: GROUND.face.lift, fade: GROUND.face.fade, axis, span: faceLib?.along ?? 4,
       level: tierLevel(edgeSpec.face?.tier ?? 'reconstructed'), out: face,
       // darker than a block's face: between the blocks near the eye it is their shadow
-      tint: (y) => wetTint(y, wetBelow).map((v) => v * 0.78),
+      tint: (y) => wetTint(y, wetBelow).map((v) => v * 0.88),
       // the face bends over at its crest: a coarse ribbon's chord would pass under the
       // ground there and the grass would show through, so it is cut finely across
       across: 0.5,
+      drape: true,
     });
     const made = buffers();
     const madeLib = maps.get(edgeSpec.made_ground?.material ?? 'made_ground');
