@@ -204,6 +204,35 @@ try {
   check('…while one whose block names more than the ticket stays blocked and listed',
     front(gated, 'state') === 'blocked-tech' && /BLOCKED-TECH T-1499/.test(qs) && !/^T-1499 /m.test(qs), qs);
 
+  console.log('3c. a chain whose merged ticket had lost its line opens below band 9, not at the foot');
+  // T-2212's shape (2026-10-13): re-blocked by hand while a run worked it, then `done --pr`
+  // left it in review with no queue line, so T-2213 was appended 170 lines down.
+  {
+    const at = path.join(A, 'tickets');
+    git(at, 'pull', '-q', '--rebase', 'origin', 'main');
+    const queueBefore = readFileSync(path.join(at, 'QUEUE.md'), 'utf8');
+    writeFileSync(path.join(at, 'QUEUE.md'), queueBefore.replace('\n# --- 8b.',
+      '\n# --- 9. LOOP IMPROVEMENTS\nT-1503 — third\n\n# --- 7. THE PROGRAMME\n# ---    its continuation\n'
+      + '# its note\nT-1505 — fifth\n\n# --- 8b.').replace(/^T-1503 — third\n/m, '')
+      .replace(/(# --- 8b\.[^\n]*\n)/, '$1# BLOCKED-TECH T-1491 (opened 2026-09-20, META) — orphan successor\n#     waits: T-1490 — the same house\n'));
+    writeFileSync(path.join(at, 'T-1250-1499', 'T-1490-lost-line.md'), ticketText('T-1490', 'lost line', { state: 'review', pr: 44 }));
+    writeFileSync(path.join(at, 'T-1250-1499', 'T-1491-orphan-successor.md'),
+      ticketText('T-1491', 'orphan successor', { state: 'blocked-tech', blocked_on: 'T-1490 — the same house' }));
+    tool(A, 'sync', '-m', 'a review ticket with no queue line, and its successor');
+    writeFileSync(prs, JSON.stringify({ 44: { number: 44, title: 'T-1490: lost line', state: 'closed', merged_at: '2026-09-23T16:00:00Z' } }));
+    r = tool(A, 'settle');
+    const q3c = remote('QUEUE.md');
+    check('settle: the successor of a merged ticket with no line opens at the head of the band below band 9',
+      front(remote('T-1250-1499/T-1491-orphan-successor.md'), 'state') === 'open'
+      && /^# its note\nT-1491 — orphan successor\nT-1505 — fifth$/m.test(q3c) && !/BLOCKED-TECH T-1491/.test(q3c)
+      && /opens at the head of the band below band 9/.test(r.stdout), r.stdout + r.stderr + q3c);
+    git(at, 'pull', '-q', '--rebase', 'origin', 'main');
+    const t1491 = path.join(at, 'T-1250-1499', 'T-1491-orphan-successor.md');
+    writeFileSync(t1491, readFileSync(t1491, 'utf8').replace('state: open', 'state: withdrawn'));
+    writeFileSync(path.join(at, 'QUEUE.md'), queueBefore);
+    tool(A, 'sync', '-m', 'the 3c fixture put back');
+  }
+
   console.log('4. new tickets: the folder of 250, and a collision renumbered');
   r = tool(A, 'new', 'fourth', '--after', 'T-1502', '--by', 'loop');
   check('new lands in the folder its number belongs to',
