@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1767, ts: '2026-10-13T16:30:00.391Z', date: 'Oct 13, 2026, 11:30 AM CT', title: '1637 Prairie\'s wing rises to the cornice under its own roof', kind: 'improvement',
+    items: [
+      'The forward wing on Jesse Spalding\'s house at 1637 Prairie now rises to the cornice and has its own steep slate roof, as the engraving shows. It used to stop below the cornice under a flat tin deck.',
+      'That roof\'s ridge runs back into the main roof at about the main roof\'s height, and the wing\'s chimney stands just beside it.',
+    ] },
   { v: 1766, ts: '2026-10-13T16:21:37.088Z', date: 'Oct 13, 2026, 11:21 AM CT', title: 'Glessner\'s granite settles on grey-greige', kind: 'improvement',
     items: [
       'The Glessner house\'s granite is now grey-greige by default, the colour chosen from the comparison.',
