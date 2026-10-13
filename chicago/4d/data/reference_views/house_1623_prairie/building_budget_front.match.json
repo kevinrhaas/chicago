@@ -1,0 +1,83 @@
+{
+ "structure_id": "house_1623_prairie",
+ "view": "building_budget_front",
+ "glb": "assets/gltf/house_1623_prairie__as_mapped_1904.glb",
+ "glb_sha256": "9a960723635ab6b45bdff3a5c72391d46b569489435075998b33d5b919fb3db9",
+ "camera_sha256": "11659dfcf3ba97045918dcf86c57473f7866482a17b88095daed6d2224a7eee9",
+ "side_by_side": "docs/RESEARCH/photo-match/house_1623_prairie/building_budget_front-side-by-side.jpg",
+ "verdict": "differs",
+ "differences": [
+  {
+   "what": "massing: a narrow stone town house of three storeys over a raised basement between party walls, its front filled by an oriel over two arches; the draft stood a grey flat-roofed brick box",
+   "status": "fixed",
+   "how": "T-2433: K01 frontage on the 1911 sheet's plan (19.5 by 6.2 m), a K02 Lemont limestone front over a rusticated base on K03 brick party walls; through the camera the front's edges land within 5-7 px of the drawing's and the main cornice at 9.75 m within about 3 px"
+  },
+  {
+   "what": "storey lines: the principal floor at the stoop's head (about 1.85 m), the second floor at the oriel's sill (about 5.8 m), the main cornice at about 9.7 m",
+   "status": "fixed",
+   "how": "T-2433: a 1.85 m principal floor read off the drawing, 3.9 and 4.0 m storeys; the bands fall within about 3-10 px of the drawing's"
+  },
+  {
+   "what": "the north arch: a broad round-arched window in the principal storey, its sill at about 2.1 m and its crown at about 4.4 m under a ring of long voussoirs, a basement light under it",
+   "status": "fixed",
+   "how": "T-2433: K01's arched principal light on K06's wide fanlight sash, 1.6 m across under a 0.35 m voussoir ring, its sill and crown within about 3 px; K06's round-headed basement light under it. Its lattice transom and the drawing's 1.8 m width are the next two rows"
+  },
+  {
+   "what": "the oriel's place and second storey: a canted oriel on corbelling over the arches, its sill at the second floor, four tall transomed lights across its front and one in each cant",
+   "status": "fixed",
+   "how": "T-2433: K08's canted corbelled oriel centred on the front from the second floor on four corbel courses, four K06 transomed lights 0.4 m across to its front and one 0.35 m in each cant; its sill within about 10 px"
+  },
+  {
+   "what": "the oriel's size: about 4.8 m across at the wall, 3.4 m of front and about 0.9 m out; the build's is 3.38 m, 2.4 m and 0.5 m, so its edges stand 27-40 px inside the drawing's",
+   "status": "open",
+   "how": "T-2435: K01 lays no opening whose centre falls under an oriel's span (the window and door stand under the drawing's) and four corbel courses carry 0.5 m; docs/RESEARCH/k01-1623-farwell-2433/README.md § What K01 could not do"
+  },
+  {
+   "what": "the oriel above its second storey: a carved frieze at about 8.1-9.0 m, an upper stage of five shorter lights to about 10.4 m, and a steep conical slate roof with a finial whose eave stands at about 10.9 m, above the main cornice, and apex at about 13.4 m; the build's oriel stops at 8.55 m under a low copper hood, under a 45-degree hip",
+   "status": "open",
+   "how": "T-2435: K01 keeps an oriel's top a metre under the main eave"
+  },
+  {
+   "what": "the entrance: a deep round arch matching the window's, a glazed door under a carved light within it; the build has K07's flat-headed panelled door",
+   "status": "open",
+   "how": "T-2435"
+  },
+  {
+   "what": "the openings' places: the drawing's window arch is centred about 1.55 m from the north wall and the entrance arch about 4.6 m; the build's stand at 1.45 and 4.85 m, so that the oriel can stand between their centres",
+   "status": "open",
+   "how": "T-2435, with the oriel's size"
+  },
+  {
+   "what": "the basement light: a broad segmental opening behind an ornamental iron grille, about 1.8 m wide; the build's is a 1.1 m round-headed light without a grille",
+   "status": "open",
+   "how": "T-2435"
+  },
+  {
+   "what": "the stoop: the drawing's climbs straight up from the walk between iron rails and stone newels; the build's is a plain straight stoop with cheeks",
+   "status": "open",
+   "how": "T-2435"
+  },
+  {
+   "what": "the stone: the drawing rusticates the front in big rock-faced blocks from grade to the arches' springing; the build lays two smooth-channelled base courses to 1.0 m and smooth stone above",
+   "status": "open",
+   "how": "T-2435"
+  },
+  {
+   "what": "the roof and stack: the drawing slates a steep roof behind the cone and stands a tall stack, stepped, on the north wall near the front",
+   "status": "fixed",
+   "how": "T-2433: a 45-degree slate hip whose ridge (12.85 m) stands where the drawing's slope tops out (about 12.7 m), and a K15 stack on the north party wall 2.9 m behind the front; its steps are not built"
+  },
+  {
+   "what": "the front's width: the drawing's front is about 6.5 m, the 1911 sheet's 6.2 m",
+   "status": "not shown",
+   "how": "the sheet controls the plan, as at 1619 (T-2420)"
+  },
+  {
+   "what": "colour and tone: the drawing is a monochrome pen plate",
+   "status": "not shown",
+   "how": "the stone (Lemont limestone), brick and paint are reconstructed, L-k01-1623-farwell-oriel-front-2433"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+ "reviewed": "T-2433, 2026-10-13, side by side at docs/RESEARCH/photo-match/house_1623_prairie/building_budget_front-side-by-side.jpg, element by element against the drawing"
+}

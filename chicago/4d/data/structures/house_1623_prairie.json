@@ -1,10 +1,10 @@
 {
   "id": "house_1623_prairie",
-  "name": "1623 Prairie Avenue — Brick masonry (district draft; refined by T-1869)",
+  "name": "1623 Prairie Avenue — Granger Farwell's stone-front house with its carved oriel, K01 frontage assembly",
   "aka": [
     "1623 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k01_frontage",
   "function": {
     "value": "residence",
     "confidence": "inferred",
@@ -14,10 +14,10 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling (D), the middle unit of the group'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1869 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1623-b1), the T-1840 census (s20-1623-f) and the T-1837 register row frontage-20-029 (Brick masonry); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335).",
+  "research_note": "T-2433 (piece 2 of T-1869) refines the district draft (T-2335) in place under the same id. Which number Farwell's house stood at is argued in docs/RESEARCH/k01-1623-farwell-2433/README.md: 1623, the north neighbour of Hugh J. McBirney's 1625 (the 1890 Inland Architect photograph of 1625 shows Farwell's oriel and arched entrance against its north wall), the 1885 permits' '1625' being the numbering of before McBirney built. The front is built from the house's one drawing, Treat & Foltz's plate in The Building Budget (June 188-, probably 1886; building_budget_1886_06_hamline_farwell_houses, the right-hand house), read against the 1911 Sanborn sheet 20, which controls the plan: a K02 stone street front with a rusticated base on K03 brick sides and rear, the drawing's canted oriel on K08's corbelled oriel across the second storey with its mullioned and transomed lights, the door in the south bay at the head of a K07 stoop and the window in the north bay over a basement light, a K10 cornice and a slated K04/K05 hip with a tall stack against the north wall. What the drawing shows and K01 does not yet build — the two round arches at grade, the oriel's carved frieze, its upper stage of lights and its steep conical roof rising through the eave, the iron-grilled basement arch and the stoop's rails — is listed open in its match record (data/reference_views/house_1623_prairie/building_budget_front.match.json) for T-2435. Everything not read is reconstructed and recorded as L-k01-1623-farwell-oriel-front-2433.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_mapped_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
@@ -36,7 +36,7 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 18.000, v -2.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.604 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The rear corner of the K01 main body at its north (low-v) side, the draft's own origin (lot frame u 18.000, v -2.500 m from the middle of the rear lot line), which already stands on the 1911 sheet's traced main part (s20fp-1623-b1), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.604 degrees turns the plan's u axis onto the lot's own rear-to-street line, so v runs south.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -49,120 +49,399 @@
             0.0
           ],
           [
-            19.25,
+            19.5,
             0.0
           ],
           [
-            19.25,
-            5.75
+            19.5,
+            6.2
           ],
           [
             0.0,
-            5.75
+            6.2
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The main body read off the 1911 sheet's trace (s20fp-1623-b1) in the lot frame: the street front's face at u 37.5 m from the rear lot line's middle, the rear wall at 18.0, the south wall at v 3.7 (the party wall with 1625) and the north wall at -2.5, where the trace's front part stands, so 19.5 m deep and 6.2 m along the front. Behind u 33 the trace widens 1.1 m north to the party wall with 1621 (v -3.6) and is notched there for the light well the two houses share; that strip and the notch are not built."
       },
       "form": {
         "stories": {
-          "value": 3,
-          "confidence": "attested",
+          "value": 2,
+          "confidence": "inferred",
           "sources": [
+            "building_budget_1886_06_hamline_farwell_houses",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "'3B' printed on the 1911 sheet: 3 full storeys."
+          "note": "Two full storeys over a raised basement, and a third in the roof, lit by the oriel's upper stage under its cone: the Building Budget drawing's own count (the raised basement with its grilled light; the principal storey of the two arches; the second storey, the oriel's lower stage of tall transomed lights; above its carved frieze the oriel's upper stage of short lights rising past the main cornice into the roof). The 1911 sheet prints '3B' over the house, three storeys and a basement, which the drawing's count agrees with when its roof storey is counted (docs/RESEARCH/k01-1623-farwell-2433/README.md)."
         },
         "construction": {
-          "value": "brick",
-          "confidence": "attested",
+          "value": "brick_with_stone_front",
+          "confidence": "inferred",
           "sources": [
+            "building_budget_1886_06_hamline_farwell_houses",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "The register reads the map's colours as 'brick'."
+          "note": "The drawing draws the street front in stone, rock-faced and rusticated in big blocks about the arches and in the basement, and the side walls not at all; the 1911 sheet's register reads the group as brick and records no stone front for 1623. A stone front laid on brick is read from the house's one picture, the sheet's silence noted: it may not colour a front it draws inside an attached group, and a photograph after 1886 settles it."
         },
-        "draft_plan": {
+        "principal_floor_m": {
+          "value": 1.85,
+          "confidence": "inferred",
+          "sources": [
+            "building_budget_1886_06_hamline_farwell_houses"
+          ],
+          "note": "1.85 m over grade, read through the drawing's camera (data/reference_views/house_1623_prairie/building_budget_front.json): the stoop's head at the door and the arched window's sill, about 1.85 and 2.1 m at the front's 46 px/m, good to about 10 %. Just above the contract's 0.8-1.8 m starting range, so it stands on the drawing."
+        },
+        "storey_heights_m": {
+          "value": [
+            3.9,
+            4.0
+          ],
+          "confidence": "reconstructed",
+          "note": "Floor to floor, principal storey first: 3.9 m, so the second floor lands at the oriel's sill (about 5.8 m through the camera), and 4.0 m, so the wall head stands at 9.75 m, at the main cornice the drawing draws south of the oriel (about 9.7 m). No dimension is printed on the drawing."
+        },
+        "wall_thickness_front_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "A stone front on its brick backing, as 1612's, 1619's and 1634's."
+        },
+        "wall_thickness_side_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "note": "A brick-and-a-half wall, as every K01 brick house's."
+        },
+        "service_wall_brick": {
+          "value": "common_buff_common_6",
+          "confidence": "reconstructed",
+          "note": "The one K03 panel k03_brick lays."
+        },
+        "stone_front": {
           "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  0.0,
-                  0.0,
-                  19.25,
-                  5.75
-                ],
-                "from": "s20fp-1623-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 83% of its fill"
-              }
-            ],
-            "lot_v": [
-              -1.163,
-              6.163
-            ],
-            "street_u": 23.286
+            "fabric": "limestone_lemont",
+            "dressing": "smooth",
+            "trim_fabric": "dressed_trim",
+            "rusticated_base_courses": 2,
+            "coping_height_m": 0.23,
+            "corner_bond": []
           },
+          "confidence": "reconstructed",
+          "note": "The drawing draws the front's base in big rock-faced blocks, coursed and rusticated up to the arches' springing, and the oriel in dressed stone; it is monochrome, so the stone is chosen: K02's buff Lemont limestone, the common Chicago building stone of the 1880s, smooth over two rusticated base courses (the most its K02 profile lays). The rock-faced blocks about the arches are not laid (the match record's 'stone'). Replaceable by any description naming the stone."
+        },
+        "wall_head": {
+          "value": {
+            "cornice": "k10.cornice.bracketed_timber"
+          },
+          "confidence": "reconstructed",
+          "note": "K10's bracketed cornice, the nearest the kit comes to the drawing's moulded cornice with its row of small blocks, which the drawing shows south of the oriel at about 9.7 m."
+        },
+        "roof_form": {
+          "value": "hip",
+          "confidence": "reconstructed",
+          "note": "A pitched roof: the drawing slates a steep roof behind the oriel's cone, its slope showing south of it; K01's hip is the honest stand-in, the cone the oriel carries through the eave being T-2435's."
+        },
+        "roof_pitch_deg": {
+          "value": 45,
+          "confidence": "reconstructed",
+          "note": "45 degrees, the K01 contract's steepest hip: the drawing's slope behind the cone rises to about 12.7 m through the camera, which a 45-degree hip over the 6.2 m front reaches at its ridge (12.85 m)."
+        },
+        "eave_overhang_m": {
+          "value": 0.4,
+          "confidence": "reconstructed",
+          "note": "The K10 cornice's projection, as 1619's."
+        },
+        "stair_tread_m": {
+          "value": 0.25,
+          "confidence": "reconstructed",
+          "note": "The K07 contract's shortest tread, so the stoop's eleven risers and its landing stay inside the 3.8 m front yard; the drawing's stoop runs straight up from the walk to the door."
+        },
+        "stair_landing_depth_m": {
+          "value": 0.9,
+          "confidence": "reconstructed",
+          "note": "A 0.9 m landing before the door, so the stoop stays inside the 3.8 m front yard."
+        },
+        "stoop_width_m": {
+          "value": 1.7,
+          "confidence": "inferred",
+          "sources": [
+            "building_budget_1886_06_hamline_farwell_houses"
+          ],
+          "note": "The drawing's stoop between its iron rails and newels, about 1.7 m across at the front's scale."
+        },
+        "entrance_bay": {
+          "value": "middle",
+          "confidence": "inferred",
+          "sources": [
+            "building_budget_1886_06_hamline_farwell_houses"
+          ],
+          "note": "The door is in the front's south bay: the drawing puts the entrance arch, up its stoop, at the right of the front, south of the arched window. K01 lays a front of named openings (street_front_openings) as three bays entered in the middle one, so the front is laid as the window's bay, the door's, and a narrow blank third bay at the south corner, which holds no opening."
+        },
+        "front_bays": {
+          "value": [
+            1.45,
+            4.85,
+            5.7
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "building_budget_1886_06_hamline_farwell_houses"
+          ],
+          "note": "Read through the drawing's camera and scaled to the sheet's 6.2 m front (the drawing's front is about 6.5 m): the arched window's centre at about 1.55 m from the north wall and the entrance arch's at about 4.6 m. Built at 1.45 and 4.85 m, because K01 lays no opening whose centre falls under an oriel's span and the oriel needs the width between them (the match record's 'arches'). The third, at 5.7 m, is the blank bay K01's named-opening front needs (entrance_bay)."
+        },
+        "bays": {
+          "value": [
+            {
+              "id": "front_oriel",
+              "variant": "k08.oriel.canted_corbelled",
+              "wall": "k01.wall.street_front",
+              "s_m": 3.15,
+              "fabric": "front_stone",
+              "base_m": 5.75,
+              "corbel": {
+                "courses": 4
+              },
+              "plan": {
+                "kind": "polyline",
+                "points": [
+                  [
+                    -1.69,
+                    0
+                  ],
+                  [
+                    -1.2,
+                    0.5
+                  ],
+                  [
+                    1.2,
+                    0.5
+                  ],
+                  [
+                    1.69,
+                    0
+                  ]
+                ]
+              },
+              "storeys": [
+                {
+                  "height_m": 2.8,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_transom_flat",
+                      "clear_width_m": 0.35,
+                      "clear_height_m": 2.0,
+                      "sill_m": 0.15,
+                      "at": [
+                        0.5
+                      ],
+                      "recess_m": 0.2,
+                      "why_not_ordinary": "an oriel's cheek light: narrower than an ordinary sash so it fits the canted cheek"
+                    },
+                    {
+                      "opening": "k06.opening.sash_transom_flat",
+                      "clear_width_m": 0.4,
+                      "clear_height_m": 2.0,
+                      "sill_m": 0.15,
+                      "at": [
+                        0.15,
+                        0.383,
+                        0.617,
+                        0.85
+                      ],
+                      "why_not_ordinary": "a mullioned oriel's light, four to its 2.4 m front between stone mullions, as the drawing draws them"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.2,
+                "covering": "copper_sheet"
+              },
+              "eaves": {
+                "overhang_m": 0.2,
+                "fascia_m": 0.3
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "building_budget_1886_06_hamline_farwell_houses"
+          ],
+          "note": "The drawing's canted oriel, read through its camera: centred on the front, about 4.8 m across where its cants meet the wall and 3.4 m of front, standing on corbelling over the two arches from about 4.9 m, its sill at the second floor (about 5.8 m), four tall transomed lights across its front and one in each cant, then a carved frieze at about 8.1-9.0 m and an upper stage of short lights under a steep conical roof whose eave stands at about 10.9 m. The K08 kit's canted corbelled oriel is sized to it as far as the kit lets it go: 3.38 m at the wall and 2.4 m of front (the drawing's 4.8 and 3.4 m: K01 lays no opening whose centre falls under an oriel's span, and the window and door under it stand at 1.45 and 4.85 m), and 0.5 m out (the drawing's reads deeper, about 0.9 m), because four 0.2 m corbel courses are all that fit between the second floor and the entrance's head and the kit's oversail rule lets four carry no more; one storey, 2.8 m, under a low copper hood that stops under the main cornice's bed moulding. The transomed lights are K06's, sized to the drawing's (their leaded transoms are drawn as a lattice). The carved frieze, the upper stage and the cone are not built (match record, T-2435)."
+        },
+        "side_bays": {
+          "value": [],
           "confidence": "inferred",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1623-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 83% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "note": "No windows in the north side wall: it is a party wall with 1621 on the 1911 sheet, and the light well the two houses share is not built."
         },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 4084426653,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 38,
-            "mansard_lower_m": 3.0,
-            "front_bays": 2,
-            "entrance": "north",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": true,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2335",
-              "refined_by": [
-                "T-1869"
-              ]
+        "north_bays": {
+          "value": [],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20"
+          ],
+          "note": "No windows in the south side wall (K01's high-v 'north'): a party wall with 1625 on the 1911 sheet."
+        },
+        "rear_bays": {
+          "value": [
+            1.6,
+            4.6
+          ],
+          "confidence": "reconstructed",
+          "note": "Two windows a storey in the rear wall, the front's two bays; no picture shows the rear."
+        },
+        "sash_by_storey": {
+          "value": [
+            {
+              "sill_above_floor_m": 0.25,
+              "width_m": 1.15,
+              "height_m": 2.3
             },
-            "v_toward": "south"
-          },
+            {
+              "sill_above_floor_m": 0.6,
+              "width_m": 1.0,
+              "height_m": 2.0
+            }
+          ],
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: 3B brick, the middle unit of the group: flat behind a bracketed cornice so that the group's three fronts are not one repeated face (the study attests the attachment, not a uniform design); which it had is T-1869's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 4084426653 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-east-2335."
+          "note": "The rear wall's sash, a storey each; the street front's openings are named in street_front_openings and its second storey is the oriel's. No picture shows the rear."
         },
-        "draft": {
+        "roof_covering": {
           "value": {
-            "pass": "T-2335",
-            "liberty": "L-draft-prairie-16-18-east-2335",
-            "register_row": "frontage-20-029",
-            "census_ids": [
-              "s20-1623-f"
+            "fabric": "slate_pennsylvania",
+            "flashing": "copper_sheet",
+            "caps": "copper_ridge_roll"
+          },
+          "confidence": "inferred",
+          "sources": [
+            "building_budget_1886_06_hamline_farwell_houses"
+          ],
+          "note": "The drawing slates the roof and the cone; Pennsylvania slate with copper flashing and ridge roll, as 1619's."
+        },
+        "chimneys": {
+          "value": {
+            "plan_m": [
+              0.9,
+              0.75
             ],
-            "trace_building": "s20fp-1623-b1",
-            "seed": 4084426653,
-            "replaceable_by": [
-              "T-1869"
-            ],
-            "card": "District draft — refined by T-1869."
+            "top_above_ridge_m": 0.9,
+            "cap_proud_m": 0.05,
+            "cap_depth_m": 0.15,
+            "stacks": [
+              {
+                "u_m": 16.6,
+                "v_m": 0.7
+              },
+              {
+                "u_m": 6.0,
+                "v_m": 0.7
+              }
+            ]
           },
           "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "note": "The drawing's tall stack rises against the north wall just behind the front, its top at about 13 m through the camera, stepped in its height; built as K15's plain stack 2.9 m behind the front on the north party wall, with a second over the rear rooms. Its steps are not built."
+        },
+        "rainwater": {
+          "value": {
+            "gutter": "half_round",
+            "fabric": "copper_sheet",
+            "downpipe": "round",
+            "ends_at": "grade_with_splash_stone",
+            "downpipes": [
+              {
+                "wall": "k01.wall.street_front",
+                "s_m": 0.35
+              },
+              {
+                "wall": "k01.wall.street_front",
+                "s_m": 5.85
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "Copper half-round gutters and two pipes at the front's corners, as 1619's; the drawing shows none."
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
+            },
+            "k01.opening.arched_principal": "k06.opening.sash_round_fanlight_wide",
+            "k01.opening.arched_basement": {
+              "variant": "k06.opening.basement_round",
+              "well": false
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "K06's two-over-two sash in the side and rear walls; its wide fanlight sash under the principal storey's arch and its round-headed basement light under that, as 1612's."
+        },
+        "entrance_kit": {
+          "value": {
+            "k01.opening.door_leaf": {
+              "variant": "k07.entrance.panel_door_stoop",
+              "front_yard_m": 3.8
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "K07's panelled door at the head of its stoop, 3.8 m of front yard to the 1904 parcel's street line. The drawing's door stands deep in the entrance arch, a glazed door under a carved light; the arch is T-2435's."
+        },
+        "street_front_openings": {
+          "value": {
+            "rows": [
+              {
+                "component": "k01.opening.arched_basement",
+                "bays": [
+                  0
+                ],
+                "sill_m": 0.1,
+                "width_m": 1.1,
+                "height_m": 0.85,
+                "arch_ring_m": 0.25,
+                "keystone_top_m": 1.2,
+                "keystone_m": [
+                  0.2,
+                  0.3
+                ]
+              },
+              {
+                "component": "k01.opening.arched_principal",
+                "bays": [
+                  0
+                ],
+                "storey": 0,
+                "sill_above_floor_m": 0.25,
+                "width_m": 1.6,
+                "height_m": 2.3,
+                "arch_ring_m": 0.35,
+                "keystone_top_m": 4.8,
+                "keystone_m": [
+                  0.3,
+                  0.45
+                ]
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "building_budget_1886_06_hamline_farwell_houses"
+          ],
+          "note": "Read through the drawing's camera (data/reference_views/house_1623_prairie/building_budget_front.json), at the front's 46 px/m: the principal storey's window is one broad round-arched light, its sill at about 2.1 m, its springing at about 3.4 m and its crown at about 4.4 m, about 1.8 m across inside a ring of long voussoirs about 0.5 m deep; under it a broad segmental basement light behind an iron grille, from grade to about 0.9 m. Built as K01's arched principal light on K06's wide fanlight sash, 1.6 m across (narrowed, and moved 0.1 m north, so its voussoir block stands 0.3 m inside the corner), its sill at 2.1 m and its crown at 4.4 m under a 0.35 m ring; and K06's round-headed basement light, 1.1 m across, standing for the segmental one. The basement light's grille, the window's lattice transom and the entrance's own arch are not built (T-2435)."
+        },
+        "street_front_dress": {
+          "value": {
+            "base_top_m": 1.0
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "building_budget_1886_06_hamline_farwell_houses"
+          ],
+          "note": "The rusticated base's coping at 1.0 m, over two courses of the Lemont stone: the drawing rusticates the whole front in big blocks from grade to the arches' springing, which K02's two base courses cannot reach; the rest is laid smooth."
         }
       }
     }
