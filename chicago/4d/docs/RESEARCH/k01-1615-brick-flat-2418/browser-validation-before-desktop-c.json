@@ -1,0 +1,87 @@
+{
+  "method": "Actual published /1904/ app, normal boot (TAG before); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 12 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "load_ms_to_ready": 30234,
+      "js_heap_used_bytes": 33002296,
+      "js_heap_total_bytes": 33910784,
+      "draft_records_in_registry": 144,
+      "placed": [
+        "house_1615_prairie",
+        "house_1613_prairie",
+        "house_1619_prairie"
+      ],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 1,
+        "bytes": 0
+      },
+      "stands": [
+        {
+          "name": "passage",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 198,
+            "triangles": 2182047,
+            "programs": 37,
+            "geometries": 137,
+            "textures": 429,
+            "batches": 113,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 75800988,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "frame_ms_median": 2999.8,
+          "camera": [
+            1434,
+            -2996.7,
+            5.56
+          ],
+          "target": [
+            1418,
+            -2995.4,
+            7.05
+          ]
+        }
+      ]
+    }
+  ]
+}
