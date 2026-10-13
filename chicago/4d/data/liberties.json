@@ -35697,12 +35697,6 @@
           "domain": "structure",
           "structure": "house_1619_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_1619_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.wall_head"
         }
       ],
@@ -35719,11 +35713,11 @@
         },
         {
           "label": "How to resolve",
-          "text": "a photograph of the house after 1886, or the architects' drawings, sets the section and the eave; T-2422 builds the balcony rail on the cornice."
+          "text": "a photograph of the house after 1886, or the architects' drawings, sets the section and the eave; T-2422 builds the balcony rail on the cornice. The bow's `eaves.cornice` names the same section, and `form.bays` is inferred from the drawing, so the invention is the wall head's alone."
         },
         {
           "label": "Covers",
-          "text": "`house_1619_prairie.as_mapped_1904.form.wall_head`, `house_1619_prairie.as_mapped_1904.form.bays`."
+          "text": "`house_1619_prairie.as_mapped_1904.form.wall_head`."
         },
         {
           "label": "Ticket",
