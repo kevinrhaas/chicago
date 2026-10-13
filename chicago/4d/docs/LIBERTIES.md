@@ -26106,6 +26106,47 @@ window's drop from it; a photograph of the courtyard of 1904 would do the same t
 **Review:** `docs/RESEARCH/glessner-glazing-2213/README.md`.
 **Recorded:** 2026-10-13 (T-2213).
 
+### L-k16-1638-fence-2456 — 1638 Prairie's street fence and gate piers read off its photograph: two piers with pierced caps and iron finials either side of an open gateway, iron bars on a stone base; the run past the print's edges, the materials and the caps' depth reconstructed
+
+**Decision:** the Shortall-Gregory house's front yard (T-2456, piece 1 of T-2426) is closed on
+the street line by the fence its photograph shows there, read through the camera T-2423 solved
+for the print and built by the K16 kit's new `boundary` (`generators/archetypes/k16_timber.py`).
+Two gate piers stand either side of an open gateway 0.9 m clear, at 0.46 and 1.76 m along the
+front from its south end: each a 0.34 m square shaft on a 0.40 m plinth 0.30 m high, under a
+hollow cap 0.40 m square from 1.14 to 1.40 m whose four boards are each pierced with an inverted
+heart (two lobes at the foot, a point at 1.35 m), dark behind; the north pier's iron finial is a
+spike through a ring standing on the cap, the south pier's a plain spike, both to 1.68 m. From
+each pier a 0.22 m stone base runs to the lot line, carrying iron bars 0.244 m apart to a rail at
+0.58 m; the plinths' street faces stand on the 1911 sheet's street line, 10.8 m in front of the
+house, and the runs stop 0.06 m short of parcel prairie_1638's lot lines.
+**What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`), at
+158.7 px a metre on the street line and heights through the camera: that there are two piers and
+where; their breadth, the plinths', the caps' and their heights; the hearts, their size and place;
+the finials, ring and spike, and how high; that the gateway between them is open; the base's
+height; the bars, their pitch, and that they stand at least to the hedge line behind them. From
+the 1911 sheet: the street line; from the parcel: the lot lines.
+**What is invented.** The fence beyond what the print shows — south of a point 0.4 m past the
+south pier and north of 5.3 m along the front, where the frame cuts it off — carried on unchanged
+to the lot lines, with no second gate where a walk to the stoop might cross it, because none is
+seen; the bars' section and the rail at their top, which the hedge hides; the depths of the base,
+the plinths and the caps, which a front view cannot show; the caps' boards' thickness and the
+dark inside them; every material and colour: the base and plinths a pale stone, the piers painted
+timber in the house's trim, the bars and finials iron, the print being monochrome and drawing
+piers and base in one tone.
+**What the record states and the model simplifies.** The print's caps flare out at their lower
+corners like a hood over the heart, where the model's is a plain box; south of the south pier the
+print shows a pale block with a pale rail at about 918 px, not the barred run the model carries
+on. Both are left open in the match record. The print's foot falls 4 px under the camera's grade
+at the line, so the heights carry about 0.03 m of that.
+
+**How to resolve:** a second picture of the yard, or a sharper print of this one, fixes the caps'
+form, the run south of the gateway and the materials; a picture taken north along the walk fixes
+whether a second gate stands before the stoop.
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.boundary`.
+**Ticket:** T-2456 (piece 1 of T-2426, a piece of T-1865, the 1638 architecture).
+**Review:** `docs/RESEARCH/k16-1638-fence-2456/README.md`.
+**Recorded:** 2026-10-13 (T-2456).
+
 ### L-glessner-datestone-2214 — Glessner's 18th Street datestone: generic letterforms, a cut drawn as its shadow, and proportions read off an upward photograph
 
 **Decision:** the `glessner_house` north stack carries an AD monogram over 1886, read left to right
