@@ -174,6 +174,8 @@ selftest "Scene bundle: one commit packed reproducibly; tampered, missing, extra
   python3 tools/scene_bundle.py --self-test
 step "Glessner's west roof has one continuous envelope and a lower rear eave (T-1830)" \
   python3 tools/test_glessner_roof_envelope.py
+step "Glessner's curved stone staggers, its eave clears the gable and its pipe meets the roof (T-2470)" \
+  python3 tools/test_glessner_north_tower.py
 step "Prairie 1904 K01 component contract holds, and the Glessner baseline is the package it measured (T-2265)" \
   node tools/k01_contract.mjs --check
 selftest "…coincident faces, hidden origin offsets and tier scale drift are caught on synthetic GLBs" \
@@ -499,11 +501,12 @@ selftest "…and a broken trace, a clockwise or out-of-lot outline, an unnamed o
 # T-2477. ...and the faded context city around them: every building those three sheets draw off
 # Prairie Avenue as a sheet-coloured rectangle, and a projected city past the sheets' edges, with
 # trees (data/context/1904.json). The contract keeps every stand-in off Prairie Avenue's lots and
-# roadway and out of the water, and every sheet it reads a resolving source.
-step "the 1904 context city re-derives from its sheets and keeps off Prairie Avenue and the lake (T-2477)" \
+# roadway and out of the water, and every sheet it reads a resolving source. T-2491 carried it to
+# the haze's reach with faded streets, which the contract keeps off every traced carriageway and lot.
+step "the 1904 context city and its streets re-derive and keep off Prairie Avenue and the lake (T-2477, T-2491)" \
   python3 tools/build_context_1904.py --check
 
-selftest "…and a stand-in put on a Prairie Avenue lot or in the lake still fails it" \
+selftest "…and a stand-in put on a Prairie Avenue lot or in the lake, or a street across Prairie, still fails it" \
   python3 tools/build_context_1904.py --self-test
 
 # T-1728. ...and what that grid is paved with. data/street_surfaces/1904.json is AUTHORED:

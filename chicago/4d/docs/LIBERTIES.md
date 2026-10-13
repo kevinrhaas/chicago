@@ -17273,6 +17273,30 @@ stands on), `docs/RESEARCH/glessner_house_1904.md`, `data/research/glessner_hous
 **T-1731**, **T-1732**, **T-1730** (the alternates compared against this default), **T-0475**.
 **Recorded:** 2026-09-28.
 
+
+**T-2470 addendum, 2026-10-13 — north facade and tower re-reading.**
+HABS 01/13/14 show a flat north gable incorporating the tower and a curved
+western return. They supersede the separate full-cylinder interpretation above,
+including its W35 +/-3-ft plan estimate. Reconstruct centre W41/S7.35, drum
+radius7.35, eave radius9.35, eave/apex33.3/43.4 ft ng and finial1.5 ft. The
+north gable axis is W18.8 relative to sheet3's window pairs; its western foot at
+W37.6 and concealed transition back to the courtyard pitch at S14.6 are ours.
+Sheet4 shows the tower beyond the section, not a circular roof plan. These are
+photograph-bounded proportions, not surveyed coordinates. The total cone rise
+10.1 ft is within the earlier approximately one-foot reading uncertainty.
+The north stack, date and arched light follow the gable axis. Paired-window
+heights20.0–25.25 ft ng, attic slit W38.7–39.8/z27.4–31.2, round colonnettes and
+small foliate capitals are reconstructed from the photographs. The mistaken
+extra lower slit is removed. Continuous staggered courses wrap the curved wall;
+individual stone joints and fracture patterns remain procedural liberties.
+The flare's three strips,35-mm edge and88-mm pipe, its station and40-mm roof
+clearance are reconstructed. Later photos show its presence, not its exact
+1904 alloy or weathering. The roof connector ends behind the sloping gable. The middle/south stack feet
+enter the revised main roof by60mm, with slope-following flashing; this buried
+construction overlap is ours, not a surveyed dimension.
+The cameras and their remaining disagreement are recorded in
+`RESEARCH/glessner-north-tower-T-2470.md`; T-2228 retains whole-house sign-off.
+
 ### L296 — The 1904 Prairie Avenue walks, curbs and parkways: cement, sandstone and turf, and how every street surface looks
 **Decision:** every walk of the 1904 grid is drawn as **Portland cement concrete laid in 5 x 6 ft
 blocks**, every curb as **sandstone curbstones**, and every parkway and every one-foot margin inside
@@ -26401,3 +26425,37 @@ the edge.
 **Ticket:** T-2479.
 **Review:** `docs/RESEARCH/ic_lakefront_1904.md`.
 **Recorded:** 2026-10-13 (T-2479).
+
+### L-context-streets-2491 — The 1904 context city's streets, its reach to the haze and its land uses: a grid filled between measured lines, and zones the city is known for rather than read off a map
+
+**Decision:** T-2491 (owner, 2026-10-13: "we should have some streets where they should be based on
+maps, you can continue it to the end of the visible map based on your analysis") carries the faded
+context city of L-context-city-2477 out to the distance at which the 1904 haze is total (2,645 m from
+the camera, read from `HAZE_DENSITY` in `renderers/web/js/world.js`) past the e1871 box on every land
+side, and lays faded streets (a 38 ft carriageway, the grid's row_66) under it. Robinson's 1886 plate 10,
+already georeferenced, is traced where it reaches north of 16th Street, and its Illinois Central yard
+east of Indiana Avenue is left clear.
+**What is measured.** The lines the project holds a reading for: Michigan, Indiana, Prairie and Calumet,
+and 16th to 22nd, as `data/street_grid/1904.json` and the terrain spec place them; State and Halsted,
+Madison and Twelfth at the school section's corners (OpenStreetMap crossings read for T-0878; Chicago's
+section lines run down the middle of their streets).
+**What is inferred, not attested.** Plate 10's outlines and materials north of 16th Street, carried
+eighteen years forward to 1904.
+**What is invented.** Every other street line: the section's mile cut in sixteen across (two 125 ft lots
+and an alley to a block) and in eight along; 13th, 14th and 15th Streets evenly between Twelfth and 16th;
+23rd to 30th evenly between 22nd and a 31st Street one section mile south of 22nd; Wabash midway between
+State and Michigan; Calumet's pitch repeated east to the water. Their names past the numbered sequence are
+not given. The zones: State Street and Wabash Avenue south of Twelfth as three- and four-storey business
+blocks; Twelfth to Harrison, east of Canal Street, as five- to seven-storey lofts; north of Harrison as
+eight- to sixteen-storey office and loft blocks; Clark to Canal from Twelfth to 22nd as railway lands
+(long sheds and no houses, the river not drawn); west of Canal as frame cottages, seven in ten; the rest as
+houses in the traced sheets' mix. North of 16th Street only Indiana's west face stands past the plate,
+and north of Twelfth only Michigan's (the yards, the lake front and its park lie east). Past the
+450 m near ring a run of three to six lots is one box at the house rules' heights, and a tree there is an
+eight-sided crown with no trunk.
+**How to resolve:** a 1904 map of the city's streets and land use (the Sanborn volumes' key maps, a
+Rand McNally or Greeley-Carlson plat) traced through the same georeference would place each street,
+replace the zones with what the map draws, and put the South Branch, the yards and the Loop's blocks
+where they stood.
+**Ticket:** T-2491.
+**Recorded:** 2026-10-13 (T-2491).

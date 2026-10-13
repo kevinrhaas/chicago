@@ -1,0 +1,44 @@
+{
+  "structure_id": "glessner_house",
+  "view": "habs-14-north-inclined",
+  "glb": "assets/web/glessner_house__as_built_1887.glb",
+  "glb_sha256": "eca99c5c52d262ff9b168b5193acc63ae9ce4e6174aaf393dcd34a1730623dd5",
+  "camera_sha256": "e7561b646f21444ace9b190547f15f973f50a2243a70bee0c3df17b937538e7c",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "T-2470: the north street wall now runs flat into the tower; the separate exposed cylindrical north-east face is removed. Only the western return is curved, with staggered rough-faced courses instead of angular-strip mortar grids.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2470: the upper north pairs retain plan positions and now have the photographed taller proportions and round central columns; the attic slit is present and the unsupported third lower slit is removed. Small carved capitals remain bounded stock reconstructions.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2470: tower centre W41/S7.35, 33.3-ft eave, 43.4-ft apex and 1.5-ft finial reconcile the photographic placement and section rise. The 9.35-ft-radius flared eave shades the short western drum band. The flat facade conceals the former front drum.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2470: the north roof meets the curved drum without an open seam; no host-roof strip crosses a window. The cone connector ends behind the sloping gable coping, and the short pipe drains onto the host. Reviewed on final Full web geometry; Full/Light geometry checks cover contact and clearance.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2228: photographic tone, exact masonry coursing, remaining whole-house roof/chimney silhouettes and other elevations still require reconciliation; procedural stone and these fitted cameras are not a survey-exact whole-house match.",
+      "status": "open"
+    },
+    {
+      "what": "1904 colour and precise weathering cannot be established by this monochrome 1963–65 evidence; unseen courtyard faces are not judged here.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2470 cross-check: actual-master finial-tip residual falls 77.254→33.878 px in the reconciled inclined camera, held fixed before/after. Its depth controls and principal point limit independence.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2228: the remaining 33.878-px tip error and cone silhouette differ in this inclined view. The earlier T-2200 camera instead worsens 206.304→302.501 px; both results are retained in tip-comparison.json, not presented as exact photographic agreement.",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

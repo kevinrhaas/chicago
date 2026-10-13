@@ -24,7 +24,8 @@ docs/RESEARCH/photo-match/<structure_id>/<view>-side-by-side.jpg   picture | ren
 `chicago/prairie_1904_v1/research/images/stream-*.json`); `photo` (the picture's file, relative
 to the camera); `image_px`, `principal_px`, `focal_px`; `eye` `[u, v, y]` in the structure's
 footprint frame (u east toward the street, v north, metres over its grade); `yaw_deg` (clockwise
-from north); `solve` (how the camera was fitted, in words and numbers: which lengths scaled it,
+from north); optional `basis_right_up_forward` (three orthonormal vectors in the same
+east/north/up frame, overriding yaw for an inclined or rolled photograph); `solve` (how the camera was fitted, in words and numbers: which lengths scaled it,
 which lines and points it was fitted to, the residuals); optionally `sun_uvy`, the direction
 the picture's sunlight comes from in the same frame, so the render lights the walls the picture
 lights and casts its shadows the same way (T-2369). A drawing is an elevation or a
