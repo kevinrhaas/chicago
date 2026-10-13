@@ -17273,6 +17273,30 @@ stands on), `docs/RESEARCH/glessner_house_1904.md`, `data/research/glessner_hous
 **T-1731**, **T-1732**, **T-1730** (the alternates compared against this default), **T-0475**.
 **Recorded:** 2026-09-28.
 
+
+**T-2470 addendum, 2026-10-13 — north facade and tower re-reading.**
+HABS 01/13/14 show a flat north gable incorporating the tower and a curved
+western return. They supersede the separate full-cylinder interpretation above,
+including its W35 +/-3-ft plan estimate. Reconstruct centre W41/S7.35, drum
+radius7.35, eave radius9.35, eave/apex33.3/43.4 ft ng and finial1.5 ft. The
+north gable axis is W18.8 relative to sheet3's window pairs; its western foot at
+W37.6 and concealed transition back to the courtyard pitch at S14.6 are ours.
+Sheet4 shows the tower beyond the section, not a circular roof plan. These are
+photograph-bounded proportions, not surveyed coordinates. The total cone rise
+10.1 ft is within the earlier approximately one-foot reading uncertainty.
+The north stack, date and arched light follow the gable axis. Paired-window
+heights20.0–25.25 ft ng, attic slit W38.7–39.8/z27.4–31.2, round colonnettes and
+small foliate capitals are reconstructed from the photographs. The mistaken
+extra lower slit is removed. Continuous staggered courses wrap the curved wall;
+individual stone joints and fracture patterns remain procedural liberties.
+The flare's three strips,35-mm edge and88-mm pipe, its station and40-mm roof
+clearance are reconstructed. Later photos show its presence, not its exact
+1904 alloy or weathering. The roof connector ends behind the sloping gable. The middle/south stack feet
+enter the revised main roof by60mm, with slope-following flashing; this buried
+construction overlap is ours, not a surveyed dimension.
+The cameras and their remaining disagreement are recorded in
+`RESEARCH/glessner-north-tower-T-2470.md`; T-2228 retains whole-house sign-off.
+
 ### L296 — The 1904 Prairie Avenue walks, curbs and parkways: cement, sandstone and turf, and how every street surface looks
 **Decision:** every walk of the 1904 grid is drawn as **Portland cement concrete laid in 5 x 6 ft
 blocks**, every curb as **sandstone curbstones**, and every parkway and every one-foot margin inside

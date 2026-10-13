@@ -16,6 +16,8 @@
 //   eye            [u, v, y] in the structure's footprint frame (u east toward the street,
 //                  v north, y metres above its grade)
 //   yaw_deg        the heading, degrees clockwise from north (90 looks due east)
+//   basis_right_up_forward optional: three orthonormal [east,north,up] vectors for
+//                  inclined or rolled photographs; overrides yaw orientation
 //   sun_uvy        optional: the direction the photograph's sunlight comes from, [u, v, y]
 //                  in the same frame (T-2369: which walls are lit and where shadows fall is
 //                  part of what is compared); the review render's default east-north-east sun
@@ -61,7 +63,7 @@ const page_html = `<!doctype html><meta charset=utf-8><style>html,body{margin:0;
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
-const c=${JSON.stringify({W, H, cx, cy, f, eye: cam.eye, yaw: cam.yaw_deg, sun: cam.sun_uvy || null, glb: '/' + glb.replace(/\\/g, '/')})};
+const c=${JSON.stringify({W, H, cx, cy, f, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, sun: cam.sun_uvy || null, glb: '/' + glb.replace(/\\/g, '/')})};
 const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.setPixelRatio(1);r.setSize(c.W,c.H);
 r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;r.shadowMap.enabled=true;
 document.body.appendChild(r.domElement);
@@ -81,6 +83,10 @@ cam.setViewOffset(FW,FH,FW/2-c.cx,FH/2-c.cy,c.W,c.H);
 // footprint frame (u, v, y) -> glTF (x = u, y, z = -v); yaw clockwise from north
 const [u,v,y]=c.eye,t=c.yaw*Math.PI/180;
 cam.position.set(u,y,-v);cam.lookAt(u+Math.sin(t),y,-v-Math.cos(t));
+if(c.basis){
+ const [right,up,forward]=c.basis.map(([x,n,z])=>new THREE.Vector3(x,z,-n));
+ cam.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(right,up,forward.negate()));
+}
 const l=new GLTFLoader();l.setMeshoptDecoder(MeshoptDecoder);
 l.load(c.glb,x=>{x.scene.traverse(o=>{if(o.isMesh){o.castShadow=o.receiveShadow=true;}});s.add(x.scene);
 r.render(s,cam);window.__done=true;},undefined,e=>{window.__error=String(e);});
@@ -102,12 +108,16 @@ try {
   const page = await browser.newPage({viewport: {width: W, height: H}, deviceScaleFactor: 1});
   const errors = [];
   page.on('pageerror', e => errors.push(String(e)));
-  await page.goto(base + '/__photo_match.html');
+  await page.goto(base + '/__photo_match.html', {waitUntil: 'domcontentloaded', timeout: 180000});
   await page.waitForFunction(() => window.__done || window.__error, null, {timeout: 300000, polling: 500});
   const err = await page.evaluate(() => window.__error);
   if (err || errors.length) throw Error(err || errors.join('\n'));
   const render = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'photo-match-')), `${name}-render.png`);
-  await page.locator('canvas').screenshot({path: render});
+  // The viewport is exactly this static canvas. Rendering readiness and errors
+  // were checked above; waiting for two layout-stability frames can time out
+  // behind Glessner's software-rendered GPU work. Capture the same pixels
+  // directly, allowing the large reference render time to finish its readback.
+  await page.screenshot({path: render, timeout: 180000});
   // photograph | render, side by side, the render at the photograph's own size
   const side = path.join(out, `${name}-side-by-side.jpg`);
   const png = fs.readFileSync(render).toString('base64');
