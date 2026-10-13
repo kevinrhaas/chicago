@@ -25702,16 +25702,17 @@ the brick, the courtyard's limestone trim, and the plan envelope.
 replace the bow's numbers; a colour-calibrated photograph of the granite would set the tint; a
 measured drawing of the tympanum would replace the carving's sizes and counts. The previous
 record's 11 voussoirs and 5.6 ft dressed lintel had no source.
-**Colour pass (T-2446, 2026-10-13).** The owner, with a photograph of the Eighteenth Street
-front: the stone "is a bit more brown than this photo ... kind of greige but leaning grey". His
-photograph's stone reads r/g 1.04, b/g 0.95, where the bake's sunlit east front read 1.13/0.91.
-Until he picks a default, the app retints the five granite slots at load (`?stone=`, renderer
-`glessner-stone.js`) to the `greige` preset, which meets the photograph on the sunlit east
-front a tenth lighter than the bake; `warm-greige`, `grey-greige` and `light-greige` sit beside
-it and `baked` shows the package. The presets' tints are invented, set by eye and by those two
-ratios from one uncalibrated phone photograph in overcast light.
+**Colour pass (T-2446, T-2469, 2026-10-13).** The owner, with a photograph of the Eighteenth
+Street front: the stone "is a bit more brown than this photo ... kind of greige but leaning grey".
+His photograph's stone reads r/g 1.04, b/g 0.95, where the bake's sunlit east front read
+1.13/0.91. Of five colours T-2446 put on `?stone=` he chose grey-greige; the option is gone and
+the renderer (`glessner-stone.js`) retints the five granite slots to it at load, linear
+(0.90, 1.067, 1.166) on the main slot, reading 1.02-1.03 and 0.955-0.965 on the sunlit east
+front. It is not baked because the glTF exporter clamps a colour factor to 1, which would
+darken it. The tint is invented, set by eye and by those ratios from one uncalibrated phone
+photograph in overcast light.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
-**Ticket:** T-2416, T-2215 (Glessner exterior audit); T-2446 (colour pass).
+**Ticket:** T-2416, T-2215 (Glessner exterior audit); T-2446, T-2469 (colour pass).
 **Recorded:** 2026-10-12 (T-2416); colour pass 2026-10-13 (T-2446).
 
 ### L-k01-1613-brick-flat-2417 — 1613 Prairie refined from the district draft to a four-storey K01 brick house under a flat roof, the north half of the pair with 1615, its frame rear porch in timber, everything but the plan the kits'
@@ -26064,6 +26065,23 @@ though the engraving's hip ends lean back further (its draughtsman's perspective
 so how much further is not read); the pediment's slight rake overhang, which the engraving draws and
 the build does not; the upper hip, now 10 degrees so it stays behind the top line from the street, as
 the engraving shows nothing over it.
+**Revised:** 2026-10-13 (T-2465) — **the wing stands under its own roof.** The engraving's south wing
+is carried up to the cornice and hipped to a ridge that runs back into the main roof, its stack beside
+the ridge: K01's mansard crown (T-2404's, 1620's pavilion) built as a hip (`mansard.crown.form: hip`),
+its sides and back at 45.5 degrees and its street end at 60, its cornice 0.55 m past the wing's face,
+its fascia's top on the main eave, so its ridge stands at 14.5 m, 0.4 m over the main curb, where the
+engraving draws the apex at about 14.4 m; the wing's walls rise to the crown's soffit (11.3 m) where
+they stopped at 10.7 m. Read, through the camera: the ridge's height, the stack's place (x 662-715 px
+against the engraving's 663-717, so 0.5 m south of the ridge line, u 10.2, v 11.2) and its top
+(15.11 m, y 112 px against the drawn 113). Invented: the two pitches, chosen so the side faces slate
+(over 45 degrees, as K04 slates a lower face) and the street end stays in front of the main lower faces
+up to the curb (the engraving draws the end whole, and its apex about 45 px further left than any
+symmetric hip on the sheet's 1.0 m step can stand, which is its draughtsman's perspective); the crown's
+5.5 m depth (no picture sees the back; it is deep enough that the ridge runs 1.9 m back from the apex
+before its back hip); the crown's cornice, K05's 0.2 m fascia and soffit without K10's brackets, where
+the engraving draws a band as deep as the main cornice's (T-2467). The crown's south fascia stands 0.05 m outside
+the main roof's along the 5.5 m it shares with the south wall, because a crown's cornice must project
+past the main one's (an equal one would lay the two fascias in one plane at the corner).
 
 ### L-k01-1637-spalding-garden-2447 — 1637 Prairie's front garden built on a line read off the engraving's ground, its wall stopped at the lot line and its iron the K11 kit's
 
@@ -26201,6 +26219,32 @@ rear slope, the north wall and the stacks; T-2460 builds the stone cornice at th
 **Review:** `docs/RESEARCH/k01-1619-hamline-2420/README.md` § The roof behind the gable (T-2459).
 **Recorded:** 2026-10-13 (T-2459).
 
+### L-k01-1619-stone-cornice-2460 — 1619 Prairie's moulded stone cornice built as its drawing's, round the bow's top and along the front; its section's members, its projection and the eave's paint reconstructed
+
+**Decision:** 1619 Prairie's K10 bracketed timber cornice (scrolled brackets and a bed moulding under
+the eave) is now the moulded stone cornice its Building Budget drawing draws at the swell bay's top,
+where it carries the balcony (T-2460, piece 2 of T-2429). K10 learns it as data
+(`k10.cornice.moulded_stone`, section `moulded_stone_eave`): one section 0.36 m deep, the drawing's
+depth on the bow's face through its camera (8.2-8.55 m), swept along the street front under the K05
+soffit (8.24-8.6 m) and capped at both corners, and carried round the bow by K08 as the bow's own
+eaves (`eaves.cornice`), the bow's second storey raised from 2.9 to 2.94 m so its wall top meets the
+cornice's foot. The two are one moulding: the front's stops at the bow's junctions. Every other K01
+house builds byte-identical.
+**What is invented:** the section's members and their sizes (a fillet and ovolo bed, a plain band,
+a corona with its drip and a cyma recta; the drawing shows a moulded cornice with a dentil course,
+not its profile), its 0.32 m projection (bounded by the eave's 0.4 m overhang, less 20 mm), the
+dentil course built as a plain band, and the colour of the K05 eave's timber over it, painted to
+read as the stone (linear 0.62, 0.57, 0.47; a cornice of the period was commonly painted so, and the
+drawing shows one stone cornice and no timber eave above it). The paint is the house's one eave
+colour, so the rear range's fascia takes it too.
+**How to resolve:** a photograph of the house after 1886, or the architects' drawings, sets the
+section and the eave; T-2422 builds the balcony rail on the cornice. The bow's `eaves.cornice` names the same section,
+and `form.bays` is inferred from the drawing, so the invention is the wall head's alone.
+**Covers:** `house_1619_prairie.as_mapped_1904.form.wall_head`.
+**Ticket:** T-2460 (piece 2 of T-2429, of T-2421).
+**Review:** `docs/RESEARCH/k01-1619-hamline-2420/README.md` § The stone cornice (T-2460).
+**Recorded:** 2026-10-13 (T-2460).
+
 ### L-glessner-datestone-2214 — Glessner's 18th Street datestone: generic letterforms, a cut drawn as its shadow, and proportions read off an upward photograph
 
 **Decision:** the `glessner_house` north stack carries an AD monogram over 1886, read left to right
@@ -26248,3 +26292,28 @@ to open ground; T-2447's garden wall may then run on north across it.
 **Ticket:** T-2443 (piece 3 of T-1870).
 **Review:** `docs/RESEARCH/forsyth-1635-2443/README.md`.
 **Recorded:** 2026-10-13 (T-2443).
+
+### L-glessner-front-door-2216 — Glessner's Prairie Avenue door: sheet 95's leaf, with its depths, curls and figures reconstructed
+
+**Decision:** the `glessner_house` front door is drawn as sheet No. 95 draws it: a studded oak border
+round two fields, a square iron grille (six bars each way, knobbed past its frame, the centre filled
+with 1800 over nine scrolls), an iron strap on the middle rail with a boss, knob, latch plate and drop
+ring, iron corners, and two fielded panels. Stiles carry their grain upright; rails and panels carry it
+across, each member's figure shifted from its neighbour's.
+**What it stands on:** sheet No. 95 and its 'Copy' No. 95A (`artic_glessner_sheet_95_main_entrance_door`;
+public domain by age, read for proportions only) for every part and its position as a share of the
+leaf; HABS sheet 5 for the leaf's size; an undated photograph of the front (cited only) for 1800 and the
+knob standing where sheet 95 puts them, which is why this sheet and not the floral No. 95A endorsed
+'Not Correct' is taken as built.
+**What is invented:** every depth (the border 16 mm proud of the field, the panels' 10 mm raise, the
+grille 26 mm proud, the studs' 9 mm domes); the cusped field corners drawn as quarter-round lobes; the
+corner irons as plain L straps ending in curls; each scroll as a 1.5-turn spiral; the figures' letterforms;
+the oak's finish, which is the record's dark oiled oak. The light (phone) tier keeps the grille, strap,
+boss, plate, corners and panels but not the studs, curls, figures or lobes, for want of triangles.
+**Left open:** the photograph shows the figures reading brighter than the leaf, so they may have been
+gilt or polished; no finish is recorded and they are drawn in the grille's iron.
+**How to resolve:** a close photograph of the door (the house museum's own, or a period one with
+rights) would give the members' depths, the scrolls' and figures' forms and the figures' finish.
+**Ticket:** T-2216 (GA-14).
+**Review:** `docs/RESEARCH/glessner-front-door-2216/README.md`.
+**Recorded:** 2026-10-13 (T-2216).

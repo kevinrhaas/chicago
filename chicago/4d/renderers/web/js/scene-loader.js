@@ -22,6 +22,7 @@
  */
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { shareImageSources, releaseSharedImage } from './shared-images.js';
 import { resolveStructureVersion } from './structure-versions.js';
 
 const GLB_MAGIC = 0x46546c67;   // 'glTF', little-endian
@@ -123,7 +124,8 @@ export function disposeLoadedAsset(gltf) {
   for (const material of materials) material.dispose();
   const images = new Set();
   for (const texture of textures) { texture.dispose(); if (texture.image) images.add(texture.image); }
-  for (const image of images) image.close?.();
+  // T-2464: a bitmap another building still draws with stays open.
+  for (const image of images) if (releaseSharedImage(image)) image.close?.();
 }
 
 async function getJSON(url) {
@@ -304,6 +306,8 @@ export async function loadScene(year, bases = resolveBases(), {
   };
 
   const loader = new GLTFLoader();
+  // T-2464: houses built on one kit embed the same maps; decode each once.
+  const sharedImages = shareImageSources(loader);
   const registry = new Map();
   let bytes = 0;
   // Keep compressed bytes, not a parsed scene whose materials batching may modify.
@@ -325,6 +329,10 @@ export async function loadScene(year, bases = resolveBases(), {
       const gltf = await new Promise((resolve, reject) => {
         loader.parse(got.buffer, String(assetUrl), resolve, reject);
       });
+      // T-2464: nothing here reads the parser once the scene is built, and it holds
+      // the file's whole binary chunk and every buffer view it sliced (embedded
+      // images included) for as long as the building is loaded. Let it go.
+      gltf.parser = null;
       // A 200 response can still contain a damaged GLB. Bank only bytes that
       // decoded, and evict any failed cached parse so retry can fetch repaired data.
       if (hasInspectionLod(record)) assetBytes.set(key, got);
@@ -456,5 +464,5 @@ export async function loadScene(year, bases = resolveBases(), {
 
   await Promise.all(loads.map(p => p.finally(() => onProgress(++completed, entries.length))));
   return { year, scene, datum, registry, problems, get bytes() { return bytes; },
-    index, versionState, loadDetailAsset };
+    index, versionState, loadDetailAsset, sharedImages: sharedImages.stats };
 }

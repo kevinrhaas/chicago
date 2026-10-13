@@ -31,6 +31,7 @@ K04 = ROOT / "data" / "components" / "prairie_1904" / "k04_roofs.json"
 WINDOW_KIT = ROOT / "data" / "components" / "prairie_1904" / "k06_windows.json"
 BAY_KIT = ROOT / "data" / "components" / "prairie_1904" / "k08_bays.json"
 ENTRANCE_KIT = ROOT / "data" / "components" / "prairie_1904" / "k07_entrances.json"
+K10_KIT = ROOT / "data" / "components" / "prairie_1904" / "k10_cornices.json"
 # T-2289: the K02 stone library's joint and edge profiles — courses, joints, arrises,
 # chips, rock-faced projection, corner bonds, rustication and copings, in metres.
 # Read here for the same reason as K04: every number the masonry is laid to is a
@@ -452,15 +453,20 @@ def _mansard_crown(c: dict, m: dict, bays: tuple, depth: float, width: float, ea
     pts = bay["variant"]["plan"]["points"]
     proud = max(float(q[1]) for q in pts)
     a, b = bay["span_m"]
-    cd, up = float(c["depth_m"]), float(c["rise_above_curb_m"])
+    cd = float(c["depth_m"])
     if not 1.5 <= cd <= depth / 2:
         raise ParamError(f"mansard.crown.depth_m {cd}: 1.5 m to half the house's depth")
-    if not 0.3 <= up <= 2.0:
+    up = float(c.get("rise_above_curb_m", 0.0))
+    if c.get("form", "mansard") == "mansard" and not 0.3 <= up <= 2.0:
         raise ParamError(f"mansard.crown.rise_above_curb_m {up}: a crown stands 0.3-2.0 m over the main curb")
     co = float(c.get("overhang_m", overhang))
     if not overhang < co <= overhang + 0.5:
         raise ParamError(f"mansard.crown.overhang_m {co}: past the main cornice's {overhang} m, by at most 0.5 m "
                          f"(an equal one would lay the two fascias in one plane on the corner)")
+    if c.get("form", "mansard") == "hip":
+        return _hip_crown(c, m, bay, proud, a, b, cd, co, depth, eave, overhang)
+    if c.get("form", "mansard") != "mansard":
+        raise ParamError(f"mansard.crown.form {c.get('form')!r}: mansard or hip")
     bulge = float(c.get("bulge", m["bulge"]))
     if not 0.0 <= bulge <= 0.2:
         raise ParamError(f"mansard.crown.bulge {bulge}: 0-0.2 of the chord")
@@ -484,6 +490,57 @@ def _mansard_crown(c: dict, m: dict, bays: tuple, depth: float, width: float, ea
         if out["dormer"]["width_m"] > (b - a) - 0.6:
             raise ParamError(f"mansard.crown.dormer: {out['dormer']['width_m']:.2f} m wide on a {b - a} m crown")
     return out
+
+
+def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd: float, co: float,
+               depth: float, eave: float, overhang: float) -> dict:
+    """T-2465: a crown that is a steep hip and not a mansard — 1637's wing in its engraving,
+    under its own hipped roof as high as the main one, a stack at its ridge. Its plan is the
+    mansard crown's (the pavilion's face and junctions, `depth_m` back into the main roof,
+    its cornice `overhang_m` past the face, its fascia's top on the main eave datum), hipped
+    at `pitch_deg` on its sides and back and at `end_pitch_deg` on its street end, so the
+    ridge runs back from the end's apex at the height the sides give it. Both pitches are in
+    K05's steep range and over 45 degrees, so K04 slates them as it slates a lower face.
+    The ridge stands at least 0.3 m over the main curb, and the end stays in front of the main
+    lower faces up to that curb: an end that met them lower would be cut off by the main roof,
+    and the picture draws it whole."""
+    k5 = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())
+    if c.get("dormer"):
+        raise ParamError("mansard.crown.dormer: a hipped crown carries none")
+    lo, hi = k5["ranges"]["pitch_deg"]["steep"]
+    side, end = float(c["pitch_deg"]), float(c["end_pitch_deg"])
+    for what, x in (("pitch_deg", side), ("end_pitch_deg", end)):
+        if not (lo < x <= hi):
+            raise ParamError(f"mansard.crown.{what} {x}: a hipped crown is slated, over {lo} and up to {hi} degrees")
+    w = b - a
+    if cd <= w:
+        raise ParamError(f"mansard.crown.depth_m {cd}: a hipped crown runs its ridge back, deeper than its {w} m")
+    # the pavilion is carried up to the crown's soffit, its own eaves and deck inside the crown
+    soffit = eave - float(k5["parts"]["eave"]["fascia_depth_m"])
+    top = sum(float(st["height_m"]) for st in bay["variant"]["storeys"])
+    if not soffit <= top <= soffit + 0.1:
+        raise ParamError(f"mansard.crown: {bay['id']} stops at {top:.3f} m; under a hipped crown it rises "
+                         f"to the crown's soffit at {soffit:.3f} m, and at most 0.1 m into it")
+    half = w / 2 + co
+    rise = half * math.tan(math.radians(side))
+    x1 = depth + proud
+    apex = x1 + co - rise / math.tan(math.radians(end))
+    if rise < m["lower_rise_m"] + 0.3:
+        raise ParamError(f"mansard.crown: its ridge {rise:.2f} m over the eave is not 0.3 m over the main "
+                         f"curb's {m['lower_rise_m']} m")
+    # where the end reaches the main curb's height it stands in front of that curb
+    curb = depth + overhang - m["lower_rise_m"] / math.tan(math.radians(m["lower_pitch_deg"]))
+    at_curb = x1 + co - m["lower_rise_m"] / math.tan(math.radians(end))
+    if at_curb < curb + 0.2:
+        raise ParamError(f"mansard.crown: its end meets the main curb's height at x {at_curb:.2f}, not 0.2 m "
+                         f"in front of the curb at {curb:.2f}; steepen end_pitch_deg")
+    back = x1 - cd - co + rise / math.tan(math.radians(side))
+    if back > apex - 0.5:
+        raise ParamError(f"mansard.crown.depth_m {cd}: its ridge would run {apex - back:.2f} m, under 0.5")
+    return {"over_bay": bay["id"], "form": "hip", "x0": round(x1 - cd, 4), "x1": round(x1, 4),
+            "z0": round(-b, 4), "z1": round(-a, 4), "pitch_deg": side, "end_pitch_deg": end,
+            "overhang_m": co, "ridge_m": round(eave + rise, 4),
+            "ridge_x_m": (round(back, 4), round(apex, 4))}
 
 
 def mansard_face_height(setback: float, rise: float, lower_pitch_deg: float, bulge: float, profile: str) -> float:
@@ -800,6 +857,15 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     raise ParamError(f"bays: {e['id']}'s eaves {k} {ev.get(k)} is outside [{lo}, {hi}]")
             v.setdefault("overrides", {}).setdefault("eaves", {}).update(
                 {k: float(ev[k]) for k in ("overhang_m", "fascia_m") if k in ev})
+            # T-2460: a bay rising to the wall's moulded stone cornice carries that cornice's
+            # own section round its plan, read from the K10 kit, so the two are one moulding
+            if "cornice" in ev:
+                k10 = json.loads(K10_KIT.read_text())
+                cv = next((x for x in k10["variants"] if x["id"] == ev["cornice"]), None)
+                if cv is None or cv["kind"] != "moulded" or set(ev) - {"cornice"}:
+                    raise ParamError(f"bays: {e['id']}'s eaves name a K10 moulded cornice and nothing else, "
+                                     f"not {ev}")
+                v["overrides"]["eaves"]["profile"] = k10["parts"]["profiles"][cv["profile"]]["points"]
         s = float(e["s_m"])
         lo, hi = _bay_span(v["plan"])
         a, b = s + lo, s + hi
@@ -1562,6 +1628,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if (val("mansard") or {}).get("crown"):
         mansard_roof["crown"] = _mansard_crown(val("mansard")["crown"], mansard_roof, bays, depth, width, eave,
                                                pitch, float(val("eave_overhang_m")))
+        cr = mansard_roof["crown"]
+        if cr.get("form") == "hip":
+            # T-2465: a stack through a hipped crown clears its ridge as a ridge stack does
+            co = cr["overhang_m"]
+            for c in chimneys:
+                if cr["x0"] - co < c["u_m"] < cr["x1"] + co and cr["z0"] - co < -c["v_m"] < cr["z1"] + co \
+                        and c["top_m"] < cr["ridge_m"] + 0.6 - 1e-9:
+                    raise ParamError(f"chimney at ({c['u_m']}, {c['v_m']}) tops at {c['top_m']} m, under the "
+                                     f"hipped crown's ridge {cr['ridge_m']} m + 0.6")
     if (val("mansard") or {}).get("dormers"):
         mansard_roof["dormers"] = _mansard_dormers(val("mansard")["dormers"], mansard_roof, depth, width, eave,
                                                    float(val("eave_overhang_m")), chimneys)

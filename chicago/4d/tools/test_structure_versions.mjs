@@ -116,9 +116,12 @@ const loaderSource = fs.readFileSync(loaderPath, 'utf8')
         resolve({ parseSerial: ++parseSerial, base, scene: {} });
       }
       setMeshoptDecoder() {}
+      register() { return this; }
     }`)
   .replace("'./structure-versions.js'", JSON.stringify(pathToFileURL(
-    path.join(ROOT, 'renderers/web/js/structure-versions.js')).href));
+    path.join(ROOT, 'renderers/web/js/structure-versions.js')).href))
+  .replace("'./shared-images.js'", JSON.stringify(pathToFileURL(
+    path.join(ROOT, 'renderers/web/js/shared-images.js')).href));
 const loader = await import(`data:text/javascript;base64,${Buffer.from(loaderSource).toString('base64')}`);
 const lodRecord = { id: 'glessner_house', version: { label: 'v4' }, sidecar: {
   asset: 'gltf/versions/glessner_house/v4/house.glb',

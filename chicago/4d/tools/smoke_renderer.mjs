@@ -16434,6 +16434,8 @@ for (const [label, viewport, touch] of [
         // T-2335 added its east side: nineteen more, the station at 1605 among them.
         // T-2351 added the 20th-22nd block's west side: twenty-six more, 2126's building site among them.
         // T-2352 added its east side: thirty-three more.
+        // T-2443 stood one more on the 16th-18th east side, the Forsyth house at 1635, and
+        // its PR (#771) left it off this list, so stage 14 was red on dev until T-2468.
         const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
           'shortall_gregory_house_1638_prairie_front',
           'edson_keith_house_1906_prairie',
@@ -16517,6 +16519,7 @@ for (const [label, viewport, touch] of [
           'house_1621_prairie',
           'house_1623_prairie',
           'house_1625_prairie',
+          'forsyth_house_1635_prairie',
           'ic_16th_street_station_1605_prairie',
           'kellogg_house_1709_prairie',
           'kellogg_house_1709_prairie_coach_house',

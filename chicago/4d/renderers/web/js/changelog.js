@@ -1,4 +1,39 @@
 export const CHANGELOG = [ // newest first
+  { v: 1769, ts: '2026-10-13T18:14:18.523Z', date: 'Oct 13, 2026, 1:14 PM CT', title: 'Glessner\'s front door gets its iron grille, strap and studded oak', kind: 'feature',
+    items: [
+      'The Prairie Avenue door is now built from Richardson\'s own drawing of it: a studded oak border, a square iron grille with knobbed bars and the house number 1800 over curled scrolls, and two fielded panels below.',
+      'An iron strap crosses the middle rail with a boss and knob at its centre, a latch and drop ring at its left end, and iron corners at the leaf\'s four corners.',
+      'The oak\'s grain now follows each piece: upright on the stiles, across on the rails and panels.',
+      'On phones the door keeps its grille, strap and panels; the studs and scrolls are left out to fit the model\'s budget.',
+    ] },
+  { v: 1768, ts: '2026-10-13T18:04:56.036Z', date: 'Oct 13, 2026, 1:04 PM CT', title: '1619 Prairie\'s moulded stone cornice, from its drawing', kind: 'improvement',
+    items: [
+      '1619 Prairie\'s bracketed timber cornice is gone: a moulded stone cornice now runs along the front and round the top of the swell bay, as its 1886 Building Budget drawing draws it.',
+      'The bay rises to meet the cornice, and the bay\'s cornice and the front\'s are one moulding.',
+      'The cornice\'s profile and the stone-painted eave above it are reconstructed and listed as liberties. The balcony on top comes next.',
+    ] },
+  { v: 1767, ts: '2026-10-13T16:30:00.391Z', date: 'Oct 13, 2026, 11:30 AM CT', title: '1637 Prairie\'s wing rises to the cornice under its own roof', kind: 'improvement',
+    items: [
+      'The forward wing on Jesse Spalding\'s house at 1637 Prairie now rises to the cornice and has its own steep slate roof, as the engraving shows. It used to stop below the cornice under a flat tin deck.',
+      'That roof\'s ridge runs back into the main roof at about the main roof\'s height, and the wing\'s chimney stands just beside it.',
+    ] },
+  { v: 1766, ts: '2026-10-13T16:21:37.088Z', date: 'Oct 13, 2026, 11:21 AM CT', title: 'Glessner\'s granite settles on grey-greige', kind: 'improvement',
+    items: [
+      'The Glessner house\'s granite is now grey-greige by default, the colour chosen from the comparison.',
+      'The ?stone= colour options are gone.',
+    ] },
+  { v: 1765, ts: '2026-10-13T16:15:43.889Z', date: 'Oct 13, 2026, 11:15 AM CT', title: 'The 1904 check counts the Forsyth house at 1635 Prairie', kind: 'fix',
+    items: [
+      'The 1904 scene\'s automated check holds, by name, the list of every building it places. The Forsyth house at 1635 Prairie went into the scene on 13 October without joining that list, so the check failed on every change since, and finished work could not be merged.',
+      'The house is now on the list. The check still fails if the 1904 scene places anything from the 1835 town, or anything else that is not on the list.',
+    ] },
+  { v: 1764, ts: '2026-10-13T15:29:50.397Z', date: 'Oct 13, 2026, 10:29 AM CT', title: 'Prairie Avenue opens on a phone again', kind: 'fix',
+    items: [
+      '1904 had stopped opening on an iPhone: the phone ran out of memory while the houses loaded.',
+      'Most of the Prairie Avenue houses are built from the same kit of stone, brick, mortar and painted wood, and each one was loading its own copy of those pictures. Now each picture is loaded once and every house that uses it shares it.',
+      'On a phone-sized test, 1904 now peaks at about 1.3 GB instead of 2.3 GB, and its graphics memory drops from 1.5 GB to 0.6 GB.',
+      'Nothing looks different: Glessner House and the houses on the 1600 block render pixel for pixel the same as before, on a phone and on a computer.',
+    ] },
   { v: 1763, ts: '2026-10-13T14:21:14.232Z', date: 'Oct 13, 2026, 9:21 AM CT', title: '1619 Prairie\'s crow-stepped south wall and steep roof, from its drawing', kind: 'improvement',
     items: [
       '1619 Prairie\'s hipped roof is now the one its 1886 Building Budget drawing shows: a steep slated slope rising behind the wall gable to a ridge along the front.',
