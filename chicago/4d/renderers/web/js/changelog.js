@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 1766, ts: '2026-10-13T16:21:37.088Z', date: 'Oct 13, 2026, 11:21 AM CT', title: 'Glessner\'s granite settles on grey-greige', kind: 'improvement',
+    items: [
+      'The Glessner house\'s granite is now grey-greige by default, the colour chosen from the comparison.',
+      'The ?stone= colour options are gone.',
+    ] },
+  { v: 1765, ts: '2026-10-13T16:15:43.889Z', date: 'Oct 13, 2026, 11:15 AM CT', title: 'The 1904 check counts the Forsyth house at 1635 Prairie', kind: 'fix',
+    items: [
+      'The 1904 scene\'s automated check holds, by name, the list of every building it places. The Forsyth house at 1635 Prairie went into the scene on 13 October without joining that list, so the check failed on every change since, and finished work could not be merged.',
+      'The house is now on the list. The check still fails if the 1904 scene places anything from the 1835 town, or anything else that is not on the list.',
+    ] },
+  { v: 1764, ts: '2026-10-13T15:29:50.397Z', date: 'Oct 13, 2026, 10:29 AM CT', title: 'Prairie Avenue opens on a phone again', kind: 'fix',
+    items: [
+      '1904 had stopped opening on an iPhone: the phone ran out of memory while the houses loaded.',
+      'Most of the Prairie Avenue houses are built from the same kit of stone, brick, mortar and painted wood, and each one was loading its own copy of those pictures. Now each picture is loaded once and every house that uses it shares it.',
+      'On a phone-sized test, 1904 now peaks at about 1.3 GB instead of 2.3 GB, and its graphics memory drops from 1.5 GB to 0.6 GB.',
+      'Nothing looks different: Glessner House and the houses on the 1600 block render pixel for pixel the same as before, on a phone and on a computer.',
+    ] },
   { v: 1763, ts: '2026-10-13T14:21:14.232Z', date: 'Oct 13, 2026, 9:21 AM CT', title: '1619 Prairie\'s crow-stepped south wall and steep roof, from its drawing', kind: 'improvement',
     items: [
       '1619 Prairie\'s hipped roof is now the one its 1886 Building Budget drawing shows: a steep slated slope rising behind the wall gable to a ridge along the front.',

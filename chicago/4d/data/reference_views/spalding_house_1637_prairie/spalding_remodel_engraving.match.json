@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "spalding_remodel_engraving",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "9c8dd3cc6d770ca7b227cc65aab8aaf5f704e6d08e4fbb9894bb7379845106e0",
+  "glb_sha256": "7e426d769df62c977208185c74900eab57623be7c690550599a4357e6a5b7508",
   "camera_sha256": "06623cf6f05d0dafcc01b75c32c2d59a8079f6b2df83342aa3e040e00f77e557",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg",
   "verdict": "differs",
@@ -30,12 +30,12 @@
     {
       "what": "the stacks: two tall stacks on the north wall near its front and its rear, one over the wing",
       "status": "fixed",
-      "how": "T-2441: three K01 stacks at the engraving's columns (x 225, 135 and 690 px) and at the tops it reads (16.4, 15.5 and 14.8 m)"
+      "how": "T-2441: three K01 stacks at the engraving's columns (x 225, 135 and 690 px) and at the tops it reads (16.4, 15.5 and 14.8 m); T-2465 stood the wing's stack beside its hipped roof's ridge at u 10.2, v 11.2, its shaft at x 662-715 px against the drawn 663-717 and its top at 15.11 m (y 112 px against 113), the least that clears the crown's ridge by 0.6 m"
     },
     {
       "what": "the wing: the engraving draws it standing well forward of the front and rising under its own steep hipped roof, as high as the main roof, with a stack at its ridge; the build stands it on the 1911 sheet's 1.0 m step under the mansard's cornice, with a flat tin deck",
-      "status": "open",
-      "how": "T-2448: the 1911 sheet controls the plan; the wing's own roof needs a K05 hip over the projection that K08's hood does not build"
+      "status": "fixed",
+      "how": "T-2465: the wing hipped to its own ridge by K01's mansard crown built as a hip (mansard.crown.form: hip), its fascia's top on the main eave and its cornice 0.55 m past the wing's face: the sides and back at 45.5 degrees, so the ridge stands at 14.5 m (its apex at y 137 px against the drawn 142), 0.4 m over the main curb, and runs 1.9 m back into the main roof; the street end at 60 degrees, so it stands whole in front of the main lower faces up to the curb, as drawn. The engraving's apex stands about 45 px left of the build's (x 640 against 685): no symmetric hip on the 1911 sheet's 1.0 m step stands its apex that far back and still clears the main lower faces, which is the draughtsman's perspective (the camera's solve). The wing still stands on the sheet's 1.0 m step, which controls the plan"
     },
     {
       "what": "the main roof: steep straight lower faces in slate under a level top line, hipped down at the wing; the build's K05 mansard has convex lower faces 2.6 m tall",
@@ -73,14 +73,24 @@
       "how": "T-2449"
     },
     {
-      "what": "the bay and the wing rise to the cornice itself in the engraving; the build stops both at 10.7 m, under K10's bed moulding",
+      "what": "the wing rises to the cornice itself in the engraving, its cornice level with the main one's; the build stopped it at 10.7 m, under K10's bed moulding",
+      "status": "fixed",
+      "how": "T-2465: the wing's walls carried to 11.35 m, into the soffit of its hipped crown (11.3 m), the crown's cornice level with the main one's; K10's bed moulding runs into its cheeks and its brackets stop short of it"
+    },
+    {
+      "what": "the swell bay rises to the cornice itself in the engraving; the build stops it at 10.7 m, under K10's bed moulding",
       "status": "open",
-      "how": "T-2448"
+      "how": "T-2466"
     },
     {
       "what": "the stacks' panelled shafts and caps",
       "status": "open",
-      "how": "T-2448"
+      "how": "T-2466"
+    },
+    {
+      "what": "the wing's cornice: the engraving draws it as a band as deep as the main cornice's (y 232-262 px), with a block in it over the window; the build's is the crown's K05 fascia, 0.2 m deep, without K10's brackets",
+      "status": "open",
+      "how": "T-2467"
     },
     {
       "what": "the brick garden wall before the north flank, ending in a square pier before the swell bay (x 357 px), and the iron spear fence before the wing, both close before the house, the fence's top rail about 1.9 m over grade",
