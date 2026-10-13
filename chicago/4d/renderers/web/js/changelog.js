@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1769, ts: '2026-10-13T18:14:18.523Z', date: 'Oct 13, 2026, 1:14 PM CT', title: 'Glessner\'s front door gets its iron grille, strap and studded oak', kind: 'feature',
+    items: [
+      'The Prairie Avenue door is now built from Richardson\'s own drawing of it: a studded oak border, a square iron grille with knobbed bars and the house number 1800 over curled scrolls, and two fielded panels below.',
+      'An iron strap crosses the middle rail with a boss and knob at its centre, a latch and drop ring at its left end, and iron corners at the leaf\'s four corners.',
+      'The oak\'s grain now follows each piece: upright on the stiles, across on the rails and panels.',
+      'On phones the door keeps its grille, strap and panels; the studs and scrolls are left out to fit the model\'s budget.',
+    ] },
   { v: 1768, ts: '2026-10-13T18:04:56.036Z', date: 'Oct 13, 2026, 1:04 PM CT', title: '1619 Prairie\'s moulded stone cornice, from its drawing', kind: 'improvement',
     items: [
       '1619 Prairie\'s bracketed timber cornice is gone: a moulded stone cornice now runs along the front and round the top of the swell bay, as its 1886 Building Budget drawing draws it.',
