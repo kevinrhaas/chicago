@@ -199,6 +199,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree, wrote its outputs, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its gated commands write nothing in-tree.",
       "placed": "by layer, 2026-09-28 — a reader of committed originals (T-1250); see the manifest step"
     },
+    "build_context_1904.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-13",
+      "finding": "Reproduces: run bare on a clean tree it rewrote its one output, data/context/1904.json, byte for byte and moved nothing else; --check and --self-test write nothing in-tree (tools/measure_step_isolation.mjs --tool).",
+      "placed": "not yet \u2014 measured to reproduce. It reads the committed Sanborn rasters and their GCP fits, data/street_grid/1904.json (tools/trace_prairie_1904_grid.py) and the e1871 heightfield, and nothing reads its output but the renderer, so it belongs after the grid; the manifest's order is its own measured pass, so it is not appended blind (T-2477)."
+    },
     "trace_prairie_1904_footprints.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
