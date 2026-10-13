@@ -149,6 +149,10 @@ class K01FrontageParams:
     # T-2370: "mansard" (k01.roof.mansard, K05's mansard ring stack laid on this house);
     # `mansard` holds its resolved numbers — variant, profile, pitches, rise, curb, ridge
     mansard: dict = field(default_factory=dict)
+    # T-2476: a brick house painted over its brick (1620, 'olive green in color' in 1887):
+    # the paint's linear colour, laid over the K03 brick's own map as its factor, so the
+    # courses still read through it; empty for the unpainted brick of every other house
+    wall_paint: tuple = ()
     # T-2459: "gable" (k01.roof.gable): a ridge parallel to the street front, a steep street
     # slope and a rear slope down to the same wall head, each side wall carried up as a
     # parapet (1619's crow-stepped south wall, its drawing); `gable` holds its resolved numbers
@@ -203,7 +207,7 @@ CONSUMED = frozenset({
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
     "stone_front", "boundary", "north_bays", "mansard", "rear_wings", "yard", "condition",
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
-    "front_bays_by_storey", "gable_roof",
+    "front_bays_by_storey", "gable_roof", "wall_finish",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -256,6 +260,12 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
         if fabrics[lower]["module"]["headlap_m"] < prof["slate_exposure"]["headlap_m"][
                 "pitch_45_up" if lower_pitch >= 45 else "pitch_25_to_45"] - 1e-9 or lower_pitch < 25:
             raise ParamError(f"{lower} is not cut for a {lower_pitch} deg mansard face (k04 slate_exposure)")
+    # T-2476: the covering's paint, when a house's own evidence picks one of the fabric's
+    # paint_alternatives over the paint its map is drawn in (k04_roofs.json)
+    paint = covering.get("paint")
+    if paint is not None and paint not in fabrics[cov].get("paint_alternatives", ()):
+        raise ParamError(f"roof_covering.paint {paint!r}: {cov} is painted one of "
+                         f"{', '.join(fabrics[cov].get('paint_alternatives', ())) or 'nothing'}")
     if flat and covering.get("caps") is not None:
         raise ParamError("a flat K01 roof has no hip or ridge: roof_covering names no caps")
     if flat and fabrics[cov]["kind"] == "slate":
@@ -269,6 +279,7 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
     caps = prof["hip_ridge_caps"]["copper_ridge_roll"]   # the hip's; a flat deck lays none
     roof = {
         "covering": cov, "flashing": flash, **({"lower_covering": lower} if lower else {}),
+        **({"paint": paint} if paint and paint != fabrics[cov].get("paint") else {}),
         "tile_m": list(fabrics[cov]["tile_m"]),
         "slate_thickness_m": module.get("thickness_m", 0.0064),
         "eave_overhang_m": prof["cut_edges"]["eave"]["overhang_m"],
@@ -1157,6 +1168,18 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError(f"construction {construction!r}: a stone street front names its K02 "
                          "stone_front and a brick one names none")
 
+    # T-2476: paint over the brick walls, the colour a source names for the house
+    wf = val("wall_finish", {}) or {}
+    paint = ()
+    if wf:
+        if construction != "brick":
+            raise ParamError("wall_finish paints a brick house's walls; a stone front is not painted here")
+        if set(wf) != {"paint"} or set(wf["paint"]) != {"color"}:
+            raise ParamError("wall_finish is {\"paint\": {\"color\": [r, g, b]}}")
+        paint = tuple(float(x) for x in wf["paint"]["color"])
+        if len(paint) != 3 or not all(0.05 <= x <= 1.0 for x in paint):
+            raise ParamError(f"wall_finish.paint.color {wf['paint']['color']}: three factors in [0.05, 1]")
+
     stories = int(val("stories"))
     heights = tuple(float(h) for h in val("storey_heights_m"))
     if len(heights) != stories:
@@ -1690,6 +1713,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         yard=yard,
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, entrance_floor_m=ef, round_heads=rh,
+        wall_paint=paint,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )
