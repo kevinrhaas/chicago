@@ -1,0 +1,18 @@
+{
+  "id": "grass_tuft",
+  "group": "foliage",
+  "width_px": 256,
+  "height_px": 512,
+  "height_m": 0.55,
+  "note": "An alpha card of grass and weed blades with a few seed heads, drawn upright; the renderer stands two crossed at each tuft. Species, height and colour are reconstructed (L-ic-tracks-2478).",
+  "width_m": 0.275,
+  "web": {
+    "basecolor_alpha": "grass_tuft_web.png"
+  },
+  "color_space": {
+    "basecolor_alpha": "sRGB colour, linear alpha"
+  },
+  "confidence": "reconstructed appearance",
+  "generator_seed": 19041118,
+  "generation_method": "deterministic procedural drawing (tools/generate_prairie_1904_rail.py); no photograph sampled"
+}

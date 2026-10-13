@@ -227,6 +227,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree, wrote its outputs, changed no committed byte. Measured again through tools/measure_step_isolation.mjs --tool: its gated commands write nothing in-tree.",
       "placed": "by layer, 2026-09-28 — a reader of committed originals (T-1250); see the manifest step"
     },
+    "trace_ic_tracks_1904.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-13",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/railway/1904.json byte for byte, changed no committed byte.",
+      "placed": "by layer, 2026-10-13 — after generators/terrain_gen_graded.py, whose heightfield it reads, and the georeference, edge and grid tracers before it (T-2478); see the manifest step"
+    },
     "adjudicate_wright_na_fit.py": {
       "placement": "not_derivable",
       "write_mode": "--write",

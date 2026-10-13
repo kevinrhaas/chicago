@@ -417,6 +417,11 @@ const COVERAGE = [
   // T-1728. What that grid is paved with, and the maps it is paved in.
   ['data/street_surfaces/', [14], 'the 1904 street surfaces: materials, tiers and sources'],
   ['assets/textures/prairie_1904_pbr/', [14], 'the 1904 street-surface texture library'],
+  // T-2478. The 1904 lakefront railway is drawn only at the /1904/ door, which part 14 boots.
+  ['renderers/web/js/railway.js', [14], 'the 1904 lakefront railway: rails, ties, ballast and verges (T-2478)'],
+  ['data/railway/', [14], 'the 1904 Illinois Central tracks and their spec'],
+  ['assets/textures/prairie_1904_rail/', [14], 'the 1904 lakefront railway texture library'],
+  ['tools/trace_ic_tracks_1904.py', NONE, 'the IC track tracer — gated by its own --check-properties in check.sh'],
   // T-2292. The K04 roof library is published by nothing and bound by no renderer until
   // T-2293 builds a roof from it, so no part draws it; tools/check_roof_library.py gates it.
   ['assets/textures/prairie_1904_roofs/', NONE, 'the K04 roof library — bound by no renderer yet: check_roof_library.py --check'],
