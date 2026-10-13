@@ -26218,7 +26218,8 @@ read as the stone (linear 0.62, 0.57, 0.47; a cornice of the period was commonly
 drawing shows one stone cornice and no timber eave above it). The paint is the house's one eave
 colour, so the rear range's fascia takes it too.
 **How to resolve:** a photograph of the house after 1886, or the architects' drawings, sets the
-section and the eave; T-2422 builds the balcony rail on the cornice.
+section and the eave; T-2422 builds the balcony rail on the cornice. The bow's `eaves.cornice` names the same section,
+and `form.bays` is inferred from the drawing, so the invention is the wall head's alone.
 **Covers:** `house_1619_prairie.as_mapped_1904.form.wall_head`.
 **Ticket:** T-2460 (piece 2 of T-2429, of T-2421).
 **Review:** `docs/RESEARCH/k01-1619-hamline-2420/README.md` § The stone cornice (T-2460).
