@@ -17,7 +17,8 @@
 # Blender is pinned by exact version + sha256 in generators/blender.pin. Version
 # pinning is what buys back determinism from a stateful tool; determinism itself
 # is defined on INPUTS (see assets/manifest.json), because Cycles AO is not
-# bit-reproducible across hardware.
+# bit-reproducible across hardware. (Glessner's granite occlusion, the one Cycles bake
+# in the build, reuses its committed atlas in assets/bakes/ when the mesh matches — T-2431.)
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
