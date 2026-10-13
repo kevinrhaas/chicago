@@ -454,6 +454,22 @@ def hip_element(x0, x1, z0, z1, eave_y, t, o, f):
     return ring_stack(rings, ["fascia", "covering"], "soffit"), hs
 
 
+def hip_crown_element(x0, x1, z0, z1, E, side_deg, end_deg, o, f):
+    """T-2465: a hipped crown over the wall rectangle x0..x1 by z0..z1, its ridge along x:
+    the fascia out `o` past the wall line with its top at E (the mansard's eave, which a
+    crown shares), the sides and the x0 end at `side_deg` to a ridge over the centre line
+    and the x1 end, the street's, at the steeper `end_deg`. One ring stack, as the hip's."""
+    st, et = math.tan(math.radians(side_deg)), math.tan(math.radians(end_deg))
+    X0, X1, Z0, Z1 = x0 - o, x1 + o, z0 - o, z1 + o
+    rise = (Z1 - Z0) / 2 * st
+    xa, xb, zc = X0 + rise / st, X1 - rise / et, (Z0 + Z1) / 2
+    if xb - xa < 1e-6:
+        raise ValueError("a hipped crown's ends meet before its sides do: it has no ridge")
+    rings = [(E - f, inset_rect(X0, X1, Z0, Z1, 0.0)), (E, inset_rect(X0, X1, Z0, Z1, 0.0)),
+             (E + rise, [(xa, zc), (xb, zc), (xb, zc), (xa, zc)])]
+    return ring_stack(rings, ["fascia", "covering"], "soffit"), E - f, {"ridge_m": round(E + rise, 4)}
+
+
 def mansard_element(x0, x1, z0, z1, E, lower_deg, upper_deg, rise, bulge, n, profile, o, f):
     """A mansard over the wall rectangle x0..x1 by z0..z1 as one ring stack (T-2304's
     variant, factored out by T-2370 so a K01 house is roofed by the same code): the fascia
