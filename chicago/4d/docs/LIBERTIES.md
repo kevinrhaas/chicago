@@ -26394,3 +26394,37 @@ and 36 (Indiana's west face, Indiana 18th-20th, Calumet's east face) to replace 
 they reach; each stand-in a drafted building lands on is dropped by the renderer already.
 **Ticket:** T-2477.
 **Recorded:** 2026-10-13 (T-2477).
+
+### L-context-streets-2491 — The 1904 context city's streets, its reach to the haze and its land uses: a grid filled between measured lines, and zones the city is known for rather than read off a map
+
+**Decision:** T-2491 (owner, 2026-10-13: "we should have some streets where they should be based on
+maps, you can continue it to the end of the visible map based on your analysis") carries the faded
+context city of L-context-city-2477 out to the distance at which the 1904 haze is total (2,645 m from
+the camera, read from `HAZE_DENSITY` in `renderers/web/js/world.js`) past the e1871 box on every land
+side, and lays faded streets (a 38 ft carriageway, the grid's row_66) under it. Robinson's 1886 plate 10,
+already georeferenced, is traced where it reaches north of 16th Street, and its Illinois Central yard
+east of Indiana Avenue is left clear.
+**What is measured.** The lines the project holds a reading for: Michigan, Indiana, Prairie and Calumet,
+and 16th to 22nd, as `data/street_grid/1904.json` and the terrain spec place them; State and Halsted,
+Madison and Twelfth at the school section's corners (OpenStreetMap crossings read for T-0878; Chicago's
+section lines run down the middle of their streets).
+**What is inferred, not attested.** Plate 10's outlines and materials north of 16th Street, carried
+eighteen years forward to 1904.
+**What is invented.** Every other street line: the section's mile cut in sixteen across (two 125 ft lots
+and an alley to a block) and in eight along; 13th, 14th and 15th Streets evenly between Twelfth and 16th;
+23rd to 30th evenly between 22nd and a 31st Street one section mile south of 22nd; Wabash midway between
+State and Michigan; Calumet's pitch repeated east to the water. Their names past the numbered sequence are
+not given. The zones: State Street and Wabash Avenue south of Twelfth as three- and four-storey business
+blocks; Twelfth to Harrison, east of Canal Street, as five- to seven-storey lofts; north of Harrison as
+eight- to sixteen-storey office and loft blocks; Clark to Canal from Twelfth to 22nd as railway lands
+(long sheds and no houses, the river not drawn); west of Canal as frame cottages, seven in ten; the rest as
+houses in the traced sheets' mix. North of 16th Street only Indiana's west face stands past the plate,
+and north of Twelfth only Michigan's (the yards, the lake front and its park lie east). Past the
+450 m near ring a run of three to six lots is one box at the house rules' heights, and a tree there is an
+eight-sided crown with no trunk.
+**How to resolve:** a 1904 map of the city's streets and land use (the Sanborn volumes' key maps, a
+Rand McNally or Greeley-Carlson plat) traced through the same georeference would place each street,
+replace the zones with what the map draws, and put the South Branch, the yards and the Loop's blocks
+where they stood.
+**Ticket:** T-2491.
+**Recorded:** 2026-10-13 (T-2491).

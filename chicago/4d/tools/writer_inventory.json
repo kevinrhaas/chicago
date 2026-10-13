@@ -204,7 +204,7 @@
       "write_mode": "(bare)",
       "measured": "2026-10-13",
       "finding": "Reproduces: run bare on a clean tree it rewrote its one output, data/context/1904.json, byte for byte and moved nothing else; --check and --self-test write nothing in-tree (tools/measure_step_isolation.mjs --tool).",
-      "placed": "not yet \u2014 measured to reproduce. It reads the committed Sanborn rasters and their GCP fits, data/street_grid/1904.json (tools/trace_prairie_1904_grid.py) and the e1871 heightfield, and nothing reads its output but the renderer, so it belongs after the grid; the manifest's order is its own measured pass, so it is not appended blind (T-2477)."
+      "placed": "not yet \u2014 measured to reproduce. It reads the committed Sanborn rasters, Robinson's 1886 plate 10 (T-2491) and their GCP fits, the school section's corner GCPs, data/street_grid/1904.json (tools/trace_prairie_1904_grid.py) and the e1871 heightfield, and nothing reads its output but the renderer, so it belongs after the grid; the manifest's order is its own measured pass, so it is not appended blind (T-2477)."
     },
     "trace_prairie_1904_footprints.py": {
       "placement": "manifest",
