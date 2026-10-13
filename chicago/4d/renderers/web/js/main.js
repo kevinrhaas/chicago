@@ -66,6 +66,7 @@ import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
 import { createStreetTrees, STREET_TREE_MODES } from './street-trees.js';
 import { createContext } from './context.js';
+import { createRailway } from './railway.js';
 import { mountExclusions } from './exclusions.js';
 import { mountPopulation } from './population.js';
 import { mountOrderBook } from './orderbook.js';
@@ -1775,6 +1776,16 @@ async function boot() {
   });
   scene3d.add(contextCity.group);
   api.contextCity = contextCity;
+  // T-2478 — the Illinois Central along the lake east of Prairie Avenue: the tracks
+  // the 1911 sheets draw, on cinder ballast, with ties, rails and weedy verges
+  // (data/railway/<scene>.json; maps from textures/prairie_1904_rail/). Only a scene
+  // listing `railway` is handed a data base.
+  const railway = await createRailway({
+    dataBase: layerBase('railway'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
+    terrain, confidence, problems: layerProblems('railway'), ...detailOpts(),
+  });
+  scene3d.add(railway.group);
+  api.railway = railway;
 
   // WHICH DETAIL LEVEL, resolved here rather than beside the vegetation because
   // the fence layer is the first thing that needs it: a pale is 10 triangles at
@@ -2358,6 +2369,7 @@ async function boot() {
       enclosures.setDetail?.(level);
       streets.setDetail?.(level);
       void streetTrees.setDetail(level);
+      railway.setDetail(level);
       api.humans?.setTier(level);
       applyShadowTier(level);
       applyFurnitureReach(level);
@@ -2399,6 +2411,8 @@ async function boot() {
     // The road's: `light` keeps the refined grids, the two tiers above it lay
     // the panels that sag on the ground's ridge (streets.js, THE RIDGE DRAPE).
     streets.setDetail?.(level);
+    // The yard's weeds thin with the tier (T-2478).
+    railway.setDetail(level);
     // The figures' LOD ladder follows the tier (T-1788; docs/HUMAN-ASSET-CONTRACT.md § 8).
     api.humans?.setTier(level);
     // The sun's half of the level takes effect on THIS frame rather than after
@@ -3145,6 +3159,12 @@ async function boot() {
     if (contextHit && contextHit.record && (!hit || contextHit.distance < hit.distance)) {
       hit = { ...contextHit };
     }
+    // And the lakefront railway (T-2478): its ground answers with the track nearest
+    // the point, or the right-of-way's own card.
+    const railHit = railway.pickAt(ndc, camera);
+    if (railHit && railHit.record && (!hit || railHit.distance < hit.distance)) {
+      hit = { ...railHit };
+    }
     // A figure answers with its PERSON, not a card of its own (T-1788): the layer's
     // `open` event takes the visitor to the resident card the directory already draws.
     const figure = api.humans?.pickAt(ndc, camera);
@@ -3592,6 +3612,7 @@ async function boot() {
     flora.update(dt, camera, floraBudget);
     trees.update(dt, camera, scene3d.fog?.color);
     streetTrees.update(dt);
+    railway.update(camera);
     flags.update(dt);
     api.humans?.update(dt, camera, walker.state);
 
