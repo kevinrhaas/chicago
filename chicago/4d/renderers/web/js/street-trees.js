@@ -35,7 +35,7 @@ import * as THREE from 'three';
 import { addTree, MeshBuf, SPECIES } from './trees.js';
 import { createTreeAtlasSliced, TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
 
-export const STREET_TREE_MODES = ['summer', 'spring', 'winter', 'hidden'];
+export const STREET_TREE_MODES = ['summer', 'spring', 'fall', 'winter', 'hidden'];
 const PARKWAY_LIFT_M = 0.05;      // street-grid.js CLASSES.parkway.lift
 const CONF = { attested: 0, inferred: 0.5, reconstructed: 1 };
 const YOUNG_VARIANTS = 3;
@@ -57,6 +57,11 @@ function elmSpec(mode) {
     // Just leafing: the limbs of a summer tree carry small pale tufts. More
     // masses means more limbs to see; each is a fraction of a summer mass.
     return { ...spec, puffs: 13, puffScale: 0.40, dark: 0x6d7a35, light: 0xc3cf7a };
+  }
+  if (mode === 'fall') {
+    // T-2481: the American elm turns a clear yellow in October and drops early,
+    // so the crown is thinner than July's and the limbs show through it.
+    return { ...spec, puffScale: 0.82, dark: 0x9a7420, light: 0xe8c45a };
   }
   if (mode === 'winter') {
     // Bare: the summer crown's sprays, drawn from the twig atlas in the grey
@@ -137,7 +142,7 @@ function treeCard(t, doc) {
 /**
  * @param {object} o dataBase (data/ root, or null when the scene does not list
  *   the layer) · sceneId · terrain · confidence · problems · detail · lowSpec ·
- *   mode ('summer' | 'spring' | 'winter' | 'hidden') · checkpoint · levelAt (the
+ *   mode ('summer' | 'spring' | 'fall' | 'winter' | 'hidden') · checkpoint · levelAt (the
  *   street grid's drop below the field at a point: the parkway falls toward the curb, T-2474)
  */
 export async function createStreetTrees({
