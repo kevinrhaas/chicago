@@ -342,6 +342,11 @@ class DetailBuilder(MeshBuilder):
             if .12<c['u0']-a['u1']<.3 and abs(a['z0']-c['z0'])<.05 and abs(a['at']-c['at'])<.05:
                 self.openings.append({**a,'u0':a['u1']-.001,'u1':c['u0']+.001,
                                       'z0':a['z0']+.05,'z1':a['z1']-.035})
+        north_pairs=sorted([o for o in params.openings if o.get('style')=='north_gable_pair'],key=lambda o:o['u0'])
+        for a,c in zip(north_pairs,north_pairs[1:]):
+            if .1<c['u0']-a['u1']<.65:
+                self.openings.append({**a,'u0':a['u1']-.001,'u1':c['u0']+.001,
+                                      'z0':a['z0']+.06,'z1':a['z1']-.035})
         self.course_schedule = params.detail.get('ashlar_courses_m') or [0.4572,0.4572,0.3937,0.2413,0.3429,0.3683,0.1905,0.3683,0.1905,0.2921]
         self.masonry_blocks = self.roof_tiles = 0
         self.roof_uvs = {}
@@ -1061,7 +1066,18 @@ def chimney(b,c):
     conf=c['conf'];z=c['z1'];x0,x1,y0,y1=c['x0'],c['x1'],c['y0'],c['y1']
     detail=b.params.detail.get('chimney_details',{}).get(c['name'],{})
     slope=float(detail.get('cap_slope_ft',.3))*.3048
-    legacy._box(b,x0,y0,c['z0'],x1,y1,z-slope-.06,conf,GRANITE)
+    if (b.params.detail.get('north_tower_roof') or {}).get('integrated_north_facade') and c['name'] in ('middle','south'):
+        # The reconciled ridge changes this pitch. Start each shaft face at its
+        # host plane, not at the old horizontal datum (which would float clear
+        # on the downhill side and waste hidden stone on the uphill side).
+        from archetypes.masonry_house_v4_north_tower import chimney_foot
+        outline=[(x0,y0),(x1,y0),(x1,y1),(x0,y1)]
+        for a,q in zip(outline,outline[1:]+outline[:1]):
+            pts=[(*a,chimney_foot(b.params,a[0])),(*q,chimney_foot(b.params,q[0])),
+                 (*q,z-slope-.06),(*a,z-slope-.06)]
+            legacy._poly_facing(b,pts,conf,GRANITE,(q[1]-a[1],a[0]-q[0],0))
+    else:
+        legacy._box(b,x0,y0,c['z0'],x1,y1,z-slope-.06,conf,GRANITE)
     # No invented white overhanging lid: HABS stacks finish in granite coping.
     nx,ny=detail.get('flues',[2,1]);holes=[]
     for ix in range(nx):
@@ -1081,6 +1097,8 @@ def chimney(b,c):
         for a,d in zip(hole,hole[1:]+hole[:1]):
             b.raw([(a[0],a[1],z-slope-.08),(d[0],d[1],z-slope-.08),
                    (d[0],d[1],height(d[1])),(a[0],a[1],height(a[1]))],conf,GRANITE)
+    if (b.params.detail.get('north_tower_roof') or {}).get('integrated_north_facade') and c['name'] in ('middle','south'):
+        return # roof_edges.add_abutments supplies the slope-following flashing.
     old=b.decorate;b.decorate=False
     # A stack rising flush out of a gable's face (T-2214) is flashed on the roof
     # side only: no copper band stands proud of the wall it continues.
@@ -1532,6 +1550,9 @@ def curved_masonry(b,cx,cy,r,z0,z1,conf,mat,windows,a0=0,a1=2*math.pi):
 
 
 def tower(b,t,params):
+    if t['name']=='north' and params.detail.get('north_tower_roof'):
+        from archetypes.masonry_house_v4_north_tower import build
+        return build(b,t,params)
     data=params.detail.get('tower_stair_windows') if t['name']=='stair' else None
     if not data:
         legacy._tower(b,{**t,'segments':48})

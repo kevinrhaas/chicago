@@ -1,0 +1,200 @@
+{
+  "ticket": "T-2470",
+  "not_a_reading": "A bounded re-reading of catalogued photographs and generated geometry; no new archival reading.",
+  "method": "Actual copper vertex within2mm of each model-specific finial tip. Reconciled cameras and source picks held fixed across before/after; original T2200 camera also reported without requiring an improvement. No old-coordinate nearest-vertex reassociation.",
+  "camera_sha256": "914f653e5bce5182ea25206d155249d462225db4901e887ca44492971275591a",
+  "inclined_camera_sha256": "e7561b646f21444ace9b190547f15f973f50a2243a70bee0c3df17b937538e7c",
+  "frozen_camera_report_sha256": "c8e6027b8427a0b66d1f10db7b35e860355dd47d983f86168ff33d12e8dbde55",
+  "assets": [
+    {
+      "file": "before-master.glb",
+      "sha256": "e5a16133635111042ba3479da6762b041424fa32f17e7aff1ed0d941ae979d62",
+      "semantic_tip_WS_ng_ft": [
+        35.0,
+        8.6,
+        45.9
+      ],
+      "actual_tip_xyz_m": [
+        38.48099899291992,
+        19.933900833129883,
+        13.990300178527832
+      ],
+      "vertex_distance_m": 2.7591192063035605e-05
+    },
+    {
+      "file": "glessner_house__as_built_1887.glb",
+      "sha256": "1554d90c58de77ea526c1dc7d4a6a2b77dd47bb28236341bace7ba8593614c16",
+      "semantic_tip_WS_ng_ft": [
+        41,
+        7.35,
+        44.9
+      ],
+      "actual_tip_xyz_m": [
+        36.652198791503906,
+        20.314899444580078,
+        13.685500144958496
+      ],
+      "vertex_distance_m": 2.860434275223693e-05
+    }
+  ],
+  "views": [
+    {
+      "view": "habs-01-northwest",
+      "observed_px": [
+        428,
+        460
+      ],
+      "camera": {
+        "position_m": [
+          -10.169966432066198,
+          55.23873862378338,
+          1.8000016997676391
+        ],
+        "basis_right_up_forward": [
+          [
+            -0.7905268576948641,
+            -0.6124273730517636,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.6124273730517636,
+            -0.7905268576948641,
+            0.0
+          ]
+        ],
+        "focal_px": 1721.6109185497774,
+        "principal_px": [
+          904.5,
+          823.1509839645015
+        ]
+      },
+      "predicted_before_after_px": [
+        [
+          402.1326841204537,
+          459.45469309835335
+        ],
+        [
+          426.5321779317042,
+          459.59439698148674
+        ]
+      ],
+      "residual_before_after_px": [
+        25.873063027581644,
+        1.5228313868590952
+      ]
+    },
+    {
+      "view": "habs-14-reconciled",
+      "observed_px": [
+        1304,
+        355
+      ],
+      "camera": {
+        "basis_right_up_forward": [
+          [
+            -0.9996672286136042,
+            -0.0015072700689051904,
+            0.025751896492013187
+          ],
+          [
+            0.0239412206913869,
+            0.31748545920603705,
+            0.9479608647747744
+          ],
+          [
+            0.009604685721161639,
+            -0.9482619423606914,
+            0.31734372324425536
+          ]
+        ],
+        "focal_px": 1870.5479248020251,
+        "principal_px": [
+          694.8800048237268,
+          405.0185589778554
+        ],
+        "position_m": [
+          47.829106456489924,
+          51.83549800397528,
+          1.8
+        ]
+      },
+      "predicted_before_after_px": [
+        [
+          1228.4540131340773,
+          338.8465525329505
+        ],
+        [
+          1337.463233741444,
+          349.713697031339
+        ]
+      ],
+      "residual_before_after_px": [
+        77.2536730299401,
+        33.878208505040284
+      ]
+    },
+    {
+      "view": "habs-14-frozen-T2200",
+      "observed_px": [
+        1304,
+        355
+      ],
+      "camera": {
+        "position_m": [
+          37.13921838,
+          40.95636828,
+          1.0
+        ],
+        "basis_right_up_forward": [
+          [
+            -0.9232502382,
+            -0.3841950946,
+            -0.0017683428
+          ],
+          [
+            -0.1050847278,
+            0.2480941397,
+            0.9630194691
+          ],
+          [
+            0.3695486405,
+            -0.88929378,
+            0.2694260105
+          ]
+        ],
+        "focal_px": 1599.16666667,
+        "principal_px": [
+          893.5,
+          665.0
+        ],
+        "image_size": [
+          1800,
+          1269
+        ],
+        "near": 0.05,
+        "far": 2000
+      },
+      "predicted_before_after_px": [
+        [
+          1373.791259275685,
+          160.85950430233584
+        ],
+        [
+          1512.423510264593,
+          135.75960426519214
+        ]
+      ],
+      "residual_before_after_px": [
+        206.30402793212895,
+        302.50076157419846
+      ]
+    }
+  ],
+  "whole_house_matches": false,
+  "limitations": "HABS01 control RMS2.60px; reconciled HABS14 coordinate RMS5.68px, but model-derived controls and free principal point limit independence. The frozen T2200 camera worsens after the corrected facade/plan; it is retained as a limitation, not hidden. This report is not whole-house photographic acceptance. Other house differences remain with T-2228."
+}

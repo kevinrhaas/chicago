@@ -688,6 +688,21 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         raw = val("v4_detail", {})
         p.detail["roof_tiles"] = raw.get("roof_tiles")
         p.detail["roof_edges"] = raw.get("roof_edges")
+        p.detail["north_tower_roof"] = raw.get("north_tower_roof")
+        if p.detail["north_tower_roof"] and p.detail["north_tower_roof"].get("integrated_north_facade"):
+            east = next(r for r in p.ranges if r['name'] == 'east_wing')
+            north = next(r for r in p.ranges if r['name'] == 'north_range')
+            tower = next(t for t in p.towers if t['name'] == 'north')
+            # One continuous flat facade owns both window pairs. Its replacement
+            # is emitted with the tower; the original two walls must not overlap it.
+            east['walls']['north'] = 'none'
+            east['north_roof_shoulder'] = {
+                'x': fr.x(p.detail['north_tower_roof']['north_gable_west_W']),
+                'back_y': fr.y(p.detail['north_tower_roof']['roof_transition_S'])}
+            north['wall_skip'].setdefault('north', []).append((tower['cx'], east['x0']))
+            for chimney in p.chimneys:
+                if chimney['name'] in ('middle','south'):
+                    chimney['z0']=east['eave_hi_z']+(east['x1']-chimney['x1'])*(east['ridge_z']-east['eave_hi_z'])/(east['x1']-east['ridge_at'])-.06
         p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254, 6)
                                           for h in raw.get("ashlar_courses_in", [])]
         p.detail["ashlar_relief_m"] = [float(v) * FT for v in
