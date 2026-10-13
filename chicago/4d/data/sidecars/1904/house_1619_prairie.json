@@ -133,7 +133,7 @@
         "dormer": "k10.dormer.pedimented_on_bracketed_eave"
       },
       "confidence": "reconstructed",
-      "note": "K10's bracketed cornice and its pedimented dormer: the nearest the kit comes to the drawing's moulded cornice and steep pedimented wall gable. The gable itself — rising from the wall, three lights wide, with its finial and pinnacles — is T-2421's to build; until then this dormer marks where it stands."
+      "note": "K10's bracketed cornice and its pedimented dormer face, the dormer now the drawing's wall gable (T-2428): the face's horizontal cornice and raking cornice are the kit's, the nearest it comes to the drawing's moulded stone cornices. The cornice at the bow's top that the drawing draws in stone, carrying the balcony, is T-2429's to build; until then K10's bracketed timber cornice runs at 9.2 m."
     },
     "roof_form": {
       "value": "hip",
@@ -346,20 +346,52 @@
     },
     "dormer": {
       "value": {
-        "width_m": 3.6,
-        "face_setback_m": 0.2,
-        "face_height_m": 2.5,
+        "width_m": 3.3,
+        "face_setback_m": 0.0,
+        "face_height_m": 2.0,
         "face_thickness_m": 0.2,
         "pitch_deg": 50,
         "verge_m": 0.15,
         "sash": {
-          "sill_m": 0.4,
-          "width_m": 1.1,
-          "height_m": 1.5
+          "sill_m": 0.3,
+          "width_m": 0.75,
+          "height_m": 0.95,
+          "variant": "k06.opening.sash_1over1_segmental",
+          "at_m": [
+            -1.1,
+            0.0,
+            1.1
+          ]
+        },
+        "v_m": 5.2,
+        "wall_gable": {
+          "voussoirs": {
+            "ring_m": 0.2,
+            "proud_m": 0.04
+          },
+          "panel": {
+            "inset_m": 0.2,
+            "depth_m": 0.08
+          },
+          "pinnacles": {
+            "at_m": 1.95,
+            "shaft_m": 0.28,
+            "foot_m": -0.35,
+            "top_m": 2.45,
+            "cap_m": 0.1,
+            "spire_m": 0.4
+          },
+          "finial": {
+            "height_m": 0.45,
+            "radius_m": 0.09
+          }
         }
       },
-      "confidence": "reconstructed",
-      "note": "One wide pedimented dormer on the front's centre line lighting the roof storey, steep (50 degrees) as the drawing's gable is, its sash at about the height of the gable's lights (9.3-10.8 m against the drawing's 9.3-10.6 m through its camera) and its apex near the gable's. A stand-in: the drawing's gable is a wall gable about 3.9 m across, rising from the wall, with three lights, a finial and two pinnacles; T-2421 replaces this dormer with it."
+      "confidence": "inferred",
+      "note": "The roof storey's WALL GABLE (T-2428), read off the drawing through its solved camera: the street wall carried up over the bow as a steep pedimented gable (the K05 dormer with its face on the wall's plane, no setback), 3.3 m across and 0.47 m north of the bow's centre line as the drawing sets it (v 5.2), its face 2.0 m to the eave and pitched 50 degrees, so the pediment's foot lands at about 10.9 m and its apex at about 13.05 m against the drawing's 10.9-11.0 m and 13.1 m; three short segment-headed lights (K06's one-over-one segmental sash, 0.75 by 0.95 m, 1.1 m apart, sills 0.3 m over the wall head) each under a block of seven radiating voussoirs 0.2 m over its crown; a recessed panel in the pediment; a turned finial at the apex; and a square pinnacle shaft either side of the face, 1.95 m off its centre, rising from under the wall head to a cap and pyramid at about 11.65-12.2 m (the drawing's two caps read at about 11.5 m and 11.9 m: it draws them unequal, and they are built level). What the drawing shows is the gable, its three lights and their heads, the voussoirs, the cornices, the panel, the finial and the two pinnacles; every size is read through a camera good to about 10 %, the pinnacles' square plan, the pyramid tops (the drawing's are carved), the panel's depth, the lights' sash and the stone are reconstructed (L-k01-1619-hamline-wall-gable-2428). The roof behind, the crow-stepped south parapet and the stone cornice at the bow's top are T-2429's.",
+      "sources": [
+        "building_budget_1886_06_hamline_farwell_houses"
+      ]
     },
     "chimneys": {
       "value": {
@@ -481,7 +513,7 @@
       ]
     }
   ],
-  "research_note": "T-2420 (piece 1 of T-2419, of T-1868) refines the district draft (T-2335) in place under the same id from the house's one picture, Treat & Foltz's drawing in The Building Budget (June 188-, probably 1886; building_budget_1886_06_hamline_farwell_houses), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly: a K02 smooth limestone street front on K03 brick sides and rear, the drawing's full-height swell bay on K08's bow at the sheet's own chord and rise, rising from grade to the third floor, the door in the north strip on a K07 stoop, a K10 bracketed cornice and a slated K04/K05 hip with a pedimented dormer standing where the drawing's wall gable stands, and the sheet's rear range on K01's rear wings. What the drawing shows and is not yet built — the wall gable with its three lights, pinnacles and finial and the stepped south parapet (T-2421); the round-arched entrance, the side stoop, the balcony rail and the grilled basement arches (T-2422) — is listed open in its match record (data/reference_views/house_1619_prairie/building_budget_front.match.json). Everything not read is reconstructed and recorded as L-k01-1619-hamline-swell-front-2420.",
+  "research_note": "T-2420 (piece 1 of T-2419, of T-1868) refines the district draft (T-2335) in place under the same id from the house's one picture, Treat & Foltz's drawing in The Building Budget (June 188-, probably 1886; building_budget_1886_06_hamline_farwell_houses), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly: a K02 smooth limestone street front on K03 brick sides and rear, the drawing's full-height swell bay on K08's bow at the sheet's own chord and rise, rising from grade to the third floor, the door in the north strip on a K07 stoop, a K10 bracketed cornice and a slated K04/K05 hip, and (T-2428) the drawing's wall gable over the bow: three segment-headed lights under radiating voussoirs, the pediment with its recessed panel and finial, and two pinnacles, and the sheet's rear range on K01's rear wings. What the drawing shows and is not yet built — the roof behind the gable, the crow-stepped south parapet and the stone cornice at the bow's top (T-2429); the round-arched entrance, the side stoop, the balcony rail and the grilled basement arches (T-2422) — is listed open in its match record (data/reference_views/house_1619_prairie/building_budget_front.match.json). Everything not read is reconstructed and recorded as L-k01-1619-hamline-swell-front-2420 and, for the wall gable, L-k01-1619-hamline-wall-gable-2428.",
   "research_doc": "",
   "review_required": false
 }
