@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1760, ts: '2026-10-13T13:05:36.216Z', date: 'Oct 13, 2026, 8:05 AM CT', title: '1620 Prairie\'s terrace runs across its bay window', kind: 'improvement',
+    items: [
+      'The stone terrace at the head of 1620 Prairie\'s stoop now runs south as well as north: behind its turned balustrade it crosses in front of the bay window and ends just past the house\'s corner, where the 1874 engraving draws it.',
+      'The board fence the engraving draws level beyond 1620\'s corner turns out to be the next lot\'s street fence; 1620\'s own fence stands behind it.',
+    ] },
   { v: 1759, ts: '2026-10-13T12:28:36.292Z', date: 'Oct 13, 2026, 7:28 AM CT', title: '1637 Prairie\'s roof and dormers drawn as its engraving shows them', kind: 'improvement',
     items: [
       'The slate roof on Jesse Spalding\'s house at 1637 Prairie now has straight, steep sides that rise to a level top line, as the engraving draws them, instead of bell-curved ones.',
