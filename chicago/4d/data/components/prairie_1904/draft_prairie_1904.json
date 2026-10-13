@@ -382,7 +382,8 @@
     "s20-1636-f": "1636 Prairie now stands as the K01 stone-front house house_1636_prairie under K01's flat roof (T-2348, piece 3 of T-1863), the south half of the pair with 1634, which refines this draft in place under the draft's own id: the wide front body on K01 with the sheet's canted stone bay on K08, and the narrow three-storey rear part on K01's rear wings; the draft stands no second building beside it.",
     "s20-1613-f": "1613 Prairie now stands as the K01 brick frontage house_1613_prairie under K01's flat roof (T-2417, piece 1 of T-1868), the north half of the pair with 1615, which refines this draft in place under the draft's own id: the four-storey main body on K01 and the sheet's one-storey frame rear porch on K01's rear wings in timber; the draft stands no second building beside it.",
     "s20-1625-f": "1625 Prairie's main body now stands as the K01 stone-front frontage house_1625_prairie (T-2432, piece 1 of T-1869), read off the 1890 Inland Architect photograph of Hugh J. McBirney's Tudor house against this sheet, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's four-storey rear section (s20-1625-a1) waits on T-2435.",
-    "s20-1615-f": "1615 Prairie now stands as the K01 brick frontage house_1615_prairie under K01's flat roof (T-2418, piece 2 of T-1868), the south half of the pair with 1613, laid on 1613's south wall, which refines this draft in place under the draft's own id: the four-storey main body on K01, the sheet's small frame projection on its south wall on K08 in timber, and its one-storey frame rear porch on K01's rear wings in timber; the draft stands no second building beside it."
+    "s20-1615-f": "1615 Prairie now stands as the K01 brick frontage house_1615_prairie under K01's flat roof (T-2418, piece 2 of T-1868), the south half of the pair with 1613, laid on 1613's south wall, which refines this draft in place under the draft's own id: the four-storey main body on K01, the sheet's small frame projection on its south wall on K08 in timber, and its one-storey frame rear porch on K01's rear wings in timber; the draft stands no second building beside it.",
+    "s20-1637-f": "1637 Prairie's main body now stands as the K01 brick frontage spalding_house_1637_prairie (T-2441, piece 1 of T-1870), read off the engraving of Jesse Spalding's remodel of the Grosvenor house against this sheet, which refines this draft in place under the draft's own id: the main body on K01 with the engraving's swell bay and the sheet's forward south wing on K08, and the sheet's rear range behind the south part on K01's rear wings; the draft stands no second building beside it."
   },
   "frontages": {
     "frontage-28-038": {
@@ -793,7 +794,9 @@
       "pitch_deg": 50,
       "attic_dormers": true,
       "entrance": "south",
-      "why": "The register's Spalding remodel of the Grosvenor house: 'brick block with steep hip/mansard roof, dormers, tall chimneys, full-height swell bay, projecting gabled wing', drawn as a steep hip with dormers over the 2\u00bdB body, the sheet's frame bay as a projection. The 1904 Blue Book lists W. G. Hibbard Jr. at 1637, so the Spalding name is the one provisional association the census keeps; T-1870 rules."
+      "why": "The register's Spalding remodel of the Grosvenor house: 'brick block with steep hip/mansard roof, dormers, tall chimneys, full-height swell bay, projecting gabled wing', drawn as a steep hip with dormers over the 2\u00bdB body, the sheet's frame bay as a projection. The 1904 Blue Book lists W. G. Hibbard Jr. at 1637, so the Spalding name is the one provisional association the census keeps; T-1870 rules.",
+      "house_id": "spalding_house_1637_prairie",
+      "house_address": "1637"
     },
     "frontage-20-032": {
       "slug": "hibbard_house",

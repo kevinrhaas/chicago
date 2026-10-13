@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 528,
+  "count": 530,
   "liberties": [
     {
       "id": "L1",
@@ -30397,18 +30397,6 @@
         },
         {
           "domain": "structure",
-          "structure": "spalding_house_1637_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "spalding_house_1637_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "spalding_house_1637_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -30425,7 +30413,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1621_prairie.draft_1904.form.draft_elevation`, `house_1621_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1621_prairie.draft_1904.form.draft_elevation`, `house_1621_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -30437,7 +30425,7 @@
         },
         {
           "label": "Retired in part",
-          "text": "1609 and 1611, the lost lot-6 frame pair, by T-1867, which refined both in place on the K16 timber kit as two clapboard houses on one party wall under `L-k16-1609-1611-frame-pair-1867`, under the same ids; their draft attributes are gone. **1613 retired from this liberty by T-2417 (2026-10-12):** the north half of the 1613/1615 pair now stands as the K01 brick frontage under K01's flat roof, with its frame rear porch on K01's rear wings, recorded as `L-k01-1613-brick-flat-2417`, under the same id; its draft attributes are gone. **1615 retired from this liberty by T-2418 (2026-10-13):** the south half of the pair now stands as the K01 brick frontage under K01's flat roof, laid on 1613's south wall, with the sheet's frame projection on its south wall and its frame rear porch, recorded as `L-k01-1615-brick-flat-2418`, under the same id; its draft attributes are gone. **1619 retired from this liberty by T-2420 (2026-10-12):** its main body now stands as the K01 stone-front frontage with its full-height swell bay, read off Treat & Foltz's drawing of the Hamline house, under `L-k01-1619-hamline-swell-front-2420`, under the same id; its draft attributes are gone. **1623 retired from this liberty by T-2433 (2026-10-13):** its main body now stands as the K01 stone-front frontage with its corbelled oriel, read off Treat & Foltz's drawing of Granger Farwell's house, under `L-k01-1623-farwell-oriel-front-2433`, under the same id; its draft attributes are gone. **1625 retired from this liberty by T-2432 (2026-10-13):** its main body now stands as the K01 stone-front frontage read off the 1890 Inland Architect photograph of Hugh J. McBirney's Tudor house, under `L-k01-1625-mcbirney-tudor-2432`, under the same id; its draft attributes are gone. The sheet's four-storey rear section beside it is not built until T-2435."
+          "text": "1609 and 1611, the lost lot-6 frame pair, by T-1867, which refined both in place on the K16 timber kit as two clapboard houses on one party wall under `L-k16-1609-1611-frame-pair-1867`, under the same ids; their draft attributes are gone. **1613 retired from this liberty by T-2417 (2026-10-12):** the north half of the 1613/1615 pair now stands as the K01 brick frontage under K01's flat roof, with its frame rear porch on K01's rear wings, recorded as `L-k01-1613-brick-flat-2417`, under the same id; its draft attributes are gone. **1615 retired from this liberty by T-2418 (2026-10-13):** the south half of the pair now stands as the K01 brick frontage under K01's flat roof, laid on 1613's south wall, with the sheet's frame projection on its south wall and its frame rear porch, recorded as `L-k01-1615-brick-flat-2418`, under the same id; its draft attributes are gone. **1619 retired from this liberty by T-2420 (2026-10-12):** its main body now stands as the K01 stone-front frontage with its full-height swell bay, read off Treat & Foltz's drawing of the Hamline house, under `L-k01-1619-hamline-swell-front-2420`, under the same id; its draft attributes are gone. **1623 retired from this liberty by T-2433 (2026-10-13):** its main body now stands as the K01 stone-front frontage with its corbelled oriel, read off Treat & Foltz's drawing of Granger Farwell's house, under `L-k01-1623-farwell-oriel-front-2433`, under the same id; its draft attributes are gone. **1625 retired from this liberty by T-2432 (2026-10-13):** its main body now stands as the K01 stone-front frontage read off the 1890 Inland Architect photograph of Hugh J. McBirney's Tudor house, under `L-k01-1625-mcbirney-tudor-2432`, under the same id; its draft attributes are gone. The sheet's four-storey rear section beside it is not built until T-2435. **1637 retired from this liberty by T-2441 (2026-10-13):** its main body now stands as the K01 brick frontage read off the engraving of Jesse Spalding's remodel of the Grosvenor house, under `L-k01-1637-spalding-remodel-2441`, under the same id; its draft attributes are gone. Its coach house stays a draft here."
         },
         {
           "label": "Ticket",
@@ -31386,6 +31374,10 @@
         {
           "label": "Superseded in part (T-2423)",
           "text": "the gable's flat-headed pair, its shingle bands and the missing oculus and hood moulds are retired from this liberty; the gable's openings, hood, oval and clapboard field are read off the photograph under L-k16-1638-gable-2423, which covers `form.gable`."
+        },
+        {
+          "label": "Superseded in part (T-2425)",
+          "text": "the porch's scroll brackets, its chamfered kit posts, its lattice to grade at the front and the wing wall's two-over-two sash are retired from this liberty; the entrance under the tower is read off the photograph under L-k16-1638-entrance-2425, which covers `form.porch` and `form.wing_wall`."
         },
         {
           "label": "Ticket",
@@ -32544,6 +32536,10 @@
         {
           "label": "Retired in part (T-2437, piece 1 of T-2415)",
           "text": "the house's heights are now read off the 1874 engraving on a camera whose eye height is re-solved, and two more inventions leave this entry's Covers (`principal_floor_m` and `sash_by_storey`, each now inferred). T-2370 had put that camera's eye 0.7 m under grade from the north wall's 'foot', which the engraving does not draw (the porch's end and the north board fence cross both corners there), and on it every height low on the front fell 1.5-2 m too low. The ground the engraving does draw is the street fence's foot on the walk, and it puts the eye 2.0 m over grade; every height the camera reads rises 2.7 m. What is read on it: the principal floor at 2.0 m (the porch's and the bay terrace's balustrade tops at 2.89-2.93 m, under a 0.9 m rail), the wall head at 10.9 m (the cornice's soffit 10.61 m at both front corners), the upper floor at 6.8 m under the upper street windows' feet (7.50-7.72 m), and the sash's heights (the principal storey's heads at 6.3 m, the upper windows' round heads at 9.6-9.8 m). So the storeys are 4.8 and 4.1 m, the principal-storey sash 3.55 m and the upper 2.15 m, the pavilion's stages and sash with them, and the front stack's cap is carried up to 15.2 m. Still invented: the sills (0.75 and 0.7 m over their floors; the porch hides the lower ones and the engraving does not draw the upper), so the split between the two storeys within about 0.2 m; the sash's width and kind. The 1898 Tribune sketch's camera is re-fitted to these heights (good to about 10 px: a freehand sketch). The principal storey's 3.55 m sash stands outside K01's 2.4 m starting range on the engraving, as T-2366 let a read principal floor (`k01_frontage_params`: a sash height the record reads, with its source, is not held to the range). Still open on the two pictures and owned by T-2438: the bay window's heights (drawn 1.2-2 m higher than the kit's), tone and terrace; the pavilion's corner strip; the upper window over the door; the crown and front stack, each about 0.5 m over the drawn; and the north board fence's foot."
+        },
+        {
+          "label": "Revised in part (T-2444, piece 1 of T-2438)",
+          "text": "the south part's bay window now stands at the 1874 engraving's heights, read on T-2437's re-solved camera (its lights 3.09-5.71 m over grade, the hood's eaves 6.24 m, its top under the upper window), and the crown over the pavilion, its round-headed dormer and the front stack come down to the drawn ones (the crown's curb 0.3 m over the main curb, the stack's cap 14.7 m). One new invention: the bay is built as painted timber, K08's frame fabric, because the engraving draws it dark against the light front with its cheeks hatched as boards; the print is monochrome and the hood's shadow could darken a brick bay as well, so the timber is RECONSTRUCTED, carried in `bays`' note (the attribute stays inferred for its place, plan and heights). What would replace it: any coloured view, or a description of the house naming the bay's material."
         },
         {
           "label": "Covers",
@@ -34940,6 +34936,56 @@
       ]
     },
     {
+      "id": "L-k16-1638-entrance-2425",
+      "title": "1638 Prairie's entrance under the tower read off its photograph: a pointed arch with pierced quatrefoil spandrels on broad posts, a glazed double door, a stoop between cheek walls; the arch's curve, the joinery and the steps' sizes reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "shortall_gregory_house_1638_prairie_front"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "shortall_gregory_house_1638_prairie_front",
+          "phase": "as_standing_1904",
+          "aspect": "form.porch"
+        },
+        {
+          "domain": "structure",
+          "structure": "shortall_gregory_house_1638_prairie_front",
+          "phase": "as_standing_1904",
+          "aspect": "form.wing_wall"
+        }
+      ],
+      "recorded": "2026-10-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the ground storey of the Shortall-Gregory house's corner tower (T-2425, a piece of T-1865) is the entrance the house's photograph shows there, read through the camera T-2423 solved for the print. The kit porch's chamfered posts and scroll brackets give way to broad plain posts (0.22 m) and, between them in the posts' depth under the plate, a board carrying a pointed arch: springing 0.75 m under the plate and rising 0.65 m to a point 0.1 m under it, built four-centred (a 60-degree sweep on a radius of 0.4 the half-span at each spring, under a flatter arc that meets its fellow in the point), with a pierced quatrefoil in each corner of the board. Behind it the wing wall's two-over-two sash gives way to a double door, two leaves 1.2 m clear together and 1.72 m high, each a stile round one tall light; its threshold is the porch floor, so the wing wall's water table is laid at the floor on a 0.36 m foundation. In front, four equal risers of 0.15 m on 0.28 m goings climb from grade to the floor between two cheek walls in the posts' line, their tops sloping with the steps. **What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`), at 79.8 px a metre at the posts' face and 73 px at the wall's: that the posts are broad and plain and how broad; that the opening is arched and pointed, where it springs and how high it rises; that the spandrels are pierced with quatrefoils, their size and place; that the door is double, each leaf with one tall pale light, the lights' tops and feet, the door's width and its head; that the door stands at the floor; that steps rise between cheek walls in the posts' line, their nosings 14-15 px apart. **What is invented.** The arch's curve between the points read (four-centred, its radii and sweep); the board's depth (the plate's); the quatrefoil's lobes (four circles through its middle); the leaves' stiles and rails beyond what the lights fix, and glass in the lights, which the print shows pale; the risers' number and goings, solved from the kit's 0.6 m floor rather than read; the cheek walls' breadth (the posts') and their sloping tops; the 0.36 m foundation under the floor, which nothing shows; every colour, the print being monochrome. **What the record states and the model simplifies.** The posts stand where the sheet's 2.91 m porch puts them, 2.11 m apart, where the print's are 1.72 m apart; its steps run on down past the model's foot, which asks whether the floor stands higher over grade than the camera's datum gives, and is left open in the match record; the pale gabled shape over the door's south leaf is not built; the leaves are 1.72 m clear, short for a door of the period, and kept as the print reads."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a sharper or second picture of the entrance fixes the arch's curve, the quatrefoils and the door's joinery; T-2426 builds the fence the camera's depth rests on, which settles the grade datum and with it the number of steps; a measured drawing of the house fixes the porch's width against the sheet's."
+        },
+        {
+          "label": "Covers",
+          "text": "`shortall_gregory_house_1638_prairie_front.as_standing_1904.form.porch`, `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.wing_wall`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2425 (a piece of T-1865, the 1638 architecture)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k16-1638-entrance-2425/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-12 (T-2425)."
+        }
+      ]
+    },
+    {
       "id": "L-k16-1638-bay-2424",
       "title": "1638 Prairie's canted bay read off its photograph: three pointed lights between posts, a panelled base and a moulded cornice; sections, depth and deck still the kit's or inferred",
       "section": "per_subject",
@@ -35289,6 +35335,122 @@
         {
           "label": "Recorded",
           "text": "2026-10-13 (T-2439)."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-1637-spalding-remodel-2441",
+      "title": "1637 Prairie refined from the district draft to a K01 brick block read off the engraving of Jesse Spalding's remodel, on the 1911 sheet's plan, its wing's own roof and its gabled dormers stood in for until K01 can build them",
+      "section": "per_subject",
+      "subjects": [
+        "spalding_house_1637_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        }
+      ],
+      "recorded": "2026-10-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the house at 1637 Prairie Avenue (T-2441, piece 1 of T-1870) is no longer a district draft. It stands, under the draft's own id `spalding_house_1637_prairie`, as a `k01_frontage` record built by `generators/k01_emit.py`, against its one picture of the remodelled front: a line engraving of the Grosvenor house as Jesse Spalding remodelled it, reproduced by the Glessner House Museum (`glessner_blog_1637_spalding_remodel_engraving`). A K03 brick block of a raised basement and two tall storeys under K10's bracketed cornice; a K08 swell bay of three windows a storey at the north end of the front and the sheet's forward wing at the south end as a K08 full-height projection under a flat tin deck; the K07 door up its stoop between them; K06 two-over-two sash under flat lintels; a K05 mansard with slated lower faces, two round-headed dormers on the street face and one on the north face; three plain stacks; the sheet's two-storey rear range behind the south part, flat-roofed. **What is read, not invented.** From the 1911 Sanborn sheet 20 (trace s20fp-1637-b1, census s20-1637-f): the main body's place and plan (11.0 m deep by 13.1 m, the trace's own width where the draft's fit had stopped at 11.5 m), the south 4.8 m standing 1.0 m forward, the rear range behind it, brick, the storeys ('2½B'). From the engraving, through its solved camera (`data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.json`): the front's composition (bay, door, wing), the principal floor's 2.3 m over grade, the second floor's and the cornice's heights, the windows' places and storeys, three windows round the bay, the dormers' places, the stacks' places and tops, the steep slated roof, the windows in the north flank. **What is invented.** The walls' thickness; the brick's colour and the trim's; every window's kind and the glazing (the engraving's bars are not legible); the windows' heights past the K01 contract's 2.4 m; the cornice's kit; the upper hip over the curb, its pitch and its tin; the stoop's flight; the rear wall's and the rear range's windows; the south wall left blind; the downpipes. **What is not built.** The wing standing further forward under its own steep hipped roof as high as the main roof; the gabled dormers' heads and square-headed sashes; the French window and balcony on the wing's principal floor, the stoop's rails, the basement's round-headed lights; the bay and the wing rising to the cornice itself; the stacks' panelled shafts and caps; the garden wall and the iron fence. All are open in the match record for T-2442, which also weighs the c. 1870 photograph of the house as built and the 1911 sheet's frame porch across the north part, both evidence of their own dates."
+        },
+        {
+          "label": "How to resolve",
+          "text": "T-2442 builds what is open and brings the match record to `matches`; the engraving's source publication, if found, dates the remodel."
+        },
+        {
+          "label": "Covers",
+          "text": "`spalding_house_1637_prairie.as_mapped_1904.form.wall_thickness_front_m`, `spalding_house_1637_prairie.as_mapped_1904.form.wall_thickness_side_m`, `spalding_house_1637_prairie.as_mapped_1904.form.service_wall_brick`, `spalding_house_1637_prairie.as_mapped_1904.form.street_front_trim`, `spalding_house_1637_prairie.as_mapped_1904.form.roof_pitch_deg`, `spalding_house_1637_prairie.as_mapped_1904.form.eave_overhang_m`, `spalding_house_1637_prairie.as_mapped_1904.form.stair_tread_m`, `spalding_house_1637_prairie.as_mapped_1904.form.stair_landing_depth_m`, `spalding_house_1637_prairie.as_mapped_1904.form.stoop_width_m`, `spalding_house_1637_prairie.as_mapped_1904.form.north_bays`, `spalding_house_1637_prairie.as_mapped_1904.form.rear_bays`, `spalding_house_1637_prairie.as_mapped_1904.form.rainwater`, `spalding_house_1637_prairie.as_mapped_1904.form.window_kit`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2441 (piece 1 of T-1870)."
+        },
+        {
+          "label": "Review",
+          "text": "`data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-13 (T-2441)."
         }
       ]
     },
