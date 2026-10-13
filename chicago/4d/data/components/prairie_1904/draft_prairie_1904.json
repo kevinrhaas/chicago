@@ -765,7 +765,11 @@
     "frontage-20-028": {
       "slug": "house",
       "entrance": "north",
-      "why": "3B brick, the north unit of an attached group of three (1621-1625): the brick family's hip, its door at the group's north end."
+      "why": "3B brick, the north unit of an attached group of three (1621-1625): the brick family's hip, its door at the group's north end.",
+      "household": {
+        "name": "John H. Hamline's house",
+        "note": "Whose house: John H. Hamline's, built to Treat & Foltz's design of 1885-86 (the left-hand house of the Building Budget drawing, building_budget_1886_06_hamline_farwell_houses), ruled at 1621 by T-2439 on the 1885 permit, the 1884-87 directories, the 1886 occupant map, the 1886 Robinson plate's printed number (robinson_1886_chicago_plate_10) and the 1904 Blue Book, against one 1886 newspaper's '1619' (docs/RESEARCH/hamline-1621-2436/README.md). The front standing here is still the district draft's: T-2440 moves the drawing's build from 1619 to this house."
+      }
     },
     "frontage-20-029": {
       "slug": "house",
