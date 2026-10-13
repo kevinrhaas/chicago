@@ -319,6 +319,14 @@ class Variant:
         self._eave(runs, v["height_m"], v["crown"], False, v["paired"], v["panels"])
         self.meta["focus"] = [0.0, v["height_m"] - 0.45, 0.0]
 
+    def _moulded(self):
+        """T-2460: one moulded stone section under the wall head, turned round both corners."""
+        v = self.v
+        runs = self.pavilion(v["width_m"], v["height_m"], v["depth_m"])
+        prof = self.profile(v["profile"])
+        self.moulding("cornice", runs, v["height_m"] - max(u for _, u in prof), prof)
+        self.meta["focus"] = [0.0, v["height_m"] - 0.3, 0.0]
+
     def _entablature(self):
         v = self.v
         H = v["height_m"]
