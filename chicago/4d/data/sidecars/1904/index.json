@@ -114,6 +114,12 @@
       "asset": "gltf/flats_2127_prairie__draft_1904.glb"
     },
     {
+      "id": "forsyth_house_1635_prairie",
+      "name": "1635 Prairie Avenue — Italianate villa of 1863 (the Forsyth house) (district draft; refined by T-2443)",
+      "sidecar": "sidecars/1904/forsyth_house_1635_prairie.json",
+      "asset": "gltf/forsyth_house_1635_prairie__draft_1904.glb"
+    },
+    {
       "id": "george_glessner_house_1706_prairie",
       "name": "1706 Prairie Avenue — George Glessner Georgian townhouse (district draft; refined by T-1871)",
       "sidecar": "sidecars/1904/george_glessner_house_1706_prairie.json",

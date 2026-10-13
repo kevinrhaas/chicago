@@ -1,0 +1,27 @@
+{
+ "id": "habs_glessner_photo_04_18th_street_gable_c1923",
+ "type": "photograph",
+ "citation": "'Detail: gable and chimney, 18th Street side' (inscribed on the mount '18th Street Gable'), John J. Glessner House, 1800 South Prairie Avenue, Chicago, photograph undated, copied for HABS circa 1923; HABS IL-1015 photograph 4 of 17 (call number HABS ILL,16-CHIG,17--4). Library of Congress, Prints and Photographs Division.",
+ "date": "circa 1923",
+ "describes_date": "before circa 1923",
+ "repository": "Library of Congress, Prints and Photographs Division (HABS). Master TIFF 060906pu.tif (3937 x 5000) and the 060906pv.jpg service copy, read at tile.loc.gov; Prairie library id a18-glessner-habs-photo-04 (glessner exterior audit #117).",
+ "url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060906p",
+ "locator": "The whole print: the 18th Street gable's upper half from below and a little east of north, with its fan of voussoirs over the round-headed light and the chimney rising from the apex carrying an incised AD monogram over an incised 1886, the date flanked by two incised crosses.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A HABS copy of an earlier photograph; LOC notes that images copied from other sources may be restricted. Cited in text; only forms and proportions are read from it, and nothing is derived from the image as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-10-13 (T-2214) from the master TIFF. The mount's handwriting and the figures read the right way round, so the print is not reversed. Proportions were read on the chimney's front face (about 220 px wide on the 806 px copy): the 1886 stone spans about 61 % of it and the AD stone about 55 %, both centred; the figures span about 58 % of their stone's width and the monogram about 46 % of its stone's; each cross sits midway between the date stone's end and the chimney's edge, about 0.55 ft across. Heights were read as shares of the stack's face from where the gable's coping meets it to its top: the 1886 stone 0-35 %, the AD stone 41-75 %, the left (east) cross at 11 % and the right (west) at 23 %. The view looks up, so they are foreshortened, about +/- 0.4 ft.",
+ "note": "Undated; the HABS copy is c. 1923, so it shows the chimney as carved, which nothing records changing. The upper stone carries a ligature of A and D (Anno Domini), A on the viewer's left; the figures and monogram are cut into the stone, not raised.",
+ "what_it_supplies": [
+  "the reading direction of the 1886 and the AD monogram as seen from 18th Street",
+  "that both are incised, and the two incised crosses flanking the date",
+  "the stones' widths as shares of the chimney's face"
+ ],
+ "what_it_does_not_supply": [
+  "measured heights (an upward view; its proportions are read within about +/- 0.4 ft)",
+  "the carver's letterforms at a resolution that could be traced (and nothing is traced)",
+  "colour"
+ ]
+}

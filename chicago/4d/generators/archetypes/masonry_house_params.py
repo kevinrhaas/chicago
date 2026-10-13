@@ -357,7 +357,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         for side, v in (r.get("roof_extends_to") or {}).items():
             # an E-W range is carried along x (a W value), a N-S one along y (an S value)
             extend[side] = fr.x(v) if axis == "ew" else fr.y(v)
-        ends, parapet, end_conf = {}, {}, {}
+        ends, parapet, end_conf, stacks = {}, {}, {}, {}
         for face in FACES:
             g_attr = f"gable_{name}_{face}"
             g = val(g_attr)
@@ -367,6 +367,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 continue
             ends[face] = g["end"]
             parapet[face] = round(float(g.get("parapet_ft", 1.0)) * FT, 4)
+            if g.get("stack"):
+                # the chimney the parapet's coping dies into (T-2214)
+                plan = (val("chimney_plans") or {})[g["stack"]]
+                stacks[face] = (*_urange(fr, face, *plan["W"]), fr.zval(plan["base"]))
             end_conf[face] = cf(attr, rid_attr, g_attr)
         rng = {
             "name": name,
@@ -384,6 +388,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                           for f, spans in (r.get("wall_skip") or {}).items()},
             "gable_ends": ends,
             "parapet_m": parapet,
+            "stacks": stacks,
             "conf_plan": cf(attr, rid_attr),
             "conf_roof": cf(attr, rid_attr),
             "conf_ends": end_conf,
@@ -871,10 +876,21 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         gd = raw.get("gable_details", {})
         en = gd.get("east_north")
         if en:
-            a,b = sorted(fr.x(v) for v in en["date_stone_W"])
-            p.detail["date_stones"] = [{"axis": "y", "sign": 1, "at": fr.y(0),
-                "u0": a, "u1": b, "z0": fr.z(en[key][0]), "z1": fr.z(en[key][1]),
-                "text": en[textkey]} for key,textkey in [("date_stone_z","date_text"),("ad_stone_z","ad_text")]]
+            # T-2214: the stones are set in the chimney's own face, not the gable
+            # wall's plane 0.5 ft in front of it, where they stood out as plaques.
+            on = en.get("on_chimney")
+            face = (val("chimneys") or {})[on]["S"][0] if on else 0
+            stones = []
+            for wkey, zkey, tkey, fkey in [("date_stone_W", "date_stone_z", "date_text", "date_fill"),
+                                           ("ad_stone_W", "ad_stone_z", "ad_text", "ad_fill")]:
+                a,b = sorted(fr.x(v) for v in en.get(wkey, en["date_stone_W"]))
+                stones.append({"axis": "y", "sign": 1, "at": fr.y(face),
+                    "u0": a, "u1": b, "z0": fr.z(en[zkey][0]), "z1": fr.z(en[zkey][1]),
+                    "text": en[tkey], "fill": en.get(fkey), "incised": bool(en.get("incised"))})
+            p.detail["date_stones"] = stones
+            p.detail["date_crosses"] = [{"axis": "y", "sign": 1, "at": fr.y(face),
+                "u": fr.x(c["W"]), "z": fr.z(c["z"]), "size": en["cross_ft"] * FT,
+                "stroke": en["cross_stroke_ft"] * FT} for c in en.get("crosses", [])]
         sn = gd.get("stable_north")
         if sn:
             a,b = sorted(fr.x(v) for v in sn["pigeon_ledge_W"])
