@@ -767,6 +767,20 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             west["stable_roof"]["continuous_south_gable"] = rework.get("continuous_south_gable", False)
             west["stable_roof"]["lower_rear_gable"] = rework.get("lower_rear_gable", False)
             west["stable_roof"]["level_courtyard_gable"] = rework.get("level_courtyard_gable", False)
+            junction = raw.get("north_service_junction")
+            if junction:
+                west["stable_roof"]["north_service_junction"] = junction["reconcile_north_gable"]
+                north["north_wall_min"] = west["stable_roof"]["front_x1"]
+                p.detail["north_service_junction"] = {
+                    "door_x": sorted(fr.x(v) for v in junction["service_door_W"]),
+                    "step_x": sorted(fr.x(v) for v in junction["step_width_W"]),
+                    "step_runs": [v * FT for v in junction["step_runs_ft"]],
+                    "step_heights": [v * FT for v in junction["step_heights_ft"]],
+                    "wall_y": north["y1"],
+                    "gable_foot_x": west["stable_roof"]["front_x1"],
+                    "eave_z": north["eave_hi_z"],
+                    "roof_pitch": (north["ridge_z"]-north["eave_hi_z"]) / (north["y1"]-north["ridge_at"]),
+                }
             if west["stable_roof"]["level_courtyard_gable"]:
                 west["stable_roof"]["court_edge_x"] = west["x1"] + float(rework["courtyard_overhang_ft"]) * FT
                 west["stable_roof"]["court_edge_z"] = fr.zval(rework["courtyard_eave_edge"])

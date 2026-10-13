@@ -1,3 +1,13 @@
+## T-2219 — Glessner service openings and roof junction (2026-10-13)
+
+The north service door and upper sash follow the full widths read in HABS plans
+and photographs. Two stone steps reach the door; the gable-foot pipe and roof
+return now meet the north wing without a shelf across the facade. The courtyard
+roof profile is preserved. Light now retains the courtyard window bars, and
+smaller culling cells keep complete surfaces while skipping invisible geometry.
+Low openings are inventoried without speculative resizing. [Evidence, bounds and validation](RESEARCH/glessner-service-junction-T-2219.md).
+Whole-house photographic acceptance remains T-2228.
+
 ## T-2470 — Glessner's north gable and tower (2026-10-13)
 
 The local model now has one flat north facade entering the western half-round

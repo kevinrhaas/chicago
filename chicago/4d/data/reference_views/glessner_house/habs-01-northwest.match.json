@@ -2,9 +2,9 @@
   "structure_id": "glessner_house",
   "view": "habs-01-northwest",
   "glb": "assets/web/glessner_house__as_built_1887.glb",
-  "glb_sha256": "eca99c5c52d262ff9b168b5193acc63ae9ce4e6174aaf393dcd34a1730623dd5",
+  "glb_sha256": "8967e96d4f76b688d76ed02d1876c196b9798de76a995ff866fb7ebf3d8fd02b",
   "camera_sha256": "914f653e5bce5182ea25206d155249d462225db4901e887ca44492971275591a",
-  "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg",
+  "side_by_side": "docs/RESEARCH/glessner-service-junction-T-2219/after/habs-01-northwest-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
@@ -36,8 +36,8 @@
       "status": "fixed"
     },
     {
-      "what": "Owner follow-up: west/stable gable masonry obscures part of the adjacent north service door and upper window; its roof junction also differs. Record under service-openings work after this correction merges; T-2228 retains final sign-off.",
-      "status": "open"
+      "what": "T-2219: full service-door and upper-sash widths are restored from plans 2/3 and photographs 01/15. The independently located gable foot clears both openings; its roof return meets the north roof without the former triangular shelf. Two reconstructed stone steps and the gable-foot pipe follow the visible arrangement. Reviewed on the rebuilt Full web asset at the unchanged HABS01 camera; whole-house differences remain below.",
+      "status": "fixed"
     },
     {
       "what": "T-2228: other opening positions/proportions and stable loft/carriage alterations require date-specific reconciliation; a later alteration must not be copied merely to match the 1963 plate.",

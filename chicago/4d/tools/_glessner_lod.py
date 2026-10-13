@@ -158,11 +158,14 @@ def _construct(root, *, roof_details_reduced=True):
 
         def tiles(self,pts,confidence):
             # Every course and joint is mapped at the full model's physical
-            # module. Keep the existing alternate-course geometric sampling.
+            # module. T-2219's full service junction took Light to 200,465 tris.
+            # With the restored court bars, sample relief every sixth course; the
+            # metric texture still shows every course and joint. Silhouettes,
+            # apertures and roof planes stay exact, under the unchanged 200k cap.
             normal,poly,point,coords=self.roof_frame(pts)
             self.roof_raw(pts,confidence,d.ROOF,normal,coords)
             spec=self.params.detail['roof_tiles']
-            step=2*spec['exposure_in']*.0254
+            step=6*spec['exposure_in']*.0254
             relief=spec['lap_relief_m']
             a,z0,c,z1=d.bounds(poly)
             for row in range(math.floor(z0/step),math.ceil(z1/step)):
@@ -189,7 +192,16 @@ def _construct(root, *, roof_details_reduced=True):
                 # Its reduced stone back must close that whole same aperture.
                 d.slab(b,o,o['u0']-.435,o['u1']+.435,o['z0']-.025,o['z1']+.045,-.02,.095,o['conf'],d.TRIM)
             else:d.slab(b,o,o['u0'],o['u1'],o['z0'],o['z1'],0,.095,o['conf'],d.TRIM)
-        else:d.opening(b,o,courtyard)
+        else:
+            d.opening(b,o,courtyard)
+            # The reduced sash path omits Full's axial garden bars. Preserve
+            # their count, centres and diameter with four-sided cylinders.
+            a,c,z0,z1=o['u0'],o['u1'],o['z0'],o['z1']
+            if courtyard and o['kind']=='window' and z1<1.8 and min(c-a,z1-z0)>=.45:
+                count=max(3,round((c-a)/.115))
+                for i in range(1,count):
+                    x,y,_=legacy._plane_point(o,a+(c-a)*i/count,0,-.10)
+                    d.cylinder(b,x,y,z0+.02,z1-.02,.011,o['conf'],d.IRON,4)
     b.decorate=False
     for n in params.bands:
         legacy._band(b,n)

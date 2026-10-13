@@ -37,6 +37,7 @@
  */
 
 import * as THREE from 'three';
+import { spatialBatch } from './spatial-batch.js';
 
 const LIBRARY = 'textures/prairie_1904_rail/';
 const MAPS = {
@@ -211,7 +212,12 @@ function groundMesh(name, out, kind, lib, confidence) {
   mat.name = name;
   confidence?.patch(mat);
   mat.customProgramCacheKey = () => `chicago4d-railway-ground-${lib ? 'mapped' : 'flat'}`;
-  const mesh = new THREE.Mesh(geo, mat);
+  // T-2219: a courtyard view was submitting all 74k ballast/cinder triangles
+  // whenever any part of the kilometre-long yard entered the frustum. Use the
+  // same exact 40-m ground cells as terrain; keep UVs, alpha and pick surfaces.
+  const mesh = spatialBatch(geo, mat);
+  mesh.sortObjects = false;
+  geo.dispose();
   mesh.name = name;
   mesh.renderOrder = g.order;
   mesh.castShadow = false;
@@ -467,7 +473,7 @@ export async function createRailway({
     groundMesh('railway-verges', verge, 'verge', vergeLib, confidence),
     groundMesh('railway-ballast-beds', bed, 'bed', bedLib, confidence),
   ];
-  for (const m of groundMeshes) { group.add(m); meshes.push(m); materials.push(m.material); geometries.push(m.geometry); }
+  for (const m of groundMeshes) { group.add(m); meshes.push(m); materials.push(m.material); geometries.push(m); }
 
   /* ---- zones along the yard: rails, ties and tufts ---- */
   const ns = tracks.flatMap((t) => t.centreline_local_m.map(([, n]) => n));

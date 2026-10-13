@@ -30,6 +30,7 @@
  */
 
 import * as THREE from 'three';
+import { spatialPieces } from './spatial-batch.js';
 import { enuToWorld, bearingToYaw, toFloatAttribute } from './terrain.js';
 import { dealTones, toneFor, toneFactors, NEUTRAL_TONE } from './facades.js';
 import { loadRoofRelief } from './roof-relief.js';
@@ -370,7 +371,8 @@ function materialKey(m) {
  * @param {object} o.terrain                from createTerrain (for ground height)
  */
 export async function createBuildings({ registry, confidence, terrain, checkpoint = () => null,
-  onProgress = () => {}, preserveMaterials = false, lowSpec = false, glass = DEFAULT_GLASS }) {
+  onProgress = () => {}, preserveMaterials = false, lowSpec = false, glass = DEFAULT_GLASS,
+  spatialCells = null }) {
   const group = new THREE.Group();
   group.name = 'structures';
   const problems = [];
@@ -518,7 +520,6 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       } else if (preserveMaterials) {
         material.dispose();
       }
-      bucket.entries.push({ record, geo: prepared.geo, factors: prepared.factors });
       totalTris += prepared.geo.getIndex().count / 3;
 
       // Grow this structure's local footprint as its parts arrive — see
@@ -530,6 +531,12 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         minX: Math.min(seen.minX, gb.min.x), maxX: Math.max(seen.maxX, gb.max.x),
         minZ: Math.min(seen.minZ, gb.min.z), maxZ: Math.max(seen.maxZ, gb.max.z),
       } : { minX: gb.min.x, maxX: gb.max.x, minZ: gb.min.z, maxZ: gb.max.z });
+      // T-2219: a narrow phone courtyard view need not submit an entire
+      // building's material primitive. Keep every triangle/attribute, but let
+      // the existing BatchedMesh cull smaller pieces in each camera/shadow pass.
+      const pieces = spatialCells ? spatialPieces(prepared.geo, spatialCells) : [prepared.geo];
+      for (const geo of pieces) bucket.entries.push({ record, geo, factors: prepared.factors });
+      if (spatialCells) prepared.geo.dispose();
     }
   }
 

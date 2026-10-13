@@ -26555,3 +26555,30 @@ look; a weather record for a chosen day would set its snow.
 **Ticket:** T-2481.
 **Review:** `renderers/web/js/season.js`.
 **Recorded:** 2026-10-13 (T-2481).
+### L-glessner-service-junction-2219 — north service bay (2026-10-13)
+
+**Decision:** HABS plans 2/3 and photographs 01/15 support wider service openings than the
+former 2.4-ft reading. Door 3.9 ft and sash 4.2 ft carry ±.3-ft uncertainty.
+The north stable-gable foot at W127.75 carries ±.5 ft; the courtyard footprint
+is retained. The roof transition is a planar reconstruction constrained by the
+existing ridges and gable foot, not a surveyed valley. The visible two-step
+stoop is reconstructed at .425-ft rises and .95-ft runs; threshold .85 ft, ±.2 ft.
+The pipe/collector position follows the photographed gable join; section, dark
+metal finish and hidden connection reuse the kit and are reconstructed. Later
+1963/65 evidence is cautiously carried to 1904, excluding known garage changes.
+Low courtyard windows retain the explicitly reconstructed dimensions in T-2212;
+there is no basement plan or independent evidence for excavated well depths.
+See [the inventory and evidence bounds](RESEARCH/glessner-service-junction-T-2219.md).
+
+**Ticket:** T-2219.
+**Recorded:** 2026-10-13 (T-2219).
+
+T-2219 Light-tier detail: geometric tile-lap relief is sampled every sixth course,
+formerly every second, after the initial repaired asset measured 200,465 triangles.
+The unchanged 200,000 ceiling is retained; metric textures still show every course.
+Roof planes, silhouette, aperture schedule and Full geometry are unaffected.
+Light restores the 104 axial courtyard bars omitted by its simplified sash path,
+using four-sided rather than Full’s six-sided 22-mm cylinders at identical centres.
+The renderer partitions complete building triangles into 4-m plan / 2-m height
+cells in Balanced/Light inspection: tighter culling preserves all surfaces, attributes
+and shadow geometry without raising the phone frame allowance.
