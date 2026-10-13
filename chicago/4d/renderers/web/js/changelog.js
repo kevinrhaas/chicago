@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1748, ts: '2026-10-13T05:19:41.971Z', date: 'Oct 13, 2026, 12:19 AM CT', title: '1620 Prairie stands as tall as its 1874 engraving', kind: 'fix',
+    items: [
+      'The Robert Law house is 2.7 m taller. The engraving had been read from an eye below the street; read again from the street fence\'s foot, it shows a principal floor 2 m up and a cornice at 10.9 m.',
+      'Its two storeys are now 4.8 and 4.1 m, with the engraving\'s long windows, and the porch, stoop and pavilion are raised with them.',
+      'The window sills and the bay window\'s height are still liberties.',
+    ] },
   { v: 1747, ts: '2026-10-13T04:58:03.643Z', date: 'Oct 12, 2026, 11:58 PM CT', title: 'Glessner\'s courtyard windows, sash by sash', kind: 'change',
     items: [
       'The Glessner courtyard\'s windows are now real double-hung sash on rock-faced stone sills, where each was one dark pane behind a flat frame. The hall bow and the dining bay have the same sash on their curved and angled faces.',
