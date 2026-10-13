@@ -25661,7 +25661,7 @@ as a `k01_frontage` record built by `generators/k01_emit.py`: a K02 smooth Lemon
 front over two rusticated base courses on K03 brick side and rear walls, the drawing's round-arched
 window in the principal storey under a ring of voussoirs with a round-headed basement light under it,
 the door in the south bay at the head of a K07 stoop, K08's canted corbelled oriel across the second
-storey with four mullioned transomed lights to its front and one in each cant under a low copper hood,
+storey with three mullioned transomed lights to its front and blind cheeks under a low copper hood,
 a K10 bracketed cornice at 9.75 m, a 45-degree slate K04/K05 hip, two brick stacks on the north party
 wall, and copper gutters and pipes.
 **Which number.** The drawing letters the right-hand house "G. Farwell Esq."; the 1885 permits put it
@@ -25688,7 +25688,7 @@ sheet controls the plan. The sheet's register reads the group as brick and recor
 **What is not built.** The oriel is 3.38 m at the wall and 0.5 m out where the drawing's is about 4.8 m
 and 0.9 m, and the window and door under it stand about 0.3 m nearer their corners than the drawing's,
 because K01 lays no opening whose centre falls under an oriel's span and its corbelling may oversail
-only so far between the second floor and the entrance's head; the oriel's carved frieze, its upper stage
+only so far between the second floor and the entrance's head; its four front lights and two cheek lights (three and none are built); the oriel's carved frieze, its upper stage
 of lights and its steep conical roof rising through the eave; the entrance's own round arch, its carved
 light and glazed door; the basement light's segmental head and iron grille; the stoop's newels and
 rails; the rock-faced blocks about the arches; the stack's steps — each listed `open` in the match
@@ -25696,7 +25696,7 @@ record. The strip north of the main body behind its front part and the light wel
 **How to resolve:** T-2435 builds what the drawing shows and brings its match record to `matches`; a
 photograph of the house after 1886 settles the stone, the oriel's depth and whether the 1886 design was
 built as drawn.
-**Covers:** `house_1623_prairie.as_mapped_1904.form.storey_heights_m`, `house_1623_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1623_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1623_prairie.as_mapped_1904.form.service_wall_brick`, `house_1623_prairie.as_mapped_1904.form.stone_front`, `house_1623_prairie.as_mapped_1904.form.wall_head`, `house_1623_prairie.as_mapped_1904.form.roof_form`, `house_1623_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1623_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1623_prairie.as_mapped_1904.form.stair_tread_m`, `house_1623_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1623_prairie.as_mapped_1904.form.rear_bays`, `house_1623_prairie.as_mapped_1904.form.sash_by_storey`, `house_1623_prairie.as_mapped_1904.form.chimneys`, `house_1623_prairie.as_mapped_1904.form.rainwater`, `house_1623_prairie.as_mapped_1904.form.window_kit`, `house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`, `house_1623_prairie.as_mapped_1904.form.bays`, `house_1623_prairie.as_mapped_1904.form.front_bays`, `house_1623_prairie.as_mapped_1904.form.street_front_openings`
+**Covers:** `house_1623_prairie.as_mapped_1904.form.storey_heights_m`, `house_1623_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1623_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1623_prairie.as_mapped_1904.form.service_wall_brick`, `house_1623_prairie.as_mapped_1904.form.stone_front`, `house_1623_prairie.as_mapped_1904.form.wall_head`, `house_1623_prairie.as_mapped_1904.form.roof_form`, `house_1623_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1623_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1623_prairie.as_mapped_1904.form.stair_tread_m`, `house_1623_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1623_prairie.as_mapped_1904.form.rear_bays`, `house_1623_prairie.as_mapped_1904.form.sash_by_storey`, `house_1623_prairie.as_mapped_1904.form.chimneys`, `house_1623_prairie.as_mapped_1904.form.rainwater`, `house_1623_prairie.as_mapped_1904.form.window_kit`, `house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`
 **Ticket:** T-2433 (piece 2 of T-1869).
 **Review:** `docs/RESEARCH/k01-1623-farwell-2433/README.md`.
 **Recorded:** 2026-10-13 (T-2433).

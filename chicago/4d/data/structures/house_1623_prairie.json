@@ -228,27 +228,15 @@
                   "windows": [
                     {
                       "opening": "k06.opening.sash_transom_flat",
-                      "clear_width_m": 0.35,
-                      "clear_height_m": 2.0,
-                      "sill_m": 0.15,
-                      "at": [
-                        0.5
-                      ],
-                      "recess_m": 0.2,
-                      "why_not_ordinary": "an oriel's cheek light: narrower than an ordinary sash so it fits the canted cheek"
-                    },
-                    {
-                      "opening": "k06.opening.sash_transom_flat",
                       "clear_width_m": 0.4,
                       "clear_height_m": 2.0,
                       "sill_m": 0.15,
                       "at": [
-                        0.15,
-                        0.383,
-                        0.617,
-                        0.85
+                        0.3105,
+                        0.5,
+                        0.6895
                       ],
-                      "why_not_ordinary": "a mullioned oriel's light, four to its 2.4 m front between stone mullions, as the drawing draws them"
+                      "why_not_ordinary": "a mullioned oriel's light, three to its 2.4 m front between stone mullions, as narrow as the drawing's"
                     }
                   ]
                 }
@@ -268,7 +256,7 @@
           "sources": [
             "building_budget_1886_06_hamline_farwell_houses"
           ],
-          "note": "The drawing's canted oriel, read through its camera: centred on the front, about 4.8 m across where its cants meet the wall and 3.4 m of front, standing on corbelling over the two arches from about 4.9 m, its sill at the second floor (about 5.8 m), four tall transomed lights across its front and one in each cant, then a carved frieze at about 8.1-9.0 m and an upper stage of short lights under a steep conical roof whose eave stands at about 10.9 m. The K08 kit's canted corbelled oriel is sized to it as far as the kit lets it go: 3.38 m at the wall and 2.4 m of front (the drawing's 4.8 and 3.4 m: K01 lays no opening whose centre falls under an oriel's span, and the window and door under it stand at 1.45 and 4.85 m), and 0.5 m out (the drawing's reads deeper, about 0.9 m), because four 0.2 m corbel courses are all that fit between the second floor and the entrance's head and the kit's oversail rule lets four carry no more; one storey, 2.8 m, under a low copper hood that stops under the main cornice's bed moulding. The transomed lights are K06's, sized to the drawing's (their leaded transoms are drawn as a lattice). The carved frieze, the upper stage and the cone are not built (match record, T-2435)."
+          "note": "The drawing's canted oriel, read through its camera: centred on the front, about 4.8 m across where its cants meet the wall and 3.4 m of front, standing on corbelling over the two arches from about 4.9 m, its sill at the second floor (about 5.8 m), four tall transomed lights across its front and one in each cant, then a carved frieze at about 8.1-9.0 m and an upper stage of short lights under a steep conical roof whose eave stands at about 10.9 m. The K08 kit's canted corbelled oriel is sized to it as far as the kit lets it go: 3.38 m at the wall and 2.4 m of front (the drawing's 4.8 and 3.4 m: K01 lays no opening whose centre falls under an oriel's span, and the window and door under it stand at 1.45 and 4.85 m), and 0.5 m out (the drawing's reads deeper, about 0.9 m), because four 0.2 m corbel courses are all that fit between the second floor and the entrance's head and the kit's oversail rule lets four carry no more; one storey, 2.8 m, under a low copper hood that stops under the main cornice's bed moulding. Three K06 transomed lights, sized to the drawing's, stand across its front, the most the kit lays on 2.4 m, and its 0.7 m cheeks are blind (their leaded transoms are drawn as a lattice). The carved frieze, the upper stage and the cone are not built (match record, T-2435)."
         },
         "side_bays": {
           "value": [],

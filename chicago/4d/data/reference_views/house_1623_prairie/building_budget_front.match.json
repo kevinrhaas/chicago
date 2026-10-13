@@ -2,7 +2,7 @@
  "structure_id": "house_1623_prairie",
  "view": "building_budget_front",
  "glb": "assets/gltf/house_1623_prairie__as_mapped_1904.glb",
- "glb_sha256": "9a960723635ab6b45bdff3a5c72391d46b569489435075998b33d5b919fb3db9",
+ "glb_sha256": "98dcd32c61ed7a9f8add97222f6950d38bb5544644c8156951bbfca4c3e24d5d",
  "camera_sha256": "11659dfcf3ba97045918dcf86c57473f7866482a17b88095daed6d2224a7eee9",
  "side_by_side": "docs/RESEARCH/photo-match/house_1623_prairie/building_budget_front-side-by-side.jpg",
  "verdict": "differs",
@@ -23,14 +23,19 @@
    "how": "T-2433: K01's arched principal light on K06's wide fanlight sash, 1.6 m across under a 0.35 m voussoir ring, its sill and crown within about 3 px; K06's round-headed basement light under it. Its lattice transom and the drawing's 1.8 m width are the next two rows"
   },
   {
-   "what": "the oriel's place and second storey: a canted oriel on corbelling over the arches, its sill at the second floor, four tall transomed lights across its front and one in each cant",
+   "what": "the oriel's place and second storey: a canted oriel on corbelling over the arches, its sill at the second floor, tall transomed lights in it",
    "status": "fixed",
-   "how": "T-2433: K08's canted corbelled oriel centred on the front from the second floor on four corbel courses, four K06 transomed lights 0.4 m across to its front and one 0.35 m in each cant; its sill within about 10 px"
+   "how": "T-2433: K08's canted corbelled oriel centred on the front from the second floor on four corbel courses, three K06 transomed lights 0.4 m across to its front; its sill within about 10 px"
   },
   {
    "what": "the oriel's size: about 4.8 m across at the wall, 3.4 m of front and about 0.9 m out; the build's is 3.38 m, 2.4 m and 0.5 m, so its edges stand 27-40 px inside the drawing's",
    "status": "open",
    "how": "T-2435: K01 lays no opening whose centre falls under an oriel's span (the window and door stand under the drawing's) and four corbel courses carry 0.5 m; docs/RESEARCH/k01-1623-farwell-2433/README.md § What K01 could not do"
+  },
+  {
+   "what": "the oriel's lights: four to its front and one in each cant, between stone mullions; the build's three to its front and its 0.7 m cheeks blind, the most the K08 kit lays on an oriel that size",
+   "status": "open",
+   "how": "T-2435, with the oriel's size"
   },
   {
    "what": "the oriel above its second storey: a carved frieze at about 8.1-9.0 m, an upper stage of five shorter lights to about 10.4 m, and a steep conical slate roof with a finial whose eave stands at about 10.9 m, above the main cornice, and apex at about 13.4 m; the build's oriel stops at 8.55 m under a low copper hood, under a 45-degree hip",
@@ -79,5 +84,5 @@
   }
  ],
  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
- "reviewed": "T-2433, 2026-10-13, side by side at docs/RESEARCH/photo-match/house_1623_prairie/building_budget_front-side-by-side.jpg, element by element against the drawing"
+ "reviewed": "T-2433, 2026-10-13, side by side at docs/RESEARCH/photo-match/house_1623_prairie/building_budget_front-side-by-side.jpg, element by element against the drawing; re-reviewed after the oriel's lights were refitted to the K08 kit's rules"
 }

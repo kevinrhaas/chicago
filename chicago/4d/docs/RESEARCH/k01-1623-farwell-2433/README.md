@@ -62,8 +62,8 @@ puts the front's middle where the drawing does. Residuals and their reasons are 
 
 `data/reference_views/house_1623_prairie/building_budget_front.match.json`, verdict **differs**. Fixed:
 the massing (the front's edges within about 7 px, the eave within 3), the raised basement and principal
-floor, the arched window's sill and crown, the oriel's place, sill and second-storey lights, the stoop
-in the south bay, the slate and the stack. Open for **T-2435**: the oriel's width and depth, its frieze,
+floor, the arched window's sill and crown, the oriel's place and sill, the stoop
+in the south bay, the slate and the stack. Open for **T-2435**: the oriel's width and depth, its lights (three to the front where the drawing has four, the cheeks blind), its frieze,
 upper stage and cone; the entrance arch; the openings' places under the oriel; the basement grille; the
 stoop's rails; the rock-faced blocks. Not shown: colour.
 
