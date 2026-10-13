@@ -56,6 +56,7 @@ import { TURF_TILE_PX, TURF_TILE_M, turfTilePixels, turfTileMeanGrain, bareCut }
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { HORIZON_HAZE } from './world.js';
 import { loadMeshoptDecoder } from './scene-loader.js';
+import { SEASON_HEAD, seasonShaderUniforms } from './season.js';
 
 // DEG and the bearing/yaw conversions are pure arithmetic and live in angles.js,
 // so a caller that needs only those does not load three behind them (T-1257).
@@ -1963,11 +1964,13 @@ function groundMaterial(zones = [], lakeShore = null,
     if (lakeShore) shader.uniforms.uChiShore = { value: shoreUniform(lakeShore, THREE) };
     if (nearHole) shader.uniforms.uChiNearHole = nearHole;
     if (turf) Object.assign(shader.uniforms, turf.uniforms);
+    seasonShaderUniforms(shader);
     shader.vertexShader = 'varying vec3 vChiWorld;\n' + shader.vertexShader.replace(
       '#include <begin_vertex>', '#include <begin_vertex>' + WORLD_POS_VERT,
     );
     shader.fragmentShader = `
 varying vec3 vChiWorld;
+${SEASON_HEAD}
 uniform sampler2D uGround;
 uniform float uPrairieLuma;
 ${SWARD_HEAD}
@@ -1984,6 +1987,7 @@ ${GROUND_CUT_FRAGMENT}`)
 ${zoneGlsl(zones, lakeShore)}
 ${turf ? TURF_FRAGMENT : ''}
   diffuseColor.rgb = chiPrairie;
+  diffuseColor.rgb = chiSeason(diffuseColor.rgb, vChiWorld.xz, 1.0, 1.0);
 `)
       .replace('#include <normal_fragment_maps>', SWARD_NORMAL + (turf ? TURF_NORMAL : ''));
   };

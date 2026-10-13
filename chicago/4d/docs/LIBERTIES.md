@@ -26531,3 +26531,27 @@ places each joint, and a photograph of a crossing shows how it wore.
 **Ticket:** T-2475.
 **Review:** `docs/RESEARCH/prairie_1904_street_seams.md`.
 **Recorded:** 2026-10-13 (T-2475).
+
+### L-season-view-2481 — The 1904 Season setting: spring, fall and winter drawn on a scene dated 1 July
+
+**Decision:** Settings › Season offers summer (the scene's own 1 July 1904, the default), spring,
+fall and winter. A season other than summer moves the sun to a day in the scene's year at the
+scene's own hour (25 April for first leaf, 20 October for the elms' yellow, 21 December for the
+solstice) and repaints the scene: a fresher green sward in spring; a browner sward, yellow elms
+and fallen leaves in fall; and in winter snow lying on the lawns, parkways, roofs and the faded
+city, trodden on the roadways, swept off the walks, with the elms bare
+(`renderers/web/js/season.js`).
+**What it stands on:** the sun's path is computed (NOAA's algorithm, `world.js`) for the datum's
+latitude and longitude, so it is right for the date it names. The American elm's clear yellow
+autumn colour and early leaf fall are the species' own (the same species record the parkway elms
+use).
+**What is invented:** everything about any particular day: how much snow lay, where it was
+cleared, how green the lawns were, when the leaves turned and fell, and the dates themselves,
+which are chosen to agree with the leaves rather than read from any record of 1904. The scene
+reconstructs 1 July; the other seasons are a way of looking at it, never a claim about the
+district on those days.
+**How to resolve:** dated photographs of Prairie Avenue in other seasons would set each season's
+look; a weather record for a chosen day would set its snow.
+**Ticket:** T-2481.
+**Review:** `renderers/web/js/season.js`.
+**Recorded:** 2026-10-13 (T-2481).
