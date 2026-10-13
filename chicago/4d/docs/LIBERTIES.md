@@ -14473,7 +14473,7 @@ than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
-**Scope:** `structures.records[brick_fabric]` — 105 structures (106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
+**Scope:** `structures.records[brick_fabric]` — 106 structures (105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
 `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four
 are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
 `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says "two records are
@@ -24218,6 +24218,12 @@ sheet's four-storey rear section beside it is not built until T-2435.
 brick frontage read off the engraving of Jesse Spalding's remodel of the Grosvenor house, under
 `L-k01-1637-spalding-remodel-2441`, under the same id; its draft attributes are gone. Its coach house
 stays a draft here.
+**1635 added to this liberty by T-2443 (2026-10-13):** "1635, nothing" above no longer holds. T-2443
+rules the Forsyth house standing, empty, on 1 July 1904, and the draft now stands it as
+`forsyth_house_1635_prairie` from Robinson 1886's outline on lot 6, the plate's third house after
+1620 and the 1609/1611 pair, under this entry's rules: its height, roof, openings and stoop are the
+draft's reconstruction. Its width is the 1911 strip's own, wall to wall, not the plate fit's (the plate
+draws it filling lot 6; `fills_lot`). The ruling itself is `L-1635-forsyth-standing-empty-2443`'s.
 **Ticket:** T-2335 (piece 2 of T-2160, the district draft's 16th-18th block).
 **Review:** `docs/RESEARCH/prairie-draft-16-18-east-2335/README.md`.
 **Recorded:** 2026-10-11 (T-2335).
@@ -26086,6 +26092,12 @@ one: the draughtsman's depth is not the camera's (the camera's own solve says so
 length is K07's, not read.
 **How to resolve:** T-2443's ruling on 1635 decides whether the wall runs on north; a photograph of the
 front at ground level would fix the line, the pickets and the stoop.
+**Revised by T-2443 (2026-10-13):** T-2443 rules a house standing on the strip on 1 July 1904
+(`L-1635-forsyth-standing-empty-2443`), so the wall does not run on across a garden there: its north
+end on the lot line now meets the south flank of the 1635 house, whose front the 1886 plate puts about
+4 m before 1637's, near the wall's own line. The engraving's wall running past the lot line is read as
+the plate's and the sheet's lines disagreeing by about 2 m here, not as a garden; nothing in the
+record moves.
 **Ticket:** T-2447 (piece 1 of T-2442).
 **Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
 **Recorded:** 2026-10-13 (T-2447).
@@ -26179,3 +26191,30 @@ cut depth and letter heights.
 **Ticket:** T-2214 (GA-13A).
 **Review:** `docs/RESEARCH/glessner-datestone-2214/README.md`.
 **Recorded:** 2026-10-13 (T-2214).
+
+### L-1635-forsyth-standing-empty-2443 — 1635 Prairie ruled standing on 1 July 1904, and empty: the Forsyth house stood up from its 1886 outline although no 1904 source names it
+
+**Decision:** T-2443 (piece 3 of T-1870) rules that the house built in 1863 for Col. Robert Forsyth
+at 1635 still stood on 1 July 1904, with nobody living in it, and the scene stands it as the district
+draft `forsyth_house_1635_prairie` on the strip `prairie_1625_1637_c`, read off Robinson 1886 plate 10
+(`docs/RESEARCH/forsyth-1635-2443/README.md`). The weighing in one line: it is documented occupied
+from 1874 to 1902 and nothing dates its loss before the 1911 sheet shows the strip open; the 1904
+Blue Book's silence follows the Springers' move to 85 Rush in 1902, and a move is not a demolition
+(T-1870's own phase guard).
+**What is inferred, not attested.** That the house stood in 1904 at all: no source of 1903-1904
+mentions it, standing or gone. That it was empty: the Blue Book is a society register, so a house let
+to a household outside it would be silent too; "empty" is the reading that claims least.
+**What is invented.** Everything the draft rules reconstruct (two storeys from the 1895 lease report's
+one line, a low bracketed hip for an 1863 Italianate villa, two bays, two stacks, the door on the north
+flank toward the open lots 3-5); its width set to the 1911 strip's 5.7 m where the plate draws lot 6
+6.7 m wide, the house filling it wall to wall. Not built: the "large barn" of the 1893 advertisement,
+which the 1886 plate does not draw; the lawn, fountain and four statues a neighbour remembered in the
+grounds; any sign that the house stood empty.
+**How to resolve:** a demolition (wrecking) permit for 1635 between 1902 and 1911, a Sanborn or
+directory of 1903-1906 read by address, or a Tribune real-estate item on the lot after 1902 decides
+it either way. If the house was gone, delete the plate row `r1886-1635-f` and the census row returns
+to open ground; T-2447's garden wall may then run on north across it.
+**Covers:** `forsyth_house_1635_prairie.draft_1904.form.stories`, `forsyth_house_1635_prairie.draft_1904.form.draft_elevation`, `forsyth_house_1635_prairie.draft_1904.form.draft`.
+**Ticket:** T-2443 (piece 3 of T-1870).
+**Review:** `docs/RESEARCH/forsyth-1635-2443/README.md`.
+**Recorded:** 2026-10-13 (T-2443).

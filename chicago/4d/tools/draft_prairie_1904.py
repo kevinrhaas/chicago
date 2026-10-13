@@ -307,7 +307,8 @@ def build_records(rules=None) -> dict:
         joined = {j["from"] for j in joins.values()}
         fixes = {k: v for k, v in block.get("census_fix", {}).items() if not k.startswith("_")}
         traced = {b["id"]: (pc, b) for pc in trace["parcels"] for b in pc["buildings"]}
-        for parcel in plate_parcels(block, fronts, polys) + trace["parcels"]:
+        vacant = {v["id"]: v for v in census.get("vacant_ground", [])}
+        for parcel in plate_parcels(block, fronts, polys, vacant) + trace["parcels"]:
             side = parcel["side"]
             if side not in block["sides"]:
                 continue
@@ -379,17 +380,19 @@ def join_building(b, parcel, j, traced, grid, frame) -> dict:
                      "lot_v": (min(every), max(every)), "party_v": mv[0] if tv < mv[0] else mv[1]}}
 
 
-def plate_parcels(block, fronts, polys) -> list:
+def plate_parcels(block, fronts, polys, vacant=None) -> list:
     """Houses the 1911 sheet does not draw but the census stands for 1904 on an earlier
     plate (sheet 20's 1620, carried from Robinson 1886): the block's `plates` rows give the
     outline in that plate's pixels, and its GCP file's similarity carries them to local
-    metres, so the house is drafted from the plate the way a traced house is from the sheet."""
+    metres, so the house is drafted from the plate the way a traced house is from the sheet.
+    A plate row on ground the sheet leaves unnumbered names its census `vacant_id` instead of
+    a frontage (1635, ruled standing by T-2443), and has no frontage row of its own."""
     out = []
     for pl in block.get("plates", []):
         co = json.loads((ROOT / pl["gcps"]).read_text())["fit"]["coefficients"]
         ring = [[round(co["a"] * x + co["b"] * y + co["c"], 2), round(co["d"] * x + co["e"] * y + co["f"], 2)]
                 for x, y in pl["polygon_px"]]
-        f = fronts[pl["frontage_id"]]
+        f = fronts[pl["frontage_id"]] if pl.get("frontage_id") else {**(vacant or {})[pl["vacant_id"]], "frontage_id": None}
         polys[pl["id"]] = (f, {"id": pl["id"], "kind": "front", "reading_1911": "", "reading_plate": pl["reading"]})
         area = abs(sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(ring, ring[1:] + ring[:1]))) / 2
         out.append({"parcel_id": pl["parcel_id"], "side": f["side"], "lot_parcels": pl["lot_parcels"],
@@ -454,6 +457,11 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
         for k, r in enumerate(rs):
             pieces.append({"trace_part": part["id"], "trace_role": part["role"], "material": part["material"],
                            "rect": r, "k": k, "coverage": round(cov, 3)})
+    if plate and plate.get("fills_lot"):
+        # a plate house drawn filling its lot wall to wall (1635) stands between the 1911 strip's
+        # own lines, not wherever the plate's 4.5 m fit carries its outline across them
+        for p in pieces:
+            p["rect"] = [p["rect"][0], lot_v[0], p["rect"][2], lot_v[1]]
     if not pieces or pieces[0]["trace_role"] != "main":
         # a building whose largest traced part is not a 'main' (a crossed stable) still has a body
         pieces.sort(key=lambda p: -_area(p["rect"]))
