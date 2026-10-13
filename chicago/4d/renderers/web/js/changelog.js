@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1777, ts: '2026-10-13T21:20:29.038Z', date: 'Oct 13, 2026, 4:20 PM CT', title: 'Glessner’s north gable joins its round tower', kind: 'fix',
+    items: [
+      'The north gable continues flat into the tower, with the paired windows and attic light aligned to historic photographs. Staggered stone courses wrap the curved side, and the flared roof ends at the sloping gable.',
+    ] },
   { v: 1776, ts: '2026-10-13T20:23:16.623Z', date: 'Oct 13, 2026, 3:23 PM CT', title: 'The Illinois Central tracks now run along the lake in 1904', kind: 'feature',
     items: [
       'East of Prairie Avenue, eleven to fifteen tracks now run along the lake, traced from the 1911 fire insurance maps. The open lawn that was there before is gone.',
