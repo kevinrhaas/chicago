@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 525,
+  "count": 526,
   "liberties": [
     {
       "id": "L1",
@@ -30410,18 +30410,6 @@
         },
         {
           "domain": "structure",
-          "structure": "spalding_house_1637_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "spalding_house_1637_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "spalding_house_1637_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -30438,7 +30426,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1621_prairie.draft_1904.form.draft_elevation`, `house_1621_prairie.draft_1904.form.draft`, `house_1625_prairie.draft_1904.form.draft_elevation`, `house_1625_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1621_prairie.draft_1904.form.draft_elevation`, `house_1621_prairie.draft_1904.form.draft`, `house_1625_prairie.draft_1904.form.draft_elevation`, `house_1625_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -30450,7 +30438,7 @@
         },
         {
           "label": "Retired in part",
-          "text": "1609 and 1611, the lost lot-6 frame pair, by T-1867, which refined both in place on the K16 timber kit as two clapboard houses on one party wall under `L-k16-1609-1611-frame-pair-1867`, under the same ids; their draft attributes are gone. **1613 retired from this liberty by T-2417 (2026-10-12):** the north half of the 1613/1615 pair now stands as the K01 brick frontage under K01's flat roof, with its frame rear porch on K01's rear wings, recorded as `L-k01-1613-brick-flat-2417`, under the same id; its draft attributes are gone. **1615 retired from this liberty by T-2418 (2026-10-13):** the south half of the pair now stands as the K01 brick frontage under K01's flat roof, laid on 1613's south wall, with the sheet's frame projection on its south wall and its frame rear porch, recorded as `L-k01-1615-brick-flat-2418`, under the same id; its draft attributes are gone. **1619 retired from this liberty by T-2420 (2026-10-12):** its main body now stands as the K01 stone-front frontage with its full-height swell bay, read off Treat & Foltz's drawing of the Hamline house, under `L-k01-1619-hamline-swell-front-2420`, under the same id; its draft attributes are gone. **1623 retired from this liberty by T-2433 (2026-10-13):** its main body now stands as the K01 stone-front frontage with its corbelled oriel, read off Treat & Foltz's drawing of Granger Farwell's house, under `L-k01-1623-farwell-oriel-front-2433`, under the same id; its draft attributes are gone."
+          "text": "1609 and 1611, the lost lot-6 frame pair, by T-1867, which refined both in place on the K16 timber kit as two clapboard houses on one party wall under `L-k16-1609-1611-frame-pair-1867`, under the same ids; their draft attributes are gone. **1613 retired from this liberty by T-2417 (2026-10-12):** the north half of the 1613/1615 pair now stands as the K01 brick frontage under K01's flat roof, with its frame rear porch on K01's rear wings, recorded as `L-k01-1613-brick-flat-2417`, under the same id; its draft attributes are gone. **1615 retired from this liberty by T-2418 (2026-10-13):** the south half of the pair now stands as the K01 brick frontage under K01's flat roof, laid on 1613's south wall, with the sheet's frame projection on its south wall and its frame rear porch, recorded as `L-k01-1615-brick-flat-2418`, under the same id; its draft attributes are gone. **1619 retired from this liberty by T-2420 (2026-10-12):** its main body now stands as the K01 stone-front frontage with its full-height swell bay, read off Treat & Foltz's drawing of the Hamline house, under `L-k01-1619-hamline-swell-front-2420`, under the same id; its draft attributes are gone. **1623 retired from this liberty by T-2433 (2026-10-13):** its main body now stands as the K01 stone-front frontage with its corbelled oriel, read off Treat & Foltz's drawing of Granger Farwell's house, under `L-k01-1623-farwell-oriel-front-2433`, under the same id; its draft attributes are gone. **1637 retired from this liberty by T-2441 (2026-10-13):** its main body now stands as the K01 brick frontage read off the engraving of Jesse Spalding's remodel of the Grosvenor house, under `L-k01-1637-spalding-remodel-2441`, under the same id; its draft attributes are gone. Its coach house stays a draft here."
         },
         {
           "label": "Ticket",
@@ -35082,6 +35070,122 @@
         {
           "label": "Recorded",
           "text": "2026-10-13 (T-2433)."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-1637-spalding-remodel-2441",
+      "title": "1637 Prairie refined from the district draft to a K01 brick block read off the engraving of Jesse Spalding's remodel, on the 1911 sheet's plan, its wing's own roof and its gabled dormers stood in for until K01 can build them",
+      "section": "per_subject",
+      "subjects": [
+        "spalding_house_1637_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        }
+      ],
+      "recorded": "2026-10-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the house at 1637 Prairie Avenue (T-2441, piece 1 of T-1870) is no longer a district draft. It stands, under the draft's own id `spalding_house_1637_prairie`, as a `k01_frontage` record built by `generators/k01_emit.py`, against its one picture of the remodelled front: a line engraving of the Grosvenor house as Jesse Spalding remodelled it, reproduced by the Glessner House Museum (`glessner_blog_1637_spalding_remodel_engraving`). A K03 brick block of a raised basement and two tall storeys under K10's bracketed cornice; a K08 swell bay of three windows a storey at the north end of the front and the sheet's forward wing at the south end as a K08 full-height projection under a flat tin deck; the K07 door up its stoop between them; K06 two-over-two sash under flat lintels; a K05 mansard with slated lower faces, two round-headed dormers on the street face and one on the north face; three plain stacks; the sheet's two-storey rear range behind the south part, flat-roofed. **What is read, not invented.** From the 1911 Sanborn sheet 20 (trace s20fp-1637-b1, census s20-1637-f): the main body's place and plan (11.0 m deep by 13.1 m, the trace's own width where the draft's fit had stopped at 11.5 m), the south 4.8 m standing 1.0 m forward, the rear range behind it, brick, the storeys ('2½B'). From the engraving, through its solved camera (`data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.json`): the front's composition (bay, door, wing), the principal floor's 2.3 m over grade, the second floor's and the cornice's heights, the windows' places and storeys, three windows round the bay, the dormers' places, the stacks' places and tops, the steep slated roof, the windows in the north flank. **What is invented.** The walls' thickness; the brick's colour and the trim's; every window's kind and the glazing (the engraving's bars are not legible); the windows' heights past the K01 contract's 2.4 m; the cornice's kit; the upper hip over the curb, its pitch and its tin; the stoop's flight; the rear wall's and the rear range's windows; the south wall left blind; the downpipes. **What is not built.** The wing standing further forward under its own steep hipped roof as high as the main roof; the gabled dormers' heads and square-headed sashes; the French window and balcony on the wing's principal floor, the stoop's rails, the basement's round-headed lights; the bay and the wing rising to the cornice itself; the stacks' panelled shafts and caps; the garden wall and the iron fence. All are open in the match record for T-2442, which also weighs the c. 1870 photograph of the house as built and the 1911 sheet's frame porch across the north part, both evidence of their own dates."
+        },
+        {
+          "label": "How to resolve",
+          "text": "T-2442 builds what is open and brings the match record to `matches`; the engraving's source publication, if found, dates the remodel."
+        },
+        {
+          "label": "Covers",
+          "text": "`spalding_house_1637_prairie.as_mapped_1904.form.wall_thickness_front_m`, `spalding_house_1637_prairie.as_mapped_1904.form.wall_thickness_side_m`, `spalding_house_1637_prairie.as_mapped_1904.form.service_wall_brick`, `spalding_house_1637_prairie.as_mapped_1904.form.street_front_trim`, `spalding_house_1637_prairie.as_mapped_1904.form.roof_pitch_deg`, `spalding_house_1637_prairie.as_mapped_1904.form.eave_overhang_m`, `spalding_house_1637_prairie.as_mapped_1904.form.stair_tread_m`, `spalding_house_1637_prairie.as_mapped_1904.form.stair_landing_depth_m`, `spalding_house_1637_prairie.as_mapped_1904.form.stoop_width_m`, `spalding_house_1637_prairie.as_mapped_1904.form.north_bays`, `spalding_house_1637_prairie.as_mapped_1904.form.rear_bays`, `spalding_house_1637_prairie.as_mapped_1904.form.rainwater`, `spalding_house_1637_prairie.as_mapped_1904.form.window_kit`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2441 (piece 1 of T-1870)."
+        },
+        {
+          "label": "Review",
+          "text": "`data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-13 (T-2441)."
         }
       ]
     },
