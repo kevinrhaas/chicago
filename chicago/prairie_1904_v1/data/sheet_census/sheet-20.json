@@ -1417,14 +1417,15 @@
    "placed_on": [
     "prairie_1625_1637_c"
    ],
-   "decision_1904": "phase_unresolved",
-   "why": "Forsyth's 1635 stood on the strip next to 1637 (prairie_1625_1637_c by adjacency; the lot numbers of the two maps are not reconciled one to one), not on 1625's lot where the site plan used to put it. Whether it stood on 1 July 1904 neither map decides; there is no 1904 directory listing at 1635. T-1870 rules on its presence. Until then nothing is built here.",
+   "decision_1904": "backcast_1886",
+   "why": "Forsyth's 1635 stood on the strip next to 1637 (prairie_1625_1637_c by adjacency; the lot numbers of the two maps are not reconciled one to one), not on 1625's lot where the site plan used to put it. T-2443 rules it STANDING, EMPTY, on 1 July 1904 (4d/docs/RESEARCH/forsyth-1635-2443/README.md): the house is documented occupied from 1874 to 1902 (Herrick in the directories to 1885; Warren Springer, its owner, in every Blue Book from 1895 to the 1902 edition), and nothing dates its loss before the 1911 sheet, which shows the strip open. The 1904 Blue Book lists nobody at 1635, which is read as an empty house, not a demolition: the Springers' move to 85 Rush in 1902 is relocation, and relocation is not demolition proof (T-1870's phase guard). The 4D scene stands it from Robinson 1886's outline on lot 6 (draft plate row r1886-1635-f). Lots 3-5 (prairie_1625_1637_a and _b) stay open ground, as both maps draw them.",
    "tiers": {
     "identity": "attested",
-    "presence_1904": "unresolved",
-    "envelope": "unresolved"
+    "presence_1904": "inferred",
+    "envelope": "reconstructed"
    },
-   "front_package": "T-1870"
+   "front_package": "T-1870",
+   "ruling_ticket": "T-2443"
   }
  ],
  "excluded_records": [
