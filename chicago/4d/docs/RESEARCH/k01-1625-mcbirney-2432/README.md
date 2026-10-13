@@ -28,7 +28,7 @@ Read off the plate itself, at 2x:
 - the **south side wall in brick** with single windows, and behind it the **four-storey rear
   section** stepping out to the south under a mansard with a dormer and a stack;
 - at the left edge, the **Farwell house's oriel and arched entrance** adjoining it on the north —
-  the right-hand house of Treat & Foltz's 1886 drawing (T-2433 takes up which number that is).
+  the right-hand house of Treat & Foltz's 1886 drawing, which T-2433 placed at 1623.
 
 ## The camera
 
