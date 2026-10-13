@@ -1,0 +1,267 @@
+{
+  "method": "Actual published /1904/ app, normal boot, full desktop and light mobile; animation paused after readiness. T-2212: courtyard, bow and bay window stands under the actual scene light. QA_BASE set: the before- captures are the live dev preview at that address.",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:42293/data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:42293/data/gltf/glessner_house__as_built_1887.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "court-photo05",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 153,
+            "triangles": 3301536,
+            "programs": 37,
+            "geometries": 126,
+            "textures": 302,
+            "batches": 97,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 72620280,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1354.671395352299,
+            6.040440280685425,
+            3238.733286451848
+          ]
+        },
+        {
+          "name": "underpass-lights",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 154,
+            "triangles": 3299337,
+            "programs": 37,
+            "geometries": 128,
+            "textures": 306,
+            "batches": 97,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 72620280,
+            "fps": 0,
+            "cameraNear": 0.2,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1371.6597281303646,
+            9.540440280685425,
+            3237.6348560163137
+          ]
+        },
+        {
+          "name": "hall-bow",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 145,
+            "triangles": 3303862,
+            "programs": 37,
+            "geometries": 128,
+            "textures": 306,
+            "batches": 97,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 72620280,
+            "fps": 0,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1372.1001465113727,
+            8.540440280685425,
+            3232.5293656726085
+          ]
+        },
+        {
+          "name": "dining-bay",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 203,
+            "triangles": 3588181,
+            "programs": 37,
+            "geometries": 128,
+            "textures": 406,
+            "batches": 97,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 72620280,
+            "fps": 0,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1366.2472526442277,
+            7.540440280685425,
+            3236.5979813315193
+          ]
+        },
+        {
+          "name": "north-garden",
+          "light": "scene",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 203,
+            "triangles": 3576876,
+            "programs": 37,
+            "geometries": 128,
+            "textures": 406,
+            "batches": 97,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 150,
+            "structuresExpected": 150,
+            "structuresStanding": 150,
+            "bytes": 72620280,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1357.583620946925,
+            5.540440280685425,
+            3231.1987697396758
+          ]
+        }
+      ]
+    }
+  ]
+}

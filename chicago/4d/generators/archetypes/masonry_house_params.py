@@ -584,6 +584,9 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                       "conf": conf}
                 if it.get("style"):
                     op["style"] = it["style"]
+                if it.get("sash"):
+                    # T-2212: a sash pattern read off a photograph (two_over_two).
+                    op["sash"] = it["sash"]
                 if kind in ("arch", "fan"):
                     op["spring_z"] = fr.z(it["spring"], datum)
                     op["r_out"] = round(float(it.get("ring_ft", 0.0)) * FT, 4)
