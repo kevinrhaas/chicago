@@ -1,0 +1,31 @@
+{
+ "id": "picturesque_chicago_1892_prairie_avenue",
+ "type": "photograph",
+ "citation": "'Prairie Avenue.' Halftone plate facing p. 199 in Picturesque Chicago and Guide to the World's Fair (Baltimore: R. H. Woodward and Co., 1892); photographer unrecorded. The same negative is printed as 'A Bit of Prairie Avenue' in Flinn's 1891 guide, as 'Looking south on Prairie Avenue from Eighteenth St.' in Flinn (1892 and 1893), and on the Alfred Holzman Company postcard 'Prairie Avenue' postmarked 1908 (Glessner House Museum).",
+ "author": "unrecorded photographer; R. H. Woodward and Co. (publisher)",
+ "date": "1892 (publication); negative Dec. 1887 to 1891",
+ "describes_date": "Dec. 1887 to 1891: after the Glessner house was occupied (Dec. 1887) and before its first printing (Flinn, 1891)",
+ "repository": "Internet Archive, University of California Libraries copy (picturesquechica00baltiala). Prairie library images st-picturesque-chicago-1892-prairie-avenue-p199, st-flinn-1891-a-bit-of-prairie-avenue, st-flinn-1892-looking-south-prairie-from-18th and st-ghm-postcard-1908-prairie-south-at-18th (chicago/prairie_1904_v1/research/images/stream-streetscape.json), one derivative family (T-2198's audit: count the underlying source once). The owner's copy of the 1908 postcard, supplied 2026-10-13, is committed at data/sources/assets/prairie_streetscape_owner_2026_10/.",
+ "url": "https://archive.org/details/picturesquechica00baltiala/page/n220/mode/1up",
+ "locator": "The whole plate: the west walk of Prairie Avenue from 18th Street looking south, the Glessner house's granite wall at the right, the parkway, the roadway and the east side's walk and parkway beyond.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1891-1893 (the postcard issue by 1908); the Internet Archive marks the 1892 book NOT_IN_COPYRIGHT. Only arrangement, counts and proportions are read from it here; no asset is derived from the image.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-13 (T-2473) from the owner's copy of the 1908 postcard, 480 x 336 px colour (a hand-tinted print of the same negative), sha256 14908231f9f0cb3e568dbbaaad1a2a6cc2aa9dc39ed6c282f1ddbe581da1be15, and from the Prairie library's catalogue notes on the 1891-1893 printings. archive.org is not reachable from the build containers, so the book plate itself was not reopened here.",
+ "note": "The street section at the Glessner corner a dozen to seventeen years before the scene date, from the west walk looking south. From the walk out: a broad pale walk; a grass parkway carrying one file of tall elms standing nearer the curb than the walk, their boles clear to about a third of their height and the crowns meeting high over the walk, at an irregular spacing of very roughly 25-35 ft by the trunks' convergence; a pale stone curb standing proud of a smooth light roadway; a paved crossing over the parkway from the walk to the curb beside the second tree; and across the roadway the east side's parkway with its own file of trees, a lamp post and carriage blocks at the curb.",
+ "what_it_supplies": [
+  "one file of elms per parkway, nearer the curb than the walk, at about 25-35 ft",
+  "the trees' habit: tall, clear-boled, high-crowned, meeting over the walk",
+  "a file of trees on the far side of the street as well",
+  "a paved crossing of the parkway between walk and curb (T-2474)",
+  "a pale stone curb standing above the roadway (T-2474)"
+ ],
+ "what_it_does_not_supply": [
+  "the species by name: elm is the reading of crown and bark, not a caption",
+  "any tree's position, or the spacing as a measurement",
+  "the state of the parkway in 1904: the print is 13-17 years earlier",
+  "the curb's reveal as a number"
+ ]
+}

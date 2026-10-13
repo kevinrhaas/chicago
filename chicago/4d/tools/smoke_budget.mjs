@@ -414,6 +414,10 @@ const COVERAGE = [
   // T-2109/T-2213. Only a transmissive pane is replaced, and only Glessner's GLB carries one: /1904/.
   ['renderers/web/js/glass.js', [14], "Glessner's dark panes, their blinds and sheen (T-2213)"],
   ['data/street_grid/', [14], 'the 1904 carriageways, block faces, alleys and parcels'],
+  // T-2473. The parkway elms planted on that grid, drawn only at the /1904/ door.
+  ['renderers/web/js/street-trees.js', [14], 'the 1904 parkway elms and the Trees setting (T-2473)'],
+  ['data/street_trees/', [14], 'the 1904 parkway elms, generated from the grid'],
+  ['tools/plant_prairie_1904_street_trees.py', NONE, 'the parkway elm planter — read by no renderer: its own --check in check.sh'],
   // T-1728. What that grid is paved with, and the maps it is paved in.
   ['data/street_surfaces/', [14], 'the 1904 street surfaces: materials, tiers and sources'],
   ['assets/textures/prairie_1904_pbr/', [14], 'the 1904 street-surface texture library'],
