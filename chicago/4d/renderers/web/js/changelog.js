@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1771, ts: '2026-10-13T19:27:16.015Z', date: 'Oct 13, 2026, 2:27 PM CT', title: '1620 Prairie\'s mansard straightened, and the house painted olive green', kind: 'change',
+    items: [
+      '1620 Prairie\'s mansard now rises in straight, steep faces as the 1874 engraving draws it, instead of bowing out in a curve, and its upper deck sits lower, so the roof no longer swells over the walls.',
+      'The crown over the north pavilion keeps its upright faces with only a slight rounding at the top.',
+      'The low deck on top of the roof is painted black, so it reads as part of the dark slate mansard instead of a reddish tin.',
+      'The walls are painted olive green over their brick, the colour the Inter Ocean gave the house in 1887; the exact shade is a reconstruction.',
+    ] },
   { v: 1770, ts: '2026-10-13T19:04:04.293Z', date: 'Oct 13, 2026, 2:04 PM CT', title: 'The dev preview no longer ships the Prairie library\'s photographs twice', kind: 'fix',
     items: [
       'The preview\'s Prairie Avenue 1904 atlas reads each library photograph from the site\'s own copy whenever the two are the same file, and keeps only the new ones itself.',
