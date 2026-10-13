@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "spalding_remodel_engraving",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6890b5ea33409fd6117e3328117c9bc9889ad28e0636587cb5ec9dd0910c4167",
+  "glb_sha256": "2d76bbf5d8f0cdba6ea9922d4009372bf57c21cc82234f060225ca62eae76cd2",
   "camera_sha256": "06623cf6f05d0dafcc01b75c32c2d59a8079f6b2df83342aa3e040e00f77e557",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg",
   "verdict": "differs",
@@ -20,7 +20,7 @@
     {
       "what": "the swell bay: from grade nearly to the cornice, about 4.8 m on its chord from the north corner to the door, three windows a storey round it",
       "status": "fixed",
-      "how": "T-2441: a K08 bow, 4.8 m chord and 1.3 m rise at s 2.72 m, two storeys of three sashes at -31, 20 and 48 degrees, to 10.7 m"
+      "how": "T-2441: a K08 bow, 4.8 m chord and 1.3 m rise at s 2.72 m, two storeys of three sashes at -36, 2 and 40 degrees, to 10.7 m; the three windows' columns land at x 320, 400 and 458 px against the engraving's 325, 412 and 458"
     },
     {
       "what": "the entrance between the bay and the wing, up a stoop, under one window of the second storey and a dormer",
