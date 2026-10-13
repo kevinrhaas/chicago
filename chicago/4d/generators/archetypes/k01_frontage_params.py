@@ -173,6 +173,11 @@ class K01FrontageParams:
             y += h
         return tuple(out)
 
+    def stoop_s_m(self, door_s: float) -> float:
+        """The stoop's axis along the street front: its door's, unless the entrance kit
+        stands it off the door (T-2463). The gate and the front walk line up on it."""
+        return self.entrance_kit.get("stoop_v_m", door_s)
+
     @property
     def door_floor_m(self) -> float:
         """The floor the door opens on and the stoop climbs to."""
@@ -1409,6 +1414,21 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(f"entrance_kit: the door's reveal {rev} m and its {fd} m frame do not fit "
                              f"the {ft} m front wall")
         door_kit["reveal_depth_m"] = rev
+    # T-2463: a stoop whose axis is not its door's (1620's, the door at the south end of a
+    # landing that runs on north into the porch): the stoop's centre along the front, in the
+    # front's own s. The door has to stand on the landing or on a terrace beside it
+    if "stoop_v_m" in door_kit_in:
+        sv = float(door_kit_in["stoop_v_m"])
+        half, dh = float(val("stoop_width_m")) / 2, 1.20 / 2
+        sides = {t["side"] for t in (door_kit.get("terrace") or [])} if isinstance(door_kit.get("terrace"), list) \
+            else ({door_kit["terrace"]["side"]} if door_kit.get("terrace") else set())
+        if not 0 <= sv - half or not sv + half <= width:
+            raise ParamError(f"entrance_kit.stoop_v_m: a {2 * half} m stoop on v {sv} leaves the front")
+        if (door_s - dh < sv - half - 1e-9 and "left" not in sides) or \
+                (door_s + dh > sv + half + 1e-9 and "right" not in sides):
+            raise ParamError(f"entrance_kit.stoop_v_m: the door at v {door_s} hangs off the stoop's landing "
+                             f"(v {sv - half:.3f}-{sv + half:.3f}) where no terrace carries it on")
+        door_kit["stoop_v_m"] = sv
     # T-2313: chimney stacks from the K15 kit (data/components/prairie_1904/k15_chimneys.json),
     # each built by k15_chimneys.stack_solids in the house's own roof and joined into the K05
     # roof solid. The FORM (kit variant, flues, top) is `chimneys`; WHERE each stands is

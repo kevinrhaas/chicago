@@ -1490,6 +1490,9 @@ class Assembly:
         v["clear_width_m"], v["clear_height_m"] = door.width_m, door.height_m
         v["stair"] = dict(v["stair"], floor_m=p.door_floor_m, going_m=p.tread_m,
                           landing_m=p.landing_depth_m, width_m=p.stoop_width_m)
+        # T-2463: a stoop off its door's axis
+        if p.stoop_s_m(door.s_m) != door.s_m:
+            v["stair"]["axis_s_m"] = p.stoop_s_m(door.s_m) - door.s_m
         # T-2409: the terrace's reach and steps, from the front's s into the door's own frame
         # T-2450: a left terrace's s run from the door AWAY from the stoop (K07 mirrors it),
         # and where it passes the front's end K07 faces its back
@@ -1549,7 +1552,7 @@ class Assembly:
                                     **({"balusters": o.meta.get("balusters", 0),
                                         "balustrade_height_m": p.entrance_kit["balustrade"]["height_m"]}
                                        if p.entrance_kit.get("balustrade") else {})},
-                                   {"foot": P(op.s_m, 0.0, st["foot_out_m"]), "landing": P(op.s_m, op.sill_m, 0.0),
+                                   {"foot": P(p.stoop_s_m(op.s_m), 0.0, st["foot_out_m"]), "landing": P(op.s_m, op.sill_m, 0.0),
                                     **{f"{k}_{end}": P(op.s_m + q[0], op.sill_m + q[1], q[2])
                                        for k, ends in sorted(o.sockets.items())
                                        for end, q in zip(("top", "foot"), ends)}})
