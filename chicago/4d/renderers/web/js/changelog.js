@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 1761, ts: '2026-10-13T13:15:16.130Z', date: 'Oct 13, 2026, 8:15 AM CT', title: 'Glessner\'s 1886 datestone reads the right way round', kind: 'fix',
+    items: [
+      'The date on the Glessner house\'s 18th Street chimney showed mirrored from the street. It now reads 1886, left to right, with the AD monogram above it, as the HABS photograph of the gable shows.',
+      'Both are cut into their stones rather than raised, and two small incised crosses flank the date.',
+      'The chimney now rises flush out of the gable, and the gable\'s coping stops against its sides instead of climbing to a point in front of it.',
+      'The letterforms are a stand-in for the carver\'s.',
+    ] },
+  { v: 1760, ts: '2026-10-13T13:05:36.216Z', date: 'Oct 13, 2026, 8:05 AM CT', title: '1620 Prairie\'s terrace runs across its bay window', kind: 'improvement',
+    items: [
+      'The stone terrace at the head of 1620 Prairie\'s stoop now runs south as well as north: behind its turned balustrade it crosses in front of the bay window and ends just past the house\'s corner, where the 1874 engraving draws it.',
+      'The board fence the engraving draws level beyond 1620\'s corner turns out to be the next lot\'s street fence; 1620\'s own fence stands behind it.',
+    ] },
+  { v: 1759, ts: '2026-10-13T12:28:36.292Z', date: 'Oct 13, 2026, 7:28 AM CT', title: '1637 Prairie\'s roof and dormers drawn as its engraving shows them', kind: 'improvement',
+    items: [
+      'The slate roof on Jesse Spalding\'s house at 1637 Prairie now has straight, steep sides that rise to a level top line, as the engraving draws them, instead of bell-curved ones.',
+      'Its three dormers now have pointed gables over square windows, slated like the roof, in place of round-headed ones.',
+    ] },
   { v: 1758, ts: '2026-10-13T11:07:46.581Z', date: 'Oct 13, 2026, 6:07 AM CT', title: '1638 Prairie\'s front fence, from its photograph', kind: 'feature',
     items: [
       'The Gothic house at 1638 Prairie now stands behind the fence its old photograph shows on the street line: two gate piers either side of an open gateway, each cap pierced with a heart and topped with an iron finial, and low iron bars on a pale stone base.',

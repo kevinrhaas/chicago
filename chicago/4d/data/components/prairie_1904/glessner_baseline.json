@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 184415224,
-      "sha256": "0d8f8ff234c4d49987d39aa62023f9f7ab47f7565c15d955b91fa36bc7967b49",
+      "bytes": 182337208,
+      "sha256": "e5a16133635111042ba3479da6762b041424fa32f17e7aff1ed0d941ae979d62",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -21,13 +21,13 @@
       "mesh": {
         "draw_primitives": 28,
         "materials": 28,
-        "triangles": 1289116,
-        "vertices": 2969686
+        "triangles": 1270870,
+        "vertices": 2931310
       },
       "texture": {
         "images": 34,
         "textures": 69,
-        "encoded_bytes": 27207887,
+        "encoded_bytes": 27193995,
         "pixels": 57146696,
         "gpu_rgba8_mip_bytes": 304782379,
         "largest_px": 2048
@@ -66,7 +66,7 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 9625,
+        "degenerate": 1587,
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
@@ -162,7 +162,7 @@
           ]
         },
         "granite_2": {
-          "median_uv_per_m": 0.6215,
+          "median_uv_per_m": 0.6214,
           "fabric": "granite",
           "tile_m": [
             1.6,
@@ -324,8 +324,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 53165440,
-      "sha256": "40d3df26b36b29dd6a738ee1daf51edc33720c21ad4154d6981b77416bd93b97",
+      "bytes": 52836248,
+      "sha256": "4584f2b458ec2b047874bb6c35373d360c31763b0c07ea37db50ffdb5e700ec9",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -344,13 +344,13 @@
       "mesh": {
         "draw_primitives": 28,
         "materials": 28,
-        "triangles": 1289116,
-        "vertices": 2361163
+        "triangles": 1270870,
+        "vertices": 2326316
       },
       "texture": {
         "images": 33,
         "textures": 33,
-        "encoded_bytes": 27713076,
+        "encoded_bytes": 27701818,
         "pixels": 56098120,
         "gpu_rgba8_mip_bytes": 299189973,
         "largest_px": 2048
@@ -391,7 +391,7 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 10459,
+        "degenerate": 2276,
         "coincident": 1,
         "same_winding": 0,
         "back_to_back": 1,
@@ -474,7 +474,7 @@
             1.6,
             1.6
           ],
-          "uv_per_m_times_tile_m": 0.9935,
+          "uv_per_m_times_tile_m": 0.9936,
           "texture_transform_scale": [
             7.2727,
             7.2727
@@ -500,7 +500,7 @@
             1.6,
             1.6
           ],
-          "uv_per_m_times_tile_m": 0.9934,
+          "uv_per_m_times_tile_m": 0.9935,
           "texture_transform_scale": [
             7.2727,
             7.2727
@@ -637,8 +637,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 27818148,
-      "sha256": "82739fe7fe2387193511469b1e44b2fab1a9ac278161faae031b986ec9c89cef",
+      "bytes": 27811540,
+      "sha256": "61a3cc3160932064f4b0f101d0ffd74353963be28812984e27187ab70e3fd34f",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -657,13 +657,13 @@
       "mesh": {
         "draw_primitives": 25,
         "materials": 25,
-        "triangles": 199035,
-        "vertices": 388532
+        "triangles": 198882,
+        "vertices": 388325
       },
       "texture": {
         "images": 33,
         "textures": 33,
-        "encoded_bytes": 24417963,
+        "encoded_bytes": 24414823,
         "pixels": 52952392,
         "gpu_rgba8_mip_bytes": 282412757,
         "largest_px": 2048
@@ -895,7 +895,7 @@
             2.4384,
             1.95072
           ],
-          "uv_per_m_times_tile_m": 0.9987
+          "uv_per_m_times_tile_m": 0.9986
         },
         "roof_plane_2": {
           "median_uv_per_m": 0.4579,

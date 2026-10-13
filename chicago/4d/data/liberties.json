@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 535,
+  "count": 536,
   "liberties": [
     {
       "id": "L1",
@@ -32543,6 +32543,10 @@
           "text": "the south part's bay window now stands at the 1874 engraving's heights, read on T-2437's re-solved camera (its lights 3.09-5.71 m over grade, the hood's eaves 6.24 m, its top under the upper window), and the crown over the pavilion, its round-headed dormer and the front stack come down to the drawn ones (the crown's curb 0.3 m over the main curb, the stack's cap 14.7 m). One new invention: the bay is built as painted timber, K08's frame fabric, because the engraving draws it dark against the light front with its cheeks hatched as boards; the print is monochrome and the hood's shadow could darken a brick bay as well, so the timber is RECONSTRUCTED, carried in `bays`' note (the attribute stays inferred for its place, plan and heights). What would replace it: any coloured view, or a description of the house naming the bay's material."
         },
         {
+          "label": "Revised in part (T-2450, piece 1 of T-2445)",
+          "text": "the stoop's terrace is now carried SOUTH across the bay's front, as the 1874 engraving draws a low turned balustrade before the bay at the principal floor (x 365-460 px, rail top 2.89 m on T-2437's camera), from the landing to 0.35 m past the front's south corner, where the drawn balustrade ends; K07 learns a terrace to the stoop's left, the right one's mirror. What is invented is what the north terrace already invents (its 1.2 m depth, stone, faced to grade, the turned balusters and newels), carried in `entrance_kit`'s note, plus one thing: that it joins the stoop's landing, which the engraving's tree and the shrub before the bay hide (x 460-540 px). What would replace it: any view of the house's front from the south, or one taken over the shrub."
+        },
+        {
           "label": "Covers",
           "text": "`law_house_1620_prairie.restored_1904.form.wall_thickness_front_m`, `law_house_1620_prairie.restored_1904.form.wall_thickness_side_m`, `law_house_1620_prairie.restored_1904.form.service_wall_brick`, `law_house_1620_prairie.restored_1904.form.street_front_trim`, `law_house_1620_prairie.restored_1904.form.wall_head`, `law_house_1620_prairie.restored_1904.form.roof_pitch_deg`, `law_house_1620_prairie.restored_1904.form.eave_overhang_m`, `law_house_1620_prairie.restored_1904.form.stair_tread_m`, `law_house_1620_prairie.restored_1904.form.stair_landing_depth_m`, `law_house_1620_prairie.restored_1904.form.stoop_width_m`, `law_house_1620_prairie.restored_1904.form.entrance_bay`, `law_house_1620_prairie.restored_1904.form.front_bays`, `law_house_1620_prairie.restored_1904.form.side_bays`, `law_house_1620_prairie.restored_1904.form.rear_bays`, `law_house_1620_prairie.restored_1904.form.basement_lights`, `law_house_1620_prairie.restored_1904.form.rainwater`, `law_house_1620_prairie.restored_1904.form.window_kit`, `law_house_1620_prairie.restored_1904.form.entrance_kit`."
         },
@@ -35379,7 +35383,7 @@
     },
     {
       "id": "L-k01-1637-spalding-remodel-2441",
-      "title": "1637 Prairie refined from the district draft to a K01 brick block read off the engraving of Jesse Spalding's remodel, on the 1911 sheet's plan, its wing's own roof and its gabled dormers stood in for until K01 can build them",
+      "title": "1637 Prairie refined from the district draft to a K01 brick block read off the engraving of Jesse Spalding's remodel, on the 1911 sheet's plan, its wing's own roof stood in for until K01 can build it",
       "section": "per_subject",
       "subjects": [
         "spalding_house_1637_prairie"
@@ -35465,11 +35469,11 @@
         }
       ],
       "recorded": "2026-10-13",
-      "revised": null,
+      "revised": "2026-10-13",
       "fields": [
         {
           "label": "Decision",
-          "text": "the house at 1637 Prairie Avenue (T-2441, piece 1 of T-1870) is no longer a district draft. It stands, under the draft's own id `spalding_house_1637_prairie`, as a `k01_frontage` record built by `generators/k01_emit.py`, against its one picture of the remodelled front: a line engraving of the Grosvenor house as Jesse Spalding remodelled it, reproduced by the Glessner House Museum (`glessner_blog_1637_spalding_remodel_engraving`). A K03 brick block of a raised basement and two tall storeys under K10's bracketed cornice; a K08 swell bay of three windows a storey at the north end of the front and the sheet's forward wing at the south end as a K08 full-height projection under a flat tin deck; the K07 door up its stoop between them; K06 two-over-two sash under flat lintels; a K05 mansard with slated lower faces, two round-headed dormers on the street face and one on the north face; three plain stacks; the sheet's two-storey rear range behind the south part, flat-roofed. **What is read, not invented.** From the 1911 Sanborn sheet 20 (trace s20fp-1637-b1, census s20-1637-f): the main body's place and plan (11.0 m deep by 13.1 m, the trace's own width where the draft's fit had stopped at 11.5 m), the south 4.8 m standing 1.0 m forward, the rear range behind it, brick, the storeys ('2½B'). From the engraving, through its solved camera (`data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.json`): the front's composition (bay, door, wing), the principal floor's 2.3 m over grade, the second floor's and the cornice's heights, the windows' places and storeys, three windows round the bay, the dormers' places, the stacks' places and tops, the steep slated roof, the windows in the north flank. **What is invented.** The walls' thickness; the brick's colour and the trim's; every window's kind and the glazing (the engraving's bars are not legible); the windows' heights past the K01 contract's 2.4 m; the cornice's kit; the upper hip over the curb, its pitch and its tin; the stoop's flight; the rear wall's and the rear range's windows; the south wall left blind; the downpipes. **What is not built.** The wing standing further forward under its own steep hipped roof as high as the main roof; the gabled dormers' heads and square-headed sashes; the French window and balcony on the wing's principal floor, the stoop's rails, the basement's round-headed lights; the bay and the wing rising to the cornice itself; the stacks' panelled shafts and caps; the garden wall and the iron fence. All are open in the match record for T-2442, which also weighs the c. 1870 photograph of the house as built and the 1911 sheet's frame porch across the north part, both evidence of their own dates."
+          "text": "the house at 1637 Prairie Avenue (T-2441, piece 1 of T-1870) is no longer a district draft. It stands, under the draft's own id `spalding_house_1637_prairie`, as a `k01_frontage` record built by `generators/k01_emit.py`, against its one picture of the remodelled front: a line engraving of the Grosvenor house as Jesse Spalding remodelled it, reproduced by the Glessner House Museum (`glessner_blog_1637_spalding_remodel_engraving`). A K03 brick block of a raised basement and two tall storeys under K10's bracketed cornice; a K08 swell bay of three windows a storey at the north end of the front and the sheet's forward wing at the south end as a K08 full-height projection under a flat tin deck; the K07 door up its stoop between them; K06 two-over-two sash under flat lintels; a K05 mansard with slated lower faces, two dormers on the street face and one on the north face; three plain stacks; the sheet's two-storey rear range behind the south part, flat-roofed. **What is read, not invented.** From the 1911 Sanborn sheet 20 (trace s20fp-1637-b1, census s20-1637-f): the main body's place and plan (11.0 m deep by 13.1 m, the trace's own width where the draft's fit had stopped at 11.5 m), the south 4.8 m standing 1.0 m forward, the rear range behind it, brick, the storeys ('2½B'). From the engraving, through its solved camera (`data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.json`): the front's composition (bay, door, wing), the principal floor's 2.3 m over grade, the second floor's and the cornice's heights, the windows' places and storeys, three windows round the bay, the dormers' places, the stacks' places and tops, the steep slated roof, the windows in the north flank. **What is invented.** The walls' thickness; the brick's colour and the trim's; every window's kind and the glazing (the engraving's bars are not legible); the windows' heights past the K01 contract's 2.4 m; the cornice's kit; the upper hip over the curb, its pitch and its tin; the stoop's flight; the rear wall's and the rear range's windows; the south wall left blind; the downpipes. **What is not built.** The wing standing further forward under its own steep hipped roof as high as the main roof; the French window and balcony on the wing's principal floor, the stoop's rails, the basement's round-headed lights; the bay and the wing rising to the cornice itself; the stacks' panelled shafts and caps; the garden wall and the iron fence. All are open in the match record for T-2442, which also weighs the c. 1870 photograph of the house as built and the 1911 sheet's frame porch across the north part, both evidence of their own dates."
         },
         {
           "label": "How to resolve",
@@ -35490,6 +35494,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-13 (T-2441)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-13 (T-2452) — **the main roof is the engraving's.** The lower faces are straight planes (K05's convex variant laid with no bulge) from the cornice to the level top line at about 14.1 m, and the three dormers are its gabled ones: a square-headed two-over-two sash about 0.9 by 1.2 m in a stone face about 1.6 m wide under a 40 degree pediment, the face standing nearly on the fascia so its sill sits at about the cornice and its apex at about 13.9 m, the cheeks and pediment slated as the faces are. Invented in that: the dormers' sash size, surround and pediment pitch, read off the plate at its scale and not measured; the faces' pitch, held at 65 degrees, the floor of K05's mansard starting range, though the engraving's hip ends lean back further (its draughtsman's perspective is not one camera's, so how much further is not read); the pediment's slight rake overhang, which the engraving draws and the build does not; the upper hip, now 10 degrees so it stays behind the top line from the street, as the engraving shows nothing over it."
         }
       ]
     },
@@ -35612,6 +35620,47 @@
         {
           "label": "Recorded",
           "text": "2026-10-13 (T-2456)."
+        }
+      ]
+    },
+    {
+      "id": "L-glessner-datestone-2214",
+      "title": "Glessner's 18th Street datestone: generic letterforms, a cut drawn as its shadow, and proportions read off an upward photograph",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the `glessner_house` north stack carries an AD monogram over 1886, read left to right from 18th Street, each drawn as a near-black matte stroke on a dressed stone standing 0.06 m beyond the rock face's furthest reach, with two crosses flanking the date. The stack's face is flush with the gable (S 0, from S 0.5) and the gable's coping stops against its sides."
+        },
+        {
+          "label": "What it stands on",
+          "text": "HABS photograph 4 (`habs_glessner_photo_04_18th_street_gable_c1923`; rights unknown, cited, nothing derived) for the reading direction, the incised cut, the ligature of A and D, the crosses, and the stones' widths as shares of the stack's face; HABS sheet 6 for the stones' heights, their projection and the stack's flush face."
+        },
+        {
+          "label": "What is invented",
+          "text": "the letterforms (Blender's built-in face, not the carver's ligature, which interlaces the two letters); drawing an incision as a dark stroke on the face rather than cutting it; the crosses' size and heights (+/- 0.3 ft, read off an upward view); the joint lines where the gable meets the stack."
+        },
+        {
+          "label": "How to resolve",
+          "text": "trace the monogram's strokes from a photograph whose rights allow derivation (a 1965 HABS plate shows the stack, but too small); a close photograph of today's stack would give the cut depth and letter heights."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2214 (GA-13A)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/glessner-datestone-2214/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-13 (T-2214)."
         }
       ]
     },

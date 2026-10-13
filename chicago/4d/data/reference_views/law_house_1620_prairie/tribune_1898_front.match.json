@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "tribune_1898_front",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "0173feb16c66d0b5b126deab75926195e4ecd7004ee1e9f2f36d99f34e92cdd0",
+  "glb_sha256": "0ea43f844b365a15c3cedb9db1a69c74d45dde02d5513a60c860e9ee5e9d9319",
   "camera_sha256": "dfa5031ea10d2db2d29acbe9a1192a9f021983a0d7e44dc675754544440b3299",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/tribune_1898_front-side-by-side.jpg",
   "verdict": "differs",
@@ -25,6 +25,10 @@
     },
     {
       "what": "entrance: the stoop rising straight from the gate (x 93-140 px, about v 6.3-7.5 at the street line) to a door beside the pavilion's south face. Built (T-2409): the door moved to v 6.6, its 1.8 m stoop rising straight to it and its landing ending at the pavilion's south face; the porch before the pavilion stands behind the sketch's lattice fence and its '1620' cartouche hides the door's hood. On T-2437's camera the gate's piers land at x 71-93 and 146-168 px against the drawn 70-91 and 142-157, and the porch's head on the drawn 192 px",
+      "status": "fixed"
+    },
+    {
+      "what": "bay window's terrace: the stoop's terrace carried south before the bay (T-2450, from the 1874 engraving, which draws its turned balustrade). The sketch draws the bay's foot on a level line at about y 188-192 px over its lattice fence, where the build's terrace head lands (y 193 px), and draws no balusters before the bay, as it draws none on the porch before the pavilion (T-2409's, whose head lands on the drawn 192 px); the engraving, a true perspective that draws both balustrades baluster by baluster, is read for them over the freehand sketch, whose cartouche scroll and lattice top cross both",
       "status": "fixed"
     },
     {

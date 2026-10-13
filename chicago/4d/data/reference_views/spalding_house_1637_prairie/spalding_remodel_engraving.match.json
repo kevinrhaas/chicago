@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "spalding_remodel_engraving",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8db501fd08fdb53a20331031dcba3f7526ffff5572e5922e7769914204b4fee7",
+  "glb_sha256": "9c8dd3cc6d770ca7b227cc65aab8aaf5f704e6d08e4fbb9894bb7379845106e0",
   "camera_sha256": "06623cf6f05d0dafcc01b75c32c2d59a8079f6b2df83342aa3e040e00f77e557",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg",
   "verdict": "differs",
@@ -39,13 +39,13 @@
     },
     {
       "what": "the main roof: steep straight lower faces in slate under a level top line, hipped down at the wing; the build's K05 mansard has convex lower faces 2.6 m tall",
-      "status": "open",
-      "how": "T-2448"
+      "status": "fixed",
+      "how": "T-2452: K05's mansard laid with no bulge, so each lower face is one straight plane from the cornice to the curb at 14.1 m, the engraving's level top line, and the upper hip at 10 degrees stays behind that line from the camera. The faces stand at 65 degrees, the floor of K05's range; the engraving's hip ends lean back further than that, by a perspective that is not one camera's (L-k01-1637-spalding-remodel-2441)"
     },
     {
       "what": "the dormers: two gabled dormers with square-headed sashes on the street face and one on the north face; the build's are K01's round-headed mansard dormers at the same places",
-      "status": "open",
-      "how": "T-2448: K01's mansard dormer is round-headed only"
+      "status": "fixed",
+      "how": "T-2452: K01's gabled lower-face dormer: a square-headed two-over-two sash 0.9 by 1.2 m in a stone face 1.6 m wide under a 40 degree pediment, slated cheeks and slopes, on T-2441's centres over the bay and the door. The street pair's faces span about x 349-417 and 492-555 px against the engraving's about 323-413 and 469-553 with their rakes, each about 15 px right of the engraving's as the door under it is; their apexes about 10 px under the engraving's. The pediment's slight rake overhang is not built"
     },
     {
       "what": "the windows: the principal storey's about 2.9 m tall, the wing's a French window to its floor over a balcony; the build's are 2.4 m sashes, the K01 contract's clear-height limit",
