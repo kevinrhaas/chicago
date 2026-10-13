@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1778, ts: '2026-10-13T21:31:37.125Z', date: 'Oct 13, 2026, 4:31 PM CT', title: 'The faded city runs to the horizon, with its streets', kind: 'feature',
+    items: [
+      'Faded streets now run through the sketched city, laid on the grid the map\'s section corners and the 1904 street plan measure.',
+      'The sketch carries on in every direction until the haze closes in, about 2.6 km out.',
+      'The blocks change with the city: shops on State and Wabash, lofts and offices toward the Loop, railway lands west of Clark, cottages west of Canal.',
+      'North of 16th Street the houses and the Illinois Central yard come from the 1886 Robinson atlas.',
+      'Far blocks are drawn as simple rows and trees as plain crowns, so phones stay light.',
+    ] },
   { v: 1777, ts: '2026-10-13T21:20:29.038Z', date: 'Oct 13, 2026, 4:20 PM CT', title: 'Glessner’s north gable joins its round tower', kind: 'fix',
     items: [
       'The north gable continues flat into the tower, with the paired windows and attic light aligned to historic photographs. Staggered stone courses wrap the curved side, and the flared roof ends at the sloping gable.',
