@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1779, ts: '2026-10-13T21:59:02.956Z', date: 'Oct 13, 2026, 4:59 PM CT', title: 'Elms line the 1904 parkways, in summer, spring or winter', kind: 'feature',
+    items: [
+      '418 American elms stand in the parkways of the 1904 district, one file per block face, as the 1887-91 view south on Prairie Avenue from 18th Street shows them.',
+      'Settings › Street trees: summer (full leaf, the default), spring (a first pale leaf, so the houses show through), winter (bare limbs), or hidden.',
+      'The trees cast dappled shade on the walks and roadways and sway in the wind.',
+      'Click a trunk for the tree\'s card. Each tree\'s position is a liberty: the pictures show a file about 30 ft apart, not where each tree stood.',
+    ] },
   { v: 1778, ts: '2026-10-13T21:31:37.125Z', date: 'Oct 13, 2026, 4:31 PM CT', title: 'The faded city runs to the horizon, with its streets', kind: 'feature',
     items: [
       'Faded streets now run through the sketched city, laid on the grid the map\'s section corners and the 1904 street plan measure.',
