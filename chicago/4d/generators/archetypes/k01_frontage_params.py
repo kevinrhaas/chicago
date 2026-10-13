@@ -148,6 +148,10 @@ class K01FrontageParams:
     # T-2370: "mansard" (k01.roof.mansard, K05's mansard ring stack laid on this house);
     # `mansard` holds its resolved numbers — variant, profile, pitches, rise, curb, ridge
     mansard: dict = field(default_factory=dict)
+    # T-2476: a brick house painted over its brick (1620, 'olive green in color' in 1887):
+    # the paint's linear colour, laid over the K03 brick's own map as its factor, so the
+    # courses still read through it; empty for the unpainted brick of every other house
+    wall_paint: tuple = ()
     # T-2459: "gable" (k01.roof.gable): a ridge parallel to the street front, a steep street
     # slope and a rear slope down to the same wall head, each side wall carried up as a
     # parapet (1619's crow-stepped south wall, its drawing); `gable` holds its resolved numbers
@@ -202,7 +206,7 @@ CONSUMED = frozenset({
     "entrance_kit", "street_front_trim", "wall_head", "bays", "chimneys", "chimney_positions",
     "stone_front", "boundary", "north_bays", "mansard", "rear_wings", "yard", "condition",
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
-    "gable_roof",
+    "gable_roof", "wall_finish",
 })
 
 #: T-2410: the component a brick street front's round-headed window is cut as — K06's round
@@ -1121,6 +1125,18 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError(f"construction {construction!r}: a stone street front names its K02 "
                          "stone_front and a brick one names none")
 
+    # T-2476: paint over the brick walls, the colour a source names for the house
+    wf = val("wall_finish", {}) or {}
+    paint = ()
+    if wf:
+        if construction != "brick":
+            raise ParamError("wall_finish paints a brick house's walls; a stone front is not painted here")
+        if set(wf) != {"paint"} or set(wf["paint"]) != {"color"}:
+            raise ParamError("wall_finish is {\"paint\": {\"color\": [r, g, b]}}")
+        paint = tuple(float(x) for x in wf["paint"]["color"])
+        if len(paint) != 3 or not all(0.05 <= x <= 1.0 for x in paint):
+            raise ParamError(f"wall_finish.paint.color {wf['paint']['color']}: three factors in [0.05, 1]")
+
     stories = int(val("stories"))
     heights = tuple(float(h) for h in val("storey_heights_m"))
     if len(heights) != stories:
@@ -1641,6 +1657,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         yard=yard,
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, entrance_floor_m=ef, round_heads=rh,
+        wall_paint=paint,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

@@ -428,6 +428,11 @@ class Assembly:
         paint = (params.wall_head or {}).get("paint")
         if paint:
             self.spec["fascia"]["color"] = tuple(float(x) for x in paint["color"])
+        # T-2476: a painted brick house (1620) wears its paint over every brick slot it lays —
+        # walls, the pavilion's brick, the stacks and K03's units, the soot left dark — the map still under it
+        if params.wall_paint:
+            for slot in ("brick", "bay_brick", *(k for k in MATERIALS if k.startswith("brick_unit_"))):
+                self.spec[slot]["color"] = tuple(round(c * f, 4) for c, f in zip(self.spec[slot]["color"], params.wall_paint))
         if params.stone:
             st = params.stone
             for slot, fab, rough in (("rough_stone_trim", st["fabric"], st["fabric_roughness"]),
