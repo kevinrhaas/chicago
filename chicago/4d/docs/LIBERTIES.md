@@ -26062,6 +26062,23 @@ though the engraving's hip ends lean back further (its draughtsman's perspective
 so how much further is not read); the pediment's slight rake overhang, which the engraving draws and
 the build does not; the upper hip, now 10 degrees so it stays behind the top line from the street, as
 the engraving shows nothing over it.
+**Revised:** 2026-10-13 (T-2465) — **the wing stands under its own roof.** The engraving's south wing
+is carried up to the cornice and hipped to a ridge that runs back into the main roof, its stack beside
+the ridge: K01's mansard crown (T-2404's, 1620's pavilion) built as a hip (`mansard.crown.form: hip`),
+its sides and back at 45.5 degrees and its street end at 60, its cornice 0.55 m past the wing's face,
+its fascia's top on the main eave, so its ridge stands at 14.5 m, 0.4 m over the main curb, where the
+engraving draws the apex at about 14.4 m; the wing's walls rise to the crown's soffit (11.3 m) where
+they stopped at 10.7 m. Read, through the camera: the ridge's height, the stack's place (x 662-715 px
+against the engraving's 663-717, so 0.5 m south of the ridge line, u 10.2, v 11.2) and its top
+(15.11 m, y 112 px against the drawn 113). Invented: the two pitches, chosen so the side faces slate
+(over 45 degrees, as K04 slates a lower face) and the street end stays in front of the main lower faces
+up to the curb (the engraving draws the end whole, and its apex about 45 px further left than any
+symmetric hip on the sheet's 1.0 m step can stand, which is its draughtsman's perspective); the crown's
+5.5 m depth (no picture sees the back; it is deep enough that the ridge runs 1.9 m back from the apex
+before its back hip); the crown's cornice, K05's 0.2 m fascia and soffit without K10's brackets, where
+the engraving draws a band as deep as the main cornice's (T-2467). The crown's south fascia stands 0.05 m outside
+the main roof's along the 5.5 m it shares with the south wall, because a crown's cornice must project
+past the main one's (an equal one would lay the two fascias in one plane at the corner).
 
 ### L-k01-1637-spalding-garden-2447 — 1637 Prairie's front garden built on a line read off the engraving's ground, its wall stopped at the lot line and its iron the K11 kit's
 
