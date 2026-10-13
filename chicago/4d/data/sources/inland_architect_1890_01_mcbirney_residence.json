@@ -1,0 +1,30 @@
+{
+  "id": "inland_architect_1890_01_mcbirney_residence",
+  "type": "photograph",
+  "citation": "'Residence for Hugh J. McBirney, Chicago. Burling & Whitehouse, Architects.' Plate, The Inland Architect and News Record (Chicago), vol. 14 no. 8, January 1890. Photograph of the newly finished house. Reproduced on chicagology.com, Prairie Avenue, the 1625 S. Prairie page (uncaptioned); the Art Institute of Chicago's Ryerson & Burnham Archives hold the plate (Archival Image Collection, catalogued at 1736 S. Prairie).",
+  "author": "Burling & Whitehouse, architects; photographer not named; published by The Inland Architect",
+  "date": "1890-01",
+  "describes_date": "1889",
+  "repository": "The Inland Architect and News Record; reproduced on chicagology.com and held by the Art Institute of Chicago (https://digital-libraries.artic.edu/digital/collection/mqc/id/7832). Prairie library images cgn-1625-mcbirney-inland-1890-copy (chicagology's copy) and a16-inland-1890-hj-mcbirney-residence (the AIC plate), the same photograph; the store's 670 x 900 px display copy of the first is committed at data/sources/assets/mcbirney_1625_photo_t2432/.",
+  "url": "https://chicagology.com/chicagostreets/prairieavenue/1625prairie/",
+  "locator": "The whole plate: 1625's street front from grade to the gable's apex, its south side wall and the four-storey rear section behind it, and at the left edge the oriel and arched entrance of the house adjoining it on the north. The camera (data/reference_views/house_1625_prairie/inland_architect_front.json) says how far it can be measured.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "A photograph published in a US architectural periodical in 1890, in the public domain; chicagology's copy is a faithful reproduction. Read for forms, counts and proportions; no texture or mesh is derived from it.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-10-13 (T-2432) from the image store's 670 x 900 px display copy, sha256 a237b1424e388c09a55cd371102bfb4c11789452f1cc1ed315abe9bedda26e5b; the library records the chicagology original (341,119 bytes, sha256 9365c1ff...). The address is the library's and the T-1840 census's (sheet 20, row frontage-20-030): the 1904 Blue Book OCR lists the Hugh J. McBirney household at 1625, the house stands attached on the north with open ground to the south as the 1911 sheet draws 1625, and chicagology places the photograph on its 1625 page. The AIC catalogues the plate at 1736, the elder McBirney's house; that is not followed. Chicagology's page quotes the Chicago Tribune of 9 June 1889 (Burling & Whitehouse, Tudor, 'red stone and Roman tile', entrance at ground level) and of 6 May 1889 (a permit at 'No. 1627'); neither notice is yet a source record here.",
+  "note": "The house as it was finished in 1889, fifteen years before the 1904 scene; the 1911 Sanborn sheet 20 controls the plan. Read off the photograph itself: a narrow street front of rock-faced coursed stone, three storeys and an attic, the ground floor at grade; the north part two windows wide, its ground- and first-floor windows two lights under a transom, mullioned, in dressed quoined surrounds, its second-floor windows single one-over-one sash under segmental heads; the south part a shallow frontispiece holding the flat-headed entrance at grade under a carved panel, a four-light mullioned and transomed window over it under a hood mould, and two narrow segment-headed lights above that; the whole front carried up as a steep coped wall gable with three segment-headed lights in the attic and an oculus near the apex; a tall stack on the north party wall; the south side wall in brick with single windows; behind it a four-storey rear section stepping out to the south under a mansard with dormers and a stack; a picket fence along the open lot to the south. The photograph is monochrome.",
+  "what_it_supplies": [
+    "the front's composition: a north part two windows wide and a south frontispiece with the entrance, one window over it each storey",
+    "three storeys and an attic under a steep front wall gable, the ground floor at grade",
+    "the openings' kinds, places and proportions: mullioned and transomed lights, segment-headed sash, the flat-headed entrance and its carved panel",
+    "the rock-faced coursed stone of the front and the brick of the south side wall",
+    "the stacks, the rear section's mansard and dormers, the picket fence"
+  ],
+  "what_it_does_not_supply": [
+    "the plan: the 1911 Sanborn sheet's trace controls it",
+    "colour (the Tribune's 'red stone' is quoted, not yet a source record)",
+    "the north party wall, the rear and anything the house lost or gained between 1889 and 1904"
+  ]
+}

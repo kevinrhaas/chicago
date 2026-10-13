@@ -1,0 +1,72 @@
+{
+  "structure_id": "house_1625_prairie",
+  "view": "inland_architect_front",
+  "glb": "assets/gltf/house_1625_prairie__as_mapped_1904.glb",
+  "glb_sha256": "2c9e8170a5c07807a0d4f0fc617e3f8c84e62369a52407e032d4d8857dc95960",
+  "camera_sha256": "95ef55fe597125fa212e06ba6af0af5ef13437d278a7399a967719ce5592eef2",
+  "side_by_side": "docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a narrow, tall stone town house, its front flat, attached on the north to the Farwell house and open to the south, its south side wall receding along the open ground; the draft stood a grey mansard box 6.75 m wide",
+      "status": "fixed",
+      "how": "T-2432: K01 frontage on the 1911 sheet's plan at the trace's own 7.6 m width; the front's two edges land within 3 px of the photograph's (x 140 and 433), the south wall recedes on the camera's solve"
+    },
+    {
+      "what": "storey lines and the north part's windows: three storeys, the ground floor near grade; ground-floor lights 1.1-2.7 m over grade, first-floor 4.15-6.4 m, second-floor 7.8-10.1 m, two a storey in the north part",
+      "status": "fixed",
+      "how": "T-2432: a 0.45 m ground floor and 3.15, 3.6 and 3.8 m storeys; the north part's sills and heads fall within about 5 px of the photograph's, their columns within about 8 px"
+    },
+    {
+      "what": "the entrance at grade at the south end of the front, flat-headed, reached by two low steps, with one window a storey over it",
+      "status": "fixed",
+      "how": "T-2432: the K07 door at front bay 5.75 m, three 0.15 m risers; its jambs within 5 px of the photograph's"
+    },
+    {
+      "what": "the gable: the photograph carries the whole front up as a steep coped WALL GABLE, about 57 degrees, its apex about 18.8 m over grade, three segment-headed lights in the attic at 11.6-13.4 m and an oculus near the apex; the build has a 45-degree slated hip and a single-light pedimented dormer on the front's centre line, its light at the gable lights' height and its apex about 4 m lower",
+      "status": "open",
+      "how": "T-2435, with T-2428's K01 wall gable"
+    },
+    {
+      "what": "the south side wall's eave: the photograph's runs about 13 m over grade, a knee wall under the attic; the build's eave is the third floor's, 11.0 m",
+      "status": "open",
+      "how": "T-2435, with the wall gable"
+    },
+    {
+      "what": "the windows' kind: the photograph's ground- and first-floor windows are leaded casements, two lights under a transom, mullioned, in dressed quoined surrounds; its second-floor windows single one-over-one sash under segmental heads, the middle one standing a little south of the windows under it; the build has K06 two-over-two sash under flat stone lintels, all on one bay line",
+      "status": "open",
+      "how": "T-2435"
+    },
+    {
+      "what": "the frontispiece: the front's south part stands slightly proud, its edges quoined; the photograph has a carved panel over the door, a four-light mullioned and transomed window over it under a hood mould and two narrow segment-headed lights above that; the build has one sash a storey in that bay",
+      "status": "open",
+      "how": "T-2435"
+    },
+    {
+      "what": "the base: the photograph shows a plain plinth with no basement lights; the build has low area lights under the ground-floor windows, which a K01 front without its own openings row must carry",
+      "status": "open",
+      "how": "T-2435"
+    },
+    {
+      "what": "the stacks: the photograph's tall stack stands on the north party wall near the front, beside the gable; the build's stands 9.4 m behind the front (a K01 stack may not stand in the dormer's body)",
+      "status": "open",
+      "how": "T-2435, with the wall gable"
+    },
+    {
+      "what": "the four-storey rear section: the photograph shows it stepping out to the south behind the main body under a mansard with a dormer and a stack, as the 1911 sheet traces it (s20-1625-a1); not built, a K01 rear wing standing only behind the main body inside its width",
+      "status": "open",
+      "how": "T-2435"
+    },
+    {
+      "what": "the picket fence along the open ground to the south, and the builders' stone and barrels on the walk",
+      "status": "not shown",
+      "how": "the fence is the lot's, not the house's, and is not built here; the debris is the photograph's day in 1889"
+    },
+    {
+      "what": "colour and tone: the photograph is monochrome; its stone reads mid-grey and rock-faced, the south wall's brick lighter",
+      "status": "not shown",
+      "how": "the stone is K02's brownstone on the Tribune's 'red stone' (quoted by chicagology, not yet a source record); L-k01-1625-mcbirney-tudor-2432"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

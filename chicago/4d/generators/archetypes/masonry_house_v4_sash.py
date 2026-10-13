@@ -16,6 +16,17 @@ draws what the HABS sheets and photographs show a window to be made of:
                 a stone transom, and a one-over-one sash below it (HABS
                 photograph 14; the c. 1923 photograph 04 agrees).
 
+T-2212 (audit GA-11B) carries the same sash into the courtyard, read off HABS
+photograph 05 (c. 1923, the court; rights unknown, so read and never traced):
+
+  courtyard     the same double-hung with a rock-faced limestone sill under a
+                rough lintel; the east wing's four lights over the underpass are
+                two-over-two (a vertical bar in each sash); the garden-level
+                lights stand behind vertical iron bars.
+  on_facet      the hall bow's and the dining bay's lights, which sit on curved
+                or canted facets rather than an axis-aligned wall, are the same
+                one-over-one double-hung, carried onto the facet by OnFacet.
+
 The opening sizes stay the record's. The member sizes (stiles 48 mm, meeting
 rails 38 mm, bottom rail 85 mm, the 45 mm sash planes) are a reconstruction at
 ordinary 1880s joinery, recorded as L-glessner-sash-2211 in docs/LIBERTIES.md.
@@ -66,7 +77,7 @@ def prism_u(b, pl, u0, u1, profile, conf, mat):
         b.raw([left[i], left[j], right[j], right[i]], conf, mat, want)
 
 
-def _sash(b, o, a, c, lo, hi, plane, rails, glass_off, conf, bars=0, stile=STILE):
+def _sash(b, o, a, c, lo, hi, plane, rails, glass_off, conf, bars=0, stile=STILE, vbars=0):
     """One sash: stiles, rails (bottom, top) and its glass, with optional bars."""
     d = _d()
     d0, d1 = plane
@@ -83,10 +94,18 @@ def _sash(b, o, a, c, lo, hi, plane, rails, glass_off, conf, bars=0, stile=STILE
     for i in range(1, bars + 1):
         z = gz0 + (gz1 - gz0) * i / (bars + 1)
         d.slab(b, o, ga, gc, z - .011, z + .011, glass_off - .012, glass_off + .014, conf, d.PAINTED_WOOD)
+    for i in range(1, vbars + 1):
+        u = ga + (gc - ga) * i / (vbars + 1)
+        d.slab(b, o, u - .011, u + .011, gz0, gz1, glass_off - .012, glass_off + .014, conf, d.PAINTED_WOOD)
 
 
-def double_hung(b, o, a, c, z0, z1, conf, frame=.062, meet_from_top=.5, sill=True):
-    """A one-over-one double-hung window filling the opening a..c, z0..z1."""
+def double_hung(b, o, a, c, z0, z1, conf, frame=.062, meet_from_top=.5, sill=True,
+                divided=False, sill_mat=None):
+    """A one-over-one double-hung window filling the opening a..c, z0..z1.
+
+    `divided` makes it two-over-two: one vertical bar in each sash (T-2212).
+    `sill_mat` replaces the street's granite sill (the courtyard's is rock-faced
+    limestone)."""
     d = _d()
     P = lambda u, z, off: legacy._plane_point(o, u, z, off)
     n = legacy._plane_dir(o)
@@ -111,23 +130,24 @@ def double_hung(b, o, a, c, z0, z1, conf, frame=.062, meet_from_top=.5, sill=Tru
             d.slab(b, o, ua - mull, ua, z0, z1, FRAME[0], FRAME[1], conf, d.PAINTED_WOOD)
         top = z1 - frame
         meet = top - (top - sub) * meet_from_top
-        _sash(b, o, ua, uc, meet - MEET / 2, top, UPPER, (MEET, TOP_RAIL), -.226, conf)
-        _sash(b, o, ua, uc, sub, meet + MEET / 2, LOWER, (BOTTOM_RAIL, MEET), -.271, conf)
+        vb = 1 if divided else 0
+        _sash(b, o, ua, uc, meet - MEET / 2, top, UPPER, (MEET, TOP_RAIL), -.226, conf, vbars=vb)
+        _sash(b, o, ua, uc, sub, meet + MEET / 2, LOWER, (BOTTOM_RAIL, MEET), -.271, conf, vbars=vb)
     if sill:
-        granite_sill(b, o, a, c, z0, conf)
+        granite_sill(b, o, a, c, z0, conf, sill_mat)
 
 
-def granite_sill(b, o, a, c, z0, conf):
+def granite_sill(b, o, a, c, z0, conf, mat=None):
     """The street sill: weathered toward the street, with a drip nib under its nose."""
     d = _d()
-    mat = d.GRANITE
+    mat = mat if mat is not None else d.GRANITE
     prism_u(b, o, a - .09, c + .09, [(-.055, z0 - .085), (.110, z0 - .085), (.110, z0 + .004), (-.055, z0 + .028)],
             conf, mat)
     prism_u(b, o, a - .09, c + .09, [(.086, z0 - .104), (.110, z0 - .104), (.110, z0 - .085), (.086, z0 - .085)],
             conf, mat)
 
 
-def slit_sash(b, o, a, c, z0, z1, conf):
+def slit_sash(b, o, a, c, z0, z1, conf, sill_mat=None):
     """A narrow light: one sash in a light frame, divided by horizontal bars."""
     d = _d()
     P = lambda u, z, off: legacy._plane_point(o, u, z, off)
@@ -141,7 +161,45 @@ def slit_sash(b, o, a, c, z0, z1, conf):
     lights = max(2, round((z1 - z0) / .55))
     _sash(b, o, a + frame, c - frame, z0 + frame, z1 - frame, LOWER, (.06, .045), -.271, conf,
           bars=lights - 1, stile=.036)
-    granite_sill(b, o, a, c, z0, conf)
+    granite_sill(b, o, a, c, z0, conf, sill_mat)
+
+
+def garden_bars(b, o, a, c, z0, z1, conf):
+    """Vertical iron bars across a garden-level courtyard light (HABS photograph 05)."""
+    d = _d()
+    count = max(3, round((c - a) / .115))
+    for i in range(1, count):
+        x, y, _ = legacy._plane_point(o, a + (c - a) * i / count, 0, -.10)
+        d.cylinder(b, x, y, z0 + .02, z1 - .02, .011, conf, d.IRON, 6)
+
+
+class OnFacet:
+    """A builder that carries sash drawn on the plane y = 0 (u along +x, outward
+    along PLANE's outward side) onto a bay or bow facet: u runs from p along
+    `tangent`, outward is `normal`. The canonical plane's sign is chosen so the
+    map keeps handedness, so faces drawn without a wanted normal keep their winding."""
+
+    def __init__(self, b, p, tangent, normal):
+        self.b, self.p, self.t, self.n = b, p, tangent, normal
+        self.params = b.params
+        self.s = 1 if tangent[0] * normal[1] - tangent[1] * normal[0] > 0 else -1
+        self.plane = {'axis': 'y', 'sign': self.s, 'at': 0.0}
+
+    def _map(self, v, base):
+        x, y, z = v
+        y *= self.s
+        return (base[0] + self.t[0] * x + self.n[0] * y, base[1] + self.t[1] * x + self.n[1] * y, z)
+
+    def raw(self, pts, confidence, mat, want=None):
+        return self.b.raw([self._map(q, self.p) for q in pts], confidence, mat,
+                          None if want is None else self._map(want, (0.0, 0.0)))
+
+
+def on_facet(b, p, tangent, normal, width, z0, z1, conf):
+    """A one-over-one double-hung on a facet of the hall bow or the dining bay.
+    The facet's own stone sill and lintel stay; this is the frame, sash and glass."""
+    f = OnFacet(b, p, tangent, normal)
+    double_hung(f, f.plane, 0.0, width, z0, z1, conf, sill=False)
 
 
 def gable_light(b, o, conf):

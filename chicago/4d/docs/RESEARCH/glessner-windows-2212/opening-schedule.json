@@ -1,0 +1,1469 @@
+{
+ "courtyard": [
+  {
+   "face": "west",
+   "record": "v4_detail",
+   "what": "east-wing courtyard garden light beside the stair tower, HABS sheet 4",
+   "at_ft": [
+    43.0,
+    48.5
+   ],
+   "z_ft": [
+    1.0,
+    4.5
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel, behind vertical iron bars",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "first-floor window",
+   "at_ft": [
+    43.0,
+    47.5
+   ],
+   "z_ft": [
+    9.5,
+    14.6
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "tall narrow second-floor light",
+   "at_ft": [
+    44.9,
+    46.7
+   ],
+   "z_ft": [
+    19.5,
+    25.6
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "windows over the underpass",
+   "at_ft": [
+    62.0,
+    64.5
+   ],
+   "z_ft": [
+    12.3,
+    16.9
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": "two_over_two",
+   "built_as": "two-over-two double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "windows under the eave over the underpass",
+   "at_ft": [
+    62.0,
+    64.5
+   ],
+   "z_ft": [
+    21.0,
+    24.8
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": "two_over_two",
+   "built_as": "two-over-two double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "underpass exit into the courtyard",
+   "at_ft": [
+    63.3,
+    72.9
+   ],
+   "z_ft": [
+    0.0,
+    8.1
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "dark",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "open passage, no panel",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "windows over the underpass",
+   "at_ft": [
+    67.5,
+    70.0
+   ],
+   "z_ft": [
+    12.3,
+    16.9
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": "two_over_two",
+   "built_as": "two-over-two double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "windows under the eave over the underpass",
+   "at_ft": [
+    67.5,
+    70.0
+   ],
+   "z_ft": [
+    21.0,
+    24.8
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": "two_over_two",
+   "built_as": "two-over-two double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "garden-level north-court lights below the principal rooms",
+   "at_ft": [
+    40,
+    44.5
+   ],
+   "z_ft": [
+    0.8,
+    5.4
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel, behind vertical iron bars",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "north range courtyard windows, first floor",
+   "at_ft": [
+    40,
+    44.5
+   ],
+   "z_ft": [
+    9.3,
+    14.5
+   ],
+   "z_from": "opening_heights.first",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "north range courtyard windows, second floor",
+   "at_ft": [
+    40,
+    42
+   ],
+   "z_ft": [
+    20.9,
+    24.0
+   ],
+   "z_from": "opening_heights.second",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "north range courtyard windows, second floor",
+   "at_ft": [
+    44,
+    48
+   ],
+   "z_ft": [
+    20.9,
+    24.0
+   ],
+   "z_from": "opening_heights.second",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "garden-level north-court lights below the principal rooms",
+   "at_ft": [
+    46,
+    50
+   ],
+   "z_ft": [
+    0.8,
+    5.4
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel, behind vertical iron bars",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "north range courtyard windows, first floor",
+   "at_ft": [
+    46,
+    50
+   ],
+   "z_ft": [
+    9.3,
+    14.5
+   ],
+   "z_from": "opening_heights.first",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "north range courtyard windows, second floor",
+   "at_ft": [
+    50,
+    54
+   ],
+   "z_ft": [
+    20.9,
+    24.0
+   ],
+   "z_from": "opening_heights.second",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "garden-level north-court lights below the principal rooms",
+   "at_ft": [
+    52,
+    56
+   ],
+   "z_ft": [
+    0.8,
+    5.4
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel, behind vertical iron bars",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "north range courtyard windows, first floor",
+   "at_ft": [
+    52,
+    56
+   ],
+   "z_ft": [
+    9.3,
+    14.5
+   ],
+   "z_from": "opening_heights.first",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "garden-level north-court lights below the principal rooms",
+   "at_ft": [
+    82,
+    86
+   ],
+   "z_ft": [
+    0.8,
+    5.4
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel, behind vertical iron bars",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "north range courtyard windows, first floor",
+   "at_ft": [
+    82,
+    86
+   ],
+   "z_ft": [
+    9.3,
+    14.5
+   ],
+   "z_from": "opening_heights.first",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "north range courtyard windows, second floor",
+   "at_ft": [
+    82,
+    86
+   ],
+   "z_ft": [
+    20.9,
+    24.0
+   ],
+   "z_from": "opening_heights.second",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "garden-level north-court lights below the principal rooms",
+   "at_ft": [
+    92,
+    96
+   ],
+   "z_ft": [
+    0.8,
+    5.4
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel, behind vertical iron bars",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "north range courtyard windows, first floor",
+   "at_ft": [
+    92,
+    96
+   ],
+   "z_ft": [
+    9.3,
+    14.5
+   ],
+   "z_from": "opening_heights.first",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "north range courtyard windows, second floor",
+   "at_ft": [
+    92,
+    96
+   ],
+   "z_ft": [
+    20.9,
+    24.0
+   ],
+   "z_from": "opening_heights.second",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "service entrance into the courtyard, with stone threshold",
+   "at_ft": [
+    100,
+    104
+   ],
+   "z_ft": [
+    6.0,
+    14.5
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "door",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "panelled wood leaf",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "north range courtyard windows, second floor",
+   "at_ft": [
+    101,
+    105
+   ],
+   "z_ft": [
+    20.9,
+    24.0
+   ],
+   "z_from": "opening_heights.second",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "north range courtyard windows, second floor",
+   "at_ft": [
+    108,
+    109.5
+   ],
+   "z_ft": [
+    20.9,
+    24.0
+   ],
+   "z_from": "opening_heights.second",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "garden-level north-court lights below the principal rooms",
+   "at_ft": [
+    112,
+    118
+   ],
+   "z_ft": [
+    0.8,
+    5.4
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "two one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel, on a mullion, behind vertical iron bars",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "north range courtyard windows, first floor",
+   "at_ft": [
+    112,
+    118
+   ],
+   "z_ft": [
+    9.3,
+    14.5
+   ],
+   "z_from": "opening_heights.first",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "two one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel, on a mullion",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "north range courtyard windows, second floor",
+   "at_ft": [
+    114,
+    119
+   ],
+   "z_ft": [
+    20.9,
+    24.0
+   ],
+   "z_from": "opening_heights.second",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "v4_detail",
+   "what": "stable south lower windows, reconstructed from the stable window rhythm",
+   "at_ft": [
+    130.5,
+    134.0
+   ],
+   "z_ft": [
+    7.0,
+    11.0
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "v4_detail",
+   "what": "stable south upper windows, HABS sheet 3 plan gaps; excludes the c.1955 stair door",
+   "at_ft": [
+    138.8,
+    141.4
+   ],
+   "z_ft": [
+    20.0,
+    23.0
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "v4_detail",
+   "what": "stable south upper windows, HABS sheet 3 plan gaps; excludes the c.1955 stair door",
+   "at_ft": [
+    143.5,
+    146.0
+   ],
+   "z_ft": [
+    20.0,
+    23.0
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "v4_detail",
+   "what": "stable south upper windows, HABS sheet 3 plan gaps; excludes the c.1955 stair door",
+   "at_ft": [
+    148.0,
+    150.4
+   ],
+   "z_ft": [
+    20.0,
+    23.0
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "v4_detail",
+   "what": "stable south lower windows, reconstructed from the stable window rhythm",
+   "at_ft": [
+    152.0,
+    155.5
+   ],
+   "z_ft": [
+    7.0,
+    11.0
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "face": "east",
+   "record": "v4_detail",
+   "what": "stable courtyard door beside the north-range junction",
+   "at_ft": [
+    26.9,
+    29.4
+   ],
+   "z_ft": [
+    5.8,
+    14.0
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "door",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "panelled wood leaf",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "face": "east",
+   "record": "v4_detail",
+   "what": "stable courtyard upper windows, HABS sheet 3 plan gaps",
+   "at_ft": [
+    29.3,
+    34.3
+   ],
+   "z_ft": [
+    18.0,
+    22.5
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "face": "east",
+   "record": "v4_detail",
+   "what": "stable courtyard garden lights, reconstructed beneath the stable window bays",
+   "at_ft": [
+    29.5,
+    33.0
+   ],
+   "z_ft": [
+    0.8,
+    4.2
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel, behind vertical iron bars",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "face": "east",
+   "record": "v4_detail",
+   "what": "stable courtyard narrow first-floor windows, HABS sheet 2 plan gaps",
+   "at_ft": [
+    30.5,
+    32.0
+   ],
+   "z_ft": [
+    7.5,
+    13.5
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "face": "east",
+   "record": "v4_detail",
+   "what": "stable courtyard garden lights, reconstructed beneath the stable window bays",
+   "at_ft": [
+    41.0,
+    44.5
+   ],
+   "z_ft": [
+    0.8,
+    4.2
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel, behind vertical iron bars",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "face": "east",
+   "record": "v4_detail",
+   "what": "stable courtyard upper windows, HABS sheet 3 plan gaps",
+   "at_ft": [
+    41.0,
+    45.3
+   ],
+   "z_ft": [
+    18.0,
+    22.5
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "face": "east",
+   "record": "v4_detail",
+   "what": "stable courtyard narrow first-floor windows, HABS sheet 2 plan gaps",
+   "at_ft": [
+    41.7,
+    43.2
+   ],
+   "z_ft": [
+    7.5,
+    13.5
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "face": "east",
+   "record": "v4_detail",
+   "what": "stable courtyard garden lights, reconstructed beneath the stable window bays",
+   "at_ft": [
+    50.8,
+    54.3
+   ],
+   "z_ft": [
+    0.8,
+    4.2
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel, behind vertical iron bars",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "face": "east",
+   "record": "v4_detail",
+   "what": "stable courtyard upper windows, HABS sheet 3 plan gaps",
+   "at_ft": [
+    51.0,
+    55.0
+   ],
+   "z_ft": [
+    18.0,
+    22.5
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "face": "east",
+   "record": "v4_detail",
+   "what": "stable courtyard narrow first-floor windows, HABS sheet 2 plan gaps",
+   "at_ft": [
+    51.8,
+    53.4
+   ],
+   "z_ft": [
+    7.5,
+    13.5
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  }
+ ],
+ "facets": [
+  {
+   "where": "hall bow",
+   "record": "hall_bow_height",
+   "what": "first-floor lights either side of the garden door",
+   "count": 2,
+   "z_ft": [
+    9.3,
+    14.5
+   ],
+   "built_as": "one-over-one double-hung on the curved face",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "where": "hall bow",
+   "record": "hall_bow_height",
+   "what": "garden door at the centre of the first floor",
+   "count": 1,
+   "z_ft": [
+    9.3,
+    14.5
+   ],
+   "built_as": "door: four glazed lights over a raised panel",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "where": "hall bow",
+   "record": "hall_bow_height",
+   "what": "second-floor lights",
+   "count": 3,
+   "z_ft": [
+    19.5,
+    24.0
+   ],
+   "built_as": "one-over-one double-hung on the curved face",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "where": "bow terrace",
+   "record": "v4_detail",
+   "what": "garden-level lights in the terrace wall",
+   "count": 2,
+   "z_ft": [
+    1.0,
+    3.8
+   ],
+   "built_as": "dark recessed light behind vertical iron bars",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "where": "dining bay",
+   "record": "bay_dining_elevation",
+   "what": "first-floor lights, one to each principal facet",
+   "count": 5,
+   "z_ft": [
+    9.3,
+    14.5
+   ],
+   "built_as": "one-over-one double-hung between rock-faced stone jambs",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_photo_05_court_c1923",
+    "habs_glessner_house_il_1015_drawings",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "where": "dining bay",
+   "record": "v4_detail",
+   "what": "garden-level lights",
+   "count": 3,
+   "z_ft": [
+    1.0,
+    5.0
+   ],
+   "built_as": "dark recessed light behind vertical iron bars",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "where": "dining bay",
+   "record": "bay_dining_elevation",
+   "what": "glazed band over the masonry storey, on every facet",
+   "count": null,
+   "z_ft": [
+    20.9,
+    24.0
+   ],
+   "built_as": "fixed lights in two rows, a mullion about every 0.55 m",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_photo_05_court_c1923",
+    "habs_glessner_house_il_1015_drawings",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "where": "stair tower",
+   "record": "v4_detail",
+   "what": "slit at azimuth 145 degrees",
+   "count": 1,
+   "z_ft": [
+    7.6,
+    12.5
+   ],
+   "built_as": "single light in a flat frame with a meeting rail",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "where": "stair tower",
+   "record": "v4_detail",
+   "what": "slit at azimuth 145 degrees",
+   "count": 1,
+   "z_ft": [
+    17.8,
+    22.0
+   ],
+   "built_as": "single light in a flat frame with a meeting rail",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "where": "stair tower",
+   "record": "v4_detail",
+   "what": "slit at azimuth 215 degrees",
+   "count": 1,
+   "z_ft": [
+    4.5,
+    9.2
+   ],
+   "built_as": "single light in a flat frame with a meeting rail",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "where": "stair tower",
+   "record": "v4_detail",
+   "what": "slit at azimuth 215 degrees",
+   "count": 1,
+   "z_ft": [
+    15.7,
+    19.8
+   ],
+   "built_as": "single light in a flat frame with a meeting rail",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "where": "stair tower",
+   "record": "v4_detail",
+   "what": "lantern light at azimuth 135 degrees",
+   "count": 1,
+   "z_ft": [
+    27.0,
+    31.0
+   ],
+   "built_as": "fixed sash, 2 x 3 lights",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "where": "stair tower",
+   "record": "v4_detail",
+   "what": "lantern light at azimuth 180 degrees",
+   "count": 1,
+   "z_ft": [
+    27.0,
+    31.0
+   ],
+   "built_as": "fixed sash, 2 x 3 lights",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "where": "stair tower",
+   "record": "v4_detail",
+   "what": "lantern light at azimuth 225 degrees",
+   "count": 1,
+   "z_ft": [
+    27.0,
+    31.0
+   ],
+   "built_as": "fixed sash, 2 x 3 lights",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  },
+  {
+   "where": "east wing courtyard slope",
+   "record": "dormers",
+   "what": "pyramid-roofed dormers, centres S 32.3, 45, 66.8",
+   "count": 3,
+   "z_ft": [
+    30.0,
+    32.4
+   ],
+   "built_as": "one undivided light in a timber frame",
+   "confidence": "attested",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "inland_architect_1888_02_glessner_exterior"
+   ]
+  },
+  {
+   "where": "stable alley slope",
+   "record": "v4_detail",
+   "what": "hipped dormer with a flared hood",
+   "count": 1,
+   "z_ft": null,
+   "built_as": "clear stable light (masonry_house_v4_west_fabric)",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889"
+   ]
+  }
+ ]
+}
