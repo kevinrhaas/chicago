@@ -33,10 +33,30 @@ The figures are written onto the object (`stone_occlusion`), so they travel into
 GLB's node extras; generators/build.py reads them back to record `baked_ao` and to hold
 the exported map to the bake with `ao_export.assert_ao_survived_export`.
 
+The atlas is the one part of this that a CPU can change (T-2431). Cycles AO is not
+bit-reproducible across hardware: the same mesh, seed and samples baked in a cloud
+container and on an Actions runner differed in 2,471 of 4,194,304 texels (T-2427), so
+every off-runner bake of Glessner moved the master's bytes and redded the bake check's
+K01 hashes. So the quantised atlas and its written-texel mask are committed beside the
+models, in assets/bakes/stone-occlusion/, keyed by a sha256 of everything the bake
+reads — the mesh's vertices, faces and slots, its OcclusionUV, the figures below and
+the Blender version (none of which the CPU moves: T-2427 found every accessor identical
+across the two machines). A bake whose key matches takes the committed atlas and runs
+no Cycles at all, so it writes the same bytes on any CPU. A bake whose key does not
+match bakes fresh, says so, and rewrites the file: geometry that moves carries its new
+atlas in the same commit, and the next bake anywhere reproduces it. STONE_OCCLUSION_REBAKE=1
+ignores the committed atlas (to measure a fresh bake against it); it still rewrites it.
+
 This module is one of the masonry_house_v4* files generators/mesh_inputs.py hashes for a
-v4 building, so it stales the Glessner House and nothing else.
+v4 building, so it stales the Glessner House and nothing else. The atlas files are not
+inputs: they are a cache of this module's output, and a stale one is simply not used.
 """
 from __future__ import annotations
+
+import hashlib
+import json
+import os
+from pathlib import Path
 
 from archetypes.masonry_house_v4_materials import GRANITE, GRANITE_VARIANTS, ROUGH_TRIM
 
@@ -50,6 +70,9 @@ ANGLE_LIMIT = 1.15     # emit.unwrap's, so a stone face and its pitched arris st
 PACK_MARGIN = 0.0002   # fraction of the atlas; the bake's own margin covers the seams
 BAKE_MARGIN_PX = 4
 IMAGE_NAME = "granite_stone_occlusion"
+# One committed atlas a size: the master bakes at 2048, the light tier (T-2401) at 1024.
+ATLAS_DIR = Path(__file__).resolve().parents[2] / "assets" / "bakes" / "stone-occlusion"
+ATLAS_RECIPE = 1       # bump when the bake below changes in a way the key cannot see
 
 
 def _welded_unwrap(bpy, bmesh, np, ob, mask):
@@ -154,6 +177,52 @@ def _fill_holes(np, value, covered):
     return np.where(covered, value, fill)
 
 
+def _atlas_key(bpy, np, me, mask):
+    """sha256 of everything the AO and coverage bakes read (see module doc)."""
+    h = hashlib.sha256(json.dumps({
+        "recipe": ATLAS_RECIPE, "blender": bpy.app.version_string, "size": SIZE,
+        "samples": SAMPLES, "distance_m": DISTANCE_M, "margin_px": BAKE_MARGIN_PX,
+        "slots": list(GRANITE_SLOTS)}, sort_keys=True).encode())
+    for seq, attr, n, dtype in ((me.vertices, "co", len(me.vertices) * 3, np.float32),
+                                (me.loops, "vertex_index", len(me.loops), np.int32),
+                                (me.polygons, "loop_start", len(me.polygons), np.int32),
+                                (me.polygons, "loop_total", len(me.polygons), np.int32),
+                                (me.uv_layers[OCCLUSION_UV].data, "uv", len(me.loops) * 2,
+                                 np.float32)):
+        a = np.zeros(n, dtype)
+        seq.foreach_get(attr, a)
+        h.update(a.tobytes())
+    h.update(np.packbits(mask).tobytes())
+    return h.hexdigest()
+
+
+def _atlas_path():
+    return ATLAS_DIR / f"{IMAGE_NAME}_{SIZE}.npz"
+
+
+def _load_atlas(np, key):
+    """The committed (quantised atlas, written-texel mask) for `key`, or None."""
+    path = _atlas_path()
+    if os.environ.get("STONE_OCCLUSION_REBAKE") == "1" or not path.is_file():
+        return None
+    with np.load(path) as atlas:
+        if str(atlas["key"]) != key:
+            return None
+        q = atlas["ao"]
+        covered = np.unpackbits(atlas["covered"])[:SIZE * SIZE].reshape(SIZE, SIZE) > 0
+    if q.shape != (SIZE, SIZE) or q.dtype != np.uint8:
+        return None
+    return q, covered
+
+
+def _store_atlas(np, key, q, covered):
+    path = _atlas_path()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "wb") as fh:
+        np.savez_compressed(fh, key=np.str_(key), ao=q, covered=np.packbits(covered.ravel()))
+    return path
+
+
 def bake_stone_occlusion(ob):
     """Bake, wire and record the granite's stone-scale occlusion on `ob` (see module doc)."""
     import bmesh
@@ -195,21 +264,32 @@ def bake_stone_occlusion(ob):
     scene.render.bake.margin = BAKE_MARGIN_PX
     bpy.context.view_layer.objects.active = ob
     ob.select_set(True)
-    bpy.ops.object.bake(type="AO", uv_layer=OCCLUSION_UV)
-    px = np.zeros(SIZE * SIZE * 4, np.float32)
-    raw.pixels.foreach_get(px)
-    ao = px.reshape(SIZE, SIZE, 4)[..., 0].copy()
-    # Which texels a face wrote. Cycles writes the whole buffer, the unwritten texels
-    # as 0 with alpha 1, so neither alpha nor a sentinel survives the AO pass. A
-    # tangent-space normal bake (no rays, one sample) writes blue near 1 on every face
-    # texel and 0 elsewhere, through the same margin.
-    scene.cycles.samples = 1
-    bpy.ops.object.bake(type="NORMAL", normal_space="TANGENT", uv_layer=OCCLUSION_UV)
-    raw.pixels.foreach_get(px)
-    covered = px.reshape(SIZE, SIZE, 4)[..., 2] > 0.25
-    value = np.clip(_fill_holes(np, ao, covered), 0.0, 1.0)
-    # Quantise here, so the mean recorded is the mean of the bytes the exporter writes.
-    value = np.round(value * 255.0) / 255.0
+    key = _atlas_key(bpy, np, me, mask)
+    cached = _load_atlas(np, key)
+    if cached is not None:
+        q, covered = cached
+        print(f"stone occlusion: {_atlas_path().name} matches this mesh ({key[:12]}); "
+              f"no Cycles bake (T-2431)")
+    else:
+        bpy.ops.object.bake(type="AO", uv_layer=OCCLUSION_UV)
+        px = np.zeros(SIZE * SIZE * 4, np.float32)
+        raw.pixels.foreach_get(px)
+        ao = px.reshape(SIZE, SIZE, 4)[..., 0].copy()
+        # Which texels a face wrote. Cycles writes the whole buffer, the unwritten texels
+        # as 0 with alpha 1, so neither alpha nor a sentinel survives the AO pass. A
+        # tangent-space normal bake (no rays, one sample) writes blue near 1 on every
+        # face texel and 0 elsewhere, through the same margin.
+        scene.cycles.samples = 1
+        bpy.ops.object.bake(type="NORMAL", normal_space="TANGENT", uv_layer=OCCLUSION_UV)
+        raw.pixels.foreach_get(px)
+        covered = px.reshape(SIZE, SIZE, 4)[..., 2] > 0.25
+        value = np.clip(_fill_holes(np, ao, covered), 0.0, 1.0)
+        q = np.round(value * 255.0).astype(np.uint8)
+        path = _store_atlas(np, key, q, covered)
+        print(f"stone occlusion: BAKED FRESH on this CPU ({key[:12]}) and wrote "
+              f"{path.relative_to(ATLAS_DIR.parents[2])}; commit it with the model (T-2431)")
+    # Quantised, so the mean recorded is the mean of the bytes the exporter writes.
+    value = q.astype(np.float32) / np.float32(255.0)
     written = value[covered]
 
     img = bpy.data.images.new(IMAGE_NAME, SIZE, SIZE, alpha=False)
@@ -262,6 +342,7 @@ def bake_stone_occlusion(ob):
         "atlas_written": round(float(covered.mean()), 4),
         "atlas_uv_area": round(uv_area, 4),
         "texel_cm": round(100 * (granite_area / max(uv_area * SIZE * SIZE, 1)) ** 0.5, 2),
+        "atlas_key": key[:16],
     }
     ob["stone_occlusion"] = record
     return record
