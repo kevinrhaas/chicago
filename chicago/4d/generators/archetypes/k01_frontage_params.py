@@ -1193,11 +1193,19 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # T-2409: a terrace at the landing's height running from the stoop along the front to
     # `to_v_m` (the front's own s), its back stepped out where the front stands proud, and
     # a turned balustrade on it and on the stoop's cheeks
+    # T-2450: or one a side, as a list — a left one's to_v_m and back run south of the stoop,
+    # and its to_v_m may pass the front's south corner (v < 0)
     if terrace is not None:
-        if set(terrace) - {"side", "to_v_m", "back"} or terrace.get("side", "right") != "right":
-            raise ParamError("entrance_kit.terrace takes side 'right', to_v_m and back [[v, out], ...] alone")
-        door_kit["terrace"] = {"side": "right", "to_v_m": float(terrace["to_v_m"]),
-                               "back": [[float(v), float(o)] for v, o in terrace.get("back", [])]}
+        terraces = []
+        for t in (terrace if isinstance(terrace, list) else [terrace]):
+            if set(t) - {"side", "to_v_m", "back"} or t.get("side", "right") not in ("right", "left"):
+                raise ParamError("entrance_kit.terrace takes side 'right' or 'left', to_v_m and "
+                                 "back [[v, out], ...] alone, or a list of one a side")
+            terraces.append({"side": t.get("side", "right"), "to_v_m": float(t["to_v_m"]),
+                             "back": [[float(v), float(o)] for v, o in t.get("back", [])]})
+        if len({t["side"] for t in terraces}) != len(terraces):
+            raise ParamError("entrance_kit.terrace: one terrace a side")
+        door_kit["terrace"] = terraces[0] if len(terraces) == 1 else terraces
     if balustrade is not None:
         need = {"height_m", "pitch_m", "newel_m", "newel_cap_m", "rail_m", "segments", "profile"}
         if set(balustrade) != need:

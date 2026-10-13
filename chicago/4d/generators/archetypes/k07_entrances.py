@@ -327,9 +327,13 @@ class Entrance(Opening):
         g, L, half = st["going_m"], st["landing_m"], st["width_m"] / 2
         cheeks = st.get("cheeks", False)
         # T-2409: a terrace at the landing's height running along the front to one side;
-        # it takes that side of the landing, so that cheek runs down the flight alone
+        # it takes that side of the landing, so that cheek runs down the flight alone.
+        # T-2450: one terrace a side, so `porch` is one or a list of two
         porch = st.get("porch")
-        pside = {"left": -1.0, "right": 1.0}[porch["side"]] if porch else 0.0
+        porches = porch if isinstance(porch, list) else ([porch] if porch else [])
+        psides = [{"left": -1.0, "right": 1.0}[q["side"]] for q in porches]
+        if len(set(psides)) != len(psides):
+            raise ValueError("a stoop takes one terrace a side")
         self.quad("landing", [(-half, 0, 0), (half, 0, 0), (half, 0, L), (-half, 0, L)], Y)
         self.probe(0.0, 0.0, L / 2, ("landing",), "the landing")
         if not cheeks:
@@ -343,7 +347,7 @@ class Entrance(Opening):
             yF = -(n - 1) * r + hc
             for sgn in (-1.0, 1.0):
                 si, so = sgn * half, sgn * (half + t)
-                o0 = L if sgn == pside else 0.0
+                o0 = L if sgn in psides else 0.0
                 prof = [(o0, -R), (F, -R), (F, yF), (L, hc)] + ([(0, hc)] if o0 == 0.0 else [])
                 self.quad("cheek", [(si, y, o) for o, y in prof], (-sgn, 0.0, 0.0))
                 self.quad("cheek", [(so, y, o) for o, y in prof], (sgn, 0.0, 0.0))
@@ -360,42 +364,51 @@ class Entrance(Opening):
                 self.sockets[f"handrail_{'left' if sgn < 0 else 'right'}"] = [top, foot]
                 for pt in (top, foot):
                     self.probe(*pt, ("cheek",), "a handrail socket on its cheek")
-        if porch:
-            self._terrace(porch, pside, half + (p["cheek"]["thickness_m"] if cheeks else 0.0), half, L, R)
+        for q, side in zip(porches, psides):
+            self._terrace(q, side, half + (p["cheek"]["thickness_m"] if cheeks else 0.0), half, L, R)
         if st.get("balustrade"):
-            self._stoop_balustrade(st["balustrade"], pside, half, L, F, n, r, g, R)
+            self._stoop_balustrade(st["balustrade"], psides, half, L, F, n, r, g, R)
 
     # T-2409: the terrace and the turned balustrades ------------------------------------
     TERRACE_REVEAL_M = 0.02
     def _terrace(self, porch, side, s_face, s_deck, L, R):
         """A stone terrace at the landing's height from the landing's `side` edge to
         `to_s_m` along the front, `L` deep, its back stepped out where `back` says the
-        front stands proud ([s, out] from that s on), faced to grade."""
-        S = porch["to_s_m"] * side
-        steps = [(s_deck * side, 0.0)] + [(b[0] * side, b[1]) for b in porch.get("back", [])]
-        if side < 0:
-            raise ValueError("a terrace runs to the right of its stoop alone")
+        front stands proud ([s, out] from that s on), faced to grade. Its s are measured
+        from the door's centre AWAY from the stoop, so a left terrace (side -1, T-2450) is
+        the right one's mirror; where it runs on past the front's end (`wall_to_s_m`), its
+        back is faced too, as nothing stands behind it there."""
+        m = lambda t: side * t
+        S = porch["to_s_m"]
+        steps = [(s_deck, 0.0)] + [(b[0], b[1]) for b in porch.get("back", [])]
         edges = [q[0] for q in steps] + [S]
         for (a, back), b in zip(steps, edges[1:]):
             if not a < b or back >= L:
                 raise ValueError(f"terrace step {a:.3f}..{b:.3f} m at {back} m is not a strip in front of the wall")
-            self.quad("terrace", [(a, 0, back), (b, 0, back), (b, 0, L), (a, 0, L)], Y)
-        self.quad("terrace_face", [(s_face, -R, L), (S, -R, L), (S, 0, L), (s_face, 0, L)], OUT)
+            self.quad("terrace", [(m(a), 0, back), (m(b), 0, back), (m(b), 0, L), (m(a), 0, L)], Y)
+        self.quad("terrace_face", [(m(s_face), -R, L), (m(S), -R, L), (m(S), 0, L), (m(s_face), 0, L)], OUT)
         last = steps[-1][1]
-        self.quad("terrace_face", [(S, -R, last), (S, -R, L), (S, 0, L), (S, 0, last)], (1.0, 0.0, 0.0))
-        self.probe((s_deck + S) / 2, 0.0, (last + L) / 2, ("terrace",), "the terrace")
+        self.quad("terrace_face", [(m(S), -R, last), (m(S), -R, L), (m(S), 0, L), (m(S), 0, last)], (side, 0.0, 0.0))
+        W = porch.get("wall_to_s_m")
+        if W is not None and W < S:
+            if not steps[-1][0] <= W:
+                raise ValueError(f"the front ends at {W:.3f} m, inside the terrace's last step")
+            self.quad("terrace_face", [(m(W), -R, last), (m(S), -R, last), (m(S), 0, last), (m(W), 0, last)],
+                      (0.0, 0.0, -1.0))
+        self.probe(m((s_deck + S) / 2), 0.0, (last + L) / 2, ("terrace",), "the terrace")
         B = porch.get("balustrade")
         if B:
             # the newels stand REVEAL back from the terrace's edge, so the corner newel's face is
             # never on the plane of the cheek's end beside it (one face drawn twice)
             nm, o_n = B["newel_m"] / 2, L - B["newel_m"] / 2 - self.TERRACE_REVEAL_M
-            corner = ((s_face + s_deck) / 2 if s_face > s_deck else s_deck + nm, 0.0, o_n)
-            far = (S - nm, 0.0, o_n)
+            corner = (m((s_face + s_deck) / 2 if s_face > s_deck else s_deck + nm), 0.0, o_n)
+            far = (m(S - nm), 0.0, o_n)
             self._baluster_run(B, corner, far, B["height_m"])
-            self._baluster_run(B, far, (S - nm, 0.0, last + nm), B["height_m"], skip_first=True)
-        self.meta["terrace"] = {"s": [s_deck, S], "out_m": L, "back": [list(q) for q in steps]}
+            self._baluster_run(B, far, (m(S - nm), 0.0, last + nm), B["height_m"], skip_first=True)
+        rec = {"s": [m(s_deck), m(S)], "out_m": L, "back": [[m(a), o] for a, o in steps]}
+        self.meta["terrace" if side > 0 else "terrace_left"] = rec
 
-    def _stoop_balustrade(self, B, pside, half, L, F, n, r, g, R):
+    def _stoop_balustrade(self, B, psides, half, L, F, n, r, g, R):
         """A turned balustrade on each cheek's top, level beside the landing and raked down
         the flight, its rail at the terrace's height over the landing (the cheek's top is
         `above_nosing_m` over the nosing, so the balusters are that much shorter); on the
@@ -409,7 +422,7 @@ class Entrance(Opening):
         y_foot = hc + (yF - hc) * (foot - L) / (F - L)
         for sgn in (-1.0, 1.0):
             sc = sgn * (half + t / 2)
-            if sgn == pside:   # from the terrace's corner newel (_terrace), down the rake
+            if sgn in psides:   # from the terrace's corner newel (_terrace), down the rake
                 self._baluster_run(B, (sc, hc, L - nm - self.TERRACE_REVEAL_M), (sc, y_foot, foot), H,
                                    skip_first=True)
             else:
