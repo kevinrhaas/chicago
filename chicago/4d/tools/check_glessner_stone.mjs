@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 /**
- * T-2446 — `?stone=` retints Glessner's granite, and only Glessner's granite.
+ * T-2446, T-2469 — Glessner's granite is retinted to grey-greige, and nothing else is.
  *
- * The owner asked to compare a few stone colours before a default is baked. This holds the
- * option to its terms: the baked tint it divides by is the one the generator writes
- * (GRANITE_TINT), a known name or a linear `r,g,b` is read and anything else falls back to
- * the default, only glessner_house's five granite slots are touched, each once, and
- * `?stone=baked` leaves the package's colour exactly as it is.
+ * The owner chose grey-greige from T-2446's comparison. The bake cannot carry it (the glTF
+ * exporter clamps a colour factor to 1), so the renderer multiplies it in at load. This
+ * holds that to its terms: the baked tint it divides by is the one the generator writes
+ * (GRANITE_TINT), only glessner_house's five granite slots are touched, each once (a clone
+ * of a retinted slot is not retinted again), and each lands on grey-greige times its own
+ * variant offset.
  */
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
@@ -18,55 +19,47 @@ const web = path.join(root, 'renderers/web');
 const threeURL = pathToFileURL(path.join(web, 'vendor/three-0.185.1/three.module.js')).href;
 const THREE = await import(threeURL);
 const source = await readFile(path.join(web, 'js/glessner-stone.js'), 'utf8');
-const { readGlessnerStone, tintGlessnerGranite, GLESSNER_STONES, GLESSNER_STONE_BAKED, GLESSNER_STONE_DEFAULT } = await import(
+const { tintGlessnerGranite, GLESSNER_STONE, GLESSNER_STONE_BAKED } = await import(
   `data:text/javascript;base64,${Buffer.from(source.replace("from 'three'", `from '${threeURL}'`)).toString('base64')}`);
 
 const checks = [];
 function check(name, run) { run(); checks.push(name); }
 const glessner = { id: 'glessner_house' };
 const slot = (name, rgb) => new THREE.MeshStandardMaterial({ name, color: new THREE.Color(...rgb) });
+const near = (a, b) => Math.abs(a - b) < 1e-6;
 
 {
   const py = await readFile(path.join(root, 'generators/archetypes/masonry_house_v4_materials.py'), 'utf8');
   const m = py.match(/^GRANITE_TINT = \(([^)]*)\)/m);
   assert.ok(m, 'GRANITE_TINT not found in masonry_house_v4_materials.py');
   assert.deepEqual(m[1].split(',').map(Number), [...GLESSNER_STONE_BAKED],
-    'GRANITE_TINT changed: set GLESSNER_STONE_BAKED (and the presets) to the new bake');
+    'GRANITE_TINT changed: set GLESSNER_STONE_BAKED to the new bake and re-check grey-greige');
   checks.push("the baked tint is the generator's GRANITE_TINT");
 }
-check('a known name is read, an unknown one falls back to the default', () => {
-  assert.ok(Object.hasOwn(GLESSNER_STONES, GLESSNER_STONE_DEFAULT));
-  assert.equal(GLESSNER_STONES.baked, GLESSNER_STONE_BAKED);
-  for (const name of Object.keys(GLESSNER_STONES)) {
-    assert.deepEqual(readGlessnerStone(`?stone=${name}`), { name, tint: GLESSNER_STONES[name] });
-  }
-  assert.equal(readGlessnerStone('?stone=Greige').name, 'greige');
-  for (const q of ['', '?stone=', '?stone=pink', '?stone=1,2', '?stone=0,1,1', '?stone=a,b,c', '?stone=2,1,1', '?stone=toString']) {
-    assert.equal(readGlessnerStone(q).name, GLESSNER_STONE_DEFAULT, q);
-  }
-  assert.deepEqual([...readGlessnerStone('?stone=0.9,0.97,1').tint], [0.9, 0.97, 1]);
+check('the main slot lands on grey-greige', () => {
+  const m = slot('granite', GLESSNER_STONE_BAKED);
+  tintGlessnerGranite(m, glessner);
+  assert.ok(near(m.color.r, GLESSNER_STONE[0]) && near(m.color.g, GLESSNER_STONE[1]) && near(m.color.b, GLESSNER_STONE[2]));
 });
-check('only glessner_house\'s granite slots are retinted, each by preset / baked, once', () => {
-  const stone = readGlessnerStone('?stone=0.5,0.97,0.94');
+check("each granite slot is retinted once, by grey-greige / baked", () => {
+  const lift = GLESSNER_STONE.map((v, i) => v / GLESSNER_STONE_BAKED[i]);
   for (const name of ['granite', 'granite_1', 'granite_2', 'granite_3', 'granite_4']) {
     const m = slot(name, [0.8, 0.8, 0.8]);
-    tintGlessnerGranite(m, glessner, stone);
-    assert.ok(Math.abs(m.color.r - 0.4) < 1e-6 && Math.abs(m.color.g - 0.8) < 1e-6 && Math.abs(m.color.b - 0.8) < 1e-6, name);
-    tintGlessnerGranite(m, glessner, stone);
-    assert.ok(Math.abs(m.color.r - 0.4) < 1e-6, `${name} was retinted twice`);
-    assert.ok(Math.abs(m.clone().color.r - 0.4) < 1e-6 && m.clone().userData.glessnerStone === stone.name);
+    tintGlessnerGranite(m, glessner);
+    const want = lift.map((k) => 0.8 * k);
+    assert.ok(near(m.color.r, want[0]) && near(m.color.g, want[1]) && near(m.color.b, want[2]), name);
+    tintGlessnerGranite(m, glessner);
+    const copy = m.clone();
+    tintGlessnerGranite(copy, glessner);
+    assert.ok(near(m.color.r, want[0]) && near(copy.color.r, want[0]), `${name} was retinted twice`);
   }
+});
+check('nothing else is retinted', () => {
   for (const [name, record] of [['limestone_trim', glessner], ['rough_stone_trim', glessner], ['granite_5', glessner],
     ['brick', glessner], ['granite', { id: 'kimball_house' }], ['granite', null]]) {
     const m = slot(name, [0.8, 0.8, 0.8]);
-    tintGlessnerGranite(m, record, stone);
+    tintGlessnerGranite(m, record);
     assert.equal(m.color.r, 0.8, `${name} on ${record?.id} was retinted`);
   }
-});
-check('?stone=baked leaves the package colour exactly', () => {
-  const m = slot('granite', GLESSNER_STONE_BAKED);
-  const before = m.color.getHex();
-  tintGlessnerGranite(m, glessner, readGlessnerStone('?stone=baked'));
-  assert.equal(m.color.getHex(), before);
 });
 console.log(`glessner stone PASS: ${checks.length} checks — ${checks.join('; ')}`);

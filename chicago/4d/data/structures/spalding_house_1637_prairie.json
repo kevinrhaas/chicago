@@ -14,7 +14,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '2½B brick dwelling (D) with a frame (yellow) bay and porches on the Prairie face'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "T-2441 (piece 1 of T-1870) refines the district draft (T-2335) in place under the same id from the house's one picture of its remodelled front, a line engraving of the Grosvenor house as Jesse Spalding remodelled it (glessner_blog_1637_spalding_remodel_engraving), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly at the sheet's own width (13.1 m, where the draft's fit had stopped at 11.5 m) and depth: a K03 brick block of a raised basement and two tall storeys under a bracketed cornice; at the north end of the front a K08 swell bay of three windows a storey rising nearly to the cornice, at the south end the wing the engraving draws forward of the front as a K08 full-height projection on the sheet's 4.8 m by 1.0 m step, the entrance up its stoop between them under one window; a slated mansard whose steep lower faces carry two dormers on the street face and one on the north face, and the three stacks the engraving draws. The sheet's two-storey rear range behind the south part stands on K01's rear wings. What the engraving shows and K01 cannot yet build, or this piece has not yet built, is listed open in its match record (data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json) for T-2442. Everything not read is reconstructed and recorded as L-k01-1637-spalding-remodel-2441.",
+  "research_note": "T-2441 (piece 1 of T-1870) refines the district draft (T-2335) in place under the same id from the house's one picture of its remodelled front, a line engraving of the Grosvenor house as Jesse Spalding remodelled it (glessner_blog_1637_spalding_remodel_engraving), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly at the sheet's own width (13.1 m, where the draft's fit had stopped at 11.5 m) and depth: a K03 brick block of a raised basement and two tall storeys under a bracketed cornice; at the north end of the front a K08 swell bay of three windows a storey rising nearly to the cornice, at the south end the wing the engraving draws forward of the front as a K08 full-height projection on the sheet's 4.8 m by 1.0 m step, the entrance up its stoop between them under one window; a slated mansard whose steep lower faces carry two dormers on the street face and one on the north face, and the three stacks the engraving draws. The sheet's two-storey rear range behind the south part stands on K01's rear wings. What the engraving shows and K01 cannot yet build, or this piece has not yet built, is listed open in its match record (data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json) for T-2442. T-2465 carries the wing up to the cornice under its own steep hip, its ridge running back into the main roof and its stack beside the ridge (K01's mansard crown built as a hip). Everything not read is reconstructed and recorded as L-k01-1637-spalding-remodel-2441.",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -311,13 +311,21 @@
               }
             ],
             "bulge": 0.0,
-            "lower_pitch_deg": 65
+            "lower_pitch_deg": 65,
+            "crown": {
+              "form": "hip",
+              "over_bay": "south_wing",
+              "depth_m": 5.5,
+              "overhang_m": 0.55,
+              "pitch_deg": 45.5,
+              "end_pitch_deg": 60
+            }
           },
           "confidence": "inferred",
           "sources": [
             "glessner_blog_1637_spalding_remodel_engraving"
           ],
-          "note": "Steep straight lower faces 2.6 m tall from the cornice to the curb (the engraving's level top line at about 14.1 m over grade): K05's convex variant laid with no bulge (T-2452), since the engraving draws each face as one plane from the cornice to the top line, hipped at the corners, at 65 degrees, the floor of K05's mansard starting range (the engraving's hip ends lean back further, by its draughtsman's perspective an amount not read). Three dormers where the engraving draws them: two on the street face, over the swell bay (2.8 m) and over the door (6.25 m), and one on the north face 6.3 m from the rear. Each is the engraving's gabled dormer (T-2452): a square-headed two-over-two sash 0.9 by 1.2 m in a stone face 1.6 m wide (the street ones about 70 px across at the front's 0.023 m/px), its face standing nearly on the fascia so its sill is about the cornice's height (11.7 m against the engraving's about 11.5 m), and a 40 degree pediment to an apex at about 13.9 m (the engraving's about 13.5 m, just under the top line), its cheeks and slopes slated as the lower faces are. The sash, the surround and the pitch are read off the plate at its scale, not measured. The record's 'south' face is the K01 frame's v-0 side, which on this side of the avenue is the north wall."
+          "note": "Steep straight lower faces 2.6 m tall from the cornice to the curb (the engraving's level top line at about 14.1 m over grade): K05's convex variant laid with no bulge (T-2452), since the engraving draws each face as one plane from the cornice to the top line, hipped at the corners, at 65 degrees, the floor of K05's mansard starting range (the engraving's hip ends lean back further, by its draughtsman's perspective an amount not read). Three dormers where the engraving draws them: two on the street face, over the swell bay (2.8 m) and over the door (6.25 m), and one on the north face 6.3 m from the rear. Each is the engraving's gabled dormer (T-2452): a square-headed two-over-two sash 0.9 by 1.2 m in a stone face 1.6 m wide (the street ones about 70 px across at the front's 0.023 m/px), its face standing nearly on the fascia so its sill is about the cornice's height (11.7 m against the engraving's about 11.5 m), and a 40 degree pediment to an apex at about 13.9 m (the engraving's about 13.5 m, just under the top line), its cheeks and slopes slated as the lower faces are. The sash, the surround and the pitch are read off the plate at its scale, not measured. The record's 'south' face is the K01 frame's v-0 side, which on this side of the avenue is the north wall. The wing's own roof (T-2465) is the crown: K01's mansard crown (T-2404's) built as a hip over the south wing, its plan the wing's 4.8 m front and junctions run 5.5 m back into the main roof, its cornice 0.55 m past the wing's face and its fascia's top on the main eave. The engraving draws the wing hipped to a ridge running back into the main roof, its apex at about 14.4 m through the camera (y 142 px), a little over the main roof's level top line; the sides and back at 45.5 degrees put the ridge at 14.5 m (y 137 px), and the street end at 60 degrees keeps that end in front of the main lower faces up to the curb, as the engraving draws it whole. The pitches are chosen to those two readings and to K04's rule that a face over 45 degrees is slated, not measured; the depth is unseen."
         },
         "chimneys": {
           "value": {
@@ -342,9 +350,9 @@
                 "top_m": 15.5
               },
               {
-                "u_m": 9.6,
+                "u_m": 10.2,
                 "v_m": 11.2,
-                "top_m": 14.8
+                "top_m": 15.11
               }
             ]
           },
@@ -352,7 +360,7 @@
           "sources": [
             "glessner_blog_1637_spalding_remodel_engraving"
           ],
-          "note": "Three stacks where the engraving draws them, each at the top it reads through the camera: two on the north wall's cornice, near its front (u 9.2 m, top 16.4 m over grade) and near its rear (3.2 m, 15.5 m), and one over the wing (14.8 m). The engraving's stacks are panelled and capped; K01's are plain, listed open."
+          "note": "Three stacks where the engraving draws them, each at the top it reads through the camera: two on the north wall's cornice, near its front (u 9.2 m, top 16.4 m over grade) and near its rear (3.2 m, 15.5 m), and one over the wing. T-2465 stood the wing's stack beside its hipped roof's ridge, where the engraving draws it just south of the apex: its shaft at x 662-715 px through the camera against the drawn 663-717 (u 10.2, v 11.2, 0.5 m south of the ridge line) and its top at 15.11 m (y 112 px against the drawn 113), the least that clears the crown's 14.5 m ridge by 0.6 m. The engraving's stacks are panelled and capped; K01's are plain, listed open for T-2466."
         },
         "rainwater": {
           "value": {
@@ -539,7 +547,7 @@
                   ]
                 },
                 {
-                  "height_m": 4.1,
+                  "height_m": 4.75,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
@@ -565,7 +573,7 @@
             "glessner_blog_1637_spalding_remodel_engraving",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "The engraving's two outer bays, on the 1911 sheet's plan. North: a swell bay from grade nearly to the cornice, 4.8 m on its chord from 0.3 m inside the north corner to the door's jamb, about 1.3 m out, three windows a storey (read at about -31, 20 and 48 degrees round it through the camera, set at -36, 2 and 40 so the outer two keep their recesses clear of the front wall where the bow runs back into it). South: the wing, on the sheet's 4.8 m by 1.0 m step flush with the south corner, one window a storey on its centre, the principal storey's a French window over a balcony in the engraving (a sash here; the balcony is T-2442's). Both stand from grade to 10.7 m, as high as K10's cornice lets a bay rise under its bed moulding (the engraving's run on to the cornice itself). The wing's own steep hipped roof, which the engraving raises as high as the main roof, is listed open: K08's projection roof is a hood on the projection's own 1 m plan, so the wing takes the flat tin deck 1620's pavilion has and the mansard runs over it."
+          "note": "The engraving's two outer bays, on the 1911 sheet's plan. North: a swell bay from grade nearly to the cornice, 4.8 m on its chord from 0.3 m inside the north corner to the door's jamb, about 1.3 m out, three windows a storey (read at about -31, 20 and 48 degrees round it through the camera, set at -36, 2 and 40 so the outer two keep their recesses clear of the front wall where the bow runs back into it). South: the wing, on the sheet's 4.8 m by 1.0 m step flush with the south corner, one window a storey on its centre, the principal storey's a French window over a balcony in the engraving (a sash here; the balcony is T-2442's). The bay stands from grade to 10.7 m, as high as K10's cornice lets a bay rise under its bed moulding (the engraving's runs on to the cornice itself, T-2466). The wing is carried up to the cornice (T-2465): its upper storey 4.75 m, so its walls stand to 11.35 m, 0.05 m into the soffit of the hipped crown that is its own roof (mansard.crown), where the engraving draws the wing's cornice level with the main one's; its K08 deck and eaves stand inside that crown, and K10's bed moulding runs into its cheeks."
         },
         "rear_wings": {
           "value": [

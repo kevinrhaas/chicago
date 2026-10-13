@@ -14,7 +14,7 @@
     "note": "The 1911 sheet draws no front building at 1620. The T-1840 census (frontage-20-006, backcast_1886) stands the Robert Law house for 1904 because Robinson 1886 plate 10 prints 1620 against a brick house on lots 13-14 and the 1904 Blue Book lists the F. VanS. Hibbard household at the address (named record pa-1620-1904-correction); residence is inferred from that listing."
   },
   "review_required": false,
-  "research_note": "Refined from the district draft (T-2334) in place by T-1861, under the draft's own id, as a K01 brick frontage: the plate's L under one rectangle, a canted bay on the north half of the front, segmental brick arches over the street windows, a high stoop, a bracketed cornice and a tin hip. Plan, place and brick are read off Robinson 1886 plate 10 (r1886-1620-f, through its T-1250 fit); the brief is the T-1837 register row frontage-20-006, which is not a source record; every height, opening, the roof and the trim are the kits' reconstruction (liberty L-k01-1620-law-1861). The rear stable is a separate record, still the draft's. T-2370 read both of its pictures (the May 1874 Land Owner engraving and the 1898 Tribune sketch, cameras in data/reference_views/law_house_1620_prairie/) and raised the house under the engraving's mansard, its walls lowered to the engraving's cornice; T-2408 stood the pictures' one-storey bay under its flared, bracketed hood on the south part and moved the door north of it; T-2404 stood the pictures' north pavilion under its crown and round-headed dormer, in place of the canted bay; T-2409 moved the door north beside the pavilion, where both pictures draw it, under a K09 cornice hood, its straight stoop rising from the gate to a terrace before the pavilion behind a turned balustrade; T-2410 made the main wall's two upper street windows round-headed under hoods with a key on each crown, and the north wall's windows the engraving's two a storey; T-2411 set the engraving's two round-headed dormers in the mansard's north face; the lattice fence is their next piece, listed open in the match records.",
+  "research_note": "Refined from the district draft (T-2334) in place by T-1861, under the draft's own id, as a K01 brick frontage: the plate's L under one rectangle, a canted bay on the north half of the front, segmental brick arches over the street windows, a high stoop, a bracketed cornice and a tin hip. Plan, place and brick are read off Robinson 1886 plate 10 (r1886-1620-f, through its T-1250 fit); the brief is the T-1837 register row frontage-20-006, which is not a source record; every height, opening, the roof and the trim are the kits' reconstruction (liberty L-k01-1620-law-1861). The rear stable is a separate record, still the draft's. T-2370 read both of its pictures (the May 1874 Land Owner engraving and the 1898 Tribune sketch, cameras in data/reference_views/law_house_1620_prairie/) and raised the house under the engraving's mansard, its walls lowered to the engraving's cornice; T-2408 stood the pictures' one-storey bay under its flared, bracketed hood on the south part and moved the door north of it; T-2404 stood the pictures' north pavilion under its crown and round-headed dormer, in place of the canted bay; T-2409 moved the door north beside the pavilion, where both pictures draw it, under a K09 cornice hood, its straight stoop rising from the gate to a terrace before the pavilion behind a turned balustrade; T-2410 made the main wall's two upper street windows round-headed under hoods with a key on each crown, and the north wall's windows the engraving's two a storey; T-2411 set the engraving's two round-headed dormers in the mansard's north face; T-2476 straightened the mansard's lower faces (bulge 0 at 80 degrees), eased the crown's bow and lowered the upper deck to 10 degrees after the owner's review against the engraving, and painted the brick walls olive green from the Inter Ocean's 1887 description.",
   "phases": [
     {
       "id": "restored_1904",
@@ -83,7 +83,24 @@
           "sources": [
             "robinson_1886_chicago_plate_10"
           ],
-          "note": "Robinson 1886 plate 10 colours the building pink, the plate's brick (its frame buildings are yellow); the register's 'irregular earlier brick envelope' agrees. Built as a plain brick street front on common-brick side and rear walls (T-2341's K01 brick front); no stone front is read."
+          "note": "Robinson 1886 plate 10 colours the building pink, the plate's brick (its frame buildings are yellow); the register's 'irregular earlier brick envelope' agrees. Built as a plain brick street front on common-brick side and rear walls (T-2341's K01 brick front); no stone front is read. T-2476: painted over the brick, olive green (`wall_finish`)."
+        },
+        "wall_finish": {
+          "value": {
+            "paint": {
+              "color": [
+                0.54,
+                0.86,
+                0.72
+              ]
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inter_ocean_1887_1620_prairie_olive_green",
+            "land_owner_1874_05_homes_of_chicago_1620_law"
+          ],
+          "note": "The walls PAINTED over their brick (T-2476): the Inter Ocean of 1887 called the house 'commodious, olive green in color' (read through chicagology's quotation, not at the page), and a brick house of 1872 that a newspaper calls olive green was painted, the fashion of the 1870s; the 1874 engraving draws the lit front light and smooth, no brick courses on it, as a woodcut draws a painted wall (and as it draws every lit face, so the engraving alone would not say it). Robinson 1886's pink stays the construction under the paint. Laid as K01's paint factor over the K03 brick's own map, so the courses read through the paint as they do through paint on brick; the walls, the pavilion's brick, the stacks and K03's units are painted, the stacks' soot is not. The SHADE is RECONSTRUCTED: the factors (0.54, 0.86, 0.72) take the K03 panel's mean (linear 0.41, 0.26, 0.15) to a greyed mid olive (linear about 0.22, 0.22, 0.11, sRGB about 130, 130, 93); nothing measures the green the words name, and the engraving's lit front says only that it was not dark."
         },
         "principal_floor_m": {
           "value": 2.0,
@@ -160,12 +177,12 @@
           "sources": [
             "land_owner_1874_05_homes_of_chicago_1620_law"
           ],
-          "note": "A mansard: the 1874 engraving shows the house's roof as one, its steep slated lower faces bowed out a little under a curb, with round-headed dormers on the north face, and over the north 3.75 m of the front a taller bell-curved crown (built by T-2404 over the north pavilion: `mansard.crown`). Built from K05's convex mansard (k01.roof.mansard, T-2370). Carried to 1904 as the stories are."
+          "note": "A mansard: the 1874 engraving shows the house's roof as one, its steep slated lower faces straight from the cornice to a curb, with round-headed dormers on the north face, and over the north 3.75 m of the front a taller crown whose near-upright faces round over at the top (built by T-2404 over the north pavilion: `mansard.crown`). Built from K05's mansard (k01.roof.mansard, T-2370) with its faces straight (T-2476: the owner's review found the convex faces bowed out 'like cupcake frosting' against the engraving). Carried to 1904 as the stories are."
         },
         "roof_pitch_deg": {
-          "value": 18,
+          "value": 10,
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: the mansard's upper hip, K05's 18 degrees, inside its mansard_upper range; no picture sees over the curb."
+          "note": "RECONSTRUCTED: the mansard's upper deck at 10 degrees, the low end of K05's mansard_upper range (T-2476; T-2370 took K05's 18): no picture sees over the curb, and the engraving's roof line is level at the curb, with nothing of a hip rising behind it; at 18 degrees the deck stood about 0.6 m higher and showed over the curb from the street and from above."
         },
         "eave_overhang_m": {
           "value": 0.6,
@@ -278,10 +295,11 @@
             "fabric": "tin_standing_seam_painted",
             "flashing": "copper_sheet",
             "caps": "copper_ridge_roll",
-            "lower_faces": "slate_pennsylvania"
+            "lower_faces": "slate_pennsylvania",
+            "paint": "black"
           },
           "confidence": "inferred",
-          "note": "The mansard's lower faces SLATED (T-2406): the 1874 engraving hatches the north face and the crown in close level courses, the slate of a mansard, where the cornice and walls are drawn in vertical strokes; K04's slate takes a face of 45 degrees and up at its 3 in. headlap, and the faces stand on 72- and 80-degree chords. Which quarry is RECONSTRUCTED: Pennsylvania's dark slate, the engraving's dark tone and K04's commonest slate. The low upper hip (18 degrees, which K04 does not slate) neither picture sees, from the street below the raised yard; it stays RECONSTRUCTED painted standing-seam tin with copper flashing and ridge roll, the K04 covering 1608 and 1600 wear.",
+          "note": "The mansard's lower faces SLATED (T-2406): the 1874 engraving hatches the north face and the crown in close level courses, the slate of a mansard, where the cornice and walls are drawn in vertical strokes; K04's slate takes a face of 45 degrees and up at its 3 in. headlap, and the faces stand on 72- and 80-degree chords. Which quarry is RECONSTRUCTED: Pennsylvania's dark slate, the engraving's dark tone and K04's commonest slate. The low upper hip (18 degrees, which K04 does not slate) neither picture sees, from the street below the raised yard; it stays RECONSTRUCTED standing-seam tin with copper flashing and ridge roll, the K04 covering 1608 and 1600 wear, painted BLACK since T-2476 (one of K04's three tin paints; the owner found the red-oxide deck an odd orange over the slate from above, and a dark-painted deck is what reads as one roof with slated faces). Black rather than red oxide or dark green is RECONSTRUCTED; no picture sees the deck.",
           "sources": [
             "land_owner_1874_05_homes_of_chicago_1620_law"
           ]
@@ -632,7 +650,7 @@
               "over_bay": "north_pavilion",
               "depth_m": 3.0,
               "rise_above_curb_m": 0.3,
-              "bulge": 0.1,
+              "bulge": 0.04,
               "overhang_m": 0.65,
               "lower_pitch_deg": 80,
               "dormer": {
@@ -671,14 +689,16 @@
                 "surround_m": 0.15,
                 "face_setback_m": 0.15
               }
-            ]
+            ],
+            "bulge": 0.0,
+            "lower_pitch_deg": 80
           },
           "confidence": "inferred",
           "sources": [
             "land_owner_1874_05_homes_of_chicago_1620_law",
             "chicago_tribune_1898_01_09_prairie_widows"
           ],
-          "note": "The lower faces' rise read off the 1874 engraving through its camera: the curb of the north face, followed from x 735 px (y 228) to x 800 px (y 263) and taken 0.4-0.65 m in from the wall line, stands 11.0-11.3 m over grade, 2.8-3.1 m over the 8.2 m wall head; 2.9 m. The face's slight outward bow is the engraving's and K05's convex profile (72-degree chord, 0.07 bulge) is the kit's nearest; the profile's numbers are K05's, RECONSTRUCTED. The CROWN (T-2404): over the north pavilion a taller mansard, the engraving's bell-curved crown, its curb 0.3 m over the main curb (T-2404 read 0.7 m on the first camera; on T-2437's re-solved one the crown's top at its front stands at y 189-190 px, 14.1-14.3 m over grade, where 0.7 m drew it at y 171-175, about 0.5 m high, so T-2444 brought it down to the least rise K01 allows a crown, which draws its top at y 183-190 px between x 620 and 680) and its faces on a steeper 80-degree chord with a fuller 0.1 bow, so they stand near upright and round over at the top as the engraving draws them; one round-headed dormer, K06's round-arched sash 0.7 m wide in a stone face 0.15 m round it, centred on its street face, as the engraving shows; the engraving draws it low on the crown's face, its surround's foot just over the crown's cornice (y 267 px, about 11.7 m over grade) and its head at y 212 px (13.45 m), so T-2444 stood its face 0.027 m in from the crown's fascia on a 0.1 m sill, where the bell's foot is lowest, which lands it at about y 210-263 px (T-2404's 0.09 m in and 0.25 m sill drew it about 0.7 m high). It runs 3.0 m back from the pavilion's face and its cornice projects 0.65 m; the depth, the chord, the bow, the cornice and the dormer's sizes are RECONSTRUCTED (no picture sees the crown's depth, and 3.0 m keeps its back hips clear of the main roof's upper hip). The DORMERS (T-2411): two round-headed dormers in the north face's lower slope, as the engraving draws them behind the crown (the front's and the south face's lower slopes are hidden by the trees or unseen, so they carry none). Their places are read through the 1874 camera against the crown's front-north corner, which this build draws about 10 px right of the engraving's: the engraving's two arch heads stand 51 and 110 px behind that corner (x 746 and 805 px), so u 12.6 and 6.1 m on a face 0.15 m in from the fascia, within about 0.4 m (the engraver draws both wider and more frontal than the camera allows, the far one most, so their centres are read and not their jambs; 6.1 rather than 6.0 because the K05 union degenerates on the rear hip at exactly 6.0). Their heads read 10.4-10.6 m over grade (y 242 and 273 px), under the 11.1 m curb, which a sash on the crown dormer's 0.15 m sill gives at 10.5 m. Each is the crown dormer's construction: K06's round-arched sash 0.7 by 1.3 m in a stone face 0.15 m round it, run back into the roof; those sizes are RECONSTRUCTED, the crown dormer's own."
+          "note": "The lower faces' rise read off the 1874 engraving through its camera: the curb of the north face, followed from x 735 px (y 228) to x 800 px (y 263) and taken 0.4-0.65 m in from the wall line, stands 11.0-11.3 m over grade, 2.8-3.1 m over the 8.2 m wall head; 2.9 m. T-2476 took the bow out: the engraving draws the north face straight from the cornice to the curb (its dormers' cheeks stand on a straight line, x 735-800 px), steep, the crown's faces near upright, and K05's convex profile (72-degree chord, 0.07 bulge), which T-2370 had laid as the engraving's 'slight outward bow', stood the faces out in a curve the owner read as frosting on a cupcake. The faces are now plane (bulge 0, T-2452's straight face) at 80 degrees, the top of K05's mansard_lower range and the steepest the kit lays; the curb's 2.9 m stays the reading, so the roof's bulk falls with the bow, and the pitch is RECONSTRUCTED within the engraving's near-vertical drawing. The CROWN (T-2404): over the north pavilion a taller mansard, the engraving's bell-curved crown, its curb 0.3 m over the main curb (T-2404 read 0.7 m on the first camera; on T-2437's re-solved one the crown's top at its front stands at y 189-190 px, 14.1-14.3 m over grade, where 0.7 m drew it at y 171-175, about 0.5 m high, so T-2444 brought it down to the least rise K01 allows a crown, which draws its top at y 183-190 px between x 620 and 680) and its faces on a steeper 80-degree chord with a fuller 0.1 bow, so they stand near upright and round over at the top as the engraving draws them; one round-headed dormer, K06's round-arched sash 0.7 m wide in a stone face 0.15 m round it, centred on its street face, as the engraving shows; the engraving draws it low on the crown's face, its surround's foot just over the crown's cornice (y 267 px, about 11.7 m over grade) and its head at y 212 px (13.45 m), so T-2444 stood its face 0.027 m in from the crown's fascia on a 0.1 m sill, where the bell's foot is lowest, which lands it at about y 210-263 px (T-2404's 0.09 m in and 0.25 m sill drew it about 0.7 m high). It runs 3.0 m back from the pavilion's face and its cornice projects 0.65 m; the depth, the chord, the bow, the cornice and the dormer's sizes are RECONSTRUCTED (no picture sees the crown's depth, and 3.0 m keeps its back hips clear of the main roof's upper hip). The DORMERS (T-2411): two round-headed dormers in the north face's lower slope, as the engraving draws them behind the crown (the front's and the south face's lower slopes are hidden by the trees or unseen, so they carry none). Their places are read through the 1874 camera against the crown's front-north corner, which this build draws about 10 px right of the engraving's: the engraving's two arch heads stand 51 and 110 px behind that corner (x 746 and 805 px), so u 12.6 and 6.1 m on a face 0.15 m in from the fascia, within about 0.4 m (the engraver draws both wider and more frontal than the camera allows, the far one most, so their centres are read and not their jambs; 6.1 rather than 6.0 because the K05 union degenerates on the rear hip at exactly 6.0). Their heads read 10.4-10.6 m over grade (y 242 and 273 px), under the 11.1 m curb, which a sash on the crown dormer's 0.15 m sill gives at 10.5 m. Each is the crown dormer's construction: K06's round-arched sash 0.7 by 1.3 m in a stone face 0.15 m round it, run back into the roof; those sizes are RECONSTRUCTED, the crown dormer's own. T-2476: the crown's bow eased from 0.1 to 0.04 of its chord, the engraving's crown being upright faces with a rounded shoulder at the top rather than a swelling bell; the bow is RECONSTRUCTED."
         }
       }
     }
