@@ -175,6 +175,10 @@ step "Prairie 1904 K01 component contract holds, and the Glessner baseline is th
   node tools/k01_contract.mjs --check
 selftest "…coincident faces, hidden origin offsets and tier scale drift are caught on synthetic GLBs" \
   node tools/k01_contract.mjs --self-test
+step "every Glessner tier's stone occlusion was baked from its committed atlas, so a bake on any CPU reproduces it (T-2431)" \
+  python3 tools/check_stone_occlusion_atlas.py --check
+selftest "…a model rebaked without its atlas, an atlas holding another key and an orphan atlas are refused" \
+  python3 tools/check_stone_occlusion_atlas.py --self-test
 step "the K01 assemblies are the bytes their records build (T-2266)" \
   python3 generators/k01_emit.py --check
 step "the K13 conservatories in the scene are the bytes their records build (T-2306)" \

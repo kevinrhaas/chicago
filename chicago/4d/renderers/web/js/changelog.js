@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 1742, ts: '2026-10-13T01:24:32.376Z', date: 'Oct 12, 2026, 8:24 PM CT', title: '1638 Prairie\'s bay window, built to its photograph', kind: 'improvement',
+    items: [
+      'The bay on the front of the Gothic house at 1638 Prairie Avenue is no longer a plain block: three tall pointed windows stand between its posts, on a panelled base and under a moulded cornice, as its photograph shows.',
+      'Its width now follows the photograph rather than the fire-insurance map\'s sketch, so it sits under the gable\'s twin windows where the picture puts it.',
+    ] },
+  { v: 1741, ts: '2026-10-13T01:14:11.616Z', date: 'Oct 12, 2026, 8:14 PM CT', title: 'The Glessner House builds the same on any machine', kind: 'fix',
+    items: [
+      'The shading baked into the Glessner House\'s granite now comes from a saved copy kept with the model, not from a fresh render each time. Fresh renders came out very slightly different on different computers, and that failed the nightly check for every Prairie Avenue change.',
+      'Nothing you can see has changed. The stones and their shading look exactly as they did.',
+    ] },
   { v: 1740, ts: '2026-10-12T23:51:40.162Z', date: 'Oct 12, 2026, 6:51 PM CT', title: '1613 Prairie built as a four-storey brick house with a frame porch', kind: 'feature',
     items: [
       '1613 Prairie Avenue, the north half of the brick pair with 1615, is now a full four-storey brick house in place of its draft: brick on every wall, stone-headed sash, a bracketed cornice under a flat roof behind parapets, two chimneys against the party wall, and the door and stoop at the north end beside the side passage.',
