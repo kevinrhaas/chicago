@@ -2,13 +2,13 @@
   "structure_id": "law_house_1620_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "0ea43f844b365a15c3cedb9db1a69c74d45dde02d5513a60c860e9ee5e9d9319",
+  "glb_sha256": "0d1a351e8aa34d02aea7cdeacb56debc19cf013dc42c2712b3065e0e4489fc0f",
   "camera_sha256": "be6b75dc43bf93ba5dfa5b782fdf69d970e71e0e355eb4b5b5e9776a549220fb",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
-      "what": "roof: the engraving's mansard, its steep lower faces bowed a little to a curb about 2.9 m over the cornice, under a low upper hip; the build's was a 30-degree tin hip",
+      "what": "roof: the engraving's mansard, its steep lower faces straight from the cornice to a curb about 2.9 m over it, under a low upper deck that the street does not see; the build's was a 30-degree tin hip (T-2370), then K05's convex mansard, whose faces bowed out in a curve (T-2476: the owner read them as frosting on a cupcake against this engraving). Built so by T-2476: plane faces (bulge 0) at 80 degrees to the same 2.9 m curb, the upper deck at 10 degrees; on the overlay the north face's curb line and the front face's top over the south part land within about 12 px (0.4 m) of the drawn ones, the trees covering the rest",
       "status": "fixed"
     },
     {
@@ -20,7 +20,7 @@
       "status": "fixed"
     },
     {
-      "what": "crown: over the pavilion a taller bell-curved mansard with one round-headed dormer, rising about 0.7 m over the main curb; the build has none",
+      "what": "crown: over the pavilion a taller mansard with one round-headed dormer, its faces near upright, rounding over at the top into its curb; the build had none (T-2404 built it as a bell, 0.1 of its chord, which T-2476 eased to 0.04, the drawn faces being upright with a rounded shoulder)",
       "status": "fixed"
     },
     {
@@ -60,7 +60,7 @@
       "status": "fixed"
     },
     {
-      "what": "roof covering: the lower faces and the crown's read as slate in courses; built so by T-2414 (K04 Pennsylvania slate on every face steeper than 45 degrees, the low upper hip, which the picture cannot see, staying tin)",
+      "what": "roof covering: the lower faces and the crown's read as slate in courses; built so by T-2414 (K04 Pennsylvania slate on every face steeper than 45 degrees, the low upper hip, which the picture cannot see, staying tin); T-2476 paints that deck black, which no picture sees",
       "status": "fixed"
     },
     {
@@ -80,7 +80,7 @@
       "status": "not shown"
     },
     {
-      "what": "walls' tone: the engraving draws the front light and the north wall and the pavilion's north half dark, its light from the south-east; the house's colour (the Inter Ocean's 'olive green' of 1887) and its walling are not shown in a monochrome print",
+      "what": "walls' tone: the engraving draws the front light and smooth and the north wall and the pavilion's north half dark, its light from the south-east; a monochrome print cannot give a colour. The Inter Ocean of 1887 called the house 'olive green in color' (inter_ocean_1887_1620_prairie_olive_green, read through chicagology's quotation): T-2476 paints the brick walls a greyed mid olive over the K03 brick's map, which the print neither confirms nor contradicts; the shade is RECONSTRUCTED",
       "status": "not shown"
     },
     {
