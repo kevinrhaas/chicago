@@ -26008,7 +26008,7 @@ front of its own (T-2434); this entry is then resolved.
 **Review:** `docs/RESEARCH/hamline-1621-2436/README.md`.
 **Recorded:** 2026-10-13 (T-2439).
 
-### L-k01-1637-spalding-remodel-2441 — 1637 Prairie refined from the district draft to a K01 brick block read off the engraving of Jesse Spalding's remodel, on the 1911 sheet's plan, its wing's own roof and its gabled dormers stood in for until K01 can build them
+### L-k01-1637-spalding-remodel-2441 — 1637 Prairie refined from the district draft to a K01 brick block read off the engraving of Jesse Spalding's remodel, on the 1911 sheet's plan, its wing's own roof stood in for until K01 can build it
 
 **Decision:** the house at 1637 Prairie Avenue (T-2441, piece 1 of T-1870) is no longer a district
 draft. It stands, under the draft's own id `spalding_house_1637_prairie`, as a `k01_frontage` record
@@ -26018,7 +26018,7 @@ of the Grosvenor house as Jesse Spalding remodelled it, reproduced by the Glessn
 storeys under K10's bracketed cornice; a K08 swell bay of three windows a storey at the north end of the
 front and the sheet's forward wing at the south end as a K08 full-height projection under a flat tin
 deck; the K07 door up its stoop between them; K06 two-over-two sash under flat lintels; a K05 mansard
-with slated lower faces, two round-headed dormers on the street face and one on the north face; three
+with slated lower faces, two dormers on the street face and one on the north face; three
 plain stacks; the sheet's two-storey rear range behind the south part, flat-roofed.
 **What is read, not invented.** From the 1911 Sanborn sheet 20 (trace s20fp-1637-b1, census
 s20-1637-f): the main body's place and plan (11.0 m deep by 13.1 m, the trace's own width where the
@@ -26033,7 +26033,7 @@ the glazing (the engraving's bars are not legible); the windows' heights past th
 the cornice's kit; the upper hip over the curb, its pitch and its tin; the stoop's flight; the rear
 wall's and the rear range's windows; the south wall left blind; the downpipes.
 **What is not built.** The wing standing further forward under its own steep hipped roof as high as the
-main roof; the gabled dormers' heads and square-headed sashes; the French window and balcony on the
+main roof; the French window and balcony on the
 wing's principal floor, the stoop's rails, the basement's round-headed lights; the bay and the wing
 rising to the cornice itself; the stacks' panelled shafts and caps; the garden wall and the iron fence.
 All are open in the match record for T-2442, which also weighs the c. 1870 photograph of the house as
@@ -26044,6 +26044,17 @@ source publication, if found, dates the remodel.
 **Ticket:** T-2441 (piece 1 of T-1870).
 **Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
 **Recorded:** 2026-10-13 (T-2441).
+**Revised:** 2026-10-13 (T-2452) — **the main roof is the engraving's.** The lower faces are straight
+planes (K05's convex variant laid with no bulge) from the cornice to the level top line at about 14.1 m,
+and the three dormers are its gabled ones: a square-headed two-over-two sash about 0.9 by 1.2 m in a
+stone face about 1.6 m wide under a 40 degree pediment, the face standing nearly on the fascia so its
+sill sits at about the cornice and its apex at about 13.9 m, the cheeks and pediment slated as the faces
+are. Invented in that: the dormers' sash size, surround and pediment pitch, read off the plate at its
+scale and not measured; the faces' pitch, held at 65 degrees, the floor of K05's mansard starting range,
+though the engraving's hip ends lean back further (its draughtsman's perspective is not one camera's,
+so how much further is not read); the pediment's slight rake overhang, which the engraving draws and
+the build does not; the upper hip, now 10 degrees so it stays behind the top line from the street, as
+the engraving shows nothing over it.
 
 ### L-k01-1637-spalding-garden-2447 — 1637 Prairie's front garden built on a line read off the engraving's ground, its wall stopped at the lot line and its iron the K11 kit's
 
