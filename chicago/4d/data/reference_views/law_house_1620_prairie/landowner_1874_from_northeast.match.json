@@ -2,7 +2,7 @@
   "structure_id": "law_house_1620_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "0173feb16c66d0b5b126deab75926195e4ecd7004ee1e9f2f36d99f34e92cdd0",
+  "glb_sha256": "0ea43f844b365a15c3cedb9db1a69c74d45dde02d5513a60c860e9ee5e9d9319",
   "camera_sha256": "be6b75dc43bf93ba5dfa5b782fdf69d970e71e0e355eb4b5b5e9776a549220fb",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg",
   "verdict": "differs",
@@ -72,12 +72,12 @@
       "status": "fixed"
     },
     {
-      "what": "bay window's terrace: a low turned balustrade runs before the bay at its foot, from x 365 to 460 px, its rail's top at y 551 px, 2.89 m over grade on T-2437's camera: the principal floor's level, so it reads as the porch's terrace carried south across the bay's front (and on past the south corner); the build has none (T-2445)",
-      "status": "open"
+      "what": "bay window's terrace: a low turned balustrade runs before the bay at its foot, from x 365 to 460 px, its rail's top at y 551 px, 2.89 m over grade on T-2437's camera: the principal floor's level, so it reads as the porch's terrace carried south across the bay's front and on past the south corner. Built so by T-2450: the stoop's terrace to its LEFT (K07's terrace mirrored), from the landing's south edge (v 5.7) to v -0.35, 1.2 m deep, its back stepped out to the bay's front, behind the north terrace's turned balustrade; on the overlay its rail's top lands at y 551 px and its south newel's face at x 364 px, against the drawn 551 and 364-365. Where it joins the landing (x 460-540 px) the engraving draws the tree and a shrub before it, so that it joins is the build's",
+      "status": "fixed"
     },
     {
-      "what": "board fence's line: the engraving draws the boards' top and foot almost level from x 670 to 990 px. On T-2437's re-solved camera the eye stands 0.5 m over the 1.5 m fence, so the north board fence's top runs back almost level as drawn, and the build's top lands at y 591-595 px against the drawn 597-600 the whole way. Its foot does not: the build's rises as the lot-line fence recedes (y 651 px at x 800, 639 at 880, 631 at 950, 623 at 990), where the engraving's stays at 652-658; past the lot's corner (x 786 px) the drawn boards may be a fence along the next lot's street line, or the receding foot drawn flat (T-2445)",
-      "status": "open"
+      "what": "board fence's line: the engraving draws the boards' top and foot almost level from x 670 to 990 px (top y 597-600, foot 652-658). On T-2437's re-solved camera a fence on the north lot line, running back from the street, cannot draw so: its foot rises as it recedes (y 655 px at the lot's corner, x 786; 643 at x 864; 633 at x 936; 625 at x 988), as the build's does. A fence on the STREET line running on north past the lot's corner draws exactly the drawn boards: top y 597.7 at x 864, 598.1 at 943, 598.6 at 1026; foot y 656.6, 658.5, 660.5. So the boards past x 786 px are the next lot's (1616's) street fence, read by T-2450 through this camera, and 1620's north lot-line fence stands behind them, its top 3-9 px over theirs and its foot hidden: this picture does not show that foot. The boards on 1620's own street line, x 670-786 px, are built and land on the drawn ones",
+      "status": "not shown"
     },
     {
       "what": "walls' tone: the engraving draws the front light and the north wall and the pavilion's north half dark, its light from the south-east; the house's colour (the Inter Ocean's 'olive green' of 1887) and its walling are not shown in a monochrome print",

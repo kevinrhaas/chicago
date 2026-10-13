@@ -1474,12 +1474,20 @@ class Assembly:
         v["stair"] = dict(v["stair"], floor_m=p.door_floor_m, going_m=p.tread_m,
                           landing_m=p.landing_depth_m, width_m=p.stoop_width_m)
         # T-2409: the terrace's reach and steps, from the front's s into the door's own frame
+        # T-2450: a left terrace's s run from the door AWAY from the stoop (K07 mirrors it),
+        # and where it passes the front's end K07 faces its back
         t = p.entrance_kit.get("terrace")
-        if t:
-            v["stair"]["porch"] = {"side": t["side"], "to_s_m": t["to_v_m"] - door.s_m,
-                                   "back": [[s - door.s_m, o] for s, o in t["back"]],
-                                   **({"balustrade": p.entrance_kit["balustrade"]}
-                                      if p.entrance_kit.get("balustrade") else {})}
+        porches = []
+        for q in (t if isinstance(t, list) else [t] if t else []):
+            k = 1.0 if q["side"] == "right" else -1.0
+            end = p.width_m - door.s_m if k > 0 else door.s_m
+            porches.append({"side": q["side"], "to_s_m": k * (q["to_v_m"] - door.s_m),
+                            "back": [[k * (s - door.s_m), o] for s, o in q["back"]],
+                            **({"wall_to_s_m": end} if k * (q["to_v_m"] - door.s_m) > end else {}),
+                            **({"balustrade": p.entrance_kit["balustrade"]}
+                               if p.entrance_kit.get("balustrade") else {})})
+        if porches:
+            v["stair"]["porch"] = porches[0] if len(porches) == 1 else porches
         if p.entrance_kit.get("balustrade"):
             v["stair"]["balustrade"] = p.entrance_kit["balustrade"]
         v["front_yard_m"] = p.entrance_kit["front_yard_m"]
@@ -1517,7 +1525,9 @@ class Assembly:
                                     "landing_depth_m": p.landing_depth_m, "width_m": p.stoop_width_m,
                                     "k07_variant": p.entrance_kit["variant"], "cheeks": o.v["stair"].get("cheeks", False),
                                     "front_yard_m": p.entrance_kit["front_yard_m"],
-                                    **({"terrace_to_v_m": p.entrance_kit["terrace"]["to_v_m"]}
+                                    **({"terrace_to_v_m": (p.entrance_kit["terrace"]["to_v_m"]
+                                                           if isinstance(p.entrance_kit["terrace"], dict)
+                                                           else [q["to_v_m"] for q in p.entrance_kit["terrace"]])}
                                        if p.entrance_kit.get("terrace") else {}),
                                     **({"balusters": o.meta.get("balusters", 0),
                                         "balustrade_height_m": p.entrance_kit["balustrade"]["height_m"]}
