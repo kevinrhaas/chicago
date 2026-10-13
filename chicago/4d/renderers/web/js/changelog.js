@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 1746, ts: '2026-10-13T04:51:23.947Z', date: 'Oct 12, 2026, 11:51 PM CT', title: '1625 Prairie built from its 1890 photograph', kind: 'feature',
+    items: [
+      '1625 Prairie Avenue, Hugh J. McBirney\'s Tudor house of 1889, now stands from its one photograph, the Inland Architect plate of January 1890, in place of its draft: a rock-faced brownstone front three storeys tall, the ground floor near the walk, two windows a storey in its north part and the door at its south end with a window over it on each floor.',
+      'The photograph\'s camera is solved, so the house is checked against the picture itself. Its storey lines, windows and door land within a few pixels of the photograph\'s.',
+      'Still to come: the steep wall gable with its three attic lights and round window (a dormer marks it for now), the leaded mullioned windows, the carved panel over the door and the four-storey rear section. Liberty L-k01-1625-mcbirney-tudor-2432 records what is reconstructed.',
+    ] },
+  { v: 1745, ts: '2026-10-13T03:40:24.192Z', date: 'Oct 12, 2026, 10:40 PM CT', title: '1620 Prairie\'s windows, round-headed under their hoods as in 1874', kind: 'fix',
+    items: [
+      'The Robert Law house\'s two upper street windows, over the bay window and over the door, are now round-headed, as the 1874 engraving draws them, each under a stone hood with a key on its crown.',
+      'The north wall now has the engraving\'s two flat-headed windows a storey instead of three.',
+      'The hoods\' form, the keys and every window\'s size are liberties.',
+    ] },
   { v: 1744, ts: '2026-10-13T02:41:50.598Z', date: 'Oct 12, 2026, 9:41 PM CT', title: '1615 Prairie completes the brick pair with 1613', kind: 'feature',
     items: [
       '1615 Prairie Avenue, the south half of the brick pair with 1613, is now a full four-storey brick house in place of its draft. It stands on 1613\'s party wall, so the pair reads as one front with a stoop at each outer end, under one cornice and flat roof.',
