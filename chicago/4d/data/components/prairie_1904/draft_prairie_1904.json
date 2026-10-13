@@ -373,12 +373,15 @@
     "s20-1604-f": "1604 Prairie is refined in place by T-2343 (piece 3 of T-1859) as the K01 brick frontage house_1604_prairie, under the draft's own id: the '3B' block on K01 and the '2B' range and '2' block behind it on K01's rear wings; the draft does not stand a second building on it.",
     "s20-1616-f": "1616 Prairie's main body now stands as the K01 brick frontage house_1616_prairie (T-2353, piece 1 of T-2345), which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's two-storey brick rear range stands on K01's rear wings (T-2354).",
     "s20-1628-f": "1628 Prairie's main body now stands as the K01 brick frontage house_1628_prairie (T-2355, piece 1 of T-1862), the south half of the pair with 1626, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's '1B' rear piece stands on K01's rear wings (T-2391).",
+    "s20-1623-f": "1623 Prairie's main body now stands as the K01 stone-front frontage house_1623_prairie with its corbelled oriel (T-2433, piece 2 of T-1869), Granger Farwell's house read off Treat & Foltz's drawing of the Hamline and Farwell houses against this sheet, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's strip north of the main body behind its front part, with the light well shared with 1621, is not built.",
     "s20-1619-f": "1619 Prairie's main body now stands as the K01 stone-front frontage house_1619_prairie with its full-height swell bay (T-2420, piece 1 of T-2419, of T-1868), read off Treat & Foltz's drawing of the Hamline house against this sheet, which refines this draft in place under the draft's own id; the draft stands no second building beside it, the sheet's rear range stands on K01's rear wings, and the half-round frame porch behind it is not built.",
     "s20-1626-f": "1626 Prairie's main body now stands as the K01 brick frontage house_1626_prairie with its frame front bay (T-2356, piece 2 of T-1862), the north half of the pair with 1628, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's rear 1B piece and 2B wing wait for T-2347.",
     "s20-1601-f": "1601 Prairie, the frame dwelling at the 16th Street corner, now stands whole as the K16 timber record house_1601_prairie (T-2398, piece 1 of T-1866) — its main block under a front gable and the two-storey wing on its 16th Street side — which refines this draft in place under the draft's own id; the draft stands no second building beside it.",
     "s20-1630-f": "1630 Prairie, the small earlier frame house, now stands whole as the K16 timber record house_1630_prairie (T-2357, piece 3 of T-1862) — its main block, the two-storey wing on its south side and the porch across its front — which refines this draft in place under the draft's own id; the draft stands no second building beside it.",
     "s20-1634-f": "1634 Prairie's main body now stands as the K01 stone-front house house_1634_prairie under the flat roof K01 learned from K05 (T-2350, piece 2 of T-2346), the north half of the pair with 1636, which refines this draft in place under the draft's own id with the sheet's stone front bay on K08; the draft stands no second building beside it, and the sheet's '2B' rear wing and its one-storey end stand on K01's rear wings (T-2347).",
-    "s20-1636-f": "1636 Prairie now stands as the K01 stone-front house house_1636_prairie under K01's flat roof (T-2348, piece 3 of T-1863), the south half of the pair with 1634, which refines this draft in place under the draft's own id: the wide front body on K01 with the sheet's canted stone bay on K08, and the narrow three-storey rear part on K01's rear wings; the draft stands no second building beside it."
+    "s20-1636-f": "1636 Prairie now stands as the K01 stone-front house house_1636_prairie under K01's flat roof (T-2348, piece 3 of T-1863), the south half of the pair with 1634, which refines this draft in place under the draft's own id: the wide front body on K01 with the sheet's canted stone bay on K08, and the narrow three-storey rear part on K01's rear wings; the draft stands no second building beside it.",
+    "s20-1613-f": "1613 Prairie now stands as the K01 brick frontage house_1613_prairie under K01's flat roof (T-2417, piece 1 of T-1868), the north half of the pair with 1615, which refines this draft in place under the draft's own id: the four-storey main body on K01 and the sheet's one-storey frame rear porch on K01's rear wings in timber; the draft stands no second building beside it.",
+    "s20-1615-f": "1615 Prairie now stands as the K01 brick frontage house_1615_prairie under K01's flat roof (T-2418, piece 2 of T-1868), the south half of the pair with 1613, laid on 1613's south wall, which refines this draft in place under the draft's own id: the four-storey main body on K01, the sheet's small frame projection on its south wall on K08 in timber, and its one-storey frame rear porch on K01's rear wings in timber; the draft stands no second building beside it."
   },
   "frontages": {
     "frontage-28-038": {
@@ -737,14 +740,18 @@
       "roof": "flat",
       "brackets": true,
       "entrance": "north",
-      "why": "4-storey brick, the north half of a pair attached to 1615: four storeys read flat behind a bracketed cornice, a terrace house's roof, its door at the pair's outer (north) end."
+      "why": "4-storey brick, the north half of a pair attached to 1615: four storeys read flat behind a bracketed cornice, a terrace house's roof, its door at the pair's outer (north) end.",
+      "house_id": "house_1613_prairie",
+      "house_address": "1613"
     },
     "frontage-20-026": {
       "slug": "house",
       "roof": "flat",
       "brackets": true,
       "entrance": "south",
-      "why": "4-storey brick, the south half of the pair with 1613: the same roof and cornice, its door mirrored to the outer (south) end. The sheet's attached pair attests the repeat."
+      "why": "4-storey brick, the south half of the pair with 1613: the same roof and cornice, its door mirrored to the outer (south) end. The sheet's attached pair attests the repeat.",
+      "house_id": "house_1615_prairie",
+      "house_address": "1615"
     },
     "frontage-20-027": {
       "slug": "house",
@@ -763,7 +770,9 @@
       "roof": "flat",
       "brackets": true,
       "entrance": "north",
-      "why": "3B brick, the middle unit of the group: flat behind a bracketed cornice so that the group's three fronts are not one repeated face (the study attests the attachment, not a uniform design); which it had is T-1869's."
+      "why": "3B brick, the middle unit of the group: flat behind a bracketed cornice so that the group's three fronts are not one repeated face (the study attests the attachment, not a uniform design); which it had is T-1869's.",
+      "house_id": "house_1623_prairie",
+      "house_address": "1623"
     },
     "frontage-20-030": {
       "slug": "house",

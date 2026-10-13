@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 521,
+  "count": 526,
   "liberties": [
     {
       "id": "L1",
@@ -16390,14 +16390,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.records[brick_fabric]",
-        "count": 107
+        "count": 106
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.records[brick_fabric]` — 107 structures (16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`, `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (materials.md §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 (T-1687) AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** `cook_county_courthouse_1835` became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, `generators/build.py` resolves no phase for it and T-0139 retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
+          "text": "`structures.records[brick_fabric]` — 106 structures (107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`, `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (materials.md §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 (T-1687) AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** `cook_county_courthouse_1835` became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, `generators/build.py` resolves no phase for it and T-0139 retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
         },
         {
           "label": "Decision",
@@ -30277,10 +30277,7 @@
         "hibbard_house_1701_prairie",
         "hibbard_house_1701_prairie_coach_house",
         "house_1601_prairie",
-        "house_1613_prairie",
-        "house_1615_prairie",
         "house_1621_prairie",
-        "house_1623_prairie",
         "house_1625_prairie",
         "ic_16th_street_station_1605_prairie",
         "kellogg_house_1709_prairie",
@@ -30341,30 +30338,6 @@
         },
         {
           "domain": "structure",
-          "structure": "house_1613_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_1613_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_1615_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_1615_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "house_1621_prairie",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -30372,18 +30345,6 @@
         {
           "domain": "structure",
           "structure": "house_1621_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_1623_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_1623_prairie",
           "phase": "draft_1904",
           "aspect": "form.draft_elevation"
         },
@@ -30477,7 +30438,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1613_prairie.draft_1904.form.draft_elevation`, `house_1613_prairie.draft_1904.form.draft`, `house_1615_prairie.draft_1904.form.draft_elevation`, `house_1615_prairie.draft_1904.form.draft`, `house_1621_prairie.draft_1904.form.draft_elevation`, `house_1621_prairie.draft_1904.form.draft`, `house_1623_prairie.draft_1904.form.draft_elevation`, `house_1623_prairie.draft_1904.form.draft`, `house_1625_prairie.draft_1904.form.draft_elevation`, `house_1625_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`dexter_house_1721_prairie.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie.draft_1904.form.draft`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft_elevation`, `dexter_house_1721_prairie_coach_house.draft_1904.form.draft`, `hibbard_house_1701_prairie.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie.draft_1904.form.draft`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft_elevation`, `hibbard_house_1701_prairie_coach_house.draft_1904.form.draft`, `house_1621_prairie.draft_1904.form.draft_elevation`, `house_1621_prairie.draft_1904.form.draft`, `house_1625_prairie.draft_1904.form.draft_elevation`, `house_1625_prairie.draft_1904.form.draft`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft_elevation`, `ic_16th_street_station_1605_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie.draft_1904.form.draft`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft_elevation`, `kellogg_house_1709_prairie_coach_house.draft_1904.form.draft`, `pullman_house_1729_prairie.draft_1904.form.draft_elevation`, `pullman_house_1729_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie.draft_1904.form.draft`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft_elevation`, `spalding_house_1637_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -30489,7 +30450,7 @@
         },
         {
           "label": "Retired in part",
-          "text": "1609 and 1611, the lost lot-6 frame pair, by T-1867, which refined both in place on the K16 timber kit as two clapboard houses on one party wall under `L-k16-1609-1611-frame-pair-1867`, under the same ids; their draft attributes are gone. **1619 retired from this liberty by T-2420 (2026-10-12):** its main body now stands as the K01 stone-front frontage with its full-height swell bay, read off Treat & Foltz's drawing of the Hamline house, under `L-k01-1619-hamline-swell-front-2420`, under the same id; its draft attributes are gone."
+          "text": "1609 and 1611, the lost lot-6 frame pair, by T-1867, which refined both in place on the K16 timber kit as two clapboard houses on one party wall under `L-k16-1609-1611-frame-pair-1867`, under the same ids; their draft attributes are gone. **1613 retired from this liberty by T-2417 (2026-10-12):** the north half of the 1613/1615 pair now stands as the K01 brick frontage under K01's flat roof, with its frame rear porch on K01's rear wings, recorded as `L-k01-1613-brick-flat-2417`, under the same id; its draft attributes are gone. **1615 retired from this liberty by T-2418 (2026-10-13):** the south half of the pair now stands as the K01 brick frontage under K01's flat roof, laid on 1613's south wall, with the sheet's frame projection on its south wall and its frame rear porch, recorded as `L-k01-1615-brick-flat-2418`, under the same id; its draft attributes are gone. **1619 retired from this liberty by T-2420 (2026-10-12):** its main body now stands as the K01 stone-front frontage with its full-height swell bay, read off Treat & Foltz's drawing of the Hamline house, under `L-k01-1619-hamline-swell-front-2420`, under the same id; its draft attributes are gone. **1623 retired from this liberty by T-2433 (2026-10-13):** its main body now stands as the K01 stone-front frontage with its corbelled oriel, read off Treat & Foltz's drawing of Granger Farwell's house, under `L-k01-1623-farwell-oriel-front-2433`, under the same id; its draft attributes are gone."
         },
         {
           "label": "Ticket",
@@ -31434,6 +31395,10 @@
         {
           "label": "Superseded in part (T-2395)",
           "text": "the plain body and its two roofs are retired from this liberty; the body is now closed in the kit's timber under L-k16-1638-body-2395, which covers `form.body`."
+        },
+        {
+          "label": "Superseded in part (T-2423)",
+          "text": "the gable's flat-headed pair, its shingle bands and the missing oculus and hood moulds are retired from this liberty; the gable's openings, hood, oval and clapboard field are read off the photograph under L-k16-1638-gable-2423, which covers `form.gable`."
         },
         {
           "label": "Ticket",
@@ -34604,6 +34569,573 @@
         {
           "label": "Recorded",
           "text": "2026-10-12 (T-2416)."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-1613-brick-flat-2417",
+      "title": "1613 Prairie refined from the district draft to a four-storey K01 brick house under a flat roof, the north half of the pair with 1615, its frame rear porch in timber, everything but the plan the kits'",
+      "section": "per_subject",
+      "subjects": [
+        "house_1613_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_bay"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.front_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.principal_floor_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_form"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.storey_heights_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_head"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        }
+      ],
+      "recorded": "2026-10-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the brick house at 1613 Prairie Avenue (T-2417, piece 1 of T-1868) is no longer a district draft. It stands, under the draft's own id `house_1613_prairie`, as a `k01_frontage` record built by `generators/k01_emit.py`: the first K01 house on the east side of the avenue, its plan turned 180 degrees (rotation 179.611), so K01's local south wall and south end are the world's north. Four storeys of the K03 common brick on every wall; K06 two-over-two sash, under K09 cornice-hood lintels on the two principal storeys and K01's flat stone lintels on the two above; the K07 door and stoop at the front's north end, beside the side passage; a K10 bracketed timber cornice along the street under the blocking course of K01's flat roof (K05's parapet deck, T-2350, in painted flat-seam tin) and two plain brick stacks against the party wall. **What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace and the T-1840 census (s20-1613-f, '4-storey brick dwelling (D), the north half of a pair with 1615'; s20-1613-a1, '1-storey frame (yellow) rear porch'): the main body's place and plan (12.5 m deep, the draft's, by 6.55 m, the traced side walls, where the draft's fit had stopped at 5.25 m on the sheet's numerals), four storeys, brick, the party wall on the world south it shares with 1615, which is built blank, and the rear porch's place, plan (2.45 m deep across the whole rear), one storey and frame construction. **What is invented.** Every height (a 1.4 m principal floor over a basement the sheet does not print, and 3.9, 3.5, 3.3 and 3.1 m storeys); the walls' thickness; the brick's colour, bond and grime (the one K03 panel); every window's kind, size and place and every head; the three-bay front and the door at its north end (the draft rules' row: the pair's doors at its outer ends); the stoop and its width; the cornice and its brackets; the flat roof, its fall, covering and parapets (the draft rules' 'four storeys read flat behind a cornice', where no source reads this roof); the two stacks; and the whole form of the rear porch: that it was closed in, boarded in painted timber from grade to a flat tin deck at the principal floor's storey, with two sash in its rear wall and one over the passage, and no door drawn. An open porch on posts with steps to the yard is as likely; K01's `frame` wing (T-2417) builds a closed one. **What is not built.** The porch's door and yard steps, and any rear stair; the pair's other half is still the draft until T-2418 lays 1615's north wall on this one."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph, plate or description of 1613 (or of the pair), ingested as a source, replaces the kits' choices in place; one that shows the rear replaces the porch's form."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_1613_prairie.as_mapped_1904.form.principal_floor_m`, `house_1613_prairie.as_mapped_1904.form.storey_heights_m`, `house_1613_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1613_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1613_prairie.as_mapped_1904.form.service_wall_brick`, `house_1613_prairie.as_mapped_1904.form.street_front_trim`, `house_1613_prairie.as_mapped_1904.form.wall_head`, `house_1613_prairie.as_mapped_1904.form.roof_form`, `house_1613_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1613_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1613_prairie.as_mapped_1904.form.stair_tread_m`, `house_1613_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1613_prairie.as_mapped_1904.form.stoop_width_m`, `house_1613_prairie.as_mapped_1904.form.entrance_bay`, `house_1613_prairie.as_mapped_1904.form.front_bays`, `house_1613_prairie.as_mapped_1904.form.side_bays`, `house_1613_prairie.as_mapped_1904.form.rear_bays`, `house_1613_prairie.as_mapped_1904.form.sash_by_storey`, `house_1613_prairie.as_mapped_1904.form.basement_lights`, `house_1613_prairie.as_mapped_1904.form.roof_covering`, `house_1613_prairie.as_mapped_1904.form.chimneys`, `house_1613_prairie.as_mapped_1904.form.window_kit`, `house_1613_prairie.as_mapped_1904.form.entrance_kit`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2417 (piece 1 of T-1868)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k01-1613-brick-flat-2417/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-12 (T-2417)."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-1615-brick-flat-2418",
+      "title": "1615 Prairie refined from the district draft to a four-storey K01 brick house under a flat roof, the south half of the pair with 1613, its side projection and rear porch in timber, everything but the plan the kits'",
+      "section": "per_subject",
+      "subjects": [
+        "house_1615_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_bay"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.front_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.principal_floor_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_form"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.storey_heights_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_head"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        }
+      ],
+      "recorded": "2026-10-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the brick house at 1615 Prairie Avenue (T-2418, piece 2 of T-1868) is no longer a district draft. It stands, under the draft's own id `house_1615_prairie`, as a `k01_frontage` record built by `generators/k01_emit.py`, the other half of T-2417's 1613: its plan turned 180 degrees (rotation 179.611, 1613's), so K01's local north wall and north end are the world's south. Its world-north wall is the party wall, laid on 1613's south wall (1615's corner is 1613's own local corner carried through 1613's placement) and built blank. The pair is built as one: the same heights, brick, sash, heads, cornice, flat roof and covering as 1613, mirrored about the party wall, so the front reads door, window, window | window, window, door, and the pair's two stoops stand at its outer ends. Its own: the door at the south end beside the passage to 1619, three windows a storey on that passage wall, two plain stacks against the party wall beside 1613's, its rear porch, and the small frame projection the sheet draws on its south wall. **What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace and the T-1840 census (s20-1615-f, '4-storey brick dwelling (D), the south half of the pair with 1613'; s20-1615-a1, '1-storey frame (yellow) rear porch'): the main body's place and plan (12.5 m by 6.55 m, on 1613's front and rear lines, where the draft's fit had stopped at 5.25 m), four storeys, brick, the party wall on the world north, the rear porch's place, plan (2.45 m deep across the whole rear), one storey and frame construction. Read off the raster itself, which no census row names: the small yellow piece on the south wall, about 1.65 m long and 0.6 m out, 1.6-3.3 m from the rear wall; and the figures '12 12 12 8' printed against the south and party walls, Sanborn's wall thicknesses in inches by storey, so the walls are laid 12 inches (0.30 m) thick (`inferred`, the front taken at the side walls' figure; K01 lays one thickness, so the top storey's 8 inches is not built). **What is invented.** Every height (1613's: a 1.4 m principal floor over a basement the sheet does not print, and 3.9, 3.5, 3.3 and 3.1 m storeys); the brick's colour, bond and grime (the one K03 panel); every window's kind, size and place and every head; the three-bay front and the door at its south end (the draft rules' row: the pair's doors at its outer ends); the stoop; the cornice and its brackets; the flat roof, its fall, covering and parapets; the two stacks and where they stand; the whole form of the rear porch, closed in and boarded as 1613's, with two sash in its rear wall and one over the passage, no door drawn; and the whole form of the side projection: built as a box bay window on the principal floor (K08's square-cornered projection in K01's `frame` fabric, one two-over-two sash in its face, a flat tin deck, its wall top 4.8 m above grade). It could as well be a side entry's vestibule, a closet or a stair hood; the sheet says only frame, one storey, and where. **What is not built.** The porch's door and yard steps, any rear stair, and a side door into the projection if it was one."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph, plate or description of 1615 (or of the pair), ingested as a source, replaces the kits' choices in place; one that shows the passage side replaces the projection's form."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_1615_prairie.as_mapped_1904.form.principal_floor_m`, `house_1615_prairie.as_mapped_1904.form.storey_heights_m`, `house_1615_prairie.as_mapped_1904.form.service_wall_brick`, `house_1615_prairie.as_mapped_1904.form.street_front_trim`, `house_1615_prairie.as_mapped_1904.form.wall_head`, `house_1615_prairie.as_mapped_1904.form.roof_form`, `house_1615_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1615_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1615_prairie.as_mapped_1904.form.stair_tread_m`, `house_1615_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1615_prairie.as_mapped_1904.form.stoop_width_m`, `house_1615_prairie.as_mapped_1904.form.entrance_bay`, `house_1615_prairie.as_mapped_1904.form.front_bays`, `house_1615_prairie.as_mapped_1904.form.side_bays`, `house_1615_prairie.as_mapped_1904.form.north_bays`, `house_1615_prairie.as_mapped_1904.form.rear_bays`, `house_1615_prairie.as_mapped_1904.form.sash_by_storey`, `house_1615_prairie.as_mapped_1904.form.basement_lights`, `house_1615_prairie.as_mapped_1904.form.roof_covering`, `house_1615_prairie.as_mapped_1904.form.chimneys`, `house_1615_prairie.as_mapped_1904.form.window_kit`, `house_1615_prairie.as_mapped_1904.form.entrance_kit`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2418 (piece 2 of T-1868)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k01-1615-brick-flat-2418/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-13 (T-2418)."
+        }
+      ]
+    },
+    {
+      "id": "L-k16-1638-gable-2423",
+      "title": "1638 Prairie's gable read off its photograph through a solved camera: pointed twin lights under an ogee hood, a blind oval, clapboard to the rake; sections, finial and verge still the kit's",
+      "section": "per_subject",
+      "subjects": [
+        "shortall_gregory_house_1638_prairie_front"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "shortall_gregory_house_1638_prairie_front",
+          "phase": "as_standing_1904",
+          "aspect": "form.gable"
+        }
+      ],
+      "recorded": "2026-10-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the front gable of the Shortall-Gregory house (T-2423, a piece of T-1865) carries what the house's photograph shows on it, read through the first camera solved for that print (`data/reference_views/shortall_gregory_house_1638_prairie_front/chicagology_front.json`). The kit's flat-headed paired sash gives way to two pointed lights, each the K06 equilateral head on a 0.63 m sash, sills at 4.0 m and points at 5.87 m, their casings carried round the heads as arched bands and meeting in one mullion; over them a moulded hood rises from a label stop each side at 5.45 m along an ogee to a point at 6.5 m, with a finial and cross-piece to 7.2 m; high in the gable an oval 0.89 by 0.74 m, a moulded ring round a blind field; and the wall's clapboard runs up into the gable to the rake boards, with no belt and no shingle band. The stand-in bay below is lowered to the print's 3.67 m top so it no longer buries the new sills. **What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`), at 73 px a metre at the front's plane with grade at 825 px: that the lights are pointed and paired, their widths, sills and points; that one hood spans both, where its stops and point stand and how high its finial rises; the oval's place and size; that the siding is continuous into the gable with no belt; the bay's top. The camera's depth is read from the front fence's base on the sheet's street line and is good to a few metres; its `solve` field says how far. **What is invented.** The sash and its two-over-two glazing (the print's lower sashes are dark, the upper pale, as blinds or curtains would make them); the casing's and the hood's sections and the hood's curve between the points read (a cubic ogee); the label stops as plain blocks where the print's curl as volutes, and no cusped tracery under the hood where the print shows some; the finial's form (the print's is a cluster of three points); the oval built blind, because its field reads as pale as the wall, where it may be glazed; the clapboard's exposure, which the halftone cannot resolve; the bargeboard's piercings, still the kit's working design where the print shows a broad plain verge board; every colour, the print being monochrome."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a sharper or second picture of the house resolves the hood's tracery and stops, the finial, the verge board and whether the oval is glazed; T-2426 builds the fence the camera's depth rests on and brings the match record to `matches`, keeping this record's id."
+        },
+        {
+          "label": "Covers",
+          "text": "`shortall_gregory_house_1638_prairie_front.as_standing_1904.form.gable`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2423 (a piece of T-1865, the 1638 architecture)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k16-1638-gable-2423/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-12 (T-2423)."
+        }
+      ]
+    },
+    {
+      "id": "L-k16-1638-bay-2424",
+      "title": "1638 Prairie's canted bay read off its photograph: three pointed lights between posts, a panelled base and a moulded cornice; sections, depth and deck still the kit's or inferred",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the canted bay on the front of the Shortall-Gregory house (T-2424, a piece of T-1865) stops being a plain stand-in block and is built in the K16 kit's timber from the house's photograph, read through the camera T-2423 solved. Each of its three faces is a kit clapboard wall with a broad post (0.16 m) at each angle and, between them, a pointed light: the K06 equilateral head on a 0.73 m one-over-one sash, the glass from 0.63 m to its point at 2.83 m, the casing carried round the head as T-2423's gable lights have it. Under the lights a panelled base, a raised panel to each face on a chamfered plinth, runs round the bay under a weathered sill course whose top is at 0.45 m; over them a short frieze and a moulded cornice, soffit, fascia, bed and crown, from 3.13 m to 3.55 m, under a flat deck that falls 0.07 m from the wall. Base, sill course and cornice are carried round the plan so every angle mitres. The plan is the print's: the face 1.42 m (s 2.03 to 3.45 m along the front), the cants meeting the wall at s 1.16 and 4.32 m, where the 1911 sheet's drawn bay was 4.28 m across with a 1.95 m face. **What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`), at 77 px a metre at the bay's face and 73 at the wall, grade at 835 px there: the face's width and the cants' spread along the wall; that there are three lights, one a face, each pointed and between posts; the centre light's width, glass bottom, point and meeting rail; the sill course's top and the row of panels under it; the cornice's soffit and crown. The camera's own limits (its `solve` field) carry over. **What is invented.** The bay's depth, which a front view cannot show: the sheet's 1.1 m, kept, at which the cants come to 1.40 m, the face's width within 2 cm; the cant lights' size, taken as the centre light's because their foreshortening hides their jambs; the arch, the kit's equilateral head, where the print's stops at about 2.33 m mark a slightly blunter arch than the model's spring at 2.20 m; the dark stops at the springs, not built; the posts' width and the narrow run of siding between each post and its casing, the halftone not resolving whether the bay is sided or boarded smooth; every section (plinth, panels, sill course, frieze, cornice mouldings); the deck, which no street view shows; every colour, the print being monochrome."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a plan, a sharper print or a second view at an angle gives the bay's depth and the cants' lights; a closer picture gives the arch's true curve, the stops and the cornice's mouldings. T-2426 builds the fence the camera's depth rests on and brings the match record to `matches`, keeping this record's id."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2424 (a piece of T-1865, the 1638 architecture)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k16-1638-bay-2424/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-13 (T-2424)."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-1623-farwell-oriel-front-2433",
+      "title": "1623 Prairie, Granger Farwell's house, refined from the district draft to a K01 stone-front house with the corbelled oriel of its 1886 drawing over a round-arched window, everything the drawing and the sheet do not show the kits'",
+      "section": "per_subject",
+      "subjects": [
+        "house_1623_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_form"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stone_front"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.storey_heights_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_dress"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_head"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        }
+      ],
+      "recorded": "2026-10-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the house at 1623 Prairie Avenue — Granger Farwell's, by Treat & Foltz (T-2433, piece 2 of T-1869) — is no longer a district draft. It stands, under the draft's own id `house_1623_prairie`, as a `k01_frontage` record built by `generators/k01_emit.py`: a K02 smooth Lemont limestone street front over two rusticated base courses on K03 brick side and rear walls, the drawing's round-arched window in the principal storey under a ring of voussoirs with a round-headed basement light under it, the door in the south bay at the head of a K07 stoop, K08's canted corbelled oriel across the second storey with three mullioned transomed lights to its front and blind cheeks under a low copper hood, a K10 bracketed cornice at 9.75 m, a 45-degree slate K04/K05 hip, two brick stacks on the north party wall, and copper gutters and pipes. **Which number.** The drawing letters the right-hand house \"G. Farwell Esq.\"; the 1885 permits put it \"at 1625\", the 1889 permit put Hugh J. McBirney's new house at \"1627\", and by the 1904 Blue Book McBirney is at 1625 with Farwell's oriel and arched entrance against his north wall in the 1890 photograph of his house. So Farwell's stood at what 1904 and the 1911 sheet number 1623, and the 1885 numbers run one lot behind 1904's (`docs/RESEARCH/k01-1623-farwell-2433/README.md`). **What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace and the T-1840 census (s20-1623-f, '3B brick dwelling (D), the middle unit of the group'): the main body's place and size (19.5 m by 6.2 m), its party walls with 1621 and 1625, and the storey count. From the Building Budget drawing (`building_budget_1886_06_hamline_farwell_houses`, the house's only picture): the stone front and its rusticated base, the raised basement, the arched window in the north bay and the entrance up its stoop in the south bay, the canted oriel on its corbelling across the second storey with its transomed lights, the main cornice's height, the slated steep roof and the tall stack on the north wall — read through a camera solved to it (`data/reference_views/house_1623_prairie/building_budget_front.json`). **What is invented.** The stone (the drawing is monochrome; Lemont limestone is chosen); the brick's colour and bond; every height not read through the camera, and those it reads are good to about 10 %; every window's sash, and every window in the rear wall (no picture shows them); the side walls blank as party walls; the stoop's tread and landing; the cornice's brackets; the roof's hip form and 45-degree pitch; the stacks' places and plain shafts; the gutters and pipes. **What disagrees, and how it is built.** The drawing's front is about 6.5 m, the sheet's 6.2 m: the sheet controls the plan. The sheet's register reads the group as brick and records no stone front for 1623; the drawing draws stone: built to the drawing, the disagreement stated on the record. **What is not built.** The oriel is 3.38 m at the wall and 0.5 m out where the drawing's is about 4.8 m and 0.9 m, and the window and door under it stand about 0.3 m nearer their corners than the drawing's, because K01 lays no opening whose centre falls under an oriel's span and its corbelling may oversail only so far between the second floor and the entrance's head; its four front lights and two cheek lights (three and none are built); the oriel's carved frieze, its upper stage of lights and its steep conical roof rising through the eave; the entrance's own round arch, its carved light and glazed door; the basement light's segmental head and iron grille; the stoop's newels and rails; the rock-faced blocks about the arches; the stack's steps — each listed `open` in the match record. The strip north of the main body behind its front part and the light well shared with 1621."
+        },
+        {
+          "label": "How to resolve",
+          "text": "T-2435 builds what the drawing shows and brings its match record to `matches`; a photograph of the house after 1886 settles the stone, the oriel's depth and whether the 1886 design was built as drawn."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_1623_prairie.as_mapped_1904.form.storey_heights_m`, `house_1623_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1623_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1623_prairie.as_mapped_1904.form.service_wall_brick`, `house_1623_prairie.as_mapped_1904.form.stone_front`, `house_1623_prairie.as_mapped_1904.form.wall_head`, `house_1623_prairie.as_mapped_1904.form.roof_form`, `house_1623_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1623_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1623_prairie.as_mapped_1904.form.stair_tread_m`, `house_1623_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1623_prairie.as_mapped_1904.form.rear_bays`, `house_1623_prairie.as_mapped_1904.form.sash_by_storey`, `house_1623_prairie.as_mapped_1904.form.chimneys`, `house_1623_prairie.as_mapped_1904.form.rainwater`, `house_1623_prairie.as_mapped_1904.form.window_kit`, `house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2433 (piece 2 of T-1869)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/k01-1623-farwell-2433/README.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-13 (T-2433)."
         }
       ]
     },

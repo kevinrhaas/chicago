@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 184415184,
-      "sha256": "9d459e95a02ba24fd5d9be579e9396dcc458c9870388213c7f16dc3b05157b6c",
+      "bytes": 184415224,
+      "sha256": "0d8f8ff234c4d49987d39aa62023f9f7ab47f7565c15d955b91fa36bc7967b49",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -27,7 +27,7 @@
       "texture": {
         "images": 34,
         "textures": 69,
-        "encoded_bytes": 27207879,
+        "encoded_bytes": 27207887,
         "pixels": 57146696,
         "gpu_rgba8_mip_bytes": 304782379,
         "largest_px": 2048
@@ -324,8 +324,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 53165400,
-      "sha256": "922fd1c3c1287bb84ded2e0d93996581953f8aa69cbcbd258adbcf55dc0667bc",
+      "bytes": 53165440,
+      "sha256": "40d3df26b36b29dd6a738ee1daf51edc33720c21ad4154d6981b77416bd93b97",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -350,7 +350,7 @@
       "texture": {
         "images": 33,
         "textures": 33,
-        "encoded_bytes": 27713073,
+        "encoded_bytes": 27713076,
         "pixels": 56098120,
         "gpu_rgba8_mip_bytes": 299189973,
         "largest_px": 2048
@@ -637,8 +637,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 27801700,
-      "sha256": "19b7f0d1bf279b0df096073cff9f8cd6a45eb54333aeb850c76736baf8ca8f97",
+      "bytes": 27818148,
+      "sha256": "82739fe7fe2387193511469b1e44b2fab1a9ac278161faae031b986ec9c89cef",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -657,13 +657,13 @@
       "mesh": {
         "draw_primitives": 25,
         "materials": 25,
-        "triangles": 199126,
-        "vertices": 388131
+        "triangles": 199035,
+        "vertices": 388532
       },
       "texture": {
         "images": 33,
         "textures": 33,
-        "encoded_bytes": 24412073,
+        "encoded_bytes": 24417963,
         "pixels": 52952392,
         "gpu_rgba8_mip_bytes": 282412757,
         "largest_px": 2048
@@ -702,7 +702,7 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 114,
+        "degenerate": 102,
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,

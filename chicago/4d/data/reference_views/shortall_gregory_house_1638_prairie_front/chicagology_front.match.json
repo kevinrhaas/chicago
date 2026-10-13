@@ -1,0 +1,88 @@
+{
+  "structure_id": "shortall_gregory_house_1638_prairie_front",
+  "view": "chicagology_front",
+  "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
+  "glb_sha256": "ee1f153f4fcba4af3fa56a79be8e9c942390f169b97e46611ccae2cc3b653b51",
+  "camera_sha256": "c1c16c717eda63839555e726bc9ca222e4cf819084c6a63406e51eda341c874d",
+  "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Gable: the twin windows' heads are pointed, two lights 0.63 m wide with their points at 5.87 m, not the kit's flat-headed pair (T-2423)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: each light's casing follows its pointed head, the pair sharing one mullion, with no flat head board or drip cap (T-2423)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the hood mould over the pair, from a label stop each side at 5.45 m along an ogee to its point at 6.5 m under a finial with a cross-piece to 7.2 m (T-2423)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the oval high in the gable, 0.89 by 0.74 m at 8.04 m, a moulded ring round a blind field (T-2423)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the siding runs up into the gable to the rake, with no belt and no band of fish-scale shingle (T-2423)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the sills sit just over the bay's roof, the bay's top lowered to the print's 3.67 m so it no longer buries them (T-2423)",
+      "status": "fixed"
+    },
+    {
+      "what": "Gable: the verge is a broad plain bargeboard with a moulded edge; the model's is pierced with the kit's roundels and vesicas",
+      "status": "open"
+    },
+    {
+      "what": "Gable: the apex finial is a cluster of three pointed pinnacles; the model's is the kit's single chamfered post",
+      "status": "open"
+    },
+    {
+      "what": "Gable: under the hood, between the two lights' heads, the print shows cusped tracery and the hood's ends curl as volutes; the model has plain blocks for stops and no tracery",
+      "status": "open"
+    },
+    {
+      "what": "Gable: the apex stands about 12 px (0.16 m) over the print's",
+      "status": "open"
+    },
+    {
+      "what": "Bay: three pointed lights, one in the face and one in each cant, between broad posts, the glass from 0.63 m to its point at 2.83 m and 0.73 m across, each a one-over-one sash; a panelled base under a weathered sill course at 0.45 m; a moulded cornice from 3.13 m to its crown at 3.55 m (T-2424)",
+      "status": "fixed"
+    },
+    {
+      "what": "Bay: the plan read off the print, not the sheet's drawn bay: the face 1.42 m (s 2.03-3.45 m), the cants meeting the wall at s 1.16 and 4.32 m, the sheet's 1.1 m depth kept, so the three faces come to 1.40-1.42 m each (T-2424)",
+      "status": "fixed"
+    },
+    {
+      "what": "Bay: the print's pointed heads are a little blunter than the kit's equilateral arch, their stops at about 2.33 m where the model's arches spring at 2.20 m",
+      "status": "open"
+    },
+    {
+      "what": "Bay: the print's lights have a small dark stop at each spring of the casing; the model's casings run plain round the heads",
+      "status": "open"
+    },
+    {
+      "what": "Entrance (T-2425): a pointed arch on posts with pierced quatrefoil spandrels, double doors with glazed upper panels and a stoop between cheek walls; the model has the kit's porch posts, brackets and lattice",
+      "status": "open"
+    },
+    {
+      "what": "Tower: the upper stage is smooth with incised ornament over each light; the model's is clapboarded",
+      "status": "open"
+    },
+    {
+      "what": "Fence (T-2426): two gate piers with pierced, pointed caps and finials, and a low picket fence on a base along the street line; not built",
+      "status": "open"
+    },
+    {
+      "what": "South of the gable the print shows a two-storey block with a hipped roof, a pale stack and a two-light window over a door: the register's 'separate lower wing' or the neighbour, not yet identified; the model shows the gable range's south flank and projection there",
+      "status": "open"
+    },
+    {
+      "what": "Colour of every surface: the print is a monochrome halftone",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -1,0 +1,22 @@
+{
+  "structure_id": "house_1623_prairie",
+  "source_id": "building_budget_1886_06_hamline_farwell_houses",
+  "library_image": "cgn-1619-1625-building-budget-hamline-farwell",
+  "photo": "../../sources/assets/farwell_1623_drawing_t2433/building_budget_1623_panel.jpg",
+  "image_px": [
+    360,
+    856
+  ],
+  "principal_px": [
+    129,
+    618
+  ],
+  "focal_px": 920,
+  "eye": [
+    39.5,
+    1.88,
+    1.6
+  ],
+  "yaw_deg": -90.0,
+  "solve": "Fitted by T-2433 to the Farwell house in the plate (the display copy's pixels x 540-900, y 90-946, cropped unscaled into building_budget_1623_panel.jpg). An architect's pen perspective, not a photograph, so this camera is approximate and says how far. A plate has one station point, so the camera is T-2420's for the Hamline house on the same plate (data/reference_views/house_1619_prairie/building_budget_front.json), put in 1623's frame: level and square to the front (yaw -90 in the footprint frame, whose u runs toward the street and whose v runs SOUTH on this side of the avenue: the eye looks east), f = 920 px, which is 46 px/m at a front 20 m off, and the principal point at the plate's x 669 (T-2420's) and y 708 (panel 129, 618), the horizon of an eye 1.6 m up over the drawing's grade under Farwell's front (y 782-785). The eye stands 20 m in front of the stone face (u 39.5) and 1.88 m south of the north wall (v 1.88), which puts the front's middle (v 3.1) at x 725, the middle of the front the drawing draws between x 575 and 875. Residuals through the build: the front's north and south edges 5-7 px (the drawing's front is about 6.5 m, the sheet's 6.2 m, which controls the plan); grade 3 px, the main cornice at 9.75 m 3 px (drawn at about y 330), the arched window's sill and crown 3 px, the oriel's sill about 10 px; the oriel's edges 27-40 px, where the build is narrower than the drawing for K01's rules (the match record's 'oriel'). Heights read through it are good to about 10 %: the drawing's own spacings vary that much. The eye's place along the street is 7 m south of where T-2420's camera puts it against 1619, a measure of how far the plate's two houses stand from their places on the 1911 sheet (docs/RESEARCH/k01-1623-farwell-2433/README.md, which number)."
+}

@@ -1,4 +1,47 @@
 export const CHANGELOG = [ // newest first
+  { v: 1744, ts: '2026-10-13T02:41:50.598Z', date: 'Oct 12, 2026, 9:41 PM CT', title: '1615 Prairie completes the brick pair with 1613', kind: 'feature',
+    items: [
+      '1615 Prairie Avenue, the south half of the brick pair with 1613, is now a full four-storey brick house in place of its draft. It stands on 1613\'s party wall, so the pair reads as one front with a stoop at each outer end, under one cornice and flat roof.',
+      'Its own door and stoop are at the south end beside the passage to 1619, with three windows a storey along that passage and two chimneys against the party wall, beside 1613\'s.',
+      'In the passage stands the small one-storey frame projection the 1911 fire-insurance map draws on 1615\'s south wall, built as a timber box bay. Behind the house is its frame rear porch, matching 1613\'s.',
+      'The map\'s wall figures, 12 inches a storey, set the brick walls\' thickness. Every height, the front, the roof and the projection\'s form are reconstructions, recorded as liberty L-k01-1615-brick-flat-2418.',
+    ] },
+  { v: 1743, ts: '2026-10-13T02:07:17.779Z', date: 'Oct 12, 2026, 9:07 PM CT', title: 'Granger Farwell\'s house at 1623 Prairie, from its 1886 drawing', kind: 'feature',
+    items: [
+      '1623 Prairie is no longer a grey draft box: Granger Farwell\'s stone house now stands there, built from its architects\' 1886 drawing — a round-arched window over a rusticated base, the door up its stoop, and a canted oriel of tall leaded lights across the second floor.',
+      'Why 1623: the 1890 photograph of the McBirney house at 1625 shows Farwell\'s oriel right next door to the north.',
+    ] },
+  { v: 1742, ts: '2026-10-13T01:24:32.376Z', date: 'Oct 12, 2026, 8:24 PM CT', title: '1638 Prairie\'s bay window, built to its photograph', kind: 'improvement',
+    items: [
+      'The bay on the front of the Gothic house at 1638 Prairie Avenue is no longer a plain block: three tall pointed windows stand between its posts, on a panelled base and under a moulded cornice, as its photograph shows.',
+      'Its width now follows the photograph rather than the fire-insurance map\'s sketch, so it sits under the gable\'s twin windows where the picture puts it.',
+    ] },
+  { v: 1741, ts: '2026-10-13T01:14:11.616Z', date: 'Oct 12, 2026, 8:14 PM CT', title: 'The Glessner House builds the same on any machine', kind: 'fix',
+    items: [
+      'The shading baked into the Glessner House\'s granite now comes from a saved copy kept with the model, not from a fresh render each time. Fresh renders came out very slightly different on different computers, and that failed the nightly check for every Prairie Avenue change.',
+      'Nothing you can see has changed. The stones and their shading look exactly as they did.',
+    ] },
+  { v: 1740, ts: '2026-10-12T23:51:40.162Z', date: 'Oct 12, 2026, 6:51 PM CT', title: '1613 Prairie built as a four-storey brick house with a frame porch', kind: 'feature',
+    items: [
+      '1613 Prairie Avenue, the north half of the brick pair with 1615, is now a full four-storey brick house in place of its draft: brick on every wall, stone-headed sash, a bracketed cornice under a flat roof behind parapets, two chimneys against the party wall, and the door and stoop at the north end beside the side passage.',
+      'Behind it stands the one-storey frame porch the 1911 fire-insurance map draws across the whole rear, built in painted timber. It is the kit\'s first timber wing, and 1613 is the first brick house built from the kit on the east side of the avenue.',
+      'The house is drawn to the map\'s full width, 6.55 m, where the draft had stopped at 5.25 m on the map\'s printed figures. Every height, the roof, the front and the porch\'s closed-in form are reconstructions, recorded as liberty L-k01-1613-brick-flat-2417.',
+    ] },
+  { v: 1739, ts: '2026-10-12T23:51:40.162Z', date: 'Oct 12, 2026, 6:51 PM CT', title: 'Glessner\'s carved door tympanum now shows on phones', kind: 'improvement',
+    items: [
+      'On phones, the carving over the Glessner house\'s Prairie Avenue door now has the same layout as the full model: billet band, leafy archivolt, roll moulding and the pierced tree of leafy roundels.',
+      'It replaces the old seven-leaf sunburst, and the phone model stays within its triangle budget.',
+    ] },
+  { v: 1738, ts: '2026-10-12T22:25:05.223Z', date: 'Oct 12, 2026, 5:25 PM CT', title: '1638 Prairie\'s gable, built to its photograph', kind: 'improvement',
+    items: [
+      'The Gothic house at 1638 Prairie Avenue now has the pointed twin windows, ogee hood and finial, and oval of its only photograph, and its siding runs up into the gable as the picture shows.',
+      'The house is now checked against that photograph from a camera solved for it, so the bay, the entrance and the fence are next.',
+    ] },
+  { v: 1737, ts: '2026-10-12T22:19:39.465Z', date: 'Oct 12, 2026, 5:19 PM CT', title: 'The Glessner House is rebuilt the way the nightly build makes it', kind: 'fix',
+    items: [
+      'The Glessner House model now comes from the same build machine that checks it every night. The two versions of its shaded granite differed in a few thousand of its four million shading texels, and that small difference failed the nightly check for every Prairie Avenue change.',
+      'Nothing you can see has changed. The building\'s shape, stones and colours are byte for byte what they were.',
+    ] },
   { v: 1736, ts: '2026-10-12T21:24:48.629Z', date: 'Oct 12, 2026, 4:24 PM CT', title: 'Glessner\'s granite shows its stones on phones too', kind: 'improvement',
     items: [
       'On a phone, the Glessner House\'s granite walls in shade now show their courses and joints, as they already did on a desktop. The lighter model phones load now has its own shading baked from its own stones, in place of the faint repeating texture it had before.',
