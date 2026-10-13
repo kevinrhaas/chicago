@@ -8,7 +8,7 @@
         "height": 800
       },
       "detail": "full",
-      "load_ms_to_ready": 30063,
+      "load_ms_to_ready": 37933,
       "boot": {
         "ready": true,
         "error": null,
@@ -31,15 +31,15 @@
       "stands": [
         {
           "name": "door",
-          "heap_mb": 838,
+          "heap_mb": 713.7,
           "detail": "full",
           "problems": [],
           "stats": {
             "drawCalls": 204,
-            "triangles": 2214282,
+            "triangles": 2224092,
             "programs": 39,
             "geometries": 168,
-            "textures": 444,
+            "textures": 388,
             "batches": 145,
             "wallRelief": {
               "off": false,
@@ -61,7 +61,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 81040820,
+            "bytes": 81116240,
             "fps": 0,
             "cameraNear": 0.1,
             "budget": {
@@ -70,7 +70,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 2564.7,
+          "frame_ms_median": 2652.9,
           "camera": [
             1392.65,
             -3014.47,
@@ -84,15 +84,15 @@
         },
         {
           "name": "door-south",
-          "heap_mb": 838.8,
+          "heap_mb": 714.6,
           "detail": "full",
           "problems": [],
           "stats": {
             "drawCalls": 203,
-            "triangles": 2180813,
+            "triangles": 2190623,
             "programs": 39,
             "geometries": 168,
-            "textures": 481,
+            "textures": 388,
             "batches": 145,
             "wallRelief": {
               "off": false,
@@ -114,7 +114,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 81040820,
+            "bytes": 81116240,
             "fps": 0,
             "cameraNear": 0.15000000000000002,
             "budget": {
@@ -123,7 +123,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 2453.7,
+          "frame_ms_median": 2732.5,
           "camera": [
             1390.74,
             -3023.49,
@@ -137,15 +137,15 @@
         },
         {
           "name": "front-40ft",
-          "heap_mb": 839,
+          "heap_mb": 714.8,
           "detail": "full",
           "problems": [],
           "stats": {
             "drawCalls": 210,
-            "triangles": 2212832,
+            "triangles": 2222642,
             "programs": 39,
             "geometries": 169,
-            "textures": 483,
+            "textures": 390,
             "batches": 145,
             "wallRelief": {
               "off": false,
@@ -167,7 +167,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 81040820,
+            "bytes": 81116240,
             "fps": 0,
             "cameraNear": 0.5,
             "budget": {
@@ -176,7 +176,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 2364.9,
+          "frame_ms_median": 2568.3,
           "camera": [
             1405.71,
             -3020.33,
@@ -197,7 +197,7 @@
         "height": 780
       },
       "detail": "light",
-      "load_ms_to_ready": 25332,
+      "load_ms_to_ready": 16558,
       "boot": {
         "ready": true,
         "error": null,
@@ -220,15 +220,15 @@
       "stands": [
         {
           "name": "door",
-          "heap_mb": 414.2,
+          "heap_mb": 311.4,
           "detail": "light",
           "problems": [],
           "stats": {
             "drawCalls": 159,
-            "triangles": 709916,
+            "triangles": 710694,
             "programs": 24,
             "geometries": 173,
-            "textures": 572,
+            "textures": 403,
             "batches": 145,
             "wallRelief": {
               "off": false,
@@ -250,8 +250,8 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 56016112,
-            "fps": 2,
+            "bytes": 56022788,
+            "fps": 1,
             "cameraNear": 0.1,
             "budget": {
               "drawCalls": 330,
@@ -259,7 +259,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 835.1,
+          "frame_ms_median": 947.8,
           "camera": [
             1392.65,
             -3014.47,
@@ -273,15 +273,15 @@
         },
         {
           "name": "door-south",
-          "heap_mb": 389.4,
+          "heap_mb": 320,
           "detail": "light",
           "problems": [],
           "stats": {
             "drawCalls": 164,
-            "triangles": 743145,
+            "triangles": 743923,
             "programs": 24,
             "geometries": 173,
-            "textures": 572,
+            "textures": 403,
             "batches": 145,
             "wallRelief": {
               "off": false,
@@ -303,7 +303,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 56016112,
+            "bytes": 56022788,
             "fps": 0,
             "cameraNear": 0.15000000000000002,
             "budget": {
@@ -312,7 +312,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 773.5,
+          "frame_ms_median": 864.5,
           "camera": [
             1390.74,
             -3023.49,
@@ -326,15 +326,15 @@
         },
         {
           "name": "front-40ft",
-          "heap_mb": 389.3,
+          "heap_mb": 289.5,
           "detail": "light",
           "problems": [],
           "stats": {
             "drawCalls": 162,
-            "triangles": 721627,
+            "triangles": 722405,
             "programs": 24,
             "geometries": 173,
-            "textures": 572,
+            "textures": 403,
             "batches": 145,
             "wallRelief": {
               "off": false,
@@ -356,7 +356,7 @@
             "structures": 151,
             "structuresExpected": 151,
             "structuresStanding": 151,
-            "bytes": 56016112,
+            "bytes": 56022788,
             "fps": 0,
             "cameraNear": 0.5,
             "budget": {
@@ -365,7 +365,7 @@
             },
             "withinBudget": true
           },
-          "frame_ms_median": 719.5,
+          "frame_ms_median": 774,
           "camera": [
             1405.71,
             -3020.33,
