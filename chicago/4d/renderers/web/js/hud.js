@@ -42,6 +42,9 @@ const DEFAULT_SETTINGS = {
   // § BASE_EXPOSURE and ROADMAP K24.
   brightness: 0,
   compass: true, overviewMap: true, streetNames: true, units: 'imperial',
+  // T-2473: the 1904 parkway elms — 'summer' (the July canopy, the default),
+  // 'spring' (just leafing, the fronts read through) or 'hidden'. A viewing choice.
+  streetTrees: 'summer',
   // '' = never chosen, so main.js's device guess stands (phone light, desktop full).
   detail: '',
   // The drawer's own choices. `pace` is how YOU move (walk, wagon, horse) and
@@ -550,6 +553,15 @@ export function createHud({
     el.addEventListener('change', () => {
       settings[key] = el.checked;
       onSetting?.(key, settings[key]);
+      store(SET_KEY, JSON.stringify(settings));
+    });
+  }
+  const streetTreesSel = $('s-street-trees');
+  if (streetTreesSel) {
+    streetTreesSel.value = settings.streetTrees || 'summer';
+    streetTreesSel.addEventListener('change', () => {
+      settings.streetTrees = streetTreesSel.value;
+      onSetting?.('streetTrees', settings.streetTrees);
       store(SET_KEY, JSON.stringify(settings));
     });
   }

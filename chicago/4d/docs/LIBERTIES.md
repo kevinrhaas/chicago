@@ -17096,6 +17096,10 @@ would replace the walk and parkway widths outright; T-1728 owns the materials.
 **Related:** **L289**, **L290** (the ground these lie on), `docs/RESEARCH/prairie_1904_street_grid.md`,
 **T-0474**, **T-1728**.
 **Recorded:** 2026-09-28.
+**Since 2026-10-13 (T-2474):** the bands no longer lie flat. The sidewalk space falls toward the
+curb at the code's one inch in three feet, and the roadway lies a curb's reveal below it. Its
+basis and its inventions are **L-prairie-curb-reveal-2474**. The crown and gutter are still not
+drawn.
 
 ### L294 — Four invented cottages in Kinzie's Addition, and the eight lots beside them left open on purpose
 
@@ -26459,3 +26463,102 @@ replace the zones with what the map draws, and put the South Branch, the yards a
 where they stood.
 **Ticket:** T-2491.
 **Recorded:** 2026-10-13 (T-2491).
+
+### L-prairie-parkway-elms-2473 — The 1904 district's parkway elms: one file per block face at about 30 ft, every tree placed by rule
+
+**Decision:** every block face of the 1904 grid with a parkway (`data/street_grid/1904.json`, T-0474)
+carries one file of American elms in the parkway, 62 % of the way from the walk's edge to the
+curb's, about 30 ft apart (+/- 0.9 m), kept 10.5 m from each face's end and 3.5 m clear of an
+alley mouth; about one tree in twelve is a young replacement and one place in twenty-five is
+empty. 418 trees on 31 faces (`data/street_trees/1904.json`, written by
+`tools/plant_prairie_1904_street_trees.py`, one seed per face). Each tree is drawn with the 1835
+American elm's builder (`trees.js`) in a high-crowned, clear-boled form; Settings › Street trees
+offers the default (summer, full leaf), spring (sparse pale leaf, so the houses read through),
+winter (bare limbs) and hidden.
+**What it stands on:** the west-walk view south from 18th Street beside the Glessner house
+(`picturesque_chicago_1892_prairie_avenue`; negative Dec. 1887 to 1891, the owner's copy is the 1908
+Holzman postcard) for one file per parkway, nearer the curb than the walk, at a spacing of very
+roughly 25-35 ft, and the trees' tall clear-boled habit; the 1905 Views of Chicago plate
+(`views_of_chicago_1905_prairie_michigan`) for a single row of closely spaced elms around the scene
+date. Elm is INFERRED from crown and bark in those prints: no record read names the species.
+**What is invented:** every tree's position; the 30-ft spacing as a number and its jitter; the share
+of young trees and gaps; the 10.5-m and 3.5-m clearances; the crown sizes (17-23 m tall, 70 % of
+height across); and every face beyond the Prairie Avenue blocks at 18th Street that the pictures
+show, which is planted by the same rule and is reconstructed outright. The spring, winter and
+hidden settings are views, not claims about any date.
+**How to resolve:** a Sanborn or city forestry record of the parkway trees, or photographs of other
+faces near 1904, would place individual trees and gaps; a dated view of a face planted otherwise
+(two files, another species, none) overrides the rule for that face.
+**Ticket:** T-2473.
+**Review:** `docs/RESEARCH/prairie_1904_street_trees.md`.
+**Recorded:** 2026-10-13 (T-2473).
+**Since T-2474:** 407 trees. A tree that would stand on a carriage walk or its block moves to the
+walk's nearer side (L-prairie-carriage-walks-2474), and the trees stand on the parkway's fall
+toward the curb.
+
+### L-prairie-curb-reveal-2474 — The 1904 curb's reveal: 7 in, read as about one stoop riser off two photographs
+
+**Decision:** every 1904 roadway is drawn below its curbs. The lot line stays on the field's
+ground, the sidewalk space falls toward the curb at the 1905 code's one inch in three feet
+(`chicago_revised_municipal_code_1905`, inferred), and the roadway lies **7 in** below the curb's
+top, with a dressed stone face down to it (`data/street_section/1904.json`, written by
+`tools/lay_prairie_1904_street_section.py`). On a 66-ft street the roadway is 0.30 m below the lot
+line; on 50-ft 16th Street the same roadway level gives a reveal 1.3 in higher. Where a roadway at
+the district's edge meets no drawn sidewalk, a stone edge rises from it to the field.
+**What it stands on:** the 1887-91 view south from 18th Street
+(`picturesque_chicago_1892_prairie_avenue`) and the owner's second photograph of the avenue
+(supplied 2026-10-13), which show a pale stone curb standing above a smooth roadway by about the
+height of one stoop riser.
+**What is invented:** the 7-in figure; a roadway with no crown and no gutter; the same reveal on
+every street; a curb that runs unbroken across alley mouths, where a carriage would have needed a
+cut; and the stone edges at the district's open sides, which stand for curbs whose sidewalks are
+not drawn.
+**How to resolve:** a city curb or paving specification of 1890-1905, a Board of Local Improvements
+order for these streets, or a measured photograph (a stoop of known riser height beside the curb)
+fixes the reveal.
+**Ticket:** T-2474.
+**Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
+**Recorded:** 2026-10-13 (T-2474).
+
+### L-prairie-carriage-walks-2474 — Carriage walks and carriage blocks before every lot 40 ft wide or more
+
+**Decision:** 91 paved crossings of the parkway, from the walk to the curb, 5 ft wide, one at the
+middle of every 1904 lot at least 40 ft wide, each with a dressed stone carriage block 3 ft long,
+2 ft deep and 18 in high beside it at the curb (`data/street_section/1904.json`). The parkway elms
+stand clear of them (L-prairie-parkway-elms-2473).
+**What it stands on:** a paved crossing of the parkway in the 1887-91 view south from 18th Street
+(`picturesque_chicago_1892_prairie_avenue`) and at the Glessner house in HABS no. 2 (c. 1923);
+dressed stone carriage blocks at the curb in the 1905 Views of Chicago plate
+(`views_of_chicago_1905_prairie_michigan`) and the c. 1890 Prairie Avenue photograph.
+**What is invented:** which houses had a crossing and a block, and where along the frontage
+(the lot's middle, not the house's door); the 40-ft threshold that leaves the row-house lots
+without one; the sizes; the plain block with no step cut in it.
+**How to resolve:** a photograph of a given house front places its crossing and block; the
+Prairie library's per-house pictures, read in each house's own pass, should move or remove them
+one by one.
+**Ticket:** T-2474.
+**Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
+**Recorded:** 2026-10-13 (T-2474).
+
+### L-prairie-paving-seams-2475 — Where two 1904 pavings meet: one roadway per crossing, the other worn into it over 1.6 m
+
+**Decision:** where two 1904 roadways cross or meet, only one is drawn: the one with the higher
+`priority` in `data/street_surfaces/1904.json` (the avenue over the cross street, L297), or, between
+two segments of one street, the later one in the grid. The other roadway stops at its edge. Its
+paving runs on 1.6 m over the higher roadway and fades out raggedly there, as one surface worn and
+tracked into the next. A sliver under 0.6 m wide left beside a roadway, where two segments of one
+street were traced a few decimetres apart, is paved as that roadway
+(`renderers/web/js/street-grid.js`).
+**What it stands on:** nothing about the joints themselves. The materials and their extents are
+T-1728's (L296, L297). The 1887-91 view south from 18th Street
+(`picturesque_chicago_1892_prairie_avenue`) shows the avenue's smooth surface running through the
+crossing, which is the order drawn.
+**What is invented:** the line where each paving stops; the 1.6 m fade and its ragged edge, which
+stand for wear, dirt and patching that no source describes; and the slivers given to the
+neighbouring paving.
+**How to resolve:** a paving contract or Board of Local Improvements order naming where each
+improvement ended at a crossing (at the property line, at the centre line, or carried through)
+places each joint, and a photograph of a crossing shows how it wore.
+**Ticket:** T-2475.
+**Review:** `docs/RESEARCH/prairie_1904_street_seams.md`.
+**Recorded:** 2026-10-13 (T-2475).

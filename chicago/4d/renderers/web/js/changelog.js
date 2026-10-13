@@ -1,4 +1,32 @@
 export const CHANGELOG = [ // newest first
+  { v: 1781, ts: '2026-10-13T22:27:11.434Z', date: 'Oct 13, 2026, 5:27 PM CT', title: 'Where two 1904 streets cross, one paving wears into the next', kind: 'fix',
+    items: [
+      'Crossings no longer flicker between two pavings: at Indiana and 18th the brick and asphalt fought in blotches. Each spot now shows one roadway.',
+      'Where one paving meets another, it fades out over a few feet with a worn, ragged edge instead of a hard line.',
+      'Where each paving stops and how it wears are liberties.',
+    ] },
+  { v: 1780, ts: '2026-10-13T22:27:11.434Z', date: 'Oct 13, 2026, 5:27 PM CT', title: 'The 1904 curbs stand above the roadway, with carriage walks', kind: 'feature',
+    items: [
+      'Every 1904 roadway now lies a 7-inch stone curb below the sidewalk, and the walks and parkways fall gently toward the curb, as the 1905 street code sets them.',
+      'Paved carriage walks cross the parkway to the curb before the larger houses, each with a stone carriage block beside it. Click one for its card.',
+      'Walking off the curb steps you down into the street.',
+      'The curb\'s height and every carriage walk\'s place are liberties: the photographs show them, not their measurements.',
+    ] },
+  { v: 1779, ts: '2026-10-13T21:59:02.956Z', date: 'Oct 13, 2026, 4:59 PM CT', title: 'Elms line the 1904 parkways, in summer, spring or winter', kind: 'feature',
+    items: [
+      '418 American elms stand in the parkways of the 1904 district, one file per block face, as the 1887-91 view south on Prairie Avenue from 18th Street shows them.',
+      'Settings › Street trees: summer (full leaf, the default), spring (a first pale leaf, so the houses show through), winter (bare limbs), or hidden.',
+      'The trees cast dappled shade on the walks and roadways and sway in the wind.',
+      'Click a trunk for the tree\'s card. Each tree\'s position is a liberty: the pictures show a file about 30 ft apart, not where each tree stood.',
+    ] },
+  { v: 1778, ts: '2026-10-13T21:31:37.125Z', date: 'Oct 13, 2026, 4:31 PM CT', title: 'The faded city runs to the horizon, with its streets', kind: 'feature',
+    items: [
+      'Faded streets now run through the sketched city, laid on the grid the map\'s section corners and the 1904 street plan measure.',
+      'The sketch carries on in every direction until the haze closes in, about 2.6 km out.',
+      'The blocks change with the city: shops on State and Wabash, lofts and offices toward the Loop, railway lands west of Clark, cottages west of Canal.',
+      'North of 16th Street the houses and the Illinois Central yard come from the 1886 Robinson atlas.',
+      'Far blocks are drawn as simple rows and trees as plain crowns, so phones stay light.',
+    ] },
   { v: 1777, ts: '2026-10-13T21:20:29.038Z', date: 'Oct 13, 2026, 4:20 PM CT', title: 'Glessner’s north gable joins its round tower', kind: 'fix',
     items: [
       'The north gable continues flat into the tower, with the paired windows and attic light aligned to historic photographs. Staggered stone courses wrap the curved side, and the flared roof ends at the sloping gable.',

@@ -213,6 +213,20 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/traces/prairie_1904_footprints_s28.json, (since T-2328) prairie_1904_footprints_s20.json and (since T-2340) prairie_1904_footprints_s35.json byte for byte, changed no committed byte; --check and --self-test write nothing in-tree (tools/measure_step_isolation.mjs --tool).",
       "placed": "by layer, 2026-10-10 — a reader of committed originals after tools/trace_prairie_1904_grid.py, whose parcel lots it clips to (T-2327); see the manifest step"
     },
+    "lay_prairie_1904_street_section.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-13",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/street_section/1904.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
+      "placed": "by layer, 2026-10-13 — a reader of committed originals after tools/trace_prairie_1904_grid.py, whose faces and parcels it lays on, and before tools/plant_prairie_1904_street_trees.py, which keeps clear of its carriage walks (T-2474); see the manifest step"
+    },
+    "plant_prairie_1904_street_trees.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-13",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/street_trees/1904.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
+      "placed": "by layer, 2026-10-13 — a reader of committed originals after tools/trace_prairie_1904_grid.py, whose parkway bands it plants along (T-2473), and tools/lay_prairie_1904_street_section.py, whose carriage walks it keeps clear of (T-2474); see the manifest step"
+    },
     "trace_prairie_1904_grid.py": {
       "placement": "manifest",
       "write_mode": "(bare)",

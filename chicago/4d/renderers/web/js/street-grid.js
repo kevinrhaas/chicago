@@ -25,9 +25,16 @@
  * says so and not because it looked right. The pictures are evidence of nothing;
  * the file that says which surface wears which picture is the evidence.
  *
- * Still no level: the bands lie on the ground the heightfield already has (a few
- * centimetres above it, so they win the depth test), with no curb reveal and no
- * crown, because no source read so far gives either (L293).
+ * THE LEVELS (T-2474), from `data/street_section/<scene>.json`: the lot line stays on
+ * the ground the heightfield has; the sidewalk space falls toward the curb at the 1905
+ * code's one inch in three feet; the roadway lies a curb's reveal (7 in,
+ * reconstructed) below the curb's top, with a dressed stone face down to it. The
+ * field's own ground is cut out under everything that sits lower than it
+ * (`terrain.setGroundCut`), and the walker is told how far down it is. A district
+ * edge with no sidewalk drawn beyond it gets a stone edge up to the field, so the
+ * lowered roadway never shows a gap. The same file lays a paved carriage walk across
+ * the parkway, with a carriage block at the curb, before every lot 40 ft wide or
+ * more. With no section file the bands lie on the field as before (L293).
  *
  * WHAT IT SHARES WITH EVERY OTHER DERIVED LAYER. A scene that does not list
  * `street_grid` hands this no data base and it draws nothing (T-1739's layer
@@ -52,8 +59,10 @@ const LIBRARY = 'textures/prairie_1904_pbr/';
  * The draw order is the stacking order: each class a few centimetres above the one
  * it overlaps, plus a polygon offset, so a band laid over a carriageway (the
  * carriageways run through their intersections and under the corner bands) always
- * wins. A carriageway also rises by its `priority` (street_surfaces), so where two
- * roadways cross the avenue's surface is drawn over the cross street's (L297).
+ * wins. A carriageway also rises by its `priority` (street_surfaces), and since
+ * T-2475 the lower of two crossing roadways is cut out from under the higher one, so
+ * the avenue's surface is the only one drawn at the crossing (L297) and the cross
+ * street's wears into it across a fading seam.
  * `colour` is the flat tone a surface falls back to when its maps do not arrive.
  */
 const CLASSES = {
@@ -65,6 +74,39 @@ const CLASSES = {
   curb: { lift: 0.06, colour: 0xd9d5cc, offset: -12, tier: 'reconstructed' },
 };
 const PRIORITY_LIFT_M = 0.003;
+/** The ground cut's raster, metres a pixel: fine enough that its edge, which sits
+ *  under the walk's inner edge where the fall is under a centimetre, never shows. */
+const CUT_RES_M = 0.5;
+const CURB_FACE_COLOUR = 0xcfcabe;
+/** T-2475: how far one paving fades into the next where two roadways meet, metres. */
+const SEAM_M = 1.6;
+/** The fade overlay's height above the highest roadway, so it never fights one. */
+const SEAM_LIFT_M = 0.004;
+const SEAM_VERTEX_DECL = 'attribute float seam;\nvarying float vChiSeam;\nvarying vec2 vChiSeamXZ;\n';
+const SEAM_VERTEX_ASSIGN = '\n  vChiSeam = seam;\n  vChiSeamXZ = (modelMatrix * vec4(transformed, 1.0)).xz;\n';
+const SEAM_FRAGMENT_DECL = `varying float vChiSeam;
+varying vec2 vChiSeamXZ;
+float chiSeamHash(vec2 p) {
+  vec3 p3 = fract(vec3(p.xyx) * 0.1031);
+  p3 += dot(p3, p3.yzx + 33.33);
+  return fract((p3.x + p3.y) * p3.z);
+}
+float chiSeamNoise(vec2 p) {
+  vec2 i = floor(p); vec2 f = fract(p); vec2 u = f * f * (3.0 - 2.0 * f);
+  return mix(mix(chiSeamHash(i), chiSeamHash(i + vec2(1.0, 0.0)), u.x),
+             mix(chiSeamHash(i + vec2(0.0, 1.0)), chiSeamHash(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+`;
+/** Opaque on the edge it starts from, gone SEAM_M on, ragged between: the noise
+ *  is weighted to vanish at both ends so the overlay meets each paving exactly. */
+const SEAM_FRAGMENT_ALPHA = `
+  {
+    float chiS = clamp(vChiSeam, 0.0, 1.0);
+    float chiN = (chiSeamNoise(vChiSeamXZ * 0.9) - 0.5) * 0.9 + (chiSeamNoise(vChiSeamXZ * 4.1) - 0.5) * 0.45;
+    float chiK = chiS + chiN * sin(3.14159265 * chiS);
+    diffuseColor.a *= 1.0 - smoothstep(0.0, 1.0, chiK);
+  }
+`;
 const LOT_LINE_LIFT_M = 0.09;
 const LOT_LINE_STEP_M = 2.0;
 
@@ -143,6 +185,94 @@ function pointInPolygon(e, n, poly) {
     if ((yi > n) !== (yj > n) && e < ((xj - xi) * (n - yi)) / (yj - yi) + xi) inside = !inside;
   }
   return inside;
+}
+
+/** Twice the signed area of a plan polygon: positive counter-clockwise. */
+function area2(poly) {
+  let s = 0;
+  for (let i = 0; i < poly.length; i += 1) {
+    const [x0, y0] = poly[i]; const [x1, y1] = poly[(i + 1) % poly.length];
+    s += x0 * y1 - x1 * y0;
+  }
+  return s;
+}
+const ccwOf = (poly) => (area2(poly) >= 0 ? poly : [...poly].reverse());
+
+/** The part of a convex polygon on the left of the line p -> q (Sutherland-Hodgman). */
+function clipLeft(poly, p, q) {
+  const t = sub(q, p);
+  const side = (x) => t[0] * (x[1] - p[1]) - t[1] * (x[0] - p[0]);
+  const out = [];
+  for (let i = 0; i < poly.length; i += 1) {
+    const cur = poly[i]; const nxt = poly[(i + 1) % poly.length];
+    const sc = side(cur); const sn = side(nxt);
+    if (sc >= 0) out.push(cur);
+    if ((sc >= 0) !== (sn >= 0)) out.push(lerp(cur, nxt, sc / (sc - sn)));
+  }
+  return out;
+}
+
+/** A piece left beside a roadway thinner than this (2 x area / perimeter) joins it. */
+const SLIVER_M = 0.6;
+/** Square metres below which a clipped piece is a rounding sliver, not a surface. */
+const PIECE_EPS_M2 = 0.01;
+
+/**
+ * T-2475: a convex plan polygon minus the convex polygon `h` laid over it, as the
+ * convex pieces outside `h` (none, when `h` covers it). `h` is counter-clockwise.
+ */
+function minusConvex(poly, h) {
+  const pieces = [];
+  let rest = poly;
+  for (let i = 0; i < h.length && rest.length >= 3; i += 1) {
+    const p = h[i]; const q = h[(i + 1) % h.length];
+    const outside = clipLeft(rest, q, p);
+    if (outside.length >= 3 && Math.abs(area2(outside)) / 2 > PIECE_EPS_M2) pieces.push(outside);
+    rest = clipLeft(rest, p, q);
+  }
+  if (rest.length < 3 || Math.abs(area2(rest)) / 2 <= PIECE_EPS_M2) return { pieces: [poly], covered: null };
+  return { pieces, covered: rest };
+}
+
+/**
+ * The convex polygon in triangles no longer than about MAX_EDGE_M on a side, each
+ * vertex with its metric (along, across) position in `frame` from `origin`. It is
+ * cut on the frame's own grid, as quadTriangles cuts a quad: strips across, cells
+ * along, each cell (convex, at most a few vertices) in a fan. So a 280 m roadway
+ * piece costs what its quad did, not the square of its length.
+ */
+function polyTriangles(poly, frame, origin) {
+  const U = (p) => dot(sub(p, origin), frame.t);
+  const V = (p) => dot(sub(p, origin), frame.n);
+  const us = poly.map(U); const vs = poly.map(V);
+  const u0 = Math.min(...us); const u1 = Math.max(...us);
+  const v0 = Math.min(...vs); const v1 = Math.max(...vs);
+  const nu = Math.max(1, Math.ceil((u1 - u0) / MAX_EDGE_M));
+  const nv = Math.max(1, Math.ceil((v1 - v0) / MAX_EDGE_M));
+  const P = (u, v) => [origin[0] + frame.t[0] * u + frame.n[0] * v, origin[1] + frame.t[1] * u + frame.n[1] * v];
+  const at = (p) => [p[0], p[1], U(p), V(p)];
+  let shape = ccwOf(poly);
+  const out = [];
+  // clipLeft keeps the left of a line; "u >= c" is the left of the line running -n at u = c
+  // when (t, n) is right-handed, so test the handedness once.
+  const rh = frame.t[0] * frame.n[1] - frame.t[1] * frame.n[0] > 0;
+  const keepUAbove = (sh, c) => (rh ? clipLeft(sh, P(c, 1), P(c, 0)) : clipLeft(sh, P(c, 0), P(c, 1)));
+  const keepVAbove = (sh, c) => (rh ? clipLeft(sh, P(0, c), P(1, c)) : clipLeft(sh, P(1, c), P(0, c)));
+  for (let i = 0; i < nu; i += 1) {
+    const ua = u0 + ((u1 - u0) * i) / nu; const ub = u0 + ((u1 - u0) * (i + 1)) / nu;
+    let strip = i > 0 ? keepUAbove(shape, ua) : shape;
+    if (i + 1 < nu) strip = ccwOf(clipLeft(ccwOf(strip), ...(rh ? [P(ub, 0), P(ub, 1)] : [P(ub, 1), P(ub, 0)])));
+    if (strip.length < 3) continue;
+    for (let j = 0; j < nv; j += 1) {
+      const va = v0 + ((v1 - v0) * j) / nv; const vb = v0 + ((v1 - v0) * (j + 1)) / nv;
+      let cell = j > 0 ? keepVAbove(ccwOf(strip), va) : strip;
+      if (j + 1 < nv) cell = clipLeft(ccwOf(cell), ...(rh ? [P(1, vb), P(0, vb)] : [P(0, vb), P(1, vb)]));
+      if (cell.length < 3 || Math.abs(area2(cell)) < 1e-6) continue;
+      cell = ccwOf(cell);
+      for (let k = 1; k + 1 < cell.length; k += 1) out.push([cell[0], cell[k], cell[k + 1]].map(at));
+    }
+  }
+  return out;
 }
 
 function ftm(ft) { return `${ft} ft (${(ft * 0.3048).toFixed(2)} m)`; }
@@ -375,6 +505,44 @@ function wayCard(kind, rec, grid, surfaces, piece) {
   };
 }
 
+function carriageWalkCard(w, face, grid, section) {
+  const cw = section?.carriage_walks ?? {};
+  const street = grid.streets?.[face.street] ?? {};
+  return {
+    id: w.id,
+    sidecar: {
+      name: `${street.name_1904 ?? face.street} — a carriage walk and block`,
+      phase: null,
+      change_note: `A paved crossing of the parkway from the walk to the curb before lot ${w.parcel}, `
+        + `${w.width_ft} ft wide, with a dressed stone carriage block beside it at the curb. `
+        + 'The pictures show such crossings and blocks on these avenues; this one\'s place is our reconstruction.',
+      placement: {
+        symbolic_location: face.where ?? face.street,
+        position_confidence: cw.tier ?? 'reconstructed',
+        position_sources: [],
+        position_note: cw.note ?? '',
+      },
+      attributes: {
+        kind: {
+          value: 'carriage walk and carriage block', confidence: 'inferred', sources: cw.sources ?? [],
+          note: 'Paved crossings of the parkway and stone carriage blocks at the curb appear in the 1887-91 view south from 18th Street and the 1905 Views of Chicago plate.',
+        },
+        position: {
+          value: `the middle of lot ${w.parcel}`, confidence: cw.tier ?? 'reconstructed', sources: [],
+          note: `${cw.note ?? ''} ${cw.liberty ?? ''}`.trim(),
+        },
+        curb_reveal: {
+          value: `${section?.section?.reveal?.in ?? 7} in`, confidence: section?.section?.reveal?.tier ?? 'reconstructed',
+          sources: section?.section?.reveal?.sources ?? [], note: section?.section?.reveal?.note ?? '',
+        },
+      },
+      citations: [],
+      research_doc: 'docs/RESEARCH/prairie_1904_street_section.md',
+      research_note: `Carriage walk ${w.id} of data/street_section/1904.json (T-2474). ${cw.liberty ?? ''}`.trim(),
+    },
+  };
+}
+
 /* -------------------------------------------------------------------------- */
 /* the layer                                                                   */
 /* -------------------------------------------------------------------------- */
@@ -416,6 +584,14 @@ export async function createStreetGrid({
     problems.push(`street surfaces: ${err.message} — the streets are drawn in flat tones`);
   }
   out.surfaces = surfaces;
+  // T-2474 — the section and the carriage walks. Missing, the bands lie on the field.
+  let section = null;
+  try {
+    section = await getJSON(new URL(`street_section/${sceneId}.json`, dataBase));
+  } catch (err) {
+    problems.push(`street section: ${err.message} — the street is drawn level with its lots`);
+  }
+  out.section = section;
   let library = new Map();
   if (surfaces && assetBase) {
     try {
@@ -432,19 +608,72 @@ export async function createStreetGrid({
    * different draw so its lift wins. Seven carriageway groups, the alleys, the
    * turf, the walk and the curb — eleven meshes and the lot lines.
    */
+  /* ---- the section (T-2474): how far below the field each point is drawn ---- */
+  const FALL = section ? (section.section?.fall?.in_per_3ft ?? 0) / 36 : 0;
+  const ROAD = section ? (section.section?.road_m ?? 0) : 0;
+  const bboxOf = (pts) => {
+    const b = [Infinity, Infinity, -Infinity, -Infinity];
+    for (const [e, n] of pts) { b[0] = Math.min(b[0], e); b[1] = Math.min(b[1], n); b[2] = Math.max(b[2], e); b[3] = Math.max(b[3], n); }
+    return b;
+  };
+  const inBox = (b, e, n) => e >= b[0] && e <= b[2] && n >= b[1] && n <= b[3];
+  const sideFaces = (grid.faces ?? []).map((f) => {
+    const quads = Object.values(f.bands ?? {}).flat();
+    const xs = grid.cross_sections?.[f.cross_section] ?? {};
+    return {
+      f, quads, box: bboxOf(quads.flat()), line: f.street_line_local_m ?? [],
+      W: (xs.sidewalk_space_ft?.value ?? 14) * FT,
+    };
+  });
+  const roadQuads = (grid.carriageways ?? []).flatMap((c) => c.quads_local_m ?? []).map((q) => ({ q, box: bboxOf(q) }));
+  /** Across distance from a face's street line: to the nearest segment's own line,
+   *  so a point in the corner square past the line's end still measures across. */
+  const acrossOf = (line, e, n) => {
+    let best = Infinity; let across = 0;
+    for (let i = 1; i < line.length; i += 1) {
+      const a = line[i - 1]; const b = line[i];
+      const t = sub(b, a); const L = len(t) || 1;
+      const u = Math.max(0, Math.min(1, dot(sub([e, n], a), t) / (L * L)));
+      const p = lerp(a, b, u);
+      const d = len(sub([e, n], p));
+      if (d < best) { best = d; across = Math.abs((t[0] * (n - a[1]) - t[1] * (e - a[0])) / L); }
+    }
+    return across;
+  };
+  /** How far below the field (e, n) is drawn: the fall across a sidewalk space (the
+   *  larger across distance where two spaces meet at a corner, so they agree), the
+   *  roadway's level in a carriageway, nothing elsewhere. */
+  const offsetAt = (e, n) => {
+    if (!section) return 0;
+    let s = -1; let W = 0;
+    for (const sf of sideFaces) {
+      if (!inBox(sf.box, e, n) || !sf.quads.some((q) => pointInPolygon(e, n, q))) continue;
+      const a = acrossOf(sf.line, e, n);
+      if (a > s) { s = a; W = sf.W; }
+    }
+    if (s >= 0) return -FALL * Math.min(s, W);
+    for (const r of roadQuads) if (inBox(r.box, e, n) && pointInPolygon(e, n, r.q)) return ROAD;
+    return 0;
+  };
+  out.offsetAt = offsetAt;
+
   const bufs = new Map();
   const tierOf = {};
   for (const xs of Object.values(grid.cross_sections ?? {})) for (const b of xs.bands ?? []) tierOf[b.band] = b.tier;
 
-  const bufFor = (cls, surface, priority) => {
+  const MAX_PRIORITY = Math.max(0, ...Object.values(surfaces?.carriageways ?? {}).map((x) => x?.priority ?? 0));
+  const bufFor = (cls, surface, priority, seam = false) => {
     const c = CLASSES[cls];
     const shared = cls === 'margin' ? 'parkway' : cls;   // the foot and the parkway are one turf
-    const key = `${shared}|${surface?.material ?? 'none'}|${priority}`;
+    // A seam overlay is one draw per paving, whatever its priority: it lies over
+    // the highest roadway there is.
+    const key = seam ? `${shared}|${surface?.material ?? 'none'}|seam` : `${shared}|${surface?.material ?? 'none'}|${priority}`;
     if (!bufs.has(key)) {
       bufs.set(key, {
-        key, cls: shared, material: surface?.material ?? null, priority,
-        lift: c.lift + priority * PRIORITY_LIFT_M, offset: c.offset - priority * 0.3,
-        pos: [], uv: [], conf: [], spans: [],
+        key, cls: shared, material: surface?.material ?? null, priority: seam ? 0 : priority,
+        lift: seam ? c.lift + MAX_PRIORITY * PRIORITY_LIFT_M + SEAM_LIFT_M : c.lift + priority * PRIORITY_LIFT_M,
+        offset: c.offset - priority * 0.3,
+        pos: [], uv: [], conf: [], spans: [], seam: seam ? [] : null,
       });
     }
     return bufs.get(key);
@@ -455,8 +684,16 @@ export async function createStreetGrid({
    * number (the band width, for a walk or a curb tile that spans its band) or null
    * for flat-tone surfaces with no maps.
    */
-  const push = (cls, id, quads, geometryTier, surface, { priority = 0, tileAcross = null, tileAlong = null, pieceOf = null } = {}) => {
-    const buf = bufFor(cls, surface, priority);
+  const push = (cls, id, quads, geometryTier, surface, { priority = 0, tileAcross = null, tileAlong = null, pieceOf = null, seam = null, polys = [] } = {}) => {
+    const buf = bufFor(cls, surface, priority, !!seam);
+    // A seam overlay's vertices carry how far into the fade they stand, 0 on the
+    // edge of the roadway it runs under, 1 SEAM_M on.
+    let seamAt = null;
+    if (seam) {
+      const [p, q] = seam;
+      const t = sub(q, p); const L = len(t) || 1;
+      seamAt = (e, n) => Math.min(1, Math.abs((t[0] * (n - p[1]) - t[1] * (e - p[0])) / L) / SEAM_M);
+    }
     const lib = surface ? library.get(surface.material) : null;
     const along = tileAlong ?? lib?.along ?? 4;
     const across = tileAcross ?? (typeof lib?.across === 'number' ? lib.across : along);
@@ -470,22 +707,29 @@ export async function createStreetGrid({
     // degree of the street. A `directional` tile (walk blocks, curbstones, brick
     // courses; its material.json says so) follows the record's own frame.
     const worldLaid = !lib || !lib.sheet.directional;
+    const lay = (tris, frame) => {
+      const northSouth = Math.abs(frame.t[1]) > Math.abs(frame.t[0]);
+      for (const tri of tris) {
+        for (const [e, n, u, v] of tri) {
+          const below = cls === 'carriageway' ? ROAD : offsetAt(e, n);
+          buf.pos.push(wx(e), terrain.surfaceHeight(e, n) + below + buf.lift, wz(n));
+          if (worldLaid) buf.uv.push((northSouth ? n : e) / along, (northSouth ? e : n) / along);
+          else buf.uv.push(u / along, v / across);
+          buf.conf.push(level);
+          if (seamAt) buf.seam.push(seamAt(e, n));
+        }
+      }
+    };
     let offset = 0;
     for (const q of quads) {
       const f = framed(q, alongIsAB || len(sub(q[1], q[0])) >= len(sub(q[3], q[0])));
       const origin = pieceOf?.origin ?? f.a;
       const frame = pieceOf ? { ...f, t: pieceOf.t, n: pieceOf.n } : f;
-      const northSouth = Math.abs(frame.t[1]) > Math.abs(frame.t[0]);
-      for (const tri of quadTriangles(frame, origin, pieceOf ? 0 : offset)) {
-        for (const [e, n, u, v] of tri) {
-          buf.pos.push(wx(e), terrain.surfaceHeight(e, n) + buf.lift, wz(n));
-          if (worldLaid) buf.uv.push((northSouth ? n : e) / along, (northSouth ? e : n) / along);
-          else buf.uv.push(u / along, v / across);
-          buf.conf.push(level);
-        }
-      }
+      lay(quadTriangles(frame, origin, pieceOf ? 0 : offset), frame);
       offset += f.along;
     }
+    // T-2475: the pieces of a roadway left after the ones laid over it are cut out.
+    for (const { poly, frame } of polys) lay(polyTriangles(poly, frame, frame.origin), frame);
     buf.spans.push({ id, from, to: buf.pos.length / 9 });
   };
 
@@ -496,6 +740,16 @@ export async function createStreetGrid({
     return [(q[0][0] + q[1][0] + q[2][0] + q[3][0]) / 4, (q[0][1] + q[1][1] + q[2][1] + q[3][1]) / 4];
   };
 
+  /*
+   * T-2475 — one roadway surface at every crossing. The carriageways run through
+   * their intersections, so two (brick and asphalt at Indiana and 18th) used to lie
+   * in the same place a few millimetres apart and flicker against each other from
+   * any distance. Now each piece is ranked (its priority, then its order in the
+   * grid), and every piece is cut out from under each higher one that crosses its
+   * whole width; a margin SEAM_M deep is kept at each edge it meets and drawn OVER
+   * the higher roadway in a fading overlay, so one paving wears into the next.
+   */
+  const ways = [];
   for (const c of grid.carriageways ?? []) {
     const s = surfaceOf(surfaces, 'carriageway', c.id);
     const quads = c.quads_local_m ?? [];
@@ -513,16 +767,112 @@ export async function createStreetGrid({
           hi = cen ? Math.min(1, Math.max(lo, dot(sub(cen, f.a), f.t) / f.along)) : 1;
         }
         const cut = [lerp(f.a, f.b, lo), lerp(f.a, f.b, hi), lerp(f.d, f.c, hi), lerp(f.d, f.c, lo)];
-        push('carriageway', `${c.id}#${i}`, [cut], c.geometry_tier, piece,
-          { priority, pieceOf: { origin: f.a, t: f.t, n: f.n } });
+        ways.push({ id: `${c.id}#${i}`, quads: [cut], tier: c.geometry_tier, surface: piece, priority,
+          pieceOf: { origin: f.a, t: f.t, n: f.n } });
         lo = hi;
       });
       out.census.surfaced += 1;
+    } else if (quads.length === 1) {
+      const q = quads[0];
+      const f = framed(q, len(sub(q[1], q[0])) >= len(sub(q[3], q[0])));
+      ways.push({ id: c.id, quads: [[f.a, f.b, f.c, f.d]], tier: c.geometry_tier, surface: s, priority,
+        pieceOf: { origin: f.a, t: f.t, n: f.n } });
+      if (s) out.census.surfaced += 1;
     } else {
-      push('carriageway', c.id, quads, c.geometry_tier, s, { priority });
+      // A curve cut every 5 m: its quads already step along a -> b.
+      ways.push({ id: c.id, quads: quads.map((q) => [...q]), tier: c.geometry_tier, surface: s, priority, pieceOf: null });
       if (s) out.census.surfaced += 1;
     }
     out.census.carriageways += 1;
+  }
+  ways.forEach((w, i) => {
+    w.stacking = w.priority * 1000 + i;
+    // Every quad as an item: kept whole while nothing is laid over it, a convex
+    // polygon once cut. Each keeps the frame its tiles are laid in.
+    w.items = w.quads.map((q) => {
+      const f = framed(q, w.quads.length > 1 || w.pieceOf || len(sub(q[1], q[0])) >= len(sub(q[3], q[0])));
+      return { quad: q, poly: null, frame: w.pieceOf ?? { origin: f.a, t: f.t, n: f.n } };
+    });
+    // The edges a lower roadway can fade over: a quad's sides, less the ones it
+    // shares with the next quad of its own curve.
+    const outer = [];
+    for (const q of w.quads) {
+      const cq = ccwOf(q);
+      for (let j = 0; j < cq.length; j += 1) {
+        const p0 = cq[j]; const p1 = cq[(j + 1) % cq.length];
+        const t = sub(p1, p0); const L = len(t) || 1;
+        const probe = [(p0[0] + p1[0]) / 2 + (t[1] / L) * 0.05, (p0[1] + p1[1]) / 2 - (t[0] / L) * 0.05];
+        if (!w.quads.some((o) => o !== q && pointInPolygon(probe[0], probe[1], o))) outer.push([p0, p1]);
+      }
+    }
+    w.edges = outer;
+    w.margins = [];
+    w.extra = [];
+  });
+  const above = [];   // every piece of the roadways ranked higher: { poly (ccw), box, way }
+  out.census.seams = 0; out.census.cuts = 0; out.census.slivers = 0;
+  for (const w of [...ways].sort((x, y) => y.stacking - x.stacking)) {
+    let items = w.items;
+    for (const h of above) {
+      const next = [];
+      for (const it of items) {
+        const shape = it.poly ?? it.quad;
+        const box = bboxOf(shape);
+        if (box[2] < h.box[0] || box[0] > h.box[2] || box[3] < h.box[1] || box[1] > h.box[3]) { next.push(it); continue; }
+        const { pieces, covered } = minusConvex(ccwOf(shape), h.poly);
+        if (!covered) { next.push(it); continue; }
+        out.census.cuts += 1;
+        for (const poly of pieces) {
+          // A hair-thin piece left beside the roadway above (two segments of one
+          // street, never the same width to the centimetre) goes to that roadway,
+          // or it would draw as a thin line of the other paving down its side.
+          const a = Math.abs(area2(poly)) / 2;
+          let perim = 0;
+          for (let j = 0; j < poly.length; j += 1) perim += len(sub(poly[(j + 1) % poly.length], poly[j]));
+          if (a > 0 && (2 * a) / perim < SLIVER_M) {
+            h.way.extra.push({ poly, frame: h.frame });
+            above.push({ poly: ccwOf(poly), box: bboxOf(poly), way: h.way, frame: h.frame });
+            out.census.slivers += 1;
+            continue;
+          }
+          next.push({ quad: null, poly, frame: it.frame });
+        }
+        // A margin under each edge of the roadway above that this one runs out
+        // past: SEAM_M deep, drawn over it, fading (the seam overlay).
+        for (const [p0, p1] of h.way.edges) {
+          // Only where this roadway runs on past the edge, not a hair beside it (two
+          // segments of one street rarely share a side line to the centimetre).
+          const t = sub(p1, p0); const L = len(t) || 1;
+          const out1 = [p0[0] + t[1], p0[1] - t[0]]; const out2 = [p1[0] + t[1], p1[1] - t[0]];
+          // beside the edge itself, not anywhere along its line
+          const outside = clipLeft(clipLeft(clipLeft(ccwOf(shape), p1, p0), p0, out1), out2, p1);
+          const past = Math.max(0, ...outside.map((x) => (t[0] * (p0[1] - x[1]) - t[1] * (p0[0] - x[0])) / L));
+          if (outside.length < 3 || past < SEAM_M / 2) continue;
+          const inward = [-t[1] / L * SEAM_M, t[0] / L * SEAM_M];
+          let strip = clipLeft(covered, p0, p1);
+          strip = clipLeft(strip, [p1[0] + inward[0], p1[1] + inward[1]], [p0[0] + inward[0], p0[1] + inward[1]]);
+          if (strip.length < 3 || Math.abs(area2(strip)) / 2 <= PIECE_EPS_M2) continue;
+          w.margins.push({ poly: strip, frame: it.frame, edge: [p0, p1] });
+        }
+      }
+      items = next;
+    }
+    w.items = items;
+    for (const it of items) {
+      const poly = ccwOf(it.poly ?? it.quad);
+      above.push({ poly, box: bboxOf(poly), way: w, frame: it.frame });
+    }
+  }
+  for (const w of ways) {
+    const quads = w.items.filter((it) => it.quad).map((it) => it.quad);
+    const polys = [...w.items.filter((it) => it.poly), ...w.extra];
+    if (quads.length || polys.length) {
+      push('carriageway', w.id, quads, w.tier, w.surface, { priority: w.priority, pieceOf: w.pieceOf, polys });
+    }
+    for (const m of w.margins) {
+      push('carriageway', w.id, [], w.tier, w.surface, { priority: w.priority, seam: m.edge, polys: [m] });
+      out.census.seams += 1;
+    }
   }
   for (const a of grid.alleys ?? []) {
     const s = surfaceOf(surfaces, 'alley', a.id);
@@ -550,7 +900,21 @@ export async function createStreetGrid({
     out.census.faces += 1;
   }
 
+  // T-2474 — the carriage walks: a paved crossing of the parkway, a hair above it.
+  const walkById = new Map();
+  for (const w of section?.carriage_walks?.walks ?? []) {
+    const face = (grid.faces ?? []).find((f) => f.id === w.face);
+    if (!face) continue;
+    const half = (w.width_ft * FT) / 2;
+    const at = (s, k) => [w.at[0] + w.out[0] * s + w.along[0] * k, w.at[1] + w.out[1] * s + w.along[1] * k];
+    const s0 = w.from_ft * FT; const s1 = w.to_ft * FT;
+    const quad = [at(s0, -half), at(s0, half), at(s1, half), at(s1, -half)];
+    push('walk', `cw:${w.id}`, [quad], 'reconstructed', surfaceOf(surfaces, 'band', null, 'walk', face.id), { priority: 1 });
+    walkById.set(w.id, { w, face });
+  }
+
   const meshes = [];
+  const overlays = [];
   const materials = [];
   for (const buf of bufs.values()) {
     const c = CLASSES[buf.cls];
@@ -568,8 +932,22 @@ export async function createStreetGrid({
       // slope bias (-11 for walks) pulls a grazing sidewalk THROUGH nearby walls,
       // producing the apparent projecting slab at Glessner's corner. Retain only
       // a one-unit numerical tie-break; do not displace depth by screen-space slope.
-      polygonOffset: true, polygonOffsetFactor: 0, polygonOffsetUnits: -1,
+      // The seam overlay (T-2475) takes four, to stay over the roadway it fades onto.
+      polygonOffset: true, polygonOffsetFactor: 0, polygonOffsetUnits: buf.seam ? -4 : -1,
     });
+    if (buf.seam) {
+      // T-2475: the seam overlay fades out across its margin, raggedly, as a worn
+      // edge of one paving over the next. Blended, so it writes no depth.
+      geo.setAttribute('seam', new THREE.Float32BufferAttribute(buf.seam, 1));
+      mat.transparent = true;
+      mat.depthWrite = false;
+      mat.onBeforeCompile = (shader) => {
+        shader.vertexShader = SEAM_VERTEX_DECL + shader.vertexShader.replace(
+          '#include <begin_vertex>', '#include <begin_vertex>' + SEAM_VERTEX_ASSIGN);
+        shader.fragmentShader = SEAM_FRAGMENT_DECL + shader.fragmentShader.replace(
+          '#include <alphamap_fragment>', '#include <alphamap_fragment>' + SEAM_FRAGMENT_ALPHA);
+      };
+    }
     if (lib) {
       mat.map = lib.map;
       mat.normalMap = lib.normalMap;
@@ -582,7 +960,7 @@ export async function createStreetGrid({
     }
     mat.name = `street-grid-${buf.cls}${buf.material ? `-${buf.material}` : ''}`;
     confidence?.patch(mat);
-    mat.customProgramCacheKey = () => `chicago4d-street-grid-${lib ? 'mapped' : 'flat'}`;
+    mat.customProgramCacheKey = () => `chicago4d-street-grid-${buf.seam ? 'seam-' : ''}${lib ? 'mapped' : 'flat'}`;
     const mesh = new THREE.Mesh(geo, mat);
     mesh.name = `street-grid-${buf.cls}${buf.material ? `-${buf.material}` : ''}${buf.priority ? `-p${buf.priority}` : ''}`;
     mesh.userData.cls = buf.cls;
@@ -591,9 +969,165 @@ export async function createStreetGrid({
     mesh.castShadow = false;
     mesh.receiveShadow = true;
     group.add(mesh);
-    meshes.push(mesh);
+    // A seam overlay is a fade, not a surface: the crosshair reads the roadway under it.
+    (buf.seam ? overlays : meshes).push(mesh);
     materials.push(mat);
     out.census.triangles += buf.pos.length / 9;
+  }
+
+  /* ---- T-2474: the curb's face, the district's open edges, the carriage blocks ---- */
+  if (section) {
+    const fpos = []; const fnorm = []; const fuv = []; const fconf = []; const fspans = [];
+    /** A vertical strip from `bottom` to `top` metres off the field along p -> q,
+     *  facing `toward` (a plan direction), in pieces no longer than MAX_EDGE_M. */
+    const wall = (id, p, q, top, bottom, toward) => {
+      const L = len(sub(q, p));
+      if (L < 0.01) return;
+      const k = Math.max(1, Math.ceil(L / MAX_EDGE_M));
+      const from = fpos.length / 9;
+      const nx = toward[0]; const nn = toward[1];
+      for (let i = 0; i < k; i += 1) {
+        const a = lerp(p, q, i / k); const b = lerp(p, q, (i + 1) / k);
+        const ha = terrain.surfaceHeight(a[0], a[1]); const hb = terrain.surfaceHeight(b[0], b[1]);
+        const v = [
+          [a, ha + bottom, (L * i) / k, 0], [b, hb + bottom, (L * (i + 1)) / k, 0],
+          [b, hb + top, (L * (i + 1)) / k, 1], [a, ha + top, (L * i) / k, 1],
+        ];
+        // Wound so the face looks toward `toward`: (a, b, b-top) faces plan (dn, -de).
+        const facing = (b[1] - a[1]) * nx - (b[0] - a[0]) * nn;
+        const order = facing > 0 ? [0, 1, 2, 0, 2, 3] : [0, 2, 1, 0, 3, 2];
+        for (const j of order) {
+          const [pt, y, u, vv] = v[j];
+          fpos.push(wx(pt[0]), y, wz(pt[1]));
+          fnorm.push(nx, 0, -nn);
+          fuv.push(u / 1.2, vv * (top - bottom) / 1.2);
+          fconf.push(1);
+        }
+      }
+      fspans.push({ id, from, to: fpos.length / 9 });
+    };
+    const curbTop = (W) => -FALL * W + CLASSES.curb.lift;
+    const roadTop = ROAD + CLASSES.carriageway.lift - 0.02;
+    for (const sf of sideFaces) {
+      for (const [a, b, c, d] of sf.f.bands?.curb ?? []) {
+        const toward = sub(lerp(d, c, 0.5), lerp(a, b, 0.5));
+        const L = len(toward) || 1;
+        wall(`${sf.f.id}|curb`, d, c, curbTop(sf.W), roadTop, [toward[0] / L, toward[1] / L]);
+      }
+    }
+    // Where a roadway meets no sidewalk (a district edge), a stone edge up to the field.
+    const covered = (e, n) => sideFaces.some((sf) => inBox(sf.box, e, n) && sf.quads.some((q) => pointInPolygon(e, n, q)))
+      || roadQuads.some((r) => inBox(r.box, e, n) && pointInPolygon(e, n, r.q))
+      || (grid.alleys ?? []).some((al) => pointInPolygon(e, n, al.polygon_local_m ?? []));
+    for (const c of grid.carriageways ?? []) {
+      for (const q of c.quads_local_m ?? []) {
+        const mid = [(q[0][0] + q[1][0] + q[2][0] + q[3][0]) / 4, (q[0][1] + q[1][1] + q[2][1] + q[3][1]) / 4];
+        for (let i = 0; i < 4; i += 1) {
+          const p = q[i]; const r = q[(i + 1) % 4];
+          const L = len(sub(r, p));
+          const k = Math.max(1, Math.ceil(L / MAX_EDGE_M));
+          for (let j = 0; j < k; j += 1) {
+            const a = lerp(p, r, j / k); const b = lerp(p, r, (j + 1) / k);
+            const m = lerp(a, b, 0.5);
+            let o = [-(b[1] - a[1]), b[0] - a[0]];
+            const ol = len(o) || 1; o = [o[0] / ol, o[1] / ol];
+            if (dot(o, sub(mid, m)) > 0) o = [-o[0], -o[1]];
+            if (covered(m[0] + o[0] * 0.3, m[1] + o[1] * 0.3)) continue;
+            // Faces back into the roadway it bounds.
+            wall(`${c.id}`, a, b, CLASSES.curb.lift, roadTop, [-o[0], -o[1]]);
+          }
+        }
+      }
+    }
+    // The carriage blocks: dressed stone, beside each carriage walk at the curb.
+    const blk = section.carriage_walks?.block ?? {};
+    const bAlong = (blk.along_ft ?? 3) * FT; const bAcross = (blk.across_ft ?? 2) * FT;
+    const bHeight = (blk.height_in ?? 18) * FT / 12;
+    const box = new THREE.BoxGeometry(1, 1, 1).toNonIndexed();
+    for (const { w } of walkById.values()) {
+      if (!w.block) continue;
+      const s = w.to_ft * FT - (blk.from_curb_in ?? 3) * FT / 12 - bAcross / 2;
+      const k = (w.width_ft * FT) / 2 + (blk.beside_ft ?? 1.5) * FT + bAlong / 2;
+      const e = w.at[0] + w.out[0] * s + w.along[0] * k;
+      const n = w.at[1] + w.out[1] * s + w.along[1] * k;
+      const base = terrain.surfaceHeight(e, n) + offsetAt(e, n) + CLASSES.parkway.lift - 0.04;
+      const m = new THREE.Matrix4().compose(
+        new THREE.Vector3(wx(e), base + (bHeight + 0.04) / 2, wz(n)),
+        new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.atan2(-w.along[1], w.along[0]) * -1),
+        new THREE.Vector3(bAlong, bHeight + 0.04, bAcross),
+      );
+      const g = box.clone().applyMatrix4(m);
+      const from = fpos.length / 9;
+      const P = g.attributes.position; const N = g.attributes.normal; const U = g.attributes.uv;
+      for (let i = 0; i < P.count; i += 1) {
+        fpos.push(P.getX(i), P.getY(i), P.getZ(i));
+        fnorm.push(N.getX(i), N.getY(i), N.getZ(i));
+        fuv.push(U.getX(i) * 0.6, U.getY(i) * 0.4);
+        fconf.push(1);
+      }
+      fspans.push({ id: `cw:${w.id}`, from, to: fpos.length / 9 });
+      g.dispose();
+    }
+    box.dispose();
+    if (fpos.length) {
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.Float32BufferAttribute(fpos, 3));
+      geo.setAttribute('normal', new THREE.Float32BufferAttribute(fnorm, 3));
+      geo.setAttribute('uv', new THREE.Float32BufferAttribute(fuv, 2));
+      geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(fconf, 1));
+      geo.computeBoundingSphere();
+      const curbSurface = surfaceOf(surfaces, 'band', null, 'curb', null);
+      const lib = curbSurface ? library.get(curbSurface.material) : null;
+      const mat = new THREE.MeshStandardMaterial({
+        color: lib ? 0xffffff : CURB_FACE_COLOUR, roughness: 0.95, metalness: 0,
+        map: lib?.map ?? null, normalMap: lib?.normalMap ?? null,
+      });
+      mat.name = 'street-grid-curb-face';
+      confidence?.patch(mat);
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.name = 'street-grid-curb-face';
+      mesh.userData.cls = 'curb';
+      mesh.userData.spans = fspans;
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      group.add(mesh);
+      meshes.push(mesh);
+      materials.push(mat);
+      out.census.triangles += fpos.length / 9;
+    }
+
+    // The field's ground, cut out under everything drawn below it: the roadways and
+    // the sidewalk space from the walk outward (the margin keeps the field's ground).
+    const polys = [...roadQuads.map((r) => r.q)];
+    for (const sf of sideFaces) for (const band of ['walk', 'parkway', 'curb']) polys.push(...(sf.f.bands?.[band] ?? []));
+    const all = bboxOf(polys.flat());
+    const x0 = all[0] - 2; const x1 = all[2] + 2;            // e
+    const z0 = -all[3] - 2; const z1 = -all[1] + 2;          // z = -n
+    const wpx = Math.ceil((x1 - x0) / CUT_RES_M); const hpx = Math.ceil((z1 - z0) / CUT_RES_M);
+    if (typeof document !== 'undefined' && wpx > 0 && hpx > 0) {
+      const canvas = document.createElement('canvas');
+      canvas.width = wpx; canvas.height = hpx;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#000'; ctx.fillRect(0, 0, wpx, hpx);
+      ctx.fillStyle = '#fff';
+      for (const q of polys) {
+        ctx.beginPath();
+        q.forEach(([e, n], i) => {
+          const x = (e - x0) / CUT_RES_M; const y = (-n - z0) / CUT_RES_M;
+          if (i) ctx.lineTo(x, y); else ctx.moveTo(x, y);
+        });
+        ctx.closePath(); ctx.fill();
+      }
+      const rgba = ctx.getImageData(0, 0, wpx, hpx).data;
+      const red = new Uint8Array(wpx * hpx);
+      for (let i = 0; i < red.length; i += 1) red[i] = rgba[i * 4];
+      const mask = new THREE.DataTexture(red, wpx, hpx, THREE.RedFormat, THREE.UnsignedByteType);
+      mask.magFilter = THREE.LinearFilter; mask.minFilter = THREE.LinearFilter;
+      mask.generateMipmaps = false; mask.needsUpdate = true;
+      mask.name = 'street-grid-ground-cut';
+      terrain.setGroundCut?.({ mask, x0, z0, width: x1 - x0, depth: z1 - z0, offset: offsetAt });
+      out.groundCut = { mask, x0, z0, width: x1 - x0, depth: z1 - z0 };
+    }
   }
 
   // The parcel lines, draped every LOT_LINE_STEP_M along each edge.
@@ -634,6 +1168,10 @@ export async function createStreetGrid({
 
   /** The card a span answers with — a band, a roadway (or one piece of it), an alley. */
   const cardFor = (spanId) => {
+    if (spanId.startsWith('cw:')) {
+      const hit = walkById.get(spanId.slice(3));
+      return hit ? carriageWalkCard(hit.w, hit.face, grid, section) : null;
+    }
     if (spanId.includes('|')) {
       const [fid, band] = spanId.split('|');
       const face = faceById.get(fid);
@@ -678,7 +1216,8 @@ export async function createStreetGrid({
   };
 
   out.dispose = () => {
-    for (const m of meshes) m.geometry.dispose();
+    if (out.groundCut) { terrain.setGroundCut?.({}); out.groundCut.mask.dispose(); }
+    for (const m of [...meshes, ...overlays]) m.geometry.dispose();
     for (const m of materials) m.dispose();
     for (const lib of library.values()) { lib.map.dispose(); lib.normalMap.dispose(); lib.orm.dispose(); }
     lineGeo?.dispose(); lineMat?.dispose();
