@@ -1754,7 +1754,7 @@ class Assembly:
 
     def _in_gable_dormer(self, tri):
         """T-2452: whether a face's centroid lies in a gabled lower-face dormer's plan box."""
-        cx, cz = sum(q[0] for q in tri) / 3, sum(q[2] for q in tri) / 3
+        cx, cz = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, (tri[0][2] + tri[1][2] + tri[2][2]) / 3
         return any(b[0] - 1e-6 <= cx <= b[1] + 1e-6 and b[2] - 1e-6 <= cz <= b[3] + 1e-6
                    for b in getattr(self, "gable_dormer_boxes", ()))
 
