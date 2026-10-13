@@ -26399,6 +26399,37 @@ they reach; each stand-in a drafted building lands on is dropped by the renderer
 **Ticket:** T-2477.
 **Recorded:** 2026-10-13 (T-2477).
 
+### L-ic-lake-edge-2479 — the 1904 lake edge beside the tracks: a reconstructed stone face, cap timber, piles and made ground
+
+**Decision:** the 1904 scene draws the Illinois Central's edge against the lake, east of the tracks
+from 16th to 22nd Street, as the railway's own built edge with no beach: the embankment's lakeward
+face (the heightfield's, 1 in 1.5) covered in dumped buff-grey limestone from just under the water
+to the crest, darker and greener where the water keeps it wet, with single blocks stood on it near
+the eye; a 12 x 12 in timber cap along the crest over round piles every 10 ft; and a strip of made
+ground (cinders, sand and builders' fill, with weeds) between the crest and the east verge
+(`data/railway/1904.json` `lake_edge` and `right_of_way.made_ground`, traced by
+`tools/trace_ic_tracks_1904.py`; drawn by `renderers/web/js/railway.js`).
+**What it stands on:** the 1886 and 1911 maps, which draw the water against the railway's edge, and
+the 1891 atlas, which draws its breakwater offshore (`robinson_1886_chicago_plate_10`,
+`sanborn_1911_chicago_v3_sheet_20`, `sanborn_1911_chicago_v3_sheet_28`,
+`carlson_greeley_1891_prairie_environs`), for there being no beach; sheet 28 for about 16 m of
+ground between the easternmost track and the water at 18th Street, which is the made ground.
+**What is inferred, not attested:** that the strip between the last track and the water is made
+ground.
+**What is invented:** what the face is made of (dumped quarry limestone) and every block's size,
+shape, number and colour; the wet staining; the cap timber, its size and its height over the
+ground; the piles, their size and spacing (the 10 ft of the railway's 1852 breakwater cribs, not of
+this edge); what the made ground is made of and its weeds; the crest line, which is where the
+committed heightfield's face meets its grade, not a surveyed line; the maps in
+`assets/textures/prairie_1904_rail/edge/`. Where the tracks crowd the edge north of 18th Street the
+east verge narrows to a metre so it keeps off the face.
+**How to resolve:** an Illinois Central or city engineer's record of the shore protection between
+16th and 22nd Street about 1900-1910, or a dated photograph of this reach from the water or along
+the edge.
+**Ticket:** T-2479.
+**Review:** `docs/RESEARCH/ic_lakefront_1904.md`.
+**Recorded:** 2026-10-13 (T-2479).
+
 ### L-context-streets-2491 — The 1904 context city's streets, its reach to the haze and its land uses: a grid filled between measured lines, and zones the city is known for rather than read off a map
 
 **Decision:** T-2491 (owner, 2026-10-13: "we should have some streets where they should be based on

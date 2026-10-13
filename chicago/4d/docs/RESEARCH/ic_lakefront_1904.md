@@ -14,7 +14,7 @@ they differ from that guess, and what the scene draws on each reading.
 | What were they laid in? | **Cinders**, filled nearly to the tops of the ties, and the same dark ground trodden flat between the tracks. No lawn and no pale broken stone shows in either Glessner photograph. | `ghm_george_glessner_ic_train_18th`, `ghm_george_glessner_ic_train_foot_18th_c1888` |
 | Plants? | No photograph read shows this reach in summer. Both Glessner views are bare or winter. Weeds on the edges of a railway's disturbed ground are what the scene draws, and they are reconstructed. | none |
 | Walkways? | **None along the water.** The c. 1888 view east from the foot of 18th Street goes from the parkway trees and the stone curb straight onto the tracks, with a row of white posts on the far side before the lake. The 18th Street footbridge over the tracks dates from 1933 and is not drawn. | `ghm_george_glessner_ic_train_foot_18th_c1888` |
-| What stood at the water? | The edge the railway built and kept against the lake: stone and timber. Its make-up at this reach is not read off any source yet; T-2479 builds it as a reconstruction (riprap on the 1:1.5 face, a timber cap), with the made ground between the last track and the crest. | none yet |
+| What stood at the water? | The edge the railway built and kept against the lake: stone and timber. Its make-up at this reach is not read off any source yet; T-2479 builds it as a reconstruction (riprap on the 1:1.5 face, a timber cap over piles), with the made ground between the last track and the crest. | none yet |
 
 ## How the tracks are placed
 
@@ -32,6 +32,22 @@ holds the committed file.
 The cinder ground runs from the westernmost track plus 4 m to the easternmost less 3 m, smoothed, and
 never into a block of the 1904 street grid (its west line is the lots' rear line, sheet 20's
 `ic_row`). A 3 m verge of weeds lies outside it on each side.
+
+## The lake edge (T-2479)
+
+The tracer also finds, every 5 m along the shore, where the committed heightfield's lakeward face
+(terrain_spec `ic_row_embankment`, 1 in 1.5) meets its grade (the crest: the first point inland
+within 0.12 m of the grade 12-16 m behind it) and where it meets the water, and smooths both over
+15 m either way. It writes the face from 1.5 m lakeward of the waterline to the crest
+(`lake_edge.face`), the crest line the cap timber follows (`lake_edge.crest`), and the made ground
+from the crest to the east verge (`right_of_way.made_ground`). The east verge keeps at least 0.6 m of
+made ground inland of the crest and narrows (to a metre at least) where the tracks crowd the edge,
+which they do north of 18th Street, where the scene's waterline is the 1886 planform moved east.
+
+The renderer drapes a riprap map over the face, cut finely across so the face's curve over the crest
+does not let the heightfield's grass show through, and stands single limestone blocks on it within
+about 110 m of the eye (50 m on a phone). The cap is one mesh along the crest; the piles one
+instanced draw. Everything about the edge's make-up is `docs/LIBERTIES.md` L-ic-lake-edge-2479.
 
 ## What is reconstructed
 
