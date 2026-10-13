@@ -34770,17 +34770,8 @@
       "id": "L-k16-1638-bay-2424",
       "title": "1638 Prairie's canted bay read off its photograph: three pointed lights between posts, a panelled base and a moulded cornice; sections, depth and deck still the kit's or inferred",
       "section": "per_subject",
-      "subjects": [
-        "shortall_gregory_house_1638_prairie_front"
-      ],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "shortall_gregory_house_1638_prairie_front",
-          "phase": "as_standing_1904",
-          "aspect": "form.canted_bay"
-        }
-      ],
+      "subjects": [],
+      "covers": [],
       "recorded": "2026-10-13",
       "revised": null,
       "fields": [
@@ -34791,10 +34782,6 @@
         {
           "label": "How to resolve",
           "text": "a plan, a sharper print or a second view at an angle gives the bay's depth and the cants' lights; a closer picture gives the arch's true curve, the stops and the cornice's mouldings. T-2426 builds the fence the camera's depth rests on and brings the match record to `matches`, keeping this record's id."
-        },
-        {
-          "label": "Covers",
-          "text": "`shortall_gregory_house_1638_prairie_front.as_standing_1904.form.canted_bay`."
         },
         {
           "label": "Ticket",

@@ -25683,7 +25683,6 @@ street view shows; every colour, the print being monochrome.
 the cants' lights; a closer picture gives the arch's true curve, the stops and the cornice's
 mouldings. T-2426 builds the fence the camera's depth rests on and brings the match record to
 `matches`, keeping this record's id.
-**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.canted_bay`.
 **Ticket:** T-2424 (a piece of T-1865, the 1638 architecture).
 **Review:** `docs/RESEARCH/k16-1638-bay-2424/README.md`.
 **Recorded:** 2026-10-13 (T-2424).
