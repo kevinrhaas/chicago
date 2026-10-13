@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1758, ts: '2026-10-13T11:07:46.581Z', date: 'Oct 13, 2026, 6:07 AM CT', title: '1638 Prairie\'s front fence, from its photograph', kind: 'feature',
+    items: [
+      'The Gothic house at 1638 Prairie now stands behind the fence its old photograph shows on the street line: two gate piers either side of an open gateway, each cap pierced with a heart and topped with an iron finial, and low iron bars on a pale stone base.',
+      'Where the photograph runs out, the fence is carried on to the lot lines, and that is written down as a liberty.',
+    ] },
   { v: 1757, ts: '2026-10-13T10:16:59.290Z', date: 'Oct 13, 2026, 5:16 AM CT', title: '1616 Prairie\'s board fence, from the 1874 engraving next door', kind: 'feature',
     items: [
       '1616 Prairie in 1904 now has a close-boarded timber fence 1.5 m high along its street line. The 1874 engraving of 1620 draws it running north past 1620\'s corner, and it continues the boards 1620\'s own front ends with.',

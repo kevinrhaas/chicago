@@ -2,7 +2,7 @@
   "structure_id": "shortall_gregory_house_1638_prairie_front",
   "view": "chicagology_front",
   "glb": "assets/gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
-  "glb_sha256": "59311af85712afb2dba03479112eb47b83239e673d44a60ef887a7f1fafb6cd1",
+  "glb_sha256": "f52d309cc98def10674fe9d7b7bcef898abde2d73dfac6f5c9d7667e403a2f6d",
   "camera_sha256": "c1c16c717eda63839555e726bc9ca222e4cf819084c6a63406e51eda341c874d",
   "side_by_side": "docs/RESEARCH/photo-match/shortall_gregory_house_1638_prairie_front/chicagology_front-side-by-side.jpg",
   "verdict": "differs",
@@ -88,7 +88,7 @@
       "status": "open"
     },
     {
-      "what": "Entrance: the print's steps run on down past the model's foot, nosings to about 935 px where the fence cuts them off, some three risers more than a 0.6 m floor over grade at 825 px allows: the floor's height over grade, or the camera's grade datum, is not yet settled",
+      "what": "Entrance: the print's steps run on down past the model's foot, nosings to about 935 px where the fence cuts them off, some three risers more than a 0.6 m floor over grade at 825 px allows. The fence, built on the street line through the same camera (T-2456), lands within 2-4 px of the print at its piers' feet and caps, so the camera's depth stands and it is the floor's height over grade, not the camera's datum, that is not yet settled",
       "status": "open"
     },
     {
@@ -100,7 +100,15 @@
       "status": "open"
     },
     {
-      "what": "Fence (T-2426): two gate piers with pierced, pointed caps and finials, and a low picket fence on a base along the street line; not built",
+      "what": "Fence: two gate piers either side of an open gateway, 0.9 m clear at s 0.46 and 1.76 m, each a square shaft on a plinth under a hollow cap pierced in every face with an inverted heart, the north pier's iron finial a spike through a ring, the south's a plain spike; and thin iron bars 0.244 m apart on a pale base along the street line, 0.58 m to their rail (T-2456)",
+      "status": "fixed"
+    },
+    {
+      "what": "Fence: the print's caps flare out at their lower corners like a hood over the heart; the model's cap is a plain box a little broader than the shaft",
+      "status": "open"
+    },
+    {
+      "what": "Fence: south of the south pier the print shows a pale block to the frame's edge with a pale rail at about 918 px, not the bars and base north of the gateway; the model carries the barred run on to the lot line",
       "status": "open"
     },
     {

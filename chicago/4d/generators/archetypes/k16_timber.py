@@ -80,6 +80,10 @@ ROLE_MATERIAL = {
     # T-2425: 1638's arched entrance, its pierced spandrels painted with the porch's trim
     "spandrel": "trim",
     "roof_covering": "roof", "chimney": "foundation",   # the stack is the foundation's brick
+    # T-2456: 1638's street fence — iron bars on a stone base, painted timber gate piers on
+    # stone plinths, each cap hollow behind its pierced faces, the finials iron
+    "fence_bar": "fence_iron", "fence_rail": "fence_iron", "pier_finial": "fence_iron",
+    "fence_base": "fence_stone", "pier_plinth": "fence_stone", "pier": "trim", "pier_cap": "trim",
 }
 #: T-2425: how far behind a glazed door's glass the dark of the hall is laid
 GLAZED_HALL_M = 0.15
@@ -88,6 +92,12 @@ BOARD_ROLES = ("foundation", "roof", "backdrop", "interior", "cut")
 NOT_TIMBER = ("glass_outer", "glass_inner", "came", "blind", "curtain", "backing", "crawl") + BOARD_ROLES
 # T-2357: what a whole house adds that is not timber, its roof covering and its brick stack
 NOT_TIMBER += ("roof_covering", "chimney")
+NOT_TIMBER += ("fence_bar", "fence_rail", "pier_finial", "fence_base", "pier_plinth")
+#: T-2456: the boundary's two materials, offered only to a house that builds one
+BOUNDARY_MATERIALS = {
+    "fence_iron": {"color": (0.12, 0.12, 0.12), "roughness": 0.6, "metallic": 0.4, "class": "metal"},
+    "fence_stone": {"color": (0.70, 0.68, 0.62), "roughness": 0.92, "class": "masonry"},
+}
 
 
 def materials(data: dict) -> dict:
@@ -2040,13 +2050,167 @@ def structure_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
                     absorb(house.prims.setdefault(role, Prim(role)), pr)
     house.meta.update({"parts": {kk: triangles(parts[kk]) for kk in keys},
                        "focus": [0.0, 3.0, 0.0], "span_m": 9.0})
+    if form.get("boundary"):     # T-2456: the street fence, built facing east and turned with the rest
+        bd = Sample({"id": f"{st['id']}.boundary", "kind": "boundary", "use": "boundary"}, data)
+        house.meta["boundary"] = boundary(bd, form["boundary"]["value"])
+        for role, pr in bd.prims.items():
+            pr.pos = [_rot_y(q, k) for q in pr.pos]
+            pr.nrm = [_rot_y(q, k) for q in pr.nrm]
+            absorb(house.prims.setdefault(role, Prim(role)), pr)
+        house.meta["parts"]["boundary"] = triangles(bd)
     return house
+
+
+# -- T-2456: the street fence and its gate piers ------------------------------------------------
+#
+# Built in the front's own frame (s along the front from its south end, z out toward the street,
+# y up from grade), so the record's numbers are the ones read off the print through the camera.
+# The base and its bars run from a lot line to the first pier and on from the second to the other
+# lot line; the gateway between the piers is open, its walk at grade.
+
+def heart(c, y_lobe, lobe_r, lobe_off, y_apex, n=10):
+    """An inverted heart in (a, y), anticlockwise: two lobes of radius `lobe_r` whose middles
+    stand `lobe_off` either side of the axis at `y_lobe`, meeting in a notch on the axis, and
+    their outer sides drawn up as tangents to a point on the axis at `y_apex`."""
+    cx, cy = c + lobe_off, y_lobe
+    dx, dy = c - cx, y_apex - cy
+    d = math.hypot(dx, dy)
+    if d <= lobe_r:
+        raise ValueError("the heart's point stands inside its lobe")
+    t_from = math.atan2(dy, dx) - math.acos(lobe_r / d)          # the right side's tangent point
+    y_notch = cy - math.sqrt(max(0.0, lobe_r * lobe_r - lobe_off * lobe_off))
+    t_to = math.atan2(y_notch - cy, c - cx)         # clockwise round the lobe's foot to the notch
+    if t_to > t_from:
+        t_to -= 2 * math.pi
+    right = [(cx + lobe_r * math.cos(t_from + (t_to - t_from) * i / n),
+              cy + lobe_r * math.sin(t_from + (t_to - t_from) * i / n)) for i in range(n + 1)]
+    left = [(2 * c - x, y) for x, y in reversed(right[:-1])]
+    return list(reversed([(c, y_apex)] + right + left))
+
+
+def pierced_board(sm: Sample, Fr: Frame, role, a0, a1, y0, y1, d0, d1, hole, tone):
+    """A board from a0 to a1 and y0 to y1 in frame Fr, its faces at d0 (in) and d1 (out),
+    pierced through by the polygon `hole`; the piercing's cut edges are `cutout`."""
+    outer = [(a0, y0), (a1, y0), (a1, y1), (a0, y1)]
+    pts = outer + hole
+    for tri in K09.triangulate(outer, [hole]):
+        tq = [pts[i] for i in tri]
+        sm.poly(Fr, role, [(x, y, d1) for x, y in tq], (0, 0, 1), tone)
+        sm.poly(Fr, role, [(x, y, d0) for x, y in tq], (0, 0, -1), tone)
+    for (p, q), h in (((outer[0], outer[1]), (0, -1)), ((outer[1], outer[2]), (1, 0)),
+                      ((outer[2], outer[3]), (0, 1)), ((outer[3], outer[0]), (-1, 0))):
+        sm.poly(Fr, role, [(p[0], p[1], d0), (q[0], q[1], d0), (q[0], q[1], d1), (p[0], p[1], d1)], (h[0], h[1], 0),
+                tone)
+    mx = math.fsum(x for x, _ in hole) / len(hole)
+    my = math.fsum(y for _, y in hole) / len(hole)
+    for i in range(len(hole)):
+        p, q = hole[i], hole[(i + 1) % len(hole)]
+        m = ((p[0] + q[0]) / 2, (p[1] + q[1]) / 2)
+        sm.poly(Fr, "cutout", [(p[0], p[1], d0), (q[0], q[1], d0), (q[0], q[1], d1), (p[0], p[1], d1)],
+                (mx - m[0], my - m[1], 0), tone)
+
+
+def _gate_pier(sm: Sample, pv: dict, pr: dict, zc: float) -> dict:
+    """One gate pier centred at s `centre_m` on the base's line: a stone plinth, a painted
+    square shaft, a hollow cap of four boards each pierced with a heart, dark inside, under a
+    low pyramid, and an iron finial — a spike, or a spike through a ring in the street's plane."""
+    c, ts = pr["centre_m"], sm.tone("pier", pr["centre_m"])
+    hp, hs = pv["plinth_m"] / 2, pv["section_m"] / 2
+    sm.box(sm.F, "pier_plinth", c - hp, c + hp, 0.0, pv["plinth_top_m"], zc - hp, zc + hp, skip=("bottom",),
+           tone=sm.tone("plinth", c))
+    y_cap = pv["shaft_top_m"]
+    sm.box(sm.F, "pier", c - hs, c + hs, pv["plinth_top_m"], y_cap, zc - hs, zc + hs, skip=("bottom", "top"), tone=ts)
+    cp = pv["cap"]
+    ho, t, y_top = cp["half_m"], cp["board_m"], cp["top_m"]
+    hi = ho - t
+    hk = hi - 0.005      # the dark behind the hearts, clear of the boards' inner faces
+    sm.box(sm.F, "backing", c - hk, c + hk, y_cap, y_top, zc - hk, zc + hk, skip=("bottom",))
+    hv = cp["heart"]
+    for n in ((0.0, 0.0, 1.0), (1.0, 0.0, 0.0), (0.0, 0.0, -1.0), (-1.0, 0.0, 0.0)):
+        Fr = Frame("pier cap", (c, 0.0, zc), (n[2], 0.0, -n[0]), n)
+        a = ho if n[0] == 0.0 else hi      # the street and yard boards run past the side boards' ends
+        hole = heart(0.0, hv["lobe_y_m"], hv["lobe_r_m"], hv["lobe_off_m"], hv["apex_y_m"])
+        pierced_board(sm, Fr, "pier_cap", -a, a, y_cap, y_top, hi, ho, hole, ts)
+    e = ho + cp["eave_m"]
+    y_ap = y_top + cp["rise_m"]
+    sq = [(c - e, zc - e), (c + e, zc - e), (c + e, zc + e), (c - e, zc + e)]
+    sm.poly(sm.F, "pier_cap", [(x, y_top, z) for x, z in sq], (0, -1, 0), ts)
+    for i in range(4):
+        (x0, z0), (x1, z1) = sq[i], sq[(i + 1) % 4]
+        out = ((x0 + x1) / 2 - c, 0.0, (z0 + z1) / 2 - zc)
+        sm.face("pier_cap", [sm.F.P(x0, y_top, z0), sm.F.P(x1, y_top, z1), sm.F.P(c, y_ap, zc)],
+                sm.F.V(out[0], 0.5, out[2]), ts)
+    f = pv["finial"]
+    r = f["rod_m"] / 2
+    y_tip = f["top_m"]
+    y_shank = y_tip - f["point_m"]
+    sm.box(sm.F, "pier_finial", c - r, c + r, y_ap - 0.01, y_shank, zc - r, zc + r, skip=("bottom", "top"))
+    for i in range(4):
+        q = [(c - r, zc - r), (c + r, zc - r), (c + r, zc + r), (c - r, zc + r)]
+        (x0, z0), (x1, z1) = q[i], q[(i + 1) % 4]
+        sm.face("pier_finial", [sm.F.P(x0, y_shank, z0), sm.F.P(x1, y_shank, z1), sm.F.P(c, y_tip, zc)],
+                sm.F.V((x0 + x1) / 2 - c, 0.3, (z0 + z1) / 2 - zc), 1.0)
+    out = {"centre_m": c, "cap_top_m": round(y_ap, 6), "finial_top_m": y_tip}
+    if pr.get("ring"):
+        R, w = f["ring_r_m"], f["ring_bar_m"]
+        yc = f["ring_y_m"]
+        if yc - R - w / 2 < y_ap:
+            raise ValueError(f"the ring at {yc} m sits into its cap, whose point is {y_ap:.3f} m")
+        m = 16
+        for i in range(m):
+            t0, t1 = 2 * math.pi * i / m, 2 * math.pi * (i + 1) / m
+            ring = [(c + (R + sg * w / 2) * math.cos(t), yc + (R + sg * w / 2) * math.sin(t))
+                    for t, sg in ((t0, 1), (t1, 1), (t1, -1), (t0, -1))]
+            for z, h in ((zc + w / 2, 1), (zc - w / 2, -1)):
+                sm.poly(sm.F, "pier_finial", [(x, y, z) for x, y in ring], (0, 0, h))
+            for (x0, y0), (x1, y1) in ((ring[0], ring[1]), (ring[2], ring[3])):
+                mx, my = (x0 + x1) / 2 - c, (y0 + y1) / 2 - yc
+                sg = 1 if math.hypot(mx, my) > R else -1
+                sm.poly(sm.F, "pier_finial", [(x0, y0, zc - w / 2), (x1, y1, zc - w / 2), (x1, y1, zc + w / 2),
+                                              (x0, y0, zc + w / 2)], (sg * mx, sg * my, 0))
+        out["ring_y_m"] = yc
+    return out
+
+
+def boundary(sm: Sample, bv: dict) -> dict:
+    """T-2456: the street fence on the lot's front line — a stone base with iron bars on a top
+    rail, from each lot line to a gate pier, and the two piers either side of an open gateway."""
+    zl = bv["street_line_m"]
+    pv = bv["pier"]
+    zc = zl - pv["plinth_m"] / 2                 # the plinths' street faces on the line
+    s_lo, s_hi = bv["lot_s_m"]
+    end = bv["end_clear_m"]
+    piers = sorted(bv["piers"], key=lambda q: q["centre_m"])
+    hp = pv["plinth_m"] / 2
+    runs = [(s_lo + end, piers[0]["centre_m"] - hp), (piers[-1]["centre_m"] + hp, s_hi - end)]
+    b, f = bv["base"], bv["bars"]
+    hb, hr, w = b["width_m"] / 2, f["bar_m"] / 2, f["bar_m"]
+    yb, yt = b["height_m"], f["height_m"]
+    ry0 = yt - f["rail_m"]
+    bars = []
+    for i, (s0, s1) in enumerate(runs):
+        if s1 - s0 < f["pitch_m"]:
+            raise ValueError(f"the fence's run s {s0:.3f}..{s1:.3f} is shorter than a bar's pitch")
+        sm.box(sm.F, "fence_base", s0, s1, 0.0, yb, zc - hb, zc + hb, skip=("bottom",), tone=sm.tone("base", i))
+        sm.box(sm.F, "fence_rail", s0, s1, ry0, yt, zc - hr, zc + hr)
+        k = round((s1 - s0) / f["pitch_m"])
+        p = (s1 - s0) / k
+        for j in range(k):
+            s = s0 + p * (j + 0.5)
+            sm.box(sm.F, "fence_bar", s - hr, s + hr, yb, ry0, zc - hr, zc + hr, skip=("bottom", "top"))
+            bars.append(round(s, 4))
+    built = [_gate_pier(sm, pv, pr, zc) for pr in piers]
+    gate = piers[-1]["centre_m"] - piers[0]["centre_m"] - 2 * hp
+    return {"line_z_m": zl, "runs_s_m": [[round(a, 4), round(c, 4)] for a, c in runs], "bars": len(bars),
+            "bar_pitch_m": round((runs[1][1] - runs[1][0]) / round((runs[1][1] - runs[1][0]) / f["pitch_m"]), 4),
+            "gateway_clear_m": round(gate, 4), "piers": built}
 
 
 def structure_materials(house: Sample, data: dict, form: dict) -> dict:
     """The materials a house draws, and only those; its roof takes the record's covering."""
     mats = materials(data)
     mats["stand_in"] = dict(STAND_IN, color=tuple(form["body"]["value"].get("color", STAND_IN["color"])))
+    mats.update(BOUNDARY_MATERIALS)     # T-2456: kept below only where a boundary uses them
     cov = form.get("roof_covering")
     if cov and cov["value"].get("color"):
         mats["roof"] = dict(mats["roof"], color=tuple(cov["value"]["color"]), roughness=0.9)
