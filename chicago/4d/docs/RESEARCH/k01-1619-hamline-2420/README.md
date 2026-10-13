@@ -72,3 +72,36 @@ above.
 - **lights in a bay's basement**: the K08 kit's own gate (`tools/check_bay_kit.py`) refuses a
   window below a bay's clear wall (its plinth), so the bow's basement is blind until T-2422 teaches
   the kit the drawing's grilled segmental lights.
+
+## The wall gable (T-2428)
+
+Piece 1 of T-2421. The dormer that marked the roof storey is now the drawing's **wall gable**, built
+by `generators/archetypes/k01_wall_gable.py` from the record's `dormer.wall_gable`: the K05 dormer
+with its face on the street wall's plane (no setback), so the wall is carried up over the bow and the
+face, cheeks and gabled roof stay one closed solid with the hip.
+
+Read off the plate through the camera (46 px/m at the front's plane, eye 1.6 m up):
+
+| | drawing (px in the panel) | through the camera | built |
+|---|---|---|---|
+| gable's centre across the front | x ≈ 331-335 | v ≈ 5.1-5.2 (0.47 m north of the bow's centre) | v 5.2 |
+| face's width | x 255-410 | about 3.4 m | 3.3 m |
+| pediment's foot (horizontal cornice) | y ≈ 170-175 | about 10.9 m | 10.9 m |
+| apex (finial's foot) | y ≈ 70 | about 13.1 m | 13.05 m |
+| lights | three, about 33-37 px wide, 1.1-1.2 m apart | 0.75 m wide, heads about 10.4 m | 0.75 × 0.95 m, 1.1 m apart, sills 9.5 m |
+| voussoir blocks' tops | y ≈ 187 | about 10.6 m | 10.65 m |
+| pinnacles | x ≈ 244 and 418, caps y ≈ 142 and 122 | 3.78 m apart, caps about 11.5 and 11.9 m | 3.9 m apart, caps 11.65-11.75 m |
+
+The lights are K06's one-over-one segmental sash, cut into the union to K06's own hole so the head is
+the reveal's edge; each wears a block of seven stones whose joints radiate from the head's centre
+(`k01_arched_front.wedges`' cut, for an arc that springs above its centre). The pediment's cornices
+are K10's dormer face, unchanged; inside them a panel is recessed 0.08 m. Built level and plain
+where the drawing is not: the two pinnacles' tops (drawn about 20 px apart in height) and their carved
+caps (square pyramids here). Every K01 house but 1619 builds byte-identical.
+
+![the gable, drawing and build](../photo-match/house_1619_prairie/building_budget_front-side-by-side.jpg)
+
+Left for **T-2429**: the slates behind the gable as steep as it, the crow-stepped south parapet
+rising to its stack, and the moulded stone cornice at the bow's top (K10's bracketed timber cornice
+still runs at 9.2 m, under which the bow stops at 8.2 m). Left for **T-2422**: the balcony rail in
+front of the lights, the arched entrance, the side stoop and the basement arches.

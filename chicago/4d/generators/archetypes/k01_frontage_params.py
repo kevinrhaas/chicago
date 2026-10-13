@@ -481,6 +481,53 @@ def _round_dormer(d: dict, what: str, room: float) -> dict:
     return out
 
 
+def _wall_gable(d: dict, wg: dict, dormer: dict, width: float) -> dict:
+    """T-2428: the street dormer built as a WALL GABLE — 1619 Prairie's roof storey, which its
+    drawing raises from the wall over the bow rather than setting on the hip: the face on the
+    street wall's plane (no setback), centred at `v_m` along the front, a row of K06 lights
+    `sash.at_m` either side of its centre each under a block of radiating voussoirs, a
+    recessed panel in the pediment, a finial at the apex and a pinnacle shaft either side
+    at the face's foot. The pediment's cornices are K10's dormer face, as on any dormer."""
+    kit = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
+    sh = d["sash"]
+    vid = sh.get("variant")
+    if kit.get(vid, {}).get("head") not in ("flat", "segmental"):
+        raise ParamError("dormer.sash.variant: a wall gable's lights are a flat- or segment-headed K06 variant")
+    if float(d["face_setback_m"]) != 0.0:
+        raise ParamError("dormer.wall_gable: a wall gable's face is the street wall's plane (face_setback_m 0)")
+    wd, sw = dormer["width_m"], dormer["sash"]["width_m"]
+    vm = float(d.get("v_m", width / 2))
+    if not wd / 2 + 0.3 <= vm <= width - wd / 2 - 0.3:
+        raise ParamError("dormer.v_m: the wall gable stands 0.3 m inside both ends of the front")
+    at = sorted(float(x) for x in sh.get("at_m", [0.0]))
+    vs = wg["voussoirs"]
+    ring, proud = float(vs["ring_m"]), float(vs["proud_m"])
+    if not 0.1 <= ring <= 0.4 or not 0.0 < proud <= 0.08:
+        raise ParamError("dormer.wall_gable.voussoirs: a 0.1-0.4 m ring, 0-0.08 m proud")
+    side = min(0.6 * ring, *((b - a - sw) / 2 - 0.01 for a, b in zip(at, at[1:])))
+    if side < 0.05:
+        raise ParamError("dormer.sash.at_m: the wall gable's lights stand too close for their voussoirs")
+    if at[-1] + sw / 2 + side > wd / 2 - 0.05 or at[0] - sw / 2 - side < -wd / 2 + 0.05:
+        raise ParamError("dormer.sash.at_m: a light's voussoirs run off the wall gable's face")
+    pn, fn, pa = wg["pinnacles"], wg["finial"], wg["panel"]
+    pin = {k: float(pn[k]) for k in ("at_m", "shaft_m", "foot_m", "top_m", "cap_m", "spire_m")}
+    if pin["at_m"] - pin["shaft_m"] / 2 < wd / 2 + 0.13 + 0.02:
+        raise ParamError("dormer.wall_gable.pinnacles: a shaft stands in the face's cornice return")
+    if not pin["foot_m"] < 0.0 < dormer["face_height_m"] < pin["top_m"]:
+        raise ParamError("dormer.wall_gable.pinnacles: a shaft rises from under the wall head past the face's eave")
+    if vm - pin["at_m"] - pin["shaft_m"] / 2 < 0.0 or vm + pin["at_m"] + pin["shaft_m"] / 2 > width:
+        raise ParamError("dormer.wall_gable.pinnacles: both shafts stand on the front")
+    panel = {"inset_m": float(pa["inset_m"]), "depth_m": float(pa["depth_m"])}
+    if not 0.1 <= panel["inset_m"] <= 0.5 or not 0.02 <= panel["depth_m"] <= dormer["face_thickness_m"] / 2:
+        raise ParamError("dormer.wall_gable.panel: a 0.1-0.5 m margin, recessed no deeper than half the face")
+    finial = {"height_m": float(fn["height_m"]), "radius_m": float(fn["radius_m"])}
+    if not 0.2 <= finial["height_m"] <= 1.0 or not 0.04 <= finial["radius_m"] <= 0.2:
+        raise ParamError("dormer.wall_gable.finial: 0.2-1.0 m high, 0.04-0.2 m in radius")
+    return {"v_m": vm, "sash": dict(dormer["sash"], variant=vid, at_m=at),
+            "wall_gable": {"voussoirs": {"ring_m": ring, "proud_m": proud, "side_m": round(side, 4)},
+                           "pinnacles": pin, "finial": finial, "panel": panel}}
+
+
 def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, overhang: float,
                      chimneys) -> list:
     """T-2411: round-headed dormers in the main mansard's lower faces — the 1874 engraving's
@@ -1131,8 +1178,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                          "street plane, and a mansard's lower face is another surface (T-2370)")
     if d:
         dw, dh = float(d["sash"]["width_m"]), float(d["sash"]["height_m"])
-        _within(dw, cw, "dormer.sash.width_m")
-        _within(dh, ch, "dormer.sash.height_m")
+        wg = d.get("wall_gable")
+        if wg:
+            # T-2428: a wall gable's roof-storey lights are K06 variants of their own (1619's
+            # three short segment-headed lights), not the principal sash the contract sizes
+            if not 0.5 <= dw <= 1.2 or not 0.6 <= dh <= 2.4:
+                raise ParamError("dormer.sash: a wall gable's lights are 0.5-1.2 m wide and 0.6-2.4 m high")
+        else:
+            _within(dw, cw, "dormer.sash.width_m")
+            _within(dh, ch, "dormer.sash.height_m")
         dpitch = float(d["pitch_deg"])
         pr = roof["parameters"]["pitch_deg"]["ranges"]
         _within(dpitch, (pr["ordinary"][0], pr["steep"][1]), "dormer.pitch_deg")
@@ -1144,6 +1198,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError("the dormer sash's lintel runs into its eave")
         if dormer["sash"]["sill_m"] - 0.10 < k04["apron_upstand_m"]:
             raise ParamError("the dormer sash's sill sits on its apron's upstand")
+        if wg:
+            dormer.update(_wall_gable(d, wg, dormer, width))
 
     # T-2298: every glazed K01 opening is built from a K06 variant. The K01 wall cuts a
     # rectangular hole, so only a flat-headed variant fits it; an arched head is a
@@ -1345,7 +1401,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         back = depth - d_ridge / tp - 0.5   # where k01_frontage starts the dormer's body
         for c in chimneys:
             sx, sz = c["plan_m"]
-            if abs(c["v_m"] - width / 2) < dormer["width_m"] / 2 + 0.5 + sz / 2 and c["u_m"] + sx / 2 > back - 0.3:
+            if abs(c["v_m"] - dormer.get("v_m", width / 2)) < dormer["width_m"] / 2 + 0.5 + sz / 2 \
+                    and c["u_m"] + sx / 2 > back - 0.3:
                 raise ParamError("a chimney stands in the dormer's body")
 
     # T-2291: the brick walls wear a K03 panel the record names; k03_brick lays one

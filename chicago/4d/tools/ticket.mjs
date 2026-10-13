@@ -1533,6 +1533,26 @@ function queueInsertAtBand9Foot(t) {
   return true;
 }
 
+// A CHAIN THAT LOST ITS LINE STILL MOVES ON NEAR THE TOP (owner, 2026-10-13: "at any given
+// time there would be at least one Glessner ticket being claimed"). T-2212 was re-blocked by
+// hand while a run was already working it, so its line went to 8b; the run's `done --pr`
+// then dropped the 8b line and left it in review with no line at all. When #743 merged,
+// settle had no line to hand T-2213 and appended it at the foot of the file, 170 lines
+// down, where no lane reached it. A successor with no line to inherit now opens at the head
+// of the first numbered band below band 9, where the owner's ranked programme starts.
+// Returns false when the queue has no band 9 or nothing below it.
+function queueInsertBelowBand9(t) {
+  const b = band9();
+  if (!b || b.end >= b.lines.length || /^# --- 8b\./.test(b.lines[b.end])) return false;
+  // Past the band's heading, its continuation and its notes, to its first ticket line.
+  let at = b.end + 1;
+  while (at < b.lines.length && /^(#|\s*$)/.test(b.lines[at]) && !/^# --- \d/.test(b.lines[at])) at += 1;
+  if (at < b.lines.length && /^# --- \d/.test(b.lines[at])) while (at > b.end + 1 && /^\s*$/.test(b.lines[at - 1])) at -= 1;
+  b.lines.splice(at, 0, `${t.id} — ${t.title}`);
+  writeFileSync(QUEUE, b.lines.join('\n').replace(/\n+$/, '\n'));
+  return true;
+}
+
 function queueLines() {
   if (!existsSync(QUEUE)) return [];
   return readFileSync(QUEUE, 'utf8').split('\n');
@@ -2449,8 +2469,14 @@ function unblockSuccessors(done, tickets) {
     s.state = 'open'; s.blocked_on = null;
     s.body = `${String(s.body ?? '').replace(/\s*$/, '')}\n\n**Unblocked ${today()}:** ${done.id} merged (PR #${done.pr}); this took its place in the queue. The block read: ${why}\n`;
     writeTicket(s); queueDropBlockedLines(s.id);
-    if (!queueInsertAfter(s, done.id)) queueAppend(s);
-    console.log(`  ${s.id} unblocked — ${done.id} merged; it takes ${done.id}'s queue line`);
+    if (queueInsertAfter(s, done.id)) {
+      console.log(`  ${s.id} unblocked — ${done.id} merged; it takes ${done.id}'s queue line`);
+    } else if (queueInsertBelowBand9(s)) {
+      console.log(`  ${s.id} unblocked — ${done.id} merged with no queue line; it opens at the head of the band below band 9`);
+    } else {
+      queueAppend(s);
+      console.log(`  ${s.id} unblocked — ${done.id} merged with no queue line; appended to QUEUE bottom`);
+    }
   }
   return next.length;
 }
