@@ -1,6 +1,6 @@
 let model;
 // A package path, unless the 4D mirror serves its directory from the site root (viewer/root-served.js, T-1828).
-const packagePath = path => { const r = self.ROOT_SERVED; return r && r.dirs.some(d => path.startsWith(d)) ? r.base + path : '../' + path; };
+const packagePath = path => { const r = self.ROOT_SERVED; return r && r.dirs.some(d => path.startsWith(d)) && !(r.keep || []).includes(path) ? r.base + path : '../' + path; };
 const $ = (id) => document.getElementById(id);
 const cleanYear = (value) => { const m = String(value || '').match(/\d{4}/); return m ? Number(m[0]) : null; };
 

@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1770, ts: '2026-10-13T19:04:04.293Z', date: 'Oct 13, 2026, 2:04 PM CT', title: 'The dev preview no longer ships the Prairie library\'s photographs twice', kind: 'fix',
+    items: [
+      'The preview\'s Prairie Avenue 1904 atlas reads each library photograph from the site\'s own copy whenever the two are the same file, and keeps only the new ones itself.',
+      'One new photograph used to keep the whole 39 MB library in the preview; now it costs only its own size, so the preview is back under its download budget.',
+    ] },
   { v: 1769, ts: '2026-10-13T18:14:18.523Z', date: 'Oct 13, 2026, 1:14 PM CT', title: 'Glessner\'s front door gets its iron grille, strap and studded oak', kind: 'feature',
     items: [
       'The Prairie Avenue door is now built from Richardson\'s own drawing of it: a studded oak border, a square iron grille with knobbed bars and the house number 1800 over curled scrolls, and two fielded panels below.',
