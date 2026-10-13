@@ -461,7 +461,7 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
         # a plate house drawn filling its lot wall to wall (1635) stands between the 1911 strip's
         # own lines, not wherever the plate's 4.5 m fit carries its outline across them
         for p in pieces:
-            p["rect"] = [p["rect"][0], round(lot_v[0], 3), p["rect"][2], round(lot_v[1], 3)]
+            p["rect"] = [p["rect"][0], lot_v[0], p["rect"][2], lot_v[1]]
     if not pieces or pieces[0]["trace_role"] != "main":
         # a building whose largest traced part is not a 'main' (a crossed stable) still has a body
         pieces.sort(key=lambda p: -_area(p["rect"]))
