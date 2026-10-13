@@ -11,7 +11,7 @@
     },
     "assets/web/glessner_house__as_built_1887.light.glb": {
       "bytes": 27811540,
-      "sha256": "67355e1f2103be981c93f4fab21a5d4f8c0c44e5807e1650ba13c8a8b2b15afb"
+      "sha256": "61a3cc3160932064f4b0f101d0ffd74353963be28812984e27187ab70e3fd34f"
     }
   },
   "parts": [
@@ -103,29 +103,29 @@
     {
       "name": "assets.zip.part17",
       "bytes": 6291456,
-      "sha256": "051b41344582763eed7e6e4bc72645988ddc8c49de3ecd41adc1da71f0948d79"
+      "sha256": "c6b796daf120652e6baa6eefaf7c1a634f5a9d68c18cfb160ff879680180ca56"
     },
     {
       "name": "assets.zip.part18",
       "bytes": 6291456,
-      "sha256": "4ca0e05b2ad1889104b21f661e3ddefad12124a197011e91e75ef8653eb31932"
+      "sha256": "c7883eebc79d22eaaee771b6c9eeb1912bcf89be3f37c508ffbf94bf134523a1"
     },
     {
       "name": "assets.zip.part19",
       "bytes": 6291456,
-      "sha256": "4645fe5dc35419efd549af17991022c7a4541857c080f4f9d1b128027d95795b"
+      "sha256": "1036000f9c17aad48ed665324ad9e4be96f7d065775eb0c4ffc35196d0903167"
     },
     {
       "name": "assets.zip.part20",
       "bytes": 6291456,
-      "sha256": "6f507dca66c11ecd7f32aec36af39e23b7c1d0047de5ac9a7f83db1bff58fe02"
+      "sha256": "712acd8fd866c54c618071d9efa42c221b4a5ae985f6e867af9664539525e3c9"
     },
     {
       "name": "assets.zip.part21",
-      "bytes": 2675481,
-      "sha256": "1313339dedf530635588c95812ad01a9c8d6144da68075f9d13f7793fec05e6c"
+      "bytes": 2675483,
+      "sha256": "45a89b3089489035a3903e22780553b93a0dddade66c185892f79d9dd96007b8"
     }
   ],
-  "archive_sha256": "79a130c2f72a1df94b6d59a5eee982c1720870bf0ed3269599844fc8e21f0602",
-  "archive_bytes": 134796057
+  "archive_sha256": "cdd4c96f25889a383c37de6220f6f0db6a1f92f6ec953cf573feabe78f3fc782",
+  "archive_bytes": 134796059
 }
