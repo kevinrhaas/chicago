@@ -926,13 +926,10 @@ def opening(b,o,courtyard=False):
 def detailed_door(b,o,style):
     a,c,z0,z1=o['u0'],o['u1'],o['z0'],o['z1'];conf=o['conf']
     if style!='porte_cochere':
-        # The documented upper glazing is an actual leaf cutout. A full-height
-        # wood backing 1mm behind the pane made the original clear glass opaque.
-        height=z1-z0
-        leaf=[(a+.025,z0+.02),(c-.025,z0+.02),(c-.025,z1-.02),(a+.025,z1-.02)]
-        light=[(a+.18,z0+height*.51),(c-.18,z0+height*.51),(c-.18,z1-.16),(a+.18,z1-.16)]
-        for fragment in subtract(leaf,[light]):
-            solid_polygon(b,o,fragment,-.305,-.28,conf,WOOD)
+        # T-2216: the leaf as sheet No. 95 draws it, grille, strap and panels.
+        from archetypes.masonry_house_v4_front_door import build
+        build(b,o,subtract,interior_recess,glass_pane)
+        return
     if style=='porte_cochere':
         original=b
         angle=math.radians(b.params.detail.get('porte_cochere_open_deg',82))
@@ -961,25 +958,6 @@ def detailed_door(b,o,style):
                                        (left,right,lo,lo+.027),(left,right,hi-.027,hi)]:
                         slab(b,o,x0,x1,y0,y1,-.28,-.19,conf,WOOD)
             slab(b,o,lc-.12,lc-.08,z0+.8,z0+1.03,-.18,-.15,conf,IRON)
-    else:
-        height=z1-z0
-        for left,right,lo,hi in [(a,a+.11,z0,z1),(c-.11,c,z0,z1),(a,c,z0,z0+.12),
-                                  (a,c,z1-.12,z1),(a,c,z0+height*.42,z0+height*.49)]:
-            slab(b,o,left,right,lo,hi,-.28,-.16,conf,WOOD)
-        slab(b,o,a+.19,c-.19,z0+.20,z0+height*.39,-.28,-.225,conf,WOOD)
-        lo=z0+height*.51;hi=z1-.16
-        interior_recess(b,[(a+.18,lo),(c-.18,lo),(c-.18,hi),(a+.18,hi)],
-                        lambda u,z,off:legacy._plane_point(o,u,z,off),legacy._plane_dir(o),front=-.279)
-        glass_pane(b,[legacy._plane_point(o,u,z,-.273) for u,z in
-                      [(a+.18,lo),(c-.18,lo),(c-.18,hi),(a+.18,hi)]],legacy._plane_dir(o),conf)
-        for i in range(1,5):
-            u=a+.18+(c-a-.36)*i/5
-            slab(b,o,u-.012,u+.012,lo,hi,-.265,-.24,conf,IRON)
-        for j in range(1,4):
-            z=lo+(hi-lo)*j/4
-            slab(b,o,a+.18,c-.18,z-.012,z+.012,-.265,-.24,conf,IRON)
-        slab(b,o,c-.145,c-.105,z0+height*.43,z0+height*.58,-.15,-.10,conf,IRON)
-
 
 def ring(b,pl,uc,zs,rin,rout,count,conf):
     if rout<=rin:

@@ -4,7 +4,7 @@ import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { cheapenGlass } from './glass.js';
 const $=id=>document.getElementById(id), base=new URL('../../',import.meta.url), dataURL=new URL('data/comparisons/glessner/',base);
 const loadJSON=async name=>{const r=await fetch(new URL(name,dataURL));if(!r.ok)throw Error(`${name}: HTTP ${r.status}`);return r.json()};
-const referenceURL=path=>{const r=globalThis.ROOT_SERVED;return new URL(r?.dirs.some(d=>path.startsWith(d))?r.base+path:`prairie-1904/${path}`,base)};
+const referenceURL=path=>{const r=globalThis.ROOT_SERVED;return new URL(r?.dirs.some(d=>path.startsWith(d))&&!r.keep?.includes(path)?r.base+path:`prairie-1904/${path}`,base)};
 const [data,baselineReport,auditReport]=await Promise.all([loadJSON('observations.json'),loadJSON('report.json'),loadJSON('audit-report.json')]).catch(e=>{$('loading').textContent=`Unable to load the comparison data: ${e.message}`;throw e});
 let report=auditReport,loadedDigest='',loadedName='',loadedDetail='';
 const scene=new THREE.Scene();scene.background=new THREE.Color('#d9ddd7');scene.add(new THREE.HemisphereLight(0xf4f4ee,0x555e51,2.3));const key=new THREE.DirectionalLight(0xffffff,2.4);key.position.set(35,65,45);scene.add(key);
