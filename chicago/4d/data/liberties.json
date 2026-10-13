@@ -34567,7 +34567,7 @@
         },
         {
           "label": "How to resolve",
-          "text": "a measured or rectified photograph of one street stone in raking light would replace the bow's numbers; a colour-calibrated photograph of the granite would set the tint; a measured drawing of the tympanum would replace the carving's sizes and counts. The previous record's 11 voussoirs and 5.6 ft dressed lintel had no source."
+          "text": "a measured or rectified photograph of one street stone in raking light would replace the bow's numbers; a colour-calibrated photograph of the granite would set the tint; a measured drawing of the tympanum would replace the carving's sizes and counts. The previous record's 11 voussoirs and 5.6 ft dressed lintel had no source. **Colour pass (T-2446, 2026-10-13).** The owner, with a photograph of the Eighteenth Street front: the stone \"is a bit more brown than this photo ... kind of greige but leaning grey\". His photograph's stone reads r/g 1.04, b/g 0.95, where the bake's sunlit east front read 1.13/0.91. Until he picks a default, the app retints the five granite slots at load (`?stone=`, renderer `glessner-stone.js`) to the `greige` preset, which meets the photograph on the sunlit east front a tenth lighter than the bake; `warm-greige`, `grey-greige` and `light-greige` sit beside it and `baked` shows the package. The presets' tints are invented, set by eye and by those two ratios from one uncalibrated phone photograph in overcast light."
         },
         {
           "label": "Covers",
@@ -34575,11 +34575,11 @@
         },
         {
           "label": "Ticket",
-          "text": "T-2416, T-2215 (Glessner exterior audit)."
+          "text": "T-2416, T-2215 (Glessner exterior audit); T-2446 (colour pass)."
         },
         {
           "label": "Recorded",
-          "text": "2026-10-12 (T-2416)."
+          "text": "2026-10-12 (T-2416); colour pass 2026-10-13 (T-2446)."
         }
       ]
     },
