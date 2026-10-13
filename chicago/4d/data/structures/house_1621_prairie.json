@@ -1,6 +1,6 @@
 {
   "id": "house_1621_prairie",
-  "name": "1621 Prairie Avenue — Brick masonry (district draft; refined by T-1869)",
+  "name": "1621 Prairie Avenue — John H. Hamline's house, Brick masonry (district draft; refined by T-1869)",
   "aka": [
     "1621 S. Prairie Avenue"
   ],
@@ -11,7 +11,7 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling (D), the north unit of the attached group 1621-1625, light well shared with 1623'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
+    "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling (D), the north unit of the attached group 1621-1625, light well shared with 1623'. Carried to 1904 on the T-1840 census ruling (present_as_mapped). Whose house: John H. Hamline's, built to Treat & Foltz's design of 1885-86 (the left-hand house of the Building Budget drawing, building_budget_1886_06_hamline_farwell_houses), ruled at 1621 by T-2439 on the 1885 permit, the 1884-87 directories, the 1886 occupant map, the 1886 Robinson plate's printed number (robinson_1886_chicago_plate_10) and the 1904 Blue Book, against one 1886 newspaper's '1619' (docs/RESEARCH/hamline-1621-2436/README.md). The front standing here is still the district draft's: T-2440 moves the drawing's build from 1619 to this house."
   },
   "review_required": false,
   "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1869 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1621-b1), the T-1840 census (s20-1621-f) and the T-1837 register row frontage-20-028 (Brick masonry); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335).",
