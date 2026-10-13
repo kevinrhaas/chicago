@@ -46,9 +46,11 @@ import math
 import random
 
 CORNICE = "k10.cornice.bracketed_timber"
+STONE = "k10.cornice.moulded_stone"      # T-2460: 1619's, from its drawing
 CRESTING = "k10.cresting.iron_ridge"
 DORMER = "k10.dormer.pedimented_on_bracketed_eave"
-ROLE_MATERIAL = {"timber": "fascia", "iron": "iron"}   # the eave's painted timber; the house's iron
+ROLE_MATERIAL = {"timber": "fascia", "iron": "iron",   # the eave's painted timber; the house's iron
+                 "stone": "bay_stone"}                  # T-2460: a bay's stone, whose band the cornice continues
 HEAD_HORN_M = 0.12      # K01's flat lintel runs this far past each jamb; K03's soldier head less
 HEAD_RISE_M = 0.30      # K01's lintel, the deepest head a K01 opening takes
 CLEAR_M = 0.03          # a bracket stands this far (along the wall) from a head, a pipe or a bay
@@ -68,8 +70,11 @@ def spec(params) -> dict | None:
     t = getattr(params, "wall_head", None)
     if not t:
         return None
-    if t.get("cornice") not in (None, CORNICE):
-        raise ValueError(f"wall_head.cornice builds {CORNICE!r} alone")
+    if t.get("cornice") not in (None, CORNICE, STONE):
+        raise ValueError(f"wall_head.cornice builds {CORNICE!r} or {STONE!r} alone")
+    if t.get("cornice") == STONE and (getattr(params, "roof_form", "hip") not in ("flat", "gable") or t.get("pairs")):
+        raise ValueError(f"{STONE} runs along the street front between the side walls' parapets, under a "
+                         f"flat or gable roof, and has no brackets to pair")
     if t.get("cresting") not in (None, CRESTING):
         raise ValueError(f"wall_head.cresting builds {CRESTING!r} alone")
     if t.get("dormer") not in (None, DORMER):
@@ -107,7 +112,7 @@ def _lay(a, pieces, conf, cid):
     tris = 0
     for piece in pieces:
         mat = ROLE_MATERIAL[piece.role]
-        fab = MATERIALS[mat].get("fabric")
+        fab = a.fabric[mat]          # the slot's fabric on this house (a bay's stone may be its front's)
         tu, tv = a.tiles[fab] if fab else (1.0, 1.0)
         pr = a.prim(mat)
         base = len(pr.pos)
@@ -212,7 +217,9 @@ def dress(a, bays):
     K = _kit()
     data = K.load()
     conf = max(p.conf("wall_head"), p.conf("roof_form"), p.conf("eave_overhang_m"))
-    if t.get("cornice"):
+    if t.get("cornice") == STONE:
+        _stone_cornice(a, K, data, bays, conf)
+    elif t.get("cornice"):
         _cornice(a, K, data, bays, conf)
     if t.get("cresting"):
         _cresting(a, K, data, conf)
@@ -390,6 +397,56 @@ def _cornice(a, K, data, bays, conf):
                    "bracket_runs": {r.name: [round(st[2], 3) for st in stations if st[1] == i] for i, r in enumerate(rr)},
                    "bed_mould_m": [round(y_bed, 4), round(y_s, 4)]}
     _lay(a, var.pieces, conf, CORNICE)
+
+
+def _stone_cornice(a, K, data, bays, conf):
+    """T-2460: the kit's moulded stone cornice along the street front, its top the K05
+    soffit, in place of brackets and a bed moulding: corner to corner, as the bracketed one
+    runs under a flat or gable roof whose side walls rise into parapets, and capped at both
+    corners. A K08 bay that rises to it carries the same section as its own eaves (its wall
+    top at the cornice's foot, k01_frontage_params' `eaves.cornice`), so the bay's cornice
+    continues the wall's: the wall's stops at the bay's junctions and dies into it there.
+    `bays` is (wall, s0, s1, top) for every K08 bay, in the record's order."""
+    p = a.p
+    v = next(x for x in data["variants"] if x["id"] == STONE)
+    prof = [tuple(q) for q in data["parts"]["profiles"][v["profile"]]["points"]]
+    pj, ch = max(n for n, _ in prof), max(u for _, u in prof)
+    y_s = a.soffit_m
+    y_c = y_s - ch
+    front = runs(p)[0]
+    if pj > p.eave_overhang_m - 0.02:
+        raise ValueError("the stone cornice would reach the eave's fascia")
+    for o in p.openings:
+        if o.wall == front.name and o.head_m + HEAD_RISE_M > y_c - 0.005:
+            raise ValueError(f"the head over {o.wall} s {o.s_m} reaches the stone cornice at {y_c:.3f} m")
+    cut = []
+    for b, (wall, s0, s1, top) in zip(p.bays, bays):
+        if wall != front.name or top <= y_c - 0.005:
+            continue
+        ev = b["variant"].get("overrides", {}).get("eaves", {})
+        wall_top = b["variant"].get("base", 0.0) if b["variant"].get("base") != "grade" else 0.0
+        wall_top += sum(st["height_m"] for st in b["variant"]["storeys"])
+        if [tuple(q) for q in ev.get("profile", ())] != prof or abs(wall_top - y_c) > 0.001:
+            raise ValueError(f"the bay {b['id']} reaches the stone cornice at {y_c:.3f} m; it rises to it only "
+                             f"carrying its section (eaves.cornice), its wall top at {y_c:.3f} m (has {wall_top:.3f})")
+        cut.append(tuple(b["span_m"]))
+    spans, at = [], 0.0
+    for c0, c1 in sorted(cut):
+        spans.append((at, c0))
+        at = c1
+    spans.append((at, front.L))
+    seed = a.instance(STONE, "cornice", {"projection_m": pj, "height_m": ch, "profile": v["profile"],
+                                         "soffit_m": y_s, "bays_carrying_it": len(cut)},
+                      {"soffit": (p.depth_m, y_s, 0.0)})
+    var = K.Variant({"id": STONE, "kind": "moulded", "material": "stone"}, data)
+    var.seed, var.rng = seed, random.Random(seed)
+    for k, (s0, s1) in enumerate(spans):
+        pc = var.piece(f"stone cornice {k + 1}", "stone", "open", run_names=[front.name])
+        ends = (s0 < 1e-9, s1 > front.L - 1e-9)       # capped at a corner; dying into a bay
+        K.sweep(pc.mesh, [front.at(s0, y_c), front.at(s1, y_c)], K.Y, prof, side=1.0, sgn=1.0, caps=ends)
+    a.wall_head = {"cornice": STONE, "cornice_m": [round(y_c, 4), round(y_s, 4)], "projection_m": pj,
+                   "stretches": [[round(s0, 3), round(s1, 3)] for s0, s1 in spans]}
+    _lay(a, var.pieces, conf, STONE)
 
 
 def _cresting(a, K, data, conf):
