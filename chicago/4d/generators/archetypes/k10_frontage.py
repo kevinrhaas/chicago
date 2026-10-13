@@ -333,7 +333,13 @@ def _cornice(a, K, data, bays, conf):
     for o in p.openings:
         if o.head_m + HEAD_RISE_M > y_bed - 0.005:
             raise ValueError(f"the head over {o.wall} s {o.s_m} reaches the bed moulding at {y_bed:.3f} m")
+    # T-2465: a pavilion under a crown is carried up to the crown's own cornice, through
+    # the line of the bed moulding, which runs into its cheeks; its brackets stand clear
+    cr = (getattr(p, "mansard", None) or {}).get("crown") or {}
     for wall, s0, s1, top in bays:
+        if cr.get("form") == "hip" and wall == "k01.wall.street_front" \
+                and -cr["z1"] - cr["overhang_m"] <= s0 and s1 <= -cr["z0"] + cr["overhang_m"]:
+            continue
         if top > y_bed - 0.005:
             raise ValueError(f"the bay on {wall} reaches the bed moulding at {y_bed:.3f} m")
     w, h = B["width_m"], B["height_m"]

@@ -34,7 +34,7 @@ import { enuToWorld, bearingToYaw, toFloatAttribute } from './terrain.js';
 import { dealTones, toneFor, toneFactors, NEUTRAL_TONE } from './facades.js';
 import { loadRoofRelief } from './roof-relief.js';
 import { filterGlessnerRoof } from './glessner-roof-filter.js';
-import { readGlessnerStone, tintGlessnerGranite } from './glessner-stone.js';
+import { tintGlessnerGranite } from './glessner-stone.js';
 import { loadWallRelief } from './wall-relief.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
 
@@ -371,7 +371,6 @@ function materialKey(m) {
  */
 export async function createBuildings({ registry, confidence, terrain, checkpoint = () => null,
   onProgress = () => {}, preserveMaterials = false, lowSpec = false, glass = DEFAULT_GLASS }) {
-  const stone = readGlessnerStone();
   const group = new THREE.Group();
   group.name = 'structures';
   const problems = [];
@@ -475,8 +474,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // finish lets through, written per vertex below (wall-grain.js).
       const grain = walls.apply(material, record.sidecar);
       filterGlessnerRoof(material, record, mesh.geometry);
-      // T-2446: `?stone=` picks Glessner's granite colour; it rides the albedo multiply.
-      tintGlessnerGranite(material, record, stone);
+      // T-2446/T-2469: Glessner's granite to grey-greige; it rides the albedo multiply.
+      tintGlessnerGranite(material, record);
       let prepared;
       try {
         prepared = normalizeGeometry(mesh.geometry, matrix, material, confidence, label, tone);

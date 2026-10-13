@@ -1593,7 +1593,11 @@ class Assembly:
         if not gb:
             solids = [hip, k5.body_box(0.0, D, -W, 0.0, hs - 1.0, hs)]
         cr = (m or {}).get("crown")
-        if cr:  # T-2404: the pavilion's crown, a taller mansard joined into the main one
+        if cr and cr.get("form") == "hip":   # T-2465: a crown hipped to its own ridge
+            crown, _, _ = k5.hip_crown_element(cr["x0"], cr["x1"], cr["z0"], cr["z1"], E, cr["pitch_deg"],
+                                               cr["end_pitch_deg"], cr["overhang_m"], f)
+            solids.append(crown)
+        elif cr:  # T-2404: the pavilion's crown, a taller mansard joined into the main one
             crown, _, _ = k5.mansard_element(cr["x0"], cr["x1"], cr["z0"], cr["z1"], E, cr["lower_pitch_deg"],
                                              p.roof_pitch_deg, cr["lower_rise_m"], cr["bulge"], m["segments"],
                                              m["profile"], cr["overhang_m"], f)
