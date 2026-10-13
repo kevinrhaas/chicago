@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1766, ts: '2026-10-13T16:21:37.088Z', date: 'Oct 13, 2026, 11:21 AM CT', title: 'Glessner\'s granite settles on grey-greige', kind: 'improvement',
+    items: [
+      'The Glessner house\'s granite is now grey-greige by default, the colour chosen from the comparison.',
+      'The ?stone= colour options are gone.',
+    ] },
   { v: 1765, ts: '2026-10-13T16:15:43.889Z', date: 'Oct 13, 2026, 11:15 AM CT', title: 'The 1904 check counts the Forsyth house at 1635 Prairie', kind: 'fix',
     items: [
       'The 1904 scene\'s automated check holds, by name, the list of every building it places. The Forsyth house at 1635 Prairie went into the scene on 13 October without joining that list, so the check failed on every change since, and finished work could not be merged.',
