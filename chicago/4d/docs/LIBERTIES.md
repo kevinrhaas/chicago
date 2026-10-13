@@ -25650,3 +25650,40 @@ depth rests on and brings the match record to `matches`, keeping this record's i
 **Ticket:** T-2423 (a piece of T-1865, the 1638 architecture).
 **Review:** `docs/RESEARCH/k16-1638-gable-2423/README.md`.
 **Recorded:** 2026-10-12 (T-2423).
+
+### L-k16-1638-bay-2424 — 1638 Prairie's canted bay read off its photograph: three pointed lights between posts, a panelled base and a moulded cornice; sections, depth and deck still the kit's or inferred
+
+**Decision:** the canted bay on the front of the Shortall-Gregory house (T-2424, a piece of T-1865)
+stops being a plain stand-in block and is built in the K16 kit's timber from the house's photograph,
+read through the camera T-2423 solved. Each of its three faces is a kit clapboard wall with a broad
+post (0.16 m) at each angle and, between them, a pointed light: the K06 equilateral head on a
+0.73 m one-over-one sash, the glass from 0.63 m to its point at 2.83 m, the casing carried round
+the head as T-2423's gable lights have it. Under the lights a panelled base, a raised panel to each
+face on a chamfered plinth, runs round the bay under a weathered sill course whose top is at
+0.45 m; over them a short frieze and a moulded cornice, soffit, fascia, bed and crown, from 3.13 m
+to 3.55 m, under a flat deck that falls 0.07 m from the wall. Base, sill course and cornice are
+carried round the plan so every angle mitres. The plan is the print's: the face 1.42 m (s 2.03 to
+3.45 m along the front), the cants meeting the wall at s 1.16 and 4.32 m, where the 1911 sheet's
+drawn bay was 4.28 m across with a 1.95 m face.
+**What is read, not invented.** From the photograph (`chicagology_1638_prairie_photo`), at 77 px a
+metre at the bay's face and 73 at the wall, grade at 835 px there: the face's width and the cants'
+spread along the wall; that there are three lights, one a face, each pointed and between posts;
+the centre light's width, glass bottom, point and meeting rail; the sill course's top and the row
+of panels under it; the cornice's soffit and crown. The camera's own limits (its `solve` field)
+carry over.
+**What is invented.** The bay's depth, which a front view cannot show: the sheet's 1.1 m, kept, at
+which the cants come to 1.40 m, the face's width within 2 cm; the cant lights' size, taken as the
+centre light's because their foreshortening hides their jambs; the arch, the kit's equilateral
+head, where the print's stops at about 2.33 m mark a slightly blunter arch than the model's spring
+at 2.20 m; the dark stops at the springs, not built; the posts' width and the narrow run of siding
+between each post and its casing, the halftone not resolving whether the bay is sided or boarded
+smooth; every section (plinth, panels, sill course, frieze, cornice mouldings); the deck, which no
+street view shows; every colour, the print being monochrome.
+
+**How to resolve:** a plan, a sharper print or a second view at an angle gives the bay's depth and
+the cants' lights; a closer picture gives the arch's true curve, the stops and the cornice's
+mouldings. T-2426 builds the fence the camera's depth rests on and brings the match record to
+`matches`, keeping this record's id.
+**Ticket:** T-2424 (a piece of T-1865, the 1638 architecture).
+**Review:** `docs/RESEARCH/k16-1638-bay-2424/README.md`.
+**Recorded:** 2026-10-13 (T-2424).
