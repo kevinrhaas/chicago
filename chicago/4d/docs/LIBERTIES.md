@@ -25700,16 +25700,17 @@ the brick, the courtyard's limestone trim, and the plan envelope.
 replace the bow's numbers; a colour-calibrated photograph of the granite would set the tint; a
 measured drawing of the tympanum would replace the carving's sizes and counts. The previous
 record's 11 voussoirs and 5.6 ft dressed lintel had no source.
-**Colour pass (T-2446, 2026-10-13).** The owner, with a photograph of the Eighteenth Street
-front: the stone "is a bit more brown than this photo ... kind of greige but leaning grey". His
-photograph's stone reads r/g 1.04, b/g 0.95, where the bake's sunlit east front read 1.13/0.91.
-Until he picks a default, the app retints the five granite slots at load (`?stone=`, renderer
-`glessner-stone.js`) to the `greige` preset, which meets the photograph on the sunlit east
-front a tenth lighter than the bake; `warm-greige`, `grey-greige` and `light-greige` sit beside
-it and `baked` shows the package. The presets' tints are invented, set by eye and by those two
-ratios from one uncalibrated phone photograph in overcast light.
+**Colour pass (T-2446, T-2469, 2026-10-13).** The owner, with a photograph of the Eighteenth
+Street front: the stone "is a bit more brown than this photo ... kind of greige but leaning grey".
+His photograph's stone reads r/g 1.04, b/g 0.95, where the bake's sunlit east front read
+1.13/0.91. Of five colours T-2446 put on `?stone=` he chose grey-greige; the option is gone and
+the renderer (`glessner-stone.js`) retints the five granite slots to it at load, linear
+(0.90, 1.067, 1.166) on the main slot, reading 1.02-1.03 and 0.955-0.965 on the sunlit east
+front. It is not baked because the glTF exporter clamps a colour factor to 1, which would
+darken it. The tint is invented, set by eye and by those ratios from one uncalibrated phone
+photograph in overcast light.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
-**Ticket:** T-2416, T-2215 (Glessner exterior audit); T-2446 (colour pass).
+**Ticket:** T-2416, T-2215 (Glessner exterior audit); T-2446, T-2469 (colour pass).
 **Recorded:** 2026-10-12 (T-2416); colour pass 2026-10-13 (T-2446).
 
 ### L-k01-1613-brick-flat-2417 — 1613 Prairie refined from the district draft to a four-storey K01 brick house under a flat roof, the north half of the pair with 1615, its frame rear porch in timber, everything but the plan the kits'
