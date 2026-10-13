@@ -137,11 +137,12 @@ function treeCard(t, doc) {
 /**
  * @param {object} o dataBase (data/ root, or null when the scene does not list
  *   the layer) · sceneId · terrain · confidence · problems · detail · lowSpec ·
- *   mode ('summer' | 'spring' | 'winter' | 'hidden') · checkpoint
+ *   mode ('summer' | 'spring' | 'winter' | 'hidden') · checkpoint · levelAt (the
+ *   street grid's drop below the field at a point: the parkway falls toward the curb, T-2474)
  */
 export async function createStreetTrees({
   dataBase, sceneId, terrain, confidence = null, problems = [], detail = 'full',
-  lowSpec = false, mode = 'summer', checkpoint = () => null,
+  lowSpec = false, mode = 'summer', checkpoint = () => null, levelAt = null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'street-trees';
@@ -203,7 +204,7 @@ export async function createStreetTrees({
 
   /* ---- where each tree stands ------------------------------------------- */
   const placed = trees.map((t) => {
-    const y = terrain.surfaceHeight(t.e, t.n) + PARKWAY_LIFT_M;
+    const y = terrain.surfaceHeight(t.e, t.n) + (levelAt?.(t.e, t.n) ?? 0) + PARKWAY_LIFT_M;
     const m = new THREE.Matrix4().compose(
       new THREE.Vector3(t.e, y, -t.n),
       new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), (t.yaw_deg ?? 0) * Math.PI / 180),

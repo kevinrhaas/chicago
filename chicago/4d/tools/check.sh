@@ -471,8 +471,13 @@ step "the 1904 Prairie Avenue street and parcel grid re-derives from its sheets 
 selftest "…and a misread lot line, a stray label or a broken section still fails it" \
   python3 tools/trace_prairie_1904_grid.py --self-test
 
-# T-2473. ...and the parkway elms planted on that grid's parkway bands: generated, so the
-# committed file is what the tool writes from the committed grid, tree for tree.
+# T-2474. ...the street section and the carriage walks laid on that grid's lots and faces,
+# generated the same way; and (T-2473) the parkway elms planted on its parkway bands, clear
+# of those carriage walks: the committed files are what the tools write, walk for walk and
+# tree for tree.
+step "the 1904 street section and carriage walks re-lay from the street grid (T-2474)" \
+  python3 tools/lay_prairie_1904_street_section.py --check
+
 step "the 1904 parkway elms re-plant from the street grid (T-2473)" \
   python3 tools/plant_prairie_1904_street_trees.py --check
 

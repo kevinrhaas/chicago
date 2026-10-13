@@ -1761,7 +1761,7 @@ async function boot() {
   const streetTrees = await createStreetTrees({
     dataBase: layerBase('street_trees'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
     problems: layerProblems('street_trees'), lowSpec: coarse, mode: readStreetTreesPreference(),
-    checkpoint: bootCheckpoint, ...detailOpts(),
+    checkpoint: bootCheckpoint, levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
   });
   scene3d.add(streetTrees.group);
   api.streetTrees = streetTrees;
