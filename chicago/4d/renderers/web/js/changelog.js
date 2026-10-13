@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1763, ts: '2026-10-13T14:21:14.232Z', date: 'Oct 13, 2026, 9:21 AM CT', title: '1619 Prairie\'s crow-stepped south wall and steep roof, from its drawing', kind: 'improvement',
+    items: [
+      '1619 Prairie\'s hipped roof is now the one its 1886 Building Budget drawing shows: a steep slated slope rising behind the wall gable to a ridge along the front.',
+      'The house\'s south side wall is carried up above the roof in five coped crow steps to a tall brick stack at the ridge, as the drawing draws it.',
+      'The rear slope, the plain parapet on the north wall and the second stack are reconstructed and listed as liberties; the house\'s gutters are gone, since the drawing shows none.',
+      'The moulded stone cornice at the bay\'s top comes next.',
+    ] },
   { v: 1762, ts: '2026-10-13T13:49:52.011Z', date: 'Oct 13, 2026, 8:49 AM CT', title: '1635 Prairie\'s house stands again, empty, beside 1637', kind: 'feature',
     items: [
       'The strip between 1625 and 1637 Prairie was bare. A brick house now stands on it. Col. Robert Forsyth built it in 1863, and Warren Springer lived in it until 1902.',
