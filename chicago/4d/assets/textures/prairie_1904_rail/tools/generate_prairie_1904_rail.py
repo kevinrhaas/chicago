@@ -78,7 +78,7 @@ MATERIALS = [
     dict(id="riprap_limestone", group="edge", span_m=4.0, span_across_m=4.0, seed=19041320,
          kind="riprap", mean_roughness=0.86, colors=((178, 170, 152), (92, 88, 80)),
          note="Rough quarry stone dumped on the embankment's lakeward face, seen from above: "
-              "angular blocks of a third to most of a metre, buff-grey limestone of the kind "
+              "angular blocks from a fifth to most of a metre across, buff-grey limestone of the kind "
               "Lemont and Joliet quarried for every Chicago lake work, weathered, stained and "
               "spotted with lichen, with dark voids between them. The renderer darkens it "
               "toward the water. Reconstructed (L-ic-lake-edge-2479)."),

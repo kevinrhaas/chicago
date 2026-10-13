@@ -15860,17 +15860,17 @@
   "stones": {
    "material": "limestone_block",
    "size_m": [
-    0.4,
-    0.95
+    0.45,
+    1.1
    ],
    "per_m2": {
-    "full": 1.8,
-    "balanced": 1.1,
+    "full": 2.0,
+    "balanced": 1.2,
     "light": 0.5
    },
    "sink": 0.4,
    "tier": "reconstructed",
-   "note": "Single blocks stood on the face near the eye, angular, 0.4 to nearly 1 m across, seated on their flat undersides and sunk among the rest. Their size, shape, number and stone are ours. RECONSTRUCTED."
+   "note": "Single blocks stood on the face near the eye, angular, 0.45 to 1.1 m across, seated on their flat undersides and sunk among the rest. Their size, shape, number and stone are ours. RECONSTRUCTED."
   },
   "cap": {
    "material": "cap_timber",
