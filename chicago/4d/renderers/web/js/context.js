@@ -240,7 +240,7 @@ export async function createContext({
   const out = {
     group, doc: null,
     census: { buildings: 0, trees: 0, dropped: 0, triangles: 0, meshes: 0 },
-    pickAt: () => null, dispose: () => {},
+    pickAt: () => null, setSeason: () => {}, dispose: () => {},
   };
   if (!dataBase || !terrain) return out;
   let doc;
@@ -444,6 +444,15 @@ export async function createContext({
           + `docs/LIBERTIES.md ${doc.liberty}${doc.liberty_streets ? ` and ${doc.liberty_streets}` : ''}.`,
       },
     };
+  };
+  /** T-2481: the stand-in crowns follow the Season setting — a fresher green,
+   *  the elms' yellow, or in winter a grey-brown mass of bare limbs. */
+  const SEASON_CROWN = { spring: [1.06, 1.22, 0.82], fall: [1.8, 1.12, 0.4] };
+  out.setSeason = (season) => {
+    const bare = season === 'winter';
+    if (leafMaterial.vertexColors === bare) { leafMaterial.vertexColors = !bare; leafMaterial.needsUpdate = true; }
+    if (bare) leafMaterial.color.set(0x968b82);
+    else leafMaterial.color.setRGB(...(SEASON_CROWN[season] ?? [1, 1, 1]));
   };
   out.pickAt = (ndc, camera) => {
     if (!camera || !meshes.length) return null;

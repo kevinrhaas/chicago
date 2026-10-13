@@ -47,6 +47,10 @@
  */
 
 import * as THREE from 'three';
+import {
+  SEASON_HEAD, SEASON_VERTEX_DECL, SEASON_VERTEX_ASSIGN, SEASON_FRAGMENT_DECL, SEASON_FRAGMENT_APPLY,
+  seasonShaderUniforms,
+} from './season.js';
 
 /** Longest triangle edge after draping, metres. The heightfield's cell is 2.5 m,
  *  so a triangle no longer than that cannot bridge a cell and float or sink. */
@@ -73,6 +77,10 @@ const CLASSES = {
   walk: { lift: 0.055, colour: 0xc2bdb2, offset: -11, tier: 'reconstructed' },
   curb: { lift: 0.06, colour: 0xd9d5cc, offset: -12, tier: 'reconstructed' },
 };
+/** T-2481: how much of the Season setting's snow each class keeps, and whether it
+ *  is grass (1): the lawns' snow lies, the alleys' is part trodden, the travelled
+ *  roadways' mostly trodden and the walks swept. */
+const SEASON_KIND = { carriageway: 0.3, alley: 0.5, margin: 1, parkway: 1, walk: 0.15, curb: 0.2 };
 const PRIORITY_LIFT_M = 0.003;
 /** The ground cut's raster, metres a pixel: fine enough that its edge, which sits
  *  under the walk's inner edge where the fall is under a centimetre, never shows. */
@@ -941,13 +949,20 @@ export async function createStreetGrid({
       geo.setAttribute('seam', new THREE.Float32BufferAttribute(buf.seam, 1));
       mat.transparent = true;
       mat.depthWrite = false;
-      mat.onBeforeCompile = (shader) => {
-        shader.vertexShader = SEAM_VERTEX_DECL + shader.vertexShader.replace(
-          '#include <begin_vertex>', '#include <begin_vertex>' + SEAM_VERTEX_ASSIGN);
-        shader.fragmentShader = SEAM_FRAGMENT_DECL + shader.fragmentShader.replace(
-          '#include <alphamap_fragment>', '#include <alphamap_fragment>' + SEAM_FRAGMENT_ALPHA);
-      };
     }
+    // T-2481: every street surface takes the Season setting's snow, fresher or
+    // browner grass and fallen leaves, by how much its class keeps (SEASON_KIND).
+    const seasonKind = { value: SEASON_KIND[buf.cls] ?? 0 };
+    mat.onBeforeCompile = (shader) => {
+      seasonShaderUniforms(shader);
+      shader.uniforms.uChiSeasonKind = seasonKind;
+      shader.vertexShader = SEASON_VERTEX_DECL + (buf.seam ? SEAM_VERTEX_DECL : '') + shader.vertexShader.replace(
+        '#include <begin_vertex>', '#include <begin_vertex>' + SEASON_VERTEX_ASSIGN + (buf.seam ? SEAM_VERTEX_ASSIGN : ''));
+      let f = SEASON_FRAGMENT_DECL + SEASON_HEAD + (buf.seam ? SEAM_FRAGMENT_DECL : '') + shader.fragmentShader.replace(
+        '#include <color_fragment>', '#include <color_fragment>' + SEASON_FRAGMENT_APPLY);
+      if (buf.seam) f = f.replace('#include <alphamap_fragment>', '#include <alphamap_fragment>' + SEAM_FRAGMENT_ALPHA);
+      shader.fragmentShader = f;
+    };
     if (lib) {
       mat.map = lib.map;
       mat.normalMap = lib.normalMap;
