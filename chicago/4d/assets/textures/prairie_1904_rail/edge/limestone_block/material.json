@@ -1,0 +1,41 @@
+{
+  "id": "limestone_block",
+  "group": "edge",
+  "span_m": 1.0,
+  "span_across_m": 1.0,
+  "seed": 19041421,
+  "kind": "stone",
+  "mean_roughness": 0.84,
+  "colors": [
+    [
+      182,
+      174,
+      156
+    ],
+    [
+      104,
+      99,
+      89
+    ]
+  ],
+  "note": "The broken face of one riprap stone, for the blocks the renderer stands on the face near the eye: split limestone with its bedding lines, pits, rust stains and lichen. Reconstructed (L-ic-lake-edge-2479).",
+  "span_along_m": 1.0,
+  "resolution_px": 512,
+  "px_per_m": 512.0,
+  "confidence": "reconstructed appearance; which ground carries it is data/railway/1904_spec.json's to say",
+  "orientation": "image x = along the shore (renderer u); image y = across it (v)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "height16": "linear 16-bit",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "limestone_block_basecolor_web.jpg",
+    "normal_gl": "limestone_block_normal_gl_web.jpg",
+    "orm": "limestone_block_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19041421,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_rail.py); no photograph sampled"
+}

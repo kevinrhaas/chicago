@@ -14,9 +14,19 @@
  *   the verges          weeds along both edges of the right-of-way, and a few
  *                       between the tracks, as crossed alpha cards
  *
+ * and the railway's edge against the lake (T-2479), from the same file's `lake_edge`
+ * and `right_of_way.made_ground`:
+ *
+ *   the stone face      dumped limestone on the embankment's lakeward face, from under
+ *                       the water to the crest: a draped riprap map everywhere, and
+ *                       single blocks stood on it near the eye
+ *   the cap and piles   a 12-inch timber along the crest over round piles
+ *   the made ground     cinders, sand and fill between the crest and the east verge
+ *
  * Every number comes from the data file, which carries the spec's tiers and notes;
  * the maps come from `textures/prairie_1904_rail/` under the asset base. The
- * pictures are evidence of nothing (docs/LIBERTIES.md L-ic-tracks-2478).
+ * pictures are evidence of nothing (docs/LIBERTIES.md L-ic-tracks-2478, and
+ * L-ic-lake-edge-2479 for the edge).
  *
  * THE GROUND DRAWS LIKE A DECAL AND MUST NOT WRITE DEPTH. The cinders, the verges
  * and the beds lie two centimetres over the heightfield, in the transparent list
@@ -44,6 +54,10 @@ const MAPS = {
   trodden_cinders: 'ground/trodden_cinders',
   weedy_verge: 'verge/weedy_verge',
   tie_timber: 'timber/tie_timber',
+  riprap_limestone: 'edge/riprap_limestone',
+  limestone_block: 'edge/limestone_block',
+  cap_timber: 'edge/cap_timber',
+  made_ground: 'edge/made_ground',
 };
 const TUFT = 'foliage/grass_tuft';
 const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
@@ -51,6 +65,10 @@ const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
 const MAX_EDGE_M = 2.5;
 /** Each ground surface's lift over the heightfield and its draw order. */
 const GROUND = {
+  // the face is steep and bends over at its crest: it stands higher and is pulled
+  // forward by the slope as well, which nothing low stands on it to be hidden by
+  face: { lift: 0.10, order: -6, fade: 0.25, colour: 0x8a8476, slope: -2 },
+  made: { lift: 0.04, order: -4, fade: 0.5, colour: 0x5a5249 },
   cinders: { lift: 0.02, order: -3, fade: 1.2, colour: 0x4a4744 },
   verge: { lift: 0.022, order: -2, fade: 0.7, colour: 0x5f6a3c },
   bed: { lift: 0.024, order: -1, fade: 0.45, colour: 0x2e2d2c },
@@ -59,10 +77,13 @@ const GROUND = {
 const ZONE_M = 110;
 /** Per level: full section within `near`, ties at all within `ties`, tufts within `tufts`. */
 const REACH = {
-  full: { near: 130, ties: 650, tufts: 240 },
-  balanced: { near: 100, ties: 480, tufts: 170 },
-  light: { near: 60, ties: 220, tufts: 100 },
+  full: { near: 130, ties: 650, tufts: 240, rocks: 110 },
+  balanced: { near: 100, ties: 480, tufts: 170, rocks: 85 },
+  light: { near: 60, ties: 220, tufts: 100, rocks: 50 },
 };
+/** Wet stone: the tone a block or the face takes at and under the waterline. */
+const WET = [0.52, 0.56, 0.48];
+const UNDER = [0.36, 0.42, 0.38];
 const STEEL = new THREE.Color(0xa3a4a6);
 const RUST = new THREE.Color(0x4f3527);
 const HEAD_SIDE = new THREE.Color(0x6b5546);
@@ -148,7 +169,7 @@ function trackPath(line, terrain) {
  * UVs are world metres on the yard's own axes, so beds, cinders and verges share a
  * grain where they overlap.
  */
-function ribbon(stations, { terrain, lift, fade, axis, span, level, out }) {
+function ribbon(stations, { terrain, lift, fade, axis, span, level, out, tint = null, across = MAX_EDGE_M }) {
   const { pos, uv, col, conf } = out;
   for (let i = 0; i + 1 < stations.length; i += 1) {
     const [ae0, an0, be0, bn0] = stations[i];
@@ -157,7 +178,7 @@ function ribbon(stations, { terrain, lift, fade, axis, span, level, out }) {
     const width = Math.max(Math.hypot(be0 - ae0, bn0 - an0), Math.hypot(be1 - ae1, bn1 - an1), 1e-3);
     const nu = Math.max(1, Math.ceil(along / MAX_EDGE_M));
     const f = Math.min(0.45, fade / width);
-    const inner = Math.max(1, Math.ceil((width * (1 - 2 * f)) / MAX_EDGE_M));
+    const inner = Math.max(1, Math.ceil((width * (1 - 2 * f)) / across));
     const vs = [0, f];
     for (let j = 1; j < inner; j += 1) vs.push(f + ((1 - 2 * f) * j) / inner);
     vs.push(1 - f, 1);
@@ -177,9 +198,10 @@ function ribbon(stations, { terrain, lift, fade, axis, span, level, out }) {
         for (const t of tris) {
           for (const k of t) {
             const [e, n, alpha] = q[k];
-            pos.push(wx(e), terrain.surfaceHeight(e, n) + lift, wz(n));
+            const y = terrain.surfaceHeight(e, n);
+            pos.push(wx(e), y + lift, wz(n));
             uv.push((e * axis[0] + n * axis[1]) / span, (-e * axis[1] + n * axis[0]) / span);
-            col.push(1, 1, 1, alpha);
+            if (tint) { const [r, g, b] = tint(y); col.push(r, g, b, alpha); } else col.push(1, 1, 1, alpha);
             conf.push(level);
           }
         }
@@ -202,7 +224,7 @@ function groundMesh(name, out, kind, lib, confidence) {
     transparent: true, depthWrite: false,
     // one unit of bias, no slope term: the slope term is what pulled a decal over
     // the low timber standing on it at distance (T-2098)
-    polygonOffset: true, polygonOffsetFactor: 0, polygonOffsetUnits: -1,
+    polygonOffset: true, polygonOffsetFactor: g.slope ?? 0, polygonOffsetUnits: -1,
   });
   if (lib) {
     mat.map = lib.map; mat.normalMap = lib.normalMap; mat.roughnessMap = lib.orm; mat.aoMap = lib.orm;
@@ -370,6 +392,142 @@ function tuftGeometry(aspect) {
   return geo;
 }
 
+/* -------------------------------------------------------------------------- */
+/* the lake edge (T-2479)                                                      */
+/* -------------------------------------------------------------------------- */
+
+/** Stone darkens and greens where the lake keeps it wet, and more under the water. */
+function wetTint(y, wetBelow) {
+  if (y >= wetBelow) return [1, 1, 1];
+  const f = Math.min(1, (wetBelow - y) / (wetBelow + 0.15));
+  const g = Math.min(1, Math.max(0, -y / 0.6));
+  const to = WET.map((w, i) => w + (UNDER[i] - w) * g);
+  return to.map((w) => 1 + (w - 1) * f);
+}
+
+/**
+ * One quarry block: an icosahedron with every corner pushed in or out, squashed, so
+ * its twenty faces read as broken planes. Unit size, centred; UVs by box projection
+ * from each face's own normal, in metres of a unit block.
+ */
+function rockGeometry(seed) {
+  const r = rng(seed);
+  const geo = new THREE.IcosahedronGeometry(0.5, 1);
+  const p = geo.attributes.position;
+  const moved = new Map();
+  // a few broken planes across the block: every corner past one is pressed back onto it
+  const cuts = Array.from({ length: 4 }, () => {
+    const a = r() * Math.PI * 2; const b = (r() - 0.3) * 1.2;
+    return { n: [Math.cos(a) * Math.cos(b), Math.sin(b), Math.sin(a) * Math.cos(b)], d: 0.3 + r() * 0.12 };
+  });
+  // a block's proportions: longer one way than the other, and flatter than both
+  const sx = 0.85 + r() * 0.45; const sz = 0.7 + r() * 0.3;
+  for (let i = 0; i < p.count; i += 1) {
+    const key = `${p.getX(i).toFixed(3)},${p.getY(i).toFixed(3)},${p.getZ(i).toFixed(3)}`;
+    if (!moved.has(key)) {
+      const k = 0.82 + r() * 0.3;
+      let v = [p.getX(i) * k, p.getY(i) * k, p.getZ(i) * k];
+      for (const c of cuts) {
+        const over = v[0] * c.n[0] + v[1] * c.n[1] + v[2] * c.n[2] - c.d;
+        if (over > 0) v = v.map((x, j) => x - c.n[j] * over);
+      }
+      moved.set(key, [
+        v[0] * sx + (r() - 0.5) * 0.06,
+        // the underside sheared flat, as a block lies on the ones below it
+        Math.max(-0.2, v[1] * 0.66 + (r() - 0.5) * 0.04),
+        v[2] * sz + (r() - 0.5) * 0.06,
+      ]);
+    }
+    p.setXYZ(i, ...moved.get(key));
+  }
+  geo.computeVertexNormals();   // non-indexed: each face keeps its own flat normal
+  const nrm = geo.attributes.normal;
+  const uv = geo.attributes.uv;
+  // the underside and the foot in the shadow of the blocks round it
+  const col = new Float32Array(p.count * 3);
+  for (let i = 0; i < p.count; i += 1) {
+    const k = 0.5 + 0.5 * Math.min(1, Math.max(0, (p.getY(i) + 0.2) / 0.42));
+    col.set([k, k, k], i * 3);
+  }
+  geo.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
+  for (let i = 0; i < p.count; i += 3) {
+    const ax = Math.abs(nrm.getX(i)); const ay = Math.abs(nrm.getY(i)); const az = Math.abs(nrm.getZ(i));
+    const ou = r(); const ov = r();
+    for (let j = i; j < i + 3; j += 1) {
+      const [u, v] = ay >= ax && ay >= az ? [p.getX(j), p.getZ(j)]
+        : (ax >= az ? [p.getZ(j), p.getY(j)] : [p.getX(j), p.getY(j)]);
+      uv.setXY(j, u + ou, v + ov);
+    }
+  }
+  geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(new Float32Array(p.count).fill(1), 1));
+  return geo;
+}
+
+/**
+ * The cap timber along the crest: its top, its lake face and the few centimetres of
+ * its land face that stand proud of the made ground, as one mesh. The crest line is
+ * the lake face's foot of the land side; `land` is the unit plan vector inland.
+ */
+function capMesh(crest, faces, cap, terrain, lib, confidence) {
+  const pos = []; const uv = []; const nrm = [];
+  const pts = [];
+  for (let i = 0; i < crest.length; i += 1) {
+    const [e, n] = crest[i];
+    const f = faces[Math.min(i, faces.length - 1)];
+    let le = f[2] - f[0]; let ln = f[3] - f[1];
+    const L = Math.hypot(le, ln) || 1; le /= L; ln /= L;
+    const ground = Math.max(terrain.surfaceHeight(e, n), terrain.surfaceHeight(e + le * 0.6, n + ln * 0.6));
+    pts.push({ e, n, le, ln, top: ground + cap.proud_m });
+  }
+  // a running grade, so the cap does not step with every heightfield cell
+  for (let i = 0; i < pts.length; i += 1) {
+    let sum = 0; let c = 0;
+    for (let j = Math.max(0, i - 2); j <= Math.min(pts.length - 1, i + 2); j += 1) { sum += pts[j].top; c += 1; }
+    pts[i].y = sum / c;
+  }
+  const w = cap.width_m; const dep = cap.depth_m; const span = lib?.along ?? 3;
+  let run = 0;
+  /** A quad, wound so its front is the side its normal leaves by. */
+  const quad = (P, U, n) => {
+    const g = (i, j, k) => {
+      const ux = P[j][0] - P[i][0]; const uy = P[j][1] - P[i][1]; const uz = P[j][2] - P[i][2];
+      const vx = P[k][0] - P[i][0]; const vy = P[k][1] - P[i][1]; const vz = P[k][2] - P[i][2];
+      return (uy * vz - uz * vy) * n[0] + (uz * vx - ux * vz) * n[1] + (ux * vy - uy * vx) * n[2];
+    };
+    const order = g(0, 1, 2) >= 0 ? [0, 1, 2, 0, 2, 3] : [0, 2, 1, 0, 3, 2];
+    for (const k of order) { pos.push(...P[k]); nrm.push(...n); uv.push(...U[k]); }
+  };
+  for (let i = 0; i + 1 < pts.length; i += 1) {
+    const A = pts[i]; const B = pts[i + 1];
+    const seg = Math.hypot(B.e - A.e, B.n - A.n);
+    const u0 = run / span; const u1 = (run + seg) / span; run += seg;
+    // across: 0 at the lake face, w at the land face; three's z is -n
+    const at = (P, across, y) => [wx(P.e + P.le * across), y, wz(P.n + P.ln * across)];
+    const ile = (A.le + B.le) / 2; const iln = (A.ln + B.ln) / 2;
+    const lakeN = [-ile, 0, iln];
+    const landN = [ile, 0, -iln];
+    const UV = (v0, v1) => [[u0, v0], [u1, v0], [u1, v1], [u0, v1]];
+    quad([at(A, 0, A.y), at(B, 0, B.y), at(B, w, B.y), at(A, w, A.y)], UV(0, 1), [0, 1, 0]);
+    quad([at(A, 0, A.y - dep), at(B, 0, B.y - dep), at(B, 0, B.y), at(A, 0, A.y)], UV(0, 0.5), lakeN);
+    quad([at(A, w, A.y - cap.proud_m - 0.04), at(B, w, B.y - cap.proud_m - 0.04), at(B, w, B.y), at(A, w, A.y)],
+      UV(0.5, 0.65), landN);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.setAttribute('normal', new THREE.Float32BufferAttribute(nrm, 3));
+  geo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+  geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(new Float32Array(pos.length / 3).fill(1), 1));
+  geo.computeBoundingSphere();
+  const mat = new THREE.MeshStandardMaterial({ color: lib ? 0xffffff : 0x6a645a, roughness: 0.88, metalness: 0 });
+  if (lib) { mat.map = lib.map; mat.normalMap = lib.normalMap; mat.roughnessMap = lib.orm; mat.normalScale = new THREE.Vector2(0.8, 0.8); }
+  mat.name = 'railway-cap';
+  confidence?.patch(mat);
+  const mesh = new THREE.Mesh(geo, mat);
+  mesh.name = 'railway-cap';
+  mesh.castShadow = true; mesh.receiveShadow = true;
+  return { mesh, pts };
+}
+
 /**
  * @param {object} o dataBase (data/ root, or null when the scene does not list the
  *                   layer) · assetBase · sceneId · terrain · confidence · problems ·
@@ -383,7 +541,7 @@ export async function createRailway({
   const out = {
     group,
     data: null,
-    census: { tracks: 0, track_m: 0, ties: 0, tufts: 0, zones: 0, textured: false },
+    census: { tracks: 0, track_m: 0, ties: 0, tufts: 0, zones: 0, textured: false, rocks: 0, piles: 0, edge_m: 0 },
     update: () => {},
     setDetail: () => {},
     pickAt: () => null,
@@ -467,7 +625,42 @@ export async function createRailway({
     groundMesh('railway-verges', verge, 'verge', vergeLib, confidence),
     groundMesh('railway-ballast-beds', bed, 'bed', bedLib, confidence),
   ];
-  for (const m of groundMeshes) { group.add(m); meshes.push(m); materials.push(m.material); geometries.push(m.geometry); }
+
+  /* ---- the lake edge (T-2479): the stone face and the made ground ---- */
+  const edgeSpec = spec.edge ?? null;
+  const lake = data.lake_edge ?? null;
+  const edgeMeshes = [];
+  if (edgeSpec && lake && (lake.face ?? []).length >= 2) {
+    const wetBelow = edgeSpec.face?.wet_below_m ?? 0.35;
+    const face = buffers();
+    const faceLib = maps.get(edgeSpec.face?.material ?? 'riprap_limestone');
+    ribbon(lake.face, {
+      terrain, lift: GROUND.face.lift, fade: GROUND.face.fade, axis, span: faceLib?.along ?? 4,
+      level: tierLevel(edgeSpec.face?.tier ?? 'reconstructed'), out: face,
+      // darker than a block's face: between the blocks near the eye it is their shadow
+      tint: (y) => wetTint(y, wetBelow).map((v) => v * 0.78),
+      // the face bends over at its crest: a coarse ribbon's chord would pass under the
+      // ground there and the grass would show through, so it is cut finely across
+      across: 0.5,
+    });
+    const made = buffers();
+    const madeLib = maps.get(edgeSpec.made_ground?.material ?? 'made_ground');
+    ribbon(row.made_ground ?? [], {
+      terrain, lift: GROUND.made.lift, fade: GROUND.made.fade, axis, span: madeLib?.along ?? 4,
+      level: tierLevel(edgeSpec.made_ground?.tier ?? 'reconstructed'), out: made, across: 0.6,
+    });
+    edgeMeshes.push(
+      groundMesh('railway-lake-face', face, 'face', faceLib, confidence),
+      groundMesh('railway-made-ground', made, 'made', madeLib, confidence),
+    );
+    for (let i = 0; i + 1 < lake.crest.length; i += 1) {
+      out.census.edge_m += Math.hypot(lake.crest[i + 1][0] - lake.crest[i][0], lake.crest[i + 1][1] - lake.crest[i][1]);
+    }
+    out.census.edge_m = Math.round(out.census.edge_m);
+  }
+  for (const m of [...groundMeshes, ...edgeMeshes]) {
+    group.add(m); meshes.push(m); materials.push(m.material); geometries.push(m.geometry);
+  }
 
   /* ---- zones along the yard: rails, ties and tufts ---- */
   const ns = tracks.flatMap((t) => t.centreline_local_m.map(([, n]) => n));
@@ -476,7 +669,7 @@ export async function createRailway({
   const zones = Array.from({ length: zoneCount }, (_, z) => ({
     nHi: nTop - z * ZONE_M, nLo: nTop - (z + 1) * ZONE_M,
     railNear: { pos: [], nrm: [], col: [] }, railFar: { pos: [], nrm: [], col: [] },
-    ties: [], tufts: [], eSum: 0, eCount: 0,
+    ties: [], tufts: [], rocks: [], eSum: 0, eCount: 0, rockE: 0,
   }));
   const zoneOf = (n) => zones[Math.max(0, Math.min(zoneCount - 1, Math.floor((nTop - n) / ZONE_M)))];
 
@@ -558,6 +751,47 @@ export async function createRailway({
   if (tuftLib) {
     for (const v of row.verges ?? []) scatter(v.stations ?? [], dens.full, 1);
     if (between.full > 0) scatter(row.cinders ?? [], between.full, 1, (spec.ballast?.bed_half_width_m ?? 1.75) + 0.2);
+    const madeDens = edgeSpec?.made_ground?.tufts_per_m2?.full ?? 0;
+    if (madeDens > 0) scatter(row.made_ground ?? [], madeDens, 1);
+  }
+
+  /* ---- the blocks on the stone face: scattered once, drawn near the eye ---- */
+  const stones = edgeSpec?.stones ?? null;
+  if (stones && lake && edgeMeshes.length) {
+    const rockRand = rng(19040713);
+    const [smin, smax] = stones.size_m ?? [0.35, 0.85];
+    const per = stones.per_m2?.full ?? 1.5;
+    const wetBelow = edgeSpec.face?.wet_below_m ?? 0.35;
+    const faceSt = lake.face;
+    for (let i = 0; i + 1 < faceSt.length; i += 1) {
+      const [ae0, an0, be0, bn0] = faceSt[i];
+      const [ae1, an1, be1, bn1] = faceSt[i + 1];
+      const along = Math.hypot(ae1 - ae0, an1 - an0);
+      const across = Math.hypot(be0 - ae0, bn0 - an0);
+      // the face is steep: its true area is the plan's over the slope's cosine
+      let count = Math.round(along * across * 1.2 * per);
+      while (count-- > 0) {
+        const u = rockRand(); const v = 0.08 + rockRand() * 0.86;
+        const e = (ae0 + (ae1 - ae0) * u) * (1 - v) + (be0 + (be1 - be0) * u) * v;
+        const n = (an0 + (an1 - an0) * u) * (1 - v) + (bn0 + (bn1 - bn0) * u) * v;
+        const size = smin + (smax - smin) * rockRand() ** 1.6;
+        const rr = size * 0.4;
+        const y = terrain.surfaceHeight(e, n);
+        const low = Math.min(y, terrain.surfaceHeight(e + rr, n), terrain.surfaceHeight(e - rr, n),
+          terrain.surfaceHeight(e, n + rr), terrain.surfaceHeight(e, n - rr));
+        const keep = rockRand();
+        const variant = rockRand() < 0.5 ? 0 : 1;
+        const yaw = rockRand() * Math.PI * 2; const tilt = (rockRand() - 0.5) * 0.7; const roll = (rockRand() - 0.5) * 0.7;
+        const quat = new THREE.Quaternion().setFromEuler(new THREE.Euler(tilt, yaw, roll, 'YXZ')).toArray();
+        const tone = 0.5 + rockRand() * 0.32;
+        if (y < 0.05) continue;                        // at or under the water: the map carries it
+        const z = zoneOf(n);
+        // seated: its flat underside on the lowest ground under it, sunk among the rest
+        const seat = (low + y) / 2 + size * (0.2 - 0.3 * (stones.sink ?? 0.35));
+        z.rocks.push({ e, n, y: seat, size, keep, variant, quat, tone, tint: wetTint(y, wetBelow) });
+        z.rockE += e;
+      }
+    }
   }
 
   /* ---- build each zone's meshes ---- */
@@ -593,6 +827,17 @@ export async function createRailway({
     };
     confidence?.patch(tuftMat);
     materials.push(tuftMat);
+  }
+  const rockGeos = []; let rockMat = null;
+  if (zones.some((z) => z.rocks.length)) {
+    rockGeos.push(rockGeometry(19040811), rockGeometry(19040912));
+    geometries.push(...rockGeos);
+    const block = maps.get(stones?.material ?? 'limestone_block');
+    rockMat = new THREE.MeshStandardMaterial({ color: block ? 0xffffff : 0x9a9384, roughness: 0.86, metalness: 0, vertexColors: true });
+    if (block) { rockMat.map = block.map; rockMat.normalMap = block.normalMap; rockMat.roughnessMap = block.orm; }
+    rockMat.name = 'railway-rocks';
+    confidence?.patch(rockMat);
+    materials.push(rockMat);
   }
   const m4 = new THREE.Matrix4(); const q = new THREE.Quaternion(); const up = new THREE.Vector3(0, 1, 0);
   const v3 = new THREE.Vector3(); const s3 = new THREE.Vector3(); const c = new THREE.Color();
@@ -646,13 +891,93 @@ export async function createRailway({
       group.add(mesh);
     }
     z.tufts = null;
+    if (rockMat && z.rocks.length) {
+      z.rocks.sort((a, b) => a.keep - b.keep);
+      z.rockMeshes = rockGeos.map((g, vi) => {
+        const list = z.rocks.filter((r) => r.variant === vi);
+        const mesh = new THREE.InstancedMesh(g, rockMat, Math.max(1, list.length));
+        list.forEach((r, k) => {
+          q.fromArray(r.quat);
+          m4.compose(v3.set(wx(r.e), r.y, wz(r.n)), q, s3.set(r.size, r.size, r.size));
+          mesh.setMatrixAt(k, m4);
+          mesh.setColorAt(k, c.setRGB(r.tone * r.tint[0], r.tone * r.tint[1], r.tone * r.tint[2]));
+        });
+        mesh.computeBoundingSphere();
+        mesh.name = `railway-rocks-z${zi}-${vi}`;
+        mesh.castShadow = false; mesh.receiveShadow = true;
+        mesh.userData.keeps = list.map((r) => r.keep);
+        group.add(mesh);
+        return mesh;
+      });
+      z.rockCentre = z.rockE / z.rocks.length;
+    }
+    z.rocks = null;
   }
   out.census.zones = zoneCount;
 
+  /* ---- the cap timber and its piles ---- */
+  let capPile = null;
+  if (edgeSpec?.cap && lake && (lake.crest ?? []).length >= 2) {
+    const capLib = maps.get(edgeSpec.cap.material ?? 'cap_timber');
+    const { mesh, pts } = capMesh(lake.crest, lake.face, edgeSpec.cap, terrain, capLib, confidence);
+    group.add(mesh); meshes.push(mesh); materials.push(mesh.material); geometries.push(mesh.geometry);
+    const pile = edgeSpec.piles;
+    if (pile) {
+      const pr = pile.diameter_m / 2;
+      const geo = new THREE.CylinderGeometry(pr, pr * 1.04, 1, 8, 1, true);
+      geo.translate(0, -0.5, 0);
+      geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(new Float32Array(geo.attributes.position.count).fill(1), 1));
+      geometries.push(geo);
+      let pmap = null;
+      if (capLib) { pmap = capLib.map.clone(); pmap.center.set(0.5, 0.5); pmap.rotation = Math.PI / 2; pmap.needsUpdate = true; }
+      const pmat = new THREE.MeshStandardMaterial({ color: pmap ? 0xd8d2c8 : 0x5e574e, map: pmap, roughness: 0.9, metalness: 0 });
+      pmat.name = 'railway-piles';
+      confidence?.patch(pmat);
+      materials.push(pmat);
+      const spots = [];
+      let run = 0; let next = pile.spacing_m / 2;
+      for (let i = 0; i + 1 < pts.length; i += 1) {
+        const A = pts[i]; const B = pts[i + 1];
+        const seg = Math.hypot(B.e - A.e, B.n - A.n);
+        while (next <= run + seg) {
+          const f = (next - run) / (seg || 1);
+          const e = A.e + (B.e - A.e) * f + A.le * (edgeSpec.cap.width_m / 2);
+          const n = A.n + (B.n - A.n) * f + A.ln * (edgeSpec.cap.width_m / 2);
+          spots.push({ e, n, top: A.y + (B.y - A.y) * f - edgeSpec.cap.depth_m });
+          next += pile.spacing_m;
+        }
+        run += seg;
+      }
+      capPile = new THREE.InstancedMesh(geo, pmat, Math.max(1, spots.length));
+      spots.forEach((sp, k) => {
+        const len = sp.top + 0.8;    // down into the stone and the lake bed
+        q.setFromAxisAngle(up, (k * 2.399) % (2 * Math.PI));
+        m4.compose(v3.set(wx(sp.e), sp.top, wz(sp.n)), q, s3.set(1, len, 1));
+        capPile.setMatrixAt(k, m4);
+      });
+      capPile.computeBoundingSphere();
+      capPile.name = 'railway-piles';
+      capPile.castShadow = false; capPile.receiveShadow = true;
+      group.add(capPile);
+      out.census.piles = spots.length;
+    }
+  }
+
   /* ---- level and reach ---- */
   let level = REACH[detail] ? detail : 'full';
+  const rockShare = { full: 1, balanced: (stones?.per_m2?.balanced ?? 0.9) / (stones?.per_m2?.full ?? 1.5),
+    light: (stones?.per_m2?.light ?? 0.45) / (stones?.per_m2?.full ?? 1.5) };
   const applyDetail = () => {
     out.census.tufts = 0;
+    out.census.rocks = 0;
+    for (const z of zones) {
+      for (const m of z.rockMeshes ?? []) {
+        const keeps = m.userData.keeps;
+        let n = 0; while (n < keeps.length && keeps[n] < rockShare[level]) n += 1;
+        m.count = n;
+        out.census.rocks += n;
+      }
+    }
     const want = dens[level] ?? 0; const full = dens.full || 1;
     for (const z of zones) {
       if (!z.tuftMesh) continue;
@@ -680,6 +1005,11 @@ export async function createRailway({
       if (z.railsNear) { z.railsNear.visible = near; z.railsFar.visible = !near; }
       if (z.tiesNear) { z.tiesNear.visible = near; z.tiesFar.visible = !near && d < r.ties; }
       if (z.tuftMesh) z.tuftMesh.visible = d < r.tufts && z.tuftMesh.count > 0;
+      if (z.rockMeshes) {
+        // the blocks lie along the water, not the yard's middle: measured from their own line
+        const dr = Math.hypot(dn, Math.max(0, Math.abs(cx - z.rockCentre) - 10), Math.max(0, cy - 20));
+        for (const m of z.rockMeshes) m.visible = dr < r.rocks && m.count > 0;
+      }
     }
   };
 
@@ -704,17 +1034,21 @@ export async function createRailway({
     if (!camera) return null;
     raycaster.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
     raycaster.far = Math.max(400, camera.position.y * 4);
-    const hits = raycaster.intersectObjects(groundMeshes, false);
+    const hits = raycaster.intersectObjects([...groundMeshes, ...edgeMeshes], false);
     if (!hits.length) return null;
     const hit = hits[0];
-    const record = out.cardFor(hit.point.x, -hit.point.z);
+    const record = edgeMeshes.includes(hit.object) ? edgeCard(data) : out.cardFor(hit.point.x, -hit.point.z);
     return { id: record.id, record, point: hit.point.clone(), distance: hit.distance };
   };
 
   out.dispose = () => {
     for (const g of geometries) g.dispose();
     for (const m of materials) m.dispose();
-    for (const z of zones) { z.tiesNear?.dispose(); z.tiesFar?.dispose(); z.tuftMesh?.dispose(); }
+    for (const z of zones) {
+      z.tiesNear?.dispose(); z.tiesFar?.dispose(); z.tuftMesh?.dispose();
+      for (const m of z.rockMeshes ?? []) m.dispose();
+    }
+    capPile?.dispose();
     for (const lib of maps.values()) { lib.map?.dispose(); lib.normalMap?.dispose(); lib.orm?.dispose(); }
   };
   group.userData.census = out.census;
@@ -775,6 +1109,41 @@ function railwayCard(data, { track, distance }) {
       citations: [],
       research_doc: data.research ?? 'docs/RESEARCH/ic_lakefront_1904.md',
       research_note: `The 1904 lakefront railway (T-2478); the liberties it takes are ${data.liberty ?? 'L-ic-tracks-2478'}.`,
+    },
+  };
+}
+
+/** The lake edge's card (T-2479): what the face, the cap and the made ground are, and on what. */
+function edgeCard(data) {
+  const e = data.edge ?? {};
+  const f = e.face ?? {}; const st = e.stones ?? {}; const cap = e.cap ?? {}; const p = e.piles ?? {}; const m = e.made_ground ?? {};
+  return {
+    id: 'railway.lake_edge',
+    sidecar: {
+      name: 'Illinois Central — the lake edge',
+      phase: null,
+      change_note: 'Where the railway met Lake Michigan in 1904: no beach, but the embankment\'s own face of dumped '
+        + 'stone, a timber cap along its top, and a strip of made ground between it and the last track. The sand '
+        + 'beaches and the park east of here are the 1920s fill.',
+      placement: {
+        symbolic_location: 'The lake side of the Illinois Central, 16th to 22nd Street',
+        position_confidence: data.lake_edge?.tier ?? 'reconstructed',
+        position_sources: m.sources ?? [],
+        position_note: data.lake_edge?.note ?? '',
+      },
+      attributes: {
+        face: { value: 'dumped limestone at 1 in 1.5', confidence: f.tier ?? 'reconstructed', sources: [], note: f.note ?? '' },
+        stones: {
+          value: `${(st.size_m ?? [])[0]}-${(st.size_m ?? [])[1]} m blocks`, confidence: st.tier ?? 'reconstructed',
+          sources: [], note: st.note ?? '',
+        },
+        cap: { value: `${cap.width_m} m square timber`, confidence: cap.tier ?? 'reconstructed', sources: [], note: cap.note ?? '' },
+        piles: { value: `every ${p.spacing_m} m`, confidence: p.tier ?? 'reconstructed', sources: [], note: p.note ?? '' },
+        made_ground: { value: 'cinders, sand and fill', confidence: m.tier ?? 'inferred', sources: m.sources ?? [], note: m.note ?? '' },
+      },
+      citations: [],
+      research_doc: data.research ?? 'docs/RESEARCH/ic_lakefront_1904.md',
+      research_note: `The lake edge (T-2479); the liberties it takes are ${e.liberty ?? 'L-ic-lake-edge-2479'}.`,
     },
   };
 }

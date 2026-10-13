@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 541,
+  "count": 542,
   "liberties": [
     {
       "id": "L1",
@@ -35958,6 +35958,49 @@
         {
           "label": "Recorded",
           "text": "2026-10-13 (T-2477)."
+        }
+      ]
+    },
+    {
+      "id": "L-ic-lake-edge-2479",
+      "title": "the 1904 lake edge beside the tracks: a reconstructed stone face, cap timber, piles and made ground",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 scene draws the Illinois Central's edge against the lake, east of the tracks from 16th to 22nd Street, as the railway's own built edge with no beach: the embankment's lakeward face (the heightfield's, 1 in 1.5) covered in dumped buff-grey limestone from just under the water to the crest, darker and greener where the water keeps it wet, with single blocks stood on it near the eye; a 12 x 12 in timber cap along the crest over round piles every 10 ft; and a strip of made ground (cinders, sand and builders' fill, with weeds) between the crest and the east verge (`data/railway/1904.json` `lake_edge` and `right_of_way.made_ground`, traced by `tools/trace_ic_tracks_1904.py`; drawn by `renderers/web/js/railway.js`)."
+        },
+        {
+          "label": "What it stands on",
+          "text": "the 1886 and 1911 maps, which draw the water against the railway's edge, and the 1891 atlas, which draws its breakwater offshore (`robinson_1886_chicago_plate_10`, `sanborn_1911_chicago_v3_sheet_20`, `sanborn_1911_chicago_v3_sheet_28`, `carlson_greeley_1891_prairie_environs`), for there being no beach; sheet 28 for about 16 m of ground between the easternmost track and the water at 18th Street, which is the made ground."
+        },
+        {
+          "label": "What is inferred, not attested",
+          "text": "that the strip between the last track and the water is made ground."
+        },
+        {
+          "label": "What is invented",
+          "text": "what the face is made of (dumped quarry limestone) and every block's size, shape, number and colour; the wet staining; the cap timber, its size and its height over the ground; the piles, their size and spacing (the 10 ft of the railway's 1852 breakwater cribs, not of this edge); what the made ground is made of and its weeds; the crest line, which is where the committed heightfield's face meets its grade, not a surveyed line; the maps in `assets/textures/prairie_1904_rail/edge/`. Where the tracks crowd the edge north of 18th Street the east verge narrows to a metre so it keeps off the face."
+        },
+        {
+          "label": "How to resolve",
+          "text": "an Illinois Central or city engineer's record of the shore protection between 16th and 22nd Street about 1900-1910, or a dated photograph of this reach from the water or along the edge."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2479."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/ic_lakefront_1904.md`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-13 (T-2479)."
         }
       ]
     },

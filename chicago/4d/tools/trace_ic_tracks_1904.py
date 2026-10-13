@@ -479,6 +479,7 @@ def build():
     for t in tracks:
         t["pts"] = densify(t["pts"])
     z = heightfield()
+    crest = crest_line(frame, z)
     split = []
     for t in tracks:
         runs = off_the_face(frame, z, t["pts"])
@@ -527,7 +528,8 @@ def build():
         "readings": readings,
         "coverage_s_m": {k: round(v, 2) if isinstance(v, float) else v for k, v in cover.items()},
         "tracks": out_tracks,
-        "right_of_way": right_of_way(frame, tracks, spec),
+        "right_of_way": right_of_way(frame, tracks, spec, crest),
+        "lake_edge": lake_edge(frame, z, crest, spec),
         **{k: v for k, v in spec.items() if not k.startswith("_")},
         "spec_from": "data/railway/1904_spec.json",
     }
@@ -542,15 +544,45 @@ def in_poly(e, n, poly):
     return hit
 
 
-def right_of_way(frame, tracks, spec):
+CREST_DROP_M = 0.12        # ground this far under the grade behind it is still the face
+TOE_LAKEWARD_M = 1.5       # the stone runs on under the water this far past the waterline
+EDGE_SMOOTH_M = 15.0       # crest and toe are averaged along the shore over this either way
+
+
+def crest_line(frame, z):
+    """Where the embankment's lakeward face meets the graded crest, and where it meets
+    the water, as d at every STEP_M of s. The face is the heightfield's own (terrain_spec
+    `ic_row_embankment`, 1 in 1.5 from the water to the grade): the crest is the first d,
+    walking inland, at which the ground stands within CREST_DROP_M of the grade 12 m
+    behind it; the waterline is the last d before that at which it is under the water.
+    Both are smoothed along the shore so a 2.5 m heightfield cell does not jag them."""
+    ss = np.arange(0.0, frame.s[-1] + STEP_M, STEP_M)
+    crest, water = [], []
+    ds = np.arange(-6.0, 30.0, 0.25)
+    for s_ in ss:
+        h = np.array([z(*frame.to_en(s_, d)) for d in ds])
+        grade = float(np.median(h[(ds >= 12.0) & (ds <= 16.0)]))
+        up = np.nonzero(h >= grade - CREST_DROP_M)[0]
+        ic = int(up[0]) if len(up) else len(ds) - 1
+        wet = np.nonzero(h[:ic] <= 0.0)[0]
+        crest.append(float(ds[ic]))
+        water.append(float(ds[wet[-1]]) if len(wet) else float(ds[0]))
+    k = int(EDGE_SMOOTH_M / STEP_M)
+    kern = np.ones(2 * k + 1) / (2 * k + 1)
+    sm = lambda a: np.convolve(np.pad(np.array(a), k, mode="edge"), kern, mode="valid")
+    return {"s": ss, "crest": sm(crest), "water": sm(water)}
+
+
+def right_of_way(frame, tracks, spec, crest):
     """The cinder ground and the verges either side of it, as plan polygons.
 
     At every STEP_M along the shore frame the ground runs from the westernmost track
     present plus the spec's west margin to the easternmost less its east margin; the
     edge is the running extreme over ROW_REACH_M either way, then smoothed, so a short
     siding does not bite a notch in it. The west verge lies inland of the cinders; the
-    east verge between them and the lake, never nearer the waterline than EDGE_CLEAR_M
-    (the made ground and the stone edge beyond it are T-2479's)."""
+    east verge between them and the lake, never on the embankment's face: its outer edge
+    keeps the made ground's least width inland of the crest, and where the tracks crowd
+    the edge the verge narrows to make room (T-2479)."""
     b, v = spec["ballast"], spec["verges"]
     lo = min(t["pts"][0][0] for t in tracks)
     hi = max(t["pts"][-1][0] for t in tracks)
@@ -573,6 +605,14 @@ def right_of_way(frame, tracks, spec):
     sm = lambda a: np.convolve(np.pad(a, k, mode="edge"), kern, mode="valid")
     dw = sm(w2) + b["west_margin_m"]
     de = np.maximum(sm(e2) - b["east_margin_m"], EDGE_CLEAR_M + v["width_m"])
+    # off the face: the verge's outer edge stays the made ground's width inland of the
+    # crest, and the verge keeps at least a metre, giving the rest up where it must
+    me = spec["edge"]["made_ground"]
+    cr = np.interp(ss, crest["s"], crest["crest"])
+    keep = cr + me["min_width_m"]
+    de = np.maximum(de, np.minimum(keep + v["width_m"], e2 - b["bed_half_width_m"] - 0.25))
+    de = np.maximum(de, keep + me["min_verge_m"])
+    de_out = np.maximum(de - v["width_m"], keep)
     # the right-of-way's west line is the lots' rear line where the grid draws one
     # (sheet 20's ic_row): neither the cinders nor the verge cross into a block
     blocks = [b_["outline_local_m"] for b_ in json.loads(GRID.read_text(encoding="utf-8"))["blocks"]]
@@ -594,16 +634,51 @@ def right_of_way(frame, tracks, spec):
         return out
 
     return {
-        "stations_doc": "Each ribbon is a run of stations [e_west, n_west, e_east, n_east] across it, every 5 m along it.",
+        "stations_doc": ("Each ribbon is a run of stations [e_west, n_west, e_east, n_east] across it, every 5 m "
+                         "along it; `made_ground` is T-2479's strip between the east verge and the lake edge's crest."),
         "cinders": band(dw, de),
         "verges": [
             {"side": "west", "stations": band(outer, dw)},
-            {"side": "east", "stations": band(de, de - v["width_m"])},
+            {"side": "east", "stations": band(de, de_out)},
         ],
+        # the made ground (T-2479): from the cap at the crest to the verge, run on under
+        # the verge's faded edge so no seam of the heightfield's grass shows between them
+        "made_ground": band(de_out + me["under_verge_m"], cr),
         "tier": "reconstructed",
         "note": ("Where the cinders stop and the weeds begin is not drawn on either sheet: the "
                  "edges are the outermost tracks plus the spec's margins, smoothed. RECONSTRUCTED "
                  "(L-ic-tracks-2478)."),
+    }
+
+
+def lake_edge(frame, z, crest, spec):
+    """The railway's edge against the lake (T-2479): the stone face from TOE_LAKEWARD_M
+    under the water up to the crest, the cap timber along the crest, and the made ground
+    from the crest inland to the east verge's outer edge, all as stations along the shore
+    over the s the tracks' cinders cover. Heights are the heightfield's, read by the
+    renderer; this file says where."""
+    lo, hi = crest["s"][0], crest["s"][-1]
+    ss = crest["s"]
+    face, cap = [], []
+    for s_, dc, dwt in zip(ss, crest["crest"], crest["water"]):
+        (ea, na), (eb, nb) = frame.to_en(s_, dwt - TOE_LAKEWARD_M), frame.to_en(s_, dc + 0.15)
+        (ec, nc) = frame.to_en(s_, dc)
+        if BOX_N[0] <= nc <= BOX_N[1]:
+            face.append([round(ea, 2), round(na, 2), round(eb, 2), round(nb, 2)])
+            cap.append([round(ec, 2), round(nc, 2)])
+    return {
+        "stations_doc": ("`face` runs from the toe under the water to the crest, as stations [e_lake, n_lake, "
+                         "e_land, n_land] every 5 m along the shore; `crest` is the cap timber's line. The made "
+                         "ground between the crest and the east verge is right_of_way.made_ground."),
+        "face": face,
+        "crest": cap,
+        "s_range_m": [round(float(lo), 1), round(float(hi), 1)],
+        "crest_d_m": [round(float(crest["crest"].min()), 2), round(float(crest["crest"].max()), 2)],
+        "waterline_d_m": [round(float(crest["water"].min()), 2), round(float(crest["water"].max()), 2)],
+        "tier": "reconstructed",
+        "note": ("The face, its crest and the waterline are the committed heightfield's (terrain_spec "
+                 "ic_row_embankment); what the face is made of, the cap and the piles are not read off "
+                 "any source. RECONSTRUCTED (L-ic-lake-edge-2479)."),
     }
 
 
@@ -629,7 +704,12 @@ def check_properties(doc) -> list[str]:
         bad.append("right_of_way: no cinder ground")
     if len(row.get("verges") or []) != 2 or any(len(v.get("stations") or []) < 2 for v in row.get("verges") or []):
         bad.append("right_of_way: expected a west and an east verge")
-    for k in ("gauge_m", "rail", "ties", "ballast", "verges", "liberty"):
+    if len(row.get("made_ground") or []) < 2:
+        bad.append("right_of_way: no made ground")
+    edge = doc.get("lake_edge") or {}
+    if len(edge.get("face") or []) < 2 or len(edge.get("crest") or []) < 2:
+        bad.append("lake_edge: no face or no crest")
+    for k in ("gauge_m", "rail", "ties", "ballast", "verges", "edge", "liberty"):
         if k not in doc:
             bad.append(f"spec block `{k}` missing")
     return bad

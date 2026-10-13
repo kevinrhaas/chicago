@@ -1,0 +1,42 @@
+{
+  "id": "cap_timber",
+  "group": "edge",
+  "span_m": 3.0,
+  "span_across_m": 0.3,
+  "seed": 19041522,
+  "kind": "timber",
+  "seats": false,
+  "mean_roughness": 0.86,
+  "colors": [
+    [
+      112,
+      104,
+      92
+    ],
+    [
+      50,
+      46,
+      42
+    ]
+  ],
+  "note": "A 12-inch timber laid along the embankment's crest as a cap over the piles, weathered grey by the lake: grain along its length, season checks, no rail seats. Reconstructed (L-ic-lake-edge-2479).",
+  "span_along_m": 3.0,
+  "resolution_px": 512,
+  "px_per_m": 170.67,
+  "confidence": "reconstructed appearance; which ground carries it is data/railway/1904_spec.json's to say",
+  "orientation": "image x = along the shore (renderer u); image y = across it (v)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "height16": "linear 16-bit",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "cap_timber_basecolor_web.jpg",
+    "normal_gl": "cap_timber_normal_gl_web.jpg",
+    "orm": "cap_timber_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19041522,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_rail.py); no photograph sampled"
+}
