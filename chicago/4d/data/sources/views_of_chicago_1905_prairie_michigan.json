@@ -1,0 +1,26 @@
+{
+ "id": "views_of_chicago_1905_prairie_michigan",
+ "type": "photograph",
+ "citation": "'Prairie and Michigan Avenues.' Two halftone views on one page of Views of Chicago (Portland, Me.: L. H. Nelson Co., 1905); photographers unrecorded.",
+ "author": "unrecorded photographers; L. H. Nelson Company (publisher)",
+ "date": "1905 (publication); photographs undated, c. 1895-1905",
+ "describes_date": "c. 1895-1905",
+ "repository": "Internet Archive (Library of Congress copy, viewsofchicago00por). Prairie library image st-views-of-chicago-1905-prairie-and-michigan-avenues (chicago/prairie_1904_v1/research/images/stream-streetscape.json).",
+ "url": "https://archive.org/details/viewsofchicago00por/page/n40/mode/1up",
+ "locator": "The left-hand view: on the sidewalk between the curb trees and the house lawns, looking down the walk.",
+ "tier": 2,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1905; the Internet Archive marks it NOT_IN_COPYRIGHT. Read for arrangement only; no asset is derived.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-13 (T-2473) through the Prairie library's catalogue notes for the plate (viewed by the library on 2026-10-01); archive.org is not reachable from the build containers.",
+ "note": "Neither view is labelled with its avenue or block, so it is the residential street section of the district's two avenues around the scene date, not Prairie Avenue's own: a wide walk set back behind a grass parkway with a single row of closely spaced elms, a row of dressed-stone carriage blocks along the parkway's edge, a cast-iron lamp post on the parkway, and a smooth light roadway.",
+ "what_it_supplies": [
+  "a single row of closely spaced elms in the parkway, c. 1895-1905",
+  "dressed-stone carriage blocks along the parkway edge (T-2474)"
+ ],
+ "what_it_does_not_supply": [
+  "which avenue or block either view shows",
+  "any position, spacing or size as a measurement"
+ ]
+}
