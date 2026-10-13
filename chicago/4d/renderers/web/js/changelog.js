@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1759, ts: '2026-10-13T12:28:36.292Z', date: 'Oct 13, 2026, 7:28 AM CT', title: '1637 Prairie\'s roof and dormers drawn as its engraving shows them', kind: 'improvement',
+    items: [
+      'The slate roof on Jesse Spalding\'s house at 1637 Prairie now has straight, steep sides that rise to a level top line, as the engraving draws them, instead of bell-curved ones.',
+      'Its three dormers now have pointed gables over square windows, slated like the roof, in place of round-headed ones.',
+    ] },
   { v: 1758, ts: '2026-10-13T11:07:46.581Z', date: 'Oct 13, 2026, 6:07 AM CT', title: '1638 Prairie\'s front fence, from its photograph', kind: 'feature',
     items: [
       'The Gothic house at 1638 Prairie now stands behind the fence its old photograph shows on the street line: two gate piers either side of an open gateway, each cap pierced with a heart and topped with an iron finial, and low iron bars on a pale stone base.',
