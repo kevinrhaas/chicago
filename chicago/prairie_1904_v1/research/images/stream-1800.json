@@ -4073,6 +4073,65 @@
   }
  },
  {
+  "id": "a18-owner-1800-block-looking-sw",
+  "kind": "photograph",
+  "title": "The 1800 block of Prairie Avenue looking south-west from beside the Glessner house: Glessner (1800), the O. R. Keith house (1808), 1812 and 1816",
+  "building_ids": [
+   "pa-1800-22",
+   "pa-1808-6",
+   "pa-1812-7",
+   "pa-1816-33"
+  ],
+  "addresses": [
+   "1800, 1808, 1812, 1816 S. Prairie Avenue"
+  ],
+  "streetscape": true,
+  "view": "street view",
+  "facing": "southwest",
+  "camera_position": "Prairie Avenue roadway near the east side's kerb, north-east of 1808 and close to Glessner's Prairie Avenue front",
+  "date": "undated (after 1887: Glessner complete)",
+  "date_earliest": 1887,
+  "date_latest": null,
+  "period": "in-period",
+  "creator": null,
+  "repository": "Supplied by the owner (project thread, 2026-10-13); original holder not identified",
+  "collection": null,
+  "call_number": null,
+  "catalog_url": null,
+  "image_url": null,
+  "rights": "unknown — link only",
+  "rights_basis": "Supplied by the owner on 2026-10-13 as a reference picture for 1808 Prairie; where it was published and who holds it are not established. Hosted here at the owner's direction as a reference copy, like the Houghton drawings in research/public/: read for the building's form, never made into a texture or traced. Deleted if a holder asks.",
+  "local": {
+   "display": "research/public/a18-owner-1800-block-looking-sw.jpg",
+   "thumb": "research/public/a18-owner-1800-block-looking-sw-thumb.jpg",
+   "original_px": [
+    482,
+    328
+   ],
+   "original_sha256": "12b9f8ca6c1b0e76bcd07d34aab116de6f7d2da08baab3f2d92213b7c96d5872",
+   "note": "the owner's upload, committed as received (482 x 328 JPEG); thumbnail made here"
+  },
+  "verified": "viewed",
+  "found_via": "owner upload in the project thread, 2026-10-13 (tickets T-1882, T-1883)",
+  "notes": "A different exposure from a18-gh-1800-block-looking-sw-c1888 / a18-gh-1800-block-sw-george-glessner: taken closer to Glessner's front, so the Keith house fills more of the frame; the trees and their leaves differ. Right: Glessner's Prairie Avenue front, smooth-looking in this print, no ivy. Centre: the O. R. Keith house (1808), pale rock-faced front, third-storey window arcade, the bow seen obliquely, the loggia's balustrade and the stair's scrolled stone cheek wall. Left of it: 1812's tall pointed gable with its round-arched window, then 1816's mansard with dormers and a high stoop. Date not established; Glessner complete fixes 1887 as the earliest.",
+  "measurements": [],
+  "evidence_review": {
+   "ticket": "T-1882",
+   "audit_number": null,
+   "reviewed_on": "2026-10-13",
+   "review_state": "visually inspected",
+   "target_date": "1904-07-01",
+   "phase": "date not established (after 1887)",
+   "date_basis": "Glessner house complete in the picture; no other dating evidence",
+   "evidence_role": "streetscape or site context",
+   "geometry_use": "context only",
+   "reason": "Street context for Glessner's south end and its neighbours; the picture's subject for this project is 1808 Prairie (T-1882, T-1883).",
+   "source_url": "owner-supplied, project thread 2026-10-13 (no catalog page known)",
+   "family": null,
+   "family_relationship": "Independence not established; a different exposure from a18-gh-1800-block-looking-sw-c1888, same vantage area."
+  }
+ },
+ {
   "id": "a18-gh-1935-donnelley-aerial",
   "kind": "aerial",
   "title": "Aerial view from the tower of the R. R. Donnelley building, 1935",
