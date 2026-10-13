@@ -2,13 +2,13 @@
   "structure_id": "law_house_1620_prairie",
   "view": "landowner_1874_from_northeast",
   "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
-  "glb_sha256": "0ea43f844b365a15c3cedb9db1a69c74d45dde02d5513a60c860e9ee5e9d9319",
+  "glb_sha256": "8b057612b6cef86bcc64b12475489455e5aff3873a419279b78ceb3086c022da",
   "camera_sha256": "be6b75dc43bf93ba5dfa5b782fdf69d970e71e0e355eb4b5b5e9776a549220fb",
   "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie/landowner_1874_from_northeast-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
-      "what": "roof: the engraving's mansard, its steep lower faces bowed a little to a curb about 2.9 m over the cornice, under a low upper hip; the build's was a 30-degree tin hip",
+      "what": "roof: the engraving's mansard, its steep lower faces straight from the cornice to a curb about 2.9 m over it, under a low upper deck that the street does not see; the build's was a 30-degree tin hip (T-2370), then K05's convex mansard, whose faces bowed out in a curve (T-2476: the owner read them as frosting on a cupcake against this engraving). Built so by T-2476: plane faces (bulge 0) at 80 degrees to the same 2.9 m curb, the upper deck at 10 degrees; on the overlay the north face's curb line and the front face's top over the south part land within about 12 px (0.4 m) of the drawn ones, the trees covering the rest",
       "status": "fixed"
     },
     {
@@ -20,12 +20,12 @@
       "status": "fixed"
     },
     {
-      "what": "crown: over the pavilion a taller bell-curved mansard with one round-headed dormer, rising about 0.7 m over the main curb; the build has none",
+      "what": "crown: over the pavilion a taller mansard with one round-headed dormer, its faces near upright, rounding over at the top into its curb; the build had none (T-2404 built it as a bell, 0.1 of its chord, which T-2476 eased to 0.04, the drawn faces being upright with a rounded shoulder)",
       "status": "fixed"
     },
     {
-      "what": "corner strip: the engraving draws a light strip down the pavilion's north corner, a stone or painted quoin; T-2404's pavilion turns that corner in its own brick (T-2445)",
-      "status": "open"
+      "what": "corner strip: the engraving draws a light strip down the pavilion's north corner, a stone or painted quoin, from x 686-688 px to the corner (695-700 px); T-2404's pavilion turned that corner in its own brick. Built so by T-2462: a K08 strip of dressed stone 0.4 m wide and 0.04 m proud on the pavilion's front at its north corner, from its plinth to its wall head, landing at x 682-697 px (its stone is RECONSTRUCTED: the print cannot tell stone from paint)",
+      "status": "fixed"
     },
     {
       "what": "dormers: round-headed dormers in the mansard's lower face, two seen on the north face, their arch heads at x 746 and 805 px (51 and 110 px behind the crown's front-north corner) reaching about 10.5 m, just under the curb; built so by T-2411, two K06 round-arched sash in stone faces at u 12.6 and 6.1 m, landing at x 756 and 813 px, 47 and 106 px behind the build's crown corner (which itself stands about 10 px right of the engraving's). The engraver draws both wider and more frontal than the camera allows; the front's lower slope is behind the trees",
@@ -40,11 +40,15 @@
       "status": "fixed"
     },
     {
-      "what": "the upper window over the door: the engraving draws it at x 530-550 px, about v 5.6-6.1; the build stands it on the door's own centre, which T-2409 moved to v 6.6, so it stands about 0.5-1 m north of the drawn one (the K01 bay puts the door and the window over it on one centre) (T-2445)",
-      "status": "open"
+      "what": "the upper window over the door: the engraving draws it south of the door's centre, its frames at x 518-552 px; the build stood it on the door's v 6.6 (K01 put a storey's windows on the bays below). Built so by T-2462: K01 takes an upper storey's own window centres (front_bays_by_storey) and the window stands at v 5.5, landing at x 522-550 px. The window over the bay window likewise: drawn with its jambs at x 441-470 px where the build stood it on the bay's v 3.09 (x 459-484), now at v 2.5, landing at x 445-470",
+      "status": "fixed"
     },
     {
-      "what": "entrance: the door beside the pavilion's south face under a hood, reached by a straight stoop whose north string is the rail rising to the right from x 540 to 582 px (on this camera a line running back toward the wall draws so; one running north along the front would rise over about 80 px, not 42), at its head a porch at the principal floor running north before the pavilion to the north corner behind a turned balustrade that carries on down the stoop. Built (T-2409): the door at v 6.6 under a K09 cornice hood on consoles, the straight stoop's north string at v 7.65 (drawn at x 572 to 541 px), a stone terrace 1.2 m deep before the pavilion to the corner (its north end at x 685.6 px against the engraving's 690) behind a turned balustrade carried down both cheeks. The engraving drew this front's floor, porch and fence about 1.5-2 m lower against the house than the old camera's grade put them; that was the camera's height datum (T-2406), re-solved by T-2437 from the street fence's foot on the walk: the porch's rail top now reads 2.91-2.93 m, the principal floor 2.0 m, and the build's floor, porch, stoop and balustrade, raised to it, land on the drawn ones",
+      "what": "entrance: the door beside the pavilion's south face under a hood, reached by a straight stoop whose north string is the rail rising to the right from x 540 to 582 px (on this camera a line running back toward the wall draws so; one running north along the front would rise over about 80 px, not 42), at its head a porch at the principal floor running north before the pavilion to the north corner behind a turned balustrade that carries on down the stoop. Built (T-2409): the door at v 6.6 under a K09 cornice hood on consoles, the straight stoop's north string at v 7.65 (drawn at x 572 to 541 px), a stone terrace 1.2 m deep before the pavilion to the corner (its north end at x 685.6 px against the engraving's 690) behind a turned balustrade carried down both cheeks. The engraving drew this front's floor, porch and fence about 1.5-2 m lower against the house than the old camera's grade put them; that was the camera's height datum (T-2406), re-solved by T-2437 from the street fence's foot on the walk: the porch's rail top now reads 2.91-2.93 m, the principal floor 2.0 m, and the build's floor, porch, stoop and balustrade, raised to it, land on the drawn ones T-2463 then moved the door to v 5.925 (see 'the door'), leaving the stoop where it stood",
+      "status": "fixed"
+    },
+    {
+      "what": "the door: with the window over it moved (T-2462), the engraving draws the door under it, its panelled leaves at x 532-562 px (v about 5.4-6.45) under a hood at x 505-552 px, where the build stands it on v 6.6 (x 548-581 px). The stoop is where both pictures put it (the engraving's north string running back to v 7.65, the Tribune sketch's stoop straight from the gate at v 6.3-7.5 at the street line), so the door stands at the south end of a landing that runs on north into the porch; K07 centres its stoop on its door and has to learn one off the door's axis (T-2463). Built so by T-2463: the door moved to v 5.925 under the window over it, its opening landing at x 527-563 px and its daylight at 531-561 against the drawn leaves' 532-562; the stoop stays on v 6.6 (K07's stair axis_s_m, its north string still drawn from x 540 to 582 px), the door at the south end of its landing, its south 0.375 m opening onto the terrace before the bay at the landing's level. The hood over the door (x 505-552 px) is not resolved from the tree's foliage behind which the engraver draws it, and stays K09's cornice hood centred on the door",
       "status": "fixed"
     },
     {
@@ -60,7 +64,7 @@
       "status": "fixed"
     },
     {
-      "what": "roof covering: the lower faces and the crown's read as slate in courses; built so by T-2414 (K04 Pennsylvania slate on every face steeper than 45 degrees, the low upper hip, which the picture cannot see, staying tin)",
+      "what": "roof covering: the lower faces and the crown's read as slate in courses; built so by T-2414 (K04 Pennsylvania slate on every face steeper than 45 degrees, the low upper hip, which the picture cannot see, staying tin); T-2476 paints that deck black, which no picture sees",
       "status": "fixed"
     },
     {
@@ -80,12 +84,16 @@
       "status": "not shown"
     },
     {
-      "what": "walls' tone: the engraving draws the front light and the north wall and the pavilion's north half dark, its light from the south-east; the house's colour (the Inter Ocean's 'olive green' of 1887) and its walling are not shown in a monochrome print",
+      "what": "walls' tone: the engraving draws the front light and smooth and the north wall and the pavilion's north half dark, its light from the south-east; a monochrome print cannot give a colour. The Inter Ocean of 1887 called the house 'olive green in color' (inter_ocean_1887_1620_prairie_olive_green, read through chicagology's quotation): T-2476 paints the brick walls a greyed mid olive over the K03 brick's map, which the print neither confirms nor contradicts; the shade is RECONSTRUCTED",
       "status": "not shown"
     },
     {
       "what": "the south side wall and the rear: the engraving sees neither",
       "status": "not shown"
+    },
+    {
+      "what": "the hood over the door: the engraving draws an entablature over the door (soffit about 6.0 m, top about 6.9 m over grade on T-2437's camera, x 507-585 px, its south end meeting the bay window's hood) with a low rail on its flat top under the window over the door; the build's was the K09 kit's small stone cornice hood on two scrolled consoles just over the door's head. T-2480 builds the drawn hood, in the bay window's hood joinery (its consoles and modillions), railed on its top as a small balcony",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
