@@ -26217,6 +26217,32 @@ rear slope, the north wall and the stacks; T-2460 builds the stone cornice at th
 **Review:** `docs/RESEARCH/k01-1619-hamline-2420/README.md` § The roof behind the gable (T-2459).
 **Recorded:** 2026-10-13 (T-2459).
 
+### L-k01-1619-stone-cornice-2460 — 1619 Prairie's moulded stone cornice built as its drawing's, round the bow's top and along the front; its section's members, its projection and the eave's paint reconstructed
+
+**Decision:** 1619 Prairie's K10 bracketed timber cornice (scrolled brackets and a bed moulding under
+the eave) is now the moulded stone cornice its Building Budget drawing draws at the swell bay's top,
+where it carries the balcony (T-2460, piece 2 of T-2429). K10 learns it as data
+(`k10.cornice.moulded_stone`, section `moulded_stone_eave`): one section 0.36 m deep, the drawing's
+depth on the bow's face through its camera (8.2-8.55 m), swept along the street front under the K05
+soffit (8.24-8.6 m) and capped at both corners, and carried round the bow by K08 as the bow's own
+eaves (`eaves.cornice`), the bow's second storey raised from 2.9 to 2.94 m so its wall top meets the
+cornice's foot. The two are one moulding: the front's stops at the bow's junctions. Every other K01
+house builds byte-identical.
+**What is invented:** the section's members and their sizes (a fillet and ovolo bed, a plain band,
+a corona with its drip and a cyma recta; the drawing shows a moulded cornice with a dentil course,
+not its profile), its 0.32 m projection (bounded by the eave's 0.4 m overhang, less 20 mm), the
+dentil course built as a plain band, and the colour of the K05 eave's timber over it, painted to
+read as the stone (linear 0.62, 0.57, 0.47; a cornice of the period was commonly painted so, and the
+drawing shows one stone cornice and no timber eave above it). The paint is the house's one eave
+colour, so the rear range's fascia takes it too.
+**How to resolve:** a photograph of the house after 1886, or the architects' drawings, sets the
+section and the eave; T-2422 builds the balcony rail on the cornice. The bow's `eaves.cornice` names the same section,
+and `form.bays` is inferred from the drawing, so the invention is the wall head's alone.
+**Covers:** `house_1619_prairie.as_mapped_1904.form.wall_head`.
+**Ticket:** T-2460 (piece 2 of T-2429, of T-2421).
+**Review:** `docs/RESEARCH/k01-1619-hamline-2420/README.md` § The stone cornice (T-2460).
+**Recorded:** 2026-10-13 (T-2460).
+
 ### L-glessner-datestone-2214 — Glessner's 18th Street datestone: generic letterforms, a cut drawn as its shadow, and proportions read off an upward photograph
 
 **Decision:** the `glessner_house` north stack carries an AD monogram over 1886, read left to right
@@ -26264,6 +26290,31 @@ to open ground; T-2447's garden wall may then run on north across it.
 **Ticket:** T-2443 (piece 3 of T-1870).
 **Review:** `docs/RESEARCH/forsyth-1635-2443/README.md`.
 **Recorded:** 2026-10-13 (T-2443).
+
+### L-glessner-front-door-2216 — Glessner's Prairie Avenue door: sheet 95's leaf, with its depths, curls and figures reconstructed
+
+**Decision:** the `glessner_house` front door is drawn as sheet No. 95 draws it: a studded oak border
+round two fields, a square iron grille (six bars each way, knobbed past its frame, the centre filled
+with 1800 over nine scrolls), an iron strap on the middle rail with a boss, knob, latch plate and drop
+ring, iron corners, and two fielded panels. Stiles carry their grain upright; rails and panels carry it
+across, each member's figure shifted from its neighbour's.
+**What it stands on:** sheet No. 95 and its 'Copy' No. 95A (`artic_glessner_sheet_95_main_entrance_door`;
+public domain by age, read for proportions only) for every part and its position as a share of the
+leaf; HABS sheet 5 for the leaf's size; an undated photograph of the front (cited only) for 1800 and the
+knob standing where sheet 95 puts them, which is why this sheet and not the floral No. 95A endorsed
+'Not Correct' is taken as built.
+**What is invented:** every depth (the border 16 mm proud of the field, the panels' 10 mm raise, the
+grille 26 mm proud, the studs' 9 mm domes); the cusped field corners drawn as quarter-round lobes; the
+corner irons as plain L straps ending in curls; each scroll as a 1.5-turn spiral; the figures' letterforms;
+the oak's finish, which is the record's dark oiled oak. The light (phone) tier keeps the grille, strap,
+boss, plate, corners and panels but not the studs, curls, figures or lobes, for want of triangles.
+**Left open:** the photograph shows the figures reading brighter than the leaf, so they may have been
+gilt or polished; no finish is recorded and they are drawn in the grille's iron.
+**How to resolve:** a close photograph of the door (the house museum's own, or a period one with
+rights) would give the members' depths, the scrolls' and figures' forms and the figures' finish.
+**Ticket:** T-2216 (GA-14).
+**Review:** `docs/RESEARCH/glessner-front-door-2216/README.md`.
+**Recorded:** 2026-10-13 (T-2216).
 
 ### L-k16-1638-gable-bay-2457 — 1638 Prairie's verge, apex, hood and bay heads read off its photograph: a plain beaded verge board, three pinnacles, a cusped trefoil and volute stops under the hood, drop-arched bay lights with dark stops; the profiles, the trefoil's figure and the stops' colour reconstructed
 
