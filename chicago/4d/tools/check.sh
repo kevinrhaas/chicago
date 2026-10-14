@@ -176,6 +176,8 @@ selftest "Scene bundle: one commit packed reproducibly; tampered, missing, extra
   python3 tools/scene_bundle.py --self-test
 step "Glessner's west roof has one continuous envelope and a lower rear eave (T-1830)" \
   python3 tools/test_glessner_roof_envelope.py
+step "Glessner copper follows the low hood and both adjoining roof planes (T-2220)" \
+  python3 tools/test_glessner_copper.py
 step "Glessner's curved stone staggers, its eave clears the gable and its pipe meets the roof (T-2470)" \
   python3 tools/test_glessner_north_tower.py
 step "Glessner's service openings stay whole and the stable roof meets the north range (T-2219)" \

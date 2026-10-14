@@ -1,0 +1,51 @@
+stone occlusion inputs: {"components": {"co": {"sha256": "5db4f84e429455292ab8692bc477492fc2b5e0e3feeb24758818fa8f33ed6292", "values": 9199614}, "loop_start": {"sha256": "bc90a116d5facdea452f41ff73781d90154a55f0badd8a2073e23cbf53d0ee2b", "values": 866053}, "loop_total": {"sha256": "e02b4856e8abdcfafa0008d829d6ff61f13f5622f81d706c173dc47812b89cd4", "values": 866053}, "mask": {"faces": 866053, "sha256": "2f9b175671b1b0715646f092f63828804fe46f46f2e0a17539b14b5b297c45f6"}, "uv": {"sha256": "81a19ebf089048c5636d2b96c597553797309b459d53fec9485f222b3bc287e8", "values": 6133076}, "vertex_index": {"sha256": "66396c7279af83f202d932793c43ab67681fc178003ee841951d7772d90101ec", "values": 3066538}}, "key": "7e948db3317d687caf0673314cca5b5c6282a905a6c18e704cb0743619f42100", "recipe": {"blender": "4.5.3 LTS", "distance_m": 0.3, "margin_px": 4, "recipe": 1, "samples": 64, "size": 2048, "slots": [0, 12, 13, 14, 15, 24]}}
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:38:15)
+Fra:1 Mem:774.30M (Peak 1354.15M) | Time:497770:19:09.12 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | glessner_house__as_built_1887
+Fra:1 Mem:966.85M (Peak 1354.15M) | Time:497770:19:10.56 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:966.85M (Peak 1354.15M) | Time:497770:19:10.56 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading granite_stone_occlusion_scratch
+Fra:1 Mem:966.86M (Peak 1354.15M) | Time:497770:19:10.56 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading granite_stone_occlusion_raw
+Fra:1 Mem:774.30M (Peak 1980.37M) | Time:497770:28:24.76 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | glessner_house__as_built_1887
+Fra:1 Mem:966.85M (Peak 1980.37M) | Time:497770:28:26.49 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:966.85M (Peak 1980.37M) | Time:497770:28:26.49 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading granite_stone_occlusion_scratch
+Fra:1 Mem:966.85M (Peak 1980.37M) | Time:497770:28:26.49 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading granite_stone_occlusion_raw
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+stone occlusion: BAKED FRESH on this CPU (7e948db3317d) and wrote assets/bakes/stone-occlusion/granite_stone_occlusion_2048.npz; commit it with the model (T-2431)
+stone occlusion: retained validated UV layout with its atlas (T-2494)
+INFO Draco mesh compression is available, use library at /workspace/tooling/blender/blender-4.5.3-linux-x64/4.5/scripts/addons_core/io_scene_gltf2/libextern_draco.so
+10:29:05 | INFO: Starting glTF 2.0 export
+10:29:06 | INFO: Extracting primitive: glessner_house__as_built_1887
+10:29:10 | INFO: Occlusion and metal-roughness texture will be exported separately (use same-sized images if you want them combined)
+10:29:13 | INFO: Occlusion and metal-roughness texture will be exported separately (use same-sized images if you want them combined)
+10:29:14 | INFO: Occlusion and metal-roughness texture will be exported separately (use same-sized images if you want them combined)
+10:29:14 | INFO: Occlusion and metal-roughness texture will be exported separately (use same-sized images if you want them combined)
+10:29:14 | INFO: Occlusion and metal-roughness texture will be exported separately (use same-sized images if you want them combined)
+10:29:17 | INFO: Occlusion and metal-roughness texture will be exported separately (use same-sized images if you want them combined)
+10:29:19 | INFO: Primitives created: 28
+10:29:20 | INFO: Finished glTF 2.0 export in 14.884158849716187 s
+
+       AO baked mean 0.5787 -> exported mean 0.5787 (min 0.0000 max 1.0000) over 4,194,304 texels, 0.0 % drift
+built glessner_house__as_built_1887.glb  189,581,084 bytes  ~1334432 tris
+
+1 asset(s) built; manifest updated
+10:29:26 | INFO: Starting glTF 2.0 export
+10:29:26 | INFO: Extracting primitive: glessner_house__as_built_1887
+10:29:26 | INFO: Primitives created: 9
+10:29:26 | INFO: Finished glTF 2.0 export in 0.027340412139892578 s
+
+built version versions/glessner_house/pre-v4/glessner_house__as_built_1887.glb  96,512 bytes  ~1075 tris
+10:29:26 | INFO: Starting glTF 2.0 export
+10:29:26 | INFO: Extracting primitive: glessner_house__as_built_1887
+10:29:26 | INFO: Primitives created: 9
+10:29:26 | INFO: Finished glTF 2.0 export in 0.17352867126464844 s
+
+built version versions/glessner_house/v2/glessner_house__as_built_1887.glb  98,844 bytes  ~1103 tris
+10:29:26 | INFO: Starting glTF 2.0 export
+10:29:26 | INFO: Extracting primitive: glessner_house__as_built_1887
+10:29:26 | INFO: Primitives created: 9
+10:29:26 | INFO: Finished glTF 2.0 export in 0.03161311149597168 s
+
+built version versions/glessner_house/v3/glessner_house__as_built_1887.glb  95,740 bytes  ~1065 tris
+3 structure version(s) built; assets/manifest.versions.json updated

@@ -13,6 +13,7 @@
   "stream-chicagology-north.json",
   "stream-chicagology-south.json",
   "stream-drawings.json",
+  "stream-glessner-courtyard-2024.json",
   "stream-glessner-recovery.json",
   "stream-newspapers-north-owners.json",
   "stream-newspapers-north.json",
@@ -20,8 +21,8 @@
   "stream-streetscape.json"
  ],
  "counts": {
-  "images": 935,
-  "local": 671,
+  "images": 940,
+  "local": 676,
   "in_period": 602,
   "buildings_with_images": 62,
   "buildings": 63,
@@ -663,6 +664,11 @@
    "st-nrhp-1972-photo3-aerial-ne-from-20th-indiana",
    "st-nrhp-1972-photo4-prairie-south-from-18th",
    "st-ghm-1800-block-restored-streetscape-1981",
+   "a18-commons-wlemay-glessner-dining-copper-2024",
+   "a18-commons-wlemay-glessner-east-court-2024",
+   "a18-commons-wlemay-glessner-hall-bow-2024",
+   "a18-commons-wlemay-glessner-overview-2024",
+   "a18-commons-wlemay-glessner-stair-tower-2024",
    "a18-rba-barford-glessner-courtyard",
    "a18-rba-barford-glessner-exterior",
    "a18-rba-barford-glessner-side-door",
@@ -2279,6 +2285,11 @@
    "a18-gh-nickel-west-roof-dormer",
    "a18-gh-nickel-prairie-nw-after-1968",
    "dw-nrhp-1972-district-p24-ownership-lot-map",
+   "a18-commons-wlemay-glessner-dining-copper-2024",
+   "a18-commons-wlemay-glessner-east-court-2024",
+   "a18-commons-wlemay-glessner-hall-bow-2024",
+   "a18-commons-wlemay-glessner-overview-2024",
+   "a18-commons-wlemay-glessner-stair-tower-2024",
    "a18-rba-barford-glessner-courtyard",
    "a18-rba-barford-glessner-exterior",
    "a18-rba-barford-glessner-side-door",
@@ -2588,6 +2599,11 @@
    "st-nrhp-1972-photo3-aerial-ne-from-20th-indiana",
    "st-nrhp-1972-photo4-prairie-south-from-18th",
    "st-ghm-1800-block-restored-streetscape-1981",
+   "a18-commons-wlemay-glessner-dining-copper-2024",
+   "a18-commons-wlemay-glessner-east-court-2024",
+   "a18-commons-wlemay-glessner-hall-bow-2024",
+   "a18-commons-wlemay-glessner-overview-2024",
+   "a18-commons-wlemay-glessner-stair-tower-2024",
    "a18-rba-barford-glessner-courtyard",
    "a18-rba-barford-glessner-exterior",
    "a18-rba-barford-glessner-side-door",
@@ -32109,6 +32125,426 @@
    "parcel_ids": [
     "prairie_1800",
     "prairie_1801"
+   ]
+  },
+  {
+   "id": "a18-commons-wlemay-glessner-dining-copper-2024",
+   "kind": "photograph",
+   "title": "Dining bay copper roof — Glessner House, October 26, 2024",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "detail",
+   "facing": null,
+   "camera_position": "Within the courtyard; exact camera not solved",
+   "date": "October 26, 2024",
+   "date_earliest": 2024,
+   "date_latest": 2024,
+   "period": "later",
+   "creator": "w_lemay",
+   "repository": "Wikimedia Commons, from w_lemay on Flickr",
+   "collection": "Glessner House courtyard, October 26, 2024",
+   "call_number": "159537053",
+   "catalog_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54202591351.jpg",
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54202591351.jpg",
+   "rights": "copyright — link only",
+   "rights_basis": "Copyright w_lemay; licensed CC BY-SA 2.0, https://creativecommons.org/licenses/by-sa/2.0. This is a licensed attributed reference copy, not a public-domain claim. Display and thumbnail are resized JPEGs of the credited original and retain that license.",
+   "local": {
+    "display": "research/images/files/a18-commons-wlemay-glessner-dining-copper-2024.jpg",
+    "display_bytes": 317419,
+    "thumb": "research/images/files/a18-commons-wlemay-glessner-dining-copper-2024-thumb.jpg",
+    "thumb_bytes": 26302,
+    "original_px": [
+     4284,
+     5712
+    ],
+    "original_sha256": "1c6c5f85104d5ece93431fada61265beb5f3358e7f030d0b58accda59efa262d",
+    "original_bytes": 9747042,
+    "fetched_from": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54202591351.jpg",
+    "fetched": "2026-10-14"
+   },
+   "verified": "viewed",
+   "found_via": "Wikimedia Commons courtyard category / MediaSearch; original file page and license metadata reviewed 2026-10-14",
+   "notes": "A modern surviving-fabric comparison, corroborated against HABS measured drawings and dated historic views. Present sheet stock, bright green patina, replacement glazing, planters and paving are not asserted to be 1904. Original coordinates come from the measured drawings; no photographic pixels or traced detail become a model asset. Original bytes were downloaded from image_url and checksummed before the library fetch tool generated display/thumbnail copies from that cache.",
+   "measurements": [],
+   "reference_copy": {
+    "basis": "CC BY-SA 2.0 permits attributed sharing; owner 2026-10-11 requested credited building reference copies in the public image store.",
+    "credit": {
+     "title": "Dining bay copper roof — Glessner House, October 26, 2024",
+     "creator": "w_lemay · CC BY-SA 2.0",
+     "date": "October 26, 2024",
+     "repository": "Wikimedia Commons / Flickr",
+     "catalog_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54202591351.jpg",
+     "license": "CC BY-SA 2.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+    }
+   },
+   "evidence_review": {
+    "ticket": "T-2220",
+    "audit_number": null,
+    "reviewed_on": "2026-10-14",
+    "review_state": "visually inspected",
+    "target_date": "1904-07-01",
+    "phase": "Modern surviving fabric, 2024",
+    "date_basis": "Commons file metadata gives 2024-10-26; this is the photograph date, not a construction date.",
+    "evidence_role": "exterior reference",
+    "geometry_use": "corroborate with dated evidence",
+    "reason": "A modern surviving-fabric comparison, corroborated against HABS measured drawings and dated historic views. Present sheet stock, bright green patina, replacement glazing, planters and paving are not asserted to be 1904. Original coordinates come from the measured drawings; no photographic pixels or traced detail become a model asset.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54202591351.jpg",
+    "family": "glessner-wlemay-courtyard-2024",
+    "family_members": [
+     "a18-commons-wlemay-glessner-overview-2024",
+     "a18-commons-wlemay-glessner-stair-tower-2024",
+     "a18-commons-wlemay-glessner-hall-bow-2024",
+     "a18-commons-wlemay-glessner-east-court-2024",
+     "a18-commons-wlemay-glessner-dining-copper-2024"
+    ],
+    "family_relationship": "Five distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
+   },
+   "stream": "glessner-courtyard-2024",
+   "parcel_ids": [
+    "calumet_1800",
+    "prairie_1800"
+   ]
+  },
+  {
+   "id": "a18-commons-wlemay-glessner-east-court-2024",
+   "kind": "photograph",
+   "title": "East courtyard wall and hall bow — Glessner House, October 26, 2024",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "rear",
+   "facing": null,
+   "camera_position": "Within the courtyard; exact camera not solved",
+   "date": "October 26, 2024",
+   "date_earliest": 2024,
+   "date_latest": 2024,
+   "period": "later",
+   "creator": "w_lemay",
+   "repository": "Wikimedia Commons, from w_lemay on Flickr",
+   "collection": "Glessner House courtyard, October 26, 2024",
+   "call_number": "159537087",
+   "catalog_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54202785678.jpg",
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54202785678.jpg",
+   "rights": "copyright — link only",
+   "rights_basis": "Copyright w_lemay; licensed CC BY-SA 2.0, https://creativecommons.org/licenses/by-sa/2.0. This is a licensed attributed reference copy, not a public-domain claim. Display and thumbnail are resized JPEGs of the credited original and retain that license.",
+   "local": {
+    "display": "research/images/files/a18-commons-wlemay-glessner-east-court-2024.jpg",
+    "display_bytes": 268962,
+    "thumb": "research/images/files/a18-commons-wlemay-glessner-east-court-2024-thumb.jpg",
+    "thumb_bytes": 24233,
+    "original_px": [
+     4032,
+     3024
+    ],
+    "original_sha256": "53190aa72661bd7c78d738de269015a4e126d7980e2c81e52191c14799610812",
+    "original_bytes": 4402873,
+    "fetched_from": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54202785678.jpg",
+    "fetched": "2026-10-14"
+   },
+   "verified": "viewed",
+   "found_via": "Wikimedia Commons courtyard category / MediaSearch; original file page and license metadata reviewed 2026-10-14",
+   "notes": "A modern surviving-fabric comparison, corroborated against HABS measured drawings and dated historic views. Present sheet stock, bright green patina, replacement glazing, planters and paving are not asserted to be 1904. Original coordinates come from the measured drawings; no photographic pixels or traced detail become a model asset. Original bytes were downloaded from image_url and checksummed before the library fetch tool generated display/thumbnail copies from that cache.",
+   "measurements": [],
+   "reference_copy": {
+    "basis": "CC BY-SA 2.0 permits attributed sharing; owner 2026-10-11 requested credited building reference copies in the public image store.",
+    "credit": {
+     "title": "East courtyard wall and hall bow — Glessner House, October 26, 2024",
+     "creator": "w_lemay · CC BY-SA 2.0",
+     "date": "October 26, 2024",
+     "repository": "Wikimedia Commons / Flickr",
+     "catalog_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54202785678.jpg",
+     "license": "CC BY-SA 2.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+    }
+   },
+   "evidence_review": {
+    "ticket": "T-2220",
+    "audit_number": null,
+    "reviewed_on": "2026-10-14",
+    "review_state": "visually inspected",
+    "target_date": "1904-07-01",
+    "phase": "Modern surviving fabric, 2024",
+    "date_basis": "Commons file metadata gives 2024-10-26; this is the photograph date, not a construction date.",
+    "evidence_role": "exterior reference",
+    "geometry_use": "corroborate with dated evidence",
+    "reason": "A modern surviving-fabric comparison, corroborated against HABS measured drawings and dated historic views. Present sheet stock, bright green patina, replacement glazing, planters and paving are not asserted to be 1904. Original coordinates come from the measured drawings; no photographic pixels or traced detail become a model asset.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54202785678.jpg",
+    "family": "glessner-wlemay-courtyard-2024",
+    "family_members": [
+     "a18-commons-wlemay-glessner-overview-2024",
+     "a18-commons-wlemay-glessner-stair-tower-2024",
+     "a18-commons-wlemay-glessner-hall-bow-2024",
+     "a18-commons-wlemay-glessner-east-court-2024",
+     "a18-commons-wlemay-glessner-dining-copper-2024"
+    ],
+    "family_relationship": "Five distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
+   },
+   "stream": "glessner-courtyard-2024",
+   "parcel_ids": [
+    "calumet_1800",
+    "prairie_1800"
+   ]
+  },
+  {
+   "id": "a18-commons-wlemay-glessner-hall-bow-2024",
+   "kind": "photograph",
+   "title": "Hall bow and terrace — Glessner House, October 26, 2024",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "rear",
+   "facing": null,
+   "camera_position": "Within the courtyard; exact camera not solved",
+   "date": "October 26, 2024",
+   "date_earliest": 2024,
+   "date_latest": 2024,
+   "period": "later",
+   "creator": "w_lemay",
+   "repository": "Wikimedia Commons, from w_lemay on Flickr",
+   "collection": "Glessner House courtyard, October 26, 2024",
+   "call_number": "159537081",
+   "catalog_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54202734734.jpg",
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54202734734.jpg",
+   "rights": "copyright — link only",
+   "rights_basis": "Copyright w_lemay; licensed CC BY-SA 2.0, https://creativecommons.org/licenses/by-sa/2.0. This is a licensed attributed reference copy, not a public-domain claim. Display and thumbnail are resized JPEGs of the credited original and retain that license.",
+   "local": {
+    "display": "research/images/files/a18-commons-wlemay-glessner-hall-bow-2024.jpg",
+    "display_bytes": 312278,
+    "thumb": "research/images/files/a18-commons-wlemay-glessner-hall-bow-2024-thumb.jpg",
+    "thumb_bytes": 28781,
+    "original_px": [
+     3967,
+     5289
+    ],
+    "original_sha256": "310762ea00df0dd93164c103134fd1d6d5168956c6698d2ee959c8b3799edd1f",
+    "original_bytes": 7176453,
+    "fetched_from": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54202734734.jpg",
+    "fetched": "2026-10-14"
+   },
+   "verified": "viewed",
+   "found_via": "Wikimedia Commons courtyard category / MediaSearch; original file page and license metadata reviewed 2026-10-14",
+   "notes": "A modern surviving-fabric comparison, corroborated against HABS measured drawings and dated historic views. Present sheet stock, bright green patina, replacement glazing, planters and paving are not asserted to be 1904. Original coordinates come from the measured drawings; no photographic pixels or traced detail become a model asset. Original bytes were downloaded from image_url and checksummed before the library fetch tool generated display/thumbnail copies from that cache.",
+   "measurements": [],
+   "reference_copy": {
+    "basis": "CC BY-SA 2.0 permits attributed sharing; owner 2026-10-11 requested credited building reference copies in the public image store.",
+    "credit": {
+     "title": "Hall bow and terrace — Glessner House, October 26, 2024",
+     "creator": "w_lemay · CC BY-SA 2.0",
+     "date": "October 26, 2024",
+     "repository": "Wikimedia Commons / Flickr",
+     "catalog_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54202734734.jpg",
+     "license": "CC BY-SA 2.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+    }
+   },
+   "evidence_review": {
+    "ticket": "T-2220",
+    "audit_number": null,
+    "reviewed_on": "2026-10-14",
+    "review_state": "visually inspected",
+    "target_date": "1904-07-01",
+    "phase": "Modern surviving fabric, 2024",
+    "date_basis": "Commons file metadata gives 2024-10-26; this is the photograph date, not a construction date.",
+    "evidence_role": "exterior reference",
+    "geometry_use": "corroborate with dated evidence",
+    "reason": "A modern surviving-fabric comparison, corroborated against HABS measured drawings and dated historic views. Present sheet stock, bright green patina, replacement glazing, planters and paving are not asserted to be 1904. Original coordinates come from the measured drawings; no photographic pixels or traced detail become a model asset.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54202734734.jpg",
+    "family": "glessner-wlemay-courtyard-2024",
+    "family_members": [
+     "a18-commons-wlemay-glessner-overview-2024",
+     "a18-commons-wlemay-glessner-stair-tower-2024",
+     "a18-commons-wlemay-glessner-hall-bow-2024",
+     "a18-commons-wlemay-glessner-east-court-2024",
+     "a18-commons-wlemay-glessner-dining-copper-2024"
+    ],
+    "family_relationship": "Five distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
+   },
+   "stream": "glessner-courtyard-2024",
+   "parcel_ids": [
+    "calumet_1800",
+    "prairie_1800"
+   ]
+  },
+  {
+   "id": "a18-commons-wlemay-glessner-overview-2024",
+   "kind": "photograph",
+   "title": "Courtyard overview — Glessner House, October 26, 2024",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "rear",
+   "facing": null,
+   "camera_position": "Within the courtyard; exact camera not solved",
+   "date": "October 26, 2024",
+   "date_earliest": 2024,
+   "date_latest": 2024,
+   "period": "later",
+   "creator": "w_lemay",
+   "repository": "Wikimedia Commons, from w_lemay on Flickr",
+   "collection": "Glessner House courtyard, October 26, 2024",
+   "call_number": "159536997",
+   "catalog_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL.jpg",
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL.jpg",
+   "rights": "copyright — link only",
+   "rights_basis": "Copyright w_lemay; licensed CC BY-SA 2.0, https://creativecommons.org/licenses/by-sa/2.0. This is a licensed attributed reference copy, not a public-domain claim. Display and thumbnail are resized JPEGs of the credited original and retain that license.",
+   "local": {
+    "display": "research/images/files/a18-commons-wlemay-glessner-overview-2024.jpg",
+    "display_bytes": 321580,
+    "thumb": "research/images/files/a18-commons-wlemay-glessner-overview-2024-thumb.jpg",
+    "thumb_bytes": 27919,
+    "original_px": [
+     3839,
+     2879
+    ],
+    "original_sha256": "b478a94f6684896d3d05c8455f61bd701dcef9a2cbe30a42cfc510eb7eac18f2",
+    "original_bytes": 4841381,
+    "fetched_from": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL.jpg",
+    "fetched": "2026-10-14"
+   },
+   "verified": "viewed",
+   "found_via": "Wikimedia Commons courtyard category / MediaSearch; original file page and license metadata reviewed 2026-10-14",
+   "notes": "A modern surviving-fabric comparison, corroborated against HABS measured drawings and dated historic views. Present sheet stock, bright green patina, replacement glazing, planters and paving are not asserted to be 1904. Original coordinates come from the measured drawings; no photographic pixels or traced detail become a model asset. Original bytes were downloaded from image_url and checksummed before the library fetch tool generated display/thumbnail copies from that cache.",
+   "measurements": [],
+   "reference_copy": {
+    "basis": "CC BY-SA 2.0 permits attributed sharing; owner 2026-10-11 requested credited building reference copies in the public image store.",
+    "credit": {
+     "title": "Courtyard overview — Glessner House, October 26, 2024",
+     "creator": "w_lemay · CC BY-SA 2.0",
+     "date": "October 26, 2024",
+     "repository": "Wikimedia Commons / Flickr",
+     "catalog_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL.jpg",
+     "license": "CC BY-SA 2.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+    }
+   },
+   "evidence_review": {
+    "ticket": "T-2220",
+    "audit_number": null,
+    "reviewed_on": "2026-10-14",
+    "review_state": "visually inspected",
+    "target_date": "1904-07-01",
+    "phase": "Modern surviving fabric, 2024",
+    "date_basis": "Commons file metadata gives 2024-10-26; this is the photograph date, not a construction date.",
+    "evidence_role": "exterior reference",
+    "geometry_use": "corroborate with dated evidence",
+    "reason": "A modern surviving-fabric comparison, corroborated against HABS measured drawings and dated historic views. Present sheet stock, bright green patina, replacement glazing, planters and paving are not asserted to be 1904. Original coordinates come from the measured drawings; no photographic pixels or traced detail become a model asset.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL.jpg",
+    "family": "glessner-wlemay-courtyard-2024",
+    "family_members": [
+     "a18-commons-wlemay-glessner-overview-2024",
+     "a18-commons-wlemay-glessner-stair-tower-2024",
+     "a18-commons-wlemay-glessner-hall-bow-2024",
+     "a18-commons-wlemay-glessner-east-court-2024",
+     "a18-commons-wlemay-glessner-dining-copper-2024"
+    ],
+    "family_relationship": "Five distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
+   },
+   "stream": "glessner-courtyard-2024",
+   "parcel_ids": [
+    "calumet_1800",
+    "prairie_1800"
+   ]
+  },
+  {
+   "id": "a18-commons-wlemay-glessner-stair-tower-2024",
+   "kind": "photograph",
+   "title": "Courtyard stair tower — Glessner House, October 26, 2024",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "rear",
+   "facing": null,
+   "camera_position": "Within the courtyard; exact camera not solved",
+   "date": "October 26, 2024",
+   "date_earliest": 2024,
+   "date_latest": 2024,
+   "period": "later",
+   "creator": "w_lemay",
+   "repository": "Wikimedia Commons, from w_lemay on Flickr",
+   "collection": "Glessner House courtyard, October 26, 2024",
+   "call_number": "159537028",
+   "catalog_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54201685867.jpg",
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54201685867.jpg",
+   "rights": "copyright — link only",
+   "rights_basis": "Copyright w_lemay; licensed CC BY-SA 2.0, https://creativecommons.org/licenses/by-sa/2.0. This is a licensed attributed reference copy, not a public-domain claim. Display and thumbnail are resized JPEGs of the credited original and retain that license.",
+   "local": {
+    "display": "research/images/files/a18-commons-wlemay-glessner-stair-tower-2024.jpg",
+    "display_bytes": 294863,
+    "thumb": "research/images/files/a18-commons-wlemay-glessner-stair-tower-2024-thumb.jpg",
+    "thumb_bytes": 24902,
+    "original_px": [
+     3024,
+     4032
+    ],
+    "original_sha256": "16a4aabccb33d34a4238d766f957670cf58852387b497769fe7b4449b3187031",
+    "original_bytes": 4188085,
+    "fetched_from": "https://upload.wikimedia.org/wikipedia/commons/0/04/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54201685867.jpg",
+    "fetched": "2026-10-14"
+   },
+   "verified": "viewed",
+   "found_via": "Wikimedia Commons courtyard category / MediaSearch; original file page and license metadata reviewed 2026-10-14",
+   "notes": "A modern surviving-fabric comparison, corroborated against HABS measured drawings and dated historic views. Present sheet stock, bright green patina, replacement glazing, planters and paving are not asserted to be 1904. Original coordinates come from the measured drawings; no photographic pixels or traced detail become a model asset. Original bytes were downloaded from image_url and checksummed before the library fetch tool generated display/thumbnail copies from that cache.",
+   "measurements": [],
+   "reference_copy": {
+    "basis": "CC BY-SA 2.0 permits attributed sharing; owner 2026-10-11 requested credited building reference copies in the public image store.",
+    "credit": {
+     "title": "Courtyard stair tower — Glessner House, October 26, 2024",
+     "creator": "w_lemay · CC BY-SA 2.0",
+     "date": "October 26, 2024",
+     "repository": "Wikimedia Commons / Flickr",
+     "catalog_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54201685867.jpg",
+     "license": "CC BY-SA 2.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+    }
+   },
+   "evidence_review": {
+    "ticket": "T-2220",
+    "audit_number": null,
+    "reviewed_on": "2026-10-14",
+    "review_state": "visually inspected",
+    "target_date": "1904-07-01",
+    "phase": "Modern surviving fabric, 2024",
+    "date_basis": "Commons file metadata gives 2024-10-26; this is the photograph date, not a construction date.",
+    "evidence_role": "exterior reference",
+    "geometry_use": "corroborate with dated evidence",
+    "reason": "A modern surviving-fabric comparison, corroborated against HABS measured drawings and dated historic views. Present sheet stock, bright green patina, replacement glazing, planters and paving are not asserted to be 1904. Original coordinates come from the measured drawings; no photographic pixels or traced detail become a model asset.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54201685867.jpg",
+    "family": "glessner-wlemay-courtyard-2024",
+    "family_members": [
+     "a18-commons-wlemay-glessner-overview-2024",
+     "a18-commons-wlemay-glessner-stair-tower-2024",
+     "a18-commons-wlemay-glessner-hall-bow-2024",
+     "a18-commons-wlemay-glessner-east-court-2024",
+     "a18-commons-wlemay-glessner-dining-copper-2024"
+    ],
+    "family_relationship": "Five distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
+   },
+   "stream": "glessner-courtyard-2024",
+   "parcel_ids": [
+    "calumet_1800",
+    "prairie_1800"
    ]
   },
   {

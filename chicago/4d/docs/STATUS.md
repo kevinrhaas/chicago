@@ -32,6 +32,17 @@ The actual Prairie Avenue jaunt also reaches stop 2 on the sidewalk facing Prair
 including every travel mode and zero page errors. The complete 15-part renderer
 gate has not been run on this branch. No production deployment is claimed.
 
+## T-2220 — Glessner courtyard copper (2026-10-14)
+
+The northeast copper hood is rebuilt as ordered planar facets meeting both
+adjoining roof slopes. The broad folded connector is removed; local wall
+closure, seated seams, low laps and a shallow curved soffit replace the open
+wedge. HABS sheet 4 supports the reduced 1.8 ft rise. The absolute section/eave
+datum remains unresolved, and modern patina is not treated as 1904 colour.
+Five credited courtyard photographs are added to the library.
+[Evidence and validation](RESEARCH/glessner-copper-T-2220/README.md).
+Whole-house photographic acceptance remains T-2228.
+
 ## T-2495 — outer 1904 rails and shoreline (2026-10-14)
 
 The Illinois Central corridor now continues to both context-map edges, about

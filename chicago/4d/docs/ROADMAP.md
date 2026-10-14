@@ -5347,3 +5347,6 @@ T-2218 (2026-10-14): courtyard terrace and fan steps recalibrated to HABS sheets
 T-2494: diagnose Glessner canonical rebuild differences by reporting the atlas key input fingerprints. Six local cases reproduce committed keys; CI cause remains unproven. T-2220 waits on the reproducibility repair. See docs/RESEARCH/glessner-bake-2494/README.md.
 
 T-2494 resolution: host libm changes the welded smart-project/pack UV layout, not mesh geometry. Retain validated UVs with the AO atlas under an exact mesh/unwrap-recipe key; preserve full atlas and K01 stale-package checks. Controlled Ubuntu libm reproduction and final bake/browser receipts: docs/RESEARCH/glessner-bake-2494/README.md. Unblocks the visible T-2220 copper repair.
+
+
+T-2220 (2026-10-14): rebuild the low courtyard copper hood against both host roofs; seated seams/laps, local wall closure and drainage-aligned procedural finish. HABS relative rise and five licensed modern references are documented in RESEARCH/glessner-copper-T-2220/README.md. Full/Light package and camera checks pass; the two existing Balanced draw-call overruns remain T-2227. Whole-house acceptance remains T-2228.

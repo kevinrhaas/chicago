@@ -26736,3 +26736,31 @@ all pixel picks; `tools/extend_ic_lakefront_1904.py` generates the scene data.
 
 **Ticket:** T-2495.
 **Recorded:** 2026-10-14 (T-2495).
+
+### L-glessner-copper-2220 — low courtyard hood and copper stock
+
+**Decision:** HABS sheet 4 supplies a relative hood rise of about 1.78 ft
+(174 px / 97.7 px per ft; picks approximately +/-12 px), with its high point
+near S26.81. The roof is reconstructed at 1.8 ft above the retained bow eave,
+centred on the actual ell corner W26.5/S26.83 and clipped against both existing
+roof slopes. This supersedes L295's 3.5-ft rise and the unsupported broad copper
+connector above the north windows. The section's absolute eave/grade conflict is
+retained for T-2228; this relative measurement does not silently resolve it.
+
+Radial sheets about 45-48 cm wide, two transverse laps, 18-by-12-mm folded
+standing seams, low 25-28-mm laps, 75-mm abutment flashing and 45-mm edge stock
+are bounded construction estimates. Later photographs corroborate panelled low
+hoods, but do not date the present sheet stock to 1904. Full folds are closed
+stock; Light uses attached thin seam bands and coarser tiny gutter cross sections
+with about 2-mm maximum chord error. Roof outlines and gutter paths agree.
+
+Copper's seventeen-year brown/muted-green balance remains reconstructed. Subtle
+procedural streaks follow drainage UVs; no monochrome colour sampling, modern
+bright-green colour claim, source-image pixels or baked directional shadows are
+used. Dining-bay seam stock and low laps follow the existing hip and apron,
+without changing their roof geometry, windows or the owner's dark-glass default.
+
+**Ticket:** T-2220.
+**Recorded:** 2026-10-14 (T-2220).
+
+**Covers:** `glessner_house.as_built_1887.form.hall_bow_roof`

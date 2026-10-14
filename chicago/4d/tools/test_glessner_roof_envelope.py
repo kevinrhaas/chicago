@@ -235,7 +235,10 @@ if p.detail.get('dining_crested_connection'):
         assert profile_points[0][0]==n['x0'] and abs(profile_points[0][1]-left_height)<1e-4
     else:
         assert profile_points[0]==(n['x0'],n['eave_lo_z'])
-    assert profile_points[-1]==(n['x1'],n['eave_lo_z'])
+    # T-2220 moves the hood peak to the actual ell endpoint. The final wall
+    # control must reach that roof, not drop to the unrelated north eave.
+    assert abs(profile_points[-1][0]-n['x1'])<1e-7
+    assert abs(profile_points[-1][1]-(p.bows[0]['wall_top_z']+p.bows[0]['roof_rise_m']))<1e-7
     assert all(h>=n['eave_lo_z'] for x,h in profile_points)
     if n.get('eave_lo_overhang',.20)>.21:
         assert max(h for x,h in profile_points)>p.bows[0]['wall_top_z']
