@@ -963,3 +963,18 @@ project heightfield data and map-coordinate readings. Project license; no raster
 texture is embedded. The underlying 1904 Talbot map is public domain, credited to
 the University of Chicago Library, Map Collection; source record
 `data/sources/talbot_1904_railroad_map.json` records the provenance.
+
+### Glessner chimney refinement (T-2222)
+
+The regenerated Glessner master and Full/Light derivatives retain their existing
+asset license. New chimney placement/cap construction rests on unrestricted HABS
+IL-1015 measured drawings and public-domain Taylor2135; service masonry is a
+bounded reconstruction corroborated by w_lemay's CC BY-SA2.0 courtyard photographs
+159537051 and159537085. Source records retain creator, license and catalog links.
+These are credited reference copies, not projected texture pixels or traced stone
+patterns. The existing metric granite/brick/limestone textures are unchanged.
+The Inland1888 digital reproduction and copied HABS05 remain textual/qualitative
+cross-checks only and supply no new derived geometry or texture. Full/Light
+simplifications and invented flue dimensions are declared in L-glessner-stacks-2222.
+The HABS drawing excerpts in the T-2222 research folder are annotated diagnostic
+crops of unrestricted federal measured drawings, not newly surveyed dimensions.

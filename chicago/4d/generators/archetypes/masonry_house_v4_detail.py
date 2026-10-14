@@ -476,7 +476,7 @@ class DetailBuilder(MeshBuilder):
             self.raw([point(q,-.012) for q in fragment],confidence,MORTAR,n)
         x0,z0,x1,z1 = bounds(polygon)
         courses = []
-        z = 0.0
+        z = getattr(self, 'course_origin', 0.0)
         idx = 0
         while z < z1+1e-6:
             height = .066675 if mat == BRICK else self.course_schedule[idx%len(self.course_schedule)]
@@ -1037,6 +1037,9 @@ def roof_ridges(b,params):
 
 
 def chimney(b,c):
+    if b.params.detail.get('stack_finish'):
+        from archetypes.masonry_house_v4_chimneys import build_stack
+        return build_stack(b,c)
     conf=c['conf'];z=c['z1'];x0,x1,y0,y1=c['x0'],c['x1'],c['y0'],c['y1']
     detail=b.params.detail.get('chimney_details',{}).get(c['name'],{})
     slope=float(detail.get('cap_slope_ft',.3))*.3048

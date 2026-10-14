@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/web/glessner_house__as_built_1887.glb",
-  "glb_sha256": "365adf80334945a131663d4fcc12eb397e713bbf09e8c4fb092607786a636d63",
+  "glb_sha256": "435d2d90784a37b086729c09d553c52f9f248437cda2fdb0ace1a7b1ec108b2f",
   "camera_sha256": "e7561b646f21444ace9b190547f15f973f50a2243a70bee0c3df17b937538e7c",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
   "verdict": "differs",
@@ -57,6 +57,10 @@
     },
     {
       "what": "T-2228: the retained roof/eave and camera disagreement leaves the head lower in the image than its photographed counterpart. No fitting was floated above its host to force a local image fit. The final bounded matte finish now makes the bowl ribs readable, but exact casting ornament and monochrome tonal correspondence are not established.",
+      "status": "open"
+    },
+    {
+      "what": "T-2222: Re-viewed canonical Full web: north-gable cap retains top height and flush masonry course; no new pot or side vent. Existing flat north facade and curved west return remain. Cone silhouette/finial residual, window correspondence, material relief and lower receiver absolute height still differ; T2228 remains open.",
       "status": "open"
     }
   ],

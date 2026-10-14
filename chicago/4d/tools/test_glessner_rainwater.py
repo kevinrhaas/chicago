@@ -23,7 +23,7 @@ def distance_to_segment(q,a,c):
 class Capture:
     def __init__(self,reduced):self.reduced_roof_details=reduced;self.faces=[]
     def raw(self,pts,confidence,material,want):
-        assert confidence==0 and material==28
+        assert confidence==p.conf('rainwater_details')==1.0 and material==28
         assert len(pts)>=3 and all(math.isfinite(v) for q in pts for v in q)
         self.faces.append((pts,want))
 

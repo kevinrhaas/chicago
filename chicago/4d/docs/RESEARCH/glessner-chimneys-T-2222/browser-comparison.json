@@ -1,0 +1,174 @@
+{
+  "method": "Identical cameras and unchanged budgets in actual published 1904 app. SwiftShader; not hardware FPS. Functional browser errors, failed requests and problem lists must be empty. Existing failing scene-budget observations remain failures and are assigned to T-2227.",
+  "new_budget_failures": 0,
+  "rows": [
+    {
+      "detail": "full",
+      "view": "street-stack-overview",
+      "before": {
+        "drawCalls": 228,
+        "triangles": 3864309,
+        "withinBudget": true
+      },
+      "after": {
+        "drawCalls": 228,
+        "triangles": 3826385,
+        "withinBudget": true
+      }
+    },
+    {
+      "detail": "full",
+      "view": "middle-stack",
+      "before": {
+        "drawCalls": 223,
+        "triangles": 3779145,
+        "withinBudget": true
+      },
+      "after": {
+        "drawCalls": 223,
+        "triangles": 3741221,
+        "withinBudget": true
+      }
+    },
+    {
+      "detail": "full",
+      "view": "north-gable-cap",
+      "before": {
+        "drawCalls": 229,
+        "triangles": 3905268,
+        "withinBudget": true
+      },
+      "after": {
+        "drawCalls": 229,
+        "triangles": 3867344,
+        "withinBudget": true
+      }
+    },
+    {
+      "detail": "full",
+      "view": "service-east-stack",
+      "before": {
+        "drawCalls": 226,
+        "triangles": 3742867,
+        "withinBudget": true
+      },
+      "after": {
+        "drawCalls": 226,
+        "triangles": 3704943,
+        "withinBudget": true
+      }
+    },
+    {
+      "detail": "full",
+      "view": "service-west-stack",
+      "before": {
+        "drawCalls": 402,
+        "triangles": 4694719,
+        "withinBudget": false
+      },
+      "after": {
+        "drawCalls": 402,
+        "triangles": 4656795,
+        "withinBudget": false
+      }
+    },
+    {
+      "detail": "light",
+      "view": "street-stack-overview",
+      "before": {
+        "drawCalls": 136,
+        "triangles": 964894,
+        "withinBudget": true
+      },
+      "after": {
+        "drawCalls": 136,
+        "triangles": 965710,
+        "withinBudget": true
+      }
+    },
+    {
+      "detail": "light",
+      "view": "middle-stack",
+      "before": {
+        "drawCalls": 118,
+        "triangles": 843241,
+        "withinBudget": true
+      },
+      "after": {
+        "drawCalls": 118,
+        "triangles": 844034,
+        "withinBudget": true
+      }
+    },
+    {
+      "detail": "light",
+      "view": "north-gable-cap",
+      "before": {
+        "drawCalls": 130,
+        "triangles": 901591,
+        "withinBudget": true
+      },
+      "after": {
+        "drawCalls": 130,
+        "triangles": 902450,
+        "withinBudget": true
+      }
+    },
+    {
+      "detail": "light",
+      "view": "service-east-stack",
+      "before": {
+        "drawCalls": 100,
+        "triangles": 639780,
+        "withinBudget": true
+      },
+      "after": {
+        "drawCalls": 100,
+        "triangles": 640012,
+        "withinBudget": true
+      }
+    },
+    {
+      "detail": "light",
+      "view": "service-west-stack",
+      "before": {
+        "drawCalls": 243,
+        "triangles": 1176472,
+        "withinBudget": true
+      },
+      "after": {
+        "drawCalls": 243,
+        "triangles": 1176728,
+        "withinBudget": true
+      }
+    },
+    {
+      "detail": "full",
+      "view": "north-cap-clear",
+      "before": {
+        "drawCalls": 400,
+        "triangles": 4691199,
+        "withinBudget": false
+      },
+      "after": {
+        "drawCalls": 400,
+        "triangles": 4653275,
+        "withinBudget": false
+      }
+    },
+    {
+      "detail": "light",
+      "view": "north-cap-clear",
+      "before": {
+        "drawCalls": 284,
+        "triangles": 1581241,
+        "withinBudget": false
+      },
+      "after": {
+        "drawCalls": 284,
+        "triangles": 1581587,
+        "withinBudget": false
+      }
+    }
+  ]
+}
