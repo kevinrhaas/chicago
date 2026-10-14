@@ -139,7 +139,7 @@ def build():
                            'left_off_embankment_face_s':[]})
         extension[side]=tracks
     ground.doc=doc
-    # Each row carries rail exclusion to the context city as well as to the renderer.
+    # Record the rail envelope alongside the mapped coast for inspection.
     for side in ('north','south'):
         for k,p in enumerate(extension[side][0]['centreline_local_m']):
             es=[t['centreline_local_m'][k][0] for t in extension[side]]

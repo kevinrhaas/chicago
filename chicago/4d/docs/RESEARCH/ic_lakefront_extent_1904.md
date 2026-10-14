@@ -65,8 +65,20 @@ both directions reach the context boundary, all rail centres remain on dry flat
 ground, source ids resolve, and the terrain sampler is continuous at both joins.
 Browser results and remaining gate limitations are recorded in STATUS.md.
 
-Published Chromium/SwiftShader views at 780x600, 120 m above the core joins:
+Published Chromium/SwiftShader views at 1280x800, 120 m above the core joins:
 [north](ic-lakefront-2495/north.png), [south](ic-lakefront-2495/south.png).
 Both were captured after entering the scene, with real rendering active. The
 1904 boot reported no problems and no page errors. These views document the
 implementation, not additional historical evidence.
+
+Phone-sized 390x780 Light views also load without errors:
+[north](ic-lakefront-2495/mobile-north.png),
+[south](ic-lakefront-2495/mobile-south.png). Published mobile smoke parts 3/14:
+221 passed, zero failed (15m34s on this SwiftShader runner).
+
+Final preflight passes, including all 876 code/data gate steps. Full desktop
+aerial views use 260 / 104 draw calls and 2,741,643 / 1,000,839 triangles (north /
+south), within 330 calls and 4,600,000 triangles. These are draw-count readings,
+not a hardware frame-rate claim. The broader desktop smoke twice timed out
+booting 1835 before the requested sections, with zero page errors; that gate is
+unresolved, so this change is not merged or promoted to production.
