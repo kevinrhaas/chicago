@@ -14,7 +14,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '2½B brick dwelling (D) with a frame (yellow) bay and porches on the Prairie face'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "T-2441 (piece 1 of T-1870) refines the district draft (T-2335) in place under the same id from the house's one picture of its remodelled front, a line engraving of the Grosvenor house as Jesse Spalding remodelled it (glessner_blog_1637_spalding_remodel_engraving), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly at the sheet's own width (13.1 m, where the draft's fit had stopped at 11.5 m) and depth: a K03 brick block of a raised basement and two tall storeys under a bracketed cornice; at the north end of the front a K08 swell bay of three windows a storey rising nearly to the cornice, at the south end the wing the engraving draws forward of the front as a K08 full-height projection on the sheet's 4.8 m by 1.0 m step, the entrance up its stoop between them under one window; a slated mansard whose steep lower faces carry two dormers on the street face and one on the north face, and the three stacks the engraving draws. The sheet's two-storey rear range behind the south part stands on K01's rear wings. What the engraving shows and K01 cannot yet build, or this piece has not yet built, is listed open in its match record (data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json) for T-2442. T-2465 carries the wing up to the cornice under its own steep hip, its ridge running back into the main roof and its stack beside the ridge (K01's mansard crown built as a hip). Everything not read is reconstructed and recorded as L-k01-1637-spalding-remodel-2441.",
+  "research_note": "T-2441 (piece 1 of T-1870) refines the district draft (T-2335) in place under the same id from the house's one picture of its remodelled front, a line engraving of the Grosvenor house as Jesse Spalding remodelled it (glessner_blog_1637_spalding_remodel_engraving), read against the 1911 Sanborn sheet 20, which controls the plan. The main body is rebuilt on the K01 frontage assembly at the sheet's own width (13.1 m, where the draft's fit had stopped at 11.5 m) and depth: a K03 brick block of a raised basement and two tall storeys under a bracketed cornice; at the north end of the front a K08 swell bay of three windows a storey rising nearly to the cornice, at the south end the wing the engraving draws forward of the front as a K08 full-height projection on the sheet's 4.8 m by 1.0 m step, the entrance up its stoop between them under one window; a slated mansard whose steep lower faces carry two dormers on the street face and one on the north face, and the three stacks the engraving draws. The sheet's two-storey rear range behind the south part stands on K01's rear wings. What the engraving shows and K01 cannot yet build, or this piece has not yet built, is listed open in its match record (data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json) for T-2442. T-2465 carries the wing up to the cornice under its own steep hip, its ridge running back into the main roof and its stack beside the ridge (K01's mansard crown built as a hip). T-2471 dresses the three stacks with the K15 kit's head (corbelled courses, a stone cap and, on the two tall ones, a sunk panel). Everything not read is reconstructed and recorded as L-k01-1637-spalding-remodel-2441.",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -336,6 +336,23 @@
             "top_above_ridge_m": 0.9,
             "cap_proud_m": 0.05,
             "cap_depth_m": 0.15,
+            "k15": {
+              "kit": "data/components/prairie_1904/k15_chimneys.json",
+              "from": "k15.stack.sherman",
+              "omit": [
+                "bands",
+                "dentils"
+              ],
+              "flues": 2,
+              "panels": {
+                "count": 1,
+                "width_m": 0.45,
+                "depth_m": 0.035,
+                "above_roof_m": 0.5,
+                "under_head_m": 0.3,
+                "min_height_m": 0.6
+              }
+            },
             "stacks": [
               {
                 "u_m": 9.2,
@@ -352,7 +369,8 @@
               {
                 "u_m": 10.2,
                 "v_m": 11.2,
-                "top_m": 15.11
+                "top_m": 15.11,
+                "panelled": false
               }
             ]
           },
@@ -360,7 +378,7 @@
           "sources": [
             "glessner_blog_1637_spalding_remodel_engraving"
           ],
-          "note": "Three stacks where the engraving draws them, each at the top it reads through the camera: two on the north wall's cornice, near its front (u 9.2 m, top 16.4 m over grade) and near its rear (3.2 m, 15.5 m), and one over the wing. T-2465 stood the wing's stack beside its hipped roof's ridge, where the engraving draws it just south of the apex: its shaft at x 662-715 px through the camera against the drawn 663-717 (u 10.2, v 11.2, 0.5 m south of the ridge line) and its top at 15.11 m (y 112 px against the drawn 113), the least that clears the crown's 14.5 m ridge by 0.6 m. The engraving's stacks are panelled and capped; K01's are plain, listed open for T-2466."
+          "note": "Three stacks where the engraving draws them, each at the top it reads through the camera: two on the north wall's cornice, near its front (u 9.2 m, top 16.4 m over grade) and near its rear (3.2 m, 15.5 m), and one over the wing. T-2465 stood the wing's stack beside its hipped roof's ridge, where the engraving draws it just south of the apex: its shaft at x 662-715 px through the camera against the drawn 663-717 (u 10.2, v 11.2, 0.5 m south of the ridge line) and its top at 15.11 m (y 112 px against the drawn 113), the least that clears the crown's 14.5 m ridge by 0.6 m. T-2471 dresses the three from the K15 chimney kit (chimneys.k15), as the engraving draws them panelled and capped: each takes the kit's carved form (k15.stack.sherman) less the stone bands and corbel blocks the engraving does not draw, so three corbelled brick courses under a 0.14 m stone cap projecting 0.15 m, the stack turned so its panelled faces face the street and the rear. The two tall stacks on the north wall carry a sunk panel 0.45 m wide on those faces, run from 0.5 m over the highest roof under the stack to 0.3 m under its head (1.87 m on the front one, 0.97 m on the rear one), where the engraving draws the tall front stack's lit face as a long light field in a dark border; the wing's stack stands too little over its crown's covering for one and is left plain (panelled: false). Two flues each, the kit's 0.21 m liner. The kit's flashing is not laid: it reads one slope, and these stand on the cornice and on the crown's steep side, so each joins its roof as the plain stack did. The courses, cap, panel sizes and flues are the kit's or read off the plate at its scale, not measured. Each top was read at the drawn top, which is a dark hooded crown over the cap (a pot or a cowl, about 0.4-0.5 m), not built."
         },
         "rainwater": {
           "value": {

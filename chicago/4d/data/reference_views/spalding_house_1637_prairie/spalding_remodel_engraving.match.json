@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "spalding_remodel_engraving",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "7e426d769df62c977208185c74900eab57623be7c690550599a4357e6a5b7508",
+  "glb_sha256": "8834b79590e7e24a9336398c9308024988fe3e361dc8c7f7488df6de43367815",
   "camera_sha256": "06623cf6f05d0dafcc01b75c32c2d59a8079f6b2df83342aa3e040e00f77e557",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg",
   "verdict": "differs",
@@ -84,8 +84,13 @@
     },
     {
       "what": "the stacks' panelled shafts and caps",
+      "status": "fixed",
+      "how": "T-2471: the K15 kit's carved head on the three stacks (k15.stack.sherman less its stone bands and corbel blocks): three corbelled brick courses under a 0.14 m stone cap projecting 0.15 m, the head's step out reading at each stack's top as the engraving's does; on the two tall north stacks a sunk panel 0.45 m wide on the street face (and the rear), from 0.5 m over the roof to 0.3 m under the head, where the engraving draws the tall front stack's lit face as a long light field in a dark border. The wing's stack stands too little over its crown for a panel and is left plain"
+    },
+    {
+      "what": "a dark hooded crown over each stack's cap, about 0.4-0.5 m tall",
       "status": "open",
-      "how": "T-2466"
+      "how": "not built: a pot or a cowl, which the engraving's scale does not settle; each stack's top was read at the crown's top, so each cap stands where the drawn crown ends (L-k01-1637-spalding-remodel-2441)"
     },
     {
       "what": "the wing's cornice: the engraving draws it as a band as deep as the main cornice's (y 232-262 px), with a block in it over the window; the build's is the crown's K05 fascia, 0.2 m deep, without K10's brackets",

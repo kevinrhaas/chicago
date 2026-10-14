@@ -241,11 +241,13 @@ def pot_solid(x, z, y, profile, sides):
 
 # -- one stack ------------------------------------------------------------------------------------
 
-def stack_solids(s: dict, F: Frame, data: dict, t: float):
+def stack_solids(s: dict, F: Frame, data: dict, t: float, bottom: float | None = None, flashing: bool = True):
     """The closed parts of one stack (joined by union) and its cutters (taken away after),
     with the numbers they were built to. The stack comes in two: its BODY (shaft, courses,
     bands, blocks, flashing, cricket) below the cap's bed and its HEAD (the cap and its
-    pots) on it. See join_stack for why."""
+    pots) on it. See join_stack for why. T-2466: a house whose roof the kit's flashing
+    cannot read (a mansard's cornice and steep faces) takes the stack with `flashing`
+    off and its shaft started at `bottom`, the height its own roof seats it from."""
     p = data["parts"]
     fl, ck, ov = p["flashing"], p["cricket"], p["overlap_m"]
     d, w = F.d, F.w
@@ -270,7 +272,7 @@ def stack_solids(s: dict, F: Frame, data: dict, t: float):
     def soot_role(out):
         x, z = world_dir(F, *out)
         return "soot" if x * lee[0] + z * lee[1] > 1e-9 else shaft_role
-    b0 = cov_lo - p["shaft"]["below_covering_m"]
+    b0 = cov_lo - p["shaft"]["below_covering_m"] if bottom is None else bottom
     solids.append(split_box(F, a0, a1, c0, c1, (b0, y_soot, y_head + ov), (lambda out: shaft_role, soot_role)))
 
     # corbel courses, then the cap, each a little down into the one below
@@ -329,6 +331,10 @@ def stack_solids(s: dict, F: Frame, data: dict, t: float):
             cutters.append(box(F, -fo / 2, fo / 2, yb, y_cap, off - fo / 2, off + fo / 2, "flue"))
             head_cutters.append(box(F, -fo / 2, fo / 2, y_cap, top + 0.05, off - fo / 2, off + fo / 2, "flue"))
 
+    if not flashing:
+        return {"body": solids, "cut_body": cutters, "head": head, "cut_head": head_cutters, "bed": y_cap}, {
+            "behind": None, "cover_low_m": round(cov_lo, 4), "cover_high_m": round(cov_hi, 4), "top_m": top,
+            "head_m": round(y_head, 4), "flues": len(s["flues"]), "material": mat, "bed_m": round(y_cap, 4)}
     # flashing: an apron below (on both slopes astride a ridge), stepped side flashing,
     # and behind a slope stack a cricket if it is wide, else back flashing
     thk, up, lap, emb, below = fl["thickness_m"], fl["upstand_m"], fl["lap_m"], fl["embed_m"], fl["below_covering_m"]
