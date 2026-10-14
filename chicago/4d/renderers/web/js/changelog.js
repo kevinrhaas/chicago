@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1785, ts: '2026-10-14T02:00:12.131Z', date: 'Oct 13, 2026, 9:00 PM CT', title: '1637 Prairie\'s chimneys get their panelled shafts and capped heads', kind: 'improvement',
+    items: [
+      'The three chimneys on Jesse Spalding\'s house at 1637 Prairie now have the corbelled brick heads and stone caps the engraving draws, where they were plain boxes.',
+      'The two tall stacks on the north wall carry a long sunk panel on the face toward the street.',
+    ] },
   { v: 1784, ts: '2026-10-14T00:55:39.817Z', date: 'Oct 13, 2026, 7:55 PM CT', title: 'Glessner’s service doorway and adjoining roof meet cleanly', kind: 'fix',
     items: [
       'The north service door and window above it now have the full widths shown in the historic plans and photographs.',
