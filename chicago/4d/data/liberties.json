@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 553,
+  "count": 554,
   "liberties": [
     {
       "id": "L1",
@@ -36397,6 +36397,42 @@
         {
           "label": "Recorded",
           "text": "2026-10-14 (T-2495)."
+        }
+      ]
+    },
+    {
+      "id": "L-glessner-copper-2220",
+      "title": "low courtyard hood and copper stock",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.hall_bow_roof"
+        }
+      ],
+      "recorded": "2026-10-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "HABS sheet 4 supplies a relative hood rise of about 1.78 ft (174 px / 97.7 px per ft; picks approximately +/-12 px), with its high point near S26.81. The roof is reconstructed at 1.8 ft above the retained bow eave, centred on the actual ell corner W26.5/S26.83 and clipped against both existing roof slopes. This supersedes L295's 3.5-ft rise and the unsupported broad copper connector above the north windows. The section's absolute eave/grade conflict is retained for T-2228; this relative measurement does not silently resolve it. Radial sheets about 45-48 cm wide, two transverse laps, 18-by-12-mm folded standing seams, low 25-28-mm laps, 75-mm abutment flashing and 45-mm edge stock are bounded construction estimates. Later photographs corroborate panelled low hoods, but do not date the present sheet stock to 1904. Full folds are closed stock; Light uses attached thin seam bands and coarser tiny gutter cross sections with about 2-mm maximum chord error. Roof outlines and gutter paths agree. Copper's seventeen-year brown/muted-green balance remains reconstructed. Subtle procedural streaks follow drainage UVs; no monochrome colour sampling, modern bright-green colour claim, source-image pixels or baked directional shadows are used. Dining-bay seam stock and low laps follow the existing hip and apron, without changing their roof geometry, windows or the owner's dark-glass default."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2220."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-14 (T-2220)."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.hall_bow_roof`"
         }
       ]
     },

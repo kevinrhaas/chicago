@@ -96,24 +96,37 @@ def add_dining_roof(b,params):
            z+(ap[2]-z)*.11) for p in outline]
 
     def mix(a,c,t):return tuple(a[k]+(c[k]-a[k])*t for k in range(3))
-    def strip(a,c,width=.018):
-        dx,dy=c[0]-a[0],c[1]-a[1];length=math.hypot(dx,dy)
-        if length<1e-8:return
-        side=(-dy/length*width/2,dx/length*width/2,0)
-        def P(p,s):return (p[0]+side[0]*s,p[1]+side[1]*s,p[2]+.014)
-        b.raw([P(a,-1),P(a,1),P(c,1),P(c,-1)],conf,copper,(0,0,1))
+    from archetypes.masonry_house_v4_copper import fold, _unit, _cross
+    def normal(pts):
+        n=_unit(legacy._normal(pts))
+        return n if n[2]>0 else tuple(-v for v in n)
+    def sheet(pts,n):
+        for index in b.raw(pts,conf,copper,n):
+            v=b.verts[index]
+            b.roof_uvs[index]=(math.atan2(v[1]-ap[1],v[0]-ap[0])*2.4,math.dist(v,ap))
+    def lap(a,c,n):
+        # Put the 25-mm lap entirely on the uphill sheet, not hovering across
+        # the apron crease. Both low sheets still share the exact fold line.
+        side=_unit(_cross(_unit(tuple(c[k]-a[k] for k in range(3))),n))
+        sign=1 if sum(side[k]*(ap[k]-(a[k]+c[k])/2) for k in range(3))>0 else -1
+        a,c=[tuple(p[k]+side[k]*.0125*sign for k in range(3)) for p in (a,c)]
+        fold(b,a,c,n,.025,.002)
 
     for i,(p,q) in enumerate(zip(outline,outline[1:])):
         a,c=ring[i:i+2]
-        b.raw([p,q,c,a],conf,copper,(0,0,1))
-        b.raw([a,c,ap],conf,copper,(0,0,1))
-        strip(a,c,.055)  # folded horizontal apron joint
+        lower,upper=normal([p,q,c,a]),normal([a,c,ap])
+        sheet([p,q,c,a],lower)
+        sheet([a,c,ap],upper)
+        lap(a,c,upper)
+        for t in (1/3,2/3):lap(mix(a,ap,t),mix(c,ap,t),upper)
         count=max(1,round(math.dist(p,q)/.48))
         for j in range(count):
             foot=mix(p,q,j/count);joint=mix(a,c,j/count)
-            strip(foot,joint);strip(joint,ap)
+            fold(b,foot,joint,lower)
+            fold(b,joint,mix(ap,joint,.12/math.dist(ap,joint)),upper)
         b.raw([(p[0],p[1],z-.055),(q[0],q[1],z-.055),q,p],conf,copper)
-    strip(outline[-1],ring[-1]);strip(ring[-1],ap)
+    fold(b,outline[-1],ring[-1],lower)
+    fold(b,ring[-1],mix(ap,ring[-1],.12/math.dist(ap,ring[-1])),upper)
 
     for poly in dining_connection(params)[0]:
         legacy._two_sided_roof(b,poly,conf,roof)
@@ -143,26 +156,9 @@ def add_dining_roof(b,params):
 
 
 def copper(params):
-    """One copper surface from the north return, around the bow, to the east wing."""
-    import math
-    w=params.bows[0];ret=params.detail['copper_return'];n=north(params)
-    a0,a1=sorted((w['a0'],w['a1']))
-    if a1-a0>math.pi:a0,a1=a1,a0+2*math.pi
-    ro=w['r']+.20;z=w['wall_top_z'];back=ret['y1']
-    # This corner is on the north range's plane at the east-wing wall.
-    anchor=(n['x1'],back,north_height(params,back))
-    arc=[(w['cx']+ro*math.cos(a0+(a1-a0)*i/48),
-          w['cy']+ro*math.sin(a0+(a1-a0)*i/48),z) for i in range(49)]
-    arc.sort(key=lambda p:p[0])
-    # Short continuous return joins the fan's north end. The outside boundary
-    # follows the host plane, so subtracting the tile cannot leave a roof gap.
-    front_y=n['y0']-n.get('eave_lo_overhang',.20)
-    front=(ret['x0'],front_y,north_height(params,front_y))
-    upper=(ret['x0'],back,north_height(params,back))
-    tris=[(upper,front,arc[0]),(upper,arc[0],anchor)]
-    tris += [(a,b,anchor) for a,b in zip(arc,arc[1:])]
-    cuts=[[(v[0],v[1]) for v in tri] for tri in tris]
-    return tris,cuts
+    """The low bow hood, trimmed to the north and east host intersections."""
+    from archetypes.masonry_house_v4_copper import surface
+    return surface(params)
 
 
 def clip_host(pts,params):
@@ -190,9 +186,9 @@ def wall_profile(params,lo,hi,z):
     if params.detail.get('dining_crested_connection'):
         if north(params).get('eave_lo_overhang',.20)<=.21:
             return [(lo,z),(hi,z)]
-        # The copper return rises from the new projecting eave to the higher
-        # bow. Close the masonry to its ACTUAL underside at the wall; keeping
-        # a flat wall here opens a dark slit below the sloping return.
+        # Close the masonry to the low hood's actual underside. Its peak is
+        # now exactly at the east endpoint, which must participate in the
+        # profile rather than being reset to the lower north-wall datum.
         y=north(params)['y0'];points=[(lo,z),(hi,z)]
         west=next((r for r in params.ranges if r.get('stable_roof',{}).get('level_courtyard_gable')),None)
         if west:
@@ -204,16 +200,33 @@ def wall_profile(params,lo,hi,z):
             if lo<join<hi:
                 points[0]=(lo,max(z,west['ridge_z']+pitch*(lo-west['ridge_at'])))
                 points.append((join,z))
+        base=sorted(points)
+        def base_height(x):
+            for a,c in zip(base,base[1:]):
+                if a[0]<=x<=c[0]:
+                    return a[1]+(c[1]-a[1])*(x-a[0])/(c[0]-a[0])
+            return z
+        hood=[]
         for tri in copper(params)[0]:
             for a,b in zip(tri,tri[1:]+tri[:1]):
                 if abs(b[1]-a[1])<1e-9:continue
                 t=(y-a[1])/(b[1]-a[1])
                 if 0<=t<=1:
                     x=a[0]+(b[0]-a[0])*t
-                    if lo<x<hi:points.append((x,max(z,a[2]+(b[2]-a[2])*t)))
+                    if lo-1e-8<=x<=hi+1e-8:
+                        hood.append((max(lo,min(hi,x)),max(z,a[2]+(b[2]-a[2])*t)))
         merged={}
-        for x,h in points:merged[round(x,7)]=max(h,merged.get(round(x,7),z))
-        return sorted(merged.items())
+        for x,h in hood:merged[round(x,7)]=max(h,merged.get(round(x,7),z))
+        if not merged:return base
+        hood=sorted(merged.items());a,c=hood[0][0],hood[-1][0]
+        # Keep the ordinary north wall level OUTSIDE the hood. Interpolating
+        # directly from the remote west corner to the first hood point would
+        # invent a long rising wall and push it through the tiled roof.
+        points=[q for q in base if q[0]<a-1e-8 or q[0]>c+1e-8]
+        if a>lo+1e-8:points.append((a,base_height(a)))
+        points.extend(hood)
+        if c<hi-1e-8:points.append((c,base_height(c)))
+        return sorted(points,key=lambda q:q[0])
     bay=params.bays[0];a,c=sorted((bay['pts'][0][0],bay['pts'][-1][0]))
     return [(lo,z),(a-.24,z),(a,bay['band_top_z']),
             (c,bay['band_top_z']),(c+.24,z),(hi,z)]

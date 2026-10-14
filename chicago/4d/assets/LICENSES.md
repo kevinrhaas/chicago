@@ -944,6 +944,17 @@ The following 43 files are original project material assets: eleven deterministi
 - `textures/glessner-v4/turf_photographic_provenance.json`
 - `textures/glessner-v4/turf_roughness.png`
 
+
+T-2220 copper: `textures/glessner-v4/copper_basecolor.jpg` and
+`copper_roughness.png` are original procedural pixels from `generate.py --only
+copper`, under the existing material-library LICENSE.txt. Drainage streaks are
+numeric fields, not sampled photographs. The low hood and seam geometry derive
+from unrestricted HABS section controls and declared stock reconstructions
+(L-glessner-copper-2220). The three `wlemay_glessner_courtyard_2024_*` source
+records are CC BY-SA 2.0 reference comparisons; their credited library display
+and thumbnail copies retain that license in the separate chicago-images store.
+No photographic pixels or traced patterns are embedded in model assets.
+
 ### T-2495 outer lakefront terrain
 
 `data/terrain/epochs/e1871_postfire/context_ground.glb` (stored beside its terrain

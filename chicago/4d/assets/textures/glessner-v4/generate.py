@@ -317,15 +317,19 @@ def copper():
     seed = 190404
     rng = np.random.default_rng(seed)
     fine, patches, large = field(rng, .65), field(rng, 24), field(rng, 104)
-    patina = np.clip(.50 + .05 * patches + .04 * large, .25, .75)
+    # Long restrained streaks follow the sheet's drainage UV, not an image's
+    # lighting. Colour remains a bounded 17-year reconstruction, not a sample
+    # of today's green copper or a monochrome historical photograph.
+    flow = field(rng, (90, 4))
+    patina = np.clip(.50 + .05 * patches + .04 * large + .045 * flow, .25, .75)
     aged = np.array([.264, .283, .232])
     green = np.array([.299, .369, .301])
     rgb = aged + patina[..., None] * (green - aged)
     rgb += (.002 * fine + .002 * patches)[..., None]
     h = .00001 * fine + .00002 * patches
-    rough = .56 + .12 * patina + .008 * patches
+    rough = .56 + .12 * patina + .008 * patches + .012 * flow
     return save("copper", rgb, h, rough, "Reconstructed 17-year copper weathering: brown metal with "
-                "uneven muted green oxidation; standing seams belong to geometry. Modern bright "
+                "uneven muted green oxidation and restrained drainage-aligned streaks; standing seams belong to geometry. Modern bright "
                 "turquoise oxidation is not asserted as the 1904 colour.", seed)
 
 
