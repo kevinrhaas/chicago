@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1789, ts: '2026-10-14T07:09:21.230Z', date: 'Oct 14, 2026, 2:09 AM CT', title: 'Glessner’s curved courtyard steps', kind: 'improve',
+    items: [
+      'The hall terrace now has a wider curved brick wall, a descending stone cap and rounded end post, with fan-shaped steps meeting the doorway.',
+      'The adjoining hall bow and terrace grilles follow the measured plan and section. The phone view keeps the same stair shape and closed stonework.',
+    ] },
   { v: 1788, ts: '2026-10-14T04:35:57.996Z', date: 'Oct 13, 2026, 11:35 PM CT', title: '1638 Prairie\'s gable and bay, closer to its photograph', kind: 'feature',
     items: [
       'The Gothic house at 1638 Prairie loses its pierced bargeboard for the broad plain verge board its photograph shows, and its single finial for the three pointed pinnacles at the apex.',
