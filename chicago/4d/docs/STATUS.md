@@ -1,3 +1,37 @@
+## T-2496 — street travel and frontage arrivals (2026-10-14)
+
+Ground travel now joins the dated street network via collision-safe access legs,
+then stays on its roadway/footway mask. Walking prefers the rendered plank walks
+in 1835 and the street-grid sidewalk bands in 1904. Unpaved 1835 corridor gaps
+remain passable; pedestrian crossings connect 1904 sidewalk ends at intersections.
+Horse and wagon routes use tracks/carriageways. Expanded footprint masks, constrained
+route smoothing and turns made before advancing prevent shortcuts through buildings.
+Unreachable journeys stop in place, with an explicit instant option left to the visitor.
+
+1904 parcel frontage determines the arrival side, so Glessner faces Prairie rather
+than its nearer 18th Street side. Camera aim uses the facade and rendered height;
+jaunts use the unobstructed view instead of reserving space for a closed building card.
+Arrival positions and estimates respect the selected pace. Navigation crossings and
+camera positions are interface choices, not additions to historical street evidence.
+
+Validation: `tools/test_street_travel.mjs` passes street/sidewalk separation, an
+L-shaped route, thin walls, actual Glessner parcel geometry, every simulated movement
+step at maximum horse/wagon speed, and failure without teleporting. The existing
+travel-estimate tests pass. `tools/test_street_travel_browser.mjs` passes all three
+ground modes in both eras, at 390×780 and 1280×800, with zero page errors. These
+focused layout checks use the mobile/light context at both sizes; they are not
+the full renderer gate. Every projected facade corner fits in the viewport.
+The [receipt](performance/street-travel-2496/receipt.json) and arrival views
+([1835 phone](performance/street-travel-2496/1835-390.png),
+[1835 desktop size](performance/street-travel-2496/1835-1280.png),
+[1904 phone](performance/street-travel-2496/1904-390.png),
+[1904 desktop size](performance/street-travel-2496/1904-1280.png)) record the result.
+The actual Prairie Avenue jaunt also reaches stop 2 on the sidewalk facing Prairie
+([receipt](performance/street-travel-2496/jaunt-receipt.json)). Preflight passes:
+881 code/data checks, none red. Published renderer smoke part 13 passes on mobile,
+including every travel mode and zero page errors. The complete 15-part renderer
+gate has not been run on this branch. No production deployment is claimed.
+
 ## T-2495 — outer 1904 rails and shoreline (2026-10-14)
 
 The Illinois Central corridor now continues to both context-map edges, about

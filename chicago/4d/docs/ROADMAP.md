@@ -1,3 +1,10 @@
+## T-2496 - ground travel follows the era's streets
+
+Travel uses 1835's drawn tracks, corridors and plank walks, and 1904's compiled
+carriageways and sidewalk bands. Access legs and street corners clear building
+footprints. A corner building's mapped parcel identifies its front; Glessner
+arrives on Prairie Avenue. See STATUS for validation and limitations.
+
 ## T-2495 - 1904 lakefront beyond Prairie Avenue
 
 Implemented: connected north/south Illinois Central continuations to the context

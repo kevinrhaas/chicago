@@ -2705,11 +2705,13 @@ async function boot() {
   // the binding, which is settled long before the first frame.
   const router = createRouter({
     terrain, streets, footprints, decks, surfaceAt: (e, n) => walker.surfaceAt?.(e, n) ?? terrain.surfaceHeight(e, n),
+    streetGrid: streetGrid.grid, walks: frontage.walks,
     // The walker's own capsule and step rule, so a route that plans is a route that walks.
-    radius: WALK.radius, stepUp: WALK.stepUp,
+    radius: WALK.radius, stepUp: WALK.stepUp, cell: 1, inflate: 0.1,
   });
   let travel = null;
   api.router = router;
+  const buildingBounds = buildings.instanceBounds();
 
   /**
    * Where the last arrival stood (T-0824). While its card is up the building is
@@ -2725,7 +2727,7 @@ async function boot() {
     const id = lastArrival.id;
     lastArrival = null;
     if (moved || st.flying) return;
-    const aim = focusPoint(id);
+    const aim = framing(id, { card: false })?.aim ?? focusPoint(id);
     if (!aim) return;
     const de = aim.x - st.e, dn = -aim.z - st.n;
     walker.teleport({
@@ -3076,9 +3078,9 @@ async function boot() {
     walker, intent, hud, settings: hud.settings, router, terrain, footprints,
     focusPoint, structurePosition,
     // Where a ride or a flight ends: the framed stand-off, the same one Go to uses.
-    standFor: (id) => framing(id, { card: true }),
+    standFor: (id, options) => framing(id, { card: true, ...options }),
     registry: loaded.registry,
-    frame: (id) => frame(id, { card: true }),
+    frame: (id, options) => frame(id, { card: true, ...options }),
     teleport: (where) => walker.teleport(where),
     goToAnchor: (id) => api.goTo(id),
     setFly: (on) => hud.setFly(on, { announce: false }),
@@ -3312,7 +3314,7 @@ async function boot() {
    * height the record carries and from the camera's live field of view, never
    * from a fixed number, so a privy and a long store are each framed to fit.
    */
-  function framing(id, { card = popup.openId !== null } = {}) {
+  function framing(id, { card = popup.openId !== null, mode = travel?.mode ?? 'walk' } = {}) {
     const centre = structurePosition(id);
     const aim = focusPoint(id);
     if (!centre || !aim) return null;
@@ -3326,7 +3328,8 @@ async function boot() {
     const record = loaded.registry.get(id);
     const wallH = record?.sidecar?.attributes?.wall_height_m?.value ?? 5;
     // A gabled roof adds roughly half a wall above the eaves.
-    const h = record?.sidecar?.drawn_by ? (aim.y - terrain.surfaceHeight(centre.e, centre.n)) / 0.55 : wallH * 1.55;
+    const h = buildingBounds[id]?.size[1]
+      ?? (record?.sidecar?.drawn_by ? (aim.y - terrain.surfaceHeight(centre.e, centre.n)) / 0.55 : wallH * 1.55);
     // The sphere that holds the whole building — centred at half its height,
     // reaching its furthest footprint corner — has to fit inside the NARROWER of
     // the two fields of view, with a margin of air around it. `sin`, not `tan`:
@@ -3351,7 +3354,7 @@ async function boot() {
       const aHi = Math.atan(hi * tanHalf);
       return { centre: (aLo + aHi) / 2, half: Math.max((aHi - aLo) / 2, 2 * DEG) };
     };
-    const ax = axis(Math.tan(H_FOV_DEG * DEG / 2), free.x[0], free.x[1]);
+    const ax = axis(Math.tan(camera.fov * DEG / 2) * camera.aspect, free.x[0], free.x[1]);
     const ay = axis(Math.tan(camera.fov * DEG / 2), free.y[0], free.y[1]);
     const fit = (a) => (R * 1.25) / Math.sin(Math.min(a.half, 89 * DEG));
     const distance = THREE.MathUtils.clamp(Math.max(fit(ax), fit(ay), 10), 10, 90);
@@ -3359,10 +3362,14 @@ async function boot() {
     // pitching DOWN (a smaller pitch) moves it UP.
     const yawOffsetDeg = -ax.centre / DEG;
     const pitchOffsetDeg = -ay.centre / DEG;
-    const stand = router.standOff(id, centre, r, { distance }) ?? centre;
+    const stand = router.standOff(id, centre, r, { distance, mode });
+    if (!stand) return null;
+    // Aim at the street facade rather than the footprint centroid, which can
+    // be deep in a courtyard. The parcel supplies the front on corner lots.
+    if (stand.front) { aim.x = stand.front.e; aim.z = -stand.front.n; }
     const bearingDeg = ((Math.atan2(stand.e - centre.e, stand.n - centre.n) / DEG) + 360) % 360;
-    return { e: stand.e, n: stand.n, distance, bearingDeg, aim, radius: r, height: h,
-      yawOffsetDeg, pitchOffsetDeg, free };
+    return { e: stand.e, n: stand.n, distance: Math.hypot(stand.e - centre.e, stand.n - centre.n), bearingDeg, aim, radius: r, height: h,
+      yawOffsetDeg, pitchOffsetDeg, free, front: stand.front ?? null };
   }
 
   /**
@@ -3383,8 +3390,8 @@ async function boot() {
   }
 
   /** Stand back and look at a structure, framed whole — used by Go to, the rides and the harness. */
-  function frame(id, { card = false } = {}) {
-    return applyFraming(framing(id, { card }));
+  function frame(id, { card = false, mode = travel?.mode ?? 'walk' } = {}) {
+    return applyFraming(framing(id, { card, mode }));
   }
 
   function applyFraming(f) {
@@ -3433,7 +3440,9 @@ async function boot() {
       n = p.local_n ?? 0;
     }
     const wallH = record?.sidecar?.attributes?.wall_height_m?.value ?? 5;
-    return enuToWorld(e, n, terrain.surfaceHeight(e, n) + wallH * 0.55);
+    const drawn = buildingBounds[id];
+    const aimH = drawn ? (drawn.min[1] + drawn.max[1]) / 2 : wallH * 0.55;
+    return enuToWorld(e, n, terrain.surfaceHeight(e, n) + aimH);
   }
 
   /** One route for the complete search: frame a structure, stand at a verified
@@ -3526,12 +3535,12 @@ async function boot() {
         const resolved = destinations.resolve(target);
         return resolved?.structureId ? { kind: 'structure', id: resolved.structureId, label: resolved.label } : resolved;
       };
-      const estimateOptions = () => ({ resolve: target => {
-        const resolved = resolveJaunt(target); return resolved && travel.destinationOf(resolved);
+      const estimateOptions = mode => ({ resolve: target => {
+        const resolved = resolveJaunt(target); return resolved && travel.destinationOf(resolved, { mode, card: false });
       }, settings: hud.settings, router: travel.router });
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, scene: YEAR, dataBase: bases.dataBase, destinations, api: api.jaunts,
         onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
-        estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions()) });
+        estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
         sources: () => { openSources(); return sourcesPromise; }, onReturn: () => jauntRuntime.returnFromDetail() });
@@ -3547,7 +3556,7 @@ async function boot() {
           return context.legContext(state.jaunt, from?.id, to.id, route.points, places,
             [from && resolveJaunt(from.destination)?.id, resolveJaunt(to.destination)?.id]);
         },
-        estimate: state => estimates.estimateJaunt(state.jaunt, state.mode, { ...estimateOptions(),
+        estimate: state => estimates.estimateJaunt(state.jaunt, state.mode, { ...estimateOptions(state.mode),
           startIndex: state.stopIndex, includeOpening: state.stopIndex === 0,
           from: ['travelling', 'paused'].includes(state.phase) ? { e: walker.state.e, n: walker.state.n, altitude: walker.state.altitude } : null }),
         enter(target, { resume = false } = {}) {
@@ -3683,11 +3692,9 @@ async function boot() {
 
     if (!gateOpen) backends.active?.update?.(dt);
     else intent.clear();
-    // After the backend has written what the visitor is doing and before the
-    // walker reads it: a ride in progress either yields to that input or steers.
-    if (!gateOpen) travel.update(dt, intent);
     terrain.update(dt);
     const asked = intent.takeInteract();
+    if (asked && !gateOpen) travel.stop('input');
     // The inspect KEY toggles: the reach that opened the card also closes it
     // (T-0108). A click or tap always re-inspects — aiming at a second
     // building with a card open should open that building, not shut the first.
@@ -3695,10 +3702,13 @@ async function boot() {
     else if (asked) inspect(asked.point ? new THREE.Vector2(asked.point.x, asked.point.y) : null);
     const walkSteps = Math.max(1, Math.ceil(frameDt / 0.05));
     const walkDt = frameDt / walkSteps;
-    if (!gateOpen) for (let i = 0; i < walkSteps; i++) walker.update(walkDt, intent);
-    // The ride's bookkeeping, after the walker has consumed the intent: its own
-    // writes are zeroed, the gait's head movement applied, arrival tested.
-    if (!gateOpen) travel.afterWalk(intent, frameDt);
+    if (!gateOpen) for (let i = 0; i < walkSteps; i++) {
+      // Steering and movement consume the same time step. Reusing one steering
+      // decision for five walker steps on a slow frame overshot street corners.
+      travel.update(walkDt, intent);
+      walker.update(walkDt, intent);
+      travel.afterWalk(intent, walkDt);
+    }
     // Before the render, after the walker: the near plane is a function of where
     // the eye ended up this frame (R-BUG1, and the NEAR block above).
     setNearFor(walker.state.altitude);

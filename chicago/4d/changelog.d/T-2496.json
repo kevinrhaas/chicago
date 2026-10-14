@@ -1,0 +1,9 @@
+{
+  "title": "Follow streets and arrive facing the building",
+  "kind": "fix",
+  "items": [
+    "Walking uses sidewalks and plank walks where available; horses and wagons follow the roadway in both 1835 and 1904.",
+    "Travel goes around buildings when joining a street and taking corners. A blocked journey stops with an explanation instead of jumping to its destination.",
+    "Arrivals face the building from its street frontage. Glessner House is viewed from Prairie Avenue, including during jaunts."
+  ]
+}
