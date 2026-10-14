@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/web/glessner_house__as_built_1887.glb",
-  "glb_sha256": "437b3f51ff671a153d282db4dd1a499ab1e454e4d3650f95b543c3998251c5c4",
+  "glb_sha256": "365adf80334945a131663d4fcc12eb397e713bbf09e8c4fb092607786a636d63",
   "camera_sha256": "e7561b646f21444ace9b190547f15f973f50a2243a70bee0c3df17b937538e7c",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
   "verdict": "differs",
@@ -20,7 +20,7 @@
       "status": "fixed"
     },
     {
-      "what": "T-2470: the north roof meets the curved drum without an open seam; no host-roof strip crosses a window. The cone connector ends behind the sloping gable coping, and the short pipe drains onto the host. Reviewed on final Full web geometry; Full/Light geometry checks cover contact and clearance.",
+      "what": "T-2470: the north roof meets the curved drum without an open seam; no host-roof strip crosses a window. The cone connector ends behind the sloping gable coping, and the original T-2470 short pipe drained onto the host; T-2221 supersedes that discharge with the connected bowl below. Reviewed on final Full web geometry; Full/Light geometry checks cover contact and clearance.",
       "status": "fixed"
     },
     {
@@ -50,6 +50,14 @@
     {
       "what": "T-2218 regression review on the final terrace asset: the courtyard stair is hidden from this north camera. Prior north facade repairs remain visible; the recorded whole-house tone, roof/cone and opening discrepancies are still open for T-2228.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2221: final Full web review shows the upper tower leader entering the new ribbed bowl at the lower gutter. The neck connects continuously to the wall-offset lower leader and its grade discharge; the prior rod ending above the roof is retired. Exact stock and low-relief ribs remain reconstructed.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2228: the retained roof/eave and camera disagreement leaves the head lower in the image than its photographed counterpart. No fitting was floated above its host to force a local image fit. The final bounded matte finish now makes the bowl ribs readable, but exact casting ornament and monochrome tonal correspondence are not established.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

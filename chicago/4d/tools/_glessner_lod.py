@@ -35,7 +35,8 @@ PILLOW_LEAN=.45
 MATERIAL_NAMES=('granite','brick','limestone_trim','roof_plane','copper','glass','oak',
  'lawn','drive','mortar','iron','glass_dark','granite_1','granite_2','granite_3','granite_4',
  'brick_dark_red','brick_buff','brick_smoky','roof_plane_1','roof_plane_2','roof_plane_3',
- 'linen_blind','painted_wood','rough_stone_trim','turf_blade_dark','turf_blade_middle','turf_blade_light')
+ 'linen_blind','painted_wood','rough_stone_trim','turf_blade_dark','turf_blade_middle','turf_blade_light',
+ 'rainwater_metal')
 
 
 def _left_to_right_sum(iterable,start=0):
@@ -546,10 +547,11 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
     full,master_bin,master_sha=_read_glb(master)
     materials=full.get('materials',[])
     names={m.get('name'):i for i,m in enumerate(materials)}
-    if any(n not in names for n in MATERIAL_NAMES):raise ValueError('Full master does not contain the expected v4 material library')
     owner=next((n for n in full.get('nodes',[]) if n.get('extras',{}).get('detail_profile')=='glessner_v4'),None)
     if owner is None:raise ValueError('Source master is not the detailed Glessner v4')
     b,params,uv_module=_construct(root)
+    required=MATERIAL_NAMES if params.detail.get('rainwater') else MATERIAL_NAMES[:28]
+    if any(n not in names for n in required):raise ValueError('Full master does not contain the expected v4 material library')
     counts=_apertures(params)
     if counts!=owner['extras'].get('aperture_counts'):
         raise ValueError('Reduced source aperture schedule differs from full master')

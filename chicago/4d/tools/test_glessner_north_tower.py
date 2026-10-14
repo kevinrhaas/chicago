@@ -1,6 +1,7 @@
 """T-2470: continuous curved masonry, facade/roof clearance and drainage."""
 import json
 import math
+from copy import deepcopy
 from pathlib import Path
 from _glessner_lod import _geometry_modules
 ROOT=Path(__file__).resolve().parents[1]
@@ -42,17 +43,30 @@ class RoofCapture(d.DetailBuilder):
         # generation over the entire facade. Actual stone was checked above.
         self.raw(pts,confidence,mat)
 
-# Both roof sampling levels keep their inlet attached and drain onto the host.
+# Both roof sampling levels keep their inlet attached and feed the lower bowl.
 # Alter eave height independently: the pipe/soffit must follow geometry, not a
 # stale hard-coded datum. Do not alter plan position without updating the facade.
 for reduced in (False,True):
     for dz in (0,.15,-.15):
         tower={**t,'wall_top_z':t['wall_top_z']+dz}
-        b=RoofCapture('tower-test',p);b.reduced_roof_details=reduced
-        build(b,tower,p)
+        recipe=deepcopy(p)
+        recipe.towers=[tower if q['name']=='north' else q for q in recipe.towers]
+        b=RoofCapture('tower-test',recipe);b.reduced_roof_details=reduced
+        build(b,tower,recipe)
+        if recipe.detail.get('rainwater'):
+            assert b.north_tower_details[0]['pipe']==[],'Legacy rod must not coexist with the new network'
+            from archetypes.masonry_house_v4_drainage import build as rainwater
+            rainwater(b,recipe)
         pipe=b.north_tower_details[0]['pipe'];out=pipe[-1]
-        assert abs(out[2]-north_height(p,out[1])-.04)<1e-7
-        assert abs(pipe[0][2]-(tower['wall_top_z']-.035))<1e-7
+        if recipe.detail.get('rainwater'):
+            head=next(r for r in b.rainwater_network['leaders'] if r['name']=='north-tower')
+            assert math.dist(out[:2],head['inlet'][:2])<1e-8
+            assert abs(out[2]-(head['mouth']-.09))<1e-8
+            assert abs(pipe[0][2]-(tower['wall_top_z']-recipe.detail['rainwater']['gutter_depth_m']-.012))<1e-8
+            assert b.north_tower_details[0]['discharge']=='north-tower-bowl'
+        else:
+            assert abs(out[2]-north_height(p,out[1])-.04)<1e-7
+            assert abs(pipe[0][2]-(tower['wall_top_z']-.035))<1e-7
         assert all(a[2]>c[2] for a,c in zip(pipe,pipe[1:]))
         assert b.faces and all(len(f)>=3 for f in b.faces)
 

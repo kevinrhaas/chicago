@@ -108,6 +108,10 @@ def _downpipe(b,x,y,top,inlet=None):
 
 def add_courtyard_rainwater(b,params):
     """Follow the photographed courtyard eaves and their two clear pipe joints."""
+    if params.detail.get('rainwater'):
+        from archetypes.masonry_house_v4_drainage import build
+        build(b,params)
+        return
     add_west_rainwater(b,params)
     ranges={r['name']:r for r in params.ranges}
     north,east=ranges.get('north_range'),ranges.get('east_wing')

@@ -1,3 +1,19 @@
+## T-2221 — Glessner rainwater fittings (2026-10-14)
+
+Distinct Prairie panels, the north tower bowl and small
+service collectors replace generic rods. Twelve collectors feed twelve
+leaders and two descending connections, with wall straps and roof-edge supports.
+Stock dimensions and concealed routing are reconstructed for 1904. Light
+measures 199,559 triangles against its unchanged 200,000 limit.
+[Evidence and validation](RESEARCH/glessner-rainwater-T-2221/README.md).
+Whole-house photographic acceptance remains T-2228; T-2227 retains the
+pre-existing Full/Balanced courtyard and Light close-view budget failures.
+The final Blender bake, canonical Full/Light package, asset contract and all five
+reference renders are complete. Full/Light browser views load without errors;
+121 credited image tiles load. The same four scene-budget observations remain
+red, with no newly failing paired camera. Repository preflight passes all 883
+checks. Exact-commit CI and deployment receipts are maintained on the PR.
+
 ## T-2496 - ground travel follows the era's streets
 
 Travel uses 1835's drawn tracks, corridors and plank walks, and 1904's compiled

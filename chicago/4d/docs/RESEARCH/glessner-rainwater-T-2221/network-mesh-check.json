@@ -1,0 +1,16 @@
+[
+  {
+    "tier": "Full",
+    "faces": 2914,
+    "nominal_triangles": 6013,
+    "coincident_faces": 0,
+    "zero_area_faces": []
+  },
+  {
+    "tier": "Light",
+    "faces": 2388,
+    "nominal_triangles": 4861,
+    "coincident_faces": 0,
+    "zero_area_faces": []
+  }
+]

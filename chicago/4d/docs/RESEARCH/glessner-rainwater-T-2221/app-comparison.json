@@ -1,0 +1,491 @@
+{
+  "method": "Same published scene and frozen paired cameras; normal Full/Light budgets preserved. Software rendering, not hardware FPS. After-only angle is explicitly separate.",
+  "results": [
+    {
+      "label": "desktop",
+      "errors": [],
+      "bad_requests": [],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904",
+        "detail": "full"
+      },
+      "samples": [
+        {
+          "name": "north-head-clear",
+          "after": {
+            "drawCalls": 299,
+            "triangles": 4566443,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 297,
+            "triangles": 4567777,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "delta_draws": 2,
+          "delta_triangles": -1334
+        },
+        {
+          "name": "prairie-ne",
+          "after": {
+            "drawCalls": 229,
+            "triangles": 3905761,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 227,
+            "triangles": 3907095,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "delta_draws": 2,
+          "delta_triangles": -1334
+        },
+        {
+          "name": "prairie-se",
+          "after": {
+            "drawCalls": 317,
+            "triangles": 4225722,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 315,
+            "triangles": 4227056,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "delta_draws": 2,
+          "delta_triangles": -1334
+        },
+        {
+          "name": "north-tower",
+          "after": {
+            "drawCalls": 296,
+            "triangles": 4566966,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 294,
+            "triangles": 4568300,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "delta_draws": 2,
+          "delta_triangles": -1334
+        },
+        {
+          "name": "north-head",
+          "after": {
+            "drawCalls": 291,
+            "triangles": 4457079,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 289,
+            "triangles": 4458413,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "delta_draws": 2,
+          "delta_triangles": -1334
+        },
+        {
+          "name": "north-service",
+          "after": {
+            "drawCalls": 228,
+            "triangles": 3835793,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 226,
+            "triangles": 3837127,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "delta_draws": 2,
+          "delta_triangles": -1334
+        },
+        {
+          "name": "west-alley",
+          "after": {
+            "drawCalls": 289,
+            "triangles": 4052387,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 287,
+            "triangles": 4053721,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "delta_draws": 2,
+          "delta_triangles": -1334
+        },
+        {
+          "name": "bow-leader",
+          "after": {
+            "drawCalls": 403,
+            "triangles": 4760451,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": false
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 401,
+            "triangles": 4761785,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": false
+          },
+          "delta_draws": 2,
+          "delta_triangles": -1334
+        },
+        {
+          "name": "dining-leader",
+          "after": {
+            "drawCalls": 402,
+            "triangles": 4710444,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": false
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 400,
+            "triangles": 4711778,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": false
+          },
+          "delta_draws": 2,
+          "delta_triangles": -1334
+        },
+        {
+          "name": "north-bowl-detail",
+          "after": {
+            "drawCalls": 222,
+            "triangles": 3776676,
+            "budget": {
+              "drawCalls": 360,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "note": "Additional after-only inspection angle; no before capture, so inheritance is not established by this comparison."
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "errors": [],
+      "bad_requests": [],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904",
+        "detail": "light"
+      },
+      "samples": [
+        {
+          "name": "north-head-clear",
+          "after": {
+            "drawCalls": 183,
+            "triangles": 1510528,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": false
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 181,
+            "triangles": 1510067,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": false
+          },
+          "delta_draws": 2,
+          "delta_triangles": 461
+        },
+        {
+          "name": "prairie-ne",
+          "after": {
+            "drawCalls": 134,
+            "triangles": 942022,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 132,
+            "triangles": 941373,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "delta_draws": 2,
+          "delta_triangles": 649
+        },
+        {
+          "name": "prairie-se",
+          "after": {
+            "drawCalls": 112,
+            "triangles": 831354,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 110,
+            "triangles": 830994,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "delta_draws": 2,
+          "delta_triangles": 360
+        },
+        {
+          "name": "north-tower",
+          "after": {
+            "drawCalls": 183,
+            "triangles": 1512187,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": false
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 181,
+            "triangles": 1511690,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": false
+          },
+          "delta_draws": 2,
+          "delta_triangles": 497
+        },
+        {
+          "name": "north-head",
+          "after": {
+            "drawCalls": 144,
+            "triangles": 1062802,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 142,
+            "triangles": 1062928,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "delta_draws": 2,
+          "delta_triangles": -126
+        },
+        {
+          "name": "north-service",
+          "after": {
+            "drawCalls": 108,
+            "triangles": 680229,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 106,
+            "triangles": 679844,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "delta_draws": 2,
+          "delta_triangles": 385
+        },
+        {
+          "name": "west-alley",
+          "after": {
+            "drawCalls": 120,
+            "triangles": 852109,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 118,
+            "triangles": 851931,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "delta_draws": 2,
+          "delta_triangles": 178
+        },
+        {
+          "name": "bow-leader",
+          "after": {
+            "drawCalls": 182,
+            "triangles": 1006097,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 180,
+            "triangles": 1005882,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "delta_draws": 2,
+          "delta_triangles": 215
+        },
+        {
+          "name": "dining-leader",
+          "after": {
+            "drawCalls": 251,
+            "triangles": 1253192,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "before": {
+            "drawCalls": 249,
+            "triangles": 1252050,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "delta_draws": 2,
+          "delta_triangles": 1142
+        },
+        {
+          "name": "north-bowl-detail",
+          "after": {
+            "drawCalls": 108,
+            "triangles": 716387,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "problems": [],
+          "note": "Additional after-only inspection angle; no before capture, so inheritance is not established by this comparison."
+        }
+      ]
+    }
+  ]
+}

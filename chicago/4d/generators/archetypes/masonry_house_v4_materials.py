@@ -200,8 +200,8 @@ def _occlusion(bpy, nt, uv, fabric):
     nt.links.new(split.outputs["Red"], node.inputs["Occlusion"])
 
 
-def build_materials(colours=None):
-    """Return 28 slots. Colours comes from the structure's resolved data record.
+def build_materials(colours=None, rainwater=None):
+    """Return 28 fabric slots and optional rainwater stock at slot 28.
 
     Textured fabrics carry reconstructed absolute albedo in their maps. Turf and
     pale compacted gravel preserve the record's courtyard material reading.
@@ -273,6 +273,14 @@ def build_materials(colours=None):
                          ("middle", (.075, .120, .028)),
                          ("light", (.105, .150, .045))):
         mats.append(_plain(bpy, f"turf_blade_{name}", (*colour, 1), roughness=0.92))
+    if rainwater:
+        # Taylor resolves relief against the darker receiver body. A heavily
+        # metallic near-black iron material loses that relief without an
+        # environment map. This bounded matte oxidised/coated surface is not
+        # a colour or alloy recovered from the monochrome photograph.
+        finish=rainwater['finish']
+        mats.append(_plain(bpy, "rainwater_metal", (*finish['linear_rgb'],1),
+                           roughness=finish['roughness'],metallic=finish['metallic']))
     return mats
 
 

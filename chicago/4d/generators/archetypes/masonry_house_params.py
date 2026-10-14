@@ -78,7 +78,7 @@ FT = 0.3048
 FAMILIES = ("range_", "ridge_", "gable_", "tower_", "bay_", "turret_", "chimney_",
             "openings_")
 CONSUMED = frozenset({
-    "frame_ft", "grade_datum", "detail_profile", "v4_detail",
+    "frame_ft", "grade_datum", "detail_profile", "v4_detail", "rainwater_details",
     "construction", "paint", "roof_covering",
     "granite_tint", "brick_tint", "trim_tint", "roof_tint", "copper_tint", "wood_tint",
     # 1800 Prairie Avenue (glessner_house)
@@ -896,6 +896,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         p.detail["dining_roof_junction"] = raw.get("dining_roof_junction", False)
         p.detail["dining_crested_connection"] = raw.get("dining_crested_connection", False)
         p.detail["continuous_copper_corner"] = raw.get("continuous_copper_corner", False)
+        p.detail["rainwater"] = val("rainwater_details")
         p.detail["bow_first_floor_central_door"] = bool(raw.get("bow_first_floor_central_door"))
         service_stair = raw.get("north_court_service_stair")
         if service_stair:

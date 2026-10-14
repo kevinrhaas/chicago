@@ -213,9 +213,9 @@ def build(b,t,params):
             b.raw([(*a[:2],z-depth),(*c[:2],z-depth),(_join_x(params,z,cy+sign*r),cy+sign*r,z-depth),
                 (cx,cy+sign*r,z-depth)],t['conf_roof'],10,(0,0,-1))
     legacy._finial(b,cx,cy,t['apex_z'],t['finial_m'],t['conf_roof'],legacy.COPPER)
-    # The pipe visible in HABS 01/14 drains onto the north roof, not to grade.
-    # Its end is resolved from that roof plane, so a tower adjustment cannot
-    # leave it floating or penetrate a storey of masonry.
+    # Archived versions retain the earlier roof-discharge interpretation.
+    # T-2221's network replaces it with the photographed upper-pipe/bowl/
+    # lower-leader connection, and fills this diagnostic with its emitted path.
     a=math.radians(s['pipe_angle_deg']);ux,uy=math.cos(a),math.sin(a)
     px,py=cx+(r+.08)*ux,cy+(r+.08)*uy
     ox,oy=px+.10*ux,py+.10*uy
@@ -223,7 +223,9 @@ def build(b,t,params):
     inlet=(cx+er*ux,cy+er*uy,z-depth)
     path=[inlet,(px,py,z-.28),(px,py,end+.12),(ox,oy,end)]
     if end+.24>=z-.28:raise ValueError('North tower pipe no longer clears its host roof')
-    _tube(b,path,s['pipe_radius_m'],6 if n==32 else 12)
+    if not params.detail.get('rainwater'):
+        _tube(b,path,s['pipe_radius_m'],6 if n==32 else 12)
     if not hasattr(b,'north_tower_details'):b.north_tower_details=[]
-    b.north_tower_details.append({'eave_z':z,'profile':profile,'pipe':path,
+    b.north_tower_details.append({'eave_z':z,'profile':profile,
+                                 'pipe':[] if params.detail.get('rainwater') else path,
                                  'host_roof_z':north_height(params,oy),'segments':n})
