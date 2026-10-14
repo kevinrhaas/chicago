@@ -9,7 +9,7 @@ an approximately 40 m working uncertainty. The new ground GLB and terrain
 sampler agree at every vertex and both seams. Published 1904 views at 1280x800 and 390x780 load with zero page errors and no
 loader problems; [north](RESEARCH/ic-lakefront-2495/north.png) and
 [south](RESEARCH/ic-lakefront-2495/south.png) show both continuations. Both Full
-desktop aerial views remain inside the draw budget. Preflight and all 876 code/data
+desktop aerial views remain inside the draw budget. Preflight and all 877 code/data
 checks pass; published mobile parts 3/14 pass 221 checks. The broader desktop
 smoke twice timed out opening 1835 before reaching its selected sections; it is
 not claimed as passed. The PR remains unmerged for that validation limitation.
@@ -12516,7 +12516,7 @@ record in the published manifest (`shoot.mjs --at 855,150,225`):
 
 | | triangles | draw calls |
 |---|---|---|
-| with the rows | 876,858 | 114 |
+| with the rows | 877,858 | 114 |
 | without them | 868,618 | 114 |
 | **delta** | **+8,240** | **0** |
 
@@ -13948,7 +13948,7 @@ not in the file a visitor loads — the committed derivative still quantises POS
 
 **Its first sentence was no longer true.** Measured with R-W6's own control — regenerate the
 committed master and compare md5s — `terrain__e1834_harbor_cut.glb` at **16** bits reproduces the
-committed derivative exactly (`5b8446876a425fceace5c7dd7c59688a`, 704,004 bytes) and at 14 bits
+committed derivative exactly (`5b8446877a425fceace5c7dd7c59688a`, 704,004 bytes) and at 14 bits
 does not (`4b9fb0765a9b5669dd547b32ef156825`, 702,896). The 16-bit ground reached the site in a
 nightly bake that rebuilt the terrain. The water mesh reproduces at both depths
 (`61b38d4bc36964db450b59ac7b646b77`) — R-W6 predicted that in writing: four vertices at y = 0 land
