@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 1785, ts: '2026-10-14T02:00:12.131Z', date: 'Oct 13, 2026, 9:00 PM CT', title: '1637 Prairie\'s chimneys get their panelled shafts and capped heads', kind: 'improvement',
+    items: [
+      'The three chimneys on Jesse Spalding\'s house at 1637 Prairie now have the corbelled brick heads and stone caps the engraving draws, where they were plain boxes.',
+      'The two tall stacks on the north wall carry a long sunk panel on the face toward the street.',
+    ] },
+  { v: 1784, ts: '2026-10-14T00:55:39.817Z', date: 'Oct 13, 2026, 7:55 PM CT', title: 'Glessner’s service doorway and adjoining roof meet cleanly', kind: 'fix',
+    items: [
+      'The north service door and window above it now have the full widths shown in the historic plans and photographs.',
+      'Two stone steps reach the service doorway, with the drainpipe beside the gable.',
+      'The stable roof meets the north wing without the projecting roof strip crossing the gable.',
+      'Courtyard window bars now remain visible in Light mode too.',
+      'Switching to Light detail now reduces the distant city as it does on a fresh visit.',
+    ] },
   { v: 1783, ts: '2026-10-13T23:56:25.672Z', date: 'Oct 13, 2026, 6:56 PM CT', title: 'The 1904 lake edge is stone, timber and made ground', kind: 'feature',
     items: [
       'East of the tracks the bank down to the lake is now dumped limestone, darker and greener where the water keeps it wet, with single blocks you can walk up to.',
