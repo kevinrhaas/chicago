@@ -178,6 +178,8 @@ step "Glessner's curved stone staggers, its eave clears the gable and its pipe m
   python3 tools/test_glessner_north_tower.py
 step "Glessner's service openings stay whole and the stable roof meets the north range (T-2219)" \
   python3 tools/test_glessner_service_junction.py
+step "Glessner carriage leaves: relief, swing and grain" \
+  python3 tools/test_glessner_porte.py
 step "Prairie 1904 K01 component contract holds, and the Glessner baseline is the package it measured (T-2265)" \
   node tools/k01_contract.mjs --check
 selftest "…coincident faces, hidden origin offsets and tier scale drift are caught on synthetic GLBs" \

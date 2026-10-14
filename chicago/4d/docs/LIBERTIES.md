@@ -26628,3 +26628,33 @@ using four-sided rather than Full’s six-sided 22-mm cylinders at identical cen
 The renderer partitions complete building triangles into 4-m plan / 2-m height
 cells in Balanced/Light inspection: tighter culling preserves all surfaces, attributes
 and shadow geometry without raising the phone frame allowance.
+
+### L-glessner-porte-cochere-2217 — carriage leaves (2026-10-14)
+
+**Decision:** HABS IL-1015 sheet 6 supplies the three-by-six circular/square
+field pattern and paired ring plates. Written data printed p.21 describes the
+heavily paneled leaves, straps and latches in a 1945 photograph. The circa-1888
+and Florian GX112.10 photographs are historical cross-checks; neither is traced
+or copied into an asset. The museum scan remains rights-pending. Modern 2023/24
+replacements are not independent evidence of 1904.
+
+Leaf thickness 90 mm (75–115), recess depth 35 mm (25–45), ring radius about
+59 mm (50–75), hinge inset 85 mm (60–100) and floor clearance 15 mm (10–25)
+are reconstructed construction bounds, not historical measurements. The hidden
+pivot is 280 mm behind the exterior wall plane. Panel centre shares, metalwork
+curves, studs, fixed oak linings and reverse boarding are reconstructed within
+the recorded pattern. Existing dark oak/iron finishes are retained; monochrome
+images do not establish their precise colour. The 82-degree inward pose is an
+operating reconstruction; the same members form the closed diagnostic.
+
+Light retains every panel, strap, ring and hinge, using octagonal circular
+recesses and simplified plate edges; it omits scrolls, studs and reverse grooves.
+The approved T-2202 paving and opening controls remain. The apparent aperture
+aspect differs from the circa-1888 reproduction; whole-house camera, grade and
+proportion reconciliation remains T-2228, not a claimed perfect photo match.
+[Sources and validation](RESEARCH/glessner-porte-cochere-T-2217.md).
+
+**Ticket:** T-2217.
+**Recorded:** 2026-10-14 (T-2217).
+
+**Covers:** `glessner_house.as_built_1887.form.ironwork_finish`
