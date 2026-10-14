@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1794, ts: '2026-10-14T20:41:57.168Z', date: 'Oct 14, 2026, 3:41 PM CT', title: 'Glessner gutters and rainwater heads', kind: 'improvement',
+    items: [
+      'Glessner House gains the framed Prairie Avenue rainwater heads and the ribbed collector beneath its north tower, with connected gutters, wall straps and downpipes.',
+      'Courtyard box gutters now connect to their leaders. Fitting dimensions, concealed connections and the 1904 finish are recorded as reconstructed.',
+    ] },
   { v: 1793, ts: '2026-10-14T17:23:23.739Z', date: 'Oct 14, 2026, 12:23 PM CT', title: 'Follow streets and arrive facing the building', kind: 'fix',
     items: [
       'Walking uses sidewalks and plank walks where available; horses and wagons follow the roadway in both 1835 and 1904.',
