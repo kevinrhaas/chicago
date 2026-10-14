@@ -3,6 +3,71 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 5,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: scene reaches ready — timed out | mckee_log_house: review_required is set — this scene cannot be released | agency_striker_log_house: review_required is set — this scene cannot be released | beaubien_barn: review_required is set — this scene cannot be released"
+      ],
+      "wallSeconds": 121,
+      "takenAt": "2026-10-14T03:22:33.669Z",
+      "ref": "steward/t-2495-rail-shore-extent",
+      "commit": "fec8c2816878",
+      "devCommit": "ca36ad0a8c85",
+      "treeHash": "sha256:539f21fe11d7912e",
+      "treeDirty": false,
+      "changelogHash": "sha256:9a21b480f6a96573",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          4.9,
+          7.3,
+          6.3
+        ]
+      },
+      "source": "/workspace/scratch/smoke-desktop-retry.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3,14",
+      "parts": [
+        3,
+        14
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 221,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 934,
+      "takenAt": "2026-10-14T03:18:59.009Z",
+      "ref": "steward/t-2495-rail-shore-extent",
+      "commit": "fec8c2816878",
+      "devCommit": "ca36ad0a8c85",
+      "treeHash": "sha256:539f21fe11d7912e",
+      "treeDirty": false,
+      "changelogHash": "sha256:9a21b480f6a96573",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          10.2,
+          9.3,
+          6.5
+        ]
+      },
+      "source": "/workspace/scratch/smoke-mobile.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "1",
       "parts": [
         1
@@ -1690,68 +1755,6 @@
         ]
       },
       "source": "/tmp/smoke_d8.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "8",
-      "parts": [
-        8
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 18,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 264,
-      "takenAt": "2026-10-05T16:42:45.691Z",
-      "ref": "steward/t-2134-dearborn-shops",
-      "commit": "03ae02ebc992",
-      "devCommit": "f846ebdc8f1b",
-      "treeHash": "sha256:7196ab347a4e0c84",
-      "treeDirty": false,
-      "changelogHash": "sha256:4b2541da512adf63",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.2,
-          4.3,
-          4.1
-        ]
-      },
-      "source": "/tmp/smoke_m8.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "8",
-      "parts": [
-        8
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 18,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 261,
-      "takenAt": "2026-10-05T15:44:55.972Z",
-      "ref": "steward/t-2134-dearborn-shops",
-      "commit": "9340f9ce39cd",
-      "devCommit": "cc86910e3875",
-      "treeHash": "sha256:f164583b5ad52284",
-      "treeDirty": false,
-      "changelogHash": "sha256:2aaf99c4a9614389",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.2,
-          4.2,
-          4.1
-        ]
-      },
-      "source": "/tmp/smoke_m8.log"
     },
     {
       "viewport": "mobile",

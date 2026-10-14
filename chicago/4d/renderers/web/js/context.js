@@ -264,7 +264,7 @@ export async function createContext({
   // so a stand-in out there stands on the edge's height.
   const g = terrain.grid ?? null;
   const ground = (e, n) => {
-    if (terrain.inBounds?.(e, n) === false && g) {
+    if (!terrain.contextCoast && terrain.inBounds?.(e, n) === false && g) {
       const e0 = g.originE; const n0 = g.originN;
       const e1 = e0 + 700; const n1 = n0 + 900;
       return terrain.surfaceHeight(Math.min(Math.max(e, e0), e1), Math.min(Math.max(n, n0), n1));

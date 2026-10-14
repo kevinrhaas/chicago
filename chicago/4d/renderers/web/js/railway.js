@@ -585,7 +585,7 @@ export async function createRailway({
   if (!dataBase || !terrain) return out;
   let data;
   try {
-    data = await getJSON(new URL(`railway/${sceneId}.json`, dataBase));
+    data = await getJSON(new URL(`railway/${sceneId === '1904' ? '1904_context' : sceneId}.json`, dataBase));
   } catch (err) {
     problems.push(`railway: ${err.message} — no track is drawn`);
     return out;

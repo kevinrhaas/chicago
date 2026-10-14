@@ -9,6 +9,25 @@ Five credited courtyard photographs are added to the library.
 [Evidence and validation](RESEARCH/glessner-copper-T-2220/README.md).
 Whole-house photographic acceptance remains T-2228.
 
+## T-2495 — outer 1904 rails and shoreline (2026-10-14)
+
+The Illinois Central corridor now continues to both context-map edges, about
+2.6 km past each end of the detailed Prairie Avenue district. Talbot's 1904 map
+locates the outer corridor and coast; the Sanborn-derived district is preserved.
+All nine north and eleven south through tracks connect exactly. Outer track
+counts, spacing, grade and the 160 m joins are reconstructed; map alignment has
+an approximately 40 m working uncertainty. The new ground GLB and terrain
+sampler agree at every vertex and both seams. Published 1904 views at 1280x800 and 390x780 load with zero page errors and no
+loader problems; [north](RESEARCH/ic-lakefront-2495/north.png) and
+[south](RESEARCH/ic-lakefront-2495/south.png) show both continuations. Both Full
+desktop aerial views remain inside the draw budget. The original feature preflight
+passed all 877 code/data checks; published mobile parts 3/14 passed 221 checks. On the original local runner, the broader desktop
+smoke twice timed out opening 1835 before reaching its selected sections; those
+runs are not claimed as passed. Current integration validation is recorded in
+[PR #796](https://github.com/kevinrhaas/chicago/pull/796).
+No production deployment is claimed.
+[Sources, method and bounds](RESEARCH/ic_lakefront_extent_1904.md).
+
 ## T-2217 — Glessner carriage leaves and passage (2026-10-14)
 
 Both leaves now carry the HABS circular/square panel pattern, straps, paired

@@ -518,6 +518,12 @@ step "sheets 28, 20 and 35's 1904 building footprints re-derive from the raster 
 selftest "…and a broken trace, a clockwise or out-of-lot outline, an unnamed or twice-named building still fails it" \
   python3 tools/trace_prairie_1904_footprints.py --self-test
 
+step "the 1904 outer lakefront joins every through track, keeps rails dry and reproduces its mapped apron (T-2495)" \
+  python3 tools/extend_ic_lakefront_1904.py --check
+
+step "the outer 1904 apron GLB and runtime heights agree at both joins (T-2495)" \
+  node tools/check_coast_extension.mjs
+
 # T-2477. ...and the faded context city around them: every building those three sheets draw off
 # Prairie Avenue as a sheet-coloured rectangle, and a projected city past the sheets' edges, with
 # trees (data/context/1904.json). The contract keeps every stand-in off Prairie Avenue's lots and

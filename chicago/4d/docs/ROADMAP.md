@@ -1,3 +1,12 @@
+## T-2495 - 1904 lakefront beyond Prairie Avenue
+
+Implemented: connected north/south Illinois Central continuations to the context
+map limits and a mapped outer shoreline, using Talbot 1904. Generated terrain
+and walking/building heights share the same coast. Individual outer switches,
+station buildings, pier structures and surveyed grades remain outside this
+change; the corridor and track fan carry explicit reconstruction bounds.
+See [the evidence](RESEARCH/ic_lakefront_extent_1904.md).
+
 ## T-2219 — Glessner service openings and roof junction (2026-10-13)
 
 The north service door and upper sash follow the full widths read in HABS plans
