@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1790, ts: '2026-10-14T09:52:11.026Z', date: 'Oct 14, 2026, 4:52 AM CT', title: 'Keep Glessner rebuilds consistent', kind: 'fix',
+    items: [
+      'Nothing you can see changes. Glessner’s saved shading layout now stays consistent when the house is rebuilt on another machine.',
+    ] },
   { v: 1789, ts: '2026-10-14T07:09:21.230Z', date: 'Oct 14, 2026, 2:09 AM CT', title: 'Glessner’s curved courtyard steps', kind: 'improve',
     items: [
       'The hall terrace now has a wider curved brick wall, a descending stone cap and rounded end post, with fan-shaped steps meeting the doorway.',
