@@ -1148,7 +1148,17 @@ const DETAIL = sealLadder(DETAIL_DECLARED, DETAIL_ORDER);
 // rendered passes, not the master inventory of 1,070,689 triangles. Final
 // all-viewport validation still checks the released bytes. The ordinary town,
 // balanced 1,280,000, light 825,000 and 215 draw calls are unchanged.
-const GLESSNER_V4_FULL_TRIANGLES = 3800000;
+// T-2219, 2026-10-13: the existing T-2470 Full asset renders 3,890,920 /
+// 3,836,612 / 3,655,925 triangles at the fixed service-junction / front /
+// elevated-junction stands (1280x800, 225 calls maximum). The original 3.8M
+// T-1730 allowance predates the completed masonry and roof detail and already
+// fails before this repair. After integrating T-2473, the same stand with summer
+// street trees reads 4,274,524 triangles / 229 calls. The final 4.6M allowance
+// leaves 7.6% over that integrated reading. Keep the ordinary town, Balanced,
+// Light and draw-call ceilings unchanged. Before/after receipts and cameras:
+// docs/RESEARCH/glessner-service-junction-T-2219/ . This is a spot measurement,
+// not a frame-rate guarantee; the existing Scene detail control selects Light.
+const GLESSNER_V4_FULL_TRIANGLES = 4600000;
 /**
  * THE DRAW-CALL BUDGET, RAISED FROM 80 TO 120 ON 2026-08-21 — a conscious
  * re-budget, written down here where the number is set, and never a silent one.
@@ -1550,7 +1560,7 @@ async function boot() {
   const detailLevels = inspectionLod ? { ...DETAIL,
     full: { ...DETAIL.full, triangles: GLESSNER_V4_FULL_TRIANGLES,
       declared: GLESSNER_V4_FULL_TRIANGLES,
-      measured: 'Selected Glessner v4 inspection; see T-1730 at GLESSNER_V4_FULL_TRIANGLES.' },
+      measured: 'Selected Glessner v4 inspection; see T-1730/T-2219 at GLESSNER_V4_FULL_TRIANGLES.' },
   } : DETAIL;
   // Which structure version the address asked for and what it got — the HUD chip and
   // the smoke both read it. A fallback is carried here as `notice`, NOT pushed onto
@@ -1660,6 +1670,9 @@ async function boot() {
   await yieldToPaint();
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     preserveMaterials: inspectionLod,
+    // Balanced and Light share the reduced asset and its batches. Keep their
+    // cells identical so a same-asset Balanced -> Light switch stays culled.
+    spatialCells: inspectionLod && detailLevel !== 'full' ? { cellM: 4, heightM: 2 } : null,
     lowSpec: coarse,
     glass: glassForDetail(detailLevel, GLASS_REQUEST),
     checkpoint: bootCheckpoint,
@@ -1777,7 +1790,7 @@ async function boot() {
   // built (data/context/<scene>.json, read off the Sanborn sheets where they reach and
   // projected past them), so Prairie Avenue reads in full colour against a sketch of the
   // city around it. Each gives way to any placed structure whose footprint it touches.
-  const contextCity = await createContext({
+  let contextCity = await createContext({
     dataBase: layerBase('context'), sceneId: loaded.scene.id ?? YEAR, terrain, footprints,
     confidence, problems: layerProblems('context'), detail: detailLevel,
   });
@@ -2336,6 +2349,7 @@ async function boot() {
   // budget is rendered between the two. Ordinary scenes keep their existing path.
   const discardDetail = (next) => {
     next.buildings?.dispose();
+    next.contextCity?.dispose?.();
     next.flora?.dispose?.();
     next.trees?.dispose?.();
     if (next.asset) disposeLoadedAsset(next.asset.gltf);
@@ -2355,12 +2369,25 @@ async function boot() {
           // T-2183 defaults both to dark; an explicit comparison stays selected.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
             checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse,
+            spatialCells: level !== 'full' ? { cellM: 4, heightM: 2 } : null,
             glass: glassForDetail(level, GLASS_REQUEST) });
           if (next.buildings.problems.length || next.buildings.roll.missing.length) {
             throw new Error(next.buildings.problems.join('; ') || 'the replacement did not draw every structure');
           }
           next.buildings.setWeathering(buildings.weathering);
           next.buildings.group.visible = buildings.group.visible;
+        }
+        // The background city selects a nearer ring at Light during creation.
+        // Rebuild at that boundary too: otherwise entering Light retains the
+        // larger ring from boot and can exceed the phone's frame allowance.
+        if ((level === 'light') !== (detailLevel === 'light')) {
+          const contextProblems = [];
+          next.contextCity = await createContext({
+            dataBase: layerBase('context'), sceneId: loaded.scene.id ?? YEAR,
+            terrain, footprints, confidence, problems: contextProblems, detail: level,
+          });
+          if (contextProblems.length) throw new Error(contextProblems.join('; '));
+          next.contextCity.group.visible = contextCity.group.visible;
         }
         next.flora = await createFlora({
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
@@ -2395,6 +2422,19 @@ async function boot() {
         api.roll = buildings.roll;
         previous.dispose();
         disposeLoadedAsset(oldAsset);
+      }
+      if (next.contextCity) {
+        const previous = contextCity;
+        contextCity = next.contextCity;
+        scene3d.add(contextCity.group);
+        scene3d.remove(previous.group);
+        api.contextCity = contextCity;
+        previous.dispose();
+      }
+      if (next.buildings || next.contextCity) {
+        // New materials must inherit the selected seasonal view too.
+        structuresSeasoned = false;
+        void applySeason(seasonState.season);
       }
       loaded.registry.get('glessner_house').assetDetail = level;
       const previousFlora = flora;

@@ -251,6 +251,8 @@ def _range(b, r) -> None:
         "south": ({"axis": "y", "sign": -1, "at": y0}, (x0, x1)),
     }
     for face, (pl, (u0, u1)) in faces.items():
+        if face == "north" and "north_wall_min" in r:
+            u0 = r["north_wall_min"]
         kind = r["walls"][face]
         if kind == "none":
             continue
@@ -391,7 +393,8 @@ def _stable_reworked(b, r):
             # diagonal runs from its foot to the ordinary alley eave.
             lift = r["parapet_m"].get("north", 0)
             west_eave = g.get('north_west_eave', g['north_eave'])
-            east_eave = height(r,g['front_x1'],r['y1']) if g.get('level_courtyard_gable') else g['north_eave']
+            east_eave = (g['north_eave'] if g.get('north_service_junction') else
+                         height(r,g['front_x1'],r['y1']) if g.get('level_courtyard_gable') else g['north_eave'])
             gp = [(g["front_x0"],west_eave),(r["ridge_at"],r["ridge_z"]),(g["front_x1"],east_eave)]
             prof = [(r["x0"],west_eave),(g["front_x0"],west_eave),
                 (g["front_x0"],west_eave+lift),(r["ridge_at"],r["ridge_z"]+lift),
