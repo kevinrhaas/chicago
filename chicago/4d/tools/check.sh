@@ -174,6 +174,8 @@ selftest "Scene bundle: one commit packed reproducibly; tampered, missing, extra
   python3 tools/scene_bundle.py --self-test
 step "Glessner's west roof has one continuous envelope and a lower rear eave (T-1830)" \
   python3 tools/test_glessner_roof_envelope.py
+step "Glessner's curved stone staggers, its eave clears the gable and its pipe meets the roof (T-2470)" \
+  python3 tools/test_glessner_north_tower.py
 step "Prairie 1904 K01 component contract holds, and the Glessner baseline is the package it measured (T-2265)" \
   node tools/k01_contract.mjs --check
 selftest "…coincident faces, hidden origin offsets and tier scale drift are caught on synthetic GLBs" \
@@ -469,6 +471,16 @@ step "the 1904 Prairie Avenue street and parcel grid re-derives from its sheets 
 selftest "…and a misread lot line, a stray label or a broken section still fails it" \
   python3 tools/trace_prairie_1904_grid.py --self-test
 
+# T-2474. ...the street section and the carriage walks laid on that grid's lots and faces,
+# generated the same way; and (T-2473) the parkway elms planted on its parkway bands, clear
+# of those carriage walks: the committed files are what the tools write, walk for walk and
+# tree for tree.
+step "the 1904 street section and carriage walks re-lay from the street grid (T-2474)" \
+  python3 tools/lay_prairie_1904_street_section.py --check
+
+step "the 1904 parkway elms re-plant from the street grid (T-2473)" \
+  python3 tools/plant_prairie_1904_street_trees.py --check
+
 # T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
 # (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and
 # every named record on the sheet's ground exactly once, owns every traced parcel, keeps
@@ -496,6 +508,17 @@ step "sheets 28, 20 and 35's 1904 building footprints re-derive from the raster 
 selftest "…and a broken trace, a clockwise or out-of-lot outline, an unnamed or twice-named building still fails it" \
   python3 tools/trace_prairie_1904_footprints.py --self-test
 
+# T-2477. ...and the faded context city around them: every building those three sheets draw off
+# Prairie Avenue as a sheet-coloured rectangle, and a projected city past the sheets' edges, with
+# trees (data/context/1904.json). The contract keeps every stand-in off Prairie Avenue's lots and
+# roadway and out of the water, and every sheet it reads a resolving source. T-2491 carried it to
+# the haze's reach with faded streets, which the contract keeps off every traced carriageway and lot.
+step "the 1904 context city and its streets re-derive and keep off Prairie Avenue and the lake (T-2477, T-2491)" \
+  python3 tools/build_context_1904.py --check
+
+selftest "…and a stand-in put on a Prairie Avenue lot or in the lake, or a street across Prairie, still fails it" \
+  python3 tools/build_context_1904.py --self-test
+
 # T-1728. ...and what that grid is paved with. data/street_surfaces/1904.json is AUTHORED:
 # every carriageway, alley and sidewalk band names a material, a tier, its sources and a
 # range that bounds 1 July 1904. The contract holds it to the grid (nothing drawn without
@@ -517,6 +540,15 @@ selftest "…and a bare surface, an invented source, a report made to attest or 
 # channel is red whatever its strength.
 step "the 1904 street normals are OpenGL-handed, as the renderer binds them (T-2296)" \
   python3 tools/check_street_surfaces.py --handedness
+
+# T-2478. ...and the railway between those streets and the lake: the Illinois Central
+# tracks sheets 20 and 28 draw, traced in a frame along the scene's waterline, joined
+# across the sheets' gap and closed on their neighbours where no sheet draws them, each
+# stretch recording how it was got. --check re-reads both sheets (Pillow and numpy,
+# tools/check_gate_readers.py) and holds data/railway/1904.json to what a re-trace
+# writes; without them it holds the committed file's properties together.
+step "the 1904 Illinois Central tracks still re-trace from sheets 20 and 28 (T-2478)" \
+  python3 tools/trace_ic_tracks_1904.py --check
 
 # T-2292. ...and what the 1904 roofs are covered in. The K04 library's slates, tiles, pans
 # and sheets are sized in data/components/prairie_1904/k04_roofs.json and drawn by the

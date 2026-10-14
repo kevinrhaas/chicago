@@ -1,0 +1,40 @@
+{
+  "id": "tie_timber",
+  "group": "timber",
+  "span_m": 2.44,
+  "span_across_m": 0.229,
+  "kind": "timber",
+  "mean_roughness": 0.88,
+  "colors": [
+    [
+      104,
+      94,
+      80
+    ],
+    [
+      52,
+      46,
+      40
+    ]
+  ],
+  "note": "The top of an untreated hewn-oak crosstie a few seasons in the track, weathered silver-brown: grain along its length, end and season checks, cinder dust packed into the grain and a darker band where each rail sits. Untreated because creosoting was still unusual on Midwestern lines before about 1910; that, the wood and its colour are reconstructed (L-ic-tracks-2478).",
+  "span_along_m": 2.44,
+  "resolution_px": 512,
+  "px_per_m": 209.84,
+  "confidence": "reconstructed appearance; which ground carries it is data/railway/1904_spec.json's to say",
+  "orientation": "image x = along the track (renderer u); image y = across it (v)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "height16": "linear 16-bit",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "tie_timber_basecolor_web.jpg",
+    "normal_gl": "tie_timber_normal_gl_web.jpg",
+    "orm": "tie_timber_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19041017,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_rail.py); no photograph sampled"
+}

@@ -326,6 +326,9 @@ class Entrance(Opening):
         n, r = risers(R, p["stair"])
         g, L, half = st["going_m"], st["landing_m"], st["width_m"] / 2
         cheeks = st.get("cheeks", False)
+        # T-2463: the stoop's axis, `axis_s_m` along the wall from the door's centre (1620's
+        # door stands at the south end of a landing that runs on north into its porch)
+        c = st.get("axis_s_m", 0.0)
         # T-2409: a terrace at the landing's height running along the front to one side;
         # it takes that side of the landing, so that cheek runs down the flight alone.
         # T-2450: one terrace a side, so `porch` is one or a list of two
@@ -334,19 +337,23 @@ class Entrance(Opening):
         psides = [{"left": -1.0, "right": 1.0}[q["side"]] for q in porches]
         if len(set(psides)) != len(psides):
             raise ValueError("a stoop takes one terrace a side")
-        self.quad("landing", [(-half, 0, 0), (half, 0, 0), (half, 0, L), (-half, 0, L)], Y)
-        self.probe(0.0, 0.0, L / 2, ("landing",), "the landing")
+        W = self.v["clear_width_m"] / 2
+        if (-W < c - half - 1e-9 and -1.0 not in psides) or (W > c + half + 1e-9 and 1.0 not in psides):
+            raise ValueError(f"the door hangs off a stoop {c:+.3f} m off its axis, where no terrace carries it on")
+        self.quad("landing", [(c - half, 0, 0), (c + half, 0, 0), (c + half, 0, L), (c - half, 0, L)], Y)
+        self.probe(c, 0.0, L / 2, ("landing",), "the landing")
         if not cheeks:
-            for x, hx in ((-half, -1.0), (half, 1.0)):
+            for x, hx in ((c - half, -1.0), (c + half, 1.0)):
                 self.quad("stair_end", [(x, -R, 0), (x, -R, L), (x, 0, L), (x, 0, 0)], (hx, 0.0, 0.0))
-        F = self._flight(-half, half, 0.0, L, n, r, g, -1, not cheeks, end_floor=-R)
-        self.meta["stair"] = {"risers": n, "riser_m": round(r, 5), "going_m": g, "foot_out_m": round(F, 4)}
+        F = self._flight(c - half, c + half, 0.0, L, n, r, g, -1, not cheeks, end_floor=-R)
+        self.meta["stair"] = {"risers": n, "riser_m": round(r, 5), "going_m": g, "foot_out_m": round(F, 4),
+                              **({"axis_s_m": round(c, 4)} if c else {})}
         if cheeks:
             ch = p["cheek"]
             t, hc = ch["thickness_m"], ch["above_nosing_m"]
             yF = -(n - 1) * r + hc
             for sgn in (-1.0, 1.0):
-                si, so = sgn * half, sgn * (half + t)
+                si, so = c + sgn * half, c + sgn * (half + t)
                 o0 = L if sgn in psides else 0.0
                 prof = [(o0, -R), (F, -R), (F, yF), (L, hc)] + ([(0, hc)] if o0 == 0.0 else [])
                 self.quad("cheek", [(si, y, o) for o, y in prof], (-sgn, 0.0, 0.0))
@@ -357,7 +364,7 @@ class Entrance(Opening):
                     self.quad("cheek", [(si, -R, L), (so, -R, L), (so, hc, L), (si, hc, L)], (0.0, 0.0, -1.0))
                 self.quad("cheek", [(si, hc, L), (so, hc, L), (so, yF, F), (si, yF, F)], (0.0, g, r))
                 self.quad("cheek", [(si, -R, F), (so, -R, F), (so, yF, F), (si, yF, F)], OUT)
-                mid = sgn * (half + t / 2)
+                mid = c + sgn * (half + t / 2)
                 # on the terrace's side the cheek starts at L, so its top socket stands on the rake
                 top = (mid, hc, L - 0.15) if o0 == 0.0 else (mid, hc - 0.15 * r / g, L + 0.15)
                 foot = (mid, hc - (F - 0.15 - L) * r / g, F - 0.15)
@@ -365,9 +372,10 @@ class Entrance(Opening):
                 for pt in (top, foot):
                     self.probe(*pt, ("cheek",), "a handrail socket on its cheek")
         for q, side in zip(porches, psides):
-            self._terrace(q, side, half + (p["cheek"]["thickness_m"] if cheeks else 0.0), half, L, R)
+            deck = half + side * c       # the landing's edge, measured from the door away from the stoop
+            self._terrace(q, side, deck + (p["cheek"]["thickness_m"] if cheeks else 0.0), deck, L, R)
         if st.get("balustrade"):
-            self._stoop_balustrade(st["balustrade"], psides, half, L, F, n, r, g, R)
+            self._stoop_balustrade(st["balustrade"], psides, half, L, F, n, r, g, R, c)
 
     # T-2409: the terrace and the turned balustrades ------------------------------------
     TERRACE_REVEAL_M = 0.02
@@ -380,7 +388,12 @@ class Entrance(Opening):
         back is faced too, as nothing stands behind it there."""
         m = lambda t: side * t
         S = porch["to_s_m"]
-        steps = [(s_deck, 0.0)] + [(b[0], b[1]) for b in porch.get("back", [])]
+        # a back step at or behind the landing's edge sets the terrace's back from the start
+        back = [(b[0], b[1]) for b in porch.get("back", [])]
+        first = 0.0
+        while back and back[0][0] <= s_deck + 1e-6:
+            first = back.pop(0)[1]
+        steps = [(s_deck, first)] + back
         edges = [q[0] for q in steps] + [S]
         for (a, back), b in zip(steps, edges[1:]):
             if not a < b or back >= L:
@@ -408,7 +421,7 @@ class Entrance(Opening):
         rec = {"s": [m(s_deck), m(S)], "out_m": L, "back": [[m(a), o] for a, o in steps]}
         self.meta["terrace" if side > 0 else "terrace_left"] = rec
 
-    def _stoop_balustrade(self, B, psides, half, L, F, n, r, g, R):
+    def _stoop_balustrade(self, B, psides, half, L, F, n, r, g, R, c=0.0):
         """A turned balustrade on each cheek's top, level beside the landing and raked down
         the flight, its rail at the terrace's height over the landing (the cheek's top is
         `above_nosing_m` over the nosing, so the balusters are that much shorter); on the
@@ -421,7 +434,7 @@ class Entrance(Opening):
         foot = F - nm
         y_foot = hc + (yF - hc) * (foot - L) / (F - L)
         for sgn in (-1.0, 1.0):
-            sc = sgn * (half + t / 2)
+            sc = c + sgn * (half + t / 2)
             if sgn in psides:   # from the terrace's corner newel (_terrace), down the rake
                 self._baluster_run(B, (sc, hc, L - nm - self.TERRACE_REVEAL_M), (sc, y_foot, foot), H,
                                    skip_first=True)

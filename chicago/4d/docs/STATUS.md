@@ -1,3 +1,14 @@
+## T-2470 — Glessner's north gable and tower (2026-10-13)
+
+The local model now has one flat north facade entering the western half-round
+tower, two tall window pairs, staggered curved stone courses and an eave that
+stops at the gable coping. The duplicate lower slit and roof strip through a
+window are removed. Full/Light assets are rebuilt; Light contains 199,998
+triangles. Geometric contact/clearance and K01 checks pass. Published browser
+and integration gate receipts accompany the PR. Camera reconciliation and remaining
+photographic differences are recorded in
+[the evidence and bounds](RESEARCH/glessner-north-tower-T-2470.md).
+
 ## T-2321 — K12 on a named lot: the coach house behind 1812 Prairie (2026-10-10)
 
 **Visible.** In the 1904 scene the alley behind the houses beside the Glessner House has its first

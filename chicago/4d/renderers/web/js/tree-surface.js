@@ -87,15 +87,18 @@ function leaf(ctx, family, x, y, length, angle, shade, rnd) {
   ctx.stroke(); ctx.restore(); ctx.restore();
 }
 
-function spray(ctx, family, seed) {
+function spray(ctx, family, seed, bare = false) {
   const rnd = random(seed);
   const leaves = [];
   ctx.strokeStyle = 'rgb(112,108,85)'; ctx.lineCap = 'round';
+  // T-2473: a BARE spray is the same shoots with no blade on them, the twigs a
+  // touch heavier so a leafless crown still reads as a fine mesh at a distance.
+  const twig = bare ? 1.7 : 1;
   function shoot(x, y, angle, length, depth) {
     const bend = (rnd() - 0.5) * 0.45;
     const tx = x + Math.sin(angle + bend) * length;
     const ty = y - Math.cos(angle + bend) * length;
-    ctx.lineWidth = depth === 0 ? 2.1 : depth === 1 ? 1.0 : 0.55;
+    ctx.lineWidth = (depth === 0 ? 2.1 : depth === 1 ? 1.0 : 0.55) * twig;
     ctx.beginPath(); ctx.moveTo(x, y);
     ctx.quadraticCurveTo(x + Math.sin(angle) * length * 0.5,
       y - Math.cos(angle) * length * 0.5, tx, ty); ctx.stroke();
@@ -132,6 +135,7 @@ function spray(ctx, family, seed) {
     if (depth) leaves.push([tx, ty, 19 + rnd() * 6, angle + (rnd() - 0.5) * 1.3, 211]);
   }
   shoot(251, 472, -0.16, 357, 0);
+  if (bare) return;
   leaves.sort((a, b) => b[1] - a[1]);
   for (const [x, y, len, a, shade] of leaves) leaf(ctx, family, x, y, len, a, shade, rnd);
 }
@@ -185,7 +189,7 @@ function* foliageMipmaps(source) {
  * back between its pieces — painted in one go it held the phone's flora phase
  * for 270 ms. Each `yield` is a place to pause, never a change in what is
  * painted: the sliced and the unsliced atlas are the same pixels. */
-function* paintTreeAtlas() {
+function* paintTreeAtlas(bare = false) {
   const canvas = document.createElement('canvas');
   canvas.width = canvas.height = SIZE;
   const ctx = canvas.getContext('2d');
@@ -193,7 +197,7 @@ function* paintTreeAtlas() {
     yield;
     ctx.save(); ctx.translate((tile % GRID) * TILE, Math.floor(tile / GRID) * TILE);
     ctx.beginPath(); ctx.rect(7, 7, TILE - 14, TILE - 14); ctx.clip();
-    spray(ctx, tile % 7, 8801 + tile * 7919); ctx.restore();
+    spray(ctx, tile % 7, 8801 + tile * 7919, bare); ctx.restore();
   }
   // Bark is achromatic so the record's species-specific colour stays in charge.
   const x0 = 2 * TILE, y0 = 3 * TILE;
@@ -217,7 +221,7 @@ function* paintTreeAtlas() {
   ctx.restore();
   ctx.fillStyle = '#fff'; ctx.fillRect(3 * TILE, 3 * TILE, TILE, TILE);
   const texture = new THREE.CanvasTexture(canvas);
-  texture.name = 'procedural-species-leaf-and-bark-atlas';
+  texture.name = bare ? 'procedural-species-bare-twig-and-bark-atlas' : 'procedural-species-leaf-and-bark-atlas';
   texture.mipmaps = yield* foliageMipmaps(canvas);
   texture.generateMipmaps = false;
   texture.colorSpace = THREE.SRGBColorSpace;
@@ -234,9 +238,11 @@ export function createTreeAtlas() {
   return step.value;
 }
 
-/** The same atlas, pausing at `checkpoint` (boot-phases.js) between pieces. */
-export async function createTreeAtlasSliced(checkpoint = () => null) {
-  const paint = paintTreeAtlas();
+/** The same atlas, pausing at `checkpoint` (boot-phases.js) between pieces.
+ *  `bare` paints every spray as twigs with no leaf (the 1904 parkway elms'
+ *  winter setting, T-2473); the bark tile is the same. */
+export async function createTreeAtlasSliced(checkpoint = () => null, { bare = false } = {}) {
+  const paint = paintTreeAtlas(bare);
   for (let step = paint.next(); ; step = paint.next()) {
     if (step.done) return step.value;
     const pause = checkpoint(); if (pause) await pause;
@@ -251,6 +257,12 @@ export function patchTreeWind(material, uWind, { surface = false } = {}) {
       + shader.vertexShader.replace('#include <begin_vertex>', `
 #include <begin_vertex>
 vec3 chiW = (modelMatrix * vec4(transformed, 1.0)).xyz;
+#ifdef USE_BATCHING
+// T-2473: an instanced tree's sway is phased by where it STANDS, not by its
+// shared local mesh. The 1835 timber's batch matrices are identity, so it is
+// unchanged.
+chiW = (modelMatrix * batchingMatrix * vec4(transformed, 1.0)).xyz;
+#endif
 float chiS = sin(uWind * 0.85 + chiW.x * 0.055 + chiW.z * 0.041) * 0.62
            + sin(uWind * 1.63 + chiW.x * 0.113 - chiW.z * 0.087) * 0.28;
 transformed.x += chiS * aFlex * 0.42;

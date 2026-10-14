@@ -42,6 +42,11 @@ const DEFAULT_SETTINGS = {
   // § BASE_EXPOSURE and ROADMAP K24.
   brightness: 0,
   compass: true, overviewMap: true, streetNames: true, units: 'imperial',
+  // T-2481: the 1904 Season — 'summer' (1 July, the scene's own date and the
+  // default), 'spring', 'fall' or 'winter': ground, trees and sun. A viewing choice.
+  season: 'summer',
+  // T-2473: the 1904 parkway elms, 'shown' or 'hidden'.
+  streetTrees: 'shown',
   // '' = never chosen, so main.js's device guess stands (phone light, desktop full).
   detail: '',
   // The drawer's own choices. `pace` is how YOU move (walk, wagon, horse) and
@@ -56,7 +61,14 @@ const DEFAULT_SETTINGS = {
 
 function readSettings() {
   try {
-    return { ...DEFAULT_SETTINGS, ...JSON.parse(window.localStorage.getItem(SET_KEY) || '{}') };
+    const saved = JSON.parse(window.localStorage.getItem(SET_KEY) || '{}') ?? {};
+    // T-2481: T-2473 kept the season in `streetTrees` ('summer' | 'spring' |
+    // 'winter' | 'hidden'); it is now its own setting and the trees are shown or hidden.
+    if (['summer', 'spring', 'winter'].includes(saved.streetTrees)) {
+      saved.season ??= saved.streetTrees;
+      saved.streetTrees = 'shown';
+    }
+    return { ...DEFAULT_SETTINGS, ...saved };
   } catch { return { ...DEFAULT_SETTINGS }; }
 }
 
@@ -553,6 +565,18 @@ export function createHud({
       store(SET_KEY, JSON.stringify(settings));
     });
   }
+  const wireSelect = (id, key, fallback) => {
+    const sel = $(id);
+    if (!sel) return;
+    sel.value = settings[key] || fallback;
+    sel.addEventListener('change', () => {
+      settings[key] = sel.value;
+      onSetting?.(key, settings[key]);
+      store(SET_KEY, JSON.stringify(settings));
+    });
+  };
+  wireSelect('s-season', 'season', 'summer');
+  wireSelect('s-street-trees', 'streetTrees', 'shown');
   wireToggle('s-compass', 'compass');
   wireToggle('s-overview-map', 'overviewMap');
   wireToggle('s-street-names', 'streetNames');
