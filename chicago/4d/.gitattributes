@@ -46,4 +46,8 @@
 # A conflict is safe because it stops you. A clean merge of two appends to a
 # numbered ledger is not, and the check is what stands in for the conflict.
 #
-# No rules are set in this file on purpose. If you add one, measure it first.
+# The liberty ledger still has no merge rule, for the reasons measured above.
+
+# T-2470: split ZIP members are binary even when a compressed segment has no
+# NUL in its first 8 KiB (part02 triggered false whitespace diagnostics).
+docs/RESEARCH/glessner-v4-recovery/assets.zip.part* binary

@@ -17096,6 +17096,10 @@ would replace the walk and parkway widths outright; T-1728 owns the materials.
 **Related:** **L289**, **L290** (the ground these lie on), `docs/RESEARCH/prairie_1904_street_grid.md`,
 **T-0474**, **T-1728**.
 **Recorded:** 2026-09-28.
+**Since 2026-10-13 (T-2474):** the bands no longer lie flat. The sidewalk space falls toward the
+curb at the code's one inch in three feet, and the roadway lies a curb's reveal below it. Its
+basis and its inventions are **L-prairie-curb-reveal-2474**. The crown and gutter are still not
+drawn.
 
 ### L294 — Four invented cottages in Kinzie's Addition, and the eight lots beside them left open on purpose
 
@@ -17272,6 +17276,30 @@ between 1888 and 1923 settles the vines and the courtyard ground.
 stands on), `docs/RESEARCH/glessner_house_1904.md`, `data/research/glessner_house_1904_spec.json`,
 **T-1731**, **T-1732**, **T-1730** (the alternates compared against this default), **T-0475**.
 **Recorded:** 2026-09-28.
+
+
+**T-2470 addendum, 2026-10-13 — north facade and tower re-reading.**
+HABS 01/13/14 show a flat north gable incorporating the tower and a curved
+western return. They supersede the separate full-cylinder interpretation above,
+including its W35 +/-3-ft plan estimate. Reconstruct centre W41/S7.35, drum
+radius7.35, eave radius9.35, eave/apex33.3/43.4 ft ng and finial1.5 ft. The
+north gable axis is W18.8 relative to sheet3's window pairs; its western foot at
+W37.6 and concealed transition back to the courtyard pitch at S14.6 are ours.
+Sheet4 shows the tower beyond the section, not a circular roof plan. These are
+photograph-bounded proportions, not surveyed coordinates. The total cone rise
+10.1 ft is within the earlier approximately one-foot reading uncertainty.
+The north stack, date and arched light follow the gable axis. Paired-window
+heights20.0–25.25 ft ng, attic slit W38.7–39.8/z27.4–31.2, round colonnettes and
+small foliate capitals are reconstructed from the photographs. The mistaken
+extra lower slit is removed. Continuous staggered courses wrap the curved wall;
+individual stone joints and fracture patterns remain procedural liberties.
+The flare's three strips,35-mm edge and88-mm pipe, its station and40-mm roof
+clearance are reconstructed. Later photos show its presence, not its exact
+1904 alloy or weathering. The roof connector ends behind the sloping gable. The middle/south stack feet
+enter the revised main roof by60mm, with slope-following flashing; this buried
+construction overlap is ours, not a surveyed dimension.
+The cameras and their remaining disagreement are recorded in
+`RESEARCH/glessner-north-tower-T-2470.md`; T-2228 retains whole-house sign-off.
 
 ### L296 — The 1904 Prairie Avenue walks, curbs and parkways: cement, sandstone and turf, and how every street surface looks
 **Decision:** every walk of the 1904 grid is drawn as **Portland cement concrete laid in 5 x 6 ft
@@ -24809,6 +24837,9 @@ source, replaces the kits' choices in place; K01's traced rear wing reopens the 
 **Retired in part (T-2437, piece 1 of T-2415):** the house's heights are now read off the 1874 engraving on a camera whose eye height is re-solved, and two more inventions leave this entry's Covers (`principal_floor_m` and `sash_by_storey`, each now inferred). T-2370 had put that camera's eye 0.7 m under grade from the north wall's 'foot', which the engraving does not draw (the porch's end and the north board fence cross both corners there), and on it every height low on the front fell 1.5-2 m too low. The ground the engraving does draw is the street fence's foot on the walk, and it puts the eye 2.0 m over grade; every height the camera reads rises 2.7 m. What is read on it: the principal floor at 2.0 m (the porch's and the bay terrace's balustrade tops at 2.89-2.93 m, under a 0.9 m rail), the wall head at 10.9 m (the cornice's soffit 10.61 m at both front corners), the upper floor at 6.8 m under the upper street windows' feet (7.50-7.72 m), and the sash's heights (the principal storey's heads at 6.3 m, the upper windows' round heads at 9.6-9.8 m). So the storeys are 4.8 and 4.1 m, the principal-storey sash 3.55 m and the upper 2.15 m, the pavilion's stages and sash with them, and the front stack's cap is carried up to 15.2 m. Still invented: the sills (0.75 and 0.7 m over their floors; the porch hides the lower ones and the engraving does not draw the upper), so the split between the two storeys within about 0.2 m; the sash's width and kind. The 1898 Tribune sketch's camera is re-fitted to these heights (good to about 10 px: a freehand sketch). The principal storey's 3.55 m sash stands outside K01's 2.4 m starting range on the engraving, as T-2366 let a read principal floor (`k01_frontage_params`: a sash height the record reads, with its source, is not held to the range). Still open on the two pictures and owned by T-2438: the bay window's heights (drawn 1.2-2 m higher than the kit's), tone and terrace; the pavilion's corner strip; the upper window over the door; the crown and front stack, each about 0.5 m over the drawn; and the north board fence's foot.
 **Revised in part (T-2444, piece 1 of T-2438):** the south part's bay window now stands at the 1874 engraving's heights, read on T-2437's re-solved camera (its lights 3.09-5.71 m over grade, the hood's eaves 6.24 m, its top under the upper window), and the crown over the pavilion, its round-headed dormer and the front stack come down to the drawn ones (the crown's curb 0.3 m over the main curb, the stack's cap 14.7 m). One new invention: the bay is built as painted timber, K08's frame fabric, because the engraving draws it dark against the light front with its cheeks hatched as boards; the print is monochrome and the hood's shadow could darken a brick bay as well, so the timber is RECONSTRUCTED, carried in `bays`' note (the attribute stays inferred for its place, plan and heights). What would replace it: any coloured view, or a description of the house naming the bay's material.
 **Revised in part (T-2450, piece 1 of T-2445):** the stoop's terrace is now carried SOUTH across the bay's front, as the 1874 engraving draws a low turned balustrade before the bay at the principal floor (x 365-460 px, rail top 2.89 m on T-2437's camera), from the landing to 0.35 m past the front's south corner, where the drawn balustrade ends; K07 learns a terrace to the stoop's left, the right one's mirror. What is invented is what the north terrace already invents (its 1.2 m depth, stone, faced to grade, the turned balusters and newels), carried in `entrance_kit`'s note, plus one thing: that it joins the stoop's landing, which the engraving's tree and the shrub before the bay hide (x 460-540 px). What would replace it: any view of the house's front from the south, or one taken over the shrub.
+**Revised in part (T-2462, piece 1 of T-2451):** the two upper street windows over the bay window and over the door now stand where the 1874 engraving draws them through its camera, at v 2.5 and v 5.5 (K01 had stood each on the centre of what is below it, v 3.09 and v 6.6), read from the picture and carried in `front_bays_by_storey`'s note; and the engraving's light strips are built: one down the pavilion's north corner (0.4 m wide), and the bay window's pilaster strips at its two front corners (0.2 m wide), which the 1898 Tribune sketch draws too. Two new inventions: the corner strip is dressed stone and the pilaster strips painted timber in a light stone colour, because both prints draw them light against a darker face and neither can say stone from paint or name a colour; and how far each stands proud (0.04 and 0.03 m), which neither print can measure.
+**Revised in part (T-2463, piece 2 of T-2451):** the door now stands where the 1874 engraving draws it, under the window over it at v 5.925 (its leaves at x 532-562 px, v about 5.4-6.45 on the front's face through its camera), 0.675 m south of the stoop's axis; the stoop, its gate and its front walk stay on v 6.6, where both pictures put the stoop, so the door stands at the south end of the landing and its south 0.375 m opens onto the terrace before the bay (K07 learns a stoop off its door's axis). No new invention: the door's place is narrowed from the engraving's 'about v 5-6.6' to a reading, still RECONSTRUCTED because the engraver draws it behind the tree's trunk (read to within about 0.3 m); the hood over it stays K09's cornice hood, which the tree's foliage keeps the print from resolving. What would replace it: any view of the front taken clear of the tree.
+**Revised in part (T-2480):** the hood over the door is now the one the 1874 engraving draws, read through T-2437's camera, and no longer the K09 kit's stone cornice hood (`street_front_trim` names no entrance): an entablature whose soffit stands about 6.0 m over grade and whose top about 6.9 m, from about v 4.9 to 7.0, its south end meeting the bay window's hood, carrying on its flat top a low rail with posts under the window over the door, so it is a small balcony (`entrance_kit` `hood`). What is read: the hood's height, width and the rail on it. New inventions, carried in `entrance_kit`'s note: that it is painted timber in the bay window's hood joinery (the owner's direction: the same style as that hood, its K08 consoles and modillions), how far it stands out (0.7 m, 0.9 m with its cornice), its fascia and cornice depths, the 0.52 m railing's posts and square balusters and that the rail runs on all three sides; and the dark mass north of it in the print is read as the tree's foliage, not as part of the hood.
 **Covers:** `law_house_1620_prairie.restored_1904.form.wall_thickness_front_m`, `law_house_1620_prairie.restored_1904.form.wall_thickness_side_m`, `law_house_1620_prairie.restored_1904.form.service_wall_brick`, `law_house_1620_prairie.restored_1904.form.street_front_trim`, `law_house_1620_prairie.restored_1904.form.wall_head`, `law_house_1620_prairie.restored_1904.form.roof_pitch_deg`, `law_house_1620_prairie.restored_1904.form.eave_overhang_m`, `law_house_1620_prairie.restored_1904.form.stair_tread_m`, `law_house_1620_prairie.restored_1904.form.stair_landing_depth_m`, `law_house_1620_prairie.restored_1904.form.stoop_width_m`, `law_house_1620_prairie.restored_1904.form.entrance_bay`, `law_house_1620_prairie.restored_1904.form.front_bays`, `law_house_1620_prairie.restored_1904.form.side_bays`, `law_house_1620_prairie.restored_1904.form.rear_bays`, `law_house_1620_prairie.restored_1904.form.basement_lights`, `law_house_1620_prairie.restored_1904.form.rainwater`, `law_house_1620_prairie.restored_1904.form.window_kit`, `law_house_1620_prairie.restored_1904.form.entrance_kit`.
 **Ticket:** T-1861 (package N03 of T-1837).
 **Review:** `docs/RESEARCH/k01-1620-law-1861/README.md`.
@@ -26315,6 +26346,246 @@ rights) would give the members' depths, the scrolls' and figures' forms and the 
 **Ticket:** T-2216 (GA-14).
 **Review:** `docs/RESEARCH/glessner-front-door-2216/README.md`.
 **Recorded:** 2026-10-13 (T-2216).
+
+### L-ic-tracks-2478 — the 1904 lakefront tracks drawn on the 1911 layout, in a reconstructed section, on cinders, with reconstructed weeds
+
+**Decision:** the 1904 scene draws the Illinois Central tracks east of Prairie and Calumet Avenues
+as the Sanborn 1911 sheets 20 and 28 draw them (eleven to fifteen tracks, `data/railway/1904.json`,
+traced by `tools/trace_ic_tracks_1904.py`), each on a dark cinder bed with crossties standing a few
+centimetres proud of it, standard-gauge 85-lb rails, trodden cinders between and beside the tracks,
+and a 3 m verge of weeds on each side (`renderers/web/js/railway.js`).
+**What it stands on:** the two 1911 sheets for where the tracks lie; George Glessner's photographs
+at 18th Street (`ghm_george_glessner_ic_train_18th`, `ghm_george_glessner_ic_train_foot_18th_c1888`)
+for the cinders filled to the ties and for a yard already seven or more tracks wide before 1904;
+the 1891 atlas (`carlson_greeley_1891_prairie_environs`) as a bound from before at four or five.
+**What is inferred, not attested:** that 1911's layout stands for 1904's; the standard gauge.
+**What is invented:** stretches of track the sheets do not draw (joined across the gap between the
+sheets, carried past a sheet's slanted edge, or closed on a neighbour; each recorded in the track's
+`segments`); the rail section and weight; the ties' size, spacing and irregularity; the ballast
+bed's width and the cinder ground's margins; the colour, grain and wear of every map in
+`assets/textures/prairie_1904_rail/`; the weeds' species, height and density; the grade the rails
+follow (the heightfield, smoothed over 8 m).
+**How to resolve:** an Illinois Central track chart or valuation map of about 1904 for this reach;
+a dated summer photograph of the tracks between 16th and 22nd Street for the verges.
+**Ticket:** T-2478.
+**Review:** `docs/RESEARCH/ic_lakefront_1904.md`.
+**Recorded:** 2026-10-13 (T-2478).
+
+### L-context-city-2477 — The 1904 context city: faded stand-ins on every part of the map not yet built, their heights, roofs, colours and trees ours, and past the sheets their streets and lots too
+
+**Decision:** T-2477 (owner, 2026-10-13: "very simple buildings in varied appropriate colors based on
+Sanborn or other projections ... gently faded") draws the city around Prairie Avenue as faded, opaque
+stand-ins, from `data/context/1904.json` (`tools/build_context_1904.py`). On the ground the Sanborn
+1911 sheets 20, 28 and 35 draw off Prairie Avenue (the Indiana and Calumet faces, the cross-street
+lots, Calumet's east face at 20th) each drawn part is the smallest rectangle that holds it, in its
+sheet colour's material: pink brick, blue stone, yellow frame. Everywhere else in the e1871 box and
+in a 450 m ring past it on the west, north and south, the city is PROJECTED.
+**What is inferred, not attested.** The sheet outlines and materials, for 1904: a 1911 survey carried
+back on Glessner House's reading that these sheets changed only at 1609-1611 and 1620 Prairie.
+**What is invented.** Every height and roof: by size and colour class (a masonry house 10.5 m to the
+eaves, gabled or flat about half each; a frame house 6.5 m and gabled; a rear building under 110 m2
+5.5 m; over 450 m2 a 13 m flat-roofed block, over 1,200 m2 16 m), except three buildings given the
+figure the sheet prints (1st Presbyterian Church, 48 ft to the eaves and its 90 ft spire; the
+Thompson-Reid ice cream works, four storeys). Each building's tone within its material's family, and
+the fade. Every tree. Past the sheets, everything: the avenues on Michigan to Indiana's 128 m pitch
+repeated west, cross streets at the 20th-21st-22nd pitch (130 m) past 16th and 22nd, lots on the
+frontages the grid's own Indiana and Calumet lots measure, one house per lot set back 4.5-7.5 m, a
+stable on some, and materials in the mix the traced sheets measure; kept 40 m off the water and west
+of the Illinois Central's line on sheets 20 and 28. The rectangles drop porches' and
+bays' shapes and the sheets' storey figures.
+**How to resolve:** read the storey figures each sheet prints into the rows; trace sheets 19, 27, 34
+and 36 (Indiana's west face, Indiana 18th-20th, Calumet's east face) to replace the projection where
+they reach; each stand-in a drafted building lands on is dropped by the renderer already.
+**Ticket:** T-2477.
+**Recorded:** 2026-10-13 (T-2477).
+
+### L-ic-lake-edge-2479 — the 1904 lake edge beside the tracks: a reconstructed stone face, cap timber, piles and made ground
+
+**Decision:** the 1904 scene draws the Illinois Central's edge against the lake, east of the tracks
+from 16th to 22nd Street, as the railway's own built edge with no beach: the embankment's lakeward
+face (the heightfield's, 1 in 1.5) covered in dumped buff-grey limestone from just under the water
+to the crest, darker and greener where the water keeps it wet, with single blocks stood on it near
+the eye; a 12 x 12 in timber cap along the crest over round piles every 10 ft; and a strip of made
+ground (cinders, sand and builders' fill, with weeds) between the crest and the east verge
+(`data/railway/1904.json` `lake_edge` and `right_of_way.made_ground`, traced by
+`tools/trace_ic_tracks_1904.py`; drawn by `renderers/web/js/railway.js`).
+**What it stands on:** the 1886 and 1911 maps, which draw the water against the railway's edge, and
+the 1891 atlas, which draws its breakwater offshore (`robinson_1886_chicago_plate_10`,
+`sanborn_1911_chicago_v3_sheet_20`, `sanborn_1911_chicago_v3_sheet_28`,
+`carlson_greeley_1891_prairie_environs`), for there being no beach; sheet 28 for about 16 m of
+ground between the easternmost track and the water at 18th Street, which is the made ground.
+**What is inferred, not attested:** that the strip between the last track and the water is made
+ground.
+**What is invented:** what the face is made of (dumped quarry limestone) and every block's size,
+shape, number and colour; the wet staining; the cap timber, its size and its height over the
+ground; the piles, their size and spacing (the 10 ft of the railway's 1852 breakwater cribs, not of
+this edge); what the made ground is made of and its weeds; the crest line, which is where the
+committed heightfield's face meets its grade, not a surveyed line; the maps in
+`assets/textures/prairie_1904_rail/edge/`. Where the tracks crowd the edge north of 18th Street the
+east verge narrows to a metre so it keeps off the face.
+**How to resolve:** an Illinois Central or city engineer's record of the shore protection between
+16th and 22nd Street about 1900-1910, or a dated photograph of this reach from the water or along
+the edge.
+**Ticket:** T-2479.
+**Review:** `docs/RESEARCH/ic_lakefront_1904.md`.
+**Recorded:** 2026-10-13 (T-2479).
+
+### L-context-streets-2491 — The 1904 context city's streets, its reach to the haze and its land uses: a grid filled between measured lines, and zones the city is known for rather than read off a map
+
+**Decision:** T-2491 (owner, 2026-10-13: "we should have some streets where they should be based on
+maps, you can continue it to the end of the visible map based on your analysis") carries the faded
+context city of L-context-city-2477 out to the distance at which the 1904 haze is total (2,645 m from
+the camera, read from `HAZE_DENSITY` in `renderers/web/js/world.js`) past the e1871 box on every land
+side, and lays faded streets (a 38 ft carriageway, the grid's row_66) under it. Robinson's 1886 plate 10,
+already georeferenced, is traced where it reaches north of 16th Street, and its Illinois Central yard
+east of Indiana Avenue is left clear.
+**What is measured.** The lines the project holds a reading for: Michigan, Indiana, Prairie and Calumet,
+and 16th to 22nd, as `data/street_grid/1904.json` and the terrain spec place them; State and Halsted,
+Madison and Twelfth at the school section's corners (OpenStreetMap crossings read for T-0878; Chicago's
+section lines run down the middle of their streets).
+**What is inferred, not attested.** Plate 10's outlines and materials north of 16th Street, carried
+eighteen years forward to 1904.
+**What is invented.** Every other street line: the section's mile cut in sixteen across (two 125 ft lots
+and an alley to a block) and in eight along; 13th, 14th and 15th Streets evenly between Twelfth and 16th;
+23rd to 30th evenly between 22nd and a 31st Street one section mile south of 22nd; Wabash midway between
+State and Michigan; Calumet's pitch repeated east to the water. Their names past the numbered sequence are
+not given. The zones: State Street and Wabash Avenue south of Twelfth as three- and four-storey business
+blocks; Twelfth to Harrison, east of Canal Street, as five- to seven-storey lofts; north of Harrison as
+eight- to sixteen-storey office and loft blocks; Clark to Canal from Twelfth to 22nd as railway lands
+(long sheds and no houses, the river not drawn); west of Canal as frame cottages, seven in ten; the rest as
+houses in the traced sheets' mix. North of 16th Street only Indiana's west face stands past the plate,
+and north of Twelfth only Michigan's (the yards, the lake front and its park lie east). Past the
+450 m near ring a run of three to six lots is one box at the house rules' heights, and a tree there is an
+eight-sided crown with no trunk.
+**How to resolve:** a 1904 map of the city's streets and land use (the Sanborn volumes' key maps, a
+Rand McNally or Greeley-Carlson plat) traced through the same georeference would place each street,
+replace the zones with what the map draws, and put the South Branch, the yards and the Loop's blocks
+where they stood.
+**Ticket:** T-2491.
+**Recorded:** 2026-10-13 (T-2491).
+
+### L-prairie-parkway-elms-2473 — The 1904 district's parkway elms: one file per block face at about 30 ft, every tree placed by rule
+
+**Decision:** every block face of the 1904 grid with a parkway (`data/street_grid/1904.json`, T-0474)
+carries one file of American elms in the parkway, 62 % of the way from the walk's edge to the
+curb's, about 30 ft apart (+/- 0.9 m), kept 10.5 m from each face's end and 3.5 m clear of an
+alley mouth; about one tree in twelve is a young replacement and one place in twenty-five is
+empty. 418 trees on 31 faces (`data/street_trees/1904.json`, written by
+`tools/plant_prairie_1904_street_trees.py`, one seed per face). Each tree is drawn with the 1835
+American elm's builder (`trees.js`) in a high-crowned, clear-boled form; Settings › Street trees
+offers the default (summer, full leaf), spring (sparse pale leaf, so the houses read through),
+winter (bare limbs) and hidden.
+**What it stands on:** the west-walk view south from 18th Street beside the Glessner house
+(`picturesque_chicago_1892_prairie_avenue`; negative Dec. 1887 to 1891, the owner's copy is the 1908
+Holzman postcard) for one file per parkway, nearer the curb than the walk, at a spacing of very
+roughly 25-35 ft, and the trees' tall clear-boled habit; the 1905 Views of Chicago plate
+(`views_of_chicago_1905_prairie_michigan`) for a single row of closely spaced elms around the scene
+date. Elm is INFERRED from crown and bark in those prints: no record read names the species.
+**What is invented:** every tree's position; the 30-ft spacing as a number and its jitter; the share
+of young trees and gaps; the 10.5-m and 3.5-m clearances; the crown sizes (17-23 m tall, 70 % of
+height across); and every face beyond the Prairie Avenue blocks at 18th Street that the pictures
+show, which is planted by the same rule and is reconstructed outright. The spring, winter and
+hidden settings are views, not claims about any date.
+**How to resolve:** a Sanborn or city forestry record of the parkway trees, or photographs of other
+faces near 1904, would place individual trees and gaps; a dated view of a face planted otherwise
+(two files, another species, none) overrides the rule for that face.
+**Ticket:** T-2473.
+**Review:** `docs/RESEARCH/prairie_1904_street_trees.md`.
+**Recorded:** 2026-10-13 (T-2473).
+**Since T-2474:** 407 trees. A tree that would stand on a carriage walk or its block moves to the
+walk's nearer side (L-prairie-carriage-walks-2474), and the trees stand on the parkway's fall
+toward the curb.
+
+### L-prairie-curb-reveal-2474 — The 1904 curb's reveal: 7 in, read as about one stoop riser off two photographs
+
+**Decision:** every 1904 roadway is drawn below its curbs. The lot line stays on the field's
+ground, the sidewalk space falls toward the curb at the 1905 code's one inch in three feet
+(`chicago_revised_municipal_code_1905`, inferred), and the roadway lies **7 in** below the curb's
+top, with a dressed stone face down to it (`data/street_section/1904.json`, written by
+`tools/lay_prairie_1904_street_section.py`). On a 66-ft street the roadway is 0.30 m below the lot
+line; on 50-ft 16th Street the same roadway level gives a reveal 1.3 in higher. Where a roadway at
+the district's edge meets no drawn sidewalk, a stone edge rises from it to the field.
+**What it stands on:** the 1887-91 view south from 18th Street
+(`picturesque_chicago_1892_prairie_avenue`) and the owner's second photograph of the avenue
+(supplied 2026-10-13), which show a pale stone curb standing above a smooth roadway by about the
+height of one stoop riser.
+**What is invented:** the 7-in figure; a roadway with no crown and no gutter; the same reveal on
+every street; a curb that runs unbroken across alley mouths, where a carriage would have needed a
+cut; and the stone edges at the district's open sides, which stand for curbs whose sidewalks are
+not drawn.
+**How to resolve:** a city curb or paving specification of 1890-1905, a Board of Local Improvements
+order for these streets, or a measured photograph (a stoop of known riser height beside the curb)
+fixes the reveal.
+**Ticket:** T-2474.
+**Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
+**Recorded:** 2026-10-13 (T-2474).
+
+### L-prairie-carriage-walks-2474 — Carriage walks and carriage blocks before every lot 40 ft wide or more
+
+**Decision:** 91 paved crossings of the parkway, from the walk to the curb, 5 ft wide, one at the
+middle of every 1904 lot at least 40 ft wide, each with a dressed stone carriage block 3 ft long,
+2 ft deep and 18 in high beside it at the curb (`data/street_section/1904.json`). The parkway elms
+stand clear of them (L-prairie-parkway-elms-2473).
+**What it stands on:** a paved crossing of the parkway in the 1887-91 view south from 18th Street
+(`picturesque_chicago_1892_prairie_avenue`) and at the Glessner house in HABS no. 2 (c. 1923);
+dressed stone carriage blocks at the curb in the 1905 Views of Chicago plate
+(`views_of_chicago_1905_prairie_michigan`) and the c. 1890 Prairie Avenue photograph.
+**What is invented:** which houses had a crossing and a block, and where along the frontage
+(the lot's middle, not the house's door); the 40-ft threshold that leaves the row-house lots
+without one; the sizes; the plain block with no step cut in it.
+**How to resolve:** a photograph of a given house front places its crossing and block; the
+Prairie library's per-house pictures, read in each house's own pass, should move or remove them
+one by one.
+**Ticket:** T-2474.
+**Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
+**Recorded:** 2026-10-13 (T-2474).
+
+### L-prairie-paving-seams-2475 — Where two 1904 pavings meet: one roadway per crossing, the other worn into it over 1.6 m
+
+**Decision:** where two 1904 roadways cross or meet, only one is drawn: the one with the higher
+`priority` in `data/street_surfaces/1904.json` (the avenue over the cross street, L297), or, between
+two segments of one street, the later one in the grid. The other roadway stops at its edge. Its
+paving runs on 1.6 m over the higher roadway and fades out raggedly there, as one surface worn and
+tracked into the next. A sliver under 0.6 m wide left beside a roadway, where two segments of one
+street were traced a few decimetres apart, is paved as that roadway
+(`renderers/web/js/street-grid.js`).
+**What it stands on:** nothing about the joints themselves. The materials and their extents are
+T-1728's (L296, L297). The 1887-91 view south from 18th Street
+(`picturesque_chicago_1892_prairie_avenue`) shows the avenue's smooth surface running through the
+crossing, which is the order drawn.
+**What is invented:** the line where each paving stops; the 1.6 m fade and its ragged edge, which
+stand for wear, dirt and patching that no source describes; and the slivers given to the
+neighbouring paving.
+**How to resolve:** a paving contract or Board of Local Improvements order naming where each
+improvement ended at a crossing (at the property line, at the centre line, or carried through)
+places each joint, and a photograph of a crossing shows how it wore.
+**Ticket:** T-2475.
+**Review:** `docs/RESEARCH/prairie_1904_street_seams.md`.
+**Recorded:** 2026-10-13 (T-2475).
+
+### L-season-view-2481 — The 1904 Season setting: spring, fall and winter drawn on a scene dated 1 July
+
+**Decision:** Settings › Season offers summer (the scene's own 1 July 1904, the default), spring,
+fall and winter. A season other than summer moves the sun to a day in the scene's year at the
+scene's own hour (25 April for first leaf, 20 October for the elms' yellow, 21 December for the
+solstice) and repaints the scene: a fresher green sward in spring; a browner sward, yellow elms
+and fallen leaves in fall; and in winter snow lying on the lawns, parkways, roofs and the faded
+city, trodden on the roadways, swept off the walks, with the elms bare
+(`renderers/web/js/season.js`).
+**What it stands on:** the sun's path is computed (NOAA's algorithm, `world.js`) for the datum's
+latitude and longitude, so it is right for the date it names. The American elm's clear yellow
+autumn colour and early leaf fall are the species' own (the same species record the parkway elms
+use).
+**What is invented:** everything about any particular day: how much snow lay, where it was
+cleared, how green the lawns were, when the leaves turned and fell, and the dates themselves,
+which are chosen to agree with the leaves rather than read from any record of 1904. The scene
+reconstructs 1 July; the other seasons are a way of looking at it, never a claim about the
+district on those days.
+**How to resolve:** dated photographs of Prairie Avenue in other seasons would set each season's
+look; a weather record for a chosen day would set its snow.
+**Ticket:** T-2481.
+**Review:** `renderers/web/js/season.js`.
+**Recorded:** 2026-10-13 (T-2481).
 
 ### L-k16-1638-gable-bay-2457 — 1638 Prairie's verge, apex, hood and bay heads read off its photograph: a plain beaded verge board, three pinnacles, a cusped trefoil and volute stops under the hood, drop-arched bay lights with dark stops; the profiles, the trefoil's figure and the stops' colour reconstructed
 

@@ -1,0 +1,70 @@
+{
+  "eye": [
+    -10.169966432066198,
+    55.23873862378338,
+    1.8000016997676391
+  ],
+  "yaw_deg": 142.23477445226712,
+  "principal_px": [
+    904.5,
+    823.1509839645015
+  ],
+  "focal_px": 1721.6109185497774,
+  "structure_id": "glessner_house",
+  "source_id": "habs_glessner_photo_01_nw_1963",
+  "photo": "../../../../prairie_1904_v1/research/public/glessner-habs-photo-01.jpg",
+  "image_px": [
+    1800,
+    1289
+  ],
+  "solve": {
+    "method": "Re-read north-east eave (158,638): the old (169,608) mark lay on the gable slope. Fit level shifted camera to grade/eave and plan-based horizontal window-group/street controls, excluding tower and gable apex. Eye height1.8m is reconstructed; focal length solved, not assumed from a nominal lens.",
+    "controls": [
+      [
+        0,
+        0,
+        160,
+        873
+      ],
+      [
+        0,
+        27.84,
+        158,
+        638
+      ],
+      [
+        10.95,
+        null,
+        213,
+        null
+      ],
+      [
+        29.35,
+        null,
+        302,
+        null
+      ],
+      [
+        102.5,
+        null,
+        821,
+        null
+      ],
+      [
+        141,
+        null,
+        1240,
+        null
+      ],
+      [
+        161.25,
+        null,
+        1550,
+        null
+      ]
+    ],
+    "units": "W and z in feet, observed u/v pixels; null vertical controls omitted",
+    "rms_coordinate_px": 2.6042764600911092,
+    "limitations": "Plan windows +/-0.4 ft and hand picks several pixels. Level camera omits slight image lean. Other roof controls are checks, not fitted."
+  }
+}

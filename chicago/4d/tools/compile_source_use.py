@@ -11,8 +11,9 @@ from compile_scene import cite, resolve_phase
 
 ROOT = Path(__file__).resolve().parents[1]
 USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
-# The raw index.json ceiling (bytes). 120 000 from T-1248; 128 000 from T-1728 — see outputs().
-INDEX_BUDGET = 136_000
+# The raw index.json ceiling (bytes). 120 000 from T-1248; 128 000 from T-1728; 136 000 from
+# T-2334; 144 000 from T-2473 — see outputs().
+INDEX_BUDGET = 144_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
@@ -230,6 +231,13 @@ class Compiler:
                 row = read(data / folder / f'{s}.json')
                 if row is not None:
                     self.record(family, kind, f'{folder}/{s}', row, 'other_scene', elsewhere=(s,))
+        # The 1904 lakefront railway (T-2478), the same way.
+        for s, o in others.items():
+            if 'railway' not in o['layers']:
+                continue
+            row = read(data / 'railway' / f'{s}.json')
+            if row is not None:
+                self.record('railway', 'railway', f'railway/{s}', row, 'other_scene', elsewhere=(s,))
         for row in read(data / 'exclusions.json', {}).get('excluded', []):
             self.record('exclusions', 'exclusion', row['id'], row, 'exclusion')
         for row in read(data / 'liberties.json', {}).get('liberties', []):
@@ -309,6 +317,11 @@ class Compiler:
         # district drafts (T-2329, T-2330, T-2334) grew the use counts of the sheets they cite, and
         # the 16th-18th west side's drafts put the index at 128 001 bytes. The gzipped first open
         # is still held at 120 KB by measure_sources.mjs; this is the raw file only.
+        # 144 000 SINCE 2026-10-13 (T-2473): the owner's streetscape (T-2473's two Prairie Avenue
+        # views) and the day's other 1904 parcels (T-2476's Inter Ocean notice, T-2477's context
+        # city, T-2478's railway) took it to 136 530 bytes with every citation kept whole. Same
+        # bargain as before: about twenty sources of room, the gzipped first open still held at
+        # 120 KB by measure_sources.mjs.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs

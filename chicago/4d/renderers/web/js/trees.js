@@ -1554,7 +1554,10 @@ function addPuff(buf, cx, cy, cz, radius, squash, dark, light, shade, flexBase, 
   let seed = 0;
   for (let i = 0; i < 24; i++) seed = (Math.imul(seed, 31) ^ Math.floor(rnd() * 4294967296)) >>> 0;
   rnd = mulberry32(seed);
-  const sprays = buf.detail === 'light' ? 8 : buf.detail === 'balanced' ? 14 : 20;
+  // T-2473: a caller may cap the sprays a mass carries (the 1904 parkway elm's
+  // early-spring crown is a few leafing tufts on bare wood); the 1835 timber sets no cap.
+  const sprays = Math.min(buf.sprayCap ?? Infinity,
+    buf.detail === 'light' ? 8 : buf.detail === 'balanced' ? 14 : 20);
   const phase = rnd() * Math.PI * 2;
   for (let i = 0; i < sprays; i++) {
     const a = phase + i * 2.3999632297;
@@ -1997,8 +2000,10 @@ function addTree(buf, spec, x, groundY, z, rnd, scale = 1) {
     // drawn. `squash` above 1 is the same argument on the other axis — a mass on
     // a spire is an ellipsoid standing up, and the flattened dome that suits a
     // spreading crown leaves gaps between the rungs of the ladder. T-0117.
+    // `puffScale` (T-2473) shrinks every mass of a crown at once, for a crown
+    // only part-leafed; no 1835 record carries it, so the timber is unchanged.
     const rad = spread * (spec.form === 'open' ? 0.255 : columnar ? 0.50 : 0.245)
-      * (0.72 + rnd() * 0.58);
+      * (0.72 + rnd() * 0.58) * (spec.puffScale ?? 1);
     const squash = spec.form === 'open' ? 0.58 : columnar ? 1.06 : 0.78;
     const flexBase = 0.42 + 0.44 * c[3];
     addPuff(buf, c[0], c[1], c[2], rad, squash, d2, l2, c[3], flexBase, rnd, conf);
@@ -3826,3 +3831,5 @@ function horizonDipDeg(eyeY) {
 }
 
 export { SPECIES, COMMUNITIES, FAR_TIMBER, OMITTED_TIMBER };
+/** T-2473: the 1904 parkway elms are built by this file's own tree, not a copy of it. */
+export { addTree, MeshBuf };
