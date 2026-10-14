@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1787, ts: '2026-10-14T03:09:09.684Z', date: 'Oct 13, 2026, 10:09 PM CT', title: 'Glessner carriage doors gain their historic panels and ironwork', kind: 'fix',
+    items: [
+      'Both oak leaves now have circular recesses around square panels, iron straps, ring pulls and hinges.',
+      'Look down the carriage passage to see the open leaves and their oak boarding. Their bottoms clear the paving.',
+    ] },
   { v: 1786, ts: '2026-10-14T02:21:08.001Z', date: 'Oct 13, 2026, 9:21 PM CT', title: 'Lighter 1904 street trees at a distance', kind: 'improvement',
     items: [
       'Elms more than 60 m away draw a lighter crown, and only elms within 100 m cast shadows; the near street looks the same.',

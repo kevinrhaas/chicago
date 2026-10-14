@@ -5315,3 +5315,11 @@ All-view actual-GLB and published full/light review is recorded in
 clarification and earlier T-2016 plan control topology; the isolated west study
 does not measure the hidden courtyard roof. L-glessner-courtyard-ridge-2235
 supersedes the low rear ridge in L-glessner-west-profile-2231.
+
+
+## T-2217 - Glessner carriage leaves, 2026-10-14
+
+Circular/square panel relief, straps, ring pulls and usable inward swing replace
+the former rectangular treatment. Existing passage paving is retained. Evidence,
+construction bounds and review: RESEARCH/glessner-porte-cochere-T-2217.md.
+Whole-house photographic acceptance remains T-2228.
