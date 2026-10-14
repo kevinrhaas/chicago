@@ -190,6 +190,8 @@ step "every Glessner tier's stone occlusion was baked from its committed atlas, 
   python3 tools/check_stone_occlusion_atlas.py --check
 selftest "…a model rebaked without its atlas, an atlas holding another key and an orphan atlas are refused" \
   python3 tools/check_stone_occlusion_atlas.py --self-test
+step "Glessner's canonical UV caches are complete and reject stale or corrupt layouts (T-2494)" \
+  python3 tools/test_stone_occlusion_uv.py
 step "the K01 assemblies are the bytes their records build (T-2266)" \
   python3 generators/k01_emit.py --check
 step "the K13 conservatories in the scene are the bytes their records build (T-2306)" \

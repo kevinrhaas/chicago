@@ -5350,15 +5350,15 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_glessner_terrace.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/test_glessner_roof_envelope.py": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_glessner_service_junction.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_glessner_terrace.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5463,6 +5463,10 @@
       "wrote_ignored": []
     },
     "tools/test_sources_view.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_stone_occlusion_uv.py": {
       "wrote": [],
       "wrote_ignored": []
     },

@@ -1,0 +1,53 @@
+{
+  "run": "https://github.com/kevinrhaas/chicago/actions/runs/38529855483",
+  "revision": "439d42f9f0b2a7bec718b98eb2c7ec765532e637",
+  "ci_inputs": {
+    "components": {
+      "co": {
+        "sha256": "f0d46a2dc1fabc0413793381f2de72f2f5766fe277a99c1eeadb104c06391202",
+        "values": 9068592
+      },
+      "loop_start": {
+        "sha256": "757d0c965dc919f2f122bc3523e67fe9fbe84671e1efe612526230492d60ed54",
+        "values": 855038
+      },
+      "loop_total": {
+        "sha256": "d5810c32b28b7cf2049e3dfc713c763f8bd4c47ad47892e0ac8e2788813e8940",
+        "values": 855038
+      },
+      "mask": {
+        "faces": 855038,
+        "sha256": "87627519d4d1d5799066c42a70de2df6234f31498f75a6104a1e02109cda97ed"
+      },
+      "uv": {
+        "sha256": "da729906514712cd55823da25514072bef551e815f9c56db18cc8efb4b86343d",
+        "values": 6045728
+      },
+      "vertex_index": {
+        "sha256": "7da93e93a1f340eb991d529626b20a07a5fbc8ba30f7a9cc87b336fb9da36705",
+        "values": 3022864
+      }
+    },
+    "key": "19bd4a00e6ee4967347cdf85833ec2bd68458805f88539bcfc2f40ae4f942408",
+    "recipe": {
+      "blender": "4.5.3 LTS",
+      "distance_m": 0.3,
+      "margin_px": 4,
+      "recipe": 1,
+      "samples": 64,
+      "size": 2048,
+      "slots": [
+        0,
+        12,
+        13,
+        14,
+        15,
+        24
+      ]
+    }
+  },
+  "different_components": [
+    "uv"
+  ],
+  "matches_controlled_ubuntu_libm_key": true
+}
