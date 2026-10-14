@@ -13,7 +13,12 @@ import * as THREE from 'three';
 
 const CELL_M = 40;
 
-export function spatialBatch(geometry, material) {
+// Buildings can use tighter 3D cells inside their existing material batches.
+// Partition whole triangles, preserving their exact attributes and winding.
+export function spatialPieces(geometry, { cellM = CELL_M, heightM = Infinity } = {}) {
+  if (!(cellM > 0 && Number.isFinite(cellM)) || !(heightM > 0)) {
+    throw new Error('spatialPieces requires positive cell dimensions');
+  }
   const position = geometry.getAttribute('position');
   const index = geometry.getIndex();
   const count = index ? index.count : position.count;
@@ -33,13 +38,13 @@ export function spatialBatch(geometry, material) {
     const ids = [0, 1, 2].map((j) => index ? index.getX(i + j) : i + j);
     const x = ids.reduce((sum, j) => sum + position.getX(j), 0) / 3;
     const z = ids.reduce((sum, j) => sum + position.getZ(j), 0) / 3;
-    const key = `${Math.floor(x / CELL_M)}:${Math.floor(z / CELL_M)}`;
+    const y = ids.reduce((sum, j) => sum + position.getY(j), 0) / 3;
+    const key = `${Math.floor(x / cellM)}:${Math.floor(z / cellM)}:${Math.floor(y / heightM)}`;
     let chunk = chunks.get(key);
     if (!chunk) { chunk = []; chunks.set(key, chunk); }
     chunk.push(...ids);
   }
   const pieces = [];
-  let vertices = 0;
   for (const ids of chunks.values()) {
     const unique = index ? [...new Set(ids)] : ids;
     const piece = new THREE.BufferGeometry();
@@ -56,8 +61,15 @@ export function spatialBatch(geometry, material) {
       piece.setIndex(ids.map((id) => local.get(id)));
     }
     pieces.push(piece);
-    vertices += unique.length;
   }
+  return pieces;
+}
+
+export function spatialBatch(geometry, material) {
+  const pieces = spatialPieces(geometry);
+  const index = geometry.getIndex();
+  const count = index ? index.count : geometry.getAttribute('position').count;
+  const vertices = pieces.reduce((sum, p) => sum + p.getAttribute('position').count, 0);
   const batch = new THREE.BatchedMesh(pieces.length, vertices, index ? count : 0, material);
   for (const piece of pieces) {
     batch.addInstance(batch.addGeometry(piece));

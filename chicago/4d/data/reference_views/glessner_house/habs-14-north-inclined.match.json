@@ -2,9 +2,9 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/web/glessner_house__as_built_1887.glb",
-  "glb_sha256": "eca99c5c52d262ff9b168b5193acc63ae9ce4e6174aaf393dcd34a1730623dd5",
+  "glb_sha256": "8967e96d4f76b688d76ed02d1876c196b9798de76a995ff866fb7ebf3d8fd02b",
   "camera_sha256": "e7561b646f21444ace9b190547f15f973f50a2243a70bee0c3df17b937538e7c",
-  "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
+  "side_by_side": "docs/RESEARCH/glessner-service-junction-T-2219/after/habs-14-north-inclined-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
@@ -38,6 +38,10 @@
     {
       "what": "T-2228: the remaining 33.878-px tip error and cone silhouette differ in this inclined view. The earlier T-2200 camera instead worsens 206.304→302.501 px; both results are retained in tip-comparison.json, not presented as exact photographic agreement.",
       "status": "open"
+    },
+    {
+      "what": "T-2219 regression review: the service-bay change lies west of this view. The prior north-tower silhouette, coursing and openings are preserved on the rebuilt Full asset. Existing photographic residuals and whole-house differences remain unresolved.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -1628,6 +1628,21 @@ def service_stair(b,params):
     simple iron rail construction are bounded reconstructions from courtyard
     photographs, distinct from the excluded later stair south of the stable.
     """
+    street = params.detail.get('north_service_junction')
+    if street:
+        # HABS01 shows two exposed stone treads at the north service door.
+        # Solid bases close the grade interface; the top tread reaches the
+        # recessed leaf instead of ending at the outer wall plane.
+        old = b.decorate
+        b.decorate = False
+        x0, x1 = street['step_x']; y = street['wall_y']
+        for run, top in zip(street['step_runs'], street['step_heights']):
+            legacy._box(b, x0, y-.30, 0, x1, y+run, top, 1.0, GRANITE)
+        from archetypes.masonry_house_v4_rainwater import _downpipe
+        _downpipe(b, street['gable_foot_x'], y+.13,
+                  street['eave_z']-.20*street['roof_pitch'],
+                  inlet=(street['gable_foot_x'], y+.23))
+        b.decorate = old
     s=params.detail.get('north_court_service_stair')
     if not s:return
     x0,x1=s['landing_x'];y0,y1=s['landing_y'];z=s['landing_z']

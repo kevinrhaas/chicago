@@ -15,35 +15,35 @@
     "versions/glessner_house/pre-v4/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
-      "bytes": 77408,
-      "inputs_sha256": "974cd89121b304f98b7fda6e6baf5037856d8e06ec7c4586d5837f8cfb365809",
+      "bytes": 96512,
+      "inputs_sha256": "376c4b56d74e7ae4c37e9ca6faf26e6ef2fdde79a7972b21d238dd92bd5ca5af",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "version_label": "pre-v4",
-      "web_master_sha256": "8ee6c2cd15e6988271afefd707f1f6adcb174146bdfeb815cad1bc4837000b7c"
+      "web_master_sha256": "918937c8d7bbe568c5a444dd664bdc80fec45de5710d7daa7f92b2b24f5eabd8"
     },
     "versions/glessner_house/v2/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
-      "bytes": 79260,
-      "inputs_sha256": "4d4ba5e5dce45db09b7af073fc0b83846e3040a78b695ae8c5f701f9ca7969e0",
+      "bytes": 98844,
+      "inputs_sha256": "6497b3b737dbc4299270a9e21ca9a646934b153216051efcdcf7bc6e54190355",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "version_label": "v2",
-      "web_master_sha256": "f779c3ce836d12f7b88d58100ed5abd4a4a882e2996719858a744b89a1edf09c"
+      "web_master_sha256": "4efd9b2ca60cdcddc10ba7664475cf3e31141b8d31f298ac043a1ae05c68d2e3"
     },
     "versions/glessner_house/v3/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
-      "bytes": 76796,
-      "inputs_sha256": "f9a3cf78138c20be6f8ff238e549eee29b4654f99991f0e66bc2603365183b18",
+      "bytes": 95740,
+      "inputs_sha256": "1005fd63fecbbd1609e7727576cf49cda260436c904f2b0decffbd94c75de450",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "version_label": "v3",
-      "web_master_sha256": "2b513bbc7920a52cec727d1ba708e1d51d0823b13eaa78561659bf72f4cf8044"
+      "web_master_sha256": "b7ca4637959ce45ee3104bdb80d442c9d0b3687fcc957e23b5d39a10a0c598c2"
     }
   },
   "inputs_scheme": "resolved-params-v4"
