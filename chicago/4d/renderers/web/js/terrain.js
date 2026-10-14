@@ -49,6 +49,7 @@
 import * as THREE from 'three';
 import { spatialBatch } from './spatial-batch.js';
 import { adaptiveGroundGrid } from './terrain-base.js';
+import { contextSample, replaceApron } from './coast-extension.js';
 import { floraInScene } from './flora.js';
 import { PRAIRIE_TILE_PX, prairieTilePixels, prairieTileMeanLuma } from './prairie-tile.js';
 import { GRASS_GRAIN_PX, GRASS_GRAIN_M, grassGrainPixels, grassGrainMean } from './grass-grain.js';
@@ -284,6 +285,7 @@ export class Heightfield {
     this.originN = 0;
     this.data = null;
     this.meta = null;
+    this.contextCoast = null;
     /** Height used outside the grid and before anything is loaded. */
     this.fallbackY = 0;
   }
@@ -352,7 +354,10 @@ export class Heightfield {
     if (!this.loaded) return this.fallbackY;
     const gx = (e - this.originE) / this.cellM;
     const gy = (n - this.originN) / this.cellM;
-    if (gx < 0 || gy < 0 || gx > this.cols - 1 || gy > this.rows - 1) return this.fallbackY;
+    if (gx < 0 || gy < 0 || gx > this.cols - 1 || gy > this.rows - 1) {
+      if (this.contextCoast) return contextSample(this, e, n, (ce, cn) => this.sample(ce, cn));
+      return this.fallbackY;
+    }
 
     const x0 = Math.min(Math.floor(gx), this.cols - 2);
     const y0 = Math.min(Math.floor(gy), this.rows - 2);
@@ -471,6 +476,21 @@ export async function createTerrain({
     // Built from the field itself, so it is conformed by construction.
     groundFit = { vertices: ground.geometry.attributes.position.count, moved: 0,
                   correction_max_m: 0, residual_max_m: 0 };
+  }
+  // T-2495: replace the straight extrusion outside Prairie Avenue with the
+  // generated historical-map apron. Adopt its sampler only once both files load.
+  if (sceneId === '1904' && heightfield.loaded) {
+    try {
+      const url = new URL(`terrain/epochs/${epochId}/context.json`, dataBase);
+      const coast = await (await fetchOk(url)).json();
+      const apron = await loadGlbMesh(new URL(coast.ground_glb, url));
+      const old = ground.geometry;
+      ground.geometry = replaceApron(old, apron.geometry, heightfield);
+      old.dispose(); apron.geometry.dispose();
+      heightfield.contextCoast = coast;
+    } catch (err) {
+      problems.push(`terrain 1904 context coast: ${err.message}`);
+    }
   }
   ground.material = groundMat;
   ground.receiveShadow = true;
@@ -819,6 +839,7 @@ export async function createTerrain({
     /** The one rendered terrain surface in metres at local ENU (e, n).
      * Buildings, streets, trees and plant roots all anchor to this sampler. */
     surfaceHeight(e, n) { return heightfield.sample(e, n); },
+    get contextCoast() { return heightfield.contextCoast ?? null; },
 
     /**
      * The WALKABLE surface: the rendered terrain on land, with the documented

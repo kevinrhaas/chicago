@@ -259,6 +259,8 @@ class Ground:
         self.rows, self.cols = self.h.shape
         water = self.h < 0.0
         self.to_water = ndimage.distance_transform_edt(~water) * self.cell
+        # T-2495: the context city uses the same generated coastline as the apron.
+        self.coast = json.loads((HF / 'context.json').read_text())
 
     def _rc(self, e, n):
         """Row and column, clamped to the box: past it the skirt carries the edge outward
@@ -268,6 +270,12 @@ class Ground:
         return r, c
 
     def water_m(self, e, n):
+        n1 = self.n0 + (self.rows - 1) * self.cell
+        if n < self.n0 or n > n1:
+            side = self.coast['south' if n < self.n0 else 'north']
+            line = sorted(side['shoreline_local_m'], key=lambda p: p[1])
+            shore = float(np.interp(n, [p[1] for p in line], [p[0] for p in line]))
+            return shore - e
         r, c = self._rc(e, n)
         return float(self.to_water[r, c])
 

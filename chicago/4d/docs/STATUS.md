@@ -1,3 +1,19 @@
+## T-2495 — outer 1904 rails and shoreline (2026-10-14)
+
+The Illinois Central corridor now continues to both context-map edges, about
+2.6 km past each end of the detailed Prairie Avenue district. Talbot's 1904 map
+locates the outer corridor and coast; the Sanborn-derived district is preserved.
+All nine north and eleven south through tracks connect exactly. Outer track
+counts, spacing, grade and the 160 m joins are reconstructed; map alignment has
+an approximately 40 m working uncertainty. The new ground GLB and terrain
+sampler agree at every vertex and both seams. Published 1904 desktop views load with zero page errors and no loader problems;
+[north](RESEARCH/ic-lakefront-2495/north.png) and
+[south](RESEARCH/ic-lakefront-2495/south.png) show both continuations. The 876-step
+gate passed its code/data checks; its stale mirror failure passed after publishing.
+The broader desktop smoke timed out booting 1835 before its selected sections;
+mobile smoke and preflight remain pending. No production deployment is claimed.
+[Sources, method and bounds](RESEARCH/ic_lakefront_extent_1904.md).
+
 ## T-2219 — Glessner service openings and roof junction (2026-10-13)
 
 The north service door and upper sash follow the full widths read in HABS plans

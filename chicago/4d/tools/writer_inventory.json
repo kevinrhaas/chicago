@@ -7,6 +7,13 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "extend_ic_lakefront_1904.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-14",
+      "finding": "Reproduces: a second bare run wrote its three generated context outputs with identical SHA-256 hashes (T-2495).",
+      "placed": "Requires the core heightfield, shoreline and railway writers before it, and build_context_1904.py after it. Manifest ordering remains a separate measured pass."
+    },
     "glessner_opening_schedule.py": {
       "placement": "pending",
       "write_mode": "(bare)",
