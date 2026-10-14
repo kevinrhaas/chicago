@@ -1814,7 +1814,7 @@ class Assembly:
                                     lambda i, p_, q_: "window" if i == 3 else "reveal", "reveal", "reveal")
         # T-2302's plain stacks, for a record that names no K15 variant (1612 Goodman)
         for c in p.chimneys:
-            if "k15" in c:
+            if "k15" in c or "k15_head" in c:
                 continue
             sx, sz = c["plan_m"]
             u, z = c["u_m"], -c["v_m"]
@@ -1849,13 +1849,29 @@ class Assembly:
                 parts = {key: (k5._snap(x) if isinstance(x, list) else x) for key, x in parts.items()}
                 polys = k5.union(polys, k15.join_stack(parts))
                 self.stacks.append(dict(meta, id=c["id"], centre=[c["u_m"], c["v_m"]]))
+        # T-2466: a mansard's plain stack with the K15 kit's head (its sunk panels, corbelled
+        # courses and cap), built by the kit with its flashing off, since the kit's flashing
+        # reads one slope and a mansard stack stands on a cornice or a steep face. Its shaft
+        # rises from where the plain stack's did, and the covering it measures its panels and
+        # sooted band from is the highest under it (k01_frontage_params.mansard_cover)
+        heads = [c for c in p.chimneys if "k15_head" in c]
+        if heads:
+            from . import k15_chimneys as k15
+            data = k15.load()
+            for c in heads:
+                s = dict(c["k15_head"], x=c["u_m"], z=-c["v_m"])
+                y0 = hs - 0.5 if c.get("base_m") is None else c["base_m"]
+                parts, _ = k15.stack_solids(s, k15.Frame(s, lambda x, z, h=c["cover_high_m"]: h), data, tp,
+                                            bottom=y0, flashing=False)
+                parts = {key: (k5._snap(x) if isinstance(x, list) else x) for key, x in parts.items()}
+                polys = k5.union(polys, k15.join_stack(parts))
         for rc in ([recess] if recess is not None else []) + recesses:
             polys = k5.subtract(polys, k5._snap([rc])[0])
         pts, tris = _weld_shell(*k5.close(polys))
         self.roof_shell = (pts, tris)
         # the graph reads a stack's every part as `chimney`, which K05 already classes as
         # an abutment: the K15 flashing and cricket ARE what dresses the covering there
-        self.roof_graph = k5.graph(pts, tris if not k15s else
+        self.roof_graph = k5.graph(pts, tris if not (k15s or heads) else
                                    [t[:3] + (("chimney" if t[3] in self.STACK else t[3]),) + t[4:] for t in tris],
                                    kit)
         self._emit_shell(*self.k14_roof_rows(pts, tris), seed, conf)   # T-2359: the plume's rows
