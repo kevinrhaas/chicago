@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1788, ts: '2026-10-14T04:35:57.996Z', date: 'Oct 13, 2026, 11:35 PM CT', title: '1638 Prairie\'s gable and bay, closer to its photograph', kind: 'feature',
+    items: [
+      'The Gothic house at 1638 Prairie loses its pierced bargeboard for the broad plain verge board its photograph shows, and its single finial for the three pointed pinnacles at the apex.',
+      'The hood over the gable\'s twin windows now curls into a volute at each end, with a small cusped trefoil between the two pointed heads.',
+      'The bay\'s three lights have the blunter pointed heads of the photograph, with a small dark stop where each arch springs.',
+    ] },
   { v: 1787, ts: '2026-10-14T03:09:09.684Z', date: 'Oct 13, 2026, 10:09 PM CT', title: 'Glessner carriage doors gain their historic panels and ironwork', kind: 'fix',
     items: [
       'Both oak leaves now have circular recesses around square panels, iron straps, ring pulls and hinges.',
