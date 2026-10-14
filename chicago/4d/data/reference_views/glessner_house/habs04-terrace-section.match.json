@@ -1,0 +1,32 @@
+{
+  "structure_id": "glessner_house",
+  "view": "habs04-terrace-section",
+  "glb": "assets/web/glessner_house__as_built_1887.glb",
+  "glb_sha256": "974b878f77806793171457001e4943414072984d9d421e183a903cc533c43e46",
+  "camera_sha256": "edcbbda49386ff9fb91c7cc99c9022fe4ce523204959ff46c1bb3a764b7d659c",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-terrace-section-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "T-2218: paired grille clear heights, sill/head positions and narrow jambs now follow the rectified section controls. Eleven intermediate bars and two rails are present; dark glazing retains the owner-selected treatment. Stock depths remain bounded reconstructions.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2218: the high cap and its descending upper/lower edges follow independent section traces, including the deep band at the steep turn. Emitted Full/Light geometry agrees with four independent section ordinates within 40 mm. The rounded terminal and nine fan treads are present; the lower hidden tread plan remains reconstructed.",
+      "status": "fixed"
+    },
+    {
+      "what": "The neighboring stair-tower basement opening to the right is narrower/taller than the surveyed grille and its lintel overlaps the terminal in this projection. It is outside the terrace grille pair; reconcile its dated opening and the terminal/tower overlap in T-2228.",
+      "status": "open"
+    },
+    {
+      "what": "Exact brick bond, individual stone texture and weathering are not established by this line drawing; later survey fabric is inferred for 1904, with hidden stair boundaries explicitly reconstructed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2218 terminal shoulder: the section edge traces stop at S45.35 ft. The subsequent short level shoulder joins the plan-located cylindrical post; it reads longer in the west projection than the drawn silhouette. Reconcile this bounded three-dimensional join with the neighboring tower opening in T-2228; it is not an exact source match.",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

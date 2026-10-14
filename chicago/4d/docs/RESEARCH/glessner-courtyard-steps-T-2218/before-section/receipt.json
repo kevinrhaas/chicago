@@ -1,0 +1,18 @@
+{
+  "structure_id": "glessner_house",
+  "view": "habs04-terrace-section",
+  "glb": ".t2218-before.glb",
+  "glb_sha256": "63b71a9f92e0cfc9bfe01ca45045166def52e763ad6fc1a77cb50b87233a928e",
+  "camera_sha256": "edcbbda49386ff9fb91c7cc99c9022fe4ce523204959ff46c1bb3a764b7d659c",
+  "side_by_side": "docs/RESEARCH/glessner-courtyard-steps-T-2218/before-section/habs04-terrace-section-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Baseline before T-2218: the terrace has a narrow straight stair and lacks the surveyed curved descending cheek and terminal; grille proportions and shared bow plan are not yet recalibrated.",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "source_commit": "02d1b1cabdd82d8edf949a95c64cf6711f99bd55",
+  "provenance": "Downloaded deployed dev Full/web GLB from T-2217, SHA256 63b71a9f92e0cfc9bfe01ca45045166def52e763ad6fc1a77cb50b87233a928e; same source cut, camera and 350m near plane as after."
+}
