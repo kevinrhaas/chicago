@@ -1,4 +1,24 @@
 export const CHANGELOG = [ // newest first
+  { v: 1790, ts: '2026-10-14T09:52:11.026Z', date: 'Oct 14, 2026, 4:52 AM CT', title: 'Keep Glessner rebuilds consistent', kind: 'fix',
+    items: [
+      'Nothing you can see changes. Glessner’s saved shading layout now stays consistent when the house is rebuilt on another machine.',
+    ] },
+  { v: 1789, ts: '2026-10-14T07:09:21.230Z', date: 'Oct 14, 2026, 2:09 AM CT', title: 'Glessner’s curved courtyard steps', kind: 'improve',
+    items: [
+      'The hall terrace now has a wider curved brick wall, a descending stone cap and rounded end post, with fan-shaped steps meeting the doorway.',
+      'The adjoining hall bow and terrace grilles follow the measured plan and section. The phone view keeps the same stair shape and closed stonework.',
+    ] },
+  { v: 1788, ts: '2026-10-14T04:35:57.996Z', date: 'Oct 13, 2026, 11:35 PM CT', title: '1638 Prairie\'s gable and bay, closer to its photograph', kind: 'feature',
+    items: [
+      'The Gothic house at 1638 Prairie loses its pierced bargeboard for the broad plain verge board its photograph shows, and its single finial for the three pointed pinnacles at the apex.',
+      'The hood over the gable\'s twin windows now curls into a volute at each end, with a small cusped trefoil between the two pointed heads.',
+      'The bay\'s three lights have the blunter pointed heads of the photograph, with a small dark stop where each arch springs.',
+    ] },
+  { v: 1787, ts: '2026-10-14T03:09:09.684Z', date: 'Oct 13, 2026, 10:09 PM CT', title: 'Glessner carriage doors gain their historic panels and ironwork', kind: 'fix',
+    items: [
+      'Both oak leaves now have circular recesses around square panels, iron straps, ring pulls and hinges.',
+      'Look down the carriage passage to see the open leaves and their oak boarding. Their bottoms clear the paving.',
+    ] },
   { v: 1786, ts: '2026-10-14T02:21:08.001Z', date: 'Oct 13, 2026, 9:21 PM CT', title: 'Lighter 1904 street trees at a distance', kind: 'improvement',
     items: [
       'Elms more than 60 m away draw a lighter crown, and only elms within 100 m cast shadows; the near street looks the same.',

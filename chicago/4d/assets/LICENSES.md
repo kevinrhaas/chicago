@@ -883,6 +883,11 @@ detailing, signboards). They are exempt from regeneration but **not** from prove
 each needs a row here and a source record explaining what the form is based on.
 ### Glessner House stone-occlusion atlases (T-2431)
 
+T-2494 retains each atlas's generated UV coordinates in the same NPZ, with the exact
+mesh/unwrap-recipe key and a coordinate checksum. These are coordinates generated
+from this project's own mesh, under the same project license; no reference pixels
+or third-party mesh data are incorporated.
+
 Generated output of this repository's own Cycles bake (`generators/archetypes/masonry_house_v4_occlusion.py`, Blender 4.5.3) of the Glessner House's own geometry: the quantised ambient-occlusion atlas of its granite, kept so a bake on any CPU reproduces the committed models. Nothing third-party is sampled or embedded; project license. Provenance is the model's, tracked in `assets/manifest.json`.
 
 - `bakes/stone-occlusion/README.md`

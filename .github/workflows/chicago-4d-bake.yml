@@ -227,6 +227,16 @@ jobs:
           # twenty-five minutes of Cycles to find out. The rule, its fail-open
           # cases and its self-test live in tools/bake_warranted.py; a green pull
           # request that could not merge inside its own run is why.
+          # Glessner's GLBs are ignored outputs restored from the committed
+          # recovery package. A fresh checkout must materialize that package
+          # before asking whether an output is missing or stale, just as publish
+          # does. The recovery verifier refuses mismatched existing bytes; an
+          # unreadable package keeps the existing fail-open bake decision.
+          if ! python3 chicago/4d/tools/recover_glessner_v4.py --materialize; then
+            echo "bake=1" >> "$GITHUB_OUTPUT"
+            echo "::warning::baking — committed asset package could not be materialized, so freshness cannot be established"
+            exit 0
+          fi
           WHY=$(mktemp)
           BAKE=$(printf '%s\n' "$CHANGED" \
                    | python3 chicago/4d/tools/bake_warranted.py \

@@ -76,9 +76,10 @@ Phone-sized 390x780 Light views also load without errors:
 [south](ic-lakefront-2495/mobile-south.png). Published mobile smoke parts 3/14:
 221 passed, zero failed (15m34s on this SwiftShader runner).
 
-Final preflight passes, including all 877 code/data gate steps. Full desktop
+The original feature preflight passed all 877 code/data gate steps. Full desktop
 aerial views use 260 / 104 draw calls and 2,741,643 / 1,000,839 triangles (north /
 south), within 330 calls and 4,600,000 triangles. These are draw-count readings,
-not a hardware frame-rate claim. The broader desktop smoke twice timed out
-booting 1835 before the requested sections, with zero page errors; that gate is
-unresolved, so this change is not merged or promoted to production.
+not a hardware frame-rate claim. On the original local runner, the broader desktop smoke twice timed out
+booting 1835 before the requested sections, with zero page errors. Those runs are
+not claimed as passed. Current integration validation is recorded in
+[PR #796](https://github.com/kevinrhaas/chicago/pull/796); this change targets dev.

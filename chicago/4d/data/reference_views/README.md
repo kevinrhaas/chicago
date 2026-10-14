@@ -63,3 +63,7 @@ at.
   pictures from chicagology and other sites are brought in with their attribution, not left as
   links.
 - Other years: `data/sources/` (views, engravings, drawings) and `data/sources/assets/`.
+
+Section drawings may supply optional `clip_planes`, each `{normal: [east,north,up], constant: metres}` with a unit normal. The review renderer retains points where `normal.dot(point)+constant >= 0`. State the source cut line and calibration in `solve`; this is a section through the asset, not a change to its app geometry.
+
+Distant drawing cameras can set `near_m` (positive, below the 500 m far plane) to keep fine layers distinguishable in the depth buffer. Place it in front of the subject, state it in `solve`, and retain the same value for before/after comparisons. Ordinary photographic views default to 0.1 m.

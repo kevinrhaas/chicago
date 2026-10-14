@@ -22,6 +22,10 @@
 //                  in the same frame (T-2369: which walls are lit and where shadows fall is
 //                  part of what is compared); the review render's default east-north-east sun
 //                  otherwise
+//   near_m         optional near depth (>0, <500 m); distant drawing cameras need
+//                  a near plane close to their subject to resolve millimetre layers
+//   clip_planes    optional section cuts: {normal:[east,north,up],constant:metres};
+//                  keeps normal.dot(point)+constant >= 0; source cut stated in solve
 //   solve          how the camera was fitted, in words and numbers (never read here)
 // Writes <out>/<name>-side-by-side.jpg (photograph | render, the render the GLB alone at the
 // photograph's size and framing; the bare render goes to a temp file), <out> defaulting to
@@ -46,6 +50,8 @@ const opt = k => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : null
 const camFile = args.find(a => a.endsWith('.json'));
 if (!camFile) { console.error('usage: node tools/photo_match.mjs <camera.json> [--glb <path>] [--out <dir>]'); process.exit(2); }
 const cam = JSON.parse(fs.readFileSync(camFile, 'utf8'));
+if (cam.near_m !== undefined && (!Number.isFinite(cam.near_m) || cam.near_m<=0 || cam.near_m>=500)) throw Error('near_m must be finite and between 0 and the 500 m far plane');
+if (cam.clip_planes !== undefined && (!Array.isArray(cam.clip_planes) || cam.clip_planes.some(p => !p || !Array.isArray(p.normal) || p.normal.length !== 3 || !p.normal.every(Number.isFinite) || Math.abs(Math.hypot(...p.normal)-1)>1e-6 || !Number.isFinite(p.constant)))) throw Error('clip_planes requires finite unit [east,north,up] normals and constants in metres');
 const glb = opt('--glb') || (() => {
   const m = JSON.parse(fs.readFileSync(path.join(root, 'assets/manifest.json'), 'utf8'));
   const hit = Object.entries(m.assets || m).find(([k, v]) => v && v.structure_id === cam.structure_id && !/coach_house/.test(k));
@@ -63,9 +69,10 @@ const page_html = `<!doctype html><meta charset=utf-8><style>html,body{margin:0;
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
-const c=${JSON.stringify({W, H, cx, cy, f, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, sun: cam.sun_uvy || null, glb: '/' + glb.replace(/\\/g, '/')})};
+const c=${JSON.stringify({W, H, cx, cy, f, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, near: cam.near_m ?? 0.1, sun: cam.sun_uvy || null, clips: cam.clip_planes || [], glb: '/' + glb.replace(/\\/g, '/')})};
 const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.setPixelRatio(1);r.setSize(c.W,c.H);
 r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;r.shadowMap.enabled=true;
+r.clippingPlanes=c.clips.map(p=>new THREE.Plane(new THREE.Vector3(p.normal[0],p.normal[2],-p.normal[1]),p.constant));
 document.body.appendChild(r.domElement);
 const s=new THREE.Scene();s.background=new THREE.Color(0xe8ecef);
 s.add(new THREE.HemisphereLight(0xdfe8f0,0x8a8070,1.1));
@@ -78,7 +85,7 @@ g.rotation.x=-Math.PI/2;g.position.y=-0.01;g.receiveShadow=true;s.add(g);
 // a camera whose principal point is off centre: frame a larger symmetric view about it and
 // cut the photograph's window out of it (THREE's view offset)
 const FW=2*Math.max(c.cx,c.W-c.cx),FH=2*Math.max(c.cy,c.H-c.cy);
-const cam=new THREE.PerspectiveCamera(2*Math.atan(FH/2/c.f)*180/Math.PI,FW/FH,0.1,500);
+const cam=new THREE.PerspectiveCamera(2*Math.atan(FH/2/c.f)*180/Math.PI,FW/FH,c.near,500);
 cam.setViewOffset(FW,FH,FW/2-c.cx,FH/2-c.cy,c.W,c.H);
 // footprint frame (u, v, y) -> glTF (x = u, y, z = -v); yaw clockwise from north
 const [u,v,y]=c.eye,t=c.yaw*Math.PI/180;

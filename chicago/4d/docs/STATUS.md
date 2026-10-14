@@ -9,12 +9,23 @@ an approximately 40 m working uncertainty. The new ground GLB and terrain
 sampler agree at every vertex and both seams. Published 1904 views at 1280x800 and 390x780 load with zero page errors and no
 loader problems; [north](RESEARCH/ic-lakefront-2495/north.png) and
 [south](RESEARCH/ic-lakefront-2495/south.png) show both continuations. Both Full
-desktop aerial views remain inside the draw budget. Preflight and all 877 code/data
-checks pass; published mobile parts 3/14 pass 221 checks. The broader desktop
-smoke twice timed out opening 1835 before reaching its selected sections; it is
-not claimed as passed. The PR remains unmerged for that validation limitation.
+desktop aerial views remain inside the draw budget. The original feature preflight
+passed all 877 code/data checks; published mobile parts 3/14 passed 221 checks. On the original local runner, the broader desktop
+smoke twice timed out opening 1835 before reaching its selected sections; those
+runs are not claimed as passed. Current integration validation is recorded in
+[PR #796](https://github.com/kevinrhaas/chicago/pull/796).
 No production deployment is claimed.
 [Sources, method and bounds](RESEARCH/ic_lakefront_extent_1904.md).
+
+## T-2217 — Glessner carriage leaves and passage (2026-10-14)
+
+Both leaves now carry the HABS circular/square panel pattern, straps, paired
+ring pulls and hinges. Their reconstructed reverse boarding and jamb linings
+are visible from the passage. The leaves clear the existing paving and tapering
+reveals through their full swing, and meet with a narrow joint in a closed
+diagnostic. Source rights, unmeasured construction and remaining photographic
+differences are stated in [the review](RESEARCH/glessner-porte-cochere-T-2217.md).
+Whole-house photographic acceptance remains T-2228.
 
 ## T-2219 — Glessner service openings and roof junction (2026-10-13)
 
@@ -12516,7 +12527,7 @@ record in the published manifest (`shoot.mjs --at 855,150,225`):
 
 | | triangles | draw calls |
 |---|---|---|
-| with the rows | 877,858 | 114 |
+| with the rows | 876,858 | 114 |
 | without them | 868,618 | 114 |
 | **delta** | **+8,240** | **0** |
 
@@ -13948,7 +13959,7 @@ not in the file a visitor loads — the committed derivative still quantises POS
 
 **Its first sentence was no longer true.** Measured with R-W6's own control — regenerate the
 committed master and compare md5s — `terrain__e1834_harbor_cut.glb` at **16** bits reproduces the
-committed derivative exactly (`5b8446877a425fceace5c7dd7c59688a`, 704,004 bytes) and at 14 bits
+committed derivative exactly (`5b8446876a425fceace5c7dd7c59688a`, 704,004 bytes) and at 14 bits
 does not (`4b9fb0765a9b5669dd547b32ef156825`, 702,896). The 16-bit ground reached the site in a
 nightly bake that rebuilt the terrain. The water mesh reproduces at both depths
 (`61b38d4bc36964db450b59ac7b646b77`) — R-W6 predicted that in writing: four vertices at y = 0 land
@@ -23199,3 +23210,13 @@ The root front door is a lightweight three-period menu. SVG orbital graphics and
 ## T-1805 — Glessner west roof repair (2026-10-01)
 
 The stable north gable now has its photographed eave return toward the alley, and the crossing roof is emitted once instead of passing through the front wall and loft opening. The opening axis is unchanged. Actual-GLB north, northwest and alley reviews confirm the shortened cornice and clear loft opening in full/light variants. Sidewalk slope depth bias is removed to address the apparent slab drawn through the wall at grazing angles. The full/light derivatives and recovery package are saved; light is 196,687 triangles against the unchanged 200,000 ceiling. Package and staleness checks pass. The four Glessner masters and canonical web files reproduced byte-for-byte after the shared emitter changed. Source CI passed all 719 steps on b034b066 (36905203833). Published Chromium desktop 5,10–11 passed 62 checks (36905832670), mobile 10 passed 33 (36904172019), desktop 1,5 passed 96 (36899248098), and mobile 1,5,11,13 passed 223 (36899419433), all with zero page errors. Both viewports' 1904 Glessner loading, placement, picking, materials and draw-budget checks pass. The integration repairs retain the yard budget, place the camp anchors on their ground, verify drawn placement to 0.001 m, and give the desktop grass edge a measured 4.94 px spread against the unchanged 4 px floor. Final receipts and the subsequent app-title merge are recorded in PR #230 and tools/dev-smoke-state.json. Browser validation ran on GitHub because local Chromium is refused by this environment. See docs/RESEARCH/glessner-west-roof-repair/work.md.
+
+
+### T-2218 — curved courtyard hall steps (2026-10-14)
+
+The measured terrace and fan-shaped flight replace the narrow straight boxes. The brick cheek descends under a closed stone cap to a rounded end post. HABS plan/section controls also correct the shared hall-bow footprint; approved door treatment and threshold remain. Lower hidden tread geometry is explicitly reconstructed. The build, geometric ray checks, K01 contract and all ten final published desktop/phone views pass. Full/Web have 1,312,788 triangles; Light has 199,496. The threshold depth interference is repaired. Terminal-shoulder/tower projection differences remain explicit for T-2228. Full preflight and remote checks govern the dev merge; see the ticket-linked PR for their results. See [the report](RESEARCH/glessner-courtyard-steps-T-2218.md).
+
+
+### T-2494 — reproducible Glessner UV layouts
+
+The pinned Blender build produces different stone-occlusion UV layouts with Debian glibc 2.41 and Ubuntu glibc 2.39 math libraries. A controlled library substitution reproduces the CI atlas key while all pre-unwrap mesh arrays remain identical. Full and Light now retain their validated UV layout beside the AO atlas, keyed by exact mesh/unwrap inputs; stale or corrupt layouts are refused. The complete atlas digest and K01 package guard remain unchanged. Local and canonical full-bake validation are recorded in the ticket-linked PR. T-2220 waits on this repair; whole-house photographic acceptance remains T-2228. See [the report](RESEARCH/glessner-bake-2494/README.md).

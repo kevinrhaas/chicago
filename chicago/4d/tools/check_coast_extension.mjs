@@ -2,7 +2,12 @@
 /** T-2495: runtime sampling and GLB geometry agree, including both seams. */
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import { contextSample } from '../renderers/web/js/coast-extension.js';
+// Resolve the browser's import-map dependency to the same vendored Three used
+// by the published app, so this gate also runs in a clean Node checkout.
+const threeURL = new URL('../renderers/web/vendor/three-0.185.1/three.module.js', import.meta.url).href;
+const source = fs.readFileSync(new URL('../renderers/web/js/coast-extension.js', import.meta.url), 'utf8');
+const { contextSample } = await import('data:text/javascript;base64,' + Buffer.from(
+  source.replace("from 'three'", `from '${threeURL}'`)).toString('base64'));
 const dir = new URL('../data/terrain/epochs/e1871_postfire/', import.meta.url);
 const read = n => JSON.parse(fs.readFileSync(new URL(n,dir),'utf8'));
 const m=read('heightfield.json'), coast=read('context.json');

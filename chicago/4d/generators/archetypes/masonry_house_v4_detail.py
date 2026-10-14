@@ -935,34 +935,8 @@ def detailed_door(b,o,style):
         from archetypes.masonry_house_v4_front_door import build
         build(b,o,subtract,interior_recess,glass_pane)
         return
-    if style=='porte_cochere':
-        original=b
-        angle=math.radians(b.params.detail.get('porte_cochere_open_deg',82))
-        for leaf in range(2):
-            la=a+(c-a)*leaf/2;lc=a+(c-a)*(leaf+1)/2
-            hinge=legacy._plane_point(o,la if leaf==0 else lc,0,-.23)
-            theta=angle if leaf==0 else -angle
-            class Leaf:
-                def raw(self,pts,confidence,mat,want=None):
-                    co,si=math.cos(theta),math.sin(theta)
-                    def rotate(p):
-                        x,y=p[0]-hinge[0],p[1]-hinge[1]
-                        return (hinge[0]+co*x-si*y,hinge[1]+si*x+co*y,p[2])
-                    if want:want=(co*want[0]-si*want[1],si*want[0]+co*want[1],want[2])
-                    return original.raw([rotate(p) for p in pts],confidence,mat,want)
-            b=Leaf()
-            slab(b,o,la+.025,lc-.025,z0+.02,z1-.02,-.305,-.28,conf,WOOD)
-            slab(b,o,la+.01,la+.06,z0,z1,-.28,-.18,conf,WOOD)
-            slab(b,o,lc-.06,lc-.01,z0,z1,-.28,-.18,conf,WOOD)
-            for row in range(6):
-                lo=z0+.10+(z1-z0-.2)*row/6;hi=z0+.10+(z1-z0-.2)*(row+1)/6
-                for col in range(3):
-                    left=la+.09+(lc-la-.18)*col/3;right=la+.09+(lc-la-.18)*(col+1)/3
-                    slab(b,o,left+.025,right-.025,lo+.025,hi-.025,-.28,-.245,conf,WOOD)
-                    for x0,x1,y0,y1 in [(left,left+.027,lo,hi),(right-.027,right,lo,hi),
-                                       (left,right,lo,lo+.027),(left,right,hi-.027,hi)]:
-                        slab(b,o,x0,x1,y0,y1,-.28,-.19,conf,WOOD)
-            slab(b,o,lc-.12,lc-.08,z0+.8,z0+1.03,-.18,-.15,conf,IRON)
+    from archetypes.masonry_house_v4_porte import build
+    build(b,o)
 
 def ring(b,pl,uc,zs,rin,rout,count,conf):
     if rout<=rin:
@@ -1575,6 +1549,8 @@ def tower(b,t,params):
 
 
 def terrace(b,params):
+    from archetypes.masonry_house_v4_terrace import build
+    if build(b,params):return
     data=params.detail.get('bow_terrace')
     if not data or not params.bows:return
     w=params.bows[0];a0,a1=sorted((w['a0'],w['a1']))

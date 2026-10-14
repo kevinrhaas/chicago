@@ -79,6 +79,8 @@ ROLE_MATERIAL = {
     "door": "stained", "door_panel": "stained", "step_tread": "stained", "step_riser": "trim",
     # T-2425: 1638's arched entrance, its pierced spandrels painted with the porch's trim
     "spandrel": "trim",
+    # T-2457: the small carved stops at the springs of 1638's bay lights, dark in the print
+    "stop": "sash",
     "roof_covering": "roof", "chimney": "foundation",   # the stack is the foundation's brick
     # T-2456: 1638's street fence — iron bars on a stone base, painted timber gate piers on
     # stone plinths, each cap hollow behind its pierced faces, the finials iron
@@ -673,6 +675,8 @@ class Sample:
             kv["clear_width_m"] = win["clear_width_m"]
         if "panes" in win:     # T-2424: a sash glazed otherwise than its K06 variant
             kv["panes"] = list(win["panes"])
+        if "head_radius_ratio" in win:     # T-2457: a blunter (drop) pointed head
+            kv["head_radius_ratio"] = win["head_radius_ratio"]
         kv.setdefault("overrides", {})["reveal_depth_m"] = cs["reveal_depth_m"]
         c, ys = win["centre_m"], win["sill_m"]
         op = CasedOpening(kv, k6, origin=F.P(c, ys, 0.0)).build()
@@ -708,7 +712,8 @@ class Sample:
         self.box(F, "apron", sa, sb, y_ap, ysb, 0, cth, skip=("back", "top"), tone=tw,
                  roles={"s0": "end_grain", "s1": "end_grain"})
         if win.get("surround") == "pointed":     # T-2423: the casing carried round the head
-            return self._pointed_surround(F, c, hw, H, ys, sl, sa, sb, y_ap, y_start, tw)
+            return self._pointed_surround(F, c, hw, H, ys, sl, sa, sb, y_ap, y_start, tw,
+                                          win.get("head_radius_ratio", 1.0), win.get("stops"))
         for (a, b) in ((sa, c - hw), (c + hw, sb)):
             yb = ys - cth * sl
             self.poly(F, "casing", [(a, yb, cth), (b, yb, cth), (b, yH, cth), (a, yH, cth)], (0, 0, 1), tw)
@@ -728,25 +733,29 @@ class Sample:
         self.meta.setdefault("casings", []).append(self.meta["casing"])
         return hole, cut
 
-    def _pointed_surround(self, F, c, hw, H, ys, sl, sa, sb, y_ap, y_start, tw):
+    def _pointed_surround(self, F, c, hw, H, ys, sl, sa, sb, y_ap, y_start, tw, ratio=1.0, stops=None):
         """T-2423: a pointed sash's casing carried round its head instead of squared off: the
         two jamb casings rise to the spring and an arched band of the casing's width follows
         the K06 equilateral head to its point, with no head board or drip cap (a hood mould
         over the opening sheds its water). The clapboard is cut course by course: the whole
         casing's width up to the spring, then each course to the clear arch at its foot, so
-        every board end stands under the band. Returns the sheathing hole and the cuts."""
+        every board end stands under the band. Returns the sheathing hole and the cuts.
+        T-2457: `ratio` under 1 is a drop head (its arcs' radius that share of the span, as K06
+        builds the sash), and `stops` a small block at each spring on the band's outer edge."""
         cs = self.data["trim"]["casing"]
         cw, cth = cs["width_m"], cs["thickness_m"]
         E = self.data["cladding"]["clapboard"]["exposure_m"]
         span = 2 * hw
-        rise = math.sqrt(span * span - hw * hw)
+        rise = K06.Head("pointed", -hw, hw, 0.0, radius_ratio=ratio).rise if ratio != 1.0 \
+            else math.sqrt(span * span - hw * hw)
+        R = span * ratio
         spring, top = ys + H - rise, ys + H
         yb = ys - cth * sl
         for (a, b) in ((sa, c - hw), (c + hw, sb)):
             self.poly(F, "casing", [(a, yb, cth), (b, yb, cth), (b, spring, cth), (a, spring, cth)], (0, 0, 1), tw)
             self.poly(F, "casing", [(a, ys, 0), (a, yb, cth), (a, spring, cth), (a, spring, 0)], (-1, 0, 0), tw)
             self.poly(F, "casing", [(b, ys, 0), (b, yb, cth), (b, spring, cth), (b, spring, 0)], (1, 0, 0), tw)
-        hd = K06.Head("pointed", c - hw, c + hw, spring)
+        hd = K06.Head("pointed", c - hw, c + hw, spring, radius_ratio=ratio)
         inner = hd.curve(0.0, c + hw, c - hw)
         outer = hd.curve(-cw, c + hw + cw, c - hw - cw)
         for (p0, p1), (q0, q1) in zip(zip(inner, inner[1:]), zip(outer, outer[1:])):
@@ -760,10 +769,24 @@ class Sample:
         cuts, k = [], round((y_ap - y_start) / E)
         while y_start + k * E < top - 1e-6:
             y0 = y_start + k * E
-            off = hw + cw if y0 < spring - 1e-9 else math.sqrt(max(0.0, span * span - (y0 - spring) ** 2)) - hw
+            if y0 < spring - 1e-9:
+                off = hw + cw
+            elif ratio == 1.0:
+                off = math.sqrt(max(0.0, span * span - (y0 - spring) ** 2)) - hw
+            else:
+                off = math.sqrt(max(0.0, R * R - (y0 - spring) ** 2)) - (R - hw)
             cuts.append((c - off, c + off, y0, y0 + E))
             k += 1
         apex_out = max(q[1] for q in outer)
+        if stops:     # T-2457: a dark stop at each spring of the band, on its outer edge
+            sw, sh, sp = stops["width_m"], stops["height_m"], stops["projection_m"]
+
+            def clear(y):     # a level face never lies on a clapboard course's butt
+                q = (y - y_start) / E
+                return y + 0.006 if abs(q - round(q)) * E < 0.003 else y
+            for e in (sa, sb):
+                self.box(F, "stop", e - sw / 2, e + sw / 2, clear(spring - sh / 2), clear(spring + sh / 2), 0.0, cth + sp,
+                         skip=("back",), tone=self.tone("stop", e))
         self.meta["casing"] = {"s": [sa, sb], "y": [y_ap, round(apex_out, 6)], "head": "pointed",
                                "spring_m": round(spring, 6), "on_course_lines": False}
         self.meta.setdefault("casings", []).append(self.meta["casing"])
@@ -812,8 +835,28 @@ class Sample:
             st = hv["stop"]
             s0 = m(pts[0])[0]
             y0 = P[0][1]
-            self.box(F, "casing", s0 - st["width_m"] / 2, s0 + st["width_m"] / 2, clear(y0 - st["height_m"]),
-                     clear(y0 + w / 2), 0.0, zp + 0.01, skip=("back",), tone=th)
+            if st.get("kind") == "volute":    # T-2457: the band's end curled outward and down
+                r = st["radius_m"]
+                self._applied_ring(F, (s0 + side * 0.6 * r, y0 - 0.4 * r), lambda a, d: r - d, st["eye_m"],
+                                   r - st["eye_m"], zp + 0.01, th)
+            else:
+                self.box(F, "casing", s0 - st["width_m"] / 2, s0 + st["width_m"] / 2, clear(y0 - st["height_m"]),
+                         clear(y0 + w / 2), 0.0, zp + 0.01, skip=("back",), tone=th)
+        if hv.get("tracery"):     # T-2457: a cusped trefoil between the lights' heads, under the point
+            tv = hv["tracery"]
+            rl, dl = tv["lobe_r_m"], tv["lobe_off_m"]
+            lobes = [(dl * math.cos(math.radians(a)), dl * math.sin(math.radians(a))) for a in (90, 210, 330)]
+
+            def trefoil(a, d):     # the distance out to the three lobes' outline, inset by d
+                u = (math.cos(a), math.sin(a))
+                best = 0.0
+                for cx, cy in lobes:
+                    b = u[0] * cx + u[1] * cy
+                    disc = (rl - d) ** 2 - (cx * cx + cy * cy - b * b)
+                    if disc >= 0:
+                        best = max(best, b + math.sqrt(disc))
+                return best
+            self._applied_ring(F, (hc, tv["centre_y_m"]), trefoil, 0.0, tv["ring_m"], tv["projection_m"], th, n=60)
         # the finial on the point: a square post, a cross-piece and a pyramid cap
         fh, a = hv["finial_m"], 0.035
         ya = P[3][1]
@@ -829,6 +872,26 @@ class Sample:
             self.poly(F, "finial", [(p[0], yt, p[1]), (q[0], yt, q[1]), apex], hint, tf)
         self.meta["hood"] = {"centre_m": hc, "apex_m": ya, "finial_top_m": round(ya + fh, 6),
                              "stops_m": [round(hc + P[0][0], 6), round(hc - P[0][0], 6)]}
+
+    def _applied_ring(self, F, c, radius, d_in, ring, zf, tone, n=24):
+        """T-2457: a flat moulded ring applied to the cladding, standing `zf` proud, round a
+        centre c (s, y): its outline at angle a is `radius(a, 0)` out, its inner edge
+        `radius(a, ring)`; `d_in` > 0 leaves an eye of that radius instead (a volute's)."""
+        angs = [2 * math.pi * k / n for k in range(n)]
+        o = [(c[0] + radius(a, 0.0) * math.cos(a), c[1] + radius(a, 0.0) * math.sin(a)) for a in angs]
+        if d_in > 0:
+            i_ = [(c[0] + d_in * math.cos(a), c[1] + d_in * math.sin(a)) for a in angs]
+        else:
+            i_ = [(c[0] + radius(a, ring) * math.cos(a), c[1] + radius(a, ring) * math.sin(a)) for a in angs]
+        for k in range(n):
+            o0, o1, i0, i1 = o[k], o[(k + 1) % n], i_[k], i_[(k + 1) % n]
+            mx, my = (o0[0] + o1[0]) / 2 - c[0], (o0[1] + o1[1]) / 2 - c[1]
+            self.poly(F, "casing", [(i0[0], i0[1], zf), (o0[0], o0[1], zf), (o1[0], o1[1], zf), (i1[0], i1[1], zf)],
+                      (0, 0, 1), tone)
+            self.poly(F, "casing", [(o0[0], o0[1], 0), (o1[0], o1[1], 0), (o1[0], o1[1], zf), (o0[0], o0[1], zf)],
+                      (mx, my, 0), tone)
+            self.poly(F, "casing", [(i0[0], i0[1], 0), (i1[0], i1[1], 0), (i1[0], i1[1], zf), (i0[0], i0[1], zf)],
+                      (-mx, -my, 0), tone)
 
     def _oculus(self, F, ov):
         """T-2423: the oval in 1638's gable: a moulded ring round a sunk field, applied to the
@@ -1048,7 +1111,10 @@ class Sample:
         add("roof", [(0, y_g + h_roof, ov), (W / 2, y_ap + h_roof, ov), (W / 2, y_ap + h_roof, back), (0, y_g + h_roof, back)],
             (-sp_, cp_, 0))
         add("roof", [(0, y_g, ov), (W / 2, y_ap, ov), (W / 2, y_ap + h_roof, ov), (0, y_g + h_roof, ov)], (0, 0, 1))
-        add("soffit", [(0, y_g, 0), (W / 2, y_ap, 0), (W / 2, y_ap, ov - bbt), (0, y_g, ov - bbt)], (sp_, -cp_, 0),
+        # T-2457: a plain verge board stands in front of the roof's edge, so the soffit runs to it
+        vg = v.get("verge")
+        z_sf = ov if vg else ov - bbt
+        add("soffit", [(0, y_g, 0), (W / 2, y_ap, 0), (W / 2, y_ap, z_sf), (0, y_g, z_sf)], (sp_, -cp_, 0),
             self.tone("verge"))
         add("roof", [(0, y_g, back), (W / 2, y_ap, back), (W / 2, y_ap, 0), (0, y_g, 0)], (sp_, -cp_, 0))
         add("roof", [(0, y_g, back), (0, y_g, ov), (0, y_g + h_roof, ov), (0, y_g + h_roof, back)], (-1, 0, 0))
@@ -1060,55 +1126,59 @@ class Sample:
         def tv(t, vv):
             return (t * cp_ + vv * sp_, y_g + t * sp_ - vv * cp_)
 
-        lo_t, hi_t = bg["end_m"], Lr - bd * tp - bg["end_m"]
-        cell = bg["cell_m"]
-        ncell = max(0, int((hi_t - lo_t) / cell))
-        t0 = lo_t + ((hi_t - lo_t) - ncell * cell) / 2
-        tb = self.tone("barge")
-        zF, zB = ov, ov - bbt
-        pieces = [[(0.0, 0.0), (t0, 0.0), (t0, bd), (-bd * tp, bd)],
-                  [(t0 + ncell * cell, 0.0), (Lr, 0.0), (Lr - bd * tp, bd), (t0 + ncell * cell, bd)]]
-        for pc in pieces:
-            xy = [tv(*q) for q in pc]
-            add("bargeboard", [(s, y, zF) for s, y in xy], (0, 0, 1), tb)
-            add("bargeboard", [(s, y, zB) for s, y in xy], (0, 0, -1), tb)
         holes = []
-        for kc in range(ncell):
-            ta, tb_ = t0 + kc * cell, t0 + (kc + 1) * cell
-            cc = ((ta + tb_) / 2, bd / 2)
-            if kc % 2 == 0:
-                r = bg["circle_r_m"]
-                ns = bg["circle_segments"]
-                hole = [(cc[0] + r * math.cos(2 * math.pi * i / ns), cc[1] + r * math.sin(2 * math.pi * i / ns))
-                        for i in range(ns)]
-            else:
-                vs = bg["vesica"]
-                L2, w2, ns = vs["length_m"] / 2, vs["width_m"] / 2, vs["segments"]
-                Rv = (L2 * L2 + w2 * w2) / (2 * w2)
-                f0 = math.atan2(Rv - w2, L2)
-                upper = [(cc[0] + Rv * math.cos(f0 + (math.pi - 2 * f0) * i / ns),
-                          cc[1] - (Rv - w2) + Rv * math.sin(f0 + (math.pi - 2 * f0) * i / ns)) for i in range(ns)]
-                lower = [(cc[0] - Rv * math.cos(f0 + (math.pi - 2 * f0) * i / ns),
-                          cc[1] + (Rv - w2) - Rv * math.sin(f0 + (math.pi - 2 * f0) * i / ns)) for i in range(ns)]
-                hole = upper + lower
-            rect = [(ta, 0.0), (tb_, 0.0), (tb_, bd), (ta, bd)]
-            for q in ring_quads(ccw(rect), ccw(hole)):
-                xy = [tv(*pp) for pp in q]
+        if vg:
+            self._plain_verge(vg, add, tv, Lr, tp, cp_, h_roof, ov)
+        else:
+            lo_t, hi_t = bg["end_m"], Lr - bd * tp - bg["end_m"]
+            cell = bg["cell_m"]
+            ncell = max(0, int((hi_t - lo_t) / cell))
+            t0 = lo_t + ((hi_t - lo_t) - ncell * cell) / 2
+            tb = self.tone("barge")
+            zF, zB = ov, ov - bbt
+            pieces = [[(0.0, 0.0), (t0, 0.0), (t0, bd), (-bd * tp, bd)],
+                      [(t0 + ncell * cell, 0.0), (Lr, 0.0), (Lr - bd * tp, bd), (t0 + ncell * cell, bd)]]
+            for pc in pieces:
+                xy = [tv(*q) for q in pc]
                 add("bargeboard", [(s, y, zF) for s, y in xy], (0, 0, 1), tb)
                 add("bargeboard", [(s, y, zB) for s, y in xy], (0, 0, -1), tb)
-            hxy = [tv(*pp) for pp in ccw(hole)]
-            cxy = (math.fsum(pp[0] for pp in hxy) / len(hxy), math.fsum(pp[1] for pp in hxy) / len(hxy))
-            for i in range(len(hxy)):
-                a, b = hxy[i], hxy[(i + 1) % len(hxy)]
-                m = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
-                add("cutout", [(a[0], a[1], zB), (b[0], b[1], zB), (b[0], b[1], zF), (a[0], a[1], zF)],
-                    (cxy[0] - m[0], cxy[1] - m[1], 0), tb)
-            holes.append(hxy)
-        bl0, bl1 = tv(-bd * tp, bd), tv(Lr - bd * tp, bd)
-        add("bargeboard", [(bl0[0], bl0[1], zB), (bl1[0], bl1[1], zB), (bl1[0], bl1[1], zF), (bl0[0], bl0[1], zF)],
-            (sp_, -cp_, 0), tb)
-        e0, e1 = tv(0.0, 0.0), tv(-bd * tp, bd)
-        add("end_grain", [(e0[0], e0[1], zB), (e1[0], e1[1], zB), (e1[0], e1[1], zF), (e0[0], e0[1], zF)], (-1, 0, 0), tb)
+            holes = []
+            for kc in range(ncell):
+                ta, tb_ = t0 + kc * cell, t0 + (kc + 1) * cell
+                cc = ((ta + tb_) / 2, bd / 2)
+                if kc % 2 == 0:
+                    r = bg["circle_r_m"]
+                    ns = bg["circle_segments"]
+                    hole = [(cc[0] + r * math.cos(2 * math.pi * i / ns), cc[1] + r * math.sin(2 * math.pi * i / ns))
+                            for i in range(ns)]
+                else:
+                    vs = bg["vesica"]
+                    L2, w2, ns = vs["length_m"] / 2, vs["width_m"] / 2, vs["segments"]
+                    Rv = (L2 * L2 + w2 * w2) / (2 * w2)
+                    f0 = math.atan2(Rv - w2, L2)
+                    upper = [(cc[0] + Rv * math.cos(f0 + (math.pi - 2 * f0) * i / ns),
+                              cc[1] - (Rv - w2) + Rv * math.sin(f0 + (math.pi - 2 * f0) * i / ns)) for i in range(ns)]
+                    lower = [(cc[0] - Rv * math.cos(f0 + (math.pi - 2 * f0) * i / ns),
+                              cc[1] + (Rv - w2) - Rv * math.sin(f0 + (math.pi - 2 * f0) * i / ns)) for i in range(ns)]
+                    hole = upper + lower
+                rect = [(ta, 0.0), (tb_, 0.0), (tb_, bd), (ta, bd)]
+                for q in ring_quads(ccw(rect), ccw(hole)):
+                    xy = [tv(*pp) for pp in q]
+                    add("bargeboard", [(s, y, zF) for s, y in xy], (0, 0, 1), tb)
+                    add("bargeboard", [(s, y, zB) for s, y in xy], (0, 0, -1), tb)
+                hxy = [tv(*pp) for pp in ccw(hole)]
+                cxy = (math.fsum(pp[0] for pp in hxy) / len(hxy), math.fsum(pp[1] for pp in hxy) / len(hxy))
+                for i in range(len(hxy)):
+                    a, b = hxy[i], hxy[(i + 1) % len(hxy)]
+                    m = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
+                    add("cutout", [(a[0], a[1], zB), (b[0], b[1], zB), (b[0], b[1], zF), (a[0], a[1], zF)],
+                        (cxy[0] - m[0], cxy[1] - m[1], 0), tb)
+                holes.append(hxy)
+            bl0, bl1 = tv(-bd * tp, bd), tv(Lr - bd * tp, bd)
+            add("bargeboard", [(bl0[0], bl0[1], zB), (bl1[0], bl1[1], zB), (bl1[0], bl1[1], zF), (bl0[0], bl0[1], zF)],
+                (sp_, -cp_, 0), tb)
+            e0, e1 = tv(0.0, 0.0), tv(-bd * tp, bd)
+            add("end_grain", [(e0[0], e0[1], zB), (e1[0], e1[1], zB), (e1[0], e1[1], zF), (e0[0], e0[1], zF)], (-1, 0, 0), tb)
         for role, pts, hint, tone in half:
             self.poly(F, role, pts, hint, tone)
             self.poly(F, role, [(W - s, y, z) for s, y, z in pts], (-hint[0], hint[1], hint[2]), tone)
@@ -1123,7 +1193,64 @@ class Sample:
         if not clap_field:
             self.shingles(F, inner, y_g, v["bands"], W / 2)
 
-        # the finial through the apex
+        # the finial through the apex; T-2457: or the record's cluster of pinnacles
+        if v.get("pinnacles"):
+            self._pinnacles(F, v["pinnacles"], W / 2, y_ap + h_roof, tp, ov + vg["thickness_m"] / 2 if vg else ov - bbt / 2)
+        else:
+            self._kit_finial(F, W, y_ap, h_roof, bd, cp_, ov, bbt, go)
+        self._gable_meta(W, y_g, y_ap, h_roof, back, go)
+
+    def _gable_meta(self, W, y_g, y_ap, h_roof, back, go):
+        self.meta["gable"] = {"y_g": y_g, "y_ap": y_ap, "h_roof": h_roof, "back_m": back}   # T-2323
+        self.meta.update({"wall_thickness_m": self.data["wall"]["thickness_m"], "pitch_deg": go["pitch_deg"],
+                          "focus": [W * 0.3, y_ap - 0.9, 0.15], "span_m": 3.4})
+
+    def _plain_verge(self, vg, add, tv, Lr, tp, cp_, h_roof, ov):
+        """T-2457: 1638's verge, read off its photograph: a broad plain board with no piercing,
+        standing just in front of the roof's edge and covering it, its depth `depth_m` measured
+        down from the roof's top, and a bead `bead_m` deep standing `bead_proud_m` proud along
+        its lower edge. Built in the bargeboard's own (t along the rake, v down from the roof's
+        underside), the left half only; the caller mirrors it."""
+        vt = -h_roof * cp_
+        vb = vt + vg["depth_m"]
+        vm = vb - vg["bead_m"]
+        z0 = ov + 0.002
+        z1 = z0 + vg["thickness_m"]
+        z2 = z1 + vg["bead_proud_m"]
+        tb = self.tone("barge")
+        sp_ = math.sqrt(1.0 - cp_ * cp_)
+
+        def at(v, z, apex=False):
+            s, y = tv((Lr if apex else 0.0) - v * tp, v)
+            return (s, y, z)
+        add("bargeboard", [at(vt, z1), at(vt, z1, True), at(vm, z1, True), at(vm, z1)], (0, 0, 1), tb)
+        add("bargeboard", [at(vt, z0), at(vt, z0, True), at(vt, z1, True), at(vt, z1)], (-sp_, cp_, 0), tb)
+        add("bargeboard", [at(vm, z1), at(vm, z1, True), at(vm, z2, True), at(vm, z2)], (-sp_, cp_, 0), tb)
+        add("bargeboard", [at(vm, z2), at(vm, z2, True), at(vb, z2, True), at(vb, z2)], (0, 0, 1), tb)
+        add("bargeboard", [at(vb, z2), at(vb, z2, True), at(vb, z0, True), at(vb, z0)], (sp_, -cp_, 0), tb)
+        add("end_grain", [at(vt, z0), at(vt, z1), at(vb, z1), at(vb, z0)], (-1, 0, 0), tb)
+        add("end_grain", [at(vm, z1), at(vm, z2), at(vb, z2), at(vb, z1)], (-1, 0, 0), tb)
+
+    def _pinnacles(self, F, pv, sc, y_top, tp, zc):
+        """T-2457: 1638's apex, read off its photograph: a cluster of pointed pinnacles in place of
+        the kit's chamfered finial and drop. Each is a square shaft `section_m` across, standing
+        on the verge `offset_m` from the apex (mirrored either side; 0 is the apex itself) to
+        `shaft_top_m` over the apex's roof line, under a pyramid to its point at `top_m`."""
+        tf = self.tone("finial")
+        for p in pv:
+            a = p["section_m"] / 2
+            for off in ((0.0,) if p["offset_m"] == 0 else (-p["offset_m"], p["offset_m"])):
+                c = sc + off
+                y0 = y_top - (abs(off) + a) * tp - 0.05
+                y1, y2 = y_top + p["shaft_top_m"], y_top + p["top_m"]
+                self.box(F, "finial", c - a, c + a, y0, y1, zc - a, zc + a, skip=("bottom", "top"), tone=tf)
+                corners = [(c - a, zc + a), (c + a, zc + a), (c + a, zc - a), (c - a, zc - a)]
+                for (s0, z0), (s1, z1) in zip(corners, corners[1:] + corners[:1]):
+                    m = ((s0 + s1) / 2 - c, (z0 + z1) / 2 - zc)
+                    self.poly(F, "finial", [(s0, y1, z0), (s1, y1, z1), (c, y2, zc)], (m[0], 0.5 * a, m[1]), tf)
+        self.meta["pinnacles"] = [{"offset_m": p["offset_m"], "top_m": round(y_top + p["top_m"], 6)} for p in pv]
+
+    def _kit_finial(self, F, W, y_ap, h_roof, bd, cp_, ov, bbt, go):
         fi = go["finial"]
         a, chm = fi["section_m"] / 2, fi["chamfer_m"]
         zc_ = ov - bbt / 2
@@ -1140,9 +1267,6 @@ class Sample:
                                     (W / 2, yb1 + fi["point_m"], zc_)], (mid[0], 0.5, mid[1]), tf)
             self.poly(F, "finial", [(W / 2 + ds0, yb0, zc_ + dz0), (W / 2, yb0 - fi["point_m"], zc_),
                                     (W / 2 + ds1, yb0, zc_ + dz1)], (mid[0], -0.5, mid[1]), tf)
-        self.meta["gable"] = {"y_g": y_g, "y_ap": y_ap, "h_roof": h_roof, "back_m": back}   # T-2323
-        self.meta.update({"wall_thickness_m": T, "pitch_deg": go["pitch_deg"],
-                          "focus": [W * 0.3, y_ap - 0.9, 0.15], "span_m": 3.4})
 
     def _gable_end(self):
         """T-2398: the gable over a frame house's end wall, standing on the boxed eave that runs

@@ -228,10 +228,20 @@
           "width_m": 0.07,
           "projection_m": 0.07,
           "stop": {
+            "kind": "volute",
             "width_m": 0.1,
-            "height_m": 0.14
+            "height_m": 0.14,
+            "radius_m": 0.07,
+            "eye_m": 0.025
           },
-          "finial_m": 0.7
+          "finial_m": 0.7,
+          "tracery": {
+            "centre_y_m": 6.02,
+            "lobe_r_m": 0.07,
+            "lobe_off_m": 0.07,
+            "ring_m": 0.025,
+            "projection_m": 0.03
+          }
         },
         "oculus": {
           "centre_m": 2.605,
@@ -241,14 +251,34 @@
           "ring_m": 0.08,
           "field_z_m": 0.035,
           "ring_z_m": 0.06
-        }
+        },
+        "verge": {
+          "depth_m": 0.23,
+          "thickness_m": 0.038,
+          "bead_m": 0.05,
+          "bead_proud_m": 0.02
+        },
+        "pinnacles": [
+          {
+            "offset_m": 0.0,
+            "section_m": 0.11,
+            "shaft_top_m": 0.03,
+            "top_m": 0.48
+          },
+          {
+            "offset_m": 0.3,
+            "section_m": 0.09,
+            "shaft_top_m": -0.1,
+            "top_m": 0.08
+          }
+        ]
       },
       "confidence": "reconstructed",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20",
         "chicagology_1638_prairie_photo"
       ],
-      "note": "The width is the sheet's (inferred, above). Since T-2423 the gable's openings are read off the photograph (chicagology_1638_prairie_photo) through the camera solved for it, data/reference_views/shortall_gregory_house_1638_prairie_front/chicagology_front.json (73 px a metre at the front's plane, grade at about 825 px): the twin windows are two pointed lights, each the kit's K06 equilateral head on a 0.63 m sash (the print's 46 px), their sills at 4.0 m (the print's sill board at 537-542 px reads 3.9-4.0 m) and their points at 5.87 m (396 px), 0.854 m apart centre to centre so their two casings meet in one 0.22 m mullion (the print's 15 px between the lights); each light's casing is carried round its head as an arched band (field 'surround: pointed'), as the print's pair shows, with no head board or drip cap. Over them a moulded hood rises from a label stop at each side (1.07 m either side of the gable's middle at 5.45 m: 380 and 537 px, 427 px) along an ogee to a point at 6.5 m (350 px) under a finial with a cross-piece to 7.2 m (300 px). The oval in the gable is 0.89 by 0.74 m (65 by 54 px), its middle at 8.04 m (238 px): a moulded ring round a field the print shows as pale as the wall, with no glass or bar in it, so it is built blind. The print shows the wall's siding running up into the gable with no belt and no band of shaped shingle, so the gable is clapboarded to its rake boards (field 'field: clapboard'); the rake still springs at the 6.4 m belt height the body's roof is built to. Those readings are INFERRED; the rest stays RECONSTRUCTED from the K16 kit (L-k16-1638-front-2323, L-k16-1638-gable-2423): the sash and its two-over-two glazing, the casing's and hood's sections, the hood's curve between the points read, the finial's form (the print's is a three-pointed cluster), the shingle bands the record still carries and the field no longer draws, the bargeboard's piercings (the print shows a broad plain verge board, open in the match record), and every colour."
+      "note": "The width is the sheet's (inferred, above). Since T-2423 the gable's openings are read off the photograph (chicagology_1638_prairie_photo) through the camera solved for it, data/reference_views/shortall_gregory_house_1638_prairie_front/chicagology_front.json (73 px a metre at the front's plane, grade at about 825 px): the twin windows are two pointed lights, each the kit's K06 equilateral head on a 0.63 m sash (the print's 46 px), their sills at 4.0 m (the print's sill board at 537-542 px reads 3.9-4.0 m) and their points at 5.87 m (396 px), 0.854 m apart centre to centre so their two casings meet in one 0.22 m mullion (the print's 15 px between the lights); each light's casing is carried round its head as an arched band (field 'surround: pointed'), as the print's pair shows, with no head board or drip cap. Over them a moulded hood rises from a label stop at each side (1.07 m either side of the gable's middle at 5.45 m: 380 and 537 px, 427 px) along an ogee to a point at 6.5 m (350 px) under a finial with a cross-piece to 7.2 m (300 px). The oval in the gable is 0.89 by 0.74 m (65 by 54 px), its middle at 8.04 m (238 px): a moulded ring round a field the print shows as pale as the wall, with no glass or bar in it, so it is built blind. The print shows the wall's siding running up into the gable with no belt and no band of shaped shingle, so the gable is clapboarded to its rake boards (field 'field: clapboard'); the rake still springs at the 6.4 m belt height the body's roof is built to. Those readings are INFERRED; the rest stays RECONSTRUCTED from the K16 kit (L-k16-1638-front-2323, L-k16-1638-gable-2423): the sash and its two-over-two glazing, the casing's and hood's sections, the hood's curve between the points read, the finial's form (the print's is a three-pointed cluster), the shingle bands the record still carries and the field no longer draws, the bargeboard's piercings (the print shows a broad plain verge board, open in the match record), and every colour. T-2457 reads the rest of the gable off the same print. The verge is a plain board, 0.23 m from the roof's top line to its foot (17 px across the rake at about 74 px a metre), covering the roof's edge, with a pale bead along its foot (field 'verge'), where the kit's bargeboard is pierced. The apex carries three pinnacles and no pendant (field 'pinnacles'): the middle one's point 36 px over the verges' meeting (0.48 m), the other two 22 px (0.30 m) either side of it on the verge, their points 6 px (0.08 m) over that meeting. The hood's ends curl as volutes and a cusped figure stands between the lights' heads under its point, built as a trefoil ('hood.stop.kind: volute', 'hood.tracery'). Measured on the verges' outer edges, the print's gable stands on a middle 0.12 m north of this record's and its verges meet 9 px higher, which reads as a gable about 0.24 m wider than the sheet's 5.21 m; the width is kept here and the difference left open in the match record for the entrance's piece (T-2458). L-k16-1638-gable-bay-2457."
     },
     "wing_wall": {
       "value": {
@@ -731,7 +761,13 @@
           "panes": [
             1,
             1
-          ]
+          ],
+          "head_radius_ratio": 0.72,
+          "stops": {
+            "width_m": 0.07,
+            "height_m": 0.08,
+            "projection_m": 0.02
+          }
         }
       },
       "confidence": "inferred",
@@ -739,7 +775,7 @@
         "sanborn_1911_chicago_v3_sheet_20",
         "chicagology_1638_prairie_photo"
       ],
-      "note": "The canted bay on the front, one storey, built since T-2424 from the photograph (chicagology_1638_prairie_photo) through the camera T-2423 solved: three faces, each a pointed light between broad posts, on a panelled base under a sill course, with a moulded cornice under a flat deck. Plan: the print's face runs 407-517 px at the face's 77 px a metre, s 2.03-3.45 m (1.42 m), and its cants meet the wall at 347 and 577 px at the wall's 73, s 1.16 and 4.32 m; the depth, which a front view cannot show, stays the 1911 sheet's 1.1 m, and at that depth the cants come to 1.40 m, the face's width within 2 cm, so the three faces are near equal. The sheet's plan (s 0.73-5.01, face 1.95 m) is a drawn bay, coarser than the print; the print is followed. Heights, at the face's scale over grade at 835 px: the glass from 0.63 m (788 px) to its point at 2.83 m (618 px), 0.73 m across (432-488 px), the same in the cants as far as their foreshortening shows, each a one-over-one sash with its meeting rail at about 1.7 m (702 px); the sill course's top 0.45 m over a dark band and a row of panels (807-827 px) on a plinth; the cornice from its soffit at 3.13 m (592 px) to its crown at 3.55 m (557 px at the corners). The deck is not seen from the street and falls 0.07 m from the wall. The kit's equilateral pointed head springs at 2.20 m where the print's stops sit at about 2.33 m (655 px), a slightly lower arch: L-k16-1638-bay-2424."
+      "note": "The canted bay on the front, one storey, built since T-2424 from the photograph (chicagology_1638_prairie_photo) through the camera T-2423 solved: three faces, each a pointed light between broad posts, on a panelled base under a sill course, with a moulded cornice under a flat deck. Plan: the print's face runs 407-517 px at the face's 77 px a metre, s 2.03-3.45 m (1.42 m), and its cants meet the wall at 347 and 577 px at the wall's 73, s 1.16 and 4.32 m; the depth, which a front view cannot show, stays the 1911 sheet's 1.1 m, and at that depth the cants come to 1.40 m, the face's width within 2 cm, so the three faces are near equal. The sheet's plan (s 0.73-5.01, face 1.95 m) is a drawn bay, coarser than the print; the print is followed. Heights, at the face's scale over grade at 835 px: the glass from 0.63 m (788 px) to its point at 2.83 m (618 px), 0.73 m across (432-488 px), the same in the cants as far as their foreshortening shows, each a one-over-one sash with its meeting rail at about 1.7 m (702 px); the sill course's top 0.45 m over a dark band and a row of panels (807-827 px) on a plinth; the cornice from its soffit at 3.13 m (592 px) to its crown at 3.55 m (557 px at the corners). The deck is not seen from the street and falls 0.07 m from the wall. The kit's equilateral pointed head springs at 2.20 m where the print's stops sit at about 2.33 m (655 px), a slightly lower arch: L-k16-1638-bay-2424. T-2457: the print's heads are blunter than the kit's equilateral arch, springing at about 2.33 m (where a small dark stop sits on each casing's outer edge) to the same points at 2.83 m, so each light's head is a drop arch whose arcs have a radius 0.72 of the span ('lights.head_radius_ratio'), and each spring carries a stop ('lights.stops'), painted the sash's dark green. L-k16-1638-gable-bay-2457."
     },
     "roof_covering": {
       "value": {

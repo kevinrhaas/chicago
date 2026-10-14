@@ -26601,6 +26601,7 @@ look; a weather record for a chosen day would set its snow.
 **Ticket:** T-2481.
 **Review:** `renderers/web/js/season.js`.
 **Recorded:** 2026-10-13 (T-2481).
+
 ### L-glessner-service-junction-2219 — north service bay (2026-10-13)
 
 **Decision:** HABS plans 2/3 and photographs 01/15 support wider service openings than the
@@ -26628,6 +26629,94 @@ using four-sided rather than Full’s six-sided 22-mm cylinders at identical cen
 The renderer partitions complete building triangles into 4-m plan / 2-m height
 cells in Balanced/Light inspection: tighter culling preserves all surfaces, attributes
 and shadow geometry without raising the phone frame allowance.
+
+### L-k16-1638-gable-bay-2457 — 1638 Prairie's verge, apex, hood and bay heads read off its photograph: a plain beaded verge board, three pinnacles, a cusped trefoil and volute stops under the hood, drop-arched bay lights with dark stops; the profiles, the trefoil's figure and the stops' colour reconstructed
+
+**Decision:** the gable and bay of the Shortall-Gregory house (T-2457, piece 2 of T-2426) take the
+differences T-2423 and T-2424 left open, read through the camera T-2423 solved for the print. The
+verge is a plain board 0.038 m thick and 0.23 m deep from the roof's top line, standing just in
+front of the roof's edge and covering it, with a 0.05 m bead 0.02 m proud along its foot (the kit's
+pierced bargeboard is not built here). The apex carries three square pinnacles under pyramid points
+in place of the kit's chamfered finial and its drop: the middle one 0.11 m across, its point 0.48 m
+over the apex's roof line; one each side 0.30 m out along the verge, 0.09 m across, its point
+0.08 m over that line. The hood's two ends curl as volutes (a ring 0.07 m in radius round a
+0.025 m eye) and a cusped trefoil (three lobes 0.07 m in radius, 0.07 m off its middle, a 0.025 m
+moulded ring) is applied in the spandrel between the lights' heads, its middle at 6.02 m. The bay's
+three lights have drop-arched heads, each arc's radius 0.72 of the light's 0.73 m span, so they
+spring at 2.33 m to the same points at 2.83 m, and a small stop (0.07 by 0.08 m, 0.02 m proud) sits
+at each spring on the casing's outer edge. **What is read, not invented.** From the photograph
+(`chicagology_1638_prairie_photo`), at about 74 px a metre in the verge's plane: that the verge
+board is plain, its depth across the rake (17 px) and the pale bead at its foot; that the apex has
+three pinnacles, where they stand (the middle at the apex, the others 22 px either side) and how
+high their points rise over the verges' meeting (36 and 6 px); that no pendant hangs under the
+apex; that the hood's ends curl and something cusped stands between the heads; that the bay's
+heads spring at about 2.33 m, not 2.20, and that a small dark stop sits at each spring. **What is
+invented.** The board's thickness and the bead's profile; the pinnacles' square section and their
+breadths (the print shows each as a pale shaft to a spike, 6-8 px across); the volutes' size and
+their being flat rings round an eye rather than carved scrolls; the tracery's figure, a trefoil
+with one lobe up, which the halftone does not resolve beyond a pale cusped shape some 0.2 m across;
+and the stops' colour, the sash's dark green, for a print that shows them only as dark.
+**What the record states and the model simplifies.** The gable is built at the sheet's 5.21 m and
+centred on it; the print's verges, oval, window pair and hood all stand on a middle 0.12 m north of
+that and its verges meet 9 px higher, which reads as a gable some 0.24 m wider. That is left open
+in the match record for the entrance's piece (T-2458), which already owns the narrower opening on
+the same line. The bay's value is graded `inferred` on the print's readings, so its drop heads and
+stops are described here and not claimed; only the stops' colour among them is invented.
+**How to resolve:** a sharper print or a second photograph of the gable fixes the tracery's figure
+and the pinnacles' section; the gable's width is resolved with the entrance (T-2458).
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.gable`.
+**Ticket:** T-2457 (piece 2 of T-2426, a piece of T-1865, the 1638 architecture).
+**Review:** `docs/RESEARCH/k16-1638-gable-bay-2457/README.md`.
+**Recorded:** 2026-10-13 (T-2457).
+
+### L-glessner-porte-cochere-2217 — carriage leaves (2026-10-14)
+
+**Decision:** HABS IL-1015 sheet 6 supplies the three-by-six circular/square
+field pattern and paired ring plates. Written data printed p.21 describes the
+heavily paneled leaves, straps and latches in a 1945 photograph. The circa-1888
+and Florian GX112.10 photographs are historical cross-checks; neither is traced
+or copied into an asset. The museum scan remains rights-pending. Modern 2023/24
+replacements are not independent evidence of 1904.
+
+Leaf thickness 90 mm (75–115), recess depth 35 mm (25–45), ring radius about
+59 mm (50–75), hinge inset 85 mm (60–100) and floor clearance 15 mm (10–25)
+are reconstructed construction bounds, not historical measurements. The hidden
+pivot is 280 mm behind the exterior wall plane. Panel centre shares, metalwork
+curves, studs, fixed oak linings and reverse boarding are reconstructed within
+the recorded pattern. Existing dark oak/iron finishes are retained; monochrome
+images do not establish their precise colour. The 82-degree inward pose is an
+operating reconstruction; the same members form the closed diagnostic.
+
+Light retains every panel, strap, ring and hinge, using octagonal circular
+recesses and simplified plate edges; it omits scrolls, studs and reverse grooves.
+The approved T-2202 paving and opening controls remain. The apparent aperture
+aspect differs from the circa-1888 reproduction; whole-house camera, grade and
+proportion reconciliation remains T-2228, not a claimed perfect photo match.
+[Sources and validation](RESEARCH/glessner-porte-cochere-T-2217.md).
+
+**Ticket:** T-2217.
+**Recorded:** 2026-10-14 (T-2217).
+
+**Covers:** `glessner_house.as_built_1887.form.ironwork_finish`
+
+### L-glessner-courtyard-steps-2218 — curved hall terrace and stair (2026-10-14)
+
+**Decision:** HABS sheets 2 and 4 (`habs_glessner_house_il_1015_drawings`, unrestricted government drawings) supply the terrace plan and section. The printed 161 ft 3 in by 74 ft envelope calibrates the first-floor scan. The terrace outside radius is about 18.8 ft. The hall bow is recalibrated to W27.8/S28.8 and outside radius 10.6 ft; its printed 9.5 ft dimension is inside. These are measured 1963 fabric inferred for 1904, with approximately ±0.25 ft plan-reading bounds. The retained doorway, light rows and 1.679 m stair level remain.
+
+Seven upper tread boundaries are legible; the three obscured lower boundaries turn around the terminal and clear the retained stair tower as bounded reconstructions. Nine equal 186.6 mm rises, 22 mm noses, 40 mm buried bases, joint stock and exact hidden joins are reconstructed. The source count is nine ± one riser. Hidden brick faces stay closed but omit individual brick relief. Light retains the footprint, tread levels, openings and cap profile with fewer curve samples and four-sided grille bars.
+
+The paired grille clear head is 4.68 ft above grade, distinct from the outer lintel. Eleven intermediate bars and two rails follow the section pattern. The 18 mm bar diameter, 0.10 m jambs, 0.11 m sill, 0.38 m lintel and hidden fixings are bounded stock details. The measured W51.5 ft source cut applies only to the research section camera.
+
+Both cap edges follow independent section traces at roughly ±5 rectified pixels, with monotone interpolation. The upper flat edge is 2.564 m. The round terminal has a 1.554 m crown, 0.75 ft radius and hemispherical top; its S46.05 centre differs by 1.8 inches from the initial plan reading S46.2. The last three reconstructed tread ends follow that terminal. Beyond the visible edge traces at S45.35, a short shoulder joins the plan-located post. Its projected length differs from the section silhouette and remains explicitly open for T-2228.
+
+The deck extends 0.40 m inside the bow arc to reach the recessed leaf. A closed stone threshold spans the retained reveal/sill with a reconstructed 6 mm rise and 10 cm buried depth, removing the depth interference seen where the old surfaces and new deck were coplanar. Exact threshold stock is not independently attested.
+
+Photo 05 (`habs_glessner_photo_05_court_c1923`) and the later Florian courtyard photographs are qualitative cross-checks only; no pixels or traced assets come from rights-pending imagery. The 1946 parking paving is excluded. Whole-house photographic acceptance remains T-2228, including the terminal/tower projection discrepancy. See [the source and validation report](RESEARCH/glessner-courtyard-steps-T-2218.md).
+
+**Ticket:** T-2218.
+**Recorded:** 2026-10-14 (T-2218).
+
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`
 
 ### L-ic-extent-2495 — rails and shoreline beyond the Prairie Avenue tile
 

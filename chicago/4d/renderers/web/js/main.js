@@ -1159,6 +1159,22 @@ const DETAIL = sealLadder(DETAIL_DECLARED, DETAIL_ORDER);
 // docs/RESEARCH/glessner-service-junction-T-2219/ . This is a spot measurement,
 // not a frame-rate guarantee; the existing Scene detail control selects Light.
 const GLESSNER_V4_FULL_TRIANGLES = 4600000;
+// T-2217, 2026-10-14: the previously unmeasured carriage-door close-up
+// already draws 340 calls on dev, before the door change (4,443,344 tris).
+// The rebuilt door draws the SAME 340 calls (4,465,836 tris); the other four
+// passage stands peak at 238. Price this Full inspection at 360 calls, 5.9%
+// above the observed maximum, under the owner's explicit headroom ruling.
+// This is a declared Full-only re-budget, not a mesh or rendering change.
+// Balanced, Light and non-inspection scenes retain BUDGET.drawCalls (330).
+// Receipts: docs/RESEARCH/glessner-porte-cochere-T-2217/.
+const GLESSNER_V4_FULL_DRAW_CALLS = 360;
+// T-2218: the new courtyard stair-bottom stand already renders 1,224,656
+// triangles / 213 calls in Light before the geometry change, exceeding the
+// older 1.19M allowance. Price this Glessner inspection at 1.27M (3.7% margin),
+// below Balanced's 1.28M. Other scenes retain 1.19M and all Light scenes retain
+// 330 calls. This is a measured allowance under the owner's headroom ruling;
+// it is not a frame-rate claim. Before/after: glessner-courtyard-steps-T-2218.
+const GLESSNER_V4_LIGHT_TRIANGLES = 1270000;
 /**
  * THE DRAW-CALL BUDGET, RAISED FROM 80 TO 120 ON 2026-08-21 — a conscious
  * re-budget, written down here where the number is set, and never a silent one.
@@ -1561,6 +1577,9 @@ async function boot() {
     full: { ...DETAIL.full, triangles: GLESSNER_V4_FULL_TRIANGLES,
       declared: GLESSNER_V4_FULL_TRIANGLES,
       measured: 'Selected Glessner v4 inspection; see T-1730/T-2219 at GLESSNER_V4_FULL_TRIANGLES.' },
+    light: { ...DETAIL.light, triangles: GLESSNER_V4_LIGHT_TRIANGLES,
+      declared: GLESSNER_V4_LIGHT_TRIANGLES,
+      measured: 'Glessner courtyard inspection; see T-2218 at GLESSNER_V4_LIGHT_TRIANGLES.' },
   } : DETAIL;
   // Which structure version the address asked for and what it got — the HUD chip and
   // the smoke both read it. A fallback is carried here as `notice`, NOT pushed onto
@@ -3851,6 +3870,8 @@ async function boot() {
     setGroundReach(m) { return terrain.setGroundReach(m); },
     stats() {
       const info = renderer.info;
+      const budget = inspectionLod && detailLevel === 'full'
+        ? { ...BUDGET, drawCalls: GLESSNER_V4_FULL_DRAW_CALLS } : BUDGET;
       return {
         drawCalls: info.render.calls,
         triangles: info.render.triangles,
@@ -3870,9 +3891,9 @@ async function boot() {
         // R-BUG1: the near plane is no longer a constant, so a harness asking
         // why an edge is or is not stable can read the number that decides it.
         cameraNear: camera.near,
-        budget: BUDGET,
-        withinBudget: info.render.calls <= BUDGET.drawCalls
-          && info.render.triangles <= BUDGET.triangles,
+        budget,
+        withinBudget: info.render.calls <= budget.drawCalls
+          && info.render.triangles <= budget.triangles,
       };
     },
     /**

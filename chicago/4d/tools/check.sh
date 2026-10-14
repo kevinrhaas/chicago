@@ -178,6 +178,10 @@ step "Glessner's curved stone staggers, its eave clears the gable and its pipe m
   python3 tools/test_glessner_north_tower.py
 step "Glessner's service openings stay whole and the stable roof meets the north range (T-2219)" \
   python3 tools/test_glessner_service_junction.py
+step "Glessner carriage leaves: relief, swing and grain" \
+  python3 tools/test_glessner_porte.py
+step "Glessner courtyard treads, landing and rounded terminal stay solid" \
+  python3 tools/test_glessner_terrace.py
 step "Prairie 1904 K01 component contract holds, and the Glessner baseline is the package it measured (T-2265)" \
   node tools/k01_contract.mjs --check
 selftest "…coincident faces, hidden origin offsets and tier scale drift are caught on synthetic GLBs" \
@@ -186,6 +190,8 @@ step "every Glessner tier's stone occlusion was baked from its committed atlas, 
   python3 tools/check_stone_occlusion_atlas.py --check
 selftest "…a model rebaked without its atlas, an atlas holding another key and an orphan atlas are refused" \
   python3 tools/check_stone_occlusion_atlas.py --self-test
+step "Glessner's canonical UV caches are complete and reject stale or corrupt layouts (T-2494)" \
+  python3 tools/test_stone_occlusion_uv.py
 step "the K01 assemblies are the bytes their records build (T-2266)" \
   python3 generators/k01_emit.py --check
 step "the K13 conservatories in the scene are the bytes their records build (T-2306)" \
