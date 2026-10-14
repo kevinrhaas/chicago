@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1795, ts: '2026-10-14T22:53:59.400Z', date: 'Oct 14, 2026, 5:53 PM CT', title: 'Glessner chimney shafts and masonry caps', kind: 'improvement',
+    items: [
+      'Glessner’s two central street chimneys now meet both roof slopes, with thick masonry caps and recessed open flues. Courtyard service stacks have brick shafts and pale caps.',
+      'Cap details remain marked as reconstructed. Two credited courtyard photographs join the Images tab.',
+    ] },
   { v: 1794, ts: '2026-10-14T20:41:57.168Z', date: 'Oct 14, 2026, 3:41 PM CT', title: 'Glessner gutters and rainwater heads', kind: 'improvement',
     items: [
       'Glessner House gains the framed Prairie Avenue rainwater heads and the ribbed collector beneath its north tower, with connected gutters, wall straps and downpipes.',
