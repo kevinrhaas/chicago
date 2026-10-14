@@ -1,0 +1,53 @@
+{
+  "full": {
+    "before": {
+      "draw_primitives": 28,
+      "materials": 28,
+      "triangles": 1334432,
+      "vertices": 3066538
+    },
+    "after": {
+      "draw_primitives": 29,
+      "materials": 29,
+      "triangles": 1333765,
+      "vertices": 3065659
+    },
+    "delta_triangles": -667,
+    "delta_draw_primitives": 1,
+    "delta_bytes": -38628
+  },
+  "web": {
+    "before": {
+      "draw_primitives": 28,
+      "materials": 28,
+      "triangles": 1334432,
+      "vertices": 2430490
+    },
+    "after": {
+      "draw_primitives": 29,
+      "materials": 29,
+      "triangles": 1333765,
+      "vertices": 2428117
+    },
+    "delta_triangles": -667,
+    "delta_draw_primitives": 1,
+    "delta_bytes": 9040
+  },
+  "light": {
+    "before": {
+      "draw_primitives": 25,
+      "materials": 25,
+      "triangles": 199186,
+      "vertices": 388610
+    },
+    "after": {
+      "draw_primitives": 26,
+      "materials": 26,
+      "triangles": 199559,
+      "vertices": 389552
+    },
+    "delta_triangles": 373,
+    "delta_draw_primitives": 1,
+    "delta_bytes": 19548
+  }
+}

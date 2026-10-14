@@ -26764,3 +26764,51 @@ without changing their roof geometry, windows or the owner's dark-glass default.
 **Recorded:** 2026-10-14 (T-2220).
 
 **Covers:** `glessner_house.as_built_1887.form.hall_bow_roof`
+
+### L-glessner-rainwater-2221 — Rainwater fitting stock and concealed connections
+
+**Decision:** The early Taylor 2135 photograph locates the framed Prairie Avenue heads and
+broad leader straps. Unrestricted HABS01 and HABS14 distinguish the small service
+collector from the north tower's ribbed bowl. Those later views corroborate
+geometry, not the survival of each fitting unchanged from 1904. Licensed modern
+w_lemay courtyard photographs (159537087 and 159537053, CC BY-SA 2.0) bound the
+rectangular court leaders and box troughs; their bright-green patina and modern
+round inspection caps are not carried into 1904. The copied HABS05 publication
+photograph remains rights-uncleared and supplies no new derived fitting geometry.
+
+The 180 by 140 mm gutters, 3 mm sheet stock, ordinary 105 mm rectangular
+leaders, 75 mm upper tower pipe, collar thickness, wall-return tabs, under-eave
+supports and concealed offsets are reconstructed. The dining and bow court
+leaders alone use 160 by 100 mm stock with shallow 2.5 mm front fluting and
+400 mm strap spans, bounded by the modern 159537087 photograph rather than
+a measured 1904 specification. Full uses seven flutes and Light three.
+Prairie straps span 300 mm and sit at reconstructed heights 1.74, 4.07 and
+6.30 m: their centres follow Taylor in the fixed wall-control camera fit,
+not an independent survey. Head width/height bounds are 370/590 mm
+for the Prairie panel, 490/880 mm for the north bowl, and 230/300 mm for the plain
+service collector. The early scan does not resolve a cast emblem: the framed
+relief and central boss are explicitly bounded stock ornament. Frame relief is
+14 mm, bead diameter 24 mm, and the plain boss is 38 percent of head width; no
+legible emblem is invented. The north bowl's
+four flared ribs are similarly an interpretation, not a measured casting. The
+104-degree tower outlet azimuth follows the HABS14 camera reading; absolute
+eave/grade and camera disagreements remain recorded for T-2228.
+
+Every collector follows the retained roof edge and has an outlet to a receiver,
+leader or descending branch. The north tower feeds its bowl rather than ending
+over the roof. The two east-court eave fragments receive reconstructed leaders
+beside the stair drum, clear of all axial openings. The north-court return
+connects below the bow eave without an uphill pipe or a sheet crossing windows.
+Street leaders enter grade; court/alley shoes are modest bounded discharges,
+not a claim about hidden underground drains. Supports enter existing masonry
+and roof-edge stock. A separate matte grey-green oxidised/coated finish (linear RGB
+0.085/0.095/0.090, roughness 0.72, metallic fraction 0.15) is reconstructed for
+1904, not colour or an identified alloy recovered from monochrome photographs.
+The shared near-black iron made the head relief unreadable in the first web
+close-up; the separate finish keeps other ironwork unchanged and costs one
+additional material primitive per tier. Light keeps the paths, heads,
+straps and apertures, simplifying only small rolled lips and curved sampling.
+
+**Ticket:** T-2221.
+**Recorded:** 2026-10-14 (T-2221).
+**Covers:** `glessner_house.as_built_1887.form.rainwater_details`

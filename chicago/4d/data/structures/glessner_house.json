@@ -3453,6 +3453,84 @@
             "habs_glessner_house_il_1015_data_pages"
           ],
           "note": "T-2202. House-side lawn edging and access gaps are visible in Taylor 2135 (c.1887\u201389) and HABS sheets 2/6 (1963/1965); continuity in 1904 is inferred, not a dated survey. The 14.7-ft setback reuses the existing Sanborn-aligned placement; the final 1.02 ft crosses only the reconstructed public margin to meet T-1728's unchanged six-foot walk. Curbs stop at the main entry and porte and return to the house with rounded plan corners and dressed top edges. Profile height 1.05 ft, width 0.65 ft, 0.8-ft corner radius and 4-ft joint spacing are bounded reconstructions (+/-0.25 ft profile, +/-1.5 ft setback), not dimensions printed by HABS. The door sill retains sheet 6's 0.00 datum, 0.74 ft above its sidewalk; two low stone risers join the existing sill to the rendered approach. The rendered 0.21-ft paving lift includes the terrain/sidewalk display clearance, not a newly surveyed historical grade. Passage paving tapers to the existing 0.12-ft courtyard drive, with no grass or duplicated floor. Paving uses dressed stone at the entry and neutral mineral surfacing at the carriage approach/passage; historic composition and joint layout remain reconstructed. No later street pavement is imported. L-glessner-frontage-2202."
+        },
+        "rainwater_details": {
+          "value": {
+            "gutter_width_m": 0.18,
+            "gutter_depth_m": 0.14,
+            "stock_m": 0.003,
+            "pipe_width_m": 0.105,
+            "upper_pipe_width_m": 0.075,
+            "north_pipe_angle_deg": 104,
+            "heads": {
+              "panel": {
+                "width_m": 0.37,
+                "depth_m": 0.24,
+                "height_m": 0.59,
+                "neck_m": 0.112,
+                "frame_relief_m": 0.014,
+                "frame_stock_m": 0.024,
+                "boss_width_fraction": 0.38
+              },
+              "bowl": {
+                "width_m": 0.49,
+                "depth_m": 0.31,
+                "height_m": 0.88,
+                "neck_m": 0.115
+              },
+              "plain": {
+                "width_m": 0.23,
+                "depth_m": 0.19,
+                "height_m": 0.3,
+                "neck_m": 0.112
+              }
+            },
+            "leader_profiles": {
+              "prairie": {
+                "width_m": 0.105,
+                "depth_m": 0.105,
+                "strap_z_m": [
+                  1.74,
+                  4.07,
+                  6.3
+                ],
+                "strap_span_m": 0.3,
+                "strap_height_m": 0.055
+              },
+              "court_feature": {
+                "width_m": 0.16,
+                "depth_m": 0.1,
+                "strap_fractions": [
+                  0.07,
+                  0.49,
+                  0.93
+                ],
+                "strap_span_m": 0.4,
+                "strap_height_m": 0.085,
+                "flute_depth_m": 0.0025,
+                "flutes_full": 7,
+                "flutes_light": 3
+              }
+            },
+            "finish": {
+              "linear_rgb": [
+                0.085,
+                0.095,
+                0.09
+              ],
+              "roughness": 0.72,
+              "metallic": 0.15
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "taylor_2135_glessner_exterior_1887_1889",
+            "habs_glessner_photo_01_nw_1963",
+            "habs_glessner_photo_14_north_inclined_1965",
+            "wlemay_glessner_courtyard_2024_159537087",
+            "wlemay_glessner_courtyard_2024_159537053"
+          ],
+          "note": "T-2221 / L-glessner-rainwater-2221: early Taylor shows framed Prairie rainwater heads and broad wall straps; unrestricted HABS01/14 locate the small service collector and ribbed north-tower bowl. Later fabric corroborates routing, not exact 1904 fittings. Head dimensions, unreadable low-relief ornament, 3 mm stock, 105 mm rectangular leaders, 180 by 140 mm box gutters, concealed court branches and discharge fittings are bounded reconstructions. Licensed modern courtyard photos constrain box sections only; bright green patina and modern inspection caps are excluded. Upper tower leader enters the lower bowl rather than ending above the roof; all gutter edges inherit existing roof planes. Head camera fit is relative to retained geometry, not independent survey. Unresolved absolute eave/grade correspondence remains T-2228. Prairie strap centres at 1.74, 4.07 and 6.30 m fit the fixed Taylor camera at display y825,700,580; they are model-based estimates (about +/-0.08 m), not surveyed elevations. Bow and dining leaders alone use 160 by 100 mm fluted box stock with broad 400 mm straps, bounded by licensed modern courtyard close-ups relative to brick courses; their precise 1904 profiles remain reconstructed. Other concealed outlets retain plainer sections. Close-up comparison requires a separate matte grey-green oxidised/coated rainwater finish (linear RGB 0.085/0.095/0.090, roughness 0.72, metallic 0.15): this is bounded reconstruction, not a sampled 1904 colour or identified alloy. Existing iron hardware remains unchanged. The framed panel has 14 mm raised stock, 24 mm bead diameter and a plain boss 38 percent of head width; these resolve the early scan's broad relief without inventing a legible emblem."
         }
       }
     }

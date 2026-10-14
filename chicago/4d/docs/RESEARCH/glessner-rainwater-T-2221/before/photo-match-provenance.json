@@ -1,0 +1,17 @@
+{
+  "baseline_glb_sha256": "437b3f51ff671a153d282db4dd1a499ab1e454e4d3650f95b543c3998251c5c4",
+  "original_camera_sha256": "ec9b64fbb2e772e7b003ab4e67c670740180ce57c72bc3ec01087d26ab4a7cb7",
+  "committed_camera_sha256": "c194faa26abdb9b7aa27f3946e795205a7856e80a6d59d10f5b4d46c2d51c6f9",
+  "unchanged_camera_fields": [
+    "image_px",
+    "principal_px",
+    "focal_px",
+    "eye",
+    "yaw_deg",
+    "basis_right_up_forward",
+    "sun_uvy",
+    "solve"
+  ],
+  "photo_sha256": "8f8c80a1fa6df906463ed8514b631ea6785b5b4b9b15b9d1e30b717da86c0a04",
+  "note": "Before image was rendered against the unchanged T-2220 Full web asset. Only the photograph path and explicit resolving source ID were normalized for the repository; every camera and lighting field and every photograph byte agrees."
+}

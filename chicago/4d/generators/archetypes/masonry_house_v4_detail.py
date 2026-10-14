@@ -1615,9 +1615,10 @@ def service_stair(b,params):
         for run, top in zip(street['step_runs'], street['step_heights']):
             legacy._box(b, x0, y-.30, 0, x1, y+run, top, 1.0, GRANITE)
         from archetypes.masonry_house_v4_rainwater import _downpipe
-        _downpipe(b, street['gable_foot_x'], y+.13,
-                  street['eave_z']-.20*street['roof_pitch'],
-                  inlet=(street['gable_foot_x'], y+.23))
+        if not params.detail.get('rainwater'):
+            _downpipe(b, street['gable_foot_x'], y+.13,
+                      street['eave_z']-.20*street['roof_pitch'],
+                      inlet=(street['gable_foot_x'], y+.23))
         b.decorate = old
     s=params.detail.get('north_court_service_stair')
     if not s:return
@@ -1972,7 +1973,7 @@ def build(params,name):
     if params.detail.get("roof_edges"):
         from archetypes.masonry_house_v4_roof_edges import add_edges
         add_edges(b,params)
-    obj=b.to_object(build_materials(params.colours))
+    obj=b.to_object(build_materials(params.colours,params.detail.get('rainwater')))
     assign_metric_uvs(obj,b.roof_uvs)
     _discard_export_scratch_uv(obj)
     # T-2400: the granite's stone-scale occlusion, on its own TEXCOORD_1.
