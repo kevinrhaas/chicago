@@ -2,9 +2,9 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/web/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8967e96d4f76b688d76ed02d1876c196b9798de76a995ff866fb7ebf3d8fd02b",
+  "glb_sha256": "63b71a9f92e0cfc9bfe01ca45045166def52e763ad6fc1a77cb50b87233a928e",
   "camera_sha256": "e7561b646f21444ace9b190547f15f973f50a2243a70bee0c3df17b937538e7c",
-  "side_by_side": "docs/RESEARCH/glessner-service-junction-T-2219/after/habs-14-north-inclined-side-by-side.jpg",
+  "side_by_side": "docs/RESEARCH/glessner-porte-cochere-T-2217/after/habs-14-north-inclined-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
@@ -28,19 +28,23 @@
       "status": "open"
     },
     {
-      "what": "1904 colour and precise weathering cannot be established by this monochrome 1963–65 evidence; unseen courtyard faces are not judged here.",
+      "what": "1904 colour and precise weathering cannot be established by this monochrome 1963\u201365 evidence; unseen courtyard faces are not judged here.",
       "status": "not shown"
     },
     {
-      "what": "T-2470 cross-check: actual-master finial-tip residual falls 77.254→33.878 px in the reconciled inclined camera, held fixed before/after. Its depth controls and principal point limit independence.",
+      "what": "T-2470 cross-check: actual-master finial-tip residual falls 77.254\u219233.878 px in the reconciled inclined camera, held fixed before/after. Its depth controls and principal point limit independence.",
       "status": "fixed"
     },
     {
-      "what": "T-2228: the remaining 33.878-px tip error and cone silhouette differ in this inclined view. The earlier T-2200 camera instead worsens 206.304→302.501 px; both results are retained in tip-comparison.json, not presented as exact photographic agreement.",
+      "what": "T-2228: the remaining 33.878-px tip error and cone silhouette differ in this inclined view. The earlier T-2200 camera instead worsens 206.304\u2192302.501 px; both results are retained in tip-comparison.json, not presented as exact photographic agreement.",
       "status": "open"
     },
     {
       "what": "T-2219 regression review: the service-bay change lies west of this view. The prior north-tower silhouette, coursing and openings are preserved on the rebuilt Full asset. Existing photographic residuals and whole-house differences remain unresolved.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2217: re-rendered and reviewed on the rebuilt carriage-door asset. These north views do not expose the Prairie carriage leaf faces; their panel/hardware review is the separate HABS sheet-6 closed diagnostic and published passage cameras. Existing whole-house differences remain open for T-2228.",
       "status": "not shown"
     }
   ],

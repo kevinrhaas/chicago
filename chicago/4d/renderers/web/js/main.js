@@ -1159,6 +1159,15 @@ const DETAIL = sealLadder(DETAIL_DECLARED, DETAIL_ORDER);
 // docs/RESEARCH/glessner-service-junction-T-2219/ . This is a spot measurement,
 // not a frame-rate guarantee; the existing Scene detail control selects Light.
 const GLESSNER_V4_FULL_TRIANGLES = 4600000;
+// T-2217, 2026-10-14: the previously unmeasured carriage-door close-up
+// already draws 340 calls on dev, before the door change (4,443,344 tris).
+// The rebuilt door draws the SAME 340 calls (4,465,836 tris); the other four
+// passage stands peak at 238. Price this Full inspection at 360 calls, 5.9%
+// above the observed maximum, under the owner's explicit headroom ruling.
+// This is a declared Full-only re-budget, not a mesh or rendering change.
+// Balanced, Light and non-inspection scenes retain BUDGET.drawCalls (330).
+// Receipts: docs/RESEARCH/glessner-porte-cochere-T-2217/.
+const GLESSNER_V4_FULL_DRAW_CALLS = 360;
 /**
  * THE DRAW-CALL BUDGET, RAISED FROM 80 TO 120 ON 2026-08-21 — a conscious
  * re-budget, written down here where the number is set, and never a silent one.
@@ -3851,6 +3860,8 @@ async function boot() {
     setGroundReach(m) { return terrain.setGroundReach(m); },
     stats() {
       const info = renderer.info;
+      const budget = inspectionLod && detailLevel === 'full'
+        ? { ...BUDGET, drawCalls: GLESSNER_V4_FULL_DRAW_CALLS } : BUDGET;
       return {
         drawCalls: info.render.calls,
         triangles: info.render.triangles,
@@ -3870,9 +3881,9 @@ async function boot() {
         // R-BUG1: the near plane is no longer a constant, so a harness asking
         // why an edge is or is not stable can read the number that decides it.
         cameraNear: camera.near,
-        budget: BUDGET,
-        withinBudget: info.render.calls <= BUDGET.drawCalls
-          && info.render.triangles <= BUDGET.triangles,
+        budget,
+        withinBudget: info.render.calls <= budget.drawCalls
+          && info.render.triangles <= budget.triangles,
       };
     },
     /**

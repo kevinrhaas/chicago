@@ -1,0 +1,21 @@
+{
+  "structure_id": "glessner_house",
+  "photo": "habs-sheet-6-door.png",
+  "image_px": [
+    720,
+    900
+  ],
+  "principal_px": [
+    360,
+    450
+  ],
+  "focal_px": 1250,
+  "eye": [
+    53.6,
+    2.3561,
+    1.209
+  ],
+  "yaw_deg": 270,
+  "source_id": "habs_glessner_house_il_1015_drawings",
+  "solve": "Uncalibrated front-on diagnostic of the SAME generated leaves in closed pose. Drawing crop shown for panel and hardware comparison, not an asserted photographic match or absolute dimension measurement."
+}

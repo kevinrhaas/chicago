@@ -1,3 +1,13 @@
+## T-2217 — Glessner carriage leaves and passage (2026-10-14)
+
+Both leaves now carry the HABS circular/square panel pattern, straps, paired
+ring pulls and hinges. Their reconstructed reverse boarding and jamb linings
+are visible from the passage. The leaves clear the existing paving and tapering
+reveals through their full swing, and meet with a narrow joint in a closed
+diagnostic. Source rights, unmeasured construction and remaining photographic
+differences are stated in [the review](RESEARCH/glessner-porte-cochere-T-2217.md).
+Whole-house photographic acceptance remains T-2228.
+
 ## T-2219 — Glessner service openings and roof junction (2026-10-13)
 
 The north service door and upper sash follow the full widths read in HABS plans
