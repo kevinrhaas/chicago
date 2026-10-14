@@ -26111,6 +26111,21 @@ before its back hip); the crown's cornice, K05's 0.2 m fascia and soffit without
 the engraving draws a band as deep as the main cornice's (T-2467). The crown's south fascia stands 0.05 m outside
 the main roof's along the 5.5 m it shares with the south wall, because a crown's cornice must project
 past the main one's (an equal one would lay the two fascias in one plane at the corner).
+**Revised:** 2026-10-13 (T-2471) — **the stacks are panelled and capped.** The engraving draws each of
+the three stacks with a projecting head and cap, and the tall front stack's lit face as a long light
+field in a dark border; the build dresses the three from the K15 chimney kit's carved form
+(`k15.stack.sherman`) less the stone bands and corbel blocks the engraving does not draw: three
+corbelled brick courses under a 0.14 m stone cap projecting 0.15 m, the stack turned so its panelled
+faces face the street and the rear. The two tall stacks on the north wall carry one sunk panel 0.45 m
+wide and 0.035 m deep on each of those faces, run from 0.5 m over the highest roof under the stack to
+0.3 m under its head (1.87 m on the front stack, 0.97 m on the rear one); the wing's stack stands too
+little over its crown for one. Invented: the courses and cap (the kit's), the panel's width, depth and
+margins (read off the plate at its scale, not measured), the panel on the rear stack and on each
+stack's rear face (no picture shows them), and the two flues a stack (the kit's 0.21 m liner). The
+kit's flashing is not laid, since it reads one slope and these stacks stand on the cornice and the
+crown's steep side; each joins its roof as the plain stack did. Not built: the dark hooded crown the
+engraving draws over each cap, about 0.4-0.5 m tall, a pot or a cowl that the engraving's scale does not
+settle; each stack's top was read at that crown's top, so each cap stands where the drawn crown ends.
 
 ### L-k01-1637-spalding-garden-2447 — 1637 Prairie's front garden built on a line read off the engraving's ground, its wall stopped at the lot line and its iron the K11 kit's
 
@@ -26586,6 +26601,34 @@ look; a weather record for a chosen day would set its snow.
 **Ticket:** T-2481.
 **Review:** `renderers/web/js/season.js`.
 **Recorded:** 2026-10-13 (T-2481).
+
+### L-glessner-service-junction-2219 — north service bay (2026-10-13)
+
+**Decision:** HABS plans 2/3 and photographs 01/15 support wider service openings than the
+former 2.4-ft reading. Door 3.9 ft and sash 4.2 ft carry ±.3-ft uncertainty.
+The north stable-gable foot at W127.75 carries ±.5 ft; the courtyard footprint
+is retained. The roof transition is a planar reconstruction constrained by the
+existing ridges and gable foot, not a surveyed valley. The visible two-step
+stoop is reconstructed at .425-ft rises and .95-ft runs; threshold .85 ft, ±.2 ft.
+The pipe/collector position follows the photographed gable join; section, dark
+metal finish and hidden connection reuse the kit and are reconstructed. Later
+1963/65 evidence is cautiously carried to 1904, excluding known garage changes.
+Low courtyard windows retain the explicitly reconstructed dimensions in T-2212;
+there is no basement plan or independent evidence for excavated well depths.
+See [the inventory and evidence bounds](RESEARCH/glessner-service-junction-T-2219.md).
+
+**Ticket:** T-2219.
+**Recorded:** 2026-10-13 (T-2219).
+
+T-2219 Light-tier detail: geometric tile-lap relief is sampled every sixth course,
+formerly every second, after the initial repaired asset measured 200,465 triangles.
+The unchanged 200,000 ceiling is retained; metric textures still show every course.
+Roof planes, silhouette, aperture schedule and Full geometry are unaffected.
+Light restores the 104 axial courtyard bars omitted by its simplified sash path,
+using four-sided rather than Full’s six-sided 22-mm cylinders at identical centres.
+The renderer partitions complete building triangles into 4-m plan / 2-m height
+cells in Balanced/Light inspection: tighter culling preserves all surfaces, attributes
+and shadow geometry without raising the phone frame allowance.
 
 ### L-k16-1638-gable-bay-2457 — 1638 Prairie's verge, apex, hood and bay heads read off its photograph: a plain beaded verge board, three pinnacles, a cusped trefoil and volute stops under the hood, drop-arched bay lights with dark stops; the profiles, the trefoil's figure and the stops' colour reconstructed
 

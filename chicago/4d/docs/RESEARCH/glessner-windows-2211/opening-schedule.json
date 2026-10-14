@@ -1079,10 +1079,10 @@
   "what": "service door immediately east of the stable carriage block",
   "at_ft": [
    122.8,
-   125.2
+   126.7
   ],
   "z_ft": [
-   0.0,
+   0.85,
    10.4
   ],
   "z_from": "item",
@@ -1108,7 +1108,7 @@
   "what": "second-floor windows",
   "at_ft": [
    122.8,
-   125.2
+   127.0
   ],
   "z_ft": [
    19.25,
