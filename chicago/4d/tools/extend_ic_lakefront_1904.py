@@ -71,7 +71,12 @@ def fit_and_lines(spec):
         return (tie + (np.array(p)-np.array(s['southeast_tie_pixel'])) @ fit[:2]).tolist()
     rail += list(map(south, s['rail_pixels'][1:]))
     shore += list(map(south, s['shore_pixels'][1:]))
-    return rail, shore, {'coefficients':fit.tolist(), 'residual_m':np.linalg.norm(a@fit-b,axis=1).round(2).tolist(),
+    # LAPACK CPU kernels disagree in the last few bits of this fit. Record its
+    # coefficients at 1e-8 m/pixel (linear terms) / m (translation), far below
+    # the map's 40 m working uncertainty. Geometry still uses the unrounded fit
+    # above and the existing station rounding; every output is checked bytewise.
+    coefficients = [[round(float(v), 8) for v in row] for row in fit]
+    return rail, shore, {'coefficients':coefficients, 'residual_m':np.linalg.norm(a@fit-b,axis=1).round(2).tolist(),
                          'working_uncertainty_m':40, 'note':spec['control_note']}
 
 
