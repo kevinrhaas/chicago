@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1791, ts: '2026-10-14T11:59:49.068Z', date: 'Oct 14, 2026, 6:59 AM CT', title: '1904 rails and shoreline continue beyond Prairie Avenue', kind: 'improvement',
+    items: [
+      'The Illinois Central tracks now continue north and south to the surrounding map’s edges, following Talbot’s 1904 railroad map.',
+      'The lakefront beyond the detailed district follows the mapped coast, including Grant Park’s fill and the southern railroad lands. Outer track counts, grades and joins remain labelled as reconstructed.',
+    ] },
   { v: 1790, ts: '2026-10-14T09:52:11.026Z', date: 'Oct 14, 2026, 4:52 AM CT', title: 'Keep Glessner rebuilds consistent', kind: 'fix',
     items: [
       'Nothing you can see changes. Glessner’s saved shading layout now stays consistent when the house is rebuilt on another machine.',
