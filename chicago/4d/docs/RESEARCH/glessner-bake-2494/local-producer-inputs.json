@@ -1,0 +1,50 @@
+{
+  "model_revision": "d1c38de067dba8c24a0fe4771463a5de7e88495e",
+  "producer_sha256": "c23502f1869791923b080ecf9c1c54d058da53ba90ef8faec20cb53a9bcd082b",
+  "full_master_sha256": "ca2ccfb8684ad046c4217182ac1b3d93f49addf9b2812bdd2b0e7f66cec09743",
+  "inputs": {
+    "components": {
+      "co": {
+        "sha256": "f0d46a2dc1fabc0413793381f2de72f2f5766fe277a99c1eeadb104c06391202",
+        "values": 9068592
+      },
+      "loop_start": {
+        "sha256": "757d0c965dc919f2f122bc3523e67fe9fbe84671e1efe612526230492d60ed54",
+        "values": 855038
+      },
+      "loop_total": {
+        "sha256": "d5810c32b28b7cf2049e3dfc713c763f8bd4c47ad47892e0ac8e2788813e8940",
+        "values": 855038
+      },
+      "mask": {
+        "faces": 855038,
+        "sha256": "87627519d4d1d5799066c42a70de2df6234f31498f75a6104a1e02109cda97ed"
+      },
+      "uv": {
+        "sha256": "c62bb0e5f32042b80f573574bc537350782c72ad67e9ab9eb235d7fb5d9bc50a",
+        "values": 6045728
+      },
+      "vertex_index": {
+        "sha256": "7da93e93a1f340eb991d529626b20a07a5fbc8ba30f7a9cc87b336fb9da36705",
+        "values": 3022864
+      }
+    },
+    "key": "447b6297e787dc037465faa19424b0c229735836e626e4c1bd96a54973dea4fc",
+    "recipe": {
+      "blender": "4.5.3 LTS",
+      "distance_m": 0.3,
+      "margin_px": 4,
+      "recipe": 1,
+      "samples": 64,
+      "size": 2048,
+      "slots": [
+        0,
+        12,
+        13,
+        14,
+        15,
+        24
+      ]
+    }
+  }
+}

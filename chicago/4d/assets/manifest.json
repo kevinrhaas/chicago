@@ -826,7 +826,7 @@
       "archetype": "masonry_house",
       "baked_ao": true,
       "bytes": 187170988,
-      "inputs_sha256": "7915d0afa2b82b78bcac57f8ee984a0a251b58acc8257d2d1fe714e55c35024e",
+      "inputs_sha256": "e8208d7567549692b12fa388130f20c1ed47732e9d9fdca0fdb4ba0e60c39bf6",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
@@ -834,8 +834,8 @@
         "light": {
           "asset": "glessner_house__as_built_1887.light.glb",
           "master_sha256": "ca2ccfb8684ad046c4217182ac1b3d93f49addf9b2812bdd2b0e7f66cec09743",
-          "output_sha256": "6ac6d6d3ffba319b8fe2c9b533941aef4da6c9d99cd6b38c1f23cb826e41c649",
-          "recipe_sha256": "2696ad266a82ce862d65a62166cbf81794c1b3897a43970f71c95a9461fac909",
+          "output_sha256": "cdcd8cff8d9a81c0149c129f0d8d95b062940b90d5a7f4d48096f8e8a0250df3",
+          "recipe_sha256": "201637b8018c895f58d197a41522e80f1c87e403ff576a9994c6d15a992ddee2",
           "triangles": 199496
         }
       },

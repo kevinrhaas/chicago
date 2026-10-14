@@ -179,10 +179,12 @@ def _fill_holes(np, value, covered):
 
 def _atlas_key(bpy, np, me, mask):
     """sha256 of everything the AO and coverage bakes read (see module doc)."""
-    h = hashlib.sha256(json.dumps({
+    recipe = {
         "recipe": ATLAS_RECIPE, "blender": bpy.app.version_string, "size": SIZE,
         "samples": SAMPLES, "distance_m": DISTANCE_M, "margin_px": BAKE_MARGIN_PX,
-        "slots": list(GRANITE_SLOTS)}, sort_keys=True).encode())
+        "slots": list(GRANITE_SLOTS)}
+    h = hashlib.sha256(json.dumps(recipe, sort_keys=True).encode())
+    fingerprints = {}
     for seq, attr, n, dtype in ((me.vertices, "co", len(me.vertices) * 3, np.float32),
                                 (me.loops, "vertex_index", len(me.loops), np.int32),
                                 (me.polygons, "loop_start", len(me.polygons), np.int32),
@@ -191,9 +193,19 @@ def _atlas_key(bpy, np, me, mask):
                                  np.float32)):
         a = np.zeros(n, dtype)
         seq.foreach_get(attr, a)
-        h.update(a.tobytes())
-    h.update(np.packbits(mask).tobytes())
-    return h.hexdigest()
+        raw = a.tobytes()
+        h.update(raw)
+        fingerprints[attr] = {"values": n, "sha256": hashlib.sha256(raw).hexdigest()}
+    raw_mask = np.packbits(mask).tobytes()
+    h.update(raw_mask)
+    fingerprints["mask"] = {"faces": len(mask), "sha256": hashlib.sha256(raw_mask).hexdigest()}
+    key = h.hexdigest()
+    # T-2494: report the actual producer inputs when a runner gets a different
+    # key. The digest and all baked/exported values remain unchanged; a key alone
+    # cannot distinguish changed geometry from changed unwrap or recipe inputs.
+    print("stone occlusion inputs: " + json.dumps({
+        "key": key, "recipe": recipe, "components": fingerprints}, sort_keys=True), flush=True)
+    return key
 
 
 def _atlas_path():

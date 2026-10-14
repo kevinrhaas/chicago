@@ -1,0 +1,12 @@
+{
+  "before_asset_sha256": "6ac6d6d3ffba319b8fe2c9b533941aef4da6c9d99cd6b38c1f23cb826e41c649",
+  "binary_payload_sha256": "789b50599439c0f54fc52f1a719cf27bdd78d1f907745140e2eb93cb496c2748",
+  "binary_payload_identical": true,
+  "json_differences": [
+    {
+      "path": "/extras/glessner_light/recipe_sha256",
+      "before": "2696ad266a82ce862d65a62166cbf81794c1b3897a43970f71c95a9461fac909",
+      "after": "201637b8018c895f58d197a41522e80f1c87e403ff576a9994c6d15a992ddee2"
+    }
+  ]
+}

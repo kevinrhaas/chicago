@@ -639,7 +639,7 @@
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
       "bytes": 27825840,
-      "sha256": "6ac6d6d3ffba319b8fe2c9b533941aef4da6c9d99cd6b38c1f23cb826e41c649",
+      "sha256": "cdcd8cff8d9a81c0149c129f0d8d95b062940b90d5a7f4d48096f8e8a0250df3",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",

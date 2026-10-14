@@ -1,0 +1,7 @@
+{
+  "title": "Diagnose Glessner rebuild differences",
+  "kind": "fix",
+  "items": [
+    "Nothing you can see changes. The Glessner build now reports the inputs needed to identify why rebuilds differ between machines."
+  ]
+}

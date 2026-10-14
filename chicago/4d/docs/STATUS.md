@@ -23196,3 +23196,8 @@ The stable north gable now has its photographed eave return toward the alley, an
 ### T-2218 — curved courtyard hall steps (2026-10-14)
 
 The measured terrace and fan-shaped flight replace the narrow straight boxes. The brick cheek descends under a closed stone cap to a rounded end post. HABS plan/section controls also correct the shared hall-bow footprint; approved door treatment and threshold remain. Lower hidden tread geometry is explicitly reconstructed. The build, geometric ray checks, K01 contract and all ten final published desktop/phone views pass. Full/Web have 1,312,788 triangles; Light has 199,496. The threshold depth interference is repaired. Terminal-shoulder/tower projection differences remain explicit for T-2228. Full preflight and remote checks govern the dev merge; see the ticket-linked PR for their results. See [the report](RESEARCH/glessner-courtyard-steps-T-2218.md).
+
+
+### T-2494 — Glessner rebuild-input diagnosis
+
+The atlas-key producer reports separate input fingerprints without changing its digest, model or cache rules. Six local cases across the original failing revision and the T-2218 revision reproduce their committed atlas keys; build order, tested thread counts and canonical launch flags do not reproduce the CI mismatch. The responsible CI input remains unproven. See `docs/RESEARCH/glessner-bake-2494/README.md`. T-2220 waits on this reproducibility repair; whole-house photographic acceptance remains T-2228.
