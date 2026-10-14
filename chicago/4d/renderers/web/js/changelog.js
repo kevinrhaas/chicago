@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1792, ts: '2026-10-14T15:35:34.667Z', date: 'Oct 14, 2026, 10:35 AM CT', title: 'Glessner courtyard copper meets the roof', kind: 'fix',
+    items: [
+      'The lifted courtyard copper panel is replaced with a low curved hood that meets both adjoining roofs, with seated seams and panel laps.',
+      'Five credited courtyard photographs are available in the house image library. The 1904 copper finish remains a documented reconstruction.',
+    ] },
   { v: 1791, ts: '2026-10-14T11:59:49.068Z', date: 'Oct 14, 2026, 6:59 AM CT', title: '1904 rails and shoreline continue beyond Prairie Avenue', kind: 'improvement',
     items: [
       'The Illinois Central tracks now continue north and south to the surrounding map’s edges, following Talbot’s 1904 railroad map.',
