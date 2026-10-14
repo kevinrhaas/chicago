@@ -882,6 +882,17 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "window_count": bt["window_count"], "window_z": [fr.z(v) for v in bt["window_z"]],
                 "parapet_m": float(bt.get("parapet_height_ft", 2.2)) * FT,
                 "stair_steps": int(bt.get("stair_steps", 9))}
+            if bt.get("stair_boundaries_WS"):
+                p.detail["bow_terrace"].update(
+                    arc=[math.radians(a) for a in bt["arc_degrees"]],
+                    cap_section_profile={key:[((s-bt["centre_S"])*FT,fr.z(z)) for s,z in values]
+                                         for key,values in bt["cap_section_profile"].items()},
+                    grille_bars=bt["grille_bars"], grille_rails_fraction=bt["grille_rails_fraction"],
+                    grille_stone_m=bt["grille_stone_m"],
+                    window_distance=[[(v-bt["centre_S"])*FT for v in edge] for edge in bt["window_S"]],
+                    newel_xy=fr.xy(bt["newel_WS"]), newel_r=bt["newel_radius_ft"]*FT,
+                    newel_top=fr.zval(bt["newel_top_z"]), newel_crown=bt["newel_crown_ft"]*FT,
+                    stair_boundaries=[[fr.xy(q) for q in edge] for edge in bt["stair_boundaries_WS"]])
         p.detail["dining_roof_junction"] = raw.get("dining_roof_junction", False)
         p.detail["dining_crested_connection"] = raw.get("dining_crested_connection", False)
         p.detail["continuous_copper_corner"] = raw.get("continuous_copper_corner", False)

@@ -1549,6 +1549,8 @@ def tower(b,t,params):
 
 
 def terrace(b,params):
+    from archetypes.masonry_house_v4_terrace import build
+    if build(b,params):return
     data=params.detail.get('bow_terrace')
     if not data or not params.bows:return
     w=params.bows[0];a0,a1=sorted((w['a0'],w['a1']))

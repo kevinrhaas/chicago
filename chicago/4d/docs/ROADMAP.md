@@ -5323,3 +5323,6 @@ Circular/square panel relief, straps, ring pulls and usable inward swing replace
 the former rectangular treatment. Existing passage paving is retained. Evidence,
 construction bounds and review: RESEARCH/glessner-porte-cochere-T-2217.md.
 Whole-house photographic acceptance remains T-2228.
+
+
+T-2218 (2026-10-14): courtyard terrace and fan steps recalibrated to HABS sheets 2/4; shared hall-bow plan reconciled, descending cheek/coping and rounded terminal built. See docs/RESEARCH/glessner-courtyard-steps-T-2218.md for source bounds and final validation. Whole-house photographic acceptance remains T-2228.

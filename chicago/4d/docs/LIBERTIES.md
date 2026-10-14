@@ -26698,3 +26698,22 @@ proportion reconciliation remains T-2228, not a claimed perfect photo match.
 **Recorded:** 2026-10-14 (T-2217).
 
 **Covers:** `glessner_house.as_built_1887.form.ironwork_finish`
+
+### L-glessner-courtyard-steps-2218 — curved hall terrace and stair (2026-10-14)
+
+**Decision:** HABS sheets 2 and 4 (`habs_glessner_house_il_1015_drawings`, unrestricted government drawings) supply the terrace plan and section. The printed 161 ft 3 in by 74 ft envelope calibrates the first-floor scan. The terrace outside radius is about 18.8 ft. The hall bow is recalibrated to W27.8/S28.8 and outside radius 10.6 ft; its printed 9.5 ft dimension is inside. These are measured 1963 fabric inferred for 1904, with approximately ±0.25 ft plan-reading bounds. The retained doorway, light rows and 1.679 m stair level remain.
+
+Seven upper tread boundaries are legible; the three obscured lower boundaries turn around the terminal and clear the retained stair tower as bounded reconstructions. Nine equal 186.6 mm rises, 22 mm noses, 40 mm buried bases, joint stock and exact hidden joins are reconstructed. The source count is nine ± one riser. Hidden brick faces stay closed but omit individual brick relief. Light retains the footprint, tread levels, openings and cap profile with fewer curve samples and four-sided grille bars.
+
+The paired grille clear head is 4.68 ft above grade, distinct from the outer lintel. Eleven intermediate bars and two rails follow the section pattern. The 18 mm bar diameter, 0.10 m jambs, 0.11 m sill, 0.38 m lintel and hidden fixings are bounded stock details. The measured W51.5 ft source cut applies only to the research section camera.
+
+Both cap edges follow independent section traces at roughly ±5 rectified pixels, with monotone interpolation. The upper flat edge is 2.564 m. The round terminal has a 1.554 m crown, 0.75 ft radius and hemispherical top; its S46.05 centre differs by 1.8 inches from the initial plan reading S46.2. The last three reconstructed tread ends follow that terminal. Beyond the visible edge traces at S45.35, a short shoulder joins the plan-located post. Its projected length differs from the section silhouette and remains explicitly open for T-2228.
+
+The deck extends 0.40 m inside the bow arc to reach the recessed leaf. A closed stone threshold spans the retained reveal/sill with a reconstructed 6 mm rise and 10 cm buried depth, removing the depth interference seen where the old surfaces and new deck were coplanar. Exact threshold stock is not independently attested.
+
+Photo 05 (`habs_glessner_photo_05_court_c1923`) and the later Florian courtyard photographs are qualitative cross-checks only; no pixels or traced assets come from rights-pending imagery. The 1946 parking paving is excluded. Whole-house photographic acceptance remains T-2228, including the terminal/tower projection discrepancy. See [the source and validation report](RESEARCH/glessner-courtyard-steps-T-2218.md).
+
+**Ticket:** T-2218.
+**Recorded:** 2026-10-14 (T-2218).
+
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`
