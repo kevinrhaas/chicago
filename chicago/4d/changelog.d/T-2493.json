@@ -1,9 +1,0 @@
-{
-  "title": "Lighter 1904 street trees at a distance",
-  "kind": "improvement",
-  "items": [
-    "Elms more than 60 m away draw a lighter crown, and only elms within 100 m cast shadows; the near street looks the same.",
-    "The faded city's trees deep in the haze (past 2 km) are no longer drawn. Its buildings still run out to the horizon.",
-    "Together they draw about 170,000 fewer triangles at the 1904 starting view on desktop."
-  ]
-}

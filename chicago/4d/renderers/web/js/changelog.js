@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1786, ts: '2026-10-14T02:21:08.001Z', date: 'Oct 13, 2026, 9:21 PM CT', title: 'Lighter 1904 street trees at a distance', kind: 'improvement',
+    items: [
+      'Elms more than 60 m away draw a lighter crown, and only elms within 100 m cast shadows; the near street looks the same.',
+      'The faded city\'s trees deep in the haze (past 2 km) are no longer drawn. Its buildings still run out to the horizon.',
+      'Together they draw about 170,000 fewer triangles at the 1904 starting view on desktop.',
+    ] },
   { v: 1785, ts: '2026-10-14T02:00:12.131Z', date: 'Oct 13, 2026, 9:00 PM CT', title: '1637 Prairie\'s chimneys get their panelled shafts and capped heads', kind: 'improvement',
     items: [
       'The three chimneys on Jesse Spalding\'s house at 1637 Prairie now have the corbelled brick heads and stone caps the engraving draws, where they were plain boxes.',
