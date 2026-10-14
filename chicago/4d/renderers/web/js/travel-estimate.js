@@ -25,7 +25,7 @@ export function estimateLeg({ from, to, mode, settings = {}, router }) {
     const cruise = direct / (FLY.speed * FLY.altitudeGain(height));
     return { seconds: ascent + cruise + descent + ARRIVAL_SETTLE_S, length_m: direct, approx: false };
   }
-  const route = router?.plan?.(from, to);
+  const route = router?.plan?.(from, to, { mode });
   const routed = route?.points?.length && Number.isFinite(route.length_m) && route.length_m >= 0;
   const length_m = routed ? route.length_m : direct * 1.3;
   return { seconds: length_m / paceSpeed(mode, settings) + ARRIVAL_SETTLE_S, length_m, approx: !routed };
