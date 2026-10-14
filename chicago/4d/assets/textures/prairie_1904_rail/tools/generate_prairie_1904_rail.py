@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""Build the 1904 lakefront railway PBR library (T-2478).
+"""Build the 1904 lakefront railway PBR library (T-2478, T-2479).
 
     python3 generate_prairie_1904_rail.py --out ..      # rebuild the library in place
 
 The Illinois Central's right-of-way east of Prairie Avenue: the cinder bed the tracks
 lie in, the trodden cinders between and beside them, the weedy verge along the edges,
-the timber of a crosstie, and the alpha card the verge's grass tufts are drawn with.
+the timber of a crosstie, and the alpha card the verge's grass tufts are drawn with;
+and at the lake (T-2479) the stone riprap on the embankment's face, the face of one of
+its stones, the timber cap along its crest and the made ground between the last track
+and the stone.
 It is the street-surface library's sibling (../prairie_1904_pbr/) and borrows its noise
 and its map writer, so the two read as one place: 512 px, seamless, deterministic,
 three web JPEG derivatives per material that publish.sh ships and nothing else.
@@ -18,7 +21,8 @@ those, and nobody binds them.
 WHAT THESE ARE EVIDENCE OF: NOTHING. George Glessner's photographs at 18th Street show
 the bed as dark, fine and filled to the ties' tops, and that is all a picture here
 borrows from a source; the grain, the colour, the clinker, the weeds and the grain of
-the timber are ours (docs/LIBERTIES.md L-ic-tracks-2478). Which ground carries which
+the timber are ours (docs/LIBERTIES.md L-ic-tracks-2478), and so is every stone of the
+lake edge (L-ic-lake-edge-2479). Which ground carries which
 material is data/railway/1904_spec.json's to say. No photograph is sampled.
 
 Orientation: image x runs ALONG the track (the renderer's u), image y ACROSS it (v).
@@ -69,12 +73,38 @@ MATERIALS = [
               "cinder dust packed into the grain and a darker band where each rail sits. "
               "Untreated because creosoting was still unusual on Midwestern lines before "
               "about 1910; that, the wood and its colour are reconstructed (L-ic-tracks-2478)."),
+    # The lake edge (T-2479). Each carries its own seed: the tuft's seed is the one
+    # that followed the first four, and it does not move.
+    dict(id="riprap_limestone", group="edge", span_m=4.0, span_across_m=4.0, seed=19041320,
+         kind="riprap", mean_roughness=0.86, colors=((178, 170, 152), (92, 88, 80)),
+         note="Rough quarry stone dumped on the embankment's lakeward face, seen from above: "
+              "angular blocks from a fifth to most of a metre across, buff-grey limestone of the kind "
+              "Lemont and Joliet quarried for every Chicago lake work, weathered, stained and "
+              "spotted with lichen, with dark voids between them. The renderer darkens it "
+              "toward the water. Reconstructed (L-ic-lake-edge-2479)."),
+    dict(id="limestone_block", group="edge", span_m=1.0, span_across_m=1.0, seed=19041421,
+         kind="stone", mean_roughness=0.84, colors=((182, 174, 156), (104, 99, 89)),
+         note="The broken face of one riprap stone, for the blocks the renderer stands on "
+              "the face near the eye: split limestone with its bedding lines, pits, rust "
+              "stains and lichen. Reconstructed (L-ic-lake-edge-2479)."),
+    dict(id="cap_timber", group="edge", span_m=3.0, span_across_m=0.30, seed=19041522,
+         kind="timber", seats=False, mean_roughness=0.86, colors=((112, 104, 92), (50, 46, 42)),
+         note="A 12-inch timber laid along the embankment's crest as a cap over the piles, "
+              "weathered grey by the lake: grain along its length, season checks, no rail "
+              "seats. Reconstructed (L-ic-lake-edge-2479)."),
+    dict(id="made_ground", group="edge", span_m=4.0, span_across_m=4.0, seed=19041623,
+         kind="made", mean_roughness=0.94, colors=((132, 122, 106), (52, 49, 46)),
+         note="The made ground between the last track and the stone: cinders, lake sand and "
+              "builders' rubble dumped behind the edge, with brick and stone bits and patchy "
+              "weeds. Reconstructed (L-ic-lake-edge-2479)."),
 ]
 
 TUFT = dict(id="grass_tuft", group="foliage", width_px=256, height_px=512, height_m=0.55,
             note="An alpha card of grass and weed blades with a few seed heads, drawn "
                  "upright; the renderer stands two crossed at each tuft. Species, height "
                  "and colour are reconstructed (L-ic-tracks-2478).")
+
+TUFT_SEED = 19040714 + 4 * 101   # the seed after the first four materials, kept when more were added
 
 WEB_SUFFIXES = ("basecolor", "normal_gl", "orm")
 
@@ -166,10 +196,12 @@ def timber(spec, rng):
     # rail seats: the 85-lb rail's base, 0.13 m wide, at gauge each side of centre
     seat_c = np.array((0.5 - 0.7175 / 2.44 - 0.0335 / 2.44, 0.5 + 0.7175 / 2.44 + 0.0335 / 2.44)) * SIZE
     seat = np.zeros((SIZE, SIZE), np.float32)
-    for c in seat_c:
+    for c in seat_c if spec.get("seats", True) else ():
         seat = np.maximum(seat, clamp01(1 - np.abs(xx - c) / (0.075 / 2.44 * SIZE)))
     dust = clamp01(blur(checks, 2.0) * 1.5) + 0.5 * fbm(rng, (30, 8), (0.6, 0.4))
     ends = clamp01(1 - np.minimum(xx, SIZE - 1 - xx) / (0.12 * SIZE))
+    if not spec.get("seats", True):                       # a cap runs on: it has no ends
+        ends = np.zeros_like(ends)
     t = 0.55 + 0.20 * (rings - 0.5) + 0.12 * (grain - 0.5) - 0.25 * dust - 0.20 * ends - 0.30 * seat
     color = palette(t, *spec["colors"])
     color *= (1 - 0.55 * checks)[..., None]
@@ -179,7 +211,152 @@ def timber(spec, rng):
     return clamp01(h), color, clamp01(rough), 3.0
 
 
-SURFACES = {"ballast": ballast, "trodden": trodden, "verge": verge, "timber": timber}
+def border_distance(ids):
+    """Seamless distance, in pixels, from each pixel to the edge of its Voronoi cell."""
+    from scipy import ndimage
+    edge = np.zeros(ids.shape, bool)
+    for dy, dx in ((0, 1), (1, 0)):
+        edge |= np.roll(ids, (dy, dx), (0, 1)) != ids
+    d = ndimage.distance_transform_edt(~np.tile(edge, (3, 3)))
+    return d[SIZE:2 * SIZE, SIZE:2 * SIZE].astype(np.float32)
+
+
+def facets(rng, ids, n, steep):
+    """A tilted plane per cell, so each stone shows a few flat broken faces, not a dome."""
+    yy, xx = np.indices((SIZE, SIZE)).astype(np.float32) / SIZE
+    gy = (rng.random(n).astype(np.float32) - 0.5) * steep
+    gx = (rng.random(n).astype(np.float32) - 0.5) * steep
+    # the plane is measured from the cell's own mean position so it does not wrap
+    cy = np.bincount(ids.ravel(), yy.ravel(), n) / np.maximum(np.bincount(ids.ravel(), None, n), 1)
+    cx = np.bincount(ids.ravel(), xx.ravel(), n) / np.maximum(np.bincount(ids.ravel(), None, n), 1)
+    dy = (yy - cy[ids] + 0.5) % 1.0 - 0.5
+    dx = (xx - cx[ids] + 0.5) % 1.0 - 0.5
+    return gy[ids] * dy + gx[ids] * dx
+
+
+def warp(rng, ids, amount, sigma):
+    """The cell map sampled through a smooth displacement: a stone's outline is ragged."""
+    yy, xx = np.indices((SIZE, SIZE))
+    wy = ((noise(rng, sigma) - 0.5) * 2 * amount).astype(np.int32)
+    wx = ((noise(rng, sigma) - 0.5) * 2 * amount).astype(np.int32)
+    return ids[(yy + wy) % SIZE, (xx + wx) % SIZE]
+
+
+def riprap(spec, rng):
+    # about 120 blocks on a 4 m tile (0.2 to 0.7 m across), ragged, most packed close and
+    # a few missing, so the face reads as heaped stone with dark pockets, not paving
+    n = 120
+    ids, _dist, _edge = voronoi(rng, n)
+    ids = warp(rng, ids, 7.0, 6.0)
+    ids = warp(rng, ids, 2.0, 2.5)
+    bd = border_distance(ids)
+    size = rng.random(n).astype(np.float32)
+    tone = rng.random(n).astype(np.float32)
+    lift = (0.55 + 0.45 * rng.random(n)).astype(np.float32)   # how far each block stands proud
+    hole = (rng.random(n) < 0.06).astype(np.float32)          # a block that is not there
+    blue = (rng.random(n) < 0.14).astype(np.float32)          # a few harder, bluer blocks
+    buff = (rng.random(n) < 0.25).astype(np.float32)          # and some warmer, yellower ones
+    # the joint between two blocks runs from a hairline to a hand-wide pocket along its
+    # length, so no block is outlined evenly
+    open_ = clamp01((noise(rng, 9.0) - 0.52) * 2.4) ** 1.5
+    margin = 0.4 + 9.0 * open_ + 1.5 * rng.random(n).astype(np.float32)[ids] * open_
+    body = clamp01((bd - margin) / (5.0 + 12.0 * size[ids])) * (1 - hole[ids])
+    dome = body ** 0.45
+    face = facets(rng, ids, n, 5.0)
+    split = facets(rng, warp(rng, voronoi(rng, n * 3)[0], 4.0, 3.0), n * 3, 4.0)  # broken faces
+    grain = noise(rng, 0.7)
+    rubble = noise(rng, 1.6)                                  # small stone in the pockets
+    weather = fbm(rng, (24, 8, 2.5), (0.5, 0.3, 0.2))
+    stain = fbm(rng, (60, 20), (0.6, 0.4))                    # broad water and soot staining
+    lichen = clamp01((fbm(rng, (5, 2), (0.6, 0.4)) - 0.72) * 5) * body
+    dark_lichen = clamp01((noise(rng, 2.2) - 0.86) * 6) * body
+    rust = clamp01((noise(rng, 7.0) - 0.74) * 4) * body
+    h = (0.18 + 0.20 * rubble * (1 - body) + lift[ids] * (0.50 * dome + 0.14 * (face + split) * body)
+         + 0.03 * (grain - 0.5))
+    h = clamp01(h)
+    # light the heap from the sky: hollows go dark, crowns stay pale (a mild bake, the
+    # normal map does the rest)
+    cav = clamp01(0.5 + 2.2 * (blur(h, 2.0) - blur(h, 14.0)))
+    t = (0.50 + 0.30 * (tone[ids] - 0.5) + 0.22 * (weather - 0.5) + 0.10 * (grain - 0.5)
+         + 0.16 * (stain - 0.5) + 0.60 * (face + split) * body)
+    color = palette(t, *spec["colors"])
+    color = color * (1 - 0.30 * blue[ids][..., None]) + np.array((92, 98, 102), np.float32) * 0.30 * blue[ids][..., None]
+    color = color * (1 - 0.22 * buff[ids][..., None]) + np.array((176, 150, 104), np.float32) * 0.22 * buff[ids][..., None]
+    color = color * (1 - 0.35 * rust[..., None]) + np.array((150, 112, 72), np.float32) * 0.35 * rust[..., None]
+    color = color * (1 - 0.40 * lichen[..., None]) + np.array((170, 172, 138), np.float32) * 0.40 * lichen[..., None]
+    color = color * (1 - 0.45 * dark_lichen[..., None]) + np.array((58, 60, 50), np.float32) * 0.45 * dark_lichen[..., None]
+    # between the blocks: grit and spalls, browner and darker the wider the pocket
+    gapc = palette(0.15 + 0.45 * rubble + 0.4 * open_, (110, 104, 92), (44, 41, 36))
+    under = clamp01(1 - body * 6)[..., None]
+    color = color * (1 - under) + gapc * under
+    color = color * (0.62 + 0.50 * cav)[..., None]
+    rough = spec["mean_roughness"] + 0.08 * (1 - body) - 0.04 * (grain - 0.5)
+    return h, color, clamp01(rough), 7.0
+
+
+def stone(spec, rng):
+    yy, _xx = np.indices((SIZE, SIZE)).astype(np.float32)
+    # bedding: the limestone's layers, a few cm apart, waving a little
+    wav = noise(rng, (40.0, 90.0))
+    beds = 0.5 + 0.5 * np.sin((yy / SIZE) * 2 * math.pi * 11 + 9 * (wav - 0.5))
+    seams = clamp01((beds - 0.86) * 7) * clamp01((noise(rng, (6.0, 30.0)) - 0.35) * 3)
+    broken = fbm(rng, (30, 10, 3), (0.5, 0.3, 0.2))
+    pits = clamp01((noise(rng, 0.9) - 0.76) * 6)
+    grain = noise(rng, 0.6)
+    lichen = clamp01((fbm(rng, (14, 5), (0.6, 0.4)) - 0.68) * 5)
+    dark_lichen = clamp01((noise(rng, 2.5) - 0.85) * 5)
+    rust = clamp01((noise(rng, (20.0, 8.0)) - 0.72) * 4)
+    t = 0.52 + 0.24 * (broken - 0.5) + 0.12 * (grain - 0.5) + 0.08 * (beds - 0.5) - 0.30 * seams - 0.10 * pits
+    color = palette(t, *spec["colors"])
+    color = color * (1 - 0.35 * rust[..., None]) + np.array((146, 106, 70), np.float32) * 0.35 * rust[..., None]
+    color = color * (1 - 0.45 * lichen[..., None]) + np.array((170, 172, 138), np.float32) * 0.45 * lichen[..., None]
+    color = color * (1 - 0.6 * dark_lichen[..., None]) + np.array((46, 48, 40), np.float32) * 0.6 * dark_lichen[..., None]
+    h = 0.5 + 0.30 * (broken - 0.5) + 0.06 * (grain - 0.5) - 0.20 * seams - 0.18 * pits
+    rough = spec["mean_roughness"] + 0.05 * (grain - 0.5) + 0.06 * pits
+    return clamp01(h), color, clamp01(rough), 4.0
+
+
+def made(spec, rng):
+    # dumped fill: cinders in the main, lake sand in drifts, broken brick and stone in it,
+    # and weeds where it has lain longest
+    cover = fbm(rng, (34, 12, 4), (0.5, 0.3, 0.2))
+    sand = clamp01((fbm(rng, (26, 9, 3), (0.55, 0.3, 0.15)) - 0.58) * 3.0)
+    grit = noise(rng, 0.55)
+    fine = noise(rng, 1.4)
+    ids, _dist, _edge = voronoi(rng, 1500)
+    ids = warp(rng, ids, 2.0, 1.5)
+    nb = ids.max() + 1
+    lump = clamp01((border_distance(ids) - 1.0) / 3.0) ** 0.5   # angular bits, ~4-12 cm
+    which = rng.random(nb).astype(np.float32)[ids]
+    show = (rng.random(nb) < 0.11).astype(np.float32)[ids] * (lump > 0.02)
+    show = show * (0.35 + 0.65 * clamp01((noise(rng, 3.0) - 0.3) * 2))  # half buried in dust
+    brick = (which < 0.28) * show
+    rock = ((which >= 0.28) & (which < 0.62)) * show
+    clinker = (which >= 0.62) * show
+    weeds = clamp01((cover - 0.60) * 3.5)
+    blades = noise(rng, (1.1, 0.4))
+    weeds = weeds * clamp01((blades - 0.30) * 2.5 + 0.4 * weeds)
+    straw = clamp01((noise(rng, (2.0, 0.6)) - 0.62) * 4) * weeds
+    t = 0.42 + 0.16 * (cover - 0.5) + 0.20 * (grit - 0.5) + 0.10 * (fine - 0.5)
+    color = palette(t, *spec["colors"])
+    sandc = palette(0.5 + 0.35 * (grit - 0.5) + 0.2 * (fine - 0.5), (198, 182, 148), (140, 124, 96))
+    color = color * (1 - 0.8 * sand[..., None]) + sandc * 0.8 * sand[..., None]
+    for mask, col in ((brick, (112, 70, 54)), (rock, (142, 136, 122)), (clinker, (56, 54, 51))):
+        m = (mask * lump)[..., None]
+        color = color * (1 - 0.6 * m) + np.array(col, np.float32) * (0.75 + 0.25 * fine[..., None]) * 0.6 * m
+    ring = clamp01(1 - lump * 2) * show                 # a shadow at each piece's edge
+    color *= (1 - 0.30 * ring)[..., None]
+    leaf = palette(0.5 + 0.6 * (blades - 0.5), (110, 122, 64), (52, 62, 34))
+    leaf = leaf * (1 - 0.5 * straw[..., None]) + np.array((152, 136, 90), np.float32) * 0.5 * straw[..., None]
+    color = color * (1 - weeds[..., None]) + leaf * weeds[..., None]
+    h = (0.42 + 0.08 * (cover - 0.5) + 0.12 * (grit - 0.5) + 0.30 * lump * show - 0.05 * sand
+         + 0.22 * weeds * blades)
+    rough = spec["mean_roughness"] - 0.04 * sand + 0.02 * (grit - 0.5) - 0.10 * clinker * lump
+    return clamp01(h), color, clamp01(rough), 4.5
+
+
+SURFACES = {"ballast": ballast, "trodden": trodden, "verge": verge, "timber": timber,
+            "riprap": riprap, "stone": stone, "made": made}
 
 
 # ---------------------------------------------------------------------------- tuft
@@ -252,7 +429,7 @@ def grass_tuft(rng, w, h):
 def build(out: Path) -> list[dict]:
     manifest = []
     for i, spec in enumerate(MATERIALS):
-        seed = 19040714 + i * 101
+        seed = spec.get("seed", 19040714 + i * 101)
         rng = np.random.default_rng(seed)
         h, color, rough, strength = SURFACES[spec["kind"]](spec, rng)
         ngl, _ndx, ao = base.maps_from_height(h, strength)
@@ -274,7 +451,8 @@ def build(out: Path) -> list[dict]:
             "resolution_px": SIZE,
             "px_per_m": round(SIZE / spec["span_m"], 2),
             "confidence": "reconstructed appearance; which ground carries it is data/railway/1904_spec.json's to say",
-            "orientation": "image x = along the track (renderer u); image y = across it (v)",
+            "orientation": ("image x = along the track (renderer u); image y = across it (v)" if spec["group"] != "edge"
+                            else "image x = along the shore (renderer u); image y = across it (v)"),
             "color_space": {"basecolor": "sRGB", "normal_gl": "linear", "height16": "linear 16-bit",
                             "orm": "linear; R=AO G=Roughness B=Metallic"},
             "web": {s: f"{stem}_{s}_web.jpg" for s in WEB_SUFFIXES},
@@ -285,7 +463,7 @@ def build(out: Path) -> list[dict]:
         (d / "material.json").write_text(json.dumps(data, indent=2) + "\n")
         manifest.append(data)
 
-    seed = 19040714 + len(MATERIALS) * 101
+    seed = TUFT_SEED
     rng = np.random.default_rng(seed)
     d = out / TUFT["group"] / TUFT["id"]
     d.mkdir(parents=True, exist_ok=True)
@@ -303,8 +481,8 @@ def build(out: Path) -> list[dict]:
     manifest.append(tdata)
 
     (out / "manifest.json").write_text(json.dumps(
-        {"library": "Prairie Avenue 1904 lakefront railway PBR materials", "version": "1.0.0",
-         "ticket": "T-2478", "materials": manifest}, indent=2) + "\n")
+        {"library": "Prairie Avenue 1904 lakefront railway PBR materials", "version": "1.1.0",
+         "ticket": "T-2478, T-2479", "materials": manifest}, indent=2) + "\n")
     contact_sheet(out, manifest)
     return manifest
 

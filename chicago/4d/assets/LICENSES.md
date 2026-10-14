@@ -454,11 +454,13 @@ ballast, trodden cinders, a weedy verge, a crosstie's top) and one alpha card fo
 tufts, built by the generator that ships inside it (`tools/generate_prairie_1904_rail.py`,
 deterministic, seeded per material, borrowing the street library's noise). Which ground wears which
 material is `data/railway/1904_spec.json`'s to say; the look of every map is reconstructed
-(`docs/LIBERTIES.md` L-ic-tracks-2478).
+(`docs/LIBERTIES.md` L-ic-tracks-2478). T-2479 added four more under `edge/` for the railway's edge
+against the lake (the riprap face, one limestone block's face, the cap timber, the made ground),
+equally reconstructed (L-ic-lake-edge-2479).
 
 | item | licence | cleared for | NOT cleared for |
 |---|---|---|---|
-| `textures/prairie_1904_rail/**` — *Prairie Avenue 1904 lakefront railway PBR library v1.0.0*, original procedural output generated for this project. Full text at `textures/prairie_1904_rail/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1835 library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` says its appearance is reconstructed and that the railway spec, not the map, carries the evidence |
+| `textures/prairie_1904_rail/**` — *Prairie Avenue 1904 lakefront railway PBR library v1.1.0*, original procedural output generated for this project. Full text at `textures/prairie_1904_rail/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1835 library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` says its appearance is reconstructed and that the railway spec, not the map, carries the evidence |
 
 **Published in part.** `tools/publish.sh` ships each material's `material.json` and its three
 `*_web.jpg` maps (the tuft's one `grass_tuft_web.png`) to `data/textures/prairie_1904_rail/`; the PNG
@@ -478,6 +480,38 @@ textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_orm.png
 textures/prairie_1904_rail/ballast/cinder_ballast/cinder_ballast_orm_web.jpg
 textures/prairie_1904_rail/ballast/cinder_ballast/material.json
 textures/prairie_1904_rail/contact_sheet.jpg
+textures/prairie_1904_rail/edge/cap_timber/cap_timber_basecolor.png
+textures/prairie_1904_rail/edge/cap_timber/cap_timber_basecolor_web.jpg
+textures/prairie_1904_rail/edge/cap_timber/cap_timber_height16.png
+textures/prairie_1904_rail/edge/cap_timber/cap_timber_normal_gl.png
+textures/prairie_1904_rail/edge/cap_timber/cap_timber_normal_gl_web.jpg
+textures/prairie_1904_rail/edge/cap_timber/cap_timber_orm.png
+textures/prairie_1904_rail/edge/cap_timber/cap_timber_orm_web.jpg
+textures/prairie_1904_rail/edge/cap_timber/material.json
+textures/prairie_1904_rail/edge/limestone_block/limestone_block_basecolor.png
+textures/prairie_1904_rail/edge/limestone_block/limestone_block_basecolor_web.jpg
+textures/prairie_1904_rail/edge/limestone_block/limestone_block_height16.png
+textures/prairie_1904_rail/edge/limestone_block/limestone_block_normal_gl.png
+textures/prairie_1904_rail/edge/limestone_block/limestone_block_normal_gl_web.jpg
+textures/prairie_1904_rail/edge/limestone_block/limestone_block_orm.png
+textures/prairie_1904_rail/edge/limestone_block/limestone_block_orm_web.jpg
+textures/prairie_1904_rail/edge/limestone_block/material.json
+textures/prairie_1904_rail/edge/made_ground/made_ground_basecolor.png
+textures/prairie_1904_rail/edge/made_ground/made_ground_basecolor_web.jpg
+textures/prairie_1904_rail/edge/made_ground/made_ground_height16.png
+textures/prairie_1904_rail/edge/made_ground/made_ground_normal_gl.png
+textures/prairie_1904_rail/edge/made_ground/made_ground_normal_gl_web.jpg
+textures/prairie_1904_rail/edge/made_ground/made_ground_orm.png
+textures/prairie_1904_rail/edge/made_ground/made_ground_orm_web.jpg
+textures/prairie_1904_rail/edge/made_ground/material.json
+textures/prairie_1904_rail/edge/riprap_limestone/material.json
+textures/prairie_1904_rail/edge/riprap_limestone/riprap_limestone_basecolor.png
+textures/prairie_1904_rail/edge/riprap_limestone/riprap_limestone_basecolor_web.jpg
+textures/prairie_1904_rail/edge/riprap_limestone/riprap_limestone_height16.png
+textures/prairie_1904_rail/edge/riprap_limestone/riprap_limestone_normal_gl.png
+textures/prairie_1904_rail/edge/riprap_limestone/riprap_limestone_normal_gl_web.jpg
+textures/prairie_1904_rail/edge/riprap_limestone/riprap_limestone_orm.png
+textures/prairie_1904_rail/edge/riprap_limestone/riprap_limestone_orm_web.jpg
 textures/prairie_1904_rail/foliage/grass_tuft/grass_tuft_web.png
 textures/prairie_1904_rail/foliage/grass_tuft/material.json
 textures/prairie_1904_rail/ground/trodden_cinders/material.json
