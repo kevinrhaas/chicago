@@ -5329,3 +5329,5 @@ T-2218 (2026-10-14): courtyard terrace and fan steps recalibrated to HABS sheets
 
 
 T-2494: diagnose Glessner canonical rebuild differences by reporting the atlas key input fingerprints. Six local cases reproduce committed keys; CI cause remains unproven. T-2220 waits on the reproducibility repair. See docs/RESEARCH/glessner-bake-2494/README.md.
+
+T-2494 resolution: host libm changes the welded smart-project/pack UV layout, not mesh geometry. Retain validated UVs with the AO atlas under an exact mesh/unwrap-recipe key; preserve full atlas and K01 stale-package checks. Controlled Ubuntu libm reproduction and final bake/browser receipts: docs/RESEARCH/glessner-bake-2494/README.md. Unblocks the visible T-2220 copper repair.

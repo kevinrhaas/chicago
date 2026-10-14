@@ -1,7 +1,7 @@
 {
-  "title": "Diagnose Glessner rebuild differences",
+  "title": "Keep Glessner rebuilds consistent",
   "kind": "fix",
   "items": [
-    "Nothing you can see changes. The Glessner build now reports the inputs needed to identify why rebuilds differ between machines."
+    "Nothing you can see changes. Glessner’s saved shading layout now stays consistent when the house is rebuilt on another machine."
   ]
 }

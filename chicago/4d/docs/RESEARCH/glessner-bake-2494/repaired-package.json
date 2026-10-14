@@ -1,0 +1,39 @@
+{
+  "full": {
+    "path": "assets/gltf/glessner_house__as_built_1887.glb",
+    "sha256": "ca2ccfb8684ad046c4217182ac1b3d93f49addf9b2812bdd2b0e7f66cec09743",
+    "bytes": 187170988,
+    "bin_sha256": "575302fd9c6adfdfc9be92196bafe5608715f0e69a85bb3d5a26b2d496b35d15"
+  },
+  "web": {
+    "path": "assets/web/glessner_house__as_built_1887.glb",
+    "sha256": "974b878f77806793171457001e4943414072984d9d421e183a903cc533c43e46",
+    "bytes": 53451532,
+    "bin_sha256": "d2e4f556b5be2f481c307ffd586c2ee53729f7c17b96fc64db43361983c23ff0"
+  },
+  "light": {
+    "path": "assets/web/glessner_house__as_built_1887.light.glb",
+    "sha256": "4a7fd95a03a35dbada677a5fab5d3cc1d33386f8f42f43380debd6c9e1404e35",
+    "bytes": 27825840,
+    "bin_sha256": "789b50599439c0f54fc52f1a719cf27bdd78d1f907745140e2eb93cb496c2748",
+    "recipe_sha256": "124412d15940b8f31c762d96bb3fef4b8f0a6881212006bb807c74310a3cfdee"
+  },
+  "comparison_to_approved_light": {
+    "compared_to": "T-2218 approved/deployed Light package",
+    "binary_payload_identical": true,
+    "bin_sha256": "789b50599439c0f54fc52f1a719cf27bdd78d1f907745140e2eb93cb496c2748",
+    "changed_json_paths": [
+      "/extras/glessner_light/recipe_sha256"
+    ],
+    "old_recipe": "2696ad266a82ce862d65a62166cbf81794c1b3897a43970f71c95a9461fac909",
+    "new_recipe": "124412d15940b8f31c762d96bb3fef4b8f0a6881212006bb807c74310a3cfdee"
+  },
+  "ubuntu_libm_rebuild": {
+    "method": "Same build and web-derivative commands with extracted Ubuntu glibc 2.39 libm preloaded; canonical UV caches restored, no Cycles rebake. All three complete files match the native glibc 2.41 build.",
+    "sha256": {
+      "full": "ca2ccfb8684ad046c4217182ac1b3d93f49addf9b2812bdd2b0e7f66cec09743",
+      "web": "974b878f77806793171457001e4943414072984d9d421e183a903cc533c43e46",
+      "light": "4a7fd95a03a35dbada677a5fab5d3cc1d33386f8f42f43380debd6c9e1404e35"
+    }
+  }
+}

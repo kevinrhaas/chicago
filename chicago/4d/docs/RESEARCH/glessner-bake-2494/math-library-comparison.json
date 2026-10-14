@@ -1,0 +1,212 @@
+{
+  "diagnostic_revision": "439d42f9f0b2a7bec718b98eb2c7ec765532e637",
+  "local_libc": "glibc 2.41",
+  "alternate_libm": {
+    "package": "libc6_2.39-0ubuntu8_amd64.deb",
+    "url": "https://archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc6_2.39-0ubuntu8_amd64.deb",
+    "sha256": "af36c7ac770770fe3d3c10e85d6bc538e76e57570ba7db7d397fb9f654783ef3",
+    "method": "Extracted, not installed; LD_PRELOAD=<extracted>/usr/lib/x86_64-linux-gnu/libm.so.6. Same pinned Blender and source; stop at atlas-key producer before AO/export."
+  },
+  "uv_changed_values": 3601263,
+  "uv_max_absolute_delta": 0.9988359808921814,
+  "ci_comparison": {
+    "run": 38526318213,
+    "revision": "04528e69eaa7e601f22a2ceb01c7b1be96db375e",
+    "logged_atlas_key_prefix": "19bd4a00e6ee4967",
+    "result": "Ubuntu libm reproduces this CI key prefix; geometry/topology/material/mask arrays remain byte-identical to the local control."
+  },
+  "cases": {
+    "selected-t2218": {
+      "key": "447b6297e787dc037465faa19424b0c229735836e626e4c1bd96a54973dea4fc",
+      "blender": "4.5.3 LTS",
+      "components": {
+        "co": {
+          "shape": [
+            9068592
+          ],
+          "sha256": "f0d46a2dc1fabc0413793381f2de72f2f5766fe277a99c1eeadb104c06391202"
+        },
+        "loop_vertex": {
+          "shape": [
+            3022864
+          ],
+          "sha256": "7da93e93a1f340eb991d529626b20a07a5fbc8ba30f7a9cc87b336fb9da36705"
+        },
+        "loop_start": {
+          "shape": [
+            855038
+          ],
+          "sha256": "757d0c965dc919f2f122bc3523e67fe9fbe84671e1efe612526230492d60ed54"
+        },
+        "loop_total": {
+          "shape": [
+            855038
+          ],
+          "sha256": "d5810c32b28b7cf2049e3dfc713c763f8bd4c47ad47892e0ac8e2788813e8940"
+        },
+        "uv": {
+          "shape": [
+            6045728
+          ],
+          "sha256": "c62bb0e5f32042b80f573574bc537350782c72ad67e9ab9eb235d7fb5d9bc50a"
+        },
+        "material": {
+          "shape": [
+            855038
+          ],
+          "sha256": "f78a6c31ee89fedbd40dfee49bb3c868ce43c471275973a5230c156570b4aa3f"
+        },
+        "mask": {
+          "shape": [
+            855038
+          ],
+          "sha256": "1caf263c7b6d2fe2937a1d8b94beeeed434f3439a18d9ea68e3df89a21248378"
+        }
+      }
+    },
+    "selected-no-fma": {
+      "key": "447b6297e787dc037465faa19424b0c229735836e626e4c1bd96a54973dea4fc",
+      "blender": "4.5.3 LTS",
+      "components": {
+        "co": {
+          "shape": [
+            9068592
+          ],
+          "sha256": "f0d46a2dc1fabc0413793381f2de72f2f5766fe277a99c1eeadb104c06391202"
+        },
+        "loop_vertex": {
+          "shape": [
+            3022864
+          ],
+          "sha256": "7da93e93a1f340eb991d529626b20a07a5fbc8ba30f7a9cc87b336fb9da36705"
+        },
+        "loop_start": {
+          "shape": [
+            855038
+          ],
+          "sha256": "757d0c965dc919f2f122bc3523e67fe9fbe84671e1efe612526230492d60ed54"
+        },
+        "loop_total": {
+          "shape": [
+            855038
+          ],
+          "sha256": "d5810c32b28b7cf2049e3dfc713c763f8bd4c47ad47892e0ac8e2788813e8940"
+        },
+        "uv": {
+          "shape": [
+            6045728
+          ],
+          "sha256": "c62bb0e5f32042b80f573574bc537350782c72ad67e9ab9eb235d7fb5d9bc50a"
+        },
+        "material": {
+          "shape": [
+            855038
+          ],
+          "sha256": "f78a6c31ee89fedbd40dfee49bb3c868ce43c471275973a5230c156570b4aa3f"
+        },
+        "mask": {
+          "shape": [
+            855038
+          ],
+          "sha256": "1caf263c7b6d2fe2937a1d8b94beeeed434f3439a18d9ea68e3df89a21248378"
+        }
+      }
+    },
+    "selected-one-cpu": {
+      "key": "447b6297e787dc037465faa19424b0c229735836e626e4c1bd96a54973dea4fc",
+      "blender": "4.5.3 LTS",
+      "components": {
+        "co": {
+          "shape": [
+            9068592
+          ],
+          "sha256": "f0d46a2dc1fabc0413793381f2de72f2f5766fe277a99c1eeadb104c06391202"
+        },
+        "loop_vertex": {
+          "shape": [
+            3022864
+          ],
+          "sha256": "7da93e93a1f340eb991d529626b20a07a5fbc8ba30f7a9cc87b336fb9da36705"
+        },
+        "loop_start": {
+          "shape": [
+            855038
+          ],
+          "sha256": "757d0c965dc919f2f122bc3523e67fe9fbe84671e1efe612526230492d60ed54"
+        },
+        "loop_total": {
+          "shape": [
+            855038
+          ],
+          "sha256": "d5810c32b28b7cf2049e3dfc713c763f8bd4c47ad47892e0ac8e2788813e8940"
+        },
+        "uv": {
+          "shape": [
+            6045728
+          ],
+          "sha256": "c62bb0e5f32042b80f573574bc537350782c72ad67e9ab9eb235d7fb5d9bc50a"
+        },
+        "material": {
+          "shape": [
+            855038
+          ],
+          "sha256": "f78a6c31ee89fedbd40dfee49bb3c868ce43c471275973a5230c156570b4aa3f"
+        },
+        "mask": {
+          "shape": [
+            855038
+          ],
+          "sha256": "1caf263c7b6d2fe2937a1d8b94beeeed434f3439a18d9ea68e3df89a21248378"
+        }
+      }
+    },
+    "selected-ubuntu-libm": {
+      "key": "19bd4a00e6ee4967347cdf85833ec2bd68458805f88539bcfc2f40ae4f942408",
+      "blender": "4.5.3 LTS",
+      "components": {
+        "co": {
+          "shape": [
+            9068592
+          ],
+          "sha256": "f0d46a2dc1fabc0413793381f2de72f2f5766fe277a99c1eeadb104c06391202"
+        },
+        "loop_vertex": {
+          "shape": [
+            3022864
+          ],
+          "sha256": "7da93e93a1f340eb991d529626b20a07a5fbc8ba30f7a9cc87b336fb9da36705"
+        },
+        "loop_start": {
+          "shape": [
+            855038
+          ],
+          "sha256": "757d0c965dc919f2f122bc3523e67fe9fbe84671e1efe612526230492d60ed54"
+        },
+        "loop_total": {
+          "shape": [
+            855038
+          ],
+          "sha256": "d5810c32b28b7cf2049e3dfc713c763f8bd4c47ad47892e0ac8e2788813e8940"
+        },
+        "uv": {
+          "shape": [
+            6045728
+          ],
+          "sha256": "da729906514712cd55823da25514072bef551e815f9c56db18cc8efb4b86343d"
+        },
+        "material": {
+          "shape": [
+            855038
+          ],
+          "sha256": "f78a6c31ee89fedbd40dfee49bb3c868ce43c471275973a5230c156570b4aa3f"
+        },
+        "mask": {
+          "shape": [
+            855038
+          ],
+          "sha256": "1caf263c7b6d2fe2937a1d8b94beeeed434f3439a18d9ea68e3df89a21248378"
+        }
+      }
+    }
+  }
+}
