@@ -26601,6 +26601,7 @@ look; a weather record for a chosen day would set its snow.
 **Ticket:** T-2481.
 **Review:** `renderers/web/js/season.js`.
 **Recorded:** 2026-10-13 (T-2481).
+
 ### L-glessner-service-junction-2219 — north service bay (2026-10-13)
 
 **Decision:** HABS plans 2/3 and photographs 01/15 support wider service openings than the
@@ -26628,6 +26629,45 @@ using four-sided rather than Full’s six-sided 22-mm cylinders at identical cen
 The renderer partitions complete building triangles into 4-m plan / 2-m height
 cells in Balanced/Light inspection: tighter culling preserves all surfaces, attributes
 and shadow geometry without raising the phone frame allowance.
+
+### L-k16-1638-gable-bay-2457 — 1638 Prairie's verge, apex, hood and bay heads read off its photograph: a plain beaded verge board, three pinnacles, a cusped trefoil and volute stops under the hood, drop-arched bay lights with dark stops; the profiles, the trefoil's figure and the stops' colour reconstructed
+
+**Decision:** the gable and bay of the Shortall-Gregory house (T-2457, piece 2 of T-2426) take the
+differences T-2423 and T-2424 left open, read through the camera T-2423 solved for the print. The
+verge is a plain board 0.038 m thick and 0.23 m deep from the roof's top line, standing just in
+front of the roof's edge and covering it, with a 0.05 m bead 0.02 m proud along its foot (the kit's
+pierced bargeboard is not built here). The apex carries three square pinnacles under pyramid points
+in place of the kit's chamfered finial and its drop: the middle one 0.11 m across, its point 0.48 m
+over the apex's roof line; one each side 0.30 m out along the verge, 0.09 m across, its point
+0.08 m over that line. The hood's two ends curl as volutes (a ring 0.07 m in radius round a
+0.025 m eye) and a cusped trefoil (three lobes 0.07 m in radius, 0.07 m off its middle, a 0.025 m
+moulded ring) is applied in the spandrel between the lights' heads, its middle at 6.02 m. The bay's
+three lights have drop-arched heads, each arc's radius 0.72 of the light's 0.73 m span, so they
+spring at 2.33 m to the same points at 2.83 m, and a small stop (0.07 by 0.08 m, 0.02 m proud) sits
+at each spring on the casing's outer edge. **What is read, not invented.** From the photograph
+(`chicagology_1638_prairie_photo`), at about 74 px a metre in the verge's plane: that the verge
+board is plain, its depth across the rake (17 px) and the pale bead at its foot; that the apex has
+three pinnacles, where they stand (the middle at the apex, the others 22 px either side) and how
+high their points rise over the verges' meeting (36 and 6 px); that no pendant hangs under the
+apex; that the hood's ends curl and something cusped stands between the heads; that the bay's
+heads spring at about 2.33 m, not 2.20, and that a small dark stop sits at each spring. **What is
+invented.** The board's thickness and the bead's profile; the pinnacles' square section and their
+breadths (the print shows each as a pale shaft to a spike, 6-8 px across); the volutes' size and
+their being flat rings round an eye rather than carved scrolls; the tracery's figure, a trefoil
+with one lobe up, which the halftone does not resolve beyond a pale cusped shape some 0.2 m across;
+and the stops' colour, the sash's dark green, for a print that shows them only as dark.
+**What the record states and the model simplifies.** The gable is built at the sheet's 5.21 m and
+centred on it; the print's verges, oval, window pair and hood all stand on a middle 0.12 m north of
+that and its verges meet 9 px higher, which reads as a gable some 0.24 m wider. That is left open
+in the match record for the entrance's piece (T-2458), which already owns the narrower opening on
+the same line. The bay's value is graded `inferred` on the print's readings, so its drop heads and
+stops are described here and not claimed; only the stops' colour among them is invented.
+**How to resolve:** a sharper print or a second photograph of the gable fixes the tracery's figure
+and the pinnacles' section; the gable's width is resolved with the entrance (T-2458).
+**Covers:** `shortall_gregory_house_1638_prairie_front.as_standing_1904.form.gable`.
+**Ticket:** T-2457 (piece 2 of T-2426, a piece of T-1865, the 1638 architecture).
+**Review:** `docs/RESEARCH/k16-1638-gable-bay-2457/README.md`.
+**Recorded:** 2026-10-13 (T-2457).
 
 ### L-glessner-porte-cochere-2217 — carriage leaves (2026-10-14)
 

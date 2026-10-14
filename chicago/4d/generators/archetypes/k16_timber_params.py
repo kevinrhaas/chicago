@@ -330,6 +330,34 @@ def gable_errors(gv: dict) -> list[str]:
             out.append("oculus needs positive centre_m, centre_y_m, width_m, height_m, ring_m, field_z_m and ring_z_m")
         elif ov["ring_z_m"] <= ov["field_z_m"] or 2 * ov["ring_m"] >= min(ov["width_m"], ov["height_m"]):
             out.append("oculus: the ring must stand proud of its field and leave a field inside it")
+    # T-2457: a plain verge board, a cluster of pinnacles, the hood's volute stops and tracery
+    vg = gv.get("verge")
+    if vg is not None:
+        if not all(_num(vg.get(k)) and vg[k] > 0 for k in ("depth_m", "thickness_m", "bead_m", "bead_proud_m")):
+            out.append("verge needs positive depth_m, thickness_m, bead_m and bead_proud_m")
+        elif vg["bead_m"] >= vg["depth_m"]:
+            out.append("verge: the bead must be shallower than the board")
+    pn = gv.get("pinnacles")
+    if pn is not None:
+        if not isinstance(pn, list) or not pn:
+            out.append("pinnacles must be a list of pinnacles")
+        else:
+            for q in pn:
+                if not all(_num(q.get(k)) for k in ("offset_m", "section_m", "shaft_top_m", "top_m")) \
+                        or q["offset_m"] < 0 or q["section_m"] <= 0 or q["top_m"] <= q["shaft_top_m"]:
+                    out.append("a pinnacle needs offset_m >= 0, a positive section_m, and top_m over shaft_top_m")
+    if hv is not None:
+        st = hv.get("stop") or {}
+        if st.get("kind", "block") not in ("block", "volute"):
+            out.append("hood.stop.kind must be block or volute")
+        elif st.get("kind") == "volute" and not (_num(st.get("radius_m")) and _num(st.get("eye_m"))
+                                                 and 0 < st["eye_m"] < st["radius_m"]):
+            out.append("a volute stop needs radius_m and a smaller positive eye_m")
+        tr = hv.get("tracery")
+        if tr is not None and not (all(_num(tr.get(k)) and tr[k] > 0 for k in
+                                       ("centre_y_m", "lobe_r_m", "lobe_off_m", "ring_m", "projection_m"))
+                                   and tr["ring_m"] < tr["lobe_r_m"]):
+            out.append("hood.tracery needs positive centre_y_m, lobe_r_m, lobe_off_m, projection_m and a ring_m under lobe_r_m")
     return out
 
 
@@ -373,6 +401,11 @@ def bay_errors(bv: dict) -> list[str]:
     lt = bv.get("lights") or {}
     if not all(_num(lt.get(x)) for x in ("clear_width_m", "clear_height_m", "sill_m")) or not lt.get("k06_variant"):
         out.append("lights needs k06_variant, clear_width_m, clear_height_m and sill_m")
+    elif "head_radius_ratio" in lt and not (_num(lt["head_radius_ratio"]) and 0.5 < lt["head_radius_ratio"] <= 1.0):
+        out.append("lights.head_radius_ratio must lie over 0.5 and at most 1 (T-2457: a drop head)")
+    elif lt.get("stops") is not None and not all(_num(lt["stops"].get(k)) and lt["stops"][k] > 0
+                                                 for k in ("width_m", "height_m", "projection_m")):
+        out.append("lights.stops needs positive width_m, height_m and projection_m")
     elif not out and lt["sill_m"] + lt["clear_height_m"] >= bv["wall_top_m"] - bv["frieze_m"]:
         out.append("the lights must stand under the frieze")
     return out
