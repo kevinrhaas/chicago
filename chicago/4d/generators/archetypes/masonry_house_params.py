@@ -78,7 +78,7 @@ FT = 0.3048
 FAMILIES = ("range_", "ridge_", "gable_", "tower_", "bay_", "turret_", "chimney_",
             "openings_")
 CONSUMED = frozenset({
-    "frame_ft", "grade_datum", "detail_profile", "v4_detail", "rainwater_details",
+    "frame_ft", "grade_datum", "detail_profile", "v4_detail", "rainwater_details", "stack_finish",
     "construction", "paint", "roof_covering",
     "granite_tint", "brick_tint", "trim_tint", "roof_tint", "copper_tint", "wood_tint",
     # 1800 Prairie Avenue (glessner_house)
@@ -702,7 +702,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             north['wall_skip'].setdefault('north', []).append((tower['cx'], east['x0']))
             for chimney in p.chimneys:
                 if chimney['name'] in ('middle','south'):
-                    chimney['z0']=east['eave_hi_z']+(east['x1']-chimney['x1'])*(east['ridge_z']-east['eave_hi_z'])/(east['x1']-east['ridge_at'])-.06
+                    from archetypes.masonry_house_v4_north_tower import chimney_foot
+                    chimney['z0']=min(chimney['z0'],
+                                      chimney_foot(p,chimney['x0']),
+                                      chimney_foot(p,chimney['x1']))
         p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254, 6)
                                           for h in raw.get("ashlar_courses_in", [])]
         p.detail["ashlar_relief_m"] = [float(v) * FT for v in
@@ -897,6 +900,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         p.detail["dining_crested_connection"] = raw.get("dining_crested_connection", False)
         p.detail["continuous_copper_corner"] = raw.get("continuous_copper_corner", False)
         p.detail["rainwater"] = val("rainwater_details")
+        p.detail["stack_finish"] = val("stack_finish")
         p.detail["bow_first_floor_central_door"] = bool(raw.get("bow_first_floor_central_door"))
         service_stair = raw.get("north_court_service_stair")
         if service_stair:

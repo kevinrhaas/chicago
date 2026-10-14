@@ -13,8 +13,10 @@ def _east(params):
 
 
 def chimney_foot(params,x):
-    """Buried foot of a shaft on the reconciled east-facing main roof pitch."""
+    """Buried shaft foot on either side of the reconciled main ridge."""
     e=_east(params)
+    if x < e['ridge_at']:
+        return e['eave_lo_z']+(x-e['x0'])*(e['ridge_z']-e['eave_lo_z'])/(e['ridge_at']-e['x0'])-.06
     return e['eave_hi_z']+(e['x1']-x)*(e['ridge_z']-e['eave_hi_z'])/(e['x1']-e['ridge_at'])-.06
 
 

@@ -180,6 +180,8 @@ step "Glessner copper follows the low hood and both adjoining roof planes (T-222
   python3 tools/test_glessner_copper.py
 step "Glessner rainwater reaches its collectors and grade without crossing openings (T-2221)" \
   python3 tools/test_glessner_rainwater.py
+step "Glessner stacks meet both roof pitches and retain deep open flues (T-2222)" \
+  python3 tools/test_glessner_chimneys.py
 step "Glessner's curved stone staggers, its eave clears the gable and its pipe meets the roof (T-2470)" \
   python3 tools/test_glessner_north_tower.py
 step "Glessner's service openings stay whole and the stable roof meets the north range (T-2219)" \

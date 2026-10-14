@@ -12,7 +12,7 @@ import math
 from archetypes.masonry_house_v4_rainwater import _unit, _cross
 
 METAL = 28  # dedicated oxidised rainwater finish; existing iron hardware stays dark
-CONF = 0.0  # reconstructed; do not promote stock dimensions to attested
+CONF = 1.0  # reconstructed; do not promote stock dimensions to attested
 
 
 def layout(p,reduced=False):

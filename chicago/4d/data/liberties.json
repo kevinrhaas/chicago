@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 555,
+  "count": 556,
   "liberties": [
     {
       "id": "L1",
@@ -36469,6 +36469,48 @@
         {
           "label": "Covers",
           "text": "`glessner_house.as_built_1887.form.rainwater_details`"
+        }
+      ]
+    },
+    {
+      "id": "L-glessner-stacks-2222",
+      "title": "Chimney seating, cap courses and service masonry",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.chimney_plans"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.stack_finish"
+        }
+      ],
+      "recorded": "2026-10-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Retain all seven Glessner stacks for 1904-07-01, with their dated existence grades in `docs/RESEARCH/glessner-chimneys-T-2222/stack-register.json`. Three Prairie stacks are attested in early Taylor; the fourth broad stone stack is visible in the 1888 Inland Architect plate (textual verification only, with its digital rights still `check_required`). The dining stack remains inferred from later HABS fabric and the fireplace. Both service stacks remain the owner-directed reconstruction; no independently dated early roof view fixes their exact plans or heights. The middle and south shafts straddle the retained W18.8 ridge. HABS sheet 6's raster toe heights, approximately 42.49 and 41.13 ft above door datum, bound their east faces at W15.55 and W14.18. Sheet 4's reverse toes lie about 0.39 of the way down the west pitch, placing both west faces near W21.8. These are reconstructed transfers through the retained roof planes, about +/-0.3 ft, not survey precision. Their hidden base datum drops to 37 ft above door so both roof pitches receive shaft masonry and actual slope-following flashing. Top heights and N-S positions are retained. The unchanged early Taylor camera provides an independent view check, not an optimized replacement measurement. The street stacks receive a broad 448 mm top course above a 229 mm shallow course, bounded by HABS sheets 4/6 and early Taylor. The 320 mm return modules and 8 mm joints reconstruct unreadable stone boundaries. Licensed modern w_lemay frames 159537051 and 159537085 show brick service shafts with plain pale caps; carrying that fabric into 1904 is reconstructed. Their caps use 220 mm stock and 450 mm modules, without an overhanging white lid. Native original requests returned HTTP403; the credited full-frame display renditions were read, not asserted to be native originals. No modern roof ventilator, protective wrapping or colour is promoted to a 1904 fact. All twenty flue mouths retain the previous unmeasured counts: two per north, middle, dining and service stack; four on the great stack; six on the south. Their maximum 300 mm width, 600 mm depth and 12 mm cap drainage fall are bounded masonry reconstructions. No source is claimed for a precise flue lining or unseen cap plan. Open mouths have masonry linings; no generic side slots or pots are added. Full meshes the cap top joints and small brick relief. Light keeps the same shaft planes, cap outline/thickness, outside joints and deep flue apertures, omitting internal top joints, individual service-brick relief and the inner lining material break. The metric brick texture remains. Every new stack-finish face carries reconstructed confidence. This pass also corrects T-2221's rainwater vertex tag from 0 (attested) to 1 (reconstructed), matching its already-declared record and liberty; the drainage shape is unchanged."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2222."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-14 (T-2222)."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.chimney_plans`, `glessner_house.as_built_1887.form.stack_finish`"
         }
       ]
     },

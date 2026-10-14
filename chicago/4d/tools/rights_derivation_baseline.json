@@ -81,14 +81,6 @@
       "sole_support": false,
       "confidence": "inferred"
     },
-    "glessner_house/as_built_1887/form.chimney_plans": {
-      "kind": "structure",
-      "blocked_sources": [
-        "inland_architect_1888_02_glessner_exterior"
-      ],
-      "sole_support": false,
-      "confidence": "reconstructed"
-    },
     "glessner_house/as_built_1887/form.chimneys": {
       "kind": "structure",
       "blocked_sources": [

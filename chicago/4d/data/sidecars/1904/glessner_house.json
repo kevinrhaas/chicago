@@ -909,21 +909,21 @@
         },
         "south": {
           "W": [
-            9.5,
-            17.0
+            14.18,
+            21.8
           ],
           "base": [
-            40.0,
+            37.0,
             "door"
           ]
         },
         "middle": {
           "W": [
-            9.25,
-            13.25
+            15.55,
+            21.8
           ],
           "base": [
-            40.0,
+            37.0,
             "door"
           ]
         },
@@ -941,10 +941,10 @@
       "confidence": "reconstructed",
       "sources": [
         "habs_glessner_house_il_1015_drawings",
-        "inland_architect_1888_02_glessner_exterior",
+        "taylor_2135_glessner_exterior_1887_1889",
         "owner_glessner_v4_reconstruction_brief_2026"
       ],
-      "note": "V4 retains HABS sheet 6's N-S positions, the printed north-stack top of 48.62 ft above door datum and the two measured 48.5-ft tops. E-W plan depths are reconstructed within the HABS plan envelope: north gable 5.1 ft, middle 4.0 ft, south 7.5 ft, great 4.4 ft. The south stack is deliberately broader in the transverse direction, bounded by the broad multiple-flue form the owner's overview flags; no screenshot is traced. These widths are not HABS dimensions. The default incorrectly gave every stack the same 4-ft depth. Bases stay buried in the roof. Coursed faces, tapered cap stones, flue mouths and roof flashings are v4_detail refinements. See docs/RESEARCH/glessner_house_v4.md and docs/LIBERTIES.md v4 entry. T-2470: the north-gable stack moves with the photographically reconciled crest from W13.25 to W18.8; its 5.1-ft width, north face and height remain unchanged."
+      "note": "V4 retains HABS sheet 6's N-S positions, the printed north-stack top of 48.62 ft above door datum and the two measured 48.5-ft tops. E-W plan depths are reconstructed within the HABS plan envelope: north gable 5.1 ft, middle 4.0 ft, south 7.5 ft, great 4.4 ft. The south stack is deliberately broader in the transverse direction, bounded by the broad multiple-flue form the owner's overview flags; no screenshot is traced. These widths are not HABS dimensions. The default incorrectly gave every stack the same 4-ft depth. Bases stay buried in the roof. Coursed faces, tapered cap stones, flue mouths and roof flashings are v4_detail refinements. See docs/RESEARCH/glessner_house_v4.md and docs/LIBERTIES.md v4 entry. T-2470: the north-gable stack moves with the photographically reconciled crest from W13.25 to W18.8; its 5.1-ft width, north face and height remain unchanged. T-2222 supersedes ONLY the middle/south transverse positions and buried base: both straddle the retained W18.8 ridge. Native HABS sheet 6 east flashing toes at about 42.49 and 41.13 ft above door datum, transferred through the retained east roof plane, give W15.55 and W14.18. Sheet 4 reverse toes lie about 0.39 of the way from ridge to court eave, giving W21.8 for both west faces. These are reconstructed readings, approximately +/-0.3 ft, not surveyed hundredths. The unchanged early Taylor camera independently supports the direction of the move. Bases move to 37 ft above door solely to remain buried below the reverse pitch and admit its roof-following flashing. Stack count, N-S extents, top heights, north-gable integration and other stack plans are retained. Inland 1888 remains a textual historical cross-check in chimneys, not a source of these new dimensions or assets. See L-glessner-stacks-2222."
     },
     "chimney_dining_room": {
       "value": {
@@ -3525,6 +3525,67 @@
       ],
       "note": "T-2221 / L-glessner-rainwater-2221: early Taylor shows framed Prairie rainwater heads and broad wall straps; unrestricted HABS01/14 locate the small service collector and ribbed north-tower bowl. Later fabric corroborates routing, not exact 1904 fittings. Head dimensions, unreadable low-relief ornament, 3 mm stock, 105 mm rectangular leaders, 180 by 140 mm box gutters, concealed court branches and discharge fittings are bounded reconstructions. Licensed modern courtyard photos constrain box sections only; bright green patina and modern inspection caps are excluded. Upper tower leader enters the lower bowl rather than ending above the roof; all gutter edges inherit existing roof planes. Head camera fit is relative to retained geometry, not independent survey. Unresolved absolute eave/grade correspondence remains T-2228. Prairie strap centres at 1.74, 4.07 and 6.30 m fit the fixed Taylor camera at display y825,700,580; they are model-based estimates (about +/-0.08 m), not surveyed elevations. Bow and dining leaders alone use 160 by 100 mm fluted box stock with broad 400 mm straps, bounded by licensed modern courtyard close-ups relative to brick courses; their precise 1904 profiles remain reconstructed. Other concealed outlets retain plainer sections. Close-up comparison requires a separate matte grey-green oxidised/coated rainwater finish (linear RGB 0.085/0.095/0.090, roughness 0.72, metallic 0.15): this is bounded reconstruction, not a sampled 1904 colour or identified alloy. Existing iron hardware remains unchanged. The framed panel has 14 mm raised stock, 24 mm bead diameter and a plain boss 38 percent of head width; these resolve the early scan's broad relief without inventing a legible emblem."
     },
+    "stack_finish": {
+      "value": {
+        "common": {
+          "cap_joint_m": 0.008,
+          "fall_m": 0.012,
+          "flue_depth_m": 0.6,
+          "flue_width_m": 0.3
+        },
+        "stone": {
+          "cap_height_m": 0.448,
+          "belt_height_m": 0.229,
+          "cap_unit_m": 0.32
+        },
+        "service": {
+          "cap_height_m": 0.22,
+          "cap_unit_m": 0.45
+        },
+        "service_stacks": [
+          "service_east",
+          "service_west"
+        ],
+        "flues": {
+          "north_gable": [
+            2,
+            1
+          ],
+          "middle": [
+            2,
+            1
+          ],
+          "south": [
+            3,
+            2
+          ],
+          "great": [
+            2,
+            2
+          ],
+          "dining_room": [
+            2,
+            1
+          ],
+          "service_east": [
+            2,
+            1
+          ],
+          "service_west": [
+            2,
+            1
+          ]
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "taylor_2135_glessner_exterior_1887_1889",
+        "wlemay_glessner_courtyard_2024_159537051",
+        "wlemay_glessner_courtyard_2024_159537085"
+      ],
+      "note": "T-2222 / L-glessner-stacks-2222: HABS sheets 4/6 show a broad stone top course and shallower course below on the street stacks, corroborated qualitatively by early Taylor. 448 mm top-course height and 229 mm lower bed are raster-bounded estimates, not surveyed stock; 320 mm cap modules and 8 mm joints reconstruct unreadable return joints. Licensed 2024 w_lemay views distinguish two brick service shafts with plain pale stone caps; carrying that fabric into 1904 is explicitly reconstructed, not dated by modern photographs. Their existing presence, plans and heights are retained pending early evidence. Service caps use 220 mm stock and 450 mm bounded modules. All flue counts remain the prior unmeasured reconstructions (two, four or six mouths); 300 mm maximum mouth width, 600 mm brick-lined depth and 12 mm top drainage fall are invented within masonry construction bounds. No pots or repeated side vents are added. Every new finish face is reconstructed. Other roof, glazing and granite-colour choices are preserved. Light retains every shaft plane, cap thickness, exterior cap joint, mouth and flue depth. It omits only service shafts' 1–6 mm per-brick relief, fine internal top-bed cap joints and the interior flue lining material break; the same metric brick textures and dark masonry lining remain. The complete Light assembly measures 199,967 triangles against the unchanged 200,000 ceiling."
+    },
     "function": {
       "value": "residence",
       "confidence": "attested",
@@ -3860,6 +3921,21 @@
       "tier_label": "later scholarship"
     },
     {
+      "source_id": "wlemay_glessner_courtyard_2024_159537051",
+      "citation": "Courtyard, Glessner House, Prairie Avenue and 18th Street, Near South Side, Chicago, IL - 54201692262.jpg Photograph by w_lemay, October 26, 2024. Wikimedia Commons, from Flickr; CC BY-SA 2.0.",
+      "url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54201692262.jpg",
+      "archived_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54201692262.jpg/1920px-Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54201692262.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "Relative distinction between brick courtyard service stacks and pale masonry caps; qualitative construction bounds, corroborated against earlier sources."
+      ],
+      "what_it_does_not_supply": [
+        "Independently dated 1904 service-stack existence, position or height.",
+        "Measured flue layout, cap dimensions or original 1904 colour."
+      ]
+    },
+    {
       "source_id": "wlemay_glessner_courtyard_2024_159537053",
       "citation": "Courtyard, Glessner House, Prairie Avenue and 18th Street, Near South Side, Chicago, IL - 54202591351.jpg Photograph by w_lemay, October 26, 2024. Wikimedia Commons, from Flickr; CC BY-SA 2.0.",
       "url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54202591351.jpg",
@@ -3872,6 +3948,21 @@
       "what_it_does_not_supply": [
         "The 1904 sheet-stock dimensions or patina.",
         "A dated original construction detail for every modern fitting."
+      ]
+    },
+    {
+      "source_id": "wlemay_glessner_courtyard_2024_159537085",
+      "citation": "Courtyard, Glessner House, Prairie Avenue and 18th Street, Near South Side, Chicago, IL - 54202735879.jpg Photograph by w_lemay, October 26, 2024. Wikimedia Commons, from Flickr; CC BY-SA 2.0.",
+      "url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54202735879.jpg",
+      "archived_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54202735879.jpg/1920px-Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54202735879.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "Relative distinction between brick courtyard service stacks and pale masonry caps; qualitative construction bounds, corroborated against earlier sources."
+      ],
+      "what_it_does_not_supply": [
+        "Independently dated 1904 service-stack existence, position or height.",
+        "Measured flue layout, cap dimensions or original 1904 colour."
       ]
     },
     {

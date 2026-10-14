@@ -21,8 +21,8 @@
   "stream-streetscape.json"
  ],
  "counts": {
-  "images": 940,
-  "local": 676,
+  "images": 942,
+  "local": 678,
   "in_period": 602,
   "buildings_with_images": 62,
   "buildings": 63,
@@ -667,7 +667,9 @@
    "a18-commons-wlemay-glessner-dining-copper-2024",
    "a18-commons-wlemay-glessner-east-court-2024",
    "a18-commons-wlemay-glessner-hall-bow-2024",
+   "a18-commons-wlemay-glessner-north-court-stacks-2024",
    "a18-commons-wlemay-glessner-overview-2024",
+   "a18-commons-wlemay-glessner-service-stack-2024",
    "a18-commons-wlemay-glessner-stair-tower-2024",
    "a18-rba-barford-glessner-courtyard",
    "a18-rba-barford-glessner-exterior",
@@ -2288,7 +2290,9 @@
    "a18-commons-wlemay-glessner-dining-copper-2024",
    "a18-commons-wlemay-glessner-east-court-2024",
    "a18-commons-wlemay-glessner-hall-bow-2024",
+   "a18-commons-wlemay-glessner-north-court-stacks-2024",
    "a18-commons-wlemay-glessner-overview-2024",
+   "a18-commons-wlemay-glessner-service-stack-2024",
    "a18-commons-wlemay-glessner-stair-tower-2024",
    "a18-rba-barford-glessner-courtyard",
    "a18-rba-barford-glessner-exterior",
@@ -2602,7 +2606,9 @@
    "a18-commons-wlemay-glessner-dining-copper-2024",
    "a18-commons-wlemay-glessner-east-court-2024",
    "a18-commons-wlemay-glessner-hall-bow-2024",
+   "a18-commons-wlemay-glessner-north-court-stacks-2024",
    "a18-commons-wlemay-glessner-overview-2024",
+   "a18-commons-wlemay-glessner-service-stack-2024",
    "a18-commons-wlemay-glessner-stair-tower-2024",
    "a18-rba-barford-glessner-courtyard",
    "a18-rba-barford-glessner-exterior",
@@ -32201,9 +32207,11 @@
      "a18-commons-wlemay-glessner-stair-tower-2024",
      "a18-commons-wlemay-glessner-hall-bow-2024",
      "a18-commons-wlemay-glessner-east-court-2024",
-     "a18-commons-wlemay-glessner-dining-copper-2024"
+     "a18-commons-wlemay-glessner-dining-copper-2024",
+     "a18-commons-wlemay-glessner-service-stack-2024",
+     "a18-commons-wlemay-glessner-north-court-stacks-2024"
     ],
-    "family_relationship": "Five distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
+    "family_relationship": "Seven distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
    },
    "stream": "glessner-courtyard-2024",
    "parcel_ids": [
@@ -32285,9 +32293,11 @@
      "a18-commons-wlemay-glessner-stair-tower-2024",
      "a18-commons-wlemay-glessner-hall-bow-2024",
      "a18-commons-wlemay-glessner-east-court-2024",
-     "a18-commons-wlemay-glessner-dining-copper-2024"
+     "a18-commons-wlemay-glessner-dining-copper-2024",
+     "a18-commons-wlemay-glessner-service-stack-2024",
+     "a18-commons-wlemay-glessner-north-court-stacks-2024"
     ],
-    "family_relationship": "Five distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
+    "family_relationship": "Seven distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
    },
    "stream": "glessner-courtyard-2024",
    "parcel_ids": [
@@ -32369,9 +32379,97 @@
      "a18-commons-wlemay-glessner-stair-tower-2024",
      "a18-commons-wlemay-glessner-hall-bow-2024",
      "a18-commons-wlemay-glessner-east-court-2024",
-     "a18-commons-wlemay-glessner-dining-copper-2024"
+     "a18-commons-wlemay-glessner-dining-copper-2024",
+     "a18-commons-wlemay-glessner-service-stack-2024",
+     "a18-commons-wlemay-glessner-north-court-stacks-2024"
     ],
-    "family_relationship": "Five distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
+    "family_relationship": "Seven distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
+   },
+   "stream": "glessner-courtyard-2024",
+   "parcel_ids": [
+    "calumet_1800",
+    "prairie_1800"
+   ]
+  },
+  {
+   "id": "a18-commons-wlemay-glessner-north-court-stacks-2024",
+   "kind": "photograph",
+   "title": "North courtyard, stairs and service stacks — Glessner House, October 26, 2024",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "rear",
+   "facing": null,
+   "camera_position": "Within the courtyard; exact camera not solved",
+   "date": "October 26, 2024",
+   "date_earliest": 2024,
+   "date_latest": 2024,
+   "period": "later",
+   "creator": "w_lemay",
+   "repository": "Wikimedia Commons, from w_lemay on Flickr",
+   "collection": "Glessner House courtyard, October 26, 2024",
+   "call_number": "159537085",
+   "catalog_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54202735879.jpg",
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54202735879.jpg",
+   "rights": "copyright — link only",
+   "rights_basis": "Copyright w_lemay; licensed CC BY-SA 2.0, https://creativecommons.org/licenses/by-sa/2.0. This is a licensed attributed reference copy, not a public-domain claim. Display and thumbnail are resized JPEGs of the credited original and retain that license.",
+   "local": {
+    "display": "research/images/files/a18-commons-wlemay-glessner-north-court-stacks-2024.jpg",
+    "display_bytes": 352522,
+    "thumb": "research/images/files/a18-commons-wlemay-glessner-north-court-stacks-2024-thumb.jpg",
+    "thumb_bytes": 25585,
+    "original_px": [
+     1920,
+     2560
+    ],
+    "original_sha256": "bc0aab4eb2aa0bf8553976d28bb5910edf5049d4fe0b22c32abc32aa9acf4ad5",
+    "original_bytes": 1822922,
+    "fetched_from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54202735879.jpg/1920px-Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54202735879.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "fetched": "2026-10-14"
+   },
+   "verified": "viewed",
+   "found_via": "Wikimedia Commons courtyard category / MediaSearch; original file page and license metadata reviewed 2026-10-14",
+   "notes": "Modern surviving-fabric comparison only. Native-original requests returned HTTP 403; the reviewed full-frame Commons display rendition was downloaded and checksummed, then the library fetch tool generated credited display/thumbnail copies from that cache. The local original_* fields describe those retrieved rendition bytes, not a native camera file. Brick shafts and pale caps bound a reconstructed 1904 finish; current paint, wrapping, roof vents, paving and planting are not copied as historic facts.",
+   "measurements": [],
+   "reference_copy": {
+    "basis": "CC BY-SA 2.0 permits attributed sharing; owner 2026-10-11 requested credited building reference copies in the public image store.",
+    "credit": {
+     "title": "North courtyard, stairs and service stacks — Glessner House, October 26, 2024",
+     "creator": "w_lemay · CC BY-SA 2.0",
+     "date": "October 26, 2024",
+     "repository": "Wikimedia Commons / Flickr",
+     "catalog_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54202735879.jpg",
+     "license": "CC BY-SA 2.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+    }
+   },
+   "evidence_review": {
+    "ticket": "T-2222",
+    "audit_number": null,
+    "reviewed_on": "2026-10-14",
+    "review_state": "visually inspected",
+    "target_date": "1904-07-01",
+    "phase": "Modern surviving fabric, 2024",
+    "date_basis": "Commons file metadata gives 2024-10-26; this is the photograph date, not a construction date.",
+    "evidence_role": "exterior reference",
+    "geometry_use": "corroborate with dated evidence",
+    "reason": "Modern surviving-fabric comparison only. Native-original requests returned HTTP 403; the reviewed full-frame Commons display rendition was downloaded and checksummed, then the library fetch tool generated credited display/thumbnail copies from that cache. The local original_* fields describe those retrieved rendition bytes, not a native camera file. Brick shafts and pale caps bound a reconstructed 1904 finish; current paint, wrapping, roof vents, paving and planting are not copied as historic facts.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54202735879.jpg",
+    "family": "glessner-wlemay-courtyard-2024",
+    "family_members": [
+     "a18-commons-wlemay-glessner-overview-2024",
+     "a18-commons-wlemay-glessner-stair-tower-2024",
+     "a18-commons-wlemay-glessner-hall-bow-2024",
+     "a18-commons-wlemay-glessner-east-court-2024",
+     "a18-commons-wlemay-glessner-dining-copper-2024",
+     "a18-commons-wlemay-glessner-service-stack-2024",
+     "a18-commons-wlemay-glessner-north-court-stacks-2024"
+    ],
+    "family_relationship": "Seven distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
    },
    "stream": "glessner-courtyard-2024",
    "parcel_ids": [
@@ -32453,9 +32551,97 @@
      "a18-commons-wlemay-glessner-stair-tower-2024",
      "a18-commons-wlemay-glessner-hall-bow-2024",
      "a18-commons-wlemay-glessner-east-court-2024",
-     "a18-commons-wlemay-glessner-dining-copper-2024"
+     "a18-commons-wlemay-glessner-dining-copper-2024",
+     "a18-commons-wlemay-glessner-service-stack-2024",
+     "a18-commons-wlemay-glessner-north-court-stacks-2024"
     ],
-    "family_relationship": "Five distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
+    "family_relationship": "Seven distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
+   },
+   "stream": "glessner-courtyard-2024",
+   "parcel_ids": [
+    "calumet_1800",
+    "prairie_1800"
+   ]
+  },
+  {
+   "id": "a18-commons-wlemay-glessner-service-stack-2024",
+   "kind": "photograph",
+   "title": "Brick service stack and pale cap — Glessner House, October 26, 2024",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "rear",
+   "facing": null,
+   "camera_position": "Within the courtyard; exact camera not solved",
+   "date": "October 26, 2024",
+   "date_earliest": 2024,
+   "date_latest": 2024,
+   "period": "later",
+   "creator": "w_lemay",
+   "repository": "Wikimedia Commons, from w_lemay on Flickr",
+   "collection": "Glessner House courtyard, October 26, 2024",
+   "call_number": "159537051",
+   "catalog_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54201692262.jpg",
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54201692262.jpg",
+   "rights": "copyright — link only",
+   "rights_basis": "Copyright w_lemay; licensed CC BY-SA 2.0, https://creativecommons.org/licenses/by-sa/2.0. This is a licensed attributed reference copy, not a public-domain claim. Display and thumbnail are resized JPEGs of the credited original and retain that license.",
+   "local": {
+    "display": "research/images/files/a18-commons-wlemay-glessner-service-stack-2024.jpg",
+    "display_bytes": 320951,
+    "thumb": "research/images/files/a18-commons-wlemay-glessner-service-stack-2024-thumb.jpg",
+    "thumb_bytes": 25257,
+    "original_px": [
+     1920,
+     2560
+    ],
+    "original_sha256": "c10bbead5528fb5828df75c1ad72ac197dae696f6847fee4a8c443ec75cefd02",
+    "original_bytes": 1421061,
+    "fetched_from": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54201692262.jpg/1920px-Courtyard%2C_Glessner_House%2C_Prairie_Avenue_and_18th_Street%2C_Near_South_Side%2C_Chicago%2C_IL_-_54201692262.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "fetched": "2026-10-14"
+   },
+   "verified": "viewed",
+   "found_via": "Wikimedia Commons courtyard category / MediaSearch; original file page and license metadata reviewed 2026-10-14",
+   "notes": "Modern surviving-fabric comparison only. Native-original requests returned HTTP 403; the reviewed full-frame Commons display rendition was downloaded and checksummed, then the library fetch tool generated credited display/thumbnail copies from that cache. The local original_* fields describe those retrieved rendition bytes, not a native camera file. Brick shafts and pale caps bound a reconstructed 1904 finish; current paint, wrapping, roof vents, paving and planting are not copied as historic facts.",
+   "measurements": [],
+   "reference_copy": {
+    "basis": "CC BY-SA 2.0 permits attributed sharing; owner 2026-10-11 requested credited building reference copies in the public image store.",
+    "credit": {
+     "title": "Brick service stack and pale cap — Glessner House, October 26, 2024",
+     "creator": "w_lemay · CC BY-SA 2.0",
+     "date": "October 26, 2024",
+     "repository": "Wikimedia Commons / Flickr",
+     "catalog_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54201692262.jpg",
+     "license": "CC BY-SA 2.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+    }
+   },
+   "evidence_review": {
+    "ticket": "T-2222",
+    "audit_number": null,
+    "reviewed_on": "2026-10-14",
+    "review_state": "visually inspected",
+    "target_date": "1904-07-01",
+    "phase": "Modern surviving fabric, 2024",
+    "date_basis": "Commons file metadata gives 2024-10-26; this is the photograph date, not a construction date.",
+    "evidence_role": "exterior reference",
+    "geometry_use": "corroborate with dated evidence",
+    "reason": "Modern surviving-fabric comparison only. Native-original requests returned HTTP 403; the reviewed full-frame Commons display rendition was downloaded and checksummed, then the library fetch tool generated credited display/thumbnail copies from that cache. The local original_* fields describe those retrieved rendition bytes, not a native camera file. Brick shafts and pale caps bound a reconstructed 1904 finish; current paint, wrapping, roof vents, paving and planting are not copied as historic facts.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Courtyard,_Glessner_House,_Prairie_Avenue_and_18th_Street,_Near_South_Side,_Chicago,_IL_-_54201692262.jpg",
+    "family": "glessner-wlemay-courtyard-2024",
+    "family_members": [
+     "a18-commons-wlemay-glessner-overview-2024",
+     "a18-commons-wlemay-glessner-stair-tower-2024",
+     "a18-commons-wlemay-glessner-hall-bow-2024",
+     "a18-commons-wlemay-glessner-east-court-2024",
+     "a18-commons-wlemay-glessner-dining-copper-2024",
+     "a18-commons-wlemay-glessner-service-stack-2024",
+     "a18-commons-wlemay-glessner-north-court-stacks-2024"
+    ],
+    "family_relationship": "Seven distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
    },
    "stream": "glessner-courtyard-2024",
    "parcel_ids": [
@@ -32537,9 +32723,11 @@
      "a18-commons-wlemay-glessner-stair-tower-2024",
      "a18-commons-wlemay-glessner-hall-bow-2024",
      "a18-commons-wlemay-glessner-east-court-2024",
-     "a18-commons-wlemay-glessner-dining-copper-2024"
+     "a18-commons-wlemay-glessner-dining-copper-2024",
+     "a18-commons-wlemay-glessner-service-stack-2024",
+     "a18-commons-wlemay-glessner-north-court-stacks-2024"
     ],
-    "family_relationship": "Five distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
+    "family_relationship": "Seven distinct frames from one photographer and one 2024 visit; complementary angles, not independent witnesses to the 1904 state."
    },
    "stream": "glessner-courtyard-2024",
    "parcel_ids": [

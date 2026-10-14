@@ -99,7 +99,10 @@ from archetypes.masonry_house_v4_north_tower import chimney_foot
 for chimney in p.chimneys:
     if chimney['name'] not in ('middle','south'):continue
     for x in (chimney['x0'],chimney['x1']):
-        roof=e['eave_hi_z']+(e['x1']-x)*(e['ridge_z']-e['eave_hi_z'])/(e['x1']-e['ridge_at'])
+        if x<e['ridge_at']:
+            roof=e['eave_lo_z']+(x-e['x0'])*(e['ridge_z']-e['eave_lo_z'])/(e['ridge_at']-e['x0'])
+        else:
+            roof=e['eave_hi_z']+(e['x1']-x)*(e['ridge_z']-e['eave_hi_z'])/(e['x1']-e['ridge_at'])
         assert abs(roof-chimney_foot(p,x)-.06)<1e-8
         assert chimney['z0']<=chimney_foot(p,x)+1e-8
 print('PASS: staggered curved stone, outward normals, closed roof contact, gable clearance and Full/Light drainage')

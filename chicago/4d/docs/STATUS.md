@@ -1,3 +1,19 @@
+## T-2222 — Glessner chimney shafts and caps (2026-10-14)
+
+Two street stacks now meet both pitches of the main roof. Thick flush masonry
+caps and recessed open flues replace shallow top patches; courtyard service
+stacks use brick shafts with plain pale caps. Exact finish dimensions and
+service-stack dating remain reconstructed. The owner's granite and glass are
+preserved. Light generation fits at 199,967 triangles. T-2221 drainage confidence
+now correctly displays reconstructed. Functional geometry checks, canonical bake and Full/Light package contracts
+pass. Twelve paired browser observations have no errors or new budget failures;
+three existing scene-budget failures remain assigned to T-2227. Mobile image
+credits and the reconstruction liberty load. All five historical comparisons
+remain differs for T-2228. Repository preflight and exact-commit CI receipts are
+maintained on the PR.
+[Evidence and bounds](RESEARCH/glessner-chimneys-T-2222/README.md).
+T-2227 retains existing scene-budget failures; T-2228 retains photo acceptance.
+
 ## T-2221 — Glessner rainwater fittings (2026-10-14)
 
 Distinct Prairie panels, the north tower bowl and small

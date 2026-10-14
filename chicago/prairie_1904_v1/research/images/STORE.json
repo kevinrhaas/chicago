@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 158492373,
+ "bytes": 159216688,
  "files": {
   "a16-aic-lantern-fort-dearborn-monument-thumb.jpg": {
    "bytes": 16725,
@@ -637,6 +637,14 @@
    "bytes": 312278,
    "sha256": "b8b9be3164b22034df4471ede9199482a77efd5848cabd416688632a113d67ab"
   },
+  "a18-commons-wlemay-glessner-north-court-stacks-2024-thumb.jpg": {
+   "bytes": 25585,
+   "sha256": "abfb569146fc47684ba2e6aa3fe782a47682ae0c31992523f2de5f8a1a3fcde4"
+  },
+  "a18-commons-wlemay-glessner-north-court-stacks-2024.jpg": {
+   "bytes": 352522,
+   "sha256": "892513525a595b4d5e2138c14117002e2d8c119c88ac3458d5dde5e7250f8e79"
+  },
   "a18-commons-wlemay-glessner-overview-2024-thumb.jpg": {
    "bytes": 27919,
    "sha256": "9f958540d9e3173e8d677e22ec7151cf7f2ae24c9875d3b7f480cfab9f5c6e4d"
@@ -644,6 +652,14 @@
   "a18-commons-wlemay-glessner-overview-2024.jpg": {
    "bytes": 321580,
    "sha256": "8e2f05bdf5e185f4c687f243a73617e69bd10c74f64273d0af578ca5183645c8"
+  },
+  "a18-commons-wlemay-glessner-service-stack-2024-thumb.jpg": {
+   "bytes": 25257,
+   "sha256": "2d38d8198397c5e342b266f8747a56435243eedf5281a7bad21790e0c0b29d48"
+  },
+  "a18-commons-wlemay-glessner-service-stack-2024.jpg": {
+   "bytes": 320951,
+   "sha256": "2d8e3dcf0e98990c208a656ecf238df16abf46143492576f599d6e9e2ef17532"
   },
   "a18-commons-wlemay-glessner-stair-tower-2024-thumb.jpg": {
    "bytes": 24902,
