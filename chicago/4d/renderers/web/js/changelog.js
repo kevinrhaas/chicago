@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1793, ts: '2026-10-14T17:23:23.739Z', date: 'Oct 14, 2026, 12:23 PM CT', title: 'Follow streets and arrive facing the building', kind: 'fix',
+    items: [
+      'Walking uses sidewalks and plank walks where available; horses and wagons follow the roadway in both 1835 and 1904.',
+      'Travel goes around buildings when joining a street and taking corners. A blocked journey stops with an explanation instead of jumping to its destination.',
+      'Arrivals face the building from its street frontage. Glessner House is viewed from Prairie Avenue, including during jaunts.',
+    ] },
   { v: 1792, ts: '2026-10-14T15:35:34.667Z', date: 'Oct 14, 2026, 10:35 AM CT', title: 'Glessner courtyard copper meets the roof', kind: 'fix',
     items: [
       'The lifted courtyard copper panel is replaced with a low curved hood that meets both adjoining roofs, with seated seams and panel laps.',
