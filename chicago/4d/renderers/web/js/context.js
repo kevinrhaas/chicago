@@ -41,6 +41,8 @@ const TRUNK = '#5b4b3c';
 const STREET = '#8a8174';
 const STREET_LIFT_M = 0.05;
 const STREET_PIECE_M = 25;
+/** Past this from the scene's middle a far crown is left out (T-2493). */
+const FAR_TREE_REACH_M = 2000;
 
 const wx = (e) => e;
 const wz = (n) => -n;
@@ -276,6 +278,11 @@ export async function createContext({
   const mid = [1405, -3350];
   const reach = light ? 520 : Infinity;
   const far = (e, n) => Math.hypot(e - mid[0], n - mid[1]) > reach;
+  // T-2493: a far crown past FAR_TREE_REACH_M stands in at least 96 % haze (world.js
+  // HAZE_DENSITY: 1 - exp(-(0.00089 × 2000)²)) and is not drawn: 5,300 of the 6,532 far
+  // crowns, 42k triangles at the 1904 spawn. The stand-in buildings out there stay, so
+  // the skyline still runs out to the haze.
+  const hazeTree = (e, n) => Math.hypot(e - mid[0], n - mid[1]) > FAR_TREE_REACH_M;
 
   const kinds = { box: [], walls: [], ends: [], gable: [], pyramid: [] };
   const rows = [];
@@ -306,6 +313,7 @@ export async function createContext({
     const e = t[T.e]; const n = t[T.n]; const r = t[T.crown_r_m];
     if (light && (far(e, n) || t[T.lod] || t[T.src] === 1 && ((e * 7.3 + n * 3.1) % 3 + 3) % 3 < 1)) continue;
     if (touchesStructure(fps, e, n, r, r, 0, 0)) { dropped++; continue; }
+    if (t[T.lod] && hazeTree(e, n)) continue;
     (t[T.lod] ? farTrees : trees).push({ e, n, h: t[T.height_m], r, tone: t[T.tone] });
   }
 
