@@ -2716,6 +2716,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_coast_extension.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_condition_kit.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -3856,6 +3860,10 @@
       "wrote_ignored": []
     },
     "tools/export_resident_research_package.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/extend_ic_lakefront_1904.py": {
       "wrote": [],
       "wrote_ignored": []
     },

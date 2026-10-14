@@ -26717,3 +26717,22 @@ Photo 05 (`habs_glessner_photo_05_court_c1923`) and the later Florian courtyard 
 **Recorded:** 2026-10-14 (T-2218).
 
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`
+
+### L-ic-extent-2495 — rails and shoreline beyond the Prairie Avenue tile
+
+**Decision:** T-2495 extends the 1904 lakefront to the context map boundary using Talbot's 1904
+railroad map (`talbot_1904_railroad_map`). The outer corridor and mainland outline
+are approximate map readings; the individual tracks, their 4.3 m spacing, the
+160 m joins to the Sanborn-derived district, and carried boundary grades are
+RECONSTRUCTED. The north raster is fitted to six existing street controls; the
+southeast continuation is tied at the sheet join. Working positional uncertainty
+is about 40 m, not a survey accuracy. Grant Park's labelled ongoing fill is drawn
+at the map's mainland outline without claiming its completion on the scene date.
+The detailed core is unchanged. Stone/timber shore materials retain L-ic-lake-edge-2479's
+reconstructed footing. Past the context-map boundary, the last coast section is
+held to the far apron edge for rendering only. `docs/RESEARCH/ic_lakefront_extent_1904.md`
+and `data/terrain/epochs/e1871_postfire/context_spec.json` state the evidence and
+all pixel picks; `tools/extend_ic_lakefront_1904.py` generates the scene data.
+
+**Ticket:** T-2495.
+**Recorded:** 2026-10-14 (T-2495).
