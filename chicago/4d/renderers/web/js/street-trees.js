@@ -39,6 +39,23 @@ export const STREET_TREE_MODES = ['summer', 'spring', 'fall', 'winter', 'hidden'
 const PARKWAY_LIFT_M = 0.05;      // street-grid.js CLASSES.parkway.lift
 const CONF = { attested: 0, inferred: 0.5, reconstructed: 1 };
 const YOUNG_VARIANTS = 3;
+/**
+ * The desktop's elms past this distance from the eye draw the phone's lighter
+ * crown (same limbs and masses, fewer leaf sprays): 221k triangles for every tree
+ * at full against 99k at light, and from 60 m a crown is a few dozen pixels wide.
+ * Re-sorted when the eye has moved LOD_STEP_M. It is what holds the 1904 spawn
+ * inside the full tier's triangle ceiling with the trees in.
+ */
+const LOD_NEAR_M = 60;
+const LOD_STEP_M = 4;
+/**
+ * …and only the elms within this distance cast shadows. The shadow box reaches
+ * 240 m every way (world.js SHADOW_REACH_M), so every elm in the district was
+ * drawn a second time into it: 75k of the elms' 92k triangles at the spawn. Past
+ * this the dappling on the far walks is a few pixels of shade, and those trees
+ * draw from a second batch that casts none.
+ */
+const SHADOW_NEAR_M = 100;
 
 /**
  * The parkway elm: the 1835 record's colours and leaf, a street tree's shape.
@@ -220,10 +237,38 @@ export async function createStreetTrees({
   });
 
   let batch = null;
+  let farBatch = null;
   let heights = [];
+  let lod = null;
+  /** T-2493: near elms full, far elms light (LOD_NEAR_M). */
+  const sortLod = (eye) => {
+    if (!batch || !lod?.far || !eye) return;
+    if (lod.at && lod.at.distanceToSquared(eye) < LOD_STEP_M * LOD_STEP_M) return;
+    lod.at = (lod.at ?? new THREE.Vector3()).copy(eye);
+    let tris = 0;
+    for (let i = 0; i < placed.length; i++) {
+      const p = placed[i];
+      const dx = p.m.elements[12] - eye.x; const dz = p.m.elements[14] - eye.z;
+      const d2 = dx * dx + dz * dz;
+      const isFar = d2 > LOD_NEAR_M * LOD_NEAR_M;
+      const shades = d2 <= SHADOW_NEAR_M * SHADOW_NEAR_M;
+      if (isFar !== lod.isFar[i]) {
+        batch.setGeometryIdAt(p.inst, (isFar ? lod.far : lod.near)[p.crown]);
+        lod.isFar[i] = isFar;
+      }
+      if (shades !== lod.shades[i]) {
+        batch.setVisibleAt(p.inst, shades);
+        farBatch.setVisibleAt(p.farInst, !shades);
+        lod.shades[i] = shades;
+      }
+      tris += (isFar ? lod.farTris : lod.nearTris)[p.crown];
+    }
+    stats.triangles = tris;
+  };
   let current = { mode: null, detail: null };
   const build = async (wantMode, wantDetail) => {
     if (batch) { group.remove(batch); batch.dispose(); batch = null; }
+    if (farBatch) { group.remove(farBatch); farBatch.dispose(); farBatch = null; }
     stats.mode = wantMode; stats.detail = wantDetail; stats.triangles = 0; stats.drawCalls = 0;
     current = { mode: wantMode, detail: wantDetail };
     group.visible = wantMode !== 'hidden';
@@ -233,10 +278,13 @@ export async function createStreetTrees({
       mat.map = map; mat.bumpMap = map; depthMat.map = map; distanceMat.map = map;
     }
     const geos = buildCrowns(wantMode, wantDetail, variants);
+    // Full detail also carries the light crowns, for the trees past LOD_NEAR_M.
+    const far = wantDetail === 'full' ? buildCrowns(wantMode, 'light', variants) : null;
     const pause = checkpoint(); if (pause) await pause;
     heights = geos.map((g) => { g.computeBoundingBox(); return g.boundingBox.max.y; });
-    const vTotal = geos.reduce((s, g) => s + g.attributes.position.count, 0);
-    const iTotal = geos.reduce((s, g) => s + g.index.count, 0);
+    const all = far ? [...geos, ...far] : geos;
+    const vTotal = all.reduce((s, g) => s + g.attributes.position.count, 0);
+    const iTotal = all.reduce((s, g) => s + g.index.count, 0);
     batch = new THREE.BatchedMesh(placed.length, vTotal, iTotal, mat);
     batch.name = 'street-trees';
     batch.customDepthMaterial = depthMat;
@@ -244,22 +292,51 @@ export async function createStreetTrees({
     batch.castShadow = true;
     batch.receiveShadow = true;
     const ids = geos.map((g) => batch.addGeometry(g));
+    const farIds = far ? far.map((g) => batch.addGeometry(g)) : null;
+    lod = { near: ids, far: farIds, nearTris: geos.map((g) => g.index.count / 3),
+      farTris: far ? far.map((g) => g.index.count / 3) : null, at: null, isFar: [], shades: [] };
+    // The trees past SHADOW_NEAR_M: the light crowns again, in a batch that casts
+    // no shadow. Each tree is in both batches and visible in one.
+    if (far) {
+      const fv = far.reduce((s, g) => s + g.attributes.position.count, 0);
+      const fi = far.reduce((s, g) => s + g.index.count, 0);
+      farBatch = new THREE.BatchedMesh(placed.length, fv, fi, mat);
+      farBatch.name = 'street-trees-far';
+      farBatch.castShadow = false;
+      farBatch.receiveShadow = true;
+    }
+    const farOnly = farBatch ? far.map((g) => farBatch.addGeometry(g)) : null;
     for (const p of placed) {
-      const inst = batch.addInstance(ids[p.crown]);
-      batch.setMatrixAt(inst, p.m);
+      p.inst = batch.addInstance(ids[p.crown]);
+      batch.setMatrixAt(p.inst, p.m);
+      lod.isFar.push(false);
+      lod.shades.push(true);
+      if (farBatch) {
+        p.farInst = farBatch.addInstance(farOnly[p.crown]);
+        farBatch.setMatrixAt(p.farInst, p.m);
+        farBatch.setVisibleAt(p.farInst, false);
+      }
       stats.triangles += geos[p.crown].index.count / 3;
     }
-    for (const g of geos) g.dispose();
+    for (const g of all) g.dispose();
+    if (farBatch) {
+      farBatch.computeBoundingBox();
+      farBatch.computeBoundingSphere();
+      group.add(farBatch);
+    }
     batch.computeBoundingBox();
     batch.computeBoundingSphere();
     group.add(batch);
-    stats.drawCalls = 1;
+    stats.drawCalls = farBatch ? 2 : 1;
     stats.crowns = geos.length;
   };
   await build(STREET_TREE_MODES.includes(mode) ? mode : 'summer', detail);
 
   let wind = 0;
-  out.update = (dt) => { wind += dt || 0; uWind.value = wind; };
+  out.update = (dt, camera = null) => {
+    wind += dt || 0; uWind.value = wind;
+    if (camera) sortLod(camera.position);
+  };
   out.setMode = async (m) => {
     if (!STREET_TREE_MODES.includes(m) || m === current.mode) return;
     await build(m, current.detail);
@@ -304,6 +381,7 @@ export async function createStreetTrees({
   };
   out.dispose = () => {
     if (batch) { group.remove(batch); batch.dispose(); }
+    if (farBatch) { group.remove(farBatch); farBatch.dispose(); }
     mat.dispose(); depthMat.dispose(); distanceMat.dispose(); atlas.dispose(); bareAtlas?.dispose();
   };
   return out;

@@ -3699,7 +3699,7 @@ async function boot() {
     terrain.updateGroundReach(camera.position);
     flora.update(dt, camera, floraBudget);
     trees.update(dt, camera, scene3d.fog?.color);
-    streetTrees.update(dt);
+    streetTrees.update(dt, camera);
     railway.update(camera);
     flags.update(dt);
     api.humans?.update(dt, camera, walker.state);
