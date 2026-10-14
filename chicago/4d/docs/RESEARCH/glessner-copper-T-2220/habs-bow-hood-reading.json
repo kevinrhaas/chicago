@@ -1,0 +1,40 @@
+{
+  "status": "read-only preparation for T-2220; not adopted model data",
+  "source_id": "habs_glessner_house_il_1015_drawings",
+  "source_file": "/workspace/t2494-work/chicago/prairie_1904_v1/research/public/glessner-habs-sheet-4.png",
+  "source_sha256": "3ea0e58b5dff642041b94de27b2fd786cd7e50d566a7cf680620e20f728d15b2",
+  "source_image_px": [
+    9648,
+    7584
+  ],
+  "inspection_crop_native": [
+    3600,
+    2800,
+    5300,
+    3350
+  ],
+  "native_picks": {
+    "high_point": [
+      3862,
+      3014
+    ],
+    "bow_eave_height_y": 3188
+  },
+  "native_pick_uncertainty_px": 12,
+  "scale": {
+    "north_wall_origin_x": 1165,
+    "horizontal_px_per_ft": 100.6,
+    "vertical_px_per_ft": 97.7,
+    "basis": "Existing independently rectified sheet-4 scale reading, docs/RESEARCH/glessner_house_1904.md section 14. Roof rise is a relative difference, not a transferred ground datum."
+  },
+  "derived": {
+    "peak_S_ft": 26.809145129224653,
+    "roof_rise_ft": 1.7809621289662232
+  },
+  "candidate": {
+    "high_point_plan": "actual courtyard ell wall junction W26.5/S26.83; not old connector anchor S20.5",
+    "rise_ft": 1.8,
+    "wall_top": "retain current accepted 26.5ft ng for this local repair; section/common-datum conflict remains for T-2228"
+  },
+  "interpretation": "Low hood with peak close to north end of bow, radial seams descending to curved eave. Sheet 4 is a 1963 section, not direct proof of every 1904 sheet joint or patina."
+}

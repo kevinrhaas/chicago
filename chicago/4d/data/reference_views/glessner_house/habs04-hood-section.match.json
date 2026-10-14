@@ -1,0 +1,24 @@
+{
+  "structure_id": "glessner_house",
+  "view": "habs04-hood-section",
+  "glb": "assets/web/glessner_house__as_built_1887.glb",
+  "glb_sha256": "437b3f51ff671a153d282db4dd1a499ab1e454e4d3650f95b543c3998251c5c4",
+  "camera_sha256": "2229a228b90863f49d0a93094d0c79d385aa880fd39815501996e9b61e7a046f",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-hood-section-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "T-2220: the former high folded connector is replaced by a low hood whose peak shares the measured ell position. Relative rise is 1.8 ft against the independent HABS reading 1.78 +/-0.17 ft; both host intersections are planar and continuous. The broad copper rectangle over the north windows is removed.",
+      "status": "fixed"
+    },
+    {
+      "what": "The entire hood remains about 0.25-0.28 m below the section in this shared ground-calibrated camera. The retained 26.5-ft bow eave differs from the section reading about27.33ft; no camera translation conceals it. Reconcile the absolute bow/eave/grade datum and neighboring openings in T-2228.",
+      "status": "open"
+    },
+    {
+      "what": "Individual panel widths, folded seam stock, low transverse laps and the 1904 brown/green patina are bounded reconstructions. The 1963 drawing does not establish original sheet stock or historical colour.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

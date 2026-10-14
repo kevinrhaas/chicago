@@ -1,0 +1,8 @@
+{
+  "triangle_count": 50,
+  "positive_winding": 45,
+  "negative_winding": 5,
+  "signed_plan_area": 33.38260601632178,
+  "unsigned_plan_area": 46.00706608210173,
+  "issue": "Arc sorting by x reverses north/south order near the western tangent; fan triangles alternate winding and overlap."
+}

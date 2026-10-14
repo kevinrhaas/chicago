@@ -359,9 +359,9 @@ def _range(b, r) -> None:
             front=(g['x'],a1,za);corner=P(ca,back,za);ridge=P(cb,a1,zb2)
             fragments=[[P(ca,a0,za),P(cb,a0,zb2),P(cb,back,zb2),corner],
                        [corner,P(cb,back,zb2),ridge],[corner,ridge,front]]
-        if r['name']=='north_range' and getattr(b,'params',None) and b.params.detail.get('dining_roof_junction'):
+        if r['name'] in ('north_range','east_wing') and getattr(b,'params',None) and b.params.detail.get('dining_roof_junction'):
             from archetypes.masonry_house_v4_courtyard_roof import clip_host
-            fragments=clip_host(pts,b.params)
+            fragments=[q for p in fragments for q in clip_host(p,b.params)]
         if r['name'] in ('north_range','east_wing') and getattr(b,'params',None) and (b.params.detail.get('north_tower_roof') or {}).get('integrated_north_facade'):
             from archetypes.masonry_house_v4_north_tower import clip_host
             fragments=[q for p in fragments for q in clip_host(p,b.params,r['name'])]

@@ -1,3 +1,14 @@
+## T-2220 — Glessner courtyard copper (2026-10-14)
+
+The northeast copper hood is rebuilt as ordered planar facets meeting both
+adjoining roof slopes. The broad folded connector is removed; local wall
+closure, seated seams, low laps and a shallow curved soffit replace the open
+wedge. HABS sheet 4 supports the reduced 1.8 ft rise. The absolute section/eave
+datum remains unresolved, and modern patina is not treated as 1904 colour.
+Five credited courtyard photographs are added to the library.
+[Evidence and validation](RESEARCH/glessner-copper-T-2220/README.md).
+Whole-house photographic acceptance remains T-2228.
+
 ## T-2217 — Glessner carriage leaves and passage (2026-10-14)
 
 Both leaves now carry the HABS circular/square panel pattern, straps, paired
