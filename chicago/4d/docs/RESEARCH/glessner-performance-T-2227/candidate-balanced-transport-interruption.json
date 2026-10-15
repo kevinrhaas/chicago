@@ -1,0 +1,10 @@
+{
+  "recordedAt": "2026-10-15T17:13:49.659292+00:00",
+  "cause": "Exec-server transport disconnected/pong_timeout; session4607 became unknown and the pipeline/browser processes were absent on process inspection.",
+  "completedResultsRetained": [
+    "candidate-final-desktop.exit=0",
+    "candidate-final-mobile.exit=0"
+  ],
+  "interrupted": "Balanced after three saved, within-budget stills; no completed Balanced acceptance or motion result.",
+  "action": "Archive partial results; restart Balanced and then Light lifecycle sequentially against unchanged published mirror. No completed Full/Light run repeated."
+}

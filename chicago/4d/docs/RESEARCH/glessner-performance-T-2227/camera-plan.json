@@ -1,0 +1,217 @@
+{
+  "status": "Read-only planned baseline; no new captures or optimization yet.",
+  "coordinates": "Glessner local east/north/up metres, poses retained from cited component tools and receipts.",
+  "method": "Use actual published /1904/, saved Full1280x800 and Light390x780, dark glass, existing exposure/lighting; preserve all original failing budgets. Balanced owner-angle/dining-copper additionally retained.",
+  "cameras": [
+    {
+      "name": "north-head-clear",
+      "position": [
+        36.1,
+        24,
+        7.5
+      ],
+      "target": [
+        36.45,
+        22.75,
+        7
+      ],
+      "origin": "T-2221"
+    },
+    {
+      "name": "north-tower",
+      "position": [
+        32,
+        32,
+        8
+      ],
+      "target": [
+        36.2,
+        22.8,
+        7.5
+      ],
+      "origin": "T-2221"
+    },
+    {
+      "name": "bow-leader",
+      "position": [
+        31,
+        6,
+        6
+      ],
+      "target": [
+        37.4,
+        14.3,
+        4.5
+      ],
+      "origin": "T-2221"
+    },
+    {
+      "name": "dining-leader",
+      "position": [
+        20,
+        7,
+        5
+      ],
+      "target": [
+        24.6,
+        14.3,
+        4
+      ],
+      "origin": "T-2221"
+    },
+    {
+      "name": "owner-angle",
+      "position": [
+        28,
+        3,
+        12
+      ],
+      "target": [
+        36.5,
+        14,
+        7.5
+      ],
+      "origin": "T-2220"
+    },
+    {
+      "name": "dining-copper",
+      "position": [
+        22,
+        4,
+        10
+      ],
+      "target": [
+        25,
+        13,
+        8.5
+      ],
+      "origin": "T-2220"
+    },
+    {
+      "name": "terrace-foot",
+      "position": [
+        38.9,
+        5.4,
+        1.6
+      ],
+      "target": [
+        38.8,
+        10.3,
+        1.1
+      ],
+      "origin": "T-2224"
+    },
+    {
+      "name": "north-court",
+      "position": [
+        27,
+        6,
+        3
+      ],
+      "target": [
+        27,
+        15.5,
+        2
+      ],
+      "origin": "T-2225"
+    },
+    {
+      "name": "north-shade",
+      "position": [
+        39.5,
+        35,
+        5
+      ],
+      "target": [
+        39.5,
+        22.5556,
+        5
+      ],
+      "origin": "T-2226"
+    },
+    {
+      "name": "north-stone-close",
+      "position": [
+        39.5,
+        25.3,
+        2.5
+      ],
+      "target": [
+        39.5,
+        22.5556,
+        2.5
+      ],
+      "origin": "T-2226"
+    },
+    {
+      "name": "northeast",
+      "position": [
+        72,
+        45,
+        9
+      ],
+      "target": [
+        38,
+        17,
+        10
+      ],
+      "origin": "T-2203"
+    },
+    {
+      "name": "courtyard",
+      "position": [
+        31,
+        -3,
+        12
+      ],
+      "target": [
+        26,
+        16,
+        8
+      ],
+      "origin": "T-2203"
+    },
+    {
+      "name": "west",
+      "position": [
+        -17,
+        11,
+        12
+      ],
+      "target": [
+        7,
+        13,
+        8
+      ],
+      "origin": "T-2203"
+    },
+    {
+      "name": "stair-support",
+      "position": [
+        18.7,
+        10,
+        2.4
+      ],
+      "target": [
+        15.7,
+        11.7,
+        1
+      ],
+      "origin": "T-2226"
+    },
+    {
+      "name": "gate-court",
+      "position": [
+        3.5,
+        2.4,
+        2
+      ],
+      "target": [
+        0,
+        2.4,
+        1.4
+      ],
+      "origin": "T-2226"
+    }
+  ]
+}

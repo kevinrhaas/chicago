@@ -62,6 +62,7 @@
  */
 
 import * as THREE from 'three';
+import { captureHooks, registerPatch } from './batch-material.js';
 import { resolveBases } from './scene-loader.js';
 import { wallRelief } from './wall-grain.js';
 import { packOrl } from './relief-pack.js';
@@ -153,6 +154,7 @@ async function loadSubstrate(base, dir, lowSpec) {
  * bound material compiles the same source and shares one program.
  */
 function patch(material, set) {
+  const batchHooks = captureHooks(material);
   const prior = material.onBeforeCompile;
   material.onBeforeCompile = (shader, renderer) => {
     if (typeof prior === 'function') prior(shader, renderer);
@@ -189,6 +191,7 @@ function patch(material, set) {
         .replace('#include <roughnessmap_fragment>', `float roughnessFactor = vChiWallRough
     * clamp( texture2D( roughnessMap, vRoughnessMapUv ).g / chiWallMeanRough, 0.0, 1.6 );`);
   };
+  registerPatch(material, batchHooks, 'metric-wall-uv-v1', { tileM: set.tileM, meanRough: set.meanRough });
   material.needsUpdate = true;
 }
 

@@ -1,0 +1,16 @@
+{
+  "error": "TimeoutError: page.waitForFunction: Timeout 240000ms exceeded.",
+  "errors": [],
+  "bad": [],
+  "assets": [
+    {
+      "url": "http://127.0.0.1:42615/data/gltf/george_glessner_house_1706_prairie__draft_1904.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:42615/data/gltf/glessner_house__as_built_1887.glb",
+      "status": 200
+    }
+  ],
+  "url": "http://127.0.0.1:42615/1904/"
+}
