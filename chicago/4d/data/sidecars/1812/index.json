@@ -103,6 +103,12 @@
   "streets": [],
   "structures": [
     {
+      "id": "burns_house_1812",
+      "name": "The Burns house, on the north bank at the later foot of State Street",
+      "sidecar": "sidecars/1812/burns_house_1812.json",
+      "asset": "gltf/burns_house_1812__burns_1812.glb"
+    },
+    {
       "id": "first_fort_dearborn_blockhouse_nw",
       "name": "First Fort Dearborn — north-west blockhouse",
       "sidecar": "sidecars/1812/first_fort_dearborn_blockhouse_nw.json",
@@ -227,6 +233,12 @@
       "name": "First Fort Dearborn — the sutler's garden",
       "sidecar": "sidecars/1812/first_fort_outer_sutlers_garden.json",
       "asset": "gltf/first_fort_outer_sutlers_garden__first_fort_1803.glb"
+    },
+    {
+      "id": "lee_house_1812",
+      "name": "The Lee family's house, on the shore at the river's mouth south of the fort",
+      "sidecar": "sidecars/1812/lee_house_1812.json",
+      "asset": "gltf/lee_house_1812__lee_1812.glb"
     }
   ],
   "excluded_by_date": [

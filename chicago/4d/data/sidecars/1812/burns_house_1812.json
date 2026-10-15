@@ -1,0 +1,172 @@
+{
+  "id": "burns_house_1812",
+  "phase": "burns_1812",
+  "name": "The Burns house, on the north bank at the later foot of State Street",
+  "aka": [
+    "Burns's",
+    "the \"Burns House\" (Moses and Kirkland)",
+    "the house of John Burns (Currey 1912)"
+  ],
+  "archetype": "log_dwelling",
+  "asset": "gltf/burns_house_1812__burns_1812.glb",
+  "scene": "1812",
+  "target_date": "1812-08-01",
+  "documented_range": {
+    "from": "1812-04-07",
+    "to": "1819-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "moses_kirkland_history_of_chicago_v1"
+    ],
+    "note": "THE RANGE IS BOUNDED BY TWO DATED MENTIONS AND ONE LATER BUILDING, NOT BY A DATE FOR THIS HOUSE. It opens on 7 April 1812, the afternoon the alarm from Lee's Place was called across the river to Burns's and Ensign Ronan's party brought the mother and her day-old infant down to the fort by boat (Wau-Bun ch. XVIII; Moses and Kirkland p. 58, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 8558-8562). That is the first day a source puts the house on the bank; it may be older, and nothing dates its building. It was still standing on 18 August 1812, when Currey lists it among the four houses left after the fort and the agency house burned (ch. III). Moses and Kirkland have it 'occupied in 1817 by Charles Jouett, the first United States Indian Agent' (lines 9797-9806), and the agency house afterwards called Cobweb Castle, 'commenced during Judge Jouett's incumbency' and completed by Wolcott about 1820, was put up 'near the spot' (Wau-Bun ch. XVIII n. 30; data/structures/cobweb_castle.json). So it closes at the end of 1819, the day before cobweb_castle opens: no source says whether the agency house was raised beside it, over it or out of it, and closing it then keeps the two from ever standing in one scene and keeps it out of 1835. data/exclusions.json carries no entry for it because no 1835 source was found that names it."
+  },
+  "change_note": "Built T-2487 (2026-10-15). The house of a discharged soldier and his family, standing on the north bank in the 1812 scene.",
+  "placement": {
+    "local_e": 793.5,
+    "local_n": 107.2,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "kinzie_waubun_1856",
+      "moses_kirkland_history_of_chicago_v1",
+      "currey_1912_story_of_old_fort_dearborn"
+    ],
+    "position_note": "THREE SOURCES PUT IT AT THE FOOT OF STATE STREET AND ONE PUTS IT CLOSER TO THE LAKE; THIS RECORD TAKES THE THREE. Wau-Bun, n. 30 to ch. XVIII: 'Burns's house stood near the spot where the Agency Building, or \"Cobweb Castle,\" was afterwards erected, at the foot of N. State Street.' Moses and Kirkland, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 9797-9802: 'near what is now the southwest corner of North State (formerly Wolcott) and Water streets'. Currey 1912 ch. II: the alarm was called 'to John Burns, then living in a cabin on the north bank of the river near' the later State Street bridge, and ch. III sets the house on the north bank opposite the creek that came in at State Street. THE ALTERNATIVE, STATED AND NOT TAKEN: Moses and Kirkland p. 36 (lines 5630-5640) give Hurlbut's judgment that the Burns house was the log house Wau-Bun puts 'on the north side of the river some two or three hundred yards from the lake and twenty steps from the river bank', at 'about the northeast corner of north State and North Water streets'. On this project's 1812 ground the lake is about 600 m east of State Street at this northing, so two or three hundred yards (183-274 m) from it would seat the house near local E +1000..+1100, on the north bank opposite the fort, where the histories put the Kinzie house instead. The two readings cannot both hold, and the street corner is the one three writers give. FROM HURLBUT THIS RECORD KEEPS ONE FIGURE, the twenty steps from the river bank, because it does not disagree with the corner: the south wall stands 15.2 m (twenty paces of 2.5 ft) north of the north bank of data/terrain/epochs/e1830_natural/shoreline.geojson, which reads N +92.1 at this easting. SOUTHWEST OVER NORTHEAST: Moses and Kirkland write both corners, Hurlbut's 'northeast' on p. 36 and their own 'southwest' later. The southwest corner is the one between Water Street and the river, so it is the one that keeps the twenty steps; it is also the corner Wau-Bun gives for Cobweb Castle, which Wau-Bun puts 'near the spot'. THE EXACT SEAT IS THIS PROJECT'S: the house stands west of cobweb_castle's footprint (local E +801..+814, N +113..+122) and clear of it, so the later building does not stand on this one in plan. Nothing dates which way the house faced; rotation 0 is a reconstruction.",
+    "symbolic_location": "The north bank of the main river, on the west side of the later foot of North State (Wolcott) Street, the south wall twenty steps (15.2 m) north of the 1812 north bank and the house just west and south of where cobweb_castle stands from 1820; local E +793.5..+800.8, N +107.2..+112.7.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        7.3,
+        0
+      ],
+      [
+        7.3,
+        5.5
+      ],
+      [
+        0,
+        5.5
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [],
+    "note": "Unattested. 24 x 18 ft, the size of a one-room log house with a loft space under the roof, which is what the sources' 'cabin' (Currey) and 'log house' (Wau-Bun, via Moses and Kirkland) allow; no source gives a dimension. The long side runs east-west along the bank. L-1812-burns-lee-2487."
+  },
+  "attributes": {
+    "stories": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "Unattested. Currey calls it a 'cabin'; one storey is the reading that word bounds."
+    },
+    "wall_height_m": {
+      "value": 2.4,
+      "confidence": "reconstructed",
+      "note": "Unattested. About eight feet of hewn log to the plate, a one-room house's ordinary height."
+    },
+    "construction": {
+      "value": "log",
+      "confidence": "reconstructed",
+      "note": "No source states what this house was built of. Log is the bounded reading: every house the histories describe at the post before 1812 whose material they give is log (the Kinzie house, the agency house, the factory, Lee's Place, the cabin Hurlbut judged to be this one), and the ticket's own inventory builds the settlement at the log_dwelling archetype. Recorded as a liberty (L-1812-burns-lee-2487)."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "note": "Unattested. A pitched gable over a one-room log house is the form the first fort's draught draws for its own log buildings outside the stockade (the agent's house, the factory), and it is the reading this project takes for them."
+    },
+    "roof_pitch_deg": {
+      "value": 35.0,
+      "confidence": "reconstructed",
+      "note": "Unattested; no source describes the roof."
+    },
+    "chimneys": {
+      "value": 1,
+      "confidence": "reconstructed",
+      "note": "Unattested. One end chimney, the least a family's winter house on the lake needs; no source places it."
+    },
+    "function": {
+      "value": "residence",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "moses_kirkland_history_of_chicago_v1",
+        "currey_1912_story_of_old_fort_dearborn"
+      ],
+      "note": "The Burns family's house. THE SOURCES DISAGREE ON THE HUSBAND'S FIRST NAME, AND THE RECORD DOES NOT RULE: Moses and Kirkland think its occupant 'probable' to be 'the \"Thomas Burns\" who appears in the Fort Dearborn muster roll, 1810', enlisted 8 June 1806 and so due his discharge on 8 June 1811 (data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 8548-8556); Currey 1912 calls him John Burns throughout. Neither cites a document for the name it gives. Wau-Bun calls the house only 'Burns's'."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "currey_1912_story_of_old_fort_dearborn",
+      "citation": "Currey, J. Seymour. The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912.",
+      "url": "https://www.gutenberg.org/ebooks/52346",
+      "archived_url": "https://www.gutenberg.org/cache/epub/52346/pg52346.txt",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the Lee house near the fort, on the river bank opposite the mouth, near the later Madison Street and Michigan Avenue",
+        "the Burns house on the north bank near the later State Street bridge, west of the Kinzies'",
+        "the four houses left standing on 18 August 1812"
+      ],
+      "what_it_does_not_supply": [
+        "any dimension, material or picture of either house",
+        "a source for the name John Burns"
+      ]
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+      "url": "https://www.authorama.com/wau-bun-19.html",
+      "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+      "tier": 2,
+      "tier_label": "near-primary recollection"
+    },
+    {
+      "source_id": "moses_kirkland_history_of_chicago_v1",
+      "citation": "John Moses and Joseph Kirkland (eds.), History of Chicago, Illinois, vol. 1 (Chicago and New York: Munsell & Co., 1895). Read here for the town before 1836: the immigration chapter 'From Village to City - 1830 to 1837 - the Balloon Age' at printed pages 78-79 and 87-98, the 'Real Estate and Insurance' chapter at pages 541-542, the packing trade at page 389, the fire department at pages 207-208, the Kinzie-Clybourn genealogy quoted from Blanchard at page 35, and the Biographical sketches of P. F. W. Peck, Philo Carpenter, John Dean Caton and Alexander N. Fullerton at pages 570-577 and 584; and, for the shore of 1812 (T-0471), the chapter 'The Massacre' at pages 49-50, 54 and 60-61 - the low, discontinuous sand-hills south of Twelfth Street, the scattered cottonwoods on the bank's lower reaches, and the two 'Massacre trees' of Eighteenth Street with Mrs. Kinzie's word that they were saplings in 1812.",
+      "url": "https://archive.org/details/historyofchicago01mose",
+      "archived_url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "transcribes": [
+        {
+          "work": "Rufus Blanchard, Discovery of the Northwest and History of Chicago (Wheaton, Ill.: R. Blanchard & Co., 1881)",
+          "date": "1881",
+          "tier": 3,
+          "note": "PRINTED AT LENGTH AND NOT MERELY CITED. At pages 34-35 the volume introduces the Kinzie and Clybourn genealogy as 'best told by Rufus Blanchard ... He says:' and sets the whole passage as a block quotation, which is why bk_mose1_019 - Benjamin Hall's 1830 arrival and the town's first tannery - is a reading of Blanchard through Moses and Kirkland and not of Moses and Kirkland. This project does not hold Blanchard and cannot check the transcription. Blanchard in turn credits Benjamin Hall himself for the detail, so the chain to the fact is three deep and the claim says so."
+        }
+      ],
+      "what_it_supplies": [
+        "A TRADE CENSUS OF THE WHOLE TOWN, at page 95: the State census taken between 1 September and December 1835 counted 3,297 people, forty-four stores, two book stores, four druggists, two silversmiths and jewellers, two tin and copper manufactories, two printing offices, two breweries, one steam saw-mill, one iron foundry, four storage and forwarding houses, eight taverns, one lottery office, one bank, five churches, seven schools, twenty-two lawyers, fourteen physicians, and a lyceum and reading room. The project had no denominator for its business layer and this is one - for December 1835 and not for July.",
+        "A BUILDING WITH FOUR OF THE FIVE FIELDS data/structures/ WANTS, at page 90: John S. C. Hogan's story-and-a-half log storehouse, 45 by 18 feet, at the angle where Lake and South Water streets meet, with the post office partitioned off inside it from 2 November 1832.",
+        "TWO RESIDENCES STATED AS SUCH, which is the field the town is thinnest in: Rev. Jeremiah Porter lodging and keeping his study in the second storey of Peck's store from May 1833 (page 571), and John Dean Caton renting the back room and attic of Dr Temple's Temple Building from December 1833, sleeping in the attic and practising law in the back room, and sub-letting desk-room in it to his competitor Spring (page 577).",
+        "BUSINESSES GIVEN BY CORNER, LOT OR LANDMARK: Dole's and Peck's first frame business buildings at the south-east corners of South Water and Dearborn and of South Water and La Salle (page 89); Peck's two-storey frame store of black walnut brought from Detroit, occupied in the fall of 1831 (page 570); Sylvester Marsh killing beef under an old elm on the open prairie at what became Monroe Street from the winter of 1833-4 (page 389); William Jones's lots 2 and 7 in block 17 fronting Water and Lake (page 542).",
+        "OCCUPATIONS AND ARRIVALS for men this project already holds: Philo Carpenter as the town's first druggist, arriving within a month before 19 August 1832; Benjamin Hall as proprietor of the first tannery ever established there, arriving 1830; Dole, Clybourn, the Noble brothers and Gurdon S. Hubbard beginning the slaughtering and packing trade in 1832; the 1833 spring arrivals including Caton, Kimball and Asahel Pierce; and Hubbard's permanent residence dated to 1832 by the compiler's own reason for leaving him off a list.",
+        "TWO PRESENCE LISTS: the twenty-two men who signed the Pioneer Hook and Ladder Company roll on 7 October 1835 (pages 207-208), and, unread and left for its own ticket, the 'LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830' at pages 78-79, about thirty rows with nativity, year and remarks columns.",
+        "ONE STATEMENT ABOUT THE GROUND OF THE SCENE, at page 79: the winter of 1834-5 was open, with little snow, front doors standing open all winter, and cattle living on grass on the river bank."
+      ],
+      "what_it_does_not_supply": [
+        "MOST OF WHAT IT WAS FETCHED FOR. Of the forty-nine lead surnames the Newberry index flagged against this work, thirteen earned a claim, twenty-one appear only outside the pre-1836 window, eight appear early and say nothing usable, one (`black`) is only ever the adjective, four are unresolved because the volume carries a surname one character from the index card's spelling, and two are absent outright. The full row-by-row result is committed at data/research/books/moses_kirkland_v1_lead_surnames.json so the next run does not pay for the search twice.",
+        "VOLUME 2, WHICH IS HALF THE WORK. Only volume 1 is read. The Newberry cards do not say which volume they cite, so an absence recorded here may simply be in the other book, and every ABSENT verdict in the lookup file says so on itself.",
+        "AN INDEPENDENT VOICE. It is a compilation of 1895 and it names its own authorities on the pages read: Andreas for Garrett's $1,800,000 of auction sales, Bross's History of Chicago page 38 for the earliest deeds, the Story of Chicago page 130 for Caton's election tally, Hurlbut's Chicago Antiquities pages 37-8 for the pre-1830 settler list, S. R. Beggs's West and Northwest page 95 for the Black Hawk alarm, and Rufus Blanchard's Discovery of the Northwest and History of Chicago (1881) quoted at length for the Kinzie-Clybourn genealogy. Where the sentence itself credits another work, the claim says so and the citation must go to that work and not to this one.",
+        "A SINGLE ADDRESS IN THE MODERN SENSE, and no street numbers. Positions here are corners, lots, blocks, a river bank and a tree.",
+        "ANY DATE FINER THAN THE YEAR for two things this project wanted finer: Caton's marriage, which is given as '1835' with the scene date sitting in the middle of it, and the Hubbard-Marsh packing partnership, which is 'later'.",
+        "CONSISTENCY WITH ITSELF. Page 89 dates Dole's and Peck's first frame business buildings to 1832 while page 570 has Peck's occupied in the fall of 1831; page 207 forms the Pioneer Hook and Ladder Company on 7 October 1835 while page 570 has it organised on 20 October 1835. Both readings of each are recorded and neither is adopted."
+      ]
+    }
+  ],
+  "research_note": "THE BURNS HOUSE, the one house up the north bank west of the Kinzies' in 1812. On 7 April 1812 the man and boy running from Lee's Place called across the river to it that the Indians were 'killing and scalping' up the South Branch, and Mrs. Kinzie, who had been there helping Mrs. Burns with a child born a few hours before, ran home; Ensign Ronan and five or six soldiers went up in a scow and carried the mother and infant, bed and all, down to the fort (Wau-Bun ch. XVIII; Currey ch. II; Moses and Kirkland p. 58). Burns was killed with the militia on 15 August; his wife and child were taken captive and later freed (Currey ch. III; Moses and Kirkland p. 58). The house stood on: Currey counts it among the four left on 18 August, and Moses and Kirkland have Charles Jouett, the Indian agent, living in it in 1817. No picture of it is known, so it has no image gate to meet. Its size, height, material and roof are reconstructed (L-1812-burns-lee-2487). It carries review_required so that no scene containing it can be marked released: its card speaks of the attack of 15 August 1812 on the lake shore, an event of Potawatomi history as much as the garrison's, and the 1812 scene's whole account of that day waits on the review by Native scholars or community organisations that T-0472 holds it for. Nobody is drawn in or near it (L1).",
+  "research_doc": "",
+  "review_required": true,
+  "review_reason": "It carries review_required so that no scene containing it can be marked released: its card speaks of the attack of 15 August 1812 on the lake shore, an event of Potawatomi history as much as the garrison's, and the 1812 scene's whole account of that day waits on the review by Native scholars or community organisations that T-0472 holds it for."
+}
