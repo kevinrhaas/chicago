@@ -240,9 +240,9 @@
       "note": "Tone, not colour: the 1912 plate draws the roof much darker than the walls, nearly black, which a weather-blackened shake or shingle roof reads as in a monochrome print. Darkened is the sheet's weather-blackened condition (generators/common/materials.py, ROOF_CONDITIONS). What the roof was covered with is not said."
     },
     "chimney_head_m": {
-      "value": 3.9,
+      "value": 4.2,
       "confidence": "reconstructed",
-      "note": "Unattested. The plate's stack tops out at y 164-165 px, a little under the ridge's height; 3.9 m over grade puts its head at 164.6 through the camera, about 1 m over the roof slope beside it at the gable's front corner. The archetype's own rule (0.72 m over the ridge, 4.85 m here) stood 10 px taller than the drawing (L-1812-lees-place-2511)."
+      "note": "Unattested. The plate's stack tops out at y 164-165 px, a little over the ridge; 4.2 m over grade puts its head at y 161.5 through the camera, 0.46 m over the 24 degree ridge, which is the eighteen inches the town's by-law of 1835 asks of every stack and which tools/measure_stack_ordinance.py holds every building to. The drawing's own head (about 3.9 m) would stand 0.16 m over the ridge. The archetype's rule (0.72 m over the ridge, 4.46 m here) is not used because the stack stands at the eave corner, not by the ridge (L-1812-lees-place-2511)."
     },
     "function": {
       "value": "dwelling_farmstead",

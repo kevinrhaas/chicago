@@ -2,7 +2,7 @@
  "structure_id": "lees_place_cabin_1812",
  "view": "currey_1912_hardscrabble",
  "glb": "assets/gltf/lees_place_cabin_1812__lees_place_1812.glb",
- "glb_sha256": "836be0c83d62ee7f880963c8f4012b58bf4407a49f370047ba49266a173cbcac",
+ "glb_sha256": "aacc7218e1880430627540ab0b538ab5115427e2f81ff6969d69d48bc3a71e11",
  "camera_sha256": "84b0226acb4491942f88906ecbcfaffda30e832023e2c4e6fac60cb10f2f31b2",
  "side_by_side": "docs/RESEARCH/photo-match/lees_place_cabin_1812/currey_1912_hardscrabble-side-by-side.jpg",
  "verdict": "differs",
@@ -20,7 +20,7 @@
   {
    "what": "the stack: the plate stands it outside the LEFT (upstream) gable as seen from the river",
    "status": "fixed",
-   "how": "T-2511: chimney_end 'max' puts it on the upstream gable, and chimney_cross_m slides it to that gable's front corner, which is where this camera puts the drawn stack (x 308-322 px against the drawing's 310-325; centred it stood at 289-302). chimney_head_m holds its head at 3.9 m, at the drawing's y 165 and just clear of the ridge, where the archetype's rule stood it 10 px taller"
+   "how": "T-2511: chimney_end 'max' puts it on the upstream gable, and chimney_cross_m slides it to that gable's front corner, which is where this camera puts the drawn stack (x 308-322 px against the drawing's 310-325; centred it stood at 289-302). chimney_head_m holds its head at 4.2 m, y 161.5 px against the drawing's 164-165: the eighteen inches over the ridge that the gate holds every stack to, where the drawing's head is about 0.16 m over it and the archetype's rule stood it taller still"
   },
   {
    "what": "a lower gabled lean-to beyond the stack at the left end, drawn gable-on to the viewer",
@@ -58,6 +58,5 @@
    "how": "Deliberate: the plate's door heads read 1.49-1.54 m over grade through the camera, lower than a person walks under, so the build keeps a low cabin door of 1.7 m and the drawing's single line of heads (L-1812-lees-place-2511)"
   }
  ],
- "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
- "note": "Reviewed by T-2511 against the side-by-side, element by element: the massing, the nine openings in the plate's order, the stack on the upstream gable and its height, the lean-to, the walls' finish and the roof's tone are each built as the plate shows them. Two differences stay open and are argued rather than built: the lean-to's side, which the drawing's own perspective cannot hold for any lean-to with depth, and the door heads, kept at a height a person can walk under. The plate is a retrospective wash drawing (tier 5) by an unnamed illustrator, about a century after the farm."
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

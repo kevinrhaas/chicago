@@ -27225,7 +27225,7 @@ order of three doors and six windows, the stack against the upstream gable, a ga
 beyond it, bare sash with no shutters, and a roof drawn much darker than the walls. **What is this
 project's:** every opening's size (doors 1.2 m wide, windows 0.85 x 0.8 m, read off the plate to
 about 0.2 m an edge); the doors' 1.7 m height, which is deliberately NOT the plate's 1.5 m, because
-the drawing's heads stand lower than a man walks under; the stack slid to the gable's front corner with its head at 3.9 m,
+the drawing's heads stand lower than a man walks under; the stack slid to the gable's front corner with its head at 4.2 m (eighteen inches over the ridge),
 which is where the camera puts the drawn stack; the lean-to's 2.3 x 1.8 m plan behind the stack, its 2.2 m eave and
 45 degree roof, sized to the plate only roughly because its perspective disagrees with the main
 roof's; and the whitewash on logs and chinking. That last is the ruling T-2509 left open: the plate

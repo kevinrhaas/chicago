@@ -237,9 +237,9 @@
           "note": "Tone, not colour: the 1912 plate draws the roof much darker than the walls, nearly black, which a weather-blackened shake or shingle roof reads as in a monochrome print. Darkened is the sheet's weather-blackened condition (generators/common/materials.py, ROOF_CONDITIONS). What the roof was covered with is not said."
         },
         "chimney_head_m": {
-          "value": 3.9,
+          "value": 4.2,
           "confidence": "reconstructed",
-          "note": "Unattested. The plate's stack tops out at y 164-165 px, a little under the ridge's height; 3.9 m over grade puts its head at 164.6 through the camera, about 1 m over the roof slope beside it at the gable's front corner. The archetype's own rule (0.72 m over the ridge, 4.85 m here) stood 10 px taller than the drawing (L-1812-lees-place-2511)."
+          "note": "Unattested. The plate's stack tops out at y 164-165 px, a little over the ridge; 4.2 m over grade puts its head at y 161.5 through the camera, 0.46 m over the 24 degree ridge, which is the eighteen inches the town's by-law of 1835 asks of every stack and which tools/measure_stack_ordinance.py holds every building to. The drawing's own head (about 3.9 m) would stand 0.16 m over the ridge. The archetype's rule (0.72 m over the ridge, 4.46 m here) is not used because the stack stands at the eave corner, not by the ridge (L-1812-lees-place-2511)."
         }
       },
       "change_note": "Built T-2509 (2026-10-15), piece 1 of T-2503: the farm cabin at Lee's Place in the 1812 scene, on T-2501's ruled reach and T-2502's apron ground. Rebuilt T-2511 (2026-10-15) to the plate: the river front's three doors and six windows, the stack at the upstream gable's front corner, the plank lean-to behind it, whitewashed logs and a darkened roof."
@@ -255,6 +255,5 @@
     "note": "The farm's cabin, where Lee's hired men lived and worked the farm; Lee and his family lived in their house near the fort (lee_house_1812). Currey 1912 (lines 1456-1458); Heald calls it 'Messrs. Russell and Lee's cabin, in a field'."
   },
   "research_note": "LEE'S PLACE, LATER HARDSCRABBLE: the farm Charles Lee worked on the South Branch, and its log cabin, where on 6 April 1812 Liberty White and a Canadian Frenchman whose name Heald did not know (Debou in Currey) were killed by a war party Heald took to be Winnebagoes; the discharged soldier and Lee's son escaped across the river and ran to the fort. WHERE: four placings that do not all meet (data/terrain/1812_hardscrabble_site.json, T-2501): Heald's three miles from the garrison and Moses and Kirkland's north-west bank near the forks agree with the ruled reach; Currey puts it at the canal's mouth itself, half a mile above, and his caption's four miles from the river's mouth falls a mile short of both. The scene card `where_lees_place_stood` says so to the visitor. WHAT IT LOOKED LIKE: only the 1912 plate (currey_1912_hardscrabble_plate), drawn a century later by a maker the book does not name; it is tier 5, and the cabin is built toward it through the image gate (data/reference_views/lees_place_cabin_1812/). WHAT IS NOT BUILT: the haystacks Wau-Bun puts with the cattle on the OPPOSITE bank (T-2510), the plate's three outbuildings, and the cattle. It carries review_required because its card and this record speak of a killing in the war of 1812, an event of Winnebago and Potawatomi history as much as the settlers', and the 1812 scene waits on the review T-0472 holds it for. Nobody is drawn in or near it (L1).",
-  "review_required": true,
-  "change_note": ""
+  "review_required": true
 }
